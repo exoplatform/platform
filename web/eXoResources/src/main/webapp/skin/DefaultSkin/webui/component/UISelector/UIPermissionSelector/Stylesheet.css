@@ -67,43 +67,16 @@
   background: none;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton {
-  color: black;
-  width: 350px; margin: auto;
-  padding: 8px 0px 2px 0px;
-}
-
 .UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
 	filter:alpha(opacity=30);-moz-opacity:.30;opacity:.30;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden a {
+.UIPermissionSelector .PermissionInfoContainer a.FloatBlockHidden {
 	cursor: default;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton .FloatBlockHidden a:hover {
+.UIPermissionSelector .PermissionInfoContainer a:hover.FloatBlockHidden {
 	color: black;
-}
-
-.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 155px; 
-  margin: 0px 2px 0px 5px; 
-}
-
-.UIPermissionSelector .PermissionButton .LeftButton {
-  background: url('background/LeftSimpleButton10x21.gif') no-repeat left; 
-  padding-left: 10px;
-}
-
-.UIPermissionSelector .PermissionButton .RightButton {
-  background: url('background/RightSimpleButton10x21.gif') no-repeat right; 
-  padding-right: 10px;
-} 
-
-.UIPermissionSelector .PermissionButton .CenterButton {
-  background: url('background/CenterSimpleButton1x21.gif') repeat-x; 
-  line-height: 21px;
-  padding: 0px 5px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
@@ -117,6 +90,8 @@
   padding-left: 22px;
   line-height: 21px;
   height: auto; width: auto;
+<<<<<<< .mine
+} =======
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .PermissionButton  a{
@@ -166,4 +141,4 @@
 
 .UIForm .HorizontalLayout .UIAccessGroup input.checkbox {
 	margin: 2px;
-}
+}>>>>>>> .r19707

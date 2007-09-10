@@ -21,7 +21,9 @@
 }
 
 .UIAction .ActionContainer .Icon {
-	padding-left: 20px;
+	padding-left: 25px;
+	background-position: left center;
+	width: auto;
 } 
 
 /*##############################-Disabled ActionButton-################################*/
@@ -80,21 +82,21 @@
 }
 
 .UIAction .SimpleStyle .ButtonLeft {
-  background: url('background/LeftSimpleButton12x24.png') no-repeat left top;
+  background: url('background/LeftSimpleButton20x24.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .SimpleStyle .ButtonRight {
-  background: url('background/RightSimpleButton12x24.png') no-repeat right top;
+  background: url('background/RightSimpleButton20x24.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .SimpleStyle .ButtonMiddle {
   line-height: 24px;
-	background: url('background/CenterSimpleButton1x24.png') repeat-x top;
+	background: url('background/CenterSimpleButton3x24.png') repeat-x top;
 	text-align: center;	
+	padding: 0px 8px;
 	display: table-cell;
-	padding: 0px 12px;
 }
 
 .UIAction .SimpleStyle a {

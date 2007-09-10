@@ -130,9 +130,13 @@
 }
 
 .UIAccessGroup .UIFormGrid td.FieldLabel {
-	width: 310px;
+	width: 330px;
 }
 
 .UIForm .HorizontalLayout .UIAccessGroup input.checkbox {
 	margin: 2px;
+}
+
+.UIAccessGroup .UIAction .ActionContainer .Icon {
+	margin: 1px 0px 0px 0px;
 }

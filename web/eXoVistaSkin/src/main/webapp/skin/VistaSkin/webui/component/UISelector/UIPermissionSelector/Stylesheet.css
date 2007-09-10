@@ -74,53 +74,16 @@
   font-size: 12px;
 }
 
-.UIPermissionSelector .UIAction  {
-  padding-top: 0px;
-} 
-
-.UIPermissionSelector .PermissionInfoContainer .UIAction .ActionButton {
-  float: none;
-} 
-
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton {
-	margin: auto;
-  width: 370px;
-}
-
 .UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
 	filter:alpha(opacity=40); -moz-opacity:.40; opacity:.40;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden a {
+.UIPermissionSelector .PermissionInfoContainer a.FloatBlockHidden {
 	cursor: default;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton .FloatBlockHidden a:hover {
+.UIPermissionSelector .PermissionInfoContainer a:hover.FloatBlockHidden {
 	color: black;
-}
-
-.UIPermissionSelector .PermissionInfoContainer .DeletePermissionButton  {
-  margin: 8px 2px 0px 2px; 
-}
-
-.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 170px; 
-  margin: 8px 2px 0px 2px; 
-}
-
-.UIPermissionSelector .PermissionButton .LeftButton {
-  background: url('background/LeftSimpleButton20x24.png') no-repeat left; 
-  padding-left: 20px;
-}
-
-.UIPermissionSelector .PermissionButton .RightButton {
-  background: url('background/RightSimpleButton20x24.png') no-repeat right; 
-  padding-right: 20px;
-} 
-
-.UIPermissionSelector .PermissionButton .CenterButton {
-  background: url('background/CenterSimpleButton3x24.png') repeat-x; 
-  line-height: 24px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
@@ -136,11 +99,3 @@
   margin: 2px 0px 0px 5px;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
 } 
-
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton  a{
-  font-weight: bold; color: black;
-}
-
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton  a:hover{
-  color: #0a80d2;
-}

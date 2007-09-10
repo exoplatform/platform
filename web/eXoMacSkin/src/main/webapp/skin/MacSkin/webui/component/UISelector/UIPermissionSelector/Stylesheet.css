@@ -69,52 +69,20 @@
   font-size: 12px;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton {
-  color: black;
-  width: 350px;
-  margin: auto;
-}
-
 .UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
 	filter:alpha(opacity=30);-moz-opacity:.30;opacity:.30;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden a {
+.UIPermissionSelector .PermissionInfoContainer a.FloatBlockHidden {
 	cursor: default;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton .FloatBlockHidden a:hover {
+.UIPermissionSelector .PermissionInfoContainer a:hover.FloatBlockHidden {
 	color: black;
 }
 
-.UIPermissionSelector .PermissionInfoContainer .DeletePermissionButton  {
-  margin: 8px 2px 0px 2px; 
-} 
-
-.UIPermissionSelector .PermissionInfoContainer .SelectPermissionButton  {
-  width: 155px;
-  margin: 8px 2px 0px 2px; 
-} 
-
-.UIPermissionSelector .PermissionButton  .LeftButton {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UISelector/UIPermissionSelector/background/LeftSimpleButton10x21.gif') no-repeat left; 
-  padding-left: 10px;
-}
-
-.UIPermissionSelector .PermissionButton  .RightButton {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UISelector/UIPermissionSelector/background/RightSimpleButton10x21.gif') no-repeat right; 
-  padding-right: 10px;
-} 
-
-.UIPermissionSelector .PermissionButton  .CenterButton {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UISelector/UIPermissionSelector/background/CenterSimpleButton1x21.gif') repeat-x; 
-  line-height: 21px;
-  padding: 0px 5px;
-  
-}
-
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
-  margin: 2px 0px 0px 0px;
+  margin: 1px 0px 0px 0px;
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif') no-repeat left center;
   line-height: 21px;
   padding-left: 25px;
@@ -122,17 +90,9 @@
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
-  margin: 2px 0px 0px 0px;
+  margin: 1px 0px 0px 0px;
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
   line-height: 21px;
   padding-left: 25px;
   height: auto; width: auto;
 } 
-
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton  a{
-  font-weight: bold; color: black;
-}
-
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton  a:hover{
-  color: #0a80d2;
-}

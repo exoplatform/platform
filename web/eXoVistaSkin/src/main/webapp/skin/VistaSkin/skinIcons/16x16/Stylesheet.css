@@ -218,6 +218,10 @@
   background: url('icons/OrangeNote.gif') no-repeat ;
 }
 
+.SmallGroup16x16Icon {
+  background: url('icons/SmallGroup.png') no-repeat ;
+}
+
 /*##############- Misc Icons -#############*/
 .BlueArrowFloppy16x16Icon {
   background: url('icons/BlueArrowBlackFloppy.gif') no-repeat ;
