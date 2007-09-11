@@ -48,17 +48,16 @@ public class UIFormSelectBox extends UIFormStringInput {
     size_ = i ; return this ;
   }
   
-  //Tung.Pham added
   public UIFormSelectBox setValue(String value) {
     value_ = value ;
     for(SelectItemOption<String> option : options_) {
-      if(value_.equals(option.getValue())) option.setSelected(true) ;
+      if(option.getValue().equals(value_)) option.setSelected(true) ;
       else option.setSelected(false) ;
     }
     
     return this ;
   }
-  //Tung.Pham added
+
   public String[] getSelectedValues() {
     if(isMultiple_) {
       List<String> selectedValues = new ArrayList<String>() ;
@@ -71,8 +70,7 @@ public class UIFormSelectBox extends UIFormStringInput {
     return new String[]{value_} ;
   }
   
-  //Tung.Pham added
-  public UIFormSelectBox setSelectedValues(String [] values) {
+  public UIFormSelectBox setSelectedValues(String[] values) {
     for(SelectItemOption<String> option : options_) {
       option.setSelected(false) ;
       for(String value : values) {
