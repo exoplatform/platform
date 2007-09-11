@@ -55,6 +55,11 @@
   cursor: pointer;
 }
 
+.UIOrganizationPortlet .ManagementTabContent {
+  width: 99.4%;
+  margin: 4px auto 2px auto;
+}
+
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
   float: left;
   padding-left: 7px;
@@ -136,8 +141,6 @@
 /*#######################  UIGroupManagement #################################*/
 
 .UIOrganizationPortlet .UIGroupManagement {
-  width: 97%; /*Fix IE7*/
-  margin: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon{
@@ -146,9 +149,23 @@
   background: url('MacSkin/background/MacGroup.gif') no-repeat;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs{
+	padding:0px ;
+}
 
-.UIOrganizationPortlet .UIGroupManagement .UIInfoBar {
-  margin: 0px;
+.UIOrganizationPortlet .UIGroupManagement .TitleBar {
+  background: url('MacSkin/background/TitleBarBG.gif') repeat-x;
+  height: 24px;
+  border: 1px solid #b7b7b7;
+  border-bottom: none;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .TitleBar .Title{
+	color:#1c1c1c;
+	float:left;
+	font-weight:bold;
+	line-height: 24px;
+	padding-left: 7px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
@@ -168,29 +185,29 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TreeActionIcon  {
 	float: right ;
-	margin: 6px 10px 0px 0px ;
+	margin: 4px 8px 0px 0px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
-	width: 30px;
-	height: 20px;
-	background: url('MacSkin/background/RemoveGroup.gif') no-repeat;
+	width: 18px;
+	height: 17px;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
-	width: 30px;
-	height: 20px;
-	background: url('MacSkin/background/AddGroup.gif') no-repeat;
+	width: 16px;
+	height: 16px;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/AddIcon.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
-	width: 30px;
-	height: 20px;
-	background: url('MacSkin/background/EditGroup.gif') no-repeat;
+	width: 16px;
+	height: 16px;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
-  margin-left: 230px ;
+  margin-left: 227px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIHorizontalTabs  {
@@ -208,6 +225,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
 	height: 236px;
 	overflow: auto;
+	border: none;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid th {
@@ -220,7 +238,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle {
-	width: auto;
+	width: 500px;
 	margin: auto;
 }
 
@@ -290,6 +308,6 @@
 
 .UIOrganizationPortlet .ManagementTabContent .UIPageIterator  {
 	height: 22px;
-  margin-top: 3px;
+  margin-top: 2px;
   width: 99.5%;
 }

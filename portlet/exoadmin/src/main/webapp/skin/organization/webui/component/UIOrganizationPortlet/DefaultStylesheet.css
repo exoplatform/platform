@@ -14,9 +14,19 @@
   margin: 5px;
 }
 
+.UIOrganizationPortlet .UIToolbar .LargeToolbar  {
+	width: 99.5%;
+  margin: 0px auto 5px auto;
+}
+
+.UIOrganizationPortlet .UISearch  {
+	width: 99.5%;
+  margin: 0px auto;
+}
+
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
   float: left ;
-  margin: 3px 8px 0px 10px ;
+  margin: 3px 4px 0px 4px ;
   width: 2px; height: 50px ;
 }
 
@@ -49,7 +59,7 @@
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .SelectButtonLabel {
   height: 18px; line-height: 18px;
   padding-left: 10px;
-  color: orange;
+  color: #058ee6;
 }
 
 .UIOrganizationPortlet .ManagementIconContainer {
@@ -76,86 +86,13 @@
 }
 
 .UIOrganizationPortlet .UIFormWithTitle {
-	width: auto;
+	width: 500px;
 	margin: auto;
 }
 
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UITabPane {
   height:auto;
-}
-
-/*###########################- Scroll Buttons -#################################*/
-
-.UIOrganizationPortlet .ScrollButtons {
-	float: right;
-	padding: 5px 0px;
-	display: none;
-}
-
-.UIOrganizationPortlet .ScrollLeftButton {
-	cursor: pointer;
-  background: url('DefaultSkin/background/ScrollLeft13x15.gif') no-repeat left;
-  width: 13px;
-  height: 15px;
-  padding-left: 13px;
-  margin: 0px 2px;
-  float: left;
-}
-
-.UIOrganizationPortlet .ScrollRightButton {
-	cursor: pointer;
-	background: url('DefaultSkin/background/ScrollRight13x15.gif') no-repeat right;
-  width: 13px;
-  height: 15px;
-  margin: 0px 2px;
-  float: left;
-}
-
-.UIOrganizationPortlet .DisableScrollLeftButton {
-  cursor: pointer;
-	background: url('DefaultSkin/background/DisableScrollLeft13x15.gif') no-repeat left;
-  width: 13px;
-  height: 15px;
-  padding-left: 13px;
-  margin: 0px 2px;
-  float: left;
-}
-
-.UIOrganizationPortlet .DisableScrollRightButton { 
-	cursor: pointer;
-	background: url('DefaultSkin/background/DisableScrollRight13x15.gif') no-repeat right;
-  width: 13px;
-  height: 15px;
-  margin: 0px 2px;
-  float: left;
-}
-
-.UIOrganizationPortlet .HighlightScrollLeftButton {
-  cursor: pointer;
-	background: url('DefaultSkin/background/HighlightScrollLeft13x15.gif') no-repeat left;
-  width: 13px;
-  height: 15px;
-  padding-left: 13px;
-  margin: 0px 2px;
-  float: left;
-}
-
-.UIOrganizationPortlet .HighlightScrollRightButton {
-	cursor: pointer;
-	background: url('DefaultSkin/background/HighlightScrollRight13x15.gif') no-repeat;
-  width: 13px;
-  height: 15px;
-  margin: 0px 2px;
-  float: left;
-}
-
-/*##############################- UIUserManagement -###########################*/
-
-.UIOrganizationPortlet .GrayRoundedFillBoxStyle .CenterBoxDecorator {
-  width: 97.5%;
-  margin: auto;
-  padding-bottom:  10px;
 }
 
 .UIOrganizationPortlet .UIForm .UIFormInputSet {
@@ -236,6 +173,27 @@
 
 .UIOrganizationPortlet .UIGroupManagement {
   padding-top: 3px;
+  width: 99.5%;
+  margin: auto;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .TitleBar{
+	background: url('DefaultSkin/background/TitleBarBG.gif') repeat-x;
+	height: 25px;
+	border: 1px #b7b7b7 solid; 
+	border-bottom: none;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .TitleBar .Title{
+	color:#424242;
+	float:left;
+	font-weight:bold;
+	line-height:25px;
+	padding-left:10px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs{
+	padding:0px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITabPane {
@@ -267,7 +225,6 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
-  border: 1px solid #b7b7b7;
   padding-bottom: 10px;  
   height: 226px;
   overflow: auto;
@@ -277,32 +234,28 @@
   width: 100%;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer .BlueLevelUpArrow24x24Icon {
-  margin-left: 7px;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TreeActionIcon  {
 	float: right ;
 	margin: 5px 10px 0px 0px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
-	width: 28px; height: 22px;
-	background: url("DefaultSkin/background/RemoveGroup.gif") no-repeat;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat center;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
-	width: 28px; height: 22px;
-	background: url("DefaultSkin/background/AddGroup.gif") no-repeat;
+	width: 16px; height: 16px;
+	background:transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif) no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
-	width: 28px; height: 22px;
-	background: url("DefaultSkin/background/EditGroup.gif") no-repeat;
+	width: 16px; height: 16px;
+	background:transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif) no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
-  margin-left: 225px ;
+  margin-left: 222px ;
   height:100%;
 }
 
@@ -383,7 +336,7 @@
 }
 
 .UIOrganizationPortlet .UIMembershipManagement .UIGrid {
-	margin-top: 10px;
+	margin: auto;
 }
 
 .UIOrganizationPortlet .UIMembershipManagement .UIFormGrid { 

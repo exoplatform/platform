@@ -45,13 +45,12 @@
 
 .UIToolbar .LargeToolbar a {
   color: black ; font-weight: bold ;
-  margin-left: 10px ;
   padding: 0px 5px 0px 5px ;
   cursor: pointer ;
 }
 
 .UIToolbar .LargeToolbar a:hover{
-  color: orange;
+  color: #1043b1;
 }
 
 

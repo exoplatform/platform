@@ -6,8 +6,7 @@
 .UIPageIterator .PageIteratorContainer {    
   float: right ;
   line-height: 22px ; 
-  padding: 0px 10px 0px 15px ;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 .UIPageIterator .PageIteratorContainer .LeftPageIteratorBlock{    
@@ -37,11 +36,6 @@
   margin-left: 5px;
 }
 
-
-
-/*
-* Repair by Duy Tu 09/07/07
-*/
 .UIPageIterator .LastTopPageIcon {
   vertical-align: middle ;
   background: url('background/ScrollDoubleBackArrows.gif') no-repeat ;

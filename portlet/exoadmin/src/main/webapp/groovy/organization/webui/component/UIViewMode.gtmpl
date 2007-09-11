@@ -51,33 +51,6 @@
   <%/*End UIToolbar*/%>
     
   <div class="ManagementTabContent">
-    <div class="DecoratorBox">
-      <div class="GrayRoundedFillBoxStyle">
-        <%/*Begin Top Decorator*/%>
-        <div class="TopLeftCornerBoxDecorator">
-          <div class="TopRightCornerBoxDecorator">
-            <div class="TopCenterBoxDecorator"><span></span></div>
-          </div>
-        </div>
-        <%/*End Top Decorator*/%>
-        <%//Begin the Middle Decorator %>
-        <div class="MiddleLeftSideBoxDecorator">
-          <div class="MiddleRightSideBoxDecorator">
-            <div class="CenterBoxDecorator">
-              <% uicomponent.renderChildren() %>
-            </div>
-          </div>
-        </div>
-        <%//End Middle Decorator %>
-        <div><span></span></div>  
-        <%//Begin Bottom Decorator %>
-        <div class="BottomLeftCornerBoxDecorator">
-          <div class="BottomRightCornerBoxDecorator">
-            <div class="BottomCenterBoxDecorator"><span></span></div>
-          </div>
-        </div>
-        <%//End Bottom Decorator %>
-      </div>
-    </div>
+  	<% uicomponent.renderChildren() %>
   </div>
 </div>

@@ -71,7 +71,7 @@
 
 .UIGrid .EditInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat ;
 }
 
 .UIGrid .ExcuteIcon {
@@ -94,7 +94,7 @@
 
 .UIGrid .ViewUserInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat ;
   margin: auto;
 }
 
@@ -108,7 +108,7 @@
 
 .UIGrid .EditMembershipIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Pencil.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat ;
   margin: auto;
 }
 

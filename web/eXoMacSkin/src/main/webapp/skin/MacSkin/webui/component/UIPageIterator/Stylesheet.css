@@ -6,7 +6,6 @@
 .UIPageIterator .PageIteratorContainer {    
   float: right ;
   line-height: 24px ;  vertical-align: middle ;
-  padding: 0px 5px 0px 5px ;
   overflow: hidden; 
 }
 

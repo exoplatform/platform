@@ -12,28 +12,20 @@
   <%uicomponent.renderChild(UIBreadcumbs.class); %>
   <div class="GroupPanel">
     <div class="GroupNavigation">
-      <div class="UIToolbar">
-        <div class="Style2Toolbar">
-          <div class="LeftBar">
-            <div class="RightBar">
-              <div class="MiddleBar">
-                <div class="Title" style="margin-left: 5px;"><%=_ctx.appRes("UIGroupManagement.label.Groups")%></div>
-                <% String actionLink = "#";
-                    if(uicomponent.getChild(UIGroupExplorer.class).getCurrentGroup()!= null) {
-                      actionLink = uicomponent.event("DeleteGroup","delete"); 
-                    } else {
-                        actionLink = uicomponent.event("SelectGroupMessage","SelectGroup");
-                    }
-                %>
-				      	<a class="TreeActionIcon RemoveGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.DeleteGroup")%>"><span></span></a>
-				      	<% actionLink = uicomponent.event("EditGroup","Edit"); %>
-				      	<a class="TreeActionIcon EditGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.EditGroup")%>"><span></span></a>
-				      	<% actionLink = uicomponent.event("AddGroup","add"); %>
-				      	<a class="TreeActionIcon AddGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.AddGroup")%>"><span></span></a>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="TitleBar">
+        <div class="Title"><%=_ctx.appRes("UIGroupManagement.label.Groups")%></div>
+        <% String actionLink = "#";
+            if(uicomponent.getChild(UIGroupExplorer.class).getCurrentGroup()!= null) {
+              actionLink = uicomponent.event("DeleteGroup","delete"); 
+            } else {
+                actionLink = uicomponent.event("SelectGroupMessage","SelectGroup");
+            }
+        %>
+		      	<a class="TreeActionIcon RemoveGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.DeleteGroup")%>"><span></span></a>
+		      	<% actionLink = uicomponent.event("EditGroup","Edit"); %>
+		      	<a class="TreeActionIcon EditGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.EditGroup")%>"><span></span></a>
+		      	<% actionLink = uicomponent.event("AddGroup","add"); %>
+		      	<a class="TreeActionIcon AddGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.AddGroup")%>"><span></span></a>
       </div> 
       <div class="GroupNavigationContainer"><% uicomponent.renderChild(UIGroupExplorer.class) %></div>
   	</div>

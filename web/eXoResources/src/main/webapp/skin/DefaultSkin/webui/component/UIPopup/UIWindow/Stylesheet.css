@@ -146,6 +146,7 @@
   float: left;
   width: 16px; height: 16px;
   margin: 9px 0px 0px 5px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
 }
 
 .UIWindow .WindowPortletInfo .PortletName {
@@ -269,7 +270,7 @@
 
 
 /********************* Icon InfoBar ************************************/
-.UIWindow .OrganizationPortletIcon {
+.UIWindow .Organization {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
 }
 
