@@ -3,7 +3,7 @@
 		<div class="TitleBar">
 			<div class="LeftBar">
 				<div class="RightBar">
-					<div class="MiddleBar">Select Portal</div>
+					<div class="MiddleBar"><%=_ctx.appRes("UIChangePortal.lable.TitleBar")%></div>
 		    </div>
 	    </div>
 	  </div>

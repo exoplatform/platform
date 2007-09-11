@@ -60,7 +60,7 @@
 					      <div class="ButtonLeft">
 					        <div class="ButtonRight">
 					          <div class="ButtonMiddle">
-							        <div class="SelectPermissionIcon">
+							        <div class="SelectPermissionIcon" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
 								          <%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
 								      </div>
 							      </div>
