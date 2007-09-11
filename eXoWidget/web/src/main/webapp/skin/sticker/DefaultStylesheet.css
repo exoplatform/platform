@@ -12,16 +12,20 @@
 }
 
 .UIStickerWidgetTitle {
-	height: 30px ;
+	padding: 13px 0px 5px 0px;
+	font-size: 1.2em;
+	color: #a16f03;
+	text-align: center;
 }
 
 .UIStickerWidgetContentArea {
 	border: 0px ;
-	width: 180px ;
+	width: 175px ;
 	height: 127px ;
-	margin: 0px 0px 0px 15px;
+	margin: 0px 0px 0px 17px;
 	background: transparent ;
 	overflow: hidden ;
 	font-family: Verdana ;
-	font-size: 11px ;
+	font-size: 12px ;
+	color: #6a6a6a;
 }
