@@ -66,6 +66,7 @@ public class UIPageNavigationForm extends UIForm {
     pageNav_ = pageNavigation;
     invokeGetBindingBean(pageNavigation) ;
     removeChildById("ownerId");
+    getUIStringInput("creator").setValue(pageNavigation.getCreator());
     UIFormStringInput ownerId = new UIFormStringInput("ownerId", "ownerId", pageNavigation.getOwnerId());
     ownerId.setEditable(false);
     ownerId.setParent(this);
