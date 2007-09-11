@@ -116,7 +116,9 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
       PortalRequestContext pcontext = Util.getPortalRequestContext() ;
+      uiWizard.setDescriptionWizard();
       
+      uiWizard.updateWizardComponent();
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class); 
       UIPageNodeSelector uiPageNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);
       if(uiPageNodeSelector.getSelectedNavigation() == null) {
@@ -150,8 +152,18 @@ public class UIPageEditWizard extends UIPageWizard {
     public void execute(Event<UIPageEditWizard> event) throws Exception {
       UIPageEditWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
+      UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class); 
+      UIPageNodeSelector uiPageNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);
+      PageNode seletctedPageNode = uiPageNodeSelector.getSelectedPageNode() ;
+      UserPortalConfigService userService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
+      Page selectPage = userService.getPage(seletctedPageNode.getPageReference(), event.getRequestContext().getRemoteUser()) ;
 
-     
+      if(selectPage == null|| !selectPage.isModifiable()) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.Invalid-editPermission", null)) ;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        uiWizard.viewStep(1);
+        return ;
+      }
       uiWizard.viewStep(3);      
       if(uiWizard.getSelectedStep() < 3){
         uiWizard.updateWizardComponent();
@@ -169,7 +181,6 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageEditBar uiPageEditBar = uiCreationBar.getChild(UIPageEditBar.class);
       UIWizardPageCreationBar uiParent = uiPageEditBar.getParent();
       
-      UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class); 
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
       PageNode pageNode = uiPageInfo.getPageNode();
       
