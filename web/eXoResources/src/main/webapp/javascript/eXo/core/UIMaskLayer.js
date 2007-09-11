@@ -42,7 +42,7 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		
 		maskLayer.className = "MaskLayer" ;
 		maskLayer.id = "MaskLayer" ;
-		maskLayer.maxZIndex = 99 ;
+		maskLayer.maxZIndex = 2 ;
 		maskLayer.style.width = "100%" ;
 		maskLayer.style.height = "100%" ;
 		maskLayer.style.top = "0px" ;
