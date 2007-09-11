@@ -106,9 +106,9 @@
 }
 
 .UIAction a.SimpleStyle {
-  color: #353535; font-weight: bold; 
-  margin: 0px 6px;white-space: nowrap;
-  line-height: 21px; height: 21px;
+  color: #353535;
+  margin: 0px 6px;
+  white-space: nowrap;
 }
 
 .UIAction a:hover.SimpleStyle {

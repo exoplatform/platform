@@ -92,15 +92,6 @@
   height: auto; width: auto;
 } 
 
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton  a{
-  font-weight: bold; color: black;
-  text-decoration: none;
-}
-
-.UIPermissionSelector .PermissionInfoContainer .PermissionButton  a:hover{
-  color: #0a80d2;
-}
-
 /************************************ List Permission Selector *******************************/
 .UIAccessGroup {
   padding: 10px;

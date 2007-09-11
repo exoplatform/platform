@@ -24,6 +24,7 @@
 	padding-left: 25px;
 	background-position: left center;
 	width: auto;
+	height: auto;
 } 
 
 /*##############################-Disabled ActionButton-################################*/
@@ -100,12 +101,11 @@
 }
 
 .UIAction .SimpleStyle a {
-  color: #3d80e4; font-weight: bold;
+  color: #3d80e4; 
   margin: 0px 6px;
-  line-height: 24px; height: 24px;
   white-space: nowrap;
 }
 
 .UIAction .SimpleStyle a:hover {
-  color: #2169d4; white-space: nowrap;
+  color: #2169d4; 
 }

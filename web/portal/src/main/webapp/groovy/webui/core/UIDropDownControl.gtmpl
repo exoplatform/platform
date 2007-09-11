@@ -12,7 +12,7 @@
 	uicomponent.addItem("nguyen duc thuy");
 	uicomponent.setAction("eXo.webui.UIDropDownControl.init") ;
 %>
-<div class="UIDropDownControl" style="border:1px solid red;" id="$uicomponent.id">	
+<div class="UIDropDownControl" id="$uicomponent.id">	
 	<div class="UIDropDownTitle" onclick="eXo.webui.UIDropDownControl.show(this, event);">
 		<div class="UIDropDownLeftIcon">
 			<div class="UIDropDownRightIcon">
