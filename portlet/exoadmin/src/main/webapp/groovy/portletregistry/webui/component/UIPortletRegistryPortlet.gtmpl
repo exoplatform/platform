@@ -4,7 +4,7 @@
 %>
 
 <div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
-style="min-width: 640px; _width: expression({$uicomponent.id}.nextSibling.offsetWidth+'px'">
+	style="_width: expression(document.getElementById('${uicomponent.id}FIX').offsetWidth+'px'); min-width: 640px;">
   <div class="UIApplicationRegistryContainer" >
 	  <%/* Begin Portlet Registry Control*/ %>
 		<div class="ApplicationRegistryControlArea" >
@@ -24,7 +24,7 @@ style="min-width: 640px; _width: expression({$uicomponent.id}.nextSibling.offset
 	</div>
   <%uicomponent.renderPopupMessages(); %>
 </div>
-<div>
+<div id="${uicomponent.id}FIX">
 	<!-- minh.js.exo test minwith -->
 	<div style="width: 640px;" ><span style="display: none;"></span></div>
 </div>
