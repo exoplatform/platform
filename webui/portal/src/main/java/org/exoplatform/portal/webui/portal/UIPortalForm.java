@@ -13,6 +13,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
@@ -206,10 +207,11 @@ public class UIPortalForm extends UIFormTabPane {
       UserPortalConfig userPortalConfig = service.getUserPortalConfig(portalName, pcontext.getRemoteUser());
       PortalConfig pconfig = userPortalConfig.getPortalConfig();
       uiForm.invokeSetBindingBean(pconfig);
-      
+      PageNavigation navigation = service.getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+      navigation.setCreator(pcontext.getRemoteUser());
       pconfig.setCreator(pcontext.getRemoteUser());
       service.update(pconfig);
-      
+      service.update(navigation);
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null);
