@@ -63,7 +63,7 @@
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
   float: left ;
   margin: 8px 0px 5px 15px ;
-  color: #0749c4 ;
+  color: #058ee6 ;
   background: none;
 }
 
@@ -120,7 +120,7 @@
 }
 
 .UIAccessGroup .PublicCheck {
-	margin: 5px 0px 20px 0px;
+	margin: 5px auto 0px auto;
 	width: 555px;
 	height: 30px;
   margin: auto;
@@ -128,11 +128,11 @@
 }
 
 .UIAccessGroup .UIFormGrid {
-	padding-bottom: 10px;
 }
 
 .UIAccessGroup .UIFormGrid td.FieldLabel {
 	text-align: left;
+	width: 300px;
 }
 
 .UIForm .HorizontalLayout .UIAccessGroup input.checkbox {

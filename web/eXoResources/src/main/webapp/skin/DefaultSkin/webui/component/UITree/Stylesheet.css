@@ -12,15 +12,22 @@
 }
 
 .UITree .TreeLevelContainer {
-  height: 18px; line-height: 18px;
-  padding-left: 12px;
+  height: 18px; 
+  padding-left: 5px;
   margin: 0px 0px 10px 0px ;
 }
 
 .UITree .TreeLevelContainer .LevelUpArrowIcon {
   float: left;
-  width: 26px; line-height: 18px;
+  width: 26px;
+  height: 20px;
   background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat;
+}
+
+.UITree .TreeLevelContainer a.LevelUpArrowIcon:hover {
+  float: left;
+  width: 26px; height: 20px;
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat;
 }
 
 .UITree .TreeContainer .Node {
@@ -63,16 +70,16 @@
   margin: 2px 0px 0px 2px ; 
   float: left ;
   line-height: 16px ;
-  color: black; font-weight: bold;
+  color: #2d2d2d; font-weight: bold;
 }
 
 .UITree .TreeContainer .Node .NodeLabel a:hover {
-  color: orange; 
+  color: #058ee6; 
 }
 
 .UITree .TreeContainer .NodeSelected {
   height: 20px ; line-height: 20px;
-  font-weight: bold; color: blue; 
+  font-weight: bold; color: orange; 
 }
 
 /** ################# Icons ###################*/
