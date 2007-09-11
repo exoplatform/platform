@@ -66,7 +66,7 @@ public class UIPageEditWizard extends UIPageWizard {
     List<SelectItemOption<?>> options = category.getSelectItemOptions();
     SelectItemOption<Object> curent = new SelectItemOption<Object>("Curent Layout", null);
     if(options.get(0).getValue() != null)  options.add(0, curent);
-    templateOption.setSelectOptionItem("Curent Layout");
+    templateOption.setSelectOptionItem("Current Layout");
   }
   
   private void saveData() throws Exception {
