@@ -213,3 +213,39 @@
   background: url('background/GrayLinedBR19x23.gif') no-repeat right ;
   padding: 0px 19px  0px 0px ;
 }
+
+/*##############################- Bar Decorator-################################*/
+
+.DecoratorBox .BarDecorator .TopRightBar {
+  background: url('background/TRBarDecorator7x4.png') no-repeat right;
+  padding-right: 7px;
+  height: 4px;
+}
+
+.DecoratorBox .BarDecorator .TopCenterBar {
+  background: url('background/TLBarDecorator1x4.png') repeat-x top;
+  height: 4px;
+}
+
+.DecoratorBox .BarDecorator .MiddleRightBar {
+  background: url('background/MRBarDecorator4x1.png') repeat-y right; 
+  padding-right: 4px;
+}
+
+.DecoratorBox .BarDecorator .MiddleCenterBar {
+  background: #efefef url('background/MCBarDecorator1x16.png') repeat-x center; 
+  padding: 2px 4px 2px 5px;
+  color: #151209;
+  font-weight: bold;
+}
+
+.DecoratorBox .BarDecorator .BottomCenterBar {
+  background: url('background/BLBarDecorator1x8.png') repeat-x bottom;
+  height: 8px;
+}
+
+.DecoratorBox .BarDecorator .BottomRightBar {
+  background: url('background/BRBarDecorator7x8.png') no-repeat right;
+  padding-right: 7px;
+  height: 8px;
+}

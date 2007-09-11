@@ -251,3 +251,39 @@
 	background: url('background/BottomCenterContainerOptions1x9.png') repeat-x ;
 	height: 9px;
 }
+
+/*##############################- Bar Decorator-################################*/
+
+.DecoratorBox .BarDecorator .TopRightBar {
+  background: url('background/TRBarDecorator7x5.png') no-repeat right;
+  padding-right: 7px;
+  height: 5px;
+}
+
+.DecoratorBox .BarDecorator .TopCenterBar {
+  background: url('background/TLBarDecorator1x5.png') repeat-x top;
+  height: 5px;
+}
+
+.DecoratorBox .BarDecorator .MiddleRightBar {
+  background: url('background/MRBarDecorator4x1.png') repeat-y right; 
+  padding-right: 4px;
+}
+
+.DecoratorBox .BarDecorator .MiddleCenterBar {
+  background: url('background/MCBarDecorator1x8.png') repeat-x top; 
+  padding: 2px 4px 3px 5px;
+  color: #151209;
+  font-weight: bold;
+}
+
+.DecoratorBox .BarDecorator .BottomCenterBar {
+  background: url('background/BLBarDecorator1x8.png') repeat-x bottom;
+  height: 8px;
+}
+
+.DecoratorBox .BarDecorator .BottomRightBar {
+  background: url('background/BRBarDecorator7x8.png') no-repeat right;
+  padding-right: 7px;
+  height: 8px;
+}
