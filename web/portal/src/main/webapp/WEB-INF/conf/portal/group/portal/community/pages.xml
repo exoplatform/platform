@@ -16,15 +16,6 @@
     </application>
     
     <application>
-      <instance-id>portal#@owner@:/content/RSSReaderPortlet/RSSReaderPortlet</instance-id>
-	    <application-type>portlet</application-type>
-	    <title>Content portlet</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>
-
-    <application>
       <instance-id>admin:/ecm/ContentBrowser/contentbrowser</instance-id>
 	    <application-type>portlet</application-type>
 	    <title>Content Browser</title>

@@ -13,10 +13,6 @@
 	    <application-type>eXoWidget</application-type>
 	    <title>Welcome Widget</title>
 	  </application>
-    
-    <application>
-      <instance-id>portal#@owner@:/content/RSSReaderPortlet/RSSReaderPortlet</instance-id>
-    </application>
 
     <application>
       <instance-id>portal#@owner@:/web/SiteMapPortlet/SitemapPortlet</instance-id>    

@@ -7,10 +7,10 @@
   
   <page-nodes>  
    <node>
-    <uri>content</uri>
-    <name>content</name>
-    <label>Content</label>
-    <page-reference>group::guest::content</page-reference>
+    <uri>sitemap</uri>
+    <name>sitemap</name>
+    <label>Site Map</label>
+    <page-reference>group::guest::sitemap</page-reference>
    </node> 
   </page-nodes>
 </node-navigation>
