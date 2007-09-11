@@ -3,7 +3,8 @@
   import org.exoplatform.portletregistry.webui.component.ApplicationRegistryWorkingArea ;  
 %>
 
-<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" exo:minwidth="640" style="min-width: 640px;">
+<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
+style="min-width: 640px; _width: expression({$uicomponent.id}.nextSibling.offsetWidth+'px'">
   <div class="UIApplicationRegistryContainer" >
 	  <%/* Begin Portlet Registry Control*/ %>
 		<div class="ApplicationRegistryControlArea" >
@@ -22,4 +23,8 @@
 		<div style="clear: left"><span></span></div>
 	</div>
   <%uicomponent.renderPopupMessages(); %>
+</div>
+<div>
+	<!-- minh.js.exo test minwith -->
+	<div style="width: 640px;" ><span style="display: none;"></span></div>
 </div>
