@@ -3,8 +3,7 @@
   import org.exoplatform.portletregistry.webui.component.ApplicationRegistryWorkingArea ;  
 %>
 
-<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" exo:minwith="640px"
-	style="min-width: 640px;">
+<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" exo:minwidth="640" style="min-width: 640px;">
   <div class="UIApplicationRegistryContainer" >
 	  <%/* Begin Portlet Registry Control*/ %>
 		<div class="ApplicationRegistryControlArea" >
