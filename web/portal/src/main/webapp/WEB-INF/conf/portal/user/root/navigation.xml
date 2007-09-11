@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <node-navigation>
   <owner-type>user</owner-type>  
-	<owner-id>test</owner-id>
+	<owner-id>root</owner-id>
 	<priority>3</priority>
   <description>description for node navigation </description>
   
@@ -11,7 +11,7 @@
 	    <uri>sitemap</uri>
 	    <name>siteMap</name>
 	    <label>Site Map</label>
-	    <page-reference>user::test::sitemap</page-reference>	    
+	    <page-reference>user::root::sitemap</page-reference>	    
 	  </node>
 
   </page-nodes>

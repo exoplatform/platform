@@ -3,11 +3,11 @@
 
   <page>
     <owner-type>user</owner-type>
-    <owner-id>test</owner-id>
+    <owner-id>root</owner-id>
     <name>sitemap</name>
     <title>Site Map</title>
     <application>
-      <instance-id>user#test:/web/SiteMapPortlet/sitemapportlet</instance-id>
+      <instance-id>user#root:/web/SiteMapPortlet/sitemapportlet</instance-id>
       <title>Site Map portlet</title>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>

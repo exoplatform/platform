@@ -12,7 +12,7 @@
       <value-param>
         <name>super.user</name>
         <description>administrator</description>
-        <value>exoadmin</value>	    
+        <value>root</value>	    
       </value-param>
       
       <value-param>
@@ -180,7 +180,6 @@
                 <value><string>portal/admin</string></value>
                 <value><string>portal/community</string></value>
                 <value><string>portal/company</string></value>
-                <value><string>test</string></value>
               </collection>
             </field>
             <field  name="ownerType"><string>group</string></field>
@@ -193,8 +192,8 @@
           <object type="org.exoplatform.portal.config.NewPortalConfig">
             <field  name="predefinedOwner">
               <collection type="java.util.HashSet">                
+                <value><string>root</string></value>
                 <value><string>exoadmin</string></value>
-                <value><string>test</string></value>
               </collection>
             </field>
             <field  name="ownerType"><string>user</string></field>

@@ -203,17 +203,14 @@
                 
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field  name="userName"><string>test</string></field>
+                    <field  name="userName"><string>root</string></field>
                     <field  name="password"><string>exo</string></field>
-                    <field  name="firstName"><string>test</string></field>
-                    <field  name="lastName"><string>test</string></field>
-                    <field  name="email"><string>test@localhost</string></field>
+                    <field  name="firstName"><string>root</string></field>
+                    <field  name="lastName"><string>root</string></field>
+                    <field  name="email"><string>root@localhost</string></field>
                     <field  name="groups">
-                      <string>
-                        member:/admin,member:/user,owner:/portal/admin,member:/test,
-                        member:/portal/company/hr,member:/portal/company/management
-                      </string>
-                    </field>
+                      <string>member:/user</string>
+                    </field>                    
                   </object>
                 </value>    
                     
