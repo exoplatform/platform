@@ -47,40 +47,8 @@ public class UILoginForm extends UIForm {
   public UILoginForm() throws Exception{    
     addUIFormInput(new UIFormStringInput("username", "username", null)).
     addUIFormInput(new UIFormStringInput("password", "password", null).
-                   setType(UIFormStringInput.PASSWORD_TYPE)).
-    addUIFormInput(new UIFormCheckBoxInput<Boolean>("remember", "remember", null));
-//    PortalRequestContext prContext = Util.getPortalRequestContext();
-//    HttpServletRequest request = prContext.getRequest();
-//    Cookie userName = loadCookie(request, "authentication.username", null, false);
-//    Cookie pass = loadCookie(request, "authentication.password", null, false);
-//    if( userName == null || pass == null) return;
-//    getUIStringInput("username").setValue(userName.getValue());
-//    getUIStringInput("password").setValue(pass.getValue());
-    /*
-         addUIFormInput(new UIFormStringInput("username", "username", null).
-                   addValidator(NameValidator.class)).
-    addUIFormInput(new UIFormStringInput("password", "password", null).
-                   setType(UIFormStringInput.PASSWORD_TYPE).
-                   addValidator(EmptyFieldValidator.class)).
-    addUIFormInput(new UIFormCheckBoxInput<Boolean>("remember", "remember", null));
-     */
+                   setType(UIFormStringInput.PASSWORD_TYPE)) ;
   }
-  
-//  protected Cookie loadCookie(HttpServletRequest request, String name, String value, boolean autoCreate){
-//    Cookie[] cookies = request.getCookies();
-//    Cookie cookie = null;
-//    if (cookies != null) {
-//      for (Cookie ele : cookies) {
-//        if(ele.getName().equals(name)) cookie = ele;
-//      }
-//    }
-//    if(cookie == null && autoCreate) cookie = new Cookie(name, value);
-//    if(cookie == null) return null;
-//    cookie.setDomain(request.getRemoteHost());
-//    cookie.setSecure(true);
-//    return cookie;
-//  }
-
 
   static public class SigninActionListener  extends EventListener<UILoginForm> {
     
@@ -88,8 +56,6 @@ public class UILoginForm extends UIForm {
       UILoginForm uiForm = event.getSource();
       String username = uiForm.getUIStringInput("username").getValue();
       String password = uiForm.getUIStringInput("password").getValue();
-      
-//      boolean remember = uiForm.<UIFormCheckBoxInput >getUIInput("remember").isChecked();
       
       OrganizationService orgService = uiForm.getApplicationComponent(OrganizationService.class);
       boolean authentication = orgService.getUserHandler().authenticate(username, password);
@@ -103,34 +69,13 @@ public class UILoginForm extends UIForm {
       HttpSession session = request.getSession();
       session.setAttribute("authentication.username", username);
       session.setAttribute("authentication.password", password);
-      
-      /*if(remember && authentication){
-        HttpServletResponse response = prContext.getResponse();
-        response.addCookie(loadCookie(request, "authentication.username", username));
-        response.addCookie(loadCookie(request, "authentication.password", password));
-      }*/
-      
       prContext.setResponseComplete(true);  
-      //String redirect = request.getContextPath() + "/private/site:/";
       UIPortal uiCurrentPortal = Util.getUIPortal() ;
       String portalName = uiCurrentPortal.getName() ;
       String redirect = request.getContextPath() + "/private/" + portalName + "/";
       prContext.getResponse().sendRedirect(redirect);      
     }   
     
-   /* protected Cookie loadCookie(HttpServletRequest request, String name, String value){
-      Cookie[] cookies = request.getCookies();
-      Cookie cookie = null;
-      if (cookies != null) {
-        for (Cookie ele : cookies) {
-          if(ele.getName().equals(name)) cookie = ele;
-        }
-      }
-      if(cookie == null) cookie = new Cookie(name, value);
-      cookie.setDomain(request.getRemoteHost());
-      cookie.setSecure(true);
-      return cookie;
-    }*/
   }
   
   static public class SignupActionListener  extends EventListener<UILoginForm> {

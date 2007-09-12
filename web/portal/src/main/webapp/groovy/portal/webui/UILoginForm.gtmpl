@@ -31,49 +31,34 @@
 		            <div class="PasswordField" id="UIPortalLoginFormControl">
 		              <label><%=_ctx.appRes("UILoginForm.label.password")%>:</label>
 		              <% uiform.renderChild(1)%>
-		            </div> 
-		            
-		            <div style="display:block"> 
-				          <div class="Message" style="display: none;">
-				            <div onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'SignUp', false);">
-				              <%=_ctx.appRes("UILoginForm.label.forgot")%>
-				            </div>
-			            </div>
-				          <div class="CheckField">
-				            <% uiform.renderChild(2)%>
-				            <div class="RememberLoginTitle"><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></div>
-				            <div style="clear:left;"><span></span></div>
-				          </div>
-				        </div>
-				        
-			          <div class="UIAction"> 
-							    <table class="ActionContainer" align="center">
-								    <tr>
-								    	<td align="center">
-									      <a href="<%=uicomponent.url("Signin");%>" id="UIPortalLoginFormAction" class="ActionButton SimpleStyle">
-									        <div class="ButtonLeft">
-									          <div class="ButtonRight">
-									            <div class="ButtonMiddle">
-									              <%=_ctx.appRes("UILoginForm.label.Signin");%>
-									            </div>
-									          </div>
-									        </div>
-									      </a>
-									      <a href="<%=uicomponent.event("Close");%>" id="UIPortalLoginFormAction" class="ActionButton SimpleStyle">
-									        <div class="ButtonLeft">
-									          <div class="ButtonRight">
-									            <div class="ButtonMiddle">
+		            </div> 				        
+			        <div class="UIAction"> 
+						<table class="ActionContainer" align="center">
+							<tr>
+								<td align="center">
+									 <a href="<%=uicomponent.event("Close");%>" class="ActionButton SimpleStyle">
+									 	<div class="ButtonLeft">
+									    	<div class="ButtonRight">
+									        	<div class="ButtonMiddle">
 									              <%=_ctx.appRes("UILoginForm.label.Discard")%>
 									            </div>
-									          </div>
-									        </div>
-									      </a>
-									    </td>
-							      </tr>
-							 	  </table>
-								</div>
-			          
-			        </div>
+									    	</div>
+									    </div>
+									 </a>
+									 <a href="<%=uicomponent.url("Signin");%>" id="UIPortalLoginFormAction" class="ActionButton SimpleStyle">
+										 <div class="ButtonLeft">
+									    	 <div class="ButtonRight">
+									        	 <div class="ButtonMiddle">
+									              <%=_ctx.appRes("UILoginForm.label.Signin");%>
+									            </div>
+									         </div>
+									     </div>
+									 </a>								
+								</td>
+							</tr>
+						</table>
+					</div> 
+			    </div>
 	          <%uiform.end()%>
 	          
 	          <div class="SignUpBar" style="display: block">
