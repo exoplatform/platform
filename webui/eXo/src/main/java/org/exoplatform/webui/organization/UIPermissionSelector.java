@@ -30,10 +30,10 @@ import org.exoplatform.webui.form.validator.Validator;
 public class UIPermissionSelector extends UISelector<String> {
   
   private Permission permission_;
-  
+  private boolean isEditable = true;
 	public UIPermissionSelector() throws Exception {
     super(null, null) ;		
-    
+    isEditable = true;
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupPermissionSelector");
     uiPopup.setWindowSize(540, 0);  
     
@@ -96,6 +96,13 @@ public class UIPermissionSelector extends UISelector<String> {
       }
     }
     
+  }
+  public boolean isEditable() {
+    return isEditable;
+  }
+
+  public void setEditable(boolean isEditable) {
+    this.isEditable = isEditable;
   }
 
 }

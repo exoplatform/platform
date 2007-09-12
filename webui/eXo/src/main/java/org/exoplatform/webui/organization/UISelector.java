@@ -7,6 +7,7 @@ package org.exoplatform.webui.organization;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInputContainer;
 
 /**
@@ -32,6 +33,11 @@ abstract class UISelector<T> extends UIFormInputContainer<T> {
       UISelector uiSelector = uiMemebershipSelector.<UIComponent>getParent().getParent(); 
       String membershipType = event.getRequestContext().getRequestParameter(OBJECTID)  ;
       uiSelector.setMembership(uiMemebershipSelector.getCurrentGroup().getId(), membershipType);
+      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
+      if(uiForm != null) {
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
+        uiForm.broadcast(event, event.getExecutionPhase()) ;
+      }
     }
   }
   

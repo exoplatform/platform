@@ -3,7 +3,6 @@
 	<owner-type>portal</owner-type>
   <owner-id>webos</owner-id>
   <priority>1</priority>
-  <access-permissions>*:/guest</access-permissions>
 
   <page-nodes>
     <node>

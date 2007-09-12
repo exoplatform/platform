@@ -107,7 +107,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   
   public UIListPermissionSelector setValue(String [] permissions) throws Exception {
     List<Object> list = new ArrayList<Object>();
-    publicMode_ = false;
+    setPublicMode(false);
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     for(String exp : permissions) {
       if(exp.trim().length() < 1) continue;
@@ -118,7 +118,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       if(exp.equals("*:/guest")) {
         UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
         uiGrid.setRendered(false) ;
-        publicMode_ = true ;
+        setPublicMode(true);
         UIFormCheckBoxInput<Boolean> uiPublicMode = getChildById("publicMode") ;
         uiPublicMode.setChecked(true) ;
       }
@@ -217,7 +217,6 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     }
     
   }
-  //TODO: Tung.Pham added
   static public class EmptyIteratorValidator implements Validator {
 
     public void validate(UIFormInput uiInput) throws Exception {

@@ -42,6 +42,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.organization.UIGroupMembershipSelector;
 import org.exoplatform.webui.organization.UIListPermissionSelector;
 import org.exoplatform.webui.organization.UIPermissionSelector;
 
@@ -52,6 +53,7 @@ import org.exoplatform.webui.organization.UIPermissionSelector;
     events = {
       @EventConfig(listeners = UIPageForm.SaveActionListener.class),
       @EventConfig(listeners = UIPageForm.ChangeOwnerTypeActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIPageForm.SelectMembershipActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIPageForm.ChangeOwnerIdActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     },
@@ -110,6 +112,8 @@ public class UIPageForm extends UIFormTabPane {
     uiPermissionSetting.addChild(uiListPermissionSelector);
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
     uiEditPermission.setRendered(false) ;
+    uiEditPermission.addValidator(org.exoplatform.webui.organization.UIPermissionSelector.EmptyFieldValidator.class);
+    uiEditPermission.setEditable(false);
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
     uiPermissionSetting.addChild(uiEditPermission);
 
@@ -147,6 +151,7 @@ public class UIPageForm extends UIFormTabPane {
     } else if(getChildById("PermissionSetting") == null) {
       addUIComponentInput(uiPermissionSetting);
     }
+    uiPermissionSetting.getChild(UIPermissionSelector.class).setEditable(true);
     invokeGetBindingBean(page) ;
     getUIStringInput("name").setEditable(false) ;
     getUIStringInput("pageId").setValue(uiPage.getPageId());
@@ -161,6 +166,10 @@ public class UIPageForm extends UIFormTabPane {
       return;
     }
     uiTemplate.setValue(uiPage.getFactoryId());
+  }
+  
+  public void setEditPermission(String per){
+    
   }
   
   public  void invokeSetBindingBean(Object bean) throws Exception {
@@ -347,6 +356,18 @@ public class UIPageForm extends UIFormTabPane {
       permission = userACL.getMakableMT() + ":/" + uiForm.groupIdSelectBox.getValue();
       uiForm.findFirstComponentOfType(UIPermissionSelector.class).setValue(permission);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;
+    }
+  }
+  
+  static  public class SelectMembershipActionListener extends EventListener<UIGroupMembershipSelector> {    
+    public void execute(Event<UIGroupMembershipSelector> event) throws Exception {
+        UIPageForm uiForm = event.getSource().getAncestorOfType(UIPageForm.class);
+        if(!uiForm.getUIStringInput(OWNER_TYPE).getValue().equals(PortalConfig.GROUP_TYPE) ) return ;
+        String editPer = uiForm.findFirstComponentOfType(UIPermissionSelector.class).getValue();
+        if(editPer == null || editPer.length() < 1) return;
+        String group = editPer.substring(editPer.indexOf("/") + 1);
+        uiForm.ownerIdInput.setValue(group);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
     }
   }
 }

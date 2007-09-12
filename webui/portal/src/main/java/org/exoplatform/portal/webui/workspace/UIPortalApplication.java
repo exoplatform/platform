@@ -7,6 +7,7 @@ package org.exoplatform.portal.webui.workspace;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -18,6 +19,8 @@ import org.exoplatform.portal.webui.skin.SkinConfig;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.resources.LocaleConfig;
+import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -106,7 +109,10 @@ public class UIPortalApplication extends UIApplication {
     
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
     if(currentSkin != null && currentSkin.trim().length() > 0) skin_ = currentSkin;
-    
+    LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
+    LocaleConfig localeConfig = localeConfigService.getLocaleConfig(userPortalConfig_.getPortalConfig().getLocale());
+    if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
+    setLocale(localeConfig.getLocale());
     setOwner(context.getPortalOwner());    
   } 
   

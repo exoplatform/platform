@@ -85,14 +85,14 @@ public class UILanguageSelector extends UIContainer {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
 
       if(language == null || language.trim().length() < 1) return;       
-      if(!uiPortal.isModifiable()) return;
+      //if(!uiPortal.isModifiable()) return;
 
       LocaleConfigService localeConfigService  = event.getSource().getApplicationComponent(LocaleConfigService.class) ;
       LocaleConfig localeConfig = localeConfigService.getLocaleConfig(language);
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-      PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
-      UserPortalConfigService dataService = uiPortal.getApplicationComponent(UserPortalConfigService.class);
-      dataService.update(portalConfig);
+//      PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
+//      UserPortalConfigService dataService = uiPortal.getApplicationComponent(UserPortalConfigService.class);
+//      dataService.update(portalConfig);
       uiApp.setLocale(localeConfig.getLocale());
     }
   }

@@ -65,8 +65,8 @@ public class DataMapper {
     node.setProperty("ownerType", navigation.getOwnerType());
     node.setProperty("ownerId", navigation.getOwnerId());
     node.setProperty("name", navigation.getId()) ;
-    node.setProperty("editPermission", navigation.getEditPermission());
-    node.setProperty("accessPermissions", navigation.getAccessPermissions()) ;
+//    node.setProperty("editPermission", navigation.getEditPermission());
+//    node.setProperty("accessPermissions", navigation.getAccessPermissions()) ;
     node.setProperty("dataType", navigation.getClass().getSimpleName()) ;    
     node.setProperty("data", toXML(navigation)) ;
   }
