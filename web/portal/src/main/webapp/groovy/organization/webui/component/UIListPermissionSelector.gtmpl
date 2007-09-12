@@ -30,7 +30,7 @@
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
-		            	<div class="Icon SmallGroup16x16Icon">Select Permission</div>
+		            	<div class="Icon SmallGroup16x16Icon"><%=_ctx.appRes("UIListPermissionSelector.action.addPermission")%></div>
 		            </div>
 		          </div>
 		        </div>
