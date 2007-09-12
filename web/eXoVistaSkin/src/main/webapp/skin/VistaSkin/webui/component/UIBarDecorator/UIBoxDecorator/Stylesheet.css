@@ -272,7 +272,7 @@
 
 .DecoratorBox .BarDecorator .MiddleCenterBar {
   background: url('background/MCBarDecorator1x8.png') repeat-x top; 
-  padding: 2px 4px 3px 5px;
+  padding: 1px 4px 2px 5px;
   color: #151209;
   font-weight: bold;
 }

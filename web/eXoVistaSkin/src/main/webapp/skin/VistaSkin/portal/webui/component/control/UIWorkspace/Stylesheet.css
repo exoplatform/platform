@@ -6,7 +6,9 @@
 }
 
 .UIControlWorkspace .TopTitleBar{
-  padding: 15px 0px 15px 0px;
+  padding:12px 0px 6px;
+	text-align:center;
+	width:180px;
 }
 
 .UIControlWorkspace .UIVerticalSlideTabs {
