@@ -45,6 +45,7 @@
 .UIDropDownItemSelector .UIItemList .ItemSelectorLabel {
 	text-transform: capitalize; 
 	white-space: nowrap;
+	overflow: hidden;
 }
 
 /********************************   UIItemList   ****************************************/
@@ -53,6 +54,7 @@
 }
 
 .UIItemList .ItemSelector {
+	overflow: hidden;
   height: 22px; line-height: 22px;
   background: url('background/BGNormalItem1x22.png') repeat-x;
   border-bottom: 1px #cdcdcd solid;
@@ -71,8 +73,9 @@
 }
 
 .UIItemList .ItemSelectedLabel {
-  height: 22px; line-height: 22px;
-  color: orange;
+  height: 22px;
+	line-height: 22px;
+  color: #ffa500;
 }
 
 .UIItemList .ItemSelector a {
