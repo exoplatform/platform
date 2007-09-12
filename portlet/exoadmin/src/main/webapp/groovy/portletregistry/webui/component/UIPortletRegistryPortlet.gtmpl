@@ -4,7 +4,7 @@
 %>
 <div style="width: 99%;">
 	<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
-		style="_width: expression(this.nextSibling.offsetWidth - 18 + 'px'); min-width: 640px;">
+		style="_width: expression(this.nextSibling.offsetWidth - 18 + 'px'); min-width: 600px;">
 	  <div class="UIApplicationRegistryContainer" >
 		  <%/* Begin Portlet Registry Control*/ %>
 			<div class="ApplicationRegistryControlArea" >
