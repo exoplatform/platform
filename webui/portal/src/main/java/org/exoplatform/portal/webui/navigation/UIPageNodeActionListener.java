@@ -191,17 +191,24 @@ public class UIPageNodeActionListener {
   static public class DeleteNodeActionListener  extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {  
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext() ;
       UIPageNodeSelector uiPageNodeSelector = event.getSource().getAncestorOfType(UIPageNodeSelector.class);
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();
       Class<?> [] childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
+      pcontext.addUIComponentToUpdateByAjax(uiManagement);
       
       PageNavigation nav = uiPageNodeSelector.getSelectedNavigation();
       if(nav == null) return;
       
       PageNode [] pageNodes = PageNavigationUtils.searchPageNodesByUri(nav, uri);
       if(pageNodes == null) return;
+      //--------------------------------
+      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
+      uiToolPanel.setUIComponent(null) ;
+      pcontext.setFullRender(true) ;
+      pcontext.addUIComponentToUpdateByAjax(uiToolPanel);
+      //--------------------------------
       if(pageNodes[0] == null) {
         nav.getNodes().remove(pageNodes[1]);
         return;
