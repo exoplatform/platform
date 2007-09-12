@@ -49,6 +49,7 @@
 .UIDropDownItemSelector .UIItemList .ItemSelectorLabel {
 	text-transform: capitalize; 
 	white-space: nowrap;
+	overflow: hidden;
 }
 
 /********************************   UIItemList   ****************************************/
@@ -56,6 +57,7 @@
 }
 
 .UIItemList .ItemSelector {
+	overflow: hidden;
   height: 25px;
   padding: 0px 20px 0px 5px ;
   border-bottom: 1px solid #d1d1d1;
