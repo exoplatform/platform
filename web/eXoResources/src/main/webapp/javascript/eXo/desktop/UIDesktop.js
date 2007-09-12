@@ -181,11 +181,16 @@ UIDesktop.prototype.addJSApplication = function(applicationNode) {
   var tooltip = appDescriptor.application.appName ;
   var appTooltip = eXo.desktop.UIDockbar.createApplicationTooltip(tooltip) ;
   
+  /*
   var separators = eXo.core.DOMUtil.findChildrenByClass(iconContainer, "img", "Separator") ;
-  iconContainer.insertBefore(appIcon ,separators[1]) ;
-  iconContainer.insertBefore(appTooltip ,separators[1]) ;
-  
-  
+		
+		 * minh.js.exo 
+		 * bug portal-1036
+		 * change separators[1] = separators[0];
+		 
+	  iconContainer.insertBefore(appIcon ,separators[0]);
+	  iconContainer.insertBefore(appTooltip ,separators[0]);
+  */
   /*Init a UIWindow Application*/
   var windowPosX = 20 ;
   if(applicationNode.style.left != "") {
