@@ -52,8 +52,8 @@ public class PortalRequestContext extends WebuiRequestContext {
     setSessionId(req.getSession().getId()) ;
     ajaxRequest_ = "true".equals(req.getParameter("ajaxRequest")) ;
     nodeURI_ = req.getRequestURI() ;
-    
     String pathInfo = req.getPathInfo() ;
+    if(pathInfo == null) pathInfo = "/" ;
     int colonIndex = pathInfo.indexOf("/", 1)  ;
     if(colonIndex < 0) colonIndex = pathInfo.length();
     portalOwner_ =  pathInfo.substring(1, colonIndex) ;
