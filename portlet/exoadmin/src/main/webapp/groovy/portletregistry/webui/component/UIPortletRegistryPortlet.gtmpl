@@ -3,8 +3,9 @@
   import org.exoplatform.portletregistry.webui.component.ApplicationRegistryWorkingArea ;  
 %>
 <div style="width: 99%;">
+	<div><div style="width: 600px;" ><span style="display: none;"></span></div></div>
 	<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
-		style="_width: expression(this.nextSibling.offsetWidth - 18 + 'px'); min-width: 600px;">
+		style="_width: expression(this.previousSibling.offsetWidth - 18 + 'px'); min-width: 600px;">
 	  <div class="UIApplicationRegistryContainer" >
 		  <%/* Begin Portlet Registry Control*/ %>
 			<div class="ApplicationRegistryControlArea" >
@@ -23,9 +24,5 @@
 			<div style="clear: left"><span></span></div>
 		</div>
 	  <%uicomponent.renderPopupMessages(); %>
-	</div>
-	<div>
-		<!--minh.js.exo test minwidth for ie-->
-		<div style="width: 600px;" ><span style="display: none;"></span></div>
 	</div>
 </div>
