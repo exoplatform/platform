@@ -2,24 +2,30 @@
   import org.exoplatform.portletregistry.webui.component.ApplicationRegistryControlArea ;
   import org.exoplatform.portletregistry.webui.component.ApplicationRegistryWorkingArea ;  
 %>
-
-<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" exo:minwidth="640" style="min-width: 640px;">
-  <div class="UIApplicationRegistryContainer" >
-	  <%/* Begin Portlet Registry Control*/ %>
-		<div class="ApplicationRegistryControlArea" >
-		  <div class="Title"><%=_ctx.appRes("ApplicationRegistryControlArea.title")%></div>
-		  <div class="ApplicationRegistryCategory">
-		    <% uicomponent.renderChild(ApplicationRegistryControlArea.class);%>
-		  </div>
-		</div>
-	  <%/* End Portlet Registry Control */%>		  
-		<div class="ApplicationRegistryWorkingArea" >
-		  <div class="Title"><%=_ctx.appRes("ApplicationRegistryWorkingArea.title")%></div>
-		  <div class="ApplicationWorkingAreaContainer" >
-			  <% uicomponent.renderChild(ApplicationRegistryWorkingArea.class);%>
+<div style="width: 99%;">
+	<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
+		style="_width: expression(this.nextSibling.offsetWidth - 18 + 'px'); min-width: 640px;">
+	  <div class="UIApplicationRegistryContainer" >
+		  <%/* Begin Portlet Registry Control*/ %>
+			<div class="ApplicationRegistryControlArea" >
+			  <div class="Title"><%=_ctx.appRes("ApplicationRegistryControlArea.title")%></div>
+			  <div class="ApplicationRegistryCategory">
+			    <% uicomponent.renderChild(ApplicationRegistryControlArea.class);%>
+			  </div>
 			</div>
+		  <%/* End Portlet Registry Control */%>		  
+			<div class="ApplicationRegistryWorkingArea" >
+			  <div class="Title"><%=_ctx.appRes("ApplicationRegistryWorkingArea.title")%></div>
+			  <div class="ApplicationWorkingAreaContainer" >
+				  <% uicomponent.renderChild(ApplicationRegistryWorkingArea.class);%>
+				</div>
+			</div>
+			<div style="clear: left"><span></span></div>
 		</div>
-		<div style="clear: left"><span></span></div>
+	  <%uicomponent.renderPopupMessages(); %>
 	</div>
-  <%uicomponent.renderPopupMessages(); %>
+	<div>
+		<!--minh.js.exo test minwidth for ie-->
+		<div style="width: 600px;" ><span style="display: none;"></span></div>
+	</div>
 </div>
