@@ -146,9 +146,19 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPageCreationWizard uiWizard = event.getSource();
       UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
       UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
-      uiWizard.setDescriptionWizard();
-      uiWizard.updateWizardComponent();
+      UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
+      WebuiRequestContext context = Util.getPortalRequestContext() ;
+      uiWizard.viewStep(3);
       
+      if(uiWizard.getSelectedStep() < 3){
+        uiWizard.updateWizardComponent();
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.StepByStep",null)) ;
+        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        return ;
+      }
+      
+      uiWizard.setDescriptionWizard();
+      uiWizard.updateWizardComponent();      
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
       PageNavigation navigation = uiNodeSelector.getSelectedNavigation();
       if(navigation == null) {
@@ -165,7 +175,6 @@ public class UIPageCreationWizard extends UIPageWizard {
         uiWizard.viewStep(2);
         return;
       }
-      uiWizard.viewStep(3);
     }
   }
 
