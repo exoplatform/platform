@@ -80,7 +80,7 @@
   	<owner-type>group</owner-type>
     <owner-id>portal/admin</owner-id>
     <name>ecmadmin</name>
-    
+    <access-permissions>*:/guest</access-permissions>
     <application>
       <instance-id>group#portal/admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>
       <title>ECMAdmin</title>
