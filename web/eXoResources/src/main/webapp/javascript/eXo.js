@@ -24,6 +24,8 @@ var eXo  = {
   },
   calendar : { },
   
+  contact : { },
+  
   forum : { },
   
   mail : { }  
