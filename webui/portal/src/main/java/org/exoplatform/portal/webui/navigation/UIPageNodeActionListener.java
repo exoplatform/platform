@@ -4,7 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -206,8 +205,9 @@ public class UIPageNodeActionListener {
       //--------------------------------
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
       uiToolPanel.setUIComponent(null) ;
+      UIWorkspace uiWorkspace = uiToolPanel.getAncestorOfType(UIWorkspace.class) ;
       pcontext.setFullRender(true) ;
-      pcontext.addUIComponentToUpdateByAjax(uiToolPanel);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkspace);
       //--------------------------------
       if(pageNodes[0] == null) {
         nav.getNodes().remove(pageNodes[1]);
