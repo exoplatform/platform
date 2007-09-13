@@ -290,8 +290,9 @@ public class UIPageNodeSelector extends UIContainer {
       }
       if(node == null) {
         uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId());
+        uiToolPanel.setUIComponent(null) ;
+        return ;
       }
-      if(node == null) return;  
       
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());

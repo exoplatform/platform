@@ -37,7 +37,7 @@ public class UIPageManagement extends UIManagement {
     addChild(UIPortletOptions.class, null, null).setRendered(false);
     addChild(UIPageBrowseControlBar.class, null, null).setRendered(false);
     addChild(UIPageNavigationControlBar.class, null, null);
-    update();
+    //update();
   }
 
   private void update() throws Exception {

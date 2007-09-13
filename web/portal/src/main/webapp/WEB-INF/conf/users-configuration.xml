@@ -176,6 +176,20 @@
 
             <field  name="user">
               <collection type="java.util.ArrayList">
+
+                <value>
+                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
+                    <field  name="userName"><string>root</string></field>
+                    <field  name="password"><string>exo</string></field>
+                    <field  name="firstName"><string>root</string></field>
+                    <field  name="lastName"><string>root</string></field>
+                    <field  name="email"><string>root@localhost</string></field>
+                    <field  name="groups">
+                      <string>member:/user,member:/admin</string>
+                    </field>                    
+                  </object>
+                </value>    
+                    
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
                     <field  name="userName"><string>exoadmin</string></field>
@@ -192,19 +206,6 @@
                   </object>
                 </value>
                 
-                <value>
-                  <object type="org.exoplatform.services.organization.OrganizationConfig$User">
-                    <field  name="userName"><string>root</string></field>
-                    <field  name="password"><string>exo</string></field>
-                    <field  name="firstName"><string>root</string></field>
-                    <field  name="lastName"><string>root</string></field>
-                    <field  name="email"><string>root@localhost</string></field>
-                    <field  name="groups">
-                      <string>member:/user</string>
-                    </field>                    
-                  </object>
-                </value>    
-                    
                 <value>
                   <object type="org.exoplatform.services.organization.OrganizationConfig$User">
                     <field  name="userName"><string>exo</string></field>
