@@ -37,18 +37,19 @@
 }
 
 .UIPageNodeSelector .UITree .TreeContainer {
-  padding: 6px 0px 6px 6px ;
   border: none;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {
-  margin: 0px 0px 4px 0px;
+  margin: 0px;
   float: none;
+	height : 23px;
+	line-height: 23px;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node {
-	line-height: 20px;
-	width: 190px;
+	height: 22px;
+	line-height: 22px;
 	padding-left: 4px;
 }	
 

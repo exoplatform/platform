@@ -8,13 +8,13 @@
 
 .UITree .TreeContainer {
   background: white ;
-  padding: 3px 0px 7px 0px;
+  padding: 0px;
 }
 
 .UITree .TreeLevelContainer {
   height: 18px; 
   padding-left: 5px;
-  margin: 0px 0px 10px 0px ;
+  margin: 0px ;
 }
 
 .UITree .TreeLevelContainer .LevelUpArrowIcon {
@@ -31,10 +31,10 @@
 }
 
 .UITree .TreeContainer .Node {
-  margin: 3px 0px 0px 0px ;
+  margin: 0px ;
   padding-left: 9px;
   clear: both ;
-  width: 90%;
+
 }
 
 .UITree .TreeContainer .Node .ExpandIcon {
