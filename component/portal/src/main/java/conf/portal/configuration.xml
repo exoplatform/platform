@@ -27,7 +27,7 @@
       <value-param>
         <name>super.user</name>
         <description>administrator</description>
-        <value>exoadmin</value>	    
+        <value>root</value>	    
       </value-param>    
 	  </init-params>   
   </component>
