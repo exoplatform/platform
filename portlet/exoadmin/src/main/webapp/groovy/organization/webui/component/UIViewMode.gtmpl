@@ -1,7 +1,9 @@
 <% 
     String style = "SelectButtonLabel";
 %>
-<div class="OrganizationPortletContainer" style="_width: expression(this.nextSibling.offsetWidth - 18 + 'px')">
+<div><div style="width: 730px;" ><span style="display: none;"></span></div></div>
+<div class="OrganizationPortletContainer" 
+	style="_width: expression(this.previousSibling.offsetWidth - 18 + 'px')">
   <%/*Begin UIToolbar*/%>
   <div class="UIToolbar">
     <div class="LargeToolbar">
@@ -53,4 +55,3 @@
   	<% uicomponent.renderChildren() %>
   </div>
 </div>
-<div><div style="width: 730px;" ><span style="display: none;"></span></div></div>
