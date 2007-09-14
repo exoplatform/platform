@@ -131,11 +131,11 @@
 }
 
 .UILoginForm .LoginDecorator .SignUpBar {
-	padding: 5px 0px 2px 70px ;
+	padding: 5px 0px 2px 50px ;
 }
 
 .UILoginForm .LoginDecorator .LeftSignUpBar {
-  padding: 0px 0px 0px 55px ;
+  padding: 0px 0px 0px 20px ;
 }
 
 .UILoginForm .LoginDecorator .SignUpBackground {
@@ -144,7 +144,7 @@
 
 .UILoginForm .LoginDecorator .SignUpBackground a {
 	font-weight: bold; color: #ffa837;
-	margin: 0px 20px 0px 0px;
+	margin: 0px;
 	cursor: pointer;
 }
 .UILoginForm .LoginDecorator .SignUpBackground a:hover {

@@ -77,7 +77,7 @@
 }
 
 .SelectPageIcon {
-  background: url('icons/SelectPage.gif')no-repeat;
+  background: url('icons/SelectPage.gif') no-repeat;
   width: 16px ;  height: 16px ;
 }
 
@@ -89,7 +89,6 @@
 .DeletePortalIcon {
   width: 16px ;  height: 16px ; 
   background: url('icons/DustBin.png') no-repeat;
-  
 }
 
 .OnLightPage16x16Icon {

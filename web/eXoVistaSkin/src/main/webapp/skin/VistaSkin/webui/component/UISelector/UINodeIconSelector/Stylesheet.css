@@ -72,3 +72,7 @@
 .UIMaskWorkspace .UIForm .HorizontalLayout .UINodeIconSelector .UIFormInputSet {
 	width: auto;
 }
+
+.UINodeIconSelector .CategoryContainer .OverflowContainer {
+	width: auto;
+} 

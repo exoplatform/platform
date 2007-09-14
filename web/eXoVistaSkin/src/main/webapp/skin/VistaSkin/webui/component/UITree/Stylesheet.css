@@ -8,7 +8,6 @@
 
 .UITree .TreeContainer {
   background: #ffffff;
-  padding: 3px 0px 7px 0px;
 }
 
 .UITree .TreeLevelContainer {
@@ -23,10 +22,9 @@
 }
 
 .UITree .TreeContainer .Node {
-  margin: 3px 0px 0px 0px ;
   overflow: hidden ;
-  padding-left: 9px;
-  width: 95%;
+  padding: 4px 0px 4px 9px;
+  width: 95%; /* fix IE */
   clear: both ;
 }
 

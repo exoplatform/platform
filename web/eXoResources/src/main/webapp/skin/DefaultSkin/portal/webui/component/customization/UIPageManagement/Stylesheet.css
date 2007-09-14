@@ -10,9 +10,8 @@
 }
 
 .UIPageManagement .UITree  {
-	overflow: hidden;
+	overflow: auto;
 }
-
 
 .UIPageManagement .UIToolbar .EditToolbar {
   margin-top: 15px;

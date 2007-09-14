@@ -35,17 +35,15 @@
   background: white ;
 }
 
-.UIPageNodeSelector .UITree .TreeContainer {
-  padding: 6px 0px 6px 0px ;
-}
-
 .UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {
   float: none;
-  margin: 0px 0px 4px 0px;  
+	height: 40px;
 }
 
-.UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
-  margin: 3px 0px 0px 0px ;
+.UIPageNodeSelector .UITree .TreeLevelContainer .LevelUpArrowIcon {
+	margin: 0px;
+	background-position: center 10px;
+	height: 40px;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .CollapseIcon {

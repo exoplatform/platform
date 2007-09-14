@@ -20,10 +20,10 @@
 <div class="UITree ScrollArea">
   <div class="TreeContainer JSContainer">
     <div class="TreeLevelContainer">
-	    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" title="Up Level" style="display: block;"><span></span></a>
+	    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" title="<%=_ctx.appRes("UITree.tooltip.UpLevel")%>" style="display: block;"><span></span></a>
   	</div>
     <%for(object in sibling) {%>		
-		    <div class="Node" style="padding-top: 2px;">
+		    <div class="Node">
 		    <% 
 		    String objId = String.valueOf(uicomponent.getId(object)) ;
         String actionLink = uicomponent.event("ChangeNode", objId);
@@ -33,7 +33,7 @@
 				  if(uicomponent.isSelected(object)){%>
 				    <div class = "ChildrenContainer" actionLink="$actionLink" display = "block">
 				  <%  for(child in children) { %>								      		 
-					    <div class="Node" style="padding-top: 2px; margin-left: 10px; ">
+					    <div class="Node ChildrenNode" style="margin-left: 10px; ">
 					      <%=uicomponent.renderNode(child);%>
 					    </div>
 			      <%}	%>			    			

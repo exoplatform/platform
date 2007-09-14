@@ -1,5 +1,6 @@
 .UITree {
   border: solid #526d82 1px ;
+  padding: 4px 0px;
 }
 
 .UITree .BottomDecorator {
@@ -32,9 +33,8 @@
 
 .UITree .TreeContainer .Node {
   margin: 0px ;
-  padding-left: 9px;
+  padding: 4px 0px 4px 9px;
   clear: both ;
-
 }
 
 .UITree .TreeContainer .Node .ExpandIcon {

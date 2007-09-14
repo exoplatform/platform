@@ -157,7 +157,7 @@
 		                if(uicomponent.getShowPortletMode()) {
 		                  String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, event);"
 		              %>
-		              		<div class="ControlIcon ArrowDownIcon" title="Portlet Mode" onclick="$showCategory" onmouseover="$onControlOver" onmouseout="$onControlOut">
+		              		<div class="ControlIcon ArrowDownIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.PortletMode");%>" onclick="$showCategory" onmouseover="$onControlOver" onmouseout="$onControlOut">
 								        <% /*Begin Popup Menu*/ %>
 									      <div style="position: relative;">
 										      <div class="UIPopupCategory" style="display: none;">
@@ -207,8 +207,8 @@
 		              		</div>
 		              <%}%>
 		              <%if(isWindow) {%>
-	                		<div class="ControlIcon MinimizedIcon" title="Minimize" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-	                		<div class="ControlIcon MaximizedIcon" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+	                		<div class="ControlIcon MinimizedIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.Minimize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+	                		<div class="ControlIcon MaximizedIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.Maximize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%
 	                  } else if(uicomponent.getShowWindowState()) {	                    
 	                    String maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+popupId+"', 'maximized');" ;
@@ -227,8 +227,8 @@
   	                    restore = "Restore";
 	                    }
 	                %>
-    	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction"  title="Minimize" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction"  title="Maximize" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+    	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction" title="<%=_ctx.appRes("UIPortlet.tooltip.Minimize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction" title="<%=_ctx.appRes("UIPortlet.tooltip.Maximize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%}%>    
 	                <%
 	                  boolean condition = isWindow && (rcontext.getRemoteUser() != null) && 
@@ -236,7 +236,7 @@
 	                  if(condition) {
 		                  String removeChildAction = uicomponent.getParent().event("RemoveChild", popupId) ;
 	                %>
-	                		<a class="ControlIcon CloseButtonIcon" href="$removeChildAction" title="Close" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></a>
+	                		<a class="ControlIcon CloseButtonIcon" href="$removeChildAction" title="<%=_ctx.appRes("UIPortlet.tooltip.Minimize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></a>
 	                <% }%>	
 		              <div style="clear: left"><span></span></div>  
 		            </div>
@@ -277,7 +277,7 @@
 		      <div class="BottomDecoratorLeft">
 		        <div class="BottomDecoratorRight">
 		          <div class="BottomDecoratorCenter">
-		            <div class="ResizeArea" title="Resize Window"><span></span></div>
+		            <div class="ResizeArea" title="<%=_ctx.appRes("UIPortlet.tooltip.ResizeWindow");%>Resize Window"><span></span></div>
 		            <div class="Information">Done</div>
 		            <div style="clear: right"><span></span></div>
 		          </div>

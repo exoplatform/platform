@@ -31,7 +31,7 @@
 }
 
 .UIPageNodeSelector .UITree {
-  padding: 0px 0px 20px 0px;
+  padding: 4px 0px 20px 0px;
   background: white;
   border: 1px #b7b7b7 solid;
 }
@@ -48,10 +48,14 @@
 }
 
 .UIPageNodeSelector .UITree .TreeContainer .Node {
-	height: 22px;
 	line-height: 22px;
 	padding-left: 4px;
+	width: 97%; /* Fix IE*/
 }	
+
+.UIPageNodeSelector .UITree .TreeContainer .ChildrenNode {
+	width: 90%; /* Fix IE*/
+}
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
   margin: 3px 0px 0px 0px ;

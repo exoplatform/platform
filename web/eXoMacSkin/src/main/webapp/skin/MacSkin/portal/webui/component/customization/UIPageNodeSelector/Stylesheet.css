@@ -17,22 +17,17 @@
 
 .UIPageNodeSelector .UITree .TreeLevelContainer {
   padding-left: 0px;
-  margin: 2px 0px 3px 3px; background: none; border: none;
-  height: 21px; 
+  height: 35px; 
 }
 
 .UIPageNodeSelector .UITree .TreeLevelContainer .LevelUpArrowIcon {
-  background: url('background/AquaBlueUpLevel.gif') no-repeat;
-  width: 26px; line-height: 18px;
   margin-left: 8px;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .Node .ExpandIcon {
-  margin: 3px 0px 0px 0px ;
+  background-position: left 10px;
+  height: 35px;
+  line-height: 35px;
 }
 
 .UIPageNodeSelector .UITree .TreeContainer {
-  padding: 7px 0px 10px 0px;
   margin: 0px;
   border: none;
 }
@@ -50,6 +45,7 @@
 
 .UIPageNodeSelector .UITree .TreeContainer .Node {
 	line-height: 20px;
+  width: 93% ; /* fix IE*/
 }	
 
 .UIPageNodeSelector .UITree .TreeContainer .Node .Icon {

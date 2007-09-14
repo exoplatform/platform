@@ -292,7 +292,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon{ 
-	background-position: left center;
+	background-position: left top;
 	background-repeat: no-repeat;
 	float: right;
 	height: 24px; width: 24px;
