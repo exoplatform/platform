@@ -225,8 +225,9 @@ public class UIPageBrowser extends UISearch {
         return;
       }
 
-      UIPage uiPage =  uiPageBrowser.createUIComponent(pcontext, UIPage.class, null, null) ;
-      PortalDataMapper.toUIPage(uiPage, page);
+      UIPage uiPage = Util.toUIPage(page, uiPageBrowser) ;
+      UIPageBody uiPageBody = uiPortalApp.findFirstComponentOfType(UIPageBody.class) ; 
+      if(uiPageBody.getUIComponent() != null) uiPageBody.setUIComponent(null);
 
       if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
