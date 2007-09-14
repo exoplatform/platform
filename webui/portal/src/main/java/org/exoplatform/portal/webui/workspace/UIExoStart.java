@@ -28,6 +28,7 @@ import org.exoplatform.portal.webui.portal.UIPortalManagement;
 import org.exoplatform.portal.webui.portal.UIPortalSelector;
 import org.exoplatform.portal.webui.portal.UISkinSelector;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -214,8 +215,14 @@ public class UIExoStart extends UIComponent {
   static public class EditPortalActionListener extends EventListener<UIExoStart> {    
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uiComp = event.getSource() ;
+      UIPortal uiPortal = Util.getUIPortal() ;
+      if(!uiPortal.isModifiable()) {
+        UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+        uiPortalApp.addMessage(new ApplicationMessage("UIPortalManagement.msg.Invalid-editPermission", new String[]{uiPortal.getName()})) ;;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+        return ;
+      }
       uiComp.setUIControlWSWorkingComponent(UIPortalManagement.class) ;
-
       UIPortalManagement uiManagement = uiComp.getUIControlWSWorkingComponent();      
       uiManagement.setMode(ManagementMode.EDIT, event);
     }
