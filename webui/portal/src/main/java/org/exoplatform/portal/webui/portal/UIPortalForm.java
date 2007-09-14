@@ -172,16 +172,13 @@ public class UIPortalForm extends UIFormTabPane {
     public void execute(Event<UIPortalForm> event) throws Exception {
       UIPortalForm uiForm  =  event.getSource();
       String locale = uiForm.getUIStringInput("locale").getValue() ;
-      LocaleConfigService localeConfigService  = uiForm.getApplicationComponent(LocaleConfigService.class) ;
-      LocaleConfig localeConfig = localeConfigService.getLocaleConfig(locale);
+     
       UIPortalApplication uiApp = uiForm.getAncestorOfType(UIPortalApplication.class);
       
       UIPortal uiPortal = Util.getUIPortal();
       uiForm.invokeSetBindingBean(uiPortal);
-      //if(uiPortal.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) uiPortal.setFactoryId(null);      
-      if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-      uiApp.setLocale(localeConfig.getLocale());
-      
+      //if(uiPortal.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) uiPortal.setFactoryId(null);
+     
       UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
@@ -191,17 +188,18 @@ public class UIPortalForm extends UIFormTabPane {
   static public class CreateActionListener  extends EventListener<UIPortalForm> {
     public void execute(Event<UIPortalForm> event) throws Exception {
       UIPortalForm uiForm = event.getSource();
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       String template = uiForm.getChild(UIFormInputItemSelector.class).getSelectedItemOption().getValue().toString();
       String portalName = uiForm.getUIStringInput("name").getValue();
       DataStorage dataService = uiForm.getApplicationComponent(DataStorage.class) ;
       PortalConfig config = dataService.getPortalConfig(portalName);
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       if(config != null) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPortalForm.msg.sameName", null)) ;
         pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
+      
       UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
       service.createUserPortalConfig(portalName, template);
       UserPortalConfig userPortalConfig = service.getUserPortalConfig(portalName, pcontext.getRemoteUser());

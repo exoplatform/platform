@@ -16,6 +16,8 @@ import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.services.resources.LocaleConfig;
+import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -57,7 +59,10 @@ public class UIPortalManagementControlBar extends UIToolbar {
     
     UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);     
     configService.update(portalConfig);
-    
+    LocaleConfigService localeConfigService  = uiPortalApp.getApplicationComponent(LocaleConfigService.class) ;
+    LocaleConfig localeConfig = localeConfigService.getLocaleConfig(portalConfig.getLocale());
+    if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
+    uiPortalApp.setLocale(localeConfig.getLocale());
     uiPortalApp.setSkin(uiPortal.getSkin());
   }
   

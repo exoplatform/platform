@@ -212,8 +212,10 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       UIListPermissionSelector uicom = event.getSource();
       UIFormCheckBoxInput<Boolean> uiPublicModeInput = uicom.getChildById("publicMode") ;
       uicom.setPublicMode(uiPublicModeInput.isChecked()) ;
-      UIForm uiForm = uicom.getAncestorOfType(UIForm.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;
+      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
+      if(uiForm != null) {
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
+      }
     }
     
   }
