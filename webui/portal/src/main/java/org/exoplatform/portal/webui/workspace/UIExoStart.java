@@ -15,6 +15,7 @@ import org.exoplatform.portal.webui.UILogged;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.UIManagement.ManagementMode;
 import org.exoplatform.portal.webui.application.UIPortlet;
+import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageCreationWizard;
@@ -94,9 +95,10 @@ public class UIExoStart extends UIComponent {
 
   public List<PageNavigation> getNavigations() throws Exception {
     List<PageNavigation> allNav =Util.getUIPortal().getNavigations() ;
+    String removeUser = Util.getPortalRequestContext().getRemoteUser();
     List<PageNavigation> result = new ArrayList<PageNavigation>();
     for(PageNavigation nav: allNav){
-      result.add(nav.clone());
+      result.add(PageNavigationUtils.filter(nav, removeUser));
     }
     return result;
   }

@@ -4,10 +4,14 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
  * Created by The eXo Platform SARL
@@ -82,5 +86,31 @@ public class PageNavigationUtils {
     }
     if(parentUri.equals("")) return null;
     return searchPageNodeByUri(nav, parentUri);
+  }
+
+  public static PageNavigation filter(PageNavigation nav, String userName) throws Exception {
+    PageNavigation filter = nav.clone();
+    filter.setNodes(new ArrayList<PageNode>());
+    for(PageNode node: nav.getNodes()){
+      PageNode newNode = filter(node, userName);
+      if(newNode != null ) filter.addNode(newNode);
+    }
+    return filter;
+  }
+
+  public static PageNode filter(PageNode node, String userName) throws Exception {
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    ExoContainer container = context.getApplication().getApplicationServiceContainer() ;
+    UserPortalConfigService userService = (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class);
+    if( userService.getPage(node.getPageReference(), userName) == null) return null;
+    PageNode copyNode = node.clone();
+    copyNode.setChildren(new ArrayList<PageNode>());
+    List<PageNode> children = node.getChildren();
+    if(children == null) return copyNode;
+    for(PageNode child: children){
+      PageNode newNode = filter(child, userName);
+      if(newNode != null ) copyNode.getChildren().add(newNode);
+    }
+    return copyNode;
   }
 }

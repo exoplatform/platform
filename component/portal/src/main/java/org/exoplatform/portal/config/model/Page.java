@@ -17,7 +17,7 @@ public class Page extends Container {
   final static public String DESKTOP_PAGE = "Desktop";
   final static public String DEFAULT_PAGE = "Default";
   
-  private transient String   pageId;
+  private String   pageId;
   
   private String   ownerType;
   private String   ownerId;
@@ -39,13 +39,11 @@ public class Page extends Container {
   public String getOwnerId() { return ownerId; }
   public void setOwnerId(String ownerId) {
     this.ownerId = ownerId; 
-    this.pageId = null;
   }
 
   public String getOwnerType() { return ownerType; }
   public void setOwnerType(String ownerType) { 
     this.ownerType = ownerType;
-    this.pageId = null;
   }
   
   public String[] getAccessPermissions() { return accessPermissions ; }
@@ -59,16 +57,15 @@ public class Page extends Container {
     this.showMaxWindow = showMaxWindow.booleanValue(); 
   }
   
-  public void setName(String name) {
-    super.setName(name);
-    this.pageId = null;
-  }
-  
   public String getPageId() {
     if(pageId == null) pageId = ownerType +"::"+ownerId+"::"+name;
     return pageId; 
   }
   
+  public void setPageId(String pageId) {
+    this.pageId = pageId;
+  }
+
   public boolean isModifiable() { return modifiable ; }
   public void    setModifiable(boolean b) { modifiable = b ; }
   

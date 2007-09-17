@@ -127,6 +127,7 @@ public class PortalDataMapper {
     model.setOwnerId(uiPage.getOwnerId());
     model.setOwnerType(uiPage.getOwnerType());
     model.setIcon(uiPage.getIcon());
+    model.setPageId(uiPage.getPageId());
     model.setAccessPermissions(uiPage.getAccessPermissions());
     model.setEditPermission(uiPage.getEditPermission());
     model.setFactoryId(uiPage.getFactoryId());

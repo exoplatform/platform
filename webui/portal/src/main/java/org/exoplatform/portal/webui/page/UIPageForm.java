@@ -95,7 +95,7 @@ public class UIPageForm extends UIFormTabPane {
     uiSelectBoxOwnerType.setOnChange("ChangeOwnerType");
     
     UIFormInputSet uiSettingSet = new UIFormInputSet("PageSetting");
-    uiSettingSet.addUIFormInput(new UIFormStringInput("pageId", null, null).setEditable(false)).
+    uiSettingSet.addUIFormInput(new UIFormStringInput("pageId", "pageId", null).setEditable(false)).
                  addUIFormInput(uiSelectBoxOwnerType).
                  addUIFormInput(ownerIdInput).
                  addUIFormInput(new UIFormStringInput("name", "name", null).
@@ -173,9 +173,20 @@ public class UIPageForm extends UIFormTabPane {
   }
   
   public  void invokeSetBindingBean(Object bean) throws Exception {
-    super.invokeSetBindingBean(bean);
+//    super.invokeSetBindingBean(bean);
     Page page = (Page)bean;    
-       
+    page.setPageId(getUIStringInput("pageId").getValue());
+    page.setOwnerType(getUIFormSelectBox("ownerType").getValue());
+    page.setOwnerId(getUIStringInput("ownerId").getValue());
+    page.setName(getUIStringInput("name").getValue());
+    page.setTitle(getUIStringInput("title").getValue());
+    
+    if(!page.isShowMaxWindow()) {
+      page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());      
+    }
+    if(PortalConfig.USER_TYPE.equals(page.getOwnerType())) return;
+    page.setAccessPermissions(uiPermissionSetting.getChild(UIListPermissionSelector.class).getValue());
+    page.setEditPermission(uiPermissionSetting.getChild(UIPermissionSelector.class).getValue());
     UIFormInputItemSelector uiTemplate = getChildById("Template");
     if(uiTemplate != null) {
       SelectItemOption<?> itemOption = uiTemplate.getSelectedItemOption();
@@ -185,11 +196,6 @@ public class UIPageForm extends UIFormTabPane {
         page.setShowMaxWindow(page.getFactoryId().equals(Page.DESKTOP_PAGE));
       } 
     } 
-    
-    if(!page.isShowMaxWindow()) {
-      page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());      
-    }
-    
     UIPageTemplateOptions uiConfigOptions = getChild(UIPageTemplateOptions.class);
     if(uiConfigOptions == null) return;
     Page selectedPage = uiConfigOptions.getSelectedOption();
@@ -197,6 +203,7 @@ public class UIPageForm extends UIFormTabPane {
     page.setChildren(selectedPage.getChildren());
     page.setFactoryId(selectedPage.getFactoryId());
     if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) page.setShowMaxWindow(true);
+    
   }
 
   @SuppressWarnings("unchecked")
@@ -206,18 +213,18 @@ public class UIPageForm extends UIFormTabPane {
       UIPageForm uiPageForm = event.getSource();   
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       PortalRequestContext pcontext = Util.getPortalRequestContext();
-      UIPage uiPage = uiPageForm.getUIPage();
-      Page page = new Page() ;
-      uiPageForm.invokeSetBindingBean(page);
-      UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
-
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
       pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
       
+      UIPage uiPage = uiPageForm.getUIPage();
       if(uiPage == null)  return;
       
+      Page page = new Page() ;
+      page.setPageId(uiPage.getPageId());
+      uiPageForm.invokeSetBindingBean(page);
+     
       page.setOwnerType(uiPage.getOwnerType());
       List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
       findAllPortlet(uiPortlets, uiPage);
@@ -266,6 +273,7 @@ public class UIPageForm extends UIFormTabPane {
         if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
           childrenToRender = new Class<?>[]{UIPageBrowseControlBar.class};
         } else {
+          UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
           configService.update(page);
           childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
         }

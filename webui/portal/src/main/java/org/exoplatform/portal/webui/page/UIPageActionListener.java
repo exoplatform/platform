@@ -20,6 +20,7 @@ import org.exoplatform.portal.webui.application.UIApplication;
 import org.exoplatform.portal.webui.application.UIExoApplication;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIWidget;
+import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
@@ -74,17 +75,18 @@ public class UIPageActionListener {
       String uri = pnevent.getTargetNodeUri();
 
       if(uri == null || (uri = uri.trim()).length() < 1) return;
-      
       if(uri.length() == 1 && uri.charAt(0) == '/') {
-        PageNavigation selectedNav = null;
-        if( navigations.size() >0) selectedNav = navigations.get(0);
-        if(selectedNav != null && selectedNav.getNodes().size() > 0) {
-          selectedPaths_.add(selectedNav.getNodes().get(0));
-          uiPortal.setSelectedNode(selectedNav.getNodes().get(0));
+        for(PageNavigation nav: navigations){
+          for(PageNode child: nav.getNodes()){
+            if(PageNavigationUtils.filter(child, pcontext.getRemoteUser()) != null) {
+              selectedPaths_.add(child);
+              uiPortal.setSelectedNode(child);
+              uiPortal.setSelectedPaths(selectedPaths_);  
+              uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
+              return;
+            }
+          }
         }
-        uiPortal.setSelectedPaths(selectedPaths_);  
-        uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
-        return;
       }
       if(uri.charAt(0) == '/') uri = uri.substring(1);
 

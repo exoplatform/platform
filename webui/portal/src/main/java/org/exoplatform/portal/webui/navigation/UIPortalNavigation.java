@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.portlet.WindowState;
@@ -33,8 +34,13 @@ public class UIPortalNavigation extends UIComponent {
 
   public UIComponent getViewModeUIComponent() { return null; }
 
-  public List<PageNavigation> getNavigations() {
-    return Util.getUIPortal().getNavigations(); 
+  public List<PageNavigation> getNavigations() throws Exception {
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    List<PageNavigation> result = new ArrayList<PageNavigation>();
+    for(PageNavigation nav: Util.getUIPortal().getNavigations()){
+      result.add(PageNavigationUtils.filter(nav, context.getRemoteUser() ));
+    }
+    return result;
   }
   
   public PageNavigation getSelectedNavigation() {
@@ -66,7 +72,7 @@ public class UIPortalNavigation extends UIComponent {
     super.processRender(context);
   }
   
-  private void setSelectedPageNode(PageNode selectedNode) {
+  private void setSelectedPageNode(PageNode selectedNode) throws Exception {
     selectedNode_ = selectedNode;
     selectedParent_ = null;
     String seletctUri = selectedNode.getUri();

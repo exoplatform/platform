@@ -85,9 +85,17 @@ public class PortalStateManager extends StateManager {
         String uirootClass = cmanager.getApplication().getUIRootComponent() ;
         Class type = Thread.currentThread().getContextClassLoader().loadClass(uirootClass) ;
         UserPortalConfig config = getUserPortalConfig(pcontext) ;
-        if(config == null) {
+        String remoteUser = pcontext.getRemoteUser();
+        if(config == null && (remoteUser == null || remoteUser.length() < 1)) {
+          pcontext.getRequest().getSession().invalidate() ;
           HttpServletResponse response = pcontext.getResponse();
           response.sendRedirect("/portal/portal-warning.html");
+          pcontext.setResponseComplete(true);
+          return null;
+        } else if (config == null) {
+          pcontext.getRequest().getSession().invalidate() ;
+          HttpServletResponse response = pcontext.getResponse();
+          response.sendRedirect("/portal/portal-unavailable.html");
           pcontext.setResponseComplete(true);
           return null;
         }

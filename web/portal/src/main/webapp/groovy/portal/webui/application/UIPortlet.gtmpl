@@ -87,7 +87,7 @@
 		            <%} else {
 		               String des = _ctx.appRes("UIPortlet.label.portletContent");
 			            if(uicomponent.getId() !=null) des = uicomponent.getId() + " portlet";
-			            if(uicomponent.getTitle() !=null) des = uicomponent.getTitle() + "portlet";
+			            if(uicomponent.getName() !=null) des = uicomponent.getTitle() + " portlet";
 		            %>
 		              <%=des%>
       		      <%}%>
