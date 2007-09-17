@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>
   <page>
+		<page-id>group::portal/community::home</page-id>  
   	<owner-type>group</owner-type>
     <owner-id>portal/community</owner-id>
 	  <name>home</name>
     <factory-id>Desktop</factory-id>
     <access-permissions>*:/guest</access-permissions>
+    <edit-permission>owner:/portal/community</edit-permission>
     <show-max-window>true</show-max-window>
     
     <application>
@@ -31,11 +33,13 @@
   </page>
 
   <page>
+  	<page-id>group::portal/community::management</page-id>
   	<owner-type>group</owner-type>
     <owner-id>portal/community</owner-id>
     <name>management</name>    
     <factory-id>Desktop</factory-id>
     <access-permissions>*:/user</access-permissions>
+    <edit-permission>owner:/portal/community</edit-permission>
     <show-max-window>true</show-max-window>
     
     <application>

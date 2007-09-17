@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>
   <page>
+  	<page-id>portal::@owner@::content</page-id>
   	<owner-type>portal</owner-type>
 		<owner-id>@owner@</owner-id>
     <name>content</name>		
     <factory-id>Desktop</factory-id>
-    <access-permissions>*:/guest</access-permissions>
+	  <access-permissions>*:/guest</access-permissions>
+	  <edit-permission>owner:/portal/admin</edit-permission>
     <show-max-window>true</show-max-window>
     
     <application>
@@ -21,11 +23,13 @@
   </page>
 
   <page>
+  	<page-id>portal::@owner@::desktop</page-id>
   	<owner-type>portal</owner-type>
 		<owner-id>@owner@</owner-id>  	
     <name>desktop</name>		
     <factory-id>Desktop</factory-id>
-    <access-permissions>*:/guest</access-permissions>
+	  <access-permissions>*:/guest</access-permissions>
+	  <edit-permission>owner:/portal/admin</edit-permission>
     <show-max-window>true</show-max-window>
 
     <application>

@@ -2,6 +2,7 @@
 <page-set>
 
   <page>
+  	<page-id>user::root::sitemap</page-id>
     <owner-type>user</owner-type>
     <owner-id>root</owner-id>
     <name>sitemap</name>

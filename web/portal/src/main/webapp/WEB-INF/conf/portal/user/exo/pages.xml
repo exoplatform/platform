@@ -2,6 +2,7 @@
 <page-set>
 
   <page>
+  	<page-id>user::exo::sitemap</page-id>
     <owner-type>user</owner-type>
     <owner-id>exo</owner-id>
     <name>sitemap</name>
