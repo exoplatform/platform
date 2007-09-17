@@ -123,6 +123,7 @@
   margin-top: 6px;
   width: 120px;
   cursor: pointer;
+	text-align: center;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
@@ -130,6 +131,7 @@
   margin-top: 6px;
   width: 130px;
   cursor: pointer;
+	text-align: center;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
@@ -137,6 +139,7 @@
   margin-top: 6px;
   width: 170px;
   cursor: pointer;
+	text-align: center;
 }
 
 .UIOrganizationPortlet .ManagementIconContainer {
