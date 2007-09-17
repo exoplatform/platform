@@ -23,7 +23,7 @@
               <property name="swap-directory" value="../temp/swap/production"/>
             </properties>
             <value-storages>
-              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.SimpleFileValueStorage">
+              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path" value="../temp/values/production"/>
                 </properties>
@@ -35,8 +35,8 @@
           </container>
          <cache enabled="true">
           <properties>
-            <property name="maxSize" value="5000"/>
-            <property name="liveTime" value="30000"/>
+            <property name="maxSize" value="20000"/>
+            <property name="liveTime" value="3600"/><!-- 1 hour -->
           </properties>
          </cache>
          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
@@ -45,13 +45,13 @@
           </properties>
          </query-handler>
          <lock-manager>
-			    <time-out>900000</time-out><!-- 15min -->
-			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-			       <properties>
-			         <property name="path" value="../temp/lock"/>
-			       </properties>
-			     </persister>
-			   </lock-manager>
+                <time-out>900000</time-out><!-- 15min -->
+                 <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+                   <properties>
+                     <property name="path" value="../temp/lock"/>
+                   </properties>
+                 </persister>
+               </lock-manager>
        </workspace>
        <workspace name="draft" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
@@ -65,7 +65,7 @@
               <property name="swap-directory" value="../temp/swap/draft"/>
             </properties>
             <value-storages>
-              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.SimpleFileValueStorage">
+              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path" value="../temp/values/draft"/>
                 </properties>
@@ -77,8 +77,8 @@
           </container>
          <cache enabled="true">
           <properties>
-            <property name="maxSize" value="1000"/>
-            <property name="liveTime" value="10000"/>
+            <property name="maxSize" value="20000"/>
+            <property name="liveTime" value="3600"/>
           </properties>
          </cache>
          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
@@ -87,13 +87,13 @@
           </properties>
          </query-handler>
          <lock-manager>
-			    <time-out>900000</time-out><!-- 15min -->
-			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-			       <properties>
-			         <property name="path" value="../temp/lock"/>
-			       </properties>
-			     </persister>
-			   </lock-manager>
+                <time-out>900000</time-out><!-- 15min -->
+                 <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+                   <properties>
+                     <property name="path" value="../temp/lock"/>
+                   </properties>
+                 </persister>
+               </lock-manager>
        </workspace>
        <workspace name="backup" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
@@ -107,7 +107,7 @@
               <property name="swap-directory" value="../temp/swap/backup"/>
             </properties>
             <value-storages>
-              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.SimpleFileValueStorage">
+              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path" value="../temp/values/backup"/>
                 </properties>
@@ -119,8 +119,8 @@
           </container>
          <cache enabled="true">
           <properties>
-            <property name="maxSize" value="1000"/>
-            <property name="liveTime" value="10000"/>
+            <property name="maxSize" value="20000"/>
+            <property name="liveTime" value="3600"/>
           </properties>
          </cache>
          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
@@ -129,13 +129,13 @@
           </properties>
          </query-handler>
          <lock-manager>
-			    <time-out>900000</time-out><!-- 15min -->
-			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-			       <properties>
-			         <property name="path" value="../temp/lock"/>
-			       </properties>
-			     </persister>
-			   </lock-manager>
+                <time-out>900000</time-out><!-- 15min -->
+                 <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+                   <properties>
+                     <property name="path" value="../temp/lock"/>
+                   </properties>
+                 </persister>
+               </lock-manager>
        </workspace>
        <workspace name="digital-assets" auto-init-root-nodetype="nt:folder" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
@@ -149,7 +149,7 @@
               <property name="swap-directory" value="../temp/swap/digital-assets"/>
             </properties>
             <value-storages>
-              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.SimpleFileValueStorage">
+              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path" value="../temp/values/digital-assets"/>
                 </properties>
@@ -161,7 +161,7 @@
           </container>
           <cache enabled="true">
             <properties>
-              <property name="maxSize" value="2500"/>
+              <property name="maxSize" value="5000"/>
               <property name="liveTime" value="1800"/>
             </properties>
           </cache>
@@ -171,13 +171,13 @@
           </properties>
          </query-handler>
          <lock-manager>
-			    <time-out>900000</time-out><!-- 15min -->
-			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-			       <properties>
-			         <property name="path" value="../temp/lock"/>
-			       </properties>
-			     </persister>
-			   </lock-manager>
+                <time-out>900000</time-out><!-- 15min -->
+                 <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+                   <properties>
+                     <property name="path" value="../temp/lock"/>
+                   </properties>
+                 </persister>
+               </lock-manager>
         </workspace>
      </workspaces>
     </repository>
