@@ -73,12 +73,13 @@
   }
   
   void renderPageNavigation(PageNavigation navigation) {
+  	nodes = navigation.getNodes() ;
+  	if(nodes.size() < 1) return ;
     print """
       <div class="DecoratorBlock">
       	<div class="PageOwnerContainer">
         	<div class="TitleBar">${navigation.ownerId}'s pages </div>
     """ ;
-    nodes = navigation.getNodes() ;
     for(node in nodes) {
       if(node.getChildren() != null && node.getChildren().size() > 0) {
         renderPageNode(navigation, node) ;
