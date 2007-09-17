@@ -23,7 +23,7 @@
 	height:18px;
 	line-height:18px;
 	padding-left:10px;
-	color: orange;
+	color: orange; 
 }
 
 /*##############################- UIUserManagement -###########################*/
@@ -154,21 +154,21 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TreeActionIcon  {
 	float: right ;
-	margin: 4px 10px 0px 0px ;
+	margin: 2px 10px 0px 0px ;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
-	width: 28px; height: 22px;
+	width: 21px; height: 21px;
 	background: url('VistaSkin/background/RemoveGroup.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
-	width: 28px; height: 22px;
+	width: 21px; height: 21px;
 	background: url('VistaSkin/background/AddGroup.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
-	width: 28px; height: 22px;
+	width: 21px; height: 21px;
 	background: url('VistaSkin/background/EditGroup.png') no-repeat;
 }
 
