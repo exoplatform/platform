@@ -79,9 +79,11 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
     }
     portletWindow.maximized = true ;
     this.className = "ControlIcon RestoreIcon" ;
+		eXo.desktop.UIWindow.saveWindowProperties(portletWindow);
   }
   // Re initializes the scroll tabs managers on the page
 	eXo.portal.UIPortalControl.initAllManagers() ;
+	
 } ;
 
 UIWindow.prototype.minimizeWindowEvt =	function(evt) {
@@ -315,7 +317,7 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	var uiPage = DOMUtil.findAncestorByClass(object, "UIPage") ;
 	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id") ;
 	containerBlockId = uiPageIdNode.innerHTML ;
-	
+	var uiResizableBlock = DOMUtil.findFirstDescendantByClass(object, "div", "UIApplication") ;
 	var params ;
 	if(!appStatus) {
 	  params = [
@@ -324,7 +326,7 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	  	{name : "posY", value : object.offsetTop},
 	  	{name : "zIndex", value : object.style.zIndex},
 	  	{name : "windowWidth", value : object.offsetWidth},
-		  {name : "windowHeight", value : object.offsetHeight}
+		  {name : "windowHeight", value : uiResizableBlock.offsetHeight}
 	  ] ;
 	} else {
 		params = [
