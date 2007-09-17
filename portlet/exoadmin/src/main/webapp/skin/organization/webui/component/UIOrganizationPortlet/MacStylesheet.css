@@ -24,15 +24,13 @@
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
-  height: 18px; line-height: 18px;
+  line-height: 18px;
   font-weight: bold;
-  padding-left: 12px;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .SelectButtonLabel {
-  height: 18px; line-height: 18px;
+  line-height: 18px;
   font-weight: bold;
-  padding-left: 12px;
   color: #058ee6;
 }
 
@@ -42,16 +40,16 @@
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .UserButton {
   float: left;
-  padding-left: 10px;
   width: 130px;
   cursor: pointer;
+	text-align: center;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
   float: left;
-  padding-left: 7px;
   width: 140px;
   cursor: pointer;
+	text-align: center;
 }
 
 .UIOrganizationPortlet .ManagementTabContent {
@@ -61,9 +59,9 @@
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
   float: left;
-  padding-left: 7px;
   width: 178px;
   cursor: pointer;
+	text-align: center;
 }
 
 .UIOrganizationPortlet .UserManagementIcon {
