@@ -131,7 +131,6 @@ UIWindow.prototype.resizeWindowEvt = function(evt) {
 	var deltaX = evt.clientX - eXo.desktop.UIWindow.initMouseX ;
 	var deltaY = evt.clientY - eXo.desktop.UIWindow.initMouseY ;
 	var uiApplication = eXo.core.DOMUtil.findFirstDescendantByClass(eXo.desktop.UIWindow.portletWindow, "div", "UIApplication") ;
-	
 	eXo.desktop.UIWindow.portletWindow.style.width = Math.max(10, (eXo.desktop.UIWindow.originalWidth + deltaX)) + "px" ;
 	for(var i = 0; i < eXo.desktop.UIWindow.resizableObject.length; i++) {
 		eXo.desktop.UIWindow.resizableObject[i].style.height = Math.max(10,(eXo.desktop.UIWindow.resizableObject[i].originalHeight + deltaY)) + "px" ;
@@ -146,70 +145,6 @@ UIWindow.prototype.endResizeWindowEvt = function(evt) {
   this.onmousemove = null ;
   this.onmouseup = null ;
 } ;  
-
-//
-//UIWindow.prototype.maximizeWindow = function(windowObject, clickedElement) {
-//	var DOMUtil = eXo.core.DOMUtil ;
-//	var UIWindow = eXo.desktop.UIWindow ;
-//  var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-//  var desktopWidth = uiPageDesktop.offsetWidth  ;
-//  var desktopHeight = uiPageDesktop.offsetHeight  ;
-//  var uiApplication = DOMUtil.findFirstDescendantByClass(windowObject, "div", "UIApplication") ;
-//  var uiResizableBlock = DOMUtil.findDescendantsByClass(windowObject, "div", "UIResizableBlock") ;
-//
-//  var resizableObject = new Array() ;
-//  var tables = DOMUtil.findDescendantsByTag(windowObject, "table", resizableObject);
-//  if(uiApplication != null) resizableObject.push(uiApplication) ;
-//  if(uiResizableBlock != null) {
-//    for(var i = 0; i < uiResizableBlock.length; i++) {
-//      resizableObject.push(uiResizableBlock[i]) ;
-//    }
-//  }
-//  
-//  if(!windowObject.maximized) {
-//    UIWindow.backupObjectProperties(windowObject, resizableObject) ;
-//    windowObject.style.top = "0px" ;
-//    windowObject.oldY = 0;
-//    windowObject.style.left = "0px" ;
-//    windowObject.oldX = 0;
-//    windowObject.style.width = desktopWidth + "px" ;
-//    windowObject.oldW = desktopWidth;
-//    
-//    for(var i = 0; i < resizableObject.length; i++) {
-//    	if (resizableObject[i].nodeName.toLowerCase() == "table") {
-//    		resizableObject[i].style.height = "auto" ;
-//    	} else {
-//    		resizableObject[i].style.height = (eXo.core.Browser.getBrowserHeight() - 50) + "px" ;
-//    	}
-//    }
-//   
-//    
-//    windowObject.maximized = true ;
-//    clickedElement.className = "ControlIcon RestoreIcon" ;
-//    
-//    if(eXo.core.Browser.isIE6()) {
-//    	windowObject.backupUIApplicationWidth = uiApplication.offsetWidth ;
-//    	uiApplication.style.width = "auto" ;
-//    }
-//		
-//  } else {
-//    windowObject.style.top = UIWindow.posY + "px" ;
-//    windowObject.oldY = UIWindow.posY ;
-//    windowObject.style.left = UIWindow.posX + "px" ;
-//    windowObject.oldX = UIWindow.posX ;
-//    windowObject.style.width = UIWindow.originalWidth + "px" ;
-//    windowObject.oldW = UIWindow.originalWidth ;
-//    windowObject.maximized = false ;
-//    for(var i = 0; i < resizableObject.length; i++) {
-//      resizableObject[i].style.height = resizableObject[i].originalHeight + "px" ;
-//    }
-//    clickedElement.className = "ControlIcon MaximizedIcon" ;
-//    if(eXo.core.Browser.isIE6()) {
-//    	uiApplication.style.width = windowObject.backupUIApplicationWidth + "px" ;
-//    }
-//  }
-//	eXo.portal.UIPortalControl.initAllManagers() ;
-//} ;
 
 UIWindow.prototype.backupObjectProperties = function(windowPortlet, resizableComponents) {
 	var UIWindow = eXo.desktop.UIWindow ;
@@ -317,7 +252,8 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	var uiPage = DOMUtil.findAncestorByClass(object, "UIPage") ;
 	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id") ;
 	containerBlockId = uiPageIdNode.innerHTML ;
-	var uiResizableBlock = DOMUtil.findFirstDescendantByClass(object, "div", "UIApplication") ;
+	var uiResizableBlock = DOMUtil.findFirstDescendantByClass(object, "div", "UIResizableBlock") ;
+
 	var params ;
 	if(!appStatus) {
 	  params = [
