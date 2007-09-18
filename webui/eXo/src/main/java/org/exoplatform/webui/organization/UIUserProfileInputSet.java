@@ -31,7 +31,8 @@ import org.exoplatform.webui.form.UIFormStringInput;
 public class UIUserProfileInputSet extends UIFormInputSet {
   
   private String user_ ;
-  
+  public static String MALE = "male";
+  public static String FEMALE = "female";
   public UIUserProfileInputSet(String name) throws Exception {
     super(name);
     setComponentConfig(UIUserProfileInputSet.class, null) ;
@@ -64,8 +65,8 @@ public class UIUserProfileInputSet extends UIFormInputSet {
     for(String key : keys) {
       if(key.equalsIgnoreCase("user.gender")){
         List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-        ls.add(new SelectItemOption<String>("Male", "male")) ;
-        ls.add(new SelectItemOption<String>("Female", "female")) ;;
+        ls.add(new SelectItemOption<String>(MALE, MALE)) ;
+        ls.add(new SelectItemOption<String>(FEMALE, FEMALE)) ;;
         UIFormSelectBox genderSelectBox = new UIFormSelectBox(key, key, ls);
         set.addUIFormInput(genderSelectBox);  
         continue;

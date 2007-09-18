@@ -46,15 +46,20 @@ import org.exoplatform.webui.form.UIFormStringInput;
 )
 public class UIListUsers extends UISearch {
   
-  private static String[] USER_BEAN_FIELD = {"userName", "lastName", "firstName", "email"} ;
+  public static String USER_NAME = "userName";
+  public static String LAST_NAME = "lastName";
+  public static String FIRST_NAME = "firstName";
+  public static String EMAIL = "email";
+  
+  private static String[] USER_BEAN_FIELD = {USER_NAME, LAST_NAME, FIRST_NAME, EMAIL} ;
   private static String[] USER_ACTION = {"ViewUserInfo", "DeleteUser"} ;  
 
   private static List<SelectItemOption<String>> OPTIONS_ = new ArrayList<SelectItemOption<String>>(4);
   static{
-    OPTIONS_.add(new SelectItemOption<String>("Username", "userName"));
-    OPTIONS_.add(new SelectItemOption<String>("First name", "firstName"));
-    OPTIONS_.add(new SelectItemOption<String>("Last name", "lastName"));
-    OPTIONS_.add(new SelectItemOption<String>("Email", "email"));
+    OPTIONS_.add(new SelectItemOption<String>(USER_NAME, USER_NAME));
+    OPTIONS_.add(new SelectItemOption<String>(LAST_NAME, LAST_NAME));
+    OPTIONS_.add(new SelectItemOption<String>(FIRST_NAME, FIRST_NAME));
+    OPTIONS_.add(new SelectItemOption<String>(EMAIL, EMAIL));
   }
   
   private Query lastQuery_ ;
@@ -64,7 +69,7 @@ public class UIListUsers extends UISearch {
 	public UIListUsers() throws Exception {
 		super(OPTIONS_) ;
 		grid_ = addChild(UIGrid.class, null, "UIListUsersGird") ;
-		grid_.configure("userName", USER_BEAN_FIELD, USER_ACTION) ;
+		grid_.configure(USER_NAME, USER_BEAN_FIELD, USER_ACTION) ;
     //TODO: Tung.Pham added
     //--------------------------------------------
 		grid_.getUIPageIterator().setId("UIListUsersIterator") ;
@@ -111,10 +116,10 @@ public class UIListUsers extends UISearch {
       return ;
     }
     String selectBoxValue = select.getValue();
-    if(selectBoxValue.equals("userName")) query.setUserName(name) ;
-    if(selectBoxValue.equals("firstName")) query.setFirstName(name) ; 
-    if(selectBoxValue.equals("lastName")) query.setLastName(name) ;
-    if(selectBoxValue.equals("email")) query.setEmail(name) ;
+    if(selectBoxValue.equals(USER_NAME)) query.setUserName(name) ;
+    if(selectBoxValue.equals(LAST_NAME)) query.setFirstName(name) ; 
+    if(selectBoxValue.equals(FIRST_NAME)) query.setLastName(name) ;
+    if(selectBoxValue.equals(EMAIL)) query.setEmail(name) ;
     search(query);
   }
 
