@@ -36,15 +36,6 @@
 						<table class="ActionContainer" align="center">
 							<tr>
 								<td align="center">
-									 <a href="<%=uicomponent.event("Close");%>" class="ActionButton SimpleStyle">
-									 	<div class="ButtonLeft">
-									    	<div class="ButtonRight">
-									        	<div class="ButtonMiddle">
-									              <%=_ctx.appRes("UILoginForm.label.Discard")%>
-									            </div>
-									    	</div>
-									    </div>
-									 </a>
 									 <a href="<%=uicomponent.url("Signin");%>" id="UIPortalLoginFormAction" class="ActionButton SimpleStyle">
 										 <div class="ButtonLeft">
 									    	 <div class="ButtonRight">
@@ -53,6 +44,15 @@
 									            </div>
 									         </div>
 									     </div>
+									 </a>								
+									 <a href="<%=uicomponent.event("Close");%>" class="ActionButton SimpleStyle">
+									 	<div class="ButtonLeft">
+									    	<div class="ButtonRight">
+									        	<div class="ButtonMiddle">
+									              <%=_ctx.appRes("UILoginForm.label.Discard")%>
+									            </div>
+									    	</div>
+									    </div>
 									 </a>								
 								</td>
 							</tr>
