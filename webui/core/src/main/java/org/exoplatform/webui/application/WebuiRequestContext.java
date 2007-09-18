@@ -55,6 +55,10 @@ abstract public class WebuiRequestContext extends RequestContext {
     appRes_ = getApplication().getResourceBundle(uiApplication.getLocale()) ;   
   }
   
+  public void refreshResourceBundle() throws Exception {
+    appRes_ = getApplication().getResourceBundle(uiApplication_.getLocale()) ;  
+  }
+  
   public Locale getLocale() {  return uiApplication_.getLocale() ;} 
   
   public ResourceBundle getApplicationResourceBundle() {  return appRes_ ; }

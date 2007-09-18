@@ -64,6 +64,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
     if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
     uiPortalApp.setLocale(localeConfig.getLocale());
     uiPortalApp.setSkin(uiPortal.getSkin());
+    Util.getPortalRequestContext().refreshResourceBundle();
   }
   
   @Override
@@ -126,7 +127,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
       UIPortal uiPortal = Util.getUIPortal();
       PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
            PageNodeEvent.CHANGE_PAGE_NODE, null, uiPortal.getSelectedNode().getUri()) ;
-      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;    
+      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ; 
     }
   }
   

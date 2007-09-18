@@ -5,16 +5,13 @@
 package org.exoplatform.portal.webui.portal;
 
 
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.UIManagement;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
-import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIDescription;

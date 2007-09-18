@@ -23,7 +23,7 @@ public class EmailAddressValidator implements Validator {
   public void validate(UIFormInput uiInput) throws Exception {
     String s = (String)uiInput.getValue();
     if(s == null || s.trim().length() < 1 || (s).matches(EMAIL_REGEX)) return;
-    Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
-    throw new MessageException(new ApplicationMessage("EmailAddressValidator.msg.Invalid-input", args)) ;
+//    Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
+    throw new MessageException(new ApplicationMessage("EmailAddressValidator.msg.Invalid-input", null)) ;
   }
 }
