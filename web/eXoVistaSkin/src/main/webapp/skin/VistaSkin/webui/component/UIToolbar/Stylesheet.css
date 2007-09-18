@@ -120,7 +120,7 @@
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .UserButton {
   float: left;
-  margin-top: 6px;
+  margin-top: 6px; margin-left: 0px;
   width: 120px;
   cursor: pointer;
 	text-align: center;
@@ -128,7 +128,7 @@
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
   float: left;
-  margin-top: 6px;
+  margin-top: 6px; margin-left: 0px;
   width: 130px;
   cursor: pointer;
 	text-align: center;
@@ -136,7 +136,7 @@
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
   float: left;
-  margin-top: 6px;
+  margin-top: 6px;  margin-left: 0px;
   width: 170px;
   cursor: pointer;
 	text-align: center;
