@@ -65,6 +65,7 @@ import org.exoplatform.webui.form.UISearchForm;
         @EventConfig(listeners = UIPageBrowser.SavePageActionListener.class, name = "Save"),
         @EventConfig(listeners = UIPageForm.ChangeOwnerTypeActionListener.class, phase = Phase.DECODE),
         @EventConfig(listeners = UIPageForm.ChangeOwnerIdActionListener.class, phase = Phase.DECODE),
+        @EventConfig(listeners = UIPageForm.SelectMembershipActionListener.class, phase = Phase.DECODE),
         @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
       },
       initParams = @ParamConfig(
@@ -336,7 +337,6 @@ public class UIPageBrowser extends UISearch {
       UIPage uiPage = uiPageForm.getUIPage();
       Page page = new Page() ;
       uiPageForm.invokeSetBindingBean(page);
-      page.setPageId(page.getOwnerType()+"::"+page.getOwnerId()+"::"+page.getName());
       UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
 
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
