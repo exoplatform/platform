@@ -25,19 +25,24 @@ import org.exoplatform.services.organization.GroupEventListener;
 public class GroupPortalConfigListener extends GroupEventListener {
   
   public void preDelete(Group group) throws Exception {
+    
+    
     PortalContainer container  = PortalContainer.getInstance() ;
     UserPortalConfigService portalConfigService = 
       (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
     DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
-    String groupId = group.getId() ;
-    
+    String groupId = group.getId().trim(); 
+    if(groupId.charAt(0)=='/') groupId = groupId.substring(1);
     Query<Page> pageQuery = new Query<Page>(PortalConfig.GROUP_TYPE, groupId,  Page.class) ;
     PageList pageList = dataStorage.find(pageQuery) ;
+    
     int i = 1 ;
     while(i <= pageList.getAvailablePage()) {
       List<?> list = pageList.getPage(i) ;
       Iterator<?> iterator = list.iterator() ;
-      while(iterator.hasNext()) portalConfigService.remove((Page)iterator.next() ) ;
+      while(iterator.hasNext()){
+        portalConfigService.remove((Page)iterator.next() ) ;
+      }
       i++ ;
     }
 
