@@ -184,9 +184,10 @@ public class UIPageForm extends UIFormTabPane {
     if(!page.isShowMaxWindow()) {
       page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());      
     }
-    if(PortalConfig.USER_TYPE.equals(page.getOwnerType())) return;
-    page.setAccessPermissions(uiPermissionSetting.getChild(UIListPermissionSelector.class).getValue());
-    page.setEditPermission(uiPermissionSetting.getChild(UIPermissionSelector.class).getValue());
+    if(!PortalConfig.USER_TYPE.equals(page.getOwnerType())) {
+      page.setAccessPermissions(uiPermissionSetting.getChild(UIListPermissionSelector.class).getValue());
+      page.setEditPermission(uiPermissionSetting.getChild(UIPermissionSelector.class).getValue());      
+    }
     UIFormInputItemSelector uiTemplate = getChildById("Template");
     if(uiTemplate != null) {
       SelectItemOption<?> itemOption = uiTemplate.getSelectedItemOption();
