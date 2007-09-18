@@ -87,6 +87,12 @@ public class UIAvailablePortletForm extends UIForm {
         list_.add(application);
       } 
       findExoApplication();
+      Comparator application = new Comparator<Application>(){
+        public int compare(Application portlet1, Application portlet2){  
+          return portlet1.getDisplayName().compareTo(portlet2.getDisplayName());
+        }
+      };    
+      Collections.sort(list_, application);
       setup();
   }
   
