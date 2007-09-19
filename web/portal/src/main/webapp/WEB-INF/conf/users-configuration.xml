@@ -85,7 +85,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>portal</string></field>
                     <field  name="parentId"><string></string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /portal group</string></field>
                     <field  name="label"><string>portal</string></field>                    
                   </object>
@@ -94,7 +93,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>community</string></field>
                     <field  name="parentId"><string>/portal</string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /portal/community group</string></field>
                     <field  name="label"><string>community</string></field>
                   </object>
@@ -103,7 +101,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>company</string></field>
                     <field  name="parentId"><string>/portal</string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /portal/company group</string></field>
                     <field  name="label"><string>company</string></field>
                   </object>
@@ -112,7 +109,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>hr</string></field>
                     <field  name="parentId"><string>/portal/company</string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /portal/company/human resource</string></field>
                     <field  name="label"><string>hr</string></field>
                   </object>
@@ -121,7 +117,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>management</string></field>
                     <field  name="parentId"><string>/portal/company</string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /portal/company/management group</string></field>
                     <field  name="label"><string>management</string></field>
                   </object>
@@ -130,7 +125,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>admin</string></field>
                     <field  name="parentId"><string>/portal</string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /portal/admin group</string></field>
                     <field  name="label"><string>admin</string></field>
                   </object>
@@ -139,7 +133,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>admin</string></field>
                     <field  name="parentId"><string></string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /admin group</string></field>
                     <field  name="label"><string>admin</string></field>
                   </object>
@@ -148,7 +141,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>user</string></field>
                     <field  name="parentId"><string></string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /user group</string></field>
                     <field  name="label"><string>user</string></field>
                   </object>
@@ -157,7 +149,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>guest</string></field>
                     <field  name="parentId"><string></string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /guest group</string></field>
                     <field  name="label"><string>guest</string></field>
                   </object>
@@ -166,7 +157,6 @@
                   <object type="org.exoplatform.services.organization.OrganizationConfig$Group">
                     <field  name="name"><string>community</string></field>
                     <field  name="parentId"><string>/portal</string></field>
-                    <field  name="type"><string>hierachy</string></field>
                     <field  name="description"><string>the /community group</string></field>
                     <field  name="label"><string>community</string></field>
                   </object>
