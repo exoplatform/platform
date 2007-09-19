@@ -3,7 +3,6 @@ package org.exoplatform.portal.webui.application;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.services.log.ExoLogger;
@@ -22,15 +21,15 @@ public class EventsWrapper {
   protected static Log log = ExoLogger
 	  .getLogger("portal:EventsWrapper");
 
-  private Map events;
+  private List<javax.portlet.Event> events;
   private List<CounterWrapper> counters = new ArrayList<CounterWrapper>();
   public static final int THRESHOLD = 4;
 
-  public EventsWrapper(Map events) {
+  public EventsWrapper(List<javax.portlet.Event> events) {
 	this.events = events;
   }
 
-  public Map getEvents() {
+  public List<javax.portlet.Event> getEvents() {
 	return this.events;
   }
 
@@ -66,13 +65,13 @@ public class EventsWrapper {
   }
 
   public class CounterWrapper {
-	public String portletId;
-
-	public int counter = 0;
-
-	public CounterWrapper(String portletId) {
-	  this.portletId = portletId;
-	}
+  	public String portletId;
+  
+  	public int counter = 0;
+  
+  	public CounterWrapper(String portletId) {
+  	  this.portletId = portletId;
+  	}
   }
 
 }
