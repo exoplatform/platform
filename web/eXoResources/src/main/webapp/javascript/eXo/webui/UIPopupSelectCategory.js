@@ -3,7 +3,7 @@ function UIPopupSelectCategory() {
 UIPopupSelectCategory.prototype.hide = function() {
 	var ln = eXo.core.DOMUtil.hideElementList.length ;
 	if (ln > 0) {
-		for (var i = 0; i < ln; i++) {
+		for (var i = 0 ; i < ln ; i++) {
 			eXo.core.DOMUtil.hideElementList[i].style.display = "none" ;
 		}
 	}
