@@ -203,6 +203,7 @@
   background: url('background/TitleBar1x20.gif') repeat-x ;
   padding-left: 10px ;
   color: #125aad;
+  white-space: nowrap;
 }
 
 .UIExoStart .StartMenuContainer .BasicIcon {
