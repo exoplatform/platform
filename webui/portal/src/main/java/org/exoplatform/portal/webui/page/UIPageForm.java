@@ -186,7 +186,10 @@ public class UIPageForm extends UIFormTabPane {
     }
     if(!PortalConfig.USER_TYPE.equals(page.getOwnerType())) {
       page.setAccessPermissions(uiPermissionSetting.getChild(UIListPermissionSelector.class).getValue());
-      page.setEditPermission(uiPermissionSetting.getChild(UIPermissionSelector.class).getValue());      
+      page.setEditPermission(uiPermissionSetting.getChild(UIPermissionSelector.class).getValue());
+      UserACL userACL = getApplicationComponent(UserACL.class) ;
+      String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
+      userACL.hasPermission(page, remoteUser) ;
     }
     UIFormInputItemSelector uiTemplate = getChildById("Template");
     if(uiTemplate != null) {
@@ -221,11 +224,9 @@ public class UIPageForm extends UIFormTabPane {
       
       UIPage uiPage = uiPageForm.getUIPage();
       if(uiPage == null)  return;
-      
       Page page = new Page() ;
       page.setPageId(uiPage.getPageId());
       uiPageForm.invokeSetBindingBean(page);
-     
       page.setOwnerType(uiPage.getOwnerType());
       List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>();
       findAllPortlet(uiPortlets, uiPage);
@@ -233,7 +234,9 @@ public class UIPageForm extends UIFormTabPane {
       for(UIPortlet uiPortlet : uiPortlets) {
         applications.add(PortalDataMapper.toPortletModel(uiPortlet));
       }
-
+      
+      UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+      UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
       if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && !Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         page.setShowMaxWindow(false);
         uiPage.getChildren().clear();
@@ -244,9 +247,10 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
-        UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-        UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
-        uiEditBar.setRendered(true);
+//        UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+//        UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
+//        uiEditBar.setRendered(true);
+        if(page.isModifiable()) uiEditBar.setRendered(true) ;
         uiEditBar.setUIPage(uiPage);
 
         pcontext.setFullRender(true);
@@ -267,8 +271,8 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
-        UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-        UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
+//        UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
+//        UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
         uiEditBar.setUIPage(uiPage);
         Class<?> [] childrenToRender = null;
         if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
@@ -306,7 +310,9 @@ public class UIPageForm extends UIFormTabPane {
       page.setModifier(pcontext.getRemoteUser());
       PortalDataMapper.toUIPage(uiPage, page);  
       if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
-      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
+      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+      if(!page.isModifiable()) uiEditBar.setRendered(false) ;
+      pcontext.addUIComponentToUpdateByAjax(uiManagement);
     }
     
     protected void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {

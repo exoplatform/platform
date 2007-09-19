@@ -84,7 +84,10 @@ public class UIPageNavigationControlBar extends UIToolbar {
       
       //Class<?> [] classes = new Class<?>[]{UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};
       UIPageManagement uiManagement = uiPageNav.getParent();
-      //uiManagement.setRenderedChildrenOfTypes(classes);
+      Class<?> [] classes = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+      UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class) ;
+      uiEditBar.setUIPage(null) ;
+      uiManagement.setRenderedChildrenOfTypes(classes);
       uiManagement.setMode(ManagementMode.EDIT, event) ;
       //UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       //event.getRequestContext().addUIComponentToUpdateByAjax(uiControl);

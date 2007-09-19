@@ -110,10 +110,15 @@ public class UIPageNodeActionListener {
         //--------------------------------------
         return;
       }
-      UIPage uiPage = Util.toUIPage(page, uiToolPanel);
+      UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
+      //---------------------------------
+      //UIPage uiPage = Util.toUIPage(node, uiToolPanel);
+      UIPage uiPage = uiPageEditBar.getUIPage() ;
+      if(uiPage == null || !uiPage.getPageId().equals(page.getPageId())) uiPage = Util.toUIPage(page, uiToolPanel); 
+      //---------------------------------
       uiApp.findFirstComponentOfType(UIPageBody.class).setUIComponent(null);
       
-      if(!page.isModifiable()){
+      if(!uiPage.isModifiable()){
         uiToolPanel.setUIComponent(uiPage) ;
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
@@ -122,7 +127,6 @@ public class UIPageNodeActionListener {
         return;
       }
       
-      UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
       uiPageEditBar.setUIPage(uiPage); 
       uiPageEditBar.showUIPage();
 
