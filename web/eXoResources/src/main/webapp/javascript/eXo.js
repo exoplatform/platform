@@ -26,8 +26,7 @@ var eXo  = {
   
   contact : { },
   
-  forum : { },
-  
+  forum : { },  
   mail : { }  
 } ;
 
