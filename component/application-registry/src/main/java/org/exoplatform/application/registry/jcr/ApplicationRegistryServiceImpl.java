@@ -294,8 +294,8 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       app.setApplicationName(portletName);
       app.setApplicationGroup(categoryName);
       app.setCategoryName(categoryName);
-      app.setApplicationType("jsr168-portlet");
-      app.setDescription("jsr168 portlet application");
+      app.setApplicationType("Portlet");
+      app.setDescription("A portlet application");
       app.setDisplayName(portletName);
       app.setId(categoryName + "/" + portletName);
       save(category, app);

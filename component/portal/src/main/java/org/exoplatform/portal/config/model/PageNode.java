@@ -6,12 +6,7 @@ package org.exoplatform.portal.config.model;
 
 import java.util.ArrayList;
 import java.util.List;
-/**
- * Thu, Apr 01, 2004 @ 11:02 
- * @author: Tuan Nguyen
- * @email:   tuan08@users.sourceforge.net
- * @version: $Id: PageNode.java,v 1.12 2004/10/27 03:11:17 tuan08 Exp $
- */
+
 public class PageNode  {
   
   protected ArrayList<PageNode> children = new ArrayList<PageNode>(5) ;

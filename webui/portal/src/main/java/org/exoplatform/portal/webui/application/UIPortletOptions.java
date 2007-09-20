@@ -43,7 +43,7 @@ public class UIPortletOptions extends UIContainer {
     dropCategorys.setOnServer(true);
     dropCategorys.setOnChange("ChangeOption");
     String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
-    List<ApplicationCategory> pCategories = service.getApplicationCategories(remoteUser, "jsr168-portlet") ; 
+    List<ApplicationCategory> pCategories = service.getApplicationCategories(remoteUser, "Portlet") ; 
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
     PortletComparator portletComparator = new PortletComparator() ;
     for(ApplicationCategory pCategory : pCategories) {

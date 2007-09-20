@@ -25,8 +25,6 @@ import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.event.Event;
 
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@yahoo.com
  * Jun 5, 2006
  */
 public class Util { 

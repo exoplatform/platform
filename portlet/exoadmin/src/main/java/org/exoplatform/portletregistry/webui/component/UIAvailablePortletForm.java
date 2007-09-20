@@ -169,8 +169,8 @@ public class UIAvailablePortletForm extends UIForm {
         app.setApplicationName(portletName);
         app.setApplicationGroup(categoryName);
         app.setCategoryName(categoryName);
-        app.setApplicationType("jsr168-portlet");
-        app.setDescription("jsr168 portlet application");
+        app.setApplicationType("Portlet");
+        app.setDescription("A portlet application");
         app.setAccessPermissions(new String[]{});
         return  app;
       }

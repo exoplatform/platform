@@ -8,9 +8,6 @@ import java.util.ArrayList;
 
 /**
  * May 13, 2004
- * @author: Tuan Nguyen
- * @email:   tuan08@users.sourceforge.net
- * @version: $Id: Page.java,v 1.9 2004/11/03 01:23:55 tuan08 Exp $
  **/
 public class Page extends Container {
   

@@ -20,9 +20,7 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@exoplatform.com
+ * Created by The eXo Platform SAS
  * May 29, 2007  
  */
 public class UserPortalConfigListener extends UserEventListener {

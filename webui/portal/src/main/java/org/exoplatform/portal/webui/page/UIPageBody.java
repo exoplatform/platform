@@ -23,8 +23,6 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponentDecorator;
 
 /**
- * Author : Nhu Dinh Thuan
- *          nhudinhthuan@yahoo.com
  * May 19, 2006
  */
 @ComponentConfig(template = "system:/groovy/portal/webui/page/UIPageBody.gtmpl")

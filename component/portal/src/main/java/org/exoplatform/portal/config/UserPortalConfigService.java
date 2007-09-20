@@ -69,7 +69,6 @@ public class UserPortalConfigService {
    * @param userName
    * @return a UserPortalConfig object that contain the PortalConfig  and a list of the PageNavigation objects
    */
-  
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
     PortalConfig portal = (PortalConfig) portalConfigCache_.get(portalName) ;
     if(portal == null) {

@@ -11,13 +11,12 @@
  *      |          |-->{portletState}
  *      |          |
  *      |          |-->{PortletResponseData}
- *      |          |      |
- *      |          |      |--->{BlockToUpdate}
- *      |          |      |         |-->{BlockToUpdateId}
- *      |          |      |         |-->{BlockToUpdateData}
- *      |          |      |
- *      |          |      |--->{BlockToUpdate}
- *      |          |--->{PortletResponseScript}
+ *      |                 |
+ *      |                 |--->{BlockToUpdate}
+ *      |                 |         |-->{BlockToUpdateId}
+ *      |                 |         |-->{BlockToUpdateData}
+ *      |                 |
+ *      |                 |--->{BlockToUpdate}
  *      |
  *      |--->{PortalResponseData}
  *      |      |
@@ -59,7 +58,6 @@ function PortletResponse(responseDiv) {
   this.portletMode =  div[2].innerHTML ;
   this.portletState =  div[3].innerHTML ;
   this.portletData =  div[4].innerHTML ;
-  if(div[5])this.script = div[5].innerHTML ;
   this.blocksToUpdate = null ;
   var blocks = DOMUtil.findChildrenByClass(div[4], "div", "BlockToUpdate") ;
   if(blocks.length > 0 ) {
@@ -71,13 +69,27 @@ function PortletResponse(responseDiv) {
       obj.data = div[1] ;
       this.blocksToUpdate[i] = obj ;
     }
+  } else {
+    /*
+    * If there is no block to update it means we are in a JSR 286 / 168 portlet
+    * In that case we need to find all the script tags and dynamically execute them.
+    *
+    * Indeed, when being in an AJAX call that return some <script> tag, local functions are
+    * lost when calling the eval() methods. When the code is written by eXo we use 
+    * global scoped funstions like "instance.myFunction = function(arguments)".
+    *
+    * But when the code is provided by a third party portlet, it is not possible to
+    * force that good practise. Hence we have to dynamically reference the embedded
+    * script in the head tag
+    */
+    var scripts = eXo.core.DOMUtil.findDescendantsByTagName(div[4], "script") ;
+    if(scripts.length > 0) {
+      for(var i = 0 ; i < scripts.length; i++) {
+        var encodedName = 'script_' + i + '_' + this.portletId;
+        appendScriptToHead(encodedName, scripts[i]);
+      }
+    }
   }
-  
-  //alert("portlet Id: " +  this.portletId) ;
-  //alert("portlet Title: " +  this.portletTitle) ;
-  //alert("portlet Mode: " +  this.portletMode) ;
-  //alert("portlet State: " +  this.portletState) ;
-  //zalert("portlet Data: " +  this.portletData) ;
 };
 
 /*****************************************************************************************/
@@ -107,12 +119,50 @@ function PortalResponse(responseDiv) {
         obj.blockId = dataBlocks[0].innerHTML ;
         obj.data = dataBlocks[1] ;
         this.blocksToUpdate[j] = obj ;
+        
+        /*
+        * handle embeded javascripts to dynamically add them to the page head
+        *
+        * This is needed when we refresh an entire portal page that contains some 
+        * standard JSR 168 / 286 portlets with embeded <script> tag
+        */
+        var scripts = eXo.core.DOMUtil.findDescendantsByTagName(dataBlocks[1], "script") ;
+        if(scripts.length > 0) {
+          for(var k = 0 ; k < scripts.length; k++) {
+            var encodedName = 'script_' + k + '_' +  obj.blockId;
+            appendScriptToHead(encodedName, scripts[k]);
+          }
+        }
+                    
       }
     } else if(div[i].className == "PortalResponseScript") {
       this.script = div[i].innerHTML ;
     }
   }
 };
+
+/*
+* This function is used to dynamically append a script to the head tag
+* of the page
+*/
+function appendScriptToHead(scriptId, scriptElement) {
+  var head = document.getElementsByTagName("head")[0]; 
+  var descendant = eXo.core.DOMUtil.findDescendantById(head, scriptId);
+  var script;
+  if(descendant) {
+    script = descendant;
+    script.innerHTML = scriptElement.innerHTML;
+  } else {
+    script = document.createElement('script');
+    script.id = scriptId;
+    script.type = 'text/javascript';    
+    script.innerHTML = scriptElement.innerHTML;
+    head.appendChild(script); 
+  }
+};
+
+
+
 /*****************************************************************************************/
 /*
 * This is the main object that acts both as a field wrapper and a some status method wrapper
@@ -395,25 +445,21 @@ function HttpResponseHandler(){
 	  if(portletResponses != null) {
 	    for(var i = 0; i < portletResponses.length; i++) {
 	      var portletResponse = portletResponses[i] ;
-        if(portletResponse.blocksToUpdate == null) {
-          /*
-          * This means that the entire portlet fragment is included in the portletResponse.portletData
-          * and that it does not contain any finer block to update. Hence replace the innerHTML inside the
-          * id="PORTLET-FRAGMENT" block
-          *
-          * TODO: handle the inner <script> tags to dynamically evauate the embeded new script when the 
-          *       third party portlet does not use our own JavaScriptManager on the serverside
-          */
-          var parentBlock =  document.getElementById(portletResponse.portletId) ;
-          var target = eXo.core.DOMUtil.findDescendantById(parentBlock, "PORTLET-FRAGMENT") ;
-          target.innerHTML = portletResponse.portletData;
-        } else {
-          /*
-          * Else updates each block with the portlet
-          */
-          instance.updateBlocks(portletResponse.blocksToUpdate, portletResponse.portletId) ;
-        }
-	      instance.executeScript(portletResponse.script) ;
+          if(portletResponse.blocksToUpdate == null) {
+            /*
+            * This means that the entire portlet fragment is included in the portletResponse.portletData
+            * and that it does not contain any finer block to update. Hence replace the innerHTML inside the
+            * id="PORTLET-FRAGMENT" block
+            */
+            var parentBlock =  document.getElementById(portletResponse.portletId) ;
+            var target = eXo.core.DOMUtil.findDescendantById(parentBlock, "PORTLET-FRAGMENT") ;
+            target.innerHTML = portletResponse.portletData;
+          } else {
+            /*
+            * Else updates each block with the portlet
+            */
+            instance.updateBlocks(portletResponse.blocksToUpdate, portletResponse.portletId) ;
+          }
 	    }
 	  }
 	  if(response.blocksToUpdate == undefined) {

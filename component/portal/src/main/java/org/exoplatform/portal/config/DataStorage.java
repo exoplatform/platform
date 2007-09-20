@@ -15,9 +15,7 @@ import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.portletcontainer.pci.WindowID;
 
 /**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan.nguyen@exoplatform.com
+ * Created by The eXo Platform SAS
  * Apr 19, 2007
  * 
  * This interface is used to load the PortalConfig, Page config  and  Navigation config from the 
