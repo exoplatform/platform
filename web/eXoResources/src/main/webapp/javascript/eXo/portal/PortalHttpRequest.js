@@ -229,7 +229,16 @@ function AjaxRequest(method, url, queryString) {
 		if (instance.request.status == 200 && typeof(instance.onSuccess) == "function") {
 			instance.onSuccess(instance) ;
 			instance.onCompleteInternalHandled = true ;
-			if (typeof(instance.callBack) == "function") instance.callBack(instance) ;
+			if (typeof(instance.callBack) == "function") {
+			  instance.callBack(instance) ;
+			} else if (instance.callBack) { // Modified by Uoc Nguyen: allow user use custom javascript code for callback
+			  try {
+			    eval(instance.callBack) ;
+			  }
+			  catch (e) {
+          throw (new Error('Can not execute callback...')) ;
+        }
+			}
 		} else if (typeof(instance.onError) == "function") {
 			instance.onError(instance) ;
 			instance.onCompleteInternalHandled = false ;
