@@ -147,11 +147,16 @@ UIContextMenu.prototype.changeAction= function(obj, id) {
 	var actions = eXo.core.DOMUtil.findDescendantsByTagName(obj, "a") ;
 	var len = actions.length ;
 	var href = "" ;
-	var pattern = /objectId\=.*id/ ;
+	var pattern = /objectId\=.*&|objectId\=.*'/ ;
+	var character = "" ;
+	var value = "" ;
 	for(var i = 0 ; i < len ; i++) {
 		href = String(actions[i].href) ;
 		if (!pattern.test(href)) continue ;
-		actions[i].href = href.replace(pattern,"objectId="+id) ;
+		character = href.match(pattern).toString() ;
+		character = character.substring((character.length - 1), character.length) ;
+		value = id + character ;
+		actions[i].href = href.replace(pattern,"objectId="+value) ;
 	}
 } ;
 eXo.webui.UIContextMenu = new UIContextMenu() ;
