@@ -179,7 +179,9 @@ public class UIPageForm extends UIFormTabPane {
     page.setOwnerType(getUIFormSelectBox("ownerType").getValue());
     page.setOwnerId(getUIStringInput("ownerId").getValue());
     page.setName(getUIStringInput("name").getValue());
-    page.setTitle(getUIStringInput("title").getValue());
+    String title = getUIStringInput("title").getValue() ;
+    if(title == null || title.trim().length() < 1) title = page.getName() ;
+    page.setTitle(title);
     
     if(!page.isShowMaxWindow()) {
       page.setShowMaxWindow((Boolean) getUIFormCheckBoxInput("showMaxWindow").getValue());      
@@ -187,10 +189,11 @@ public class UIPageForm extends UIFormTabPane {
     if(!PortalConfig.USER_TYPE.equals(page.getOwnerType())) {
       page.setAccessPermissions(uiPermissionSetting.getChild(UIListPermissionSelector.class).getValue());
       page.setEditPermission(uiPermissionSetting.getChild(UIPermissionSelector.class).getValue());
-      UserACL userACL = getApplicationComponent(UserACL.class) ;
-      String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
-      userACL.hasPermission(page, remoteUser) ;
     }
+    UserACL userACL = getApplicationComponent(UserACL.class) ;
+    String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
+    userACL.hasPermission(page, remoteUser) ;
+
     UIFormInputItemSelector uiTemplate = getChildById("Template");
     if(uiTemplate != null) {
       SelectItemOption<?> itemOption = uiTemplate.getSelectedItemOption();
@@ -247,9 +250,6 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
-//        UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-//        UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
-//        uiEditBar.setRendered(true);
         if(page.isModifiable()) uiEditBar.setRendered(true) ;
         uiEditBar.setUIPage(uiPage);
 
@@ -271,8 +271,6 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
-//        UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-//        UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
         uiEditBar.setUIPage(uiPage);
         Class<?> [] childrenToRender = null;
         if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {

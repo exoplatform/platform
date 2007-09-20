@@ -227,7 +227,8 @@ public class UIPageCreationWizard extends UIPageWizard {
         page.setName(pageNode.getName());
       }
       page.setModifiable(true);
-      if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getLabel()) ;
+      ///if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getLabel()) ;
+      if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getName()) ;
       
       boolean isDesktopPage = Page.DESKTOP_PAGE.equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);
