@@ -72,6 +72,12 @@
 	overflow: hidden;
 }
 
+.UIDropDownItemSelector .UIItemList .Icon {
+	float: none;
+	width: auto;
+	padding-left: 20px;
+}
+
 /********************************   UIItemList   ****************************************/
 .UIItemList {
 	border: 1px solid #787878;
