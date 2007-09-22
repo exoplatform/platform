@@ -89,6 +89,7 @@
 
 .UISitemap .SitemapItemBox .Item a {
   color: black;
+  display: block;
 }
 
 .UISitemap .SitemapItemBox .Item a:hover {
@@ -107,6 +108,12 @@
   margin: 4px 5px 0px 5px ;
 }
 
+.UISitemap .SitemapItemBox .Item .IconItem {
+	padding-left: 20px;
+	background-position: left 4px;
+	line-height: 25px;
+}
+
 .UISitemap .SitemapItemBox .Message {
   float: left; margin-left: 10px; 
   width: 170px;
@@ -114,22 +121,22 @@
 }
 
 .UISitemap .SitemapItemBox .Level1 {
-  height: 26px ;
   border: solid 1px #cecece ;
   background: url(/eXoMacSkin/skin/MacSkin/background/BgItemSelector1x4.png) repeat;
   margin-top: 3px;
+  padding: 0px 5px;
 }
 
 .UISitemap .SitemapItemBox .Level2 {
-  height: 22px ;
   border: solid 1px #cecece ; border-top: none;
   background: #f7f7f7 ;
   padding-left: 20px;
+  padding: 0px 5px;
 }
 
 .UISitemap .SitemapItemBox .Level3 {
-  height: 22px ;
   border: solid 1px #cecece ; border-top: none;
   background: white ;
   padding-left: 40px;
+  padding: 0px 5px;
 }

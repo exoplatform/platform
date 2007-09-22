@@ -93,6 +93,7 @@
 
 .UISitemap .SitemapItemBox .Item a {
   color: black; 
+  display: block;
 }
 
 .UISitemap .SitemapItemBox .Item a:hover {
@@ -111,6 +112,12 @@
   margin: 4px 5px 0px 5px ;
 }
 
+.UISitemap .SitemapItemBox .Item .IconItem {
+	padding-left: 20px;
+	background-position: left 4px;
+	line-height: 25px;
+}
+
 .UISitemap .SitemapItemBox .Message {
   float: left; margin-left: 10px; 
   width: 170px;
@@ -118,24 +125,24 @@
 }
 
 .UISitemap .SitemapItemBox .Level1 {
-  height: 25px ;
   border: solid 1px #d9d9d9 ; 
   background: #f3f3f3 ;
   margin-top: 3px;
+  padding: 0px 4px;
 }
 
 .UISitemap .SitemapItemBox .Level2 {
-  height: 25px ;
   background: #fafafa;
   padding: 2px 0px 1px 20px ;
   border: 1px solid #d9d9d9;
   border-top: none;
+  padding: 0px 4px;
 }
 
 .UISitemap .SitemapItemBox .Level3 {
-  height: 25px ;
   background: white ;
   padding: 0px 0px 3px 40px ;
   border: 1px solid #d9d9d9;
   border-top: none;
+  padding: 0px 4px;
 }

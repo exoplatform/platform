@@ -12,8 +12,7 @@
 	  	  <div class="Item">
 		      <div class="Level$intLevel">
 		        <div class="OverflowContainer">
-		          <a class="Icon ${iconType}" href="$actionLink"><span></span></a>
-		          <div class="Label"><a href="$actionLink">$node.label</a></div>
+		          <a class="IconItem ${iconType}" href="$actionLink">$node.label</a>
 		        </div>
 		      </div>
 		    </div>

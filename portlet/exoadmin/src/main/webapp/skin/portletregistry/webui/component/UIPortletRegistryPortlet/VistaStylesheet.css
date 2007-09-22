@@ -177,11 +177,7 @@
   background: url(/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Register.png) no-repeat;
 }
 
-.ApplicationRegistryWorkingArea .UIPermissionForm .HorizontalLayout .UIFormGrid td.FieldLabel {
-	padding: 0px;
-}
-
-s.ApplicationRegistryWorkingArea .UIInfoPortletForm {
+.ApplicationRegistryWorkingArea .UIInfoPortletForm {
 	width: 400px;
 	margin: auto;
 }

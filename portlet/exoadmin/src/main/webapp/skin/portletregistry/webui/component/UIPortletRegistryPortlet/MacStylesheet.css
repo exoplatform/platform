@@ -28,10 +28,6 @@
 	line-height: 18px;
 }
 
-.UIApplicationRegistryPortlet .UIPermissionForm .HorizontalLayout .UIFormGrid td.FieldLabel {
-	padding: 0px;
-}
-
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
 	float: left;
