@@ -50,6 +50,7 @@
 	text-transform: capitalize; 
 	white-space: nowrap;
 	overflow: hidden;
+	width: 160px;
 }
 
 /********************************   UIItemList   ****************************************/
@@ -59,30 +60,28 @@
 .UIItemList .ItemSelector {
 	overflow: hidden;
   height: 25px;
-  padding: 0px 20px 0px 5px ;
+  padding: 0px 0px 0px 5px ;
   border-bottom: 1px solid #d1d1d1;
 }
 
 .UIItemList .ItemSelector .Icon {
-  float: left;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
-  height: 16px; width: 16px;
-  margin: 4px 2px 0px 0px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat  left center;
+  margin: 0px 2px 0px 0px;
+  padding-left: 20px;
 }
 
 .UIItemList .OverItemSelector {
   height: 25px;
 	background:#387fd1;
 	color: white;
-  padding: 0px 20px 0px 5px;
+  padding: 0px 0px 0px 5px;
   border-bottom: 1px solid #d1d1d1;
 }
 
 .UIItemList .OverItemSelector .Icon {
-  float: left;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/WhiteNextArrow.gif') no-repeat;
-  height: 16px; width: 16px;
-  margin: 4px 2px 0px 0px;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/WhiteNextArrow.gif') no-repeat left center;
+  margin: 0px 2px 0px 0px;
+  padding-left: 20px;
 }
 
 .UIItemList .ItemSelectorLabel {

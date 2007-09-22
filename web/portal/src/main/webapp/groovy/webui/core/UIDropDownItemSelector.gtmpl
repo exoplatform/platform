@@ -58,9 +58,7 @@
 			  	<div class="ItemsContainer">
 					  <%if(maxShow < size) {%>
 					    <div class="ItemSelector">
-								<div class="Icon"><span></span></div>
-		            <div class="ItemSelectorLabel">up</div>
-		            <div style="clear: left"><span></span></div>
+		            <div class="Icon ItemSelectorLabel">up</div>
 							</div>
 		      	<%}%>
 					  <%
@@ -77,14 +75,11 @@
 		            <%} else {%>
 		              <div class="Icon ItemSelectorLabel"><%=label%></div>
 		            <%}%>
-		            <div style="clear: left"><span></span></div>
 							</div>
 						<%}%>
 						<%if(maxShow < size) { %>
 					    <div class="ItemSelector">
-								<div class="Icon"><span></span></div>
-		            <div class="ItemSelectorLabel">down</div>
-		            <div style="clear: left"><span></span></div>
+		            <div class="Icon ItemSelectorLabel">down</div>
 							</div>
 				    <%}%>
 				  </div>					

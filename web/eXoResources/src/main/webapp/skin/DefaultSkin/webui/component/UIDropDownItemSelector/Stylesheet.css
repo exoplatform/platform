@@ -70,6 +70,7 @@
 	text-transform: capitalize;
 	white-space: nowrap;
 	overflow: hidden;
+	width: 160px;
 }
 
 /********************************   UIItemList   ****************************************/
@@ -117,10 +118,9 @@
 }
 
 .UIItemList .Icon {
-  width: 16px; height: 16px;
-  float: left;
-  margin: 3px 1px 0px 4px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
+	padding-left: 20px;
+  margin: 0px 1px 0px 4px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;
 }
 
 /*=================================Popup Category Decorator====================================*/
