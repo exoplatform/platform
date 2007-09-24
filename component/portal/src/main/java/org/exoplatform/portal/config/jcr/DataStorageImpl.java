@@ -160,7 +160,9 @@ public class DataStorageImpl implements DataStorage {
 
   public void remove(Page page) throws Exception {
     Session session = jcrRegService_.getSession();
-    Node pageSetNode = createSetNode(session, PAGE_SET_NODE, page.getOwnerType(), page.getOwnerId());  
+    String pageId = page.getPageId();
+    String[] filter  = pageId.split("::");
+    Node pageSetNode = createSetNode(session, PAGE_SET_NODE, filter[0], filter[1]); 
     if(pageSetNode == null || !pageSetNode.hasNode(page.getName())) {
       session.logout();
       return;
