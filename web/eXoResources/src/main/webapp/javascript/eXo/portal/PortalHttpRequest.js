@@ -151,13 +151,21 @@ function appendScriptToHead(scriptId, scriptElement) {
   var script;
   if(descendant) {
     script = descendant;
-    script.innerHTML = scriptElement.innerHTML;
   } else {
     script = document.createElement('script');
     script.id = scriptId;
-    script.type = 'text/javascript';    
+    script.type = 'text/javascript';     
+  }
+  
+  //check if contains source attribute
+  if(scriptElement.src) {
+    script.src = scriptElement.src
+  } else {
     script.innerHTML = scriptElement.innerHTML;
-    head.appendChild(script); 
+  }
+  
+  if(!descendant) {
+    head.appendChild(script);   
   }
 };
 
