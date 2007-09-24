@@ -101,21 +101,21 @@
 
 .UIExoStart .StartMenuContainer .BrowsePortalsIcon {
   height: 38px ;
-  background: url('icons/32x32/BrowsePortal.png') no-repeat left ;
+  background: url('icons/32x32/ManagePortal.png') no-repeat left ;
   padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .EditNavigationIcon {
   height: 38px ;
-  background: url('icons/32x32/EditPageNavigation.png') no-repeat left ;
+  background: url('icons/32x32/EditPage.png') no-repeat left ;
   padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .BrowsePagesIcon {
   height: 38px ;
-  background: url('icons/32x32/BrowsePage.png') no-repeat left ;
+  background: url('icons/32x32/ManagePage.png') no-repeat left ;
   padding: 0px 0px 0px 35px ;
   margin: 0px 0px 0px 5px ;
 }
@@ -134,13 +134,6 @@
   margin: 0px 0px 0px 5px ;
 }
 
-.UIExoStart .StartMenuContainer .SystemIcon {
-  height: 38px ;
-  background: url('icons/32x32/System.png') no-repeat left ;
-  padding: 0px 0px 0px 35px ;
-  margin: 0px 0px 0px 5px ;
-}
-
 .UIExoStart .StartMenuContainer .LabelText {
   white-space: nowrap ;
   padding: 10px 5px 0px 5px ;
@@ -148,34 +141,6 @@
 
 .UIExoStart .StartMenuContainer .LabelText a {
   color: #201e1e ;
-}
-
-.UIExoStart .StartMenuContainer .Web20Icon {
-  height: 38px ;
-  background: url('icons/32x32/Web20.png') no-repeat left ;
-  padding: 0px 0px 0px 35px ;
-  margin: 0px 0px 0px 5px ;
-}
-
-.UIExoStart .StartMenuContainer .DebugIcon {
-  height: 38px ;  
-  background: url('icons/32x32/Debug.png') no-repeat left ;
-  padding: 0px 0px 0px 35px ;
-  margin: 0px 0px 0px 5px ;
-}
-
-.UIExoStart .StartMenuContainer .SupportIcon {
-  height: 38px ;  
-  background: url('icons/32x32/HelpIcon.png') no-repeat left ;
-  padding: 0px 0px 0px 35px ;
-  margin: 0px 0px 0px 5px ;
-}
-
-.UIExoStart .StartMenuContainer .RefreshIcon {
-  height: 38px ;  
-  background: url('icons/32x32/Refresh.png') no-repeat left ;
-  padding: 0px 0px 0px 35px ;
-  margin: 0px 0px 0px 5px ;
 }
 
 .UIExoStart .StartMenuContainer .LogoutIcon {
