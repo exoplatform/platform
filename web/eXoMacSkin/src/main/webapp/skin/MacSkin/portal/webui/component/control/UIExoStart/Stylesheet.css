@@ -250,6 +250,7 @@
   background: url('background/TitleBG1x19.gif') repeat-x ;
   padding: 0px 0px 0px 10px ;
   border-bottom: solid 1px #a4b0b0 ;
+  white-space: nowrap;
 }
 
 .UIExoStart .StartMenuContainer .BasicIcon {
