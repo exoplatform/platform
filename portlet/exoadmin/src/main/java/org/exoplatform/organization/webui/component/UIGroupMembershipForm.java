@@ -11,6 +11,7 @@ import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -144,6 +145,11 @@ public class UIGroupMembershipForm extends UIForm {
       UIGroupMembershipForm uiGroupForm = event.getSource() ;
       UIPopupWindow searchUserPopup = uiGroupForm.getChild(UIPopupWindow.class);
       searchUserPopup.setShow(true);
+      UIListUsers form = (UIListUsers) searchUserPopup.getUIComponent();
+      Query query = new Query();
+      String name = "*" + uiGroupForm.getUIStringInput("username").getValue() + "*";
+      query.setUserName(name) ;
+      form.search(query );
     }
   }
   static  public class RefreshActionListener extends EventListener<UIGroupMembershipForm> {
