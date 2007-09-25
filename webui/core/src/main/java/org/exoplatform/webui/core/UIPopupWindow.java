@@ -45,6 +45,8 @@ public class UIPopupWindow extends UIComponentDecorator {
    */
   private boolean isResizable = false ;
   
+  protected String closeEvent_ = "ClosePopup" ;
+  
   public int getWindowWidth() { return width_ ; }
   public int getWindowHeight() { return height_ ; }
   
@@ -75,4 +77,11 @@ public class UIPopupWindow extends UIComponentDecorator {
   public void setShowCloseButton(boolean showCloseButton) {
     this.showCloseButton = showCloseButton;
   }
+  public String getCloseEvent() {
+    return closeEvent_;
+  }
+  public void setCloseEvent(String closeEvent) {
+    this.closeEvent_ = closeEvent;
+  }
+
 }

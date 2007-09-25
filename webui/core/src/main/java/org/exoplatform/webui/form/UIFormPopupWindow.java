@@ -23,11 +23,15 @@ import org.exoplatform.webui.form.validator.Validator;
  */
 @ComponentConfig(  
     template =  "system:/groovy/webui/core/UIPopupWindow.gtmpl",
-    events = @EventConfig(listeners = UIFormPopupWindow.CloseActionListener.class, name="ClosePopup", phase = Phase.DECODE)
+    events = @EventConfig(listeners = UIFormPopupWindow.CloseActionListener.class, name="CloseFormPopup", phase = Phase.DECODE)
 )
 public class UIFormPopupWindow extends UIPopupWindow implements UIFormInput<Object> {
   
-  public void processDecode(WebuiRequestContext context) throws Exception {   
+  public UIFormPopupWindow() {
+    closeEvent_ = "CloseFormPopup" ;
+  }
+  
+  public void processDecode(WebuiRequestContext context) throws Exception {
     UIForm uiForm  = getAncestorOfType(UIForm.class);
     String action = uiForm.getSubmitAction(); 
     if(action == null) return;    
