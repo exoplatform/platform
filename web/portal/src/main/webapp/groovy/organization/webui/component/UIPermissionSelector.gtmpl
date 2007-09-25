@@ -58,11 +58,11 @@
 								    </div>
 						    	</div>			    
 						  	</a> 
-						    <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');" class="ActionButton SimpleStyle">
+						    <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>', true);" class="ActionButton SimpleStyle">
 						      <div class="ButtonLeft">
 						        <div class="ButtonRight">
 						          <div class="ButtonMiddle">
-								        <div class="SelectPermissionIcon" onclick="eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
+								        <div class="SelectPermissionIcon">
 									          <%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
 									      </div>
 								      </div>

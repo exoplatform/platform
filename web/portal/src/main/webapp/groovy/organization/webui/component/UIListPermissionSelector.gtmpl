@@ -26,7 +26,7 @@
     <table class="ActionContainer" align="center">
 	    <tr>
 	    	<td align="center">
-		      <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIFormPopupWindow.class).getId();%>');" class="ActionButton SimpleStyle">
+		      <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIFormPopupWindow.class).getId();%>', true);" class="ActionButton SimpleStyle">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">

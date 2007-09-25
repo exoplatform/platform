@@ -10,7 +10,7 @@ function UIPopupWindow() {} ;
  *  . inits the drag and drop
  *  . inits the resize area if the window is resizable
  */
-UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseButton) {
+UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseButton, isShowMask) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	this.superClass = eXo.webui.UIPopup ;
 	var popup = document.getElementById(popupId) ;
@@ -28,7 +28,10 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 
 	popupBar.onmousedown = this.initDND ;
 	
-	if(isShow == false) this.superClass.hide(popup) ; 
+	if(isShow == false) {
+		this.superClass.hide(popup) ;
+		eXo.webui.UIPopupWindow.showMask(popup, isShow) ;
+	} 
 	
 //	if(showCloseButton == true) {
 //		var popupCloseButton = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
@@ -43,8 +46,21 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	}
 	
 	popup.style.visibility = "visible" ;
-	if(isShow == true) this.show(popup) ;
+	if(isShow == true) this.show(popup, isShowMask) ;
 	
+} ;
+
+UIPopupWindow.prototype.showMask = function(popup, isShowMask) {
+	var maskId = popup.id + "MaskLayer" ;
+	var mask = document.getElementById(maskId) ;
+	if(isShowMask) {
+		if (mask == null) {
+			var	maskLayer = eXo.core.UIMaskLayer.createMaskForFrame(popup.parentNode, popup, 1) ;
+		}
+	} else {
+		if(mask == null)	return;
+		eXo.core.UIMaskLayer.removeMask(mask);
+	}
 } ;
 
 //TODO: manage zIndex properties
@@ -56,7 +72,7 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
  *  . gets the highest z-index from these, if it's still at 0, set an arbitrary value of 2000
  * sets the position of the popup on the page (top and left properties)
  */
-UIPopupWindow.prototype.show = function(popup) {
+UIPopupWindow.prototype.show = function(popup, isShowMask) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	var portalApp = document.getElementById("UIPortalApplication") ;
@@ -77,6 +93,7 @@ UIPopupWindow.prototype.show = function(popup) {
   
 	if (zIndex == 0) zIndex = 2000 ;
 	// We don't increment zIndex here because it is done in the superClass.show function
+	eXo.webui.UIPopupWindow.showMask(popup, isShowMask) ; 
 	popup.style.visibility = "hidden" ;
 	this.superClass.show(popup) ;
  	var offsetParent = popup.offsetParent ;

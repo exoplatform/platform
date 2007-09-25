@@ -47,6 +47,14 @@ public class UIPopupWindow extends UIComponentDecorator {
   
   protected String closeEvent_ = "ClosePopup" ;
   
+  private boolean isShowMask_ = false ;
+  
+  public boolean isShowMask() {
+    return isShowMask_;
+  }
+  public void setShowMask(boolean isShowMask) {
+    this.isShowMask_ = isShowMask;
+  }
   public int getWindowWidth() { return width_ ; }
   public int getWindowHeight() { return height_ ; }
   
@@ -59,7 +67,10 @@ public class UIPopupWindow extends UIComponentDecorator {
   public void setResizable(boolean isResizable) { this.isResizable = isResizable ; }
 
   public boolean isShow() { return isShow;}
-  public void setShow(boolean isShow) { this.isShow = isShow; }
+  public void setShow(boolean isShow) {
+    this.isShow = isShow ;
+    if(!isShow) isShowMask_ = isShow ;
+    }
   
   static  public class CloseActionListener extends EventListener<UIPopupWindow> {
     public void execute(Event<UIPopupWindow> event) throws Exception {

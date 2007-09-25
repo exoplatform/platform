@@ -82,6 +82,64 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 	return maskLayer ;
 } ;
 
+/*
+ * Tung.Pham added
+ */
+//TODO: Temporary use
+UIMaskLayer.prototype.createMaskForFrame = function(blockContainerId, object, opacity, position) {
+	try {
+		var Browser = eXo.core.Browser ;
+		if(typeof(blockContainerId) == "string") blockContainerId = document.getElementById(blockContainerId) ;
+		var blockContainer = blockContainerId ;
+		var maskLayer = document.createElement("div") ;
+		
+		this.object = object ;
+		this.blockContainer = blockContainer ;
+		this.position = position ;
+		
+		blockContainer.appendChild(maskLayer) ;
+		
+		maskLayer.className = "MaskLayer" ;
+		maskLayer.id = object.id + "MaskLayer" ;
+		maskLayer.maxZIndex = 2 ;
+		maskLayer.style.width = "100%" ;
+		maskLayer.style.height = "100%" ;
+		maskLayer.style.top = "0px" ;
+		maskLayer.style.left = "0px" ;
+		maskLayer.style.zIndex = maskLayer.maxZIndex ;
+	
+		if(opacity) {
+	    Browser.setOpacity(maskLayer, opacity) ;
+		}
+		
+		if(object != null){
+			if(object.nextSibling) {
+			  maskLayer.nextSiblingOfObject = object.nextSibling ;
+			  maskLayer.parentOfObject = null ;
+			} else {
+			  maskLayer.nextSiblingOfObject = null ;
+			  maskLayer.parentOfObject = object.parentNode ;
+			}
+			
+			object.style.zIndex = maskLayer.maxZIndex + 1 ;
+			object.style.display = "block" ;
+			
+			blockContainer.appendChild(object) ;
+		
+			eXo.core.UIMaskLayer.setPosition() ;
+			
+			if((blockContainer.offsetWidth > object.offsetLeft + object.offsetWidth) && (position == "TOP-RIGHT") || (position == "BOTTOM-RIGHT")) {
+		    object.style.left = blockContainer.offsetWidth - object.offsetWidth + "px" ;
+			}
+	  }
+		
+
+		}catch(err) {
+			alert(err) ;
+	}
+	return maskLayer ;
+} ;
+
 /**
  * Moves the position of the mask layer to follow a scroll
  */
