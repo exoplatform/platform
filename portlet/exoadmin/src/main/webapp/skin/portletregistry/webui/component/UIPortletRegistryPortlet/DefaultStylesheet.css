@@ -238,5 +238,9 @@
   margin: auto;
 }
 
-.ApplicationRegistryWorkingArea .UIFormTableInputSet {
+.ApplicationRegistryWorkingArea .LabelButton {
+	text-align: center; 
+	color: #3c3c3c; 
+	line-height: 25px;
 }
+

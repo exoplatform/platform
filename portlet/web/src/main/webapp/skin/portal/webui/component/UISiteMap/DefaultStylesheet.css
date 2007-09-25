@@ -7,19 +7,20 @@
  */
 
 .UIWindow .UISitemapPortlet {
-	overflow: auto ; /* was auto */
   padding: 10px;
-  border: none;
+}
+
+.UIWindow .UISitemap {
+	border: none;
 }
 
 .UISitemapPortlet {
-	overflow: hidden ;
   padding: 10px;
-  border: 1px solid #b7b7b7;
 } 
 
 .UISitemap {
-	padding: 10px;
+  background: white;
+  border: 1px solid #b7b7b7;
 }
 
 .UISitemap .DefaultPageIcon{
@@ -103,7 +104,6 @@
 .UISitemap .SitemapItemBox .Item .Label {
   float: left ;
   line-height: 22px ;
-  color: black ;
 }
 
 .UISitemap .SitemapItemBox .Item .Icon {

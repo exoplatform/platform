@@ -87,7 +87,7 @@
 		    </td>
       </tr>
  	  </table>
-		<div style="text-align: center; font-style: italic; color: #3c3c3c; line-height: 20px;">
+		<div class="LabelButton">
       <%=_ctx.appRes("ApplicationRegistryWorkingArea.label.AddApplication")%>
     </div>	
 	</div>

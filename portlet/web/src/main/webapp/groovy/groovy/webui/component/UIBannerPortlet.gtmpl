@@ -23,16 +23,12 @@
 					  	</div>
 						  <div class="LoginRight" style="float: left" title="Sign Out" onclick="javascript:eXo.core.UIMaskLayer.createMask('UIPortalApplication', document.getElementById('AjaxLoadingMask'), 30); window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
 						    <div class="LoginSeperatorLine"><span></span></div>				  	
-								<div class="LogoutIcon"><span></span></div>
-								<a class="LoginLabel"><%=_ctx.appRes("UILogged.action.signout")%></a>
-								<div style="clear: left;"><span></span></div>
+								<a class="LogoutIcon"><%=_ctx.appRes("UILogged.action.signout")%></a>
 							</div>
 							<div style="clear: left;"><span></span></div>
 						<%} else {%>
 							<div class="SignIn" title="Sign In" onclick="$signInAction">
-								<div class="LoginIcon"><span></span></div>
-							  <a class="LoginLabel"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
-								<div style="clear: left;"><span></span></div>
+								<a class="LoginIcon"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
 							</div>
 					  <%}%> 
 						</div>

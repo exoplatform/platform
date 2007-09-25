@@ -38,16 +38,9 @@
   margin-top: 3px;
 }
 
-.UIBannerPortlet .LoginContent .LoginLabel {
-	float: left;
-  cursor: pointer;
-	padding: 0px 0px 0px 5px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
 .UIBannerPortlet .LoginContainer .LoginContent a {
   color: #0d62af;
+  display: block;
 }
 
 .UIBannerPortlet .LoginContainer .LoginContent a:hover {
@@ -58,22 +51,23 @@
   float: left;
   width: 2px; height: 21px;
   background: url('DefaultSkin/background/2x2.gif') repeat-y;
-  padding: 0px 7px 0px 1px;
+  margin: 0px 7px;
  }
 
 .UIBannerPortlet .LoginContent .LogoutIcon {
+  height: 24px;
+  background: url('DefaultSkin/background/SignoutButton.gif') no-repeat left center;
+  padding-left: 24px;
   float: left;
-  width: 20px; height: 24px;
-  background: url('DefaultSkin/background/SignoutButton.gif') no-repeat top;
   cursor: pointer;
 }
 
 .UIBannerPortlet .LoginContent .LoginIcon {
-  float: left;
-  width: 24px; height: 22px;
-  background: url('DefaultSkin/background/SigninButton.gif') no-repeat top;
-  cursor: pointer;
+  height: 22px;
+  background: url('DefaultSkin/background/SigninButton.gif') no-repeat left center;
   margin-right: 2px;
+  padding-left: 24px;
+  cursor: pointer;
 }
 
 .UIBannerPortlet .LoginContent .SignIn {
