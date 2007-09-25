@@ -147,8 +147,12 @@ public class UIGroupMembershipForm extends UIForm {
       searchUserPopup.setShow(true);
       UIListUsers form = (UIListUsers) searchUserPopup.getUIComponent();
       Query query = new Query();
-      String name = "*" + uiGroupForm.getUIStringInput("username").getValue() + "*";
+      
+      String name = uiGroupForm.getUIStringInput("username").getValue();
+      if(name == null || name.length() < 1){  name = "*"; } 
+      else { name = "*" + name + "*"; }
       query.setUserName(name) ;
+      form.getUISearchForm().getUIStringInput("searchTerm").setValue(name);
       form.search(query );
     }
   }
