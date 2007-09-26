@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -59,6 +60,14 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   }
 
   public Application getSelectApplication() { return select_; }
+  
+  public boolean showAddButton(){
+    UIPortletRegistryPortlet registryPortlet = getParent();
+    ApplicationRegistryControlArea controlArea = registryPortlet.getChild(ApplicationRegistryControlArea.class);
+    List<ApplicationCategory> categories = controlArea.getPortletCategory();
+    if (categories == null || categories.size() < 1) return false;
+    return true;
+  }
   
   public void setSeletcApplication(Application select){ select_ = select; }
   

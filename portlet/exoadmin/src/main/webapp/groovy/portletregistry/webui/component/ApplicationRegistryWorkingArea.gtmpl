@@ -67,29 +67,29 @@
 	  		</div>
 			</div>
 	  </div>
-  <% }} } else {%>
-  <div style="padding: 20px 0px; text-align: center; color: #FF5604 ;"><%=_ctx.appRes("ApplicationRegistryWorkingArea.noApplication")%></div>
+  <% }} } else if (uicomponent.showAddButton() == false){%>
+    <div style="padding: 20px 0px; text-align: center; color: #FF5604 ;"><%=_ctx.appRes("ApplicationRegistryWorkingArea.noApplication")%></div>
   <% } %>
-  
-  <div class="UIAction"> 
-    <table class="ActionContainer" align="center">
-	    <tr>
-	    	<td align="center">
-		      <a href="<%=uicomponent.event("AddPortlet", "")%>" class="ActionButton LightBlueStyle">
-		        <div class="ButtonLeft">
-		          <div class="ButtonRight">
-		            <div class="ButtonMiddle">
-		              <%=_ctx.appRes("ApplicationRegistryWorkingArea.action.AddApplication")%>
-		            </div>
-		          </div>
-		        </div>
-		      </a>
-		    </td>
-      </tr>
- 	  </table>
-		<div class="LabelButton">
-      <%=_ctx.appRes("ApplicationRegistryWorkingArea.label.AddApplication")%>
-    </div>	
-	</div>
-	
+  <% if (uicomponent.showAddButton()){%>
+	  <div class="UIAction"> 
+	    <div class="LabelButton">
+          <%=_ctx.appRes("ApplicationRegistryWorkingArea.label.AddApplication")%>
+      </div>
+	    <table class="ActionContainer" align="center">
+		    <tr>
+		    	<td align="center">
+			      <a href="<%=uicomponent.event("AddPortlet", "")%>" class="ActionButton LightBlueStyle">
+			        <div class="ButtonLeft">
+			          <div class="ButtonRight">
+			            <div class="ButtonMiddle">
+			              <%=_ctx.appRes("ApplicationRegistryWorkingArea.action.AddApplication")%>
+			            </div>
+			          </div>
+			        </div>
+			      </a>
+			    </td>
+	      </tr>
+	 	  </table>
+		</div>
+	<% } %>
 </div>
