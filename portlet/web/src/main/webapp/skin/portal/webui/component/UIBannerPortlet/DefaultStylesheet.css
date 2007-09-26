@@ -68,6 +68,7 @@
   margin-right: 2px;
   padding-left: 24px;
   cursor: pointer;
+	float: right;
 }
 
 .UIBannerPortlet .LoginContent .SignIn {

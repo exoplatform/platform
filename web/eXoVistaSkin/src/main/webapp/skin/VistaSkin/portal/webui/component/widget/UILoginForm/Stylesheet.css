@@ -147,6 +147,7 @@
 	margin: 0px;
 	cursor: pointer;
 }
+
 .UILoginForm .LoginDecorator .SignUpBackground a:hover {
 	font-weight: bold; color: #ee8804 ;
 	margin: 0px 28px 0px 0px;

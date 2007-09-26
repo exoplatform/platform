@@ -57,6 +57,7 @@
   background: url('VistaSkin/background/SigninButton.png') no-repeat left center;
   cursor: pointer;
   padding-left: 25px;
+  float: right;
 }
 
 .UIBannerPortlet .LoginContent .LoginSeperatorLine {

@@ -297,6 +297,7 @@
 }
 
 /*#######################  UIMemberShipManagement #################################*/
+
 .UIOrganizationPortlet .UIMembershipTypeForm {
 	margin: auto;
 	padding: 10px; padding-bottom: 0px;
@@ -311,7 +312,7 @@
 }
 
 .UIOrganizationPortlet .UIGrid  {
-  width: 99.5%;
+	width: 99.5%;
 }
 
 .UIOrganizationPortlet .UIGrid .ActionContainer {  
