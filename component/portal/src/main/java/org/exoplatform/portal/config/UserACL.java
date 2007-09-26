@@ -102,7 +102,7 @@ public class UserACL {
     return false;
   }
   
-  private boolean hasPermission(String remoteUser, String expPerm) throws Exception {
+  public boolean hasPermission(String remoteUser, String expPerm) throws Exception {
     if(log.isDebugEnabled())
     log.debug("------CheckPermission of User "  + remoteUser + " with membership " + expPerm);
     if(superUser_.equals(remoteUser)) return true;
@@ -136,19 +136,17 @@ public class UserACL {
     return hasPermission(remoteUser, pconfig.getEditPermission());
   }
   
-  public boolean hasEditPermission(PageNavigation pconfig, String remoteUser) throws Exception {
+  public boolean hasEditPermission(PageNavigation pageNav, String remoteUser) throws Exception {
     if(superUser_.equals(remoteUser)) {
-      pconfig.setModifiable(true);
+      pageNav.setModifiable(true);
       return true;
     }
-    String ownerType= pconfig.getOwnerType();
-    if(PortalConfig.PORTAL_TYPE.equals(ownerType)){
-      
-    } else if( PortalConfig.GROUP_TYPE.equals(ownerType)) {
-      String expPerm = navigationCreatorMembershipType_+ ":/" + pconfig.getOwnerId();
+    String ownerType= pageNav.getOwnerType();
+    if( PortalConfig.GROUP_TYPE.equals(ownerType)) {
+      String expPerm = navigationCreatorMembershipType_+ ":/" + pageNav.getOwnerId();
       return hasPermission(remoteUser, expPerm);
-    } else{
-      return remoteUser.equals(pconfig.getOwnerId());
+    } else if ( PortalConfig.USER_TYPE.equals(ownerType)){
+      return remoteUser.equals(pageNav.getOwnerId());
     }
     return false;
   }
