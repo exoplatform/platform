@@ -39,7 +39,7 @@
 }
 
 .UISitemap .SitemapItemBox .TitleBar a {
-  color: black; font-weight: bold;
+  font-weight: bold;
   line-height: 20px;
 }
 
@@ -88,35 +88,33 @@
 }
 
 .UISitemap .SitemapItemBox .Item a {
-  color: black;
   display: block;
 }
 
 .UISitemap .SitemapItemBox .Item a:hover {
-  color:#265fb5; 
+  color: #265fb5; 
 }
 
 .UISitemap .SitemapItemBox .Item .Label {
   float: left ;
   line-height: 22px ;
-  color: black ;
 }
 
 .UISitemap .SitemapItemBox .ItemContainer {
   border: solid 1px #929292;
   padding: 10px;
-  background:#ffffff;
+  background: #ffffff;
 }
 
 .UISitemap .SitemapItemBox .ItemContainer .Item {
-  border:1px #c1c1c1 solid;
+  border: 1px #c1c1c1 solid;
   margin: 1px 0px;
 }
 
 .UISitemap .SitemapItemBox .Item .Icon {
   float: left ;
-  width:20px;
-  height:20px;
+  width: 20px;
+  height: 20px;
 }
 
 .UISitemap .SitemapItemBox .Item .IconItem {

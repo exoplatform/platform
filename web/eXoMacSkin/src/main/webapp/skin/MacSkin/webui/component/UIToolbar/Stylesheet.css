@@ -1,17 +1,11 @@
 .UIToolbar {
 }
 
-.UIToolbar .ToolbarContainer {
-}
-
 .UIToolbar .Button {
   cursor: pointer ;
   float: left ;
   padding: 0px 15px 0px 15px; margin: 1px 2px 0px 2px;
   height: 64px; line-height: 64px; vertical-align: middle;
-}
-
-.UIToolbar .Button .ButtonLabel {
 }
 
 .UIToolbar .HorizontalSeparator {
@@ -60,11 +54,6 @@
 .UIToolbar .LargeToolbar .ButtonLabel {
   height: 18px ; line-height: 18px ;
   vertical-align: middle ;  
-}
-
-.UIToolbar .LargeToolbar .ButtonLabel a {
-  color: black;
-  text-decoration: none;
 }
 
 /*##############################- StandardToolbar style -#########################*/

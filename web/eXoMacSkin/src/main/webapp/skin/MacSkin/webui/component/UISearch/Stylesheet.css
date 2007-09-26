@@ -40,10 +40,6 @@
   float: left ;
 }
 
-.UISearch .UISearchForm .QuickSet a {
-  color: black;
-}
-
 .UISearch .UISearchForm .QuickSet a:hover {
   color: blue;
 }

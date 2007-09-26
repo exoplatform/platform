@@ -86,7 +86,8 @@
 
 .UIFormInputDecoratorSelector .SelectedInfo .UIFormInputSet .Title {
   margin-left: 20px; 
-  font-weight: bold ; color: black;
+  font-weight: bold ; 
+  color: black;
   padding-left: 5px;
 }
 

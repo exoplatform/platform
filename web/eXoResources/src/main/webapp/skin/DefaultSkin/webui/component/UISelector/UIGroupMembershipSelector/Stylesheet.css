@@ -97,10 +97,6 @@
   line-height: 24px ;
 }
 
-.UIGroupMembershipSelector .MembershipSelector  a {
-  color: black; 
-}
-
 .UIGroupMembershipSelector .MembershipSelector  a:hover {
   color: blue; 
 }

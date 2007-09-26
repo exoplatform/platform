@@ -63,6 +63,11 @@
 }
 /* ============================End LoginDecorator============================== */
 
+
+.UILoginForm .LoginDetailBox .VerticalLayout {
+	overflow: auto;
+}
+
 .UILoginForm .LoginDetailBox .UserNameField {
 	padding: 12px 0px 5px 0px;
   width: 300px;

@@ -88,10 +88,6 @@
   padding: 0px 6px;
 }
 
-.UITabSelector .FlatTabStyle .SelectedTab a.Title {
-  color: black;
-}
-
 .UITabSelector .FlatTabStyle .SelectedTab a.Title:hover {
   color: #058ee6;
 }

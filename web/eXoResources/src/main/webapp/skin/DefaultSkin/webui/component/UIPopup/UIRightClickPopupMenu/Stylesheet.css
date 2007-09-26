@@ -35,11 +35,6 @@
   line-height: 16px;
 }
 
-.UIRightClickPopupMenu a {
-  color: black;
-  text-decoration: none;
-}
-
 .UIRightClickPopupMenu a:hover {
   color: orange;
   background: #dee4f2;

@@ -86,10 +86,6 @@
   color: black;
 }
 
-.UICreatePage .UITree .TreeContainer .Node a {
-  color: black;
-}
-
 .UICreatePage .UITree .TreeContainer .Node a:hover {
   color: orange;
 }

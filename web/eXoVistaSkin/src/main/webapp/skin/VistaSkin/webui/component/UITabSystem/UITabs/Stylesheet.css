@@ -53,14 +53,11 @@
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
-  color: black;
-  text-decoration: none;
   margin: 0px 8px 0px 0px ;  
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a:hover {
   color: blue;
-  text-decoration: none;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
@@ -138,7 +135,6 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
   color: #000000;
- 
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
@@ -154,7 +150,6 @@
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
-  color: black;
   margin: 2px 8px 0px 0px;
 }
 
@@ -182,9 +177,7 @@
   width: auto; 
   line-height: 25px;
 }
-.UIHorizontalTabs .UITab .SelectedNavigationTab a {
-  color: black;
-}
+
 .UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
   padding-right: 4px;
   background: url(/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/es/icons/BlackRightArrow.gif) no-repeat right;

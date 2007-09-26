@@ -30,7 +30,6 @@
 }
 
 .UISitemap .TitleBar a {
-  color: black;
   margin-left: 5px;
 }
 
@@ -88,7 +87,6 @@
 }
 
 .UISitemap .SitemapItemBox .Item a {
-  color: black;
   display: block;
 }
 
@@ -99,7 +97,6 @@
 .UISitemap .SitemapItemBox .Item .Label {
   float: left ;
   line-height: 22px ;
-  color: black ;
 }
 
 .UISitemap .SitemapItemBox .Item .Icon {

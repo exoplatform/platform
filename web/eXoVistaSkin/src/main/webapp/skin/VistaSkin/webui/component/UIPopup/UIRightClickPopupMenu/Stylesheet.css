@@ -81,11 +81,6 @@
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/FloppyDisk.gif') no-repeat left 4px;
 }
 
-.UIRightClickPopupMenu a {
-  color: black;
-  text-decoration: none;
-}
-
 .UIRightClickPopupMenu a:hover {
   color: orange;
   background: #dee4f2;
