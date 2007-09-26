@@ -146,12 +146,6 @@
                   <%/*Tool Tip*/%>
                   <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
                   <%/*End Tool Tip*/%>
-                  <% if(modifiable){ %>
-	                  <img id="SaveToDatabase" class="Icon" alt="/eXoResources/skin/sharedImages/Blank.gif" 
-	                       src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/HideWidgetsViewer.png"
-	                       onclick="ajaxGet(eXo.env.server.createPortalURL('${uicomponent.id}', 'SaveToDatabase', true, null)) ;"  />
-		                <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SaveToDatabase")%></span>
-	                <% } %>
                 </div>
               </div>
             </div>
