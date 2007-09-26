@@ -8,8 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -103,12 +106,14 @@ public class UIPageNavigationForm extends UIForm {
       UIPortalApplication uiPortalApp = uiForm.getAncestorOfType(UIPortalApplication.class);
       UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);
       
+      
       PageNavigation existingNavi = uiPageNodeSelector.getPageNavigation(pageNav.getId()) ; 
-      if(existingNavi != null) {
+      if( existingNavi != null || checkExiting(pageNav.getId())) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return ;        
       }
+      
       uiPageNodeSelector.addPageNavigation(pageNav) ;  
       uiPageNodeSelector.selectNavigation(pageNav.getId()) ;
       pcontext.addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
@@ -117,6 +122,17 @@ public class UIPageNavigationForm extends UIForm {
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
       pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
+    }
+
+    private boolean checkExiting(String navId) throws Exception {
+       UIPortal portal = Util.getUIPortal();
+       DataStorage service = portal.getApplicationComponent(DataStorage.class);
+       List<PageNavigation> list = portal.getNavigations();
+       if(service.getPageNavigation(navId) == null) return true;
+       for(PageNavigation nav: list){
+         if(nav.getId().equals(navId) ) return true;
+       }
+       return false;
     }
   }
 }

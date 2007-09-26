@@ -8,10 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.CreateNavigationActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.DeleteNavigationActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.EditNavigationActionListener;
@@ -22,6 +24,8 @@ import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CutNodeA
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.DeleteNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditPageNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditSelectedNodeActionListener;
+import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.MoveDownActionListener;
+import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.MoveUpActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNodeActionListener;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageBody;
@@ -35,6 +39,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIDropDownItemSelector;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
@@ -70,6 +75,8 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = CopyNodeActionListener.class),
         @EventConfig(listeners = CutNodeActionListener.class),
         @EventConfig(listeners = PasteNodeActionListener.class),
+        @EventConfig(listeners = MoveUpActionListener.class),
+        @EventConfig(listeners = MoveDownActionListener.class),
         @EventConfig(listeners = DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation")
       }
   ),
@@ -113,17 +120,25 @@ public class UIPageNodeSelector extends UIContainer {
     uiTree.setBeanIconField("icon");
     
     UIRightClickPopupMenu uiPopupMenu = createUIComponent(UIRightClickPopupMenu.class, "PageNodePopupMenu", null) ;
-    uiPopupMenu.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", "CutNode", "DeleteNode"});
+    uiPopupMenu.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", "CutNode", "DeleteNode", "MoveUp", "MoveDown"});
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
     
     loadNavigations();
 	}
   
   public void loadNavigations() throws Exception {
+    String remoteUser = Util.getPortalRequestContext().getRemoteUser();
     navigations = new ArrayList<PageNavigation>();
     List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
-    for(PageNavigation nav  : pnavigations){
-      if(nav.isModifiable()) navigations.add(nav.clone()) ;
+    UserACL userACL = getApplicationComponent(UserACL.class);
+    for(PageNavigation nav  : pnavigations){      
+      if(PortalConfig.PORTAL_TYPE.equals(nav.getOwnerType())){
+        if(userACL.hasPermission(remoteUser, Util.getUIPortal().getEditPermission())){
+          navigations.add(nav.clone()) ;
+        }
+      }else if(userACL.hasEditPermission(nav, remoteUser)){
+        navigations.add(nav);
+      }
     }
     
     updateUI() ;

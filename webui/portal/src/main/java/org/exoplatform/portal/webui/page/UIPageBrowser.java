@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+import javax.jcr.query.InvalidQueryException;
+
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
@@ -116,25 +118,31 @@ public class UIPageBrowser extends UISearch {
     lastQuery_ = query ;
     DataStorage service = getApplicationComponent(DataStorage.class) ;
     if(lastQuery_ == null) lastQuery_ = new Query<Page>(null, null, null, Page.class) ;
-
-    PageList pagelist = service.find(lastQuery_, new Comparator<Object>() {
-      public int compare(Object obj1, Object obj2) {
-        Page page1 = (Page)obj1;
-        Page page2 = (Page)obj2;
-        return page1.getName().compareTo(page2.getName());
-      }
-    }) ;
-    pagelist.setPageSize(10);
-
-    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
-    uiGrid.getUIPageIterator().setPageList(pagelist);
-    UIPageIterator pageIterator = uiGrid.getUIPageIterator();
-    
-    if(pageIterator.getAvailable() > 0 )  return;
-    UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-    uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
-
-    Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+    PageList pagelist = null;
+    try{
+       pagelist = service.find(lastQuery_, new Comparator<Object>() {
+        public int compare(Object obj1, Object obj2) {
+          Page page1 = (Page)obj1;
+          Page page2 = (Page)obj2;
+          return page1.getName().compareTo(page2.getName());
+        }
+      }) ;
+    } catch (InvalidQueryException e) {
+      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+      uiApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.InvalidQueryException", null)) ;
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+      return ;
+    }
+      pagelist.setPageSize(10);
+      
+      UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
+      uiGrid.getUIPageIterator().setPageList(pagelist);
+      UIPageIterator pageIterator = uiGrid.getUIPageIterator();
+      
+      if(pageIterator.getAvailable() > 0 )  return;
+      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
   } 
 
   public void quickSearch(UIFormInputSet quickSearchInput) throws Exception {    
@@ -203,7 +211,6 @@ public class UIPageBrowser extends UISearch {
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return;
       }
-
       service.remove(page);
       uiPageBrowser.reset();
       pcontext.addUIComponentToUpdateByAjax(uiPageBrowser);
@@ -343,7 +350,6 @@ public class UIPageBrowser extends UISearch {
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
       pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
-
       //create new page
       if(uiPage == null) {
         DataStorage dataStorage = uiPageForm.getApplicationComponent(DataStorage.class) ;

@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -240,7 +241,7 @@ public class UIPageNodeActionListener {
       selectedNode.setDeleteNode(false);
       uiPageNodeSelector.setCopyNode(selectedNode);
       event.getSource().setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", 
-                                                 "CopyNode", "CutNode", "PasteNode", "DeleteNode"});
+                                                 "CopyNode", "CutNode", "PasteNode", "DeleteNode", "MoveUp", "MoveDown"});
     }
   }
   
@@ -300,7 +301,7 @@ public class UIPageNodeActionListener {
       UITree uitree = uiPageNodeSelector.getChild(UITree.class);
       UIRightClickPopupMenu popup = uitree.getUIRightClickPopupMenu();
       popup.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", 
-                                     "CutNode", "DeleteNode"});
+                                     "CutNode", "DeleteNode", "MoveUp", "MoveDown"});
        
       if(targetNode == null) { 
         targetNav.addNode(newNode);
@@ -313,6 +314,10 @@ public class UIPageNodeActionListener {
     private boolean hasNode(PageNode node, String uri) {
       if(node == null) return false;
       List<PageNode> children = node.getChildren();
+      if(children == null) {
+        node.setChildren(new ArrayList<PageNode>());
+        return false;
+      }
       for(PageNode ele : children) {
         if(ele.getUri().equals(uri)) return true;
       }
@@ -328,6 +333,38 @@ public class UIPageNodeActionListener {
     }
   }
   
+  static public class MoveUpActionListener extends EventListener<UIRightClickPopupMenu> {
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {      
+      moveNode(event, -1);
+    }
+
+    protected void moveNode(Event<UIRightClickPopupMenu> event, int i) {
+      String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      UIPageNodeSelector uiPageNodeSelector =  event.getSource().getAncestorOfType(UIPageNodeSelector.class);
+      UIPageManagement uiManagement = uiPageNodeSelector.getParent();
+      Class<?> [] childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };
+      uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
+      PageNavigation nav = uiPageNodeSelector.getSelectedNavigation();
+      PageNode targetNode = PageNavigationUtils.searchPageNodeByUri(nav, uri);
+      Object parentNode = PageNavigationUtils.searchParentNode(nav, uri);
+      List<PageNode> children = null;
+      if(parentNode instanceof PageNavigation){
+        children = ((PageNavigation)parentNode).getNodes();
+      } else if(parentNode instanceof PageNode){
+        children = ((PageNode)parentNode).getChildren();
+      }
+      int k = children.indexOf(targetNode);
+      if(k == 0 && i == -1) return;
+      if(k == children.size() - 1 && i == 1) return;
+      children.remove(k);
+      children.add(k + i, targetNode);
+    }
+  }
   
-  
+  static public class MoveDownActionListener extends UIPageNodeActionListener.MoveUpActionListener{
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {      
+      super.moveNode(event, 1);
+    }
+  }
 }
