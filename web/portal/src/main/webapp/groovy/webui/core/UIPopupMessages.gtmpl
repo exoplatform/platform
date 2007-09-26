@@ -155,6 +155,6 @@
 <%
 	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', false);") ;
 	if(uicomponent.hasMessage()){
-	  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.show('$popupId', true);") ;
+	  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.show('$popupId');") ;
 	}
 %>
