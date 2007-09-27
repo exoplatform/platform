@@ -128,7 +128,7 @@ public class UIPageNavigationForm extends UIForm {
        UIPortal portal = Util.getUIPortal();
        DataStorage service = portal.getApplicationComponent(DataStorage.class);
        List<PageNavigation> list = portal.getNavigations();
-       if(service.getPageNavigation(navId) == null) return true;
+       if(service.getPageNavigation(navId) == null) return false;
        for(PageNavigation nav: list){
          if(nav.getId().equals(navId) ) return true;
        }

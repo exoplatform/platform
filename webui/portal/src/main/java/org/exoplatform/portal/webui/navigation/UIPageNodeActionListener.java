@@ -336,20 +336,18 @@ public class UIPageNodeActionListener {
     protected void moveNode(Event<UIRightClickPopupMenu> event, int i) {
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIPageNodeSelector uiPageNodeSelector =  event.getSource().getAncestorOfType(UIPageNodeSelector.class);
-      UIPageManagement uiManagement = uiPageNodeSelector.getParent();
-      Class<?> [] childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };
-      uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector);
       PageNavigation nav = uiPageNodeSelector.getSelectedNavigation();
       PageNode targetNode = PageNavigationUtils.searchPageNodeByUri(nav, uri);
       Object parentNode = PageNavigationUtils.searchParentNode(nav, uri);
-      List<PageNode> children = null;
+      List<PageNode> children = new ArrayList<PageNode>();
       if(parentNode instanceof PageNavigation){
         children = ((PageNavigation)parentNode).getNodes();
       } else if(parentNode instanceof PageNode){
         children = ((PageNode)parentNode).getChildren();
       }
       int k = children.indexOf(targetNode);
+      if(k < 0) return ;
       if(k == 0 && i == -1) return;
       if(k == children.size() - 1 && i == 1) return;
       children.remove(k);
