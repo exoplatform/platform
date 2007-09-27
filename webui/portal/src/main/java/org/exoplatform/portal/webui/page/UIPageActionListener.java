@@ -166,30 +166,6 @@ public class UIPageActionListener {
     }
   }
   
-  static public class SaveToDatabaseActionListener  extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {      
-//      UIPortal uiPortal = Util.getUIPortal();
-//      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-//      UIPage uiPage = null;
-//      if(uiPortal.isRendered()){
-//        uiPage = uiPortal.findFirstComponentOfType(UIPage.class);
-//      } else {
-//        UIPortalToolPanel uiPortalToolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
-//        uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
-//      }      
-//      if(uiPage.isModifiable()) {
-//        Page page = PortalDataMapper.toPageModel(uiPage); 
-//        UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
-//        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-//        configService.update(page);
-//      }
-//      else{
-//        org.exoplatform.webui.core.UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-//        uiApp.addMessage(new ApplicationMessage("UIPageDesktop.msg.hasNotPermission", null, ApplicationMessage.ERROR)) ;
-//        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-//      }
-    }
-  }
   
   static public class AddApplicationActionListener  extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
