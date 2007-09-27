@@ -161,7 +161,11 @@ function appendScriptToHead(scriptId, scriptElement) {
   if(scriptElement.src) {
     script.src = scriptElement.src
   } else {
-    script.innerHTML = scriptElement.innerHTML;
+//TODO: Bug in IE Browse if parent Id is null
+    try {
+	    script.innerHTML = scriptElement.innerHTML;
+    } catch(e) {
+    }
   }
   
   if(!descendant) {
@@ -383,7 +387,6 @@ function HttpResponseHandler(){
 		  }
 	  } 
 	} ;
-	
 	/*
 	* This methods will replace some block content by new one. 
 	* This is the important concept in any AJAX call where JS is used to dynamically
@@ -396,14 +399,12 @@ function HttpResponseHandler(){
 	* for each block and the HTML is then dynamically replaced by the new one
 	*/
 	instance.updateBlocks = function(blocksToUpdate, parentId) {
-//		alert("updateBlocks : " + blocksToUpdate.length)
 	  if(blocksToUpdate == null) return ;
 	  var parentBlock = null ;
 	  if(parentId != null && parentId != "") parentBlock =  document.getElementById(parentId) ;
-	  
 	  for(var i = 0; i < blocksToUpdate.length; i++) {
 	    var blockToUpdate =  blocksToUpdate[i] ;
-//	    alert(blockToUpdate.blockId) ;	
+	 //   alert("block update" + blockToUpdate.blockId) ;	
 	    var target = null ;   	
 	    if(parentBlock != null) {
 	    	target = eXo.core.DOMUtil.findDescendantById(parentBlock, blockToUpdate.blockId) ;
