@@ -13,6 +13,7 @@
 	border: 1px solid #b7b7b7;
 	margin: 5px;
 	letter-spacing: 0.4px;
+	overflow:auto;
 }
 
 .UIApplicationRegistryPortlet .UICategoryForm {

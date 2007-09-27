@@ -2,7 +2,7 @@
   import org.exoplatform.portletregistry.webui.component.ApplicationRegistryControlArea ;
   import org.exoplatform.portletregistry.webui.component.ApplicationRegistryWorkingArea ;  
 %>
-<div style="width: 99%;">
+<div >
 	<div><div style="width: 600px;" ><span style="display: none;"></span></div></div>
 	<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
 		style="_width: expression(this.previousSibling.offsetWidth - 18 + 'px'); min-width: 600px;">

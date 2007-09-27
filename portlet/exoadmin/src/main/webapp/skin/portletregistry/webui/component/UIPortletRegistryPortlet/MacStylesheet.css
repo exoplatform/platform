@@ -11,7 +11,8 @@
  
 .UIApplicationRegistryPortlet {
 	border: 1px solid #b7b7b7;
-	margin: 5px;
+	margin: 5px; 
+	overflow: auto;
 }
 
 .UIApplicationRegistryPortlet .Title {
