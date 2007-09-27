@@ -261,12 +261,8 @@
 		        <div class="MiddleDecoratorRight">
 		          <div class="MiddleDecoratorCenter">
 		            <div style="width: 100%;">
-		              <div class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight">
-					          <%if(windowState != WindowState.MINIMIZED){%>
-					             <div id="PORTLET-FRAGMENT">
-					               $portletContent
-					             </div>
-					          <%}%>
+		              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight">
+					          <% if(windowState != WindowState.MINIMIZED) out.println(portletContent) %>
 				          </div>    
 		            </div>
 		          </div>

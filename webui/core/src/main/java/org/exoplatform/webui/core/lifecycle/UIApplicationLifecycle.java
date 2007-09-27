@@ -33,7 +33,6 @@ public class UIApplicationLifecycle  extends Lifecycle {
     }
   }
   
-  //TODO TrongTT : check for config template of portlet
   public void processRender(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     if(uicomponent.getTemplate() != null) {
       super.processRender(uicomponent, context) ;

@@ -7,7 +7,6 @@ package org.exoplatform.portal.webui.workspace;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -120,8 +119,10 @@ public class UIPortalApplication extends UIApplication {
   public void setSkin(String skin){ this.skin_ = skin; }
   
   public SkinConfig getSkin(String module) {
-    SkinService skinService = getApplicationComponent(SkinService.class);
-    return skinService.getSkin(module, skin_);
+    SkinService skinService = getApplicationComponent(SkinService.class) ;
+    SkinConfig skinConfig = skinService.getSkin(module, skin_) ;
+    if(skinConfig == null) skinConfig = skinService.getSkin(module, "Default") ;
+    return skinConfig ;
   }
   
   public List<SkinConfig>  getPortletSkins() {
@@ -133,7 +134,6 @@ public class UIPortalApplication extends UIApplication {
     UIPortalToolPanel toolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
     
     uiPortal.findComponentOfType(uiportlets, UIPortlet.class) ;
-    SkinService skinService = getApplicationComponent(SkinService.class);
    
     if(toolPanel != null && toolPanel.isRendered()){
       toolPanel.findComponentOfType(uiportlets, UIPortlet.class);
@@ -141,10 +141,7 @@ public class UIPortalApplication extends UIApplication {
     
     for(UIPortlet uiPortlet : uiportlets) {
       String module = uiPortlet.getExoWindowID().getPortletApplicationName() + "/" + uiPortlet.getExoWindowID().getPortletName() ;
-      SkinConfig skinConfig = skinService.getSkin(module, skin_) ;
-      if(skinConfig == null && !"Default".equals(skin_)) {
-        skinConfig = skinService.getSkin(module, "Default") ;
-      }
+      SkinConfig skinConfig = getSkin(module) ;
       if(skinConfig != null) skins.add(skinConfig);
     }
     return skins ;

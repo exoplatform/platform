@@ -5,29 +5,6 @@ eXo.require('eXo.webui.UIItemSelector');
 function UIForm() {
 };
 
-//TODO:Lambkin think Portal don't use this method.
-/*
-UIForm.prototype.onFixSize = function() {
-	var DOMUtil = eXo.core.DOMUtil;
-	var arrowIcon = DOMUtil.findFirstDescendantByClass(document, "div", "Button");
-	if(arrowIcon != null) {
-		arrowIcon.className = "IconHolder ArrowS1Down16x16Icon" ;
-	}
-  var uiFormTabPane = DOMUtil.findFirstDescendantByClass(document, "div", "UIFormTabPane");
-  if(!uiFormTabPane) return ;
-  var tabPaneContent = DOMUtil.findFirstDescendantByClass(uiFormTabPane, "div", "TabPaneContent");
-  var uiQuickHelp = DOMUtil.findFirstChildByClass(tabPaneContent, "div", "UIQuickHelp");
-  if(uiQuickHelp == null) return ;
-  
-  var workingAreaWithHelp = DOMUtil.findFirstChildByClass(tabPaneContent, "div", "WorkingAreaWithHelp");
-  var scrollArea = DOMUtil.findFirstDescendantByClass(uiQuickHelp, "div", "ScrollArea");
-
-  scrollArea.style.height = (workingAreaWithHelp.offsetHeight - 78 ) + "px";
-
-  scrollArea.style.overflow = "auto";
-};
-*/
-
 /*ie bug  you cannot have more than one button tag*/
 /**
  * A function that submits the form identified by formId, with the specified action
