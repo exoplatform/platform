@@ -55,14 +55,14 @@
       </node>
       
       <node>
-        <uri>workflow/controller</uri>
+        <uri>ecm/workflowController</uri>
         <name>workflowController</name>
         <label>Workflow Controller</label>
         <page-reference>group::portal/admin::workflowcontroller</page-reference>
       </node>
       
       <node>
-        <uri>workflow/administration</uri>
+        <uri>ecm/workflowAdministration</uri>
         <name>workflowAdministration</name>
         <label>Workflow Administration</label>
         <page-reference>group::portal/admin::workflowadministration</page-reference>
