@@ -114,16 +114,22 @@
   float: left ;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar {
+  height: 24px;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .TitleBar {
   background: url('MacSkin/background/TitleBarBG.gif') repeat-x;
-  height: 24px;
   border: 1px solid #b7b7b7;
   border-bottom: none;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar .Title{
+	float:left;
+}	
+
 .UIOrganizationPortlet .UIGroupManagement .TitleBar .Title{
 	color:#1c1c1c;
-	float:left;
 	font-weight:bold;
 	line-height: 24px;
 	padding-left: 7px;

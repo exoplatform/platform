@@ -15,18 +15,12 @@
 	background: #ffffff;
 	border: solid 1px #b7b7b7;
 	padding: 10px;
+	margin: 2px;
 }
 
 .UIGroupInfoContainer .TitleBar {
 	font-weight: bold;
 	padding: 0px 0px 0px 15px;
-	line-height: 20px;
-}
-
-.UIGroupInfoContainer .TitleBar {
-	font-weight: bold;
-	padding: 0px 0px 0px 15px;
-	line-height: 29px;
 	border-right: 1px solid #b7b7b7;
 	border-left: 1px solid #b7b7b7;
 	background: url(background/Style2BarM1x29.gif) repeat-x;
