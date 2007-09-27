@@ -15,6 +15,7 @@ import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationControlBar;
+import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.page.UIPageBrowseControlBar;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
@@ -159,6 +160,17 @@ public class UIPageEditBar extends UIToolbar {
     public void execute(Event<UIPageEditBar> event) throws Exception {
       UIPageEditBar uiEditBar = event.getSource();
       uiEditBar.savePage();
+      if(!uiEditBar.getUIPage().isModifiable()) {
+        UIPageManagement uiManagement = uiEditBar.getParent() ;
+        Class<?> [] childrenToRender = null;
+        if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
+          childrenToRender = new Class<?>[]{UIPageBrowseControlBar.class};
+        } else {
+          childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+        }
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+      }
     }
   }
   

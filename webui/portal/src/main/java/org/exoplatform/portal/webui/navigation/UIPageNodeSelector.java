@@ -318,16 +318,13 @@ public class UIPageNodeSelector extends UIContainer {
         uiToolPanel.setUIComponent(null) ;
         return;
       }
-      //---------------------------------
-      //UIPage uiPage = Util.toUIPage(node, uiToolPanel);
       UIPage uiPage = uiEditBar.getUIPage() ;
       if(uiPage == null || !uiPage.getPageId().equals(page.getPageId())) uiPage = Util.toUIPage(node, uiToolPanel); 
-      //---------------------------------
       UIPageBody uiPageBody = uiPortalApp.findFirstComponentOfType(UIPageBody.class) ; 
       if(uiPageBody.getUIComponent() != null) uiPageBody.setUIComponent(null);
       uiToolPanel.setUIComponent(uiPage);
 
-      if(!uiPage.isModifiable()) {
+      if(!page.isModifiable()) {
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiParent.setRenderedChildrenOfTypes(childrenToRender);
         return;

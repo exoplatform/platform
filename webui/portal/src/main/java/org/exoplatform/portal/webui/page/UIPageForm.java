@@ -250,9 +250,7 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
-        if(page.isModifiable()) uiEditBar.setRendered(true) ;
         uiEditBar.setUIPage(uiPage);
-
         pcontext.setFullRender(true);
         UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID) ;
         pcontext.addUIComponentToUpdateByAjax(uiControl) ;
@@ -276,8 +274,6 @@ public class UIPageForm extends UIFormTabPane {
         if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
           childrenToRender = new Class<?>[]{UIPageBrowseControlBar.class};
         } else {
-          UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
-          configService.update(page);
           childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
         }
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
@@ -309,8 +305,6 @@ public class UIPageForm extends UIFormTabPane {
       PortalDataMapper.toUIPage(uiPage, page);  
       if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
       if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-      if(!page.isModifiable()) uiEditBar.setRendered(false) ;
-      pcontext.addUIComponentToUpdateByAjax(uiManagement);
     }
     
     protected void findAllPortlet(List<UIPortlet> list, UIContainer uiContainer) {

@@ -101,25 +101,20 @@ public class UIPageNodeActionListener {
       uiToolPanel.setShowMaskLayer(true) ;
       pcontext.setFullRender(true);
       if(page == null ) {
-        //TODO: Tung.Pham added
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         uiToolPanel.setUIComponent(null) ;
         uiApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.null", new String[]{})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()); 
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-        //--------------------------------------
         return;
       }
       UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
-      //---------------------------------
-      //UIPage uiPage = Util.toUIPage(node, uiToolPanel);
       UIPage uiPage = uiPageEditBar.getUIPage() ;
       if(uiPage == null || !uiPage.getPageId().equals(page.getPageId())) uiPage = Util.toUIPage(page, uiToolPanel); 
-      //---------------------------------
       uiApp.findFirstComponentOfType(UIPageBody.class).setUIComponent(null);
       
-      if(!uiPage.isModifiable()){
+      if(!page.isModifiable()){
         uiToolPanel.setUIComponent(uiPage) ;
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
