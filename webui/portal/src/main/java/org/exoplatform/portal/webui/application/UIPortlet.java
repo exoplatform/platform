@@ -130,7 +130,7 @@ public class UIPortlet extends UIApplication {
         break ;
       }
     }
-    if(supportModes.size() > 1) supportModes.remove("view");
+    if(supportModes.size() > 0) supportModes.remove("view");
     setSupportModes(supportModes);
     return supportModes;
   }
