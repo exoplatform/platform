@@ -142,21 +142,35 @@ UIContextMenu.prototype.show = function(evt) {
 	}
 	return UIContextMenu.getReturnValue(_e) ;
 } ;
-
-UIContextMenu.prototype.changeAction= function(obj, id) {
+UIContextMenu.prototype.replaceall = function(string, obj) {			
+	var p = new Array() ;
+	var i = 0 ;
+	for(var reg in obj){
+		p.push(new RegExp(reg)) ;
+		string = string.replace(p[i], obj[reg]) ;
+		i++ ;
+	}
+	return string ;
+}
+UIContextMenu.prototype.changeAction = function(obj, id) {
 	var actions = eXo.core.DOMUtil.findDescendantsByTagName(obj, "a") ;
 	var len = actions.length ;
 	var href = "" ;
-	var pattern = /objectId\=.*&|objectId\=.*'/ ;
-	var character = "" ;
-	var value = "" ;
-	for(var i = 0 ; i < len ; i++) {
-		href = String(actions[i].href) ;
-		if (!pattern.test(href)) continue ;
-		character = href.match(pattern).toString() ;
-		character = character.substring((character.length - 1), character.length) ;
-		value = id + character ;
-		actions[i].href = href.replace(pattern,"objectId="+value) ;
+	if (typeof(id) == "string") {		
+		var pattern = /objectId\s*=\s*[A-Za-z0-9_]*(?=&|'|")/ ;
+		for(var i = 0 ; i < len ; i++) {
+			href = String(actions[i].href) ;
+			if (!pattern.test(href)) continue ;
+			actions[i].href = href.replace(pattern,"objectId="+id) ;
+		}
+	} else if (typeof(id) == "object") {
+		for(var i = 0 ; i < len ; i++) {
+			href = String(actions[i].href) ;			
+			actions[i].href = eXo.webui.UIContextMenu.replaceall(href, id) ;
+		}
+	} else {
+		return  ;
 	}
+	
 } ;
 eXo.webui.UIContextMenu = new UIContextMenu() ;
