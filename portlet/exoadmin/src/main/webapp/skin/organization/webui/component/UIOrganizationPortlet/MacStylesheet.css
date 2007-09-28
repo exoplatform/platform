@@ -246,6 +246,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
 	margin: 10px auto;
+	width: auto;
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
@@ -254,8 +255,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup {
-	width: 98%;
-	margin: auto;
+	border: 1px solid red;
 }
 
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout .FormContainer { 
@@ -306,5 +306,4 @@
 .UIOrganizationPortlet .ManagementTabContent .UIPageIterator  {
 	height: 22px;
   margin-top: 2px;
-  width: 99.5%;
 }

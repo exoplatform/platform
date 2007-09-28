@@ -99,6 +99,14 @@
 .UIOrganizationPortlet .UIGroupManagement {
 }
 
+.UIOrganizationPortlet .UIGroupInfoContainer .UIGroupMembershipForm .HorizontalLayout {
+	border-top: none;
+}
+
+.UIOrganizationPortlet .UIGroupInfoContainer .HorizontalLayout {
+	border-top: none;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat;
   height: 24px; width: 24px;
@@ -121,7 +129,6 @@
 .UIOrganizationPortlet .UIGroupManagement .TitleBar {
   background: url('MacSkin/background/TitleBarBG.gif') repeat-x;
   border: 1px solid #b7b7b7;
-  border-bottom: none;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar .Title{
@@ -138,6 +145,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UITree {
  background: url('background/UITreeBG.png') repeat;
  padding: 4px;
+ border-top: none;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
@@ -213,9 +221,9 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
-  border: none;
   margin: auto;
   padding: 0px;
+  border: 1px solid #fff;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIForm .UIFormGrid {
