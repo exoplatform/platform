@@ -82,13 +82,8 @@ function PortletResponse(responseDiv) {
     * force that good practise. Hence we have to dynamically reference the embedded
     * script in the head tag
     */
-    var scripts = eXo.core.DOMUtil.findDescendantsByTagName(div[4], "script") ;
-    if(scripts.length > 0) {
-      for(var i = 0 ; i < scripts.length; i++) {
-        var encodedName = 'script_' + i + '_' + this.portletId;
-        appendScriptToHead(encodedName, scripts[i]);
-      }
-    }
+    
+    this.scripts = eXo.core.DOMUtil.findDescendantsByTagName(div[4], "script") ;
   }
 };
 
@@ -126,14 +121,8 @@ function PortalResponse(responseDiv) {
         * This is needed when we refresh an entire portal page that contains some 
         * standard JSR 168 / 286 portlets with embeded <script> tag
         */
-        var scripts = eXo.core.DOMUtil.findDescendantsByTagName(dataBlocks[1], "script") ;
-        if(scripts.length > 0) {
-          for(var k = 0 ; k < scripts.length; k++) {
-            var encodedName = 'script_' + k + '_' +  obj.blockId;
-            appendScriptToHead(encodedName, scripts[k]);
-          }
-        }
-                    
+        this.blocksToUpdate[j].scripts = eXo.core.DOMUtil.findDescendantsByTagName(dataBlocks[1], "script") ;
+        
       }
     } else if(div[i].className == "PortalResponseScript") {
       this.script = div[i].innerHTML ;
@@ -150,27 +139,20 @@ function appendScriptToHead(scriptId, scriptElement) {
   var descendant = eXo.core.DOMUtil.findDescendantById(head, scriptId);
   var script;
   if(descendant) {
-    script = descendant;
-  } else {
-    script = document.createElement('script');
-    script.id = scriptId;
-    script.type = 'text/javascript';     
+    head.removeChild(descendant) ;
   }
+    
+  script = document.createElement('script');
+  script.id = scriptId;
+  script.type = 'text/javascript';     
   
   //check if contains source attribute
   if(scriptElement.src) {
     script.src = scriptElement.src
   } else {
-//TODO: Bug in IE Browse if parent Id is null
-    try {
-	    script.innerHTML = scriptElement.innerHTML;
-    } catch(e) {
-    }
+	  script.innerHTML = scriptElement.innerHTML;
   }
-  
-  if(!descendant) {
-    head.appendChild(script);   
-  }
+  head.appendChild(script);   
 };
 
 
@@ -416,6 +398,16 @@ function HttpResponseHandler(){
 	   	//var newData =  blockToUpdate.data.getElementById(blockToUpdate.blockId) ;
 	    if(newData == null) alert("block to update Id " + blockToUpdate.blockId) ;
 	    target.innerHTML = newData.innerHTML ;
+	    
+	    //update embedded scripts
+	    if(blockToUpdate.scripts) {
+	      if(blockToUpdate.scripts.length > 0) {
+          for(var k = 0 ; k < blockToUpdate.scripts.length; k++) {
+            var encodedName = 'script_' + k + '_' +  blockToUpdate.blockId;
+            appendScriptToHead(encodedName, blockToUpdate.scripts[k]);
+          }
+        }
+	    }
 	  }
 	} ;
 	
@@ -454,21 +446,32 @@ function HttpResponseHandler(){
 	  if(portletResponses != null) {
 	    for(var i = 0; i < portletResponses.length; i++) {
 	      var portletResponse = portletResponses[i] ;
-          if(portletResponse.blocksToUpdate == null) {
-            /*
-            * This means that the entire portlet fragment is included in the portletResponse.portletData
-            * and that it does not contain any finer block to update. Hence replace the innerHTML inside the
-            * id="PORTLET-FRAGMENT" block
-            */
-            var parentBlock =  document.getElementById(portletResponse.portletId) ;
-            var target = eXo.core.DOMUtil.findDescendantById(parentBlock, "PORTLET-FRAGMENT") ;
-            target.innerHTML = portletResponse.portletData;
-          } else {
-            /*
-            * Else updates each block with the portlet
-            */
-            instance.updateBlocks(portletResponse.blocksToUpdate, portletResponse.portletId) ;
-          }
+	      if(portletResponse.blocksToUpdate == null) {
+	        /*
+	        * This means that the entire portlet fragment is included in the portletResponse.portletData
+	        * and that it does not contain any finer block to update. Hence replace the innerHTML inside the
+	        * id="PORTLET-FRAGMENT" block
+	        */
+	        var parentBlock =  document.getElementById(portletResponse.portletId) ;
+	        var target = eXo.core.DOMUtil.findDescendantById(parentBlock, "PORTLET-FRAGMENT") ;
+	        target.innerHTML = portletResponse.portletData;
+	        
+	        //update embedded scripts 
+	        if(portletResponse.scripts) {
+	          if(portletResponse.scripts.length > 0) {
+		          for(var k = 0 ; k < portletResponse.scripts.length; k++) {
+		            var encodedName = 'script_' + k + '_' +  portletResponse.portletId;
+		            appendScriptToHead(encodedName, portletResponse.scripts[k]);
+		          }
+			      }              
+	        }
+            
+        } else {
+	        /*
+	        * Else updates each block with the portlet
+	        */
+	        instance.updateBlocks(portletResponse.blocksToUpdate, portletResponse.portletId) ;
+	      }
 	    }
 	  }
 	  if(response.blocksToUpdate == undefined) {
@@ -476,7 +479,7 @@ function HttpResponseHandler(){
 	  }
 	  //Handle the portal responses
 	  instance.updateBlocks(response.blocksToUpdate) ;
-	  instance.executeScript(response.script) ;
+	  instance.executeScript(response.script) ;	  
 	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
 	  eXo.portal.AjaxRequest.maskLayer = null ;
 	  eXo.portal.CurrentRequest = null ;
