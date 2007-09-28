@@ -38,7 +38,7 @@
         <div class="LabelItem">
           <div class="Icon $icon" style="padding-left: 18px"> 
             <div class="BlackArrowIcon">
-              <div class="LabelText"><a href="$href">$node.label</a></div>
+              <div class="LabelText "><a href="$href">$node.label</a></div>
             </div>
           </div>
         </div>
@@ -52,12 +52,18 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding-bottom: 6px">
+      <div class="topElement" style="display: none;height: 20px; text-align: center;background: orange" > ^ ^ </div>
+			<div class="blockMenu" style="position: relative;">
+      <div class="menuContainer">          
       """ ;
       for(child in node.getChildren()) {
         if(child.getChildren() != null && child.getChildren().size() > 0) renderPageNode(nav, child) ;
         else renderSinglePageNode(nav, child) ;
       }
       print """
+      </div>
+      </div>
+      <div class="bottomElement" style="display: none;height: 20px; text-align: center;background: orange" > ^ ^ </div>
                 </div>
               </div>
             </div>
@@ -99,7 +105,7 @@
         <div class="LabelItem">
           <div class="NavigationBackground">
             <div class="NavigationArrowIcon">
-              <div class="LabelText">$label</div>
+              <div class="LabelText">${label}</div>
             </div>
           </div>
         </div>
@@ -118,11 +124,17 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding: 0px 5px 5px 5px">
+        <div class="topElement" style="display: none;height: 20px; text-align: center;background: orange"> ^ ^ </div>
+				<div class="blockMenu" style="position: relative;">
+      	<div class="menuContainer"> 
       	""" ;
 	      for(navigation in navigations) {
 	        renderPageNavigation(navigation) ;
 	      }
       	print """
+      	</div>
+      	</div>
+      	<div class="bottomElement" style="display: none;height: 20px; text-align: center;background: orange"> ^ ^ </div>
                 </div>
               </div>
             </div>
@@ -147,7 +159,7 @@
         <div class="LabelItem">
           <div class="Icon $item.icon">
             <div class="BlackArrowIcon">
-              <div class="LabelText">$label</div>
+              <div class="LabelText">${label}</div>
             </div>
           </div>
         </div>
@@ -161,12 +173,18 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding-bottom: 5px">
+      <div class="topElement" style="display: none;height: 20px; text-align: center;background: #A1C5EC"> ^ ^ </div>
+			<div class="blockMenu" style="position: relative;">
+      <div class="menuContainer">           
       """ ;
       for(child in item.getChildren()) {
         if(child instanceof UIExoStart.MenuItemContainer) renderMenuItemContainer(child) ;
         else renderMenuItemAction(child) ;
       }
       print """
+      </div>
+      </div>
+      <div class="bottomElement" style="display: none;height: 20px; text-align: center;background: #A1C5EC"> ^ ^ </div>
                  </div>
                </div>
              </div>
@@ -192,7 +210,7 @@
       <div class="MenuItem">
         <div class="LabelItem">
           <div class="Icon $item.icon">
-            <div class="LabelText"><a href="$href">$label</a></div>
+            <div class="LabelText"><a href="$href">${label}</a></div>
           </div>
         </div>
       </div>
@@ -238,13 +256,20 @@
     <div style="clear: both"><span></span></div>
   </div>
   
+  
   <div id="StartMenuContainer" class="StartMenuContainer" style="display: none;">
+ 
     <div class="StartMenuDecorator">
+    <!--
+    <div id="moveMenu" style="background: orange; height: 17px; width: 100%; position: ablsolute; top: -17px" 
+				 onclick="event.cancelBubble = true;">
+		</div> 
+		-->
       <div class="TopDecorator"><span></span></div>
       <div class="StartMenuML">
         <div class="StartMenuMR">
           <div class="StartMenuBG">      
-            <div class="MenuItemContainer" style="visibility: visible;">
+            <div class="MenuItemContainer">
               <%
                 for(menu in uicomponent.getMenus())  {
                   for(item in menu)  {
