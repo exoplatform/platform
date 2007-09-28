@@ -161,7 +161,6 @@
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer {
-  position: relative ;
   visibility: visible;
 }
 
@@ -236,8 +235,12 @@
 /*========================Start Menu Decorator======================*/
 .UIExoStart .StartMenuDecorator {
 	width: 100%;
+	/*
 	display: inherit;
 	visibility: inherit;
+	minh.js.exo
+	UIExoStartMenu
+	*/
 }
 
 .UIExoStart .StartMenuDecorator .TopDecorator {
