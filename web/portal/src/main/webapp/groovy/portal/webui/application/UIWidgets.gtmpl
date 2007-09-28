@@ -12,9 +12,7 @@
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">
 	<div class="ItemSelectorContainer ItemSelectorAncestor">
 		<%
-		  if(uicomponent.hasChildren() == true) {
-  		  uicomponent.renderChild(UIDropDownItemSelector.class);
-  		}
+		  _ctx.renderUIComponent(uicomponent.getUIDropDownItemSelector()) ;
  		%>
  		<div class="EditIcon" onclick="$showWCM" title="Widget Containers Management"><span></span></div>
 		<div style="clear: left"><span></span></div>
@@ -31,12 +29,7 @@
 	 		<div class="MiddleRightWidgetsDecorator">
 	 			<div class="MiddleCenterWidgetsDecorator">
 	 				<div class="WidgetsDecoratorBackground">
- 					<%
-		  		  for(uiChild in uicomponent.getChildren()) {
-		  		    if((uiChild instanceof UIDropDownItemSelector) || !uiChild.isRendered()) continue;
-		  		    uiChild.processRender(rcontext);
-		  		  }
-			  	%>
+ 					<%uicomponent.renderChildren();%>
 	 				</div>
 	 			</div>
 	 		</div>

@@ -177,10 +177,6 @@ public class PortalDataMapper {
     ArrayList<Container> modelChildren = new ArrayList<Container>(); 
     for(int i = 1; i < uiChildren.size(); i++) { 
       Container container = toContainer((UIContainer)uiChildren.get(i));
-      //TODO: Tung.Pham added
-      String realId = container.getId().split("/")[1] ;
-      container.setId(realId) ;
-      //------------------------------
       modelChildren.add(container);
     }
     model.setChildren(modelChildren);
@@ -339,9 +335,6 @@ public class PortalDataMapper {
       UIContainer uiContainer = uiWidgets.createUIComponent(context, UIContainer.class, "WidgetContainer", null);
       uiContainer.setRendered(false);
       toUIContainer(uiContainer, child);
-      //TODO: Tung.Pham added
-      uiContainer.setId(model.getId()+ "/" +child.getId()) ;
-      //---------------------------------------
       uiWidgets.addChild(uiContainer);
     }
     uiWidgets.updateDropdownList();

@@ -114,7 +114,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       createPage(config, owner);
       createPageNavigation(config, owner);
       createPortletPreferences(config, owner);
-      createWidgets(config, owner);
+      //createWidgets(config, owner);
     }
   }
   

@@ -38,12 +38,15 @@ public class UIWidgets extends UIContainer {
   
   private String editPermission;
   
+  private UIDropDownItemSelector uiContainerSelector_ ;
+  
   public UIWidgets() throws Exception {
     setName(getClass().getSimpleName()) ;
-    UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
-    uiDropDownItemSelector.setTitle("SelectContainer") ;
-    uiDropDownItemSelector.setOnServer(true);
-    uiDropDownItemSelector.setOnChange("ChangeOption");
+    uiContainerSelector_ = createUIComponent(UIDropDownItemSelector.class, null, null) ;
+    uiContainerSelector_.setTitle("SelectContainer") ;
+    uiContainerSelector_.setOnServer(true) ;
+    uiContainerSelector_.setOnChange("ChangeOption") ;
+    uiContainerSelector_.setParent(this) ;
   }
   
   public String getOwnerId() { return ownerId; }
@@ -63,56 +66,56 @@ public class UIWidgets extends UIContainer {
     return id; 
   }
   
-  public UIContainer getSelectedContainer() {
-    UIContainer uiSelectedContainer = null;
-    for(UIComponent uiChild : getChildren()) {
-      if(uiChild  instanceof UIContainer && uiChild.isRendered()) {
-        uiSelectedContainer = (UIContainer) uiChild;
-        break;
-      }
-    }
-    return uiSelectedContainer; 
+  public UIDropDownItemSelector getUIDropDownItemSelector() {
+    return uiContainerSelector_ ;
   }
   
-  public void setSelectedContainer(UIContainer uiWidgetContainer) {
-    UIContainer uiSelectedContainer = getSelectedContainer();
-    if(uiSelectedContainer != null) uiSelectedContainer.setRendered(false);
-    if(uiWidgetContainer != null) uiWidgetContainer.setRendered(true);
+  @SuppressWarnings("unchecked")
+  public UIComponent findComponentById(String lookupId) {
+    if(uiContainerSelector_.getId().equals(lookupId)) return uiContainerSelector_ ;
+    return super.findComponentById(lookupId) ;
+  }
+  
+  public UIContainer getSelectedContainer() {
+    for(UIComponent uiChild : getChildren()) {
+      if(uiChild.isRendered()) {
+        return (UIContainer) uiChild;
+      }
+    }
+    return null; 
+  }
+  
+  public void setSelectedContainer(int idx) {
+    for(UIComponent uiChild : getChildren()) {
+      uiChild.setRendered(false) ;
+    }
+    getChildren().get(idx).setRendered(true) ;
+    uiContainerSelector_.setSelected(idx) ;
+  }
+  
+  public void setSelectedContainer(String containerId) {
+    for(UIComponent uiChild : getChildren()) {
+      if(uiChild.getId().equals(containerId)) uiChild.setRendered(true) ;
+      else uiChild.setRendered(false) ;
+    }
+    uiContainerSelector_.setSelected(containerId) ;
   }
   
   public void updateDropdownList() {
-    setSelectedContainer(getChild(UIContainer.class));
-    UIDropDownItemSelector uiDropDownItemSelector = getChild(UIDropDownItemSelector.class);
-    uiDropDownItemSelector.cleanItem();
-    List<UIComponent> uiChildren = getChildren();
-    //TODO: Tung.Pham modified
-    //---------------------------------------
+    uiContainerSelector_.cleanItem() ;
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>() ;
-    for(int i = 1; i < uiChildren.size(); i++) {
-      //uiDropDownItemSelector.addItem(uiChildren.get(i).getId());
-      String containerId = uiChildren.get(i).getId() ;
-      String containerName = uiChildren.get(i).getName() ;
-      if(containerName == null) containerName = containerId.split("/")[1] ;
-      String label =  containerId.split("::")[0] + ":" + containerName ;
-      options.add(new SelectItemOption<String>(label, containerId)) ;
+    for(UIComponent container : getChildren()) {
+      options.add(new SelectItemOption<String>(container.getName(), container.getId())) ;
     }
-    uiDropDownItemSelector.setOptions(options) ;
-    //---------------------------------------
+    uiContainerSelector_.setOptions(options) ;
+    if(options.size() > 0) setSelectedContainer(0) ;
   }
   
   static  public class ChangeOptionActionListener extends EventListener<UIWidgets> {
     public void execute(Event<UIWidgets> event) throws Exception {
-      String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);
-      
+      String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);      
       UIWidgets uiWidgets = event.getSource();
-      UIDropDownItemSelector uiDropDownItemSelector = uiWidgets.getChild(UIDropDownItemSelector.class);
-      SelectItemOption<String> option = uiDropDownItemSelector.getOption(selectedContainerId);
-      if(option != null) uiDropDownItemSelector.setSelectedItem(option);
-      if(uiWidgets.getSelectedContainer().getId().equals(selectedContainerId)) return;
-      
-      UIContainer newSelected = uiWidgets.getChildById(selectedContainerId) ;
-      uiWidgets.getSelectedContainer().setRendered(false);
-      uiWidgets.setSelectedContainer(newSelected);
+      uiWidgets.setSelectedContainer(selectedContainerId) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWidgets.getParent());
     }
   }

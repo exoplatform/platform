@@ -13,13 +13,13 @@ public class UserPortalConfig {
   
   private List<PageNavigation> navigations ;
   
-  private List<Widgets> widgets;
+  private Widgets widgets;
   
   public UserPortalConfig(){
     
   }
   
-  public UserPortalConfig(PortalConfig portal, List<PageNavigation> navigations, List<Widgets> widgets){
+  public UserPortalConfig(PortalConfig portal, List<PageNavigation> navigations, Widgets widgets){
     this.portal = portal;
     this.navigations = navigations;
     this.widgets = widgets;
@@ -37,13 +37,7 @@ public class UserPortalConfig {
     navigations.add(nav) ;
   }
 
-  public List<Widgets> getWidgets() { return widgets; }
-  public void setWidgets(List<Widgets> widgets) { this.widgets = widgets; }
-  
-  public void addWidgets(Widgets model) {
-    if(widgets == null) widgets = new ArrayList<Widgets>() ;
-    if(model == null) return;
-    widgets.add(model) ;
-  }
-  
+  public Widgets getWidgets() { return widgets; }
+  public void setWidgets(Widgets widgets) { this.widgets = widgets; }
+    
 }

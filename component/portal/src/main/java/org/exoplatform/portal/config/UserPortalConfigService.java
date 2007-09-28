@@ -106,12 +106,7 @@ public class UserPortalConfigService {
       }
     }
     
-    ArrayList<Widgets> widgets = new ArrayList<Widgets>();
-    Widgets widgetsItem = getWidgets(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
-    if(widgetsItem != null) widgets.add(widgetsItem);
-    
-    widgetsItem = getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
-    if(widgetsItem != null) widgets.add(widgetsItem);
+    Widgets userWidgets = getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
     
     Collections.sort(navigations, new Comparator<PageNavigation>() {
       public int compare(PageNavigation nav1, PageNavigation nav2) {
@@ -119,7 +114,7 @@ public class UserPortalConfigService {
       }
     });
     
-    return new UserPortalConfig(portal, navigations, widgets) ;
+    return new UserPortalConfig(portal, navigations, userWidgets) ;
   }
  
   public List<String> getMakableNavigations(String remoteUser)throws Exception {
