@@ -56,8 +56,10 @@ public class UIPageIterator extends UIComponent {
       UIPageIterator uiPageIterator = event.getSource() ;
       int page = Integer.parseInt(event.getRequestContext().getRequestParameter(OBJECTID)) ;
       uiPageIterator.setCurrentPage(page) ;
-      if(uiPageIterator.getParent() == null) return ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageIterator.getParent());
+      UIComponent parent = uiPageIterator.getParent();
+      if(parent == null) return ;      
+      event.getRequestContext().addUIComponentToUpdateByAjax(parent);           
+      parent.broadcast(event,event.getExecutionPhase());
     }
   }
   
