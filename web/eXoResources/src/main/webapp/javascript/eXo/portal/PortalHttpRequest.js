@@ -141,18 +141,20 @@ function appendScriptToHead(scriptId, scriptElement) {
   if(descendant) {
     head.removeChild(descendant) ;
   }
-    
+
   script = document.createElement('script');
   script.id = scriptId;
-  script.type = 'text/javascript';     
+  script.type = 'text/javascript';
+  script.defer = 'defer' ;     
   
   //check if contains source attribute
   if(scriptElement.src) {
     script.src = scriptElement.src
   } else {
-	  script.innerHTML = scriptElement.innerHTML;
+  	alert('i don');
+  	script.text = scriptElement.innerHTML;
   }
-  head.appendChild(script);   
+  head.appendChild(script);
 };
 
 
