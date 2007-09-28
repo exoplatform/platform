@@ -145,13 +145,11 @@ function appendScriptToHead(scriptId, scriptElement) {
   script = document.createElement('script');
   script.id = scriptId;
   script.type = 'text/javascript';
-  script.defer = 'defer' ;     
   
   //check if contains source attribute
   if(scriptElement.src) {
     script.src = scriptElement.src
   } else {
-  	alert('i don');
   	script.text = scriptElement.innerHTML;
   }
   head.appendChild(script);
