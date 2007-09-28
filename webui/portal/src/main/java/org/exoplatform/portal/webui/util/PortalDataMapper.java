@@ -174,10 +174,10 @@ public class PortalDataMapper {
     
     List<UIComponent> uiChildren  = uiWidgets.getChildren();
     if(uiChildren == null)  return model;
-    ArrayList<Container> modelChildren = new ArrayList<Container>(); 
-    for(int i = 1; i < uiChildren.size(); i++) { 
-      Container container = toContainer((UIContainer)uiChildren.get(i));
-      modelChildren.add(container);
+    ArrayList<Container> modelChildren = new ArrayList<Container>();
+    for(UIComponent uiChild : uiChildren) {
+      Container container = toContainer((UIContainer)uiChild) ;
+      modelChildren.add(container) ;
     }
     model.setChildren(modelChildren);
     return model;
