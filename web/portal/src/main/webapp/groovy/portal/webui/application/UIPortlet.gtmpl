@@ -154,7 +154,8 @@
 		          <div class="WindowBarCenter">
 		            <div class="WindowPortletControl CategoryDetectPosition">
 		              <%
-		                if(uicomponent.getShowPortletMode()) {
+		              List supportModes = uicomponent.getSupportModes();
+		                if(uicomponent.getShowPortletMode() && supportModes.size() > 0) {
 		                  String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, event);"
 		              %>
 		              		<div class="ControlIcon ArrowDownIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.PortletMode");%>" onclick="$showCategory" onmouseover="$onControlOver" onmouseout="$onControlOut">
@@ -171,9 +172,6 @@
 										            <div class="PopupCategoryMR">
 										              <div class="PopupCategoryMC">
 										                <% 
-										                  List supportModes = uicomponent.getSupportModes();
-										                  if(supportModes!=null) {
-										                  }
 										                  for(String mode in supportModes) {
 										                    String actionLink = uicomponent.event("ChangePortletMode", mode);
 										                    String upper = mode.charAt(0).toString();
