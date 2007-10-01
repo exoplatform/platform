@@ -57,7 +57,7 @@ public class PortalDataMapper {
   
   static final public Application toWidget(UIWidget uiWidget) {
     Application model = new Application();
-    model.setApplicationType(Application.WIDGET_TYPE);
+    model.setApplicationType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE);
     model.setInstanceId(uiWidget.getApplicationInstanceId());
     model.setId(uiWidget.getId());
     model.setProperties(uiWidget.getProperties());
@@ -66,7 +66,7 @@ public class PortalDataMapper {
   
   static final public Application toExoApplication(UIExoApplication uiExoApp) {
     Application model = new Application();
-    model.setApplicationType(Application.EXO_APPLICATION_TYPE);
+    model.setApplicationType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE);
     model.setId(uiExoApp.getId());
     model.setInstanceId(uiExoApp.getApplicationInstanceId()) ;
     model.setShowInfoBar(uiExoApp.getShowInfoBar());
@@ -351,17 +351,17 @@ public class PortalDataMapper {
     }else if(model instanceof Application){
       Application application = (Application) model;
       String factoryId = application.getApplicationType();    
-      if(factoryId == null || factoryId.equals(Application.PORTLET_TYPE)){
+      if(factoryId == null || factoryId.equals(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)){
         UIPortlet uiPortlet = uiParent.createUIComponent(context, UIPortlet.class, null, null);
         toUIPortlet(uiPortlet, application);
         uiComponent = uiPortlet;
-      } else if(factoryId.equals(Application.EXO_APPLICATION_TYPE)) {
+      } else if(factoryId.equals(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE)) {
         UIExoApplication uiExoApp = 
           uiParent.createUIComponent(context, UIExoApplication.class, null, null);
         toUIExoApplication(uiExoApp, application) ;
 //        uiExoApp.init() ;
         uiComponent = uiExoApp ;
-      } else if(factoryId.equals(Application.WIDGET_TYPE)) {
+      } else if(factoryId.equals(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE)) {
         UIWidget uiWidget = uiParent.createUIComponent(context, UIWidget.class, null, null);
         toUIWidget(uiWidget, application) ;
         uiComponent = uiWidget ;

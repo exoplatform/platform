@@ -183,16 +183,24 @@ public class UIPageActionListener {
       
       Application application = getApplication(uiPortal, applicationId);
       //review windowId for eXoWidget and eXoApplication
-      if(org.exoplatform.portal.config.model.Application.EXO_APPLICATION_TYPE.equals(application.getApplicationType())){
-        UIExoApplication uiExoApp = uiPage.createUIComponent(UIExoApplication.class, null, null);
+      if(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(application.getApplicationType())) {
+        UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);
         
-        StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
-        windowId.append(":/").append(applicationId).append('/').append(uiExoApp.hashCode());
-        uiExoApp.setApplicationInstanceId(windowId.toString());
+        StringBuilder windowId = new StringBuilder(uiPage.getOwnerType());
+        windowId.append('#').append(uiPage.getOwnerId());
+        windowId.append(":/").append(applicationId).append('/').append(uiPortlet.hashCode());
+        uiPortlet.setWindowId(windowId.toString());
         
-        uiExoApp.init();
-        uiPage.addChild(uiExoApp);
-      } else if(org.exoplatform.portal.config.model.Application.WIDGET_TYPE.equals(application.getApplicationType())){
+        if(application != null){
+          if(application.getDisplayName() != null) {
+            uiPortlet.setTitle(application.getDisplayName());
+          } else if(application.getApplicationName() != null) {
+            uiPortlet.setTitle(application.getApplicationName());
+          }
+          uiPortlet.setDescription(application.getDescription());
+        }
+        uiPage.addChild(uiPortlet);
+      } else if(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE.equals(application.getApplicationType())){
         UIWidget uiWidget = uiPage.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
         
         StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
@@ -213,22 +221,14 @@ public class UIPageActionListener {
         
         uiPage.addChild(uiWidget);
       } else {
-        UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);
+        UIExoApplication uiExoApp = uiPage.createUIComponent(UIExoApplication.class, null, null);
         
-        StringBuilder windowId = new StringBuilder(uiPage.getOwnerType());
-        windowId.append('#').append(uiPage.getOwnerId());
-        windowId.append(":/").append(applicationId).append('/').append(uiPortlet.hashCode());
-        uiPortlet.setWindowId(windowId.toString());
+        StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
+        windowId.append(":/").append(applicationId).append('/').append(uiExoApp.hashCode());
+        uiExoApp.setApplicationInstanceId(windowId.toString());
         
-        if(application != null){
-          if(application.getDisplayName() != null) {
-            uiPortlet.setTitle(application.getDisplayName());
-          } else if(application.getApplicationName() != null) {
-            uiPortlet.setTitle(application.getApplicationName());
-          }
-          uiPortlet.setDescription(application.getDescription());
-        }
-        uiPage.addChild(uiPortlet);
+        uiExoApp.init();
+        uiPage.addChild(uiExoApp);
       }
 
       String save = event.getRequestContext().getRequestParameter("save");
@@ -263,12 +263,12 @@ public class UIPageActionListener {
   
   static public class DeleteWidgetActionListener extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
-      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      int id  = Integer.valueOf(event.getRequestContext().getRequestParameter(UIComponent.OBJECTID));
       UIPage uiPage = event.getSource();
       List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
       uiPage.findComponentOfType(uiWidgets, UIWidget.class);
       for(UIWidget uiWidget : uiWidgets) {
-        if(uiWidget.getApplicationInstanceId().equals(id)) {
+        if(uiWidget.getApplicationInstanceId().hashCode() == id) {
           uiPage.getChildren().remove(uiWidget);
           
           if(uiPage.isModifiable()) {
@@ -349,28 +349,28 @@ public class UIPageActionListener {
       UIPage uiPage = event.getSource();
       String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       
-      UIApplication uiComponent = uiPage.getChildById(objectId) ;
-      if(uiComponent == null) return ;
+      UIApplication uiApp = uiPage.getChildById(objectId) ;
+      if(uiApp == null) return ;
       
       /*########################## Save Position ##########################*/
       String posX = event.getRequestContext().getRequestParameter("posX");
       String posY = event.getRequestContext().getRequestParameter("posY");
       
-      if(posX != null) uiComponent.getProperties().put(UIApplication.locationX, posX);
-      if(posY != null) uiComponent.getProperties().put(UIApplication.locationY, posY);
+      if(posX != null) uiApp.getProperties().put(UIApplication.locationX, posX);
+      if(posY != null) uiApp.getProperties().put(UIApplication.locationY, posY);
       
       //System.out.println("\n\n\n\n\n\n\n\n\n\n\n SAVE POSX: "+posX+"\n SAVE POSY: "+posY+"\n\n\n\n\n\n\n\n\n");
       /*########################## Save ZIndex ##########################*/
       String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
       
-      if(zIndex != null) uiComponent.getProperties().put(UIApplication.zIndex, zIndex) ;
+      if(zIndex != null) uiApp.getProperties().put(UIApplication.zIndex, zIndex) ;
       
       /*########################## Save Dimension ##########################*/
       String windowWidth = event.getRequestContext().getRequestParameter("windowWidth");
       String windowHeight = event.getRequestContext().getRequestParameter("windowHeight");
       
-      if(windowWidth != null) uiComponent.getProperties().put("windowWidth", windowWidth);
-      if(windowHeight != null) uiComponent.getProperties().put("windowHeight", windowHeight);
+      if(windowWidth != null) uiApp.getProperties().put("windowWidth", windowWidth);
+      if(windowHeight != null) uiApp.getProperties().put("windowHeight", windowHeight);
       
 //      if(appWidth != null) uiComponent.getProperties().put(UIApplication.appWidth, appWidth);
 //      if(appHeight != null) uiComponent.getProperties().put(UIApplication.appHeight, appHeight);
@@ -380,7 +380,7 @@ public class UIPageActionListener {
       
       /*########################## Save Window status (SHOW / HIDE) ##########################*/
       String appStatus = event.getRequestContext().getRequestParameter(UIApplication.appStatus);
-      if(appStatus != null) uiComponent.getProperties().put(UIApplication.appStatus, appStatus);
+      if(appStatus != null) uiApp.getProperties().put(UIApplication.appStatus, appStatus);
       
 //      if(!uiPage.isModifiable()) return;
 //      Page page = PortalDataMapper.toPageModel(uiPage);

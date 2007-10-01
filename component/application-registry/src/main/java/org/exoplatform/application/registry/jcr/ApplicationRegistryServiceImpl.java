@@ -294,7 +294,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       app.setApplicationName(portletName);
       app.setApplicationGroup(categoryName);
       app.setCategoryName(categoryName);
-      app.setApplicationType("Portlet");
+      app.setApplicationType(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE);
       app.setDescription("A portlet application");
       app.setDisplayName(portletName);
       app.setId(categoryName + "/" + portletName);
