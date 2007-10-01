@@ -47,44 +47,47 @@
     <script type="text/javascript" src="/eXoResources/javascript/eXo/core/MouseEventManager.js"></script>
   </head>
 
-  <body>
-    <div class="$uicomponent.skin" id="UIPortalApplication">
-    	<%uicomponent.renderChildren();%>
-    </div>
-    
+  <body style="!height: 100%;">
     <% 
       /*Hide All Popup Menu when click on document*/
       rcontext.getJavascriptManager().addOnLoadJavascript('eXo.core.DOMUtil.hideElements');
       //rcontext.getJavascriptManager().addOnResizeJavascript('eXo.core.UIMaskLayer.resizeMaskLayer');
     %>
     
-    <div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none;margin: auto;">
-      <div class="LoadingContainer">
-        <div class="CenterLoadingContainer">
-          <div class="LoadingText"><%=_ctx.appRes("UIPortalApplication.label.Loading")%></div>
-          <div class="LoadingProgressBar"><span></span></div>
-          
-          <div class="UIAction"> 
-				    <table class="ActionContainer" align="center">
-					    <tr>
-					    	<td align="center">
-						      <a href="javascript:ajaxAbort();" class="ActionButton LightBlueStyle">
-						        <div class="ButtonLeft">
-						          <div class="ButtonRight">
-						            <div class="ButtonMiddle">
-						              <%=_ctx.appRes("UIPortalApplication.label.Abort")%>
-						            </div>
-						          </div>
-						        </div>
-						      </a>
-						    </td>
-				      </tr>
-				 	  </table>
-					</div>
-          
-        </div>
-      </div>
-    </div>
+	<div class="$uicomponent.skin" id="UIPortalApplication" style="!height: 100%">
+    	
+		<div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none; margin: auto;">
+	      <div class="LoadingContainer">
+	        <div class="CenterLoadingContainer">
+	          <div class="LoadingText"><%=_ctx.appRes("UIPortalApplication.label.Loading")%></div>
+	          <div class="LoadingProgressBar"><span></span></div>
+	          
+	          <div class="UIAction"> 
+					    <table class="ActionContainer" align="center">
+						    <tr>
+						    	<td align="center">
+							      <a href="javascript:ajaxAbort();" class="ActionButton LightBlueStyle">
+							        <div class="ButtonLeft">
+							          <div class="ButtonRight">
+							            <div class="ButtonMiddle">
+							              <%=_ctx.appRes("UIPortalApplication.label.Abort")%>
+							            </div>
+							          </div>
+							        </div>
+							      </a>
+							    </td>
+					      </tr>
+					 	  </table>
+						</div>
+	          
+	        </div>
+	      </div>
+	    </div>
+	    
+	<%uicomponent.renderChildren();%>
+	</div>
+    
+
     
     <script type="text/javascript">
       <%=rcontext.getJavascriptManager().getJavascript()%>
