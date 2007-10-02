@@ -11,7 +11,7 @@
     <show-max-window>true</show-max-window>
     
     <application>
-	    <instance-id>admin:/exo.widget.web/WelcomeWidget/WelcomeWidget</instance-id>
+	    <instance-id>portal#@owner@:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget</instance-id>
 	    <application-type>eXoWidget</application-type>
 	    <title>Welcome Widget</title>
 	  </application>

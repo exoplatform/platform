@@ -92,6 +92,7 @@
 	text-decoration: underline;
 	cursor: pointer;
 	width: 55px; margin: auto;
+	display: block;
 }
 
 .UIWelcomeWidget .StyleContent .LabelSignin {
@@ -101,6 +102,7 @@
 	cursor: pointer;
 	width: 55px; margin: auto;
 	padding: 40px 0px;
+	display: block;
 }
 
 .UIWelcomeWidget .StyleContent .UserLabel {

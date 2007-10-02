@@ -59,11 +59,11 @@
 							  <div class="StateMessage">Welcome !</div>
 							  <div class="LoggedUserName"><%=userName%></div>
 							</div>
-							<div class="LabelSignout" title="Sign Out" onclick="javascript:window.location=eXo.env.server.createPortalURL('UIPortal', 'Logout', false);">
+							<a class="LabelSignout" title="Sign Out" href="<%=eXo.env.server.createPortalURL('UIPortal', 'Logout', false)%>">
 								Sign Out 
-							</div>
+							</a>
 						<%} else {%>
-							<div class="LabelSignin" title="Sign In" onclick="javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;">
+							<div class="LabelSignin" title="Sign In" onclick="if(document.getElementById('UIMaskWorkspace')) ajaxGet('<%=eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)%>')">
 								Sign In
 							</div>							
 						<%}%>	
