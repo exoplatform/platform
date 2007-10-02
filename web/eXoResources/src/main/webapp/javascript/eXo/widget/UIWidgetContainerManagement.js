@@ -55,7 +55,7 @@ UIWidgetContainerManagement.prototype.renderContainer = function(containers) {
 		var selectedContainer = eXo.widget.UIWidgetContainerManagement.selectedContainer ;
 		for(var i =0; i < containers.length; i++) {
 			if(containers[i].cName == "" || containers[i].cName == "null") containers[i].cName = containers[i].cId ;
-			if(containers[i].cDescription == "" || containers[i].cDescription == "null") containers[i].cDescription = containers[i].cId ;
+			if(containers[i].cDescription == "null") containers[i].cDescription = "" ;
 			if(containers[i].cId  == selectedContainer.cId) {
 				cssClass = "SelectedItem" ;
 			} else cssClass = "NormalItem" ;
