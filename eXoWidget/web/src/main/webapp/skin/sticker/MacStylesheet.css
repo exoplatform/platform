@@ -5,11 +5,13 @@
 	margin: auto;
 }
 
+/*
 * html .UIStickerWidget  {
 	background: none;
 	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/portaleXoWidgetWeb/skin/sticker/MacSkin/background/Sticker.png", sizingMethod="crop");
 	zoom: 1;
 }
+*/
 
 .UIStickerWidgetTitle {
 	padding: 13px 0px 5px 0px;
