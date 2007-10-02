@@ -12,7 +12,7 @@
       <value-param>
         <name>super.user</name>
         <description>administrator</description>
-        <value>root</value>	    
+        <value>exoadmin</value>	    
       </value-param>
       
       <value-param>
@@ -192,7 +192,6 @@
           <object type="org.exoplatform.portal.config.NewPortalConfig">
             <field  name="predefinedOwner">
               <collection type="java.util.HashSet">                
-                <value><string>root</string></value>
                 <value><string>exoadmin</string></value>
               </collection>
             </field>
