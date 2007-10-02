@@ -1620,10 +1620,10 @@
 }
 
 .MoveUp16x16Icon {
-	background: url('icons/MoveDown.gif') no-repeat left center;
+	background: url('icons/MoveUp.gif') no-repeat left center;
 }
 
 .MoveDown16x16Icon {
-	background: url('icons/MoveUp.gif') no-repeat left center;
+	background: url('icons/MoveDown.gif') no-repeat left center;
 }
 /*===========================End User Icons Stylesheet=======================*/

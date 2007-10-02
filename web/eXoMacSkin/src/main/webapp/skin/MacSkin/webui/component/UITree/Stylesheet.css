@@ -56,7 +56,6 @@
 }
 
 .UITree .TreeContainer .Node .NodeLabel a {
-  float: left ;
   height: 20px ; line-height: 20px ;
   cursor: pointer ;
   padding: 0px 5px 0px 4px ; 
