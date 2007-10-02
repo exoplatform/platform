@@ -52,7 +52,7 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding-bottom: 6px">
-						      <div class="TopNavigator" style="display: none;height: 20px; text-align: center;background: orange" > ^ ^ </div>
+						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up"><span></span></div>
 									<div class="BlockMenu" style="position: relative;">
 						      <div class="MenuContainer">          
 						      """ ;
@@ -63,7 +63,7 @@
 						      print """
 						      </div>
 						      </div>
-						      <div class="BottomNavigator" style="display: none;height: 20px; text-align: center;background: orange" > ^ ^ </div>
+						      <div class="BottomNavigator" style="display: none;" title="Click and hold to scroll down"><span></span></div>
                 </div>
               </div>
             </div>
@@ -82,9 +82,10 @@
   	nodes = navigation.getNodes() ;
   	if(nodes.size() < 1) return ;
     print """
-      <div class="DecoratorBlock">
-      	<div class="PageOwnerContainer">
-        	<div class="TitleBar">${navigation.ownerId}'s pages </div>
+    	<div class="PageNavigationBlock">
+	      <div class="DecoratorBlock">
+	      	<div class="PageOwnerContainer">
+	        	<div class="TitleBar">${navigation.ownerId}'s pages </div>
     """ ;
     for(node in nodes) {
       if(node.getChildren() != null && node.getChildren().size() > 0) {
@@ -93,6 +94,7 @@
       else renderSinglePageNode(navigation, node) ;
     }
     print """
+    			</div>
     		</div>
       </div>
     """ ;    
@@ -124,17 +126,17 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding: 0px 5px 5px 5px">
-        <div class="TopNavigator" style="display: none;height: 20px; text-align: center;background: orange"> ^ ^ </div>
-				<div class="BlockMenu" style="position: relative;">
-      	<div class="MenuContainer"> 
-      	""" ;
-	      for(navigation in navigations) {
-	        renderPageNavigation(navigation) ;
-	      }
-      	print """
-      	</div>
-      	</div>
-      	<div class="BottomNavigator" style="display: none;height: 20px; text-align: center;background: orange"> ^ ^ </div>
+					        <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up"><span></span></div>
+									<div class="BlockMenu" style="position: relative;">
+					      	<div class="MenuContainer"> 
+					      	""" ;
+						      for(navigation in navigations) {
+						        renderPageNavigation(navigation) ;
+						      }
+					      	print """
+					      	</div>
+					      	</div>
+					      	<div class="BottomNavigator" style="display: none;" title="Click and hold to scroll down"><span></span></div>
                 </div>
               </div>
             </div>
@@ -173,18 +175,18 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding-bottom: 5px">
-      <div class="TopNavigator" style="display: none;height: 20px; text-align: center;background: #A1C5EC"> ^ ^ </div>
-			<div class="BlockMenu" style="position: relative;">
-      <div class="MenuContainer">           
-      """ ;
-      for(child in item.getChildren()) {
-        if(child instanceof UIExoStart.MenuItemContainer) renderMenuItemContainer(child) ;
-        else renderMenuItemAction(child) ;
-      }
-      print """
-      </div>
-      </div>
-      <div class="BottomNavigator" style="display: none;height: 20px; text-align: center;background: #A1C5EC"> ^ ^ </div>
+						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up"><span></span></div>
+									<div class="BlockMenu" style="position: relative;">
+						      <div class="MenuContainer">           
+						      """ ;
+						      for(child in item.getChildren()) {
+						        if(child instanceof UIExoStart.MenuItemContainer) renderMenuItemContainer(child) ;
+						        else renderMenuItemAction(child) ;
+						      }
+						      print """
+						      </div>
+						      </div>
+						      <div class="BottomNavigator" style="display: none;"><span></span></div>
                  </div>
                </div>
              </div>
