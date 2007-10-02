@@ -146,11 +146,11 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 	
 
 
- 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "blockMenu") ;
+ 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
 	var parentMenu = blockMenu.parentNode;
-	var topElement = eXo.core.DOMUtil.findFirstDescendantByClass(parentMenu, "div", "topElement") ;
-	var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(blockMenu, "div", "menuContainer") ;
- 	var bottomElement = eXo.core.DOMUtil.findDescendantsByClass(parentMenu, "div", "bottomElement") ;
+	var topElement = eXo.core.DOMUtil.findFirstDescendantByClass(parentMenu, "div", "TopNavigator") ;
+	var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(blockMenu, "div", "MenuContainer") ;
+ 	var bottomElement = eXo.core.DOMUtil.findDescendantsByClass(parentMenu, "div", "BottomNavigator") ;
 	bottomElement = bottomElement[bottomElement.length - 1];
 	
 	if (!menuContainer.id) menuContainer.id = "eXo" + new Date().getTime() + Math.random().toString().substring(2);
@@ -244,7 +244,7 @@ UIExoStartMenu.prototype.getDimension = function(event, menuItem, menuContainer)
 	dimension.top = eXo.core.Browser.findMouseYInClient(event);
 	dimension.top = dimension.top - (dimension.top % menuItem.offsetHeight);
 	dimension.bottom = dimension.total - dimension.top;
-	var blockMenu = eXo.core.DOMUtil.findAncestorByClass(menuItem, "blockMenu");
+	var blockMenu = eXo.core.DOMUtil.findAncestorByClass(menuItem, "BlockMenu");
 	if (blockMenu) {
 			dimension.total = blockMenu.offsetHeight;
 		 /*
