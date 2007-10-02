@@ -13,29 +13,7 @@
 	      	<% } %>
 		      </td>
 		    </tr>
-
-		    <tr>
-		      <td class="FieldLabel">Owner Type:</td>
-		      <td class="FieldComponent">
-		      	<select id="owner" name="owner"
-		      		<%if(context.isEdit){%>
-		      	 		disabled="disabled" 
-		      	 	<%}%>
-		      	>
-		      		<%var values = context.selectInput.values ;%>
-		      		<%for(var i = 0; i < values.length; i++) {%>
-		      				<option value="<%=values[i]%>"
-		      				<%if(values[i] == context.selectInput.selected) {%>
-		      					selected="selected"
-		      				<%}%>
-		      				>
-		      					<%=values[i]%>
-		      				</option>
-		      		<%}%>
-		      	</select>
-		      </td>
-		    </tr>
-		    
+		    		    
 		    <tr>
 		      <td class="FieldLabel">Container name:</td>
 		      <td class="FieldComponent">
@@ -57,15 +35,17 @@
   <div class="UIAction">
 		<table class="ActionContainer" align="center">
 			<tr>
+			<%for(var i =0; i < context.action.length; i++) {%>
 				<td align="center">
-					<a class="ActionButton LightBlueStyle" href="<%= context.action.event %>">
+					<a class="ActionButton LightBlueStyle" href="javascript: <%= context.action[i].event %>">
 						<div class="ButtonLeft">
 							<div class="ButtonRight">
-								<div class="ButtonMiddle"><%= context.action.actionLabel %></div>
+								<div class="ButtonMiddle"><%= context.action[i].actionLabel %></div>
 							</div>
 						</div>
 					</a>
 				</td>
+			<%}%>	
 			</tr>
 		</table>
 	</div>

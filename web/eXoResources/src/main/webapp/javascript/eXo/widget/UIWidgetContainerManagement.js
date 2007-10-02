@@ -32,29 +32,23 @@ UIWidgetContainerManagement.prototype.destroy = function() {
 
 UIWidgetContainerManagement.prototype.loadWidgetContainer = function(refresh) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	var portalName = eXo.env.server.portalBaseURL.split("/")[3] ;
 	var url = eXo.env.server.context + "/command?";
 	url += "type=org.exoplatform.web.command.handler.GetWidgetContainerHandler" ;
-	url += "&portal=" + portalName ;
 	if(refresh == null || refresh == undefined) refresh = false;
 	var containers = eXo.core.CacheJSonService.getData(url, refresh);
 	if(containers == null || containers == undefined) return ;
-	for(categoryName in containers.widgetContainers) {
-		var category = containers.widgetContainers[categoryName] ;
-		eXo.widget.UIWidgetContainerManagement.renderCategory(category["name"], category["containers"]) ;	
-	}
+	eXo.widget.UIWidgetContainerManagement.renderContainer(containers.widgetContainers) ;
 	eXo.widget.UIWidgetContainerManagement.bindContainerToDetail() ;
 } ;
 
-UIWidgetContainerManagement.prototype.renderCategory = function(categoryName, containers) {
+UIWidgetContainerManagement.prototype.renderContainer = function(containers) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement");
-	var category = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", categoryName);
-	var containerList = DOMUtil.findFirstDescendantByClass(category, "div", "ContainerList");
+	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList");
 	var htmlItem = "" ;
 	
 	if(containers == null || containers.length < 1) {
-		var htmlItem = "<div class=\"EmptyListMessage\">There is no container in this category.</div>" ;
+		var htmlItem = "<div class=\"EmptyListMessage\">There is no container.</div>" ;
 	} else {
 		var cssClass ;
 		if(eXo.widget.UIWidgetContainerManagement.selectedContainer == null ) eXo.widget.UIWidgetContainerManagement.selectedContainer = containers[0] ;
@@ -62,13 +56,12 @@ UIWidgetContainerManagement.prototype.renderCategory = function(categoryName, co
 		for(var i =0; i < containers.length; i++) {
 			if(containers[i].cName == "" || containers[i].cName == "null") containers[i].cName = containers[i].cId ;
 			if(containers[i].cDescription == "" || containers[i].cDescription == "null") containers[i].cDescription = containers[i].cId ;
-			if((containers[i].cOwner + containers[i].cId)  == (selectedContainer.cOwner + selectedContainer.cId)) {
+			if(containers[i].cId  == selectedContainer.cId) {
 				cssClass = "SelectedItem" ;
 			} else cssClass = "NormalItem" ;
 			
 			htmlItem +=	'<div class="Item ' + cssClass + '" onclick="eXo.widget.UIWidgetContainerManagement.changeContainer(this);">'
 							 +    '<input type="hidden" value="' + containers[i].cId + '" name="id"/>'
-							 +    '<input type="hidden" value="' + containers[i].cOwner + '" name="owner"/>'
 							 +    '<input type="hidden" value="' + containers[i].cName + '" name="name"/>'
 							 +    '<input type="hidden" value="' + containers[i].cDescription + '" name="description"/>'
 							 +    '<div class="Label">' + containers[i].cName + '</div>' 
@@ -108,19 +101,21 @@ UIWidgetContainerManagement.prototype.showAddForm = function() {
 	
 	var formCtx = {
 		id : "UIWidgetContainerForm",
-		selectInput : {
-			values : ["user", "portal"],
-			selected : "user"
-		},
 		container : {
 			cId : "",
 			cName : "",
 			cDescription : ""
 		},
-		action : {
+		action : [
+		{
 			actionLabel : "Add",
 			event : "eXo.widget.UIWidgetContainerManagement.addWidgetContainer();"
-		}
+		},
+		{
+			actionLabel : "Cancel",
+			event : "eXo.widget.UIWidgetContainerManagement.closePopup('UIWidgetContainerPopup');"
+		}		
+		]
 	}
 	eXo.widget.UIWidgetContainerManagement.showPopup(popupCtx, formCtx) ;
 };
@@ -131,9 +126,7 @@ UIWidgetContainerManagement.prototype.addWidgetContainer = function() {
 	var uiForm = DOMUtil.findDescendantById(uiWidgetContainerManagement, "UIWidgetContainerForm");
 	var idField = DOMUtil.findDescendantById(uiForm, "id") ;
 	var newContainer = 	eXo.widget.UIWidgetContainerManagement.bindFormToContainer(uiForm) ;
-	var categoryName = eXo.widget.UIWidgetContainerManagement.toCategoryName(newContainer.cOwner) ;
-	var category = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", categoryName) ;
-	var containerList = DOMUtil.findFirstDescendantByClass(category, "div", "ContainerList");
+	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList");
 	if(idField.value == '' || idField.value == null) {
 		alert("The field 'Container Id' is required");
 		idField.focus();
@@ -154,7 +147,7 @@ UIWidgetContainerManagement.prototype.addWidgetContainer = function() {
 	containers.push(newContainer) ;
 	eXo.widget.UIWidgetContainerManagement.uncheckAll() ;
 	eXo.widget.UIWidgetContainerManagement.selectedContainer = newContainer ;
-	eXo.widget.UIWidgetContainerManagement.renderCategory(categoryName, containers) ;
+	eXo.widget.UIWidgetContainerManagement.renderContainer(containers) ;
 	eXo.widget.UIWidgetContainerManagement.bindContainerToDetail() ;
 	eXo.widget.UIWidgetContainerManagement.closePopup('UIWidgetContainerPopup');
 };
@@ -178,19 +171,21 @@ UIWidgetContainerManagement.prototype.showEditForm = function() {
 	var formCtx = {
 		id : "UIWidgetContainerForm",
 		isEdit : true,
-		selectInput : {
-			values : ["user", "portal"],
-			selected : container.cOwner
-		},
 		container : {
 			cId : container.cId,
 			cName : container.cName,
 			cDescription : container.cDescription
 		},
-		action : {
+		action : [
+		{
 			actionLabel : "Save",
 			event : "eXo.widget.UIWidgetContainerManagement.editContainer();"
-		}
+		},
+		{
+			actionLabel : "Cancel",
+			event : "eXo.widget.UIWidgetContainerManagement.closePopup('UIWidgetContainerPopup');"
+		}		
+		]
 	}
 	eXo.widget.UIWidgetContainerManagement.showPopup(popupCtx, formCtx) ;
 } ;
@@ -200,9 +195,7 @@ UIWidgetContainerManagement.prototype.editContainer = function() {
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement") ;
 	var uiForm = DOMUtil.findDescendantById(uiWidgetContainerManagement, "UIWidgetContainerForm") ;
 	var editedContainer = eXo.widget.UIWidgetContainerManagement.bindFormToContainer(uiForm) ;
-	var categoryName = eXo.widget.UIWidgetContainerManagement.toCategoryName(editedContainer.cOwner) ;
-	var category = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", categoryName) ;
-	var containerList = DOMUtil.findFirstDescendantByClass(category, "div", "ContainerList") ;
+	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList") ;
 	var containers = DOMUtil.findChildrenByClass(containerList, "div", "Item") ;
 	
 	for(var i = 0; i < containers.length; i++) {
@@ -223,9 +216,7 @@ UIWidgetContainerManagement.prototype.deleteContainer = function() {
 	if(!confirm("Are you sure you want to delete this container?")) return;
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement") ;
-	var categoryName = eXo.widget.UIWidgetContainerManagement.toCategoryName(selectedContainer.cOwner) ;
-	var category = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", categoryName) ;
-	var containerList = DOMUtil.findFirstDescendantByClass(category, "div", "ContainerList") ;
+	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList") ;
 	var containerElements = DOMUtil.findChildrenByClass(containerList, "div", "Item") ;
 	var remainContainers = [] ;
 
@@ -241,7 +232,7 @@ UIWidgetContainerManagement.prototype.deleteContainer = function() {
 	}
 	
 	eXo.widget.UIWidgetContainerManagement.selectedContainer = null ;
-	eXo.widget.UIWidgetContainerManagement.renderCategory(categoryName, remainContainers) ;
+	eXo.widget.UIWidgetContainerManagement.renderContainer(remainContainers) ;
 	eXo.widget.UIWidgetContainerManagement.bindContainerToDetail() ;
 };
 
@@ -249,33 +240,27 @@ UIWidgetContainerManagement.prototype.submit = function() {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement") ;
 	var portalWidgetContainer = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "PortalWidgetContainer");
-	var containerLists = DOMUtil.findDescendantsByClass(uiWidgetContainerManagement, "div", "ContainerList");
-	var portalName = eXo.env.server.portalBaseURL.split("/")[3] ;
+	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList");
 	
-	for(var k = 0; k < containerLists.length; k++) {
-		var containers = DOMUtil.findChildrenByClass(containerLists[k], "div", "Item") ;
-		var categoryName = containerLists[k].parentNode.className ;
-		var owner = eXo.widget.UIWidgetContainerManagement.toOwner(categoryName) ;
-		var updatedParams = "" ;
-		for(var i = 0; i < containers.length; i++) {
-			var container = eXo.widget.UIWidgetContainerManagement.bindElementToContainer(containers[i]) ;
-			updatedParams += "&id=" + container.cId + "&name=" + container.cName	+ "&desc=" + container.cDescription ;
-		}
-		
-		var deletedParams = "";
-		for(var j = 0; j < eXo.widget.UIWidgetContainerManagement.deletedContainers.length; j++) {
-			deletedParams += ("&deleted=" + eXo.widget.UIWidgetContainerManagement.deletedContainers[j]) ;
-		}
-		
-		var url = eXo.env.server.context
-						+ "/command?type=org.exoplatform.web.command.handler.UpdateWidgetContainerHandler"
-						+ "&portal=" + portalName
-						+ "&owner=" + owner
-						+ updatedParams 
-						+ deletedParams ;	
-									
-		ajaxAsyncGetRequest(url, true) ;		
+	var containers = DOMUtil.findChildrenByClass(containerList, "div", "Item") ;
+	var updatedParams = "" ;
+	for(var i = 0; i < containers.length; i++) {
+		var container = eXo.widget.UIWidgetContainerManagement.bindElementToContainer(containers[i]) ;
+		updatedParams += "&id=" + container.cId + "&name=" + container.cName	+ "&desc=" + container.cDescription ;
 	}
+		
+	var deletedParams = "";
+	for(var j = 0; j < eXo.widget.UIWidgetContainerManagement.deletedContainers.length; j++) {
+		deletedParams += ("&deleted=" + eXo.widget.UIWidgetContainerManagement.deletedContainers[j]) ;
+	}
+		
+	var url = eXo.env.server.context
+					+ "/command?type=org.exoplatform.web.command.handler.UpdateWidgetContainerHandler"
+					+ updatedParams 
+					+ deletedParams ;	
+					
+	ajaxAsyncGetRequest(url, true) ;		
+
 	eXo.widget.UIWidgetContainerManagement.destroy() ;
 } ;
 
@@ -300,19 +285,17 @@ UIWidgetContainerManagement.prototype.closePopup = function(popupId) {
 UIWidgetContainerManagement.prototype.uncheckAll = function() {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement");
-	var containerLists = DOMUtil.findDescendantsByClass(uiWidgetContainerManagement, "div", "ContainerList");
-	for(var i = 0; i < containerLists.length; i++) {
-		var containers = DOMUtil.findChildrenByClass(containerLists[i], "div", "Item");
-		for(var j = 0; j < containers.length; j++) {
-			containers[j].className = "Item NormalItem" ;
-		}		
-	}	
+	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList");
+	var containers = DOMUtil.findChildrenByClass(containerList, "div", "Item");
+	
+	for(var j = 0; j < containers.length; j++) {
+		containers[j].className = "Item NormalItem" ;
+	}		
 } ;
 //---------------------------------------------------//
 
 UIWidgetContainerManagement.prototype.bindContainerToElement = function(element, container) {
 	var itemHTML = '<input type="hidden" value="' + container.cId + '" name="id"/>'
-							 + '<input type="hidden" value="' + container.cOwner + '" name="owner"/>'
 							 + '<input type="hidden" value="' + container.cName + '" name="name"/>'
 							 + '<input type="hidden" value="' + container.cDescription + '" name="description"/>'
 							 + '<div class="Label">' + container.cName + '</div>' ;
@@ -326,7 +309,6 @@ UIWidgetContainerManagement.prototype.bindElementToContainer = function(item) {
 	
 	containerObject.cId = DOMUtil.findChildrenByAttribute(item, "input", "name", "id")[0].value ;
 	containerObject.cName = DOMUtil.findChildrenByAttribute(item, "input", "name", "name")[0].value ;
-	containerObject.cOwner = DOMUtil.findChildrenByAttribute(item, "input", "name", "owner")[0].value ;
 	containerObject.cDescription = DOMUtil.findChildrenByAttribute(item, "input", "name", "description")[0].value ;
 	
 	return containerObject ;
@@ -336,8 +318,6 @@ UIWidgetContainerManagement.prototype.bindFormToContainer = function(uiForm) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var container = new Object() ;
 	container.cId = DOMUtil.findDescendantById(uiForm, "id").value ;
-	var selectInput =	DOMUtil.findDescendantById(uiForm, "owner") ;
-  container.cOwner = selectInput.options[selectInput.selectedIndex].value ; 
 	container.cName = DOMUtil.findDescendantById(uiForm, "name").value ;
 	container.cDescription = DOMUtil.findDescendantById(uiForm, "description").value ;
 	
@@ -360,38 +340,6 @@ UIWidgetContainerManagement.prototype.isPopupExist = function() {
 UIWidgetContainerManagement.prototype.clear = function() {
 	this.selectedContainer = null ;
 	this.deletedContainers.clear() ;
-} ;
-
-UIWidgetContainerManagement.prototype.toCategoryName = function(owner)  {
-	var categoryName = "" ;
-	switch(owner){
-		case "portal" :
-			categoryName = "PortalWidgetContainer" ;
-			break ;
-		case "user" :
-			categoryName = "UserWidgetContainer" ;
-			break ;
-		default :
-			break ; 
-	}
-	
-	return categoryName ;
-} ;
-
-UIWidgetContainerManagement.prototype.toOwner = function(categoryName) {
-	var owner = "" ;
-	switch (categoryName){
-		case "PortalWidgetContainer" :
-			owner = "portal" ;
-			break ;
-		case "UserWidgetContainer" :
-			owner = "user";
-			break ;
-		default :
-			break ;
-	}
-	
-	return owner ;
 } ;
 
 eXo.widget.UIWidgetContainerManagement = new UIWidgetContainerManagement();

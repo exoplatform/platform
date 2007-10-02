@@ -19,24 +19,13 @@
 		<div class="ContainerManagementDetail">
 			<div class="WidgetContainerCategory">
 				<div class="CategoryTitleBar">
-					<div class="Title">Categories</div>
+					<div class="Title">Containers</div>
 					<a class="RemoveContainer Icon" href="javascript: <%=deleteWidgetContainer%>" title="Remove selected widget container"><span></span></a>
 					<a class="EditContainer Icon" href="javascript: <%=editWidgetContainer%>" title="Edit selected widget container"><span></span></a>
 					<a class="AddContainer Icon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
 					<div style="clear: both"><span></span></div>
 				</div>
-				<div class="PortalWidgetContainer">
-					<div class="CategoryTitle">
-						Portal Widget Containers
-					</div>
-					<div class="ContainerList">
-						<div class="EmptyListMessage">There is no container in this category.</div>
-					</div>
-				</div>
 				<div class="UserWidgetContainer">
-					<div class="CategoryTitle">
-						User Widget Containers
-					</div>
 					<div class="ContainerList">
 						<div class="EmptyListMessage">There is no container in this category.</div>
 					</div>
@@ -55,7 +44,7 @@
 		<table class="ActionContainer" align="center">
 			<tr>
 				<td align="center">
-					<a class="ActionButton LightBlueStyle" "javascript: <%=submit%>" >
+					<a class="ActionButton LightBlueStyle" href="javascript: <%=submit%>" >
 						<div class="ButtonLeft">
 							<div class="ButtonRight">
 								<div class="ButtonMiddle">Save</div>

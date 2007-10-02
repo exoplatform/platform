@@ -35,64 +35,29 @@ public class GetWidgetContainerHandler extends Command {
       throw new IOException(e.getMessage());
     }
   }
-  
+  //{widgetContainers: [{"cId" : "testid", "cName" : "testname", "cDescription" : "testDes"}]}
   private StringBuilder getWidgetContainers(HttpServletRequest req) throws Exception {    
-/*   
-                         |-------portalWidgetContainer|----name
-                         |                            |
-    widgetContainers-----|                            |----containers|---con1
-                         |                                           |---con2
-                         |
-                         |
-                         |-------userWidgetContainer|----name
-                                                    |      
-                                                    |----containers|---con1
-                                                                   |---con2
-                                                                                                                                      
-*/                                                                
     PortalContainer container = PortalContainer.getInstance();
     DataStorage dataService = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
-    String portal = req.getParameter("portal") ;
-    String user = req.getRemoteUser() ;
-    String[] widgetIds = {PortalConfig.PORTAL_TYPE + "::" + portal, PortalConfig.USER_TYPE + "::" + user} ;
-
+    String userWidgetsId = PortalConfig.USER_TYPE + "::" + req.getRemoteUser() ;
+    
     StringBuilder value = new StringBuilder();
-    value.append("{\"widgetContainers\": {\n") ;
-    for(int k = 0; k < widgetIds.length; k++) {
-      Widgets widgets = dataService.getWidgets(widgetIds[k]) ;
-      if(widgets == null) continue ; 
+    value.append("{\"widgetContainers\": [\n") ;
+    Widgets widgets = dataService.getWidgets(userWidgetsId) ;
+    if(widgets != null) {
       ArrayList<Container> widgetContainers = widgets.getChildren() ;
-      String owner = widgets.getOwnerType() ;
-      
-      value.append("\"").append(owner).append("WidgetContainer\": {")
-           .append("\"name\": \"").append(getName(owner)).append("\",\n")
-           .append("\"containers\": [") ;
       for(int i = 0; i < widgetContainers.size(); i ++) {
         value.append(" {");
         value.append("\n          \"cId\": \"").append(widgetContainers.get(i).getId()).append("\",") ;
-        value.append("\n          \"cOwner\": \"").append(owner).append("\",") ;
         value.append("\n          \"cName\": \"").append(widgetContainers.get(i).getName()).append("\",") ;
         value.append("\n          \"cDescription\": \"").append(widgetContainers.get(i).getDescription()).append("\"\n") ;
         value.append("      }");
         if (i < (widgetContainers.size() - 1)) value.append(",\n") ;
         else value.append("\n") ;
-      }
-      value.append("    ]}\n") ;
-      if(k <(widgetIds.length - 1)) value.append(",\n") ;
-      else value.append("\n") ;   
+      }      
     }
-    
-    value.append("}}") ;
+    value.append("]}\n") ;
     return value ;
   }
-  
-  private String getName(String key) {
-    String title = "" ;
-    if(key.equals(PortalConfig.PORTAL_TYPE)) {
-      title = "PortalWidgetContainer" ;
-    } else title = "UserWidgetContainer" ;
 
-    return title ;
-  }
-  
 }

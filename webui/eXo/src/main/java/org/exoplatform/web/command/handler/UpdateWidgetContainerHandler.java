@@ -30,21 +30,14 @@ public class UpdateWidgetContainerHandler extends Command {
     try {
       PortalContainer portalContainer = PortalContainer.getInstance() ;
       UserPortalConfigService configService = (UserPortalConfigService)portalContainer.getComponentInstanceOfType(UserPortalConfigService.class) ;
-      String widgetsId = "" ; 
-      String owner = req.getParameter("owner") ;
-      if(owner.equals(PortalConfig.PORTAL_TYPE)) {
-        String portal = req.getParameter("portal") ;
-        widgetsId = PortalConfig.PORTAL_TYPE + "::" + portal;
-      } else {
-        String user = req.getRemoteUser() ;
-        widgetsId = PortalConfig.USER_TYPE + "::" + user ; 
-      }
-      
+      String ownerType = PortalConfig.USER_TYPE ;
+      String ownerId = req.getRemoteUser() ;
+      String widgetsId = ownerType + "::" + ownerId ; 
       Widgets widgets = configService.getWidgets(widgetsId) ;
       if(widgets == null) {
         widgets = new Widgets() ;
-        widgets.setOwnerType(widgetsId.split("::")[0]) ;
-        widgets.setOwnerId(widgetsId.split("::")[1]) ;
+        widgets.setOwnerType(ownerType) ;
+        widgets.setOwnerId(ownerId) ;
         widgets.setChildren(new ArrayList<Container>()) ;
         configService.create(widgets) ;
       }
