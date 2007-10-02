@@ -195,6 +195,7 @@ UIWidgetContainerManagement.prototype.editContainer = function() {
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement") ;
 	var uiForm = DOMUtil.findDescendantById(uiWidgetContainerManagement, "UIWidgetContainerForm") ;
 	var editedContainer = eXo.widget.UIWidgetContainerManagement.bindFormToContainer(uiForm) ;
+	if(editedContainer.cName == null || editedContainer.cName == "") editedContainer.cName = editedContainer.cId ;
 	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList") ;
 	var containers = DOMUtil.findChildrenByClass(containerList, "div", "Item") ;
 	
