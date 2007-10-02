@@ -23,7 +23,7 @@
               <property name="swap-directory" value="../temp/swap/production"/>
             </properties>
             <value-storages>
-              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+              <value-storage id="production" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path" value="../temp/values/production"/>
                 </properties>
@@ -65,7 +65,7 @@
               <property name="swap-directory" value="../temp/swap/draft"/>
             </properties>
             <value-storages>
-              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+              <value-storage id="draft" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path" value="../temp/values/draft"/>
                 </properties>
@@ -107,7 +107,7 @@
               <property name="swap-directory" value="../temp/swap/backup"/>
             </properties>
             <value-storages>
-              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+              <value-storage id="backup" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path" value="../temp/values/backup"/>
                 </properties>
@@ -149,7 +149,7 @@
               <property name="swap-directory" value="../temp/swap/digital-assets"/>
             </properties>
             <value-storages>
-              <value-storage class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
+              <value-storage id="digital-assets" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
                 <properties>
                   <property name="path" value="../temp/values/digital-assets"/>
                 </properties>
