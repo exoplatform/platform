@@ -52,18 +52,18 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding-bottom: 6px">
-      <div class="topElement" style="display: none;height: 20px; text-align: center;background: orange" > ^ ^ </div>
-			<div class="blockMenu" style="position: relative;">
-      <div class="menuContainer">          
-      """ ;
-      for(child in node.getChildren()) {
-        if(child.getChildren() != null && child.getChildren().size() > 0) renderPageNode(nav, child) ;
-        else renderSinglePageNode(nav, child) ;
-      }
-      print """
-      </div>
-      </div>
-      <div class="bottomElement" style="display: none;height: 20px; text-align: center;background: orange" > ^ ^ </div>
+						      <div class="TopNavigator" style="display: none;height: 20px; text-align: center;background: orange" > ^ ^ </div>
+									<div class="BlockMenu" style="position: relative;">
+						      <div class="MenuContainer">          
+						      """ ;
+						      for(child in node.getChildren()) {
+						        if(child.getChildren() != null && child.getChildren().size() > 0) renderPageNode(nav, child) ;
+						        else renderSinglePageNode(nav, child) ;
+						      }
+						      print """
+						      </div>
+						      </div>
+						      <div class="BottomNavigator" style="display: none;height: 20px; text-align: center;background: orange" > ^ ^ </div>
                 </div>
               </div>
             </div>
@@ -124,9 +124,9 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding: 0px 5px 5px 5px">
-        <div class="topElement" style="display: none;height: 20px; text-align: center;background: orange"> ^ ^ </div>
-				<div class="blockMenu" style="position: relative;">
-      	<div class="menuContainer"> 
+        <div class="TopNavigator" style="display: none;height: 20px; text-align: center;background: orange"> ^ ^ </div>
+				<div class="BlockMenu" style="position: relative;">
+      	<div class="MenuContainer"> 
       	""" ;
 	      for(navigation in navigations) {
 	        renderPageNavigation(navigation) ;
@@ -134,7 +134,7 @@
       	print """
       	</div>
       	</div>
-      	<div class="bottomElement" style="display: none;height: 20px; text-align: center;background: orange"> ^ ^ </div>
+      	<div class="BottomNavigator" style="display: none;height: 20px; text-align: center;background: orange"> ^ ^ </div>
                 </div>
               </div>
             </div>
@@ -173,9 +173,9 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding-bottom: 5px">
-      <div class="topElement" style="display: none;height: 20px; text-align: center;background: #A1C5EC"> ^ ^ </div>
-			<div class="blockMenu" style="position: relative;">
-      <div class="menuContainer">           
+      <div class="TopNavigator" style="display: none;height: 20px; text-align: center;background: #A1C5EC"> ^ ^ </div>
+			<div class="BlockMenu" style="position: relative;">
+      <div class="MenuContainer">           
       """ ;
       for(child in item.getChildren()) {
         if(child instanceof UIExoStart.MenuItemContainer) renderMenuItemContainer(child) ;
@@ -184,7 +184,7 @@
       print """
       </div>
       </div>
-      <div class="bottomElement" style="display: none;height: 20px; text-align: center;background: #A1C5EC"> ^ ^ </div>
+      <div class="BottomNavigator" style="display: none;height: 20px; text-align: center;background: #A1C5EC"> ^ ^ </div>
                  </div>
                </div>
              </div>
