@@ -36,6 +36,7 @@ public class UIWelcomeComponent extends UIContainer {
     if(userPortalConfig == null) return;
     UIWidgets uiWidgets = addChild(UIWidgets.class, null, null) ;
     Widgets widgets = userPortalConfig.getWidgets();
+    if(widgets == null) return ;
     PortalDataMapper.toUIWidgets(uiWidgets, widgets);
   }  
 
