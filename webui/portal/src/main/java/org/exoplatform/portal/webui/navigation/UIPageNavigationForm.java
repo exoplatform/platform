@@ -129,10 +129,11 @@ public class UIPageNavigationForm extends UIForm {
        DataStorage service = portal.getApplicationComponent(DataStorage.class);
        List<PageNavigation> list = portal.getNavigations();
        if(service.getPageNavigation(navId) == null) return false;
+       
        for(PageNavigation nav: list){
-         if(nav.getId().equals(navId) ) return true;
+         if(nav.getId().equals(navId) ) return false;
        }
-       return false;
+       return true;
     }
   }
 }

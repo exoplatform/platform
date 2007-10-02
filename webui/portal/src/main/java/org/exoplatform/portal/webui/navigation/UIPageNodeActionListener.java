@@ -336,7 +336,7 @@ public class UIPageNodeActionListener {
     protected void moveNode(Event<UIRightClickPopupMenu> event, int i) {
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIPageNodeSelector uiPageNodeSelector =  event.getSource().getAncestorOfType(UIPageNodeSelector.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
       PageNavigation nav = uiPageNodeSelector.getSelectedNavigation();
       PageNode targetNode = PageNavigationUtils.searchPageNodeByUri(nav, uri);
       Object parentNode = PageNavigationUtils.searchParentNode(nav, uri);
