@@ -210,7 +210,6 @@
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
-  height: 19px ; 
   line-height: 19px; 
   background: url('background/TitleBG1x19.gif') repeat-x ;
   padding: 0px 0px 0px 10px ;

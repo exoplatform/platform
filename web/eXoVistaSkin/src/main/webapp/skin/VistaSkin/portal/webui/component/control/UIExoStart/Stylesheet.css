@@ -275,7 +275,7 @@
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
-  height: 23px ;
+  line-height: 23px ;
   background: url('background/TitleBar1x23.png') repeat-x ;
   padding: 5px 0px 0px 10px ;
   white-space: nowrap;

@@ -170,16 +170,19 @@
 .UIOrganizationPortlet .UIGroupManagement .TitleBar{
 	background: url('DefaultSkin/background/TitleBarBG.gif') repeat-x;
 	height: 25px;
+	line-height: 25px;
 	border: 1px #b7b7b7 solid; 
 	border-bottom: none;
+	font-weight: bold;
+	padding-left: 15px;
+	color: #424242;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .TitleBar .Title{
-	color:#424242;
-	float:left;
-	font-weight:bold;
-	line-height:25px;
-	padding-left:10px;
+.UIOrganizationPortlet .UIGroupManagement .TitleBar .Title {
+	color: #424242;
+	float: left;
+	font-weight: bold;
+	line-height: 25px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs{
