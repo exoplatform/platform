@@ -61,7 +61,7 @@ public class UserPortalConfigListener extends UserEventListener {
     Widgets widgets = dataStorage.getWidgets(id) ;
     if (widgets != null) portalConfigService.remove(widgets);
   }
-  
+  @SuppressWarnings("unused")
   public void preSave(User user, boolean isNew) throws Exception {
     PortalContainer container  = PortalContainer.getInstance() ;
     UserPortalConfigService portalConfigService = 

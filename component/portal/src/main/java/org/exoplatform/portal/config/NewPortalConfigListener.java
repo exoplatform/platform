@@ -34,6 +34,7 @@ import org.jibx.runtime.IUnmarshallingContext;
  *          tuan08@users.sourceforge.net
  * May 22, 2006
  */
+
 public class NewPortalConfigListener extends BaseComponentPlugin {
   
   private ConfigurationManager cmanager_ ;
