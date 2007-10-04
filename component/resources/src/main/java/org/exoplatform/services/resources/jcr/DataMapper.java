@@ -17,7 +17,6 @@ import org.exoplatform.services.resources.ResourceBundleData;
  */
  public class DataMapper   {
   
-  final static String SYSTEM_WS = "production".intern();
   final static String LOCALE =  "locale";
   
   final static String ID = "id";
