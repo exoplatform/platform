@@ -331,18 +331,16 @@
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuMR .TopNavigator {
-	background: url('background/UpNaviArrow.GIF') no-repeat center;
+	background: url('background/UpNaviArrow.gif') no-repeat center;
 	height: 14px;
 	border-bottom: 1px solid #797979;
-	opacity: 0.6;
  
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuMR .BottomNavigator {
-	background: url('background/DownNaviArrow.GIF') no-repeat center;
+	background: url('background/DownNaviArrow.gif') no-repeat center;
 	height: 14px;
 	border-top: 1px solid #797979;
-	opacity: 0.6;
  
 }
 
