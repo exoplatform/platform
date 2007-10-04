@@ -18,7 +18,6 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
 import org.exoplatform.services.organization.MembershipHandler;
@@ -249,12 +248,11 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   private boolean hasViewPermission(OrganizationService orgService, String remoteUser, String expPerm) throws Exception {
     if(expPerm == null) return true;
-    Permission permission = new Permission();
-    permission.setPermissionExpression(expPerm);
-    String groupId = permission.getGroupId();
+    String[] temp = expPerm.split(":") ;
+    if(temp.length < 2) return false;
+    String membership = temp[0].trim() ;
+    String groupId= temp[1].trim();
     if("/guest".equals(groupId)) return true ;
-
-    String membership = permission.getMembership() ;
     MembershipHandler handler = orgService.getMembershipHandler();
     if(membership == null || "*".equals(membership)) {
       Collection<?> c = handler.findMembershipsByUserAndGroup(remoteUser, groupId) ;
