@@ -16,7 +16,6 @@
     <expiration-cache>0</expiration-cache>
     <supports>
       <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
     <resource-bundle>locale.portlet.web.GroovyPortlet</resource-bundle>
@@ -50,7 +49,6 @@
     <expiration-cache>0</expiration-cache>
     <supports>
       <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
     <resource-bundle>locale.portlet.web.GroovyPortlet</resource-bundle>
