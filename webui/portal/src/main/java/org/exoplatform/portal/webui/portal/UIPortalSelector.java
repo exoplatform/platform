@@ -7,6 +7,7 @@ package org.exoplatform.portal.webui.portal;
 import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
@@ -52,11 +53,16 @@ public class UIPortalSelector extends UIContainer {
     addChild(uiGrid.getUIPageIterator()) ;
     uiGrid.getUIPageIterator().setRendered(false) ;
     DataStorage dataService = getApplicationComponent(DataStorage.class) ;
-    UserACL userACL = getApplicationComponent(UserACL.class) ;
     String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
     Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
     PageList pageList = dataService.find(query) ;
     pageList.setPageSize(10) ;
+    pageList = extractPermissedPortal(pageList, accessUser) ;
+    uiGrid.getUIPageIterator().setPageList(pageList) ;
+  }
+  
+  private PageList extractPermissedPortal(PageList pageList, String accessUser) throws Exception {
+    UserACL userACL = getApplicationComponent(UserACL.class) ;
     int i = 1 ;
     while(i <= pageList.getAvailablePage()) {
       List<?> list = pageList.getPage(i) ;
@@ -67,7 +73,8 @@ public class UIPortalSelector extends UIContainer {
       }
       i++ ;
     }
-    uiGrid.getUIPageIterator().setPageList(pageList) ;
+    
+    return new ObjectPageList(pageList.getAll(), 10) ;
   }
   
 }
