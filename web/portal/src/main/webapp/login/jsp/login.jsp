@@ -9,7 +9,6 @@
   request.getSession().removeAttribute("authentication.password");
   String contextPath  =  request.getContextPath() ;
   String loginAction = contextPath  + "/j_security_check" ; 
-    
   Cookie[] cookies = request.getCookies();
   if (cookies != null && (userName == null || userName.length() == 0)) {
     for (int i = 0; i< cookies.length; i++) {
@@ -20,7 +19,6 @@
       }
     }
   }
-  
   boolean showForm = false ;
   boolean showError = false;
   if (userName == null || userName.length() == 0) {
@@ -56,19 +54,17 @@
           <div class="RightLoginContent">
             <div class="CenterLoginContent">
               <%/*Begin form*/%>
-              <%if(userName.length() > 0) {%><font color="red">Sign in failed. Wrong username or password.</font><%}%>
-              <form name="loginForm" action="<%=loginAction%>">        
+              <%
+                if(userName.length() > 0) {
+              %>
+                <font color="red">Sign in failed. Wrong username or password.</font><%}%>
+              <form name="loginForm" action="<%=loginAction%>" method=post>        
 	              <div class="FieldContainer">
 		              <label>User name:</label><input name="j_username" value="<%=userName%>"/>
 			          </div>
 		            <div class="FieldContainer" id="UIPortalLoginFormControl">
 		              <label>Password:</label><input type="password" name="j_password" value=""/>
 		            </div>
-			            
-			          <div class="OverflowContainer">  
-			            <input type="checkbox"/>
-			            <div class="ForgotMessage">Remember my login on this computer</div>
-			          </div>  
 			          <div class="LoginButton">
 			            <div class="LoginButtonContainer">
 			              <div class="Button">
