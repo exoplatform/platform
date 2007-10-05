@@ -23,8 +23,8 @@
 }
 
 .UISitemap .TitleBar {
-  background: url('/eXoMacSkin/skin/MacSkin/background/TitleBG1x19.gif') repeat-x;
-  height: 19px; line-height: 19px;
+  background: url('MacSkin/background/TitleBG1x22.gif') repeat-x;
+  height: 22px; line-height: 22px;
   border: 1px solid #aeaeae;
   border-bottom: none;
 }
