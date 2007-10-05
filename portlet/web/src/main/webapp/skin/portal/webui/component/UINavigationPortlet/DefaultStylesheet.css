@@ -145,17 +145,17 @@
 
 .UINavigationPortlet .ScrollLeftButton {
 	cursor: pointer;
-  background: url('DefaultSkin/background/ScrollLeft13x15.gif') no-repeat left;
+  background: url('DefaultSkin/background/LeftScrollButton.gif') no-repeat left;
   width: 13px;
   height: 15px;
-  padding-left: 13px;
-  margin: 0px 2px;
+  padding-left: 14px;
+  margin: 0px 5px;
   float: left;
 }
 
 .UINavigationPortlet .ScrollRightButton {
 	cursor: pointer;
-	background: url('DefaultSkin/background/ScrollRight13x15.gif') no-repeat right;
+	background: url('DefaultSkin/background/RightScrollButton.gif') no-repeat right;
   width: 13px;
   height: 15px;
   margin: 0px 2px;
@@ -164,36 +164,38 @@
 
 .UINavigationPortlet .DisableScrollLeftButton {
   cursor: pointer;
-	background: url('DefaultSkin/background/DisableScrollLeft13x15.gif') no-repeat left;
+	background: url('DefaultSkin/background/DisableLeftScrollButton.gif') no-repeat left;
   width: 13px;
   height: 15px;
-  padding-left: 13px;
-  margin: 0px 2px;
+  padding-left: 14px;
+  margin: 0px 5px;
   float: left;
+  opacity: 0.7 !important ;
 }
 
 .UINavigationPortlet .DisableScrollRightButton { 
 	cursor: pointer;
-	background: url('DefaultSkin/background/DisableScrollRight13x15.gif') no-repeat right;
+	background: url('DefaultSkin/background/DisableRightScrollButton.gif') no-repeat right;
   width: 13px;
   height: 15px;
   margin: 0px 2px;
   float: left;
+  opacity: 0.7 !important ;
 }
 
 .UINavigationPortlet .HighlightScrollLeftButton {
   cursor: pointer;
-	background: url('DefaultSkin/background/HighlightScrollLeft13x15.gif') no-repeat left;
+	background: url('DefaultSkin/background/OverLeftScrollButton.gif') no-repeat left;
   width: 13px;
   height: 15px;
-  padding-left: 13px;
-  margin: 0px 2px;
+  padding-left: 14px;
+  margin: 0px 5px;
   float: left;
 }
 
 .UINavigationPortlet .HighlightScrollRightButton {
 	cursor: pointer;
-	background: url('DefaultSkin/background/HighlightScrollRight13x15.gif') no-repeat;
+	background: url('DefaultSkin/background/OverRightScrollButton.gif') no-repeat;
   width: 13px;
   height: 15px;
   margin: 0px 2px;

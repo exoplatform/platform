@@ -34,11 +34,12 @@
 }
 
 .UISitemap .TitleBar a {
-  font-weight: bold; color: #058ee6;
+  font-weight: bold; 
+  color: #1248ac;
 }
 
 .UISitemap .TitleBar a:hover {
-  color: #1248ac;
+  color: #058ee6;
 }
 
 .UISitemap .TitleBar .Icon {
