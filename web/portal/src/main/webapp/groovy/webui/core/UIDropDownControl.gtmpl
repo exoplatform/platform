@@ -10,27 +10,64 @@
 	uicomponent.addItem("tran the trong");
 	uicomponent.addItem("hoang kim thanh");
 	uicomponent.addItem("nguyen duc thuy");
-	uicomponent.setAction("eXo.webui.UIDropDownControl.init") ;
 %>
+<div style="width: 300px; height: 400px;">
+
+
+
 <div class="UIDropDownControl" id="$uicomponent.id">	
-	<div class="UIDropDownTitle" onclick="eXo.webui.UIDropDownControl.show(this, event);">
-		<div class="UIDropDownLeftIcon">
-			<div class="UIDropDownRightIcon">
-				<div class="UIDropDownMiddleTitle"><span>DropDown Control</span></div>
-			</div>
-		</div>
-	</div>
-	<div class="UIDropDownAnchor" style="position: relative ; display: none ;">
-		<div class="UIOptionContainer">
-			<div class="UIItemListContainer">
-				<div class="UIItemList">
-				  <%
-				    for(option in options) {
-				  %>
-					    <a class="UIOptionItem" href="<%=uicomponent.event(option.getValue())%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)">$option.label</a>
-					<%}%>
+	<div class="EditIcon" onclick="eXo.webui.UIDropDownControl.showPopupControl(this, event);">
+		<div style="position: relative ;">
+			<div class="UIPopupControl" style="display: none ;">
+				<div class="UIPopupControlTL">
+					<div class="UIPopupControlTR">
+						<div class="UIPopupControlTC"><span></span></div>
+					</div>
+				</div>
+				<div class="UIPopupControlML">
+					<div class="UIPopupControlMR">
+						<div class="UIPopupControlMC">
+							<a class="MenuItem" href="#"><div class="ItemLabel">Item 1</div></a>
+							<a class="MenuItem" href="#"><div class="ItemLabel">Item 2</div></a>
+							<a class="MenuItem" href="#"><div class="ItemLabel">Item 3</div></a>
+						</div>
+					</div>
+				</div>
+				<div class="UIPopupControlBL">
+					<div class="UIPopupControlBR">
+						<div class="UIPopupControlBC"><span></span></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	
+	<div style="margin-right: 20px;">
+		<div class="UIDropDownTitle" onclick="eXo.webui.UIDropDownControl.show(this, event);">
+			<div class="UIDropDownLeftIcon">
+				<div class="UIDropDownRightIcon">
+					<div class="UIDropDownMiddleTitle"><span>DropDown Control</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="UIDropDownAnchor" style="position: relative ; display: none ;">
+			<div class="UIOptionContainer">
+				<div class="UIItemListContainer">
+					<div class="UIItemList">
+					  <%
+					    for(option in options) {
+					  %>
+						    <a class="UIOptionItem" href="<%=uicomponent.event(option.getValue())%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)">$option.label</a>
+						<%}%>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
 </div>
