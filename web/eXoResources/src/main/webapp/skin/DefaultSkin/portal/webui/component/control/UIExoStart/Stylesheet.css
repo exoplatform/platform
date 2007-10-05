@@ -109,7 +109,9 @@
 
 .UIExoStart .StartMenuContainer .LabelText {
   white-space: nowrap ;
-  padding: 10px 5px 0px 6px ;
+  padding: 0px 5px 0px 6px ;
+  line-height: 32px;
+  height: 32px;
 }
 
 .UIExoStart a {
@@ -135,7 +137,6 @@
 }
 
 .UIExoStart .StartMenuContainer .BlackArrowIcon {
-  height: 33px ;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat right ;
   padding: 0px 25px 0px 0px ;
   display: inherit;
@@ -143,13 +144,12 @@
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground {
-  padding: 3px 10px 0px 0px;
+  padding: 0px 10px 0px 0px;
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground .LabelText {
   font-weight: bold ;
   text-align: right ;
-  padding: 7px 0px 0px 0px ;
   width: auto;
 }
 
@@ -183,7 +183,6 @@
   position: absolute ;
   display: none;
 }
-
 
 .UIExoStart .StartMenuContainer .PageNavigationBlock {
   border-left: solid 1px #797979;

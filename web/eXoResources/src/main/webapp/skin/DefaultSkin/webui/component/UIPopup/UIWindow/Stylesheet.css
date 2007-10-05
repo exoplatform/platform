@@ -272,6 +272,10 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/RSS.gif') no-repeat center;
 }
 
+.UIWindow .WindowPortletInfo .Fast {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat center;
+}
+
 .UIWindow .WindowPortletInfo .Account {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserAccount.gif') no-repeat center;
 }
