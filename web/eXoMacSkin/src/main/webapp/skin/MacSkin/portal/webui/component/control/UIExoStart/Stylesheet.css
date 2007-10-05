@@ -185,7 +185,7 @@
 .UIExoStart .StartMenuContainer .BottomNavigator {
   border-top: solid 1px #797979 ;
   height: 14px;
-  background: red;
+  background: url('background/DownNaviArrow.gif') no-repeat center bottom;
   cursor: pointer;
 }
 
@@ -201,16 +201,20 @@
   padding: 0px 35px 0px 0px ;
 }
 
-.UIExoStart .StartMenuContainer .MenuItemContainer {
-  position: relative ;
-  visibility: visible;
-}
-
 .UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
   padding: 0px 0px 0px 33px;
   margin: 0px 0px 0px 5px;
   height: 35px;
   width: auto;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer {
+  visibility: visible;
+}
+
+.UIExoStart .StartMenuContainer .MenuItemContainer .MenuItem {
+	background: transparent;
+	color: #1b1b1b;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
@@ -320,20 +324,6 @@
 .UIExoStart .StartMenuDecorator .StartMenuMR {
   background: url('background/MenuDecoratorMR6x1.png') repeat-y right;
   padding: 0px 6px 0px 0px ;
-}
-
-.UIExoStart .StartMenuDecorator .StartMenuMR .TopNavigator {
-	background: url('background/UpNaviArrow.gif') no-repeat center;
-	height: 14px;
-	border-bottom: 1px solid #797979;
- 
-}
-
-.UIExoStart .StartMenuDecorator .StartMenuMR .BottomNavigator {
-	background: url('background/DownNaviArrow.gif') no-repeat center;
-	height: 14px;
-	border-top: 1px solid #797979;
- 
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBG {
