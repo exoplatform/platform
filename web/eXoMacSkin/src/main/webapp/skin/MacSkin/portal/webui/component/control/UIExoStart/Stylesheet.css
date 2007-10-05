@@ -164,8 +164,29 @@
   visibility: inherit;
 }
 
-.UIExoStart .StartMenuContainer .NavigationBackground {
-  padding: 3px 30px 0px 0px ;
+.UIExoStart .StartMenuContainer .PageNavigationBlock {
+  border-left: solid 1px #797979;
+  border-right: solid 1px #797979;
+  padding: 2px 4px;
+}
+
+.UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer{
+  background: #f5f4ff ;
+  border: 1px solid #b2b2b2;
+}
+
+.UIExoStart .StartMenuContainer .TopNavigator {
+  border-bottom: solid 1px #797979;
+  height: 14px;
+  background: url('background/UpNaviArrow.gif') no-repeat center top;
+  cursor: pointer;
+}
+
+.UIExoStart .StartMenuContainer .BottomNavigator {
+  border-top: solid 1px #797979 ;
+  height: 14px;
+  background: red;
+  cursor: pointer;
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground .LabelText {
@@ -182,6 +203,7 @@
 
 .UIExoStart .StartMenuContainer .MenuItemContainer {
   position: relative ;
+  visibility: visible;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
@@ -192,7 +214,8 @@
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
-	background: #cbdaf4;
+	background: #cccfff;
+	color: #1d61c4;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemContainer {
@@ -200,13 +223,9 @@
   display: none;
 }
 
-.UIExoStart .StartMenuContainer .NavigationContainer {
-}
-
 .UIExoStart .StartMenuContainer .DecoratorBlock {
   background: #efefef;
-  border: solid 1px #a4b0b0 ;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
@@ -215,6 +234,7 @@
   padding: 0px 0px 0px 10px ;
   border-bottom: solid 1px #a4b0b0 ;
   white-space: nowrap;
+  color: #333;
 }
 
 .UIExoStart .StartMenuContainer .BasicIcon {
@@ -245,27 +265,6 @@
   margin: 0px 0px 0px 4px;
 }
 
-.UIExoStart .StartMenuContainer .DefaultSkinIcon {
-  height: 37px ;  
-  background: url('icons/32x32/ExoSkin.png') no-repeat left ;
-  padding: 0px 0px 0px 35px ;
-  margin: 0px 0px 0px 4px;
-}
-
-.UIExoStart .StartMenuContainer .MacSkinIcon {
-  height: 37px ;  
-  background: url('icons/32x32/MacSkin.png') no-repeat left ;
-  padding: 0px 0px 0px 35px ;
-  margin: 0px 0px 0px 4px;
-}
-
-.UIExoStart .StartMenuContainer .VistaSkinIcon {
-  height: 37px ;  
-  background: url('icons/32x32/VistaSkin.png') no-repeat left ;
-  padding: 0px 0px 0px 35px ;
-  margin: 0px 0px 0px 4px;
-}
-
 .UIExoStart .StartMenuContainer .ChangeLanguageIcon {
   height: 38px ;  
   background: url('icons/32x32/ChangeLanguage.png') no-repeat left ;
@@ -277,13 +276,6 @@
   height: 38px ;  
   background: url('icons/32x32/ChangeLanguage.png') no-repeat left ;
   padding: 0px 0px 0px 37px ;
-  margin: 0px 0px 0px 4px;
-}
-
-.UIExoStart .StartMenuContainer .LanguageItemIcon {
-  height: 35px ;  
-  background: url('icons/16x16/LanguageIcon.png') no-repeat left ;
-  padding: 0px 0px 0px 16px ;
   margin: 0px 0px 0px 4px;
 }
 
