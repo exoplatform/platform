@@ -137,14 +137,6 @@
   margin: 0px 0px 0px 5px ;
 }
 
-
-.UIExoStart .StartMenuContainer .SystemIcon {
-  height: 35px ;
-  background: url('icons/32x32/System.png') no-repeat left ;
-  padding: 0px 0px 0px 42px ;
-  margin: 0px 0px 0px 5px ;
-}
-
 .UIExoStart .StartMenuContainer .LabelText {
   white-space: nowrap ;
   color: #000111;
@@ -159,53 +151,11 @@
   color: orange ;
 }
 
-.UIExoStart .StartMenuContainer .MySpaceIcon {
-  height: 35px ;  
-  background: url('icons/32x32/MySpace.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
-  margin: 0px 0px 0px 5px ;
-}
-
-.UIExoStart .StartMenuContainer .Web20Icon {
-  height: 35px ;
-  background: url('icons/32x32/Web20.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
-  margin: 0px 0px 0px 5px ;
-}
-
-.UIExoStart .StartMenuContainer .DebugIcon {
-  height: 35px ;  
-  background: url('icons/32x32/Debug.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
-  margin: 0px 0px 0px 5px ;
-}
-
-.UIExoStart .StartMenuContainer .SupportIcon {
-  height: 35px ;  
-  background: url('icons/32x32/Help.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
-  margin: 0px 0px 0px 5px ;
-}
-
-.UIExoStart .StartMenuContainer .RefreshIcon {
-  height: 35px ;  
-  background: url('icons/32x32/Refresh.png') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
-  margin: 0px 0px 0px 5px ;
-}
-
 .UIExoStart .StartMenuContainer .LogoutIcon {
   height: 35px ;  
   background: url('icons/32x32/Logout.png') no-repeat left ;
   padding: 0px 0px 0px 32px ;
   margin: 0px 0px 0px 110px ;
-}
-
-.UIExoStart .StartMenuContainer .LoginIcon {
-  height: 35px ;  
-  background: url('icons/24x24/BlueLoginIcon.gif') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
-  margin: 0px 0px 0px 120px ;
 }
 
 .UIExoStart .StartMenuContainer .HLineSeparator {
@@ -259,9 +209,6 @@
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemContainer {
   position: absolute ;
   display: none;
-}
-
-.UIExoStart .StartMenuContainer .NavigationContainer {
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock {
@@ -351,6 +298,21 @@
   padding: 0px 0px 0px 32px ;
 }
 
+.UIExoStart .StartMenuContainer .TopNavigator {
+	background: #b7b7b7 url('background/UpNaviArrow.GIF') no-repeat center ;
+	height: 14px;
+	cursor: pointer;
+	border-bottom: 1px solid #797979;
+}
+
+.UIExoStart .StartMenuContainer .BottomNavigator {
+	background: #b7b7b7 url('background/DownNaviArrow.GIF') no-repeat center bottom;
+	height: 14px;
+	cursor: pointer;
+	border-top: 1px solid #797979;
+	
+}
+
 /*========================Start Menu Decorator======================*/
 .UIExoStart .StartMenuDecorator {
   width: 100%;
@@ -390,22 +352,6 @@
 .UIExoStart .StartMenuDecorator .StartMenuMR {
   background: url('background/MenuDecoratorMR15x1.png') repeat-y right;
   padding: 0px 15px 0px 0px ;
-}
-
-.UIExoStart .StartMenuDecorator .StartMenuMR .TopNavigator {
-	background: url('background/UpNaviArrow.GIF') no-repeat center ;
-	height: 14px;
-	cursor: pointer;
-	border-bottom: 1px solid #797979;
-	opacity: 0.6;
-}
-
-.UIExoStart .StartMenuDecorator .StartMenuMR .BottomNavigator {
-	background: url('background/DownNaviArrow.GIF') no-repeat center bottom;
-	height: 14px;
-	cursor: pointer;
-	border-top: 1px solid #797979;
-	opacity: 0.6;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBG {
