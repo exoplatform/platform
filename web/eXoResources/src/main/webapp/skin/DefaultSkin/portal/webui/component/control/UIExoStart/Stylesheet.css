@@ -116,6 +116,7 @@
 
 .UIExoStart a {
   color: #1b1b1b ;
+  display: block;
 }
 
 .UIExoStart a:hover {
