@@ -54,7 +54,7 @@
 }
 
 .UIExoStart .StartMenuContainer .LabelItem {
-  padding: 0px 5px 0px 2px ;
+  padding: 0px 0px 0px 2px ;
   cursor: pointer ;
 }
 
@@ -142,6 +142,7 @@
   padding: 0px 25px 0px 0px ;
   display: inherit;
   visibility: inherit;
+  margin-right: 5px;
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground {
@@ -151,7 +152,6 @@
 .UIExoStart .StartMenuContainer .NavigationBackground .LabelText {
   font-weight: bold ;
   text-align: right ;
-  width: auto;
 }
 
 .UIExoStart .StartMenuContainer .NavigationArrowIcon {

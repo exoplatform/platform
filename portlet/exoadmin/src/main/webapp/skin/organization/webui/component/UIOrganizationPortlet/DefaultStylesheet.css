@@ -77,9 +77,9 @@
 }
 
 .UIOrganizationPortlet .UIFormWithTitle {
-	width: auto;
+	width: 97.5%;
+	margin: auto;
 }
-
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UITabPane {
   height:auto;
@@ -219,7 +219,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
   padding-bottom: 10px;  
-  height: 226px;
+  height: 233px;
   overflow: auto;
 }
 
@@ -272,7 +272,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout{ 
-	height: 252px;
+	height: 243px;
 	background: white;
 }
 
@@ -302,8 +302,7 @@
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMembershipTypeForm {
-	margin: auto;
-	padding: 10px; padding-bottom: 0px;
+	padding-top: 10px; 
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupInfo {

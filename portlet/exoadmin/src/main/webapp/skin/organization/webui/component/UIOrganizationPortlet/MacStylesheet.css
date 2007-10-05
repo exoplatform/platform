@@ -252,7 +252,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle {
-	width: 500px;
+	width: auto;
 	margin: auto;
 }
 
@@ -274,8 +274,8 @@
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup {
 }
 
-.UIOrganizationPortlet .UIGroupForm .HorizontalLayout .FormContainer { 
-	height: 242px;
+.UIOrganizationPortlet .UIGroupForm .FormContainer { 
+	height: 227px;
 	padding: 20px 0px 0px 0px;
 }
 
