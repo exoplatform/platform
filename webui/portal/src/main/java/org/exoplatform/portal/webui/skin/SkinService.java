@@ -41,9 +41,14 @@ public class SkinService {
    * @param cssPath
    */
   public void addSkin(String module , String skinName, String cssPath) {
+    addSkin(module, skinName, cssPath, false) ;
+  }
+
+  public void addSkin(String module , String skinName, String cssPath, boolean isPrimary) {
     availableSkins_.add(skinName);
     String key = module + "$" + skinName ;
-    skinConfigs_.put(key, new SkinConfig(module, skinName, cssPath));
+    SkinConfig skinConfig = skinConfigs_.get(key);
+    if(skinConfig == null || skinConfig.isPrimary() == false) skinConfigs_.put(key, new SkinConfig(module, skinName, cssPath, isPrimary));
   }
 
   public SkinConfig getSkin(String module, String skinName) {
