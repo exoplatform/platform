@@ -8,57 +8,15 @@
 
 .UIWelcomeWidget .LoggedDecorator {
 	margin: 1px 0px 8px 0px;
-}
-
-.UIWelcomeWidget .LoggedDecorator .LeftTopLoggedDecorator {
-	background: url('MacSkin/background/LeftTopDecorator12x13.png') no-repeat left top;
-	padding: 0px 0px 0px 12px;
-}
-
-.UIWelcomeWidget .LoggedDecorator .RightTopLoggedDecorator {
-	background: url('MacSkin/background/RightTopDecorator12x13.png') no-repeat right top;
-	padding: 0px 12px 0px 0px;
-}
-
-.UIWelcomeWidget .LoggedDecorator .CenterTopLoggedDecorator {
-	height: 13px;
-	background: url('MacSkin/background/CenterTopDecorator1x13.png') repeat-x top;
-}
-
-.UIWelcomeWidget .LoggedDecorator .LeftMiddleLoggedDecorator {
-	padding: 0px 0px 0px 12px;
-	background: url('MacSkin/background/LeftMiddleDecorator12x1.png') repeat-y left;
-}
-
-.UIWelcomeWidget .LoggedDecorator .RightMiddleLoggedDecorator {
-	padding: 0px 12px 0px 0px;
-	background: url('MacSkin/background/RightMiddleDecorator12x1.png') repeat-y right;
-}
-
-.UIWelcomeWidget .LoggedDecorator .LeftBottomLoggedDecorator {
-	padding: 0px 0px 0px 12px;
-	background: url('MacSkin/background/LeftBottomDecorator12x12.png') no-repeat left ;
-}
-
-.UIWelcomeWidget .LoggedDecorator .RightBottomLoggedDecorator {
-	padding: 0px 12px 0px 0px;
-	background: url('MacSkin/background/RightBottomDecorator12x12.png') no-repeat right;
-}
-
-.UIWelcomeWidget .LoggedDecorator .CenterBottomLoggedDecorator {
-  height: 12px;
-	background: url('MacSkin/background/CenterBottomDecorator1x12.png') repeat-x;
-}
-
-.UIWelcomeWidget .LoggedDecorator .DecoratorBackground{
-  width: auto; height: auto;
-  background: url('MacSkin/background/DecoratorBackground1x1.png') repeat ;
+	background: url('MacSkin/background/WelcomeWidgetBG.png') no-repeat;
+	width: 224px;
+	height: 129px;
 }
 
 .UIWelcomeWidget .StyleContent .AvatarContainer {
 	float: left;
-	width: 90px; height: 88px;
-	padding: 12px 0px 0px 10px;
+	width: 80px;
+	padding: 23px 0px 0px 20px;
 }
 
 .UIWelcomeWidget .AvatarContainer .AvatarImage {
@@ -68,24 +26,25 @@
 
 .UIWelcomeWidget .StyleContent .WelcomeBox {
 	margin: 0px 0px 0px 95px;
+	padding-right: 20px;
 }
 
 .UIWelcomeWidget .StyleContent .UserWelcomeBox {
-  height: 50px; line-height: 18px; 
-  padding: 12px 20px 7px 0px;
+  line-height: 20px; 
+  padding: 17px 0px 7px 0px;
+  text-align: center;
 }
 
 .UIWelcomeWidget .StyleContent .UserWelcomeBox .StateMessage {
-  line-height: 16px; 
-  text-align: center;
   font-size: 11px; color: white; 
+  text-align: center;
 }
 
 .UIWelcomeWidget .StyleContent .UserWelcomeBox .LoggedUserName {
   color: #84ccfc ;
-  text-align: center;
   line-height: 26px;
   font-weight: bold; 
+  text-align: center;
 }
 
 .UIWelcomeWidget .StyleContent .LabelSignout {
@@ -93,8 +52,9 @@
 	font-weight: bold; text-decoration: underline;
 	cursor: pointer;
 	margin: auto;
-	width: 65px;
 	display: block ;
+	text-align: center;
+	padding-top: 10px;
 }
 
 .UIWelcomeWidget .StyleContent .LabelSignin {
