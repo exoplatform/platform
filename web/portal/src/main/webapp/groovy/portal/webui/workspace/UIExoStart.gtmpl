@@ -65,7 +65,7 @@
 						      print """
 						      </div>
 						      </div>
-						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll down">
+						      <div class="BottomNavigator" style="display: none;" title="Click and hold to scroll down">
 						      		<div class="DownNavigatorIcon"><span></span></div>
 						      </div>
                 </div>
