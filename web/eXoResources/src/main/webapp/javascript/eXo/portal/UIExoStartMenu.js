@@ -9,6 +9,7 @@ function UIExoStartMenu() {
 	this.clipBottom = 1 ;
 	this.stepScroll = 5 ;
 	this.lastEvent = null;
+	this.lastItem = null;
 } ;
 /**
  * Init function called when the page loads
@@ -155,11 +156,16 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
  
  UIExoStartMenu.prototype.showMenuItemContainer = function(event) {
 	var StartMenu = eXo.portal.UIExoStartMenu ;
- 	var event = event || window.event;
-	var menuItem = event.target || event.srcElement ;
+	if (!eXo.portal.UIExoStartMenu.lastItem) {
+ 		var event = event || window.event ;
+		var menuItem = event.target || event.srcElement ;
+	} else {
+		var menuItem = eXo.portal.UIExoStartMenu.lastItem ;
+		eXo.portal.UIExoStartMenu.lastItem = null ;
+	} 
 	while (menuItem.id != "ReSearch") {	menuItem = menuItem.parentNode ;	}
-	var menuItem = menuItem ;
-	var menuItemContainer = menuItem.menuItemContainer;
+
+	var menuItemContainer = menuItem.menuItemContainer ;
 	menuItemContainer.style.display = "block" ;
 
  	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
@@ -237,7 +243,8 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 			bottomElement.style.display = "none" ;
   	}
 		if (eXo.portal.UIExoStartMenu.lastEvent == null) {
-			eXo.portal.UIExoStartMenu.lastEvent = event;
+			eXo.portal.UIExoStartMenu.lastEvent = event ;
+			eXo.portal.UIExoStartMenu.lastItem = menuItem ;
 			setTimeout("eXo.portal.UIExoStartMenu.showMenuItemContainer(eXo.portal.UIExoStartMenu.lastEvent)", 100);
 		}	
 };
