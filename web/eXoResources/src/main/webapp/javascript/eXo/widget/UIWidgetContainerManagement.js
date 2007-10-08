@@ -259,6 +259,7 @@ UIWidgetContainerManagement.prototype.submit = function() {
 		params.push({name : "deleted", value : deletedContainer}) ;
 	}
 	ajaxGet(eXo.env.server.createPortalURL("UIWidgetContainerManagement", "Save", true, params)) ;
+	eXo.widget.UIWidgetContainerManagement.clear() ;
 
 //	var DOMUtil = eXo.core.DOMUtil ;
 //	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement") ;
@@ -285,6 +286,11 @@ UIWidgetContainerManagement.prototype.submit = function() {
 //	ajaxAsyncGetRequest(url, true) ;		
 //
 //	eXo.widget.UIWidgetContainerManagement.destroy() ;
+} ;
+
+UIWidgetContainerManagement.prototype.cancel = function() {
+	eXo.widget.UIWidgetContainerManagement.clear() ;
+	ajaxGet(eXo.env.server.createPortalURL("UIWidgetContainerManagement", "Close", true)) ;	
 } ;
 
 UIWidgetContainerManagement.prototype.showPopup = function(popupCtx, formCtx) {

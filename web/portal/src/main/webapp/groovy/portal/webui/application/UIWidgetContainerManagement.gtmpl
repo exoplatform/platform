@@ -6,10 +6,11 @@
   jsmanager.importJavascript('eXo.widget.UIWidgetContainerManagement');
 	jsmanager.addJavascript("eXo.widget.UIWidgetContainerManagement.loadWidgetContainer(true)") ;
 	
-	String addWidgetContainer = "eXo.widget.UIWidgetContainerManagement.showAddForm();"
-	String deleteWidgetContainer = "eXo.widget.UIWidgetContainerManagement.deleteContainer();"
-  String editWidgetContainer = "eXo.widget.UIWidgetContainerManagement.showEditForm();"
-	String submit = "eXo.widget.UIWidgetContainerManagement.submit();"
+	String addWidgetContainer = "eXo.widget.UIWidgetContainerManagement.showAddForm()" ;
+	String deleteWidgetContainer = "eXo.widget.UIWidgetContainerManagement.deleteContainer()" ;
+  String editWidgetContainer = "eXo.widget.UIWidgetContainerManagement.showEditForm()" ;
+	String submit = "eXo.widget.UIWidgetContainerManagement.submit()" ;
+	String cancel = "eXo.widget.UIWidgetContainerManagement.cancel()" ;
 %>
 
 
@@ -59,7 +60,7 @@
 							</div>
 						</div>
 					</a>
-					<a class="ActionButton LightBlueStyle" href="<%=uicomponent.event("Close")%>">
+					<a class="ActionButton LightBlueStyle" href="javascript:<%=cancel%>">
 						<div class="ButtonLeft">
 							<div class="ButtonRight">
 								<div class="ButtonMiddle"><%=_ctx.appRes(uicomponent.getId() + ".action.close")%></div>
