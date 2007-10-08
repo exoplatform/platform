@@ -127,8 +127,8 @@
   height: 33px ;  
   background: url('icons/LogoutIcon.gif') no-repeat left ;
   padding: 0px 0px 0px 32px ;
-  margin: 0px 0px 0px 15px ;
   float: right;
+  width: 65px;
 }
 
 .UIExoStart .StartMenuContainer .HLineSeparator {
@@ -189,6 +189,7 @@
   border-left: solid 1px #797979;
   border-right: solid 1px #797979;
   padding: 5px 4px;
+  margin: 0px 5px;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer{
@@ -207,16 +208,18 @@
 
 .UIExoStart .StartMenuContainer .TopNavigator {
   border-bottom: solid 1px #797979;
-  height: 14px;
-  background: url('background/UpNaviArrow.gif') no-repeat center top;
+  height: 16px;
+  background: url('background/UpNaviArrow.gif') no-repeat center;
   cursor: pointer;
+  margin: 0px 5px;
 }
 
 .UIExoStart .StartMenuContainer .BottomNavigator {
   border-top: solid 1px #797979 ;
-  height: 14px;
-  background: url('background/DownNaviArrow.gif') no-repeat center bottom;
+  height: 16px;
+  background: url('background/DownNaviArrow.gif') no-repeat center;
   cursor: pointer;
+  margin: 0px 5px;
 }
 
 .UIExoStart .StartMenuContainer .BasicIcon {
@@ -268,7 +271,7 @@
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuTC {
-  height:6px;
+  height: 3px;
   background: url('background/StartMenuTC1x6.gif') repeat-x;
 }
 

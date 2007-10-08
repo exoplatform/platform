@@ -52,7 +52,9 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding-bottom: 6px">
-						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up"><span></span></div>
+						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up">
+						      		<div class="UpNavigatorIcon"><span></span></div>
+						      </div>
 									<div class="BlockMenu" style="position: relative;">
 						      <div class="MenuContainer">          
 						      """ ;
@@ -63,7 +65,9 @@
 						      print """
 						      </div>
 						      </div>
-						      <div class="BottomNavigator" style="display: none;" title="Click and hold to scroll down"><span></span></div>
+						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll down">
+						      		<div class="DownNavigatorIcon"><span></span></div>
+						      </div>
                 </div>
               </div>
             </div>
@@ -125,8 +129,10 @@
             </div>
             <div class="StartMenuML">
               <div class="StartMenuMR">
-                <div class="StartMenuBG" style="padding: 0px 5px 5px 5px">
-					        <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up"><span></span></div>
+                <div class="StartMenuBG">
+					        <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up">
+					        	<div class="UpNavigatorIcon"><span></span></div>
+					        </div>
 									<div class="BlockMenu" style="position: relative;">
 					      	<div class="MenuContainer"> 
 					      	""" ;
@@ -136,7 +142,9 @@
 					      	print """
 					      	</div>
 					      	</div>
-					      	<div class="BottomNavigator" style="display: none;" title="Click and hold to scroll down"><span></span></div>
+					      	<div class="BottomNavigator" style="display: none;" title="Click and hold to scroll down">
+					      		<div class="DownNavigatorIcon"><span></span></div>
+					      	</div>
                 </div>
               </div>
             </div>
@@ -175,7 +183,9 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding-bottom: 5px">
-						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up"><span></span></div>
+						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up">
+						      	<div class="UpNavigatorIcon"><span></span></div>
+						      </div>
 									<div class="BlockMenu" style="position: relative;">
 						      <div class="MenuContainer">           
 						      """ ;
@@ -186,7 +196,9 @@
 						      print """
 						      </div>
 						      </div>
-						      <div class="BottomNavigator" style="display: none;"><span></span></div>
+						      <div class="BottomNavigator" style="display: none;">
+						      	<div class="DownNavigatorIcon"><span></span></div>
+						      </div>
                  </div>
                </div>
              </div>

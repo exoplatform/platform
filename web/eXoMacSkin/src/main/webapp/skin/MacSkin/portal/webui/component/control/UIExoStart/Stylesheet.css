@@ -168,6 +168,7 @@
   border-left: solid 1px #797979;
   border-right: solid 1px #797979;
   padding: 2px 4px;
+  margin: 0px 5px;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer{
@@ -176,17 +177,19 @@
 }
 
 .UIExoStart .StartMenuContainer .TopNavigator {
-  border-bottom: solid 1px #797979;
   height: 14px;
-  background: url('background/UpNaviArrow.gif') no-repeat center top;
+  background: url('background/UpNaviArrow.gif') no-repeat center;
   cursor: pointer;
+  border-bottom: solid 1px #797979;
+  margin: 0px 5px;
 }
 
 .UIExoStart .StartMenuContainer .BottomNavigator {
-  border-top: solid 1px #797979 ;
-  height: 14px;
-  background: url('background/DownNaviArrow.gif') no-repeat center bottom;
+  height: 20px;
+  background: url('background/DownNaviArrow.gif') no-repeat center;
   cursor: pointer;
+  margin: 0px 5px;
+  border-top: solid 1px #797979;
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground .LabelText {
