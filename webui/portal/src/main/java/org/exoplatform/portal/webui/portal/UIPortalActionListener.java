@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.portal;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIPortlet;
@@ -23,7 +25,18 @@ import org.exoplatform.webui.event.EventListener;
  * Jun 20, 2006
  */
 public class UIPortalActionListener { 
-  
+  static  public class LogoutActionListener extends EventListener {
+    public void execute(Event event) throws Exception {
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      HttpServletRequest request = prContext.getRequest() ;
+      UIPortal currentPortal = Util.getUIPortal() ;
+      String portalName = currentPortal.getName() ;
+      String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
+      prContext.getResponse().sendRedirect(redirect) ;
+      prContext.setResponseComplete(true) ;
+    }
+  }    
+
   static public class ChangeWindowStateActionListener extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
       UIPortal uiPortal  = event.getSource();

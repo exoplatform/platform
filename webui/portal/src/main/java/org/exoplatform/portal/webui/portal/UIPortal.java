@@ -11,13 +11,11 @@ import java.util.Map;
 
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.webui.UILogged.LogoutActionListener;
 import org.exoplatform.portal.webui.application.UIWidgets.ChangeOptionActionListener;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageActionListener.ChangePageNodeActionListener;
-import org.exoplatform.portal.webui.portal.UIPortalActionListener.ChangeWindowStateActionListener;
-import org.exoplatform.portal.webui.portal.UIPortalActionListener.LoadPageActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RemoveJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
@@ -32,11 +30,11 @@ import org.exoplatform.webui.core.UIComponent;
       @EventConfig(listeners = ChangePageNodeActionListener.class),
       @EventConfig(listeners = MoveChildActionListener.class),
       @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class),
-      @EventConfig(listeners = ChangeWindowStateActionListener.class),
+      @EventConfig(listeners = UIPortalActionListener.ChangeWindowStateActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
-      @EventConfig(listeners = LogoutActionListener.class),
+      @EventConfig(listeners = UIPortalActionListener.LogoutActionListener.class),
       @EventConfig(listeners = ChangeOptionActionListener.class),
-      @EventConfig(listeners = LoadPageActionListener.class)
+      @EventConfig(listeners = UIPortalActionListener.LoadPageActionListener.class)
     }
 )
 public class UIPortal extends UIContainer { 

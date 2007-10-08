@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<portal-config decorator="exo" width="100%" height="100%">
+<portal-config>
   <portal-name>@owner@</portal-name>
   <locale>en</locale>
   <factory-id>office</factory-id>

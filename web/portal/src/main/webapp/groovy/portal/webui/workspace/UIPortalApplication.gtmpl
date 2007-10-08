@@ -31,7 +31,6 @@
 
     <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
     <script type="text/javascript">
-      eXo.env.developing = <%=uicomponent.DEVELOPING%> ;
       eXo.env.server.context = '<%=docBase%>' ;
       eXo.env.server.portalBaseURL = '<%=rcontext.getURLBuilder().getBaseURL()%>' ;
       
@@ -57,34 +56,34 @@
 	<div class="$uicomponent.skin" id="UIPortalApplication" style="!height: 100%">
     	
 		<div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none; margin: auto;">
-	      <div class="LoadingContainer">
-	        <div class="CenterLoadingContainer">
-	          <div class="LoadingText"><%=_ctx.appRes("UIPortalApplication.label.Loading")%></div>
-	          <div class="LoadingProgressBar"><span></span></div>
-	          
-	          <div class="UIAction"> 
-					    <table class="ActionContainer" align="center">
-						    <tr>
-						    	<td align="center">
-							      <a href="javascript:ajaxAbort();" class="ActionButton LightBlueStyle">
-							        <div class="ButtonLeft">
-							          <div class="ButtonRight">
-							            <div class="ButtonMiddle">
-							              <%=_ctx.appRes("UIPortalApplication.label.Abort")%>
-							            </div>
-							          </div>
-							        </div>
-							      </a>
-							    </td>
-					      </tr>
-					 	  </table>
-						</div>
-	          
-	        </div>
-	      </div>
-	    </div>
+      <div class="LoadingContainer">
+        <div class="CenterLoadingContainer">
+          <div class="LoadingText"><%=_ctx.appRes("UIPortalApplication.label.Loading")%></div>
+          <div class="LoadingProgressBar"><span></span></div>
+          
+          <div class="UIAction"> 
+				    <table class="ActionContainer" align="center">
+					    <tr>
+					    	<td align="center">
+						      <a href="javascript:ajaxAbort();" class="ActionButton LightBlueStyle">
+						        <div class="ButtonLeft">
+						          <div class="ButtonRight">
+						            <div class="ButtonMiddle">
+						              <%=_ctx.appRes("UIPortalApplication.label.Abort")%>
+						            </div>
+						          </div>
+						        </div>
+						      </a>
+						    </td>
+				      </tr>
+				 	  </table>
+					</div>
+          
+        </div>
+      </div>
+	  </div>
 	    
-	<%uicomponent.renderChildren();%>
+	  <%uicomponent.renderChildren();%>
 	</div>
     
 

@@ -30,15 +30,15 @@ public class JCRRegistryService  {
     this.repositoryService_ = repoService ;
     
     Session session = getSession();
-    Node exoRegistry = getNode(session.getRootNode(), "exo:registry", true) ;
-    getNode(exoRegistry, "exo:applications", true);
-    getNode(exoRegistry, "exo:services", true);
-    getNode(session.getRootNode(), "users", true);
-    getNode(session.getRootNode(), "groups", true);
+    Node exoRegistry = createNode(session.getRootNode(), "exo:registry", true) ;
+    createNode(exoRegistry, "exo:applications", true);
+    createNode(exoRegistry, "exo:services", true);
+    createNode(session.getRootNode(), "users", true);
+    createNode(session.getRootNode(), "groups", true);
     session.logout() ;
   }
   
-  private Node getNode(Node parentNode, String name, boolean autoCreate) throws Exception {
+  private Node createNode(Node parentNode, String name, boolean autoCreate) throws Exception {
     if(parentNode.hasNode(name)) return parentNode.getNode(name);
     if(!autoCreate) return null;
     Node node  = parentNode.addNode(name);

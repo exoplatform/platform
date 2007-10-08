@@ -11,7 +11,6 @@ import javax.portlet.WindowState;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.webui.UILogged;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.UIManagement.ManagementMode;
 import org.exoplatform.portal.webui.application.UIPortlet;
@@ -28,6 +27,7 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalManagement;
 import org.exoplatform.portal.webui.portal.UIPortalSelector;
 import org.exoplatform.portal.webui.portal.UISkinSelector;
+import org.exoplatform.portal.webui.portal.UIPortalActionListener.LogoutActionListener;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -48,10 +48,6 @@ import org.exoplatform.webui.event.EventListener;
             name = "UIExoStartPersonnalizationMenu",
             value = "system:/WEB-INF/conf/uiconf/portal/webui/workspace/UIExoStartPersonnalizationMenu.groovy"
         )
-//        @ParamConfig(
-//            name = "UIExoStartSystemMenu",
-//            value = "system:/WEB-INF/conf/uiconf/portal/webui/workspace/UIExoStartSystemMenu.groovy"
-//        )
     },
     events = {
         @EventConfig(listeners = UIExoStart.BasicCustomizationActionListener.class),
@@ -62,10 +58,9 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIExoStart.BrowsePageActionListener.class),
         @EventConfig(listeners = UIExoStart.EditPortalActionListener.class),
         @EventConfig(listeners = UIExoStart.BrowsePortalActionListener.class),
-//        @EventConfig(listeners = UIExoStart.RefreshActionListener.class),
         @EventConfig(listeners = UIExoStart.ChangePageActionListener.class),
         @EventConfig(listeners = UIExoStart.LoginActionListener.class),
-        @EventConfig(listeners = UILogged.LogoutActionListener.class),
+        @EventConfig(listeners = LogoutActionListener.class),
         @EventConfig(listeners = UIExoStart.LanguageSettingsActionListener.class),
         @EventConfig(listeners = UIExoStart.SkinSettingsActionListener.class),
         @EventConfig(listeners = UIExoStart.ChangePortalActionListener.class)
@@ -84,9 +79,6 @@ public class UIExoStart extends UIComponent {
       menu = initParams.getParam("UIExoStartPersonnalizationMenu").getMapGroovyObject(context); 
       menus.add(menu) ;     
     }
-    //TODO TrongTT: Remove "System" menu item in the Start menu ( Improvement PORTAL-982 )
-//    menu = initParams.getParam("UIExoStartSystemMenu").getMapGroovyObject(context); 
-//    menus.add(menu) ;    
   }
 
   public boolean isLogged() { return logged ; }
