@@ -120,8 +120,10 @@
 	      String visibility = "visible" ;
 	      String appDisplay = "block";
 	      String appZIndex = "" ;
-	      String windowWidth = "" ;
-	      String windowHeight = "" ;
+	      String windowWidth = uicomponent.getWidth() ;
+	      if(windowWidth!= null && !windowWidth.contains("%") && !windowWidth.contains("px")) windowWidth += "px";
+	      String windowHeight = uicomponent.getHeight() ;
+	      if(windowHeight != null && !windowHeight.contains("%") && !windowHeight.contains("px")) windowHeight += "px";
 	      
 	    if(isWindow) {
 	      	appDisplay = "";
@@ -138,13 +140,12 @@
 					}
 				  /*###################################################################*/
       	}
-      	
       	String cssStyle = "style=\"";
       	cssStyle += "visibility: "+ visibility +";" ;
       	cssStyle += "display: "+ appDisplay +";" ;
       	cssStyle += "z-index: "+ appZIndex +";" ;
       	cssStyle += "width: "+ windowWidth +";" ;
-      	//cssStyle += "height: "+ windowHeight +";" ;
+      	cssStyle += "height: "+ windowHeight +";" ;
       	cssStyle += "\"";
 	    %>
     		
@@ -281,8 +282,22 @@
 	      <%//End Bottom Decorator %>
 	<%
 	  } else {
-	    if(windowState != WindowState.MINIMIZED) out.println(portletContent);
-	  }  
+	    if(windowState != WindowState.MINIMIZED) {
+        String windowWidth = uicomponent.getWidth() ;
+	      if(windowWidth!= null && !windowWidth.contains("%") && !windowWidth.contains("px")) windowWidth += "px";
+	      String windowHeight = uicomponent.getHeight() ;
+	      if(windowHeight != null && !windowHeight.contains("%") && !windowHeight.contains("px")) windowHeight += "px";
+	      String cssStyle = "style=\"";
+        cssStyle += "width: "+ windowWidth +";" ;
+        cssStyle += "height: "+ windowHeight +";" ;
+        cssStyle += "\"";
+    %>      
+        <div id="PORTLET-FRAGMENT"  ${cssStyle}>
+           <% out.println(portletContent); %>
+        </div>  
+    <%
+	     } 
+	   }
 	  if(!isWindow) {
 	%>  
 	    </div>
