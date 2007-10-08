@@ -163,7 +163,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 		var menuItem = eXo.portal.UIExoStartMenu.lastItem ;
 		eXo.portal.UIExoStartMenu.lastItem = null ;
 	} 
-	while (menuItem.id != "ReSearch") {	menuItem = menuItem.parentNode ;	}
+	while (menuItem.id != "ReSearch") {menuItem = menuItem.parentNode ;}
 
 	var menuItemContainer = menuItem.menuItemContainer ;
 	menuItemContainer.style.display = "block" ;
