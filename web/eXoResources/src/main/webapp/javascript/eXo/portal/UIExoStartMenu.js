@@ -155,10 +155,6 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
  */
  
  UIExoStartMenu.prototype.showMenuItemContainer = function(event) {
-  if(eXo.portal.UIExoStartMenu.firstTime) {
-		clearTimeout(eXo.portal.UIExoStartMenu.firstTime);
-		eXo.portal.UIExoStartMenu.firstTime = null;
-	}
 	var StartMenu = eXo.portal.UIExoStartMenu ;
  	var event = event || window.event;
 	var menuItem = event.target || event.srcElement ;
@@ -241,8 +237,6 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 			topElement.style.display = "none" ;
 			bottomElement.style.display = "none" ;
   	}
-		eXo.portal.UIExoStartMenu.curentEvent = event;
-		eXo.portal.UIExoStartMenu.firstTime = setTimeout("eXo.portal.UIExoStartMenu.showMenuItemContainer(eXo.portal.UIExoStartMenu.curentEvent)", 100);
 };
 
 UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
