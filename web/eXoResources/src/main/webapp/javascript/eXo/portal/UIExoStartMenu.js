@@ -8,8 +8,7 @@ function UIExoStartMenu() {
   this.clipTop = 1 ;
 	this.clipBottom = 1 ;
 	this.stepScroll = 5 ;
-	this.firstTime = null;
-	this.curentEvent = null;
+	this.lastEvent = null;
 } ;
 /**
  * Init function called when the page loads
@@ -237,6 +236,10 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 			topElement.style.display = "none" ;
 			bottomElement.style.display = "none" ;
   	}
+		if (eXo.portal.UIExoStartMenu.lastEvent == null) {
+			eXo.portal.UIExoStartMenu.lastEvent = event;
+			setTimeout("eXo.portal.UIExoStartMenu.showMenuItemContainer(eXo.portal.UIExoStartMenu.lastEvent)", 100);
+		}	
 };
 
 UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
