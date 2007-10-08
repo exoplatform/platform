@@ -103,6 +103,8 @@ public class PortalDataMapper {
     model.setInstanceId(uiPortlet.getWindowId().toString());
     model.setApplicationType(uiPortlet.getFactoryId());
     model.setTitle(uiPortlet.getTitle());    
+    model.setWidth(uiPortlet.getWidth());
+    model.setHeight(uiPortlet.getHeight());
     model.setDescription(uiPortlet.getDescription());
     model.setShowInfoBar(uiPortlet.getShowInfoBar());
     model.setShowApplicationState(uiPortlet.getShowWindowState());
@@ -216,6 +218,8 @@ public class PortalDataMapper {
 	/*
 	 * Fill UI component object with info from the XML file that persist portlet information
 	 */
+    uiPortlet.setWidth(model.getWidth());
+    uiPortlet.setHeight(model.getHeight());
     uiPortlet.setWindowId(model.getInstanceId());
     uiPortlet.setTitle(model.getTitle());
     uiPortlet.setIcon(model.getIcon());

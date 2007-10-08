@@ -132,24 +132,20 @@ public class UIPortletLifecycle extends Lifecycle {
       throws Exception {
     UIPortlet uiPortlet = (UIPortlet) uicomponent;
     PortalRequestContext prcontext = (PortalRequestContext) context;
-    ExoContainer container = context.getApplication()
-        .getApplicationServiceContainer();
+    ExoContainer container = context.getApplication().getApplicationServiceContainer();
     UIPortal uiPortal = Util.getUIPortal();
     PortletContainerService portletContainer = (PortletContainerService) container
         .getComponentInstanceOfType(PortletContainerService.class);
-    OrganizationService service = uicomponent
-        .getApplicationComponent(OrganizationService.class);
-    UserProfile userProfile = service.getUserProfileHandler()
-        .findUserProfileByName(uiPortal.getOwner());
+    OrganizationService service = uicomponent.getApplicationComponent(OrganizationService.class);
+    UserProfile userProfile = service.getUserProfileHandler().findUserProfileByName(uiPortal.getOwner());
     RenderInput input = new RenderInput();
     String baseUrl = new StringBuilder(prcontext.getNodeURI()).append(
         "?" + PortalRequestContext.UI_COMPONENT_ID).append("=").append(
         uiPortlet.getId()).toString();
     input.setBaseURL(baseUrl);
-    if (userProfile != null)
-      input.setUserAttributes(userProfile.getUserInfoMap());
-    else
-      input.setUserAttributes(new HashMap());
+    if (userProfile != null)   input.setUserAttributes(userProfile.getUserInfoMap());
+    else  input.setUserAttributes(new HashMap());
+    
     input.setPortletMode(uiPortlet.getCurrentPortletMode());
     input.setWindowState(uiPortlet.getCurrentWindowState());
     input.setMarkup("text/html");

@@ -109,10 +109,10 @@ public class UIPortlet extends UIApplication {
     String  portletId = exoWindowId_.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + exoWindowId_.getPortletName();   
     PortletData portletData = (PortletData) portletContainer.getAllPortletMetaData().get(portletId);
     if(portletData == null) return null;
-    List supportsList = portletData.getSupports() ;
+    List sukepportsList = portletData.getSupports() ;
     List<String> supportModes = new ArrayList<String>() ;
-    for (int i = 0; i < supportsList.size(); i++) {
-      Supports supports = (Supports) supportsList.get(i) ;
+    for (int i = 0; i < sukepportsList.size(); i++) {
+      Supports supports = (Supports) sukepportsList.get(i) ;
       String mimeType = supports.getMimeType() ;
       if ("text/html".equals(mimeType)) {
         List modes = supports.getPortletMode() ;
