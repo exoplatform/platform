@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.webui.container.UIContainer;
+import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
@@ -25,7 +27,10 @@ import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
   template = "system:/groovy/portal/webui/application/UIWidgets.gtmpl" ,
-  events = @EventConfig(listeners = UIWidgets.ChangeOptionActionListener.class)
+  events = {
+      @EventConfig(listeners = UIWidgets.ChangeOptionActionListener.class),
+      @EventConfig(listeners = UIWidgets.ManageContainerActionListener.class)
+  }
 )
 public class UIWidgets extends UIContainer {
   
@@ -102,16 +107,22 @@ public class UIWidgets extends UIContainer {
   }
   
   public void updateDropdownList() {
-    uiContainerSelector_.cleanItem() ;
+    List<UIComponent> uiChilddren = getChildren() ;
+    if(uiChilddren == null || uiChilddren.size() < 1) {
+      uiContainerSelector_.cleanItem() ;
+      uiContainerSelector_.setSelectedItem(null) ;
+      return ;
+    }
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>() ;
-    for(UIComponent container : getChildren()) {
+    for(UIComponent container : uiChilddren) {
       options.add(new SelectItemOption<String>(container.getName(), container.getId())) ;
     }
     uiContainerSelector_.setOptions(options) ;
-    if(options.size() > 0) setSelectedContainer(0) ;
+    setSelectedContainer(0) ;
   }
   
   static  public class ChangeOptionActionListener extends EventListener<UIWidgets> {
+    
     public void execute(Event<UIWidgets> event) throws Exception {
       String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);      
       UIWidgets uiWidgets = event.getSource();
@@ -119,4 +130,16 @@ public class UIWidgets extends UIContainer {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWidgets.getParent());
     }
   }
+  
+  static public class ManageContainerActionListener extends EventListener<UIWidgets> {
+
+    public void execute(Event<UIWidgets> event) throws Exception {
+      UIWidgets uiWidgets = event.getSource() ;
+      UIPortalApplication uiPortalApp = uiWidgets.getAncestorOfType(UIPortalApplication.class) ;
+      UIMaskWorkspace uiMaskWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWorkspace.createUIComponent(UIWidgetContainerManagement.class, null, null) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
+    }    
+  }
+  
 }

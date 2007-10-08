@@ -332,6 +332,7 @@ public class PortalDataMapper {
     uiWidgets.setOwnerType(model.getOwnerType());
     uiWidgets.setOwnerId(model.getOwnerId());
     
+    uiWidgets.getChildren().clear() ;
     ArrayList<Container> children  = model.getChildren();
     if(children == null)  return;
     WebuiRequestContext  context = Util.getPortalRequestContext() ;
