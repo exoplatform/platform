@@ -1,0 +1,74 @@
+<%
+  import org.exoplatform.web.application.JavascriptManager;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  jsmanager.importJavascript('eXo.widget.UIWidgetContainerManagement');
+	jsmanager.addJavascript("eXo.widget.UIWidgetContainerManagement.loadWidgetContainer(true)") ;
+	
+	String addWidgetContainer = "eXo.widget.UIWidgetContainerManagement.showAddForm();"
+	String deleteWidgetContainer = "eXo.widget.UIWidgetContainerManagement.deleteContainer();"
+  String editWidgetContainer = "eXo.widget.UIWidgetContainerManagement.showEditForm();"
+	String submit = "eXo.widget.UIWidgetContainerManagement.submit();"
+%>
+
+
+<div class="UIWidgetContainerManagement" id="UIWidgetContainerManagement">
+	<div class="UIBarStyle">
+		<div class="TitleBar">
+			<div class="LeftBar">
+				<div class="RightBar">
+					<div class="MiddleBar">Widget Containers Management</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="ContainerManagementBlock">
+		<div class="ContainerManagementDetail">
+			<div class="WidgetContainerCategory">
+				<div class="CategoryTitleBar">
+					<div class="Title">Containers</div>
+					<a class="RemoveContainer Icon" href="javascript: <%=deleteWidgetContainer%>" title="Remove selected widget container"><span></span></a>
+					<a class="EditContainer Icon" href="javascript: <%=editWidgetContainer%>" title="Edit selected widget container"><span></span></a>
+					<a class="AddContainer Icon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
+					<div style="clear: both"><span></span></div>
+				</div>
+				<div class="UserWidgetContainer">
+					<div class="ContainerList">
+						<div class="EmptyListMessage">There is no container in this category.</div>
+					</div>
+				</div>
+			</div>
+			<div class="WidgetContainerView">
+				<div class="WidgetContainerDetail">
+					<span></span>
+				</div>
+			</div>
+			<div style="clear: left"><span></span></div>
+		</div>
+	</div>
+	
+	<div class="UIAction">
+		<table class="ActionContainer" align="center">
+			<tr>
+				<td align="center">
+					<a class="ActionButton LightBlueStyle" href="javascript: <%=submit%>" >
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle"><%=_ctx.appRes(uicomponent.getId() + ".action.save")%></div>
+							</div>
+						</div>
+					</a>
+					<a class="ActionButton LightBlueStyle" href="<%=uicomponent.event("Close")%>">
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle"><%=_ctx.appRes(uicomponent.getId() + ".action.close")%></div>
+							</div>
+						</div>
+					</a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+</div>

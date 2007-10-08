@@ -242,27 +242,49 @@ UIWidgetContainerManagement.prototype.submit = function() {
 	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement") ;
 	var portalWidgetContainer = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "PortalWidgetContainer");
 	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList");
+	var params = [];
 	
 	var containers = DOMUtil.findChildrenByClass(containerList, "div", "Item") ;
 	var updatedParams = "" ;
 	for(var i = 0; i < containers.length; i++) {
 		var container = eXo.widget.UIWidgetContainerManagement.bindElementToContainer(containers[i]) ;
-		updatedParams += "&id=" + container.cId + "&name=" + container.cName	+ "&desc=" + container.cDescription ;
+		params.push({name : "id", value : container.cId}) ;
+		params.push({name : "name", value : container.cName}) ;
+		params.push({name : "desc", value : container.cDescription}) ;
 	}
 		
 	var deletedParams = "";
 	for(var j = 0; j < eXo.widget.UIWidgetContainerManagement.deletedContainers.length; j++) {
-		deletedParams += ("&deleted=" + eXo.widget.UIWidgetContainerManagement.deletedContainers[j]) ;
+		var deletedContainer = eXo.widget.UIWidgetContainerManagement.deletedContainers[j] ;
+		params.push({name : "deleted", value : deletedContainer}) ;
 	}
-		
-	var url = eXo.env.server.context
-					+ "/command?type=org.exoplatform.web.command.handler.UpdateWidgetContainerHandler"
-					+ updatedParams 
-					+ deletedParams ;	
-					
-	ajaxAsyncGetRequest(url, true) ;		
+	ajaxGet(eXo.env.server.createPortalURL("UIWidgetContainerManagement", "Save", true, params)) ;
 
-	eXo.widget.UIWidgetContainerManagement.destroy() ;
+//	var DOMUtil = eXo.core.DOMUtil ;
+//	var uiWidgetContainerManagement = document.getElementById("UIWidgetContainerManagement") ;
+//	var portalWidgetContainer = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "PortalWidgetContainer");
+//	var containerList = DOMUtil.findFirstDescendantByClass(uiWidgetContainerManagement, "div", "ContainerList");
+//	
+//	var containers = DOMUtil.findChildrenByClass(containerList, "div", "Item") ;
+//	var updatedParams = "" ;
+//	for(var i = 0; i < containers.length; i++) {
+//		var container = eXo.widget.UIWidgetContainerManagement.bindElementToContainer(containers[i]) ;
+//		updatedParams += "&id=" + container.cId + "&name=" + container.cName	+ "&desc=" + container.cDescription ;
+//	}
+//		
+//	var deletedParams = "";
+//	for(var j = 0; j < eXo.widget.UIWidgetContainerManagement.deletedContainers.length; j++) {
+//		deletedParams += ("&deleted=" + eXo.widget.UIWidgetContainerManagement.deletedContainers[j]) ;
+//	}
+//		
+//	var url = eXo.env.server.context
+//					+ "/command?type=org.exoplatform.web.command.handler.UpdateWidgetContainerHandler"
+//					+ updatedParams 
+//					+ deletedParams ;	
+//					
+//	ajaxAsyncGetRequest(url, true) ;		
+//
+//	eXo.widget.UIWidgetContainerManagement.destroy() ;
 } ;
 
 UIWidgetContainerManagement.prototype.showPopup = function(popupCtx, formCtx) {

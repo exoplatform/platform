@@ -1,12 +1,5 @@
 <%
   import org.exoplatform.webui.core.UIDropDownItemSelector;
-  import org.exoplatform.web.application.JavascriptManager;
-
-  def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  
-  jsmanager.importJavascript('eXo.widget.UIWidgetContainerManagement');
-  String showWCM = "eXo.widget.UIWidgetContainerManagement.show();" ;
 %>
 
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">
@@ -14,7 +7,7 @@
 		<%
 		  _ctx.renderUIComponent(uicomponent.getUIDropDownItemSelector()) ;
  		%>
- 		<div class="EditIcon" onclick="$showWCM" title="Widget Containers Management"><span></span></div>
+ 		<a class="EditIcon" href="<%=uicomponent.event("ManageContainer")%>" title="Widget Containers Management"><span></span></a>
 		<div style="clear: left"><span></span></div>
 	</div>
 	
