@@ -17,6 +17,8 @@
     <value name="show-application-mode" field="showApplicationMode" usage="optional" />
     <value name="description" field="description" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
+    <value name="width" usage="optional" field="width"  />
+    <value name="height" usage="optional" field="height" />
     <structure field="properties" usage="optional"/>
   </mapping>
   

@@ -24,11 +24,18 @@ public class Application {
   private boolean  showInfoBar = true ;
   private boolean  showApplicationState = true ;
   private boolean  showApplicationMode = true ;
-  
+  private String width ;
+  private String height ;
   private Properties properties;
   
   public Application(){
   }
+  
+  public String getWidth() { return width ; }
+  public void   setWidth(String s) { width = s ;}
+  
+  public String getHeight() { return height ; }
+  public void   setHeight(String s) { height = s ;}
   
   public String getId() { return id ;}
   public void   setId(String value) { id = value ; }
