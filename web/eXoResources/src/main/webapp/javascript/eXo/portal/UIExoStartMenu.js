@@ -155,98 +155,102 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
  */
  
  UIExoStartMenu.prototype.showMenuItemContainer = function(event) {
-	var StartMenu = eXo.portal.UIExoStartMenu ;
-	if (!eXo.portal.UIExoStartMenu.lastItem) {
- 		var event = event || window.event ;
-		var menuItem = event.target || event.srcElement ;
-	} else {
-		var menuItem = eXo.portal.UIExoStartMenu.lastItem ;
-		eXo.portal.UIExoStartMenu.lastItem = null ;
-	} 
-	while (menuItem.id != "ReSearch") {menuItem = menuItem.parentNode ;}
-
-	var menuItemContainer = menuItem.menuItemContainer ;
-	menuItemContainer.style.display = "block" ;
-
- 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
-	var parentMenu = blockMenu.parentNode;
-	var topElement = eXo.core.DOMUtil.findFirstDescendantByClass(parentMenu, "div", "TopNavigator") ;
- 	var bottomElement = eXo.core.DOMUtil.findDescendantsByClass(parentMenu, "div", "BottomNavigator") ;
-	bottomElement = bottomElement[bottomElement.length - 1];
-	var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(blockMenu, "div", "MenuContainer") ;
-	if (!menuContainer.id) menuContainer.id = "eXo" + new Date().getTime() + Math.random().toString().substring(2) ;
+	try {
+		var StartMenu = eXo.portal.UIExoStartMenu ;
+		if (!eXo.portal.UIExoStartMenu.lastItem) {
+	 
+				var event = event || window.event ;
+				var menuItem = event.target || event.srcElement ;
 	
+		} else {
+			var menuItem = eXo.portal.UIExoStartMenu.lastItem ;
+			eXo.portal.UIExoStartMenu.lastItem = null ;
+		} 
+		while (menuItem.id != "ReSearch") {menuItem = menuItem.parentNode ;}
 	
-	var x = menuItem.offsetWidth + menuItem.offsetLeft ;
-  var rootX = eXo.core.Browser.findPosX(menuItem) ;
-	if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
-    	x -= (menuItemContainer.offsetWidth + menuItem.offsetWidth) ;
-  }
-  if (eXo.core.Browser.getBrowserType() == "ie") {
-	 	x -= 10;
-	}
- 	menuItemContainer.style.left = x + "px" ;
+		var menuItemContainer = menuItem.menuItemContainer ;
+		menuItemContainer.style.display = "block" ;
 	
-	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
-
-  var Y = eXo.portal.UIExoStartMenu.getDimension(menuItem, blockMenu) ;
+	 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
+		var parentMenu = blockMenu.parentNode;
+		var topElement = eXo.core.DOMUtil.findFirstDescendantByClass(parentMenu, "div", "TopNavigator") ;
+	 	var bottomElement = eXo.core.DOMUtil.findDescendantsByClass(parentMenu, "div", "BottomNavigator") ;
+		bottomElement = bottomElement[bottomElement.length - 1];
+		var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(blockMenu, "div", "MenuContainer") ;
+		if (!menuContainer.id) menuContainer.id = "eXo" + new Date().getTime() + Math.random().toString().substring(2) ;
+		
+		
+		var x = menuItem.offsetWidth + menuItem.offsetLeft ;
+	  var rootX = eXo.core.Browser.findPosX(menuItem) ;
+		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
+	    	x -= (menuItemContainer.offsetWidth + menuItem.offsetWidth) ;
+	  }
+	  if (eXo.core.Browser.getBrowserType() == "ie") {
+		 	x -= 10;
+		}
+	 	menuItemContainer.style.left = x + "px" ;
+		
+		var browserHeight = eXo.core.Browser.getBrowserHeight() ;
 	
-	if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
+	  var Y = eXo.portal.UIExoStartMenu.getDimension(menuItem, blockMenu) ;
+		
+		if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
+		
+		if (menuContainer.offsetHeight + 92 > browserHeight) {
+				var curentHeight = browserHeight - 64;
+				blockMenu.style.height = curentHeight + "px" ;
+				blockMenu.style.width = blockMenu.offsetWidth + "px" ;
 	
-	if (menuContainer.offsetHeight + 92 > browserHeight) {
-			var curentHeight = browserHeight - 64;
-			blockMenu.style.height = curentHeight + "px" ;
-			blockMenu.style.width = blockMenu.offsetWidth + "px" ;
-
-			topElement.style.display = "block" ;
-			bottomElement.style.display = "block" ;
-			
-			if(!menuContainer.curentHeight || (menuContainer.curentHeight != curentHeight)) {
-				eXo.portal.UIExoStartMenu.initSlide(menuContainer, curentHeight) ;
-			}
-			topElement.onmousedown = function() {
-				eXo.portal.UIExoStartMenu.scrollDown(menuContainer.id, curentHeight) ;
-			}
-			topElement.onmouseoup = function() {
-				if (menuContainer.repeat){
+				topElement.style.display = "block" ;
+				bottomElement.style.display = "block" ;
+				
+				if(!menuContainer.curentHeight || (menuContainer.curentHeight != curentHeight)) {
+					eXo.portal.UIExoStartMenu.initSlide(menuContainer, curentHeight) ;
+				}
+				topElement.onmousedown = function() {
+					eXo.portal.UIExoStartMenu.scrollDown(menuContainer.id, curentHeight) ;
+				}
+				topElement.onmouseoup = function() {
+					if (menuContainer.repeat){
+						clearTimeout(menuContainer.repeat) ;
+						menuContainer.repeat = null ;
+					}
+				};
+				topElement.onclick = function(event) {
+						clearTimeout(menuContainer.repeat) ;
+						menuContainer.repeat = null ;
+					event = event || window.event ;
+					event.cancelBubble = true;
+				}
+				
+				bottomElement.onmousedown = function() {
+					eXo.portal.UIExoStartMenu.scrollUp(menuContainer.id, curentHeight);
+				};
+				bottomElement.onmouseoup = function() {
+					if (menuContainer.repeat){
+						clearTimeout(menuContainer.repeat) ;
+						menuContainer.repeat = null;
+					}
+				};			
+				bottomElement.onclick = function(event) {
 					clearTimeout(menuContainer.repeat) ;
 					menuContainer.repeat = null ;
+					event = event || window.event ;
+					event.cancelBubble = true ;
 				}
-			};
-			topElement.onclick = function(event) {
-					clearTimeout(menuContainer.repeat) ;
-					menuContainer.repeat = null ;
-				event = event || window.event ;
-				event.cancelBubble = true;
-			}
-			
-			bottomElement.onmousedown = function() {
-				eXo.portal.UIExoStartMenu.scrollUp(menuContainer.id, curentHeight);
-			};
-			bottomElement.onmouseoup = function() {
-				if (menuContainer.repeat){
-					clearTimeout(menuContainer.repeat) ;
-					menuContainer.repeat = null;
-				}
-			};			
-			bottomElement.onclick = function(event) {
-				clearTimeout(menuContainer.repeat) ;
-				menuContainer.repeat = null ;
-				event = event || window.event ;
-				event.cancelBubble = true ;
-			}
-			
-  	} else {
+				
+	  } else {
 			blockMenu.style.height = menuContainer.offsetHeight + "px" ;
 			menuContainer.style.clip = "rect(0px 1280px auto auto)" ;
 			topElement.style.display = "none" ;
 			bottomElement.style.display = "none" ;
-  	}
+	  }
 		if (eXo.portal.UIExoStartMenu.lastEvent == null) {
 			eXo.portal.UIExoStartMenu.lastEvent = event ;
 			eXo.portal.UIExoStartMenu.lastItem = menuItem ;
 			setTimeout("eXo.portal.UIExoStartMenu.showMenuItemContainer(eXo.portal.UIExoStartMenu.lastEvent)", 100);
 		}	
+	} catch(e){void(0);}	
 };
 
 UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
