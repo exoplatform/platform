@@ -100,6 +100,7 @@
 .UINavigationPortlet .MenuItemDecorator .CenterTopMenuDecorator {
   background: url('VistaSkin/background/CenterTopMenuDecorator1x6.png') repeat-x ;
   height: 6px;
+  width: 100%;
 }
 
 .UINavigationPortlet .MenuItemDecorator .LeftMiddleMenuDecorator {
@@ -130,6 +131,7 @@
 .UINavigationPortlet .MenuItemDecorator .CenterBottomMenuDecorator {
   background: url('VistaSkin/background/CenterBottomMenuDecorator1x13.png') repeat-x;
   height: 13px;  
+  width: 100%;
 }
 /***********************/
 /*** Scroll Buttons ***/
