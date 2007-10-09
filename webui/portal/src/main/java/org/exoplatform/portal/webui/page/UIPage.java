@@ -83,12 +83,4 @@ public class UIPage extends UIContainer {
   public void setMaximizedUIPortlet(UIPortlet maximizedUIPortlet) {
     this.maximizedUIPortlet = maximizedUIPortlet;
   }
-  
-  public String getPortletIcon(ResourceBundle res,  UIPortlet uiPortlet) {
-    try {
-      return res.getString("UIPageDesktop.img." + uiPortlet.getExoWindowID().getPortletName()) ;
-    } catch (MissingResourceException ex) {
-      return res.getString("UIPageDesktop.img.DefaultPortlet") ;
-    }
-  }
 }

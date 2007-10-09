@@ -106,7 +106,6 @@
 
                   <%if(modifiable) {%>
 		                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/AddPortlet.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
-
 		                       id="UIAddApplicationIcon"
 		                       onclick="eXo.desktop.UIAddApplication.init('<%=uicomponent.id%>', 'UIPageDesktop',[])" />
 		                  <%/*Tool Tip*/%>
@@ -122,9 +121,8 @@
 
                     for(uiChild in uicomponent.getChildren()) {
                       if(!(uiChild instanceof UIPortlet)) continue; 
-                      String portletIcon = uicomponent.getPortletIcon(res, uiChild) ;
                   %>
-                      <img class="Icon" src="$imgLocation/$portletIcon" id="DockItem${uiChild.id}"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
+                      <img class="Icon" src="$imgLocation/<%=uiChild.getExoWindowID().getPortletName()%>.png" id="DockItem${uiChild.id}" onerror="this.src='$imgLocation/DefaultPortlet.png'" alt="/eXoResources/skin/sharedImages/Blank.gif"
                            onclick="eXo.desktop.UIDesktop.showHideWindow('${uiChild.id}', this);" />
                      <%/*Tool Tip*/ %>
                   	 <span class="Tooltip" style="display: none">

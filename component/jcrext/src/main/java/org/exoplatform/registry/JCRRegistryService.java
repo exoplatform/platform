@@ -18,9 +18,9 @@ public class JCRRegistryService  {
   /**
    * The constructor should:
    * 
-   * 1. Create the /exo:registry node if it is not existed
-   * 2. Create the /exo:registry/exo:applications node if it is not existed
-   * 3. Create the /exo:registry/exo:services node if it is not existed
+   * 1. Create the /exo:portal-registry node if it is not existed
+   * 2. Create the /exo:portal-registry/exo:applications node if it is not existed
+   * 3. Create the /exo:portal-registry/exo:services node if it is not existed
    * 4. Create the /users node if  it is not existed
    *  
    * @param repoService
@@ -30,7 +30,7 @@ public class JCRRegistryService  {
     this.repositoryService_ = repoService ;
     
     Session session = getSession();
-    Node exoRegistry = createNode(session.getRootNode(), "exo:registry", true) ;
+    Node exoRegistry = createNode(session.getRootNode(), "exo:portal-registry", true) ;
     createNode(exoRegistry, "exo:applications", true);
     createNode(exoRegistry, "exo:services", true);
     createNode(session.getRootNode(), "users", true);
@@ -55,8 +55,8 @@ public class JCRRegistryService  {
   /**
    * This method should: 
    * 1. Call the method ServiceRegistry.preCreate(..)
-   * 2. Remove the /exo:registry/exo:services/$serviceName if it is  existed and overwrite is true
-   * 3. Create the /exo:registry/exo:services/$serviceName if it is not existed
+   * 2. Remove the /exo:portal-registry/exo:services/$serviceName if it is  existed and overwrite is true
+   * 3. Create the /exo:portal-registry/exo:services/$serviceName if it is not existed
    * 4. Call the method ServiceRegistry.postCreate(..)
    * 
    * @param desc
@@ -65,7 +65,7 @@ public class JCRRegistryService  {
   public void createServiceRegistry(ServiceRegistry desc, boolean overwrite) throws Exception {
     desc.preAction(this) ;
     Session session = getSession();
-    Node servicesNode = session.getRootNode().getNode("exo:registry/exo:services");
+    Node servicesNode = session.getRootNode().getNode("exo:portal-registry/exo:services");
     if( servicesNode.hasNode(desc.getName())){
       if(!overwrite){
         session.logout();
@@ -84,9 +84,9 @@ public class JCRRegistryService  {
   /**
    * This method should: 
    * 1. Call the method ApplicationRegistry.preAction(..)
-   * 2. Remove the /exo:registry/exo:applications/$applicationName if it is  existed 
+   * 2. Remove the /exo:portal-registry/exo:applications/$applicationName if it is  existed 
    * and overwrite is true
-   * 2. Create the /exo:registry/exo:applications/$applicationName if it is not existed.
+   * 2. Create the /exo:portal-registry/exo:applications/$applicationName if it is not existed.
    * 3. Call the method ApplicationRegistr.postCreate(..)
    * 
    * @param app
@@ -94,7 +94,7 @@ public class JCRRegistryService  {
    */
   public void createApplicationRegistry(ApplicationRegistry app, boolean overwrite) throws Exception {
     Session session = getSession();
-    Node appNode = session.getRootNode().getNode("exo:registry/exo:applications");
+    Node appNode = session.getRootNode().getNode("exo:portal-registry/exo:applications");
     if(appNode.hasNode(app.getName())) {
       if(!overwrite) {
         session.logout();
@@ -119,7 +119,7 @@ public class JCRRegistryService  {
   }
   
   public Node getApplicationRegistryNode(Session session, String appName) throws Exception {
-    Node appNode = session.getRootNode().getNode("exo:registry/exo:applications");
+    Node appNode = session.getRootNode().getNode("exo:portal-registry/exo:applications");
     if(appNode.hasNode(appName)) return appNode.getNode(appName);
     return null;
   }
@@ -229,7 +229,7 @@ public class JCRRegistryService  {
   }
   
   public Node getServiceRegistryNode(Session session,  String appName) throws Exception {
-    Node appNode = session.getRootNode().getNode("exo:registry/exo:services");
+    Node appNode = session.getRootNode().getNode("exo:portal-registry/exo:services");
     if(appNode.hasNode(appName)) {
       return appNode.getNode(appName);
     }
