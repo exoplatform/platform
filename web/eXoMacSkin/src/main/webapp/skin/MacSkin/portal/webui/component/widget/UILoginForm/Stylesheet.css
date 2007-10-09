@@ -26,8 +26,8 @@
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator .SigninTitle {
-  color: blue ;
-  font-size: 16px; font-family: arial; font-weight: bold;
+  color: #058ee6 ;
+  font-size: 16px; font-family: arial;
 	line-height: 30px;
 	padding: 4px 0px 0px 20px;
 }
@@ -156,5 +156,5 @@
 }
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
-  padding: 15px 0px 15px 0px;
+  padding: 15px 0px 15px 70px;
 }
