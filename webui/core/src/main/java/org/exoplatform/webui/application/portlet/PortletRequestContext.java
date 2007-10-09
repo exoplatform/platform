@@ -68,7 +68,7 @@ public class PortletRequestContext extends WebuiRequestContext {
     request_ = req ;
     response_ =  res ;
     writer_ = new HtmlValidator(writer) ;
-    windowId_ = req.getWindowId();
+    windowId_ = req.getWindowID();
 
     PortletMode mode = req.getPortletMode() ;
     if(mode.equals(PortletMode.VIEW))  applicationMode_ = VIEW_MODE ;
