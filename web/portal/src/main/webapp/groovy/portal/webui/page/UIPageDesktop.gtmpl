@@ -102,6 +102,7 @@
 		                  <%/*Tool Tip*/%>
 		                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
 		                  <%/*End Tool Tip*/%>
+		                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>
                   <%}%>
 
                   <%if(modifiable) {%>
