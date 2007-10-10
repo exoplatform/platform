@@ -7,6 +7,8 @@ package org.exoplatform.application.registry;
 
 import java.util.List;
 
+import org.exoplatform.container.component.ComponentPlugin;
+
 /**
  * Created y the eXo platform team
  * User: Tuan Nguyen
@@ -15,7 +17,7 @@ import java.util.List;
 public interface ApplicationRegistryService {
   
   public List<ApplicationCategory> getApplicationCategories(String accessUser, String ... appTypes) throws Exception;
-  
+  public void initListener(ComponentPlugin com) throws Exception;
   public List<ApplicationCategory> getApplicationCategories() throws Exception;
   public ApplicationCategory getApplicationCategory(String name) throws Exception;
   public void save(ApplicationCategory category) throws Exception;

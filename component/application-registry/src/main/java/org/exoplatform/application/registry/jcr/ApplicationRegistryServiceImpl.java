@@ -18,6 +18,7 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
 import org.exoplatform.services.organization.MembershipHandler;
@@ -229,8 +230,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       Iterator<Application> iterApp = apps.iterator();
       while(iterApp.hasNext()) {
         Application app = iterApp.next();
-        String [] permissions = app.getAccessPermissions();
-        if(!hasViewPermission(orgService, accessUser, permissions)) iterApp.remove();
+        if(!hasViewPermission(orgService, accessUser, app.getAccessPermissions())) iterApp.remove();
       }
       category.setApplications(apps);      
       if(apps.size() < 1) iterCategory.remove();
@@ -238,8 +238,9 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return categories;
   }
   
-  private boolean hasViewPermission(OrganizationService orgService, String remoteUser, String [] expPerms) throws Exception {
-    if(expPerms == null || expPerms.length < 1) expPerms = new String[]{"*:/user"};
+  private boolean hasViewPermission(OrganizationService orgService, String remoteUser, ArrayList<String> expPerms) throws Exception {
+    if(expPerms == null || expPerms.size() < 1) expPerms = new ArrayList<String>(); 
+    expPerms.add("*:/user");
     for(String ele : expPerms) {
       if(hasViewPermission(orgService, remoteUser, ele)) return true;
     }
@@ -365,6 +366,9 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     parentNode.save();
     session.save();
     session.logout();
+  }
+
+  public void initListener(ComponentPlugin com) throws Exception {
   }
 
  

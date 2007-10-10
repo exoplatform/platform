@@ -22,7 +22,7 @@ public class ApplicationCategory {
   private Date createdDate;
   private Date modifiedDate;
   
-  private transient List<Application> applications;
+  private List<Application> applications;
   
   public String getName() { return name; }
   public void   setName(String id) { this.name = id; }

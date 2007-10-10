@@ -4,6 +4,7 @@
  */
 package org.exoplatform.application.registry;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -117,7 +118,9 @@ public class TestApplicationRegistryService extends BasicTestCase {
     service.save(officeCategory) ;
     String[] officeApps = {"MS Office", "OpenOffice"} ;
     Application msApp = createApplication(officeApps[0], "TestType", officeCategoryName) ;
-    msApp.setAccessPermissions(new String[]{"member:/users"}) ;
+    ArrayList<String> pers = new ArrayList<String>();
+    pers.add("member:/users");
+    msApp.setAccessPermissions(pers) ;
     service.save(officeCategory, msApp) ;
     Application openApp = createApplication(officeApps[1], "TestType", officeCategoryName) ;
     service.save(officeCategory, openApp) ;
@@ -127,10 +130,12 @@ public class TestApplicationRegistryService extends BasicTestCase {
     service.save(gameCategory) ;
     String[] gameApps = {"HaftLife", "Chess"} ;
     Application haftlifeApp = createApplication(gameApps[0], "TestType", gameCategoryName) ;
-    haftlifeApp.setAccessPermissions(new String[]{"member:/portal/admin"}) ;
+    pers = new ArrayList<String>(); 
+    pers.add("member:/portal/admin");
+    haftlifeApp.setAccessPermissions(pers) ;
     service.save(gameCategory, haftlifeApp) ;
     Application chessApp = createApplication(gameApps[1], "TestType", gameCategoryName) ;
-    chessApp.setAccessPermissions(new String[]{"member:/portal/admin"}) ;
+    chessApp.setAccessPermissions(pers) ;
     service.save(gameCategory, chessApp) ;
 
     List<ApplicationCategory> returnCategorys =  service.getApplicationCategories(username1) ;

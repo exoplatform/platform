@@ -5,6 +5,7 @@
 
 package org.exoplatform.application.registry;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -21,9 +22,8 @@ public class Application {
   private String displayName;
   private String description;
   private Date createdDate;
-//  private String owner;
   private Date modifiedDate;
-  private String[] accessPermissions ;
+  private ArrayList<String> accessPermissions ;
   private String applicationGroup ;
   private String applicationName ;
   private String applicationType ;
@@ -50,15 +50,13 @@ public class Application {
   public String getCategoryName() {   return categoryName; }  
   public void setCategoryName(String s) { this.categoryName = s; }
   
-//  public String getOwner() {   
-//    if(owner == null || owner.length() < 1) return "Unknown" ; 
-//    return owner;
-//  }  
-//  
-//  public void setOwner(String s) { this.owner = s; }
-  
-  public void setAccessPermissions(String[] accessPerms) { accessPermissions = accessPerms ; }  
-  public String[] getAccessPermissions() { return accessPermissions ; }
+  public void setAccessPermissions(ArrayList<String> accessPerms) { 
+    accessPermissions = accessPerms;
+    
+  }  
+  public ArrayList<String> getAccessPermissions() { 
+    if(accessPermissions == null) accessPermissions = new ArrayList<String>();
+    return  accessPermissions; }
   
   public String getApplicationGroup() { return applicationGroup; }
   public void setApplicationGroup(String applicationGroup) {

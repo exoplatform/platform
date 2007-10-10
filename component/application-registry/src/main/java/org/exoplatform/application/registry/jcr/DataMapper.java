@@ -6,7 +6,6 @@ package org.exoplatform.application.registry.jcr;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import javax.jcr.Node;
 import javax.jcr.Property;
@@ -78,24 +77,19 @@ class DataMapper {
     if(node.hasProperty(DESCRIPTION)) {
       application.setDescription(node.getProperty(DESCRIPTION).getString());
     }
-//    if(node.hasProperty(OWNER)) {
-//      application.setOwner(node.getProperty(OWNER).getString());
-//    }
     application.setCategoryName(node.getProperty(CATEGORY_NAME).getString());
     application.setApplicationName(node.getProperty(APPLICATION_NAME).getString());
     application.setApplicationType(node.getProperty(APPLICATION_TYPE).getString());
     application.setApplicationGroup(node.getProperty(APPLICATION_GROUP).getString());
     
     if(node.hasProperty(ACCESS_PERMISSION)) {
-      List<String> values = new ArrayList<String>();
+      ArrayList<String> values = new ArrayList<String>();
       Property property  = node.getProperty(ACCESS_PERMISSION);
       Value [] jcrValues = property.getValues();
       for(Value value : jcrValues) {
         values.add(value.getString());
       }
-      String [] accessGroups = new String[values.size()];
-      values.toArray(accessGroups);
-      application.setAccessPermissions(accessGroups);
+      application.setAccessPermissions(values);
     }
     
     application.setMinWidthResolution((int)node.getProperty(MIN_WIDTH_RESOLUTION).getLong());
@@ -111,7 +105,9 @@ class DataMapper {
     node.setProperty(DESCRIPTION, application.getDescription());
     node.setProperty(CATEGORY_NAME, application.getCategoryName());
     node.setProperty(MIN_WIDTH_RESOLUTION, application.getMinWidthResolution());
-    node.setProperty(ACCESS_PERMISSION, application.getAccessPermissions());
+    String [] per = new String[application.getAccessPermissions().size()];
+    application.getAccessPermissions().toArray(per);
+    node.setProperty(ACCESS_PERMISSION, per);
     node.setProperty(APPLICATION_NAME, application.getApplicationName());
     node.setProperty(APPLICATION_GROUP, application.getApplicationGroup());
     node.setProperty(APPLICATION_TYPE, application.getApplicationType());
