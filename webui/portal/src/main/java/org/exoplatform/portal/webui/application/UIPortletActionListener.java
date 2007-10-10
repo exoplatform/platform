@@ -88,6 +88,9 @@ public class UIPortletActionListener {
         actionInput.setUserAttributes(userProfile.getUserInfoMap());
       else
         actionInput.setUserAttributes(new HashMap());
+      HashMap allParams = new HashMap();
+      allParams.putAll(prcontext.getRequest().getParameterMap());
+      actionInput.setRenderParameters(allParams);
       actionInput.setPortletMode(uiPortlet.getCurrentPortletMode());
       actionInput.setWindowState(uiPortlet.getCurrentWindowState());
       actionInput.setMarkup("text/html");
