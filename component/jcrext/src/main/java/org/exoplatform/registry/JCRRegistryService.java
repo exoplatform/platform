@@ -9,7 +9,7 @@ import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
 
-public class JCRRegistryService  { 
+public class JCRRegistryService { 
   
   public final static String WORKSPACE = "production".intern();
   
