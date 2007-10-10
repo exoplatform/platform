@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portletregistry.webui.component;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 import org.exoplatform.application.registry.Application;
@@ -40,9 +41,10 @@ public class UIPermissionForm extends UIForm {
   
   public void setValue(Application portlet) throws Exception {
     portlet_ = portlet;
-    String[] accessPermissions = portlet_.getAccessPermissions() ;
-    if (accessPermissions != null && accessPermissions.length > 0) {
-      getChild(UIListPermissionSelector.class).setValue(accessPermissions) ;
+    ArrayList<String> accessPermissions = portlet_.getAccessPermissions() ;
+    String[] per = new String[accessPermissions.size()];
+    if (accessPermissions != null && accessPermissions.size() > 0) {
+      getChild(UIListPermissionSelector.class).setValue(accessPermissions.toArray(per)) ;
     }
   }
   
@@ -53,7 +55,10 @@ public class UIPermissionForm extends UIForm {
       UIPermissionForm  uiPermissionForm = event.getSource();
       Application portlet = uiPermissionForm.getPortlet() ;
       UIListPermissionSelector uiListPermissionSelector = uiPermissionForm.getChild(UIListPermissionSelector.class) ;
-      portlet.setAccessPermissions(uiListPermissionSelector.getValue()) ;
+      ArrayList<String> pers = new ArrayList<String>();
+      if(uiListPermissionSelector.getValue()!= null)
+      for(String per: uiListPermissionSelector.getValue()) pers.add(per);
+      portlet.setAccessPermissions(pers) ;
       ApplicationRegistryService service = uiPermissionForm.getApplicationComponent(ApplicationRegistryService.class) ;
       portlet.setModifiedDate(Calendar.getInstance().getTime());
       service.update(portlet) ;      

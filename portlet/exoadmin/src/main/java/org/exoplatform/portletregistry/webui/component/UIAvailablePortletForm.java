@@ -171,7 +171,7 @@ public class UIAvailablePortletForm extends UIForm {
         app.setCategoryName(categoryName);
         app.setApplicationType(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE);
         app.setDescription("A portlet application");
-        app.setAccessPermissions(new String[]{});
+        app.setAccessPermissions(new ArrayList<String>());
         return  app;
       }
     }
