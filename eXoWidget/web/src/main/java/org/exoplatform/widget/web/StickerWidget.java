@@ -58,12 +58,11 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
 
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
-    int instanceId = uiWidget.getApplicationInstanceId().hashCode() ;
-//    System.out.println("\n\n\n-------------Idne = " + uiWidget.getApplicationInstanceUniqueId());
+    String instanceId = uiWidget.getApplicationInstanceUniqueId();
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
     int zIndex = uiWidget.getProperties().getIntValue("zIndex") ;
-    byte[] bytes = (byte[]) service.get(pContext.getRemoteUser(), getApplicationName(), uiWidget.getApplicationInstanceUniqueId());
+    byte[] bytes = (byte[]) service.get(pContext.getRemoteUser(), getApplicationName(), instanceId);
     String content = "";
     if(bytes != null ) content = new String(bytes);
     if(content == null ) content = "";

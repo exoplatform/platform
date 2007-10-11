@@ -368,8 +368,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     returnApplication.setApplicationType(app.getApplicationType()) ;
     returnApplication.setApplicationName(app.getApplicationName()) ;
     returnApplication.setId(app.getApplicationId()) ;
-    
-    
     returnApplication.setCategoryName(app.getApplicationGroup()) ;
     returnApplication.setDisplayName(app.getApplicationName()) ;
     returnApplication.setDescription(app.getDescription()) ;

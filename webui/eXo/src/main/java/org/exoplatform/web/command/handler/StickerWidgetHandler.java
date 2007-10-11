@@ -32,8 +32,8 @@ public class StickerWidgetHandler extends Command {
       UserWidgetStorageImpl service = 
         (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
       String[] split = objectId.split("/");
-      String instantId = split[3];
-      String widgetType = split[2];
+      String instantId = objectId;
+      String widgetType = "StickerWidget";
       String userName = req.getRemoteUser();
       if(content == null || content.length() < 1 ) content = " ";
       service.save(userName, widgetType, instantId, content);
