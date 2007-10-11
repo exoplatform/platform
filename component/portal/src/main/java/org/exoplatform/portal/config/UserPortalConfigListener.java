@@ -11,6 +11,7 @@ import java.util.List;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortletPreferences;
+import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -77,5 +78,11 @@ public class UserPortalConfigListener extends UserEventListener {
     pageNav.setPriority(5);
     pageNav.setNodes(new ArrayList<PageNode>());
     portalConfigService.create(pageNav);
+    
+    Widgets widgets = new Widgets() ;
+    widgets.setOwnerType(PortalConfig.USER_TYPE) ;
+    widgets.setOwnerId(userName) ;
+    widgets.setChildren(new ArrayList<Container>()) ;
+    portalConfigService.create(widgets) ;
   }
 }

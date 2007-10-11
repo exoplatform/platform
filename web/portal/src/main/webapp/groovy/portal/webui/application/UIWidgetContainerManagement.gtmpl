@@ -1,16 +1,11 @@
 <%
-  import org.exoplatform.web.application.JavascriptManager;
-  
-  def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  jsmanager.importJavascript('eXo.widget.UIWidgetContainerManagement');
-	jsmanager.addJavascript("eXo.widget.UIWidgetContainerManagement.loadWidgetContainer(true)") ;
+  import org.exoplatform.portal.config.model.Container;
+	import org.exoplatform.webui.core.UIPopupWindow;
 	
-	String addWidgetContainer = "eXo.widget.UIWidgetContainerManagement.showAddForm()" ;
-	String deleteWidgetContainer = "eXo.widget.UIWidgetContainerManagement.deleteContainer()" ;
-  String editWidgetContainer = "eXo.widget.UIWidgetContainerManagement.showEditForm()" ;
-	String submit = "eXo.widget.UIWidgetContainerManagement.submit()" ;
-	String cancel = "eXo.widget.UIWidgetContainerManagement.cancel()" ;
+	def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');  
+  List containers = uicomponent.getContainers() ;
+  Container selectedContainer = uicomponent.getSelectedContainer() ; 
 %>
 
 
@@ -29,20 +24,55 @@
 			<div class="WidgetContainerCategory">
 				<div class="CategoryTitleBar">
 					<div class="Title">Containers</div>
-					<a class="RemoveContainer Icon" href="javascript: <%=deleteWidgetContainer%>" title="Remove selected widget container"><span></span></a>
-					<a class="EditContainer Icon" href="javascript: <%=editWidgetContainer%>" title="Edit selected widget container"><span></span></a>
-					<a class="AddContainer Icon" href="javascript: <%=addWidgetContainer%>" title="Add new widget container"><span></span></a>
+					<a class="RemoveContainer Icon" href="<%=uicomponent.event("DeleteContainer")%>" title="Remove selected widget container"><span></span></a>
+					<a class="EditContainer Icon" href="<%=uicomponent.event("EditContainer")%>" title="Edit selected widget container"><span></span></a>
+					<a class="AddContainer Icon" href="<%=uicomponent.event("AddContainer")%>" title="Add new widget container"><span></span></a>
 					<div style="clear: both"><span></span></div>
 				</div>
 				<div class="UserWidgetContainer">
 					<div class="ContainerList">
-						<div class="EmptyListMessage">There is no container in this category.</div>
+						<%
+						if(containers == null || containers.size() < 1) {
+						%>
+							<div class="EmptyListMessage">There is no container in this category.</div>
+						<%} else {
+						for(container in containers) {
+							String itemClass = "NormalItem" ;
+							if(selectedContainer!= null && container.getId().equals(selectedContainer.getId())) itemClass = "SelectedItem" ;
+						%>
+							<div class="<%=itemClass%>" onclick="<%=uicomponent.event("ChangeContainer", "$container.id")%>">
+								<div class="Label"><%=container.getName()%></div>
+							</div>
+						<%}%>
+						<%}%>
 					</div>
 				</div>
 			</div>
 			<div class="WidgetContainerView">
 				<div class="WidgetContainerDetail">
-					<span></span>
+					<div class="ContainerDetail">
+						<div class="HeadTitle">Selected Widget Container Info:</div>
+						<div class="Detail">
+							<% if(selectedContainer == null) {%>
+								<div class="Empty">No container selected</div>
+							<% } else {%>
+							<div class="InfoContent">
+								<div>
+									<div class="Label">Container name:</div>
+									<div class="FieldComponent"><%=selectedContainer.getName()%></div>
+								</div>
+								<div>
+									<div class="Label">Description:</div>
+									<%
+									String cDescription = selectedContainer.getDescription() ;
+									if(cDescription == null) cDescription = "<span></span>" ;
+									%>
+									<div class="FieldComponent"><%=cDescription%></div>
+								</div>
+							</div>
+							<% } %>
+						</div>
+					</div>
 				</div>
 			</div>
 			<div style="clear: left"><span></span></div>
@@ -53,14 +83,7 @@
 		<table class="ActionContainer" align="center">
 			<tr>
 				<td align="center">
-					<a class="ActionButton LightBlueStyle" href="javascript: <%=submit%>" >
-						<div class="ButtonLeft">
-							<div class="ButtonRight">
-								<div class="ButtonMiddle"><%=_ctx.appRes(uicomponent.getId() + ".action.save")%></div>
-							</div>
-						</div>
-					</a>
-					<a class="ActionButton LightBlueStyle" href="javascript:<%=cancel%>">
+					<a class="ActionButton LightBlueStyle" href="<%=uicomponent.event("Close")%>">
 						<div class="ButtonLeft">
 							<div class="ButtonRight">
 								<div class="ButtonMiddle"><%=_ctx.appRes(uicomponent.getId() + ".action.close")%></div>
@@ -71,5 +94,5 @@
 			</tr>
 		</table>
 	</div>
-	
+	<%uicomponent.renderChild(UIPopupWindow.class);%>
 </div>

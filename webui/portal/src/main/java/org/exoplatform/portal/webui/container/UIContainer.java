@@ -51,7 +51,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIContainer extends  UIPortalComponent {
   
   protected String icon;
-  
+  protected String description;
   protected String    creator ;
   protected String    modifier ;
   
@@ -63,6 +63,9 @@ public class UIContainer extends  UIPortalComponent {
   
   public String getIcon() { return icon ; }
   public void   setIcon(String s) { icon = s ; }
+  
+  public String getDescription() { return description; }
+  public void setDescription(String desc) {this.description = desc; }
   
   static  public class SelectTabActionListener extends EventListener<UIContainer> {    
     public void execute(Event<UIContainer> event) throws Exception {

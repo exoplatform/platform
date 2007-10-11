@@ -5,6 +5,7 @@
 package org.exoplatform.portal.webui.workspace;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.event.Event;
@@ -16,7 +17,8 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfig(  
     id = "UIMaskWorkspace",
-    template =  "app:/groovy/portal/webui/workspace/UIMaskWorkspace.gtmpl"
+    template =  "app:/groovy/portal/webui/workspace/UIMaskWorkspace.gtmpl",
+    events = @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)
 )
 public class UIMaskWorkspace extends UIComponentDecorator {  
   

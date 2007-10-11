@@ -83,6 +83,7 @@ public class PortalDataMapper {
     model.setName(uiContainer.getName());
     model.setTitle(uiContainer.getTitle());
     model.setIcon(uiContainer.getIcon());
+    model.setDescription(uiContainer.getDescription());
     model.setHeight(uiContainer.getHeight());
     model.setWidth(uiContainer.getWidth());
     model.setTemplate(uiContainer.getTemplate());
@@ -271,6 +272,7 @@ public class PortalDataMapper {
     uiContainer.setHeight(model.getHeight());
     uiContainer.setTitle(model.getTitle());
     uiContainer.setIcon(model.getIcon());
+    uiContainer.setDescription(model.getDescription());
     uiContainer.setFactoryId(model.getFactoryId());
     uiContainer.setName(model.getName());
     uiContainer.setTemplate(model.getTemplate());

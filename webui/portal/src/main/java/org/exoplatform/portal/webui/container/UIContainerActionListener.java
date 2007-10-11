@@ -4,14 +4,11 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.container;
 
-import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
