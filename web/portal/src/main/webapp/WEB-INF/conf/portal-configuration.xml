@@ -213,7 +213,7 @@
     <component-plugin>
       <name>new.portal.portlets.registry</name>
       <set-method>initListener</set-method>
-      <type>org.exoplatform.application.registry.AplicationCategoriesPlugins</type>
+      <type>org.exoplatform.application.registry.ApplicationCategoriesPlugins</type>
       <description>this listener init the portlets are registered in PortletRegister</description>
       <init-params>
         <object-param>
@@ -234,10 +234,10 @@
 	                  <field name="applicationType"><string>portlet</string></field>
 	                  <field name="applicationGroup"><string>exoadmin</string></field>       
 					  <field name="accessPermissions">
-						<collection type="java.util.ArrayList" item-type="java.lang.String">
-							<value><string>*:/user</string></value>
-							<value><string>owner:/admin</string></value>
-						</collection>
+							<collection type="java.util.ArrayList" item-type="java.lang.String">
+								<value><string>*:/user</string></value>
+								<value><string>owner:/admin</string></value>
+							</collection>
 					  </field> 
 	                </object>
                   </value>
