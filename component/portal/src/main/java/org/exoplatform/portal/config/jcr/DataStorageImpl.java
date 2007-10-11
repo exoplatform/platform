@@ -488,12 +488,9 @@ public class DataStorageImpl implements DataStorage, Startable {
     try {
       jcrRegService_.createApplicationRegistry(new ApplicationRegistry(PORTAL_DATA), false);
     } catch (Exception e) {
-      e.printStackTrace();
+      e.printStackTrace(); // user LogService
     }
   }
 
-  public void stop() {
-    // TODO Auto-generated method stub
-    
-  }
+  public void stop() {}
 }

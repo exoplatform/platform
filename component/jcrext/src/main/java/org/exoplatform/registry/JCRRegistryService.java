@@ -248,12 +248,9 @@ public class JCRRegistryService implements Startable{
     createNode(session.getRootNode(), "groups", true);
     session.logout() ;
     }catch (Exception e) {
-      e.printStackTrace();
+      e.printStackTrace(); // TODO user LogService
     }
   }
 
-  public void stop() {
-    // TODO Auto-generated method stub
-    
-  }
+  public void stop() {}
 }

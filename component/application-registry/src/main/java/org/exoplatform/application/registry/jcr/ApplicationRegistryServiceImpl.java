@@ -50,13 +50,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     jcrRegService_ = jcrRegService ;
     
   }
-  
-  private void init() throws Exception {
-    if(getApplicationCategories().size() > 0) return ;
-    if(plugins == null ) return;
-    for(ApplicationCategoriesPlugins plugin: plugins)
-      plugin.run();
-  }
 
   public List<ApplicationCategory> getApplicationCategories() throws Exception {
     Session session = jcrRegService_.getSession();
@@ -389,17 +382,16 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   public void start() {
     try{
       jcrRegService_.createApplicationRegistry(new ApplicationRegistry(APPLICATION_NAME), false);
-    init();
+      if(getApplicationCategories().size() > 0) return ;
+      if(plugins == null ) return;
+      for(ApplicationCategoriesPlugins plugin: plugins)
+        plugin.run();
     } catch (Exception e) {
-      e.printStackTrace();
-      // TODO: user LogService
+      e.printStackTrace();  // TODO: user LogService
     }
   }
 
-  public void stop() {
-    // TODO Auto-generated method stub
-    
-  }
+  public void stop() {}
 
  
 }
