@@ -170,8 +170,10 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 	
 		var menuItemContainer = menuItem.menuItemContainer ;
 		menuItemContainer.style.display = "block" ;
-	
+//		menuItemContainer.style.border = "1px solid white" ;
 	 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
+		blockMenu.style.boder = "1px solid white";
+		blockMenu.style.width = blockMenu.offsetWidth + "px" ;
 		var parentMenu = blockMenu.parentNode;
 		var topElement = eXo.core.DOMUtil.findFirstDescendantByClass(parentMenu, "div", "TopNavigator") ;
 	 	var bottomElement = eXo.core.DOMUtil.findDescendantsByClass(parentMenu, "div", "BottomNavigator") ;
@@ -199,8 +201,6 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 		if (menuContainer.offsetHeight + 92 > browserHeight) {
 				var curentHeight = browserHeight - 64;
 				blockMenu.style.height = curentHeight + "px" ;
-				blockMenu.style.width = blockMenu.offsetWidth + "px" ;
-	
 				topElement.style.display = "block" ;
 				bottomElement.style.display = "block" ;
 				
@@ -249,7 +249,9 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 			eXo.portal.UIExoStartMenu.lastEvent = event ;
 			eXo.portal.UIExoStartMenu.lastItem = menuItem ;
 			setTimeout("eXo.portal.UIExoStartMenu.showMenuItemContainer(eXo.portal.UIExoStartMenu.lastEvent)", 100);
-		}	
+		}
+		blockMenu.style.boder = "0px solid white" ;
+		menuItemContainer.style.border = "0px solid white" ;
 	} catch(e){void(0);}	
 };
 

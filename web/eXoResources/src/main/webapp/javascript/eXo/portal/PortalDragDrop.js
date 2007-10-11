@@ -32,7 +32,7 @@ PortalDragDrop.prototype.onLoad = function(e) {
 	  	if (url && url.indexOf("javascript:ajaxGet") == -1) continue;
 	  	// if the callback function is not already set
 	  	if (url && url.indexOf("resizeRows") == -1) {
-	  		url = url.substr(0, url.length-1).concat(", eXo.portal.PortalDragDrop.resizeRows)");
+	  		url = url.substr(0, url.length - 1).concat(", eXo.portal.PortalDragDrop.resizeRows)");
 	  		editButtons[i].href = url;
 	  	}
 	  }
@@ -218,22 +218,65 @@ PortalDragDrop.prototype.init = function(e) {
     } 
   } ;
 
+var discoverEXO = function(object) {
+
+	removeInfoDiv() ;
+	var infoDiv =	document.createElement("div") ;
+			infoDiv.setAttribute("id" , "Show.EX0.0bject") ;
+			infoDiv.style.background = "#848484" ;
+			infoDiv.style.border = "4px double green" ;
+			infoDiv.style.bottom = "0px" ;
+			infoDiv.style.color = "white" ;
+			infoDiv.style.height = "300px" ;
+			infoDiv.style.margin = "auto" ;
+			infoDiv.style.overflow = "auto" ;
+			infoDiv.style.padding = "10px" ;
+			infoDiv.style.position = "absolute" ;
+			infoDiv.style.width = "400px" ;
+			infoDiv.style.zIndex = "999" ;
+	var closeButton = document.createElement("div") ;
+			closeButton.setAttribute("id" , "Remove.Information.0bject") ;
+			closeButton.style.textAlign = "right" ;
+			closeButton.innerHTML = "<span style='color: red; font-weight: bold; cursor: pointer;'>[ X ]</span>" ;
+	var csHTML = new String() ;
+	for (var exo in object) {
+		csHTML +=  exo + " : " + object[exo] + "<br />" ;
+	}
+
+	document.body.appendChild(infoDiv) ;
+	infoDiv.appendChild(closeButton) ;
+	infoDiv.innerHTML += csHTML ;
+	
+	closeButton = document.getElementById("Remove.Information.0bject") ;
+	closeButton.onclick = removeInfoDiv ;
+	
+	function removeInfoDiv() {
+	 if (document.getElementById("Show.EX0.0bject")) {
+		var infoDiv = document.getElementById("Show.EX0.0bject") ;
+		document.body.removeChild(infoDiv) ;
+		}
+	}
+} ;
+
+
   DragDrop.dropCallback = function(dndEvent) {
   	this.origDragObjectStyle.setProperties(dndEvent.dragObject.style, false) ;
+
     if(dndEvent.foundTargetObject != null) {
       eXo.portal.PortalDragDrop.doDropCallback(dndEvent) ;
     } else {
       if(DOMUtil.findFirstChildByClass(dndEvent.dragObject, "div", "CONTROL-BLOCK") == null) {
-        dndEvent.dragObject.parentNode.removeChild(dndEvent.dragObject) ;
-      }
-      dndEvent.foundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
-      eXo.portal.PortalDragDrop.doDropCallback(dndEvent) ;
+					dndEvent.dragObject.parentNode.removeChild(dndEvent.dragObject) ;
+			}
+//      dndEvent.foundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
+//	    return ;
+//      eXo.portal.PortalDragDrop.doDropCallback(dndEvent) ;
     }
   }
   
   var clickObject = this ;
   var controlBlock = DOMUtil.findAncestorByClass(clickObject, "CONTROL-BLOCK") ;
- 
+
   if(controlBlock != null) {
     var dragBlock = eXo.portal.UIPortal.findUIComponentOf(controlBlock) ;
     DragDrop.init(eXo.portal.PortalDragDrop.findDropableTargets(), clickObject, dragBlock, e) ;
@@ -531,7 +574,7 @@ PortalDragDrop.prototype.resizeRows = function() {
 	  for (var k = 0; k < actionButtons.length; k++) {
 	  	var url = actionButtons[k].href;
 	  	if (url && url.indexOf("resizeRows") == -1) {
-	  		url = url.substr(0, url.length-1).concat(", eXo.portal.PortalDragDrop.resizeRows)");
+	  		url = url.substr(0, url.length - 1).concat(", eXo.portal.PortalDragDrop.resizeRows)");
 	  		actionButtons[k].href = url;
 	  	}
 	  }
