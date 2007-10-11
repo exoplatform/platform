@@ -1,4 +1,5 @@
 <div class="UIWelcomeWidget">
+<!--
   <div class="EditMode" style="display:none ;border: solid 1px #333333 ; padding: 3px ; background:#ece9d8; height: 300px; width: 300px ;">
 		<div class="UIFormUploadInput" id="<%=context.appId%>">
 		  <input type="hidden" id="input<%=context.appId%>" name="<%=context.appId%>" value="false"/>
@@ -29,6 +30,7 @@
 		</div>
     <input type="button" name="upload" value="submit" onclick="eXo.widget.web.welcome.UIWelcomeWidget.upload('<%=context.appId%>')">
 	</div>
+-->	
 	<div class="LoggedDecorator ViewMode">
     <div class="LeftTopLoggedDecorator">
       <div class="RightTopLoggedDecorator">
