@@ -99,6 +99,13 @@ public class UIFormLifecycle  extends Lifecycle {
     }
   }
   
+  public boolean checkVisible(UIFormInputBase input) throws Exception {
+    if(!(input.isRendered() && input.isEditable() && input.isEnable()))
+      return true;
+    else 
+    return (input.isRendered() && input.isEditable() && input.isEnable());
+  }
+  
   /*private void processMultipartRequest(UIForm uiForm, RequestContext context) throws Exception {
     HttpServletRequest httpRequest = (HttpServletRequest)context.getRequest() ;
     ServletFileUpload upload = new ServletFileUpload(new DiskFileItemFactory());
@@ -129,8 +136,9 @@ public class UIFormLifecycle  extends Lifecycle {
   @SuppressWarnings("unchecked")
   private void validateChildren(List<UIComponent>  children, UIApplication uiApp, WebuiRequestContext context) {
     for(UIComponent uiChild : children) {
-      if(uiChild instanceof UIFormInput) {
-        UIFormInput uiInput =  (UIFormInput) uiChild ;
+      if(uiChild instanceof UIFormInputBase) {
+        UIFormInputBase uiInput =  (UIFormInputBase) uiChild ;
+        if(!(uiInput.isRendered() && uiInput.isEditable() && uiInput.isEnable())) continue;
         List<Validator> validators = uiInput.getValidators() ;
         if(validators == null) continue;
         try {
