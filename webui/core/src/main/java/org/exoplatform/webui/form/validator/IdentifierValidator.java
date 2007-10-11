@@ -26,7 +26,7 @@ public class IdentifierValidator implements Validator {
     }
     for(int i = 0; i < s.length(); i ++){
       char c = s.charAt(i);
-      if (Character.isLetter(c) || Character.isDigit(c) || c=='_'){
+      if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-'){
         continue;
       }
       Object[] args = { uiInput.getName(), uiInput.getBindingField() };
