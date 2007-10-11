@@ -83,11 +83,6 @@ function Portal(kernel, core, pc, jcr, version) {
     new Project("org.exoplatform.portal", "exo.portal.portlet.test", "exo-portlet", version);
 
   
-  portal.eXoApplication = {};
-  portal.eXoApplication.web = 
-    new Project("org.exoplatform.portal", "exo.portal.eXoApplication.web", "war", version);
-  portal.eXoApplication.web.deployName = "eXoAppWeb";
-    
   portal.sample = {};
   portal.sample.framework = 
     new Project("org.exoplatform.portal", "exo.portal.sample.framework", "war", version);
@@ -151,7 +146,6 @@ function eXoPortalProduct() {
   product.addDependencies(portal.portlet.site) ;
   product.addDependencies(portal.portlet.test) ;
 
-  product.addDependencies(portal.eXoApplication.web) ;
   product.addDependencies(portal.eXoWidget.web) ;
   product.addDependencies(portal.sample.framework) ;
 

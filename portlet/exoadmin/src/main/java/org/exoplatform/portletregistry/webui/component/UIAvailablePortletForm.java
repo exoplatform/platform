@@ -86,7 +86,6 @@ public class UIAvailablePortletForm extends UIForm {
         if(application == null ) continue;
         list_.add(application);
       } 
-      findExoApplication();
       Comparator application = new Comparator<Application>(){
         public int compare(Application portlet1, Application portlet2){  
           return portlet1.getDisplayName().compareTo(portlet2.getDisplayName());
@@ -119,21 +118,6 @@ public class UIAvailablePortletForm extends UIForm {
     uiIterator.setPageList(pageList) ;    
   }
 
-  private  void findExoApplication() throws Exception {
-    PortalContainer container  = PortalContainer.getInstance() ;
-    WebAppController appController = 
-      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-    List<org.exoplatform.web.application.Application> eXoApplications = 
-      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;   
-    ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
-    for(org.exoplatform.web.application.Application app: eXoApplications) {
-      String temp = app.getApplicationGroup()+ "/" + app.getApplicationName();
-      Application portlet = registeryService.getApplication(temp);
-      if(portlet == null) list_.add(cloneApplication(app));
-      else list_.add(portlet);
-    }
-  }
-  
   private Application cloneApplication(org.exoplatform.web.application.Application app) {
     Application newApplication = new Application() ;
     newApplication.setApplicationGroup(app.getApplicationGroup()) ;

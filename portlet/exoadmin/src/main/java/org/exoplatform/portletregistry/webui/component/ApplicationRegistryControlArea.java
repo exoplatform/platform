@@ -34,7 +34,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = ApplicationRegistryControlArea.AddCategoryActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.EditCategoryActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.ImportPortletActionListener.class),
-        @EventConfig(listeners = ApplicationRegistryControlArea.ImportApplicationActionListener.class),
+        @EventConfig(listeners = ApplicationRegistryControlArea.ImportExoWidgetActionListener.class),
         @EventConfig(listeners = ApplicationRegistryControlArea.DeleteCategoryActionListener.class, confirm = "ApplicationRegistryControlArea.deleteCategory"),
         @EventConfig(listeners = ApplicationRegistryControlArea.DeleteAllCategoryActionListener.class, confirm = "ApplicationRegistryControlArea.deleteAllCategory"),
         @EventConfig(listeners = ApplicationRegistryControlArea.ShowCategoryActionListener.class)
@@ -167,11 +167,11 @@ public class ApplicationRegistryControlArea extends UIContainer {
     }
   }
   
-  static public class ImportApplicationActionListener extends EventListener<ApplicationRegistryControlArea> {
+  static public class ImportExoWidgetActionListener extends EventListener<ApplicationRegistryControlArea> {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
       ApplicationRegistryControlArea uiSource = event.getSource();
       ApplicationRegistryService service = uiSource.getApplicationComponent(ApplicationRegistryService.class) ;
-      service.importExoApplications();
+      service.importExoWidgets();
       uiSource.initApplicationCategories();
     }
   }

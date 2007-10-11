@@ -37,7 +37,7 @@ public interface ApplicationRegistryService {
    * if it is not available yet and add the application to  the category
    * @throws Exception
    */
-  public void importExoApplications() throws Exception;
+  //public void importExoApplications() throws Exception;
   
   public void importExoWidgets() throws Exception;
   

@@ -306,34 +306,60 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     session.logout();
   }
   
-  public void importExoApplications() throws Exception {
-    Session session = jcrRegService_.getSession();
-    PortalContainer container  = PortalContainer.getInstance() ;
-    WebAppController appController = 
-      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-    List<org.exoplatform.web.application.Application> eXoApplications = 
-      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;
-    List<org.exoplatform.web.application.Application> eXoWidgets = 
-      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE) ;
-    eXoApplications.addAll(eXoWidgets);
-    for (org.exoplatform.web.application.Application app : eXoApplications) {
-      ApplicationCategory category = getApplicationCategory(app.getApplicationGroup()) ;
-      if (category == null) {
-        category = new ApplicationCategory() ;
-        category.setName(app.getApplicationGroup()) ;
-        category.setDisplayName(app.getApplicationGroup()) ;
-        category.setDescription(app.getApplicationGroup()) ;
-        save(category) ;
-      }
-      Node appNode = getApplicationNode(session, category.getName(), app.getApplicationName()) ;
-      if (appNode == null) save(category, convertApplication(app)) ;
-    }
-    
-    session.logout() ;
-  }
+//  public void importExoApplications() throws Exception {
+//    Session session = jcrRegService_.getSession();
+//    PortalContainer container  = PortalContainer.getInstance() ;
+//    WebAppController appController = 
+//      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
+//    List<org.exoplatform.web.application.Application> eXoApplications = 
+//      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;
+//    List<org.exoplatform.web.application.Application> eXoWidgets = 
+//      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE) ;
+//    eXoApplications.addAll(eXoWidgets);
+//    for (org.exoplatform.web.application.Application app : eXoApplications) {
+//      ApplicationCategory category = getApplicationCategory(app.getApplicationGroup()) ;
+//      if (category == null) {
+//        category = new ApplicationCategory() ;
+//        category.setName(app.getApplicationGroup()) ;
+//        category.setDisplayName(app.getApplicationGroup()) ;
+//        category.setDescription(app.getApplicationGroup()) ;
+//        save(category) ;
+//      }
+//      Node appNode = getApplicationNode(session, category.getName(), app.getApplicationName()) ;
+//      if (appNode == null) save(category, convertApplication(app)) ;
+//    }
+//    
+//    session.logout() ;
+//  }
   
   public void importExoWidgets() throws Exception {
-    
+    Session session = jcrRegService_.getSession();
+    PortalContainer container = PortalContainer.getInstance();
+    WebAppController appController = (WebAppController) container
+        .getComponentInstanceOfType(WebAppController.class);
+    List<org.exoplatform.web.application.Application> eXoWidgets = appController
+        .getApplicationByType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE);
+    if(eXoWidgets == null || eXoWidgets.size() < 1) {
+      session.logout();
+      return ;
+    }
+    org.exoplatform.web.application.Application sampleApp = eXoWidgets.get(0) ;
+    ApplicationCategory category = getApplicationCategory(sampleApp.getApplicationGroup());
+    if (category == null) {
+      category = new ApplicationCategory();
+      category.setName(sampleApp.getApplicationGroup());
+      category.setDisplayName(sampleApp.getApplicationGroup());
+      category.setDescription(sampleApp.getApplicationGroup());
+      save(category);
+    }
+
+    for (org.exoplatform.web.application.Application app : eXoWidgets) {
+      Node appNode = getApplicationNode(session, category.getName(), app.getApplicationName());
+      if (appNode == null)
+        save(category, convertApplication(app));
+    }
+
+    session.logout();
   }
   
   private Application convertApplication(org.exoplatform.web.application.Application app) {

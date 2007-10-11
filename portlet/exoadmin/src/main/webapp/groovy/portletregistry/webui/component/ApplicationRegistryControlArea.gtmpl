@@ -32,8 +32,8 @@
 								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.importPortlets")%>">
 								  <span></span>
 								</a>
-								<a href="<%=uicomponent.event("ImportApplication")%>" class="CategoryControlIcon ImportApplicationsIcon"
-								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.importApplication")%>">
+								<a href="<%=uicomponent.event("ImportExoWidget")%>" class="CategoryControlIcon ImportApplicationsIcon"
+								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.importWidgets")%>">
 								  <span></span>
 								</a>
 								<div class="SeparatorLine"><span></span></div>
