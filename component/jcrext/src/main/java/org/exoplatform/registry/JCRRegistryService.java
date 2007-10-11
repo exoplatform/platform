@@ -8,8 +8,9 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 
 import org.exoplatform.services.jcr.RepositoryService;
+import org.picocontainer.Startable;
 
-public class JCRRegistryService { 
+public class JCRRegistryService implements Startable{ 
   
   public final static String WORKSPACE = "production".intern();
   
@@ -28,14 +29,6 @@ public class JCRRegistryService {
    */
   public JCRRegistryService(RepositoryService repoService) throws Exception {
     this.repositoryService_ = repoService ;
-    
-    Session session = getSession();
-    Node exoRegistry = createNode(session.getRootNode(), "exo:portal-registry", true) ;
-    createNode(exoRegistry, "exo:applications", true);
-    createNode(exoRegistry, "exo:services", true);
-    createNode(session.getRootNode(), "users", true);
-    createNode(session.getRootNode(), "groups", true);
-    session.logout() ;
   }
   
   private Node createNode(Node parentNode, String name, boolean autoCreate) throws Exception {
@@ -243,5 +236,24 @@ public class JCRRegistryService {
       return userNode.getNode("exo:registry/exo:services/" + appName);
     }
     return null;
+  }
+
+  public void start() {
+    try{
+    Session session = getSession();
+    Node exoRegistry = createNode(session.getRootNode(), "exo:portal-registry", true) ;
+    createNode(exoRegistry, "exo:applications", true);
+    createNode(exoRegistry, "exo:services", true);
+    createNode(session.getRootNode(), "users", true);
+    createNode(session.getRootNode(), "groups", true);
+    session.logout() ;
+    }catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void stop() {
+    // TODO Auto-generated method stub
+    
   }
 }

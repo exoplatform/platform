@@ -27,12 +27,13 @@ import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.WindowID;
+import org.picocontainer.Startable;
 
 /**
  * Created by The eXo Platform SAS
  * Apr 20, 2007  
  */
-public class DataStorageImpl implements DataStorage {
+public class DataStorageImpl implements DataStorage, Startable {
   
   final private static String NT_FOLDER_TYPE = "nt:folder" ;
   final private static String EXO_DATA_TYPE = "exo:data" ;
@@ -55,7 +56,6 @@ public class DataStorageImpl implements DataStorage {
   
   public DataStorageImpl(JCRRegistryService jcrRegService) throws Exception{   
     jcrRegService_ = jcrRegService;
-    jcrRegService_.createApplicationRegistry(new ApplicationRegistry(PORTAL_DATA), false);
   }
   
   public void create(PortalConfig config) throws Exception {
@@ -481,5 +481,19 @@ public class DataStorageImpl implements DataStorage {
     Node node = parent.addNode(name, NT_FOLDER_TYPE);
     parent.save();
     return node;    
+  }
+
+
+  public void start() {
+    try {
+      jcrRegService_.createApplicationRegistry(new ApplicationRegistry(PORTAL_DATA), false);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void stop() {
+    // TODO Auto-generated method stub
+    
   }
 }

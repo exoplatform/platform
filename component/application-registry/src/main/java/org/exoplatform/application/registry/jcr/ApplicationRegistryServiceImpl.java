@@ -14,6 +14,7 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 
+import org.exoplatform.application.registry.ApplicationCategoriesPlugins;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
@@ -26,13 +27,14 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
 import org.exoplatform.web.WebAppController;
+import org.picocontainer.Startable;
 
 /**
  * Created by the eXo platform team
  * User: lebienthuy@gmail.com
  * Date: 3/7/2007
  */
-public class ApplicationRegistryServiceImpl implements ApplicationRegistryService {
+public class ApplicationRegistryServiceImpl implements ApplicationRegistryService, Startable {
   
   private final static String APPLICATION_NAME = "ApplicationRegistry";
   
@@ -41,12 +43,21 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   private DataMapper mapper = new DataMapper();
   private JCRRegistryService jcrRegService_;
+
+  private List<ApplicationCategoriesPlugins> plugins;
   
   public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService) throws Exception {
     jcrRegService_ = jcrRegService ;
-    jcrRegService_.createApplicationRegistry(new ApplicationRegistry(APPLICATION_NAME), false);
+    
   }
   
+  private void init() throws Exception {
+    if(getApplicationCategories().size() > 0) return ;
+    if(plugins == null ) return;
+    for(ApplicationCategoriesPlugins plugin: plugins)
+      plugin.run();
+  }
+
   public List<ApplicationCategory> getApplicationCategories() throws Exception {
     Session session = jcrRegService_.getSession();
     List<ApplicationCategory> lists = new ArrayList<ApplicationCategory>();
@@ -369,6 +380,25 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
 
   public void initListener(ComponentPlugin com) throws Exception {
+    if(com instanceof ApplicationCategoriesPlugins){
+      if(plugins == null ) plugins = new ArrayList<ApplicationCategoriesPlugins>();
+      plugins.add((ApplicationCategoriesPlugins) com);
+    }
+  }
+
+  public void start() {
+    try{
+      jcrRegService_.createApplicationRegistry(new ApplicationRegistry(APPLICATION_NAME), false);
+    init();
+    } catch (Exception e) {
+      e.printStackTrace();
+      // TODO: user LogService
+    }
+  }
+
+  public void stop() {
+    // TODO Auto-generated method stub
+    
   }
 
  

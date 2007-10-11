@@ -17,24 +17,27 @@ import org.exoplatform.container.xml.InitParams;
  * 9 Oct 2007  
  */
 
-public class AplicationCategoriesPlugins extends BaseComponentPlugin {
+public class ApplicationCategoriesPlugins extends BaseComponentPlugin {
   private ConfigurationManager cmanager_ ;
   private ApplicationRegistryService pdcService_;  
   private List<?> configs;
   
-  public AplicationCategoriesPlugins(ApplicationRegistryService pdcService,
+  
+  public ApplicationCategoriesPlugins(ApplicationRegistryService pdcService,
                                  ConfigurationManager cmanager,                                        
                                  InitParams params) throws Exception {
     configs = params.getObjectParamValues(ApplicationCategory.class);
     cmanager_ = cmanager ;
     pdcService_ = pdcService;
-    if(pdcService_.getApplicationCategories().size() > 0) return ;
+  }
+  
+  public void run() throws Exception{
+    if( configs == null) return ;
     for (Object ele : configs) {
-      ApplicationCategory portalConfig  = (ApplicationCategory)ele;
-      pdcService.save(portalConfig);
-      List<Application> apps = portalConfig.getApplications();
-      for(Application app: apps) pdcService.save(portalConfig, app);
+      ApplicationCategory category  = (ApplicationCategory)ele;
+      pdcService_.save(category);
+      List<Application> apps = category.getApplications();
+      for(Application app: apps) pdcService_.save(category, app);
     }
   }
-
 }
