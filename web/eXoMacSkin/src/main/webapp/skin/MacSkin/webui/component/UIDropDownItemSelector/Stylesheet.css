@@ -24,7 +24,7 @@
 
 .UIContainerConfigOptions .ComponentIcon {
   width: 16px; height: 16px;
-	background: url('/eXoMacSkin/skinMacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat;
+	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif) no-repeat scroll 0% 50%
 }
 
 .UIDropDownItemSelector .ItemInfoBar .Icon {
