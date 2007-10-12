@@ -91,6 +91,7 @@ public class UIFormLifecycle  extends Lifecycle {
     uiForm.findComponentOfType(inputs, UIFormInputBase.class) ;
     uiForm.setSubmitAction(context.getRequestParameter(UIForm.ACTION)) ;
     for(UIFormInputBase input :  inputs) {
+      if(!checkVisible(input)) continue;
       String inputValue = context.getRequestParameter(input.getId()) ;
       if(inputValue == null || inputValue.trim().length() == 0){
         inputValue = context.getRequestParameter(input.getName()) ;
@@ -99,10 +100,7 @@ public class UIFormLifecycle  extends Lifecycle {
     }
   }
   
-  public boolean checkVisible(UIFormInputBase input) throws Exception {
-    if(!(input.isRendered() && input.isEditable() && input.isEnable()))
-      return true;
-    else 
+  public boolean checkVisible(UIFormInputBase input) {
     return (input.isRendered() && input.isEditable() && input.isEnable());
   }
   
@@ -138,7 +136,7 @@ public class UIFormLifecycle  extends Lifecycle {
     for(UIComponent uiChild : children) {
       if(uiChild instanceof UIFormInputBase) {
         UIFormInputBase uiInput =  (UIFormInputBase) uiChild ;
-        if(!(uiInput.isRendered() && uiInput.isEditable() && uiInput.isEnable())) continue;
+        if(!checkVisible(uiInput)) continue;
         List<Validator> validators = uiInput.getValidators() ;
         if(validators == null) continue;
         try {
