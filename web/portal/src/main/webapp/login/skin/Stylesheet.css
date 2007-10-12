@@ -88,8 +88,7 @@
 
 .UILoginPortlet .LoginContent .LoginButton {
   height: 22px ;
-  padding: 8px 0px;
-  margin-left: 40px;
+  padding: 20px 0px 5px 0px;
 }
 
 .UILoginPortlet .LoginContent .LoginButtonContainer {
@@ -130,7 +129,7 @@
 }
 
 .UILoginPortlet .LoginContent .MessageContainer {
-  padding-left:16px;
+  padding: 15px 0px 0px 16px;
   float: right;
 }
 

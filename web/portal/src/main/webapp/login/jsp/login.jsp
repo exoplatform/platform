@@ -58,7 +58,7 @@
                 if(userName.length() > 0) {
               %>
                 <font color="red">Sign in failed. Wrong username or password.</font><%}%>
-              <form name="loginForm" action="<%=loginAction%>" method=post>        
+              <form name="loginForm" action="<%=loginAction%>" method="post" style="margin: 0px;">        
 	              <div class="FieldContainer">
 		              <label>User name:</label><input name="j_username" value="<%=userName%>"/>
 			          </div>
