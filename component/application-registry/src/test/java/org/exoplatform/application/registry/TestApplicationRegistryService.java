@@ -6,11 +6,7 @@ package org.exoplatform.application.registry;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
-import org.exoplatform.application.registry.Application;
-import org.exoplatform.application.registry.ApplicationCategory;
-import org.exoplatform.application.registry.ApplicationRegistryService;
+
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.MembershipType;
@@ -18,7 +14,6 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.test.BasicTestCase;
-import org.exoplatform.web.WebAppController;
 
 /**
  * Created by the eXo platform team
@@ -317,52 +312,6 @@ public class TestApplicationRegistryService extends BasicTestCase {
 
     List<Application> apps2 = service.getApplications(appCategory) ;
     assertEquals(0, apps2.size()) ;    
-  }
-  
-//  void assertImportExoApplication(ApplicationRegistryService service) throws Exception {
-//    PortalContainer container = PortalContainer.getInstance() ;
-//    WebAppController controller = 
-//      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-//    
-//    String group = "exo.app.web" ;
-//    String[] appNames = {"eXoBrowser", "eXoConsole"} ;
-//    for (String name : appNames) {
-//      controller.addApplication(new MockExoApplication(group, name, name)) ;
-//    }
-//    service.importExoApplications() ;
-//    
-//    ApplicationCategory category = createAppCategory(group, "None") ;
-//    assertEquals(appNames.length, service.getApplications(category).size()) ;
-//    
-//    for (String name : appNames) {
-//      String appId = group + "/" + name ;
-//      Application app = service.getApplication(appId) ;
-//      assertEquals(name, app.getApplicationName()) ;
-//      assertEquals(group, app.getCategoryName()) ;
-//      assertEquals(group, app.getApplicationGroup()) ;
-//    }
-//    
-//    service.clearAllRegistries() ;
-//  }
-  
-  static public class MockExoApplication  extends org.exoplatform.web.application.Application {
-    private String name_ ;
-    private String group_ ;
-    private String id_ ;
-    
-    public MockExoApplication(String group, String name, String id) {
-      name_ =  name ;  group_ = group ; id_ = id ;
-    }
-    
-    public String getApplicationType() { return EXO_WIDGET_TYPE; }
-    public String getApplicationGroup() { return group_; }
-
-    public String getApplicationId() { return id_; }
-
-    public String getApplicationName() { return name_ ;}
-
-    public ResourceBundle getOwnerResourceBundle(String arg0, Locale arg1) throws Exception { return null; }
-    public ResourceBundle getResourceBundle(Locale arg0) throws Exception {  return null; }    
   }
 
   private ApplicationCategory createAppCategory(String categoryName, String categoryDes) {
