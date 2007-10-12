@@ -48,6 +48,7 @@
 	background: url('background/MiddleNormalStyleButton1x22.gif') repeat-x center;
 	padding: 0px 12px;	
 	display: table-cell;
+	white-space: nowrap;
 }
 
 /*##############################-Disabled ActionButton-################################*/

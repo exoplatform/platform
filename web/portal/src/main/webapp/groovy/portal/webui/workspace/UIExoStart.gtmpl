@@ -129,17 +129,19 @@
             </div>
             <div class="StartMenuML">
               <div class="StartMenuMR">
-                <div class="StartMenuBG">
+                <div class="StartMenuBG" style="padding: 5px 0px;">
 					        <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up">
 					        	<div class="UpNavigatorIcon"><span></span></div>
 					        </div>
 									<div class="BlockMenu" style="position: relative;">
-					      	<div class="MenuContainer"> 
+					      	<div class="MenuContainer" style=""> 
+					      	//<div class="MenuContent">
 					      	""" ;
 						      for(navigation in navigations) {
 						        renderPageNavigation(navigation) ;
 						      }
 					      	print """
+					      	//</div>
 					      	</div>
 					      	</div>
 					      	<div class="BottomNavigator" style="display: none;" title="Click and hold to scroll down">
@@ -150,7 +152,7 @@
             </div>
             <div class="StartMenuBL">
               <div class="StartMenuBR">
-              <div class="StartMenuBC" ><span></span></div>
+              <div class="StartMenuBC"><span></span></div>
               </div>
             </div>
           </div>  
@@ -182,7 +184,7 @@
             </div>
             <div class="StartMenuML">
               <div class="StartMenuMR">
-                <div class="StartMenuBG" style="padding-bottom: 5px">
+                <div class="StartMenuBG" style="padding: 5px 0px">
 						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up">
 						      	<div class="UpNavigatorIcon"><span></span></div>
 						      </div>

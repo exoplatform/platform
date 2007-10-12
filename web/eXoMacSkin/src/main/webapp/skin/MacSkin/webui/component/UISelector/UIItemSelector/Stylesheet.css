@@ -128,7 +128,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemListIcon {
 	width: 16px; height: 16px;
-	background: url('icon/16x16/ItemListIcon.png') no-repeat;
+	background: url('icons/16x16/ItemListIcon.png') no-repeat;
 	margin-top: 3px;
 }
 
@@ -399,13 +399,13 @@
 
 .UIItemSelector .LeftColumnStyle .ItemListIcon {
 	width: 16px; height: 16px;
-	background: url('icon/16x16/ItemListIcon.png') no-repeat;
+	background: url('icons/16x16/ItemListIcon.png') no-repeat;
 	margin-top: 3px;
 }
 
 .UIItemSelector .LeftColumnStyle .ViewListIcon {
 	width: 16px; height: 16px;
-	background: url('icon/16x16/ViewListIcon.png') no-repeat;
+	background: url('icons/16x16/ViewListIcon.png') no-repeat;
 	margin-top: 3px;
 }
 
