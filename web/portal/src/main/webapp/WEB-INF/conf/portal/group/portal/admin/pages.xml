@@ -45,18 +45,6 @@
     </application>  
 
     <application>
-      <instance-id>admin:/eXoAppWeb/eXoBrowser/eXoBrowser</instance-id>
-      <application-type>eXoApplication</application-type>
-      <title>eXo Browser</title>
-    </application>
-
-    <application>
-      <instance-id>admin:/eXoAppWeb/eXoConsole/eXoConsole</instance-id>
-      <application-type>eXoApplication</application-type>
-      <title>eXo Console</title>
-    </application>
-    
-    <application>
       <instance-id>group#portal/admin:/web/BrowserPortlet/BrowserPortlet</instance-id>
       <title>Browser Portlet</title>
       <show-info-bar>true</show-info-bar>
