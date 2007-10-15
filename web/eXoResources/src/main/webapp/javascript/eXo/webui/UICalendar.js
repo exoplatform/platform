@@ -151,9 +151,9 @@ UICalendar.prototype.setDate = function(year, month, day) {
     if (month < 10) month = "0" + month ;
     if (day < 10) day = "0" + day ;
     var dateString = month + "/" + day + "/" + year ;
-    this.currentHours = new Date().getHours() ;
-    this.currentMinutes = new Date().getMinutes() ;
-    this.currentSeconds = new Date().getSeconds() ;
+    if (!this.currentHours) this.currentHours = new Date().getHours() ;
+    if (!this.currentMinutes) this.currentMinutes = new Date().getMinutes() ;
+    if (!this.currentSeconds) this.currentSeconds = new Date().getSeconds() ;
     if(this.isDisplayTime) dateString += " " + this.currentHours + ":" + this.currentMinutes + ":" + this.currentSeconds ;
     this.dateField.value = dateString ;
     this.hide() ;
