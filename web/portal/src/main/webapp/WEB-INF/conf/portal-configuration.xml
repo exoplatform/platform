@@ -225,48 +225,48 @@
             <field  name="description"><string>exoadminPortlets</string></field> 
             <field  name="applications">
 	            <collection type="java.util.ArrayList">
-                  <value>                 
-	                <object type="org.exoplatform.application.registry.Application">                     
+								<value>                 
+                  <object type="org.exoplatform.application.registry.Application">                     
                     <field  name="id"><string>exoadmin/PortletRegistryPortlet</string></field>
-	                  <field  name="categoryName"><string>exoadmin</string></field>
-	                  <field name="applicationName"><string>PortletRegistryPortlet</string></field>
-					  <field name="displayName"><string>PortletRegistryPortlet</string></field>
+                    <field  name="categoryName"><string>exoadmin</string></field>
+								    <field name="applicationName"><string>PortletRegistryPortlet</string></field>
+					          <field name="displayName"><string>PortletRegistryPortlet</string></field>
 	                  <field name="applicationType"><string>portlet</string></field>
 	                  <field name="applicationGroup"><string>exoadmin</string></field>       
-					  <field name="accessPermissions">
-							<collection type="java.util.ArrayList" item-type="java.lang.String">
-								<value><string>*:/user</string></value>
-								<value><string>owner:/admin</string></value>
-							</collection>
-					  </field> 
+					          <field name="accessPermissions">
+							        <collection type="java.util.ArrayList" item-type="java.lang.String">
+												<value><string>*:/user</string></value>
+												<value><string>owner:/admin</string></value>
+							        </collection>
+					          </field> 
 	                </object>
-                  </value>
-				  <value>                 
+                </value>
+				        <value>                 
 	                <object type="org.exoplatform.application.registry.Application">                     
                     <field  name="id"><string>exoadmin/OrganizationPortlet</string></field>
 	                  <field  name="categoryName"><string>exoadmin</string></field>
 	                  <field name="applicationName"><string>OrganizationPortlet</string></field>
-					  <field name="displayName"><string>OrganizationPortlet</string></field>
+                    <field name="displayName"><string>OrganizationPortlet</string></field>
 	                  <field name="applicationType"><string>portlet</string></field>
 	                  <field name="applicationGroup"><string>exoadmin</string></field>                
 	                </object>
-                  </value>
-				  <value>                 
+                </value>
+				        <value>                 
 	                <object type="org.exoplatform.application.registry.Application">                     
                     <field  name="id"><string>exoadmin/AccountPortlet</string></field>
 	                  <field  name="categoryName"><string>exoadmin</string></field>
 	                  <field name="applicationName"><string>AccountPortlet</string></field>
-					  <field name="displayName"><string>AccountPortlet</string></field>
+					          <field name="displayName"><string>AccountPortlet</string></field>
 	                  <field name="applicationType"><string>portlet</string></field>
 	                  <field name="applicationGroup"><string>exoadmin</string></field>                
 	                </object>
-                  </value>
+                </value>
 	            </collection>                               
             </field> 
           </object>        
         </object-param> 
 		
-		<object-param>
+		    <object-param>
           <name>web</name>
           <description>description</description>
           <object type="org.exoplatform.application.registry.ApplicationCategory">
@@ -275,26 +275,26 @@
             <field  name="description"><string>BasicPortlets</string></field> 
             <field  name="applications">
 	            <collection type="java.util.ArrayList">
-                  <value>                 
+                <value>                 
 	                <object type="org.exoplatform.application.registry.Application">                     
                     <field  name="id"><string>web/IFramePortlet</string></field>
 	                  <field  name="categoryName"><string>web</string></field>
 	                  <field name="applicationName"><string>IFramePortlet</string></field>
-					  <field name="displayName"><string>IFramePortlet</string></field>
+					          <field name="displayName"><string>IFramePortlet</string></field>
 	                  <field name="applicationType"><string>portlet</string></field>
 	                  <field name="applicationGroup"><string>web</string></field>                
 	                </object>
-                  </value>
-				  <value>                 
+                </value>
+				        <value>                 
 	                <object type="org.exoplatform.application.registry.Application">                     
                     <field  name="id"><string>web/SiteMapPortlet</string></field>
 	                  <field  name="categoryName"><string>web</string></field>
 	                  <field name="applicationName"><string>SiteMapPortlet</string></field>
-					  <field name="displayName"><string>SiteMapPortlet</string></field>
+					          <field name="displayName"><string>SiteMapPortlet</string></field>
 	                  <field name="applicationType"><string>portlet</string></field>
 	                  <field name="applicationGroup"><string>web</string></field>                
 	                </object>
-                  </value>
+                </value>
 	            </collection>                               
             </field> 
           </object>        
