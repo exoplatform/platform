@@ -70,38 +70,24 @@ public class UIListUsers extends UISearch {
 		super(OPTIONS_) ;
 		grid_ = addChild(UIGrid.class, null, "UIListUsersGird") ;
 		grid_.configure(USER_NAME, USER_BEAN_FIELD, USER_ACTION) ;
-    //TODO: Tung.Pham added
-    //--------------------------------------------
 		grid_.getUIPageIterator().setId("UIListUsersIterator") ;
 		grid_.getUIPageIterator().setParent(this);
-    //--------------------------------------------
 		search(new Query()) ;
 	}
   
-  public void setUserSelected(String userName) {
-    userSelected_ = userName;
-  }
-
-  public String getUserSelected() {
-    
-    return userSelected_;
-  }
-	public void search(Query query) throws Exception {
+  public void setUserSelected(String userName) { userSelected_ = userName;}
+  public String getUserSelected() {return userSelected_; }
+	
+  public void search(Query query) throws Exception {
     lastQuery_ = query ;
-//    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-    //TODO: Tung.Pham modified
-    //------------------------------------------------------------------
-    //uiGrid.getUIPageIterator().setPageList(service.getUserHandler().findUsers(query)) ;
     PageList pageList = service.getUserHandler().findUsers(query) ;
     pageList.setPageSize(10) ;
     grid_.getUIPageIterator().setPageList(pageList) ;
-    //------------------------------------------------------------------    
     UIPageIterator pageIterator = grid_.getUIPageIterator();
     if(pageIterator.getAvailable() == 0 ) {
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
       uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
-      
       Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
     }
 	}
@@ -124,20 +110,17 @@ public class UIListUsers extends UISearch {
   }
 
   @SuppressWarnings("unused")
-  public void advancedSearch(UIFormInputSet advancedSearchInput) throws Exception {
-  }
+  public void advancedSearch(UIFormInputSet advancedSearchInput) throws Exception {}
   
 	static  public class ViewUserInfoActionListener extends EventListener<UIListUsers> {
     public void execute(Event<UIListUsers> event) throws Exception {
     	String username = event.getRequestContext().getRequestParameter(OBJECTID) ;
-      
     	UIListUsers uiListUsers = event.getSource();
       OrganizationService service = uiListUsers.getApplicationComponent(OrganizationService.class);
       if(service.getUserHandler().findUserByName(username) == null ) {
         uiListUsers.search(new Query()) ;
         return ;
       }
-      
     	uiListUsers.setRendered(false);
     	UIUserManagement uiUserManager = uiListUsers.getParent();
     	UIUserInfo uiUserInfo = uiUserManager.getChild(UIUserInfo.class);
@@ -154,18 +137,14 @@ public class UIListUsers extends UISearch {
       UIListUsers uiListUser = event.getSource() ;
       String userName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       OrganizationService service = uiListUser.getApplicationComponent(OrganizationService.class) ;
-      //TODO: Tung.Pham added
-      //------------------------------------
       UserACL userACL = uiListUser.getApplicationComponent(UserACL.class) ;
       if(userACL.getSuperUser().equals(userName)) {
         UIApplication uiApp = event.getRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIListUsers.msg.DeleteSuperUser", new String[] {userName},ApplicationMessage.WARNING)) ;
         return ;
       }
-      //------------------------------------
       service.getUserHandler().removeUser(userName, true) ;
       uiListUser.search(uiListUser.lastQuery_);
-      
       UIComponent uiToUpdateAjax = uiListUser.getAncestorOfType(UIUserManagement.class) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiToUpdateAjax) ;
     }
