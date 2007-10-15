@@ -49,7 +49,6 @@ UICalendar.prototype.show = function() {
 	  }
 	}
 	this.currentDate = new Date(this.selectedDate.valueOf()) ;
-
   var clndr = document.getElementById(this.calendarId) ;
   clndr.firstChild.lastChild.innerHTML = this.renderCalendar() ;
   var x = 0 ;
@@ -95,7 +94,7 @@ UICalendar.prototype.renderCalendar = function() {
 	table += 		'		</table>' ;
 	table += 		'	</div>' ;
 	table += 		'	<div class="CalendarGrid">' ;
-	table += 		'		<table>' ;
+	table += 		'	<table>' ;
   for (var week=0; week < 6; week++) {
     table += "<tr>";
     for (var dayOfWeek=0; dayOfWeek < 7; dayOfWeek++) {
@@ -123,11 +122,13 @@ UICalendar.prototype.renderCalendar = function() {
   }		
 	table += 		'		</table>' ;
 	table += 		'	</div>' ;
-	table += 		'	<div class="CalendarTimeBox">' ;
-	table += 		'		<div class="CalendarTimeBoxR">' ;
-	table += 		'			<div class="CalendarTimeBoxM"><span><input size="2" maxlength="2" value="' + this.currentDate.getHours() + '" onkeyup="eXo.webui.UICalendar.setHour(this)" >:<input size="2" maxlength="2" value="' + this.currentDate.getMinutes() + '" onkeyup = "eXo.webui.UICalendar.setMinus(this)">:<input size="2" maxlength="2" value="' + this.currentDate.getSeconds() + '" onkeyup = "eXo.webui.UICalendar.setSeconds(this)"></span></div>' ;
-	table += 		'		</div>' ;
-	table += 		'	</div>' ;
+	if (this.isDisplayTime) {
+		table += 		'	<div class="CalendarTimeBox">' ;
+		table += 		'		<div class="CalendarTimeBoxR">' ;
+		table += 		'			<div class="CalendarTimeBoxM"><span><input size="2" maxlength="2" value="' + this.currentDate.getHours() + '" onkeyup="eXo.webui.UICalendar.setHour(this)" >:<input size="2" maxlength="2" value="' + this.currentDate.getMinutes() + '" onkeyup = "eXo.webui.UICalendar.setMinus(this)">:<input size="2" maxlength="2" value="' + this.currentDate.getSeconds() + '" onkeyup = "eXo.webui.UICalendar.setSeconds(this)"></span></div>' ;
+		table += 		'		</div>' ;
+		table += 		'	</div>' ;
+	}
 	table += 		'</div>' ;
 	return table ;
 }
@@ -150,9 +151,9 @@ UICalendar.prototype.setDate = function(year, month, day) {
     if (month < 10) month = "0" + month ;
     if (day < 10) day = "0" + day ;
     var dateString = month + "/" + day + "/" + year ;
-    if (!this.currentHours) this.currentHours = this.currentDate.getHours() ;
-    if (!this.currentMinutes) this.currentMinutes = this.currentDate.getMinutes() ;
-    if (!this.currentSeconds) this.currentSeconds = this.currentDate.getSeconds() ;
+    this.currentHours = new Date().getHours() ;
+    this.currentMinutes = new Date().getMinutes() ;
+    this.currentSeconds = new Date().getSeconds() ;
     if(this.isDisplayTime) dateString += " " + this.currentHours + ":" + this.currentMinutes + ":" + this.currentSeconds ;
     this.dateField.value = dateString ;
     this.hide() ;
