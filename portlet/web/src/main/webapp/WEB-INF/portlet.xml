@@ -199,7 +199,33 @@
       <keywords>browser</keywords>
     </portlet-info>     
   </portlet>
-  
+   
+  <portlet>
+    <description xml:lang="EN">Console Portlet</description>
+    <portlet-name>ConsolePortlet</portlet-name>
+    <display-name xml:lang="EN">Console Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/web/ConsolePortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    <resource-bundle>locale.portlet.portal.ConsolePortlet</resource-bundle>
+    
+    <portlet-info>
+      <title>Console Portlet</title>
+      <short-title>Console Portlet</short-title>
+      <keywords>console</keywords>
+    </portlet-info>     
+  </portlet>
+
   <!-- <portlet>
     <description xml:lang="EN">Add Portlet</description>
     <portlet-name>AddPortlet</portlet-name>

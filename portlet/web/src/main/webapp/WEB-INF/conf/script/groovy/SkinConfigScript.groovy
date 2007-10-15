@@ -92,3 +92,25 @@ SkinService.addSkin(
 ) ;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/***************************ConsolePortlet**************************************************/
+SkinService.addSkin(
+    "web/BrowserPortlet",
+    "Default",
+    "/web/skin/portal/webui/component/UIConsolePortlet/DefaultStylesheet.css"
+) ;
+
+SkinService.addSkin(
+    "web/BrowserPortlet",
+    "Vista",
+    "/web/skin/portal/webui/component/UIConsolePortlet/VistaStylesheet.css"
+) ;
+ 
+SkinService.addSkin(
+    "web/BrowserPortlet",
+    "Mac",
+    "/web/skin/portal/webui/component/UIConsolePortlet/MacStylesheet.css"
+) ;
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////

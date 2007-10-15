@@ -51,6 +51,14 @@
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
     </application>  
+
+    <application>
+      <instance-id>group#portal/admin:/web/ConsolePortlet/ConsolePortlet</instance-id>
+      <title>Console Portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>  
     
   </page> 
   

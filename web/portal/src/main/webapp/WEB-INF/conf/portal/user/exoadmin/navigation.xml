@@ -14,5 +14,12 @@
 	    <page-reference>user::exoadmin::sitemap</page-reference>	    
 	  </node>
 
+    <node>
+      <uri>console</uri>
+      <name>console</name>
+      <label>Console</label>
+      <page-reference>user::exoadmin::console</page-reference>      
+    </node>
+
   </page-nodes>
 </node-navigation>

@@ -34,8 +34,13 @@ CoreEditor.prototype.isEditableNode = function(node) {
 } ;
 
 CoreEditor.prototype.registerCoreEditors = function(node4Reg) {
+  if (node4Reg && !node4Reg.nodeName) {
+    node4Reg = document.getElementById(node4Reg) ;
+  }
+  
   if (!node4Reg || node4Reg.nodeType != 1) {
-    throw (new Error('Error when register...')) ;
+    node4Reg = document.body ;
+//    throw (new Error('Error when register...')) ;
   }
   var nodeList = node4Reg.getElementsByTagName('*') ;
   for(var i=0; i<nodeList.length; i++) {
