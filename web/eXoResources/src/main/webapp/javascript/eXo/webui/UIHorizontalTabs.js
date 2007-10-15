@@ -57,7 +57,8 @@ UIHorizontalTabs.prototype.displayTabContent = function(clickedEle) {
  * if paneId and tabId are provided, can get the tab content by Ajax
  */
 UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, tabId) {
-    var DOMUtil = eXo.core.DOMUtil;
+
+  var DOMUtil = eXo.core.DOMUtil;
   var uiSelectTab = DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
 
   var uiHorizontalTabs = DOMUtil.findAncestorByClass(clickedEle, "UIHorizontalTabs") ;
@@ -66,20 +67,21 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
 
   var contentTabContainer = DOMUtil.findFirstDescendantByClass(parentdHorizontalTab, "div", "UITabContentContainer") ;
   var uiTabContent = DOMUtil.getChildrenByTagName(contentTabContainer, "div") ;
-  
   var index = 0 ;
   for(var i = 0; i < uiTabs.length; i++) {
     var styleTabDiv = DOMUtil.getChildrenByTagName(uiTabs[i], "div")[0] ;
     if(styleTabDiv.className == "DisabledTab") continue ;
     if(uiSelectTab == uiTabs[i]) {
       styleTabDiv.className = "SelectedTab" ;
-        index = i ; continue ;
+      index = i ;
+			continue ;
     }
     styleTabDiv.className = "NormalTab" ;
     uiTabContent[i].style.display = "none" ;
   }
   uiTabContent[index].style.display = "block" ;
- 
+	eXo.ecm.UIJCRExplorer.initViewNodeScroll();
+	
   if(paneId !=null && tabId !=null){
     var params = [ {name: "objectId", value : tabId} ] ;
     ajaxAsyncGetRequest(eXo.env.server.createPortalURL(paneId, "SelectTab", true, params), false) ;
