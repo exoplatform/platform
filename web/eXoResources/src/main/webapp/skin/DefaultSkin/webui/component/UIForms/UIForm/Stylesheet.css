@@ -10,7 +10,6 @@
   padding: 4px;
   text-align: right;
 	vertical-align: top;
-	width: 30%;
 }
 
 .UIForm .HorizontalLayout .UIFormGrid td.FieldComponent {
@@ -131,4 +130,10 @@
 
 .UIApplicationRegistryPortlet .UIPermissionForm .UIPopupWindow .UIWindowContent .Content {
   padding: 15px;
+}
+
+/*####################- UIAccountSetting -#################*/
+
+.UIAccountProfiles .HorizontalLayout .UIFormGrid td.FieldLabel {
+	width: 30%;
 }
