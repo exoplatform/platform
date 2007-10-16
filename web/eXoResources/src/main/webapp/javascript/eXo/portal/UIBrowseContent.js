@@ -8,8 +8,9 @@ function UIBrowseContent() {
  * and that are on two different lines and have the same width before the page finishes loading
  */
 UIBrowseContent.prototype.waitForLoadComplete = function() {
+	var homeButton = null;
 	var bcPortlet = document.getElementById("UIBrowseContainer");
-	var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "HomeTab");
+	if (bcPortlet) homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "HomeTab");
 	var tabs = eXo.core.DOMUtil.findFirstDescendantByClass(bcPortlet, "div", "UIHorizontalTabs");
 	if (homeButton && tabs && homeButton.offsetWidth == tabs.offsetWidth) window.setTimeout(eXo.portal.UIBrowseContent.waitForLoadComplete, 100);
 	else eXo.portal.UIBrowseContent.loadScroll();
@@ -99,7 +100,7 @@ UIBrowseContent.prototype.initScroll = function() {
 			var homeButton = eXo.core.DOMUtil.findFirstDescendantByClass(mainBarMgr.mainContainer, "div", "HomeTab");
 			var maxSpace = mainBarMgr.getElementSpace(mainBarMgr.mainContainer)-mainBarMgr.getElementSpace(mainBarMgr.arrowsContainer)-mainBarMgr.margin-100;
 			if (homeButton) {
-				maxSpace = maxSpace+100-mainBarMgr.getElementSpace(homeButton);
+				maxSpace = maxSpace + 100-mainBarMgr.getElementSpace(homeButton);
 			}
 			mainBarMgr.checkAvailableSpace(maxSpace);
 			mainBarMgr.renderElements();
@@ -133,7 +134,7 @@ UIBrowseContent.prototype.mainMenuScrollCallback = function() {
 	if (eXo.core.Browser.isIE7()) this.cleanElements();
 	var maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin-100;
 	if (homeButton) {
-		maxSpace = maxSpace+100-this.getElementSpace(homeButton);
+		maxSpace = maxSpace + 100 - this.getElementSpace(homeButton);
 	}
 	var elementsSpace = this.getElementsSpace(this.firstVisibleIndex, this.lastVisibleIndex);
 	var delta = maxSpace - elementsSpace;
