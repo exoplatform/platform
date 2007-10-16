@@ -2,7 +2,7 @@
  * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
  * Please look at license.txt in info directory for more license detail.   *
  **************************************************************************/
-package org.exoplatform.portal.webui.component;
+package org.exoplatform.browser.webui.component;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
@@ -14,12 +14,11 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
  */
 @ComponentConfig(
   lifecycle = UIApplicationLifecycle.class,
-  template = "app:/groovy/portal/webui/component/UIBrowserPortlet.gtmpl"
+  template = "app:/groovy/browser/webui/component/UIBrowserPortlet.gtmpl"
 )
 
 public class UIBrowserPortlet extends UIPortletApplication {
   
-  public UIBrowserPortlet() throws Exception {
-   
+  public UIBrowserPortlet() throws Exception {   
   }
 }

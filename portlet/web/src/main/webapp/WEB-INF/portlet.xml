@@ -191,7 +191,7 @@
       <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.portal.BrowserPortlet</resource-bundle>
+    <resource-bundle>locale.portlet.web.BrowserPortlet</resource-bundle>
     
     <portlet-info>
       <title>Browser Portlet</title>

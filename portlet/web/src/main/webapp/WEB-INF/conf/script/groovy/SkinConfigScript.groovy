@@ -76,19 +76,19 @@ SkinService.addSkin(
 SkinService.addSkin(
     "web/BrowserPortlet",
     "Default",
-    "/web/skin/portal/webui/component/UIBrowserPortlet/DefaultStylesheet.css"
+    "/web/skin/browser/webui/component/UIBrowserPortlet/DefaultStylesheet.css"
 ) ;
 
 SkinService.addSkin(
     "web/BrowserPortlet",
     "Vista",
-    "/web/skin/portal/webui/component/UIBrowserPortlet/VistaStylesheet.css"
+    "/web/skin/browser/webui/component/UIBrowserPortlet/VistaStylesheet.css"
 ) ;
  
 SkinService.addSkin(
     "web/BrowserPortlet",
     "Mac",
-    "/web/skin/portal/webui/component/UIBroserPortlet/MacStylesheet.css"
+    "/web/skin/browser/webui/component/UIBroserPortlet/MacStylesheet.css"
 ) ;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
