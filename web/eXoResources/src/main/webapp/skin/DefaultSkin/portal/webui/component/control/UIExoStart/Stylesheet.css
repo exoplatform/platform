@@ -211,13 +211,7 @@
   padding: 5px;
   background: white;
 }
-/*
-.UIExoStart .StartMenuContainer .MenuContent {
-	border: 1px solid #797979;
-  margin: 0px 5px;
-  padding: 2px 0px 4px 0px;
-}
-*/
+
 .UIExoStart .StartMenuContainer .TopNavigator {
   height: 10px;
   background: url('background/UpNaviArrow.gif') no-repeat center;
