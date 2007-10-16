@@ -170,10 +170,19 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 	
 		var menuItemContainer = menuItem.menuItemContainer ;
 		menuItemContainer.style.display = "block" ;
+		
+
+		
 //		menuItemContainer.style.border = "1px solid white" ;
 	 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
 		blockMenu.style.boder = "1px solid white";
-		blockMenu.style.width = blockMenu.offsetWidth + "px" ;
+		var Width = blockMenu.offsetWidth ;
+		blockMenu.style.width = Width + "px" ;
+		
+		var pageNavigationBlock = eXo.core.DOMUtil.findDescendantsByClass(menuItemContainer, "div", "PageOwnerContainer") ;
+		for (var i = 0; i < pageNavigationBlock.length; i++ ) {
+				pageNavigationBlock[i].style.width =  Width - 10 + "px" ;
+		}
 		var parentMenu = blockMenu.parentNode;
 		var topElement = eXo.core.DOMUtil.findFirstDescendantByClass(parentMenu, "div", "TopNavigator") ;
 	 	var bottomElement = eXo.core.DOMUtil.findDescendantsByClass(parentMenu, "div", "BottomNavigator") ;
