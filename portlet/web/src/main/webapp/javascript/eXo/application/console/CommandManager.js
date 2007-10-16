@@ -271,7 +271,7 @@ CommandManager.prototype.addCommand = function(command) {
  * @param {String} jsLocation
  */
 CommandManager.prototype.registerJSModule = function(jsFile) {
-  eXo.require(jsFile, '/eXoAppWeb/javascript/') ;
+  eXo.require(jsFile, '/web/javascript/') ;
 } ;
 
 if(!eXo.application.console) {
