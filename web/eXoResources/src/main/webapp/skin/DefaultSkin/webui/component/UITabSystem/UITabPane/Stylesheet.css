@@ -2,6 +2,7 @@
 }
 
 .UITabPane .TabPaneContent {
+	padding: 8px;
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp {  

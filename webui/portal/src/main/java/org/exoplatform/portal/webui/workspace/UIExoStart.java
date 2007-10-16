@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.portlet.WindowState;
 
+import org.exoplatform.portal.account.UIAccountSetting;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
@@ -40,6 +41,7 @@ import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.organization.UIAccountForm;
 
 @ComponentConfig (
     template = "system:/groovy/portal/webui/workspace/UIExoStart.gtmpl" ,
@@ -63,12 +65,13 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = LogoutActionListener.class),
         @EventConfig(listeners = UIExoStart.LanguageSettingsActionListener.class),
         @EventConfig(listeners = UIExoStart.SkinSettingsActionListener.class),
-        @EventConfig(listeners = UIExoStart.ChangePortalActionListener.class)
+        @EventConfig(listeners = UIExoStart.ChangePortalActionListener.class),
+        @EventConfig(listeners = UIExoStart.AccountSettingsActionListener.class)
     }
 )
 public class UIExoStart extends UIComponent {
 
-  private List<List<MenuItemContainer>> menus = new ArrayList<List<MenuItemContainer>>(3);
+  private List<List<MenuItemContainer>> menus = new ArrayList<List<MenuItemContainer>>(4);
   private boolean logged ;
 
   public UIExoStart(InitParams initParams) throws Exception {
@@ -358,4 +361,17 @@ public class UIExoStart extends UIComponent {
     }
   }
 
+  // todo: tungnd - 08/09/07
+  static public class AccountSettingsActionListener extends EventListener<UIExoStart> {
+    public void execute(Event<UIExoStart> event) throws Exception {
+      UIPortal uiPortal = Util.getUIPortal() ;
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class) ;
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+     
+      UIAccountSetting uiAccountForm = uiMaskWS.createUIComponent(UIAccountSetting.class, null, null) ;
+      uiMaskWS.setUIComponent(uiAccountForm) ;
+      uiMaskWS.setShow(true) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
+    }
+  }
 }

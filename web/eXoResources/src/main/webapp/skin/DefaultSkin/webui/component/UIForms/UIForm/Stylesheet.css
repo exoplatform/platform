@@ -10,6 +10,7 @@
   padding: 4px;
   text-align: right;
 	vertical-align: top;
+	width: 30%;
 }
 
 .UIForm .HorizontalLayout .UIFormGrid td.FieldComponent {
