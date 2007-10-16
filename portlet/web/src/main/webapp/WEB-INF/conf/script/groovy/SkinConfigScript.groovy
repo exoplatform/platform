@@ -96,19 +96,19 @@ SkinService.addSkin(
 
 /***************************ConsolePortlet**************************************************/
 SkinService.addSkin(
-    "web/BrowserPortlet",
+    "web/ConsolePortlet",
     "Default",
     "/web/skin/portal/webui/component/UIConsolePortlet/DefaultStylesheet.css"
 ) ;
 
 SkinService.addSkin(
-    "web/BrowserPortlet",
+    "web/ConsolePortlet",
     "Vista",
     "/web/skin/portal/webui/component/UIConsolePortlet/VistaStylesheet.css"
 ) ;
  
 SkinService.addSkin(
-    "web/BrowserPortlet",
+    "web/ConsolePortlet",
     "Mac",
     "/web/skin/portal/webui/component/UIConsolePortlet/MacStylesheet.css"
 ) ;
