@@ -256,13 +256,9 @@
   margin: auto ;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
-  border: none;
-  margin: auto;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIForm .FormContainer {
-	width: 370px;
+.UIOrganizationPortlet .UIFormGrid {
+	width: 400px;
+	margin: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
@@ -270,7 +266,7 @@
 	height: 100%;
 }
 
-.UIOrganizationPortlet .UIGroupForm .HorizontalLayout{ 
+.UIOrganizationPortlet .UIGroupForm .HorizontalLayout { 
 	height: 243px;
 	background: white;
 }
@@ -283,14 +279,15 @@
 	float: left;
 }
 
-.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon{ 
+.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon { 
 	background-position: left top;
 	background-repeat: no-repeat;
-	float: right;
+	float: left;
+	margin-left: 10px;
 	height: 24px; width: 24px;
 }
 
-.UIOrganizationPortlet .UIGroupInfo .ListUserForSearch{ 
+.UIOrganizationPortlet .UIGroupInfo .ListUserForSearch { 
 	padding: 10px;
 }
 
@@ -328,10 +325,5 @@
 }
 
 .UIOrganizationPortlet .UIMembershipManagement .UIGrid {
-	margin: auto;
-}
-
-.UIOrganizationPortlet .UIMembershipManagement .UIFormGrid { 
-	width: 550px;
 	margin: auto;
 }

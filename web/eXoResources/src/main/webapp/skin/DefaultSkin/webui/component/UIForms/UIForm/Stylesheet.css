@@ -6,13 +6,13 @@
   border: 1px solid #aeaeae;
 }
 
-.UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
+.UIForm .UIFormGrid td.FieldLabel {
   padding: 4px;
   text-align: right;
 	vertical-align: top;
 }
 
-.UIForm .HorizontalLayout .UIFormGrid td.FieldComponent {
+.UIForm .UIFormGrid td.FieldComponent {
   padding: 4px;
 }
 
@@ -86,7 +86,7 @@
 }
 
 .UIForm .HorizontalLayout select {
-  width: 242px ;
+  width: 239px ;
   font-size: 11px;
 }
 

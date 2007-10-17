@@ -91,7 +91,9 @@
         <%//String containerMouseOver = "eXo.desktop.UIDockbar.containerMouseOver();" ;%>
         <div class="UIDockBar" id="UIDockBar" onmouseover="eXo.desktop.UIDockbar.startDockBarEvt(event);">
 					<div class="UIRightClickPopupMenu" id="DockbarContextMenu" style="width: auto;" onmousedown="event.cancelBubble = true;">
-					  <div class="UIContextMenuContainer" style="position: absolute; left: -20px;">
+					  
+					  
+					  <div class="UIContextMenuContainer" style="position: absolute; left: -75px; top: -10px;">
 							<div class="TopLeftRightClickPopupMenu">
 								<div class="TopRightRightClickPopupMenu">
 									<div class="TopCenterRightClickPopupMenu"><span></span></div>
@@ -103,16 +105,21 @@
 								   	<a class="MenuItem" href="<%=uicomponent.event("RemoveChild", "_objectid_")%>" onclick="eXo.webui.UIRightClickPopupMenu.prepareObjectId(this);" > 	
 											<div class="ItemIcon Add16x16Icon">Close</div>
 									 	</a>
-									  <div class="RightClickCustomItem"></div>
+									  <div class="RightClickCustomItem">Open</div>
 									</div>
 								</div>
 							</div>
 							<div class="BottomLeftRightClickPopupMenu">
 								<div class="BottomRightRightClickPopupMenu">
-									<div class="BottomCenterRightClickPopupMenu"><span></span></div>
+									<div class="BottomCenterRightClickPopupMenu">
+										<div class="ClickCenterBottom"><span></span></div>
+									</div>
 								</div>
 							</div>
 						</div>
+						
+						
+						
 					</div>
         
           <div class="DockbarLeft">
