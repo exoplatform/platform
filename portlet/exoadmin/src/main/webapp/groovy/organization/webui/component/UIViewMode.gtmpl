@@ -3,7 +3,7 @@
 %>
 <div><div style="width: 730px;" ><span style="display: none;"></span></div></div>
 <div class="OrganizationPortletContainer" 
-	style="_width: expression(this.previousSibling.offsetWidth - 18 + 'px')">
+	style="!width: expression(this.previousSibling.offsetWidth - 18 + 'px'); !border: 1px solid white;">
   <%/*Begin UIToolbar*/%>
   <div class="UIToolbar">
     <div class="LargeToolbar">
