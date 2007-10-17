@@ -126,6 +126,7 @@ function PortalResponse(responseDiv) {
       }
     } else if(div[i].className == "PortalResponseScript") {
       this.script = div[i].innerHTML ;
+			div[i].style.display = "none" ;
     }
   }
 };
