@@ -80,7 +80,7 @@ UIDesktop.prototype.isMaxZIndex = function(object) {
  * minh.js.exo
  */
  
-UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {	
+UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   if(typeof(uiWindow) == "string") this.object = document.getElementById(uiWindow) ;
   else this.object = uiWindow ;
   this.object.maxIndex = eXo.desktop.UIDesktop.resetZIndex(this.object) ;
@@ -92,6 +92,7 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   } else {
   	this.object.isShowed = true ;
     var uiDockBar = document.getElementById("UIDockBar") ;
+		var uiPageDesktop	= document.getElementById("UIPageDesktop") ;
     eXo.desktop.UIDockbar.resetDesktopShowedStatus(uiPageDesktop, uiDockBar) ;
     eXo.animation.ImplodeExplode.explode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW");
@@ -101,7 +102,7 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   		this.object.style.filter =  "" ;
   	}
   }
-  eXo.desktop.UIDockbar.containerMouseOver() ;
+//  eXo.desktop.UIDockbar.containerMouseOver() ;
 };
 
 UIDesktop.prototype.findPosXInDesktop = function(object) {

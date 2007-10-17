@@ -8,6 +8,7 @@
   jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
   jsmanager.importJavascript('eXo.desktop.UIWindow') ;
   jsmanager.importJavascript('eXo.desktop.UIAddApplication') ;
+  jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
   
   String docBase =  rcontext.getRequestContextPath() ;
   String comId = uicomponent.getId();
@@ -87,63 +88,67 @@
         <%  x += 10; y += 20 ;%>
         <%}%>
 
-        <%String containerMouseOver = "eXo.desktop.UIDockbar.containerMouseOver();" ;%>
-        <div class="UIDockBar" id="UIDockBar">
+        <%//String containerMouseOver = "eXo.desktop.UIDockbar.containerMouseOver();" ;%>
+        <div class="UIDockBar" id="UIDockBar" onmouseover="eXo.desktop.UIDockbar.startDockBarEvt(event);">
+					<div class="UIRightClickPopupMenu" id="DockbarContextMenu" style="width: auto;" onmousedown="event.cancelBubble = true;">
+					  <div class="UIContextMenuContainer" style="position: absolute; left: -20px;">
+							<div class="TopLeftRightClickPopupMenu">
+								<div class="TopRightRightClickPopupMenu">
+									<div class="TopCenterRightClickPopupMenu"><span></span></div>
+								</div>
+							</div>
+							<div class="MiddleLeftRightClickPopupMenu">
+								<div class="MiddleRightRightClickPopupMenu">
+								  <div class="UIRightPopupMenuContainer">
+								   	<a class="MenuItem" href="<%=uicomponent.event("RemoveChild", "_objectid_")%>" onclick="eXo.webui.UIRightClickPopupMenu.prepareObjectId(this);" > 	
+											<div class="ItemIcon Add16x16Icon">Close</div>
+									 	</a>
+									  <div class="RightClickCustomItem"></div>
+									</div>
+								</div>
+							</div>
+							<div class="BottomLeftRightClickPopupMenu">
+								<div class="BottomRightRightClickPopupMenu">
+									<div class="BottomCenterRightClickPopupMenu"><span></span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+        
           <div class="DockbarLeft">
             <div class="DockbarRight">
               <div class="DockbarCenter" id="DockbarCenter">
               	
-                <div class="IconContainer" id="IconContainer" onmouseover="$containerMouseOver">
+                <div class="IconContainer" id="IconContainer">
                   <img id="FixBug" src="/eXoResources/skin/sharedImages/Debug1x32.gif" />
                   
                   <%if(rcontext.getRemoteUser() == null) {%>
 		                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Signin.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
-		                         onclick="<%=uicomponent.event("ShowLoginForm", null);%>" />
-		                  <%/*Tool Tip*/%>
-		                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
-		                  <%/*End Tool Tip*/%>
+		                         onclick="<%=uicomponent.event("ShowLoginForm", null);%>" /><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
 		                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>
                   <%}%>
 
                   <%if(modifiable) {%>
 		                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/AddPortlet.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
 		                       id="UIAddApplicationIcon"
-		                       onclick="eXo.desktop.UIAddApplication.init('<%=uicomponent.id%>', 'UIPageDesktop',[])" />
-		                  <%/*Tool Tip*/%>
-			                <span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
-		                  <%/*End Tool Tip*/%>
-		                  
+		                       onclick="eXo.desktop.UIAddApplication.init('<%=uicomponent.id%>', 'UIPageDesktop',[])" /><span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
 		                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>
                   <%}%>
                   <%                  
                     def res = rcontext.getApplicationResourceBundle() ;
                     String skin = rcontext.getUIApplication().getSkin() ;
-                    String imgLocation = res.getString("UIPageDesktop." + skin + ".img.location").trim() ;
 
                     for(uiChild in uicomponent.getChildren()) {
                       if(!(uiChild instanceof UIPortlet)) continue; 
+                      String imgLocation = uiChild.getExoWindowID().getPortletApplicationName() + "/skin/DefaultSkin/portletIcons/" + uiChild.getExoWindowID().getPortletName() ;
                   %>
-                      <img class="Icon" src="$imgLocation/<%=uiChild.getExoWindowID().getPortletName()%>.png" id="DockItem${uiChild.id}" onerror="this.src='$imgLocation/DefaultPortlet.png'" alt="/eXoResources/skin/sharedImages/Blank.gif"
-                           onclick="eXo.desktop.UIDesktop.showHideWindow('${uiChild.id}', this);" />
-                     <%/*Tool Tip*/ %>
-                  	 <span class="Tooltip" style="display: none">
-                  	 	 <%=uiChild.getTitle();%>
-                  	 </span>
-                      <%/*End Tool Tip*/%>
+                      <img id="DockItem${uiChild.id}" onmousedown="eXo.webui.UIRightClickPopupMenu.clickRightMouse(event, this, 'DockbarContextMenu', '${uiChild.id}', null, 1)" class="Icon" src="/${imgLocation}.png" alt="/eXoResources/skin/sharedImages/Blank.gif"
+                           onerror="this.src='/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png'" onclick="eXo.desktop.UIDesktop.showHideWindow('${uiChild.id}', this);" /><span class="Tooltip" style="display: none"><%=uiChild.getTitle();%></span>
                   <%}%>
 
                   <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
-                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/ShowPortletsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
-                    />
-                  <%/*Tool Tip*/%>
-                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowPortletDesktop")%></span>
-                  <%/*End Tool Tip*/%>
-
-                  <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/HideWidgetsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
-                       />
-                  <%/*Tool Tip*/%>
-                  <span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
-                  <%/*End Tool Tip*/%>
+                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/ShowPortletsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowPortletDesktop")%></span>
+                  <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/HideWidgetsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
                 </div>
               </div>
             </div>

@@ -4,9 +4,6 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.page;
 
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.page.UIPageActionListener.AddApplicationActionListener;

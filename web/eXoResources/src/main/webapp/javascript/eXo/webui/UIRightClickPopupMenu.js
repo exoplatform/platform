@@ -42,7 +42,7 @@ UIRightClickPopupMenu.prototype.prepareObjectId = function(elemt) {
 	elemt.setAttribute('href',str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
 }
 
-UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId, objId, params) {
+UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId, objId, params, opt) {
 	if (!event) event = window.event;
 	eXo.core.MouseEventManager.docMouseDownEvt(event) ;
 	var contextMenu = document.getElementById(menuId) ;
@@ -78,7 +78,7 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 	 * 
 	 */
 	var fixWidthForIE7 = 0 ;
-	var 	uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
+	var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
 	if ((uiWorkspaceContainer.style.display != "none") && (event.clientX > uiWorkspaceContainer.clientWidth)
 			 && eXo.core.Browser.isIE7() && document.getElementById("UIDockBar")){
 		fixWidthForIE7 = uiWorkspaceContainer.clientWidth ;
@@ -86,17 +86,31 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 
 	eXo.core.Mouse.update(event) ;
 	eXo.webui.UIPopup.show(contextMenu);
-
 	var intTop = eXo.core.Mouse.mouseyInPage - (eXo.core.Browser.findPosY(contextMenu) - contextMenu.offsetTop);
 	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft) + fixWidthForIE7;
 
- 
-	if((eXo.core.Mouse.mouseyInClient + contextMenu.offsetHeight) > eXo.core.Browser.getBrowserHeight()) {
-		intTop -= contextMenu.offsetHeight ;
+	var ctxMenuContainer = eXo.core.DOMUtil.findFirstChildByClass(contextMenu, "div", "UIContextMenuContainer") ;
+
+	switch (opt) {
+		case 1:
+			intTop -= ctxMenuContainer.offsetHeight ;
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		default:
+			if((eXo.core.Mouse.mouseyInClient + ctxMenuContainer.offsetHeight) > eXo.core.Browser.getBrowserHeight()) {
+				intTop -= ctxMenuContainer.offsetHeight ;
+			}
+			break;
 	}
 
 	contextMenu.style.top = intTop + "px";
 	contextMenu.style.left = intLeft + "px";
+	
 };
 
 eXo.webui.UIRightClickPopupMenu = new UIRightClickPopupMenu() ;

@@ -230,7 +230,7 @@
       </div>
     """ ;
   }
-  
+/*TODO TrongTT: This method seem not be used
   void renderMenuItemAction(String name, String icon, String action) {  	
     String  href = uicomponent.event(action, name) ;
     String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
@@ -244,7 +244,7 @@
       </div>
     """ ;
   }
-  
+*/  
   void renderLoginAction(String name, String icon, String action) {
     String  href = uicomponent.url(action, name) ;
     String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;

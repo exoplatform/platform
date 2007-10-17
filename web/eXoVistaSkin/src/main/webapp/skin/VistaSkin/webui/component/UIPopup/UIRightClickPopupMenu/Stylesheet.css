@@ -1,8 +1,11 @@
 .UIRightClickPopupMenu {
-  width: 170px;
   display: none;
   position: absolute;
 }
+
+.UIContextMenuContainer {
+  width: 170px;
+} 
 
 .UIRightClickPopupMenu .UIRightPopupMenuContainer {
   padding: 5px 0px;

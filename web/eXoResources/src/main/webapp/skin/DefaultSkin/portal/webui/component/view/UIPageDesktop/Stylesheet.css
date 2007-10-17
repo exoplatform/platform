@@ -4,8 +4,9 @@
 }
 
 .UIPageDesktop .UIDockBar {
+  position: absolute;
+  bottom: 0px;
   margin: auto ;
-  height: auto ;
   z-index: 30 ;
   cursor: pointer ;
 }
