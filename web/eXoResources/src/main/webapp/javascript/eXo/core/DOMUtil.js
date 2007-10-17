@@ -186,6 +186,7 @@ DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
 * This methods returns the first DOM element which has the clazz type 
 */
 DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz) {
+	if (!root) return;
   var elements = root.getElementsByTagName(elementName);
   var ln = elements.length ;	
   for(var k = 0; k < ln; k++) {  	  	
