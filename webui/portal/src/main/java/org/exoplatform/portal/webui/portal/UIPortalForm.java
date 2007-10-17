@@ -6,6 +6,8 @@ package org.exoplatform.portal.webui.portal;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 
@@ -116,6 +118,14 @@ public class UIPortalForm extends UIFormTabPane {
     invokeGetBindingBean(Util.getUIPortal()) ;
   }
   
+  @SuppressWarnings("unchecked")
+  private class languagesComparator implements Comparator<SelectItemOption> {
+
+    public int compare(SelectItemOption o1, SelectItemOption o2) {
+      return o1.getLabel().compareToIgnoreCase(o2.getLabel()) ;
+    }
+  }
+  
   private void createDefaultItem() throws Exception {
     LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
     Collection<?> listLocaleConfig = localeConfigService.getLocalConfigs() ;
@@ -125,6 +135,8 @@ public class UIPortalForm extends UIFormTabPane {
       LocaleConfig localeConfig = (LocaleConfig) iterator.next() ;
       languages.add(new SelectItemOption<String>(localeConfig.getLocale().getDisplayName(), localeConfig.getLanguage())) ;
     }
+    Collections.sort(languages, new languagesComparator()) ;
+    
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortalSetting") ;
     uiSettingSet.addUIFormInput(new UIFormStringInput("name", "name", null).
                                 addValidator(EmptyFieldValidator.class).
