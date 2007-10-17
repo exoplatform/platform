@@ -16,7 +16,7 @@ UIHorizontalTabs.prototype.init = function() {
  *  . HighlightNavigationTab when tab is highlighted
  */
 UIHorizontalTabs.prototype.changeTabNavigationStyle = function(clickedEle, over) {
-	if(clickedEle == null) return;
+	if (clickedEle == null) return;
 	if (clickedEle.className != "UITab") clickedEle = eXo.core.DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
 	//var uiMouseOverTab = eXo.core.DOMUtil.findAncestorByClass(clickedEle, "UITab") ;
 	var tabStyle = eXo.core.DOMUtil.getChildrenByTagName(clickedEle, "div")[0] ;
@@ -80,8 +80,7 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
     uiTabContent[i].style.display = "none" ;
   }
   uiTabContent[index].style.display = "block" ;
-	eXo.ecm.UIJCRExplorer.initViewNodeScroll();
-	
+	if (eXo.ecm.UIJCRExplorer) eXo.ecm.UIJCRExplorer.initViewNodeScroll();
   if(paneId !=null && tabId !=null){
     var params = [ {name: "objectId", value : tabId} ] ;
     ajaxAsyncGetRequest(eXo.env.server.createPortalURL(paneId, "SelectTab", true, params), false) ;
