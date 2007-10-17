@@ -31,7 +31,7 @@ import org.exoplatform.services.resources.impl.BaseResourceBundleService;
 
 public class ResourceBundleServiceImpl extends BaseResourceBundleService {
   
-  final private static String queryDataType = "select * from nt:base where type like 'locale'";
+  final private static String queryDataType = "select * from exo:resourceBundleData where type like 'locale'";
   final static String RESOURCE_BUNDLE_TYPE = "exo:resourceBundleData";
   private JCRRegistryService jcrRegService_;
   
