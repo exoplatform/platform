@@ -10,6 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
@@ -129,11 +130,16 @@ public class UIPortalForm extends UIFormTabPane {
   private void createDefaultItem() throws Exception {
     LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
     Collection<?> listLocaleConfig = localeConfigService.getLocalConfigs() ;
-
+    Locale currentLocate = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class).getLocale();
     Iterator<?> iterator = listLocaleConfig.iterator() ;
     while(iterator.hasNext()) {
       LocaleConfig localeConfig = (LocaleConfig) iterator.next() ;
-      languages.add(new SelectItemOption<String>(localeConfig.getLocale().getDisplayName(), localeConfig.getLanguage())) ;
+      Locale locale = localeConfig.getLocale() ;
+      SelectItemOption<String> option = new SelectItemOption<String>(localeConfig.getLocale().getDisplayName(), localeConfig.getLanguage()) ;
+      languages.add(option) ;
+      if(locale.getDisplayName().equalsIgnoreCase(currentLocate.getDisplayName())){
+        option.setSelected(true) ;
+      }
     }
     Collections.sort(languages, new languagesComparator()) ;
     
