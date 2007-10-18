@@ -269,7 +269,6 @@ var discoverEXO = function(object) {
 					dndEvent.dragObject.parentNode.removeChild(dndEvent.dragObject) ;
 			}
 //      dndEvent.foundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
-//	    return ;
 //      eXo.portal.PortalDragDrop.doDropCallback(dndEvent) ;
     }
   }
