@@ -66,7 +66,8 @@ public class UIWidgetContainerManagement extends UIContainer {
       UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
       configService.create(widgets) ;
     }
-    containers_ = widgets.getChildren() ;
+    containers_ = new ArrayList<Container>() ;
+    containers_.addAll(widgets.getChildren()) ;
     loadSelectedContainer() ;
   }
   
@@ -76,6 +77,7 @@ public class UIWidgetContainerManagement extends UIContainer {
   }
   
   public List<Container> getContainers() {
+    if(containers_ == null) containers_ = new ArrayList<Container>() ;
     return containers_;
   }
 
@@ -88,14 +90,7 @@ public class UIWidgetContainerManagement extends UIContainer {
   }
   
   public void addContainer(Container container) {
-    if(containers_ == null) {
-      WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance() ;
-      UIPortalApplication uiPortalApp = (UIPortalApplication)rcontext.getUIApplication() ;
-      Widgets widgets = uiPortalApp.getUserPortalConfig().getWidgets() ;
-      widgets.setChildren(new ArrayList<Container>() ) ;
-      containers_ = widgets.getChildren() ;      
-    }
-    containers_.add(container) ;
+    getContainers().add(container) ;
   }
   
   public void deletedContainer(Container container) {
@@ -166,10 +161,11 @@ public class UIWidgetContainerManagement extends UIContainer {
     public void execute(Event<UIWidgetContainerManagement> event) throws Exception {
       UIWidgetContainerManagement uiManagement = event.getSource() ;
       WebuiRequestContext rcontext = event.getRequestContext() ;
-      
+      List<Container> containers = uiManagement.getContainers() ;
       UserPortalConfigService configService = uiManagement.getApplicationComponent(UserPortalConfigService.class) ;
       UIPortalApplication uiPortalApp = uiManagement.getAncestorOfType(UIPortalApplication.class) ;
       Widgets widgets = uiPortalApp.getUserPortalConfig().getWidgets() ;
+      widgets.setChildren((ArrayList<Container>)containers) ;
       configService.update(widgets) ;
       
       UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID) ;

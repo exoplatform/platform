@@ -14,7 +14,7 @@
 		<div class="TitleBar">
 			<div class="LeftBar">
 				<div class="RightBar">
-					<div class="MiddleBar">Widget Containers Management</div>
+					<div class="MiddleBar"><%=_ctx.appRes("UIWidgetContainerManagement.title.manager")%></div>
 				</div>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 		<div class="ContainerManagementDetail">
 			<div class="WidgetContainerCategory">
 				<div class="CategoryTitleBar">
-					<div class="Title">Containers</div>
+					<div class="Title"><%=_ctx.appRes("UIWidgetContainerManagement.title.containers")%></div>
 					<a class="RemoveContainer Icon" href="<%=uicomponent.event("DeleteContainer")%>" title="Remove selected widget container"><span></span></a>
 					<a class="EditContainer Icon" href="<%=uicomponent.event("EditContainer")%>" title="Edit selected widget container"><span></span></a>
 					<a class="AddContainer Icon" href="<%=uicomponent.event("AddContainer")%>" title="Add new widget container"><span></span></a>
@@ -34,7 +34,7 @@
 						<%
 						if(containers == null || containers.size() < 1) {
 						%>
-							<div class="EmptyListMessage">There is no container in this category.</div>
+							<div class="EmptyListMessage"><%=_ctx.appRes("UIWidgetContainerManagement.msg.emptyList")%></div>
 						<%} else {
 						for(container in containers) {
 							String itemClass = "NormalItem" ;
@@ -51,18 +51,18 @@
 			<div class="WidgetContainerView">
 				<div class="WidgetContainerDetail">
 					<div class="ContainerDetail">
-						<div class="HeadTitle">Selected Widget Container Info:</div>
+						<div class="HeadTitle"><%=_ctx.appRes("UIWidgetContainerManagement.title.selectedContainer")%></div>
 						<div class="Detail">
 							<% if(selectedContainer == null) {%>
-								<div class="Empty">No container selected</div>
+								<div class="Empty"><%=_ctx.appRes("UIWidgetContainerManagement.msg.noSelected")%></div>
 							<% } else {%>
 							<div class="InfoContent">
 								<div>
-									<div class="Label">Container name:</div>
+									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.name")%></div>
 									<div class="FieldComponent"><%=selectedContainer.getName()%></div>
 								</div>
 								<div>
-									<div class="Label">Description:</div>
+									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.description")%></div>
 									<%
 									String cDescription = selectedContainer.getDescription() ;
 									if(cDescription == null) cDescription = "<span></span>" ;
