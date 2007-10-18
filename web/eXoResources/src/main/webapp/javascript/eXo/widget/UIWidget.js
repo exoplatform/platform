@@ -1,5 +1,6 @@
 function UIWidget() {	
 	this.temp = 0;
+	this.zIndex = 0;
 };
 
 UIWidget.prototype.init = function(uiWidget, inDesktop) {
@@ -24,6 +25,7 @@ UIWidget.prototype.init = function(uiWidget, inDesktop) {
 		uiWidget.style.left = posX + "px" ;
 		uiWidget.style.top = posY + "px" ;
 		uiWidget.style.zIndex = zIndex ;
+//		eXo.widget.UIWidget.zIndex = zIndex;
 	}
 };
 UIWidget.prototype.editWidget = function(selectedElement) {
@@ -110,7 +112,7 @@ UIWidget.prototype.initDND = function(e) {
 		UIDesktop = eXo.desktop.UIDesktop ;
 		UIDesktop.resetZIndex(dragObject) ;
 		dragObject.onclick = function () {
-			UIDesktop.resetZIndex(this) ;
+		UIDesktop.resetZIndex(this) ;
 		}
   }
 
@@ -152,18 +154,7 @@ UIWidget.prototype.initDND = function(e) {
   	if (offsetLeft > offsetWidth) dragObject.style.left = (offsetWidth + limitX) + "px" ;
   	
   	/*Save Position*/
-  	var uiPage = DOMUtil.findAncestorByClass(dragObject, "UIPage") ;
-  	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
-  	
-		containerBlockId = uiPageIdNode.innerHTML;
-  	var params = [
-	  	{name: "objectId", value : dragObject.id},
-	  	{name: "posX", value : dragObject.offsetLeft},
-	  	{name: "posY", value : dragObject.offsetTop},
-	  	{name: "zIndex", value : dragObject.style.zIndex}
-	  ] ;
-	  
-  	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWidgetProperties", true, params), false) ;
+		eXo.widget.UIWidget.saveWindowProperties(dragObject) ;
   }
   
   var clickBlock = this ;
@@ -171,6 +162,22 @@ UIWidget.prototype.initDND = function(e) {
   DragDrop.init(null, clickBlock, dragBlock, e) ;
   
 };
+
+UIWidget.prototype.saveWindowProperties = function(object) {
+		var DOMUtil = eXo.core.DOMUtil ;
+		var uiPage = DOMUtil.findAncestorByClass(object, "UIPage") ;
+  	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
+		containerBlockId = uiPageIdNode.innerHTML;
+  	var params = [
+	  	{name: "objectId", value : object.id},
+	  	{name: "posX", value : object.offsetLeft},
+	  	{name: "posY", value : object.offsetTop},
+	  	{name: "zIndex", value : object.style.zIndex}
+	  ] ;
+	  
+  	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWidgetProperties", true, params), false) ;
+} ;
+
 
 /** Created: by Duy Tu 
  *         duytucntt@gmail.com
