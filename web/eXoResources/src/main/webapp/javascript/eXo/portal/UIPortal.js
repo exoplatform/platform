@@ -322,9 +322,12 @@ UIPortal.prototype.showMaskLayer = function() {
 	var object = document.createElement("div") ;
 	object.className = "PreviewMode" ;
 	object.style.display = "none" ;
-	object.title = "Click here to turn off preview mode";
 	uiPortalApplication.appendChild(object) ;
-	object.onclick = function() {
+
+	this.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", object, 30, "TOP-RIGHT") ;
+	this.maskLayer.title = "Click here to turn off preview mode";
+	this.maskLayer.style.cursor = "pointer" ;
+	this.maskLayer.onclick = function() {
 		var layoutModeIcon = eXo.core.DOMUtil.findFirstDescendantByClass(uiPortalApplication, "a", "LayoutModeIcon") ;
 		var pageLayoutModeIcon = eXo.core.DOMUtil.findFirstDescendantByClass(uiPortalApplication, "a", "PageLayoutModeIcon") ;
 		
@@ -336,7 +339,7 @@ UIPortal.prototype.showMaskLayer = function() {
 			eXo.portal.UIPortal.switchModeForPage(pageLayoutModeIcon) ;
 		}
 	}
-	this.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", object, 30, "TOP-RIGHT") ;
+	this.maskLayer.style.zIndex = parseInt(object.style.zIndex) + 1 ;
 	eXo.core.Browser.addOnScrollCallback("3743892", eXo.core.UIMaskLayer.setPosition) ;
 } ;
 
