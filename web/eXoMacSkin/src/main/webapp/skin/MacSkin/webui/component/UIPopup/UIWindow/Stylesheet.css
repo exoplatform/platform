@@ -85,14 +85,6 @@
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/RestoreOver.gif') no-repeat ;
 }
 
-.UIWindow .WindowPortletControl .CloseButtonIcon {
-  background: url('icons/16x16/NormalClose.gif') no-repeat ;
-}
-
-.UIWindow .WindowPortletControl .OverCloseButtonIcon {
-  background: url('icons/16x16/OverClose.gif') no-repeat ;
-}
-
 .UIWindow .WindowPortletControl .BackgroundIcon {
   float: left ;
   margin: 4px 2px 0px 2px ;

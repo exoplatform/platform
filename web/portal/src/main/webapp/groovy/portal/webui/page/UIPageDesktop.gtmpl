@@ -126,7 +126,7 @@
             <div class="DockbarRight">
               <div class="DockbarCenter" id="DockbarCenter">
               	
-                <div class="IconContainer" id="IconContainer">
+                <div class="IconContainer" id="IconContainer" style="text-align: center;">
                   <img id="FixBug" src="/eXoResources/skin/sharedImages/Debug1x32.gif" />
                   
                   <%if(rcontext.getRemoteUser() == null) {%>

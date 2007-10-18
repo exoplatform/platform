@@ -100,14 +100,6 @@
   background: url('icons/16x16/RestoreOver.png') no-repeat ;
 }
 
-.UIWindow .WindowPortletControl .CloseButtonIcon {
-  background: url('icons/16x16/CloseOver.png') no-repeat ;
-}
-
-.UIWindow .WindowPortletControl .OverCloseButtonIcon {
-  background: url('icons/16x16/CloseOver.png') no-repeat ;
-}
-
 .UIWindow .Information {
   margin-right: 18px ;
   padding-left: 5px ;

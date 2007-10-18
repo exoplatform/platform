@@ -91,14 +91,6 @@
   background: url('icons/24x24/RestoreOver.gif') no-repeat top;
 }
 
-.UIWindow .WindowPortletControl .CloseButtonIcon {
-  background: url('icons/24x24/Close.gif') no-repeat top;
-}
-
-.UIWindow .WindowPortletControl .OverCloseButtonIcon {
-  background: url('icons/24x24/CloseOver.gif') no-repeat top;
-}
-
 .UIWindow .MiddleDecoratorCenter {
   background: #ffffff ;
 }

@@ -229,14 +229,6 @@
     	                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction" title="<%=_ctx.appRes("UIPortlet.tooltip.Minimize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
 	                		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction" title="<%=_ctx.appRes("UIPortlet.tooltip.Maximize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	                <%}%>    
-	                <%
-	                  boolean condition = isWindow && (rcontext.getRemoteUser() != null) && 
-	                                      uicomponent.getParent().isModifiable();
-	                  if(condition) {
-		                  String removeChildAction = uicomponent.getParent().event("RemoveChild", popupId) ;
-	                %>
-	                		<a class="ControlIcon CloseButtonIcon" href="$removeChildAction" title="<%=_ctx.appRes("UIPortlet.tooltip.Minimize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></a>
-	                <% }%>	
 		              <div style="clear: left"><span></span></div>  
 		            </div>
 		            <div class="WindowPortletInfo">
