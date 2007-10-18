@@ -1,4 +1,5 @@
 eXo.require('eXo.webui.UIPopup');
+eXo.require('eXo.widget.UIWidget');
 function UIWindow() {} ;
 
 UIWindow.prototype.init = function(popup, isShow, posX, posY) {
@@ -55,6 +56,16 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
 	
 	var uiWindow = eXo.desktop.UIWindow ;
   var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+	// set zIndex for widgets;
+	// save properties of widgets;
+	var uiWidgets =  domUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget");
+	if (uiWidgets.length > 0) {
+		for (var i = 0; i < uiWidgets.length; i ++ ) {
+			uiWidgets[i].style.zIndex = 0;
+			eXo.widget.UIWidget.saveWindowProperties(uiWidgets[i]) ;
+		}
+	}
+	
   var desktopWidth = uiPageDesktop.offsetWidth  ;
   var desktopHeight = uiPageDesktop.offsetHeight  ;
   var uiResizableBlock = domUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
@@ -73,6 +84,12 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
     portletWindow.style.top = "0px" ;
     portletWindow.style.left = "0px" ;
     portletWindow.style.width = "100%" ;
+		var uiDockbar = document.getElementById("UIDockBar") ;
+
+		portletWindow.style.zIndex = parseInt(uiDockbar.style.zIndex) - 2;
+		uiDockbar.style.zIndex = parseInt(uiDockbar.style.zIndex) + 1;
+
+
     var delta = eXo.core.Browser.getBrowserHeight() - portletWindow.offsetHeight ;
     for(var i = 0; i < uiResizableBlock.length; i++) {
   		uiResizableBlock[i].style.height =  (parseInt(uiResizableBlock[i].clientHeight) + delta) + "px" ;
@@ -207,7 +224,7 @@ UIWindow.prototype.initDND = function(e) {
 		  var uiPageDesktopX = eXo.core.Browser.findPosX(uiPageDesktop) ;
 		  
 		  /*Fix Bug On IE7, It's always double the value returned*/
-		  if((eXo.core.Browser.getBrowserType() == "ie") && (!eXo.core.Browser.isIE6())) {
+		  if(eXo.core.Browser.isIE7()) {
 		  	uiPageDesktopX = uiPageDesktopX / 2 ;
 		  }
 		  
@@ -222,7 +239,6 @@ UIWindow.prototype.initDND = function(e) {
 	  	
 		  //TODO Lambkin: Save properties of window
 		  eXo.desktop.UIWindow.saveWindowProperties(dragBlock) ;
-		  
 	  	for (var i = 0; i < hiddenElements.length; i++) {
 	  		hiddenElements[i].style.overflow = "auto" ;
 	  	}
