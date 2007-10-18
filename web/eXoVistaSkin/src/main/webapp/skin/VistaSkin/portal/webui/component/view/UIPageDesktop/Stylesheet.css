@@ -62,3 +62,72 @@
 .UIPageDesktop .UIApplication {
   overflow: auto ;
 }
+
+/*=============================Right Click DockBar Menu=========================*/
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopLeftRightClickPopupMenu {
+  background: url('background/TopLeftDockBarMenu7x7.gif') left no-repeat ;
+  padding-left: 7px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopRightRightClickPopupMenu {
+  background: url('background/TopRightDockBarMenu7x7.gif') right no-repeat ;
+  padding-right: 7px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopCenterRightClickPopupMenu {
+  background: url('background/TopCenterDockBarMenu1x7.gif') repeat-x ;
+  height: 7px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .MiddleLeftRightClickPopupMenu {
+  background: url('background/MiddleLeftDockBarMenu7x1.gif') repeat-y left ;
+  padding-left: 7px;
+	height: 100%;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .MiddleRightRightClickPopupMenu {
+  background: url('background/MiddleRightDockBarMenu7x1.gif') repeat-y right ;
+  padding-right: 7px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomLeftRightClickPopupMenu {
+  background: url('background/BottomLeftDockBarMenu7x7.gif') left no-repeat top;
+  padding-left: 7px;
+  height: 7px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomRightRightClickPopupMenu {
+  background: url('background/BottomRightDockBarMenu7x7.gif') right no-repeat top ;
+  padding-right: 7px;
+  height: 7px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomCenterRightClickPopupMenu {
+  background: url('background/BottomCenterDockBarMenu1x7.gif') repeat-x top ;
+  height: 7px; 
+  line-height: 7px; 
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .UIRightPopupMenuContainer {
+	background:#DFEAF6 none repeat scroll 0% 50%;
+	margin:0px;
+	border: 1px solid #9ba9bf;
+	padding: 0px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .ClickCenterBottom {
+	background: url('background/ClickCenterBottom21x16.gif') no-repeat ;
+	width: 21px;  height: 16px;
+	margin: 0px 0px 0px 20px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .ItemIcon {
+	padding-left: 20px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer {
+	border: none;
+	background: none;
+	width: 100px;
+}

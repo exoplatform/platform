@@ -53,6 +53,17 @@
 	padding: 0px 5px ;
 	border: solid 1px black ;
 }
+
+.UIPageDesktop .MoveResizeArea {
+  float: right ;
+  width: 12px ; height: 18px ;
+  background: blue ; 
+  cursor: nw-resize ;
+}
+
+.UIPageDesktop .UIWindow .UIFormInputSet {
+	width: 100%;
+}
 /*=============================Right Click DockBar Menu=========================*/
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopLeftRightClickPopupMenu {
@@ -73,6 +84,7 @@
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .MiddleLeftRightClickPopupMenu {
   background: url('background/MiddleLeftDockBarMenu7x1.gif') repeat-y left ;
   padding-left: 7px;
+	height: 100%;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .MiddleRightRightClickPopupMenu {
@@ -81,45 +93,43 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomLeftRightClickPopupMenu {
-  background: url('background/BottomLeftDockBarMenu7x7.gif') left no-repeat ;
+  background: url('background/BottomLeftDockBarMenu7x7.gif') left no-repeat top;
   padding-left: 7px;
-}
-
-.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomRightRightClickPopupMenu {
-  background: url('background/BottomRightDockBarMenu7x7.gif') right no-repeat ;
-  padding-right: 7px;
-}
-
-.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomCenterRightClickPopupMenu {
-  background: url('background/BottomCenterDockBarMenu1x7.gif') repeat-x ;
   height: 7px;
 }
 
-.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .UIRightPopupMenuContainer {
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomRightRightClickPopupMenu {
+  background: url('background/BottomRightDockBarMenu7x7.gif') right no-repeat top ;
+  padding-right: 7px;
+  height: 7px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomCenterRightClickPopupMenu {
+  background: url('background/BottomCenterDockBarMenu1x7.gif') repeat-x top ;
+  height: 7px; 
+  line-height: 7px; 
+}
+
+.UIDockBar .UIRightClickPopupMenu .UIRightPopupMenuContainer {
 	background:#DFEAF6 none repeat scroll 0% 50%;
 	margin:0px;
+	padding: 0px;
 	border: 1px solid #9ba9bf;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .ClickCenterBottom {
 	background: url('background/ClickCenterBottom21x16.gif') no-repeat ;
 	width: 21px;  height: 16px;
-	margin: auto;
+	margin: 0px 0px 0px 20px;
 }
 
-.UIDockBar .UIContextMenuContainer {
+.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer {
 	border: none;
 	background: none;
+	width: 120px;
 }
 
-
-.UIPageDesktop .MoveResizeArea {
-  float: right ;
-  width: 12px ; height: 18px ;
-  background: blue ; 
-  cursor: nw-resize ;
+.UIDockBar .UIRightClickPopupMenu .CloseDockBarIcon {
+	background: url('icons/24x24/CloseDockbarIcon.gif') no-repeat left ;
 }
 
-.UIPageDesktop .UIWindow .UIFormInputSet {
-	width: 100%;
-}
