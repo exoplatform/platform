@@ -125,9 +125,15 @@ UIContextMenu.prototype.show = function(evt) {
 		if(callback) {
 			callback = callback + "(_e)" ;
 			eval(callback) ;
-		}		
-		var top = eXo.core.Browser.findMouseYInPage(_e) ;
-		var left = eXo.core.Browser.findMouseXInPage(_e) ;
+		}
+		var extraX = 0 ;
+		var extraY = 0 ;
+		if (UIContextMenu.menuElement.offsetParent) {
+			extraX = eXo.core.Browser.findPosX(UIContextMenu.menuElement.offsetParent) ;
+			extraY = eXo.core.Browser.findPosY(UIContextMenu.menuElement.offsetParent) ;			
+		}
+		var top = eXo.core.Browser.findMouseYInPage(_e) - extraY ;
+		var left = eXo.core.Browser.findMouseXInPage(_e) - extraX ;
 		eXo.core.DOMUtil.listHideElements(UIContextMenu.menuElement) ;
 		var ln = eXo.core.DOMUtil.hideElementList.length ;
 		if (ln > 0) {
@@ -138,10 +144,23 @@ UIContextMenu.prototype.show = function(evt) {
 		UIContextMenu.menuElement.style.left = left + "px" ;
 		UIContextMenu.menuElement.style.top = top + "px" ;
 		UIContextMenu.menuElement.style.display = 'block' ;
+		UIContextMenu.menuElement.onmouseover = UIContextMenu.autoHide ;
+		UIContextMenu.menuElement.onmouseout = UIContextMenu.autoHide ;
+		if (!UIContextMenu.IE) document.body.appendChild(UIContextMenu.menuElement) ;
 		return false ;
 	}
 	return UIContextMenu.getReturnValue(_e) ;
 } ;
+UIContextMenu.prototype.autoHide = function(evt) {
+	var _e = window.event || evt ;
+	var eventType = _e.type ;	
+	var UIContextMenu = eXo.webui.UIContextMenu ;
+	if (eventType == 'mouseout') {
+		UIContextMenu.timeout = setTimeout("eXo.webui.UIContextMenu.menuElement.style.display='none'", 5000) ;		
+	} else {
+		if (UIContextMenu.timeout) clearTimeout(UIContextMenu.timeout) ;		
+	}
+}
 UIContextMenu.prototype.replaceall = function(string, obj) {			
 	var p = new Array() ;
 	var i = 0 ;
