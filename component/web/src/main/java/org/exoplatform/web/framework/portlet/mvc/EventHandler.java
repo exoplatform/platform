@@ -4,6 +4,7 @@
  **************************************************************************/
 package org.exoplatform.web.framework.portlet.mvc;
 
+import javax.portlet.MimeResponse;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.PortletURL;
@@ -34,7 +35,7 @@ abstract public class EventHandler {
   public void setError(Throwable error) { error_ =  error ; }
   
   public <T extends EventHandler> PortletURL createEventURL(String handler) {
-    PortletURL url = response_.createActionURL() ;
+    PortletURL url = ((MimeResponse) response_).createActionURL() ;
     url.setParameter(MVCPortlet.EVENT_HANDLER, handler) ;
     return url ;
   }

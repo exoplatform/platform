@@ -83,7 +83,7 @@ public class UIPortletActionListener {
           .getApplicationComponent(OrganizationService.class);
       UserProfile userProfile = service.getUserProfileHandler()
           .findUserProfileByName(uiPortalApp.getOwner());
-      actionInput.setWindowID(uiPortlet.getExoWindowID());
+      actionInput.setInternalWindowID(uiPortlet.getExoWindowID());
       if (userProfile != null)
         actionInput.setUserAttributes(userProfile.getUserInfoMap());
       else
@@ -209,7 +209,7 @@ public class UIPortletActionListener {
             .getApplicationComponent(OrganizationService.class);
         UserProfile userProfile = service.getUserProfileHandler()
             .findUserProfileByName(uiPortalApp.getOwner());
-        input.setWindowID(uiPortlet.getExoWindowID());
+        input.setInternalWindowID(uiPortlet.getExoWindowID());
         if (userProfile != null)
           input.setUserAttributes(userProfile.getUserInfoMap());
         else
@@ -348,7 +348,7 @@ public class UIPortletActionListener {
         input.setUserAttributes(new HashMap());
       input.setPortletMode(uiPortlet.getCurrentPortletMode());
       input.setWindowState(uiPortlet.getCurrentWindowState());
-      input.setWindowID(uiPortlet.getExoWindowID());
+      input.setInternalWindowID(uiPortlet.getExoWindowID());
       input.setMarkup("text/html");
       input.setEvent(event);
       EventOutput output = service.processEvent((HttpServletRequest) context

@@ -150,7 +150,7 @@ public class UIPortletLifecycle extends Lifecycle {
     input.setWindowState(uiPortlet.getCurrentWindowState());
     input.setMarkup("text/html");
     input.setTitle(uiPortlet.getTitle());
-    input.setWindowID(uiPortlet.getExoWindowID());
+    input.setInternalWindowID(uiPortlet.getExoWindowID());
     input.setRenderParameters(getRenderParameterMap(uiPortlet, prcontext));
     input.setPublicParamNames(getPublicRenderParamNames(uiPortlet));
     RenderOutput output = null;
