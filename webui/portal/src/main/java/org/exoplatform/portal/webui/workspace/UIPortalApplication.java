@@ -271,7 +271,8 @@ public class UIPortalApplication extends UIApplication {
       w.write("<div class=\"PortalResponse\">") ;
       if(!context.getFullRender()) {
         for(UIPortlet uiPortlet : uiPortlets) {
-          log.info("AJAX call: Need to refresh the Portlet " + uiPortlet.getWindowId());
+          if(log.isDebugEnabled())
+            log.debug("AJAX call: Need to refresh the Portlet " + uiPortlet.getWindowId());
           
           w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;
           w.  append("<div class=\"PortletResponsePortletId\">" + uiPortlet.getExoWindowID().getUniqueID()+"</div>") ;
