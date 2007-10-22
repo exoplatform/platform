@@ -130,7 +130,7 @@ UIContextMenu.prototype.show = function(evt) {
 		var extraY = 0 ;
 		if (UIContextMenu.menuElement.offsetParent) {
 			extraX = eXo.core.Browser.findPosX(UIContextMenu.menuElement.offsetParent) ;
-			extraY = eXo.core.Browser.findPosY(UIContextMenu.menuElement.offsetParent) ;			
+			extraY = eXo.core.Browser.findPosY(UIContextMenu.menuElement.offsetParent) ;
 		}
 		var top = eXo.core.Browser.findMouseYInPage(_e) - extraY ;
 		var left = eXo.core.Browser.findMouseXInPage(_e) - extraX ;
@@ -145,8 +145,20 @@ UIContextMenu.prototype.show = function(evt) {
 		UIContextMenu.menuElement.style.top = top + "px" ;
 		UIContextMenu.menuElement.style.display = 'block' ;
 		UIContextMenu.menuElement.onmouseover = UIContextMenu.autoHide ;
-		UIContextMenu.menuElement.onmouseout = UIContextMenu.autoHide ;
-		if (!UIContextMenu.IE) document.body.appendChild(UIContextMenu.menuElement) ;
+		UIContextMenu.menuElement.onmouseout = UIContextMenu.autoHide ;		
+		if (!UIContextMenu.IE) {
+			var childNodes = eXo.core.DOMUtil.getChildrenByTagName(document.body, "div")  ;
+			var show = false ;
+			for(var i = 0 ; i < childNodes.length ; i ++) {
+				if  (childNodes[i].getAttribute("id") == menuElementId) {
+					show = true ;
+					break ;
+				}
+			}
+			if (!show) {				
+				document.body.appendChild(UIContextMenu.menuElement) ;
+			}
+		}
 		return false ;
 	}
 	return UIContextMenu.getReturnValue(_e) ;
