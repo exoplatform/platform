@@ -93,7 +93,7 @@
 					<div class="UIRightClickPopupMenu" id="DockbarContextMenu" onmousedown="event.cancelBubble = true;">
 					  
 					  
-					  <div class="UIContextMenuContainer" style="position: absolute; left: -40px; top: -10px;">
+					  <div class="UIContextMenuContainer" >
 							<div class="TopLeftRightClickPopupMenu">
 								<div class="TopRightRightClickPopupMenu">
 									<div class="TopCenterRightClickPopupMenu"><span></span></div>

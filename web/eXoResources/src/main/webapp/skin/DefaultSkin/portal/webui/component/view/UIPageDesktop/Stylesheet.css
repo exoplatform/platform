@@ -133,3 +133,9 @@
 	background: url('icons/24x24/CloseDockbarIcon.gif') no-repeat left ;
 }
 
+.UIDockBar .UIContextMenuContainer {
+	position: absolute; 
+	left: -40px; 
+	top: -10px;
+}
+
