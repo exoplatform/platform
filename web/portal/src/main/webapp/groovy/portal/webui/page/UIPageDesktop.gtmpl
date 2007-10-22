@@ -103,9 +103,9 @@
 								<div class="MiddleRightRightClickPopupMenu">
 								  <div class="UIRightPopupMenuContainer">
 								   	<a class="MenuItem" href="<%=uicomponent.event("RemoveChild", "_objectid_")%>" onclick="eXo.webui.UIRightClickPopupMenu.prepareObjectId(this);" > 	
-											<div class="ItemIcon CloseDockBarIcon">Close</div>
+											<div class="ItemIcon CloseDockBarIcon"><%=_ctx.appRes("UIPageDesktop.action.Close")%></div>
 									 	</a>
-									 	<div class="RightClickCustomItem">Open</div>
+									  <div class="RightClickCustomItem"><%=_ctx.appRes("UIPageDesktop.action.action.Open")%></div>
 									</div>
 								</div>
 							</div>

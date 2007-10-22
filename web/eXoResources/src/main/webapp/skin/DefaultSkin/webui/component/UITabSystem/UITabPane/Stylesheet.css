@@ -19,8 +19,3 @@
   border: solid 1px #d5d5d5; border-top: none;
   background: white;
 }
-
-.UITabPane .UITabContent .UIGroupMembershipForm {
-  width: 420px;
-  margin: auto;
-}
