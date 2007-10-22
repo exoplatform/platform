@@ -9,7 +9,6 @@ import java.util.List;
 
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
@@ -18,6 +17,7 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
@@ -37,7 +37,8 @@ import org.exoplatform.webui.event.Event.Phase;
         @EventConfig(listeners = UIWidgetContainerManagement.EditContainerActionListener.class),
         @EventConfig(listeners = UIWidgetContainerManagement.DeleteContainerActionListener.class, confirm = "UIWidgetContainerManagement.confirm.DeleteContainer"),
         @EventConfig(listeners = UIWidgetContainerManagement.ChangeContainerActionListener.class),
-        @EventConfig(listeners = UIWidgetContainerManagement.CloseActionListener.class)
+        @EventConfig(listeners = UIWidgetContainerManagement.SaveActionListener.class),
+        @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)
     }
 )
 public class UIWidgetContainerManagement extends UIContainer {
@@ -57,17 +58,14 @@ public class UIWidgetContainerManagement extends UIContainer {
   private void loadContainer() throws Exception {
     WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance() ;
     UIPortalApplication uiPortalApp = (UIPortalApplication)rcontext.getUIApplication() ;
-    Widgets widgets = uiPortalApp.getUserPortalConfig().getWidgets() ;
-    if(widgets == null) {
-      widgets = new Widgets() ;
-      widgets.setOwnerType(PortalConfig.USER_TYPE) ;
-      widgets.setOwnerId(rcontext.getRemoteUser()) ;
-      widgets.setChildren(new ArrayList<Container>()) ;
-      UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
-      configService.create(widgets) ;
+    UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID) ;
+    UIWidgets uiWidgets = uiControl.findFirstComponentOfType(UIWidgets.class) ;
+    List<UIComponent> uiChildren = uiWidgets.getChildren() ;
+    if(uiChildren == null) return ;
+    containers_ = new ArrayList<Container> () ;
+    for(UIComponent ele : uiChildren) {
+      containers_.add(PortalDataMapper.toContainer((org.exoplatform.portal.webui.container.UIContainer)ele)) ;
     }
-    containers_ = new ArrayList<Container>() ;
-    containers_.addAll(widgets.getChildren()) ;
     loadSelectedContainer() ;
   }
   
@@ -156,12 +154,13 @@ public class UIWidgetContainerManagement extends UIContainer {
     
   }
   
-  static public class CloseActionListener extends EventListener<UIWidgetContainerManagement> {
+  static public class SaveActionListener extends EventListener<UIWidgetContainerManagement> {
 
     public void execute(Event<UIWidgetContainerManagement> event) throws Exception {
       UIWidgetContainerManagement uiManagement = event.getSource() ;
       WebuiRequestContext rcontext = event.getRequestContext() ;
       List<Container> containers = uiManagement.getContainers() ;
+      
       UserPortalConfigService configService = uiManagement.getApplicationComponent(UserPortalConfigService.class) ;
       UIPortalApplication uiPortalApp = uiManagement.getAncestorOfType(UIPortalApplication.class) ;
       Widgets widgets = uiPortalApp.getUserPortalConfig().getWidgets() ;
@@ -171,6 +170,7 @@ public class UIWidgetContainerManagement extends UIContainer {
       UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID) ;
       UIWidgets uiWidgets = uiControl.findFirstComponentOfType(UIWidgets.class) ;
       PortalDataMapper.toUIWidgets(uiWidgets, widgets) ;
+      
       rcontext.addUIComponentToUpdateByAjax(uiControl) ;
       UIMaskWorkspace uiMaskWorkspace = uiManagement.getParent() ;
       uiMaskWorkspace.createEvent("Close", Phase.PROCESS, rcontext).broadcast() ;

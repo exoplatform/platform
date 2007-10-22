@@ -58,16 +58,20 @@
 							<% } else {%>
 							<div class="InfoContent">
 								<div>
-									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.name")%></div>
+									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.id")%></div>
+									<div class="FieldComponent"><%=selectedContainer.getId()%></div>
+								</div>
+								<div>
+									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.label")%></div>
 									<div class="FieldComponent"><%=selectedContainer.getName()%></div>
 								</div>
 								<div>
 									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.description")%></div>
 									<%
 									String cDescription = selectedContainer.getDescription() ;
-									if(cDescription == null) cDescription = "<span></span>" ;
+									if(cDescription == null) cDescription = "" ;
 									%>
-									<div class="FieldComponent"><%=cDescription%></div>
+									<div class="FieldComponent"><span><%=cDescription%></span></div>
 								</div>
 							</div>
 							<% } %>
@@ -82,6 +86,17 @@
 	<div class="UIAction">
 		<table class="ActionContainer" align="center">
 			<tr>
+
+				<td align="center">
+					<a class="ActionButton LightBlueStyle" href="<%=uicomponent.event("Save")%>">
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle"><%=_ctx.appRes(uicomponent.getId() + ".action.save")%></div>
+							</div>
+						</div>
+					</a>
+				</td>
+			
 				<td align="center">
 					<a class="ActionButton LightBlueStyle" href="<%=uicomponent.event("Close")%>">
 						<div class="ButtonLeft">
@@ -90,7 +105,7 @@
 							</div>
 						</div>
 					</a>
-				</td>
+				</td>				
 			</tr>
 		</table>
 	</div>

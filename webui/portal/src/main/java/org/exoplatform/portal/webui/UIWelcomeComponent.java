@@ -4,13 +4,18 @@
  **************************************************************************/
 package org.exoplatform.portal.webui;
 
-import org.exoplatform.portal.application.PortalRequestContext;
+import java.util.ArrayList;
+
 import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.application.UIWidgets;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
@@ -24,19 +29,26 @@ import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
 public class UIWelcomeComponent extends UIContainer {
 
   public UIWelcomeComponent() throws Exception {
-    PortalRequestContext prContext = Util.getPortalRequestContext();
+    WebuiRequestContext rcontext = Util.getPortalRequestContext();
 //    int accessibility = prContext.getAccessPath() ;
 //    if(accessibility == PortalRequestContext.PUBLIC_ACCESS) {
 //      addChild(UILoginForm.class, null, "LoginWelcomeComponent");
 //      return ;
 //    }
     
-    UIPortalApplication uiPortalApplication = (UIPortalApplication)prContext.getUIApplication();
+    UIPortalApplication uiPortalApplication = (UIPortalApplication)rcontext.getUIApplication();
     UserPortalConfig userPortalConfig = uiPortalApplication.getUserPortalConfig();
     if(userPortalConfig == null) return;
     UIWidgets uiWidgets = addChild(UIWidgets.class, null, null) ;
     Widgets widgets = userPortalConfig.getWidgets();
-    if(widgets == null) return ;
+    if(widgets == null) {
+      widgets = new Widgets() ;
+      widgets.setOwnerType(PortalConfig.USER_TYPE) ;
+      widgets.setOwnerId(rcontext.getRemoteUser()) ;
+      widgets.setChildren(new ArrayList<Container>()) ;
+      UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
+      configService.create(widgets) ;
+    }
     PortalDataMapper.toUIWidgets(uiWidgets, widgets);
   }  
 
