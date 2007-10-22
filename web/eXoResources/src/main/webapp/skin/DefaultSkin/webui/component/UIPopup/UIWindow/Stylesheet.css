@@ -5,6 +5,8 @@
 
 .UIPageDesktop .UIWindow .UIApplication {
   height: 350px ;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .UIWindow .UIApplication {

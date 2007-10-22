@@ -188,6 +188,7 @@
 .UIPopupWindow .ExoMessageDecorator {
 	background: white;
 	padding: 2px;
+	overflow: hidden;/*Fix for IE*/
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopLeftCornerDecorator {

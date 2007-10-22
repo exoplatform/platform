@@ -21,7 +21,6 @@
 
 .UIHorizontalTabs .TabsContainer {
   padding: 0px 0px 0px 10px;
-  float: left;
 }
 
 .UIHorizontalTabs .UITab {
@@ -53,7 +52,7 @@
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
-  margin: 0px 8px 0px 0px ;  
+  margin: 0px 3px 0px 0px ;  
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a:hover {
@@ -104,7 +103,7 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
   color: #1052a3;
-  margin: 0px 8px 0px 0px;
+  margin: 0px 3px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
@@ -150,7 +149,7 @@
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
-  margin: 2px 8px 0px 0px;
+  margin: 2px 3px 0px 0px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {

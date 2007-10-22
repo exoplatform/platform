@@ -18,10 +18,6 @@
   background: url('background/LineDecorator1x7.gif') repeat-x bottom;
 }
 
-.UIHorizontalTabs .TabsContainer {
-  margin-left: 10px;
-}
-
 .UIHorizontalTabs .PreviousTabButton  {
   float: left;
   width: 14px; height: 24px;
