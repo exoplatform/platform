@@ -14,6 +14,11 @@
 	float: left;
 }
 
+.UIWidgets .ItemSelectorContainer .UIDropDownControl{
+	width: 208px;
+	float: left;
+}
+
 .UIWidgets .ItemSelectorContainer .UIDropDownItemSelector .RightItemInfoBar{
 	background: none;
 	padding-right: 0px;

@@ -3,58 +3,99 @@
 	position: relative ;
 }
 .UIDropDownControl .UIDropDownTitle {
-	background:white url(background/DropDownItemSelectorBG1x2.gif) repeat-x scroll center top;
-	border:1px solid #929292;
 	cursor:pointer;
-	padding-left:5px;
 	height: 100% ;
+	border-right:medium none;
+	border-top:1px solid #959595;
+	height:20px;
 }
 
 .UIDropDownControl .UIOptionContainer {
 	display: block ;
-	background:white ;
-	width: 100% ;
+	background: url(background/MLItemSelector9x1.png) repeat-y left center;
+	padding-left: 9px;
 }
 .UIDropDownControl .UIItemListContainer {
-	border:1px solid gray ;
-	border-top:0px ;
-	padding: 4px ;
-}
-.UIDropDownControl .UIItemList {
-	border: 1px solid #e0e0e0  ;
-	border-bottom: 0px ;
-	background: #f3f3f3 ;
+	background: url(background/MRItemSelector12x1.png) repeat-y right center;
+	padding-right: 12px;
 }
 
 .UIDropDownControl .UIOptionItem {
 	text-decoration:none ;
 	display: block ;
 	padding: 4px 4px 4px 17px ;
-	color: black ;
-	border-bottom: 1px solid #e0e0e0 ;
-	border-top: 1px solid #ffffff ;
+	border-bottom:1px solid #CDCDCD;
+	border-top: 1px solid #CDCDCD ;
 	height: 100% ;
 }
 
+.UIDropDownControl .UIDropDownAnchor .UIItemListOption {
+	background: url(background/BGNormalItem1x22.png) repeat-x 0%; 
+	cursor:pointer;
+	overflow:hidden;
+}
+
+.UIDropDownControl .LTItemSelector {
+	background: url(background/TLItemSelector14x10.png) no-repeat left center;
+	padding-left: 14px;
+}
+
+.UIDropDownControl .TRItemSelector {
+	background:  url(background/TRItemSelector18x10.png) no-repeat right center;
+	padding-right: 18px;
+}
+
+.UIDropDownControl .TCItemSelector {
+	background: url(background/TCItemSelector1x10.png) repeat-x ;
+	height: 10px;
+}
+
+.UIDropDownControl .BLItemSelector {
+  background: url('background/BLItemSelector13x14.png') no-repeat left;
+  padding-left: 13px;
+}
+
+.UIDropDownControl .BRItemSelector {
+  padding-right: 17px;
+  background: url('background/BRItemSelector17x14.png') no-repeat right;
+}
+
+.UIDropDownControl .BCItemSelector {
+  height: 14px;
+  background: url('background/BCItemSelector1x14.png') repeat-x;
+  
+}
+
+
+.UIDropDownControl .UIDropDownLeftTitle {
+	background:transparent url(/eXoVistaSkin/skin/VistaSkin/background/IconLabelContentBG1x1.png) repeat scroll 0% 50%;
+	border-color:-moz-use-text-color #959595 rgb(149, 149, 149);
+	border-style:none solid solid;
+	border-width:medium 1px 1px;
+	cursor:pointer;
+	padding-left:8px;
+}
+
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {
-	float:left;
-	margin:2px 0px 0px;
+	float:left ;
+	margin:1px 0px 0px ;
 }
 
 .UIDropDownControl .DropDownSelectIcon {
-	background: url(background/DropDownButton.gif) no-repeat scroll right center;
+	background:transparent url(icons/SelectedIcon.png) no-repeat scroll center;
 	cursor:pointer;
 	float:right;
-	height:19px;
-	width:20px;
+	height:20px;
+	width:19px;
 }
 
 .UIDropDownControl .DropDownSelectLabel {
-	font-weight: bold ;
-	font-size: 10px ;
-	overflow: hidden;
-	float: left;
+	float:left;
+	font-size: 10px;
+	font-weight: bold;
 	line-height: 19px;
+	margin-left: 6px;
+	overflow: hidden;
 }
 
 .UIDropDownControl .EditIcon {
@@ -71,8 +112,13 @@
 }
 
 .UIDropDownControl .UIOptionItem:hover {
-	background: #7aafe5 ;
-	color: white;
+	color: blue;
+}
+
+.UIDropDownControl .UIItemListOption:hover {
+		background: url(background/BGOverItem1x22.png) repeat-x 0%; 
+		cursor:pointer;
+		overflow:hidden;
 }
 
 .UIDropDownControl .UIPopupControl {

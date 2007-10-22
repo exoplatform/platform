@@ -3,27 +3,21 @@
 	position: relative ;
 }
 .UIDropDownControl .UIDropDownTitle {
-	background:white url(background/DropDownItemSelectorBG1x2.gif) repeat-x scroll center top;
-	border:1px solid #929292;
 	cursor:pointer;
-	padding-left:5px;
 	height: 100% ;
 }
 
 .UIDropDownControl .UIOptionContainer {
 	display: block ;
-	background:white ;
-	width: 100% ;
+	background: url(background/MLItemSelector3x1.png) repeat-y left center;
+	padding-left:3px;
 }
 .UIDropDownControl .UIItemListContainer {
-	border:1px solid gray ;
-	border-top:0px ;
-	padding: 4px ;
+	background: url(background/MRItemSelector3x1.png) repeat-y right center;
+	padding-right:3px;
 }
 .UIDropDownControl .UIItemList {
-	border: 1px solid #e0e0e0  ;
-	border-bottom: 0px ;
-	background: #f3f3f3 ;
+	background:white url(/eXoMacSkin/skin/MacSkin/background/Background1x4.png) repeat;
 }
 
 .UIDropDownControl .UIOptionItem {
@@ -36,25 +30,53 @@
 	height: 100% ;
 }
 
+.UIDropDownControl .BLItemSelector {
+	background: url(background/BLItemSelector4x4.png) no-repeat left center;
+	padding-left:4px;
+}
+
+.UIDropDownControl .BRItemSelector {
+	background: url(background/BRItemSelector4x4.png) no-repeat right center;
+	padding-right:4px;
+}
+
+.UIDropDownControl .BCItemSelector {
+	background: url(background/BCItemSelector1x4.png) repeat-x ;
+	height: 4px;
+}
+
+
+.UIDropDownControl .UIDropDownLeftTitle {
+	background: url(background/LeftItemInfoBar4x24.png) no-repeat left center;
+	padding-left: 4px;
+}
+
+.UIDropDownControl .UIDropDownMiddleTitle {
+	background: url(background/ItemInfoBarBG1x24.png) repeat-x center;
+	cursor: pointer;
+	height: 24px;
+}
+
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {
 	float:left;
-	margin:2px 0px 0px;
 }
 
 .UIDropDownControl .DropDownSelectIcon {
-	background: url(background/DropDownButton.gif) no-repeat scroll right center;
+	background: url(background/DropDownButton.gif) no-repeat right center;
 	cursor:pointer;
 	float:right;
-	height:19px;
-	width:20px;
+	height:22px;
+	width:16px;
 }
 
 .UIDropDownControl .DropDownSelectLabel {
-	font-weight: bold ;
-	font-size: 10px ;
+	float:left;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 22px;
+	margin-left: 5px;
 	overflow: hidden;
-	float: left;
-	line-height: 19px;
+	color: #3F7FBF;
 }
 
 .UIDropDownControl .EditIcon {

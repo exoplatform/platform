@@ -11,9 +11,10 @@ import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIDropDownItemSelector;
+import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -25,13 +26,24 @@ import org.exoplatform.webui.event.EventListener;
  * May 16, 2007  
  */
 
-@ComponentConfig(
-  template = "system:/groovy/portal/webui/application/UIWidgets.gtmpl" ,
-  events = {
-      @EventConfig(listeners = UIWidgets.ChangeOptionActionListener.class),
-      @EventConfig(listeners = UIWidgets.ManageContainerActionListener.class)
-  }
-)
+@ComponentConfigs( {
+  @ComponentConfig (
+    template = "system:/groovy/portal/webui/application/UIWidgets.gtmpl" ,
+    events = {
+        @EventConfig(listeners = UIWidgets.ChangeOptionActionListener.class),
+        @EventConfig(listeners = UIWidgets.ManageContainerActionListener.class)
+    }
+  ),
+  
+  @ComponentConfig (
+    type = UIDropDownControl.class ,
+    id = "UIDropDownControl",
+    template = "system:/groovy/webui/core/UIDropDownControl.gtmpl",
+    events = {
+        @EventConfig(listeners = UIWidgets.ChangeOptionActionListener.class)
+    }
+  )
+})
 public class UIWidgets extends UIContainer {
   
   private String id;
@@ -43,15 +55,12 @@ public class UIWidgets extends UIContainer {
   
   private String editPermission;
   
-  private UIDropDownItemSelector uiContainerSelector_ ;
+  private UIDropDownControl uiContainerSelector_ ;
   
   public UIWidgets() throws Exception {
     setName(getClass().getSimpleName()) ;
-    uiContainerSelector_ = createUIComponent(UIDropDownItemSelector.class, null, null) ;
-    uiContainerSelector_.setTitle("SelectContainer") ;
-    uiContainerSelector_.setOnServer(true) ;
-    uiContainerSelector_.setOnChange("ChangeOption") ;
-    uiContainerSelector_.setParent(this) ;
+    uiContainerSelector_ = createUIComponent(UIDropDownControl.class, "UIDropDownControl", null) ;
+    uiContainerSelector_.setParent(this);
   }
   
   public String getOwnerId() { return ownerId; }
@@ -71,7 +80,7 @@ public class UIWidgets extends UIContainer {
     return id; 
   }
   
-  public UIDropDownItemSelector getUIDropDownItemSelector() {
+  public UIDropDownControl getUIDropDownControl() {
     return uiContainerSelector_ ;
   }
   
@@ -95,7 +104,7 @@ public class UIWidgets extends UIContainer {
       uiChild.setRendered(false) ;
     }
     getChildren().get(idx).setRendered(true) ;
-    uiContainerSelector_.setSelected(idx) ;
+    uiContainerSelector_.setValue(idx) ;
   }
   
   public void setSelectedContainer(String containerId) {
@@ -103,14 +112,14 @@ public class UIWidgets extends UIContainer {
       if(uiChild.getId().equals(containerId)) uiChild.setRendered(true) ;
       else uiChild.setRendered(false) ;
     }
-    uiContainerSelector_.setSelected(containerId) ;
+    uiContainerSelector_.setValue(containerId) ;
   }
   
   public void updateDropdownList() {
     List<UIComponent> uiChilddren = getChildren() ;
     if(uiChilddren == null || uiChilddren.size() < 1) {
       uiContainerSelector_.cleanItem() ;
-      uiContainerSelector_.setSelectedItem(null) ;
+      //uiContainerSelector_.setSelectedItem(null) ;
       return ;
     }
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>() ;
@@ -121,18 +130,17 @@ public class UIWidgets extends UIContainer {
     setSelectedContainer(0) ;
   }
   
-  static  public class ChangeOptionActionListener extends EventListener<UIWidgets> {
-    
-    public void execute(Event<UIWidgets> event) throws Exception {
+  static  public class ChangeOptionActionListener extends EventListener<UIDropDownControl> {
+    public void execute(Event<UIDropDownControl> event) throws Exception {
       String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);      
-      UIWidgets uiWidgets = event.getSource();
+      UIDropDownControl dropDown = event.getSource();
+      UIWidgets uiWidgets = dropDown.getParent();
       uiWidgets.setSelectedContainer(selectedContainerId) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWidgets.getParent());
     }
   }
   
   static public class ManageContainerActionListener extends EventListener<UIWidgets> {
-
     public void execute(Event<UIWidgets> event) throws Exception {
       UIWidgets uiWidgets = event.getSource() ;
       UIPortalApplication uiPortalApp = uiWidgets.getAncestorOfType(UIPortalApplication.class) ;

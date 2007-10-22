@@ -4,10 +4,10 @@
 
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">
 	<div class="ItemSelectorContainer ItemSelectorAncestor">
-		<%
-		  _ctx.renderUIComponent(uicomponent.getUIDropDownItemSelector()) ;
- 		%>
- 		<a class="EditIcon" href="<%=uicomponent.event("ManageContainer")%>" title="Widget Containers Management"><span></span></a>
+			<%
+			  _ctx.renderUIComponent(uicomponent.getUIDropDownControl()) ;
+	 		%>
+	 	<a class="EditIcon" href="<%=uicomponent.event("ManageContainer")%>" title="Widget Containers Management"><span></span></a>
 		<div style="clear: left"><span></span></div>
 	</div>
 	

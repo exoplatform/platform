@@ -31,7 +31,7 @@ public class UIDropDownControl extends UIComponent {
    * The index in the list of the selected item
    */
   private int selectedItemIndex_ = 0;
- 
+  
   public UIDropDownControl() throws Exception {
     options_ = new ArrayList<SelectItemOption<String>>() ;
   }
@@ -45,10 +45,28 @@ public class UIDropDownControl extends UIComponent {
     }
   }
   
+  // todo: tungnd
+  public void setValue(int i) {
+        selectedItemIndex_ = i ; return ;
+  }
+  // todo: tungnd
+  public void cleanItem() { options_.clear(); }
+  // todo: tungnd
+  public void setOptions(List<SelectItemOption<String>> options) { 
+    options_ = options ; 
+    if(options == null) return ; 
+    if(options_.size() < 1)  return;
+  } 
+  // todo: tungnd return -1 if have no option
+  public int getSelectedIndex() {
+    if (options_.size() < 1) return -1 ;
+    return selectedItemIndex_ ;
+  }
+
   public String getValue() { return options_.get(selectedItemIndex_).getValue() ; }
   
   public void setAction(String act) { action_ = act ; }
-  public String getAction() { return action_ ; }
+  public String getAction() {return action_ ; }
   
   public List<SelectItemOption<String>> getOptions() { return options_ ; }
   
@@ -57,7 +75,9 @@ public class UIDropDownControl extends UIComponent {
   public void addItem(String label, String value) { options_.add(new SelectItemOption<String>(label, value)) ; }
   
   public String event(String param) throws Exception {
-    if(action_ == null) return super.event(config.getEvents().get(0).getName(), param);
+    if(action_ == null) {
+      return super.event(config.getEvents().get(0).getName(), param);
+    }
     StringBuilder evt = new StringBuilder("javascript:eXo.webui.UIDropDownControl.selectItem(this,") ;
     evt.append(action_).append(",'").append(param).append("')") ;
     return evt.toString() ;

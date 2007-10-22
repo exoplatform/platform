@@ -2,14 +2,14 @@
 	padding: 10px 0px 0px 0px;
 }
 
-.UIWidgets .ItemSelectorContainer .UIDropDownItemSelector{
-	width: 212px;
+.UIWidgets .ItemSelectorContainer .UIDropDownControl{
+	width: 214px;
 	float: left;
-	margin: 0px 0px 2px 2px;
+	margin: 0px 0px 2px 0px;
 }
 
-.UIWidgets .UIDropDownItemSelector .ComponentIcon {
-	background: url('DefaultSkin/icons/WidgetIcon.gif') no-repeat center;
+.UIWidgets .UIDropDownControl .ComponentIcon {
+	background: url('icons/IconWidget.png') no-repeat center;
 }
 
 .UIWidgets .WidgetDecorator {
