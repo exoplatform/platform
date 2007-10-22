@@ -47,7 +47,7 @@ public class WebuiBindingContext extends BindingContext {
       ResourceBundle res = rcontext_.getApplicationResourceBundle() ;
       value = res.getString(mesgKey) ;
     } catch(MissingResourceException ex) {      
-      log.error("key : "+mesgKey, ex);
+      log.warn("Can not find resource bundle for key : "+mesgKey);
       value = mesgKey.substring(mesgKey.lastIndexOf('.') + 1) ;
     }
     return value ;
