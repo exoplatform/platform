@@ -8,8 +8,7 @@
   String[] beanActions =  uicomponent.getBeanActions() ;
   UIComponent uiParent = uicomponent.getParent() ;
   String name = uicomponent.getLabel() ;
-  UIForm uiForm = uicomponent.getAncestorOfType(UIForm.class);
-  boolean hasItem = (uicomponent.getUIPageIterator().getAvailable() > 0) ;  
+  UIForm uiForm = uicomponent.getAncestorOfType(UIForm.class); 
   
   DateFormat dateFormat = null;
 %>
@@ -36,7 +35,7 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	  <%if(!hasItem) {%>
+	  <%if(uicomponent.getUIPageIterator().getAvailable() < 1) {%>
 	    <tr>
 	      <td align="center" style="font-style:italic; color: #FF5604" colspan="<%=beanFields.length+1%>">
 	        <%=_ctx.appRes("UIGrid.msg.empty")%>
@@ -103,5 +102,9 @@
 		%> 
 	  </tbody>
 	</table> <!--End UIGrid-->
-	<%if(hasItem)	_ctx.renderUIComponent(uicomponent.getUIPageIterator()) ;%>
+	<%
+	if(uicomponent.getUIPageIterator().getAvailablePage() > 1) {
+		_ctx.renderUIComponent(uicomponent.getUIPageIterator()) ;
+	}
+	%>
 </div>
