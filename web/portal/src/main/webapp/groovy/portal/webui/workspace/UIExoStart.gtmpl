@@ -246,7 +246,7 @@
   }
 */  
   void renderLoginAction(String name, String icon, String action) {
-    String  href = uicomponent.url(action, name) ;
+    String  href = uicomponent.url(action) ;
     String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
     print """
       <div class="LoginContainer">
