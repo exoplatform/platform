@@ -122,32 +122,6 @@
   padding: 0px 0px 0px 22px;
 }
 
-.UILoginForm .LoginDecorator .SignUpBar {
-	padding: 5px 0px 2px 50px ;
-}
-
-.UILoginForm .LoginDecorator .LeftSignUpBar {
-  background: url('background/SignUpRoundLeft11x24.gif') no-repeat left ;
-  padding: 0px 0px 0px 11px ;
-}
-
-.UILoginForm .LoginDecorator .SignUpBackground {
-  background: url('background/SignUpBackground1x24.gif') repeat-x ;
-  height: 24px;
-  line-height: 24px;
-  text-align: right;
-}
-
-.UILoginForm .LoginDecorator .SignUpBackground a {
-	font-weight: bold; color: #ee8804;
-	padding: 0px 10px 0px 0px;
-	cursor: pointer;
-}
-
-.UILoginForm .LoginDecorator .SignUpBackground a:hover {
-	color: #1273df;
-}
-
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   padding: 15px 0px 15px 75px;
 }

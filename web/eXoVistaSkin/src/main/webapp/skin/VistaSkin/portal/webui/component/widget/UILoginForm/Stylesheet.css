@@ -131,30 +131,6 @@
   color: orange;
 }
 
-.UILoginForm .LoginDecorator .SignUpBar {
-	padding: 5px 0px 2px 50px ;
-}
-
-.UILoginForm .LoginDecorator .LeftSignUpBar {
-  padding: 0px 0px 0px 20px ;
-}
-
-.UILoginForm .LoginDecorator .SignUpBackground {
-  text-align: right;
-}
-
-.UILoginForm .LoginDecorator .SignUpBackground a {
-	font-weight: bold; color: #ffa837;
-	margin: 0px;
-	cursor: pointer;
-}
-
-.UILoginForm .LoginDecorator .SignUpBackground a:hover {
-	font-weight: bold; color: #ee8804 ;
-	margin: 0px 28px 0px 0px;
-	cursor: pointer;
-}
-
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   padding: 13px 0px 10px 0px;
 }

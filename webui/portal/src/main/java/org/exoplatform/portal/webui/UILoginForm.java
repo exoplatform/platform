@@ -8,12 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -37,7 +34,6 @@ import org.exoplatform.webui.form.UIFormStringInput;
   template = "system:/groovy/portal/webui/UILoginForm.gtmpl" ,
   events = {
     @EventConfig(listeners = UILoginForm.SigninActionListener.class),
-    @EventConfig(phase = Phase.DECODE, listeners = UILoginForm.SignupActionListener.class),
     @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class)
   }
 )
@@ -77,24 +73,4 @@ public class UILoginForm extends UIForm {
     
   }
   
-  static public class SignupActionListener  extends EventListener<UILoginForm> {
-    public void execute(Event<UILoginForm> event) throws Exception {
-      UIPortal uiPortal  = Util.getUIPortal() ;
-      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);          
-      uiPageBody.setPage("portal::site::register", uiPortal);
-      
-      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      PortalRequestContext pcontext = Util.getPortalRequestContext();     
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
-      uiPortal.setRenderSibbling(UIPortal.class);
-      pcontext.setFullRender(true);
-      
-      UIMaskWorkspace  uiMaskWorkspace = event.getSource().getAncestorOfType(UIMaskWorkspace.class);
-      if(uiMaskWorkspace == null || !uiMaskWorkspace.isShow()) return;
-      uiMaskWorkspace.setUIComponent(null);
-      uiMaskWorkspace.setShow(false);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
-    }
-  }
 }

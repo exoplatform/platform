@@ -59,22 +59,7 @@
 						</table>
 					</div> 
 			    </div>
-	          <%uiform.end()%>
-	          
-	          <div class="SignUpBar" style="display: block">
-	          	<div class="LeftSignUpBar">
-		          	<div class="SignUpBackground">
-		          		<div style="float: left ; margin-left: 10px">
-	          				<%=_ctx.appRes("UILoginForm.label.NotMember")%>
-	          			</div>
-	          			<a href="<%=uicomponent.event("Signup");%>">
-										<%=_ctx.appRes("UILoginForm.label.ForAccount")%>
-									</a>
-									<div style="clear: left"><span></span></div>
-		          	</div>
-		          </div>
-	          </div>
-	          
+	          <%uiform.end()%>	          
 	        </div>
 	      </div>
 	    </div>

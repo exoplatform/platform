@@ -133,28 +133,6 @@
   color: orange;
 }
 
-.UILoginForm .LoginDecorator .SignUpBar {
-	padding: 5px 0px 2px 50px ;
-}
-
-.UILoginForm .LoginDecorator .LeftSignUpBar {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/SignUpRoundLeft11x24.gif') no-repeat left ;
-  padding: 0px 0px 0px 11px ;
-}
-
-.UILoginForm .LoginDecorator .SignUpBackground {
-  background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/SignUpBackground1x24.gif') repeat-x ;
-  height: 24px;
-  line-height: 24px;
-  text-align: right;
-}
-
-.UILoginForm .LoginDecorator .SignUpBackground a {
-	font-weight: bold; color: #ee8804;
-	margin: 0px 10px 0px 0px;
-	cursor: pointer;
-}
-
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   padding: 15px 0px 15px 70px;
 }
