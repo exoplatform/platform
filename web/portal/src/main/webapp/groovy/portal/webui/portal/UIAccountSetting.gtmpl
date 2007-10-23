@@ -1,0 +1,76 @@
+<%
+/**
+ * Created by The eXo Platform SARL
+ * Author : Dang Van Minh
+ *          minhdv@exoplatform.com
+ * Oct 19, 2006
+ * 10:41:44 AM 
+ */
+%>
+<%
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
+%>
+<div class="$uicomponent.id" id="$uicomponent.id">
+	<div class="UITabPane">
+	  <div class="TabPaneContent"> 
+	    <div class="WorkingAreaWithHelp">
+	      <div class="UIHorizontalTabs">
+	        <div class="LeftHorizontalTabs">
+		     	  <div class="RightHorizontalTabs">
+		     	    <div class="CenterHorizontalTabs">
+				        <div class="TabsContainer">
+				          <%
+				            for(uiChild in uicomponent.getChildren()) {
+				              String style = "NormalTab" ;
+				              if(uiChild.isRendered()) style = "SelectedTab" ;
+				          %>
+				            <div class="UITab NormalTabStyle">
+				              <div class="$style">
+				                <div class="LeftTab">
+				                  <div class="RightTab">                
+				                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)"><%=_ctx.appRes(uicomponent.getId() + ".tab.label." + uiChild.getId())%></div>
+				                  </div>
+				                </div>
+				              </div>
+				            </div>              
+				          <%}%>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+	      </div>
+	      <div class="UITabContentContainer">
+	        <%
+	          for(uiChild in uicomponent.getChildren()) { 
+	            String display = "none" ;
+	            if(uiChild.isRendered()) display="block" ;
+	            println "<div class=\"UITabContent\" style=\"display: $display\">" ;
+	            uicomponent.renderUIComponent(uiChild) ;
+	            println "</div>" ;
+	          }
+	        %>
+	      </div>  
+	    </div>  
+	    <div class="UIAction"> 
+		    <table align="center" class="ActionContainer">
+		    	<tr>
+		    		<td align="center">
+			        <%for(action in uicomponent.getActions()) { %>
+				        <a href="<%=uicomponent.event(action)%>" class="ActionButton LightBlueStyle" >
+				          <div class="ButtonLeft">
+				            <div class="ButtonRight">
+				              <div class="ButtonMiddle">
+				                <%=_ctx.appRes(uicomponent.getId() + ".action." + action)%>
+				              </div>
+				            </div>
+				          </div>
+				        </a>
+			        <%} %>
+	        	</td>
+	        </tr>
+		    </table>
+		  </div>
+	  </div>  
+	</div>  
+</div>
