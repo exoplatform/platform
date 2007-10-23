@@ -77,6 +77,10 @@
 	padding-right: 20px;
 }
 
+.UIChangeLanguageForm .UITabPane .TabPaneContent {
+	padding: 0px;
+}
+
 .UIChangeLanguageForm .UITabPane .TabPaneContent .UITabContentContainer { 
 	border: 1px solid #d4d4d4;
 	border-top: none;

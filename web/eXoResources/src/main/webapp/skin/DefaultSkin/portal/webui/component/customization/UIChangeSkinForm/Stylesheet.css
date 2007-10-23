@@ -41,3 +41,7 @@
 	border: 1px solid #d4d4d4;
 	border-top: none;
 }
+
+.UIChangeSkinForm .UITabPane .TabPaneContent {
+	padding: 0px;
+}
