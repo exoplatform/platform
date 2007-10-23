@@ -207,7 +207,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 		
 		if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
 		
-		if (menuContainer.offsetHeight + 92 > browserHeight) {
+		if (menuContainer.offsetHeight + 64 > browserHeight) {
 				var curentHeight = browserHeight - 64;
 				blockMenu.style.height = curentHeight + "px" ;
 				topElement.style.display = "block" ;
@@ -261,7 +261,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 		}
 		blockMenu.style.boder = "0px solid white" ;
 		menuItemContainer.style.border = "0px solid white" ;
-	} catch(e){void(0);}	
+	} catch(e){void(0);}
 };
 
 UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
@@ -271,7 +271,7 @@ UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
 	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
 	var menuItemContainer = menuItem.menuItemContainer ;
 	var offsetHeight = menuItemContainer.offsetHeight ;
-	var deltaDown = browserHeight - PosY ; 
+	var deltaDown = browserHeight - PosY ;
 	if(offsetHeight < deltaDown ) {
 		return 0;
 	}
@@ -279,7 +279,7 @@ UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
 		return (- offsetHeight + menuItem.offsetHeight) ;
 	}	
 	else if(offsetHeight < browserHeight) {
-		return (- offsetHeight + deltaDown - 2) ;
+		return (- offsetHeight + deltaDown) ;
 	}
 };
 

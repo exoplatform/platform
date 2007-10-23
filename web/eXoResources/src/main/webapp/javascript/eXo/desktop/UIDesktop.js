@@ -6,15 +6,22 @@ function UIDesktop() {
 };
 
 UIDesktop.prototype.init = function() {
-  var pageDesktop = document.getElementById("UIPageDesktop") ;
+	var pageDesktop = document.getElementById("UIPageDesktop") ;
 	if(pageDesktop) {
 		eXo.desktop.UIDesktop.fixDesktop() ;
 	  var uiWindows = eXo.core.DOMUtil.findChildrenByClass(pageDesktop, "div", "UIWindow") ;
 	  for(var i = 0; i < uiWindows.length; i++) {
 	  	if(uiWindows[i].isFirstTime == false)	continue ;
 	  	eXo.desktop.UIDesktop.backupWindowProperties(uiWindows[i]);
+			//fix display scroll in first time
+			if (uiWindows[i].style.display == "block") {
+					var blockResizes = eXo.core.DOMUtil.findDescendantsByClass(uiWindows[i], "div", "UIResizableBlock");
+					if (blockResizes.length > 1) 	blockResizes[0].style.overflow = "hidden";
+			}
 	  }
 	}
+
+	
 };
 
 UIDesktop.prototype.fixDesktop = function() {
@@ -25,6 +32,7 @@ UIDesktop.prototype.fixDesktop = function() {
   
   eXo.desktop.UIDockbar.init() ;
 };
+
 //TODO DungHM
 UIDesktop.prototype.resetZIndex = function(windowObject) {
   var windowsInDesktop = eXo.core.DOMUtil.getChildrenByTagName(windowObject.parentNode, "div") ;
@@ -101,6 +109,10 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   	if(eXo.core.Browser.isIE6()) {
   		this.object.style.filter =  "" ;
   	}
+		//fix display scroll in first time.
+		var blockResizes = eXo.core.DOMUtil.findDescendantsByClass(this.object, "div", "UIResizableBlock");
+		if (blockResizes.length > 1) 	blockResizes[0].style.overflow = "hidden";
+		
   }
 //  eXo.desktop.UIDockbar.containerMouseOver() ;
 };
