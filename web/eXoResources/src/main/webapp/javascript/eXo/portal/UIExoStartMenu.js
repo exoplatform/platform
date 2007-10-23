@@ -279,7 +279,7 @@ UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
 		return (- offsetHeight + menuItem.offsetHeight) ;
 	}	
 	else if(offsetHeight < browserHeight) {
-		return (- offsetHeight + deltaDown) ;
+		return (- offsetHeight + deltaDown - 6) ;
 	}
 };
 
