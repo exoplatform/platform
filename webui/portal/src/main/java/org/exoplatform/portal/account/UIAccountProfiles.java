@@ -1,22 +1,18 @@
 package org.exoplatform.portal.account;
 
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
-import org.exoplatform.portal.account.UIAccountSetting;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
@@ -31,7 +27,6 @@ import org.exoplatform.webui.form.validator.IdentifierValidator;
     template = "app:/groovy/webui/form/UIForm.gtmpl",
 
     events = {
-        @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE),
         @EventConfig(listeners = UIAccountProfiles.SaveActionListener.class),
         @EventConfig(listeners = UIAccountProfiles.ResetActionListener.class, phase = Phase.DECODE)
       }
