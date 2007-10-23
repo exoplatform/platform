@@ -126,9 +126,9 @@
 .UIExoStart .StartMenuContainer .LogoutIcon {
   height: 33px ;  
   background: url('icons/LogoutIcon.gif') no-repeat left ;
-  padding: 0px 0px 0px 32px ;
+  padding: 0px 0px 0px 28px ;
   float: right;
-  width: 65px;
+  margin-right: 10px;
 }
 
 .UIExoStart .StartMenuContainer .HLineSeparator {
@@ -252,6 +252,10 @@
 
 .UIExoStart .StartMenuContainer .ChangePortalIcon {
   background: url('icons/ChangePortal.gif') no-repeat left ;
+}
+
+.UIExoStart .StartMenuContainer .AccountSettingIcon {
+  background: url('icons/AccountSetting.gif') no-repeat left ;
 }
 /*========================Start Menu Decorator======================*/
 .UIExoStart .StartMenuDecorator {
