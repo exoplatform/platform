@@ -120,18 +120,19 @@
 	margin: 0px 0px 0px 20px;
 }
 
-.UIDockBar .UIRightClickPopupMenu .ItemIcon {
-	padding-left: 20px;
-}
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer {
 	border: none;
 	background: none;
-	width: 100px;
+	width: 165px;
 }
 
 .UIDockBar .UIContextMenuContainer {
 	position: absolute; 
 	left: -20px; 
 	top: -10px;
+}
+
+.UIDockBar .UIRightClickPopupMenu .CloseDockBarIcon {
+	background: url('icons/24x24/CloseDockbarIcon24x24.gif') no-repeat left ;
 }

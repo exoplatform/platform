@@ -67,47 +67,47 @@
 /*=============================Right Click DockBar Menu=========================*/
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopLeftRightClickPopupMenu {
-  background: url('background/TopLeftDockBarMenu7x7.gif') left no-repeat ;
-  padding-left: 7px;
+  background: url('background/TopLeftDefault3x3.gif') left no-repeat ;
+  padding-left: 3px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopRightRightClickPopupMenu {
-  background: url('background/TopRightDockBarMenu7x7.gif') right no-repeat ;
-  padding-right: 7px;
+  background: url('background/TopRightDefault3x3.gif') right no-repeat ;
+  padding-right: 3px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopCenterRightClickPopupMenu {
-  background: url('background/TopCenterDockBarMenu1x7.gif') repeat-x ;
-  height: 7px;
+  background: url('background/TopCenterDefault1x3.gif') repeat-x ;
+  height: 3px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .MiddleLeftRightClickPopupMenu {
-  background: url('background/MiddleLeftDockBarMenu7x1.gif') repeat-y left ;
-  padding-left: 7px;
+  background: url('background/MiddleLeftDefault3x1.gif') repeat-y left ;
+  padding-left: 3px;
 	height: 100%;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .MiddleRightRightClickPopupMenu {
-  background: url('background/MiddleRightDockBarMenu7x1.gif') repeat-y right ;
-  padding-right: 7px;
+  background: url('background/MiddleRightDefault3x1.gif') repeat-y right ;
+  padding-right: 3px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomLeftRightClickPopupMenu {
-  background: url('background/BottomLeftDockBarMenu7x7.gif') left no-repeat top;
-  padding-left: 7px;
-  height: 7px;
+  background: url('background/BottomLeftDefault3x3.gif') left no-repeat top;
+  padding-left: 3px;
+  height: 3px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomRightRightClickPopupMenu {
-  background: url('background/BottomRightDockBarMenu7x7.gif') right no-repeat top ;
-  padding-right: 7px;
-  height: 7px;
+  background: url('background/BottomRightDefault3x3.gif') right no-repeat top ;
+  padding-right: 3px;
+  height: 3px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomCenterRightClickPopupMenu {
-  background: url('background/BottomCenterDockBarMenu1x7.gif') repeat-x top ;
-  height: 7px; 
-  line-height: 7px; 
+  background: url('background/BottomCenterDefault1x3.gif') repeat-x top ;
+  height: 3px; 
+  line-height: 3px; 
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIRightPopupMenuContainer {
@@ -118,9 +118,9 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .ClickCenterBottom {
-	background: url('background/ClickCenterBottom21x16.gif') no-repeat ;
-	width: 21px;  height: 16px;
-	margin: 0px 0px 0px 20px;
+	background: url('background/ClickCenterBottom14x10.gif') no-repeat ;
+	width: 14px;  height: 10px;
+	margin: 0px 0px 0px 35px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer {
@@ -130,7 +130,7 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .CloseDockBarIcon {
-	background: url('icons/24x24/CloseDockbarIcon.gif') no-repeat left ;
+	background: url('icons/24x24/CloseDockbarIcon24x24.gif') no-repeat left ;
 }
 
 .UIDockBar .UIContextMenuContainer {
