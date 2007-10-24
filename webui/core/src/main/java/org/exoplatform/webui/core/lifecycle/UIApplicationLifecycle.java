@@ -17,13 +17,14 @@ public class UIApplicationLifecycle  extends Lifecycle {
 
   public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception { 
     String componentId =  context.getRequestParameter(context.getUIComponentIdParameterName()) ;
-    if(componentId != null) {
-      UIComponent uiTarget = uicomponent.findComponentById(componentId);
-      if(uiTarget == uicomponent) super.processDecode(uicomponent, context) ; 
-      else uiTarget.processDecode(context);
-    }
+    if(componentId == null ||componentId.length() == 0) return ;    
+    UIComponent uiTarget = uicomponent.findComponentById(componentId);
+    //TODO to avoid exception
+    if(uiTarget == null) return ;       
+    else if(uiTarget == uicomponent) super.processDecode(uicomponent, context) ; 
+    else uiTarget.processDecode(context);    
   }
-  
+
   public void processAction(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     String componentId =  context.getRequestParameter(context.getUIComponentIdParameterName()) ;   
     if(componentId != null) {
@@ -32,7 +33,7 @@ public class UIApplicationLifecycle  extends Lifecycle {
       else if(uiTarget != null) uiTarget.processAction(context) ;
     }
   }
-  
+
   public void processRender(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     if(uicomponent.getTemplate() != null) {
       super.processRender(uicomponent, context) ;
@@ -40,8 +41,8 @@ public class UIApplicationLifecycle  extends Lifecycle {
     }
     UIPortletApplication uiApp = (UIPortletApplication) uicomponent;
     context.getWriter().append("<div id=\"").append(uicomponent.getId()).append("\"").
-                        append(" style=\"min-width:").append(String.valueOf(uiApp.getMinWidth())).
-                        append("px\" class=\"").append(uicomponent.getId()).append("\">");
+    append(" style=\"min-width:").append(String.valueOf(uiApp.getMinWidth())).
+    append("px\" class=\"").append(uicomponent.getId()).append("\">");
     uiApp.renderChildren();
     context.getWriter().append("</div>");
   }
