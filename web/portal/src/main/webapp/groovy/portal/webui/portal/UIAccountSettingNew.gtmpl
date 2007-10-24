@@ -1,0 +1,214 @@
+<div class="UIAccountSetting">
+
+	<div class="UITabPane">
+	  <div class="TabPaneContent"> 
+	    <div class="WorkingAreaWithHelp">
+	      <div class="UIHorizontalTabs">
+	        <div class="LeftHorizontalTabs">
+		     	  <div class="RightHorizontalTabs">
+		     	    <div class="CenterHorizontalTabs">
+				        <div class="TabsContainer">
+				          
+				          	<div class="LineSeparator"><span></span></div>
+				            <div class="UITab">
+				              <div class="SelectedTab">
+				                <div class="LeftTab">
+				                  <div class="RightTab">                
+				                    <div onclick="eXo.webui.UIHorizontalTabs.displayTabContent(this)" class="MiddleTab">
+				                    	<a href="#" class="Icon AccountProfiles">Account Profiles</a>
+				                    </div>
+				                  </div>
+				                </div>
+				              </div>
+				            </div>              
+				          	
+				          	<div class="LineSeparator"><span></span></div>
+				          	
+				            <div class="UITab">
+				              <div class="NormalTab">
+				                <div class="LeftTab">
+				                  <div class="RightTab">                
+				                    <div onclick="eXo.webui.UIHorizontalTabs.displayTabContent(this)" class="MiddleTab">
+				                    	<a href="#" class="Icon ChangePass">Change Password</a>
+				                    </div>
+				                  </div>
+				                </div>
+				              </div>
+				            </div>              
+	
+				          	<div class="LineSeparator"><span></span></div>
+				          
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+	      </div>
+	      <div class="UITabContentContainer">
+	        <div style="display: block;" class="UITabContent">
+	
+						<div class="UIForm UIAccountProfiles">
+						  <form method="post" action="/portal/private/site/?portal:componentId=UIAccountProfiles" id="UIAccountProfiles" name="UIAccountProfiles" class="UIForm"><input type="hidden" value="" name="formOp"/>
+						  <div class="HorizontalLayout">
+						    <div class="FormContainer">
+						      <table class="UIFormGrid">
+						        <tbody>
+				              <tr>
+			  	              <td class="FieldLabel">
+			                      User Name :
+			                  </td>
+			  	              <td class="FieldComponent">
+			  	              	<input type="text" readonly="readonly" value="" id="userName" name="userName"/>
+			  	              </td>
+					            </tr>
+				              <tr>
+			  	              <td class="FieldLabel">
+			                      First Name :
+			                  </td>
+			  	              <td class="FieldComponent"><input type="text" value="" id="firstName" name="firstName"/></td>
+					            </tr>
+				              <tr>
+			  	              <td class="FieldLabel">
+			                      Last Name :
+			                  </td>
+			  	              <td class="FieldComponent"><input type="text" value="" id="lastName" name="lastName"/></td>
+					            </tr>
+				              <tr>
+			  	              <td class="FieldLabel">
+			                      Email :
+			                  </td>
+			  	              <td class="FieldComponent"><input type="text" value="" id="email" name="email"/></td>
+					            </tr>
+						      	</tbody>
+						      </table>
+						      <div class="UIAction"> 
+						        <table align="center" class="ActionContainer">
+						        	<tbody>
+							        	<tr>
+							        		<td align="center">
+							          		<a class="ActionButton LightBlueStyle" href="javascript:eXo.webui.UIForm.submitForm('UIAccountProfiles','Save', true)">
+							                <div class="ButtonLeft">
+							                  <div class="ButtonRight">
+							                    <div class="ButtonMiddle">
+							                      Save
+							                    </div>
+							                  </div>
+							                </div>
+							           		</a>
+							          		<a class="ActionButton LightBlueStyle" href="javascript:eXo.webui.UIForm.submitForm('UIAccountProfiles','Reset', true)">
+							                <div class="ButtonLeft">
+							                  <div class="ButtonRight">
+							                    <div class="ButtonMiddle">
+							                      Reset
+							                    </div>
+							                  </div>
+							                </div>
+							           		</a>
+							          	</td>
+							          </tr>  
+						        	</tbody>
+						        </table>
+						      </div>
+						    </div>
+						  </div>
+						  </form>
+						</div>
+						
+					</div>
+					<div style="display: none;" class="UITabContent">
+					
+						<div class="UIForm UIAccountChangePass">
+						  <form method="post" action="/portal/private/site/?portal:componentId=UIAccountChangePass" id="UIAccountChangePass" name="UIAccountChangePass" class="UIForm"><input type="hidden" value="" name="formOp"/>
+						  <div class="HorizontalLayout">
+						    <div class="FormContainer">
+						      <table class="UIFormGrid">
+						        <tbody>
+						          <tr>
+			  	              <td class="FieldLabel">
+			                      Current Password :
+			                  </td>
+			  	              <td class="FieldComponent"><input type="password" id="currentpass" name="currentpass"/></td>
+							        </tr>
+				              <tr>
+			  	              <td class="FieldLabel">
+			                      New Password :
+			                  </td>
+			  	              <td class="FieldComponent"><input type="password" id="newpass" name="newpass"/></td>
+					            </tr>
+				              <tr>
+			  	              <td class="FieldLabel">
+			                      Confirm New Password :
+			                  </td>
+			  	              <td class="FieldComponent"><input type="password" id="confirmnewpass" name="confirmnewpass"/></td>
+					            </tr>
+						      	</tbody>
+						      </table>
+						      <div class="UIAction"> 
+						        <table align="center" class="ActionContainer">
+						        	<tbody>
+							        	<tr>
+							        		<td align="center">
+							          		<a class="ActionButton LightBlueStyle" href="javascript:eXo.webui.UIForm.submitForm('UIAccountChangePass','Save', true)">
+							                <div class="ButtonLeft">
+							                  <div class="ButtonRight">
+							                    <div class="ButtonMiddle">
+							                      Save
+							                    </div>
+							                  </div>
+							                </div>
+							           		</a>
+							          		<a class="ActionButton LightBlueStyle" href="javascript:eXo.webui.UIForm.submitForm('UIAccountChangePass','Reset', true)">
+							                <div class="ButtonLeft">
+							                  <div class="ButtonRight">
+							                    <div class="ButtonMiddle">
+							                      Reset
+							                    </div>
+							                  </div>
+							                </div>
+							           		</a>
+							          	</td>
+							          </tr>  
+						        	</tbody>
+						        </table>
+						      </div>
+						    </div>
+						  </div>
+						  </form>
+						</div>
+					</div>
+	
+				</div>  
+		  </div>  
+	  </div>  
+	</div>
+
+	<div class="UIAction"> 
+    <table align="center" class="ActionContainer">
+    	<tbody>
+	    	<tr>
+	    		<td align="center">
+			        <a class="ActionButton LightBlueStyle" href="javascript:ajaxGet('/portal/private/site/?portal:componentId=UIAccountSetting&portal:action=Close&ajaxRequest=true')">
+			          <div class="ButtonLeft">
+			            <div class="ButtonRight">
+			              <div class="ButtonMiddle">
+			                Close
+			              </div>
+			            </div>
+			          </div>
+			        </a>
+        	</td>
+        </tr>
+    	</tbody>
+    </table>
+  </div>
+	
+</div>
+
+
+
+
+
+
+
+
+
+

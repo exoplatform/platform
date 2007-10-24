@@ -70,7 +70,11 @@
 			              <div class="Button">
 			                <div class="LeftButton">
 			                  <div class="RightButton">
-			                    <div class="MiddleButton"><a href="javascript:login();" id="UIPortalLoginFormAction">Login</a></div>
+			                    <div class="MiddleButton">
+			                    	<a href="javascript:login();" id="UIPortalLoginFormAction">
+			                    		Login
+			                    	</a>
+			                    </div>
 			                  </div>
 			                </div>
 			              </div>

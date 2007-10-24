@@ -15,7 +15,7 @@
 }
 
 .UILoginPortlet .LoginContent .LeftLoginContent {
-  background: url('../skin/images/SigninPaper162x207.jpg') repeat-y left top;
+  background: url('../skin/images/SigninPaper162x207.jpg') repeat-y left -25px;
   padding-left: 162px;
   overflow: hidden;
 }
@@ -27,14 +27,15 @@
 }
 
 .UILoginPortlet .LoginContent .CenterLoginContent {
-  height: 207px;
+  height: 167px;
   background: #f6f6f6;
+  padding: 20px 0px;
 }
 
 .UILoginPortlet .LoginContent .FieldContainer {
   width: 320px ;
   overflow: hidden ;
-  padding-top: 7px ;
+  padding-top: 12px ;
   margin: auto ;
 }
 
@@ -88,7 +89,7 @@
 
 .UILoginPortlet .LoginContent .LoginButton {
   height: 22px ;
-  padding: 20px 0px 5px 0px;
+  padding: 25px 0px 5px 0px;
 }
 
 .UILoginPortlet .LoginContent .LoginButtonContainer {

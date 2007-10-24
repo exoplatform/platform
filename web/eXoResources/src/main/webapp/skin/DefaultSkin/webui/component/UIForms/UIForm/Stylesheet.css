@@ -131,9 +131,3 @@
 .UIApplicationRegistryPortlet .UIPermissionForm .UIPopupWindow .UIWindowContent .Content {
   padding: 15px;
 }
-
-/*####################- UIAccountSetting -#################*/
-
-.UIAccountProfiles .HorizontalLayout .UIFormGrid td.FieldLabel {
-	width: 30%;
-}
