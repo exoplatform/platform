@@ -16,7 +16,10 @@ UIDesktop.prototype.init = function() {
 			//fix display scroll in first time
 			if (uiWindows[i].style.display == "block") {
 					var blockResizes = eXo.core.DOMUtil.findDescendantsByClass(uiWindows[i], "div", "UIResizableBlock");
-					if (blockResizes.length > 1) 	blockResizes[0].style.overflow = "hidden";
+					if (blockResizes.length > 1) {
+						blockResizes[0].style.overflow = "hidden" ;
+						blockResizes[0].style.height = "auto" ;
+					}
 			}
 	  }
 	}
@@ -111,7 +114,10 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   	}
 		//fix display scroll in first time.
 		var blockResizes = eXo.core.DOMUtil.findDescendantsByClass(this.object, "div", "UIResizableBlock");
-		if (blockResizes.length > 1) 	blockResizes[0].style.overflow = "hidden";
+		if (blockResizes.length > 1) 	{
+			blockResizes[0].style.overflow = "hidden" ;
+			blockResizes[0].style.height = "auto" ;
+		}
 		
   }
 //  eXo.desktop.UIDockbar.containerMouseOver() ;
