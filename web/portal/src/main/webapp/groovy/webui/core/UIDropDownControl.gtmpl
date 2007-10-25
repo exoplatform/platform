@@ -17,7 +17,7 @@
 		  			<% if (options.size() > 0) { %>
 								<%= uicomponent.getValue() ;%> 
 							<% }else {%>
-								Drop Down Control
+							<%=_ctx.appRes(uicomponent.getId() + ".title.Empty")%>
 							<% } %>
 						</span></div>
 						<div class="DropDownSelectIcon"><span></span></div>
