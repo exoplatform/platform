@@ -59,32 +59,5 @@ public class UIPortalManagement extends UIManagement {
     UIPortalBrowser uiPortalBrowser = uiToolPanel.createUIComponent(UIPortalBrowser.class, null, null);
     uiToolPanel.setUIComponent(uiPortalBrowser);
     uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
-//-------------------------------------------------
-//    mode_ = mode;    
-//    PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
-//    if(mode == ManagementMode.EDIT) {
-//      UIPortal uiPortal = Util.getUIPortal();
-//      if(uiPortal.isModifiable()) {
-//        UIPortalManagementEditBar uiEditBar = getChild(UIPortalManagementEditBar.class);
-//        uiEditBar.createEvent("EditPortlet", Phase.PROCESS, event.getRequestContext()).broadcast();
-//        return;
-//      }
-//      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-//      uiPortalApp.addMessage(new ApplicationMessage("UIPortalManagement.msg.Invalid-editPermission", new String[]{uiPortal.getName()})) ;;
-//      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-//     
-//      return;
-//    } 
-//    getChild(UIPortalManagementEditBar.class).setRendered(false);
-//    getChild(UIPortalManagementControlBar.class).setRendered(false);
-//    getChild(UIDescription.class).setRendered(true); 
-//    
-//    UIWorkspace uiWorkingWS = Util.updateUIApplication(event);
-//    UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-//    uiToolPanel.setShowMaskLayer(false);
-//    UIPortalBrowser uiPortalBrowser = uiToolPanel.createUIComponent(UIPortalBrowser.class, null, null);
-//    uiToolPanel.setUIComponent(uiPortalBrowser);
-//    uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
-//-------------------------------------------------
   }
 }

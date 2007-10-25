@@ -57,13 +57,13 @@ public class UIContainerActionListener {
   
   static public class DeleteWidgetActionListener extends EventListener<UIContainer> {
     public void execute(Event<UIContainer> event) throws Exception {
-      int id  = Integer.valueOf(event.getRequestContext().getRequestParameter(UIComponent.OBJECTID)) ;
+      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID) ;
       UIContainer uiWidgetContainer = event.getSource();
       
       List<UIComponent> children = uiWidgetContainer.getChildren();
       for(UIComponent uiChild : children) {
         UIWidget uiWidget = (UIWidget) uiChild ;
-        if(uiWidget.getApplicationInstanceId().hashCode() == id) {
+        if(uiWidget.getApplicationInstanceUniqueId().equals(id)) {
           children.remove(uiWidget) ;
           break ;
         }

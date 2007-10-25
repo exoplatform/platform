@@ -63,6 +63,7 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
   	{name: "objectId", value : uiWidget.id}
   ] ;
 	if (confirm("Are you sure you want to delete this widget ?")) {
+		alert(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params)) ;
 		ajaxGet(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params)) ;			
 	}	
 };

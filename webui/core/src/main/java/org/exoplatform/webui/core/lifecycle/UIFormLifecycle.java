@@ -15,8 +15,10 @@ import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormInputBase;
+import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.validator.Validator;
 /**
@@ -152,6 +154,20 @@ public class UIFormLifecycle  extends Lifecycle {
       } else if(uiChild instanceof UIFormInputSet){
         UIFormInputSet uiInputSet = (UIFormInputSet)uiChild;
         validateChildren(uiInputSet.getChildren(), uiApp, context);
+      } else if(uiChild instanceof UIFormInputContainer) {
+        UIFormInputContainer uiInput =  (UIFormInputContainer) uiChild ;
+        List<Validator> validators = uiInput.getValidators() ;
+        if(validators == null) continue;
+        try {
+          for(Validator validator : validators) validator.validate(uiInput) ;
+        } catch (MessageException ex) {
+          uiApp.addMessage(ex.getDetailMessage()) ;
+          context.setProcessRender(true) ;
+        } catch(Exception ex) {
+          //TODO:  This is a  critical exception and should be handle  in the UIApplication
+          uiApp.addMessage(new ApplicationMessage(ex.getMessage(), null)) ;
+          context.setProcessRender(true) ;
+        }
       }
     }
   }

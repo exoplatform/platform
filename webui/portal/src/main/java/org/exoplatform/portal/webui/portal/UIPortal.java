@@ -33,8 +33,7 @@ import org.exoplatform.webui.core.UIComponent;
       @EventConfig(listeners = UIPortalActionListener.ChangeWindowStateActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = UIPortalActionListener.LogoutActionListener.class),
-      @EventConfig(listeners = ChangeOptionActionListener.class),
-      @EventConfig(listeners = UIPortalActionListener.LoadPageActionListener.class)
+      @EventConfig(listeners = ChangeOptionActionListener.class)
     }
 )
 public class UIPortal extends UIContainer { 

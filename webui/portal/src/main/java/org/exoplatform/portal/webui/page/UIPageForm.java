@@ -45,6 +45,7 @@ import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.organization.UIGroupMembershipSelector;
 import org.exoplatform.webui.organization.UIListPermissionSelector;
 import org.exoplatform.webui.organization.UIPermissionSelector;
+import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIteratorValidator;
 
 @ComponentConfigs({
   @ComponentConfig(
@@ -109,6 +110,7 @@ public class UIPageForm extends UIFormTabPane {
 
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
     uiPermissionSetting.addChild(uiListPermissionSelector);
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
     uiEditPermission.setRendered(false) ;

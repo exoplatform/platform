@@ -31,7 +31,7 @@ public class WelcomeWidget extends WidgetApplication<UIWidget> {
   public void processRender(UIWidget uiWidget, Writer w) throws Exception {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
-    int instanceId = uiWidget.getApplicationInstanceId().hashCode() ;
+    String instanceId = uiWidget.getApplicationInstanceUniqueId() ;
     String userName = pContext.getRemoteUser() ;
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
