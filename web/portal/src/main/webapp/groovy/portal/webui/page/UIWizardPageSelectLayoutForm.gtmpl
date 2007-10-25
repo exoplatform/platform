@@ -1,6 +1,6 @@
 <%
   import  org.exoplatform.webui.form.UIForm; 
-  import org.exoplatform.webui.core.UIDropDownItemSelector;
+  import org.exoplatform.webui.core.UIDropDownControl;
 %>
 <% 
   def rcontext = _ctx.getRequestContext() ;
@@ -10,7 +10,7 @@
 
   def categories = uicomponent.getItemCategories();
   UIForm form = uicomponent.getParent();
-  UIDropDownItemSelector drop = form.getChild(UIDropDownItemSelector.class);
+  UIDropDownControl drop = form.getChild(UIDropDownControl.class);
   
   
   String showCategory  	= 		"eXo.webui.UIPopupSelectCategory.show(this, 250);" ;
@@ -24,7 +24,7 @@
     <input type="hidden" name="<%=uicomponent.getName();%>" value ="">
     <%/*Begin ItemList*/%>
     <div class="ItemListContainer ItemSelectorAncestor">
-      <%uicomponent.renderChild(UIDropDownItemSelector.class);%>
+      <%uicomponent.renderChild(UIDropDownControl.class);%>
       <div class="UIPopupCategory" style="display: none">
         <div class="PopupCategoryDecorator">
           

@@ -1,6 +1,6 @@
 <%  
   import  org.exoplatform.webui.form.UIForm; 
-  import org.exoplatform.webui.core.UIDropDownItemSelector; 
+  import org.exoplatform.webui.core.UIDropDownControl; 
   import org.exoplatform.webui.core.model.SelectItemOption;
 
 	def rcontext = _ctx.getRequestContext() ;
@@ -22,7 +22,7 @@
     <div class="ItemListContainer ItemSelectorAncestor">
     	<div class="PageConfigOptionList">
 	    <% 
-        uicomponent.renderChild(UIDropDownItemSelector.class)  ;
+        uicomponent.renderChild(UIDropDownControl.class)  ;
       %>
      </div>
 	    <% 

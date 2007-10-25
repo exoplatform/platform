@@ -15,6 +15,7 @@ import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIDropDownItemSelector;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.core.model.SelectItemOption;
@@ -58,10 +59,12 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
     for(SelectItemCategory itemCategory: categories_){
       itemOptions.add(new SelectItemOption(itemCategory.getName()));
     }
-    UIDropDownItemSelector uiItemSelector = addChild(UIDropDownItemSelector.class, null, null);
+    
+    // modify: Dang.Tung
+    UIDropDownControl uiItemSelector = addChild(UIDropDownControl.class, null, null);
     uiItemSelector.setOptions(itemOptions);
-    uiItemSelector.setTitle("Select Page Layout");
-    uiItemSelector.setSelected(0);
+    uiItemSelector.setAction("eXo.webui.UIDropDownControl.selectPageLayout");
+    // end modify
   }
   
   public void setSelectOptionItem(String value) {

@@ -51,6 +51,11 @@
 	padding-left: 4px;
 }
 
+.UIDropDownControl .UIDropDownRightTitle {
+	background: url(background/RightItemInfoBar3x24.png) no-repeat right center;
+	padding-right: 3px;
+}
+
 .UIDropDownControl .UIDropDownMiddleTitle {
 	background: url(background/ItemInfoBarBG1x24.png) repeat-x center;
 	cursor: pointer;
