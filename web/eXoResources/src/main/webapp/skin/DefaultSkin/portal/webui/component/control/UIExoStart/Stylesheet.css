@@ -56,6 +56,8 @@
 .UIExoStart .StartMenuContainer .LabelItem {
   padding: 0px 0px 0px 2px ;
   cursor: pointer ;
+  visibility:inherit;
+  display: inherit;
 }
 
 .UIExoStart .StartMenuContainer .PortalIcon {
@@ -111,7 +113,7 @@
   white-space: nowrap ;
   padding: 0px 5px 0px 6px ;
   line-height: 32px;
-  height: 32px;
+  height: auto;
 }
 
 .UIExoStart a {
@@ -126,7 +128,7 @@
 .UIExoStart .StartMenuContainer .LogoutIcon {
   height: 33px ;  
   background: url('icons/LogoutIcon.gif') no-repeat left ;
-  padding: 0px 0px 0px 28px ;
+  padding: 0px 0px 0px 34px ;
   float: right;
   margin-right: 10px;
 }
