@@ -15,7 +15,7 @@
 				                <div class="LeftTab">
 				                  <div class="RightTab">                
 				                    <div onclick="eXo.webui.UIHorizontalTabs.displayTabContent(this)" class="MiddleTab">
-				                    	<a href="#" class="Icon AccountProfiles">Account Profiles</a>
+				                    	<a class="Icon AccountProfiles">Account Profiles</a>
 				                    </div>
 				                  </div>
 				                </div>
@@ -29,7 +29,7 @@
 				                <div class="LeftTab">
 				                  <div class="RightTab">                
 				                    <div onclick="eXo.webui.UIHorizontalTabs.displayTabContent(this)" class="MiddleTab">
-				                    	<a href="#" class="Icon ChangePass">Change Password</a>
+				                    	<a class="Icon ChangePass">Change Password</a>
 				                    </div>
 				                  </div>
 				                </div>
