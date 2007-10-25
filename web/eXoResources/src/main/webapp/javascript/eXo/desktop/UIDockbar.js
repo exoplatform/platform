@@ -4,6 +4,7 @@ function UIDockbar() {
   this.isFirstTime = true;
 //  this.displayTooltip = true ;
   this.showDesktop = false ;
+	this.arrayImage = false ;
 };
 
 UIDockbar.prototype.init = function() {
@@ -11,6 +12,7 @@ UIDockbar.prototype.init = function() {
   var uiDockbar = document.getElementById("UIDockBar") ;
   if(!uiDockbar) return ;
   var imgObject = eXo.core.DOMUtil.findDescendantsByClass(uiDockbar, "img", "Icon") ;
+	UIDockbar.arrayImage = imgObject;
   
 //  this.resetDefault = false ;
 //  this.onAnimation = false ;
@@ -21,17 +23,7 @@ UIDockbar.prototype.init = function() {
   if(imgObject.length > 0 && imgObject[0].onmousemove == undefined) this.isFirstTime = true ;
   
   if(this.isFirstTime == true) {
-    for(var i = 0; i < imgObject.length; i++) {
-      imgObject[i].onmousemove = UIDockbar.animationEvt ;
-      imgObject[i].onmouseover = UIDockbar.iconOverEvt ;
-      imgObject[i].onmouseout = UIDockbar.iconOutEvt ;
-      
-      if(eXo.core.Browser.isIE6() && (imgObject[i].alt != "")) {
-        imgObject[i].runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+imgObject[i].src+"', sizingMethod='scale')" ;
-        imgObject[i].src = imgObject[i].alt ;
-        imgObject[i].alt = "" ;
-      }
-    }
+		setTimeout("eXo.desktop.UIDockbar.waitOnLoad(eXo.desktop.UIDockbar.arrayImage)", 0);
     this.isFirstTime = false ;
   }
   
@@ -42,8 +34,22 @@ UIDockbar.prototype.init = function() {
   var widgetsViewer = document.getElementById("WidgetsViewer") ;
   portletsViewer.onclick = this.viewPortlets ;
   widgetsViewer.onclick = this.viewWidgets ;
-
 } ;
+
+UIDockbar.prototype.waitOnLoad = function(images) {
+	var UIDockbar = eXo.desktop.UIDockbar;
+  for (var i = 0; i < images.length; i++) {
+    images[i].onmousemove = UIDockbar.animationEvt ;
+    images[i].onmouseover = UIDockbar.iconOverEvt ;
+    images[i].onmouseout = UIDockbar.iconOutEvt ;
+  
+    if(eXo.core.Browser.isIE6() && (images[i].alt != "")) {
+      images[i].runtimeStyle.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"+images[i].src+"', sizingMethod='scale')" ;
+      images[i].src = images[i].alt ;
+      images[i].alt = "" ;
+    }
+  }
+};
 
 UIDockbar.prototype.startDockBarEvt = function(evt) {
 	evt.cancelBubble = true ;
