@@ -173,7 +173,6 @@ UIUpload.prototype.deleteUpload = function(id) {
 
 
 UIUpload.prototype.upload = function(clickEle, id) {
-//  debugger;
 	var DOMUtil = eXo.core.DOMUtil;  
   var container = parent.document.getElementById(id);  
   var uploadFrame = parent.document.getElementById(id+"uploadFrame");
@@ -183,16 +182,11 @@ UIUpload.prototype.upload = function(clickEle, id) {
   if(file.value == null || file.value == '') return;  
   var infoUploaded = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
   var temp = file.value;
-//  var tmp = '';
-//  for(var i = (temp.length - 1); i > 0; --i) {
-//  	if(temp.charCodeAt(i) == 92) break;
-//  	tmp += temp.charAt(i);
-//  }
-//  temp = '';
-//  for(var i = (tmp.length - 1); i >= 0 ; --i) {
-//  	temp += tmp.charAt(i);
-//  }
-  infoUploaded.innerHTML = (/([^\/\\]+)$/gi).exec(temp)[0];
+
+  temp = temp.substr((temp.lastIndexOf('/') + 1), temp.length - 1) ;
+  
+  infoUploaded.innerHTML = temp.substr((temp.lastIndexOf('\\') + 1), temp.length - 1) ;
+
   var progressBarFrame = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "block" ;  
   var progressBarMiddle = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarMiddle") ;
