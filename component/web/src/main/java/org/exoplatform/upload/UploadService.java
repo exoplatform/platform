@@ -41,9 +41,8 @@ public class UploadService {
     Map<String, String> headers = reader.parseHeaders(request.getInputStream(), headerEncoding);
    
     String fileName = reader.getFileName(headers);
-    if(fileName != null || fileName.lastIndexOf('\\') != 1) fileName = fileName.substring(fileName.lastIndexOf('\\')) ; 
+    if(fileName != null || fileName.lastIndexOf('\\') != 1) fileName = fileName.substring(fileName.lastIndexOf('\\') + 1) ; 
     else fileName = uploadId;
-    fileName = new File(fileName.replaceAll("\\", "/")).getName();
     
     upResource.setFileName(fileName);
     upResource.setMimeType(headers.get(RequestStreamReader.CONTENT_TYPE));
