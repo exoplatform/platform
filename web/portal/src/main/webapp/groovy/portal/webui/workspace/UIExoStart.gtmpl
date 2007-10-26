@@ -267,7 +267,7 @@
 %>
 <div class="UIExoStart" id="UIExoStart">
   <div class="StartBarContainer">
-    <div class="ExoStartButton ButtonNormal" onclick="$onclick" title="<%_ctx.appRes("UIExoStart.tooltip.begin")%>"><span></span></div>
+    <div class="ExoStartButton ButtonNormal" onclick="$onclick" title="<%=_ctx.appRes("UIExoStart.tooltip.begin")%>"><span></span></div>
     <div class="VLineSeparator"><span></span></div>
     <div class="DigitalClockContainer">
       <div class="DigitalClock" id="DigitalClock"><span></span></div>
