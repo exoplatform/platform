@@ -31,7 +31,6 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
-import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -263,12 +262,12 @@ public class UIPageActionListener {
   
   static public class DeleteWidgetActionListener extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
-      int id  = Integer.valueOf(event.getRequestContext().getRequestParameter(UIComponent.OBJECTID));
+      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIPage uiPage = event.getSource();
       List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
       uiPage.findComponentOfType(uiWidgets, UIWidget.class);
       for(UIWidget uiWidget : uiWidgets) {
-        if(uiWidget.getApplicationInstanceId().hashCode() == id) {
+        if(uiWidget.getApplicationInstanceUniqueId().equals(id)) {
           uiPage.getChildren().remove(uiWidget);
           
           if(uiPage.isModifiable()) {
@@ -317,12 +316,12 @@ public class UIPageActionListener {
     public void execute(Event<UIPage> event) throws Exception {
      
       UIPage uiPage = event.getSource();
-      int objectId  = Integer.parseInt(event.getRequestContext().getRequestParameter(UIComponent.OBJECTID));
+      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
       uiPage.findComponentOfType(uiWidgets, UIWidget.class);
       UIWidget uiWidget = null;
       for(UIWidget ele : uiWidgets) {
-        if(ele.getApplicationInstanceId().hashCode() == objectId) {
+        if(ele.getApplicationInstanceUniqueId().equals(objectId)) {
           uiWidget = ele;
           break;
         }
