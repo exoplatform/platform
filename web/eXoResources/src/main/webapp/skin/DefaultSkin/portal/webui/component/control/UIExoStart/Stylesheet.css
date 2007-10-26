@@ -125,12 +125,19 @@
   color: #058ee6 ;
 }
 
+.UIExoStart .StartMenuContainer .LoginContainer {
+}
+
 .UIExoStart .StartMenuContainer .LogoutIcon {
   height: 33px ;  
   background: url('icons/LogoutIcon.gif') no-repeat left ;
   padding: 0px 0px 0px 34px ;
   float: right;
   margin-right: 10px;
+}
+
+.UIExoStart .StartMenuContainer .LogoutIcon a {
+	line-height: 32px;
 }
 
 .UIExoStart .StartMenuContainer .HLineSeparator {

@@ -50,7 +50,7 @@
 									    	<div class="ButtonRight">
 									        	<div class="ButtonMiddle">
 									              <%=_ctx.appRes("UILoginForm.label.Discard")%>
-									            </div>
+									          </div>
 									    	</div>
 									    </div>
 									 </a>								

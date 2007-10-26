@@ -8,7 +8,7 @@
   <div class="GroupSelector">
 		<div class="SelectedGroupPath"><% uicomponent.renderChild(UIBreadcumbs.class); %></div>
 	  <div class="LeftGroupSelector">
-	    <div class="TitleGroupSelector">Browse and select a group</div>
+	    <div class="TitleGroupSelector"><%=_ctx.appRes("UIGroupSelector.title.selectGroup")%></div>
 	    <%uicomponent.renderChild(UITree.class);%>
 	  </div>
 	  <%
@@ -23,11 +23,11 @@
 	    }
 	  %>
 	  <div class="RightGroupSelector">
-	    <div class="TitleGroupSelector" >Current selected group info</div>
+	    <div class="TitleGroupSelector" ><%=_ctx.appRes("UIGroupSelector.title.selectGroupInfo")%></div>
 		  <div class="Content" >
-			  <div><span>Name:</span> $name </div>
-			  <div><span>Group Id:</span> $id </div>
-			  <div><span>Description:</span> $des </div>
+			  <div><span><%=_ctx.appRes("UIGroupSelector.lable.name")%></span> $name </div>
+			  <div><span><%=_ctx.appRes("UIGroupSelector.lable.groupId")%></span> $id </div>
+			  <div><span><%=_ctx.appRes("UIGroupSelector.lable.description")%></span> $des </div>
 			</div>
 		</div>
 	  <div style="clear: left"><span></span></div>
@@ -40,7 +40,9 @@
 		      <a href="<%=uicomponent.event("SelectGroup");%>" class="ActionButton LightBlueStyle">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
-		            <div class="ButtonMiddle">Done</div>
+		            <div class="ButtonMiddle">
+		            	<%=_ctx.appRes("UIGroupSelector.action.done")%>
+		            </div>
 		          </div>
 		        </div>
 		      </a>

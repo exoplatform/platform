@@ -2,7 +2,6 @@
   background: #f5f5f5 ;
   border: none;
   width: 650px;
-  overflow-y: hidden; /*fix for FF*/
 }
 
 .UIMaskWorkspace .TopLeftDecorator {

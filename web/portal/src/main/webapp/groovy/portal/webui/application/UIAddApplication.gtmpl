@@ -1,4 +1,4 @@
-<div class="UIAddApplication">
+<div class="UIAddApplication" style="border: 1px solid red">
 	<div class="TitleBarContainer">
 	  <div class="LeftTitleBar">
 	    <div class="RightTitleBar">

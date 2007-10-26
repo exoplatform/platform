@@ -48,7 +48,7 @@
   </div>
   
   <%/*Begin Slidebar*/%>
-  <div class="Slidebar" id="ControlWorkspaceSlidebar" onclick="eXo.portal.UIControlWorkspace.showWorkspace();" title="Click to open Control Workspace">
+  <div class="Slidebar" id="ControlWorkspaceSlidebar" onclick="eXo.portal.UIControlWorkspace.showWorkspace();" title="<%=_ctx.appRes("UIWorkspaceContainer.tooltip.OpenControlWorkspace");%>">
     <div class="SlidebarButton"><span></span></div>
   </div>
   <%/*End Slidebar*/%>

@@ -47,7 +47,7 @@
 		  upLevelLink = uicomponent.url("UpLevel", selectedParent.getUri()) ;		
 		}
 	%>
-	<a href="<%=upLevelLink%>" title="Up Level">
+	<a href="<%=upLevelLink%>" title="<%=_ctx.appRes("UIPageNavigation.tooltip.upLevel")%>">
 	  <div class="NavigationUpLevelIcon LevelUpArrowIcon"></div>
   </a>  
   <% 

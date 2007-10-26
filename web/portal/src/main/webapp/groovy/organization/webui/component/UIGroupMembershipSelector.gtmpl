@@ -3,10 +3,10 @@
   import  org.exoplatform.webui.core.UITree; 
 %>
 <div class="UIGroupMembershipSelector" id="$uicomponent.id">
-  <div class="Container">
+  <div class="Container"> 
 		<div class="SelectedGroupPath"><% uicomponent.renderChild(UIBreadcumbs.class); %></div>
 		<div class="GroupSelector">
-		  <div class="MembershipTitle">Browse and select a group</div>
+		  <div class="MembershipTitle"><%=_ctx.appRes("UIGroupMembershipSelector.label.selectGroup")%></div>
 		  <%uicomponent.renderChild(UITree.class);%>
 		</div>
 	  <div class="MembershipSelector">

@@ -24,9 +24,9 @@
 			<div class="WidgetContainerCategory">
 				<div class="CategoryTitleBar">
 					<div class="Title"><%=_ctx.appRes("UIWidgetContainerManagement.title.containers")%></div>
-					<a class="RemoveContainer Icon" href="<%=uicomponent.event("DeleteContainer")%>" title="Remove selected widget container"><span></span></a>
-					<a class="EditContainer Icon" href="<%=uicomponent.event("EditContainer")%>" title="Edit selected widget container"><span></span></a>
-					<a class="AddContainer Icon" href="<%=uicomponent.event("AddContainer")%>" title="Add new widget container"><span></span></a>
+					<a class="RemoveContainer Icon" href="<%=uicomponent.event("DeleteContainer")%>" title="<%=_ctx.appRes("UIWidgetContainerManagement.tooltip.remove")%>"><span></span></a>
+					<a class="EditContainer Icon" href="<%=uicomponent.event("EditContainer")%>" title="<%=_ctx.appRes("UIWidgetContainerManagement.tooltip.edit")%>"><span></span></a>
+					<a class="AddContainer Icon" href="<%=uicomponent.event("AddContainer")%>" title="<%=_ctx.appRes("UIWidgetContainerManagement.tooltip.addnew")%>"><span></span></a>
 					<div style="clear: both"><span></span></div>
 				</div>
 				<div class="UserWidgetContainer">

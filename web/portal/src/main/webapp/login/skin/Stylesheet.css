@@ -10,24 +10,19 @@
 	background: url('../skin/images/LoginHeader548x103.jpg') no-repeat;
 }
   
-.UILoginPortlet .LoginContent {
-	height: 207px;
-}
-
 .UILoginPortlet .LoginContent .LeftLoginContent {
-  background: url('../skin/images/SigninPaper162x207.jpg') repeat-y left -25px;
+  background: url('../skin/images/SigninPaper162x207.jpg') repeat-y left -40px;
   padding-left: 162px;
   overflow: hidden;
 }
 
 .UILoginPortlet .LoginContent .RightLoginContent {
-  height: 207px;
   background: url('../skin/images/LoginRightRepeat27x1.gif') repeat-y right;
   padding-right: 27px;
 }
 
 .UILoginPortlet .LoginContent .CenterLoginContent {
-  height: 167px;
+  height: 140px;
   background: #f6f6f6;
   padding: 20px 0px;
 }

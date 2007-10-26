@@ -13,7 +13,7 @@
 				    <%if(uicomponent.getChildById("ownerType").isEnable()) {%>
 					   
 				        <%String event = uicomponent.getParent().event("ChangeOwnerType");%>
-				        <a href="<%=event%>" title="Select other group"><img src="/eXoResources/skin/sharedImages/Blank.gif" class="SelectGroup" ></a>
+				        <a href="<%=event%>" title="<%=_ctx.appRes("UIFormInputSet.tooltip.selectgroup")%>"><img src="/eXoResources/skin/sharedImages/Blank.gif" class="SelectGroup" ></a>
 					   
 				    <%}%>
 				  <%}%>  

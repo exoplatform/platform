@@ -32,6 +32,8 @@
   void renderPageNode(PageNavigation nav, PageNode node) {
      String  href = uicomponent.event("ChangePage",   nav.getId() + "::" +  node.getUri()) ;
      String icon = node.getIcon();
+     String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;
+  	 String scrollDownTitle = _ctx.appRes("UIExoStart.tooltip.scrollDown") ;
      if(icon == null) icon = "PageNodeIcon";
      print """
       <div class="MenuItem">
@@ -52,7 +54,7 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding-bottom: 6px">
-						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up">
+						      <div class="TopNavigator" style="display: none;" title="$scrollUpTitle">
 						      		<div class="UpNavigatorIcon"><span></span></div>
 						      </div>
 									<div class="BlockMenu" style="position: relative;">
@@ -65,7 +67,7 @@
 						      print """
 						      </div>
 						      </div>
-						      <div class="BottomNavigator" style="display: none;" title="Click and hold to scroll down">
+						      <div class="BottomNavigator" style="display: none;" title="$scrollDownTitle">
 						      		<div class="DownNavigatorIcon"><span></span></div>
 						      </div>
                 </div>
@@ -106,6 +108,8 @@
   
   void renderNavigations() {
     String label = _ctx.appRes(uicomponent.getId() + ".item.PageNavigation") ;
+    String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;
+  	String scrollDownTitle = _ctx.appRes("UIExoStart.tooltip.scrollDown") ;
     print """
       <div class="MenuItem">
         <div class="LabelItem">
@@ -130,7 +134,7 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding: 5px 0px;">
-					        <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up">
+					        <div class="TopNavigator" style="display: none;" title="$scrollUpTitle")">
 					        	<div class="UpNavigatorIcon"><span></span></div>
 					        </div>
 									<div class="BlockMenu" style="position: relative;">
@@ -142,7 +146,7 @@
 					      	print """
 					      	</div>
 					      	</div>
-					      	<div class="BottomNavigator" style="display: none;" title="Click and hold to scroll down">
+					      	<div class="BottomNavigator" style="display: none;" title="$scrollDownTitle">
 					      		<div class="DownNavigatorIcon"><span></span></div>
 					      	</div>
                 </div>
@@ -164,6 +168,8 @@
   
   void renderMenuItemContainer(UIExoStart.MenuItemContainer item) {
     String label = _ctx.appRes(uicomponent.getId() + ".item."+item.name) ;
+    String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;
+  	String scrollDownTitle = _ctx.appRes("UIExoStart.tooltip.scrollDown") ;
     print """
       <div class="MenuItem">
         <div class="LabelItem">
@@ -183,7 +189,7 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding: 5px 0px">
-						      <div class="TopNavigator" style="display: none;" title="Click and hold to scroll up">
+						      <div class="TopNavigator" style="display: none;" title="$scrollUpTitle")">
 						      	<div class="UpNavigatorIcon"><span></span></div>
 						      </div>
 									<div class="BlockMenu" style="position: relative;">
@@ -196,7 +202,7 @@
 						      print """
 						      </div>
 						      </div>
-						      <div class="BottomNavigator" style="display: none;">
+						      <div class="BottomNavigator" style="display: none;" title="#scrollDownTitle">
 						      	<div class="DownNavigatorIcon"><span></span></div>
 						      </div>
                  </div>
@@ -252,7 +258,7 @@
       <div class="LoginContainer">
         <div class="LabelItem">
           <div class="$icon" onclick = "location.href='$href';">
-            <div class="LabelText"><a href="$href">$label</a></div>
+            <a href="$href">$label</a>
           </div>
         </div>
       </div>
@@ -261,7 +267,7 @@
 %>
 <div class="UIExoStart" id="UIExoStart">
   <div class="StartBarContainer">
-    <div class="ExoStartButton ButtonNormal" onclick="$onclick" title="Click here to begin"><span></span></div>
+    <div class="ExoStartButton ButtonNormal" onclick="$onclick" title="ash"><span></span></div>
     <div class="VLineSeparator"><span></span></div>
     <div class="DigitalClockContainer">
       <div class="DigitalClock" id="DigitalClock"><span></span></div>

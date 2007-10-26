@@ -47,7 +47,7 @@
 			  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
 				  <div class="ContainerConfigOptions">
 						<%uicomponent.renderChild(UIDropDownItemSelector.class);%>
-						<a class="AddNavigationIcon" href = "<%=uicomponent.event("CreateNavigation"); %>" title="Create new Page Navigation"><span></span></a>
+						<a class="AddNavigationIcon" href ="<%=uicomponent.event("CreateNavigation"); %>" title="<%=_ctx.appRes("UIPageNodeSelector.tooltip.newPageNavigation")%>"><span></span></a>
 		        <div style="clear: left"><span></span></div>	
 						<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
 							<%

@@ -83,7 +83,7 @@
 		      %>
 	      	    <div class="ItemDetail"  style="display: $display;">
   					    <div class="LayoutHolder" >
-  					    	<div class="LayoutLabel" style="text-align: center; font-size: 11px; margin: 10px 0px 5px 0px;">$template.label</div>
+  					    	<div class="LayoutLabel" style="text-align: center; margin: 10px 0px 5px 0px;">$template.label</div>
 	    					  <div class="$template.icon" title="$template.label" style="margin: auto" ><span></span></div>
 		  				  </div> 
 			  	    </div> 
