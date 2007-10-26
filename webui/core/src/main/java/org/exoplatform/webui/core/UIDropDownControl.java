@@ -78,7 +78,6 @@ public class UIDropDownControl extends UIComponent {
   
   public String event(String param) throws Exception {
     if(action_ == null) {
-      System.out.println("\n\n\n\n\n\n=>>>>>>>>>>>>>...here: " + param);
       return super.event(config.getEvents().get(0).getName(), param);
     }
     StringBuilder evt = new StringBuilder("javascript:eXo.webui.UIDropDownControl.selectItem(") ;
