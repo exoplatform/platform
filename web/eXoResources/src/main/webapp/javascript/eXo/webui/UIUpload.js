@@ -183,9 +183,15 @@ UIUpload.prototype.upload = function(clickEle, id) {
   var infoUploaded = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
   var temp = file.value;
 
-  temp = temp.substr((temp.lastIndexOf('/') + 1), temp.length - 1) ;
+  if (temp.indexOf('/') != -1) {
+    temp = temp.substr((temp.lastIndexOf('/') + 1), temp.length - 1) ;
+  }
   
-  infoUploaded.innerHTML = temp.substr((temp.lastIndexOf('\\') + 1), temp.length - 1) ;
+  if (temp.indexOf('\\') != -1) {
+    temp = temp.substr((temp.lastIndexOf('\\') + 1), temp.length - 1) ;
+  }
+  
+  infoUploaded.innerHTML = temp ;
 
   var progressBarFrame = DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "block" ;  
