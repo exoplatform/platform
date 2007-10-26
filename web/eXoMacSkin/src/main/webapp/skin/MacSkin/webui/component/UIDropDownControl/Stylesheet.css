@@ -180,3 +180,8 @@
 	height: 7px;
 }
 /* --end bottom --*/
+
+.UIPageNodeSelector .UIContainerConfigOptions .ComponentIcon {
+	width: 16px; height: 24px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat center;
+}
