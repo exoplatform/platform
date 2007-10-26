@@ -146,7 +146,7 @@
 }
 
 .UIExoStart .StartMenuContainer .LogoutIcon {
-  height: 35px ;  
+  height: 35px ;  line-height: 35px ;  
   background: url('icons/32x32/LogoutIcon.png') no-repeat left ;
   padding: 0px 0px 0px 35px ;
   margin: 0px 10px 0px 0px ;

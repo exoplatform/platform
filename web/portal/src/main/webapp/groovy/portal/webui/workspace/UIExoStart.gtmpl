@@ -258,7 +258,7 @@
       <div class="LoginContainer">
         <div class="LabelItem">
           <div class="$icon" onclick = "location.href='$href';">
-            <a href="$href">$label</a>
+            <div class="LabelText"><a href="$href">$label</a></div>
           </div>
         </div>
       </div>

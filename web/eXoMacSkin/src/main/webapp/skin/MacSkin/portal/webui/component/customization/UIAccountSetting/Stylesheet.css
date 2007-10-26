@@ -1,45 +1,36 @@
 .UIAccountSetting {
-  padding: 5px;
+  padding: 15px 15px 10px 15px;
 }
 
 .UIAccountSetting .ContentContainer {
-  border: 1px solid #d4d4d4;
-  border-top: none;
 }
 
 .UIAccountSetting .WorkingArea {
-  padding: 10px 5px;
-  height: 250px;
-  border: 1px solid white;
-  border-top: none;
+  padding: 15px 15px 25px 15px;
 }
-
-.UIAccountSetting .TabPaneContent .UITabContent {
-	height: auto;
-}
-
 
 .UIAccountSetting .UIHorizontalTabs {
   color: #202020; font-weight: normal;
-  height: 30px;
+  height: 32px;
 }
 
 .UIAccountSetting .UIHorizontalTabs .LeftHorizontalTabs {
   padding-left: 11px; 
-  background: url('background/LeftTitleBar11x30.gif') no-repeat left top;
+  background: url('background/LeftTitleBar11x32.gif') no-repeat left top;
+  height: 32px;
 }
 
 .UIAccountSetting .UIHorizontalTabs .RightHorizontalTabs {
   padding-right: 11px;
-  background: url('background/RightTitleBar11x30.gif') no-repeat right top;
+  background: url('background/RightTitleBar11x32.gif') no-repeat right top;
+  height: 32px;
 }
 
 .UIAccountSetting .UIHorizontalTabs .CenterHorizontalTabs {
-  background: url('background/CenterTitleBar1x30.gif') repeat-x top;
+  background: url('background/CenterTitleBar1x32.gif') repeat-x top;
   cursor: pointer;
-  padding: 0px 4px 0px 4px;
-  height: 30px;
-  line-height: 30px;
+  height: 32px;
+  line-height: 32px;
 }
 
 .UIAccountSetting .UIHorizontalTabs .UITab a.Icon {
@@ -93,25 +84,19 @@
   margin-top: 5px;
 }
 
+.UIAccountSetting .UITabPane .WorkingAreaWithHelp .UITabContentContainer {
+	border-top: none;
+}
+
 .UIAccountSetting .UITabPane .UITabContentContainer .UITabContent {
-	padding: 0px 13px 12px 13px;
-}
-
-.UIAccountSetting .UIAccountProfiles {
-	border-top: 1px solid #d4d4d4;
-}
-
-.UIAccountSetting .UIAccountChangePass {
-	border-top: 1px solid #d4d4d4;
+	background: transparent;
+	border: none;
 }
 
 .UIAccountSetting .UIForm .HorizontalLayout {
-	border-top: 1px solid white;
-	border-right: none;
-	border-left: none;
-	border-bottom: none;
+	border: none;
 	height: 190px;
-	padding: 15px 0px;
+	padding: 20px 0px;
 }
 
 .UIAccountSetting .UIFormGrid td.FieldLabel {
