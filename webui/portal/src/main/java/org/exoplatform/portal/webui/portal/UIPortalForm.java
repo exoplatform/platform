@@ -82,7 +82,10 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
 })
 public class UIPortalForm extends UIFormTabPane {
 
-  private static final String SKIN = "skin";
+  private static final String FIELD_NAME = "name";
+  private static final String FIELD_SKIN = "skin";
+  private static final String FIELD_LOCALE = "locale";
+  
   private List<SelectItemOption<String>> languages = new ArrayList<SelectItemOption<String>>() ;
   
   @SuppressWarnings("unchecked")
@@ -95,7 +98,7 @@ public class UIPortalForm extends UIFormTabPane {
     createDefaultItem();
     
     UIFormInputSet uiPortalSetting = this.<UIFormInputSet>getChildById("PortalSetting");
-    UIFormStringInput uiNameInput = uiPortalSetting.getUIStringInput("name");
+    UIFormStringInput uiNameInput = uiPortalSetting.getUIStringInput(FIELD_NAME);
     uiNameInput.setEditable(true);
     
     setActions(new String[]{"Save", "Close"});
@@ -120,7 +123,7 @@ public class UIPortalForm extends UIFormTabPane {
   }
   
   @SuppressWarnings("unchecked")
-  private class languagesComparator implements Comparator<SelectItemOption> {
+  private class LanguagesComparator implements Comparator<SelectItemOption> {
 
     public int compare(SelectItemOption o1, SelectItemOption o2) {
       return o1.getLabel().compareToIgnoreCase(o2.getLabel()) ;
@@ -128,27 +131,28 @@ public class UIPortalForm extends UIFormTabPane {
   }
   
   private void createDefaultItem() throws Exception {
+    UIPortal uiPortal = Util.getUIPortal();
     LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
     Collection<?> listLocaleConfig = localeConfigService.getLocalConfigs() ;
-    Locale currentLocate = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class).getLocale();
+    Locale currentLocate = uiPortal.getAncestorOfType(UIPortalApplication.class).getLocale();
     Iterator<?> iterator = listLocaleConfig.iterator() ;
     while(iterator.hasNext()) {
       LocaleConfig localeConfig = (LocaleConfig) iterator.next() ;
       Locale locale = localeConfig.getLocale() ;
       SelectItemOption<String> option = new SelectItemOption<String>(localeConfig.getLocale().getDisplayName(), localeConfig.getLanguage()) ;
-      languages.add(option) ;
       if(locale.getDisplayName().equalsIgnoreCase(currentLocate.getDisplayName())){
         option.setSelected(true) ;
       }
+      languages.add(option) ;
     }
-    Collections.sort(languages, new languagesComparator()) ;
+    Collections.sort(languages, new LanguagesComparator()) ;
     
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortalSetting") ;
-    uiSettingSet.addUIFormInput(new UIFormStringInput("name", "name", null).
+    uiSettingSet.addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).
                                 addValidator(EmptyFieldValidator.class).
                                 addValidator(NameValidator.class).
                                 setEditable(false)).
-                 addUIFormInput(new UIFormSelectBox("locale", "locale", languages).
+                 addUIFormInput(new UIFormSelectBox(FIELD_LOCALE, FIELD_LOCALE, languages).
                                 addValidator(EmptyFieldValidator.class));
     
     List<SelectItemOption<String>> listSkin = new ArrayList<SelectItemOption<String>>() ;
@@ -157,13 +161,10 @@ public class UIPortalForm extends UIFormTabPane {
     while(skinIterator.hasNext()){
       String skin = skinIterator.next();
       SelectItemOption<String> skinOption = new SelectItemOption<String>(skin, skin);
+      if(uiPortal.getSkin().equals(skin)) skinOption.setSelected(true) ;
       listSkin.add(skinOption);
     }
-    UIFormSelectBox uiSelectBox = new UIFormSelectBox(SKIN, SKIN, listSkin) ;
-    UIPortal uiPortal = Util.getUIPortal();
-    uiPortal.getLocale();
-    uiSelectBox.setValue(uiPortal.getSkin());
-    uiSelectBox.setEditable(false);
+    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SKIN, FIELD_SKIN, listSkin) ;
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
     uiSettingSet.setRendered(false);
@@ -188,14 +189,9 @@ public class UIPortalForm extends UIFormTabPane {
   
   static public class SaveActionListener  extends EventListener<UIPortalForm> {
     public void execute(Event<UIPortalForm> event) throws Exception {
-      UIPortalForm uiForm  =  event.getSource();
-      String locale = uiForm.getUIStringInput("locale").getValue() ;
-     
-      UIPortalApplication uiApp = uiForm.getAncestorOfType(UIPortalApplication.class);
-      
+      UIPortalForm uiForm  =  event.getSource();      
       UIPortal uiPortal = Util.getUIPortal();
       uiForm.invokeSetBindingBean(uiPortal);
-      //if(uiPortal.getFactoryId().equals(UIPortalForm.DEFAULT_FACTORY_ID)) uiPortal.setFactoryId(null);
      
       UIMaskWorkspace uiMaskWorkspace = uiForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
@@ -208,7 +204,7 @@ public class UIPortalForm extends UIFormTabPane {
       UIPortalForm uiForm = event.getSource();
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       String template = uiForm.getChild(UIFormInputItemSelector.class).getSelectedItemOption().getValue().toString();
-      String portalName = uiForm.getUIStringInput("name").getValue();
+      String portalName = uiForm.getUIStringInput(FIELD_NAME).getValue();
       DataStorage dataService = uiForm.getApplicationComponent(DataStorage.class) ;
       PortalConfig config = dataService.getPortalConfig(portalName);
       if(config != null) {
