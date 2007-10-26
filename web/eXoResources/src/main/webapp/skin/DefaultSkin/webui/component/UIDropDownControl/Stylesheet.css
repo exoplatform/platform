@@ -55,6 +55,7 @@
 	overflow: hidden;
 	float: left;
 	line-height: 19px;
+	margin-left: 5px;
 }
 
 .UIDropDownControl .EditIcon {
