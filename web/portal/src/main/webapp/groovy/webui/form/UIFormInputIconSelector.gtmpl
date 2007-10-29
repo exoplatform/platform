@@ -1,7 +1,7 @@
 <%
   import org.exoplatform.webui.form.UIForm; 
   import org.exoplatform.web.application.JavascriptManager;
-  import org.exoplatform.webui.core.UIDropDownItemSelector;
+  import org.exoplatform.webui.core.UIDropDownControl;
  
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -35,7 +35,7 @@
 		<%/*Begin Item List*/%>
 		<div class="ItemListContainer ItemSelectorAncestor">
 		  <% 
-		  uicomponent.renderChild(UIDropDownItemSelector.class);
+		  uicomponent.renderChild(UIDropDownControl.class);
 		  %>
 	    <div class="ItemList">
  			    <div class="ItemListBg">

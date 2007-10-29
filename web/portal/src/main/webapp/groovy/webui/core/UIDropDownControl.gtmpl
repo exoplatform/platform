@@ -33,15 +33,15 @@
 					<div class="TCItemSelector"><span></span></div>
 				</div>
 			</div>
-			<div class="UIOptionContainer">
-				<div class="UIItemListContainer">
+			<div class="OptionContainer">
+				<div class="ItemListContainer">
 				
-					<div class="UIItemList">
+					<div class="ItemList">
 					  <%
 					    for(option in options) {
 					  %>
-					  <div class="UIItemListOption">
-						    <a class="UIOptionItem" href="<%=uicomponent.event(option.getValue());%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)">$option.label</a>
+					  <div class="ItemListOption">
+						    <a class="OptionItem" href="<%=uicomponent.event(option.getValue());%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)">$option.label</a>
 						</div>
 						<%}%>
 					</div>

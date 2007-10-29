@@ -1,6 +1,6 @@
 <% 
   import org.exoplatform.web.application.JavascriptManager;
-  import org.exoplatform.webui.core.UIDropDownItemSelector;
+  import org.exoplatform.webui.core.UIDropDownControl;
   
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -30,7 +30,7 @@
 	<div class="MiddleRightContainerOptions">
 		<div class="UIPortletOptions ItemSelectorAncestor">	
 			<div class="PortletOptions">
-		  <%uicomponent.renderChild(UIDropDownItemSelector.class);%>
+		  <%uicomponent.renderChild(UIDropDownControl.class);%>
 		    <div class="ScrollArea">
 			<%
 			  for(portletCategoryData in portletCategoryDatas){ 
