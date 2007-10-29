@@ -9,15 +9,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIContainer;
-import org.exoplatform.webui.core.UIDropDownItemSelector;
+import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -32,14 +34,26 @@ import org.jibx.runtime.IUnmarshallingContext;
  *          tuan08@users.sourceforge.net
  * May 31, 2006
  */
-@ComponentConfig(
-    template = "system:/groovy/portal/webui/container/UIContainerConfigOptions.gtmpl" ,
-    initParams = @ParamConfig(
-        name = "ContainerConfigOption",
-        value = "system:/WEB-INF/conf/uiconf/portal/webui/container/ContainerConfigOption.groovy"
-    ),
-    events = @EventConfig(listeners = UIContainerConfigOptions.ChangeOptionActionListener.class)
-)
+@ComponentConfigs ({
+  @ComponentConfig(
+      template = "system:/groovy/portal/webui/container/UIContainerConfigOptions.gtmpl" ,
+      initParams = @ParamConfig(
+          name = "ContainerConfigOption",
+          value = "system:/WEB-INF/conf/uiconf/portal/webui/container/ContainerConfigOption.groovy"
+      )
+  ),
+  
+  @ComponentConfig (
+      type = UIDropDownControl.class ,
+      id = "UIDropDownConfigs",
+      template = "system:/groovy/webui/core/UIDropDownControl.gtmpl",
+      events = {
+          @EventConfig(listeners = UIContainerConfigOptions.ChangeOptionActionListener.class)
+        }
+    )
+})
+
+
 public class UIContainerConfigOptions extends UIContainer {
 
   private List<SelectItemCategory> categories_ ;  
@@ -49,12 +63,10 @@ public class UIContainerConfigOptions extends UIContainer {
   public UIContainerConfigOptions(InitParams initParams) throws Exception{
     setComponentConfig(UIContainerConfigOptions.class, null);    
     selectedCategory_ = null;
-    UIDropDownItemSelector uiDropCategories = addChild(UIDropDownItemSelector.class, null, null);
-    uiDropCategories.setTitle("ContainerCategory");
+    UIDropDownControl uiDropCategories = addChild(UIDropDownControl.class, "UIDropDownConfigs", "UIDropDownConfigs");
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     uiDropCategories.setOptions(options);
-    uiDropCategories.setOnServer(true);
-    uiDropCategories.setOnChange("ChangeOption");
+    uiDropCategories.setParent(this);
     if(initParams == null) return ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("ContainerConfigOption");          
@@ -106,13 +118,14 @@ public class UIContainerConfigOptions extends UIContainer {
 //    context.addJavascript("eXo.webui.UIContainerConfigOptions.init();"); 
   }
   
-  static  public class ChangeOptionActionListener extends EventListener<UIContainerConfigOptions> {
-    public void execute(Event<UIContainerConfigOptions> event) throws Exception {
+  static  public class ChangeOptionActionListener extends EventListener<UIDropDownControl> {
+    public void execute(Event<UIDropDownControl> event) throws Exception {
       String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIContainerConfigOptions uiContainerOptions = event.getSource();
-      UIDropDownItemSelector uiDropDownItemSelector = uiContainerOptions.getChild(UIDropDownItemSelector.class);
-      SelectItemOption<String> option = uiDropDownItemSelector.getOption(selectedContainerId);
-      if(option != null) uiDropDownItemSelector.setSelectedItem(option);
+      UIDropDownControl uiDropDown = event.getSource();
+      UIContainerConfigOptions uiContainerOptions = uiDropDown.getParent();
+      uiDropDown.setValue(selectedContainerId);
+//      SelectItemOption<String> option = uiDropDown.getOption(selectedContainerId);
+//      if(option != null) uiDropDown.setSelectedItem(option);
       uiContainerOptions.setCategorySelected(selectedContainerId);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiContainerOptions.getParent());
     }

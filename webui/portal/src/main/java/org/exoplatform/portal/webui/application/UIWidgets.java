@@ -30,14 +30,13 @@ import org.exoplatform.webui.event.EventListener;
   @ComponentConfig (
     template = "system:/groovy/portal/webui/application/UIWidgets.gtmpl" ,
     events = {
-        @EventConfig(listeners = UIWidgets.ChangeOptionActionListener.class),
         @EventConfig(listeners = UIWidgets.ManageContainerActionListener.class)
     }
   ),
   
   @ComponentConfig (
     type = UIDropDownControl.class ,
-    id = "UIDropDownControl",
+    id = "UIDropDownWidgets",
     template = "system:/groovy/webui/core/UIDropDownControl.gtmpl",
     events = {
         @EventConfig(listeners = UIWidgets.ChangeOptionActionListener.class)
@@ -59,7 +58,7 @@ public class UIWidgets extends UIContainer {
   
   public UIWidgets() throws Exception {
     setName(getClass().getSimpleName()) ;
-    uiContainerSelector_ = createUIComponent(UIDropDownControl.class, "UIDropDownControl", null) ;
+    uiContainerSelector_ = createUIComponent(UIDropDownControl.class, "UIDropDownWidgets", "UIDropDownWidgets") ;
     uiContainerSelector_.setParent(this);
   }
   
@@ -134,6 +133,7 @@ public class UIWidgets extends UIContainer {
     public void execute(Event<UIDropDownControl> event) throws Exception {
       String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);      
       UIDropDownControl dropDown = event.getSource();
+      System.out.println("\n\n\n\n\n\n\n =>>>>>>>>>>>UIWidgets");
       UIWidgets uiWidgets = dropDown.getParent();
       uiWidgets.setSelectedContainer(selectedContainerId) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWidgets.getParent());

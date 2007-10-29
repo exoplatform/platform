@@ -27,6 +27,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.UIWizard;
@@ -85,7 +86,15 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
         @EventConfig(listeners = EditNavigationActionListener.class),
         @EventConfig(listeners = DeleteNavigationActionListener.class, confirm = "UIPageNodeSelector.deleteNode")
       }
-  )
+  ),
+  @ComponentConfig (
+      type = UIDropDownControl.class ,
+      id = "UIDropDown",
+      template = "system:/groovy/webui/core/UIDropDownControl.gtmpl",
+      events = {
+        @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class)
+      }
+    )
 })
 public class UIWizardPageSetInfo extends UIForm {   
 

@@ -41,7 +41,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
-import org.exoplatform.webui.core.UIDropDownItemSelector;
+import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.model.SelectItemOption;
@@ -60,8 +60,7 @@ import org.exoplatform.webui.event.EventListener;
       template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
       events = {
         @EventConfig(listeners = UIPageNodeSelector.ChangeNodeActionListener.class),
-        @EventConfig(listeners = CreateNavigationActionListener.class),
-        @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class) 
+        @EventConfig(listeners = CreateNavigationActionListener.class)
       }
   ),
   @ComponentConfig(
@@ -91,7 +90,15 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = EditNavigationActionListener.class),
         @EventConfig(listeners = DeleteNavigationActionListener.class, confirm = "UIPageNodeSelector.deleteNode")
       }
-  )
+  ),
+  @ComponentConfig (
+      type = UIDropDownControl.class ,
+      id = "UIDropDown",
+      template = "system:/groovy/webui/core/UIDropDownControl.gtmpl",
+      events = {
+        @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class)
+      }
+    )
 })
 
 public class UIPageNodeSelector extends UIContainer {
@@ -107,10 +114,11 @@ public class UIPageNodeSelector extends UIContainer {
 	public UIPageNodeSelector() throws Exception {    
     addChild(UIRightClickPopupMenu.class, "UIPageNodeSelectorPopupMenu", null).setRendered(false);  
     
-    UIDropDownItemSelector uiDopDownSelector = addChild(UIDropDownItemSelector.class, null, null);
-    uiDopDownSelector.setTitle("Select Navigations");
-    uiDopDownSelector.setOnServer(true);
-    uiDopDownSelector.setOnChange("SelectNavigation");
+    UIDropDownControl uiDopDownControl = addChild(UIDropDownControl.class, "UIDropDown", "UIDropDown");
+    uiDopDownControl.setParent(this);
+    //    uiDopDownControl.setTitle("Select Navigations");
+//    uiDopDownControl.setOnServer(true);
+//    uiDopDownControl.setOnChange("SelectNavigation");
     
     UITree uiTree = addChild(UITree.class, null, "TreePageSelector");    
     uiTree.setIcon("Icon NavigationPortalIcon");    
@@ -155,8 +163,8 @@ public class UIPageNodeSelector extends UIContainer {
   
   private void updateUI() {
     if(navigations == null || navigations.size() < 1) {
-      getChild(UIDropDownItemSelector.class).setOptions(null) ;
-      getChild(UIDropDownItemSelector.class).setSelectedItem(null) ;
+      getChild(UIDropDownControl.class).setOptions(null) ;
+      //getChild(UIDropDownControl.class).setSelectedItem(null) ;
       getChild(UITree.class).setSibbling(null) ;
       return ;
     }
@@ -166,9 +174,9 @@ public class UIPageNodeSelector extends UIContainer {
       String label = navigation.getOwnerId() + "'s Nav";
       options.add(new SelectItemOption<String>(navigation.getOwnerType() + ":" + label, navigation.getId()));
     }
-    UIDropDownItemSelector uiNavigationSelector = getChild(UIDropDownItemSelector.class);
+    UIDropDownControl uiNavigationSelector = getChild(UIDropDownControl.class);
     uiNavigationSelector.setOptions(options);
-    if(options.size() > 0) uiNavigationSelector.setSelected(0);
+    if(options.size() > 0) uiNavigationSelector.setValue(0);
   }
   
   private void selectNavigation() {
@@ -189,8 +197,8 @@ public class UIPageNodeSelector extends UIContainer {
       selectPageNodeByUri(null) ;
       UITree uiTree = getChild(UITree.class);
       uiTree.setSibbling(navigations.get(i).getNodes());      
-      UIDropDownItemSelector uiDopDownSelector = getChild(UIDropDownItemSelector.class);
-      uiDopDownSelector.setSelected(i);
+      UIDropDownControl uiDropDownSelector = getChild(UIDropDownControl.class);
+      uiDropDownSelector.setValue(i);
     }
   }
   
@@ -344,10 +352,12 @@ public class UIPageNodeSelector extends UIContainer {
     }
   }
   
-  static public class SelectNavigationActionListener  extends EventListener<UIPageNodeSelector> {
-    public void execute(Event<UIPageNodeSelector> event) throws Exception {
+  static public class SelectNavigationActionListener  extends EventListener<UIDropDownControl> {
+    public void execute(Event<UIDropDownControl> event) throws Exception {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIPageNodeSelector uiPageNodeSelector = event.getSource();
+      UIDropDownControl uiDropDownControl = event.getSource();
+      UIPageNodeSelector uiPageNodeSelector = uiDropDownControl.getParent();
+      System.out.println("\n\n\n\n\n\n\n =>>>>>>>>>>>UIPagenodeSelector");
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent()) ;
       if(id != null) uiPageNodeSelector.selectNavigation(id);
     }

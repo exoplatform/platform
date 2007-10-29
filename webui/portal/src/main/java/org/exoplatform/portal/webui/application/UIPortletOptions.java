@@ -12,20 +12,34 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
+import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
-import org.exoplatform.webui.core.UIDropDownItemSelector;
+import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-@ComponentConfig(
-  template = "app:/groovy/portal/webui/application/UIPortletOptions.gtmpl",
-  events = @EventConfig(listeners = UIPortletOptions.ChangeOptionActionListener.class)
-)
+
+@ComponentConfigs( {
+  @ComponentConfig (
+      template = "app:/groovy/portal/webui/application/UIPortletOptions.gtmpl"
+    ),
+  
+  @ComponentConfig (
+      type = UIDropDownControl.class ,
+      id = "UIDropDownPorletOptions",
+      template = "system:/groovy/webui/core/UIDropDownControl.gtmpl",
+      events = {
+        @EventConfig(listeners = UIPortletOptions.ChangeOptionActionListener.class)
+      }
+    )
+})
 public class UIPortletOptions extends UIContainer {
 
   private List<PortletCategoryData> pCategoryDatas ; 
@@ -35,13 +49,11 @@ public class UIPortletOptions extends UIContainer {
   public UIPortletOptions() throws Exception {
     setId("UIPortletOptions");
     pCategoryDatas = new ArrayList<PortletCategoryData>();
-    UIDropDownItemSelector dropCategorys = addChild(UIDropDownItemSelector.class, null, null);
-    dropCategorys.setTitle("PortletCategory");
+    UIDropDownControl dropCategorys = addChild(UIDropDownControl.class, "UIDropDownPorletOptions", "UIDropDownPorletOptions");
+    dropCategorys.setParent(this);
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     dropCategorys.setOptions(options);
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
-    dropCategorys.setOnServer(true);
-    dropCategorys.setOnChange("ChangeOption");
     String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
     List<ApplicationCategory> pCategories = service.getApplicationCategories(remoteUser, org.exoplatform.web.application.Application.EXO_PORTLET_TYPE) ; 
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
@@ -118,13 +130,14 @@ public class UIPortletOptions extends UIContainer {
     public List<Application> getPortlets() { return portlets; }
   }
   
-  static  public class ChangeOptionActionListener extends EventListener<UIPortletOptions> {
-    public void execute(Event<UIPortletOptions> event) throws Exception {
+  static  public class ChangeOptionActionListener extends EventListener<UIDropDownControl> {
+    public void execute(Event<UIDropDownControl> event) throws Exception {
       String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIPortletOptions uiPortletOptions = event.getSource();
-      UIDropDownItemSelector uiDropDownItemSelector = uiPortletOptions.getChild(UIDropDownItemSelector.class);
-      SelectItemOption<String> option = uiDropDownItemSelector.getOption(selectedContainerId);
-      if(option != null) uiDropDownItemSelector.setSelectedItem(option);
+      UIDropDownControl uiDropDown = event.getSource();
+      UIPortletOptions uiPortletOptions = uiDropDown.getParent();
+      uiDropDown.setValue(selectedContainerId);
+//      SelectItemOption<String> option = uiDropDown.getOptions(selectedContainerId);
+//      if(option != null) uiDropDownItemSelector.setSelectedItem(option);
       uiPortletOptions.setCategorySelected(selectedContainerId);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPortletOptions.getParent());
     }
