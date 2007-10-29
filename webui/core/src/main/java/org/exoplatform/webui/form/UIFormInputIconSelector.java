@@ -13,7 +13,7 @@ import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
-import org.exoplatform.webui.core.UIDropDownItemSelector;
+import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -55,10 +55,10 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
   public UIFormInputIconSelector(String name, String bindingField) throws Exception {
     super(name, bindingField, String.class);
     setComponentConfig(UIFormInputIconSelector.class, null) ;
-    UIDropDownItemSelector dropIconSet = addChild(UIDropDownItemSelector.class, null, null);
+    UIDropDownControl dropIconSet = addChild(UIDropDownControl.class, null, null);
+    dropIconSet.setAction("eXo.webui.UIDropDownControl.init");
     this.setValues(paramDefault) ;
     selectType = "page" ;
-    dropIconSet.setTitle("Select Icon Set");
   }
   
   private List<SelectItemOption<String>> getDropOptions() {
@@ -94,7 +94,7 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
         }
       }
       optionSets.add(param.getName()) ;
-      getChild(UIDropDownItemSelector.class).setOptions(getDropOptions());
+      getChild(UIDropDownControl.class).setOptions(getDropOptions());
     }
   }
 
