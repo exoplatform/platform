@@ -4,23 +4,24 @@
 }
 .UIDropDownControl .UIDropDownTitle {
 	cursor:pointer;
-	height: 100% ;
 }
 
-.UIDropDownControl .UIOptionContainer {
+.UIDropDownControl .OptionContainer {
 	display: block ;
 	background: url(background/MLItemSelector3x1.png) repeat-y left center;
 	padding-left:3px;
 }
-.UIDropDownControl .UIItemListContainer {
+
+.UIDropDownControl .ItemListContainer {
 	background: url(background/MRItemSelector3x1.png) repeat-y right center;
 	padding-right:3px;
 }
-.UIDropDownControl .UIItemList {
+
+.UIDropDownControl .ItemList {
 	background:white url(/eXoMacSkin/skin/MacSkin/background/Background1x4.png) repeat;
 }
 
-.UIDropDownControl .UIOptionItem {
+.UIDropDownControl .OptionItem {
 	text-decoration:none ;
 	display: block ;
 	padding: 4px 4px 4px 17px ;
@@ -49,6 +50,7 @@
 .UIDropDownControl .UIDropDownLeftTitle {
 	background: url(background/LeftItemInfoBar4x24.png) no-repeat left center;
 	padding-left: 4px;
+	height: 24px;
 }
 
 .UIDropDownControl .UIDropDownRightTitle {
@@ -91,12 +93,12 @@
 	float: right;
 }
 
-.UIDropDownControl .UIOptionItem {
+.UIDropDownControl .OptionItem {
 	height: 100%;
-	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat;
+	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
 }
 
-.UIDropDownControl .UIOptionItem:hover {
+.UIDropDownControl .OptionItem:hover {
 	background: #7aafe5 ;
 	color: white;
 }
@@ -180,7 +182,12 @@
 }
 /* --end bottom --*/
 
-.UIPageNodeSelector .UIContainerConfigOptions .ComponentIcon {
-	width: 16px; height: 24px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat center;
+.UIPageNodeSelector .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
+	height: 24px;
+	padding-left: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat left center;
+}
+.UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
+  padding-left: 16px; height: 20px;
+	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif) no-repeat left center
 }

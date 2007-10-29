@@ -16,6 +16,11 @@
   padding: 0px 1px;
 }
 
+/*Created Dang.Tung*/
+.UIPageNodeSelector .UIDropDownControl {
+  padding: 0px 1px;
+}
+
 /*###############################- UITree -############################*/
 .UIPageNodeSelector .TreeSelectorTitle {
   text-align: center; 
@@ -96,7 +101,7 @@
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/EditNavigation.gif') no-repeat left top;
 	cursor: pointer;
-	float: left; margin: 2px 0px 2px -1px;
+	float: left; margin: 0px 0px 2px -1px;
 	height: 21px; width: 21px;
 	display: block;
 }
@@ -106,6 +111,12 @@
 }
 
 .UIControlWorkspace .UIPageNodeSelector .UIDropDownItemSelector {
+  float: left; 
+  width: 197px;
+}
+
+/*Created Dang.Tung*/
+.UIControlWorkspace .UIPageNodeSelector .UIDropDownControl {
   float: left; 
   width: 197px;
 }

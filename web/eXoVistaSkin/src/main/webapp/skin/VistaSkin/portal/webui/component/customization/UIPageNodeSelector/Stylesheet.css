@@ -16,6 +16,11 @@
   padding: 0px 1px;
 }
 
+/*Created Tung.Dang*/
+.UIPageNodeSelector .UIDropDownControl {
+  padding: 0px 1px;
+}
+
 /*###############################- UITree -############################*/
 .UIPageNodeSelector .TreeSelectorTitle {
   text-align: center; 
@@ -85,6 +90,12 @@
 	display: block;
 }
 .UIControlWorkspace .UIPageNodeSelector .UIDropDownItemSelector {
+  float: left; 
+  width: 201px;
+}
+
+/*created: Tung.Dang*/
+.UIControlWorkspace .UIPageNodeSelector .UIDropDownControl {
   float: left; 
   width: 201px;
 }

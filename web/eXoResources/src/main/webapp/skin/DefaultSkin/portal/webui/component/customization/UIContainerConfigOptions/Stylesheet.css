@@ -46,6 +46,11 @@
 	cursor: pointer ;
 }
 
+.UIContainerConfigOptions .UIDropDownControl {
+	width: 219px;
+	margin-bottom: 2px;
+}		
+
 .UIContainerConfigOptions .OneRowContainerLayout {
   width:105px ; height:56px ;
   background:url('background/1RowContainerBg105x56.gif') no-repeat;

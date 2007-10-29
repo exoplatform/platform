@@ -37,10 +37,16 @@
 	padding-left: 12px;
 	height: 22px; line-height: 22px; 
 }
+
 .UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
 	float: right;
 	cursor: pointer ;
 }
+
+.UIContainerConfigOptions .UIDropDownControl {
+	width: 223px;
+	margin-bottom: 2px;
+}		
 
 .UIContainerConfigOptions .OneRowContainerLayout {
   width: 109px;  height: 60px;

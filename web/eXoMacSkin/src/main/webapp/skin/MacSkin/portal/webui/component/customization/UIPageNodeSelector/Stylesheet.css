@@ -100,3 +100,8 @@
   float: left; 
   width: 200px;
 }
+
+.UIControlWorkspace .UIPageNodeSelector .UIDropDownControl {
+  float: left; 
+  width: 200px;
+}

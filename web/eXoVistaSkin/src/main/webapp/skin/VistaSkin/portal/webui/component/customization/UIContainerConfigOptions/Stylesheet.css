@@ -43,6 +43,12 @@
 	float: right;
 	cursor: pointer ;
 }
+
+.UIContainerConfigOptions .UIDropDownControl {
+	width: 219px;
+	margin-bottom: 2px;
+}		
+	
 .UIContainerConfigOptions .UIVTabContent {
   overflow:auto;
   padding:1px;
