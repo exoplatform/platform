@@ -7,7 +7,6 @@
   jsmanager.importJavascript('eXo.desktop.UIDesktop');
   jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
   jsmanager.importJavascript('eXo.desktop.UIWindow') ;
-  jsmanager.importJavascript('eXo.desktop.UIAddApplication') ;
   jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
   
   String docBase =  rcontext.getRequestContextPath() ;

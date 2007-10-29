@@ -5,7 +5,6 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
   jsmanager.importJavascript('eXo.widget.UIAddWidget');
-  jsmanager.importJavascript('eXo.desktop.UIAddApplication') ;
   String componentId = uicomponent.getId();
   String addWidgetAction = uicomponent.event("ShowAddNewApplication");
   String scrollUpAction = "eXo.webui.UIVerticalScroller.refreshScroll(1);";
