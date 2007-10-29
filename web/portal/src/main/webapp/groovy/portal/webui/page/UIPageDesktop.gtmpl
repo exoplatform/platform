@@ -138,7 +138,7 @@
                   <%if(modifiable) {%>
 		                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/AddPortlet.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
 		                       id="UIAddApplicationIcon"
-		                       onclick="eXo.desktop.UIAddApplication.init('<%=uicomponent.id%>', 'UIPageDesktop',[])" /><span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
+		                       onclick="<%=uicomponent.event("ShowAddNewApplication")%>"/><span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
 		                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>
                   <%}%>
                   <%                  

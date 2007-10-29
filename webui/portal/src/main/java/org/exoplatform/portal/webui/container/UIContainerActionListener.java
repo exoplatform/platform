@@ -6,12 +6,10 @@ package org.exoplatform.portal.webui.container;
 
 import java.util.List;
 
-import org.exoplatform.application.registry.Application;
-import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
+import org.exoplatform.portal.webui.application.UIAddNewApplication;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.application.UIWidgets;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -81,42 +79,6 @@ public class UIContainerActionListener {
     }
   }
   
-  static public class AddApplicationActionListener  extends EventListener<UIContainer> {
-    public void execute(Event<UIContainer> event) throws Exception {
-      UIContainer uiWidgetContainer = event.getSource();
-      String applicationId = event.getRequestContext().getRequestParameter("applicationId");  
-      
-      StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
-      windowId.append("#").append(event.getRequestContext().getRemoteUser()) ;
-      windowId.append(":/").append(applicationId).append('/');
-      ApplicationRegistryService service = uiWidgetContainer.getApplicationComponent(ApplicationRegistryService.class) ;
-      Application application = service.getApplication(applicationId);
-            
-      if(application == null) return;
-      UIWidget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
-      windowId.append(uiWidget.hashCode());
-      uiWidget.setApplicationInstanceId(windowId.toString());
-      uiWidget.setApplicationName(application.getApplicationName());
-      uiWidget.setApplicationGroup(application.getApplicationGroup());
-      uiWidget.setApplicationOwnerType(application.getApplicationType());
-//      uiWidget.setApplicationOwnerId(application.getOwner());
-      uiWidgetContainer.addChild(uiWidget);
-
-      String save = event.getRequestContext().getRequestParameter("save");
-      if(save == null || !Boolean.valueOf(save).booleanValue()) return;
-      UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
-      Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
-      UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
-      configService.update(widgets);
-      
-      UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
-      uiPortalApp.getUserPortalConfig().setWidgets(widgets) ;
-      
-      UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
-    }
-  }
-  
   static public class AddWidgetContainerActionListener extends EventListener<UIContainer> {
     public void execute(Event<UIContainer> event) throws Exception {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
@@ -125,6 +87,33 @@ public class UIContainerActionListener {
       System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n ADD WIDGET CONTAINER \n\n\n\n\n\n\n\n\n\n\n\n");
       
     }
+  }
+  
+  static public class ShowAddNewApplicationActionListener extends EventListener<UIContainer> {
+
+    @Override
+    public void execute(Event<UIContainer> event) throws Exception {
+         
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWorkspace = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;  
+      
+      UIAddNewApplication uiAddApplication = uiPortal.createUIComponent(UIAddNewApplication.class,
+          null, null);
+      //get Widget Applications only
+      String[] applicationTypes = {"eXoWidget"};
+      
+      //Set parent container
+      UIAddNewApplication.UI_COMPONENT_PARENT = event.getSource();
+      uiAddApplication.getApplicationCategories(event.getRequestContext().getRemoteUser(),applicationTypes);
+
+      uiMaskWorkspace.setWindowSize(700, 375);
+      uiMaskWorkspace.setUIComponent(uiAddApplication);
+      uiMaskWorkspace.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
+      
+    }
+
   }
   
 }

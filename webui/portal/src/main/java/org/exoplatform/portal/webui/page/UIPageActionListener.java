@@ -7,18 +7,14 @@ package org.exoplatform.portal.webui.page;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.application.registry.Application;
-import org.exoplatform.application.registry.ApplicationCategory;
-import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
+import org.exoplatform.portal.webui.application.UIAddNewApplication;
 import org.exoplatform.portal.webui.application.UIApplication;
-import org.exoplatform.portal.webui.application.UIExoApplication;
-import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
@@ -27,6 +23,7 @@ import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIExoStart;
+import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
@@ -165,101 +162,6 @@ public class UIPageActionListener {
     }
   }
   
-  
-  static public class AddApplicationActionListener  extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      UIPage uiPage = null;
-      if(uiPortal.isRendered()){
-        uiPage = uiPortal.findFirstComponentOfType(UIPage.class);
-      } else {
-        UIPortalToolPanel uiPortalToolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
-        uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
-      }      
-      
-      String applicationId = event.getRequestContext().getRequestParameter("applicationId");
-      
-      Application application = getApplication(uiPortal, applicationId);
-      //review windowId for eXoWidget and eXoApplication
-      if(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(application.getApplicationType())) {
-        UIPortlet uiPortlet =  uiPage.createUIComponent(UIPortlet.class, null, null);
-        
-        StringBuilder windowId = new StringBuilder(uiPage.getOwnerType());
-        windowId.append('#').append(uiPage.getOwnerId());
-        windowId.append(":/").append(applicationId).append('/').append(uiPortlet.hashCode());
-        uiPortlet.setWindowId(windowId.toString());
-        
-        if(application != null){
-          if(application.getDisplayName() != null) {
-            uiPortlet.setTitle(application.getDisplayName());
-          } else if(application.getApplicationName() != null) {
-            uiPortlet.setTitle(application.getApplicationName());
-          }
-          uiPortlet.setDescription(application.getDescription());
-        }
-        uiPage.addChild(uiPortlet);
-      } else if(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE.equals(application.getApplicationType())){
-        UIWidget uiWidget = uiPage.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
-        
-        StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
-        windowId.append(":/").append(applicationId).append('/').append(uiWidget.hashCode());
-        uiWidget.setApplicationInstanceId(windowId.toString());
-        
-        uiWidget.setApplicationName(application.getApplicationName());
-        uiWidget.setApplicationGroup(application.getApplicationGroup());
-        uiWidget.setApplicationOwnerType(application.getApplicationType());
-//        uiWidget.setApplicationOwnerId(application.getOwner());
-        
-        /*--------------------Set Properties For Widget--------------------*/
-        
-        int posX = (int)(Math.random()*400) ;
-        int posY = (int)(Math.random()*200) ;
-        uiWidget.getProperties().put(UIApplication.locationX, String.valueOf(posX)) ;
-        uiWidget.getProperties().put(UIApplication.locationY, String.valueOf(posY)) ;
-        
-        uiPage.addChild(uiWidget);
-      } else {
-        UIExoApplication uiExoApp = uiPage.createUIComponent(UIExoApplication.class, null, null);
-        
-        StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
-        windowId.append(":/").append(applicationId).append('/').append(uiExoApp.hashCode());
-        uiExoApp.setApplicationInstanceId(windowId.toString());
-        
-        uiExoApp.init();
-        uiPage.addChild(uiExoApp);
-      }
-
-      String save = event.getRequestContext().getRequestParameter("save");
-      if(save != null && Boolean.valueOf(save).booleanValue() && uiPage.isModifiable()) {
-        Page page = PortalDataMapper.toPageModel(uiPage); 
-        UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
-        if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-        configService.update(page);
-      }
-      
-      PortalRequestContext pcontext = Util.getPortalRequestContext();
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.setFullRender(true);
-    }
-    
-    @SuppressWarnings("unchecked")
-    private Application getApplication(UIPortal uiPortal, String id) throws Exception {
-      ApplicationRegistryService service = uiPortal.getApplicationComponent(ApplicationRegistryService.class) ;
-      List<ApplicationCategory> pCategories = service.getApplicationCategories();   
-
-      for(ApplicationCategory pCategory : pCategories) {
-        List<Application> applications = service.getApplications(pCategory) ;
-        for(Application application : applications){
-          if(application.getId().equals(id)) return application;
-        }  
-      }    
-      
-      return null;
-    }
-  }
-  
   static public class DeleteWidgetActionListener extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
@@ -389,5 +291,27 @@ public class UIPageActionListener {
     }
   }
   
+  static public class ShowAddNewApplicationActionListener extends EventListener<UIPage> {
+
+    @Override
+    public void execute(Event<UIPage> event) throws Exception {
+
+      UIPage uiPage = event.getSource();
+
+      UIPortalApplication uiPortalApp = uiPage.getAncestorOfType(UIPortalApplication.class);
+      UIMaskWorkspace uiMaskWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);      
+
+      UIAddNewApplication uiAddApplication = uiPage.createUIComponent(UIAddNewApplication.class,
+          null, null);
+      UIAddNewApplication.UI_COMPONENT_PARENT = uiPage;
+      uiAddApplication.getApplicationCategories(event.getRequestContext().getRemoteUser(), null);
+
+      uiMaskWorkspace.setWindowSize(700, 375);
+      uiMaskWorkspace.setUIComponent(uiAddApplication);
+      uiMaskWorkspace.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
+
+    }
+  }  
   
 }
