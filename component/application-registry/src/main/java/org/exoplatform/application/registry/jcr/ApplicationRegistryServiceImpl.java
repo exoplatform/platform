@@ -22,6 +22,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
+import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
@@ -43,12 +44,13 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   private DataMapper mapper = new DataMapper();
   private JCRRegistryService jcrRegService_;
+  private RegistryService regServ_ ;
 
   private List<ApplicationCategoriesPlugins> plugins;
   
-  public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService) throws Exception {
+  public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService, RegistryService test) throws Exception {
     jcrRegService_ = jcrRegService ;
-    
+    regServ_ = test ;
   }
 
   public List<ApplicationCategory> getApplicationCategories() throws Exception {

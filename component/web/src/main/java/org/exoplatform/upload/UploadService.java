@@ -41,8 +41,8 @@ public class UploadService {
     Map<String, String> headers = reader.parseHeaders(request.getInputStream(), headerEncoding);
    
     String fileName = reader.getFileName(headers);
-    if(fileName != null || fileName.lastIndexOf('\\') != 1) fileName = fileName.substring(fileName.lastIndexOf('\\') + 1) ; 
-    else fileName = uploadId;
+    if(fileName == null) fileName = uploadId;
+    fileName = fileName.substring(fileName.lastIndexOf('\\') + 1) ;    
     
     upResource.setFileName(fileName);
     upResource.setMimeType(headers.get(RequestStreamReader.CONTENT_TYPE));
@@ -78,5 +78,4 @@ public class UploadService {
     file.delete();
     uploadResources.remove(uploadId) ;
   }
-  
 }

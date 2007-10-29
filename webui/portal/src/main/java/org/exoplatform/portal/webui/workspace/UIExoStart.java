@@ -41,7 +41,6 @@ import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.organization.UIAccountForm;
 
 @ComponentConfig (
     template = "system:/groovy/portal/webui/workspace/UIExoStart.gtmpl" ,

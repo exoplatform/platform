@@ -15,7 +15,6 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
-import org.exoplatform.portal.webui.application.UIExoApplication;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.application.UIWidgets;
@@ -168,25 +167,6 @@ public class PortalDataMapper {
     }
     model.setChildren(modelChildren);
     return model;
-  }
-  
-  
-  
-  
-//  ************************************************************************************************
-
-  
-  
-  
-  static public void toUIExoApplication(UIExoApplication uiExoApp, Application model) throws Exception {
-    uiExoApp.setApplicationInstanceId(model.getInstanceId()) ;
-    uiExoApp.setShowInfoBar(model.getShowInfoBar());
-    uiExoApp.setShowWindowState(model.getShowApplicationState());
-    uiExoApp.setTitle(model.getTitle());
-    uiExoApp.setIcon(model.getIcon());
-    uiExoApp.setDescription(model.getDescription());
-    uiExoApp.setProperties(model.getProperties());
-    uiExoApp.init() ;
   }
   
   static public void toUIWidget(UIWidget uiWidget, Application model) throws Exception {

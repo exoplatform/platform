@@ -44,11 +44,9 @@ public class ConfigurationManager {
   /**
    * 
    * @param inputStream A stream that links the configuration file
-   * @param app The Application to configure
    * @throws Exception
    */
-  @SuppressWarnings("unused")
-  public ConfigurationManager(InputStream inputStream, WebuiApplication app) throws Exception {   
+  public ConfigurationManager(InputStream inputStream) throws Exception {   
     IBindingFactory bfact = BindingDirectory.getFactory(WebuiConfiguration.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
     WebuiConfiguration config = (WebuiConfiguration)uctx.unmarshalDocument(inputStream, null) ;  

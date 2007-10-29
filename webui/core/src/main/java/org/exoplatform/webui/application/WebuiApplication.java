@@ -47,7 +47,7 @@ abstract public class WebuiApplication extends Application {
   public void onInit() throws Exception {        
     String configPath = getApplicationInitParam("webui.configuration") ;
     InputStream is = getResourceResolver().getInputStream(configPath) ;
-    configManager_ = new ConfigurationManager(is, this) ;
+    configManager_ = new ConfigurationManager(is) ;
     String stateManagerClass = configManager_.getApplication().getStateManager() ;
     StateManager stManager = (StateManager) Util.createObject(stateManagerClass, null) ;
     setStateManager(stManager) ;

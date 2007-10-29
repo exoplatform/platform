@@ -30,8 +30,7 @@ public class ApplicationRegister implements ServletContextListener {
       RootContainer root = RootContainer.getInstance() ;
       //TODO avoid portal hardcode
       PortalContainer pcontainer =  root.getPortalContainer("portal") ;
-      WebAppController controller = 
-        (WebAppController)pcontainer.getComponentInstanceOfType(WebAppController.class) ;
+      WebAppController controller = (WebAppController)pcontainer.getComponentInstanceOfType(WebAppController.class) ;
       ClassLoader loader = Thread.currentThread().getContextClassLoader() ;
       for(String className : classes) {
         className = className.trim() ;

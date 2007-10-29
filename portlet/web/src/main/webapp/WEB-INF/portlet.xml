@@ -139,7 +139,7 @@
       <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.web.SitemapPortlet</resource-bundle>
+    <resource-bundle>locale.portlet.web.GroovyPortlet</resource-bundle>
     
     <portlet-info>
       <title>Site map Portlet</title>
@@ -147,32 +147,6 @@
       <keywords>sitemap</keywords>
     </portlet-info>     
   </portlet>
-  
-  <!-- <portlet>
-    <description xml:lang="EN">Login Portlet</description>
-    <portlet-name>LoginPortlet</portlet-name>
-    <display-name xml:lang="EN">Login Portlet</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-    
-    <init-param>
-      <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/web/LoginPortlet/webui/configuration.xml</value>
-    </init-param>    
-
-    <expiration-cache>0</expiration-cache>
-    <supports>
-      <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
-    </supports>
-    <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.web.LoginPortlet</resource-bundle>
-    
-    <portlet-info>
-      <title>Login Portlet</title>
-      <short-title>Login Portlet</short-title>
-      <keywords>login</keywords>
-    </portlet-info>     
-  </portlet> -->
   
   <portlet>
     <description xml:lang="EN">Browser Portlet</description>
