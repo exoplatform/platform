@@ -303,7 +303,8 @@ public class UIPageActionListener {
 
       UIAddNewApplication uiAddApplication = uiPage.createUIComponent(UIAddNewApplication.class,
           null, null);
-      UIAddNewApplication.UI_COMPONENT_PARENT = uiPage;
+      uiAddApplication.setInPage(true);
+      uiAddApplication.setUiComponentParent(uiPage);
       uiAddApplication.getApplicationCategories(event.getRequestContext().getRemoteUser(), null);
 
       uiMaskWorkspace.setWindowSize(700, 375);

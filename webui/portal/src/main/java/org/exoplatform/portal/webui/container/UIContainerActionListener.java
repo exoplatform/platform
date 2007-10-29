@@ -101,10 +101,11 @@ public class UIContainerActionListener {
       UIAddNewApplication uiAddApplication = uiPortal.createUIComponent(UIAddNewApplication.class,
           null, null);
       //get Widget Applications only
-      String[] applicationTypes = {"eXoWidget"};
+      String[] applicationTypes = {org.exoplatform.web.application.Application.EXO_WIDGET_TYPE};
       
       //Set parent container
-      UIAddNewApplication.UI_COMPONENT_PARENT = event.getSource();
+      uiAddApplication.setInPage(false);
+      uiAddApplication.setUiComponentParent(event.getSource());
       uiAddApplication.getApplicationCategories(event.getRequestContext().getRemoteUser(),applicationTypes);
 
       uiMaskWorkspace.setWindowSize(700, 375);

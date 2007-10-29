@@ -48,22 +48,23 @@ import org.exoplatform.webui.event.EventListener;
     
 public class UIAddNewApplication extends UIContainer {
   
+  public UIAddNewApplication(){
+    
+  }
+  
   static public class AddApplicationActionListener extends EventListener<UIAddNewApplication> {
     
     public void execute(Event<UIAddNewApplication> event) throws Exception {
-     
-      //Class name of Components
-      String strUIContainerClass = "org.exoplatform.portal.webui.container.UIContainer";
-      String strUIPageClass = "org.exoplatform.portal.webui.page.UIPage";
-     
-      //Check the parent Component
-      if(UI_COMPONENT_PARENT.getClass().getName().equals(strUIContainerClass)){
-        //add to Left Container
+
+      //Check where to add Component
+      if(event.getSource().isInPage()){
+        // add to Page
+        addApplicationToPage(event);        
+        
+      }else{
+        // add to Left Container
         addApplicationToContainer(event);
         
-      }else if(UI_COMPONENT_PARENT.getClass().getName().equals(strUIPageClass)){
-        //add to Page
-        addApplicationToPage(event);
       }
       
     }
@@ -89,8 +90,7 @@ public class UIAddNewApplication extends UIContainer {
 
       String applicationId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
 
-      Application application = getApplication(uiPortal, applicationId);
-      
+      Application application = event.getSource().getApplication(applicationId);
       // review windowId for eXoWidget and eXoApplication
       if (org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(application
           .getApplicationType())) {
@@ -110,6 +110,7 @@ public class UIAddNewApplication extends UIContainer {
           uiPortlet.setDescription(application.getDescription());
         }
         uiPage.addChild(uiPortlet);
+        
       } else if (org.exoplatform.web.application.Application.EXO_WIDGET_TYPE.equals(application
           .getApplicationType())) {
         UIWidget uiWidget = uiPage.createUIComponent(event.getRequestContext(), UIWidget.class,
@@ -130,17 +131,6 @@ public class UIAddNewApplication extends UIContainer {
         uiWidget.getProperties().put(UIApplication.locationY, String.valueOf(posY));
 
         uiPage.addChild(uiWidget);
-        
-      } else {
-        
-        UIExoApplication uiExoApp = uiPage.createUIComponent(UIExoApplication.class, null, null);
-
-        StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
-        windowId.append(":/").append(applicationId).append('/').append(uiExoApp.hashCode());
-        uiExoApp.setApplicationInstanceId(windowId.toString());
-
-        uiExoApp.init();
-        uiPage.addChild(uiExoApp);
         
       }
 
@@ -167,10 +157,8 @@ public class UIAddNewApplication extends UIContainer {
      * @throws Exception
      */
     private void addApplicationToContainer(Event<UIAddNewApplication> event) throws Exception{
-      
-      if(UIAddNewApplication.UI_COMPONENT_PARENT==null) return;
-      
-      UIContainer uiWidgetContainer = (UIContainer)UIAddNewApplication.UI_COMPONENT_PARENT;
+           
+      UIContainer uiWidgetContainer = (UIContainer)event.getSource().getUiComponentParent() ;
       String applicationId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);  
       
       StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
@@ -203,7 +191,7 @@ public class UIAddNewApplication extends UIContainer {
     
   }
   
-  private static Application getApplication(UIPortal uiPortal, String id) throws Exception {
+  private Application getApplication(String id) throws Exception {
 
     List<ApplicationCategory> pCategories = getApplicationCategories();
     
@@ -219,7 +207,7 @@ public class UIAddNewApplication extends UIContainer {
   }
 
   
-  public static List<ApplicationCategory> getApplicationCategories() throws Exception {
+  public List<ApplicationCategory> getApplicationCategories() throws Exception {
     
     return listAppCategories;
   }
@@ -247,8 +235,26 @@ public class UIAddNewApplication extends UIContainer {
 
   }
   
-  private static List<ApplicationCategory> listAppCategories;
+  private List<ApplicationCategory> listAppCategories;
 
-  public static UIComponent UI_COMPONENT_PARENT = null;
+  private UIComponent uiComponentParent;
+  
+  private boolean isInPage;
+
+  public UIComponent getUiComponentParent() {
+    return uiComponentParent;
+  }
+
+  public void setUiComponentParent(UIComponent uiComponentParent) {
+    this.uiComponentParent = uiComponentParent;
+  }
+
+  public boolean isInPage() {
+    return isInPage;
+  }
+
+  public void setInPage(boolean isInPage) {
+    this.isInPage = isInPage;
+  }
 
 }
