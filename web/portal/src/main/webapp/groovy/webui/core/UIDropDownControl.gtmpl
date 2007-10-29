@@ -12,16 +12,17 @@
 			<div class="UIDropDownLeftTitle">
 				<div class="UIDropDownRightTitle">
 					<div class="UIDropDownMiddleTitle">
-						<div class="Icon ComponentIcon"><span></span></div>
-		  			<div class="DropDownSelectLabel"><span>
-		  			<% if (options.size() > 0) { %>
-								<%= uicomponent.getLabel() ;%> 
-							<% }else {%>
-							<%=_ctx.appRes(uicomponent.getId() + ".title.Empty")%>
-							<% } %>
-						</span></div>
-						<div class="DropDownSelectIcon"><span></span></div>
-		  			<div style="clear: both;"><span></span></div>
+						<div class="Icon ComponentIcon">
+							<div class="DropDownSelectIcon">
+			  				<div class="DropDownSelectLabel">
+				  				<% if (options.size() > 0) { %>
+										<%= uicomponent.getLabel() ;%> 
+									<% }else {%>
+									<%=_ctx.appRes(uicomponent.getId() + ".title.Empty")%>
+									<% } %>
+								</div>
+							</div>
+						</div>
 		  		</div>
 				</div>
 			</div>

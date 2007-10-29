@@ -9,7 +9,8 @@
 }
 
 .UIWidgets .UIDropDownControl .ComponentIcon {
-	background: url('icons/IconWidget.png') no-repeat center;
+	background: url('icons/IconWidget.png') no-repeat center left;
+	padding-left: 20px;
 }
 
 .UIWidgets .WidgetDecorator {

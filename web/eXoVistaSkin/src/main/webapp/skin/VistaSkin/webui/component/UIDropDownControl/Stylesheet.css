@@ -20,15 +20,6 @@
 	padding-right: 12px;
 }
 
-.UIDropDownControl .UIOptionItem {
-	text-decoration:none ;
-	display: block ;
-	padding: 4px 4px 4px 17px ;
-	border-bottom:1px solid #CDCDCD;
-	border-top: 1px solid #CDCDCD ;
-	height: 100% ;
-}
-
 .UIDropDownControl .UIDropDownAnchor .UIItemListOption {
 	background: url(background/BGNormalItem1x22.png) repeat-x 0%; 
 	cursor:pointer;
@@ -66,50 +57,50 @@
   
 }
 
-
 .UIDropDownControl .UIDropDownLeftTitle {
-	background:transparent url(/eXoVistaSkin/skin/VistaSkin/background/IconLabelContentBG1x1.png) repeat scroll 0% 50%;
-	border-color:-moz-use-text-color #959595 rgb(149, 149, 149);
-	border-style:none solid solid;
-	border-width:medium 1px 1px;
-	cursor:pointer;
-	padding-left:8px;
+	background: url(/eXoVistaSkin/skin/VistaSkin/background/IconLabelContentBG1x1.png) repeat center;
+	border: 1px solid #959595 ;
+	border-top: none;
+	cursor: pointer;
+	padding-left: 8px;
+	height: 20px;
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {
-	float:left ;
-	margin:1px 0px 0px ;
+	width: auto;
 }
 
 .UIDropDownControl .DropDownSelectIcon {
-	background:transparent url(icons/SelectedIcon.png) no-repeat scroll center;
-	cursor:pointer;
-	float:right;
-	height:20px;
-	width:19px;
+	background: url(icons/SelectedIcon.png) no-repeat right center;
+	cursor: pointer;
+	height: 20px;
+	padding-right: 20px;
 }
 
 .UIDropDownControl .DropDownSelectLabel {
-	float:left;
 	font-size: 10px;
 	font-weight: bold;
 	line-height: 19px;
+	height: 19px;
 	margin-left: 6px;
 	overflow: hidden;
 	margin-left: 5px;
 }
 
 .UIDropDownControl .EditIcon {
-	background:transparent url(icons/ManageButton.gif) no-repeat center top;
-	cursor:pointer;
-	height:21px;
-	width:20px;
+	background: url(icons/ManageButton.gif) no-repeat center top;
+	cursor: pointer;
+	height: 21px;
+	width: 20px;
 	float: right;
 }
 
 .UIDropDownControl .UIOptionItem {
 	height: 100%;
-	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat;
+	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left 3px;
+	display: block ;
+	padding: 4px 4px 4px 17px ;
+	border-bottom:1px solid #CDCDCD;
 }
 
 .UIDropDownControl .UIOptionItem:hover {

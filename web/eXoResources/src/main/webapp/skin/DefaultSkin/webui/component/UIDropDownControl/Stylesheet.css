@@ -37,24 +37,22 @@
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {
-	float:left;
-	margin:2px 0px 0px;
+	width: auto;
 }
 
 .UIDropDownControl .DropDownSelectIcon {
 	background: url(background/DropDownButton.gif) no-repeat scroll right center;
-	cursor:pointer;
-	float:right;
-	height:19px;
-	width:20px;
+	cursor: pointer;
+	height: 19px;
+	padding-right: 20px;
 }
 
 .UIDropDownControl .DropDownSelectLabel {
 	font-weight: bold ;
 	font-size: 10px ;
 	overflow: hidden;
-	float: left;
 	line-height: 19px;
+	height: 19px;
 	margin-left: 5px;
 }
 
