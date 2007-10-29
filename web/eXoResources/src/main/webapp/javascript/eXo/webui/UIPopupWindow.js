@@ -99,12 +99,17 @@ UIPopupWindow.prototype.show = function(popup, isShowMask) {
  	var offsetParent = popup.offsetParent ;
  	var scrollY = (window.scrollY)?window.scrollY:document.documentElement.scrollTop ;
 	if(offsetParent) {
+			
+		if(eXo.core.DOMUtil.hasClass(offsetParent, "UIPopupWindow") || eXo.core.DOMUtil.hasClass(offsetParent, "UIWindow")) {			
+			popup.style.top = Math.ceil((offsetParent.offsetHeight - popup.offsetHeight) / 2)  + "px" ;
+		} else {
+			popup.style.top = Math.ceil((window.screen.availHeight - 2*popup.offsetHeight ) / 2) + scrollY + "px" ;			
+		}
+
+		var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
+		if (uiWorkspaceContainer.style.display != "block") {
 			popup.style.top = "6px";
-//		if(eXo.core.DOMUtil.hasClass(offsetParent, "UIPopupWindow") || eXo.core.DOMUtil.hasClass(offsetParent, "UIWindow")) {			
-//			popup.style.top = Math.ceil((offsetParent.offsetHeight - popup.offsetHeight) / 2)  + "px" ;
-//		} else {
-//			popup.style.top = Math.ceil((window.screen.availHeight - 2*popup.offsetHeight ) / 2) + scrollY + "px" ;			
-//		}
+		}
 		popup.style.left = Math.ceil((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
 	}
 	if (eXo.core.Browser.findPosY(popup) < 0) popup.style.top = scrollY + "px" ;
