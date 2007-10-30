@@ -45,6 +45,12 @@
     </application>  
 
     <application>
+      <instance-id>group#portal/admin:/exoadmin/ResourcesPortlet/Resources</instance-id>
+      <title>Resources Portlet</title>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+
+    <application>
       <instance-id>group#portal/admin:/web/BrowserPortlet/BrowserPortlet</instance-id>
       <title>Browser Portlet</title>
       <show-info-bar>true</show-info-bar>

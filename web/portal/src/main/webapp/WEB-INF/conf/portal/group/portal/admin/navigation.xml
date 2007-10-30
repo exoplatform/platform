@@ -13,10 +13,10 @@
     </node> 
     
     <node>
-        <uri>administration/portletregistry</uri>
-        <name>portletRegistry</name>
-        <label>Portlet Registry</label>
-        <page-reference>group::portal/admin::portletregistry</page-reference>
+	    <uri>administration/portletregistry</uri>
+	    <name>portletRegistry</name>
+	    <label>Portlet Registry</label>
+	    <page-reference>group::portal/admin::portletregistry</page-reference>
     </node>
     
 
