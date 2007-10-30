@@ -47,26 +47,12 @@ import org.exoplatform.webui.event.EventListener;
 )
     
 public class UIAddNewApplication extends UIContainer {
-  
-  public UIAddNewApplication(){
-    
-  }
-  
+   
   static public class AddApplicationActionListener extends EventListener<UIAddNewApplication> {
     
     public void execute(Event<UIAddNewApplication> event) throws Exception {
-
-      //Check where to add Component
-      if(event.getSource().isInPage()){
-        // add to Page
-        addApplicationToPage(event);        
-        
-      }else{
-        // add to Left Container
-        addApplicationToContainer(event);
-        
-      }
-      
+      if(event.getSource().isInPage()) addApplicationToPage(event);        
+      else addApplicationToContainer(event);
     }
     
     /***
