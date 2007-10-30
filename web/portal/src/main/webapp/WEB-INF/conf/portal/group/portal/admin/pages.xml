@@ -45,8 +45,8 @@
     </application>  
 
     <application>
-      <instance-id>group#portal/admin:/exoadmin/ResourcesPortlet/Resources</instance-id>
-      <title>Resources Portlet</title>
+      <instance-id>group#portal/admin:/exoadmin/I18nPortlet/i18n</instance-id>
+      <title>Internationalization Portlet</title>
       <show-info-bar>false</show-info-bar>
     </application>  
 

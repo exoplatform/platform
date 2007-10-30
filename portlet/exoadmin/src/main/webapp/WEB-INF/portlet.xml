@@ -90,14 +90,14 @@
   </portlet>
   
   <portlet>
-    <description xml:lang="EN">Resources Registry</description>
-    <portlet-name>ResourcesPortlet</portlet-name>
-    <display-name xml:lang="EN">Portlet Resources</display-name>
+    <description xml:lang="EN">Internationalization Portlet</description>
+    <portlet-name>I18nPortlet</portlet-name>
+    <display-name xml:lang="EN">Internationalization Portlet</display-name>
     <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
     
     <init-param>
       <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/exoadmin/ResourcesPortlet/webui/configuration.xml</value>
+      <value>/WEB-INF/conf/portlet/exoadmin/I18nPortlet/webui/configuration.xml</value>
     </init-param>    
 
     <expiration-cache>0</expiration-cache>
@@ -106,10 +106,10 @@
       <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.exoadmin.ResourcesPortlet</resource-bundle>
+    <resource-bundle>locale.portlet.exoadmin.I18nPortlet</resource-bundle>
     <portlet-info>
-      <title>Resources Portlet</title>
-      <short-title>Resources</short-title>
+      <title>Internationalization Portlet</title>
+      <short-title>Internationalization</short-title>
       <keywords>portlet, registry</keywords>
     </portlet-info>
   </portlet>    

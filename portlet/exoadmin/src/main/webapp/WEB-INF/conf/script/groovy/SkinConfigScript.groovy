@@ -57,17 +57,17 @@ SkinService.addSkin(
 SkinService.addSkin(
     "exoadmin/ResourcesPortlet",
     "Default",
-    "/exoadmin/skin/resources/webui/component/UIResourcesPortlet/DefaultStylesheet.css"
+    "/exoadmin/skin/i18n/webui/component/UII18nPortlet/DefaultStylesheet.css"
 ) ;
 
 SkinService.addSkin(
     "exoadmin/ResourcesPortlet",
     "Vista",
-    "/exoadmin/skin/resources/webui/component/UIResourcesPortlet/VistaStylesheet.css"
+    "/exoadmin/skin/i18n/webui/component/UII18nPortlet/VistaStylesheet.css"
 ) ;
  
 SkinService.addSkin(
     "exoadmin/ResourcesPortlet",
     "Mac",
-    "/exoadmin/skin/resources/webui/component/UIResourcesPortlet/MacStylesheet.css"
+    "/exoadmin/skin/i18n/webui/component/UII18nPortlet/MacStylesheet.css"
 ) ;
