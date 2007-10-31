@@ -32,7 +32,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
   ),
   
   @ComponentConfig(
-      id = "UISearchadf",
+      id = "UISearchI18n",
       type = UIForm.class,
       lifecycle = UIFormLifecycle.class,
       template = "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
@@ -46,12 +46,16 @@ public class UII18nPortlet extends UIPortletApplication {
   private static String[] RESOURCE_LIST = {"name", "language"} ;
   private static String[] RESOURCE_ACTION = {"Edit", "Delete"} ;
 
+  private UIGrid grid_ ;
   public UII18nPortlet() throws Exception {
-    ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
-    UIGrid grid = addChild(UIGrid.class, null, "ResourceList") ;
-    grid.configure("id", RESOURCE_LIST, RESOURCE_ACTION) ;
-    grid.getUIPageIterator().setPageList(resBundleServ.findResourceDescriptions(new Query(null, null))) ;
-    UIForm uiSearchResource = addChild(UIForm.class,"UISearchadf", null);
+    
+    //ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
+    grid_ = addChild(UIGrid.class, null, "ResourceList") ;
+    grid_.configure("id", RESOURCE_LIST, RESOURCE_ACTION) ;
+    //grid_.getUIPageIterator().setPageList(resBundleServ.findResourceDescriptions(new Query(null, null))) ;
+    update(null,null);
+    
+    UIForm uiSearchResource = addChild(UIForm.class,"UISearchI18n", null);
     uiSearchResource.addUIFormInput(new UIFormStringInput("name","name",null));
     
     LocaleConfigService service = getApplicationComponent(LocaleConfigService.class) ;
@@ -66,6 +70,9 @@ public class UII18nPortlet extends UIPortletApplication {
     }
     
     uiSearchResource.addUIFormInput(new UIFormSelectBox("language","language",options));
+    
+    
+     
   }
   
   static public class DeleteActionListener extends EventListener<UII18nPortlet> {
@@ -77,7 +84,7 @@ public class UII18nPortlet extends UIPortletApplication {
 
   static public class EditActionListener extends EventListener<UII18nPortlet> {
     public void execute(Event<UII18nPortlet> event) throws Exception {
-      
+      System.out.println("\n\n\n\n\n\n =>>>>>>>>>>>>>>>>... Edit Resource");
     }
   }
 
@@ -90,6 +97,11 @@ public class UII18nPortlet extends UIPortletApplication {
   static public class NewResourceActionListener  extends EventListener<UIForm> {
     public void execute(Event<UIForm> event) throws Exception {     
     }
+  }
+  
+  public void update(String name , String lang) throws Exception {
+    ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
+    grid_.getUIPageIterator().setPageList(resBundleServ.findResourceDescriptions(new Query(name, lang))) ;
   }
 }
 
