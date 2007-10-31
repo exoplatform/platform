@@ -1,21 +1,33 @@
 <repository-service default-repository="repository">
    <repositories>
+
     <repository name="repository" system-workspace="system" default-workspace="production">
      <security-domain>exo-domain</security-domain>
      <access-control>optional</access-control>
-     <!--<replication
-       enabled="true"
-       mode="persistent"
-       channel-config="TCP_NIO(use_send_queues=false;bind_addr=/LocalAddress/;enable_bundling=true;discard_incompatible_packets=true;max_bundle_size=640000;down_thread=false;use_outgoing_packet_handler=false;processor_queueSize=100;max_bundle_timeout=30;reader_threads=8;sock_conn_timeout=300;up_thread=false;loopback=false;skip_suspected_members=true;processor_minThreads=8;enable_diagnostics=false;processor_keepAliveTime=-1;writer_threads=8;processor_maxThreads=8;recv_buf_size=20000000;start_port=7800;use_incoming_packet_handler=true;send_buf_size=640000;processor_threads=8):MPING(bind_addr=/LocalAddress/;num_initial_members=2;up_thread=false;down_thread=false;mcast_addr=229.6.7.8;timeout=2000):FD_SOCK(up_thread=false;down_thread=false):pbcast.NAKACK(gc_lag=10;use_mcast_xmit=false;up_thread=false;retransmit_timeout=100,200,300,600,1200,2400,4800;down_thread=false;discard_delivered_msgs=true;max_xmit_size=600000):pbcast.STABLE(desired_avg_gossip=50000;max_bytes=400000;up_thread=false;down_thread=false;stability_delay=1000):VIEW_SYNC(avg_send_interval=60000;up_thread=false;down_thread=false):pbcast.GMS(print_local_addr=true;up_thread=false;join_timeout=3000;down_thread=false;join_retry_timeout=2000;shun=true):FC(max_block_time=1000;max_credits=2000000;up_thread=false;min_threshold=0.10;down_thread=false)">
-     </replication>-->
+
+     <!-- config for replication IPv4 -->
+     <!--replication
+        enabled="true"
+        mode="persistent"
+        bind-ip-address="192.168.0.15"
+        channel-config="TCP(oob_thread_pool.queue_max_size=100;thread_naming_pattern=cl;use_concurrent_stack=true;oob_thread_pool.rejection_policy=Run;discard_incompatible_packets=true;thread_pool.max_threads=40;oob_thread_pool.enabled=true;oob_thread_pool.max_threads=20;loopback=false;oob_thread_pool.keep_alive_time=5000;thread_pool.queue_enabled=false;oob_thread_pool.queue_enabled=false;max_bundle_size=64000;thread_pool.queue_max_size=100;thread_pool.enabled=true;enable_diagnostics=true;max_bundle_timeout=30;oob_thread_pool.min_threads=8;use_incoming_packet_handler=true;thread_pool.rejection_policy=Run;bind_addr=/LocalAddress/;thread_pool.min_threads=8;thread_pool.keep_alive_time=5000;enable_bundling=true):MPING(timeout=2000;num_initial_members=3;mcast_port=34526;mcast_addr=229.1.2.3):FD_SOCK:VERIFY_SUSPECT(timeout=1500):pbcast.NAKACK(max_xmit_size=60000;print_stability_history_on_failed_xmit=true;use_mcast_xmit=false;gc_lag=0;discard_delivered_msgs=true;retransmit_timeout=300,600,1200,2400,4800):pbcast.STABLE(stability_delay=1000;desired_avg_gossip=50000;max_bytes=8000000):pbcast.GMS(print_local_addr=true;join_timeout=3000;view_bundling=true;join_retry_timeout=2000;shun=false):FC(max_credits=4000000;min_threshold=0.2;max_block_time=10000)">								
+      </replication -->
+      <!-- config for replication IPv6 -->
+      <!-- replication
+        enabled="true"
+        mode="persistent"
+        bind-ip-address="fe80::215:f2ff:febe:3343%4"
+        channel-config="TCP(oob_thread_pool.queue_max_size=100;thread_naming_pattern=cl;use_concurrent_stack=true;oob_thread_pool.rejection_policy=Run;discard_incompatible_packets=true;thread_pool.max_threads=40;oob_thread_pool.enabled=true;oob_thread_pool.max_threads=20;loopback=false;oob_thread_pool.keep_alive_time=5000;thread_pool.queue_enabled=false;oob_thread_pool.queue_enabled=false;max_bundle_size=64000;thread_pool.queue_max_size=100;thread_pool.enabled=true;enable_diagnostics=true;max_bundle_timeout=30;oob_thread_pool.min_threads=8;use_incoming_packet_handler=true;thread_pool.rejection_policy=Run;bind_addr=/LocalAddress/;thread_pool.min_threads=8;thread_pool.keep_alive_time=5000;enable_bundling=true):MPING(timeout=2000;num_initial_members=3;mcast_port=34526;mcast_addr=ff18:eb72:479f::2:3):FD_SOCK:VERIFY_SUSPECT(timeout=1500):pbcast.NAKACK(max_xmit_size=60000;print_stability_history_on_failed_xmit=true;use_mcast_xmit=false;gc_lag=0;discard_delivered_msgs=true;retransmit_timeout=300,600,1200,2400,4800):pbcast.STABLE(stability_delay=1000;desired_avg_gossip=50000;max_bytes=8000000):pbcast.GMS(print_local_addr=true;join_timeout=3000;view_bundling=true;join_retry_timeout=2000;shun=false):FC(max_credits=4000000;min_threshold=0.2;max_block_time=10000)">								
+      </replication -->
+
      <authentication-policy>org.exoplatform.services.jcr.impl.core.access.PortalAuthenticationPolicy</authentication-policy>
      <workspaces>
-       <workspace name="system" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
+       <workspace name="system" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove" >
           <!-- for system storage -->
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
-              <property name="dialect" value="generic"/>
+              <property name="dialect" value="hsqldb"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
@@ -34,31 +46,31 @@
             </value-storages>
           </container>
          <cache enabled="true">
-           <properties>
-             <property name="maxSize" value="20000"/>
-             <property name="liveTime" value="3600"/><!-- 1 hour -->
-           </properties>
+          <properties>
+            <property name="maxSize" value="20000"/>
+            <property name="liveTime" value="30000"/>
+          </properties>
          </cache>
          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
-           <properties>
-             <property name="indexDir" value="../temp/jcrlucenedb/index"/>
-           </properties>
+          <properties>
+            <property name="indexDir" value="../temp/jcrlucenedb/index"/>
+          </properties>
          </query-handler>
          <lock-manager>
-	         <time-out>900000</time-out><!-- 15min -->
-	         <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-	           <properties>
-	             <property name="path" value="../temp/lock"/>
-	           </properties>
-	         </persister>
-         </lock-manager>
-       </workspace>     
-       <workspace name="production" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
+			    <time-out>900000</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
+       </workspace>
+       <workspace name="production" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove" >
           <!-- for system storage -->
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
-              <property name="dialect" value="generic"/>
+              <property name="dialect" value="hsqldb"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
@@ -79,7 +91,7 @@
          <cache enabled="true">
           <properties>
             <property name="maxSize" value="20000"/>
-            <property name="liveTime" value="3600"/><!-- 1 hour -->
+            <property name="liveTime" value="30000"/>
           </properties>
          </cache>
          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
@@ -88,20 +100,20 @@
           </properties>
          </query-handler>
          <lock-manager>
-                <time-out>900000</time-out><!-- 15min -->
-                 <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-                   <properties>
-                     <property name="path" value="../temp/lock"/>
-                   </properties>
-                 </persister>
-               </lock-manager>
+			    <time-out>900000</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
        </workspace>
        <workspace name="draft" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
-              <property name="dialect" value="generic"/>
-              <!-- property name="db-type" value="mysql"/ -->
+              <!-- possible dialect: hsql, mysql -->
+              <property name="dialect" value="hsqldb"/>
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
               <property name="max-buffer-size" value="204800"/>
@@ -120,8 +132,8 @@
           </container>
          <cache enabled="true">
           <properties>
-            <property name="maxSize" value="20000"/>
-            <property name="liveTime" value="3600"/>
+            <property name="maxSize" value="10000"/>
+            <property name="liveTime" value="10000"/>
           </properties>
          </cache>
          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
@@ -130,20 +142,19 @@
           </properties>
          </query-handler>
          <lock-manager>
-                <time-out>900000</time-out><!-- 15min -->
-                 <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-                   <properties>
-                     <property name="path" value="../temp/lock"/>
-                   </properties>
-                 </persister>
-               </lock-manager>
+			    <time-out>900000</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
        </workspace>
        <workspace name="backup" auto-init-root-nodetype="nt:unstructured" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
-              <property name="dialect" value="generic"/>
-              <!-- property name="db-type" value="mysql"/ -->
+              <property name="dialect" value="hsqldb"/>
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
               <property name="max-buffer-size" value="204800"/>
@@ -162,8 +173,8 @@
           </container>
          <cache enabled="true">
           <properties>
-            <property name="maxSize" value="20000"/>
-            <property name="liveTime" value="3600"/>
+            <property name="maxSize" value="2000"/>
+            <property name="liveTime" value="3000"/>
           </properties>
          </cache>
          <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
@@ -172,19 +183,19 @@
           </properties>
          </query-handler>
          <lock-manager>
-                <time-out>900000</time-out><!-- 15min -->
-                 <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-                   <properties>
-                     <property name="path" value="../temp/lock"/>
-                   </properties>
-                 </persister>
-               </lock-manager>
+			    <time-out>900000</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
        </workspace>
        <workspace name="digital-assets" auto-init-root-nodetype="nt:folder" auto-init-permissions="any read;*:/admin read;*:/admin add_node;*:/admin set_property;*:/admin remove">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
-              <property name="dialect" value="generic"/>
+              <property name="dialect" value="hsqldb"/>
               <!-- property name="db-type" value="mysql"/ -->
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
@@ -204,7 +215,7 @@
           </container>
           <cache enabled="true">
             <properties>
-              <property name="maxSize" value="5000"/>
+              <property name="maxSize" value="2000"/>
               <property name="liveTime" value="1800"/>
             </properties>
           </cache>
@@ -214,13 +225,13 @@
           </properties>
          </query-handler>
          <lock-manager>
-                <time-out>900000</time-out><!-- 15min -->
-                 <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-                   <properties>
-                     <property name="path" value="../temp/lock"/>
-                   </properties>
-                 </persister>
-               </lock-manager>
+			    <time-out>900000</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
         </workspace>
      </workspaces>
     </repository>

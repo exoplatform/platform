@@ -13,7 +13,7 @@
         <name>working-conf</name>
         <description>working-conf</description>
         <property name="persisterClassName" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
-        <property name="sourceName" value="jdbcjcr"/>
+        <property name="sourceName" value="jdbcexo"/>
         <property name="dialect" value="hsqldb"/>
       </properties-param>
     </init-params>
@@ -23,38 +23,80 @@
     <key>org.exoplatform.services.jcr.RepositoryService</key>
     <type>org.exoplatform.services.jcr.impl.RepositoryServiceImpl</type>
   </component>
-      
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
+
+  <component>
+    <type>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</type>
+    <component-plugins>
       <component-plugin>
-        <name>bind.datasource</name>
+        <name>addActions</name>
         <set-method>addPlugin</set-method>
-        <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+        <type>org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin</type>
+        <description>add actions plugin</description>
         <init-params>
-          <value-param>
-            <name>bind-name</name>
-            <value>jdbcjcr</value>
-          </value-param>
-          <value-param>
-            <name>class-name</name>
-            <value>javax.sql.DataSource</value>
-          </value-param>
-          <value-param>
-            <name>factory</name>
-            <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
-          </value-param>
-          <properties-param>
-            <name>ref-addresses</name>
-            <description>ref-addresses</description>
-            <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
-            <property name="url" value="jdbc:hsqldb:file:../temp/data/exodb"/>
-            <!-- property name="url" value="jdbc:hsqldb:file:/tmp/hsql/exodb"/ -->
-            <property name="username" value="sa"/>
-            <property name="password" value=""/>
-          </properties-param>
+          <object-param>
+            <name>actions</name>
+            <object type="org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin$ActionsConfig">
+              <field  name="actions">
+                <collection type="java.util.ArrayList">
+                  <value>
+                    <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                      <field  name="eventTypes"><string>addProperty,changeProperty</string></field>
+                      <field  name="parentNodeType"><string>nt:resource</string></field>
+                      <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.metadata.AddMetadataAction</string></field>
+                    </object>
+                  </value>
+                </collection>
+              </field>
+            </object>
+          </object-param>
         </init-params>
       </component-plugin>
-  </external-component-plugins>
-  
-</configuration>
 
+    </component-plugins>
+
+  </component>
+
+  <component>
+    <key>org.exoplatform.services.jcr.ext.audit.AuditService</key>
+    <type>org.exoplatform.services.jcr.ext.audit.AuditServiceImpl</type>
+  </component>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.jcr.impl.ext.action.SessionActionCatalog</target-component>
+    <component-plugin> 
+      <name>addActions</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin</type>
+      <description>add actions plugin</description>
+      <init-params>
+        <object-param>
+          <name>actions</name>
+          <object type="org.exoplatform.services.jcr.impl.ext.action.AddActionsPlugin$ActionsConfig">
+            <field  name="actions">
+              <collection type="java.util.ArrayList">
+                <value>
+                  <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="eventTypes"><string>addProperty,changeProperty,removeProperty</string></field> 
+                    <field  name="path"><string>/</string></field>
+                    <field  name="parentNodeType"><string>exo:auditable</string></field>
+                    <field  name="isDeep"><boolean>true</boolean></field>
+                    <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.audit.AuditAction</string></field>
+                  </object>
+                </value>
+                <value>
+                  <object type="org.exoplatform.services.jcr.impl.ext.action.ActionConfiguration">
+                    <field  name="eventTypes"><string>addMixin</string></field> 
+                    <field  name="path"><string>/</string></field>
+                    <field  name="nodeType"><string>exo:auditable</string></field>
+                    <field  name="isDeep"><boolean>true</boolean></field>
+                    <field  name="actionClassName"><string>org.exoplatform.services.jcr.ext.audit.AuditAction</string></field>
+                  </object>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+</configuration>
