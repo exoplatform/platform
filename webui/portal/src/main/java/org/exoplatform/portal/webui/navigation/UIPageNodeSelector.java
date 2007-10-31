@@ -357,7 +357,6 @@ public class UIPageNodeSelector extends UIContainer {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       UIDropDownControl uiDropDownControl = event.getSource();
       UIPageNodeSelector uiPageNodeSelector = uiDropDownControl.getParent();
-      System.out.println("\n\n\n\n\n\n\n =>>>>>>>>>>>UIPagenodeSelector");
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent()) ;
       if(id != null) uiPageNodeSelector.selectNavigation(id);
     }
