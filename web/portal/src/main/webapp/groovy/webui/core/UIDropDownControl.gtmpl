@@ -28,15 +28,15 @@
 			</div>
 		</div>
 		<div class="UIDropDownAnchor" style="position: absolute ; display: none ; width: 100%">
-			<div class="LTItemSelector">
-				<div class="TRItemSelector">
-					<div class="TCItemSelector"><span></span></div>
+			<div class="LeftTopItem">
+				<div class="RightTopItem">
+					<div class="CenterTopItem"><span></span></div>
 				</div>
 			</div>
-			<div class="OptionContainer">
-				<div class="ItemListContainer">
+			<div class="LeftMiddelItem">
+				<div class="RightMiddelItem">
 				
-					<div class="ItemList">
+					<div class="ItemListContent">
 					  <%
 					    for(option in options) {
 					  %>
@@ -47,9 +47,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="BLItemSelector">
-				<div class="BRItemSelector">
-					<div class="BCItemSelector"><span></span></div>
+			<div class="LeftBottomItem"> 
+				<div class="RightBottomItem">
+					<div class="CenterBottomItem"><span></span></div>
 				</div>
 			</div>
 		</div>

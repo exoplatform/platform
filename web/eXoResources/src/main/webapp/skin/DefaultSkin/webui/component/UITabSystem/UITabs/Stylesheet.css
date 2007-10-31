@@ -15,6 +15,7 @@
   float: left;
   font-weight: bold;
   text-align: center;
+  white-space: nowrap;
 }
 
 /*###########################--NavigationTabTab--############################*/

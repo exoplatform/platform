@@ -110,11 +110,14 @@
 	border-right: none;
 	border-left: none;
 	border-bottom: none;
-	height: 190px;
-	padding: 15px 0px;
+	height: 165px;
+	padding: 25px 0px;
 }
 
 .UIAccountSetting .UIFormGrid td.FieldLabel {
 	width: 200px;
 }
 
+.UIAccountSetting .UIForm .UIAction {
+	padding-top: 18px;
+}

@@ -27,7 +27,10 @@
 
 .UINavigationPortlet .MiddleTab .TabLabel {
 	padding: 3px 0px 3px 20px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left;
+}
+
+.UINavigationPortlet .MiddleTab .DefaultPageIcon {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left center;
 }
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {

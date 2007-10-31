@@ -10,30 +10,21 @@
 	height: 19px ;
 }
 
-.UIDropDownControl .OptionContainer {
+.UIDropDownControl .LeftMiddelItem {
 	display: block ;
 	background: white ;
 	width: 100% ;
 }
-.UIDropDownControl .ItemListContainer {
+.UIDropDownControl .RightMiddelItem {
 	border:1px solid gray ;
 	border-top:0px ;
 	padding: 4px ;
 }
-.UIDropDownControl .ItemList {
+
+.UIDropDownControl .ItemListContent {
 	border: 1px solid #e0e0e0  ;
 	border-bottom: 0px ;
 	background: #f3f3f3 ;
-}
-
-.UIDropDownControl .OptionItem {
-	text-decoration:none ;
-	display: block ;
-	padding: 4px 4px 4px 17px ;
-	color: black ;
-	border-bottom: 1px solid #e0e0e0 ;
-	border-top: 1px solid #ffffff ;
-	height: 100% ;
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {
@@ -57,20 +48,24 @@
 }
 
 .UIDropDownControl .EditIcon {
-	background:transparent url(icons/ManageButton.gif) no-repeat center top;
-	cursor:pointer;
-	height:21px;
-	width:20px;
+	background: transparent url(icons/ManageButton.gif) no-repeat center top;
+	cursor: pointer;
+	height: 21px;
+	width: 20px;
 	float: right;
 }
 
 .UIDropDownControl .OptionItem {
-	height: 100%;
-	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat;
+	display: block ;
+	padding: 0px 4px px 17px ;
+	border-bottom: 1px solid #e0e0e0 ;
+	border-top: 1px solid #ffffff ;
+	line-height: 20px;
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
 }
 
 .UIDropDownControl .OptionItem:hover {
-	background: #7aafe5 ;
+	background: #7aafe5 url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
 	color: white;
 }
 

@@ -10,11 +10,11 @@
 	height:20px;
 }
 
-.UIDropDownControl .OptionContainer {
+.UIDropDownControl .LeftMiddelItem {
 	background: url(background/MLItemSelector9x1.png) repeat-y left center;
 	padding-left: 9px;
 }
-.UIDropDownControl .ItemListContainer {
+.UIDropDownControl .RightMiddelItem {
 	background: url(background/MRItemSelector12x1.png) repeat-y right center;
 	padding-right: 12px;
 }
@@ -28,35 +28,34 @@
 	border-bottom: 1px solid #CDCDCD;
 }
 
-.UIDropDownControl .LTItemSelector {
+.UIDropDownControl .LeftTopItem {
 	background: url(background/TLItemSelector14x10.png) no-repeat left center;
 	padding-left: 14px;
 }
 
-.UIDropDownControl .TRItemSelector {
+.UIDropDownControl .RightTopItem {
 	background:  url(background/TRItemSelector18x10.png) no-repeat right center;
 	padding-right: 18px;
 }
 
-.UIDropDownControl .TCItemSelector {
+.UIDropDownControl .CenterTopItem {
 	background: url(background/TCItemSelector1x10.png) repeat-x ;
 	height: 10px;
 }
 
-.UIDropDownControl .BLItemSelector {
+.UIDropDownControl .LeftBottomItem {
   background: url('background/BLItemSelector13x14.png') no-repeat left;
   padding-left: 13px;
 }
 
-.UIDropDownControl .BRItemSelector {
+.UIDropDownControl .RightBottomItem {
   padding-right: 17px;
   background: url('background/BRItemSelector17x14.png') no-repeat right;
 }
 
-.UIDropDownControl .BCItemSelector {
+.UIDropDownControl .CenterBottomItem {
   height: 14px;
   background: url('background/BCItemSelector1x14.png') repeat-x;
-  
 }
 
 .UIDropDownControl .UIDropDownLeftTitle {

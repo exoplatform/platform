@@ -120,11 +120,13 @@
 		                   <div class="TabIcon">
 		                   <%
 		                   	String arrowIcon = "";
-							           if (node.getChildren() != null && node.getChildren().size() > 0) {
-							           	 arrowIcon = "DropDownArrowIcon";
-										     }
+												if (node.getChildren() != null && node.getChildren().size() > 0) {
+													arrowIcon = "DropDownArrowIcon";
+												}
+												String iconType = node.getIcon();
+												if(iconType == null) iconType = "DefaultPageIcon";
 						           %>
-		                   	<div class="$arrowIcon"><a class="TabLabel" href="$actionLink">$node.label</a></div><!--  onclick="return false;" -->
+		                   	<div class="$arrowIcon"><a class="TabLabel ${iconType}" href="$actionLink">$node.label</a></div><!--  onclick="return false;" -->
 		                   </div>
 		                 </div>
 		               </div>

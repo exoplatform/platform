@@ -6,42 +6,32 @@
 	cursor:pointer;
 }
 
-.UIDropDownControl .OptionContainer {
+.UIDropDownControl .LeftMiddelItem {
 	display: block ;
 	background: url(background/MLItemSelector3x1.png) repeat-y left center;
 	padding-left:3px;
 }
 
-.UIDropDownControl .ItemListContainer {
+.UIDropDownControl .RightMiddelItem {
 	background: url(background/MRItemSelector3x1.png) repeat-y right center;
 	padding-right:3px;
 }
 
-.UIDropDownControl .ItemList {
+.UIDropDownControl .ItemListContent {
 	background:white url(/eXoMacSkin/skin/MacSkin/background/Background1x4.png) repeat;
 }
 
-.UIDropDownControl .OptionItem {
-	text-decoration:none ;
-	display: block ;
-	padding: 4px 4px 4px 17px ;
-	color: black ;
-	border-bottom: 1px solid #e0e0e0 ;
-	border-top: 1px solid #ffffff ;
-	height: 100% ;
-}
-
-.UIDropDownControl .BLItemSelector {
+.UIDropDownControl .LeftBottomItem {
 	background: url(background/BLItemSelector4x4.png) no-repeat left center;
 	padding-left:4px;
 }
 
-.UIDropDownControl .BRItemSelector {
+.UIDropDownControl .RightBottomItem {
 	background: url(background/BRItemSelector4x4.png) no-repeat right center;
 	padding-right:4px;
 }
 
-.UIDropDownControl .BCItemSelector {
+.UIDropDownControl .CenterBottomItem {
 	background: url(background/BCItemSelector1x4.png) repeat-x ;
 	height: 4px;
 }
@@ -94,12 +84,16 @@
 }
 
 .UIDropDownControl .OptionItem {
-	height: 100%;
-	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
+	display: block ;
+	padding: 0px 4px 0px 17px ;
+	border-bottom: 1px solid #e0e0e0 ;
+	border-top: 1px solid #ffffff ;
+	line-height: 20px;
 }
 
 .UIDropDownControl .OptionItem:hover {
-	background: #7aafe5 ;
+	background: #7aafe5 url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
 	color: white;
 }
 

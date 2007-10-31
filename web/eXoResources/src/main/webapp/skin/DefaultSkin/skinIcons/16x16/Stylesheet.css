@@ -526,6 +526,11 @@
   width: 16px ; height: 16px ;
   background: url('icons/SmallGroup.gif') ;
 }
+
+.DefaultPageIcon {
+  background: url('icons/DefaultPageIcon.gif') ;
+}
+
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
 
 /*===========================Misc Icons Stylesheet=======================*/
