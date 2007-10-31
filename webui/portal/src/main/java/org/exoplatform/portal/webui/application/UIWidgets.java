@@ -133,7 +133,6 @@ public class UIWidgets extends UIContainer {
     public void execute(Event<UIDropDownControl> event) throws Exception {
       String selectedContainerId  = event.getRequestContext().getRequestParameter(OBJECTID);      
       UIDropDownControl dropDown = event.getSource();
-      System.out.println("\n\n\n\n\n\n\n =>>>>>>>>>>>UIWidgets");
       UIWidgets uiWidgets = dropDown.getParent();
       uiWidgets.setSelectedContainer(selectedContainerId) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWidgets.getParent());
