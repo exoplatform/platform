@@ -107,7 +107,7 @@ UIPopupWindow.prototype.show = function(popup, isShowMask) {
 		}
 		// hack for position popup alway top in IE6.
 		var checkHeight = popup.offsetHeight > 300; 
-		if (document.getElementById("UIDockBar") && eXo.core.Browser.isIE6() && checkHeight) {
+		if (document.getElementById("UIDockBar") && checkHeight) {
 			popup.style.top = "6px";
 		}
 		popup.style.left = Math.ceil((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
