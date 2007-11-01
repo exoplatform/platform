@@ -130,6 +130,10 @@ Browser.prototype.isIE7 = function() {
   return (agent.indexOf("MSIE 7") >=0);
 } ;
 
+Browser.prototype.isFF = function() {
+  return new RegExp("Firefox").test(navigator.userAgent);
+} ;
+
 Browser.prototype.findMouseXInClient = function(e) {
   if (!e) e = window.event ;
   return e.clientX ;
