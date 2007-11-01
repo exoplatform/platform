@@ -4,14 +4,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.services.resources.Query;
 import org.exoplatform.services.resources.ResourceBundleService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
@@ -21,6 +26,13 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
+
+/**
+ * Created by The eXo Platform SARL
+ * Author : dang.tung
+ *          tungcnw@gmail.com
+ * Nov 01, 2007
+ */
 
 @ComponentConfigs ( {
   @ComponentConfig(
@@ -49,11 +61,11 @@ public class UII18nPortlet extends UIPortletApplication {
   private UIGrid grid_ ;
   public UII18nPortlet() throws Exception {
     
-    //ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
     grid_ = addChild(UIGrid.class, null, "ResourceList") ;
     grid_.configure("id", RESOURCE_LIST, RESOURCE_ACTION) ;
-    //grid_.getUIPageIterator().setPageList(resBundleServ.findResourceDescriptions(new Query(null, null))) ;
-    update(null,null);
+    grid_.setRendered(true) ;
+    
+    addChild(UIEditResource.class,null,null).setRendered(false) ;
     
     UIForm uiSearchResource = addChild(UIForm.class,"UISearchI18n", null);
     uiSearchResource.addUIFormInput(new UIFormStringInput("name","name",null));
@@ -70,38 +82,71 @@ public class UII18nPortlet extends UIPortletApplication {
     }
     
     uiSearchResource.addUIFormInput(new UIFormSelectBox("language","language",options));
-    
-    
-     
-  }
+    uiSearchResource.setRendered(true) ;
+    // update grid
+    update(null,null);
+  } 
   
   static public class DeleteActionListener extends EventListener<UII18nPortlet> {
     public void execute(Event<UII18nPortlet> event) throws Exception {
       ResourceBundleService serv = event.getSource().getApplicationComponent(ResourceBundleService.class);
       serv.removeResourceBundleData(event.getRequestContext().getRequestParameter(OBJECTID)) ;
+      UII18nPortlet uiI18n = event.getSource() ;
+      uiI18n.update(null, null) ;
     }
   }
 
   static public class EditActionListener extends EventListener<UII18nPortlet> {
     public void execute(Event<UII18nPortlet> event) throws Exception {
-      System.out.println("\n\n\n\n\n\n =>>>>>>>>>>>>>>>>... Edit Resource");
+      UII18nPortlet uiI18n = event.getSource() ;
+      
+      UIEditResource uiEditResource = uiI18n.getChild(UIEditResource.class) ;
+      uiEditResource.setRendered(true) ;
+      String paramID = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      uiEditResource.setResource(paramID) ;
+      
+      uiI18n.getChild(UIGrid.class).setRendered(false) ;
+      UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
+      uiSearch.setRendered(false) ;
     }
   }
 
   static public class SearchActionListener  extends EventListener<UIForm> {
     public void execute(Event<UIForm> event) throws Exception {
-      
-      //System.err.print(arg0)
+      UIForm uiSearch = event.getSource() ;
+      UII18nPortlet uiI18n = uiSearch.getParent() ;
+      String language = uiSearch.getChild(UIFormSelectBox.class).getValue() ;
+      if ("all".equals(language)) language = null ;
+      uiI18n.update(uiSearch.getChild(UIFormStringInput.class).getValue(), language);
     }
   }
   static public class NewResourceActionListener  extends EventListener<UIForm> {
-    public void execute(Event<UIForm> event) throws Exception {     
+    public void execute(Event<UIForm> event) throws Exception {
+      UII18nPortlet uiI18n = event.getSource().getParent() ;
+      
+      UIEditResource uiEditResource = uiI18n.getChild(UIEditResource.class) ;
+      uiEditResource.setRendered(true) ;
+      uiEditResource.setResource(null) ;
+      
+      uiI18n.getChild(UIGrid.class).setRendered(false) ;
+      UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
+      uiSearch.setRendered(false) ;
+      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiI18n) ;
     }
   }
   
   public void update(String name , String lang) throws Exception {
     ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
-    grid_.getUIPageIterator().setPageList(resBundleServ.findResourceDescriptions(new Query(name, lang))) ;
+    PageList pageList = resBundleServ.findResourceDescriptions(new Query(name, lang)) ;
+    pageList.setPageSize(10) ;
+    grid_.getUIPageIterator().setPageList(pageList) ;
+    UIPageIterator pageIterator = grid_.getUIPageIterator();
+    if(pageIterator.getAvailable() == 0 ) {
+      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+    }
   }
 }
 

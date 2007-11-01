@@ -1,0 +1,140 @@
+package org.exoplatform.i18n.webui.component;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import org.exoplatform.services.resources.LocaleConfig;
+import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.services.resources.ResourceBundleData;
+import org.exoplatform.services.resources.ResourceBundleService;
+import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.core.model.SelectItemOption;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormSelectBox;
+import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTextAreaInput;
+
+/**
+ * Created by The eXo Platform SARL
+ * Author : dang.tung
+ *          tungcnw@gmail.com
+ * Nov 01, 2007
+ */
+
+@ComponentConfig(
+      lifecycle = UIFormLifecycle.class,
+      template = "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
+      events = {
+        @EventConfig (listeners = UIEditResource.SaveActionListener.class),
+        @EventConfig (listeners = UIEditResource.EditActionListener.class),
+        @EventConfig (listeners = UIEditResource.PreviewActionListener.class),
+        @EventConfig (listeners = UIEditResource.CancelActionListener.class, phase = Phase.DECODE)
+      }
+  )
+public class UIEditResource extends UIForm {
+
+  public UIEditResource() throws Exception {
+    addUIFormInput(new UIFormTextAreaInput("resource", null,null)) ;
+    addUIFormInput(new UIFormStringInput("name",null,null)) ;
+    
+    LocaleConfigService service = getApplicationComponent(LocaleConfigService.class) ;
+    Iterator i = service.getLocalConfigs().iterator() ;
+    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>() ;
+    options.add(new SelectItemOption<String>("All", ""));
+    while (i.hasNext()) {
+      LocaleConfig config = (LocaleConfig) i.next() ;
+      options.add(new SelectItemOption<String>(config.getLocaleName(), config.getLanguage()))  ;
+    }
+    
+    addUIFormInput(new UIFormSelectBox("language","language",options)) ;
+  } 
+
+  static public class EditActionListener extends EventListener<UIEditResource> {
+    public void execute(Event<UIEditResource> event) throws Exception {
+      UIEditResource uiEditResource = event.getSource() ;
+      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
+      uiEditResource.getUIStringInput("name").setEditable(false) ;
+      uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;
+    }
+  }
+
+  static public class SaveActionListener  extends EventListener<UIEditResource> {
+    public void execute(Event<UIEditResource> event) throws Exception {
+      UIEditResource uiEditResource = event.getSource() ;
+      UII18nPortlet uiI18n = uiEditResource.getParent() ;
+      
+      String data = uiEditResource.getChild(UIFormTextAreaInput.class).getValue() ;
+      ResourceBundleService serv = uiEditResource.getApplicationComponent(ResourceBundleService.class) ;
+      ResourceBundleData resData = serv.createResourceBundleDataInstance() ; 
+      
+      resData.setData(data) ;
+      resData.setName(uiEditResource.getUIStringInput("name").getValue()) ;
+      resData.setLanguage(uiEditResource.getChild(UIFormSelectBox.class).getValue()) ;
+      
+      serv.saveResourceBundle(resData) ;
+      
+      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
+      uiEditResource.getUIStringInput("name").setEditable(false) ;
+      uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;
+      
+      // update when create new resource
+      uiI18n.update(null, null) ;
+
+    }
+  }
+
+  static public class PreviewActionListener  extends EventListener<UIEditResource> {
+    public void execute(Event<UIEditResource> event) throws Exception {
+      UIEditResource uiEditResource = event.getSource() ;
+      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(false) ;
+      uiEditResource.getUIStringInput("name").setEditable(false) ;
+      uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;   
+    }
+  }
+  
+  static public class CancelActionListener  extends EventListener<UIEditResource> {
+    public void execute(Event<UIEditResource> event) throws Exception {
+      UIEditResource uiEditResource = event.getSource() ;
+      UII18nPortlet uiI18n = uiEditResource.getParent() ;
+      uiI18n.getChild(UIEditResource.class).setRendered(false) ;
+      uiI18n.getChild(UIGrid.class).setRendered(true) ;
+      UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
+      uiSearch.setRendered(true) ;
+    }
+  }
+  
+  public void setResource(String resource) throws Exception {
+    if(resource != null) {      
+      ResourceBundleService serv = getApplicationComponent(ResourceBundleService.class) ;
+      
+      System.out.println("\n\n\n\n\n\n >>>>>>>>>>>>>>>>>> resource value:" + resource);
+      
+      ResourceBundleData redata = serv.getResourceBundleData(resource) ;
+      
+      System.out.println("\n\n\n\n\n\n >>>>>>>>>>>>>>>>>> resource value:" + resource);
+      
+      getChild(UIFormTextAreaInput.class).setValue(redata.getData()) ;
+      getChild(UIFormTextAreaInput.class).setEditable(false) ;
+      getUIStringInput("name").setValue(redata.getName()) ;
+      getUIStringInput("name").setEditable(false) ;
+      getChild(UIFormSelectBox.class).setValue(redata.getLanguage()) ;
+      getChild(UIFormSelectBox.class).setEnable(false) ;      
+    }
+    else {
+      getChild(UIFormTextAreaInput.class).setValue("") ;
+      getChild(UIFormTextAreaInput.class).setEditable(true) ;
+      getUIStringInput("name").setValue("") ;
+      getUIStringInput("name").setEditable(true) ;
+      getChild(UIFormSelectBox.class).setValue("") ;
+      getChild(UIFormSelectBox.class).setEnable(true) ;  
+    }
+  }
+}
+
