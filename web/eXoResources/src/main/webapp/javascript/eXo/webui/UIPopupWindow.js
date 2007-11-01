@@ -105,9 +105,9 @@ UIPopupWindow.prototype.show = function(popup, isShowMask) {
 		} else {
 			popup.style.top = Math.ceil((window.screen.availHeight - 2*popup.offsetHeight ) / 2) + scrollY + "px" ;			
 		}
-
-		var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
-		if (uiWorkspaceContainer.style.display != "block") {
+		// hack for position popup alway top in IE6.
+		var checkHeight = popup.offsetHeight > 300; 
+		if (document.getElementById("UIDockBar") && eXo.core.Browser.isIE6() && checkHeight) {
 			popup.style.top = "6px";
 		}
 		popup.style.left = Math.ceil((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
