@@ -64,7 +64,6 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
   var uiHorizontalTabs = DOMUtil.findAncestorByClass(clickedEle, "UIHorizontalTabs") ;
   var uiTabs = eXo.core.DOMUtil.findDescendantsByClass(uiHorizontalTabs, "div", "UITab") ;
   var parentdHorizontalTab = uiHorizontalTabs.parentNode ;
-
   var contentTabContainer = DOMUtil.findFirstDescendantByClass(parentdHorizontalTab, "div", "UITabContentContainer") ;
   var uiTabContent = DOMUtil.getChildrenByTagName(contentTabContainer, "div") ;
   var index = 0 ;
@@ -80,7 +79,11 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
     uiTabContent[i].style.display = "none" ;
   }
   uiTabContent[index].style.display = "block" ;
-	if (eXo.ecm.UIJCRExplorer) eXo.ecm.UIJCRExplorer.initViewNodeScroll();
+	if (eXo.ecm.UIJCRExplorer) {
+		try {
+				eXo.ecm.UIJCRExplorer.initViewNodeScroll();
+		} catch(e) {void(0);}
+	}
   if(paneId !=null && tabId !=null){
     var params = [ {name: "objectId", value : tabId} ] ;
     ajaxAsyncGetRequest(eXo.env.server.createPortalURL(paneId, "SelectTab", true, params), false) ;
