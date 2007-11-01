@@ -14,12 +14,20 @@
   width: 225px;
 }
 
+.BlockCalendar {
+	background: #e0e5f7 url('/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIWidgets/background/WidgetDragArea2x2.gif') repeat scroll;
+	padding-top: 12px;
+	cursor: move;
+	-moz-user-select: none;
+}
+
 .UICalendar {
   border: 1px solid #ccced7;
   background: #e0e5f7 url('background/CalendarBG.gif') repeat-x top;
   padding: 7px 5px;
   font: normal 12px verdana;
 	text-align: center;
+	cursor: default;
 }
 
 .UICalendar table {
