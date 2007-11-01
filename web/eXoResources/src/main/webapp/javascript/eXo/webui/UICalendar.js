@@ -58,6 +58,25 @@ UICalendar.prototype.show = function() {
 	  left = x + "px" ;
 	  top = y + "px" ;
   }
+	
+		var drag = document.getElementById("blockCaledar");
+		var innerWidth = drag.offsetWidth;
+		drag.onmousedown = function(evt) {
+			var event = evt || window.event;
+			event.cancelBubble = true;
+			drag.style.position = "absolute";
+			drag.style.width = innerWidth + "px";
+			eXo.core.DragDrop.init(null, drag, drag, event);
+	 	}
+	
+	//
+	var primary = eXo.core.DOMUtil.findAncestorById(this.dateField, "UIECMSearch");
+	if (primary && eXo.core.Browser.isFF()) {
+			calendar = clndr.firstChild;
+			calendar.style.top = "0px";
+			calendar.style.left = this.dateField.offsetLeft - this.dateField.offsetWidth - 32 + "px";
+	}
+	
 }
 
 UICalendar.prototype.hide = function() {
@@ -76,7 +95,8 @@ UICalendar.prototype.renderCalendar = function() {
   var startDayOfWeek = this.getDayOfWeek(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, dayOfMonth) ;
   var daysInMonth = this.getDaysInMonth(this.currentDate.getFullYear(), this.currentDate.getMonth()) ;
   var clazz = null;
-	var table =	'<div class="UICalendar" onmousedown="event.cancelBubble = true">' ;
+	var table = '<div id="blockCaledar" class="BlockCalendar">' ;
+	table += 		'<div class="UICalendar" onmousedown="event.cancelBubble = true">' ;
 	table += 		'	<table class="MonthYearBox">' ;
 	table += 		'	  <tr>' ;
 	table += 		'			<td class="MonthButton"><a class="PreviousMonth" href="javascript:eXo.webui.UICalendar.changeMonth(-1);"></a></td>' ;
@@ -129,6 +149,7 @@ UICalendar.prototype.renderCalendar = function() {
 		table += 		'		</div>' ;
 		table += 		'	</div>' ;
 	}
+	table += 		'</div>' ;
 	table += 		'</div>' ;
 	return table ;
 }
@@ -230,7 +251,7 @@ UICalendar.prototype.clearDate = function() {
 }
 
 UICalendar.prototype.getDayOfWeek = function(year, month, day) {
-  var date = new Date(year, month-1, day) ;
+  var date = new Date(year, month - 1, day) ;
   return date.getDay() ;
 }
 
