@@ -19,6 +19,17 @@ function UIMaskLayer() {
  *	.	style.top = "0px" ;
  *	.	style.left = "0px" ;
  */
+UIMaskLayer.prototype.createMaskPage = function() {
+	var newMask = document.createElement("div");
+	newMask.id = "blockMaskPage";
+	var mask = document.getElementById("AjaxLoadingMask");
+
+}
+
+UIMaskLayer.prototype.removeMaskPage = function() {
+
+}
+
 UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, position) {
 	try {
 		var Browser = eXo.core.Browser ;
@@ -80,7 +91,7 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 			alert(err) ;
 	}
 	return maskLayer ;
-} ;
+};
 
 /*
  * Tung.Pham added
