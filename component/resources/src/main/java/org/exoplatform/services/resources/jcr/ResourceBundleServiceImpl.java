@@ -91,13 +91,19 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
 
   public PageList findResourceDescriptions(Query q) throws Exception {
     String name = q.getName();
+    String language = q.getLanguage() ;
     if (name == null || name.length() == 0)	name = "%";
+    // add: dang.tung -> sure Sql statement correct
+    if (language == null || language.length() == 0) language = "%";
     
     StringBuilder  builder = new StringBuilder(queryDataType);
     if(name != null || q.getLanguage() != null){
       builder.append(" and ");
       generateScript(builder, "name", name);
-      generateScript(builder, "language", q.getLanguage());
+      
+      // add: dang.tung -> fixed bug when language and name != null
+      builder.append(" and ") ;
+      generateScript(builder, "language", language);
     }
     Session session = jcrRegService_.getSession();
     QueryManager queryManager = session.getWorkspace().getQueryManager() ;
