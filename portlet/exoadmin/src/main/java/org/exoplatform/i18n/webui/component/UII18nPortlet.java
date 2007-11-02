@@ -58,10 +58,9 @@ public class UII18nPortlet extends UIPortletApplication {
   private static String[] RESOURCE_LIST = {"name", "language"} ;
   private static String[] RESOURCE_ACTION = {"Edit", "Delete"} ;
 
-  private UIGrid grid_ ;
   public UII18nPortlet() throws Exception {
     
-    grid_ = addChild(UIGrid.class, null, "ResourceList") ;
+    UIGrid grid_ = addChild(UIGrid.class, null, "ResourceList") ;
     grid_.configure("id", RESOURCE_LIST, RESOURCE_ACTION) ;
     grid_.setRendered(true) ;
     
@@ -140,8 +139,8 @@ public class UII18nPortlet extends UIPortletApplication {
     ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
     PageList pageList = resBundleServ.findResourceDescriptions(new Query(name,lang)) ;
     pageList.setPageSize(10) ;
-    grid_.getUIPageIterator().setPageList(pageList) ;
-    UIPageIterator pageIterator = grid_.getUIPageIterator();
+    getChild(UIGrid.class).getUIPageIterator().setPageList(pageList) ;
+    UIPageIterator pageIterator = getChild(UIGrid.class).getUIPageIterator();
     if(pageIterator.getAvailable() == 0 ) {
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
       uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
