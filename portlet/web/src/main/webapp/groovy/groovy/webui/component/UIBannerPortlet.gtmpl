@@ -3,6 +3,7 @@
 	
 	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
 	String signInAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;" ;
+	String changeSettingAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeSetting', true));" ;
 %>
 <div class="UIBannerPortlet UIApplication">
 	<div class="ApplicationMinWidth">
@@ -35,6 +36,9 @@
 								</div>
 								<div class="SeperatorLine"><span></span></div>
 								<div style="clear: right;"><span></span></div>
+							</div>
+							<div style="float: right; cursor: pointer;" onclick="$changeSettingAction">
+								<span>Setting</span>
 							</div>
 					  <%}%> 
 						</div>
