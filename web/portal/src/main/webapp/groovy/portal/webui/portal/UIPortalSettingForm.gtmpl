@@ -1,0 +1,4 @@
+<div id="$uicomponent.id">
+	UIPortalSettingForm
+	<a href="<%=uicomponent.event("Close")%>">close</a>
+</div>
