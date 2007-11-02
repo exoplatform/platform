@@ -1,6 +1,7 @@
 .UIPageDesktop {
 	position: relative ;
   overflow: hidden ;
+  background: url('background/eXoDesktopBG.jpg') no-repeat left bottom ;
 }
 
 .UIPageDesktop .UIDockBar {

@@ -27,8 +27,14 @@
 							</div>
 							<div style="clear: left;"><span></span></div>
 						<%} else {%>
-							<div class="SignIn" title="Sign In" onclick="$signInAction">
-								<a class="LoginIcon"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
+							<div class="SignIn">
+								<a class="LoginIcon" onclick="$signInAction"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
+								<div class="SeperatorLine"><span></span></div>
+								<div class="PortalSetting">
+									<a class="SettingIcon">Setting</a>
+								</div>
+								<div class="SeperatorLine"><span></span></div>
+								<div style="clear: right;"><span></span></div>
 							</div>
 					  <%}%> 
 						</div>

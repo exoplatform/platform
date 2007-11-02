@@ -31,7 +31,7 @@ form {
 }
 
 body {
-	background: #9ed0f3 url('/eXoResources/skin/DefaultSkin/background/eXoBodyBG.jpg') no-repeat fixed ;
+	background: url('/eXoResources/skin/DefaultSkin/background/PortalBG2x2.gif');
 	margin: 0px ; padding: 0px;
 	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif ;
 	font-size: 11px;
