@@ -5,14 +5,13 @@ UIDropDownControl.prototype.init = function(id) {
 	//return popup;
 };
 
-
 // create by: Dang.Tung
 UIDropDownControl.prototype.selectPageLayout = function(param,id) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiDropDownControl = document.getElementById(id);
 	var itemSelectorAncestor = DOMUtil.findAncestorByClass(uiDropDownControl, "ItemSelectorAncestor") ;
 	var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
-	var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "a", "UIOptionItem") ;
+	var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "a", "OptionItem") ;
 	var uiItemSelector = DOMUtil.findAncestorByClass(uiDropDownControl, "UIItemSelector");
 	var itemDetailList = DOMUtil.findDescendantsByClass(uiItemSelector, "div", "ItemDetailList") ;
 	if(itemList == null) return;
@@ -64,7 +63,7 @@ UIDropDownControl.prototype.onclickEvt = function(obj) {
 	var uiDropDownAnchor = DOMUtil.findAncestorByClass(obj, 'UIDropDownAnchor') ;
 	var uiDropDownTitle = DOMUtil.findPreviousElementByTagName(uiDropDownAnchor, 'div') ;
 	var uiDropDownMiddleTitle = DOMUtil.findFirstDescendantByClass(uiDropDownTitle,'div','DropDownSelectLabel') ;
-	uiDropDownMiddleTitle.firstChild.innerHTML = obj.innerHTML ;
+	uiDropDownMiddleTitle.innerHTML = obj.innerHTML ;
 	uiDropDownAnchor.style.display = 'none' ;
 } ;
 

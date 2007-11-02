@@ -16,7 +16,7 @@
 							<div class="DropDownSelectIcon">
 			  				<div class="DropDownSelectLabel">
 				  				<% if (options.size() > 0) { %>
-										<%= uicomponent.getLabel() ;%> 
+				  				<%=uicomponent.getLabel();%>
 									<% }else {%>
 									<%=_ctx.appRes(uicomponent.getId() + ".title.Empty")%>
 									<% } %>
@@ -41,7 +41,7 @@
 					    for(option in options) {
 					  %>
 					  <div class="ItemListOption">
-						    <a class="OptionItem" href="<%=uicomponent.event(option.getValue());%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)">$option.label</a>
+						    <a class="OptionItem" href="<%=uicomponent.event(option.getValue())%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)">$option.label</a>
 						</div>
 						<%}%>
 					</div>
