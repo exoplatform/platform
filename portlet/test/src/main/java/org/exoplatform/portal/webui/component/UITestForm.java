@@ -7,6 +7,7 @@ package org.exoplatform.portal.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.UIFormWYSIWYGInput;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -62,6 +63,8 @@ public class UITestForm extends UIForm {
 
 
   public UITestForm() throws Exception {  
+    addChild(UIFormWYSIWYGInput.class, null, null) ;
+    
     UIFormUploadInput upload = new UIFormUploadInput("TestUpload", null); 
     UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
     test.setType(UIFormDateTimeInput.class);
