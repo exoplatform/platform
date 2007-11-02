@@ -116,7 +116,7 @@ public class UII18nPortlet extends UIPortletApplication {
       UIForm uiSearch = event.getSource() ;
       UII18nPortlet uiI18n = uiSearch.getParent() ;
       String language = uiSearch.getChild(UIFormSelectBox.class).getValue() ;
-      if ("all".equals(language)) language = null ;
+      if ("".equals(language)) language = null ;
       uiI18n.update(uiSearch.getChild(UIFormStringInput.class).getValue(), language);
     }
   }
@@ -138,7 +138,7 @@ public class UII18nPortlet extends UIPortletApplication {
   
   public void update(String name , String lang) throws Exception {
     ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
-    PageList pageList = resBundleServ.findResourceDescriptions(new Query(name, lang)) ;
+    PageList pageList = resBundleServ.findResourceDescriptions(new Query(name,lang)) ;
     pageList.setPageSize(10) ;
     grid_.getUIPageIterator().setPageList(pageList) ;
     UIPageIterator pageIterator = grid_.getUIPageIterator();

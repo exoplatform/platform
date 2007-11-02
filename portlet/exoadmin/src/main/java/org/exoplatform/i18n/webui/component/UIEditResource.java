@@ -114,11 +114,7 @@ public class UIEditResource extends UIForm {
     if(resource != null) {      
       ResourceBundleService serv = getApplicationComponent(ResourceBundleService.class) ;
       
-      System.out.println("\n\n\n\n\n\n >>>>>>>>>>>>>>>>>> resource value:" + resource);
-      
       ResourceBundleData redata = serv.getResourceBundleData(resource) ;
-      
-      System.out.println("\n\n\n\n\n\n >>>>>>>>>>>>>>>>>> resource value:" + resource);
       
       getChild(UIFormTextAreaInput.class).setValue(redata.getData()) ;
       getChild(UIFormTextAreaInput.class).setEditable(false) ;
