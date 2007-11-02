@@ -37,9 +37,6 @@
 								<div class="SeperatorLine"><span></span></div>
 								<div style="clear: right;"><span></span></div>
 							</div>
-							<div style="float: right; cursor: pointer;" onclick="$changeSettingAction">
-								<span>Setting</span>
-							</div>
 					  <%}%> 
 						</div>
 						<div style="clear: right;"><span></span></div>
