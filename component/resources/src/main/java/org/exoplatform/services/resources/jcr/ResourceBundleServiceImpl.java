@@ -64,11 +64,7 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
   }
 
   public ResourceBundleData getResourceBundleData(String id) throws Exception {
-    ResourceBundleData resource = (ResourceBundleData) cache_.get(id) ;
-    if(resource != null) return resource ;
-    resource =   getResourceBundleDataFromDB(id);
-    if(resource != null) cache_.put(id, resource) ;
-    return resource ;
+    return getResourceBundleDataFromDB(id);
   }
   
   public ResourceBundleData removeResourceBundleData(String id) throws Exception {
