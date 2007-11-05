@@ -35,6 +35,7 @@
   margin: 0px 7px;
   padding: 5px 0px 5px 26px;
   line-height: 16px;
+  width: auto;
 }
 
 .UIRightClickPopupMenu a {

@@ -3,3 +3,19 @@
   padding: 100px;
   background: yellow;
 }
+
+.UII18nPortlet {
+	padding: 10px;
+}
+
+.UII18nPortlet .UISearchI18n {
+	margin: auto;
+}
+
+.UII18nPortlet .UIEditResource {
+	margin: 30px auto;
+}
+
+.UII18nPortlet .UIFormWithTitle .TitleBar {
+	font-weight: bold;
+}

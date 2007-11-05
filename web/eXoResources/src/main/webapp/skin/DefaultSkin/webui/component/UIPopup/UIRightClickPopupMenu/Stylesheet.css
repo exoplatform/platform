@@ -6,6 +6,7 @@
 .UIContextMenuContainer {
   background: #c4c4c4;
   border: 1px solid #7e7e7f;
+  width: 200px;
 } 
 
 .UIRightClickPopupMenu .UIRightPopupMenuContainer {
@@ -19,19 +20,18 @@
   cursor: pointer;
   line-height: 16px;
   white-space: nowrap;
+  border: 1px solid red;
+  display: block;
+}
+
+.UIRightClickPopupMenu .MenuItem:hover {
+  background: #dee4f2;
 }
 
 .UIRightClickPopupMenu .RightClickCustomItem {
 	display: none;
 }
 	
-.UIRightClickPopupMenu .SelectedMenuItem {
-  clear: both;
-  cursor: pointer;
-  line-height: 16px;
-  background: #dee4f2;
-}
-
 .UIRightClickPopupMenu .ItemIcon {
   margin: 0px 7px;
   padding: 5px 0px 5px 26px;

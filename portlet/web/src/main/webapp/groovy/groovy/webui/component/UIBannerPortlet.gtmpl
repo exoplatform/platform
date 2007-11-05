@@ -31,9 +31,9 @@
 							<div class="SignIn">
 								<a class="LoginIcon" onclick="$signInAction"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
 								<div class="SeperatorLine"><span></span></div>
-								<div class="PortalSetting">
-									<a class="SettingIcon">Setting</a>
-								</div>
+								<a class="SettingIcon" onclick="$changeSettingAction">
+									<%=_ctx.appRes("UIPortalSetting.title.portalSetting")%>
+								</a>
 								<div class="SeperatorLine"><span></span></div>
 								<div style="clear: right;"><span></span></div>
 							</div>
