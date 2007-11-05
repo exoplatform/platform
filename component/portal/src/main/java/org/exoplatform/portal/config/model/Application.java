@@ -24,6 +24,7 @@ public class Application {
   private boolean  showInfoBar = true ;
   private boolean  showApplicationState = true ;
   private boolean  showApplicationMode = true ;
+  private String theme;
   private String width ;
   private String height ;
   private Properties properties;
@@ -69,5 +70,8 @@ public class Application {
     return properties; 
   }
   public void setProperties(Properties properties) { this.properties = properties; }
+
+public String getTheme() { return theme; }
+public void setTheme(String theme) { this.theme = theme; }
   
 }

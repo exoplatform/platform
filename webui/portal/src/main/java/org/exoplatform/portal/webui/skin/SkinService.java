@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by The eXo Platform SARL
@@ -19,6 +20,9 @@ public class SkinService {
 
   private Map<String, SkinConfig>  skinConfigs_ ;
   private HashSet<String>  availableSkins_ ;
+  
+  private Set<String> themeURLs_ ;
+  private Map<String, Set<String>> portletThemes_ ;
 
   public SkinService() {
     skinConfigs_ = new  HashMap<String, SkinConfig>(20) ;
@@ -71,4 +75,16 @@ public class SkinService {
     if(skinName.length() == 0) key = module + "$Default" ;
     skinConfigs_.remove(key);
   }
+
+public void addThemeURL(String url){}
+
+public void addTheme(String categoryName, String themeName){}
+
+public void addCategoryTheme(String categoryName){}
+  
+public Set<String> getThemeURLs_() { return themeURLs_; }
+public void setThemeURLs(Set<String> themeURLs_) {this.themeURLs_ = themeURLs_; }
+
+public Map<String, Set<String>> getPortletThemes() { return portletThemes_; }
+public void setPortletThemes(Map<String, Set<String>> portletThemes_) {this.portletThemes_ = portletThemes_; }
 }

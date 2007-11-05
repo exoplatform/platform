@@ -52,7 +52,7 @@ import org.exoplatform.webui.event.Event.Phase;
 public class UIPortlet extends UIApplication { 
   
   protected static Log log = ExoLogger.getLogger("portal:UIPortlet"); 
-  
+  private String theme;
   private String windowId ;
   private String portletStyle ;
 
@@ -81,6 +81,9 @@ public class UIPortlet extends UIApplication {
   
   public boolean getShowPortletMode() { return showPortletMode ; }
   public void    setShowPortletMode(Boolean b) { showPortletMode = b ; }
+  
+  public String getTheme() { return theme; }
+  public void setTheme(String theme) { this.theme = theme; }
   
   public ExoWindowID  getExoWindowID() { return exoWindowId_ ; }
   
@@ -181,5 +184,4 @@ public class UIPortlet extends UIApplication {
 	  }	
 	  return false;
   }
-  
 }

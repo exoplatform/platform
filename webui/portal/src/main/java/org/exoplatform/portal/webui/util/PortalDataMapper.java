@@ -96,6 +96,7 @@ public class PortalDataMapper {
     model.setDescription(uiPortlet.getDescription());
     model.setIcon(uiPortlet.getIcon());
     model.setProperties(uiPortlet.getProperties());
+    model.setTheme(uiPortlet.getTheme());
     return model;
   }
   
@@ -194,7 +195,7 @@ public class PortalDataMapper {
     uiPortlet.setShowWindowState(model.getShowApplicationState());
     uiPortlet.setShowPortletMode(model.getShowApplicationMode());
     uiPortlet.setProperties(model.getProperties());
-  
+    uiPortlet.setTheme(model.getTheme());
     PortletContainerService portletContainer =  uiPortlet.getApplicationComponent(PortletContainerService.class);
     ExoWindowID windowId = uiPortlet.getExoWindowID();    
     String  portletId = windowId.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + windowId.getPortletName();   
