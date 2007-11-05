@@ -191,14 +191,14 @@ public class UIPortalComponentActionListener {
    
   }
   
-  public static class ChangeSettingActionListener extends EventListener<UIPortal> {
+  public static class ChangeLanguageActionListener extends EventListener<UIPortal> {
 
     @Override
     public void execute(Event<UIPortal> event) throws Exception {
       UIPortal uiPortal = event.getSource() ;
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class) ;
       UIMaskWorkspace uiMaskWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      uiMaskWorkspace.createUIComponent(UIPortalSettingForm.class, null, null) ;
+      uiMaskWorkspace.createUIComponent(UILanguageSelector.class, null, null) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
     }
     
