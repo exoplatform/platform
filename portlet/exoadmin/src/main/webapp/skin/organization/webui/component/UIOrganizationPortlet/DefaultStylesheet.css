@@ -52,6 +52,21 @@
   color: #058ee6;
 }
 
+.UIOrganizationPortlet .UIBreadcumbs .LeftBreadcumbsBar {
+  padding: 0px 0px 0px 5px ;
+  background: url('DefaultSkin/background/LeftBreadcumbsBar5x25.gif') no-repeat left;
+}
+
+.UIOrganizationPortlet .UIBreadcumbs .RightBreadcumbsBar {
+  padding: 0px 5px 0px 0px;
+  background: url('DefaultSkin/background/RightBreadcumbsBar5x25.gif') no-repeat right;
+}
+
+.UIOrganizationPortlet .UIBreadcumbs .BreadcumbsInfoBar {
+  height: 25px; line-height: 25px; vertical-align: middle;
+  background: url('DefaultSkin/background/MiddleBreadcumbsBar1x25.gif') repeat-x;
+}
+
 .UIOrganizationPortlet .ManagementIconContainer {
   padding-top: 4px;
   margin-left: 5px;

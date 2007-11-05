@@ -7,8 +7,7 @@
 }
 
 .UIBreadcumbs {
-  height: 19px ;  line-height: 19px ;
-  vertical-align: middle ;
+  line-height: 19px ;
   padding: 0px 6px 0px 5px;
 }
 
@@ -22,7 +21,7 @@
 
 .UIBreadcumbs .HomeIcon {
 	float: left;
-  margin: 5px 5px 0px 3px ;
+  margin: 2px 5px 0px 3px ;
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
@@ -36,7 +35,7 @@
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
-  height: 25px; line-height: 25px; vertical-align: middle;
+  height: 20px; line-height: 20px; 
   /*background: url('background/MiddleBreadcumbsBar1x25.gif') repeat-x;*/
 }
 
