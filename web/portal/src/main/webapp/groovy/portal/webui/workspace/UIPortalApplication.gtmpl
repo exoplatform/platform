@@ -20,9 +20,6 @@
     <link id="PortalSkin" rel="stylesheet" type="text/css" href="$portalSkin.CSSPath" />
     <link id="CoreSkin" rel="stylesheet" type="text/css" href="$coreSkin.CSSPath"/>
     
-    <link id="company" rel="stylesheet" type="text/css" href="/site/company/skin/Stylesheet.css" />
-    <link id="community" rel="stylesheet" type="text/css" href="/site/community/skin/Stylesheet.css" />
-        
     <% 
       for(portletSkin in portletSkins) { 
     %> 
