@@ -21,22 +21,22 @@
 
 .UIBreadcumbs .HomeIcon {
 	float: left;
-  margin: 2px 5px 0px 3px ;
+  margin: 5px 5px 0px 3px ;
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
   padding: 0px 0px 0px 5px ;
-  /*background: url('background/LeftBreadcumbsBar5x25.gif') no-repeat left;*/
+  background: url('background/LeftBreadcumbsBar5x25.gif') no-repeat left;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
   padding: 0px 5px 0px 0px;
-  /*background: url('background/RightBreadcumbsBar5x25.gif') no-repeat right;*/
+  background: url('background/RightBreadcumbsBar5x25.gif') no-repeat right;
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
-  height: 20px; line-height: 20px; 
-  /*background: url('background/MiddleBreadcumbsBar1x25.gif') repeat-x;*/
+  height: 25px; line-height: 25px; 
+  background: url('background/MiddleBreadcumbsBar1x25.gif') repeat-x;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {

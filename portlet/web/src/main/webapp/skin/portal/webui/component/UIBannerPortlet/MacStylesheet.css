@@ -55,6 +55,23 @@
   margin: 4px 7px 0px 7px;
 }
 
+ .UIBannerPortlet .LoginContent .SettingIcon {
+  height: 22px;
+  background: url('MacSkin/background/ChangeLanguage.gif') no-repeat left center;
+  margin-right: 2px;
+  padding-left: 26px;
+  cursor: pointer;
+	float: right;
+	display: block;
+}
+
+.UIBannerPortlet .LoginContent .SeperatorLine {
+  float: right;
+  width: 2px; height: 21px;
+  background: url('DefaultSkin/background/2x2.gif') repeat-y;
+  margin: 2px 7px;
+ }
+
 .UIBannerPortlet .LoginContent .LoginIcon {
   height: 24px;
   background: url('MacSkin/background/SigninButton.gif') no-repeat left center;
