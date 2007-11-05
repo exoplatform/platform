@@ -155,13 +155,11 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
  */
  
  UIExoStartMenu.prototype.showMenuItemContainer = function(event) {
-	try {
+
 		var StartMenu = eXo.portal.UIExoStartMenu ;
 		if (!eXo.portal.UIExoStartMenu.lastItem) {
-	 
 				var event = event || window.event ;
 				var menuItem = event.target || event.srcElement ;
-	
 		} else {
 			var menuItem = eXo.portal.UIExoStartMenu.lastItem ;
 			eXo.portal.UIExoStartMenu.lastItem = null ;
@@ -169,13 +167,10 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 		while (menuItem.id != "ReSearch") {menuItem = menuItem.parentNode ;}
 	
 		var menuItemContainer = menuItem.menuItemContainer ;
+		menuItemContainer.style.border = "1px solid white" ;
 		menuItemContainer.style.display = "block" ;
 		
-
-		
-//		menuItemContainer.style.border = "1px solid white" ;
 	 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
-		blockMenu.style.boder = "1px solid white";
 		var Width = blockMenu.offsetWidth ;
 		blockMenu.style.width = Width + "px" ;
 		
@@ -255,13 +250,17 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 			bottomElement.style.display = "none" ;
 	  }
 		if (eXo.portal.UIExoStartMenu.lastEvent == null) {
-			eXo.portal.UIExoStartMenu.lastEvent = event ;
+			eXo.portal.UIExoStartMenu.lastEvent = new Object();
+			for (i in event) {
+				eXo.portal.UIExoStartMenu.lastEvent[i] = event[i] ;
+			}
+
 			eXo.portal.UIExoStartMenu.lastItem = menuItem ;
 			setTimeout("eXo.portal.UIExoStartMenu.showMenuItemContainer(eXo.portal.UIExoStartMenu.lastEvent)", 100);
 		}
-		blockMenu.style.boder = "0px solid white" ;
-		menuItemContainer.style.border = "0px solid white" ;
-	} catch(e){void(0);}
+	//	blockMenu.style.boder = "1px solid green" ;
+	//	menuItemContainer.style.border = "0px solid red" ;
+	
 };
 
 UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
