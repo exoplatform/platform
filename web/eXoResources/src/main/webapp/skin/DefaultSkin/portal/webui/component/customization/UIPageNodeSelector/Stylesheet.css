@@ -18,8 +18,8 @@
 
 /*Created Dang.Tung*/
 .UIPageNodeSelector .UIDropDownControl {
-  padding: 0px 1px;
-}
+  padding-left: 1px;
+  }
 
 /*###############################- UITree -############################*/
 .UIPageNodeSelector .TreeSelectorTitle {

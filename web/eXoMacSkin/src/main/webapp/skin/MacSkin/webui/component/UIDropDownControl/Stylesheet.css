@@ -1,6 +1,7 @@
 /* --- DropDown Control Format --- */
 .UIDropDownControl {
 	position: relative ;
+	margin-bottom: 2px;
 }
 .UIDropDownControl .UIDropDownTitle {
 	cursor:pointer;

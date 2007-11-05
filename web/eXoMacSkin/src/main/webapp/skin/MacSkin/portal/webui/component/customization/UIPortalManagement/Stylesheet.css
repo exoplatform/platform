@@ -1,5 +1,9 @@
 .UIPortalManagement {}
 
+.UIPortalManagement .UIPortletOptions .UIDropDownControl {
+	width: 218px;
+}
+
 .UIPortalManagement .TopTitleBar {
   padding: 15px 85px 15px 0px;
 }

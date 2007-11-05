@@ -1,6 +1,10 @@
 .UIPortalManagement {
 }
 
+.UIPortalManagement .UIPortletOptions .UIDropDownControl {
+	width: 218px;
+}
+
 .UIPortalManagement .UIToolbar .EditToolbar .Icon{
 	margin: 4px 9px 0px 17px;
 }
