@@ -4,26 +4,37 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.application;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
+import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormInputIconSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormInputThemeSelector;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
-import org.exoplatform.webui.form.validator.NumberFormatValidator;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
@@ -55,6 +66,7 @@ public class UIPortletForm extends UIFormTabPane {
   
 	private UIPortlet uiPortlet_ ;
   private UIComponent backComponent_ ;
+  final static private String FIELD_THEME = "theme" ; 
   
   @SuppressWarnings("unchecked")
   public UIPortletForm() throws Exception {//InitParams initParams
@@ -80,6 +92,15 @@ public class UIPortletForm extends UIFormTabPane {
     UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
     uiIconSelector.setRendered(false)  ;
     addUIFormInput(uiIconSelector) ;
+    
+    UIFormInputThemeSelector uiThemeSelector = new UIFormInputThemeSelector(FIELD_THEME, FIELD_THEME) ;
+    uiThemeSelector.setRendered(false) ;
+    Map<String, Set<String>> themeSet = new HashMap<String, Set<String>>() ;
+    Set<String> set = new HashSet<String>();
+    set.add("Theme1") ;
+    themeSet.put("Category1", set) ;
+    uiThemeSelector.setValues(themeSet) ;
+    addUIFormInput(uiThemeSelector) ;
     
    /* UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");
     uiTemplate.setTypeValue(String.class);
