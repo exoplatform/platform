@@ -76,14 +76,25 @@ public class SkinService {
     skinConfigs_.remove(key);
   }
 
-public void addThemeURL(String url){}
+  public void addThemeURL(String url){
+	if(themeURLs_ == null) themeURLs_ = new HashSet<String>();
+	themeURLs_.add(url);
+  }
 
-public void addTheme(String categoryName, String themeName){}
+  public void addTheme(String categoryName, String[] themesName){
+	if(portletThemes_ == null) portletThemes_ = new HashMap<String, Set<String>>();
+	if(!portletThemes_.containsKey(categoryName)) portletThemes_.put(categoryName, new HashSet<String>());
+	Set<String> catThemes = portletThemes_.get(categoryName);
+	for(String theme: themesName) catThemes.add(theme);
+  }
 
-public void addCategoryTheme(String categoryName){}
+  public void addCategoryTheme(String categoryName){
+    if(portletThemes_ == null) portletThemes_ = new HashMap<String, Set<String>>();
+	if(!portletThemes_.containsKey(categoryName)) portletThemes_.put(categoryName, new HashSet<String>());
+  }
   
-public Set<String> getThemeURLs_() { return themeURLs_; }
-public void setThemeURLs(Set<String> themeURLs_) {this.themeURLs_ = themeURLs_; }
+  public Set<String> getThemeURLs_() { return themeURLs_; }
+  public void setThemeURLs(Set<String> themeURLs_) {this.themeURLs_ = themeURLs_; }
 
 public Map<String, Set<String>> getPortletThemes() { return portletThemes_; }
 public void setPortletThemes(Map<String, Set<String>> portletThemes_) {this.portletThemes_ = portletThemes_; }
