@@ -6,7 +6,6 @@
 .UIContextMenuContainer {
   background: #c4c4c4;
   border: 1px solid #7e7e7f;
-  width: 200px;
 } 
 
 .UIRightClickPopupMenu .UIRightPopupMenuContainer {
@@ -16,7 +15,6 @@
 }
 
 .UIRightClickPopupMenu .MenuItem {
-  clear: both;
   cursor: pointer;
   line-height: 16px;
   white-space: nowrap;
@@ -35,6 +33,7 @@
   margin: 0px 7px;
   padding: 5px 0px 5px 26px;
   line-height: 16px;
+  width: auto;
 }
 
 .UIRightClickPopupMenu .MenuItem a:hover {
