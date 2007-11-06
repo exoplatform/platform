@@ -81,6 +81,16 @@
   width: 16px ;  height: 16px ;
 }
 
+.EditIcon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/Pencil.png') no-repeat ;
+}
+
+.DeleteIcon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/DustBin.png') no-repeat ;
+}
+
 .SelectPortalIcon {
   background: url('icons/SelectIcon.gif') no-repeat;
   width: 16px ; height: 16px ;

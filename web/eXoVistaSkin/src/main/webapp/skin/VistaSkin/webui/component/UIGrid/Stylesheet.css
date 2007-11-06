@@ -67,7 +67,7 @@
   width: 16px ;  height: 16px ;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/LightBulbOn.gif') no-repeat ;
 }
-
+/*
 .UIGrid .DeleteIcon {
   width: 16px ;  height: 16px ;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat ;
@@ -77,7 +77,7 @@
   width: 16px ;  height: 16px ;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat ;
 }
-
+*/
 .UIGrid .EditInfoIcon {
   width: 16px ;  height: 16px ;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat ;

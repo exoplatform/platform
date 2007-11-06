@@ -173,7 +173,7 @@
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground {
-  padding: 3px 0px 0px 0px ;
+  padding: 0px 10px 0px 0px  ;
 }
 
 .UIExoStart .StartMenuContainer .NavigationBackground .LabelText {
@@ -186,7 +186,6 @@
   height: 35px ;
   background: url('icons/32x32/Navigation.png') no-repeat right ;
   padding: 0px 24px 0px 0px ;
-  margin-right: 10px;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer {
@@ -260,21 +259,25 @@
 .UIExoStart .StartMenuContainer .ChangeLanguageIcon {
   background: url('icons/32x32/ChangeLanguage.png') no-repeat left ;
   padding: 0px 0px 0px 42px ;
+  height: 35px;
 }
 
 .UIExoStart .StartMenuContainer .LanguageSettingIcon {
   background: url('icons/32x32/ChangeLanguage.png') no-repeat left ;
   padding: 0px 0px 0px 42px ;
+  height: 35px;
 }
 
 .UIExoStart .StartMenuContainer .ChangePortalIcon {
   background: url('icons/32x32/ChangePortal.png') no-repeat left ;
   padding: 0px 0px 0px 32px ;
+  height: 35px;
 }
 
 .UIExoStart .StartMenuContainer .AccountSettingIcon {
   background: url('icons/32x32/AccountSetting.png') no-repeat left ;
   padding: 0px 0px 0px 32px ;
+  height: 35px;
 }
 
 .UIExoStart .StartMenuContainer .StartMenuContent {

@@ -103,6 +103,15 @@
   background: url('icons/EditIcon.png') no-repeat ;
 }
 
+.EditIcon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/EditIcon.png') no-repeat ;
+}
+
+.DeleteIcon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/DeleteIcon.png') no-repeat ;
+}
 .DustBin16x16Icon {
 	width: 17px ;	height: 18px ;
   background: url('icons/DeleteIcon.png') no-repeat center left ;   

@@ -14,6 +14,7 @@
 
 .UIForm .UIFormGrid td.FieldComponent {
   padding: 4px;
+  *padding: 2px 0px 4px 4px;
 }
 
 .UIForm .HorizontalLayout .MultiValueContainer {
@@ -126,6 +127,16 @@
 
 .UIPermissionForm .UIGroupSelector .RightGroupSelector .Content {
   height: 160px;
+}
+
+.UIPermissionForm .UIForm  .HorizontalLayout .UIAccessGroup input.checkbox {
+	margin: 2px;
+	*margin: 0px;
+}
+
+.UIPermissionForm .UIForm .UIAccessGroup .UIFormGrid td.FieldComponent {
+  padding: 4px;
+  *padding: 2px 0px 4px 4px;
 }
 
 .UIApplicationRegistryPortlet .UIPermissionForm .UIPopupWindow .UIWindowContent .Content {
