@@ -1,0 +1,40 @@
+<%
+	import org.exoplatform.webui.core.UIDropDownControl ;
+	
+	def categories = uicomponent.getCategories() ; 
+%>
+<div id="$uicomponent.id">
+	<div class="LeftPanel"style="float: left;">
+		<div class="DropDownControl"><%uicomponent.renderChild(UIDropDownControl.class);%></div>
+		<div class="ListView">
+		<%for(cate in categories) {
+			themes = cate.getSelectItemOptions() ;
+		%>
+			<div class="ItemList">
+			<%for(theme in themes) {
+				String label = theme.getLabel() ;
+			%>
+				<div class="Item">$label</div>
+			<%}%>
+			</div>
+		<%}%>
+		</div>
+	</div>
+	<div style="margin-left: 260px;" class="RightPanel">
+		<div>Theme Preview</div>
+		<div class="DetailView">
+			<%for(cate in categories) {
+				themes = cate.getSelectItemOptions() ;
+			%>
+				<div class="ItemDetailList">
+				<%for(theme in themes) {
+					String label = theme.getLabel() ;
+				%>
+					<div class="Title">$label</div>
+				<%}%>
+				</div>
+			<%}%>
+		</div>
+	</div>
+	<div style="clear: left;"></div>
+</div>
