@@ -10,6 +10,7 @@
 
 .UII18nPortlet .UISearchI18n {
 	margin: auto;
+	width: 500px;
 }
 
 .UII18nPortlet .UIEditResource {
@@ -18,4 +19,13 @@
 
 .UII18nPortlet .UIFormWithTitle .TitleBar {
 	font-weight: bold;
+}
+
+.UII18nPortlet .UIFormWithTitle {
+	width: 600px;
+}
+
+.UII18nPortlet .UIForm .HorizontalLayout textarea  {
+	width: 400px;
+	height: 300px;
 }

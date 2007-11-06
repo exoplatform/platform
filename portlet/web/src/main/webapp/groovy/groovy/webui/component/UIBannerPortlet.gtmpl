@@ -3,7 +3,7 @@
 	
 	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
 	String signInAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;" ;
-	String changeSettingAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeSetting', true));" ;
+	String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));" ;
 %>
 <div class="UIBannerPortlet UIApplication">
 	<div class="ApplicationMinWidth">
@@ -31,7 +31,7 @@
 							<div class="SignIn">
 								<a class="LoginIcon" onclick="$signInAction"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
 								<div class="SeperatorLine"><span></span></div>
-								<a class="SettingIcon" onclick="$changeSettingAction">
+								<a class="SettingIcon" onclick="$changeLanguageAction">
 									<%=_ctx.appRes("UIChangeLanguage.action.ChangeLanguage")%>
 								</a>
 								<div class="SeperatorLine"><span></span></div>
