@@ -93,7 +93,10 @@ public class SkinService {
 	if(!portletThemes_.containsKey(categoryName)) portletThemes_.put(categoryName, new HashSet<String>());
   }
   
-  public Set<String> getThemeURLs_() { return themeURLs_; }
+  public Set<String> getThemeURLs() { 
+	if(themeURLs_ == null) themeURLs_ = new HashSet<String>();
+	return themeURLs_; 
+  }
   public void setThemeURLs(Set<String> themeURLs_) {this.themeURLs_ = themeURLs_; }
 
 public Map<String, Set<String>> getPortletThemes() { return portletThemes_; }
