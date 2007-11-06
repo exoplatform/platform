@@ -27,11 +27,13 @@
 .UIBreadcumbs .LeftBreadcumbsBar {
   padding: 0px 0px 0px 5px ;
   background: url('background/LeftBreadcumbsBar5x25.gif') no-repeat left;
+  height: 25px;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
   padding: 0px 5px 0px 0px;
   background: url('background/RightBreadcumbsBar5x25.gif') no-repeat right;
+  height: 25px;
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {

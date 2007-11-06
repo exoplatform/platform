@@ -73,6 +73,11 @@
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat ;
 }
 
+.UIGrid .EditIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat ;
+}
+
 .UIGrid .EditInfoIcon {
   width: 16px ;  height: 16px ;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat ;

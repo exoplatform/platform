@@ -44,6 +44,14 @@
   color: #b3e2fb;
 }
 
+.UIBannerPortlet .LoginContent .SeperatorLine {
+  float: right;
+  width: 2px; height: 20px;
+  background: url('DefaultSkin/background/2x2.gif') repeat-y;
+  margin: 2px 7px;
+ }
+ 
+
 .UIBannerPortlet .LoginContent .LogoutIcon {
   float: left;
   height: 22px;
@@ -66,3 +74,14 @@
   background: url('DefaultSkin/background/2x2.gif') repeat-y;
   margin: 4px 7px 0px 7px;
  }
+ 
+.UIBannerPortlet .LoginContent .SettingIcon {
+  height: 22px;
+  background: url('VistaSkin/background/ChangeLanguage.png') no-repeat left center;
+  margin-right: 2px;
+  padding-left: 28px;
+  cursor: pointer;
+	font-weight: bold;
+	float: right;
+	display: block;
+}
