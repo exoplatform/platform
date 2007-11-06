@@ -1,6 +1,10 @@
 .UIExoStart {
 }
 
+.UIExoStart a:hover {
+  color: #a90920 ;
+}
+
 .UIExoStart .StartBarContainer {
 	height: 35px;
   background: url('background/BottomControlBg1x35.png') repeat-x bottom;
@@ -138,7 +142,6 @@
 
 .UIExoStart .StartMenuContainer .LabelText {
   white-space: nowrap ;
-  color: #000111;
   padding: 0px 5px 0px 4px ;
   line-height: 35px;
 }
@@ -149,7 +152,7 @@
 }
 
 .UIExoStart .StartMenuContainer .LabelText a:hover {
-  color: red ;
+  color: #ca0f29 ;
 }
 
 .UIExoStart .StartMenuContainer .LogoutIcon {
@@ -204,11 +207,13 @@
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
 	background: #cbdaf4;
+	color: #ca0f29;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemContainer {
   position: absolute ;
   display: none;
+  color: #201E1E;
 }
 
 .UIExoStart .StartMenuContainer .MenuContainer {
@@ -230,6 +235,7 @@
   background: url('background/TitleBar1x23.png') repeat-x ;
   padding: 0px 0px 0px 10px ;
   white-space: nowrap;
+  color: #000111;
 }
 
 .UIExoStart .StartMenuContainer .BasicIcon {
