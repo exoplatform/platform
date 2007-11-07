@@ -367,3 +367,7 @@
   height: 5px;
   background: url('background/MenuDecoratorBC1x6.png') repeat-x bottom ;
 }
+
+.UIExoStart .StartMenuDecorator .BlockMenu {
+  width: 100%;
+}
