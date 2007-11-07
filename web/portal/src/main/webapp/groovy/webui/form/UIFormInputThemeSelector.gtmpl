@@ -3,38 +3,282 @@
 	
 	def categories = uicomponent.getCategories() ; 
 %>
-<div id="$uicomponent.id">
-	<div class="LeftPanel"style="float: left;">
-		<div class="DropDownControl"><%uicomponent.renderChild(UIDropDownControl.class);%></div>
-		<div class="ListView">
-		<%for(cate in categories) {
-			themes = cate.getSelectItemOptions() ;
-		%>
+<div class="UIItemSelector UIFormInputThemeSelector" id="$uicomponent.id">
+	<div class="LeftColumnStyle">
+		<div class="ItemListContainer">
+			<div class="DropDownControl"><%uicomponent.renderChild(UIDropDownControl.class);%></div>
 			<div class="ItemList">
-			<%for(theme in themes) {
-				String label = theme.getLabel() ;
-			%>
-				<div class="Item">$label</div>
-			<%}%>
+			
+				<div class="Item">
+					<div class="UIThemeSelector TonicStyle BlueColor">
+					
+					  <div class="WindowBarLeft">
+					    <div class="WindowBarRight">
+					      <div class="WindowBarCenter">
+					        <div class="WindowPortletControl">
+					          <div class="ControlIcon MinimizedIcon"><span></span></div>
+					          <div class="ControlIcon RestoreIcon"><span></span></div>
+					          <div class="ControlIcon MaximizedIcon"><span></span></div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div class="WindowPortletInfo">
+					          <div class="WindowPortletIcon Icon"><span></span></div>
+					          <div class="PortletName">Title</div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div style="clear: right"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="MiddleDecoratorLeft">
+					    <div class="MiddleDecoratorRight">
+					      <div class="MiddleDecoratorCenter">
+					        <div style="height: 50px;"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="BottomDecoratorLeft">
+					    <div class="BottomDecoratorRight">
+					      <div class="BottomDecoratorCenter">
+									<div class="ResizeArea" title="Resize Window"><span></span></div>
+					        <div class="Information">Done</div>
+					        <div style="clear: right"><span></span></div>
+								</div>
+					    </div>
+					  </div>
+					  
+					</div>
+				</div>	
+				
+				<div class="Item">
+					<div class="UIThemeSelector TonicStyle BlueColor">
+					
+					  <div class="WindowBarLeft">
+					    <div class="WindowBarRight">
+					      <div class="WindowBarCenter">
+					        <div class="WindowPortletControl">
+					          <div class="ControlIcon MinimizedIcon"><span></span></div>
+					          <div class="ControlIcon RestoreIcon"><span></span></div>
+					          <div class="ControlIcon MaximizedIcon"><span></span></div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div class="WindowPortletInfo">
+					          <div class="WindowPortletIcon Icon"><span></span></div>
+					          <div class="PortletName">Title</div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div style="clear: right"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="MiddleDecoratorLeft">
+					    <div class="MiddleDecoratorRight">
+					      <div class="MiddleDecoratorCenter">
+					        <div style="height: 50px;"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="BottomDecoratorLeft">
+					    <div class="BottomDecoratorRight">
+					      <div class="BottomDecoratorCenter">
+									<div class="ResizeArea" title="Resize Window"><span></span></div>
+					        <div class="Information">Done</div>
+					        <div style="clear: right"><span></span></div>
+								</div>
+					    </div>
+					  </div>
+					  
+					</div>
+				</div>	
+				
+				<div class="Item">
+					<div class="UIThemeSelector TonicStyle BlueColor">
+					
+					  <div class="WindowBarLeft">
+					    <div class="WindowBarRight">
+					      <div class="WindowBarCenter">
+					        <div class="WindowPortletControl">
+					          <div class="ControlIcon MinimizedIcon"><span></span></div>
+					          <div class="ControlIcon RestoreIcon"><span></span></div>
+					          <div class="ControlIcon MaximizedIcon"><span></span></div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div class="WindowPortletInfo">
+					          <div class="WindowPortletIcon Icon"><span></span></div>
+					          <div class="PortletName">Title</div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div style="clear: right"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="MiddleDecoratorLeft">
+					    <div class="MiddleDecoratorRight">
+					      <div class="MiddleDecoratorCenter">
+					        <div style="height: 50px;"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="BottomDecoratorLeft">
+					    <div class="BottomDecoratorRight">
+					      <div class="BottomDecoratorCenter">
+									<div class="ResizeArea" title="Resize Window"><span></span></div>
+					        <div class="Information">Done</div>
+					        <div style="clear: right"><span></span></div>
+								</div>
+					    </div>
+					  </div>
+					  
+					</div>
+				</div>	
+				
+				<div class="Item">
+					<div class="UIThemeSelector TonicStyle BlueColor">
+					
+					  <div class="WindowBarLeft">
+					    <div class="WindowBarRight">
+					      <div class="WindowBarCenter">
+					        <div class="WindowPortletControl">
+					          <div class="ControlIcon MinimizedIcon"><span></span></div>
+					          <div class="ControlIcon RestoreIcon"><span></span></div>
+					          <div class="ControlIcon MaximizedIcon"><span></span></div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div class="WindowPortletInfo">
+					          <div class="WindowPortletIcon Icon"><span></span></div>
+					          <div class="PortletName">Title</div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div style="clear: right"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="MiddleDecoratorLeft">
+					    <div class="MiddleDecoratorRight">
+					      <div class="MiddleDecoratorCenter">
+					        <div style=" height: 50px;"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="BottomDecoratorLeft">
+					    <div class="BottomDecoratorRight">
+					      <div class="BottomDecoratorCenter">
+									<div class="ResizeArea" title="Resize Window"><span></span></div>
+					        <div class="Information">Done</div>
+					        <div style="clear: right"><span></span></div>
+								</div>
+					    </div>
+					  </div>
+					  
+					</div>
+				</div>	
+				
+				<div class="Item">
+					<div class="UIThemeSelector TonicStyle BlueColor">
+					
+					  <div class="WindowBarLeft">
+					    <div class="WindowBarRight">
+					      <div class="WindowBarCenter">
+					        <div class="WindowPortletControl">
+					          <div class="ControlIcon MinimizedIcon"><span></span></div>
+					          <div class="ControlIcon RestoreIcon"><span></span></div>
+					          <div class="ControlIcon MaximizedIcon"><span></span></div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div class="WindowPortletInfo">
+					          <div class="WindowPortletIcon Icon"><span></span></div>
+					          <div class="PortletName">Title</div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div style="clear: right"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="MiddleDecoratorLeft">
+					    <div class="MiddleDecoratorRight">
+					      <div class="MiddleDecoratorCenter">
+					        <div style="height: 50px;"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="BottomDecoratorLeft">
+					    <div class="BottomDecoratorRight">
+					      <div class="BottomDecoratorCenter">
+									<div class="ResizeArea" title="Resize Window"><span></span></div>
+					        <div class="Information">Done</div>
+					        <div style="clear: right"><span></span></div>
+								</div>
+					    </div>
+					  </div>
+					  
+					</div>
+				</div>	
+				
 			</div>
-		<%}%>
 		</div>
-	</div>
-	<div style="margin-left: 260px;" class="RightPanel">
-		<div>Theme Preview</div>
-		<div class="DetailView">
-			<%for(cate in categories) {
-				themes = cate.getSelectItemOptions() ;
-			%>
-				<div class="ItemDetailList">
-				<%for(theme in themes) {
-					String label = theme.getLabel() ;
-				%>
-					<div class="Title">$label</div>
-				<%}%>
-				</div>
-			<%}%>
+		<div class="ItemDetailList">
+			<div class="ItemDetailTitle">
+      	<div class="TitleIcon ViewListIcon"><span></span></div>
+  	    <div class="Title">iconPreview</div>
+  	    <div class="SetDefault">Set as default</div>
+  	    <div style="clear: both;"><span/></div>
+    	</div>
+			<div class="DetailView">
+					
+					<div class="UIThemeSelector TonicStyle BlueColor">
+					
+					  <div class="WindowBarLeft">
+					    <div class="WindowBarRight">
+					      <div class="WindowBarCenter">
+					        <div class="WindowPortletControl">
+					          <div class="ControlIcon MinimizedIcon"><span></span></div>
+					          <div class="ControlIcon RestoreIcon"><span></span></div>
+					          <div class="ControlIcon MaximizedIcon"><span></span></div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div class="WindowPortletInfo">
+					          <div class="WindowPortletIcon Icon"><span></span></div>
+					          <div class="PortletName">Title</div>
+					          <div style="clear: left"><span></span></div>
+					        </div>
+					        <div style="clear: right"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="MiddleDecoratorLeft">
+					    <div class="MiddleDecoratorRight">
+					      <div class="MiddleDecoratorCenter">
+					        <div style="width: 100%; height: 50px;"><span></span></div>
+					      </div>
+					    </div>
+					  </div>
+					  
+					  <div class="BottomDecoratorLeft">
+					    <div class="BottomDecoratorRight">
+					      <div class="BottomDecoratorCenter">
+									<div class="ResizeArea" title="Resize Window"><span></span></div>
+					        <div class="Information">Done</div>
+					        <div style="clear: right"><span></span></div>
+								</div>
+					    </div>
+					  </div>
+					  
+					</div>
+					<div class="NameTheme">Tonic Blue Style</div>
+			
+			</div>
 		</div>
+		<div style="clear: left;"></div>
 	</div>
-	<div style="clear: left;"></div>
 </div>

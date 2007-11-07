@@ -1,0 +1,59 @@
+.UIFormInputThemeSelector {
+	
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .ItemListContainer {
+	width: 195px;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList {
+	margin-left: 200px;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .ItemList .Item {
+	height: auto;
+	border: none;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .ItemList .UIThemeSelector {
+	width: 170px;
+	margin: auto;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .SetDefault {
+	float: right;
+	color: #058ee6;
+	font-weight: bold;
+	line-height: 20px;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList .DetailView {
+	border: 1px solid #a4a4a4;
+	padding: 20px 10px;
+	height: 200px;
+	background: white;
+}
+
+.UIFormInputThemeSelector .ItemDetailList .DetailView .UIThemeSelector {
+	width: 90%;
+	margin: auto;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList .NameTheme {
+	line-height: 30px;
+	text-align: center;
+	color: #454545;
+	padding-top: 10px;
+}
+
+/*
+
+.UIFormInputThemeSelector .ItemList .MiddleDecoratorLeft .Title {
+	text-align: center;
+	line-height: 20px;
+	border: 1px solid #fafafa;
+	width: 100px;
+	margin: 10px auto;
+}
+
+*/
