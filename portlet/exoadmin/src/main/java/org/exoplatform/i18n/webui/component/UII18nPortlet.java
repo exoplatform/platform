@@ -26,6 +26,7 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTextAreaInput;
 
 /**
  * Created by The eXo Platform SARL
@@ -38,8 +39,8 @@ import org.exoplatform.webui.form.UIFormStringInput;
   @ComponentConfig(
       lifecycle = UIApplicationLifecycle.class,
       events = {
-        @EventConfig (listeners = UII18nPortlet.DeleteActionListener.class),
-        @EventConfig (listeners = UII18nPortlet.EditActionListener.class) 
+        @EventConfig (listeners = UII18nPortlet.ViewActionListener.class),
+        @EventConfig (listeners = UII18nPortlet.DeleteActionListener.class)
       }
   ),
   
@@ -56,7 +57,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 })
 public class UII18nPortlet extends UIPortletApplication {
   private static String[] RESOURCE_LIST = {"name", "language"} ;
-  private static String[] RESOURCE_ACTION = {"Edit", "Delete"} ;
+  private static String[] RESOURCE_ACTION = {"View", "Delete"} ;
 
   public UII18nPortlet() throws Exception {
     
@@ -95,12 +96,32 @@ public class UII18nPortlet extends UIPortletApplication {
     }
   }
 
-  static public class EditActionListener extends EventListener<UII18nPortlet> {
+//  static public class EditActionListener extends EventListener<UII18nPortlet> {
+//    public void execute(Event<UII18nPortlet> event) throws Exception {
+//      UII18nPortlet uiI18n = event.getSource() ;
+//      
+//      UIEditResource uiEditResource = uiI18n.getChild(UIEditResource.class) ;
+//      uiEditResource.setRendered(true) ;
+//      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
+//      uiEditResource.setActions(new String[]{"Save", "Cancel"});
+//      String paramID = event.getRequestContext().getRequestParameter(OBJECTID) ;
+//      uiEditResource.setResource(paramID) ;
+//      
+//      uiI18n.getChild(UIGrid.class).setRendered(false) ;
+//      UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
+//      uiSearch.setRendered(false) ;
+//    }
+//  }
+  
+  
+  static public class ViewActionListener extends EventListener<UII18nPortlet> {
     public void execute(Event<UII18nPortlet> event) throws Exception {
       UII18nPortlet uiI18n = event.getSource() ;
       
       UIEditResource uiEditResource = uiI18n.getChild(UIEditResource.class) ;
       uiEditResource.setRendered(true) ;
+      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(false) ;
+      uiEditResource.setActions(new String[]{"Edit", "Cancel"});
       String paramID = event.getRequestContext().getRequestParameter(OBJECTID) ;
       uiEditResource.setResource(paramID) ;
       

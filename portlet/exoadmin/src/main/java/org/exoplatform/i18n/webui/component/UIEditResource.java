@@ -34,7 +34,6 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
       events = {
         @EventConfig (listeners = UIEditResource.SaveActionListener.class),
         @EventConfig (listeners = UIEditResource.EditActionListener.class),
-        @EventConfig (listeners = UIEditResource.PreviewActionListener.class),
         @EventConfig (listeners = UIEditResource.CancelActionListener.class, phase = Phase.DECODE)
       }
   )
@@ -56,15 +55,6 @@ public class UIEditResource extends UIForm {
     addUIFormInput(new UIFormSelectBox("language","language",options)) ;
   } 
 
-  static public class EditActionListener extends EventListener<UIEditResource> {
-    public void execute(Event<UIEditResource> event) throws Exception {
-      UIEditResource uiEditResource = event.getSource() ;
-      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
-      uiEditResource.getUIStringInput("name").setEditable(false) ;
-      uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;
-    }
-  }
-
   static public class SaveActionListener  extends EventListener<UIEditResource> {
     public void execute(Event<UIEditResource> event) throws Exception {
       UIEditResource uiEditResource = event.getSource() ;
@@ -80,22 +70,19 @@ public class UIEditResource extends UIForm {
       
       serv.saveResourceBundle(resData) ;
       
-      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
-      uiEditResource.getUIStringInput("name").setEditable(false) ;
-      uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;
+//      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
+//      uiEditResource.getUIStringInput("name").setEditable(false) ;
+//      uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;
       
       // update when create new resource
       uiI18n.update(null, null) ;
+      uiI18n.getChild(UIGrid.class).setRendered(true) ;
+      UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
+      uiSearch.setRendered(true) ;
+      uiI18n.getChild(UIEditResource.class).setRendered(false) ;
+      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiI18n) ;
 
-    }
-  }
-
-  static public class PreviewActionListener  extends EventListener<UIEditResource> {
-    public void execute(Event<UIEditResource> event) throws Exception {
-      UIEditResource uiEditResource = event.getSource() ;
-      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(false) ;
-      uiEditResource.getUIStringInput("name").setEditable(false) ;
-      uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;   
     }
   }
   
@@ -110,12 +97,21 @@ public class UIEditResource extends UIForm {
     }
   }
   
+  static public class EditActionListener extends EventListener<UIEditResource> {
+    public void execute(Event<UIEditResource> event) throws Exception {
+      UIEditResource uiEditResource = event.getSource() ;
+      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
+      uiEditResource.getUIStringInput("name").setEditable(false) ;
+      uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;
+      uiEditResource.setActions(new String[]{"Save", "Cancel"});
+    }
+  }
+  
   public void setResource(String resource) throws Exception {
     if(resource != null) {      
       ResourceBundleService serv = getApplicationComponent(ResourceBundleService.class) ;
       ResourceBundleData redata = serv.getResourceBundleData(resource) ;
       getChild(UIFormTextAreaInput.class).setValue(redata.getData()) ;
-      getChild(UIFormTextAreaInput.class).setEditable(false) ;
       getUIStringInput("name").setValue(redata.getName()) ;
       getUIStringInput("name").setEditable(false) ;
       getChild(UIFormSelectBox.class).setValue(redata.getLanguage()) ;
