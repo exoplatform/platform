@@ -66,19 +66,19 @@
 
 .TonicStyle .WindowBarLeft {
   padding-left: 13px ;
-  background: url('background/TLTonicBlue13x32.png') no-repeat left ;
+  background: url('background/TLTonicBlue13x32.png') no-repeat left bottom;
   height: 32px;
 }
 
 .TonicStyle .WindowBarRight {
   padding-right: 13px ;
-  background: url('background/TRTonicBlue13x32.png') no-repeat right;
+  background: url('background/TRTonicBlue13x32.png') no-repeat right bottom;
   height: 32px;
 }
 
 .TonicStyle .WindowBarCenter {
   height: 32px ;
-  background: url('background/TCTonicBlue1x32.png') repeat-x ;
+  background: url('background/TCTonicBlue1x32.png') repeat-x bottom;
 }
 
 .TonicStyle .MiddleDecoratorLeft {
@@ -89,6 +89,10 @@
 .TonicStyle .MiddleDecoratorRight {
   padding-right: 13px ;
   background: url('background/MRTonicBlue13x1.png') repeat-y right ;
+}
+
+.TonicStyle .MiddleDecoratorCenter {
+  background: url('background/MiddleTonicBlue1x88.gif') repeat-x;
 }
 
 .TonicStyle .BottomDecoratorLeft {
