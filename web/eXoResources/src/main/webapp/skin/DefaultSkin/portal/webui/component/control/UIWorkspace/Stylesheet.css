@@ -54,6 +54,7 @@
   margin: 2px 0px ;
 }
 
+
 /*########################### End Tab ###########################*/
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {
@@ -71,6 +72,10 @@
 .UIControlWorkspace .UIWorkspaceContainer {
   background: url("background/ControlWorkspaceBG6x1.gif") repeat-y right;
 	height: 100%;
+}
+
+.UIControlWorkspace .UIWorkspaceContainer .UIPortletOptions .UIDropDownControl {
+	width: 214px;
 }
 
 /*########################### End Slidebar ###########################*/

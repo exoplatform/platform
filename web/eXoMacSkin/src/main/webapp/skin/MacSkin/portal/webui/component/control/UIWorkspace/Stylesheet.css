@@ -50,6 +50,11 @@
   border: solid 1px #a3abb6 ;
   margin: 2px 0px ;
 }
+
+.UIControlWorkspace .UIWorkspaceContainer .UIPortletOptions .UIDropDownControl {
+	width: 214px;
+}
+
 /*===================== End Tab =================================*/
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {
