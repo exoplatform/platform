@@ -200,7 +200,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 				}
 				topElement.onmousedown = function() {
 					eXo.portal.UIExoStartMenu.scrollDown(menuContainer.id, curentHeight) ;
-				}
+				};
 				topElement.onmouseoup = function() {
 					if (menuContainer.repeat) {
 						clearTimeout(menuContainer.repeat) ;
@@ -212,7 +212,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 					menuContainer.repeat = null ;
 					event = event || window.event ;
 					event.cancelBubble = true ;
-				}
+				};
 				
 				bottomElement.onmousedown = function() {
 					eXo.portal.UIExoStartMenu.scrollUp(menuContainer.id, curentHeight) ;
@@ -228,7 +228,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 					menuContainer.repeat = null ;
 					event = event || window.event ;
 					event.cancelBubble = true ;
-				}
+				};
 				
 	  } else {
 			blockMenu.style.height = menuContainer.offsetHeight + "px" ;
