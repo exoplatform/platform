@@ -92,14 +92,14 @@
 	      <div class="DecoratorBlock">
 	      	<div class="PageOwnerContainer">
 	        	<div class="TitleBar">${navigation.ownerId}'s pages </div>
-    """ ;
-    for(node in nodes) {
-      if(node.getChildren() != null && node.getChildren().size() > 0) {
-        renderPageNode(navigation, node) ;
-      }
-      else renderSinglePageNode(navigation, node) ;
-    }
-    print """
+				    """ ;
+				    for(node in nodes) {
+				      if(node.getChildren() != null && node.getChildren().size() > 0) {
+				        renderPageNode(navigation, node) ;
+				      }
+				      else renderSinglePageNode(navigation, node) ;
+				    }
+				    print """
     			</div>
     		</div>
       </div>
@@ -138,7 +138,7 @@
 					        	<div class="UpNavigatorIcon"><span></span></div>
 					        </div>
 									<div class="BlockMenu" style="position: relative;">
-					      	<div class="MenuContainer" style=""> 
+					      	<div class="MenuContainer"> 
 					      	""" ;
 						      for(navigation in navigations) {
 						        renderPageNavigation(navigation) ;
@@ -280,11 +280,6 @@
   <div id="StartMenuContainer" class="StartMenuContainer" style="display: none;">
  
     <div class="StartMenuDecorator">
-    <!--
-    <div id="moveMenu" style="background: orange; height: 17px; width: 100%; position: ablsolute; top: -17px" 
-				 onclick="event.cancelBubble = true;">
-		</div> 
-		-->
       <div class="TopDecorator"><span></span></div>
       <div class="StartMenuML">
         <div class="StartMenuMR">
