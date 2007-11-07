@@ -238,11 +238,9 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 	  }
 		if (eXo.portal.UIExoStartMenu.lastEvent == null) {
 			eXo.portal.UIExoStartMenu.lastEvent = new Object() ;
-			for (i in event) {
-				eXo.portal.UIExoStartMenu.lastEvent[i] = event[i] ;
-			}
+			for (i in event) {eXo.portal.UIExoStartMenu.lastEvent[i] = event[i] ;}
 			eXo.portal.UIExoStartMenu.lastItem = menuItem ;
-			setTimeout("eXo.portal.UIExoStartMenu.showMenuItemContainer(eXo.portal.UIExoStartMenu.lastEvent)", 100) ;
+			setTimeout("eXo.portal.UIExoStartMenu.showMenuItemContainer(eXo.portal.UIExoStartMenu.lastEvent)", 0) ;
 		}
 };
 
