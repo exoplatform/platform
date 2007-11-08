@@ -43,7 +43,7 @@
 }
 
 .UIAccountSetting .UIHorizontalTabs .UITab a.Icon {
-	padding-left: 20px;
+	padding-left: 23px;
 	display: block;
 	line-height: 26px;
 }
@@ -64,7 +64,7 @@
 
 .UIAccountSetting .UIHorizontalTabs .NormalTab .MiddleTab {
   cursor: pointer;
-  padding: 0px 6px;
+  padding: 0px 8px;
 }
 
 .UIAccountSetting .UIHorizontalTabs .UITab .HighlightTab a {
@@ -83,7 +83,7 @@
   line-height: 30px;
   background: url('background/LeftSelectedFlatTabStyle1x29.gif') repeat-x bottom;
   cursor: pointer;
-  padding: 0px 6px;
+  padding: 0px 8px;
 }
 
 .UIAccountSetting .UIHorizontalTabs .LineSeparator {

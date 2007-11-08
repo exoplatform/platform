@@ -3,7 +3,7 @@
 }
 
 .UIBreadcumbsPortlet {
-  margin: 3px 5px;
+  margin: 5px 5px 3px 5px;
 }
 
 .UIBreadcumbs {
@@ -25,19 +25,20 @@
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
-  padding: 0px 0px 0px 5px ;
+  padding-left: 3px ;
   background: url('background/LeftBreadcumbsBar5x25.gif') no-repeat left;
   height: 25px;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
-  padding: 0px 5px 0px 0px;
+  padding-right: 3px;
   background: url('background/RightBreadcumbsBar5x25.gif') no-repeat right;
   height: 25px;
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
-  height: 25px; line-height: 25px; 
+  height: 25px; line-height: 25px;
+  padding-left: 3px; 
   background: url('background/MiddleBreadcumbsBar1x25.gif') repeat-x;
 }
 
