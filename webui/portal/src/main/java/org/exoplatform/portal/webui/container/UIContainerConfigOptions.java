@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
@@ -124,8 +123,6 @@ public class UIContainerConfigOptions extends UIContainer {
       UIDropDownControl uiDropDown = event.getSource();
       UIContainerConfigOptions uiContainerOptions = uiDropDown.getParent();
       uiDropDown.setValue(selectedContainerId);
-//      SelectItemOption<String> option = uiDropDown.getOption(selectedContainerId);
-//      if(option != null) uiDropDown.setSelectedItem(option);
       uiContainerOptions.setCategorySelected(selectedContainerId);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiContainerOptions.getParent());
     }

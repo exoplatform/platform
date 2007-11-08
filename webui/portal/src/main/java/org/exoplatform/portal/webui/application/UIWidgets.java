@@ -118,7 +118,6 @@ public class UIWidgets extends UIContainer {
     List<UIComponent> uiChilddren = getChildren() ;
     if(uiChilddren == null || uiChilddren.size() < 1) {
       uiContainerSelector_.cleanItem() ;
-      //uiContainerSelector_.setSelectedItem(null) ;
       return ;
     }
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>() ;

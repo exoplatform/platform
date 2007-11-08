@@ -12,8 +12,6 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
-import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -136,8 +134,6 @@ public class UIPortletOptions extends UIContainer {
       UIDropDownControl uiDropDown = event.getSource();
       UIPortletOptions uiPortletOptions = uiDropDown.getParent();
       uiDropDown.setValue(selectedContainerId);
-//      SelectItemOption<String> option = uiDropDown.getOptions(selectedContainerId);
-//      if(option != null) uiDropDownItemSelector.setSelectedItem(option);
       uiPortletOptions.setCategorySelected(selectedContainerId);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPortletOptions.getParent());
     }

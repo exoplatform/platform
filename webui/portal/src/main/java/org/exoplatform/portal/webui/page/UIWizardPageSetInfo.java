@@ -235,7 +235,4 @@ public class UIWizardPageSetInfo extends UIForm {
       if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
     }
   }
-
-  
-
 }

@@ -39,7 +39,6 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
@@ -116,9 +115,6 @@ public class UIPageNodeSelector extends UIContainer {
     
     UIDropDownControl uiDopDownControl = addChild(UIDropDownControl.class, "UIDropDown", "UIDropDown");
     uiDopDownControl.setParent(this);
-    //    uiDopDownControl.setTitle("Select Navigations");
-//    uiDopDownControl.setOnServer(true);
-//    uiDopDownControl.setOnChange("SelectNavigation");
     
     UITree uiTree = addChild(UITree.class, null, "TreePageSelector");    
     uiTree.setIcon("Icon NavigationPortalIcon");    
@@ -164,7 +160,6 @@ public class UIPageNodeSelector extends UIContainer {
   private void updateUI() {
     if(navigations == null || navigations.size() < 1) {
       getChild(UIDropDownControl.class).setOptions(null) ;
-      //getChild(UIDropDownControl.class).setSelectedItem(null) ;
       getChild(UITree.class).setSibbling(null) ;
       return ;
     }
