@@ -5,34 +5,6 @@ UIDropDownControl.prototype.init = function(id) {
 	//return popup;
 };
 
-// create by: Dang.Tung
-UIDropDownControl.prototype.selectPageLayout = function(param,id) {
-	var DOMUtil = eXo.core.DOMUtil ;
-	var uiDropDownControl = document.getElementById(id);
-	var itemSelectorAncestor = DOMUtil.findAncestorByClass(uiDropDownControl, "ItemSelectorAncestor") ;
-	var itemList = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "div", "ItemList") ;
-	var itemSelectorLabel = DOMUtil.findDescendantsByClass(itemSelectorAncestor, "a", "OptionItem") ;
-	var uiItemSelector = DOMUtil.findAncestorByClass(uiDropDownControl, "UIItemSelector");
-	var itemDetailList = DOMUtil.findDescendantsByClass(uiItemSelector, "div", "ItemDetailList") ;
-	if(itemList == null) return;
-	for(i = 0; i < itemSelectorLabel.length; ++i) {
-			if(i >= itemList.length) continue;
-			if(param == itemSelectorLabel[i].innerHTML) {
-				itemList[i].style.display = "block";
-				if(itemDetailList.length < 1)  continue;
-			  itemDetailList[i].style.display = "block";
-				var selectedItem = DOMUtil.findFirstDescendantByClass(itemList[i], "div", "SelectedItem");
-				if(selectedItem == null) continue;
-				var setValue = DOMUtil.findDescendantById(selectedItem, "SetValue");
-				if(setValue == null) continue;
-				eval(setValue.innerHTML);
-			} else {
-				itemList[i].style.display = "none";
-				if(itemDetailList.length > 0) itemDetailList[i].style.display = "none";
-			}
-		}
-} ;
-
 UIDropDownControl.prototype.selectItem = function(method, param,id) {
 	if(method)	method(param,id) ;
 } ;
