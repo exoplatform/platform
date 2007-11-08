@@ -4,6 +4,12 @@
  **************************************************************************/
 package org.exoplatform.portal.account;
 
+/**
+ * Created by The eXo Platform SARL
+ * Author : dang.tung
+ *          tungcnw@gmail.com
+ */
+
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -16,6 +22,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 
 @ComponentConfig(
     template = "system:groovy/portal/webui/portal/UIAccountSetting.gtmpl",
+    //template = "system:/groovy/webui/form/UIVTabInputSet.gtmpl",
     events = {
         @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)   
     }

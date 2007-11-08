@@ -24,8 +24,9 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 /**
  * Created by The eXo Platform SARL
- * Author : Tungnd
- */
+ * Author : tung.dang
+ *          tungcnw@gmail.com
+ */         
 
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
