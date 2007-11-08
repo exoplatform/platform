@@ -11,12 +11,14 @@ function UIComponent(node) {
   var div = eXo.core.DOMUtil.getChildrenByTagName(this.metaData, "div"); 
   this.id = div[0].firstChild.nodeValue ;
   this.title = div[1].firstChild.nodeValue ;
-  this.description = div[2].firstChild.nodeValue ;
+	//minh.js.exo
+  //bug bug PORTAL-1161.
+	//this.description = div[2].firstChild.nodeValue ;
 };
+//UIComponent.prototype.getDescription = function() { return this.description ; };
 
 UIComponent.prototype.getId = function() { return this.id ; };
 UIComponent.prototype.getTitle = function() { return this.title ; };
-UIComponent.prototype.getDescription = function() { return this.description ; };
 UIComponent.prototype.getElement = function() { return this.node ; };
 UIComponent.prototype.getUIComponentType = function() { return this.type ; };
 
