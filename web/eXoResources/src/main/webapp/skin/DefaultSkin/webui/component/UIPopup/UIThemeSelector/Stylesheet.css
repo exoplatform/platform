@@ -1,4 +1,4 @@
-/*--------------------------TonicStyle Bluecolor---------------------------*/
+/*-------------------------- TonicStyle ---------------------------*/
 
 .TonicStyle .WindowPortletControl {
   float: right ;
@@ -13,101 +13,11 @@
   background-position: center;
 }
 
-.TonicStyle .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/24x24/ArrowDown.gif') no-repeat ;
-}
-
-.TonicStyle .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/24x24/ArrowDownOver.gif') no-repeat ;
-}
-
-.TonicStyle .WindowPortletControl .MinimizedIcon {
-  background: url('icons/24x24/MinimizedTonicBlue.gif') no-repeat ;
-}
-
-.TonicStyle .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/24x24/MinimizedTonicBlue.gif') no-repeat ;
-}
-
-.TonicStyle .WindowPortletControl .MaximizedIcon {
-  background: url('icons/24x24/MaximizeTonicBlue.gif') no-repeat ;
-}
-
-.TonicStyle .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/24x24/MaximizeTonicBlue.gif') no-repeat ;
-}
-
-.TonicStyle .WindowPortletControl .RestoreIcon {
-  background: url('icons/24x24/RestoreTonicBlue.gif') no-repeat top;
-}
-
-.TonicStyle .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/24x24/RestoreOverTonicBlue.gif') no-repeat top;
-}
-
-.TonicStyle .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/RestoreTonicBlue.gif') no-repeat top;
-}
-
-.TonicStyle .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/RestoreTonicBlue.gif') no-repeat top;
-}
-
-.TonicStyle .MiddleDecoratorCenter {
-  background: #ffffff ;
-}
-
 .TonicStyle .Information {
   height: 18px ; line-height: 18px ;
   font-size: 10px ;
   padding-left: 5px ;
   margin-right: 18px ;
-}
-
-.TonicStyle .WindowBarLeft {
-  padding-left: 13px ;
-  background: url('background/TLTonicBlue13x32.png') no-repeat left bottom;
-  height: 32px;
-}
-
-.TonicStyle .WindowBarRight {
-  padding-right: 13px ;
-  background: url('background/TRTonicBlue13x32.png') no-repeat right bottom;
-  height: 32px;
-}
-
-.TonicStyle .WindowBarCenter {
-  height: 32px ;
-  background: url('background/TCTonicBlue1x32.png') repeat-x bottom;
-}
-
-.TonicStyle .MiddleDecoratorLeft {
-  padding-left: 13px ;
-  background: url('background/MLTonicBue13x1.png') repeat-y left ;
-}
-
-.TonicStyle .MiddleDecoratorRight {
-  padding-right: 13px ;
-  background: url('background/MRTonicBlue13x1.png') repeat-y right ;
-}
-
-.TonicStyle .MiddleDecoratorCenter {
-  background: url('background/MiddleTonicBlue1x88.gif') repeat-x;
-}
-
-.TonicStyle .BottomDecoratorLeft {
-  padding-left: 13px ;
-  background: url('background/BLtonicBlue13x30.png') no-repeat left ;
-}
-
-.TonicStyle .BottomDecoratorRight {
-  padding-right: 13px ;
-  background: url('background/BRTonicBlue13x30.png') no-repeat right ;
-}
-
-.TonicStyle .BottomDecoratorCenter {
-  height: 30px ;
-  background: url('background/BMTonicBlue1x30.png') repeat-x ;
 }
 
 .TonicStyle .WindowPortletInfo .Icon {
@@ -122,4 +32,425 @@
   padding: 12px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
+}
+
+.TonicStyle .WindowBarLeft {
+  padding-left: 12px ;
+  height: 32px;
+}
+
+.TonicStyle .WindowBarRight {
+  padding-right: 12px ;
+  height: 32px;
+}
+
+.TonicStyle .WindowBarCenter {
+  height: 32px ;
+}
+
+.TonicStyle .MiddleDecoratorLeft {
+  padding-left: 13px ;
+}
+
+.TonicStyle .MiddleDecoratorRight {
+  padding-right: 13px ;
+}
+
+.TonicStyle .BottomDecoratorLeft {
+  padding-left: 12px ;
+}
+
+.TonicStyle .BottomDecoratorRight {
+  padding-right: 12px ;
+}
+
+.TonicStyle .BottomDecoratorCenter {
+  height: 30px ;
+}
+
+/*------------------ BlueTonic -----------------*/
+
+.BlueTonic .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDown.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownOver.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicBlue.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicBlue.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicBlue.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicBlue.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/RestoreTonicBlue.gif') no-repeat top;
+}
+
+.BlueTonic .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreOverTonicBlue.gif') no-repeat top;
+}
+
+.BlueTonic .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/RestoreTonicBlue.gif') no-repeat top;
+}
+
+.BlueTonic .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreTonicBlue.gif') no-repeat top;
+}
+
+.BlueTonic .WindowBarLeft {
+  background: url('background/TLTonicBlue13x32.png') no-repeat left bottom;
+}
+
+.BlueTonic .WindowBarRight {
+  background: url('background/TRTonicBlue13x32.png') no-repeat right bottom;
+}
+
+.BlueTonic .WindowBarCenter {
+  background: url('background/TCTonicBlue1x32.png') repeat-x bottom;
+}
+
+.BlueTonic .MiddleDecoratorLeft {
+  background: url('background/MLTonicBue13x1.png') repeat-y left ;
+}
+
+.BlueTonic .MiddleDecoratorRight {
+  background: url('background/MRTonicBlue13x1.png') repeat-y right ;
+}
+
+.BlueTonic .MiddleDecoratorCenter {
+  background: url('background/MiddleTonicBlue1x88.gif') repeat-x;
+}
+
+.BlueTonic .BottomDecoratorLeft {
+  background: url('background/BLtonicBlue13x30.png') no-repeat left ;
+}
+
+.BlueTonic .BottomDecoratorRight {
+  padding-right: 12px ;
+  background: url('background/BRTonicBlue13x30.png') no-repeat right ;
+}
+
+.BlueTonic .BottomDecoratorCenter {
+  background: url('background/BMTonicBlue1x30.png') repeat-x ;
+}
+
+/*------------------ VioletTonic -----------------*/
+
+.VioletTonic .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDownTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/RestoreTonicViolet.gif') no-repeat top;
+}
+
+.VioletTonic .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreOverTonicViolet.gif') no-repeat top;
+}
+
+.VioletTonic .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/RestoreTonicViolet.gif') no-repeat top;
+}
+
+.VioletTonic .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreTonicViolet.gif') no-repeat top;
+}
+
+.VioletTonic .WindowBarLeft {
+  background: url('background/TLTonicViolet13x32.png') no-repeat left bottom;
+}
+
+.VioletTonic .WindowBarRight {
+  background: url('background/TRTonicViolet13x32.png') no-repeat right bottom;
+}
+
+.VioletTonic .WindowBarCenter {
+  background: url('background/TCTonicViolet1x32.png') repeat-x bottom;
+}
+
+.VioletTonic .MiddleDecoratorLeft {
+  background: url('background/MLTonicViolet13x1.png') repeat-y left ;
+}
+
+.VioletTonic .MiddleDecoratorRight {
+  background: url('background/MRTonicViolet13x1.png') repeat-y right ;
+}
+
+.VioletTonic .MiddleDecoratorCenter {
+  background: url('background/MiddleTonicViolet1x88.gif') repeat-x;
+}
+
+.VioletTonic .BottomDecoratorLeft {
+  background: url('background/BLTonicViolet13x30.png') no-repeat left ;
+}
+
+.VioletTonic .BottomDecoratorRight {
+  padding-right: 12px ;
+  background: url('background/BRTonicViolet13x30.png') no-repeat right ;
+}
+
+.VioletTonic .BottomDecoratorCenter {
+  background: url('background/BCTonicViolet1x30.png') repeat-x ;
+}
+
+
+
+/*-------------------------- SadownStyle ---------------------------*/
+
+.ShadownStyle .WindowPortletControl {
+  float: right ;
+	padding: 0px 3px 0px 10px;
+}
+
+.ShadownStyle .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 23px ; height: 22px ;
+  margin: 8px 2px 0px 0px ;
+  cursor: pointer ;
+  background-position: center;
+}
+
+.ShadownStyle .Information {
+  height: 18px ; line-height: 18px ;
+  font-size: 10px ;
+  padding-left: 5px ;
+  margin-right: 18px ;
+}
+
+.ShadownStyle .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 10px 0px 0px 0px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
+}
+
+.ShadownStyle .WindowPortletInfo .PortletName {
+  float: left ;
+  padding: 12px 0px 0px 5px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.ShadownStyle .WindowBarLeft {
+  padding-left: 11px ;
+  height: 29px;
+}
+
+.ShadownStyle .WindowBarRight {
+  padding-right: 10px ;
+  height: 29px;
+}
+
+.ShadownStyle .WindowBarCenter {
+  height: 29px ;
+}
+
+.ShadownStyle .MiddleDecoratorLeft {
+  padding-left: 11px ;
+}
+
+.ShadownStyle .MiddleDecoratorRight {
+  padding-right: 10px ;
+}
+
+.ShadownStyle .BottomDecoratorLeft {
+  padding-left: 11px ;
+}
+
+.ShadownStyle .BottomDecoratorRight {
+  padding-right: 10px ;
+}
+
+.ShadownStyle .BottomDecoratorCenter {
+  height: 28px ;
+}
+
+/*------------------ BlueTonic -----------------*/
+
+.BlueShadown .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDownShadown.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownShadown.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/MinimizedShadownBlue.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizedShadownBlue.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/MaximizeShadownBlue.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeShadownBlue.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/RestoreShadownBlue.gif') no-repeat top;
+}
+
+.BlueShadown .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreShadownBlue.gif') no-repeat top;
+}
+
+.BlueShadown .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/RestoreShadownBlue.gif') no-repeat top;
+}
+
+.BlueShadown .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreShadownBlue.gif') no-repeat top;
+}
+
+.BlueShadown .WindowBarLeft {
+  background: url('background/TLShadownBlue11x29.png') no-repeat left bottom;
+}
+
+.BlueShadown .WindowBarRight {
+  background: url('background/TRShadownBlue10x29.png') no-repeat right bottom;
+}
+
+.BlueShadown .WindowBarCenter {
+  background: url('background/TCShadownBlue1x29.png') repeat-x bottom;
+}
+
+.BlueShadown .MiddleDecoratorLeft {
+  background: url('background/MLShadownBlue11x1.png') repeat-y left ;
+}
+
+.BlueShadown .MiddleDecoratorRight {
+  background: url('background/MRShadownBlue10x1.png') repeat-y right ;
+}
+
+.BlueShadown .MiddleDecoratorCenter {
+  background: url('background/MiddleTonicBlue1x88.gif') repeat-x;
+}
+
+.BlueShadown .BottomDecoratorLeft {
+  background: url('background/BLShadownBlue11x28.png') no-repeat left ;
+}
+
+.BlueShadown .BottomDecoratorRight {
+  background: url('background/BRShadownBlue10x28.png') no-repeat right ;
+}
+
+.BlueShadown .BottomDecoratorCenter {
+  background: url('background/BCShadownBlue1x28.png') repeat-x ;
+}
+
+/*------------------ VioletShadown -----------------*/
+
+.VioletShadown .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDownTonicViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownTonicViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/RestoreTonicViolet.gif') no-repeat top;
+}
+
+.VioletShadown .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreOverTonicViolet.gif') no-repeat top;
+}
+
+.VioletShadown .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/RestoreTonicViolet.gif') no-repeat top;
+}
+
+.VioletShadown .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreTonicViolet.gif') no-repeat top;
+}
+
+.VioletShadown .WindowBarLeft {
+  background: url('background/TLTonicViolet13x32.png') no-repeat left bottom;
+}
+
+.VioletShadown .WindowBarRight {
+  background: url('background/TRTonicViolet13x32.png') no-repeat right bottom;
+}
+
+.VioletShadown .WindowBarCenter {
+  background: url('background/TCTonicViolet1x32.png') repeat-x bottom;
+}
+
+.VioletShadown .MiddleDecoratorLeft {
+  background: url('background/MLTonicViolet13x1.png') repeat-y left ;
+}
+
+.VioletShadown .MiddleDecoratorRight {
+  background: url('background/MRTonicViolet13x1.png') repeat-y right ;
+}
+
+.VioletShadown .MiddleDecoratorCenter {
+  background: url('background/MiddleTonicViolet1x88.gif') repeat-x;
+}
+
+.VioletShadown .BottomDecoratorLeft {
+  background: url('background/BLTonicViolet13x30.png') no-repeat left ;
+}
+
+.VioletShadown .BottomDecoratorRight {
+  padding-right: 12px ;
+  background: url('background/BRTonicViolet13x30.png') no-repeat right ;
+}
+
+.VioletShadown .BottomDecoratorCenter {
+  background: url('background/BCTonicViolet1x30.png') repeat-x ;
 }
