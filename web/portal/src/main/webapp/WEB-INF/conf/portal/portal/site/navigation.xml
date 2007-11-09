@@ -5,12 +5,11 @@
   <priority>1</priority>
 
   <page-nodes>
-
 	  <node>
 	    <uri>home</uri>
 	    <name>home</name>
 	    <label>Home</label>
-	    <page-reference>portal::site::sitemap</page-reference>	    
+	    <page-reference>portal::site::homepage</page-reference>	    
 	  </node>
     
     <node>
