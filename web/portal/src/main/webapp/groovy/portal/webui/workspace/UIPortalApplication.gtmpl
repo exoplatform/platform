@@ -19,7 +19,11 @@
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
     <link id="PortalSkin" rel="stylesheet" type="text/css" href="$portalSkin.CSSPath" />
     <link id="CoreSkin" rel="stylesheet" type="text/css" href="$coreSkin.CSSPath"/>
-    
+    <%
+    	for(theme in uicomponent.getThemeURLs().toArray()) {
+    %>
+    	<link rel="stylesheet" type="text/css" href= "$theme" />
+    <%}%>
     <% 
       for(portletSkin in portletSkins) { 
     %> 

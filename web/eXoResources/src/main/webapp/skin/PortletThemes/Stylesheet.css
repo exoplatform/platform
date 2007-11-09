@@ -1,0 +1,806 @@
+
+/*-------------------------- DefaultTheme ---------------------------*/
+
+.UIPageDesktop .DefaultTheme .WindowPortletInfo {
+  height: 22px ;
+  margin-right: 110px ;
+  cursor: move ;
+}
+
+.DefaultTheme .WindowPortletInfo .PortletIcon {
+  float: left ;
+  width: 16px ; height: 16px ;
+  margin: 8px 0px 0px 5px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPortletIcon.gif') no-repeat ;
+}
+
+.DefaultTheme .WindowPortletControl {
+  float: right ;
+  height: 22px ;
+	padding: 0px 3px 0px 10px;
+}
+
+.UIPageDesktop .DefaultTheme .WindowPortletControl {
+	padding: 0px 3px 0px 14px;
+}
+
+.TRContainer .DefaultTheme .WindowPortletControl {
+  padding: 0px 3px 0px 12px;
+}
+
+.DefaultTheme .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 22px ; height: 16px ;
+  margin: 9px 2px 0px 0px ;
+  cursor: pointer ;
+}
+
+.DefaultTheme .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDown.gif') no-repeat ;
+}
+
+.DefaultTheme .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownOver.gif') no-repeat ;
+}
+
+.DefaultTheme .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/Minimize.gif') no-repeat ;
+}
+
+.DefaultTheme .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizeOver.gif') no-repeat ;
+}
+
+.DefaultTheme .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/Maximize.gif') no-repeat ;
+}
+
+.DefaultTheme .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeOver.gif') no-repeat ;
+}
+
+.DefaultTheme .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/Restore.gif') no-repeat top;
+}
+
+.DefaultTheme .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreOver.gif') no-repeat top;
+}
+
+.DefaultTheme .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/Restore.gif') no-repeat top;
+}
+
+.DefaultTheme .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreOver.gif') no-repeat top;
+}
+
+.DefaultTheme .MiddleDecoratorCenter {
+  background: #ffffff ;
+}
+
+.UIPageDesktop .DefaultTheme .ResizeArea {
+  float: right ;
+  width: 18px ; height: 18px ;
+  cursor: nw-resize ;
+  background: url('background/ResizeArea18x18.gif') no-repeat ;
+}
+
+.DefaultTheme .Information {
+  height: 18px ; line-height: 18px ;
+  vertical-align: middle ; font-size: 10px ;
+  padding-left: 5px ;
+  margin-right: 18px ;
+}
+
+.DefaultTheme .MiddleDecoratorLeft {
+  padding-left: 12px ;
+  background: url('background/LeftMiddleWindow.png') repeat-y left ;
+}
+
+.DefaultTheme .MiddleDecoratorRight {
+  padding-right: 11px ;
+  background: url('background/RightMiddleWindow.png') repeat-y right ;
+}
+
+.DefaultTheme .BottomDecoratorLeft {
+  padding-left: 12px ;
+  background: url('background/LeftBottomWindow.png') no-repeat left ;
+}
+
+.DefaultTheme .BottomDecoratorRight {
+  padding-right: 11px ;
+  background: url('background/RightBottomWindow.png') no-repeat right ;
+}
+
+.DefaultTheme .BottomDecoratorCenter {
+  height: 30px ;
+  background: url('background/CenterBottomWindow.png') repeat-x ;
+}
+
+.DefaultTheme .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 9px 0px 0px 5px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
+}
+
+.DefaultTheme .WindowPortletInfo .PortletName {
+  float: left ;
+  padding: 10px 0px 0px 5px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.DefaultTheme .WindowBarLeft {
+  padding-left: 12px ;
+  background: url('background/LeftWindowBar.png') no-repeat left ;
+  height: 29px ;
+}
+
+.DefaultTheme .WindowBarRight {
+  padding-right: 11px ;
+  background: url('background/RightWindowBar.png') no-repeat right;
+  height: 29px ;
+}
+
+.DefaultTheme .WindowBarCenter {
+  height: 29px ;
+  background: url('background/CenterWindowBar.png') repeat-x ;
+}
+
+/*-------------------------- MacTheme ---------------------------*/
+
+.MacTheme {
+
+}
+
+.VistaTheme {
+
+}
+
+/*-------------------------- BlueTonic ---------------------------*/
+
+.BlueTonic .WindowPortletControl {
+  float: right ;
+	padding: 0px 3px 0px 10px;
+}
+
+.BlueTonic .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 23px ; height: 22px ;
+  margin: 11px 2px 0px 0px ;
+  cursor: pointer ;
+  background-position: center;
+}
+
+.BlueTonic .Information {
+  height: 18px ; line-height: 18px ;
+  font-size: 10px ;
+  padding-left: 5px ;
+  margin-right: 18px ;
+}
+
+.BlueTonic .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 10px 0px 0px 0px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
+}
+
+.UIPageDesktop .BlueTonic .ResizeArea {
+	float: right ;
+  width: 17px ; height: 19px ;
+  cursor: nw-resize ;
+  background: url('background/Resize17x19.png') no-repeat ;
+}
+
+.BlueTonic .WindowPortletInfo .PortletName {
+  float: left ;
+  padding: 12px 0px 0px 5px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.BlueTonic .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDown.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownOver.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicBlue.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicBlue.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicBlue.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicBlue.gif') no-repeat ;
+}
+
+.BlueTonic .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/RestoreTonicBlue.gif') no-repeat top;
+}
+
+.BlueTonic .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreOverTonicBlue.gif') no-repeat top;
+}
+
+.BlueTonic .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/RestoreTonicBlue.gif') no-repeat top;
+}
+
+.BlueTonic .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreTonicBlue.gif') no-repeat top;
+}
+
+.BlueTonic .WindowBarLeft {
+	padding-left: 12px ;
+  height: 32px;
+  background: url('background/TLTonicBlue13x32.png') no-repeat left bottom;
+}
+
+.BlueTonic .WindowBarRight {
+	padding-right: 12px ;
+  height: 32px;
+  background: url('background/TRTonicBlue13x32.png') no-repeat right bottom;
+}
+
+.BlueTonic .WindowBarCenter {
+	height: 32px ;
+  background: url('background/TCTonicBlue1x32.png') repeat-x bottom;
+}
+
+.BlueTonic .MiddleDecoratorLeft {
+	padding-left: 13px ;
+  background: url('background/MLTonicBue13x1.png') repeat-y left ;
+}
+
+.BlueTonic .MiddleDecoratorRight {
+	padding-right: 13px;
+  background: url('background/MRTonicBlue13x1.png') repeat-y right ;
+}
+
+.BlueTonic .MiddleDecoratorCenter {
+  background: #ffffff ;
+}
+
+.BlueTonic .BottomDecoratorLeft {
+	padding-left: 13px ;
+  background: url('background/BLtonicBlue13x30.png') no-repeat left ;
+}
+
+.BlueTonic .BottomDecoratorRight {
+  padding-right: 13px ;
+  background: url('background/BRTonicBlue13x30.png') no-repeat right ;
+}
+
+.BlueTonic .BottomDecoratorCenter {
+	height: 30px ;
+  background: url('background/BMTonicBlue1x30.png') repeat-x ;
+}
+
+/*------------------ VioletTonic -----------------*/
+
+.VioletTonic .WindowPortletControl {
+  float: right ;
+	padding: 0px 3px 0px 10px;
+}
+
+.VioletTonic .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 23px ; height: 22px ;
+  margin: 11px 2px 0px 0px ;
+  cursor: pointer ;
+  background-position: center;
+}
+
+.VioletTonic .Information {
+  height: 18px ; line-height: 18px ;
+  font-size: 10px ;
+  padding-left: 5px ;
+  margin-right: 18px ;
+}
+
+.VioletTonic .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 10px 0px 0px 0px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
+}
+
+.UIPageDesktop .VioletTonic .ResizeArea {
+	float: right ;
+  width: 17px ; height: 19px ;
+  cursor: nw-resize ;
+  background: url('background/Resize17x19.png') no-repeat ;
+}
+
+.VioletTonic .WindowPortletInfo .PortletName {
+  float: left ;
+  padding: 12px 0px 0px 5px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.VioletTonic .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDownTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicViolet.gif') no-repeat ;
+}
+
+.VioletTonic .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/RestoreTonicViolet.gif') no-repeat top;
+}
+
+.VioletTonic .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreOverTonicViolet.gif') no-repeat top;
+}
+
+.VioletTonic .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/RestoreTonicViolet.gif') no-repeat top;
+}
+
+.VioletTonic .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreTonicViolet.gif') no-repeat top;
+}
+
+.VioletTonic .WindowBarLeft {
+	padding-left: 12px ;
+  height: 32px;
+  background: url('background/TLTonicViolet13x32.png') no-repeat left bottom;
+}
+
+.VioletTonic .WindowBarRight {
+	padding-right: 12px ;
+  height: 32px;
+  background: url('background/TRTonicViolet13x32.png') no-repeat right bottom;
+}
+
+.VioletTonic .WindowBarCenter {
+	height: 32px ;
+  background: url('background/TCTonicViolet1x32.png') repeat-x bottom;
+}
+
+.VioletTonic .MiddleDecoratorLeft {
+	padding-left: 13px ;
+  background: url('background/MLTonicViolet13x1.png') repeat-y left ;
+}
+
+.VioletTonic .MiddleDecoratorRight {
+	padding-right: 13px;
+  background: url('background/MRTonicViolet13x1.png') repeat-y right ;
+}
+
+.VioletTonic .MiddleDecoratorCenter {
+  background: #ffffff ;
+}
+
+.VioletTonic .BottomDecoratorLeft {
+	padding-left: 13px;
+  background: url('background/BLTonicViolet13x30.png') no-repeat left ;
+}
+
+.VioletTonic .BottomDecoratorRight {
+  padding-right: 13px ;
+  background: url('background/BRTonicViolet13x30.png') no-repeat right ;
+}
+
+.VioletTonic .BottomDecoratorCenter {
+	height: 30px ;
+  background: url('background/BCTonicViolet1x30.png') repeat-x ;
+}
+
+
+/*------------------------------- PinkTonic ----------------------------------*/
+
+.PinkTonic .WindowPortletControl {
+  float: right ;
+	padding: 0px 3px 0px 10px;
+}
+
+.PinkTonic .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 23px ; height: 22px ;
+  margin: 11px 2px 0px 0px ;
+  cursor: pointer ;
+  background-position: center;
+}
+
+.PinkTonic .Information {
+  height: 18px ; line-height: 18px ;
+  font-size: 10px ;
+  padding-left: 5px ;
+  margin-right: 18px ;
+}
+
+.PinkTonic .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 10px 0px 0px 0px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
+}
+
+.UIPageDesktop .PinkTonic .ResizeArea {
+	float: right ;
+  width: 17px ; height: 19px ;
+  cursor: nw-resize ;
+  background: url('background/Resize17x19.png') no-repeat ;
+}
+
+.PinkTonic .WindowPortletInfo .PortletName {
+  float: left ;
+  padding: 12px 0px 0px 5px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.PinkTonic .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDownTonicPink.gif') no-repeat ;
+}
+
+.PinkTonic .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownTonicPink.gif') no-repeat ;
+}
+
+.PinkTonic .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicPink.gif') no-repeat ;
+}
+
+.PinkTonic .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizedTonicPink.gif') no-repeat ;
+}
+
+.PinkTonic .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicPink.gif') no-repeat ;
+}
+
+.PinkTonic .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeTonicPink.gif') no-repeat ;
+}
+
+.PinkTonic .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/RestoreTonicPink.gif') no-repeat top;
+}
+
+.PinkTonic .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreOverTonicPink.gif') no-repeat top;
+}
+
+.PinkTonic .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/RestoreTonicPink.gif') no-repeat top;
+}
+
+.PinkTonic .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreTonicPink.gif') no-repeat top;
+}
+
+.PinkTonic .WindowBarLeft {
+	padding-left: 13px;
+	height: 32px;
+  background: url('background/TLTonicPink13x32.png') no-repeat left bottom;
+}
+
+.PinkTonic .WindowBarRight {
+	padding-right: 13px;
+	height: 32px;
+  background: url('background/TRTonicPink13x32.png') no-repeat right bottom;
+}
+
+.PinkTonic .WindowBarCenter {
+	height: 32px;
+  background: url('background/TCTonicPink1x32.png') repeat-x bottom;
+}
+
+.PinkTonic .MiddleDecoratorLeft {
+	padding-left: 13px;
+  background: url('background/MLTonicPink13x1.png') repeat-y left ;
+}
+
+.PinkTonic .MiddleDecoratorRight {
+	padding-right: 13px;
+  background: url('background/MRTonicPink13x1.png') repeat-y right ;
+}
+
+.PinkTonic .MiddleDecoratorCenter {
+  background: #ffffff ;
+}
+
+.PinkTonic .BottomDecoratorLeft {
+	padding-left: 13px;
+  background: url('background/BLTonicPink13x30.png') no-repeat left ;
+}
+
+.PinkTonic .BottomDecoratorRight {
+  padding-right: 13px ;
+  background: url('background/BRTonicPink13x30.png') no-repeat right ;
+}
+
+.PinkTonic .BottomDecoratorCenter {
+	height: 30px;
+  background: url('background/BCTonicPink1x30.png') repeat-x ;
+}
+
+/*-------------------------- BlueShadown ---------------------------*/
+
+.BlueShadown .WindowPortletControl {
+  float: right ;
+	padding: 0px 3px 0px 10px;
+}
+
+.BlueShadown .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 23px ; height: 22px ;
+  margin: 8px 2px 0px 0px ;
+  cursor: pointer ;
+  background-position: center;
+}
+
+.BlueShadown .Information {
+  height: 18px ; line-height: 18px ;
+  font-size: 10px ;
+  padding-left: 5px ;
+  margin-right: 18px ;
+}
+
+.BlueShadown .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 10px 0px 0px 0px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
+}
+
+.UIPageDesktop .BlueShadown .ResizeArea {
+	float: right ;
+  width: 17px ; height: 19px ;
+  cursor: nw-resize ;
+  background: url('background/Resize17x19.png') no-repeat ;
+}
+
+.BlueShadown .WindowPortletInfo .PortletName {
+  float: left ;
+  padding: 12px 0px 0px 5px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.BlueShadown .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDownShadown.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownShadown.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/MinimizedShadownBlue.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizedShadownBlue.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/MaximizeShadownBlue.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeShadownBlue.gif') no-repeat ;
+}
+
+.BlueShadown .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/RestoreShadownBlue.gif') no-repeat top;
+}
+
+.BlueShadown .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreShadownBlue.gif') no-repeat top;
+}
+
+.BlueShadown .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/RestoreShadownBlue.gif') no-repeat top;
+}
+
+.BlueShadown .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreShadownBlue.gif') no-repeat top;
+}
+
+.BlueShadown .WindowBarLeft {
+	padding-left: 11px ;
+  height: 29px;
+  background: url('background/TLShadownBlue11x29.png') no-repeat left bottom;
+}
+
+.BlueShadown .WindowBarRight {
+	padding-right: 10px ;
+  height: 29px;
+  background: url('background/TRShadownBlue10x29.png') no-repeat right bottom;
+}
+
+.BlueShadown .WindowBarCenter {
+	height: 29px ;
+  background: url('background/TCShadownBlue1x29.png') repeat-x bottom;
+}
+
+.BlueShadown .MiddleDecoratorLeft {
+	padding-left: 11px ;
+  background: url('background/MLShadownBlue11x1.png') repeat-y left ;
+}
+
+.BlueShadown .MiddleDecoratorRight {
+	padding-right: 11px;
+  background: url('background/MRShadownBlue10x1.png') repeat-y right ;
+}
+
+.BlueShadown .MiddleDecoratorCenter {
+  background: #ffffff ;
+}
+
+.BlueShadown .BottomDecoratorLeft {
+	padding-left: 11px;
+  background: url('background/BLShadownBlue11x28.png') no-repeat left ;
+}
+
+.BlueShadown .BottomDecoratorRight {
+	padding-right: 10px;
+  background: url('background/BRShadownBlue10x28.png') no-repeat right ;
+}
+
+.BlueShadown .BottomDecoratorCenter {
+	height: 28px;
+  background: url('background/BCShadownBlue1x28.png') repeat-x ;
+}
+
+/*------------------ VioletShadown -----------------*/
+
+.VioletShadown .WindowPortletControl {
+  float: right ;
+	padding: 0px 3px 0px 10px;
+}
+
+.VioletShadown .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 23px ; height: 22px ;
+  margin: 8px 2px 0px 0px ;
+  cursor: pointer ;
+  background-position: center;
+}
+
+.VioletShadown .Information {
+  height: 18px ; line-height: 18px ;
+  font-size: 10px ;
+  padding-left: 5px ;
+  margin-right: 18px ;
+}
+
+.VioletShadown .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 10px 0px 0px 0px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
+}
+
+.UIPageDesktop .VioletShadown .ResizeArea {
+	float: right ;
+  width: 17px ; height: 19px ;
+  cursor: nw-resize ;
+  background: url('background/Resize17x19.png') no-repeat ;
+}
+
+.VioletShadown .WindowPortletInfo .PortletName {
+  float: left ;
+  padding: 12px 0px 0px 5px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.VioletShadown .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/24x24/ArrowDownShadown.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/24x24/ArrowDownShadown.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .MinimizedIcon {
+  background: url('icons/24x24/MinimizedShadownViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/24x24/MinimizedShadownViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .MaximizedIcon {
+  background: url('icons/24x24/MaximizeShadownViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/24x24/MaximizeShadownViolet.gif') no-repeat ;
+}
+
+.VioletShadown .WindowPortletControl .RestoreIcon {
+  background: url('icons/24x24/RestoreShadownViolet.gif') no-repeat top;
+}
+
+.VioletShadown .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/24x24/RestoreShadownViolet.gif') no-repeat top;
+}
+
+.VioletShadown .WindowPortletControl .NormalIcon {
+  background: url('icons/24x24/RestoreShadownViolet.gif') no-repeat top;
+}
+
+.VioletShadown .WindowPortletControl .OverNormalIcon {
+  background: url('icons/24x24/RestoreShadownViolet.gif') no-repeat top;
+}
+
+.VioletShadown .WindowBarLeft {
+	padding-left: 11px ;
+  height: 29px;
+  background: url('background/TLShadownViolet11x29.png') no-repeat left bottom;
+}
+
+.VioletShadown .WindowBarRight {
+	padding-right: 10px ;
+  height: 29px;
+  background: url('background/TRShadownViolet10x29.png') no-repeat right bottom;
+}
+
+.VioletShadown .WindowBarCenter {
+	height: 29px ;
+  background: url('background/TCShadownViolet1x29.png') repeat-x bottom;
+}
+
+.VioletShadown .MiddleDecoratorLeft {
+	padding-left: 11px;
+  background: url('background/MLShadownViolet11x1.png') repeat-y left ;
+}
+
+.VioletShadown .MiddleDecoratorRight {
+	padding-right: 10px;
+  background: url('background/MRShadownViolet10x1.png') repeat-y right ;
+}
+
+.VioletShadown .MiddleDecoratorCenter {
+  background: #ffffff ;
+}
+
+.VioletShadown .BottomDecoratorLeft {
+	padding-left: 11px;
+  background: url('background/BLShadownViolet11x28.png') no-repeat left ;
+}
+
+.VioletShadown .BottomDecoratorRight {
+	padding-right: 10px;
+  background: url('background/BRShadownViolet10x28.png') no-repeat right ;
+}
+
+.VioletShadown .BottomDecoratorCenter {
+	height: 28px;
+  background: url('background/BCShadownViolet1x28.png') repeat-x ;
+}

@@ -10,7 +10,7 @@
 			<div class="ItemList">
 			
 				<div class="Item">
-					<div class="UIThemeSelector TonicStyle BlueTonic">
+					<div class="UIThemeSelector BlueTonic">
 					
 					  <div class="WindowBarLeft">
 					    <div class="WindowBarRight">
@@ -53,7 +53,7 @@
 				</div>	
 				
 				<div class="Item">
-					<div class="UIThemeSelector TonicStyle VioletTonic">
+					<div class="UIThemeSelector VioletTonic">
 					
 					  <div class="WindowBarLeft">
 					    <div class="WindowBarRight">
@@ -96,7 +96,7 @@
 				</div>	
 				
 				<div class="Item">
-					<div class="UIThemeSelector ShadownStyle BlueShadown">
+					<div class="UIThemeSelector BlueShadown">
 					
 					  <div class="WindowBarLeft">
 					    <div class="WindowBarRight">
@@ -139,7 +139,7 @@
 				</div>	
 				
 				<div class="Item">
-					<div class="UIThemeSelector TonicStyle BlueTonic">
+					<div class="UIThemeSelector PinkTonic">
 					
 					  <div class="WindowBarLeft">
 					    <div class="WindowBarRight">
@@ -182,7 +182,7 @@
 				</div>	
 				
 				<div class="Item">
-					<div class="UIThemeSelector TonicStyle BlueTonic">
+					<div class="UIThemeSelector VioletShadown">
 					
 					  <div class="WindowBarLeft">
 					    <div class="WindowBarRight">
@@ -235,7 +235,7 @@
     	</div>
 			<div class="DetailView">
 					
-					<div class="UIThemeSelector TonicStyle BlueTonic">
+					<div class="UIThemeSelector BlueTonic">
 					
 					  <div class="WindowBarLeft">
 					    <div class="WindowBarRight">

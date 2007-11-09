@@ -10,9 +10,18 @@
 	margin-left: 230px;
 }
 
+.UIFormInputThemeSelector .LeftColumnStyle .ItemList {
+	height: 240px;
+	overflow: auto;
+}
+
 .UIFormInputThemeSelector .LeftColumnStyle .ItemList .Item {
 	height: auto;
 	border: none;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList .ItemDetailTitle {
+	height: 25px;
 }
 
 .UIFormInputThemeSelector .UIThemeSelector .MiddleDecoratorCenter {
