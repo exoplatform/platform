@@ -202,14 +202,19 @@
   padding: 2px 4px;
 }
 
+
+.UIExoStart .StartMenuContainer .DecoratorBlock {
+	 border: 1px solid #d0d0d0;
+}
+
 .UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer{
   background: #f5f4ff ;
   padding-bottom: 5px;
-  border: 1px solid #d0d0d0;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
   line-height: 18px;
+	height: 18px;
   background: url('background/TitleBar1x20.gif') repeat-x ;
   padding-left: 10px ;
   color: #125aad;
