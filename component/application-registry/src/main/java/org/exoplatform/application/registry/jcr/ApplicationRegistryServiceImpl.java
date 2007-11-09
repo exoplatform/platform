@@ -147,7 +147,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   public Application getApplication(String id) throws Exception {
     Session session = jcrRegService_.getSession();
     String [] components = id.split("/");
-    System.out.println("\n\n\n ----------------------> Id " + id);
     if(components.length < 2) {
       session.logout();
       return null;
