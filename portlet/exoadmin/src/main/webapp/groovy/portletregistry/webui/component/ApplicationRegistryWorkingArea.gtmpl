@@ -14,6 +14,11 @@
 	    if(portlet!= null) {
 			String name = portlet.getApplicationName(); 
 		  String displayName = portlet.getDisplayName();
+		  
+		  // TODO: add by dang.tung -> fix path portlet icon
+		  // 			 not use getCategoryName() because it'll be modified when add new application
+		  String srcBG = portlet.getId().split("/")[0] + "/skin/DefaultSkin/portletIcons/" ;
+		  
 		  //String creator = portlet.getOwner();
 		  String [] accessPermissions = portlet.getAccessPermissions();
 		  String accessPermission = "";
@@ -26,14 +31,14 @@
 		  }
 		  String applicationType = portlet.getApplicationType();
 		  String desription = portlet.getDescription();
-		  String srcBG = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/";
+		  String srcBGError = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/";
 		%>
 
 	  <div class="Application">
 	    <div class="ApplicationDescription">
 	  		<div class="PortletIcons" title="$displayName" >
 	  		  <span>
-	  				<img src="${srcBG}${name}.png" onError="src='${srcBG}DefaultPortlet.png'">
+	  				<img src="/${srcBG}${name}.png" onError="src='${srcBGError}DefaultPortlet.png'">
 	  		  </span>
 	  		</div>
 	  		<div class="ApplicationContent">

@@ -69,7 +69,7 @@
                     
 	                      <%
                            for(application in listApplication) {
-                               String srcBG = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/" + application.getApplicationName()+ ".png";
+                           		 String srcBG = application.getId().split("/")[0] + "/skin/DefaultSkin/portletIcons/" + application.getApplicationName()+ ".png";
                                String srcNormalBG = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png";
 
                                //Create add Application Ajax request URL
@@ -79,7 +79,7 @@
                         <div class="Application">
 	                        <div class="ApplicationDescription">
 		                        <div onclick="$addApplicationURL" title="<%= application.getDisplayName() %>" class="PortletIcon">
-		                            <span><img src="<%=srcBG%>" onError="src='<%=srcNormalBG%>'" /></span> 
+		                            <span><img src="/$srcBG" onError="src='$srcNormalBG'" /></span>
 		                        </div>
 		                        <div class="ApplicationContent">
 	                            <div class="TitleBarApplication">
