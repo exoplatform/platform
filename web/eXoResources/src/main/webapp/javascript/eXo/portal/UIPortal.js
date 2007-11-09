@@ -120,21 +120,6 @@ UIPortal.prototype.switchLayoutModeToViewMode = function(uicomponent, swapConten
   layoutBlock.style.display = "none" ;
 } ;
 
-//UIPortal.prototype.switchPageMode = function(uicomponent, mode) {
-//	var viewBlock = uicomponent.getViewBlock ;
-//	if(viewBlock.className == "VIEW-PAGE") {
-//		if(mode == "layoutMode") {
-//			viewBlock.style.border = "solid 2px red" ;
-//			viewBlock.style.padding = "10px" ;
-//		} else {
-//			viewBlock.style.border = "none" ;
-//			viewBlock.style.padding = "0px" ;
-//			
-//		}
-//	}
-//	
-//}
-
 UIPortal.prototype.switchMode = function(elemtClicked) {
 	if(elemtClicked.className == "Icon PreviewIcon") {
 		elemtClicked.className = "Icon LayoutModeIcon" ;
@@ -277,14 +262,6 @@ UIPortal.prototype.showViewMode = function() {
 
 UIPortal.prototype.showLayoutModeForPortal = function(control) {
 	if(control) this.component = control;
-	//var containerTest = document.getElementById("UIContainerTest");
-	//var childTest = document.getElementById("UIPortlet-banner");
-	//alert("Container: "+ containerTest.id + "   Child: "+ childTest.id);
-	//eXo.core.DragDrop.isAncestor(childTest, containerTest);
-//	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	/*If Current page is page desktop, can not switch to portal layout mode*/
-//	if(uiPageDesktop) return ;
-	
   var portal = this.getUIPortal() ;
   this.switchViewModeToLayoutMode(portal, true) ;
   this.showUIComponentControl(portal, this.component == 'UIPortal') ;
@@ -385,31 +362,6 @@ UIPortal.prototype.popupButton = function(url, action) {
 	var objectId = '';
   window.location = url + '&action='+ action ;
 } ;
-
-/** Created: by Duy Tu **/
-//UIPortal.prototype.onLoads = function() {
-//	DOMUtil = eXo.core.DOMUtil;
-//	var tabContents = document.getElementById("TabContents") ;
-//	var uiTabContent = DOMUtil.findDescendantsByClass(tabContents, "div", "UITabContent");
-//	if(uiTabContent.length > 0) {
-//		for(var i = 0;i < uiTabContent.length; ++i ){
-//			var uiInfoBar = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "UIInfoBar") ;
-//			var layOutContainer = DOMUtil.findFirstDescendantByClass(uiTabContent[i], "div", "LAYOUT-CONTAINER") ;
-//			if(uiInfoBar) uiInfoBar.style.display = "none";
-//			if(layOutContainer) {
-//				layOutContainer.style.border = "none";
-//			  layOutContainer.style.background = "none";
-//			}
-//			if (eXo.webui.UIHorizontalTabs) {
-//				if (eXo.webui.UIHorizontalTabs.currentTab == i) {
-//					var uiTabContainer = eXo.core.DOMUtil.findAncestorByClass(uiTabContent[i], "UITabContainer");
-//					var tabs = eXo.core.DOMUtil.findDescendantsByClass(uiTabContainer, "div", "UITab");
-//					eXo.webui.UIHorizontalTabs.displayTabContent(tabs[i].firstChild);
-//				}
-//			}
-//		}
-//	}
-//} ;
 
 /*
 * This method will start the creation of a new javascript application such as a widget
