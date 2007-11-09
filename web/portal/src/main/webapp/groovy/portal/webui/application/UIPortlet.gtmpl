@@ -28,9 +28,6 @@
 		  <div class="META-DATA-BLOCK" style="display: none">
 		    <div class="id"><%=uicomponent.getId();%></div>
 		    <div class="title"><%=_ctx.appRes("UIPortlet.label.title");%></div>
-		    <!--
-		    minh.js.exo
-		    bug PORTAL-1161.
 		    <div class="description">
 		      <%if(uicomponent.getDescription() != null) {%>
   		      <%=uicomponent.getDescription();%>
@@ -38,7 +35,6 @@
 		        <%=_ctx.appRes("UIPortlet.label.description");%>
 		      <%}%>
 		    </div>
-		    //-->
 		  </div>
 		   
 		  <div class="CONTROL-PORTLET CONTROL-BLOCK" style="display: none;">
@@ -153,7 +149,7 @@
       	cssStyle += "\"";
 	    %>
     		
-    		<div class="UIWindow UIDragObject UIResizeObject" id="${popupId}"  ${cssStyle} >
+    		<div class="BlueClassic UIDragObject UIResizeObject" id="${popupId}"  ${cssStyle} >
 		      <div class="WindowBarLeft">
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">
