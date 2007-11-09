@@ -59,7 +59,7 @@ UIPortal.prototype.getUIPortletsInUIPage = function() {
   var uiPage = document.getElementById("UIPage") ;
   var founds =  eXo.core.DOMUtil.findDescendantsByClass(uiPage, "div", "UIPortlet");
   components =  new Array() ;
-  for(j = 0; j < founds.length; j++) {
+  for(var j = 0; j < founds.length; j++) {
     components[components.length] = new UIComponent(founds[j]) ;
   }
   return components ;
