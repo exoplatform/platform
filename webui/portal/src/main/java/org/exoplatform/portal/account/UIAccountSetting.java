@@ -10,15 +10,15 @@ package org.exoplatform.portal.account;
  *          tungcnw@gmail.com
  */
 
-import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIContainer;
 /**
  * Created by The eXo Platform SARL
  * @author tungnd
  *         tung.nguyen@exoplatform.com
  */
-import org.exoplatform.webui.config.annotation.EventConfig;
 
 @ComponentConfig(
     template = "system:groovy/portal/webui/portal/UIAccountSetting.gtmpl",
