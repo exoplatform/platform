@@ -1,8 +1,12 @@
 .UIHomePagePortlet {	
-	height: 486px;
-	margin-top: 5px;
-	margin-bottom: 7px;
-	padding: 6px;
+	margin: 7px 10px 10px 10px;
+	border: 1px solid #fff;
+}
+
+.UIHomePagePortlet .HomePortletDecor{	
+	padding: 7px;
+	border: 1px solid #c6c6c6;
+	background: #fff;
 }
 
 .UIHomePagePortlet .HomePageBanner {
@@ -13,8 +17,8 @@
 	border-bottom: 5px solid #4E7DBA;
 }
 
-.UIHomePagePortlet .ImageBanner {
-	background: url(DefaultSkin/background/TopPage988x308.gif) no-repeat center;
+.UIHomePagePortlet .AdImage {
+	background: url('DefaultSkin/background/PortalAdvertising.jpg') no-repeat center;
 	height: 308px;	
 	margin-bottom: 6px;	
 }

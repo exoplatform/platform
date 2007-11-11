@@ -1,44 +1,45 @@
 <div class="UIHomePagePortlet">
-	<div class="HomePageBanner">
-		<div class="ImageBanner">
+	<div class="HomePortletDecor">
+		<div class="HomePageBanner">
+			<div class="AdImage"><span></span></div>
 		</div>
-	</div>
-	<div class="HomePageContent">
-		<div class="ExoPortal">
-			<div class="LeftExoPortal">						 
-				<div class="RightExoPortal">
-					<div class="MiddleContent">
-						<a href="#" ><img class="LinkExoPortal" border="0" src="/web/skin/portal/webui/component/UIHomePagePortlet/DefaultSkin/background/space.gif" /></a>
-						<div class="DescriptionExoPortal">
-							New version comes with a revolutionary user interface.
+		<div class="HomePageContent">
+			<div class="ExoPortal">
+				<div class="LeftExoPortal">						 
+					<div class="RightExoPortal">
+						<div class="MiddleContent">
+							<a href="#" ><img class="LinkExoPortal" border="0" src="/web/skin/portal/webui/component/UIHomePagePortlet/DefaultSkin/background/space.gif" /></a>
+							<div class="DescriptionExoPortal">
+								New version comes with a revolutionary user interface.
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>						
-		</div>					
-		<div class="ExoECM">
-			<div class="LeftExoECM">						 
-				<div class="RightExoECM">
-					<div class="MiddleContent">
-						<a href="#" ><img class="LinkExoECM" border="0" src="/web/skin/portal/webui/component/UIHomePagePortlet/DefaultSkin/background/space.gif" /></a>
-						<div class="DescriptionExoECM">
-							Advanced Enterprise Content Management features to manage documents and digital assets.
+				</div>						
+			</div>					
+			<div class="ExoECM">
+				<div class="LeftExoECM">						 
+					<div class="RightExoECM">
+						<div class="MiddleContent">
+							<a href="#" ><img class="LinkExoECM" border="0" src="/web/skin/portal/webui/component/UIHomePagePortlet/DefaultSkin/background/space.gif" /></a>
+							<div class="DescriptionExoECM">
+								Advanced Enterprise Content Management features to manage documents and digital assets.
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>						
-		</div>					
-		<div class="ExoCS">
-			<div class="LeftExoCS">						 
-				<div class="RightExoCS">
-					<div class="MiddleContent">
-						<a href="#" ><img class="LinkExoCS" border="0" src="/web/skin/portal/webui/component/UIHomePagePortlet/DefaultSkin/background/space.gif" /></a>
-						<div class="DescriptionExoCS">
-							Innovative Collaboration Suite with shared Calendars, WebMail, Forums and Contact List.
+				</div>						
+			</div>					
+			<div class="ExoCS">
+				<div class="LeftExoCS">						 
+					<div class="RightExoCS">
+						<div class="MiddleContent">
+							<a href="#" ><img class="LinkExoCS" border="0" src="/web/skin/portal/webui/component/UIHomePagePortlet/DefaultSkin/background/space.gif" /></a>
+							<div class="DescriptionExoCS">
+								Innovative Collaboration Suite with shared Calendars, WebMail, Forums and Contact List.
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>						
+				</div>						
+			</div>
 		</div>
 	</div>				
 </div>
