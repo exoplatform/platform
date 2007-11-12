@@ -8,6 +8,11 @@
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList {
 	margin-left: 230px;
+	background: white;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .UIDropDownControl .UIDropDownTitle {
+	margin-bottom: 5px;
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemList .Item {
@@ -30,6 +35,18 @@
 	text-align: center;
 	margin: auto;
 	color: #454545;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .ItemListContainer .ItemList {
+	overflow: auto;
+	background: white;
+	height: 230px;
+	border: 1px solid #b7b7b7;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList .ItemDetailTitle {
+	height: 23px;
+	margin-bottom: 3px;
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemList .UIThemeSelector {
