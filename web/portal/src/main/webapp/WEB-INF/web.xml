@@ -4,7 +4,43 @@
           PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
                  "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
-  <display-name>portal</display-name>  
+  <display-name>portal</display-name>
+
+  <context-param>
+    <param-name>org.exoplatform.frameworks.web.repositoryMapping</param-name>
+    <param-value>/jcr</param-value>
+    <description>Repository mapping path. If there are servlet/filter for desplaying internal imeges/links inside html documents it should have the same mapping</description>
+  </context-param>
+
+  <context-param>
+    <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsWorkspace</param-name>
+    <param-value>digital-assets</param-value>
+    <description>Binary assets workspace name</description>
+  </context-param>
+
+  <filter>
+    <filter-name>PortalContainerInitializedFilter</filter-name>
+    <filter-class>org.exoplatform.frameworks.jcr.web.PortalContainerInitializedFilter </filter-class>
+  </filter>
+  <filter>
+    <filter-name>FactoryInitializedFilter</filter-name>
+    <filter-class>org.exoplatform.frameworks.jcr.web.SimpleSessionFactoryInitializedFilter</filter-class>
+  </filter>
+  
+  <filter-mapping>
+    <filter-name>PortalContainerInitializedFilter</filter-name>
+    <url-pattern>/repository/*</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+    <filter-name>FactoryInitializedFilter</filter-name>
+    <url-pattern>/connector</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>FactoryInitializedFilter</filter-name>
+    <url-pattern>/jcr/*</url-pattern>
+  </filter-mapping>
+  
   <!-- ================================================================== -->
   <!--           LISTENER                                                 -->
   <!-- ================================================================== -->
@@ -15,6 +51,23 @@
   <!--           SERVLET                                                  -->
   <!-- ================================================================== -->
   <servlet>
+    <servlet-name>DisplayJCRContent</servlet-name>
+    <servlet-class>org.exoplatform.frameworks.jcr.web.DisplayJCRContentServlet</servlet-class>
+      <init-param>
+      <param-name>cache-control-max-age</param-name>
+      <param-value>3600</param-value>
+      <description>
+        Indicates that the client is willing to accept a response whose age is no greater than the specified time in seconds
+      </description>
+      </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>org.exoplatform.frameworks.jcr.web.CommandControllerServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
     <servlet-name>portal</servlet-name>
     <servlet-class>org.exoplatform.portal.application.PortalController</servlet-class>
     <init-param>
@@ -23,8 +76,18 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
-  
+    
   <!-- ================================================================= -->
+  <servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>/connector</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>DisplayJCRContent</servlet-name>
+    <url-pattern>/jcr/*</url-pattern>
+  </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>portal</servlet-name>
     <url-pattern>/private/*</url-pattern>
@@ -49,7 +112,7 @@
     <servlet-name>portal</servlet-name>
     <url-pattern>/command/*</url-pattern>
   </servlet-mapping>
-
+  
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>

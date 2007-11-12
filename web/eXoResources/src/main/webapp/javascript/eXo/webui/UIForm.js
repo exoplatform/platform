@@ -13,6 +13,10 @@ function UIForm() {
 UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
 	if (!callback) callback = null;
   var form = document.getElementById(formId) ;
+	if(form.updateFCKeditor) {
+		for (var i = 0 ; i < form.updateFCKeditor.length ; i++)
+			form.updateFCKeditor[i]() ;
+	}
   form.elements['formOp'].value = action ;
   if(useAjax) ajaxPost(form, callback) ;
   else  form.submit();
@@ -25,6 +29,10 @@ UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
  */
 UIForm.prototype.submitEvent = function(formId, action, params) {
   var form = document.getElementById(formId) ;
+	if(form.updateFCKeditor) {
+		for (var i = 0 ; i < form.updateFCKeditor.length ; i++)
+			form.updateFCKeditor[i]() ;
+	}
   form.elements['formOp'].value = action ; 
 	form.action =  form.action +  params ;
   ajaxPost(form) ;

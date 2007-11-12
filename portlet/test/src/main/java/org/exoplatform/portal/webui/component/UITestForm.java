@@ -7,7 +7,6 @@ package org.exoplatform.portal.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.portal.UIFormWYSIWYGInput;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -18,9 +17,11 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormDateTimeInput;
+import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormMultiValueInputSet;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormUploadInput;
+import org.exoplatform.webui.form.UIFormWYSIWYGInput;
 /**
  * Created by The eXo Platform SARL
  * Author : lxchiati  
@@ -63,12 +64,11 @@ public class UITestForm extends UIForm {
 
 
   public UITestForm() throws Exception {  
-    addChild(UIFormWYSIWYGInput.class, null, null) ;
-    
     UIFormUploadInput upload = new UIFormUploadInput("TestUpload", null); 
     UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
     test.setType(UIFormDateTimeInput.class);
     addChild(upload);
+    addUIFormInput(new UIFormWYSIWYGInput("trongtran", "trongtran", "trongtran the torng")) ;
 //    addChild(test);
 //    UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
 //    uiDropDownItemSelector.setTitle("SelectContainer") ;
@@ -174,8 +174,9 @@ public class UITestForm extends UIForm {
 
   static  public class SaveActionListener extends EventListener<UITestForm> {
     public void execute(Event<UITestForm> event) throws Exception {
-//     System.out.println("\n\n\n\nHello the world\n\n\n\n");
-//      UITestForm uiForm = event.getSource();
+     System.out.println("\n\n\n\nHello the world\n\n\n\n");
+      UITestForm uiForm = event.getSource();
+      System.out.println(uiForm.<UIFormInput>getUIInput("trongtran").getValue()) ;
 //      String selectChoise = uiForm.getUIFormSelectBox(FIELD_SELECT_BOX).getValue() ;
 //      System.out.println("Select box: " + selectChoise);     
 //      String radioChoise = uiForm.getChild(UIFormRadioBoxInput.class).getValue() ;

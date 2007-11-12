@@ -30,6 +30,7 @@
       <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$portletSkin.CSSPath" />
     <%}%>    
 
+    <script type="text/javascript" src="/portal/fckeditor/fckeditor.js"></script>
     <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
     <script type="text/javascript">
       eXo.env.server.context = '<%=docBase%>' ;

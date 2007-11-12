@@ -7,7 +7,6 @@ package org.exoplatform.portal.webui.page;
 import java.io.Writer;
 
 import org.exoplatform.portal.webui.application.UIPortletOptions;
-import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -15,6 +14,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
