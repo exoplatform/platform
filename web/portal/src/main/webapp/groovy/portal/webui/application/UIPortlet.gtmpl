@@ -1,4 +1,5 @@
 <%
+	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
   import org.exoplatform.portal.webui.page.UIPage;
   import javax.portlet.WindowState;
   import org.exoplatform.web.application.JavascriptManager;
@@ -18,9 +19,8 @@
   String onMouseOut      = "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
   
   WindowState windowState = uicomponent.getCurrentWindowState();  
-  boolean isWindow = "Window".equals(uicomponent.getPortletStyle());  
-  
-  
+  boolean isWindow = "Window".equals(uicomponent.getPortletStyle());
+  String skin = uicomponent.getAncestorOfType(UIPortalApplication.class).getSkin() ;  
   if(!isWindow) {
   
 %>

@@ -7,6 +7,7 @@ package org.exoplatform.portal.webui.skin;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -81,11 +82,11 @@ public class SkinService {
 	themeURLs_.add(url);
   }
 
-  public void addTheme(String categoryName, String[] themesName){
+  public void addTheme(String categoryName, List<String> themesName){
 	if(portletThemes_ == null) portletThemes_ = new HashMap<String, Set<String>>();
 	if(!portletThemes_.containsKey(categoryName)) portletThemes_.put(categoryName, new HashSet<String>());
 	Set<String> catThemes = portletThemes_.get(categoryName);
-	for(String theme: themesName) catThemes.add(theme);
+	for(String theme : themesName) catThemes.add(theme);
   }
 
   public void addCategoryTheme(String categoryName){

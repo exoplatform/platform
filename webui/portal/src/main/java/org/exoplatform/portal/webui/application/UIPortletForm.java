@@ -4,26 +4,16 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.application;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
-import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.application.portlet.PortletRequestContext;
-import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
@@ -93,13 +83,10 @@ public class UIPortletForm extends UIFormTabPane {
     uiIconSelector.setRendered(false)  ;
     addUIFormInput(uiIconSelector) ;
     
-    UIFormInputThemeSelector uiThemeSelector = new UIFormInputThemeSelector(FIELD_THEME, FIELD_THEME) ;
+    UIFormInputThemeSelector uiThemeSelector = new UIFormInputThemeSelector(FIELD_THEME, null) ;
     uiThemeSelector.setRendered(false) ;
-    Map<String, Set<String>> themeSet = new HashMap<String, Set<String>>() ;
-    Set<String> set = new HashSet<String>();
-    set.add("Theme1") ;
-    themeSet.put("Category1", set) ;
-    uiThemeSelector.setValues(themeSet) ;
+    SkinService skinService = getApplicationComponent(SkinService.class) ;
+    uiThemeSelector.setValues(skinService.getPortletThemes()) ;
     addUIFormInput(uiThemeSelector) ;
     
    /* UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");
@@ -128,7 +115,16 @@ public class UIPortletForm extends UIFormTabPane {
     String icon = uiPortlet.getIcon();
     if( icon == null || icon.length() < 0) icon = uiPortlet.getTitle() + "Icon";
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
+    getChild(UIFormInputThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(getCurrentSkin())) ;
   }
+  
+  public String getCurrentSkin() {
+    String currentSkin = "Default" ;
+    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class) ;
+    if(uiPortalApp != null) currentSkin = uiPortalApp.getSkin() ;
+    return currentSkin ;
+  }
+
   
 	static public class SaveActionListener extends EventListener<UIPortletForm> {
     public void execute(Event<UIPortletForm> event) throws Exception {      
@@ -137,7 +133,8 @@ public class UIPortletForm extends UIFormTabPane {
       UIFormInputIconSelector uiIconSelector = uiPortletForm.getChild(UIFormInputIconSelector.class);
       uiPortlet.setIcon(uiIconSelector.getSelectedIcon());
       uiPortletForm.invokeSetBindingBean(uiPortlet) ;
-      
+      UIFormInputThemeSelector uiThemeSelector = uiPortletForm.getChild(UIFormInputThemeSelector.class) ;
+      uiPortlet.putSuitedTheme(uiPortletForm.getCurrentSkin(), uiThemeSelector.getSelectedTheme()) ;
       UIMaskWorkspace uiMaskWorkspace = uiPortletForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
       

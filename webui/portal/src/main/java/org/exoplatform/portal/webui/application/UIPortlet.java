@@ -5,9 +5,11 @@
 package org.exoplatform.portal.webui.application;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.portlet.PortletMode;
 import javax.portlet.WindowState;
@@ -52,7 +54,8 @@ import org.exoplatform.webui.event.Event.Phase;
 public class UIPortlet extends UIApplication { 
   
   protected static Log log = ExoLogger.getLogger("portal:UIPortlet"); 
-  private String theme;
+  private String theme_ ;
+  static final public String DEFAULT_THEME = "Default:DefaultTheme" ;
   private String windowId ;
   private String portletStyle ;
 
@@ -82,8 +85,48 @@ public class UIPortlet extends UIApplication {
   public boolean getShowPortletMode() { return showPortletMode ; }
   public void    setShowPortletMode(Boolean b) { showPortletMode = b ; }
   
-  public String getTheme() { return theme; }
-  public void setTheme(String theme) { this.theme = theme; }
+  
+  public String getTheme() {
+    if(theme_ == null || theme_.trim().length() < 1) return DEFAULT_THEME ;
+    return theme_ ;
+  }
+
+  public void setTheme(String theme) {
+    theme_ = theme ;
+  }
+
+  public String getSuitedTheme(String skin) {
+    Map<String, String> themeMap = stringToThemeMap(getTheme()) ;
+    if(themeMap.containsKey(skin)) return themeMap.get(skin) ;
+    return  DEFAULT_THEME.split(":")[1] ;
+  }
+
+  public void putSuitedTheme(String skin, String theme) {
+    Map<String, String> themeMap = stringToThemeMap(getTheme()) ;
+    themeMap.put(skin, theme) ;
+    setTheme(themeMapToString(themeMap)) ;
+  }
+  
+  private String themeMapToString(Map<String, String> themeMap) {
+    StringBuffer builder = new StringBuffer() ;
+    Iterator<Entry<String, String>> itr = themeMap.entrySet().iterator() ;
+    while(itr.hasNext()) {
+      Entry<String, String> entry = itr.next() ; 
+      builder.append(entry.getKey()).append(":").append(entry.getValue()) ;
+      if(itr.hasNext()) builder.append("::") ;
+    }
+    return builder.toString() ;
+  }
+  
+  private Map<String, String> stringToThemeMap(String themesString) {
+    Map<String, String> themeMap = new HashMap<String, String>() ;
+    String[] themeIds = themesString.split("::") ;
+    for(String ele : themeIds) {
+      String[] strs = ele.split(":");
+      themeMap.put(strs[0], strs[1]) ;
+    }
+    return themeMap ;
+  }
   
   public ExoWindowID  getExoWindowID() { return exoWindowId_ ; }
   
