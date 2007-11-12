@@ -25,6 +25,7 @@ import org.exoplatform.portal.webui.application.UIPortletActionListener.ProcessE
 import org.exoplatform.portal.webui.application.UIPortletActionListener.RenderActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ServeResourceActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
@@ -96,12 +97,18 @@ public class UIPortlet extends UIApplication {
   }
 
   public String getSuitedTheme(String skin) {
+    if(skin == null) {
+      skin = getAncestorOfType(UIPortalApplication.class).getSkin() ;
+    }
     Map<String, String> themeMap = stringToThemeMap(getTheme()) ;
     if(themeMap.containsKey(skin)) return themeMap.get(skin) ;
     return  DEFAULT_THEME.split(":")[1] ;
   }
 
   public void putSuitedTheme(String skin, String theme) {
+    if(skin == null) {
+      skin = getAncestorOfType(UIPortalApplication.class).getSkin() ;
+    }
     Map<String, String> themeMap = stringToThemeMap(getTheme()) ;
     themeMap.put(skin, theme) ;
     setTheme(themeMapToString(themeMap)) ;

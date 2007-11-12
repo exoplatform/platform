@@ -115,16 +115,8 @@ public class UIPortletForm extends UIFormTabPane {
     String icon = uiPortlet.getIcon();
     if( icon == null || icon.length() < 0) icon = uiPortlet.getTitle() + "Icon";
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
-    getChild(UIFormInputThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(getCurrentSkin())) ;
+    getChild(UIFormInputThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null)) ;
   }
-  
-  public String getCurrentSkin() {
-    String currentSkin = "Default" ;
-    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class) ;
-    if(uiPortalApp != null) currentSkin = uiPortalApp.getSkin() ;
-    return currentSkin ;
-  }
-
   
 	static public class SaveActionListener extends EventListener<UIPortletForm> {
     public void execute(Event<UIPortletForm> event) throws Exception {      
@@ -134,7 +126,7 @@ public class UIPortletForm extends UIFormTabPane {
       uiPortlet.setIcon(uiIconSelector.getSelectedIcon());
       uiPortletForm.invokeSetBindingBean(uiPortlet) ;
       UIFormInputThemeSelector uiThemeSelector = uiPortletForm.getChild(UIFormInputThemeSelector.class) ;
-      uiPortlet.putSuitedTheme(uiPortletForm.getCurrentSkin(), uiThemeSelector.getSelectedTheme()) ;
+      uiPortlet.putSuitedTheme(null, uiThemeSelector.getSelectedTheme()) ;
       UIMaskWorkspace uiMaskWorkspace = uiPortletForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
       
