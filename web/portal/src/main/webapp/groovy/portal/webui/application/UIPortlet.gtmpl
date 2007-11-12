@@ -1,5 +1,4 @@
 <%
-	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
   import org.exoplatform.portal.webui.page.UIPage;
   import javax.portlet.WindowState;
   import org.exoplatform.web.application.JavascriptManager;
@@ -19,8 +18,9 @@
   String onMouseOut      = "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
   
   WindowState windowState = uicomponent.getCurrentWindowState();  
-  boolean isWindow = "Window".equals(uicomponent.getPortletStyle());
-  String skin = uicomponent.getAncestorOfType(UIPortalApplication.class).getSkin() ;  
+  boolean isWindow = "Window".equals(uicomponent.getPortletStyle());  
+  
+  
   if(!isWindow) {
   
 %>
@@ -149,7 +149,7 @@
       	cssStyle += "\"";
 	    %>
     		
-    		<div class="SimpleGreen UIDragObject UIResizeObject" id="${popupId}"  ${cssStyle} >
+    		<div class="UIWindow DefaultTheme UIDragObject UIResizeObject" id="${popupId}"  ${cssStyle} >
 		      <div class="WindowBarLeft">
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">
