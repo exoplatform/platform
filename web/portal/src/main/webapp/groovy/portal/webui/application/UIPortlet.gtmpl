@@ -149,7 +149,7 @@
       	cssStyle += "\"";
 	    %>
     		
-    		<div class="UIWindow UIDragObject UIResizeObject" id="${popupId}"  ${cssStyle} >
+    		<div class="SimpleGreen UIDragObject UIResizeObject" id="${popupId}"  ${cssStyle} >
 		      <div class="WindowBarLeft">
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">
