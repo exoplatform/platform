@@ -17,10 +17,12 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
   
   private int height_ = 300 ;
+  private boolean isBasic_ = false ;
   
-  public UIFormWYSIWYGInput(String name, String bindingExpression, String value) {
+  public UIFormWYSIWYGInput(String name, String bindingExpression, String value, boolean isBasic) {
     super(name, bindingExpression, String.class);
     this.value_ = value ;
+    this.isBasic_ = isBasic ;
   }
   
   public int getHeight() { return height_ ; }
@@ -32,9 +34,12 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
   }
   
   public void processRender(WebuiRequestContext context) throws Exception {
+    String toolbarSet = "Default" ;
+    if(isBasic_) toolbarSet = "Basic" ;
     StringBuilder jsExec = new StringBuilder("new FCKeditor('").append(getName()).
-                           append("', null, ").append(height_).
+                           append("', null, ").append(height_).append(", '" + toolbarSet + "'").
                            append(").ReplaceTextarea();") ;
+    
     Writer w =  context.getWriter() ;
     
     if (value_ == null) value_ = "" ;

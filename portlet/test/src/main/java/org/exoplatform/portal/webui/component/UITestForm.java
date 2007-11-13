@@ -68,7 +68,7 @@ public class UITestForm extends UIForm {
     UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
     test.setType(UIFormDateTimeInput.class);
     addChild(upload);
-    addUIFormInput(new UIFormWYSIWYGInput("trongtran", "trongtran", "trongtran the torng")) ;
+    addUIFormInput(new UIFormWYSIWYGInput("trongtran", "trongtran", "trongtran the torng", false)) ;
 //    addChild(test);
 //    UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
 //    uiDropDownItemSelector.setTitle("SelectContainer") ;
