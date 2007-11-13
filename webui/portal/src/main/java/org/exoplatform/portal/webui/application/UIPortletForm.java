@@ -20,7 +20,6 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormInputIconSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
-import org.exoplatform.webui.form.UIFormInputThemeSelector;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
@@ -86,7 +85,7 @@ public class UIPortletForm extends UIFormTabPane {
     UIFormInputThemeSelector uiThemeSelector = new UIFormInputThemeSelector(FIELD_THEME, null) ;
     uiThemeSelector.setRendered(false) ;
     SkinService skinService = getApplicationComponent(SkinService.class) ;
-    uiThemeSelector.setValues(skinService.getPortletThemes()) ;
+    uiThemeSelector.getChild(UIItemThemeSelector.class).setValues(skinService.getPortletThemes()) ;
     addUIFormInput(uiThemeSelector) ;
     
    /* UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");
@@ -115,7 +114,7 @@ public class UIPortletForm extends UIFormTabPane {
     String icon = uiPortlet.getIcon();
     if( icon == null || icon.length() < 0) icon = uiPortlet.getTitle() + "Icon";
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
-    getChild(UIFormInputThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null)) ;
+    getChild(UIFormInputThemeSelector.class).getChild(UIItemThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null)) ;
   }
   
 	static public class SaveActionListener extends EventListener<UIPortletForm> {
@@ -126,7 +125,7 @@ public class UIPortletForm extends UIFormTabPane {
       uiPortlet.setIcon(uiIconSelector.getSelectedIcon());
       uiPortletForm.invokeSetBindingBean(uiPortlet) ;
       UIFormInputThemeSelector uiThemeSelector = uiPortletForm.getChild(UIFormInputThemeSelector.class) ;
-      uiPortlet.putSuitedTheme(null, uiThemeSelector.getSelectedTheme()) ;
+      uiPortlet.putSuitedTheme(null, uiThemeSelector.getChild(UIItemThemeSelector.class).getSelectedTheme()) ;
       UIMaskWorkspace uiMaskWorkspace = uiPortletForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
       

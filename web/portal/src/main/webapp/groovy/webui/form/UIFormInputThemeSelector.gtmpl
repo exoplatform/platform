@@ -1,71 +1,24 @@
 <%
-	import org.exoplatform.webui.core.UIDropDownControl ;
+	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.portal.webui.application.UIItemThemeSelector;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript("eXo.webui.UIFormInputThemeSelector") ;
 	
-	def categories = uicomponent.getCategories() ;
-	def selectedCategory = uicomponent.getSelectedCategory() ;
-	String selectedThemeName = uicomponent.getSelectedTheme() ;
+	def selectedCategory = uicomponent.getChild(UIItemThemeSelector.class).getSelectedCategory() ;
+	String selectedThemeName = uicomponent.getChild(UIItemThemeSelector.class).getSelectedTheme() ;
 %>
 <div class="UIItemSelector UIFormInputThemeSelector" id="$uicomponent.id">
 	<div class="LeftColumnStyle">
-		<input type="hidden" name="$uicomponent.id" value="$selectedThemeName">
-		<div class="ItemListContainer">
-			<div class="DropDownControl"><%uicomponent.renderChild(UIDropDownControl.class);%></div>
-			<div class="ItemList">
-			<%
-				for(theme in selectedCategory.getThemes()) {
-			%>
-				<div class="Item" onclick="<%=uicomponent.event("SelectTheme", "$theme")%>">
-					<div class="UIThemeSelector $theme">
-
-						  <div class="WindowBarLeft">
-						    <div class="WindowBarRight">
-						      <div class="WindowBarCenter">
-						        <div class="WindowPortletControl">
-						          <div class="ControlIcon MinimizedIcon"><span></span></div>
-						          <div class="ControlIcon RestoreIcon"><span></span></div>
-						          <div class="ControlIcon MaximizedIcon"><span></span></div>
-						          <div style="clear: left"><span></span></div>
-						        </div>
-						        <div class="WindowPortletInfo">
-						          <div class="WindowPortletIcon Icon"><span></span></div>
-						          <div class="PortletName">Title</div>
-						          <div style="clear: left"><span></span></div>
-						        </div>
-						        <div style="clear: right"><span></span></div>
-						      </div>
-						    </div>
-						  </div>
-						  
-						  <div class="MiddleDecoratorLeft">
-						    <div class="MiddleDecoratorRight">
-						      <div class="MiddleDecoratorCenter">
-						        <div class="NameStyle">Tonic Blue Style</div>
-						      </div>
-						    </div>
-						  </div>
-						  
-						  <div class="BottomDecoratorLeft">
-						    <div class="BottomDecoratorRight">
-						      <div class="BottomDecoratorCenter">
-										<div class="ResizeArea" title="Resize Window"><span></span></div>
-						        <div class="Information">Done</div>
-						        <div style="clear: right"><span></span></div>
-									</div>
-						    </div>
-						  </div>
-						  
-					</div>
-				</div>				
-			<%}%>
-			</div>		
-		</div>
+		<div class="ItemListContainer"><%uicomponent.renderChild(UIItemThemeSelector.class);%></div> 
 		<div class="ItemDetailList">
 			<div class="ItemDetailTitle">
       	<div class="TitleIcon ViewListIcon"><span></span></div>
   	    <div class="Title">Themes Preview</div>
-  	    <a class="SetDefault" href="<%=uicomponent.event("SetDefault")%>">
-  	    	<div>Set as default</div>
-  	    </a>
+  	    <div class="SetDefault" onclick="eXo.webui.UIFormInputThemeSelector.setDefaultTheme(this,'DefaultTheme')">
+  	    	<a href="#">Set as default</a>
+  	    </div>
   	    <div style="clear: both;"><span/></div>
     	</div>
 			<div class="DetailView">					

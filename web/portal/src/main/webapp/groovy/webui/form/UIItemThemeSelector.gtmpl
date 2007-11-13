@@ -1,0 +1,64 @@
+<%
+	import org.exoplatform.webui.core.UIDropDownControl ;
+	import org.exoplatform.web.application.JavascriptManager;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript("eXo.webui.UIFormInputThemeSelector") ;
+	
+	def selectedCategory = uicomponent.getSelectedCategory() ;
+	String selectedThemeName = uicomponent.getSelectedTheme() ;
+%>
+
+<div class="UIItemThemeSelector" id="$uicomponent.id">
+			<input type="hidden" name="$uicomponent.id" value="$selectedThemeName">
+			<div class="DropDownControl"><%uicomponent.renderChild(UIDropDownControl.class);%></div>
+			<div class="ItemList">
+			<%
+				for(theme in selectedCategory.getThemes()) {
+			%>
+				<div class="Item" onclick="eXo.webui.UIFormInputThemeSelector.showThemeSelected(this,'$theme')">
+					<div class="UIThemeSelector $theme">
+
+						  <div class="WindowBarLeft">
+						    <div class="WindowBarRight">
+						      <div class="WindowBarCenter">
+						        <div class="WindowPortletControl">
+						          <div class="ControlIcon MinimizedIcon"><span></span></div>
+						          <div class="ControlIcon RestoreIcon"><span></span></div>
+						          <div class="ControlIcon MaximizedIcon"><span></span></div>
+						          <div style="clear: left"><span></span></div>
+						        </div>
+						        <div class="WindowPortletInfo">
+						          <div class="WindowPortletIcon Icon"><span></span></div>
+						          <div class="PortletName">Title</div>
+						          <div style="clear: left"><span></span></div>
+						        </div>
+						        <div style="clear: right"><span></span></div>
+						      </div>
+						    </div>
+						  </div>
+						  
+						  <div class="MiddleDecoratorLeft">
+						    <div class="MiddleDecoratorRight">
+						      <div class="MiddleDecoratorCenter">
+						        <div class="NameStyle">Tonic Blue Style</div>
+						      </div>
+						    </div>
+						  </div>
+						  
+						  <div class="BottomDecoratorLeft">
+						    <div class="BottomDecoratorRight">
+						      <div class="BottomDecoratorCenter">
+										<div class="ResizeArea" title="Resize Window"><span></span></div>
+						        <div class="Information">Done</div>
+						        <div style="clear: right"><span></span></div>
+									</div>
+						    </div>
+						  </div>
+						  
+					</div>
+				</div>				
+			<%}%>
+			</div>		
+		</div>
