@@ -31,21 +31,6 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPortletIcon.gif') no-repeat ;
 }
 
-/*#############################  Begin Icon WindowBar ##############################################*/
-.UIWindow .WindowPortletControl {
-  float: right ;
-  height: 22px ;
-	padding: 0px 3px 0px 10px;
-}
-
-.UIPageDesktop .UIWindow .WindowPortletControl {
-	padding: 0px 3px 0px 14px;
-}
-
-.TRContainer .UIWindow .WindowPortletControl {
-  padding: 0px 3px 0px 12px;
-}
-
 /*======================== UIPageBody ================================*/
 
 .UIPortal .VIEW-PORTLET .UIWindow {

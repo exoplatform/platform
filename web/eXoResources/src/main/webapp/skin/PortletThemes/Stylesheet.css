@@ -151,12 +151,310 @@
 
 /*-------------------------- MacTheme ---------------------------*/
 
-.MacTheme {
-
+.MacTheme .WindowPortletControl {
+  float: right ;
+  height: 23px ;
+  padding-left: 0px;
 }
 
-.VistaTheme {
+.UIPageDesktop .MacTheme .WindowPortletInfo {
+  height: 24px ;
+  margin: 0px 100px 0px 0px ;
+  cursor: move ;
+}
 
+.MacTheme .WindowPortletInfo .PortletIcon {
+  float: left ;
+  width: 16px ; height: 16px ;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
+  margin: 4px 6px 0px 5px ;
+}
+
+.MacTheme .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 16px ; height: 16px ;
+  margin: 4px 2px 0px 2px ;
+  cursor: pointer ;  
+}
+
+.MacTheme .WindowPortletControl .ArrowDownIcon {
+  width: 21px;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/ArrowDown.gif') no-repeat center right;
+}
+
+.MacTheme .WindowPortletControl .OverArrowDownIcon {
+	width: 21px;
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/ArrowDownOver.gif') no-repeat center right;
+}
+
+.MacTheme .WindowPortletControl .MinimizedIcon {
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Minimize.gif') no-repeat center;
+}
+
+.MacTheme .WindowPortletControl .OverMinimizedIcon {
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/MinimizeOver.gif') no-repeat center;
+}
+
+.MacTheme .WindowPortletControl .NormalIcon {
+  background: url('/MacSkin/skinIcons/16x16/icons/RestoreMacTheme.gif') no-repeat top;
+}
+
+.MacTheme .WindowPortletControl .OverNormalIcon {
+  background: url('/MacSkin/skinIcons/16x16/icons/RestoreMacThemeOver.gif') no-repeat top;
+}
+
+.MacTheme .WindowPortletControl .MaxMin {
+  width: 16px ; height: 16px ;
+  cursor: pointer ;  
+}
+
+.MacTheme .WindowPortletControl .MaximizedIcon {
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Maximize.gif') no-repeat center;
+}
+
+.MacTheme .WindowPortletControl .OverMaximizedIcon {
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/MaximizeOver.gif') no-repeat center;
+}
+
+.MacTheme .WindowPortletControl .RestoreIcon {
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Restore.gif') no-repeat ;
+}
+
+.MacTheme .WindowPortletControl .OverRestoreIcon {
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/RestoreOver.gif') no-repeat ;
+}
+
+.MacTheme .WindowPortletControl .BackgroundIcon {
+  float: left ;
+  margin: 4px 2px 0px 2px ;
+}
+
+.MacTheme .WindowPortletControl .BackgroundOver {
+}
+
+.UIPageDesktop .MacTheme .ResizeArea {
+  float: right ;
+  width: 17px ; height: 15px ;
+  cursor: nw-resize ;
+  background: url('background/ResizeArea17x15.png') no-repeat ;
+}
+
+.MacTheme .Information {
+  height: 16px ; line-height: 14px ; vertical-align: middle ;
+  font-size: 10px ;
+  margin-right: 18px ;
+  padding-left: 5px ;
+}
+
+.MacTheme .MiddleDecoratorLeft {
+  background: url('background/PortletWindowML5x1.png') repeat-y left ;
+  padding: 0px 0px 0px 5px ;
+}
+
+.MacTheme .MiddleDecoratorRight {
+  padding: 0px 5px 0px 0px ;
+  background: url('background/PortletWindowMR5x1.png') repeat-y right ;
+}
+
+.MacTheme .MiddleDecoratorCenter {
+  background: #ffffff ;
+}
+
+.MacTheme .BottomDecoratorLeft {
+  background: url('background/PortletWindowBL5x23.png') no-repeat left ;
+  padding: 0px 0px 0px 5px ;
+}
+
+.MacTheme .BottomDecoratorRight {
+  padding: 0px 5px 0px 0px ;
+  background: url('background/PortletWindowBR5x23.png') no-repeat right ;
+}
+
+.MacTheme .BottomDecoratorCenter {
+  height: 23px ; line-height: 23px;
+  background: url('background/PortletWindowBC1x23.png') repeat-x ;
+}
+
+.MacTheme .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 3px 8px 0px 3px;
+}
+
+.MacTheme .WindowPortletInfo .PortletName {
+  float: left ;
+  margin: 5px 0px 0px 0px ;
+	font-weight: bold;
+}
+
+.MacTheme .WindowBarLeft {
+  padding: 0px 0px 0px 12px ;
+  background: url('background/PortletWindowTL12x23.png') no-repeat left ;
+}
+
+.MacTheme .WindowBarRight {
+  padding: 0px 12px 0px 0px ;
+  background: url('background/PortletWindowTR12x23.png') no-repeat right ;
+}
+
+.MacTheme .WindowBarCenter {
+  height: 23px ;
+  background: url('background/PortletWindowTC1x23.png') repeat-x bottom;
+}
+
+/*-------------------------------- VistaTheme -----------------------------*/
+
+.VistaTheme .WindowPortletControl {
+  float: right ;
+  height: 24px ;
+  padding:4px 0px 0px 6px;
+}
+
+.TRContainer .VistaTheme .WindowPortletControl {
+  padding:4px 0px 0px 11px;
+}
+
+.UIPageDesktop .VistaTheme .WindowPortletControl {
+  padding:4px 0px 0px 12px;
+}
+
+.UIPageDesktop .VistaTheme .WindowPortletInfo {
+  height: 24px ;
+  margin-right: 100px ;
+  cursor: move ;
+}
+
+.VistaTheme .WindowPortletInfo .Icon {
+  float: left;
+  width: 19px; height: 19px;
+  margin: 8px 8px 0px 0px;
+}
+
+.VistaTheme .WindowPortletInfo .PortletName {
+  float: left ;
+  margin-top: 10px ;
+}
+
+.VistaTheme .WindowPortletInfo .PortletIcon {
+  float: left ;
+  width: 16px ; height: 16px ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat ;
+  margin: 9px 5px 0px 5px ;
+}
+
+.VistaTheme .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 30px ; height:19px ;
+  cursor: pointer ;  
+}
+
+.VistaTheme .WindowPortletControl .ArrowDownIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/ArrowDown.png') no-repeat ;
+}
+
+.VistaTheme .WindowPortletControl .OverArrowDownIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/ArrowDownOver.png') no-repeat ;
+}
+
+.VistaTheme .WindowPortletControl .MinimizedIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Minimize.png') no-repeat ;
+}
+
+.VistaTheme .WindowPortletControl .OverMinimizedIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/MinimizeOver.png') no-repeat ;
+}
+
+.VistaTheme .WindowPortletControl .MaximizedIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Maximize.png') no-repeat ;
+}
+
+.VistaTheme .WindowPortletControl .OverMaximizedIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/MaximizeOver.png') no-repeat ;
+}
+
+.VistaTheme .WindowPortletControl .RestoreIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Restore.png') no-repeat ;
+}
+
+.VistaTheme .WindowPortletControl .OverRestoreIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/RestoreOver.png') no-repeat ;
+}
+
+.VistaTheme .WindowPortletControl .NormalIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Restore.png') no-repeat ;
+}
+
+.VistaTheme .WindowPortletControl .OverNormalIcon {
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/RestoreOver.png') no-repeat ;
+}
+
+.VistaTheme .Information {
+  margin-right: 18px ;
+  padding-left: 5px ;
+  height: 18px ; line-height: 18px ;
+  font-size: 10px ;
+}
+
+.VistaTheme .MiddleDecoratorCenter {
+  background: #ffffff;
+  border: solid 1px #717171;
+}
+
+.UIPageDesktop .VistaTheme .ResizeArea {
+  float: right ;
+  width: 9px ; height: 12px ;
+  cursor: nw-resize ;
+  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
+}
+
+.VistaTheme .MiddleDecoratorLeft {
+  padding-left:12px ;
+  background: url('background/LeftMiddleDecorator12x1.png') repeat-y left ;
+}
+
+.VistaTheme .MiddleDecoratorRight {
+  padding-right: 13px ;
+  background: url('background/RightMiddleDecorator13x1.png') repeat-y right ;
+}
+
+.UIPageBody .MiddleDecoratorCenter {
+  background: #ffffff;
+}
+
+.VistaTheme .BottomDecoratorLeft {
+  padding-left:12px ;
+  background: url('background/LeftBottomDecorator12x24.png') no-repeat left ;
+}
+
+.VistaTheme .BottomDecoratorRight {
+  padding-right: 13px ;
+  background: url('background/RightBottomDecorator13x24.png') no-repeat right ;
+}
+
+.VistaTheme .BottomDecoratorCenter {
+  height: 24px ;
+  background: url('background/CenterBottomDecorator1x24.png') repeat-x ;
+}
+
+.VistaTheme .WindowPortletInfo .PortletName {
+  float: left ;
+  margin: 10px 0px 0px 3px;
+  font-weight: bold;
+}
+
+.VistaTheme .WindowBarLeft {
+  padding-left: 12px ;
+  background: url('background/LeftTopBar12x29.png') no-repeat left ;
+}
+
+.VistaTheme .WindowBarRight {
+  padding-right: 16px ;
+  background: url('background/RightTopBar16x29.png') no-repeat right ;
+}
+
+.VistaTheme .WindowBarCenter {
+  height: 29px ;
+  background: url('background/CenterTopBar1x29.png') repeat-x ;
 }
 
 /*-------------------------- RoundComerBlue ---------------------------*/
@@ -1460,7 +1758,7 @@
 .SimpleBlue .WindowPortletControl .ControlIcon {
   float: left;
   width: 23px ; height: 20px ;
-  margin: 10px 2px 0px 0px ;
+  margin: 1px 2px 0px 0px ;
   cursor: pointer ;
   background-position: center;
 }
@@ -1475,7 +1773,7 @@
 .SimpleBlue .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+  margin: 0px 0px 0px 2px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
 }
 
@@ -1488,7 +1786,7 @@
 
 .SimpleBlue .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 10px 0px 0px 5px;
+  padding: 0px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
@@ -1534,49 +1832,54 @@
 }
 
 .SimpleBlue .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background: url('background/TLSimpleBlue11x29.png') no-repeat left bottom;
+	border: 1px solid #3d589d;
+	border-bottom: none;
 }
 
 .SimpleBlue .WindowBarRight {
-	padding-right: 11px ;
-  height: 29px;
-  background: url('background/TRSimpleBlue11x29.png') no-repeat right bottom;
+	border: 1px solid #d7e5f2;
 }
 
 .SimpleBlue .WindowBarCenter {
-	height: 29px ;
-  background: url('background/TCSimpleBlue1x29.png') repeat-x bottom;
+	height: 18px ;
+	line-height: 18px;
+  background: #b0c0f5 ;
 }
 
 .SimpleBlue .MiddleDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/MLSimpleBlue11x1.png') repeat-y left ;
+	border-left: 1px solid #3d589d;
+	border-right: 1px solid #3d589d;
 }
 
 .SimpleBlue .MiddleDecoratorRight {
-	padding-right: 11px;
-  background: url('background/MRSimpleBlue11x1.png') repeat-y right ;
+	border: 2px solid #d7e5f2;
+	border-top: none;
+	border-bottom: none;
 }
 
 .SimpleBlue .MiddleDecoratorCenter {
+	border: 1px solid #4a67b1;
+	border-bottom: none;
   background: #ffffff ;
+  padding: 1px;
 }
 
 .SimpleBlue .BottomDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/BLSimpleBlue11x28.png') no-repeat left ;
+	border-left: 1px solid #3d589d;
+	border-right: 1px solid #3d589d;
+	border-bottom: 1px solid #3d589d;
 }
 
 .SimpleBlue .BottomDecoratorRight {
-	padding-right: 11px;
-  background: url('background/BRSimpleBlue11x28.png') no-repeat right ;
+	border: 2px solid #d7e5f2;
+	border-top: none;
 }
 
 .SimpleBlue .BottomDecoratorCenter {
-	height: 28px;
-  background: url('background/BCSimpleBlue1x28.png') repeat-x ;
+	border: 1px solid #4a67b1;
+	border-top: none;
+	background: white url('background/BLShadow1x19.gif') repeat-x ; 
+	height: 19px;
 }
 
 /*------------------------------ SimpleViolet -----------------------------------*/
@@ -1589,7 +1892,7 @@
 .SimpleViolet .WindowPortletControl .ControlIcon {
   float: left;
   width: 23px ; height: 20px ;
-  margin: 10px 2px 0px 0px ;
+  margin: 1px 2px 0px 0px ;
   cursor: pointer ;
   background-position: center;
 }
@@ -1604,7 +1907,7 @@
 .SimpleViolet .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+  margin: 0px 0px 0px 2px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
 }
 
@@ -1617,7 +1920,7 @@
 
 .SimpleViolet .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 10px 0px 0px 5px;
+  padding: 0px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
@@ -1663,49 +1966,53 @@
 }
 
 .SimpleViolet .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background: url('background/TLSimpleViolet11x29.png') no-repeat left bottom;
+	border: 1px solid #c41fdc;
+	border-bottom: none;
 }
 
 .SimpleViolet .WindowBarRight {
-	padding-right: 11px ;
-  height: 29px;
-  background: url('background/TRSimpleViolet11x29.png') no-repeat right bottom;
+	border: 1px solid #ece7ff;
 }
 
 .SimpleViolet .WindowBarCenter {
-	height: 29px ;
-  background: url('background/TCSimpleViolet1x29.png') repeat-x bottom;
+	height: 18px ;
+	line-height: 18px;
+  background: #c4a6ff ;
 }
 
 .SimpleViolet .MiddleDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/MLSimpleViolet11x1.png') repeat-y left ;
+	border-left: 1px solid #c41fdc;
+	border-right: 1px solid #c41fdc;
 }
 
 .SimpleViolet .MiddleDecoratorRight {
-	padding-right: 11px;
-  background: url('background/MRSimpleViolet11x1.png') repeat-y right ;
+	border: 2px solid #ece7ff;
+	border-top: none;
+	border-bottom: none;
 }
 
 .SimpleViolet .MiddleDecoratorCenter {
+	border: 1px solid #5700a9;
+	border-bottom: none;
   background: #ffffff ;
+  padding: 1px;
 }
 
 .SimpleViolet .BottomDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/BLSimpleViolet11x28.png') no-repeat left ;
+	border: 1px solid #c41fdc;
+	border-top: none;
 }
 
 .SimpleViolet .BottomDecoratorRight {
-	padding-right: 11px;
-  background: url('background/BRSimpleViolet11x28.png') no-repeat right ;
+	border: 2px solid #ece7ff;
+	border-top: none;
 }
 
 .SimpleViolet .BottomDecoratorCenter {
-	height: 28px;
-  background: url('background/BCSimpleViolet1x28.png') repeat-x ;
+	border: 1px solid #5700a9;
+	border-top: none;
+	background: url('background/BLShadow1x19.gif') repeat-x ; 
+	height: 19px;
 }
 
 /*------------------------------ SimpleOrange -----------------------------------*/
@@ -1718,7 +2025,7 @@
 .SimpleOrange .WindowPortletControl .ControlIcon {
   float: left;
   width: 23px ; height: 20px ;
-  margin: 10px 2px 0px 0px ;
+  margin: 1px 2px 0px 0px ;
   cursor: pointer ;
   background-position: center;
 }
@@ -1733,7 +2040,7 @@
 .SimpleOrange .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+  margin: 0px 0px 0px 2px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
 }
 
@@ -1746,7 +2053,7 @@
 
 .SimpleOrange .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 10px 0px 0px 5px;
+  padding: 0px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
@@ -1792,49 +2099,53 @@
 }
 
 .SimpleOrange .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background: url('background/TLSimpleOrange11x29.png') no-repeat left bottom;
+	border: 1px solid #ffb27f;
+	border-bottom: none;
 }
 
 .SimpleOrange .WindowBarRight {
-	padding-right: 11px ;
-  height: 29px;
-  background: url('background/TRSimpleOrange11x29.png') no-repeat right bottom;
+	border: 1px solid #fff1e5;
 }
 
 .SimpleOrange .WindowBarCenter {
-	height: 29px ;
-  background: url('background/TCSimpleOrange1x29.png') repeat-x bottom;
+	height: 18px ;
+	line-height: 18px;
+  background: #ffd1a8 ;
 }
 
 .SimpleOrange .MiddleDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/MLSimpleOrange11x1.png') repeat-y left ;
+	border-left: 1px solid #ffb27f;
+	border-right: 1px solid #ffb27f;
 }
 
 .SimpleOrange .MiddleDecoratorRight {
-	padding-right: 11px;
-  background: url('background/MRSimpleOrange11x1.png') repeat-y right ;
+	border: 2px solid #fff1e5;
+	border-top: none;
+	border-bottom: none;
 }
 
 .SimpleOrange .MiddleDecoratorCenter {
+	border: 1px solid #b27a49;
+	border-bottom: none;
   background: #ffffff ;
+  padding: 1px;
 }
 
 .SimpleOrange .BottomDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/BLSimpleOrange11x28.png') no-repeat left ;
+	border: 1px solid #ffb27f;
+	border-top: none;
 }
 
 .SimpleOrange .BottomDecoratorRight {
-	padding-right: 11px;
-  background: url('background/BRSimpleOrange11x28.png') no-repeat right ;
+	border: 2px solid #fff1e5;
+	border-top: none;
 }
 
 .SimpleOrange .BottomDecoratorCenter {
-	height: 28px;
-  background: url('background/BCSimpleOrange1x28.png') repeat-x ;
+	border: 1px solid #b27a49;
+	border-top: none;
+	background: url('background/BLShadow1x19.gif') repeat-x ; 
+	height: 19px;
 }
 
 /*------------------------------ SimplePink -----------------------------------*/
@@ -1847,7 +2158,7 @@
 .SimplePink .WindowPortletControl .ControlIcon {
   float: left;
   width: 23px ; height: 20px ;
-  margin: 10px 2px 0px 0px ;
+  margin: 1px 2px 0px 0px ;
   cursor: pointer ;
   background-position: center;
 }
@@ -1862,7 +2173,7 @@
 .SimplePink .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+  margin: 0px 0px 0px 2px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
 }
 
@@ -1875,7 +2186,7 @@
 
 .SimplePink .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 10px 0px 0px 5px;
+  padding: 0px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
@@ -1921,49 +2232,53 @@
 }
 
 .SimplePink .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background: url('background/TLSimplePink11x29.png') no-repeat left bottom;
+	border: 1px solid #b69db3;
+	border-bottom: none;
 }
 
 .SimplePink .WindowBarRight {
-	padding-right: 11px ;
-  height: 29px;
-  background: url('background/TRSimplePink11x29.png') no-repeat right bottom;
+	border: 1px solid #fff1fd;
 }
 
 .SimplePink .WindowBarCenter {
-	height: 29px ;
-  background: url('background/TCSimplePink1x29.png') repeat-x bottom;
+	height: 18px ;
+	line-height: 18px;
+  background: #fdd8f9 ;
 }
 
 .SimplePink .MiddleDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/MLSimplePink11x1.png') repeat-y left ;
+	border-left: 1px solid #b69db3;
+	border-right: 1px solid #b69db3;
 }
 
 .SimplePink .MiddleDecoratorRight {
-	padding-right: 11px;
-  background: url('background/MRSimplePink11x1.png') repeat-y right ;
+	border: 2px solid #fff1fd;
+	border-top: none;
+	border-bottom: none;
 }
 
 .SimplePink .MiddleDecoratorCenter {
+	border: 1px solid #9a5591;
+	border-bottom: none;
   background: #ffffff ;
+  padding: 1px;
 }
 
 .SimplePink .BottomDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/BLSimplePink11x28.png') no-repeat left ;
+	border: 1px solid #b69db3;
+	border-top: none;
 }
 
 .SimplePink .BottomDecoratorRight {
-	padding-right: 11px;
-  background: url('background/BRSimplePink11x28.png') no-repeat right ;
+	border: 2px solid #fff1fd;
+	border-top: none;
 }
 
 .SimplePink .BottomDecoratorCenter {
-	height: 28px;
-  background: url('background/BCSimplePink1x28.png') repeat-x ;
+	border: 1px solid #9a5591;
+	border-top: none;
+	background: url('background/BLShadow1x19.gif') repeat-x ; 
+	height: 19px;
 }
 
 /*------------------------------ SimpleGreen -----------------------------------*/
@@ -1976,7 +2291,7 @@
 .SimpleGreen .WindowPortletControl .ControlIcon {
   float: left;
   width: 23px ; height: 20px ;
-  margin: 10px 2px 0px 0px ;
+  margin: 1px 2px 0px 0px ;
   cursor: pointer ;
   background-position: center;
 }
@@ -1991,7 +2306,7 @@
 .SimpleGreen .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+  margin: 0px 0px 0px 2px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
 }
 
@@ -2004,7 +2319,7 @@
 
 .SimpleGreen .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 10px 0px 0px 5px;
+  padding: 0px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
@@ -2050,47 +2365,51 @@
 }
 
 .SimpleGreen .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background: url('background/TLSimpleGreen11x29.png') no-repeat left bottom;
+	border: 1px solid #a0b9b6;
+	border-bottom: none;
 }
 
 .SimpleGreen .WindowBarRight {
-	padding-right: 11px ;
-  height: 29px;
-  background: url('background/TRSimpleGreen11x29.png') no-repeat right bottom;
+	border: 1px solid #eaf4ff;
 }
 
 .SimpleGreen .WindowBarCenter {
-	height: 29px ;
-  background: url('background/TCSimpleGreen1x29.png') repeat-x bottom;
+	height: 18px ;
+	line-height: 18px;
+  background: #a3d0ff;
 }
 
 .SimpleGreen .MiddleDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/MLSimpleGreen11x1.png') repeat-y left ;
+	border-left: 1px solid #a0b9b6;
+	border-right: 1px solid #a0b9b6;
 }
 
 .SimpleGreen .MiddleDecoratorRight {
-	padding-right: 11px;
-  background: url('background/MRSimpleGreen11x1.png') repeat-y right ;
+	border: 2px solid #eaf4ff;
+	border-top: none;
+	border-bottom: none;
 }
 
 .SimpleGreen .MiddleDecoratorCenter {
+	border: 1px solid #4c717e;
+	border-bottom: none;
   background: #ffffff ;
+  padding: 1px;
 }
 
 .SimpleGreen .BottomDecoratorLeft {
-	padding-left: 11px;
-  background: url('background/BLSimpleGreen11x28.png') no-repeat left ;
+	border: 1px solid #a0b9b6;
+	border-top: none;
 }
 
 .SimpleGreen .BottomDecoratorRight {
-	padding-right: 11px;
-  background: url('background/BRSimpleGreen11x28.png') no-repeat right ;
+	border: 2px solid #eaf4ff;
+	border-top: none;
 }
 
 .SimpleGreen .BottomDecoratorCenter {
-	height: 28px;
-  background: url('background/BCSimpleGreen1x28.png') repeat-x ;
+	border: 1px solid #4c717e;
+	border-top: none;
+	background: url('background/BLShadow1x19.gif') repeat-x ; 
+	height: 19px;
 }

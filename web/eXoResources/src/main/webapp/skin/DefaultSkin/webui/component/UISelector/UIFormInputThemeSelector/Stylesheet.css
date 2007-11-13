@@ -63,6 +63,26 @@
 	padding-top: 10px;
 }
 
+.UIFormInputThemeSelector .LeftColumnStyle .SimpleBlue {
+	padding: 10px;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .SimpleOrange {
+	padding: 10px;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .SimpleViolet {
+	padding: 10px;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .SimplePink {
+	padding: 10px;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .SimpleGreen {
+	padding: 10px;
+}
+
 /*
 
 .UIFormInputThemeSelector .ItemList .MiddleDecoratorLeft .Title {

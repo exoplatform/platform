@@ -32,7 +32,7 @@
 								<a class="LoginIcon" onclick="$signInAction"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
 								<div class="SeperatorLine"><span></span></div>
 								<a class="SettingIcon" onclick="$changeLanguageAction">
-									<%=_ctx.appRes("UIChangeLanguage.action.ChangeLanguage")%>
+									<%=_ctx.appRes("UIChangeLanguage.title.LanguageSetting")%>
 								</a>
 								<div class="SeperatorLine"><span></span></div>
 								<div style="clear: right;"><span></span></div>
