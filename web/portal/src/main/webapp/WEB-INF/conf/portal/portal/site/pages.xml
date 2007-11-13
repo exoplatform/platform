@@ -10,7 +10,7 @@
 	  <access-permissions>*:/guest</access-permissions>
 	  <edit-permission>*:/portal/admin</edit-permission>
     <application>
-      <instance-id>portal#site:/web/HomePagePortlet/sitemapportlet</instance-id>
+      <instance-id>portal#site:/web/HomePagePortlet/homepageportlet</instance-id>
       <title>Home Page portlet</title>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>

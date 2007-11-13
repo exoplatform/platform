@@ -5,21 +5,5 @@
 	<priority>3</priority>
   <description>description for node navigation </description>
   
-  <page-nodes>  
-
-	  <node>
-	    <uri>sitemap</uri>
-	    <name>siteMap</name>
-	    <label>Site Map</label>
-	    <page-reference>user::exoadmin::sitemap</page-reference>	    
-	  </node>
-
-    <node>
-      <uri>console</uri>
-      <name>console</name>
-      <label>Console</label>
-      <page-reference>user::exoadmin::console</page-reference>      
-    </node>
-
-  </page-nodes>
+  <page-nodes />
 </node-navigation>

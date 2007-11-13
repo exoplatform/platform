@@ -5,14 +5,5 @@
 	<priority>3</priority>
   <description>description for node navigation </description>
   
-  <page-nodes>  
-
-	  <node>
-	    <uri>sitemap</uri>
-	    <name>siteMap</name>
-	    <label>Site Map</label>
-	    <page-reference>user::company::sitemap</page-reference>	    
-	  </node>
-
-  </page-nodes>
+  <page-nodes />
 </node-navigation>

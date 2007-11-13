@@ -5,12 +5,5 @@
 	<priority>2</priority>
   <description>description for node navigation </description>
   
-  <page-nodes>  
-   <node>
-    <uri>sitemap</uri>
-    <name>sitemap</name>
-    <label>Site Map</label>
-    <page-reference>group::guest::sitemap</page-reference>
-   </node> 
-  </page-nodes>
+  <page-nodes />
 </node-navigation>

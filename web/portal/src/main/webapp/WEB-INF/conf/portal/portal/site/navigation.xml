@@ -11,12 +11,17 @@
 	    <label>Home</label>
 	    <page-reference>portal::site::homepage</page-reference>	    
 	  </node>
-    
     <node>
       <uri>register</uri>
       <name>register</name>
       <label>Register</label>
       <page-reference>portal::site::register</page-reference>
     </node>
+	  <node>
+	    <uri>sitemap</uri>
+	    <name>sitemap</name>
+	    <label>Site Map</label>
+	    <page-reference>portal::site::sitemap</page-reference>	    
+	  </node>
   </page-nodes>
 </node-navigation>
