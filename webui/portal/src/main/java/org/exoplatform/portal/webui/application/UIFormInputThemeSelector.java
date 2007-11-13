@@ -20,7 +20,7 @@ import org.exoplatform.webui.form.UIFormInputBase;
 )
 public class UIFormInputThemeSelector extends UIFormInputBase<String> {
 
-  final static private String FIELD_THEME = "themetemp" ;
+  final static private String FIELD_THEME = "UIItemThemeSelector" ;
   
   public UIFormInputThemeSelector(String name, String bindingField) throws Exception {
     super(name, bindingField, String.class) ;

@@ -8,6 +8,7 @@
 	
 	def selectedCategory = uicomponent.getChild(UIItemThemeSelector.class).getSelectedCategory() ;
 	String selectedThemeName = uicomponent.getChild(UIItemThemeSelector.class).getSelectedTheme() ;
+	def uiParentComponent = uicomponent.getParent() ;
 %>
 <div class="UIItemSelector UIFormInputThemeSelector" id="$uicomponent.id">
 	<div class="LeftColumnStyle">
@@ -15,9 +16,9 @@
 		<div class="ItemDetailList">
 			<div class="ItemDetailTitle">
       	<div class="TitleIcon ViewListIcon"><span></span></div>
-  	    <div class="Title">Themes Preview</div>
+  	    <div class="Title"><%= _ctx.appRes(uiParentComponent.getId() + "." + uicomponent.getId() + ".title.Preview") %></div>
   	    <div class="SetDefault" onclick="eXo.webui.UIFormInputThemeSelector.setDefaultTheme(this,'DefaultTheme')">
-  	    	<a href="#">Set as default</a>
+  	    	<a href="#"><%= _ctx.appRes(uiParentComponent.getId() + "." + uicomponent.getId() + ".title.SetDefault") %></a>
   	    </div>
   	    <div style="clear: both;"><span/></div>
     	</div>

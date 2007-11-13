@@ -55,7 +55,7 @@ public class UIPortletForm extends UIFormTabPane {
   
 	private UIPortlet uiPortlet_ ;
   private UIComponent backComponent_ ;
-  final static private String FIELD_THEME = "theme" ; 
+  final static private String FIELD_THEME = "Theme" ; 
   
   @SuppressWarnings("unchecked")
   public UIPortletForm() throws Exception {//InitParams initParams
