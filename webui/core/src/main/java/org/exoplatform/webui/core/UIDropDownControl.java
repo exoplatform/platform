@@ -80,8 +80,14 @@ public class UIDropDownControl extends UIComponent {
     if(action_ == null) {
       return super.event(config.getEvents().get(0).getName(), param);
     }
+    int selectedIndex = 0; 
+    for(int i = 0; i < options_.size(); i++) {
+      if(options_.get(i).getValue().equals(param)) {
+        selectedIndex = i ;
+      }
+    }
     StringBuilder evt = new StringBuilder("javascript:eXo.webui.UIDropDownControl.selectItem(") ;
-    evt.append(action_).append(",'").append(param).append("','").append(this.getId()).append("')") ;
+    evt.append(action_).append(",'").append(this.getId()).append("','").append(selectedIndex).append("')") ;
     return evt.toString() ;
   }
 }

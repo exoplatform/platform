@@ -166,7 +166,7 @@ UIItemSelector.prototype.findIndex = function(object) {
  				Review UIDropDownControl.java: set javascrip action
  				       UIDropDownControl.js	 : set this method to do
  */
-UIItemSelector.prototype.selectPageLayout = function(param,id) {
+UIItemSelector.prototype.selectPageLayout = function(id, selectedIndex) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiDropDownControl = document.getElementById(id);
 	var itemSelectorAncestor = DOMUtil.findAncestorByClass(uiDropDownControl, "ItemSelectorAncestor") ;
@@ -177,7 +177,7 @@ UIItemSelector.prototype.selectPageLayout = function(param,id) {
 	if(itemList == null) return;
 	for(i = 0; i < itemSelectorLabel.length; ++i) {
 			if(i >= itemList.length) continue;
-			if(param == itemSelectorLabel[i].innerHTML) {
+			if(i == selectedIndex) {
 				itemList[i].style.display = "block";
 				if(itemDetailList.length < 1)  continue;
 			  itemDetailList[i].style.display = "block";

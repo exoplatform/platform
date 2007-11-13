@@ -5,8 +5,8 @@ UIDropDownControl.prototype.init = function(id) {
 	//return popup;
 };
 
-UIDropDownControl.prototype.selectItem = function(method, param,id) {
-	if(method)	method(param,id) ;
+UIDropDownControl.prototype.selectItem = function(method, id, selectedIndex) {
+	if(method)	method(id, selectedIndex) ;
 } ;
 
 /*.
