@@ -147,9 +147,9 @@
       	cssStyle += "width: "+ windowWidth +";" ;
       	cssStyle += "height: "+ windowHeight +";" ;
       	cssStyle += "\"";
+      	String theme = uicomponent.getSuitedTheme(null) ;
 	    %>
-    		
-    		<div class="UIWindow DefaultTheme UIDragObject UIResizeObject" id="${popupId}"  ${cssStyle} >
+    		<div class="UIWindow $theme UIDragObject UIResizeObject" id="${popupId}"  ${cssStyle} >
 		      <div class="WindowBarLeft">
 		        <div class="WindowBarRight">
 		          <div class="WindowBarCenter">

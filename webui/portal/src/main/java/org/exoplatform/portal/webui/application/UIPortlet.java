@@ -56,7 +56,7 @@ public class UIPortlet extends UIApplication {
   
   protected static Log log = ExoLogger.getLogger("portal:UIPortlet"); 
   private String theme_ ;
-  static final public String DEFAULT_THEME = "Default:DefaultTheme" ;
+  static final public String DEFAULT_THEME = "Default:DefaultTheme::Vista:VistaTheme::Mac:MacTheme" ;
   private String windowId ;
   private String portletStyle ;
 
@@ -99,9 +99,11 @@ public class UIPortlet extends UIApplication {
   public String getSuitedTheme(String skin) {
     if(skin == null) {
       skin = getAncestorOfType(UIPortalApplication.class).getSkin() ;
-    }
+    }   
     Map<String, String> themeMap = stringToThemeMap(getTheme()) ;
-    if(themeMap.containsKey(skin)) return themeMap.get(skin) ;
+    if(themeMap.containsKey(skin)) {
+      return themeMap.get(skin) ;
+    }
     return  DEFAULT_THEME.split(":")[1] ;
   }
 
