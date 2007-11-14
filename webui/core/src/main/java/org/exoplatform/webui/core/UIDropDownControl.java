@@ -45,24 +45,24 @@ public class UIDropDownControl extends UIComponent {
     }
   }
   
-  // todo: tungnd
+  // todo: dang.tung
   public void setValue(int i) {
         selectedItemIndex_ = i ; return ;
   }
-  // todo: tungnd
+  // todo: dang.tung
   public void cleanItem() { options_.clear(); }
-  // todo: tungnd
+  // todo: dang.tung
   public void setOptions(List<SelectItemOption<String>> options) { 
     options_ = options ; 
     if(options == null) return ; 
     if(options_.size() < 1)  return;
   } 
-  // todo: tungnd return -1 if have no option
+  // todo: dang.tung return -1 if have no option
   public int getSelectedIndex() {
     if (options_.size() < 1) return -1 ;
     return selectedItemIndex_ ;
   }
-  // todo: tungnd get label of item
+  // todo: dang.tung get label of item
   public String getLabel() { return options_.get(selectedItemIndex_).getLabel() ; }
 
   public String getValue() { return options_.get(selectedItemIndex_).getValue() ; }
@@ -76,6 +76,7 @@ public class UIDropDownControl extends UIComponent {
   public void addItem(String value) { options_.add(new SelectItemOption<String>(value)) ; }
   public void addItem(String label, String value) { options_.add(new SelectItemOption<String>(label, value)) ; }
   
+  // TODO: modified by dang.tung: used for javascript action in client.
   public String event(String param) throws Exception {
     if(action_ == null) {
       return super.event(config.getEvents().get(0).getName(), param);
