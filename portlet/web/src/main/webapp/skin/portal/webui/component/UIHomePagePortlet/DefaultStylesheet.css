@@ -81,7 +81,8 @@
 	background: url(DefaultSkin/background/LinkExoPortal.gif) no-repeat left bottom;
 	height: 35px;
 	width: 112px;
-	margin-left:  10px;
+	margin-left: 10px;
+	display: block;
 }
 
 .UIHomePagePortlet .HomePageContent .DescriptionExoPortal {
@@ -95,6 +96,7 @@
 	height: 35px;
 	width: 103px;
 	margin-left: 10px;
+	display: block;
 }
 .UIHomePagePortlet .HomePageContent .DescriptionExoECM {
 	font-family: Verdana;
@@ -107,6 +109,7 @@
 	height: 35px;
 	width: 86px;
 	margin-left: 10px;
+	display: block;
 }
 .UIHomePagePortlet .HomePageContent .DescriptionExoCS {
 	font-family: Verdana;

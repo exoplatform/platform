@@ -8,7 +8,7 @@
 				<div class="LeftExoPortal">						 
 					<div class="RightExoPortal">
 						<div class="MiddleContent">
-							<a href="#" ><img class="LinkExoPortal" border="0" src="/web/skin/portal/webui/component/UIHomePagePortlet/DefaultSkin/background/space.gif" /></a>
+							<a href="#" class="LinkExoPortal"><span></span></a>
 							<div class="DescriptionExoPortal">
 								New version comes with a revolutionary user interface.
 							</div>
@@ -20,7 +20,7 @@
 				<div class="LeftExoECM">						 
 					<div class="RightExoECM">
 						<div class="MiddleContent">
-							<a href="#" ><img class="LinkExoECM" border="0" src="/web/skin/portal/webui/component/UIHomePagePortlet/DefaultSkin/background/space.gif" /></a>
+							<a href="#" class="LinkExoECM"><span></span></a>
 							<div class="DescriptionExoECM">
 								Advanced Enterprise Content Management features to manage documents and digital assets.
 							</div>
@@ -32,7 +32,7 @@
 				<div class="LeftExoCS">						 
 					<div class="RightExoCS">
 						<div class="MiddleContent">
-							<a href="#" ><img class="LinkExoCS" border="0" src="/web/skin/portal/webui/component/UIHomePagePortlet/DefaultSkin/background/space.gif" /></a>
+							<a href="#" class="LinkExoCS"><span></span></a>
 							<div class="DescriptionExoCS">
 								Innovative Collaboration Suite with shared Calendars, WebMail, Forums and Contact List.
 							</div>
