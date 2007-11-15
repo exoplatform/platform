@@ -87,7 +87,6 @@
 /*================ Menu Item Decorator =====================*/
 .UINavigationPortlet .MenuItemContainer .MenuItemDecorator {
   padding: 0px;
-  width: 170px;
 }
 
 .UINavigationPortlet .MenuItemDecorator .LeftTopMenuDecorator {
