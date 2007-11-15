@@ -1,4 +1,4 @@
-<div class="UIAccountSetting" id="<%=uicomponent.getId();%>">
+<div class="UIAccountSettingForm" id="<%=uicomponent.getId();%>">
 
 	<div class="UITabPane">
 	  <div class="TabPaneContent"> 
