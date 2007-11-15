@@ -1,0 +1,105 @@
+.UIAccountSettingForm {
+  padding: 15px 15px 10px 15px;
+}
+
+.UIAccountSettingForm .ContentContainer {
+}
+
+.UIAccountSettingForm .WorkingArea {
+  padding: 15px 15px 25px 15px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs {
+  color: #202020; font-weight: normal;
+  height: 32px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .LeftHorizontalTabs {
+  padding-left: 11px; 
+  background: url('background/LeftTitleBar11x32.gif') no-repeat left top;
+  height: 32px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .RightHorizontalTabs {
+  padding-right: 11px;
+  background: url('background/RightTitleBar11x32.gif') no-repeat right top;
+  height: 32px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .CenterHorizontalTabs {
+  background: url('background/CenterTitleBar1x32.gif') repeat-x top;
+  cursor: pointer;
+  height: 32px;
+  line-height: 32px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .UITab a.Icon {
+	padding-left: 23px;
+	display: block;
+	line-height: 26px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .UITab .AccountProfiles {
+	background: url('icons/AccountProfileIcon.gif') no-repeat left center;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .UITab .ChangePass {
+	background: url('icons/ChangePassIcon.gif') no-repeat left center;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .UITab .NormalTab a {
+	font-weight: bold;
+	color: gray; 
+	margin-top: 2px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .NormalTab .MiddleTab {
+  cursor: pointer;
+  padding: 0px 8px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .UITab .HighlightTab a {
+	font-weight: bold;
+	color: blue; 
+	margin-top: 2px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .UITab .SelectedTab a {
+	font-weight: bold;
+	color: blue; 
+	margin-top: 2px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .SelectedTab .MiddleTab {
+  line-height: 30px;
+  background: url('background/LeftSelectedFlatTabStyle1x29.gif') repeat-x bottom;
+  cursor: pointer;
+  padding: 0px 8px;
+}
+
+.UIAccountSettingForm .UIHorizontalTabs .LineSeparator {
+  float: left;
+  background: url('background/SeparatorLine.gif') repeat-y left;
+  height: 27px;  width: 2px;
+  margin-top: 2px;
+}
+
+.UIAccountSettingForm .UITabPane .WorkingAreaWithHelp .UITabContentContainer {
+	border-top: none;
+}
+
+.UIAccountSettingForm .UITabPane .UITabContentContainer .UITabContent {
+	background: transparent;
+	border: none;
+}
+
+.UIAccountSettingForm .UIForm .HorizontalLayout {
+	border: none;
+	height: 190px;
+	padding: 20px 0px;
+}
+
+.UIAccountSettingForm .UIFormGrid td.FieldLabel {
+	width: 200px;
+}
+
