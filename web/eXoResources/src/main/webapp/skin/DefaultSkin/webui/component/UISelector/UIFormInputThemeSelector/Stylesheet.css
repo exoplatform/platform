@@ -33,7 +33,7 @@
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemList .UIThemeSelector {
-	width: 170px;
+	width: 180px;
 	margin: auto;
 }
 
@@ -63,34 +63,19 @@
 	padding-top: 10px;
 }
 
-.UIFormInputThemeSelector .LeftColumnStyle .SimpleBlue {
-	padding: 10px;
-}
-
-.UIFormInputThemeSelector .LeftColumnStyle .SimpleOrange {
-	padding: 10px;
-}
-
-.UIFormInputThemeSelector .LeftColumnStyle .SimpleViolet {
-	padding: 10px;
-}
-
-.UIFormInputThemeSelector .LeftColumnStyle .SimplePink {
-	padding: 10px;
-}
-
-.UIFormInputThemeSelector .LeftColumnStyle .SimpleGreen {
-	padding: 10px;
+.UIFormInputThemeSelector .LeftColumnStyle .ItemList .Item {
+	margin: 5px;
 }
 
 /*
-
-.UIFormInputThemeSelector .ItemList .MiddleDecoratorLeft .Title {
-	text-align: center;
-	line-height: 20px;
-	border: 1px solid #fafafa;
-	width: 100px;
-	margin: 10px auto;
+	TL: TopLeft
+	TC: TopCenter
+	TR: TopRight
+	ML: MiddelLeft
+	MR: MiddelRight
+	BL: BottomLeft
+	BC: BottomCenter
+	BR: BottomRight
 }
 
 */

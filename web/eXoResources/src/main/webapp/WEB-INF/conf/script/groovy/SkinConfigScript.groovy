@@ -6,6 +6,7 @@ SkinService.addSkin("CoreSkin", "Default", "/eXoResources/skin/DefaultSkin/webui
 
 SkinService.addThemeURL("/eXoResources/skin/PortletThemes/Stylesheet.css");
 SkinService.addTheme("Simple", ["SimpleBlue","SimpleViolet","SimpleOrange","SimplePink","SimpleGreen"]);
-SkinService.addTheme("RoundComer", ["RoundComerBlue","RoundComerViolet","RoundComerOrange","RoundComerPink","RoundComerGreen"]);
+SkinService.addTheme("RoundConer", ["RoundConerBlue","RoundConerViolet","RoundConerOrange","RoundConerPink","RoundConerGreen"]);
 SkinService.addTheme("Shadow", ["ShadowBlue","ShadowViolet","ShadowOrange","ShadowPink","ShadowGreen"]);
-SkinService.addTheme("Misc", ["MiscBlue","MiscViolet","MiscOrange","MiscPink","MiscGreen"]);
+SkinService.addTheme("MacStyle", ["MacTheme","MacGray","MacGreenSteel"]);
+SkinService.addTheme("VistaStyle", ["VistaTheme"]);

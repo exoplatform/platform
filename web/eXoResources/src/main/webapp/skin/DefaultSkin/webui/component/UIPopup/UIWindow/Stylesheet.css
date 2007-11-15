@@ -18,19 +18,6 @@
   display: none ;
 }
 
-.UIPageDesktop .UIWindow .WindowPortletInfo {
-  height: 22px ;
-  margin-right: 110px ;
-  cursor: move ;
-}
-
-.UIWindow .WindowPortletInfo .PortletIcon {
-  float: left ;
-  width: 16px ; height: 16px ;
-  margin: 8px 0px 0px 5px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPortletIcon.gif') no-repeat ;
-}
-
 /*======================== UIPageBody ================================*/
 
 .UIPortal .VIEW-PORTLET .UIWindow {

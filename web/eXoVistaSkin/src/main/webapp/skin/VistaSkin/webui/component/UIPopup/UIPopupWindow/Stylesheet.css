@@ -34,22 +34,22 @@
 }
 
 .UIPopupWindow .TopLeftCornerDecorator {
-  background: url('../UIWindow/background/LeftTopBar12x29.png') no-repeat left top;
+  background: url('background/LeftTopBar12x29.png') no-repeat left top;
   padding-left: 12px;
 }
 
 .UIPopupWindow .TopCenterDecorator {
-  background: url('../UIWindow/background/CenterTopBar1x29.png') repeat-x top;
+  background: url('background/CenterTopBar1x29.png') repeat-x top;
   height: 29px;
 }
 
 .UIPopupWindow .TopRightCornerDecorator {
-  background: url('../UIWindow/background/RightTopBar16x29.png') no-repeat right top;
+  background: url('background/RightTopBar16x29.png') no-repeat right top;
   padding-right: 16px;
 }
 
 .UIPopupWindow .MiddleLeftSideDecorator {
-  background: url('../UIWindow/background/LeftMiddleDecorator12x1.png') repeat-y left;
+  background: url('background/LeftMiddleDecorator12x1.png') repeat-y left;
   padding-left:12px ;  
 }
 
@@ -59,7 +59,7 @@
 }
 
 .UIPopupWindow .MiddleRightSideDecorator {
-  background: url('../UIWindow/background/RightMiddleDecorator13x1.png') repeat-y right;
+  background: url('background/RightMiddleDecorator13x1.png') repeat-y right;
   padding-right: 13px ;  
 }
 
