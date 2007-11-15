@@ -76,16 +76,9 @@ public class UIDropDownControl extends UIComponent {
   public void addItem(String value) { options_.add(new SelectItemOption<String>(value)) ; }
   public void addItem(String label, String value) { options_.add(new SelectItemOption<String>(label, value)) ; }
   
-  // TODO: modified by dang.tung: used for javascript action in client.
-  public String event(String param) throws Exception {
+  public String event(int selectedIndex) throws Exception {
     if(action_ == null) {
-      return super.event(config.getEvents().get(0).getName(), param);
-    }
-    int selectedIndex = 0; 
-    for(int i = 0; i < options_.size(); i++) {
-      if(options_.get(i).getValue().equals(param)) {
-        selectedIndex = i ;
-      }
+      return super.event(config.getEvents().get(0).getName(), options_.get(selectedIndex).getValue());
     }
     StringBuilder evt = new StringBuilder("javascript:eXo.webui.UIDropDownControl.selectItem(") ;
     evt.append(action_).append(",'").append(this.getId()).append("','").append(selectedIndex).append("')") ;

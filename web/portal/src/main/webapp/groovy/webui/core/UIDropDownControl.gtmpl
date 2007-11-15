@@ -38,12 +38,13 @@
 				
 					<div class="ItemListContent">
 					  <%
+					    int selectedIndex = 0 ;
 					    for(option in options) {
-					  %>
+					   %>
 					  <div class="ItemListOption">
-						    <a class="OptionItem" href="<%=uicomponent.event(option.getValue())%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)"><%=_ctx.appRes(uicomponent.getId() + ".item." + option.label)%></a>
+						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)"><%=_ctx.appRes(uicomponent.getId() + ".item." + option.label)%></a>
 						</div>
-						<%}%>
+						<% selectedIndex++ ;}%>
 					</div>
 				</div>
 			</div>

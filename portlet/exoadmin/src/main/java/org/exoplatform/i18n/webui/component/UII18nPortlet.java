@@ -23,10 +23,12 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -95,24 +97,6 @@ public class UII18nPortlet extends UIPortletApplication {
       uiI18n.update(null, null) ;
     }
   }
-
-//  static public class EditActionListener extends EventListener<UII18nPortlet> {
-//    public void execute(Event<UII18nPortlet> event) throws Exception {
-//      UII18nPortlet uiI18n = event.getSource() ;
-//      
-//      UIEditResource uiEditResource = uiI18n.getChild(UIEditResource.class) ;
-//      uiEditResource.setRendered(true) ;
-//      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
-//      uiEditResource.setActions(new String[]{"Save", "Cancel"});
-//      String paramID = event.getRequestContext().getRequestParameter(OBJECTID) ;
-//      uiEditResource.setResource(paramID) ;
-//      
-//      uiI18n.getChild(UIGrid.class).setRendered(false) ;
-//      UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
-//      uiSearch.setRendered(false) ;
-//    }
-//  }
-  
   
   static public class ViewActionListener extends EventListener<UII18nPortlet> {
     public void execute(Event<UII18nPortlet> event) throws Exception {
@@ -147,6 +131,7 @@ public class UII18nPortlet extends UIPortletApplication {
       UIEditResource uiEditResource = uiI18n.getChild(UIEditResource.class) ;
       uiEditResource.setRendered(true) ;
       uiEditResource.setResource(null) ;
+      uiEditResource.setActions(new String[]{"Save", "Cancel"});
       
       uiI18n.getChild(UIGrid.class).setRendered(false) ;
       UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;

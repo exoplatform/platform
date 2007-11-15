@@ -20,6 +20,7 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -41,7 +42,7 @@ public class UIEditResource extends UIForm {
 
   public UIEditResource() throws Exception {
     addUIFormInput(new UIFormTextAreaInput("resource", null,null)) ;
-    addUIFormInput(new UIFormStringInput("name",null,null)) ;
+    addUIFormInput(new UIFormStringInput("name",null,null).addValidator(EmptyFieldValidator.class)) ;
     
     LocaleConfigService service = getApplicationComponent(LocaleConfigService.class) ;
     Iterator i = service.getLocalConfigs().iterator() ;
@@ -52,7 +53,7 @@ public class UIEditResource extends UIForm {
       options.add(new SelectItemOption<String>(config.getLocaleName(), config.getLanguage()))  ;
     }
     
-    addUIFormInput(new UIFormSelectBox("language","language",options)) ;
+    addUIFormInput(new UIFormSelectBox("language","language",options).addValidator(EmptyFieldValidator.class)) ;
   } 
 
   static public class SaveActionListener  extends EventListener<UIEditResource> {
