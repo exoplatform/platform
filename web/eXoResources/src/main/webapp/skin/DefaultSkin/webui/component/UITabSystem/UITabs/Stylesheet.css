@@ -135,7 +135,7 @@
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
   padding-right: 20px;
-  background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/HighlightDropDownArrow.gif) no-repeat right;
+  background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif) no-repeat scroll right center;
   cursor: pointer;
 }
 

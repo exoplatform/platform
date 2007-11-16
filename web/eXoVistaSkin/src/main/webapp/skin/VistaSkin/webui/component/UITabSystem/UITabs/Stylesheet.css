@@ -181,7 +181,7 @@
 .UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
   margin-right: 4px;
   padding-right: 4px;
-  background: url(/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/es/icons/BlackRightArrow.gif) no-repeat right;
+  background: transparent url(/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/BlackRightArrow.gif) no-repeat scroll right center;
   cursor: pointer;
 }
 

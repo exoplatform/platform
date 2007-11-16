@@ -92,20 +92,17 @@
 .UINavigationPortlet .MenuItemDecorator .LeftTopMenuDecorator {
   background: url('VistaSkin/background/LeftTopMenuDecorator12x6.png') no-repeat top left;
   padding-left: 12px;
-  height: 6px;
-  line-height: 6px;
 }
 
 .UINavigationPortlet .MenuItemDecorator .RightTopMenuDecorator {
   background: url('VistaSkin/background/RightTopMenuDecorator14x6.png') no-repeat top right;
   padding-right: 14px;
-  height: 6px;
 }
 
 .UINavigationPortlet .MenuItemDecorator .CenterTopMenuDecorator {
   background: url('VistaSkin/background/CenterTopMenuDecorator1x6.png') repeat-x ;
   height: 6px;
-  width: auto;
+  width: 100%;
 }
 
 .UINavigationPortlet .MenuItemDecorator .LeftMiddleMenuDecorator {
