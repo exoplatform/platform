@@ -8,5 +8,5 @@ SkinService.addThemeURL("/eXoResources/skin/PortletThemes/Stylesheet.css");
 SkinService.addTheme("Simple", ["SimpleBlue","SimpleViolet","SimpleOrange","SimplePink","SimpleGreen"]);
 SkinService.addTheme("RoundConer", ["RoundConerBlue","RoundConerViolet","RoundConerOrange","RoundConerPink","RoundConerGreen"]);
 SkinService.addTheme("Shadow", ["ShadowBlue","ShadowViolet","ShadowOrange","ShadowPink","ShadowGreen"]);
-//SkinService.addTheme("MacStyle", ["MacTheme","MacGray","MacGreenSteel"]);
-//SkinService.addTheme("VistaStyle", ["VistaTheme"]);
+SkinService.addTheme("MacStyle", ["MacTheme","MacGray","MacGreenSteel"]);
+SkinService.addTheme("VistaStyle", ["VistaTheme"]);
