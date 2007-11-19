@@ -30,7 +30,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
     }
   )
 })
-
+//TODO TrongTT : this component is not be used
 public class UIPageNavigation extends UIContainer {
   
   public UIPageNavigation() throws Exception {

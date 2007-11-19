@@ -37,19 +37,19 @@ public class WelcomeWidget extends WidgetApplication<UIWidget> {
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
     int zIndex = uiWidget.getProperties().getIntValue("zIndex") ;
     
-    PortalContainer container  = PortalContainer.getInstance();
-    UserWidgetStorageImpl service = 
-      (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
-    byte[] bytes = (byte[]) service.get(pContext.getRemoteUser(), "WelcomeWidget", "avatar");
-    if(bytes != null) {
-      System.out.println("\n\n\n-----------IN WELCOME: " + new String(bytes));
-      
-    }
+//    PortalContainer container  = PortalContainer.getInstance();
+//    UserWidgetStorageImpl service = 
+//      (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
+//    byte[] bytes = (byte[]) service.get(pContext.getRemoteUser(), "WelcomeWidget", "avatar");
+//    if(bytes != null) {
+//      System.out.println("\n\n\n-----------IN WELCOME: " + new String(bytes));
+//      
+//    }
     w.write("<div id = 'UIWelcomeWidget' userName = '"+userName+"' applicationId = '"+instanceId+"' posX = '"+posX+"' posY = '"+posY+"' zIndex = '"+zIndex+"'><span></span></div>") ;
     String script = 
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
-    appReqContext.getJavascriptManager().importJavascript("eXo.webui.UIUpload") ;
+//    appReqContext.getJavascriptManager().importJavascript("eXo.webui.UIUpload") ;
    // appReqContext.getJavascriptManager().addCustomizedOnLoadScript("eXo.webui.UIUpload.initUploadEntry('"+instanceId+"');") ;
   }
 }

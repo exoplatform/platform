@@ -14,15 +14,14 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
 
-import org.exoplatform.application.registry.ApplicationCategoriesPlugins;
 import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategoriesPlugins;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.registry.ApplicationRegistry;
 import org.exoplatform.registry.JCRRegistryService;
-import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
@@ -44,13 +43,11 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   private DataMapper mapper = new DataMapper();
   private JCRRegistryService jcrRegService_;
-  private RegistryService regServ_ ;
 
   private List<ApplicationCategoriesPlugins> plugins;
   
-  public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService, RegistryService test) throws Exception {
+  public ApplicationRegistryServiceImpl(JCRRegistryService jcrRegService) throws Exception {
     jcrRegService_ = jcrRegService ;
-    regServ_ = test ;
   }
 
   public List<ApplicationCategory> getApplicationCategories() throws Exception {
@@ -307,32 +304,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     }
     session.logout();
   }
-  
-//  public void importExoApplications() throws Exception {
-//    Session session = jcrRegService_.getSession();
-//    PortalContainer container  = PortalContainer.getInstance() ;
-//    WebAppController appController = 
-//      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-//    List<org.exoplatform.web.application.Application> eXoApplications = 
-//      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_APPLICATION_TYPE) ;
-//    List<org.exoplatform.web.application.Application> eXoWidgets = 
-//      appController.getApplicationByType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE) ;
-//    eXoApplications.addAll(eXoWidgets);
-//    for (org.exoplatform.web.application.Application app : eXoApplications) {
-//      ApplicationCategory category = getApplicationCategory(app.getApplicationGroup()) ;
-//      if (category == null) {
-//        category = new ApplicationCategory() ;
-//        category.setName(app.getApplicationGroup()) ;
-//        category.setDisplayName(app.getApplicationGroup()) ;
-//        category.setDescription(app.getApplicationGroup()) ;
-//        save(category) ;
-//      }
-//      Node appNode = getApplicationNode(session, category.getName(), app.getApplicationName()) ;
-//      if (appNode == null) save(category, convertApplication(app)) ;
-//    }
-//    
-//    session.logout() ;
-//  }
   
   public void importExoWidgets() throws Exception {
     Session session = jcrRegService_.getSession();

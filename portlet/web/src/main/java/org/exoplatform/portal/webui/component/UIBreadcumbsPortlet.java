@@ -40,7 +40,7 @@ public class UIBreadcumbsPortlet extends UIPortletApplication {
     List<PageNode> nodes = Util.getUIPortal().getSelectedPaths() ;
     List<LocalPath> paths = new ArrayList<LocalPath>();
     for(PageNode node : nodes){
-      paths.add(new LocalPath(node.getUri(), node.getLabel()));
+      paths.add(new LocalPath(node.getUri(), node.getResolvedLabel()));
     }
     UIBreadcumbs uiBreadCumbs = getChild(UIBreadcumbs.class);
     uiBreadCumbs.setPath(paths);

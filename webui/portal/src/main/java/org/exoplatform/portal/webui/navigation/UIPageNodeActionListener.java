@@ -89,10 +89,10 @@ public class UIPageNodeActionListener {
       Page page  = portalConfigService.getPage(selectNode.getPageReference(), pcontext.getRemoteUser());
       
       uiPageNodeSelector.selectPageNodeByUri(uri);
-      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
+      UIPortalApplication uiApp = Util.getUIPortalApplication() ;
+      UIPortalToolPanel uiToolPanel = uiApp.findFirstComponentOfType(UIPortalToolPanel.class) ;
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();
       
-      UIPortalApplication uiApp = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class);
       UIControlWorkspace uiControl = uiApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiControl);
       UIWorkspace uiWorkingWS = uiApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
@@ -131,25 +131,6 @@ public class UIPageNodeActionListener {
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         return;
       }
-
-      //      PageNode node = uiPageNodeSelector.getSelectedPageNode();
-//      if(node == null) {
-//        UIPortal uiPortal = Util.getUIPortal();
-//        uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId());
-//        uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri());
-//        node = uiPageNodeSelector.getSelectedPageNode();
-//      }
-//      
-//      if(node == null) return;
-//      if(page == null) {
-//        uiToolPanel.setUIComponent(null) ;
-//        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-//        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-//        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.notAvailable", null)) ;
-//        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
-//        return;
-//      } 
-      
       
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;      
       UIPageForm uiPageForm =  uiMaskWS.createUIComponent(UIPageForm.class);

@@ -7,10 +7,13 @@ package org.exoplatform.portal.webui.portal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIWidgets.ChangeOptionActionListener;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.page.UIPageBody;
@@ -20,6 +23,9 @@ import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.Chang
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RemoveJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
+import org.exoplatform.services.resources.LocaleConfig;
+import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.services.resources.ResourceBundleService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
@@ -87,12 +93,12 @@ public class UIPortal extends UIContainer {
     UIPageBody uiPageBody = findFirstComponentOfType(UIPageBody.class);    
     if(uiPageBody == null) return;
     uiPageBody.setPageBody(selectedNode_, this);
+    refreshNavigation() ;
   }
 
   public void setSelectedNode(PageNode node) { selectedNode_ = node; }
-  
   public PageNode getSelectedNode(){ 
-    if(selectedNode_ != null)return selectedNode_;
+    if(selectedNode_ != null) return selectedNode_;
     if(getSelectedNavigation() == null || selectedNavigation_.getNodes() == null ||
        selectedNavigation_.getNodes().size()< 1) return null;
     selectedNode_ = selectedNavigation_.getNodes().get(0);
@@ -124,5 +130,24 @@ public class UIPortal extends UIContainer {
   public void setMaximizedUIComponent(UIComponent maximizedReferenceComponent) {
     this.maximizedUIComponent = maximizedReferenceComponent;
   }
-
+  
+  public void refreshNavigation() {
+    LocaleConfig localeConfig = getApplicationComponent(LocaleConfigService.class).
+                                getLocaleConfig(locale) ;
+    for(PageNavigation nav : navigations) {
+      if(nav.getOwnerType().equals(PortalConfig.USER_TYPE)) continue ;
+      ResourceBundle res = localeConfig.getNavigationResourceBundle(nav.getOwnerType(), nav.getOwnerId()) ;
+      for(PageNode node : nav.getNodes()) {
+        resolveLabel(res, node) ;
+      }
+    }
+  }
+  
+  private void resolveLabel(ResourceBundle res, PageNode node) {
+    node.setResolvedLabel(res) ;
+    if(node.getChildren() == null) return;
+    for(PageNode childNode : node.getChildren()) {
+      childNode.setResolvedLabel(res) ;
+    }
+  }
 }

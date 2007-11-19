@@ -356,10 +356,8 @@ UIPortal.prototype.changePortal = function(accessPath, portal) {
 } ;
 
 /** Created: by Lxchiati **/
-
 UIPortal.prototype.popupButton = function(url, action) {
 	if(action == undefined) action = '';  
-	var objectId = '';
   window.location = url + '&action='+ action ;
 } ;
 

@@ -53,7 +53,7 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
     initParams(params);
   }
 
-  private ResourceBundleData getResourceBundleDataFromDB(String id) throws Exception {
+  public ResourceBundleData getResourceBundleData(String id) throws Exception {
     Session session  = jcrRegService_.getSession();
     Node rootNode = jcrRegService_.getServiceRegistryNode(session, APPLLICATION_NAME);
     if(!rootNode.hasNode(id)) return null;
@@ -61,10 +61,6 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
     ResourceBundleData resource = mapper_.nodeToResourceBundleData(node);
     session.logout();
     return resource;
-  }
-
-  public ResourceBundleData getResourceBundleData(String id) throws Exception {
-    return getResourceBundleDataFromDB(id);
   }
   
   public ResourceBundleData removeResourceBundleData(String id) throws Exception {
@@ -77,14 +73,10 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
     rootNode.save();
     session.save();
     session.logout();
-    removeResourceBundleDataCache(id);
+    cache_.remove(id) ;
     return data;
   }
   
-  public void removeResourceBundleDataCache(String id) throws Exception {
-    cache_.remove(id);
-  }
-
   public PageList findResourceDescriptions(Query q) throws Exception {
     String name = q.getName();
     String language = q.getLanguage() ;
@@ -144,5 +136,4 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
     session.logout();
     return mres;
   }
-  
 }

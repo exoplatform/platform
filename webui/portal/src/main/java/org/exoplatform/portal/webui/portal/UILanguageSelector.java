@@ -6,9 +6,6 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
-import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -78,8 +75,7 @@ public class UILanguageSelector extends UIContainer {
     public void execute(Event<UILanguageSelector> event) throws Exception {
       String language  = event.getRequestContext().getRequestParameter("language");
 
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);    
+      UIPortalApplication uiApp = Util.getUIPortalApplication() ;
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
       uiMaskWS.setUIComponent(null);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
@@ -90,10 +86,10 @@ public class UILanguageSelector extends UIContainer {
       LocaleConfigService localeConfigService  = event.getSource().getApplicationComponent(LocaleConfigService.class) ;
       LocaleConfig localeConfig = localeConfigService.getLocaleConfig(language);
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-//      PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
-//      UserPortalConfigService dataService = uiPortal.getApplicationComponent(UserPortalConfigService.class);
-//      dataService.update(portalConfig);
       uiApp.setLocale(localeConfig.getLocale());
+      UIPortal uiPortal = uiApp.findFirstComponentOfType(UIPortal.class) ;
+      uiPortal.setLocale(localeConfig.getLanguage()) ;
+      uiPortal.refreshNavigation() ;
     }
   }
 

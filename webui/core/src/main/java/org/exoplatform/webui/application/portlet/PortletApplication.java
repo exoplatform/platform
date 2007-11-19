@@ -25,6 +25,7 @@ import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.PortletResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.application.ApplicationLifecycle;
+import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
@@ -115,7 +116,7 @@ public class PortletApplication extends WebuiApplication {
     PortletRequestContext context = createRequestContext(req, res, parentAppRequestContext)  ;
     WebuiRequestContext.setCurrentInstance(context) ;
     try {      
-      for(ApplicationLifecycle lifecycle : getApplicationLifecycle())  {
+      for(ApplicationLifecycle<RequestContext> lifecycle : getApplicationLifecycle())  {
         lifecycle.onStartRequest(this, context) ;
       } 
       UIApplication uiApp = getStateManager().restoreUIRootComponent(context) ;
@@ -151,7 +152,7 @@ public class PortletApplication extends WebuiApplication {
     WebuiRequestContext.setCurrentInstance(context) ;
     try {
       if(!context.hasProcessAction()) {
-        for(ApplicationLifecycle lifecycle : getApplicationLifecycle())  {
+        for(ApplicationLifecycle<RequestContext> lifecycle : getApplicationLifecycle())  {
           lifecycle.onStartRequest(this, context) ;
         }
       }      
@@ -164,7 +165,7 @@ public class PortletApplication extends WebuiApplication {
       uiApp.setLastAccessApplication(System.currentTimeMillis()) ;
     } finally {
       try {
-        for(ApplicationLifecycle lifecycle :  getApplicationLifecycle()) {
+        for(ApplicationLifecycle<RequestContext> lifecycle :  getApplicationLifecycle()) {
           lifecycle.onEndRequest(this, context) ;
         }
       } catch (Exception exception){

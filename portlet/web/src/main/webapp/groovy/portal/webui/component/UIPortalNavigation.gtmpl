@@ -68,7 +68,7 @@
 						<div class="ItemIcon $icon">
 						  <div class="$arrowIcon">
 						    <div class="MenuItemLabel">
-									<a href="$actionLink">$node.label</a>
+									<a href="$actionLink">$node.resolvedLabel</a>
 								</div>
 						  </div>
 						</div>
@@ -81,7 +81,6 @@
 			    
 		print """
 				</div>
-  		
   	""" ;
   }
 
@@ -112,40 +111,40 @@
 								    if(icon == null) icon = "PageNodeIcon";
 		        %>      
 		        
-		         <div class="UITab">
-		           <div class="$tabStyleNavigation">
-		             <div class="LeftTab">
-		               <div class="RightTab">
-		                 <div class="MiddleTab">
-		                   <div class="TabIcon">
-		                   <%
-		                   	String arrowIcon = "";
-												if (node.getChildren() != null && node.getChildren().size() > 0) {
-													arrowIcon = "DropDownArrowIcon";
-												}
-												String iconType = node.getIcon();
-												if(iconType == null) iconType = "DefaultPageIcon";
-						           %>
-		                   	<div class="$arrowIcon"><a class="TabLabel ${iconType}" href="$actionLink">$node.label</a></div><!--  onclick="return false;" -->
-		                   </div>
-		                 </div>
-		               </div>
-		             </div>
-		             
-		           </div>
-		           <%
-		           /*Render Popup Menu*/
-		           if (node.getChildren() != null && node.getChildren().size() > 0) {
-						     	renderChildrenContainer(nav, node) ;
-					     }
-		           %>
-		         </div>
-		        
-		         <%
-		               }
-		             }
-		           }
-		         %>
+				            <div class="UITab">
+				              <div class="$tabStyleNavigation">
+				                <div class="LeftTab">
+				                  <div class="RightTab">
+				                    <div class="MiddleTab">
+				                      <div class="TabIcon">
+			                        <%
+																String arrowIcon = "";
+																if (node.getChildren() != null && node.getChildren().size() > 0) {
+																  arrowIcon = "DropDownArrowIcon";
+																}
+																String iconType = node.getIcon();
+																if(iconType == null) iconType = "DefaultPageIcon";
+															%>
+					                   	<div class="$arrowIcon"><a class="TabLabel ${iconType}" href="$actionLink">$node.resolvedLabel</a></div><!--  onclick="return false;" -->
+				                      </div>
+				                    </div>
+				                  </div>
+				                </div>
+					             
+				              </div>
+				              <%
+				                /*Render Popup Menu*/
+				                if (node.getChildren() != null && node.getChildren().size() > 0) {
+										     	renderChildrenContainer(nav, node) ;
+									      }
+			                %>
+                    </div>
+					        
+            <%
+                  }
+                }
+              }
+	          %>
 		      	<div class="ScrollButtons">
 		      		<div class="ScrollLeftButton" title="Previous">
 		      			<div class="ScrollRightButton" title="Next"><span></span></div>

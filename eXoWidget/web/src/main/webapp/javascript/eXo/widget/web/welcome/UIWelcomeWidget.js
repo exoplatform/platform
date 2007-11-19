@@ -8,13 +8,13 @@ function UIWelcomeWidget() {
 	this.init("UIWelcomeWidget", "welcome", attrs);
 }
 
-
-UIWelcomeWidget.prototype.upload = function(uploadId) {  
-	var url = eXo.env.server.context + "/command?" ;
-  url += "type=org.exoplatform.web.command.handler.WelcomeWidgetHandler&uploadId=" + uploadId ;
-  var test = ajaxAsyncGetRequest(url, false);
-  
-} ;
+//
+//UIWelcomeWidget.prototype.upload = function(uploadId) {  
+//	var url = eXo.env.server.context + "/command?" ;
+//  url += "type=org.exoplatform.web.command.handler.WelcomeWidgetHandler&uploadId=" + uploadId ;
+//  var test = ajaxAsyncGetRequest(url, false);
+//  
+//} ;
 
 
 if(eXo.widget.web == null) eXo.widget.web = {} ;

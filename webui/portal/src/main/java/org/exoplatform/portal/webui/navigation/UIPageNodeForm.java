@@ -86,7 +86,8 @@ public class UIPageNodeForm extends UIFormTabPane {
     if(icon != null && icon.length() > 0) {
       getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     }
-    invokeGetBindingBean(pageNode_) ;    
+    invokeGetBindingBean(pageNode_) ;
+    getUIStringInput("label").setValue(pageNode_.getResolvedLabel()) ;
   }
 
   public Object getSelectedParent(){ return selectedParent; }  
@@ -118,6 +119,8 @@ public class UIPageNodeForm extends UIFormTabPane {
       PageNode pageNode = uiPageNodeForm.getPageNode();
       if(pageNode == null) pageNode  = new PageNode();
       uiPageNodeForm.invokeSetBindingBean(pageNode) ;
+      UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
+      pageNode.setIcon(uiIconSelector.getSelectedIcon());
       
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
@@ -127,9 +130,7 @@ public class UIPageNodeForm extends UIFormTabPane {
       uiToolPanel.setUIComponent(uiPage);
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
 
-      String remoteUser = Util.getPortalRequestContext().getRemoteUser();
-      UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
-      pageNode.setIcon(uiIconSelector.getSelectedIcon());
+      String remoteUser = pcontext.getRemoteUser();
       
       Object selectedParent = uiPageNodeForm.getSelectedParent();
       PageNavigation pageNav = null;

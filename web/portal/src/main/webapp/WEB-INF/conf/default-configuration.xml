@@ -54,10 +54,10 @@
         <value>locale.portal.services</value>
         <value>locale.portal.webui</value>
         <value>locale.portal.custom</value>
-        <value>locale.users.exoadmin</value>
-        <value>locale.users.default</value>
-        <value>locale.users.exo</value>
-        <value>locale.users.community</value>
+        <value>locale.navigation.portal.site</value>
+        <value>locale.navigation.portal.webos</value>
+        <value>locale.navigation.group.guest</value>
+        <value>locale.navigation.group.portal.admin</value>
       </values-param>
 
       <!-- This should be removed -->

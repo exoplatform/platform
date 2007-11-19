@@ -16,6 +16,10 @@ import org.exoplatform.webui.core.UIContainer;
 
 @SuppressWarnings("serial")
 public class WebuiBindingContext extends BindingContext {
+  private static boolean DEVELOPING = false;
+  static {
+    DEVELOPING =  "true".equals(System.getProperty("exo.product.developing")) ;
+  }
   
   protected static Log log = ExoLogger.getLogger("portal:WebuiBindingContext");
   
@@ -47,7 +51,7 @@ public class WebuiBindingContext extends BindingContext {
       ResourceBundle res = rcontext_.getApplicationResourceBundle() ;
       value = res.getString(mesgKey) ;
     } catch(MissingResourceException ex) {      
-      log.warn("Can not find resource bundle for key : "+mesgKey);
+      if(DEVELOPING) log.warn("Can not find resource bundle for key : "+mesgKey);
       value = mesgKey.substring(mesgKey.lastIndexOf('.') + 1) ;
     }
     return value ;

@@ -10,7 +10,7 @@
     <show-max-window>true</show-max-window>
     
     <application>
-	    <instance-id>group#portal/company:/site/SitePortlet/siteportlet</instance-id>
+	    <instance-id>group#portal/company:/web/SiteMapPortlet/sitemap</instance-id>
       <title>Company site portlet</title>
 	    <show-info-bar>false</show-info-bar>
 	  </application>

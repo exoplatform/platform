@@ -37,34 +37,26 @@ public class UIPageManagement extends UIManagement {
     addChild(UIPortletOptions.class, null, null).setRendered(false);
     addChild(UIPageBrowseControlBar.class, null, null).setRendered(false);
     addChild(UIPageNavigationControlBar.class, null, null);
-    //update();
   }
-
-  private void update() throws Exception {
-    UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
-    uiPageNodeSelector.loadNavigations();
-    //TODO: Tung.Pham
-    //-----------------------------------
-//    PageNode selectedNode = Util.getUIPortal().getSelectedNode();
-//    if(selectedNode != null) uiPageNodeSelector.selectPageNodeByUri(selectedNode.getUri());
-//    UIPageNodeSelector uiNodeSelector = findFirstComponentOfType(UIPageNodeSelector.class);
+  
+  // TODO TrongTT: this method seem not be used
+//  private void update() throws Exception {
+//    UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
+//    uiPageNodeSelector.loadNavigations();
+//    PageNode node = uiPageNodeSelector.getSelectedPageNode();
+//    if (node == null) return;
 //
-//    PageNode node = uiNodeSelector.getSelectedPageNode();
-    //-----------------------------------
-    PageNode node = uiPageNodeSelector.getSelectedPageNode();
-    if (node == null) return;
-
-    Class<?>[] childrenToRender = { UIPageNodeSelector.class, UIPageNavigationControlBar.class};
-    setRenderedChildrenOfTypes(childrenToRender);
-
-    UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
-    UserPortalConfigService portalConfigService = getApplicationComponent(UserPortalConfigService.class);
-    Page page = portalConfigService.getPage(node.getPageReference(), Util.getPortalRequestContext().getRemoteUser());
-    if(page == null) return;
-    UIPage uiPage = Util.toUIPage(page, uiToolPanel);
-    uiToolPanel.setUIComponent(uiPage);
-    uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
-  }
+//    Class<?>[] childrenToRender = { UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+//    setRenderedChildrenOfTypes(childrenToRender);
+//
+//    UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
+//    UserPortalConfigService portalConfigService = getApplicationComponent(UserPortalConfigService.class);
+//    Page page = portalConfigService.getPage(node.getPageReference(), Util.getPortalRequestContext().getRemoteUser());
+//    if(page == null) return;
+//    UIPage uiPage = Util.toUIPage(page, uiToolPanel);
+//    uiToolPanel.setUIComponent(uiPage);
+//    uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
+//  }
 
   public <T extends UIComponent> T setRendered(boolean b) {
     getChild(UIPageEditBar.class).setRendered(false);
@@ -76,11 +68,6 @@ public class UIPageManagement extends UIManagement {
     if (mode == ManagementMode.EDIT) {
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
       UITree uiTree = uiNodeSelector.getChild(UITree.class);
-      //TODO: Tung.Pham modified
-      //-----------------------------------------------------------
-      //UIRightClickPopupMenu uiPopupMenu = uiTree.findFirstComponentOfType(UIRightClickPopupMenu.class);
-      //uiPopupMenu.createEvent("EditPageNode", phase, rcontext).broadcast();
-      //-----------------------------------------------------------
       getChild(UIDescription.class).setRendered(false);
       uiTree.createEvent("ChangeNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
       return;

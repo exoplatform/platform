@@ -80,8 +80,7 @@ public class UserPortalConfigService {
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
     PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
     if (navigation != null) { 
-      navigation.setModifiable(false);
-      if(userACL_.hasEditPermission(portal, accessUser)) navigation.setModifiable(true);
+      navigation.setModifiable(userACL_.hasEditPermission(portal, accessUser));
       navigations.add(navigation) ;
     }
     navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
@@ -100,8 +99,7 @@ public class UserPortalConfigService {
         String groupId = m.getId().trim();
         navigation  = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+groupId) ;
         if(navigation == null) continue;
-        if(userACL_.hasEditPermission(navigation, accessUser)) navigation.setModifiable(true);
-        else navigation.setModifiable(false);
+        navigation.setModifiable(userACL_.hasEditPermission(navigation, accessUser));
         navigations.add(navigation) ;
       }
     }

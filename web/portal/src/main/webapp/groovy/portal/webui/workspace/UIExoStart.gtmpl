@@ -22,7 +22,7 @@
       <div class="MenuItem">
         <div class="LabelItem">
           <div class="Icon $icon"  style="padding-left: 18px">
-            <div class="LabelText"><a href="$href">$node.label</a></div>
+            <div class="LabelText"><a href="$href">$node.resolvedLabel</a></div>
           </div>
         </div>
       </div>
@@ -40,7 +40,7 @@
         <div class="LabelItem">
           <div class="Icon $icon" style="padding-left: 18px"> 
             <div class="BlackArrowIcon">
-              <div class="LabelText "><a href="$href">$node.label</a></div>
+              <div class="LabelText "><a href="$href">$node.resolvedLabel</a></div>
             </div>
           </div>
         </div>

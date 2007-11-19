@@ -8,14 +8,14 @@
     <node>
       <uri>administration</uri>
       <name>Administration</name>
-      <label>Administration</label>     
+      <label>#{Administration}</label>     
       <page-reference>group::portal/admin::administration</page-reference>      
     </node> 
     
     <node>
 	    <uri>administration/portletregistry</uri>
 	    <name>portletRegistry</name>
-	    <label>Portlet Registry</label>
+	    <label>#{PortletRegistry}</label>
 	    <page-reference>group::portal/admin::portletregistry</page-reference>
     </node>
     
@@ -23,27 +23,27 @@
     <node>
       <uri>ecm</uri>
       <name>ecm</name>
-      <label>ECM</label>
+      <label>#{ECM}</label>
       <page-reference>group::portal/admin::ecmdesktop</page-reference>
       
       <node>
         <uri>ecm/ecmadmin</uri>
         <name>ecmAdmin</name>
-        <label>ECMAdmin</label>
+        <label>#{ECMAdmin}</label>
         <page-reference>group::portal/admin::ecmadmin</page-reference>
       </node>
 
       <node>
         <uri>ecm/fileexplorer</uri>
         <name>fileExplorer</name>
-        <label>File Explorer</label>
+        <label>#{fileexplorer}</label>
         <page-reference>group::portal/admin::fileexplorer</page-reference>
       </node>
       
       <node>
         <uri>ecm/fastcontentcreator</uri>
         <name>fastContentCreator</name>
-        <label>Fast Content Creator</label>
+        <label>#{fastContentCreator}</label>
         <page-reference>group::portal/admin::fastcontentcreator</page-reference>
       </node>
       

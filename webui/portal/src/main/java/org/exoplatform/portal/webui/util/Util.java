@@ -28,25 +28,6 @@ import org.exoplatform.webui.event.Event;
  * Jun 5, 2006
  */
 public class Util { 
-  
-  static public UIPortal getUIPortal(){
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-    if(!(context instanceof PortalRequestContext)) {
-      context =  (WebuiRequestContext)context.getParentAppRequestContext() ;      
-    }
-    UIPortalApplication uiApp = (UIPortalApplication) context.getUIApplication() ;     
-    return uiApp.findFirstComponentOfType(UIPortal.class) ;    
-  }  
-
-  static public UIPortalToolPanel getUIPortalToolPanel(){
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-    if(!(context instanceof PortalRequestContext)) {
-      context =  (WebuiRequestContext)context.getParentAppRequestContext() ;      
-    }
-    UIPortalApplication uiApp = (UIPortalApplication) context.getUIApplication() ;     
-    return uiApp.findFirstComponentOfType(UIPortalToolPanel.class) ;    
-  }  
-
   static public PortalRequestContext getPortalRequestContext() {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     if(!(context instanceof PortalRequestContext)) {
@@ -54,7 +35,19 @@ public class Util {
     }
     return (PortalRequestContext)context ;
   }
+  
+  static public UIPortalApplication getUIPortalApplication() {
+    return (UIPortalApplication)getPortalRequestContext().getUIApplication() ;
+  }
 
+  static public UIPortal getUIPortal() {
+    return getUIPortalApplication().findFirstComponentOfType(UIPortal.class) ;
+  }  
+
+  static public UIPortalToolPanel getUIPortalToolPanel(){
+    return getUIPortalApplication().findFirstComponentOfType(UIPortalToolPanel.class) ;    
+  }  
+  
   static  public void setShowEditControl(UIComponent uiComponent, Class clazz){
     if(uiComponent == null) return;
     if(uiComponent instanceof UIPortalComponent) {
