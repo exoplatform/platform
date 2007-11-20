@@ -67,7 +67,7 @@
 					  </div>
 					  
 					</div>
-					<div class="NameTheme">Tonic Blue Style</div>
+					<div class="NameTheme"><%= _ctx.appRes(uicomponent.getId() + ".UIItemThemeSelector.item." + selectedThemeName ) %></div>
 			
 			</div>
 		</div>
