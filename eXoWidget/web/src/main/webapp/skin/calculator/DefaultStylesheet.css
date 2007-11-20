@@ -1,0 +1,117 @@
+.UICalculatorWidget {
+	width: 136px;
+	margin: auto;
+	padding: 1px;
+}
+
+.UICalculatorWidget .TLCalculator {
+	background: url('DefaultSkin/background/TLCalculator7x7.gif') no-repeat left;
+	padding-left: 7px;
+}
+
+.UICalculatorWidget .TRCalculator {
+	background: url('DefaultSkin/background/TRCalculator7x7.gif') no-repeat right;
+	padding-right: 7px;
+}
+
+.UICalculatorWidget .TMCalculator {
+	background: #8ab4db url('DefaultSkin/background/TMCalculator1x7.gif') repeat-x;
+	height: 5px;
+	padding-top: 2px;
+}
+
+.UICalculatorWidget .BGCalculator {
+	background: url('DefaultSkin/background/CenterCalculator114x1.gif') repeat-y center;
+	height: 100%;
+}
+
+.UICalculatorWidget .MLCalculator {
+	background: url('DefaultSkin/background/MLCalculator4x1.gif') repeat-y left;
+	padding-left: 4px;
+}
+
+.UICalculatorWidget .MRCalculator {
+	background: #8ab4db url('DefaultSkin/background/MRCalculator4x1.gif') repeat-y right;
+	padding-right: 4px;
+}
+
+.UICalculatorWidget .BLCalculator {
+	background: url('DefaultSkin/background/BLCalculator7x7.gif') no-repeat left;
+	padding-left: 7px;
+}
+
+.UICalculatorWidget .BRCalculator {
+	background: url('DefaultSkin/background/BRCalculator7x7.gif') no-repeat right;
+	padding-right: 7px;
+}
+
+.UICalculatorWidget .BMCalculator {
+	background: #8ab4db url('DefaultSkin/background/BMCalculator1x7.gif') repeat-x;
+	height: 5px;
+	padding-bottom: 2px;
+}
+
+.UICalculatorWidget .ViewBox {
+	padding: 2px 3px 6px 3px;
+}
+
+.UICalculatorWidget .LeftViewBox {
+	background: url('DefaultSkin/background/LeftView3x26.gif') no-repeat left;
+	padding-left: 3px;
+}
+
+.UICalculatorWidget .RightViewBox {
+	background: url('DefaultSkin/background/RightView3x26.gif') no-repeat right;
+	padding-right: 3px;
+}
+
+.UICalculatorWidget .MiddleViewBox {
+	background: #8ab4db url('DefaultSkin/background/CenterView1x26.gif') repeat-x;
+	height: 26px;
+	line-height: 26px;
+	text-align: right;
+	padding: 0px 5px;
+}
+
+.UICalculatorWidget .Line {
+	background: url('DefaultSkin/background/Line128x2.gif') no-repeat center;
+	height: 2px;
+	width: 128px;
+	margin: auto;
+}
+
+.UICalculatorWidget .ButtonContainer {
+	padding: 4px 2px;
+}
+
+.UICalculatorWidget .ButtonContainer a {
+	display: block;
+	font-weight: bold;
+	font-family: verdana;
+	text-align: center;
+}
+
+.UICalculatorWidget .ButtonContainer .NumberButton {
+	float: left;
+}
+
+.UICalculatorWidget .ButtonContainer .NumberButton a {
+	background: url('DefaultSkin/background/BGButton26x26.gif') no-repeat center;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	float: left;
+	margin: 3px;
+}
+
+.UICalculatorWidget .ButtonContainer .OperationButton {
+	float: left;
+}
+
+.UICalculatorWidget .ButtonContainer .OperationButton a {
+	background: url('DefaultSkin/background/BGButton21x21.gif') no-repeat center;
+	width: 21px;
+	height: 21px;
+	line-height: 21px;
+	margin: 3px 0px 4px 0px; 
+}

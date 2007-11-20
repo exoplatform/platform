@@ -1,5 +1,5 @@
 .UIControlWorkspace {
-	background: #9ed0f3 url('/eXoResources/skin/DefaultSkin/background/eXoBodyBG.jpg') no-repeat fixed ;
+	background: url('background/ControlWorkspaceBG.gif') repeat fixed ;
   width: 6px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
@@ -55,7 +55,7 @@
 }
 
 .UIControlWorkspace .UIWorkspaceContainer .UIPortletOptions .UIDropDownControl {
-	width: 214px;
+	width: 100%;
 }
 
 /*########################### End Tab ###########################*/
@@ -75,10 +75,6 @@
 .UIControlWorkspace .UIWorkspaceContainer {
   background: url("background/ControlWorkspaceBG6x1.gif") repeat-y right;
 	height: 100%;
-}
-
-.UIControlWorkspace .UIWorkspaceContainer .UIPortletOptions .UIDropDownControl {
-	width: 214px;
 }
 
 /*########################### End Slidebar ###########################*/

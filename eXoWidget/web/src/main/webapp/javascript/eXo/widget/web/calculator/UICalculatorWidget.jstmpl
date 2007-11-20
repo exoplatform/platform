@@ -1,0 +1,68 @@
+<div class="UICalculatorWidget">
+	<div class="TLCalculator">
+		<div class="TRCalculator">
+			<div class="TMCalculator">
+				<div class="BGCalculator"><span></span></div>
+			</div>
+		</div>
+	</div>
+	<div class="MLCalculator">
+		<div class="MRCalculator">
+			<div class="BGCalculator">
+				<div class="ViewBox">
+					<div class="LeftViewBox">
+						<div class="RightViewBox">
+							<div class="MiddleViewBox">
+								akdsgkl,
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="Line"><span></span></div>
+				<div class="ButtonContainer">
+					<div class="NumberButton">
+						<div>
+							<a href="#" class="Number">7</a>
+							<a href="#" class="Number">8</a>
+							<a href="#" class="Number">9</a>
+							<div style="clear: left"><span></span></div>
+						</div>
+						<div>
+							<a href="#" class="Number">4</a>
+							<a href="#" class="Number">5</a>
+							<a href="#" class="Number">6</a>
+							<div style="clear: left"><span></span></div>
+						</div>
+						<div>
+							<a href="#" class="Number">1</a>
+							<a href="#" class="Number">2</a>
+							<a href="#" class="Number">3</a>
+							<div style="clear: left"><span></span></div>
+						</div>
+						<div>
+							<a href="#" class="Number">0</a>
+							<a href="#" class="Number">.</a>
+							<a href="#" class="Number">C</a>
+							<div style="clear: left"><span></span></div>
+						</div>
+					</div>
+					<div class="OperationButton">
+						<a href="#" class="Operation">:</a>
+						<a href="#" class="Operation">x</a>
+						<a href="#" class="Operation">+</a>
+						<a href="#" class="Operation">-</a>
+						<a href="#" class="Operation">=</a>
+					</div>
+					<div style="clear: left"><span></span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="BLCalculator">
+		<div class="BRCalculator">
+			<div class="BMCalculator">
+				<div class="BGCalculator"><span></span></div>
+			</div>
+		</div>
+	</div>
+</div>
