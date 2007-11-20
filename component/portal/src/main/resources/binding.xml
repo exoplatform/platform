@@ -67,7 +67,7 @@
    <mapping name="node" label="node" class="org.exoplatform.portal.config.model.PageNode">
     <value name="uri" field="uri"/>
     <value name="name" field="name"/>
-    <value name="label" field="label" usage="optional"/>
+    <value name="label" field="label" usage="optional" set-method="setLabel"/>
     <value name="icon" field="icon" usage="optional"/>
     <value name="page-reference" field="pageReference" usage="optional"/>
     <collection field="children" usage="optional" item-type="org.exoplatform.portal.config.model.PageNode"/>
