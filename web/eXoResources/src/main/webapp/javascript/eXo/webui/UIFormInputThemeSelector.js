@@ -10,6 +10,9 @@ UIFormInputThemeSelector.prototype.showThemeSelected = function(obj,param) {
 	var itemListContainer = DOMUtil.findAncestorByClass(obj,"ItemListContainer") ;
 	var itemDetailList = DOMUtil.findNextElementByTagName(itemListContainer,'div') ;
 	var detailList = DOMUtil.findFirstDescendantByClass(itemDetailList,'div','UIThemeSelector') ;
+	var nameTheme = DOMUtil.findNextElementByTagName(detailList,'div') ;
+	var nameStyle = DOMUtil.findFirstDescendantByClass(obj,'div','NameStyle') ;
+	nameTheme.innerHTML = nameStyle.innerHTML ;
 	detailList.className = "UIThemeSelector " + param ;
 	
 	// get hide input
