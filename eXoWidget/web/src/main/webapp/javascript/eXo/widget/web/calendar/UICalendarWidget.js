@@ -18,24 +18,41 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
   var today = new Date();
 
 	var table = '<div class="UICalendar">' ;
-	table += 		'	<table class="MonthYearBox">' ;
-	table += 		'	  <tr>' ;
-	table += 		'			<td class="MonthButton"><a class="PreviousMonth" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeMonth(-1,\'' + appId + '\');"></a></td>' ;
-	table += 		'			<td class="YearButton"><a class="PreviousYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(-1,\'' + appId + '\');"></a></td>' ;
-	table += 		'			<td onclick="eXo.widget.web.calendar.UICalendarWidget.goToday(\'' + appId + '\');"><font color="#f89302">' + this.months[this.currentDate.getMonth()] + '</font> - ' + this.currentDate.getFullYear() + '</td>' ;
-	table += 		'			<td class="YearButton"><a class="NextYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(1,\'' + appId + '\');"></a></td>' ;
-	table += 		'			<td class="MonthButton"><a class="NextMonth" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeMonth(1,\'' + appId + '\');"></a></td>' ;
-	table += 		'		</tr>' ;
-	table += 		'	</table>' ;
-	table += 		'	<div style="margin-top: 6px;padding: 0px 5px;">' ;
-	table += 		'		<table>' ;
-	table += 		'			<tr>' ;
-	table += 		'				<td><font color="red">S</font></td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td>' ;
-	table += 		'			</tr>' ;
-	table += 		'		</table>' ;
+	
+	table += 		'	<div class="TLCalendar">' ;
+	table += 		'		<div class="TRCalendar">' ;
+	table += 		'			<div class="TMCalendar">' ;
+	table += 		'				<div class="BGCalendar"><span></span></div>' ;
+	table += 		'			</div>' ;
+	table += 		'		</div>' ;
 	table += 		'	</div>' ;
-	table += 		'	<div class="CalendarGrid">' ;
-	table += 		'	<table>' ;
+	
+	
+	table += 		'	<div class="MLCalendar">' ;
+	table += 		'		<div class="MRCalendar">' ;
+	table += 		'			<div class="BGCalendar">' ;
+	table += 		'				<div class="Container">' ;
+	table += 		'					<table class="MonthYearBox">' ;
+	table += 		'		  			<tr>' ;
+	table += 		'							<td class="MonthButton"><a class="PreviousMonth" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeMonth(-1,\'' + appId + '\');"></a></td>' ;
+	table += 		'							<td class="YearButton"><a class="PreviousYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(-1,\'' + appId + '\');"></a></td>' ;
+	table += 		'							<td class="Time" onclick="eXo.widget.web.calendar.UICalendarWidget.goToday(\'' + appId + '\');"><font color="#f89302">' + this.months[this.currentDate.getMonth()] + '</font> - ' + this.currentDate.getFullYear() + '</td>' ;
+	table += 		'							<td class="YearButton"><a class="NextYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(1,\'' + appId + '\');"></a></td>' ;
+	table += 		'							<td class="MonthButton"><a class="NextMonth" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeMonth(1,\'' + appId + '\');"></a></td>' ;
+	table += 		'						</tr>' ;
+	table += 		'					</table>' ;
+	table += 		'					<div style="margin: 5px 0px;padding: 0px 5px;">' ;
+	table += 		'						<table>' ;
+	table += 		'							<tr>' ;
+	table += 		'								<td><font color="red">S</font></td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td>' ;
+	table += 		'							</tr>' ;
+	table += 		'						</table>' ;
+	table += 		'					</div>' ;
+	table += 		'					<div class="CalendarGrid">' ;
+	table += 		'						<table>' ;
+	
+	
+	
 	
   for (var week=0; week < 6; week++) {
     table += "<tr>";
@@ -63,10 +80,23 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
     }
     table += "</tr>" ;
   }		
-	table += 		'		</table>' ;
+	table += 		'						</table>' ;
+	table += 		'					</div>' ;	
+	table += 		'				</div>' ;	
+	table += 		'			</div>' ;	
+	table += 		'		</div>' ;	
 	table += 		'	</div>' ;	
+	
+	table += 		'	<div class="BLCalendar">' ;
+	table += 		'		<div class="BRCalendar">' ;
+	table += 		'			<div class="BMCalendar">' ;
+	table += 		'				<div class="BGCalendar"><span></span></div>' ;
+	table += 		'			</div>' ;
+	table += 		'		</div>' ;
+	table += 		'	</div>' ;
+	
 	table += 		'</div>' ;
-
+	
 	return table ;
 }
 

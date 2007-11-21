@@ -90,13 +90,13 @@
 	font-weight: bold;
 	font-family: verdana;
 	text-align: center;
-	margin: 3px 2px 3px 3px;
+	margin: 3px 1px 3px 4px;
 	float: left;
 }
 
 .UICalculatorWidget .ButtonContainer a.NormalButton {
 	background: url('DefaultSkin/background/BGButton55x26.gif') no-repeat center;
-	width: 55px;
+	width: 56px;
 	height: 26px;
 	line-height: 26px;
 }
