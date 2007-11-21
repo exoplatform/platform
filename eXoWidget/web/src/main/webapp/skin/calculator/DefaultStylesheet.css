@@ -1,5 +1,5 @@
 .UICalculatorWidget {
-	width: 136px;
+	width: 217px;
 	margin: auto;
 	padding: 1px;
 }
@@ -75,14 +75,14 @@
 }
 
 .UICalculatorWidget .Line {
-	background: url('DefaultSkin/background/Line128x2.gif') no-repeat center;
+	background: url('DefaultSkin/background/Line209x2.gif') no-repeat center;
 	height: 2px;
-	width: 128px;
+	width: 209px;
 	margin: auto;
 }
 
 .UICalculatorWidget .ButtonContainer {
-	padding: 4px 2px;
+	padding: 4px 0px;
 }
 
 .UICalculatorWidget .ButtonContainer a {
@@ -90,29 +90,28 @@
 	font-weight: bold;
 	font-family: verdana;
 	text-align: center;
-}
-
-.UICalculatorWidget .ButtonContainer .NumberButton {
+	margin: 3px 2px 3px 3px;
 	float: left;
 }
 
-.UICalculatorWidget .ButtonContainer .NumberButton a {
-	background: url('DefaultSkin/background/BGButton26x26.gif') no-repeat center;
-	width: 26px;
+.UICalculatorWidget .ButtonContainer a.NormalButton {
+	background: url('DefaultSkin/background/BGButton55x26.gif') no-repeat center;
+	width: 55px;
 	height: 26px;
 	line-height: 26px;
-	float: left;
-	margin: 3px;
 }
 
-.UICalculatorWidget .ButtonContainer .OperationButton {
-	float: left;
+.UICalculatorWidget .ButtonContainer a.SmallButton {
+	background: url('DefaultSkin/background/BGButton36x26.gif') no-repeat center;
+	width: 36px;
+	height: 26px;
+	line-height: 26px;
 }
 
-.UICalculatorWidget .ButtonContainer .OperationButton a {
-	background: url('DefaultSkin/background/BGButton21x21.gif') no-repeat center;
-	width: 21px;
-	height: 21px;
-	line-height: 21px;
-	margin: 3px 0px 4px 0px; 
+.UICalculatorWidget .ButtonContainer a.LargeButton {
+	background: url('DefaultSkin/background/BGButton76x26.gif') no-repeat center;
+	width: 76px;
+	height: 26px;
+	line-height: 26px;
 }
+
