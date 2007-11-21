@@ -34,7 +34,7 @@
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">8</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">9</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">x</a>
-							<a href="#" class="SmallButton"><span>x</span></a>
+							<a href="#" class="SmallButton">x<sup>2</sup></a>
 							<div style="clear: left"><span></span></div>
 						</div>
 						<div>
