@@ -71,6 +71,7 @@
 	line-height: 26px;
 	text-align: right;
 	padding: 0px 5px;
+	overflow: hidden ;
 }
 
 .UICalculatorWidget .Line {
