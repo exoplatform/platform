@@ -8,8 +8,6 @@ function UIExoStartMenu() {
   this.clipTop = 1 ;
 	this.clipBottom = 1 ;
 	this.stepScroll = 5 ;
-	this.lastEvent = null ;
-	this.lastItem = null ;
 } ;
 /**
  * Init function called when the page loads
@@ -162,17 +160,17 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 			eXo.portal.UIExoStartMenu.lastItem = null ;
 		} 
 		while (menuItem.id != "ReSearch") {menuItem = menuItem.parentNode ;}
-	
+
 		var menuItemContainer = menuItem.menuItemContainer ;
 		menuItemContainer.style.display = "block" ;
-		// fix width for menuContainer
+		// fix width for menuContainer, only IE.
 		if (!menuItemContainer.resized) eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
 		
 	 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
 		var parentMenu = blockMenu.parentNode;
-		var topElement = eXo.core.DOMUtil.findFirstDescendantByClass(parentMenu, "div", "TopNavigator") ;
-	 	var bottomElement = eXo.core.DOMUtil.findDescendantsByClass(parentMenu, "div", "BottomNavigator") ;
-		bottomElement = bottomElement[bottomElement.length - 1];
+		var topElement = eXo.core.DOMUtil.findFirstChildByClass(parentMenu, "div", "TopNavigator") ;
+	 	var bottomElement = eXo.core.DOMUtil.findFirstChildByClass(parentMenu, "div", "BottomNavigator") ;
+
 		var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(blockMenu, "div", "MenuContainer") ;
 		if (!menuContainer.id) menuContainer.id = "eXo" + new Date().getTime() + Math.random().toString().substring(2) ;
 		
@@ -186,15 +184,12 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 	 	menuItemContainer.style.left = x + "px" ;
 		
 		var browserHeight = eXo.core.Browser.getBrowserHeight() ;
-	  var Y = eXo.portal.UIExoStartMenu.getDimension(menuItem, blockMenu) ;
-		if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
-		
 		if (menuContainer.offsetHeight + 64 > browserHeight) {
 				var curentHeight = browserHeight - 64;
 				blockMenu.style.height = curentHeight + "px" ;
 				topElement.style.display = "block" ;
 				bottomElement.style.display = "block" ;
-				
+
 				if(!menuContainer.curentHeight || (menuContainer.curentHeight != curentHeight)) {
 					eXo.portal.UIExoStartMenu.initSlide(menuContainer, curentHeight) ;
 				}
@@ -229,19 +224,17 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 					event = event || window.event ;
 					event.cancelBubble = true ;
 				};
-				
 	  } else {
 			blockMenu.style.height = menuContainer.offsetHeight + "px" ;
 			menuContainer.style.clip = "rect(0px 1280px auto auto)" ;
+			menuContainer.curentHeight = null;
+			menuContainer.style.position = "static";
 			topElement.style.display = "none" ;
 			bottomElement.style.display = "none" ;
 	  }
-		if (eXo.portal.UIExoStartMenu.lastEvent == null) {
-			eXo.portal.UIExoStartMenu.lastEvent = new Object() ;
-			for (i in event) {eXo.portal.UIExoStartMenu.lastEvent[i] = event[i] ;}
-			eXo.portal.UIExoStartMenu.lastItem = menuItem ;
-			setTimeout("eXo.portal.UIExoStartMenu.showMenuItemContainer(eXo.portal.UIExoStartMenu.lastEvent)", 0) ;
-		}
+		var Y = eXo.portal.UIExoStartMenu.getDimension(menuItem, blockMenu) ;
+		if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
+		
 };
 
 UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
@@ -252,16 +245,17 @@ UIExoStartMenu.prototype.getDimension = function(menuItem, menuContainer) {
 	var menuItemContainer = menuItem.menuItemContainer ;
 	var offsetHeight = menuItemContainer.offsetHeight ;
 	var deltaDown = browserHeight - PosY ;
-	if(offsetHeight < deltaDown )	return 0;
-	else if(offsetHeight < PosY ) return (- offsetHeight + menuItem.offsetHeight) ;
-	else if(offsetHeight < browserHeight) return (- offsetHeight + deltaDown - 6) ;
+	if(offsetHeight < deltaDown )	var  y = 0;
+	else if(offsetHeight < PosY ) var  y = (- offsetHeight + menuItem.offsetHeight) ;
+	else if(offsetHeight < browserHeight) var y = (- offsetHeight + deltaDown - 6) ;
+	return y;
 };
 
 UIExoStartMenu.prototype.initSlide = function(menuContainer, clipBottom) {
 	menuContainer.curentHeight = clipBottom ;
 	menuContainer.style.position = "absolute" ;
 	menuContainer.style.top = 0 + "px" ;
-	menuContainer.style.clip = 'rect(0px, 1280px,' + clipBottom + 'px, 0px)' ;	
+	menuContainer.style.clip = 'rect(0px, 1280px,' + clipBottom + 'px, 0px)' ;
 };
 
 UIExoStartMenu.prototype.scrollUp = function(id, height) {
