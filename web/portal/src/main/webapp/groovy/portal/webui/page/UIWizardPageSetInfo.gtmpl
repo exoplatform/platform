@@ -6,7 +6,7 @@
 <%  
   PageNode pageNode = uicomponent.getSelectedPageNode();
   String nodeName = "" ;  
-  if(pageNode!=null ) nodeName = "/"+pageNode.getLabel();
+  if(pageNode!=null ) nodeName = "/"+pageNode.getResolvedLabel();
 %>
 <div class="UIWizardPageSetInfo">
   <%uiform.begin()%>
