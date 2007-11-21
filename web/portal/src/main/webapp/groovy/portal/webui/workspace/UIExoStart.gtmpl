@@ -134,7 +134,7 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding: 5px 0px;">
-					        <div class="TopNavigator" style="display: none;" title="$scrollUpTitle")">
+					        <div class="TopNavigator" style="display: none;" title="$scrollUpTitle">
 					        	<div class="UpNavigatorIcon"><span></span></div>
 					        </div>
 									<div class="BlockMenu" style="position: relative;">
@@ -189,7 +189,7 @@
             <div class="StartMenuML">
               <div class="StartMenuMR">
                 <div class="StartMenuBG" style="padding: 5px 0px">
-						      <div class="TopNavigator" style="display: none;" title="$scrollUpTitle")">
+						      <div class="TopNavigator" style="display: none;" title="$scrollUpTitle">
 						      	<div class="UpNavigatorIcon"><span></span></div>
 						      </div>
 									<div class="BlockMenu" style="position: relative;">
