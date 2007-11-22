@@ -133,6 +133,7 @@
   height: 18px;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
+  cursor: pointer;
 }
 
 .UICalendar .MonthYearBox a.NextYear {
