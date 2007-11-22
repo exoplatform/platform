@@ -25,8 +25,7 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
 	table += 		'				<div class="BGCalendar"><span></span></div>' ;
 	table += 		'			</div>' ;
 	table += 		'		</div>' ;
-	table += 		'	</div>' ;
-	
+	table += 		'	</div>' ;	
 	
 	table += 		'	<div class="MLCalendar">' ;
 	table += 		'		<div class="MRCalendar">' ;
@@ -49,10 +48,7 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
 	table += 		'						</table>' ;
 	table += 		'					</div>' ;
 	table += 		'					<div class="CalendarGrid">' ;
-	table += 		'						<table>' ;
-	
-	
-	
+	table += 		'						<table>' ;	
 	
   for (var week=0; week < 6; week++) {
     table += "<tr>";
@@ -108,7 +104,7 @@ UICalendarWidget.prototype.goToday = function(appId) {
 	clndr.lastChild.innerHTML = this.renderCalendar(appId);
 }
 
-UICalendarWidget.prototype.changeMonth = function(change, appId) {
+UICalendarWidget.prototype.changeMonth = function(change, appId) {	
 	this.currentDate.setMonth(this.currentDate.getMonth() + change) ;
   var clndr = document.getElementById(appId) ;
 	clndr.lastChild.innerHTML = this.renderCalendar(appId) ;

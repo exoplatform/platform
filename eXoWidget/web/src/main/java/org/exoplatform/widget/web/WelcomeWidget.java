@@ -48,6 +48,6 @@ public class WelcomeWidget extends WidgetApplication<UIWidget> {
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.welcome.UIWelcomeWidget','UIWelcomeWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
 //    appReqContext.getJavascriptManager().importJavascript("eXo.webui.UIUpload") ;
-   // appReqContext.getJavascriptManager().addCustomizedOnLoadScript("eXo.webui.UIUpload.initUploadEntry('"+instanceId+"');") ;
+//    appReqContext.getJavascriptManager().addCustomizedOnLoadScript("eXo.webui.UIUpload.initUploadEntry('"+instanceId+"');") ;
   }
 }
