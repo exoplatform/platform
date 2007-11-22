@@ -22,7 +22,7 @@
   
   <page>
     <owner-type>portal</owner-type>
-    <owner-id>site</owner-id>
+    <owner-id>portalone</owner-id>
     <name>register</name>
     <title>Register</title>
     <access-permissions>*:/guest</access-permissions>      

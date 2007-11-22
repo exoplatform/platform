@@ -2,7 +2,6 @@
 <node-navigation>
   <owner-type>portal</owner-type>
   <owner-id>portalone</owner-id>
-  <access-permissions>*:/guest</access-permissions>  
   <page-nodes>
     <node>
       <uri>portalone::home</uri>

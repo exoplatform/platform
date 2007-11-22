@@ -97,7 +97,7 @@ public class UserPortalConfigService {
       while(iterator.hasNext()) {
         Group m = (Group) iterator.next() ;   
         String groupId = m.getId().trim();
-        navigation  = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+groupId) ;
+        navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+groupId) ;
         if(navigation == null) continue;
         navigation.setModifiable(userACL_.hasEditPermission(navigation, accessUser));
         navigations.add(navigation) ;
@@ -176,9 +176,6 @@ public class UserPortalConfigService {
     String id = PortalConfig.PORTAL_TYPE + "::" + portalName ;
     PageNavigation navigation = storage_.getPageNavigation(id) ;
     if (navigation != null) remove(navigation) ;
-    
-    Widgets widgets = storage_.getWidgets(id) ;
-    if (widgets != null) remove(widgets) ;
     
     Query<PortletPreferences> portletPrefQuery = new Query<PortletPreferences>(null, null, null, PortletPreferences.class) ;
     portletPrefQuery.setOwnerType(PortalConfig.PORTAL_TYPE) ;

@@ -7,6 +7,7 @@ package org.exoplatform.portal.config;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -49,7 +50,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   }
   
   void assertUserPortalConfigOperator() throws Exception {
-    //assertCreateUserPortalConfig() ;
+    assertCreateUserPortalConfig() ;
     assertGetUserPortalConfig() ;
     assertRemoveUserPortalConfig() ;
   }
@@ -59,7 +60,6 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     PortalConfig portalConfig = userPortalConfig.getPortalConfig();
     
     assertTrue(portalConfig != null);
-    assertEquals(2, portalConfig.getAccessPermissions().length);
     assertEquals("*:/guest", portalConfig.getAccessPermissions()[0]) ;
     assertEquals(1, userPortalConfig.getNavigations().size());
     
@@ -69,41 +69,26 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   }
   
   void assertCreateUserPortalConfig() throws Exception {
-    String siteName = "site" ;
+    String portalTemplate = "site" ;
     String newName = "newportal" ;
-    UserPortalConfig sitePortal = service_.getUserPortalConfig(siteName, "none") ;
-    service_.createUserPortalConfig(newName, siteName) ;
+    UserPortalConfig sitePortal = service_.getUserPortalConfig("site", "none") ;
+    service_.createUserPortalConfig(newName, portalTemplate) ;
     UserPortalConfig newportal = service_.getUserPortalConfig(newName, "exoadmin");
     
     PortalConfig sitePortalConfig = sitePortal.getPortalConfig() ;
     PortalConfig newPortalConfig = newportal.getPortalConfig() ;
-    assertEquals(newPortalConfig.getAccessPermissions(), sitePortalConfig.getAccessPermissions()) ;
-    assertTrue(!newPortalConfig.getName().equals(sitePortalConfig.getName())) ;
-    
-    List<PageNavigation> siteNavigations = sitePortal.getNavigations() ;
-    List<PageNavigation> newNavigations = newportal.getNavigations() ;
-    assertEquals(newNavigations.size(), siteNavigations.size()) ;
-    
-    String[] pageNames = {"content", "register"} ;
-    for (String name : pageNames) {
-      String sitePageId = "portal" + "::" + siteName + "::" + name ;
-      String newPageId = "portal" + "::" + newName + "::" + name ;
-      Page sitePage = service_.getPage(sitePageId, "none") ;
-      Page newPage = service_.getPage(newPageId, "none") ;
-      assertEquals(name, sitePage.getName()) ;
-      assertEquals(name, newPage.getName()) ;
-      assertEquals(newPage.getOwnerType(), sitePage.getOwnerType()) ;
-      assertEquals(newPage.getTitle(), sitePage.getTitle()) ;
-      assertEquals(newPage.getOwnerType(), sitePage.getOwnerType()) ;
-      assertEquals(newPage.getAccessPermissions(), sitePage.getAccessPermissions()) ;
-      assertTrue(!newPage.getOwnerId().equals(sitePage.getOwnerId())) ;
-    }
-    
+    assertEquals("site", sitePortalConfig.getName()) ;
+    assertEquals(newName, newPortalConfig.getName()) ;
+    service_.removeUserPortalConfig(newName) ;
   }
 
-  //TODO: Remove action was implemented, Tung must be write test code
   void assertRemoveUserPortalConfig() throws Exception {
-    
+    String newName = "newportal" ;
+    service_.createUserPortalConfig(newName, "site") ;
+    UserPortalConfig portal = service_.getUserPortalConfig(newName, "none") ;
+    assertNotNull(portal) ;
+    service_.removeUserPortalConfig(newName) ;
+    assertNull(service_.getUserPortalConfig(newName, "none")) ;
   } 
   
   void assertPortalConfigOperator() throws Exception {
@@ -111,10 +96,13 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   }
   
   void assertPortalConfigUpdate() throws Exception {
-    UserPortalConfig oldUserPortalConfig = service_.getUserPortalConfig("site", "exo") ;
+    String portalName = "newportal" ;
+    service_.createUserPortalConfig(portalName, "site") ;
+    UserPortalConfig oldUserPortalConfig = service_.getUserPortalConfig(portalName, "exo") ;
     PortalConfig oldPortalConfig = oldUserPortalConfig.getPortalConfig() ;
+    assertEquals(portalName, oldPortalConfig.getName()) ;
     assertEquals("en", oldPortalConfig.getLocale()) ;
-    assertEquals(2, oldPortalConfig.getAccessPermissions().length);
+    assertEquals(1, oldPortalConfig.getAccessPermissions().length);
     assertEquals("*:/guest", oldPortalConfig.getAccessPermissions()[0]) ;
     assertEquals(1, oldUserPortalConfig.getNavigations().size());
 
@@ -123,13 +111,13 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     oldPortalConfig.setLocale(newLocate) ;
     service_.update(oldPortalConfig) ;
     
-    UserPortalConfig newUserPortalConfig = service_.getUserPortalConfig("site", "exo") ;
+    UserPortalConfig newUserPortalConfig = service_.getUserPortalConfig(portalName, "exo") ;
     PortalConfig newPortalConfig = newUserPortalConfig.getPortalConfig() ;
+    assertEquals(portalName, oldPortalConfig.getName()) ;
     assertEquals(newLocate, newPortalConfig.getLocale()) ;
-    assertEquals(2, newPortalConfig.getAccessPermissions().length);
+    assertEquals(1, newPortalConfig.getAccessPermissions().length);
     assertEquals("*:/guest", newPortalConfig.getAccessPermissions()[0]) ;
     assertEquals(1, newUserPortalConfig.getNavigations().size());
-
   }
   
   void assertNavigationOperator() throws Exception {
@@ -166,7 +154,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     
     PageNavigation userNavigation = newNavigations.get(1) ;
     assertEquals(newDescription, userNavigation.getDescription()) ;
-    assertEquals(1, userNavigation.getNodes().size()) ;
+    assertEquals(0, userNavigation.getNodes().size()) ;
     
     // Add new node
     PageNode pn = new PageNode() ;
@@ -180,7 +168,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     newNavigations = newUserPortalConfig.getNavigations() ;
     assertEquals(2, newNavigations.size()) ;
     userNavigation = newNavigations.get(1) ;
-    assertEquals(2, userNavigation.getNodes().size()) ;    
+    assertEquals(1, userNavigation.getNodes().size()) ;    
   }
   
   void assertNavigationRemove() throws Exception {
@@ -200,7 +188,6 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     assertEquals(1, newNavigations.size()) ;
     PageNavigation userNavigation = newNavigations.get(0) ;
     assertEquals(accessUser, userNavigation.getOwnerId()) ;
-   // assertEquals(1, userNavigation.getAccessPermissions().length) ;
     
     // Remove remain navigation
     service_.remove(userNavigation) ;
@@ -217,7 +204,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   
   void assertPageCreate() throws Exception {
     String accessUser = "exoadmin" ; 
-    String[] sitePortalPageNames = {"content", "register", "test"} ;
+    String[] sitePortalPageNames = {"homepage", "register", "sitemap", "test"} ;
     
     List<Page> pages = new ArrayList<Page>() ;
     for (String pageName : sitePortalPageNames) {
@@ -225,7 +212,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
       Page page = service_.getPage(sitePortalPageId, accessUser) ;
       if (page != null) pages.add(page) ;
     }
-    assertEquals(2, pages.size()) ;
+    assertEquals(3, pages.size()) ;
 
     
     // Add new page to Site portal
@@ -249,7 +236,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   
   void assertPageGet() throws Exception {
     String accessUser = "exoadmin" ;
-    String pageId = "group::/portal/admin::web" ;
+    String pageId = "group::portal/admin::administration" ;
     
     Page page = service_.getPage(pageId, accessUser) ;
     assertEquals(pageId, page.getPageId()) ;
@@ -257,7 +244,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   
   void assertPageUpdate() throws Exception {
     String accessUser = "exoadmin" ; 
-    String[] sitePortalPageNames = {"content", "register"} ;
+    String[] sitePortalPageNames = {"sitemap", "register"} ;
     
     for (String pageName : sitePortalPageNames) {
       String sitePortalPageId = "portal::site::" + pageName ;
@@ -273,7 +260,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
 
   void assertPageRemove() throws Exception {
     String accessUser = "exoadmin" ; 
-    String[] sitePortalPageNames = {"content", "register"} ;
+    String[] sitePortalPageNames = {"sitemap", "register"} ;
     
     List<Page> pages = new ArrayList<Page>() ;
     for (String pageName : sitePortalPageNames) {
@@ -283,7 +270,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     }
     assertEquals(2, pages.size()) ;
     
-    Page deletePage = service_.getPage("portal::site::content", accessUser) ;
+    Page deletePage = service_.getPage("portal::site::sitemap", accessUser) ;
     service_.remove(deletePage) ;
     pages = new ArrayList<Page>() ;
     for (String pageName : sitePortalPageNames) {
