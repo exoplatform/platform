@@ -23,10 +23,10 @@
 				<div class="Line"><span></span></div>
 				<div class="ButtonContainer">
 						<div>
-							<a href="#" class="NormalButton">BS</a>
-							<a href="#" class="NormalButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.clearScreen(this);">C</a>
+							<a href="#" class="NormalButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">BS</a>
+							<a href="#" class="NormalButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">C</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">:</a>
-							<a href="#" class="SmallButton">sqrt</a>
+							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">sqrt</a>
 							<div style="clear: left"><span></span></div>
 						</div>
 						<div>
@@ -34,7 +34,7 @@
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">8</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">9</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">x</a>
-							<a href="#" class="SmallButton">x<sup>2</sup></a>
+							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">x<sup>2</sup></a>
 							<div style="clear: left"><span></span></div>
 						</div>
 						<div>
@@ -42,7 +42,7 @@
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">5</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">6</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">-</a>
-							<a href="#" class="SmallButton">%</a>
+							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">%</a>
 							<div style="clear: left"><span></span></div>
 						</div>
 						<div>
@@ -50,14 +50,14 @@
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">2</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">3</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">+</a>
-							<a href="#" class="SmallButton">1/x</a>
+							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">1/x</a>
 							<div style="clear: left"><span></span></div>
 						</div>
 						<div>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">0</a>
 							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">.</a>
-							<a href="#" class="SmallButton">-/+</a>
-							<a href="#" class="LargeButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.calculate(this);">=</a>
+							<a href="#" class="SmallButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">-/+</a>
+							<a href="#" class="LargeButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">=</a>
 							<div style="clear: left"><span></span></div>
 						</div>
 				</div>
