@@ -47,8 +47,8 @@ UICalculatorWidget.prototype.padNum = function(obj) {
 	// key's 'BackSpace'
 	if(numValue == 'BS') {
 		this.CurrentValue = this.CurrentValue.substring(0,this.CurrentValue.length - 1) ;
-		if(this.CurrentValue == '') eXo.widget.web.calculator.UICalculatorWidget.resetValue(mdViewBox,0);
-		else mdViewBox.innerHTML = this.CurrentValue;
+		if(this.CurrentValue == '') this.CurrentValue = 0 ;
+		mdViewBox.innerHTML = this.CurrentValue;
 	}
 	
 	// key's 'Sqrt'
@@ -56,7 +56,8 @@ UICalculatorWidget.prototype.padNum = function(obj) {
 //		this.Result = Math.sqrt(this.CurrentValue);
 //		eXo.widget.web.calculator.UICalculatorWidget.resetValue(mdViewBox,this.Result);	
 		this.CurrentValue = Math.sqrt(this.CurrentValue) ;
-		mdViewBox.innerHTML = this.CurrentValue ;	
+		mdViewBox.innerHTML = this.CurrentValue ;
+		this.Done = 1;	
 	}
 	
 	// key's x<sup>2</sup>
@@ -64,7 +65,8 @@ UICalculatorWidget.prototype.padNum = function(obj) {
 //		this.Result = Math.pow(this.CurrentValue,2);
 //		eXo.widget.web.calculator.UICalculatorWidget.resetValue(mdViewBox,this.Result);
 		this.CurrentValue = Math.pow(this.CurrentValue,2) ;
-		mdViewBox.innerHTML = this.CurrentValue ;		
+		mdViewBox.innerHTML = this.CurrentValue ;
+		this.Done = 1;		
 	}
 	
 	// key's '1/x'
@@ -72,7 +74,8 @@ UICalculatorWidget.prototype.padNum = function(obj) {
 		//this.Result = eval('1/' + this.CurrentValue) ;
 		//eXo.widget.web.calculator.UICalculatorWidget.resetValue(mdViewBox,this.Result);
 		this.CurrentValue = eval('1/' + this.CurrentValue) ;
-		mdViewBox.innerHTML = this.CurrentValue ;	
+		mdViewBox.innerHTML = this.CurrentValue ;
+		this.Done = 1;	
 	}
 	
 	// key's '*' - ':' - '+' - '-'
@@ -105,6 +108,7 @@ UICalculatorWidget.prototype.padNum = function(obj) {
 	if(numValue=='%') {
 		this.CurrentValue = this.Result * this.CurrentValue / 100 ;
 		mdViewBox.innerHTML = this.CurrentValue ;
+		this.Done = 1;
 	}
 }
 
