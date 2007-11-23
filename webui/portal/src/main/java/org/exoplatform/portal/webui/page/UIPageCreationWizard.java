@@ -144,8 +144,6 @@ public class UIPageCreationWizard extends UIPageWizard {
   static  public class ViewStep3ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
-      UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
-      UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
       WebuiRequestContext context = Util.getPortalRequestContext() ;
       uiWizard.viewStep(3);
@@ -157,6 +155,8 @@ public class UIPageCreationWizard extends UIPageWizard {
         return ;
       }
       
+      UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
+      UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
       uiWizard.setDescriptionWizard();
       uiWizard.updateWizardComponent();      
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
@@ -192,13 +192,6 @@ public class UIPageCreationWizard extends UIPageWizard {
         return ;
       }
 
-      UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);      
-      uiExoStart.setUIControlWSWorkingComponent(UIWizardPageCreationBar.class);
-      UIWizardPageCreationBar uiCreationBar = uiExoStart.getUIControlWSWorkingComponent();
-
-      UIPageEditBar uiPageEditBar = uiCreationBar.getChild(UIPageEditBar.class);
-      UIWizardPageCreationBar uiParent = uiPageEditBar.getParent();
-      
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);        
       
@@ -251,6 +244,12 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       uiWizard.updateWizardComponent();
       Class<?> [] childrenToRender = {UIPageEditBar.class, UIPortletOptions.class}; 
+      UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);      
+      uiExoStart.setUIControlWSWorkingComponent(UIWizardPageCreationBar.class);
+      UIWizardPageCreationBar uiCreationBar = uiExoStart.getUIControlWSWorkingComponent();
+
+      UIPageEditBar uiPageEditBar = uiCreationBar.getChild(UIPageEditBar.class);
+      UIWizardPageCreationBar uiParent = uiPageEditBar.getParent();
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
       uiPageEditBar.setUIPage(uiPage);      
       uiPageTemplateOptions.setSelectedOption(null);

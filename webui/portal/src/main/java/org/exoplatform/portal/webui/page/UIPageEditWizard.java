@@ -184,15 +184,16 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
       PageNode pageNode = uiPageInfo.getPageNode();
       
-      Page page = null;
       Page templatePage = uiPageTemplateOptions.getSelectedOption();
       DataStorage configService = uiWizard.getApplicationComponent(DataStorage.class);
-      page = configService.getPage(pageNode.getPageReference());
+      Page page = configService.getPage(pageNode.getPageReference());
       boolean isDesktopPage = false;
       if(templatePage != null ) {
         templatePage.setName(page.getName());
         templatePage.setOwnerType(page.getOwnerType());
         templatePage.setOwnerId(page.getOwnerId());
+        templatePage.setAccessPermissions(page.getAccessPermissions()) ;
+        templatePage.setEditPermission(page.getEditPermission()) ;
         page  = templatePage;
         isDesktopPage = Page.DESKTOP_PAGE.equals(page.getFactoryId());
         if(isDesktopPage) {
