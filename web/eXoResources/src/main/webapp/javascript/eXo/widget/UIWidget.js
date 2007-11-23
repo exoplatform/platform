@@ -49,21 +49,23 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
 	var uiWidgetContainer = DOMUtil.findAncestorByClass(selectedElement, "UIWidgetContainer") ;
 	var uiPage = DOMUtil.findAncestorByClass(selectedElement, "UIPage") ;
 	var uiWidget = DOMUtil.findAncestorByClass(selectedElement, "UIWidget") ;
-	
 	var containerBlockId ;
 	if(uiPage) {
 		var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
 		containerBlockId = uiPageIdNode.innerHTML;
+		
 	}
 	else {
 		containerBlockId = uiWidgetContainer.id ;
 	}
-	
 	var params = [
   	{name: "objectId", value : uiWidget.id}
   ] ;
 	if (confirm("Are you sure you want to delete this widget ?")) {
-		ajaxGet(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params)) ;			
+		ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params), false) ;
+		// TODO dang.tung - tungcnw@gmail.com
+		// have to check the reponse by server when widgets don't remove from database (future but now: ok).
+		DOMUtil.removeTemporaryElement(uiWidget) ;
 	}	
 };
 /*
