@@ -139,22 +139,30 @@ public class JCRRegistryService implements Startable{
    */
   public void createUserHome(String username, boolean overwrite) throws Exception {
     Session session = getSession();
-    Node usersNode = session.getRootNode().getNode("users");
-    Node userNode = null;
+   // Node usersNode = session.getRootNode().getNode("users");
+    
+    Node registryNode ;
+    if(session.getRootNode().hasNode("users/" + username + "/exo:registry")) {
+    	registryNode = session.getRootNode().getNode("users/" + username + "/exo:registry") ;
+    	if(!registryNode.hasNode("exo:services")) registryNode.addNode("exo:services") ;
+    	if(!registryNode.hasNode("exo:applications")) registryNode.addNode("exo:applications") ;
+    }else {
+    	registryNode = session.getRootNode().addNode("users/" + username + "/exo:registry") ;
+    	registryNode.addNode("exo:services") ;
+    	registryNode.addNode("exo:applications") ;
+    }
+    /*Node userNode = null;
     if(usersNode.hasNode(username)){
       if(!overwrite){
         session.logout();
         return;
       }
-      usersNode.getNode(username).remove();
-      usersNode.save();
+    	userNode = usersNode.getNode(username);
+      //usersNode.save();
+    }else {
+    	userNode =usersNode.addNode(username);
     } 
-    userNode =usersNode.addNode(username);
-   
-    Node registryNode = userNode.addNode("exo:registry");
-    registryNode.addNode("exo:services");
-    registryNode.addNode("exo:applications");
-    usersNode.save();
+    usersNode.save();*/
     session.save();
     session.logout();
   }
@@ -174,6 +182,7 @@ public class JCRRegistryService implements Startable{
   public void createServiceRegistry(String username, ServiceRegistry desc, boolean overwrite) throws Exception {
     desc.preAction(this) ;
     Session session = getSession();
+    createUserHome(username, false) ;
     Node servicesNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:services");
     if(servicesNode.hasNode(desc.getName())){
       if(!overwrite){
@@ -204,6 +213,7 @@ public class JCRRegistryService implements Startable{
    */
   public void createApplicationRegistry(String username, ApplicationRegistry desc, boolean overwrite) throws Exception {
     desc.preAction(null) ;
+    createUserHome(username, false) ;
     Session session = repositoryService_.getDefaultRepository().getSystemSession(WORKSPACE);
     Node appsNode = session.getRootNode().getNode("users/" +username +"/exo:registry/exo:applications");
     if( appsNode.hasNode(desc.getName())){
