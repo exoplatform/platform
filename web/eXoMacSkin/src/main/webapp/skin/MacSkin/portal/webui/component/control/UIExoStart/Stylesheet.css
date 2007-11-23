@@ -178,6 +178,7 @@
 .UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer {
   background: #f5f4ff ;
   border: 1px solid #b2b2b2;
+  width: 100%;
 }
 
 .UIExoStart .StartMenuContainer .StartMenuContent {

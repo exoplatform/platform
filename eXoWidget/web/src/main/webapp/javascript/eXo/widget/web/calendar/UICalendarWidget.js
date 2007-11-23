@@ -22,7 +22,7 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
 	table += 		'	<div class="TLCalendar">' ;
 	table += 		'		<div class="TRCalendar">' ;
 	table += 		'			<div class="TMCalendar">' ;
-	table += 		'				<div class="BGCalendar"><span></span></div>' ;
+	table += 		'				<div class="BGTopCalendar"><span></span></div>' ;
 	table += 		'			</div>' ;
 	table += 		'		</div>' ;
 	table += 		'	</div>' ;	
@@ -86,7 +86,7 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
 	table += 		'	<div class="BLCalendar">' ;
 	table += 		'		<div class="BRCalendar">' ;
 	table += 		'			<div class="BMCalendar">' ;
-	table += 		'				<div class="BGCalendar"><span></span></div>' ;
+	table += 		'				<div class="BGBottomCalendar"><span></span></div>' ;
 	table += 		'			</div>' ;
 	table += 		'		</div>' ;
 	table += 		'	</div>' ;

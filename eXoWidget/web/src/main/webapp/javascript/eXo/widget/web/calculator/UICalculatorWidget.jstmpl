@@ -2,7 +2,7 @@
 	<div class="TLCalculator">
 		<div class="TRCalculator">
 			<div class="TMCalculator">
-				<div class="BGCalculator"><span></span></div>
+				<div class="BGTopCalculator"><span></span></div>
 			</div>
 		</div>
 	</div>
@@ -20,7 +20,6 @@
 						</div>
 					</div>
 				</div>
-				<div class="Line"><span></span></div>
 				<div class="ButtonContainer">
 						<div>
 							<a href="#" class="NormalButton" onclick="eXo.widget.web.calculator.UICalculatorWidget.padNum(this);">BS</a>
@@ -69,7 +68,7 @@
 	<div class="BLCalculator">
 		<div class="BRCalculator">
 			<div class="BMCalculator">
-				<div class="BGCalculator"><span></span></div>
+				<div class="BGBottomCalculator"><span></span></div>
 			</div>
 		</div>
 	</div>

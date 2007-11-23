@@ -228,6 +228,7 @@
   background: white url('background/AddApplicationrBG1x20.gif') repeat-x top;
   background-position: 0px 23px;
   border: solid 1px #b7b7b7 ;
+  width: 100%;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {

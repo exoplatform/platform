@@ -125,9 +125,6 @@
   color: #058ee6 ;
 }
 
-.UIExoStart .StartMenuContainer .LoginContainer {
-}
-
 .UIExoStart .StartMenuContainer .LogoutIcon {
   height: 33px ;  
   background: url('icons/LogoutIcon.gif') no-repeat left ;
@@ -202,7 +199,6 @@
   padding: 2px 4px;
 }
 
-
 .UIExoStart .StartMenuContainer .DecoratorBlock {
 	 border: 1px solid #d0d0d0;
 }
@@ -210,6 +206,7 @@
 .UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer{
   background: #f5f4ff ;
   padding-bottom: 5px;
+	width: 100%;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
