@@ -187,7 +187,7 @@ public class UIPageActionListener {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.setFullRender(true);
+      pcontext.setFullRender(false);
     }
   }
   
