@@ -136,26 +136,27 @@
   height: 18px;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
+  cursor:pointer;
 }
 
 .UICalendar .MonthYearBox a.NextYear {
-  background: url('/eXoWidget/web/src/main/webapp/skin/calculator/DefaultSkin/background/NextYear.gif') no-repeat center center;
+  background: url('DefaultSkin/background/NextYear.gif') no-repeat center center;
   width: 20px;  height: 17px;
 }
 
 .UICalendar .MonthYearBox a:hover.NextYear {
-  background: url('/eXoWidget/web/src/main/webapp/skin/calculator/DefaultSkin/background/NextYear.gif') no-repeat center center;
+  background: url('DefaultSkin/background/NextYear.gif') no-repeat center center;
   width: 20px;  height: 17px;
 }
 
 
 .UICalendar .MonthYearBox a.PreviousYear {
-  background: url('/eXoWidget/web/src/main/webapp/skin/calculator/DefaultSkin/background/PreviousYear.gif') no-repeat center center;
+  background: url('DefaultSkin/background/PreviousYear.gif') no-repeat center center;
   width: 20px;  height: 19px;
 }
 
 .UICalendar .MonthYearBox a:hover.PreviousYear {
-  background: url('/eXoWidget/web/src/main/webapp/skin/calculator/DefaultSkin/background/PreviousYear.gif') no-repeat center center;
+  background: url('DefaultSkin/background/PreviousYear.gif') no-repeat center center;
   width: 20px;  height: 19px;
 }
 
@@ -190,19 +191,19 @@
 
 .UICalendar .CalendarTimeBox {
   width: 130px; margin: 5px auto;
-  background: url('/eXoWidget/web/src/main/webapp/skin/calculator/DefaultSkin/background/CalendarDecoratorL.gif') no-repeat left;
+  background: url('DefaultSkin/background/CalendarDecoratorL.gif') no-repeat left;
   padding-left: 9px;
 }
 
 .UICalendar .CalendarTimeBoxR {
-  background: url('/eXoWidget/web/src/main/webapp/skin/calculator/DefaultSkin/background/CalendarDecoratorR.gif') no-repeat right;
+  background: url('DefaultSkin/background/CalendarDecoratorR.gif') no-repeat right;
   padding-right: 9px;
 }
 
 .UICalendar .CalendarTimeBoxM {
   line-height: 21px;
   height: 21px;
-  background: url('/eXoWidget/web/src/main/webapp/skin/calculator/DefaultSkin/background/CalendarDecoratorM.gif');
+  background: url('DefaultSkin/background/CalendarDecoratorM.gif');
   vertical-align: bottom;
 }
 

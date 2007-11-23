@@ -1,1 +1,1 @@
-<%= eXo.widget.web.calendar.UICalendarWidget.renderCalendar(context.appId) %>
+<%= eXo.widget.web.calendar.UICalendarWidget.show(context.appId) %>

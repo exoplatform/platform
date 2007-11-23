@@ -7,15 +7,26 @@ function UICalendarWidget() {
 	this.init("UICalendarWidget", "calendar");
 	this.months = ['January','February','March','April','May','June','July','August','September','October','November','December'] ;
 	this.currentDate = new Date();
+	this.currentDates = new Array();
+}
+
+UICalendarWidget.prototype.show = function(appId) {
+	return this.renderCalendar(appId);
 }
 
 UICalendarWidget.prototype.renderCalendar = function(appId) {
   var dayOfMonth = 1 ;
   var validDay = 0 ;
-  var startDayOfWeek = this.getDayOfWeek(this.currentDate.getFullYear(), this.currentDate.getMonth() + 1, dayOfMonth) ;
-  var daysInMonth = this.getDaysInMonth(this.currentDate.getFullYear(), this.currentDate.getMonth()) ;
+  
+  if(this.currentDates[appId] == null) {
+  	this.currentDates[appId] = new Date();
+  }
+  
+  var cDate = this.currentDates[appId];
+  var startDayOfWeek = this.getDayOfWeek(cDate.getFullYear(), cDate.getMonth() + 1, dayOfMonth) ;
+  var daysInMonth = this.getDaysInMonth(cDate.getFullYear(), cDate.getMonth()) ;
   var clazz = null;
-  var today = new Date();
+  var today = new Date(); 
 
 	var table = '<div class="UICalendar">' ;
 	
@@ -35,7 +46,7 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
 	table += 		'		  			<tr>' ;
 	table += 		'							<td class="MonthButton"><a class="PreviousMonth" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeMonth(-1,\'' + appId + '\');"></a></td>' ;
 	table += 		'							<td class="YearButton"><a class="PreviousYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(-1,\'' + appId + '\');"></a></td>' ;
-	table += 		'							<td class="Time" onclick="eXo.widget.web.calendar.UICalendarWidget.goToday(\'' + appId + '\');"><font color="#f89302">' + this.months[this.currentDate.getMonth()] + '</font> - ' + this.currentDate.getFullYear() + '</td>' ;
+	table += 		'							<td class="Time" onclick="eXo.widget.web.calendar.UICalendarWidget.goToday(\'' + appId + '\');"><font color="#f89302">' + this.months[cDate.getMonth()] + '</font> - ' + cDate.getFullYear() + '</td>' ;
 	table += 		'							<td class="YearButton"><a class="NextYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(1,\'' + appId + '\');"></a></td>' ;
 	table += 		'							<td class="MonthButton"><a class="NextMonth" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeMonth(1,\'' + appId + '\');"></a></td>' ;
 	table += 		'						</tr>' ;
@@ -60,7 +71,7 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
       }
 
       if (validDay) {
-      	if ((today.getDate() == dayOfMonth) && (today.getMonth() == this.currentDate.getMonth()) && (today.getFullYear() == this.currentDate.getFullYear())) {
+      	if ((today.getDate() == dayOfMonth) && (today.getMonth() == cDate.getMonth()) && (today.getFullYear() == cDate.getFullYear())) {
           clazz = 'Current';
         } else if (dayOfWeek == 0 || dayOfWeek == 6) {
           clazz = 'Weekend';
@@ -93,25 +104,25 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
 	
 	table += 		'</div>' ;
 	
+	this.currentDates[appId] = cDate;
+	
 	return table ;
 }
 
 UICalendarWidget.prototype.goToday = function(appId) {
-	var today = new Date();
-	this.currentDate.setMonth(today.getMonth());
-	this.currentDate.setFullYear(today.getFullYear());
+		this.currentDates[appId] = new Date();
 	var clndr = document.getElementById(appId) ;
 	clndr.lastChild.innerHTML = this.renderCalendar(appId);
 }
 
 UICalendarWidget.prototype.changeMonth = function(change, appId) {	
-	this.currentDate.setMonth(this.currentDate.getMonth() + change) ;
+	this.currentDates[appId].setMonth(this.currentDates[appId].getMonth() + change) ;
   var clndr = document.getElementById(appId) ;
 	clndr.lastChild.innerHTML = this.renderCalendar(appId) ;
 }
 
 UICalendarWidget.prototype.changeYear = function(change, appId) {
-  this.currentDate.setFullYear(this.currentDate.getFullYear() + change) ;
+  this.currentDates[appId].setFullYear(this.currentDates[appId].getFullYear() + change) ;
   this.currentDay = 0 ;
   var clndr = document.getElementById(appId) ;
   clndr.lastChild.innerHTML = this.renderCalendar(appId) ;
