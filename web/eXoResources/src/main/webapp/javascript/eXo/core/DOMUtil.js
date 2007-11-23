@@ -341,9 +341,9 @@ DOMUtil.prototype.listHideElements = function(object) {
 /**
  * Removes element node from the DOM tree
  */
-DOMUtil.prototype.removeTemporaryElement = function(element) {
-	var parentElement = element.parentNode ;
-	parentElement.removeChild(element) ;
+DOMUtil.prototype.removeElement = function(elemt) {
+	var parentElement = elemt.parentNode ;
+	parentElement.removeChild(elemt) ;
 } ;
 
 /****************************************************************************/

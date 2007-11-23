@@ -89,13 +89,9 @@ UIExoWidget.prototype.initApplication = function(applicationId, instanceId) {
 	var appElement = appInstance.applicationDescriptor.widget.uiWidget.temporaty;
 	
 	var uiPageDesktop = DOMUtil.findAncestorByClass(appElement, "UIPageDesktop") ;
-	if(uiPageDesktop == null) {
-		eXo.widget.UIAddWidget.addWidget(appInstance);
-		DOMUtil.removeTemporaryElement(appElement);
-	} else {
-		eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance) ;
-		DOMUtil.removeTemporaryElement(appElement) ;
-	}
+	if(uiPageDesktop == null) eXo.widget.UIAddWidget.addWidget(appInstance);
+	else	eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance) ;
+	DOMUtil.removeElement(appElement);
 };
 
 

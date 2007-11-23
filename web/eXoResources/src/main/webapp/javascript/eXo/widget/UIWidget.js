@@ -65,7 +65,7 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
 		ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params), false) ;
 		// TODO dang.tung - tungcnw@gmail.com
 		// have to check the reponse by server when widgets don't remove from database (future but now: ok).
-		DOMUtil.removeTemporaryElement(uiWidget) ;
+		DOMUtil.removeElement(uiWidget) ;
 	}	
 };
 /*
