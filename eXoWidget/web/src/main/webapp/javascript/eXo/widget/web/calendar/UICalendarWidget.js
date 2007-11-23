@@ -45,9 +45,11 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
 	table += 		'					<table class="MonthYearBox">' ;
 	table += 		'		  			<tr>' ;
 	table += 		'							<td class="MonthButton"><a class="PreviousMonth" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeMonth(-1,\'' + appId + '\');"></a></td>' ;
-	table += 		'							<td class="YearButton"><a class="PreviousYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(-1,\'' + appId + '\');"></a></td>' ;
-	table += 		'							<td class="Time" onclick="eXo.widget.web.calendar.UICalendarWidget.goToday(\'' + appId + '\');"><font color="#f89302">' + this.months[cDate.getMonth()] + '</font> - ' + cDate.getFullYear() + '</td>' ;
-	table += 		'							<td class="YearButton"><a class="NextYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(1,\'' + appId + '\');"></a></td>' ;
+	table += 		'		  				<td>' ;
+	table += 		'								<div class="YearButton"><a class="PreviousYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(-1,\'' + appId + '\');"></a></div>' ;
+	table += 		'								<div class="Time" onclick="eXo.widget.web.calendar.UICalendarWidget.goToday(\'' + appId + '\');"><font color="#f89302">' + this.months[cDate.getMonth()] + '</font> - ' + cDate.getFullYear() +'</div>' ;
+	table += 		'								<div class="YearButton"><a class="NextYear" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeYear(1,\'' + appId + '\');"></a></div>' ;
+	table += 		'							</td>' ;
 	table += 		'							<td class="MonthButton"><a class="NextMonth" href="javascript:eXo.widget.web.calendar.UICalendarWidget.changeMonth(1,\'' + appId + '\');"></a></td>' ;
 	table += 		'						</tr>' ;
 	table += 		'					</table>' ;
@@ -59,7 +61,7 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
 	table += 		'						</table>' ;
 	table += 		'					</div>' ;
 	table += 		'					<div class="CalendarGrid">' ;
-	table += 		'						<table>' ;	
+	table += 		'						<table border="1" bordercolor=white>' ;	
 	
   for (var week=0; week < 6; week++) {
     table += "<tr>";

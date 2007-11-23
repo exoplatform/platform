@@ -80,10 +80,11 @@
 }
 
 .BlockCalendar {
-	background: #aac3fb url('/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIWidgets/background/WidgetDragArea2x2.gif') repeat scroll;
+	background: #aac3fb url('DefaultSkin/background/WidgetDragArea2x2.gif') repeat scroll;
 	padding-top: 12px;
 	cursor: move;
 	-moz-user-select: none;
+	border: 1px solid red;
 }
 
 .UICalendar table {
@@ -125,15 +126,18 @@
 }
 
 .UICalendar .MonthYearBox .YearButton {
-  width: 18px;
   background: white;
+  float: left;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
 }
 
 .UICalendar .MonthYearBox .Time {
   background: white;
-  height: 18px;
+  float: left;
+  width: 111px;
+  height: 19px;
+  line-height: 19px;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
   cursor:pointer;
@@ -141,23 +145,21 @@
 
 .UICalendar .MonthYearBox a.NextYear {
   background: url('DefaultSkin/background/NextYear.gif') no-repeat center center;
-  width: 20px;  height: 17px;
+  width: 20px;  height: 19px;
 }
 
 .UICalendar .MonthYearBox a:hover.NextYear {
   background: url('DefaultSkin/background/NextYear.gif') no-repeat center center;
-  width: 20px;  height: 17px;
 }
 
 
 .UICalendar .MonthYearBox a.PreviousYear {
   background: url('DefaultSkin/background/PreviousYear.gif') no-repeat center center;
-  width: 20px;  height: 19px;
+  width: 20px; height: 19px;
 }
 
 .UICalendar .MonthYearBox a:hover.PreviousYear {
   background: url('DefaultSkin/background/PreviousYear.gif') no-repeat center center;
-  width: 20px;  height: 19px;
 }
 
 .UICalendar .MonthYearBox .YearButton a:hover {

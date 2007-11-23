@@ -9,11 +9,6 @@
 	cursor: pointer;
 }
 
-.UIWidgets .ItemSelectorContainer .UIDropDownItemSelector{
-	width: 208px;
-	float: left;
-}
-
 .UIWidgets .ItemSelectorContainer .UIDropDownControl{
 	width: 208px;
 	float: left;
@@ -22,11 +17,6 @@
 .UIWidgets .ItemSelectorContainer .UIDropDownControl .UIDropDownRightTitle {
 		background: none;
 		padding-right: 0px;
-}
-
-.UIWidgets .ItemSelectorContainer .UIDropDownItemSelector .RightItemInfoBar{
-	background: none;
-	padding-right: 0px;
 }
 
 .UIWidgets .UIDropDownItemSelector .ComponentIcon {
