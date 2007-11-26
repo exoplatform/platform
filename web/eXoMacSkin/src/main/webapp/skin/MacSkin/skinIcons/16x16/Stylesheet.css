@@ -472,6 +472,65 @@
   width: 16px ; height: 16px ;
   background: url('icons/NormalGroup.png') no-repeat ;
 }
+
+/********************* Icon PortletIcon************************************/
+
+.PortletIcon {
+  background: url('icons/DefaultPortletIcon.png') no-repeat center;	
+}
+
+.Organization {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
+}
+
+.Fast {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat center;
+}
+
+.Account {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserAccount.gif') no-repeat center;
+}
+
+.Registry-Portlet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/RegistryPortlet.gif') no-repeat center;
+}
+
+.Site {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SiteMap.gif') no-repeat center;
+}
+
+.Login {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Key.gif') no-repeat center;
+}
+
+.Mail {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Email.gif') no-repeat center;
+}
+
+.Forum {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ForumIcon.gif') no-repeat center;
+}
+
+.ECMAdminIcon {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ECMAdmin.gif') no-repeat center;
+}
+
+.ExplorerIcon{
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/JCRExplorer.gif') no-repeat center;
+}
+
+.Dialog{
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DialogIcon.gif') no-repeat center;
+}
+
+.Browse{
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BrowseContent.gif') no-repeat center;
+}
+
+.Workflow{
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/WorkflowIcon.gif') no-repeat center;
+}
+
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
 
 /*===========================Misc Icons Stylesheet=======================*/

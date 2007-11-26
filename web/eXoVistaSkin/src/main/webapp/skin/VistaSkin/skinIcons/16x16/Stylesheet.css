@@ -492,14 +492,12 @@
 	background: url('icons/GreenPlusDatabox.gif') no-repeat ;
 }
 
-/* TODO: Change image'name to "BlueShapeLeftArrow" */
 .BlueBackArrow16x16Icon {
 	width: 16px ;	height: 16px ;
   background: url('icons/BlueBackArrow.gif') no-repeat ;
   cursor: pointer;
 }
 
-/* TODO: Change image'name to "BlueShapeRightArrow" */
 .BlueNextArrow16x16Icon {
 	width: 16px ;	height: 16px ;
   background: url('icons/BlueNextArrow.gif') no-repeat ;
@@ -583,7 +581,6 @@
   background: url('icons/TreeNodeIcon.gif') no-repeat ;
 }
 
-/*Need to be changed to S1*/
 .CyanDownArrow16x16Icon {
   width: 16px ;  height: 16px ;  
   background: url('icons/CyanDownArrow.gif') no-repeat ;
@@ -743,6 +740,61 @@
 .ArrowS1Up16x16Icon {
   width: 16px ; height: 16px ;
   background: url('icons/WhiteArrowUp.gif') no-repeat ;
+}
+
+/********************* Icon PortletIcon ******************************/
+
+.PortletIcon {
+  background: url('icons/DefaultPortletIcon.png') no-repeat center;
+}
+
+.OrganizationPortletIcon {
+  background: url('icons/AddNodeIcon.gif') no-repeat center;
+}
+
+.Account {
+  background: url('icons/UserAccount.gif') no-repeat center;
+}
+
+.Registry-Portlet {
+  background: url('icons/RegistryPortlet.gif') no-repeat center;
+}
+
+.Site {
+  background: url('icons/SiteMap.gif') no-repeat center;
+}
+
+.Login {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Key.gif') no-repeat center;
+}
+
+.Mail {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Mail.gif') no-repeat center;
+}
+
+.Forum {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ForumIcon.gif') no-repeat center;
+}
+
+
+.ECMAdminIcon {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ECMAdmin.gif') no-repeat center;
+}
+
+.ExplorerIcon {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/JCRExplorer.gif') no-repeat center;
+}
+
+.Dialog {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DialogIcon.gif') no-repeat center;
+}
+
+.Browse{
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BrowseContent.gif') no-repeat center;
+}
+
+.Workflow{
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/WorkflowIcon.gif') no-repeat center;
 }
 
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/

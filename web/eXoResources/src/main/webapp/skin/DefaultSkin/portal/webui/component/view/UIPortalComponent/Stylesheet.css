@@ -6,22 +6,6 @@
   margin: 0px 0px -1px 3px;
 }
 
-.UIPortlet .CONTROL-PORTLET .Content {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/RSS.gif') no-repeat center;
-}
-
-.UIPortlet .CONTROL-PORTLET .Account {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserAccount.gif') no-repeat center;
-}
-
-.UIPortlet .CONTROL-PORTLET .Registry-Portlet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/RegistryPortlet.gif') no-repeat center;
-}
-
-.UIPortlet .CONTROL-PORTLET .Site {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SiteMap.gif') no-repeat center;
-}
-
 .UIPortlet .CONTROL-PORTLET .Login {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Key.gif') no-repeat center;
 }
@@ -105,10 +89,6 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Restore.gif') no-repeat ;
   margin: 3px 10px 0px 0px ;
   cursor: pointer ;
-}
-
-.UIPortlet .PortletIcon{
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPortletIcon.gif') no-repeat;
 }
 
 /*##############################- PortletLayoutDecorator  -################################*/

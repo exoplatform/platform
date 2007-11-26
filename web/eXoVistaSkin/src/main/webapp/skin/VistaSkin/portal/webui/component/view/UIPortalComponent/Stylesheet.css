@@ -166,11 +166,6 @@
   display: none;
 }
 
-.UIPortlet .PortletIcon {
-  margin: auto;
-  width: 20px; height:20px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
-}
 /*##############################- PortletLayoutDecorator  -################################*/
 .PortletLayoutDecorator {
 	width: 99.5%;

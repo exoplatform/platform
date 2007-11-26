@@ -88,7 +88,7 @@
 
 .UIPageBody .UIPortalWarning .LeftMiddleWarning {
   background: white url('/eXoResources/skin/sharedImages/LeftMiddleWarning7x1.gif') repeat-y left;	
-  padding-left: 7px; 
+  padding-left: 7px;
 }
 
 .UIPageBody .UIPortalWarning .RightMiddleWarning {
@@ -119,61 +119,3 @@
   background: url('/eXoResources/skin/sharedImages/CenterBottomWarning1x7.gif') repeat-x center;	
   height: 7px;
 }
-
-
-/********************* Icon InfoBar ************************************/
-.UIWindow .OrganizationPortletIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/AddNodeIcon.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .Content {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/RSS.gif') no-repeat center;
-  width: 26px; height:16px;
-}
-
-.UIWindow .WindowPortletInfo .Account {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/UserAccount.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .Registry-Portlet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/RegistryPortlet.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .Site {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/SiteMap.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .Login {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Key.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .Mail {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Mail.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .Forum {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ForumIcon.gif') no-repeat center;
-}
-
-
-.UIWindow .WindowPortletInfo .ECMAdminIcon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ECMAdmin.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .ExplorerIcon{
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/JCRExplorer.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .Dialog{
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DialogIcon.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .Browse{
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BrowseContent.gif') no-repeat center;
-}
-
-.UIWindow .WindowPortletInfo .Workflow{
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/WorkflowIcon.gif') no-repeat center;
-}
-/********************* End Icon InfoBar ************************************/
-

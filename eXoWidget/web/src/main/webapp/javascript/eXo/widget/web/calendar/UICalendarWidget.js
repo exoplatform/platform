@@ -28,7 +28,7 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
   var clazz = null;
   var today = new Date(); 
 
-	var table = '<div class="UICalendar">' ;
+	var table = '<div class="UICalendarWidget">' ;
 	
 	table += 		'	<div class="TLCalendar">' ;
 	table += 		'		<div class="TRCalendar">' ;
