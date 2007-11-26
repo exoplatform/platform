@@ -229,6 +229,7 @@ PortalDragDrop.prototype.init = function(e) {
 			}
 //      dndEvent.foundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
 //      eXo.portal.PortalDragDrop.doDropCallback(dndEvent) ;
+			eXo.portal.PortalDragDrop.removeNullPreview();
     }
   }
   
@@ -396,6 +397,7 @@ PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComp
 };
 
 PortalDragDrop.prototype.createPreview = function(layoutType) {
+
   var previewBlock = document.createElement("div") ;
   var components = eXo.core.DragDrop.dndEvent.foundTargetObject.listComponentInTarget ;
   
@@ -427,6 +429,13 @@ PortalDragDrop.prototype.createPreview = function(layoutType) {
   return previewBlock ;
 };
 
+PortalDragDrop.prototype.removeNullPreview = function() {
+	var dropObject = document.getElementById("DragAndDropPreview") ;
+	if (dropObject && dropObject.innerHTML == "") {
+		dropObject.parentNode.removeChild(dropObject);
+	}
+}
+
 PortalDragDrop.prototype.undoPreview = function(dndEvent) {
 	var DOMUtil = eXo.core.DOMUtil ;
   var uiComponentLayout ;
@@ -443,10 +452,8 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
   var componentIdElement = DOMUtil.getChildrenByTagName(uiComponentLayout ,"div")[0] ;
   var layoutTypeElement = DOMUtil.getChildrenByTagName(componentIdElement ,"div")[0] ;
   
-//  var uiComponent = new eXo.portal.UIPortalComponent(dndEvent.lastFoundTargetObject) ;
-//  var uiComponentLayout = uiComponent.getLayoutBlock() ;
-
   var dropHere = document.getElementById("DragAndDropPreview") ;
+
   var dragObject = dndEvent.dragObject ;
 	
   if(dropHere != null) {
