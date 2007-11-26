@@ -28,7 +28,7 @@ import org.w3c.dom.Node;
  */
 public class DataMapper {
   
-  final static public String DATA_ELEMENT = "data" ;
+  final static private String DATA_ELEMENT = "data" ;
   
   final static public String EXO_ID = "exo:id" ;
   final static public String EXO_NAME = "exo:name" ;
@@ -116,6 +116,11 @@ public class DataMapper {
     return fromXML(data, PortletPreferences.class) ;
   }
   
+  public <T> T fromDocument(Document doc, Class<T> clazz) throws Exception {
+    String data = getDataValue(doc, DATA_ELEMENT) ;
+    return fromXML(data, clazz) ;
+  }
+  
   //------------------------------Util function-----------------------------------//
   
   private void prepareXmlNamespace(Element element) {
@@ -140,7 +145,7 @@ public class DataMapper {
     return dataElement.getFirstChild().getNodeValue() ;
   }
   
-  Element createDataElement(Document doc, String name) {
+  private Element createDataElement(Document doc, String name) {
     Element ele = (Element) doc.getElementsByTagName(name).item(0) ;
     if(ele == null) {
       ele = doc.createElement(name) ;
@@ -158,7 +163,7 @@ public class DataMapper {
     return new String(os.toByteArray(), "UTF-8");
   }
   
-  <T> T fromXML(String xml, Class<T> clazz) throws Exception {
+  private <T> T fromXML(String xml, Class<T> clazz) throws Exception {
     ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes("UTF-8")) ;
     IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;

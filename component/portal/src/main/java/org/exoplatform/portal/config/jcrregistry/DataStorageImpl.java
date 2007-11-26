@@ -316,8 +316,7 @@ public class DataStorageImpl implements DataStorage, Startable {
       Node node = itr.nextNode() ;
       String entryPath = node.getPath().substring(registryNodePath.length() + 1) ;
       RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
-      String xml = mapper_.getDataValue(entry.getDocument(), DataMapper.DATA_ELEMENT) ;
-      list.add(mapper_.fromXML(xml, q.getClassType())) ;
+      list.add(mapper_.fromDocument(entry.getDocument(), q.getClassType())) ;
     }
     sessionProvider.close() ;
     if(sortComparator != null) Collections.sort(list, sortComparator) ;
