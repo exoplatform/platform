@@ -47,12 +47,17 @@
 				          <div class="DragControlArea" title="<%=_ctx.appRes("UIPortlet.tooltip.DragControl");%>"><span></span></div>
 				          <% 
 				            String portletIcon = uicomponent.getIcon();
-				            if(portletIcon == null) portletIcon = portletTitle + "Icon";
+				            
+				            String[] arrayWindowId = uicomponent.getWindowId().split("/");
+				            String portletName = arrayWindowId[arrayWindowId.length-2] ;
+				    				String defaultIcon = portletName.substring(0, portletName.lastIndexOf("Portlet")) ;
+				            if(portletIcon == null) portletIcon = defaultIcon;
+				            
 				            String title = portletTitle;
 				            if(uicomponent.getId() !=null) title = uicomponent.getId() ;
 				            if(uicomponent.getTitle() !=null) title = uicomponent.getTitle() ;
 				          %>
-				          <div class="Icon $portletIcon NovaPortletIcon"><span></span></div>
+				          <div class="Icon $portletIcon WindowPortletIcon NovaPortletIcon"><span></span></div>
 		              <div class="Title">$title</div>
 			            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.deletePortlet");%>"><span></span></a>
 			            <a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.editPortlet");%>"><span></span></a>
@@ -233,12 +238,14 @@
 		            </div>
 		            <div class="WindowPortletInfo">
 		            	<%
-		            		String iconType = uicomponent.getIcon();
-		            		if(iconType == null) {
-		            			iconType = title + "Icon";
-		            		}
+		            		/*Modify: dang.tung - fixed icon themes*/
+		            		String portletIcon = uicomponent.getIcon();
+				            String[] arrayWindowId = uicomponent.getWindowId().split("/");
+				            String portletName = arrayWindowId[arrayWindowId.length-2] ;
+				    				String defaultIcon = portletName.substring(0, portletName.lastIndexOf("Portlet")) ;
+				            if(portletIcon == null) portletIcon = defaultIcon;
 		            	%>
-		              <div class="Icon ${iconType} NovaPortletIcon"><span></span></div>
+		              <div class="Icon $portletIcon WindowPortletIcon NovaPortletIcon"><span></span></div>
 		              <div class="PortletName">$title</div>
 		              <div style="clear: left"><span></span></div>
 		            </div>

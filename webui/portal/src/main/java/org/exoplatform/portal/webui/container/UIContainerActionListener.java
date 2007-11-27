@@ -6,6 +6,7 @@ package org.exoplatform.portal.webui.container;
 
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
@@ -58,6 +59,8 @@ public class UIContainerActionListener {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID) ;
       UIContainer uiWidgetContainer = event.getSource();
       
+      //PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      
       List<UIComponent> children = uiWidgetContainer.getChildren();
       for(UIComponent uiChild : children) {
         UIWidget uiWidget = (UIWidget) uiChild ;
@@ -76,6 +79,7 @@ public class UIContainerActionListener {
       
       UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
+      event.getRequestContext().setResponseComplete(true) ;
     }
   }
   

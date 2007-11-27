@@ -188,6 +188,8 @@ public class UIPageActionListener {
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setFullRender(false);
+      pcontext.setResponseComplete(true) ;
+      
     }
   }
   
