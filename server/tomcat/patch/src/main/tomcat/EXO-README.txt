@@ -27,11 +27,11 @@ soon as we switch to Derby (very soon, hopefully :-) ).
  * Enter one of the following addresses into your browser address bar:
    
     http://localhost:8080/portal
-    http://localhost:8080/portal/public/site:/
-    http://localhost:8080/portal/public/webos:/
+    http://localhost:8080/portal/public/classic
+    http://localhost:8080/portal/public/webos
 
 
- You can log into the portal with the following accounts: exo, exoadmin, company, community. 
+ You can log into the portal with the following accounts: root, john, marry, demo. 
  All those accounts have the default password "exo".
 
 For more documentation and latest updated news, please visit our website www.exoplatform.com.
