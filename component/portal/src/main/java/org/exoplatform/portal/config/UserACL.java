@@ -38,9 +38,9 @@ public class UserACL {
     if(superUserParam != null) superUser_ = superUserParam.getValue();
     if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "exoadmin";
     
-    ValueParam guestGroupParam = params.getValueParam("guest.group") ;
+    ValueParam guestGroupParam = params.getValueParam("guests.group") ;
     if(guestGroupParam != null) guestGroup_ = guestGroupParam.getValue() ;
-    if(guestGroup_ == null || guestGroup_.trim().length() < 1) guestGroup_ = "/platform/guest" ; 
+    if(guestGroup_ == null || guestGroup_.trim().length() < 1) guestGroup_ = "/platform/guests" ; 
     
     ValueParam navCretorParam = params.getValueParam("navigation.cretor.membership.type");
     if(navCretorParam != null) navigationCreatorMembershipType_ = navCretorParam.getValue();
