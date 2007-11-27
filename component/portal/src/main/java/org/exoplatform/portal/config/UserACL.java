@@ -27,6 +27,7 @@ public class UserACL {
   private OrganizationService orgService_ ;
   
   private String superUser_;
+  private String guestGroup_ ;
   private List<String> portalCreatorGroups_;
   private String navigationCreatorMembershipType_;
 
@@ -36,6 +37,10 @@ public class UserACL {
     ValueParam superUserParam = params.getValueParam("super.user");
     if(superUserParam != null) superUser_ = superUserParam.getValue();
     if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "exoadmin";
+    
+    ValueParam guestGroupParam = params.getValueParam("guest.group") ;
+    if(guestGroupParam != null) guestGroup_ = guestGroupParam.getValue() ;
+    if(guestGroup_ == null || guestGroup_.trim().length() < 1) guestGroup_ = "/platform/guestsaaaa" ; 
     
     ValueParam navCretorParam = params.getValueParam("navigation.cretor.membership.type");
     if(navCretorParam != null) navigationCreatorMembershipType_ = navCretorParam.getValue();
@@ -110,8 +115,7 @@ public class UserACL {
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
-    //TODO need use initparam in config
-    if("/platform/guests".equals(groupId)) return true ;
+    if(guestGroup_.equals(groupId)) return true ;
 
     String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();
