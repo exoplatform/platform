@@ -30,10 +30,6 @@
 	_padding: 3px 0px 3px 21px;
 }
 
-.UINavigationPortlet .MiddleTab .DefaultPageIcon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left;
-}
-
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
   line-height: 28px;
   background: url('DefaultSkin/background/MiddleNavTopBg1x28.gif') repeat-x top;

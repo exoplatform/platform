@@ -17,7 +17,7 @@
   void renderSinglePageNode(PageNavigation nav, PageNode node) {
     String  href = uicomponent.event("ChangePage",  nav.getId() + "::" + node.getUri()) ;
     String icon = node.getIcon();
-    if(icon == null) icon = "PageNodeIcon";
+    if(icon == null) icon = "DefaultPageIcon";
     print """
       <div class="MenuItem">
         <div class="LabelItem">
