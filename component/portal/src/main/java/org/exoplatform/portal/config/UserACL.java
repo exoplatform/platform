@@ -40,7 +40,7 @@ public class UserACL {
     
     ValueParam guestGroupParam = params.getValueParam("guest.group") ;
     if(guestGroupParam != null) guestGroup_ = guestGroupParam.getValue() ;
-    if(guestGroup_ == null || guestGroup_.trim().length() < 1) guestGroup_ = "/platform/guestsaaaa" ; 
+    if(guestGroup_ == null || guestGroup_.trim().length() < 1) guestGroup_ = "/platform/guest" ; 
     
     ValueParam navCretorParam = params.getValueParam("navigation.cretor.membership.type");
     if(navCretorParam != null) navigationCreatorMembershipType_ = navCretorParam.getValue();
