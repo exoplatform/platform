@@ -110,7 +110,8 @@ public class UserACL {
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
-    if("/guest".equals(groupId)) return true ;
+    //TODO need use initparam in config
+    if("/platform/guests".equals(groupId)) return true ;
 
     String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();
