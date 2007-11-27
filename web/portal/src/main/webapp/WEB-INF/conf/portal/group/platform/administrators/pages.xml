@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>  
+  <page>
+  	<page-id>group::platform/administrators::administration</page-id>    
+  	<owner-type>group</owner-type>
+    <owner-id>platform/administrators</owner-id>
+    <name>administration</name>
+    <factory-id>Desktop</factory-id>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    
+    <application location-x="100" location-y="150">
+      <instance-id>portal:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget</instance-id>
+      <application-type>eXoWidget</application-type>
+    </application>
+    
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/AccountPortlet/Account</instance-id>
+      <title>New Account</title>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+   
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/OrganizationPortlet/Organization</instance-id>
+      <title>Community Management</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>     
+    
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
+      <title>Application Registry</title>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/I18nPortlet/i18n</instance-id>
+      <title>Internationalization</title>
+      <show-info-bar>false</show-info-bar>
+    </application>
+    
+    <application>
+      <instance-id>group#portal/admin:/web/ConsolePortlet/ConsolePortlet</instance-id>
+      <title>Web Console</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>   
+
+   </page>    
+         
+  <page>
+  	<page-id>group::platform/administrators::newAccount</page-id>
+  	<owner-type>group</owner-type>
+    <owner-id>platform/administrators</owner-id>
+    <name>newAccount</name>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/AccountPortlet/Account</instance-id>
+      <title>New Account</title>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+  </page>           
+  
+  <page>
+  	<page-id>group::platform/administrators::communityManagement</page-id>
+  	<owner-type>group</owner-type>
+    <owner-id>platform/administrators</owner-id>
+    <name>communityManagement</name>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/OrganizationPortlet/Organization</instance-id>
+      <title>Community Management</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>     
+  </page>           
+  
+  <page>
+  	<page-id>group::platform/administrators::applicationRegistry</page-id>
+  	<owner-type>group</owner-type>
+    <owner-id>platform/administrators</owner-id>
+    <name>applicationRegistry</name>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
+      <title>Application Registry</title>
+      <show-info-bar>false</show-info-bar>
+    </application>   
+  </page>           
+  
+  <page>
+  	<page-id>group::platform/administrators::i18n</page-id>
+  	<owner-type>group</owner-type>
+    <owner-id>platform/administrators</owner-id>
+    <name>i18n</name>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/I18nPortlet/i18n</instance-id>
+      <title>Internationalization</title>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+  </page>           
+  
+  
+  <page>
+  	<page-id>group::platform/administrators::console</page-id>
+  	<owner-type>group</owner-type>
+    <owner-id>platform/administrators</owner-id>
+    <name>console</name>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <application>
+      <instance-id>group#portal/admin:/web/ConsolePortlet/ConsolePortlet</instance-id>
+      <title>Web Console</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>
+  </page>      
+  
+</page-set>

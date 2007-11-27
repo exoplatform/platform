@@ -21,6 +21,6 @@
         </values-param>
       </init-params>
     </component-plugin>
-  </external-component-plugins>  
-  <import>classpath:/conf/portal/organization-configuration.xml</import>   
+  </external-component-plugins>
+  <import>classpath:/conf/portal/organization-configuration.xml</import>    
 </configuration>  

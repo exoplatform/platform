@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+	<owner-type>group</owner-type>
+  <owner-id>platform/administrators</owner-id>
+  <priority>2</priority>
+  
+  <page-nodes>   
+    <node>
+      <uri>administration</uri>
+      <name>Administration</name>
+      <label>#{administration}</label>     
+      <page-reference>group::platform/administrators::administration</page-reference>      
+      
+      <node>
+		    <uri>administration/applicationregistry</uri>
+		    <name>applicationregistry</name>
+		    <label>#{administration.application-registry}</label>
+		    <page-reference>group::platform/administrators::applicationRegistry</page-reference>
+	    </node>
+	    
+	    <node>
+		    <uri>administration/newAccount</uri>
+		    <name>newAccount</name>
+		    <label>#{administration.newAccount}</label>
+		    <page-reference>group::platform/administrators::newAccount</page-reference>
+	    </node>
+	    
+	    <node>
+		    <uri>administration/comunityManagement</uri>
+		    <name>newAccount</name>
+		    <label>#{administration.comunity-management}</label>
+		    <page-reference>group::platform/administrators::communityManagement</page-reference>
+	    </node>
+	    
+	    <node>
+		    <uri>administration/i18n</uri>
+		    <name>i18n</name>
+		    <label>#{administration.i18n}</label>
+		    <page-reference>group::platform/administrators::i18n</page-reference>
+	    </node>	    	   
+	    
+	    <node>
+		    <uri>administration/console</uri>
+		    <name>console</name>
+		    <label>#{administration.console}</label>
+		    <page-reference>group::platform/administrators::console</page-reference>
+	    </node>	    	   
+	    	   	    
+    </node>                        
+  </page-nodes>
+</node-navigation>

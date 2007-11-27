@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<widgets>
+	<owner-type>user</owner-type>
+	<owner-id>john</owner-id>
+	
+	<container id="Information">
+		<name>Information</name>
+		<description>Information's Description</description>
+		<application>
+      <instance-id>user#john:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget1</instance-id>
+      <application-type>eXoWidget</application-type>
+    </application>
+      
+    <application>
+      <instance-id>user#john:/eXoWidgetWeb/StickerWidget/StickerWidget</instance-id>
+      <application-type>eXoWidget</application-type> 
+    </application>
+    
+    <application>
+      <instance-id>user#john:/eXoWidgetWeb/InfoWidget/InfoWidget1</instance-id>
+      <application-type>eXoWidget</application-type>
+    </application>
+	</container>
+  
+	<container id="Calendar">
+		<name>Calendar</name>
+		<description>Calendar's Description</description>
+  	<application>
+      <instance-id>user#john:/eXoWidgetWeb/CalendarWidget/JohnCalendar</instance-id>
+      <application-type>eXoWidget</application-type> 
+    </application>
+  </container>	
+  	
+</widgets>

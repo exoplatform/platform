@@ -3,9 +3,9 @@
   <portal-name>@owner@</portal-name>
   <locale>en</locale>
   <factory-id>office</factory-id>
-  <access-permissions>*:/guest</access-permissions>
-  <edit-permission>owner:/portal/admin</edit-permission>
-  <creator>exoadmin</creator>
+  <access-permissions>*:/platform/guests</access-permissions>
+  <edit-permission>*:/platform/administrators</edit-permission>
+  <creator>root</creator>
   
   <widget-layout>
   </widget-layout>

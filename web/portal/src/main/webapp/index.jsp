@@ -1,1 +1,1 @@
-<%response.sendRedirect(request.getContextPath() + "/public/site/");%>
+<%response.sendRedirect(request.getContextPath() + "/public/classic/");%>

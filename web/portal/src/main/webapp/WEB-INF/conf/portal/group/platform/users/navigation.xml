@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+  <owner-type>group</owner-type>  
+	<owner-id>platform/users</owner-id>
+	<priority>2</priority>
+  <description>description for node navigation </description>
+  
+  <page-nodes>  	
+	  <node>
+	    <uri>iframe</uri>
+	    <name>iframe</name>
+	    <label>#{platform.users.iframe}</label>
+	    <page-reference>group::platform/users::iframe</page-reference>
+	  </node>
+  </page-nodes>
+  
+</node-navigation>
