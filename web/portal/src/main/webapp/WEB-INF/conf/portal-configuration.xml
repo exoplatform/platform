@@ -28,8 +28,8 @@
         <value>manager</value>	    
       </value-param>
       <value-param>
-        <name>guest.group</name>
-        <description>guest group</description>
+        <name>guests.group</name>
+        <description>guests group</description>
         <value>/platform/guests</value>	    
       </value-param>          
 	  </init-params>   
