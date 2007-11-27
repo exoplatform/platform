@@ -26,7 +26,12 @@
         <name>navigation.cretor.membership.type</name>
         <description>specific membership type have full permission with group navigation</description>
         <value>manager</value>	    
-      </value-param>    
+      </value-param>
+      <value-param>
+        <name>guest.group</name>
+        <description>guest group</description>
+        <value>/platform/guests</value>	    
+      </value-param>          
 	  </init-params>   
   </component>
   
