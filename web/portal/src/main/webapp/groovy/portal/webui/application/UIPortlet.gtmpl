@@ -47,11 +47,7 @@
 				          <div class="DragControlArea" title="<%=_ctx.appRes("UIPortlet.tooltip.DragControl");%>"><span></span></div>
 				          <% 
 				            String portletIcon = uicomponent.getIcon();
-				            
-				            String[] arrayWindowId = uicomponent.getWindowId().split("/");
-				            String portletName = arrayWindowId[arrayWindowId.length-2] ;
-				    				String defaultIcon = portletName.substring(0, portletName.lastIndexOf("Portlet")) ;
-				            if(portletIcon == null) portletIcon = defaultIcon;
+				            if(portletIcon == null) portletIcon = "PortletIcon";
 				            
 				            String title = portletTitle;
 				            if(uicomponent.getId() !=null) title = uicomponent.getId() ;
@@ -238,12 +234,9 @@
 		            </div>
 		            <div class="WindowPortletInfo">
 		            	<%
-		            		/*Modify: dang.tung - fixed icon themes*/
+		            		/*TODO: modify: dang.tung - fixed icon themes*/
 		            		String portletIcon = uicomponent.getIcon();
-				            String[] arrayWindowId = uicomponent.getWindowId().split("/");
-				            String portletName = arrayWindowId[arrayWindowId.length-2] ;
-				    				String defaultIcon = portletName.substring(0, portletName.lastIndexOf("Portlet")) ;
-				            if(portletIcon == null) portletIcon = defaultIcon;
+				            if(portletIcon == null) portletIcon = "PortletIcon";
 		            	%>
 		              <div class="Icon $portletIcon WindowPortletIcon NovaPortletIcon"><span></span></div>
 		              <div class="PortletName">$title</div>
