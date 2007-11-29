@@ -114,12 +114,12 @@ public class UIPortletForm extends UIFormTabPane {
     String icon = uiPortlet.getIcon();
     
     /*TODO: modify tungnd to fixed icon of portlets*/
-    String[] arrayWindowId = uiPortlet.getWindowId().split("/");
-    String portletName = arrayWindowId[arrayWindowId.length-2] ;
-    String defaultIcon = portletName.substring(0, portletName.lastIndexOf("Portlet")) ;
+    //String[] arrayWindowId = uiPortlet.getWindowId().split("/");
+    //String portletName = arrayWindowId[arrayWindowId.length-2] ;
+    //String defaultIcon = portletName.substring(0, portletName.lastIndexOf("Portlet")) ;
     /*end modify*/
     
-    if( icon == null || icon.length() < 0) icon = /*uiPortlet.getTitle() +  "PortletIcon";*/ defaultIcon ;
+    if( icon == null || icon.length() < 0) icon = "PortletIcon" ;
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     getChild(UIFormInputThemeSelector.class).getChild(UIItemThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null)) ;
   }
