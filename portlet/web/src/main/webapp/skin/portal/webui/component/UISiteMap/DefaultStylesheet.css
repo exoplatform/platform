@@ -12,6 +12,7 @@
 
 .UIWindow .UISitemap {
 	border: none;
+	padding: 10px 0px;
 }
 
 .UISitemapPortlet {
