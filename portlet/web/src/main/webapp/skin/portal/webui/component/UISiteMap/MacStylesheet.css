@@ -43,10 +43,6 @@
   width: 16px; height: 16px;
 }
 
-.UISitemap .DefaultPageIcon{
-	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png) no-repeat;
-}
-
 .UISitemap .TitleBar .Title {
   float: left;
   height: 22px;

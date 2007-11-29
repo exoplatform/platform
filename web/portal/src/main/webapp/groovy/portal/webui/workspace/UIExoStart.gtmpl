@@ -34,7 +34,7 @@
      String icon = node.getIcon();
      String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;
   	 String scrollDownTitle = _ctx.appRes("UIExoStart.tooltip.scrollDown") ;
-     if(icon == null) icon = "PageNodeIcon";
+     if(icon == null) icon = "DefaultPageIcon";
      print """
       <div class="MenuItem">
         <div class="LabelItem">

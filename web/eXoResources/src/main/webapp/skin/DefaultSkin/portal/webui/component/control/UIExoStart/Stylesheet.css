@@ -103,12 +103,6 @@
   background: url('icons/Page.gif') no-repeat left ;
 }
 
-.UIExoStart .StartMenuContainer .PageNodeIcon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left ;
-  padding: 0px 0px 0px 18px ;
-  margin: 0px 0px 0px 5px ;
-}
-
 .UIExoStart .StartMenuContainer .LabelText {
   white-space: nowrap ;
   padding: 0px 5px 0px 6px ;

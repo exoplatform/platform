@@ -127,13 +127,6 @@
   margin: 0px 0px 0px 5px ;
 }
 
-.UIExoStart .StartMenuContainer .PageNodeIcon {
-  height: 35px ;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
-  padding: 0px 0px 0px 25px ;
-  margin: 0px 0px 0px 5px ;
-}
-
 .UIExoStart .StartMenuContainer .LabelText {
   white-space: nowrap ;
   padding: 0px 5px ;

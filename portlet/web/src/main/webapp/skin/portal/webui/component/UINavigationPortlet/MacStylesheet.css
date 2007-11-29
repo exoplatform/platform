@@ -14,10 +14,6 @@
 	padding: 3px 0px 3px 20px ;
 }
 
-.UINavigationPortlet .MiddleTab .DefaultPageIcon {
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left;
-}
-
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
   background: url('MacSkin/background/NavigationBgLeft6x41.png') no-repeat left top;
   padding-left: 6px;

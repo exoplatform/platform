@@ -16,10 +16,6 @@
   overflow: hidden ; /* was auto */
 }
 
-.UISitemap .DefaultPageIcon{
-	background: url(/eXoResources/icons/16x16/VistaSkin/DefaultPageIcon.png) no-repeat;
-}
-
 .UISitemap .SitemapContainer {
   width: 625px;
   margin: auto;

@@ -470,7 +470,10 @@
 
 .SmallGroup16x16Icon {
   width: 16px ; height: 16px ;
-  background: url('icons/NormalGroup.png') no-repeat ;
+}
+
+.DefaultPageIcon {
+  background: url('icons/DefaultPageIcon.png') no-repeat left center;
 }
 
 /********************* Icon PortletIcon************************************/

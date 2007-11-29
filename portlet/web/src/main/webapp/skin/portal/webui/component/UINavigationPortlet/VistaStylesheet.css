@@ -21,9 +21,6 @@
   float:none;
 }
 
-.UINavigationPortlet .UINavigationBar .UIHorizontalTabs .PageNodeIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left;
-}
 /* Portal Navigation sub menus */
 
 .UINavigationPortlet .UINavigationBar .MenuItemContainer {

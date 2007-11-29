@@ -742,10 +742,14 @@
   background: url('icons/WhiteArrowUp.gif') no-repeat ;
 }
 
+.DefaultPageIcon {
+	background: url('icons/DefaultPageIcon.png') no-repeat left center;
+}
+
 /********************* Icon PortletIcon ******************************/
 
 .PortletIcon {
-  background: url('icons/DefaultPortletIcon.png') no-repeat center;
+  background: url('icons/PortletIcon.png') no-repeat center;
 }
 
 .OrganizationPortletIcon {

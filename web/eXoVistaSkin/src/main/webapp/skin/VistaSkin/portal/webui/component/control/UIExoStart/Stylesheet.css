@@ -133,13 +133,6 @@
   margin: 0px 0px 0px 5px ;
 }
 
-.UIExoStart .StartMenuContainer .PageNodeIcon {
-  height: 35px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left center;
-  padding: 0px 0px 0px 18px ;
-  margin: 0px 0px 0px 5px ;
-}
-
 .UIExoStart .StartMenuContainer .LabelText {
   white-space: nowrap ;
   padding: 0px 5px 0px 4px ;
