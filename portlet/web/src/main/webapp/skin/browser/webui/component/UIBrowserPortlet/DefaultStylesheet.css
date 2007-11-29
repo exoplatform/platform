@@ -1,7 +1,8 @@
 .UIBrowserPortlet {
-	border: solid 0px gray;
-  width: 100% ;
+	border: solid 1px #C6C6C6;
   height: 99% ;
+  margin: 7px 10px 10px;
+  background: white;
 }
 
 .UIBrowserPortlet .UIToolbar {

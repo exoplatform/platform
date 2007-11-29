@@ -414,6 +414,7 @@
 .UIItemSelector .LeftColumnStyle .ItemList .Item {
   height: 24px ;
   cursor: pointer ;
+  margin: 4px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .LeftItem {

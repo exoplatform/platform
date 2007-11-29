@@ -57,11 +57,11 @@
 }
 
 .DefaultTheme .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 1536px;
 }
 
 .DefaultTheme .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 1536px;
 }
 
 .UIPageDesktop .DefaultTheme .ResizeArea {
@@ -154,13 +154,14 @@
 .MacTheme .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 3px 8px 0px 3px;
+  margin: 3px 5px 0px 3px;
 }
 
 .MacTheme .WindowPortletInfo .PortletName {
   float: left ;
   margin: 5px 0px 0px 0px ;
 	font-weight: bold;
+	line-height: 12px;
 }
 
 .MacTheme .WindowPortletInfo .PortletIcon {
@@ -191,11 +192,11 @@
 }
 
 .MacTheme .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 1420px;
+  background: url('icons/ControlIcons.gif') left 1340px;
 }
 
 .MacTheme .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') left 1420px;
+  background: url('icons/ControlIcons.gif') right 1340px;
 }
 
 .MacTheme .WindowPortletControl .MaximizedIcon {
@@ -301,6 +302,7 @@
   float: left ;
   margin: 5px 0px 0px 0px ;
 	font-weight: bold;
+	line-height: 12px;
 }
 
 .MacGray .WindowPortletInfo .PortletIcon {
@@ -331,11 +333,11 @@
 }
 
 .MacGray .WindowPortletControl .NormalIcon {
-  background: url('/MacSkin/skinIcons/16x16/icons/RestoreMacGray.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 1340px;
 }
 
 .MacGray .WindowPortletControl .OverNormalIcon {
-  background: url('/MacSkin/skinIcons/16x16/icons/RestoreMacGrayOver.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 1340px;
 }
 
 .MacGray .WindowPortletControl .MaximizedIcon {
@@ -417,6 +419,147 @@
   background: url('background/TCMacGray1x23.png') repeat-x bottom;
 }
 
+/*-------------------------- MacBlack ---------------------------*/
+
+.MacBlack .WindowPortletControl {
+  float: right ;
+  height: 23px ;
+  padding-left: 0px;
+}
+
+.UIPageDesktop .MacBlack .WindowPortletInfo {
+  height: 24px ;
+  margin: 0px 100px 0px 0px ;
+  cursor: move ;
+}
+
+.MacBlack .WindowPortletInfo .Icon {
+  float: left;
+  width: 16px; height: 16px;
+  margin: 3px 3px 0px 3px;
+}
+
+.MacBlack .WindowPortletInfo .PortletName {
+  float: left ;
+  margin: 5px 0px 0px 0px ;
+	font-weight: bold;
+	line-height: 12px;
+}
+
+.MacBlack .WindowPortletInfo .PortletIcon {
+  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
+}
+
+.MacBlack .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 23px ; height: 20px ;
+  margin: 0px ;
+  cursor: pointer ;  
+}
+
+.MacBlack .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/ControlIcons.gif') left 1300px;
+}
+
+.MacBlack .WindowPortletControl .OverArrowDownIcon {
+	background: url('icons/ControlIcons.gif') right 1300px;
+}
+
+.MacBlack .WindowPortletControl .MinimizedIcon {
+  background: url('icons/ControlIcons.gif') left 1320px;
+}
+
+.MacBlack .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/ControlIcons.gif') right 1320px;
+}
+
+.MacBlack .WindowPortletControl .NormalIcon {
+  background: url('icons/ControlIcons.gif') left 1340px;
+}
+
+.MacBlack .WindowPortletControl .OverNormalIcon {
+  background: url('icons/ControlIcons.gif') right 1340px;
+}
+
+.MacBlack .WindowPortletControl .MaximizedIcon {
+  background: url('icons/ControlIcons.gif') left 1360px;
+}
+
+.MacBlack .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/ControlIcons.gif') right 1360px;
+}
+
+.MacBlack .WindowPortletControl .RestoreIcon {
+  background: url('icons/ControlIcons.gif') left 1340px;
+}
+
+.MacBlack .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/ControlIcons.gif') right 1340px;
+}
+
+.MacBlack .WindowPortletControl .BackgroundIcon {
+  float: left ;
+  margin: 4px 2px 0px 2px ;
+}
+
+.UIPageDesktop .MacBlack .ResizeArea {
+  float: right ;
+  width: 17px ; height: 15px ;
+  cursor: nw-resize ;
+  background: url('background/ResizeArea17x15.png') no-repeat ;
+}
+
+.MacBlack .Information {
+  height: 16px ; line-height: 14px ; vertical-align: middle ;
+  font-size: 10px ;
+  margin-right: 18px ;
+  padding-left: 5px ;
+}
+
+.MacBlack .MiddleDecoratorLeft {
+  background: url('background/MLMacBlack8x1.png') repeat-y left ;
+  padding: 0px 0px 0px 8px ;
+}
+
+.MacBlack .MiddleDecoratorRight {
+  padding: 0px 8px 0px 0px ;
+  background: url('background/MRMacBlack8x1.png') repeat-y right ;
+}
+
+.MacBlack .MiddleDecoratorCenter {
+  background: #ffffff ;
+}
+
+.MacBlack .BottomDecoratorLeft {
+  background: url('background/BLMacBlack9x24.png') no-repeat left ;
+  padding: 0px 0px 0px 9px ;
+}
+
+.MacBlack .BottomDecoratorRight {
+  padding: 0px 9px 0px 0px ;
+  background: url('background/BRMacBlack9x24.png') no-repeat right ;
+}
+
+.MacBlack .BottomDecoratorCenter {
+  height: 24px ; line-height: 24px;
+  background: url('background/BCMacBlack1x24.png') repeat-x ;
+}
+
+.MacBlack .WindowBarLeft {
+  padding: 0px 0px 0px 9px ;
+  background: url('background/TLMacBlack9x23.png') no-repeat left ;
+}
+
+.MacBlack .WindowBarRight {
+  padding: 0px 9px 0px 0px ;
+  background: url('background/TRMacBlack9x23.png') no-repeat right ;
+}
+
+.MacBlack .WindowBarCenter {
+  height: 23px ;
+  background: url('background/TCMacBlack1x23.png') repeat-x bottom;
+}
+
 /*-------------------------- MacGreenSteel ---------------------------*/
 
 .MacGreenSteel .WindowPortletControl {
@@ -441,6 +584,7 @@
   float: left ;
   margin: 5px 0px 0px 0px ;
 	font-weight: bold;
+	line-height: 12px;
 }
 
 .MacGreenSteel .WindowPortletInfo .PortletIcon {
@@ -471,11 +615,11 @@
 }
 
 .MacGreenSteel .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 1360px;
+  background: url('icons/ControlIcons.gif') left 1340px;
 }
 
 .MacGreenSteel .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 1360px;
+  background: url('icons/ControlIcons.gif') right 1340px;
 }
 
 .MacGreenSteel .WindowPortletControl .MaximizedIcon {
@@ -483,7 +627,7 @@
 }
 
 .MacGreenSteel .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 1360px;
+  background: url('icons/ControlIcons.gif') right 1360px;
 }
 
 .MacGreenSteel .WindowPortletControl .RestoreIcon {
@@ -491,7 +635,7 @@
 }
 
 .MacGreenSteel .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif') left 1340px;
+  background: url('icons/ControlIcons.gif') right 1340px;
 }
 
 .MacGreenSteel .WindowPortletControl .BackgroundIcon {
@@ -624,11 +768,11 @@
 }
 
 .VistaTheme .WindowPortletControl .NormalIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Restore.png') no-repeat ;
+  background: url('icons/ControlIcons.gif') left 1420px;
 }
 
 .VistaTheme .WindowPortletControl .OverNormalIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/RestoreOver.png') no-repeat ;
+  background: url('icons/ControlIcons.gif') right 1420px;
 }
 
 .VistaTheme .Information {
@@ -681,8 +825,9 @@
 
 .VistaTheme .WindowPortletInfo .PortletName {
   float: left ;
-  margin: 10px 0px 0px 3px;
+  margin: 1px 0px 0px 3px;
   font-weight: bold;
+  line-height: 28px;
 }
 
 .VistaTheme .WindowBarLeft {
@@ -875,11 +1020,11 @@
 }
 
 .RoundConerBlue .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') no-repeat ;
+  background: url('icons/ControlIcons.gif') left 24px ;
 }
 
 .RoundConerBlue .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat ;
+  background: url('icons/ControlIcons.gif') right 24px;
 }
 
 .RoundConerBlue .WindowPortletControl .MinimizedIcon {
@@ -907,11 +1052,11 @@
 }
 
 .RoundConerBlue .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 96px;
 }
 
 .RoundConerBlue .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 96px;
 }
 
 .RoundConerBlue .WindowBarLeft {
@@ -1011,7 +1156,7 @@
 }
 
 .RoundConerViolet .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/24x24/ControlIcons.gif') right 120px;
+  background: url('icons/ControlIcons.gif') right 120px;
 }
 
 .RoundConerViolet .WindowPortletControl .MinimizedIcon {
@@ -1039,11 +1184,11 @@
 }
 
 .RoundConerViolet .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 192px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 192px;
 }
 
 .RoundConerViolet .WindowBarLeft {
@@ -1140,7 +1285,7 @@
 }
 
 .RoundConerOrange .WindowPortletControl .OverArrowDownIcon {
-  background: url('iconsControlIcons.gif') right 216px;
+  background: url('icons/ControlIcons.gif') right 216px;
 }
 
 .RoundConerOrange .WindowPortletControl .MinimizedIcon {
@@ -1168,11 +1313,11 @@
 }
 
 .RoundConerOrange .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 264px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 264px;
 }
 
 .RoundConerOrange .WindowBarLeft {
@@ -1246,7 +1391,7 @@
 .RoundConerPink .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 10px 0px 0px 0px;
+  margin: 11px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerPink .ResizeArea {
@@ -1264,11 +1409,11 @@
 }
 
 .RoundConerPink .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 312px;
+  background: url('icons/ControlIcons.gif') left 310px;
 }
 
 .RoundConerPink .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 312px ;
+  background: url('icons/ControlIcons.gif') right 310px ;
 }
 
 .RoundConerPink .WindowPortletControl .MinimizedIcon {
@@ -1296,11 +1441,11 @@
 }
 
 .RoundConerPink .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 384px;
 }
 
 .RoundConerPink .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif')right 384px;
 }
 
 .RoundConerPink .WindowBarLeft {
@@ -1424,11 +1569,11 @@
 }
 
 .RoundConerGreen .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') ;
+  background: url('icons/ControlIcons.gif') left 480px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 480px;
 }
 
 .RoundConerGreen .WindowBarLeft {
@@ -1517,6 +1662,7 @@
   padding: 10px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
+  line-height: 16px;
 }
 
 .ShadowBlue .WindowPortletControl .ArrowDownIcon {
@@ -1552,11 +1698,11 @@
 }
 
 .ShadowBlue .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 576px;
 }
 
 .ShadowBlue .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 576px;
 }
 
 .ShadowBlue .WindowBarLeft {
@@ -1645,6 +1791,7 @@
   padding: 10px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
+  line-height: 16px;
 }
 
 .ShadowViolet .WindowPortletControl .ArrowDownIcon {
@@ -1680,11 +1827,11 @@
 }
 
 .ShadowViolet .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') ;
+  background: url('icons/ControlIcons.gif') left 672px;
 }
 
 .ShadowViolet .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') ;
+  background: url('icons/ControlIcons.gif') right 672px;
 }
 
 .ShadowViolet .WindowBarLeft {
@@ -1758,7 +1905,7 @@
 .ShadowOrange .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+  margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowOrange .ResizeArea {
@@ -1773,6 +1920,7 @@
   padding: 10px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
+  line-height: 16px;
 }
 
 .ShadowOrange .WindowPortletControl .ArrowDownIcon {
@@ -1808,11 +1956,11 @@
 }
 
 .ShadowOrange .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 768px;
 }
 
 .ShadowOrange .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 768px;
 }
 
 .ShadowOrange .WindowBarLeft {
@@ -1886,7 +2034,8 @@
 .ShadowPink .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+  margin: 10px 0px 0px 0px;
+  border: 1px solid red green;
 }
 
 .UIPageDesktop .ShadowPink .ResizeArea {
@@ -1901,6 +2050,7 @@
   padding: 10px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
+  line-height: 16px;
 }
 
 .ShadowPink .WindowPortletControl .ArrowDownIcon {
@@ -1936,11 +2086,11 @@
 }
 
 .ShadowPink .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') ;
+  background: url('icons/ControlIcons.gif') left 864px;
 }
 
 .ShadowPink .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 864px;
 }
 
 .ShadowPink .WindowBarLeft {
@@ -2029,6 +2179,7 @@
   padding: 10px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
+  line-height: 16px;
 }
 
 .ShadowGreen .WindowPortletControl .ArrowDownIcon {
@@ -2064,11 +2215,11 @@
 }
 
 .ShadowGreen .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 960px;
 }
 
 .ShadowGreen .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 960px;
 }
 
 .ShadowGreen .WindowBarLeft {
@@ -2192,11 +2343,11 @@
 }
 
 .SimpleBlue .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 1024px;
 }
 
 .SimpleBlue .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 1024px;
 }
 
 .SimpleBlue .WindowBarLeft {
@@ -2325,11 +2476,11 @@
 }
 
 .SimpleViolet .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 1088px;
 }
 
 .SimpleViolet .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 1088px;
 }
 
 .SimpleViolet .WindowBarLeft {
@@ -2457,11 +2608,11 @@
 }
 
 .SimpleOrange .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 1136px;
 }
 
 .SimpleOrange .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 1136px;
 }
 
 .SimpleOrange .WindowBarLeft {
@@ -2589,11 +2740,11 @@
 }
 
 .SimplePink .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') left 1216px;
 }
 
 .SimplePink .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 1216px;
 }
 
 .SimplePink .WindowBarLeft {
@@ -2717,15 +2868,15 @@
 }
 
 .SimpleGreen .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif') ;
+  background: url('icons/ControlIcons.gif') right 1280px;
 }
 
 .SimpleGreen .WindowPortletControl .NormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat center top;
+  background: url('icons/ControlIcons.gif') left 1280px;
 }
 
 .SimpleGreen .WindowPortletControl .OverNormalIcon {
-  background: url('icons/24x24/ControlIcons.gif') no-repeat top;
+  background: url('icons/ControlIcons.gif') right 1280px;
 }
 
 .SimpleGreen .WindowBarLeft {

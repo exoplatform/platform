@@ -58,6 +58,7 @@
   background: url('/eXoResources/icons/16x16/MacSkin/Minimize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
   cursor: pointer;
+  border: 1px solid red;
 }
 
 .UIPortlet .ConfigPortletIcon {

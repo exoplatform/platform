@@ -10,6 +10,7 @@
 
 .UIPortletForm .SaveIcon {
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Save.gif') no-repeat ;
+  border: 1px solid red;
 }
 
 .UIPortletForm .BackIcon {
