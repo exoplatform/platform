@@ -30,7 +30,6 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
-import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.core.model.SelectItemOption;
@@ -129,6 +128,13 @@ public class UIPageEditWizard extends UIPageWizard {
       }
       
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode() ;
+      if(pageNode == null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPage", null)) ;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        uiWizard.viewStep(1);
+        return ;
+      }
+      
       UserPortalConfigService configService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
       Page page = configService.getPage(pageNode.getPageReference(), pcontext.getRemoteUser()) ;
       if(page == null) {
@@ -243,7 +249,7 @@ public class UIPageEditWizard extends UIPageWizard {
   
   static public class AbortActionListener extends EventListener<UIPageEditWizard> {
     public void execute(Event<UIPageEditWizard> event) throws Exception {
-      UIPageEditWizard uiWizard = event.getSource();
+//      UIPageEditWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
 //      uiWizard.updateUIPortal(uiPortalApp, event);    
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
