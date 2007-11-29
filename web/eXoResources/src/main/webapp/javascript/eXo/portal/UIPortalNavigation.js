@@ -14,7 +14,6 @@ function UIPortalNavigation() {
  * and calls the buildMenu function
  */
 UIPortalNavigation.prototype.init = function(popupMenu, container, x, y) {
-	//var uiNav = eXo.portal.UIPortalNavigation;
 	this.superClass = eXo.webui.UIPopupMenu;
 	this.superClass.init(popupMenu, container, x, y) ;
 	
@@ -64,22 +63,22 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		/**
 		 * TODO: fix IE7;
 		 */
-		var container = DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
-		if (container) {
-			if (eXo.core.Browser.browserType == "mozilla") container.style.minWidth = item.offsetWidth + "px";
-			else {
-			  container.style.width = "180px";
-				if(document.getElementById("UIPortalApplication").className == "Default")
-				  container.style.width = "auto";
-				if(document.getElementById("UIPortalApplication").className == "Mac")
-				  container.style.width = "155px";
-			} 
-		}
+//		var container = DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
+//		if (container) {
+//			if (eXo.core.Browser.browserType == "mozilla") container.style.minWidth = item.offsetWidth + "px";
+//			else {
+//			  container.style.width = "180px";
+//				if(document.getElementById("UIPortalApplication").className == "Default")
+//				  container.style.width = "auto";
+//				if(document.getElementById("UIPortalApplication").className == "Mac")
+//				  container.style.width = "155px";
+//			} 
+//		}
 	}
 	
 	// Sub menus items
 	var menuItems = DOMUtil.findDescendantsByClass(topContainer, "div", this.tabStyleClass);
-	for(var i = 0; i<menuItems.length; i++) {
+	for(var i = 0; i < menuItems.length; i++) {
 		var menuItem = menuItems[i];
 		menuItem.onmouseover = eXo.portal.UIPortalNavigation.onMenuItemOver;
 		menuItem.onmouseout = eXo.portal.UIPortalNavigation.onMenuItemOut;
@@ -135,21 +134,22 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 			if (eXo.portal.UIPortalNavigation.currentOpenedMenu) eXo.portal.UIPortalNavigation.hideMenu();
 			
 			eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(menuItemContainer.id);
-			var x = item.offsetLeft;
 			var y = item.offsetHeight + item.offsetTop;
+			var x = item.offsetLeft;
 			
 			eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y);
 			eXo.portal.UIPortalNavigation.superClass.show(menuItemContainer);
+			menuItemContainer.style.width = menuItemContainer.offsetWidth + 2 + "px";
+			// value = 2 for IE;
 			
-			if (!menuItemContainer.resized && eXo.core.Browser.getBrowserType() == "ie") {
-				var w = menuItemContainer.offsetWidth;
-				var menuItems = DOMUtil.findDescendantsByClass(menuItemContainer, "div", eXo.portal.UIPortalNavigation.tabStyleClass);
-				for (var i = 0; i < menuItems.length; i++) {
-					if (eXo.core.Browser.browserType == "mozilla")
-					   menuItems[i].style.width = w + "px";
-				}
-				menuItemContainer.resized = true;
-			}
+//			if (!menuItemContainer.resized && eXo.core.Browser.getBrowserType() == "ie") {
+//				var menuItems = DOMUtil.findDescendantsByClass(menuItemContainer, "div", eXo.portal.UIPortalNavigation.tabStyleClass);
+//				for (var i = 0; i < menuItems.length; i++) {
+//					if (eXo.core.Browser.browserType == "mozilla")
+//					   menuItems[i].style.width = w + "px";
+//				}
+//				menuItemContainer.resized = true;
+//			}
 			eXo.portal.UIPortalNavigation.currentOpenedMenu = menuItemContainer.id;
 			
 			/*Hide eXoStartMenu whenever click on the UIApplication*/
@@ -204,6 +204,7 @@ UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 	if (subContainer) {
 		eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(subContainer.id);
 		eXo.portal.UIPortalNavigation.showMenuItemContainer(menuItem, subContainer) ;
+		subContainer.style.width = subContainer.offsetWidth + "px";
 	}
 };
 /**
