@@ -37,20 +37,6 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     }
 )   
-/*initParams = {
-      @ParamConfig(
-          name = "PortletDecorator", 
-          value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortletDecorator.groovy"
-      ),          
-      @ParamConfig(
-          name = "PortletTemplate",
-          value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/PortletTemplate.groovy"
-      ),
-      @ParamConfig(
-          name = "help.UIPortletFormQuickHelp",
-          value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/UIPortletFormQuickHelp.xhtml"
-      )
-    },*/
 public class UIPortletForm extends UIFormTabPane {	
   
 	private UIPortlet uiPortlet_ ;
@@ -74,10 +60,6 @@ public class UIPortletForm extends UIFormTabPane {
       addUIFormInput(new UIFormTextAreaInput("description", "description", null));
     addUIFormInput(uiSettingSet);    
     
-//    UIFormInputDecoratorSelector uiDecorator = new UIFormInputDecoratorSelector("Decorator", "decorator");
-//    uiDecorator.setRendered(false) ;
-//  	addUIFormInput(uiDecorator);
-    
     UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
     uiIconSelector.setRendered(false)  ;
     addUIFormInput(uiIconSelector) ;
@@ -87,17 +69,6 @@ public class UIPortletForm extends UIFormTabPane {
     SkinService skinService = getApplicationComponent(SkinService.class) ;
     uiThemeSelector.getChild(UIItemThemeSelector.class).setValues(skinService.getPortletThemes()) ;
     addUIFormInput(uiThemeSelector) ;
-    
-   /* UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");
-    uiTemplate.setTypeValue(String.class);
-    uiTemplate.setRendered(false);
-    addUIFormInput(uiTemplate);*/
-
-//    if(initParams == null) return ;
-//    UIFormInputDecoratorSelector uiDecoratorInput = getChild(UIFormInputDecoratorSelector.class);
-//    RequestContext context = RequestContext.getCurrentInstance() ;
-//    List<SelectItemOption> options = initParams.getParam("PortletDecorator").getMapGroovyObject(context) ;
-//    uiDecoratorInput.setOptions(options);
   }
   
   public UIComponent getBackComponent() { return backComponent_ ; }

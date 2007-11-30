@@ -42,7 +42,6 @@ public class UIPortalManagement extends UIManagement {
   }
   
   public void setMode(ManagementMode mode, Event<? extends UIComponent> event) throws Exception {
-    mode_ = mode;    
     if(mode == ManagementMode.EDIT) {
       UIPortalManagementEditBar uiEditBar = getChild(UIPortalManagementEditBar.class);
       uiEditBar.createEvent("EditPortlet", Phase.PROCESS, event.getRequestContext()).broadcast();

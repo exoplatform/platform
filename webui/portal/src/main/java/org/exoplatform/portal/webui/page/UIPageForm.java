@@ -223,9 +223,8 @@ public class UIPageForm extends UIFormTabPane {
   @SuppressWarnings("unchecked")
   static public class SaveActionListener  extends EventListener<UIPageForm> {
     public void execute(Event<UIPageForm> event) throws Exception {
-      
       UIPageForm uiPageForm = event.getSource();   
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIPortalApplication uiPortalApp = uiPageForm.getAncestorOfType(UIPortalApplication.class);
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       uiMaskWS.setUIComponent(null);
@@ -258,6 +257,10 @@ public class UIPageForm extends UIFormTabPane {
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
         uiEditBar.setUIPage(uiPage);
+        Class<?> [] childrenToRender = {UIPageEditBar.class,
+            UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        
         pcontext.setFullRender(true);
         UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID) ;
         pcontext.addUIComponentToUpdateByAjax(uiControl) ;

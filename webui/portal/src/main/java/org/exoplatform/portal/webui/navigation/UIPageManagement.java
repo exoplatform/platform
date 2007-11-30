@@ -4,13 +4,9 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.navigation;
 
-import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.portal.config.model.Page;
-import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIManagement;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
-import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageBrowseControlBar;
 import org.exoplatform.portal.webui.page.UIPageBrowser;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
@@ -64,7 +60,6 @@ public class UIPageManagement extends UIManagement {
   }
 
   public void setMode(ManagementMode mode, Event<? extends UIComponent> event) throws Exception {
-    mode_ = mode;
     if (mode == ManagementMode.EDIT) {
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
       UITree uiTree = uiNodeSelector.getChild(UITree.class);
