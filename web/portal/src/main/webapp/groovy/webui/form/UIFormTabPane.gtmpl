@@ -14,9 +14,11 @@
 	     	      <div class="CenterHorizontalTabs">
 				        <div class="TabsContainer">
 			            <%
+			            	String selTabId = uicomponent.getSelectedTabId() ;
 			              for(inputSet in uicomponent.getChildren()) {
+			              	System.out.println ("\n\n\n id value of child: " + inputSet.getId()) ;
 					        		String className="NormalTab" ;
-					        		if(inputSet.isRendered()) className="SelectedTab" ;
+					        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
 					        		boolean renderResource = uicomponent.hasRenderResourceTabName(); 
 				              String tabName = inputSet.getName() ; 
 				              if(renderResource) {
@@ -44,13 +46,13 @@
 				  </div>
 	      </div>
         <%uiform.begin()%>
-        <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.renderTabId">
+        <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.selectedTabId">
 	    	<div class="HorizontalLayout">
 	        <div class="UITabContentContainer">
             <%
               for(formInput in uicomponent.getChildren()) { 
                 String display = "none" ;
-                if(formInput.isRendered()) display="block" ;
+                if(formInput.getId().equals(selTabId)) display="block" ;
             %>
                 <div class="UITabContent" id="UITabContent"  style="display: $display;">
                   <%
