@@ -21,7 +21,7 @@ abstract public class UIFormTabPane extends UIForm {
   /**
    * The tab to render
    */
-  private String renderTabId = "";
+  private String selectedTabId = "";
   /**
    * The tab to render by default (DECODE phase)
    */
@@ -36,19 +36,19 @@ abstract public class UIFormTabPane extends UIForm {
     if(!hasQuickHelp) return;    
   }
   
-  public String getRenderTabId() { return renderTabId; }
-  public void setRenderTabId(String renderTabId) { this.renderTabId = renderTabId; }
-
+  public String getSelectedTabId() { return selectedTabId; }
+  public void setSelectedTab(String renderTabId) { selectedTabId = renderTabId; }
+  public void setSelectedTab(int index) { selectedTabId = ((UIComponent)getChild(index-1)).getId();}
   public void processDecode(WebuiRequestContext context) throws Exception {   
     String renderTab = context.getRequestParameter(RENDER_TAB) ;
-    if(renderTab != null) renderTabId  = renderTab;
-    UIComponent uiComp = findComponentById(renderTabId);  
-    if(uiComp != null) {
-      for(UIComponent child : getChildren()){
-        child.setRendered(false);
-      }
-      uiComp.setRendered(true);
-    }
+//    if(renderTab != null) selectedTabId  = renderTab;
+//    UIComponent uiComp = findComponentById(selectedTabId);  
+//    if(uiComp != null) {
+//      for(UIComponent child : getChildren()){
+//        child.setRendered(false);
+//      }
+//      uiComp.setRendered(true);
+//    }
     super.processDecode(context);
   }
 		
