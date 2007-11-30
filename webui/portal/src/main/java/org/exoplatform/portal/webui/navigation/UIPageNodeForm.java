@@ -61,15 +61,16 @@ public class UIPageNodeForm extends UIFormTabPane {
     addUIFormInput(new UIFormStringInput("label", "label", null));
     
     addUIFormInput(uiSettingSet);
+    setSelectedTab(uiSettingSet.getId()) ;
 
     UIPageSelector uiPageSelector = createUIComponent(UIPageSelector.class, null, null) ;
 //    uiPageSelector.addValidator(NullFieldValidator.class);
     uiPageSelector.configure("UIPageSelector", "pageReference") ;
-    uiPageSelector.setRendered(false) ;
+    //uiPageSelector.setRendered(false) ;
     addUIFormInput(uiPageSelector) ;
 
     UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
-    uiIconSelector.setRendered(false) ;
+    //uiIconSelector.setRendered(false) ;
     addUIFormInput(uiIconSelector) ;   
   }
 

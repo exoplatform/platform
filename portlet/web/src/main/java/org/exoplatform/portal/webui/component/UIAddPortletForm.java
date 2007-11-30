@@ -67,11 +67,14 @@ public class UIAddPortletForm extends UIFormTabPane {
     List<ApplicationCategory> portletCategories = registeryService.getApplicationCategories();
 
     String tableName = getClass().getSimpleName();
-    boolean selected = true;
+    //boolean selected = true;
+    // TODO: dang.tung - set which tab will be display - in this case tab with index = 1; (index inc from 1)
+    if(portletCategories.size() > 0) setSelectedTab(1) ;
+    
     for(ApplicationCategory category : portletCategories) {      
       UIFormInputSet uiInputSet = new UIFormInputSet(category.getName()) ;
-      uiInputSet.setRendered(selected);
-      if(selected) selected = false;
+//      uiInputSet.setRendered(selected);
+//      if(selected) selected = false;
       addUIFormInput(uiInputSet) ;           
 
       UIFormTableInputSet uiTableInputSet = createUIComponent(UIFormTableInputSet.class, null, null) ;

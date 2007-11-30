@@ -328,7 +328,6 @@ public class UIPageBrowser extends UISearch {
       uiPageForm.removeChild(UIFormInputItemSelector.class);
 
       UIPageTemplateOptions uiTemplateConfig = uiPageForm.createUIComponent(UIPageTemplateOptions.class, null, null);
-      uiTemplateConfig.setRendered(false) ;
       uiPageForm.addUIFormInput(uiTemplateConfig) ;
 //
       prContext.addUIComponentToUpdateByAjax(uiMaskWS);

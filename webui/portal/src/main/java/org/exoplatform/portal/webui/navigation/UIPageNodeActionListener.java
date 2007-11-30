@@ -224,12 +224,16 @@ public class UIPageNodeActionListener {
       UIPageNodeSelector uiPageNodeSelector = event.getSource().getAncestorOfType(UIPageNodeSelector.class);
       if(uiPageNodeSelector.getCopyNode() == null) return; 
       uiPageNodeSelector.getCopyNode().setDeleteNode(true);
+      System.out.println("\n\n\n\n ->>>>>>>>> node have been cut and delete from source") ;
     }
   }
 
   static public class PasteNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {   
       String targetUri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      
+      System.out.println("\n\n\n\n\n ->>>>>>>>> targetUri value: "+ targetUri);
+      
       UIRightClickPopupMenu uiPopupMenu = event.getSource();
       UIPageNodeSelector uiPageNodeSelector =  uiPopupMenu.getAncestorOfType(UIPageNodeSelector.class);
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();

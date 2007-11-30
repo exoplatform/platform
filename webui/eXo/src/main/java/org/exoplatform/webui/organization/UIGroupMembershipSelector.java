@@ -27,6 +27,8 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormTabPane;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com
@@ -151,13 +153,22 @@ public class UIGroupMembershipSelector extends UIContainer {
   }
 
   static  public class ChangeNodeActionListener extends EventListener<UIComponent> {   
-    public void execute(Event<UIComponent> event) throws Exception {     
+    public void execute(Event<UIComponent> event) throws Exception {
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;
       UIComponent uiComp = event.getSource();
       UIGroupMembershipSelector uiSelector = uiComp.getParent();    
       uiSelector.changeGroup(groupId);
       UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
-      uiParent.setRenderSibbling(uiParent.getClass()); 
+      
+      //TODO dang.tung - modified: to fixed the bug in form tabpanel when update ajax
+      //                            we'll reset id of form tabpanel - refer: UIFormTabPanel.java
+      //-------------------------------------------
+      uiParent.setRenderSibbling(uiParent.getClass());
+      UIFormTabPane uiFormTabPanel = uiSelector.getAncestorOfType(UIFormTabPane.class) ;
+      UIFormInputSet uiFormInputSet = uiSelector.getAncestorOfType(UIFormInputSet.class) ;
+      uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
+      //-------------------------------------------
+      
       uiParent.broadcast(event, Event.Phase.PROCESS);
       UIPopupWindow uiPopup = uiSelector.getParent();
       uiPopup.setShow(true); 
@@ -175,7 +186,15 @@ public class UIGroupMembershipSelector extends UIContainer {
     public void execute(Event<UIGroupMembershipSelector> event) throws Exception {
       UIGroupMembershipSelector uiSelector = event.getSource();
       UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
+      
+      //TODO dang.tung - modified: to fixed the bug in form tabpanel when update ajax
+      //                            we'll reset id of form tabpanel - refer: UIFormTabPanel.java
+      //-------------------------------------------
       uiParent.setRenderSibbling(uiParent.getClass());
+      UIFormTabPane uiFormTabPanel = uiSelector.getAncestorOfType(UIFormTabPane.class) ;
+      UIFormInputSet uiFormInputSet = uiSelector.getAncestorOfType(UIFormInputSet.class) ;
+      uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
+      //------------------------------------------
       WebuiRequestContext pcontext = event.getRequestContext();
       
       UIPopupWindow uiPopup = uiSelector.getParent();

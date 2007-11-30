@@ -92,9 +92,8 @@ public class UIPortalForm extends UIFormTabPane {
   public UIPortalForm(InitParams initParams) throws Exception {
     super("UIPortalForm");
     UIFormInputItemSelector uiTemplateInput = new  UIFormInputItemSelector("PortalTemplate", null);
-    uiTemplateInput.setRendered(true) ;
     addUIFormInput(uiTemplateInput) ;
-    
+    setSelectedTab(uiTemplateInput.getId()) ; //TODO: dang.tung - set which tab will be display first
     createDefaultItem();
     
     UIFormInputSet uiPortalSetting = this.<UIFormInputSet>getChildById("PortalSetting");
@@ -118,7 +117,8 @@ public class UIPortalForm extends UIFormTabPane {
   public UIPortalForm() throws Exception {
     super("UIPortalForm");
     createDefaultItem();
-    this.<UIFormInputSet>getChildById("PortalSetting").setRendered(true);
+    //this.<UIFormInputSet>getChildById("PortalSetting").setRendered(true);
+    setSelectedTab("PortalSetting") ;
     invokeGetBindingBean(Util.getUIPortal()) ;
   }
   
@@ -167,11 +167,11 @@ public class UIPortalForm extends UIFormTabPane {
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SKIN, FIELD_SKIN, listSkin) ;
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
-    uiSettingSet.setRendered(false);
+    //uiSettingSet.setRendered(false);
     
     
     UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-    uiPermissionSetting.setRendered(false);
+    //uiPermissionSetting.setRendered(false);
     addUIComponentInput(uiPermissionSetting);
     
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
@@ -239,6 +239,7 @@ public class UIPortalForm extends UIFormTabPane {
     public void execute(Event<UIPortalForm> event) throws Exception {
       UIPortalForm uiForm = event.getSource();
       UIFormInputItemSelector templateInput = uiForm.getChild(UIFormInputItemSelector.class);
+      uiForm.setSelectedTab(templateInput.getId()) ;
       PortalTemplateConfigOption selectItem = 
         (PortalTemplateConfigOption)templateInput.getSelectedCategory().getSelectItemOptions().get(0);
       List<String> groupIds = selectItem.getGroups();

@@ -109,9 +109,12 @@ public class UIPageForm extends UIFormTabPane {
                  addUIFormInput(new UIFormStringInput("title", "title", null)).
                  addUIFormInput(new UIFormCheckBoxInput("showMaxWindow", "showMaxWindow", false));
     addUIFormInput(uiSettingSet) ;
+    //TODO: modify by dang.tung
+    //      set which form will be display first, in this case is page setting form.         
+    setSelectedTab(uiSettingSet.getId()) ;
     
     uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-    uiPermissionSetting.setRendered(false);
+    //uiPermissionSetting.setRendered(false);
 
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
