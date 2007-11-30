@@ -7,19 +7,13 @@
  */
 
 .UIWindow .UISitemapPortlet {
-  padding: 10px;
-}
-
-.UIWindow .UISitemap {
 	border: none;
-	padding: 10px 0px;
+	margin: 0px;
 }
 
 .UISitemapPortlet {
+	margin: 10px;
   padding: 10px;
-} 
-
-.UISitemap {
   background: white;
   border: 1px solid #b7b7b7;
 }
@@ -30,19 +24,16 @@
   background: #dbe4f8 url(DefaultSkin/background/SitemapItemBoxTitle150x1.gif) repeat-y right;
 }
 
-.UISitemap .TitleBar a {
+.UISitemap .TitleBar a.Icon {
   font-weight: bold; 
   color: #1248ac;
+  display: block;
+  padding-left: 20px;
+  line-height: 22px;
 }
 
 .UISitemap .TitleBar a:hover {
   color: #058ee6;
-}
-
-.UISitemap .TitleBar .Icon {
-  margin-top: 3px;
-  width: 16px; height: 16px;
-	float: left;
 }
 
 .UISitemap .TitleBar .Title {
@@ -63,11 +54,11 @@
   background: #f2f2f2;
   padding: 10px 15px 10px 15px;
   width: auto;
+  overflow: auto;
 }
 
 .UISitemap .SitemapItemBox {
   width: 270px ;
-  float: left;
   margin: 5px 0px;
 }
 
@@ -105,21 +96,19 @@
 }
 
 .UISitemap .SitemapItemBox .Item .Icon {
-  float: left ;
-  width: 16px ;  height: 16px ;
+  width: auto; height: auto;
   margin: 4px 5px 0px 5px ;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+  color: #a5a5a5;
+  width: 170px;
+  text-align: center;	
 }
 
 .UISitemap .SitemapItemBox .Item .IconItem {
 	padding-left: 20px;
 	background-position: left 4px;
 	line-height: 25px;
-}
-
-.UISitemap .SitemapItemBox .Message {
-  float: left; margin-left: 10px; 
-  width: 170px;
-  text-align: center; color: #a5a5a5;
 }
 
 .UISitemap .SitemapItemBox .Level1 {

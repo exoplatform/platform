@@ -29,23 +29,17 @@
   border-bottom: none;
 }
 
-.UISitemap .TitleBar a {
-  margin-left: 5px;
-}
-
 .UISitemap .TitleBar a:hover {
   color: blue;
 }
 
-.UISitemap .TitleBar .Icon {
-  margin: 2px 0px 0px 6px;
-  float: left;
-  width: 16px; height: 16px;
-}
-
-.UISitemap .TitleBar .Title {
-  float: left;
-  height: 22px;
+.UISitemap .TitleBar a.Icon {
+  margin-left: 5px;
+  width: auto; height: 22px;
+  line-height: 22px;
+  overflow: hidden;
+  padding-left: 20px;
+  display: block;
 }
 
 .UISitemap .SitemapContainer {
@@ -96,21 +90,18 @@
 }
 
 .UISitemap .SitemapItemBox .Item .Icon {
-  float: left ;
-  width: 16px ;  height: 16px ;
-  margin: 4px 5px 0px 5px ;
+  width: 200px; height: auto;
+	padding-left: 20px;
+	margin: auto;
+	text-align: center;
+	color: gray;
+	line-height: 20px;
 }
 
 .UISitemap .SitemapItemBox .Item .IconItem {
 	padding-left: 20px;
 	background-position: left 4px;
 	line-height: 25px;
-}
-
-.UISitemap .SitemapItemBox .Message {
-  float: left; margin-left: 10px; 
-  width: 170px;
-  text-align: center; color: gray;
 }
 
 .UISitemap .SitemapItemBox .Level1 {

@@ -22,34 +22,25 @@
 	height: 308px;	
 	margin-bottom: 6px;	
 }
+
 .UIHomePagePortlet .HomePageContent {
 	height: 133px;
 	border: 1px solid #CFCFCF;
+	background: url(DefaultSkin/background/BackgroundContent1x131.gif) repeat-x bottom;	
 }
-.UIHomePagePortlet .HomePageContent .ExoPortal {
+
+.UIHomePagePortlet .HomePageContent .Container {
 	width: 33.3%;	
 	float: left;	
 }
-.UIHomePagePortlet .HomePageContent .ExoECM {
-	width: 33.3%;	
-	float: left;
-}
-.UIHomePagePortlet .HomePageContent .ExoCS {
-	width: 33.4%;
-	_width: 33.36%;
-	float: left;
-}
 
-.UIHomePagePortlet .HomePageContent .MiddleContent {
-	background: url(DefaultSkin/background/BackgroundContent1x131.gif) repeat-x bottom;	
-	height: 133px;
-}
 .UIHomePagePortlet .HomePageContent .LeftExoPortal {
 	background: url(DefaultSkin/background/LeftContent183x131.gif) no-repeat left bottom;	
 	height: 133px;	
 	padding: 0px 0px 0px 83px;
 }
-.UIHomePagePortlet .HomePageContent .RightExoPortal {
+
+.UIHomePagePortlet .HomePageContent .RightContainer {
 	background: url(DefaultSkin/background/Seperator1x131.gif) no-repeat right bottom;	
 	height: 133px;	
 	padding: 0px 1px 0px 0px;
@@ -60,17 +51,13 @@
 	height: 133px;	
 	padding: 0px 0px 0px 83px;
 }
-.UIHomePagePortlet .HomePageContent .RightExoECM {
-	background: url(DefaultSkin/background/Seperator1x131.gif) no-repeat right bottom;	
-	height: 133px;	
-	padding: 0px 1px 0px 0px;
-}
 
 .UIHomePagePortlet .HomePageContent .LeftExoCS {
 	background: url(DefaultSkin/background/BackgroundContent1x131.gif) no-repeat left bottom;	
 	height: 133px;	
 	padding: 0px 0px 0px 1px;
 }
+
 .UIHomePagePortlet .HomePageContent .RightExoCS {
 	background: url(DefaultSkin/background/RightContent370x131.gif) no-repeat right bottom;	
 	height: 133px;	
@@ -85,23 +72,12 @@
 	display: block;
 }
 
-.UIHomePagePortlet .HomePageContent .DescriptionExoPortal {
-	font-family: Verdana;
-	font-size: 12px;
-	margin: 10px 10px 0px 10px;
-}
-
 .UIHomePagePortlet .HomePageContent .LinkExoECM {
 	background: url(DefaultSkin/background/LinkExoECM.gif) no-repeat left bottom;
 	height: 35px;
 	width: 103px;
 	margin-left: 10px;
 	display: block;
-}
-.UIHomePagePortlet .HomePageContent .DescriptionExoECM {
-	font-family: Verdana;
-	font-size: 12px;
-	margin: 10px 10px 0px 10px;
 }
 
 .UIHomePagePortlet .HomePageContent .LinkExoCS {
@@ -111,8 +87,9 @@
 	margin-left: 10px;
 	display: block;
 }
-.UIHomePagePortlet .HomePageContent .DescriptionExoCS {
+
+.UIHomePagePortlet .HomePageContent .Description {
 	font-family: Verdana;
-	font-size: 12px;	
+	font-size: 12px;
 	margin: 10px 10px 0px 10px;
 }

@@ -4,36 +4,36 @@
 			<div class="AdImage"><span></span></div>
 		</div>
 		<div class="HomePageContent">
-			<div class="ExoPortal">
+			<div class="Container">
 				<div class="LeftExoPortal">						 
-					<div class="RightExoPortal">
+					<div class="RightContainer">
 						<div class="MiddleContent">
 							<a href="#" class="LinkExoPortal"><span></span></a>
-							<div class="DescriptionExoPortal">
+							<div class="Description">
 								New version comes with a revolutionary user interface.
 							</div>
 						</div>
 					</div>
 				</div>						
 			</div>					
-			<div class="ExoECM">
+			<div class="Container">
 				<div class="LeftExoECM">						 
-					<div class="RightExoECM">
+					<div class="RightContainer">
 						<div class="MiddleContent">
 							<a href="#" class="LinkExoECM"><span></span></a>
-							<div class="DescriptionExoECM">
+							<div class="Description">
 								Advanced Enterprise Content Management features to manage documents and digital assets.
 							</div>
 						</div>
 					</div>
 				</div>						
 			</div>					
-			<div class="ExoCS">
+			<div class="Container">
 				<div class="LeftExoCS">						 
 					<div class="RightExoCS">
 						<div class="MiddleContent">
 							<a href="#" class="LinkExoCS"><span></span></a>
-							<div class="DescriptionExoCS">
+							<div class="Description">
 								Innovative Collaboration Suite with shared Calendars, WebMail, Forums and Contact List.
 							</div>
 						</div>

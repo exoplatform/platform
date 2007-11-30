@@ -32,31 +32,20 @@
 .UISitemap .SitemapItemBox .TitleBar {
   background: url('VistaSkin/background/TopSitemapp295x22.png') no-repeat top;
   height: 22px; 
+  padding-left: 15px;
 }
 
-.UISitemap .SitemapItemBox .TitleBar a {
+.UISitemap .SitemapItemBox .TitleBar a.Icon {
   font-weight: bold;
-  line-height: 20px;
+  line-height: 22px;
+  width: auto;
+  padding-left: 20px;
+  overflow: hidden;
+  display: block;
 }
 
 .UISitemap .SitemapItemBox .TitleBar a:hover {
   color: blue;
-}
-
-.UISitemap .DefaultPageIcon{
-	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png) no-repeat;
-}
-
-.UISitemap .SitemapItemBox .TitleBar .Icon {
-  margin: 2px 0px 0px 10px;
-  float: left;
-  padding: 0px 8px 0px 5px;
-}
-
-.UISitemap .SitemapItemBox .TitleBar .Title {
-  float: left;
-  overflow: hidden;
-  height: 22px;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox { 
@@ -108,21 +97,18 @@
 }
 
 .UISitemap .SitemapItemBox .Item .Icon {
-  float: left ;
-  width: 20px;
-  height: 20px;
+  height: auto;
+	width: 200px;
+	padding-left: 20px;
+  text-align: center;	
+  margin: auto;
+  line-height: 22px;
 }
 
 .UISitemap .SitemapItemBox .Item .IconItem {
 	padding-left: 25px;
 	line-height: 23px;
 	background-position: left 4px;
-}
-
-.UISitemap .SitemapItemBox .Message {
-  float: left; margin-left: 10px; 
-  width: 170px;
-  text-align: center;
 }
 
 .UISitemap .SitemapItemBox .Level1 {
