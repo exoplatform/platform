@@ -32,12 +32,6 @@ public interface ApplicationRegistryService {
   public void remove(Application app) throws Exception;
   
   public void importJSR168Portlets() throws Exception;
-  /**
-   * This method should go through  the list of the available ExoApplication, create the catagory
-   * if it is not available yet and add the application to  the category
-   * @throws Exception
-   */
-  //public void importExoApplications() throws Exception;
   
   public void importExoWidgets() throws Exception;
   

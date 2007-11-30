@@ -36,7 +36,7 @@ public class UserACL {
     
     ValueParam superUserParam = params.getValueParam("super.user");
     if(superUserParam != null) superUser_ = superUserParam.getValue();
-    if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "exoadmin";
+    if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "root";
     
     ValueParam guestGroupParam = params.getValueParam("guests.group") ;
     if(guestGroupParam != null) guestGroup_ = guestGroupParam.getValue() ;
@@ -69,20 +69,20 @@ public class UserACL {
   public String getMakableMT() { return navigationCreatorMembershipType_; }
   public List<String> getPortalCreatorGroups() { return portalCreatorGroups_;  }
   public String getSuperUser() { return superUser_ ; }
-  
- public boolean hasPermission(PortalConfig pconfig, String remoteUser) throws Exception {
-   if( hasEditPermission(pconfig, remoteUser) == true) {
-     pconfig.setModifiable(true);
-     return true;
-   }
-   pconfig.setModifiable(false);
-   String[] accessPerms = (pconfig.getAccessPermissions());
-   for(String per: accessPerms){
-     if(hasPermission(remoteUser, per)) return true;
-   }
-   return false;
+  public String getGuestsGroup() { return guestGroup_ ; }
+  public boolean hasPermission(PortalConfig pconfig, String remoteUser) throws Exception {
+    if( hasEditPermission(pconfig, remoteUser) == true) {
+      pconfig.setModifiable(true);
+      return true;
+    }
+    pconfig.setModifiable(false);
+    String[] accessPerms = (pconfig.getAccessPermissions());
+    for(String per: accessPerms){
+      if(hasPermission(remoteUser, per)) return true;
+    }
+    return false;
   }
-  
+
  public boolean hasPermission(Page page, String remoteUser) throws Exception {
     if(PortalConfig.USER_TYPE.equals(page.getOwnerType())){
       if( remoteUser.equals(page.getOwnerId())){
