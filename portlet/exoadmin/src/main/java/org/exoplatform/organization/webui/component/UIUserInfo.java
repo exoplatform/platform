@@ -45,13 +45,14 @@ public class UIUserInfo extends UIFormTabPane {
     
     UIFormInputSet accountInputSet = new UIAccountInputSet("AccountInputSet") ;
     addChild(accountInputSet) ;
+    setSelectedTab(accountInputSet.getId()) ;
     
     UIFormInputSet userProfileSet = new UIUserProfileInputSet("UIUserProfileInputSet") ;
-    userProfileSet.setRendered(false) ;
+    //userProfileSet.setRendered(false) ;
     addChild(userProfileSet) ;    
     
     UIFormInputContainer<?> uiUserMembershipSelectorSet = new UIUserMembershipSelector();
-    uiUserMembershipSelectorSet.setRendered(false);
+    //uiUserMembershipSelectorSet.setRendered(false);
     addChild(uiUserMembershipSelectorSet);
   }
 		
