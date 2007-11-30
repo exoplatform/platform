@@ -229,7 +229,10 @@ public class UIPageCreationWizard extends UIPageWizard {
       String pageId = page.getPageId();
       DataStorage service = uiWizard.getApplicationComponent(DataStorage.class);
       Page existPage = service.getPage(pageId);
-      if(existPage != null) page.setName(page.getName() + String.valueOf(page.hashCode()));
+      if(existPage != null) {
+        page.setName(page.getName() + String.valueOf(page.hashCode()));
+        page.setPageId(pageId + String.valueOf(page.hashCode()));
+      }
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
