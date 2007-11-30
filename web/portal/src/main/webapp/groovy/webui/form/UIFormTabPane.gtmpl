@@ -16,7 +16,6 @@
 			            <%
 			            	String selTabId = uicomponent.getSelectedTabId() ;
 			              for(inputSet in uicomponent.getChildren()) {
-			              	System.out.println ("\n\n\n id value of child: " + inputSet.getId()) ;
 					        		String className="NormalTab" ;
 					        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
 					        		boolean renderResource = uicomponent.hasRenderResourceTabName(); 
