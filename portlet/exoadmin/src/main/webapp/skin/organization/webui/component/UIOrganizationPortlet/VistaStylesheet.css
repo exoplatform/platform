@@ -1,16 +1,18 @@
 
 .UIWindow .UIOrganizationPortlet {
-  overflow: auto ;
+  overflow: auto;
+  border: none;
+  margin: 0px;
 }
 
 .UIOrganizationPortlet .OrganizationPortletContainer {
   padding: 5px 8px ;
 }
 
-.UIPageBody .UIOrganizationPortlet {
+.UIOrganizationPortlet {
 	border: solid 1px #424345 ;
   padding: 8px;
-  background:url('background/UIOrganizationPortletBG.png') repeat ;
+  margin: 7px;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
@@ -58,12 +60,6 @@
 
 .UIOrganizationPortlet .UIUserManagement .UIGrid {  
   margin: 1px auto ;
-  width: 97%;
-}
-
-.UIOrganizationPortlet .UIUserManagement .UISearch {  
-  margin: auto ;
-  width: 97%;
 }
 
 .UIOrganizationPortlet .UIUserManagement .UIPageIterator {  

@@ -26,8 +26,6 @@
 	border-bottom: 0px ;
 	background: #f3f3f3 ;
 	height: 100%;
-	width: 99%;
-	overflow: hidden;
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {
@@ -47,7 +45,6 @@
 	overflow: hidden;
 	line-height: 19px;
 	height: 19px;
-	width: 146px;
 	margin-left: 5px;
 }
 
@@ -65,7 +62,6 @@
 	border-bottom: 1px solid #e0e0e0 ;
 	border-top: 1px solid #ffffff ;
 	line-height: 20px;
-	white-space: nowrap;
 	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
 }
 

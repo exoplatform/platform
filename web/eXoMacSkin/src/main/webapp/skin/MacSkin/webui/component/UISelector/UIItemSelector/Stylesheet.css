@@ -21,7 +21,7 @@
   background: url('background/DesktopImage.jpg') no-repeat center;
 }
 
-.UIItemSelector .ItemDetailList .TemplateContainer .SitePortalImage {
+.UIItemSelector .ItemDetailList .TemplateContainer .ClassicPortalImage {
   height: 222px;
   background: url('background/DefaultImage.jpg') no-repeat center bottom;
 }
