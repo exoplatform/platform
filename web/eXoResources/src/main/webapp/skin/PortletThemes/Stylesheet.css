@@ -1014,7 +1014,7 @@
 
 .RoundConerBlue .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 12px 0px 0px 5px;
+  margin: 7px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
@@ -1146,7 +1146,7 @@
 
 .RoundConerViolet .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 12px 0px 0px 5px;
+  margin: 7px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
@@ -1275,7 +1275,7 @@
 
 .RoundConerOrange .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 12px 0px 0px 5px;
+  margin: 7px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
@@ -1403,7 +1403,7 @@
 
 .RoundConerPink .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 12px 0px 0px 5px;
+  margin: 8px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
@@ -1531,7 +1531,7 @@
 
 .RoundConerGreen .WindowPortletInfo .PortletName {
   float: left ;
-  padding: 12px 0px 0px 5px;
+  margin: 7px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
 }
