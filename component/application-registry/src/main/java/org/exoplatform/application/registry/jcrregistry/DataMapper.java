@@ -40,6 +40,8 @@ public class DataMapper {
   static final String APPLICATION_MIN_WITH_RESOLUTION = "exo:minWidthResolution" ;
   static final String APPLICATION_ACCESS_PERMISSTION = "exo:accessPermissions" ;
   
+  static final private String DATE_TIME_FORMAT = "EEE MMM d HH:mm:ss Z yyyy" ;
+  
   
   public void map(Document doc, ApplicationCategory category) throws Exception {
     Element root = doc.getDocumentElement() ;
@@ -62,8 +64,8 @@ public class DataMapper {
     category.setName(root.getAttribute(CATEGORY_NAME)) ;
     category.setDisplayName(root.getAttribute(DISPLAY_NAME)) ;
     category.setDescription(root.getAttribute(DESCRIPTION)) ;
-    category.setCreatedDate(new Date(root.getAttribute(CREATED_DATE))) ;
-    category.setModifiedDate(new Date(root.getAttribute(MODIFIED_DATE))) ;
+    category.setCreatedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(CREATED_DATE))) ;
+    category.setCreatedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(MODIFIED_DATE))) ;
     return category ;
   }
   
@@ -99,8 +101,8 @@ public class DataMapper {
     application.setDescription(root.getAttribute(DESCRIPTION)) ;
     application.setCategoryName(root.getAttribute(APPLICATION_CATEGORY_NAME)) ;
     application.setMinWidthResolution(Integer.parseInt(root.getAttribute(APPLICATION_MIN_WITH_RESOLUTION))) ;
-    application.setCreatedDate(new Date(root.getAttribute(CREATED_DATE))) ;
-    application.setModifiedDate(new Date(root.getAttribute(MODIFIED_DATE))) ;
+    application.setCreatedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(CREATED_DATE))) ;
+    application.setModifiedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(MODIFIED_DATE))) ;
     application.setAccessPermissions(fromMultiValue(root.getAttribute(APPLICATION_ACCESS_PERMISSTION))) ;
     
     return application ;
@@ -126,7 +128,7 @@ public class DataMapper {
   }
   
   private String toDateString(Date date) {
-    DateFormat dateFormat = new SimpleDateFormat("EEE MMM d HH:mm:ss Z yyyy") ;
+    DateFormat dateFormat = new SimpleDateFormat(DATE_TIME_FORMAT) ;
     return dateFormat.format(date) ;    
   }
 
