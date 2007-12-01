@@ -10,6 +10,7 @@ import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import org.exoplatform.commons.utils.ObjectPageList;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -52,6 +53,7 @@ import org.exoplatform.webui.form.validator.Validator;
 public class UIListPermissionSelector extends UISelector<String[]> { 
   
   private boolean publicMode_ = false ;
+  private String guestsGroup ;
 
   public UIListPermissionSelector() throws Exception {
     UIFormCheckBoxInput<Boolean> uiPublicMode = new UIFormCheckBoxInput<Boolean>("publicMode", null, false) ;
@@ -71,6 +73,8 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     uiMembershipSelector.getChild(UITree.class).setId("TreeListPermissionSelector");
     uiMembershipSelector.getChild(UIBreadcumbs.class).setId("BreadcumbsListPermissionSelector");
     uiPopup.setUIComponent(uiMembershipSelector);
+    UserACL acl = getApplicationComponent(UserACL.class) ;
+    guestsGroup = acl.getGuestsGroup() ;
   }
   
   public void configure(String iname, String bfield) {
@@ -115,7 +119,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       permission.setPermissionExpression(exp);
       if(existsPermission(list, permission)) continue;
       list.add(permission);
-      if(exp.equals("*:/guest")) {
+      if(guestsGroup.equals(permission.getGroupId())) {
         UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
         uiGrid.setRendered(false) ;
         setPublicMode(true);
@@ -181,9 +185,9 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
     uiGrid.setRendered(!publicMode_) ;
     if(publicMode_) {
-      setMembership("/guest", "*") ;
+      setMembership(guestsGroup, "*") ;
     }else {
-      removePermission("*:/guest") ;
+      removePermission("*:" + guestsGroup) ;
     }
     
   }
