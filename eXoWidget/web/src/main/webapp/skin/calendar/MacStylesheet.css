@@ -1,0 +1,199 @@
+#UICalendarControlIFrame {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+.UICalendarWidget {
+	width: 217px;
+  font: normal 12px verdana;
+	text-align: center;
+	cursor: default;
+	margin: auto;
+}
+
+.UICalendarWidget .TLCalendar {
+	background: url('MacSkin/background/TLCalendar12x24.png') no-repeat left;
+	padding-left: 12px;
+}
+
+.UICalendarWidget .TRCalendar {
+	background: url('MacSkin/background/TRCalendar13x24.png') no-repeat right;
+	padding-right: 13px;
+}
+
+.UICalendarWidget .TMCalendar {
+	background: url('MacSkin/background/TCCalendar1x24.png') repeat-x;
+	height: 23px;
+	padding-top: 1px;
+}
+
+.UICalendarWidget .BGCalendar {
+	background:  #b3b3b3 url('MacSkin/background/CenterCalculator174x1.png') repeat-y center;
+	height: 100%;
+}
+
+.UICalendarWidget .BGTopCalendar {
+	background: url('MacSkin/background/BGTop174x19.png') no-repeat center;
+	height: 100%;
+}
+
+.UICalendarWidget .BGBottomCalendar {
+	background: url('MacSkin/background/BGBottom174x9.png') no-repeat center;
+	height: 100%;
+}
+
+.UICalendarWidget .MLCalendar {
+	background: url('MacSkin/background/MLCalendar12x1.png') repeat-y left;
+	padding-left: 12px;
+}
+
+.UICalendarWidget .MRCalendar {
+	background: url('MacSkin/background/MRCalendar13x1.png') repeat-y right;
+	padding-right: 13px;
+}
+
+.UICalendarWidget .BLCalendar {
+	background: url('MacSkin/background/BLCalendar12x27.png') no-repeat left;
+	padding-left: 12px;
+}
+
+.UICalendarWidget .BRCalendar {
+	background: url('MacSkin/background/BRCalendar13x27.png') no-repeat right;
+	padding-right: 13px;
+}
+
+.UICalendarWidget .BMCalendar {
+	background: url('MacSkin/background/BMCalendar1x27.png') repeat-x;
+	height: 25px;
+	padding-bottom: 2px;
+}
+
+.UICalendarWidget table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.UICalendarWidget a {
+  display: block;
+  font-weight: normal;
+  text-decoration: none;
+  color: #000;
+  height: 100%;
+}
+
+.UICalendarWidget .MonthYearBox {
+  font: normal bold 11px tahoma;
+  color: #0960c1;
+  line-height: 18px;
+}
+
+.UICalendarWidget .MonthYearBox .NextMonth {
+  background: url('MacSkin/background/NextMonth.png') no-repeat center center;
+  width: 23px; height: 21px;
+}
+
+.UICalendarWidget .MonthYearBox .PreviousMonth {
+  background: url('MacSkin/background/PreviousMonth.png') no-repeat center center;
+  width: 23px; height: 21px;
+}
+
+.UICalendarWidget .MonthYearBox td {
+  padding: 0px;
+}
+
+.UICalendarWidget .MonthYearBox .MonthButton {
+  width: 23px;
+}
+
+.UICalendarWidget .MonthYearBox .YearButton {
+  background: white;
+  float: left;
+  border-top: 1px solid #3d3d3d;
+  border-bottom: 1px solid #3d3d3d;
+}
+
+.UICalendarWidget .MonthYearBox .Time {
+  background: white;
+  float: left;
+  width: 111px;
+  height: 19px;
+  line-height: 19px;
+  border-top: 1px solid #3d3d3d;
+  border-bottom: 1px solid #3d3d3d;
+  cursor:pointer;
+}
+
+.UICalendarWidget .MonthYearBox a.NextYear {
+  background: url('MacSkin/background/NextYear.gif') no-repeat center center;
+  width: 17px;  height: 19px;
+}
+
+.UICalendarWidget .MonthYearBox a:hover.NextYear {
+  background: url('MacSkin/background/NextYear.gif') no-repeat center center;
+}
+
+
+.UICalendarWidget .MonthYearBox a.PreviousYear {
+  background: url('MacSkin/background/PreviousYear.gif') no-repeat center center;
+  width: 17px; height: 19px;
+}
+
+.UICalendarWidget .MonthYearBox a:hover.PreviousYear {
+  background: url('MacSkin/background/PreviousYear.gif') no-repeat center center;
+}
+
+.UICalendarWidget .MonthYearBox .YearButton a:hover {
+  background-color: #ededed;
+}
+
+.UICalendarWidget .CalendarGrid {
+  padding: 4px;
+  background-color: white;
+  border: 1px solid #54728c;
+}
+
+.UICalendarWidget .CalendarGrid td {
+  border: 1px solid white;
+  background-color: #f3f3f3;
+}
+
+.UICalendarWidget .CalendarGrid td a,.UICalendarWidget .CalendarGrid td div {
+  padding: 2px 0px;
+  font-size: 10px;
+}
+
+.UICalendarWidget .CalendarGrid td a.Current {
+  background-color: white; color: #058ee6;
+  border: 1px solid #fc6002;
+}
+
+.UICalendarWidget .CalendarGrid td a:hover {
+  background-color: #adbbff; color: white;
+}
+
+.UICalendarWidget .CalendarTimeBox {
+  width: 130px; margin: 5px auto;
+  background: url('MacSkin/background/CalendarDecoratorL.png') no-repeat left;
+  padding-left: 9px;
+}
+
+.UICalendarWidget .CalendarTim.UICalendarWidget ackground: url('MacSkin/background/CalendarDecoratorR.png') no-repeat right;
+  padding-right: 9px;
+}
+
+.UICalendarWidget .CalendarTimeBoxM {
+  line-height: 21px;
+  height: 21px;
+  background: url('MacSkin/background/CalendarDecoratorM.png');
+  vertical-align: bottom;
+}
+
+.UICalendarWidget .CalendarTimeBox .CalendarTimeBoxM input {
+  float: none;
+  padding: 0px;
+  border: 0px;
+  width: 15px;
+  direction: rtl;

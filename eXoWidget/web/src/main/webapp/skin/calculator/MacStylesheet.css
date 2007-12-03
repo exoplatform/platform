@@ -1,0 +1,128 @@
+.UICalculatorWidget {
+	width: 217px;
+	margin: auto;
+	padding: 1px;
+}
+
+.UICalculatorWidget .TLCalculator {
+	background: url('MacSkin/background/TLCalculator10x21.png') no-repeat left;
+	padding-left: 10px;
+}
+
+.UICalculatorWidget .TRCalculator {
+	background: url('MacSkin/background/TRCalculator13x21.png') no-repeat right;
+	padding-right: 13px;
+}
+
+.UICalculatorWidget .TMCalculator {
+	background: url('MacSkin/background/TMCalculator1x21.png') repeat-x;
+	height: 20px;
+	padding-top: 1px;
+}
+
+.UICalculatorWidget .BGCalculator {
+	background:  #b3b3b3 url('MacSkin/background/CenterCalculator174x1.png') repeat-y center;
+	height: 100%;
+}
+
+.UICalculatorWidget .BGTopCalculator {
+	background: url('MacSkin/background/BGTop174x19.png') no-repeat center;
+	height: 100%;
+}
+
+.UICalculatorWidget .BGBottomCalculator {
+	background: url('MacSkin/background/BGBottom174x9.png') no-repeat center;
+	height: 100%;
+}
+
+.UICalculatorWidget .MLCalculator {
+	background: url('MacSkin/background/MLCalculator10x1.png') repeat-y left;
+	padding-left: 10px;
+}
+
+.UICalculatorWidget .MRCalculator {
+	background: url('MacSkin/background/MRCalculator13x1.png') repeat-y right;
+	padding-right: 13px;
+}
+
+.UICalculatorWidget .BLCalculator {
+	background: url('MacSkin/background/BLCalculator10x21.png') no-repeat left;
+	padding-left: 10px;
+}
+
+.UICalculatorWidget .BRCalculator {
+	background: url('MacSkin/background/BRCalculator13x21.png') no-repeat right;
+	padding-right: 13px;
+}
+
+.UICalculatorWidget .BMCalculator {
+	background: url('MacSkin/background/BCCalculator1x21.png') repeat-x;
+	height: 19px;
+	padding-bottom: 2px;
+}
+
+.UICalculatorWidget .ViewBox {
+	padding: 2px 3px 0px 3px;
+}
+
+.UICalculatorWidget .LeftViewBox {
+	background: url('MacSkin/background/LeftView7x32.png') no-repeat left;
+	padding-left: 7px;
+}
+
+.UICalculatorWidget .RightViewBox {
+	background: url('MacSkin/background/RightView7x32.png') no-repeat right;
+	padding-right: 7px;
+}
+
+.UICalculatorWidget .MiddleViewBox {
+	background: #b3b3b3 url('MacSkin/background/CenterView1x32.png') repeat-x;
+	height: 32px;
+	line-height: 32px;
+	text-align: right;
+	padding: 0px 5px;
+	overflow: hidden ;
+}
+
+.UICalculatorWidget .Line {
+	background: url('MacSkin/background/Line209x2.png') no-repeat center;
+	height: 2px;
+	width: 209px;
+	margin: auto;
+}
+
+.UICalculatorWidget .ButtonContainer {
+	padding: 4px 0px 0px 0px;
+}
+
+.UICalculatorWidget .ButtonContainer a {
+	display: block;
+	font-weight: bold;
+	font-family: verdana;
+	text-align: center;
+	margin: 6px 1px 0px 1px;
+	float: left;
+	color: #0039a0;
+}
+
+.UICalculatorWidget .ButtonContainer a.NormalButton {
+	background: url('MacSkin/background/BGButton55x26.png') no-repeat center;
+	width: 55px;
+	height: 26px;
+	line-height: 27px;
+}
+
+.UICalculatorWidget .ButtonContainer a.SmallButton {
+	background: url('MacSkin/background/BGButton36x26.png') no-repeat center;
+	width: 36px;
+	height: 26px;
+	line-height: 26px;
+}
+
+.UICalculatorWidget .ButtonContainer a.LargeButton {
+	background: url('MacSkin/background/BGButton76x26.png') no-repeat center;
+	width: 76px;
+	height: 26px;
+	line-height: 26px;
+}
+

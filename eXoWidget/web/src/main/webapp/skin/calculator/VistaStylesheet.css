@@ -1,0 +1,120 @@
+.UICalculatorWidget {
+	width: 217px;
+	margin: auto;
+	padding: 1px;
+}
+
+.UICalculatorWidget .TLCalculator {
+	background: url('VistaSkin/background/TLCalculator10x15.png') no-repeat left;
+	padding-left: 10px;
+}
+
+.UICalculatorWidget .TRCalculator {
+	background: url('VistaSkin/background/TRCalculator12x15.png') no-repeat right;
+	padding-right: 12px;
+}
+
+.UICalculatorWidget .TMCalculator {
+	background: url('VistaSkin/background/TCCalculator1x15.png') repeat-x;
+	height: 15px;
+}
+
+.UICalculatorWidget .BGCalculator {
+}
+
+.UICalculatorWidget .BGTopCalculator {
+}
+
+.UICalculatorWidget .BGBottomCalculator {
+}
+
+.UICalculatorWidget .MLCalculator {
+	background: url('VistaSkin/background/MLCalculator10x1.png') repeat-y left;
+	padding-left: 10px;
+}
+
+.UICalculatorWidget .MRCalculator {
+	background: url('VistaSkin/background/MRCalculator12x1.png') repeat-y right;
+	padding-right: 12px;
+}
+
+.UICalculatorWidget .BLCalculator {
+	background: url('VistaSkin/background/BLCalculator10x19.png') no-repeat left;
+	padding-left: 10px;
+}
+
+.UICalculatorWidget .BRCalculator {
+	background: url('VistaSkin/background/BRCalculator12x19.png') no-repeat right;
+	padding-right: 12px;
+}
+
+.UICalculatorWidget .BMCalculator {
+	background: url('VistaSkin/background/BCCalculator1x19.png') repeat-x;
+	height: 19px;
+}
+
+.UICalculatorWidget .ViewBox {
+	padding: 2px 3px 0px 3px;
+}
+
+.UICalculatorWidget .LeftViewBox {
+	background: url('VistaSkin/background/LeftView4x30.png') no-repeat left;
+	padding-left: 4px;
+}
+
+.UICalculatorWidget .RightViewBox {
+	background: url('VistaSkin/background/RightView4x30.png') no-repeat right;
+	padding-right: 4px;
+}
+
+.UICalculatorWidget .MiddleViewBox {
+	background: #8ab4db url('VistaSkin/background/CenterView1x30.png') repeat-x;
+	height: 30px;
+	line-height: 30px;
+	text-align: right;
+	padding: 0px 5px;
+	overflow: hidden ;
+}
+
+.UICalculatorWidget .Line {
+	background: url('VistaSkin/background/Line209x2.png') no-repeat center;
+	height: 2px;
+	width: 209px;
+	margin: auto;
+}
+
+.UICalculatorWidget .ButtonContainer {
+	padding: 4px 0px 0px 0px;
+}
+
+.UICalculatorWidget .ButtonContainer a {
+	display: block;
+	font-weight: bold;
+	font-family: verdana;
+	text-align: center;
+	margin: 6px 2px 0px 1px;
+	float: left;
+	color: #0039a0;
+}
+
+.UICalculatorWidget .ButtonContainer a.NormalButton {
+	background: url('VistaSkin/background/BGButton55x26.png') no-repeat center;
+	width: 55px;
+	height: 26px;
+	line-height: 26px;
+}
+
+.UICalculatorWidget .ButtonContainer a.SmallButton {
+	background: url('VistaSkin/background/BGButton36x26.png') no-repeat center;
+	width: 36px;
+	height: 26px;
+	line-height: 26px;
+}
+
+.UICalculatorWidget .ButtonContainer a.LargeButton {
+	background: url('VistaSkin/background/BGButton75x26.png') no-repeat center;
+	width: 75px;
+	height: 26px;
+	line-height: 26px;
+}
+
