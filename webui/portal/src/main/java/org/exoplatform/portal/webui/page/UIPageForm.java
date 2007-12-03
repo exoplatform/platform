@@ -336,6 +336,7 @@ public class UIPageForm extends UIFormTabPane {
       String ownerType = uiSelectBox.getValue();
       PortalRequestContext prContext = Util.getPortalRequestContext();
       UIFormInputSet uiSettingSet = uiForm.getChildById("PageSetting");
+      uiForm.setSelectedTab("PageSetting");
       List<UIComponent> list = uiSettingSet.getChildren();
       if(PortalConfig.USER_TYPE.equals(ownerType)){
         uiForm.removeChildById("PermissionSetting") ; 

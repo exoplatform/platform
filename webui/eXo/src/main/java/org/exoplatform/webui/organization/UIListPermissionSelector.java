@@ -112,8 +112,10 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   }
   
   public UIListPermissionSelector setValue(String [] permissions) throws Exception {
-    List<Object> list = new ArrayList<Object>();
+    List<Object> list = new ArrayList<Object>();    
+    UIFormCheckBoxInput<Boolean> uiPublicMode = getChildById("publicMode") ;    
     setPublicMode(false);
+    uiPublicMode.setChecked(false);
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     for(String exp : permissions) {
       if(exp.trim().length() < 1) continue;
@@ -124,8 +126,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       if(guestsGroup.equals(permission.getGroupId())) {
         UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
         uiGrid.setRendered(false) ;
-        setPublicMode(true);
-        UIFormCheckBoxInput<Boolean> uiPublicMode = getChildById("publicMode") ;
+        setPublicMode(true);        
         uiPublicMode.setChecked(true) ;
       }
     }
