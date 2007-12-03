@@ -159,16 +159,7 @@ public class UIGroupMembershipSelector extends UIContainer {
       UIGroupMembershipSelector uiSelector = uiComp.getParent();    
       uiSelector.changeGroup(groupId);
       UIComponent uiPermission = uiSelector.<UIComponent>getParent().getParent();
-      
-      //TODO dang.tung - modified: to fixed the bug in form tabpanel when update ajax
-      //                            we'll reset id of form tabpanel - refer: UIFormTabPanel.java
-      //-------------------------------------------
       uiPermission.setRenderSibbling(uiPermission.getClass());
-      UIFormTabPane uiFormTabPanel = uiSelector.getAncestorOfType(UIFormTabPane.class) ;
-      UIFormInputSet uiFormInputSet = uiSelector.getAncestorOfType(UIFormInputSet.class) ;
-      if(uiFormTabPanel != null)  uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
-      //-------------------------------------------
-      
       uiPermission.broadcast(event, Event.Phase.PROCESS);
       UIPopupWindow uiPopup = uiSelector.getParent();
       uiPopup.setShow(true); 
@@ -186,15 +177,7 @@ public class UIGroupMembershipSelector extends UIContainer {
     public void execute(Event<UIGroupMembershipSelector> event) throws Exception {
       UIGroupMembershipSelector uiSelector = event.getSource();
       UIComponent uiPermission = uiSelector.<UIComponent>getParent().getParent();
-      
-      //TODO dang.tung - modified: to fixed the bug in form tabpanel when update ajax
-      //                            we'll reset id of form tabpanel - refer: UIFormTabPanel.java
-      //-------------------------------------------
       uiPermission.setRenderSibbling(uiPermission.getClass());
-      UIFormTabPane uiFormTabPanel = uiSelector.getAncestorOfType(UIFormTabPane.class) ;
-      UIFormInputSet uiFormInputSet = uiSelector.getAncestorOfType(UIFormInputSet.class) ;
-      if(uiFormTabPanel != null) uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
-      //------------------------------------------
       WebuiRequestContext pcontext = event.getRequestContext();
       
       UIPopupWindow uiPopup = uiSelector.getParent();
