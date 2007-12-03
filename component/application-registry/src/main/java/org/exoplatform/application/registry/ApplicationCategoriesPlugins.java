@@ -33,6 +33,7 @@ public class ApplicationCategoriesPlugins extends BaseComponentPlugin {
   
   public void run() throws Exception{
     if( configs == null) return ;
+    if(pdcService_.getApplicationCategories().size() > 0) return ;
     for (Object ele : configs) {
       ApplicationCategory category  = (ApplicationCategory)ele;
       pdcService_.save(category);
