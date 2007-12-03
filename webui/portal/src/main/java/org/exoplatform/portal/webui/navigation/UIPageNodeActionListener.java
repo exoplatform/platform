@@ -224,15 +224,12 @@ public class UIPageNodeActionListener {
       UIPageNodeSelector uiPageNodeSelector = event.getSource().getAncestorOfType(UIPageNodeSelector.class);
       if(uiPageNodeSelector.getCopyNode() == null) return; 
       uiPageNodeSelector.getCopyNode().setDeleteNode(true);
-      System.out.println("\n\n\n\n ->>>>>>>>> node have been cut and delete from source") ;
     }
   }
 
   static public class PasteNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {   
       String targetUri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      
-      System.out.println("\n\n\n\n\n ->>>>>>>>> targetUri value: "+ targetUri);
       
       UIRightClickPopupMenu uiPopupMenu = event.getSource();
       UIPageNodeSelector uiPageNodeSelector =  uiPopupMenu.getAncestorOfType(UIPageNodeSelector.class);
@@ -241,7 +238,7 @@ public class UIPageNodeActionListener {
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
       
-      SelectedNode selectedNode = uiPageNodeSelector.getCopyNode(); 
+      SelectedNode selectedNode = uiPageNodeSelector.getCopyNode();
       if(selectedNode == null) return;
       
       PageNode newNode = selectedNode.getNode().clone();
@@ -256,7 +253,16 @@ public class UIPageNodeActionListener {
       PageNavigation targetNav = uiPageNodeSelector.getSelectedNavigation();
       PageNode targetNode = PageNavigationUtils.searchPageNodeByUri(targetNav, targetUri);
       if(targetNode != null) newNode.setUri(targetNode.getUri()+"/"+newNode.getUri());
-
+      
+      // TODO: dang.tung - if source address equals destination address
+      if(selectedNode.getNode().getUri().equals(targetNode.getUri())) {
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameSrcAndDes", null)) ;
+        
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return;
+      }
+      
       if( (targetNode != null && hasNode(targetNode, newNode.getUri())) || 
           hasNode(targetNav, newNode.getUri()) ){
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
