@@ -166,7 +166,7 @@ public class UIGroupMembershipSelector extends UIContainer {
       uiParent.setRenderSibbling(uiParent.getClass());
       UIFormTabPane uiFormTabPanel = uiSelector.getAncestorOfType(UIFormTabPane.class) ;
       UIFormInputSet uiFormInputSet = uiSelector.getAncestorOfType(UIFormInputSet.class) ;
-      uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
+      if(uiFormTabPanel != null)  uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
       //-------------------------------------------
       
       uiParent.broadcast(event, Event.Phase.PROCESS);
@@ -193,7 +193,7 @@ public class UIGroupMembershipSelector extends UIContainer {
       uiParent.setRenderSibbling(uiParent.getClass());
       UIFormTabPane uiFormTabPanel = uiSelector.getAncestorOfType(UIFormTabPane.class) ;
       UIFormInputSet uiFormInputSet = uiSelector.getAncestorOfType(UIFormInputSet.class) ;
-      uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
+      if(uiFormTabPanel != null) uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
       //------------------------------------------
       WebuiRequestContext pcontext = event.getRequestContext();
       

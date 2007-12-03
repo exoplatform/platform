@@ -31,8 +31,10 @@ import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormGrid;
 import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormInputContainer;
+import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormPopupWindow;
+import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.validator.Validator;
 
 /**
@@ -217,6 +219,8 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       UIFormCheckBoxInput<Boolean> uiPublicModeInput = uicom.getChildById("publicMode") ;
       uicom.setPublicMode(uiPublicModeInput.isChecked()) ;
       UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
+      UIFormTabPane uiFormTabPane = event.getSource().getAncestorOfType(UIFormTabPane.class) ;
+      if(uiFormTabPane != null) uiFormTabPane.setSelectedTab(event.getSource().getAncestorOfType(UIFormInputSet.class).getId()) ;
       if(uiForm != null) {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
       }
