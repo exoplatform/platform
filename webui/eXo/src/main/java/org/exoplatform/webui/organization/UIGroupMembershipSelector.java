@@ -158,18 +158,18 @@ public class UIGroupMembershipSelector extends UIContainer {
       UIComponent uiComp = event.getSource();
       UIGroupMembershipSelector uiSelector = uiComp.getParent();    
       uiSelector.changeGroup(groupId);
-      UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
+      UIComponent uiPermission = uiSelector.<UIComponent>getParent().getParent();
       
       //TODO dang.tung - modified: to fixed the bug in form tabpanel when update ajax
       //                            we'll reset id of form tabpanel - refer: UIFormTabPanel.java
       //-------------------------------------------
-      uiParent.setRenderSibbling(uiParent.getClass());
+      uiPermission.setRenderSibbling(uiPermission.getClass());
       UIFormTabPane uiFormTabPanel = uiSelector.getAncestorOfType(UIFormTabPane.class) ;
       UIFormInputSet uiFormInputSet = uiSelector.getAncestorOfType(UIFormInputSet.class) ;
       if(uiFormTabPanel != null)  uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
       //-------------------------------------------
       
-      uiParent.broadcast(event, Event.Phase.PROCESS);
+      uiPermission.broadcast(event, Event.Phase.PROCESS);
       UIPopupWindow uiPopup = uiSelector.getParent();
       uiPopup.setShow(true); 
       
@@ -185,12 +185,12 @@ public class UIGroupMembershipSelector extends UIContainer {
   static  public class SelectMembershipActionListener extends EventListener<UIGroupMembershipSelector> {   
     public void execute(Event<UIGroupMembershipSelector> event) throws Exception {
       UIGroupMembershipSelector uiSelector = event.getSource();
-      UIComponent uiParent = uiSelector.<UIComponent>getParent().getParent();
+      UIComponent uiPermission = uiSelector.<UIComponent>getParent().getParent();
       
       //TODO dang.tung - modified: to fixed the bug in form tabpanel when update ajax
       //                            we'll reset id of form tabpanel - refer: UIFormTabPanel.java
       //-------------------------------------------
-      uiParent.setRenderSibbling(uiParent.getClass());
+      uiPermission.setRenderSibbling(uiPermission.getClass());
       UIFormTabPane uiFormTabPanel = uiSelector.getAncestorOfType(UIFormTabPane.class) ;
       UIFormInputSet uiFormInputSet = uiSelector.getAncestorOfType(UIFormInputSet.class) ;
       if(uiFormTabPanel != null) uiFormTabPanel.setSelectedTab(uiFormInputSet.getId()) ;
@@ -215,7 +215,7 @@ public class UIGroupMembershipSelector extends UIContainer {
         return ;
       } 
       
-      uiParent.broadcast(event, event.getExecutionPhase());
+      uiPermission.broadcast(event, event.getExecutionPhase());
       uiPopup.setShow(false);
       
 //      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
