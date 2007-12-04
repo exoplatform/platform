@@ -54,9 +54,9 @@ UICalendarWidget.prototype.renderCalendar = function(appId) {
 	table += 		'						</tr>' ;
 	table += 		'					</table>' ;
 	table += 		'					<div style="margin: 5px 0px;padding: 0px 5px;">' ;
-	table += 		'						<table>' ;
+	table += 		'						<table class="DayTable">' ;
 	table += 		'							<tr>' ;
-	table += 		'								<td><font color="red">S</font></td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td>' ;
+	table += 		'								<td class="SunDay">S</font></td><td>M</td><td>T</td><td>W</td><td>T</td><td>F</td><td>S</td>' ;
 	table += 		'							</tr>' ;
 	table += 		'						</table>' ;
 	table += 		'					</div>' ;

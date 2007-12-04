@@ -198,3 +198,14 @@
   width: 15px;
   direction: rtl;
 }
+
+.UICalendarWidget .DayTable {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+  
+.UICalendarWidget .SunDay {
+	color: #bc1534;
+	font-weight: bold;
+ }
