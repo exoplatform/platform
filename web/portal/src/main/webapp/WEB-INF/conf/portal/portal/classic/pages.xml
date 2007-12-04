@@ -7,7 +7,7 @@
     <owner-id>classic</owner-id>
     <name>homepage</name>
     <title>Home Page</title>
-	  <access-permissions>*:/platform/guests</access-permissions>
+	  <access-permissions>Everyone</access-permissions>
 	  <edit-permission>*:/platform/administrators</edit-permission>
     <application>
       <instance-id>portal#classic:/web/HomePagePortlet/homepageportlet</instance-id>
@@ -24,7 +24,7 @@
     <owner-id>classic</owner-id>
     <name>sitemap</name>
     <title>Site Map</title>
-	  <access-permissions>*:/platform/guests</access-permissions>
+	  <access-permissions>Everyone</access-permissions>
 	  <edit-permission>*:/portal/administrators</edit-permission>
     <application>
       <instance-id>portal#classic:/web/SiteMapPortlet/sitemapportlet</instance-id>
@@ -41,7 +41,7 @@
     <owner-id>classic</owner-id>
     <name>register</name>
     <title>Register</title>
-	  <access-permissions>*:/platform/guests</access-permissions>
+	  <access-permissions>Everyone</access-permissions>
 	  <edit-permission>*:/platform/administrators</edit-permission>    
     <application>
       <instance-id>portal#classic:/exoadmin/AccountPortlet/Account</instance-id>

@@ -33,7 +33,7 @@ abstract class UISelector<T> extends UIFormInputContainer<T> {
       UISelector uiSelector = uiMemebershipSelector.<UIComponent>getParent().getParent(); 
       String membershipType = event.getRequestContext().getRequestParameter(OBJECTID)  ;
       uiSelector.setMembership(uiMemebershipSelector.getCurrentGroup().getId(), membershipType);
-      UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
+      UIForm uiForm = uiSelector.getAncestorOfType(UIForm.class) ;
       if(uiForm != null) {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
         uiForm.broadcast(event, event.getExecutionPhase()) ;

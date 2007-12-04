@@ -46,16 +46,14 @@ import org.exoplatform.webui.form.validator.Validator;
 @ComponentConfig(
   template = "system:/groovy/organization/webui/component/UIListPermissionSelector.gtmpl",
   events = {
-    @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.CloseActionListener.class),
+//    @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.CloseActionListener.class),
     @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.DeleteActionListener.class, confirm = "UIAccessGroup.deleteAccessGroup"),
     @EventConfig(phase = Phase.DECODE, listeners = UIPermissionSelector.SelectMembershipActionListener.class),
     @EventConfig(phase = Phase.DECODE, listeners = UIListPermissionSelector.ChangePublicModeActionListener.class)
   }
 )
 public class UIListPermissionSelector extends UISelector<String[]> { 
-  
   private boolean publicMode_ = false ;
-  private String guestsGroup ;
 
   public UIListPermissionSelector() throws Exception {
     UIFormCheckBoxInput<Boolean> uiPublicMode = new UIFormCheckBoxInput<Boolean>("publicMode", null, false) ;
@@ -75,8 +73,6 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     uiMembershipSelector.getChild(UITree.class).setId("TreeListPermissionSelector");
     uiMembershipSelector.getChild(UIBreadcumbs.class).setId("BreadcumbsListPermissionSelector");
     uiPopup.setUIComponent(uiMembershipSelector);
-    UserACL acl = getApplicationComponent(UserACL.class) ;
-    guestsGroup = acl.getGuestsGroup() ;
   }
   
   public void configure(String iname, String bfield) {
@@ -100,10 +96,11 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   }
   
   @SuppressWarnings("unchecked")
-  public String [] getValue() throws Exception {
+  public String[] getValue() throws Exception {
+    if(publicMode_) return new String[]{UserACL.ANYONE} ;
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     List<Object> values = uiIterator.getPageList().getAll();
-    String [] expPermissions = new String[values.size()];
+    String[] expPermissions = new String[values.size()];
     for(int i = 0; i < values.size(); i++) {
       Permission permission = (Permission) values.get(i);
       expPermissions[i] = permission.getExpression(); 
@@ -113,23 +110,21 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   
   public UIListPermissionSelector setValue(String [] permissions) throws Exception {
     List<Object> list = new ArrayList<Object>();    
-    UIFormCheckBoxInput<Boolean> uiPublicMode = getChildById("publicMode") ;    
     setPublicMode(false);
-    uiPublicMode.setChecked(false);
-    UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     for(String exp : permissions) {
+      if(UserACL.ANYONE.equals(exp)) {
+        UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
+        uiGrid.setRendered(false) ;
+        setPublicMode(true);        
+        break ;
+      }
       if(exp.trim().length() < 1) continue;
       Permission permission  = new Permission();
       permission.setPermissionExpression(exp);
       if(existsPermission(list, permission)) continue;
       list.add(permission);
-      if(guestsGroup.equals(permission.getGroupId())) {
-        UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
-        uiGrid.setRendered(false) ;
-        setPublicMode(true);        
-        uiPublicMode.setChecked(true) ;
-      }
     }
+    UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     uiIterator.setPageList(new ObjectPageList(list, 10));
     return this;
   }
@@ -179,20 +174,14 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     return label ;
   }
   
-  public boolean isPublicMode() {
-    return publicMode_ ;
-  }
-
+  public boolean isPublicMode() { return publicMode_ ; }
   public void setPublicMode(boolean mode) throws Exception {
     publicMode_ = mode ;
+    UIFormCheckBoxInput<Boolean> uiPublicMode = getChildById("publicMode") ;    
+    uiPublicMode.setChecked(publicMode_) ;
     UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
     uiGrid.setRendered(!publicMode_) ;
-    if(publicMode_) {
-      setMembership(guestsGroup, "*") ;
-    }else {
-      removePermission("*:" + guestsGroup) ;
-    }
-    
+    if(publicMode_) uiGrid.getUIPageIterator().setPageList(new ObjectPageList(new ArrayList<Object>(), 10)) ;
   }
       
   static  public class DeleteActionListener extends EventListener<UIListPermissionSelector> {   
@@ -206,13 +195,13 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
     }
   }
-  
-  static  public class CloseActionListener extends EventListener<UIPopupWindow> {
-    public void execute(Event<UIPopupWindow> event) throws Exception {
-    //  UIPopupWindow uiPopupWindow = event.getSource();
-      System.out.println("\n\n\n+++++++++++++++++++>>>>>>>>>>>>>>>>>> HUN");
-    }
-  }
+//  
+//  static  public class CloseActionListener extends EventListener<UIPopupWindow> {
+//    public void execute(Event<UIPopupWindow> event) throws Exception {
+//    //  UIPopupWindow uiPopupWindow = event.getSource();
+//      System.out.println("\n\n\n+++++++++++++++++++>>>>>>>>>>>>>>>>>> HUN");
+//    }
+//  }
   
   static public class ChangePublicModeActionListener extends EventListener<UIListPermissionSelector> {
     public void execute(Event<UIListPermissionSelector> event) throws Exception {
@@ -227,9 +216,9 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     
   }
   static public class EmptyIteratorValidator implements Validator {
-
     public void validate(UIFormInput uiInput) throws Exception {
-      UIFormInputContainer uiInputContainer = (UIFormInputContainer) uiInput ;
+      UIListPermissionSelector uiInputContainer = (UIListPermissionSelector) uiInput ;
+      if(uiInputContainer.isPublicMode()) return ;
       UIFormPageIterator uiInputIterator = uiInputContainer.findFirstComponentOfType(UIFormPageIterator.class) ;
       if(uiInputIterator.getAvailable() < 1) {
         String[] args =  {uiInputContainer.getBindingField()} ;

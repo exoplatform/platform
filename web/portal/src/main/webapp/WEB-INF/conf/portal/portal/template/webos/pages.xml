@@ -6,7 +6,7 @@
 		<owner-id>@owner@</owner-id>
     <name>content</name>		
     <factory-id>Desktop</factory-id>
-	  <access-permissions>*:/platform/guests</access-permissions>
+	  <access-permissions>Everyone</access-permissions>
 	  <edit-permission>*:/portal/administrators</edit-permission>
     <show-max-window>true</show-max-window>
     

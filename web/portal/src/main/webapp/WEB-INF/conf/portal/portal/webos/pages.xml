@@ -6,7 +6,7 @@
 		<owner-id>webos</owner-id>
     <name>home</name>		
     <factory-id>Desktop</factory-id>
-	  <access-permissions>*:/platform/guests</access-permissions>
+	  <access-permissions>Everyone</access-permissions>
 	  <edit-permission>*:/platform/administrators</edit-permission>
     <show-max-window>true</show-max-window>
     
@@ -38,7 +38,7 @@
 		<owner-id>webos</owner-id>
     <name>livedesktop</name>		
     <factory-id>Desktop</factory-id>
-	  <access-permissions>*:/platform/users</access-permissions>
+	  <access-permissions>Everyone</access-permissions>
 	  <edit-permission>*:/platform/administrators</edit-permission>
     <show-max-window>true</show-max-window>
     

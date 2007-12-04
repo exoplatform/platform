@@ -25,11 +25,8 @@
 	        max = currentPage + 3;
 	        if (max > totalPage) max = totalPage;
 	      } else if( totalPage > 5 && currentPage < 3 ){
+	        min = 1;
 	        max = 6;
-	        min = 1;
-	      } else {
-	        min = 1;
-	        max = totalPage;
 	      }
 	      for( i in min..max) { %>
 	      <%  if( i == currentPage) { %>

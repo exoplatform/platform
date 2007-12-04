@@ -89,10 +89,15 @@ public class UserPortalConfigService {
       navigation.setModifiable(true);
       navigations.add(navigation);  
     }
-    Collection<?> groups = null;
-    if(userACL_.getSuperUser().equals(accessUser)) groups = orgService_.getGroupHandler().getAllGroups();
-    else  groups = orgService_.getGroupHandler().findGroupsOfUser(accessUser);
-    if(groups != null) {
+    
+    if(accessUser == null) {
+      navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+userACL_.getGuestsGroup()) ;
+      if(navigation != null) navigations.add(navigation) ;
+    } else {
+      Collection<?> groups = null;
+      if(userACL_.getSuperUser().equals(accessUser)) groups = orgService_.getGroupHandler().getAllGroups();
+      else groups = orgService_.getGroupHandler().findGroupsOfUser(accessUser);
+      
       Iterator<?> iterator = groups.iterator() ;
       while(iterator.hasNext()) {
         Group m = (Group) iterator.next() ;   

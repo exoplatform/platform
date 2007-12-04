@@ -21,7 +21,7 @@ import org.exoplatform.services.organization.OrganizationService;
  * Jun 27, 2006
  */
 public class UserACL {
-
+  public final static String ANYONE = "Everyone" ;
   protected static Log log = ExoLogger.getLogger("organization:UserACL");
   
   private OrganizationService orgService_ ;
@@ -112,10 +112,10 @@ public class UserACL {
     log.debug("------CheckPermission of User "  + remoteUser + " with membership " + expPerm);
     if(superUser_.equals(remoteUser)) return true;
     if(expPerm == null) return false ;
+    if(UserACL.ANYONE.equals(expPerm)) return true ;
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
-    if(guestGroup_.equals(groupId)) return true ;
 
     String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();
