@@ -41,7 +41,7 @@
     <owner-id>classic</owner-id>
     <name>register</name>
     <title>Register</title>
-	  <access-permissions>Everyone</access-permissions>
+	  <access-permissions>*:/platform/guests</access-permissions>
 	  <edit-permission>*:/platform/administrators</edit-permission>    
     <application>
       <instance-id>portal#classic:/exoadmin/AccountPortlet/Account</instance-id>
