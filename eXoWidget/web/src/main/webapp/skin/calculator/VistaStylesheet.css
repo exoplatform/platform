@@ -54,7 +54,7 @@
 }
 
 .UICalculatorWidget .ViewBox {
-	padding: 2px 3px 0px 3px;
+	padding: 0px 3px 0px 3px;
 }
 
 .UICalculatorWidget .LeftViewBox {
@@ -68,7 +68,7 @@
 }
 
 .UICalculatorWidget .MiddleViewBox {
-	background: #8ab4db url('VistaSkin/background/CenterView1x30.png') repeat-x;
+	background: url('VistaSkin/background/CenterView1x30.png') repeat-x;
 	height: 30px;
 	line-height: 30px;
 	text-align: right;

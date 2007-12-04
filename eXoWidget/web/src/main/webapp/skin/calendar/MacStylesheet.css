@@ -128,7 +128,7 @@
 
 .UICalendarWidget .MonthYearBox a.NextYear {
   background: url('MacSkin/background/NextYear.gif') no-repeat center center;
-  width: 17px;  height: 19px;
+  width: 18px;  height: 19px;
 }
 
 .UICalendarWidget .MonthYearBox a:hover.NextYear {
@@ -197,3 +197,16 @@
   border: 0px;
   width: 15px;
   direction: rtl;
+}
+
+.UICalendarWidget .DayTable {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+  
+.UICalendarWidget .SunDay {
+	color: red;
+	font-weight: bold;
+ }
+  
