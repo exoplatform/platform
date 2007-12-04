@@ -142,7 +142,7 @@ public class UIPageNodeForm extends UIFormTabPane {
         if(!pageNav.getNodes().contains(pageNode)) {
           if(uiPageNodeSelector.searchPageNodeByUri(pageNav, pageNode.getUri()) != null) {
             uiPageNodeForm.setRenderedChild("PageNodeSetting") ;
-            uiPageNodeForm.setWithRenderTab(true) ;
+            //uiPageNodeForm.setWithRenderTab(true) ;
             UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
             pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
             uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.SameName", null)) ;
@@ -162,7 +162,7 @@ public class UIPageNodeForm extends UIFormTabPane {
         if(!children.contains(pageNode)) {
           if(PageNavigationUtils.searchPageNodeByUri(parentNode, pageNode.getUri()) != null) {
             uiPageNodeForm.setRenderedChild("PageNodeSetting") ;
-            uiPageNodeForm.setWithRenderTab(true) ;
+            //uiPageNodeForm.setWithRenderTab(true) ;
             UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
             pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
             uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.SameName", null)) ;

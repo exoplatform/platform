@@ -14,15 +14,14 @@
 				        <div class="TabsContainer">
 			            <%
 			            	String selTabId = uicomponent.getSelectedTabId() ;
-			              if(uicomponent.hasWithRenderTab()){
-				              for(inputSet in uicomponent.getChildren()) {
-						        		String className="NormalTab" ;
-						        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
-						        		boolean renderResource = uicomponent.hasRenderResourceTabName(); 
-					              String tabName = inputSet.getName() ; 
-					              if(renderResource) {
-					                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
-					              }
+			              for(inputSet in uicomponent.getChildren()) {
+					        		String className="NormalTab" ;
+					        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
+					        		boolean renderResource = uicomponent.hasRenderResourceTabName(); 
+				              String tabName = inputSet.getName() ; 
+				              if(renderResource) {
+				                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
+				              }
                   %>
 					              <div class="UITab NormalTabStyle">
 					                <div class="$className">
@@ -33,9 +32,7 @@
 					                  </div>
 					                </div>
 					              </div>
-			            <%  }
-			              }
-			            %>
+			            <% }%>
 				        </div>
 				      </div>
 				    </div>

@@ -48,7 +48,7 @@ abstract public class UIFormTabPane extends UIForm {
   public boolean hasRenderResourceTabName() { return withRenderTabName ; }
   public void setRenderResourceTabName(boolean bool) { withRenderTabName = bool ; }
 
-  public void setWithRenderTab(boolean bool) { withRenderTab = bool; }
-  public boolean hasWithRenderTab() { return withRenderTab; }
+//  public void setWithRenderTab(boolean bool) { withRenderTab = bool; }
+//  public boolean hasWithRenderTab() { return withRenderTab; }
 
 }
