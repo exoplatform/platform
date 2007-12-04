@@ -52,6 +52,10 @@
   height: 100%;
 }
 
+.UIWizard .UIWizardContent .WizardStepContent .UIForm {
+	padding: 10px;
+}
+
 .UIWizard .UIWizardContent .WizardControlBar {
   height: 36px;
   background: transparent;
@@ -197,58 +201,29 @@
 }
 
 /*========================== Start UIWizard Step 3 ==============================*/
-.UIWizard .UIFormTabPane {
-  padding: 10px;
-  margin-bottom: 0px;
-}
 
-.UIWizard .UIFormTabPane .UITabPane .TabPaneContent{
-}
-
-.UIWizard .UIFormTabPane .UIHorizontalTabs{
-  display: none;
-}
-
-.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer {
-  float: right;
+.UIWizard .UIItemSelector .ItemListContainer {
   width: 240px;
 }
 
-.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .TemplateImage {
-  height: 240px; 
-  overflow: auto;
-  background: url('background/TemplateImage.jpg') no-repeat bottom;
-  padding-top: 10px;
-}
-
-.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer .Item {
-  margin: 7px 3px 8px 3px;
-  
-}
-
-.UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
-  height: 245px; 
+.UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList {
   background: #ffffff;
-  padding: 10px; margin-right: 245px; 
+  margin-right: 245px; 
+  padding: 2px 2px 0px 2px;
   border: 1px solid #b7b7b7;
 }
 
-.UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
+.UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
   border: none;
-  background: none;
 }
 
-.UIWizard .UIFormTabPane .UIAction {
-  display: none;
-}
-
-.UIWizard .UIFormTabPane .LayoutHolder {
+.UIWizard .LayoutHolder {
   width: 250px; height: 200px; 
   text-align: center; 
   margin: auto; margin-top: 20px;
 }
 
-.UIWizard .UIFormTabPane .LayoutHolder .LayoutLabel {
+.UIWizard .LayoutHolder .LayoutLabel {
   height: 30px;  line-height: 30px; 
   text-align: center;
   margin: auto;

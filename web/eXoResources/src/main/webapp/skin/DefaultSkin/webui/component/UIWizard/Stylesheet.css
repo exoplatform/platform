@@ -51,7 +51,11 @@
 
 .UIWizard .UIWizardContent .WizardStepContent {
   border: solid 1px #aeaeae; border-bottom: none;
-  background: white;  
+  background: white; 
+}
+
+.UIWizard .UIWizardContent .WizardStepContent .UIForm {
+	padding: 10px;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar {
@@ -127,10 +131,6 @@
 }
 
 /*========================== Start UIWizard Step2 ==============================*/
-.UIWizard .UIWizardPageSetInfo {
-  padding: 15px 10px 10px 10px;
-}
-
 .UIWizard .UIWizardPageSetInfo .PageNodeContainer {
   float: left;
   width: 240px;
@@ -220,48 +220,33 @@
 }
 
 /*========================== Start UIWizard Step 3 ==============================*/
-.UIWizard .UIFormTabPane {
+.UIWizard .UIItemSelector {
   padding: 10px;
-  margin-bottom: 0px;
+  border: 1px solid #b7b7b7;
+  background: #f4f4f4;
 }
 
-.UIWizard .UIFormTabPane .UIHorizontalTabs{
-  display: none;
-}
-
-.UIWizard .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
-  border-top: 1px solid #b7b7b7;
-}
-
-.UIWizard .UIFormTabPane .UIItemSelector .ItemListContainer {
+.UIWizard .UIItemSelector .ItemListContainer {
   width: 250px;
-  height:auto;
+  height: auto;
 }
 
-.UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList {
+.UIWizard .UIItemSelector .ItemDetailList {
   background: #ffffff;
-  margin-right: 260px; 
-  padding: 5px 10px 10px 10px;
-  border: solid 1px #b7b7b7 ;
 }
 
-.UIWizard .UIFormTabPane .UIItemSelector .ItemDetailList .ItemDetail {
-  height: 252px;
-  padding-top: 15px;
-  border: none;
+.UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
+  height: 260px;
+  padding-top: 21px;
 }
 
-.UIWizard .UIFormTabPane .UIAction {
-  display: none;
-}
-
-.UIWizard .UIFormTabPane .LayoutHolder {
+.UIWizard .LayoutHolder {
   width: 310px;
   text-align: center;
   margin: 0px auto; 
 }
 
-.UIWizard .UIFormTabPane .LayoutHolder .LayoutLabel {
+.UIWizard .LayoutHolder .LayoutLabel {
   height: 30px; line-height: 30px; 
   margin: auto;
   text-align: center;

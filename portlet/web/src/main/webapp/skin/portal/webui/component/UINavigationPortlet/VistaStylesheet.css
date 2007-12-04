@@ -39,8 +39,9 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .ItemIcon {
-  height: 24px; width: auto;
+  line-height: 24px; width: auto;
   padding-left: 20px;
+  margin-left: 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .RightItemIcon {
@@ -64,7 +65,6 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
-  height: 24px ;
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
 }
 
@@ -114,7 +114,6 @@
 
 .UINavigationPortlet .MenuItemDecorator .CenterMiddleMenuDecorator {
   background: #ffffff;
-  padding: 0px 0px 5px 5px;
 }
 
 .UINavigationPortlet .MenuItemDecorator .LeftBottomMenuDecorator {

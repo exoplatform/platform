@@ -21,10 +21,6 @@
   float:none;
 }
 
-.UINavigationPortlet .UINavigationBar .UIHorizontalTabs .PageNodeIcon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left;
-}
-
 .UINavigationPortlet .MiddleTab .TabLabel {
 	padding: 3px 0px 3px 20px;
 	_padding: 3px 0px 3px 21px;
@@ -131,7 +127,7 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem .RightItemIcon {
-  height: 24px; width: auto;
+  height: 24px;
   padding-right: 20px;
   background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
 }

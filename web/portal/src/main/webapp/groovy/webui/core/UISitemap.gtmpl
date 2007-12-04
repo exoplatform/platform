@@ -43,18 +43,16 @@
 	      <div class="SitemapItemBox" style="float:${cssfloat};">
 	      	<div class="SitemapItemContainer">
 				    <div class="TitleBar">
-		      	  <div class="Icon ${iconType}"><span></span></div>
-		          <div class="Title"><a href="<%=actionLink%>">$node.resolvedLabel</a></div>
-		          <div style="clear: left;"><span></span></div>
+		          <a href="<%=actionLink%>" class="Icon ${iconType}">$node.resolvedLabel</a>
 		        </div>
 		        <%if(node.getChildren() == null || node.getChildren().size() < 1) { %>
 		            <div class="NestedSitemapItemBox">
 						      <div class="SitemapItemBoxSelector BorderBox">											
 							      <div class="Item">
 								      <div class="SubItem">
-						            <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
-						            <div class="Message"><%=_ctx.appRes("UISitemap.label.message")%></div>
-						            <div style="clear: both"></div>
+						            <div class="Icon BlueInfoBox16x16Icon">
+						            	<%=_ctx.appRes("UISitemap.label.message")%>
+						            </div>
 						          </div>
 						        </div>
 						      </div>
