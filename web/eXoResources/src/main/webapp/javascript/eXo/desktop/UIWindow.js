@@ -177,11 +177,20 @@ UIWindow.prototype.backupObjectProperties = function(windowPortlet, resizableCom
 } ;
 
 UIWindow.prototype.initDND = function(e) {
+
 	var DOMUtil = eXo.core.DOMUtil ;
   var DragDrop = eXo.core.DragDrop ;
   var clickBlock = this ;
   var dragBlock = DOMUtil.findAncestorByClass(this, "UIDragObject") ;
-  
+	var uiPageDeskTop = document.getElementById("UIPageDesktop");
+	//fix zIndex for refesh
+	var windows = DOMUtil.findDescendantsByClass(uiPageDeskTop, "div", "UIWindow");
+	if (windows.length > 0) {
+		for (var i = 0; i < windows.length; i ++) {
+				windows[i].style.zIndex = 1 + i;
+		}
+		dragBlock.style.zIndex = i + 1;
+	}
 	// Can drag n drop only when the window is NOT maximized
   if(!dragBlock.maximized) {
 	  
