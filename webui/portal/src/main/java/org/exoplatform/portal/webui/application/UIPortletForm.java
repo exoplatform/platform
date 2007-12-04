@@ -61,11 +61,9 @@ public class UIPortletForm extends UIFormTabPane {
     addUIFormInput(uiSettingSet);    
     setSelectedTab(uiSettingSet.getId()) ;
     UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
-    //uiIconSelector.setRendered(false)  ;
     addUIFormInput(uiIconSelector) ;
     
     UIFormInputThemeSelector uiThemeSelector = new UIFormInputThemeSelector(FIELD_THEME, null) ;
-    //uiThemeSelector.setRendered(false) ;
     SkinService skinService = getApplicationComponent(SkinService.class) ;
     uiThemeSelector.getChild(UIItemThemeSelector.class).setValues(skinService.getPortletThemes()) ;
     addUIFormInput(uiThemeSelector) ;

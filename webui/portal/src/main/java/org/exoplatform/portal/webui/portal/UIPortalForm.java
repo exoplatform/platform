@@ -117,7 +117,6 @@ public class UIPortalForm extends UIFormTabPane {
   public UIPortalForm() throws Exception {
     super("UIPortalForm");
     createDefaultItem();
-    //this.<UIFormInputSet>getChildById("PortalSetting").setRendered(true);
     setSelectedTab("PortalSetting") ;
     invokeGetBindingBean(Util.getUIPortal()) ;
   }
@@ -167,11 +166,9 @@ public class UIPortalForm extends UIFormTabPane {
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SKIN, FIELD_SKIN, listSkin) ;
     uiSettingSet.addUIFormInput(uiSelectBox);
     addUIFormInput(uiSettingSet);
-    //uiSettingSet.setRendered(false);
     
     
     UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-    //uiPermissionSetting.setRendered(false);
     addUIComponentInput(uiPermissionSetting);
     
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);

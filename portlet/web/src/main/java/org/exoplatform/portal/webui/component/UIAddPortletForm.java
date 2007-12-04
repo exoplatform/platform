@@ -53,7 +53,7 @@ public class UIAddPortletForm extends UIFormTabPane {
   final static String [] TABLE_COLUMNS = {"label", "description", "input"};
 
   public UIAddPortletForm() throws Exception {
-    super("UIAddPortletForm", false);
+    super("UIAddPortletForm");
     super.setInfoBar(false);
     super.setRenderResourceTabName(false) ;
 
@@ -73,8 +73,6 @@ public class UIAddPortletForm extends UIFormTabPane {
     
     for(ApplicationCategory category : portletCategories) {      
       UIFormInputSet uiInputSet = new UIFormInputSet(category.getName()) ;
-//      uiInputSet.setRendered(selected);
-//      if(selected) selected = false;
       addUIFormInput(uiInputSet) ;           
 
       UIFormTableInputSet uiTableInputSet = createUIComponent(UIFormTableInputSet.class, null, null) ;

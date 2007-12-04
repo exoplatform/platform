@@ -128,9 +128,27 @@ public class UIForm extends UIContainer  {
     writer.append(" method=\"post\">");
     writer.append("<input type=\"hidden\" name=\"").append(ACTION).append("\" value=\"\"/>") ;
   }
+
+  @Override
+  public void processRender(WebuiRequestContext context) throws Exception {
+    if(config.getTemplate() != null) {
+      super.processRender(context) ;
+      return ;
+    }
+    Writer writer = context.getWriter();
+    writer.append("<div class=='UIForm ").append(getId()).append("'>") ;
+    begin() ;
+    renderChildren(context) ;
+    end() ;
+    writer.append("</div>") ;
+  }
+  
+  public void end() throws Exception {
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    context.getWriter().write("</form>") ;
+  }
   
   public void setActions(String [] actions){ actions_ = actions; }
-  
   public String[] getActions() {
     if(actions_ != null) return actions_;
     ArrayList<Event> events = config.getEvents();
@@ -197,11 +215,6 @@ public class UIForm extends UIContainer  {
     if(beanId != null) b.append("&amp;").append(OBJECTID).append("=").append(beanId);    
     b.append("')");
     return b.toString() ;
-  }
-  
-  public void end() throws Exception {
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-    context.getWriter().write("</form>") ;
   }
   
   public String getLabel(String id) throws Exception {

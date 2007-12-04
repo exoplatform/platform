@@ -6,8 +6,7 @@
 <div class="UIFormTabPane">
   <div class="UITabPane">
 		<div class="TabPaneContent">
-      <%String workingAreaCssClass="WorkingArea" ;%>
-	    <div class="$workingAreaCssClass">
+	    <div class="WorkingArea">
 	     	<div class="UIHorizontalTabs" >
 	     	  <div class="LeftHorizontalTabs">
 	     	    <div class="RightHorizontalTabs">
@@ -24,7 +23,6 @@
 					              if(renderResource) {
 					                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
 					              }
-					              
                   %>
 					              <div class="UITab NormalTabStyle">
 					                <div class="$className">
@@ -85,9 +83,5 @@
         <%uiform.end()%>
 		  </div>
 		</div>  
-  </div>  
-  <%
-    //TODO:Lambkin don't use this javascript method 
-    //rcontext.getJavascriptManager().addOnLoadJavascript('eXo.webui.UIForm.onFixSize');  
-  %>
+  </div>
 </div>

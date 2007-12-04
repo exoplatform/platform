@@ -8,6 +8,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormTabPane;
 
 /**
@@ -18,8 +19,8 @@ import org.exoplatform.webui.form.UIFormTabPane;
  */
 @ComponentConfigs({
   @ComponentConfig(
-      lifecycle = UIFormLifecycle.class,
-      template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl"
+      lifecycle = UIFormLifecycle.class
+      //template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl"
   ),
   @ComponentConfig(
       id = "PageTemplateOption",
@@ -31,16 +32,16 @@ import org.exoplatform.webui.form.UIFormTabPane;
       )
   )  
 })
-public class UIWizardPageSelectLayoutForm extends UIFormTabPane {
+public class UIWizardPageSelectLayoutForm extends UIForm {
   
   @SuppressWarnings("unchecked")
   public UIWizardPageSelectLayoutForm() throws Exception {
-    super("UIWizardPageSelectLayoutForm",false);
-    super.setWithRenderTab(false);
+    //super("UIWizardPageSelectLayoutForm");
+    //super.setWithRenderTab(false);
     
     UIPageTemplateOptions uiTemplateConfig = createUIComponent(UIPageTemplateOptions.class,"PageTemplateOption", null);    
     addUIComponentInput(uiTemplateConfig) ;
-    setSelectedTab(uiTemplateConfig.getId()) ;
+    //setSelectedTab(uiTemplateConfig.getId()) ;
   }
 
 }

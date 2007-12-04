@@ -48,7 +48,6 @@ public class UIAccountForm extends UIFormTabPane {
     setSelectedTab(accountInputSet.getId()) ;
     addUIFormInput(accountInputSet) ;
     UIFormInputSet userProfileSet = new UIUserProfileInputSet("UIUserProfileInputSet") ;
-    //userProfileSet.setRendered(false) ;
     addUIFormInput(userProfileSet) ;
     if(initParams == null) return ;  
     

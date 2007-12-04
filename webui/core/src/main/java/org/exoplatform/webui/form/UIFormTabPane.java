@@ -28,13 +28,8 @@ abstract public class UIFormTabPane extends UIForm {
   public static String RENDER_TAB = "currentSelectedTab";
 	
 	public UIFormTabPane(String name) throws Exception {
-	  this(name, true);
-	}
-  
-  public UIFormTabPane(String name, boolean hasQuickHelp) throws Exception {
     name_ = name;
-    if(!hasQuickHelp) return;    
-  }
+	}
   
   public String getSelectedTabId() { return selectedTabId; }
   public void setSelectedTab(String renderTabId) { selectedTabId = renderTabId; }

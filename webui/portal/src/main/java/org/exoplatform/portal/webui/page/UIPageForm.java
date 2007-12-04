@@ -114,8 +114,6 @@ public class UIPageForm extends UIFormTabPane {
     setSelectedTab(uiSettingSet.getId()) ;
     
     uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
-    //uiPermissionSetting.setRendered(false);
-
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
     uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
