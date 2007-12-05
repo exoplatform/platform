@@ -14,12 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.portal.application.jcr.UserWidgetStorageImpl;
+import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.upload.UploadResource;
 import org.exoplatform.upload.UploadService;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.command.Command;
-//import org.exoplatform.widget.service.UserWidgetDataService;
 
 /**
  * Created by The eXo Platform SARL
@@ -44,8 +43,8 @@ public class WelcomeWidgetHandler extends Command {
       String widgetType = "WelcomeWidget";
       String userName = req.getRemoteUser();
       System.out.println("========> upRsource: " + upResource);
-      UserWidgetStorageImpl service = 
-        (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;
+      UserWidgetStorage service = 
+        (UserWidgetStorage)container.getComponentInstanceOfType(UserWidgetStorage.class) ;
       File file = new File(upResource.getStoreLocation());
       FileInputStream inputStream =  new FileInputStream(file);
       FileChannel fchan = inputStream.getChannel();

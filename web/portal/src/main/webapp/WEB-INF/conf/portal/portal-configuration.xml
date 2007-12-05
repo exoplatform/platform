@@ -4,6 +4,11 @@
   <component>
     <key>org.exoplatform.portal.config.DataStorage</key>
     <type>org.exoplatform.portal.config.jcrregistry.DataStorageImpl</type>     
+  </component>
+  
+  <component>
+    <key>org.exoplatform.portal.application.UserWidgetStorage</key>
+    <type>org.exoplatform.portal.application.jcr.UserWidgetStorageImpl</type>
   </component>    
     
   <component>
@@ -115,6 +120,55 @@
       <set-method>addListenerPlugin</set-method>
       <type>org.exoplatform.portal.config.GroupPortalConfigListener</type>
     </component-plugin>
+
+	  <component-plugin>
+	    <name>ecm.new.user.event.listener</name>
+	    <set-method>addListenerPlugin</set-method>
+	    <type>org.exoplatform.services.jcr.ext.hierarchy.impl.NewUserListener</type>
+	    <description>description</description>
+	    <init-params>
+	      <object-param>
+	        <name>configuration</name>
+	        <description>description</description>
+	        <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig">
+          	<field  name="repository"><string>repository</string></field>
+           	<field name="workspaces">
+             	<collection type="java.util.ArrayList">
+              	<value><string>production</string></value>              	              
+              </collection>              	
+            </field>            
+            <field  name="jcrPaths">
+             	<collection type="java.util.ArrayList">
+                <value>              	
+		             	<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">              	 	
+		             		<field name="alias"><string>userApplicationData</string></field>
+		                <field name="path"><string>Application Data</string></field>
+		                <field name="nodeType"><string>nt:unstructured</string></field>
+		                <field name="permissions">
+				              <collection type="java.util.ArrayList">               
+				                <value>                            
+				                  <object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$Permission">             
+				                    <field name="identity"><string>*:/platform/administrators</string></field>
+				                    <field name="read"><string>true</string></field>                
+				                    <field name="addNode"><string>true</string></field>                
+				                    <field name="setProperty"><string>true</string></field>                
+				                    <field name="remove"><string>true</string></field>                
+				                  </object>  
+				                </value>			                  
+			                </collection>
+			              </field>
+			              <field name="mixinTypes">
+			                <collection type="java.util.ArrayList">
+			                </collection>
+			              </field>   			               
+	              	</object>
+              	</value>
+             	</collection>
+            </field>	          
+	        </object>
+	      </object-param>
+	    </init-params>
+	  </component-plugin>        
   </external-component-plugins>
    
 </configuration>

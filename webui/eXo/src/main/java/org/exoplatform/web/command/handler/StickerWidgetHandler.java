@@ -9,10 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.portal.application.jcr.UserWidgetStorageImpl;
+import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.command.Command;
-//import org.exoplatform.widget.service.UserWidgetDataService;
 
 /**
  * Created by The eXo Platform SARL
@@ -29,8 +28,8 @@ public class StickerWidgetHandler extends Command {
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     try{ 
       PortalContainer container  = PortalContainer.getInstance();
-      UserWidgetStorageImpl service = 
-        (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
+      UserWidgetStorage service = 
+        (UserWidgetStorage)container.getComponentInstanceOfType(UserWidgetStorage.class) ;    
       String[] split = objectId.split("/");
       String instantId = objectId;
       String widgetType = "StickerWidget";

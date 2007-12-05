@@ -8,15 +8,11 @@ import java.io.Writer;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.application.jcr.UserWidgetStorageImpl;
+import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.web.application.widget.WidgetApplication;
-//import org.exoplatform.webui.config.annotation.ComponentConfig;
-//import org.exoplatform.webui.config.annotation.EventConfig;
-//import org.exoplatform.webui.event.Event;
-//import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SAS
@@ -53,8 +49,8 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
 //    }catch (Exception e) { e.printStackTrace();}
 //    
     PortalContainer container  = PortalContainer.getInstance();
-    UserWidgetStorageImpl service = 
-      (UserWidgetStorageImpl)container.getComponentInstanceOfType(UserWidgetStorageImpl.class) ;    
+    UserWidgetStorage service = 
+      (UserWidgetStorage)container.getComponentInstanceOfType(UserWidgetStorage.class) ;    
 
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;

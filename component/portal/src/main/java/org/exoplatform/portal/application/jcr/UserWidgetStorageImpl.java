@@ -8,12 +8,11 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 import javax.jcr.Node;
-import javax.jcr.Session;
 
 import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.portal.application.UserWidgetStorage;
-import org.exoplatform.registry.ApplicationRegistry;
-import org.exoplatform.registry.JCRRegistryService;
+import org.exoplatform.services.jcr.ext.common.SessionProvider;
+import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 
 /**
  * Created by The eXo Platform SARL
@@ -26,25 +25,24 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
   public static final String WIDGETS_REGETSTRY_NODE = "widgets";
   public static final String DATA = "data";
   public static final String WIDGET_NODE_TYPE = "exo:widget";
-  private JCRRegistryService jcrRegService_;
+  private NodeHierarchyCreator nodeCreator ;
 
-  public UserWidgetStorageImpl(JCRRegistryService jcrRegService) throws Exception{   
-    jcrRegService_ = jcrRegService;
+  public UserWidgetStorageImpl(NodeHierarchyCreator creator) throws Exception{   
+    nodeCreator = creator ;
   }
 
-  private Node createWidgetAppNode(Session session, String userName, String widgetType, String instantId) throws Exception{
-    jcrRegService_.createUserHome(userName, false);
-    jcrRegService_.createApplicationRegistry(userName, new ApplicationRegistry(WIDGETS_REGETSTRY_NODE), false);
-    Node appsNode = jcrRegService_.getApplicationRegistryNode(session, userName, WIDGETS_REGETSTRY_NODE);
-    Node widgetsTypeNode = getNode(session,appsNode, widgetType, null);
-    Node node = getNode(session, widgetsTypeNode, instantId, WIDGET_NODE_TYPE);
-    appsNode.save();
+  private Node createWidgetInstanceNode(SessionProvider sessionProvider, String userName, String widgetType, String instanceId) throws Exception{
+    Node userApplicationsNode = nodeCreator.getUserApplicationNode(sessionProvider, userName) ;
+    Node widgetsApp = getNode(userApplicationsNode, WIDGETS_REGETSTRY_NODE, null) ;
+    Node widgetsTypeNode = getNode(widgetsApp, widgetType, null);
+    Node node = getNode(widgetsTypeNode, instanceId, WIDGET_NODE_TYPE);
+    userApplicationsNode.save();
     return node;
   }
 
   public void save(String userName, String widgetType, String instantId, Object data) throws Exception{
-    Session session = jcrRegService_.getSession();
-    Node widgetNode = createWidgetAppNode(session, userName, widgetType, instantId);
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    Node widgetNode = createWidgetInstanceNode(sessionProvider, userName, widgetType, instantId);
     InputStream  inputStream;
     if(data instanceof byte[]) {
       inputStream  = new ByteArrayInputStream((byte[])data);
@@ -55,54 +53,49 @@ public class UserWidgetStorageImpl implements UserWidgetStorage {
     }
     widgetNode.setProperty(DATA, inputStream);
     widgetNode.save();
-    session.save();
-    session.logout();
+    sessionProvider.close() ;
   }
   
   public Object get(String userName, String widgetType, String instantId) throws Exception {
-    Session session = jcrRegService_.getSession();
-    Node widgetNode = getWidgetNode(session, userName, widgetType, instantId);
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    Node widgetNode = getWidgetNode(sessionProvider, userName, widgetType, instantId);
     if(widgetNode == null ) {
-      session.logout();
+      sessionProvider.close() ;
       return null;
     }
     byte[] bytes =  IOUtil.getStreamContentAsBytes(widgetNode.getProperty(DATA).getStream());
-    session.logout();
+    sessionProvider.close() ;
     return bytes;
   }
 
   public void delete(String userName, String widgetType, String instantId) throws Exception {
-    Session session = jcrRegService_.getSession();
-    Node widgetNode = getWidgetNode(session, userName, widgetType, instantId);
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    Node widgetNode = getWidgetNode(sessionProvider, userName, widgetType, instantId);
     if(widgetNode == null ) {
-      session.logout();
+      sessionProvider.close() ;
       return;
     }
     Node parentNode = widgetNode.getParent();
+    widgetNode.remove() ;
     parentNode.save();
-    session.save();
-    session.logout();
+    sessionProvider.close() ;
   }
 
-  private Node getNode(Session session ,Node appsNode, String name, String nodeType) throws Exception {
-    if(appsNode.hasNode(name)){
-      return appsNode.getNode(name);
+  private Node getNode(Node parent, String name, String nodeType) throws Exception {
+    if(parent.hasNode(name)){
+      return parent.getNode(name);
     }
     Node node = null;
-    if(nodeType == null) node= appsNode.addNode(name);
-    else node = appsNode.addNode(name, nodeType);
-    appsNode.save();
-    session.save();
+    if(nodeType == null) node= parent.addNode(name);
+    else node = parent.addNode(name, nodeType);
+    parent.save();
     return node;
   }
 
-  private Node getWidgetNode(Session session, String userName, String widgetType, String instantId) throws Exception {
-    if( jcrRegService_.getUserNode(session, userName) == null) return null;
-    Node appsNode = jcrRegService_.getApplicationRegistryNode(session, userName, WIDGETS_REGETSTRY_NODE);
-    if(appsNode == null ) return null;
-    if(appsNode.hasNode(widgetType + "/" + instantId)) {
-      return appsNode.getNode(widgetType + "/" + instantId);
-    } 
+  private Node getWidgetNode(SessionProvider sessionProvider, String userName, String widgetType, String instantId) throws Exception {
+    Node userAppsNode = nodeCreator.getUserApplicationNode(sessionProvider, userName) ;
+    String instancePath = WIDGETS_REGETSTRY_NODE + "/" + widgetType + "/" + instantId ;
+    if(userAppsNode.hasNode(instancePath)) return userAppsNode.getNode(instancePath) ;
     return null;
   }
 }
