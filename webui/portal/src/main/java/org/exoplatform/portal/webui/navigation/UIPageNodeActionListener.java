@@ -255,13 +255,13 @@ public class UIPageNodeActionListener {
       if(targetNode != null) newNode.setUri(targetNode.getUri()+"/"+newNode.getUri());
       
       // TODO: dang.tung - if source address equals destination address
-      if(selectedNode.getNode().getUri().equals(targetNode.getUri())) {
-        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameSrcAndDes", null)) ;
-        
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
-        return;
-      }
+//      if(selectedNode.getNode().getUri().equals(targetNode.getUri())) {
+//        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+//        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameSrcAndDes", null)) ;
+//        
+//        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+//        return;
+//      }
       
       if( (targetNode != null && hasNode(targetNode, newNode.getUri())) || 
           hasNode(targetNav, newNode.getUri()) ){
