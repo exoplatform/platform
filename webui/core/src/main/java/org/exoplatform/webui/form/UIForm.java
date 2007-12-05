@@ -131,7 +131,7 @@ public class UIForm extends UIContainer  {
 
   @Override
   public void processRender(WebuiRequestContext context) throws Exception {
-    if(config.getTemplate() != null) {
+    if(getTemplate() != null) {
       super.processRender(context) ;
       return ;
     }
