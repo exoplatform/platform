@@ -39,8 +39,8 @@ public class JCRRegistryService implements Startable{
     return node;
   }
   
-  public Session getSession() throws Exception{
-    return repositoryService_.getDefaultRepository().getSystemSession(WORKSPACE);
+  public Session getSession() throws Exception {    
+    return repositoryService_.getDefaultRepository().getSystemSession(WORKSPACE);    
   }
   
   public RepositoryService  getJCRRepositoryService() { return repositoryService_ ; }
@@ -147,6 +147,10 @@ public class JCRRegistryService implements Startable{
     	if(!registryNode.hasNode("exo:services")) registryNode.addNode("exo:services") ;
     	if(!registryNode.hasNode("exo:applications")) registryNode.addNode("exo:applications") ;
     }else {
+      if(!session.getRootNode().hasNode("users/" + username)) {
+        session.getRootNode().addNode("users/" + username);
+        session.save();
+      }
     	registryNode = session.getRootNode().addNode("users/" + username + "/exo:registry") ;
     	registryNode.addNode("exo:services") ;
     	registryNode.addNode("exo:applications") ;
@@ -255,6 +259,7 @@ public class JCRRegistryService implements Startable{
     createNode(exoRegistry, "exo:applications", true);
     createNode(exoRegistry, "exo:services", true);
     createNode(session.getRootNode(), "users", true);
+    System.out.println("========CREATE USERD=======>");
     createNode(session.getRootNode(), "groups", true);
     session.logout() ;
     }catch (Exception e) {
