@@ -1,5 +1,5 @@
 <%
-  import org.exoplatform.webui.core.UIDropDownItemSelector;
+  //import org.exoplatform.webui.core.UIDropDownItemSelector;
 %>
 
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">
