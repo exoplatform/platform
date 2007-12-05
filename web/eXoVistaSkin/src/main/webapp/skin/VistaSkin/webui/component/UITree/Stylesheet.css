@@ -1,3 +1,54 @@
+.UITrees {
+  border: solid #526d82 1px ;
+  padding: 4px 0px;
+}
+
+.UITrees a {
+	display: block;
+} 
+
+.UITrees .HomeNode {
+	padding-left: 10px;
+}
+
+.UITrees .LevelUpArrowIcon {
+  width: 30px;
+  height: 20px;
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat center;
+}
+
+.UITrees a.LevelUpArrowIcon:hover {
+  width: 30px; height: 20px;
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat center;
+}
+
+.UITrees .Node {
+	line-height: 19px;
+	padding-top: 3px;
+	padding-left: 15px;
+  background: url('background/Dotted.gif') repeat-y 15px;
+}
+
+.UITrees .LastNode {
+  background: url('background/Dotted.gif') no-repeat 15px top;
+}
+
+.UITrees .Node .NodeIcon {
+	padding-left: 20px;
+}
+
+.UITrees .Node .ExpandIcon {
+	padding-left: 18px;
+  background: url('background/SmallGrayMinus.gif') no-repeat left center;
+}
+  
+.UITrees .Node .CollapseIcon {
+	padding-left: 18px;
+  background: url('background/SmallGrayPlus.gif') no-repeat left center;
+}
+
+/*****************************************************/
+
 .UITree {
   border: solid #9e9e9e 1px ;
 }

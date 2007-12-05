@@ -7,6 +7,7 @@ package org.exoplatform.portal.webui.component;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 /**
  * Author : lxchiati  
@@ -22,6 +23,6 @@ public class UITestFormPortlet extends UIPortletApplication {
   public UITestFormPortlet() throws Exception {
 //    addChild(UITestTemplate.class, null, null) ;
     addChild(UITestForm.class, null, "formtest2") ;
-//    addChild(UIDropDownControl.class, null, null) ;
+    //addChild(UITree.class, null,"UITree") ;
   }
 }

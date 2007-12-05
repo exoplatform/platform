@@ -5,12 +5,15 @@
 package org.exoplatform.portal.webui.component;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIDropDownControl;
+import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -20,6 +23,7 @@ import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormMultiValueInputSet;
 import org.exoplatform.webui.form.UIFormSelectBox;
+import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormUploadInput;
 import org.exoplatform.webui.form.UIFormWYSIWYGInput;
 /**
@@ -31,7 +35,7 @@ import org.exoplatform.webui.form.UIFormWYSIWYGInput;
 @ComponentConfigs({
   @ComponentConfig(
       lifecycle = UIFormLifecycle.class,
-      template =  "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
+      template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl",
       events = {
         @EventConfig(listeners = UITestForm.SaveActionListener.class),
         @EventConfig(listeners = UITestForm.ResetActionListener.class),
@@ -49,7 +53,7 @@ import org.exoplatform.webui.form.UIFormWYSIWYGInput;
       }
   )
 })
-public class UITestForm extends UIForm { 
+public class UITestForm extends UIFormTabPane { 
 
   public static final String FIELD_SELECT_BOX = "selectBox" ;
   public static final String FIELD_RADIO_BOX = "radioBox" ;
@@ -62,13 +66,26 @@ public class UITestForm extends UIForm {
   public static final String INTER_NUMBER_VALUE = "IntegerNumber" ;
   public static final String  POSIT_NUMBER_VALUE = "PositiveNumber" ;
 
+  private Collection sibblingsGroup_ ;
 
-  public UITestForm() throws Exception {  
-    UIFormUploadInput upload = new UIFormUploadInput("TestUpload", null); 
-    UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
-    test.setType(UIFormDateTimeInput.class);
-    addChild(upload);
-    addUIFormInput(new UIFormWYSIWYGInput("trongtran", "trongtran", "trongtran the torng", false)) ;
+  public UITestForm() throws Exception {
+    super("UITestForm") ;
+    UITree tree = addChild(UITree.class, null, "UITree");
+    OrganizationService service = getApplicationComponent(OrganizationService.class) ;
+    sibblingsGroup_ = service.getGroupHandler().findGroups(null);
+    
+    tree.setSibbling((List)sibblingsGroup_);
+    tree.setIcon("Icon GroupAdminIcon");
+    tree.setSelectedIcon("Icon PortalIcon");
+    tree.setBeanIdField("id");
+    //tree.setBeanLabelField("groupName");
+    tree.setBeanLabelField("label");
+    setSelectedTab(tree.getId()) ;
+//    UIFormUploadInput upload = new UIFormUploadInput("TestUpload", null); 
+//    UIFormMultiValueInputSet test =  new UIFormMultiValueInputSet(FIELD_DATE_TIME, FIELD_DATE_TIME);
+//    test.setType(UIFormDateTimeInput.class);
+//    addChild(upload);
+//    addUIFormInput(new UIFormWYSIWYGInput("trongtran", "trongtran", "trongtran the torng", false)) ;
 //    addChild(test);
 //    UIDropDownItemSelector uiDropDownItemSelector = addChild(UIDropDownItemSelector.class, null, null);
 //    uiDropDownItemSelector.setTitle("SelectContainer") ;
@@ -94,14 +111,14 @@ public class UITestForm extends UIForm {
 //    posittest.addValidator(PositiveNumberFormatValidator.class);
 //    addChild(posittest);
     
-    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
-    for(int i = 0; i < 40; i++) {
-      ls.add(new SelectItemOption<String>("Select Box Item "+i+"", "select"+i)) ;
-    }
-    ls.get(0).setSelected(true);
-    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
-    uiSelectBox.setMultiple(true);
-    uiSelectBox.setSize(3);
+//    List<SelectItemOption<String>> ls = new ArrayList<SelectItemOption<String>>() ;
+//    for(int i = 0; i < 40; i++) {
+//      ls.add(new SelectItemOption<String>("Select Box Item "+i+"", "select"+i)) ;
+//    }
+//    ls.get(0).setSelected(true);
+//    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SELECT_BOX, FIELD_SELECT_BOX, ls) ;
+//    uiSelectBox.setMultiple(true);
+//    uiSelectBox.setSize(3);
 //    uiSelectBox.setOnChange("Onchange");
 //    UIFormSelectBox uiSelectBox1 = new UIFormSelectBox(FIELD_SELECT_BOX + "1", FIELD_SELECT_BOX + "1", ls) ;
 //    uiSelectBox1.setOnChange("Onchange");
