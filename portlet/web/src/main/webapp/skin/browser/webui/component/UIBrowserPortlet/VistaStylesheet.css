@@ -1,4 +1,9 @@
-.UIBrowserPortlet {}
+.UIBrowserPortlet {
+	border: solid 1px #666;
+  height: 99% ;
+  margin: 7px 7px 5px;
+  background: white;
+}
 
 .UIBrowserPortlet .UIToolbar {
   background: url("VistaSkin/background/UIToolbarBG1x68.png") repeat-x ;
