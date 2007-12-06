@@ -1,44 +1,6 @@
 <nodeTypes xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0"
   xmlns:jcr="http://www.jcp.org/jcr/1.0">
   
-  <nodeType	name="exo:data" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
-    <supertypes>
-  	  <supertype>nt:folder</supertype>
-    </supertypes>
-  	<propertyDefinitions>
-  		<propertyDefinition name="id" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
-  			<valueConstraints/>
-  	  </propertyDefinition>
-  	  <propertyDefinition name="ownerType" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
-  			<valueConstraints/>
-  	  </propertyDefinition>
-  	  <propertyDefinition name="ownerId" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
-  			<valueConstraints/>
-  	  </propertyDefinition>
-  		<propertyDefinition name="name" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
-  			<valueConstraints/>
-  	  </propertyDefinition>
-  		<propertyDefinition name="dataType" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
-  			<valueConstraints/>
-	    </propertyDefinition>
-  		<propertyDefinition name="accessPermissions" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="true">
-  			<valueConstraints/>
-  		</propertyDefinition>
-  		<propertyDefinition name="editPermission" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
-  			<valueConstraints/>
-  		</propertyDefinition>
-	    <propertyDefinition name="createdDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
-  			<valueConstraints/>
-	    </propertyDefinition>
-	    <propertyDefinition name="modifiedDate" requiredType="Date" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
-  			<valueConstraints/>
-	    </propertyDefinition>
-  		<propertyDefinition name="data" requiredType="String" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
-  			<valueConstraints/>
-  		</propertyDefinition>  		
-  	</propertyDefinitions>
- 	</nodeType> 
- 	
  	<nodeType name="exo:widget" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
     <supertypes>
       <supertype>nt:base</supertype>
@@ -47,8 +9,7 @@
         <propertyDefinition name="data" requiredType="Binary" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
             <valueConstraints/>
       </propertyDefinition>
-    </propertyDefinitions>
-    
-    </nodeType>	
+    </propertyDefinitions>    
+  </nodeType>	
     
 </nodeTypes>    

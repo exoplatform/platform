@@ -13,21 +13,7 @@
 
   <component>
     <key>org.exoplatform.application.registry.ApplicationRegistryService</key>
-    <type>org.exoplatform.application.registry.jcrregistry.ApplicationRegistryServiceImpl</type>
+    <type>org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl</type>
   </component>
-<!--  
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
-    <component-plugin> 
-	    <name>add.nodeType</name>
-	    <set-method>addPlugin</set-method>
-	    <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
-	    <init-params>
-	      <values-param>
-	        <name>autoCreatedInNewRepository</name>         
-	        <value>jar:/conf/portal/application-registry-nodetypes.xml</value> 
-	      </values-param>
-	    </init-params>
-    </component-plugin>
-  </external-component-plugins>-->  
+
 </configuration>

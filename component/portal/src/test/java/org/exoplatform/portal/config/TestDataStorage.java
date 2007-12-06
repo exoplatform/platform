@@ -9,11 +9,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.application.PortletPreferences;
+import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesSet;
+import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.config.model.Page.PageSet;
+import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.test.BasicTestCase;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
@@ -21,334 +25,412 @@ import org.jibx.runtime.IUnmarshallingContext;
 
 /**
  * Created by The eXo Platform SARL
- * Author : Pham Thanh Tung
+ * Author : Tung Pham
  *          thanhtungty@gmail.com
- * May 2, 2007  
+ * Nov 13, 2007  
  */
-public class TestDataStorage extends BasicTestCase { 
+public class TestDataStorage extends BasicTestCase {
+  
   DataStorage storage_ ;
+  
   public TestDataStorage(String name) {
     super(name) ;
   }
   
-  public void testAll()  throws Exception {
-    PortalContainer portalContainer = PortalContainer.getInstance() ;
-    storage_ = (DataStorage)portalContainer.getComponentInstanceOfType(DataStorage.class) ;
-    
-    assertPortalConfigOperator() ;
-    assertNavigationOperator() ;
-    assertPageOperator() ;
-    assertWidgetsOperator() ;
+  public void setUp() throws Exception {
+    super.setUp() ;
+    if(storage_ != null) return ; 
+    PortalContainer container = PortalContainer.getInstance() ;
+    storage_ = (DataStorage) container.getComponentInstanceOfType(DataStorage.class) ;
   }
   
-  void assertPortalConfigOperator()  throws Exception {
+  public void tearDown() throws Exception {
+    super.tearDown() ;
+  }
+    
+  public void testPortalConfigCreate() throws Exception {
     String portalName = "portalone" ;
-    
-    assertPortalConfigCreate(portalName) ;
-    assertPortalConfigSave(portalName) ;
-    assertPortalConfigRemove(portalName) ;
-  }
-  
-  void assertPortalConfigCreate(String portalName) throws Exception {
-    PortalConfig config = createPortalConfig(portalName) ;
-    assertEquals(portalName, config.getName()) ;
-    storage_.create(config) ;
-    
-    PortalConfig returnConfig = storage_.getPortalConfig(portalName) ;
-    assertEquals(config.getName(), returnConfig.getName()) ;
-    storage_.remove(config) ;
-  }
-  
-  void assertPortalConfigSave(String portalName) throws Exception {
-    PortalConfig config = createPortalConfig(portalName) ;
-    assertEquals(portalName, config.getName()) ;
-    storage_.create(config) ;
-    PortalConfig returnConfig = storage_.getPortalConfig(portalName) ;
-    assertEquals(portalName, returnConfig.getName()) ;
-    
-    String newLocate = "new locate" ;
-    config.setLocale(newLocate) ;
-    storage_.save(config) ;
-    PortalConfig returnConfig2 = storage_.getPortalConfig(portalName) ;
-    assertEquals(newLocate, returnConfig2.getLocale()) ;
-    
-    storage_.remove(config) ;
-  }
-  
-  void assertPortalConfigRemove(String portalName) throws Exception {
-    PortalConfig config = createPortalConfig(portalName) ;
+    PortalConfig config = loadPortalConfig(portalName) ;
     assertEquals(portalName, config.getName()) ;
     storage_.create(config) ;
     PortalConfig returnConfig = storage_.getPortalConfig(portalName) ;
     assertNotNull(returnConfig) ;
+    assertEquals(portalName, returnConfig.getName()) ;
+    assertEquals(config.getCreator(), returnConfig.getCreator()) ;
+
+    storage_.remove(config) ;
+  }
+  
+  public void testPortalConfigSave() throws Exception {
+    String portalName = "portalone" ;
+    PortalConfig config = loadPortalConfig(portalName) ;
+    assertEquals(portalName, config.getName()) ;
+    storage_.create(config) ;
+    
+    String newLocale = "vietnam" ;
+    config.setLocale(newLocale) ;
+    assertEquals(newLocale, config.getLocale()) ;
+    storage_.save(config) ;
+    PortalConfig returnConfig = storage_.getPortalConfig(portalName) ;
+    assertNotNull(returnConfig) ;
+    assertEquals(newLocale, returnConfig.getLocale()) ;
     
     storage_.remove(config) ;
-    PortalConfig returnConfig2 = storage_.getPortalConfig(portalName) ;
-    assertNull(returnConfig2) ;
   }
   
-  void assertNavigationOperator() throws Exception {
-    String ownerId = "portalone" ;
+  public void testPortalConfigRemove() throws Exception {
+    String portalName = "portalone" ;
+    PortalConfig config = loadPortalConfig(portalName) ;
+    assertEquals(portalName, config.getName()) ;
+    storage_.create(config) ;
     
-    assertNavigationCreate(ownerId) ;
-    assertNavigationSave(ownerId) ;
-    assertNavigationRemove() ;
+    PortalConfig returnConfig = storage_.getPortalConfig(portalName) ;
+    assertNotNull(returnConfig) ;
+    
+    storage_.remove(config) ;    
+    assertNull(storage_.getPortalConfig(portalName)) ;
+    storage_.create(config) ;
+    storage_.remove(config) ;
   }
   
-  void assertNavigationCreate(String ownerId) throws Exception {
-    PageNavigation navigation = createNavigation(ownerId) ;
-    assertEquals(ownerId, navigation.getOwnerId()) ;
-    
-    storage_.create(navigation) ;
-    PageNavigation returnNavigation = storage_.getPageNavigation(navigation.getId()) ;
-    assertEquals(ownerId, returnNavigation.getOwnerId()) ;
-    
-    storage_.remove(navigation) ;
+  public void testPageConfigCreate() throws Exception {
+    createPageConfig(PortalConfig.PORTAL_TYPE, "portalone") ;
+    createPageConfig(PortalConfig.USER_TYPE, "exoadmin") ;
+    createPageConfig(PortalConfig.GROUP_TYPE, "portal/admin") ;
   }
   
-  void assertNavigationSave(String ownerId) throws Exception {
-    PageNavigation navigation = createNavigation(ownerId) ;
-    assertEquals(ownerId, navigation.getOwnerId()) ;
-    String navigationId = navigation.getId() ;
-    
-    String oldDescription = "Old Description." ;
-    navigation.setDescription(oldDescription) ;
-    storage_.create(navigation) ;
-    PageNavigation returnNavigation = storage_.getPageNavigation(navigationId) ;
-    assertEquals(oldDescription, returnNavigation.getDescription()) ;
-    
-    String newDescription = "New Description." ;
-    navigation.setDescription(newDescription) ;
-    storage_.save(navigation) ;
-    PageNavigation returnNavigation2 = storage_.getPageNavigation(navigationId) ;
-    assertEquals(newDescription, returnNavigation2.getDescription()) ;
-    
-    storage_.remove(navigation) ;
-  }
-  
-  void assertNavigationRemove() throws Exception {
-    String ownerId1 = "portalone" ;
-    PageNavigation navigation1 = createNavigation(ownerId1) ;
-    assertEquals(ownerId1, navigation1.getOwnerId()) ;
-    String navigationId1 = navigation1.getId() ;
-    
-    storage_.create(navigation1) ;
-    PageNavigation returnNavigation1 = storage_.getPageNavigation(navigationId1) ;
-    assertNotNull(returnNavigation1) ;
-    
-    String ownerId2 = "portaltwo" ;
-    PageNavigation navigation2 = createNavigation(ownerId2) ;
-    assertEquals(ownerId2, navigation2.getOwnerId()) ;
-    String navigationId2 = navigation2.getId() ;
-    
-    storage_.create(navigation2) ;
-    PageNavigation returnNavigation2 = storage_.getPageNavigation(navigationId2) ;
-    assertNotNull(returnNavigation2) ;
-    
-    storage_.remove(navigation1) ;
-    
-    PageNavigation _returnNavigation1 = storage_.getPageNavigation(navigationId1) ;
-    assertNull(_returnNavigation1) ;
-    
-    PageNavigation _returnNavigation2 = storage_.getPageNavigation(navigationId2) ;
-    assertNotNull(_returnNavigation2) ;
-    
-    storage_.remove(navigation2) ;
-
-  }
-  
-  void assertPageOperator() throws Exception {
-    String ownerId = "portalone" ;
-    
-    assertPageCreate(ownerId) ;
-    assertPageSave(ownerId) ;
-    assertPageRemove(ownerId) ;
-  }
-
-  void assertPageCreate(String ownerId) throws Exception {
-   List<Page> pages = createPages(ownerId) ;
-   assertEquals(2, pages.size()) ;
-   
-   for (Page p : pages) {
-     storage_.create(p) ;
-   }
-   
-   List<Page> returnPages = new ArrayList<Page>() ;
-   for (Page p : pages) {
-     String pageId = p.getPageId() ;
-
-     Page aPage = storage_.getPage(pageId) ;
-     assertEquals(pageId, aPage.getPageId()) ;
-     returnPages.add(aPage) ;
-   }
-   assertEquals(2, returnPages.size()) ;
-   
-   for (Page p : pages) {
-     storage_.remove(p) ;
-   }
-   
-  }
-  
-  void assertPageSave(String ownerId) throws Exception {
-    List<Page> pages = createPages(ownerId) ;
-    assertEquals(2, pages.size()) ;
-    
-    String oldPermisstion = "*:/guest" ;
-    for (Page p : pages) {
-      p.setAccessPermissions(new String[]{oldPermisstion}) ;
-      storage_.create(p) ;
+  private void createPageConfig(String ownerType, String ownerId) throws Exception {    
+    List<Page> pages = loadPages(ownerType, ownerId) ;
+    for(Page page : pages) {
+      storage_.create(page) ;
     }
     
-    for (Page p : pages) {
-      String pageId = p.getPageId() ;
-      
-      Page aPage = storage_.getPage(pageId) ;
-      assertEquals(oldPermisstion, aPage.getAccessPermissions()[0]) ;
-    }
-    
-    String newPermission = "*:/admin" ;
-    for (Page p : pages) {
-      p.setAccessPermissions(new String[]{newPermission}) ;
-      storage_.save(p) ;
-    }
-
     List<Page> returnPages = new ArrayList<Page>() ;
-    for (Page p : pages) {
-      String pageId = p.getPageId() ;
-
-      Page aPage = storage_.getPage(pageId) ;
-      assertEquals(newPermission, aPage.getAccessPermissions()[0]) ;
-      returnPages.add(aPage) ;
+    for(Page page : pages) {
+      Page returnPage = storage_.getPage(page.getPageId()) ;
+      assertEquals(page.getPageId(), returnPage.getPageId()) ;
+      assertEquals(page.getOwnerType(), returnPage.getOwnerType()) ;
+      assertEquals(page.getOwnerId(), returnPage.getOwnerId()) ;
+      assertEquals(page.getChildren().size(), returnPage.getChildren().size()) ;
+      returnPages.add(returnPage) ;
     }
-    assertEquals(2, returnPages.size()) ;
+    assertEquals(pages.size(), returnPages.size()) ;
     
-    for (Page p : pages) {
-      storage_.remove(p) ;
+    for(Page page : pages) {
+      storage_.remove(page) ;
     }
-    
   }
   
-  void assertPageRemove(String ownerId) throws Exception {
-    List<Page> pages = createPages(ownerId) ;
-    assertEquals(2, pages.size()) ;
-    
-    // Create 2 pages
-    for (Page p : pages) {
-      storage_.create(p) ;
+  public void testPageConfigSave() throws Exception {
+    savePageConfig(PortalConfig.PORTAL_TYPE, "portalone") ;
+    savePageConfig(PortalConfig.USER_TYPE, "exoadmin") ;
+    savePageConfig(PortalConfig.GROUP_TYPE, "portal/admin") ;
+  }
+  
+  private void savePageConfig(String ownerType, String ownerId) throws Exception {
+
+    List<Page> pages = loadPages(ownerType, ownerId) ;
+    for(Page page : pages) {
+      storage_.create(page) ;
     }
     
-    // Before remove 2 pages
+    for(int i = 0; i < pages.size(); i++) {
+      Page page = pages.get(i) ; 
+      page.setTitle("Page title " + i) ;
+      page.setOwnerId("customers") ;
+      storage_.save(page) ;
+    }
     List<Page> returnPages = new ArrayList<Page>() ;
-    for (Page p : pages) {
-      String pageId = p.getPageId() ;
-
-      Page aPage = storage_.getPage(pageId) ;
-      returnPages.add(aPage) ;
+    for(int i = 0; i < pages.size(); i++) {
+      Page page = pages.get(i) ; 
+      Page returnPage = storage_.getPage(page.getPageId()) ;
+      assertEquals("Page title " + i, returnPage.getTitle()) ;
+      assertEquals(page.getPageId(), returnPage.getPageId()) ;
+      assertEquals(page.getOwnerType(), returnPage.getOwnerType()) ;
+      assertEquals(page.getOwnerId(), returnPage.getOwnerId()) ;
+      assertEquals(page.getChildren().size(), returnPage.getChildren().size()) ;
+      returnPages.add(returnPage) ;
     }
-    assertEquals(2, returnPages.size()) ;
+    assertEquals(pages.size(), returnPages.size()) ;
     
-    // Remove 2 pages
-    for (Page p : pages) {
-      storage_.remove(p) ;
+    for(Page page : pages) {
+      storage_.remove(page) ;
     }
     
-    // After remove 2 pages
-    List<Page> returnPages2 = new ArrayList<Page>() ;
-    for (Page p : pages) {
-      String pageId = p.getPageId() ;
-
-      Page aPage = storage_.getPage(pageId) ;
-      if (aPage != null) returnPages2.add(aPage) ;
-    }
-    assertEquals(0, returnPages2.size()) ;
-  }
-
-  void assertWidgetsOperator() throws Exception {
-   String testPortal = "portalone" ;
-    assertWidgetsCreate(testPortal) ;
-    assertWidgetsSave(testPortal) ;
-    assertWidgetsRemove(testPortal) ;
   }
   
-  void assertWidgetsCreate(String ownerId) throws Exception {
-   Widgets widgets = createWidgets(ownerId) ;
-   assertNotNull(widgets) ;
-   assertEquals(ownerId, widgets.getOwnerId()) ;
-   
-   Widgets returnWidgets = storage_.getWidgets(widgets.getId()) ;
-   assertNull(returnWidgets) ;
-   
-   storage_.create(widgets) ;
-   returnWidgets = storage_.getWidgets(widgets.getId()) ;
-   assertNotNull(returnWidgets) ;
-   assertEquals(widgets.getOwnerId(), returnWidgets.getOwnerId()) ;
-   
-   storage_.remove(widgets) ;
+  public void testPageConfigRemove() throws Exception {
+    removePageConfig(PortalConfig.PORTAL_TYPE, "portalone") ;
+    removePageConfig(PortalConfig.USER_TYPE, "exoadmin") ;
+    removePageConfig(PortalConfig.GROUP_TYPE, "portal/admin") ;
   }
+  
+  private void removePageConfig(String ownerType, String ownerId) throws Exception {
+    List<Page> pages = loadPages(ownerType, ownerId) ;
+    for(Page page : pages) {
+      storage_.create(page) ;
+    }
+    
+    for(Page page : pages) {
+      storage_.remove(page) ;
+    }    
 
-  void assertWidgetsSave(String ownerId) throws Exception {
-    Widgets widgets = createWidgets(ownerId) ;
-    String [] accesses = widgets.getAccessPermissions();
-    assertEquals(1, accesses.length) ;
-//    assertEquals("*:/user", accesses[1]) ;
+    for(Page page : pages) {
+      storage_.create(page) ;
+    }
+    
+    for(Page page : pages) {
+      storage_.remove(page) ;
+    }    
+  }
+  
+  public void testNavigationCreate() throws Exception {
+    createNavigation(PortalConfig.PORTAL_TYPE, "portalone") ;
+    createNavigation(PortalConfig.USER_TYPE, "exoadmin") ;
+    createNavigation(PortalConfig.GROUP_TYPE, "portal/admin") ;
+  }
+  
+  private void createNavigation(String ownerType, String ownerId) throws Exception {
+    PageNavigation navi = loadNavigation(ownerType, ownerId) ;
+    assertNotNull(navi) ;
+    assertEquals(ownerType, navi.getOwnerType()) ;
+    assertEquals(ownerId, navi.getOwnerId()) ;
+    
+    storage_.create(navi) ;
+    PageNavigation returnedNavi = storage_.getPageNavigation(navi.getId()) ;
+    assertNotNull(navi) ;
+    assertEquals(navi.getOwnerType(), returnedNavi.getOwnerType()) ;
+    assertEquals(navi.getOwnerId(), returnedNavi.getOwnerId()) ;
+    assertEquals(navi.getNodes().size(), returnedNavi.getNodes().size()) ;
+    
+    storage_.remove(navi) ;
+  }
+  
+  public void testNavigationSave() throws Exception {
+    saveNavigation(PortalConfig.PORTAL_TYPE, "portalone") ;
+    saveNavigation(PortalConfig.USER_TYPE, "exoadmin") ;
+    saveNavigation(PortalConfig.GROUP_TYPE, "portal/admin") ;
+  }
+  
+  private void saveNavigation(String ownerType, String ownerId) throws Exception {
+    PageNavigation navi = loadNavigation(ownerType, ownerId) ;
+    String modifier = "exoadmin" ;
+    navi.setModifier(modifier) ;
+    assertEquals(modifier, navi.getModifier()) ;
+    storage_.create(navi) ;
+
+    String newModifier = "Tung.Pham" ;
+    navi.setModifier(newModifier) ;
+    storage_.save(navi) ;    
+    PageNavigation afterSaveNavi = storage_.getPageNavigation(navi.getId()) ;
+    assertEquals(newModifier, afterSaveNavi.getModifier()) ;
+    assertEquals(navi.getModifier(), afterSaveNavi.getModifier()) ;
+    assertEquals(navi.getNodes().size(), afterSaveNavi.getNodes().size()) ;
+    
+    storage_.remove(navi) ;
+  }
+  
+  public void testNavigationRemove() throws Exception {
+    removeNavigation(PortalConfig.PORTAL_TYPE, "portalone") ;
+    removeNavigation(PortalConfig.USER_TYPE, "exoadmin") ;
+    removeNavigation(PortalConfig.GROUP_TYPE, "portal/admin") ;
+  }
+  
+  private void removeNavigation(String ownerType, String ownerId) throws Exception {
+    PageNavigation navi = loadNavigation(ownerType, ownerId) ;
+    storage_.create(navi) ;
+    storage_.remove(navi) ;
+    storage_.create(navi) ;
+    storage_.remove(navi) ;
+  }
+  
+  public void testWidgetsCreate() throws Exception {
+    Widgets widgets = loadWidgets("exoadmin") ;
+    assertNotNull(widgets) ;
     storage_.create(widgets) ;
-    
-    String newAccessPermission = "/tester" ;
-    widgets.setAccessPermissions(new String[]{newAccessPermission}) ;
+    Widgets returnedWidgets = storage_.getWidgets(widgets.getId()) ;
+    assertEquals(widgets.getOwnerType(), returnedWidgets.getOwnerType()) ;
+    assertEquals(widgets.getOwnerId(), returnedWidgets.getOwnerId()) ;
+    assertEquals(widgets.getChildren().size(), returnedWidgets.getChildren().size()) ;
+    storage_.remove(widgets) ;
+  }
+  
+  public void testWidgetsSave() throws Exception {
+    Widgets widgets = loadWidgets("exoadmin") ;
+    storage_.create(widgets) ;
+    int childrenSize = widgets.getChildren().size() ;
+    widgets.getChildren().add(new Container()) ;
     storage_.save(widgets) ;
-    Widgets returnWidgets = storage_.getWidgets(widgets.getId()) ;
-    assertEquals(newAccessPermission, returnWidgets.getAccessPermissions()[0]) ;
-    
+    Widgets afterSaveWidget = storage_.getWidgets(widgets.getId()) ;
+    assertEquals(childrenSize + 1, afterSaveWidget.getChildren().size()) ;
     storage_.remove(widgets) ;
   }
-  void assertWidgetsRemove(String ownerId) throws Exception {
-    Widgets widgets = createWidgets(ownerId) ;
+  
+  public void testWidgetRemove() throws Exception {
+    Widgets widgets = loadWidgets("exoadmin") ;
     storage_.create(widgets) ;
-    Widgets returnWidgets = storage_.getWidgets(widgets.getId()) ;
-    assertNotNull(returnWidgets) ;
-    
     storage_.remove(widgets) ;
-    returnWidgets = storage_.getWidgets(widgets.getId()) ;
-    assertNull(returnWidgets) ;
+    storage_.create(widgets) ;
+    storage_.remove(widgets) ;
   }
+  
+  public void testPortletPreferencesCreate() throws Exception {
+    List<PortletPreferences> prefList = loadPortletPreferences(PortalConfig.PORTAL_TYPE, "portalone") ;
+    for(PortletPreferences ele : prefList) {
+      storage_.save(ele) ;      
+    }
+    
+    for(PortletPreferences ele : prefList) {
+      storage_.save(ele) ;      
+    }
+    
+    for(PortletPreferences ele : prefList) {
+      ExoWindowID exoWindowID = new ExoWindowID(ele.getWindowId()) ;
+      PortletPreferences pref = storage_.getPortletPreferences(exoWindowID);
+      assertNotNull(pref) ;
+      assertEquals(ele.getOwnerId(), pref.getOwnerId()) ;
+      assertEquals(ele.getOwnerType(), pref.getOwnerType()) ;
+      assertEquals(ele.getOwnerId(), pref.getOwnerId()) ;
+    }
+    
+    for(PortletPreferences ele : prefList) {
+      storage_.remove(ele) ;      
+    }
+  }
+  
+  public void testPortletPreferencesSave() throws Exception {
+    List<PortletPreferences> prefList = loadPortletPreferences(PortalConfig.PORTAL_TYPE, "portalone") ;
+    for(PortletPreferences ele : prefList) {
+      storage_.save(ele) ;      
+    }
+    
+    String newValidator = "NewValidator" ;
+    for(int i = 0; i < prefList.size(); i++) {
+      PortletPreferences ele = prefList.get(i) ;
+      ele.setPreferencesValidator(newValidator+i) ;
+      storage_.save(ele) ;
+    }
+    
+    for(int i = 0; i < prefList.size(); i++) {
+      PortletPreferences ele = prefList.get(i) ;
+      ExoWindowID exoWindowID = new ExoWindowID(ele.getWindowId()) ;
+      PortletPreferences afterSavePref = storage_.getPortletPreferences(exoWindowID) ;
+      assertEquals(newValidator + i, afterSavePref.getPreferencesValidator()) ;
+    }
+    
+    for(PortletPreferences ele : prefList) {
+      storage_.remove(ele) ;      
+    }
+  }
+  
+  public void testPortletPreferencesRemove() throws Exception {
+    List<PortletPreferences> prefList = loadPortletPreferences(PortalConfig.PORTAL_TYPE, "portalone") ;
+    for(PortletPreferences ele : prefList) {
+      storage_.save(ele) ;      
+    }
+    
+    for(PortletPreferences ele : prefList) {
+      ExoWindowID exoWindowID = new ExoWindowID(ele.getWindowId()) ;
+      PortletPreferences pref = storage_.getPortletPreferences(exoWindowID);
+      assertNotNull(pref) ;
+    }
+    
+    for(PortletPreferences ele : prefList) {
+      storage_.remove(ele) ;      
+    }
 
-//----------------------------------------------------------------------------------------------------------
-  private PortalConfig createPortalConfig(String portalName) throws Exception {
-    String configFile = portalName + "/portal.xml" ;
+    for(PortletPreferences ele : prefList) {
+      ExoWindowID exoWindowID = new ExoWindowID(ele.getWindowId()) ;
+       assertNull(storage_.getPortletPreferences(exoWindowID)) ;
+    }
+  }
+  
+  @SuppressWarnings("unchecked")
+  public void testFind() throws Exception {
+    List<Page> pages = loadPages(PortalConfig.USER_TYPE, "exoadmin") ;
+    for(Page page : pages) {
+      storage_.create(page) ;
+    }
+    
+    Query<Page> query = new Query<Page>(null, null, Page.class) ;
+    List<Page> findedPages = storage_.find(query).getAll() ;
+    assertEquals(pages.size(), findedPages.size()) ;
+    
+    for(int i = 0; i < findedPages.size(); i++) {
+      Page existingPage = pages.get(i) ;
+      Page findedPage = findedPages.get(i) ;
+      assertEquals(existingPage.getName(), findedPage.getName()) ;
+      assertEquals(existingPage.getPageId(), findedPage.getPageId()) ;
+      assertEquals(existingPage.getOwnerType(), findedPage.getOwnerType()) ;
+      assertEquals(existingPage.getOwnerId(), findedPage.getOwnerId()) ;
+      assertEquals(existingPage.getChildren().size(), findedPage.getChildren().size()) ;
+      storage_.remove(findedPage) ;
+    }    
+  }
+  
+  //------------------------------------------------------------------------------------------//
+  
+  private PortalConfig loadPortalConfig(String portalName) throws Exception {
+    String configFile = "PortalApp/" + portalName + "/portal.xml" ;
     
     PortalConfig config = loadObject(PortalConfig.class, configFile) ;
     
     return config ;
   }
-  
-  private PageNavigation createNavigation(String ownerId) throws Exception {
-    String navigationFile = ownerId + "/navigation.xml" ;
 
+  private PageNavigation loadNavigation(String ownerType, String ownerId) throws Exception {
+    String navigationFile = "" ;
+    if(PortalConfig.PORTAL_TYPE.equals(ownerType)) {
+      navigationFile = "PortalApp/" + ownerId + "/navigation.xml" ; 
+    } else if(PortalConfig.USER_TYPE.equals(ownerType)) {
+      navigationFile = "user/" + ownerId + "/navigation.xml" ;
+    } else if(PortalConfig.GROUP_TYPE.equals(ownerType)) {
+      navigationFile = "group/" + ownerId + "/navigation.xml" ;
+    }
     PageNavigation navigation = loadObject(PageNavigation.class, navigationFile) ;
     
     return navigation ;
   }
   
-  private List<Page> createPages(String ownerId) throws Exception {
-    String pageSetFile = ownerId + "/pages.xml" ;
+  private List<Page> loadPages(String ownerType, String ownerId) throws Exception {
+    String pageSetFile = "" ;
+    if(PortalConfig.PORTAL_TYPE.equals(ownerType)) {
+      pageSetFile = "PortalApp/" + ownerId + "/pages.xml" ; 
+    } else if(PortalConfig.USER_TYPE.equals(ownerType)) {
+      pageSetFile = "user/" + ownerId + "/pages.xml" ;
+    } else if(PortalConfig.GROUP_TYPE.equals(ownerType)) {
+      pageSetFile = "group/" + ownerId + "/pages.xml" ;
+    }     
     PageSet pageSet = loadObject(PageSet.class, pageSetFile) ;
  
     return pageSet.getPages() ;
   }
   
-  private Widgets createWidgets(String ownerId) throws Exception {
-    String widgetFile = ownerId + "/widgets.xml" ;
+  private Widgets loadWidgets(String userName) throws Exception {
+    String widgetFile = "user/" + userName + "/widgets.xml" ;
     Widgets widgets = loadObject(Widgets.class, widgetFile) ;
     
     return widgets ;
   }
   
+  private List<PortletPreferences> loadPortletPreferences(String ownerType, String ownerId) throws Exception {
+    String filePath = "" ;
+    if(PortalConfig.PORTAL_TYPE.equals(ownerType)) {
+      filePath = "PortalApp/" + ownerId + "/portlet-preferences.xml" ;
+    } else if(PortalConfig.GROUP_TYPE.equals(ownerType)) {
+      filePath = "group/" + ownerId + "/portlet-preferences.xml" ;
+    }
+    PortletPreferencesSet set = loadObject(PortletPreferencesSet.class, filePath) ;
+    return set.getPortlets() ;
+  }
+
+  @SuppressWarnings("unchecked")
   private <T> T loadObject(Class<T> clazz, String file) throws Exception{
     IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
-    FileInputStream is = new FileInputStream("src/test/resources/PortalApp/" + file) ;
+    FileInputStream is = new FileInputStream("src/test/resources/" + file) ;
     
     return  (T) uctx.unmarshalDocument(is, null) ;
   }
-
+  
 }

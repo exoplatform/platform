@@ -6,7 +6,7 @@
   
   <component>
     <key>org.exoplatform.services.resources.ResourceBundleService</key>
-    <type>org.exoplatform.services.resources.jcrregistry.ResourceBundleServiceImpl</type>
+    <type>org.exoplatform.services.resources.jcr.ResourceBundleServiceImpl</type>
     <init-params>
       <values-param>
         <name>classpath.resources</name>
@@ -41,19 +41,4 @@
       </init-params>
   </component>    
   
-<!--  <external-component-plugins>
-    <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
-    <component-plugin> 
-      <name>add.nodeType</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
-      <init-params>
-        <values-param>
-          <name>autoCreatedInNewRepository</name>
-          <value>jar:/conf/portal/resource-nodetypes.xml</value> 
-        </values-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
--->   
 </configuration>

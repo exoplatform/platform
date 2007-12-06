@@ -16,8 +16,6 @@ function getModule(params) {
   module.name =  "portal" ;
     
   module.component = {}
-  module.component.jcrext = 
-    new Project("org.exoplatform.portal", "exo.portal.component.jcrext", "jar", module.version) ;
   module.component.portal  = 
     new Project("org.exoplatform.portal", "exo.portal.component.portal", "jar", module.version) ;
   module.component.web = 
@@ -48,7 +46,6 @@ function getModule(params) {
     addDependency(module.webui.core) .
     addDependency(module.webui.eXo) .
     addDependency(module.component.web).
-    addDependency(module.component.jcrext) .
     addDependency(module.component.resources) .
     addDependency(module.component.applicationRegistry) .
     addDependency(module.component.portal).

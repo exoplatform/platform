@@ -1,7 +1,7 @@
-/**
- * Copyright 2001-2003 The eXo platform SARL All rights reserved.
- * Please look at license.txt in info directory for more license detail. 
- */
+/***************************************************************************
+ * Copyright 2001-2007 The eXo Platform SARL         All rights reserved.  *
+ * Please look at license.txt in info directory for more license detail.   *
+ **************************************************************************/
 package org.exoplatform.application.registry;
 
 import java.util.ArrayList;
@@ -16,9 +16,10 @@ import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.test.BasicTestCase;
 
 /**
- * Created by the eXo platform team
- * User: Benjamin Mestrallet
- * Date: 16 juin 2004
+ * Created by The eXo Platform SARL
+ * Author : Tung Pham
+ *          thanhtungty@gmail.com
+ * Nov 27, 2007  
  */
 public class TestApplicationRegistryService extends BasicTestCase {
   
@@ -45,16 +46,14 @@ public class TestApplicationRegistryService extends BasicTestCase {
     assertNotNull(service) ;
     assertAppCategoryOperation(service) ;
     assertApplicationOperation(service) ;
-    //assertImportExoApplication(service) ;
 
     service.clearAllRegistries() ;
-    System.out.println("\n\n\n\n");
   }
   
   void assertAppCategoryOperation(ApplicationRegistryService service) throws Exception {
     assertAppCategorySave(service) ;
     assertAppCategoryGet(service) ;
-    assertAppCategoryGetByAccessUser(service) ;
+    //assertAppCategoryGetByAccessUser(service) ;
     assertCategoryUpdate(service) ;
     assertCategoryRemove(service) ;
   }
@@ -79,7 +78,6 @@ public class TestApplicationRegistryService extends BasicTestCase {
     assertEquals(category.getName(), returnCategory1.getName()) ;
     assertEquals(categoryName, returnCategory1.getName()) ;
     
-
     ApplicationCategory returnCategory2 = service.getApplicationCategory(categoryName);
     assertNotNull(returnCategory2) ;
     assertEquals(category.getName(), returnCategory2.getName()) ;
@@ -106,12 +104,13 @@ public class TestApplicationRegistryService extends BasicTestCase {
   void assertAppCategoryGetByAccessUser(ApplicationRegistryService service) throws Exception {
     PortalContainer portalContainer = PortalContainer.getInstance() ;
     OrganizationService orgService = (OrganizationService) portalContainer.getComponentInstanceOfType(OrganizationService.class) ;
+    assertNotNull(orgService) ;
     prepareOrganizationData(orgService) ;
 
     String officeCategoryName = "Office" ;
     ApplicationCategory officeCategory = createAppCategory(officeCategoryName, "None") ;
     service.save(officeCategory) ;
-    String[] officeApps = {"MS Office", "OpenOffice"} ;
+    String[] officeApps = {"MSOffice", "OpenOffice"} ;
     Application msApp = createApplication(officeApps[0], "TestType", officeCategoryName) ;
     ArrayList<String> pers = new ArrayList<String>();
     pers.add("member:/users");
@@ -191,6 +190,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
     
     int numberOfCategories = service.getApplicationCategories().size() ;
     assertEquals(0, numberOfCategories) ;
+    service.clearAllRegistries() ;
   }
     
   void assertApplicationOperation(ApplicationRegistryService service) throws Exception {
@@ -203,13 +203,14 @@ public class TestApplicationRegistryService extends BasicTestCase {
     String categoryName = "Office" ;
     String appType = "TypeOne" ;
     String appGroup = "GroupOne" ;
-    String[] appNames = {"OpenOffice.org", "MS Office"} ;
+    String[] appNames = {"OpenOffice_org", "MS_Office"} ;
     
     ApplicationCategory appCategory = createAppCategory(categoryName, "None") ;
     service.save(appCategory) ;
     
     for(String appName : appNames) {
       Application app = createApplication(appName, appType, appGroup) ;
+      app.setCategoryName(categoryName) ;
       service.save(appCategory, app) ;
     }
    
@@ -221,14 +222,15 @@ public class TestApplicationRegistryService extends BasicTestCase {
       
       Application app = service.getApplication(appId) ;
       assertEquals(appName, app.getApplicationName()) ;  
-    }       
+    }
+    service.clearAllRegistries() ;
   }
   
   void assertApplicationUpdate(ApplicationRegistryService service) throws Exception {
     String categoryName = "Office" ;
     String appType = "TypeOne" ;
     String appGroup = "GroupOne" ;
-    String[] appNames = {"OpenOffice.org", "MS Office"} ;
+    String[] appNames = {"OpenOffice_org", "MS_Office"} ;
     
     ApplicationCategory appCategory = createAppCategory(categoryName, "None") ;
     service.save(appCategory) ;
@@ -237,6 +239,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
     for(String appName : appNames) {
       String oldDesciption = "This is: " + appName ;
       Application app = createApplication(appName, appType, appGroup) ;
+      app.setCategoryName(categoryName) ;
       app.setDescription(oldDesciption) ;
       service.save(appCategory, app) ;
     }
@@ -293,13 +296,14 @@ public class TestApplicationRegistryService extends BasicTestCase {
     String categoryName = "Office" ;
     String appType = "TestType" ;
     String appGroup = "TestGroup" ;
-    String[] appNames = {"OpenOffice.org", "MS Office"} ;
+    String[] appNames = {"OpenOffice_org", "MS_Office"} ;
     
     ApplicationCategory appCategory = createAppCategory(categoryName, "None") ;
     service.save(appCategory) ;
     
     for(String appName : appNames) {
       Application app = createApplication(appName, appType, appGroup) ;
+      app.setCategoryName(categoryName) ;
       service.save(appCategory, app) ;
     }
 
@@ -311,7 +315,8 @@ public class TestApplicationRegistryService extends BasicTestCase {
     }
 
     List<Application> apps2 = service.getApplications(appCategory) ;
-    assertEquals(0, apps2.size()) ;    
+    assertEquals(0, apps2.size()) ;  
+    service.clearAllRegistries() ;
   }
 
   private ApplicationCategory createAppCategory(String categoryName, String categoryDes) {
@@ -332,7 +337,7 @@ public class TestApplicationRegistryService extends BasicTestCase {
   }
   
   private void prepareOrganizationData(OrganizationService orgService) throws Exception{
-    groupDefault = orgService.getGroupHandler().findGroupById("/users") ;         
+    groupDefault = orgService.getGroupHandler().findGroupById("/platform/users") ;         
     if(group1 ==null) { group1 = createGroup(orgService, Group1); }    
     if(group2 ==null) { group2 = createGroup(orgService, Group2) ; }
     
@@ -393,5 +398,5 @@ public class TestApplicationRegistryService extends BasicTestCase {
     orgService.getUserProfileHandler().saveUserProfile(up, true);    
     return u;
   }
-  
+
 }
