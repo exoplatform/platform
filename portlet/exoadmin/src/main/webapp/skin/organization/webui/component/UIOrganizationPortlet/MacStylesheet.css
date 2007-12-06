@@ -217,6 +217,11 @@
   margin-left: 227px ;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormGrid {
+  width: 400px;
+  margin: auto;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UIHorizontalTabs  {
   width: 100%;
 }

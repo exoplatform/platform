@@ -190,6 +190,11 @@
   height: auto;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormGrid {
+  width: 400px;
+  margin: auto;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .WorkingArea {
   padding-left: 2px ;
 }
