@@ -83,21 +83,20 @@ public class UserPortalConfigService {
       navigation.setModifiable(userACL_.hasEditPermission(portal, accessUser));
       navigations.add(navigation) ;
     }
-    navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
-   
-    if (navigation != null) {
-      navigation.setModifiable(true);
-      navigations.add(navigation);  
-    }
     
     if(accessUser == null) {
       navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+userACL_.getGuestsGroup()) ;
       if(navigation != null) navigations.add(navigation) ;
     } else {
+      navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
+      if (navigation != null) {
+        navigation.setModifiable(true);
+        navigations.add(navigation);  
+      }
+      
       Collection<?> groups = null;
       if(userACL_.getSuperUser().equals(accessUser)) groups = orgService_.getGroupHandler().getAllGroups();
       else groups = orgService_.getGroupHandler().findGroupsOfUser(accessUser);
-      
       Iterator<?> iterator = groups.iterator() ;
       while(iterator.hasNext()) {
         Group m = (Group) iterator.next() ;   
@@ -110,7 +109,6 @@ public class UserPortalConfigService {
     }
     
     Widgets userWidgets = getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
-    
     Collections.sort(navigations, new Comparator<PageNavigation>() {
       public int compare(PageNavigation nav1, PageNavigation nav2) {
         return nav1.getPriority()- nav2.getPriority() ;

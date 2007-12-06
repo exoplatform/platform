@@ -83,7 +83,7 @@ public class UserACL {
     return false;
   }
 
- public boolean hasPermission(Page page, String remoteUser) throws Exception {
+  public boolean hasPermission(Page page, String remoteUser) throws Exception {
     if(PortalConfig.USER_TYPE.equals(page.getOwnerType())){
       if( remoteUser.equals(page.getOwnerId())){
         page.setModifiable(true);
@@ -106,16 +106,17 @@ public class UserACL {
     }
     return false;
   }
-  
+
   public boolean hasPermission(String remoteUser, String expPerm) throws Exception {
     if(log.isDebugEnabled())
-    log.debug("------CheckPermission of User "  + remoteUser + " with membership " + expPerm);
+      log.debug("------CheckPermission of User "  + remoteUser + " with membership " + expPerm);
     if(superUser_.equals(remoteUser)) return true;
     if(expPerm == null) return false ;
     if(UserACL.ANYONE.equals(expPerm)) return true ;
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
+    if(remoteUser == null && groupId.equals(guestGroup_)) return true;
 
     String membership = permission.getMembership() ;
     MembershipHandler handler = orgService_.getMembershipHandler();
