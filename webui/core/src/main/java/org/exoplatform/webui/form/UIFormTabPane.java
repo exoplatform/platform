@@ -12,7 +12,6 @@ abstract public class UIFormTabPane extends UIForm {
 	 */
 	public String name_ ;
 
-  private boolean withRenderTab = true;
   /**
    * Whether to represent an info bar
    */
@@ -47,8 +46,5 @@ abstract public class UIFormTabPane extends UIForm {
   
   public boolean hasRenderResourceTabName() { return withRenderTabName ; }
   public void setRenderResourceTabName(boolean bool) { withRenderTabName = bool ; }
-
-//  public void setWithRenderTab(boolean bool) { withRenderTab = bool; }
-//  public boolean hasWithRenderTab() { return withRenderTab; }
 
 }
