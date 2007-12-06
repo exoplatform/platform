@@ -42,8 +42,8 @@ public class UIGroupExplorer extends UIContainer {
     sibblingsGroup_ = service.getGroupHandler().findGroups(null);
     
     tree.setSibbling((List)sibblingsGroup_);
-    tree.setIcon("Icon GroupAdminIcon");
-    tree.setSelectedIcon("Icon PortalIcon");
+    tree.setIcon("GroupAdminIcon");
+    tree.setSelectedIcon("PortalIcon");
     tree.setBeanIdField("id");
     //tree.setBeanLabelField("groupName");
     tree.setBeanLabelField("label");
