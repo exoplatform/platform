@@ -113,6 +113,14 @@ public class UIPageForm extends UIFormTabPane {
     //      set which form will be display first, in this case is page setting form.         
     setSelectedTab(uiSettingSet.getId()) ;
     
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    Param param = initParams.getParam("PageTemplate");
+    List<SelectItemCategory>  itemCategories =  param.getMapGroovyObject(context) ;
+    
+    UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");
+    uiTemplate.setItemCategories(itemCategories);
+    addUIFormInput(uiTemplate);
+    
     uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
@@ -125,14 +133,6 @@ public class UIPageForm extends UIFormTabPane {
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
     uiPermissionSetting.addChild(uiEditPermission);
 
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-    Param param = initParams.getParam("PageTemplate");
-    List<SelectItemCategory>  itemCategories =  param.getMapGroovyObject(context) ;
-    
-    UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");
-    uiTemplate.setItemCategories(itemCategories);
-    uiTemplate.setRendered(false);
-    addUIFormInput(uiTemplate);
     
     List<String> groups = configService.getMakableNavigations(pcontext.getRemoteUser());
     if(groups.size() > 0){
@@ -181,7 +181,7 @@ public class UIPageForm extends UIFormTabPane {
   }
   
   public  void invokeSetBindingBean(Object bean) throws Exception {
-//    super.invokeSetBindingBean(bean);
+//    super.invokeSetBindingBean(bean);]
     Page page = (Page)bean;    
     page.setPageId(getUIStringInput("pageId").getValue());
     page.setOwnerType(getUIFormSelectBox("ownerType").getValue());
