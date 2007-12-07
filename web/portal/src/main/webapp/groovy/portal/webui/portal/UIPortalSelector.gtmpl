@@ -10,8 +10,8 @@
   def rcontext = _ctx.getRequestContext() ; 
   rcontext.getJavascriptManager().importJavascript('eXo.portal.UIPortal') ;
 %>
-
-<table class="UIGrid" id="$uicomponent.id" cellspacing="0" borderspacing="0">
+<div id="$uicomponent.id">
+<table class="UIGrid" cellspacing="0" borderspacing="0">
   <thead>
   	<tr>
       <%if(name != null) {%>
@@ -80,4 +80,9 @@
   <%}%>
   </tbody>
 </table> <!--End UIGrid-->
-<%_ctx.renderUIComponent(uicomponent.getUIPageIterator())%>
+	<%
+	if(uicomponent.getUIPageIterator().getAvailablePage() > 1) {
+		_ctx.renderUIComponent(uicomponent.getUIPageIterator()) ;
+	}
+	%>
+</div>
