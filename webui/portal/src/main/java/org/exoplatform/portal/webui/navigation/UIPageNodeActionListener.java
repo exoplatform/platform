@@ -104,7 +104,8 @@ public class UIPageNodeActionListener {
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         uiToolPanel.setUIComponent(null) ;
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.null", new String[]{})) ;;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.null", new String[]{})) ;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
         return;
       }
       UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
@@ -115,8 +116,9 @@ public class UIPageNodeActionListener {
       if(!page.isModifiable()){
         uiToolPanel.setUIComponent(uiPage) ;
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;
+        uiManagement.setRenderedChildrenOfTypes(childrenToRender);        
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;        
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
         return;
       }
       
