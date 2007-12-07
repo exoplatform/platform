@@ -5,6 +5,7 @@
 package org.exoplatform.portal.webui.navigation;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -129,11 +130,11 @@ public class UIPageNodeSelector extends UIContainer {
     
     loadNavigations();
 	}
-  
+	
   public void loadNavigations() throws Exception {
     String remoteUser = Util.getPortalRequestContext().getRemoteUser();
     navigations = new ArrayList<PageNavigation>();
-    List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
+    List<PageNavigation> pnavigations = getExistedNavigation(Util.getUIPortal().getNavigations()) ;
     UserACL userACL = getApplicationComponent(UserACL.class);
     for(PageNavigation nav  : pnavigations){      
       if(PortalConfig.PORTAL_TYPE.equals(nav.getOwnerType())){
@@ -280,6 +281,16 @@ public class UIPageNodeSelector extends UIContainer {
   
   public SelectedNode getCopyNode() { return copyNode; }
   public void setCopyNode(SelectedNode copyNode) { this.copyNode = copyNode; }
+  
+  private List<PageNavigation> getExistedNavigation(List<PageNavigation> navis) throws Exception {
+    Iterator<PageNavigation> itr = navis.iterator() ;
+    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);
+    while(itr.hasNext()) {
+      PageNavigation navi = itr.next() ;
+      if(configService.getPageNavigation(navi.getId()) == null) itr.remove() ;
+    }
+    return navis ;
+  }
   
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      
