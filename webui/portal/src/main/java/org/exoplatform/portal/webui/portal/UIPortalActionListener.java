@@ -28,7 +28,10 @@ public class UIPortalActionListener {
       String portalName = currentPortal.getName() ;
       String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
       prContext.getResponse().sendRedirect(redirect) ;
-      prContext.setResponseComplete(true) ;
+      // TODO: dang.tung - in the last when we use setResponseComplete(true) so we don't receive
+      // the redirect address -> we have to sign in twice 
+      // 1 get this address first, 2 for sign in
+      prContext.setResponseComplete(false) ;
     }
   }    
 
