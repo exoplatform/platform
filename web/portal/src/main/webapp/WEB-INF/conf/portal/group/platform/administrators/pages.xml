@@ -8,6 +8,7 @@
     <factory-id>Desktop</factory-id>
     <access-permissions>manager:/platform/administrators</access-permissions>
     <edit-permission>manager:/platform/administrators</edit-permission>
+    <show-max-window>true</show-max-window>
     
     <application location-x="100" location-y="150">
       <instance-id>portal:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget</instance-id>
@@ -48,7 +49,7 @@
       <show-application-mode>true</show-application-mode>
     </application>   
 
-   </page>    
+  </page>    
          
   <page>
   	<page-id>group::platform/administrators::newAccount</page-id>
