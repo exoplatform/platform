@@ -307,18 +307,6 @@
   border: 1px solid white;
 }
 
-.UIGroupSelector .LeftGroupSelector .UITree {
-  height: 190px; width: 218px;
-  overflow: auto; overflow-x: hidden;
-  border: 1px solid #b7b7b7;
-  border-top: none;
-  background: white;
-}
-
-.UIGroupSelector .LeftGroupSelector .UITree .TreeContainer {
-  padding: 10px 7px;
-}
-
 .UIGroupSelector .RightGroupSelector {
   margin-left: 225px;
   height: 210px;

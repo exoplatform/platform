@@ -211,14 +211,6 @@
   padding-left: 5px;
 }
 
-.UIWizard .UITree .TreeLevelContainer {
-	padding-left: 0px;
-}
-
-.UIWizard .UITree .TreeContainer .Node {
-	padding-left: 2px;
-}
-
 /*========================== Start UIWizard Step 3 ==============================*/
 .UIWizard .UIItemSelector {
   padding: 10px;
@@ -260,12 +252,4 @@
 	height: 220px;
 	overflow-y: auto;
 	overflow-x: hidden;
-}
-
-.UIWizard .UITree .TreeContainer .ChildrenContainer .Node {
-	overflow: auto;
-}
-
-.UIWizard .PageNodeContainer .UITree .JSContainer {
-	padding: 3px 0px 0px 8px;
 }

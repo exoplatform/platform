@@ -1,3 +1,8 @@
+.UIWindow .UIBrowserPortlet {
+	margin: 0px;
+	border: none;
+}
+
 .UIBrowserPortlet {
 	border: solid 1px #C6C6C6;
   height: 99% ;

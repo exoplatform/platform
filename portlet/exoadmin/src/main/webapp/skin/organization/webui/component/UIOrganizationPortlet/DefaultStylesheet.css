@@ -227,13 +227,7 @@
   width: 220px ;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UITree {
-  background: white;
-  border: 1px #b7b7b7 solid;
-  padding: 1px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
+.UIOrganizationPortlet .UIGroupManagement .UITrees {
   padding-bottom: 10px;  
   height: 208px;
   overflow: auto;

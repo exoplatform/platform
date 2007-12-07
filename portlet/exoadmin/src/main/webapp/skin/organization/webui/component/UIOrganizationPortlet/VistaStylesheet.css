@@ -139,18 +139,12 @@
 	padding-left: 7px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UITree {
- background: url('background/UITreeBG.png') repeat;
- padding: 4px;
- border-top: none;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
-	border: 1px solid #b7b7b7;
+.UIOrganizationPortlet .UIGroupManagement .UITrees {
+ 	background: url('background/UITreeBG.png') repeat;
+ 	border-top: none;
   height: 221px;
   overflow-y: auto;
   overflow-x: hidden;
-  width: 197px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {

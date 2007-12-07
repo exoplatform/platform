@@ -63,62 +63,6 @@
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') ;
 }
 
-.UICreatePage .UITree {
-  padding: 3px;
-  background: white;
-  border: 1px #5f90ba solid;
-}
-
-.UICreatePage .UITree .TreeContainer {
-  padding: 6px 0px 6px 0px ;
-  border: 1px #b7b7b7 solid;
-}
-
-.UICreatePage .UITree .TreeContainer .TreeLevelContainer {
-  margin: 6px 0px 3px 0px;
-}
-
-.UICreatePage .UITree .TreeContainer .Node {
-  margin: 5px 0px 4px 0px ;
-  padding-left: 5px;
-  width: auto;
-  height: 20px;
-  color: black;
-}
-
-.UICreatePage .UITree .TreeContainer .Node a:hover {
-  color: orange;
-}
-
-.UICreatePage .UITree .TreeContainer .NodeSelected {
-  background: #d8def4;
-  height: 16px ; line-height: 16px;
-  border: 1px solid #b0c7e9;
-  font-weight: bold; color: blue; 
-  margin-left: 0px;
-}
-
-.UICreatePage .UITree .TreeContainer .Node .ExpandIcon {
-  margin: 2px 2px 0px 0px ;
-}
-
-.UICreatePage .UITree .TreeContainer .Node .ColapseIcon {
-  margin: 2px 2px 0px 0px ;
-}
-
-.UICreatePage .UITree .TreeContainer .Node .Icon {
-  width: 16px;  height: 16px ;
-  margin: 2px 0px 0px 2px;
-}
-
-.UICreatePage .UITree .TreeContainer .Node .NoteLabel {
-  cursor: pointer ;
-  margin: 0px 0px 0px 2px ;
-  float: left ;
-  height: 16px; line-height: 16px; 
-  color: black; font-weight: bold;
-}
-
 .UICreatePage .WizardPageEditBar {
 	padding: 0px 5px;
 }

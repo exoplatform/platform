@@ -88,7 +88,7 @@ SkinService.addSkin(
 SkinService.addSkin(
     "web/BrowserPortlet",
     "Mac",
-    "/web/skin/browser/webui/component/UIBroserPortlet/MacStylesheet.css"
+    "/web/skin/browser/webui/component/UIBroserPortlet/DefaultStylesheet.css"
 ) ;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -123,13 +123,13 @@ SkinService.addSkin(
 SkinService.addSkin(
     "web/HomePagePortlet",
     "Vista",
-    "/web/skin/portal/webui/component/UIHomePagePortlet/VistaStylesheet.css"
+    "/web/skin/portal/webui/component/UIHomePagePortlet/DefaultStylesheet.css"
 ) ;
  
 SkinService.addSkin(
     "web/HomePagePortlet",
     "Mac",
-    "/web/skin/portal/webui/component/UIHomePagePortlet/MacStylesheet.css"
+    "/web/skin/portal/webui/component/UIHomePagePortlet/DefaultStylesheet.css"
 ) ;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////

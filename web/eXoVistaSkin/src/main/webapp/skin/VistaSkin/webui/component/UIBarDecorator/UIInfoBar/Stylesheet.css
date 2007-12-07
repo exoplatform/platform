@@ -63,19 +63,19 @@
 }
 
 .UIInfoBar .BlueRoundedStyle .LeftBar {
-  background: url('background/LeftControlBar10x22.png') no-repeat left ;
-  padding-left:10px ;
+  background: url('background/LeftControlBar10x22.png') no-repeat left center;
+  padding-left: 10px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {
-  background: url('background/RightControlBar10x22.png') no-repeat right ;
+  background: url('background/RightControlBar10x22.png') no-repeat right center;
   padding-right: 10px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .MiddleBar {
   text-align: left ;
   height: 22px ;
-  background: url('background/CenterControlBar1x22.png') repeat-x ;
+  background: url('background/CenterControlBar1x22.png') repeat-x center;
 }
 
 .UIInfoBar .BlueRoundedStyle .Title {

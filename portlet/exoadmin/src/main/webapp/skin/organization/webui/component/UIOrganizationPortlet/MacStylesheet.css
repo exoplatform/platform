@@ -185,11 +185,6 @@
   width: 100%;
 }
 
-.UIOrganizationPortlet .GroupNavigationContainer .UITree {
-	border-top: none;
-	padding-top: 12px;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TreeActionIcon  {
 	float: right ;
 	margin: 4px 8px 0px 0px ;
@@ -235,11 +230,9 @@
   background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UITree .TreeContainer {
+.UIOrganizationPortlet .UIGroupManagement .UITrees {
 	height: 212px;
 	overflow: auto;
-	border: none;
-	background: none;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid {

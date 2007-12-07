@@ -14,12 +14,6 @@
   padding: 15px 60px 15px 0px;
 }
 
-.UIPageManagement .UITree {
-	overflow: hidden;
-}
-
-
-
 /*############################- UIPageManagementControlBar Icons -#####################*/
 .UIPageManagement .RollbackBar {
   width: 135px;

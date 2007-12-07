@@ -277,14 +277,6 @@
 	overflow-x: hidden;
 }
 
-.UIWizard .UITree .TreeContainer .ChildrenContainer .Node {
-	overflow: auto;
-}
-
-.UIWizard .PageNodeContainer .UITree .JSContainer {
-	width: 210px;
-}
-
 .UIWizard .LAYOUT-PAGE {
 	padding-top: 10px;
 }
