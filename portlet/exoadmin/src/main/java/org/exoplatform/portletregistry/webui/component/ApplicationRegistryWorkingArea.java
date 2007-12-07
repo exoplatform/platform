@@ -73,7 +73,7 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   
   public void setSeletcApplication(String appName){
     for(Application app: portlets_){
-      if(app.getDisplayName().equals(appName)){
+      if(app.getApplicationName().equals(appName)){
         select_ = app;
       }
     }
