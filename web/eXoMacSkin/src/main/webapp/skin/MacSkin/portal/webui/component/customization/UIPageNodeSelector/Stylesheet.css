@@ -8,68 +8,6 @@
 }
 
 /*###############################- UITree -############################*/
-.UIPageNodeSelector .UITree {
-  background: none;
-  border:1px solid #B7B7B7;
-  padding: 0px 0px 10px 0px;
-  margin: 0px;
-}
-
-.UIPageNodeSelector .UITree .TreeLevelContainer {
-  padding-left: 0px;
-  height: 35px; 
-}
-
-.UIPageNodeSelector .UITree .TreeLevelContainer .LevelUpArrowIcon {
-  margin-left: 8px;
-  background-position: left 10px;
-  height: 35px;
-  line-height: 35px;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer {
-  margin: 0px;
-  border: none;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .NodeSelected {
-  height: 16px ; line-height: 16px;
-  width: auto;
-  color: #FD7426;
-  font-weight: bold;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .CollapseIcon {
-  margin-right: 2px ;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .Node {
-	line-height: 20px;
-  width: 93% ; /* fix IE*/;
-}	
-
-.UIPageNodeSelector .UITree .TreeContainer .Node .Icon {
-  width: 16px;  height: 16px ;
-  margin: 2px 7px 0px 1px;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .NodeLabel {
-	float: left;
-	cursor: pointer;
-  line-height: 16px ;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .NodeLabel a{
-  margin-left: 0px ; 
-  padding-left: 2px; 
-  height: 16px ; 
-  width: auto;
-  line-height: 16px ;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .NodeLabel a:hover{
-  color: #058ee6;
-}
 
 .UIPageNodeSelector .OrganizationIcon {
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Organization.gif') no-repeat;  
@@ -94,11 +32,6 @@
 
 .AddNavigationIcon {
 	display: none;
-}
-
-.UIControlWorkspace .UIPageNodeSelector .UIDropDownItemSelector {
-  float: left; 
-  width: 200px;
 }
 
 .UIControlWorkspace .UIPageNodeSelector .UIDropDownControl {

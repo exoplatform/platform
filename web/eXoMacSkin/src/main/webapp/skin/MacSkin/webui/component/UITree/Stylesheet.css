@@ -1,12 +1,16 @@
-
 .UITrees {
-  border: solid #526d82 1px ;
+  border: 1px solid #b7b7b7;
   padding: 4px 0px;
+  background: white;
 }
 
 .UITrees a {
 	display: block;
 } 
+
+.UITrees a:hover {
+	color: #058ee6;
+}
 
 .UITrees .HomeNode {
 	padding-left: 10px;
@@ -24,8 +28,8 @@
 }
 
 .UITrees .Node {
-	line-height: 19px;
-	padding-top: 3px;
+	line-height: 20px;
+	padding-top: 7px;
 	padding-left: 15px;
   background: url('background/Dotted.gif') repeat-y 15px;
 }
@@ -40,97 +44,29 @@
 
 .UITrees .Node .ExpandIcon {
 	padding-left: 18px;
-  background: url('background/SmallGrayMinus.gif') no-repeat left center;
+  background: url('background/SmallGrayMinus.gif') no-repeat left top;
+  width: auto; height: auto;
 }
   
 .UITrees .Node .CollapseIcon {
 	padding-left: 18px;
-  background: url('background/SmallGrayPlus.gif') no-repeat left center;
+  background: url('background/SmallGrayPlus.gif') no-repeat left top;
+  width: auto; height: auto;
 }
 
-/*****************************/
-
-.UITree {
-  background: url('background/GrayLinedBG.gif');
-  border: solid #b7b7b7 1px ;    
-  padding: 1px;
-}
-
-.UITree .TreeContainer {
-  background: white; 
-  border: 1px #b7b7b7 solid;
-}
-
-.UITree .TreeLevelContainer {
-  height: 18px; line-height: 18px;
-  padding-left: 12px;
-}
-
-.UITree .TreeLevelContainer .LevelUpArrowIcon {
-  float: left;
-  width: 26px; line-height: 18px;
-  background: url('background/AquaBlueUpLevel.gif') no-repeat;
-  
-}
-
-.UITree .TreeContainer .Node {
-  clear: both ;
-  padding: 4px 0px 4px 9px;
-  margin: 0px;
-}
-
-.UITree .TreeContainer .Node .ExpandIcon {
-  float: left ;
-  width: 16px ;  height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat ;
-  cursor: pointer ;
-  margin: 4px 0px 0px 0px;
-}
-  
-.UITree .TreeContainer .Node .ColapseIcon {
-  float: left ;
-  width: 16px ;  height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat ;
-  cursor: pointer ;
-  margin: 4px 0px 0px 0px ;
-}
-
-.UITree .TreeContainer .Node .EmptyIcon {
-  float: left ;
-  width: 16px ;  height: 16px ;
-  margin: 0px 1px 0px 0px;
-}
-
-.UITree .TreeContainer .Node .Icon {
-  float: left ;
-  width: 24px ;  height: 24px ;
-  margin: 0px 0px 0px 3px;
-}
-
-.UITree .TreeContainer .Node .NodeLabel a {
-  height: 20px ; line-height: 20px ;
-  cursor: pointer ;
-  padding: 0px 5px 0px 4px ; 
-  margin: 1px 0px 0px 1px ;
-  color: #1b1b1b; font-weight: bold;
-}
-
-.UITree .TreeContainer .Node .NodeLabel a:hover{
+.UITrees .Node .NodeSelected {
   font-weight: bold;
-  color: #143d98;
-}
-
-.UITree .TreeContainer .Node .NodeLabel .NodeSelected {
-  height: 20px ; line-height: 20px;
-  margin: 0px 0px 0px 1px ;
-  color: #FF7A22;
+  color: #058ee6;
+  cursor: pointer;
 }
 
 /** ################# Icons ###################*/
-.UITree .TreeContainer .GroupAdminIcon {
+.UITrees .TreeContainer .GroupAdminIcon {
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/NormalGroup.gif') no-repeat ;
+  padding-left: 25px;
 }
 
-.UITree .TreeContainer .PortalIcon {
+.UITrees .TreeContainer .PortalIcon {
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/SelectedGroup.gif') no-repeat ;
+  padding-left: 25px;
 }

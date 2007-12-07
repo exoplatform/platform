@@ -36,12 +36,6 @@
   padding-bottom: 0px;
 }
 
-.UICreatePage .PageNodeSelectorContainer .UIVerticalSlideTabs .UITree {
-  padding: 0px;
-  border: none; background: none;
-  width: auto;
-}
-
 .UICreatePage .PageLayoutModeIcon {
   width: 32px; height: 32px;
   background: url('background/PageLayout.gif') no-repeat;
@@ -72,62 +66,3 @@
 .UICreatePage .NavigationPortalIcon {
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/Portal.gif') ;
 }
-
-.UICreatePage .UITree {
-  border: none; background: none;
-  padding: 0px;
-}
-
-.UICreatePage .UITree .TreeContainer .Node .ExpandIcon {
-  margin: 2px 2px 0px 0px ;
-}
-
-.UICreatePage .UITree .TreeLevelContainer {
-  margin: 8px 0px 5px 3px; background: none; border: none;
-  height: 21px;
-}
-
-.UICreatePage .UITree .TreeLevelContainer .LevelUpArrowIcon {
-  background: url('background/AquaBlueUpLevel.gif') no-repeat;
-  width: 26px; line-height: 18px;
-  margin-left: 8px;
-}
-
-.UICreatePage .UITree .TreeContainer {
-  overflow: auto;
-  padding-top: 7px;
-  padding-bottom: 10px;
-  margin: 0px;
-}
-
-.UICreatePage .UITree .TreeContainer .Node {
-  margin: 3px 0px 0px 0px;
-  padding-left: 5px;
-  color: black;
-  width: auto;
-}
-
-.UICreatePage .UITree .TreeContainer .NodeSelected {
-  height: 16px ; line-height: 16px; 
-  width: auto; 
-}
-
-.UICreatePage .UITree .TreeContainer .ExpandIcon {
-  margin-right: 2px ;
-}
-
-.UICreatePage  .UITree .TreeContainer .ColapseIcon {
-  margin-right: 2px ;
-}
-
-.UICreatePage  .UITree .TreeContainer .Node .Icon {
-  width: 16px;  height: 16px ;
-  margin: 2px 2px 0px 1px;
-}
-
-.UICreatePage .UITree .TreeContainer .NodeLabel a {
-  margin-left: 0px ; padding-left: 2px; 
-  height: 16px ; width: auto;
-  line-height: 16px ;
-}
-

@@ -4,7 +4,6 @@
   def selected = uicomponent.getSelected();
   def sibling = uicomponent.getSibbling();
   def children = uicomponent.getChildren();  
-  
   UIRightClickPopupMenu uiPopupMenu = uicomponent.getUIRightClickPopupMenu();
 
   if(uiPopupMenu != null){
@@ -17,13 +16,17 @@
     uicomponent.renderUIComponent(uiPopupMenu) ; 
   }
 %>
-<div class="UITree ScrollArea">
+<div class="UITrees ScrollArea">
   <div class="TreeContainer JSContainer">
-    <div class="TreeLevelContainer">
+    <div class="HomeNode">
 	    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" title="<%=_ctx.appRes("UITree.tooltip.UpLevel")%>" style="display: block;"><span></span></a>
   	</div>
-    <%for(object in sibling) {%>		
-		    <div class="Node">
+    <%
+		int count=0;
+    for(object in sibling) {
+    	if(count==sibling.size()-1) {
+    %>
+    	<div class="LastNode Node">
 		    <% 
 		    String objId = String.valueOf(uicomponent.getId(object)) ;
         String actionLink = uicomponent.event("ChangeNode", objId);
@@ -32,14 +35,51 @@
 		    <%  
 				  if(uicomponent.isSelected(object)){%>
 				    <div class = "ChildrenContainer" actionLink="$actionLink" display = "block">
-				  <%  for(child in children) { %>								      		 
-					    <div class="Node ChildrenNode" style="margin-left: 10px; ">
+				  <%  
+				  int countChild=0;
+				  for(child in children) {
+				  if(countChild==children.size()-1) {
+				  %>
+				   		<div class="LastNode Node">
 					      <%=uicomponent.renderNode(child);%>
 					    </div>
-			      <%}	%>			    			
+				   <% } else { %>								      		 
+					    <div class="Node">
+					      <%=uicomponent.renderNode(child);%>
+					    </div>
+					  <% } %>  
+			      <%countChild++ ;}	%>			    			
 			      </div>				  	
 			  <%}%>						   
 			  </div>
-		<%}%>
+    <% } else { %>		
+		    <div class="Node">
+		    <% 
+		    String objId = String.valueOf(uicomponent.getId(object)) ;
+        String actionLink = uicomponent.event("ChangeNode", objId);
+		    %>
+		    <%=uicomponent.renderNode(object);%>		      	      		
+		    <%  
+				  if(uicomponent.isSelected(object)){%>
+				  <div class = "ChildrenContainer" actionLink="$actionLink" display = "block">
+				  <%  
+				  int countChild=0;
+				  for(child in children) {
+				  			if(countChild==children.size()-1) {
+				   %>
+				   		<div class="LastNode Node">
+					      <%=uicomponent.renderNode(child);%>
+					    </div>
+				   <% } else { %>								      		 
+					    <div class="Node">
+					      <%=uicomponent.renderNode(child);%>
+					    </div>
+					  <% } %>  
+			      <%countChild++ ;}	%>			    			
+			      </div>			  	
+			  <%}%>						   
+			  </div>
+			<% } %>
+		<%count++ ;}%>
   </div>  
 </div>

@@ -57,29 +57,14 @@
   border: 1px solid white;
 }
 
-.UIGroupMembershipSelector .UITree {
-  border: 1px #aeaeae solid;
+.UIGroupMembershipSelector .UITrees {
   border-top: none;  
-  background: white;
-}
-
-.UIGroupMembershipSelector .UITree .TreeContainer{
-  width: 226px; height: 155px;
   overflow: auto;
-  padding-top: 5px;
+  height: 152px;
 }
 
 .UIGroupMembershipSelector .BlueLevelUpArrow24x24Icon {
   margin-left: 7px;
-}
-
-.UIGroupMembershipSelector .UITree .Node {
-  margin: 0px 0px 2px 3px ;
-  width: auto;
-}
-
-.UIGroupMembershipSelector .UITree .Node .NodeLabel .NodeSelected {
-  color: #058ee6;
 }
 
 .UIGroupMembershipSelector .MembershipSelector {

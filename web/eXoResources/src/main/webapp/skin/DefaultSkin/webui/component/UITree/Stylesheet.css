@@ -1,11 +1,16 @@
 .UITrees {
-  border: solid #526d82 1px ;
+  border: 1px solid #b7b7b7;
   padding: 4px 0px;
+  background: white;
 }
 
 .UITrees a {
 	display: block;
 } 
+
+.UITrees a:hover {
+	color: #058ee6;
+}
 
 .UITrees .HomeNode {
 	padding-left: 10px;
@@ -23,8 +28,8 @@
 }
 
 .UITrees .Node {
-	line-height: 19px;
-	padding-top: 3px;
+	line-height: 18px;
+	padding-top: 7px;
 	padding-left: 15px;
   background: url('background/Dotted.gif') repeat-y 15px;
 }
@@ -35,108 +40,35 @@
 
 .UITrees .Node .NodeIcon {
 	padding-left: 20px;
+	width: auto;
+	height: auto;
 }
 
 .UITrees .Node .ExpandIcon {
 	padding-left: 18px;
-  background: url('background/SmallGrayMinus.gif') no-repeat left center;
+  background: url('background/SmallGrayMinus.gif') no-repeat left top;
+  width: auto; height: auto;
 }
   
 .UITrees .Node .CollapseIcon {
 	padding-left: 18px;
-  background: url('background/SmallGrayPlus.gif') no-repeat left center;
+  background: url('background/SmallGrayPlus.gif') no-repeat left top;
+  width: auto; height: auto;
 }
 
-/************************** Old UITree *************************/
-.UITree {
-  border: solid #526d82 1px ;
-  padding: 4px 0px;
-}
-
-.UITree .BottomDecorator {
-	border-top: 1px solid #526d82 ;
-}
-
-.UITree .TreeContainer {
-  background: white ;
-  padding: 0px;
-}
-
-.UITree .TreeLevelContainer {
-  height: 18px; 
-  padding-left: 5px;
-  margin: 0px ;
-}
-
-.UITree .TreeLevelContainer .LevelUpArrowIcon {
-  float: left;
-  width: 26px;
-  height: 20px;
-  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat;
-}
-
-.UITree .TreeLevelContainer a.LevelUpArrowIcon:hover {
-  float: left;
-  width: 26px; height: 20px;
-  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat;
-}
-
-.UITree .TreeContainer .Node {
-  margin: 0px ;
-  padding: 4px 0px 4px 9px;
-  clear: both ;
-}
-
-.UITree .TreeContainer .Node .ExpandIcon {
-  cursor: pointer ;
-  margin-top: 3px ;
-  float: left ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGrayMinus.gif') no-repeat ;
-  width: 16px ;  height: 16px ;
-}
-  
-.UITree .TreeContainer .Node .ColapseIcon {
-  cursor: pointer ;
-  margin-top: 3px ;
-  float: left ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGrayPlus.gif') no-repeat ;
-  width: 16px ;  height: 16px ;
-}
-
-.UITree .TreeContainer .Node .EmptyIcon {
-  margin-right: 1px ;
-  float: left ;
-  width: 16px ;  height: 16px ;
-}
-
-.UITree .TreeContainer .Node .Icon {
-  width: 24px ;  height: 24px ;
-  float: left ;
-  margin: 0px 0px 0px 3px;
-}
-
-.UITree .TreeContainer .Node .NodeLabel a {
-  cursor: pointer ;
-  margin: 2px 0px 0px 2px ; 
-  float: left ;
-  line-height: 16px ;
-  color: #2d2d2d; font-weight: bold;
-}
-
-.UITree .TreeContainer .Node .NodeLabel a:hover {
-  color: #058ee6; 
-}
-
-.UITree .TreeContainer .NodeSelected {
-  height: 20px ; line-height: 20px;
-  font-weight: bold; color: orange; 
+.UITrees .Node .NodeSelected {
+  font-weight: bold;
+  color: #058ee6;
+  cursor: pointer;
 }
 
 /** ################# Icons ###################*/
-.UITree .TreeContainer .GroupAdminIcon {
+.UITrees .TreeContainer .GroupAdminIcon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/NormalGroup.gif') no-repeat ;
+  padding-left: 25px;
 }
 
-.UITree .TreeContainer .PortalIcon {
+.UITrees .TreeContainer .PortalIcon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/SelectedGroup.gif') no-repeat ;  
+  padding-left: 25px;
 }

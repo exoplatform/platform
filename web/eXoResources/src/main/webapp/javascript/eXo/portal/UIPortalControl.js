@@ -20,7 +20,7 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
   var expandIcon = document.createElement('a');
   expandIcon.href = childrenContainer.getAttribute("actionLink") ;
   expandIcon.className = "ExpandIcon" ;
-  expandIcon.innerHTML = "<span></span>" ;
+  expandIcon.innerHTML = selectedElement.innerHTML ;
   parentNode.removeChild(childrenContainer);
   parentNode.insertBefore(expandIcon, selectedElement);
   parentNode.removeChild(selectedElement);

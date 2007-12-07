@@ -12,10 +12,6 @@
   border: none; 
 }
 
-.UIPageNodeSelector .UIDropDownItemSelector {
-  padding: 0px 1px;
-}
-
 /*Created Tung.Dang*/
 .UIPageNodeSelector .UIDropDownControl {
   padding: 0px 1px;
@@ -35,42 +31,6 @@
   margin-left: 10px;
 }
 
-.UIPageNodeSelector .UITree {
-  border: 1px #828282 solid;
-  background: white ;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .TreeLevelContainer {
-  float: none;
-	height: 40px;
-}
-
-.UIPageNodeSelector .UITree .TreeLevelContainer .LevelUpArrowIcon {
-	margin: 0px;
-	background-position: center 10px;
-	height: 40px;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .Node .CollapseIcon {
-  margin: 2px 2px 0px 2px ;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .Node .Icon {
-  width: 24px;  height: 24px ;
-  margin: 0px 2px 0px 2px;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .Node .NodeSelected {
- color: blue;
-}
-
-.UIPageNodeSelector .UITree .TreeContainer .Node .NodeLabel  {
-  float: left ;
-  cursor: pointer ;
-  height:20px; line-height: 20px;
-  color: black; 
-}
-
 .UIPageNodeSelector .OrganizationIcon {
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/MiniOrangeBoxPage.png') no-repeat;
 }
@@ -88,10 +48,6 @@
 	float: left; margin-left: -3px;
 	height: 22px; width: 19px;
 	display: block;
-}
-.UIControlWorkspace .UIPageNodeSelector .UIDropDownItemSelector {
-  float: left; 
-  width: 201px;
 }
 
 /*created: Tung.Dang*/
