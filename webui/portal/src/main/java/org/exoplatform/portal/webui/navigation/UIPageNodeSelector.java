@@ -117,8 +117,8 @@ public class UIPageNodeSelector extends UIContainer {
     uiDopDownControl.setParent(this);
     
     UITree uiTree = addChild(UITree.class, null, "TreePageSelector");    
-    uiTree.setIcon("Icon NavigationPortalIcon");    
-    uiTree.setSelectedIcon("Icon NavigationPortalIcon");
+    uiTree.setIcon("DefaultPageIcon");    
+    uiTree.setSelectedIcon("DefaultPageIcon");
     uiTree.setBeanIdField("uri");
     uiTree.setBeanLabelField("resolvedLabel");   
     uiTree.setBeanIconField("icon");

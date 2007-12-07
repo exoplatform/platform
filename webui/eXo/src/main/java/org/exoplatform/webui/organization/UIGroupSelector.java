@@ -63,8 +63,8 @@ public class UIGroupSelector extends UIContainer {
     Collection sibblingsGroup = service.getGroupHandler().findGroups(null);
     
     tree.setSibbling((List)sibblingsGroup);
-    tree.setIcon("Icon GroupAdminIcon");
-    tree.setSelectedIcon("Icon PortalIcon");
+    tree.setIcon("GroupAdminIcon");
+    tree.setSelectedIcon("PortalIcon");
     tree.setBeanIdField("id");
     tree.setBeanLabelField("groupName");
     uiBreadcumbs.setBreadcumbsStyle("UIExplorerHistoryPath") ;

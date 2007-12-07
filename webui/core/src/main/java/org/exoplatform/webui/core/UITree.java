@@ -35,7 +35,7 @@ public class UITree extends UIComponent {
   /**
    * The css class name to show the collapse icon
    */
-  private String colapseIcon = "ColapseIcon";
+  private String colapseIcon = "CollapseIcon";
   /**
    * The css class name to show the selected icon
    */
@@ -145,32 +145,47 @@ public class UITree extends UIComponent {
     if(isSelected(obj)) {
       nodeIcon = colapseIcon;
       iconGroup = selectedIcon;
-      note = "NodeSelected" ;             
+      note = " NodeSelected" ;             
     }
     if(beanIconField_ != null && beanIconField_.length() > 0) {
       if(getFieldValue(obj, beanIconField_) != null)
-        iconGroup = "Icon " + getFieldValue(obj, beanIconField_);
+        iconGroup = (String)getFieldValue(obj, beanIconField_);
     }
     String objId = String.valueOf(getId(obj)) ;
     String actionLink = event("ChangeNode", objId);
     StringBuilder builder = new StringBuilder();
-    if(nodeIcon.equals(expandIcon)){
-      builder.append(" <a class=\"").append(nodeIcon).append("\" href=\"").append(actionLink).append("\"><span></span></a>") ;  
-    } else {
-      builder.append(" <div class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\"><span></span></div>") ;
-    }    
-    if(uiPopupMenu_ == null){
-      builder.append(" <div class=\"").append(iconGroup).append("\"><span></span></div> ");
-      builder.append(" <div class=\"NodeLabel\"> ");
-    }else{
-      builder.append(" <div class=\"").append(iconGroup).append("\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null));
-      builder.append("><span></span></div> ");
-      builder.append(" <div class=\"NodeLabel\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null)).append("> ");
+    if(nodeIcon.equals(expandIcon)) {
+      builder.append(" <a class=\"").append(nodeIcon).append("\" href=\"").append(actionLink).append("\">") ;
     }
-    builder.append("   <a class =\"").append(note).append("\" href=\"").append(actionLink).append("\">");
-    builder.append(     getFieldValue(obj, beanLabelField_));
-    builder.append("   </a> ");
-    builder.append(" </div> ");
+    else {
+      builder.append(" <a class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\">") ;
+    }
+    if(uiPopupMenu_ == null) {
+      builder.append(" <div class=\"NodeIcon ").append(iconGroup).append(note).append("\">").append(getFieldValue(obj, beanLabelField_)).append("</div>") ;
+    }
+    else {
+      builder.append("<div class=\"NodeIcon ").append(iconGroup).append(note).append("\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null)).append(">")
+              .append(getFieldValue(obj, beanLabelField_)).append("</div>") ;
+    }
+    builder.append(" </a>") ;
+//    System.out.println("\n\n\n\n structure of html: " + builder.toString())  ;
+//    if(nodeIcon.equals(expandIcon)){
+//      builder.append(" <a class=\"").append(nodeIcon).append("\" href=\"").append(actionLink).append("\"><span></span></a>") ;  
+//    } else {
+//      builder.append(" <div class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\"><span></span></div>") ;
+//    }    
+//    if(uiPopupMenu_ == null){
+//      builder.append(" <div class=\"").append(iconGroup).append("\"><span></span></div> ");
+//      builder.append(" <div class=\"NodeLabel\"> ");
+//    }else{
+//      builder.append(" <div class=\"").append(iconGroup).append("\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null));
+//      builder.append("><span></span></div> ");
+//      builder.append(" <div class=\"NodeLabel\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null)).append("> ");
+//    }
+//    builder.append("   <a class =\"").append(note).append("\" href=\"").append(actionLink).append("\">");
+//    builder.append(     getFieldValue(obj, beanLabelField_));
+//    builder.append("   </a> ");
+//    builder.append(" </div> ");
     return builder.toString();
   }
   
