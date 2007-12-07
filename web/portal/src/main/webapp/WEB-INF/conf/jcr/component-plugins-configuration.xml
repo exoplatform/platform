@@ -24,7 +24,7 @@
               	<value>              	
 	              	<object type="org.exoplatform.services.jcr.ext.hierarchy.impl.HierarchyConfig$JcrPath">              	 	
 	              		<field  name="alias"><string>usersPath</string></field>
-	                  <field  name="path"><string>/users</string></field>
+	                  <field  name="path"><string>/Users</string></field>
 	                  <field name="permissions">
 			                <collection type="java.util.ArrayList">               
 			                  <value>                            
