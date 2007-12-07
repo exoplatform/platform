@@ -88,7 +88,7 @@ SkinService.addSkin(
 SkinService.addSkin(
     "web/BrowserPortlet",
     "Mac",
-    "/web/skin/browser/webui/component/UIBroserPortlet/DefaultStylesheet.css"
+    "/web/skin/browser/webui/component/UIBrowserPortlet/DefaultStylesheet.css"
 ) ;
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
