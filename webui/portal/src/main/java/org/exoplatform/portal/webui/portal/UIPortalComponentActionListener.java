@@ -155,7 +155,7 @@ public class UIPortalComponentActionListener {
           else windowId.append(PortalConfig.PORTAL_TYPE);
           windowId.append('#').append(Util.getUIPortal().getOwner()).append(":/");
 //        TODO review code in next line. It was changed by Le Bien Thuy
-          windowId.append(portlet.getApplicationGroup()+ "/" + portlet.getApplicationName()).append('/');
+          windowId.append(portlet.getCategoryName() + "/" + portlet.getApplicationName()).append('/');
           windowId.append(uiPortlet.hashCode());
           uiPortlet.setWindowId(windowId.toString());
           uiPortlet.setShowEditControl(true);
