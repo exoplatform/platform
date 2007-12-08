@@ -83,8 +83,10 @@ public class UIListMembershipType extends UIContainer {
       
       OrganizationService service = uiMembership.getApplicationComponent(OrganizationService.class);
       MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(name) ;
-      service.getMembershipTypeHandler().removeMembershipType(name,true);
-      membership.deleteOptions(membershipType) ;
+      if(membershipType != null) {
+        service.getMembershipTypeHandler().removeMembershipType(name,true);
+        membership.deleteOptions(membershipType) ;
+      }
       uiMembership.loadData();
     }
   }
