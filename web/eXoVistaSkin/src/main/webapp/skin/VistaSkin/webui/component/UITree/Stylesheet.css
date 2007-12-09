@@ -39,8 +39,11 @@
 }
 
 .UITrees .Node .NodeIcon {
+	background-position: left top;
 	padding-left: 25px;
 	font-weight: bold;
+	width: auto;
+	height: auto;
 }
 
 .UITrees .Node .ExpandIcon {
