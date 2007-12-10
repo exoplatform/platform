@@ -199,32 +199,7 @@
       <keywords>console</keywords>
     </portlet-info>     
   </portlet>
-
-  <!-- <portlet>
-    <description xml:lang="EN">Add Portlet</description>
-    <portlet-name>AddPortlet</portlet-name>
-    <display-name xml:lang="EN">Add Portlet</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
     
-    <init-param>
-      <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/web/AddPortletPortlet/webui/configuration.xml</value>
-    </init-param>    
-
-    <expiration-cache>0</expiration-cache>
-    <supports>
-      <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
-    </supports>
-    <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.portal.AddPortletPortlet</resource-bundle>    
-    <portlet-info>
-      <title>Add Portlet</title>
-      <short-title>Add Portlet</short-title>
-      <keywords>portlet,add</keywords>
-    </portlet-info>     
-  </portlet> -->
-  
   <portlet>
     <description xml:lang="EN">IFrame Portlet</description>
     <portlet-name>IFramePortlet</portlet-name>
@@ -252,7 +227,7 @@
     <portlet-preferences>
       <preference>
         <name>url</name>
-        <value>http://www.exoplatform.com</value>
+        <value>http://blog.exoplatform.org</value>
         <read-only>false</read-only>
       </preference>
     </portlet-preferences>
