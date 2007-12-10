@@ -13,9 +13,12 @@
 
 .UISitemapPortlet {
 	margin: 10px;
-  padding: 10px;
   background: white;
   border: 1px solid #b7b7b7;
+}
+
+.UISitemap {
+  padding: 10px;
 }
 
 .UISitemap .TitleBar {

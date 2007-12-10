@@ -52,7 +52,7 @@
 					  			String label = _ctx.appRes(uicomponent.getId() + ".item." + option.label);
 					  			if(label.length() > 30) {
 					  		%>
-						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)" title="<%=label%>"><%=label.substring(0,27)%>...</a>
+						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)" title="<%=label%>"><%=label.substring(0,25)%>...</a>
 						    <% } else { %>
 						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)"><%=label%></a>
 						    <% } %>
