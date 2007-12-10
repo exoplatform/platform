@@ -89,13 +89,13 @@ public class PortalStateManager extends StateManager {
         if(config == null && (remoteUser == null || remoteUser.length() < 1)) {
           pcontext.getRequest().getSession().invalidate() ;
           HttpServletResponse response = pcontext.getResponse();
-          response.sendRedirect("/portal/portal-warning.html");
+          response.sendRedirect("/portal/portal-warning.jsp");
           pcontext.setResponseComplete(true);
           return null;
         } else if (config == null) {
           pcontext.getRequest().getSession().invalidate() ;
           HttpServletResponse response = pcontext.getResponse();
-          response.sendRedirect("/portal/portal-unavailable.html");
+          response.sendRedirect("/portal/portal-unavailable.jsp");
           pcontext.setResponseComplete(true);
           return null;
         }
