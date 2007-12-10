@@ -252,7 +252,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     returnApplication.setApplicationGroup(app.getApplicationGroup()) ;
     returnApplication.setApplicationType(app.getApplicationType()) ;
     returnApplication.setApplicationName(app.getApplicationName()) ;
-    returnApplication.setId(app.getApplicationId()) ;
     returnApplication.setCategoryName(app.getApplicationGroup()) ;
     returnApplication.setDisplayName(app.getApplicationName()) ;
     returnApplication.setDescription(app.getDescription()) ;
@@ -292,7 +291,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       app.setApplicationType(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE);
       app.setDescription("A portlet application");
       app.setDisplayName(portletName);
-      app.setId(categoryName + "/" + portletName);
       save(category, app);
     }
   }
@@ -320,7 +318,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     }
     
     //save application
-    application.setCategoryName(category.getName()) ;
+    application.setCategoryName(cateName) ;
     String applicationSetPath = getCategoryPath(cateName) + "/" + APPLICATIONS ;
     String appName = application.getApplicationName() ;
     try {

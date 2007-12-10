@@ -21,7 +21,6 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
 import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
-import org.exoplatform.web.WebAppController;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -72,17 +71,10 @@ public class UIAvailablePortletForm extends UIForm {
       PortletContainerService containerService = getApplicationComponent(PortletContainerService.class);
       Map map = containerService.getAllPortletMetaData();
       Iterator iter = map.keySet().iterator();
-      ApplicationRegistryService registeryService = getApplicationComponent(ApplicationRegistryService.class) ;
       while(iter.hasNext()){
         String id = String.valueOf(iter.next());
         Application application = null; 
-        try{
-          application = registeryService.getApplication(id);
-//          System.out.println();
-        }catch (Exception exp) {
-          exp.printStackTrace();
-        }
-        if(application == null)  application = findPortletInDataRuntime(id);
+        application = findPortletInDataRuntime(id);
         if(application == null ) continue;
         list_.add(application);
       } 
@@ -118,20 +110,8 @@ public class UIAvailablePortletForm extends UIForm {
     uiIterator.setPageList(pageList) ;    
   }
 
-  private Application cloneApplication(org.exoplatform.web.application.Application app) {
-    Application newApplication = new Application() ;
-    newApplication.setApplicationGroup(app.getApplicationGroup()) ;
-    newApplication.setApplicationType(app.getApplicationType()) ;
-    newApplication.setApplicationName(app.getApplicationName()) ;
-    newApplication.setId(app.getApplicationId()) ;
-    newApplication.setCategoryName(app.getApplicationGroup()) ;
-    newApplication.setDisplayName(app.getApplicationName()) ;
-    newApplication.setDescription(app.getDescription()) ;
-    
-    return newApplication ;
-  }
-
   public List<Application> getListApplication() { return list_;}
+
   public void setListApplication(List<Application> list) {this.list_ = list; }
 
   @SuppressWarnings("unchecked")
@@ -148,7 +128,6 @@ public class UIAvailablePortletForm extends UIForm {
       String fullName = categoryName + "/" + portletName;
       if(id.equals(fullName)){
         Application app = new Application();
-        app.setId(fullName);
         app.setDisplayName(portletName) ;
         app.setApplicationName(portletName);
         app.setApplicationGroup(categoryName);
@@ -217,7 +196,6 @@ public class UIAvailablePortletForm extends UIForm {
     
     private Application clonePortlet(Application portlet){
       Application newPortlet = new Application();
-      newPortlet.setId(portlet.getId());
       newPortlet.setAccessPermissions(portlet.getAccessPermissions()) ;
       newPortlet.setApplicationGroup(portlet.getApplicationGroup());
       newPortlet.setApplicationType(portlet.getApplicationType());

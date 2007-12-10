@@ -32,7 +32,6 @@ public class DataMapper {
   static final String CREATED_DATE = "exo:createdDate" ;
   static final String MODIFIED_DATE = "exo:modifiedDate" ;
   
-  static final String APPLICATION_ID = "exo:id" ;  
   static final String APPLICATION_NAME = "exo:applicationName" ;
   static final String APPLICATION_TYPE = "exo:applicationType" ;
   static final String APPLICATION_GROUP = "exo:applicationGroup" ;
@@ -73,7 +72,6 @@ public class DataMapper {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
     root.setAttribute(TYPE, application.getClass().getSimpleName()) ;
-    root.setAttribute(APPLICATION_ID, application.getId()) ;
     root.setAttribute(APPLICATION_NAME, application.getApplicationName()) ;
     root.setAttribute(APPLICATION_TYPE, application.getApplicationType()) ;
     root.setAttribute(APPLICATION_GROUP, application.getApplicationGroup()) ;
@@ -93,7 +91,6 @@ public class DataMapper {
   public Application toApplication(Document doc) throws Exception {
     Application application = new Application() ;
     Element root = doc.getDocumentElement() ;
-    application.setId(root.getAttribute(APPLICATION_ID)) ;
     application.setApplicationName(root.getAttribute(APPLICATION_NAME)) ;
     application.setApplicationType(root.getAttribute(APPLICATION_TYPE)) ;
     application.setApplicationGroup(root.getAttribute(APPLICATION_GROUP)) ;
