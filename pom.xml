@@ -8,7 +8,6 @@
 
   <modules>
     <module>component/xml-parser</module>
-    <module>component/jcrext</module>
     <module>component/resources</module>
     <module>component/application-registry</module>
     <module>component/portal</module>
@@ -21,7 +20,6 @@
     <module>webui/eXo</module>
     <module>webui/portal</module>
     
-    <!--module>portlet/content</module-->
     <module>portlet/exoadmin</module>
     <module>portlet/web</module>
 

@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<configuration>
-  <component>
-    <key>org.exoplatform.registry.JCRRegistryService</key>
-    <type>org.exoplatform.registry.JCRRegistryService</type>
-  </component>    
-</configuration>
