@@ -2,16 +2,43 @@
 <node-navigation>
   <owner-type>group</owner-type>  
 	<owner-id>platform/users</owner-id>
-	<priority>2</priority>
+	<priority>8</priority>
   <description>description for node navigation </description>
-  
-  <page-nodes>  	
+    
+  <page-nodes>	  	  
 	  <node>
-	    <uri>iframe</uri>
-	    <name>iframe</name>
-	    <label>#{platform.users.iframe}</label>
-	    <page-reference>group::platform/users::iframe</page-reference>
+	    <uri>mylink</uri>
+	    <name>mylink</name>
+	    <label>#{platform.users.mylink}</label>
+	    <page-reference>group::platform/users::mylink</page-reference>
+	    
+		  <node>
+		    <uri>mylinks/blog</uri>
+		    <name>blog</name>
+		    <label>#{platform.users.mylink-blog}</label>
+		    <page-reference>group::platform/users::mylink-blog</page-reference>
+		  </node>
+	  	
+	  	<node>
+		    <uri>google</uri>
+		    <name>mylink/google</name>
+		    <label>#{platform.users.mylink-google}</label>
+		    <page-reference>group::platform/users::mylink</page-reference>
+		  </node>
+		  
+		  <node>
+		    <uri>mylink/facebooks</uri>
+		    <name>facebooks</name>
+		    <label>#{platform.users.mylink-facebook}</label>
+		    <page-reference>group::platform/users::mylink-facebook</page-reference>
+		  </node>
 	  </node>
-  </page-nodes>
-  
+	  
+	  <node>
+	    <uri>sitemap</uri>
+	    <name>sitemap</name>
+	    <label>#{platform.users.sitemap}</label>
+	    <page-reference>group::platform/users::sitemap</page-reference>
+	  </node>
+  </page-nodes>   
 </node-navigation>

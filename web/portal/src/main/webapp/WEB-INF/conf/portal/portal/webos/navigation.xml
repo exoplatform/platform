@@ -8,14 +8,14 @@
     <node>
       <uri>home</uri>
       <name>home</name>
-      <label>#{webos.home}</label>
+      <label>#{portal.webos.home}</label>
       <page-reference>portal::webos::home</page-reference>                           
     </node>
     
     <node>
       <uri>livedesktop</uri>
       <name>livedesktop</name>
-      <label>#{webos.livedesktop}</label>
+      <label>#{portal.webos.livedesktop}</label>
       <page-reference>portal::webos::livedesktop</page-reference>
    </node>
     	        

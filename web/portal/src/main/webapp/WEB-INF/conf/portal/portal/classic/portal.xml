@@ -5,23 +5,8 @@
   <factory-id>office</factory-id>
   <access-permissions>Everyone</access-permissions>
   <edit-permission>*:/platform/administrators</edit-permission>
-  <creator>root</creator>
-  
-  <widget-layout>
-    <container>
-      <application>
-        <instance-id>admin:/eXoWidgetWeb/InfoWidget/InfoWidget</instance-id>
-        <application-type>eXoWidget</application-type>
-        <title>Info Widget</title>
-      </application>
-      <application>
-        <instance-id>admin:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget</instance-id>
-        <application-type>eXoWidget</application-type>
-        <title>Welcome Widget</title>
-      </application>
-    </container>
-  </widget-layout>
-  
+  <creator>root</creator>    
+    
  	<portal-layout> 		
 		<application>
 	    <instance-id>portal#classic:/web/BannerPortlet/banner</instance-id>

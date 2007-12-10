@@ -16,42 +16,8 @@
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
     </application>
-  </page>
-  
-  <page>
-  	<page-id>portal::classic::sitemap</page-id>
-    <owner-type>portal</owner-type>
-    <owner-id>classic</owner-id>
-    <name>sitemap</name>
-    <title>Site Map</title>
-	  <access-permissions>Everyone</access-permissions>
-	  <edit-permission>*:/portal/administrators</edit-permission>
-    <application>
-      <instance-id>portal#classic:/web/SiteMapPortlet/sitemapportlet</instance-id>
-      <title>Site Map portlet</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>
-  </page>
-  
-  <page>
-  	<page-id>portal::classic::register</page-id>
-    <owner-type>portal</owner-type>
-    <owner-id>classic</owner-id>
-    <name>register</name>
-    <title>Register</title>
-	  <access-permissions>*:/platform/guests</access-permissions>
-	  <edit-permission>*:/platform/administrators</edit-permission>    
-    <application>
-      <instance-id>portal#classic:/exoadmin/AccountPortlet/Account</instance-id>
-      <title>Account Portlet</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>  
-  </page>
-  
+  </page>    
+    
   <page>
   	<page-id>portal::classic::webexplorer</page-id>
     <owner-type>portal</owner-type>

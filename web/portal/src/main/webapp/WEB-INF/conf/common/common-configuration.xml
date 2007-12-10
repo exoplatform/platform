@@ -45,6 +45,7 @@
         <value>locale.navigation.portal.webos</value>
         <value>locale.navigation.group.platform.administrators</value>
         <value>locale.navigation.group.platform.users</value>
+        <value>locale.navigation.group.platform.guests</value>
         <value>locale.navigation.group.organization.management.executive-board</value>               
       </values-param>      
       <values-param>

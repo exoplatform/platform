@@ -8,25 +8,13 @@
 	  <node>
 	    <uri>home</uri>
 	    <name>home</name>
-	    <label>#{home}</label>
+	    <label>#{portal.classic.home}</label>
 	    <page-reference>portal::classic::homepage</page-reference>	    
-	  </node>
-    <node>
-      <uri>register</uri>
-      <name>register</name>
-      <label>#{register}</label>
-      <page-reference>portal::classic::register</page-reference>
-    </node>
-	  <node>
-	    <uri>sitemap</uri>
-	    <name>sitemap</name>
-	    <label>#{sitemap}</label>
-	    <page-reference>portal::classic::sitemap</page-reference>	    
-	  </node>
+	  </node>    
 	  <node>
 	    <uri>webexplorer</uri>
-	    <name>sitemap</name>
-	    <label>#{webexplorer}</label>
+	    <name>webexplorer</name>
+	    <label>#{portal.classic.webexplorer}</label>
 	    <page-reference>portal::classic::webexplorer</page-reference>	    
 	  </node>
   </page-nodes>
