@@ -7,13 +7,15 @@
 .UIWindow .UII18nPortlet {
 	margin: 0px;
 	border: none;
+	height: auto;
 }
 
 .UII18nPortlet {
 	padding: 10px;
 	background: white;
-	margin: 7px 10px;
 	border: 1px solid #b7b7b7;
+	height: 100%;
+	margin: 7px 10px;
 }
 
 .UII18nPortlet .UIGrid {
