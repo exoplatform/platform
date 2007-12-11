@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.services.resources.Query;
 import org.exoplatform.services.resources.ResourceBundleData;
 import org.exoplatform.services.resources.ResourceBundleService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -65,15 +71,22 @@ public class UIEditResource extends UIForm {
       ResourceBundleService serv = uiEditResource.getApplicationComponent(ResourceBundleService.class) ;
       ResourceBundleData resData = serv.createResourceBundleDataInstance() ; 
       
+      String name = uiEditResource.getUIStringInput("name").getValue() ;
+      String language = uiEditResource.getChild(UIFormSelectBox.class).getValue() ;
+      
+      PageList pageList = serv.findResourceDescriptions(new Query(name,language)) ;
+      if(pageList.getAvailable() > 0) {
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIEditResource.add.exist", null)) ;
+        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        return ;
+      }
+      
       resData.setData(data) ;
-      resData.setName(uiEditResource.getUIStringInput("name").getValue()) ;
-      resData.setLanguage(uiEditResource.getChild(UIFormSelectBox.class).getValue()) ;
+      resData.setName(name) ;
+      resData.setLanguage(language) ;
       
       serv.saveResourceBundle(resData) ;
-      
-//      uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
-//      uiEditResource.getUIStringInput("name").setEditable(false) ;
-//      uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;
       
       // update when create new resource
       uiI18n.update(null, null) ;
