@@ -13,12 +13,8 @@
 	  for (portlet in portlets)  {
 	    if(portlet!= null) {
 			String name = portlet.getApplicationName(); 
-		  String displayName = portlet.getDisplayName();
-		  
-		  // TODO: add by dang.tung -> fix path portlet icon
-		  // 			 not use getCategoryName() because it'll be modified when add new application
-		  String srcBG = portlet.getId().split("/")[0] + "/skin/DefaultSkin/portletIcons/" ;
-		  
+		  String displayName = portlet.getDisplayName();		  
+		  String srcBG = portlet.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" ;
 		  //String creator = portlet.getOwner();
 		  String [] accessPermissions = portlet.getAccessPermissions();
 		  String accessPermission = "";
