@@ -74,7 +74,7 @@
 }
 
 .UIApplicationRegistryPortlet .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
-  padding: 5px 0px;
+  padding: 5px 0px 5px 32px;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs {
