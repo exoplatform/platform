@@ -72,7 +72,7 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		this.superClass.createLink(menuItem, link);
 		// Set an id to each container for future reference
 		var cont = DOMUtil.findAncestorByClass(menuItem, this.containerStyleClass) ;
-		if (!cont.id) cont.id = "PortalNavigationContainer-"+i;
+		if (!cont.id) cont.id = "PortalNavigationContainer-" + i;
 		cont.resized = false;
 	}
 };
