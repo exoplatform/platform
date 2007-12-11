@@ -77,14 +77,14 @@ public class UIAddNewApplication extends UIContainer {
       String applicationId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
 
       Application application = event.getSource().getApplication(applicationId);
-      // review windowId for eXoWidget and eXoApplication
+      //TODO review windowId for eXoWidget and eXoApplication
       if (org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(application
           .getApplicationType())) {
         UIPortlet uiPortlet = uiPage.createUIComponent(UIPortlet.class, null, null);
 
         StringBuilder windowId = new StringBuilder(uiPage.getOwnerType());
         windowId.append('#').append(uiPage.getOwnerId());
-        windowId.append(":/").append(applicationId).append('/').append(uiPortlet.hashCode());
+        windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/').append(uiPortlet.hashCode());
         uiPortlet.setWindowId(windowId.toString());
 
         if (application != null) {
