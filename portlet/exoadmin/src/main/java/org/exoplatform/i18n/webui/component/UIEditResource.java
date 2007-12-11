@@ -92,9 +92,8 @@ public class UIEditResource extends UIForm {
       
       PageList pageList = serv.findResourceDescriptions(new Query(name,language)) ;
       if(pageList.getAvailable() > 0) {
-        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        UIApplication uiApp = event.getRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIEditResource.add.exist", null)) ;
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return ;
       }
       
