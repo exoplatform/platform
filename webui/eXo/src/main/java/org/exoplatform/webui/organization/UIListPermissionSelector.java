@@ -32,7 +32,6 @@ import org.exoplatform.webui.core.UIBreadcumbs;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIGrid;
 import org.exoplatform.webui.core.UIPageIterator;
-import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -42,11 +41,8 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormGrid;
 import org.exoplatform.webui.form.UIFormInput;
-import org.exoplatform.webui.form.UIFormInputContainer;
-import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormPopupWindow;
-import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.validator.Validator;
 
 /**

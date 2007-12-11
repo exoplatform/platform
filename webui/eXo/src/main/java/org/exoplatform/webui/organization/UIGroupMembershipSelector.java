@@ -39,8 +39,6 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.UIFormInputSet;
-import org.exoplatform.webui.form.UIFormTabPane;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@exoplatform.com

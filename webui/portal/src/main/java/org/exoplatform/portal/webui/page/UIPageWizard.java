@@ -26,7 +26,6 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponentDecorator;
-import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIDescription;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIWizard;

@@ -17,15 +17,9 @@
 package org.exoplatform.portal.webui.page;
 
 import org.exoplatform.portal.webui.application.UIApplication;
-import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
-import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIComponentDecorator;
-import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SARL

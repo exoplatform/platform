@@ -77,6 +77,7 @@ public class UIContainer extends UIComponent {
   
   @SuppressWarnings("unchecked")
   public <T extends UIComponent> T getChildById(String id) {
+    
     if(children == null)  return null ;
     for(UIComponent child : children) {
       if(id.equals(child.getId())) return  (T)child ;

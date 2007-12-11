@@ -16,9 +16,6 @@
  */
 package org.exoplatform.webui.form.validator;
 
-import javax.faces.validator.LengthValidator;
-
-import org.codehaus.groovy.runtime.NewInstanceMetaMethod;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIFormInput;

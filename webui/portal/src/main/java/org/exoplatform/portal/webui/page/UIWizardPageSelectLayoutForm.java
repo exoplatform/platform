@@ -21,7 +21,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.UIFormTabPane;
 
 /**
  * Created by The eXo Platform SARL

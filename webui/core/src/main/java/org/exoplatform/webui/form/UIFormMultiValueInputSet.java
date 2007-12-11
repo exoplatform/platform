@@ -20,7 +20,6 @@ import java.io.Writer;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
