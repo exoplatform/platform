@@ -53,6 +53,7 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 	var topItems = DOMUtil.findDescendantsByClass(topContainer, "div", "UITab");
 	for (var i = 0; i<topItems.length; i++) {
 		var item = topItems[i];
+    /*
 		item.onmouseover = eXo.portal.UIPortalNavigation.setTabStyle;
 		item.onmouseout = eXo.portal.UIPortalNavigation.setTabStyle;
 		item.style.width = item.offsetWidth + "px";
@@ -60,6 +61,26 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 		if (arrow) {
 			item.onclick = eXo.portal.UIPortalNavigation.toggleSubMenu;
 		}
+		*/
+    item.onmouseover = eXo.portal.UIPortalNavigation.setTabStyleOnMouseOver ;
+    item.onmouseout = eXo.portal.UIPortalNavigation.setTabStyleOnMouseOut ;
+    if (!item.getAttribute('hidesubmenu')) {
+      item.onmousemove = eXo.portal.UIPortalNavigation.tabOnMouseMove ;
+    }
+    item.style.width = item.offsetWidth + "px";
+    /**
+     * TODO: fix IE7;
+     */
+    var container = DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
+    if (container) {
+      if (eXo.core.Browser.browserType == "mozilla") 
+        container.style.minWidth = item.offsetWidth + "px";
+      else {
+        container.style.width = "180px";
+        if (document.getElementById("UIPortalApplication").className == "Default") 
+          container.style.width = "auto";
+      }
+    }
 	}
 	
 	// Sub menus items
@@ -93,6 +114,45 @@ UIPortalNavigation.prototype.setTabStyle = function() {
 		}
 	}
 }
+
+UIPortalNavigation.prototype.setTabStyleOnMouseOver = function(e) {
+  var tab = this ;
+  if (eXo.portal.UIPortalNavigation.previousMenuItem != tab) {
+    eXo.portal.UIPortalNavigation.hideMenu() ;
+  }
+  eXo.portal.UIPortalNavigation.previousMenuItem = tab ;
+  if (!eXo.portal.UIPortalNavigation.menuVisible) {
+    var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(tab, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
+    var hideSubmenu = tab.getAttribute('hideSubmenu') ;
+    if (menuItemContainer && !hideSubmenu) {
+      eXo.portal.UIPortalNavigation.toggleSubMenu(e, tab, menuItemContainer) ;
+    }
+  }
+  eXo.portal.UIPortalNavigation.menuVisible = true ;  
+} ;
+
+UIPortalNavigation.prototype.setTabStyleOnMouseOut = function(e, src) {
+  var tab = src || this;
+  var tabChildren = eXo.core.DOMUtil.getChildrenByTagName(tab, "div") ;
+  if (tabChildren.length <= 0) {
+    return ;
+  }
+  if (tabChildren[0].className != "HighlightNavigationTab") {
+    // highlights the tab
+    eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, true);
+  } else {
+    if(tabChildren.length <= 1 || tabChildren[1].id != eXo.portal.UIPortalNavigation.currentOpenedMenu) {
+      // de-highlights the tab if it doesn't have a submenu (cond 1) or its submenu isn't visible (cond 2)
+      eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, false);
+    }
+  }
+  eXo.portal.UIPortalNavigation.hideMenuTimeout(500) ;
+}
+
+UIPortalNavigation.prototype.tabOnMouseMove = function() {
+  eXo.portal.UIPortalNavigation.cancelHideMenuContainer() ;
+} ;
+
 /**
  * Shows or hides a submenu
  * Calls hideMenuContainer to hide a submenu.
@@ -100,19 +160,29 @@ UIPortalNavigation.prototype.setTabStyle = function() {
  * Sets the width of the submenu (the first time it is shown) to fix a bug in IE
  * Sets the currentOpenedMenu to the menu being opened
  */
-UIPortalNavigation.prototype.toggleSubMenu = function(e) {
+UIPortalNavigation.prototype.toggleSubMenu = function(e, tab, menuItemContainer) {
 	if (!e) e = window.event;
 	e.cancelBubble = true;
 	//var src = this;
 	var src = eXo.core.Browser.getEventSource(e);
-	if (src.tagName.toLowerCase() == "a") {
-		if (src.href.substr(0, 7) == "http://") window.location.href = src.href;
-		else eval(src.href);
-		return false;
-	}
+//	if (src.tagName.toLowerCase() == "a") {
+//		if (src.href.substr(0, 7) == "http://") window.location.href = src.href;
+//		else eval(src.href);
+//		return false;
+//	}
+  if (src.tagName.toLowerCase() == "a" && !menuItemContainer) {
+    if (src.href.substr(0, 7) == "http://") {
+      if (!src.target) {
+        window.location.href = src.href
+      } else {
+        return true ;
+      }
+    } else eval(src.href);
+    return false;
+  }
 	var item = this;
 	var DOMUtil = eXo.core.DOMUtil;
-	var menuItemContainer = DOMUtil.findFirstDescendantByClass(item, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
+//	var menuItemContainer = DOMUtil.findFirstDescendantByClass(item, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
 	if (menuItemContainer) {
 		if (menuItemContainer.style.display == "none") {
 			// shows the sub menu
@@ -125,7 +195,19 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 			
 			eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y);
 			eXo.portal.UIPortalNavigation.superClass.show(menuItemContainer);
-			menuItemContainer.style.width = menuItemContainer.offsetWidth + 2 + "px";
+			
+      if (!menuItemContainer.resized && eXo.core.Browser.getBrowserType() == "ie") {
+        var w = menuItemContainer.offsetWidth;
+        var menuItems = DOMUtil.findDescendantsByClass(menuItemContainer, "div", eXo.portal.UIPortalNavigation.tabStyleClass);
+        for (var i = 0; i < menuItems.length; i++) {
+          if (eXo.core.Browser.browserType == "mozilla")
+             menuItems[i].style.width = w + "px";
+        }
+        menuItemContainer.resized = true;
+      }
+      menuItemContainer.onmouseout = this.closeMenuTimeout ;
+      
+      menuItemContainer.style.width = menuItemContainer.offsetWidth + 2 + "px";
 			eXo.portal.UIPortalNavigation.currentOpenedMenu = menuItemContainer.id;
 			
 			/*Hide eXoStartMenu whenever click on the UIApplication*/
@@ -137,6 +219,22 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e) {
 		}
 	}
 };
+
+UIPortalNavigation.prototype.cancelHideMenuContainer = function() {
+  if (this.hideMenuTimeoutId) {
+    window.clearTimeout(this.hideMenuTimeoutId) ;
+  }
+} ;
+
+UIPortalNavigation.prototype.closeMenuTimeout = function() {
+  eXo.portal.UIPortalNavigation.hideMenuTimeout(200) ;
+} ;
+
+UIPortalNavigation.prototype.hideMenuTimeout = function(time) {
+  this.cancelHideMenuContainer() ;
+  this.hideMenuTimeoutId = window.setTimeout('eXo.portal.UIPortalNavigation.hideMenu() ;', time) ;
+} ;
+
 /**
  * Adds the currentOpenedMenu to the list of containers to hide
  * and sets a time out to close them effectively
@@ -152,6 +250,8 @@ UIPortalNavigation.prototype.hideMenuContainer = function() {
 		eXo.portal.UIPortalNavigation.superClass.hide(menuItemContainer);
 		eXo.portal.UIPortalNavigation.currentOpenedMenu = null;
 	}
+  this.previousMenuItem = false ;
+  eXo.portal.UIPortalNavigation.menuVisible = false ;
 };
 /**
  * Changes the style of the parent button when a submenu has to be hidden
@@ -185,6 +285,7 @@ UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 				subContainer.firtTime = true;
 		}
 	}
+  eXo.portal.UIPortalNavigation.cancelHideMenuContainer() ;
 };
 /**
  * Shows a sub menu, uses the methods from superClass (eXo.webui.UIPopupMenu)
