@@ -1,7 +1,19 @@
-/***************************************************************************
- * Copyright 2001-2003 The eXo Platform SARL         All rights reserved.  *
- * Please look at license.txt in info directory for more license detail.   *
- **************************************************************************/
+/*
+ * Copyright (C) 2003-2007 eXo Platform SAS.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see<http://www.gnu.org/licenses/>.
+ */
 package org.exoplatform.webui.form;
 
 import java.io.Writer;
@@ -9,6 +21,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.bean.BeanDataMapping;
 import org.exoplatform.webui.bean.ReflectionDataMapping;
 import org.exoplatform.webui.config.Event;
@@ -168,25 +181,34 @@ public class UIForm extends UIContainer  {
   public void renderField(UIComponent uiInput) throws Exception {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     uiInput.processRender(context) ;
-  }  
+  }
+  
+  private String getFormId() {
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    if(context instanceof PortletRequestContext) {
+      return ((PortletRequestContext)context).getWindowId() + "#" + getId() ; 
+    }
+    return getId() ;
+  }
   
   public String url(String name) throws Exception {
     StringBuilder b = new StringBuilder() ;
-    b.append("javascript:eXo.webui.UIForm.submitForm('").append(getId()).append("','");
+    b.append("javascript:eXo.webui.UIForm.submitForm('").append(getFormId()).append("','");
     b.append(name).append("', false)");
     return b.toString() ;
   }
   
   public String event(String name) throws Exception {
+
     StringBuilder b = new StringBuilder() ;
-    b.append("javascript:eXo.webui.UIForm.submitForm('").append(getId()).append("','");
+    b.append("javascript:eXo.webui.UIForm.submitForm('").append(getFormId()).append("','");
     b.append(name).append("', true)");
     return b.toString() ;
   }
   
-  public String event(String name, String beanId) throws Exception {    
+  public String event(String name, String beanId) throws Exception {
     StringBuilder b = new StringBuilder() ;
-    b.append("javascript:eXo.webui.UIForm.submitEvent('").append(getId()).append("','");
+    b.append("javascript:eXo.webui.UIForm.submitEvent('").append(getFormId()).append("','");
     b.append(name).append("','");
     b.append("&amp;").append(OBJECTID).append("=").append(beanId).append("')");    
     return b.toString() ;
@@ -206,7 +228,7 @@ public class UIForm extends UIContainer  {
       confirm = rcontext.getApplicationResourceBundle().getString(confirm) ;
       b.append("if(confirm('").append(confirm).append("'))") ;
     }
-    b.append("eXo.webui.UIForm.submitEvent('").append(getId()).append("','");
+    b.append("eXo.webui.UIForm.submitEvent('").append(getFormId()).append("','");
     //b.append("javascript:eXo.webui.UIForm.submitEvent('").append(getId()).append("','");
     //-------------------------
     

@@ -5,6 +5,13 @@ eXo.require('eXo.webui.UIItemSelector');
 function UIForm() {
 };
 
+UIForm.prototype.getFormElemt = function(pattern) {
+	if(pattern.indexOf("#") == -1) return document.getElementById(pattern) ;
+	var strArr = pattern.split("#") ;
+	var portlet = document.getElementById("UIPortlet-" + strArr[0]) ;
+	return eXo.core.DOMUtil.findDescendantById(portlet, strArr[1]) ;
+}
+
 /*ie bug  you cannot have more than one button tag*/
 /**
  * A function that submits the form identified by formId, with the specified action
@@ -12,7 +19,7 @@ function UIForm() {
  */
 UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
 	if (!callback) callback = null;
-  var form = document.getElementById(formId) ;
+  var form = this.getFormElemt(formId) ;
 	if(form.updateFCKeditor) {
 		for (var i = 0 ; i < form.updateFCKeditor.length ; i++)
 			form.updateFCKeditor[i]() ;
@@ -28,7 +35,7 @@ UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
  * Calls ajaxPost of PortalHttpRequest
  */
 UIForm.prototype.submitEvent = function(formId, action, params) {
-  var form = document.getElementById(formId) ;
+  var form = this.getFormElemt(formId) ;
 	if(form.updateFCKeditor) {
 		for (var i = 0 ; i < form.updateFCKeditor.length ; i++)
 			form.updateFCKeditor[i]() ;
