@@ -4,6 +4,8 @@
  **************************************************************************/
 package org.exoplatform.organization.webui.component;
 
+import org.exoplatform.account.webui.component.UIAccountInputSet;
+import org.exoplatform.account.webui.component.UIUserProfileInputSet;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
@@ -18,9 +20,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormTabPane;
-import org.exoplatform.webui.organization.UIAccountInputSet;
 import org.exoplatform.webui.organization.UIUserMembershipSelector;
-import org.exoplatform.webui.organization.UIUserProfileInputSet;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
