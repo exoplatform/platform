@@ -10,6 +10,7 @@ import java.util.List;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.portal.webui.UIManagement.ManagementMode;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
@@ -162,14 +163,15 @@ public class UIPageEditBar extends UIToolbar {
       uiEditBar.savePage();
       if(!uiEditBar.getUIPage().isModifiable()) {
         UIPageManagement uiManagement = uiEditBar.getParent() ;
-        Class<?> [] childrenToRender = null;
-        if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
-          childrenToRender = new Class<?>[]{UIPageBrowseControlBar.class};
-        } else {
-          childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
-        }
-        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+//        Class<?> [] childrenToRender = null;
+//        if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
+//          childrenToRender = new Class<?>[]{UIPageBrowseControlBar.class};
+//        } else {
+//          childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
+//        }
+//        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;                     
+        uiManagement.setMode(ManagementMode.BROWSE, event);
       }
     }
   }

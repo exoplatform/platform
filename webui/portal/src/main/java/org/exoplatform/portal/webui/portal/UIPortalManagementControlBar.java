@@ -4,11 +4,7 @@
  **************************************************************************/
 package org.exoplatform.portal.webui.portal;
 
-import javax.servlet.http.HttpServletRequest;
-
-import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.application.PortalStateManager.PortalApplicationState;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -18,7 +14,6 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
-import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIToolbar;
@@ -51,14 +46,18 @@ public class UIPortalManagementControlBar extends UIToolbar {
   
   public void save() throws Exception {
     UIPortal uiPortal = Util.getUIPortal();     
-    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
+    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);    
     
-    PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);
-    UserPortalConfig userPortalConfig = uiPortalApp.getUserPortalConfig();
-    userPortalConfig.setPortal(portalConfig);
-    
+    PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);    
     UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);     
     configService.update(portalConfig);
+    
+    PortalRequestContext prContext = Util.getPortalRequestContext();
+    String remoteUser = prContext.getRemoteUser();
+    String ownerUser = prContext.getPortalOwner();   
+    UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);
+    uiPortal.setModifiable(userPortalConfig.getPortalConfig().isModifiable());        
+    
     LocaleConfigService localeConfigService  = uiPortalApp.getApplicationComponent(LocaleConfigService.class) ;
     LocaleConfig localeConfig = localeConfigService.getLocaleConfig(portalConfig.getLocale());
     if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
