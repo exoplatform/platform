@@ -168,24 +168,6 @@ public class UITree extends UIComponent {
               .append(getFieldValue(obj, beanLabelField_)).append("</div>") ;
     }
     builder.append(" </a>") ;
-//    System.out.println("\n\n\n\n structure of html: " + builder.toString())  ;
-//    if(nodeIcon.equals(expandIcon)){
-//      builder.append(" <a class=\"").append(nodeIcon).append("\" href=\"").append(actionLink).append("\"><span></span></a>") ;  
-//    } else {
-//      builder.append(" <div class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\"><span></span></div>") ;
-//    }    
-//    if(uiPopupMenu_ == null){
-//      builder.append(" <div class=\"").append(iconGroup).append("\"><span></span></div> ");
-//      builder.append(" <div class=\"NodeLabel\"> ");
-//    }else{
-//      builder.append(" <div class=\"").append(iconGroup).append("\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null));
-//      builder.append("><span></span></div> ");
-//      builder.append(" <div class=\"NodeLabel\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null)).append("> ");
-//    }
-//    builder.append("   <a class =\"").append(note).append("\" href=\"").append(actionLink).append("\">");
-//    builder.append(     getFieldValue(obj, beanLabelField_));
-//    builder.append("   </a> ");
-//    builder.append(" </div> ");
     return builder.toString();
   }
   
