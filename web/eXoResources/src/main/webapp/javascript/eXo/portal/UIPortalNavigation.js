@@ -180,7 +180,10 @@ UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 	if (subContainer) {
 		eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(subContainer.id);
 		eXo.portal.UIPortalNavigation.showMenuItemContainer(menuItem, subContainer) ;
-		subContainer.style.width = subContainer.offsetWidth + "px";
+		if (!subContainer.firtTime) {
+				subContainer.style.width = subContainer.offsetWidth + 2 + "px";
+				subContainer.firtTime = true;
+		}
 	}
 };
 /**
