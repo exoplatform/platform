@@ -33,11 +33,6 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 		eXo.webui.UIPopupWindow.showMask(popup, isShow) ;
 	} 
 	
-//	if(showCloseButton == true) {
-//		var popupCloseButton = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'CloseButton') ;
-//		popupCloseButton.onmouseup = this.closePopupEvt ;
-//	}
-	
 	if(isResizable) {
 		var resizeBtn = DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeButton");
 		resizeBtn.style.display = 'block' ;
@@ -72,11 +67,11 @@ UIPopupWindow.prototype.showMask = function(popup, isShowMask) {
  *  . gets the highest z-index from these, if it's still at 0, set an arbitrary value of 2000
  * sets the position of the popup on the page (top and left properties)
  */
-UIPopupWindow.prototype.show = function(popup, isShowMask) {
+UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	var portalApp = document.getElementById("UIPortalApplication") ;
-	
+
 	var maskLayer = DOMUtil.findFirstDescendantByClass(portalApp, "div", "UIMaskWorkspace") ;
 	var zIndex = 0 ;
 	var currZIndex = 0 ;
@@ -93,17 +88,19 @@ UIPopupWindow.prototype.show = function(popup, isShowMask) {
   
 	if (zIndex == 0) zIndex = 2000 ;
 	// We don't increment zIndex here because it is done in the superClass.show function
-	eXo.webui.UIPopupWindow.showMask(popup, isShowMask) ; 
+	eXo.webui.UIPopupWindow.showMask(popup, isShowMask) ;
 	popup.style.visibility = "hidden" ;
 	this.superClass.show(popup) ;
  	var offsetParent = popup.offsetParent ;
  	var scrollY = (window.scrollY)?window.scrollY:document.documentElement.scrollTop ;
+	//reference
 	if(offsetParent) {
-			
-		if(eXo.core.DOMUtil.hasClass(offsetParent, "UIPopupWindow") || eXo.core.DOMUtil.hasClass(offsetParent, "UIWindow")) {			
-			popup.style.top = Math.ceil((offsetParent.offsetHeight - popup.offsetHeight) / 2)  + "px" ;
-		} else {
-			popup.style.top = Math.ceil((window.screen.availHeight - 2*popup.offsetHeight ) / 2) + scrollY + "px" ;			
+		var middleWindow = (eXo.core.DOMUtil.hasClass(offsetParent, "UIPopupWindow") || eXo.core.DOMUtil.hasClass(offsetParent, "UIWindow"));
+		if (middleWindow) {			
+			popup.style.top = Math.ceil((offsetParent.offsetHeight - popup.offsetHeight) / 2) + "px" ;
+		} 
+		if (middleBrowser || !middleWindow) {
+			popup.style.top = Math.ceil((eXo.core.Browser.getBrowserHeight() - popup.offsetHeight ) / 2) + "px" ;
 		}
 		// hack for position popup alway top in IE6.
 		var checkHeight = popup.offsetHeight > 300; 
@@ -209,32 +206,6 @@ UIPopupWindow.prototype.initDND = function(evt) {
   	} else {
   		dragObject.style.top = "0px" ;
   	}
-//		try {
-//			var uiWindows = DOMUtil.findAncestorsByClass(dragObject, "UIWindow") ;
-//			var len = uiWindows.length ;
-//			var mLen = dragObject.childNodes.length ;
-//			var isMessage = false ;
-//			for(var i = 0 ; i < mLen ; i++) {
-//				var className = dragObject.childNodes[i].className ;
-//				if (className && (className.indexOf("Message") > -1)) {
-//					isMessage = true ;
-//					break ;
-//				}
-//			}
-//			if (len > 0 && !isMessage) {
-//				var offsetTop = (0 - uiWindows[0].offsetTop) ;
-//				if (dragObjectY < offsetTop)	dragObject.style.top = offsetTop + "px" ;
-//				alert("af adk ad df d") ;
-//			} else {
-//				if (!DOMUtil.hasClass(dragObject.offsetParent,"UIPopupWindow")) {
-//					if (dragObjectY < 0) dragObject.style.top = "0px" ;
-//				} else {
-//					if (eXo.core.Browser.findPosY(dragObject) < 0) dragObject.style.top = (0 - dragObject.offsetParent.offsetTop) + "px" ;
-//				}
-//			}
-//		} catch(err) {
-//			alert(err.message) ;
-//		}
   }
   var clickBlock = this ;
   var dragBlock = eXo.core.DOMUtil.findAncestorByClass(this, "UIDragObject") ;
