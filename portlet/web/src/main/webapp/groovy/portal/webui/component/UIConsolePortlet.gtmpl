@@ -1,4 +1,4 @@
-<div class="UIConsoleApplication" id="UIConsoleApplication">
+<div class="UIConsoleApplication" id="$uicomponent.id">
     <div class="UIInnerMaskLayer" >
         <div class="UIMaskWindowConsole">
             <div class="ConsoleQuickHelp"></div>
