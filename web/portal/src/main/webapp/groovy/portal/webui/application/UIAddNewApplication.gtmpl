@@ -69,7 +69,7 @@
                     
 	                      <%
                            for(application in listApplication) {
-                           		 String srcBG = application.getId().split("/")[0] + "/skin/DefaultSkin/portletIcons/" + application.getApplicationName()+ ".png";
+                           		 String srcBG = application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + application.getApplicationName()+ ".png";
                                String srcNormalBG = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png";
 
                                //Create add Application Ajax request URL
