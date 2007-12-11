@@ -99,8 +99,8 @@
 
 .UIBrowserPortlet .AddressBarContainer {
   height: 20px ;
-  background: url("VistaSkin/icons/24x24/ActiveGlobal.png") white no-repeat left ;
-  padding: 0px 2px 0px 17px ;
+  background: url("VistaSkin/icons/24x24/ActiveGlobal.png") white no-repeat 5px ;
+  padding: 0px 2px 0px 22px ;
   margin: 3px 0px 0px 5px ;
   border: solid 1px #8c8c94 ;
 	overflow-y:hidden ;
@@ -164,7 +164,7 @@
 .UIBrowserPortlet .TabContent {
   width: 100% ;
   border: none ; 
-  height: 300px;
+  height: 370px;
 }
 
 .UIBrowserPortlet .TabLabel {
@@ -221,4 +221,8 @@
   width: 20px ; height: 20px ;
   background: url("VistaSkin/icons/16x16/ClipTab.png") no-repeat center ;
   cursor: pointer ;
+}
+
+.UIBrowserPortlet .IFrame {
+	width: 100% ;	height: 100% ;
 }

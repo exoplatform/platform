@@ -98,8 +98,8 @@
 
 .UIBrowserPortlet .AddressBarContainer {
   height: 18px;
-	background: url("DefaultSkin/icons/16x16/ActiveGlobal.gif") white no-repeat left;
-	padding: 0px 2px 0px 17px;
+	background: url("DefaultSkin/icons/16x16/ActiveGlobal.gif") white no-repeat 5px;
+	padding: 0px 2px 0px 22px;
 	margin: 5px 5px 0px 0px;
 	border: inset 1px gray;
 	overflow-y:hidden ;
@@ -162,7 +162,7 @@
 
 .UIBrowserPortlet .TabContent {
 	width: 100%;
-  height: 300px ;
+  height: 370px ;
 }
 
 .UIBrowserPortlet .TabLabel {
