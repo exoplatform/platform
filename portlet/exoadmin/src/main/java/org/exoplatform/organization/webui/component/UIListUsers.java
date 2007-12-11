@@ -103,8 +103,8 @@ public class UIListUsers extends UISearch {
     }
     String selectBoxValue = select.getValue();
     if(selectBoxValue.equals(USER_NAME)) query.setUserName(name) ;
-    if(selectBoxValue.equals(LAST_NAME)) query.setFirstName(name) ; 
-    if(selectBoxValue.equals(FIRST_NAME)) query.setLastName(name) ;
+    if(selectBoxValue.equals(LAST_NAME)) query.setLastName(name) ; 
+    if(selectBoxValue.equals(FIRST_NAME)) query.setFirstName(name) ;
     if(selectBoxValue.equals(EMAIL)) query.setEmail(name) ;
     search(query);
   }
