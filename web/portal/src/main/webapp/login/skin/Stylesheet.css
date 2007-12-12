@@ -7,17 +7,17 @@
   
 .UILoginPortlet .LoginHeader {
 	width: 548px; height: 103px;
-	background: url('../skin/images/LoginHeader548x103.jpg') no-repeat;
+	background: url('../skin/images/LoginNoRepeat.gif') no-repeat top;
 }
   
 .UILoginPortlet .LoginContent .LeftLoginContent {
-  background: url('../skin/images/SigninPaper162x207.jpg') repeat-y left -40px;
+  background: url('../skin/images/LoginRepeatY.gif') repeat-y left -32px;
   padding-left: 162px;
   overflow: hidden;
 }
 
 .UILoginPortlet .LoginContent .RightLoginContent {
-  background: url('../skin/images/LoginRightRepeat27x1.gif') repeat-y right;
+  background: url('../skin/images/LoginRepeatY.gif') repeat-y right;
   padding-right: 27px;
 }
 
@@ -109,19 +109,18 @@
 .UILoginPortlet .LoginContent .LoginButton .Button .LeftButton {
   line-height: 22px;
   padding-left: 3px;
-  background: url('../skin/images/LeftLightStyleButton3x22.gif') no-repeat left;
+  background: url('../skin/images/LoginNoRepeat.gif') left 44px;
 }
 
 .UILoginPortlet .LoginContent .LoginButton .Button .RightButton {
   line-height: 22px;
   padding-right: 3px;
-  background: url('../skin/images/RightLightStyleButton3x22.gif') no-repeat right;
 }
 
 .UILoginPortlet .LoginContent .LoginButton .Button .MiddleButton {
   height: 22px; 
   line-height: 21px; 
-	background: url('../skin/images/MiddleLightStyleButton1x22.gif') repeat-x;
+	background: url('../skin/images/LoginNoRepeat.gif') repeat-x bottom;
 }
 
 .UILoginPortlet .LoginContent .MessageContainer {
@@ -155,19 +154,18 @@
   
 .UILoginPortlet .LoginFooter .LoginLeftFooter  {
   height: 28px;
-  background: url('../skin/images/LoginLeftFooter60x28.gif') no-repeat left;
+  background: url('../skin/images/LoginNoRepeat.gif') no-repeat left -104px ;
   padding-left: 60px;
 }
   
 .UILoginPortlet .LoginFooter .LoginRightFooter  {
   height: 28px ;
-  background: url('../skin/images/LoginRightFooter45x28.gif') no-repeat right ;
   padding-right: 45px ;
 }
   
 .UILoginPortlet .LoginFooter .LoginRepeatFooter {
   height: 28px ;
-  background: url('../skin/images/LoginRepeatFooter1x28.gif') repeat-x ;
+  background: url('../skin/images/LoginNoRepeat.gif') repeat-x left -133px;
 }
 
 .UILoginPortlet .CopyrightInfo {
