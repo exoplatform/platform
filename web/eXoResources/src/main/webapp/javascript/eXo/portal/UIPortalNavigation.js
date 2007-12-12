@@ -111,6 +111,7 @@ UIPortalNavigation.prototype.setTabStyleOnMouseOver = function(e) {
   if (eXo.portal.UIPortalNavigation.previousMenuItem != tab) {
     eXo.portal.UIPortalNavigation.hideMenu() ;
   }
+	eXo.portal.UIPortalNavigation.setTabStyleOnMouseOut(e, tab) ;
   eXo.portal.UIPortalNavigation.previousMenuItem = tab ;
   if (!eXo.portal.UIPortalNavigation.menuVisible) {
     var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(tab, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
@@ -188,7 +189,7 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e, tab, menuItemContainer)
         }
         menuItemContainer.resized = true;
       }
-      menuItemContainer.onmouseout = eXo.portal.UIPortalNavigation.closeMenuTimeout ;
+      //menuItemContainer.onmouseout = eXo.portal.UIPortalNavigation.closeMenuTimeout ;
       
       menuItemContainer.style.width = menuItemContainer.offsetWidth + 2 + "px";
       eXo.portal.UIPortalNavigation.currentOpenedMenu = menuItemContainer.id;
@@ -267,9 +268,9 @@ UIPortalNavigation.prototype.onMenuItemOver = function(e) {
   if (subContainer) {
     eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(subContainer.id);
     eXo.portal.UIPortalNavigation.showMenuItemContainer(menuItem, subContainer) ;
-    if (!subContainer.firtTime) {
+    if (!subContainer.firstTime) {
         subContainer.style.width = subContainer.offsetWidth + 2 + "px";
-        subContainer.firtTime = true;
+        subContainer.firstTime = true;
     }
   }
   eXo.portal.UIPortalNavigation.cancelHideMenuContainer() ;
