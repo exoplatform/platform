@@ -5,12 +5,15 @@
 .UIContainerConfigOptions .ContainerConfigOptions {
   border: solid 1px #bcbcbc;
   background: #f2f2f2;
-  padding: 4px;
+  padding: 5px;
+}
+
+.UIContainerConfigOptions .ScrollArea {
+  border: solid 1px #929292;
+  border-bottom: solid 1px #c3c3c3; border-right: solid 1px #c3c3c3;
 }
 
 .UIContainerConfigOptions .CategoryContainer {
-  border: solid 1px #929292;
-  border-bottom: solid 1px #c3c3c3; border-right: solid 1px #c3c3c3;
   padding: 10px 0px 20px 0px;
   background: white;
 }
@@ -45,10 +48,6 @@
 	height: 21px;
 	cursor: pointer ;
 }
-
-.UIContainerConfigOptions .UIDropDownControl {
-	width: 222px;
-}		
 
 .UIContainerConfigOptions .OneRowContainerLayout {
   width:105px ; height:56px ;

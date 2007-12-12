@@ -51,10 +51,9 @@
   margin: 2px 0px ;
 }
 
-.UIControlWorkspace .UIWorkspaceContainer .UIPortletOptions .UIDropDownControl {
-	width: 214px;
+.UIControlWorkspace .UICreatePage .UIDropDownControl { 
+	width: 210px;
 }
-
 /*===================== End Tab =================================*/
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {
