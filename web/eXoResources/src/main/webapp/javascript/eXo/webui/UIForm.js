@@ -7,8 +7,12 @@ function UIForm() {
 
 UIForm.prototype.getFormElemt = function(pattern) {
 	if(pattern.indexOf("#") == -1) return document.getElementById(pattern) ;
+	var portlet ;
 	var strArr = pattern.split("#") ;
-	var portlet = document.getElementById("UIPortlet-" + strArr[0]) ;
+	//TODO: dang.tung - fix in desktop page
+	var desktop = document.getElementById("UIPageDesktop") ;
+	if(desktop == null)	portlet = document.getElementById("UIPortlet-" + strArr[0]) ;
+	else portlet = document.getElementById(strArr[0]) ;
 	return eXo.core.DOMUtil.findDescendantById(portlet, strArr[1]) ;
 }
 
