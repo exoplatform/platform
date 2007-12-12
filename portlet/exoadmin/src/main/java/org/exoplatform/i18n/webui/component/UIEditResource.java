@@ -43,6 +43,7 @@ import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -64,7 +65,7 @@ public class UIEditResource extends UIForm {
 
   public UIEditResource() throws Exception {
     addUIFormInput(new UIFormTextAreaInput("resource", null,null).addValidator(EmptyFieldValidator.class)) ;
-    addUIFormInput(new UIFormStringInput("name",null,null).addValidator(EmptyFieldValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("name",null,null).addValidator(EmptyFieldValidator.class).addValidator(SpecialCharacterValidator.class)) ;
     
     LocaleConfigService service = getApplicationComponent(LocaleConfigService.class) ;
     Iterator i = service.getLocalConfigs().iterator() ;
