@@ -563,7 +563,7 @@ function ajaxAsyncGetRequest(url, async) {
 	var request =  eXo.core.Browser.createHttpRequest() ;
   request.open('GET', url, async) ;
   request.setRequestHeader("Cache-Control", "max-age=86400") ;
-  request.send(null) ;  
+  request.send(null) ;
 	if(!async) return request.responseText ;
 }
 

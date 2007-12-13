@@ -6,7 +6,6 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY) {
 	this.superClass = eXo.webui.UIPopup ;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	if(popup == null) return ;
-
 	var domUtil = eXo.core.DOMUtil ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var uiApplication = domUtil.findFirstDescendantByClass(popup, "div", "UIApplication") ;
@@ -35,7 +34,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY) {
 } ;
 
 UIWindow.prototype.fixHeight = function(portletId) {
-	var portlet =document.getElementById(portletId) ;
+	var portlet = document.getElementById(portletId) ;
 	var delta = portlet.parentNode.offsetHeight - portlet.offsetHeight ;
 	var resizeObj = eXo.core.DOMUtil.findDescendantsByClass(portlet, 'div', 'UIResizableBlock') ;
 	for(var i = 0; i < resizeObj.length; i++) {

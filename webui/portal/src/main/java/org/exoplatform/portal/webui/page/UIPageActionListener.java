@@ -19,6 +19,8 @@ package org.exoplatform.portal.webui.page;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
@@ -194,13 +196,10 @@ public class UIPageActionListener {
           break;
         }
       }
-      
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setFullRender(false);
       pcontext.setResponseComplete(true) ;
+      pcontext.getWriter().write(EventListener.RESULT_OK) ;
       
     }
   }

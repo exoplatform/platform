@@ -62,11 +62,11 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
   	{name: "objectId", value : uiWidget.id}
   ] ;
 	if (confirm("Are you sure you want to delete this widget ?")) {
-		ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params), true) ;
-		// TODO dang.tung - tungcnw@gmail.com
-		// have to check the reponse by server when widgets don't remove from database (future but now: ok).
-		DOMUtil.removeElement(uiWidget) ;
-		eXo.webui.UIVerticalScroller.refreshScroll(0) ;
+		var result = ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params), false) ;
+		if(result == "OK") { 
+			DOMUtil.removeElement(uiWidget) ;
+			eXo.webui.UIVerticalScroller.refreshScroll(0) ;
+		}
 	}	
 };
 /*

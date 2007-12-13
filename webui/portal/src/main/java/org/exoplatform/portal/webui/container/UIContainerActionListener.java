@@ -20,7 +20,6 @@ import java.util.List;
 
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Widgets;
-import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIAddNewApplication;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.application.UIWidgets;
@@ -29,6 +28,7 @@ import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -67,10 +67,9 @@ public class UIContainerActionListener {
   
   static public class DeleteWidgetActionListener extends EventListener<UIContainer> {
     public void execute(Event<UIContainer> event) throws Exception {
-      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID) ;
+      WebuiRequestContext pContext = event.getRequestContext();
+      String id = pContext.getRequestParameter(UIComponent.OBJECTID) ;
       UIContainer uiWidgetContainer = event.getSource();
-      
-      //PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       
       List<UIComponent> children = uiWidgetContainer.getChildren();
       for(UIComponent uiChild : children) {
@@ -87,10 +86,8 @@ public class UIContainerActionListener {
       configService.update(widgets);
       UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
       uiPortalApp.getUserPortalConfig().setWidgets(widgets) ;
-      
-      UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
-      event.getRequestContext().setResponseComplete(true) ;
+      pContext.setResponseComplete(true) ;
+      pContext.getWriter().write(EventListener.RESULT_OK) ;
     }
   }
   

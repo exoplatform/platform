@@ -20,5 +20,6 @@ package org.exoplatform.webui.event;
  * May 10, 2006
  */
 abstract public class EventListener<T> {
+  public static final String RESULT_OK = "OK" ;
   abstract public void execute(Event<T> event) throws Exception;
 }
