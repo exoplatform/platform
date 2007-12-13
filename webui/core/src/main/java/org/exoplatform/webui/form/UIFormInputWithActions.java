@@ -39,7 +39,7 @@ public class UIFormInputWithActions extends UIFormInputSet {
 
   Map<String, List<ActionData>> actionField = new HashMap<String, List<ActionData>> () ;
   public UIFormInputWithActions(String id) {
-    setId(id) ;
+    super.setId(id) ;
   }
   
   public void setActionField(String fieldName, List<ActionData> actions) throws Exception {
@@ -53,7 +53,7 @@ public class UIFormInputWithActions extends UIFormInputSet {
     }
     UIForm uiForm = getAncestorOfType(UIForm.class);
     Writer w = context.getWriter() ;
-    w.write("<div class=\"UIFormInputSet " + getId() + "\">") ;
+    w.write("<div id=\"" + getId() + "\" class=\"UIFormInputSet " + getId() + "\">") ;
     w.write("<table class=\"UIFormGrid\">") ;
     ResourceBundle res = context.getApplicationResourceBundle() ;
     
