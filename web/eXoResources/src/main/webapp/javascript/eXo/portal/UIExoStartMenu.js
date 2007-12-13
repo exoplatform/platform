@@ -16,6 +16,7 @@ function UIExoStartMenu() {
  */
 
 
+
 UIExoStartMenu.prototype.init = function(popupMenu, container, x, y) {
   var uiStart = eXo.portal.UIExoStartMenu ;
   
@@ -165,6 +166,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event, menuItem) {
 		menuItemContainer.style.display = "block" ;
 		// fix width for menuContainer, only IE.
 		if (!menuItemContainer.resized) eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
+		// eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
 		
 	 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
 		var parentMenu = blockMenu.parentNode;
@@ -315,6 +317,7 @@ UIExoStartMenu.prototype.onMenuItemOut = function(event, menuItem) {
  * Sets the width of the decorator parts to the width of the content part.
  */
 UIExoStartMenu.prototype.setContainerSize = function(menuItemContainer) {
+
   var menuCenter = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuML") ;
   var menuTop = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuTL") ;
   var decorator = eXo.core.DOMUtil.findFirstDescendantByClass(menuTop, "div", "StartMenuTR") ;
@@ -325,6 +328,13 @@ UIExoStartMenu.prototype.setContainerSize = function(menuItemContainer) {
   menuBottom.style.width = w + "px" ;
   menuCenter.style.width = w + "px" ;
   menuItemContainer.resized = true ;
+  
+  if (eXo.core.Browser.isIE7()) {
+	  var pageOwnerContainer = eXo.core.DOMUtil.findDescendantsByClass(menuItemContainer, "div", "PageOwnerContainer") ;
+	  for (var i = 0; i < pageOwnerContainer.length; i ++) {
+	  	pageOwnerContainer[i].style.width = pageOwnerContainer[i].offsetWidth + "px";
+	  }
+  }
 };
 
 eXo.portal.UIExoStartMenu = new UIExoStartMenu() ;
