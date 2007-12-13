@@ -1084,12 +1084,12 @@
 
 .RoundConerBlue .MiddleDecoratorLeft {
 	padding-left: 13px ;
-  background: url('background/MLRoundConerBue13x1.png') repeat-y left ;
+  background: url('background/MRoundConerBlue.png') repeat-y left ;
 }
 
 .RoundConerBlue .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRRoundConerBlue13x1.png') repeat-y right ;
+  background: url('background/MRoundConerBlue.png') repeat-y right ;
 }
 
 .RoundConerBlue .MiddleDecoratorCenter {
@@ -1128,7 +1128,7 @@
   width: 24px ; height: 24px ;
   margin: 7px 0px 0px 0px ;
   cursor: pointer ;
-  background-position: center;
+  background-image: url('background/RoundConerViolet.png');
 }
 
 .RoundConerViolet .Information {
@@ -1142,10 +1142,6 @@
   float: left;
   width: 16px; height: 16px;
   margin: 10px 0px 0px 0px;
-}
-
-.RoundConerViolet .WindowPortletInfo .PortletIcon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Earth.gif') no-repeat center;
 }
 
 .UIPageDesktop .RoundConerViolet .ResizeArea {
@@ -1164,70 +1160,75 @@
 }
 
 .RoundConerViolet .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 120px;
+  background-position: center 24px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 120px;
+  background-position: center 120px;
 }
 
 .RoundConerViolet .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 144px;
+	background-position: center 48px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 144px;
+	background-position: center 144px;
 }
 
 .RoundConerViolet .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 168px;
+  background-position: center 72px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 168px;
+	background-position: center 168px;
 }
 
 .RoundConerViolet .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 192px;
+	background-position: center 96px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif') right 192px;
+  background-position: center 192px;
 }
 
 .RoundConerViolet .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 192px;
+  background-position: center 96px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 192px;
+  background-position: center 192px;
 }
 
 .RoundConerViolet .WindowBarLeft {
 	padding-left: 13px ;
   height: 32px;
-  background: url('background/TLRoundConerViolet13x32.png') no-repeat left bottom;
+  background-image: url('background/RoundConerViolet.png');
+  background-repeat: no-repeat;
+  background-position: left -153px;
 }
 
 .RoundConerViolet .WindowBarRight {
 	padding-right: 13px ;
   height: 32px;
-  background: url('background/TRRoundConerViolet13x32.png') no-repeat right bottom;
+  background-image: url('background/RoundConerViolet.png');
+  background-repeat: no-repeat;
+  background-position: right -121px;
 }
 
 .RoundConerViolet .WindowBarCenter {
 	height: 32px ;
-  background: url('background/TCRoundConerViolet1x32.png') repeat-x bottom;
+  background: url('background/RoundConerViolet.png') repeat-x;
+  background-position: left -90px;
 }
 
 .RoundConerViolet .MiddleDecoratorLeft {
 	padding-left: 13px ;
-  background: url('background/MLRoundConerViolet13x1.png') repeat-y left ;
+  background: url('background/MRoundConerViolet.png') repeat-y left ;
 }
 
 .RoundConerViolet .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRRoundConerViolet13x1.png') repeat-y right ;
+  background: url('background/MRoundConerViolet.png') repeat-y right ;
 }
 
 .RoundConerViolet .MiddleDecoratorCenter {
@@ -1235,20 +1236,24 @@
 }
 
 .RoundConerViolet .BottomDecoratorLeft {
-	padding-left: 13px;
-  background: url('background/BLRoundConerViolet13x30.png') no-repeat left ;
+	padding-left: 13px ;
+  background-image: url('background/RoundConerViolet.png');
+  background-repeat: no-repeat;
+  background-position: left -60px;
 }
 
 .RoundConerViolet .BottomDecoratorRight {
   padding-right: 13px ;
-  background: url('background/BRRoundConerViolet13x30.png') no-repeat right ;
+  background-image: url('background/RoundConerViolet.png');
+  background-repeat: no-repeat;
+  background-position: right -30px;
 }
 
 .RoundConerViolet .BottomDecoratorCenter {
 	height: 30px ;
-  background: url('background/BCRoundConerViolet1x30.png') repeat-x ;
+  background: url('background/RoundConerViolet.png') repeat-x ;
+  background-position: top;
 }
-
 
 /*------------------------------- RoundConerOrange ----------------------------------*/
 
@@ -1262,7 +1267,7 @@
   width: 24px ; height: 24px ;
   margin: 7px 0px 0px 0px ;
   cursor: pointer ;
-  background-position: center;
+  background-image: url('background/RoundConerOrange.png');
 }
 
 .RoundConerOrange .Information {
@@ -1277,7 +1282,7 @@
   width: 16px; height: 16px;
   margin: 10px 0px 0px 0px;
 }
-  
+
 .UIPageDesktop .RoundConerOrange .ResizeArea {
 	float: right ;
   width: 17px ; height: 19px ;
@@ -1294,70 +1299,75 @@
 }
 
 .RoundConerOrange .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 216px;
+  background-position: center 24px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 216px;
+  background-position: center 120px;
 }
 
 .RoundConerOrange .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 240px;
+	background-position: center 48px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 240px;
+	background-position: center 144px;
 }
 
 .RoundConerOrange .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 288px;
+  background-position: center 72px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 288px;
+	background-position: center 168px;
 }
 
 .RoundConerOrange .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 264px;
+	background-position: center 96px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif') right 264px;
+  background-position: center 192px;
 }
 
 .RoundConerOrange .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 264px;
+  background-position: center 96px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 264px;
+  background-position: center 192px;
 }
 
 .RoundConerOrange .WindowBarLeft {
-	padding-left: 13px;
-	height: 32px;
-  background: url('background/TLRoundConerOrange13x32.png') no-repeat left bottom;
+	padding-left: 13px ;
+  height: 32px;
+  background-image: url('background/RoundConerOrange.png');
+  background-repeat: no-repeat;
+  background-position: left -153px;
 }
 
 .RoundConerOrange .WindowBarRight {
-	padding-right: 13px;
-	height: 32px;
-  background: url('background/TRRoundConerOrange13x32.png') no-repeat right bottom;
+	padding-right: 13px ;
+  height: 32px;
+  background-image: url('background/RoundConerOrange.png');
+  background-repeat: no-repeat;
+  background-position: right -121px;
 }
 
 .RoundConerOrange .WindowBarCenter {
-	height: 32px;
-  background: url('background/TCRoundConerOrange1x32.png') repeat-x bottom;
+	height: 32px ;
+  background: url('background/RoundConerOrange.png') repeat-x;
+  background-position: left -90px;
 }
 
 .RoundConerOrange .MiddleDecoratorLeft {
-	padding-left: 13px;
-  background: url('background/MLRoundConerOrange13x1.png') repeat-y left ;
+	padding-left: 13px ;
+  background: url('background/MRoundConerOrange.png') repeat-y left ;
 }
 
 .RoundConerOrange .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRRoundConerOrange13x1.png') repeat-y right ;
+  background: url('background/MRoundConerOrange.png') repeat-y right ;
 }
 
 .RoundConerOrange .MiddleDecoratorCenter {
@@ -1365,18 +1375,23 @@
 }
 
 .RoundConerOrange .BottomDecoratorLeft {
-	padding-left: 13px;
-  background: url('background/BLRoundConerOrange13x30.png') no-repeat left ;
+	padding-left: 13px ;
+  background-image: url('background/RoundConerOrange.png');
+  background-repeat: no-repeat;
+  background-position: left -60px;
 }
 
 .RoundConerOrange .BottomDecoratorRight {
   padding-right: 13px ;
-  background: url('background/BRRoundConerOrange13x30.png') no-repeat right ;
+  background-image: url('background/RoundConerOrange.png');
+  background-repeat: no-repeat;
+  background-position: right -30px;
 }
 
 .RoundConerOrange .BottomDecoratorCenter {
-	height: 30px;
-  background: url('background/BCRoundConerOrange1x30.png') repeat-x ;
+	height: 30px ;
+  background: url('background/RoundConerOrange.png') repeat-x ;
+  background-position: top;
 }
 
 /*------------------------------- RoundConerPink ----------------------------------*/
@@ -1391,7 +1406,7 @@
   width: 24px ; height: 24px ;
   margin: 7px 0px 0px 0px ;
   cursor: pointer ;
-  background-position: center;
+  background-image: url('background/RoundConerPink.png');
 }
 
 .RoundConerPink .Information {
@@ -1404,7 +1419,7 @@
 .RoundConerPink .WindowPortletInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  margin: 11px 0px 0px 0px;
+  margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerPink .ResizeArea {
@@ -1416,77 +1431,82 @@
 
 .RoundConerPink .WindowPortletInfo .PortletName {
   float: left ;
-  margin: 8px 0px 0px 5px;
+  margin: 7px 0px 0px 5px;
   font-weight: bold;
   color: #333333;
   line-height: 24px;
 }
 
 .RoundConerPink .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 310px;
+  background-position: center 24px;
 }
 
 .RoundConerPink .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 310px ;
+  background-position: center 120px;
 }
 
 .RoundConerPink .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 336px;
+	background-position: center 48px;
 }
 
 .RoundConerPink .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 336px;
+	background-position: center 144px;
 }
 
 .RoundConerPink .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 360px;
+  background-position: center 72px;
 }
 
 .RoundConerPink .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 360px;
+	background-position: center 168px;
 }
 
 .RoundConerPink .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 384px;
+	background-position: center 96px;
 }
 
 .RoundConerPink .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif')right 384px;
+  background-position: center 192px;
 }
 
 .RoundConerPink .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 384px;
+  background-position: center 96px;
 }
 
 .RoundConerPink .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif')right 384px;
+  background-position: center 192px;
 }
 
 .RoundConerPink .WindowBarLeft {
-	padding-left: 13px;
-	height: 32px;
-  background: url('background/TLRoundConerPink13x32.png') no-repeat left bottom;
+	padding-left: 13px ;
+  height: 32px;
+  background-image: url('background/RoundConerPink.png');
+  background-repeat: no-repeat;
+  background-position: left -153px;
 }
 
 .RoundConerPink .WindowBarRight {
-	padding-right: 13px;
-	height: 32px;
-  background: url('background/TRRoundConerPink13x32.png') no-repeat right bottom;
+	padding-right: 13px ;
+  height: 32px;
+  background-image: url('background/RoundConerPink.png');
+  background-repeat: no-repeat;
+  background-position: right -121px;
 }
 
 .RoundConerPink .WindowBarCenter {
-	height: 32px;
-  background: url('background/TCRoundConerPink1x32.png') repeat-x bottom;
+	height: 32px ;
+  background: url('background/RoundConerPink.png') repeat-x;
+  background-position: left -90px;
 }
 
 .RoundConerPink .MiddleDecoratorLeft {
-	padding-left: 13px;
-  background: url('background/MLRoundConerPink13x1.png') repeat-y left ;
+	padding-left: 13px ;
+  background: url('background/MRoundConerPink.png') repeat-y left ;
 }
 
 .RoundConerPink .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRRoundConerPink13x1.png') repeat-y right ;
+  background: url('background/MRoundConerPink.png') repeat-y right ;
 }
 
 .RoundConerPink .MiddleDecoratorCenter {
@@ -1494,18 +1514,23 @@
 }
 
 .RoundConerPink .BottomDecoratorLeft {
-	padding-left: 13px;
-  background: url('background/BLRoundConerPink13x30.png') no-repeat left ;
+	padding-left: 13px ;
+  background-image: url('background/RoundConerPink.png');
+  background-repeat: no-repeat;
+  background-position: left -60px;
 }
 
 .RoundConerPink .BottomDecoratorRight {
   padding-right: 13px ;
-  background: url('background/BRRoundConerPink13x30.png') no-repeat right ;
+  background-image: url('background/RoundConerPink.png');
+  background-repeat: no-repeat;
+  background-position: right -30px;
 }
 
 .RoundConerPink .BottomDecoratorCenter {
-	height: 30px;
-  background: url('background/BCRoundConerPink1x30.png') repeat-x ;
+	height: 30px ;
+  background: url('background/RoundConerPink.png') repeat-x ;
+  background-position: top;
 }
 
 /*------------------------------- RoundConerGreen ----------------------------------*/
@@ -1520,7 +1545,7 @@
   width: 24px ; height: 24px ;
   margin: 7px 0px 0px 0px ;
   cursor: pointer ;
-  background-position: center;
+  background-image: url('background/RoundConerGreen.png');
 }
 
 .RoundConerGreen .Information {
@@ -1552,70 +1577,75 @@
 }
 
 .RoundConerGreen .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 408px ;
+  background-position: center 24px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 408px;
+  background-position: center 120px;
 }
 
 .RoundConerGreen .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 432px;
+	background-position: center 48px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 432px;
+	background-position: center 144px;
 }
 
 .RoundConerGreen .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 456px;
+  background-position: center 72px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 456px;
+	background-position: center 168px;
 }
 
 .RoundConerGreen .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 480px;
+	background-position: center 96px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif') right 480px;
+  background-position: center 192px;
 }
 
 .RoundConerGreen .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 480px;
+  background-position: center 96px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 480px;
+  background-position: center 192px;
 }
 
 .RoundConerGreen .WindowBarLeft {
-	padding-left: 13px;
-	height: 32px;
-  background: url('background/TLRoundConerGreen13x32.png') no-repeat left bottom;
+	padding-left: 13px ;
+  height: 32px;
+  background-image: url('background/RoundConerGreen.png');
+  background-repeat: no-repeat;
+  background-position: left -153px;
 }
 
 .RoundConerGreen .WindowBarRight {
-	padding-right: 13px;
-	height: 32px;
-  background: url('background/TRRoundConerGreen13x32.png') no-repeat right bottom;
+	padding-right: 13px ;
+  height: 32px;
+  background-image: url('background/RoundConerGreen.png');
+  background-repeat: no-repeat;
+  background-position: right -121px;
 }
 
 .RoundConerGreen .WindowBarCenter {
-	height: 32px;
-  background: url('background/TCRoundConerGreen1x32.png') repeat-x bottom;
+	height: 32px ;
+  background: url('background/RoundConerGreen.png') repeat-x;
+  background-position: left -90px;
 }
 
 .RoundConerGreen .MiddleDecoratorLeft {
-	padding-left: 13px;
-  background: url('background/MLRoundConerGreen13x1.png') repeat-y left ;
+	padding-left: 13px ;
+  background: url('background/MRoundConerGreen.png') repeat-y left ;
 }
 
 .RoundConerGreen .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRRoundConerGreen13x1.png') repeat-y right ;
+  background: url('background/MRoundConerGreen.png') repeat-y right ;
 }
 
 .RoundConerGreen .MiddleDecoratorCenter {
@@ -1623,18 +1653,23 @@
 }
 
 .RoundConerGreen .BottomDecoratorLeft {
-	padding-left: 13px;
-  background: url('background/BLRoundConerGreen13x30.png') no-repeat left ;
+	padding-left: 13px ;
+  background-image: url('background/RoundConerGreen.png');
+  background-repeat: no-repeat;
+  background-position: left -60px;
 }
 
 .RoundConerGreen .BottomDecoratorRight {
   padding-right: 13px ;
-  background: url('background/BRRoundConerGreen13x30.png') no-repeat right ;
+  background-image: url('background/RoundConerGreen.png');
+  background-repeat: no-repeat;
+  background-position: right -30px;
 }
 
 .RoundConerGreen .BottomDecoratorCenter {
-	height: 30px;
-  background: url('background/BCRoundConerGreen1x30.png') repeat-x ;
+	height: 30px ;
+  background: url('background/RoundConerGreen.png') repeat-x ;
+  background-position: top;
 }
 
 /*-------------------------- ShadowBlue ---------------------------*/
