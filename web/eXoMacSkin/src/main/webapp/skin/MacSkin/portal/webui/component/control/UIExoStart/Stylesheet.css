@@ -178,12 +178,7 @@
   padding: 5px;
   background: white;
 }
-/*
-.UIExoStart .StartMenuContainer .MenuContent {
-	border: 1px solid #797979;
-  margin: 0px 5px;
-}
-*/
+
 .UIExoStart .StartMenuContainer .TopNavigator {
   cursor: pointer;
   border-bottom: solid 1px #797979;
@@ -241,7 +236,6 @@
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
   line-height: 19px;
-	height: 19px; 
   background: url('background/TitleBG1x19.gif') repeat-x ;
   padding: 0px 20px 0px 10px ;
   border-bottom: solid 1px #a4b0b0 ;

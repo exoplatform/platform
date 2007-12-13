@@ -52,8 +52,6 @@
 .UIGroupMembershipSelector .UITrees {
   border-top: none;  
   height: 152px;
-  overflow-y: auto; 
-  overflow-x: hidden;
 }
 
 .UIGroupMembershipSelector .BlueLevelUpArrow24x24Icon {

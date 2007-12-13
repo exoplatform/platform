@@ -230,7 +230,6 @@
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
   padding-bottom: 10px;  
   height: 208px;
-  overflow: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {

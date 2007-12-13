@@ -143,8 +143,6 @@
  	background: url('background/UITreeBG.png') repeat;
  	border-top: none;
   height: 221px;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
