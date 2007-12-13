@@ -35,7 +35,7 @@ public class SpecialCharacterValidator implements Validator {
       throw new MessageException(new ApplicationMessage("SpecialCharacterValidator.msg.invalid-digit", args, ApplicationMessage.WARNING)) ;
     }
     for(int i=0;i<s.length();i++) {
-      if(isValidChar(s.toCharArray(), i)) {
+      if(!isValidChar(s.toCharArray(), i)) {
         Object[] args = { uiInput.getName(), uiInput.getBindingField() };
         throw new MessageException(new ApplicationMessage("SpecialCharacterValidator.msg.invalid-input", args, ApplicationMessage.WARNING)) ;
       }
@@ -43,7 +43,7 @@ public class SpecialCharacterValidator implements Validator {
   }
   private boolean isValidChar(char[] a, int index) {
     int codeValue = Character.codePointAt(a, index) ;
-    if(((32<=codeValue)&&(codeValue<=45))||(codeValue==47)) return false;
+    if(((32<=codeValue)&&(codeValue<=44))||(codeValue==47)) return false;
     if((58<=codeValue)&&(codeValue<=64)) return false;
     if((91<=codeValue)&&(codeValue<=96)) return false;
     if((123<=codeValue)&&(codeValue<=126)) return false;  

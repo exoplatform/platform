@@ -63,6 +63,8 @@ import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
   )
 public class UIEditResource extends UIForm {
 
+  private boolean editAble = true;
+  
   public UIEditResource() throws Exception {
     addUIFormInput(new UIFormTextAreaInput("resource", null,null).addValidator(EmptyFieldValidator.class)) ;
     addUIFormInput(new UIFormStringInput("name",null,null).addValidator(EmptyFieldValidator.class).addValidator(SpecialCharacterValidator.class)) ;
@@ -92,7 +94,7 @@ public class UIEditResource extends UIForm {
       String language = uiEditResource.getChild(UIFormSelectBox.class).getValue() ;
       
       PageList pageList = serv.findResourceDescriptions(new Query(name,language)) ;
-      if(pageList.getAvailable() > 0) {
+      if((pageList.getAvailable() > 0)&& uiEditResource.isSave()) {
         UIApplication uiApp = event.getRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIEditResource.add.exist", null)) ;
         return ;
@@ -133,6 +135,7 @@ public class UIEditResource extends UIForm {
       uiEditResource.getChild(UIFormTextAreaInput.class).setEditable(true) ;
       uiEditResource.getUIStringInput("name").setEditable(false) ;
       uiEditResource.getChild(UIFormSelectBox.class).setEnable(false) ;
+      uiEditResource.setSave(false) ;
       uiEditResource.setActions(new String[]{"Save", "Cancel"});
     }
   }
@@ -145,7 +148,7 @@ public class UIEditResource extends UIForm {
       getUIStringInput("name").setValue(redata.getName()) ;
       getUIStringInput("name").setEditable(false) ;
       getChild(UIFormSelectBox.class).setValue(redata.getLanguage()) ;
-      getChild(UIFormSelectBox.class).setEnable(false) ;      
+      getChild(UIFormSelectBox.class).setEnable(false) ;
     }
     else {
       getChild(UIFormTextAreaInput.class).setValue("") ;
@@ -153,8 +156,16 @@ public class UIEditResource extends UIForm {
       getUIStringInput("name").setValue("") ;
       getUIStringInput("name").setEditable(true) ;
       getChild(UIFormSelectBox.class).setValue("") ;
-      getChild(UIFormSelectBox.class).setEnable(true) ;  
+      getChild(UIFormSelectBox.class).setEnable(true) ;
+      setSave(true) ;
     }
+  }
+  
+  private void setSave(boolean editAble) {
+    this.editAble = editAble ;
+  }
+  private boolean isSave() {
+    return editAble ;
   }
 }
 
