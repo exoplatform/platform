@@ -68,7 +68,7 @@
 			      }
 			      String value = fieldValue.toString();
 			      if(value.length() > 40){
-				      println "<td class=\""+cssClass+"\" title='"+value+"'>"+value.substring(0,37)+"...</td>";				      
+				      println "<td class=\""+cssClass+"\" title='"+value+"'>"+value.substring(0,28)+"...</td>";				      
 			      } else {
 				      println "<td class=\""+cssClass+"\">"+fieldValue+"</td>";
 				    }
