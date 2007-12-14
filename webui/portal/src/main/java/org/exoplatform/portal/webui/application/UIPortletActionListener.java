@@ -432,7 +432,7 @@ public class UIPortletActionListener {
       if (windowState.equals(WindowState.MAXIMIZED.toString())) {
         if (uiPageBody != null) {
           uiPortlet.setCurrentWindowState(WindowState.MAXIMIZED);
-          uiPageBody.setMaximizedUIComponent(uiPortlet);
+          //uiPageBody.setMaximizedUIComponent(uiPortlet);
         } else {
           uiPortlet.setCurrentWindowState(WindowState.NORMAL);
         }

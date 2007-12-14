@@ -68,8 +68,11 @@ public class UIPortalManagementControlBar extends UIToolbar {
     String remoteUser = prContext.getRemoteUser();
     String ownerUser = prContext.getPortalOwner();   
     UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);
-    uiPortal.setModifiable(userPortalConfig.getPortalConfig().isModifiable());        
-    
+    if(userPortalConfig != null) {
+      uiPortal.setModifiable(userPortalConfig.getPortalConfig().isModifiable());        
+    } else {
+      uiPortal.setModifiable(false);
+    }
     LocaleConfigService localeConfigService  = uiPortalApp.getApplicationComponent(LocaleConfigService.class) ;
     LocaleConfig localeConfig = localeConfigService.getLocaleConfig(portalConfig.getLocale());
     if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
@@ -102,10 +105,11 @@ public class UIPortalManagementControlBar extends UIToolbar {
   */
   static public class RollbackActionListener  extends EventListener<UIPortalManagementControlBar> {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
-      UIPortalManagementControlBar uiPortalManagement = event.getSource();      
+      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = Util.updateUIApplication(event);
       
-      UserPortalConfigService configService = uiPortalManagement.getApplicationComponent(UserPortalConfigService.class);     
+      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);      
+      configService.update(uiPortalApp.getUserPortalConfig().getPortalConfig());
       PortalRequestContext prContext = Util.getPortalRequestContext();     
       
       String remoteUser = prContext.getRemoteUser();
@@ -148,7 +152,8 @@ public class UIPortalManagementControlBar extends UIToolbar {
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       
       PortalRequestContext prContext = Util.getPortalRequestContext();  
-      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);     
+      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
+      configService.update(uiPortalApp.getUserPortalConfig().getPortalConfig());
       
       String remoteUser = prContext.getRemoteUser();
       String ownerUser = prContext.getPortalOwner();   
