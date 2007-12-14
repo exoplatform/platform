@@ -202,7 +202,7 @@ DOMUtil.prototype.findDescendantById = function(root, id) {
   var elements = root.getElementsByTagName('*') ;
   var ln = elements.length ;
   for (var i = 0; i < ln; i++) {
-    if (elements[i].id == id) {
+    if (elements[i].getAttribute("id") == id) {
       return elements[i] ;
     }
   }
