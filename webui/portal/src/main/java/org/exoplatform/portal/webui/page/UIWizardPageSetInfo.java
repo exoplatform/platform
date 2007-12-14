@@ -202,34 +202,34 @@ public class UIWizardPageSetInfo extends UIForm {
   
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
     public void execute(Event<UIWizardPageSetInfo> event) throws Exception {
-      String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
+      String uri  = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UIWizardPageSetInfo uiForm = event.getSource() ;
       
-      UIPageNodeSelector uiPageNodeSelector = event.getSource().getChild(UIPageNodeSelector.class); 
-      UITree tree = uiPageNodeSelector.getChild(UITree.class);
+      UIPageNodeSelector uiPageNodeSelector = event.getSource().getChild(UIPageNodeSelector.class) ; 
+      UITree tree = uiPageNodeSelector.getChild(UITree.class) ;
     
       if(tree.getParentSelected() == null && (uri == null || uri.length() < 1)){
-        uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId());
+        uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId()) ;
       } else {
-        uiPageNodeSelector.selectPageNodeByUri(uri);
+        uiPageNodeSelector.selectPageNodeByUri(uri) ;
       }
      
-      UIPortalApplication uiPortalApp = uiPageNodeSelector.getAncestorOfType(UIPortalApplication.class);
-      UIWizard uiWizard = uiPortalApp.findFirstComponentOfType(UIWizard.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard);
+      UIPortalApplication uiPortalApp = uiPageNodeSelector.getAncestorOfType(UIPortalApplication.class) ;
+      UIWizard uiWizard = uiPortalApp.findFirstComponentOfType(UIWizard.class) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard) ;
       
       
       if(!event.getSource().isEditMode()) {
-        return ;
+        return  ;
       }
-      PageNode pageNode = uiPageNodeSelector.getSelectedPageNode();
+      PageNode pageNode = uiPageNodeSelector.getSelectedPageNode() ;
 
       if(pageNode == null && uiForm.isFirstTime()) {
-        uiForm.setFirstTime(false);
-        UIPortal uiPortal = Util.getUIPortal();
-        uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId());
-        uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri());
-        pageNode = uiPageNodeSelector.getSelectedPageNode();
+        uiForm.setFirstTime(false) ;
+        UIPortal uiPortal = Util.getUIPortal() ;
+        uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId()) ;
+        uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri()) ;
+        pageNode = uiPageNodeSelector.getSelectedPageNode() ;
       }
       
       if(pageNode == null) return ;
@@ -244,9 +244,9 @@ public class UIWizardPageSetInfo extends UIForm {
       }
       String pageName = pageNode.getPageReference().split("::")[2] ;
       UIFormStringInput uiNameInput = uiForm.getChildById(PAGE_NAME) ;
-      if(pageNode.getName() != null) uiNameInput.setValue(pageName);
+      if(pageNode.getName() != null) uiNameInput.setValue(pageName) ;
       UIFormStringInput uiDisplayNameInput = uiForm.getChildById(PAGE_DISPLAY_NAME) ;
-      if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getLabel());
+      if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getResolvedLabel()) ;
     }
   }
 }
