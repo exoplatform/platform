@@ -218,7 +218,8 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       uicom.setPublicMode(uiPublicModeInput.isChecked()) ;
       uicom.setRendered(true);      
       UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
-      uiForm.findFirstComponentOfType(UIPermissionSelector.class).setRendered(false);
+      UIPermissionSelector uiPermission = uiForm.findFirstComponentOfType(UIPermissionSelector.class) ;
+      if(uiPermission != null) uiPermission.setRendered(false) ;
       if(uiForm != null) {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
       }
