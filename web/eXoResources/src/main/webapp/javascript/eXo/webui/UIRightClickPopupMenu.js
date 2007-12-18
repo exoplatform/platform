@@ -18,16 +18,16 @@ UIRightClickPopupMenu.prototype.init = function(contextMenuId) {
 
 UIRightClickPopupMenu.prototype.hideContextMenu = function(contextId) {
 	document.getElementById(contextId).style.display = 'none' ;
+	eXo.core.MouseEventManager.onMouseDownHandlers = null ;
 }
 
 UIRightClickPopupMenu.prototype.disableContextMenu = function(comp) {
 	if(typeof(comp) == "string") comp = document.getElementById(comp) ;
 	comp.onmouseover = function() {
-		document.body.oncontextmenu = new Function("return false;") ;
+		document.oncontextmenu = function() {return false} ;
 	}
-	
 	comp.onmouseout = function() {
-		document.body.oncontextmenu = new Function("return true;") ;
+		document.oncontextmenu = function() {return true} ;
 	}
 };
 
@@ -54,9 +54,7 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 		return;
 	}
 	
-	document.oncontextmenu = function() {return false;}
 	eXo.core.MouseEventManager.addMouseDownHandler("eXo.webui.UIRightClickPopupMenu.hideContextMenu('" + menuId + "');")
-	document.oncontextmenu = null;
 
 	if(params) {
 		params = "," + params + "," ;
