@@ -90,16 +90,16 @@ public class UIContainerActionListener {
       pContext.getWriter().write(EventListener.RESULT_OK) ;
     }
   }
-  
-  static public class AddWidgetContainerActionListener extends EventListener<UIContainer> {
-    public void execute(Event<UIContainer> event) throws Exception {
-      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      UIContainer uiWidgetContainer = event.getSource();
-      
-      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n ADD WIDGET CONTAINER \n\n\n\n\n\n\n\n\n\n\n\n");
-      
-    }
-  }
+//  
+//  static public class AddWidgetContainerActionListener extends EventListener<UIContainer> {
+//    public void execute(Event<UIContainer> event) throws Exception {
+//      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+//      UIContainer uiWidgetContainer = event.getSource();
+//      
+//      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n ADD WIDGET CONTAINER \n\n\n\n\n\n\n\n\n\n\n\n");
+//      
+//    }
+//  }
   
   static public class ShowAddNewApplicationActionListener extends EventListener<UIContainer> {
 

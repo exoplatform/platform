@@ -99,12 +99,6 @@
 	height: 26px;
 }
   
-  
-.UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
-	width: 16px; height: 16px;
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPortletIcons.png') no-repeat;
-}
-
 #UIPortletOptions .BackNavigationContent {
 	display: none;
 }

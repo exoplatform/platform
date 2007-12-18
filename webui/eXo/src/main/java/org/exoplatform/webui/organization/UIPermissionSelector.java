@@ -91,7 +91,9 @@ public class UIPermissionSelector extends UISelector<String> {
     public void execute(Event<UIPermissionSelector> event) throws Exception {
       UIPermissionSelector uiPermissionSelector = event.getSource() ;
       uiPermissionSelector.setValue(null) ;
+      uiPermissionSelector.setRendered(true);
       UIForm uiForm = uiPermissionSelector.getAncestorOfType(UIForm.class) ;
+      uiForm.findFirstComponentOfType(UIListPermissionSelector.class).setRendered(false);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;
     }
   }

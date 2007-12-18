@@ -34,14 +34,14 @@
 	float: right;
 	width: 22px; height: 16px;
 	background: url('background/PencilButton.gif') no-repeat;
-  margin: 5px 3px 2px 0px;
+  margin: 4px 3px 2px 0px;
 }
 
 .UIPortlet .DeletePortletIcon {
 	float:right;
 	width: 22px; height:16px; 
   background: url('background/CloseButton.gif') no-repeat ;
-  margin: 5px 4px 2px 0px;
+  margin: 4px 4px 2px 0px;
 }
 
 .UIPortlet .MaximizedPortletIcon {

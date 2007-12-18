@@ -30,6 +30,8 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.NameValidator;
+import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
+
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
   template = "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
@@ -47,9 +49,9 @@ public class UIMembershipTypeForm extends UIForm {
   
   public UIMembershipTypeForm() throws Exception {
     addUIFormInput(new UIFormStringInput(MEMBERSHIP_TYPE_NAME, MEMBERSHIP_TYPE_NAME, null).
-                   setEditable(UIFormStringInput.ENABLE).
-                   //addValidator(EmptyFieldValidator.class).
-                   addValidator(NameValidator.class)) ;
+                   setEditable(UIFormStringInput.ENABLE).                   
+                   addValidator(NameValidator.class).
+                   addValidator(SpecialCharacterValidator.class)) ;
    
     addUIFormInput(new UIFormTextAreaInput(DESCRIPTION, DESCRIPTION, null)) ;    
   } 

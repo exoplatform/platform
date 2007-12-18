@@ -176,25 +176,25 @@ UIWindow.prototype.backupObjectProperties = function(windowPortlet, resizableCom
 } ;
 
 UIWindow.prototype.initDND = function(e) {
-
+	
 	var DOMUtil = eXo.core.DOMUtil ;
   var DragDrop = eXo.core.DragDrop ;
   var clickBlock = this ;
   var dragBlock = DOMUtil.findAncestorByClass(this, "UIDragObject") ;
-	var uiPageDeskTop = document.getElementById("UIPageDesktop");
-	var maxIndex = 0;
+	var uiPageDeskTop = document.getElementById("UIPageDesktop") ;
+	var maxIndex = 0 ;
 	//fix zIndex for refesh
-	var dragObjects = DOMUtil.findDescendantsByClass(uiPageDeskTop, "div", "UIDragObject");
+	var dragObjects = DOMUtil.findDescendantsByClass(uiPageDeskTop, "div", "UIDragObject") ;
 	if (dragObjects.length > 0) {
 		for (var i = 0; i < dragObjects.length; i ++) {
-				dragObjects[i].style.zIndex = i + 1;
+				var zIndex = dragObjects[i].style.zIndex || 1;
+				if (maxIndex < zIndex) 	maxIndex = parseInt(zIndex);
 		}
-		maxIndex = i*2 + 2;
-		dragBlock.style.zIndex = maxIndex;
-		eXo.desktop.UIWindow.saveWindowProperties(dragBlock) ;
-		var uiDockbar = document.getElementById("UIDockBar");
+		maxIndex += 1;
+		dragBlock.style.zIndex = maxIndex ;
+		var uiDockbar = document.getElementById("UIDockBar") ;
 		if (uiDockbar.style.zIndex < maxIndex) {
-			uiDockbar.style.zIndex = maxIndex + 2;
+			uiDockbar.style.zIndex = maxIndex + 1 ;
 		}
 	}
 
@@ -202,7 +202,7 @@ UIWindow.prototype.initDND = function(e) {
 	// Can drag n drop only when the window is NOT maximized
   if(!dragBlock.maximized) {
 	  
-		var uiApplication = DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIApplication");
+		var uiApplication = DOMUtil.findFirstDescendantByClass(dragBlock, "div", "UIApplication") ;
 		var hiddenElements = new Array() ;
 		
 	  DragDrop.initCallback = function(dndEvent) {
@@ -211,7 +211,7 @@ UIWindow.prototype.initDND = function(e) {
 	  		hiddenElements.push(uiApplication) ;
 	  		uiApplication.style.overflow = "hidden" ;
 	  	}
-	  	uiAppDescendants = DOMUtil.findDescendantsByTagName(uiApplication, "div");
+	  	uiAppDescendants = DOMUtil.findDescendantsByTagName(uiApplication, "div") ;
 	  	for (var i = 0; i < uiAppDescendants.length; i++) {
 	  		if (DOMUtil.getStyle(uiAppDescendants[i], "overflow") == "auto") {
 	  			hiddenElements.push(uiAppDescendants[i]) ;

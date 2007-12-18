@@ -44,6 +44,7 @@ UIWidget.prototype.editWidget = function(selectedElement) {
 		
 	}
 } ;
+
 UIWidget.prototype.deleteWidget = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidgetContainer = DOMUtil.findAncestorByClass(selectedElement, "UIWidgetContainer") ;
@@ -53,7 +54,6 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
 	if(uiPage) {
 		var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
 		containerBlockId = uiPageIdNode.innerHTML;
-		
 	}
 	else {
 		containerBlockId = uiWidgetContainer.id ;

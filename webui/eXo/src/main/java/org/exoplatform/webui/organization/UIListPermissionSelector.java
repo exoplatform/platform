@@ -105,7 +105,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   
   @SuppressWarnings("unchecked")
   public String[] getValue() throws Exception {
-    if(publicMode_) return new String[]{UserACL.ANYONE} ;
+    if(publicMode_) return new String[]{UserACL.EVERYONE} ;
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
     List<Object> values = uiIterator.getPageList().getAll();
     String[] expPermissions = new String[values.size()];
@@ -120,7 +120,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     List<Object> list = new ArrayList<Object>();    
     setPublicMode(false);
     for(String exp : permissions) {
-      if(UserACL.ANYONE.equals(exp)) {
+      if(UserACL.EVERYONE.equals(exp)) {
         UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
         uiGrid.setRendered(false) ;
         setPublicMode(true);        
@@ -216,7 +216,9 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       UIListPermissionSelector uicom = event.getSource();
       UIFormCheckBoxInput<Boolean> uiPublicModeInput = uicom.getChildById("publicMode") ;
       uicom.setPublicMode(uiPublicModeInput.isChecked()) ;
+      uicom.setRendered(true);      
       UIForm uiForm = event.getSource().getAncestorOfType(UIForm.class) ;
+      uiForm.findFirstComponentOfType(UIPermissionSelector.class).setRendered(false);
       if(uiForm != null) {
         event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
       }

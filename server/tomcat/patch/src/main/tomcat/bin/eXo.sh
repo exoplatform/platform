@@ -7,6 +7,7 @@ cd `dirname "$0"`
 LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog"
 SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
 EXO_OPTS="-Dexo.product.developing=true"
+EXO_CONFIG_OPTS="-Dorg.exoplatform.container.configuration.debug"
 
 JPDA_TRANSPORT=dt_socket
 JPDA_ADDRESS=8000
@@ -19,7 +20,7 @@ REMOTE_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspen
 #export LD_LIBRARY_PATH
 #YOURKIT_PROFILE_OPTION="-agentlib:yjpagent  -Djava.awt.headless=true"
 
-JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS"
+JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $EXO_CONFIG_OPTS"
 export JAVA_OPTS
 
 # Launches the server

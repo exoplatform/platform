@@ -23,8 +23,6 @@ UIDesktop.prototype.init = function() {
 			}
 	  }
 	}
-
-	
 };
 
 UIDesktop.prototype.fixDesktop = function() {
@@ -149,18 +147,6 @@ UIDesktop.prototype.backupWindowProperties = function(uiWindow) {
   uiWindow.isFirstTime = false ;
 } ;
 
-/*UIDesktop.prototype.saveJSApplication = function(application, applicationId, instanceId, appLocation) {
-  var params = [
-    {name: "jsApplication", value : application},
-    {name: "jsApplicationId", value : applicationId},
-    {name: "jsInstanceId", value : instanceId},
-    {name: "jsApplicationLocation", value : appLocation}
-  ] ;
-  var url = eXo.env.server.createPortalURL("UIPortal", "AddJSApplicationToDesktop", true, params);
-  alert(url);
-  ajaxGet(url) ;
-} ;*/
-
 UIDesktop.prototype.addApplicationToDesktop = function(application, appId, appLocation) {
   try {
     eXo.require(application, appLocation);
@@ -250,5 +236,19 @@ UIDesktop.prototype.removeJSApplication = function(applicationNode) {
   ] ;
   ajaxGet(eXo.env.server.createPortalURL("UIPortal", "RemoveJSApplicationToDesktop", true, params)) ;
 } ;
+
+UIDesktop.prototype.removeApp = function(uri) {
+	var appId = uri.substr(uri.lastIndexOf("=") + 1) ;
+	var result = ajaxAsyncGetRequest(uri, false) ;
+	if(result == "OK") {
+		eXo.desktop.UIDesktop.removeWindow(appId) ;
+		eXo.desktop.UIDockbar.removeDockbarIcon("DockItem" + appId) ;
+	}
+};
+
+UIDesktop.prototype.removeWindow = function (idWindow) {
+	var uiWindow = document.getElementById(idWindow); 
+	if (uiWindow) eXo.core.DOMUtil.removeElement(uiWindow);
+};
 
 eXo.desktop.UIDesktop = new UIDesktop() ;

@@ -22,13 +22,13 @@
       </value-param>
       
       <value-param>
-        <name>portal.cretor.groups</name>
+        <name>portal.creator.groups</name>
         <description>groups with membership type have permission to manage portal</description>
-        <value>*:/platform/administrations,*:/organization/management/executive-board</value>	    
+        <value>*:/platform/administrators,*:/organization/management/executive-board</value>	    
       </value-param>
       
       <value-param>
-        <name>navigation.cretor.membership.type</name>
+        <name>navigation.creator.membership.type</name>
         <description>specific membership type have full permission with group navigation</description>
         <value>manager</value>	    
       </value-param>

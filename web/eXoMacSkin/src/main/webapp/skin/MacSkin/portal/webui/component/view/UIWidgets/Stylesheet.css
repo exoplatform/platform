@@ -15,12 +15,8 @@
 }
 
 .UIWidgets .ItemSelectorContainer .UIDropDownControl .UIDropDownRightTitle {
-		background: none;
-		padding-right: 0px;
-}
-
-.UIWidgets .UIDropDownItemSelector .ComponentIcon {
-	background: url('icons/WidgetIcon.png') no-repeat center;
+	background: none;
+	padding-right: 0px;
 }
 
 .UIWidgets .WidgetDecorator {

@@ -80,11 +80,6 @@
   text-decoration: none;
 }
 
-.UIPortletOptions .UIDropDownItemSelector .ComponentIcon {
-	width: 24px; height: 24px;
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat top;
-}
-
 #UIPortletOptions .BackNavigationContent {
 	display: none;
 }

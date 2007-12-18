@@ -1,8 +1,10 @@
 function MouseEventManager () {} ;
 
-/*
- * minh.js.exo
- */
+MouseEventManager.prototype.addMouseDownHandler = function(method) {
+	document.onmousedown = this.docMouseDownEvt ;
+	this.onMouseDownHandlers = method ;
+} ;
+
 MouseEventManager.prototype.docMouseDownEvt = function(evt) {
 	if(!evt) evt = window.event ;
 	evt.cancelBubble = true ;
@@ -13,19 +15,14 @@ MouseEventManager.prototype.docMouseDownEvt = function(evt) {
 	document.onmousedown = null ;
 } ;
 
-MouseEventManager.prototype.addMouseDownHandler = function(method) {
-	document.onmousedown = this.docMouseDownEvt ;
-	this.onMouseDownHandlers = method ;
+MouseEventManager.prototype.addMouseUpHandler = function(method) {
+	document.onmouseup = this.docMouseUpEvt ;
+	this.onMouseUpHandlers = method ;
 } ;
 
 MouseEventManager.prototype.docMouseUpEvt = function() {
 	var mouseUpHandlers = eXo.core.MouseEventManager.onMouseUpHandlers ;
 	
-} ;
-
-MouseEventManager.prototype.addMouseUpHandler = function(method) {
-	document.onmouseup = this.docMouseUpEvt ;
-	this.onMouseUpHandlers = method ;
 } ;
 
 MouseEventManager.prototype.docMouseClickEvt = function(evt) {

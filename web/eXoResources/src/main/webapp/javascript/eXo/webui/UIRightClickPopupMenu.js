@@ -13,10 +13,6 @@ UIRightClickPopupMenu.prototype.init = function(contextMenuId) {
 	}
 
 	var parentNode = contextMenu.parentNode ;
-//	parentNode.contextMenu = contextMenu ;
-//	parentNode.onclick = function() {
-//		this.contextMenu.style.display = 'none' ;
-//	}
 	this.disableContextMenu(parentNode) ;
 }
 
@@ -35,11 +31,17 @@ UIRightClickPopupMenu.prototype.disableContextMenu = function(comp) {
 	}
 };
 
-UIRightClickPopupMenu.prototype.prepareObjectId = function(elemt) {
+UIRightClickPopupMenu.prototype.prepareObjectId = function(evt, elemt) {
 	var contextMenu = eXo.core.DOMUtil.findAncestorByClass(elemt, "UIRightClickPopupMenu") ;
-			contextMenu.style.dispay = "none" ;
-	var str = elemt.getAttribute('href') ;
-	elemt.setAttribute('href',str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
+	contextMenu.style.dispay = "none" ;
+	var str = elemt.getAttribute('href').replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'")) ;
+	if(str.indexOf("javascript") == 0) {
+		eval(str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
+		eXo.core.MouseEventManager.docMouseDownEvt(evt) ;
+		return false;
+	}
+	elemt.setAttribute('href', str) ;
+	return true;
 }
 
 UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId, objId, params, opt) {
@@ -51,7 +53,10 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 		contextMenu.style.display = 'none' ;
 		return;
 	}
+	
+	document.oncontextmenu = function() {return false;}
 	eXo.core.MouseEventManager.addMouseDownHandler("eXo.webui.UIRightClickPopupMenu.hideContextMenu('" + menuId + "');")
+	document.oncontextmenu = null;
 
 	if(params) {
 		params = "," + params + "," ;

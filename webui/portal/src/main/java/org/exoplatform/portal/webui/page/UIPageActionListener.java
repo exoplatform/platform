@@ -19,8 +19,6 @@ package org.exoplatform.portal.webui.page;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
-
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
@@ -200,7 +198,6 @@ public class UIPageActionListener {
       pcontext.setFullRender(false);
       pcontext.setResponseComplete(true) ;
       pcontext.getWriter().write(EventListener.RESULT_OK) ;
-      
     }
   }
   
@@ -215,16 +212,15 @@ public class UIPageActionListener {
         UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.update(page);
+        pcontext.setFullRender(false);
+        pcontext.setResponseComplete(true) ;
+        pcontext.getWriter().write(EventListener.RESULT_OK) ;
       } else{
         org.exoplatform.webui.core.UIApplication uiApp = pcontext.getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPage.msg.EditPermission.null", null)) ;
 
         pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
       }
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-      pcontext.setFullRender(true);
     }
   }
     

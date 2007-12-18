@@ -33,7 +33,7 @@ import org.exoplatform.services.organization.OrganizationService;
  * Jun 27, 2006
  */
 public class UserACL {
-  public final static String ANYONE = "Everyone" ;
+  public final static String EVERYONE = "Everyone" ;
   protected static Log log = ExoLogger.getLogger("organization:UserACL");
   
   private OrganizationService orgService_ ;
@@ -54,13 +54,13 @@ public class UserACL {
     if(guestGroupParam != null) guestGroup_ = guestGroupParam.getValue() ;
     if(guestGroup_ == null || guestGroup_.trim().length() < 1) guestGroup_ = "/platform/guests" ; 
     
-    ValueParam navCretorParam = params.getValueParam("navigation.cretor.membership.type");
+    ValueParam navCretorParam = params.getValueParam("navigation.creator.membership.type");
     if(navCretorParam != null) navigationCreatorMembershipType_ = navCretorParam.getValue();
     if(navigationCreatorMembershipType_ == null || 
        navigationCreatorMembershipType_.trim().length() == 0) navigationCreatorMembershipType_= "owner";
     
     String allGroups = "";
-    ValueParam portalCretorGroupsParam = params.getValueParam("portal.cretor.groups");
+    ValueParam portalCretorGroupsParam = params.getValueParam("portal.creator.groups");
     if(portalCretorGroupsParam != null) allGroups = portalCretorGroupsParam.getValue();
     portalCreatorGroups_ = defragmentPermission(allGroups);
   }
@@ -124,7 +124,7 @@ public class UserACL {
       log.debug("------CheckPermission of User "  + remoteUser + " with membership " + expPerm);
     if(superUser_.equals(remoteUser)) return true;
     if(expPerm == null) return false ;
-    if(UserACL.ANYONE.equals(expPerm)) return true ;
+    if(UserACL.EVERYONE.equals(expPerm)) return true ;
     Permission permission = new Permission();
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();

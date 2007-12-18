@@ -10,19 +10,10 @@
 	margin: 2px 0px;
 }
 
-.UIWidgets .ItemSelectorContainer .UIDropDownItemSelector{
-	width: 216px;
-	float: left;
-}
-
 .UIWidgets .ItemSelectorContainer .UIDropDownControl {
 	width: 215px ;
 	float: left ;
 	margin-top: 2px;
-}
-
-.UIWidgets .UIDropDownItemSelector .ComponentIcon {
-	background: url('icons/WidgetIcon.gif') no-repeat center;
 }
 
 .UIWidgets .WidgetDecorator {

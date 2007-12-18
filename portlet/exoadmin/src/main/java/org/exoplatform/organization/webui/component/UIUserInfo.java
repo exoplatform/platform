@@ -96,7 +96,7 @@ public class UIUserInfo extends UIFormTabPane {
       boolean save = uiUserInfo.getChild(UIAccountInputSet.class).save(service, false) ; 
       if(!save) return;
       uiUserInfo.getChild(UIUserProfileInputSet.class).save(service, uiUserInfo.getUserName(), false) ;      
-      uiUserInfo.getChild(UIUserMembershipSelector.class).save(service, true);      
+      //uiUserInfo.getChild(UIUserMembershipSelector.class).save(service, true);      
     }
   }
   

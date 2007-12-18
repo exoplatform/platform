@@ -75,10 +75,8 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		    object.style.left = blockContainer.offsetWidth - object.offsetWidth + "px" ;
 			}
 	  }
-		
-
-		}catch(err) {
-			alert(err) ;
+	}catch(err) {
+		alert(err) ;
 	}
 	return maskLayer ;
 };

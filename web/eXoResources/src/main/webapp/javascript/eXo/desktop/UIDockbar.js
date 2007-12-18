@@ -14,8 +14,6 @@ UIDockbar.prototype.init = function() {
   var imgObject = eXo.core.DOMUtil.findDescendantsByClass(uiDockbar, "img", "Icon") ;
 	UIDockbar.arrayImage = imgObject;
   
-//  this.resetDefault = false ;
-//  this.onAnimation = false ;
   uiDockbar.defaultIconSize = 40 ;
   uiDockbar.originalBGDockbarHeight = 47 ;
   /*If this value is changed, need to synchronous with (.UIPageDesktop .UIDockBar .DockbarCenter) class*/
@@ -216,46 +214,19 @@ UIDockbar.prototype.findIndex = function(object) {
   }
 } ;
 
-//UIDockbar.prototype.containerMouseOver = function() {
-//  uiPageDesktop = document.getElementById("UIPageDesktop") ;
-//  uiPageDesktop.onmouseover = eXo.desktop.UIDockbar.endDockBarEvt ;    
-//} ;
-//
-//UIDockbar.prototype.mouseMoveOnDesktop = function(evt) {
-//  var uiPageDesktop = this ;
-//  var uiDockbar = document.getElementById("UIDockBar") ;
-//  var iconContainer = document.getElementById("IconContainer") ;
-//  var out = eXo.desktop.UIDockbar.isOut(iconContainer, uiPageDesktop, evt) ;
-//  if(out) {
-//    eXo.desktop.UIDockbar.reset() ;
-//    uiPageDesktop.onmouseover = null ;
-//  }
-//} ;
-//
-//UIDockbar.prototype.isOut = function(object, container, evt) {
-//  var mouseXInContainer = eXo.core.Browser.findMouseRelativeX(container, evt) ;
-//  var mouseYInContainer = eXo.core.Browser.findMouseRelativeY(container, evt) ;
-//  
-//  var objectX  = eXo.desktop.UIDesktop.findPosXInDesktop(object) ;
-//  var objectY  = eXo.desktop.UIDesktop.findPosYInDesktop(object) ;
-//  
-//  var objectPosRight = objectX + object.offsetWidth ;
-//  var objectPosBottom = objectY + object.offsetHeight ;
-//  
-//  if((mouseXInContainer < objectX) || (mouseXInContainer > objectPosRight) ||
-//     (mouseYInContainer < objectY) || (mouseYInContainer > objectPosBottom)) {
-//    return true ;
-//  } else {
-//    return false ;
-//  }  
-//} ;
+UIDockbar.prototype.removeDockbarIcon = function(idIcon) {
+	var icon = document.getElementById(idIcon);
+	if (icon) {
+		var toolTip = icon.previousSibling;
+		eXo.core.DOMUtil.removeElement(icon);
+		eXo.core.DOMUtil.removeElement(toolTip);
+	}
+};
 
 UIDockbar.prototype.reset = function() {
   var UIDockbar = eXo.desktop.UIDockbar ;
-//  eXo.desktop.UIDockbar.resetDefault = true ;
   var uiDockbar = document.getElementById("UIDockBar") ;
   var dockbarCenter = document.getElementById("DockbarCenter") ;
-//  uiDockbar.style.height = uiDockbar.originalDockbarHeight + "px" ;
   dockbarCenter.style.height = uiDockbar.originalBGDockbarHeight + "px" ;
   
   var iconContainer = document.getElementById("IconContainer") ;
@@ -290,12 +261,6 @@ UIDockbar.prototype.resizeDockBar = function() {
   
   iconContainer.style.width = (widthItemControl + totalWidthSeparators + 10) + "px" ;
   uiDockbar.style.width = (iconContainer.offsetWidth + 10) + "px" ;
-//  uiDockbar.style.height = "auto" ;
-  
-//  uiDockbar.style.position = "absolute" ;
-//  if(eXo.desktop.UIDockbar.resetDefault) eXo.desktop.UIDockbar.resetDefault = false ;
-//  else if(eXo.desktop.UIDockbar.onAnimation) eXo.desktop.UIDockbar.onAnimation = false ;
-
   uiDockbar.style.left = ((uiPageDesktop.offsetWidth - uiDockbar.offsetWidth) / 2) + "px" ;
 } ;
 

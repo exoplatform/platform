@@ -377,7 +377,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
 
   private boolean hasViewPermission(OrganizationService orgService, UserACL acl, String remoteUser, String expPerm) throws Exception {
-    if(UserACL.ANYONE.equals(expPerm)) return true ;
+    if(UserACL.EVERYONE.equals(expPerm)) return true ;
     String[] temp = expPerm.split(":") ;
     if(temp.length < 2) return false;
     String membership = temp[0].trim() ;

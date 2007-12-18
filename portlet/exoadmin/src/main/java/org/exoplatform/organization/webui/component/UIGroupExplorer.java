@@ -97,7 +97,7 @@ public class UIGroupExplorer extends UIContainer {
     childrenGroup_ = service.getGroupHandler().findGroups(selectedGroup_); 
     sibblingsGroup_ = service.getGroupHandler().findGroups(parentGroup);  
     for(Object group: sibblingsGroup_) {
-      if(((Group)group).getId().equals(selectedGroup_.getId())){
+      if(selectedGroup_ != null && ((Group)group).getId().equals(selectedGroup_.getId())){
         selectedGroup_ = (Group) group;
         break;
       }

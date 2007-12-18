@@ -52,22 +52,17 @@ import org.exoplatform.webui.form.UIFormPopupWindow;
 )
 public class UIUserMembershipSelector extends UISelector<String> {  
   
-  private List<Membership>  membership_ ;
+  private List<Membership>  membership_ = new ArrayList<Membership>();
   private String user_ = "site" ;  
   private boolean isAdminRole_ = false;
-  //-------------------------------------
   public static String[] BEAN_FIELD = {"userName", "groupId", "membershipType"} ;
   public static String[] ACTIONS = {"DeleteMembership"} ;
-  //-------------------------------------
   public UIUserMembershipSelector() throws Exception {
     super("UIUserMembershipSelector", null);
     setComponentConfig(UIUserMembershipSelector.class, null) ;        
-    membership_ = new ArrayList<Membership>();   
-    //------------------------------------
     UIGrid uiGrid = addChild(UIGrid.class, null, "MembershipGrid") ;
     uiGrid.configure("id", BEAN_FIELD, ACTIONS) ;
     
-    //------------------------------------
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UserPermissionSelector");
     uiPopup.setWindowSize(540, 0);
     UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, null) ;
@@ -97,11 +92,9 @@ public class UIUserMembershipSelector extends UISelector<String> {
                                    membership.getGroupId(), membership.getMembershipType() ));
     }
     
-    //-------------------------
     UIGrid uiGrid = getChild(UIGrid.class) ;
     PageList pageList = new ObjectPageList(getMembership(), 10) ;
     uiGrid.getUIPageIterator().setPageList(pageList) ;
-    //-------------------------
   }
   
   public List<Membership> getMembership(){ return membership_; }  
@@ -149,16 +142,6 @@ public class UIUserMembershipSelector extends UISelector<String> {
   
   static public class DeleteMembershipActionListener extends EventListener<UIUserMembershipSelector>{
     public void execute(Event<UIUserMembershipSelector> event) throws Exception{
-      //-----------------------------------------
-//      System.out.println("\n\n\nUIUserMembershipSelector.java.Delete");
-//      UIUserMembershipSelector uiUserMembershipSelector = event.getSource();
-//      String index = event.getRequestContext().getRequestParameter(OBJECTID);  
-//      Membership membership = uiUserMembershipSelector.getMembership().get(Integer.parseInt(index));
-//      OrganizationService service = uiUserMembershipSelector.getApplicationComponent(OrganizationService.class);
-//      service.getMembershipHandler().removeMembership(membership.id_, true);
-//     
-//      uiUserMembershipSelector.getMembership().remove(Integer.parseInt(index));   
-      //-----------------------------------------
       UIUserMembershipSelector uiUserMembershipSelector = event.getSource();
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       OrganizationService service = uiUserMembershipSelector.getApplicationComponent(OrganizationService.class);
