@@ -1,54 +1,58 @@
 .UIMaskWorkspace {
-  background: #f5f5f5 ;
-  border: none;
-  width: 650px;
+	background: #f5f5f5 ;
+	border: none;
+	width: 650px;
 }
-
+	
 .UIMaskWorkspace .TopLeftDecorator {
-  background: url('background/TopLeftDecorator6x6.gif') left no-repeat;
-  padding: 0px 0px 0px 4px ;
+	background: url('background/MaskWorkspace.gif') no-repeat left top;
+	padding: 0px 0px 0px 4px ;
 }
 
 .UIMaskWorkspace .TopRightDecorator {
-  background: url('background/TopRightDecorator6x6.gif') right no-repeat;
-  padding: 0px 4px 0px 0px ;
+	background: url('background/MaskWorkspace.gif') no-repeat right top;
+	padding: 0px 4px 0px 0px ;
 }
 
 .UIMaskWorkspace .TopLeftDecorator .TopCenterDecorator {
-  height: 4px ;
-  background: url('background/TopCenterDecorator1x6.gif') repeat-x;
+	height: 4px ;
+	background: url('background/MaskWorkspace.gif') repeat-x center -4px;
 }
 
 .UIMaskWorkspace .MiddleLeftDecorator {
-  background: url('background/MiddleLeftDecorator6x1.gif') repeat-y left;
-  padding: 0px 0px 0px 4px ;
+	background: url('background/MiddleMaskWorkspace.gif') repeat-y left;
+	padding: 0px 0px 0px 4px ;
 }
 
 .UIMaskWorkspace .MiddleRightDecorator {
-  background: url('background/MiddleRightDecorator6x1.gif') repeat-y right;
-  padding: 0px 4px 0px 0px ;
+	background: url('background/MiddleMaskWorkspace.gif') repeat-y right;
+	padding: 0px 4px 0px 0px ;
+}
+
+.UIMaskWorkspace .MaskContainer {
+	background: white;
 }
 
 .UIMaskWorkspace .BottomLeftDecorator {
-  background: url('background/BottomLeftDecorator6x6.gif') left no-repeat;
-  padding: 0px 0px 0px 4px ;
+	background: url('background/MaskWorkspace.gif') no-repeat left bottom;
+	padding: 0px 0px 0px 4px ;
 }
 
 .UIMaskWorkspace .BottomRightDecorator {
-  padding: 0px 4px 0px 0px ;
-  background: url('background/BottomRightDecorator6x6.gif') right no-repeat;
+	padding: 0px 4px 0px 0px ;
+	background: url('background/MaskWorkspace.gif') no-repeat right bottom;
 }
 
 .UIMaskWorkspace .BottomLeftDecorator .BottomCenterDecorator {
-  height: 4px ;
-  background: url('background/BottomCenterDecorator1x6.gif') repeat-x;
+	height: 4px ;
+	background: url('background/MaskWorkspace.gif') repeat-x center -8px;
 }
 
 .UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
-  margin-right: 0px; 
-  height: auto;
+	margin-right: 0px; 
+	height: auto;
 }
-/***********************************  UITabContent  ************************************/
+/***********************************	UITabContent	************************************/
 .UIMaskWorkspace .UIHorizontalTabs {
 }
 
@@ -57,8 +61,8 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer {
-  background: #f2f2f2 ;
-  border: solid 1px #d5d5d5; border-top:none;
+	background: #f2f2f2 ;
+	border: solid 1px #d5d5d5; border-top:none;
 }
 
 .UIMaskWorkspace .UITabContent {
@@ -67,12 +71,12 @@
 }
 
 .UIMaskWorkspace .UIForm .HorizontalLayout .UIFormInputSet {
-  width: 450px;
-  margin: auto;
-  padding: 10px;
+	width: 450px;
+	margin: auto;
+	padding: 10px;
 }
 
-/*********************************** End UITabContent  ************************************/
+/*********************************** End UITabContent	************************************/
 
 .UIMaskWorkspace .IconLayout {
 	float: left ;
@@ -80,7 +84,7 @@
 }
 
 .UIMaskWorkspace .UIFormWithTitle {
-  width: 550px;
+	width: 550px;
 	margin: auto;
 	padding: 50px 0px;
 }
@@ -93,22 +97,22 @@
 
 /**********************************UITabSelector*****************************************/
 .UIMaskWorkspace .UITabPane .TabPaneContent .WorkingArea .CSSContent {
-  border: 1px solid #d5d5d5;
-  padding: 0px;
+	border: 1px solid #d5d5d5;
+	padding: 0px;
 }
 
 .UIMaskWorkspace .UITabPane .TabPaneContent .CSSContent .UITabContent {
-  height: auto;
-  border: 1px solid white;
-  border-top: none;
-  margin: auto;
-  overflow: hidden;
+	height: auto;
+	border: 1px solid white;
+	border-top: none;
+	margin: auto;
+	overflow: hidden;
 }
 
 /**************************** UIAddApplication ******************************************/
 
 .UIAddApplication {
-  padding: 10px;
+	padding: 10px;
 }
 
 .UIAddApplication .TitleBarContainer {
@@ -116,7 +120,7 @@
 }
 
 .UIAddApplication .UITabContent {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 .UIAddApplication .UITabContentContainer {
@@ -133,13 +137,13 @@
 }
 
 .UIAddApplication .ContentContainerDetail {
-  border: 1px solid #d4d4d4;
-  border-top: none;  
+	border: 1px solid #d4d4d4;
+	border-top: none;	
 }
 
 .UIAddApplication .ContentContainerDetail .CategoryContainer {
-  border: 1px solid white;
-  border-top: none;
+	border: 1px solid white;
+	border-top: none;
 }
 
 .UIAddApplication .ApplicationListContainer {
@@ -152,13 +156,13 @@
 }
 
 .UIAddApplication .Application {
-  margin: 10px 0px 0px 0px ;
+	margin: 10px 0px 0px 0px ;
 	border: solid 1px #e4e4e4 ;
 	padding: 10px;
 }
 
 .UIAddApplication .ApplicationContent {
-  margin-left: 85px;
+	margin-left: 85px;
 }
 
 .UIAddApplication .PortletIcon {
@@ -178,14 +182,14 @@
 }
 
 .UIAddApplication .TitleBarApplication .Title {
-  float: left;
-  margin-top: 4px;
-  font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
+	float: left;
+	margin-top: 4px;
+	font-weight: bold ; font-size: 13px; color: #1553B9; font-family: arial;
 }
 
 .UIAddApplication .AddButton {
 	width: 20px ; height: 24px ;
-	background: url("icons/16x16/AddIcon.gif") no-repeat center;
+	background: url('icons/16x16/AddIcon.gif') no-repeat center;
 	float: right;
 	cursor: pointer ;
 	margin: 0px 3px;
@@ -200,30 +204,30 @@
 }
 
 .UIAddApplication .ApplicationContentLabel {
-  line-height: 16px;
-  width: 93%; margin: auto;
+	line-height: 16px;
+	width: 93%; margin: auto;
 }
 
 .UIAddApplication .ApplicationContentLabel .RightLabel {
-  color: #058ee6;
+	color: #058ee6;
 }
 
 .UIAddApplication .UIItemSelector .LeftColumnStyle {
-  width: auto;
+	width: auto;
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
-  height: 240px ;
-  overflow: auto ;
-  background: #ffffff;
-  border: 1px solid #c3c3c3;
-  text-transform: capitalize;
+	height: 240px ;
+	overflow: auto ;
+	background: #ffffff;
+	border: 1px solid #c3c3c3;
+	text-transform: capitalize;
 }
 
 .UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
-  background: none;
-  border: none;
-  height: auto;
+	background: none;
+	border: none;
+	height: auto;
 }
 
 .UIAddApplication .UIItemSelector {
@@ -241,92 +245,92 @@
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListIcon {
-  background: none;
-  width: 0px;
+	background: none;
+	width: 0px;
 }
 
 .UIAddApplication .LeftColumnStyle .ViewListIcon {
-  background: none;
-  width: 0px;
+	background: none;
+	width: 0px;
 }
 
 /************************************ Select Permission *******************************/
 
 .UIGroupSelector {
-  padding: 10px;
+	padding: 10px;
 }
 
 .UIGroupSelector .SelectedGroupPath { 
-  padding: 5px 0px;
+	padding: 5px 0px;
 }
 
 .UIGroupSelector .UIBreadcumbs {
-  border: 1px solid white;
-  padding: 0px;
+	border: 1px solid white;
+	padding: 0px;
 }
 
 .UIGroupSelector .UIBreadcumbs .LeftBreadcumbsBar {
-  background: white;
-  border: 1px solid #b7b7b7;
+	background: white;
+	border: 1px solid #b7b7b7;
 }
 
 .UIGroupSelector .UIBreadcumbs .RightBreadcumbsBar {
-  background: white;
+	background: white;
 }
 
 .UIGroupSelector .UIBreadcumbs .BreadcumbsInfoBar {
-  background: white;
+	background: white;
 }
 
 .UIGroupSelector .UIBreadcumbs .BCHome16x16Icon {
-  width: 16px ; height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat left center;
+	width: 16px ; height: 16px ;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat left center;
 }
 
 .UIGroupSelector .UIBreadcumbs a.Selected {
-  color: #058ee6;
+	color: #058ee6;
 }
 
 .UIGroupSelector .GroupSelector {
-  padding: 10px;
-  background: #f4f4f4;
-  border: 1px solid #e4e4e4;
+	padding: 10px;
+	background: #f4f4f4;
+	border: 1px solid #e4e4e4;
 }
 
 .UIGroupSelector .TitleGroupSelector {
-  background: url("background/ThGridRepeatBg1x19.jpg") repeat-x;
-  line-height: 19px; height: 19px;
-  border: 1px solid #b7b7b7;
-  border-bottom: 1px solid #cfcfcf;
-  padding: 0px 10px;
+	background: url('background/ThGridRepeatBg1x19.jpg') repeat-x;
+	line-height: 19px; height: 19px;
+	border: 1px solid #b7b7b7;
+	border-bottom: 1px solid #cfcfcf;
+	padding: 0px 10px;
 }
 
 .UIGroupSelector .LeftGroupSelector {
-  float: left;
-  width: 220px; height: 210px;
-  border: 1px solid white;
+	float: left;
+	width: 220px; height: 210px;
+	border: 1px solid white;
 }
 
 .UIGroupSelector .RightGroupSelector {
-  margin-left: 225px;
-  height: 210px;
-  border: 1px solid white;
+	margin-left: 225px;
+	height: 210px;
+	border: 1px solid white;
 }
 
 .UIGroupSelector .RightGroupSelector .Content {
-  border: 1px solid #b7b7b7; border-top: none;
-  height: 170px; 
-  color: #058ee6;
-  padding: 10px;
-  background: white;
+	border: 1px solid #b7b7b7; border-top: none;
+	height: 170px; 
+	color: #058ee6;
+	padding: 10px;
+	background: white;
 }
 
 .UIGroupSelector .RightGroupSelector .Content div {
-  padding: 3px 0px;
+	padding: 3px 0px;
 }
 
 .UIGroupSelector .RightGroupSelector .Content span {
-  color: #2c2c2c;
+	color: #2c2c2c;
 }
 
 /**************************************Container Form*************************************/

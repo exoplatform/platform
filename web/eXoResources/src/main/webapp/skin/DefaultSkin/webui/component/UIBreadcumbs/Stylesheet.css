@@ -26,20 +26,20 @@
 
 .UIBreadcumbs .LeftBreadcumbsBar {
   padding-left: 3px ;
-  background: url('background/LeftBreadcumbsBar5x25.gif') no-repeat left;
+  background: url('background/Breadcumbs.gif') no-repeat left top;
   height: 25px;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
   padding-right: 3px;
-  background: url('background/RightBreadcumbsBar5x25.gif') no-repeat right;
+  background: url('background/Breadcumbs.gif') no-repeat right top;
   height: 25px;
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
   height: 25px; line-height: 25px;
   padding-left: 3px; 
-  background: url('background/MiddleBreadcumbsBar1x25.gif') repeat-x;
+  background: url('background/Breadcumbs.gif') repeat-x bottom;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {

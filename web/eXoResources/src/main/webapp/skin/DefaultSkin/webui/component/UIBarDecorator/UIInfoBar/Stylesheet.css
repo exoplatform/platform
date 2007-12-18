@@ -101,62 +101,6 @@
   margin: 0px 0px 0px 5px;
 }
 
-/*######################-Flat Style-######################*/
-.UIInfoBar .FlatStyle {
-  background: url('background/MFlatStyle1x22.gif') repeat-x ;
-  margin: 0px 6px 0px 6px;
-}
-
-.UIInfoBar .FlatStyle .LeftBar {
-  float: left ;
-  width: 10px ; height: 22px ;
-  background: url('background/LFlatStyle10x22.gif') no-repeat ;
-}
-
-.UIInfoBar .FlatStyle .MiddleBar {
-  float: left ;
-  height: 22px ;
-}
-
-.UIInfoBar .FlatStyle .MiddleBar .Title {
-  float: left ;
-  height: 16px ; 
-  line-height: 16px;
-  font-weight: bold; color: black; 
-  padding: 0px 0px 0px 5px;
-}
-
-.UIInfoBar .FlatStyle .RightBar {
-  float: right ;
-  height: 22px ;
-  background: url('background/FlatStyleRControle1x22.gif') repeat-x ;
-  border-right: solid 1px #4671ae ; 
-}
-
-.UIInfoBar .FlatStyle .Title {
-  float: left ;
-  color: #0026c9 ;
-  text-align: left ;
-  margin: 3px 0px 0px 0px ;
-}
-
-.UIInfoBar .FlatStyle .ExpandButton {
-  float: left ;
-  width: 12px ; height: 22px ;
-  background: url('background/FlatStyleExpand12x22.gif') no-repeat ;
-  cursor: pointer ;
-  margin: 0px 10px 0px 0px ;
-}
-
-
-.UIInfoBar .FlatStyle .CollapseButton {
-  float: left ;
-  width: 12px ; height: 22px ;
-  background: url('background/FlatStyleCollapse12x22.gif') no-repeat ;
-  cursor: pointer ;
-  margin: 0px 10px 0px 0px ;
-}
-
 /*######################-Polygon Navyblue Style-######################*/
 .UIInfoBar .PolygonNavyBlueStyle {
 	height: 26px;  

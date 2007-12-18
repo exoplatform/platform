@@ -34,18 +34,18 @@
 }
 
 .UIAction .NormalStyle .ButtonLeft {
-  background: url('background/LeftNormalStyleButton3x22.gif') no-repeat left center;
+  background: url('background/NormalStyle.gif') no-repeat left top;
   padding: 0px 0px 0px 3px;
 }
 
 .UIAction .NormalStyle .ButtonRight {
-  background: url('background/RightNormalStyleButton3x22.gif') no-repeat right center;
+  background: url('background/NormalStyle.gif') no-repeat right top;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIAction .NormalStyle .ButtonMiddle {
   line-height: 22px;
-	background: url('background/MiddleNormalStyleButton1x22.gif') repeat-x center;
+	background: url('background/NormalStyle.gif') repeat-x bottom;
 	padding: 0px 12px;	
 	display: table-cell;
 	white-space: nowrap;
@@ -57,18 +57,18 @@
 }
 
 .UIAction .DisabledStyle .ButtonLeft {
-  background: url('background/LeftDisableButton3x22.gif') no-repeat left;
+  background: url('background/DisabledStyle.gif') no-repeat left top;
   padding: 0px 0px 0px 3px;
 }
 
 .UIAction .DisabledStyle .ButtonRight {
-  background: url('background/RifghtDisableButton3x22.gif') no-repeat right;
+  background: url('background/DisabledStyle.gif') no-repeat right top;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIAction .DisabledStyle .ButtonMiddle {
 	height: 22px; text-align: center; 
-	background: url('background/MiddleDisableButton1x22.gif') repeat-x;
+	background: url('background/DisabledStyle.gif') repeat-x bottom;
 	padding: 0px 12px;
 	display: table-cell;
 }
@@ -77,18 +77,18 @@
 /*##############################-LightBlueStyle ActionButton-################################*/
 
 .UIAction .LightBlueStyle .ButtonLeft {
-  background: url('background/LeftLightStyleButton3x22.gif') no-repeat left;
+  background: url('background/LightBlueStyle.gif') no-repeat left top;
   padding: 0px 0px 0px 3px;
 }
 
 .UIAction .LightBlueStyle .ButtonRight {
-  background: url('background/RightLightStyleButton3x22.gif') no-repeat right;
+  background: url('background/LightBlueStyle.gif') no-repeat right top;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIAction .LightBlueStyle .ButtonMiddle {
  	line-height: 22px; text-align: center; 
-	background: url('background/MiddleLightStyleButton1x22.gif') repeat-x;
+	background: url('background/LightBlueStyle.gif') repeat-x bottom;
 	white-space: nowrap;
 	display: table-cell;
 	padding: 0px 12px;
@@ -100,18 +100,18 @@
 }
 
 .UIAction .SimpleStyle .ButtonLeft {
-  background: url('background/LeftSimpleButton10x21.gif') no-repeat left top;
+  background: url('background/SimpleStyle.gif') no-repeat left top;
   padding: 0px 0px 0px 10px;
 }
 
 .UIAction .SimpleStyle .ButtonRight {
-  background: url('background/RightSimpleButton10x21.gif') no-repeat right top;
+  background: url('background/SimpleStyle.gif') no-repeat right top;
   padding: 0px 10px 0px 0px ;
 }
 
 .UIAction .SimpleStyle .ButtonMiddle {
   line-height: 21px;
-	background: url('background/CenterSimpleButton1x21.gif') repeat-x top;
+	background: url('background/SimpleStyle.gif') repeat-x bottom;
 	text-align: center;	
 	padding: 0px 12px;
 	display: table-cell;	
