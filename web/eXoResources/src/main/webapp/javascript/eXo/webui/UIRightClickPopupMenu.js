@@ -36,7 +36,7 @@ UIRightClickPopupMenu.prototype.prepareObjectId = function(evt, elemt) {
 	contextMenu.style.dispay = "none" ;
 	var str = elemt.getAttribute('href').replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'")) ;
 	if(str.indexOf("javascript") == 0) {
-		eval(str.replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'"))) ;
+		eval(unescape(str)) ;
 		eXo.core.MouseEventManager.docMouseDownEvt(evt) ;
 		return false;
 	}
