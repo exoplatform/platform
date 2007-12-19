@@ -39,6 +39,7 @@ import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIDescription;
 import org.exoplatform.webui.core.UIToolbar;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -173,15 +174,9 @@ public class UIPageEditBar extends UIToolbar {
       uiEditBar.savePage();
       if(!uiEditBar.getUIPage().isModifiable()) {
         UIPageManagement uiManagement = uiEditBar.getParent() ;
-//        Class<?> [] childrenToRender = null;
-//        if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
-//          childrenToRender = new Class<?>[]{UIPageBrowseControlBar.class};
-//        } else {
-//          childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
-//        }
-//        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;                     
+        uiManagement.setRenderedChild(UIDescription.class);
         uiManagement.setMode(ManagementMode.BROWSE, event);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
       }
     }
   }
