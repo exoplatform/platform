@@ -16,6 +16,8 @@
  */
 package org.exoplatform.portal.webui;
 
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -79,6 +81,7 @@ public class UILoginForm extends UIForm {
       prContext.setResponseComplete(true);  
       UIPortal uiCurrentPortal = Util.getUIPortal() ;
       String portalName = uiCurrentPortal.getName() ;
+      portalName = URLEncoder.encode(portalName, "UTF-8") ;
       String redirect = request.getContextPath() + "/private/" + portalName + "/";
       prContext.getResponse().sendRedirect(redirect);      
     }   

@@ -16,6 +16,8 @@
  */
 package org.exoplatform.portal.webui.portal;
 
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -38,11 +40,9 @@ public class UIPortalActionListener {
       HttpServletRequest request = prContext.getRequest() ;
       UIPortal currentPortal = Util.getUIPortal() ;
       String portalName = currentPortal.getName() ;
+      portalName = URLEncoder.encode(portalName, "UTF-8") ;
       String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
       prContext.getResponse().sendRedirect(redirect) ;
-      // TODO: dang.tung - in the last when we use setResponseComplete(true) so we don't receive
-      // the redirect address -> we have to sign in twice 
-      // 1 get this address first, 2 for sign in
       prContext.setResponseComplete(false) ;
     }
   }    
