@@ -18,6 +18,7 @@
 %>
 <div class="UITrees ScrollArea">
   <div class="TreeContainer JSContainer">
+  	<div style="padding-bottom: 6px">
     <div class="HomeNode">
 	    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" title="<%=_ctx.appRes("UITree.tooltip.UpLevel")%>" style="display: block;"><span></span></a>
   	</div>
@@ -81,5 +82,6 @@
 			  </div>
 			<% } %>
 		<%count++ ;}%>
+		</div>
   </div>  
 </div>
