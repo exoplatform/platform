@@ -36,7 +36,7 @@
   width: auto;
 }
 
-.UIRightClickPopupMenu .MenuItem a:hover {
+.UIRightClickPopupMenu .UIRightPopupMenuContainer a:hover {
   color: orange;
   background: #dee4f2;
 }
