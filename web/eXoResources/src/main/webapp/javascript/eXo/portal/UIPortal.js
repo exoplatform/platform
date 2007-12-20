@@ -333,13 +333,24 @@ UIPortal.prototype.hideMaskLayer = function() {
 } ;
 
 UIPortal.prototype.changeSkin = function(url) {
-	var skin = '';
-	if(eXo.webui.UIItemSelector.SelectedItem != undefined) {
-  	skin = eXo.webui.UIItemSelector.SelectedItem.option;
-	}
-	if(skin == undefined) skin = '';
-  window.location = url + '&skin='+skin;
+ var skin = '';
+ if(eXo.webui.UIItemSelector.SelectedItem != undefined) {
+   skin = eXo.webui.UIItemSelector.SelectedItem.option;
+ }
+ if(skin == undefined) skin = '';
+  ajaxAsyncGetRequest(url + '&skin='+skin, false);
+  window.location.reload() ;
 } ;
+
+//UIPortal.prototype.changeSkin = function(url) {
+//	var skin = '';
+//	if(eXo.webui.UIItemSelector.SelectedItem != undefined) {
+//  	skin = eXo.webui.UIItemSelector.SelectedItem.option;
+//	}
+//	if(skin == undefined) skin = '';
+//	alert
+//  window.location = url + '&skin='+skin;
+//} ;
 
 UIPortal.prototype.changeLanguage = function(url) {
 	var language = '';

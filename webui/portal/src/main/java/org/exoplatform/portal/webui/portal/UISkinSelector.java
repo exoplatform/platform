@@ -40,7 +40,6 @@ import org.exoplatform.webui.event.EventListener;
   }
 )
 public class UISkinSelector extends UIContainer {
- 
   private String name_;
   
   @SuppressWarnings("unchecked")
@@ -73,6 +72,12 @@ public class UISkinSelector extends UIContainer {
     addChild(selector);
   }
   
+  @Override
+  public String url(String name) throws Exception {
+    // TODO Auto-generated method stub
+    return super.url(name);
+  }
+  
   public String getName() { return name_; }
 
   public void setName(String name) { name_ = name; }
@@ -84,7 +89,8 @@ public class UISkinSelector extends UIContainer {
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);    
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
       uiMaskWS.setUIComponent(null);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiApp) ;
+      //event.getRequestContext().addUIComponentToUpdateByAjax(uiApp) ;
+      Util.getPortalRequestContext().setFullRender(false) ;
       if(skin == null || skin.trim().length() < 1) return;       
       uiApp.setSkin(skin);
     }

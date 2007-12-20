@@ -94,8 +94,8 @@ public class UILanguageSelector extends UIContainer {
       UIPortalApplication uiApp = Util.getUIPortalApplication() ;
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
       uiMaskWS.setUIComponent(null);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
-
+      //event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
+      Util.getPortalRequestContext().setFullRender(false) ;
       if(language == null || language.trim().length() < 1) return;       
       //if(!uiPortal.isModifiable()) return;
 
