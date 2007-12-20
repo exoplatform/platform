@@ -17,10 +17,14 @@
 package org.exoplatform.portal.webui.portal;
 
 
+import javax.portlet.WindowState;
+
 import org.exoplatform.portal.webui.UIManagement;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
+import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
+import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
@@ -55,6 +59,14 @@ public class UIPortalManagement extends UIManagement {
   
   public void setMode(ManagementMode mode, Event<? extends UIComponent> event) throws Exception {
     if(mode == ManagementMode.EDIT) {
+      UIPageBody uiPageBody = Util.getUIPortal().findFirstComponentOfType(UIPageBody.class);
+      if(uiPageBody != null) {
+        if(uiPageBody.getMaximizedUIComponent() != null) {
+          UIPortlet uiMaximizedPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
+          uiMaximizedPortlet.setCurrentWindowState(WindowState.NORMAL);
+          uiPageBody.setMaximizedUIComponent(null);
+        }
+      }
       UIPortalManagementEditBar uiEditBar = getChild(UIPortalManagementEditBar.class);
       uiEditBar.createEvent("EditPortlet", Phase.PROCESS, event.getRequestContext()).broadcast();
       return;
