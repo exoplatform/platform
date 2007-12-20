@@ -19,50 +19,50 @@
 
 .DefaultTheme .WindowPortletControl .ControlIcon {
   float: left;
-  width: 24px ; height: 24px ;
-  margin: 3px 0px 0px 0px ;
+  width: 24px ; height: 17px ;
+  margin: 8px 0px 0px 0px ;
   cursor: pointer ;
   background-image: url('background/DefaultTheme.png');
 }
 
 .DefaultTheme .WindowPortletControl .ArrowDownIcon {
-  background-position: center 24px;
+  background-position: center 20px;
 }
 
 .DefaultTheme .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+  background-position: center 116px;
 }
 
 .DefaultTheme .WindowPortletControl .MinimizedIcon {
-	background-position: center 48px;
+	background-position: center 44px;
 }
 
 .DefaultTheme .WindowPortletControl .OverMinimizedIcon {
-	background-position: center 144px;
+	background-position: center 140px;
 }
 
 .DefaultTheme .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+  background-position: center 68px;
 }
 
 .DefaultTheme .WindowPortletControl .OverMaximizedIcon {
-	background-position: center 168px;
+	background-position: center 164px;
 }
 
 .DefaultTheme .WindowPortletControl .RestoreIcon {
-	background-position: center 96px;
+	background-position: center 92px;
 }
 
 .DefaultTheme .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+  background-position: center 188px;
 }
 
 .DefaultTheme .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+  background-position: center 92px;
 }
 
 .DefaultTheme .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+  background-position: center 188px;
 }
 
 
