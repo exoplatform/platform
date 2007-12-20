@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.container;
 
 import java.util.List;
 
+import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.application.UIAddNewApplication;
@@ -70,12 +71,13 @@ public class UIContainerActionListener {
       WebuiRequestContext pContext = event.getRequestContext();
       String id = pContext.getRequestParameter(UIComponent.OBJECTID) ;
       UIContainer uiWidgetContainer = event.getSource();
-      
       List<UIComponent> children = uiWidgetContainer.getChildren();
       for(UIComponent uiChild : children) {
         UIWidget uiWidget = (UIWidget) uiChild ;
         if(uiWidget.getApplicationInstanceUniqueId().equals(id)) {
           children.remove(uiWidget) ;
+          UserWidgetStorage widgetDataService = uiWidgetContainer.getApplicationComponent(UserWidgetStorage.class) ;
+          widgetDataService.delete(pContext.getRemoteUser(), uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;
           break ;
         }
       }
@@ -90,16 +92,6 @@ public class UIContainerActionListener {
       pContext.getWriter().write(EventListener.RESULT_OK) ;
     }
   }
-//  
-//  static public class AddWidgetContainerActionListener extends EventListener<UIContainer> {
-//    public void execute(Event<UIContainer> event) throws Exception {
-//      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-//      UIContainer uiWidgetContainer = event.getSource();
-//      
-//      System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n ADD WIDGET CONTAINER \n\n\n\n\n\n\n\n\n\n\n\n");
-//      
-//    }
-//  }
   
   static public class ShowAddNewApplicationActionListener extends EventListener<UIContainer> {
 

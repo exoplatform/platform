@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -41,6 +42,7 @@ import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -177,14 +179,16 @@ public class UIPageActionListener {
   
   static public class DeleteWidgetActionListener extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
-      String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      WebuiRequestContext pContext = event.getRequestContext();
+      String id  = pContext.getRequestParameter(UIComponent.OBJECTID);
       UIPage uiPage = event.getSource();
       List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
       uiPage.findComponentOfType(uiWidgets, UIWidget.class);
       for(UIWidget uiWidget : uiWidgets) {
         if(uiWidget.getApplicationInstanceUniqueId().equals(id)) {
           uiPage.getChildren().remove(uiWidget);
-          
+          UserWidgetStorage widgetDataService = uiPage.getApplicationComponent(UserWidgetStorage.class) ;
+          widgetDataService.delete(pContext.getRemoteUser(), uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;
           if(uiPage.isModifiable()) {
             Page page = PortalDataMapper.toPageModel(uiPage);    
             UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     

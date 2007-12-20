@@ -115,12 +115,8 @@ public class UIAddNewApplication extends UIContainer {
             null, null);
 
         StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
-        windowId.append(":/").append(applicationId).append('/').append(uiWidget.hashCode());
+        windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/').append(uiWidget.hashCode());
         uiWidget.setApplicationInstanceId(windowId.toString());
-
-        uiWidget.setApplicationName(application.getApplicationName());
-        uiWidget.setApplicationGroup(application.getApplicationGroup());
-        uiWidget.setApplicationOwnerType(application.getApplicationType());
 
         //Set Properties For Widget
         int posX = (int) (Math.random() * 400);
@@ -158,20 +154,16 @@ public class UIAddNewApplication extends UIContainer {
            
       UIContainer uiWidgetContainer = (UIContainer)event.getSource().getUiComponentParent() ;
       String applicationId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);  
+      ApplicationRegistryService service = uiWidgetContainer.getApplicationComponent(ApplicationRegistryService.class) ;
+      Application application = service.getApplication(applicationId);
+      if(application == null) return;
       
       StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
       windowId.append("#").append(event.getRequestContext().getRemoteUser()) ;
-      windowId.append(":/").append(applicationId).append('/');
-      ApplicationRegistryService service = uiWidgetContainer.getApplicationComponent(ApplicationRegistryService.class) ;
-      Application application = service.getApplication(applicationId);
-
-      if(application == null) return;
+      windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
       UIWidget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
       windowId.append(uiWidget.hashCode());
       uiWidget.setApplicationInstanceId(windowId.toString());
-      uiWidget.setApplicationName(application.getApplicationName());
-      uiWidget.setApplicationGroup(application.getApplicationGroup());
-      uiWidget.setApplicationOwnerType(application.getApplicationType());
       uiWidgetContainer.addChild(uiWidget);
 
       UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
