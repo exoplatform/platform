@@ -184,6 +184,9 @@ ScrollManager.prototype.init = function() {
 		this.arrowsContainer.space = null;
 		this.mainContainer.space = null;
 	}
+	//fix bug display navigation PORTAL-1243
+	var uiApplication = eXo.core.DOMUtil.findAncestorByClass(this.mainContainer, "UIResizableBlock UIApplication");
+	if (uiApplication) uiApplication.style.display = "inline";
 };
 /**
  * Loads the tabs in the scroll manager, depending on their css class
