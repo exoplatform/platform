@@ -9,6 +9,9 @@
 	background: white;	
 }  
  
+.UIWindow .UIApplicationRegistryPortlet {
+}
+
 .UIApplicationRegistryPortlet {
 	border: 1px solid #b7b7b7;
 	margin: 5px; 

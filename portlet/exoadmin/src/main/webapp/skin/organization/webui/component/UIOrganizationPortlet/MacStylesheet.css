@@ -1,5 +1,4 @@
 .UIWindow .UIOrganizationPortlet {
-  overflow: auto ;
   border: none;
   background: none;
   margin: 0px;
@@ -11,6 +10,7 @@
   margin: 5px;
   padding: 5px;
   border: 1px solid #b7b7b7;
+  overflow: auto ;
 }
 
 .UIOrganizationPortlet .OrganizationPortletContainer {

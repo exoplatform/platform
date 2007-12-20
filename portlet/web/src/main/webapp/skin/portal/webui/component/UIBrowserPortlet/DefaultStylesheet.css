@@ -2,6 +2,7 @@
 	border: solid 0px gray;
   width: 100% ;
   height: 99% ;
+  overflow: auto;
 }
 
 .UIBrowserPortlet .UIToolbar {

@@ -1,4 +1,5 @@
 .UIBannerPortlet {
+	overflow: auto;
 }
 
 .UIBannerPortlet .LeftBanner {

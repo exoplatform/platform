@@ -14,6 +14,7 @@
 	background: white;
 	margin: 7px 10px;
 	border: 1px solid #b7b7b7;
+	overflow: auto;
 }
 
 .UII18nPortlet .UISearchI18n {

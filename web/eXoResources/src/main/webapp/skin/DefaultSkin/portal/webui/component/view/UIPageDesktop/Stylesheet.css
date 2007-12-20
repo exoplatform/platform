@@ -4,6 +4,14 @@
   background: url('background/eXoDesktopBG.jpg') no-repeat left bottom ;
 }
 
+.UIPageDesktop .UIWindow {
+	width: 800px ; 
+}
+	
+.UIPageDesktop .UIWindow .UIApplication {
+	height: 350px ;
+}
+
 .UIPageDesktop .UIDockBar {
   position: absolute;
   bottom: 0px;

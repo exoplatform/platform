@@ -1,4 +1,5 @@
 .UINavigationPortlet {
+	overflow: auto;
   height: 48px;
 }
 

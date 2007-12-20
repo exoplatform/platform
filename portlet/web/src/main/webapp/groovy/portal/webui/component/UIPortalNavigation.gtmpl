@@ -86,7 +86,7 @@
 
 %>
   
-<div class="UINavigationBar">
+<div class="UINavigationBar" style="overflow: hidden">
   <div class="LeftNavigationBar">
 	  <div class="RightNavigationBar">
 	    <div class="MiddleNavigationBar">

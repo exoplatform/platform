@@ -82,7 +82,7 @@ SkinService.addSkin(
 SkinService.addSkin(
     "web/BrowserPortlet",
     "Vista",
-    "/web/skin/browser/webui/component/UIBrowserPortlet/VistaStylesheet.css"
+    "/web/skin/browser/webui/component/UIBrowserPortlet/DefaultStylesheet.css"
 ) ;
  
 SkinService.addSkin(

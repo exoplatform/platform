@@ -1,7 +1,7 @@
 .UIFooterPortlet {
   height: 32px ; line-height: 32px; 
   margin-top: 3px; padding-top: 3px;
- 
+	overflow: auto;
 }
 
 .UIFooterPortlet .LeftFooter {

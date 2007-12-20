@@ -1,4 +1,5 @@
 .UIBannerPortlet {
+	overflow: auto;
   height: 74px;
 }
 

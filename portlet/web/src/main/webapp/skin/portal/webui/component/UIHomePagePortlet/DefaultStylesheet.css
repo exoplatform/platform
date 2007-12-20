@@ -1,6 +1,10 @@
+.UIWindow .UIHomePagePortlet {	
+}
+
 .UIHomePagePortlet {	
 	margin: 7px 10px 10px 10px;
 	border: 1px solid #fff;
+	overflow: auto;
 }
 
 .UIHomePagePortlet .HomePortletDecor{	

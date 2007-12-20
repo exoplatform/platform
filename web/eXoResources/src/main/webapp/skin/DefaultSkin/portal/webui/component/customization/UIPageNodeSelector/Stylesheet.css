@@ -14,7 +14,10 @@
 /*Created Dang.Tung*/
 .UIPageNodeSelector .UIDropDownControl {
   padding-left: 1px;
-  }
+}
+
+.UIPageNodeSelector .UIDropDownControl .UIDropDownAnchor {
+}
 
 /*###############################-  -############################*/
 .UIPageNodeSelector .TreeSelectorTitle {

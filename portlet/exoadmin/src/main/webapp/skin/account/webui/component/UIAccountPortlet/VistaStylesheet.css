@@ -6,6 +6,7 @@
   background: #ffffff;
   margin: 5px 6px 5px 0px;
   border: 1px solid #b7b7b7;
+  overflow: auto;
 }
 
 .UIAccountPortlet .UIFormTabPane {

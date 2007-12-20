@@ -2,7 +2,7 @@
   import org.exoplatform.webui.application.portlet.PortletRequestContext ;
 %>
 
-<div class="$uicomponent.id" id="$uicomponent.id" style="height: 100%; width: 100%;">
+<div class="$uicomponent.id" id="$uicomponent.id" style="height: 100%; width: 100%;border: 1px solid red">
 	<%if( _ctx.getRequestContext().getApplicationMode() == PortletRequestContext.VIEW_MODE ) {%>
 	    <iframe src="<%=uicomponent.getURL()%>" class="UIIFramePortlet" width="100%" height="100%" frameborder="0" border="0" hspace="0" vspace="0"></iframe>
   <%} else {%>

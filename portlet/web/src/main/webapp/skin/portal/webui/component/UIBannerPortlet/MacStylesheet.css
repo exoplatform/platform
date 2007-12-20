@@ -1,5 +1,6 @@
 .UIBannerPortlet {
   height: 74px;
+	overflow: auto;
 }
 
 .UIBannerPortlet .LeftBanner {

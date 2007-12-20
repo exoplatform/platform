@@ -37,7 +37,6 @@
 	</div>
 	<div class="BrowserContent UIResizableBlock">
 		<div class="TabBackground">
-			<div class="ClipTabIcon"><span></span></div>
 			<div class="TabContainer">
 				<div class="Separator"><span></span></div>
 				<div class="ActiveTabDetailBackground TabMenuItem">

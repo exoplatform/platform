@@ -1,5 +1,7 @@
+
 .UIBrowserPortlet {
 	border: solid 0px gray;
+  overflow: auto;
 }
 
 .UIBrowserPortlet .UIToolbar {

@@ -1,4 +1,6 @@
-.UIBrowserPortlet {}
+.UIBrowserPortlet {
+  overflow: auto;
+}
 
 .UIBrowserPortlet .UIToolbar {
   background: url("VistaSkin/background/UIToolbarBG1x68.png") repeat-x ;
