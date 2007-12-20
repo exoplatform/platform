@@ -34,13 +34,13 @@ UIRightClickPopupMenu.prototype.disableContextMenu = function(comp) {
 UIRightClickPopupMenu.prototype.prepareObjectId = function(evt, elemt) {
 	var contextMenu = eXo.core.DOMUtil.findAncestorByClass(elemt, "UIRightClickPopupMenu") ;
 	contextMenu.style.dispay = "none" ;
-	var str = elemt.getAttribute('href').replace('_objectid_', contextMenu.objId.replace(/'/g, "\\'")) ;
-	if(str.indexOf("javascript") == 0) {
-		eval(unescape(str)) ;
+	var href = elemt.getAttribute('href').replace('_objectid_', encodeURI(contextMenu.objId.replace(/'/g, "\\'"))) ;
+	if(href.indexOf("javascript") == 0) {
+		eval(href) ;
 		eXo.core.MouseEventManager.docMouseDownEvt(evt) ;
 		return false;
 	}
-	elemt.setAttribute('href', str) ;
+	elemt.setAttribute('href', href) ;
 	return true;
 }
 

@@ -52,16 +52,16 @@ public class UIRightClickPopupMenu extends UIComponent {
   public CharSequence getJSOnclickShowPopup(String objId, String actions) {
     StringBuilder jsOnclick = new StringBuilder("onmousedown=\"eXo.webui.UIRightClickPopupMenu");
     jsOnclick.append(".clickRightMouse(event, this, '").append(getId()).append('\'') ;
-    if(objId != null) {
-      objId = objId.replaceAll("'", "\\'") ;
-      objId = objId.replaceAll("\"", "\\\"") ;
-      try {
-        objId = URLEncoder.encode(objId, "utf-8");
-      }catch (Exception e) {
-        System.err.println(e.toString());
-      }
+//    if(objId != null) {
+//      objId = objId.replaceAll("'", "\\'") ;
+//      objId = objId.replaceAll("\"", "\\\"") ;
+//      try {
+//        objId = URLEncoder.encode(objId, "utf-8");
+//      }catch (Exception e) {
+//        System.err.println(e.toString());
+//      }
       jsOnclick.append(",'").append(objId).append("'") ;
-    }
+//    }
     if(actions != null) jsOnclick.append(",'").append(actions).append("'") ;
     jsOnclick.append(");\"") ;
     return jsOnclick;
