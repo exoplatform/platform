@@ -29,6 +29,7 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
+import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 
@@ -77,6 +78,14 @@ public class UserPortalConfigListener extends UserEventListener {
   @SuppressWarnings("unused")
   public void preSave(User user, boolean isNew) throws Exception {
     PortalContainer container  = PortalContainer.getInstance() ;
+    /*     
+     * TODO Call start method on RegistryService to allow ecm, ultimate can run with JDK6. 
+     * This is uncommon behavior. We need find other way to fix it
+     * I hope that this issues will be fixed when we use the lastest version of PicoContainer
+     * Comment by Hoa Pham.     
+     */    
+    RegistryService registryService = (RegistryService)container.getComponentInstanceOfType(RegistryService.class);
+    registryService.start();
     UserPortalConfigService portalConfigService = 
       (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
     DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
