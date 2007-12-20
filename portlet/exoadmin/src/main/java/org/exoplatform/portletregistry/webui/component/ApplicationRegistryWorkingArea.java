@@ -151,8 +151,6 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       if(selectedPortlet == null) return ;
 
       ApplicationRegistryService service = workingArea.getApplicationComponent(ApplicationRegistryService.class) ;
-      //TODO: Tung.Pham added
-      //-------------------------------------
       UIPopupWindow uiPopup = workingArea.getChild(UIPopupWindow.class) ;
       UIComponent uiComponent = uiPopup.getUIComponent();
       if(uiComponent != null && uiComponent instanceof UIInfoPortletForm) {
@@ -165,7 +163,6 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
         }
       }
         
-      //-------------------------------------
       service.remove(selectedPortlet) ;  
       workingArea.getPortlets().remove(selectedPortlet) ;
       workingArea.setSeletcApplication((Application)null);

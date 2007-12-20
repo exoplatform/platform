@@ -87,10 +87,8 @@ public class UIAvailablePortletForm extends UIForm {
       Iterator iter = map.keySet().iterator();
       while(iter.hasNext()){
         String id = String.valueOf(iter.next());
-        String[] fragments = id.split("/") ;
         Application application = null; 
-        application = getExistedApplication(existedApps, fragments[0], fragments[1]) ;
-        if(application == null) application = findPortletInDataRuntime(id);
+        application = findPortletInDataRuntime(id);
         if(application == null ) continue;
         list_.add(application);
       } 
@@ -101,15 +99,6 @@ public class UIAvailablePortletForm extends UIForm {
       };    
       Collections.sort(list_, application);
       setup();
-  }
-  
-  private Application getExistedApplication(List<Application> apps, String group, String appName) {
-    for(Application ele : apps) {
-      if(ele.getApplicationName().equals(appName) && ele.getApplicationGroup().equals(group)) {
-        return ele ;
-      }
-    }
-    return null ;
   }
   
   private void setup() throws Exception {
