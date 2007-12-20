@@ -113,7 +113,7 @@ function ScrollManager() {
 	this.rightArrow = null; // the right arrow dom node
 	this.mainContainer = null; // The HTML DOM element that contains the tabs, the arrows, etc
 	this.arrowsContainer = null // The HTML DOM element that contains the arrows
-	this.margin = 3;	//	a number of pixels to adapt to your tabs, used to calculate the max space available
+	this.margin = 6.9;	//	a number of pixels to adapt to your tabs, used to calculate the max space available
 };
 /**
  * Initializes the arrows with :
@@ -204,11 +204,16 @@ ScrollManager.prototype.loadElements = function(elementClass, clean) {
  * the firstVisibleIndex is 0, the lastVisibleIndex is the last element with isVisible to true
  */
 ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
-	if (!maxSpace) maxSpace = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin;
+	if (!maxSpace) maxSpace = this.getElementSpace(this.mainContainer) - this.getElementSpace(this.arrowsContainer);
 	var elementsSpace = 0;
-	for (var i = 0; i < this.elements.length; i++) {
+	var margin = 0;
+	var length =  this.elements.length;
+	for (var i = 0; i < length; i++) {
 		elementsSpace += this.getElementSpace(this.elements[i]);
-		if (elementsSpace <= maxSpace) { // If the tab fits in the available space
+		//dynamic margin;
+		if (i+1 < length) margin = this.getElementSpace(this.elements[i+1]) / 3;
+		else margin = this.margin;
+		if (elementsSpace + margin < maxSpace) { // If the tab fits in the available space
 			this.elements[i].isVisible = true;
 			this.lastVisibleIndex = i;
 		} else { // If the available space is full
@@ -322,7 +327,8 @@ ScrollManager.prototype.scrollLeft = function() { // Same for scrollUp
 		// hides the last (right or down) element and moves lastVisibleIndex to the left
 		this.elements[this.lastVisibleIndex--].isVisible = false;
 		// moves firstVisibleIndex to the left and shows the first (left or up) element
-		this.elements[--this.firstVisibleIndex].isVisible = true;
+		this.getVisibleElements();
+		//this.elements[--this.firstVisibleIndex].isVisible = true;
 		this.renderElements();
 	}
 };
@@ -344,13 +350,50 @@ ScrollManager.prototype.scrollRight = function() { // Same for scrollDown
 		// hides the first (left or up) element and moves firstVisibleIndex to the right
 		this.elements[this.firstVisibleIndex++].isVisible = false;
 		// moves lastVisibleIndex to the right and shows the last (right or down) element
-		this.elements[++this.lastVisibleIndex].isVisible = true;
+		this.getVisibleElements();
+		//this.elements[++this.lastVisibleIndex].isVisible = true;
 		this.renderElements();
 	}
 };
 
 ScrollManager.prototype.scrollDown = function() {
 	if (this.scrollMgr) this.scrollMgr.scrollRight();
+};
+
+
+ScrollManager.prototype.getVisibleElements = function() {
+	var availableSpace = this.getElementSpace(this.mainContainer) - this.getElementSpace(this.arrowsContainer);
+	var refereceIndex = 0;
+	var margin = 0;
+	var elementsSpace = 0;
+	
+	if (this.currDirection) {
+		var length = this.elements.length;
+		for (var i = this.firstVisibleIndex; i < length ; i++) {
+			elementsSpace += this.getElementSpace(this.elements[i]);
+			//dynamic margin;
+			if (i+1 < length) margin = this.getElementSpace(this.elements[i+1]) / 3;
+			else margin = this.margin;
+			if (elementsSpace + margin < availableSpace) {
+				this.elements[i].isVisible = true;
+				refereceIndex = i;
+			} else this.elements[i].isVisible = false;
+		}
+		if (this.lastVisibleIndex == refereceIndex) this.scrollRight();
+		else this.lastVisibleIndex = refereceIndex;
+	} else {
+		for (var i = this.lastVisibleIndex; i >= 0 ; i--) {
+			elementsSpace += this.getElementSpace(this.elements[i]);
+			//dynamic margin;
+			margin = this.getElementSpace(this.elements[this.lastVisibleIndex]) / 3;
+			if (elementsSpace + margin < availableSpace) {
+				this.elements[i].isVisible = true;
+				refereceIndex = i;
+			} else this.elements[i].isVisible = false;
+		}
+		if (this.firstVisibleIndex == refereceIndex) this.scrollLeft();
+		else this.firstVisibleIndex = refereceIndex;
+	}
 };
 /**
  * Called by a scroll function. Renders the visible elements depending on the elements array
@@ -363,20 +406,20 @@ ScrollManager.prototype.scrollDown = function() {
  * PS: for vertical tabs, replace width by height above.
  */
 ScrollManager.prototype.renderElements = function() {
-	var delta = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin;
+//	var delta = this.getElementSpace(this.mainContainer)-this.getElementSpace(this.arrowsContainer)-this.margin;
 	// Displays the elements
 	for (var i = 0; i < this.elements.length; i++) {
 		if (this.elements[i].isVisible) { // if the element should be rendered...
 			this.elements[i].style.display = "block";
-			delta -= this.getElementSpace(this.elements[i]);
+			//delta -= this.getElementSpace(this.elements[i]);
 		} else { // if the element must not be rendered...
 			this.elements[i].style.display = "none";
 			this.arrowsContainer.style.display = "block";
 		}
 	}
-	if (delta < 0) { // if there are too many elements visible in the available space
-		this.hideElements(delta);
-	}
+//	if (delta < 0) { // if there are too many elements visible in the available space
+//		this.hideElements(delta);
+//	}
 	if (this.arrowsContainer.style.display == "block") {
 		this.renderArrows();
 	}
@@ -393,24 +436,24 @@ ScrollManager.prototype.renderElements = function() {
  *  . elements (one or more) on the left are hidden until the new tab has enough space to be well rendered
  *  . these elements are stored in otherHiddenElements array to be shown again on the next scroll event
  */
-ScrollManager.prototype.hideElements = function(delta) {
-	// by default, we scroll left/up
-	var incr = -1;
-	var index = this.lastVisibleIndex;
-	if (this.currDirection == 1) { // if we scroll right/down
-		 incr = 1;
-		 index = this.firstVisibleIndex;
-	}
-	while (delta < 0 && index >= 0 && index < this.elements.length) {
-		delta += this.getElementSpace(this.elements[index]);
-		this.elements[index].isVisible = false;
-		this.elements[index].style.display = "none";
-		this.otherHiddenElements.push(this.elements[index]);
-		if (this.currDirection == 1) this.firstVisibleIndex++;
-		else this.lastVisibleIndex--;
-		index += incr;
-	}
-};
+//ScrollManager.prototype.hideElements = function(delta) {
+//	// by default, we scroll left/up
+//	var incr = -1;
+//	var index = this.lastVisibleIndex;
+//	if (this.currDirection == 1) { // if we scroll right/down
+//		 incr = 1;
+//		 index = this.firstVisibleIndex;
+//	}
+//	while (delta < 0 && index >= 0 && index < this.elements.length) {
+//		delta += this.getElementSpace(this.elements[index]);
+//		this.elements[index].isVisible = false;
+//		this.elements[index].style.display = "none";
+//		this.otherHiddenElements.push(this.elements[index]);
+//		if (this.currDirection == 1) this.firstVisibleIndex++;
+//		else this.lastVisibleIndex--;
+//		index += incr;
+//	}
+//};
 /**
  * Renders the arrows. If we reach the end of the tabs, this end arrow is disabled
  */
