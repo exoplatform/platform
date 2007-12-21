@@ -12,7 +12,6 @@
 }
 
 .UISitemapPortlet {
-	overflow: auto ; /* was auto */
   padding: 10px;
   border: 1px solid #b7b7b7;
 } 
