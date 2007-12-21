@@ -2,6 +2,7 @@
 .UIDropDownControl {
 	position: relative ;
 	margin-bottom: 2px;
+	_position: static;
 }
 .UIDropDownControl .UIDropDownTitle {
 	background:white url(background/DropDownItemSelectorBG1x2.gif) repeat-x scroll center top;

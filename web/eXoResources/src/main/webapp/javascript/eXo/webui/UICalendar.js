@@ -145,7 +145,7 @@ UICalendar.prototype.renderCalendar = function() {
 	if (this.isDisplayTime) {
 		table += 		'	<div class="CalendarTimeBox">' ;
 		table += 		'		<div class="CalendarTimeBoxR">' ;
-		table += 		'			<div class="CalendarTimeBoxM"><span><input size="2" maxlength="2" value="' + this.currentDate.getHours() + '" onkeyup="eXo.webui.UICalendar.setHour(this)" >:<input size="2" maxlength="2" value="' + this.currentDate.getMinutes() + '" onkeyup = "eXo.webui.UICalendar.setMinus(this)">:<input size="2" maxlength="2" value="' + this.currentDate.getSeconds() + '" onkeyup = "eXo.webui.UICalendar.setSeconds(this)"></span></div>' ;
+		table += 		'			<div class="CalendarTimeBoxM"><span><input class="InputTime" size="2" maxlength="2" value="' + this.currentDate.getHours() + '" onkeyup="eXo.webui.UICalendar.setHour(this)" >:<input size="2" class="InputTime" maxlength="2" value="' + this.currentDate.getMinutes() + '" onkeyup = "eXo.webui.UICalendar.setMinus(this)">:<input size="2" class="InputTime" maxlength="2" value="' + this.currentDate.getSeconds() + '" onkeyup = "eXo.webui.UICalendar.setSeconds(this)"></span></div>' ;
 		table += 		'		</div>' ;
 		table += 		'	</div>' ;
 	}
