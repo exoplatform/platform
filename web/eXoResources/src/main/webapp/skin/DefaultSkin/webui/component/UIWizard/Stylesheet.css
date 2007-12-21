@@ -102,6 +102,7 @@
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl {
+	width: 220px;
 }
 
 /*========================== End Wizard Content ==============================*/
