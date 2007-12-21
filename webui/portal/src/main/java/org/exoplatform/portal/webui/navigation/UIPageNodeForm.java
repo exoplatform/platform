@@ -86,7 +86,7 @@ public class UIPageNodeForm extends UIFormTabPane {
 
   public PageNode getPageNode(){ return pageNode_ ;   }
 
-  public void setValues(PageNode pageNode) throws Exception {  
+  public void setValues(PageNode pageNode) throws Exception {
     pageNode_ = pageNode;
     if(pageNode == null) {      
       getUIStringInput("name").setEditable(UIFormStringInput.ENABLE);
@@ -94,9 +94,8 @@ public class UIPageNodeForm extends UIFormTabPane {
     } 
     getUIStringInput("name").setEditable(UIFormStringInput.DISABLE);    
     String icon = pageNode_.getIcon();
-    if(icon != null && icon.length() > 0) {
-      getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
-    }
+    if( icon == null || icon.length() < 0) icon = "DefaultPageIcon" ;
+    getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     invokeGetBindingBean(pageNode_) ;
     getUIStringInput("label").setValue(pageNode_.getResolvedLabel()) ;
   }
