@@ -62,7 +62,7 @@ public class UIPageBody extends UIComponentDecorator {
     setPage(pageNode.getPageReference(), uiPortal);
   }
   
-  public void setPage(String pageId, UIPortal uiPortal) throws Exception {
+  private void setPage(String pageId, UIPortal uiPortal) throws Exception {
     WebuiRequestContext  context = Util.getPortalRequestContext() ;
     ExoContainer appContainer  =  context.getApplication().getApplicationServiceContainer() ;
     UserPortalConfigService userPortalConfigService = 

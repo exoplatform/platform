@@ -87,7 +87,6 @@ public class UIPageActionListener {
 
       List<PageNavigation> navigations = uiPortal.getNavigations();
       String uri = pnevent.getTargetNodeUri();
-
       if(uri == null || (uri = uri.trim()).length() < 1) return;
       if(uri.length() == 1 && uri.charAt(0) == '/') {
         for(PageNavigation nav: navigations){

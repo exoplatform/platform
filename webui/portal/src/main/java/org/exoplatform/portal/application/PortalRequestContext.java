@@ -48,6 +48,7 @@ public class PortalRequestContext extends WebuiRequestContext {
   private String portalOwner_ ;
   private String nodePath_ ;
   private String nodeURI_ ;
+  private String portalURI ;
   
   private int accessPath = -1 ;  
   
@@ -74,6 +75,8 @@ public class PortalRequestContext extends WebuiRequestContext {
     if(colonIndex < 0) colonIndex = pathInfo.length();
     portalOwner_ =  pathInfo.substring(1, colonIndex) ;
     nodePath_ = pathInfo.substring(colonIndex , pathInfo.length()) ;
+    
+    portalURI = nodeURI_.substring(0, nodeURI_.lastIndexOf(nodePath_)) + "/";
     
     if(nodeURI_.indexOf("/public/") >= 0) accessPath =  PUBLIC_ACCESS ;
     else if(nodeURI_.indexOf("/private/") >= 0) accessPath =  PRIVATE_ACCESS ;
@@ -107,6 +110,8 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   public String getNodeURI()  { return nodeURI_ ; }
   
+  public String getPortalURI() { return portalURI ; }
+  
   public URLBuilder getURLBuilder() { return urlBuilder; }
   
   public int  getAccessPath() { return accessPath ;}
@@ -115,10 +120,10 @@ public class PortalRequestContext extends WebuiRequestContext {
   final public boolean isUserInRole(String roleUser){ return request_.isUserInRole(roleUser); }
   
   final public Writer getWriter() throws Exception { 
-	if(writer_ == null) {
-	    writer_ = new HtmlValidator(response_.getWriter()) ;
-	}
-	return writer_ ; 
+    if(writer_ == null) {
+      writer_ = new HtmlValidator(response_.getWriter()) ;
+    }
+    return writer_ ; 
   }
   
   final public  boolean useAjax() {  return ajaxRequest_; }

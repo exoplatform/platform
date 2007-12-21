@@ -16,6 +16,7 @@
  */
 package org.exoplatform.portal.webui.component;
 
+import javax.portlet.PortletPreferences;
 import javax.portlet.PortletRequest;
 
 import org.exoplatform.portal.webui.navigation.UIPortalNavigation;
@@ -39,12 +40,14 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 })
 
 public class UINavigationPortlet extends UIPortletApplication {
-  private static String DEFAULT_TEMPLATE = "app:/groovy/portal/webui/component/UIPortalNavigation.gtmpl" ;
-  public UINavigationPortlet () throws  Exception { 
+  public UINavigationPortlet() throws  Exception { 
     PortletRequestContext context = (PortletRequestContext)  WebuiRequestContext.getCurrentInstance() ;
-    PortletRequest prequest = context.getRequest() ;    
-    String template =  prequest.getPreferences().getValue("template", DEFAULT_TEMPLATE) ;    
+    PortletRequest prequest = context.getRequest() ;
+    PortletPreferences prefers = prequest.getPreferences() ;
+    String template =  prefers.getValue("template", "app:/groovy/portal/webui/component/UIPortalNavigation.gtmpl") ;
+    
     UIPortalNavigation portalNavigation = addChild(UIPortalNavigation.class, "UIHorizontalNavigation", null);
+    portalNavigation.setUseAjax(Boolean.valueOf(prefers.getValue("useAJAX", "true"))) ;
     portalNavigation.getComponentConfig().setTemplate(template) ;
-  }  
+  }
 }

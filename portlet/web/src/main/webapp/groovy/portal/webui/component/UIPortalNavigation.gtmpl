@@ -2,6 +2,7 @@
   import org.exoplatform.portal.config.model.PageNode ;
   import org.exoplatform.portal.config.model.PageNavigation ;
   import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.portal.webui.util.Util ;
   
   def rcontext = _ctx.getRequestContext() ;
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -56,7 +57,10 @@
   	   
 			tabStyleNavigation = "SelectedItem" ;
 		}
-  	String actionLink = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) ;
+  	String actionLink ;
+  	
+  	if(uicomponent.isUseAjax()) actionLink = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) ;
+		else actionLink = Util.getPortalRequestContext().getPortalURI() + node.getUri() ;
   	String icon = node.getIcon();
     if(icon == null) icon = "PageNodeIcon";
     String arrowIcon = "MenuItemRight";
@@ -99,7 +103,9 @@
   		            PageNode selectedNode = uicomponent.getSelectedPageNode() ;
 		              def pageNodes = nav.getNodes() ;
 		              for(PageNode node in pageNodes) {
-		                def actionLink = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) ;
+		                String actionLink ;
+		                if(uicomponent.isUseAjax()) actionLink = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) ;
+		                else actionLink = Util.getPortalRequestContext().getPortalURI() + node.getUri() ;
 		              
 		                String tabStyleNavigation = "NormalNavigationTab" ;
 		                if(selectedNode != null && selectedNav != null &&
@@ -117,15 +123,15 @@
 				                  <div class="RightTab">
 				                    <div class="MiddleTab">
 				                      <div class="TabIcon">
-			                        <%
-																String arrowIcon = "";
-																if (node.getChildren() != null && node.getChildren().size() > 0) {
-																  arrowIcon = "DropDownArrowIcon";
-																}
-																String iconType = node.getIcon();
-																if(iconType == null) iconType = "DefaultPageIcon";
-															%>
-					                   	<div class="$arrowIcon"><a class="TabLabel ${iconType}" href="$actionLink">$node.resolvedLabel</a></div><!--  onclick="return false;" -->
+				                        <%
+																	String arrowIcon = "";
+																	if (node.getChildren() != null && node.getChildren().size() > 0) {
+																	  arrowIcon = "DropDownArrowIcon";
+																	}
+																	String iconType = node.getIcon();
+																	if(iconType == null) iconType = "DefaultPageIcon";
+																%>
+						                   	<div class="$arrowIcon"><a class="TabLabel ${iconType}" href="$actionLink">$node.resolvedLabel</a></div>
 				                      </div>
 				                    </div>
 				                  </div>

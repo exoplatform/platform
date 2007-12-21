@@ -38,14 +38,16 @@ import org.exoplatform.webui.event.EventListener;
  *          minhdv81@yahoo.com
  * Jul 12, 2006  
  */
-
 public class UIPortalNavigation extends UIComponent {
-
+  private boolean useAJAX = true ;
   protected PageNode selectedNode_ ;
   protected Object selectedParent_ ; 
 
   public UIComponent getViewModeUIComponent() { return null; }
-
+  
+  public void setUseAjax(boolean bl) { useAJAX = bl ; }
+  public boolean isUseAjax() { return useAJAX ; }
+  
   public List<PageNavigation> getNavigations() throws Exception {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     List<PageNavigation> result = new ArrayList<PageNavigation>();
@@ -135,7 +137,8 @@ public class UIPortalNavigation extends UIComponent {
     }
   }
 
-  static  public class UpLevelActionListener extends EventListener<UIPortalNavigation> {
+  //TODO TrongTT : This class seem not be used
+/*  static  public class UpLevelActionListener extends EventListener<UIPortalNavigation> {
     public void execute(Event<UIPortalNavigation> event) throws Exception {
       UIPortalNavigation uiNavigation = event.getSource();      
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID); 
@@ -169,6 +172,6 @@ public class UIPortalNavigation extends UIComponent {
         new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      
     }
-  }
+  }*/
 
 }

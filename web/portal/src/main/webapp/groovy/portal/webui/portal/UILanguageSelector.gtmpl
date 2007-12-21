@@ -23,11 +23,8 @@
 			</div>
 		
 			<div class="TabPaneContent">
-
 		    <div class="WorkingArea">	
-
 		    	<div class="HorizontalLayout">
-	          
 		        <div class="UITabContentContainer">
 	            <%
 	              for(selector in uicomponent.getChildren()) { 

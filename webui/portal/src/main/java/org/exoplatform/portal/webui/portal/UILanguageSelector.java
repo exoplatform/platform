@@ -56,7 +56,7 @@ public class UILanguageSelector extends UIContainer {
     for(Object object:configService.getLocalConfigs()) {      
       LocaleConfig localeConfig = (LocaleConfig)object ;
       Locale locale = localeConfig.getLocale() ;
-      String displayName = locale.getDisplayName() ;
+      String displayName = locale.getDisplayLanguage() ;
       String lang = locale.getLanguage() ;
       String localedName = locale.getDisplayName(locale) ;            
       if(localedName == null || localedName.length() == 0 ) localedName = "???" ;           

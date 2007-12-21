@@ -107,10 +107,10 @@ public class WebAppController {
    */
   public void service(HttpServletRequest req, HttpServletResponse res) throws Exception {
     WebRequestHandler handler = handlers_.get(req.getServletPath()) ;
-	if(log.isDebugEnabled()) {
-	  log.debug("Servlet Path: " + req.getServletPath());    
-	  log.debug("Handler used for this path: " + handler);
-	}
+    if(log.isDebugEnabled()) {
+      log.debug("Servlet Path: " + req.getServletPath());    
+      log.debug("Handler used for this path: " + handler);
+    }
     if(handler != null) {
       PortalContainer portalContainer = PortalContainer.getInstance() ;
       List<ComponentRequestLifecycle> components = 
