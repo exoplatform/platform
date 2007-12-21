@@ -2,14 +2,14 @@
 /*-------------------------- DefaultTheme ---------------------------*/
 
 .UIPageDesktop .DefaultTheme .WindowPortletInfo {
-  height: 22px ;
-  margin-right: 110px ;
-  cursor: move ;
+	height: 22px;
+	margin-right: 110px;
+	cursor: move;
 }
-
+	
 .DefaultTheme .WindowPortletControl {
-  float: right ;
-  height: 22px ;
+	float: right;
+	height: 22px;
 	padding: 0px 3px 0px 10px;
 }
 
@@ -18,19 +18,19 @@
 }
 
 .DefaultTheme .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 17px ;
-  margin: 8px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/DefaultTheme.png');
+	float: left;
+	width: 24px; height: 17px;
+	margin: 8px 0px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/DefaultTheme.png');
 }
 
 .DefaultTheme .WindowPortletControl .ArrowDownIcon {
-  background-position: center 20px;
+	background-position: center 20px;
 }
 
 .DefaultTheme .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 116px;
+	background-position: center 116px;
 }
 
 .DefaultTheme .WindowPortletControl .MinimizedIcon {
@@ -42,7 +42,7 @@
 }
 
 .DefaultTheme .WindowPortletControl .MaximizedIcon {
-  background-position: center 68px;
+	background-position: center 68px;
 }
 
 .DefaultTheme .WindowPortletControl .OverMaximizedIcon {
@@ -54,2500 +54,2504 @@
 }
 
 .DefaultTheme .WindowPortletControl .OverRestoreIcon {
-  background-position: center 188px;
+	background-position: center 188px;
 }
 
 .DefaultTheme .WindowPortletControl .NormalIcon {
-  background-position: center 92px;
+	background-position: center 92px;
 }
 
 .DefaultTheme .WindowPortletControl .OverNormalIcon {
-  background-position: center 188px;
+	background-position: center 188px;
 }
 
 
 .UIPageDesktop .DefaultTheme .ResizeArea {
-  float: right ;
-  width: 18px ; height: 18px ;
-  cursor: nw-resize ;
-  background: url('background/ResizeArea18x18.gif') no-repeat ;
+	float: right;
+	width: 18px; height: 18px;
+	cursor: nw-resize;
+	background: url('background/ResizeArea18x18.gif') no-repeat;
 }
 
 .DefaultTheme .Information {
-  height: 18px ; line-height: 18px ;
-  vertical-align: middle ; font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	vertical-align: middle; font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .DefaultTheme .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 9px 0px 0px 5px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 9px 0px 0px 5px;
 }
 
 .DefaultTheme .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 10px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
+	float: left;
+	padding: 10px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
 }
 
 .DefaultTheme .WindowBarLeft {
-  padding-left: 12px ;
-  background-image: url('background/DefaultTheme.png');
-  background-repeat: no-repeat;
-  background-position: left -148px;
-  height: 29px ;
+	padding-left: 12px;
+	background-image: url('background/DefaultTheme.png');
+	background-repeat: no-repeat;
+	background-position: left -148px;
+	height: 29px;
 }
 
 .DefaultTheme .WindowBarRight {
-  padding-right: 11px ;
-  background-image: url('background/DefaultTheme.png');
-  background-repeat: no-repeat;
-  background-position: right -119px;
-  height: 29px ;
+	padding-right: 11px;
+	background-image: url('background/DefaultTheme.png');
+	background-repeat: no-repeat;
+	background-position: right -119px;
+	height: 29px;
 }
 
 .DefaultTheme .WindowBarCenter {
-  height: 29px ;
-  background-image: url('background/DefaultTheme.png');
-  background-repeat: repeat-x;
-  background-position: left -90px;
+	height: 29px;
+	background-image: url('background/DefaultTheme.png');
+	background-repeat: repeat-x;
+	background-position: left -90px;
 }
 
 .DefaultTheme .MiddleDecoratorLeft {
-  padding-left: 12px ;
-  background: url('background/MDefaultTheme.png') repeat-y left;
+	padding-left: 12px;
+	background: url('background/MDefaultTheme.png') repeat-y left;
 }
 
 .DefaultTheme .MiddleDecoratorRight {
-  padding-right: 11px ;
-  background: url('background/MDefaultTheme.png') repeat-y right;
+	padding-right: 11px;
+	background: url('background/MDefaultTheme.png') repeat-y right;
 }
 
 .DefaultTheme .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .DefaultTheme .BottomDecoratorLeft {
-  padding-left: 12px ;
-  background-image: url('background/DefaultTheme.png');
-  background-repeat: no-repeat;
-  background-position: left -60px;
+	padding-left: 12px;
+	background-image: url('background/DefaultTheme.png');
+	background-repeat: no-repeat;
+	background-position: left -60px;
 }
 
 .DefaultTheme .BottomDecoratorRight {
-  padding-right: 11px ;
-  background-image: url('background/DefaultTheme.png');
-  background-repeat: no-repeat;
-  background-position: right -30px;
+	padding-right: 11px;
+	background-image: url('background/DefaultTheme.png');
+	background-repeat: no-repeat;
+	background-position: right -30px;
 }
 
 .DefaultTheme .BottomDecoratorCenter {
-  height: 30px ;
-  background-image: url('background/DefaultTheme.png');
-  background-repeat: repeat-x;
-  background-position: left top;
+	height: 30px;
+	background-image: url('background/DefaultTheme.png');
+	background-repeat: repeat-x;
+	background-position: left top;
 }
 
 /*-------------------------- MacTheme ---------------------------*/
 
 .MacTheme .WindowPortletControl {
-  float: right ;
-  height: 23px ;
-  padding-left: 0px;
+	float: right;
+	height: 23px;
+	padding-left: 0px;
 }
 
 .UIPageDesktop .MacTheme .WindowPortletInfo {
-  height: 24px ;
-  margin: 0px 100px 0px 0px ;
-  cursor: move ;
+	height: 24px;
+	margin: 0px 100px 0px 0px;
+	cursor: move;
 }
 
 .MacTheme .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 3px 5px 0px 3px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 3px 5px 0px 3px;
 }
 
 .MacTheme .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 5px 0px 0px 0px ;
+	float: left;
+	margin: 7px 0px 0px 0px;
 	font-weight: bold;
 	line-height: 12px;
 }
 
 .MacTheme .WindowPortletInfo .PortletIcon {
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
 }
 
 .MacTheme .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 23px ; height: 20px ;
-  cursor: pointer ;  
-  background-image: url('background/MacTheme.png');
+	float: left;
+	width: 21px; height: 16px;
+	margin: 3px 1px 0px 2px;
+	cursor: pointer;	
+	background-image: url('background/MacTheme.png');
 }
 
 .MacTheme .WindowPortletControl .ArrowDownIcon {
-  background-position: center 20px;
+	background-position: center 18px;
 }
 
 .MacTheme .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 100px;
+	background-position: center 98px;
 }
 
 .MacTheme .WindowPortletControl .MinimizedIcon {
-  background-position: center 40px;
+	background-position: center 38px;
 }
 
 .MacTheme .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 120px;
+	background-position: center 118px;
 }
 
 .MacTheme .WindowPortletControl .MaximizedIcon {
-  background-position: center 60px;
+	background-position: center 58px;
 }
 
 .MacTheme .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 140px;
+	background-position: center 138px;
 }
 
 .MacTheme .WindowPortletControl .NormalIcon {
-  background-position: center 80px;
+	background-position: center 78px;
 }
 
 .MacTheme .WindowPortletControl .OverNormalIcon {
-  background-position: center 160px;
+	background-position: center 158px;
 }
 
 .MacTheme .WindowPortletControl .RestoreIcon {
-  background-position: center 80px;
+	background-position: center 78px;
 }
 
 .MacTheme .WindowPortletControl .OverRestoreIcon {
-  background-position: center 160px;
+	background-position: center 158px;
 }
 
 .MacTheme .WindowPortletControl .BackgroundIcon {
-  float: left ;
-  margin: 4px 2px 0px 2px ;
+	float: left;
+	margin: 4px 2px 0px 2px;
 }
 
 .UIPageDesktop .MacTheme .ResizeArea {
-  float: right ;
-  width: 17px ; height: 15px ;
-  cursor: nw-resize ;
-  background: url('background/ResizeArea17x15.png') no-repeat ;
+	float: right;
+	width: 17px; height: 15px;
+	cursor: nw-resize;
+	background: url('background/ResizeArea17x15.png') no-repeat;
 }
 
 .MacTheme .Information {
-  height: 16px ; line-height: 14px ; vertical-align: middle ;
-  font-size: 10px ;
-  margin-right: 18px ;
-  padding-left: 5px ;
+	height: 16px; line-height: 14px; vertical-align: middle;
+	font-size: 10px;
+	margin-right: 18px;
+	padding-left: 5px;
 }
 
 .MacTheme .MiddleDecoratorLeft {
-  background: url('background/MMacTheme.png') repeat-y left ;
-  padding: 0px 0px 0px 5px ;
+	background: url('background/MMacTheme.png') repeat-y left;
+	padding: 0px 0px 0px 5px;
 }
 
 .MacTheme .MiddleDecoratorRight {
-  padding: 0px 5px 0px 0px ;
-  background: url('background/MMacTheme.png') repeat-y right ;
+	padding: 0px 5px 0px 0px;
+	background: url('background/MMacTheme.png') repeat-y right;
 }
 
 .MacTheme .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .MacTheme .BottomDecoratorLeft {
-  background-image: url('background/MacTheme.png');
-  background-repeat: no-repeat;
-  background-position: left -46px;
-  padding: 0px 0px 0px 5px ;
+	background-image: url('background/MacTheme.png');
+	background-repeat: no-repeat;
+	background-position: left -46px;
+	padding: 0px 0px 0px 5px;
 }
 
 .MacTheme .BottomDecoratorRight {
-  background-image: url('background/MacTheme.png');
-  background-repeat: no-repeat;
-  background-position: right -23px;
-  padding: 0px 5px 0px 0px ;
+	background-image: url('background/MacTheme.png');
+	background-repeat: no-repeat;
+	background-position: right -23px;
+	padding: 0px 5px 0px 0px;
 }
 
 .MacTheme .BottomDecoratorCenter {
-  background-image: url('background/MacTheme.png');
-  background-repeat: repeat-x;
-  background-position: center top;
-  height: 23px ; line-height: 23px;
+	background-image: url('background/MacTheme.png');
+	background-repeat: repeat-x;
+	background-position: center top;
+	height: 23px; line-height: 23px;
 }
 
 .MacTheme .WindowBarLeft {
-  background-image: url('background/MacTheme.png');
-  background-repeat: no-repeat;
-  background-position: left -115px;
-  padding: 0px 0px 0px 12px ;
+	background-image: url('background/MacTheme.png');
+	background-repeat: no-repeat;
+	background-position: left -115px;
+	padding: 0px 0px 0px 12px;
 }
 
 .MacTheme .WindowBarRight {
-  background-image: url('background/MacTheme.png');
-  background-repeat: no-repeat;
-  background-position: right -92px;
-  padding: 0px 12px 0px 0px ;
+	background-image: url('background/MacTheme.png');
+	background-repeat: no-repeat;
+	background-position: right -92px;
+	padding: 0px 12px 0px 0px;
 }
 
 .MacTheme .WindowBarCenter {
-  height: 23px ;
-  background-image: url('background/MacTheme.png');
-  background-repeat: repeat-x;
-  background-position: center -69px;
+	height: 23px;
+	background-image: url('background/MacTheme.png');
+	background-repeat: repeat-x;
+	background-position: center -69px;
 }
 
 /*-------------------------- MacGray ---------------------------*/
 
 .MacGray .WindowPortletControl {
-  float: right ;
-  height: 23px ;
-  padding-left: 0px;
+	float: right;
+	height: 23px;
+	padding-left: 0px;
 }
 
 .UIPageDesktop .MacGray .WindowPortletInfo {
-  height: 24px ;
-  margin: 0px 100px 0px 0px ;
-  cursor: move ;
+	height: 24px;
+	margin: 0px 100px 0px 0px;
+	cursor: move;
 }
 
 .MacGray .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 3px 3px 0px 3px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 3px 3px 0px 3px;
 }
 
 .MacGray .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 5px 0px 0px 0px ;
+	float: left;
+	margin: 5px 0px 0px 0px;
 	font-weight: bold;
 	line-height: 12px;
 }
 
 .MacGray .WindowPortletInfo .PortletIcon {
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
 }
 
 .MacGray .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 23px ; height: 20px ;
-  cursor: pointer ;  
-  background-image: url('background/MacGray.png');
+	float: left;
+	width: 21px; height: 16px;
+	margin: 3px 1px 0px 2px;
+	cursor: pointer;	
+	background-image: url('background/MacGray.png');
 }
 
 .MacGray .WindowPortletControl .ArrowDownIcon {
-  background-position: center 20px;
+	background-position: center 20px;
 }
 
 .MacGray .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 100px;
+	background-position: center 100px;
 }
 
 .MacGray .WindowPortletControl .MinimizedIcon {
-  background-position: center 40px;
+	background-position: center 40px;
 }
 
 .MacGray .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 120px;
+	background-position: center 120px;
 }
 
 .MacGray .WindowPortletControl .MaximizedIcon {
-  background-position: center 60px;
+	background-position: center 60px;
 }
 
 .MacGray .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 140px;
+	background-position: center 140px;
 }
 
 .MacGray .WindowPortletControl .NormalIcon {
-  background-position: center 80px;
+	background-position: center 80px;
 }
 
 .MacGray .WindowPortletControl .OverNormalIcon {
-  background-position: center 160px;
+	background-position: center 160px;
 }
 
 .MacGray .WindowPortletControl .RestoreIcon {
-  background-position: center 80px;
+	background-position: center 80px;
 }
 
 .MacGray .WindowPortletControl .OverRestoreIcon {
-  background-position: center 160px;
+	background-position: center 160px;
 }
 
 .MacGray .WindowPortletControl .BackgroundIcon {
-  float: left ;
-  margin: 4px 2px 0px 2px ;
+	float: left;
+	margin: 4px 2px 0px 2px;
 }
 
 .UIPageDesktop .MacGray .ResizeArea {
-  float: right ;
-  width: 17px ; height: 15px ;
-  cursor: nw-resize ;
-  background: url('background/ResizeArea17x15.png') no-repeat ;
+	float: right;
+	width: 17px; height: 15px;
+	cursor: nw-resize;
+	background: url('background/ResizeArea17x15.png') no-repeat;
 }
 
 .MacGray .Information {
-  height: 16px ; line-height: 14px ; vertical-align: middle ;
-  font-size: 10px ;
-  margin-right: 18px ;
-  padding-left: 5px ;
+	height: 16px; line-height: 14px; vertical-align: middle;
+	font-size: 10px;
+	margin-right: 18px;
+	padding-left: 5px;
 }
 
 .MacGray .MiddleDecoratorLeft {
-  background: url('background/MMacGray.png') repeat-y left ;
-  padding: 0px 0px 0px 8px ;
+	background: url('background/MMacGray.png') repeat-y left;
+	padding: 0px 0px 0px 8px;
 }
 
 .MacGray .MiddleDecoratorRight {
-  padding: 0px 8px 0px 0px ;
-  background: url('background/MMacGray.png') repeat-y right ;
+	padding: 0px 8px 0px 0px;
+	background: url('background/MMacGray.png') repeat-y right;
 }
 
 .MacGray .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .MacGray .BottomDecoratorLeft {
-  background-image: url('background/MacGray.png');
-  background-repeat: no-repeat;
-  background-position: left -48px;
-  padding: 0px 0px 0px 9px ;
+	background-image: url('background/MacGray.png');
+	background-repeat: no-repeat;
+	background-position: left -48px;
+	padding: 0px 0px 0px 9px;
 }
 
 .MacGray .BottomDecoratorRight {
-  padding: 0px 9px 0px 0px ;
-  background-image: url('background/MacGray.png');
-  background-repeat: no-repeat;
-  background-position: right -24px;
+	padding: 0px 9px 0px 0px;
+	background-image: url('background/MacGray.png');
+	background-repeat: no-repeat;
+	background-position: right -24px;
 }
 
 .MacGray .BottomDecoratorCenter {
-  height: 24px ; line-height: 24px;
-  background-image: url('background/MacGray.png');
-  background-repeat: repeat-x;
-  background-position: left top;
+	height: 24px; line-height: 24px;
+	background-image: url('background/MacGray.png');
+	background-repeat: repeat-x;
+	background-position: left top;
 }
 
 .MacGray .WindowBarLeft {
-  padding: 0px 0px 0px 9px ;
-  background-image: url('background/MacGray.png');
-  background-repeat: no-repeat;
-  background-position: left -118px;
+	padding: 0px 0px 0px 9px;
+	background-image: url('background/MacGray.png');
+	background-repeat: no-repeat;
+	background-position: left -118px;
 }
 
 .MacGray .WindowBarRight {
-  padding: 0px 9px 0px 0px ;
-  background-image: url('background/MacGray.png');
-  background-repeat: no-repeat;
-  background-position: right -95px;
+	padding: 0px 9px 0px 0px;
+	background-image: url('background/MacGray.png');
+	background-repeat: no-repeat;
+	background-position: right -95px;
 }
 
 .MacGray .WindowBarCenter {
-  height: 23px ;
-  background-image: url('background/MacGray.png');
-  background-repeat: repeat-x;
-  background-position: center -72px;
+	height: 23px;
+	background-image: url('background/MacGray.png');
+	background-repeat: repeat-x;
+	background-position: center -72px;
 }
 
 /*-------------------------- MacBlack ---------------------------*/
 
 .MacBlack .WindowPortletControl {
-  float: right ;
-  height: 23px ;
-  padding-left: 0px;
+	float: right;
+	height: 23px;
+	padding-left: 0px;
 }
 
 .UIPageDesktop .MacBlack .WindowPortletInfo {
-  height: 24px ;
-  margin: 0px 100px 0px 0px ;
-  cursor: move ;
+	height: 24px;
+	margin: 0px 100px 0px 0px;
+	cursor: move;
 }
 
 .MacBlack .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 3px 3px 0px 3px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 3px 3px 0px 3px;
 }
 
 .MacBlack .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 5px 0px 0px 0px ;
+	float: left;
+	margin: 5px 0px 0px 0px;
 	font-weight: bold;
 	line-height: 12px;
 }
 
 .MacBlack .WindowPortletInfo .PortletIcon {
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
 }
 
 .MacBlack .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 23px ; height: 20px ;
-  cursor: pointer ;  
-  background-image: url('background/MacBlack.png');
+	float: left;
+	width: 21px; height: 16px;
+	margin: 3px 1px 0px 2px;
+	cursor: pointer;	
+	background-image: url('background/MacBlack.png');
 }
 
 .MacBlack .WindowPortletControl .ArrowDownIcon {
-  background-position: center 20px;
+	background-position: center 20px;
 }
 
 .MacBlack .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 100px;
+	background-position: center 100px;
 }
 
 .MacBlack .WindowPortletControl .MinimizedIcon {
-  background-position: center 40px;
+	background-position: center 40px;
 }
 
 .MacBlack .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 120px;
+	background-position: center 120px;
 }
 
 .MacBlack .WindowPortletControl .MaximizedIcon {
-  background-position: center 60px;
+	background-position: center 60px;
 }
 
 .MacBlack .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 140px;
+	background-position: center 140px;
 }
 
 .MacBlack .WindowPortletControl .NormalIcon {
-  background-position: center 80px;
+	background-position: center 80px;
 }
 
 .MacBlack .WindowPortletControl .OverNormalIcon {
-  background-position: center 160px;
+	background-position: center 160px;
 }
 
 .MacBlack .WindowPortletControl .RestoreIcon {
-  background-position: center 80px;
+	background-position: center 80px;
 }
 
 .MacBlack .WindowPortletControl .OverRestoreIcon {
-  background-position: center 160px;
+	background-position: center 160px;
 }
 
 .MacBlack .WindowPortletControl .BackgroundIcon {
-  float: left ;
-  margin: 4px 2px 0px 2px ;
+	float: left;
+	margin: 4px 2px 0px 2px;
 }
 
 .UIPageDesktop .MacBlack .ResizeArea {
-  float: right ;
-  width: 17px ; height: 15px ;
-  cursor: nw-resize ;
-  background: url('background/ResizeArea17x15.png') no-repeat ;
+	float: right;
+	width: 17px; height: 15px;
+	cursor: nw-resize;
+	background: url('background/ResizeArea17x15.png') no-repeat;
 }
 
 .MacBlack .Information {
-  height: 16px ; line-height: 14px ; vertical-align: middle ;
-  font-size: 10px ;
-  margin-right: 18px ;
-  padding-left: 5px ;
+	height: 16px; line-height: 14px; vertical-align: middle;
+	font-size: 10px;
+	margin-right: 18px;
+	padding-left: 5px;
 }
 
 .MacBlack .MiddleDecoratorLeft {
-  background: url('background/MMacBlack.png') repeat-y left ;
-  padding: 0px 0px 0px 8px ;
+	background: url('background/MMacBlack.png') repeat-y left;
+	padding: 0px 0px 0px 8px;
 }
 
 .MacBlack .MiddleDecoratorRight {
-  padding: 0px 8px 0px 0px ;
-  background: url('background/MMacBlack.png') repeat-y right ;
+	padding: 0px 8px 0px 0px;
+	background: url('background/MMacBlack.png') repeat-y right;
 }
 
 .MacBlack .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .MacBlack .BottomDecoratorLeft {
-  background-image: url('background/MacBlack.png');
-  background-repeat: no-repeat;
-  background-position: left -48px;
-  padding: 0px 0px 0px 9px ;
+	background-image: url('background/MacBlack.png');
+	background-repeat: no-repeat;
+	background-position: left -48px;
+	padding: 0px 0px 0px 9px;
 }
 
 .MacBlack .BottomDecoratorRight {
-  padding: 0px 9px 0px 0px ;
-  background-image: url('background/MacBlack.png');
-  background-repeat: no-repeat;
-  background-position: right -24px;
+	padding: 0px 9px 0px 0px;
+	background-image: url('background/MacBlack.png');
+	background-repeat: no-repeat;
+	background-position: right -24px;
 }
 
 .MacBlack .BottomDecoratorCenter {
-  height: 24px ; line-height: 24px;
-  background-image: url('background/MacBlack.png');
-  background-repeat: repeat-x;
-  background-position: left top;
+	height: 24px; line-height: 24px;
+	background-image: url('background/MacBlack.png');
+	background-repeat: repeat-x;
+	background-position: left top;
 }
 
 .MacBlack .WindowBarLeft {
-  padding: 0px 0px 0px 9px ;
-  background-image: url('background/MacBlack.png');
-  background-repeat: no-repeat;
-  background-position: left -118px;
+	padding: 0px 0px 0px 9px;
+	background-image: url('background/MacBlack.png');
+	background-repeat: no-repeat;
+	background-position: left -118px;
 }
 
 .MacBlack .WindowBarRight {
-  padding: 0px 9px 0px 0px ;
-  background-image: url('background/MacBlack.png');
-  background-repeat: no-repeat;
-  background-position: right -95px;
+	padding: 0px 9px 0px 0px;
+	background-image: url('background/MacBlack.png');
+	background-repeat: no-repeat;
+	background-position: right -95px;
 }
 
 .MacBlack .WindowBarCenter {
-  height: 23px ;
-  background-image: url('background/MacBlack.png');
-  background-repeat: repeat-x;
-  background-position: center -72px;
+	height: 23px;
+	background-image: url('background/MacBlack.png');
+	background-repeat: repeat-x;
+	background-position: center -72px;
 }
 
 /*-------------------------- MacGreenSteel ---------------------------*/
 
 .MacGreenSteel .WindowPortletControl {
-  float: right ;
-  height: 23px ;
-  padding-left: 0px;
+	float: right;
+	height: 23px;
+	padding-left: 0px;
 }
 
 .UIPageDesktop .MacGreenSteel .WindowPortletInfo {
-  height: 24px ;
-  margin: 0px 100px 0px 0px ;
-  cursor: move ;
+	height: 24px;
+	margin: 0px 100px 0px 0px;
+	cursor: move;
 }
 
 .MacGreenSteel .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 3px 3px 0px 3px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 3px 3px 0px 3px;
 }
 
 .MacGreenSteel .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 5px 0px 0px 0px ;
+	float: left;
+	margin: 5px 0px 0px 0px;
 	font-weight: bold;
 	line-height: 12px;
 }
 
 .MacGreenSteel .WindowPortletInfo .PortletIcon {
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
+	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
 }
 
 .MacGreenSteel .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 23px ; height: 20px ;
-  cursor: pointer ;  
-  background-image: url('background/MacGreen.png');
+	float: left;
+	width: 21px; height: 16px;
+	margin: 3px 1px 0px 2px;
+	cursor: pointer;	
+	background-image: url('background/MacGreen.png');
 }
 
 .MacGreenSteel .WindowPortletControl .ArrowDownIcon {
-  background-position: center 20px;
+	background-position: center 20px;
 }
 
 .MacGreenSteel .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 100px;
+	background-position: center 100px;
 }
 
 .MacGreenSteel .WindowPortletControl .MinimizedIcon {
-  background-position: center 40px;
+	background-position: center 40px;
 }
 
 .MacGreenSteel .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 120px;
+	background-position: center 120px;
 }
 
 .MacGreenSteel .WindowPortletControl .MaximizedIcon {
-  background-position: center 60px;
+	background-position: center 60px;
 }
 
 .MacGreenSteel .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 140px;
+	background-position: center 140px;
 }
 
 .MacGreenSteel .WindowPortletControl .NormalIcon {
-  background-position: center 80px;
+	background-position: center 80px;
 }
 
 .MacGreenSteel .WindowPortletControl .OverNormalIcon {
-  background-position: center 160px;
+	background-position: center 160px;
 }
 
 .MacGreenSteel .WindowPortletControl .RestoreIcon {
-  background-position: center 80px;
+	background-position: center 80px;
 }
 
 .MacGreenSteel .WindowPortletControl .OverRestoreIcon {
-  background-position: center 160px;
+	background-position: center 160px;
 }
 
 .MacGreenSteel .WindowPortletControl .BackgroundIcon {
-  float: left ;
-  margin: 4px 2px 0px 2px ;
+	float: left;
+	margin: 4px 2px 0px 2px;
 }
 
 .UIPageDesktop .MacGreenSteel .ResizeArea {
-  float: right ;
-  width: 17px ; height: 15px ;
-  cursor: nw-resize ;
-  background: url('background/ResizeArea17x15.png') no-repeat ;
+	float: right;
+	width: 17px; height: 15px;
+	cursor: nw-resize;
+	background: url('background/ResizeArea17x15.png') no-repeat;
 }
 
 .MacGreenSteel .Information {
-  height: 16px ; line-height: 14px ; vertical-align: middle ;
-  font-size: 10px ;
-  margin-right: 18px ;
-  padding-left: 5px ;
+	height: 16px; line-height: 14px; vertical-align: middle;
+	font-size: 10px;
+	margin-right: 18px;
+	padding-left: 5px;
 }
 
 .MacGreenSteel .MiddleDecoratorLeft {
-  background: url('background/MMacGreen.png') repeat-y left ;
-  padding: 0px 0px 0px 8px ;
+	background: url('background/MMacGreen.png') repeat-y left;
+	padding: 0px 0px 0px 8px;
 }
 
 .MacGreenSteel .MiddleDecoratorRight {
-  padding: 0px 8px 0px 0px ;
-  background: url('background/MMacGreen.png') repeat-y right ;
+	padding: 0px 8px 0px 0px;
+	background: url('background/MMacGreen.png') repeat-y right;
 }
 
 .MacGreenSteel .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .MacGreenSteel .BottomDecoratorLeft {
-  background-image: url('background/MacGreen.png');
-  background-repeat: no-repeat;
-  background-position: left -48px;
-  padding: 0px 0px 0px 9px ;
+	background-image: url('background/MacGreen.png');
+	background-repeat: no-repeat;
+	background-position: left -48px;
+	padding: 0px 0px 0px 9px;
 }
 
 .MacGreenSteel .BottomDecoratorRight {
-  padding: 0px 9px 0px 0px ;
-  background-image: url('background/MacGreen.png');
-  background-repeat: no-repeat;
-  background-position: right -24px;
+	padding: 0px 9px 0px 0px;
+	background-image: url('background/MacGreen.png');
+	background-repeat: no-repeat;
+	background-position: right -24px;
 }
 
 .MacGreenSteel .BottomDecoratorCenter {
-  height: 24px ; line-height: 24px;
-  background-image: url('background/MacGreen.png');
-  background-repeat: repeat-x;
-  background-position: left top;
+	height: 24px; line-height: 24px;
+	background-image: url('background/MacGreen.png');
+	background-repeat: repeat-x;
+	background-position: left top;
 }
 
 .MacGreenSteel .WindowBarLeft {
-  padding: 0px 0px 0px 9px ;
-  background-image: url('background/MacGreen.png');
-  background-repeat: no-repeat;
-  background-position: left -118px;
+	padding: 0px 0px 0px 9px;
+	background-image: url('background/MacGreen.png');
+	background-repeat: no-repeat;
+	background-position: left -118px;
 }
 
 .MacGreenSteel .WindowBarRight {
-  padding: 0px 9px 0px 0px ;
-  background-image: url('background/MacGreen.png');
-  background-repeat: no-repeat;
-  background-position: right -95px;
+	padding: 0px 9px 0px 0px;
+	background-image: url('background/MacGreen.png');
+	background-repeat: no-repeat;
+	background-position: right -95px;
 }
 
 .MacGreenSteel .WindowBarCenter {
-  height: 23px ;
-  background-image: url('background/MacGreen.png');
-  background-repeat: repeat-x;
-  background-position: center -72px;
+	height: 23px;
+	background-image: url('background/MacGreen.png');
+	background-repeat: repeat-x;
+	background-position: center -72px;
 }
 
 /*-------------------------------- VistaTheme -----------------------------*/
 
 .VistaTheme .WindowPortletControl {
-  float: right ;
-  height: 24px ;
-  padding: 4px 0px 0px 6px;
+	float: right;
+	height: 24px;
+	padding: 4px 0px 0px 6px;
 }
 
 .UIPageDesktop .VistaTheme .WindowPortletControl {
-  padding:4px 0px 0px 12px;
+	padding:4px 0px 0px 12px;
 }
 
 .UIPageDesktop .VistaTheme .WindowPortletInfo {
-  height: 24px ;
-  margin-right: 100px ;
-  cursor: move ;
+	height: 24px;
+	margin-right: 100px;
+	cursor: move;
 }
 
 .VistaTheme .WindowPortletInfo .Icon {
-  float: left;
-  width: 19px; height: 19px;
-  margin: 8px 0px 0px 0px;
+	float: left;
+	width: 19px; height: 19px;
+	margin: 8px 0px 0px 0px;
 }
 
 .VistaTheme .WindowPortletInfo .PortletIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat ;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat;
 }
 
 .VistaTheme .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 30px ; height:20px ;
-  cursor: pointer ;  
+	float: left;
+	width: 30px; height:20px;
+	cursor: pointer;	
 	background-image: url('background/VistaTheme.png');
 }
 
 .VistaTheme .WindowPortletControl .ArrowDownIcon {
-  background-position: center 20px;
+	background-position: center 20px;
 }
 
 .VistaTheme .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 100px;
+	background-position: center 100px;
 }
 
 .VistaTheme .WindowPortletControl .MinimizedIcon {
-  background-position: center 40px;
+	background-position: center 40px;
 }
 
 .VistaTheme .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 120px;
+	background-position: center 120px;
 }
 
 .VistaTheme .WindowPortletControl .MaximizedIcon {
-  background-position: center 60px;
+	background-position: center 60px;
 }
 
 .VistaTheme .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 140px;
+	background-position: center 140px;
 }
 
 .VistaTheme .WindowPortletControl .NormalIcon {
-  background-position: center 80px;
+	background-position: center 80px;
 }
 
 .VistaTheme .WindowPortletControl .OverNormalIcon {
-  background-position: center 160px;
+	background-position: center 160px;
 }
 
 .VistaTheme .WindowPortletControl .RestoreIcon {
-  background-position: center 80px;
+	background-position: center 80px;
 }
 
 .VistaTheme .WindowPortletControl .OverRestoreIcon {
-  background-position: center 160px;
+	background-position: center 160px;
 }
 
 .VistaTheme .Information {
-  margin-right: 18px ;
-  padding-left: 5px ;
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
+	margin-right: 18px;
+	padding-left: 5px;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
 }
 
 .VistaTheme .MiddleDecoratorCenter {
-  background: #ffffff;
-  border: solid 1px #717171;
+	background: #ffffff;
+	border: solid 1px #717171;
 }
 
 .UIPageDesktop .VistaTheme .ResizeArea {
-  float: right ;
-  width: 9px ; height: 12px ;
-  cursor: nw-resize ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
+	float: right;
+	width: 9px; height: 12px;
+	cursor: nw-resize;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
 }
 
 .VistaTheme .MiddleDecoratorLeft {
-  padding-left:12px ;
-  background: url('background/MVistaTheme.png') repeat-y left ;
+	padding-left:12px;
+	background: url('background/MVistaTheme.png') repeat-y left;
 }
 
 .VistaTheme .MiddleDecoratorRight {
-  padding-right: 13px ;
-  background: url('background/MVistaTheme.png') repeat-y right ;
+	padding-right: 13px;
+	background: url('background/MVistaTheme.png') repeat-y right;
 }
 
 .UIPageBody .MiddleDecoratorCenter {
-  background: #ffffff;
+	background: #ffffff;
 }
 
 .VistaTheme .BottomDecoratorLeft {
-  background-image: url('background/VistaTheme.png');
-  background-repeat: no-repeat;
-  background-position: left -48px;
-  padding-left: 12px ;
+	background-image: url('background/VistaTheme.png');
+	background-repeat: no-repeat;
+	background-position: left -48px;
+	padding-left: 12px;
 }
 
 .VistaTheme .BottomDecoratorRight {
-  background-image: url('background/VistaTheme.png');
-  background-repeat: no-repeat;
-  background-position: right -24px;
-  padding-right: 13px ;
+	background-image: url('background/VistaTheme.png');
+	background-repeat: no-repeat;
+	background-position: right -24px;
+	padding-right: 13px;
 }
 
 .VistaTheme .BottomDecoratorCenter {
-  background-image: url('background/VistaTheme.png');
-  background-repeat: repeat-x;
-  background-position: left top;
-  height: 24px ;
+	background-image: url('background/VistaTheme.png');
+	background-repeat: repeat-x;
+	background-position: left top;
+	height: 24px;
 }
 
 .VistaTheme .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 1px 0px 0px 3px;
-  font-weight: bold;
-  line-height: 28px;
+	float: left;
+	margin: 1px 0px 0px 3px;
+	font-weight: bold;
+	line-height: 28px;
 }
 
 .VistaTheme .WindowBarLeft {
-  background-image: url('background/VistaTheme.png');
-  background-repeat: no-repeat;
-  background-position: left -130px;
-  padding-left: 12px ;
+	background-image: url('background/VistaTheme.png');
+	background-repeat: no-repeat;
+	background-position: left -130px;
+	padding-left: 12px;
 }
 
 .VistaTheme .WindowBarRight {
-  background-image: url('background/VistaTheme.png');
-  background-repeat: no-repeat;
-  background-position: right -101px;
-  padding-right: 16px ;
+	background-image: url('background/VistaTheme.png');
+	background-repeat: no-repeat;
+	background-position: right -101px;
+	padding-right: 16px;
 }
 
 .VistaTheme .WindowBarCenter {
-  background-image: url('background/VistaTheme.png');
-  background-repeat: repeat-x;
-  background-position: left -72px;
-  height: 29px ;
+	background-image: url('background/VistaTheme.png');
+	background-repeat: repeat-x;
+	background-position: left -72px;
+	height: 29px;
 }
 
 /*-------------------------------- VistaBlue -----------------------------*/
 
 .VistaBlue .WindowPortletControl {
-  float: right ;
-  height: 24px ;
-  padding: 8px 0px 0px 6px;
+	float: right;
+	height: 24px;
+	padding: 8px 0px 0px 6px;
 }
 
 .UIPageDesktop .VistaBlue .WindowPortletInfo {
-  cursor: move ;
+	cursor: move;
 }
 
 .VistaBlue .WindowPortletInfo .Icon {
-  float: left;
-  width: 19px; height: 19px;
-  margin: 11px 0px 0px 0px;
+	float: left;
+	width: 19px; height: 19px;
+	margin: 11px 0px 0px 0px;
 }
 
 .VistaBlue .WindowPortletInfo .PortletName {
-  float: left ;
-  margin-top: 12px ;
-  font-weight: bold;
+	float: left;
+	margin-top: 12px;
+	font-weight: bold;
 }
 
 .VistaBlue .WindowPortletInfo .PortletIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat ;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat;
 }
 
 .VistaBlue .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 30px ; height: 19px ;
-  cursor: pointer ;  
+	float: left;
+	width: 30px; height: 19px;
+	cursor: pointer;	
 	background-image: url('background/VistaBlue.png');
 }
 
 .VistaBlue .WindowPortletControl .ArrowDownIcon {
-  background-position: center 19px;
+	background-position: center 19px;
 }
 
 .VistaBlue .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 99px;
+	background-position: center 99px;
 }
 
 .VistaBlue .WindowPortletControl .MinimizedIcon {
-  background-position: center 39px;
+	background-position: center 39px;
 }
 
 .VistaBlue .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 119px;
+	background-position: center 119px;
 }
 
 .VistaBlue .WindowPortletControl .MaximizedIcon {
-  background-position: center 59px;
+	background-position: center 59px;
 }
 
 .VistaBlue .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 139px;
+	background-position: center 139px;
 }
 
 .VistaBlue .WindowPortletControl .NormalIcon {
-  background-position: center 79px;
+	background-position: center 79px;
 }
 
 .VistaBlue .WindowPortletControl .OverNormalIcon {
-  background-position: center 159px;
+	background-position: center 159px;
 }
 
 .VistaBlue .WindowPortletControl .RestoreIcon {
-  background-position: center 79px;
+	background-position: center 79px;
 }
 
 .VistaBlue .WindowPortletControl .OverRestoreIcon {
-  background-position: center 159px;
+	background-position: center 159px;
 }
 
 .VistaBlue .Information {
-  margin-right: 18px ;
-  padding-left: 5px ;
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
+	margin-right: 18px;
+	padding-left: 5px;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
 }
 
 .VistaBlue .MiddleDecoratorCenter {
-  background: #ffffff;
+	background: #ffffff;
 }
 
 .UIPageDesktop .VistaBlue .ResizeArea {
-  float: right ;
-  width: 9px ; height: 12px ;
-  cursor: nw-resize ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
+	float: right;
+	width: 9px; height: 12px;
+	cursor: nw-resize;
+	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
 }
 
 .VistaBlue .MiddleDecoratorLeft {
-  padding-left: 15px;
-  background: url('background/MVistaBlue.png') repeat-y left ;
+	padding-left: 15px;
+	background: url('background/MVistaBlue.png') repeat-y left;
 }
 
 .VistaBlue .MiddleDecoratorRight {
-  padding-right: 18px ;
-  background: url('background/MVistaBlue.png') repeat-y right ;
+	padding-right: 18px;
+	background: url('background/MVistaBlue.png') repeat-y right;
 }
 
 .VistaBlue .BottomDecoratorLeft {
-  background-image: url('background/VistaBlue.png');
-  background-repeat: no-repeat;
-  background-position: left -54px;
-  padding-left: 15px;
+	background-image: url('background/VistaBlue.png');
+	background-repeat: no-repeat;
+	background-position: left -54px;
+	padding-left: 15px;
 }
 
 .VistaBlue .BottomDecoratorRight {
 	background-image: url('background/VistaBlue.png');
-  background-repeat: no-repeat;
-  background-position: right -27px;
-  padding-right: 15px;
+	background-repeat: no-repeat;
+	background-position: right -27px;
+	padding-right: 15px;
 }
 
 .VistaBlue .BottomDecoratorCenter {
-  background-image: url('background/VistaBlue.png');
-  background-repeat: repeat-x;
-  background-position: left top;
-  height: 27px;
+	background-image: url('background/VistaBlue.png');
+	background-repeat: repeat-x;
+	background-position: left top;
+	height: 27px;
 }
 
 .VistaBlue .WindowBarLeft {
 	background-image: url('background/VistaBlue.png');
-  background-repeat: no-repeat;
-  background-position: left -151px;
-  padding-left: 15px ;
+	background-repeat: no-repeat;
+	background-position: left -151px;
+	padding-left: 15px;
 }
 
 .VistaBlue .WindowBarRight {
 	background-image: url('background/VistaBlue.png');
-  background-repeat: no-repeat;
-  background-position: right -116px;
-  padding-right: 15px ;
+	background-repeat: no-repeat;
+	background-position: right -116px;
+	padding-right: 15px;
 }
 
 .VistaBlue .WindowBarCenter {
 	background-image: url('background/VistaBlue.png');
-  background-repeat: repeat-x;
-  background-position: left -81px;
-  height: 35px ;
+	background-repeat: repeat-x;
+	background-position: left -81px;
+	height: 35px;
 }
 
 /*-------------------------- RoundConerBlue ---------------------------*/
 
 .RoundConerBlue .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .RoundConerBlue .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 7px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/RoundCornerBlue.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 10px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/RoundCornerBlue.png');
 }
 
 .RoundConerBlue .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .RoundConerBlue .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 10px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerBlue .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .RoundConerBlue .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 7px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 24px;
+	float: left;
+	margin: 7px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 24px;
 }
 
 .RoundConerBlue .WindowPortletControl .ArrowDownIcon {
-  background-position: center 24px;
+	background-position: center 21px;
 }
 
 .RoundConerBlue .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 117px;
 }
 
 .RoundConerBlue .WindowPortletControl .MinimizedIcon {
-	background-position: center 48px;
+	background-position: center 45px;
 }
 
 .RoundConerBlue .WindowPortletControl .OverMinimizedIcon {
-	background-position: center 144px;
+	background-position: center 141px;
 }
 
 .RoundConerBlue .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 69px;
 }
 
 .RoundConerBlue .WindowPortletControl .OverMaximizedIcon {
-	background-position: center 168px;
+	background-position: center 165px;
 }
 
 .RoundConerBlue .WindowPortletControl .RestoreIcon {
-	background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerBlue .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerBlue .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerBlue .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerBlue .WindowBarLeft {
-	padding-left: 12px ;
-  height: 32px;
-  background-image: url('background/RoundCornerBlue.png');
-  background-repeat: no-repeat;
-  background-position: left -154px;
+	padding-left: 12px;
+	height: 32px;
+	background-image: url('background/RoundCornerBlue.png');
+	background-repeat: no-repeat;
+	background-position: left -154px;
 }
 
 .RoundConerBlue .WindowBarRight {
 	padding-right: 12px;
-  height: 32px;
-  background-image: url('background/RoundCornerBlue.png');
-  background-repeat: no-repeat;
-  background-position: right -122px;
+	height: 32px;
+	background-image: url('background/RoundCornerBlue.png');
+	background-repeat: no-repeat;
+	background-position: right -122px;
 }
 
 .RoundConerBlue .WindowBarCenter {
-	height: 32px ;
-  background: url('background/RoundCornerBlue.png') repeat-x;
-  background-position: left -90px;
+	height: 32px;
+	background: url('background/RoundCornerBlue.png') repeat-x;
+	background-position: left -90px;
 }
 
 .RoundConerBlue .MiddleDecoratorLeft {
-	padding-left: 13px ;
-  background: url('background/MRoundConerBlue.png') repeat-y left ;
+	padding-left: 13px;
+	background: url('background/MRoundConerBlue.png') repeat-y left;
 }
 
 .RoundConerBlue .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRoundConerBlue.png') repeat-y right ;
+	background: url('background/MRoundConerBlue.png') repeat-y right;
 }
 
 .RoundConerBlue .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .RoundConerBlue .BottomDecoratorLeft {
-	padding-left: 13px ;
-  background-image: url('background/RoundCornerBlue.png');
-  background-repeat: no-repeat;
-  background-position: left -60px;
+	padding-left: 13px;
+	background-image: url('background/RoundCornerBlue.png');
+	background-repeat: no-repeat;
+	background-position: left -60px;
 }
 
 .RoundConerBlue .BottomDecoratorRight {
-  padding-right: 13px ;
-  background-image: url('background/RoundCornerBlue.png');
-  background-repeat: no-repeat;
-  background-position: right -30px;
+	padding-right: 13px;
+	background-image: url('background/RoundCornerBlue.png');
+	background-repeat: no-repeat;
+	background-position: right -30px;
 }
 
 .RoundConerBlue .BottomDecoratorCenter {
-	height: 30px ;
-  background: url('background/RoundCornerBlue.png') repeat-x ;
-  background-position: top;
+	height: 30px;
+	background: url('background/RoundCornerBlue.png') repeat-x;
+	background-position: top;
 }
 
 /*------------------ RoundConerViolet -----------------*/
 
 .RoundConerViolet .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .RoundConerViolet .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 7px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/RoundConerViolet.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 10px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/RoundConerViolet.png');
 }
 
 .RoundConerViolet .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .RoundConerViolet .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 10px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerViolet .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .RoundConerViolet .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 7px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 24px;
+	float: left;
+	margin: 7px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 24px;
 }
 
 .RoundConerViolet .WindowPortletControl .ArrowDownIcon {
-  background-position: center 24px;
+	background-position: center 21px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 117px;
 }
 
 .RoundConerViolet .WindowPortletControl .MinimizedIcon {
-	background-position: center 48px;
+	background-position: center 45px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverMinimizedIcon {
-	background-position: center 144px;
+	background-position: center 141px;
 }
 
 .RoundConerViolet .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 69px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverMaximizedIcon {
-	background-position: center 168px;
+	background-position: center 165px;
 }
 
 .RoundConerViolet .WindowPortletControl .RestoreIcon {
-	background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerViolet .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerViolet .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerViolet .WindowBarLeft {
-	padding-left: 13px ;
-  height: 32px;
-  background-image: url('background/RoundConerViolet.png');
-  background-repeat: no-repeat;
-  background-position: left -153px;
+	padding-left: 13px;
+	height: 32px;
+	background-image: url('background/RoundConerViolet.png');
+	background-repeat: no-repeat;
+	background-position: left -153px;
 }
 
 .RoundConerViolet .WindowBarRight {
-	padding-right: 13px ;
-  height: 32px;
-  background-image: url('background/RoundConerViolet.png');
-  background-repeat: no-repeat;
-  background-position: right -121px;
+	padding-right: 13px;
+	height: 32px;
+	background-image: url('background/RoundConerViolet.png');
+	background-repeat: no-repeat;
+	background-position: right -121px;
 }
 
 .RoundConerViolet .WindowBarCenter {
-	height: 32px ;
-  background: url('background/RoundConerViolet.png') repeat-x;
-  background-position: left -90px;
+	height: 32px;
+	background: url('background/RoundConerViolet.png') repeat-x;
+	background-position: left -90px;
 }
 
 .RoundConerViolet .MiddleDecoratorLeft {
-	padding-left: 13px ;
-  background: url('background/MRoundConerViolet.png') repeat-y left ;
+	padding-left: 13px;
+	background: url('background/MRoundConerViolet.png') repeat-y left;
 }
 
 .RoundConerViolet .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRoundConerViolet.png') repeat-y right ;
+	background: url('background/MRoundConerViolet.png') repeat-y right;
 }
 
 .RoundConerViolet .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .RoundConerViolet .BottomDecoratorLeft {
-	padding-left: 13px ;
-  background-image: url('background/RoundConerViolet.png');
-  background-repeat: no-repeat;
-  background-position: left -60px;
+	padding-left: 13px;
+	background-image: url('background/RoundConerViolet.png');
+	background-repeat: no-repeat;
+	background-position: left -60px;
 }
 
 .RoundConerViolet .BottomDecoratorRight {
-  padding-right: 13px ;
-  background-image: url('background/RoundConerViolet.png');
-  background-repeat: no-repeat;
-  background-position: right -30px;
+	padding-right: 13px;
+	background-image: url('background/RoundConerViolet.png');
+	background-repeat: no-repeat;
+	background-position: right -30px;
 }
 
 .RoundConerViolet .BottomDecoratorCenter {
-	height: 30px ;
-  background: url('background/RoundConerViolet.png') repeat-x ;
-  background-position: top;
+	height: 30px;
+	background: url('background/RoundConerViolet.png') repeat-x;
+	background-position: top;
 }
 
 /*------------------------------- RoundConerOrange ----------------------------------*/
 
 .RoundConerOrange .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .RoundConerOrange .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 7px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/RoundConerOrange.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 10px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/RoundConerOrange.png');
 }
 
 .RoundConerOrange .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .RoundConerOrange .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 10px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerOrange .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .RoundConerOrange .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 7px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 24px;
+	float: left;
+	margin: 7px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 24px;
 }
 
 .RoundConerOrange .WindowPortletControl .ArrowDownIcon {
-  background-position: center 24px;
+	background-position: center 21px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 117px;
 }
 
 .RoundConerOrange .WindowPortletControl .MinimizedIcon {
-	background-position: center 48px;
+	background-position: center 45px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverMinimizedIcon {
-	background-position: center 144px;
+	background-position: center 141px;
 }
 
 .RoundConerOrange .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 69px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverMaximizedIcon {
-	background-position: center 168px;
+	background-position: center 165px;
 }
 
 .RoundConerOrange .WindowPortletControl .RestoreIcon {
-	background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerOrange .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerOrange .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerOrange .WindowBarLeft {
-	padding-left: 13px ;
-  height: 32px;
-  background-image: url('background/RoundConerOrange.png');
-  background-repeat: no-repeat;
-  background-position: left -153px;
+	padding-left: 13px;
+	height: 32px;
+	background-image: url('background/RoundConerOrange.png');
+	background-repeat: no-repeat;
+	background-position: left -153px;
 }
 
 .RoundConerOrange .WindowBarRight {
-	padding-right: 13px ;
-  height: 32px;
-  background-image: url('background/RoundConerOrange.png');
-  background-repeat: no-repeat;
-  background-position: right -121px;
+	padding-right: 13px;
+	height: 32px;
+	background-image: url('background/RoundConerOrange.png');
+	background-repeat: no-repeat;
+	background-position: right -121px;
 }
 
 .RoundConerOrange .WindowBarCenter {
-	height: 32px ;
-  background: url('background/RoundConerOrange.png') repeat-x;
-  background-position: left -90px;
+	height: 32px;
+	background: url('background/RoundConerOrange.png') repeat-x;
+	background-position: left -90px;
 }
 
 .RoundConerOrange .MiddleDecoratorLeft {
-	padding-left: 13px ;
-  background: url('background/MRoundConerOrange.png') repeat-y left ;
+	padding-left: 13px;
+	background: url('background/MRoundConerOrange.png') repeat-y left;
 }
 
 .RoundConerOrange .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRoundConerOrange.png') repeat-y right ;
+	background: url('background/MRoundConerOrange.png') repeat-y right;
 }
 
 .RoundConerOrange .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .RoundConerOrange .BottomDecoratorLeft {
-	padding-left: 13px ;
-  background-image: url('background/RoundConerOrange.png');
-  background-repeat: no-repeat;
-  background-position: left -60px;
+	padding-left: 13px;
+	background-image: url('background/RoundConerOrange.png');
+	background-repeat: no-repeat;
+	background-position: left -60px;
 }
 
 .RoundConerOrange .BottomDecoratorRight {
-  padding-right: 13px ;
-  background-image: url('background/RoundConerOrange.png');
-  background-repeat: no-repeat;
-  background-position: right -30px;
+	padding-right: 13px;
+	background-image: url('background/RoundConerOrange.png');
+	background-repeat: no-repeat;
+	background-position: right -30px;
 }
 
 .RoundConerOrange .BottomDecoratorCenter {
-	height: 30px ;
-  background: url('background/RoundConerOrange.png') repeat-x ;
-  background-position: top;
+	height: 30px;
+	background: url('background/RoundConerOrange.png') repeat-x;
+	background-position: top;
 }
 
 /*------------------------------- RoundConerPink ----------------------------------*/
 
 .RoundConerPink .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .RoundConerPink .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 7px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/RoundConerPink.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 10px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/RoundConerPink.png');
 }
 
 .RoundConerPink .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .RoundConerPink .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 10px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerPink .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .RoundConerPink .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 7px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 24px;
+	float: left;
+	margin: 7px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 24px;
 }
 
 .RoundConerPink .WindowPortletControl .ArrowDownIcon {
-  background-position: center 24px;
+	background-position: center 21px;
 }
 
 .RoundConerPink .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 117px;
 }
 
 .RoundConerPink .WindowPortletControl .MinimizedIcon {
-	background-position: center 48px;
+	background-position: center 45px;
 }
 
 .RoundConerPink .WindowPortletControl .OverMinimizedIcon {
-	background-position: center 144px;
+	background-position: center 141px;
 }
 
 .RoundConerPink .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 69px;
 }
 
 .RoundConerPink .WindowPortletControl .OverMaximizedIcon {
-	background-position: center 168px;
+	background-position: center 165px;
 }
 
 .RoundConerPink .WindowPortletControl .RestoreIcon {
-	background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerPink .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerPink .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerPink .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerPink .WindowBarLeft {
-	padding-left: 13px ;
-  height: 32px;
-  background-image: url('background/RoundConerPink.png');
-  background-repeat: no-repeat;
-  background-position: left -153px;
+	padding-left: 13px;
+	height: 32px;
+	background-image: url('background/RoundConerPink.png');
+	background-repeat: no-repeat;
+	background-position: left -153px;
 }
 
 .RoundConerPink .WindowBarRight {
-	padding-right: 13px ;
-  height: 32px;
-  background-image: url('background/RoundConerPink.png');
-  background-repeat: no-repeat;
-  background-position: right -121px;
+	padding-right: 13px;
+	height: 32px;
+	background-image: url('background/RoundConerPink.png');
+	background-repeat: no-repeat;
+	background-position: right -121px;
 }
 
 .RoundConerPink .WindowBarCenter {
-	height: 32px ;
-  background: url('background/RoundConerPink.png') repeat-x;
-  background-position: left -90px;
+	height: 32px;
+	background: url('background/RoundConerPink.png') repeat-x;
+	background-position: left -90px;
 }
 
 .RoundConerPink .MiddleDecoratorLeft {
-	padding-left: 13px ;
-  background: url('background/MRoundConerPink.png') repeat-y left ;
+	padding-left: 13px;
+	background: url('background/MRoundConerPink.png') repeat-y left;
 }
 
 .RoundConerPink .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRoundConerPink.png') repeat-y right ;
+	background: url('background/MRoundConerPink.png') repeat-y right;
 }
 
 .RoundConerPink .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .RoundConerPink .BottomDecoratorLeft {
-	padding-left: 13px ;
-  background-image: url('background/RoundConerPink.png');
-  background-repeat: no-repeat;
-  background-position: left -60px;
+	padding-left: 13px;
+	background-image: url('background/RoundConerPink.png');
+	background-repeat: no-repeat;
+	background-position: left -60px;
 }
 
 .RoundConerPink .BottomDecoratorRight {
-  padding-right: 13px ;
-  background-image: url('background/RoundConerPink.png');
-  background-repeat: no-repeat;
-  background-position: right -30px;
+	padding-right: 13px;
+	background-image: url('background/RoundConerPink.png');
+	background-repeat: no-repeat;
+	background-position: right -30px;
 }
 
 .RoundConerPink .BottomDecoratorCenter {
-	height: 30px ;
-  background: url('background/RoundConerPink.png') repeat-x ;
-  background-position: top;
+	height: 30px;
+	background: url('background/RoundConerPink.png') repeat-x;
+	background-position: top;
 }
 
 /*------------------------------- RoundConerGreen ----------------------------------*/
 
 .RoundConerGreen .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .RoundConerGreen .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 7px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/RoundConerGreen.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 10px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/RoundConerGreen.png');
 }
 
 .RoundConerGreen .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .RoundConerGreen .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 10px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerGreen .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .RoundConerGreen .WindowPortletInfo .PortletName {
-  float: left ;
-  margin: 7px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 24px;
+	float: left;
+	margin: 7px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 24px;
 }
 
 .RoundConerGreen .WindowPortletControl .ArrowDownIcon {
-  background-position: center 24px;
+	background-position: center 21px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 117px;
 }
 
 .RoundConerGreen .WindowPortletControl .MinimizedIcon {
-	background-position: center 48px;
+	background-position: center 45px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverMinimizedIcon {
-	background-position: center 144px;
+	background-position: center 141px;
 }
 
 .RoundConerGreen .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 69px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverMaximizedIcon {
-	background-position: center 168px;
+	background-position: center 165px;
 }
 
 .RoundConerGreen .WindowPortletControl .RestoreIcon {
-	background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerGreen .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 93px;
 }
 
 .RoundConerGreen .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 189px;
 }
 
 .RoundConerGreen .WindowBarLeft {
-	padding-left: 13px ;
-  height: 32px;
-  background-image: url('background/RoundConerGreen.png');
-  background-repeat: no-repeat;
-  background-position: left -153px;
+	padding-left: 13px;
+	height: 32px;
+	background-image: url('background/RoundConerGreen.png');
+	background-repeat: no-repeat;
+	background-position: left -153px;
 }
 
 .RoundConerGreen .WindowBarRight {
-	padding-right: 13px ;
-  height: 32px;
-  background-image: url('background/RoundConerGreen.png');
-  background-repeat: no-repeat;
-  background-position: right -121px;
+	padding-right: 13px;
+	height: 32px;
+	background-image: url('background/RoundConerGreen.png');
+	background-repeat: no-repeat;
+	background-position: right -121px;
 }
 
 .RoundConerGreen .WindowBarCenter {
-	height: 32px ;
-  background: url('background/RoundConerGreen.png') repeat-x;
-  background-position: left -90px;
+	height: 32px;
+	background: url('background/RoundConerGreen.png') repeat-x;
+	background-position: left -90px;
 }
 
 .RoundConerGreen .MiddleDecoratorLeft {
-	padding-left: 13px ;
-  background: url('background/MRoundConerGreen.png') repeat-y left ;
+	padding-left: 13px;
+	background: url('background/MRoundConerGreen.png') repeat-y left;
 }
 
 .RoundConerGreen .MiddleDecoratorRight {
 	padding-right: 13px;
-  background: url('background/MRoundConerGreen.png') repeat-y right ;
+	background: url('background/MRoundConerGreen.png') repeat-y right;
 }
 
 .RoundConerGreen .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .RoundConerGreen .BottomDecoratorLeft {
-	padding-left: 13px ;
-  background-image: url('background/RoundConerGreen.png');
-  background-repeat: no-repeat;
-  background-position: left -60px;
+	padding-left: 13px;
+	background-image: url('background/RoundConerGreen.png');
+	background-repeat: no-repeat;
+	background-position: left -60px;
 }
 
 .RoundConerGreen .BottomDecoratorRight {
-  padding-right: 13px ;
-  background-image: url('background/RoundConerGreen.png');
-  background-repeat: no-repeat;
-  background-position: right -30px;
+	padding-right: 13px;
+	background-image: url('background/RoundConerGreen.png');
+	background-repeat: no-repeat;
+	background-position: right -30px;
 }
 
 .RoundConerGreen .BottomDecoratorCenter {
-	height: 30px ;
-  background: url('background/RoundConerGreen.png') repeat-x ;
-  background-position: top;
+	height: 30px;
+	background: url('background/RoundConerGreen.png') repeat-x;
+	background-position: top;
 }
 
 /*-------------------------- ShadowBlue ---------------------------*/
 
 .ShadowBlue .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .ShadowBlue .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 5px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/ShadowBlue.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 9px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/ShadowBlue.png');
 }
 
 .ShadowBlue .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .ShadowBlue .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowBlue .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .ShadowBlue .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 10px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 16px;
+	float: left;
+	padding: 10px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 16px;
 }
 
 .ShadowBlue .WindowPortletControl .ArrowDownIcon {
-  background-position: center bottom;
+	background-position: center 20px;
 }
 
 .ShadowBlue .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 116px;
 }
 
 .ShadowBlue .WindowPortletControl .MinimizedIcon {
-  background-position: center 48px;
+	background-position: center 44px;
 }
 
 .ShadowBlue .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 144px;
+	background-position: center 140px;
 }
 
 .ShadowBlue .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 68px;
 }
 
 .ShadowBlue .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 168px;
+	background-position: center 164px;
 }
 
 .ShadowBlue .WindowPortletControl .RestoreIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowBlue .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowBlue .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowBlue .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowBlue .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background-image: url('background/ShadowBlue.png');
-  background-repeat: no-repeat;
-  background-position: left -142px;
+	padding-left: 11px;
+	height: 29px;
+	background-image: url('background/ShadowBlue.png');
+	background-repeat: no-repeat;
+	background-position: left -142px;
 }
 
 .ShadowBlue .WindowBarRight {
-	padding-right: 10px ;
-  height: 29px;
+	padding-right: 10px;
+	height: 29px;
  	background-image: url('background/ShadowBlue.png');
-  background-repeat: no-repeat;
-  background-position: right -113px;
+	background-repeat: no-repeat;
+	background-position: right -113px;
 }
 
 .ShadowBlue .WindowBarCenter {
-	height: 29px ;
-  background-image: url('background/ShadowBlue.png');
-  background-repeat: repeat-x;
-  background-position: center -84px;
+	height: 29px;
+	background-image: url('background/ShadowBlue.png');
+	background-repeat: repeat-x;
+	background-position: center -84px;
 }
 
 .ShadowBlue .MiddleDecoratorLeft {
-	padding-left: 11px ;
-  background: url('background/MShadowBlue.png') repeat-y left ;
+	padding-left: 11px;
+	background: url('background/MShadowBlue.png') repeat-y left;
 }
 
 .ShadowBlue .MiddleDecoratorRight {
 	padding-right: 10px;
-  background: url('background/MShadowBlue.png') repeat-y right ;
+	background: url('background/MShadowBlue.png') repeat-y right;
 }
 
 .ShadowBlue .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .ShadowBlue .BottomDecoratorLeft {
 	padding-left: 11px;
-  background-image: url('background/ShadowBlue.png');
-  background-repeat: no-repeat;
-  background-position: left -56px;
+	background-image: url('background/ShadowBlue.png');
+	background-repeat: no-repeat;
+	background-position: left -56px;
 }
 
 .ShadowBlue .BottomDecoratorRight {
 	padding-right: 10px;
-  background-image: url('background/ShadowBlue.png');
-  background-repeat: no-repeat;
-  background-position: right -28px;
+	background-image: url('background/ShadowBlue.png');
+	background-repeat: no-repeat;
+	background-position: right -28px;
 }
 
 .ShadowBlue .BottomDecoratorCenter {
 	height: 28px;
-  background-image: url('background/ShadowBlue.png');
-  background-repeat: repeat-x;
-  background-position: center top;
+	background-image: url('background/ShadowBlue.png');
+	background-repeat: repeat-x;
+	background-position: center top;
 }
 
 /*------------------------------ ShadowViolet -----------------------------------*/
 
 .ShadowViolet .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .ShadowViolet .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 5px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/ShadowViolet.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 9px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/ShadowViolet.png');
 }
 
 .ShadowViolet .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .ShadowViolet .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowViolet .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .ShadowViolet .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 10px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 16px;
+	float: left;
+	padding: 10px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 16px;
 }
 
 .ShadowViolet .WindowPortletControl .ArrowDownIcon {
-  background-position: center bottom;
+	background-position: center 20px;
 }
 
 .ShadowViolet .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 116px;
 }
 
 .ShadowViolet .WindowPortletControl .MinimizedIcon {
-  background-position: center 48px;
+	background-position: center 44px;
 }
 
 .ShadowViolet .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 144px;
+	background-position: center 140px;
 }
 
 .ShadowViolet .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 68px;
 }
 
 .ShadowViolet .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 168px;
+	background-position: center 164px;
 }
 
 .ShadowViolet .WindowPortletControl .RestoreIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowViolet .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowViolet .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowViolet .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowViolet .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background-image: url('background/ShadowViolet.png');
-  background-repeat: no-repeat;
-  background-position: left -142px;
+	padding-left: 11px;
+	height: 29px;
+	background-image: url('background/ShadowViolet.png');
+	background-repeat: no-repeat;
+	background-position: left -142px;
 }
 
 .ShadowViolet .WindowBarRight {
-	padding-right: 10px ;
-  height: 29px;
+	padding-right: 10px;
+	height: 29px;
  	background-image: url('background/ShadowViolet.png');
-  background-repeat: no-repeat;
-  background-position: right -113px;
+	background-repeat: no-repeat;
+	background-position: right -113px;
 }
 
 .ShadowViolet .WindowBarCenter {
-	height: 29px ;
-  background-image: url('background/ShadowViolet.png');
-  background-repeat: repeat-x;
-  background-position: center -84px;
+	height: 29px;
+	background-image: url('background/ShadowViolet.png');
+	background-repeat: repeat-x;
+	background-position: center -84px;
 }
 
 .ShadowViolet .MiddleDecoratorLeft {
-	padding-left: 11px ;
-  background: url('background/MShadowViolet.png') repeat-y left ;
+	padding-left: 11px;
+	background: url('background/MShadowViolet.png') repeat-y left;
 }
 
 .ShadowViolet .MiddleDecoratorRight {
 	padding-right: 10px;
-  background: url('background/MShadowViolet.png') repeat-y right ;
+	background: url('background/MShadowViolet.png') repeat-y right;
 }
 
 .ShadowViolet .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .ShadowViolet .BottomDecoratorLeft {
 	padding-left: 11px;
-  background-image: url('background/ShadowViolet.png');
-  background-repeat: no-repeat;
-  background-position: left -56px;
+	background-image: url('background/ShadowViolet.png');
+	background-repeat: no-repeat;
+	background-position: left -56px;
 }
 
 .ShadowViolet .BottomDecoratorRight {
 	padding-right: 10px;
-  background-image: url('background/ShadowViolet.png');
-  background-repeat: no-repeat;
-  background-position: right -28px;
+	background-image: url('background/ShadowViolet.png');
+	background-repeat: no-repeat;
+	background-position: right -28px;
 }
 
 .ShadowViolet .BottomDecoratorCenter {
 	height: 28px;
-  background-image: url('background/ShadowViolet.png');
-  background-repeat: repeat-x;
-  background-position: center top;
+	background-image: url('background/ShadowViolet.png');
+	background-repeat: repeat-x;
+	background-position: center top;
 }
 
 /*------------------------------ ShadowOrange -----------------------------------*/
 
 
 .ShadowOrange .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .ShadowOrange .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 5px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/ShadowOrange.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 9px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/ShadowOrange.png');
 }
 
 .ShadowOrange .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .ShadowOrange .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowOrange .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .ShadowOrange .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 10px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 16px;
+	float: left;
+	padding: 10px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 16px;
 }
 
 .ShadowOrange .WindowPortletControl .ArrowDownIcon {
-  background-position: center bottom;
+	background-position: center 20px;
 }
 
 .ShadowOrange .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 116px;
 }
 
 .ShadowOrange .WindowPortletControl .MinimizedIcon {
-  background-position: center 48px;
+	background-position: center 44px;
 }
 
 .ShadowOrange .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 144px;
+	background-position: center 140px;
 }
 
 .ShadowOrange .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 68px;
 }
 
 .ShadowOrange .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 168px;
+	background-position: center 164px;
 }
 
 .ShadowOrange .WindowPortletControl .RestoreIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowOrange .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowOrange .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowOrange .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowOrange .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background-image: url('background/ShadowOrange.png');
-  background-repeat: no-repeat;
-  background-position: left -142px;
+	padding-left: 11px;
+	height: 29px;
+	background-image: url('background/ShadowOrange.png');
+	background-repeat: no-repeat;
+	background-position: left -142px;
 }
 
 .ShadowOrange .WindowBarRight {
-	padding-right: 10px ;
-  height: 29px;
+	padding-right: 10px;
+	height: 29px;
  	background-image: url('background/ShadowOrange.png');
-  background-repeat: no-repeat;
-  background-position: right -113px;
+	background-repeat: no-repeat;
+	background-position: right -113px;
 }
 
 .ShadowOrange .WindowBarCenter {
-	height: 29px ;
-  background-image: url('background/ShadowOrange.png');
-  background-repeat: repeat-x;
-  background-position: center -84px;
+	height: 29px;
+	background-image: url('background/ShadowOrange.png');
+	background-repeat: repeat-x;
+	background-position: center -84px;
 }
 
 .ShadowOrange .MiddleDecoratorLeft {
-	padding-left: 11px ;
-  background: url('background/MShadowOrange.png') repeat-y left ;
+	padding-left: 11px;
+	background: url('background/MShadowOrange.png') repeat-y left;
 }
 
 .ShadowOrange .MiddleDecoratorRight {
 	padding-right: 10px;
-  background: url('background/MShadowOrange.png') repeat-y right ;
+	background: url('background/MShadowOrange.png') repeat-y right;
 }
 
 .ShadowOrange .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .ShadowOrange .BottomDecoratorLeft {
 	padding-left: 11px;
-  background-image: url('background/ShadowOrange.png');
-  background-repeat: no-repeat;
-  background-position: left -56px;
+	background-image: url('background/ShadowOrange.png');
+	background-repeat: no-repeat;
+	background-position: left -56px;
 }
 
 .ShadowOrange .BottomDecoratorRight {
 	padding-right: 10px;
-  background-image: url('background/ShadowOrange.png');
-  background-repeat: no-repeat;
-  background-position: right -28px;
+	background-image: url('background/ShadowOrange.png');
+	background-repeat: no-repeat;
+	background-position: right -28px;
 }
 
 .ShadowOrange .BottomDecoratorCenter {
 	height: 28px;
-  background-image: url('background/ShadowOrange.png');
-  background-repeat: repeat-x;
-  background-position: center top;
+	background-image: url('background/ShadowOrange.png');
+	background-repeat: repeat-x;
+	background-position: center top;
 }
 
 /*------------------------------ ShadowPink -----------------------------------*/
 
 
 .ShadowPink .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .ShadowPink .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 5px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/ShadowPink.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 9px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/ShadowPink.png');
 }
 
 .ShadowPink .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .ShadowPink .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowPink .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .ShadowPink .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 10px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 16px;
+	float: left;
+	padding: 10px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 16px;
 }
 
 .ShadowPink .WindowPortletControl .ArrowDownIcon {
-  background-position: center bottom;
+	background-position: center 20px;
 }
 
 .ShadowPink .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 116px;
 }
 
 .ShadowPink .WindowPortletControl .MinimizedIcon {
-  background-position: center 48px;
+	background-position: center 44px;
 }
 
 .ShadowPink .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 144px;
+	background-position: center 140px;
 }
 
 .ShadowPink .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 68px;
 }
 
 .ShadowPink .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 168px;
+	background-position: center 164px;
 }
 
 .ShadowPink .WindowPortletControl .RestoreIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowPink .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowPink .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowPink .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowPink .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background-image: url('background/ShadowPink.png');
-  background-repeat: no-repeat;
-  background-position: left -142px;
+	padding-left: 11px;
+	height: 29px;
+	background-image: url('background/ShadowPink.png');
+	background-repeat: no-repeat;
+	background-position: left -142px;
 }
 
 .ShadowPink .WindowBarRight {
-	padding-right: 10px ;
-  height: 29px;
+	padding-right: 10px;
+	height: 29px;
  	background-image: url('background/ShadowPink.png');
-  background-repeat: no-repeat;
-  background-position: right -113px;
+	background-repeat: no-repeat;
+	background-position: right -113px;
 }
 
 .ShadowPink .WindowBarCenter {
-	height: 29px ;
-  background-image: url('background/ShadowPink.png');
-  background-repeat: repeat-x;
-  background-position: center -84px;
+	height: 29px;
+	background-image: url('background/ShadowPink.png');
+	background-repeat: repeat-x;
+	background-position: center -84px;
 }
 
 .ShadowPink .MiddleDecoratorLeft {
-	padding-left: 11px ;
-  background: url('background/MShadowPink.png') repeat-y left ;
+	padding-left: 11px;
+	background: url('background/MShadowPink.png') repeat-y left;
 }
 
 .ShadowPink .MiddleDecoratorRight {
 	padding-right: 10px;
-  background: url('background/MShadowPink.png') repeat-y right ;
+	background: url('background/MShadowPink.png') repeat-y right;
 }
 
 .ShadowPink .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .ShadowPink .BottomDecoratorLeft {
 	padding-left: 11px;
-  background-image: url('background/ShadowPink.png');
-  background-repeat: no-repeat;
-  background-position: left -56px;
+	background-image: url('background/ShadowPink.png');
+	background-repeat: no-repeat;
+	background-position: left -56px;
 }
 
 .ShadowPink .BottomDecoratorRight {
 	padding-right: 10px;
-  background-image: url('background/ShadowPink.png');
-  background-repeat: no-repeat;
-  background-position: right -28px;
+	background-image: url('background/ShadowPink.png');
+	background-repeat: no-repeat;
+	background-position: right -28px;
 }
 
 .ShadowPink .BottomDecoratorCenter {
 	height: 28px;
-  background-image: url('background/ShadowPink.png');
-  background-repeat: repeat-x;
-  background-position: center top;
+	background-image: url('background/ShadowPink.png');
+	background-repeat: repeat-x;
+	background-position: center top;
 }
 
 /*------------------------------ ShadowGreen -----------------------------------*/
 
 
 .ShadowGreen .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .ShadowGreen .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 24px ; height: 24px ;
-  margin: 5px 0px 0px 0px ;
-  cursor: pointer ;
-  background-image: url('background/ShadowGreen.png');
+	float: left;
+	width: 20px; height: 16px;
+	margin: 9px 2px 0px 0px;
+	cursor: pointer;
+	background-image: url('background/ShadowGreen.png');
 }
 
 .ShadowGreen .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .ShadowGreen .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 8px 0px 0px 0px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowGreen .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .ShadowGreen .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 10px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-  line-height: 16px;
+	float: left;
+	padding: 10px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
+	line-height: 16px;
 }
 
 .ShadowGreen .WindowPortletControl .ArrowDownIcon {
-  background-position: center bottom;
+	background-position: center 20px;
 }
 
 .ShadowGreen .WindowPortletControl .OverArrowDownIcon {
-  background-position: center 120px;
+	background-position: center 116px;
 }
 
 .ShadowGreen .WindowPortletControl .MinimizedIcon {
-  background-position: center 48px;
+	background-position: center 44px;
 }
 
 .ShadowGreen .WindowPortletControl .OverMinimizedIcon {
-  background-position: center 144px;
+	background-position: center 140px;
 }
 
 .ShadowGreen .WindowPortletControl .MaximizedIcon {
-  background-position: center 72px;
+	background-position: center 68px;
 }
 
 .ShadowGreen .WindowPortletControl .OverMaximizedIcon {
-  background-position: center 168px;
+	background-position: center 164px;
 }
 
 .ShadowGreen .WindowPortletControl .RestoreIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowGreen .WindowPortletControl .OverRestoreIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowGreen .WindowPortletControl .NormalIcon {
-  background-position: center 96px;
+	background-position: center 92px;
 }
 
 .ShadowGreen .WindowPortletControl .OverNormalIcon {
-  background-position: center 192px;
+	background-position: center 188px;
 }
 
 .ShadowGreen .WindowBarLeft {
-	padding-left: 11px ;
-  height: 29px;
-  background-image: url('background/ShadowGreen.png');
-  background-repeat: no-repeat;
-  background-position: left -142px;
+	padding-left: 11px;
+	height: 29px;
+	background-image: url('background/ShadowGreen.png');
+	background-repeat: no-repeat;
+	background-position: left -142px;
 }
 
 .ShadowGreen .WindowBarRight {
-	padding-right: 10px ;
-  height: 29px;
+	padding-right: 10px;
+	height: 29px;
  	background-image: url('background/ShadowGreen.png');
-  background-repeat: no-repeat;
-  background-position: right -113px;
+	background-repeat: no-repeat;
+	background-position: right -113px;
 }
 
 .ShadowGreen .WindowBarCenter {
-	height: 29px ;
-  background-image: url('background/ShadowGreen.png');
-  background-repeat: repeat-x;
-  background-position: center -84px;
+	height: 29px;
+	background-image: url('background/ShadowGreen.png');
+	background-repeat: repeat-x;
+	background-position: center -84px;
 }
 
 .ShadowGreen .MiddleDecoratorLeft {
-	padding-left: 11px ;
-  background: url('background/MShadowGreen.png') repeat-y left ;
+	padding-left: 11px;
+	background: url('background/MShadowGreen.png') repeat-y left;
 }
 
 .ShadowGreen .MiddleDecoratorRight {
 	padding-right: 10px;
-  background: url('background/MShadowGreen.png') repeat-y right ;
+	background: url('background/MShadowGreen.png') repeat-y right;
 }
 
 .ShadowGreen .MiddleDecoratorCenter {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .ShadowGreen .BottomDecoratorLeft {
 	padding-left: 11px;
-  background-image: url('background/ShadowGreen.png');
-  background-repeat: no-repeat;
-  background-position: left -56px;
+	background-image: url('background/ShadowGreen.png');
+	background-repeat: no-repeat;
+	background-position: left -56px;
 }
 
 .ShadowGreen .BottomDecoratorRight {
 	padding-right: 10px;
-  background-image: url('background/ShadowGreen.png');
-  background-repeat: no-repeat;
-  background-position: right -28px;
+	background-image: url('background/ShadowGreen.png');
+	background-repeat: no-repeat;
+	background-position: right -28px;
 }
 
 .ShadowGreen .BottomDecoratorCenter {
 	height: 28px;
-  background-image: url('background/ShadowGreen.png');
-  background-repeat: repeat-x;
-  background-position: center top;
+	background-image: url('background/ShadowGreen.png');
+	background-repeat: repeat-x;
+	background-position: center top;
 }
 
 /*------------------------------ SimpleBlue -----------------------------------*/
 
 .SimpleBlue .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .SimpleBlue .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 16px ; height: 16px ;
-  margin: 1px 2px 0px 0px ;
-  cursor: pointer ;
-  background-position: center;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 1px 2px 0px 0px;
+	cursor: pointer;
+	background-position: center;
 }
 
 .SimpleBlue .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .SimpleBlue .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 0px 0px 0px 2px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 0px 0px 0px 2px;
 }
 
 .UIPageDesktop .SimpleBlue .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .SimpleBlue .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 0px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
+	float: left;
+	padding: 0px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
 }
 
 .SimpleBlue .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 976px;
+	background: url('icons/ControlIcons.gif') left 976px;
 }
 
 .SimpleBlue .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 976px;
+	background: url('icons/ControlIcons.gif') right 976px;
 }
 
 .SimpleBlue .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 992px;
+	background: url('icons/ControlIcons.gif') left 992px;
 }
 
 .SimpleBlue .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 992px;
+	background: url('icons/ControlIcons.gif') right 992px;
 }
 
 .SimpleBlue .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 1008px;
+	background: url('icons/ControlIcons.gif') left 1008px;
 }
 
 .SimpleBlue .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 1008px;
+	background: url('icons/ControlIcons.gif') right 1008px;
 }
 
 .SimpleBlue .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 1024px;
+	background: url('icons/ControlIcons.gif') left 1024px;
 }
 
 .SimpleBlue .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/24x24/ControlIcons.gif') right 1024px;
+	background: url('icons/24x24/ControlIcons.gif') right 1024px;
 }
 
 .SimpleBlue .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 1024px;
+	background: url('icons/ControlIcons.gif') left 1024px;
 }
 
 .SimpleBlue .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 1024px;
+	background: url('icons/ControlIcons.gif') right 1024px;
 }
 
 .SimpleBlue .WindowBarLeft {
@@ -2560,9 +2564,9 @@
 }
 
 .SimpleBlue .WindowBarCenter {
-	height: 18px ;
+	height: 18px;
 	line-height: 18px;
-  background: #b0c0f5 ;
+	background: #b0c0f5;
 }
 
 .SimpleBlue .MiddleDecoratorLeft {
@@ -2579,8 +2583,8 @@
 .SimpleBlue .MiddleDecoratorCenter {
 	border: 1px solid #4a67b1;
 	border-bottom: none;
-  background: #ffffff ;
-  padding: 1px;
+	background: #ffffff;
+	padding: 1px;
 }
 
 .SimpleBlue .BottomDecoratorLeft {
@@ -2597,90 +2601,90 @@
 .SimpleBlue .BottomDecoratorCenter {
 	border: 1px solid #4a67b1;
 	border-top: none;
-	background: white url('background/BLShadow1x19.gif') repeat-x ; 
+	background: white url('background/BLShadow1x19.gif') repeat-x; 
 	height: 19px;
 }
 
 /*------------------------------ SimpleViolet -----------------------------------*/
 
 .SimpleViolet .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .SimpleViolet .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 16px ; height: 16px ;
-  margin: 1px 2px 0px 0px ;
-  cursor: pointer ;
-  background-position: center;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 1px 2px 0px 0px;
+	cursor: pointer;
+	background-position: center;
 }
 
 .SimpleViolet .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .SimpleViolet .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 0px 0px 0px 2px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 0px 0px 0px 2px;
 }
 
 .UIPageDesktop .SimpleViolet .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .SimpleViolet .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 0px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
+	float: left;
+	padding: 0px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
 }
 
 .SimpleViolet .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 1040px;
+	background: url('icons/ControlIcons.gif') left 1040px;
 }
 
 .SimpleViolet .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 1040px;
+	background: url('icons/ControlIcons.gif') right 1040px;
 }
 
 .SimpleViolet .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 1056px;
+	background: url('icons/ControlIcons.gif') left 1056px;
 }
 
 .SimpleViolet .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 1056px;
+	background: url('icons/ControlIcons.gif') right 1056px;
 }
 
 .SimpleViolet .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 1072px;
+	background: url('icons/ControlIcons.gif') left 1072px;
 }
 
 .SimpleViolet .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 1072px;
+	background: url('icons/ControlIcons.gif') right 1072px;
 }
 
 .SimpleViolet .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 1088px;
+	background: url('icons/ControlIcons.gif') left 1088px;
 }
 
 .SimpleViolet .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif') right 1088px;
+	background: url('icons/ControlIcons.gif') right 1088px;
 }
 
 .SimpleViolet .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 1088px;
+	background: url('icons/ControlIcons.gif') left 1088px;
 }
 
 .SimpleViolet .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 1088px;
+	background: url('icons/ControlIcons.gif') right 1088px;
 }
 
 .SimpleViolet .WindowBarLeft {
@@ -2693,9 +2697,9 @@
 }
 
 .SimpleViolet .WindowBarCenter {
-	height: 18px ;
+	height: 18px;
 	line-height: 18px;
-  background: #c4a6ff ;
+	background: #c4a6ff;
 }
 
 .SimpleViolet .MiddleDecoratorLeft {
@@ -2712,8 +2716,8 @@
 .SimpleViolet .MiddleDecoratorCenter {
 	border: 1px solid #5700a9;
 	border-bottom: none;
-  background: #ffffff ;
-  padding: 1px;
+	background: #ffffff;
+	padding: 1px;
 }
 
 .SimpleViolet .BottomDecoratorLeft {
@@ -2729,90 +2733,90 @@
 .SimpleViolet .BottomDecoratorCenter {
 	border: 1px solid #5700a9;
 	border-top: none;
-	background: url('background/BLShadow1x19.gif') repeat-x ; 
+	background: url('background/BLShadow1x19.gif') repeat-x; 
 	height: 19px;
 }
 
 /*------------------------------ SimpleOrange -----------------------------------*/
 
 .SimpleOrange .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .SimpleOrange .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 16px ; height: 16px ;
-  margin: 1px 2px 0px 0px ;
-  cursor: pointer ;
-  background-position: center;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 1px 2px 0px 0px;
+	cursor: pointer;
+	background-position: center;
 }
 
 .SimpleOrange .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .SimpleOrange .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 0px 0px 0px 2px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 0px 0px 0px 2px;
 }
 
 .UIPageDesktop .SimpleOrange .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .SimpleOrange .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 0px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
+	float: left;
+	padding: 0px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
 }
 
 .SimpleOrange .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 1104px;
+	background: url('icons/ControlIcons.gif') left 1104px;
 }
 
 .SimpleOrange .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 1104px;
+	background: url('icons/ControlIcons.gif') right 1104px;
 }
 
 .SimpleOrange .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 1120px;
+	background: url('icons/ControlIcons.gif') left 1120px;
 }
 
 .SimpleOrange .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 1120px;
+	background: url('icons/ControlIcons.gif') right 1120px;
 }
 
 .SimpleOrange .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 1152px;
+	background: url('icons/ControlIcons.gif') left 1152px;
 }
 
 .SimpleOrange .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 1152px ;
+	background: url('icons/ControlIcons.gif') right 1152px;
 }
 
 .SimpleOrange .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 1136px;
+	background: url('icons/ControlIcons.gif') left 1136px;
 }
 
 .SimpleOrange .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/24x24/ControlIcons.gif') right 1136px;
+	background: url('icons/24x24/ControlIcons.gif') right 1136px;
 }
 
 .SimpleOrange .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 1136px;
+	background: url('icons/ControlIcons.gif') left 1136px;
 }
 
 .SimpleOrange .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 1136px;
+	background: url('icons/ControlIcons.gif') right 1136px;
 }
 
 .SimpleOrange .WindowBarLeft {
@@ -2825,9 +2829,9 @@
 }
 
 .SimpleOrange .WindowBarCenter {
-	height: 18px ;
+	height: 18px;
 	line-height: 18px;
-  background: #ffd1a8 ;
+	background: #ffd1a8;
 }
 
 .SimpleOrange .MiddleDecoratorLeft {
@@ -2844,8 +2848,8 @@
 .SimpleOrange .MiddleDecoratorCenter {
 	border: 1px solid #b27a49;
 	border-bottom: none;
-  background: #ffffff ;
-  padding: 1px;
+	background: #ffffff;
+	padding: 1px;
 }
 
 .SimpleOrange .BottomDecoratorLeft {
@@ -2861,90 +2865,90 @@
 .SimpleOrange .BottomDecoratorCenter {
 	border: 1px solid #b27a49;
 	border-top: none;
-	background: url('background/BLShadow1x19.gif') repeat-x ; 
+	background: url('background/BLShadow1x19.gif') repeat-x; 
 	height: 19px;
 }
 
 /*------------------------------ SimplePink -----------------------------------*/
 
 .SimplePink .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .SimplePink .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 16px ; height: 16px ;
-  margin: 1px 2px 0px 0px ;
-  cursor: pointer ;
-  background-position: center;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 1px 2px 0px 0px;
+	cursor: pointer;
+	background-position: center;
 }
 
 .SimplePink .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .SimplePink .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 0px 0px 0px 2px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 0px 0px 0px 2px;
 }
 
 .UIPageDesktop .SimplePink .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .SimplePink .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 0px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
+	float: left;
+	padding: 0px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
 }
 
 .SimplePink .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 1168px;
+	background: url('icons/ControlIcons.gif') left 1168px;
 }
 
 .SimplePink .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 1168px;
+	background: url('icons/ControlIcons.gif') right 1168px;
 }
 
 .SimplePink .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 1184px;
+	background: url('icons/ControlIcons.gif') left 1184px;
 }
 
 .SimplePink .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 1184px;
+	background: url('icons/ControlIcons.gif') right 1184px;
 }
 
 .SimplePink .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 1200px;
+	background: url('icons/ControlIcons.gif') left 1200px;
 }
 
 .SimplePink .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 1200px;
+	background: url('icons/ControlIcons.gif') right 1200px;
 }
 
 .SimplePink .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 1216px;
+	background: url('icons/ControlIcons.gif') left 1216px;
 }
 
 .SimplePink .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif') right 1216px;
+	background: url('icons/ControlIcons.gif') right 1216px;
 }
 
 .SimplePink .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 1216px;
+	background: url('icons/ControlIcons.gif') left 1216px;
 }
 
 .SimplePink .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 1216px;
+	background: url('icons/ControlIcons.gif') right 1216px;
 }
 
 .SimplePink .WindowBarLeft {
@@ -2957,9 +2961,9 @@
 }
 
 .SimplePink .WindowBarCenter {
-	height: 18px ;
+	height: 18px;
 	line-height: 18px;
-  background: #fdd8f9 ;
+	background: #fdd8f9;
 }
 
 .SimplePink .MiddleDecoratorLeft {
@@ -2976,8 +2980,8 @@
 .SimplePink .MiddleDecoratorCenter {
 	border: 1px solid #9a5591;
 	border-bottom: none;
-  background: #ffffff ;
-  padding: 1px;
+	background: #ffffff;
+	padding: 1px;
 }
 
 .SimplePink .BottomDecoratorLeft {
@@ -2993,90 +2997,90 @@
 .SimplePink .BottomDecoratorCenter {
 	border: 1px solid #9a5591;
 	border-top: none;
-	background: url('background/BLShadow1x19.gif') repeat-x ; 
+	background: url('background/BLShadow1x19.gif') repeat-x; 
 	height: 19px;
 }
 
 /*------------------------------ SimpleGreen -----------------------------------*/
 
 .SimpleGreen .WindowPortletControl {
-  float: right ;
+	float: right;
 	padding: 0px 3px 0px 10px;
 }
 
 .SimpleGreen .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 16px ; height: 16px ;
-  margin: 1px 2px 0px 0px ;
-  cursor: pointer ;
-  background-position: center;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 1px 2px 0px 0px;
+	cursor: pointer;
+	background-position: center;
 }
 
 .SimpleGreen .Information {
-  height: 18px ; line-height: 18px ;
-  font-size: 10px ;
-  padding-left: 5px ;
-  margin-right: 18px ;
+	height: 18px; line-height: 18px;
+	font-size: 10px;
+	padding-left: 5px;
+	margin-right: 18px;
 }
 
 .SimpleGreen .WindowPortletInfo .Icon {
-  float: left;
-  width: 16px; height: 16px;
-  margin: 0px 0px 0px 2px;
+	float: left;
+	width: 16px; height: 16px;
+	margin: 0px 0px 0px 2px;
 }
 
 .UIPageDesktop .SimpleGreen .ResizeArea {
-	float: right ;
-  width: 17px ; height: 19px ;
-  cursor: nw-resize ;
-  background: url('background/Resize17x19.png') no-repeat ;
+	float: right;
+	width: 17px; height: 19px;
+	cursor: nw-resize;
+	background: url('background/Resize17x19.png') no-repeat;
 }
 
 .SimpleGreen .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 0px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
+	float: left;
+	padding: 0px 0px 0px 5px;
+	font-weight: bold;
+	color: #333333;
 }
 
 .SimpleGreen .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 1232px;
+	background: url('icons/ControlIcons.gif') left 1232px;
 }
 
 .SimpleGreen .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 1232px;
+	background: url('icons/ControlIcons.gif') right 1232px;
 }
 
 .SimpleGreen .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 1248px;
+	background: url('icons/ControlIcons.gif') left 1248px;
 }
 
 .SimpleGreen .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 1248px;
+	background: url('icons/ControlIcons.gif') right 1248px;
 }
 
 .SimpleGreen .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 1264px;
+	background: url('icons/ControlIcons.gif') left 1264px;
 }
 
 .SimpleGreen .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 1264px;
+	background: url('icons/ControlIcons.gif') right 1264px;
 }
 
 .SimpleGreen .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 1280px;
+	background: url('icons/ControlIcons.gif') left 1280px;
 }
 
 .SimpleGreen .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif') right 1280px;
+	background: url('icons/ControlIcons.gif') right 1280px;
 }
 
 .SimpleGreen .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 1280px;
+	background: url('icons/ControlIcons.gif') left 1280px;
 }
 
 .SimpleGreen .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 1280px;
+	background: url('icons/ControlIcons.gif') right 1280px;
 }
 
 .SimpleGreen .WindowBarLeft {
@@ -3089,9 +3093,9 @@
 }
 
 .SimpleGreen .WindowBarCenter {
-	height: 18px ;
+	height: 18px;
 	line-height: 18px;
-  background: #a3d0ff;
+	background: #a3d0ff;
 }
 
 .SimpleGreen .MiddleDecoratorLeft {
@@ -3108,8 +3112,8 @@
 .SimpleGreen .MiddleDecoratorCenter {
 	border: 1px solid #4c717e;
 	border-bottom: none;
-  background: #ffffff ;
-  padding: 1px;
+	background: #ffffff;
+	padding: 1px;
 }
 
 .SimpleGreen .BottomDecoratorLeft {
@@ -3125,6 +3129,6 @@
 .SimpleGreen .BottomDecoratorCenter {
 	border: 1px solid #4c717e;
 	border-top: none;
-	background: url('background/BLShadow1x19.gif') repeat-x ; 
+	background: url('background/BLShadow1x19.gif') repeat-x; 
 	height: 19px;
 }
