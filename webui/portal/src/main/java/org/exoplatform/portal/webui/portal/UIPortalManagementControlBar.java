@@ -63,7 +63,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
     PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);    
     UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);     
     configService.update(portalConfig);
-    
+    uiPortalApp.getUserPortalConfig().setPortal(portalConfig) ;
     PortalRequestContext prContext = Util.getPortalRequestContext();
     String remoteUser = prContext.getRemoteUser();
     String ownerUser = prContext.getPortalOwner();   
