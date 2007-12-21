@@ -1,10 +1,10 @@
 <html>
   <head>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Util.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/coreDOMUtil.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Browser.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/TemplateEngine.js"></script>
+    <script type="text/javascript" src="../eXo.js"></script>
+    <script type="text/javascript" src="../eXo/core/Util.js"></script>
+    <script type="text/javascript" src="../eXo/core/DOMUtil.js"></script>
+    <script type="text/javascript" src="../eXo/core/Browser.js"></script>
+    <script type="text/javascript" src="../eXo/core/TemplateEngine.js"></script>
   </head>
 
   <body>
@@ -37,7 +37,7 @@
       var html = eXo.core.TemplateEngine.toHTML(template, context) ;
       alert(html) ;
       
-      html = eXo.core.TemplateEngine.merge("eXo/core/TemplateEngine.jstmpl", context) ;
+      html = eXo.core.TemplateEngine.merge("../eXo/core/TemplateEngine.jstmpl", context) ;
       alert(html) ;
     </script>
   </body>
