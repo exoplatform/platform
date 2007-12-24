@@ -88,11 +88,12 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
 		portletWindow.style.zIndex = parseInt(uiDockbar.style.zIndex) - 2;
 		uiDockbar.style.zIndex = parseInt(uiDockbar.style.zIndex) + 1;
 
-
-    var delta = eXo.core.Browser.getBrowserHeight() - portletWindow.offsetHeight ;
+		portletWindow.style.height = "auto";
+    var delta = eXo.core.Browser.getBrowserHeight() - portletWindow.clientHeight ;
     for(var i = 0; i < uiResizableBlock.length; i++) {
   		uiResizableBlock[i].style.height =  (parseInt(uiResizableBlock[i].clientHeight) + delta) + "px" ;
     }
+    portletWindow.style.height = portletWindow.clientHeight + "px";
     portletWindow.maximized = true ;
     this.className = "ControlIcon RestoreIcon" ;
 		eXo.desktop.UIWindow.saveWindowProperties(portletWindow);
