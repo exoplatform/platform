@@ -1,0 +1,174 @@
+.UILoginPortlet {
+ 	width: 548px; height: 348px;
+	font-family: verdana; font-size: 11px;
+	margin: auto;
+	margin-top: 100px;
+}
+  
+.UILoginPortlet .LoginHeader {
+	width: 548px; height: 103px;
+	background: url('../skin/images/LoginNoRepeat.gif') no-repeat top;
+}
+  
+.UILoginPortlet .LoginContent .LeftLoginContent {
+  background: url('../skin/images/LoginRepeatY.gif') repeat-y left -32px;
+  padding-left: 162px;
+  overflow: hidden;
+}
+
+.UILoginPortlet .LoginContent .RightLoginContent {
+  background: url('../skin/images/LoginRepeatY.gif') repeat-y right;
+  padding-right: 27px;
+}
+
+.UILoginPortlet .LoginContent .CenterLoginContent {
+  height: 140px;
+  background: #f6f6f6;
+  padding: 20px 0px;
+}
+
+.UILoginPortlet .LoginContent .FieldContainer {
+  width: 320px ;
+  overflow: hidden ;
+  padding-top: 12px ;
+  margin: auto ;
+}
+
+.UILoginPortlet .LoginContent .FieldContainer label {
+  float: left;
+  width: 80px ; height: 20px; 
+  line-height: 20px; 
+	text-align: left; font-weight: bold ;
+	margin-right: 5px;
+}
+
+.UILoginPortlet .LoginContent .FieldContainer input {
+  float: left;
+  width: 200px ;  height: 18px;
+  border: solid 1px #b7b7b7 ;
+}
+
+.UILoginPortlet a.TextHelp {
+  color: #3c78b5;
+  margin-top: 7px; 
+  padding-left: 50px;
+  display: block;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.UILoginPortlet a.TextHelp:hover {
+  color: orange;
+  margin-top: 7px; 
+  padding-left: 50px;
+  display: block;
+  text-decoration: underline;
+}
+
+.UILoginPortlet .LoginContent .OverflowContainer {
+  width: 250px;
+  overflow: hidden;
+  margin: auto; 
+  padding-top: 7px;
+}
+
+.UILoginPortlet .LoginContent .OverflowContainer input {
+  float: left;
+  margin-left: 10px;
+}
+
+.UILoginPortlet .LoginContent .ForgotMessage {
+  float: right;
+  line-height: 18px;
+}
+
+.UILoginPortlet .LoginContent .LoginButton {
+  height: 22px ;
+  padding: 25px 0px 5px 0px;
+}
+
+.UILoginPortlet .LoginContent .LoginButtonContainer {
+  width: 70px;
+  margin: auto; 
+}
+
+.UILoginPortlet .LoginContent .Button {
+  width: 70px; height: 22px ;
+  margin: auto; 
+}
+
+.UILoginPortlet .LoginContent .Button a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.UILoginPortlet .LoginContent .Button a:hover {
+  color: #058ee6; text-decoration: none;
+}
+
+.UILoginPortlet .LoginContent .LoginButton .Button .LeftButton {
+  line-height: 22px;
+  padding-left: 3px;
+  background: url('../skin/images/LoginNoRepeat.gif') left 44px;
+}
+
+.UILoginPortlet .LoginContent .LoginButton .Button .RightButton {
+  line-height: 22px;
+  padding-right: 3px;
+}
+
+.UILoginPortlet .LoginContent .LoginButton .Button .MiddleButton {
+  height: 22px; 
+  line-height: 21px; 
+	background: url('../skin/images/LoginNoRepeat.gif') repeat-x bottom;
+}
+
+.UILoginPortlet .LoginContent .MessageContainer {
+  padding: 15px 0px 0px 16px;
+  float: right;
+}
+
+.UILoginPortlet .LoginContent .SignupMessage {
+  width: 250px; height: 24px; 
+  line-height: 24px; 
+  color: #3c78b5 ; text-align: center;
+  margin-right: 33px;
+  border-top: solid 1px #c3c3c3 ;
+  border-bottom: solid 1px #c3c3c3 ;
+}
+
+.UILoginPortlet .LoginContent .SignupMessage a {
+  color: orange; font-weight: bold ; text-decoration: none;
+  cursor: pointer ;
+}
+
+.UILoginPortlet .LoginContent .SignupMessage a:hover {
+  color: #058ee6;
+  text-decoration: underline;
+}
+
+.UILoginPortlet .LoginFooter {
+  width: 548px; height: 28px; 
+  line-height: 28px;
+}
+  
+.UILoginPortlet .LoginFooter .LoginLeftFooter  {
+  height: 28px;
+  background: url('../skin/images/LoginNoRepeat.gif') no-repeat left -104px ;
+  padding-left: 60px;
+}
+  
+.UILoginPortlet .LoginFooter .LoginRightFooter  {
+  height: 28px ;
+  padding-right: 45px ;
+}
+  
+.UILoginPortlet .LoginFooter .LoginRepeatFooter {
+  height: 28px ;
+  background: url('../skin/images/LoginNoRepeat.gif') repeat-x left -133px;
+}
+
+.UILoginPortlet .CopyrightInfo {
+  height: 24px; line-height: 24px; 
+  text-align: center;
+}
