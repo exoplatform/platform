@@ -3132,3 +3132,71 @@
 	background: url('background/BLShadow1x19.gif') repeat-x; 
 	height: 19px;
 }
+
+/*------------------------------ BasicGreen-----------------------------------*/
+
+.BasicGreen .WindowPortletControl {
+  float: right ;
+	padding: 0px 3px 0px 10px;
+}
+
+.BasicGreen .WindowPortletControl .ControlIcon {
+  float: left;
+  width: 16px ; height: 16px ;
+  margin: 1px 2px 0px 0px ;
+  cursor: pointer ;
+  background-position: center;
+}
+
+.BasicGreen .WindowPortletInfo .PortletName {
+  float: left ;
+  padding: 0px 0px 0px 5px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.BasicGreen .WindowPortletControl .ArrowDownIcon {
+  background: url('icons/ControlIcons.gif') left 1232px;
+}
+
+.BasicGreen .WindowPortletControl .OverArrowDownIcon {
+  background: url('icons/ControlIcons.gif') right 1232px;
+}
+
+.BasicGreen .WindowPortletControl .MinimizedIcon {
+  background: url('icons/ControlIcons.gif') left 1248px;
+}
+
+.BasicGreen .WindowPortletControl .OverMinimizedIcon {
+  background: url('icons/ControlIcons.gif') right 1248px;
+}
+
+.BasicGreen .WindowPortletControl .MaximizedIcon {
+  background: url('icons/ControlIcons.gif') left 1264px;
+}
+
+.BasicGreen .WindowPortletControl .OverMaximizedIcon {
+  background: url('icons/ControlIcons.gif') right 1264px;
+}
+
+.BasicGreen .WindowPortletControl .RestoreIcon {
+  background: url('icons/ControlIcons.gif') left 1280px;
+}
+
+.BasicGreen .WindowPortletControl .OverRestoreIcon {
+  background: url('icons/ControlIcons.gif') right 1280px;
+}
+
+.BasicGreen .WindowPortletControl .NormalIcon {
+  background: url('icons/ControlIcons.gif') left 1280px;
+}
+
+.BasicGreen .WindowPortletControl .OverNormalIcon {
+  background: url('icons/ControlIcons.gif') right 1280px;
+}
+
+.BasicGreen .MiddleDecoratorCenter {
+	border: 1px solid #4c717e;
+  background: #ffffff ;
+  padding: 1px;
+}
