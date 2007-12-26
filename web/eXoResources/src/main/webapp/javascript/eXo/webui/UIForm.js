@@ -41,7 +41,8 @@ UIForm.prototype.submitEvent = function(formId, action, params) {
 			form.updateFCKeditor[i]() ;
 	}
   form.elements['formOp'].value = action ; 
-	form.action =  form.action +  params ;
+  if(!form.originalAction) form.originalAction = form.action ; 
+	form.action =  form.originalAction +  params ;
   ajaxPost(form) ;
 } ;
 
