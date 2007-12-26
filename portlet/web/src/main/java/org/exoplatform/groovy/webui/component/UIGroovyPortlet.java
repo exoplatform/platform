@@ -29,13 +29,16 @@ public class UIGroovyPortlet extends UIPortletApplication {
   
   private String DEFAULT_TEMPLATE = "app:/groovy/groovy/webui/component/UIGroovyPortlet.gtmpl" ;  
   private String template_ ;
+  private String windowId ;
   
   public UIGroovyPortlet() throws Exception {
     PortletRequestContext context = (PortletRequestContext)  WebuiRequestContext.getCurrentInstance() ;
-    PortletRequest prequest = context.getRequest() ;    
+    PortletRequest prequest = context.getRequest() ;
     template_ =  prequest.getPreferences().getValue("template", DEFAULT_TEMPLATE) ;
+    windowId = prequest.getWindowID() ;
   }
   
+  public String getId() { return windowId + "-portlet" ; }
   public String getTemplate() {  return template_ ;  }
   
   public UIComponent getViewModeUIComponent() { return null; }

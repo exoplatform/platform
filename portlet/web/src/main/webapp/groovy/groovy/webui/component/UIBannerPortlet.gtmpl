@@ -4,8 +4,9 @@
 	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
 	String signInAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;" ;
 	String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));" ;
+	String portletId = uicomponent.getId() ; 
 %>
-<div class="UIBannerPortlet UIApplication">
+<div id="$portletId" class="UIBannerPortlet UIApplication">
 	<div class="ApplicationMinWidth">
   <div class="InlineContainer">
     <div class="LeftBanner">
