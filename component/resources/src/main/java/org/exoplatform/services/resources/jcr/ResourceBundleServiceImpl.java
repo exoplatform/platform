@@ -149,6 +149,8 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
     if(value == null || value.length() < 1) return ;
     if(sql.indexOf(" where") < 0) sql.append(" where "); else sql.append(" and "); 
     value = value.replace('*', '%') ;
+    //TODO: dang.tung
+    value = value.replaceAll("'", "&#39;");
     sql.append(name).append(" like '").append(value).append("'");
   }
   
