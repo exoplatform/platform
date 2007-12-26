@@ -1,4 +1,4 @@
-<div class="UIFooterPortlet">
+<div class="UIFooterPortlet" id="$uicomponent.id">
   <div class="LeftFooter">
     <div class="RightFooter">
       <div class="RepeatFooter">
