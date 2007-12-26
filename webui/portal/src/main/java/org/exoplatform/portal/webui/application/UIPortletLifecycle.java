@@ -16,9 +16,11 @@
  */
 package org.exoplatform.portal.webui.application;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -225,11 +227,11 @@ public class UIPortletLifecycle extends Lifecycle {
    * render params list and only return the ones that the current portlet
    * can handle
    */
-  private Set<String> getPublicRenderParamNames(UIPortlet uiPortlet) {
+  private List<String> getPublicRenderParamNames(UIPortlet uiPortlet) {
     UIPortal uiPortal = Util.getUIPortal();
     Map publicParams = uiPortal.getPublicParameters();
 
-    Set<String> publicParamsSupportedByPortlet = new HashSet<String>();
+    List<String> publicParamsSupportedByPortlet = new ArrayList<String>();
     if (publicParams != null) {
       Set keys = publicParams.keySet();
       for (Iterator iter = keys.iterator(); iter.hasNext();) {
@@ -240,7 +242,7 @@ public class UIPortletLifecycle extends Lifecycle {
       }
       return publicParamsSupportedByPortlet;
     }
-    return new HashSet<String>();
+    return new ArrayList<String>();
   }
 
   /**
@@ -266,7 +268,7 @@ public class UIPortletLifecycle extends Lifecycle {
     UIPortal uiPortal = Util.getUIPortal();
     Map publicParams = uiPortal.getPublicParameters();
     Set allPublicParamsNames = publicParams.keySet();       
-    Set supportedPublicParamNames = getPublicRenderParamNames(uiPortlet);
+    List supportedPublicParamNames = getPublicRenderParamNames(uiPortlet);
     for (Iterator iter = allPublicParamsNames.iterator(); iter.hasNext();) {
       String oneOfAllParams = (String) iter.next();
       if(supportedPublicParamNames.contains(oneOfAllParams))
