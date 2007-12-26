@@ -244,7 +244,6 @@ public class UIPageNodeActionListener {
   static public class PasteNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {   
       String targetUri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      
       UIRightClickPopupMenu uiPopupMenu = event.getSource();
       UIPageNodeSelector uiPageNodeSelector =  uiPopupMenu.getAncestorOfType(UIPageNodeSelector.class);
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();
@@ -269,7 +268,7 @@ public class UIPageNodeActionListener {
       if(targetNode != null) newNode.setUri(targetNode.getUri()+"/"+newNode.getUri());
       
       // TODO: dang.tung - if source address equals destination address - node cut and paste itseft
-      if(selectedNode.getNode().getUri().equals(targetNode.getUri())) {
+      if(targetNode != null && selectedNode.getNode().getUri().equals(targetNode.getUri())) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameSrcAndDes", null)) ;
         
@@ -285,6 +284,7 @@ public class UIPageNodeActionListener {
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
+      
       
       if(selectedNode.isDeleteNode()) {
         if(selectedNode.getParentNode() != null) {
