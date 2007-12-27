@@ -16,6 +16,11 @@ function UIExoStartMenu() {
  */
 
 
+//setTimeout (
+//	function(){
+//		window.location.reload()
+//	}, 180000
+//);
 
 UIExoStartMenu.prototype.init = function(popupMenu, container, x, y) {
   var uiStart = eXo.portal.UIExoStartMenu ;

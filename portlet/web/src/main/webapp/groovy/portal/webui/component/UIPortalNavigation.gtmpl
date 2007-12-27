@@ -29,9 +29,9 @@
   					<div class="RightMiddleMenuDecorator">
   						<div class="CenterMiddleMenuDecorator">
   	""" ;
-  		for(child in node.getChildren()) {
-	   		renderChildNode(nav, child) ;
-    	}
+					  		for(child in node.getChildren()) {
+						   		renderChildNode(nav, child) ;
+					    	}
   	print """
   						</div>
   					</div>
@@ -63,35 +63,39 @@
     String arrowIcon = "MenuItemRight";
     if (node.getChildren() != null && node.getChildren().size() > 0) arrowIcon = "RightItemIcon";
     
-  	print """
-  			<div class="MenuItem">
-  				<div class="$tabStyleNavigation">
-						<div class="ItemIcon $icon">
-						  <div class="$arrowIcon">
-						    <div class="MenuItemLabel">
-		""" ;
     String pageURI = Util.getPortalRequestContext().getPortalURI() + node.getUri() ;
   	if(uicomponent.isUseAjax()) {
       String onclickEvt = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) + ";return false;" ;
-      print "<a onclick=\"$onclickEvt\" href=\"$pageURI\">$node.resolvedLabel</a>"
+	  	print """
+	  			<div class="MenuItem $tabStyleNavigation" onclick="$onclickEvt" >
+						<a href="$pageURI">
+							<div class="ItemIcon $icon">
+							  <div class="$arrowIcon">
+		  							$node.resolvedLabel
+							  </div>
+							</div>
+						</a>
+			""" ;
 		} else {
-      print "<a href=\"$pageURI\">$node.resolvedLabel</a>"
+	  	print """
+	  			<div class="MenuItem $tabStyleNavigation" >
+	  			  <a href="$pageURI">
+							<div class="ItemIcon $icon">
+							  <div class="$arrowIcon">
+		 							$node.resolvedLabel
+							  </div>
+							</div>
+						</a>
+			""" ;
 		}
 			
-		print """
-								</div>
-						  </div>
-						</div>
-					</div>
-		""" ;
 		
     if (node.getChildren() != null && node.getChildren().size() > 0) {
     	renderChildrenContainer(nav, node) ;
     }
+		
+		print "</div>";
 			    
-		print """
-				</div>
-  	""" ;
   }
 
 %>
