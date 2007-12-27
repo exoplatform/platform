@@ -16,6 +16,10 @@
  */
 package org.exoplatform.portal.webui.portal;
 
+import java.net.URLEncoder;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
@@ -78,7 +82,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
     if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
     uiPortalApp.setLocale(localeConfig.getLocale());
     uiPortalApp.setSkin(uiPortal.getSkin());
-    Util.getPortalRequestContext().refreshResourceBundle();
+    prContext.refreshResourceBundle();
   }
   
   @Override
@@ -114,14 +118,17 @@ public class UIPortalManagementControlBar extends UIToolbar {
       
       String remoteUser = prContext.getRemoteUser();
       String ownerUser = prContext.getPortalOwner();   
-      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);      
-      UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
-      PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);
       
       UIPortal oldUIPortal =uiWorkingWS.getChild(UIPortal.class);
-      uiWorkingWS.setBackupUIPortal(oldUIPortal);
+      uiWorkingWS.setBackupUIPortal(oldUIPortal);      
       
-      uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
+      if(userPortalConfig != null) {
+        UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
+        PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);      
+        uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
+      }
+      
       uiWorkingWS.setRenderedChild(UIPortal.class) ;  
     }
   }
@@ -130,7 +137,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalManagementControlBar uiPortalManagement = event.getSource(); 
       uiPortalManagement.save();
-      Util.updateUIApplication(event);
+      Util.updateUIApplication(event);      
     }
   }  
   
@@ -138,6 +145,16 @@ public class UIPortalManagementControlBar extends UIToolbar {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalManagementControlBar uiPortalManagement = event.getSource();   
       uiPortalManagement.save();
+      
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      UserPortalConfigService configService = uiPortalManagement.getApplicationComponent(UserPortalConfigService.class);
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(prContext.getPortalOwner(), prContext.getRemoteUser());
+      if(userPortalConfig == null){
+        HttpServletRequest request = prContext.getRequest() ;        
+        String portalName = URLEncoder.encode(Util.getUIPortal().getName(),"UTF-8") ;        
+        String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
+        prContext.getResponse().sendRedirect(redirect) ;        
+      }
       
       UIPortal uiPortal = Util.getUIPortal();
       PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
@@ -157,7 +174,15 @@ public class UIPortalManagementControlBar extends UIToolbar {
       
       String remoteUser = prContext.getRemoteUser();
       String ownerUser = prContext.getPortalOwner();   
-      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);      
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);
+      
+      if(userPortalConfig == null){
+        HttpServletRequest request = prContext.getRequest() ;        
+        String portalName = URLEncoder.encode(Util.getUIPortal().getName(),"UTF-8") ;        
+        String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
+        prContext.getResponse().sendRedirect(redirect) ;      
+      }
+      
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
       PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
       
