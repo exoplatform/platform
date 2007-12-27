@@ -58,7 +58,7 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
       lifecycle = UIApplicationLifecycle.class,
       events = {
         @EventConfig (listeners = UII18nPortlet.ViewActionListener.class),
-        @EventConfig (listeners = UII18nPortlet.DeleteActionListener.class)
+        @EventConfig (listeners = UII18nPortlet.DeleteActionListener.class, confirm="UII18n.deleteResource")
       }
   ),
   
