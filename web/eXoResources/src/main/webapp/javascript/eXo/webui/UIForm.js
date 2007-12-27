@@ -42,7 +42,7 @@ UIForm.prototype.submitEvent = function(formId, action, params) {
 	}
   form.elements['formOp'].value = action ; 
   if(!form.originalAction) form.originalAction = form.action ; 
-	form.action =  form.originalAction +  params ;
+	form.action =  form.originalAction +  encodeURI(params) ;
   ajaxPost(form) ;
 } ;
 
