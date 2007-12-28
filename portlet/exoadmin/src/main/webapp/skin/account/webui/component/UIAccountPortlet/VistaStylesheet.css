@@ -4,7 +4,7 @@
 
 .UIAccountPortlet { 
   background: #ffffff;
-  margin: 5px 6px 5px 0px;
+  margin: 5px 6px 5px 6px;
   border: 1px solid #b7b7b7;
 }
 
@@ -27,6 +27,10 @@
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIPersonalInfo .UIFormInputSet {
 	height: auto;
+}
+
+.UIAccountPortlet .UIFormTabPane .WorkingArea .UIForm {
+	padding: 0px;
 }
 
 /*########################-UIPersonalInfo-###########################*/

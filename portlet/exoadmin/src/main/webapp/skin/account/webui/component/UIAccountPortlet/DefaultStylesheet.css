@@ -24,6 +24,10 @@
   padding-top: 15px;
 }
 
+.UIAccountPortlet .UIFormTabPane .WorkingArea .UIForm {
+	padding: 0px;
+}
+
 /*########################-UIPersonalInfo-###########################*/
 
 .UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {

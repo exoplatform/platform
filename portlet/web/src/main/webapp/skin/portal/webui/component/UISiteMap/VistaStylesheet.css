@@ -7,28 +7,22 @@
  */
 
 .UIWindow .UISitemapPortlet {
-	padding: 10px 0px 0px 0px;
-} 
+	border: none;
+	margin: 0px;
+}
+
+.UISitemapPortlet {
+	margin: 10px;
+  background: white;
+  border: 1px solid #b7b7b7;
+}
 
 .UISitemap {
-  padding: 0px 3px 0px 3px ;
+  padding: 10px;
 }
 
-.UISitemap .SitemapContainer {
-  width: 625px;
-  margin: auto;
-}
-
-.UISitemap .SitemapItemBox {
-  width: 295px ;
-  float: left;
-  background: url('VistaSkin/background/BottomSitemap295x16.png') no-repeat bottom;
-  padding-bottom: 16px;
-  margin: 0px 15px 15px 0px;
-}
-
-.UISitemap .SitemapItemBox .TitleBar {
-  background: url('VistaSkin/background/TopSitemapp295x22.png') no-repeat top;
+.UISitemap .TitleBar {
+	background: url('VistaSkin/background/TopSitemapp295x22.png') no-repeat top;
   height: 22px; 
   padding-left: 15px;
 }
@@ -46,7 +40,43 @@
   color: blue;
 }
 
-.UISitemap .SitemapItemBox .NestedSitemapItemBox { 
+.UISitemap .TitleBar .Title {
+  margin-left: 6px;
+  overflow: hidden;
+  height: 22px;
+  float: left;
+}
+
+.UISitemap .SitemapContainer {
+  width: 625px;
+  margin: auto;
+}
+
+.UISitemap .SitemapItemBox .ItemContainer {
+  border: solid 1px #929292;
+  padding: 10px;
+  background: #ffffff;
+}
+
+.UISitemap .SitemapContainer .SitemapBackground{
+  border: 1px solid white;
+  width: auto;
+  overflow: auto;
+  padding-top: 10px;
+}
+
+.UISitemap .SitemapItemBox {
+  width: 295px ;
+  float: left;
+  background: url('VistaSkin/background/BottomSitemap295x16.png') no-repeat bottom;
+  padding-bottom: 16px;
+  margin: 0px 15px 15px 0px;
+}
+
+.UISitemap .SitemapItemBox .SitemapItemContainer{
+}
+
+.UISitemap .SitemapItemBox .NestedSitemapItemBox {
   background: url('VistaSkin/background/LeftSitemap9x61.png') repeat-y top left;
   padding-left: 9px ;
 }
@@ -56,19 +86,19 @@
   padding-right: 13px;
 }
 
+.UISitemap .SitemapItemBox .NestedSitemapItemBox .BorderBox {
+	border: none;
+}
+
 .UISitemap .SitemapItemBox .Item {
-	border: solid 1px #ffffff;
+	 border: 1px #c1c1c1 #ffffff;
 }
 
 .UISitemap .SitemapItemBox .Item .SubItem {
   border: solid 1px #474747;
   padding: 10px;
   background: #ffffff;
-}
-
-.UISitemap .SitemapItemBox .NestedSitemapItemBox .BorderBox {
-	border:none; 
-}
+} 
 
 .UISitemap .SitemapItemBox .Item a {
   display: block;
@@ -79,14 +109,8 @@
 }
 
 .UISitemap .SitemapItemBox .Item .Label {
-  float: left ;
-  line-height: 22px ;
-}
-
-.UISitemap .SitemapItemBox .ItemContainer {
-  border: solid 1px #929292;
-  padding: 10px;
-  background: #ffffff;
+  float: left;
+  line-height: 22px;
 }
 
 .UISitemap .SitemapItemBox .ItemContainer .Item {
@@ -104,9 +128,9 @@
 }
 
 .UISitemap .SitemapItemBox .Item .IconItem {
-	padding-left: 25px;
-	line-height: 23px;
+	padding-left: 20px;
 	background-position: left 4px;
+	line-height: 25px;
 }
 
 .UISitemap .SitemapItemBox .Level1 {
@@ -123,3 +147,4 @@
   background: url('VistaSkin/background/SitemapItemBoxBG1x22.gif') repeat-x bottom;
   padding-left: 60px;
 }
+

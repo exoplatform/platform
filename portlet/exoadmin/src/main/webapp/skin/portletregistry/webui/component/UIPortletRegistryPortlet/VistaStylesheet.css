@@ -1,14 +1,8 @@
-.UIPageBody .UIApplicationRegistryPortlet {
-	background: white;	
-} 
-
-.UIWindow .UIApplicationRegistryPortlet {
-}
-
 .UIApplicationRegistryPortlet {
 	border: 1px solid #b7b7b7;
 	height: auto;
 	margin: 5px;
+	background: white;
 }
 
 .UIApplicationRegistryPortlet .Title {

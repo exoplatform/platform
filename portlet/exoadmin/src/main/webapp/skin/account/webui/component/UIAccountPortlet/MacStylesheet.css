@@ -26,6 +26,10 @@
   padding: 10px 20px 0px 20px; margin: auto;
 }
 
+.UIAccountPortlet .UIFormTabPane .WorkingArea .UIForm {
+	padding: 0px;
+}
+
 /*########################-Template Selector-###########################*/
 
 .UIPersonalInfo {

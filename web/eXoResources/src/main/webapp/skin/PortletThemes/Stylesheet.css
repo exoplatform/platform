@@ -2513,43 +2513,43 @@
 }
 
 .SimpleBlue .WindowPortletControl .ArrowDownIcon {
-	background: url('icons/ControlIcons.gif') left 976px;
+	background: url('icons/SimpleIcons.gif') left 16px;
 }
 
 .SimpleBlue .WindowPortletControl .OverArrowDownIcon {
-	background: url('icons/ControlIcons.gif') right 976px;
+	background: url('icons/SimpleIcons.gif') right 16px;
 }
 
 .SimpleBlue .WindowPortletControl .MinimizedIcon {
-	background: url('icons/ControlIcons.gif') left 992px;
+	background: url('icons/SimpleIcons.gif') left 32px;
 }
 
 .SimpleBlue .WindowPortletControl .OverMinimizedIcon {
-	background: url('icons/ControlIcons.gif') right 992px;
+	background: url('icons/SimpleIcons.gif') right 32px;
 }
 
 .SimpleBlue .WindowPortletControl .MaximizedIcon {
-	background: url('icons/ControlIcons.gif') left 1008px;
+	background: url('icons/SimpleIcons.gif') left 48px;
 }
 
 .SimpleBlue .WindowPortletControl .OverMaximizedIcon {
-	background: url('icons/ControlIcons.gif') right 1008px;
+	background: url('icons/SimpleIcons.gif') right 48px;
 }
 
 .SimpleBlue .WindowPortletControl .RestoreIcon {
-	background: url('icons/ControlIcons.gif') left 1024px;
+	background: url('icons/SimpleIcons.gif') left 64px;
 }
 
 .SimpleBlue .WindowPortletControl .OverRestoreIcon {
-	background: url('icons/24x24/ControlIcons.gif') right 1024px;
+	background: url('icons/SimpleIcons.gif') right 64px;
 }
 
 .SimpleBlue .WindowPortletControl .NormalIcon {
-	background: url('icons/ControlIcons.gif') left 1024px;
+	background: url('icons/SimpleIcons.gif') left 64px;
 }
 
 .SimpleBlue .WindowPortletControl .OverNormalIcon {
-	background: url('icons/ControlIcons.gif') right 1024px;
+	background: url('icons/SimpleIcons.gif') right 64px;
 }
 
 .SimpleBlue .WindowBarLeft {
@@ -2599,7 +2599,7 @@
 .SimpleBlue .BottomDecoratorCenter {
 	border: 1px solid #4a67b1;
 	border-top: none;
-	background: white url('background/BLShadow1x19.gif') repeat-x; 
+	background: white url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 	height: 19px;
 }
 
@@ -2646,43 +2646,43 @@
 }
 
 .SimpleViolet .WindowPortletControl .ArrowDownIcon {
-	background: url('icons/ControlIcons.gif') left 1040px;
+	background: url('icons/SimpleIcons.gif') left 80px;
 }
 
 .SimpleViolet .WindowPortletControl .OverArrowDownIcon {
-	background: url('icons/ControlIcons.gif') right 1040px;
+	background: url('icons/SimpleIcons.gif') right 80px;
 }
 
 .SimpleViolet .WindowPortletControl .MinimizedIcon {
-	background: url('icons/ControlIcons.gif') left 1056px;
+	background: url('icons/SimpleIcons.gif') left 96px;
 }
 
 .SimpleViolet .WindowPortletControl .OverMinimizedIcon {
-	background: url('icons/ControlIcons.gif') right 1056px;
+	background: url('icons/SimpleIcons.gif') right 96px;
 }
 
 .SimpleViolet .WindowPortletControl .MaximizedIcon {
-	background: url('icons/ControlIcons.gif') left 1072px;
+	background: url('icons/SimpleIcons.gif') left 112px;
 }
 
 .SimpleViolet .WindowPortletControl .OverMaximizedIcon {
-	background: url('icons/ControlIcons.gif') right 1072px;
+	background: url('icons/SimpleIcons.gif') right 112px;
 }
 
 .SimpleViolet .WindowPortletControl .RestoreIcon {
-	background: url('icons/ControlIcons.gif') left 1088px;
+	background: url('icons/SimpleIcons.gif') left 128px;
 }
 
 .SimpleViolet .WindowPortletControl .OverRestoreIcon {
-	background: url('icons/ControlIcons.gif') right 1088px;
+	background: url('icons/SimpleIcons.gif') right 128px;
 }
 
 .SimpleViolet .WindowPortletControl .NormalIcon {
-	background: url('icons/ControlIcons.gif') left 1088px;
+	background: url('icons/SimpleIcons.gif') left 128px;
 }
 
 .SimpleViolet .WindowPortletControl .OverNormalIcon {
-	background: url('icons/ControlIcons.gif') right 1088px;
+	background: url('icons/SimpleIcons.gif') right 128px;
 }
 
 .SimpleViolet .WindowBarLeft {
@@ -2731,7 +2731,7 @@
 .SimpleViolet .BottomDecoratorCenter {
 	border: 1px solid #5700a9;
 	border-top: none;
-	background: url('background/BLShadow1x19.gif') repeat-x; 
+	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 	height: 19px;
 }
 
@@ -2778,43 +2778,43 @@
 }
 
 .SimpleOrange .WindowPortletControl .ArrowDownIcon {
-	background: url('icons/ControlIcons.gif') left 1104px;
+	background: url('icons/SimpleIcons.gif') left 144px;
 }
 
 .SimpleOrange .WindowPortletControl .OverArrowDownIcon {
-	background: url('icons/ControlIcons.gif') right 1104px;
+	background: url('icons/SimpleIcons.gif') right 144px;
 }
 
 .SimpleOrange .WindowPortletControl .MinimizedIcon {
-	background: url('icons/ControlIcons.gif') left 1120px;
+	background: url('icons/SimpleIcons.gif') left 160px;
 }
 
 .SimpleOrange .WindowPortletControl .OverMinimizedIcon {
-	background: url('icons/ControlIcons.gif') right 1120px;
+	background: url('icons/SimpleIcons.gif') right 160px;
 }
 
 .SimpleOrange .WindowPortletControl .MaximizedIcon {
-	background: url('icons/ControlIcons.gif') left 1152px;
+	background: url('icons/SimpleIcons.gif') left 192px;
 }
 
 .SimpleOrange .WindowPortletControl .OverMaximizedIcon {
-	background: url('icons/ControlIcons.gif') right 1152px;
+	background: url('icons/SimpleIcons.gif') right 192px;
 }
 
 .SimpleOrange .WindowPortletControl .RestoreIcon {
-	background: url('icons/ControlIcons.gif') left 1136px;
+	background: url('icons/SimpleIcons.gif') left 176px;
 }
 
 .SimpleOrange .WindowPortletControl .OverRestoreIcon {
-	background: url('icons/24x24/ControlIcons.gif') right 1136px;
+	background: url('icons/24x24/SimpleIcons.gif') right 176px;
 }
 
 .SimpleOrange .WindowPortletControl .NormalIcon {
-	background: url('icons/ControlIcons.gif') left 1136px;
+	background: url('icons/SimpleIcons.gif') left 176px;
 }
 
 .SimpleOrange .WindowPortletControl .OverNormalIcon {
-	background: url('icons/ControlIcons.gif') right 1136px;
+	background: url('icons/SimpleIcons.gif') right 176px;
 }
 
 .SimpleOrange .WindowBarLeft {
@@ -2863,7 +2863,7 @@
 .SimpleOrange .BottomDecoratorCenter {
 	border: 1px solid #b27a49;
 	border-top: none;
-	background: url('background/BLShadow1x19.gif') repeat-x; 
+	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 	height: 19px;
 }
 
@@ -2910,43 +2910,43 @@
 }
 
 .SimplePink .WindowPortletControl .ArrowDownIcon {
-	background: url('icons/ControlIcons.gif') left 1168px;
+	background: url('icons/SimpleIcons.gif') left 208px;
 }
 
 .SimplePink .WindowPortletControl .OverArrowDownIcon {
-	background: url('icons/ControlIcons.gif') right 1168px;
+	background: url('icons/SimpleIcons.gif') right 208px;
 }
 
 .SimplePink .WindowPortletControl .MinimizedIcon {
-	background: url('icons/ControlIcons.gif') left 1184px;
+	background: url('icons/SimpleIcons.gif') left 224px;
 }
 
 .SimplePink .WindowPortletControl .OverMinimizedIcon {
-	background: url('icons/ControlIcons.gif') right 1184px;
+	background: url('icons/SimpleIcons.gif') right 224px;
 }
 
 .SimplePink .WindowPortletControl .MaximizedIcon {
-	background: url('icons/ControlIcons.gif') left 1200px;
+	background: url('icons/SimpleIcons.gif') left 240px;
 }
 
 .SimplePink .WindowPortletControl .OverMaximizedIcon {
-	background: url('icons/ControlIcons.gif') right 1200px;
+	background: url('icons/SimpleIcons.gif') right 240px;
 }
 
 .SimplePink .WindowPortletControl .RestoreIcon {
-	background: url('icons/ControlIcons.gif') left 1216px;
+	background: url('icons/SimpleIcons.gif') left 256px;
 }
 
 .SimplePink .WindowPortletControl .OverRestoreIcon {
-	background: url('icons/ControlIcons.gif') right 1216px;
+	background: url('icons/SimpleIcons.gif') right 256px;
 }
 
 .SimplePink .WindowPortletControl .NormalIcon {
-	background: url('icons/ControlIcons.gif') left 1216px;
+	background: url('icons/SimpleIcons.gif') left 256px;
 }
 
 .SimplePink .WindowPortletControl .OverNormalIcon {
-	background: url('icons/ControlIcons.gif') right 1216px;
+	background: url('icons/SimpleIcons.gif') right 256px;
 }
 
 .SimplePink .WindowBarLeft {
@@ -2995,7 +2995,7 @@
 .SimplePink .BottomDecoratorCenter {
 	border: 1px solid #9a5591;
 	border-top: none;
-	background: url('background/BLShadow1x19.gif') repeat-x; 
+	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 	height: 19px;
 }
 
@@ -3042,43 +3042,43 @@
 }
 
 .SimpleGreen .WindowPortletControl .ArrowDownIcon {
-	background: url('icons/ControlIcons.gif') left 1232px;
+	background: url('icons/SimpleIcons.gif') left 272px;
 }
 
 .SimpleGreen .WindowPortletControl .OverArrowDownIcon {
-	background: url('icons/ControlIcons.gif') right 1232px;
+	background: url('icons/SimpleIcons.gif') right 272px;
 }
 
 .SimpleGreen .WindowPortletControl .MinimizedIcon {
-	background: url('icons/ControlIcons.gif') left 1248px;
+	background: url('icons/SimpleIcons.gif') left 288px;
 }
 
 .SimpleGreen .WindowPortletControl .OverMinimizedIcon {
-	background: url('icons/ControlIcons.gif') right 1248px;
+	background: url('icons/SimpleIcons.gif') right 288px;
 }
 
 .SimpleGreen .WindowPortletControl .MaximizedIcon {
-	background: url('icons/ControlIcons.gif') left 1264px;
+	background: url('icons/SimpleIcons.gif') left 304px;
 }
 
 .SimpleGreen .WindowPortletControl .OverMaximizedIcon {
-	background: url('icons/ControlIcons.gif') right 1264px;
+	background: url('icons/SimpleIcons.gif') right 304px;
 }
 
 .SimpleGreen .WindowPortletControl .RestoreIcon {
-	background: url('icons/ControlIcons.gif') left 1280px;
+	background: url('icons/SimpleIcons.gif') left 320px;
 }
 
 .SimpleGreen .WindowPortletControl .OverRestoreIcon {
-	background: url('icons/ControlIcons.gif') right 1280px;
+	background: url('icons/SimpleIcons.gif') right 320px;
 }
 
 .SimpleGreen .WindowPortletControl .NormalIcon {
-	background: url('icons/ControlIcons.gif') left 1280px;
+	background: url('icons/SimpleIcons.gif') left 320px;
 }
 
 .SimpleGreen .WindowPortletControl .OverNormalIcon {
-	background: url('icons/ControlIcons.gif') right 1280px;
+	background: url('icons/SimpleIcons.gif') right 320px;
 }
 
 .SimpleGreen .WindowBarLeft {
@@ -3127,74 +3127,6 @@
 .SimpleGreen .BottomDecoratorCenter {
 	border: 1px solid #4c717e;
 	border-top: none;
-	background: url('background/BLShadow1x19.gif') repeat-x; 
+	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 	height: 19px;
-}
-
-/*------------------------------ BasicGreen-----------------------------------*/
-
-.BasicGreen .WindowPortletControl {
-  float: right ;
-	padding: 0px 3px 0px 10px;
-}
-
-.BasicGreen .WindowPortletControl .ControlIcon {
-  float: left;
-  width: 16px ; height: 16px ;
-  margin: 1px 2px 0px 0px ;
-  cursor: pointer ;
-  background-position: center;
-}
-
-.BasicGreen .WindowPortletInfo .PortletName {
-  float: left ;
-  padding: 0px 0px 0px 5px;
-  font-weight: bold;
-  color: #333333;
-}
-
-.BasicGreen .WindowPortletControl .ArrowDownIcon {
-  background: url('icons/ControlIcons.gif') left 1232px;
-}
-
-.BasicGreen .WindowPortletControl .OverArrowDownIcon {
-  background: url('icons/ControlIcons.gif') right 1232px;
-}
-
-.BasicGreen .WindowPortletControl .MinimizedIcon {
-  background: url('icons/ControlIcons.gif') left 1248px;
-}
-
-.BasicGreen .WindowPortletControl .OverMinimizedIcon {
-  background: url('icons/ControlIcons.gif') right 1248px;
-}
-
-.BasicGreen .WindowPortletControl .MaximizedIcon {
-  background: url('icons/ControlIcons.gif') left 1264px;
-}
-
-.BasicGreen .WindowPortletControl .OverMaximizedIcon {
-  background: url('icons/ControlIcons.gif') right 1264px;
-}
-
-.BasicGreen .WindowPortletControl .RestoreIcon {
-  background: url('icons/ControlIcons.gif') left 1280px;
-}
-
-.BasicGreen .WindowPortletControl .OverRestoreIcon {
-  background: url('icons/ControlIcons.gif') right 1280px;
-}
-
-.BasicGreen .WindowPortletControl .NormalIcon {
-  background: url('icons/ControlIcons.gif') left 1280px;
-}
-
-.BasicGreen .WindowPortletControl .OverNormalIcon {
-  background: url('icons/ControlIcons.gif') right 1280px;
-}
-
-.BasicGreen .MiddleDecoratorCenter {
-	border: 1px solid #4c717e;
-  background: #ffffff ;
-  padding: 1px;
 }
