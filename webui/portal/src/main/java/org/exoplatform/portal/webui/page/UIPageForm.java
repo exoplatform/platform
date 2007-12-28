@@ -224,7 +224,7 @@ public class UIPageForm extends UIFormTabPane {
       if(itemOption != null){
         page.setFactoryId(itemOption.getIcon());
         page.setTemplate((String)itemOption.getValue());
-        page.setShowMaxWindow(page.getFactoryId().equals(Page.DESKTOP_PAGE));
+        if(page.getFactoryId().equals(Page.DESKTOP_PAGE)) page.setShowMaxWindow(true);
       } 
     } 
     UIPageTemplateOptions uiConfigOptions = getChild(UIPageTemplateOptions.class);
