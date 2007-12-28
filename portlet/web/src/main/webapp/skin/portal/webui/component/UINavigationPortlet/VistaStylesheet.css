@@ -48,17 +48,14 @@
   padding-right: 20px;
   background: url('VistaSkin/background/GreyItemArrow.png') no-repeat right;
 }
-.UINavigationPortlet .MenuItemContainer .MenuItemLabel {
-  line-height: 24px; 
-  padding: 0px 12px 0px 3px;
-}
 
-.UINavigationPortlet .MenuItemContainer .NormalItem a {
+.UINavigationPortlet .MenuItemContainer .MenuItem a {
   color: #4f4f4f;
+  display: block;
   line-height: 24px;
 }
 
-.UINavigationPortlet .MenuItemContainer .OverItem a {
+.UINavigationPortlet .MenuItemContainer .MenuItem a:hover {
   color: #3e8df0;
   line-height: 24px;
 }
@@ -75,7 +72,7 @@
   background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
 }
 
-.UINavigationPortlet .MenuItemContainer .SelectedItem a {
+.UINavigationPortlet .MenuItemContainer .SelectedItem {
   color: #3e8df0;
   line-height: 24px;  
 }

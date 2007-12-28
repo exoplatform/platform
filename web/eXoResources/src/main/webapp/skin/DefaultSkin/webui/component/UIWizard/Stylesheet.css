@@ -54,12 +54,8 @@
   background: white; 
 }
 
-.UIWizard .UIWizardContent .WizardStepContent .UIForm {
+.UIWizard .UIWizardContent .WizardStepContent .UIWizardPageSetInfo {
 	padding: 10px;
-}
-
-.UIWizard .UIWizardContent .UISearch .UIForm {
-	padding: 0px;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar {
@@ -223,8 +219,8 @@
 /*========================== Start UIWizard Step 3 ==============================*/
 .UIWizard .UIItemSelector {
   padding: 10px;
-  border: 1px solid #b7b7b7;
   background: #f4f4f4;
+  margin: 0px;
 }
 
 .UIWizard .UIItemSelector .ItemListContainer {
@@ -258,7 +254,7 @@
 }
 
 .UIWizard .ScrollArea {
-	height: 220px;
+	height: 226px;
 	overflow-y: auto;
 	overflow-x: hidden;
 }

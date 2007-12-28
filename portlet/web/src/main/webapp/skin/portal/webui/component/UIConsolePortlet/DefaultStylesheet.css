@@ -2,7 +2,6 @@
 	border: 0px solid green;
   height: 94% ;
   min-height: 222px ;
-  overflow: auto;
 }
 
 .UIConsoleApplication .UIInnerMaskLayer {
@@ -16,7 +15,6 @@
 	font-size: 14px;
 	font-weight: normal;
 	padding: 0px 10px 0px 10px ;
-  overflow: auto ;
   height: 100% ;
 }
 

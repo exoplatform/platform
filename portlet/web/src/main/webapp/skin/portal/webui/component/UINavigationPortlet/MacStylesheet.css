@@ -79,25 +79,22 @@
   height: 9px; line-height: 9px; 
 }
 
-.UINavigationPortlet .MenuItemContainer .MenuItem {
+.UINavigationPortlet .MenuItemContainer .MenuItem  a{
 	white-space: nowrap;
 	cursor: pointer;
-}
-
-.UINavigationPortlet .MenuItemContainer .NormalItem {
+	display: block;
 	border-bottom: 1px solid #dbdbdb;
+  color: #1d1d1d;
 }
 
-.UINavigationPortlet .MenuItemContainer .OverItem {
+.UINavigationPortlet .MenuItemContainer .MenuItem a:hover {
 	background: url('MacSkin/background/OverItemSelectorBG1x25.png') repeat-x ;
-	line-height: 25px; 
-	border-bottom: 1px solid #dbdbdb;
+  color: white;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem {
 	background: url('MacSkin/background/OverItemSelectorBG1x25.png') repeat-x ;
-	line-height: 25px; 
-	border-bottom: 1px solid #dbdbdb;
+  color: white;
 }
 
 .UINavigationPortlet .MenuItemContainer .ItemIcon {
@@ -106,17 +103,19 @@
   margin-left: 4px;
 }
 
-.UINavigationPortlet .MenuItemContainer .MenuItemLabel {
+.UINavigationPortlet .MenuItemContainer .MenuItem .RightItemIcon {
   line-height: 25px; 
-  padding: 0px 6px 0px 0px;
+  padding-right: 20px;
+  background: url('MacSkin/icons/GrayArrow.png') no-repeat right;
 }
 
-.UINavigationPortlet .MenuItemContainer .OverItem a {
-  color: white;
-  line-height: 25px;
+.UINavigationPortlet .MenuItemContainer .MenuItem a:hover .RightItemIcon {
+  line-height: 25px; 
+  padding-right: 20px;
+  background: url('MacSkin/icons/WhiteArrow.png') no-repeat right;
 }
 
-.UINavigationPortlet .MenuItemContainer .OverItem .RightItemIcon {
+.UINavigationPortlet .MenuItemContainer .SelectedItem .RightItemIcon {
   line-height: 25px; 
   padding-right: 20px;
   background: url('MacSkin/icons/WhiteArrow.png') no-repeat right;
@@ -126,28 +125,6 @@
   line-height: 25px ;
   background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left center;
   padding: 0px 0px 0px 20px ;
-}
-
-.UINavigationPortlet .MenuItemContainer .NormalItem a {
-  color: #1d1d1d;
-  line-height: 25px;
-}
-
-.UINavigationPortlet .MenuItemContainer .NormalItem .RightItemIcon {
-  line-height: 25px; 
-  padding-right: 20px;
-  background: url('MacSkin/icons/GrayArrow.png') no-repeat right;
-}
-
-.UINavigationPortlet .MenuItemContainer .SelectedItem a {
-  color: white;
-  line-height: 25px;
-}
-
-.UINavigationPortlet .MenuItemContainer .SelectedItem .RightItemIcon {
-  line-height: 25px; 
-  padding-right: 20px;
-  background: url('MacSkin/background/BlackArrow.gif') no-repeat right;
 }
 
 

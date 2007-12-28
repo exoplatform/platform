@@ -72,6 +72,25 @@ SkinService.addSkin(
     "/web/skin/portal/webui/component/UISiteMap/MacStylesheet.css"
 ) ;
 
+////////////////////////////////////////////////////////////////////////////////////////////////////
+SkinService.addSkin(
+    "web/IFramePortlet",
+    "Default",
+    "/web/skin/portal/webui/component/UIIFramePortlet/DefaultStylesheet.css"
+) ;
+
+SkinService.addSkin(
+    "web/IFramePortlet",
+    "Vista",
+    "/web/skin/portal/webui/component/UISiteMap/DefaultStylesheet.css"
+) ;
+
+SkinService.addSkin(
+    "web/IFramePortlet",
+    "Mac",
+    "/web/skin/portal/webui/component/UISiteMap/DefaultStylesheet.css"
+) ;
+
 /***************************BrowserPortlet**************************************************/
 SkinService.addSkin(
     "web/BrowserPortlet",

@@ -1,0 +1,11 @@
+.UIIFramePortlet {
+	border: 1px solid #b7b7b7;
+	background: white;
+	margin: 7px auto;
+	height: 370px;
+}
+
+.UIWindow .UIIFramePortlet {
+	border: none;
+	margin: 0px auto;
+}

@@ -1,1 +1,1 @@
-<%= eXo.widget.web.calendar.UICalendarWidget.show(context.appId) %>
+<div class="UIM6Calendar"><%= eXo.widget.web.calendar.UICalendarWidget.show(context.appId) %></div>

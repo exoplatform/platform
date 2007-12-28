@@ -98,7 +98,6 @@
 	background-image: url('background/DefaultTheme.png');
 	background-repeat: no-repeat;
 	background-position: left -148px;
-	height: 29px;
 }
 
 .DefaultTheme .WindowBarRight {
@@ -106,7 +105,6 @@
 	background-image: url('background/DefaultTheme.png');
 	background-repeat: no-repeat;
 	background-position: right -119px;
-	height: 29px;
 }
 
 .DefaultTheme .WindowBarCenter {

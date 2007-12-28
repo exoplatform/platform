@@ -1,6 +1,8 @@
-<div class="UIStickerWidget">
-	<div class="UIStickerWidgetTitle">eXo Web Sticker</div>
-	<div class="UIStickerWidgetContent">
-		<textarea class="UIStickerWidgetContentArea" onblur="javascript:eXo.widget.web.sticker.UIStickerWidget.sendContent(this);"><%=context.widget.uiWidget.content%></textarea>
+<div class="UIM6Sticker">
+	<div class="UIStickerWidget">
+		<div class="UIStickerWidgetTitle">eXo Web Sticker</div>
+		<div class="UIStickerWidgetContent">
+			<textarea class="UIStickerWidgetContentArea" onblur="javascript:eXo.widget.web.sticker.UIStickerWidget.sendContent(this);"><%=context.widget.uiWidget.content%></textarea>
+		</div>
 	</div>
 </div>
