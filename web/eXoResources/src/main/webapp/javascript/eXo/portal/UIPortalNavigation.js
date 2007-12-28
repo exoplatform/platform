@@ -51,7 +51,7 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
   topContainer.id = "PortalNavigationTopContainer";
   // Top menu items
   var topItems = DOMUtil.findDescendantsByClass(topContainer, "div", "UITab");
-  for (var i = 0; i<topItems.length; i++) {
+  for (var i = 0; i < topItems.length; i++) {
     var item = topItems[i];
     item.onmouseover = eXo.portal.UIPortalNavigation.setTabStyleOnMouseOver ;
     item.onmouseout = eXo.portal.UIPortalNavigation.setTabStyleOnMouseOut ;
@@ -260,10 +260,6 @@ UIPortalNavigation.prototype.hideMenu = function() {
 UIPortalNavigation.prototype.onMenuItemOver = function(e) {
   var menuItem = this;
   var DOMUtil = eXo.core.DOMUtil;
-  var item = DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.itemStyleClass);
-  if (!item) item = DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.selectedItemStyleClass);
-  item.oldClassName = item.className;
-  item.className = eXo.portal.UIPortalNavigation.itemOverStyleClass;
   var subContainer = DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
   if (subContainer) {
     eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(subContainer.id);
@@ -290,8 +286,6 @@ UIPortalNavigation.prototype.showMenuItemContainer = function(menuItem, menuItem
  */
 UIPortalNavigation.prototype.onMenuItemOut = function(e) {
   var menuItem = this;
-  var item = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.itemOverStyleClass);
-  item.className = item.oldClassName;
   var subContainer = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
   if (subContainer) {
     eXo.portal.UIPortalNavigation.superClass.pushHiddenContainer(subContainer.id);
