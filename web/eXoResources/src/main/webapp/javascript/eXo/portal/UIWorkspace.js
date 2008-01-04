@@ -10,9 +10,16 @@ function UIWorkspace(id) {
 if(!eXo.portal.Workspace) {
   eXo.portal.Workspace = new UIWorkspace("UIWorkspace") ;
 };
+
 if(!eXo.portal.UIControlWorkspace) {
   eXo.portal.UIControlWorkspace = new UIWorkspace("UIControlWorkspace") ;
 };
+
+if (document.getElementById("UIPageDesktop")) {
+	document.body.setAttribute("scroll", "no");
+} else {
+	document.body.setAttribute("scroll", "auto"); 
+}
 
 eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	this.width = width ;
@@ -170,6 +177,7 @@ eXo.portal.UIWorkingWorkspace.resizeWorkspacePanel = function(h) {
 eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace) {
 	var uiDesk = document.getElementById("UIPageDesktop");
 	if (uiDesk) {
+		alert("hi hi")
 		var uiCtrl = document.getElementById("UIControlWorkspace");
 		var uiWindows = eXo.core.DOMUtil.findDescendantsByClass(uiDesk, "div", "UIWindow");
 		for (var k = 0; k < uiWindows.length; k++) {
