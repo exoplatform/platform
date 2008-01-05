@@ -67,9 +67,12 @@
     <%/*Begin Item Detail List*/%>
     <div class="ItemDetailList">
       <div class="ItemDetailTitle">
-      <div class="TitleIcon ViewListIcon"><span></span></div>
-  	    	<div class="Title"><%=_ctx.appRes("UIFormInputIconSelector.label.iconPreview")%></div>
-  	    	<div style="clear: left;"><span></span></div>
+      	<div class="TitleIcon ViewListIcon"><span></span></div>
+  	    <div class="Title"><%=_ctx.appRes("UIFormInputIconSelector.label.iconPreview")%></div>
+  	    <div class="SetDefault" style="float: right;">
+  	    	<a href="<%=form.event('SelectIcon', "Default");%>">Get Default</a>
+  	    </div>
+  	    <div style="clear: both;"><span></span></div>
     </div>
     	<%/*Template 1*/%>
       

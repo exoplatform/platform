@@ -29,7 +29,12 @@
 	      for(category in categories) {
 	        templates = category.getSelectItemOptions();
 	        String display = "none";  
-	        if(category.isSelected()) display = "block" ; else templates.get(0).setSelected(true) ;
+	        if(category.isSelected()) display = "block" ; 
+	        else {
+	        	for(template in templates)
+	        		template.setSelected(false); 
+	        	templates.get(0).setSelected(true) ;
+	        }
 	    %>
 			    <div class="ItemList ItemListBackground"  style="display: $display; height: 240px">
 						<%
@@ -62,7 +67,7 @@
     <%        
 		  for(category in categories) {
 		    String display = "none";
-		    if(category.isSelected()) display = "block" ; else display = "none";
+		    if(category.isSelected()) display = "block" ; //else display = "none";
         templates = category.getSelectItemOptions();
 		%>
 		    <div class="ItemDetailList" style="display: $display;">
@@ -72,14 +77,14 @@
 						<div style="clear: left;"><span></span></div>
     			</div>
 			    <%
-			    	int i = 0;    			     
+			    	//int i = 0;    			     
 	          for(template in templates) {
-	          	i = i + 1;
+	          	//i = i + 1;
 	            String label = template.getLabel();
 	            String description = template.getDescription();
      			    display = "none";
      			    if(template.isSelected()) display = "block";
-     			    if(i==2) display = "none"; else if(i==4) i=3;
+     			    //if(i==2) display = "none"; else if(i==4) i=3;
 		      %>
 	      	    <div class="ItemDetail"  style="display: $display;">
   					    <div class="LayoutHolder" >

@@ -173,7 +173,20 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
   static public class SelectIconActionListener extends EventListener<UIFormInputIconSelector> {
     public void execute(Event<UIFormInputIconSelector> event) throws Exception {
       UIFormInputIconSelector uiIconSelector = event.getSource() ;
-      String iconName = event.getRequestContext().getRequestParameter(OBJECTID) ;  
+      String iconName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      if(iconName.equals("Default")) {
+        uiIconSelector.setSelectedIcon("World") ;
+        for(IconSet set : uiIconSelector.getListIconSet()) {
+          if(set.getName().equals("misc")) {
+            uiIconSelector.setSelectedIconSet(set) ;   
+          }
+        }
+        uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;
+        
+        UIForm uiForm = uiIconSelector.getAncestorOfType(UIForm.class);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
+        return;
+      }
       uiIconSelector.setSelectedIcon(iconName) ;
       uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;
       uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;

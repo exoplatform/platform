@@ -92,7 +92,7 @@
 		                actionLink = uiParent.event(action, beanId);
 		              }
 			        %>	           
-			            <a class="${action}Icon" href="$actionLink" title="$title"><span></span></a>		          
+			            <a class="${action}Icon" href="javascript: void(0)" onclick="$actionLink" title="$title"><span></span></a>		          
 		          <%}%>                 
 		          </div>
 		        </div>

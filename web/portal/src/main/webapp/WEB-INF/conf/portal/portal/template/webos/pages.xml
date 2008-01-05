@@ -17,8 +17,16 @@
 	  </application>
 
     <application>
-      <instance-id>portal#@owner@:/web/SiteMapPortlet/SitemapPortlet</instance-id>    
-      <title>Site Map Portlet</title>
+      <instance-id>portal#@owner@:/web/IFramePortlet/blog</instance-id>    
+      <title>Blog's Link</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </application>
+
+    <application>
+      <instance-id>portal#@owner@:/exoadmin/AccountPortlet/Account</instance-id>    
+      <title>Account Portlet</title>
     </application>
   </page>
 
@@ -33,13 +41,12 @@
     <show-max-window>true</show-max-window>
 
     <application>
-      <instance-id>portal#@owner@:/web/SiteMapPortlet/SitemapPortlet</instance-id>    
-      <title>Site Map Portlet</title>
+      <instance-id>portal#@owner@:/web/IFramePortlet/blog</instance-id>    
+      <title>Blog's Link</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>false</show-application-mode>
     </application>
 
-    <application>
-      <instance-id>portal#@owner@:/exoadmin/AccountPortlet/Account</instance-id>    
-      <title>Account Portlet</title>
-    </application>
   </page>
 </page-set>

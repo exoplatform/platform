@@ -10,4 +10,16 @@
       <read-only>false</read-only>
     </preference>
   </portlet-preferences>
+
+	<portlet-preferences>
+    <owner-type>portal</owner-type>
+    <owner-id>@owner@</owner-id>
+    <window-id>portal#webos:/web/IFramePortlet/blog</window-id>
+    <preference>
+        <name>url</name>
+        <value>http://blog.exoplatform.org</value>
+        <read-only>false</read-only>
+      </preference>
+	</portlet-preferences>
+
 </portlet-preferences-set>
