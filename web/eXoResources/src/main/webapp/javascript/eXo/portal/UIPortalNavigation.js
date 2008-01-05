@@ -64,12 +64,13 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
      */
     var container = DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
     if (container) {
-      if (eXo.core.Browser.browserType == "mozilla") 
+      if (eXo.core.Browser.browserType == "mozilla") {
         container.style.minWidth = item.offsetWidth + "px";
-      else {
+      } else {
         container.style.width = "180px";
-        if (document.getElementById("UIPortalApplication").className == "Default") 
+        if (document.getElementById("UIPortalApplication").className == "Default") {
           container.style.width = "auto";
+        }
       }
     }
   }
@@ -80,8 +81,9 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
     var menuItem = menuItems[i];
     menuItem.onmouseover = eXo.portal.UIPortalNavigation.onMenuItemOver;
     menuItem.onmouseout = eXo.portal.UIPortalNavigation.onMenuItemOut;
-    var link = DOMUtil.findDescendantsByTagName(menuItem, "a")[0];
-    this.superClass.createLink(menuItem, link);
+
+//    var link = DOMUtil.findDescendantsByTagName(menuItem, "a")[0];
+//    this.superClass.createLink(menuItem, link);
     // Set an id to each container for future reference
     var cont = DOMUtil.findAncestorByClass(menuItem, this.containerStyleClass) ;
     if (!cont.id) cont.id = "PortalNavigationContainer-" + i;
@@ -180,16 +182,16 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e, tab, menuItemContainer)
       eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y);
       eXo.portal.UIPortalNavigation.superClass.show(menuItemContainer);
       
-      if (!menuItemContainer.resized && eXo.core.Browser.getBrowserType() == "ie") {
-        var w = menuItemContainer.offsetWidth;
-        var menuItems = DOMUtil.findDescendantsByClass(menuItemContainer, "div", eXo.portal.UIPortalNavigation.tabStyleClass);
-        for (var i = 0; i < menuItems.length; i++) {
-          if (eXo.core.Browser.browserType == "mozilla")
-             menuItems[i].style.width = w + "px";
-        }
-        menuItemContainer.resized = true;
-      }
-      //menuItemContainer.onmouseout = eXo.portal.UIPortalNavigation.closeMenuTimeout ;
+//      if (!menuItemContainer.resized && eXo.core.Browser.getBrowserType() == "ie") {
+//        var w = menuItemContainer.offsetWidth;
+//        var menuItems = DOMUtil.findDescendantsByClass(menuItemContainer, "div", eXo.portal.UIPortalNavigation.tabStyleClass);
+//        for (var i = 0; i < menuItems.length; i++) {
+//          if (eXo.core.Browser.browserType == "mozilla")
+//             menuItems[i].style.width = w + "px";
+//        }
+//        menuItemContainer.resized = true;
+//      }
+//      menuItemContainer.onmouseout = eXo.portal.UIPortalNavigation.closeMenuTimeout ;
       
       menuItemContainer.style.width = menuItemContainer.offsetWidth + 2 + "px";
       eXo.portal.UIPortalNavigation.currentOpenedMenu = menuItemContainer.id;
