@@ -264,7 +264,7 @@
       <div class="LoginContainer">
         <div class="LabelItem">
           <div class="$icon" onclick="location.href='$href';">
-            <div class="LabelText" onclick="location.href='$href';">$label</div>
+            <div class="LabelText" onclick="location.href='$href';"><a>$label</a></div>
           </div>
         </div>
       </div>
