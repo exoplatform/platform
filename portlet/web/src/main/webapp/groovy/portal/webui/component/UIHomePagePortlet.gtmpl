@@ -1,45 +1,278 @@
 <div class="UIHomePagePortlet">
 	<div class="HomePortletDecor">
-		<div class="HomePageBanner">
-			<div class="AdImage"><span></span></div>
-		</div>
-		<div class="HomePageContent">
-			<div class="Container">
-				<div class="LeftExoPortal">						 
-					<div class="RightContainer">
-						<div class="MiddleContent">
-							<a href="#" class="LinkExoPortal"><span></span></a>
-							<div class="Description">
-								New version comes with a revolutionary user interface.
-							</div>
-						</div>
+		<div class="MiddleBanner" style="display: block">
+			<div class="LeftBanner">
+				<div class="RightBanner">
+					<div class="TitleBanner">
+						<span >eXo</span>
+						<span class="TitleBannerOrange">2.0</span>
+						<span >Release!</span>
 					</div>
-				</div>						
-			</div>					
-			<div class="Container">
-				<div class="LeftExoECM">						 
-					<div class="RightContainer">
-						<div class="MiddleContent">
-							<a href="#" class="LinkExoECM"><span></span></a>
-							<div class="Description">
-								Advanced Enterprise Content Management features to manage documents and digital assets.
+					<div class="ListMenu">
+						<a href="#" class="Portal ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Portal 2.0
+								</div>
 							</div>
-						</div>
-					</div>
-				</div>						
-			</div>					
-			<div class="Container">
-				<div class="LeftExoCS">						 
-					<div class="RightExoCS">
-						<div class="MiddleContent">
-							<a href="#" class="LinkExoCS"><span></span></a>
-							<div class="Description">
-								Innovative Collaboration Suite with shared Calendars, WebMail, Forums and Contact List.
+						</a>
+						<a href="#" class="ECM ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo ECM 2.0
+								</div>
 							</div>
-						</div>
+						</a>
+						<a href="#" class="CS ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo CS 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="Utimate ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Utimate 2.0
+								</div>
+							</div>
+						</a>
 					</div>
-				</div>						
+				</div>
 			</div>
+		</div>
+		
+		<div class="MiddleBanner" style="display: none">
+			<div class="LeftBannerPortal">
+				<div class="RightBanner">
+					<div class="TitleBanner">
+						<span >eXo</span>
+						<span >Portal</span>
+						<span class="TitleBannerOrange">2.0</span>	
+					</div>
+					<div class="ListMenu">
+						<a href="#" class="Portal ItemMenu SelectedMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Portal 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="ECM ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo ECM 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="CS ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo CS 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="Utimate ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Utimate 2.0
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="MiddleBanner" style="display: none">
+			<div class="LeftBannerECM">
+				<div class="RightBanner">
+					<div class="TitleBanner">
+						<span>eXo</span>
+						<span>ECM</span>
+						<span class="TitleBannerOrange">2.0</span>
+					</div>
+					<div class="ListMenu">
+						<a href="#" class="Portal ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Portal 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="ECM ItemMenu SelectedMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo ECM 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="CS ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo CS 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="Utimate ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Utimate 2.0
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="MiddleBanner" style="display: none">
+			<div class="LeftBannerCS">
+				<div class="RightBanner">
+					<div class="TitleBanner">
+						<span >eXo</span>
+						<span >CS</span>
+						<span class="TitleBannerOrange">2.0</span>
+					</div>
+					<div class="ListMenu">
+						<a href="#" class="Portal ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Portal 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="ECM ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo ECM 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="CS ItemMenu SelectedMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo CS 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="Utimate ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Utimate 2.0
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="MiddleBanner" style="display: none">
+			<div class="LeftBannerUtimate">
+				<div class="RightBanner">
+					<div class="TitleBanner">
+						<span >eXo</span>
+						<span >Utimate</span>
+						<span class="TitleBannerOrange">2.0</span>
+					</div>
+					<div class="ListMenu">
+						<a href="#" class="Portal ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Portal 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="ECM ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo ECM 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="CS ItemMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo CS 2.0
+								</div>
+							</div>
+						</a>
+						<a href="#" class="Utimate ItemMenu SelectedMenu">
+							<div class="RightMenu">
+								<div class="MiddleMenu">
+									eXo Utimate 2.0
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="HomePageContent">
+		
+			<div class="Container">
+				<div class="LeftContainer ExoPortal">	
+					<div class="RightContainer">
+						<div class="MiddleContainer">		 
+							<a href="#" class="Name">Administrator</a>
+							<div class="Description">User: root </div>
+							<div class="Description">Password: exo</div>
+						</div>
+					</div>
+				</div>	
+			</div>					
+			
+			<div class="Container">
+				<div class="LeftContainer ExoHR">	
+					<div class="RightContainer">
+						<div class="MiddleContainer">		 
+							<a href="#" class="Name">HR-manager</a>
+							<div class="Description">User: james </div>
+							<div class="Description">Password: exo</div>
+						</div>
+					</div>
+				</div>	
+			</div>					
+			
+			<div class="Container">
+				<div class="LeftContainer ExoManager">
+					<div class="RightContainer">
+						<div class="MiddleContainer"> 
+							<a href="#" class="Name">Manager</a>
+							<div class="Description">User: john </div>
+							<div class="Description">Password: exo</div>
+						</div>
+					</div>
+				</div>
+			</div>						
+			
+			<div class="Container">
+				<div class="LeftContainer ExoUser">
+					<div class="RightContainer">
+						<div class="MiddleContainer">
+							<a href="#" class="Name">User</a>
+							<div class="Description">User: marry</div>
+							<div class="Description">Password: exo</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="Container">
+				<div class="LeftContainer ExoUsers">
+					<div class="RightContainer">
+						<div class="MiddleContainer">
+							<a href="#" class="Name">User</a>
+							<div class="Description">User: marry</div>
+							<div class="Description">Password: exo</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 		</div>
 	</div>				
 </div>

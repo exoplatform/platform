@@ -82,13 +82,13 @@ SkinService.addSkin(
 SkinService.addSkin(
     "web/IFramePortlet",
     "Vista",
-    "/web/skin/portal/webui/component/UISiteMap/DefaultStylesheet.css"
+    "/web/skin/portal/webui/component/UIIFramePortlet/DefaultStylesheet.css"
 ) ;
 
 SkinService.addSkin(
     "web/IFramePortlet",
     "Mac",
-    "/web/skin/portal/webui/component/UISiteMap/DefaultStylesheet.css"
+    "/web/skin/portal/webui/component/UIIFramePortlet/DefaultStylesheet.css"
 ) ;
 
 /***************************BrowserPortlet**************************************************/
