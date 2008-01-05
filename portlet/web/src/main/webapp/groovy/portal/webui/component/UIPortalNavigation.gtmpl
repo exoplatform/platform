@@ -67,8 +67,8 @@
   	if(uicomponent.isUseAjax()) {
       String onclickEvt = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) + ";return false;" ;
 	  	print """
-	  			<div class="MenuItem $tabStyleNavigation" onclick="$onclickEvt" >
-						<a href="$pageURI">
+	  			<div class="MenuItem $tabStyleNavigation">
+						<a href="$pageURI" onclick="$onclickEvt" >
 							<div class="ItemIcon $icon">
 							  <div class="$arrowIcon">
 		  							$node.resolvedLabel

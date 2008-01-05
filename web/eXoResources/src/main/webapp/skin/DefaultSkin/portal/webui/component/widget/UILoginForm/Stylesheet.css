@@ -1,6 +1,7 @@
 .UILoginForm {
   margin: auto;
   padding: 30px 17px 30px 10px ;
+  background: #f5f5f5;
 }
 
 /*##############################- LoginBox Style-################################*/
@@ -112,6 +113,7 @@
   line-height: 18px;
   border: solid 1px #b7b7b7 ;
   padding: 0px 0px 0px 22px;
+  cursor: text;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField input {
@@ -120,6 +122,7 @@
   line-height: 18px;
   border: solid 1px #b7b7b7 ;
   padding: 0px 0px 0px 22px;
+  cursor: text;
 }
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
