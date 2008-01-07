@@ -15,12 +15,6 @@ if(!eXo.portal.UIControlWorkspace) {
   eXo.portal.UIControlWorkspace = new UIWorkspace("UIControlWorkspace") ;
 };
 
-if (document.getElementById("UIPageDesktop")) {
-	document.body.setAttribute("scroll", "no");
-} else {
-	document.body.setAttribute("scroll", "auto"); 
-}
-
 eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	this.width = width ;
 	this.height = height ;
