@@ -153,6 +153,13 @@
   line-height: 20px;
   padding: 20px 40px 20px 15px;
 }
+
+/*========================== Start UIWizard Step1 ==============================*/
+.UIWizard .UIContainerConfigOptions .UIDropDownControl {
+	width: 217px;
+	margin-bottom: 2px;
+}
+
 /*========================== Start UIWizard Step2 ==============================*/
 .UIWizard .UIWizardPageSetInfo {
   padding: 15px 10px 10px 10px ; 

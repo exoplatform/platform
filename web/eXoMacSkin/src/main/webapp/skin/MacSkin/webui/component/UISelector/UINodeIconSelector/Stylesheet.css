@@ -66,6 +66,16 @@
   cursor: pointer ;
 }
 
+.UINodeIconSelector .LeftColumnStyle .SetDefault a {
+	color: black;
+	line-height: 22px;
+	text-decoration: underline;
+}
+
+.UINodeIconSelector .LeftColumnStyle .SetDefault a:hover {
+  color: #058EE6;
+}
+
 .UIMaskWorkspace .UIForm .HorizontalLayout .UINodeIconSelector .UIFormInputSet {
 	width: auto;
 }

@@ -15,39 +15,39 @@
 }
 
 .UIHomePagePortlet .MiddleBanner {
-	background: url('DefaultSkin/background/BannerHome481x1632.jpg') repeat-x left top;
+	background: url('DefaultSkin/background/BannerHome.jpg') repeat-x left top;
 	height: 272px;	
 	line-height: 250px;
 	margin-bottom: 9px;
 }
 
 .UIHomePagePortlet .LeftBanner {
-	background: url('DefaultSkin/background/BannerHome481x1632.jpg') no-repeat left -544px;
+	background: url('DefaultSkin/background/BannerHome.jpg') no-repeat left -544px;
 	height: 272px;
 }
 
 .UIHomePagePortlet .LeftBannerPortal {
-	background: url('DefaultSkin/background/BannerHome481x1632.jpg') no-repeat left -816px;
+	background: url('DefaultSkin/background/BannerHome.jpg') no-repeat left -816px;
 	height: 272px;
 }
 
 .UIHomePagePortlet .LeftBannerECM {
-	background: url('DefaultSkin/background/BannerHome481x1632.jpg') no-repeat left -1088px;
+	background: url('DefaultSkin/background/BannerHome.jpg') no-repeat left -1088px;
 	height: 272px;
 }
 
 .UIHomePagePortlet .LeftBannerCS {
-	background: url('DefaultSkin/background/BannerHome481x1632.jpg') no-repeat left -1360px;
+	background: url('DefaultSkin/background/BannerHome.jpg') no-repeat left -1360px;
 	height: 272px;
 }
 
-.UIHomePagePortlet .LeftBannerUtimate {
-	background: url('DefaultSkin/background/BannerHome481x1632.jpg') no-repeat left -544px;
+.UIHomePagePortlet .LeftBannerUltimate {
+	background: url('DefaultSkin/background/BannerHome.jpg') no-repeat left -1632px;
 	height: 272px;
 }
 
 .UIHomePagePortlet .RightBanner{
-	background: url('DefaultSkin/background/BannerHome481x1632.jpg') no-repeat right -272px;
+	background: url('DefaultSkin/background/BannerHome.jpg') no-repeat right -272px;
 	height: 272px;
 }
 

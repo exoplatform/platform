@@ -192,12 +192,18 @@
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   padding: 10px 0px 15px 0px;
   background: #ffffff;
-  height: 185px;
+  height: 192px;
+}
+
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
+	width: 380px;
+	margin: auto;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FieldContainer {
 	width: 380px;
 	margin-left: auto; margin-right: auto;
+	border: 1px solid red;
 }
 
 /*========================== Start UIWizard Step 3 ==============================*/

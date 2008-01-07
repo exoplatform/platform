@@ -39,9 +39,16 @@
 
 .UIFormInputThemeSelector .LeftColumnStyle .SetDefault {
 	float: right;
-	color: #058ee6;
-	font-weight: bold;
-	line-height: 20px;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .SetDefault a {
+	color: black;
+	line-height: 22px;
+	text-decoration: underline;
+}
+
+.UIFormInputThemeSelector .LeftColumnStyle .SetDefault a:hover {
+  color: #058EE6;
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList .DetailView {
