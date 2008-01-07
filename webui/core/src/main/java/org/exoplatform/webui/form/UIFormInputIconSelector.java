@@ -175,7 +175,7 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
       UIFormInputIconSelector uiIconSelector = event.getSource() ;
       String iconName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       if(iconName.equals("Default")) {
-        uiIconSelector.setSelectedIcon("World") ;
+        uiIconSelector.setSelectedIcon("Default") ;
         for(IconSet set : uiIconSelector.getListIconSet()) {
           if(set.getName().equals("misc")) {
             uiIconSelector.setSelectedIconSet(set) ;   

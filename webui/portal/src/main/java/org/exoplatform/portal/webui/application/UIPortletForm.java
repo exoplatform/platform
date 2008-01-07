@@ -104,8 +104,9 @@ public class UIPortletForm extends UIFormTabPane {
       UIPortletForm uiPortletForm = event.getSource() ;
       UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
       UIFormInputIconSelector uiIconSelector = uiPortletForm.getChild(UIFormInputIconSelector.class);
-      uiPortlet.setIcon(uiIconSelector.getSelectedIcon());
       uiPortletForm.invokeSetBindingBean(uiPortlet) ;
+      if(uiIconSelector.getSelectedIcon().equals("Default")) uiPortlet.setIcon("PortletIcon") ;
+      else uiPortlet.setIcon(uiIconSelector.getSelectedIcon());
       UIFormInputThemeSelector uiThemeSelector = uiPortletForm.getChild(UIFormInputThemeSelector.class) ;
       uiPortlet.putSuitedTheme(null, uiThemeSelector.getChild(UIItemThemeSelector.class).getSelectedTheme()) ;
       UIMaskWorkspace uiMaskWorkspace = uiPortletForm.getParent();

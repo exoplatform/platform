@@ -130,7 +130,9 @@ public class UIPageNodeForm extends UIFormTabPane {
       if(pageNode == null) pageNode  = new PageNode();
       uiPageNodeForm.invokeSetBindingBean(pageNode) ;
       UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
-      pageNode.setIcon(uiIconSelector.getSelectedIcon());
+      
+      if(uiIconSelector.getSelectedIcon().equals("Default")) pageNode.setIcon(null);
+      else pageNode.setIcon(uiIconSelector.getSelectedIcon());
       
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
