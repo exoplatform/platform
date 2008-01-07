@@ -3,7 +3,7 @@
   import org.exoplatform.portal.config.model.PageNode ;
   import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.portal.config.model.PageNavigation ;
-
+	import org.exoplatform.portal.webui.util.Util;
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
@@ -252,13 +252,19 @@
   }
 */  
   void renderLoginAction(String name, String icon, String action) {
-    String  href = uicomponent.url(action) ;
+    //String  href = uicomponent.url(action) ;
     String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
+    
+    request = Util.getPortalRequestContext().getRequest() ;
+    String portalName = Util.getUIPortal().getName() ;
+    portalName = URLEncoder.encode(portalName, "UTF-8") ;
+    String href = request.getContextPath() + "/public/" + portalName + "/" ;
+    
     print """
       <div class="LoginContainer">
         <div class="LabelItem">
           <div class="$icon" onclick = "location.href='$href';">
-            <div class="LabelText"><a onclick = "location.href='$href';">$label</a></div>
+            <div class="LabelText"><a href="#">$label</a></div>
           </div>
         </div>
       </div>
@@ -296,11 +302,12 @@
                   """ ; 
                 }
                 renderNavigations() ;
-                if(uicomponent.isLogged()) {
-                  renderLoginAction("Logout", "LogoutIcon", "Logout") ;
-                } else {
-                  renderLoginAction("Login", "LoginIcon", "Login") ;
-                }
+                renderLoginAction("Logout", "LogoutIcon", "Logout") ;
+                //if(uicomponent.isLogged()) {
+                  //renderLoginAction("Logout", "LogoutIcon", "Logout") ;
+                //} else {
+                  //renderLoginAction("Login", "LoginIcon", "Login") ;
+                //}
               %>
             </div>
             <div style="clear: left"><span></span></div>
