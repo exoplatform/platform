@@ -2,10 +2,21 @@
   import org.exoplatform.webui.application.portlet.PortletRequestContext ;
 %>
 
-<div class="UIIFramePortlet" id="$uicomponent.id" style="height: 100%; width: 100%; overflow: hidden;">
+<div class="UIIFramePortlet" id="$uicomponent.id" style="height: 100%; overflow: hidden;">
 	<%if( _ctx.getRequestContext().getApplicationMode() == PortletRequestContext.VIEW_MODE ) {%>
-	    <iframe src="<%=uicomponent.getURL()%>" class="UIIFramePortlet" style="width: 100%; height: 100%;" frameborder="0" border="0" hspace="0" vspace="0"></iframe>
+	    <iframe src="<%=uicomponent.getURL()%>" style="height: 100%; width: 100%" frameborder="0" border="0" hspace="0" vspace="0"></iframe>
   <%} else {%>
       <% uicomponent.renderChildren(); %>
   <%}%>
 </div>
+<script type="text/javascript">
+	var uiPortal = document.getElementById("UIPortal");
+	if (uiPortal){
+		var iFrames = eXo.core.DOMUtil.findDescendantsByClass(uiPortal, "div", "UIIFramePortlet");
+		if (iFrames.length) {
+			for (var i = 0; i < iFrames.length; i ++) {
+				iFrames[i].style.height = 400 + "px";
+			}
+		}
+	}
+</script>
