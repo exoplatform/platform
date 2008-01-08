@@ -3,7 +3,8 @@
   import org.exoplatform.portal.config.model.PageNode ;
   import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.portal.config.model.PageNavigation ;
-	import org.exoplatform.portal.webui.util.Util;
+  import org.exoplatform.portal.webui.util.Util;
+  
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
@@ -11,7 +12,6 @@
   jsmanager.addOnLoadJavascript('eXo.portal.UIExoStartMenu.onLoad');
 //  jsmanager.addOnResizeJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
 //  jsmanager.addOnScrollJavascript('eXo.portal.UIExoStartMenu.hideUIStartMenu');
-  String docBase =  rcontext.getRequestContextPath() ;
   String onclick = "eXo.portal.UIExoStartMenu.showStartMenu(event);" ;
   
   void renderSinglePageNode(PageNavigation nav, PageNode node) {
@@ -255,15 +255,14 @@
     //String  href = uicomponent.url(action) ;
     String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
     
-    request = Util.getPortalRequestContext().getRequest() ;
     String portalName = Util.getUIPortal().getName() ;
     portalName = URLEncoder.encode(portalName, "UTF-8") ;
-    String href = request.getContextPath() + "/public/" + portalName + "/" ;
+    String href = _ctx.getRequestContext().getRequestContextPath() + "/public/" + portalName + "/" ;
     
     print """
       <div class="LoginContainer">
         <div class="LabelItem">
-          <div class="$icon" onclick = "location.href='$href';">
+          <div class="$icon" onclick="location.href='$href';">
             <div class="LabelText"><a href="#">$label</a></div>
           </div>
         </div>
