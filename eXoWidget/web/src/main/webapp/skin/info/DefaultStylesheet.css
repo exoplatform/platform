@@ -1,7 +1,6 @@
 .UIInfoWidget{
 	width: 220px; height: 204px;
 	background: url('DefaultSkin/background/eXoInfoWidgetBackground.png') no-repeat center top;
-	
 }
 
 .UIInfoWidget .eXoInfoWidgetTitle{
@@ -27,30 +26,30 @@
 	margin: auto;
 	padding-top: 10px;
 	width: 180px;
-	height: 32px;
+	height: 38px;
 } 
 
 .UIInfoWidget .BrowserIconContainer .BrowserIcon {
 	float: left;
-	width: 32px; height: 32px;
-	margin-left: 10px;
+	width: 25px; height: 25px;
+	margin-left: 17px;
 	cursor: pointer;
 }
 
 .UIInfoWidget .BrowserIconContainer .FirefoxIcon {
-	background: url('DefaultSkin/icons/FirefoxIcon.gif') no-repeat center;	
+	background: url('DefaultSkin/background/InfoWidget.gif') no-repeat left -94px;	
 }
 
 .UIInfoWidget .BrowserIconContainer .IE7Icon {
-	background: url('DefaultSkin/icons/IE7Icon.gif') no-repeat center;	
+	background: url('DefaultSkin/background/InfoWidget.gif') no-repeat left -147px;	
 }
 
 .UIInfoWidget .BrowserIconContainer .IE6Icon {
-	background: url('DefaultSkin/icons/IE6Icon.gif') no-repeat center;	
+	background: url('DefaultSkin/background/InfoWidget.gif') no-repeat left -121px;	
 }
 
 .UIInfoWidget .BrowserIconContainer .SafariIcon {
-	background: url('DefaultSkin/icons/SafariIcon.gif') no-repeat center;	
+	background: url('DefaultSkin/background/InfoWidget.gif') no-repeat left -70px;	
 }
 
 .UIInfoWidget .DownloadButton {
@@ -62,18 +61,18 @@
 .UIInfoWidget .DownloadButton .LeftButton{
 	height: 22px;
 	padding-left: 11px;
-	background: url('DefaultSkin/background/LeftDownloadButton11x22.gif') no-repeat left;	
+	background: url('DefaultSkin/background/InfoWidget.gif') no-repeat left -23px;	
 }
 
 .UIInfoWidget .DownloadButton .RightButton{
 	height: 22px;
 	padding-right: 11px;
-	background: url('DefaultSkin/background/RightDownloadButton11x22.gif') no-repeat right;	
+	background: url('DefaultSkin/background/InfoWidget.gif') no-repeat right -46px;	
 }
 
 .UIInfoWidget .DownloadButton .MiddleButton{
 	height: 22px;
-	background: url('DefaultSkin/background/CenterDownloadButton1x22.gif') repeat-x;
+	background: url('DefaultSkin/background/InfoWidget.gif') repeat-x;
 	text-align:center;
 }
 
