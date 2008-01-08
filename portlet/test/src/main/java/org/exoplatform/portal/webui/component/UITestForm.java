@@ -142,9 +142,9 @@ public class UITestForm extends UIFormTabPane {
 ////    
 //    addUIFormInput(radioBoxInput);
 //    addUIFormInput(aaaa);
-////    UIFormMultiValueInputSet uiFormMultiValue = new UIFormMultiValueInputSet("trong", "trong") ;
-////    uiFormMultiValue.setType(UIFormUploadInput.class) ;
-////    addUIFormInput(uiFormMultiValue) ;
+    UIFormMultiValueInputSet uiFormMultiValue = new UIFormMultiValueInputSet("trong", "trong") ;
+    uiFormMultiValue.setType(UIFormUploadInput.class) ;
+    addUIFormInput(uiFormMultiValue) ;
 ////    addUIFormInput(new UIFormTextAreaInput(FIELD_TEXT_AREA, FIELD_TEXT_AREA, null));
 //    addUIFormInput(new UIFormDateTimeInput(FIELD_HIDDEN_INPUT, FIELD_HIDDEN_INPUT, null).addValidator(DateTimeValidator.class));
 //    addUIFormInput(new UIFormDateTimeInput(FIELD_DATE_TIME, FIELD_DATE_TIME, new Date()).addValidator(DateTimeValidator.class));

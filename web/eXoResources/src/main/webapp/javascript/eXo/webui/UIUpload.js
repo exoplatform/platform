@@ -17,7 +17,7 @@ UIUpload.prototype.initUploadEntry = function(uploadId) {
 	if(response.upload[uploadId] == undefined || response.upload[uploadId].percent == undefined) {
 		this.createUploadEntry(uploadId);
 	} else if(response.upload[uploadId].percent == 100)  {
-		this.showUploaded(uploadId, response.upload[uploadId].fileName);
+		this.showUploaded(uploadId, decodeURIComponent(response.upload[uploadId].fileName));
 	} 
 };
 
@@ -109,7 +109,6 @@ UIUpload.prototype.showUploaded = function(id, fileName) {
   if(fileName != null) fileNameLabel.innerHTML += " " + fileName;
   var progressBarFrame = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarFrame") ;
   progressBarFrame.style.display = "none" ;
- // var fileNameLabel = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "FileNameLabel") ;
   var tmp = element.parentNode;
   var temp = tmp.parentNode;
 };

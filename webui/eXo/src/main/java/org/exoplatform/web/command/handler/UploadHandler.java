@@ -17,6 +17,7 @@
 package org.exoplatform.web.command.handler;
 
 import java.io.Writer;
+import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -70,7 +71,7 @@ public class UploadHandler extends Command {
         }
         value.append("\n    \"").append(uploadId[i]).append("\": {");
         value.append("\n      \"percent\":").append('\"').append((int)percent).append("\",");
-        value.append("\n      \"fileName\":").append('\"').append(upResource.getFileName()).append("\"");
+        value.append("\n      \"fileName\":").append('\"').append(encodeName(upResource.getFileName())).append("\"");
         value.append("\n    }");
         if(i < uploadId.length - 1) value.append(',');
       }       
@@ -84,6 +85,15 @@ public class UploadHandler extends Command {
       UploadResource upResource = service.getUploadResource(uploadId[0]);
       if(upResource != null) upResource.setStatus(UploadResource.UPLOADED_STATUS) ;
     }    
+  }
+  
+  public String encodeName(String name) throws Exception  {
+    String[] arr = name.split(" ");
+    String str = "";
+    for(int i = 0;i < arr.length;i++) {
+      str += " " + URLEncoder.encode(arr[i], "UTF-8");
+    }
+    return str;
   }
   
 }
