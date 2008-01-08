@@ -107,6 +107,7 @@ public class UIUserInGroup extends UIContainer {
       pageList = new ObjectPageList(memberships, 10) ;
     }
     UIGridUser uiGrid = getChild(UIGridUser.class) ;
+    pageList.setPageSize(7) ;    
     uiGrid.getUIPageIterator().setPageList(pageList);
   }
 

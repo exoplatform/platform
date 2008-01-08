@@ -60,6 +60,7 @@ public class UIListMembershipType extends UIContainer {
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     List memberships = (List)service.getMembershipTypeHandler().findMembershipTypes();
     PageList pagelist = new ObjectPageList(memberships, 10);
+    pagelist.setPageSize(7) ;    
     getChild(UIGrid.class).getUIPageIterator().setPageList(pagelist);
   }
   
