@@ -16,11 +16,11 @@
 .UITrees .LevelUpArrowIcon {
   width: 100%;
   height: 20px;
-  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat center;
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat 10px center;
 }
 
 .UITrees a.LevelUpArrowIcon:hover {
-  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat center;
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat 10px center;
 }
 
 .UITrees .Node {
