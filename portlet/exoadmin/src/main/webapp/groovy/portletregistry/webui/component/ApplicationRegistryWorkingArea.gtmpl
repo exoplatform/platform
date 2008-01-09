@@ -41,9 +41,9 @@
 	  		  <div class="TitleBarApplication">
 	  		    <label><%=displayName%></label>
 	  		    <div class="ApplicationButton">
-				  		<a class="Icon DeleteIcon" href="<%=uicomponent.event("DeletePortlet", name)%>" title="<%=_ctx.appRes("ApplicationRegistryWorkingArea.label.DeleteApplication")%>"><span></span></a>
-				  		<a class="Icon EditInfoIcon" href="<%=uicomponent.event("EditPortlet", name)%>" title="<%=_ctx.appRes("ApplicationRegistryWorkingArea.label.EditApplication")%>"><span></span></a>
-				  		<a class="Icon PermissionSettingIcon" href="<%=uicomponent.event("EditPermission", name)%>" title="<%=_ctx.appRes("ApplicationRegistryWorkingArea.label.SelectPermission")%>"><span></span></a>
+				  		<a class="Icon DeleteIcon" href="javascript: void(0);"onclick="<%=uicomponent.event("DeletePortlet", name)%>" title="<%=_ctx.appRes("ApplicationRegistryWorkingArea.label.DeleteApplication")%>"><span></span></a>
+				  		<a class="Icon EditInfoIcon" href="javascript: void(0);" onclick="<%=uicomponent.event("EditPortlet", name)%>" title="<%=_ctx.appRes("ApplicationRegistryWorkingArea.label.EditApplication")%>"><span></span></a>
+				  		<a class="Icon PermissionSettingIcon" href="javascript: void(0);" onclick="<%=uicomponent.event("EditPermission", name)%>" title="<%=_ctx.appRes("ApplicationRegistryWorkingArea.label.SelectPermission")%>"><span></span></a>
 				  	  <div style="clear: right;"><span></span></div>
 				  	</div>
 	  		  </div>
@@ -79,7 +79,7 @@
 	    <table class="ActionContainer" align="center">
 		    <tr>
 		    	<td align="center">
-			      <a href="<%=uicomponent.event("AddPortlet", "")%>" class="ActionButton LightBlueStyle">
+			      <a href="javascript: void(0);" onclick="<%=uicomponent.event("AddPortlet", "")%>" class="ActionButton LightBlueStyle">
 			        <div class="ButtonLeft">
 			          <div class="ButtonRight">
 			            <div class="ButtonMiddle">

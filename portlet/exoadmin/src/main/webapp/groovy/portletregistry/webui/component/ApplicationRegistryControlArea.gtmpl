@@ -28,20 +28,20 @@
 					<div class="RightBar">
 						<div class="MiddleBar">
 							<div class="ActionsContainer">
-								<a href="<%=uicomponent.event("ImportPortlet")%>" class="CategoryControlIcon ImportPortletsIcon" 
+								<a onclick="<%=uicomponent.event("ImportPortlet")%>" href="javascript: void(0);" class="CategoryControlIcon ImportPortletsIcon" 
 								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.importPortlets")%>">
 								  <span></span>
 								</a>
-								<a href="<%=uicomponent.event("ImportExoWidget")%>" class="CategoryControlIcon ImportApplicationsIcon"
+								<a onclick="<%=uicomponent.event("ImportExoWidget")%>" href="javascript: void(0);" class="CategoryControlIcon ImportApplicationsIcon"
 								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.importWidgets")%>">
 								  <span></span>
 								</a>
 								<div class="SeparatorLine"><span></span></div>
-								<a href="<%=uicomponent.event("AddCategory")%>" class="CategoryControlIcon AddCategoryIcon" 
+								<a onclick="<%=uicomponent.event("AddCategory")%>" href="javascript: void(0);" class="CategoryControlIcon AddCategoryIcon" 
 								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.AddCategory")%>">
 								  <span></span>
 								</a>
-								<a href="<%=uicomponent.event("DeleteAllCategory")%>" class="CategoryControlIcon DeleteCategoryIcon" 
+								<a onclick="<%=uicomponent.event("DeleteAllCategory")%>" href="javascript: void(0);" class="CategoryControlIcon DeleteCategoryIcon" 
 								   title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.clearApplication")%>">
 								  <span></span>
 								</a>
@@ -84,8 +84,8 @@
 									      <div class="LeftIcon"><span></span></div>
 							            <a class="TabLabel" href="javascript: void(0);"><%=displayName%></a>
 								          <div class="ControlContainer" style ="$display">
-								            <a class="ControlIcon EditIcon" title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.EditCategory")%>" href="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
-								            <a class="ControlIcon DeleteIcon" title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.DeleteCategory")%>" href="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
+								            <a class="ControlIcon EditIcon" title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.EditCategory")%>" href="javascript: void(0);" onclick="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
+								            <a class="ControlIcon DeleteIcon" title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.DeleteCategory")%>" href="javascript: void(0);" onclick="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
 								            <div style="clear: left"><span></span></div>
 								          </div>
 							          <div style="clear: both"><span></span></div>
