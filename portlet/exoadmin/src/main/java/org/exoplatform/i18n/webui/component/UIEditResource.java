@@ -66,7 +66,6 @@ public class UIEditResource extends UIForm {
   private boolean editAble = true;
   
   public UIEditResource() throws Exception {
-    addUIFormInput(new UIFormTextAreaInput("resource", null,null).addValidator(EmptyFieldValidator.class)) ;
     addUIFormInput(new UIFormStringInput("name",null,null).addValidator(EmptyFieldValidator.class).addValidator(SpecialCharacterValidator.class)) ;
     
     LocaleConfigService service = getApplicationComponent(LocaleConfigService.class) ;
@@ -79,6 +78,7 @@ public class UIEditResource extends UIForm {
     }
     
     addUIFormInput(new UIFormSelectBox("language","language",options).addValidator(EmptyFieldValidator.class)) ;
+    addUIFormInput(new UIFormTextAreaInput("resource", null,null).addValidator(EmptyFieldValidator.class)) ;
   } 
 
   static public class SaveActionListener  extends EventListener<UIEditResource> {
