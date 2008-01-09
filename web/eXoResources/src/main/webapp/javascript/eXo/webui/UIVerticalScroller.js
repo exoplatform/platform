@@ -51,9 +51,9 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 		tmp = items[i].offsetHeight ;
 		/* TODO: fix Height for Widgets when onload
 		 * */
-		 if(tmp > 0 && tmp < 200) {tmp = 222;}
-		 if(DOMUtil.findFirstDescendantByClass(items[i], "div", "UIStickerWidget")) {
-				tmp = 120;
+		 if(tmp > 0 && tmp < 209) {tmp = 229;}
+		 if(DOMUtil.findFirstDescendantByClass(items[i], "div", "UIWelcomeWidget")) {
+				tmp = 146;
 		 }
 		itemsHeight += tmp ;
 		if(itemsHeight > maxHeight) {
