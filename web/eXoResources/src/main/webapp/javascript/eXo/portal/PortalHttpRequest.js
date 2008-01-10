@@ -419,7 +419,7 @@ function HttpResponseHandler(){
 	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
 	  eXo.portal.AjaxRequest.maskLayer = null ;
 	  eXo.portal.CurrentRequest = null ;
-	  window.location.href = window.location.href ;  
+	  window.location.reload() ;
 	}
 	
 	/*
