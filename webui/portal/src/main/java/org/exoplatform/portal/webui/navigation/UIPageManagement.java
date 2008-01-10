@@ -72,6 +72,9 @@ public class UIPageManagement extends UIManagement {
   }
 
   public void setMode(ManagementMode mode, Event<? extends UIComponent> event) throws Exception {
+    //TODO: modify - dang.tung: config mode for uicomponent, getMode() always return right
+    mode_ = mode ;
+    //------------------------------------------------------------------------------------
     if (mode == ManagementMode.EDIT) {
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
       UITree uiTree = uiNodeSelector.getChild(UITree.class);
@@ -79,7 +82,6 @@ public class UIPageManagement extends UIManagement {
       uiTree.createEvent("ChangeNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
       return;
     }
-    
     UIWorkspace uiWorkingWS = Util.updateUIApplication(event);
     getChild(UIPageNodeSelector.class).setRendered(false);
     getChild(UIPageNavigationControlBar.class).setRendered(false);

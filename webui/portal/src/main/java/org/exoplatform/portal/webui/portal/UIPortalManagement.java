@@ -58,6 +58,9 @@ public class UIPortalManagement extends UIManagement {
   }
   
   public void setMode(ManagementMode mode, Event<? extends UIComponent> event) throws Exception {
+    //TODO: modify - dang.tung: config mode for uicomponent, getMode() always return right
+    mode_ = mode ;
+    //------------------------------------------------------------------------------------
     if(mode == ManagementMode.EDIT) {
       UIPageBody uiPageBody = Util.getUIPortal().findFirstComponentOfType(UIPageBody.class);
       if(uiPageBody != null) {
