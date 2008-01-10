@@ -12,15 +12,10 @@ UIDesktop.prototype.init = function() {
 	  var uiWindows = eXo.core.DOMUtil.findChildrenByClass(pageDesktop, "div", "UIWindow") ;
 	  for(var i = 0; i < uiWindows.length; i++) {
 	  	if(uiWindows[i].isFirstTime == false)	continue ;
-	  	eXo.desktop.UIDesktop.backupWindowProperties(uiWindows[i]);
 			//fix display scroll in first time
-			if (uiWindows[i].style.display == "block") {
-					var blockResizes = eXo.core.DOMUtil.findDescendantsByClass(uiWindows[i], "div", "UIResizableBlock");
-					if (blockResizes.length > 1) {
-						blockResizes[0].style.overflow = "hidden" ;
-						blockResizes[0].style.height = "auto" ;
-					}
-			}
+	  	var blockResizes = eXo.core.DOMUtil.findDescendantsByClass(uiWindows[i], "div", "UIResizableBlock");
+			if (blockResizes.length > 2) blockResizes[0].style.overflow = "hidden" ;
+	  	eXo.desktop.UIDesktop.backupWindowProperties(uiWindows[i]);
 	  }
 	}
 };
@@ -63,8 +58,6 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
 	
   windowObject.style.zIndex = maxZIndex ;
   uiDockbar.style.zIndex = parseInt(maxZIndex) + 1 ;
-//  alert("MaxZIndex: " + maxZIndex);
-  //return maxZIndex ;
 };
 
 UIDesktop.prototype.isMaxZIndex = function(object) {
@@ -85,10 +78,6 @@ UIDesktop.prototype.isMaxZIndex = function(object) {
 	return isMax ;
 };
 
-/*
- * minh.js.exo
- */
- 
 UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   if(typeof(uiWindow) == "string") this.object = document.getElementById(uiWindow) ;
   else this.object = uiWindow ;
@@ -186,16 +175,6 @@ UIDesktop.prototype.addJSApplication = function(applicationNode) {
   var tooltip = appDescriptor.application.appName ;
   var appTooltip = eXo.desktop.UIDockbar.createApplicationTooltip(tooltip) ;
   
-  /*
-  var separators = eXo.core.DOMUtil.findChildrenByClass(iconContainer, "img", "Separator") ;
-		
-		 * minh.js.exo 
-		 * bug portal-1036
-		 * change separators[1] = separators[0];
-		 
-	  iconContainer.insertBefore(appIcon ,separators[0]);
-	  iconContainer.insertBefore(appTooltip ,separators[0]);
-  */
   /*Init a UIWindow Application*/
   var windowPosX = 20 ;
   if(applicationNode.style.left != "") {
