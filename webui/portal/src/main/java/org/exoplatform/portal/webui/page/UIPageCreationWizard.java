@@ -146,7 +146,7 @@ public class UIPageCreationWizard extends UIPageWizard {
   static  public class ViewStep2ActionListener extends EventListener<UIPageWizard> {
     public void execute(Event<UIPageWizard> event) throws Exception {
       UIPageWizard uiWizard = event.getSource();
-      uiWizard.setDescriptionWizard();
+      uiWizard.setDescriptionWizard(2);
       
       uiWizard.updateWizardComponent();
       uiWizard.viewStep(2);
@@ -169,7 +169,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
       UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
-      uiWizard.setDescriptionWizard();
+      uiWizard.setDescriptionWizard(3);
       uiWizard.updateWizardComponent();      
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
       PageNavigation navigation = uiNodeSelector.getSelectedNavigation();

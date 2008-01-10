@@ -23,8 +23,7 @@
 }
 
 .UIDescription .DescriptionContent {
-  line-height: 20px;
-  text-align: center;
+  line-height: 18px;
   border:1px #7e878f solid;
   background: url('background/DescriptionContentBackgr.png') repeat;
 }

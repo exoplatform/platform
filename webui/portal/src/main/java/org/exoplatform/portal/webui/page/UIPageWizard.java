@@ -106,6 +106,20 @@ public abstract class UIPageWizard extends UIWizard {
     uiPageDescription.addChild(UIDescription.class, null, "pageWizard");
   }
   
+  public void setDescriptionWizard(int step) throws Exception {
+    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
+    UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);
+    uiExoStart.setUIControlWSWorkingComponent(UIPageCreateDescription.class);
+    UIPageCreateDescription uiPageDescription = uiExoStart.getUIControlWSWorkingComponent();
+    if(this.getClass() == UIPageEditWizard.class){
+      uiPageDescription.setTitle("Page Edit Wizard");
+      uiPageDescription.addChild(UIDescription.class, null, "pageEditWizard" + Integer.toString(step));
+      return;
+    }
+    uiPageDescription.setTitle("Page Creation Wizard");
+    uiPageDescription.addChild(UIDescription.class, null, "pageWizard" + Integer.toString(step));
+  }
+  
   static public class AbortActionListener extends EventListener<UIPageWizard> {
     public void execute(Event<UIPageWizard> event) throws Exception {
       UIPageWizard uiWizard = event.getSource();

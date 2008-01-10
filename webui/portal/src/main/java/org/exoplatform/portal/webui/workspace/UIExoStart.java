@@ -289,7 +289,7 @@ public class UIExoStart extends UIComponent {
       
       uiToolPanel.setWorkingComponent(UIPageEditWizard.class, null);
       UIPageEditWizard uiWizard = (UIPageEditWizard)uiToolPanel.getUIComponent();
-      uiWizard.setDescriptionWizard();
+      uiWizard.setDescriptionWizard(1);
       UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
       uiPageSetInfo.setEditMode();
       uiPageSetInfo.createEvent("ChangeNode", Event.Phase.DECODE, event.getRequestContext()).broadcast();   

@@ -115,7 +115,7 @@ public class UIPageEditWizard extends UIPageWizard {
   static  public class ViewStep1ActionListener extends EventListener<UIPageWizard> {
     public void execute(Event<UIPageWizard> event) throws Exception { 
       UIPageWizard uiWizard = event.getSource();
-      uiWizard.setDescriptionWizard();
+      uiWizard.setDescriptionWizard(2);
       
       uiWizard.updateWizardComponent();
       uiWizard.viewStep(1);   
@@ -127,7 +127,7 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
       PortalRequestContext pcontext = Util.getPortalRequestContext() ;
-      uiWizard.setDescriptionWizard();
+      uiWizard.setDescriptionWizard(3);
       
       uiWizard.updateWizardComponent();
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class); 

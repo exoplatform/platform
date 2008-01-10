@@ -287,6 +287,7 @@
 	background-repeat: no-repeat;
 	background-position: left -115px;
 	padding: 0px 0px 0px 12px;
+	height: 23px;
 }
 
 .MacTheme .WindowBarRight {
@@ -294,7 +295,9 @@
 	background-repeat: no-repeat;
 	background-position: right -92px;
 	padding: 0px 12px 0px 0px;
+	height: 23px;
 }
+
 
 .MacTheme .WindowBarCenter {
 	height: 23px;
@@ -437,6 +440,7 @@
 }
 
 .MacGray .WindowBarLeft {
+	height: 23px;
 	padding: 0px 0px 0px 9px;
 	background-image: url('background/MacGray.png');
 	background-repeat: no-repeat;
@@ -444,6 +448,7 @@
 }
 
 .MacGray .WindowBarRight {
+	height: 23px;
 	padding: 0px 9px 0px 0px;
 	background-image: url('background/MacGray.png');
 	background-repeat: no-repeat;
@@ -591,6 +596,7 @@
 }
 
 .MacBlack .WindowBarLeft {
+	height: 23px;
 	padding: 0px 0px 0px 9px;
 	background-image: url('background/MacBlack.png');
 	background-repeat: no-repeat;
@@ -598,6 +604,7 @@
 }
 
 .MacBlack .WindowBarRight {
+	height: 23px;
 	padding: 0px 9px 0px 0px;
 	background-image: url('background/MacBlack.png');
 	background-repeat: no-repeat;
@@ -745,6 +752,7 @@
 }
 
 .MacGreenSteel .WindowBarLeft {
+	height: 23px;
 	padding: 0px 0px 0px 9px;
 	background-image: url('background/MacGreen.png');
 	background-repeat: no-repeat;
@@ -752,6 +760,7 @@
 }
 
 .MacGreenSteel .WindowBarRight {
+	height: 23px;
 	padding: 0px 9px 0px 0px;
 	background-image: url('background/MacGreen.png');
 	background-repeat: no-repeat;
@@ -902,6 +911,7 @@
 }
 
 .VistaTheme .WindowBarLeft {
+	height: 29px;
 	background-image: url('background/VistaTheme.png');
 	background-repeat: no-repeat;
 	background-position: left -130px;
@@ -909,6 +919,7 @@
 }
 
 .VistaTheme .WindowBarRight {
+	height: 29px;
 	background-image: url('background/VistaTheme.png');
 	background-repeat: no-repeat;
 	background-position: right -101px;
@@ -1047,6 +1058,7 @@
 }
 
 .VistaBlue .WindowBarLeft {
+	height: 35px;
 	background-image: url('background/VistaBlue.png');
 	background-repeat: no-repeat;
 	background-position: left -151px;
@@ -1054,6 +1066,7 @@
 }
 
 .VistaBlue .WindowBarRight {
+	height: 35px;
 	background-image: url('background/VistaBlue.png');
 	background-repeat: no-repeat;
 	background-position: right -116px;
@@ -3110,7 +3123,7 @@
 .SimpleGreen .MiddleDecoratorCenter {
 	border: 1px solid #4c717e;
 	border-bottom: none;
-	background: #ffffff;
+	background: red;
 	padding: 1px;
 }
 

@@ -26,8 +26,7 @@
 }
 
 .UIDescription .DescriptionContentContainer {
-  line-height: 20px;
-  text-align: center;
+  line-height: 18px;
   border: 1px #cdcdcd solid;
   background: #f4f4f4;
 }
