@@ -101,11 +101,7 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   	}
 		//fix display scroll in first time.
 		var blockResizes = eXo.core.DOMUtil.findDescendantsByClass(this.object, "div", "UIResizableBlock");
-		if (blockResizes.length > 1) 	{
-			blockResizes[0].style.overflow = "hidden" ;
-			blockResizes[0].style.height = "auto" ;
-		}
-		
+		if (blockResizes.length > 2) blockResizes[0].style.overflow = "hidden" ;		
   }
 //  eXo.desktop.UIDockbar.containerMouseOver() ;
 };
