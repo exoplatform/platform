@@ -11,7 +11,9 @@ UIContextMenu.prototype.getCallback = function(menuId) {
 	var callback = menus.getAttribute("eXoCallback") ;
 	return callback ;
 } ;
-
+UIContextMenu.prototype.getPortlet = function(portletid) {
+	this.portletName = portletid ;
+} ;
 UIContextMenu.prototype.init = function(conf) {
 	var UIContextMenu = eXo.webui.UIContextMenu ;
 	if ( document.all && document.getElementById && !window.opera ) {
@@ -149,18 +151,9 @@ UIContextMenu.prototype.show = function(evt) {
 		UIContextMenu.menuElement.style.display = 'block' ;
 		UIContextMenu.menuElement.onmouseover = UIContextMenu.autoHide ;
 		UIContextMenu.menuElement.onmouseout = UIContextMenu.autoHide ;		
-		if (!UIContextMenu.IE) {
-//			var childNodes = eXo.core.DOMUtil.getChildrenByTagName(document.body, "div")  ;
-//			var show = false ;
-//			for(var i = 0 ; i < childNodes.length ; i ++) {
-//				if  (childNodes[i].getAttribute("id") == menuElementId) {
-//					show = true ;
-//					break ;
-//				}
-//			}
-//			if (!show) {				
-				document.body.appendChild(UIContextMenu.menuElement) ;
-			//}
+		if (!UIContextMenu.IE) {			
+			if(UIContextMenu.portletName) document.getElementById(UIContextMenu.portletName).appendChild(UIContextMenu.menuElement) ;
+			else document.body.appendChild(UIContextMenu.menuElement) ;
 		}
 		return false ;
 	}
