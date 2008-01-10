@@ -14,8 +14,8 @@ UIDesktop.prototype.init = function() {
 	  	if(uiWindows[i].isFirstTime == false)	continue ;
 			//fix display scroll in first time
 	  	var blockResizes = eXo.core.DOMUtil.findDescendantsByClass(uiWindows[i], "div", "UIResizableBlock");
-			if (blockResizes.length > 2) blockResizes[0].style.overflow = "hidden" ;
-	  	eXo.desktop.UIDesktop.backupWindowProperties(uiWindows[i]);
+			if (blockResizes.length > 1) blockResizes[0].style.overflow = "hidden" ;
+			eXo.desktop.UIDesktop.backupWindowProperties(uiWindows[i]);
 	  }
 	}
 };
@@ -101,7 +101,7 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
   	}
 		//fix display scroll in first time.
 		var blockResizes = eXo.core.DOMUtil.findDescendantsByClass(this.object, "div", "UIResizableBlock");
-		if (blockResizes.length > 2) blockResizes[0].style.overflow = "hidden" ;		
+		if (blockResizes.length > 1) blockResizes[0].style.overflow = "hidden" ;
   }
 //  eXo.desktop.UIDockbar.containerMouseOver() ;
 };
