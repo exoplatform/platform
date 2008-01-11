@@ -109,6 +109,17 @@ public class UIFormSelectBox extends UIFormStringInput {
     return this ;
   } 
   
+  @Override
+  public void reset() {
+    // TODO Auto-generated method stub - dang.tung
+    if(options_ == null || options_.size() < 1) return;
+    value_ = options_.get(0).getValue();
+    for(SelectItemOption<String> option : options_) {
+      option.setSelected(false) ;
+    }
+    options_.get(0).setSelected(true) ;
+  }
+  
   public void setOnChange(String onchange){ onchange_ = onchange; }    
   
   @SuppressWarnings("deprecation")
