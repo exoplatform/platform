@@ -426,8 +426,10 @@ public class UIPortletActionListener {
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true);
 
-      String windowState = event.getRequestContext().getRequestParameter(
-          UIComponent.OBJECTID).trim();
+      String windowState = event.getRequestContext().getRequestParameter("portal:windowState") ;
+      //TODO TrongTT: We should use only parameter for change WindowState
+      if(windowState == null) windowState = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID).trim();
+      
       UIPageBody uiPageBody = uiPortlet.getAncestorOfType(UIPageBody.class);
       if (windowState.equals(WindowState.MAXIMIZED.toString())) {
         if (uiPageBody != null) {
@@ -460,8 +462,10 @@ public class UIPortletActionListener {
       EventListener<UIPortlet> {
     public void execute(Event<UIPortlet> event) throws Exception {
       UIPortlet uiPortlet = event.getSource();
-      String portletMode = event.getRequestContext().getRequestParameter(
-          UIComponent.OBJECTID);
+      String portletMode = event.getRequestContext().getRequestParameter("portal:portletMode") ;
+      //TODO TrongTT: We should use only parameter for change PortletMode
+      if(portletMode == null) portletMode = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      
       log.info("Change portlet mode of " + uiPortlet.getWindowId() + " to "
           + portletMode);
       if (portletMode.equals(PortletMode.HELP.toString())) {
