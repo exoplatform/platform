@@ -13,6 +13,8 @@
 	border-bottom: solid 1px gray;
 	padding-left: 5px;
 	background: url("DefaultSkin/background/UIToolbarBG1x32.jpg") repeat-x;
+	width: 99%;
+	margin: auto;
 }
 
 .UIBrowserPortlet .ButtonContainer {
@@ -117,12 +119,15 @@
 
 .UIBrowserPortlet .BrowserContent {
   height: 89% ;
+  width: 99.5%;
+  margin: auto;
 }
 
 .UIBrowserPortlet .TabBackground {
 	background: url("DefaultSkin/background/TabContainerBG1x20.jpg") repeat-x;
 	padding: 0px 0px 0px 5px;
 	border-bottom: solid 1px gray;
+	width: 99.5%;
 }
 
 .UIBrowserPortlet .TabContainer {
@@ -160,7 +165,7 @@
 
 .UIBrowserPortlet .TabContent {
 	width: 100%;
-  height: 316px ;
+  height: 100% ;
 }
 
 .UIBrowserPortlet .TabLabel {
