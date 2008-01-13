@@ -2,72 +2,84 @@
 SkinService.addSkin(
     "exoadmin/OrganizationPortlet",
     "Default",
-    "/exoadmin/skin/organization/webui/component/UIOrganizationPortlet/DefaultStylesheet.css"
+    "/exoadmin/skin/organization/webui/component/UIOrganizationPortlet/DefaultStylesheet.css",
+    ServletContext
 ) ;
 
 SkinService.addSkin(
     "exoadmin/OrganizationPortlet",
     "Vista",
-    "/exoadmin/skin/organization/webui/component/UIOrganizationPortlet/VistaStylesheet.css"
+    "/exoadmin/skin/organization/webui/component/UIOrganizationPortlet/VistaStylesheet.css",
+    ServletContext
 ) ;
  
 SkinService.addSkin(
     "exoadmin/OrganizationPortlet",
     "Mac",
-    "/exoadmin/skin/organization/webui/component/UIOrganizationPortlet/MacStylesheet.css"
+    "/exoadmin/skin/organization/webui/component/UIOrganizationPortlet/MacStylesheet.css",
+    ServletContext
 ) ;
 
 
 SkinService.addSkin(
     "exoadmin/AccountPortlet",
     "Default",
-    "/exoadmin/skin/account/webui/component/UIAccountPortlet/DefaultStylesheet.css"
+    "/exoadmin/skin/account/webui/component/UIAccountPortlet/DefaultStylesheet.css",
+    ServletContext
 ) ;
 
 SkinService.addSkin(
     "exoadmin/AccountPortlet",
     "Vista",
-    "/exoadmin/skin/account/webui/component/UIAccountPortlet/VistaStylesheet.css"
+    "/exoadmin/skin/account/webui/component/UIAccountPortlet/VistaStylesheet.css",
+    ServletContext
 ) ;
  
 SkinService.addSkin(
     "exoadmin/AccountPortlet",
     "Mac",
-    "/exoadmin/skin/account/webui/component/UIAccountPortlet/MacStylesheet.css"
+    "/exoadmin/skin/account/webui/component/UIAccountPortlet/MacStylesheet.css",
+    ServletContext
 ) ;
  
 SkinService.addSkin(
     "exoadmin/PortletRegistryPortlet",
     "Default",
-    "/exoadmin/skin/portletregistry/webui/component/UIPortletRegistryPortlet/DefaultStylesheet.css"
+    "/exoadmin/skin/portletregistry/webui/component/UIPortletRegistryPortlet/DefaultStylesheet.css",
+    ServletContext
 ) ;
 
 SkinService.addSkin(
     "exoadmin/PortletRegistryPortlet",
     "Vista",
-    "/exoadmin/skin/portletregistry/webui/component/UIPortletRegistryPortlet/VistaStylesheet.css"
+    "/exoadmin/skin/portletregistry/webui/component/UIPortletRegistryPortlet/VistaStylesheet.css",
+    ServletContext
 ) ;
  
 SkinService.addSkin(
     "exoadmin/PortletRegistryPortlet",
     "Mac",
-    "/exoadmin/skin/portletregistry/webui/component/UIPortletRegistryPortlet/MacStylesheet.css"
+    "/exoadmin/skin/portletregistry/webui/component/UIPortletRegistryPortlet/MacStylesheet.css",
+    ServletContext
 ) ;
 
 SkinService.addSkin(
     "exoadmin/I18nPortlet",
     "Default",
-    "/exoadmin/skin/i18n/webui/component/UII18nPortlet/DefaultStylesheet.css"
+    "/exoadmin/skin/i18n/webui/component/UII18nPortlet/DefaultStylesheet.css",
+    ServletContext
 ) ;
 
 SkinService.addSkin(
     "exoadmin/I18nPortlet",
     "Vista",
-    "/exoadmin/skin/i18n/webui/component/UII18nPortlet/VistaStylesheet.css"
+    "/exoadmin/skin/i18n/webui/component/UII18nPortlet/VistaStylesheet.css",
+    ServletContext
 ) ;
  
 SkinService.addSkin(
     "exoadmin/I18nPortlet",
     "Mac",
-    "/exoadmin/skin/i18n/webui/component/UII18nPortlet/MacStylesheet.css"
+    "/exoadmin/skin/i18n/webui/component/UII18nPortlet/MacStylesheet.css",
+    ServletContext
 ) ;

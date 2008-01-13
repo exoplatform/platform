@@ -28,6 +28,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.RootContainer;
+import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.services.log.ExoLogger;
 
 public class ResourceRequestFilter implements Filter  {
@@ -43,12 +46,23 @@ public class ResourceRequestFilter implements Filter  {
   }
   
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+    HttpServletRequest httpRequest = (HttpServletRequest) request ;
+    String uri = httpRequest.getRequestURI();
     if(cacheResource_) {
       HttpServletResponse httpResponse = (HttpServletResponse)  response ;
       httpResponse.addHeader("Cache-Control", "max-age=2592000,s-maxage=2592000") ;
+      if(uri.endsWith(".css")) {
+        RootContainer rootContainer = RootContainer.getInstance() ;
+        PortalContainer portalContainer = rootContainer.getPortalContainer("portal") ;
+        SkinService skinService = (SkinService) portalContainer.getComponentInstanceOfType(SkinService.class);
+        String mergedCSS = skinService.getMergedCSS(uri);
+        if(mergedCSS != null) {
+          log.info("Use a merged CSS: " + uri);
+          response.getWriter().print(mergedCSS);
+          return;
+        }
+      }
     } else {
-      HttpServletRequest httpRequest = (HttpServletRequest) request ;
-      String uri = httpRequest.getRequestURI();
       if(uri.endsWith(".jstmpl") || uri.endsWith(".css") || uri.endsWith(".js")) {
         HttpServletResponse httpResponse = (HttpServletResponse)  response ;
         httpResponse.setHeader("Cache-Control", "no-cache");

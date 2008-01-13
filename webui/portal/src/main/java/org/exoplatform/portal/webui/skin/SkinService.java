@@ -16,39 +16,56 @@
  */
 package org.exoplatform.portal.webui.skin;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-/**
- * Created by The eXo Platform SARL
- * Author : Tuan Nguyen
- *          tuan.nguyen@exoplatform.com
- * Jan 19, 2007  
- */
+import javax.servlet.ServletContext;
+
+import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.ExoLogger;
+
 public class SkinService {
 
-  private Map<String, SkinConfig>  skinConfigs_ ;
-  private HashSet<String>  availableSkins_ ;
-  
-  private Set<String> themeURLs_ ;
-  private Map<String, Set<String>> portletThemes_ ;
+  protected static Log log = ExoLogger.getLogger("portal.SkinService");
+
+  private final static String REGEXP = "@import url(.*).*;";
+
+  private final static String BACKGROUND_REGEXP = "background.*:.*url(.*).*;";
+
+  private Map<String, SkinConfig> skinConfigs_;
+
+  private HashSet<String> availableSkins_;
+
+  private Map<String, String> mergedCSS_;
+
+  private Map<String, Set<String>> portletThemes_;
+
+  private boolean cacheResource_;
 
   public SkinService() {
-    skinConfigs_ = new  HashMap<String, SkinConfig>(20) ;
-    availableSkins_ = new HashSet<String>(5) ;
+    skinConfigs_ = new HashMap<String, SkinConfig>(20);
+    availableSkins_ = new HashSet<String>(5);
+    cacheResource_ = !"true".equals(System
+        .getProperty("exo.product.developing"));
+    mergedCSS_ = new HashMap<String, String>();
   }
 
   /**
-   * TODO: should return a collection or list
-   * This method should return the availables  skin in the service
+   * TODO: should return a collection or list This method should return the
+   * availables skin in the service
+   * 
    * @return
    */
   public Iterator<String> getAvailableSkins() {
-    return  availableSkins_.iterator() ;
+    return availableSkins_.iterator();
   }
 
   /**
@@ -57,61 +74,159 @@ public class SkinService {
    * @param skinName
    * @param cssPath
    */
-  public void addSkin(String module , String skinName, String cssPath) {
-    addSkin(module, skinName, cssPath, false) ;
+  public void addSkin(String module, String skinName, String cssPath,
+      ServletContext scontext) {
+    addSkin(module, skinName, cssPath, scontext, false);
   }
 
-  public void addSkin(String module , String skinName, String cssPath, boolean isPrimary) {
+  public void addSkin(String module, String skinName, String cssPath,
+      ServletContext scontext, boolean isPrimary) {
     availableSkins_.add(skinName);
-    String key = module + "$" + skinName ;
+    String key = module + "$" + skinName;
     SkinConfig skinConfig = skinConfigs_.get(key);
-    if(skinConfig == null || skinConfig.isPrimary() == false) skinConfigs_.put(key, new SkinConfig(module, skinName, cssPath, isPrimary));
+    if (skinConfig == null || skinConfig.isPrimary() == false)
+      skinConfigs_.put(key,
+          new SkinConfig(module, skinName, cssPath, isPrimary));
+    mergeCSS(cssPath, scontext);
+  }
+
+  private void mergeCSS(String cssPath, ServletContext scontext) {
+    if (cacheResource_) {
+      String relativeCSSPath = cssPath.substring(cssPath.indexOf("/", 2));
+      Pattern pattern = Pattern.compile(REGEXP);
+      StringBuffer sB = new StringBuffer();
+
+      String resolvedPath = relativeCSSPath.substring(0, relativeCSSPath
+          .lastIndexOf("/") + 1);
+      String includedPath = relativeCSSPath.substring(relativeCSSPath
+          .lastIndexOf("/") + 1);
+      processMergeRecursively(pattern, sB, scontext, resolvedPath, includedPath);
+      mergedCSS_.put(cssPath, sB.toString());
+    }
+  }
+
+  private void processMergeRecursively(Pattern pattern, StringBuffer sB,
+      ServletContext scontext, String basePath, String pathToResolve) {
+    String resolvedPath = basePath.substring(0, basePath.lastIndexOf("/") + 1)
+        + pathToResolve;
+
+    String line = "";
+    try {
+      BufferedReader reader = new BufferedReader(new InputStreamReader(scontext
+          .getResourceAsStream(resolvedPath)));
+      try {
+        while ((line = reader.readLine()) != null) {
+          Matcher matcher = pattern.matcher(line);
+          if (matcher.find()) {
+            String includedPath = "";
+            if (line.contains("url('") || line.contains("url(\"")) {
+              includedPath = line.substring("@import url(".length() + 1, line
+                  .indexOf(")") - 1);
+            } else {
+              includedPath = line.substring("@import url(".length(), line
+                  .indexOf(")"));
+            }
+            if(includedPath.startsWith("/")) {
+              sB.append(line + "\n");
+            } else 
+              processMergeRecursively(pattern, sB, scontext, resolvedPath, includedPath);
+          } else {
+            String rootContext = resolvedPath.substring(0, resolvedPath
+                .lastIndexOf("/") + 1);
+            String rootURL = "/" + scontext.getServletContextName()
+                + rootContext;
+            rewriteLine(line, rootURL, sB);
+          }
+        }
+      } catch (Exception ex) {
+        log.error("Problem while processing line : " + line, ex);
+      } finally {
+        try {
+          reader.close();
+        } catch (Exception ex) {
+        }
+      }
+    } catch (Exception e) {
+      log.error("Problem while merging CSS : " + resolvedPath, e);
+    }
+
+  }
+
+  private void rewriteLine(String line, String basePath, StringBuffer sB) {
+    Pattern backgroundPattern = Pattern.compile(BACKGROUND_REGEXP);
+    Matcher matcher = backgroundPattern.matcher(line);
+    if ((!matcher.find()) || line.contains("url(/") || line.contains("url('/")
+        || line.contains("url(\"/")) {
+      sB.append(line + "\n");
+      return;
+    }
+    int firstIndex = line.indexOf("url(") + "url(".length();
+    int lastIndex = line.indexOf(")");
+    sB.append(line.substring(0, firstIndex));
+    String urlToRewrite = "";
+    if (line.contains("url('") || line.contains("url(\"")) {
+      urlToRewrite = line.substring(firstIndex + 1, lastIndex - 1);
+    } else {
+      urlToRewrite = line.substring(firstIndex, lastIndex);
+    }
+    sB.append(basePath + urlToRewrite);
+    sB.append(line.substring(lastIndex) + "\n");
+
+  }
+
+  public String getMergedCSS(String cssPath) {
+    return mergedCSS_.get(cssPath);
   }
 
   public SkinConfig getSkin(String module, String skinName) {
-    String key = module + "$" + skinName ;
-    if(skinName.length() == 0)  key = module + "$Default" ;
-    SkinConfig config = skinConfigs_.get(key);    
-    return config ;    
+    String key = module + "$" + skinName;
+    if (skinName.length() == 0)
+      key = module + "$Default";
+    SkinConfig config = skinConfigs_.get(key);
+    return config;
   }
-  
-  public int size(){ return skinConfigs_.size(); }
 
-  public SkinConfig getSkin(String key) {return skinConfigs_.get(key); }
+  public int size() {
+    return skinConfigs_.size();
+  }
+
+  public SkinConfig getSkin(String key) {
+    return skinConfigs_.get(key);
+  }
 
   public void remove(String key) throws Exception {
     skinConfigs_.remove(key);
   }
 
   public void remove(String module, String skinName) throws Exception {
-    String key = module + "$" + skinName ;
-    if(skinName.length() == 0) key = module + "$Default" ;
+    String key = module + "$" + skinName;
+    if (skinName.length() == 0)
+      key = module + "$Default";
     skinConfigs_.remove(key);
   }
 
-  public void addThemeURL(String url){
-	if(themeURLs_ == null) themeURLs_ = new HashSet<String>();
-	themeURLs_.add(url);
+  public void addTheme(String categoryName, List<String> themesName) {
+    if (portletThemes_ == null)
+      portletThemes_ = new HashMap<String, Set<String>>();
+    if (!portletThemes_.containsKey(categoryName))
+      portletThemes_.put(categoryName, new HashSet<String>());
+    Set<String> catThemes = portletThemes_.get(categoryName);
+    for (String theme : themesName)
+      catThemes.add(theme);
   }
 
-  public void addTheme(String categoryName, List<String> themesName){
-	if(portletThemes_ == null) portletThemes_ = new HashMap<String, Set<String>>();
-	if(!portletThemes_.containsKey(categoryName)) portletThemes_.put(categoryName, new HashSet<String>());
-	Set<String> catThemes = portletThemes_.get(categoryName);
-	for(String theme : themesName) catThemes.add(theme);
+  public void addCategoryTheme(String categoryName) {
+    if (portletThemes_ == null)
+      portletThemes_ = new HashMap<String, Set<String>>();
+    if (!portletThemes_.containsKey(categoryName))
+      portletThemes_.put(categoryName, new HashSet<String>());
   }
 
-  public void addCategoryTheme(String categoryName){
-    if(portletThemes_ == null) portletThemes_ = new HashMap<String, Set<String>>();
-	if(!portletThemes_.containsKey(categoryName)) portletThemes_.put(categoryName, new HashSet<String>());
+  public Map<String, Set<String>> getPortletThemes() {
+    return portletThemes_;
   }
-  
-  public Set<String> getThemeURLs() { 
-	if(themeURLs_ == null) themeURLs_ = new HashSet<String>();
-	return themeURLs_; 
-  }
-  public void setThemeURLs(Set<String> themeURLs_) {this.themeURLs_ = themeURLs_; }
 
-public Map<String, Set<String>> getPortletThemes() { return portletThemes_; }
-public void setPortletThemes(Map<String, Set<String>> portletThemes_) {this.portletThemes_ = portletThemes_; }
+  public void setPortletThemes(Map<String, Set<String>> portletThemes_) {
+    this.portletThemes_ = portletThemes_;
+  }
 }

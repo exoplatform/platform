@@ -138,11 +138,6 @@ public class UIPortalApplication extends UIApplication {
     return skinConfig ;
   }
   
-  public Set getThemeURLs(){
-  	SkinService skinService = getApplicationComponent(SkinService.class) ;
-  	return  skinService.getThemeURLs();  
-  }
-  
   public List<SkinConfig>  getPortletSkins() {
     List<SkinConfig> skins = new ArrayList<SkinConfig>() ;
     List<UIPortlet> uiportlets = new ArrayList<UIPortlet>() ;

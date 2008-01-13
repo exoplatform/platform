@@ -60,6 +60,7 @@ public class SkinListener extends BaseComponentPlugin
       SkinService skinService = 
         (SkinService)rootContainer.getComponentInstanceOfType(SkinService.class);
       binding.setVariable("SkinService", skinService) ;
+      binding.setVariable("ServletContext", scontext) ;      
       GroovyShell shell = new GroovyShell(binding);
       shell.evaluate(is);
       is.close() ;
