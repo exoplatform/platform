@@ -64,13 +64,10 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
      */
     var container = DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
     if (container) {
-      if (eXo.core.Browser.browserType == "mozilla") {
+      if (eXo.core.Browser.browserType == "mozilla" || eXo.core.Browser.isIE7() ) {
         container.style.minWidth = item.offsetWidth + "px";
       } else {
-        container.style.width = "180px";
-        if (document.getElementById("UIPortalApplication").className == "Default") {
-          container.style.width = "auto";
-        }
+        container.style.width = item.offsetWidth + "px";
       }
     }
   }
