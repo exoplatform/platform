@@ -1,5 +1,3 @@
-eXo.require('eXo.widget.UIWidget');
-
 function UIAddWidget() {};
 
 UIAddWidget.prototype.show = function() {

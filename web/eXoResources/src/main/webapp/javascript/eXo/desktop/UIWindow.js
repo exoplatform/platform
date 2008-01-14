@@ -1,5 +1,3 @@
-eXo.require('eXo.webui.UIPopup');
-eXo.require('eXo.widget.UIWidget');
 function UIWindow() {} ;
 
 UIWindow.prototype.init = function(popup, isShow, posX, posY) {

@@ -1,7 +1,3 @@
-eXo.require('eXo.core.TemplateEngine') ;
-eXo.require('eXo.application.ApplicationDescriptor') ;
-eXo.require('eXo.widget.UIAddWidget');
-
 function UIExoWidget() {
 }
 

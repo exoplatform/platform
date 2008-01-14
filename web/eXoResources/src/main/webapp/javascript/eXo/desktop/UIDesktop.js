@@ -1,7 +1,3 @@
-eXo.require('eXo.animation.ImplodeExplode');
-eXo.require('eXo.desktop.UIDockbar');
-eXo.require('eXo.core.UIMaskLayer');
-
 function UIDesktop() {
 };
 

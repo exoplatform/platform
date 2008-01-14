@@ -1,6 +1,3 @@
-eXo.require('eXo.webui.UIVerticalScroller') ;
-eXo.require('eXo.portal.UIPortal') ;
-
 function UIWorkspace(id) {
   this.id = id ;
   this.showControlWorkspace = false ;

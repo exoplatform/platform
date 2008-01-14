@@ -15,7 +15,7 @@
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
 
-package org.exoplatform.portal.webui.skin;
+package org.exoplatform.portal.webui.javascript;
 
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
@@ -27,17 +27,19 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.RootContainer;
 import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.services.portletcontainer.PortletLifecycleListener;
 import org.exoplatform.services.portletcontainer.pci.model.PortletApp;
+import org.exoplatform.web.application.javascript.JavascriptConfigService;
 /**
  * Created by The eXo Platform SAS
  * Jan 19, 2007  
  */
-//TODO: Rename to SkinConfigListener    
 
-public class SkinListener extends BaseComponentPlugin 
+public class JavascriptListener extends BaseComponentPlugin 
   implements PortletLifecycleListener,  ServletContextListener {
 
   public void contextInitialized(ServletContextEvent event) {
@@ -50,14 +52,14 @@ public class SkinListener extends BaseComponentPlugin
   
   public void preDeploy(String appName, PortletApp portletApp, ServletContext scontext) {
     try {
-      InputStream is = scontext.getResourceAsStream("/WEB-INF/conf/script/groovy/SkinConfigScript.groovy") ;
+      InputStream is = scontext.getResourceAsStream("/WEB-INF/conf/script/groovy/JavascriptScript.groovy") ;
       if(is == null)  return ;
       
       Binding binding = new Binding();
-      RootContainer rootContainer = RootContainer.getInstance() ;
-      SkinService skinService = 
-        (SkinService)rootContainer.getComponentInstanceOfType(SkinService.class);
-      binding.setVariable("SkinService", skinService) ;
+      ExoContainer container = ExoContainerContext.getCurrentContainer();
+      JavascriptConfigService javascriptService = 
+        (JavascriptConfigService) container.getComponentInstanceOfType(JavascriptConfigService.class);
+      binding.setVariable("JavascriptService", javascriptService) ;
       binding.setVariable("ServletContext", scontext) ;      
       GroovyShell shell = new GroovyShell(binding);
       shell.evaluate(is);

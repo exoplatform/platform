@@ -1,5 +1,3 @@
-eXo.require('eXo.core.DragDrop');
-eXo.require('eXo.portal.UIPortal');
 /**
  * This class manages the drag and drop of components on the page.
  * It uses a DradDrop object to manage the events, sets some callback functions

@@ -27,12 +27,7 @@
  *      |      |--->{BlockToUpdate}
  *      |--->{PortalResponseScript}
  *
- * Modified from AjaxRequest.js by Matt Kruse <matt@ajaxtoolbox.com>
- * WWW: http://www.AjaxToolbox.com/
  **************************************************************************************************/
-eXo.require('eXo.desktop.UIDesktop') ;
-eXo.require('eXo.core.UIMaskLayer') ;
-eXo.require('eXo.core.Skin') ;
 
 /*
 * This object is wrapper on the value of each HTML block

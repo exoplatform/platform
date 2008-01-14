@@ -33,6 +33,7 @@ import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.web.application.javascript.JavascriptConfigService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -127,6 +128,11 @@ public class UIPortalApplication extends UIApplication {
     setLocale(localeConfig.getLocale());
     setOwner(context.getPortalOwner());    
   } 
+  
+  public String getMergedJavascriptURL() {
+    JavascriptConfigService service = getApplicationComponent(JavascriptConfigService.class);
+    return service.getJavascriptMergedURL();
+  }
   
   public String getSkin() {  return skin_ ; }
   public void setSkin(String skin){ this.skin_ = skin; }

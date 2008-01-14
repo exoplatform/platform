@@ -23,8 +23,20 @@
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
-    
+  
+  
+   <servlet>
+    <servlet-name>javascript</servlet-name>
+    <servlet-class>org.exoplatform.portal.webui.javascript.JavascriptServlet</servlet-class>
+   </servlet>
   <!-- ================================================================= -->     
+  
+  
+  <servlet-mapping>
+    <servlet-name>javascript</servlet-name>
+    <url-pattern>/javascript/*</url-pattern>
+  </servlet-mapping>  
+  
   
   <servlet-mapping>
     <servlet-name>portal</servlet-name>

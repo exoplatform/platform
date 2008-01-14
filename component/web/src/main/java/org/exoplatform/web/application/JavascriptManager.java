@@ -16,6 +16,9 @@
  */
 package org.exoplatform.web.application;
 
+import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.web.application.javascript.JavascriptConfigService;
+
 /**
  * Created by The eXo Platform SAS
  * Mar 27, 2007  
@@ -23,11 +26,17 @@ package org.exoplatform.web.application;
 public class JavascriptManager {
   private StringBuilder javascript = new StringBuilder(1000) ;
   private StringBuilder customizedOnloadJavascript ;
-
+ private JavascriptConfigService jsSrevice_ ;
+  
+  public JavascriptManager() {
+    jsSrevice_ = (JavascriptConfigService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(JavascriptConfigService.class);
+  }
+  
   public void addJavascript(CharSequence s) { javascript.append(s).append(" \n") ; }
 
   public void importJavascript(CharSequence s) {
-    javascript.append("eXo.require('").append(s).append("'); \n") ;
+    if(!jsSrevice_.isModuleLoaded(s))
+      javascript.append("eXo.require('").append(s).append("'); \n") ;
   }
 
   public void importJavascript(String s, String location) {

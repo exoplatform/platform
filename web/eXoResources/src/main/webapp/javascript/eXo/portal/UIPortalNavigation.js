@@ -1,4 +1,3 @@
-eXo.require('eXo.webui.UIPopupMenu');
 /**
  * Manages the main navigation menu on the portal
  */

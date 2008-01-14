@@ -1,5 +1,3 @@
-eXo.require('eXo.core.DragDrop') ;
-
 /* TODO: need to manage zIndex for all popup */
 //var zIndex = 2 ;
 

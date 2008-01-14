@@ -13,5 +13,11 @@
       <type>org.exoplatform.portal.webui.skin.SkinListener</type>
       <description>this listener register the skin config with the skin service</description>
     </component-plugin>
+    <component-plugin>
+      <name>javascript.deployer.listener</name>
+      <set-method>addListenerPlugin</set-method>
+      <type>org.exoplatform.portal.webui.javascript.JavascriptListener</type>
+      <description>this listener register the javascript config with the javascript service</description>
+    </component-plugin>
   </external-component-plugins>
 </configuration>

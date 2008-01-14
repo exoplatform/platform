@@ -1,4 +1,3 @@
-eXo.require('eXo.webui.UIPopup') ;
 /**
  * A class that manages a popup window
  */

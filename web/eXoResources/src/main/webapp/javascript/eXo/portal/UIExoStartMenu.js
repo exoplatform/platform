@@ -1,4 +1,3 @@
-eXo.require('eXo.webui.UIPopupMenu') ;
 /**
  * Manages the Start Menu in the workspace area
  * Inherits from UIPopupMenu (superClass attribute)

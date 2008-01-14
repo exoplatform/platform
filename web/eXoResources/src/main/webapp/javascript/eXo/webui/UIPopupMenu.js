@@ -1,4 +1,3 @@
-eXo.require('eXo.webui.UIPopup');
 /**
  * Manages a popup menu
  */

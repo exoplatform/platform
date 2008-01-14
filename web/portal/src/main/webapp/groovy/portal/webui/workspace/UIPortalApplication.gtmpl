@@ -9,6 +9,7 @@
   String skin = uicomponent.getSkin();
   def portalSkin = uicomponent.getSkin("PortalSkin") ;
   def portletSkins = uicomponent.getPortletSkins() ;  
+  String javascriptURL = uicomponent.getMergedJavascriptURL() ;  
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -24,21 +25,14 @@
     <%}%>    
 
     <script type="text/javascript" src="/portal/fckeditor/fckeditor.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
+    
+    <script type="text/javascript" src="$javascriptURL"></script>
     <script type="text/javascript">
       eXo.env.server.context = '<%=docBase%>' ;
       eXo.env.server.portalBaseURL = '<%=rcontext.getURLBuilder().getBaseURL()%>' ;
       
       eXo.env.client.skin = '$skin' ;
     </script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Util.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/DOMUtil.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Browser.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/PortalHttpRequest.js"></script>
-    
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIForm.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopup.js"></script>
-    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/MouseEventManager.js"></script>
   </head>
 
   <body style="!height: 100%;">

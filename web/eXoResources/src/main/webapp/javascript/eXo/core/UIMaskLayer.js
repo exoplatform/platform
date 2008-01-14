@@ -1,4 +1,3 @@
-eXo.require('eXo.core.Browser') ;
 /**
  * Manages the mask layer component
  */

@@ -1,4 +1,3 @@
-eXo.require('eXo.webui.UIItemSelector');
 /**
  * Manages a form component
  */
