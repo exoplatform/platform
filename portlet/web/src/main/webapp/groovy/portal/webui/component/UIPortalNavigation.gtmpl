@@ -63,15 +63,23 @@
     String arrowIcon = "MenuItemRight";
     if (node.getChildren() != null && node.getChildren().size() > 0) arrowIcon = "RightItemIcon";
     
+    //
+    String label = node.resolvedLabel;
+    String title = "";
+    if(label.length() > 30) {
+    	title = label;
+    	label = label.substring(0,27) + "...";
+    }
+    
     String pageURI = Util.getPortalRequestContext().getPortalURI() + node.getUri() ;
   	if(uicomponent.isUseAjax()) {
       String onclickEvt = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) + ";return false;" ;
 	  	print """
 	  			<div class="MenuItem $tabStyleNavigation">
-						<a href="$pageURI" onclick="$onclickEvt" >
+						<a href="$pageURI" onclick="$onclickEvt" title="$title">
 							<div class="ItemIcon $icon">
 							  <div class="$arrowIcon">
-		  							$node.resolvedLabel
+		  							$label
 							  </div>
 							</div>
 						</a>
@@ -79,10 +87,10 @@
 		} else {
 	  	print """
 	  			<div class="MenuItem $tabStyleNavigation" >
-	  			  <a href="$pageURI">
+	  			  <a href="$pageURI" title="$title">
 							<div class="ItemIcon $icon">
 							  <div class="$arrowIcon">
-		 							$node.resolvedLabel
+		 							$label
 							  </div>
 							</div>
 						</a>
