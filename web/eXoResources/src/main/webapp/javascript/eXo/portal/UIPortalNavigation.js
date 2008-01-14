@@ -79,8 +79,6 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
     menuItem.onmouseover = eXo.portal.UIPortalNavigation.onMenuItemOver;
     menuItem.onmouseout = eXo.portal.UIPortalNavigation.onMenuItemOut;
 
-//    var link = DOMUtil.findDescendantsByTagName(menuItem, "a")[0];
-//    this.superClass.createLink(menuItem, link);
     // Set an id to each container for future reference
     var cont = DOMUtil.findAncestorByClass(menuItem, this.containerStyleClass) ;
     if (!cont.id) cont.id = "PortalNavigationContainer-" + i;
@@ -178,17 +176,6 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e, tab, menuItemContainer)
       var x = item.offsetLeft + 2;
       eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y);
       eXo.portal.UIPortalNavigation.superClass.show(menuItemContainer);
-      
-//      if (!menuItemContainer.resized && eXo.core.Browser.getBrowserType() == "ie") {
-//        var w = menuItemContainer.offsetWidth;
-//        var menuItems = DOMUtil.findDescendantsByClass(menuItemContainer, "div", eXo.portal.UIPortalNavigation.tabStyleClass);
-//        for (var i = 0; i < menuItems.length; i++) {
-//          if (eXo.core.Browser.browserType == "mozilla")
-//             menuItems[i].style.width = w + "px";
-//        }
-//        menuItemContainer.resized = true;
-//      }
-//      menuItemContainer.onmouseout = eXo.portal.UIPortalNavigation.closeMenuTimeout ;
       
       menuItemContainer.style.width = menuItemContainer.offsetWidth + 2 + "px";
       eXo.portal.UIPortalNavigation.currentOpenedMenu = menuItemContainer.id;
