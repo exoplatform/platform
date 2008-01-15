@@ -1,0 +1,13 @@
+<%
+  import org.exoplatform.webui.application.portlet.PortletRequestContext ;
+
+	def rcontext = _ctx.getRequestContext() ;
+	String compId = rcontext.getWindowId() ;
+    rcontext.getJavascriptManager().importJavascript('eXo.UIMapPortlet','/map/javascript/') ;
+ 	rcontext.getJavascriptManager().addJavascript("eXo.UIMapPortlet.initMap(" + compId + ") ;") ;
+%>
+<div id="map_$compId" style="top:0px; right:0px;left:0px;bottom:0px; height:100%;width:100%;"></div>
+<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAA7zJG8VhgAV_3FSAn-IY4eBTwM0brOpm-All5BF6PoaKBxRWWERQvyybiqWCTV4zJqfBL62p2ofdpvw"></script>
+<script type="text/javascript">
+  google.load("maps", "2.x");
+</script>

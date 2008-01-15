@@ -1,0 +1,121 @@
+<project>
+  <groupId>org.exoplatform.portal</groupId>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>org.exoplatform.portal.sample.application.map</artifactId>
+  <version>0.1</version>
+  <packaging>war</packaging>
+  <name>eXo Map portlet application</name>
+  <url>http://www.exoplatform.org</url>
+  <description>eXo Map application</description>
+  
+  <dependencies> 
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.webui.portal</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    
+  </dependencies>
+  <profiles>
+    <profile>
+      <id>default</id>  
+      <activation>
+        <property><name>default</name></property>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <org.exoplatform.kernel.version>trunk</org.exoplatform.kernel.version>
+        <org.exoplatform.core.version>trunk</org.exoplatform.core.version>
+        <org.exoplatform.jcr.version>trunk</org.exoplatform.jcr.version>
+        <org.exoplatform.pc.version>trunk</org.exoplatform.pc.version>
+        <org.exoplatform.portal.version>trunk</org.exoplatform.portal.version>
+        <org.exoplatform.cs.version>trunk</org.exoplatform.cs.version>
+
+        <test.classes>Test</test.classes>
+        <test.skip>true</test.skip>
+
+      </properties>
+    </profile>
+  </profiles>
+
+  <build>
+	    <finalName>map</finalName>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+      </testResource>
+    </testResources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration> <source>1.5</source><target>1.5</target><optimize>true</optimize></configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.0.2</version>
+        <configuration>
+          <archiveClasses>false</archiveClasses>
+          <warSourceExcludes>WEB-INF/lib/*.jar</warSourceExcludes>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <skip>${test.skip}</skip>
+          <useFile>false</useFile>
+          <forkMode>pertest</forkMode><!--once , pertest -->
+          <testFailureIgnore>false</testFailureIgnore>
+          <includes>
+            <include implementation="java.lang.String">**/${test.classes}*.java</include>
+          </includes>
+          <systemProperties>
+            <property>
+              <name>mock.portal.dir</name>
+              <value>${exo.projects.directory.src}/portal/trunk/web/portal/src/main/webapp</value>
+            </property>
+          </systemProperties>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <phase>compile</phase>
+            <configuration>
+              <tasks>
+                <copy failonerror="false" todir="${basedir}/target/${project.build.finalName}/WEB-INF/classes">
+                  <fileset dir="${basedir}/src/main/webapp/WEB-INF/classes">
+                    <include name="**/*_en.properties"/>
+                  </fileset>
+                  <globmapper from="*_en.properties" to="*.properties"/>
+                </copy>
+              </tasks>
+            </configuration>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
