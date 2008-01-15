@@ -8,11 +8,19 @@
 			if(iconType == null) {
 				iconType = "DefaultPageIcon";
 			}
+			
+			String label = node.resolvedLabel;
+	    String title = "";
+	    if(label.length() > 40) {
+	    	title = label;
+	    	label = label.substring(0,38) + "...";	            	
+	    }
+	            
 	    println """
 	  	  <div class="Item">
 		      <div class="Level$intLevel">
 		        <div class="OverflowContainer">
-		          <a class="IconItem ${iconType}" href="$actionLink">$node.resolvedLabel</a>
+		          <a class="IconItem ${iconType}" href="$actionLink" title="$title">$label</a>
 		        </div>
 		      </div>
 		    </div>
@@ -39,11 +47,18 @@
 							else cssfloat = "right";
 	            String blockFloat = "LeftBlock" ;
 	            actionLink = uicomponent.event("SelectNode", nav.getId() + "::" + node.getUri()) ;
+	            
+	            String label = node.resolvedLabel;
+	            String title = "";
+	            if(label.length() > 38) {
+	            	title = label;
+	            	label = label.substring(0,35) + "...";	            	
+	            }
 	    %>
 	      <div class="SitemapItemBox" style="float:${cssfloat};">
 	      	<div class="SitemapItemContainer">
 				    <div class="TitleBar">
-		          <a href="<%=actionLink%>" class="Icon ${iconType}">$node.resolvedLabel</a>
+		          <a href="<%=actionLink%>" class="Icon ${iconType}" title="$title">$label</a>
 		        </div>
 		        <%if(node.getChildren() == null || node.getChildren().size() < 1) { %>
 		            <div class="NestedSitemapItemBox">
