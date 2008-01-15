@@ -212,5 +212,6 @@ eXo.core.ExoDateTime = new ExoDateTime() ;
  */
 
 String.prototype.trim = function () {
-    return this.replace(/^\s*|\s*$/, '');
+  var tmp = this.replace(/^\s*/, '');
+  return tmp.replace(/\s*$/, '');
 }
