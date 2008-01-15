@@ -28,7 +28,12 @@
 
 .UII18nPortlet .UISearchI18n {
 	margin: 15px auto;
-	width: 500px;
+	width: 550px;
+}
+
+.UII18nPortlet .UISearchI18n .UIFormGrid {
+	width: 390px;
+	margin: auto;
 }
 
 .UII18nPortlet .UIEditResource {

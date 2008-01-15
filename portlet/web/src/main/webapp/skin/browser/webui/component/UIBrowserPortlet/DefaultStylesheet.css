@@ -147,7 +147,7 @@
 .UIBrowserPortlet .TabDetailBackground {
 }
 
-.UIBrowserPortlet .TabDetail {
+.UIBrowserPortlet .TabLabel {
   width: 150px; height: 18px;
 	background: url("DefaultSkin/icons/16x16/InactiveGlobal.gif") no-repeat left;
 	padding: 2px 5px 0px 21px; 
@@ -168,7 +168,7 @@
   height: 100% ;
 }
 
-.UIBrowserPortlet .TabLabel {
+.UIBrowserPortlet .TabDetail {
 	text-align: center;
 	overflow: hidden;
 	text-overflow: ellipsis;

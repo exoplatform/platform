@@ -45,7 +45,6 @@
 								 onmouseover="eXo.application.browser.BrowserApplication.onMouseOver(this, 'CloseButton', 'ActiveCloseButton', true);" 
 								 onmouseout="eXo.application.browser.BrowserApplication.onMouseOver(this, 'CloseButton', 'ActiveCloseButton', false);"><span></span></div>
 						<div class="TabLabel">(Untitled)</div>
-						<div style="clear: both;"><span></span></div>
 					</div>
 				</div>
 				<div class="Separator"><span></span></div>

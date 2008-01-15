@@ -24,6 +24,7 @@
 .UISitemap .TitleBar {
 	background: url('VistaSkin/background/TopSitemapp295x22.png') no-repeat top;
   height: 22px; 
+  overflow: hidden;
   padding-left: 15px;
 }
 
