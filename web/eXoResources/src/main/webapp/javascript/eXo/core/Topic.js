@@ -26,7 +26,7 @@ Topic.prototype.publish = function(/*String*/ senderId, /*String*/ topicName, /*
 	
 	for (var topic in this.topics) {
 		if(topic && topicName.indexOf(topic) === 0)  {
-			var callbacks = this.topics[topicName];
+			var callbacks = this.topics[topic];
 			for (var j=0;j<callbacks.length;j++) {
 				callback = callbacks[j];
 		
