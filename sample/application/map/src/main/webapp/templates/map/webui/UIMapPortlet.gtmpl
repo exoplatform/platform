@@ -3,11 +3,11 @@
 
 	def rcontext = _ctx.getRequestContext() ;
 	String compId = rcontext.getWindowId() ;
-    rcontext.getJavascriptManager().importJavascript('eXo.UIMapPortlet','/map/javascript/') ;
- 	rcontext.getJavascriptManager().addJavascript("eXo.UIMapPortlet.initMap(" + compId + ") ;") ;
+    rcontext.getJavascriptManager().importJavascript('eXo.UIMapPortlet','/map/javascript/');
 %>
-<div id="map_$compId" style="top:0px; right:0px;left:0px;bottom:0px; height:100%;width:100%;"></div>
-<script type="text/javascript" src="http://www.google.com/jsapi?key=ABQIAAAA7zJG8VhgAV_3FSAn-IY4eBTwM0brOpm-All5BF6PoaKBxRWWERQvyybiqWCTV4zJqfBL62p2ofdpvw"></script>
-<script type="text/javascript">
-  google.load("maps", "2.x");
-</script>
+<div class="UIMapPortlet" id="UIMapPortlet_${compId}" style="height: 100%;width: 100%; overflow: hidden;">
+
+<iframe src="/map/map.html?#${compId}"  style="height: 100%; width: 100%;overflow: hidden;" frameborder="0" border="0" hspace="0" vspace="0">
+
+</iframe>
+</div>

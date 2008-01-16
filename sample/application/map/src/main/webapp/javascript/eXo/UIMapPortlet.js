@@ -5,6 +5,10 @@ Function.prototype.bind = function(object) {
   }
 }
 
+if (!window['eXo']) {
+	window['eXo'] = {};
+}
+
 //TODO is it the right path for putting the JS of the portlet?
 eXo.UIMapPortlet = new function() {
 	this.maps = {};
@@ -12,8 +16,10 @@ eXo.UIMapPortlet = new function() {
 	this.initMap = function(/*String*/ compId) {
 		var map = new eXo.UIMapPortlet.Map();
 		map.initialize(compId);
-	  	eXo.core.Topic.subscribe("/eXo/portlet/map/displayAddress", map, "changePlace");
-		this.maps["" + compId] = map;
+	  	parent.window['eXo'].core.Topic.subscribe("/eXo/portlet/map/displayAddress", map, "changePlace");
+		parent.window['eXo'].UIMapPortlet.maps[window.location.hash] = map;
+/*		document.getElementById("map").style.height = document.height;
+		alert(document.getElementById("map").style.height);*/
 	}
 }
 
@@ -22,8 +28,8 @@ eXo.UIMapPortlet.Map = function(){
 	var geocoder = null;
 }
 	
-eXo.UIMapPortlet.Map.prototype.initialize = function(/*String*/ compId) {
- 	this.map = new google.maps.Map2(document.getElementById("map_" + compId));
+eXo.UIMapPortlet.Map.prototype.initialize = function() {
+ 	this.map = new google.maps.Map2(document.getElementById("map"));
 	this.map.setCenter(new google.maps.LatLng(37.4419, -122.1419), 15);
     this.map.addControl(new google.maps.SmallMapControl());
 	this.map.addControl(new google.maps.MapTypeControl());
