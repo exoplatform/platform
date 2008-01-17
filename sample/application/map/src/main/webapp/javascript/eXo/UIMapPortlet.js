@@ -18,8 +18,6 @@ eXo.UIMapPortlet = new function() {
 		map.initialize(compId);
 	  	parent.window['eXo'].core.Topic.subscribe("/eXo/portlet/map/displayAddress", map, "changePlace");
 		parent.window['eXo'].UIMapPortlet.maps[window.location.hash] = map;
-/*		document.getElementById("map").style.height = document.height;
-		alert(document.getElementById("map").style.height);*/
 	}
 }
 
