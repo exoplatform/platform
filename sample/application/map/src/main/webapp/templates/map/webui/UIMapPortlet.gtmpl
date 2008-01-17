@@ -3,6 +3,7 @@
 
 	def rcontext = _ctx.getRequestContext() ;
 	String compId = rcontext.getWindowId() ;
+	rcontext.getJavascriptManager().importJavascript('eXo.core.Topic','/eXoResources/javascript/') ;
     rcontext.getJavascriptManager().importJavascript('eXo.UIMapPortlet','/map/javascript/');
 %>
 <div class="UIMapPortlet" id="UIMapPortlet_${compId}" style="height: 100%;width: 100%; overflow: hidden;">
