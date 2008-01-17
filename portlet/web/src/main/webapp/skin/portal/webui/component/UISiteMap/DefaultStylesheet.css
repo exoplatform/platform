@@ -45,6 +45,7 @@
   overflow: hidden;
   height: 22px;
   float: left;
+  padding-right: 4px;
 }
 
 .UISitemap .SitemapContainer {

@@ -62,13 +62,13 @@
     if(icon == null) icon = "PageNodeIcon";
     String arrowIcon = "MenuItemRight";
     if (node.getChildren() != null && node.getChildren().size() > 0) arrowIcon = "RightItemIcon";
-    
-    //
+
+	//
     String label = node.resolvedLabel;
     String title = "";
-    if(label.length() > 30) {
+    if(label.length() > 40) {
     	title = label;
-    	label = label.substring(0,27) + "...";
+    	label = label.substring(0,37) + "...";
     }
     
     String pageURI = Util.getPortalRequestContext().getPortalURI() + node.getUri() ;
