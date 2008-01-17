@@ -32,7 +32,7 @@ form {
 }
 
 body {
-  background: url('/eXoVistaSkin/skin/VistaSkin/background/eXoDesktopBG1.jpg') no-repeat fixed ;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/eXoDesktopBG1.jpg') no-repeat fixed ;
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif ;
 	font-size: 11px;
 	margin: 0px ; padding: 0px;
@@ -73,17 +73,17 @@ a {
 }
 
 .AjaxLoadingMask {
-  background: url('/eXoVistaSkin/skin/VistaSkin/background/LoadingLeft13x113.png') no-repeat left;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/LoadingLeft13x113.png') no-repeat left;
   padding: 0px 0px 0px 13px;
 }
 
 .AjaxLoadingMask .CenterLoadingContainer {
   width: 192px; height: 113px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/background/MiddleLoading1x113.png') repeat-x ;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/MiddleLoading1x113.png') repeat-x ;
 }
 
 .AjaxLoadingMask .LoadingContainer {
-  background: url('/eXoVistaSkin/skin/VistaSkin/background/LoadingRight16x113.png') no-repeat right;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/LoadingRight16x113.png') no-repeat right;
 	padding: 0px 16px 0px 0px;
 }
 
@@ -94,7 +94,7 @@ a {
 
 .AjaxLoadingMask .LoadingProgressBar {
   width: 160px; height: 10px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/background/LoadingProgressBar.gif') no-repeat top center;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/LoadingProgressBar.gif') no-repeat top center;
   margin: auto;
   padding: 1px 0px;
 }

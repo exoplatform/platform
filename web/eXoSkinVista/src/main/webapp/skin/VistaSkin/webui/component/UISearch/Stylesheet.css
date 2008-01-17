@@ -24,7 +24,7 @@
 
 .UISearch .UISearchForm .QuickSet .AdvancedSearchIcon {
   width: 24px ;  height: 24px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/AdvancedSearch.gif') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/AdvancedSearch.gif') no-repeat ;
   float: left ;
 }
 
@@ -36,14 +36,14 @@
 .UISearch .UISearchForm .QuickSet .SimpleSearchIcon {
   margin-left: 10px ;
   width: 24px ;  height: 24px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/QuickSearch.png') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/QuickSearch.png') no-repeat ;
   float: left ;
 }
 
 .UISearch .UISearchForm .QuickSet .SimpleSearchOverIcon {
   margin: 0px 0px 0px 10px ;
   width: 24px ;  height: 24px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/BlueMagnifierOver.gif') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/BlueMagnifierOver.gif') no-repeat ;
   float: left ;
 }
 

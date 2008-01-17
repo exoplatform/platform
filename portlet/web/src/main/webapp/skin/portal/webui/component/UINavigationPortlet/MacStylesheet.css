@@ -7,7 +7,7 @@
 }
 
 .UINavigationPortlet .UINavigationBar .PageNodeIcon {
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left;
 }
 
 .UINavigationPortlet .MiddleTab .TabLabel{
@@ -123,7 +123,7 @@
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   line-height: 25px ;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left center;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left center;
   padding: 0px 0px 0px 20px ;
 }
 

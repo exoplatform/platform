@@ -107,7 +107,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemListTitle .ArrowS1Down16x16Icon {
   margin: 3px 0px 0px 50px;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/GrayAquaDownArrow.png') no-repeat;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/GrayAquaDownArrow.png') no-repeat;
   width: 18px; height: 18px;
 }
 
@@ -240,7 +240,7 @@
   border: solid 1px #b7b7b7;
   font-weight: bold; 
   margin-bottom: 2px;
-  background: url('/eXoMacSkin/skin/MacSkin/background/TitleBG1x19.gif') repeat-x;
+  background: url('/eXoSkinMac/skin/MacSkin/background/TitleBG1x19.gif') repeat-x;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ImageDecorator {

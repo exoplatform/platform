@@ -8,7 +8,7 @@
 }
 
 .UIPermissionSelector .PermissionSelectorTitleBar .PermissionIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/PermissionIcon.gif') no-repeat;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/PermissionIcon.gif') no-repeat;
   width: 24px; height: 24px;
   margin: 2px 10px 0px 10px;
   float: left;
@@ -90,12 +90,12 @@
 	line-height: 24px; height: auto; width: auto;
 	padding-left: 25px;
   margin: 1px 0px 0px 5px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat left center;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat left center;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
 	line-height: 24px; height: auto; width: auto;
 	padding-left: 25px;
   margin: 1px 0px 0px 5px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
 } 

@@ -96,7 +96,7 @@
 .UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
 	float: left;
 	height: 24px; width: 24px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/BlueCheckerIcon.png') no-repeat center;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueCheckerIcon.png') no-repeat center;
 }
 
 .UIChangeLanguageForm .ItemDetail .NodeLabel {

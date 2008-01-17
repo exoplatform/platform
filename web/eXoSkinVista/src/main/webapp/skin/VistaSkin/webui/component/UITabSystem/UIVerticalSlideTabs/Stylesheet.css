@@ -76,12 +76,12 @@
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .EditIcon{
   width: 19px;  height: 17px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .DeleteIcon{
   width: 20px;  height: 17px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
@@ -129,7 +129,7 @@
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/GreenNextArrow.png') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/GreenNextArrow.png') no-repeat ;
   margin: 6px 3px 0px 0px ;
   cursor: pointer ;
 
@@ -179,7 +179,7 @@
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .SwitchButton {
   float: right;
   width: 16px;  height: 16px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/GreenDownArrow.png') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/GreenDownArrow.png') no-repeat ;
   margin: 6px 3px 0px 0px ;
 }
 

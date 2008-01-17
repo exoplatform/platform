@@ -192,19 +192,19 @@
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
 	width: 18px;
 	height: 17px;
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
 	width: 16px;
 	height: 16px;
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/AddIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/AddIcon.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
 	width: 16px;
 	height: 16px;
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
@@ -263,7 +263,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
-	background: url('/eXoMacSkin/skin/MacSkin/background/Background1x4.png') repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png') repeat;
 	border: 1px solid white;
 }
 
@@ -294,7 +294,7 @@
 }
 
 .UIOrganizationPortlet .SelectUserIcon {
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/SelectIcon.png') no-repeat center ;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/SelectIcon.png') no-repeat center ;
 }
 
 /*#######################  UIMemberShipManagement #################################*/

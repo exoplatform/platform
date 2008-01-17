@@ -61,10 +61,10 @@
 }
 /** ################# Icons ###################*/
 .UITrees .TreeContainer .GroupAdminIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat ;
 }
 
 .UITrees .TreeContainer .PortalIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/SelectedGroup.png') no-repeat ; 
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/SelectedGroup.png') no-repeat ; 
    
 }

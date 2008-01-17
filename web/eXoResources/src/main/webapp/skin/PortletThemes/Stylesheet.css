@@ -177,7 +177,7 @@
 }
 
 .MacTheme .WindowPortletInfo .PortletIcon {
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
 }
 
 .MacTheme .WindowPortletControl .ControlIcon {
@@ -334,7 +334,7 @@
 }
 
 .MacGray .WindowPortletInfo .PortletIcon {
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
 }
 
 .MacGray .WindowPortletControl .ControlIcon {
@@ -490,7 +490,7 @@
 }
 
 .MacBlack .WindowPortletInfo .PortletIcon {
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
 }
 
 .MacBlack .WindowPortletControl .ControlIcon {
@@ -646,7 +646,7 @@
 }
 
 .MacGreenSteel .WindowPortletInfo .PortletIcon {
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
 }
 
 .MacGreenSteel .WindowPortletControl .ControlIcon {
@@ -799,7 +799,7 @@
 }
 
 .VistaTheme .WindowPortletInfo .PortletIcon {
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat;
 }
 
 .VistaTheme .WindowPortletControl .ControlIcon {
@@ -865,7 +865,7 @@
 	float: right;
 	width: 9px; height: 12px;
 	cursor: nw-resize;
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
 }
 
 .VistaTheme .MiddleDecoratorLeft {
@@ -958,7 +958,7 @@
 }
 
 .VistaBlue .WindowPortletInfo .PortletIcon {
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat;
 }
 
 .VistaBlue .WindowPortletControl .ControlIcon {
@@ -1023,7 +1023,7 @@
 	float: right;
 	width: 9px; height: 12px;
 	cursor: nw-resize;
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
 }
 
 .VistaBlue .MiddleDecoratorLeft {

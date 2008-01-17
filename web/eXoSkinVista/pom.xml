@@ -6,12 +6,12 @@
   </parent> 
 
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>exo.portal.web.eXoVistaSkin</artifactId>
+  <artifactId>exo.portal.web.eXoSkinVista</artifactId>
   <packaging>war</packaging> 
   <version>${org.exoplatform.portal.version}</version>
-  <name>eXo Portal Resources</name>
+  <name>eXo Vista Skin</name>
 
   <build>
-    <finalName>eXoVistaSkin</finalName>
+    <finalName>eXoSkinVista</finalName>
   </build>
 </project>

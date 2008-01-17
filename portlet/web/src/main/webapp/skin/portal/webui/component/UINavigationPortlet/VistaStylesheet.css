@@ -61,7 +61,7 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
 }
 
 .UINavigationPortlet .MiddleTab .TabLabel{
@@ -69,7 +69,7 @@
 }
 
 .UINavigationPortlet .MiddleTab .DefaultPageIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem {

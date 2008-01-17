@@ -25,13 +25,13 @@
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
   margin: 4px 2px 5px 2px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/SelectedGroup.png') no-repeat;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/SelectedGroup.png') no-repeat;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrow16x16Icon {
 	float: left;
   margin: 5px 2px 5px 1px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/BlueGridRightArrow.gif');
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueGridRightArrow.gif');
 }
 
 .UIGroupMembershipSelector .SelectedGroupPath {
@@ -101,5 +101,5 @@
   margin: 5px 5px 0px 7px ;  
   float: left ;
   width: 16px; height: 16px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/GrayBorderRightArrow.gif') no-repeat;  
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/GrayBorderRightArrow.gif') no-repeat;  
 }

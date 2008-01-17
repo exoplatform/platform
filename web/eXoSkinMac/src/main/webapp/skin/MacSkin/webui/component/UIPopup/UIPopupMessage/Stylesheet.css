@@ -41,15 +41,15 @@
 }
 
 .UIPopupMessages .PopupMessageContainer .InfoMessageIcon {
-	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/InfoIcon.gif) no-repeat top;
+	background: url(/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/InfoIcon.gif) no-repeat top;
 }
 
 .UIPopupMessages .PopupMessageContainer .WarningMessageIcon {
-	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/WarningIcon.gif) no-repeat top;
+	background: url(/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/WarningIcon.gif) no-repeat top;
 }
 
 .UIPopupMessages .PopupMessageContainer .ErrorMessageIcon {
-	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/ErrorIcon.gif) no-repeat top;
+	background: url(/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/ErrorIcon.gif) no-repeat top;
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupMessage {

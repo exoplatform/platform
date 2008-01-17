@@ -20,7 +20,7 @@
 }
 
 .UIDropDownControl .ItemListContent {
-	background:white url(/eXoMacSkin/skin/MacSkin/background/Background1x4.png) repeat;
+	background:white url(/eXoSkinMac/skin/MacSkin/background/Background1x4.png) repeat;
 }
 
 .UIDropDownControl .LeftBottomItem {
@@ -185,5 +185,5 @@
 }
 .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
   padding-left: 16px; height: 20px;
-	background: url(/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif) no-repeat left center
+	background: url(/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif) no-repeat left center
 }

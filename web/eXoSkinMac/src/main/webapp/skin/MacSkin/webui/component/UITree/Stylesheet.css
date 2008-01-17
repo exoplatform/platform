@@ -62,11 +62,11 @@
 
 /** ################# Icons ###################*/
 .UITrees .TreeContainer .GroupAdminIcon {
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/NormalGroup.gif') no-repeat ;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/NormalGroup.gif') no-repeat ;
   padding-left: 25px;
 }
 
 .UITrees .TreeContainer .PortalIcon {
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/24x24/icons/SelectedGroup.gif') no-repeat ;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SelectedGroup.gif') no-repeat ;
   padding-left: 25px;
 }

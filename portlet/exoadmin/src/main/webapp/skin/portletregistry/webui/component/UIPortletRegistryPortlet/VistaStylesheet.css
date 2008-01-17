@@ -145,12 +145,12 @@
 
 .ApplicationRegistryWorkingArea .DeleteIcon {
   width: 18px ;  height: 18px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat ;
 }
 
 .ApplicationRegistryWorkingArea .EditInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat ;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContentLabel {

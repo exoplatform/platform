@@ -32,7 +32,7 @@
 
 .ApplicationRegistryControlArea .ApplicationRegistryCategory {
   border: 1px solid #d7d7d7;
-  background: url('/eXoMacSkin/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
+  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
   letter-spacing: 0.5px;
 }
 
@@ -101,7 +101,7 @@
 
 .ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout{
   padding: 10px 10px 10px 40px;
-  background: url('/eXoMacSkin/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
+  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
   border: 1px solid white;
 }
 
@@ -119,7 +119,7 @@
 .ApplicationRegistryWorkingArea .ApplicationContainer {
   padding: 0px 5px 5px 5px;
   border:  1px solid white;
-  background: url('/eXoMacSkin/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
+  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
 }
 
 .ApplicationRegistryWorkingArea .UIItemSelector .ItemListContainer .ItemList {
@@ -164,12 +164,12 @@
 
 .ApplicationRegistryWorkingArea .DeleteIcon {
   width: 18px ;  height: 18px ;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat ;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat ;
 }
 
 .ApplicationRegistryWorkingArea .EditInfoIcon {
   width: 16px ;  height: 16px ;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat ;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat ;
 }
 
 .ApplicationRegistryWorkingArea .ApplicationContentLabel {
@@ -199,7 +199,7 @@
 
 .ApplicationRegistryWorkingArea .UIAvailablePortletForm {
   padding: 10px;
-  background: url('/eXoMacSkin/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
+  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
   border: 1px solid #b7b7b7;
 }
 
@@ -222,7 +222,7 @@
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout{
   padding: 10px 10px 10px 40px;
-  background: url('/eXoMacSkin/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif') repeat;
+  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif') repeat;
   border: 1px solid white;
 }
 

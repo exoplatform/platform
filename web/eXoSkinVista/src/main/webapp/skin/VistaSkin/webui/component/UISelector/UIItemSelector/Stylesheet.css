@@ -93,16 +93,16 @@
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer .ItemListTitle {
 	height: 25px; line-height: 25px;
   font-weight: bold; text-align: center;
-  background: url('/eXoVistaSkin/skin/VistaSkin/background/ItemListTitleBG1x25.png') repeat-x ;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/ItemListTitleBG1x25.png') repeat-x ;
 }
 
 .UIItemSelector .ItemListContainer .LeftItemListTitle  {
-  background: url('/eXoVistaSkin/skin/VistaSkin/background/LeftItemListTitle30x25.png') no-repeat left;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/LeftItemListTitle30x25.png') no-repeat left;
   padding-left: 30px;
 }
 
 .UIItemSelector .ItemListContainer .RightItemListTitle {
-  background: url('/eXoVistaSkin/skin/VistaSkin/background/RightItemListTitle30x25.png') no-repeat right;
+  background: url('/eXoSkinVista/skin/VistaSkin/background/RightItemListTitle30x25.png') no-repeat right;
   padding-right: 30px;
 }
 

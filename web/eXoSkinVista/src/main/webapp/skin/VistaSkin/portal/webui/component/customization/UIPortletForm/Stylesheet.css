@@ -9,10 +9,10 @@
 }
 
 .UIPortletForm .SaveIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/Save.gif') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Save.gif') no-repeat ;
   border: 1px solid red;
 }
 
 .UIPortletForm .BackIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/BackArrowBlue.gif') no-repeat ; 
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BackArrowBlue.gif') no-repeat ; 
 }

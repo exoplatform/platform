@@ -16,7 +16,7 @@
 
 .UIWidgetContainerManagement .CategoryTitleBar {
 	height: 20px;
-	background: url('/eXoMacSkin/skin/MacSkin/background/TitleBG1x19.gif') repeat-x bottom;
+	background: url('/eXoSkinMac/skin/MacSkin/background/TitleBG1x19.gif') repeat-x bottom;
 	border-bottom: 1px #b7b7b7 solid;
 	padding-right: 10px;
 }
@@ -31,7 +31,7 @@
 .UIWidgetContainerManagement .AddContainerIcon {
 	width: 16px;
 	height: 16px;
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/AddIcon.gif');
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/AddIcon.gif');
 	float: right;
 	margin: 2px 5px;
 	display: inline;
@@ -60,7 +60,7 @@
 	color: #0e3fa8;
 	text-decoration: none;
 	line-height: 21px;
-	background: #f0f0f0 url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/CheckerIcon.gif') no-repeat 10px 4px;
+	background: #f0f0f0 url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/CheckerIcon.gif') no-repeat 10px 4px;
 	padding-left: 27px;
 }
 
@@ -75,15 +75,15 @@
 }
 
 .UIWidgetContainerManagement .AddContainer {
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/AquaBlueAddSign.gif') no-repeat center;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/AquaBlueAddSign.gif') no-repeat center;
 }
 
 .UIWidgetContainerManagement .EditContainer {
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat center;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat center;
 }
 
 .UIWidgetContainerManagement .RemoveContainer{
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat center;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat center;
 }
 
 .UIWidgetContainerManagement .CategoryTitle {
@@ -101,7 +101,7 @@
 
 /*===================== Begin the Widget Container View ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
-	background: url('/eXoMacSkin/skin/MacSkin/background/Background1x4.png');
+	background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png');
 	border: 1px #b7b7b7 solid;
 	margin-left: 262px;
 	height: 255px;
@@ -122,7 +122,7 @@
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{
-	background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif') no-repeat left center;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif') no-repeat left center;
 	padding:0px 55px 0px 23px;
 	height: 22px; line-height: 22px;
 	float: right;

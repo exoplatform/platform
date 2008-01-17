@@ -201,7 +201,7 @@
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
   float: left;
   width: 16px; height: 16px;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/PageNode.gif ') no-repeat;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/PageNode.gif ') no-repeat;
   margin: 5px 0px 0px 5px;
 }
 
@@ -244,7 +244,7 @@
 }
 
 .UIWizard .UIItemSelector {
-	background: url('/eXoMacSkin/skin/MacSkin/background/Background1x4.png');
+	background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png');
 	border: 1px solid gray;
 	padding: 10px;
 	margin: 0px;

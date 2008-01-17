@@ -26,13 +26,13 @@
 
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/NormalGroup.png') no-repeat;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/NormalGroup.png') no-repeat;
   margin: 8px 0px 0px 5px;
 }
 
 .UIGroupMembershipSelector .Container {
   padding: 10px;
-  background: url(/eXoMacSkin/skin/MacSkin/background/Background1x4.png) repeat;
+  background: url(/eXoSkinMac/skin/MacSkin/background/Background1x4.png) repeat;
   border: 1px solid #e4e4e4;
 }
 

@@ -32,18 +32,18 @@
 }
 
 .UIPageNodeSelector .OrganizationIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/MiniOrangeBoxPage.png') no-repeat;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/MiniOrangeBoxPage.png') no-repeat;
 }
 
 .UIPageNodeSelector .PortalAdminIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/PortalAdmin.gif') no-repeat;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortalAdmin.gif') no-repeat;
 }
 
 .UIPageNodeSelector .NavigationPortalIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/MiniOrangeBoxPage.png') no-repeat;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/MiniOrangeBoxPage.png') no-repeat;
 }
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/EditNavigation.png') no-repeat left top;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/EditNavigation.png') no-repeat left top;
 	cursor: pointer;
 	float: left; margin-left: -3px;
 	height: 22px; width: 19px;

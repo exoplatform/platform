@@ -149,14 +149,14 @@
 	float: left;
   width: 16px; height: 16px;
   margin: 3px 5px 0px 5px;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat ;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat ;
 }
 
 .UIContainer .ContentPortletIcon {
 	float: left;
   width: 16px; height: 16px;
   margin: 3px 5px 0px 5px;
-  background: url('/eXoMacSkin/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat ;
 }
 
 .UIPortal .LAYOUT-PORTAL {

@@ -52,7 +52,7 @@
 
 .UISitemap .SitemapContainer .SitemapBackground{
   border: 1px solid white;
-  background: url(/eXoMacSkin/skin/MacSkin/background/BgItemSelector1x4.png) repeat;
+  background: url(/eXoSkinMac/skin/MacSkin/background/BgItemSelector1x4.png) repeat;
   padding: 10px 15px 10px 15px;
   overflow: hidden;
   width: auto;
@@ -108,7 +108,7 @@
 
 .UISitemap .SitemapItemBox .Level1 {
   border: solid 1px #cecece ;
-  background: url(/eXoMacSkin/skin/MacSkin/background/BgItemSelector1x4.png) repeat;
+  background: url(/eXoSkinMac/skin/MacSkin/background/BgItemSelector1x4.png) repeat;
   margin-top: 3px;
   padding: 0px 5px;
 }

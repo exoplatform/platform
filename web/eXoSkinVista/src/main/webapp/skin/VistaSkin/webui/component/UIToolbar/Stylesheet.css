@@ -150,19 +150,19 @@
 .UIOrganizationPortlet .UserManagementIcon {
   width: 32px; height: 30px; 
   margin: auto;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/32x32/icons/UserManagement.gif') no-repeat center;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/UserManagement.gif') no-repeat center;
 }
 
 .UIOrganizationPortlet .GroupManagementIcon {
   width: 32px; height: 30px; 
   margin: auto;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/32x32/icons/GroupManagement.gif') no-repeat center;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/GroupManagement.gif') no-repeat center;
 }
 
 .UIOrganizationPortlet .MembershipManagementIcon {
   width: 32px; height: 30px; 
   margin: auto;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/32x32/icons/MembershipManagement.gif') no-repeat center ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/MembershipManagement.gif') no-repeat center ;
 }
 
 /*##############################- StandardToolbar style -#########################*/
@@ -469,20 +469,20 @@
 
 .UIToolbar .RollbackIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/RollbackB.png') no-repeat;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/RollbackB.png') no-repeat;
 }
 
 .UIToolbar .FinishIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/Finish.png') no-repeat;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/Finish.png') no-repeat;
 }
 
 .UIToolbar .SaveIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/SaveB.png') no-repeat;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/SaveB.png') no-repeat;
 }
 
 .UIToolbar .AbortIcon {
 	width: 24px; height: 24px;
-	background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/AbortB.png') no-repeat;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/AbortB.png') no-repeat;
 }

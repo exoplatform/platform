@@ -75,20 +75,20 @@
 .UIOrganizationPortlet .PersonalInfoIcon {
   width: 32px ;  height: 32px ;
   float: left ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/32x32/icons/PersonalInfo.gif') ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/PersonalInfo.gif') ;
 }
 
 .UIOrganizationPortlet .HomeInfoIcon {
   width: 32px ;  height: 32px ;
   float: left ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/32x32/icons/HomeInfo.gif') ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/HomeInfo.gif') ;
 
 }
 
 .UIOrganizationPortlet .BusinessInfoIcon {
   width: 32px ;  height: 32px ;
   float: left ;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/32x32/icons/BusinessInfo.gif') ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/BusinessInfo.gif') ;
 }
 
 /*#######################  UIGroupManagement #################################*/
@@ -105,7 +105,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat;
   height: 24px; width: 24px;
 }
 
@@ -276,7 +276,7 @@
 
 .UIOrganizationPortlet .SelectUserIcon {
 	width: 16px; height: 16px;
-  background: url('/eXoVistaSkin/skin/VistaSkin/skinIcons/16x16/icons/SelectIcon.gif') center ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/SelectIcon.gif') center ;
 }
 
 /*#######################  UIMemberShipManagement #################################*/
