@@ -23,6 +23,9 @@ import org.w3c.dom.Element;
  */
 public class DataMapper {
   
+  final static String EXO_REGISTRYENTRY_NT = "exo:registryEntry" ;
+  final static String PRIMARY_TYPE = "jcr:primaryType" ;
+
   static final String TYPE = "exo:type" ;
   
   static final String CATEGORY_NAME = "exo:name" ;
@@ -45,6 +48,7 @@ public class DataMapper {
   public void map(Document doc, ApplicationCategory category) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
+    root.setAttribute(PRIMARY_TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(TYPE, category.getClass().getSimpleName()) ;
     root.setAttribute(CATEGORY_NAME, category.getName()) ;
     root.setAttribute(DISPLAY_NAME, category.getDisplayName()) ;
@@ -71,6 +75,7 @@ public class DataMapper {
   public void map(Document doc, Application application) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
+    root.setAttribute(PRIMARY_TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(TYPE, application.getClass().getSimpleName()) ;
     root.setAttribute(APPLICATION_NAME, application.getApplicationName()) ;
     root.setAttribute(APPLICATION_TYPE, application.getApplicationType()) ;
@@ -130,10 +135,15 @@ public class DataMapper {
   }
 
   private void prepareXmlNamespace(Element element) {
-    String xmlns = element.getAttribute("xmlns:exo") ; 
+    setXmlNameSpace(element, "xmlns:exo", "http://www.exoplatform.com/jcr/exo/1.0") ;
+    setXmlNameSpace(element, "xmlns:jcr", "http://www.jcp.org/jcr/1.0") ;
+  }
+  
+  private void setXmlNameSpace(Element element, String key, String value) {
+    String xmlns = element.getAttribute(key) ; 
     if(xmlns == null || xmlns.trim().length() < 1) {
-      element.setAttribute("xmlns:exo", "http://www.exoplatform.com/jcr/exo/1.0") ;
-    }
+      element.setAttribute(key, value) ;
+    }    
   }
   
 }

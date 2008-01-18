@@ -42,6 +42,8 @@ public class DataMapper {
   
   final static private String DATA_ELEMENT = "data" ;
   
+  final static public String EXO_REGISTRYENTRY_NT = "exo:registryEntry" ;
+  final static public String TYPE = "jcr:primaryType" ;
   final static public String EXO_ID = "exo:id" ;
   final static public String EXO_NAME = "exo:name" ;
   final static public String EXO_OWNER_TYPE = "exo:ownerType" ;
@@ -51,6 +53,7 @@ public class DataMapper {
   public void map(Document doc, PortalConfig portal) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
+    root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(EXO_ID, portal.getName()) ;
     root.setAttribute(EXO_NAME, portal.getName()) ;    
     root.setAttribute(EXO_OWNER_TYPE, PortalConfig.PORTAL_TYPE);
@@ -67,6 +70,7 @@ public class DataMapper {
   public void map(Document doc, Page page) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
+    root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(EXO_ID, page.getPageId()) ;
     root.setAttribute(EXO_NAME, page.getName()) ;    
     root.setAttribute(EXO_OWNER_TYPE, page.getOwnerType());
@@ -83,6 +87,7 @@ public class DataMapper {
   public void map(Document doc, PageNavigation navigation) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
+    root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(EXO_ID, navigation.getId()) ;
     root.setAttribute(EXO_NAME, navigation.getId()) ;    
     root.setAttribute(EXO_OWNER_TYPE, navigation.getOwnerType());
@@ -99,6 +104,7 @@ public class DataMapper {
   public void map(Document doc, Widgets widgets) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
+    root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(EXO_ID, widgets.getId()) ;
     root.setAttribute(EXO_NAME, widgets.getId()) ;    
     root.setAttribute(EXO_OWNER_TYPE, widgets.getOwnerType());
@@ -115,6 +121,7 @@ public class DataMapper {
   public void map(Document doc, PortletPreferences portletPreferences) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
+    root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(EXO_ID, portletPreferences.getWindowId()) ;
     root.setAttribute(EXO_NAME, portletPreferences.getWindowId().replace('/', '_').replace(':', '_').replace('#', '_')) ;    
     root.setAttribute(EXO_OWNER_TYPE, portletPreferences.getOwnerType());
@@ -136,10 +143,15 @@ public class DataMapper {
   //------------------------------Util function-----------------------------------//
   
   private void prepareXmlNamespace(Element element) {
-    String xmlns = element.getAttribute("xmlns:exo") ; 
+    setXmlNameSpace(element, "xmlns:exo", "http://www.exoplatform.com/jcr/exo/1.0") ;
+    setXmlNameSpace(element, "xmlns:jcr", "http://www.jcp.org/jcr/1.0") ;
+  }
+  
+  private void setXmlNameSpace(Element element, String key, String value) {
+    String xmlns = element.getAttribute(key) ; 
     if(xmlns == null || xmlns.trim().length() < 1) {
-      element.setAttribute("xmlns:exo", "http://www.exoplatform.com/jcr/exo/1.0") ;
-    }
+      element.setAttribute(key, value) ;
+    }    
   }
 
   private void setDataValue(Document doc, String name, String value) {
@@ -183,4 +195,3 @@ public class DataMapper {
   }
   
 }
-

@@ -114,7 +114,7 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
   public PageList findResourceDescriptions(Query q) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
-    StringBuilder builder = new StringBuilder("select * from nt:unstructured") ;
+    StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
     generateScript(builder, "jcr:path", regNode.getPath() + "/" + getServiceRegistryPath() + "/%") ;
     generateScript(builder, DataMapper.TYPE, DataMapper.LOCALE) ;
     generateScript(builder, DataMapper.NAME, q.getName()) ;

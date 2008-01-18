@@ -30,8 +30,10 @@ import org.w3c.dom.Node;
 public class DataMapper {
 
   final static String LOCALE =  "locale";
-  final static String TYPE = "exo:type";
   
+  final static String EXO_REGISTRYENTRY_NT = "exo:registryEntry" ;
+  final static String PRIMARY_TYPE = "jcr:primaryType" ;
+  final static String TYPE = "exo:type";
   final static String ID = "exo:resourceId";
   final static String NAME = "exo:resourceName";
   final static String LANGUAGE = "exo:resourceLanguage";
@@ -43,8 +45,8 @@ public class DataMapper {
   public void map(Document doc, ResourceBundleData resource) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
-    root.setAttribute(TYPE, LOCALE) ;
-    
+    root.setAttribute(PRIMARY_TYPE, EXO_REGISTRYENTRY_NT) ;
+    root.setAttribute(TYPE, LOCALE) ;    
     root.setAttribute(ID, resource.getId()) ;
     root.setAttribute(NAME, resource.getName()) ;
     root.setAttribute(LANGUAGE, resource.getLanguage()) ;
@@ -69,10 +71,15 @@ public class DataMapper {
   
   //---------------------------------------------------------------------------------//
   private void prepareXmlNamespace(Element element) {
-    String xmlns = element.getAttribute("xmlns:exo") ; 
+    setXmlNameSpace(element, "xmlns:exo", "http://www.exoplatform.com/jcr/exo/1.0") ;
+    setXmlNameSpace(element, "xmlns:jcr", "http://www.jcp.org/jcr/1.0") ;
+  }
+  
+  private void setXmlNameSpace(Element element, String key, String value) {
+    String xmlns = element.getAttribute(key) ; 
     if(xmlns == null || xmlns.trim().length() < 1) {
-      element.setAttribute("xmlns:exo", "http://www.exoplatform.com/jcr/exo/1.0") ;
-    }
+      element.setAttribute(key, value) ;
+    }    
   }
 
   private void setDataValue(Document doc, String name, String value) {

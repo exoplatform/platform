@@ -83,7 +83,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
     Session session = regNode.getSession() ;
-    StringBuilder builder = new StringBuilder("select * from nt:unstructured") ;
+    StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
     generateScript(builder, "jcr:path", (regNode.getPath() + "/" + RegistryService.EXO_APPLICATIONS + "/" + APPLICATION_REGISTRY + "/%")) ;
     generateScript(builder, DataMapper.TYPE, ApplicationCategory.class.getSimpleName()) ;
     QueryManager queryManager = session.getWorkspace().getQueryManager() ;
@@ -201,7 +201,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
     Session session = regNode.getSession() ;
-    StringBuilder builder = new StringBuilder("select * from nt:unstructured") ;
+    StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
     generateScript(builder, "jcr:path", (regNode.getPath() + "/" + RegistryService.EXO_APPLICATIONS + "/" + APPLICATION_REGISTRY + "/%")) ;
     generateScript(builder, DataMapper.TYPE, Application.class.getSimpleName()) ;
     generateScript(builder, DataMapper.APPLICATION_CATEGORY_NAME, category.getName()) ;

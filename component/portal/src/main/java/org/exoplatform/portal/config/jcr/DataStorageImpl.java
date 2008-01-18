@@ -311,7 +311,7 @@ public class DataStorageImpl implements DataStorage, Startable {
   @SuppressWarnings("unchecked")
   public PageList find(Query q, Comparator sortComparator) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    StringBuilder builder = new StringBuilder("select * from nt:unstructured") ;
+    StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
     String registryNodePath = regService_.getRegistry(sessionProvider).getNode().getPath() ;
     generateScript(builder, "jcr:path", registryNodePath + "/%") ;
     generateScript(builder, DataMapper.EXO_DATA_TYPE, q.getClassType().getSimpleName()) ;
