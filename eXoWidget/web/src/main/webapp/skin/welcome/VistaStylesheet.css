@@ -7,54 +7,48 @@
   height: 35px;
 }
 
-.UIWelcomeWidget .LoggedDecorator {
-	padding: 0px;
-}
-
 .UIWelcomeWidget .LoggedDecorator .LeftTopLoggedDecorator {
-	background: url('VistaSkin/background/LeftTopDecorator10x16.png') no-repeat left top;
+	background: url('VistaSkin/background/WelcomeWidget.png') no-repeat left -16px;
 	padding: 0px 0px 0px 10px;
 }
 
 .UIWelcomeWidget .LoggedDecorator .RightTopLoggedDecorator {
-	background: url('VistaSkin/background/RightTopDecorator10x16.png') no-repeat right top;
+	background: url('VistaSkin/background/WelcomeWidget.png') no-repeat right -33px;
 	padding: 0px 10px 0px 0px;
 }
 
 .UIWelcomeWidget .LoggedDecorator .CenterTopLoggedDecorator {
-	background: url('VistaSkin/background/CenterTopDecorator1x16.png') repeat-x top;
+	background: url('VistaSkin/background/WelcomeWidget.png') repeat-x top;
 	height: 16px;
 }
 
+.UIWelcomeWidget .LoggedDecorator .DecoratorBackground {
+	background: url('VistaSkin/background/WelcomeWidget.png') repeat-x center -250px;
+}
+
 .UIWelcomeWidget .LoggedDecorator .LeftMiddleLoggedDecorator {
-	padding: 0px 0px 0px 10px;
+	padding: 0px 0px 0px 16px;
 	background: url('VistaSkin/background/LeftMiddleDecorator10x1.png') repeat-y left;
 }
 
 .UIWelcomeWidget .LoggedDecorator .RightMiddleLoggedDecorator {
-	padding: 0px 10px 0px 0px;
+	padding: 0px 13px 0px 0px;
 	background: url('VistaSkin/background/RightMiddleDecorator10x1.png') repeat-y right;
 }
 
 .UIWelcomeWidget .LoggedDecorator .LeftBottomLoggedDecorator {
 	padding: 0px 0px 0px 10px;
-	background: url('VistaSkin/background/LeftBottomDecorator10x16.png') no-repeat left bottom;
+	background: url('VistaSkin/background/WelcomeWidget.png') no-repeat left -67px;
 }
 
 .UIWelcomeWidget .LoggedDecorator .RightBottomLoggedDecorator {
 	padding: 0px 10px 0px 0px;
-	background: url('VistaSkin/background/RightBottomDecorator10x16.png') no-repeat bottom right;
+	background: url('VistaSkin/background/WelcomeWidget.png') no-repeat right -84px;
 }
 
 .UIWelcomeWidget .LoggedDecorator .CenterBottomLoggedDecorator {
   height: 16px;
-	background: url('VistaSkin/background/CenterBottomDecorator1x16.png') repeat-x bottom;
-}
-
-.UIWelcomeWidget .LoggedDecorator .DecoratorBackground {
-  width: auto; height: 73px;
-  background: url('VistaSkin/background/DecoratorBackground1x73.png') repeat-x;
-  border:1px #888888 solid;
+	background: url('VistaSkin/background/WelcomeWidget.png') repeat-x center -50px;
 }
 
 .UIWelcomeWidget .StyleContent .AvatarContainer {
@@ -66,22 +60,22 @@
 .UIWelcomeWidget .StyleContent .LeftAvatarContainer {
 	width: 50px;
 	padding: 0px 0px 0px 5px;
-	background: url('VistaSkin/background/LeftAvatarContainer5x48.png') no-repeat left;
+	background: url('VistaSkin/background/WelcomeWidget.png') no-repeat left -150px;
 }
 
 .UIWelcomeWidget .StyleContent .RightAvataContainer {
 	padding: 0px 6px 0px 0px;
-	background: url('VistaSkin/background/RightAvataContainer6x48.png') no-repeat right;
+	background: url('VistaSkin/background/WelcomeWidget.png') no-repeat right -200px;
 }
 
 .UIWelcomeWidget .StyleContent .CenterAvataContainer {
 	height: 48px ;
-	background: url('VistaSkin/background/CenterAvataContainer1x48.png') repeat-x;
+	background: url('VistaSkin/background/WelcomeWidget.png') repeat-x center -101px;
 }
 
 .UIWelcomeWidget .AvatarContainer .AvatarImage {
 	width: 38px; height: 41px;
-	background: url('VistaSkin/background/AvatarImage38x41.png') no-repeat center;
+	background: url('VistaSkin/background/WelcomeWidget.png') no-repeat left -472px;
 	margin:0px 0px 0px 3px;
 }
 

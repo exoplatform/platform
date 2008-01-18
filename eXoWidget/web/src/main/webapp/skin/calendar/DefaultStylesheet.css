@@ -30,7 +30,7 @@
 }
 
 .UICalendarWidget .BGCalendar {
-	background: #aac3fb url('DefaultSkin/background/CenterCalculator174x1.gif') repeat-y center;
+	background: #aac3fb url('DefaultSkin/background/CalendarRepeatYWidget.gif') repeat-y center;
 	height: 100%;
 }
 

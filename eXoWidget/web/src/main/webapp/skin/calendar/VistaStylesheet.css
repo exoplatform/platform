@@ -14,27 +14,19 @@
 }
 
 .UICalendarWidget .TLCalendar {
-	background: url('VistaSkin/background/TLCalculator10x15.png') no-repeat left;
+	background: url('VistaSkin/background/CalendarWidget.png') no-repeat left -15px;
 	padding-left: 10px;
 }
 
 .UICalendarWidget .TRCalendar {
-	background: url('VistaSkin/background/TRCalculator12x15.png') no-repeat right;
+	background: url('VistaSkin/background/CalendarWidget.png') no-repeat right -31px;
 	padding-right: 12px;
 }
 
 .UICalendarWidget .TMCalendar {
-	background: url('VistaSkin/background/TMCalculator1x15.png') repeat-x;
-	height: 15px;
-}
-
-.UICalendarWidget .BGCalendar {
-}
-
-.UICalendarWidget .BGTopCalendar {
-}
-
-.UICalendarWidget .BGBottomCalendar {
+	background: url('VistaSkin/background/CalendarWidget.png') repeat-x;
+	height: 14px;
+	padding-top: 1px;
 }
 
 .UICalendarWidget .MLCalendar {
@@ -48,17 +40,17 @@
 }
 
 .UICalendarWidget .BLCalendar {
-	background: url('VistaSkin/background/BLCalculator10x17.png') no-repeat left;
+	background: url('VistaSkin/background/CalendarWidget.png') no-repeat left -65px;
 	padding-left: 10px;
 }
 
 .UICalendarWidget .BRCalendar {
-	background: url('VistaSkin/background/BRCalculator12x17.png') no-repeat right;
+	background: url('VistaSkin/background/CalendarWidget.png') no-repeat right -83px;
 	padding-right: 12px;
 }
 
 .UICalendarWidget .BMCalendar {
-	background: url('VistaSkin/background/BMCalculator1x17.png') repeat-x;
+	background: url('VistaSkin/background/CalendarWidget.png') repeat-x center -47px;
 	height: 15px;
 	padding-bottom: 2px;
 }
@@ -84,12 +76,12 @@
 }
 
 .UICalendarWidget .MonthYearBox .NextMonth {
-  background: url('VistaSkin/background/NextMonth.png') no-repeat center center;
+  background: url('VistaSkin/background/CalendarWidget.png') no-repeat right -169px ;
   width: 23px; height: 21px;
 }
 
 .UICalendarWidget .MonthYearBox .PreviousMonth {
-  background: url('VistaSkin/background/PreviousMonth.png') no-repeat center center;
+  background: url('VistaSkin/background/CalendarWidget.png') no-repeat left -147px ;
   width: 23px; height: 21px;
 }
 
@@ -111,7 +103,7 @@
 .UICalendarWidget .MonthYearBox .Time {
   background: white;
   float: left;
-  width: 111px;
+  width: 114px;
   height: 19px;
   line-height: 19px;
   border-top: 1px solid #455924;
@@ -120,22 +112,22 @@
 }
 
 .UICalendarWidget .MonthYearBox a.NextYear {
-  background: url('VistaSkin/background/NextYear.gif') no-repeat center center;
-  width: 19px;  height: 19px;
+  background: url('VistaSkin/background/CalendarWidget.png') no-repeat right -125px;
+  width: 18px;  height: 19px;
 }
 
 .UICalendarWidget .MonthYearBox a:hover.NextYear {
-  background: url('VistaSkin/background/NextYear.gif') no-repeat center center;
+  background: url('VistaSkin/background/CalendarWidget.png') no-repeat right -125px;
 }
 
 
 .UICalendarWidget .MonthYearBox a.PreviousYear {
-  background: url('VistaSkin/background/PreviousYear.gif') no-repeat center center;
-  width: 19px; height: 19px;
+  background: url('VistaSkin/background/CalendarWidget.png') no-repeat left -101px;
+  width: 17px; height: 19px;
 }
 
 .UICalendarWidget .MonthYearBox a:hover.PreviousYear {
-  background: url('VistaSkin/background/PreviousYear.gif') no-repeat center center;
+  background: url('VistaSkin/background/CalendarWidget.png') no-repeat left -101px;
 }
 
 .UICalendarWidget .MonthYearBox .YearButton a:hover {
