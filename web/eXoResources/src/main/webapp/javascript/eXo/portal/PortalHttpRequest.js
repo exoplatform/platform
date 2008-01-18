@@ -342,7 +342,11 @@ function AjaxRequest(method, url, queryString) {
 */
 function HttpResponseHandler(){
 	var instance = new Object() ;
-	
+	/*
+	 * instance.to stores a timeout object used to postpone the display of the loading popup
+	 * the timeout is defined later in the instance.ajaxLoading function
+	 */
+	instance.to = null;
 	/*
 	* This internal method is used to dynamically load JS scripts in the 
 	* browser by using the eval() method;
@@ -475,7 +479,11 @@ function HttpResponseHandler(){
 	  }
 	  //Handle the portal responses
 	  instance.updateBlocks(response.blocksToUpdate) ;
-	  instance.executeScript(response.script) ;	  
+	  instance.executeScript(response.script) ;
+	  /*
+	   * clear the instance.to timeout if the request takes less time than expected to get response
+	   */
+	  clearTimeout(instance.to);
 	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
 	  eXo.portal.AjaxRequest.maskLayer = null ;
 	  eXo.portal.CurrentRequest = null ;
@@ -486,11 +494,17 @@ function HttpResponseHandler(){
 	* middle of the page for the entire call of the request
 	*/
 	instance.ajaxLoading = function(request){
-		var mask = document.getElementById("AjaxLoadingMask") ;
-		if(eXo.portal.AjaxRequest.maskLayer == null) {
-			eXo.portal.AjaxRequest.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", mask, 30) ;
-			eXo.core.Browser.addOnScrollCallback("5439383", eXo.core.UIMaskLayer.setPosition) ;
-		}
+		/*
+		 * wait 2 seconds (2000 ms) to display the loading popup
+		 * if the response comes before this timeout, the loading popup won't appear at all
+		 */
+		instance.to = setTimeout(function() {
+			if(eXo.portal.AjaxRequest.maskLayer == null) {
+				var mask = document.getElementById("AjaxLoadingMask") ;
+				eXo.portal.AjaxRequest.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", mask, 30) ;
+				eXo.core.Browser.addOnScrollCallback("5439383", eXo.core.UIMaskLayer.setPosition) ;
+			}
+		}, 2000);
 	}
 	
 	return instance ;
