@@ -23,6 +23,7 @@ import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
@@ -117,7 +118,7 @@ public class UIPortalApplication extends UIApplication {
     } else {
       if(log.isDebugEnabled())
         log.debug("Build a private portal");      
-      initPrivatePortal(context) ;
+      initPrivatePortal(context, context.getRemoteUser()) ;
     }
     
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
@@ -188,8 +189,10 @@ public class UIPortalApplication extends UIApplication {
    * @throws Exception
    */
   @SuppressWarnings("hiding")
-  private  void  initPrivatePortal(PortalRequestContext context) throws Exception {
-    addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
+  private  void  initPrivatePortal(PortalRequestContext context, String remoteUser) throws Exception {
+    UserACL acl = getApplicationComponent(UserACL.class);
+    if(acl.hasAccessControlWorkspacePermission(remoteUser))
+      addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
     addWorkingWorkspace(context) ;
   }
   

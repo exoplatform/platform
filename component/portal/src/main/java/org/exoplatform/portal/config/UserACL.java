@@ -41,6 +41,7 @@ public class UserACL {
   private String superUser_;
   private String guestGroup_ ;
   private List<String> portalCreatorGroups_;
+  private List<String> accessControlWorkspaceGroups_;
   private String navigationCreatorMembershipType_;
 
   public UserACL(InitParams params, OrganizationService orgService) throws Exception {
@@ -49,6 +50,11 @@ public class UserACL {
     ValueParam superUserParam = params.getValueParam("super.user");
     if(superUserParam != null) superUser_ = superUserParam.getValue();
     if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "root";
+    
+    String accessControlWorkspace = "";
+    ValueParam accessControlWorkspaceParam = params.getValueParam("access.control.workspace");
+    if(accessControlWorkspaceParam != null) accessControlWorkspace = accessControlWorkspaceParam.getValue();
+    accessControlWorkspaceGroups_ = defragmentPermission(accessControlWorkspace);    
     
     ValueParam guestGroupParam = params.getValueParam("guests.group") ;
     if(guestGroupParam != null) guestGroup_ = guestGroupParam.getValue() ;
@@ -80,6 +86,7 @@ public class UserACL {
   
   public String getMakableMT() { return navigationCreatorMembershipType_; }
   public List<String> getPortalCreatorGroups() { return portalCreatorGroups_;  }
+  public List<String> getAccessControlWorkspaceGroups() { return accessControlWorkspaceGroups_;  }
   public String getSuperUser() { return superUser_ ; }
   public String getGuestsGroup() { return guestGroup_ ; }
   public boolean hasPermission(PortalConfig pconfig, String remoteUser) throws Exception {
@@ -182,6 +189,15 @@ public class UserACL {
       return true;
     }
     page.setModifiable(false);
+    return false;
+  }
+  
+  public boolean hasAccessControlWorkspacePermission(String remoteUser) throws Exception {
+    if(superUser_.equals(remoteUser)) return true;
+    if( accessControlWorkspaceGroups_ == null || accessControlWorkspaceGroups_.size() < 1) return false;
+    for(String ele: accessControlWorkspaceGroups_){
+      if(hasPermission(remoteUser, ele)) return true;
+    }
     return false;
   }
   
