@@ -355,6 +355,14 @@ Browser.prototype.getCookie = function(name) {
 	}
 	return "" ;
 } ;
+
+/* 
+ * set the Title of the page
+ */
+Browser.prototype.setTitle = function(/*String*/ name) {
+	document.title = name;
+} ;
+
 /************************************************************************************/
 eXo.core.Browser = new Browser() ;
 eXo.core.Mouse = new MouseObject() ;

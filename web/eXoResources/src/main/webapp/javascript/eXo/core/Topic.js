@@ -1,10 +1,14 @@
 
+/** 
+ * @constructor 
+ */
 function Topic(){
 	this.topics = {};
+	this.nextListenerInstanceId_ = 0;
 }
 
 /**
- * Private
+ * @private
  */
 Topic.prototype._normalizeTopicName = function(/*String*/ topic){
 	if(topic.charAt(topic.length - 1) != '/') {
@@ -14,12 +18,19 @@ Topic.prototype._normalizeTopicName = function(/*String*/ topic){
 }
 
 /**
- * publish is used to publish an event to the other subscribers to the given channels
- * parameter:senderId is a string that identify the sender
- * parameter:topic is the topic that the message will be published
- * parameter:message is the message that's going to be delivered to the subscribers to the topic
+ * @private
  */
-Topic.prototype.publish = function(/*String*/ senderId, /*String*/ topicName, /*Object*/ message ) {
+Topic.prototype._getNextListenerInstanceId = function() {
+  return this.nextListenerInstanceId_++;
+};
+
+/**
+ * publish is used to publish an event to the other subscribers to the given channels
+ * @param {Object} senderId is a string that identify the sender
+ * @param {String} topic is the topic that the message will be published
+ * @param {Object} message is the message that's going to be delivered to the subscribers to the topic
+ */
+Topic.prototype.publish = function(/*Object*/ senderId, /*String*/ topicName, /*Object*/ message ) {
 	topicName = this._normalizeTopicName(topicName);
 	
 	var event = {senderId:senderId, message:message, topic: topicName};
@@ -29,9 +40,7 @@ Topic.prototype.publish = function(/*String*/ senderId, /*String*/ topicName, /*
 			var callbacks = this.topics[topic];
 			for (var j=0;j<callbacks.length;j++) {
 				callback = callbacks[j];
-		
-				//to call the function in the right context;
-				callback["obj"][callback["funcName"]](event);
+				callback["func"](event);
 			}
 		}
 	}
@@ -39,13 +48,10 @@ Topic.prototype.publish = function(/*String*/ senderId, /*String*/ topicName, /*
 
 /**
  * isSubscribed is used to check if a function receive the events from a topic
- * parameter:topic is the topic name
- * parameter:obj is the context object
- * parameter:funcName is the name of the function of obj to call when a message is received on the topic
- *
- * TODO: accept as funcName a real Function
+ * @param {String} topic The topic.
+ * @param {Function} func is the name of the function of obj to call when a message is received on the topic
  */
-Topic.prototype.isSubscribed = function(/*String*/ topic, /*Object*/ obj, /*String*/ funcName) {
+Topic.prototype.isSubscribed = function(/*String*/ topic, /*Function*/ func) {
 	topic = this._normalizeTopicName(topic);
 	callbacks = this.topics[topic];
 	if(!callbacks) 
@@ -54,7 +60,7 @@ Topic.prototype.isSubscribed = function(/*String*/ topic, /*Object*/ obj, /*Stri
 	for (var i=0;i<callbacks.length;i++) {
 		callback = callbacks[i];
 
-		if (callback["obj"] == obj && callback["funcName"] == funcName ) {
+		if (callback["func"] == func) {
 			return true;
 		}
 	}
@@ -63,40 +69,36 @@ Topic.prototype.isSubscribed = function(/*String*/ topic, /*Object*/ obj, /*Stri
 
 /**
  * subscribe is used to subscribe a callback to a topic
- * parameter:topic is the topic that will be listened
- * parameter:obj is the context object
- * parameter:funcName is the name of the function of obj to call when a message is received on the topic
+ * @param {String} topic is the topic that will be listened
+ * @param {Function} func is the name of the function of obj to call when a message is received on the topic
  * 
- * funcName have to be a function that take a Object in parameter. the event received have this format:
+ * func is a function that take a Object in parameter. the event received have this format:
  * {senderId:senderId, message:message, topic: topic}
  *
- * TODO: accept as funcName a real Function
  */
-Topic.prototype.subscribe = function(/*String*/ topic, /*Object*/ obj, /*String*/ funcName) {
+Topic.prototype.subscribe = function(/*String*/ topic, /*Function*/ func) {
 	topic = this._normalizeTopicName(topic);
-	if (this.isSubscribed(topic, obj, funcName))
-		return false;
+	if (this.isSubscribed(topic, func))
+		return -1;
 	if(!this.topics[topic]) {
 		this.topics[topic] = new Array();
 	}
-	this.topics[topic][this.topics[topic].length] = {obj: obj, funcName:funcName};
-	return true;
+	var id = this._getNextListenerInstanceId();
+	this.topics[topic][this.topics[topic].length] = {id: id, func:func};
+	return id;
 }
 
 /**
  * unsubscribe is used to unsubscribe a callback to a topic
- * parameter:topic is the topic that will be unsubscribe
- * parameter:obj is the context object
- * parameter:funcName is the name of the function of obj to call when a message is received on the topic
- *
- * TODO: accept as funcName a real Function
+ * @param {String} topic is the topic
+ * @param {Object} id is the id of the listener we want to unsubscribe
  */
-Topic.prototype.unsubscribe = function(/*String*/ topic, /*Object*/ obj, /*String*/ funcName) {
+Topic.prototype.unsubscribe = function(/*String*/ topic, /*Object*/ id) {
 	topic = this._normalizeTopicName(topic);
 	callbacks = this.topics[topic];
 	if(!callbacks) 
 		return false;
-	var removed = false
+	var removed = false;
 	for (var i=0;i<callbacks.length;i++) {
 		callback = callbacks[i];
 		
@@ -104,9 +106,8 @@ Topic.prototype.unsubscribe = function(/*String*/ topic, /*Object*/ obj, /*Strin
 		if(removed) {
 			callbacks[i - 1] = callbacks[i];
 		}
-		if (callback["obj"] == obj && callback["funcName"] == funcName ) {
+		if (callback["id"] == id) {
 			delete callbacks[i];
-			alert("callback removed");
 			removed = true;
 		}
 	}
