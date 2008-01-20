@@ -16,7 +16,7 @@ eXo.UIMapPortlet = new function() {
 	this.initMap = function(/*String*/ compId) {
 		var map = new eXo.UIMapPortlet.Map();
 		map.initialize(compId);
-	  	parent.window['eXo'].core.Topic.subscribe("/eXo/portlet/map/displayAddress", map, "changePlace");
+	  	parent.window['eXo'].core.Topic.subscribe("/eXo/portlet/map/displayAddress", map.changePlace.bind(map));
 		parent.window['eXo'].UIMapPortlet.maps[window.location.hash] = map;
 	}
 }
