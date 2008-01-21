@@ -18,7 +18,6 @@ UIVerticalSlideTabs.prototype.slideOutEffect = function() {
 		this.clickedTab.style.height = (parseInt(this.clickedTab.style.height) + 30) + "px";
 		setTimeout("eXo.webui.UIVerticalSlideTabs.slideOutEffect()",3) ;
 	} else {
-		this.clickedTab.style.height = "auto";
 		this.clickedTab.style.height = this.clickedTab.scrollHeight + "px";
 		delete this.clickedTab ;
 	}
