@@ -26,13 +26,13 @@
 }
 
 .UIExoStart .ButtonClicked {
-	background: url('background/Exostart.gif')no-repeat -4px -84px;
+	background: url('background/Exostart.gif') no-repeat -4px -84px;
 }
 
 .UIExoStart .VLineSeparator {
 	float: right;
 	width: 2px; height: 38px;
-	background: url('background/Exostart.gif')no-repeat right -84px;
+	background: url('background/Exostart.gif') no-repeat right -84px;
 	margin: 0px 4px;
 }
 
@@ -49,7 +49,7 @@
 
 .UIExoStart .StartMenuContainer .LoginContainer {
 	height: 35px;
-	background: url('background/Exostart.gif')repeat-x center -122px;
+	background: url('background/Exostart.gif') repeat-x center -122px;
 	border-top: solid 1px #b7b7b7;
 }
 
@@ -59,27 +59,28 @@
 }
 
 .UIExoStart .StartMenuContainer .AdministrationIcon {
-	background: url('background/Exostart.gif')no-repeat left -274px;
+	background: url('background/Exostart.gif') no-repeat left -274px;
+	
 }
 
 .UIExoStart .StartMenuContainer .PageCreationWizardIcon {
-	background: url('background/Exostart.gif')no-repeat left -498px;
+	background: url('background/Exostart.gif') no-repeat left -498px;
 }
 
 .UIExoStart .StartMenuContainer .EditCurrentPageIcon {
-	background: url('background/Exostart.gif')no-repeat left -530px;
+	background: url('background/Exostart.gif') no-repeat left -530px;
 }
 
 .UIExoStart .StartMenuContainer .EditCurrentPortalIcon {
-	background: url('background/Exostart.gif')no-repeat left -562px;
+	background: url('background/Exostart.gif') no-repeat left -562px;
 }
 
 .UIExoStart .StartMenuContainer .EditNavigationIcon {
-	background: url('background/Exostart.gif')no-repeat left -530px;
+	background: url('background/Exostart.gif') no-repeat left -530px;
 }
 
 .UIExoStart .StartMenuContainer .BrowsePortalsIcon {
-	background: url('background/Exostart.gif')no-repeat left -658px;
+	background: url('background/Exostart.gif') no-repeat left -658px;
 }
 
 .UIExoStart .StartMenuContainer .BrowsePagesIcon {
