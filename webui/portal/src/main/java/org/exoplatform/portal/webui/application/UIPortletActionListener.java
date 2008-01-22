@@ -22,8 +22,12 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.Arrays;
+
 
 import javax.portlet.PortletMode;
+import javax.portlet.ResourceURL;
 import javax.portlet.WindowState;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -227,9 +231,12 @@ public class UIPortletActionListener {
           input.setUserAttributes(new HashMap());
         input.setPortletMode(uiPortlet.getCurrentPortletMode());
         input.setWindowState(uiPortlet.getCurrentWindowState());
+
         input.setMarkup("text/html");
         PortalRequestContext context = (PortalRequestContext) event
             .getRequestContext();
+        input.setRenderParameters(getResourceParameterMap(uiPortlet, context));
+        input.setCacheability(context.getCacheLevel());
         String baseUrl = new StringBuilder(context.getNodeURI()).append(
             "?" + PortalRequestContext.UI_COMPONENT_ID).append("=").append(
             uiPortlet.getId()).toString();
@@ -271,6 +278,50 @@ public class UIPortletActionListener {
       }
     }
   }
+  
+  /**
+   * This method returns all the parameters supported by the targeted portlets,
+   * both the private and public ones
+   */
+  @SuppressWarnings( { "unchecked" })
+  private static Map getResourceParameterMap(UIPortlet uiPortlet,
+      PortalRequestContext prcontext) {
+    
+    Map portletParams = new HashMap(prcontext.getPortletParameters());
+    
+    /*
+     * For serveResource requests the portlet must receive any resource parameters that 
+     * were explicitly set on the ResourceURL that triggered the request. If 
+     * the cacheability level of that resource URL (see PLT.13.7) was PORTLET or PAGE, 
+     * the portlet must also receive the render parameters present in the request in 
+     * which the URL was created. 
+     * 
+     * If a resource parameter is set that has the same name as a render parameter, 
+     * the render parameter must be the last entry in the parameter value array.
+     */
+    String cacheLevel = prcontext.getCacheLevel();
+    if(ResourceURL.PAGE.equals(cacheLevel) || ResourceURL.PORTLET.equals(cacheLevel)) {
+      Map renderParams = uiPortlet.getRenderParametersMap();
+      if(renderParams != null) {
+        Set keys = renderParams.keySet();
+        for (Iterator iter = keys.iterator(); iter.hasNext();) {
+          String key = (String) iter.next();
+          if(portletParams.containsKey(key)) {
+            String[] renderValueArray = (String[]) renderParams.get(key);
+            String[] portletValueArray = (String[]) portletParams.get(key);
+            String[] resources = new String[renderValueArray.length + portletValueArray.length];
+            System.arraycopy(portletValueArray, 0, resources, 0, portletValueArray.length);
+            System.arraycopy(renderValueArray, 0, resources, portletValueArray.length, renderValueArray.length);
+            portletParams.put(key, resources);
+          } else {
+            portletParams.put(key, renderParams.get(key));
+          }
+        }
+        portletParams.putAll(renderParams);
+      }
+    }
+    return portletParams;
+  }  
 
   /**
    * Process Events sent by the portlet API during the processAction() and
@@ -289,8 +340,8 @@ public class UIPortletActionListener {
           .getAttribute(PORTLET_EVENTS);
       List<javax.portlet.Event> events = eventsWrapper.getEvents(); 
       /*
-       * Iterate over all the events that the processAction or serverResource
-       * have generated. Chek among all the portlet instances deployed in the
+       * Iterate over all the events that the processAction 
+       * has generated. Chek among all the portlet instances deployed in the
        * page (usual layout or webos) which instance can be targeted by the
        * event and then process the event on the associated UIPortlet component
        */
@@ -364,6 +415,17 @@ public class UIPortletActionListener {
       input.setEvent(event);
       EventOutput output = service.processEvent((HttpServletRequest) context
           .getRequest(), (HttpServletResponse) context.getResponse(), input);
+      /*
+       * Update the portlet window state according to the action output
+       * information
+       *
+       * If the current node is displaying a usual layout page, also tells the
+       * page which portlet to render or not when the state is maximized
+       */
+      setNextState(uiPortlet, output.getNextState());
+
+      // update the portlet with the next mode to display
+      setNextMode(uiPortlet, output.getNextMode());      
       return output.getEvents();
     } catch (Exception e) {
       log.error("Problem while processesing event for the portlet: "
@@ -387,6 +449,10 @@ public class UIPortletActionListener {
       // set the public params
       HttpServletRequest request = event.getRequestContext().getRequest();
       setupPublicRenderParams(uiPortlet, request.getParameterMap());
+      
+      //set render params
+      Map renderParams = ((PortalRequestContext)event.getRequestContext()).getPortletParameters();
+      uiPortlet.setRenderParametersMap(renderParams);
     }
   }
 

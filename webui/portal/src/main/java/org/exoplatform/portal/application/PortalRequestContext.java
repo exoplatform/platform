@@ -18,11 +18,16 @@ package org.exoplatform.portal.application;
 
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.Constants;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.URLBuilder;
@@ -44,6 +49,8 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   final static public String UI_COMPONENT_ACTION = "portal:action" ;
   final static public String UI_COMPONENT_ID = "portal:componentId" ;
+  final static public String CACHE_LEVEL = "portal:cacheLevel" ;
+  
   
   private String portalOwner_ ;
   private String nodePath_ ;
@@ -55,6 +62,7 @@ public class PortalRequestContext extends WebuiRequestContext {
   private HttpServletRequest request_ ;
   private HttpServletResponse response_ ;
   
+  private String cacheLevel_ = "cacheLevelPortlet";
   private boolean  ajaxRequest_ = true ;
   private boolean  forceFullUpdate = false;
   private Writer writer_ ;
@@ -68,6 +76,9 @@ public class PortalRequestContext extends WebuiRequestContext {
     response_ =  res ;
     setSessionId(req.getSession().getId()) ;
     ajaxRequest_ = "true".equals(req.getParameter("ajaxRequest")) ;
+    String cache = req.getParameter(CACHE_LEVEL);
+    if(cache != null) cacheLevel_ = cache;
+    
     nodeURI_ = req.getRequestURI() ;
     String pathInfo = req.getPathInfo() ;
     if(pathInfo == null) pathInfo = "/" ;
@@ -92,11 +103,28 @@ public class PortalRequestContext extends WebuiRequestContext {
     urlBuilder = new PortalURLBuilder(nodeURI_);
   }
   
+  public String getCacheLevel() {
+    return cacheLevel_;
+  }
+  
   public String getRequestParameter(String name) { return request_.getParameter(name) ; }
   
   public String[] getRequestParameterValues(String name)  {
     return request_.getParameterValues(name) ;
   }  
+  
+  public Map getPortletParameters() {
+    Map unsortedParams = getRequest().getParameterMap();
+    Map sortedParams = new HashMap(); 
+    Set keys = unsortedParams.keySet();
+    for (Iterator iter = keys.iterator(); iter.hasNext();) {
+      String key = (String) iter.next();
+      if(!key.startsWith(Constants.PARAMETER_ENCODER)) {
+        sortedParams.put(key, unsortedParams.get(key));
+      }
+    }    
+    return sortedParams;
+  }
   
   final public String getRequestContextPath() { return  request_.getContextPath(); }
   

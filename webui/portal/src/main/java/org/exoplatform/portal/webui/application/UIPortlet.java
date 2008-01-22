@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.Map.Entry;
 
 import javax.portlet.PortletMode;
@@ -36,7 +37,9 @@ import org.exoplatform.portal.webui.application.UIPortletActionListener.ProcessA
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ProcessEventsActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.RenderActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ServeResourceActionListener;
+import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
@@ -248,4 +251,44 @@ public class UIPortlet extends UIApplication {
 	  }	
 	  return false;
   }
+  
+  /**
+   * This methods return the public render parameters names supported
+   * by the targeted portlet; in other words, it sorts the full public
+   * render params list and only return the ones that the current portlet
+   * can handle
+   */
+  public List<String> getPublicRenderParamNames() {
+    UIPortal uiPortal = Util.getUIPortal();
+    Map publicParams = uiPortal.getPublicParameters();
+
+    List<String> publicParamsSupportedByPortlet = new ArrayList<String>();
+    if (publicParams != null) {
+      Set keys = publicParams.keySet();
+      for (Iterator iter = keys.iterator(); iter.hasNext();) {
+        String key = (String) iter.next();
+        if (supportsPublicParam(key)) {
+          publicParamsSupportedByPortlet.add(key);
+        }
+      }
+      return publicParamsSupportedByPortlet;
+    }
+    return new ArrayList<String>();
+  }  
+  
+  public Map getPublicParameters() {
+    Map publicParamsMap = new HashMap();
+    UIPortal uiPortal = Util.getUIPortal();
+    Map publicParams = uiPortal.getPublicParameters();
+    Set allPublicParamsNames = publicParams.keySet();       
+    List supportedPublicParamNames = getPublicRenderParamNames();
+    for (Iterator iter = allPublicParamsNames.iterator(); iter.hasNext();) {
+      String oneOfAllParams = (String) iter.next();
+      if(supportedPublicParamNames.contains(oneOfAllParams))
+        publicParamsMap.put(oneOfAllParams, publicParams.get(oneOfAllParams));
+    }    
+    return publicParamsMap;   
+  }
+  
+  
 }

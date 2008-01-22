@@ -166,7 +166,7 @@ public class UIPortletLifecycle extends Lifecycle {
     input.setTitle(uiPortlet.getTitle());
     input.setInternalWindowID(uiPortlet.getExoWindowID());
     input.setRenderParameters(getRenderParameterMap(uiPortlet, prcontext));
-    input.setPublicParamNames(getPublicRenderParamNames(uiPortlet));
+    input.setPublicParamNames(uiPortlet.getPublicRenderParamNames());
     RenderOutput output = null;
     StringBuilder portletContent = new StringBuilder();
     String portletTitle = null;
@@ -222,30 +222,6 @@ public class UIPortletLifecycle extends Lifecycle {
   }
 
   /**
-   * This methods return the public render parameters names supported
-   * by the targeted portlet; in other words, it sorts the full public
-   * render params list and only return the ones that the current portlet
-   * can handle
-   */
-  private List<String> getPublicRenderParamNames(UIPortlet uiPortlet) {
-    UIPortal uiPortal = Util.getUIPortal();
-    Map publicParams = uiPortal.getPublicParameters();
-
-    List<String> publicParamsSupportedByPortlet = new ArrayList<String>();
-    if (publicParams != null) {
-      Set keys = publicParams.keySet();
-      for (Iterator iter = keys.iterator(); iter.hasNext();) {
-        String key = (String) iter.next();
-        if (uiPortlet.supportsPublicParam(key)) {
-          publicParamsSupportedByPortlet.add(key);
-        }
-      }
-      return publicParamsSupportedByPortlet;
-    }
-    return new ArrayList<String>();
-  }
-
-  /**
    * This method returns all the parameters supported by the targeted portlets,
    * both the private and public ones
    */
@@ -256,7 +232,7 @@ public class UIPortletLifecycle extends Lifecycle {
     Map renderParams = uiPortlet.getRenderParametersMap();
     
     if (renderParams == null) {
-      renderParams = new HashMap(prcontext.getRequest().getParameterMap());
+      renderParams = new HashMap();
       uiPortlet.setRenderParametersMap(renderParams);
     }
     
@@ -264,16 +240,7 @@ public class UIPortletLifecycle extends Lifecycle {
      *  handle public params to only get the one supported by the targeted portlet
      */ 
     Map allParams = new HashMap(renderParams);
-    
-    UIPortal uiPortal = Util.getUIPortal();
-    Map publicParams = uiPortal.getPublicParameters();
-    Set allPublicParamsNames = publicParams.keySet();       
-    List supportedPublicParamNames = getPublicRenderParamNames(uiPortlet);
-    for (Iterator iter = allPublicParamsNames.iterator(); iter.hasNext();) {
-      String oneOfAllParams = (String) iter.next();
-      if(supportedPublicParamNames.contains(oneOfAllParams))
-        allParams.put(oneOfAllParams, publicParams.get(oneOfAllParams));
-    }    
+    allParams.putAll(uiPortlet.getPublicParameters());
     
     return allParams;
   }
