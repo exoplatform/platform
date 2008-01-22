@@ -484,6 +484,7 @@ function HttpResponseHandler(){
 	   * clear the instance.to timeout if the request takes less time than expected to get response
 	   */
 	  clearTimeout(instance.to);
+	  document.getElementsByTagName("body")[0].style.cursor="auto";
 	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
 	  eXo.portal.AjaxRequest.maskLayer = null ;
 	  eXo.portal.CurrentRequest = null ;
@@ -498,6 +499,7 @@ function HttpResponseHandler(){
 		 * wait 2 seconds (2000 ms) to display the loading popup
 		 * if the response comes before this timeout, the loading popup won't appear at all
 		 */
+		document.getElementsByTagName("body")[0].style.cursor="wait";
 		instance.to = setTimeout(function() {
 			if(eXo.portal.AjaxRequest.maskLayer == null) {
 				var mask = document.getElementById("AjaxLoadingMask") ;
