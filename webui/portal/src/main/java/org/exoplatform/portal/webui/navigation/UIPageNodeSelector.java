@@ -232,7 +232,6 @@ public class UIPageNodeSelector extends UIContainer {
     List<PageNode> pageNodes = pageNav.getNodes();
     UITree uiTree = getChild(UITree.class);
     for(PageNode ele : pageNodes){
-      System.out.println("\n\n\n\n\npageNode: " + ele.getUri());
       PageNode returnPageNode = searchPageNodeByUri(ele, uri, uiTree);
       if(returnPageNode == null) continue;
       if(uiTree.getSibbling() == null) uiTree.setSibbling(pageNodes);      
