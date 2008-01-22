@@ -26,7 +26,7 @@ import org.exoplatform.web.application.javascript.JavascriptConfigService;
 public class JavascriptManager {
   private StringBuilder javascript = new StringBuilder(1000) ;
   private StringBuilder customizedOnloadJavascript ;
- private JavascriptConfigService jsSrevice_ ;
+  private JavascriptConfigService jsSrevice_ ;
   
   public JavascriptManager() {
     jsSrevice_ = (JavascriptConfigService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(JavascriptConfigService.class);
@@ -35,8 +35,9 @@ public class JavascriptManager {
   public void addJavascript(CharSequence s) { javascript.append(s).append(" \n") ; }
 
   public void importJavascript(CharSequence s) {
-    if(!jsSrevice_.isModuleLoaded(s))
-      javascript.append("eXo.require('").append(s).append("'); \n") ;
+    if(!jsSrevice_.isModuleLoaded(s) || "true".equals(System.getProperty("exo.product.developing"))) {
+      javascript.append("eXo.require('").append(s).append("'); \n") ;      
+    }
   }
 
   public void importJavascript(String s, String location) {

@@ -148,7 +148,7 @@ public class SkinService {
         }
       }
     } catch (Exception e) {
-      log.error("Problem while merging CSS : " + resolvedPath, e);
+      log.error("Problem while merging CSS : " + scontext.getServletContextName() + resolvedPath, e);
     }
 
   }
