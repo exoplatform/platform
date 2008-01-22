@@ -41,7 +41,6 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -171,22 +170,24 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
       uiWizard.setDescriptionWizard(3);
       uiWizard.updateWizardComponent();      
-      UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
       PageNavigation navigation = uiNodeSelector.getSelectedNavigation();
       if(navigation == null) {
-        uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.notSelectedPageNavigation", new String[]{})) ;;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.notSelectedPageNavigation", new String[]{})) ;;
+        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         uiWizard.viewStep(2);
         return ;
       }
       
       PageNode pageNode = uiPageSetInfo.getPageNode();
-      if (uiNodeSelector.searchPageNodeByUri(navigation, pageNode.getUri()) != null) {
-        uiApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+      String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
+      DataStorage storage = uiWizard.getApplicationComponent(DataStorage.class);
+      if(storage.getPage(pageId) != null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
         uiWizard.viewStep(2);
-        return;
+        return;        
       }
+      
     }
   }
 
@@ -232,7 +233,6 @@ public class UIPageCreationWizard extends UIPageWizard {
         page.setName(pageNode.getName());
       }
       page.setModifiable(true);
-      ///if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getLabel()) ;
       if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getName()) ;
       
       boolean isDesktopPage = Page.DESKTOP_PAGE.equals(page.getFactoryId());

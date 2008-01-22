@@ -152,9 +152,6 @@ public class UIWizardPageSetInfo extends UIForm {
       return pageNode;
     }
     
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    String user = context.getRemoteUser();
-    if(user == null) user = Util.getUIPortal().getOwner();
     PageNode pageNode  = new PageNode();
     invokeSetBindingBean(pageNode);
     if(pageNode.getLabel() == null || pageNode.getLabel().trim().length() == 0) {

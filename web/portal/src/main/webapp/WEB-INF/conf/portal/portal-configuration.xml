@@ -67,7 +67,7 @@
 	            <field  name="predefinedOwner">
 	              <collection type="java.util.HashSet">                
 	                <value><string>classic</string></value>
-<!--	                <value><string>webos</string></value>-->
+	                <value><string>webos</string></value>
 	              </collection>
 	            </field>
 	            <field  name="ownerType"><string>portal</string></field>
