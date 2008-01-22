@@ -20,16 +20,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.DeleteNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.EditNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.SaveNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.AddNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CopyNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CutNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.DeleteNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditPageNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditSelectedNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNodeActionListener;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -72,32 +62,6 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
       template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
       events = {
          @EventConfig(listeners = UIWizardPageSetInfo.SelectNavigationActionListener.class, phase=Phase.DECODE) 
-      }
-  ),
-  @ComponentConfig(
-      id = "PageNodePopupMenu",
-      type = UIRightClickPopupMenu.class,
-      template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
-      events = {
-        @EventConfig(listeners = AddNodeActionListener.class),
-        @EventConfig(listeners = EditPageNodeActionListener.class),
-        @EventConfig(listeners = EditSelectedNodeActionListener.class),
-        @EventConfig(listeners = CopyNodeActionListener.class),
-        @EventConfig(listeners = CutNodeActionListener.class),
-        @EventConfig(listeners = PasteNodeActionListener.class),
-        @EventConfig(listeners = DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation")
-      }
-  ),
-  @ComponentConfig(
-      id = "UIPageNodeSelectorPopupMenu",
-      type = UIRightClickPopupMenu.class,
-      template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
-      events = {
-        @EventConfig(listeners = AddNodeActionListener.class),
-        @EventConfig(listeners = PasteNodeActionListener.class),
-        @EventConfig(listeners = SaveNavigationActionListener.class),
-        @EventConfig(listeners = EditNavigationActionListener.class),
-        @EventConfig(listeners = DeleteNavigationActionListener.class, confirm = "UIPageNodeSelector.deleteNode")
       }
   ),
   @ComponentConfig (
