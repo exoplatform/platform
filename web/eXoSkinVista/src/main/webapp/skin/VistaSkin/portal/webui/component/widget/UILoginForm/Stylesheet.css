@@ -1,82 +1,76 @@
 .UILoginForm {
   margin: auto;
-  padding: 30px 17px 30px 10px ;
-  background: #f5f5f5;
+  padding: 25px 17px;
 }
 
 /*##############################- LoginBox Style-################################*/
 .UILoginForm .LoginDecorator {
-	width: 540px;
+	width: 550px;
 	margin: auto;
 }
 
 .UILoginForm .LoginDecorator .LoginDecoratorBackground {
-  background-color: white ;
-  padding-top: 12px;
+  background: url('background/BoxCenterMiddle1x191.png') repeat-x ;
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
-  background: url('background/RoundedBoxLeftTop31x35.gif') no-repeat left ;
-  padding: 0px 0px 0px 31px ;
+  background: url('background/BoxLeftTop36x30.png') no-repeat left bottom;
+  padding: 0px 0px 0px 36px ;
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator {
-  background: url('background/RoundedBoxCenterTop1x35.gif') repeat-x ;
-  height: 35px;
+  background: url('background/BoxCenterTop1x30.png') repeat-x bottom ;
+  height: 30px;
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator .SigninTitle {
-  color: #1273df;
-  font-size: 16px;
-	line-height: 28px;
-	padding: 4px 0px 0px 20px;
+  color: #2169D4 ;
+  font-size: 13px; font-family: Verdana; font-weight: bold;
+	line-height: 32px;
+	padding: 0px;
 }
 
 .UILoginForm .LoginDecorator .TopRightLoginDecorator {
-  background: url('background/RoundedBoxRightTop13x35.gif') no-repeat right ;
-  padding: 0px 13px 0px 0px ;
+  background: url('background/BoxRightTop54x30.png') no-repeat right bottom ;
+  padding: 0px 54px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
-  background: url('background/RoundedBoxLeftMiddle136x198.gif') no-repeat left center;
+  background: url('background/BoxLeftMiddle136x191.png') no-repeat left ;
   padding: 0px 0px 0px 136px ;
 }
 
 .UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
-  background: url('background/RoundedBoxRightMiddle6x1.gif') repeat-y right ;
-  padding: 0px 6px 0px 0px ;
+  background: url('background/BoxRightMiddle16x1.png') repeat-y right ;
+  padding: 0px 16px 0px 0px ;
 }
 
 .UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
-  background: url('background/RoundedBoxLeftBottom31x13.gif') no-repeat left ;
-  padding: 0px 0px 0px 31px ;
+  background: url('background/BoxLeftBottom14x41.png') no-repeat left ;
+  padding: 0px 0px 0px 14px ;
 }
 
 .UILoginForm .LoginDecorator .BottomCenterLoginDecorator {
-  background: url('background/RoundedBoxCenterBottom1x13.gif') repeat-x ;
-  height: 13px;
+  background: url('background/BoxCenterBottom1x41.png') repeat-x ;
+  height: 41px;
 }
 
 .UILoginForm .LoginDecorator .BottomRightLoginDecorator {
-  background: url('background/RoundedBoxRightBottom13x13.gif') no-repeat right ;
-  padding: 0px 13px 0px 0px ;
+  background: url('background/BoxRightBottom16x41.png') no-repeat right ;
+  padding: 0px 16px 0px 0px ;
 }
 /* ============================End LoginDecorator============================== */
-/*
- * minh.js.exo
- * 4h44 07/082007
- * fix bug : hidden cursor in form login
- */
-.UILoginForm .LoginDetailBox .UIForm  {
+
+.UILoginForm .LoginDetailBox .VerticalLayout {
+	padding-top: 10px;
 	overflow: auto;
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
-	padding: 12px 0px 5px 0px;
+	padding: 8px 0px 5px 0px;
   width: 300px;
   margin: auto;
   text-align: right;
-  cursor: text;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField {
@@ -84,25 +78,25 @@
   width: 300px;
   margin: auto;
   text-align: right;
-  cursor: text;
 }
 
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
-  margin: 4px auto;
-  padding-left: 140px;
+  width: 170px;
+  margin: 4px 00px 4px 110px;
+  padding-left: 30px;
 }
 
 .UILoginForm .LoginDetailBox .CheckField input {
   float: left;
-  width: 20px;
+  width: 16px;
   border: none;
 }
 
 .UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
   float: left;
-  margin-left: 2px;
-  line-height: 20px;
+  margin-left: 7px;
+  line-height: 20px; 
 }
 
 .UILoginForm .LoginDetailBox label {
@@ -110,21 +104,33 @@
 }
 
 .UILoginForm .LoginDetailBox .UserNameField input {
-  background: url('background/UsernameIcon20x20.gif') no-repeat left ;
-  width: 180px; height: 18px;
-  line-height: 18px;
-  border: solid 1px #b7b7b7 ;
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -96px;
+  width: 180px; height: 20px;
+  border: solid 1px #c4c4c4 ;
   padding: 0px 0px 0px 22px;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField input {
-  background: url('background/PasswordIcon20x20.gif') no-repeat left ;
-  width: 180px; height: 18px;
-  line-height: 18px;
-  border: solid 1px #b7b7b7 ;
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -114px;
+  width: 180px; height: 20px;
+  border: solid 1px #c4c4c4 ;
   padding: 0px 0px 0px 22px;
 }
 
+.UILoginForm .LoginDetailBox .Message {
+  width: 280px; margin: auto; 
+  height: 20px; line-height: 20px; text-align: right;
+  color: #2169d4 ;
+  white-space: nowrap;
+  padding: 0px 10px 0px 0px;
+  cursor: pointer;
+}
+
+.UILoginForm .LoginDetailBox .Message a:hover{
+  cursor: pointer;
+  color: orange;
+}
+
 .UILoginForm .UIForm .VerticalLayout .UIAction {
-  padding: 15px 0px 15px 75px;
+  padding: 13px 0px 10px 0px;
 }
