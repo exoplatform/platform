@@ -45,6 +45,9 @@
       <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopupMenu.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/application/ApplicationDescriptor.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/core/TemplateEngine.js"></script>
+      <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIItemSelector.js"></script>
+      <script type="text/javascript" src="/eXoResources/javascript/eXo/widget/UIAddWidget.js"></script>
+      <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIVerticalScroller.js"></script>
 	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/core/MouseEventManager.js"></script>
  	  <%} else {%>
  	    <script type="text/javascript" src="$javascriptURL"></script>
