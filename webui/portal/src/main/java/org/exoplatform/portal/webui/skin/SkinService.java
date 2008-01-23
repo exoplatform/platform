@@ -128,7 +128,18 @@ public class SkinService {
                   .indexOf(")"));
             }
             if(includedPath.startsWith("/")) {
-              sB.append(line + "\n");
+            	String targetedContextName = includedPath.substring(includedPath.indexOf("/"), 
+                        includedPath.indexOf("/", 2));
+                String targetedResolvedPath = includedPath.substring(includedPath.indexOf("/", 2), 
+                    includedPath.lastIndexOf("/") + 1);
+                String targetedIncludedPath = includedPath.substring(includedPath
+                    .lastIndexOf("/") + 1);      
+                ServletContext targetedContext = scontext.getContext(targetedContextName);
+                
+                StringBuffer tempSB = new StringBuffer();
+                processMergeRecursively(pattern, tempSB, targetedContext, 
+                    targetedResolvedPath, targetedIncludedPath );
+                sB.append(tempSB);
             } else 
               processMergeRecursively(pattern, sB, scontext, resolvedPath, includedPath);
           } else {
@@ -148,7 +159,7 @@ public class SkinService {
         }
       }
     } catch (Exception e) {
-      log.error("Problem while merging CSS : " + scontext.getServletContextName() + resolvedPath, e);
+      log.error("Problem while merging CSS : " + resolvedPath, e);
     }
 
   }
