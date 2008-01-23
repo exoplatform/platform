@@ -72,7 +72,7 @@
 }
 
 .UIHomePagePortlet .Portal {
-	margin: 0px 0px 10px 60px;
+	margin: 0px 0px 10px 65px;
 	
 }
 
@@ -104,7 +104,7 @@
 }
 
 .UIHomePagePortlet .ListMenu .RightMenu {
-	background: url(DefaultSkin/background/BackGroundUIHome.gif) repeat-x right -144px;	
+	background: url(DefaultSkin/background/BackGroundUIHome.gif) no-repeat right -174px;
 	padding-right: 2px;
 	cursor: pointer;
 }
@@ -124,7 +124,7 @@
 }
 
 .UIHomePagePortlet .HomePageContent .RightContainer {
-	background: url(DefaultSkin/background/BackGroundUIHome.gif) no-repeat right -744px;	
+	background: url(DefaultSkin/background/BackGroundUIHome.gif) no-repeat right -774px;	
 	height: 114px;
 	font-family: verdana;
 }
@@ -148,27 +148,27 @@
 }
 
 .UIHomePagePortlet .HomePageContent .ExoPortal {
-	background-position: left -174px;	
+	background-position: left -204px;	
 	padding: 0px 0px 0px 80px;
 }
 
 .UIHomePagePortlet .HomePageContent .ExoHR {
-	background-position: left -288px;	
+	background-position: left -318px;	
 	padding: 0px 0px 0px 73px;
 }
 
 .UIHomePagePortlet .HomePageContent .ExoManager {
-	background-position: left -402px;
+	background-position: left -432px;
 	padding: 0px 0px 0px 82px;
 }
 
 .UIHomePagePortlet .HomePageContent .ExoUser {
-	background-position: right -516px;
+	background-position: right -546px;
 	padding: 0px 82px 0px 0px;
 }
 
 .UIHomePagePortlet .HomePageContent .ExoUsers {
-	background-position: right -630px;
+	background-position: right -660px;
 	padding: 0px 67px 0px 0px;
 }
 

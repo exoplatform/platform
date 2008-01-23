@@ -9,34 +9,42 @@
 						<span >Release!</span>
 					</div>
 					<div class="ListMenu">
-						<a href="#" class="Portal ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Portal 2.0
+						<div class="Portal">
+							<a href="#" class="ItemMenu">
+								<div class="RightMenu">
+									<div class="MiddleMenu">
+										eXo Portal 2.0
+									</div>
 								</div>
-							</div>
-						</a>
-						<a href="#" class="ECM ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo ECM 2.0
+							</a>
+						</div>
+						<div class="ECM">
+							<a href="#" class="ItemMenu">
+								<div class="RightMenu">
+									<div class="MiddleMenu">
+										eXo ECM 2.0
+									</div>
 								</div>
-							</div>
-						</a>
-						<a href="#" class="CS ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo CS 2.0
+							</a>
+						</div>
+						<div class="CS">
+							<a href="#" class="ItemMenu">
+								<div class="RightMenu">
+									<div class="MiddleMenu">
+										eXo CS 2.0
+									</div>
 								</div>
-							</div>
-						</a>
-						<a href="#" class="Ultimate ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Ultimate 2.0
+							</a>
+						</div>
+						<div class="Ultimate">
+							<a href="#" class="ItemMenu">
+								<div class="RightMenu">
+									<div class="MiddleMenu">
+										eXo Ultimate 2.0
+									</div>
 								</div>
-							</div>
-						</a>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -265,8 +273,8 @@
 				<div class="LeftContainer ExoUsers">
 					<div class="RightContainer">
 						<div class="MiddleContainer">
-							<a href="#" class="Name">User</a>
-							<div class="Description">User: marry</div>
+							<a href="#" class="Name">Demo</a>
+							<div class="Description">User: demo</div>
 							<div class="Description">Password: exo</div>
 						</div>
 					</div>

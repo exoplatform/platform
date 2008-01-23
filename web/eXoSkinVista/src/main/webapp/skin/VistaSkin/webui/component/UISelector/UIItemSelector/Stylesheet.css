@@ -186,6 +186,11 @@
   border: 1px #b7b7b7 solid ;
 }
 
+.UIItemSelector .RightColumnStyle .TemplateContainer .ClassicPortalImage {
+	background: white url(background/FrontOffice.png) no-repeat center;
+	height: 240px;
+}
+
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailTitle{
   height: 29px; line-height: 29px; 
   font-weight: bold; color: #5c5c5c;
