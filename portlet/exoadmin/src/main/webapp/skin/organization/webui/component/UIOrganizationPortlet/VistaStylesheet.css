@@ -13,7 +13,8 @@
   background: white;
   border: 1px solid #b7b7b7;
   margin: 5px 7px;
-	padding: 7px;
+	padding: 7px; 
+	*width: 96%;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
@@ -124,7 +125,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .TitleBar {
-  background: url('MacSkin/background/TitleBarBG.gif') repeat-x;
+  background: url('VistaSkin/background/UIOrganizationPortlet.png') repeat-x bottom;
   border: 1px solid #b7b7b7;
   line-height: 25px;
 }
@@ -141,7 +142,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
- 	background: url('background/UITreeBG.png') repeat;
+ 	background: url('VistaSkin/background/UITreeBG.png') repeat;
  	border-top: none;
   height: 224px;
 }
@@ -161,17 +162,17 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
 	width: 21px; height: 21px;
-	background: url('VistaSkin/background/RemoveGroup.png') no-repeat;
+	background: url('VistaSkin/background/UIOrganizationPortlet.png') no-repeat top;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon  {
 	width: 21px; height: 21px;
-	background: url('VistaSkin/background/AddGroup.png') no-repeat;
+	background: url('VistaSkin/background/UIOrganizationPortlet.png') no-repeat left -44px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon  {
 	width: 21px; height: 21px;
-	background: url('VistaSkin/background/EditGroup.png') no-repeat;
+	background: url('VistaSkin/background/UIOrganizationPortlet.png') no-repeat left -22px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {

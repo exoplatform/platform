@@ -64,17 +64,17 @@
 
 .ApplicationRegistryControlArea .AddCategoryIcon {
   height: 22px; width: 31px;
-  background: url('MacSkin/icons/AddCategoryIcon.png') no-repeat ;
+  background: url('MacSkin/background/Icons.png') no-repeat ;
 }
 
 .ApplicationRegistryControlArea .ImportApplicationsIcon {
   height: 22px; width: 29px;
-  background: url('MacSkin/icons/ImportApplicationsIcon.png') no-repeat right ;
+  background: url('MacSkin/background/Icons.png') no-repeat left -67px;
 }
 
 .ApplicationRegistryControlArea .ImportPortletsIcon {
   height: 22px; width: 31px;
-  background: url('MacSkin/icons/ImportPortletsIcon.png') no-repeat ;
+  background: url('MacSkin/background/Icons.png') no-repeat left -44px ;
 }
 
 .ApplicationRegistryControlArea .SeparatorLine {
@@ -86,7 +86,7 @@
 
 .ApplicationRegistryControlArea .DeleteCategoryIcon {
   height: 22px; width: 31px;
-  background: url('MacSkin/icons/DeleteCategoryIcon.png') no-repeat ;
+  background: url('MacSkin/background/Icons.png') no-repeat left -22px ;
 }
 
 .ApplicationRegistryControlArea .UIVerticalSlideTabs {

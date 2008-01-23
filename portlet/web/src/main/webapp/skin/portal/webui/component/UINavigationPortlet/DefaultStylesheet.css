@@ -29,18 +29,18 @@
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
   line-height: 28px;
-  background: url('DefaultSkin/background/MiddleNavTopBg1x28.gif') repeat-x top;
+  background: url('DefaultSkin/background/UINavigationPortlet.gif') repeat-x top;
   padding-left: 3px;
 }
 
 .UINavigationPortlet .UINavigationBar .RightNavigationBar {
   line-height: 28px;
-  background: url('DefaultSkin/background/MiddleNavTopBg1x28.gif') repeat-x top;
+  background: url('DefaultSkin/background/UINavigationPortlet.gif') repeat-x top;
 }
 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
   line-height: 28px;
-  background: url('DefaultSkin/background/RightNavTop108x28.gif') no-repeat right top;
+  background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat right -29px;
   padding-right: 10px;
 }
 
@@ -94,12 +94,12 @@
 .UINavigationPortlet .MenuItemContainer .MenuItem .RightItemIcon {
   height: 24px; width: auto;
   padding-right: 20px;
-  background: url('DefaultSkin/background/GreyItemArrow.gif') no-repeat right;
+  background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat left -105px;
 }
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   height: 24px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left;
   padding: 0px 0px 0px 19px ;
 }
 
@@ -112,7 +112,7 @@
 
 .UINavigationPortlet .ScrollLeftButton {
 	cursor: pointer;
-  background: url('DefaultSkin/background/LeftScrollButton.gif') no-repeat left;
+  background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat left -76px;
   width: 13px;
   height: 15px;
   padding-left: 14px;
@@ -122,7 +122,7 @@
 
 .UINavigationPortlet .ScrollRightButton {
 	cursor: pointer;
-	background: url('DefaultSkin/background/RightScrollButton.gif') no-repeat right;
+	background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat right -75px;
   width: 13px;
   height: 15px;
   margin: 0px 2px;
@@ -131,7 +131,7 @@
 
 .UINavigationPortlet .DisableScrollLeftButton {
   cursor: pointer;
-	background: url('DefaultSkin/background/DisableLeftScrollButton.gif') no-repeat left;
+	background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat left -92px;
   width: 13px;
   height: 15px;
   padding-left: 14px;
@@ -142,7 +142,7 @@
 
 .UINavigationPortlet .DisableScrollRightButton { 
 	cursor: pointer;
-	background: url('DefaultSkin/background/DisableRightScrollButton.gif') no-repeat right;
+	background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat right -92px;
   width: 13px;
   height: 15px;
   margin: 0px 2px;
@@ -152,7 +152,7 @@
 
 .UINavigationPortlet .HighlightScrollLeftButton {
   cursor: pointer;
-	background: url('DefaultSkin/background/OverLeftScrollButton.gif') no-repeat left;
+	background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat left -58px;
   width: 13px;
   height: 15px;
   padding-left: 14px;
@@ -162,7 +162,7 @@
 
 .UINavigationPortlet .HighlightScrollRightButton {
 	cursor: pointer;
-	background: url('DefaultSkin/background/OverRightScrollButton.gif') no-repeat;
+	background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat right -58px;
   width: 13px;
   height: 15px;
   margin: 0px 2px;

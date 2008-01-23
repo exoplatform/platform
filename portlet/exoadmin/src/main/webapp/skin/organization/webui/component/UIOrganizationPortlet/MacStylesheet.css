@@ -65,21 +65,21 @@
 
 .UIOrganizationPortlet .UserManagementIcon {
   width: 44px ; height: 30px ;
-  background: url('MacSkin/background/UserManagement.gif') no-repeat center ;
+  background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat left -165px ;
   margin: auto;
   margin-top: 4px;
 }
 
 .UIOrganizationPortlet .GroupManagementIcon {
   width: 44px ; height: 30px ;
-  background: url('MacSkin/background/GroupManagement.gif') no-repeat center ;
+  background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat left -134px ;
   margin: auto;
   margin-top: 4px;
 }
 
 .UIOrganizationPortlet .MembershipManagementIcon {
   width: 44px ; height: 30px ;
-  background: url('MacSkin/background/MembershipManagement.gif') no-repeat center ;
+  background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat left -103px ;
   margin: auto;
   margin-top: 4px;
 }
@@ -141,7 +141,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon{
   width: 28px; height: 15px;
   margin-top: 9px;
-  background: url('MacSkin/background/MacGroup.gif') no-repeat;
+  background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat left -67px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs{
@@ -149,7 +149,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .TitleBar {
-  background: url('MacSkin/background/TitleBarBG.gif') repeat-x;
+  background: url('MacSkin/background/UIOrganizationPortlet.gif') repeat-x;
   border: 1px solid #b7b7b7;
   line-height: 24px;
   height: auto;

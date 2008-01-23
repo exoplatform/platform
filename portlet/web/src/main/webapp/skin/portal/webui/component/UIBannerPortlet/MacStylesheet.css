@@ -6,23 +6,23 @@
 .UIBannerPortlet .LeftBanner {
 	height: 74px;
 	padding: 0px 0px 0px 157px;
-  background: url('MacSkin/background/LeftBanner157x74.jpg') no-repeat left;
+  background: url('MacSkin/background/Banner.gif') no-repeat left top;
 }
 
 .UIBannerPortlet .MiddleBanner{
 	height: 74px;
-  background: url('MacSkin/background/MiddleBanner1x74.jpg') repeat-x ;
+  background: url('MacSkin/background/Banner.gif') repeat-x bottom;
 }
 
 .UIBannerPortlet .RightBanner {
   height: 74px;
   padding: 0px 84px 0px 0px ;
-  background: url('MacSkin/background/RightBanner84x74.jpg') no-repeat right;
+  background: url('MacSkin/background/Banner.gif') no-repeat right -75px;
 }
 
 .UIBannerPortlet .BannerTitle {
   height: 35px;
-  background: url('MacSkin/background/eXoWebOSSlogan179x17.gif') no-repeat left bottom;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -150px;
   padding: 8px 0px 0px 3px;
 }
 
@@ -43,22 +43,15 @@
 .UIBannerPortlet .LoginContent .LogoutIcon {
   float: left;
   height: 24px;
-  background: url('MacSkin/background/SignoutButton.gif') no-repeat left center;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -120px;
   cursor: pointer;
   margin: 1px 2px 0px 0px;
   padding-left: 28px;
 }
 
-.UIBannerPortlet .LoginContent .LoginSeperatorLine {
-  float: left;
-  width: 2px; height: 21px;
-  background: url('DefaultSkin/background/2x2.gif') repeat-y;
-  margin: 4px 7px 0px 7px;
-}
-
  .UIBannerPortlet .LoginContent .SettingIcon {
   height: 22px;
-  background: url('MacSkin/background/ChangeLanguage.gif') no-repeat left center;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -50px;
   margin-right: 2px;
   padding-left: 26px;
   cursor: pointer;
@@ -66,16 +59,9 @@
 	display: block;
 }
 
-.UIBannerPortlet .LoginContent .SeperatorLine {
-  float: right;
-  width: 2px; height: 21px;
-  background: url('DefaultSkin/background/2x2.gif') repeat-y;
-  margin: 2px 7px;
- }
-
 .UIBannerPortlet .LoginContent .LoginIcon {
   height: 24px;
-  background: url('MacSkin/background/SigninButton.gif') no-repeat left center;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -50px;
   cursor: pointer;
   padding-left: 28px;
   margin: 1px 2px 0px 0px;

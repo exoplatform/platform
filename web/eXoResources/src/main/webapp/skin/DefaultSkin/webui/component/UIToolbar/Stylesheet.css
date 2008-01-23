@@ -53,17 +53,6 @@
   color: #1043b1;
 }
 
-
-
-/*
- * minh.js.exo
- * fix bug don't apply style for OrganizationPortletContainer element in IE 6
- */
-
-.UIWindow .UIOrganizationPortlet .OrganizationPortletContainer {
-	padding: 7px;
-}
- 
 .UIToolbar .LargeToolbar .HorizontalSeparator {
   float: left ;
   margin: 3px 8px 0px 10px ;

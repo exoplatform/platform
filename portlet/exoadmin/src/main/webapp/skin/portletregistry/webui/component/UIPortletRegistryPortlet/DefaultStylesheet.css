@@ -117,17 +117,17 @@
 
 .ApplicationRegistryControlArea .AddCategoryIcon {
   height: 21px; width: 22px;
-  background: url('DefaultSkin/icons/AddCategory.gif') no-repeat center;
+  background: url('DefaultSkin/background/Icons.gif') no-repeat;
 }
 
 .ApplicationRegistryControlArea .ImportApplicationsIcon {
   height: 21px; width: 24px;
-  background: url('DefaultSkin/icons/ImportApplicationsIcon.gif') no-repeat ;
+  background: url('DefaultSkin/background/Icons.gif') no-repeat left -66px;
 }
 
 .ApplicationRegistryControlArea .ImportPortletsIcon {
   height: 21px; width: 24px;
-  background: url('DefaultSkin/icons/ImportPortletsIcon.gif') no-repeat ;
+  background: url('DefaultSkin/background/Icons.gif') no-repeat left -44px;
 }
 
 .ApplicationRegistryControlArea .SeparatorLine {
@@ -139,7 +139,7 @@
 
 .ApplicationRegistryControlArea .DeleteCategoryIcon {
   height: 21px; width: 22px;
-  background: url('DefaultSkin/icons/DeleteCategory.gif') no-repeat ;
+  background: url('DefaultSkin/background/Icons.gif') no-repeat left -22px;
 }
 
 .ApplicationRegistryControlArea .CategoryContainer {

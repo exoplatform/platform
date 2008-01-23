@@ -56,17 +56,17 @@
 
 .UIOrganizationPortlet .UIBreadcumbs .LeftBreadcumbsBar {
   padding: 0px 0px 0px 5px ;
-  background: url('DefaultSkin/background/LeftBreadcumbsBar5x25.gif') no-repeat left;
+  background: url('DefaultSkin/background/BreadcumbsBar.gif') no-repeat left -26px;
 }
 
 .UIOrganizationPortlet .UIBreadcumbs .RightBreadcumbsBar {
   padding: 0px 5px 0px 0px;
-  background: url('DefaultSkin/background/RightBreadcumbsBar5x25.gif') no-repeat right;
+  background: url('DefaultSkin/background/BreadcumbsBar.gif') no-repeat right -52px;
 }
 
 .UIOrganizationPortlet .UIBreadcumbs .BreadcumbsInfoBar {
   height: 25px; line-height: 25px; vertical-align: middle;
-  background: url('DefaultSkin/background/MiddleBreadcumbsBar1x25.gif') repeat-x;
+  background: url('DefaultSkin/background/BreadcumbsBar.gif') repeat-x;
 }
 
 .UIOrganizationPortlet .ManagementIconContainer {
@@ -184,7 +184,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .TitleBar{
-	background: url('DefaultSkin/background/TitleBarBG.gif') repeat-x;
+	background: url('DefaultSkin/background/BreadcumbsBar.gif') repeat-x bottom;
 	height: 25px;
 	line-height: 25px;
 	border: 1px #b7b7b7 solid; 

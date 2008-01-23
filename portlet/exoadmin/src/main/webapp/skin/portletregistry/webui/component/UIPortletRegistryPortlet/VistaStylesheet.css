@@ -40,17 +40,17 @@
 }
 
 .ApplicationRegistryControlArea  .CategoryControlBar .LeftBar {
-	background: url('VistaSkin/background/LeftBar30x26.png') no-repeat left ;
+	background: url('VistaSkin/background/UIPortletRegistryPortlet.gif') no-repeat left -27px;
   padding-left: 30px;
 }
 
 .ApplicationRegistryControlArea  .CategoryControlBar .RightBar {
-	background: url('VistaSkin/background/RightBar20x26.png') no-repeat right ;
+	background: url('VistaSkin/background/UIPortletRegistryPortlet.gif') no-repeat right -54px;
   padding-right: 20px;
 }
 
 .ApplicationRegistryControlArea  .CategoryControlBar .MiddleBar {
-	background: url('VistaSkin/background/MiddleBar1x26.png') repeat-x ;
+	background: url('VistaSkin/background/UIPortletRegistryPortlet.gif') repeat-x top;
   height: 26px;
 }
 
@@ -66,17 +66,17 @@
 
 .ApplicationRegistryControlArea .AddCategoryIcon {
   height: 22px; width: 23px;
-  background: url('VistaSkin/icons/AddCategoryIcon.png') no-repeat center ;
+  background: url('VistaSkin/background/UIPortletRegistryPortlet.gif') no-repeat left -80px;
 }
 
 .ApplicationRegistryControlArea .ImportApplicationsIcon {
   height: 22px; width: 30px;
-  background: url('VistaSkin/icons/ImportApplicationsIcon.png') no-repeat center ;
+  background: url('VistaSkin/background/UIPortletRegistryPortlet.gif') no-repeat left -102px ;
 }
 
 .ApplicationRegistryControlArea .ImportPortletsIcon {
   height: 22px; width: 30px;
-  background: url('VistaSkin/icons/ImportPortletsIcon.png') no-repeat center;
+  background: url('VistaSkin/background/UIPortletRegistryPortlet.gif') no-repeat left -124px;
 }
 
 .ApplicationRegistryControlArea .SeparatorLine {
@@ -88,7 +88,7 @@
 
 .ApplicationRegistryControlArea .DeleteCategoryIcon {
   height: 22px; width: 22px;
-  background: url('VistaSkin/icons/DeleteCategoryIcon.png') no-repeat center;
+  background: url('VistaSkin/background/UIPortletRegistryPortlet.gif') no-repeat left -145px;
 }
 
 
@@ -184,3 +184,4 @@
 	color: #3c3c3c; 
 	line-height: 25px;
 }
+
