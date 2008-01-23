@@ -1,4 +1,4 @@
-<div class="UIHomePagePortlet">
+<div class="UIHomePagePortlet" id="$uicomponent.id">
 	<div class="HomePortletDecor">
 		<div class="MiddleBanner" style="display: block">
 			<div class="LeftBanner">
