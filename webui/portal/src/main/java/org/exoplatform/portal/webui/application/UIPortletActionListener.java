@@ -497,11 +497,16 @@ public class UIPortletActionListener {
       String windowState = event.getRequestContext().getRequestParameter("portal:windowState") ;
       //TODO TrongTT: We should use only parameter for change WindowState
       if(windowState == null) windowState = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID).trim();
-      
       UIPageBody uiPageBody = uiPortlet.getAncestorOfType(UIPageBody.class);
+      UIPage uiPage = uiPortlet.getAncestorOfType(UIPage.class) ;
       if (windowState.equals(WindowState.MAXIMIZED.toString())) {
         if (uiPageBody != null) {
           uiPortlet.setCurrentWindowState(WindowState.MAXIMIZED);
+          //TODO dang.tung: we have to set maximized portlet for page because in ShowMaxWindow case the PageBody isn't rendered
+          //                reference: UIPortalLifecycle, UIPageLifecycle, renderChildren() in UIPageBody
+          //---------------------------------------------------------
+          if(uiPage != null && uiPage.isShowMaxWindow()) uiPage.setMaximizedUIPortlet(uiPortlet) ;
+          //---------------------------------------------------------
           uiPageBody.setMaximizedUIComponent(uiPortlet);
         } else {
           uiPortlet.setCurrentWindowState(WindowState.NORMAL);
@@ -513,6 +518,14 @@ public class UIPortletActionListener {
         if (maxPortlet == uiPortlet)
           uiPageBody.setMaximizedUIComponent(null);
       }
+      //TODO dang.tung: for ShowMaxWindow situation
+      //----------------------------------------------------------------
+      if (uiPage != null) {
+        UIPortlet maxPortlet = (UIPortlet) uiPage.getMaximizedUIPortlet();
+        if (maxPortlet == uiPortlet)
+          uiPage.setMaximizedUIPortlet(null);
+      }
+      //-----------------------------------------------------------------
       if (windowState.equals(WindowState.MINIMIZED.toString())) {
         uiPortlet.setCurrentWindowState(WindowState.MINIMIZED);
         return;
