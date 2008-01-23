@@ -60,6 +60,7 @@ UIDockbar.prototype.endDockBarEvt = function() {
 	this.onmouseover = null ;
 	document.body.oncontextmenu = new Function("return true;") ;
 	eXo.webui.UIRightClickPopupMenu.hideContextMenu("DockbarContextMenu") ;
+	eXo.desktop.UIDockbar.hideNavigation() ;
 	eXo.desktop.UIDockbar.reset() ;
 } ;
 
@@ -70,6 +71,7 @@ UIDockbar.prototype.iconOverEvt = function() {
   var tooltip = this.nextSibling ;
   
 	eXo.webui.UIRightClickPopupMenu.hideContextMenu("DockbarContextMenu") ;
+	eXo.desktop.UIDockbar.hideNavigation() ;
   tooltip.style.display = "block" ;
   tooltip.style.top = (-tooltip.offsetHeight) + "px" ;
   tooltip.style.left = objectXInDockbar + "px" ;
@@ -313,6 +315,24 @@ UIDockbar.prototype.createApplicationTooltip = function(tooltip) {
   appTooltip.innerHTML = tooltip ;
   
   return appTooltip ;
+};
+
+UIDockbar.prototype.initNav = function() {
+	var nav = document.getElementById("DockNavigation") ;
+	eXo.portal.UIExoStartMenu.buildMenu(nav) ;
+};
+
+UIDockbar.prototype.showNavigation = function(event) {
+	event = event || window.event ;
+  event.cancelBubble = true ;
+
+	var nav = document.getElementById("DockNavigation") ;
+	nav.style.display = "block" ;
+};
+
+UIDockbar.prototype.hideNavigation = function(event) {
+	var nav = document.getElementById("DockNavigation") ;
+	nav.style.display = "none" ;
 };
 
 eXo.desktop.UIDockbar = new UIDockbar() ;

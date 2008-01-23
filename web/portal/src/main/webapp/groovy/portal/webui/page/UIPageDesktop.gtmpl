@@ -9,6 +9,8 @@
   jsmanager.importJavascript('eXo.desktop.UIWindow') ;
   jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
   
+  jsmanager.addCustomizedOnLoadScript('eXo.desktop.UIDockbar.initNav();') ;
+  
   String docBase =  rcontext.getRequestContextPath() ;
   String comId = uicomponent.getId();
   boolean modifiable = uicomponent.isModifiable();
@@ -89,6 +91,348 @@
 
         <%//String containerMouseOver = "eXo.desktop.UIDockbar.containerMouseOver();" ;%>
         <div class="UIDockBar" id="UIDockBar" onmouseover="eXo.desktop.UIDockbar.startDockBarEvt(event);">
+          <div id="DockNavigation" class="UIExoStart" style="position: absolute; border: solid 2px red; display: none;"><div class="StartMenuContainer">
+            
+
+
+            
+            
+		        <div class="MenuItemContainer NavigationContainer" style="position: absolute; top: -450px;">
+		          <div class="StartMenuDecorator">
+		            <div class="StartMenuTL">
+		              <div class="StartMenuTR">
+		                <div class="StartMenuTC"><span></span></div>
+		              </div>
+		            </div>
+		            <div class="StartMenuML">
+		              <div class="StartMenuMR">
+		                <div style="padding: 5px 0px;" class="StartMenuBG">
+							        <div title="Click and hold to scroll up" style="display: none;" class="TopNavigator">
+							        	<div class="UpNavigatorIcon"><span></span></div>
+							        </div>
+											<div style="position: relative;" class="BlockMenu">
+							      	<div class="MenuContainer"> 
+							      	
+									    	<div class="PageNavigationBlock">
+										      <div class="DecoratorBlock">
+										      	<div class="PageOwnerContainer">
+										        	<div class="TitleBar">classic's pages </div>
+													    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=portal%3A%3Aclassic%3A%3Ahome&ajaxRequest=true')" href="#">Home</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=portal%3A%3Aclassic%3A%3Awebexplorer&ajaxRequest=true')" href="#">Web Explorer</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									    			</div>
+									    		</div>
+									      </div>
+		    
+									    	<div class="PageNavigationBlock">
+										      <div class="DecoratorBlock">
+										      	<div class="PageOwnerContainer">
+										        	<div class="TitleBar">platform/administrators's pages </div>
+													    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon"> 
+									            <div class="BlackArrowIcon">
+									              <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fadministrators%3A%3Aadministration&ajaxRequest=true')" href="#">Administration</a></div>
+									            </div>
+									          </div>
+									        </div>
+									        <div class="MenuItemContainer" id="StartMenuContainer-5">
+									          <div class="StartMenuDecorator">
+									            <div class="StartMenuTL">
+									              <div class="StartMenuTR">
+									                <div class="StartMenuTC"><span></span></div>
+									              </div>
+									            </div>
+									            <div class="StartMenuML">
+									              <div class="StartMenuMR">
+									                <div style="padding-bottom: 6px;" class="StartMenuBG">
+															      <div title="Click and hold to scroll up" style="display: none;" class="TopNavigator">
+															      		<div class="UpNavigatorIcon"><span></span></div>
+															      </div>
+																		<div style="position: relative;" class="BlockMenu">
+															      <div class="MenuContainer">          
+															      
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fadministrators%3A%3Aadministration%2Fapplicationregistry&ajaxRequest=true')" href="#">Application Registry</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fadministrators%3A%3Aadministration%2FnewAccount&ajaxRequest=true')" href="#">New Account</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fadministrators%3A%3Aadministration%2FcomunityManagement&ajaxRequest=true')" href="#">Community Management</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fadministrators%3A%3Aadministration%2Fi18n&ajaxRequest=true')" href="#">Internationalization</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+															      </div>
+															      </div>
+															      <div title="Click and hold to scroll down" style="display: none;" class="BottomNavigator">
+															      		<div class="DownNavigatorIcon"><span></span></div>
+															      </div>
+									                </div>
+									              </div>
+									            </div>
+									            <div class="StartMenuBL">
+									              <div class="StartMenuBR">
+									              <div class="StartMenuBC"><span></span></div>
+									              </div>
+									            </div>             
+									          </div>  
+									        </div>
+									      </div>
+									    
+									    			</div>
+									    		</div>
+									      </div>
+		    
+									    	<div class="PageNavigationBlock">
+										      <div class="DecoratorBlock">
+										      	<div class="PageOwnerContainer">
+										        	<div class="TitleBar">organization/management/executive-board's pages </div>
+													    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon"> 
+									            <div class="BlackArrowIcon">
+									              <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aorganization%2Fmanagement%2Fexecutive-board%3A%3Aorganization&ajaxRequest=true')" href="#">Organization</a></div>
+									            </div>
+									          </div>
+									        </div>
+									        <div class="MenuItemContainer">
+									          <div class="StartMenuDecorator">
+									            <div class="StartMenuTL">
+									              <div class="StartMenuTR">
+									                <div class="StartMenuTC"><span></span></div>
+									              </div>
+									            </div>
+									            <div class="StartMenuML">
+									              <div class="StartMenuMR">
+									                <div style="padding-bottom: 6px;" class="StartMenuBG">
+															      <div title="Click and hold to scroll up" style="display: none;" class="TopNavigator">
+															      		<div class="UpNavigatorIcon"><span></span></div>
+															      </div>
+																		<div style="position: relative;" class="BlockMenu">
+															      <div class="MenuContainer">          
+															      
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aorganization%2Fmanagement%2Fexecutive-board%3A%3Aorganization%2FnewStaff&ajaxRequest=true')" href="#">New Staff</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aorganization%2Fmanagement%2Fexecutive-board%3A%3Aorganization%2Fmanagement&ajaxRequest=true')" href="#">Management</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+															      </div>
+															      </div>
+															      <div title="Click and hold to scroll down" style="display: none;" class="BottomNavigator">
+															      		<div class="DownNavigatorIcon"><span></span></div>
+															      </div>
+									                </div>
+									              </div>
+									            </div>
+									            <div class="StartMenuBL">
+									              <div class="StartMenuBR">
+									              <div class="StartMenuBC"><span></span></div>
+									              </div>
+									            </div>             
+									          </div>  
+									        </div>
+									      </div>
+									    
+									    			</div>
+									    		</div>
+									      </div>
+									    
+									    	<div class="PageNavigationBlock">
+										      <div class="DecoratorBlock">
+										      	<div class="PageOwnerContainer">
+										        	<div class="TitleBar">platform/users's pages </div>
+													    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon"> 
+									            <div class="BlackArrowIcon">
+									              <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fusers%3A%3Amylink&ajaxRequest=true')" href="#">My Link</a></div>
+									            </div>
+									          </div>
+									        </div>
+									        <div class="MenuItemContainer">
+									          <div class="StartMenuDecorator">
+									            <div class="StartMenuTL">
+									              <div class="StartMenuTR">
+									                <div class="StartMenuTC"><span></span></div>
+									              </div>
+									            </div>
+									            <div class="StartMenuML">
+									              <div class="StartMenuMR">
+									                <div style="padding-bottom: 6px;" class="StartMenuBG">
+															      <div title="Click and hold to scroll up" style="display: none;" class="TopNavigator">
+															      		<div class="UpNavigatorIcon"><span></span></div>
+															      </div>
+																		<div style="position: relative;" class="BlockMenu">
+															      <div class="MenuContainer">          
+															      
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fusers%3A%3Amylinks%2Fblog&ajaxRequest=true')" href="#">Blog</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fusers%3A%3Agoogle&ajaxRequest=true')" href="#">Google</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fusers%3A%3Amylink%2Ffacebooks&ajaxRequest=true')" href="#">Facebook</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+															      </div>
+															      </div>
+															      <div title="Click and hold to scroll down" style="display: none;" class="BottomNavigator">
+															      		<div class="DownNavigatorIcon"><span></span></div>
+															      </div>
+									                </div>
+									              </div>
+									            </div>
+									            <div class="StartMenuBL">
+									              <div class="StartMenuBR">
+									              <div class="StartMenuBC"><span></span></div>
+									              </div>
+									            </div>             
+									          </div>  
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fusers%3A%3Asitemap&ajaxRequest=true')" href="#">SiteMap</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									    			</div>
+									    		</div>
+									      </div>
+									    
+									    	<div class="PageNavigationBlock">
+										      <div class="DecoratorBlock">
+										      	<div class="PageOwnerContainer">
+										        	<div class="TitleBar">platform/guests's pages </div>
+													    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fguests%3A%3Aregister&ajaxRequest=true')" href="#">Register</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fguests%3A%3Alink&ajaxRequest=true')" href="#">Link</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									      <div class="MenuItem">
+									        <div class="LabelItem">
+									          <div style="padding-left: 18px;" class="Icon DefaultPageIcon">
+									            <div class="LabelText"><a onclick="javascript:ajaxGet('/portal/private/classic/?portal:componentId=UIExoStart&portal:action=ChangePage&objectId=group%3A%3Aplatform%2Fguests%3A%3Asitemap&ajaxRequest=true')" href="#">SiteMap</a></div>
+									          </div>
+									        </div>
+									      </div>
+									    
+									    			</div>
+									    		</div>
+									      </div>
+		    
+							      	</div>
+							      	</div>
+							      	<div title="Click and hold to scroll down" style="display: none;" class="BottomNavigator">
+							      		<div class="DownNavigatorIcon"><span></span></div>
+							      	</div>
+		                </div>
+		              </div>
+		            </div>
+		            <div class="StartMenuBL">
+		              <div class="StartMenuBR">
+		              <div class="StartMenuBC"><span></span></div>
+		              </div>
+		            </div>
+		          </div>  
+		        </div>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          </div></div>
 					<div class="UIRightClickPopupMenu" id="DockbarContextMenu" onmousedown="event.cancelBubble = true;">
 					  
 					  
@@ -128,7 +472,10 @@
                 <div class="IconContainer" id="IconContainer" style="text-align: center;">
                   <img id="FixBug" src="/eXoResources/skin/sharedImages/Debug1x32.gif" />
                   
-                  <%if(rcontext.getRemoteUser() == null) {%>
+  	                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/NavigationIcon.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
+	                       id="UIAddApplicationIcon"
+	                       onclick="eXo.desktop.UIDockbar.showNavigation(event)"/><span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
+	                <%if(rcontext.getRemoteUser() == null) {%>
 		                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Signin.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
 		                         onclick="<%=uicomponent.event("ShowLoginForm", null);%>" /><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
 		                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>

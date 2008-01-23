@@ -41,6 +41,7 @@
       <script type="text/javascript" src="/eXoResources/javascript/eXo/widget/UIWidget.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/core/DragDrop.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortal.js"></script>
+      <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIExoStartMenu.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Skin.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopupMenu.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/application/ApplicationDescriptor.js"></script>
