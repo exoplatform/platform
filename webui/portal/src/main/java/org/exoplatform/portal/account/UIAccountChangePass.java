@@ -31,6 +31,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 /**
  * Created by The eXo Platform SARL
  * Author : tung.dang
@@ -56,7 +57,8 @@ public class UIAccountChangePass extends UIForm {
            addValidator(EmptyFieldValidator.class)) ;
     addUIFormInput(new UIFormStringInput("newpass", "password", null).
            setType(UIFormStringInput.PASSWORD_TYPE).
-           addValidator(EmptyFieldValidator.class)) ;
+           addValidator(EmptyFieldValidator.class).
+           addValidator(StringLengthValidator.class, 6, 30)) ;
     addUIFormInput(new UIFormStringInput("confirmnewpass", "password", null).
         setType(UIFormStringInput.PASSWORD_TYPE).
         addValidator(EmptyFieldValidator.class)) ;
@@ -76,7 +78,6 @@ public class UIAccountChangePass extends UIForm {
         OrganizationService service =  uiForm.getApplicationComponent(OrganizationService.class) ;
         WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
         UIApplication uiApp = context.getUIApplication() ;
-        // get userName input
         String username = Util.getPortalRequestContext().getRemoteUser() ;
         User user = service.getUserHandler().findUserByName(username) ; 
         String currentPass = uiForm.getUIStringInput("currentpass").getValue() ;

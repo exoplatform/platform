@@ -26,6 +26,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -46,7 +47,8 @@ public class UIAccountInputSet extends UIFormInputSet {
                    addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormStringInput(PASSWORD1X, "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
-                   addValidator(EmptyFieldValidator.class)) ;
+                   addValidator(EmptyFieldValidator.class).
+                   addValidator(StringLengthValidator.class, 6, 30)) ;
     addUIFormInput(new UIFormStringInput(PASSWORD2X, "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(EmptyFieldValidator.class)) ;

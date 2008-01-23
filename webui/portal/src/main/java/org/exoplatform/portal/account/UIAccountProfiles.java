@@ -51,27 +51,21 @@ import org.exoplatform.webui.form.validator.IdentifierValidator;
 
 public class UIAccountProfiles extends UIForm {
   
-  // constructor
   public UIAccountProfiles() throws Exception {
     super();
-    //  get information about user
     String username = Util.getPortalRequestContext().getRemoteUser() ;
     OrganizationService service = this.getApplicationComponent(OrganizationService.class);
     User useraccount = service.getUserHandler().findUserByName(username);
     
-    // user
     UIFormStringInput userName  = new UIFormStringInput("userName","userName", username) ;
     userName.setEditable(false) ;
     addUIFormInput(userName.
         addValidator(EmptyFieldValidator.class).
         addValidator(IdentifierValidator.class)) ;
-    // first name
     addUIFormInput(new UIFormStringInput("firstName", "firstName", useraccount.getFirstName()).
             addValidator(EmptyFieldValidator.class)) ;
-    // last name
     addUIFormInput(new UIFormStringInput("lastName", "lastName", useraccount.getLastName()).
             addValidator(EmptyFieldValidator.class)) ;
-    // email
     addUIFormInput(new UIFormStringInput("email", "email", useraccount.getEmail()). 
             addValidator(EmptyFieldValidator.class).
             addValidator(EmailAddressValidator.class)) ;
@@ -97,7 +91,6 @@ public class UIAccountProfiles extends UIForm {
       WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
       UIApplication uiApp = context.getUIApplication() ;
      
-      // get userName input
       String userName = uiForm.getUIStringInput("userName").getValue() ;
       User user = service.getUserHandler().findUserByName(userName) ;    
       user.setFirstName(uiForm.getUIStringInput("firstName").getValue()) ;
