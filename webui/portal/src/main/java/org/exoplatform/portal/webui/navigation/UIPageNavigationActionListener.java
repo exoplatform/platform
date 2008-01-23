@@ -93,10 +93,9 @@ public class UIPageNavigationActionListener {
       UIPageNodeSelector uiPageNodeSelector = uiPopup.getAncestorOfType(UIPageNodeSelector.class);
       PageNavigation selectedNavigation = uiPageNodeSelector.getSelectedNavigation();
       if(!selectedNavigation.getOwnerType().equals(PortalConfig.GROUP_TYPE)){
-        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
+        UIApplication uiApp = pcontext.getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.deleteNav", null ,ApplicationMessage.ERROR)) ;
-
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
       uiPageNodeSelector.deletePageNavigation(selectedNavigation) ;
@@ -104,7 +103,7 @@ public class UIPageNavigationActionListener {
         UIPageManagement uiManagement = uiPageNodeSelector.getParent() ;
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+        pcontext.addUIComponentToUpdateByAjax(uiManagement) ;
         return;
       }
       UITree uiTree = uiPageNodeSelector.getChild(UITree.class);

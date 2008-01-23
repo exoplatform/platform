@@ -84,8 +84,6 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UIPortal uiPortal = uiWorkingWS.createUIComponent(prcontext, UIPortal.class, null, null);
       PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
       oldUIPortal.setNavigation(uiPortal.getNavigations());
-      //TODO: Tung.Pham modified
-      //------------------------------------------------
       oldUIPortal.setSelectedNavigation(oldSelectedNavi) ;
       oldUIPortal.setSelectedNode(oldSelectedNode) ;
       List<PageNode> selectedPaths = new ArrayList<PageNode>() ;
@@ -94,17 +92,12 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UIPageNodeSelector uiPageNodeSelector = uiPageNav.<UIContainer>getParent().findFirstComponentOfType(UIPageNodeSelector.class);
       uiPageNodeSelector.loadNavigations();
       
-      //Class<?> [] classes = new Class<?>[]{UIPageEditBar.class, UIPageNodeSelector.class, UIPageNavigationControlBar.class};
       UIPageManagement uiManagement = uiPageNav.getParent();
       Class<?> [] classes = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
       UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class) ;
       uiEditBar.setUIPage(null) ;
       uiManagement.setRenderedChildrenOfTypes(classes);
       uiManagement.setMode(ManagementMode.EDIT, event) ;
-      //UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      //event.getRequestContext().addUIComponentToUpdateByAjax(uiControl);
-      //event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
-      //------------------------------------------------
     }
   }
   
@@ -124,18 +117,6 @@ public class UIPageNavigationControlBar extends UIToolbar {
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);
       pContext.addUIComponentToUpdateByAjax(uiManagement);
 
-     /* UIPortalToolPanel uiPortalToolPanel = Util.getUIPortalToolPanel() ;
-      UIPageNodeSelector nodeSelector =uiManagement.getChild(UIPageNodeSelector.class);
-      PageNode node  = nodeSelector.getSelectedPageNode();
-      if(node == null) {
-        uiPortalToolPanel.setUIComponent(null) ;
-      } else {
-        UIPage currentPage = Util.getUIPortalToolPanel().getUIComponent();
-        UIPage uiPage = Util.toUIPage(node, Util.getUIPortalToolPanel());
-        uiPortalToolPanel.setUIComponent(uiPage);
-        uiPortalToolPanel.getUIComponent().setRendered(true); 
-      }*/
-      
       UIPortalApplication uiPortalApp = uiPageNav.getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       UIPortalToolPanel toolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
@@ -153,7 +134,9 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UIPageNodeSelector uiNodeSelector = uiPageManagement.getChild(UIPageNodeSelector.class);
       UserPortalConfigService dataService = uiPageManagement.getApplicationComponent(UserPortalConfigService.class);
       List<PageNavigation> deleteNavigations = uiNodeSelector.getDeleteNavigations();
-      for(PageNavigation nav : deleteNavigations) dataService.remove(nav);
+      for(PageNavigation nav : deleteNavigations) {
+        if(dataService.getPageNavigation(nav.getId()) != null) dataService.remove(nav) ;
+      }
       
       List<PageNavigation> navigations = uiNodeSelector.getPageNavigations();
       String accessUser = event.getRequestContext().getRemoteUser();
@@ -167,7 +150,6 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UIPortal uiPortal = Util.getUIPortal();
       UserPortalConfig portalConfig  = dataService.getUserPortalConfig(uiPortal.getName(), accessUser);
       uiPortal.setNavigation(portalConfig.getNavigations());
-      
       event.getSource().abort(event);
     }
 
@@ -197,6 +179,5 @@ public class UIPageNavigationControlBar extends UIToolbar {
     prContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;      
     prContext.setFullRender(true);
   }
-  
-  
+    
 }
