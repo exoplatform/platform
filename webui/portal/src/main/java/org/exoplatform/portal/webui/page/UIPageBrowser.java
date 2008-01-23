@@ -302,10 +302,6 @@ public class UIPageBrowser extends UISearch {
       UIPage uiPage =  uiPageBrowser.createUIComponent(event.getRequestContext(), UIPage.class,null,null) ;
       PortalDataMapper.toUIPage(uiPage, page);
 
-      //TODO: Tung.Pham modified
-      //----------------------------
-      //UIPagePreview uiPagePreview =  Util.showComponentOnWorking(uiPageBrowser, UIPagePreview.class);
-      //uiPagePreview.setBackComponent(uiPageBrowser) ;
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
       UIPagePreview uiPagePreview = uiToolPanel.createUIComponent(UIPagePreview.class, "UIPagePreviewWithMessage", null) ;
       uiPagePreview.setUIComponent(uiPage) ;
@@ -321,7 +317,6 @@ public class UIPageBrowser extends UISearch {
       uiBrowseControlBar.setBackComponent(uiPageBrowser) ;
       uiManagement.setRenderedChild(UIPageBrowseControlBar.class) ;
       pcontext.addUIComponentToUpdateByAjax(uiControl) ;
-      //----------------------------
 
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
@@ -354,17 +349,13 @@ public class UIPageBrowser extends UISearch {
   static public class SavePageActionListener  extends UIPageForm.SaveActionListener {
     public void execute(Event<UIPageForm> event) throws Exception {
       UIPageForm uiPageForm = event.getSource();   
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIPortalApplication uiPortalApp = uiPageForm.getAncestorOfType(UIPortalApplication.class);
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIPage uiPage = uiPageForm.getUIPage();
       Page page = new Page() ;
       uiPageForm.invokeSetBindingBean(page);
       UserPortalConfigService configService = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
 
-      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      uiMaskWS.setUIComponent(null);
-      uiMaskWS.setShow(false);
-      pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
       //create new page
       if(uiPage == null) {
         DataStorage dataStorage = uiPageForm.getApplicationComponent(DataStorage.class) ;
@@ -378,11 +369,7 @@ public class UIPageBrowser extends UISearch {
         page.setModifiable(true);
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
         configService.create(page);
-
-        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
-        UIPageBrowser uiBrowser = (UIPageBrowser) uiToolPanel.getUIComponent() ;
-        uiBrowser.reset();
-        pcontext.addUIComponentToUpdateByAjax(uiBrowser) ;
+        postSave(uiPortalApp, pcontext) ;
         return;
       }
 
@@ -404,13 +391,8 @@ public class UIPageBrowser extends UISearch {
         PortalDataMapper.toUIPage(uiPage, page);  
         if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
-
         configService.update(page);
-
-        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
-        UIPageBrowser uiBrowser = (UIPageBrowser) uiToolPanel.getUIComponent() ;
-        uiBrowser.reset();
-        pcontext.addUIComponentToUpdateByAjax(uiBrowser) ;
+        postSave(uiPortalApp, pcontext) ;
         return;
       }
 
@@ -431,11 +413,19 @@ public class UIPageBrowser extends UISearch {
       
       if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())) {
         configService.update(page);
-        UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
-        UIPageBrowser uiBrowser = (UIPageBrowser) uiToolPanel.getUIComponent() ;
-        uiBrowser.reset();
-        pcontext.addUIComponentToUpdateByAjax(uiBrowser) ;
+        postSave(uiPortalApp, pcontext) ;
       }
+    }
+    
+    private void postSave(UIPortalApplication uiPortalApp, WebuiRequestContext context) throws Exception {
+      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      uiMaskWS.setUIComponent(null);
+      uiMaskWS.setShow(false);
+      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;      
+      UIPageBrowser uiBrowser = (UIPageBrowser) uiToolPanel.getUIComponent() ;
+      uiBrowser.reset();
+      context.addUIComponentToUpdateByAjax(uiBrowser) ;
+      context.addUIComponentToUpdateByAjax(uiMaskWS) ; 
     }
   }
 }
