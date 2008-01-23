@@ -23,8 +23,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Arrays;
-
 
 import javax.portlet.PortletMode;
 import javax.portlet.ResourceURL;
@@ -252,9 +250,12 @@ public class UIPortletActionListener {
         ResourceOutput output = portletContainer.serveResource(request,
             (HttpServletResponse) context.getResponse(), input);
 
+        //Manage headers
+        context.setHeaders(output.getHeaderProperties());
+        
         if (resourceId != null)
           return;
-
+        
         String contentType = output.getContentType();
         log.info("Try to get a resource of type: " + contentType
             + " for the portlet: " + uiPortlet.getWindowId());
@@ -378,6 +379,7 @@ public class UIPortletActionListener {
       }
     }
   }
+
 
   /**
    * This method is called when the javax.portlet.Event is supported by the

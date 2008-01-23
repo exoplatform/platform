@@ -166,4 +166,14 @@ public class PortalRequestContext extends WebuiRequestContext {
 
   final public void setFullRender(boolean forceFullUpdate) { this.forceFullUpdate = forceFullUpdate; }
 
+  
+  public void setHeaders(Map<String, String> headers) {
+    Set keys = headers.keySet();
+    for (Iterator iter = keys.iterator(); iter.hasNext();) {
+      String key = (String) iter.next();
+      response_.setHeader(key, headers.get(key));
+    }
+  }
+  
+  
 }

@@ -188,8 +188,11 @@ public class UIPortletLifecycle extends Lifecycle {
       portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
       log.error("Exception print in the portlet content", ex);
     }
-    if (output != null)
+    if (output != null) {
       portletTitle = output.getTitle();
+      //Manage headers
+      prcontext.setHeaders(output.getHeaderProperties()); 
+    }
     if (portletTitle == null)
       portletTitle = "Portlet";
 
