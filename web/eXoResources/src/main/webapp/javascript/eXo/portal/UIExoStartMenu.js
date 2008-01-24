@@ -83,8 +83,24 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 	this.className = eXo.portal.UIExoStartMenu.itemOverStyleClass ;
 	this.style.position = "relative" ;
 	if (this.menuItemContainer) {
-
+		
 		var menuItemContainer = this.menuItemContainer ;
+		var x = this.offsetWidth + this.offsetLeft ;
+	  var rootX = eXo.core.Browser.findPosX(this) ;
+		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
+	    	x -= (menuItemContainer.offsetWidth + this.offsetWidth) ;
+	  }
+	  if (eXo.core.Browser.getBrowserType() == "ie") x -= 10;
+	 	menuItemContainer.style.left = x + "px" ;
+		eXo.portal.UIExoStartMenu.createSlide(this);
+    eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(this.menuItemContainer.id) ;
+	
+	}
+};
+
+UIExoStartMenu.prototype.createSlide = function(menuItem) {
+		
+		var menuItemContainer = menuItem.menuItemContainer ;
 		menuItemContainer.style.display = "block" ;
 		// fix width for menuContainer, only IE.
 		if (!menuItemContainer.resized) eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
@@ -95,16 +111,8 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 	 	var bottomElement = eXo.core.DOMUtil.findFirstChildByClass(parentMenu, "div", "BottomNavigator") ;
 
 		var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(blockMenu, "div", "MenuContainer") ;
+		
 		if (!menuContainer.id) menuContainer.id = "eXo" + new Date().getTime() + Math.random().toString().substring(2) ;
-		
-		
-		var x = this.offsetWidth + this.offsetLeft ;
-	  var rootX = eXo.core.Browser.findPosX(this) ;
-		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
-	    	x -= (menuItemContainer.offsetWidth + this.offsetWidth) ;
-	  }
-	  if (eXo.core.Browser.getBrowserType() == "ie") x -= 10;
-	 	menuItemContainer.style.left = x + "px" ;
 		
 		var browserHeight = eXo.core.Browser.getBrowserHeight() ;
 		if (menuContainer.offsetHeight + 64 > browserHeight) {
@@ -155,11 +163,8 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 			topElement.style.display = "none" ;
 			bottomElement.style.display = "none" ;
 	  }
-		var Y = eXo.portal.UIExoStartMenu.getDimension(this) ;
+		var Y = eXo.portal.UIExoStartMenu.getDimension(menuItem) ;
 		if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
-
-    eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(this.menuItemContainer.id) ;
-	}
 };
 
 /**
@@ -223,7 +228,7 @@ UIExoStartMenu.prototype.clearStartMenu = function() {
 };
 
 UIExoStartMenu.prototype.getDimension = function(menuItem) {
-	if(document.documentElement.scrollTop)  var topPage = document.documentElement.scrollTop ;
+	if(document.documentElement.scrollTop != undefined)  var topPage = document.documentElement.scrollTop ;
 	else if(document.body) var topPage = document.body.scrollTop ;
 	var PosY = eXo.core.Browser.findPosY(menuItem) - topPage ;
 	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
