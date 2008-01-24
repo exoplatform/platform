@@ -91,7 +91,7 @@
 
         <%//String containerMouseOver = "eXo.desktop.UIDockbar.containerMouseOver();" ;%>
         <div class="UIDockBar" id="UIDockBar" onmouseover="eXo.desktop.UIDockbar.startDockBarEvt(event);">
-          <div id="DockNavigation" class="UIExoStart" style="position: absolute; border: solid 2px red; display: none;"><div class="StartMenuContainer">
+          <div id="DockNavigation" class="UIExoStart" style="position: absolute; display: none; width: 0px;"><div class="StartMenuContainer">
             
 
 
@@ -473,7 +473,6 @@
                   <img id="FixBug" src="/eXoResources/skin/sharedImages/Debug1x32.gif" />
                   
   	                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/NavigationIcon.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
-	                       id="UIAddApplicationIcon"
 	                       onclick="eXo.desktop.UIDockbar.showNavigation(event)"/><span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
 	                <%if(rcontext.getRemoteUser() == null) {%>
 		                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Signin.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
