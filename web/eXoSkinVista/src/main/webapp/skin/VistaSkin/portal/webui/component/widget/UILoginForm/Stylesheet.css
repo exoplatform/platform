@@ -101,6 +101,7 @@
 
 .UILoginForm .LoginDetailBox label {
   font-weight: bold;
+  padding-right: 4px;
 }
 
 .UILoginForm .LoginDetailBox .UserNameField input {

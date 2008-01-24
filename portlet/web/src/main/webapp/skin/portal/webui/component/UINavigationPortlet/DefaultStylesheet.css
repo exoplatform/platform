@@ -94,7 +94,7 @@
 .UINavigationPortlet .MenuItemContainer .MenuItem .RightItemIcon {
   height: 24px; width: auto;
   padding-right: 20px;
-  background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat left -105px;
+  background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat right -107px;
 }
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {

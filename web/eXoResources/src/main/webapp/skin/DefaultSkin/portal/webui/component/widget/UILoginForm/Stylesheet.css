@@ -95,6 +95,7 @@
 	float: left;
 	width: 20px;
 	border: none;
+	font-size: 11px;
 }
 
 .UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
@@ -105,6 +106,7 @@
 
 .UILoginForm .LoginDetailBox label {
 	font-weight: bold;
+	padding-right: 4px;
 }
 
 .UILoginForm .LoginDetailBox .UserNameField input {
