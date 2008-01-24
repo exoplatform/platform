@@ -326,8 +326,23 @@ UIDockbar.prototype.showNavigation = function(event) {
 	event = event || window.event ;
   event.cancelBubble = true ;
 
-	var nav = document.getElementById("DockNavigation") ;
-	nav.style.display = "block" ;
+  var uiDockbar = document.getElementById("UIDockBar") ;
+	var dockNavigation = document.getElementById("DockNavigation") ;
+	dockNavigation.style.display = "block" ;
+
+	dockNavigation.menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(dockNavigation, "div", "MenuItemContainer");
+	eXo.portal.UIExoStartMenu.createSlide(dockNavigation);
+	
+	var intTop = eXo.core.Browser.findMouseRelativeY(uiDockbar, event) ;
+	var intLeft = eXo.core.Browser.findMouseRelativeX(uiDockbar, event) ;
+
+	dockNavigation.style.left = intLeft + "px";
+	
+	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
+	if (dockNavigation.menuItemContainer.offsetHeight + 64 < browserHeight) {
+		dockNavigation.style.top = intTop + "px";
+	}
+	
 };
 
 UIDockbar.prototype.hideNavigation = function(event) {
