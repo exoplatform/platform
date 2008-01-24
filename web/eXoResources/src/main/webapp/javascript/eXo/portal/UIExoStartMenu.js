@@ -11,6 +11,7 @@ function UIExoStartMenu() {
   this.itemStyleClass = "MenuItem" ;
   this.itemOverStyleClass = "MenuItemOver" ;
   this.containerStyleClass = "MenuItemContainer" ;
+  this.superClass = eXo.webui.UIPopupMenu ;
 } ;
 
 /**
@@ -21,7 +22,6 @@ function UIExoStartMenu() {
 UIExoStartMenu.prototype.init = function(popupMenu, container, x, y) {
   var uiStart = eXo.portal.UIExoStartMenu ;
   
-  this.superClass = eXo.webui.UIPopupMenu ;
   this.superClass.init(popupMenu, container.id, x, y) ;
   
   this.exoStartButton = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ExoStartButton") ;

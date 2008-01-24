@@ -38,12 +38,12 @@
 	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/desktop/UIDockbar.js"></script>
 	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/core/UIMaskLayer.js"></script>
 	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopup.js"></script>
+      <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopupMenu.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/widget/UIWidget.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/core/DragDrop.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortal.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIExoStartMenu.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Skin.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopupMenu.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/application/ApplicationDescriptor.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/core/TemplateEngine.js"></script>
       <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIItemSelector.js"></script>
