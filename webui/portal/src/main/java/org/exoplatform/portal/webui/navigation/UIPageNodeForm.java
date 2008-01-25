@@ -195,7 +195,11 @@ public class UIPageNodeForm extends UIFormTabPane {
       pageNodeSelector.selectPageNodeByUri(pageNode.getUri());
       UIPageEditBar editBar = uiManagement.getChild(UIPageEditBar.class);
       editBar.setUIPage(uiPage);
-      editBar.setRendered(uiPage.isModifiable() && !uiPage.getFactoryId().equals("Desktop"));
+      if(uiPage.getFactoryId() != null) {
+        editBar.setRendered(uiPage.isModifiable() && !uiPage.getFactoryId().equals("Desktop"));
+      } else {
+        editBar.setRendered(uiPage.isModifiable());
+      }
       pcontext.addUIComponentToUpdateByAjax(uiManagement);   
       pcontext.addUIComponentToUpdateByAjax(uiToolPanel.getParent());
       pcontext.setFullRender(true);
