@@ -14,9 +14,6 @@
     This web.xml file is mandatory in each .par archive file.
 	</description>	
 
-  <listener>
-    <listener-class>org.exoplatform.services.portletcontainer.impl.servlet.PortletApplicationListener</listener-class>
-  </listener>
   
   <filter>
     <filter-name>ResourceRequestFilter</filter-name>
@@ -27,6 +24,10 @@
     <filter-name>ResourceRequestFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>  
+
+  <listener>
+    <listener-class>org.exoplatform.services.portletcontainer.impl.servlet.PortletApplicationListener</listener-class>
+  </listener>
 
   <servlet>
     <servlet-name>PortletWrapper</servlet-name>
