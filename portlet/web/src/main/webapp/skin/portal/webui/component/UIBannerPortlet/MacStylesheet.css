@@ -43,7 +43,7 @@
 .UIBannerPortlet .LoginContent .LogoutIcon {
   float: left;
   height: 24px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -120px;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -340px;
   cursor: pointer;
   margin: 1px 2px 0px 0px;
   padding-left: 28px;
@@ -61,7 +61,7 @@
 
 .UIBannerPortlet .LoginContent .LoginIcon {
   height: 24px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -97px;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -317px;
   cursor: pointer;
   padding-left: 28px;
   margin: 1px 2px 0px 0px;

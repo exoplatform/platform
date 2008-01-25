@@ -82,7 +82,6 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
-  margin: 1px 0px 0px 0px;
   background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif') no-repeat left center;
   line-height: 21px;
   padding-left: 25px;
@@ -90,7 +89,6 @@
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
-  margin: 1px 0px 0px 0px;
   background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
   line-height: 21px;
   padding-left: 25px;

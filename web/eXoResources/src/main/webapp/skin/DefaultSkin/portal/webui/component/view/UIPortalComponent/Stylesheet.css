@@ -194,14 +194,14 @@
 	float: right;
 	width: 22px; height: 16px;
 	background: url('background/PencilButton.gif') no-repeat;
-  margin: 5px 2px 2px 0px;
+  margin: 4px 2px 2px 0px;
 }
 
 .UIContainer .DeleteContainerIcon {
 	float: right;
 	width: 22px; height:16px; 
   background: url('background/CloseButton.gif') no-repeat ;
-  margin: 5px 4px 2px 0px;
+  margin: 4px 4px 2px 0px;
 }
 
 .UIContainer .ContainerIcon {
