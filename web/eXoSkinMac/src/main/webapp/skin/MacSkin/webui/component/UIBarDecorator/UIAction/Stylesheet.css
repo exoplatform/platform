@@ -97,7 +97,7 @@
 }
 
 .UIAction .SimpleStyle .ButtonMiddle {
-  line-height: 20px;
+  line-height: 21px;
 	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/SimpleStyle.gif') repeat-x bottom;
 	text-align: center;	
 	display: table-cell;
