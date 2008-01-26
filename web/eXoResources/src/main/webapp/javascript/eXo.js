@@ -30,7 +30,7 @@ var eXo  = {
   mail : { }  
 } ;
 
-
+var CG38 = {};
 /*
 * This method will : 
 *   1) dynamically load a javascript module from the server (if no root location is set 
