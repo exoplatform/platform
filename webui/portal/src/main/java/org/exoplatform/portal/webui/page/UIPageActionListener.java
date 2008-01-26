@@ -186,8 +186,11 @@ public class UIPageActionListener {
       for(UIWidget uiWidget : uiWidgets) {
         if(uiWidget.getApplicationInstanceUniqueId().equals(id)) {
           uiPage.getChildren().remove(uiWidget);
-          UserWidgetStorage widgetDataService = uiPage.getApplicationComponent(UserWidgetStorage.class) ;
-          widgetDataService.delete(pContext.getRemoteUser(), uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;
+          String userName = pContext.getRemoteUser() ;
+          if(userName != null && userName.trim().length() > 0) {
+            UserWidgetStorage widgetDataService = uiPage.getApplicationComponent(UserWidgetStorage.class) ;
+            widgetDataService.delete(userName, uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;            
+          }
           if(uiPage.isModifiable()) {
             Page page = PortalDataMapper.toPageModel(uiPage);    
             UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     

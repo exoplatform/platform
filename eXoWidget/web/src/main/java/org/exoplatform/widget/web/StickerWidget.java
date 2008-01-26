@@ -33,11 +33,6 @@ import org.exoplatform.web.application.widget.WidgetApplication;
  * June 13, 2007  
  */
 
-//@ComponentConfig(
-//  events = {
-//    @EventConfig(listeners = StickerWidget.SaveContentActionListener.class )
-//  }
-//)
 public class StickerWidget extends WidgetApplication<UIWidget> {
   private String content_;
   
@@ -57,9 +52,6 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
   public String getApplicationGroup() { return "eXoWidgetWeb"; }
   
   public void processRender(UIWidget uiWidget, Writer w) throws Exception {
-//    try{ int k = 3/0;
-//    }catch (Exception e) { e.printStackTrace();}
-//    
     PortalContainer container  = PortalContainer.getInstance();
     UserWidgetStorage service = 
       (UserWidgetStorage)container.getComponentInstanceOfType(UserWidgetStorage.class) ;    
@@ -70,8 +62,12 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
     int zIndex = uiWidget.getProperties().getIntValue("zIndex") ;
-    byte[] bytes = (byte[]) service.get(pContext.getRemoteUser(), getApplicationName(), instanceId);
-    String content = "";
+    String userName = pContext.getRemoteUser() ;
+    byte[] bytes = null ;
+    if(userName != null && userName.trim().length() > 0) {
+      bytes = (byte[]) service.get(pContext.getRemoteUser(), getApplicationName(), instanceId);
+    }
+    String content = null ;
     if(bytes != null ) content = new String(bytes);
     if(content == null ) content = "";
     content = content.trim();
@@ -85,10 +81,5 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.sticker.UIStickerWidget','UIStickerWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
   }
-  
-//  static public class SaveContentActionListener  extends EventListener<StickerWidget> {
-//    public void execute(Event<StickerWidget> event) throws Exception {
-//      System.out.println("\n\n\n\n\n\n\n\n\n  SAVE CONTENT !!!  \n\n\n\n\n\n\n\n\n\n");      
-//    }
-//  }
+
 }

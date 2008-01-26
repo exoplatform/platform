@@ -76,8 +76,11 @@ public class UIContainerActionListener {
         UIWidget uiWidget = (UIWidget) uiChild ;
         if(uiWidget.getApplicationInstanceUniqueId().equals(id)) {
           children.remove(uiWidget) ;
-          UserWidgetStorage widgetDataService = uiWidgetContainer.getApplicationComponent(UserWidgetStorage.class) ;
-          widgetDataService.delete(pContext.getRemoteUser(), uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;
+          String userName = pContext.getRemoteUser() ;
+          if(userName != null && userName.trim().length() > 0) {
+            UserWidgetStorage widgetDataService = uiWidgetContainer.getApplicationComponent(UserWidgetStorage.class) ;
+            widgetDataService.delete(userName, uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;            
+          }
           break ;
         }
       }

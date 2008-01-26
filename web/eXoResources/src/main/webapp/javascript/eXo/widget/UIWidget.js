@@ -51,12 +51,14 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
 	var uiPage = DOMUtil.findAncestorByClass(selectedElement, "UIPage") ;
 	var uiWidget = DOMUtil.findAncestorByClass(selectedElement, "UIWidget") ;
 	var containerBlockId ;
+	var isInControlWorkspace = false ;
 	if(uiPage) {
 		var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
 		containerBlockId = uiPageIdNode.innerHTML;
 	}
 	else {
 		containerBlockId = uiWidgetContainer.id ;
+		isInControlWorkspace = true ;
 	}
 	var params = [
   	{name: "objectId", value : uiWidget.id}
@@ -65,7 +67,7 @@ UIWidget.prototype.deleteWidget = function(selectedElement) {
 		var result = ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "DeleteWidget", true, params), false) ;
 		if(result == "OK") { 
 			DOMUtil.removeElement(uiWidget) ;
-			eXo.webui.UIVerticalScroller.refreshScroll(0) ;
+			if(isInControlWorkspace) eXo.webui.UIVerticalScroller.refreshScroll(0) ;
 		}
 	}	
 };

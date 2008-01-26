@@ -39,13 +39,14 @@ public class StickerWidgetHandler extends Command {
   @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     try{ 
+      String userName = req.getRemoteUser();
+      if(userName == null || userName.trim().length() < 1) return ;
       PortalContainer container  = PortalContainer.getInstance();
       UserWidgetStorage service = 
         (UserWidgetStorage)container.getComponentInstanceOfType(UserWidgetStorage.class) ;    
       String[] split = objectId.split("/");
       String instantId = objectId;
       String widgetType = "StickerWidget";
-      String userName = req.getRemoteUser();
       if(content == null || content.length() < 1 ) content = " ";
       service.save(userName, widgetType, instantId, content);
     } catch (Exception e) {
