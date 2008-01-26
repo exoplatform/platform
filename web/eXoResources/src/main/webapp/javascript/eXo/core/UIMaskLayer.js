@@ -4,6 +4,29 @@
 function UIMaskLayer() {
 } ;
 /**
+ * Creates a transparent mask with "wait" cursor type
+ */
+UIMaskLayer.prototype.createTransparentMask = function() {
+	var mask = document.createElement("div");
+	mask.id = "TransparentMaskLayer";
+	mask.style.width = "100%" ;
+	mask.style.height = "100%" ;
+	mask.style.top = "0px" ;
+	mask.style.left = "0px" ;
+	mask.style.backgroundColor = "white";
+	eXo.core.Browser.setOpacity(mask, 0);
+	mask.style.zIndex = "2" ;
+	mask.style.position = "fixed";
+	mask.style.display = "block";
+	mask.style.cursor = "wait";
+	document.getElementsByTagName("body")[0].appendChild(mask);
+};
+
+UIMaskLayer.prototype.removeTransparentMask = function() {
+	var mask = document.getElementById("TransparentMaskLayer");
+	if (mask) document.getElementsByTagName("body")[0].removeChild(mask);
+};
+/**
  * Creates and returns the dom element that contains the mask layer, with these parameters
  *  . the mask layer is a child of blockContainerId
  *  . object
@@ -18,7 +41,6 @@ function UIMaskLayer() {
  *	.	style.top = "0px" ;
  *	.	style.left = "0px" ;
  */
-
 UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, position) {
 	try {
 		var Browser = eXo.core.Browser ;
@@ -37,7 +59,6 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 			 */
 			document.getElementById("MaskLayer").id = "subMaskLayer";
 		}
-		
 		blockContainer.appendChild(maskLayer) ;
 		
 		maskLayer.className = "MaskLayer" ;

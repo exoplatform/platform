@@ -481,25 +481,28 @@ function HttpResponseHandler(){
 	  instance.updateBlocks(response.blocksToUpdate) ;
 	  instance.executeScript(response.script) ;
 	  /*
-	   * clear the instance.to timeout if the request takes less time than expected to get response
-	   */
+	       * clear the instance.to timeout if the request takes less time than expected to get response
+	       * put the cursor to the original value 'auto' so it adapts to the user events
+	       */
 	  clearTimeout(instance.to);
-	  document.getElementsByTagName("body")[0].style.cursor="auto";
+	  eXo.core.UIMaskLayer.removeTransparentMask();
 	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
+
 	  eXo.portal.AjaxRequest.maskLayer = null ;
 	  eXo.portal.CurrentRequest = null ;
 	} ;
 	
 	/*
-	* This method is called when doing an AJAX call, it will put the "Loading" image in the
-	* middle of the page for the entire call of the request
-	*/
+	  * This method is called when doing an AJAX call, it will put the "Loading" image in the
+	  * middle of the page for the entire call of the request
+	  */
 	instance.ajaxLoading = function(request){
 		/*
 		 * wait 2 seconds (2000 ms) to display the loading popup
 		 * if the response comes before this timeout, the loading popup won't appear at all
-		 */
-		document.getElementsByTagName("body")[0].style.cursor="wait";
+		 * changes the cursor to 'wait' anyway to inform the user something is processing...
+		 */		
+		eXo.core.UIMaskLayer.createTransparentMask();
 		instance.to = setTimeout(function() {
 			if(eXo.portal.AjaxRequest.maskLayer == null) {
 				var mask = document.getElementById("AjaxLoadingMask") ;
