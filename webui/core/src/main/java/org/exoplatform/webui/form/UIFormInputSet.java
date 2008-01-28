@@ -114,19 +114,21 @@ public class UIFormInputSet extends  UIContainer {
     w.write("<table class=\"UIFormGrid\">") ;
     ResourceBundle res = context.getApplicationResourceBundle() ;
     UIForm uiForm = getAncestorOfType(UIForm.class);
-    for(UIComponent inputEntry :  getChildren()) {     
-      String label ;
-      try {
-        label = uiForm.getLabel(res, inputEntry.getId());
-        if(inputEntry instanceof UIFormInputBase) ((UIFormInputBase)inputEntry).setLabel(label);
-      } catch(MissingResourceException ex){
-        label = "&nbsp;" ;
-        System.err.println("\n "+uiForm.getId()+".label." + inputEntry.getId()+" not found value");
+    for(UIComponent inputEntry :  getChildren()) {
+      if(inputEntry.isRendered()) {
+        String label ;
+        try {
+          label = uiForm.getLabel(res, inputEntry.getId());
+          if(inputEntry instanceof UIFormInputBase) ((UIFormInputBase)inputEntry).setLabel(label);
+        } catch(MissingResourceException ex){
+          label = "&nbsp;" ;
+          System.err.println("\n "+uiForm.getId()+".label." + inputEntry.getId()+" not found value");
+        }
+        w.write("<tr>") ;
+        w.write("<td class=\"FieldLabel\">") ; w.write(label); w.write("</td>") ;
+        w.write("<td class=\"FieldComponent\">") ; renderUIComponent(inputEntry) ; w.write("</td>") ;
+        w.write("</tr>") ;
       }
-      w.write("<tr>") ;
-      w.write("<td class=\"FieldLabel\">") ; w.write(label); w.write("</td>") ;
-      w.write("<td class=\"FieldComponent\">") ; renderUIComponent(inputEntry) ; w.write("</td>") ;
-      w.write("</tr>") ;
     }
     w.write("</table>") ;
     w.write("</div>") ;

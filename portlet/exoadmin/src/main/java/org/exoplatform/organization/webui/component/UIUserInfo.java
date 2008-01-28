@@ -30,7 +30,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormTabPane;
-import org.exoplatform.webui.organization.UIAccountInputSet;
+import org.exoplatform.webui.organization.UIAccountEditInputSet;
 import org.exoplatform.webui.organization.UIUserMembershipSelector;
 import org.exoplatform.webui.organization.UIUserProfileInputSet;
 /**
@@ -45,7 +45,8 @@ import org.exoplatform.webui.organization.UIUserProfileInputSet;
   template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",
   events = {
     @EventConfig(listeners = UIUserInfo.SaveActionListener.class),
-    @EventConfig(listeners = UIUserInfo.BackActionListener.class, phase = Phase.DECODE) 
+    @EventConfig(listeners = UIUserInfo.BackActionListener.class, phase = Phase.DECODE),
+    @EventConfig(listeners = UIUserInfo.ChangePasswordActionListener.class, phase = Phase.DECODE)
   }
 )
 public class UIUserInfo extends UIFormTabPane { 
@@ -55,7 +56,7 @@ public class UIUserInfo extends UIFormTabPane {
 	public UIUserInfo() throws Exception {
     super("UIUserInfo");
     
-    UIFormInputSet accountInputSet = new UIAccountInputSet("AccountInputSet") ;
+    UIFormInputSet accountInputSet = new UIAccountEditInputSet("UIAccountEditInputSet") ;
     addChild(accountInputSet) ;
     setSelectedTab(accountInputSet.getId()) ;
     
@@ -64,6 +65,8 @@ public class UIUserInfo extends UIFormTabPane {
     
     UIFormInputContainer<?> uiUserMembershipSelectorSet = new UIUserMembershipSelector();
     addChild(uiUserMembershipSelectorSet);
+    
+    setActions(new String[]{"Save", "Back"}) ;
   }
 		
 	public void setUser(String userName) throws Exception {
@@ -71,7 +74,7 @@ public class UIUserInfo extends UIFormTabPane {
     OrganizationService service =  getApplicationComponent(OrganizationService.class);
     User user = service.getUserHandler().findUserByName(userName) ;
     
-    getChild(UIAccountInputSet.class).setValue(user) ;
+    getChild(UIAccountEditInputSet.class).setValue(user) ;
     getChild(UIUserProfileInputSet.class).setUserProfile(userName);
     
     UIUserMembershipSelector uiMembershipSelector = getChild(UIUserMembershipSelector.class);
@@ -93,7 +96,7 @@ public class UIUserInfo extends UIFormTabPane {
     public void execute(Event<UIUserInfo> event) throws Exception {
       UIUserInfo uiUserInfo = event.getSource() ;
       OrganizationService service =  uiUserInfo.getApplicationComponent(OrganizationService.class);      
-      boolean save = uiUserInfo.getChild(UIAccountInputSet.class).save(service, false) ; 
+      boolean save = uiUserInfo.getChild(UIAccountEditInputSet.class).save(service, false) ; 
       if(!save) return;
       uiUserInfo.getChild(UIUserProfileInputSet.class).save(service, uiUserInfo.getUserName(), false) ;      
       //uiUserInfo.getChild(UIUserMembershipSelector.class).save(service, true);      
@@ -105,7 +108,7 @@ public class UIUserInfo extends UIFormTabPane {
       UIUserInfo userInfo = event.getSource() ;
       UIUserManagement userManagement = userInfo.getParent() ;
       UIListUsers listUser = userManagement.getChild(UIListUsers.class) ;
-      UIAccountInputSet accountInput = userInfo.getChild(UIAccountInputSet.class) ;
+      UIAccountEditInputSet accountInput = userInfo.getChild(UIAccountEditInputSet.class) ;
       UIUserProfileInputSet userProfile = userInfo.getChild(UIUserProfileInputSet.class) ;
       userInfo.setRenderSibbling(UIListUsers.class) ;
       listUser.search(new Query()) ;
@@ -114,5 +117,24 @@ public class UIUserInfo extends UIFormTabPane {
       event.getRequestContext().setProcessRender(true) ;           
     }
   }
-  
+  static  public class ChangePasswordActionListener extends EventListener<UIUserInfo> {
+    public void execute(Event<UIUserInfo> event) throws Exception {
+      UIUserInfo userInfo = event.getSource() ;
+      UIAccountEditInputSet accountInput = userInfo.getChild(UIAccountEditInputSet.class) ;
+      if(accountInput.getUIFormCheckBoxInput("changepassword").isChecked()) {
+        accountInput.getUIStringInput("currentpassword").setRendered(true) ;
+        accountInput.getUIStringInput("newpassword").setRendered(true) ;
+        accountInput.getUIStringInput("confirmpassword").setRendered(true) ;
+        accountInput.getUIStringInput("currentpassword").setValue(null) ;
+        accountInput.getUIStringInput("newpassword").setValue(null) ;
+        accountInput.getUIStringInput("confirmpassword").setValue(null) ;
+      }
+      else {
+        String userName = accountInput.getUIStringInput("username").getValue() ;
+        OrganizationService service =  userInfo.getApplicationComponent(OrganizationService.class);
+        User user = service.getUserHandler().findUserByName(userName) ;
+        accountInput.setValue(user) ;
+      }
+    }
+  }
 }
