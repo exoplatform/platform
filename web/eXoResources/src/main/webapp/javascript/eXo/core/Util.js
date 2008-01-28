@@ -65,6 +65,13 @@ Array.prototype.pushAll = function (array) {
 	}
 } ;
 
+Array.prototype.each = function (iterator, context) {
+	iterator = iterator.bind(context);
+  	for (var i = 0; i < this.length; i++) {
+		iterator(this[i]) ;
+	}
+};
+
 /*************************************************************************/
 function  HashMap() { 
 	 this.properties = new Object() ;
@@ -214,4 +221,17 @@ eXo.core.ExoDateTime = new ExoDateTime() ;
 String.prototype.trim = function () {
   var tmp = this.replace(/^\s*/, '');
   return tmp.replace(/\s*$/, '');
+}
+
+
+/**
+ * @author jeremi joslin
+ * 
+ * Function util
+ */
+Function.prototype.bind = function(object) {
+  var method = this;
+  return function() {
+    method.apply(object, arguments);
+  }
 }

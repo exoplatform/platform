@@ -240,6 +240,17 @@ function AjaxRequest(method, url, queryString) {
 		if (typeof(instance.onInteractive) == "function") instance.onInteractive(instance) ;
 		instance.onInteractiveInternalHandled = true ;
 	} ;
+
+	/**
+	 * evaluate the response and return an object
+	 */
+  	instance.evalResponse = function() {
+		try {
+		  	return eval((instance.responseText || ''));
+		} catch (e) {
+		  	throw (new Error('Cannot eval the response')) ;
+		}
+	};
 	
 	
     /*
