@@ -76,6 +76,7 @@ public class UIAccountEditInputSet extends UIFormInputSet {
   public void setValue(User user) throws Exception  {
     if(user == null) return ;    
     invokeGetBindingField(user);
+    getUIFormCheckBoxInput("changepassword").setChecked(false) ;
     getUIStringInput(USERNAME).setEditable(false) ;
     getUIStringInput(PASSWORD1X).setRendered(false) ;
     getUIStringInput(PASSWORD2X).setRendered(false) ;
