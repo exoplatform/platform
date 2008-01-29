@@ -57,24 +57,19 @@ public class UIDropDownControl extends UIComponent {
     }
   }
   
-  // todo: dang.tung
   public void setValue(int i) {
         selectedItemIndex_ = i ; return ;
   }
-  // todo: dang.tung
   public void cleanItem() { options_.clear(); }
-  // todo: dang.tung
   public void setOptions(List<SelectItemOption<String>> options) { 
     options_ = options ; 
     if(options == null) return ; 
     if(options_.size() < 1)  return;
   } 
-  // todo: dang.tung return -1 if have no option
   public int getSelectedIndex() {
     if (options_.size() < 1) return -1 ;
     return selectedItemIndex_ ;
   }
-  // todo: dang.tung get label of item
   public String getLabel() { return options_.get(selectedItemIndex_).getLabel() ; }
 
   public String getValue() { return options_.get(selectedItemIndex_).getValue() ; }
