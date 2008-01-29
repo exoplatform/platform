@@ -79,3 +79,7 @@
 .UIMaskWorkspace .UIForm .HorizontalLayout .UINodeIconSelector .UIFormInputSet {
 	width: auto;
 }
+
+.UIMaskWorkspace .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer {
+	width: auto;
+}

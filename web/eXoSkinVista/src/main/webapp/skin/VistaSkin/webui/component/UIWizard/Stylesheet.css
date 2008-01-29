@@ -95,6 +95,10 @@
   margin: 0px 10px 0px 15px;
 }
 
+.UIWizard .UIDropDownControl {
+	width: 220px;
+}
+
 /*========================== End Wizard Content ==============================*/
 
 /*========================== Start ActionBar ==============================*/

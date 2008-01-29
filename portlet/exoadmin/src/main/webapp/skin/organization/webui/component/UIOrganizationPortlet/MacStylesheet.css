@@ -9,12 +9,16 @@
   background: white;
   margin: 5px;
   padding: 5px;
-  border: 1px solid #b7b7b7;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupInfo .UIGrid td {
+	height: auto;
+	padding: 4px 0px 7px 7px;
 }
 
 .UIOrganizationPortlet .OrganizationPortletContainer {
   padding: 5px 8px ;
-}
+} 
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
   float: left ;
@@ -86,6 +90,11 @@
 
 .UIOrganizationPortlet .UIForm .HorizontalLayout .FieldContainer {
   width: 380px;
+}
+
+.UIOrganizationPortlet .ManagementTabContent .UIGrid .ActionContainer {
+	width: 50px;
+	margin: auto;
 }
 
 /*##############################- UIUserManagement -###########################*/
@@ -314,7 +323,11 @@
   width: 46px;
 }
 
-.UIOrganizationPortlet .ManagementTabContent .UIPageIterator  {
+.UIOrganizationPortlet .ManagementTabContent .UIPageIterator {
 	height: 22px;
   margin-top: 2px;
+}
+
+.UIOrganizationPortlet .UIGrid td {
+	background: red;
 }

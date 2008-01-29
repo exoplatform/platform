@@ -9,3 +9,7 @@
 	border: none;
 	margin: 0px auto;
 }
+
+.UIIFramePortlet .UIFormWithTitle {
+	margin: auto;
+}
