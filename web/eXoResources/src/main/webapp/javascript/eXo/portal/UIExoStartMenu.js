@@ -90,7 +90,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
 	    	x -= (menuItemContainer.offsetWidth + this.offsetWidth) ;
 	  }
-	  if (eXo.core.Browser.getBrowserType() == "ie") x -= 10;
+	  if (eXo.core.Browser.isIE6()) x -= 10;
 	 	menuItemContainer.style.left = x + "px" ;
 		eXo.portal.UIExoStartMenu.createSlide(this);
     eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(this.menuItemContainer.id) ;
