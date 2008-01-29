@@ -9,6 +9,7 @@
   background: white;
   margin: 5px;
   padding: 5px;
+  *width: 97.5%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupInfo .UIGrid td {

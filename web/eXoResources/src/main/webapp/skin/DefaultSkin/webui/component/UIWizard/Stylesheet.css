@@ -12,7 +12,6 @@
 
 /*========================== Wizard Content ==============================*/
 .UIWizard .UIWizardContent { 
-  background: white;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
@@ -51,7 +50,6 @@
 
 .UIWizard .UIWizardContent .WizardStepContent {
   border: solid 1px #aeaeae; border-bottom: none;
-  background: white; 
 }
 
 .UIWizard .UIWizardContent .WizardStepContent .UIWizardPageSetInfo {
@@ -125,7 +123,7 @@
 /*========================== Start UIWizard Welcome ==============================*/
 .UIWizard .UIWizardWelcome {
   height: 233px;
-  background: url('background/WelcomeImage197x233.png') no-repeat left;
+  background: #ffffff url('background/WelcomeImage197x233.png') no-repeat left;
   padding: 0px 0px 0px 210px ;
   margin: 0px;
 }

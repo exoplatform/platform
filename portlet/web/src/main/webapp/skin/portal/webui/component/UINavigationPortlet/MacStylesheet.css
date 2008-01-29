@@ -145,7 +145,7 @@
 
 .UINavigationPortlet .ScrollLeftButton {
 	cursor: pointer;
-  background: url('MacSkin/background/ScrollLeft17x17.gif') no-repeat left;
+  background: url('MacSkin/background/UINavigationPortlet.png') no-repeat left -42px;
   width: 17px;
   height: 17px;
   padding-left: 17px;
@@ -154,7 +154,7 @@
 
 .UINavigationPortlet .ScrollRightButton {
 	cursor: pointer;
-	background: url('MacSkin/background/ScrollRight17x17.gif') no-repeat right;
+	background: url('MacSkin/background/UINavigationPortlet.png') no-repeat left -60px;
   width: 17px;
   height: 17px;
   margin: 0px 4px;
@@ -162,7 +162,7 @@
 
 .UINavigationPortlet .DisableScrollLeftButton {
   cursor: pointer;
-	background: url('MacSkin/background/DisableScrollLeft17x17.gif') no-repeat left;
+	background: url('MacSkin/background/UINavigationPortlet.png') no-repeat left -78px;
   width: 17px;
   height: 17px;
   padding-left: 17px;
@@ -171,7 +171,7 @@
 
 .UINavigationPortlet .DisableScrollRightButton { 
 	cursor: pointer;
-	background: url('MacSkin/background/DisableScrollRight17x17.gif') no-repeat right;
+	background: url('MacSkin/background/UINavigationPortlet.png') no-repeat left -96px;
   width: 17px;
   height: 17px;
   margin: 0px 4px;
@@ -179,7 +179,7 @@
 
 .UINavigationPortlet .HighlightScrollLeftButton {
   cursor: pointer;
-	background: url('MacSkin/background/HighlightScrollLeft17x17.gif') no-repeat left;
+	background: url('MacSkin/background/UINavigationPortlet.png') no-repeat left -114px;
   width: 17px;
   height: 17px;
   padding-left: 17px;
@@ -188,7 +188,7 @@
 
 .UINavigationPortlet .HighlightScrollRightButton {
 	cursor: pointer;
-	background: url('MacSkin/background/HighlightScrollRight17x17.gif') no-repeat;
+	background: url('MacSkin/background/UINavigationPortlet.png') no-repeat left -132px;
   width: 17px;
   height: 17px;
   margin: 0px 4px;
