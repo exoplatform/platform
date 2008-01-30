@@ -93,7 +93,7 @@
 
 .SearchIcon {
   width: 16px ;  height: 16px ; margin: auto;
-  background: url('icons/SearchIcon.png') ;
+  background: url('icons/SearchIcon.png') no-repeat;
 }
 
 .DeletePortalIcon {

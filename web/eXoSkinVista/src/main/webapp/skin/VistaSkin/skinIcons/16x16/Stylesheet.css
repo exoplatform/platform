@@ -33,6 +33,11 @@
   width: 17px ;  height: 18px ;
 }
 
+.SearchIcon {
+  width: 16px ;  height: 16px ; margin: auto;
+  background: url('icons/SearchIcon.png') no-repeat;
+}
+
 .SelectPage16x16Icon {
   background: url('icons/SelectPage.gif') no-repeat;
   width: 16px ;  height: 16px ;
