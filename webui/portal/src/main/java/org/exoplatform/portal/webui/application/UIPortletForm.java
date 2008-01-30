@@ -17,14 +17,11 @@
 package org.exoplatform.portal.webui.application;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Map;
 
 import javax.portlet.PortletPreferences;
 
-import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
@@ -33,16 +30,13 @@ import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.services.portletcontainer.PCConstants;
 import org.exoplatform.services.portletcontainer.helper.PortletWindowInternal;
-import org.exoplatform.services.portletcontainer.pci.ActionInput;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.Input;
 import org.exoplatform.services.portletcontainer.pci.model.ExoPortletPreferences;
 import org.exoplatform.services.portletcontainer.pci.model.Portlet;
-import org.exoplatform.services.portletcontainer.persistence.PortletPreferencesPersister;
 import org.exoplatform.services.portletcontainer.plugins.pc.PortletApplicationsHolder;
 import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.PortletPreferencesImp;
 import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.persistenceImp.PersistenceManager;
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
@@ -51,8 +45,6 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
-import org.exoplatform.webui.form.UIFormInput;
-import org.exoplatform.webui.form.UIFormInputBase;
 import org.exoplatform.webui.form.UIFormInputIconSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
@@ -84,6 +76,7 @@ public class UIPortletForm extends UIFormTabPane {
   	super("UIPortletForm");
   	UIFormInputSet uiPortletPrefSet = new UIFormInputSet(FIELD_PORTLET_PREF) ;
   	addUIFormInput(uiPortletPrefSet) ;
+  	setSelectedTab(FIELD_PORTLET_PREF) ;
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortletSetting") ;
   	uiSettingSet.
       addUIFormInput(new UIFormStringInput("id", "id", null).
@@ -97,7 +90,6 @@ public class UIPortletForm extends UIFormTabPane {
     	addUIFormInput(new UIFormCheckBoxInput("showWindowState", "showWindowState", false)).
       addUIFormInput(new UIFormTextAreaInput("description", "description", null));
     addUIFormInput(uiSettingSet);    
-    setSelectedTab(uiSettingSet.getId()) ;
     UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
     addUIFormInput(uiIconSelector) ;
     
