@@ -48,3 +48,8 @@
 .UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
   height: 280px;
 }
+
+.UIAccountPortlet .AccountInputSet .SearchIcon {
+	background-position: no-repeat;
+	margin-left: 5px;
+}

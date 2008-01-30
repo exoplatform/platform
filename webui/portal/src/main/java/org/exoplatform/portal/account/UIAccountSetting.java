@@ -26,15 +26,9 @@ import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
-/**
- * Created by The eXo Platform SARL
- * @author tungnd
- *         tung.nguyen@exoplatform.com
- */
 
 @ComponentConfig(
     template = "system:groovy/portal/webui/portal/UIAccountSettingForm.gtmpl",
-    //template = "system:/groovy/webui/form/UIVTabInputSet.gtmpl",
     events = {
         @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)   
     }

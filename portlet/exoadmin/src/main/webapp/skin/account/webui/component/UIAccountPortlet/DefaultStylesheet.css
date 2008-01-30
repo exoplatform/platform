@@ -80,3 +80,8 @@
 .UIAccountForm .UITabPane .TabPaneContent .UITabContentContainer {
   border: 1px solid #939393;
 }
+
+.UIAccountPortlet .AccountInputSet .SearchIcon {
+	background-position: no-repeat;
+	margin-left: 5px;
+}

@@ -86,3 +86,8 @@
   margin: auto;
   background: url('VistaSkin/background/CompanyAccountImage.jpg') no-repeat;
 }
+
+.UIAccountPortlet .AccountInputSet .SearchIcon {
+	background-position: no-repeat;
+	margin-left: 5px;
+}
