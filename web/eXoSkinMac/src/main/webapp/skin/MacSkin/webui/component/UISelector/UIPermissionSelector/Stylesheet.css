@@ -82,14 +82,14 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif') no-repeat left center;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.gif') no-repeat left 2px;
   line-height: 21px;
   padding-left: 25px;
   height: auto; width: auto;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left 2px;
   line-height: 21px;
   padding-left: 25px;
   height: auto; width: auto;

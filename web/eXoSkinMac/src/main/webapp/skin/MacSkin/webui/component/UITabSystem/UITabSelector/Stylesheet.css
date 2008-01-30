@@ -136,7 +136,3 @@
 .UIForm .HorizontalLayout .UIAccessGroup input.checkbox {
 	margin: 2px;
 }
-
-.UIAccessGroup .UIAction .ActionContainer .Icon {
-	margin: 1px 0px 0px 0px;
-}
