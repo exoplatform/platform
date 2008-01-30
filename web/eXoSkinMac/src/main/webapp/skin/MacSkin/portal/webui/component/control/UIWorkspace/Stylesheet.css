@@ -2,7 +2,7 @@
   width: 18px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
-  background: url('background/ControlWorkspaceBG18x1.png') repeat-y right;
+  background: url('background/ControlWorkspaceBG.gif') repeat-y center right;
 }
 
 .UIControlWorkspace .TopTitleBar{
@@ -32,6 +32,10 @@
 
 .UIControlWorkspace .UIWorkspaceControl { 
   margin-right: 2px ;
+}
+
+.UIControlWorkspace .UIDropDownControl { 
+	width: 216px;
 }
 
 /*########################### Tab ###########################*/

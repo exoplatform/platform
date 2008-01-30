@@ -95,7 +95,7 @@
   margin: 0px 10px 0px 15px;
 }
 
-.UIWizard .UIDropDownControl {
+.UIWizard .UIPageNodeSelector .UIDropDownControl {
 	width: 220px;
 }
 
@@ -217,13 +217,15 @@
 }
 
 .UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList {
-  background: #ffffff;
+  background: white url(background/ItemListBg1x13.png) repeat-x bottom;
   margin-right: 245px; 
   padding: 2px 2px 0px 2px;
   border: 1px solid #b7b7b7;
+	height: 262px;
 }
 
 .UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
+	background: none;
   border: none;
 }
 

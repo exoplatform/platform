@@ -48,6 +48,10 @@
   border: solid 1px #dbe4e4 ;  /*Fix Bug On IE*/  
 }
 
+.UIControlWorkspace .UIDropDownControl { 
+	width: 220px;
+}
+
 /*########################### Tab ###########################*/
 .UIControlWorkspace .UIWorkspacePanel .TabPortalIcon {
   float: left;  

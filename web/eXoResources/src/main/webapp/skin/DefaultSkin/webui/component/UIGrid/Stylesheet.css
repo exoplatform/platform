@@ -13,6 +13,7 @@
   border: 1px solid #b7b7b7;
   background: #d2ddf1 url('background/ThGridRepeatBg1x19.jpg') repeat-x;
   font-weight: normal;
+	padding: 0px 4px;
 }
 
 .UIGrid tbody {
