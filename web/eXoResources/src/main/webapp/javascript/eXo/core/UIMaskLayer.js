@@ -7,24 +7,30 @@ function UIMaskLayer() {
  * Creates a transparent mask with "wait" cursor type
  */
 UIMaskLayer.prototype.createTransparentMask = function() {
-	var mask = document.createElement("div");
-	mask.id = "TransparentMaskLayer";
-	mask.style.width = "100%" ;
-	mask.style.height = "100%" ;
-	mask.style.top = "0px" ;
-	mask.style.left = "0px" ;
-	mask.style.backgroundColor = "white";
-	eXo.core.Browser.setOpacity(mask, 0);
-	mask.style.zIndex = "2" ;
-	mask.style.position = "fixed";
+	var mask = document.getElementById("TransparentMaskLayer");
+	if (!mask) {
+		mask = document.createElement("div");
+		mask.id = "TransparentMaskLayer";
+		mask.style.width = "100%" ;
+		mask.style.height = "100%" ;
+		mask.style.top = "0px" ;
+		mask.style.left = "0px" ;
+		eXo.core.Browser.setOpacity(mask, 0);
+		mask.style.backgroundColor = "white";
+		mask.style.zIndex = "2" ;
+		mask.style.position = "absolute";
+		document.getElementsByTagName("body")[0].appendChild(mask);
+	}
 	mask.style.display = "block";
 	mask.style.cursor = "wait";
-	document.getElementsByTagName("body")[0].appendChild(mask);
 };
 
 UIMaskLayer.prototype.removeTransparentMask = function() {
 	var mask = document.getElementById("TransparentMaskLayer");
-	if (mask) document.getElementsByTagName("body")[0].removeChild(mask);
+	if (mask) {
+		mask.style.cursor = "auto";
+		mask.style.display = "none";
+	}
 };
 /**
  * Creates and returns the dom element that contains the mask layer, with these parameters
