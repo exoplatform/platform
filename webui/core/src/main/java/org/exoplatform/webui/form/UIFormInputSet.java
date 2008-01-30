@@ -121,7 +121,8 @@ public class UIFormInputSet extends  UIContainer {
           label = uiForm.getLabel(res, inputEntry.getId());
           if(inputEntry instanceof UIFormInputBase) ((UIFormInputBase)inputEntry).setLabel(label);
         } catch(MissingResourceException ex){
-          label = "&nbsp;" ;
+          //label = "&nbsp;" ;
+          label = inputEntry.getName() ;
           System.err.println("\n "+uiForm.getId()+".label." + inputEntry.getId()+" not found value");
         }
         w.write("<tr>") ;
