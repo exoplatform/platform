@@ -72,7 +72,7 @@ public class UIAccountForm extends UIFormTabPane {
     addCategory.setActionListener("SearchUser") ;
     addCategory.setActionType(ActionData.TYPE_ICON) ;
     addCategory.setActionName("SearchUser") ;
-    addCategory.setCssIconClass("Search") ;
+    addCategory.setCssIconClass("SearchIcon") ;
     actions.add(addCategory) ;
     accountInputSet.setActionField("username", actions) ;
     setSelectedTab(accountInputSet.getId()) ;
