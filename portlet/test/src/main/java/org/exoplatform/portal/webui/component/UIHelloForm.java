@@ -48,7 +48,8 @@ public class UIHelloForm extends UIForm {
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>() ;
     options.add(new SelectItemOption<String>("Option 1", "Value 1"));
     options.add(new SelectItemOption<String>("Option 2", "Value 2"));
-    addUIFormInput(new UIFormStringInput("StringInput", "StringInput", null));
+    options.add(new SelectItemOption<String>("Option 3", "Value 3"));
+    addUIFormInput(new UIFormStringInput("StringInput", "StringInput", null).setMaxLength(5));
     addUIFormInput(new UIFormTextAreaInput("TextareaInput", "TextareaInput", null));
     addUIFormInput(new UIFormCheckBoxInput("CheckboxInput", "CheckboxInput", null));
     addUIFormInput(new UIFormRadioBoxInput("RadioInput", "RadioInput", options));
