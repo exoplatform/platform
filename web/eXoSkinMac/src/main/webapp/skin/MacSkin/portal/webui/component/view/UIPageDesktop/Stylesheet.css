@@ -10,7 +10,13 @@
   bottom: 0px;
   margin: auto ;
   z-index: 30 ;
-  cursor: pointer ;
+  cursor: pointer;
+}
+
+.UIPageDesktop .NavigationContainer {
+  position: absolute;
+  left: -70px;
+  top: -450px;
 }
 
 .UIPageDesktop .UIDockBar .Icon {
@@ -136,3 +142,4 @@
 .UIDockBar .UIRightClickPopupMenu .CloseDockBarIcon {
 	background: url('icons/24x24/CloseDockbarIcon24x24.gif') no-repeat left ;
 }
+

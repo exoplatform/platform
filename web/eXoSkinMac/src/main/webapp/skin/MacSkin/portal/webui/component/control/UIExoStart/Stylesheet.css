@@ -44,8 +44,7 @@
 }
 
 .UIExoStart .StartMenuContainer {
-	display: none;
-	position:absolute ;
+	visibility: visible;
 }
 
 .UIExoStart .StartMenuContainer .LoginContainer {
@@ -148,7 +147,7 @@
 }
 
 .UIExoStart .StartMenuContainer .PageNavigationBlock {
-  padding: 2px 4px;
+  padding: 2px 7px 2px 4px;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer {

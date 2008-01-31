@@ -57,8 +57,7 @@
 }
 
 .UIExoStart .StartMenuContainer {
-	display: none;
-	position:absolute ;
+	visibility: visible;
 }
 
 .UIExoStart .StartMenuContainer .LoginContainer {

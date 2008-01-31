@@ -11,5 +11,10 @@
 }
 
 .UIIFramePortlet .UIFormWithTitle {
+	margin: 50px auto;
+}
+
+.UIIFramePortlet .UIFormWithTitle .UIFormGrid {
+	width: auto;
 	margin: auto;
 }
