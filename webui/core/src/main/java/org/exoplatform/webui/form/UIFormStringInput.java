@@ -42,7 +42,11 @@ public class UIFormStringInput extends UIFormInputBase<String> {
    * type of the text field
    */
   private short type_ = TEXT_TYPE ;
-    
+  /**
+   * max size of text field
+   */
+  private int maxLength = 0;
+  
   public UIFormStringInput(String name, String bindingExpression, String value) {
     super(name, bindingExpression, String.class);
     this.value_ = value ;
@@ -55,7 +59,16 @@ public class UIFormStringInput extends UIFormInputBase<String> {
   public UIFormStringInput setType(short type) {
     type_ = type;
     return this ;
-  } 
+  }
+  
+  public UIFormStringInput setMaxLength(int maxLengt){
+    this.maxLength = maxLengt;
+    return this;
+  }
+  
+  public int getMaxLength(){
+    return maxLength;
+  }
   
   @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {
@@ -74,7 +87,9 @@ public class UIFormStringInput extends UIFormInputBase<String> {
       //TODO TrongTT: The temporary solution for ajax updating problem in IE6 & IE7
       if(type_ == PASSWORD_TYPE) context.getJavascriptManager().addCustomizedOnLoadScript("document.getElementById('" + getId() + "').value = '" + encodeValue(value_).toString() + "';") ;
     }
-  	if (readonly_) w.write(" readonly ");  	
+    if(maxLength > 0)
+      w.write(" maxlength='" + maxLength + "'");
+  	if (readonly_) w.write(" readonly ");
   	w.write("/>") ;
   }
   
