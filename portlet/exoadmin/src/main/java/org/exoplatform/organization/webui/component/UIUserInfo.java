@@ -29,8 +29,8 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
-import org.exoplatform.webui.organization.UIAccountEditInputSet;
 import org.exoplatform.webui.organization.UIUserMembershipSelector;
 import org.exoplatform.webui.organization.UIUserProfileInputSet;
 /**
@@ -121,16 +121,14 @@ public class UIUserInfo extends UIFormTabPane {
     public void execute(Event<UIUserInfo> event) throws Exception {
       UIUserInfo userInfo = event.getSource() ;
       UIAccountEditInputSet accountInput = userInfo.getChild(UIAccountEditInputSet.class) ;
-      if(accountInput.getUIFormCheckBoxInput("changepassword").isChecked()) {
-        accountInput.getUIStringInput("currentpassword").setRendered(true) ;
-        accountInput.getUIStringInput("newpassword").setRendered(true) ;
-        accountInput.getUIStringInput("confirmpassword").setRendered(true) ;
-        accountInput.getUIStringInput("currentpassword").setValue(null) ;
-        accountInput.getUIStringInput("newpassword").setValue(null) ;
-        accountInput.getUIStringInput("confirmpassword").setValue(null) ;
+      UIFormStringInput password1 = accountInput.getUIStringInput(UIAccountEditInputSet.PASSWORD1X) ;
+      UIFormStringInput password2 = accountInput.getUIStringInput(UIAccountEditInputSet.PASSWORD2X) ;
+      if(accountInput.getUIFormCheckBoxInput(UIAccountEditInputSet.CHANGEPASS).isChecked()) {
+        ((UIFormStringInput)password1.setValue(null)).setRendered(true);
+        ((UIFormStringInput)password2.setValue(null)).setRendered(true);
       }
       else {
-        String userName = accountInput.getUIStringInput("username").getValue() ;
+        String userName = accountInput.getUIStringInput(UIAccountEditInputSet.USERNAME).getValue() ;
         OrganizationService service =  userInfo.getApplicationComponent(OrganizationService.class);
         User user = service.getUserHandler().findUserByName(userName) ;
         accountInput.setValue(user) ;
