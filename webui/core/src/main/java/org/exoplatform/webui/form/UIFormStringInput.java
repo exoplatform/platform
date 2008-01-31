@@ -45,7 +45,7 @@ public class UIFormStringInput extends UIFormInputBase<String> {
   /**
    * max size of text field
    */
-  private int maxLength = 0;
+  private int maxLength = 0 ;
   
   public UIFormStringInput(String name, String bindingExpression, String value) {
     super(name, bindingExpression, String.class);
@@ -61,13 +61,13 @@ public class UIFormStringInput extends UIFormInputBase<String> {
     return this ;
   }
   
-  public UIFormStringInput setMaxLength(int maxLengt){
-    this.maxLength = maxLengt;
-    return this;
+  public UIFormStringInput setMaxLength(int maxLength) {
+    this.maxLength = maxLength ;
+    return this ;
   }
   
-  public int getMaxLength(){
-    return maxLength;
+  public int getMaxLength() {
+    return maxLength ;
   }
   
   @SuppressWarnings("unused")
@@ -88,8 +88,8 @@ public class UIFormStringInput extends UIFormInputBase<String> {
       if(type_ == PASSWORD_TYPE) context.getJavascriptManager().addCustomizedOnLoadScript("document.getElementById('" + getId() + "').value = '" + encodeValue(value_).toString() + "';") ;
     }
     if(maxLength > 0)
-      w.write(" maxlength='" + maxLength + "'");
-  	if (readonly_) w.write(" readonly ");
+      w.write(" maxlength='" + maxLength + "'") ;
+  	if (readonly_) w.write(" readonly ") ;
   	w.write("/>") ;
   }
   
