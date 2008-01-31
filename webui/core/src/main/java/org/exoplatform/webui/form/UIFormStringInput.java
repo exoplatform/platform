@@ -84,11 +84,8 @@ public class UIFormStringInput extends UIFormInputBase<String> {
     w.write(" id='") ; w.write(getId()); w.write('\'');
   	if(value_ != null && value_.length() > 0) {      
       w.write(" value='"); w.write(encodeValue(value_).toString()); w.write('\'');
-      //TODO TrongTT: The temporary solution for ajax updating problem in IE6 & IE7
-      if(type_ == PASSWORD_TYPE) context.getJavascriptManager().addCustomizedOnLoadScript("document.getElementById('" + getId() + "').value = '" + encodeValue(value_).toString() + "';") ;
     }
-    if(maxLength > 0)
-      w.write(" maxlength='" + maxLength + "'") ;
+    if(maxLength > 0) w.write(" maxlength='" + maxLength + "'") ;
   	if (readonly_) w.write(" readonly ") ;
   	w.write("/>") ;
   }
