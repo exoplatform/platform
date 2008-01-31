@@ -155,6 +155,7 @@ public class UIPortletForm extends UIFormTabPane {
     Enumeration<String> prefNames = preferences.getNames() ;
     if(!prefNames.hasMoreElements()) {
       uiPortletPrefSet.setRendered(false) ;
+      setSelectedTab("PortletSetting") ;
       return ;
     }
     while(prefNames.hasMoreElements()) {
