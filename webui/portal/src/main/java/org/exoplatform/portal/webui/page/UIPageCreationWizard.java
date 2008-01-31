@@ -180,6 +180,20 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       PageNode pageNode = uiPageSetInfo.getPageNode();
       String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
+      //TODO: dang.tung - node name is existing
+      //---------------------------------------------------------------------------------------------
+      boolean isExist = false ;
+      List<PageNode> nodes = navigation.getNodes();
+      for(PageNode ele : nodes) {
+        if(ele.getUri().equals(pageNode.getUri())) isExist = true;
+      }
+      if(isExist) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
+        uiWizard.viewStep(2);
+        return;   
+      }
+      //----------------------------------------------------------------------------------------------
       DataStorage storage = uiWizard.getApplicationComponent(DataStorage.class);
       if(storage.getPage(pageId) != null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
