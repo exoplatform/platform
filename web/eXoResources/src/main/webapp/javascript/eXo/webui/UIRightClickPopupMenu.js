@@ -36,11 +36,9 @@ UIRightClickPopupMenu.prototype.prepareObjectId = function(evt, elemt) {
 	contextMenu.style.dispay = "none" ;
 	var href = elemt.getAttribute('href').replace('_objectid_', encodeURI(contextMenu.objId.replace(/'/g, "\\'"))) ;
 	if(href.indexOf("javascript") == 0) {
-		//TODO: dang.tung - do not eval href value because it'll eval confirm message -> error in IE
-		//eval(href) ;
-		elemt.setAttribute('href', href) ;
+		eval(href) ;
 		eXo.core.MouseEventManager.docMouseDownEvt(evt) ;
-		return true;
+		return false;
 	}
 	elemt.setAttribute('href', href) ;
 	return true;
