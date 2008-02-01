@@ -49,7 +49,7 @@ public class UIFormStringInput extends UIFormInputBase<String> {
   
   public UIFormStringInput(String name, String bindingExpression, String value) {
     super(name, bindingExpression, String.class);
-    this.value_ = value ;
+    this.value_ = value ; 
   }
   
   public UIFormStringInput(String name, String value) {
@@ -72,7 +72,9 @@ public class UIFormStringInput extends UIFormInputBase<String> {
   
   @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {
-    value_ = (String) input;
+    String val = (String) input ;
+    if((val == null || val.length() == 0) && type_ == PASSWORD_TYPE) return ; 
+    value_ = val ;
     if(value_ != null && value_.length() == 0) value_ = null ;
   }
   
