@@ -101,7 +101,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 UIExoStartMenu.prototype.createSlide = function(menuItem) {
 		
 		var menuItemContainer = menuItem.menuItemContainer ;
-		menuItemContainer.style.top = "-999px";
+		menuItemContainer.style.top = -1000 + "px";
 		menuItemContainer.style.display = "block" ;
 		// fix width for menuContainer, only IE.
 		if (!menuItemContainer.resized) eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
