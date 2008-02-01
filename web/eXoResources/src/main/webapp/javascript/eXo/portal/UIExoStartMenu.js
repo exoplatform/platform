@@ -5,8 +5,8 @@
 function UIExoStartMenu() {
   this.buttonClicked = false ;
   this.clipTop = 1 ;
-  this.clipBottom = 1 ;
-  this.stepScroll = 5 ;
+	this.clipBottom = 1 ;
+	this.stepScroll = 5 ;
 	
   this.itemStyleClass = "MenuItem" ;
   this.itemOverStyleClass = "MenuItemOver" ;
@@ -26,7 +26,7 @@ UIExoStartMenu.prototype.init = function(popupMenu, container, x, y) {
   
   this.exoStartButton = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ExoStartButton") ;
   this.exoStartButton.onmouseover = function() {
-   if(!eXo.portal.UIExoStartMenu.buttonClicked) this.className = "ExoStartButton ButtonOver" ;
+  	if(!eXo.portal.UIExoStartMenu.buttonClicked) this.className = "ExoStartButton ButtonOver" ;
   };
   this.exoStartButton.onmouseout = function() {
   	if(!eXo.portal.UIExoStartMenu.buttonClicked) this.className = "ExoStartButton ButtonNormal" ;
@@ -86,22 +86,21 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 		
 		var menuItemContainer = this.menuItemContainer ;
 		var x = this.offsetWidth + this.offsetLeft ;
-	 var rootX = eXo.core.Browser.findPosX(this) ;
+	  var rootX = eXo.core.Browser.findPosX(this) ;
 		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
 	    	x -= (menuItemContainer.offsetWidth + this.offsetWidth) ;
 	  }
 	  if (eXo.core.Browser.isIE6()) x -= 10;
 	 	menuItemContainer.style.left = x + "px" ;
-		 eXo.portal.UIExoStartMenu.createSlide(this);
-   eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(this.menuItemContainer.id) ;
+		eXo.portal.UIExoStartMenu.createSlide(this);
+    eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(this.menuItemContainer.id) ;
 	
 	}
 };
 
 UIExoStartMenu.prototype.createSlide = function(menuItem) {
-		
+
 		var menuItemContainer = menuItem.menuItemContainer ;
-		menuItemContainer.style.top = -1000 + "px";
 		menuItemContainer.style.display = "block" ;
 		// fix width for menuContainer, only IE.
 		if (!menuItemContainer.resized) eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
@@ -198,12 +197,12 @@ UIExoStartMenu.prototype.showStartMenu = function(event) {
     eXo.portal.UIExoStartMenu.buttonClicked = true ;
     var menuY = eXo.core.Browser.findPosY(eXo.portal.UIExoStartMenu.exoStartButton) ;
     this.superClass.show(uiStartContainer) ;		
-    var y = menuY - uiStartContainer.offsetHeight ;
+		var y = menuY - uiStartContainer.offsetHeight ;
 		
     if(window.pageYOffset) y -= window.pageYOffset ;
     else if (document.documentElement.scrollTop) y -= document.documentElement.scrollTop ;
     else if (document.body.scrollTop) y -= document.body.scrollTop ;
-    this.superClass.setPosition(uiStartContainer, 0, y) ;
+		this.superClass.setPosition(uiStartContainer, 0, y) ;
 		
     uiStartContainer.style.width = "238px" ;
     uiStartContainer.style.height = uiStartContainer.offsetHeight + "px" ;

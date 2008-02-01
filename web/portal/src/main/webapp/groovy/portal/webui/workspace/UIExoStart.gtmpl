@@ -43,7 +43,7 @@
             </div>
           </div>
         </div>
-        <div class="MenuItemContainer">
+        <div class="MenuItemContainer" style="top: -1000px;">
           <div class="StartMenuDecorator">
             <div class="StartMenuTL">
               <div class="StartMenuTR">
@@ -123,7 +123,7 @@
    	//if (navigations != null && navigations.size() > 0 && navigations.get(0).getNodes().size() > 0) {
    	if (navigations != null && navigations.size() > 0) {
        	print """ 
-        <div class="MenuItemContainer NavigationContainer">
+        <div class="MenuItemContainer NavigationContainer" style="top: -1000px;">
           <div class="StartMenuDecorator">
             <div class="StartMenuTL">
               <div class="StartMenuTR">
@@ -178,7 +178,7 @@
             </div>
           </div>
         </div>
-        <div class="MenuItemContainer">
+        <div class="MenuItemContainer" style="top: - 1000px;">
           <div class="StartMenuDecorator">
             <div class="StartMenuTL">
               <div class="StartMenuTR">
@@ -288,7 +288,7 @@
       <div class="StartMenuML">
         <div class="StartMenuMR">
           <div class="StartMenuBG">      
-            <div class="MenuItemContainer">
+            <div class="MenuItemContainer" style="top: -1000px;">
               <%
                 for(menu in uicomponent.getMenus())  {
                   for(item in menu)  {
