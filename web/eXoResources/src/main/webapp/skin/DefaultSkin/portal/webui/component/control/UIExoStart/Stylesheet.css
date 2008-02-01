@@ -277,6 +277,7 @@
 
 .UIExoStart .StartMenuDecorator .StartMenuBG {
 	background: white;
+	width: 100%;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBL {

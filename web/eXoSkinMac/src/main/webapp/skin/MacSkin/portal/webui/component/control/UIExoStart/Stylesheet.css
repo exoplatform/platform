@@ -280,6 +280,7 @@
 
 .UIExoStart .StartMenuDecorator .StartMenuBG {
   background: url('background/MenuDecoratorMC1x4.png');
+  width: 100%;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBL {

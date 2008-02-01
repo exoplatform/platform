@@ -281,7 +281,7 @@
   </div>
   
   
-  <div id="StartMenuContainer" class="StartMenuContainer" style="display: none;">
+  <div id="StartMenuContainer" class="StartMenuContainer" style="display: none; top: 0px;">
  
     <div class="StartMenuDecorator">
       <div class="TopDecorator"><span></span></div>
