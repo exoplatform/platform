@@ -22,6 +22,7 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
+import org.exoplatform.webui.form.UIFormInputBase;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
@@ -44,14 +45,9 @@ public class UIAccountEditInputSet extends UIFormInputSet {
   public UIAccountEditInputSet(String name) throws Exception {
     super(name);
     addUIFormInput(new UIFormStringInput(USERNAME, "userName", null).
+                   setEditable(false).
                    addValidator(EmptyFieldValidator.class).
-                   addValidator(IdentifierValidator.class));
-    addUIFormInput(new UIFormStringInput(PASSWORD1X, "password", null).
-                   setType(UIFormStringInput.PASSWORD_TYPE).
-                   addValidator(StringLengthValidator.class, 6,30)) ;
-    addUIFormInput(new UIFormStringInput(PASSWORD2X, "password", null).
-                  setType(UIFormStringInput.PASSWORD_TYPE).
-                  addValidator(EmptyFieldValidator.class)) ;
+                   addValidator(IdentifierValidator.class));    
     addUIFormInput(new UIFormStringInput("firstName", "firstName", null).
                    addValidator(EmptyFieldValidator.class)) ;
     addUIFormInput(new UIFormStringInput("lastName", "lastName", null).
@@ -59,9 +55,19 @@ public class UIAccountEditInputSet extends UIFormInputSet {
     addUIFormInput(new UIFormStringInput("email", "email", null). 
                    addValidator(EmptyFieldValidator.class).
                    addValidator(EmailAddressValidator.class));    
-    UIFormCheckBoxInput<Boolean> uiCheckbox = new UIFormCheckBoxInput<Boolean>("changePassword",null,false) ;
-    uiCheckbox.setOnChange("ChangePassword", "UIUserInfo") ;
+    UIFormCheckBoxInput<Boolean> uiCheckbox = new UIFormCheckBoxInput<Boolean>(CHANGEPASS,null,false) ;
+                   uiCheckbox.setOnChange("ToggleChangePassword", "UIUserInfo") ;
     addUIFormInput(uiCheckbox) ;
+    UIFormInputBase<String> uiInput = new UIFormStringInput(PASSWORD1X, null, null).
+                   setType(UIFormStringInput.PASSWORD_TYPE).
+                   addValidator(StringLengthValidator.class, 6,30) ;
+                   uiInput.setRendered(false) ;
+    addUIFormInput(uiInput) ;
+    uiInput = new UIFormStringInput(PASSWORD2X, null, null).
+                   setType(UIFormStringInput.PASSWORD_TYPE).
+                   addValidator(EmptyFieldValidator.class) ;
+                   uiInput.setRendered(false) ;
+    addUIFormInput(uiInput) ;
   }
   
   public String getUserName(){ return getUIStringInput(USERNAME).getValue(); }
@@ -71,42 +77,43 @@ public class UIAccountEditInputSet extends UIFormInputSet {
   public void setValue(User user) throws Exception  {
     if(user == null) return ;    
     invokeGetBindingField(user);
-    getUIFormCheckBoxInput(CHANGEPASS).setChecked(false) ;
-    getUIStringInput(USERNAME).setEditable(false) ;
-    getUIStringInput(PASSWORD1X).setRendered(false) ;
-    getUIStringInput(PASSWORD2X).setRendered(false) ;
   }
   
-  public boolean save(OrganizationService service, boolean newUser) throws Exception { 
+  public boolean save(OrganizationService service) throws Exception { 
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     UIApplication uiApp = context.getUIApplication() ;
-    String pass1x = getUIStringInput(PASSWORD1X).getValue();
-    String pass2x = getUIStringInput(PASSWORD2X).getValue();
-    if (!pass1x.equals(pass2x)){
-      uiApp.addMessage(new ApplicationMessage("UIAccountForm.msg.password-is-not-match", null)) ;
-      return false ;
-    }
     String username = getUIStringInput(USERNAME).getValue() ;
-    if(newUser) {
-      User user = service.getUserHandler().createUserInstance(username) ;
-      invokeSetBindingField(user) ;
-      //user.setPassword(Util.encodeMD5(pass1x)) ;
-      if(service.getUserHandler().findUserByName(user.getUserName()) != null) {
-        Object[] args = {user.getUserName()} ;
-        uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.user-exist", args)) ;
-        return false;
-      }      
-      
-      service.getUserHandler().createUser(user, true);
-      reset();
-      return true;
-    }     
     User user = service.getUserHandler().findUserByName(username) ;
     invokeSetBindingField(user) ;
-//    user.setPassword(Util.encodeMD5(pass1x)) ;
+    if(isChangePassword()) {
+      String pass1x = getUIStringInput(PASSWORD1X).getValue();
+      String pass2x = getUIStringInput(PASSWORD2X).getValue();
+      if (!pass1x.equals(pass2x)){
+        uiApp.addMessage(new ApplicationMessage("UIAccountForm.msg.password-is-not-match", null)) ;
+        return false ;
+      }      
+      user.setPassword(pass1x) ;
+    }
     service.getUserHandler().saveUser(user, true) ;
-    getUIFormCheckBoxInput("changePassword").setChecked(false) ;
-    setValue(user) ;
+    enableChangePassword(false) ;
     return true;
   }
+  
+  public boolean isChangePassword() {
+    return getUIFormCheckBoxInput(UIAccountEditInputSet.CHANGEPASS).isChecked() ; 
+  }
+  
+  public void enableChangePassword(boolean enable) {
+    getUIFormCheckBoxInput(UIAccountEditInputSet.CHANGEPASS).setChecked(enable) ;
+    checkChangePassword() ;
+  }
+  
+  public void checkChangePassword() {
+    UIFormStringInput password1 = getUIStringInput(UIAccountEditInputSet.PASSWORD1X) ;
+    UIFormStringInput password2 = getUIStringInput(UIAccountEditInputSet.PASSWORD2X) ;
+    boolean isChange = isChangePassword() ;
+    ((UIFormStringInput)password1.setValue(null)).setRendered(isChange);
+    ((UIFormStringInput)password2.setValue(null)).setRendered(isChange);
+  }
+  
 }

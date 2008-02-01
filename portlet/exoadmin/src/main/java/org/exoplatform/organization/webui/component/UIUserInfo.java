@@ -46,7 +46,7 @@ import org.exoplatform.webui.organization.UIUserProfileInputSet;
   events = {
     @EventConfig(listeners = UIUserInfo.SaveActionListener.class),
     @EventConfig(listeners = UIUserInfo.BackActionListener.class, phase = Phase.DECODE),
-    @EventConfig(listeners = UIUserInfo.ChangePasswordActionListener.class, phase = Phase.DECODE)
+    @EventConfig(listeners = UIUserInfo.ToggleChangePasswordActionListener.class, phase = Phase.DECODE)
   }
 )
 public class UIUserInfo extends UIFormTabPane { 
@@ -96,10 +96,9 @@ public class UIUserInfo extends UIFormTabPane {
     public void execute(Event<UIUserInfo> event) throws Exception {
       UIUserInfo uiUserInfo = event.getSource() ;
       OrganizationService service =  uiUserInfo.getApplicationComponent(OrganizationService.class);      
-      boolean save = uiUserInfo.getChild(UIAccountEditInputSet.class).save(service, false) ; 
+      boolean save = uiUserInfo.getChild(UIAccountEditInputSet.class).save(service) ; 
       if(!save) return;
-      uiUserInfo.getChild(UIUserProfileInputSet.class).save(service, uiUserInfo.getUserName(), false) ;      
-      //uiUserInfo.getChild(UIUserMembershipSelector.class).save(service, true);      
+      uiUserInfo.getChild(UIUserProfileInputSet.class).save(service, uiUserInfo.getUserName(), false) ;            
     }
   }
   
@@ -117,22 +116,11 @@ public class UIUserInfo extends UIFormTabPane {
       event.getRequestContext().setProcessRender(true) ;           
     }
   }
-  static  public class ChangePasswordActionListener extends EventListener<UIUserInfo> {
+  static  public class ToggleChangePasswordActionListener extends EventListener<UIUserInfo> {
     public void execute(Event<UIUserInfo> event) throws Exception {
       UIUserInfo userInfo = event.getSource() ;
-      UIAccountEditInputSet accountInput = userInfo.getChild(UIAccountEditInputSet.class) ;
-      UIFormStringInput password1 = accountInput.getUIStringInput(UIAccountEditInputSet.PASSWORD1X) ;
-      UIFormStringInput password2 = accountInput.getUIStringInput(UIAccountEditInputSet.PASSWORD2X) ;
-      if(accountInput.getUIFormCheckBoxInput(UIAccountEditInputSet.CHANGEPASS).isChecked()) {
-        ((UIFormStringInput)password1.setValue(null)).setRendered(true);
-        ((UIFormStringInput)password2.setValue(null)).setRendered(true);
-      }
-      else {
-        String userName = accountInput.getUIStringInput(UIAccountEditInputSet.USERNAME).getValue() ;
-        OrganizationService service =  userInfo.getApplicationComponent(OrganizationService.class);
-        User user = service.getUserHandler().findUserByName(userName) ;
-        accountInput.setValue(user) ;
-      }
+      UIAccountEditInputSet uiAccountInput = userInfo.getChild(UIAccountEditInputSet.class) ;
+      uiAccountInput.checkChangePassword() ;
     }
   }
 }
