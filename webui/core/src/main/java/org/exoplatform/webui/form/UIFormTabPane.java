@@ -31,7 +31,8 @@ abstract public class UIFormTabPane extends UIForm {
   /**
    * Whether to represent an info bar
    */
-//  private boolean withInfoBar = true;
+  private boolean withInfoBar = true;
+  private boolean withRenderTabName = true ;
   /**
    * The tab to render
    */
@@ -56,6 +57,10 @@ abstract public class UIFormTabPane extends UIForm {
 		
 	public String getName() { return name_ ;}  
 
-//  public boolean hasInfoBar(){ return withInfoBar; }
-//  public void setInfoBar(boolean value) { withInfoBar  = value; }
+  public boolean hasInfoBar(){ return withInfoBar; }
+  public void setInfoBar(boolean value) { withInfoBar  = value; }
+  
+  public boolean hasRenderResourceTabName() { return withRenderTabName ; }
+  public void setRenderResourceTabName(boolean bool) { withRenderTabName = bool ; }
+
 }
