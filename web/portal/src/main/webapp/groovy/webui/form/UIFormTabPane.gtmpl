@@ -18,11 +18,7 @@
 			                if(!inputSet.isRendered()) continue ;
 					        		String className="NormalTab" ;
 					        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
-					        		boolean renderResource = uicomponent.hasRenderResourceTabName(); 
-				              String tabName = inputSet.getName() ; 
-				              if(renderResource) {
-				                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
-				              }
+				              		String tabName = inputSet.getName() ; 
                   %>
 					              <div class="UITab NormalTabStyle">
 					                <div class="$className">
@@ -49,7 +45,7 @@
                 String display = "none" ;
                 if(formInput.getId().equals(selTabId)) display="block" ;
             %>
-                <div class="UITabContent" id="UITabContent"  style="display: $display;">
+                <div class="UITabContent" style="display: $display;">
                   <%
                   	uicomponent.renderUIComponent(formInput) ;
                   %>
