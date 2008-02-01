@@ -113,12 +113,12 @@ public class PortalRequestContext extends WebuiRequestContext {
     return request_.getParameterValues(name) ;
   }  
   
-  public Map getPortletParameters() {
-    Map unsortedParams = getRequest().getParameterMap();
-    Map sortedParams = new HashMap(); 
-    Set keys = unsortedParams.keySet();
-    for (Iterator iter = keys.iterator(); iter.hasNext();) {
-      String key = (String) iter.next();
+  public Map<String, String[]> getPortletParameters() {
+    Map<String, String[]> unsortedParams = getRequest().getParameterMap();
+    Map<String, String[]> sortedParams = new HashMap<String, String[]>(); 
+    Set<String> keys = unsortedParams.keySet();
+    for (Iterator<String> iter = keys.iterator(); iter.hasNext();) {
+      String key = iter.next();
       if(!key.startsWith(Constants.PARAMETER_ENCODER)) {
         sortedParams.put(key, unsortedParams.get(key));
       }

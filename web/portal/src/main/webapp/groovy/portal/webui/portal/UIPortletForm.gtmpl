@@ -1,0 +1,98 @@
+<%
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
+%>
+
+<div class="UIFormTabPane">
+  <div class="UITabPane">
+		<div class="TabPaneContent">
+	    <div class="WorkingArea">
+	     	<div class="UIHorizontalTabs" >
+	     	  <div class="LeftHorizontalTabs">
+	     	    <div class="RightHorizontalTabs">
+	     	      <div class="CenterHorizontalTabs">
+				        <div class="TabsContainer">
+		              <%if(uicomponent.hasEditMode()) {%>
+				              <div class="UITab NormalTabStyle">
+				                <div class="SelectedTab">
+				                  <div class="LeftTab">
+				                    <div class="RightTab">
+						                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', 'EditMode')">Edit Mode</div>
+						                </div>
+				                  </div>
+				                </div>
+				              </div>
+			            <%
+			              }
+			            	String selTabId = uicomponent.getSelectedTabId() ;
+			              for(inputSet in uicomponent.getChildren()) {
+			                if(!inputSet.isRendered()) continue ;
+					        		String className="NormalTab" ;
+					        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
+				              String tabName = inputSet.getName() ; 
+                  %>
+					              <div class="UITab NormalTabStyle">
+					                <div class="$className">
+					                  <div class="LeftTab">
+					                    <div class="RightTab">
+							                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
+							                </div>
+					                  </div>
+					                </div>
+					              </div>
+			            <%}%>
+				        </div>
+				      </div>
+				    </div>
+				  </div>
+	      </div>
+	    	<div class="HorizontalLayout">
+	        <div class="UITabContentContainer">
+	          <%if(uicomponent.hasEditMode()) {%>
+		          <div class="UITabContent">
+		            <%=uicomponent.getEditModeContent()%>
+		          </div>
+	          <%}%>
+		        <%uiform.begin()%>
+		          <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.selectedTabId">
+            <%
+              for(formInput in uicomponent.getChildren()) {
+                if(!formInput.isRendered()) continue ;
+                String display = "none" ;
+                if(formInput.getId().equals(selTabId)) display="block" ;
+            %>
+                <div class="UITabContent" style="display: $display;">
+                  <%uicomponent.renderUIComponent(formInput) ;%>
+                </div>
+            <%
+              }
+		          uiform.end()
+		        %>
+          </div>
+			    <div class="UIAction">
+			      <table class="ActionContainer" align="center">
+			      	<tr>
+			     	 		<td align="center">
+		          		<%for(action in uicomponent.getActions()) { 
+							      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
+							      String link = uicomponent.event(action) ;
+					        %>
+									<a href="$link" class="ActionButton LightBlueStyle">
+									  <div class="ButtonLeft">
+										  <div class="ButtonRight">
+										    <div class="ButtonMiddle">
+									       $actionLabel
+										    </div>
+									    </div>
+										</div>
+									</a>
+	            		<%}%>
+           			</td>
+	          	</tr>
+	          </table>
+ 	        </div>
+		    </div>
+		  </div>
+		</div>  
+  </div>
+</div>

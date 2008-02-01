@@ -65,7 +65,14 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
   var uiTabs = eXo.core.DOMUtil.findDescendantsByClass(uiHorizontalTabs, "div", "UITab") ;
   var parentdHorizontalTab = uiHorizontalTabs.parentNode ;
   var contentTabContainer = DOMUtil.findFirstDescendantByClass(parentdHorizontalTab, "div", "UITabContentContainer") ;
-  var uiTabContent = DOMUtil.getChildrenByTagName(contentTabContainer, "div") ;
+  var uiTabContents = DOMUtil.findChildrenByClass(contentTabContainer, "div", "UITabContent") ;
+ 	var form = DOMUtil.getChildrenByTagName(contentTabContainer, "form") ;
+ 	if(form.length > 0) {
+ 		var tmp = DOMUtil.findChildrenByClass(form[0], "div", "UITabContent") ;
+  	for(var i = 0; i < tmp.length; i++) {
+  		uiTabContents.push(tmp[i]) ;
+  	}
+ 	}
   var index = 0 ;
   for(var i = 0; i < uiTabs.length; i++) {
     var styleTabDiv = DOMUtil.getChildrenByTagName(uiTabs[i], "div")[0] ;
@@ -76,9 +83,9 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, paneId, 
 			continue ;
     }
     styleTabDiv.className = "NormalTab" ;
-    uiTabContent[i].style.display = "none" ;
+    uiTabContents[i].style.display = "none" ;
   }
-  uiTabContent[index].style.display = "block" ;
+  uiTabContents[index].style.display = "block" ;
 	if (eXo.ecm.UIJCRExplorer) {
 		try {
 				eXo.ecm.UIJCRExplorer.initViewNodeScroll();

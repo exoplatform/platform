@@ -453,7 +453,7 @@ public class UIPortletActionListener {
       setupPublicRenderParams(uiPortlet, request.getParameterMap());
       
       //set render params
-      Map renderParams = ((PortalRequestContext)event.getRequestContext()).getPortletParameters();
+      Map<String, String[]> renderParams = ((PortalRequestContext)event.getRequestContext()).getPortletParameters();
       uiPortlet.setRenderParametersMap(renderParams);
     }
   }
@@ -467,13 +467,13 @@ public class UIPortletActionListener {
    * parameters Map the one that are supported by the targeted portlet
    */
   static public void setupPublicRenderParams(UIPortlet uiPortlet,
-      Map requestParams) {
+      Map<String, String[]> requestParams) {
     UIPortal uiPortal = Util.getUIPortal();
-    Map publicParams = uiPortal.getPublicParameters();
+    Map<String, String[]> publicParams = uiPortal.getPublicParameters();
 
-    Iterator keys = requestParams.keySet().iterator();
+    Iterator<String> keys = requestParams.keySet().iterator();
     while (keys.hasNext()) {
-      String key = (String) keys.next();
+      String key = keys.next();
       if (uiPortlet.supportsPublicParam(key))
         publicParams.put(key, requestParams.get(key));
     }
@@ -577,8 +577,7 @@ public class UIPortletActionListener {
           .getChildById(UIPortalApplication.UI_MASK_WS_ID);
 
       UIPortlet uiPortlet = event.getSource();
-      UIPortletForm uiPortletForm = uiMaskWS.createUIComponent(
-          UIPortletForm.class, null, null);
+      UIPortletForm uiPortletForm = uiMaskWS.createUIComponent(UIPortletForm.class, null, null);
       uiPortletForm.setValues(uiPortlet);
       uiMaskWS.setUIComponent(uiPortletForm);
       uiMaskWS.setWindowSize(800, -1);

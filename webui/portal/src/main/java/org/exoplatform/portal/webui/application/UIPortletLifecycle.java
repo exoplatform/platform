@@ -165,7 +165,7 @@ public class UIPortletLifecycle extends Lifecycle {
     input.setMarkup("text/html");
     input.setTitle(uiPortlet.getTitle());
     input.setInternalWindowID(uiPortlet.getExoWindowID());
-    input.setRenderParameters(getRenderParameterMap(uiPortlet, prcontext));
+    input.setRenderParameters(getRenderParameterMap(uiPortlet));
     input.setPublicParamNames(uiPortlet.getPublicRenderParamNames());
     RenderOutput output = null;
     StringBuilder portletContent = new StringBuilder();
@@ -228,21 +228,18 @@ public class UIPortletLifecycle extends Lifecycle {
    * This method returns all the parameters supported by the targeted portlets,
    * both the private and public ones
    */
-  @SuppressWarnings( { "unchecked" })
-  private Map getRenderParameterMap(UIPortlet uiPortlet,
-      PortalRequestContext prcontext) {
-
-    Map renderParams = uiPortlet.getRenderParametersMap();
+  private Map<String, String[]> getRenderParameterMap(UIPortlet uiPortlet) {
+    Map<String, String[]> renderParams = uiPortlet.getRenderParametersMap();
     
     if (renderParams == null) {
-      renderParams = new HashMap();
+      renderParams = new HashMap<String, String[]>();
       uiPortlet.setRenderParametersMap(renderParams);
     }
     
     /*
      *  handle public params to only get the one supported by the targeted portlet
      */ 
-    Map allParams = new HashMap(renderParams);
+    Map<String, String[]> allParams = new HashMap<String, String[]>(renderParams);
     allParams.putAll(uiPortlet.getPublicParameters());
     
     return allParams;

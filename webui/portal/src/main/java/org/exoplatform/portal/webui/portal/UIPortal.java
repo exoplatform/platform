@@ -66,7 +66,7 @@ public class UIPortal extends UIContainer {
   private PageNode selectedNode_;
   private PageNavigation selectedNavigation_;
 
-  private Map<String, String> publicParameters_ = new HashMap<String, String>();
+  private Map<String, String[]> publicParameters_ = new HashMap<String, String[]>();
   
   private UIComponent maximizedUIComponent ;
 
@@ -85,9 +85,9 @@ public class UIPortal extends UIContainer {
   public String getSkin() { return skin; }
   public void setSkin(String s ) { skin = s; }
   
-  public Map<String, String> getPublicParameters() { return publicParameters_; } 
-  public void setPublicParameters(Map<String, String> publicParams) {
-	publicParameters_ = publicParams;
+  public Map<String, String[]> getPublicParameters() { return publicParameters_; } 
+  public void setPublicParameters(Map<String, String[]> publicParams) {
+    publicParameters_ = publicParams;
   }
 
   public List<PageNavigation> getNavigations() { return navigations ; }

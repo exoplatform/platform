@@ -18,10 +18,15 @@ package org.exoplatform.portal.webui.application;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
 
+import org.exoplatform.commons.utils.ExceptionUtil;
+import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
@@ -29,14 +34,18 @@ import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkspace;
 import org.exoplatform.services.portletcontainer.PCConstants;
+import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.helper.PortletWindowInternal;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.Input;
+import org.exoplatform.services.portletcontainer.pci.RenderInput;
+import org.exoplatform.services.portletcontainer.pci.RenderOutput;
 import org.exoplatform.services.portletcontainer.pci.model.ExoPortletPreferences;
 import org.exoplatform.services.portletcontainer.pci.model.Portlet;
 import org.exoplatform.services.portletcontainer.plugins.pc.PortletApplicationsHolder;
 import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.PortletPreferencesImp;
 import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.persistenceImp.PersistenceManager;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
@@ -58,7 +67,7 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",
+    template = "system:/groovy/portal/webui/portal/UIPortletForm.gtmpl",
     events = {
       @EventConfig(listeners = UIPortletForm.SaveActionListener.class),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
@@ -72,11 +81,10 @@ public class UIPortletForm extends UIFormTabPane {
   final static private String FIELD_PORTLET_PREF = "PortletPref" ;
   
   @SuppressWarnings("unchecked")
-  public UIPortletForm() throws Exception {//InitParams initParams
+  public UIPortletForm() throws Exception {
   	super("UIPortletForm");
-  	UIFormInputSet uiPortletPrefSet = new UIFormInputSet(FIELD_PORTLET_PREF) ;
+  	UIFormInputSet uiPortletPrefSet = new UIFormInputSet(FIELD_PORTLET_PREF).setRendered(false) ;
   	addUIFormInput(uiPortletPrefSet) ;
-  	setSelectedTab(FIELD_PORTLET_PREF) ;
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortletSetting") ;
   	uiSettingSet.
       addUIFormInput(new UIFormStringInput("id", "id", null).
@@ -105,6 +113,50 @@ public class UIPortletForm extends UIFormTabPane {
   }
   
   public UIPortlet getUIPortlet() { return uiPortlet_; }
+
+  public boolean hasEditMode() {
+    return uiPortlet_.getSupportModes().contains("edit") ;
+  }
+  public String getEditModeContent() {
+    StringBuilder portletContent = new StringBuilder();
+    try {
+      PortalRequestContext prcontext = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
+      ExoContainer container = prcontext.getApplication().getApplicationServiceContainer();
+      PortletContainerService portletContainer = (PortletContainerService) container
+      .getComponentInstanceOfType(PortletContainerService.class);
+      RenderInput input = new RenderInput();
+      String baseUrl = new StringBuilder(prcontext.getNodeURI()).append(
+          "?" + PortalRequestContext.UI_COMPONENT_ID).append("=").append(
+          uiPortlet_.getId()).toString();
+      input.setBaseURL(baseUrl);
+//      if (userProfile != null)   input.setUserAttributes(userProfile.getUserInfoMap());
+//      else  input.setUserAttributes(new HashMap<String, String>());
+      input.setUserAttributes(new HashMap<String, String>());
+      
+      input.setPortletMode(PortletMode.EDIT);
+      input.setWindowState(uiPortlet_.getCurrentWindowState());
+      input.setMarkup("text/html");
+      input.setTitle(uiPortlet_.getTitle());
+      input.setInternalWindowID(uiPortlet_.getExoWindowID());
+      input.setRenderParameters(getRenderParameterMap(uiPortlet_));
+      input.setPublicParamNames(uiPortlet_.getPublicRenderParamNames());
+      RenderOutput output = portletContainer.render(prcontext.getRequest(), prcontext
+          .getResponse(), input);
+      if (output.getContent() == null) {
+        portletContent.append(
+            "EXO-ERROR: Portlet container throw an exception\n").append(
+            uiPortlet_.getId()).append(" has error");
+      } else {
+        portletContent.setLength(0);
+        portletContent.append(output.getContent());
+      }
+    } catch (Throwable ex) {
+      ex = ExceptionUtil.getRootCause(ex);
+      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
+      System.err.println("Exception print in the portlet content" + portletContent);
+    }
+    return portletContent.toString() ;
+  }
   
   @SuppressWarnings("unchecked")
   public void setValues(UIPortlet uiPortlet) throws Exception {
@@ -153,22 +205,41 @@ public class UIPortletForm extends UIFormTabPane {
     UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF) ;
     uiPortletPrefSet.getChildren().clear() ;
     Enumeration<String> prefNames = preferences.getNames() ;
-    if(!prefNames.hasMoreElements()) {
-      uiPortletPrefSet.setRendered(false) ;
-      setSelectedTab("PortletSetting") ;
-      return ;
-    }
-    while(prefNames.hasMoreElements()) {
-      String name = prefNames.nextElement() ;
-      if(!preferences.isReadOnly(name)) {
-        uiPortletPrefSet.addUIFormInput(new UIFormStringInput(name, null, preferences.getValue(name, "value"))) ;
+    if(!hasEditMode()) {
+      if(!prefNames.hasMoreElements()) {
+        setSelectedTab("PortletSetting") ;
+        return ;
       }
-    }    
+      uiPortletPrefSet.setRendered(true) ;
+      setSelectedTab(FIELD_PORTLET_PREF) ;
+      while(prefNames.hasMoreElements()) {
+        String name = prefNames.nextElement() ;
+        if(!preferences.isReadOnly(name)) {
+          uiPortletPrefSet.addUIFormInput(new UIFormStringInput(name, null, preferences.getValue(name, "value"))) ;
+        }
+      }
+    }
   }
   
+  private Map<String, String[]> getRenderParameterMap(UIPortlet uiPortlet) {
+    Map<String, String[]> renderParams = uiPortlet.getRenderParametersMap();
+    
+    if (renderParams == null) {
+      renderParams = new HashMap<String, String[]>();
+      uiPortlet.setRenderParametersMap(renderParams);
+    }
+    
+    /*
+     *  handle public params to only get the one supported by the targeted portlet
+     */ 
+    Map<String, String[]> allParams = new HashMap<String, String[]>(renderParams);
+    allParams.putAll(uiPortlet.getPublicParameters());
+    
+    return allParams;
+  }
   
 	static public class SaveActionListener extends EventListener<UIPortletForm> {
-    public void execute(Event<UIPortletForm> event) throws Exception {      
+    public void execute(Event<UIPortletForm> event) throws Exception {
       UIPortletForm uiPortletForm = event.getSource() ;
       UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
       UIFormInputIconSelector uiIconSelector = uiPortletForm.getChild(UIFormInputIconSelector.class);

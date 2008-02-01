@@ -42,6 +42,6 @@ public class UIIFramePortlet extends UIPortletApplication {
   public String getURL() {
     PortletRequestContext pcontext = (PortletRequestContext)WebuiRequestContext.getCurrentInstance() ;
     PortletPreferences pref = pcontext.getRequest().getPreferences();
-    return pref.getValue("url", "http://exoplatform.org") ;
+    return pref.getValue("url", "http://www.exoplatform.org") ;
   }
 }

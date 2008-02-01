@@ -77,7 +77,7 @@ public class UIPortlet extends UIApplication {
 
   private boolean  showPortletMode = true ;
   
-  private Map renderParametersMap_ ;
+  private Map<String, String[]> renderParametersMap_ ;
   private ExoWindowID exoWindowId_ ;
   private PortletMode currentPortletMode_ = PortletMode.VIEW;
   private WindowState currentWindowState_ = WindowState.NORMAL;  
@@ -154,8 +154,8 @@ public class UIPortlet extends UIApplication {
   
   public ExoWindowID  getExoWindowID() { return exoWindowId_ ; }
   
-  public  Map  getRenderParametersMap() { return renderParametersMap_ ;}
-  public  void setRenderParametersMap(Map map) { renderParametersMap_ =  map ; } 
+  public  Map<String, String[]>  getRenderParametersMap() { return renderParametersMap_ ;}
+  public  void setRenderParametersMap(Map<String, String[]> map) { renderParametersMap_ =  map ; } 
   
   public PortletMode getCurrentPortletMode() { return currentPortletMode_ ;}
   public void  setCurrentPortletMode(PortletMode mode) { currentPortletMode_ = mode;}
@@ -260,13 +260,13 @@ public class UIPortlet extends UIApplication {
    */
   public List<String> getPublicRenderParamNames() {
     UIPortal uiPortal = Util.getUIPortal();
-    Map publicParams = uiPortal.getPublicParameters();
+    Map<String, String[]> publicParams = uiPortal.getPublicParameters();
 
     List<String> publicParamsSupportedByPortlet = new ArrayList<String>();
     if (publicParams != null) {
-      Set keys = publicParams.keySet();
-      for (Iterator iter = keys.iterator(); iter.hasNext();) {
-        String key = (String) iter.next();
+      Set<String> keys = publicParams.keySet();
+      for (Iterator<String> iter = keys.iterator(); iter.hasNext();) {
+        String key = iter.next();
         if (supportsPublicParam(key)) {
           publicParamsSupportedByPortlet.add(key);
         }
@@ -276,14 +276,14 @@ public class UIPortlet extends UIApplication {
     return new ArrayList<String>();
   }  
   
-  public Map getPublicParameters() {
-    Map publicParamsMap = new HashMap();
+  public Map<String, String[]> getPublicParameters() {
+    Map<String, String[]> publicParamsMap = new HashMap<String, String[]>();
     UIPortal uiPortal = Util.getUIPortal();
-    Map publicParams = uiPortal.getPublicParameters();
-    Set allPublicParamsNames = publicParams.keySet();       
-    List supportedPublicParamNames = getPublicRenderParamNames();
-    for (Iterator iter = allPublicParamsNames.iterator(); iter.hasNext();) {
-      String oneOfAllParams = (String) iter.next();
+    Map<String, String[]> publicParams = uiPortal.getPublicParameters();
+    Set<String> allPublicParamsNames = publicParams.keySet();       
+    List<String> supportedPublicParamNames = getPublicRenderParamNames();
+    for (Iterator<String> iter = allPublicParamsNames.iterator(); iter.hasNext();) {
+      String oneOfAllParams = iter.next();
       if(supportedPublicParamNames.contains(oneOfAllParams))
         publicParamsMap.put(oneOfAllParams, publicParams.get(oneOfAllParams));
     }    
