@@ -18,7 +18,8 @@
 			                if(!inputSet.isRendered()) continue ;
 					        		String className="NormalTab" ;
 					        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
-				              		String tabName = inputSet.getName() ; 
+				              //String tabName = inputSet.getName() ; 
+				                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
                   %>
 					              <div class="UITab NormalTabStyle">
 					                <div class="$className">
