@@ -1,5 +1,5 @@
 .UIControlWorkspace {
-	background: url('background/ControlWorkspaceBG.gif') repeat fixed ;
+	background: url('background/Repeat-y.gif') repeat-y center top;
   width: 6px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
@@ -29,12 +29,17 @@
 	float: right ;
 	width: 21px ;	height: 15px ;
 	margin: 3px 5px 0px 0px ;
-	background: url('background/CloseCPButton.gif') no-repeat ;
+	background: url('background/No-Repeat.gif') no-repeat right top;
 	cursor: pointer ;
 }
 
 .UIControlWorkspace .UIWorkspaceControl { 
   margin-right: 2px ;
+}
+
+.UIControlWorkspace .UIPageNodeSelector .ContainerConfigOptions .JSContainer {
+	width: 215px;
+	overflow: hidden;
 }
 
 /*########################### Tab ###########################*/
@@ -64,17 +69,17 @@
 .UIControlWorkspace .Slidebar {
 	float: right ;
   width: 6px ; height: 100% ;
-  background: url('background/SlidebarBackground6x1.gif') repeat-y right;
+  background: url('background/Repeat-y.gif') repeat-y right;
   cursor: pointer ;
 }
 
 .UIControlWorkspace .SlidebarButton {
-	height: 100% ;	width: 6px ;
-	background: url('background/SlidebarButton6x160.gif') no-repeat center center ;
+	height: 100%;	width: 6px;
+	background: url('background/No-Repeat.gif') no-repeat left center;
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
-  background: url("background/ControlWorkspaceBG6x1.gif") repeat-y right;
+  background: url("background/Repeat-y.gif") repeat-y 244px top;
 	height: 100%;
 }
 

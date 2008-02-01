@@ -953,8 +953,9 @@
 
 .VistaBlue .WindowPortletInfo .PortletName {
 	float: left;
-	margin-top: 12px;
 	font-weight: bold;
+	line-height: 28px;
+	margin: 5px 0px 0px 3px;
 }
 
 .VistaBlue .WindowPortletInfo .PortletIcon {

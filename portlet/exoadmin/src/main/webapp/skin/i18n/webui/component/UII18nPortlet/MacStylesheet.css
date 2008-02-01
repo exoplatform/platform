@@ -16,6 +16,14 @@
 	border: 1px solid #b7b7b7;
 }
 
+.UII18nPortlet .UIGrid {
+  border: 1px solid #b7b7b7;
+  border-collapse: collapse ;
+  padding-left: 1px;
+  width: 99.5%;
+  margin: auto;
+}
+
 .UII18nPortlet .UISearchI18n {
 	margin: 15px auto;
 	width: 500px;

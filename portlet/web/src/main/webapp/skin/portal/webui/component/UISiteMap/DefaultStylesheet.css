@@ -22,22 +22,24 @@
 }
 
 .UISitemap .TitleBar {
+  background:  #dbe4f8 url(DefaultSkin/background/SitemapItemBoxTitle150x1.gif) repeat-y right;
   height: 22px; line-height: 22px;
-  padding-left: 5px;
   overflow: hidden;
-  background: #dbe4f8 url(DefaultSkin/background/SitemapItemBoxTitle150x1.gif) repeat-y right;
-}
-
-.UISitemap .TitleBar a.Icon {
-  font-weight: bold; 
-  color: #1248ac;
-  display: block;
-  padding-left: 20px;
-  line-height: 22px;
+  padding-left: 5px;
 }
 
 .UISitemap .TitleBar a:hover {
-  color: #058ee6;
+  color: blue;
+}
+
+.UISitemap .TitleBar a.Icon {
+  margin-left: 5px;
+  width: auto; height: 22px;
+  line-height: 22px;
+  overflow: hidden;
+  padding-left: 20px;
+  display: block;
+	color: #1248ac;
 }
 
 .UISitemap .TitleBar .Title {

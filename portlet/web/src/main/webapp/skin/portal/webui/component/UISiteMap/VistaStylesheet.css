@@ -14,7 +14,7 @@
 .UISitemapPortlet {
 	margin: 10px;
   background: white;
-  border: 1px solid #b7b7b7;
+  border: 1px solid red;
 }
 
 .UISitemap {
@@ -29,7 +29,6 @@
 }
 
 .UISitemap .SitemapItemBox .TitleBar a.Icon {
-  font-weight: bold;
   line-height: 22px;
   width: auto;
   padding-left: 20px;
@@ -72,6 +71,7 @@
   background: url('VistaSkin/background/BottomSitemap295x16.png') no-repeat bottom;
   padding-bottom: 16px;
   margin: 0px 15px 15px 0px;
+	overflow: hidden;
 }
 
 .UISitemap .SitemapItemBox .SitemapItemContainer{

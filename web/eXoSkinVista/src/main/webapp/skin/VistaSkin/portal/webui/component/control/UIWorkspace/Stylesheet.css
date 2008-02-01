@@ -52,6 +52,12 @@
 	width: 220px;
 }
 
+
+.UIControlWorkspace .UIPageNodeSelector .ContainerConfigOptions .JSContainer {
+	width: 212px;
+	overflow: hidden;
+}
+
 /*########################### Tab ###########################*/
 .UIControlWorkspace .UIWorkspacePanel .TabPortalIcon {
   float: left;  
