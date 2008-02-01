@@ -96,17 +96,15 @@ BrowserApplication.prototype.onMouseOver = function(object, normalClass, activeC
 	} else {
 		object.className = normalClass ;
 	}
-};
+} ;
 
 BrowserApplication.prototype.createNewTab = function(clickedElement) {
-	var DOMUtil = eXo.core.DOMUtil;
+	var DOMUtil = eXo.core.DOMUtil ;
 	var ancestorNode = DOMUtil.findAncestorByClass(clickedElement, "BrowserContent") ;
 	var uiToolbar = DOMUtil.findPreviousElementByTagName(ancestorNode, "div") ;
   var txtAddress = DOMUtil.findFirstDescendantByClass(uiToolbar, 'input', "txtAddress") ;
   this.NumberOfTab++ ;
   txtAddress.value = "http://" ;
-  
-  
   var tabParent = clickedElement.parentNode ;
   
   var activeTabList = DOMUtil.findChildrenByClass(tabParent, "div", "ActiveTabDetailBackground") ;
@@ -118,7 +116,9 @@ BrowserApplication.prototype.createNewTab = function(clickedElement) {
   cloneActiveTab.index = this.NumberOfTab - 1 ;
   cloneActiveTab.maxWidth = this.maxWidth ;
   var tabLabel = DOMUtil.findFirstDescendantByClass(cloneActiveTab, "div", "TabLabel") ;
+  
   tabLabel.innerHTML = "(Untitled)" ;
+  
   cloneActiveTab.onclick = function() {
   	eXo.application.browser.BrowserApplication.activateTabDetail(this, ancestorNode) ;
   } ;
@@ -177,7 +177,6 @@ BrowserApplication.prototype.activateTabDetail = function(selectedElement, ances
 		}
   }
 } ;
-
 BrowserApplication.prototype.removeTabDetail = function(clickedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	if(this.NumberOfTab > 1) {
@@ -247,6 +246,7 @@ BrowserApplication.prototype.refreshIFrame = function(obj) {
 		}
   }
 } ;
+
 BrowserApplication.prototype.goBack = function(obj) {
 
 	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "UIBrowserPortlet");
@@ -257,7 +257,7 @@ BrowserApplication.prototype.goBack = function(obj) {
 			iframes[i].contentWindow.history.back() ;
 		}
   }
-}
+} ;
 
 BrowserApplication.prototype.goForward = function(obj) {
 	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "UIBrowserPortlet");
@@ -268,7 +268,7 @@ BrowserApplication.prototype.goForward = function(obj) {
 			iframes[i].contentWindow.history.forward() ;
 		}
   }
-}
+} ;
 
 BrowserApplication.prototype.resizeTabDetail = function(tabContainer) {
 	var DOMUtil = eXo.core.DOMUtil ;
@@ -280,35 +280,40 @@ BrowserApplication.prototype.resizeTabDetail = function(tabContainer) {
 	var sumOfTabDetail = 0 ;
 	var newTabWidth = 0 ;
 	var labelWidth = 0 ;
+	var defaultSize = 150;
 	
 	for(var i = 0; i < children.length; i++) {
 		if(children[i].className != "") {
 			if(children[i].className == "Separator") {
 				sumOfSeparatorWidth += children[i].offsetWidth ;
-			}
-			else if(children[i].className == "NewTabButtonOver" || children[i].className == "NewTabButton") {
+			} else if(children[i].className == "NewTabButtonOver" || children[i].className == "NewTabButton") {
 				newTabWidth = children[i].offsetWidth ;
-			}
-			else {
+			} else {
 				sumOfTabDetail++ ;
 			}
 			sumOfElementWidth += children[i].offsetWidth ;
 		}
 	}
-	var tabDetailWidth = (sumOfWidth - sumOfSeparatorWidth - newTabWidth - 15)/sumOfTabDetail ;
-	if(sumOfElementWidth <= sumOfWidth) {
-		var computedWidth = (children[1].maxWidth > tabDetailWidth) ? tabDetailWidth : children[1].maxWidth ;
-		labelWidth = computedWidth - 50 ;
+	
+	var tabDetailWidth = (sumOfWidth - sumOfSeparatorWidth - newTabWidth - 15) / sumOfTabDetail ;
+	var computeSize = (defaultSize > tabDetailWidth) ? tabDetailWidth : defaultSize ;
+	if(sumOfElementWidth <= sumOfWidth) {  
+		if(this.NumberOfTab == 1 ) {
+			tabDetailWidth = defaultSize ;
+		}
+		labelWidth = computeSize - 50 ;	 
+		
 		for(var i = 0; i < children.length; i++) {
 			if(children[i].className != "Separator" && children[i].className != "" && children[i].className != "NewTabButton" && children[i].className != "NewTabButtonOver") {
-				children[i].style.width = computedWidth + "px" ;
+				 children[i].style.width = computeSize + "px" ;
 			}
 		}
 	}	else {
-		labelWidth = tabDetailWidth - 50 ;
+		labelWidth = computeSize - 50 ;
 		for(var i = 0; i < children.length; i++) {
 			if(children[i].className != "Separator" && children[i].className != "" && children[i].className != "NewTabButton" && children[i].className != "NewTabButtonOver") {
-				children[i].style.width = tabDetailWidth + "px" ;
+				children[i].style.width = computeSize + "px" ;
+				children[i].setAttribute("width", tabDetailWidth) ;
 			}
 		}
 	}
@@ -318,7 +323,11 @@ BrowserApplication.prototype.resizeTabDetail = function(tabContainer) {
 		for(var i = 0 ; i < tabLabel.length; i++) {
 			tabLabel[i].style.width = labelWidth + "px" ;
 		}
+		if(this.NumberOfTab == 1 ) {
+			tabLabel[0].style.width = 125 + "px" ;
+		}
 	}
+	
 } ;
 
 BrowserApplication.prototype.stopLoad = function() {
