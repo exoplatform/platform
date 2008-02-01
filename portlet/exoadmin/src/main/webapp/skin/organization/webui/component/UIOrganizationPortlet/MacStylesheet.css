@@ -144,6 +144,21 @@
 .UIOrganizationPortlet .UIItemSelector .ItemDetailList {
  padding: 11px 0px 11px 0px;
 }
+
+.UIOrganizationPortlet .UIBreadcumbs .LeftBreadcumbsBar {
+  padding: 0px 0px 0px 3px ;
+  background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat left -197px;
+}
+
+.UIOrganizationPortlet .UIBreadcumbs .RightBreadcumbsBar {
+  padding: 0px 3px 0px 0px;
+  background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat right -197px;
+}
+
+.UIOrganizationPortlet .UIBreadcumbs .BreadcumbsInfoBar {
+  height: 25px; line-height: 25px; vertical-align: middle;
+  background: url('MacSkin/background/UIOrganizationPortlet.gif') repeat-x bottom;
+}
 /*#######################  UIGroupManagement #################################*/
 
 .UIOrganizationPortlet .UIGroupManagement {
