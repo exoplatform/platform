@@ -1,5 +1,3 @@
-eXo.require('eXo.webui.UIPopup');
-
 function UIRightClickPopupMenu() {};
 
 UIRightClickPopupMenu.prototype.init = function(contextMenuId) {

@@ -196,7 +196,7 @@ public class UIPortletLifecycle extends Lifecycle {
     if (portletTitle == null)
       portletTitle = "Portlet";
 
-    if (context.useAjax() && !uiPortlet.isShowEditControl()
+    if (context.useAjax() //&& !uiPortlet.isShowEditControl()
         && !prcontext.getFullRender()) {
       context.getWriter().write(portletContent.toString());
     } else {

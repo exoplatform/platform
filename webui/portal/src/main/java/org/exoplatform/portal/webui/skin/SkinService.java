@@ -39,6 +39,8 @@ public class SkinService {
   private final static String REGEXP = "@import url(.*).*;";
 
   private final static String BACKGROUND_REGEXP = "background.*:.*url(.*).*;";
+  
+  private final static String CSS_SERVLET_URL = "/portal/css";  
 
   private Map<String, SkinConfig> skinConfigs_;
 
@@ -90,6 +92,43 @@ public class SkinService {
       mergeCSS(cssPath, scontext);
     }
   }
+  
+  public void invalidatePortalSkinCache(String portalName,
+      String skinName) {
+    String key = portalName + "$" + skinName;
+    skinConfigs_.remove(key);
+  }
+
+  /**
+   * This method is only called in production environment where all the css for the
+   * portlets displayed in the portal canvas are merged into as single CSS file
+   */
+  public SkinConfig getPortalSkin(String portalName,
+      String skinName, List<String> portletInPortal) {
+    String key = portalName + "$" + skinName;
+    SkinConfig portalSkinConfig = skinConfigs_.get(key);
+    if(portalSkinConfig == null) {
+      //manage the portlet in portal merge and generate the css Path
+      StringBuffer buffer = new StringBuffer();
+      for (String module : portletInPortal) {
+        String portletKey = module + "$" + skinName;
+        SkinConfig portletConfig = skinConfigs_.get(portletKey);
+        if(portletConfig != null) {
+          String portletCSS = mergedCSS_.get(portletConfig.getCSSPath());
+          if(portletCSS != null) {
+            buffer.append(portletCSS);
+          }
+        }
+
+      }
+      String cssPath = CSS_SERVLET_URL + "/" + key + ".css";
+      mergedCSS_.put(cssPath, buffer.toString());
+      portalSkinConfig = new SkinConfig(portalName, skinName, cssPath, false);
+      skinConfigs_.put(key, portalSkinConfig);
+    }
+    return portalSkinConfig;
+  }
+  
 
   private void mergeCSS(String cssPath, ServletContext scontext) {
     if (cacheResource_) {

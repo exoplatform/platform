@@ -275,6 +275,12 @@ public class PortalDataMapper {
     uiPage.setPageId(model.getPageId());
     uiPage.setShowMaxWindow(model.isShowMaxWindow());   
     uiPage.setModifiable(model.isModifiable());
+    
+    List<UIPortlet> portlets = new ArrayList<UIPortlet>();
+    uiPage.findComponentOfType(portlets, UIPortlet.class);
+    for(UIPortlet portlet : portlets){
+      portlet.setPortletInPortal(false);
+    }   
   }
   
   static public void toUIPortal(UIPortal uiPortal, UserPortalConfig userPortalConfig) throws Exception {

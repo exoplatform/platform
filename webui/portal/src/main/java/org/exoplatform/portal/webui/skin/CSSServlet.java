@@ -1,19 +1,17 @@
-package org.exoplatform.portal.webui.javascript;
+package org.exoplatform.portal.webui.skin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.web.application.javascript.JavascriptConfigService;
 
-public class JavascriptServlet extends HttpServlet {
+public class CSSServlet extends HttpServlet {
 
   public void destroy() {
   }
@@ -31,12 +29,13 @@ public class JavascriptServlet extends HttpServlet {
 
   protected void service(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    JavascriptConfigService service = (JavascriptConfigService) ExoContainerContext
+    SkinService service = (SkinService) ExoContainerContext
         .getCurrentContainer().getComponentInstanceOfType(
-            JavascriptConfigService.class);
-    response.setContentType("application/x-javascript");
-    ServletOutputStream stream = response.getOutputStream();
-    stream.write(service.getMergedJavascript());
+            SkinService.class);
+    response.setContentType("text/css");
+    String css = service.getMergedCSS(request.getRequestURI());
+    PrintWriter writer = response.getWriter();
+    writer.print(css);
   }
 
 }

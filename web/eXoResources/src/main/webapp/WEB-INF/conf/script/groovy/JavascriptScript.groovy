@@ -16,6 +16,7 @@ JavascriptService.addJavascript("eXo.core.Skin", "/javascript/eXo/core/Skin.js",
 JavascriptService.addJavascript("eXo.core.DragDrop", "/javascript/eXo/core/DragDrop.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.TemplateEngine", "/javascript/eXo/core/TemplateEngine.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.Topic","/javascript/eXo/core/Topic.js", ServletContext);
+JavascriptService.addJavascript("eXo.core.Spliter","/javascript/eXo/core/Spliter.js", ServletContext);
 
 /* Widget Javascripts */
 JavascriptService.addJavascript("eXo.widget.UIWidget", "/javascript/eXo/widget/UIWidget.js", ServletContext);
@@ -37,7 +38,9 @@ JavascriptService.addJavascript("eXo.webui.UIVerticalScroller", "/javascript/eXo
 JavascriptService.addJavascript("eXo.webui.UIHorizontalTabs", "/javascript/eXo/webui/UIHorizontalTabs.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIPopupMenu", "/javascript/eXo/webui/UIPopupMenu.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIDropDownControl", "/javascript/eXo/webui/UIDropDownControl.js", ServletContext);
-
+JavascriptService.addJavascript("eXo.webui.UIRightClickPopupMenu", "/javascript/eXo/webui/UIRightClickPopupMenu.js", ServletContext);
+JavascriptService.addJavascript("eXo.webui.UIVerticalSlideTabs", "/javascript/eXo/webui/UIVerticalSlideTabs.js", ServletContext);
+JavascriptService.addJavascript("eXo.webui.UIPermissionSelectorTab", "/javascript/eXo/webui/UIPermissionSelectorTab.js", ServletContext);
 
 /* Portal Javascripts */ 
 JavascriptService.addJavascript("eXo.portal.PortalHttpRequest", "/javascript/eXo/portal/PortalHttpRequest.js", ServletContext);
@@ -48,7 +51,7 @@ JavascriptService.addJavascript("eXo.portal.PortalDragDrop", "/javascript/eXo/po
 JavascriptService.addJavascript("eXo.portal.UIPortalNavigation", "/javascript/eXo/portal/UIPortalNavigation.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIMaskWorkspace", "/javascript/eXo/portal/UIMaskWorkspace.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIExoStartMenu", "/javascript/eXo/portal/UIExoStartMenu.js", ServletContext);
-
+JavascriptService.addJavascript("eXo.portal.UIBrowseContent", "/javascript/eXo/portal/UIBrowseContent.js", ServletContext);
 
 /* Desktop Javascripts 2 */
 JavascriptService.addJavascript("eXo.desktop.UIWindow", "/javascript/eXo/desktop/UIWindow.js", ServletContext);

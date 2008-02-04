@@ -335,7 +335,7 @@ public class UIPortletActionListener {
       PortalRequestContext context = (PortalRequestContext) event
           .getRequestContext();
       List<UIPortlet> porletInstancesInPage = new ArrayList<UIPortlet>();
-      UIPortal uiPortal = uiPortlet.getAncestorOfType(UIPortal.class);
+      UIPortalApplication uiPortal = uiPortlet.getAncestorOfType(UIPortalApplication.class);
       uiPortal.findComponentOfType(porletInstancesInPage, UIPortlet.class);
       EventsWrapper eventsWrapper = (EventsWrapper) event.getRequestContext()
           .getAttribute(PORTLET_EVENTS);

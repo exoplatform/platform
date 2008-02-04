@@ -11,6 +11,30 @@
   <listener>
     <listener-class>org.exoplatform.portal.application.PortalSessionListener</listener-class>
   </listener>
+  <listener>
+    <listener-class>org.exoplatform.portal.webui.javascript.JavascriptListener</listener-class>
+  </listener>  
+  
+  <!-- ================================================================== -->
+  <!--   RESOURCE FILTER TO CACHE MERGED JAVASCRIPT AND CSS               -->
+  <!-- ================================================================== -->
+  <filter>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <url-pattern>/javascript/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <url-pattern>/css/*</url-pattern>
+  </filter-mapping>
+  
+  
+  
   <!-- ================================================================== -->
   <!--           SERVLET                                                  -->
   <!-- ================================================================== -->  
@@ -29,6 +53,12 @@
     <servlet-name>javascript</servlet-name>
     <servlet-class>org.exoplatform.portal.webui.javascript.JavascriptServlet</servlet-class>
    </servlet>
+
+  <servlet>
+    <servlet-name>css</servlet-name>
+    <servlet-class>org.exoplatform.portal.webui.skin.CSSServlet</servlet-class>
+  </servlet>   
+   
   <!-- ================================================================= -->     
   
   
@@ -37,6 +67,10 @@
     <url-pattern>/javascript/*</url-pattern>
   </servlet-mapping>  
   
+  <servlet-mapping>
+    <servlet-name>css</servlet-name>
+    <url-pattern>/css/*</url-pattern>
+  </servlet-mapping>  
   
   <servlet-mapping>
     <servlet-name>portal</servlet-name>

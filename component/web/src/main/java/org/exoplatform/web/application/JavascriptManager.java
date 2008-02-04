@@ -42,8 +42,11 @@ public class JavascriptManager {
 
   public void importJavascript(String s, String location) {
     if(!location.endsWith("/")) location =  location + '/' ;
-    javascript.append("eXo.require('").append(s).append("', '").append(location).append("'); \n") ;
+    if(!jsSrevice_.isModuleLoaded(s) || "true".equals(System.getProperty("exo.product.developing"))) {
+      javascript.append("eXo.require('").append(s).append("', '").append(location).append("'); \n") ;
+    }
   }
+
 
   public void addOnLoadJavascript(CharSequence s) {
     String id = Integer.toString(Math.abs(s.hashCode())) ;

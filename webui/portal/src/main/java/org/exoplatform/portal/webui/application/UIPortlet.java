@@ -86,6 +86,7 @@ public class UIPortlet extends UIApplication {
 
   private List supportedProcessingEvents_;
   private List supportedPublicParams_;
+  private boolean portletInPortal_ = true;  
   
   public String getId()  { return exoWindowId_.getUniqueID() ; }
   
@@ -100,6 +101,11 @@ public class UIPortlet extends UIApplication {
   
   public boolean getShowPortletMode() { return showPortletMode ; }
   public void    setShowPortletMode(Boolean b) { showPortletMode = b ; }
+  
+  public void setPortletInPortal(boolean b) {
+    portletInPortal_  = b;
+  }
+  public boolean isPortletInPortal() { return portletInPortal_; }  
   
   
   public String getTheme() {

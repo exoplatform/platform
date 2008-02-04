@@ -17,34 +17,41 @@
 package org.exoplatform.web.application.javascript;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.servlet.ServletContext;
 
-import org.apache.commons.logging.Log;
-import org.exoplatform.services.log.ExoLogger;
-
 public class JavascriptConfigService {
 
-  private HashSet<String> availableScripts_;
+  private Collection<String> availableScripts_;
+  private Collection<String> availableScriptsPaths_;
 
   private String mergedJavascript = "";
   
+  private ByteArrayOutputStream jsStream_ = null;
+  
   public JavascriptConfigService() {
-    availableScripts_ = new HashSet<String>(5);
+    availableScripts_ = new ArrayList<String>();
+    availableScriptsPaths_ = new ArrayList<String>();
   }
 
   /**
-   * TODO: should return a collection or list This method should return the
-   * availables skin in the service
+   * return a collection  list This method should return the
+   * availables scripts in the service
    * 
    * @return
    */
-  public Iterator<String> getAvailableScripts() {
-    return availableScripts_.iterator();
+  public Collection<String> getAvailableScripts() {
+    return availableScripts_;
   }
+  
+  public Collection<String> getAvailableScriptsPaths() {
+    return availableScriptsPaths_;
+  }  
 
   /**
    * 
@@ -53,8 +60,9 @@ public class JavascriptConfigService {
    * @param cssPath
    */
   public void addJavascript(String module, String scriptPath, ServletContext scontext) {
+    String servletContextName = scontext.getServletContextName();
     availableScripts_.add(module);
-    
+    availableScriptsPaths_.add("/" + servletContextName + scriptPath);
     StringBuffer sB = new StringBuffer();
     String line = ""; 
     try {
@@ -79,16 +87,22 @@ public class JavascriptConfigService {
     mergedJavascript = mergedJavascript.concat(sB.toString());
   }
   
-  public String getMergedJavascript() {
-    return mergedJavascript;
+  public byte[] getMergedJavascript() {
+    if(jsStream_ == null) {
+      jsStream_ = new ByteArrayOutputStream();
+      ByteArrayInputStream input = new ByteArrayInputStream(mergedJavascript.getBytes());
+      JSMin jsMin = new JSMin(input,jsStream_);
+      try {
+        jsMin.jsmin();
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+    return jsStream_.toByteArray();
   }
   
   public boolean isModuleLoaded(CharSequence module) {
-    return availableScripts_.contains(module);
+    return getAvailableScripts().contains(module);
   }
   
-  public String getJavascriptMergedURL() {
-    return "/portal/javascript/merged.js";
-  }
-
 }

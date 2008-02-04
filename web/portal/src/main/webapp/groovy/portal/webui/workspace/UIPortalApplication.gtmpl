@@ -9,7 +9,7 @@
   String skin = uicomponent.getSkin();
   def portalSkin = uicomponent.getSkin("PortalSkin") ;
   def portletSkins = uicomponent.getPortletSkins() ;
-  String javascriptURL = uicomponent.getMergedJavascriptURL() ;  
+  def scriptsPaths = uicomponent.getJavascriptURLs();
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -18,45 +18,22 @@
     <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
     <link id="PortalSkin" rel="stylesheet" type="text/css" href="$portalSkin.CSSPath" />
-    <% 
-      for(portletSkin in portletSkins) { 
-    %> 
+    <%
+      for(portletSkin in portletSkins) {
+    %>
       <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$portletSkin.CSSPath" />
-    <%}%>    
+    <%}%>
 
-    <script type="text/javascript" src="/portal/fckeditor/fckeditor.js"></script>
-    <%if("true".equals(System.getProperty("exo.product.developing"))) {%>
-	    <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
-	    <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Util.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/core/DOMUtil.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Browser.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/PortalHttpRequest.js"></script>
-	    <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIForm.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopup.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/animation/ImplodeExplode.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/desktop/UIDesktop.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/desktop/UIDockbar.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/core/UIMaskLayer.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopup.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIPopupMenu.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/widget/UIWidget.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/core/DragDrop.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortal.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIExoStartMenu.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/core/Skin.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/application/ApplicationDescriptor.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/core/TemplateEngine.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIItemSelector.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/widget/UIAddWidget.js"></script>
-      <script type="text/javascript" src="/eXoResources/javascript/eXo/webui/UIVerticalScroller.js"></script>
-	 	  <script type="text/javascript" src="/eXoResources/javascript/eXo/core/MouseEventManager.js"></script>
- 	  <%} else {%>
- 	    <script type="text/javascript" src="$javascriptURL"></script>
- 	  <%}%>
+    <%if("true".equals(System.getProperty("exo.product.developing"))) {
+        for(path in scriptsPaths) { %>
+      <script type="text/javascript" src="<%=path%>"></script>
+        <%}
+        } else {%>
+          <script type="text/javascript" src="/portal/javascript/merged.js""></script>
+        <%}%>
     <script type="text/javascript">
       eXo.env.server.context = '<%=docBase%>' ;
       eXo.env.server.portalBaseURL = '<%=rcontext.getURLBuilder().getBaseURL()%>' ;
-      
       eXo.env.client.skin = '$skin' ;
     </script>
   </head>

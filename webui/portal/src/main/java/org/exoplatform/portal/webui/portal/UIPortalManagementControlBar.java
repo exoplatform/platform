@@ -24,6 +24,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -83,6 +84,8 @@ public class UIPortalManagementControlBar extends UIToolbar {
     uiPortalApp.setLocale(localeConfig.getLocale());
     uiPortalApp.setSkin(uiPortal.getSkin());
     prContext.refreshResourceBundle();
+    SkinService skinService = getApplicationComponent(SkinService.class);
+    skinService.invalidatePortalSkinCache(uiPortal.getName(), uiPortal.getSkin());
   }
   
   @Override

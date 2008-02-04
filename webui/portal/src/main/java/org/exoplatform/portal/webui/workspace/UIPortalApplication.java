@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.workspace;
 
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -130,9 +131,9 @@ public class UIPortalApplication extends UIApplication {
     setOwner(context.getPortalOwner());    
   } 
   
-  public String getMergedJavascriptURL() {
+  public Collection<String> getJavascriptURLs() {
     JavascriptConfigService service = getApplicationComponent(JavascriptConfigService.class);
-    return service.getJavascriptMergedURL();
+    return service.getAvailableScriptsPaths();
   }
   
   public String getSkin() {  return skin_ ; }
@@ -145,27 +146,61 @@ public class UIPortalApplication extends UIApplication {
     return skinConfig ;
   }
   
-  public List<SkinConfig>  getPortletSkins() {
-    List<SkinConfig> skins = new ArrayList<SkinConfig>() ;
-    List<UIPortlet> uiportlets = new ArrayList<UIPortlet>() ;
-    
-    UIWorkspace uiWorkingWS =  getChildById(UI_WORKING_WS_ID ) ;
-    UIPortal uiPortal =  uiWorkingWS.getChild(UIPortal.class) ;
+  /**
+   * Returns a list of portlets skin that have to be added in the HTML
+   * head tag. The skin can directly point to a real css file (this
+   * is the case of all the porlet included in a page) or point to a
+   * servlet that agregates different portlet CSS files into one to
+   * lower the number of HTTP calls (this is the case in production as
+   * all the portlets included in a portal, and hence there on everypage
+   * are merged into a single CSS file)
+   */
+  public List<SkinConfig> getPortletSkins() {
+    List<SkinConfig> skins = new ArrayList<SkinConfig>();
+    List<UIPortlet> uiportlets = new ArrayList<UIPortlet>();
+
+    UIWorkspace uiWorkingWS = getChildById(UI_WORKING_WS_ID);
+    UIPortal uiPortal = uiWorkingWS.getChild(UIPortal.class);
+    uiPortal.findComponentOfType(uiportlets, UIPortlet.class);
+
     UIPortalToolPanel toolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
-    
-    uiPortal.findComponentOfType(uiportlets, UIPortlet.class) ;
-   
-    if(toolPanel != null && toolPanel.isRendered()){
+    if (toolPanel != null && toolPanel.isRendered()) {
       toolPanel.findComponentOfType(uiportlets, UIPortlet.class);
     }
-    
-    for(UIPortlet uiPortlet : uiportlets) {
-      String module = uiPortlet.getExoWindowID().getPortletApplicationName() + "/" + uiPortlet.getExoWindowID().getPortletName() ;
-      SkinConfig skinConfig = getSkin(module) ;
-      if(skinConfig != null) skins.add(skinConfig);
+
+    if ("false".equals(System.getProperty("exo.product.developing"))) {
+      List<UIPortlet> portletInPage = new ArrayList<UIPortlet>();
+      List<String> portletInPortal = new ArrayList<String>();
+      for (UIPortlet uiPortlet : uiportlets) {
+        if (uiPortlet.isPortletInPortal()) {
+          String module = uiPortlet.getExoWindowID()
+              .getPortletApplicationName()
+              + "/" + uiPortlet.getExoWindowID().getPortletName();
+          portletInPortal.add(module);
+        } else {
+          portletInPage.add(uiPortlet);
+        }
+      }
+      uiportlets = portletInPage;
+
+      // Add a merged skin of the portlets located in the portal and not the
+      // page
+      SkinService skinService = getApplicationComponent(SkinService.class);
+      SkinConfig skinConfig = skinService.getPortalSkin(uiPortal.getName(), skin_,
+          portletInPortal);
+      if (skinConfig != null)
+        skins.add(skinConfig);
     }
-    return skins ;
-  }
+
+    for (UIPortlet uiPortlet : uiportlets) {
+      String module = uiPortlet.getExoWindowID().getPortletApplicationName()
+          + "/" + uiPortlet.getExoWindowID().getPortletName();
+      SkinConfig skinConfig = getSkin(module);
+      if (skinConfig != null)
+        skins.add(skinConfig);
+    }
+    return skins;
+  } 
   
   /**
    * According to the init parameters, the left the left column is shown or not.
@@ -280,6 +315,12 @@ public class UIPortalApplication extends UIApplication {
       super.processRender(context) ;
     } else {
       PortalRequestContext pcontext = (PortalRequestContext)context;
+      
+      UIMaskWorkspace uiMaskWS = getChildById(UIPortalApplication.UI_MASK_WS_ID);
+      if(uiMaskWS.isShow())
+        pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
+      
+      
       List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
       List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>(3);
       List<UIComponent> uiDataComponents = new ArrayList<UIComponent>(5);

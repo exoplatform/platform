@@ -75,7 +75,7 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 )   
 public class UIPortletForm extends UIFormTabPane {	
   
-	private UIPortlet uiPortlet_ ;
+  private UIPortlet uiPortlet_ ;
   private UIComponent backComponent_ ;
   final static private String FIELD_THEME = "Theme" ; 
   final static private String FIELD_PORTLET_PREF = "PortletPref" ;
@@ -117,6 +117,7 @@ public class UIPortletForm extends UIFormTabPane {
   public boolean hasEditMode() {
     return uiPortlet_.getSupportModes().contains("edit") ;
   }
+  
   public String getEditModeContent() {
     StringBuilder portletContent = new StringBuilder();
     try {
@@ -133,7 +134,7 @@ public class UIPortletForm extends UIFormTabPane {
 //      else  input.setUserAttributes(new HashMap<String, String>());
       input.setUserAttributes(new HashMap<String, String>());
       
-      input.setPortletMode(PortletMode.EDIT);
+      input.setPortletMode(uiPortlet_.getCurrentPortletMode());
       input.setWindowState(uiPortlet_.getCurrentWindowState());
       input.setMarkup("text/html");
       input.setTitle(uiPortlet_.getTitle());
@@ -168,18 +169,38 @@ public class UIPortletForm extends UIFormTabPane {
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     getChild(UIFormInputThemeSelector.class).getChild(UIItemThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null)) ;
     
-    ExoWindowID windowID = uiPortlet.getExoWindowID();
-    Input input = new Input() ;
-    input.setInternalWindowID(windowID) ;
-    PortletApplicationsHolder holder = getApplicationComponent(PortletApplicationsHolder.class) ;
-    Portlet pDatas = holder.getPortletMetaData(windowID.getPortletApplicationName(), windowID.getPortletName());
-    ExoPortletPreferences defaultPrefs = pDatas.getPortletPreferences();
-    PersistenceManager manager = getApplicationComponent(PersistenceManager.class) ;
-    PortletWindowInternal windowInfos = manager.getWindow(input, defaultPrefs);
-    PortletPreferences preferences = windowInfos.getPreferences();
-    buidPreferenceInputs(preferences) ;
-  }
+    if(hasEditMode()) {
+      uiPortlet.setCurrentPortletMode(PortletMode.EDIT);
+    } else {
+      ExoWindowID windowID = uiPortlet.getExoWindowID();
+      Input input = new Input() ;
+      input.setInternalWindowID(windowID) ;
+      PortletApplicationsHolder holder = getApplicationComponent(PortletApplicationsHolder.class) ;
+      Portlet pDatas = holder.getPortletMetaData(windowID.getPortletApplicationName(), windowID.getPortletName());
+      ExoPortletPreferences defaultPrefs = pDatas.getPortletPreferences();
+      PersistenceManager manager = getApplicationComponent(PersistenceManager.class) ;
+      PortletWindowInternal windowInfos = manager.getWindow(input, defaultPrefs);
+      PortletPreferences preferences = windowInfos.getPreferences();
 
+      UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF) ;
+      uiPortletPrefSet.getChildren().clear() ;
+      Enumeration<String> prefNames = preferences.getNames() ;
+
+      if(!prefNames.hasMoreElements()) {
+        setSelectedTab("PortletSetting") ;
+        return ;
+      }
+      uiPortletPrefSet.setRendered(true) ;
+      setSelectedTab(FIELD_PORTLET_PREF) ;
+      while(prefNames.hasMoreElements()) {
+        String name = prefNames.nextElement() ;
+        if(!preferences.isReadOnly(name)) {
+          uiPortletPrefSet.addUIFormInput(new UIFormStringInput(name, null, preferences.getValue(name, "value"))) ;
+        }
+      }
+    } 
+  }
+  
   private void savePreferences() throws Exception {
     UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF) ;
     List<UIFormStringInput> uiFormInputs = new ArrayList<UIFormStringInput>(3) ;
@@ -199,27 +220,8 @@ public class UIPortletForm extends UIFormTabPane {
     }
     preferences.setMethodCalledIsAction(PCConstants.actionInt) ;
     preferences.store() ;
-  }
+  }  
   
-  private void buidPreferenceInputs(PortletPreferences preferences) {
-    UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF) ;
-    uiPortletPrefSet.getChildren().clear() ;
-    Enumeration<String> prefNames = preferences.getNames() ;
-    if(!hasEditMode()) {
-      if(!prefNames.hasMoreElements()) {
-        setSelectedTab("PortletSetting") ;
-        return ;
-      }
-      uiPortletPrefSet.setRendered(true) ;
-      setSelectedTab(FIELD_PORTLET_PREF) ;
-      while(prefNames.hasMoreElements()) {
-        String name = prefNames.nextElement() ;
-        if(!preferences.isReadOnly(name)) {
-          uiPortletPrefSet.addUIFormInput(new UIFormStringInput(name, null, preferences.getValue(name, "value"))) ;
-        }
-      }
-    }
-  }
   
   private Map<String, String[]> getRenderParameterMap(UIPortlet uiPortlet) {
     Map<String, String[]> renderParams = uiPortlet.getRenderParametersMap();
@@ -251,6 +253,9 @@ public class UIPortletForm extends UIFormTabPane {
       uiPortletForm.savePreferences() ;
       UIMaskWorkspace uiMaskWorkspace = uiPortletForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
+      if(uiPortletForm.hasEditMode()) {
+        uiPortlet.setCurrentPortletMode(PortletMode.VIEW);
+      }
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       pcontext.addUIComponentToUpdateByAjax(uiMaskWorkspace);
