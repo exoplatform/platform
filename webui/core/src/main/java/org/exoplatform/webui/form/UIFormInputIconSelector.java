@@ -149,7 +149,7 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
       UIFormInputIconSelector uiForm = event.getSource() ; 
       String paramName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       uiForm.setValues(paramName) ;
-      uiForm.setRenderSibbling(UIFormInputIconSelector.class);     
+      //uiForm.setRenderSibbling(UIFormInputIconSelector.class);     
     }
   }
 
@@ -163,7 +163,7 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
           uiIconSelector.setSelectedIconSet(set) ;   
         }
       }      
-      uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;
+      //uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;
       
       UIForm uiForm = uiIconSelector.getAncestorOfType(UIForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
@@ -181,15 +181,14 @@ public class UIFormInputIconSelector extends UIFormInputBase<String> {
             uiIconSelector.setSelectedIconSet(set) ;   
           }
         }
-        uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;
+        //uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;
         
         UIForm uiForm = uiIconSelector.getAncestorOfType(UIForm.class);
         event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
         return;
       }
       uiIconSelector.setSelectedIcon(iconName) ;
-      uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;
-      uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;
+      //uiIconSelector.setRenderSibbling(UIFormInputIconSelector.class) ;
       
       UIForm uiForm = uiIconSelector.getAncestorOfType(UIForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
