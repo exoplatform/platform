@@ -151,22 +151,27 @@ DragDrop.prototype.isAncestor = function(ancestor , child) {
 } ;
   
 DragDrop.prototype.isIn = function(x, y, component) {
-  var componentLeft = eXo.core.Browser.findPosX(component) ;
+  var componentLeft = eXo.core.Browser.findPosX(component);
   var componentRight = componentLeft + component.offsetWidth ;
   var componentTop = eXo.core.Browser.findPosY(component) ;
   var componentBottom = componentTop + component.offsetHeight ;
-  var isover = false ;
-  
+  var isOver = false ;
+
+		var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
+		if ((uiWorkspaceContainer && uiWorkspaceContainer.style.display != "none") && eXo.core.Browser.isIE7()) {
+			componentRight = componentRight - uiWorkspaceContainer.clientWidth ;
+		}
+	
   if(eXo.core.Browser.getBrowserType() == "ie") {
   	componentLeft = componentLeft / 2 ;
   }
-  
+
   if((componentLeft < x) && (x < componentRight)) {
     if((componentTop < y) && (y < componentBottom)) {
-      isover = true ;
+      isOver = true ;
     }
   }
-  return isover ;
+  return isOver ;
 } ;
 
 DragDrop.prototype.isJunkMove = function(src, target) {
