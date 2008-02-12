@@ -82,7 +82,13 @@
 				            <div class="TabRepeat">
 				              <div class="OverflowContainer" onclick="$clickEvt; eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
 									      <div class="LeftIcon"><span></span></div>
-							            <a class="TabLabel" href="javascript: void(0);"><%=displayName%></a>
+							            <a class="TabLabel" href="javascript: void(0);" title='$displayName'>
+							            <% if(displayName.length() > 15) { %>
+							            <%=displayName.substring(0,14)%>...
+							            <% } else {%>
+							            <%=displayName%>
+													<% }%>
+							            </a>
 								          <div class="ControlContainer" style ="$display">
 								            <a class="ControlIcon EditIcon" title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.EditCategory")%>" href="javascript: void(0);" onclick="<%=uicomponent.event("EditCategory", cName)%>"><span></span></a>
 								            <a class="ControlIcon DeleteIcon" title="<%=_ctx.appRes("ApplicationRegistryControlArea.label.DeleteCategory")%>" href="javascript: void(0);" onclick="<%=uicomponent.event("DeleteCategory", cName)%>"><span></span></a>
