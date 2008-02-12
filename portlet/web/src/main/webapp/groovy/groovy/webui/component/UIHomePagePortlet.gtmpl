@@ -1,286 +1,50 @@
 <div class="UIHomePagePortlet" id="$uicomponent.id">
-	<div class="HomePortletDecor">
-		<div class="MiddleBanner" style="display: block">
-			<div class="LeftBanner">
-				<div class="RightBanner">
-					<div class="TitleBanner">
-						<span >eXo</span>
-						<span class="TitleBannerOrange">2.0</span>
-						<span >Release!</span>
-					</div>
-					<div class="ListMenu">
-						<div class="Portal">
-							<a href="#" class="ItemMenu">
-								<div class="RightMenu">
-									<div class="MiddleMenu">
-										eXo Portal 2.0
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="ECM">
-							<a href="#" class="ItemMenu">
-								<div class="RightMenu">
-									<div class="MiddleMenu">
-										eXo ECM 2.0
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="CS">
-							<a href="#" class="ItemMenu">
-								<div class="RightMenu">
-									<div class="MiddleMenu">
-										eXo CS 2.0
-									</div>
-								</div>
-							</a>
-						</div>
-						<div class="Ultimate">
-							<a href="#" class="ItemMenu">
-								<div class="RightMenu">
-									<div class="MiddleMenu">
-										eXo Ultimate 2.0
-									</div>
-								</div>
-							</a>
+	<div class="PortletDecoration">
+		<div class="HomePortletAdBackround">
+			<div class="AdImage">
+				<div class="EmptyBlock"><span></span></div>
+				<div class="ProductSlogan">Virtualize Your Desktop</div>
+				<div class="ProductIntro">New version comes with a revolutionary user interface.<br>Classic and WebOS Desktop Layouts.<br> Drag and Drop Layouts. Create Pages Wizard.<br>And many more...</div>
+			</div>
+		</div>
+		<div class="HomePortletContent">
+			<div class="InstructionTitle">Try eXo Portal 2.0 with following available user accounts:</div>
+			<div class="UserAccountsContainer">
+				<div class="AccountsContainerDeco">
+					<div class="AccountBlock AdministratorUser">
+						<div class="AccountInfos">
+							<div class="AccountTitle">Administrator</div>
+							<div class="Username">Username:<span>root</span></div>
+							<div class="Passwords">Password:<span>exo</span></div>
 						</div>
 					</div>
+					<div class="SeparatorLine"><span></span></div>
+					<div class="AccountBlock ManagerUser">
+						<div class="AccountInfos">
+							<div class="AccountTitle">Manager</div>
+							<div class="Username">Username:<span>john</span></div>
+							<div class="Passwords">Password:<span>exo</span></div>
+						</div>
+					</div>
+					<div class="SeparatorLine"><span></span></div>
+					<div class="AccountBlock NormalUser">
+						<div class="AccountInfos">
+							<div class="AccountTitle">User</div>
+							<div class="Username">Username:<span>mary</span></div>
+							<div class="Passwords">Password:<span>exo</span></div>
+						</div>
+					</div>
+					<div class="SeparatorLine"><span></span></div>
+					<div class="AccountBlock DemoUser" style="margin-right: 0px;">
+						<div class="AccountInfos">
+							<div class="AccountTitle">Demo</div>
+							<div class="Username">Username:<span>demo</span></div>
+							<div class="Passwords">Password:<span>exo</span></div>
+						</div>
+					</div>
+					<div style="clear: both"><span></span></div>
 				</div>
 			</div>
 		</div>
-		
-		<div class="MiddleBanner" style="display: none">
-			<div class="LeftBannerPortal">
-				<div class="RightBanner">
-					<div class="TitleBanner">
-						<span >eXo</span>
-						<span >Portal</span>
-						<span class="TitleBannerOrange">2.0</span>	
-					</div>
-					<div class="ListMenu">
-						<a href="#" class="Portal ItemMenu SelectedMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Portal 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="ECM ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo ECM 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="CS ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo CS 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="Ultimate ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Ultimate 2.0
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="MiddleBanner" style="display: none">
-			<div class="LeftBannerECM">
-				<div class="RightBanner">
-					<div class="TitleBanner">
-						<span>eXo</span>
-						<span>ECM</span>
-						<span class="TitleBannerOrange">2.0</span>
-					</div>
-					<div class="ListMenu">
-						<a href="#" class="Portal ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Portal 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="ECM ItemMenu SelectedMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo ECM 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="CS ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo CS 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="Ultimate ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Ultimate 2.0
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="MiddleBanner" style="display: none">
-			<div class="LeftBannerCS">
-				<div class="RightBanner">
-					<div class="TitleBanner">
-						<span >eXo</span>
-						<span >CS</span>
-						<span class="TitleBannerOrange">2.0</span>
-					</div>
-					<div class="ListMenu">
-						<a href="#" class="Portal ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Portal 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="ECM ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo ECM 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="CS ItemMenu SelectedMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo CS 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="Ultimate ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Ultimate 2.0
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		<div class="MiddleBanner" style="display: none">
-			<div class="LeftBannerUltimate">
-				<div class="RightBanner">
-					<div class="TitleBanner">
-						<span >eXo</span>
-						<span >Ultimate</span>
-						<span class="TitleBannerOrange">2.0</span>
-					</div>
-					<div class="ListMenu">
-						<a href="#" class="Portal ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Portal 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="ECM ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo ECM 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="CS ItemMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo CS 2.0
-								</div>
-							</div>
-						</a>
-						<a href="#" class="Ultimate ItemMenu SelectedMenu">
-							<div class="RightMenu">
-								<div class="MiddleMenu">
-									eXo Ultimate 2.0
-								</div>
-							</div>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		
-		
-		<div class="HomePageContent">
-		
-			<div class="Container">
-				<div class="LeftContainer ExoPortal">	
-					<div class="RightContainer">
-						<div class="MiddleContainer">		 
-							<a href="#" class="Name">Administrator</a>
-							<div class="Description">User: root </div>
-							<div class="Description">Password: exo</div>
-						</div>
-					</div>
-				</div>	
-			</div>					
-			
-			<div class="Container">
-				<div class="LeftContainer ExoHR">	
-					<div class="RightContainer">
-						<div class="MiddleContainer">		 
-							<a href="#" class="Name">HR-manager</a>
-							<div class="Description">User: james </div>
-							<div class="Description">Password: exo</div>
-						</div>
-					</div>
-				</div>	
-			</div>					
-			
-			<div class="Container">
-				<div class="LeftContainer ExoManager">
-					<div class="RightContainer">
-						<div class="MiddleContainer"> 
-							<a href="#" class="Name">Manager</a>
-							<div class="Description">User: john </div>
-							<div class="Description">Password: exo</div>
-						</div>
-					</div>
-				</div>
-			</div>						
-			
-			<div class="Container">
-				<div class="LeftContainer ExoUser">
-					<div class="RightContainer">
-						<div class="MiddleContainer">
-							<a href="#" class="Name">User</a>
-							<div class="Description">User: marry</div>
-							<div class="Description">Password: exo</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class="Container">
-				<div class="LeftContainer ExoUsers">
-					<div class="RightContainer">
-						<div class="MiddleContainer">
-							<a href="#" class="Name">Demo</a>
-							<div class="Description">User: demo</div>
-							<div class="Description">Password: exo</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</div>
-	</div>				
+	</div>		
 </div>

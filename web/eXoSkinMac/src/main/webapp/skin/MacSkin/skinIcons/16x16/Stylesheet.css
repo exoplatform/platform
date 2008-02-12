@@ -58,6 +58,7 @@
   background: url('icons/SelectIcon.png') no-repeat ;
   width: 16px ;  height: 16px ; margin: auto;
 }
+
 .SelectPortalIcon {
   background: url('icons/SelectIcon.png') no-repeat ;
   width: 16px ;  height: 16px ; margin: auto;
@@ -66,6 +67,11 @@
 .DeletePortalIcon {
   width: 16px ;  height: 16px ; margin: auto;
   background: url('icons/DeleteIcon.png') no-repeat;
+}
+
+.SearchIcon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/SearchIcon.png') no-repeat;
 }
 
 .OnLightPage16x16Icon {
