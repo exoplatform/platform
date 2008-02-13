@@ -60,10 +60,10 @@
                 <font color="red">Sign in failed. Wrong username or password.</font><%}%>
               <form name="loginForm" action="<%=loginAction%>" method="post" style="margin: 0px;">        
 	              <div class="FieldContainer">
-		              <label>User name:</label><input name="j_username" value="<%=userName%>"/>
+		              <label>User name</label><input name="j_username" value="<%=userName%>"/>
 			          </div>
 		            <div class="FieldContainer" id="UIPortalLoginFormControl">
-		              <label>Password:</label><input type="password" name="j_password" value=""/>
+		              <label>Password</label><input type="password" name="j_password" value=""/>
 		            </div>
 			          <div class="LoginButton">
 			            <div class="LoginButtonContainer">
