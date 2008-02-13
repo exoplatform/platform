@@ -194,6 +194,7 @@
   padding: 0px 0px 0px 35px;
   margin: 0px 0px 0px 6px;
 	width: auto;
+	height: 35px;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
@@ -347,7 +348,7 @@
 .UIExoStart .StartMenuDecorator .StartMenuTR {
   height: 10px;
   background: url('background/ExoStart.png') no-repeat right -74px;
-  padding: 0px 15px 0px 0px ;
+  padding: 0px 15px 0px 0px;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuML {
@@ -357,11 +358,11 @@
 
 .UIExoStart .StartMenuDecorator .StartMenuMR {
   background: url('background/MenuDecoratorMR15x1.png') repeat-y right;
-  padding: 0px 15px 0px 0px ;
+  padding: 0px 15px 0px 0px;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBG {
-  background: white ;
+  background: white;	
   width: 100%;
 }
 
