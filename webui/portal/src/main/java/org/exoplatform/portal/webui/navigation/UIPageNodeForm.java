@@ -90,11 +90,12 @@ public class UIPageNodeForm extends UIFormTabPane {
     pageNode_ = pageNode;
     if(pageNode == null) {      
       getUIStringInput("name").setEditable(UIFormStringInput.ENABLE);
+      getChild(UIFormInputIconSelector.class).setSelectedIcon("Default");
       return;
     } 
     getUIStringInput("name").setEditable(UIFormStringInput.DISABLE);    
     String icon = pageNode_.getIcon();
-    if( icon == null || icon.length() < 0) icon = "DefaultPageIcon" ;
+    if( icon == null || icon.length() < 0) icon = "Default" ;
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     invokeGetBindingBean(pageNode_) ;
     getUIStringInput("label").setValue(pageNode_.getResolvedLabel()) ;
@@ -154,7 +155,7 @@ public class UIPageNodeForm extends UIFormTabPane {
         //if(!children.contains(pageNode)) children.add(pageNode);
         if(!pageNav.getNodes().contains(pageNode)) {
           if(uiPageNodeSelector.searchPageNodeByUri(pageNav, pageNode.getUri()) != null) {
-            uiPageNodeForm.setRenderedChild("PageNodeSetting") ;
+            //uiPageNodeForm.setRenderedChild("PageNodeSetting") ;
             //uiPageNodeForm.setWithRenderTab(true) ;
             UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
             pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
@@ -174,7 +175,7 @@ public class UIPageNodeForm extends UIFormTabPane {
         pageNode.setUri(parentNode.getUri()+"/"+pageNode.getName());
         if(!children.contains(pageNode)) {
           if(PageNavigationUtils.searchPageNodeByUri(parentNode, pageNode.getUri()) != null) {
-            uiPageNodeForm.setRenderedChild("PageNodeSetting") ;
+            //uiPageNodeForm.setRenderedChild("PageNodeSetting") ;
             //uiPageNodeForm.setWithRenderTab(true) ;
             UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
             pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
