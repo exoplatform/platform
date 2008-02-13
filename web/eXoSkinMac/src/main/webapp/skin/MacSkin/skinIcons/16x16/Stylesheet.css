@@ -481,6 +481,7 @@
 
 .SmallGroup16x16Icon {
   width: 16px ; height: 16px ;
+	background: url('icons/AddPemission.gif') no-repeat center left;
 }
 
 .DefaultPageIcon {

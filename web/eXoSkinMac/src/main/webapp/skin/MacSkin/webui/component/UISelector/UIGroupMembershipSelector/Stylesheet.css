@@ -4,7 +4,7 @@
 
 .UIGroupMembershipSelector .UIBreadcumbs {
   font-weight: normal;
-  margin-bottom: 3px; padding: 0px;
+	margin-bottom: 3px; padding: 0px;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .LeftBreadcumbsBar {
@@ -13,11 +13,9 @@
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .RightBreadcumbsBar {
-  background: white;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .BreadcumbsInfoBar {
-  background: white;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs a.Selected {
@@ -27,7 +25,7 @@
 .UIGroupMembershipSelector .UIBreadcumbs .HomeIcon {
 	float: left;
   background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/NormalGroup.png') no-repeat;
-  margin: 8px 0px 0px 5px;
+  margin: 7px 0px 0px 5px;
 }
 
 .UIGroupMembershipSelector .Container {
