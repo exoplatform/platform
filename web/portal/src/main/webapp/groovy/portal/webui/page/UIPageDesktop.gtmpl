@@ -227,7 +227,7 @@
 	          if(posX == null) posX = (String)x ;
 	          if(posY == null) posY = (String)y ;
 	          
-            jsmanager.addJavascript("eXo.desktop.UIWindow.init('${popupId}', true, ${posX}, ${posY});") ;
+            jsmanager.addJavascript("eXo.desktop.UIWindow.init('UIWindow-${popupId}', true, ${posX}, ${posY});") ;
         %>
         <%  x += 10; y += 20 ;%>
         <%}%>
@@ -296,7 +296,7 @@
                       String imgLocation = uiChild.getExoWindowID().getPortletApplicationName() + "/skin/DefaultSkin/portletIcons/" + uiChild.getExoWindowID().getPortletName() ;
                   %>
                       <img id="DockItem${uiChild.id}" onmousedown="eXo.webui.UIRightClickPopupMenu.clickRightMouse(event, this, 'DockbarContextMenu', '${uiChild.id}', null, 1)" class="Icon" src="/${imgLocation}.png" alt="/eXoResources/skin/sharedImages/Blank.gif"
-                           onerror="this.src='/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png'" onclick="eXo.desktop.UIDesktop.showHideWindow('${uiChild.id}', this);" /><span class="Tooltip" style="display: none"><%=uiChild.getTitle();%></span>
+                           onerror="this.src='/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png'" onclick="eXo.desktop.UIDesktop.showHideWindow('UIWindow-${uiChild.id}', this);" /><span class="Tooltip" style="display: none"><%=uiChild.getTitle();%></span>
                   <%}%>
 
                   <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />

@@ -256,6 +256,13 @@ DOMUtil.prototype.findPreviousElementByTagName = function(element, tagName) {
 	}
 	return null ;
 } ;
+
+DOMUtil.prototype.moveElemt = function(srcElemt, destElemt) {
+	if(typeof(srcElemt) == "string") srcElemt = document.getElementById(srcElemt) ;
+	if(typeof(destElemt) == "string") destElemt = document.getElementById(destElemt) ;
+	if(srcElemt && destElemt) destElemt.appendChild(srcElemt) ;
+}
+
 /**
  * Creates an element tagName with innerHTML content
  * Returns the first node div in this element
@@ -342,6 +349,8 @@ DOMUtil.prototype.listHideElements = function(object) {
  * Removes element node from the DOM tree
  */
 DOMUtil.prototype.removeElement = function(elemt) {
+	if(typeof(elemt) == "string") elemt = document.getElementById(elemt) ;
+	if(!elemt) return ;
 	var parentElement = elemt.parentNode ;
 	parentElement.removeChild(elemt) ;
 } ;

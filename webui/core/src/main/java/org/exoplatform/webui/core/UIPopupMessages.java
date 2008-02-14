@@ -36,7 +36,7 @@ import org.exoplatform.webui.event.EventListener;
  * A component to display messages of different types, in a popup window
  */
 @ComponentConfig(
-    template = "system:groovy/webui/core/UIPopupMessages.gtmpl",
+    template = "system:/groovy/webui/core/UIPopupMessages.gtmpl",
     events = @EventConfig(listeners = UIPopupMessages.CloseActionListener.class)  
 )
 public class UIPopupMessages extends UIPopupWindow {

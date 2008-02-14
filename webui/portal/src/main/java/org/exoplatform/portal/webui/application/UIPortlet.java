@@ -171,37 +171,32 @@ public class UIPortlet extends UIApplication {
   
   public List getSupportedProcessingEvents() { return supportedProcessingEvents_; }
   public void setSupportedProcessingEvents(List supportedProcessingEvents) {
-	supportedProcessingEvents_ = supportedProcessingEvents;
+    supportedProcessingEvents_ = supportedProcessingEvents;
   }
   
   public List getSupportedPublicRenderParameters() { return supportedPublicParams_; }
   public void setSupportedPublicRenderParameters(List supportedPublicRenderParameters) {
-	supportedPublicParams_ = supportedPublicRenderParameters;
+    supportedPublicParams_ = supportedPublicRenderParameters;
   }
   
   public  List<String> getSupportModes() { 
     if (supportModes_ != null) return supportModes_;
     PortletContainerService portletContainer =  getApplicationComponent(PortletContainerService.class);
     String  portletId = exoWindowId_.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + exoWindowId_.getPortletName();   
-    PortletData portletData = (PortletData) portletContainer.getAllPortletMetaData().get(portletId);
+    PortletData portletData = portletContainer.getAllPortletMetaData().get(portletId);
     if(portletData == null) return null;
-    List sukepportsList = portletData.getSupports() ;
+    List<Supports> sukepportsList = portletData.getSupports() ;
     List<String> supportModes = new ArrayList<String>() ;
     for (int i = 0; i < sukepportsList.size(); i++) {
-      Supports supports = (Supports) sukepportsList.get(i) ;
+      Supports supports = sukepportsList.get(i) ;
       String mimeType = supports.getMimeType() ;
       if ("text/html".equals(mimeType)) {
-        List modes = supports.getPortletMode() ;
+        List<String> modes = supports.getPortletMode() ;
         for (int j =0 ; j < modes.size() ; j++) {
-          String mode =(String)modes.get(j) ;
+          String mode =modes.get(j) ;
           mode = mode.toLowerCase() ;
-          //check role admin
-          if("config".equals(mode)) { 
-            //if(adminRole) 
-            supportModes.add(mode) ;
-          } else {
-            supportModes.add(mode) ;
-          }
+          if("config".equals(mode)) supportModes.add(mode) ;
+          else supportModes.add(mode) ;
         }
         break ;
       }
@@ -221,7 +216,7 @@ public class UIPortlet extends UIApplication {
 	  if(supportedProcessingEvents_ == null) {
       PortletContainerService portletContainer =  getApplicationComponent(PortletContainerService.class);
       String  portletId = exoWindowId_.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + exoWindowId_.getPortletName();   
-      PortletData portletData = (PortletData) portletContainer.getAllPortletMetaData().get(portletId);
+      PortletData portletData = portletContainer.getAllPortletMetaData().get(portletId);
       supportedProcessingEvents_ = portletData.getSupportedProcessingEvent();
 	  }
 	  if(supportedProcessingEvents_ == null) return false;
@@ -243,7 +238,7 @@ public class UIPortlet extends UIApplication {
 	  if(supportedPublicParams_ == null) {
       PortletContainerService portletContainer =  getApplicationComponent(PortletContainerService.class);
       String  portletId = exoWindowId_.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + exoWindowId_.getPortletName();   
-      PortletData portletData = (PortletData) portletContainer.getAllPortletMetaData().get(portletId);
+      PortletData portletData = portletContainer.getAllPortletMetaData().get(portletId);
       supportedPublicParams_ = portletData.getSupportedPublicRenderParameter();
 	  }	
 	  if(supportedPublicParams_ == null) return false;

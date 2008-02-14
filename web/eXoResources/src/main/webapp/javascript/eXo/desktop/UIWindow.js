@@ -289,7 +289,7 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	var params ;
 	if(!appStatus) {
 	  params = [
-	  	{name : "objectId", value : object.id},
+	  	{name : "objectId", value : object.id.replace(/^UIWindow-/, "")},
 	  	{name : "posX", value : object.offsetLeft},
 	  	{name : "posY", value : object.offsetTop},
 	  	{name : "zIndex", value : object.style.zIndex},
@@ -298,7 +298,7 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	  ] ;
 	} else {
 		params = [
-	  	{name : "objectId", value : object.id},
+	  	{name : "objectId", value : object.id.replace(/^UIWindow-/, "")},
 		  {name : "appStatus", value : appStatus}
 	  ] ;
 	}

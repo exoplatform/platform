@@ -50,7 +50,13 @@
 	        <div class="UITabContentContainer">
 	          <%if(uicomponent.hasEditMode()) {%>
 		          <div class="UITabContent">
-		            <%=uicomponent.getEditModeContent()%>
+		            <div id="<%=uicomponent.getUIPortlet().getId()%>" class="abc">
+			            <%= uicomponent.getEditModeContent() %>
+			            <%
+			              String strExec = "eXo.core.DOMUtil.removeElement('UIWindow-" + uicomponent.getUIPortlet().getId() + "')" ;
+			              rcontext.getJavascriptManager().addCustomizedOnLoadScript(strExec) ;
+			            %>
+			          </div>
 		          </div>
 	          <%}%>
 		        <%uiform.begin()%>

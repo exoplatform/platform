@@ -122,6 +122,7 @@ public class UIPortletForm extends UIFormTabPane {
     StringBuilder portletContent = new StringBuilder();
     try {
       PortalRequestContext prcontext = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
+      prcontext.setFullRender(true) ;
       ExoContainer container = prcontext.getApplication().getApplicationServiceContainer();
       PortletContainerService portletContainer = (PortletContainerService) container
       .getComponentInstanceOfType(PortletContainerService.class);
@@ -134,7 +135,7 @@ public class UIPortletForm extends UIFormTabPane {
 //      else  input.setUserAttributes(new HashMap<String, String>());
       input.setUserAttributes(new HashMap<String, String>());
       
-      input.setPortletMode(uiPortlet_.getCurrentPortletMode());
+      input.setPortletMode(PortletMode.EDIT);
       input.setWindowState(uiPortlet_.getCurrentWindowState());
       input.setMarkup("text/html");
       input.setTitle(uiPortlet_.getTitle());
@@ -169,9 +170,7 @@ public class UIPortletForm extends UIFormTabPane {
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     getChild(UIFormInputThemeSelector.class).getChild(UIItemThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null)) ;
     
-    if(hasEditMode()) {
-      uiPortlet.setCurrentPortletMode(PortletMode.EDIT);
-    } else {
+    if(!hasEditMode()) {
       ExoWindowID windowID = uiPortlet.getExoWindowID();
       Input input = new Input() ;
       input.setInternalWindowID(windowID) ;
