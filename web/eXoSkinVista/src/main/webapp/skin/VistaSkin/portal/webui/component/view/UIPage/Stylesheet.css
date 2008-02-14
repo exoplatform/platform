@@ -26,6 +26,7 @@
   background: url('background/PageLayoutTC1x78.png') repeat-x center ; 
   color: #3b3b3b; 
   font-weight: bold;
+	text-align: center;
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {

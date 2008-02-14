@@ -56,6 +56,7 @@
 	white-space: nowrap ;
 	padding: 0px 5px ;
 	border: solid 1px black ;
+	font-weight: bold;
 }
 
 .UIPageDesktop .MoveResizeArea {
@@ -144,4 +145,3 @@
 	background: url('icons/24x24/CloseDockbarIcon24x24.gif') no-repeat left ;
 	margin: 0px 0px 0px 5px;
 }
-
