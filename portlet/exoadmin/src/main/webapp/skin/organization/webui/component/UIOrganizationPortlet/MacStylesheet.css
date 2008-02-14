@@ -162,7 +162,13 @@
 /*#######################  UIGroupManagement #################################*/
 
 .UIOrganizationPortlet .UIGroupManagement {
+	margin-top: 5px;
 }
+
+.UIOrganizationPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
+	margin-top: 5px;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon{
   width: 28px; height: 15px;
   margin-top: 9px;
