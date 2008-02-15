@@ -20,7 +20,11 @@
 		      <div class="OverflowContainer">
 		        <div class="Icon"><span></span></div>
 			      <div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.curentSelectedNodeInfo")%>:</div>
-			      <div class="Info">$nodeName</div>
+			      <% if(nodeName.length() > 40) { %>
+			      <div class="Info"><%= nodeName.substring(0,39) %>...</div>
+			      <% } else { %>
+			      <div class="Info"><%= nodeName%></div>
+			      <% } %>
 			    </div>
 			  </div>
 		  

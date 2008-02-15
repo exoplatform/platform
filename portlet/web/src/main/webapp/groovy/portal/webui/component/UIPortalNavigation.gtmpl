@@ -148,14 +148,16 @@
 						                   	<div class="$arrowIcon">
 						                   	  <%
 						                   	  	String pageURI = Util.getPortalRequestContext().getPortalURI() + node.getUri() ;
+						                   	  	String label = node.resolvedLabel ;
+						                   	  	if(label.length() > 30) label = label.substring(0,29) + "..." ;
 						                   	    if(uicomponent.isUseAjax()) {
 						                   	      String onclickEvt = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) + ";return false;" ;
 						                   	  %>
-								                   	  <a class="TabLabel ${iconType}" onclick="$onclickEvt" href="$pageURI">$node.resolvedLabel</a>
+								                   	  <a class="TabLabel ${iconType}" onclick="$onclickEvt" href="$pageURI">$label</a>
 								                  <%
 								                    } else {
 								                  %>
-								                      <a class="TabLabel ${iconType}" href="$pageURI">$node.resolvedLabel</a>
+								                      <a class="TabLabel ${iconType}" href="$pageURI">$label</a>
 								                  <%}%>
 						                   	</div>
 				                      </div>

@@ -124,7 +124,7 @@ public class UIWizardPageSetInfo extends UIForm {
     addUIFormInput(new UIFormStringInput(PAGE_NAME, "name", null).
                        addValidator(StringLengthValidator.class, 3, 30).
                        addValidator(IdentifierValidator.class));
-    addUIFormInput(new UIFormStringInput(PAGE_DISPLAY_NAME, "label", null).addValidator(IdentifierValidator.class));
+    addUIFormInput(new UIFormStringInput(PAGE_DISPLAY_NAME, "label", null));
     
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
     uiTree.setUIRightClickPopupMenu(null);
