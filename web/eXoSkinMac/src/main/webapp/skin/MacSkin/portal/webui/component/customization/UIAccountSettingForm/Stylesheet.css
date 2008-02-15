@@ -103,3 +103,6 @@
 	width: 200px;
 }
 
+.UIAccountSettingForm .UIForm .UIAction {
+	padding-top: 18px;
+}

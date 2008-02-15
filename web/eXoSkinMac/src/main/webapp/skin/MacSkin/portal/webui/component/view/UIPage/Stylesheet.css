@@ -26,6 +26,7 @@
 .UIPage .PageLayoutDecorator .TopCenterPage {
   height: 114px ; line-height: 104px; 
   color: #1f2020;  text-align: center;
+	font-weight: bold;
   background: url('background/TopMiddlePageLayout1x114.png') repeat-x center ;  
 }
 
