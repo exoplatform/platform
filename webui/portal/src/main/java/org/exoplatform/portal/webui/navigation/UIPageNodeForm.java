@@ -70,7 +70,7 @@ public class UIPageNodeForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(new UIFormStringInput("uri", "uri", null).setEditable(false)).                            
     addUIFormInput(new UIFormStringInput("name","name", null).
                    addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)).
-    addUIFormInput(new UIFormStringInput("label", "label", null));
+    addUIFormInput(new UIFormStringInput("label", "label", null).addValidator(IdentifierValidator.class));
     
     addUIFormInput(uiSettingSet);
     setSelectedTab(uiSettingSet.getId()) ;
