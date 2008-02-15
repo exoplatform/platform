@@ -321,6 +321,7 @@
 
 .UIOrganizationPortlet .UIGrid  {
 	width: 99.5%;
+	margin: auto;
 }
 
 .UIOrganizationPortlet .UIGrid .ActionContainer {  

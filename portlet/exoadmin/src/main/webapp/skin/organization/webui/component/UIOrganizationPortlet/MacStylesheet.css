@@ -17,6 +17,7 @@
 	padding: 4px 0px 7px 7px;
 }
 
+
 .UIOrganizationPortlet .OrganizationPortletContainer {
   padding: 5px 8px ;
 } 
@@ -269,6 +270,11 @@
 	margin: auto;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .PopupContent .UIGrid {
+	width: 100%;
+	margin: auto;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UIGrid th {
 	padding: 0px 3px;
 }
@@ -314,11 +320,12 @@
 	float: left;
 }
 
-.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon{ 
+.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon { 
 	background-position: left center;
 	background-repeat: no-repeat;
 	float: right;
 	height: 24px; width: 24px;
+}
 
 .UIOrganizationPortlet .UIGroupInfo .ListUserForSearch{ 
 	padding: 10px;
@@ -326,6 +333,7 @@
 
 .UIOrganizationPortlet .SelectUserIcon {
   background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/SelectIcon.png') no-repeat center ;
+	width: 16px; height: 16px;
 }
 
 /*#######################  UIMemberShipManagement #################################*/
@@ -351,5 +359,5 @@
 }
 
 .UIOrganizationPortlet .UIGrid td {
-	background: red;
+	margin: auto;
 }
