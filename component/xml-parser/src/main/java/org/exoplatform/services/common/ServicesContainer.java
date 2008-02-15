@@ -95,7 +95,7 @@ public class ServicesContainer {
 
   @SuppressWarnings("unchecked")
   private static <T> T create(Class<T> clazz) throws Exception {
-    Constructor<T> [] constructors = clazz.getDeclaredConstructors();
+    Constructor<T> [] constructors = (Constructor<T> [])clazz.getDeclaredConstructors();
     Arrays.sort(constructors, new Comparator<Constructor<T>>() {
       public int compare(Constructor<T> cons1, Constructor<T> cons2) {
         return cons1.getParameterTypes().length - cons2.getParameterTypes().length;
