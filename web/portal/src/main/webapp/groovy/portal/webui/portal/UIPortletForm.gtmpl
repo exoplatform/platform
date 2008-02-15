@@ -12,9 +12,14 @@
 	     	    <div class="RightHorizontalTabs">
 	     	      <div class="CenterHorizontalTabs">
 				        <div class="TabsContainer">
-		              <%if(uicomponent.hasEditMode()) {%>
+		              <%
+			            	String selTabId = uicomponent.getSelectedTabId() ;
+		                if(uicomponent.hasEditMode()) {
+		                	String className="NormalTab" ;
+					        		if(selTabId.equals("")) className="SelectedTab" ;
+		              %>
 				              <div class="UITab NormalTabStyle">
-				                <div class="SelectedTab">
+				                <div class="$className">
 				                  <div class="LeftTab">
 				                    <div class="RightTab">
 						                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', 'EditMode')">Edit Mode</div>
@@ -24,7 +29,6 @@
 				              </div>
 			            <%
 			              }
-			            	String selTabId = uicomponent.getSelectedTabId() ;
 			              for(inputSet in uicomponent.getChildren()) {
 			                if(!inputSet.isRendered()) continue ;
 					        		String className="NormalTab" ;
@@ -48,16 +52,20 @@
 	      </div>
 	    	<div class="HorizontalLayout">
 	        <div class="UITabContentContainer">
-	          <%if(uicomponent.hasEditMode()) {%>
-		          <div class="UITabContent">
-		            <div id="<%=uicomponent.getUIPortlet().getId()%>" class="abc">
-			            <%= uicomponent.getEditModeContent() %>
-			            <%
-			              String strExec = "eXo.core.DOMUtil.removeElement('UIWindow-" + uicomponent.getUIPortlet().getId() + "')" ;
-			              rcontext.getJavascriptManager().addCustomizedOnLoadScript(strExec) ;
-			            %>
+	          <%
+	            if(uicomponent.hasEditMode()) {
+		            String display = "none" ;
+					      if(selTabId.equals("")) display="block" ;
+	          %>
+			          <div class="UITabContent" style="display: $display;">
+			            <div id="<%=uicomponent.getUIPortlet().getId()%>">
+				            <%= uicomponent.getEditModeContent() %>
+				            <%
+				              String strExec = "eXo.core.DOMUtil.removeElement('UIWindow-" + uicomponent.getUIPortlet().getId() + "')" ;
+				              rcontext.getJavascriptManager().addCustomizedOnLoadScript(strExec) ;
+				            %>
+				          </div>
 			          </div>
-		          </div>
 	          <%}%>
 		        <%uiform.begin()%>
 		          <input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.selectedTabId">
