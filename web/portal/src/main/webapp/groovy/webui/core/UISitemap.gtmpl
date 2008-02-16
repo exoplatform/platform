@@ -11,9 +11,9 @@
 			
 			String label = node.resolvedLabel;
 	    String title = "";
-	    if(label.length() > 40) {
+	    if(label.length() > 38) {
 	    	title = label;
-	    	label = label.substring(0,38) + "...";	            	
+	    	label = label.substring(0,35) + "...";	            	
 	    }
 	            
 	    println """
@@ -50,9 +50,9 @@
 	            
 	            String label = node.resolvedLabel;
 	            String title = "";
-	            if(label.length() > 38) {
+	            if(label.length() > 35) {
 	            	title = label;
-	            	label = label.substring(0,35) + "...";	            	
+	            	label = label.substring(0,32) + "...";	            	
 	            }
 	    %>
 	      <div class="SitemapItemBox" style="float:${cssfloat};">
