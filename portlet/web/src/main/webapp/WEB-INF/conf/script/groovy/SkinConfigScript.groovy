@@ -152,27 +152,4 @@ SkinService.addSkin(
     "/web/skin/portal/webui/component/UIConsolePortlet/MacStylesheet.css",
     ServletContext
 ) ;
-
-/***************************HomePagePortlet**************************************************/
-SkinService.addSkin(
-    "web/HomePagePortlet",
-    "Default",
-    "/web/skin/portal/webui/component/UIHomePagePortlet/DefaultStylesheet.css",
-    ServletContext
-) ;
-
-SkinService.addSkin(
-    "web/HomePagePortlet",
-    "Vista",
-    "/web/skin/portal/webui/component/UIHomePagePortlet/DefaultStylesheet.css",
-    ServletContext
-) ;
- 
-SkinService.addSkin(
-    "web/HomePagePortlet",
-    "Mac",
-    "/web/skin/portal/webui/component/UIHomePagePortlet/DefaultStylesheet.css",
-    ServletContext
-) ;
-
 /////////////////////////////////////////////////////////////////////////////////////////////////////

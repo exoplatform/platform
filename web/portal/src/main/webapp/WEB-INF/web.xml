@@ -5,15 +5,6 @@
                  "http://java.sun.com/dtd/web-app_2_3.dtd">
 <web-app>
   <display-name>portal</display-name>   
-  <!-- ================================================================== -->
-  <!--           LISTENER                                                 -->
-  <!-- ================================================================== -->
-  <listener>
-    <listener-class>org.exoplatform.portal.application.PortalSessionListener</listener-class>
-  </listener>
-  <listener>
-    <listener-class>org.exoplatform.portal.webui.javascript.JavascriptListener</listener-class>
-  </listener>  
   
   <!-- ================================================================== -->
   <!--   RESOURCE FILTER TO CACHE MERGED JAVASCRIPT AND CSS               -->
@@ -33,8 +24,19 @@
     <url-pattern>/css/*</url-pattern>
   </filter-mapping>
   
-  
-  
+  <!-- ================================================================== -->
+  <!--           LISTENER                                                 -->
+  <!-- ================================================================== -->
+  <listener>
+    <listener-class>org.exoplatform.portal.application.PortalSessionListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.exoplatform.portal.webui.skin.SkinListener</listener-class>
+  </listener>
+  <listener>
+    <listener-class>org.exoplatform.portal.webui.javascript.JavascriptListener</listener-class>
+  </listener>  
+    
   <!-- ================================================================== -->
   <!--           SERVLET                                                  -->
   <!-- ================================================================== -->  
