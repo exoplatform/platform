@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.portal.webui.application;
+package org.exoplatform.groovy.webui.component;
 
 import javax.portlet.PortletRequest;
 
@@ -27,7 +27,7 @@ import org.exoplatform.webui.core.UIPortletApplication;
 @ComponentConfig()
 public class UIGroovyPortlet extends UIPortletApplication {
   
-  private String DEFAULT_TEMPLATE = "system:/groovy/portal/webui/application/UIGroovyPortlet.gtmpl" ;  
+  private String DEFAULT_TEMPLATE = "app:/groovy/groovy/webui/component/UIGroovyPortlet.gtmpl" ;  
   private String template_ ;
   private String windowId ;
   
