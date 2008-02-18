@@ -218,8 +218,8 @@ UIDesktop.prototype.removeApp = function(uri) {
 };
 
 UIDesktop.prototype.removeWindow = function (idWindow) {
-	var uiWindow = document.getElementById(idWindow); 
-	if (uiWindow) eXo.core.DOMUtil.removeElement(uiWindow);
+	var uiWindow = document.getElementById("UIWindow-" + idWindow); 
+	if(uiWindow) eXo.core.DOMUtil.removeElement(uiWindow);
 };
 
 eXo.desktop.UIDesktop = new UIDesktop() ;
