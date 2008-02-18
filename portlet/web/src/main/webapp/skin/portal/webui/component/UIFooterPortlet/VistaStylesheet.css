@@ -4,19 +4,19 @@
 }
 
 .UIFooterPortlet .LeftFooter {
-  background: url('VistaSkin/background/LeftFooter28x32.png') no-repeat left;
+  background: url('VistaSkin/background/Footer.png') no-repeat left -32px;
   padding-left: 28px;
   height: 32px;
 }
 
 .UIFooterPortlet .RightFooter {
-  background: url('VistaSkin/background/FooterRepeat1x32.png') no-repeat right;
-  padding-right: 1px;
+  background: url('VistaSkin/background/Footer.png') no-repeat right -66px;
+  padding-right: 28px;
   height: 32px;
 }
 
 .UIFooterPortlet .RepeatFooter {
-  background: url('VistaSkin/background/FooterRepeat1x32.png') repeat-x;
+  background: url('VistaSkin/background/Footer.png') repeat-x top;
   height: 32px;
 }
 

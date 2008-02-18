@@ -6,23 +6,23 @@
 .UIBannerPortlet .LeftBanner {
 	height: 74px;
 	padding: 0px 0px 0px 264px;
-  background: url('VistaSkin/background/LeftBanner264x74.jpg') no-repeat left;
+  background: url('VistaSkin/background/Banner.png') no-repeat left top;
 }
 
 .UIBannerPortlet .MiddleBanner{
 	height: 74px;
-  background: url('VistaSkin/background/MiddleBanner1x74.jpg') repeat-x ;
+  background: url('VistaSkin/background/Banner.png') repeat-x right -219px;
 }
 
 .UIBannerPortlet .RightBanner {
   height: 74px;
   padding: 0px 60px 0px 0px ;
-  background: url('VistaSkin/background/RightBanner60x74.jpg') no-repeat right;
+  background: url('VistaSkin/background/Banner.png') no-repeat right -75px;
 }
 
 .UIBannerPortlet .BannerTitle {
   height: 45px;
-  background: url('VistaSkin/background/eXoWebOSSlogan160x30.png') no-repeat left bottom;
+  background: url('VistaSkin/background/Banner.png') no-repeat left -150px;
   margin: 0px 0px 0px 5px;
 }
 
@@ -56,14 +56,14 @@
 .UIBannerPortlet .LoginContent .LogoutIcon {
   float: left;
   height: 22px;
-  background: url('VistaSkin/background/SignoutButton.png') no-repeat left center;
+  background: url('VistaSkin/background/Banner.png') no-repeat left -340px;
   cursor: pointer; 
   padding-left: 25px;
 }
 
 .UIBannerPortlet .LoginContent .LoginIcon {
   height: 22px;
-  background: url('VistaSkin/background/SigninButton.png') no-repeat left center;
+  background: url('VistaSkin/background/Banner.png') no-repeat left -317px;
   cursor: pointer;
   padding-left: 25px;
   float: right;
@@ -78,7 +78,7 @@
  
 .UIBannerPortlet .LoginContent .SettingIcon {
   height: 22px;
-  background: url('VistaSkin/background/ChangeLanguage.png') no-repeat left center;
+  background: url('VistaSkin/background/Banner.png') no-repeat left -293px;
   margin-right: 2px;
   padding-left: 28px;
   cursor: pointer;

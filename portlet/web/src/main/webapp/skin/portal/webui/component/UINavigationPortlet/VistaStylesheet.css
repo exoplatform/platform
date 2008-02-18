@@ -13,7 +13,7 @@
 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
   line-height: 36px;
-  background: url('VistaSkin/background/BgNomalNavTop1x34.png') repeat-x top;
+  background: url('VistaSkin/background/NavigationPortlet.png') repeat-x top;
  
 }
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
@@ -46,7 +46,7 @@
 .UINavigationPortlet .MenuItemContainer .RightItemIcon {
   height: 24px; width: auto;
   padding-right: 20px;
-  background: url('VistaSkin/background/GreyItemArrow.png') no-repeat right;
+  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat right -177px;
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem a {
@@ -83,17 +83,17 @@
 }
 
 .UINavigationPortlet .MenuItemDecorator .LeftTopMenuDecorator {
-  background: url('VistaSkin/background/LeftTopMenuDecorator12x6.png') no-repeat top left;
+  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -162px;
   padding-left: 12px;
 }
 
 .UINavigationPortlet .MenuItemDecorator .RightTopMenuDecorator {
-  background: url('VistaSkin/background/RightTopMenuDecorator14x6.png') no-repeat top right;
+  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat right -169px;
   padding-right: 14px;
 }
 
 .UINavigationPortlet .MenuItemDecorator .CenterTopMenuDecorator {
-  background: url('VistaSkin/background/CenterTopMenuDecorator1x6.png') repeat-x ;
+  background: url('VistaSkin/background/NavigationPortlet.png') repeat-x center -113px ;
   height: 6px;
   width: 100%;
 }
@@ -113,17 +113,17 @@
 }
 
 .UINavigationPortlet .MenuItemDecorator .LeftBottomMenuDecorator {
-  background: url('VistaSkin/background/LeftBottomMenuDecorator12x13.png') no-repeat left;
+  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -134px;
   padding-left: 12px;
 }
 
 .UINavigationPortlet .MenuItemDecorator .RightBottomMenuDecorator {
-  background: url('VistaSkin/background/RightBottomMenuDecorator14x13.png') no-repeat right;
+  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat right -148px;
   padding-right: 14px;
 }
 
 .UINavigationPortlet .MenuItemDecorator .CenterBottomMenuDecorator {
-  background: url('VistaSkin/background/CenterBottomMenuDecorator1x13.png') repeat-x;
+  background: url('VistaSkin/background/NavigationPortlet.png') repeat-x center -120px;
   height: 13px;  
   width: 100%;
 }
@@ -138,7 +138,7 @@
 
 .UINavigationPortlet .ScrollLeftButton {
 	cursor: pointer;
-  background: url('VistaSkin/background/ScrollLeft14x15.png') no-repeat left;
+  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -42px;
   width: 14px;
   height: 15px;
   padding-left: 14px;
@@ -148,7 +148,7 @@
 
 .UINavigationPortlet .ScrollRightButton {
 	cursor: pointer;
-	background: url('VistaSkin/background/ScrollRight14x15.png') no-repeat right;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -60px;
   width: 14px;
   height: 15px;
   margin: 0px 5px;
@@ -157,7 +157,7 @@
 
 .UINavigationPortlet .DisableScrollLeftButton {
   cursor: pointer;
-	background: url('VistaSkin/background/DisableScrollLeft14x15.png') no-repeat left;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -78px;
   width: 14px;
   height: 15px;
   padding-left: 14px;
@@ -167,7 +167,7 @@
 
 .UINavigationPortlet .DisableScrollRightButton { 
 	cursor: pointer;
-	background: url('VistaSkin/background/DisableScrollRight14x15.png') no-repeat right;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -96px;
   width: 14px;
   height: 15px;
   margin: 0px 5px;
@@ -176,7 +176,7 @@
 
 .UINavigationPortlet .HighlightScrollLeftButton {
   cursor: pointer;
-	background: url('VistaSkin/background/HighlightScrollLeft14x15.png') no-repeat left;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -114px;
   width: 14px;
   height: 15px;
   padding-left: 14px;
@@ -186,7 +186,7 @@
 
 .UINavigationPortlet .HighlightScrollRightButton {
 	cursor: pointer;
-	background: url('VistaSkin/background/HighlightScrollRight14x15.png') no-repeat;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -132px;
   width: 14px;
   height: 15px;
   margin: 0px 5px;
