@@ -178,9 +178,9 @@ public class UIPortletActionListener {
    */
   public static void setNextMode(UIPortlet uiPortlet, PortletMode portletMode) {
     if (portletMode != null) {
-      if (portletMode.equals(PortletMode.HELP.toString())) {
+      if (portletMode.equals(PortletMode.HELP)) {
         uiPortlet.setCurrentPortletMode(PortletMode.HELP);
-      } else if (portletMode.equals(PortletMode.EDIT.toString())) {
+      } else if (portletMode.equals(PortletMode.EDIT)) {
         uiPortlet.setCurrentPortletMode(PortletMode.EDIT);
       } else {
         uiPortlet.setCurrentPortletMode(PortletMode.VIEW);

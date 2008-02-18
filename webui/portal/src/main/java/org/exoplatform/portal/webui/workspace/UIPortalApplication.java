@@ -196,7 +196,7 @@ public class UIPortalApplication extends UIApplication {
       String module = uiPortlet.getExoWindowID().getPortletApplicationName()
           + "/" + uiPortlet.getExoWindowID().getPortletName();
       SkinConfig skinConfig = getSkin(module);
-      if (skinConfig != null)
+      if ((skinConfig != null) && !skins.contains(skinConfig))
         skins.add(skinConfig);
     }
     return skins;
