@@ -63,9 +63,9 @@ public class UIAccountProfiles extends UIForm {
         addValidator(EmptyFieldValidator.class).
         addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("firstName", "firstName", useraccount.getFirstName()).
-            addValidator(EmptyFieldValidator.class)) ;
+            addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("lastName", "lastName", useraccount.getLastName()).
-            addValidator(EmptyFieldValidator.class)) ;
+            addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("email", "email", useraccount.getEmail()). 
             addValidator(EmptyFieldValidator.class).
             addValidator(EmailAddressValidator.class)) ;

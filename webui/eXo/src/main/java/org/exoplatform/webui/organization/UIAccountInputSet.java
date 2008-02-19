@@ -53,9 +53,9 @@ public class UIAccountInputSet extends UIFormInputWithActions {
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(EmptyFieldValidator.class)) ;
     addUIFormInput(new UIFormStringInput("firstName", "firstName", null).
-                   addValidator(EmptyFieldValidator.class)) ;
+                   addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("lastName", "lastName", null).
-                   addValidator(EmptyFieldValidator.class)) ;
+                   addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("email", "email", null). 
                    addValidator(EmptyFieldValidator.class).
                    addValidator(EmailAddressValidator.class));    
