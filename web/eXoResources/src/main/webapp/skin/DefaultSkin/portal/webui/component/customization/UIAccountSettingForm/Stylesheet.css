@@ -26,16 +26,16 @@
 
 .UIAccountSettingForm .UIHorizontalTabs .LeftHorizontalTabs {
   padding-left: 11px; 
-  background: url('background/LeftTitleBar11x30.gif') no-repeat left top;
+  background: url('background/AcountSettingForm.gif') no-repeat left -30px;
 }
 
 .UIAccountSettingForm .UIHorizontalTabs .RightHorizontalTabs {
   padding-right: 11px;
-  background: url('background/RightTitleBar11x30.gif') no-repeat right top;
+  background: url('background/AcountSettingForm.gif') no-repeat right -62px;
 }
 
 .UIAccountSettingForm .UIHorizontalTabs .CenterHorizontalTabs {
-  background: url('background/CenterTitleBar1x30.gif') repeat-x top;
+  background: url('background/AcountSettingForm.gif') repeat-x top;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
   height: 30px;
@@ -49,11 +49,11 @@
 }
 
 .UIAccountSettingForm .UIHorizontalTabs .UITab .AccountProfiles {
-	background: url('icons/AccountProfileIcon.gif') no-repeat left center;
+	background: url('background/AcountSettingForm.gif') no-repeat left -154px;
 }
 
 .UIAccountSettingForm .UIHorizontalTabs .UITab .ChangePass {
-	background: url('icons/ChangePassIcon.gif') no-repeat left center;
+	background: url('background/AcountSettingForm.gif') no-repeat left -177px;
 }
 
 .UIAccountSettingForm .UIHorizontalTabs .UITab .NormalTab a {
@@ -81,14 +81,14 @@
 
 .UIAccountSettingForm .UIHorizontalTabs .SelectedTab .MiddleTab {
   line-height: 30px;
-  background: url('background/LeftSelectedFlatTabStyle1x29.gif') repeat-x bottom;
+  background: url('background/AcountSettingForm.gif') repeat-x center -93px;
   cursor: pointer;
   padding: 0px 8px;
 }
 
 .UIAccountSettingForm .UIHorizontalTabs .LineSeparator {
   float: left;
-  background: url('background/LineSeparator2x29.gif') no-repeat left;
+  background: url('background/AcountSettingForm.gif') no-repeat left -123px;
   height: 22px;  width: 2px;
   margin-top: 5px;
 }

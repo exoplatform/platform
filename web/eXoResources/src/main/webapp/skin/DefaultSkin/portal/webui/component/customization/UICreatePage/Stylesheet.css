@@ -21,7 +21,7 @@
   float: left;
   width: 24px; height: 22px;
   margin: 6px 18px 0px 30px;
-  background: url('icons/PageLayout.gif') no-repeat ;
+  background: url('icons/CreatePage.gif') no-repeat left top;
   cursor: pointer ;
 }
 
@@ -29,24 +29,25 @@
   float: left;
   width: 24px; height: 22px;
   margin: 6px 18px 0px 30px;
-  background: url('icons/PagePreview.gif') no-repeat ;
+  background: url('icons/CreatePage.gif') no-repeat left -24px;
 }
 
 .UICreatePage .EditContainerIcon {
   float: left;
   width: 27px; height: 22px;
   margin: 6px 18px 0px 18px;
-  background: url('icons/EditContainer.gif') no-repeat ;
+  background: url('icons/CreatePage.gif') no-repeat left -47px;
 }
 
 .UICreatePage .EditPortletIcon {
   float: left;
   width: 27px; height: 22px;
   margin: 6px 0px 0px 24px;
-  background: url('icons/EditPortlet.gif') no-repeat ;
+  background: url('icons/CreatePage.gif') no-repeat left -70px;
 }
 
 .UICreatePage .NavigationPortalIcon {
+	border: 1px solid red;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') ;
 }
 

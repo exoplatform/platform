@@ -18,19 +18,19 @@
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .DefaultImage {
 	margin: auto;
 	width: 316px; height: 191px;
-	background: url('background/DefaultImage.jpg') no-repeat center;
+	background: url('background/ChangeSkinForm.gif') no-repeat top;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .MacImage {
 	margin: auto;
 	width: 316px; height: 191px;
-	background: url('background/MacImage.jpg') no-repeat center;
+	background: url('background/ChangeSkinForm.gif') no-repeat left -191px;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .VistaImage {
 	margin: auto;
 	width: 316px; height: 191px;
-	background: url('background/VistaImage.jpg') no-repeat center;
+	background: url('background/ChangeSkinForm.gif') no-repeat left -382px;
 }
 
 .UIChangeSkinForm .UIItemSelector .ItemListContainer .ItemList {
