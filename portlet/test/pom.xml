@@ -19,13 +19,14 @@
       <artifactId>exo.portal.webui.portal</artifactId>
       <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
-    </dependency>
+    </dependency>   
     
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.webui.core</artifactId>
+      <artifactId>exo.portal.webui.eXo</artifactId>
       <version>${org.exoplatform.portal.version}</version>
-    </dependency>
+      <scope>provided</scope>
+    </dependency> 
   </dependencies> 
 
   <build>

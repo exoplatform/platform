@@ -37,7 +37,8 @@ import org.exoplatform.webui.event.EventListener;
       lifecycle = UIApplicationLifecycle.class,
       template = "app:/groovy/webui/component/UIHelloPortlet.gtmpl",
       events = {
-        @EventConfig(listeners = UIHelloPortlet.OpenPopupActionListener.class)
+        @EventConfig(listeners = UIHelloPortlet.OpenPopupActionListener.class),
+        @EventConfig(listeners = UIHelloPortlet.OpenCreatePagePopupActionListener.class)
       }
     ),
     @ComponentConfig(
@@ -72,4 +73,16 @@ public class UIHelloPortlet extends UIPortletApplication {
       popup.setShow(true);
     }
   }
+  
+  static public class OpenCreatePagePopupActionListener extends EventListener<UIHelloPortlet> {
+    public void execute(Event<UIHelloPortlet> event) throws Exception {
+      UIHelloPortlet portlet = event.getSource();
+      UIPopupWindow popup = portlet.getChild(UIPopupWindow.class);
+      UICreatePageNodeForm form = portlet.createUIComponent(UICreatePageNodeForm.class, null, null);
+      popup.setUIComponent(form);
+      popup.setRendered(true);
+      popup.setShow(true);
+    }
+  }
+
 }
