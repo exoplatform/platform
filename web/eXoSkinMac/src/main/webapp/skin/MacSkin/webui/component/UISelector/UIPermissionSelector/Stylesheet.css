@@ -59,6 +59,7 @@
   float: left ;
   width: 100px ;
   font-size: 12px;
+  text-align: right;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
