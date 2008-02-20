@@ -11,25 +11,28 @@ UIMaskLayer.prototype.createTransparentMask = function() {
 	if (!mask) {
 		mask = document.createElement("div");
 		mask.id = "TransparentMaskLayer";
-		mask.style.width = "100%" ;
-		mask.style.height = "100%" ;
 		mask.style.top = "0px" ;
 		mask.style.left = "0px" ;
 		eXo.core.Browser.setOpacity(mask, 0);
 		mask.style.backgroundColor = "white";
 		mask.style.zIndex = "2" ;
 		mask.style.position = "absolute";
+		mask.style.cursor = "wait";
+		mask.style.display = "block";
 		document.getElementsByTagName("body")[0].appendChild(mask);
 	}
-	mask.style.display = "block";
-	mask.style.cursor = "wait";
+	mask.style.width = "100%" ;
+	mask.style.height = "100%" ;
 };
-
+/**
+ * Hides the transparent mask
+ * To avoid some bugs doesn't "really" hides it, only reduces its size to 0x0 px
+ */
 UIMaskLayer.prototype.removeTransparentMask = function() {
 	var mask = document.getElementById("TransparentMaskLayer");
 	if (mask) {
-		mask.style.cursor = "auto";
-		mask.style.display = "none";
+		mask.style.height = "0" ;
+		mask.style.width = "0" ;
 	}
 };
 /**

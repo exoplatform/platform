@@ -491,12 +491,12 @@ function HttpResponseHandler(){
 	  //Handle the portal responses
 	  instance.updateBlocks(response.blocksToUpdate) ;
 	  instance.executeScript(response.script) ;
-	  /*
-	       * clear the instance.to timeout if the request takes less time than expected to get response
-	       * put the cursor to the original value 'auto' so it adapts to the user events
-	       */
-	  //clearTimeout(instance.to);
-	  //eXo.core.UIMaskLayer.removeTransparentMask();
+	  /**
+       * Clears the instance.to timeout if the request takes less time than expected to get response
+       * Removes the transparent mask so the UI is available again, with cursor "auto"
+       */
+	  clearTimeout(instance.to);
+	  eXo.core.UIMaskLayer.removeTransparentMask();
 	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
 
 	  eXo.portal.AjaxRequest.maskLayer = null ;
@@ -508,19 +508,19 @@ function HttpResponseHandler(){
 	  * middle of the page for the entire call of the request
 	  */
 	instance.ajaxLoading = function(request){
-		/*
-		 * wait 2 seconds (2000 ms) to display the loading popup
+		/**
+		 * Waits 2 seconds (2000 ms) to display the loading popup
 		 * if the response comes before this timeout, the loading popup won't appear at all
-		 * changes the cursor to 'wait' anyway to inform the user something is processing...
+		 * Displays a transparent mask with the "wait" cursor to tell the user something is processing
 		 */		
-		//eXo.core.UIMaskLayer.createTransparentMask();
-		//instance.to = setTimeout(function() {
+		eXo.core.UIMaskLayer.createTransparentMask();
+		instance.to = setTimeout(function() {
 			if(eXo.portal.AjaxRequest.maskLayer == null) {
 				var mask = document.getElementById("AjaxLoadingMask") ;
 				eXo.portal.AjaxRequest.maskLayer = eXo.core.UIMaskLayer.createMask("UIPortalApplication", mask, 30) ;
 				eXo.core.Browser.addOnScrollCallback("5439383", eXo.core.UIMaskLayer.setPosition) ;
 			}
-		//}, 2000);
+		}, 2000);
 	}
 	
 	return instance ;
