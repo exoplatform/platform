@@ -103,6 +103,7 @@
 	background: #ffffff;
 	height: 267px;
 	padding: 0px 10px 0px 0px;
+	overflow: hidden;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .Empty {
