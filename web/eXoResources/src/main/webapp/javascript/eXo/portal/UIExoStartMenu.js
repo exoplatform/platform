@@ -305,6 +305,7 @@ UIExoStartMenu.prototype.setContainerSize = function(menuItemContainer) {
   if (eXo.core.Browser.isIE7()) {
 	  var pageOwnerContainer = eXo.core.DOMUtil.findDescendantsByClass(menuItemContainer, "div", "PageOwnerContainer") ;
 	  for (var i = 0; i < pageOwnerContainer.length; i ++) {
+	  	pageOwnerContainer[i].style.width = "auto";
 	  	pageOwnerContainer[i].style.width = pageOwnerContainer[i].offsetWidth + "px";
 	  }
   }
