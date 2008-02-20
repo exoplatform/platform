@@ -132,6 +132,7 @@
   background: url('VistaSkin/background/UIOrganizationPortlet.png') repeat-x bottom;
   border: 1px solid #b7b7b7;
   line-height: 25px;
+  font-weight: bold;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar .Title{
