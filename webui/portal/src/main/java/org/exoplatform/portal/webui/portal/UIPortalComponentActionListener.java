@@ -121,7 +121,10 @@ public class UIPortalComponentActionListener {
       }
       
       String sourceId = pcontext.getRequestParameter("srcID");
-      String [] split  = sourceId.split("-");
+      
+      String oldSourceId = sourceId;
+      
+      String[] split  = sourceId.split("-");
       if(split.length > 1) sourceId = split[1];
       else sourceId = split[0];
       String targetId = pcontext.getRequestParameter("targetID");
@@ -153,7 +156,7 @@ public class UIPortalComponentActionListener {
           uiSource = uiContainer;   
         }else {
           UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
-          org.exoplatform.application.registry.Application portlet = uiPortletOptions.getPortlet(sourceId);
+          org.exoplatform.application.registry.Application portlet = uiPortletOptions.getPortlet(oldSourceId);
           UIPortlet uiPortlet =  uiTarget.createUIComponent(UIPortlet.class, null, null);
           if(portlet.getDisplayName() != null) {
             uiPortlet.setTitle(portlet.getDisplayName());
