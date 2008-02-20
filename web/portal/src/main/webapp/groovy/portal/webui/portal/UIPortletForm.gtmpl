@@ -59,7 +59,7 @@
 	          %>
 			          <div class="UITabContent" style="display: $display;">
 			            <div id="<%=uicomponent.getUIPortlet().getId()%>">
-				            sdgasd<%= uicomponent.getEditModeContent() %>
+				            <%= uicomponent.getEditModeContent() %>
 				            <%
 				              String strExec = "eXo.core.DOMUtil.removeElement('UIWindow-" + uicomponent.getUIPortlet().getId() + "');" ;
 				              rcontext.getJavascriptManager().addCustomizedOnLoadScript(strExec) ;
