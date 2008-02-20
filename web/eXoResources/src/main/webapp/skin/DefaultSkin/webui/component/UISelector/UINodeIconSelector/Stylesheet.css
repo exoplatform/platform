@@ -15,6 +15,7 @@
   border: solid 1px #b7b7b7 ;
   height: 35px;
   margin-top: 6px;
+  line-height: 35px;
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer{
@@ -26,6 +27,7 @@
   font-size: 12px; font-weight: normal;
   float: left;
   width: 190px;
+  margin-left: 10px;
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{
