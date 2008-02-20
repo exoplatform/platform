@@ -20,14 +20,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 
 import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.portal.application.PortletPreferences;
+import org.exoplatform.portal.config.model.Application;
+import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.cache.CacheService;
@@ -35,6 +42,15 @@ import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.portletcontainer.PCConstants;
+import org.exoplatform.services.portletcontainer.helper.PortletWindowInternal;
+import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
+import org.exoplatform.services.portletcontainer.pci.Input;
+import org.exoplatform.services.portletcontainer.pci.model.ExoPortletPreferences;
+import org.exoplatform.services.portletcontainer.pci.model.Portlet;
+import org.exoplatform.services.portletcontainer.plugins.pc.PortletApplicationsHolder;
+import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.PortletPreferencesImp;
+import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.persistenceImp.PersistenceManager;
 /**
  * Created by The eXo Platform SAS
  * Apr 19, 2007
@@ -347,6 +363,109 @@ public class UserPortalConfigService {
     return widgets ;
   }
   
+  /**
+   * This method creates new page from an existing page and links new page to a PageNode
+   * @return PageNode
+   * @throws Exception
+   */
+  public PageNode createNodeFromPageTemplate(String nodeName, String nodeLabel,
+      String pageId, Map<String, String[]> portletPreferences, String accessUser) throws Exception {
+    
+    Page page = storage_.getPage(pageId) ;
+    page = createPageFromPageTemplate(page, nodeName, portletPreferences, accessUser) ;
+    create(page) ;
+    PageNode pageNode = new PageNode() ;
+    if(nodeLabel == null || nodeLabel.trim().length() < 1) nodeLabel = nodeName  ;
+    pageNode.setName(nodeName) ;
+    pageNode.setLabel(nodeLabel) ;
+    pageNode.setPageReference(page.getPageId()) ;
+    return  pageNode ;
+  }
+  
+  private Page createPageFromPageTemplate(Page page, String pageName, Map<String, String[]> portletPreferences, String accessUser) throws Exception {
+    
+    String newId = PortalConfig.USER_TYPE + "::" + accessUser + "::" + pageName ;
+    page.setName(pageName) ;
+    page.setPageId(newId) ;
+    page.setOwnerType(PortalConfig.USER_TYPE) ;
+    page.setOwnerId(accessUser) ;
+    page.setAccessPermissions(null) ;
+    page.setEditPermission(null) ;
+    List<Application> apps = new ArrayList<Application>(5) ; 
+    getApplications(apps, page) ;
+    Map<String, String[]> mergedPreferences ;
+    for(Application ele : apps) {
+      String appType = ele.getApplicationType() ;
+      if(appType == null || appType.equals(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) {
+        mergedPreferences = new HashMap<String, String[]>(getPreferencesMap(ele)) ;
+        mergedPreferences.putAll(portletPreferences) ;
+        renewInstanceId(ele, accessUser) ;
+        setPreferences(ele, mergedPreferences) ;
+      } else {
+        renewInstanceId(ele, accessUser) ;
+      }
+    }
+    return page ;
+  }
+  
+  private void getApplications(List<Application> apps, Object component) {
+    if(component instanceof Application) {
+      apps.add((Application) component) ;
+    } else if(component instanceof Container) {
+      Container container = (Container) component ;
+      List<Object> children = container.getChildren() ;
+      if(children == null) return ;
+      for(Object ele : children) {
+        getApplications(apps, ele) ;
+      }
+    }    
+  }
+
+  private static Map<String, String[]> getPreferencesMap(Application app) throws Exception {
+   
+    ExoWindowID windowID = new ExoWindowID(app.getInstanceId()) ;
+    Input input = new Input() ;
+    input.setInternalWindowID(windowID) ;
+    PortalContainer container = PortalContainer.getInstance() ;
+    PortletApplicationsHolder holder = (PortletApplicationsHolder) container.getComponentInstanceOfType(PortletApplicationsHolder.class) ;
+    Portlet pDatas = holder.getPortletMetaData(windowID.getPortletApplicationName(), windowID.getPortletName());
+    ExoPortletPreferences defaultPrefs = pDatas.getPortletPreferences();
+    PersistenceManager manager = (PersistenceManager) container.getComponentInstanceOfType(PersistenceManager.class) ;
+    PortletWindowInternal windowInfos = manager.getWindow(input, defaultPrefs);
+    PortletPreferencesImp preferences = (PortletPreferencesImp) windowInfos.getPreferences();
+    return preferences.getMap() ;
+  }
+  
+  private static void renewInstanceId(Application portlet, String ownerId) {
+  
+    ExoWindowID newExoWindowID = new ExoWindowID(portlet.getInstanceId()) ;
+    newExoWindowID.setOwner(PortalConfig.USER_TYPE + "#" + ownerId) ;
+    newExoWindowID.setUniqueID(String.valueOf(newExoWindowID.hashCode())) ;
+    portlet.setInstanceId(newExoWindowID.generatePersistenceId()) ;
+  }
+  
+  private static void setPreferences(Application portlet, Map<String, String[]> portletPreferences) throws Exception {
+    
+    if(portletPreferences == null || portletPreferences.size() < 1) return ;
+    ExoWindowID windowID = new ExoWindowID(portlet.getInstanceId()) ;
+    Input input = new Input() ;
+    input.setInternalWindowID(windowID) ;
+    PortalContainer container = PortalContainer.getInstance() ;
+    PortletApplicationsHolder holder = (PortletApplicationsHolder) container.getComponentInstanceOfType(PortletApplicationsHolder.class) ;
+    Portlet pDatas = holder.getPortletMetaData(windowID.getPortletApplicationName(), windowID.getPortletName());
+    ExoPortletPreferences defaultPrefs = pDatas.getPortletPreferences();
+    PersistenceManager manager = (PersistenceManager) container.getComponentInstanceOfType(PersistenceManager.class) ;
+    PortletWindowInternal windowInfos = manager.getWindow(input, defaultPrefs);
+    PortletPreferencesImp preferences = (PortletPreferencesImp) windowInfos.getPreferences();
+    Iterator<Entry<String, String[]>> itr = portletPreferences.entrySet().iterator() ;
+    while(itr.hasNext()) {
+      Entry<String, String[]> entry = itr.next() ;
+      preferences.setValues(entry.getKey(), entry.getValue()) ;
+    }
+    preferences.setMethodCalledIsAction(PCConstants.actionInt) ;
+    preferences.store() ;
+  }
+    
   @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { 
     if(listener instanceof  NewPortalConfigListener) {
