@@ -70,7 +70,7 @@ import org.exoplatform.webui.form.validator.EmptyFieldValidator;
     template = "system:/groovy/portal/webui/portal/UIPortletForm.gtmpl",
     events = {
       @EventConfig(listeners = UIPortletForm.SaveActionListener.class),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+      @EventConfig(listeners = UIPortletForm.CloseActionListener.class, phase = Phase.DECODE)
     }
 )   
 public class UIPortletForm extends UIFormTabPane {	
@@ -170,7 +170,9 @@ public class UIPortletForm extends UIFormTabPane {
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     getChild(UIFormInputThemeSelector.class).getChild(UIItemThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null)) ;
     
-    if(!hasEditMode()) {
+    if(hasEditMode()) {
+      uiPortlet.setCurrentPortletMode(PortletMode.EDIT) ;
+    } else {
       ExoWindowID windowID = uiPortlet.getExoWindowID();
       Input input = new Input() ;
       input.setInternalWindowID(windowID) ;
@@ -265,5 +267,18 @@ public class UIPortletForm extends UIFormTabPane {
       Util.showComponentLayoutMode(UIPortlet.class);  
     }
   }
-  
+	
+  static public class CloseActionListener extends EventListener<UIPortletForm> {
+    public void execute(Event<UIPortletForm> event) throws Exception {
+      UIPortletForm uiPortletForm = event.getSource() ;
+      UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
+      if(uiPortletForm.hasEditMode()) uiPortlet.setCurrentPortletMode(PortletMode.VIEW);
+      UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
+      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+      pcontext.setFullRender(true) ;
+      Util.showComponentLayoutMode(UIPortlet.class);  
+    }
+  }
 }

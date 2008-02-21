@@ -196,7 +196,7 @@ public class UIPortalApplication extends UIApplication {
       String module = uiPortlet.getExoWindowID().getPortletApplicationName()
           + "/" + uiPortlet.getExoWindowID().getPortletName();
       SkinConfig skinConfig = getSkin(module);
-      if ((skinConfig != null) && !skins.contains(skinConfig))
+      if (skinConfig != null)
         skins.add(skinConfig);
     }
     return skins;
@@ -316,9 +316,9 @@ public class UIPortalApplication extends UIApplication {
     } else {
       PortalRequestContext pcontext = (PortalRequestContext)context;
       
-      UIMaskWorkspace uiMaskWS = getChildById(UIPortalApplication.UI_MASK_WS_ID);
-      if(uiMaskWS.isShow())
-        pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
+//      UIMaskWorkspace uiMaskWS = getChildById(UIPortalApplication.UI_MASK_WS_ID);
+//      if(uiMaskWS.isShow())
+//        pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
       
       
       List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;

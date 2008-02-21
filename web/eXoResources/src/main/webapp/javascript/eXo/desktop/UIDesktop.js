@@ -212,7 +212,7 @@ UIDesktop.prototype.removeApp = function(uri) {
 	var appId = uri.substr(uri.lastIndexOf("=") + 1) ;
 	var result = ajaxAsyncGetRequest(uri, false) ;
 	if(result == "OK") {
-		eXo.desktop.UIDesktop.removeWindow(appId) ;
+		eXo.desktop.UIDesktop.removeWindow("UIWindow-" + appId) ;
 		eXo.desktop.UIDockbar.removeDockbarIcon("DockItem" + appId) ;
 	}
 };
