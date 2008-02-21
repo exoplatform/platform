@@ -13,9 +13,8 @@
 .UINodeIconSelector .SelectedIconInfo {
   background: white;
   border: solid 1px #b7b7b7 ;
-  height: 35px;
+  height: 35px; line-height: 35px;
   margin-top: 6px;
-  line-height: 35px;
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer{
@@ -25,14 +24,15 @@
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel{
   font-size: 12px; font-weight: normal;
-  float: left;
   width: 190px;
   margin-left: 10px;
+  float: none;
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{
-  margin-left: 0px;
-  float: left;
+  margin-left: 10px;
+  float: none;
+  color: #2F76E2;
 }
 
 .UINodeIconSelector .IconSelector {
@@ -78,4 +78,5 @@
 
 .UIMaskWorkspace .UIForm .HorizontalLayout .UINodeIconSelector .UIFormInputSet {
 	width: auto;
+	padding: 0px;
 }

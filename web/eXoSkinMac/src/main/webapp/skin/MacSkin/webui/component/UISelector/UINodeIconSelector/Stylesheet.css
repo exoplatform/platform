@@ -33,7 +33,8 @@
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{
   margin-left: 0px;
-  float: left;
+  float: none;
+  color: #2F76E2;
 }
 
 .UINodeIconSelector .IconSelector {
@@ -80,6 +81,7 @@
 
 .UIMaskWorkspace .UIForm .HorizontalLayout .UINodeIconSelector .UIFormInputSet {
 	width: auto;
+	padding: 0px;
 }
 
 .UIMaskWorkspace .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer {
