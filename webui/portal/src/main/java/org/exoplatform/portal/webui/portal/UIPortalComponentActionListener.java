@@ -120,32 +120,21 @@ public class UIPortalComponentActionListener {
         pcontext.setFullRender(true);        
       }
       
-      String sourceId = pcontext.getRequestParameter("srcID");
-      
-      String oldSourceId = sourceId;
-      
-      String[] split  = sourceId.split("-");
-      if(split.length > 1) sourceId = split[1];
-      else sourceId = split[0];
-      String targetId = pcontext.getRequestParameter("targetID");
-      split  = targetId.split("-");
-      if(split.length > 1) targetId = split[1];
-      else targetId = split[0];
-
       UIPortalApplication uiApp = (UIPortalApplication)Util.getPortalRequestContext().getUIApplication() ;
       UIComponent uiWorking = uiApp.findFirstComponentOfType(UIPortal.class);   
       if(!uiWorking.isRendered()) uiWorking = uiApp.findFirstComponentOfType(UIPortalToolPanel.class);
-      UIContainer uiTarget = uiWorking.findComponentById(targetId);
+
+      String sourceId = pcontext.getRequestParameter("srcID");
+      UIComponent uiSource = uiWorking.findComponentById(sourceId);  
       
+      UIContainer uiTarget = uiWorking.findComponentById(pcontext.getRequestParameter("targetID"));
       if(position < 0 && uiTarget.getChildren().size() > 0) {
         position = uiTarget.getChildren().size() ;
-      }else if(position < 0){
+      } else if(position < 0) {
         position = 0;
       }
 
-      UIComponent uiSource = uiWorking.findComponentById(sourceId);  
-      
-      if(uiSource == null){        
+      if(uiSource == null) {        
         UIContainerConfigOptions uiContainerConfig = uiApp.findFirstComponentOfType(UIContainerConfigOptions.class);
         if(uiContainerConfig != null && uiContainerConfig.isRendered()){
           org.exoplatform.portal.webui.container.UIContainer uiContainer =  
@@ -154,9 +143,9 @@ public class UIPortalComponentActionListener {
           container.setId(String.valueOf(container.hashCode()));
           PortalDataMapper.toUIContainer(uiContainer, container);      
           uiSource = uiContainer;   
-        }else {
+        } else {
           UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
-          org.exoplatform.application.registry.Application portlet = uiPortletOptions.getPortlet(oldSourceId);
+          org.exoplatform.application.registry.Application portlet = uiPortletOptions.getPortlet(sourceId);
           UIPortlet uiPortlet =  uiTarget.createUIComponent(UIPortlet.class, null, null);
           if(portlet.getDisplayName() != null) {
             uiPortlet.setTitle(portlet.getDisplayName());
