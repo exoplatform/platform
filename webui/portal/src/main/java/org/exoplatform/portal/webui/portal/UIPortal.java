@@ -156,7 +156,7 @@ public class UIPortal extends UIContainer {
     node.setResolvedLabel(res) ;
     if(node.getChildren() == null) return;
     for(PageNode childNode : node.getChildren()) {
-      childNode.setResolvedLabel(res) ;
+      resolveLabel(res, childNode) ;
     }
   }
 }
