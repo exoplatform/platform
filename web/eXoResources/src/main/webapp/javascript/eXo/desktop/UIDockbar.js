@@ -219,6 +219,8 @@ UIDockbar.prototype.findIndex = function(object) {
 UIDockbar.prototype.removeDockbarIcon = function(idIcon) {
 	var icon = document.getElementById(idIcon);
 	if (icon) {
+		var portlet = document.getElementById("UIWindow-" + idIcon.replace(/[a-zA-Z]*/, ""));
+		if (portlet) portlet.style.display = "none";
 		var toolTip = icon.previousSibling;
 		eXo.core.DOMUtil.removeElement(icon);
 		eXo.core.DOMUtil.removeElement(toolTip);
@@ -329,7 +331,7 @@ UIDockbar.prototype.showNavigation = function(event) {
   var uiDockbar = document.getElementById("UIDockBar") ;
 	var dockNavigation = document.getElementById("DockNavigation") ;
 	dockNavigation.style.display = "block" ;
-	dockNavigation.menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(dockNavigation, "div", "MenuItemContainer");
+	dockNavigation.menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(dockNavigation, "div", "MenuItemContainer") ;
 	eXo.portal.UIExoStartMenu.createSlide(dockNavigation) ;
 	
 	eXo.core.Mouse.update(event) ;
