@@ -414,11 +414,7 @@ public class UserPortalConfigService {
     } else if(component instanceof Container) {
       Container container = (Container) component ;
       List<Object> children = container.getChildren() ;
-      if(children != null) {
-        for(Object ele : children) {
-          getApplications(apps, ele) ;
-        }        
-      }
+      if(children != null) for(Object ele : children) getApplications(apps, ele) ;
     }    
   }
 

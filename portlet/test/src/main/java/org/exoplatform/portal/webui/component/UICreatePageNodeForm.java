@@ -17,13 +17,10 @@
 package org.exoplatform.portal.webui.component;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.config.UserPortalConfigService;
-import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.webui.page.PageUtils;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
@@ -64,28 +61,21 @@ public class UICreatePageNodeForm extends UIForm {
     public void execute(Event<UICreatePageNodeForm> event) throws Exception {
       UICreatePageNodeForm uiForm = event.getSource() ;
       PortalRequestContext pContext = Util.getPortalRequestContext()  ;
-      UserPortalConfigService configService = uiForm.getApplicationComponent(UserPortalConfigService.class) ;
       
       //create PageNode
-      String userName = event.getRequestContext().getRemoteUser() ;
       String givenName = uiForm.getUIStringInput("PageNodeName").getValue() ;
       String pageId = uiForm.getUIStringInput("PageId").getValue() ;
       Map<String, String[]> map = new HashMap<String, String[]>()  ;
       map.put("nameA", new String[] {"valueA1", "valueA2"}) ;
       map.put("nameB", new String[] {"valueB1", "valueB2"}) ;
-      PageNode pageNode = configService.createNodeFromPageTemplate(givenName, givenName, pageId, map, userName)  ;
-      PageNavigation navi = configService.getPageNavigation("user::" + userName) ;
-      pageNode.setUri(pageNode.getName()) ;
-      navi.addNode(pageNode) ;
-      configService.update(navi) ;
-      UIPortal uiPortal = Util.getUIPortal();
-      setNavigation(uiPortal.getNavigations(), navi) ;
+      PageUtils.createNodeFromPageTemplate(givenName, givenName, pageId, map) ;
       
       //Hide Popup
       UIPopupWindow uiPopup = uiForm.getParent() ;
       uiPopup.setShow(false) ;
       
       //Update UIControlWorkspace to refresh PageNavigation in eXoStart
+      UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       pContext.addUIComponentToUpdateByAjax(uiControl);
@@ -95,15 +85,5 @@ public class UICreatePageNodeForm extends UIForm {
       pContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
       pContext.setFullRender(true);
     }
-
-    private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
-      for(int i = 0; i < navs.size(); i++) {
-        if(navs.get(i).getId().equals(nav.getId())) {
-          navs.set(i, nav);
-          return;
-        }
-      }
-    }
-
   }
 }
