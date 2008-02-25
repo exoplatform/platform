@@ -92,6 +92,13 @@
 <session-config>
   <session-timeout>30</session-timeout> 
   </session-config>
+
+  <!-- The Welcome File List for IBM WebSphere -->
+  
+  <welcome-file-list>
+    <welcome-file>/index.jsp</welcome-file>
+  </welcome-file-list>
+
 <security-constraint>
 <web-resource-collection>
   <web-resource-name>user authentication</web-resource-name> 

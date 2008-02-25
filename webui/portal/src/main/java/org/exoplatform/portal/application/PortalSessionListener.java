@@ -61,7 +61,7 @@ public class PortalSessionListener implements HttpSessionListener {
   public void sessionDestroyed(HttpSessionEvent event) {
     try {
       String portalContainerName = event.getSession().getServletContext().getServletContextName() ;
-      log.warn("Destroy session from " + portalContainerName + " portal");
+      log.warn("Destroy session from '" + portalContainerName + "' portal");
       RootContainer rootContainer = RootContainer.getInstance() ;
       PortalContainer portalContainer = rootContainer.getPortalContainer(portalContainerName) ;
       PortalContainer.setInstance(portalContainer); 
