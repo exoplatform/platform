@@ -45,45 +45,45 @@
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Icon{
   margin: 0px 5px 0px 15px ;
-  float: left;
+  float: left ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .PermissionInfoTitle{
   margin-left: 5px ;
-  float: left;
-  font-weight: bold;
+  float: left ;
+  font-weight: bold ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Label {
   margin: 8px 0px 5px 40px ;
   float: left ;
   width: 150px ;
-  text-align: right;
+  text-align: right ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
   float: left ;
   margin: 8px 0px 5px 15px ;
   color: #058ee6 ;
-  background: none;
+  background: none ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
-	filter:alpha(opacity=30);-moz-opacity:.30;opacity:.30;
+	filter:alpha(opacity=30);-moz-opacity:.30;opacity:.30 ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer a.FloatBlockHidden {
-	cursor: default;
+	cursor: default ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer a:hover.FloatBlockHidden {
-	color: black;
+	color: black ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat left center;
-  padding-left: 22px;
-  line-height: 21px;
+  padding-left: 22px ;
+  line-height: 21px ;
 }
  
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {

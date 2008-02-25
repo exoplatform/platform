@@ -58,7 +58,6 @@
   margin: 8px 0px 5px 40px ;
   float: left ;
   width: 100px ;
-  font-size: 12px;
   text-align: right;
 }
 
@@ -67,7 +66,6 @@
   background: none;
   margin: 8px 0px 5px 15px ;
   color: #0749c4 ;
-  font-size: 12px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
