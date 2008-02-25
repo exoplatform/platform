@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.page.PageUtils;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
@@ -61,6 +63,7 @@ public class UICreatePageNodeForm extends UIForm {
     public void execute(Event<UICreatePageNodeForm> event) throws Exception {
       UICreatePageNodeForm uiForm = event.getSource() ;
       PortalRequestContext pContext = Util.getPortalRequestContext()  ;
+      UIPortal uiPortal = Util.getUIPortal();
       
       //create PageNode
       String givenName = uiForm.getUIStringInput("PageNodeName").getValue() ;
@@ -68,14 +71,14 @@ public class UICreatePageNodeForm extends UIForm {
       Map<String, String[]> map = new HashMap<String, String[]>()  ;
       map.put("nameA", new String[] {"valueA1", "valueA2"}) ;
       map.put("nameB", new String[] {"valueB1", "valueB2"}) ;
-      PageUtils.createNodeFromPageTemplate(givenName, givenName, pageId, map) ;
+      PageNavigation userNavi = uiPortal.getPageNavigation(PortalConfig.USER_TYPE + "::" + pContext.getRemoteUser()) ; 
+      PageUtils.createNodeFromPageTemplate(givenName, givenName, pageId, map, userNavi) ;
       
       //Hide Popup
       UIPopupWindow uiPopup = uiForm.getParent() ;
       uiPopup.setShow(false) ;
       
       //Update UIControlWorkspace to refresh PageNavigation in eXoStart
-      UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
       pContext.addUIComponentToUpdateByAjax(uiControl);

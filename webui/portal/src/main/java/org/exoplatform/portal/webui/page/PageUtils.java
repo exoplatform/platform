@@ -23,7 +23,6 @@ import java.util.Map;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -58,17 +57,16 @@ public class PageUtils {
    *
    */  
   public static void createNodeFromPageTemplate(String nodeName, String nodeLabel,
-      String pageId, Map<String, String[]> portletPreferences) throws Exception {
+      String pageId, Map<String, String[]> portletPreferences, PageNavigation navi) throws Exception {
     
     UIPortal uiPortal = Util.getUIPortal() ;
     UserPortalConfigService configService = uiPortal.getApplicationComponent(UserPortalConfigService.class) ;
     String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
-    PageNavigation userNavi = configService.getPageNavigation(PortalConfig.USER_TYPE + "::" + accessUser) ;
     PageNode node = configService.createNodeFromPageTemplate(nodeName, nodeLabel, pageId, portletPreferences, accessUser) ;
     node.setUri(node.getName()) ;
-    userNavi.addNode(node) ;
-    configService.update(userNavi) ;
-    setNavigation(uiPortal.getNavigations(), userNavi) ;    
+    navi.addNode(node) ;
+    configService.update(navi) ;
+    setNavigation(uiPortal.getNavigations(), navi) ;    
   }
     
   private static void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
