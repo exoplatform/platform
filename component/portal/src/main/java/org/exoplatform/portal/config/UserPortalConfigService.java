@@ -459,7 +459,7 @@ public class UserPortalConfigService {
       Entry<String, String[]> entry = itr.next() ;
       preferences.setValues(entry.getKey(), entry.getValue()) ;
     }
-    preferences.setMethodCalledIsAction(PCConstants.actionInt) ;
+    preferences.setMethodCalledIsAction(PCConstants.ACTION_INT) ;
     preferences.store() ;
   }
     

@@ -219,14 +219,14 @@ public class UIPortletForm extends UIFormTabPane {
     for(UIFormStringInput ele : uiFormInputs) {
       preferences.setValue(ele.getName(), ele.getValue()) ;
     }
-    preferences.setMethodCalledIsAction(PCConstants.actionInt) ;
-    preferences.store() ;
-  }  
+    preferences.setMethodCalledIsAction(PCConstants.ACTION_INT);
+    preferences.store();
+  }
   
   
   private Map<String, String[]> getRenderParameterMap(UIPortlet uiPortlet) {
     Map<String, String[]> renderParams = uiPortlet.getRenderParametersMap();
-    
+
     if (renderParams == null) {
       renderParams = new HashMap<String, String[]>();
       uiPortlet.setRenderParametersMap(renderParams);
