@@ -30,23 +30,17 @@ public class SpecialCharacterValidator implements Validator {
   
   public void validate(UIFormInput uiInput) throws Exception {
     String s = (String)uiInput.getValue();
-    if(Character.isDigit(s.charAt(0))) {
+    if(Character.isDigit(s.charAt(0))||(Character.toString(s.charAt(0)).equals("-"))) {
       Object[] args = { uiInput.getName(), uiInput.getBindingField() };
-      throw new MessageException(new ApplicationMessage("SpecialCharacterValidator.msg.invalid-digit", args, ApplicationMessage.WARNING)) ;
-    }
-    for(int i=0;i<s.length();i++) {
-      if(!isValidChar(s.toCharArray(), i)) {
-        Object[] args = { uiInput.getName(), uiInput.getBindingField() };
-        throw new MessageException(new ApplicationMessage("SpecialCharacterValidator.msg.invalid-input", args, ApplicationMessage.WARNING)) ;
+      throw new MessageException(new ApplicationMessage("FirstCharacterNameValidator.msg", args, ApplicationMessage.WARNING)) ;
+    }    
+    for(int i = 0; i < s.length(); i ++){
+      char c = s.charAt(i);
+      if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-'){
+        continue;
       }
+      Object[] args = { uiInput.getName(), uiInput.getBindingField() };
+      throw new MessageException(new ApplicationMessage("IdentifierValidator.msg.Invalid-char", args)) ;
     }
-  }
-  private boolean isValidChar(char[] a, int index) {
-    int codeValue = Character.codePointAt(a, index) ;
-    if(((32<=codeValue)&&(codeValue<=44))||(codeValue==47)) return false;
-    if((58<=codeValue)&&(codeValue<=64)) return false;
-    if((91<=codeValue)&&(codeValue<=96)) return false;
-    if((123<=codeValue)&&(codeValue<=126)) return false;  
-    return true;
   }
 }
