@@ -138,9 +138,9 @@
 
 .UINavigationPortlet .ScrollLeftButton {
 	cursor: pointer;
-  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -42px;
+  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -36px;
   width: 14px;
-  height: 15px;
+  height: 13px;
   padding-left: 14px;
   margin: 0px 5px;
   float: left;
@@ -148,16 +148,16 @@
 
 .UINavigationPortlet .ScrollRightButton {
 	cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -60px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -48px;
   width: 14px;
-  height: 15px;
+  height: 13px;
   margin: 0px 5px;
   float: left;
 }
 
 .UINavigationPortlet .DisableScrollLeftButton {
   cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -78px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -61px;
   width: 14px;
   height: 15px;
   padding-left: 14px;
@@ -167,7 +167,7 @@
 
 .UINavigationPortlet .DisableScrollRightButton { 
 	cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -96px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -75px;
   width: 14px;
   height: 15px;
   margin: 0px 5px;
@@ -176,7 +176,7 @@
 
 .UINavigationPortlet .HighlightScrollLeftButton {
   cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -114px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -89px;
   width: 14px;
   height: 15px;
   padding-left: 14px;
@@ -186,7 +186,7 @@
 
 .UINavigationPortlet .HighlightScrollRightButton {
 	cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -132px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -101px;
   width: 14px;
   height: 15px;
   margin: 0px 5px;

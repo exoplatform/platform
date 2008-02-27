@@ -16,6 +16,11 @@
 	padding: 7px;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
+  overflow:hidden;
+  white-space:nowrap;
+}
+
 .UIOrganizationPortlet .UIToolbar .LargeToolbar  {
 	width: 99.5%;
   margin: 0px auto 5px auto;

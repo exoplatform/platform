@@ -16,6 +16,12 @@
 	*width: 96%;
 }
 
+
+.UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
+  overflow:hidden;
+  white-space:nowrap;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UIGroupInfoContainer .UIGrid td {
 	height: auto;
 	padding: 4px 0px 7px 7px;
