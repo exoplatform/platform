@@ -1,7 +1,8 @@
 /*##############################-Page Layout Decorator-################################*/
 .UIPage .PageLayoutDecorator  {
   padding: 0px ;
-  margin: auto;
+  margin: 0px 3px auto 0px;
+  _margin: 0px 2px auto 2px;
 }
 
 .UIPage .VIEW-PAGE {
