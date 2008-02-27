@@ -98,6 +98,7 @@ public class UIAddNewApplication extends UIContainer {
         windowId.append('#').append(uiPage.getOwnerId());
         windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/').append(uiPortlet.hashCode());
         uiPortlet.setWindowId(windowId.toString());
+        uiPortlet.setPortletInPortal(false);
 
         if (application != null) {
           if (application.getDisplayName() != null) {
