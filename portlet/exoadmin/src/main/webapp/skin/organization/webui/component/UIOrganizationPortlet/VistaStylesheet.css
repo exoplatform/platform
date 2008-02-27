@@ -71,6 +71,12 @@
 .UIOrganizationPortlet .UIUserManagement .UIPageIterator {  
   width: 97%;
 }
+
+.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .UIFormGrid {
+	width: 400px;
+	margin: auto;
+}
+
 /*#######################- UIUserInfo - #####################*/
 
 .UIOrganizationPortlet .UIUserManagement .UIUserInfo {
@@ -309,4 +315,3 @@
 	width: 480px;
 	margin: auto;
 }
-
