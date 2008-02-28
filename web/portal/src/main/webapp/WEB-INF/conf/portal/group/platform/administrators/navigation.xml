@@ -27,7 +27,7 @@
 	    
 	    <node>
 		    <uri>administration/comunityManagement</uri>
-		    <name>newAccount</name>
+		    <name>comunityManagement</name>
 		    <label>#{administration.comunity-management}</label>
 		    <page-reference>group::platform/administrators::communityManagement</page-reference>
 	    </node>
