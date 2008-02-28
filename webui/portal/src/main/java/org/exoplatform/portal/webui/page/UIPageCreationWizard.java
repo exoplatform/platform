@@ -182,17 +182,29 @@ public class UIPageCreationWizard extends UIPageWizard {
       String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
       //TODO: dang.tung - node name is existing
       //---------------------------------------------------------------------------------------------
-      boolean isExist = false ;
       List<PageNode> nodes = navigation.getNodes();
-      for(PageNode ele : nodes) {
-        if(ele.getUri().equals(pageNode.getUri())) isExist = true;
+      PageNode selectedPageNode = uiNodeSelector.getSelectedPageNode() ;
+      if(selectedPageNode == null) {
+    	for(PageNode ele : nodes) {
+    	  if(ele.getUri().equals(pageNode.getUri())){
+        	uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+        	context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
+        	uiWizard.viewStep(2);
+        	return;   
+    	  }
+    	}
       }
-      if(isExist) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
-        uiWizard.viewStep(2);
-        return;   
-      }
+      else {
+    	List<PageNode> childs = selectedPageNode.getChildren() ;
+    	for(PageNode child : childs) {
+    	  if(child.getUri().equals(pageNode.getUri())) {
+    		uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+          	context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
+          	uiWizard.viewStep(2);
+          	return;     
+    	  }
+    	}
+       }
       //----------------------------------------------------------------------------------------------
       DataStorage storage = uiWizard.getApplicationComponent(DataStorage.class);
       if(storage.getPage(pageId) != null) {
