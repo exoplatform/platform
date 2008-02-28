@@ -26,9 +26,9 @@
 	    </node>
 	    
 	    <node>
-		    <uri>administration/comunityManagement</uri>
-		    <name>comunityManagement</name>
-		    <label>#{administration.comunity-management}</label>
+		    <uri>administration/communityManagement</uri>
+		    <name>communityManagement</name>
+		    <label>#{administration.community-management}</label>
 		    <page-reference>group::platform/administrators::communityManagement</page-reference>
 	    </node>
 	    
