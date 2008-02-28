@@ -44,15 +44,14 @@ UIExoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	var setWidgetData = 'appDescriptor.widget.uiWidget = { ' + 
 												 'temporaty : appElement, ' +
 												 'appId : appElement.getAttribute(\'applicationId\') ' ;
-	if(this.attrsWidget != null && this.attrsWidget.length > 0) {											 
-		setWidgetData += ',';										 
-  	for(var i = 0; i < this.attrsWidget.length; i++) {
-  		var attrWidget =   this.attrsWidget[i];
-  		setWidgetData +=   attrWidget + ': appElement.getAttribute(\''+attrWidget+'\')};';  	 
-  	}												 
-	} else {
-		setWidgetData += '};';
+	if(this.attrsWidget != null && this.attrsWidget.length > 0) {											 								 
+  		for(var i = 0; i < this.attrsWidget.length; i++) {
+  			var attrWidget =   this.attrsWidget[i];
+  			setWidgetData +=   ',' + attrWidget + ': appElement.getAttribute(\''+attrWidget+'\')';  	 
+  		}												 
 	}
+	setWidgetData += '};';
+
   eval(setWidgetData);
 												
  	appDescriptor.widget.content = 
