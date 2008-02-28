@@ -194,13 +194,11 @@ public class UIPageNodeActionListener {
       
       PageNode [] pageNodes = PageNavigationUtils.searchPageNodesByUri(nav, uri);
       if(pageNodes == null) return;
-      //--------------------------------
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
       uiToolPanel.setUIComponent(null) ;
       UIWorkspace uiWorkspace = uiToolPanel.getAncestorOfType(UIWorkspace.class) ;
       pcontext.setFullRender(true) ;
       pcontext.addUIComponentToUpdateByAjax(uiWorkspace);
-      //--------------------------------
       if(pageNodes[0] == null) {
         nav.getNodes().remove(pageNodes[1]);
         return;
@@ -255,32 +253,23 @@ public class UIPageNodeActionListener {
       if(selectedNode == null) return;
       
       PageNode newNode = selectedNode.getNode().clone();
-      if(selectedNode.getParentNode() != null) {
-        String parentUri = selectedNode.getParentNode().getUri();
-        String newUri = selectedNode.getNode().getUri();
-        int idx = newUri.indexOf(parentUri+"/");
-        if(idx > -1) newNode.setUri(newUri.substring(idx + parentUri.length()+1));
-        if(newNode.getUri().charAt(0) == '/') newNode.setUri(newNode.getUri().substring(1));
-      }
-      
       PageNavigation targetNav = uiPageNodeSelector.getSelectedNavigation();
       PageNode targetNode = PageNavigationUtils.searchPageNodeByUri(targetNav, targetUri);
-      if(targetNode != null) newNode.setUri(targetNode.getUri()+"/"+newNode.getUri());
+      boolean hasTargetNode = (targetNode != null) ;
       
-      // TODO: dang.tung - if source address equals destination address - node cut and paste itseft
-      if(targetNode != null && selectedNode.getNode().getUri().equals(targetNode.getUri())) {
+      if(hasTargetNode && newNode.getUri().equals(targetNode.getUri())) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameSrcAndDes", null)) ;
-        
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
       
-      if( (targetNode != null && hasNode(targetNode, newNode.getUri())) || 
+      if(hasTargetNode) renewPageNodeUri(targetNode, newNode) ;
+      
+      if( (hasTargetNode && hasNode(targetNode, newNode.getUri())) || 
           hasNode(targetNav, newNode.getUri()) ){
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameName", null)) ;
-        
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
@@ -300,12 +289,20 @@ public class UIPageNodeActionListener {
       popup.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", 
                                      "CutNode", "DeleteNode", "MoveUp", "MoveDown"});
        
-      if(targetNode == null) { 
+      if(!hasTargetNode) { 
+        renewPageNodeUri(null, newNode) ;
         targetNav.addNode(newNode);
         return;
       }
       targetNode.getChildren().add(newNode);
       uiPageNodeSelector.selectPageNodeByUri(targetNode.getUri());
+    }
+    
+    private void renewPageNodeUri(PageNode parent, PageNode current) {
+      String newUri = (parent != null) ? parent.getUri() + "/" + current.getName() : current.getName() ;
+      current.setUri(newUri) ;
+      List<PageNode> children = current.getChildren() ;
+      if(children != null) for(PageNode ele : children) renewPageNodeUri(current, ele) ; 
     }
     
     private boolean hasNode(PageNode node, String uri) {
