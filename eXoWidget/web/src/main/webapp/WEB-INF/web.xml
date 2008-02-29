@@ -13,7 +13,8 @@
       org.exoplatform.widget.web.WelcomeWidget,
       org.exoplatform.widget.web.StickerWidget,
       org.exoplatform.widget.web.CalendarWidget,
-      org.exoplatform.widget.web.CalculatorWidget
+      org.exoplatform.widget.web.CalculatorWidget,
+      org.exoplatform.widget.web.CometdWidget
 
     </param-value>
   </context-param>  
