@@ -11,6 +11,12 @@
   padding-left: 10px;
 }
 
+
+.UIApplicationRegistryPortlet .UIAvailablePortletForm input.checkbox{
+  margin: 0px 0px 0px 25px; 
+  width: 16px; height: 14px;
+}
+
 .UIApplicationRegistryPortlet .UIApplicationRegistryContainer {
   padding: 10px;
 }

@@ -17,7 +17,6 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
-  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -235,6 +234,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
   padding-bottom: 10px;  
   height: 208px;
+  _width: 218px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {

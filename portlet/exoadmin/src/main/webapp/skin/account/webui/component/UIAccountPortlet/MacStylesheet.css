@@ -37,7 +37,8 @@
 }
 
 .UIAccountPortlet .UIForm .HorizontalLayout .RightColumnBigItemStyle .UIFormInputSet {
-	
+	padding: 10px 0px 0px 0px;
+	width: auto;
 }
 
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {

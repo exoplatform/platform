@@ -112,6 +112,14 @@
   padding: 10px;
 }
 
+.UIAccessGroup .UIAccessGroup .PublicCheck input.checkbox{
+  _margin: 0px;
+}
+
+.UIAccessGroup .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent{
+  _padding: 0px;
+}
+
 .UIAccessGroup .UIGrid {
   width: 99%;
   margin: auto;

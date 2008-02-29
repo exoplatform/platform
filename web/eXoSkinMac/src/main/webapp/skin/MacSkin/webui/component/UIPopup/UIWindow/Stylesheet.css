@@ -19,6 +19,7 @@
 }
 
 .UIPageBody .UIWindow .UIApplication {
+	padding: 8px 5px 8px 5px;
   height: auto ;
 }
 
@@ -36,7 +37,6 @@
 .UIPageBody .UIApplicationRegistryPortlet {
 	width: 99%;
 	margin: auto;
-	margin-bottom: 10px;
 }
 
 .UIPageBody .Empty {

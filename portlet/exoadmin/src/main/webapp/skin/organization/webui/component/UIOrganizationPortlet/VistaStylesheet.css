@@ -18,7 +18,6 @@
 
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
-  overflow:hidden;
   white-space:nowrap;
 }
 
@@ -162,6 +161,7 @@
  	background: url('VistaSkin/background/UITreeBG.png') repeat;
  	border-top: none;
   height: 224px;
+  _width: 208px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
