@@ -21,9 +21,10 @@ DOMUtil.prototype.addClass = function(elemt, className) {
 } ;
 /**
  * Replaces oldClazz by newClazz in elemt
- * TODO : implement this function
  */
-DOMUtil.prototype.replaceClass = function(elemt, oldClazz, newClazz) {} ;
+DOMUtil.prototype.replaceClass = function(elemt, oldClazz, newClazz) {
+	elemt['className'] = elemt['className'].replace(oldClazz, newClazz); 
+} ;
 
 /**
  * Gets the children of element that are tagName elements
