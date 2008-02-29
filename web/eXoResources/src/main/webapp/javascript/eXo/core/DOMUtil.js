@@ -16,7 +16,7 @@ DOMUtil.prototype.hasClass = function(elemt, className) {
  * Adds the css class className to elemt, unless it already has it
  */
 DOMUtil.prototype.addClass = function(elemt, className) {
-  if (this.hasClass(elemt, className)) return ;
+	if (this.hasClass(elemt, className)) return ;
 	elemt['className'] = [elemt['className'], className].join(' ');
 } ;
 /**
@@ -47,7 +47,7 @@ DOMUtil.prototype.findChildrenByClass = function(root, elementName, cssClass) {
   if (elementName) elementName = elementName.toUpperCase() ;
   var elements = root.childNodes ;
   var ln = elements.length ;
-	var list = [] ;
+		var list = [] ;
   for (var k = 0; k < ln; k++) {
     if (elementName == elements[k].nodeName && this.hasClass(elements[k], cssClass)) {
     	list.push(elements[k]);
@@ -104,13 +104,13 @@ DOMUtil.prototype.findAncestorByClass = function(element, clazz) {
  * Returns an empty array if no element is found
  */
 DOMUtil.prototype.findAncestorsByClass = function(element, clazz) {
-	var list = [] ;
-  var parent = element.parentNode ;
-  while (parent != null) {
-  	if (this.hasClass(parent, clazz)) list.push(parent) ;
-    parent =  parent.parentNode ;
-  }
-  return list ;
+		var list = [] ;
+	 var parent = element.parentNode ;
+	 while (parent != null) {
+	 	if (this.hasClass(parent, clazz)) list.push(parent) ;
+	   parent =  parent.parentNode ;
+	 }
+	 return list ;
 } ;
 /**
  * Gets the ancestor of element identified by id
@@ -187,7 +187,7 @@ DOMUtil.prototype.findDescendantsByClass = function(root, elementName, clazz) {
 * This methods returns the first DOM element which has the clazz type 
 */
 DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz) {
-	if (!root) return;
+		if (!root) return;
   var elements = root.getElementsByTagName(elementName);
   var ln = elements.length ;	
   for(var k = 0; k < ln; k++) {  	  	
@@ -275,20 +275,10 @@ DOMUtil.prototype.createElementNode = function(innerHTML, tagName) {
 	return applicationNode ;
 } ;
 /**
- * Generates an id based on the current time
+ * Generates an id based on the current time and random number
  */
 DOMUtil.prototype.generateId = function(objectId) {
-	var dateTime = new Date() ;
-	var time = dateTime.getTime() ;
-	return (objectId + "-" + time) ;
-} ;
-/**
- * Swaps the position of the sibling elements e1 and e2
- * TODO : needs to be implemented
- */
-DOMUtil.prototype.swapPosition = function(e1, e2) {
-  if (e1.parentNode != e2.parentNode) alert("Report  bug to the admin, cannot swap element position") ; 
-  var tmpSwap = document.createElement("div") ;
+	return (objectId + "-" + new Date().getTime() + Math.random().toString().substring(2)) ;
 } ;
 /**
  * Gets the style of an element, in several steps
