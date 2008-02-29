@@ -118,4 +118,15 @@ Topic.prototype.unsubscribe = function(/*String*/ topic, /*Object*/ id) {
 	return removed;
 }
 
+Topic.prototype.initCometdBridge = function() {
+	eXo.core.Cometd.subscribe("/eXo/topics", function(event) {
+		if (event.data != null && event.data.topic != null && event.data.sender != null && event.data.message != null) {
+			eXo.core.Topic.publish(event.data.sender, event.data.topic, event.data.message);
+		}
+		else {
+			eXo.core.Topic.publish("Topic Cometd bridge", "/eXo/portal/notification", "error in the message received from Cometd:" + event);
+		}
+	});
+}
+
 eXo.core.Topic = new Topic();
