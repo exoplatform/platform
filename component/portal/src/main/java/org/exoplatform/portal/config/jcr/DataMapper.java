@@ -164,7 +164,7 @@ public class DataMapper {
     dataElement.appendChild(data) ;    
   }
   
-  String getDataValue(Document doc, String name) {
+  private String getDataValue(Document doc, String name) {
     Node dataElement = createDataElement(doc, name) ;
     return dataElement.getFirstChild().getNodeValue() ;
   }
