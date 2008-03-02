@@ -27,9 +27,9 @@
 
 .UIExoStart .VLineSeparator {
   float: right ;
-  width: 2px ; height: 36px ;
+  width: 2px ; height: 34px ;
   background: url('background/ExoStartDecoration.gif') no-repeat left;
-  margin: 4px ;
+  margin: 4px 4px 0px 4px;
 }
 
 .UIExoStart .DigitalClockContainer {

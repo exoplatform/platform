@@ -6,14 +6,14 @@
 }
 
 .UIExoStart .StartBarContainer {
-  height: 39px ;
+  height: 35px ;
   background: url('background/ExoStart.png') repeat-x center -654px;
 }
 
 .UIExoStart .ExoStartButton {
   float: left ;
   background-image: url('background/ExoStart.png');	
-  width: 50px ; height: 35px;
+  width: 50px ; height: 34px;
   cursor: pointer ;
 }
 
