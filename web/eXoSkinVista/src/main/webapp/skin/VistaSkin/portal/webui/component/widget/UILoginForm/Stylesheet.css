@@ -36,7 +36,7 @@
 }
 
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
-  background: url('background/BoxLeftMiddle136x191.png') no-repeat left ;
+  background: url('background/BoxLeftMiddle136x191.png') no-repeat left -60px;
   padding: 0px 0px 0px 136px ;
 }
 
