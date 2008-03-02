@@ -37,6 +37,8 @@
   padding: 5px;
   border: solid 1px #545454;
   background: url('background/UIWizardContentBG4x4.png') repeat;
+  min-width: 100px;
+  overflow: auto;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomLeft {

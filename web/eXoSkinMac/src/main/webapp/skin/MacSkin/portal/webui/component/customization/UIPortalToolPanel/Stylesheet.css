@@ -51,6 +51,8 @@
   border-right: 1px #d0d0d0 solid;
   padding: 10px 7px 10px 7px;
   background: url('background/LightGrayLinedBG1x4.gif');
+  min-width: 100px;
+  overflow: auto;
 }
 
 .UIPortalToolPanel .Footer {
