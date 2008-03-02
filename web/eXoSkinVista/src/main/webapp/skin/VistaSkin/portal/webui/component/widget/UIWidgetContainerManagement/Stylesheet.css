@@ -23,6 +23,7 @@
 
 .UIWidgetContainerManagement .CategoryTitleBar .Title {
 	float: left;
+	font-weight: bold;
 	line-height: 20px;
 	padding-left: 8px;
 }
@@ -100,20 +101,21 @@
 
 /*===================== Begin the Widget Container View ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
-	margin-left: 261px;
+	margin-left: 260px;
 	height: 275px;
 	background: #ffffff;
 	border: 1px #b7b7b7 solid;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .ContainerDetail {
-	padding: 20px 10px;
+	padding: 15px 0px;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .HeadTitle {
 	color: #4b4b4b;
 	font-weight: bold;
 	padding-left: 8px;
+	text-align: center;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{

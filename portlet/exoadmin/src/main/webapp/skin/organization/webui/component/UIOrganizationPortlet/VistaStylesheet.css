@@ -1,7 +1,7 @@
 .UIWindow .UIOrganizationPortlet {
   overflow: auto;
   border: none;
-  margin: 0px;
+  margin: 0px auto;
 }
 
 .UIOrganizationPortlet .OrganizationPortletContainer {
@@ -16,8 +16,9 @@
 	*width: 96%;
 }
 
+
 .UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
-  white-space: nowrap;
+  white-space:nowrap;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupInfoContainer .UIGrid td {
@@ -157,15 +158,10 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
-  background: url('VistaSkin/background/UITreeBG.png') repeat;
-  border-top: none;
+ 	background: url('VistaSkin/background/UITreeBG.png') repeat;
+ 	border-top: none;
   height: 224px;
   _width: 208px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
-  overflow:hidden;
-  white-space:nowrap;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {

@@ -59,7 +59,7 @@
   background: white ;
 }
 
-.UIForm .HorizontalLayout input {
+.UIForm input {
   width: 235px ;
   font-size: 11px;
 }
@@ -69,24 +69,24 @@
   width: 200px;
 }
 
-.UIForm .HorizontalLayout input.checkbox {
+.UIForm input.checkbox {
 	width: 16px;
 	margin: 0px;
 	border: none;
 }
 
-.UIForm .HorizontalLayout input.radio {
+.UIForm input.radio {
 	float: none;
 	border: none;
   width: 15px;
 }
 
-.UIForm .HorizontalLayout textarea {
+.UIForm textarea {
   width: 232px ;  height: 75px ;
   font-size: 11px;
 }
 
-.UIForm .HorizontalLayout select {
+.UIForm select {
   width: 239px ;
   font-size: 11px;
 }
@@ -129,9 +129,8 @@
   height: 160px;
 }
 
-.UIPermissionForm .UIForm  .HorizontalLayout .UIAccessGroup input.checkbox {
-	margin: 2px;
-	*margin: 0px;
+.UIPermissionForm .UIForm .HorizontalLayout .UIAccessGroup td.FieldLabel {
+  line-height: 16px;
 }
 
 .UIPermissionForm .UIForm .UIAccessGroup .UIFormGrid td.FieldComponent {
