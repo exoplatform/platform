@@ -63,6 +63,7 @@ public class UIWidgetContainerManagement extends UIContainer {
     UIWidgetContainerForm uiForm = createUIComponent(UIWidgetContainerForm.class, null, null) ;
     uiPopup.setUIComponent(uiForm) ;
     uiPopup.setWindowSize(400, 0) ;
+    uiPopup.setShowMask(true) ;
     loadContainer() ;
   }
   

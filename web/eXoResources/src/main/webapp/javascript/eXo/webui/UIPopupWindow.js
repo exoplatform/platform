@@ -29,7 +29,7 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	
 	if(isShow == false) {
 		this.superClass.hide(popup) ;
-		eXo.webui.UIPopupWindow.showMask(popup, isShow) ;
+		if(isShowMask) eXo.webui.UIPopupWindow.showMask(popup, false) ;
 	} 
 	
 	if(isResizable) {
@@ -44,16 +44,13 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 
 } ;
 
-UIPopupWindow.prototype.showMask = function(popup, isShowMask) {
+UIPopupWindow.prototype.showMask = function(popup, isShowPopup) {
 	var maskId = popup.id + "MaskLayer" ;
 	var mask = document.getElementById(maskId) ;
-	if(isShowMask) {
-		if (mask == null) {
-			var	maskLayer = eXo.core.UIMaskLayer.createMaskForFrame(popup.parentNode, popup, 1) ;
-		}
+	if(isShowPopup) {
+		if (mask == null) eXo.core.UIMaskLayer.createMaskForFrame(popup.parentNode, popup, 1) ;			
 	} else {
-		if(mask == null)	return;
-		eXo.core.UIMaskLayer.removeMask(mask);
+		if(mask != null)	eXo.core.UIMaskLayer.removeMask(mask) ;			
 	}
 } ;
 
@@ -87,7 +84,7 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
   
 	if (zIndex == 0) zIndex = 2000 ;
 	// We don't increment zIndex here because it is done in the superClass.show function
-	eXo.webui.UIPopupWindow.showMask(popup, isShowMask) ;
+	if(isShowMask) eXo.webui.UIPopupWindow.showMask(popup, true) ;
 	popup.style.visibility = "hidden" ;
 	this.superClass.show(popup) ;
  	var offsetParent = popup.offsetParent ;
