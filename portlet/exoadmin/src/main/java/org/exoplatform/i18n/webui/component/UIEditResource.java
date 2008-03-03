@@ -43,6 +43,7 @@ import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 
 /**
@@ -66,7 +67,7 @@ public class UIEditResource extends UIForm {
   private boolean editAble = true;
   
   public UIEditResource() throws Exception {
-    addUIFormInput(new UIFormStringInput("name",null,null).addValidator(EmptyFieldValidator.class).addValidator(SpecialCharacterValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("name",null,null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
     
     LocaleConfigService service = getApplicationComponent(LocaleConfigService.class) ;
     Iterator i = service.getLocalConfigs().iterator() ;

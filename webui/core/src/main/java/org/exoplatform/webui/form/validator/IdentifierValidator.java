@@ -32,7 +32,7 @@ public class IdentifierValidator implements Validator {
     
   public void validate(UIFormInput uiInput) throws Exception {
     String s = (String)uiInput.getValue();
-    if(Character.isDigit(s.charAt(0))) {
+    if(Character.isDigit(s.charAt(0)) || s.charAt(0) == '-') {
       Object[] args = { uiInput.getName(), uiInput.getBindingField() };
       throw new MessageException(new ApplicationMessage("FirstCharacterNameValidator.msg", args, ApplicationMessage.WARNING)) ;
     }    

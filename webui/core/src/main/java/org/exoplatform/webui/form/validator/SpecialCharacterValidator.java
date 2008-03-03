@@ -30,13 +30,9 @@ public class SpecialCharacterValidator implements Validator {
   
   public void validate(UIFormInput uiInput) throws Exception {
     String s = (String)uiInput.getValue();
-    if(Character.isDigit(s.charAt(0))||(Character.toString(s.charAt(0)).equals("-"))) {
-      Object[] args = { uiInput.getName(), uiInput.getBindingField() };
-      throw new MessageException(new ApplicationMessage("FirstCharacterNameValidator.msg", args, ApplicationMessage.WARNING)) ;
-    }    
     for(int i = 0; i < s.length(); i ++){
       char c = s.charAt(i);
-      if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-'){
+      if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-' || Character.isSpaceChar(c)){
         continue;
       }
       Object[] args = { uiInput.getName(), uiInput.getBindingField() };
