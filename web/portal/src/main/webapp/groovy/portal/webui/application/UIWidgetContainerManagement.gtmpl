@@ -58,10 +58,6 @@
 							<% } else {%>
 							<div class="InfoContent">
 								<div>
-									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.id")%></div>
-									<div class="FieldComponent"><%=selectedContainer.getId()%></div>
-								</div>
-								<div>
 									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.label")%></div>
 									<div class="FieldComponent"><%=selectedContainer.getName()%></div>
 								</div>

@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.application;
 
 import java.util.List;
 
+import org.apache.commons.lang.StringUtils;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -32,7 +33,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
-import org.exoplatform.webui.form.validator.NameValidator;
+import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -50,15 +51,13 @@ import org.exoplatform.webui.form.validator.NameValidator;
 )
 public class UIWidgetContainerForm extends UIForm {
 
-  final static private String FIELD_ID = "id" ;
   final static private String FIELD_NAME = "name" ;
   final static private String FIELD_DESC = "description" ;
   
   private Container container_ ;
   
   public UIWidgetContainerForm() throws Exception {
-    addUIFormInput(new UIFormStringInput(FIELD_ID, FIELD_ID, null).addValidator(NameValidator.class)) ;
-    addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null)) ;
+    addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).addValidator(SpecialCharacterValidator.class)) ;
     addUIFormInput(new UIFormTextAreaInput(FIELD_DESC, FIELD_DESC, null)) ;
   }
   
@@ -66,11 +65,11 @@ public class UIWidgetContainerForm extends UIForm {
     container_ = container ;
     reset() ;
     if(container_ == null) {
-      getUIStringInput(FIELD_ID).setEditable(UIFormStringInput.ENABLE) ;
+      getUIStringInput(FIELD_NAME).setEditable(UIFormStringInput.ENABLE) ;
       return ;
     }
     
-    getUIStringInput(FIELD_ID).setEditable(UIFormStringInput.DISABLE) ;
+    getUIStringInput(FIELD_NAME).setEditable(UIFormStringInput.DISABLE) ;
     invokeGetBindingBean(container_) ;
   }
   
@@ -86,8 +85,7 @@ public class UIWidgetContainerForm extends UIForm {
       Container container = uiForm.getContainer() ;
       if(container == null) container = new Container() ;
       uiForm.invokeSetBindingBean(container) ;
-      String cName = container.getName() ; 
-      if(cName == null || cName.trim().length() < 1) container.setName(container.getId()) ;
+      container.setId(StringUtils.deleteWhitespace(container.getName())) ;
       
       if(container != uiForm.getContainer()) {
         List<Container> existingContainers = uiManagement.getContainers() ;
