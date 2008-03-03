@@ -67,30 +67,58 @@
 	margin: 0px 10px 0px 5px ;
 }
 
-.UIForm input {
+.UIForm .HorizontalLayout input {
   width: 230px ;
   font-size: 11px;
 }
 
-.UIForm input.radio {
+.UIForm .HorizontalLayout input.radio {
 	float: none;
 	border: none;
   width: 15px;
 }
 
-.UIForm input.checkbox {
+.UIForm .HorizontalLayout input.checkbox {
 	width: 16px;
 	margin: 0px;
 	border: none;
 }
 
-.UIForm textarea {
+.UIForm .HorizontalLayout textarea {
   width: 232px ;  height: 75px ;
   border: 1px gray solid;
   font-size: 11px;  
 }
 
-.UIForm select {
+.UIForm .HorizontalLayout select {
+  width: 235px ;
+  font-size: 11px;  
+}
+
+.HorizontalLayout .UIForm input {
+  width: 230px ;
+  font-size: 11px;
+}
+
+.HorizontalLayout .UIForm input.radio {
+	float: none;
+	border: none;
+  width: 15px;
+}
+
+.HorizontalLayout .UIForm input.checkbox {
+	width: 16px;
+	margin: 0px;
+	border: none;
+}
+
+.HorizontalLayout .UIForm textarea {
+  width: 232px ;  height: 75px ;
+  border: 1px gray solid;
+  font-size: 11px;  
+}
+
+.HorizontalLayout .UIForm select {
   width: 235px ;
   font-size: 11px;  
 }

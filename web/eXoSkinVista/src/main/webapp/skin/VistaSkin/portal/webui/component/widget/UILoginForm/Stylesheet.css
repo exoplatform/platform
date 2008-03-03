@@ -68,14 +68,14 @@
 
 .UILoginForm .LoginDetailBox .UserNameField {
 	padding: 8px 0px 5px 0px;
-  width: 300px;
+  width: 305px;
   margin: auto;
   text-align: right;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField {
 	padding: 5px;
-  width: 300px;
+  width: 305px;
   margin: auto;
   text-align: right;
 }
@@ -83,7 +83,7 @@
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
   width: 170px;
-  margin: 4px 00px 4px 110px;
+  margin: 4px 0px 4px 110px;
   padding-left: 30px;
 }
 
