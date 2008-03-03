@@ -64,12 +64,7 @@ public class UIWidgetContainerForm extends UIForm {
   public void setValue(Container container) throws Exception {
     container_ = container ;
     reset() ;
-    if(container_ == null) {
-      getUIStringInput(FIELD_NAME).setEditable(UIFormStringInput.ENABLE) ;
-      return ;
-    }
-    
-    getUIStringInput(FIELD_NAME).setEditable(UIFormStringInput.DISABLE) ;
+    if(container_ == null) return ;
     invokeGetBindingBean(container_) ;
   }
   
@@ -85,9 +80,9 @@ public class UIWidgetContainerForm extends UIForm {
       Container container = uiForm.getContainer() ;
       if(container == null) container = new Container() ;
       uiForm.invokeSetBindingBean(container) ;
-      container.setId(StringUtils.deleteWhitespace(container.getName())) ;
       
       if(container != uiForm.getContainer()) {
+        container.setId(StringUtils.deleteWhitespace(container.getName())) ;
         List<Container> existingContainers = uiManagement.getContainers() ;
         if(existingContainers != null) {
           for(Container ele : existingContainers) {
