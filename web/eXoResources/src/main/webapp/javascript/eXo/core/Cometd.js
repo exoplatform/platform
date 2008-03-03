@@ -50,7 +50,7 @@ Cometd.prototype._deliver = function(message){
 
 	if(!message["channel"]){
 		if(message["success"] !== true){
-			console.debug("cometd error: no channel for message!", message);
+			//console.debug("cometd error: no channel for message!", message);
 			return;
 		}
 	}
@@ -226,7 +226,7 @@ function LongPollTransport() {
 		}
    
 	   	if(!data.successful){
-			console.debug("cometd init failed");
+			//console.debug("cometd init failed");
 			if(this._cometd.advice && this._cometd.advice["reconnect"]=="none"){
 				return;
 			}
@@ -240,7 +240,7 @@ function LongPollTransport() {
 			return;
 		}
 		if(data.version < this.minimumVersion){
-			console.debug("cometd protocol version mismatch. We wanted", this.minimumVersion, "but got", data.version);
+			//console.debug("cometd protocol version mismatch. We wanted", this.minimumVersion, "but got", data.version);
 			return;
 		}
 
@@ -266,6 +266,8 @@ function LongPollTransport() {
 		var query = "message=" + content.message;
 	
 		var request = new eXo.portal.AjaxRequest('POST', (url||this._cometd.url), query);
+		//timeout set to 3 min because of longpoll
+		request.timeout = 180000;
 		request.onSuccess = function(request){
 								this._cometd._polling = false;
 								if (request.status >=200 && request.status < 300)
