@@ -33,6 +33,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.validator.EmptyFieldValidator;
 import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 
 /**
@@ -57,7 +58,7 @@ public class UIWidgetContainerForm extends UIForm {
   private Container container_ ;
   
   public UIWidgetContainerForm() throws Exception {
-    addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).addValidator(SpecialCharacterValidator.class)) ;
+    addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).addValidator(EmptyFieldValidator.class).addValidator(SpecialCharacterValidator.class)) ;
     addUIFormInput(new UIFormTextAreaInput(FIELD_DESC, FIELD_DESC, null)) ;
   }
   
