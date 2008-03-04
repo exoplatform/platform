@@ -42,7 +42,7 @@ public class IdentifierValidator implements Validator {
         continue;
       }
       Object[] args = { uiInput.getName(), uiInput.getBindingField() };
-      throw new MessageException(new ApplicationMessage("IdentifierValidator.msg.Invalid-char", args)) ;
+      throw new MessageException(new ApplicationMessage("IdentifierValidator.msg.Invalid-char", args, ApplicationMessage.WARNING)) ;
     }
   }
 }
