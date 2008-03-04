@@ -32,13 +32,13 @@ UIRightClickPopupMenu.prototype.disableContextMenu = function(comp) {
 UIRightClickPopupMenu.prototype.prepareObjectId = function(evt, elemt) {
 	var contextMenu = eXo.core.DOMUtil.findAncestorByClass(elemt, "UIRightClickPopupMenu") ;
 	contextMenu.style.dispay = "none" ;
-	var href = elemt.getAttribute('href').replace('_objectid_', encodeURI(contextMenu.objId.replace(/'/g, "\\'"))) ;
+	var href = elemt.getAttribute('href') ;
 	if(href.indexOf("javascript") == 0) {
-		eval(href) ;
+		eval(unescape(href).replace('_objectid_', encodeURI(contextMenu.objId.replace(/'/g, "\\'")))) ; 
 		eXo.core.MouseEventManager.docMouseDownEvt(evt) ;
 		return false;
 	}
-	elemt.setAttribute('href', href) ;
+	elemt.setAttribute('href', href.replace('_objectid_', encodeURI(contextMenu.objId.replace(/'/g, "\\'")))) ;
 	return true;
 }
 
