@@ -145,6 +145,7 @@
 .UIPopupWindow .ExoMessageDecorator .MiddleLeftSideDecorator {
 	background: url('background/MiddleExoMessageDecorator.gif') repeat-y left; 
 	padding-left: 4px;
+	height: 100%;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleRightSideDecorator {

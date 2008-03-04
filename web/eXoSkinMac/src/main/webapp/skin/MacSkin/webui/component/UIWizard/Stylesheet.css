@@ -82,6 +82,10 @@
 	padding: 10px;
 }
 
+.UIWizard .UIWizardContent .WizardStepContent .UISearchI18n .UIForm {
+	padding: 0px;
+}
+
 .UIWizard .UIWizardContent .WizardControlBar {
   height: 34px;
   border: solid 1px #b7b7b7;

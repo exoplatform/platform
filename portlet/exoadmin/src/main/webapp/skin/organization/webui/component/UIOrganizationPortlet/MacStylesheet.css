@@ -189,9 +189,10 @@
   border: 1px solid #b7b7b7;
   line-height: 24px;
   height: auto;
+  font-weight: bold;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .TitleBar .Title{
+.UIOrganizationPortlet .UIGroupManagement .TitleBar .Title {
 	color:#1c1c1c;
 	font-weight:bold;
 	line-height: 24px;
@@ -200,6 +201,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar {
 	height: 24px;
+	border-bottom: none;
 }
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar .Title {
 	float: left;
