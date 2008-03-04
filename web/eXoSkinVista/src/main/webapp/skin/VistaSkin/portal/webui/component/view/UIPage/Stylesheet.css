@@ -19,7 +19,7 @@
 
 .UIPage .PageLayoutDecorator .TopRightPage {
   background: url('background/PageLayoutTR15x78.png') no-repeat right ;
-  padding: 0px 15px 0px 0px ; 
+  padding-right: 15px ; 
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {

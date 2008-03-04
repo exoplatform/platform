@@ -60,7 +60,7 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Label {
-  margin: 8px 0px 5px 40px ;
+  margin: 8px 0px 5px 0px ;
   float: left ;
   width: 150px ;
   text-align: right;
@@ -71,6 +71,8 @@
   margin: 8px 0px 5px 15px ;
   color: #0749c4 ;
   background: none;
+  overflow: hidden;
+  width: 390px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {
