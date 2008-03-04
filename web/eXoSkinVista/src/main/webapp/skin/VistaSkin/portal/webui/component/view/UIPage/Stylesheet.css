@@ -23,7 +23,7 @@
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
-  height: 78px ; line-height: 78px;
+  line-height: 78px;
   background: url('background/PageLayoutTC1x78.png') repeat-x center ; 
   color: #3b3b3b; 
   font-weight: bold;
@@ -41,7 +41,6 @@
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {
-  height: 15px;  
   background: url('background/PageLayoutBL12x15.png') no-repeat left ;
   padding: 0px 0px 0px 12px ;
 }
@@ -52,6 +51,9 @@
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage {
-  height: 15px ;   
-  background: url('background/PageLayoutBC1x15.png') repeat-x center ; 
+    background: url('background/PageLayoutBC1x15.png') repeat-x center ; 
+}
+
+.UIPage .PageLayoutDecorator .BottomCenterPage .FixBug {
+  height: 15px;
 }

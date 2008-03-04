@@ -29,6 +29,11 @@
   padding: 10px ; margin-right: 0px ;
 }
 
+.HorizontalLayout .UIForm .UIFormInputSet {
+	width: 97% ;
+  padding: 10px ; margin-right: 0px ;
+}
+
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
   margin: 10px 0px 0px 10px ;
   color: #5f7fd6 ;

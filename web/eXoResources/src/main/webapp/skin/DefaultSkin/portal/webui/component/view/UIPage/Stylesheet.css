@@ -47,19 +47,23 @@
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {  
-  background: url('background/BLPageLayout46x38.gif') no-repeat left ;
+  background: url('background/BLPageLayout46x38.gif') no-repeat left top ;
   padding: 0px 0px 0px 46px ;
   margin-bottom: 7px;
 }
 
 .UIPage .PageLayoutDecorator .BottomRightPage {
-  background: url('background/BRPageLayout35x38.gif') no-repeat right ;
+  background: url('background/BRPageLayout35x38.gif') no-repeat right top ;
   padding: 0px 35px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage {
+  line-height: 38px;
+  background: url('background/BCPageLayout1x38.gif') repeat-x top ; 
+}
+
+.UIPage .PageLayoutDecorator .BottomCenterPage .FixBug {
   height: 38px ;   
-  background: url('background/BCPageLayout1x38.gif') repeat-x ; 
 }
 
 .UIPage .UIRowContainer .UITabContainer .UIHorizontalTabs {

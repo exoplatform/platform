@@ -32,7 +32,9 @@
 			<%/*Begin Bottom Decorator*/%>
 			<div class="BottomLeftPage">
 				<div class="BottomRightPage">
-					<div class="BottomCenterPage"><span></span></div>												
+					<div class="BottomCenterPage">
+            <div class="FixBug"><span></span></div>
+          </div>												
 				</div>
 			</div>
 				
