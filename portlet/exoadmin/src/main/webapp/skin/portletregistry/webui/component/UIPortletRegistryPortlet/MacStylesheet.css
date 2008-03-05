@@ -5,9 +5,15 @@
  * version: $Id$
  */
 
+.UIWindow .UIApplicationRegistryPortlet {
+	margin: 0px;
+	border: none;
+}
+
 .UIApplicationRegistryPortlet {
 	border: 1px solid #b7b7b7;
-	background: #fff;
+	background: #fff;	
+	margin: 5px;
 }
 
 .UIApplicationRegistryPortlet .Title {
