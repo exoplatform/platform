@@ -56,7 +56,10 @@
 	white-space: nowrap ;
 	padding: 0px 5px ;
 	border: solid 1px black ;
-	font-weight: bold;
+}
+
+.UIPageDesktop s.IconContainer .Tooltip {
+	font-weight: 100;
 }
 
 .UIPageDesktop .MoveResizeArea {
@@ -132,6 +135,10 @@
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer {
 	border: none;
 	background: none;
+}
+
+.UIPageDesktop .UIRightClickPopupMenu .UIContextMenuContainer {
+	width: 230px;
 }
 
 .UIDockBar .UIContextMenuContainer {
