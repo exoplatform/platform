@@ -137,6 +137,10 @@
 	background: none;
 }
 
+.UIPageDesktop .UIRightClickPopupMenu .UIContextMenuContainer {
+	width: 230px;
+}
+
 .UIDockBar .UIRightClickPopupMenu .CloseDockBarIcon {
 	background: url('icons/24x24/CloseDockbarIcon24x24.gif') no-repeat left ;
 }
