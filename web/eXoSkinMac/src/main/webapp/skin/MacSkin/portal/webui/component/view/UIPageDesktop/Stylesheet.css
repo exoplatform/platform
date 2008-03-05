@@ -132,6 +132,10 @@
 	background: none;
 }
 
+.UIPageDesktop .UIRightClickPopupMenu .UIContextMenuContainer {
+	width: 230px;
+}
+
 .UIDockBar .UIContextMenuContainer {
 	position: absolute; 
 	left: -20px; 
