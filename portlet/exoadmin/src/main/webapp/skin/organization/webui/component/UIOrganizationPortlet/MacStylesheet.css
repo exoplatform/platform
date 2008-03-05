@@ -192,6 +192,10 @@
   font-weight: bold;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle .TitleBar {
+ 	font-weight:600;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .TitleBar .Title {
 	color:#1c1c1c;
 	font-weight:bold;
@@ -270,6 +274,10 @@
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
 	height: 216px;
 	_width: 218px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .ScrollArea{
+	border-top: none;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid {
