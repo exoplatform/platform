@@ -17,6 +17,7 @@
 package org.exoplatform.portal.application;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -47,7 +48,7 @@ public class ResourceRequestFilter implements Filter  {
   
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpRequest = (HttpServletRequest) request ;
-    String uri = httpRequest.getRequestURI();
+    String uri = URLDecoder.decode(httpRequest.getRequestURI(),"UTF-8");
     if(cacheResource_) {
       HttpServletResponse httpResponse = (HttpServletResponse)  response ;
       httpResponse.addHeader("Cache-Control", "max-age=2592000,s-maxage=2592000") ;
