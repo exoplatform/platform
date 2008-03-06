@@ -19,17 +19,14 @@ UIDesktop.prototype.init = function() {
 UIDesktop.prototype.fixDesktop = function() {
   var pageDesktop = document.getElementById("UIPageDesktop") ;
   var browserHeight = eXo.core.Browser.getBrowserHeight() ;
-  if(pageDesktop)pageDesktop.style.height = browserHeight + "px" ;
+  if(pageDesktop) pageDesktop.style.height = browserHeight + "px" ;
   window.scroll(0,0);
-  
   eXo.desktop.UIDockbar.init() ;
 };
 
 //TODO DungHM
 UIDesktop.prototype.resetZIndex = function(windowObject) {
   var windowsInDesktop = eXo.core.DOMUtil.getChildrenByTagName(windowObject.parentNode, "div") ;
-  var uiDockbar = document.getElementById("UIDockBar") ;
-  	
   var maxZIndex = windowObject.style.zIndex ;
  
   var uiPopupWindow = eXo.core.DOMUtil.findDescendantsByClass(windowObject.parentNode,'div','UIPopupWindow') ;
@@ -51,16 +48,14 @@ UIDesktop.prototype.resetZIndex = function(windowObject) {
   	}
   	if (windowsInDesktop[i].style.zIndex < 0) windowsInDesktop[i].style.zIndex = 1 ;
   }
-	
   windowObject.style.zIndex = maxZIndex ;
-  uiDockbar.style.zIndex = parseInt(maxZIndex) + 1 ;
 };
 
 UIDesktop.prototype.isMaxZIndex = function(object) {
 	var isMax = false ;
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	var uiDockbar = document.getElementById("UIDockBar") ;
+	//var uiDockbar = document.getElementById("UIDockBar") ;
 	var desktopApps = DOMUtil.getChildrenByTagName(uiPageDesktop, "div") ;
 	
 	var maxZIndex = parseInt(object.style.zIndex) ;
@@ -84,9 +79,9 @@ UIDesktop.prototype.showHideWindow = function(uiWindow, clickedElement) {
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "HIDE");
     this.object.isShowed = false ;
   } else {
-  	this.object.isShowed = true ;
+  		this.object.isShowed = true ;
     var uiDockBar = document.getElementById("UIDockBar") ;
-		var uiPageDesktop	= document.getElementById("UIPageDesktop") ;
+				var uiPageDesktop	= document.getElementById("UIPageDesktop") ;
     eXo.desktop.UIDockbar.resetDesktopShowedStatus(uiPageDesktop, uiDockBar) ;
     eXo.animation.ImplodeExplode.explode(this.object, clickedElement, "UIPageDesktop", numberOfFrame, false) ;
     eXo.desktop.UIWindow.saveWindowProperties(this.object, "SHOW");

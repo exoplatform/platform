@@ -8,9 +8,9 @@
 .UIPageDesktop .UIDockBar {
   position: absolute;
   bottom: 0px;
-  margin: auto ;
-  z-index: 30 ;
-  cursor: pointer ;
+  margin: auto;
+  z-index: 9999;
+  cursor: pointer;
 }
 
 .UIPageDesktop .NavigationContainer {
