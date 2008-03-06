@@ -1200,6 +1200,7 @@
 	background: #ffffff;
 }
 
+
 .RoundConerBlue .BottomDecoratorLeft {
 	padding-left: 13px;
 	background-image: url('background/RoundCornerBlue.png');
@@ -1305,7 +1306,6 @@
 
 .RoundConerViolet .WindowBarLeft {
 	padding-left: 13px;
-	height: 32px;
 	background-image: url('background/RoundConerViolet.png');
 	background-repeat: no-repeat;
 	background-position: left -153px;
@@ -1313,7 +1313,6 @@
 
 .RoundConerViolet .WindowBarRight {
 	padding-right: 13px;
-	height: 32px;
 	background-image: url('background/RoundConerViolet.png');
 	background-repeat: no-repeat;
 	background-position: right -121px;
@@ -1323,6 +1322,10 @@
 	height: 32px;
 	background: url('background/RoundConerViolet.png') repeat-x;
 	background-position: left -90px;
+}
+
+.RoundConerViolet .WindowBarCenter {
+	height: 31px;
 }
 
 .RoundConerViolet .MiddleDecoratorLeft {
@@ -1444,7 +1447,6 @@
 
 .RoundConerOrange .WindowBarLeft {
 	padding-left: 13px;
-	height: 32px;
 	background-image: url('background/RoundConerOrange.png');
 	background-repeat: no-repeat;
 	background-position: left -153px;
@@ -1452,7 +1454,6 @@
 
 .RoundConerOrange .WindowBarRight {
 	padding-right: 13px;
-	height: 32px;
 	background-image: url('background/RoundConerOrange.png');
 	background-repeat: no-repeat;
 	background-position: right -121px;
@@ -1462,6 +1463,10 @@
 	height: 32px;
 	background: url('background/RoundConerOrange.png') repeat-x;
 	background-position: left -90px;
+}
+
+.UIPortlet .RoundConerOrange .WindowBarCenter {
+	height: 31px;
 }
 
 .RoundConerOrange .MiddleDecoratorLeft {
@@ -1476,6 +1481,10 @@
 
 .RoundConerOrange .MiddleDecoratorCenter {
 	background: #ffffff;
+}
+
+.UIPortlet .RoundConerOrange .MiddleDecoratorCenter {
+	height: 100%;
 }
 
 .RoundConerOrange .BottomDecoratorLeft {
@@ -1583,7 +1592,6 @@
 
 .RoundConerPink .WindowBarLeft {
 	padding-left: 13px;
-	height: 32px;
 	background-image: url('background/RoundConerPink.png');
 	background-repeat: no-repeat;
 	background-position: left -153px;
@@ -1591,7 +1599,6 @@
 
 .RoundConerPink .WindowBarRight {
 	padding-right: 13px;
-	height: 32px;
 	background-image: url('background/RoundConerPink.png');
 	background-repeat: no-repeat;
 	background-position: right -121px;
@@ -1601,6 +1608,10 @@
 	height: 32px;
 	background: url('background/RoundConerPink.png') repeat-x;
 	background-position: left -90px;
+}
+
+.UIPortlet .RoundConerPink .WindowBarCenter {
+	height: 31px;
 }
 
 .RoundConerPink .MiddleDecoratorLeft {
@@ -1615,6 +1626,10 @@
 
 .RoundConerPink .MiddleDecoratorCenter {
 	background: #ffffff;
+}
+
+.UIPortlet .RoundConerPink .MiddleDecoratorCenter {
+	height: 100%;
 }
 
 .RoundConerPink .BottomDecoratorLeft {
@@ -1722,7 +1737,6 @@
 
 .RoundConerGreen .WindowBarLeft {
 	padding-left: 13px;
-	height: 32px;
 	background-image: url('background/RoundConerGreen.png');
 	background-repeat: no-repeat;
 	background-position: left -153px;
@@ -1730,7 +1744,6 @@
 
 .RoundConerGreen .WindowBarRight {
 	padding-right: 13px;
-	height: 32px;
 	background-image: url('background/RoundConerGreen.png');
 	background-repeat: no-repeat;
 	background-position: right -121px;
@@ -1740,6 +1753,10 @@
 	height: 32px;
 	background: url('background/RoundConerGreen.png') repeat-x;
 	background-position: left -90px;
+}
+
+.UIPortlet .RoundConerGreen .WindowBarCenter {
+	height: 31px;
 }
 
 .RoundConerGreen .MiddleDecoratorLeft {
@@ -1754,6 +1771,10 @@
 
 .RoundConerGreen .MiddleDecoratorCenter {
 	background: #ffffff;
+}
+
+.UIPortlet .RoundConerGreen .MiddleDecoratorCenter {
+	height: 100%;
 }
 
 .RoundConerGreen .BottomDecoratorLeft {
@@ -1896,6 +1917,10 @@
 	background: #ffffff;
 }
 
+.UIPortlet .ShadowBlue .MiddleDecoratorCenter {
+	height: 100%;
+}
+
 .ShadowBlue .BottomDecoratorLeft {
 	padding-left: 11px;
 	background-image: url('background/ShadowBlue.png');
@@ -2035,6 +2060,10 @@
 
 .ShadowViolet .MiddleDecoratorCenter {
 	background: #ffffff;
+}
+
+.UIPortlet .ShadowViolet .MiddleDecoratorCenter {
+	height: 100%;
 }
 
 .ShadowViolet .BottomDecoratorLeft {
@@ -2179,6 +2208,10 @@
 	background: #ffffff;
 }
 
+.UIPortlet .ShadowOrange .MiddleDecoratorCenter {
+	height: 100%;
+}
+
 .ShadowOrange .BottomDecoratorLeft {
 	padding-left: 11px;
 	background-image: url('background/ShadowOrange.png');
@@ -2321,6 +2354,10 @@
 	background: #ffffff;
 }
 
+.UIPortlet .ShadowPink .MiddleDecoratorCenter {
+	height: 100%;
+}
+
 .ShadowPink .BottomDecoratorLeft {
 	padding-left: 11px;
 	background-image: url('background/ShadowPink.png');
@@ -2461,6 +2498,10 @@
 
 .ShadowGreen .MiddleDecoratorCenter {
 	background: #ffffff;
+}
+
+.UIPortlet .ShadowGreen .MiddleDecoratorCenter {
+	height: 100%;
 }
 
 .ShadowGreen .BottomDecoratorLeft {
@@ -2749,6 +2790,10 @@
 	height: 19px;
 }
 
+.UIPortlet .SimpleViolet .BottomDecoratorCenter {
+	height: 18px;
+}
+
 /*------------------------------ SimpleOrange -----------------------------------*/
 
 .SimpleOrange .WindowPortletControl {
@@ -2879,6 +2924,10 @@
 	border-top: none;
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 	height: 19px;
+}
+
+.UIPortlet .SimpleOrange .BottomDecoratorCenter {
+	height: 18px;
 }
 
 /*------------------------------ SimplePink -----------------------------------*/
@@ -3013,6 +3062,10 @@
 	height: 19px;
 }
 
+.UIPortlet .SimplePink .BottomDecoratorCenter {
+	height: 18px;
+}
+
 /*------------------------------ SimpleGreen -----------------------------------*/
 
 .SimpleGreen .WindowPortletControl {
@@ -3122,9 +3175,9 @@
 }
 
 .SimpleGreen .MiddleDecoratorCenter {
+	background: #ffffff;
 	border: 1px solid #4c717e;
 	border-bottom: none;
-	background: red;
 	padding: 1px;
 }
 
@@ -3143,5 +3196,9 @@
 	border-top: none;
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 	height: 19px;
+}
+
+.UIPortlet .SimpleGreen .BottomDecoratorCenter {
+	height: 18px;
 }
 
