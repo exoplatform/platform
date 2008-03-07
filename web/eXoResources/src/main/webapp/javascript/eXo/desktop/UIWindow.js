@@ -138,15 +138,18 @@ UIWindow.prototype.startResizeWindowEvt = function(evt) {
 
 UIWindow.prototype.resizeWindowEvt = function(evt) {
 	if(!evt) evt = window.event ;
-//	var uiWindow = eXo.desktop.UIWindow;
-//	var DOMUtil = eXo.core.DOMUtil ;
+	var uiWindow = eXo.desktop.UIWindow;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	var deltaX = evt.clientX - eXo.desktop.UIWindow.initMouseX ;
-	var deltaY = evt.clientY - eXo.desktop.UIWindow.initMouseY ;
-	var uiApplication = eXo.core.DOMUtil.findFirstDescendantByClass(eXo.desktop.UIWindow.portletWindow, "div", "UIApplication") ;
-	eXo.desktop.UIWindow.portletWindow.style.width = Math.max(10, (eXo.desktop.UIWindow.originalWidth + deltaX)) + "px" ;
-	for(var i = 0; i < eXo.desktop.UIWindow.resizableObject.length; i++) {
-		eXo.desktop.UIWindow.resizableObject[i].style.height = Math.max(10,(eXo.desktop.UIWindow.resizableObject[i].originalHeight + deltaY)) + "px" ;
+	var deltaX = evt.clientX - uiWindow.initMouseX ;
+	var deltaY = evt.clientY - uiWindow.initMouseY ;
+	var uiApplication = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow.portletWindow, "div", "UIApplication") ;
+	uiWindow.portletWindow.style.width = Math.max(10, (uiWindow.originalWidth + deltaX)) + "px" ;
+	for(var i = 0; i < uiWindow.resizableObject.length; i++) {
+		uiWindow.resizableObject[i].style.height = Math.max(10,(uiWindow.resizableObject[i].originalHeight + deltaY)) + "px" ;
+	}
+ // fix bug minwidth in IE6.
+	if (eXo.core.Browser.isIE6() && uiWindow.resizableObject[0]){ 
+		uiWindow.resizableObject[0].style.width = Math.max(10,(uiWindow.resizableObject[0].originalWidth + deltaX)) + "px" ;
 	}
 } ;
 
