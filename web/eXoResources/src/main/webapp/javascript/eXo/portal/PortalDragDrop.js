@@ -6,38 +6,7 @@
 function PortalDragDrop() { 
 	this.count = 0 ;
 } ;
-/**
- * This function is called when a page containing draggable objects loads.
- * It contains a workaround that adds a callback call to some links, in order to
- * avoid some bugs in the page creation interface, definition of the page template.
- */
-PortalDragDrop.prototype.onLoad = function(e) {
-	return;
-	//don't need this method;
-	// Sets the ajaxGet callback function to resizeRows
-//	var portalEditBar = document.getElementById("UIPortalManagementEditBar");
-//	var wizardEditBar = document.getElementById("WizardPageEditBar");
-//	// Check if an EditBar exists on the page
-//	var editBar = (portalEditBar != null) ? portalEditBar : ((wizardEditBar != null) ? wizardEditBar : null);
-//	if (editBar) {
-//		// editBar exists only in layout mode
-//	  var editButtons = new Array();
-//	  editButtons.pushAll(editBar.getElementsByTagName("a"));
-//	  var controlBar = document.getElementById("UIPortalManagementControlBar");
-//	  if (controlBar) editButtons.pushAll(controlBar.getElementsByTagName("a"));
-//	  // once we got all the links to modify...
-//	  for (var i = 0; i < editButtons.length; i++) {
-//	  	var url = editButtons[i].href;
-//	  	// check if the link calls the correct js function
-//	  	if (url && url.indexOf("javascript:ajaxGet") == -1) continue;
-//	  	// if the callback function is not already set
-//	  	if (url && url.indexOf("resizeRows") == -1) {
-//	  		url = url.substr(0, url.length - 1).concat(", eXo.portal.PortalDragDrop.resizeRows)");
-//	  		editButtons[i].href = url;
-//	  	}
-//	  }
-//	}
-};
+
 /**
  * This function inits the PortalDragDrop object
  * It initializes a DragDrop object that will manage the drag events
@@ -287,7 +256,7 @@ PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
   	
   }
 	// Modified by Philippe : added callback function
-  ajaxGet(eXo.env.server.createPortalURL("UIPortal", "MoveChild", true, params), eXo.portal.PortalDragDrop.resizeRows) ;
+  ajaxGet(eXo.env.server.createPortalURL("UIPortal", "MoveChild", true, params)) ;
 };
 
 /* Find components in dropable target */
@@ -515,37 +484,6 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
   if(checkTRContainerInsertBlock) {
     trContainer.removeChild(eXo.portal.PortalDragDrop.parentDragObject) ;
   }
-};
-// Function resizeRows added by Philippe
-PortalDragDrop.prototype.resizeRows = function() {
-		return;
-	//don't need this method;
-//	var uiWS = document.getElementById("UIWorkingWorkspace");
-//	if (uiWS) {
-//		var actionButtons = new Array();
-//		var uiContainers = eXo.core.DOMUtil.findDescendantsByClass(uiWS, "div", "UIContainer");
-//		for (var i = 0; i < uiContainers.length; i++) {
-//			var uiContainer = uiContainers[i];
-//			actionButtons.pushAll(uiContainer.getElementsByTagName("a"));
-//			var trContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiContainer, "tr", "TRContainer");
-//			if (trContainer) {
-//				var tdList = eXo.core.DOMUtil.getChildrenByTagName(trContainer, "td") ;
-//			  var offsetWidthTR = trContainer.offsetWidth ;
-//			  var tdWidth = offsetWidthTR / tdList.length;
-//			  for (var j = 0; j < tdList.length; j++) {
-//			  	var td = tdList[j];
-//					td.style.width = tdWidth + "px";
-//			  }
-//			}
-//		}
-//	  for (var k = 0; k < actionButtons.length; k++) {
-//	  	var url = actionButtons[k].href;
-//	  	if (url && url.indexOf("resizeRows") == -1) {
-//	  		url = url.substr(0, url.length - 1).concat(", eXo.portal.PortalDragDrop.resizeRows)");
-//	  		actionButtons[k].href = url;
-//	  	}
-//	  }
-//	}
 };
 
 PortalDragDrop.prototype.fixCss =  function() {
