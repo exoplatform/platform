@@ -34,6 +34,10 @@
   padding: 10px ; margin-right: 0px ;
 }
 
+.UIMaskWorkspace .UINodeIconSelector .HorizontalLayout .UIForm .UIFormInputSet {
+	padding-bottom: 0px;
+}
+
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
   margin: 10px 0px 0px 10px ;
   color: #5f7fd6 ;

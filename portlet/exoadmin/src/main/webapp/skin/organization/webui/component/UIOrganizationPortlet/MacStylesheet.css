@@ -12,6 +12,10 @@
   *width: 97.5%;
 }
 
+.UIOrganizationPortlet .UIBarStyle .BarStyle2 .UISearchForm .UIForm {
+  padding: 0px;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
   white-space:nowrap;
 }

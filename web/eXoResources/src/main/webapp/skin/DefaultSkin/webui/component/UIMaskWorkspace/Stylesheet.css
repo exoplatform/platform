@@ -110,6 +110,14 @@
 	overflow: hidden;
 }
 
+.UIMaskWorkspace .UITabPane .WorkingArea .UITabContentContainer .UITabContent {
+  padding: 0px;
+}
+
+.UIMaskWorkspace .UITabPane .WorkingArea .UITabContentContainer .UITabContent .UIFormInputSet {
+  padding: 8px;
+}
+
 /**************************** UIAddApplication ******************************************/
 
 .UIAddApplication {

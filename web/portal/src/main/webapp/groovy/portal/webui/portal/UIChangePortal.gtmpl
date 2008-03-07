@@ -11,7 +11,9 @@
 		
 	<div class="TabPaneContent">
     <div class="WorkingArea">
-    	<%uicomponent.renderChildren() %>	
+    	<div style="padding: 10px;">
+    		<%uicomponent.renderChildren() %>	
+    	</div>
 	  </div>
 	</div>
 		
