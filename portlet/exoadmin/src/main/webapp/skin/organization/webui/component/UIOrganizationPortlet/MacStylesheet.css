@@ -127,6 +127,10 @@
 	padding-top: 10px;
 }
 
+.UIOrganizationPortlet .UIUserManagement .UISearch .UIForm {
+  padding: 0px ; 
+}
+
 .UIOrganizationPortlet .UIMembership {
 	height: 300px;
 	padding-top: 20px;

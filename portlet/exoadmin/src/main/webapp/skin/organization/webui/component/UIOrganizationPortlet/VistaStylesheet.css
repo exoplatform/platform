@@ -88,6 +88,10 @@
   width: auto ; 
 }
 
+.UIOrganizationPortlet .UIUserManagement .UISearch .UIForm {
+  padding: 0px ; 
+}
+
 .UIOrganizationPortlet .PersonalInfoIcon {
   width: 32px ;  height: 32px ;
   float: left ;
