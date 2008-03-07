@@ -261,6 +261,10 @@
 	background: #ffffff;
 }
 
+.MacTheme .MiddleDecoratorCenter {
+	height: 100%;
+}
+
 .MacTheme .BottomDecoratorLeft {
 	background-image: url('background/MacTheme.png');
 	background-repeat: no-repeat;
@@ -416,6 +420,10 @@
 
 .MacGray .MiddleDecoratorCenter {
 	background: #ffffff;
+}
+
+.MacGray .MiddleDecoratorCenter {
+	height:100%;
 }
 
 .MacGray .BottomDecoratorLeft {
@@ -574,6 +582,10 @@
 	background: #ffffff;
 }
 
+.UIPortlet .MacBlack .MiddleDecoratorCenter {
+	height: 100%;
+}
+
 .MacBlack .BottomDecoratorLeft {
 	background-image: url('background/MacBlack.png');
 	background-repeat: no-repeat;
@@ -596,7 +608,6 @@
 }
 
 .MacBlack .WindowBarLeft {
-	height: 23px;
 	padding: 0px 0px 0px 9px;
 	background-image: url('background/MacBlack.png');
 	background-repeat: no-repeat;
@@ -604,7 +615,6 @@
 }
 
 .MacBlack .WindowBarRight {
-	height: 23px;
 	padding: 0px 9px 0px 0px;
 	background-image: url('background/MacBlack.png');
 	background-repeat: no-repeat;
@@ -728,6 +738,10 @@
 
 .MacGreenSteel .MiddleDecoratorCenter {
 	background: #ffffff;
+}
+
+.UIPortlet .MacGreenSteel .MiddleDecoratorCenter {
+	height: 100%;
 }
 
 .MacGreenSteel .BottomDecoratorLeft {
@@ -1020,6 +1034,10 @@
 	background: #ffffff;
 }
 
+.UIPortlet .VistaBlue .MiddleDecoratorCenter {
+	height: 100%;
+}
+
 .UIPageDesktop .VistaBlue .ResizeArea {
 	float: right;
 	width: 9px; height: 12px;
@@ -1035,6 +1053,10 @@
 .VistaBlue .MiddleDecoratorRight {
 	padding-right: 18px;
 	background: url('background/MVistaBlue.png') repeat-y right;
+}
+
+.UIPortlet .VistaBlue .MiddleDecoratorRight {
+	padding-right: 16px;
 }
 
 .VistaBlue .BottomDecoratorLeft {
@@ -1166,7 +1188,6 @@
 
 .RoundConerBlue .WindowBarLeft {
 	padding-left: 12px;
-	height: 32px;
 	background-image: url('background/RoundCornerBlue.png');
 	background-repeat: no-repeat;
 	background-position: left -154px;
@@ -1174,7 +1195,6 @@
 
 .RoundConerBlue .WindowBarRight {
 	padding-right: 12px;
-	height: 32px;
 	background-image: url('background/RoundCornerBlue.png');
 	background-repeat: no-repeat;
 	background-position: right -122px;
@@ -1200,6 +1220,9 @@
 	background: #ffffff;
 }
 
+.UIPortlet .RoundConerBlue .MiddleDecoratorCenter {
+	height: 100%;
+}
 
 .RoundConerBlue .BottomDecoratorLeft {
 	padding-left: 13px;
@@ -1324,7 +1347,7 @@
 	background-position: left -90px;
 }
 
-.RoundConerViolet .WindowBarCenter {
+.UIPortlet .RoundConerViolet .WindowBarCenter {
 	height: 31px;
 }
 
@@ -1340,6 +1363,10 @@
 
 .RoundConerViolet .MiddleDecoratorCenter {
 	background: #ffffff;
+}
+
+.UIPortlet .RoundConerViolet .MiddleDecoratorCenter {
+	height:100%;
 }
 
 .RoundConerViolet .BottomDecoratorLeft {
@@ -3082,7 +3109,8 @@
 }
 
 .SimpleGreen .Information {
-	height: 18px; line-height: 18px;
+	line-height: 18px;
+	width: 100px;
 	font-size: 10px;
 	padding-left: 5px;
 	margin-right: 18px;
@@ -3187,8 +3215,8 @@
 }
 
 .SimpleGreen .BottomDecoratorRight {
-	border: 2px solid #eaf4ff;
-	border-top: none;
+	background: #eaf4ff;
+	padding: 0px 2px 2px 2px;
 }
 
 .SimpleGreen .BottomDecoratorCenter {
@@ -3196,6 +3224,7 @@
 	border-top: none;
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 	height: 19px;
+	*margin: 0px 1px;
 }
 
 .UIPortlet .SimpleGreen .BottomDecoratorCenter {
