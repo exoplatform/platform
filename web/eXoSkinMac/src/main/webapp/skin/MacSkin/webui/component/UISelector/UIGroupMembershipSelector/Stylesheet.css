@@ -13,9 +13,11 @@
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .RightBreadcumbsBar {
+	background: #ffffff;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .BreadcumbsInfoBar {
+	background: #ffffff;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs a.Selected {
