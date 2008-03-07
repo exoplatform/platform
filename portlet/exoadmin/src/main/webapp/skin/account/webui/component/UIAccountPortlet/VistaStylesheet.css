@@ -88,6 +88,6 @@
 }
 
 .UIAccountPortlet .AccountInputSet .SearchIcon {
-	background-position: no-repeat;
+	background-repeat: no-repeat;
 	margin-left: 5px;
 }
