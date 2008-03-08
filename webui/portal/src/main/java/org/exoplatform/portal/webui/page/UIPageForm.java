@@ -226,7 +226,7 @@ public class UIPageForm extends UIFormTabPane {
     } 
     UIPageTemplateOptions uiConfigOptions = getChild(UIPageTemplateOptions.class);
     if(uiConfigOptions == null) return;
-    Page selectedPage = uiConfigOptions.getSelectedOption();
+    Page selectedPage = uiConfigOptions.createPageFromSelectedOption(page.getOwnerType(), page.getOwnerId());
     if(selectedPage == null) return ;
     page.setChildren(selectedPage.getChildren());
     page.setFactoryId(selectedPage.getFactoryId());

@@ -52,6 +52,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   private ConfigurationManager cmanager_ ;
   private DataStorage pdcService_;  
   private List<?> configs;
+  private PageTemplateConfig pageTemplateConfig_ ;
   
   private String defaultPortal ;
   
@@ -61,15 +62,15 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     cmanager_ = cmanager ;
     pdcService_ = pdcService;
     
-    String checkPortal = "site";
+    pageTemplateConfig_ = (PageTemplateConfig) params.getObjectParam("page.templates").getObject() ;
+    
+    String checkPortal = "classic";
     ValueParam valueParam = params.getValueParam("default.portal");
     if(valueParam != null) checkPortal = valueParam.getValue();
-    if(checkPortal == null  || checkPortal.trim().length() == 0) checkPortal = "site";    
-    
-    configs = params.getObjectParamValues(NewPortalConfig.class);
-   
+    if(checkPortal == null  || checkPortal.trim().length() == 0) checkPortal = "classic";       
     if(isInitedDB(checkPortal)) return;
     
+    configs = params.getObjectParamValues(NewPortalConfig.class);
     for (Object ele : configs) {
       NewPortalConfig portalConfig  = (NewPortalConfig)ele;
       if(portalConfig.getOwnerType().equals("user")) {
@@ -127,7 +128,6 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       createPage(config, owner);
       createPageNavigation(config, owner);
       createPortletPreferences(config, owner);
-      //createWidgets(config, owner);
     }
   }
   
@@ -206,6 +206,20 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     InputStream is = cmanager_.getInputStream(templateLoc + path);
     String template = IOUtil.getStreamContentAsString(is);
     return StringUtils.replace(template, "@owner@", owner);
+  }
+  
+  public Page createPageFromTemplate(String temp) throws Exception {
+    return fromXML(getTemplateConfig(temp, "page"), Page.class) ;
+  }
+  
+  public PortletPreferencesSet createPortletPreferencesFromTemplate(String temp) throws Exception {
+    return fromXML(getTemplateConfig(temp, "portlet-preferences"), PortletPreferencesSet.class) ;
+  }
+  
+  private String getTemplateConfig(String name, String dataType) throws Exception {
+    String path = pageTemplateConfig_.getLocation() + "/" + name + "/" + dataType + ".xml" ;
+    InputStream is = cmanager_.getInputStream(path) ;
+    return IOUtil.getStreamContentAsString(is) ;
   }
   
   private <T> T fromXML(String xml, Class<T> clazz) throws Exception {

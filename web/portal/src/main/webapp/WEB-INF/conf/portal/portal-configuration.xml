@@ -106,6 +106,16 @@
 	            <field  name="templateLocation"><string>war:/conf/portal</string></field> 
 	          </object>
 	        </object-param>
+	        <object-param>
+	        	<name>page.templates</name>
+	        	<description>List of page templates</description>
+	        	<object type="org.exoplatform.portal.config.PageTemplateConfig">
+	        		<field name="templates">
+	        			<collection type="java.util.ArrayList"></collection>
+	        		</field>
+	        		<field name="location"><string>war:/conf/portal/template/pages</string></field>
+	        	</object>
+	        </object-param>
 	      </init-params>
 	    </component-plugin>
   </component-plugins>  

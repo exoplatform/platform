@@ -121,9 +121,10 @@ public class DataMapper {
   public void map(Document doc, PortletPreferences portletPreferences) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
+    String id = portletPreferences.getWindowId().replace('/', '_').replace(':', '_').replace('#', '_') ;
     root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
-    root.setAttribute(EXO_ID, portletPreferences.getWindowId()) ;
-    root.setAttribute(EXO_NAME, portletPreferences.getWindowId().replace('/', '_').replace(':', '_').replace('#', '_')) ;    
+    root.setAttribute(EXO_ID, id) ;
+    root.setAttribute(EXO_NAME, id) ;    
     root.setAttribute(EXO_OWNER_TYPE, portletPreferences.getOwnerType());
     root.setAttribute(EXO_OWNER_ID, portletPreferences.getOwnerId());
     root.setAttribute(EXO_DATA_TYPE, portletPreferences.getClass().getSimpleName()) ;    

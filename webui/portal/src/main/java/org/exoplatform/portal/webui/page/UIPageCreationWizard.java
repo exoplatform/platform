@@ -179,13 +179,11 @@ public class UIPageCreationWizard extends UIPageWizard {
       }
       
       PageNode pageNode = uiPageSetInfo.getPageNode();
-      String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
-      //TODO: dang.tung - node name is existing
-      //---------------------------------------------------------------------------------------------
-      List<PageNode> nodes = navigation.getNodes();
       PageNode selectedPageNode = uiNodeSelector.getSelectedPageNode() ;
-      if(selectedPageNode == null) {
-    	for(PageNode ele : nodes) {
+      List<PageNode> sibbling = new ArrayList<PageNode>(3) ;
+      if(selectedPageNode != null) sibbling = selectedPageNode.getChildren() ;
+      else sibbling = navigation.getNodes() ;
+    	for(PageNode ele : sibbling) {
     	  if(ele.getUri().equals(pageNode.getUri())){
         	uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
         	context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
@@ -193,19 +191,8 @@ public class UIPageCreationWizard extends UIPageWizard {
         	return;   
     	  }
     	}
-      }
-      else {
-    	List<PageNode> childs = selectedPageNode.getChildren() ;
-    	for(PageNode child : childs) {
-    	  if(child.getUri().equals(pageNode.getUri())) {
-    		uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-          	context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
-          	uiWizard.viewStep(2);
-          	return;     
-    	  }
-    	}
-       }
-      //----------------------------------------------------------------------------------------------
+    	
+    	String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
       DataStorage storage = uiWizard.getApplicationComponent(DataStorage.class);
       if(storage.getPage(pageId) != null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
@@ -234,43 +221,20 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);        
       
-      String ownerType = PortalConfig.USER_TYPE ;
-      String ownerId = context.getRemoteUser() ;
       UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class) ;
       PageNavigation pageNavi = uiNodeSelector.getSelectedNavigation() ;
-      if (pageNavi != null) {
-        ownerType = pageNavi.getOwnerType() ;
-        ownerId = pageNavi.getOwnerId() ;
-      }
+      String ownerType = pageNavi.getOwnerType() ;
+      String ownerId = pageNavi.getOwnerId() ;
       
       PageNode pageNode = uiPageInfo.getPageNode();
-      Page page = uiPageTemplateOptions.getSelectedOption();
-      if(page == null){
-        page  = new Page();
-        page.setCreator(context.getRemoteUser());
-      }
-      if(page.getOwnerType() == null || page.getOwnerType().trim().length() == 0) {
-        page.setOwnerType(ownerType);
-      }
-      if(page.getOwnerId() == null || page.getOwnerId().trim().length() == 0) {
-        page.setOwnerId(ownerId);
-      }
-      if(page.getName() == null || page.getName().trim().length() == 0 || page.getName().equals("UIPage")) {
-        page.setName(pageNode.getName());
-      }
+      Page page = uiPageTemplateOptions.createPageFromSelectedOption(ownerType, ownerId);
+      page.setCreator(context.getRemoteUser());
+      page.setName(pageNode.getName());
       page.setModifiable(true);
       if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getName()) ;
       
       boolean isDesktopPage = Page.DESKTOP_PAGE.equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);
-      
-      String pageId = page.getPageId();
-      DataStorage service = uiWizard.getApplicationComponent(DataStorage.class);
-      Page existPage = service.getPage(pageId);
-      if(existPage != null) {
-        page.setName(page.getName() + String.valueOf(page.hashCode()));
-        page.setPageId(pageId + String.valueOf(page.hashCode()));
-      }
       
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);

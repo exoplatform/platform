@@ -69,8 +69,7 @@ public class UserPortalConfigService {
   protected ExoCache pageNavigationCache_ ;
   protected ExoCache widgetsCache_ ;
   
-  private NewPortalConfigListener newPortalConfigListener_;
-
+  private NewPortalConfigListener newPortalConfigListener_ ;
   /**
    *The constructor should create the DataStorage object and broadcast "the UserPortalConfigService.onInit"
    *event
@@ -396,7 +395,7 @@ public class UserPortalConfigService {
     Map<String, String[]> mergedPreferences ;
     for(Application ele : apps) {
       String appType = ele.getApplicationType() ;
-      if(appType == null || appType.equals(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) {
+      if(appType == null || org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(appType)) {
         mergedPreferences = new HashMap<String, String[]>(getPreferencesMap(ele)) ;
         mergedPreferences.putAll(portletPreferences) ;
         renewInstanceId(ele, accessUser) ;
@@ -433,12 +432,12 @@ public class UserPortalConfigService {
     return preferences.getMap() ;
   }
   
-  private static void renewInstanceId(Application portlet, String ownerId) {
+  private static void renewInstanceId(Application app, String ownerId) {
   
-    ExoWindowID newExoWindowID = new ExoWindowID(portlet.getInstanceId()) ;
+    ExoWindowID newExoWindowID = new ExoWindowID(app.getInstanceId()) ;
     newExoWindowID.setOwner(PortalConfig.USER_TYPE + "#" + ownerId) ;
     newExoWindowID.setUniqueID(String.valueOf(newExoWindowID.hashCode())) ;
-    portlet.setInstanceId(newExoWindowID.generatePersistenceId()) ;
+    app.setInstanceId(newExoWindowID.generatePersistenceId()) ;
   }
   
   private static void setPreferences(Application portlet, Map<String, String[]> portletPreferences) throws Exception {
@@ -461,6 +460,53 @@ public class UserPortalConfigService {
     }
     preferences.setMethodCalledIsAction(PCConstants.ACTION_INT) ;
     preferences.store() ;
+  }
+  
+  public Page createPageTemplate(String temp, String ownerType, String ownerId) throws Exception {
+    Page page = newPortalConfigListener_.createPageFromTemplate(temp);
+    page.setOwnerType(ownerType) ;
+    page.setOwnerId(ownerId) ;
+    List<Application> apps = new ArrayList<Application>(3) ; 
+    getApplications(apps, page) ;
+    if(!apps.isEmpty()) {
+      for(Application ele : apps) {
+        makeInstanceId(ele, ownerType, ownerId) ;
+      }
+      createPortletPreferences(apps, temp) ;      
+    }
+    return page ;
+  }
+  
+  private void makeInstanceId(Application app, String ownerType, String ownerId) {
+    StringBuilder builder = new StringBuilder(20) ;
+    builder.append(ownerType + "#" + ownerId + ":").append(app.getInstanceId()).append("/" + builder.hashCode()) ;
+    app.setInstanceId(builder.toString()) ;
+  }
+  
+  private void createPortletPreferences(List<Application> apps, String temp) throws Exception {
+    List<PortletPreferences> preferencesSet = newPortalConfigListener_.createPortletPreferencesFromTemplate(temp).getPortlets() ;
+    if(preferencesSet == null || preferencesSet.size() < 1) return ;
+    for(Application ele : apps) {
+      String appType = ele.getApplicationType() ;
+      if(appType == null || org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(appType)) {
+        savePortletPreferences(ele, preferencesSet) ;
+      }
+    }
+  }
+  
+  private void savePortletPreferences(Application app, List<PortletPreferences> preferencesSet) throws Exception {
+    ExoWindowID windowID = new ExoWindowID(app.getInstanceId())  ;
+    String tmp = "/" + windowID.getPortletApplicationName() + "/" + windowID.getPortletName() ;
+    for(PortletPreferences preferences : preferencesSet) {
+      if(tmp.equals(preferences.getWindowId())) {
+        String[] fragments = windowID.getOwner().split("#") ;
+        preferences.setOwnerType(fragments[0]) ;
+        preferences.setOwnerId(fragments[1]) ;
+        preferences.setWindowId(windowID.getPersistenceId()) ;
+        storage_.save(preferences) ;
+        break ;
+      }
+    }
   }
     
   @SuppressWarnings("unused")

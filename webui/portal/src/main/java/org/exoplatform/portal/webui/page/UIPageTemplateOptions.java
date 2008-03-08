@@ -16,11 +16,10 @@
  */
 package org.exoplatform.portal.webui.page;
 
-import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
@@ -31,9 +30,6 @@ import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.form.UIFormInputItemSelector;
-import org.jibx.runtime.BindingDirectory;
-import org.jibx.runtime.IBindingFactory;
-import org.jibx.runtime.IUnmarshallingContext;
 /**
  * Created by The eXo Platform SARL
  * Author : Nguyen Viet Chung
@@ -106,18 +102,11 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
     selectedItemOption_ = selectedItemOption;
   }
   
-  public Page getSelectedOption() throws Exception {
-    if(selectedItemOption_ == null) return null; 
-    if( selectedItemOption_.getValue() == null) return null;
-    return toPage(selectedItemOption_.getValue().toString()); 
+  public Page createPageFromSelectedOption(String ownerType, String ownerId) throws Exception {
+    if(selectedItemOption_ == null) return null;
+    Object temp = selectedItemOption_.getValue() ; 
+    if(temp == null) return null;
+    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
+    return configService.createPageTemplate(temp.toString(), ownerType, ownerId) ; 
   }
-  
-  private Page toPage(String xml) throws Exception {
-    ByteArrayInputStream is = new ByteArrayInputStream( xml.getBytes()) ; 
-    IBindingFactory bfact = BindingDirectory.getFactory(Container.class);
-    IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    return (Page) uctx.unmarshalDocument(is, null);
-  }
-
- 
 }
