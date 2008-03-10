@@ -7,7 +7,7 @@
 }
 
  .UIGrid th {
-  height: 19px;
+  line-height: 19px;
   border: 1px solid #afaeae;
   background: white url('background/ThGridRepeatBg1x19.gif') repeat-x;
   font-weight: normal;
