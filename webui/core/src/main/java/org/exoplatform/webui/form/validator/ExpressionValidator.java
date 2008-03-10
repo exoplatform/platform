@@ -26,7 +26,7 @@ import org.exoplatform.webui.form.UIFormInput;
  *          lebienthuy@gmail.com
  * Oct 10, 2007
  * 
- * Validates whether this value matches one regula expression.
+ * Validates whether this value matches one regular expression.
  */
 public class ExpressionValidator implements Validator {
   private String expression_;
@@ -43,6 +43,7 @@ public class ExpressionValidator implements Validator {
   }
   
   public void validate(UIFormInput uiInput) throws Exception {
+	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
     if((uiInput.getValue() != null) ){
       String value = ((String)uiInput.getValue()).trim();
       if(value.matches(expression_)) return ;

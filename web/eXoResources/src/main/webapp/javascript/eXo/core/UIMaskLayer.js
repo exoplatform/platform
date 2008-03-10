@@ -36,6 +36,14 @@ UIMaskLayer.prototype.removeTransparentMask = function() {
 	}
 };
 /**
+ * Removes both transparent and loading masks
+ */
+UIMaskLayer.prototype.removeMasks = function(maskLayer) {
+	eXo.core.UIMaskLayer.removeTransparentMask();
+	eXo.core.UIMaskLayer.removeMask(maskLayer) ;
+};
+
+/**
  * Creates and returns the dom element that contains the mask layer, with these parameters
  *  . the mask layer is a child of blockContainerId
  *  . object
@@ -72,7 +80,7 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		
 		maskLayer.className = "MaskLayer" ;
 		maskLayer.id = "MaskLayer" ;
-		maskLayer.maxZIndex = 2 ;
+		maskLayer.maxZIndex = 3 ;
 		maskLayer.style.width = "100%" ;
 		maskLayer.style.height = "100%" ;
 		maskLayer.style.top = "0px" ;
@@ -129,7 +137,7 @@ UIMaskLayer.prototype.createMaskForFrame = function(blockContainerId, object, op
 		
 		maskLayer.className = "MaskLayer" ;
 		maskLayer.id = object.id + "MaskLayer" ;
-		maskLayer.maxZIndex = 2 ;
+		maskLayer.maxZIndex = 3 ;
 		maskLayer.style.width = "100%" ;
 		maskLayer.style.height = "100%" ;
 		maskLayer.style.top = "0px" ;

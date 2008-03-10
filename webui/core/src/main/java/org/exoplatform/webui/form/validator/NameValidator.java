@@ -31,11 +31,8 @@ import org.exoplatform.webui.form.UIFormInput;
 public class NameValidator implements Validator {
     
   public void validate(UIFormInput uiInput) throws Exception {
+	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
     String s = (String)uiInput.getValue();
-    if(s == null || s.length() == 0) {
-      Object[] args = { uiInput.getName(), uiInput.getBindingField() };
-      throw new MessageException(new ApplicationMessage("NameValidator.msg.empty-input", args)) ;
-    }
     for(int i = 0; i < s.length(); i ++){
       char c = s.charAt(i);
       if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-' || c=='.' || c=='*' ){

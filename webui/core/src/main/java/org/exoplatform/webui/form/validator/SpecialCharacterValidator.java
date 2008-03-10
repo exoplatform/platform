@@ -29,6 +29,7 @@ import org.exoplatform.webui.form.UIFormInput;
 public class SpecialCharacterValidator implements Validator {
   
   public void validate(UIFormInput uiInput) throws Exception {
+	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
     String s = (String)uiInput.getValue();
     for(int i = 0; i < s.length(); i ++){
       char c = s.charAt(i);

@@ -38,8 +38,9 @@ public class DateTimeValidator implements Validator {
     "^(\\d{1,2}\\/\\d{1,2}\\/\\d{1,4})\\s*(\\s+\\d{1,2}:\\d{1,2}:\\d{1,2})?$" ;
   
   public void validate(UIFormInput uiInput) throws Exception {
+	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
     String s = (String)uiInput.getValue() ;
-    if(s == null || s.trim().length() < 1 || (s.matches(DATETIME_REGEX) && isValidDateTime(s))) return ;
+    if(s.matches(DATETIME_REGEX) && isValidDateTime(s)) return ;
     Object[]  args = { uiInput.getName(), s } ;
     throw new MessageException(new ApplicationMessage("DateTimeValidator.msg.Invalid-input", args)) ;
   }

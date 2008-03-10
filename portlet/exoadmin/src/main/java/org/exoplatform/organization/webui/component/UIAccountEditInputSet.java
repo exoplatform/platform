@@ -26,7 +26,7 @@ import org.exoplatform.webui.form.UIFormInputBase;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
 
@@ -46,14 +46,14 @@ public class UIAccountEditInputSet extends UIFormInputSet {
     super(name);
     addUIFormInput(new UIFormStringInput(USERNAME, "userName", null).
                    setEditable(false).
-                   addValidator(EmptyFieldValidator.class).
+                   addValidator(MandatoryValidator.class).
                    addValidator(IdentifierValidator.class));    
     addUIFormInput(new UIFormStringInput("firstName", "firstName", null).
-                   addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
+                   addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("lastName", "lastName", null).
-                   addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
+                   addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("email", "email", null). 
-                   addValidator(EmptyFieldValidator.class).
+                   addValidator(MandatoryValidator.class).
                    addValidator(EmailAddressValidator.class));    
     UIFormCheckBoxInput<Boolean> uiCheckbox = new UIFormCheckBoxInput<Boolean>(CHANGEPASS,null,false) ;
                    uiCheckbox.setOnChange("ToggleChangePassword", "UIUserInfo") ;
@@ -65,7 +65,7 @@ public class UIAccountEditInputSet extends UIFormInputSet {
     addUIFormInput(uiInput) ;
     uiInput = new UIFormStringInput(PASSWORD2X, null, null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
-                   addValidator(EmptyFieldValidator.class) ;
+                   addValidator(MandatoryValidator.class) ;
                    uiInput.setRendered(false) ;
     addUIFormInput(uiInput) ;
   }

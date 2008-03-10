@@ -32,7 +32,7 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.NameValidator;
 
 /**
@@ -63,7 +63,7 @@ public class UIContainerForm extends UIForm {
   public UIContainerForm() throws Exception {//InitParams initParams
 //    super("UIContainerForm");
     this.addUIFormInput(new UIFormStringInput("id", "id", null).
-                                addValidator(EmptyFieldValidator.class).
+                                addValidator(MandatoryValidator.class).
                                 addValidator(NameValidator.class)).                     
                  addUIFormInput(new UIFormStringInput("title", "title", null)).
                  addUIFormInput(new UIFormStringInput("width", "width", null)).

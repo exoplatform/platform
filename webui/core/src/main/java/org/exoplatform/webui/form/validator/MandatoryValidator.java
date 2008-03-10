@@ -27,13 +27,16 @@ import org.exoplatform.webui.form.UIFormInput;
  * Jun 7, 2006
  * 
  * Validates whether a field is empty
+ * This class acts like a flag "mandatory". When you want to specify that a UIFormInput field
+ * is mandatory in your form, add it this validator. A '*' character will be automatically added
+ * during the rendering phase to specify the user
  */
-public class EmptyFieldValidator implements Validator {
+public class MandatoryValidator implements Validator {
   
   public void validate(UIFormInput uiInput) throws Exception {
     if((uiInput.getValue() != null) && ((String)uiInput.getValue()).trim().length() > 0) {
       return ;
-    }    
+    }
     String label = uiInput.getLabel();
     if(label == null) label = uiInput.getName();
     label = label.trim();

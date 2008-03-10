@@ -98,14 +98,14 @@ public class UIPermissionSelector extends UISelector<String> {
     }
   }
   //TODO: Tung.Pham added
-  static public class EmptyFieldValidator implements Validator {
+  static public class MandatoryValidator implements Validator {
 
     public void validate(UIFormInput uiInput) throws Exception {
       UIFormInputContainer uiInputContainer = (UIFormInputContainer) uiInput ;
       String value = (String)uiInputContainer.getValue() ; 
       if(value == null || value.trim().length() < 1) {
         String[] args =  {uiInputContainer.getBindingField()} ;
-        throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty", args, ApplicationMessage.INFO)) ;
+        throw new MessageException(new ApplicationMessage("MandatoryValidator.msg.empty", args, ApplicationMessage.INFO)) ;
       }
     }
     

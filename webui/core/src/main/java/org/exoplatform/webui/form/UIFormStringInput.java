@@ -90,6 +90,7 @@ public class UIFormStringInput extends UIFormInputBase<String> {
     if(maxLength > 0) w.write(" maxlength='" + maxLength + "'") ;
   	if (readonly_) w.write(" readonly ") ;
   	w.write("/>") ;
+  	if (this.isMandatory()) w.write(" *");
   }
   
   private StringBuilder encodeValue(String value){
@@ -115,5 +116,4 @@ public class UIFormStringInput extends UIFormInputBase<String> {
     }
     return -1;
   }
-  
 }

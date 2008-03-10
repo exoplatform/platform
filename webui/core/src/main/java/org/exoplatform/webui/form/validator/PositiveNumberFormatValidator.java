@@ -32,8 +32,8 @@ import org.exoplatform.webui.form.UIFormInput;
 public class PositiveNumberFormatValidator implements Validator {
     
   public void validate(UIFormInput uiInput) throws Exception {
-    String s = (String)uiInput.getValue();    
-    if(s == null || s.trim().length() < 1) return ;
+	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
+    String s = (String)uiInput.getValue();
     boolean error = false;
     for(int i = 0; i < s.length(); i ++){
       char c = s.charAt(i);

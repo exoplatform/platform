@@ -426,7 +426,8 @@ function HttpResponseHandler(){
 	* This method is called when the AJAX call was too long to be executed
 	*/
 	instance.ajaxTimeout = function(request){
-	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
+//	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
+	  eXo.core.UIMaskLayer.removeMasks(eXo.portal.AjaxRequest.maskLayer) ;
 	  eXo.portal.AjaxRequest.maskLayer = null ;
 	  eXo.portal.CurrentRequest = null ;
 	  window.location.reload() ;
@@ -496,8 +497,9 @@ function HttpResponseHandler(){
        * Removes the transparent mask so the UI is available again, with cursor "auto"
        */
 	  clearTimeout(instance.to);
-	  eXo.core.UIMaskLayer.removeTransparentMask();
-	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
+//	  eXo.core.UIMaskLayer.removeTransparentMask();
+//	  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
+	  eXo.core.UIMaskLayer.removeMasks(eXo.portal.AjaxRequest.maskLayer) ;
 
 	  eXo.portal.AjaxRequest.maskLayer = null ;
 	  eXo.portal.CurrentRequest = null ;

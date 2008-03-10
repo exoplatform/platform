@@ -24,7 +24,7 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.form.UIFormInputWithActions;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
 
@@ -44,20 +44,20 @@ public class UIAccountInputSet extends UIFormInputWithActions {
     super(name);
     //setComponentConfig(getClass(), null) ;
     addUIFormInput(new UIFormStringInput(USERNAME, "userName", null).
-                   addValidator(EmptyFieldValidator.class).
+                   addValidator(MandatoryValidator.class).
                    addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormStringInput(PASSWORD1X, "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
+                   addValidator(MandatoryValidator.class).
                    addValidator(StringLengthValidator.class, 6, 30)) ;
     addUIFormInput(new UIFormStringInput(PASSWORD2X, "password", null).
-                   setType(UIFormStringInput.PASSWORD_TYPE).
-                   addValidator(EmptyFieldValidator.class)) ;
+                   setType(UIFormStringInput.PASSWORD_TYPE));
     addUIFormInput(new UIFormStringInput("firstName", "firstName", null).
-                   addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
+                   addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("lastName", "lastName", null).
-                   addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
+                   addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("email", "email", null). 
-                   addValidator(EmptyFieldValidator.class).
+                   addValidator(MandatoryValidator.class).
                    addValidator(EmailAddressValidator.class));    
   }
   

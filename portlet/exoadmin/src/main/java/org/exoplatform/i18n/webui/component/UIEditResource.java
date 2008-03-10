@@ -42,7 +42,7 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 
@@ -67,7 +67,7 @@ public class UIEditResource extends UIForm {
   private boolean editAble = true;
   
   public UIEditResource() throws Exception {
-    addUIFormInput(new UIFormStringInput("name",null,null).addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("name",null,null).addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
     
     LocaleConfigService service = getApplicationComponent(LocaleConfigService.class) ;
     Iterator i = service.getLocalConfigs().iterator() ;
@@ -78,8 +78,8 @@ public class UIEditResource extends UIForm {
       options.add(new SelectItemOption<String>(config.getLocaleName(), config.getLanguage()))  ;
     }
     
-    addUIFormInput(new UIFormSelectBox("language","language",options).addValidator(EmptyFieldValidator.class)) ;
-    addUIFormInput(new UIFormTextAreaInput("resource", null,null).addValidator(EmptyFieldValidator.class)) ;
+    addUIFormInput(new UIFormSelectBox("language","language",options).addValidator(MandatoryValidator.class)) ;
+    addUIFormInput(new UIFormTextAreaInput("resource", null,null).addValidator(MandatoryValidator.class)) ;
   } 
 
   static public class SaveActionListener  extends EventListener<UIEditResource> {

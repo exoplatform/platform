@@ -41,7 +41,7 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UISearchForm;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -65,7 +65,7 @@ public class UIGroupMembershipForm extends UIForm {
   @SuppressWarnings("unchecked")
   public UIGroupMembershipForm() throws Exception {
     addUIFormInput(new UIFormStringInput("username", "username", null).
-                   addValidator(EmptyFieldValidator.class));
+                   addValidator(MandatoryValidator.class));
     addUIFormInput(new UIFormSelectBox("membership","membership", listOption).setSize(1));
     UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, null, "SearchUser");
     searchUserPopup.setWindowSize(640, 0); 

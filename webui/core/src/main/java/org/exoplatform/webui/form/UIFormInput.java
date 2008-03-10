@@ -44,7 +44,7 @@ public interface UIFormInput<E> {
   public UIFormInput setValue(E value) throws Exception;
   
   public Class<E> getTypeValue() ;
-  
+
   public void reset();
   
 }

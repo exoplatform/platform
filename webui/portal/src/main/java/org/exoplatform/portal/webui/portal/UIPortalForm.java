@@ -58,7 +58,7 @@ import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.organization.UIListPermissionSelector;
 import org.exoplatform.webui.organization.UIPermissionSelector;
@@ -160,11 +160,11 @@ public class UIPortalForm extends UIFormTabPane {
     
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortalSetting") ;
     uiSettingSet.addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).
-                                addValidator(EmptyFieldValidator.class).
+                                addValidator(MandatoryValidator.class).
                                 addValidator(IdentifierValidator.class).
                                 setEditable(false)).
                  addUIFormInput(new UIFormSelectBox(FIELD_LOCALE, FIELD_LOCALE, languages).
-                                addValidator(EmptyFieldValidator.class));
+                                addValidator(MandatoryValidator.class));
 
     List<SelectItemOption<String>> listSkin = new ArrayList<SelectItemOption<String>>() ;
     SkinService skinService = getApplicationComponent(SkinService.class);
@@ -191,7 +191,7 @@ public class UIPortalForm extends UIFormTabPane {
 
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
     uiEditPermission.setRendered(false) ;
-    uiEditPermission.addValidator(org.exoplatform.webui.organization.UIPermissionSelector.EmptyFieldValidator.class);
+    uiEditPermission.addValidator(org.exoplatform.webui.organization.UIPermissionSelector.MandatoryValidator.class);
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
     uiPermissionSetting.addChild(uiEditPermission);
   }

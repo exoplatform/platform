@@ -100,6 +100,7 @@ public class UIFormCheckBoxInput<T> extends UIFormInputBase<T>  {
     if(checked) w.write(" checked ") ;
     if (!enable_)  w.write(" disabled ");    
     w.write(" class='checkbox'/>") ;
+    if (this.isMandatory()) w.write(" *");
   }
  
 }

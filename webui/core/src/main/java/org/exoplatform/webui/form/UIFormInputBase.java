@@ -24,6 +24,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.Validator;
 /**
  * Created by The eXo Platform SARL
@@ -134,6 +135,14 @@ abstract public class UIFormInputBase<T> extends UIContainer implements UIFormIn
     String action =  uiForm.getSubmitAction(); //context.getRequestParameter(UIForm.ACTION) ;
     Event<UIComponent> event = createEvent(action, Event.Phase.DECODE, context) ;
     if(event != null) event.broadcast() ;   
+  }
+
+  public boolean isMandatory() {
+	  List<Validator> validators = this.getValidators() ;
+	  if(validators == null) return false;
+      for(Validator validator : validators)
+    	  if(validator instanceof MandatoryValidator) return true;
+      return false;
   }
   
   abstract public  void decode(Object input,  WebuiRequestContext context) throws Exception ;

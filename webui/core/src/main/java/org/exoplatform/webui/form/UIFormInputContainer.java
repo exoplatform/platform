@@ -87,4 +87,7 @@ abstract public class UIFormInputContainer<T> extends UIContainer implements UIF
 
   public void setLabel(String label) { this.label = label; }
   
+  public boolean isEmpty() {
+	  return (value_ == null);
+  }
 }

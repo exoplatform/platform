@@ -30,7 +30,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.NameValidator;
 
 /**
@@ -55,7 +55,7 @@ public class UIInfoPortletForm extends UIForm {
   
   public UIInfoPortletForm() throws Exception {
     addUIFormInput(new UIFormStringInput("applicationName", "applicationName", null).
-                   addValidator(EmptyFieldValidator.class).addValidator(NameValidator.class)) ;
+                   addValidator(MandatoryValidator.class).addValidator(NameValidator.class)) ;
     
     addUIFormInput(new UIFormStringInput("displayName", "displayName", null));
     addUIFormInput(new UIFormTextAreaInput("description", "description", null));

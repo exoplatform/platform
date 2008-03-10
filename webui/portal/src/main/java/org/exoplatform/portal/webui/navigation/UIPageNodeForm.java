@@ -43,7 +43,7 @@ import org.exoplatform.webui.form.UIFormInputIconSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 /**
  * Author : Dang Van Minh, Pham Tuan
@@ -69,7 +69,7 @@ public class UIPageNodeForm extends UIFormTabPane {
     UIFormInputSet uiSettingSet = new UIFormInputSet("PageNodeSetting") ;
     uiSettingSet.addUIFormInput(new UIFormStringInput("uri", "uri", null).setEditable(false)).                            
     addUIFormInput(new UIFormStringInput("name","name", null).
-                   addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)).
+                   addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)).
     addUIFormInput(new UIFormStringInput("label", "label", null));
     
     addUIFormInput(uiSettingSet);

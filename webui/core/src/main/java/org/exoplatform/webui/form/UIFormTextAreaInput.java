@@ -50,6 +50,7 @@ public class UIFormTextAreaInput extends UIFormStringInput {
     w.write(">");
     if(value != null) w.write(value) ;  
     w.write("</textarea>");
+    if (this.isMandatory()) w.write(" *");
   }
 
   public int getColumns() { return columns; }

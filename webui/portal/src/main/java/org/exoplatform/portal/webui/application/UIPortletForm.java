@@ -59,7 +59,7 @@ import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
@@ -88,7 +88,7 @@ public class UIPortletForm extends UIFormTabPane {
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortletSetting") ;
   	uiSettingSet.
       addUIFormInput(new UIFormStringInput("id", "id", null).
-                     addValidator(EmptyFieldValidator.class).setEditable(false)).
+                     addValidator(MandatoryValidator.class).setEditable(false)).
       addUIFormInput(new UIFormStringInput("windowId", "windowId", null).setEditable(false)).
     	addUIFormInput(new UIFormStringInput("title", "title", null)).
   		addUIFormInput(new UIFormStringInput("width", "width", null)).

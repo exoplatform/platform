@@ -31,8 +31,8 @@ import org.exoplatform.webui.form.UIFormInput;
 public class NumberFormatValidator implements Validator {
     
   public void validate(UIFormInput uiInput) throws Exception {
-    String s = (String)uiInput.getValue();    
-    if(s == null || s.trim().length() < 1) return ;
+	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
+    String s = (String)uiInput.getValue();
     for(int i = 0; i < s.length(); i ++){
       char c = s.charAt(i);
       if (Character.isDigit(c) || (s.charAt(0) == '-' && i == 0 && s.length() > 1)){

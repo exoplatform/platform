@@ -195,6 +195,7 @@ public class UIFormSelectBox extends UIFormStringInput {
     }
     
     w.write("</select>\n") ;
+    if (this.isMandatory()) w.write(" *");
   }
 
 }

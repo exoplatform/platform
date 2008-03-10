@@ -31,7 +31,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
-import org.exoplatform.webui.form.validator.EmptyFieldValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 /**
  * Created by The eXo Platform SARL
@@ -60,14 +60,14 @@ public class UIAccountProfiles extends UIForm {
     UIFormStringInput userName  = new UIFormStringInput("userName","userName", username) ;
     userName.setEditable(false) ;
     addUIFormInput(userName.
-        addValidator(EmptyFieldValidator.class).
+        addValidator(MandatoryValidator.class).
         addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("firstName", "firstName", useraccount.getFirstName()).
-            addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
+            addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("lastName", "lastName", useraccount.getLastName()).
-            addValidator(EmptyFieldValidator.class).addValidator(IdentifierValidator.class)) ;
+            addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
     addUIFormInput(new UIFormStringInput("email", "email", useraccount.getEmail()). 
-            addValidator(EmptyFieldValidator.class).
+            addValidator(MandatoryValidator.class).
             addValidator(EmailAddressValidator.class)) ;
   }
   
