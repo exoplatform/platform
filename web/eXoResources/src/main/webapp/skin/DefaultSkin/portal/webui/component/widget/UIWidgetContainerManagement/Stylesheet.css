@@ -103,6 +103,11 @@
 	background: #ffffff;
 	height: 267px;
 	padding: 0px 10px 0px 0px;
+	overflow: auto;
+}
+
+.ContainerManagementDetail .WidgetContainerDetail .ContainerDetail {
+	width: 312px;
 	overflow: hidden;
 }
 
