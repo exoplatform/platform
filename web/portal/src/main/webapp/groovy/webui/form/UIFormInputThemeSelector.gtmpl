@@ -32,18 +32,20 @@
 					  <div class="WindowBarLeft">
 					    <div class="WindowBarRight">
 					      <div class="WindowBarCenter">
-					        <div class="WindowPortletControl">
-					          <div class="ControlIcon MinimizedIcon"><span></span></div>
-					          <div class="ControlIcon RestoreIcon"><span></span></div>
-					          <div class="ControlIcon MaximizedIcon"><span></span></div>
-					          <div style="clear: left"><span></span></div>
-					        </div>
-					        <div class="WindowPortletInfo">
-					          <div class="PortletIcon Icon"><span></span></div>
-					          <div class="PortletName">Title</div>
-					          <div style="clear: left"><span></span></div>
-					        </div>
-					        <div style="clear: right"><span></span></div>
+					      	<div class="FixBug">
+						        <div class="WindowPortletControl">
+						          <div class="ControlIcon MinimizedIcon"><span></span></div>
+						          <div class="ControlIcon RestoreIcon"><span></span></div>
+						          <div class="ControlIcon MaximizedIcon"><span></span></div>
+						          <div style="clear: left"><span></span></div>
+						        </div>
+						        <div class="WindowPortletInfo">
+						          <div class="PortletIcon Icon"><span></span></div>
+						          <div class="PortletName">Title</div>
+						          <div style="clear: left"><span></span></div>
+						        </div>
+						        <div style="clear: right"><span></span></div>
+									</div>
 					      </div>
 					    </div>
 					  </div>
@@ -59,9 +61,11 @@
 					  <div class="BottomDecoratorLeft">
 					    <div class="BottomDecoratorRight">
 					      <div class="BottomDecoratorCenter">
-									<div class="ResizeArea" title="Resize Window"><span></span></div>
-					        <div class="Information">Done</div>
-					        <div style="clear: right"><span></span></div>
+					      	<div class="FixBug">
+										<div class="ResizeArea" title="Resize Window"><span></span></div>
+						        <div class="Information">Done</div>
+						        <div style="clear: right"><span></span></div>
+									</div>
 								</div>
 					    </div>
 					  </div>
