@@ -16,6 +16,7 @@
  ************************************************************************/
 package org.exoplatform.portletregistry.webui.component;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import org.exoplatform.application.registry.ApplicationCategory;
@@ -30,10 +31,14 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.organization.UIListPermissionSelector;
+import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIteratorValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -43,55 +48,89 @@ import org.exoplatform.webui.form.validator.IdentifierValidator;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template =  "system:/groovy/webui/form/UIForm.gtmpl",
+    template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl",
     events = {
       @EventConfig(listeners = UICategoryForm.SaveActionListener.class),
       @EventConfig(phase = Phase.DECODE, listeners = UICategoryForm.CloseActionListener.class)
     }
 )
-public class UICategoryForm extends UIForm { 
+public class UICategoryForm extends UIFormTabPane { 
 
   final static private String FIELD_NAME = "name" ;
   final static private String FIELD_DISPLAY_NAME = "displayName" ;
   final static private String FIELD_DESCRIPTION = "description" ;
+  final static private String FIELD_SETTING= "categorySetting" ;
+  final static private String FIELD_PERMISSION="categoryPermission" ;
 
   private ApplicationCategory category_ = null ;
 
   public UICategoryForm() throws Exception {
-    addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).
+    super("UICategoryForm") ;
+    UIFormInputSet uiCategorySetting = new UIFormInputSet(FIELD_SETTING) ;
+    uiCategorySetting.addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).
                    addValidator(MandatoryValidator.class).
                    addValidator(IdentifierValidator.class));
-    addUIFormInput(new UIFormStringInput(FIELD_DISPLAY_NAME, FIELD_DISPLAY_NAME, null));
-    addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null)); 
+    uiCategorySetting.addUIFormInput(new UIFormStringInput(FIELD_DISPLAY_NAME, FIELD_DISPLAY_NAME, null));
+    uiCategorySetting.addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null));
+    addChild(uiCategorySetting) ;
+    setSelectedTab(uiCategorySetting.getId()) ;
+    
+    UIFormInputSet uiPermissionSetting = new UIFormInputSet(FIELD_PERMISSION) ;
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
+    uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
+    uiPermissionSetting.addChild(uiListPermissionSelector);
+    addUIComponentInput(uiPermissionSetting) ;
   } 
 
   public void setValue(ApplicationCategory category) throws Exception {
-    reset();
+    UIFormInputSet uiSetting = getChildById(FIELD_SETTING) ;
+    UIFormInputSet uiPermission = getChildById(FIELD_PERMISSION) ;
+    uiSetting.reset() ;
+    uiPermission.getChild(UIListPermissionSelector.class).setValue(new String[] {}) ;
+    setSelectedTab(uiSetting.getId()) ;
     if(category == null) {
       category_ = null;
-      getUIStringInput(FIELD_NAME).setEditable(UIFormStringInput.ENABLE) ;
+      uiSetting.getUIStringInput(FIELD_NAME).setEditable(true) ;
       return ;
     }
-    getUIStringInput(FIELD_NAME).setEditable(false);    
     category_ = category ;
-    invokeGetBindingBean(category);
+    uiSetting.getUIStringInput(FIELD_NAME).setEditable(false).setValue(category_.getName()) ;
+    uiSetting.getUIStringInput(FIELD_DISPLAY_NAME).setValue(category_.getDisplayName()) ;
+    uiSetting.getUIStringInput(FIELD_DESCRIPTION).setValue(category_.getDescription()) ;
+    ArrayList<String> accessPermissions = category_.getAccessPermissions() ;
+    String[] per = new String[accessPermissions.size()];
+    if (accessPermissions != null && accessPermissions.size() > 0) {
+      uiPermission.getChild(UIListPermissionSelector.class).setValue(accessPermissions.toArray(per)) ;
+    }
   }
 
   public ApplicationCategory getCategory() { return category_ ; }
 
   static public class SaveActionListener extends EventListener<UICategoryForm> {
     public void execute(Event<UICategoryForm> event) throws Exception{
-      //TODO: Tung.Pham replaced
+      //TODO: dang.tung replaced, we don't use binding method for setup value
       UICategoryForm uiForm = event.getSource() ;
+      UIFormInputSet uiSetting = uiForm.getChildById(FIELD_SETTING) ;
+      UIFormInputSet uiPermission = uiForm.getChildById(FIELD_PERMISSION) ;
       UIPopupWindow uiParent = uiForm.getParent();
       ApplicationRegistryControlArea uiRegistryCategory = uiForm.getAncestorOfType(ApplicationRegistryControlArea.class);
       ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
 
       ApplicationCategory category = uiForm.getCategory() ;
       if(category == null) category = new ApplicationCategory();
-      uiForm.invokeSetBindingBean(category) ;
-      String displayName = uiForm.getUIStringInput(FIELD_DISPLAY_NAME).getValue();
+      category.setName(uiSetting.getUIStringInput(FIELD_NAME).getValue()) ;
+      String displayName = uiSetting.getUIStringInput(FIELD_DISPLAY_NAME).getValue();
       if(displayName == null || displayName.length() < 1 ) category.setDisplayName(category.getName());
+      else category.setDisplayName(displayName) ;
+      category.setDescription(uiSetting.getUIStringInput(FIELD_DESCRIPTION).getValue()) ;
+      
+      UIListPermissionSelector uiListPermissionSelector = uiPermission.getChild(UIListPermissionSelector.class) ;
+      ArrayList<String> pers = new ArrayList<String>();
+      if(uiListPermissionSelector.getValue()!= null)
+      for(String per: uiListPermissionSelector.getValue()) pers.add(per);
+      category.setAccessPermissions(pers) ;
+      
       if(category == uiForm.getCategory()) {
         category.setModifiedDate(new Date()) ;
       }else {
@@ -110,26 +149,6 @@ public class UICategoryForm extends UIForm {
       uiRegistryCategory.initApplicationCategories();
       uiRegistryCategory.setSelectedCategory(category);
       uiParent.setShow(false);
-      //---------------------------------------------------------------------
-//      UICategoryForm uiForm = event.getSource() ;
-//      UIPopupWindow uiParent = uiForm.getParent();
-//      uiParent.setShow(false);
-//      ApplicationCategory category = uiForm.getCategory() ;
-//
-//      ApplicationRegistryControlArea uiRegistryCategory = uiForm.getAncestorOfType(ApplicationRegistryControlArea.class);
-//      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
-//
-//      if(category == null) {
-//        String name = uiForm.getUIStringInput(FIELD_NAME).getValue();
-//        category = uiRegistryCategory.getCategory(name);
-//      }
-//
-//      if(category == null) category = new ApplicationCategory();
-//
-//      uiForm.invokeSetBindingBean(category) ;
-//      service.save(category) ; 
-//      uiRegistryCategory.initApplicationCategories();
-//      uiRegistryCategory.setSelectedCategory(category);
     }
   }
 

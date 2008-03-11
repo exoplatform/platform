@@ -22,6 +22,7 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -70,8 +71,8 @@ public class ApplicationRegistryControlArea extends UIContainer {
   @SuppressWarnings("unchecked")
   public void initApplicationCategories() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
-    portletCategories = service.getApplicationCategories(); 
-    
+    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
+    portletCategories = service.getApplicationCategories(accessUser, new String[] {});
     if(portletCategories == null) portletCategories = new ArrayList<ApplicationCategory>(0);
     if(portletCategories.size() > 0) {
       setSelectedCategory(portletCategories.get(0));
@@ -166,7 +167,8 @@ public class ApplicationRegistryControlArea extends UIContainer {
       uiPopupWindow.setId("EditCategory");
       UICategoryForm uiCategoryForm = (UICategoryForm) uiPopupWindow.getUIComponent();
       uiCategoryForm.setValue(uiRegistryCategory.getSelectedPortletCategory());
-      uiPopupWindow.setShow(true);
+      uiPopupWindow.setShow(true)
+      ;
     }
   }
 

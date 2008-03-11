@@ -17,6 +17,7 @@
 package org.exoplatform.portal.webui.application;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
@@ -219,6 +220,13 @@ public class UIAddNewApplication extends UIContainer {
     
     if (appCategories == null) {
       appCategories = new ArrayList();
+    } else {
+      Iterator<ApplicationCategory> cateItr = appCategories.iterator() ;
+      while(cateItr.hasNext()) {
+        ApplicationCategory cate = cateItr.next() ;
+        List<Application> applications = cate.getApplications() ;
+        if(applications.size()<1) cateItr.remove() ;
+      }
     }
     listAppCategories = appCategories;
 

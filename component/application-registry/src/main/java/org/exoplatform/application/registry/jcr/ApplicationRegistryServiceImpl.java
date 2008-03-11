@@ -67,14 +67,18 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     UserACL acl = (UserACL) container.getComponentInstanceOfType(UserACL.class) ;
     while(cateItr.hasNext()) {
       ApplicationCategory cate = cateItr.next() ;
+      //TODO: dang.tung: filer category application
+      if(!hasAccessPermission(orgService, acl, accessUser, cate)){
+        cateItr.remove() ;
+        continue ;
+      }
       List<Application> applications = getApplications(cate, appTypes) ;
       Iterator<Application> appIterator = applications.iterator() ;
       while(appIterator.hasNext()) {
         Application app = appIterator.next() ;
         if(!hasAccessPermission(orgService, acl, accessUser, app)) appIterator.remove() ;
       }
-      if(applications.size() > 0) cate.setApplications(applications) ;
-      else cateItr.remove() ;
+      cate.setApplications(applications) ;
     }
     return categories ;
   }
@@ -375,7 +379,18 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     }
     return false;
   }
-
+  //TODO: dang.tung: check ApplicationCategory permission
+  //-----------------------------------------------------
+  private boolean hasAccessPermission(OrganizationService orgService, UserACL acl, String remoteUser, ApplicationCategory app) throws Exception {
+    if(acl.getSuperUser().equals(remoteUser)) return true ;
+    List<String> permissions = app.getAccessPermissions() ; 
+    if(permissions == null) return false ;
+    for(String ele : permissions) {
+      if(hasViewPermission(orgService, acl, remoteUser, ele)) return true;
+    }
+    return false;
+  }
+  //-----------------------------------------------------
   private boolean hasViewPermission(OrganizationService orgService, UserACL acl, String remoteUser, String expPerm) throws Exception {
     if(UserACL.EVERYONE.equals(expPerm)) return true ;
     String[] temp = expPerm.split(":") ;

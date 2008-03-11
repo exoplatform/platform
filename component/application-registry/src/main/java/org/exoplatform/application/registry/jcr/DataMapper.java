@@ -34,6 +34,7 @@ public class DataMapper {
   static final String DISPLAY_NAME = "exo:displayName" ;
   static final String CREATED_DATE = "exo:createdDate" ;
   static final String MODIFIED_DATE = "exo:modifiedDate" ;
+  static final String CATEGORY_ACCESS_PERMISSTION = "exo:categoryAccessPermissions" ;
   
   static final String APPLICATION_NAME = "exo:applicationName" ;
   static final String APPLICATION_TYPE = "exo:applicationType" ;
@@ -43,6 +44,7 @@ public class DataMapper {
   static final String APPLICATION_ACCESS_PERMISSTION = "exo:accessPermissions" ;
   
   static final private String DATE_TIME_FORMAT = "EEE MMM d HH:mm:ss Z yyyy" ;
+  
   
   
   public void map(Document doc, ApplicationCategory category) throws Exception {
@@ -59,6 +61,7 @@ public class DataMapper {
     dateTime = category.getModifiedDate() ;
     if(dateTime == null) dateTime = new Date() ;
     root.setAttribute(MODIFIED_DATE, toDateString(dateTime)) ;
+    root.setAttribute(CATEGORY_ACCESS_PERMISSTION, toMultiValue(category.getAccessPermissions())) ;
   }
   
   public ApplicationCategory toApplicationCategory(Document doc) throws Exception {
@@ -69,6 +72,7 @@ public class DataMapper {
     category.setDescription(root.getAttribute(DESCRIPTION)) ;
     category.setCreatedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(CREATED_DATE))) ;
     category.setCreatedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(MODIFIED_DATE))) ;
+    category.setAccessPermissions(fromMultiValue(root.getAttribute(CATEGORY_ACCESS_PERMISSTION))) ;
     return category ;
   }
   

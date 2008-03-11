@@ -17,6 +17,7 @@
 
 package org.exoplatform.application.registry;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,6 +36,7 @@ public class ApplicationCategory {
   private Date modifiedDate;
   
   private List<Application> applications;
+  private ArrayList<String> accessPermissions ;
   
   public String getName() { return name; }
   public void   setName(String id) { this.name = id; }
@@ -53,5 +55,12 @@ public class ApplicationCategory {
   
   public List<Application> getApplications() { return applications; }
   public void setApplications(List<Application> applications) { this.applications = applications; }
+  
+  public void setAccessPermissions(ArrayList<String> accessPerms) { 
+    accessPermissions = accessPerms;
+  }  
+  public ArrayList<String> getAccessPermissions() { 
+    if(accessPermissions == null) accessPermissions = new ArrayList<String>();
+    return  accessPermissions; }
   
 }
