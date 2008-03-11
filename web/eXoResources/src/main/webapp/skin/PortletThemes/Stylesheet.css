@@ -108,10 +108,13 @@
 }
 
 .DefaultTheme .WindowBarCenter {
-	height: 29px;
 	background-image: url('background/DefaultTheme.png');
 	background-repeat: repeat-x;
 	background-position: left -90px;
+}
+
+.DefaultTheme .WindowBarCenter .FixBug {
+	height: 29px;
 }
 
 .DefaultTheme .MiddleDecoratorLeft {
@@ -143,10 +146,13 @@
 }
 
 .DefaultTheme .BottomDecoratorCenter {
-	height: 30px;
 	background-image: url('background/DefaultTheme.png');
 	background-repeat: repeat-x;
 	background-position: left top;
+}
+
+.DefaultTheme .BottomDecoratorCenter .FixBug {
+	height: 30px;
 }
 
 /*-------------------------- MacTheme ---------------------------*/
@@ -261,7 +267,7 @@
 	background: #ffffff;
 }
 
-.MacTheme .MiddleDecoratorCenter {
+.UIPortlet .MacTheme .MiddleDecoratorCenter {
 	height: 100%;
 }
 
@@ -283,6 +289,9 @@
 	background-image: url('background/MacTheme.png');
 	background-repeat: repeat-x;
 	background-position: center top;
+}
+
+.MacTheme .BottomDecoratorCenter .FixBug {
 	height: 23px; line-height: 23px;
 }
 
@@ -291,7 +300,6 @@
 	background-repeat: no-repeat;
 	background-position: left -115px;
 	padding: 0px 0px 0px 12px;
-	height: 23px;
 }
 
 .MacTheme .WindowBarRight {
@@ -299,15 +307,16 @@
 	background-repeat: no-repeat;
 	background-position: right -92px;
 	padding: 0px 12px 0px 0px;
-	height: 23px;
 }
 
-
 .MacTheme .WindowBarCenter {
-	height: 23px;
 	background-image: url('background/MacTheme.png');
 	background-repeat: repeat-x;
 	background-position: center -69px;
+}
+
+.MacTheme .WindowBarCenter .FixBug {
+	height: 23px;
 }
 
 /*-------------------------- MacGray ---------------------------*/
@@ -441,14 +450,16 @@
 }
 
 .MacGray .BottomDecoratorCenter {
-	height: 24px; line-height: 24px;
 	background-image: url('background/MacGray.png');
 	background-repeat: repeat-x;
 	background-position: left top;
 }
 
+.MacGray .BottomDecoratorCenter .FixBug {
+	height: 24px; line-height: 24px;
+}
+
 .MacGray .WindowBarLeft {
-	height: 23px;
 	padding: 0px 0px 0px 9px;
 	background-image: url('background/MacGray.png');
 	background-repeat: no-repeat;
@@ -456,7 +467,6 @@
 }
 
 .MacGray .WindowBarRight {
-	height: 23px;
 	padding: 0px 9px 0px 0px;
 	background-image: url('background/MacGray.png');
 	background-repeat: no-repeat;
@@ -464,10 +474,13 @@
 }
 
 .MacGray .WindowBarCenter {
-	height: 23px;
 	background-image: url('background/MacGray.png');
 	background-repeat: repeat-x;
 	background-position: center -72px;
+}
+
+.MacGray .WindowBarCenter .FixBug {
+	height: 23px;
 }
 
 /*-------------------------- MacBlack ---------------------------*/
@@ -601,10 +614,13 @@
 }
 
 .MacBlack .BottomDecoratorCenter {
-	height: 24px; line-height: 24px;
 	background-image: url('background/MacBlack.png');
 	background-repeat: repeat-x;
 	background-position: left top;
+}
+
+.MacBlack .BottomDecoratorCenter .FixBug {
+	height: 24px; line-height: 24px;
 }
 
 .MacBlack .WindowBarLeft {
@@ -622,10 +638,13 @@
 }
 
 .MacBlack .WindowBarCenter {
-	height: 23px;
 	background-image: url('background/MacBlack.png');
 	background-repeat: repeat-x;
 	background-position: center -72px;
+}
+
+.MacBlack .WindowBarCenter .FixBugs {
+	height: 23px;
 }
 
 /*-------------------------- MacGreenSteel ---------------------------*/
@@ -759,14 +778,16 @@
 }
 
 .MacGreenSteel .BottomDecoratorCenter {
-	height: 24px; line-height: 24px;
 	background-image: url('background/MacGreen.png');
 	background-repeat: repeat-x;
 	background-position: left top;
 }
 
+.MacGreenSteel .BottomDecoratorCenter .FixBug {
+	height: 24px; line-height: 24px;
+}
+
 .MacGreenSteel .WindowBarLeft {
-	height: 23px;
 	padding: 0px 0px 0px 9px;
 	background-image: url('background/MacGreen.png');
 	background-repeat: no-repeat;
@@ -774,7 +795,6 @@
 }
 
 .MacGreenSteel .WindowBarRight {
-	height: 23px;
 	padding: 0px 9px 0px 0px;
 	background-image: url('background/MacGreen.png');
 	background-repeat: no-repeat;
@@ -782,10 +802,13 @@
 }
 
 .MacGreenSteel .WindowBarCenter {
-	height: 23px;
 	background-image: url('background/MacGreen.png');
 	background-repeat: repeat-x;
 	background-position: center -72px;
+}
+
+.MacGreenSteel .WindowBarCenter .FixBug {
+	height: 23px;
 }
 
 /*-------------------------------- VistaTheme -----------------------------*/
@@ -914,6 +937,9 @@
 	background-image: url('background/VistaTheme.png');
 	background-repeat: repeat-x;
 	background-position: left top;
+}
+
+.VistaTheme .BottomDecoratorCenter .FixBug {
 	height: 24px;
 }
 
@@ -925,7 +951,6 @@
 }
 
 .VistaTheme .WindowBarLeft {
-	height: 29px;
 	background-image: url('background/VistaTheme.png');
 	background-repeat: no-repeat;
 	background-position: left -130px;
@@ -933,7 +958,6 @@
 }
 
 .VistaTheme .WindowBarRight {
-	height: 29px;
 	background-image: url('background/VistaTheme.png');
 	background-repeat: no-repeat;
 	background-position: right -101px;
@@ -944,6 +968,9 @@
 	background-image: url('background/VistaTheme.png');
 	background-repeat: repeat-x;
 	background-position: left -72px;
+}
+
+.VistaTheme .WindowBarCenter .FixBug {
 	height: 29px;
 }
 
@@ -1077,11 +1104,13 @@
 	background-image: url('background/VistaBlue.png');
 	background-repeat: repeat-x;
 	background-position: left top;
+}
+
+.VistaBlue .BottomDecoratorCenter .FixBug {
 	height: 27px;
 }
 
 .VistaBlue .WindowBarLeft {
-	height: 35px;
 	background-image: url('background/VistaBlue.png');
 	background-repeat: no-repeat;
 	background-position: left -151px;
@@ -1089,7 +1118,6 @@
 }
 
 .VistaBlue .WindowBarRight {
-	height: 35px;
 	background-image: url('background/VistaBlue.png');
 	background-repeat: no-repeat;
 	background-position: right -116px;
@@ -1100,6 +1128,9 @@
 	background-image: url('background/VistaBlue.png');
 	background-repeat: repeat-x;
 	background-position: left -81px;
+}
+
+.VistaBlue .WindowBarCenter .FixBug {
 	height: 35px;
 }
 
@@ -1201,9 +1232,12 @@
 }
 
 .RoundConerBlue .WindowBarCenter {
-	height: 32px;
 	background: url('background/RoundCornerBlue.png') repeat-x;
 	background-position: left -90px;
+}
+
+.RoundConerBlue .WindowBarCenter .FixBug {
+	height: 32px;
 }
 
 .RoundConerBlue .MiddleDecoratorLeft {
@@ -1239,9 +1273,12 @@
 }
 
 .RoundConerBlue .BottomDecoratorCenter {
-	height: 30px;
 	background: url('background/RoundCornerBlue.png') repeat-x;
 	background-position: top;
+}
+
+.RoundConerBlue .BottomDecoratorCenter .FixBug {
+	height: 30px;
 }
 
 /*------------------ RoundConerViolet -----------------*/
@@ -1342,9 +1379,12 @@
 }
 
 .RoundConerViolet .WindowBarCenter {
-	height: 32px;
 	background: url('background/RoundConerViolet.png') repeat-x;
 	background-position: left -90px;
+}
+
+.RoundConerViolet .WindowBarCenter .FixBug {
+	height: 32px;
 }
 
 .UIPortlet .RoundConerViolet .WindowBarCenter {
@@ -1384,9 +1424,12 @@
 }
 
 .RoundConerViolet .BottomDecoratorCenter {
-	height: 30px;
 	background: url('background/RoundConerViolet.png') repeat-x;
 	background-position: top;
+}
+
+.RoundConerViolet .BottomDecoratorCenter .FixBug {
+	height: 30px;
 }
 
 /*------------------------------- RoundConerOrange ----------------------------------*/
@@ -1487,9 +1530,12 @@
 }
 
 .RoundConerOrange .WindowBarCenter {
-	height: 32px;
 	background: url('background/RoundConerOrange.png') repeat-x;
 	background-position: left -90px;
+}
+
+.RoundConerOrange .WindowBarCenter .FixBug {
+	height: 32px;
 }
 
 .UIPortlet .RoundConerOrange .WindowBarCenter {
@@ -1529,9 +1575,12 @@
 }
 
 .RoundConerOrange .BottomDecoratorCenter {
-	height: 30px;
 	background: url('background/RoundConerOrange.png') repeat-x;
 	background-position: top;
+}
+
+.RoundConerOrange .BottomDecoratorCenter .FixBug {
+	height: 30px;
 }
 
 /*------------------------------- RoundConerPink ----------------------------------*/
@@ -1632,9 +1681,12 @@
 }
 
 .RoundConerPink .WindowBarCenter {
-	height: 32px;
 	background: url('background/RoundConerPink.png') repeat-x;
 	background-position: left -90px;
+}
+
+.RoundConerPink .WindowBarCenter .FixBug {
+	height: 32px;
 }
 
 .UIPortlet .RoundConerPink .WindowBarCenter {
@@ -1674,9 +1726,12 @@
 }
 
 .RoundConerPink .BottomDecoratorCenter {
-	height: 30px;
 	background: url('background/RoundConerPink.png') repeat-x;
 	background-position: top;
+}
+
+.RoundConerPink .BottomDecoratorCenter .FixBug {
+	height: 30px;
 }
 
 /*------------------------------- RoundConerGreen ----------------------------------*/
@@ -1777,9 +1832,12 @@
 }
 
 .RoundConerGreen .WindowBarCenter {
-	height: 32px;
 	background: url('background/RoundConerGreen.png') repeat-x;
 	background-position: left -90px;
+}
+
+.RoundConerGreen .WindowBarCenter .FixBug {
+	height: 32px;
 }
 
 .UIPortlet .RoundConerGreen .WindowBarCenter {
@@ -1819,9 +1877,12 @@
 }
 
 .RoundConerGreen .BottomDecoratorCenter {
-	height: 30px;
 	background: url('background/RoundConerGreen.png') repeat-x;
 	background-position: top;
+}
+
+.RoundConerGreen .BottomDecoratorCenter .FixBug {
+	height: 30px;
 }
 
 /*-------------------------- ShadowBlue ---------------------------*/
@@ -1909,7 +1970,6 @@
 
 .ShadowBlue .WindowBarLeft {
 	padding-left: 11px;
-	height: 29px;
 	background-image: url('background/ShadowBlue.png');
 	background-repeat: no-repeat;
 	background-position: left -142px;
@@ -1917,17 +1977,19 @@
 
 .ShadowBlue .WindowBarRight {
 	padding-right: 10px;
-	height: 29px;
  	background-image: url('background/ShadowBlue.png');
 	background-repeat: no-repeat;
 	background-position: right -113px;
 }
 
 .ShadowBlue .WindowBarCenter {
-	height: 29px;
 	background-image: url('background/ShadowBlue.png');
 	background-repeat: repeat-x;
 	background-position: center -84px;
+}
+
+.ShadowBlue .WindowBarCenter .FixBug {
+	height: 29px;
 }
 
 .ShadowBlue .MiddleDecoratorLeft {
@@ -1963,10 +2025,13 @@
 }
 
 .ShadowBlue .BottomDecoratorCenter {
-	height: 28px;
 	background-image: url('background/ShadowBlue.png');
 	background-repeat: repeat-x;
 	background-position: center top;
+}
+
+.ShadowBlue .BottomDecoratorCenter .FixBug {
+	height: 28px;
 }
 
 /*------------------------------ ShadowViolet -----------------------------------*/
@@ -2054,7 +2119,6 @@
 
 .ShadowViolet .WindowBarLeft {
 	padding-left: 11px;
-	height: 29px;
 	background-image: url('background/ShadowViolet.png');
 	background-repeat: no-repeat;
 	background-position: left -142px;
@@ -2062,17 +2126,19 @@
 
 .ShadowViolet .WindowBarRight {
 	padding-right: 10px;
-	height: 29px;
  	background-image: url('background/ShadowViolet.png');
 	background-repeat: no-repeat;
 	background-position: right -113px;
 }
 
 .ShadowViolet .WindowBarCenter {
-	height: 29px;
 	background-image: url('background/ShadowViolet.png');
 	background-repeat: repeat-x;
 	background-position: center -84px;
+}
+
+.ShadowViolet .WindowBarCenter .FixBug {
+	height: 29px;
 }
 
 .ShadowViolet .MiddleDecoratorLeft {
@@ -2108,10 +2174,13 @@
 }
 
 .ShadowViolet .BottomDecoratorCenter {
-	height: 28px;
 	background-image: url('background/ShadowViolet.png');
 	background-repeat: repeat-x;
 	background-position: center top;
+}
+
+.ShadowViolet .BottomDecoratorCenter .FixBug {
+	height: 28px;
 }
 
 /*------------------------------ ShadowOrange -----------------------------------*/
@@ -2200,7 +2269,6 @@
 
 .ShadowOrange .WindowBarLeft {
 	padding-left: 11px;
-	height: 29px;
 	background-image: url('background/ShadowOrange.png');
 	background-repeat: no-repeat;
 	background-position: left -142px;
@@ -2208,17 +2276,19 @@
 
 .ShadowOrange .WindowBarRight {
 	padding-right: 10px;
-	height: 29px;
  	background-image: url('background/ShadowOrange.png');
 	background-repeat: no-repeat;
 	background-position: right -113px;
 }
 
 .ShadowOrange .WindowBarCenter {
-	height: 29px;
 	background-image: url('background/ShadowOrange.png');
 	background-repeat: repeat-x;
 	background-position: center -84px;
+}
+
+.ShadowOrange .WindowBarCenter .FixBug {
+	height: 29px;
 }
 
 .ShadowOrange .MiddleDecoratorLeft {
@@ -2254,10 +2324,13 @@
 }
 
 .ShadowOrange .BottomDecoratorCenter {
-	height: 28px;
 	background-image: url('background/ShadowOrange.png');
 	background-repeat: repeat-x;
 	background-position: center top;
+}
+
+.ShadowOrange .BottomDecoratorCenter .FixBug {
+	height: 28px;
 }
 
 /*------------------------------ ShadowPink -----------------------------------*/
@@ -2346,7 +2419,6 @@
 
 .ShadowPink .WindowBarLeft {
 	padding-left: 11px;
-	height: 29px;
 	background-image: url('background/ShadowPink.png');
 	background-repeat: no-repeat;
 	background-position: left -142px;
@@ -2354,17 +2426,19 @@
 
 .ShadowPink .WindowBarRight {
 	padding-right: 10px;
-	height: 29px;
  	background-image: url('background/ShadowPink.png');
 	background-repeat: no-repeat;
 	background-position: right -113px;
 }
 
 .ShadowPink .WindowBarCenter {
-	height: 29px;
 	background-image: url('background/ShadowPink.png');
 	background-repeat: repeat-x;
 	background-position: center -84px;
+}
+
+.ShadowPink .WindowBarCenter .FixBug {
+	height: 29px;
 }
 
 .ShadowPink .MiddleDecoratorLeft {
@@ -2400,10 +2474,13 @@
 }
 
 .ShadowPink .BottomDecoratorCenter {
-	height: 28px;
 	background-image: url('background/ShadowPink.png');
 	background-repeat: repeat-x;
 	background-position: center top;
+}
+
+.ShadowPink .BottomDecoratorCenter .FixBug {
+	height: 28px;
 }
 
 /*------------------------------ ShadowGreen -----------------------------------*/
@@ -2492,7 +2569,6 @@
 
 .ShadowGreen .WindowBarLeft {
 	padding-left: 11px;
-	height: 29px;
 	background-image: url('background/ShadowGreen.png');
 	background-repeat: no-repeat;
 	background-position: left -142px;
@@ -2500,17 +2576,19 @@
 
 .ShadowGreen .WindowBarRight {
 	padding-right: 10px;
-	height: 29px;
  	background-image: url('background/ShadowGreen.png');
 	background-repeat: no-repeat;
 	background-position: right -113px;
 }
 
 .ShadowGreen .WindowBarCenter {
-	height: 29px;
 	background-image: url('background/ShadowGreen.png');
 	background-repeat: repeat-x;
 	background-position: center -84px;
+}
+
+.ShadowGreen .WindowBarCenter .FixBug {
+	height: 29px;
 }
 
 .ShadowGreen .MiddleDecoratorLeft {
@@ -2546,10 +2624,13 @@
 }
 
 .ShadowGreen .BottomDecoratorCenter {
-	height: 28px;
 	background-image: url('background/ShadowGreen.png');
 	background-repeat: repeat-x;
 	background-position: center top;
+}
+
+.ShadowGreen .BottomDecoratorCenter .FixBug {
+	height: 28px;
 }
 
 /*------------------------------ SimpleBlue -----------------------------------*/
@@ -2644,10 +2725,14 @@
 }
 
 .SimpleBlue .WindowBarCenter {
-	height: 18px;
-	line-height: 18px;
 	background: #b0c0f5;
 }
+
+.SimpleBlue .WindowBarCenter .FixBug {
+	height: 18px;
+	line-height: 18px;
+}
+
 
 .SimpleBlue .MiddleDecoratorLeft {
 	border-left: 1px solid #3d589d;
@@ -2682,6 +2767,9 @@
 	border: 1px solid #4a67b1;
 	border-top: none;
 	background: white url('background/BGDecoratorCenter1x18.gif') repeat-x; 
+}
+
+.SimpleBlue .BottomDecoratorCenter .FixBug {
 	height: 19px;
 }
 
@@ -2777,9 +2865,12 @@
 }
 
 .SimpleViolet .WindowBarCenter {
+	background: #c4a6ff;
+}
+
+.SimpleViolet .WindowBarCenter .FixBug {
 	height: 18px;
 	line-height: 18px;
-	background: #c4a6ff;
 }
 
 .SimpleViolet .MiddleDecoratorLeft {
@@ -2814,11 +2905,15 @@
 	border: 1px solid #5700a9;
 	border-top: none;
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
+}
+
+.SimpleViolet .BottomDecoratorCenter .FixBug {
 	height: 19px;
 }
 
 .UIPortlet .SimpleViolet .BottomDecoratorCenter {
 	height: 18px;
+	*margin: 0px 1px;
 }
 
 /*------------------------------ SimpleOrange -----------------------------------*/
@@ -2913,9 +3008,12 @@
 }
 
 .SimpleOrange .WindowBarCenter {
+	background: #ffd1a8;
+}
+
+.SimpleOrange .WindowBarCenter .FixBug {
 	height: 18px;
 	line-height: 18px;
-	background: #ffd1a8;
 }
 
 .SimpleOrange .MiddleDecoratorLeft {
@@ -2950,11 +3048,15 @@
 	border: 1px solid #b27a49;
 	border-top: none;
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
+}
+
+.SimpleOrange .BottomDecoratorCenter .FixBug {
 	height: 19px;
 }
 
 .UIPortlet .SimpleOrange .BottomDecoratorCenter {
 	height: 18px;
+	*margin: 0px 1px;
 }
 
 /*------------------------------ SimplePink -----------------------------------*/
@@ -3049,9 +3151,12 @@
 }
 
 .SimplePink .WindowBarCenter {
+	background: #fdd8f9;
+}
+
+.SimplePink .WindowBarCenter .FixBug {
 	height: 18px;
 	line-height: 18px;
-	background: #fdd8f9;
 }
 
 .SimplePink .MiddleDecoratorLeft {
@@ -3086,6 +3191,9 @@
 	border: 1px solid #9a5591;
 	border-top: none;
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
+}
+
+.SimplePink .BottomDecoratorCenter .FixBug {
 	height: 19px;
 }
 
@@ -3186,10 +3294,14 @@
 }
 
 .SimpleGreen .WindowBarCenter {
-	height: 18px;
-	line-height: 18px;
 	background: #a3d0ff;
 }
+
+.SimpleGreen .WindowBarCenter .FixBug {
+	height: 18px;
+	line-height: 18px;
+}
+
 
 .SimpleGreen .MiddleDecoratorLeft {
 	border-left: 1px solid #a0b9b6;
@@ -3223,11 +3335,13 @@
 	border: 1px solid #4c717e;
 	border-top: none;
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
+}
+
+.SimpleGreen .BottomDecoratorCenter .FixBug {
 	height: 19px;
-	*margin: 0px 1px;
 }
 
 .UIPortlet .SimpleGreen .BottomDecoratorCenter {
-	height: 18px;
+	height: 18px;	
+	*margin: 0px 1px 0px 1px;
 }
-
