@@ -27,8 +27,7 @@
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel{
   font-size: 12px; font-weight: normal;
   float: left;
-  margin-left: 10px;
-  padding-right: 10px;
+  margin: 0px 10px 0px 10px;
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{
