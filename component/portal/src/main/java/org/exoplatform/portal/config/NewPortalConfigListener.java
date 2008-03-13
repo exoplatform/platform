@@ -28,6 +28,7 @@ import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.container.configuration.ConfigurationManager;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesSet;
@@ -62,7 +63,8 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     cmanager_ = cmanager ;
     pdcService_ = pdcService;
     
-    pageTemplateConfig_ = (PageTemplateConfig) params.getObjectParam("page.templates").getObject() ;
+    ObjectParameter objectParam = params.getObjectParam("page.templates");
+    if(objectParam != null) pageTemplateConfig_ = (PageTemplateConfig) objectParam.getObject() ; 
     
     String checkPortal = "classic";
     ValueParam valueParam = params.getValueParam("default.portal");

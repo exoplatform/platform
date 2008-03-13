@@ -17,6 +17,8 @@
 package org.exoplatform.portal.webui.navigation;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -39,6 +41,7 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormInputIconSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
@@ -62,6 +65,8 @@ public class UIPageNodeForm extends UIFormTabPane {
 
   private  PageNode  pageNode_ ; 
   private  Object selectedParent ;
+  final private static String   START_PUBLICATION_DATE = "startPublicationDate" ;
+  final private static String   END_PUBLICATION_DATE = "endPublicationDate" ; 
 
   public UIPageNodeForm() throws Exception {
     super("UIPageNodeForm") ;
@@ -70,13 +75,13 @@ public class UIPageNodeForm extends UIFormTabPane {
     uiSettingSet.addUIFormInput(new UIFormStringInput("uri", "uri", null).setEditable(false)).                            
     addUIFormInput(new UIFormStringInput("name","name", null).
                    addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)).
-    addUIFormInput(new UIFormStringInput("label", "label", null));
-    
+    addUIFormInput(new UIFormStringInput("label", "label", null)).
+    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null, false)).
+    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null, false)) ;
     addUIFormInput(uiSettingSet);
     setSelectedTab(uiSettingSet.getId()) ;
 
     UIPageSelector uiPageSelector = createUIComponent(UIPageSelector.class, null, null) ;
-//    uiPageSelector.addValidator(NullFieldValidator.class);
     uiPageSelector.configure("UIPageSelector", "pageReference") ;
     addUIFormInput(uiPageSelector) ;
 
@@ -99,6 +104,35 @@ public class UIPageNodeForm extends UIFormTabPane {
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     invokeGetBindingBean(pageNode_) ;
     getUIStringInput("label").setValue(pageNode_.getResolvedLabel()) ;
+
+    //TODO: Maybe need to move this block to [invokeGetBindingBean()] method
+    Calendar cal = Calendar.getInstance() ;
+    if(pageNode.getStartPublicationDate() != null) {
+      cal.setTime(pageNode.getStartPublicationDate()) ;
+      getUIFormDateTimeInput(START_PUBLICATION_DATE).setCalendar(cal) ;        
+    } else getUIFormDateTimeInput(START_PUBLICATION_DATE).setValue(null) ;
+    if(pageNode.getEndPublicationDate() != null) {
+      cal.setTime(pageNode.getEndPublicationDate()) ;
+      getUIFormDateTimeInput(END_PUBLICATION_DATE).setCalendar(cal) ;
+    } else getUIFormDateTimeInput(END_PUBLICATION_DATE).setValue(null) ;
+    //-------------------------------------------------------------------------
+  }
+  
+  public void invokeSetBindingBean(Object bean) throws Exception {
+    super.invokeSetBindingBean(bean) ;
+    PageNode node = (PageNode)bean ;
+    Calendar cal = getUIFormDateTimeInput(START_PUBLICATION_DATE).getCalendar() ;
+    Date date = (cal != null) ? cal.getTime() : null ; 
+    node.setStartPublicationDate(date) ;
+    cal = getUIFormDateTimeInput(END_PUBLICATION_DATE).getCalendar() ;
+    date = (cal != null) ? cal.getTime() : null ;
+    node.setEndPublicationDate(date) ;
+    Date end = node.getEndPublicationDate() ;
+    boolean enable ;
+    if(end == null) enable = true ;
+    else if(end.compareTo(Calendar.getInstance().getTime()) < 0 ) enable = false ;
+    else enable = true ;
+    node.setEnable(enable) ; 
   }
 
   public Object getSelectedParent(){ return selectedParent; }  

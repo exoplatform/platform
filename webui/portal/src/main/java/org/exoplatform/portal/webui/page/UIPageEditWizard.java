@@ -86,10 +86,8 @@ public class UIPageEditWizard extends UIPageWizard {
     Page page = PortalDataMapper.toPageModel(uiPage);
     service.update(page); 
     
-    UIWizardPageSetInfo uiPageInfo = getChild(UIWizardPageSetInfo.class);  
-    UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);      
+    UIPageNodeSelector uiNodeSelector = findFirstComponentOfType(UIPageNodeSelector.class) ;      
     PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();
-    String uri = pageNav.getId() + "::" + uiPageInfo.getPageNode().getUri();
     pageNav.setModifier(RequestContext.<WebuiRequestContext>getCurrentInstance().getRemoteUser());
     service.update(pageNav);
     
@@ -97,6 +95,7 @@ public class UIPageEditWizard extends UIPageWizard {
     for(PageNavigation editNav : uiNodeSelector.getPageNavigations()) {
       setNavigation(uiPortal.getNavigations(), editNav);
     }
+    String uri = pageNav.getId() + "::" + uiNodeSelector.getSelectedPageNode().getUri();
     PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
   }
