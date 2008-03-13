@@ -107,8 +107,7 @@
 }
 
 .ContainerManagementDetail .WidgetContainerDetail .ContainerDetail {
-	width: 312px;
-	overflow: hidden;
+	overflow: auto;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .Empty {
@@ -151,4 +150,11 @@
 	line-height: 20px;
 	color: #058ee6;
 	font-size: 12px;
+}
+
+.UIWidgetContainerManagement .WidgetContainerView .Detail .InfoContent .FieldComponent {
+	/*modified by tan.pham.dinh
+	 * to break long string (container description) in widget containers management in IE6+
+	 */
+	*word-wrap: break-word;
 }
