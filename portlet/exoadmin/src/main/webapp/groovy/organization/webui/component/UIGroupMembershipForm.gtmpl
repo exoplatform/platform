@@ -21,9 +21,10 @@
          %>
           <tr>
   	        <td class="FieldLabel"><%=_ctx.appRes(uicomponent.getName() + ".label.username")%></td>
-  	        <td class="FieldComponent">
-  	        	<% uiform.renderField(name) %>
+  	        <td class="FieldComponent" >
+  	        	<div style="float: left;"><% uiform.renderField(name) %></div>
  	            <a class="Icon Search" href="<%=uicomponent.event("SearchUser")%>" title="<%=_ctx.appRes(uicomponent.getName() + ".label.SearchUser")%>"><span></span></a>
+ 	            <div style="clear: left;"><span></span></div>
   	        </td>
           </tr>
           <tr>
