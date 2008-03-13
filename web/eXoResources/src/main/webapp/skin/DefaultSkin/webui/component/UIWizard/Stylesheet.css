@@ -51,6 +51,10 @@
 .UIWizard .UIWizardContent .WizardStepContent {
   border: solid 1px #aeaeae; border-bottom: none;
 	height: 100%;
+	width: expression(document.body.clientWidth < 102? "100px" : document.body.clientWidth > 1202? "1200px" : "auto");
+  min-width: 100px;
+  max-width: 1200px;
+  overflow: auto;
 }
 
 .UIWizard .UIWizardContent .WizardStepContent .UIWizardPageSetInfo {
@@ -101,6 +105,11 @@
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl {
+	width: 220px;
+	position: static;
+}
+
+.UIWizard .UIWizardContent .UIDropDownControl .UIDropDownAnchor {
 	width: 220px;
 }
 

@@ -37,13 +37,13 @@
 }
 
 .UIPage .PageLayoutDecorator .MiddleRightPage {
- background: url('background/MRPageLayout23x1.gif') repeat-y right;
- padding: 0px 23px 0px 0px ;
+	background: url('background/MRPageLayout23x1.gif') repeat-y right;
+	padding: 0px 23px 0px 0px ;
 }
 
 .UIPage .PageLayoutDecorator .MiddlePageBG {
- height: 80px; 
- background: white;
+	height: 80px; 
+	background: white;
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {  

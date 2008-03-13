@@ -7,11 +7,6 @@
 	/*width: 97%;*/
 }
 
-.UIPage .PageLayoutDecorator .MiddlePageBG {
-  height: 108px; 
-  background: url('background/PageContentBG1x108.png'); 
-}
-
 .UIPage .PageLayoutDecorator .TopLeftPage {
   background: url('background/PageLayoutTL98x78.png') no-repeat left ;
   padding: 0px 0px 0px 98px ;
@@ -30,6 +25,10 @@
 	text-align: center;
 }
 
+.UIPage .PageLayoutDecorator .TopCenterPage .PageContent {
+	height: 78px;
+}
+
 .UIPage .PageLayoutDecorator .MiddleLeftPage {
   background: url('background/PageLayoutML12x1.png') repeat-y left ;
   padding: 0px 0px 0px 12px ;   
@@ -38,6 +37,14 @@
 .UIPage .PageLayoutDecorator .MiddleRightPage {
   background: url('background/PageLayoutMR15x1.png') repeat-y right;
   padding: 0px 15px 0px 0px ;
+}
+
+.UIPage .PageLayoutDecorator .MiddlePageBG {
+  background: url('background/PageContentBG1x108.png'); 
+}
+
+.UIPage .PageLayoutDecorator .MiddlePageBG .FixBug {
+  height: 108px; 
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {

@@ -86,12 +86,12 @@
 .UIWelcomeWidget .StyleContent .UserWelcomeBox {
   padding: 15px 0px 0px 6px;
   line-height: 20px; 
-  height:40px;
+  height: 40px;
 }
 
 .UIWelcomeWidget .StyleContent .UserWelcomeBox .StateMessage {
   font-size: 11px; 
-  text-align:left;
+  text-align: left;
   line-height: 20px;
 }
 
@@ -119,10 +119,9 @@
 	font-size: 10px;
 	color: #f98e03;
 	font-weight: bold;
-	padding: 40px 25px;
+	padding: 30px 20px;
 	text-decoration: underline;
 	cursor: pointer;
-	width: 60px; margin: auto;
 	display: block ;
 }
 
