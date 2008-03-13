@@ -12,10 +12,6 @@
   *width: 97.5%;
 }
 
-.UIOrganizationPortlet .UIBarStyle .BarStyle2 .UISearchForm .UIForm {
-  padding: 0px;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
   white-space:nowrap;
 }
@@ -68,6 +64,10 @@
 .UIOrganizationPortlet .ManagementTabContent {
   width: 99.4%;
   margin: 4px auto 2px auto;
+}
+
+.UIOrganizationPortlet .UIBarStyle .BarStyle2 .UISearchForm .UIForm {
+  padding: 0px;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
@@ -284,9 +284,14 @@
 	_width: 218px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .ScrollArea{
+.UIOrganizationPortlet .UIGroupManagement .ScrollArea {
 	border-top: none;
 }
+
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .ScrollArea {
+	border: 1px solid #b7b7b7;
+}
+
 
 .UIOrganizationPortlet .UIGroupManagement .UIGrid {
 	width: 99%;
