@@ -23,7 +23,7 @@
   _line-height: 34px;
 }
 
-.UIMaskWorkspace .UINodeIconSelector.HorizontalLayout .UIForm .UIFormInputSet {
+.UINodeIconSelector .ItemDetailList .SelectedIconInfo .UIFormInputSet {
 	padding-bottom: 0px;
 }
 
@@ -80,9 +80,11 @@
   color: #058EE6;
 }
 
-.UIMaskWorkspace .UIForm .HorizontalLayout .UINodeIconSelector .UIFormInputSet {
-	width: auto;
-	padding: 0px;
+.UIMaskWorkspace .UITabPane .UITabContentContainer .UITabContent{
+	_border: 1px solid #c7c7c7;
+	border-top: none;
 }
 
-
+.UIMaskWorkspace .UITabPane .WorkingArea .UITabContentContainer .UITabContent{
+	border: none;
+}
