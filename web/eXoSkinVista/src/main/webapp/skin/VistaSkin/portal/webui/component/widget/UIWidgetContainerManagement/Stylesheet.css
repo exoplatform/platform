@@ -111,6 +111,10 @@
 	padding: 15px 0px;
 }
 
+.ContainerManagementDetail .WidgetContainerDetail .ContainerDetail {
+	overflow: auto;
+}
+
 .UIWidgetContainerManagement .WidgetContainerView .HeadTitle {
 	color: #4b4b4b;
 	font-weight: bold;
@@ -152,4 +156,11 @@
 	line-height: 20px;
 	color: #058ee6;
 	font-size: 12px;
+}
+
+.UIWidgetContainerManagement .WidgetContainerView .Detail .InfoContent .FieldComponent {
+	/*modified by tan.pham.dinh
+	 * to break long string (container description) in widget containers management in IE6+
+	 */
+	*word-wrap: break-word;
 }
