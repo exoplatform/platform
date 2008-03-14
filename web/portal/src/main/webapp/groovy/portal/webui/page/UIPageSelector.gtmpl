@@ -13,6 +13,7 @@
 	  if (pageId == null) pageId = "" ;
 	  if (name == null) name = "" ;
 	  if (title == null) title = "" ;
+	  if(title.length() > 30) title = title.substring(0,29) + "..." ;
 	}
 	
    

@@ -19,6 +19,7 @@ package org.exoplatform.portal.webui.application;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
@@ -66,6 +67,12 @@ public class UIPortletOptions extends UIContainer {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
     String remoteUser = RequestContext.<RequestContext>getCurrentInstance().getRemoteUser();
     List<ApplicationCategory> pCategories = service.getApplicationCategories(remoteUser, org.exoplatform.web.application.Application.EXO_PORTLET_TYPE) ; 
+    Iterator<ApplicationCategory> cateItr = pCategories.iterator() ;
+    while(cateItr.hasNext()) {
+      ApplicationCategory cate = cateItr.next() ;
+      List<Application> applications = cate.getApplications() ;
+      if(applications.size()<1) cateItr.remove() ;
+    }
     Collections.sort(pCategories, new PortletCategoryComparator()) ;
     PortletComparator portletComparator = new PortletComparator() ;
     for(ApplicationCategory pCategory : pCategories) {
