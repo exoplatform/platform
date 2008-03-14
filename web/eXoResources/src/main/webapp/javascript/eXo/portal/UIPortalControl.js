@@ -56,9 +56,15 @@ UIPortalControl.prototype.fixHeight = function() {
 				} 
 				var deltaResize = maxHeight - tmp;
 				if(deltaResize > 0 && (heightChild - deltaResize) > 0) {
-					scrollArea.style.overflow = "auto";
-					scrollArea.style.height = heightChild - deltaResize + "px";
-					scrollArea.style.width = scrollArea.offsetWidth  + "px";
+							scrollArea.style.overflow = "auto";
+							scrollArea.style.height = heightChild - deltaResize + "px";
+							scrollArea.style.width = scrollArea.offsetWidth  + "px";
+							//TODO: dang.tung -> fix bug if scroll display
+							//-----------------------------------------------------------
+							if(eXo.core.Browser.isIE6()) {
+								scrollArea.style.width = scrollArea.offsetWidth - 4  + "px";
+							}
+							//-----------------------------------------------------------
 				}
 			}
 		}
