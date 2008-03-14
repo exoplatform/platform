@@ -165,6 +165,7 @@
  	background: url('VistaSkin/background/UITreeBG.png') repeat;
  	border-top: none;
   height: 224px;
+  width: auto;
   _width: 208px;
 }
 

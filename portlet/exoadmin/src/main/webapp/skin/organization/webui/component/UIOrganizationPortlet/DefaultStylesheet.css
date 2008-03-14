@@ -234,6 +234,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
   padding-bottom: 10px;  
   height: 208px;
+  width: auto;
   _width: 218px;
 }
 

@@ -94,10 +94,12 @@
 	margin: 0px 5px;
 }
 
-.UIMaskWorkspace .UIForm .HorizontalLayout .UIFormInputSet {
-  width: 450px;
+.UIMaskWorkspace .UIForm .HorizontalLayout .SelectedIconInfo .UIFormInputSet {
   margin: auto;
-  padding: 10px;
+}
+
+.UIMaskWorkspace .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent{
+  _padding: 0px;
 }
 
 .UIMaskWorkspace .UIItemSelector .FloatRightStyle .ItemListContainer .ItemList {

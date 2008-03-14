@@ -71,10 +71,8 @@
 	height: 275px;
 }
 
-.UIMaskWorkspace .UIForm .HorizontalLayout .UIFormInputSet {
-	width: 450px;
+.UIMaskWorkspace .UIForm .HorizontalLayout .SelectedIconInfo .UIFormInputSet {
 	margin: auto;
-	padding: 10px;
 }
 
 /*********************************** End UITabContent	************************************/
