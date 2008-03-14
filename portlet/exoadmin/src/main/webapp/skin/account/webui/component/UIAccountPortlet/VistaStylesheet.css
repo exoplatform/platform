@@ -25,6 +25,10 @@
 	margin: auto;
 }
 
+.UIAccountPortlet .UIForm .HorizontalLayout  .UITabContent .UIFormInputSet {
+  width: 450px;  
+}
+
 .UIAccountPortlet .UIForm .HorizontalLayout .UIPersonalInfo .UIFormInputSet {
 	height: auto;
 }
