@@ -28,6 +28,7 @@
   font-size: 12px; font-weight: normal;
   float: left;
   margin: 0px 10px 0px 10px;
+  width: auto;
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{

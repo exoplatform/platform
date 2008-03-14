@@ -14,31 +14,31 @@
 }
 
 .UIPage .PageLayoutDecorator .TopLeftPage {
-  background: url('background/TLPageLayout143x112.gif') no-repeat left ;
+  background: url('background/ViewPage.gif') no-repeat left -113px;
   padding: 0px 0px 0px 143px ;
 }
 
 .UIPage .PageLayoutDecorator .TopRightPage {
-  background: url('background/TRPageLayout47x112.gif') no-repeat right ;
+  background: url('background/ViewPage.gif') no-repeat right -226px;
   padding: 0px 47px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
   height: 112px ; line-height: 98px;  
-  background: url('background/TCPageLayout1x112.gif') repeat-x center ;  
+  background: url('background/ViewPage.gif') repeat-x center top;  
   color: #525252; text-align: center;
   font-weight: bold; font-size: 10px;
   padding: 0px;
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {
-  background: url('background/MLPageLayout21x1.gif') repeat-y left ;
+  background: url('background/ViewPageRepeat.gif') repeat-y left ;
   padding: 0px 0px 0px 22px ;
 }
 
 .UIPage .PageLayoutDecorator .MiddleRightPage {
-	background: url('background/MRPageLayout23x1.gif') repeat-y right;
-	padding: 0px 23px 0px 0px ;
+ background: url('background/ViewPageRepeat.gif') repeat-y right;
+ padding: 0px 23px 0px 0px ;
 }
 
 .UIPage .PageLayoutDecorator .MiddlePageBG {
@@ -47,19 +47,19 @@
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {  
-  background: url('background/BLPageLayout46x38.gif') no-repeat left top ;
+  background: url('background/ViewPage.gif') no-repeat left -378px;
   padding: 0px 0px 0px 46px ;
   margin-bottom: 7px;
 }
 
 .UIPage .PageLayoutDecorator .BottomRightPage {
-  background: url('background/BRPageLayout35x38.gif') no-repeat right top ;
+  background: url('background/ViewPage.gif') no-repeat right -378px;
   padding: 0px 35px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage {
   line-height: 38px;
-  background: url('background/BCPageLayout1x38.gif') repeat-x top ; 
+  background: url('background/ViewPage.gif') repeat-x center -339px ; 
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage .FixBug {

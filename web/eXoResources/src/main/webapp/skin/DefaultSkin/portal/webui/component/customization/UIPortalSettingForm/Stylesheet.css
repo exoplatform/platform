@@ -17,6 +17,8 @@
 .UIPortalSettingForm .PortalSettingContent .TopLeftDecorator {
   background: url('background/RoundedBoxLeftTop24x35.gif') no-repeat left ;
   padding: 0px 0px 0px 24px ;
+    border: 1px solid red;
+  
 }
 
 .UIPortalSettingForm .PortalSettingContent .TopLeftDecorator .TopCenterDecorator {

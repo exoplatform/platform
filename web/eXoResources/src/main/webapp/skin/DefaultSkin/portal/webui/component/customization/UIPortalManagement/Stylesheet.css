@@ -15,27 +15,27 @@
 
 .UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
   width: 27px;  height: 23px;
-  background: url('icons/EditContainer.gif') no-repeat;
+  background: url('icons/PortalManagement.gif') no-repeat;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
   width: 27px;  height: 23px;
-  background: url('icons/EditPortlet.gif') no-repeat;
+  background: url('icons/PortalManagement.gif') no-repeat left -23px;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
   width: 27px;  height: 23px;
-  background: url('icons/PortalLayoutMode.gif') no-repeat;
+  background: url('icons/PortalManagement.gif') no-repeat left -69px;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
   width: 27px;  height: 23px;
-  background: url('icons/PortalPreview.gif') no-repeat;
+  background: url('icons/PortalManagement.gif') no-repeat left -92px;
 }
 
 .UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
   width: 27px;  height: 23px;
-  background: url('icons/EditPortal.gif');
+  background: url('icons/PortalManagement.gif') no-repeat left -46px;
 }
 
 .UIPortalManagement .UIToolbar .ControlToolbar {
@@ -43,21 +43,21 @@
 }
 
 .UIPortalManagement .RollbackIcon {
-	width: 24px; height: 24px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/RollBackIcon.gif') no-repeat;
+	width: 24px; height: 20px;
+	background: url('icons/PortalManagement.gif') no-repeat left -115px;
 }
 
 .UIPortalManagement .FinishIcon {
-	width: 24px; height: 24px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/FinishIcon.gif') no-repeat;
+	width: 24px; height: 20px;
+	background: url('icons/PortalManagement.gif') no-repeat left -136px;
 }
 
 .UIPortalManagement .SaveIcon {
-	width: 24px; height: 24px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/SaveIcon.gif') no-repeat;
+	width: 24px; height: 19px;
+	background: url('icons/PortalManagement.gif') no-repeat left -156px;
 }
 
 .UIPortalManagement .AbortIcon {
-	width: 24px; height: 24px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/AbortIcon.gif') no-repeat;
+	width: 24px; height: 20px;
+	background: url('icons/PortalManagement.gif') no-repeat left -176px;
 }
