@@ -299,8 +299,12 @@
 	background-position: left top;
 	background-repeat: no-repeat;
 	float: left;
-	margin-left: 10px;
+	margin-left: 4px;
 	height: 24px; width: 24px;
+}
+
+.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm .Search { 
+	margin-top: 3px;
 }
 
 .UIOrganizationPortlet .UIGroupInfo .ListUserForSearch { 

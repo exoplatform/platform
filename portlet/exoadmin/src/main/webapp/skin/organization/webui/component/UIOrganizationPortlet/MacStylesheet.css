@@ -356,6 +356,10 @@
 	height: 24px; width: 24px;
 }
 
+.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm .Search { 
+	margin-top: 3px;
+}
+
 .UIOrganizationPortlet .UIGroupInfo .ListUserForSearch{ 
 	padding: 10px;
 }

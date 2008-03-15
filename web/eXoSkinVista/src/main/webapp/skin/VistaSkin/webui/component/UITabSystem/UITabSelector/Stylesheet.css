@@ -1,7 +1,10 @@
 /***************************FlatTabStyle************************************/
+.UITabSelector {
+  padding: 8px;
+}
+
 .UITabSelector .UIHorizontalTabs {
   height: 31px;
-  
 }
 
 .UITabSelector .UIHorizontalTabs .LeftHorizontalTabs{
