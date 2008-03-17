@@ -29,6 +29,10 @@
 	padding: 0px 4px 0px 0px ;
 }
 
+.UIMaskWorkspace .MaskContainer {
+	background: #f5f5f5;
+}
+
 .UIMaskWorkspace .MaskContainer .UIFormTabPane .TabPaneContent .UITabContentContainer {
 	border: 1px solid #c7c7c7;
 	border-top: none;

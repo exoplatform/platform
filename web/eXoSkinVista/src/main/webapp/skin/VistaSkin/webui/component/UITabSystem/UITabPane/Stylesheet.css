@@ -1,16 +1,6 @@
 .UITabPane {
 }
 
-.UITabPane .TabPaneContent {
-}
-
-.UITabPane .TabPaneContent .WorkingArea {
-}
-
-.UITabPane .TabPaneContent .UITabContentContainer {
-
-}
-
 .UITabPane .TabPaneContent .UITabContentContainer {
   background: white url('background/TabContainerBG1x11.png') repeat-x top;
 }
@@ -30,11 +20,3 @@
   float: right ;
   width: 25% ;
 }
-
-/*
-
-.UITabPane .UIForm .UIAction .ActionContainer .Button {
-  float: right ;
-}
-
-*/

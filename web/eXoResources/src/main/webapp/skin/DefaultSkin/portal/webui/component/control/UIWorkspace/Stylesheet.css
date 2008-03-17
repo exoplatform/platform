@@ -12,8 +12,7 @@
 }
 
 .UIControlWorkspace .UIVerticalSlideTabs {
-  padding: 3px;
-  
+  padding: 3px; 
 }
 
 .UIControlWorkspace .UserWorkspaceTitle {
@@ -35,11 +34,6 @@
 
 .UIControlWorkspace .UIWorkspaceControl { 
   margin-right: 2px ;
-}
-
-.UIControlWorkspace .UIPageNodeSelector .ContainerConfigOptions .JSContainer {
-	width: 210px;
-	overflow: hidden;
 }
 
 /*########################### Tab ###########################*/
