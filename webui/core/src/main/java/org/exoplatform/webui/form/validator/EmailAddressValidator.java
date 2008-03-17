@@ -33,7 +33,7 @@ public class EmailAddressValidator implements Validator {
     "[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[_A-Za-z0-9-.]+";
   
   public void validate(UIFormInput uiInput) throws Exception {
-	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
+	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
     String s = (String)uiInput.getValue();
     if(s.matches(EMAIL_REGEX)) return;
 //    Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;

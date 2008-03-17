@@ -43,7 +43,7 @@ public class ExpressionValidator implements Validator {
   }
   
   public void validate(UIFormInput uiInput) throws Exception {
-	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
+	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
     if((uiInput.getValue() != null) ){
       String value = ((String)uiInput.getValue()).trim();
       if(value.matches(expression_)) return ;

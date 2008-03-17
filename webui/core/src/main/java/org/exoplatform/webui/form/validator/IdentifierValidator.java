@@ -31,7 +31,7 @@ import org.exoplatform.webui.form.UIFormInput;
 public class IdentifierValidator implements Validator {
     
   public void validate(UIFormInput uiInput) throws Exception {
-	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
+	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
     String s = (String)uiInput.getValue();
     if(Character.isDigit(s.charAt(0)) || s.charAt(0) == '-') {
       Object[] args = { uiInput.getName(), uiInput.getBindingField() };

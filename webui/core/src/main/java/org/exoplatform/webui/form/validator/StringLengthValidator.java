@@ -47,7 +47,7 @@ public class StringLengthValidator implements Validator {
   }
   
   public void validate(UIFormInput uiInput) throws Exception {
-	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
+	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
     if((uiInput.getValue() != null) ){
       int length = ((String)uiInput.getValue()).trim().length();
       if(min_ <= length && max_ >= length) return ;

@@ -32,7 +32,7 @@ import org.exoplatform.webui.form.UIFormInput;
 public class PositiveNumberFormatValidator implements Validator {
     
   public void validate(UIFormInput uiInput) throws Exception {
-	  if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
+	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
     String s = (String)uiInput.getValue();
     boolean error = false;
     for(int i = 0; i < s.length(); i ++){
