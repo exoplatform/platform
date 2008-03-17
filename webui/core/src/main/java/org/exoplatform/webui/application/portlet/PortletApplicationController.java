@@ -21,6 +21,8 @@ import java.util.List;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+import javax.portlet.EventRequest;
+import javax.portlet.EventResponse;
 import javax.portlet.GenericPortlet;
 import javax.portlet.PortletConfig;
 import javax.portlet.PortletContext;
@@ -74,6 +76,17 @@ public class PortletApplicationController extends GenericPortlet {
   }
   
   /**
+   * Delegate the action to the PortletApplication object
+   */
+  public void processEvent(EventRequest req, EventResponse res) {
+    try {
+      getPortletApplication().processEvent(req, res) ;
+    } catch(Exception ex) {
+      log.error("Error while processing event in the porlet", ex);
+    }    
+  }
+  
+  /**
    * Delegate the render to the PortletApplication object
    */  
   public  void render(RenderRequest req,  RenderResponse res) throws PortletException, IOException {
@@ -100,7 +113,7 @@ public class PortletApplicationController extends GenericPortlet {
       application.onInit() ; 
       controller.addApplication(application) ;
     }
-    return application ;
+    return application;
   }
   
   /**

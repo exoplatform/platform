@@ -23,6 +23,8 @@ import java.util.ResourceBundle;
 
 import javax.portlet.ActionRequest;
 import javax.portlet.ActionResponse;
+import javax.portlet.EventRequest;
+import javax.portlet.EventResponse;
 import javax.portlet.PortletConfig;
 import javax.portlet.PortletContext;
 import javax.portlet.PortletRequest;
@@ -41,7 +43,10 @@ import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.Event.Phase;
 /**
  * May 26, 2006
  * 
@@ -51,6 +56,8 @@ import org.exoplatform.webui.core.UIPortletApplication;
 public class PortletApplication extends WebuiApplication {
   
   protected static Log log = ExoLogger.getLogger("portlet:PortletApplication"); 
+  
+  public final static String PORTLET_EVENT_VALUE = "portletEventValue";
   
   /**
    * The configuration parameter of this portlet
@@ -142,6 +149,35 @@ public class PortletApplication extends WebuiApplication {
       WebuiRequestContext.setCurrentInstance(parentAppRequestContext) ;
     }
   }
+
+  /**
+   * This method is called when a JSR 286 event is targeting the current portlet.
+   * 
+   * The event is transformed in a WebUI event using the convention that the 286 
+   * event name will target the EventNameActionListener class of one of the UIComponent in 
+   * the portlet uicomponent tree
+   * 
+   * The event value is passed as an attribute of the PortletRequestContext
+   */
+  public void processEvent(EventRequest req, EventResponse res) throws Exception {   
+    WebuiRequestContext parentAppRequestContext =  WebuiRequestContext.getCurrentInstance() ;
+    PortletRequestContext context = createRequestContext(req, res, parentAppRequestContext)  ;
+    WebuiRequestContext.setCurrentInstance(context) ;
+    try {      
+      for(ApplicationLifecycle<RequestContext> lifecycle : getApplicationLifecycle())  {
+        lifecycle.onStartRequest(this, context) ;
+      } 
+      UIApplication uiApp = getStateManager().restoreUIRootComponent(context) ;
+      context.setUIApplication(uiApp) ;
+      javax.portlet.Event portletEvent = req.getEvent();
+      context.setAttribute(PORTLET_EVENT_VALUE, portletEvent.getValue());
+      Event<UIComponent> uiEvent = uiApp.createEvent(portletEvent.getName(), Phase.PROCESS, context);
+      uiEvent.broadcast();
+    } finally {
+      WebuiRequestContext.setCurrentInstance(parentAppRequestContext) ;
+    }
+  }    
+  
   
   /**
    * The render method business logic is quite similar to the processAction() one.
@@ -218,5 +254,6 @@ public class PortletApplication extends WebuiApplication {
     }
     context.setParentAppRequestContext(parentAppRequestContext) ;
     return context;
-  }  
+  }
+
 }

@@ -60,4 +60,5 @@ public class UIIFrameEditMode extends UIForm {
       pcontext.setApplicationMode(PortletRequestContext.VIEW_MODE) ;
     }
   }
+  
 }

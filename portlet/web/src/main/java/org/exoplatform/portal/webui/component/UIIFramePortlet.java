@@ -21,8 +21,12 @@ import javax.portlet.PortletPreferences;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Created by The eXo Platform SARL
@@ -33,6 +37,9 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 @ComponentConfig(
   lifecycle = UIApplicationLifecycle.class,
   template = "app:/groovy/portal/webui/component/UIIFramePortlet.gtmpl"
+//  events = {
+//      @EventConfig(listeners = UIIFramePortlet.MyEventPubActionListener.class, phase = Phase.PROCESS)
+//  }
 )
 public class UIIFramePortlet extends UIPortletApplication {
   public UIIFramePortlet() throws Exception {
@@ -44,4 +51,13 @@ public class UIIFramePortlet extends UIPortletApplication {
     PortletPreferences pref = pcontext.getRequest().getPreferences();
     return pref.getValue("url", "http://www.exoplatform.org") ;
   }
+  
+//  static public class MyEventPubActionListener extends EventListener<UIIFramePortlet> {
+//    public void execute(Event<UIIFramePortlet> event) throws Exception {
+//      PortletRequestContext pcontext = (PortletRequestContext)WebuiRequestContext.getCurrentInstance() ;
+//      System.out.println("in MyEventActionListener");
+//      System.out.println(pcontext.getAttribute("portletEventValue"));
+//    }
+//  }    
+  
 }

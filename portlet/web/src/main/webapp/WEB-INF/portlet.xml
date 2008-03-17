@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
 <portlet-app version="1.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"> 
+ -->
+ 
+ <portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="1.0">
+
+ 
+ 
+ 
   <portlet>
     <description xml:lang="EN">Banner Portlet</description>
     <portlet-name>BannerPortlet</portlet-name>
@@ -231,6 +240,10 @@
         <read-only>false</read-only>
       </preference>
     </portlet-preferences>
+    
+    <!--supported-processing-event>
+      <name>MyEventPub</name>
+    </supported-processing-event-->
   </portlet>
   
   <portlet>
@@ -267,5 +280,11 @@
     </portlet-preferences>
     
   </portlet>
+  
+  <!--event-definition>
+    <name>MyEventPub</name>
+    <value-type>org.exoplatform.services.portletcontainer.test.portlet2.MyEventPub</value-type>
+  </event-definition-->  
+  
 
 </portlet-app>

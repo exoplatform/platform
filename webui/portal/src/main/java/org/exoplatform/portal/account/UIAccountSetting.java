@@ -28,7 +28,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
 
 @ComponentConfig(
-    template = "system:groovy/portal/webui/portal/UIAccountSettingForm.gtmpl",
+    template = "system:/groovy/portal/webui/portal/UIAccountSettingForm.gtmpl",
     events = {
         @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class)   
     }
