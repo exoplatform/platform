@@ -1,3 +1,594 @@
+.Next16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/BlueNextArrow.gif') ;
+}
+
+.BCHome16x16Icon {	
+  width: 16px ; height: 16px ;
+  background: url('icons/Home.gif') ;
+}
+
+.DownArrow1Icon {
+	background: url('icons/BlueDownArrow.gif') no-repeat right;
+}
+
+.NextArrow1Icon {
+	background: url('icons/BlueNextArrow.gif') no-repeat right;
+}
+
+.RightBlackGridArrow16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/BreadcumbsArrowIcon.gif') ;
+}
+
+.DefaultContainer16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/BlueContainer.gif') ;
+}
+
+.AddNewNodeIcon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/BlueCirclePlus.gif') ;
+}
+
+.BlueCirclePlusIcon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/BlueCirclePlus.gif') ;
+}
+
+.SelectPage16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/SelectPage.gif') ;
+}
+
+.PermissionSettingIcon {
+  width: 17px ; height: 17px ;
+  background: url('icons/PermissionSetting.gif') no-repeat center;
+}
+
+.PreviewIcon {
+  width: 16px ; height: 16px ;
+  background: url('icons/LightBulbOn.gif') ;
+}
+
+.SaveIcon {
+  background: url('icons/FloppyDisk.gif') ;
+}
+
+.OrangeBoxPage16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/MiniOrangeBoxPage.gif') ;
+}
+
+.CancelIcon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/Cancel.gif') ;
+}
+
+.AddPage16x16Icon{
+  width: 16px ; height: 16px ;
+  background: url('icons/AddPage.gif') ;
+}
+
+.GreenArrowPage16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/GreenRightArrowPage.gif') ;
+}
+
+.GreenPlusPage16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/GreenPlusPage.gif') ;
+}
+
+.SelectPageIcon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/SelectIcon.gif') ;
+  margin: auto;
+}
+
+.SelectPortalIcon {
+  width: 16px ;  height: 16px ; margin: auto;
+  background: url('icons/SelectIcon.gif') ;
+}
+
+.SearchIcon {
+  width: 16px ;  height: 16px ; margin: auto;
+  background: url('icons/SearchIcon.png') no-repeat;
+}
+
+.DeletePortalIcon {
+  width: 16px ;  height: 16px ; margin: auto;
+  background: url('icons/DustBin.gif') ;
+}
+
+.OnLightPage16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/OrangeLightPage.gif') ;
+}
+
+.Save16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/FloppyDisk.gif') ;
+}
+
+.Cancel16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/RedCrossCircle.gif') ;
+}
+
+.Close16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/RedCrossCircle.gif') ;
+}
+
+.Refresh16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/RefreshIcon.gif') ;
+}
+
+.Update16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/Refresh.gif') ;
+}
+
+.Back16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/BlueBackArrow.gif') ;
+}
+
+.CloseFolder16x16Icon {
+	width: 16px ;	height: 16px ;
+	background: url('icons/CloseFolder.gif') ;
+}
+
+.OpenFolder16x16Icon {
+	width: 16px ; height: 16px ;
+	background: url('icons/OpenFolder.gif') ;
+}
+
+.Pencil16x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('icons/Pencil.gif') ;
+}
+
+.DustBin16x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('icons/DustBin.gif') ;   
+}
+
+.Level116x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/SmallArrowBox.gif') ;
+}
+
+.Level216x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/BlueSquare.gif') ;
+}
+
+.Level316x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('icons/GreenMiniBox.gif') ;
+}
+
+.CircleInfo16x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('icons/CircleInfo.gif') ;
+}
+
+.Lock16x16Icon {
+	width: 16px ;  height: 16px ;
+  background: url('icons/Lock.gif') ;
+}
+
+.PastePalate16x16Icon {
+	width: 16px ;  height: 16px ;
+  background: url('icons/PastePalate.gif') ;
+}
+
+.BlueNote16x16Icon {
+	width: 16px ;  height: 16px ;
+  background: url('icons/BlueNote.gif') ;
+}
+
+.DoublePaper16x16Icon {
+	width: 16px ;  height: 16px ;
+  background: url('icons/DoublePaper.gif') ;
+}
+
+.LoadingInfo16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/LoadingInfo.gif') ;
+}
+
+.ScissorsEraser16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/ScissorsEraser.gif') ;
+}
+
+.ScissorsEraserWarning16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/ScissorsEraserWarning.gif') ;
+}
+
+.OrangeNote16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/OrangeNote.gif') ;
+}
+
+/********************* Icon PortletIcon************************************/
+
+.PortletIcon {
+  background: url('icons/Earth.gif') no-repeat center;
+}
+
+.Organization {
+  background: url('icons/Earth.gif') no-repeat center;
+}
+
+.Fast {
+  background: url('icons/EditIcon.gif') no-repeat center;
+}
+
+.Account {
+  background: url('icons/UserAccount.gif') no-repeat center;
+}
+
+.Registry-Portlet {
+  background: url('icons/RegistryPortlet.gif') no-repeat center;
+}
+
+.Site {
+  background: url('icons/SiteMap.gif') no-repeat center;
+}
+
+.Login {
+  background: url('icons/ToolIcons/Key.gif') no-repeat center;
+}
+
+.Mail {
+  background: url('icons/OfficeIcons/Email.gif') no-repeat center;
+}
+
+.Forum {
+  background: url('icons/ForumIcon.gif') no-repeat center;
+}
+
+.ECMAdminIcon {
+  background: url('icons/ECMAdmin.gif') no-repeat center;
+}
+
+.ExplorerIcon {
+  background: url('icons/JCRExplorer.gif') no-repeat center;
+}
+
+.Dialog {
+  background: url('icons/DialogIcon.gif') no-repeat center;
+}
+
+.Browse{
+  background: url('icons/BrowseContent.gif') no-repeat center;
+}
+
+.Workflow {
+  background: url('icons/WorkflowIcon.gif') no-repeat center;
+}
+
+/*##############- Misc Icons -#############*/
+.BlueArrowFloppy16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/BlueArrowBlackFloppy.gif') ;
+}
+
+.BlueInfoBox16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/Info.gif') ;
+}
+
+.Config16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/Config.gif') ;
+}
+
+.SelectPermissionIcon {
+  width: 16px ; height: 16px ;
+  background: url('icons/SelectPermission.gif') ;
+}
+
+.Node16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/Node.gif') ;
+}
+
+.Level16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/Level.gif') ;
+}
+
+.Feature16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/Feature.gif') ;
+}
+
+.RSS16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/RSS.gif') ;
+}
+
+.Earth16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/Earth.gif') ;
+}
+
+.AdminView16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/AdminView.gif') ;
+}
+
+.Briefcase16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/Briefcase.gif') ;
+}
+
+.AddNode16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/BlueCirclePlus.gif') ;
+}
+
+.EditIcon {
+  width: 16px ; height: 16px ;
+  background: url('icons/EditIcon.gif') ;
+}
+
+.Organization16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/Organization.gif') ;
+}
+
+.UserRegistration16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/UserRegistration.gif') ;
+}
+
+.Management16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/Management.gif') ;
+}
+
+.PortalAdmin16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/PortalAdmin.gif') ;
+}
+
+.Duplicate16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/Duplicate.gif') ;
+}
+
+.Portal16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/Portal.gif') ;
+}
+
+.Administration16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/Monitor.gif') ;
+}
+
+.SiteMap16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/SiteMap.gif') ;
+}
+
+.SearchPage16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/SearchPage.gif') ;
+}
+
+.BlueCirclePlus16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/BlueCirclePlus.gif') ;
+}
+
+.ShieldGreenPlus16x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('icons/ShieldGreenPlus.gif') ;
+}
+
+.InfoMessage16x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('icons/BlueSquare.gif') ;
+}
+
+.WarningMessageSquare16x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('icons/YellowSquare.gif') ;
+}
+
+.ErrorMessage16x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('icons/RedSquare.gif') ;
+}
+
+.DoubleBrownNoteIcon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/DoubleBrownNote.gif') ;
+}
+
+.Execute16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/Execute.gif') ;
+}
+
+.OrangePencilSourceBox16x16Icon {
+	width: 16px ; height: 16px ;
+	background: url('icons/OrangePencilSourceBox.gif') ;	
+}
+
+.Home16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/Home.gif') ;
+}
+
+.ColorPen16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/ColorPen.gif') ;
+}
+
+.NestedSquare16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/NestedSquare.gif') ;
+}
+
+.VioletInfoWindow16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/VioletInfoWindow.gif') ;
+}
+
+.PageTicker16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/PageTicker.gif') ;
+}
+
+.GreenPlusPage16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/GreenPlusPage.gif') ;
+}
+
+.BlackBorderSquareBlueBall16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/BlackBorderSquareBlueBall.gif') ;
+}
+
+.GreenPlusDataBox16x16Icon {
+	height: 16px ;
+	width: 16px ;	
+	background: url('icons/GreenPlusDatabox.gif') ;
+}
+
+/* TODO: Change image'name to "BlueShapeLeftArrow" */
+.BlueBackArrow16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/BlueBackArrow.gif') ;
+  cursor: pointer;
+}
+
+/* TODO: Change image'name to "BlueShapeRightArrow" */
+.BlueNextArrow16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/BlueNextArrow.gif') ;
+  cursor: pointer;  
+}
+
+.Remove16x16Icon {
+	width: 16px ; height: 16px ;
+  background: url('icons/DustBin.gif') ;   
+}
+
+.GrayBackArrow16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/GrayShapeLeftArrow.gif') ;
+  cursor: pointer;  
+}
+
+.GrayNextArrow16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/GrayShapeRightArrow.gif') ;
+}
+
+.BlueCircleLeftArrow16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/BlueCircleLeftArrow.gif') ;
+}
+
+.BlueCircleRightArrow16x16Icon {
+	width: 16px ;	height: 16px ;
+  background: url('icons/BlueCircleRightArrow.gif') ;
+}
+
+.BlueGridRightArrow16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/BlueGridRightArrow.gif') ;
+}
+
+.GrayDoubleGridDownArrow16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/GrayDoubleGridDownArrow.gif') ;
+}
+
+.GrayFillRightArrow16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/GrayFillRightArrow.gif') ;  
+}
+
+.BlueSquareRightArrow16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/BlueSquareRightArrow.gif') ;  
+}
+
+.DotArrowRight16x16Icon {
+  width: 16px ; height: 16px ;  
+  background: url('icons/DotArrowRight.gif') ;  
+}
+
+.BlackGridRightArrow16x16Icon {
+  width: 16px ; height: 16px ;  
+  background: url('icons/BlackGridRightArrow.gif') ;  
+}
+
+.BlueCloseButton16x16Icon {
+  width: 16px ; height: 16px ;  
+  background: url('icons/BlueCloseButton.gif') ;
+}
+
+.Logout16x16Icon {
+  width: 16px ; height: 16px ;  
+  background: url('icons/RedLogoutIcon.gif') ;
+}
+
+.TreeNode16x16Icon {
+  width: 16px ; height: 16px ;  
+  background: url('icons/TreeNodeIcon.gif') ;
+}
+
+.Scissors16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/Scissors.gif') ;
+}
+
+.HotNews16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/HotNews.gif') ;
+}
+
+.ArrowS1Down16x16Icon {
+  width: 22px ; height: 17px ;
+  background: url('icons/ArrowSLDown.gif') no-repeat center;
+}
+
+.ArrowS1Up16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/WhiteArrowUp.gif') ;
+}
+
+.Portlet16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/DefaultPortletIcon.gif') ;
+}
+
+.Container16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/DefaultContainerIcon.gif') ;
+}
+
+.SmallGroup16x16Icon {
+  width: 16px ; height: 16px ;
+  background: url('icons/SmallGroup.gif') ;
+}
+
+.DefaultPageIcon {
+  background: url('icons/DefaultPageIcon.gif') no-repeat left center;
+}
 
 .MoveUp16x16Icon {
 	background: url('icons/MoveUp.gif') no-repeat left center;
