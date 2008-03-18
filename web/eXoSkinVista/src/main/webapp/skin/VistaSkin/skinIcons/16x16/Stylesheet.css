@@ -806,1099 +806,6 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/WorkflowIcon.gif') no-repeat center;
 }
 
-/*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
-/*===========================Misc Icons Stylesheet=======================*/
-.AcrobatFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/AcrobatFile.gif') no-repeat center left;
-}
-
-.AdminView {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/AdminView.gif') no-repeat center left;
-}
-
-.AllTags {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/AllTags.gif') no-repeat center left;
-}
-
-.AmericanExpressCard {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/AmericanExpressCard.gif') no-repeat center left;
-}
-
-.ApplicationGallery {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ApplicationGallery.gif') no-repeat center left;
-}
-
-.ApplicationLink {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ApplicationLink.gif') no-repeat center left;
-}
-
-.ApplicationList {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ApplicationList.gif') no-repeat center left;
-}
-
-.ApplicationSize {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ApplicationSize.gif') no-repeat center left;
-}
-
-.ApplicationTerminal {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ApplicationTerminal.gif') no-repeat center left;
-}
-
-.ApplicationWorldWide {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ApplicationWorldWide.png') no-repeat center left;
-}
-
-.BlueInfo {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/BlueInfo.gif') no-repeat center left;
-}
-
-.Bomb {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Bomb.png') no-repeat center left;
-}
-
-.BookmarkPage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/BookmarkPage.gif') no-repeat center left;
-}
-
-.BreakLink {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/BreakLink.gif') no-repeat center left;
-}
-
-.Brick {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Brick.gif') no-repeat center left;
-}
-
-.CategoryList {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/CategoryList.gif') no-repeat center left;
-}
-
-.Checkout {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Checkout.gif') no-repeat center left;
-}
-
-.CheckPage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/CheckPage.gif') no-repeat center left;
-}
-
-.Comment {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Comment.gif') no-repeat center left;
-}
-
-.ComponentsList {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ComponentsList.gif') no-repeat center left;
-}
-
-.Config {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Config.gif') no-repeat center left;
-}
-
-.CSS {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/CSS.gif') no-repeat center left;
-}
-
-
-.DiskDrive {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/DiskDrive.gif') no-repeat center left;
-}
-
-.DownloadApplication {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/DownloadApplication.gif') no-repeat center left;
-}
-
-.DreamweaverApplication {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/DreamweaverApplication.gif') no-repeat center left;
-}
-
-.DynamicContentPage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/DynamicContentPage.gif') no-repeat center left;
-}
-
-.Extension {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Extension.gif') no-repeat center left;
-}
-
-.Factory {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Factory.gif') no-repeat center left;
-}
-
-.Feature {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Feature.gif') no-repeat center left;
-}
-
-.Flash {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Flash.gif') no-repeat center left;
-}
-
-.FlashFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/FlashFile.gif') no-repeat center left;
-}
-
-.FolderLock {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/FolderLock.gif') no-repeat center left;
-}
-
-.FontFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/FontFile.gif') no-repeat center left;
-}
-
-.Glove {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Glove.gif') no-repeat center left;
-}
-
-.Home {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Home.gif') no-repeat center left;
-}
-
-.HTML {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/HTML.gif') no-repeat center left;
-}
-
-.Humer {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Humer.gif') no-repeat center left;
-}
-
-.IconsView {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/IconsView.gif') no-repeat center left;
-}
-
-.ImageFrame {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ImageFrame.gif') no-repeat center left;
-}
-
-.Images {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Images.gif') no-repeat center left;
-}
-
-.ImagesFolder {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ImagesFolder.gif') no-repeat center left;
-}
-
-.ImageSize {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ImageSize.gif') no-repeat center left;
-}
-
-.ImagesList {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/ImagesList.gif') no-repeat center left;
-}
-
-.Info {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Info.png') no-repeat center left;
-}
-
-.InstallerProgress {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/InstallerProgress.gif') no-repeat center left;
-}
-
-.JavaPge {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/JavaPge.gif') no-repeat center left;
-}
-
-.Layout {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Layout.gif') no-repeat center left;
-}
-
-.Link {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Link.gif') no-repeat center left;
-}
-
-.LockPage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/LockPage.gif') no-repeat center left;
-}
-
-.MasterCard {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/MasterCard.gif') no-repeat center left;
-}
-
-.Music {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Music.gif') no-repeat center left;
-}
-
-.MusicDownload {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/MusicDownload.gif') no-repeat center left;
-}
-
-.New {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/New.gif') no-repeat center left;
-}
-
-.PackagesList {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/PackagesList.gif') no-repeat center left;
-}
-
-.PageCategory {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/PageCategory.gif') no-repeat center left;
-}
-
-.PhotoshopFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/PhotoshopFile.gif') no-repeat center left;
-}
-
-.Printer {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Printer.gif') no-repeat center left;
-}
-
-.Puzzle {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Puzzle.gif') no-repeat center left;
-}
-
-.QuicktimeMovieFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/QuicktimeMovieFile.gif') no-repeat center left;
-}
-
-.Rainbow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Rainbow.gif') no-repeat center left;
-}
-
-.RefeshPage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/RefeshPage.gif') no-repeat center left;
-}
-
-.RSS {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/RSS.gif') no-repeat center left;
-}
-
-.RSSFeed {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/RSSFeed.gif') no-repeat center left;
-}
-
-.SearchFolder {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/SearchFolder.gif') no-repeat center left;
-}
-
-.Security {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Security.gif') no-repeat center left;
-}
-
-.Software {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Software.gif') no-repeat center left;
-}
-
-.Speaker {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Speaker.gif') no-repeat center left;
-}
-
-.Speaker2 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Speaker2.gif') no-repeat center left;
-}
-
-.StarAward {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/StarAward.gif') no-repeat center left;
-}
-
-.StarPage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/StarPage.gif') no-repeat center left;
-}
-
-.Stats {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Stats.gif') no-repeat center left;
-}
-
-.TagPage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/TagPage.gif') no-repeat center left;
-}
-
-.TagSign {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/TagSign.gif') no-repeat center left;
-}
-
-.Ticket {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Ticket.gif') no-repeat center left;
-}
-
-.TrueTypeFont {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/TrueTypeFont.gif') no-repeat center left;
-}
-
-.Tux {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Tux.gif') no-repeat center left;
-}
-
-.Vector {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Vector.gif') no-repeat center left;
-}
-
-.Version {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/Version.gif') no-repeat center left;
-}
-
-.VisaCard {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/VisaCard.gif') no-repeat center left;
-}
-
-.WeatherClouds {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/WeatherClouds.gif') no-repeat center left;
-}
-
-.WeatherCloudy {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/WeatherCloudy.gif') no-repeat center left;
-}
-
-.WeatherLightning {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/WeatherLightning.gif') no-repeat center left;
-}
-
-.WeatherRain {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/WeatherRain.gif') no-repeat center left;
-}
-
-.WeatherSnow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/WeatherSnow.gif') no-repeat center left;
-}
-
-.WeatherSun {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/WeatherSun.gif') no-repeat center left;
-}
-
-.World {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/World.gif') no-repeat center left;
-}
-
-.XHTML {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/XHTML.gif') no-repeat center left;
-}
-
-.YellowStar {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiscIcons/YellowStar.png') no-repeat center left;
-}
-/*===========================End Misc Icons Stylesheet=======================*/
-
-/*===========================Navigation Icons Stylesheet=======================*/
-.BlackDownSolidArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlackDownSolidArrow.gif') no-repeat center left;
-}
-
-.BlackLeftSolidArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlackLeftSolidArrow.gif') no-repeat center left;
-}
-
-.BlackRightSolidArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlackRightSolidArrow.gif') no-repeat center left;
-}
-
-.BlackUpSolidArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlackUpSolidArrow.gif') no-repeat center left;
-}
-
-.BlueAquaBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueAquaBallBullet.gif') no-repeat center left;
-}
-
-.BlueArrowIn {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueArrowIn.gif') no-repeat center left;
-}
-
-.BlueArrowInOut {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueArrowInOut.gif') no-repeat center left;
-}
-
-.BlueBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueBallBullet.gif') no-repeat center left;
-}
-
-.BlueBranchArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueBranchArrow.gif') no-repeat center left;
-}
-
-.BlueDividedArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueDividedArrow.gif') no-repeat center left;
-}
-
-.BlueDownArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueDownArrow.gif') no-repeat center left;
-}
-
-.BlueJoinArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueJoinArrow.gif') no-repeat center left;
-}
-
-.BlueRedoArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueRedoArrow.gif') no-repeat center left;
-}
-
-.BlueRotateRightArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueRotateRightArrow.gif') no-repeat center left;
-}
-
-.BlueSquareBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueSquareBullet.gif') no-repeat center left;
-}
-
-.BlueSwitchArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueSwitchArrow.gif') no-repeat center left;
-}
-
-.BlueTriangleBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueTriangleBullet.gif') no-repeat center left;
-}
-
-.BlueUndoArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueUndoArrow.gif') no-repeat center left;
-}
-
-.BlueUpArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/BlueUpArrow.gif') no-repeat center left;
-}
-
-.Check {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/Check.png') no-repeat center left;
-}
-
-.Check2 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/Check2.gif') no-repeat center left;
-}
-
-.Delete {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/Delete.gif') no-repeat center left;
-}
-
-.Forward {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/Forward.gif') no-repeat center left;
-}
-
-.GrassGreenBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/GrassGreenBallBullet.gif') no-repeat center left;
-}
-
-.GreenBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/GreenBallBullet.gif') no-repeat center left;
-}
-
-.GreenSquareBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/GreenSquareBullet.gif') no-repeat center left;
-}
-
-.GreenTriangleBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/GreenTriangleBullet.gif') no-repeat center left;
-}
-
-.GreyAquaBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/GreyAquaBallBullet.gif') no-repeat center left;
-}
-
-.GreyBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/GreyBallBullet.gif') no-repeat center left;
-}
-
-.GreyLeftShapeArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/GreyLeftShapeArrow.gif') no-repeat center left;
-}
-
-.GreySquareBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/GreySquareBullet.gif') no-repeat center left;
-}
-
-.GreyTriangleBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/GreyTriangleBullet.gif') no-repeat center left;
-}
-
-.RedAquaBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/RedAquaBallBullet.gif') no-repeat center left;
-}
-
-.RedBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/RedBallBullet.gif') no-repeat center left;
-}
-
-.RedSquareBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/RedSquareBullet.gif') no-repeat center left;
-}
-
-.RedTriangleBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/RedTriangleBullet.gif') no-repeat center left;
-}
-
-.Reply {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/Reply.gif') no-repeat center left;
-}
-
-.RightShapeArrow {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/RightShapeArrow.gif') no-repeat center left;
-}
-
-.YellowAquaBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/YellowAquaBallBullet.gif') no-repeat center left;
-}
-
-.YellowBallBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/YellowBallBullet.gif') no-repeat center left;
-}
-
-.YellowSquareBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/YellowSquareBullet.gif') no-repeat center left;
-}
-
-.YellowTriangleBullet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcons/YellowTriangleBullet.gif') no-repeat center left;
-}
-
-/*===========================End Navigation Icons Stylesheet=======================*/
-/*===========================Office Icons Stylesheet=======================*/
-.AddressBook {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/AddressBook.gif') no-repeat center left;
-}
-
-.ArticleDocument {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/ArticleDocument.gif') no-repeat center left;
-}
-
-.At {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/At.png') no-repeat center left;
-}
-
-.Attachment {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Attachment.gif') no-repeat center left;
-}
-
-.Book {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Book.gif') no-repeat center left;
-}
-
-.Chair {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Chair.gif') no-repeat center left;
-}
-
-.ChartBar {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/ChartBar.gif') no-repeat center left;
-}
-
-.ChartLine {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/ChartLine.gif') no-repeat center left;
-}
-
-.CoffeeCup {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/CoffeeCup.gif') no-repeat center left;
-}
-
-.CoinsCurency {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/CoinsCurency.gif') no-repeat center left;
-}
-
-.Computer {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Computer.gif') no-repeat center left;
-}
-
-.Conference {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Conference.gif') no-repeat center left;
-}
-
-.Date {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Date.gif') no-repeat center left;
-}
-
-.DocumentBox {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/DocumentBox.gif') no-repeat center left;
-}
-
-.Door {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Door.gif') no-repeat center left;
-}
-
-.DreamweaverFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/DreamweaverFile.gif') no-repeat center left;
-}
-
-.Email {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Email.gif') no-repeat center left;
-}
-
-.Envelope {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Envelope.gif') no-repeat center left;
-}
-
-.ExeFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/ExeFile.gif') no-repeat center left;
-}
-
-.FloppyDisk {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/FloppyDisk.gif') no-repeat center left;
-}
-
-.Folder1 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Folder1.gif') no-repeat center left;
-}
-
-.Folder2 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Folder2.gif') no-repeat center left;
-}
-
-.Folder3 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Folder3.gif') no-repeat center left;
-}
-
-.Folder4 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Folder4.gif') no-repeat center left;
-}
-
-.Folder5 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Folder5.gif') no-repeat center left;
-}
-
-.HomePage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/HomePage.gif') no-repeat center left;
-}
-
-.HotNews {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/HotNews.gif') no-repeat center left;
-}
-
-.IDCard {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/IDCard.gif') no-repeat center left;
-}
-
-.IllustratorFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/IllustratorFile.gif') no-repeat center left;
-}
-
-.IndesignFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/IndesignFile.gif') no-repeat center left;
-}
-
-.Index {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Index.gif') no-repeat center left;
-}
-
-.Keyboard {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Keyboard.gif') no-repeat center left;
-}
-
-.Letter {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Letter.gif') no-repeat center left;
-}
-
-.MacOSXFolder {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/MacOSXFolder.gif') no-repeat center left;
-}
-
-.Mail {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Mail.gif') no-repeat center left;
-}
-
-.Map {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Map.gif') no-repeat center left;
-}
-
-.Monitor {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Monitor.gif') no-repeat center left;
-}
-
-.Mouse {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Mouse.gif') no-repeat center left;
-}
-
-.Newspaper {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Newspaper.gif') no-repeat center left;
-}
-
-.Newspaper2 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Newspaper2.gif') no-repeat center left;
-}
-
-.NotePage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/NotePage.gif') no-repeat center left;
-}
-
-.OpenBook {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/OpenBook.gif') no-repeat center left;
-}
-
-.OpenEmail {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/OpenEmail.gif') no-repeat center left;
-}
-
-.OpenFolder {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/OpenFolder.gif') no-repeat center left;
-}
-
-.Page {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Page.gif') no-repeat center left;
-}
-
-.PaperList {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/PaperList.gif') no-repeat center left;
-}
-
-.PastePalate {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/PastePalate.gif') no-repeat center left;
-}
-
-.Picture {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Picture.gif') no-repeat center left;
-}
-
-.Purchase {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Purchase.gif') no-repeat center left;
-}
-
-.Script {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Script.gif') no-repeat center left;
-}
-
-.SearchPage {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/SearchPage.gif') no-repeat center left;
-}
-
-.ShoppingBag {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/ShoppingBag.gif') no-repeat center left;
-}
-
-.Sitemap {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Sitemap.gif') no-repeat center left;
-}
-
-.Stats2 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Stats2.gif') no-repeat center left;
-}
-
-.Tag {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Tag.gif') no-repeat center left;
-}
-
-.Telephone {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/Telephone.gif') no-repeat center left;
-}
-
-.TextFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/TextFile.gif') no-repeat center left;
-}
-
-.YellowFolder {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/YellowFolder.gif') no-repeat center left;
-}
-
-.YellowPen {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/YellowPen.gif') no-repeat center left;
-}
-
-.ZipFile {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/OfficeIcons/ZipFile.gif') no-repeat center left;
-}
-/*===========================End Office Icons Stylesheet=======================*/
-/*===========================Tool Icons Stylesheet=======================*/
-.Alarm {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Alarm.gif') no-repeat center left;
-}
-
-.Anchor {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Anchor.gif') no-repeat center left;
-}
-
-.Basketball {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Basketball.gif') no-repeat center left;
-}
-
-.Bell {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Bell.gif') no-repeat center left;
-}
-
-.Billards {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Billards.gif') no-repeat center left;
-}
-
-.BlueActionWheel {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/BlueActionWheel.gif') no-repeat center left;
-}
-
-.BlueFlag {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/BlueFlag.gif') no-repeat center left;
-}
-
-.Box {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Box.gif') no-repeat center left;
-}
-
-.BriefCase {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/BriefCase.gif') no-repeat center left;
-}
-
-.Calculator {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Calculator.gif') no-repeat center left;
-}
-
-.Calendar {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Calendar.gif') no-repeat center left;
-}
-
-.Cart {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Cart.gif') no-repeat center left;
-}
-
-.CD {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/CD.gif') no-repeat center left;
-}
-
-.Clock {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Clock.gif') no-repeat center left;
-}
-
-.Component {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Component.gif') no-repeat center left;
-}
-
-.CropTool {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/CropTool.gif') no-repeat center left;
-}
-
-.DeskPhone {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/DeskPhone.gif') no-repeat center left;
-}
-
-.EmptyBox {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/EmptyBox.gif') no-repeat center left;
-}
-
-.Entertainment {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Entertainment.gif') no-repeat center left;
-}
-
-.FileBox {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/FileBox.gif') no-repeat center left;
-}
-
-.FirefoxBrowser {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/FirefoxBrowser.gif') no-repeat center left;
-}
-
-.FolderExport {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/FolderExport.gif') no-repeat center left;
-}
-
-.FolderImport {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/FolderImport.gif') no-repeat center left;
-}
-
-.Football {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Football.gif') no-repeat center left;
-}
-
-.Gear {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Gear.gif') no-repeat center left;
-}
-
-.Golf {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Golf.gif') no-repeat center left;
-}
-
-.GrayWallet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/GrayWallet.gif') no-repeat center left;
-}
-
-.GreenFlag {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/GreenFlag.gif') no-repeat center left;
-}
-
-.GreyFlag {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/GreyFlag.gif') no-repeat center left;
-}
-
-.HardDisk {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/HardDisk.gif') no-repeat center left;
-}
-
-.HourGlass {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/HourGlass.gif') no-repeat center left;
-}
-
-.Key {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Key.gif') no-repeat center left;
-}
-
-.Light {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Light.gif') no-repeat center left;
-}
-
-.Lock {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Lock.gif') no-repeat center left;
-}
-
-.MacApplicationTool {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/MacApplicationTool.gif') no-repeat center left;
-}
-
-.MacMonitor {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/MacMonitor.gif') no-repeat center left;
-}
-
-.Magnifier {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Magnifier.gif') no-repeat center left;
-}
-
-.MoveTool {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/MoveTool.gif') no-repeat center left;
-}
-
-.Movie {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Movie.gif') no-repeat center left;
-}
-
-.Network {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Network.gif') no-repeat center left;
-}
-
-.Paste {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Paste.gif') no-repeat center left;
-}
-
-.PCMonitor {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/PCMonitor.gif') no-repeat center left;
-}
-
-.Pencil {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Pencil.gif') no-repeat center left;
-}
-
-.Raquet {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Raquet.gif') no-repeat center left;
-}
-
-.RedFlag {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/RedFlag.gif') no-repeat center left;
-}
-
-.Ruler {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Ruler.gif') no-repeat center left;
-}
-
-.Search {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Search.png') no-repeat center left;
-}
-
-.Shield {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Shield.png') no-repeat center left;
-}
-
-.Shuttlecock {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Shuttlecock.gif') no-repeat center left;
-}
-
-.Soccer {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Soccer.gif') no-repeat center left;
-}
-
-.Sound {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Sound.gif') no-repeat center left;
-}
-
-.Switcher {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Switcher.gif') no-repeat center left;
-}
-
-.Tennis {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Tennis.gif') no-repeat center left;
-}
-
-.ToolBoxOpen {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/ToolBoxOpen.gif') no-repeat center left;
-}
-
-.UnLock {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/UnLock.gif') no-repeat center left;
-}
-
-.VolumeControl {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/VolumeControl.gif') no-repeat center left;
-}
-
-.Wand {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Wand.gif') no-repeat center left;
-}
-
-.Warning {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Warning.gif') no-repeat center left;
-}
-
-.Webcam {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Webcam.gif') no-repeat center left;
-}
-
-.Wrench {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/Wrench.gif') no-repeat center left;
-}
-
-.YellowBulb {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/YellowBulb.gif') no-repeat center left;
-}
-
-.YellowFlag {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ToolIcons/YellowFlag.gif') no-repeat center left;
-}
-
-/*===========================End Tool Icons Stylesheet=======================*/
-/*===========================User Icons Stylesheet=======================*/
-.Comment {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Comment.gif') no-repeat center left;
-}
-
-.Contact {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Contact.gif') no-repeat center left;
-}
-
-.Eye {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Eye.gif') no-repeat center left;
-}
-
-.Finger {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Finger.gif') no-repeat center left;
-}
-
-.FolderHolder {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/FolderHolder.gif') no-repeat center left;
-}
-
-.Hand {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Hand.gif') no-repeat center left;
-}
-
-.HandPoint {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/HandPoint.gif') no-repeat center left;
-}
-
-.Help {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Help.gif') no-repeat center left;
-}
-
-.Personal {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Personal.png') no-repeat center left;
-}
-
-.Public {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Public.gif') no-repeat center left;
-}
-
-.User {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/User.gif') no-repeat center left;
-}
-
-.VIPCard {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/VIPCard.gif') no-repeat center left;
-}
-
-.Woman1 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Woman1.png') no-repeat center left;
-}
-
-.Woman2 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Woman2.png') no-repeat center left;
-}
-
-.Woman3 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Woman3.png') no-repeat center left;
-}
-
-.Woman4 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Woman4.png') no-repeat center left;
-}
-
-.Worker1 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Worker.png') no-repeat center left;
-}
-
-.Worker2 {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/Worker2.png') no-repeat center left;
-}
-
-.YellowComment {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/YellowComment.gif') no-repeat center left;
-}
 
 .MoveUp16x16Icon {
 	background: url('icons/MoveUp.gif') no-repeat left center;
@@ -1906,5 +813,1100 @@
 
 .MoveDown16x16Icon {
 	background: url('icons/MoveDown.gif') no-repeat left center;
+}
+
+/*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
+
+/*===========================Misc Icons Stylesheet=======================*/
+.AcrobatFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat top left;
+}
+
+.AdminView {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px top;
+}
+
+.AllTags {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px top;
+}
+
+.AmericanExpressCard {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px top;
+}
+
+.ApplicationGallery {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px top;
+}
+
+.ApplicationLink {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px top;
+}
+
+.ApplicationList {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px top;
+}
+
+.ApplicationSize {
+ background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px top;
+}
+
+.ApplicationTerminal {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px top;
+}
+
+.ApplicationWorldWide {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px top;
+}
+
+.BlueInfo {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px top;
+}
+
+.Bomb {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px top;
+}
+
+.BookmarkPage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px top;
+}
+
+.BreakLink {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px top;
+}
+
+.Brick {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px top;
+}
+
+.CategoryList {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px top;
+}
+
+.Checkout {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px top;
+}
+
+.CheckPage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px top;
+}
+
+.Comment {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px top;
+}
+
+.ComponentsList {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px top;
+}
+
+.Config {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -16px;
+}
+
+.CSS {
+   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -16px;
+}
+
+
+.DiskDrive {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -16px;
+}
+
+.DownloadApplication {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -16px;
+}
+
+.DreamweaverApplication {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -16px;
+}
+
+.DynamicContentPage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -16px;
+}
+
+.Extension {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -16px;
+}
+
+.Factory {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -16px;
+}
+
+.Feature {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -16px;
+}
+
+.Flash {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -16px;
+}
+
+.FlashFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -16px;
+}
+
+.FolderLock {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -16px;
+}
+
+.FontFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -16px;
+}
+
+.Glove {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -16px;
+}
+
+.Home {
+   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -16px;
+}
+
+.HTML {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -16px;
+}
+
+.Humer {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -16px;
+}
+
+.IconsView {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -16px;
+}
+
+.ImageFrame {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -16px;
+}
+
+.Images {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -16px;
+}
+
+.ImagesFolder {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -32px;
+}
+
+.ImageSize {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -32px;
+}
+
+.ImagesList {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -32px;
+}
+
+.Info {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -32px;
+}
+
+.InstallerProgress {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -32px;
+}
+
+.JavaPge {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -32px;
+}
+
+.Layout {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -32px;
+}
+
+.Link {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -32px;
+}
+
+.LockPage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -32px;
+}
+
+.MasterCard {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -32px;
+}
+
+.Music {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -32px;
+}
+
+.MusicDownload {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -32px;
+}
+
+.New {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -32px;
+}
+
+.PackagesList {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -32px;
+}
+
+.PageCategory {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -32px;
+}
+
+.PhotoshopFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -32px;
+}
+
+.Printer {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -32px;
+}
+
+.Puzzle {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -32px;
+}
+
+.QuicktimeMovieFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -32px;
+}
+
+.Rainbow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -32px;
+}
+
+.RefeshPage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -48px;
+}
+
+.RSS {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -48px;
+}
+
+.RSSFeed {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -48px;
+}
+
+.SearchFolder {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -48px;
+}
+
+.Security {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -48px;
+}
+
+.Software {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -48px;
+}
+
+.Speaker {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -48px;
+}
+
+.Speaker2 {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -48px;
+}
+
+.StarAward {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -48px;
+}
+
+.StarPage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -48px;
+}
+
+.Stats {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -48px;
+}
+
+.TagPage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -48px;
+}
+
+.TagSign {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -48px;
+}
+
+.Ticket {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -48px;
+}
+
+.TrueTypeFont {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -48px;
+}
+
+.Tux {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -48px;
+}
+
+.Vector {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -48px;
+}
+
+.Version {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -48px;
+}
+
+.VisaCard {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -48px;
+}
+
+.WeatherClouds {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -48px;
+}
+
+.WeatherCloudy {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -64px;
+}
+
+.WeatherLightning {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -64px;
+}
+
+.WeatherRain {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -64px;
+}
+
+.WeatherSnow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -64px;
+}
+
+.WeatherSun {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -64px;
+}
+
+.World {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -64px;
+}
+
+.XHTML {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -64px;
+}
+
+.YellowStar {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -64px;
+}
+/*===========================End Misc Icons Stylesheet=======================*/
+
+/*===========================Office Icons Stylesheet=======================*/
+.AddressBook {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -80px;
+}
+
+.ArticleDocument {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -80px;
+}
+
+.At {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -80px;
+}
+
+.Attachment {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -80px;
+}
+
+.Book {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -80px;
+}
+
+.Chair {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -80px;
+}
+
+.ChartBar {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -80px;
+}
+
+.ChartLine {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -80px;
+}
+
+.CoffeeCup {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -80px;
+}
+
+.CoinsCurency {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -80px;
+}
+
+.Computer {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -80px;
+}
+
+.Conference {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -80px;
+}
+
+.Date {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -80px;
+}
+
+.DocumentBox {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -80px;
+}
+
+.Door {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -80px;
+}
+
+.DreamweaverFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -80px;
+}
+
+.Email {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -80px;
+}
+
+.Envelope {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -80px;
+}
+
+.ExeFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -80px;
+}
+
+.FloppyDisk {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -80px;
+}
+
+.Folder1 {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -96px;
+}
+
+.Folder2 {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -96px;
+}
+
+.Folder3 {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -96px;
+}
+
+.Folder4 {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -96px;
+}
+
+.Folder5 {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -96px;
+}
+
+.HomePage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -96px;
+}
+
+.HotNews {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -96px;
+}
+
+.IDCard {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -96px;
+}
+
+.IllustratorFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -96px;
+}
+
+.IndesignFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -96px;
+}
+
+.Index {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -96px;
+}
+
+.Keyboard {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -96px;
+}
+
+.Letter {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -96px;
+}
+
+.MacOSXFolder {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -96px;
+}
+
+.Mail {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -96px;
+}
+
+.Map {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -96px;
+}
+
+.Monitor {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -96px;
+}
+
+.Mouse {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -96px;
+}
+
+.Newspaper {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -96px;
+}
+
+.Newspaper2 {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -96px;
+}
+
+.NotePage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -112px;
+}
+
+.OpenBook {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -112px;
+}
+
+.OpenEmail {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -112px;
+}
+
+.OpenFolder {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -112px;
+}
+
+.Page {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -112px;
+}
+
+.PaperList {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -112px;
+}
+
+.PastePalate {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -112px;
+}
+
+.Picture {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -112px;
+}
+
+.Purchase {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -112px;
+}
+
+.Script {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -112px;
+}
+
+.SearchPage {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -112px;
+}
+
+.ShoppingBag {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -112px;
+}
+
+.Sitemap {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -112px;
+}
+
+.Stats2 {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -112px;
+}
+
+.Tag {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -112px;
+}
+
+.Telephone {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -112px;
+}
+
+.TextFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -112px;
+}
+
+.YellowFolder {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -112px;
+}
+
+.YellowPen {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -112px;
+}
+.ZipFile {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -112px;
+}
+/*===========================End Office Icons Stylesheet=======================*/
+
+/*===========================Navigation Icons Stylesheet=======================*/
+.BlackDownSolidArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -128px;
+}
+
+.BlackLeftSolidArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -128px;
+}
+
+.BlackRightSolidArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -128px;
+}
+
+.BlackUpSolidArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -128px;
+}
+
+.BlueAquaBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -128px;
+}
+
+.BlueArrowIn {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -128px;
+}
+
+.BlueArrowInOut {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -128px;
+}
+
+.BlueBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -128px;
+}
+
+.BlueBranchArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -128px;
+}
+
+.BlueDividedArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -128px;
+}
+
+.BlueDownArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -128px;
+}
+
+.BlueJoinArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -128px;
+}
+
+.BlueRedoArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -128px;
+}
+
+.BlueRotateRightArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -128px;
+}
+
+.BlueSquareBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -128px;
+}
+
+.BlueSwitchArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -128px;
+}
+
+.BlueTriangleBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -128px;
+}
+
+.BlueUndoArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -128px;
+}
+
+.BlueUpArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -128px;
+}
+
+.Check {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -128px;
+}
+
+.Check2 {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -144px;
+}
+
+.Delete {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -144px;
+}
+
+.Forward {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -144px;
+}
+
+.GrassGreenBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -144px;
+}
+
+.GreenBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -144px;
+}
+
+.GreenSquareBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -144px;
+}
+
+.GreenTriangleBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -144px;
+}
+
+.GreyAquaBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -144px;
+}
+
+.GreyBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -144px;
+}
+
+.GreyLeftShapeArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -144px;
+}
+
+.GreySquareBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -144px;
+}
+
+.GreyTriangleBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -144px;
+}
+
+.RedAquaBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -144px;
+}
+
+.RedBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -144px;
+}
+
+.RedSquareBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -144px;
+}
+
+.RedTriangleBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -144px;
+}
+
+.Reply {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -144px;
+}
+
+.RightShapeArrow {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -144px;
+}
+
+.YellowAquaBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -144px;
+}
+
+.YellowBallBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -144px;
+}
+
+.YellowSquareBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -160px;
+}
+
+.YellowTriangleBullet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -160px;
+}
+
+/*===========================End Navigation Icons Stylesheet=======================*/
+
+/*===========================Tool Icons Stylesheet=======================*/
+.Alarm {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -176px;
+}
+
+.Anchor {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -176px;
+}
+
+.Basketball {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -176px;
+}
+
+.Bell {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -176px;
+}
+
+.Billards {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -176px;
+}
+
+.BlueActionWheel {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -176px;
+}
+
+.BlueFlag {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -176px;
+}
+
+.Box {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -176px;
+}
+
+.BriefCase {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -176px;
+}
+
+.Calculator {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -176px;
+}
+
+.Calendar {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -176px;
+  
+}
+
+.Cart {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -176px;
+}
+
+.CD {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -176px;
+}
+
+.Clock {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -176px;
+}
+
+.Component {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -176px;
+}
+
+.CropTool {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -176px;
+}
+
+.DeskPhone {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -176px;
+}
+
+.EmptyBox {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -176px;
+}
+
+.Entertainment {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -176px;
+}
+
+.FileBox {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -176px;
+}
+
+.FirefoxBrowser {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -192px;
+}
+
+.FolderExport {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -192px;
+}
+
+.FolderImport {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -192px;
+}
+
+.Football {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -192px;
+}
+
+.Gear {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -192px;
+}
+
+.Golf {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -192px;
+}
+
+.GrayWallet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -192px;
+}
+
+.GreenFlag {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -192px;
+}
+
+.GreyFlag {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -192px;
+}
+
+.HardDisk {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -192px;
+}
+
+.HourGlass {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -192px;
+}
+
+.Key {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -192px;
+}
+
+.Light {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -192px;
+}
+
+.Lock {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -192px;
+}
+
+.MacApplicationTool {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -192px;
+}
+
+.MacMonitor {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -192px;
+}
+
+.Magnifier {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -192px;
+}
+
+.MoveTool {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -192px;
+}
+
+.Movie {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -192px;
+}
+
+.Network {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -192px;
+}
+
+.Paste {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -208px;
+}
+
+.PCMonitor {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -208px;
+}
+
+.Pencil {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -208px;
+}
+
+.Raquet {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -208px;
+}
+
+.RedFlag {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -208px;
+}
+
+.Ruler {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -208px;
+}
+
+.Search {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -208px;
+}
+
+.Shield {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -208px;
+}
+
+.Shuttlecock {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -208px;
+}
+
+.Soccer {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -208px;
+}
+
+.Sound {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -208px;
+}
+
+.Switcher {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -208px;
+}
+
+.Tennis {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -208px;
+}
+
+.ToolBoxOpen {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -208px;
+}
+
+.UnLock {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -208px;
+}
+
+.VolumeControl {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -208px;
+}
+
+.Wand {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -208px;
+}
+
+.Warning {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -208px;
+}
+
+.Webcam {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -208px;
+}
+
+.Wrench {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -304px -208px;
+}
+
+.YellowBulb {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat left -224px;
+}
+
+.YellowFlag {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px -224px;
+}
+/*===========================End Tool Icons Stylesheet=======================*/
+
+/*===========================User Icons Stylesheet=======================*/
+
+
+.Contact {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -16px  -240px;
+}
+
+.Eye {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -32px -240px;
+}
+
+.Finger {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -48px -240px;
+}
+
+.FolderHolder {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -64px -240px;
+}
+
+.Hand {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -80px -240px;
+}
+
+.HandPoint {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -96px -240px;
+}
+
+.Help {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -112px -240px;
+}
+
+.Personal {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -128px -240px;
+}
+
+.Public {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -144px -240px;
+}
+
+.User {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -160px -240px;
+}
+
+.VIPCard {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -176px -240px;
+}
+
+.Woman1 {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -192px -240px;
+}
+
+.Woman2 {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -208px -240px;
+}
+
+.Woman3 {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -224px -240px;
+}
+
+.Woman4 {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -240px -240px;
+}
+
+.Worker1 {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -256px -240px;
+}
+
+.Worker2 {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -272px -240px;
+}
+
+.YellowComment {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/IconSelector.gif') no-repeat -288px -240px;
 }
 /*===========================End User Icons Stylesheet=======================*/
