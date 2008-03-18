@@ -41,6 +41,9 @@ public interface IRSSItem {
   public void setLink(String link);  
   public String getLink();
   
+  public void setCreator(String creator) ; 
+  public String getCreator();
+  
   public void setNode(XMLNode node);  
   public XMLNode getNode();
   

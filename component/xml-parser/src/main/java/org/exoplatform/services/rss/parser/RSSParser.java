@@ -109,7 +109,7 @@ public class RSSParser {
     if(children.size() < 1) return null;
     for(XMLNode ele : children){           
       if(ele.isNode("title") && ele.getTotalChildren() > 0) {
-        item.setTitle(removeCData(ele.getChild(0).getNodeValue().trim()));        
+        item.setTitle(removeCData(ele.getChild(0).getNodeValue().trim()));
       } else if((ele.isNode("description") || ele.isNode("summary") 
           || ele.isNode("content")) && ele.getTotalChildren() > 0){ 
         if(item.getDesc() == null || item.getDesc().trim().length() < 1){ 
@@ -126,7 +126,10 @@ public class RSSParser {
       else if((ele.isNode("pubDate") || ele.isNode("issued")) && ele.getTotalChildren() > 0) 
         item.setTime(ele.getChild(0).getNodeValue());
       else if(ele.isNode("image") && ele.getTotalChildren() > 0)
-        item.setImage(ele.getChild(0).getNodeValue());        
+        item.setImage(ele.getChild(0).getNodeValue());
+      //TODO: set creator of content
+      else if(ele.isNode("creator") && ele.getTotalChildren() > 0)
+        item.setCreator((ele.getChild(0).getNodeValue())) ;
     }    
     return item;
   }

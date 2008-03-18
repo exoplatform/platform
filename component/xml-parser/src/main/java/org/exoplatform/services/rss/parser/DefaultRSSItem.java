@@ -24,11 +24,11 @@ import org.exoplatform.services.xml.parser.XMLNode;
  * Created by The eXo Platform SARL        .
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
- * Mar 13, 2006
+ * Mar 13, 2006../
  */
 public class DefaultRSSItem implements IRSSItem {  
   
-  private String title = "", desc =  "", image = "",  time = "", link = ""; 
+  private String title = "", desc =  "", image = "",  time = "", link = "", creator = ""; 
   private XMLNode node;
   
   public DefaultRSSItem() {} 
@@ -47,6 +47,10 @@ public class DefaultRSSItem implements IRSSItem {
   
   public void setLink(String link){ this.link = link; }  
   public String getLink(){ return link; }
+  
+  //TODO: dang.tung add new creator of content
+  public void setCreator(String creator){this.creator = creator; }  
+  public String getCreator(){ return creator; }
   
   public void setNode(XMLNode node){ this.node = node; }  
   public XMLNode getNode(){ return node; }
