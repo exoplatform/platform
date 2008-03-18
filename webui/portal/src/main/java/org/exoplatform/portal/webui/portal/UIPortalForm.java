@@ -105,7 +105,7 @@ public class UIPortalForm extends UIFormTabPane {
     super("UIPortalForm");
     UIFormInputItemSelector uiTemplateInput = new  UIFormInputItemSelector("PortalTemplate", null);
     addUIFormInput(uiTemplateInput) ;
-    setSelectedTab(uiTemplateInput.getId()) ; //TODO: dang.tung - set which tab will be display first
+    setSelectedTab(uiTemplateInput.getId()) ;
     createDefaultItem();
     
     UIFormInputSet uiPortalSetting = this.<UIFormInputSet>getChildById("PortalSetting");

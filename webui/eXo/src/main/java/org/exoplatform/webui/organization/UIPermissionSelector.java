@@ -105,7 +105,7 @@ public class UIPermissionSelector extends UISelector<String> {
       String value = (String)uiInputContainer.getValue() ; 
       if(value == null || value.trim().length() < 1) {
         String[] args =  {uiInputContainer.getBindingField()} ;
-        throw new MessageException(new ApplicationMessage("MandatoryValidator.msg.empty", args, ApplicationMessage.INFO)) ;
+        throw new MessageException(new ApplicationMessage("MandatoryValidatorIterator.msg.empty", args, ApplicationMessage.INFO)) ;
       }
     }
     

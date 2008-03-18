@@ -118,12 +118,11 @@ public class UIPageForm extends UIFormTabPane {
                  addUIFormInput(ownerIdInput).
                  addUIFormInput(new UIFormStringInput("name", "name", null).
                                 addValidator(StringLengthValidator.class, 3, 30).
-                                addValidator(IdentifierValidator.class)).
+                                addValidator(IdentifierValidator.class).
+                                addValidator(MandatoryValidator.class)).
                  addUIFormInput(new UIFormStringInput("title", "title", null)).
                  addUIFormInput(new UIFormCheckBoxInput("showMaxWindow", "showMaxWindow", false));
     addUIFormInput(uiSettingSet) ;
-    //TODO: modify by dang.tung
-    //      set which form will be display first, in this case is page setting form.         
     setSelectedTab(uiSettingSet.getId()) ;
     
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
