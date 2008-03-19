@@ -152,9 +152,10 @@
 		  </div>
 	  </div>
 	</div>
-<%
-	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', false);") ;
-	if(uicomponent.hasMessage()){
-	  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.show('$popupId');") ;
-	}
-%>
+  <%
+  	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', false);") ;
+  	if(uicomponent.hasMessage()){
+  	  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.show('$popupId');") ;
+  	  rcontext.getJavascriptManager().addJavascript("window.setTimeout(\"eXo.webui.UIPopupWindow.increasezIndex('$popupId')\", 100);") ;
+    }
+  %>
