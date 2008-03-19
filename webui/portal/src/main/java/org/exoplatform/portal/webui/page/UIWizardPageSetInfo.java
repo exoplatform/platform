@@ -53,6 +53,7 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
@@ -69,7 +70,10 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
   @ComponentConfig(
       lifecycle = UIFormLifecycle.class,
       template = "app:/groovy/portal/webui/page/UIWizardPageSetInfo.gtmpl",
-      events = @EventConfig(listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE)
+      events = {
+        @EventConfig(listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE),
+        @EventConfig(listeners = UIWizardPageSetInfo.SwitchPublicationDateActionListener.class, phase=Phase.DECODE)
+      }
   ),
   @ComponentConfig(
       id = "WizardPageNodeSelector",
@@ -120,6 +124,7 @@ public class UIWizardPageSetInfo extends UIForm {
 
   final private static String PAGE_NAME = "pageName" ;
   final private static String PAGE_DISPLAY_NAME = "pageDisplayName" ;
+  final private static String   SHOW_PUBLICATION_DATE = "showPublicationDate" ;
   final private static String   START_PUBLICATION_DATE = "startPublicationDate" ;
   final private static String   END_PUBLICATION_DATE = "endPublicationDate" ; 
   private boolean isEditMode = false;
@@ -129,11 +134,14 @@ public class UIWizardPageSetInfo extends UIForm {
     UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, "WizardPageNodeSelector", null);    
     addUIFormInput(new UIFormStringInput(PAGE_NAME, "name", null).
     				   addValidator(MandatoryValidator.class).
-        addValidator(StringLengthValidator.class, 3, 30).
-        addValidator(IdentifierValidator.class));
+    				   addValidator(StringLengthValidator.class, 3, 30).
+    				   addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormStringInput(PAGE_DISPLAY_NAME, "label", null));
-    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null, false)) ;
-    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null, false)) ;
+    UIFormCheckBoxInput<Boolean> uiDateInputCheck = new UIFormCheckBoxInput<Boolean>(SHOW_PUBLICATION_DATE, SHOW_PUBLICATION_DATE, false) ;
+    uiDateInputCheck.setOnChange("SwitchPublicationDate") ;
+    addUIFormInput(uiDateInputCheck);
+    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null)) ;
+    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null)) ;
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
     uiTree.setUIRightClickPopupMenu(null);
     uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);    
@@ -156,12 +164,6 @@ public class UIWizardPageSetInfo extends UIForm {
     cal = getUIFormDateTimeInput(END_PUBLICATION_DATE).getCalendar() ;
     date = (cal != null) ? cal.getTime() : null ;
     node.setEndPublicationDate(date) ;
-    Date end = node.getEndPublicationDate() ;
-    boolean enable ;
-    if(end == null) enable = true ;
-    else if(end.compareTo(Calendar.getInstance().getTime()) < 0 ) enable = false ;
-    else enable = true ;
-    node.setEnable(enable) ; 
   }
 
   public PageNode getPageNode() throws Exception {
@@ -186,6 +188,29 @@ public class UIWizardPageSetInfo extends UIForm {
       pageNode.setUri(selectedNode.getUri()+"/"+pageNode.getName());
     } else pageNode.setUri(pageNode.getName()) ;
     return pageNode;
+  }
+  
+  public void setShowPublicationDate(boolean show) {
+    getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).setChecked(show) ;
+    getUIFormDateTimeInput(START_PUBLICATION_DATE).setRendered(show) ;
+    getUIFormDateTimeInput(END_PUBLICATION_DATE).setRendered(show) ;    
+  }
+  
+  @SuppressWarnings("unchecked")
+  public void setPageNode(PageNode pageNode) throws Exception {
+    String pageName = pageNode.getPageReference().split("::")[2] ;
+    if(pageNode.getName() != null) getUIStringInput(PAGE_NAME).setValue(pageName) ;
+    if(pageNode.getLabel() != null) getUIStringInput(PAGE_DISPLAY_NAME).setValue(pageNode.getResolvedLabel()) ;
+    setShowPublicationDate(pageNode.isShowPublicationDate()) ;
+    Calendar cal = Calendar.getInstance() ;
+    if(pageNode.getStartPublicationDate() != null) {
+      cal.setTime(pageNode.getStartPublicationDate()) ;
+      getUIFormDateTimeInput(START_PUBLICATION_DATE).setCalendar(cal) ;        
+    } else getUIFormDateTimeInput(START_PUBLICATION_DATE).setValue(null) ;
+    if(pageNode.getEndPublicationDate() != null) {
+      cal.setTime(pageNode.getEndPublicationDate()) ;
+      getUIFormDateTimeInput(END_PUBLICATION_DATE).setCalendar(cal) ;
+    } else getUIFormDateTimeInput(END_PUBLICATION_DATE).setValue(null) ;    
   }
 
   public PageNode getSelectedPageNode() {    
@@ -265,20 +290,19 @@ public class UIWizardPageSetInfo extends UIForm {
         uiForm.reset() ;
         return ;
       }
-      String pageName = pageNode.getPageReference().split("::")[2] ;
-      UIFormStringInput uiNameInput = uiForm.getChildById(PAGE_NAME) ;
-      if(pageNode.getName() != null) uiNameInput.setValue(pageName) ;
-      UIFormStringInput uiDisplayNameInput = uiForm.getChildById(PAGE_DISPLAY_NAME) ;
-      if(pageNode.getLabel() != null) uiDisplayNameInput.setValue(pageNode.getResolvedLabel()) ;
-      Calendar cal = Calendar.getInstance() ;
-      if(pageNode.getStartPublicationDate() != null) {
-        cal.setTime(pageNode.getStartPublicationDate()) ;
-        uiForm.getUIFormDateTimeInput(START_PUBLICATION_DATE).setCalendar(cal) ;        
-      } else uiForm.getUIFormDateTimeInput(START_PUBLICATION_DATE).setValue(null) ;
-      if(pageNode.getEndPublicationDate() != null) {
-        cal.setTime(pageNode.getEndPublicationDate()) ;
-        uiForm.getUIFormDateTimeInput(END_PUBLICATION_DATE).setCalendar(cal) ;
-      } else uiForm.getUIFormDateTimeInput(END_PUBLICATION_DATE).setValue(null) ;
+      uiForm.setPageNode(pageNode) ;
     }
+  }
+
+  static public class SwitchPublicationDateActionListener extends EventListener<UIWizardPageSetInfo> {
+    public void execute(Event<UIWizardPageSetInfo> event) throws Exception {
+      UIWizardPageSetInfo uiForm = event.getSource() ;      
+      boolean isCheck = uiForm.getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).isChecked() ;
+      uiForm.getUIFormDateTimeInput(START_PUBLICATION_DATE).setRendered(isCheck) ;
+      uiForm.getUIFormDateTimeInput(END_PUBLICATION_DATE).setRendered(isCheck) ;
+      UIWizard uiWizard = uiForm.getAncestorOfType(UIWizard.class);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard) ;
+    }
+    
   }
 }

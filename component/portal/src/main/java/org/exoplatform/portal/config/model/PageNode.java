@@ -17,6 +17,7 @@
 package org.exoplatform.portal.config.model;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -34,6 +35,7 @@ public class PageNode  {
   private Date startPublicationDate ;
   private Date endPublicationDate ;
   private boolean enable = true ;
+  private boolean showPublicationDate = false ; 
   
   private String pageReference ;
   
@@ -72,26 +74,26 @@ public class PageNode  {
   public boolean isModifiable() { return modifiable ; }
   public void    setModifiable(boolean b) { modifiable = b ; }  
   
-  public Date getStartPublicationDate() {
-    return startPublicationDate;
+  public Date getStartPublicationDate() { return startPublicationDate ; }
+  public void setStartPublicationDate(Date startDate) { startPublicationDate = startDate ; }
+
+  public Date getEndPublicationDate() { return endPublicationDate ; }
+  public void setEndPublicationDate(Date endDate) { endPublicationDate = endDate ; }
+
+  public boolean isEnable() {
+    if(showPublicationDate) {
+      if(endPublicationDate == null) enable = true ;
+      else if(endPublicationDate.compareTo(Calendar.getInstance().getTime()) < 0 ) enable = false ;
+      else enable = true ;
+    }
+    return enable ; 
   }
-
-  public void setStartPublicationDate(Date startDate) {
-    startPublicationDate = startDate;
-  }
-
-  public Date getEndPublicationDate() {
-    return endPublicationDate;
-  }
-
-  public void setEndPublicationDate(Date endDate) {
-    endPublicationDate = endDate;
-  }
-
-  public boolean isEnable() { return enable ; }
-
+  
   public void setEnable(boolean b) { enable = b ; }
-
+  
+  public void setShowPublicationDate(Boolean show) { showPublicationDate = show.booleanValue() ; }
+  public boolean isShowPublicationDate() { return showPublicationDate ; }
+  
   public PageNode clone() {
     PageNode newNode = new PageNode() ;
     newNode.setUri(uri);
@@ -101,6 +103,7 @@ public class PageNode  {
     newNode.setResolvedLabel(resolvedLabel) ;
     newNode.setPageReference(pageReference);
     newNode.setModifiable(modifiable);
+    newNode.setShowPublicationDate(showPublicationDate) ;
     newNode.setStartPublicationDate(startPublicationDate) ;
     newNode.setEndPublicationDate(endPublicationDate) ;
     newNode.setEnable(enable) ;

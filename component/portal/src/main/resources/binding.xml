@@ -72,7 +72,7 @@
     <value name="page-reference" field="pageReference" usage="optional"/>
     <value name="start-publication-date" field="startPublicationDate" usage="optional"/>
     <value name="end-publication-date" field="endPublicationDate" usage="optional"/>
-    <value name="enable" field="enable" usage="optional" default="true"/>
+    <value name="show-publication-date" field="showPublicationDate" usage="optional"/>    
     <collection field="children" usage="optional" item-type="org.exoplatform.portal.config.model.PageNode"/>
   </mapping>
   

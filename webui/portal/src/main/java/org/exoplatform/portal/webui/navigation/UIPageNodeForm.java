@@ -41,13 +41,14 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormInputIconSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
-import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 /**
  * Author : Dang Van Minh, Pham Tuan
  *          minhdv81@yahoo.com
@@ -58,13 +59,15 @@ import org.exoplatform.webui.form.validator.IdentifierValidator;
     template = "system:/groovy/webui/form/UIFormTabPane.gtmpl" ,    
     events = {
       @EventConfig(listeners = UIPageNodeForm.SaveActionListener.class ),
-      @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class )
+      @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class ),
+      @EventConfig(listeners = UIPageNodeForm.SwitchPublicationDateActionListener.class, phase = Phase.DECODE )
     }
 )
 public class UIPageNodeForm extends UIFormTabPane {
 
   private  PageNode  pageNode_ ; 
   private  Object selectedParent ;
+  final private static String   SHOW_PUBLICATION_DATE = "showPublicationDate" ;  
   final private static String   START_PUBLICATION_DATE = "startPublicationDate" ;
   final private static String   END_PUBLICATION_DATE = "endPublicationDate" ; 
 
@@ -72,12 +75,15 @@ public class UIPageNodeForm extends UIFormTabPane {
     super("UIPageNodeForm") ;
     
     UIFormInputSet uiSettingSet = new UIFormInputSet("PageNodeSetting") ;
+    UIFormCheckBoxInput<Boolean> uiDateInputCheck = new UIFormCheckBoxInput<Boolean>(SHOW_PUBLICATION_DATE, SHOW_PUBLICATION_DATE, false) ;
+    uiDateInputCheck.setOnChange("SwitchPublicationDate") ;
     uiSettingSet.addUIFormInput(new UIFormStringInput("uri", "uri", null).setEditable(false)).                            
     addUIFormInput(new UIFormStringInput("name","name", null).
                    addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)).
     addUIFormInput(new UIFormStringInput("label", "label", null)).
-    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null, false)).
-    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null, false)) ;
+    addUIFormInput(uiDateInputCheck).
+    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null)).
+    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null)) ;
     addUIFormInput(uiSettingSet);
     setSelectedTab(uiSettingSet.getId()) ;
 
@@ -86,7 +92,8 @@ public class UIPageNodeForm extends UIFormTabPane {
     addUIFormInput(uiPageSelector) ;
 
     UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
-    addUIFormInput(uiIconSelector) ;   
+    addUIFormInput(uiIconSelector) ;
+    setActions(new String[] {"Save", "Close"}) ;
   }
 
   public PageNode getPageNode(){ return pageNode_ ;   }
@@ -96,16 +103,21 @@ public class UIPageNodeForm extends UIFormTabPane {
     if(pageNode == null) {      
       getUIStringInput("name").setEditable(UIFormStringInput.ENABLE);
       getChild(UIFormInputIconSelector.class).setSelectedIcon("Default");
+      setShowPublicationDate(false) ;
       return;
     } 
     getUIStringInput("name").setEditable(UIFormStringInput.DISABLE);    
+    invokeGetBindingBean(pageNode_) ;
+  }
+  
+  public void invokeGetBindingBean(Object bean) throws Exception {
+    super.invokeGetBindingBean(bean) ;
+    PageNode pageNode = (PageNode)bean ;
     String icon = pageNode_.getIcon();
     if( icon == null || icon.length() < 0) icon = "Default" ;
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
-    invokeGetBindingBean(pageNode_) ;
     getUIStringInput("label").setValue(pageNode_.getResolvedLabel()) ;
-
-    //TODO: Maybe need to move this block to [invokeGetBindingBean()] method
+    setShowPublicationDate(pageNode.isShowPublicationDate()) ;
     Calendar cal = Calendar.getInstance() ;
     if(pageNode.getStartPublicationDate() != null) {
       cal.setTime(pageNode.getStartPublicationDate()) ;
@@ -114,8 +126,7 @@ public class UIPageNodeForm extends UIFormTabPane {
     if(pageNode.getEndPublicationDate() != null) {
       cal.setTime(pageNode.getEndPublicationDate()) ;
       getUIFormDateTimeInput(END_PUBLICATION_DATE).setCalendar(cal) ;
-    } else getUIFormDateTimeInput(END_PUBLICATION_DATE).setValue(null) ;
-    //-------------------------------------------------------------------------
+    } else getUIFormDateTimeInput(END_PUBLICATION_DATE).setValue(null) ;    
   }
   
   public void invokeSetBindingBean(Object bean) throws Exception {
@@ -127,12 +138,12 @@ public class UIPageNodeForm extends UIFormTabPane {
     cal = getUIFormDateTimeInput(END_PUBLICATION_DATE).getCalendar() ;
     date = (cal != null) ? cal.getTime() : null ;
     node.setEndPublicationDate(date) ;
-    Date end = node.getEndPublicationDate() ;
-    boolean enable ;
-    if(end == null) enable = true ;
-    else if(end.compareTo(Calendar.getInstance().getTime()) < 0 ) enable = false ;
-    else enable = true ;
-    node.setEnable(enable) ; 
+  }
+  
+  public void setShowPublicationDate(boolean show) {
+    getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).setChecked(show) ;
+    getUIFormDateTimeInput(START_PUBLICATION_DATE).setRendered(show) ;
+    getUIFormDateTimeInput(END_PUBLICATION_DATE).setRendered(show) ;    
   }
 
   public Object getSelectedParent(){ return selectedParent; }  
@@ -240,5 +251,15 @@ public class UIPageNodeForm extends UIFormTabPane {
       pcontext.setFullRender(true);
     }
   }
+  
+  static public class SwitchPublicationDateActionListener extends EventListener<UIPageNodeForm> {
+    public void execute(Event<UIPageNodeForm> event) throws Exception {
+      UIPageNodeForm uiForm = event.getSource() ;      
+      boolean isCheck = uiForm.getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).isChecked() ;
+      uiForm.getUIFormDateTimeInput(START_PUBLICATION_DATE).setRendered(isCheck) ;
+      uiForm.getUIFormDateTimeInput(END_PUBLICATION_DATE).setRendered(isCheck) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm) ;
+    } 
+  }  
 
 }
