@@ -128,7 +128,7 @@ public class RSSParser {
       else if(ele.isNode("image") && ele.getTotalChildren() > 0)
         item.setImage(ele.getChild(0).getNodeValue());
       //TODO: set creator of content
-      else if(ele.isNode("creator") && ele.getTotalChildren() > 0)
+      else if(ele.isNode("dc:creator") && ele.getTotalChildren() > 0)
         item.setCreator((ele.getChild(0).getNodeValue())) ;
     }    
     return item;
