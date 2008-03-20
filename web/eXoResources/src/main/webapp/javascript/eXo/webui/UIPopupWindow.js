@@ -106,6 +106,7 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 		popup.style.left = Math.ceil((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
 	}
 	if (eXo.core.Browser.findPosY(popup) < 0) popup.style.top = scrollY + "px" ;
+  popup.style.visibility = "visible" ;
 } ;
 /**
  * @param {Object} evt
@@ -118,7 +119,7 @@ UIPopupWindow.prototype.increasezIndex = function(popup) {
   if(uiLogin) {
       var curMaskzIndex = parseInt(DOMUtil.getStyle(document.getElementById('UIMaskWorkspace'), "zIndex"));
       popup.style.zIndex = ++curMaskzIndex +"";
-      popup.style.visibility = "visible";
+//      popup.style.visibility = "visible";
   }
 }
 
