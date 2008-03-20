@@ -39,10 +39,7 @@ FCKConfig.PreloadImages = [ FCKConfig.SkinPath + 'images/toolbar.start.gif', FCK
 
 FCKConfig.PluginsPath = FCKConfig.BasePath + 'plugins/' ;
 
-FCKConfig.Plugins.Add( 'franci' ) ;
-FCKConfig.Plugins.Add( 'urani' ) ;
-
-//FCKConfig.Plugins.Add( 'autogrow' ) ;
+// FCKConfig.Plugins.Add( 'autogrow' ) ;
 FCKConfig.AutoGrowMax = 400 ;
 
 // FCKConfig.ProtectedSource.Add( /<%[\s\S]*?%>/g ) ;	// ASP style server side code <%...%>
@@ -106,7 +103,9 @@ FCKConfig.ToolbarSets["Default"] = [
 ] ;
 
 FCKConfig.ToolbarSets["Basic"] = [
-	['Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','-','About'], '/', ['Franci', 'Urani']
+	['Bold','Italic','Underline','StrikeThrough','-','OrderedList','UnorderedList','-','Outdent','Indent','-','Link','Unlink'],
+	['JustifyLeft','JustifyCenter','JustifyRight','JustifyFull'],
+	['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat','-','About']
 ] ;
 
 FCKConfig.ContextMenu = ['Generic','Link','Anchor','Image','Flash','Select','Textarea','Checkbox','Radio','TextField','HiddenField','ImageButton','Button','BulletedList','NumberedList','Table','Form'] ;
