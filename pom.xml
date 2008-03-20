@@ -34,6 +34,8 @@
     <module>server/jboss/plugin</module>
     <module>server/jonas/patch</module>
     <module>server/jonas/plugin</module>
+
+    <module>sample/application/map</module>
   </modules>
 
   <build>
