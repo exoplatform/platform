@@ -14,6 +14,12 @@
   <description>eXo Widget, web category</description>
 
   <dependencies>
+  <dependency>
+    <groupId>org.exoplatform.ws.frameworks.cometd</groupId>
+  	<artifactId>exo.ws.frameworks.cometd.service</artifactId>
+	<version>${org.exoplatform.ws.version}</version>
+	<scope>provided</scope>
+  </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.web</artifactId>

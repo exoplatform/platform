@@ -24,6 +24,11 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.mvc.MVCRequestContext;
 import org.exoplatform.web.application.widget.WidgetApplication;
 
+import org.mortbay.cometd.continuation.EXoContinuationBayeux;
+import org.exoplatform.ws.frameworks.cometd.ContinuationService;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.RootContainer;
+
 /**
  * Created by eXo Platform SARL
  * Author : Jérémi Joslin
@@ -43,11 +48,8 @@ public class CometdWidget extends WidgetApplication<UIWidget> {
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     String instanceId = uiWidget.getApplicationInstanceUniqueId() ;
     String userName = pContext.getRemoteUser() ;
-    String token = (String) pContext.getRequest().getSession().getAttribute("cometdToken");
-    if (token == null) {
-        token = "" + Math.random();
-        pContext.getRequest().getSession().setAttribute("cometdToken", token);
-    }
+
+    String token = getContinuationService().getUserToken(userName);
 
     int posX = uiWidget.getProperties().getIntValue("locationX") ;
     int posY = uiWidget.getProperties().getIntValue("locationY") ;
@@ -57,7 +59,14 @@ public class CometdWidget extends WidgetApplication<UIWidget> {
  	String script =
       "eXo.portal.UIPortal.createJSApplication('eXo.widget.web.cometd.UICometdWidget','UICometdWidget','"+instanceId+"','/eXoWidgetWeb/javascript/');";
     appReqContext.getJavascriptManager().addCustomizedOnLoadScript(script) ;
-//    appReqContext.getJavascriptManager().importJavascript("eXo.webui.UIUpload") ;
-//    appReqContext.getJavascriptManager().addCustomizedOnLoadScript("eXo.webui.UIUpload.initUploadEntry('"+instanceId+"');") ;
+  }
+
+  protected ContinuationService getContinuationService() {
+    ExoContainer container = RootContainer.getInstance();
+    container = ((RootContainer)container).getPortalContainer("portal");
+
+    ContinuationService continuation = (ContinuationService) container.getComponentInstanceOfType(ContinuationService.class);
+    return continuation;
+
   }
 }
