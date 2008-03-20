@@ -12,6 +12,15 @@
   *width: 97.5%;
 }
 
+.UIOrganizationPortlet .OrganizationPortletContainer .UIMembershipManagement .UIListMembershipType .UIGrid {
+	width: 99.2%;
+	margin: auto;
+}
+
+.UIOrganizationPortlet .OrganizationPortletContainer .UIMembershipManagement .UIMembershipTypeForm {
+	width: 99.3%;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
   white-space:nowrap;
 }
@@ -182,13 +191,13 @@
 	margin-top: 5px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon{
+.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
   width: 28px; height: 15px;
   margin-top: 9px;
   background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat left -67px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs{
+.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs {
 	padding:0px ;
 }
 
@@ -356,7 +365,7 @@
 	height: 24px; width: 24px;
 }
 
-.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm .Search { 
+.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm .SearchIcon { 
 	margin-top: 3px;
 }
 
@@ -372,7 +381,6 @@
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMembershipManagement {
-  width: 97%; 
   margin: auto;
 }
 
