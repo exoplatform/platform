@@ -59,11 +59,12 @@
       <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
     </dependency>
-	<dependency>
-		<groupId>org.exoplatform.liveroom</groupId>
-	  	<artifactId>org.exoplatform.liveroom.cometd</artifactId>
-	  	<version>0.1</version>
-	</dependency>
+  <dependency>
+    <groupId>org.exoplatform.ws.frameworks.cometd</groupId>
+  	<artifactId>org.exoplatform.ws.frameworks.cometd.service</artifactId>
+	<version>${org.exoplatform.ws.version}</version>
+	<scope>provided</scope>
+  </dependency>
 
   </dependencies>
 
