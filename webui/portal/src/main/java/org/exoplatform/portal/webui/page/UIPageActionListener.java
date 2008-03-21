@@ -66,6 +66,7 @@ public class UIPageActionListener {
       uiPortal = (UIPortal) event.getSource();
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      uiPortalApp.setEditting(false) ;
       UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = Util.getPortalRequestContext();     
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      

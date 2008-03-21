@@ -13,14 +13,11 @@
 
   String onControlOver  = "eXo.desktop.UIWindow.onControlOver(this, true);" ;
   String onControlOut    = "eXo.desktop.UIWindow.onControlOver(this, false);" ;
-  
-//  String onMouseOver     = "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
-//  String onMouseOut      = "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
-  
+
   WindowState windowState = uicomponent.getCurrentWindowState();  
   boolean isDesktop = "Window".equals(uicomponent.getPortletStyle());
   String portletId = uicomponent.getId() ;
-  if(!isDesktop) {
+  if(!isDesktop && rcontext.getUIApplication().isEditting()) {
 %>
 	  <div class="UIPortlet" id="UIPortlet-$portletId">
 		  <div class="META-DATA-BLOCK" style="display: none">
@@ -288,7 +285,7 @@
 <%
     } 
   }
-  if(!isDesktop) {
+  if(!isDesktop && rcontext.getUIApplication().isEditting()) {
 %>  
 	    </div>
 		</div>

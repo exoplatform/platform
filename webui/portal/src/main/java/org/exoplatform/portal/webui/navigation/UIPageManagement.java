@@ -46,25 +46,6 @@ public class UIPageManagement extends UIManagement {
     addChild(UIPageBrowseControlBar.class, null, null).setRendered(false);
     addChild(UIPageNavigationControlBar.class, null, null);
   }
-  
-  // TODO TrongTT: this method seem not be used
-//  private void update() throws Exception {
-//    UIPageNodeSelector uiPageNodeSelector = getChild(UIPageNodeSelector.class);
-//    uiPageNodeSelector.loadNavigations();
-//    PageNode node = uiPageNodeSelector.getSelectedPageNode();
-//    if (node == null) return;
-//
-//    Class<?>[] childrenToRender = { UIPageNodeSelector.class, UIPageNavigationControlBar.class};
-//    setRenderedChildrenOfTypes(childrenToRender);
-//
-//    UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
-//    UserPortalConfigService portalConfigService = getApplicationComponent(UserPortalConfigService.class);
-//    Page page = portalConfigService.getPage(node.getPageReference(), Util.getPortalRequestContext().getRemoteUser());
-//    if(page == null) return;
-//    UIPage uiPage = Util.toUIPage(page, uiToolPanel);
-//    uiToolPanel.setUIComponent(uiPage);
-//    uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
-//  }
 
   public <T extends UIComponent> T setRendered(boolean b) {
     getChild(UIPageEditBar.class).setRendered(false);
@@ -72,9 +53,7 @@ public class UIPageManagement extends UIManagement {
   }
 
   public void setMode(ManagementMode mode, Event<? extends UIComponent> event) throws Exception {
-    //TODO: modify - dang.tung: config mode for uicomponent, getMode() always return right
     mode_ = mode ;
-    //------------------------------------------------------------------------------------
     if (mode == ManagementMode.EDIT) {
       UIPageNodeSelector uiNodeSelector = getChild(UIPageNodeSelector.class);
       UITree uiTree = uiNodeSelector.getChild(UITree.class);

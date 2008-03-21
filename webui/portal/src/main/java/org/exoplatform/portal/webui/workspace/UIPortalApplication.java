@@ -20,7 +20,6 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -77,12 +76,13 @@ public class UIPortalApplication extends UIApplication {
   
 //  public static boolean DEVELOPING = false;
   
+  private boolean isEditting = false ;
   private String nodePath_;
   
 //  static {
 //    DEVELOPING =  "true".equals(System.getProperty("exo.product.developing")) ;
 //  }
-//  
+//
   final static public String UI_CONTROL_WS_ID = "UIControlWorkspace" ;
   final static public String UI_WORKING_WS_ID = "UIWorkingWorkspace" ;
   final static public String UI_MASK_WS_ID = "UIMaskWorkspace" ;
@@ -130,7 +130,11 @@ public class UIPortalApplication extends UIApplication {
     setLocale(localeConfig.getLocale());
     setOwner(context.getPortalOwner());    
   } 
-  
+
+
+  public void setEditting(boolean bln) { this.isEditting = bln ; }  
+  public boolean isEditting() { return isEditting ; }
+
   public Collection<String> getJavascriptURLs() {
     JavascriptConfigService service = getApplicationComponent(JavascriptConfigService.class);
     return service.getAvailableScriptsPaths();
@@ -408,5 +412,4 @@ public class UIPortalApplication extends UIApplication {
   public void setUserPortalConfig(UserPortalConfig userPortalConfig) {
     this.userPortalConfig_ = userPortalConfig; 
   }
- 
 }

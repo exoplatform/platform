@@ -41,6 +41,7 @@ import org.exoplatform.portal.webui.portal.UIPortalManagement;
 import org.exoplatform.portal.webui.portal.UIPortalSelector;
 import org.exoplatform.portal.webui.portal.UISkinSelector;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
@@ -177,14 +178,14 @@ public class UIExoStart extends UIComponent {
 
   public <T extends UIComponent> void setUIControlWSWorkingComponent(Class<T> clazz) throws Exception {
     UIControlWorkspace uiControl =  getAncestorOfType(UIControlWorkspace.class) ;
-    UIComponentDecorator uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID) ;
+    UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID) ;
     uiWorking.setUIComponent(uiWorking.createUIComponent(clazz, null, null)) ;
   }
 
   @SuppressWarnings("unchecked")
   public <T extends UIComponent> T getUIControlWSWorkingComponent() throws Exception {
     UIControlWorkspace uiControl =  getAncestorOfType(UIControlWorkspace.class) ;
-    UIComponentDecorator uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID) ;
+    UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID) ;
     return (T)uiWorking.getUIComponent();
   }
 
@@ -200,7 +201,9 @@ public class UIExoStart extends UIComponent {
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uiComp = event.getSource() ;
       uiComp.setUIControlWSWorkingComponent(UIPageManagement.class) ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiComp);
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
+      ((UIPortalApplication)pcontext.getUIApplication()).setEditting(true) ;
+      pcontext.addUIComponentToUpdateByAjax(uiComp);
 
       UIPageManagement uiManagement = uiComp.getUIControlWSWorkingComponent();      
       uiManagement.setMode(ManagementMode.EDIT, event);
@@ -229,6 +232,8 @@ public class UIExoStart extends UIComponent {
         return ;
       }
       uiComp.setUIControlWSWorkingComponent(UIPortalManagement.class) ;
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
+      ((UIPortalApplication)pcontext.getUIApplication()).setEditting(true) ;
       UIPortalManagement uiManagement = uiComp.getUIControlWSWorkingComponent();      
       uiManagement.setMode(ManagementMode.EDIT, event);
     }
@@ -326,12 +331,6 @@ public class UIExoStart extends UIComponent {
       Util.updateUIApplication(event); 
     }
   }
-
-//  static  public class RefreshActionListener extends EventListener<UIExoStart> {
-//    @SuppressWarnings("unused")
-//    public void execute(Event<UIExoStart> event) throws Exception {
-//    }
-//  }
 
   static  public class ChangePageActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {

@@ -6,7 +6,7 @@ function UIExoStartMenu() {
   this.buttonClicked = false ;
   this.clipTop = 1 ;
 	this.clipBottom = 1 ;
-	this.stepScroll = 5 ;
+	this.stepScroll = 10 ;
 	
   this.itemStyleClass = "MenuItem" ;
   this.itemOverStyleClass = "MenuItemOver" ;

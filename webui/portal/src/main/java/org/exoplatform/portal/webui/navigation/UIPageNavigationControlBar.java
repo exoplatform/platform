@@ -165,6 +165,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
  
   public void abort(Event<UIPageNavigationControlBar> event) throws Exception {
     UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+    uiPortalApp.setEditting(false) ;
     PortalRequestContext prContext = Util.getPortalRequestContext();  
     UIPortal portal = Util.getUIPortal();
     UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);

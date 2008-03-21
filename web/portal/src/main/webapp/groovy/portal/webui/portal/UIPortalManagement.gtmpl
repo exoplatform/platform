@@ -4,7 +4,6 @@
 	import org.exoplatform.portal.webui.portal.UIPortalManagementControlBar;
 	import org.exoplatform.portal.webui.application.UIPortletOptions;	
 	import org.exoplatform.webui.core.UIDescription;
-
 %>
 <div class="UIPortalManagement" id="$uicomponent.id">
 	<div class="TopTitleBar">
