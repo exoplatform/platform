@@ -6,7 +6,7 @@
 	import org.exoplatform.webui.core.UIDescription;
 
 %>
-<div class="UIPortalManagement" id="UIPortalManagement">
+<div class="UIPortalManagement" id="$uicomponent.id">
 	<div class="TopTitleBar">
 	  <div class="DecoratorBox">
 	    <div class="BarDecorator">
@@ -30,32 +30,15 @@
 	    </div>
 	  </div>
 	</div>
-  <div class="ControlArea">   
-   <%uicomponent.renderChild(UIPortalManagementEditBar.class)%>
-  </div> 
-   	 
-  <%if(uicomponent.getChild(UIContainerConfigOptions.class).isRendered()) {%>      
-  	<%//Select Container Layout Block%>
-    <div id="UIContainerConfigOptions">
-      <%uicomponent.renderChild(UIContainerConfigOptions.class)%>
-    </div>   
-  <%}%>  
- 
-  <%if(uicomponent.getChild(UIPortletOptions.class).isRendered()) {%>
-    <div id="UIPortletOptions" >
-      <%uicomponent.renderChild(UIPortletOptions.class);%>
-    </div> 
+  <div class="ControlArea"><%uicomponent.renderChild(UIPortalManagementEditBar.class)%></div> 
+  <%
+  	uicomponent.renderChild(UIContainerConfigOptions.class)
+  	uicomponent.renderChild(UIPortletOptions.class);
+  	uicomponent.renderChild(UIDescription.class);
+
+  	if(uicomponent.getChild(UIPortalManagementControlBar.class).isRendered()) {
+  %>
+			<div class="ControlArea"><%uicomponent.renderChild(UIPortalManagementControlBar.class);%></div> 
   <%}%>
- 
-  <%if(uicomponent.getChild(UIDescription.class).isRendered()) {%>
-    <div id="UIDescription">
-      <%uicomponent.renderChild(UIDescription.class);%>
-    </div> 
-  <%}%>
-  <%if(uicomponent.getChild(UIPortalManagementControlBar.class).isRendered()) {%>
-		<div class="ControlArea" >
-	  	<%uicomponent.renderChild(UIPortalManagementControlBar.class);%>
-		</div> 
-  <%} %>
 </div>
  
