@@ -32,20 +32,22 @@ import org.exoplatform.webui.event.EventListener;
  *          minhdv81@yahoo.com
  * Jun 20, 2006
  */
-public class UIPortalActionListener { 
-  @SuppressWarnings("unchecked")
-  static  public class LogoutActionListener extends EventListener {
-    public void execute(Event event) throws Exception {
-      PortalRequestContext prContext = Util.getPortalRequestContext();
-      HttpServletRequest request = prContext.getRequest() ;
-      UIPortal currentPortal = Util.getUIPortal() ;
-      String portalName = currentPortal.getName() ;
-      portalName = URLEncoder.encode(portalName, "UTF-8") ;
-      String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
-      prContext.getResponse().sendRedirect(redirect) ;
-      prContext.setResponseComplete(false) ;
-    }
-  }    
+public class UIPortalActionListener {
+  
+  //TODO: dang.tung - this method isn't use will be delete in next week for test
+  //@SuppressWarnings("unchecked")
+//  static  public class LogoutActionListener extends EventListener {
+//    public void execute(Event event) throws Exception {
+//      PortalRequestContext prContext = Util.getPortalRequestContext();
+//      HttpServletRequest request = prContext.getRequest() ;
+//      UIPortal currentPortal = Util.getUIPortal() ;
+//      String portalName = currentPortal.getName() ;
+//      portalName = URLEncoder.encode(portalName, "UTF-8") ;
+//      String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
+//      prContext.getResponse().sendRedirect(redirect) ;
+//      prContext.setResponseComplete(false) ;
+//    }
+//  }    
 
   static public class ChangeWindowStateActionListener extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {

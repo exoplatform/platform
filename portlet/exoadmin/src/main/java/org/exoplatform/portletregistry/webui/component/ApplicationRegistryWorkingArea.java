@@ -57,7 +57,7 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   
   public ApplicationRegistryWorkingArea() throws Exception {
     UIPopupWindow addCategoryPopup = addChild(UIPopupWindow.class, null, "WorkingPopup");
-    addCategoryPopup.setWindowSize(640, 0); 
+    addCategoryPopup.setWindowSize(660, 0); 
   }  
     
   public List<Application> getPortlets() {return portlets_;}
