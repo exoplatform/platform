@@ -52,24 +52,24 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfigs({
   @ComponentConfig(
-    template = "system:/groovy/webui/core/UIWizard.gtmpl" ,
-    events = {
-      @EventConfig(listeners = UIPageCreationWizard.ViewStep1ActionListener.class),
-      @EventConfig(listeners = UIPageCreationWizard.ViewStep2ActionListener.class),
-      @EventConfig(listeners = UIPageCreationWizard.ViewStep3ActionListener.class),
-      @EventConfig(listeners = UIPageCreationWizard.ViewStep4ActionListener.class),
-      @EventConfig(listeners = UIPageCreationWizard.ViewStep5ActionListener.class),
-      @EventConfig(listeners = UIPageWizard.AbortActionListener.class)
-    }
+      template = "system:/groovy/webui/core/UIWizard.gtmpl" ,
+      events = {
+          @EventConfig(listeners = UIPageCreationWizard.ViewStep1ActionListener.class),
+          @EventConfig(listeners = UIPageCreationWizard.ViewStep2ActionListener.class),
+          @EventConfig(listeners = UIPageCreationWizard.ViewStep3ActionListener.class),
+          @EventConfig(listeners = UIPageCreationWizard.ViewStep4ActionListener.class),
+          @EventConfig(listeners = UIPageCreationWizard.ViewStep5ActionListener.class),
+          @EventConfig(listeners = UIPageWizard.AbortActionListener.class)
+      }
   ),
   @ComponentConfig(
-    id = "ViewStep1",
-    type = UIContainer.class,
-    template = "app:/groovy/portal/webui/page/UIWizardPageWelcome.gtmpl" 
+      id = "ViewStep1",
+      type = UIContainer.class,
+      template = "app:/groovy/portal/webui/page/UIWizardPageWelcome.gtmpl" 
   )
 })
 public class UIPageCreationWizard extends UIPageWizard {
-  
+
   public UIPageCreationWizard() throws Exception {    
     addChild(UIContainer.class, "ViewStep1", null);
     addChild(UIWizardPageSetInfo.class, null, null).setRendered(false);
@@ -78,7 +78,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     setNumberSteps(4);
     setShowWelcomeComponent(true);
   }     
-  
+
   private void saveData() throws Exception {
     UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
     UIPagePreview uiPagePreview = getChild(UIPagePreview.class);
@@ -92,12 +92,12 @@ public class UIPageCreationWizard extends UIPageWizard {
       uiPage.setAccessPermissions(new String[]{"*:/" + uiPage.getOwnerId()});
       uiPage.setEditPermission(acl.getMakableMT() + ":/" + uiPage.getOwnerId());
     } 
-    
+
     UIWizardPageSetInfo uiPageInfo = getChild(UIWizardPageSetInfo.class);  
     UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);      
     PageNode selectedNode = uiNodeSelector.getSelectedPageNode();
     PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();
-    
+
     Page page = PortalDataMapper.toPageModel(uiPage);
     PageNode pageNode = uiPageInfo.getPageNode();
     pageNode.setPageReference(page.getPageId());
@@ -111,7 +111,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     }
     pageNav.setModifier(RequestContext.<WebuiRequestContext>getCurrentInstance().getRemoteUser());
     uiNodeSelector.selectPageNodeByUri(pageNode.getUri());
-    
+
     service.create(page); 
     service.update(pageNav);
     for(PageNavigation editNav : uiNodeSelector.getPageNavigations()) {
@@ -121,7 +121,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
   }
-  
+
   private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
     for(int i = 0; i < navs.size(); i++) {
       if(navs.get(i).getId().equals(nav.getId())) {
@@ -130,7 +130,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       }
     }
   }
-  
+
   static  public class ViewStep1ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
@@ -141,12 +141,12 @@ public class UIPageCreationWizard extends UIPageWizard {
       uiWizard.viewStep(1);      
     }
   }
-  
+
   static  public class ViewStep2ActionListener extends EventListener<UIPageWizard> {
     public void execute(Event<UIPageWizard> event) throws Exception {
       UIPageWizard uiWizard = event.getSource();
       uiWizard.setDescriptionWizard(2);
-      
+
       uiWizard.updateWizardComponent();
       uiWizard.viewStep(2);
     }
@@ -158,14 +158,14 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
       WebuiRequestContext context = Util.getPortalRequestContext() ;
       uiWizard.viewStep(3);
-      
+
       if(uiWizard.getSelectedStep() < 3){
         uiWizard.updateWizardComponent();
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.StepByStep",null)) ;
         context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         return ;
       }
-      
+
       UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
       UIPageNodeSelector uiNodeSelector = uiPageSetInfo.getChild(UIPageNodeSelector.class);
       uiWizard.setDescriptionWizard(3);
@@ -177,22 +177,24 @@ public class UIPageCreationWizard extends UIPageWizard {
         uiWizard.viewStep(2);
         return ;
       }
-      
+
       PageNode pageNode = uiPageSetInfo.getPageNode();
       PageNode selectedPageNode = uiNodeSelector.getSelectedPageNode() ;
-      List<PageNode> sibbling = new ArrayList<PageNode>(3) ;
+      List<PageNode> sibbling = null ;
       if(selectedPageNode != null) sibbling = selectedPageNode.getChildren() ;
       else sibbling = navigation.getNodes() ;
-    	for(PageNode ele : sibbling) {
-    	  if(ele.getUri().equals(pageNode.getUri())){
-        	uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-        	context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
-        	uiWizard.viewStep(2);
-        	return;   
-    	  }
-    	}
-    	
-    	String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
+      if(sibbling != null) {
+        for(PageNode ele : sibbling) {
+          if(ele.getUri().equals(pageNode.getUri())){
+            uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+            context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
+            uiWizard.viewStep(2);
+            return;   
+          }
+        }        
+      }
+
+      String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
       DataStorage storage = uiWizard.getApplicationComponent(DataStorage.class);
       if(storage.getPage(pageId) != null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
@@ -200,7 +202,7 @@ public class UIPageCreationWizard extends UIPageWizard {
         uiWizard.viewStep(2);
         return;        
       }
-      
+
     }
   }
 
@@ -210,7 +212,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
       WebuiRequestContext context = Util.getPortalRequestContext() ;
       uiWizard.viewStep(4);
-      
+
       if(uiWizard.getSelectedStep() < 4){
         uiWizard.updateWizardComponent();
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.StepByStep",null)) ;
@@ -220,33 +222,33 @@ public class UIPageCreationWizard extends UIPageWizard {
 
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);        
-      
+
       UIPageNodeSelector uiNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class) ;
       PageNavigation pageNavi = uiNodeSelector.getSelectedNavigation() ;
       String ownerType = pageNavi.getOwnerType() ;
       String ownerId = pageNavi.getOwnerId() ;
-      
+
       PageNode pageNode = uiPageInfo.getPageNode();
       Page page = uiPageTemplateOptions.createPageFromSelectedOption(ownerType, ownerId);
       page.setCreator(context.getRemoteUser());
       page.setName(pageNode.getName());
       page.setModifiable(true);
       if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getName()) ;
-      
+
       boolean isDesktopPage = Page.DESKTOP_PAGE.equals(page.getFactoryId());
       if(isDesktopPage) page.setShowMaxWindow(true);
-      
+
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
       UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
       PortalDataMapper.toUIPage(uiPage, page);
       uiPagePreview.setUIComponent(uiPage);
-      
+
       if(isDesktopPage){
         uiWizard.saveData();
         uiWizard.updateUIPortal(uiPortalApp, event);
         return;
       }
-      
+
       uiWizard.updateWizardComponent();
       Class<?> [] childrenToRender = {UIPageEditBar.class, UIPortletOptions.class}; 
       UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);      

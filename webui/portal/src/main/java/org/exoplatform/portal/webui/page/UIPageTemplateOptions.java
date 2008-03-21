@@ -54,13 +54,7 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     Param param = initParams.getParam("PageLayout");          
     categories_ = param.getFreshObject(context) ;   
-    
-    SelectItemCategory category = getSelectedCategory();
-    if(category == null) return ;
-    SelectItemOption<?> itemOption = category.getSelectedItemOption();
-    if(itemOption == null) return ;
-    selectedItemOption_ = itemOption;
-    
+    selectedItemOption_ = getDefaultItemOption() ;
     List<SelectItemOption<String>> itemOptions = new ArrayList<SelectItemOption<String>>();
     
     for(SelectItemCategory itemCategory: categories_){
@@ -72,6 +66,14 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
     uiItemSelector.setOptions(itemOptions);
     uiItemSelector.setAction("eXo.webui.UIItemSelector.selectPageLayout");
     // end modify
+  }
+  
+  public SelectItemOption<?> getDefaultItemOption() {
+    SelectItemCategory category = getSelectedCategory();
+    if(category == null) return null ;
+    SelectItemOption<?> itemOption = category.getSelectedItemOption();
+    if(itemOption == null) return  null ;
+    return itemOption;    
   }
   
   public void setSelectOptionItem(String value) {
@@ -103,7 +105,8 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
   }
   
   public Page createPageFromSelectedOption(String ownerType, String ownerId) throws Exception {
-    if(selectedItemOption_ == null) return null;
+    if(selectedItemOption_ == null) selectedItemOption_ = getDefaultItemOption() ;
+    if(selectedItemOption_ == null) return null ;
     Object temp = selectedItemOption_.getValue() ; 
     if(temp == null) return null;
     UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
