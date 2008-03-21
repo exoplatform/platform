@@ -15,22 +15,22 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
-  background: url('background/PopupCategoryTL6x16.gif') no-repeat left;
+  background: url('background/PopupCategory.gif') no-repeat left top;
   padding-left: 6px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
   height: 16px;
-  background: url('background/PopupCategoryTC1x16.gif') repeat-x;
+  background: url('background/PopupCategory.gif') repeat-x left -39px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
-  background: url('background/PopupCategoryTR35x16.gif') no-repeat right;
+  background: url('background/PopupCategory.gif') no-repeat right -16px;
   padding-right: 35px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
-  background: url('background/PopupCategoryML6x1.gif') repeat-y left;
+  background: url('background/MidlePopupCategory.gif') repeat-y left;
   padding-left: 6px;
 }
 
@@ -39,22 +39,22 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
-  background: url('background/PopupCategoryMR8x1.gif') repeat-y right;
+  background: url('background/MidlePopupCategory.gif') repeat-y right;
   padding-right: 8px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
-  background: url('background/PopupCategoryBL6x7.gif') no-repeat left;
+  background: url('background/PopupCategory.gif') no-repeat left -32px;
   padding-left: 6px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
   height: 7px;
-  background: url('background/PopupCategoryBC1x7.gif') repeat-x;
+  background: url('background/PopupCategory.gif') repeat-x left -55px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  background: url('background/PopupCategoryBR8x7.gif') no-repeat right;
+  background: url('background/PopupCategory.gif') no-repeat right -32px;
   padding-right: 8px;
 }
 
