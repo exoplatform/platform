@@ -267,6 +267,7 @@ public class UIPageCreationWizard extends UIPageWizard {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      uiPortalApp.setEditting(false) ;
       uiWizard.saveData();
       uiWizard.updateUIPortal(uiPortalApp, event);   
     }

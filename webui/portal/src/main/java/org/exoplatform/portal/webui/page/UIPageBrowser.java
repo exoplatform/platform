@@ -237,7 +237,7 @@ public class UIPageBrowser extends UISearch {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource();
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
-
+      uiPortalApp.setEditting(true) ;
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
       String id = pcontext.getRequestParameter(OBJECTID) ;
       UserPortalConfigService dao = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class) ;

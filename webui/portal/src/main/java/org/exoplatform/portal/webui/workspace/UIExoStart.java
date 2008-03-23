@@ -262,6 +262,7 @@ public class UIExoStart extends UIComponent {
       UIExoStart uiExoStart = event.getSource();
       uiExoStart.setUIControlWSWorkingComponent(UIWizardPageCreationBar.class);
       UIPortalApplication uiApp = uiExoStart.getAncestorOfType(UIPortalApplication.class);
+      uiApp.setEditting(true) ;
       UIWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
 
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
@@ -285,6 +286,7 @@ public class UIExoStart extends UIComponent {
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uiExoStart = event.getSource();
       UIPortalApplication uiApp = uiExoStart.getAncestorOfType(UIPortalApplication.class);
+      uiApp.setEditting(true) ;
       UIWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class) ;
