@@ -33,7 +33,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="UIDropDownAnchor" style="position: absolute ; display: none ; width: 100%">
+		<div class="UIDropDownAnchor" style="position: absolute ; display: none ;">
 			<div class="LeftTopItem">
 				<div class="RightTopItem">
 					<div class="CenterTopItem"><span></span></div>

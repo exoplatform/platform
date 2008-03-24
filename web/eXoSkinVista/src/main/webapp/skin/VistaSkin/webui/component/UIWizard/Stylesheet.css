@@ -99,7 +99,12 @@
   margin: 0px 10px 0px 15px;
 }
 
-.UIWizard .UIPageNodeSelector .UIDropDownControl {
+.UIWizard .UIWizardContent .UIDropDownControl {
+	width: 220px;
+	position: static;
+}
+
+.UIWizard .UIWizardContent .UIDropDownControl .UIDropDownAnchor {
 	width: 220px;
 }
 
@@ -216,13 +221,13 @@
 
 /*========================== Start UIWizard Step 3 ==============================*/
 
-.UIWizard .UIItemSelector .ItemListContainer {
-  width: 240px;
+.UIWizard .UIItemSelector .RightColumnStyle .ItemListContainer {
+  width: 220px;
 }
 
 .UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList {
   background: white url(background/ItemListBg1x13.png) repeat-x bottom;
-  margin-right: 245px; 
+  margin-right: 225px; 
   padding: 2px 2px 0px 2px;
   border: 1px solid #b7b7b7;
 	height: 262px;

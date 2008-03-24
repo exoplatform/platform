@@ -31,6 +31,16 @@
   background: url('background/WizardBC1x8.png') repeat-x;
 }
 
+.UIWizard .UIWizardContent .UIDropDownControl {
+	width: 220px;
+	position: static;
+	margin-bottom: 2px;
+}
+
+.UIWizard .UIWizardContent .UIDropDownControl .UIDropDownAnchor {
+	width: 220px;
+}
+
 /*========================== Wizard Content ==============================*/
 .UIWizard .UIWizardContent {
   padding: 5px;
@@ -155,16 +165,6 @@
 }
 
 /*========================== Start UIWizard Step1 ==============================*/
-.UIWizard .UIContainerConfigOptions .UIDropDownControl {
-	width: 217px;
-	position: static;
-	margin-bottom: 2px;
-}
-
-.UIWizard .UIContainerConfigOptions .UIDropDownControl .UIDropDownAnchor {
-	width: 217px;
-}
-
 /*========================== Start UIWizard Step2 ==============================*/
 .UIWizard .UIWizardPageSetInfo {
   padding: 15px 10px 10px 10px ; 
@@ -255,15 +255,10 @@
 	margin: 0px;
 }
 
-.UIWizard .UIItemSelector .RightColumnStyle .ItemListContainer {
-	width:250px;
-}
-
 .UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList {
   height: 265px; 
   background: #ffffff;
   padding: 10px;
-  margin-right: 260px;
   border: 1px solid #a4a4a4;
 }
 

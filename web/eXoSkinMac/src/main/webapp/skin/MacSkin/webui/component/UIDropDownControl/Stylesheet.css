@@ -2,8 +2,12 @@
 .UIDropDownControl {
 	position: relative ;
 	margin-bottom: 2px;
-	_position: static;
 }
+
+.UIDropDownControl .UIDropDownAnchor {
+	width: 100%;
+}
+
 .UIDropDownControl .UIDropDownTitle {
 	cursor:pointer;
 }
