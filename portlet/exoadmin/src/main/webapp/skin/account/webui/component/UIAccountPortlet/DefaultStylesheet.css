@@ -23,13 +23,10 @@
 }
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
-  height: 295px; width: 420px;
+  width: 420px;
   padding-top: 15px;
 }
 
-.UIAccountPortlet .UIForm .HorizontalLayout  .UITabContent .UIFormInputSet {
-  width: 450px;  
-}
 
 .UIAccountPortlet .UIFormTabPane .WorkingArea .UIForm {
 	padding: 0px;
@@ -49,11 +46,11 @@
 /*########################-Template Selector-###########################*/
 
 .UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
-  height: 302px;
+  height: 290px;
 }
 
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
-  height: 320px;
+  height: 308px;
   padding-top: 5px;
 }
 

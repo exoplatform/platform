@@ -359,10 +359,11 @@
 }
 
 .UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon { 
-	background-position: left center;
+	background-position: left top;
 	background-repeat: no-repeat;
-	float: right;
+	float: left;
 	height: 24px; width: 24px;
+	margin-left: 4px;
 }
 
 .UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm .SearchIcon { 

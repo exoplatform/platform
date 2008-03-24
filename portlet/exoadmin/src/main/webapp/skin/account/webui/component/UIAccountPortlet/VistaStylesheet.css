@@ -20,7 +20,7 @@
 }
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
-	height: 300px; width: 420px;
+	width: 420px;
 	padding-top: 10px;
 	margin: auto;
 }
