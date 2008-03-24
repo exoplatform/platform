@@ -62,7 +62,7 @@ UIPortalControl.prototype.fixHeight = function() {
 							//TODO: dang.tung -> fix bug if scroll display
 							//-----------------------------------------------------------
 							if(eXo.core.Browser.isIE6()) {
-								scrollArea.style.width = scrollArea.offsetWidth - 4  + "px";
+								scrollArea.style.width = scrollArea.offsetWidth - 16  + "px";
 							}
 							//-----------------------------------------------------------
 				}
