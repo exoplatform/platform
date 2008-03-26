@@ -94,6 +94,10 @@
 	margin: auto;
 }
 
+.UIOrganizationPortlet .UIUserManagement .HorizontalLayout .UIFormInputSet {
+	height: 290px;
+}
+
 /*#######################- UIUserInfo - #####################*/
 
 .UIOrganizationPortlet .UIUserManagement .UIUserInfo {
