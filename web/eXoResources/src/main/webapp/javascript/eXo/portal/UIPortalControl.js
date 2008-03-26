@@ -48,7 +48,7 @@ UIPortalControl.prototype.fixHeight = function() {
 				 */
 				var firstHeight = scrollArea.offsetHeight;
 				scrollArea.style.height = "auto";
-				scrollArea.style.width = "auto";
+				//scrollArea.style.width = "auto";
 				var heightChild = scrollArea.offsetHeight;
 				var maxHeight = 0;
 				if(uiControlWSWorkingArea) {
@@ -58,12 +58,13 @@ UIPortalControl.prototype.fixHeight = function() {
 				if(deltaResize > 0 && (heightChild - deltaResize) > 0) {
 							scrollArea.style.overflow = "auto";
 							scrollArea.style.height = heightChild - deltaResize + "px";
-							scrollArea.style.width = scrollArea.offsetWidth  + "px";
+							//scrollArea.style.width = scrollArea.offsetWidth  + "px";
 							//TODO: dang.tung -> fix bug if scroll display
 							//-----------------------------------------------------------
-							if(eXo.core.Browser.isIE6()) {
-								scrollArea.style.width = scrollArea.offsetWidth - 16  + "px";
-							}
+							// Lam Nguyen comment to remove style width
+//              if(eXo.core.Browser.isIE6()) {
+//								scrollArea.style.width = scrollArea.offsetWidth - 16  + "px";
+//							}
 							//-----------------------------------------------------------
 				}
 			}
