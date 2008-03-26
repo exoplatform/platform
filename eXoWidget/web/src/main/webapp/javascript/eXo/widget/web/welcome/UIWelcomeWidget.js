@@ -4,7 +4,7 @@ UIWelcomeWidget.prototype = eXo.widget.UIExoWidget;
 UIWelcomeWidget.prototype.constructor = UIWelcomeWidget;
 
 function UIWelcomeWidget() {
-	var attrs = new Array("userName");
+	var attrs = new Array("userName","logOutAction");
 	this.init("UIWelcomeWidget", "welcome", attrs);
 }
 
