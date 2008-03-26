@@ -16,19 +16,19 @@
 
 .UIWizard .WizardDecorator .WizardBottomLeft {
   height: 8px; line-height: 8px;
-  background: url('background/WizardBL6x8.png') no-repeat left;
+  background: url('background/Wizard.png') no-repeat left top;
   padding-left: 6px;
 }
 
 .UIWizard .WizardDecorator .WizardBottomRight {
   height: 8px; line-height: 8px;
-  background: url('background/WizardBR7x8.png') no-repeat right;
+  background: url('background/Wizard.png') no-repeat right top;
   padding-right: 7px;
 }
 
 .UIWizard .WizardDecorator .WizardBottomCenter {
   height: 8px; line-height: 8px;
-  background: url('background/WizardBC1x8.png') repeat-x;
+  background: url('background/Wizard.png') repeat-x left -8px;
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl {
@@ -50,14 +50,14 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
   height: 34px;
-  background: url('background/Background1x4.png');
+  background: url('background/Wizard.png') repea-x bottom ;
   border: solid 1px #aeaeae; border-bottom: none;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
   float:left;
   width: 32px; height: 32px; 
-  background: url('icons/32x32/PageCreation.png') no-repeat;
+  background: url('background/Wizard.png') no-repeat left -16px;
   margin: 1px 8px 0px 8px;
 }
 
@@ -70,7 +70,7 @@
 .UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
   float: right;
   width: 32px; height: 32px;
-  background:  url('icons/32x32/HelpIcon.png') no-repeat;
+  background:  url('background/Wizard.png') no-repeat center -48px;
   margin: 1px 10px 0px 0px;
   cursor: pointer;
 }
@@ -95,7 +95,7 @@
 .UIWizard .UIWizardContent .WizardControlBar {
   height: 34px;
   border: solid 1px #b7b7b7;
-  background: url('background/Background1x4.png');
+  background: url('background/Wizard.png')repeat-x bottom ;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar {
@@ -156,8 +156,7 @@
   height: 233px;
   background: url('background/WelcomeImage197x233.png') no-repeat left;
   padding: 0px 0px 0px 210px ;
-  margin: 0px;
-}
+  margin: 0px;}
 
 .UIWizard .UIWizardWelcome .WelcomeText {
   line-height: 20px;

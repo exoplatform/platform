@@ -130,8 +130,8 @@
 
 .UIItemSelector .RightColumnStyle .ItemListIcon {
 	width: 16px; height: 16px;
-	background: url('background/SelectedItem.gif') no-repat left -418px;
-	margin-top: 3px;
+	background: url('background/SelectedItem.gif') no-repeat left -418px;
+
 }
 
 .UIItemSelector .RightColumnStyle .ViewListIcon {
@@ -406,7 +406,6 @@
 .UIItemSelector .LeftColumnStyle .ItemListIcon {
 	width: 16px; height: 16px;
 	background: url('background/SelectedItem.gif') no-repeat left -418px;
-	margin-top: 3px;
 }
 
 .UIItemSelector .LeftColumnStyle .ViewListIcon {

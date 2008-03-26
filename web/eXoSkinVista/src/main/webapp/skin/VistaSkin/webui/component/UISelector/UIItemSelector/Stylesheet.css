@@ -135,7 +135,6 @@
 .UIItemSelector .RightColumnStyle .ItemListIcon {
 	width: 26px; height: 19px;
 	background: url('background/SelectedItem.png') no-repeat left -724px;
-	margin-top: 3px;
 }
 
 /*###########################- Item Default -#############################*/
@@ -426,7 +425,6 @@
 .UIItemSelector .LeftColumnStyle .ItemListIcon {
 	width: 26px; height: 19px;
 	background: url('background/SelectedItem.png') no-repeat left -701px;
-	margin-top: 3px;
 }
 
 .UIItemSelector .LeftColumnStyle .ViewListIcon {
