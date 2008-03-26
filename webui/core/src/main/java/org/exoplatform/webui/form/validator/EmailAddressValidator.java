@@ -36,7 +36,7 @@ public class EmailAddressValidator implements Validator {
 	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
     String s = (String)uiInput.getValue();
     if(s.matches(EMAIL_REGEX)) return;
-//    Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
-    throw new MessageException(new ApplicationMessage("EmailAddressValidator.msg.Invalid-input", null)) ;
+    Object[]  args = { uiInput.getName(), uiInput.getBindingField() } ;
+    throw new MessageException(new ApplicationMessage("EmailAddressValidator.msg.Invalid-input", args, ApplicationMessage.WARNING )) ;
   }
 }
