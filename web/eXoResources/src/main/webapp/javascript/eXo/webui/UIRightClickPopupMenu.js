@@ -79,10 +79,11 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 	 * 
 	 */
 	var fixWidthForIE7 = 0 ;
+	var uiPageDesktop = document.getElementById("UIPageDesktop");
 	var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
-	if ((uiWorkspaceContainer && uiWorkspaceContainer.style.display != "none") && 
+	if ((uiWorkspaceContainer && uiWorkspaceContainer.style.display != "none" && uiPageDesktop) && 
 		(event.clientX > uiWorkspaceContainer.clientWidth) && eXo.core.Browser.isIE7()) {
-		fixWidthForIE7 = uiWorkspaceContainer.clientWidth ;
+			fixWidthForIE7 = uiWorkspaceContainer.clientWidth ;
 	}
 
 	eXo.core.Mouse.update(event) ;
