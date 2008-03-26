@@ -205,7 +205,7 @@
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   background: white;
   padding: 10px;
-  height: 152px;
+  height: 174px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
@@ -259,7 +259,7 @@
 }
 
 .UIWizard .ScrollArea {
-	height: 226px;
+	height: 250px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	width: 220px;

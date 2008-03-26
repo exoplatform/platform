@@ -179,8 +179,8 @@
 	margin: 0px;
 }
 
+
 .UIWizard .UIWizardPageSetInfo .PageNodeContainer .ContainerConfigOptions {
-	height: 248px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
@@ -234,7 +234,7 @@
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer{
   padding: 10px 0px 15px 0px;
-  height: 150px;
+  height: 174px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
@@ -279,7 +279,7 @@
 }
 
 .UIWizard .ScrollArea {
-	height: 205px;
+	height: 235px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	width: 213px;
