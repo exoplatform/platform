@@ -1,12 +1,12 @@
 .UITrees {
   border: 1px solid #b7b7b7;
-  padding: 4px 0px;
   background: white;
-  overflow: auto;
 }
 
 .UITrees .TreeContainer {
-	_width: 92.7%;
+  padding: 4px 0px;
+  overflow: auto;
+  width: 100%;
 }
 
 .UITrees a {

@@ -59,6 +59,9 @@
 
 .UIGroupMembershipSelector .UITrees {
   border-top: none;  
+}
+
+.UIGroupMembershipSelector .UITrees .TreeContainer {
   height: 152px;
 }
 

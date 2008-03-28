@@ -15,6 +15,14 @@
   padding: 3px; 
 }
 
+.UIControlWorkspace .ScrollArea {
+  width: 99%;
+}
+
+.UIControlWorkspace .ScrollArea .TreeContainer {
+  overflow-x: hidden;
+}
+
 .UIControlWorkspace .UserWorkspaceTitle {
   height: 23px ;
   background: url('background/UserWorkspaceTitleBG1x23.gif') repeat-x ;

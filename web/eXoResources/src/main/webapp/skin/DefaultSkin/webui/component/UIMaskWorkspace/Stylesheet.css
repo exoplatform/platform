@@ -79,6 +79,10 @@
 	margin: auto;
 }
 
+.UIMaskWorkspace .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent {
+  _padding: 0px;
+}
+
 /*********************************** End UITabContent	************************************/
 
 .UIMaskWorkspace .IconLayout {
@@ -110,18 +114,6 @@
 	border-top: none;
 	margin: auto;
 	overflow: hidden;
-}
-
-.UIMaskWorkspace .UITabPane .WorkingArea .UITabContentContainer .UITabContent {
-  padding: 0px;
-}
-
-.UIMaskWorkspace .UITabPane .WorkingArea .UITabContentContainer .UITabContent .UIFormInputSet {
-  padding: 8px;
-}
-
-.UIMaskWorkspace .UITabPane .WorkingArea .UITabContentContainer .SelectedIconInfo .UIFormInputSet {
-  padding: 0px;
 }
 
 /**************************** UIAddApplication ******************************************/

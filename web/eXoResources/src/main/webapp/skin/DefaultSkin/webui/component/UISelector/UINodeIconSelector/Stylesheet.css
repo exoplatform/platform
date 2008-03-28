@@ -35,7 +35,7 @@
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{
-  margin-left: 10px;
+  margin-left: 0px;
   float: none;
   color: #2F76E2;
 }
@@ -79,13 +79,4 @@
 
 .UINodeIconSelector .LeftColumnStyle .SetDefault a:hover {
   color: #058EE6;
-}
-
-.UIMaskWorkspace .UITabPane .UITabContentContainer .UITabContent{
-	_border: 1px solid #c7c7c7;
-	border-top: none;
-}
-
-.UIMaskWorkspace .UITabPane .WorkingArea .UITabContentContainer .UITabContent{
-	border: none;
 }
