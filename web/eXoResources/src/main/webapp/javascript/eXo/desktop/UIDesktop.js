@@ -213,7 +213,7 @@ UIDesktop.prototype.removeApp = function(uri) {
 };
 
 UIDesktop.prototype.removeWindow = function (idWindow) {
-	var uiWindow = document.getElementById("UIWindow-" + idWindow); 
+	var uiWindow = document.getElementById(idWindow); 
 	if(uiWindow) eXo.core.DOMUtil.removeElement(uiWindow);
 };
 
