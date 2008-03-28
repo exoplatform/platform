@@ -172,7 +172,7 @@ public class UIPortalApplication extends UIApplication {
       toolPanel.findComponentOfType(uiportlets, UIPortlet.class);
     }
 
-    if ("false".equals(System.getProperty("exo.product.developing"))) {
+    if ("false".equals(System.getProperty("exo.product.developing")) && !isEditting) {
       List<UIPortlet> portletInPage = new ArrayList<UIPortlet>();
       List<String> portletInPortal = new ArrayList<String>();
       for (UIPortlet uiPortlet : uiportlets) {
@@ -190,8 +190,7 @@ public class UIPortalApplication extends UIApplication {
       // Add a merged skin of the portlets located in the portal and not the
       // page
       SkinService skinService = getApplicationComponent(SkinService.class);
-      SkinConfig skinConfig = skinService.getPortalSkin(uiPortal.getName(), skin_,
-          portletInPortal);
+      SkinConfig skinConfig = skinService.getPortalSkin(uiPortal.getName(), skin_, portletInPortal);
       if (skinConfig != null)
         skins.add(skinConfig);
     }
@@ -200,8 +199,7 @@ public class UIPortalApplication extends UIApplication {
       String module = uiPortlet.getExoWindowID().getPortletApplicationName()
           + "/" + uiPortlet.getExoWindowID().getPortletName();
       SkinConfig skinConfig = getSkin(module);
-      if (skinConfig != null)
-        skins.add(skinConfig);
+      if (skinConfig != null) skins.add(skinConfig);
     }
     return skins;
   } 

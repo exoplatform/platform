@@ -51,8 +51,8 @@ public class ResourceRequestFilter implements Filter  {
     String uri = URLDecoder.decode(httpRequest.getRequestURI(),"UTF-8");
     if(cacheResource_) {
       HttpServletResponse httpResponse = (HttpServletResponse)  response ;
-      httpResponse.addHeader("Cache-Control", "max-age=2592000,s-maxage=2592000") ;
       if(uri.endsWith(".css")) {
+        httpResponse.setHeader("Cache-Control", "no-cache");
         RootContainer rootContainer = RootContainer.getInstance() ;
         PortalContainer portalContainer = rootContainer.getPortalContainer("portal") ;
         SkinService skinService = (SkinService) portalContainer.getComponentInstanceOfType(SkinService.class);
@@ -62,7 +62,8 @@ public class ResourceRequestFilter implements Filter  {
           response.getWriter().print(mergedCSS);
           return;
         }
-      }
+      } else httpResponse.addHeader("Cache-Control", "max-age=2592000,s-maxage=2592000") ;
+
     } else {
       if(uri.endsWith(".jstmpl") || uri.endsWith(".css") || uri.endsWith(".js")) {
         HttpServletResponse httpResponse = (HttpServletResponse)  response ;

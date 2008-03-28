@@ -119,20 +119,9 @@ public class UIPortalManagementEditBar extends UIToolbar {
                                    UIPortletOptions.class, UIPortalManagementControlBar.class};
       uiPManagement.setRenderedChildrenOfTypes(childrenToRender);
       
-      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiControl);
-      
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = Util.updateUIApplication(event) ;
       UIPortalToolPanel toolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
       if(toolPanel != null ) toolPanel.setShowMaskLayer(false);
-      
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
-      pcontext.setFullRender(true);
     }
   }
-   
- 
 }

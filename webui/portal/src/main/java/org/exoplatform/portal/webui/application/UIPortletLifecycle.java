@@ -16,13 +16,8 @@
  */
 package org.exoplatform.portal.webui.application;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import javax.portlet.WindowState;
 
@@ -175,9 +170,8 @@ public class UIPortletLifecycle extends Lifecycle {
         output = portletContainer.render(prcontext.getRequest(), prcontext
             .getResponse(), input);
         if (output.getContent() == null) {
-          portletContent.append(
-              "EXO-ERROR: Portlet container throw an exception\n").append(
-              uiPortlet.getId()).append(" has error");
+          portletContent.append("EXO-ERROR: Portlet container throw an exception\n")
+                        .append(uiPortlet.getId()).append(" has error");
         } else {
           portletContent.setLength(0);
           portletContent.append(output.getContent());
@@ -196,8 +190,7 @@ public class UIPortletLifecycle extends Lifecycle {
     if (portletTitle == null)
       portletTitle = "Portlet";
 
-    if (context.useAjax() //&& !uiPortlet.isShowEditControl()
-        && !prcontext.getFullRender()) {
+    if (context.useAjax() && !prcontext.getFullRender()) {
       context.getWriter().write(portletContent.toString());
     } else {
       WebuiApplication app = (WebuiApplication) context.getApplication();

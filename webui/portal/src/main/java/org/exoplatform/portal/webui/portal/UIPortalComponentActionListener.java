@@ -158,7 +158,7 @@ public class UIPortalComponentActionListener {
           if(uiPage != null) windowId.append(uiPage.getOwnerType()); 
           else windowId.append(PortalConfig.PORTAL_TYPE);
           windowId.append('#').append(Util.getUIPortal().getOwner()).append(":/");
-//        TODO review code in next line. It was changed by Le Bien Thuy
+          uiPortlet.setPortletInPortal(uiTarget instanceof UIPortal) ;
           windowId.append(portlet.getApplicationGroup() + "/" + portlet.getApplicationName()).append('/');
           windowId.append(uiPortlet.hashCode());
           uiPortlet.setWindowId(windowId.toString());

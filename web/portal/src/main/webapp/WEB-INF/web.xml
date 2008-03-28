@@ -55,20 +55,19 @@
 	  <servlet-name>javascript</servlet-name> 
 	  <servlet-class>org.exoplatform.portal.webui.javascript.JavascriptServlet</servlet-class> 
 	</servlet>
-	<servlet>
+<!--	<servlet>
 	  <servlet-name>css</servlet-name> 
 	  <servlet-class>org.exoplatform.portal.webui.skin.CSSServlet</servlet-class> 
-	</servlet>
-	<!--  ================================================================= 
-  	--> 
+	</servlet>-->
+	<!--  =================================================================  --> 
 	<servlet-mapping>
 	  <servlet-name>javascript</servlet-name> 
 	  <url-pattern>/javascript/*</url-pattern> 
 	</servlet-mapping>
-	<servlet-mapping>
+<!--	<servlet-mapping>
 	  <servlet-name>css</servlet-name> 
 	  <url-pattern>/css/*</url-pattern> 
-	</servlet-mapping>
+	</servlet-mapping>-->
 	<servlet-mapping>
 	  <servlet-name>portal</servlet-name> 
 	  <url-pattern>/private/*</url-pattern> 

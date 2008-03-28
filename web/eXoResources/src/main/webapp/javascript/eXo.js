@@ -7,7 +7,7 @@ var eXo  = {
   
   core : { },
 
-  env : { client: {}, server: {} },
+  env : { portal: {}, client: {}, server: {} },
 
   portal : { },
     
