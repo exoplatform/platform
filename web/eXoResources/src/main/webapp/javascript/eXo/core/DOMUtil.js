@@ -119,7 +119,8 @@ DOMUtil.prototype.findAncestorsByClass = function(element, clazz) {
 DOMUtil.prototype.findAncestorById = function(element,  id) {
   var parent = element.parentNode ;
   while (parent != null) {
-    if (parent.getAttributeNode("id") && parent.getAttributeNode("id").value == id) return parent ;
+    if (parent.getAttributeNode && parent.getAttributeNode("id")
+     && parent.getAttributeNode("id").value == id) return parent ;
     parent = parent.parentNode ;
   }
   return null ;
@@ -203,7 +204,7 @@ DOMUtil.prototype.findDescendantById = function(root, id) {
   var elements = root.getElementsByTagName('*') ;
   var ln = elements.length ;
   for (var i = 0; i < ln; i++) {
-  	if (elements[i].getAttributeNode("id")
+  	if (elements[i].getAttributeNode && elements[i].getAttributeNode("id")
   	 && elements[i].getAttributeNode("id").value == id) return elements[i] ;
   }
   return null ;
