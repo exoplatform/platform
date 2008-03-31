@@ -32,18 +32,18 @@
 }
 
 .UIAction .DisabledStyle .ButtonLeft {
-  background: url('background/SelectedActionButtonL12x24.png') no-repeat left;
+  background: url('background/DisabledStyle.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .DisabledStyle .ButtonRight {
-  background: url('background/SelectedActionButtonR12x24.png') no-repeat right;
+  background: url('background/DisabledStyle.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .DisabledStyle .ButtonMiddle {
 	line-height: 22px; text-align: center; 
-	background: url('background/SelectedActionButtonM2x24.png') repeat-x;
+	background: url('background/DisabledStyle.png') repeat-x bottom;
 	display: table-cell;
 	padding: 0px 12px;	
 }
@@ -62,18 +62,18 @@
 .UIAction .LightBlueStyle {}
 
 .UIAction .LightBlueStyle .ButtonLeft {
-  background: url('background/LightButtonLeft12x24.png') no-repeat left;
+  background: url('background/LightButton.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .LightBlueStyle .ButtonRight {
-  background: url('background/LightButtonRight12x24.png') no-repeat right;
+  background: url('background/LightButton.png') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .LightBlueStyle .ButtonMiddle {
  	line-height: 24px; text-align: center; 
-	background: url('background/LightButtonMiddle1x24.png') repeat-x;
+	background: url('background/LightButton.png') repeat-x bottom;
 	display: table-cell;
 	padding: 0px 12px;
 }
@@ -83,18 +83,18 @@
 }
 
 .UIAction .SimpleStyle .ButtonLeft {
-  background: url('background/LeftSimpleButton20x24.png') no-repeat left top;
-  padding: 0px 0px 0px 12px;
+  background: url('background/SimpleButton.png') no-repeat left top;
+  padding: 0px 0px 0px 15px;
 }
 
 .UIAction .SimpleStyle .ButtonRight {
-  background: url('background/RightSimpleButton20x24.png') no-repeat right top;
-  padding: 0px 12px 0px 0px ;
+  background: url('background/SimpleButton.png') no-repeat right -24px;
+  padding: 0px 15px 0px 0px ;
 }
 
 .UIAction .SimpleStyle .ButtonMiddle {
   line-height: 24px;
-	background: url('background/CenterSimpleButton3x24.png') repeat-x top;
+	background: url('background/SimpleButton.png') repeat-x left -48px;
 	text-align: center;	
 	padding: 0px 8px;
 	display: table-cell;

@@ -15,6 +15,7 @@
 }
 
 .UIPortletOptions .UIVerticalSlideTabs .VTabStyle3 {
+	cursor: pointer;
   margin: 5px 0px 1px 0px;
 }
 
@@ -24,7 +25,7 @@
 
 .UIPortletOptions .UIVerticalSlideTabs .UIVTab .UIVTabContent {
   margin: -1px 2px 5px 2px ;
-  padding: 10px 0px 9px 10px ;
+  padding: 8px 0px 8px 10px ;
   border: solid 1px #958f8f ;
   overflow: hidden;
 }

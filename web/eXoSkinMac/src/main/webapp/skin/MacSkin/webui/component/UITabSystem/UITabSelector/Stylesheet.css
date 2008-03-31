@@ -8,18 +8,19 @@
 }
 
 .UITabSelector .UIHorizontalTabs .LeftHorizontalTabs{
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/LeftFlatTabStyle2x31.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/TabSelector.gif') no-repeat left top;
   padding-left: 2px;
 }
 
 .UITabSelector .UIHorizontalTabs .RightHorizontalTabs{
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/RightFlatTabStyle2x31.gif') no-repeat right;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/TabSelector.gif') no-repeat right top;
   padding-right: 2px;
 }
 
 .UITabSelector .UIHorizontalTabs .CenterHorizontalTabs {
   height: 31px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/CenterFlatTabStyle1x31.gif') repeat-x;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/TabSelector.gif') repeat-x left -31px;
+  padding: 0px;
 }
 
 .UITabSelector .UIHorizontalTabs .TabsContainer {
@@ -34,9 +35,8 @@
 
 .UITabSelector .UIHorizontalTabs .LineSeparator {
   float: left;
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/LineSeparator2x29.gif') no-repeat left;
-  height: 29px;
-  width: 2px;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/TabSelector.gif') no-repeat left -91px;
+  height: 29px;  width: 2px;
   margin-top: 2px;
 }
 
@@ -93,7 +93,7 @@
 
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab {
   line-height: 29px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/LeftSelectedFlatTabStyle1x29.gif') repeat-x top;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UITabSystem/UITabSelector/background/TabSelector.gif') repeat-x left -62px;
   cursor: pointer;
   padding: 0px 6px;
 }

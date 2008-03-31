@@ -8,69 +8,10 @@
   padding: 15px 85px 15px 0px;
 }
 
-.UIPortalManagement .UIToolbar .EditToolbar .Icon{
-	margin: 4px 8px 0px 14px;
-}
-
 .UIPortalManagement .UIPortalManagementEditBar {
-  padding: 0px 7px ;
+	padding: 0px 6px;
 }
 
-.UIPortalManagement .UIPortalManagementEditBar .EditContainerIcon {
-  width: 32px;  height: 32px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/ShowContainerButton.png') no-repeat;
-}
-
-.UIPortalManagement .UIPortalManagementEditBar .EditPortletIcon {
-  width: 32px;  height: 32px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/ShowPortletButton.png') no-repeat;
-}
-
-.UIPortalManagement .UIPortalManagementEditBar .LayoutModeIcon {
-  float: left;
-  margin: 4px 7px;
-  width: 32px;  height: 32px;
-  cursor : pointer;
-  background: url('background/LayoutMode.gif') no-repeat center;
-}
-
-.UIPortalManagement .UIPortalManagementEditBar .PreviewIcon {
-  width: 32px;  height: 32px;  
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/PreviesButton.png') no-repeat;
-}
-
-.UIPortalManagement .UIPortalManagementEditBar .EditPortalIcon { 
-  width: 32px;  height: 32px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/EditPortalButton.png') no-repeat;
-}
-
-.UIPortalManagement .UIPortalManagementEditBar .SavePortalIcon {
-  float: left;
-  width: 25px;  height: 24px;
-  margin: 4px 0px 0px 7px;
-  background: url('background/Save.gif') no-repeat;
-}
-
-.UIPortalManagement .UIToolbar .ControlToolbar {
-  margin: 12px 2px 0px 50px;
-}
-
-.UIPortalManagement .RollbackIcon {
-	width: 32px; height: 30px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/RollBackButton.png') no-repeat;
-}
-
-.UIPortalManagement .FinishIcon {
-	width: 32px; height: 30px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/FinishButton.png') no-repeat;
-}
-
-.UIPortalManagement .SaveIcon {
-	width: 32px; height: 30px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/SaveButton.png') no-repeat;
-}
-
-.UIPortalManagement .AbortIcon {
-	width: 32px; height: 30px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/AbortButton.png') no-repeat;
+.UIPortalManagement .UIToolbar .EditToolbar .Icon {
+  margin: 4px 11px 0px 13px;
 }

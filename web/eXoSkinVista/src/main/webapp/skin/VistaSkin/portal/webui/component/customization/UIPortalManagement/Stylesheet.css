@@ -1,5 +1,5 @@
 .UIPortalManagement {
-  padding: 0px 1px 1px 1px ;
+
 }
 
 .UIPortalManagement .UIPortletOptions .UIDropDownControl {
@@ -10,7 +10,11 @@
   padding: 15px 0px;
 }
 
+.UIPortalManagement .UIPortalManagementEditBar {
+	padding: 0px 5px;
+}
 
-.UIPortalManagement .UIToolbar .PolyToolbar .MiddleBar {
-  padding: 2px 0px 0px 20px;
+.UIPortalManagement .UIToolbar .EditToolbar .Icon {
+  margin: 4px 0px 0px 23px;
+
 }

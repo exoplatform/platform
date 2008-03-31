@@ -30,45 +30,43 @@
 
 /*##############################-LightBlueStyle ActionButton-################################*/
 .UIAction .LightBlueStyle {
-  line-height: 28px;
+  line-height: 25px;
 }
-
 .UIAction .LightBlueStyle .ButtonLeft {
-  background: url('background/BlueAquaButtonL12x25.png') no-repeat left top;
-  padding: 0px 0px 0px 12px;
+  background: url('background/LightBlueStyle.png') no-repeat left top;
+  padding-left: 12px;
 }
 
 .UIAction .LightBlueStyle .ButtonRight {
-  background: url('background/BlueAquaButtonR12x25.png') no-repeat right top;
-  padding: 0px 12px 0px 0px ;
+  background: url('background/LightBlueStyle.png') no-repeat right -25px;
+  padding-right: 12px;
 }
 
 .UIAction .LightBlueStyle .ButtonMiddle {
   line-height: 25px; 
   text-align: center;
-	background: url('background/BlueAquaButtonM1x25.png') repeat-x top;
+	background: url('background/LightBlueStyle.png') repeat-x left -50px;
 	display: table-cell;
 	padding: 0px 12px;
 }
-
 /*##############################-Disabled ActionButton-################################*/
 .UIAction .DisabledStyle {
 }
 
 .UIAction .DisabledStyle .ButtonLeft {
-  background: url('background/GrayAquaButtonL12x25.png') no-repeat left top;
+  background: url('background/DisabledStyle.png') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIAction .DisabledStyle .ButtonRight {
-  background: url('background/GrayAquaButtonR12x25.png') no-repeat right top;
+  background: url('background/DisabledStyle.png') no-repeat right -25px;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIAction .DisabledStyle .ButtonMiddle {
 	line-height: 25px; 
 	text-align: center; 
-	background: url('background/GrayAquaButtonM1x25.png') repeat-x top;
+	background: url('background/DisabledStyle.png') repeat-x bottom;
 	display: table-cell;
 	padding: 0px 12px;
 }

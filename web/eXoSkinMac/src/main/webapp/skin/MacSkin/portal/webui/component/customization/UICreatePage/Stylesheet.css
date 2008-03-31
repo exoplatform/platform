@@ -18,7 +18,7 @@
 }
 
 .UICreatePage .UIToolbar {
-  padding: 0px 5px;
+  padding: 0px 6px;
 }
 
 .UICreatePage .UIToolbar .EditToolbar .Icon {
@@ -34,26 +34,6 @@
 .UICreatePage .PageNodeSelectorContainer .UIVerticalSlideTabs {
   margin: 0px;
   padding-bottom: 0px;
-}
-
-.UICreatePage .PageLayoutModeIcon {
-  width: 32px; height: 32px;
-  background: url('background/PageLayout.gif') no-repeat;
-}
-
-.UICreatePage .PagePreviewIcon {
-  width: 32px; height: 32px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/PreviesPageButton.png') no-repeat;
-}
-
-.UICreatePage .EditContainerIcon {
-  width: 32px; height: 32px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/ShowContainerButton.png') no-repeat;
-}
-
-.UICreatePage .EditPortletIcon {
-  width: 32px; height: 32px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/32x32/icons/ShowPortletButton.png') no-repeat;
 }
 
 .UICreatePage .TreeSelectorTitle {

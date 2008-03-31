@@ -3,8 +3,15 @@
 
 /*#################################- EditToolbar -##############################*/
 
+
 .UIToolbar .EditToolbar {
   height: 31px;
+}
+
+.UIToolbar .EditToolbar .Icon {
+  float: left;
+  margin: 4px 6px 0px 10px;
+  cursor: pointer;
 }
 
 .UIToolbar .EditToolbar .LeftBar {
@@ -22,14 +29,12 @@
   background: url('background/EditToolbar.png') repeat-x left -62px;
 }
 
-.UIToolbar .EditToolbar .Icon {
-  float: left;
-  cursor: pointer;
-}
+/*##########################Edit Page Control Bar#############################*/
+
 
 .UIToolbar .EditToolbar .SavePortalIcon {
   float: left;
-  width: 23px;  height: 24px;
+  width: 24px;  height: 24px;
   margin: 4px 7px;
   background: url('background/EditToolbar.png') no-repeat left -93px;
 }
@@ -68,7 +73,7 @@
 }
 
 .UIToolbar .EditToolbar .SavePageIcon {
-  width: 25px; height: 24px;
+  width: 26px; height: 24px;
   background: url('background/EditToolbar.png') no-repeat left -237px ;
 }
 
@@ -83,7 +88,7 @@
 }
 
 .UIToolbar .EditToolbar .PageLayoutModeIcon {
-  width: 21px; height: 22px;
+  width: 22px; height: 22px;
   background: url('background/EditToolbar.png') no-repeat left -310px;
 }
 
@@ -116,7 +121,7 @@
 
 .UIToolbar .ControlToolbar .Icon {
   float: left;
-  margin: 2px 4px 0px 4px; 
+  margin: 1px 4px 0px 4px; 
 }
 
 .UIToolbar .BackIcon {
@@ -171,20 +176,20 @@
 
 .UIToolbar .LargeToolbar .LeftToolbar {
   height: 74px ;
-  background: url('background/LargeToolbar.png') no-repeat left top;
+  background: url('background/LargeToolbar.png') no-repeat left -74px;
   padding-left: 10px; 
 }
 
 .UIToolbar .LargeToolbar .RightToolbar {
   height: 74px;
   background: url('background/LargeToolbar.png') no-repeat right top;
-  padding-right: 87px;
+  padding-right: 86px;
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
   height: 74px; 
   line-height: 74px ; 
-  background: url('background/LargeToolbar.png') repeat-x bottom;
+  background: url('background/LargeToolbar.png') repeat-x left -148px;
 }
 
 .UIToolbar .LargeToolbar a {
@@ -200,57 +205,68 @@
 
 /*********************fix bug in IE**********************/
 
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
+.UIToolbar .LargeToolbar .ButtonLabel {
+	height: 18px;
+	line-height: 18px;
+}
+
+.UIToolbar .LargeToolbar .SelectButtonLabel {
+	height: 18px;
+	line-height: 18px;
+	color: orange; 
+}
+
+.UIToolbar .LargeToolbar .HorizontalSeparator {
   float: left ;
   margin: 13px 8px 0px 10px ;
   width: 2px; height: 40px ;
 }
 
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .UserButton {
+.UIToolbar .LargeToolbar .UserButton {
   float: left;
-  margin-top: 6px; margin-left: 0px;
+  margin-top: 10px; margin-left: 0px;
   width: 120px;
   cursor: pointer;
-	text-align: center;
+  text-align: center;
 }
 
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
+.UIToolbar .LargeToolbar .GroupButton {
   float: left;
-  margin-top: 6px; margin-left: 0px;
+  margin-top: 10px; margin-left: 0px;
   width: 130px;
   cursor: pointer;
-	text-align: center;
+  text-align: center;
 }
 
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
+.UIToolbar .LargeToolbar .MembershipButton {
   float: left;
-  margin-top: 6px;  margin-left: 0px;
+  margin-top: 10px;  margin-left: 0px;
   width: 170px;
   cursor: pointer;
-	text-align: center;
+  text-align: center;
 }
 
-.UIOrganizationPortlet .ManagementIconContainer {
+.UIToolbar .LargeToolbar .ManagementIconContainer {
   margin-left: 5px;
-  padding-top: 6px;
+  padding-top: 7px;
 }
 
-.UIOrganizationPortlet .UserManagementIcon {
-  width: 32px; height: 30px; 
+.UIToolbar .LargeToolbar .UserManagementIcon {
+  width: 22px; height: 22px; 
   margin: auto;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/UserManagement.gif') no-repeat center;
+  background: url('background/LargeToolbar.png') no-repeat left -222px;
 }
 
-.UIOrganizationPortlet .GroupManagementIcon {
-  width: 32px; height: 30px; 
+.UIToolbar .LargeToolbar .GroupManagementIcon {
+  width: 26px; height: 23px; 
   margin: auto;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/GroupManagement.gif') no-repeat center;
+  background: url('background/LargeToolbar.png') no-repeat -22px -222px;
 }
 
-.UIOrganizationPortlet .MembershipManagementIcon {
-  width: 32px; height: 30px; 
+.UIToolbar .LargeToolbar .MembershipManagementIcon {
+  width: 24px; height: 23px; 
   margin: auto;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/MembershipManagement.gif') no-repeat center ;
+  background: url('background/LargeToolbar.png') no-repeat -48px -222px;
 }
 
 

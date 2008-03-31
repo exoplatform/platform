@@ -35,7 +35,7 @@
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
   height: 63px; line-height: 63px;
-  background: url('background/LargeToolbar.gif') repeat-x bottom;
+  background: url('background/LargeToolbar.gif') repeat-x left -63px;
 }
 
 .UIToolbar .LargeToolbar a {
@@ -53,8 +53,75 @@
 
 .UIToolbar .LargeToolbar .ButtonLabel {
   height: 18px; line-height: 18px;
-  vertical-align: middle;  
+  vertical-align: middle;
+  font-weight: bold;  
 }
+
+
+.UIToolbar .LargeToolbar .HorizontalSeparator {
+  float: left ;
+  margin: 5px 2px 0px 1px ;
+  width: 2px; height: 50px ;
+}
+
+.UIToolbar .LargeToolbar .SelectButtonLabel {
+  line-height: 18px;
+  font-weight: bold;
+  color: #058ee6;
+}
+
+.UIToolbar .LargeToolbar .ManagementIconContainer {
+  padding-top: 2px;
+}
+
+.UIToolbar .LargeToolbar .UserButton {
+  float: left;
+  width: 130px;
+  cursor: pointer;
+	text-align: center;
+}
+
+.UIToolbar .LargeToolbar .GroupButton {
+  float: left;
+  width: 140px;
+  cursor: pointer;
+	text-align: center;
+}
+
+.UIToolbar .LargeToolbar .ManagementTabContent {
+  width: 99.4%;
+  margin: 4px auto 2px auto;
+}
+
+
+.UIToolbar .LargeToolbar .MembershipButton {
+  float: left;
+  width: 178px;
+  cursor: pointer;
+	text-align: center;
+}
+
+.UIToolbar .LargeToolbar .UserManagementIcon {
+  width: 44px ; height: 30px ;
+  background: url('background/LargeToolbar.gif') no-repeat -44px -126px;
+  margin: auto;
+  margin-top: 4px;
+}
+
+.UIToolbar .LargeToolbar .GroupManagementIcon {
+  width: 44px ; height: 30px ;
+  background: url('background/LargeToolbar.gif') no-repeat left -157px;
+  margin: auto;
+  margin-top: 4px;
+}
+
+.UIToolbar .LargeToolbar .MembershipManagementIcon {
+  width: 44px ; height: 30px ;
+  background: url('background/LargeToolbar.gif') no-repeat left -126px;
+  margin: auto;
+  margin-top: 4px;
+}
+
 
 /*#################################- LightToolbar -##############################*/
 
@@ -82,31 +149,93 @@
 
 .UIToolbar .EditToolbar {
   height: 39px;
-  margin: 0px 0px 2px 0px;
+}
+
+.UIToolbar .EditToolbar .Icon {
+  float: left;
+  margin: 4px 5px 0px 10px;
+  cursor: pointer;
 }
 
 .UIToolbar .EditToolbar .LeftBar {
   padding-left: 7px;
-  height: 39px;
   background: url('background/EditToolbar.png') no-repeat left top;
 }
 
 .UIToolbar .EditToolbar .RightBar {
   padding-right: 8px;
-  height: 39px;
-  background: url('background/EditToolbar.png') no-repeat right top;
+  background: url('background/EditToolbar.png') no-repeat right -39px;
 }
 
 .UIToolbar .EditToolbar .MiddleBar {
   height: 39px; line-height: 39px; 
-  background: url('background/EditToolbar.png') repeat-x bottom;
+  background: url('background/EditToolbar.png') repeat-x left -78px;
 }
 
-.UIToolbar .EditToolbar .Icon {
-  float: left;
-  margin: 3px 10px 0px 10px;
-  cursor: pointer;
+
+/*##########################Edit Page Control Bar#############################*/
+
+
+
+
+.UIToolbar .EditToolbar .EditContainerIcon {
+  width: 31px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -285px;
 }
+
+.UIToolbar .EditToolbar .EditPortletIcon {
+   width: 31px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -313px;
+}
+
+.UIToolbar .EditToolbar .LayoutModeIcon {
+  float: left;
+  margin: 4px 7px;
+  cursor : pointer;
+  width: 31px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -341px;
+}
+
+.UIToolbar .EditToolbar .PreviewIcon {
+   width: 31px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -229px;
+}
+
+.UIToolbar .EditToolbar .EditPortalIcon { 
+   width: 31px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -257px;
+}
+
+.UIToolbar .EditToolbar .SavePortalIcon {
+  float: left;
+  margin: 4px 0px 0px 7px;
+  width: 29px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -369px;
+}
+
+.UIToolbar .EditToolbar .EditPageIcon{
+   width: 27px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -145px;
+}
+
+.UIToolbar .EditToolbar .PageLayoutModeIcon {
+  float: left;
+  margin: 4px 7px 0px 7px;
+  width: 24px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -173px;
+  cursor: pointer ;
+}
+
+.UIToolbar .EditToolbar .PagePreviewIcon {
+   width: 25px;  height: 27px;
+  background: url('background/EditToolbar.png') no-repeat left -117px;
+}
+
+.UIToolbar .EditToolbar .SavePageIcon {
+  width: 27px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -201px;
+}
+
 
 /*#################################- ControlToolbar -##############################*/
 
@@ -120,14 +249,13 @@
 }
 
 .UIToolbar .ControlToolbar .RightBar {
-  padding-right: 8px;
-  background: url('background/ControlToolbar.png') no-repeat right top;
+ 
 }
 
 .UIToolbar .ControlToolbar .MiddleBar {
   height: 40px;
   line-height: 40px;
-  background: url('background/ControlToolbar.png') repeat-x bottom;
+  background: url('background/ControlToolbar.png') repeat-x left -40px;
 }
 
 .UIToolbar .ControlToolbar .SeparateLine{
@@ -139,5 +267,27 @@
 
 .UIToolbar .ControlToolbar .Icon {
   float: left;
-  margin: 5px 5px 0px 8px;
+  margin: 4px 5px 0px 5px;
+  width: 32px;
+  height: 29px;
+}
+
+.UIToolbar .ControlToolbar .BackIcon {
+  background: url('background/ControlToolbar.png') no-repeat left -80px;
+}
+
+.UIToolbar .ControlToolbar .RollbackIcon {
+  background: url('background/ControlToolbar.png') no-repeat left -109px;
+}
+
+.UIToolbar .ControlToolbar .FinishIcon {
+  background: url('background/ControlToolbar.png') no-repeat left -138px;
+}
+
+.UIToolbar .ControlToolbar .SaveIcon {
+  background: url('background/ControlToolbar.png') no-repeat left -167px;
+}
+
+.UIToolbar .ControlToolbar .AbortIcon {
+  background: url('background/ControlToolbar.png') no-repeat left -196px;
 }

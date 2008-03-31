@@ -2,50 +2,6 @@
   padding: 8px 5px 5px 5px; 
 }
 
-.UICreatePage .PagePreviewIcon {
-  float: left;
-  width: 26px; height: 26px;
-  margin: 3px 8px 0px 28px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/PagePreview.png') no-repeat ;
-}
-
-.UICreatePage .PageLayoutModeIcon {
-  float: left;
-  width: 24px; height:24px;
-  margin: 3px 10px 0px 25px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/PageLayoutMode.gif') no-repeat ;
-  cursor: pointer ;
-}
-
-.UICreatePage .EditPageIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 3px 5px 0px 8px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/EditPageProperty.png') no-repeat ;
- 
-}
-
-.UICreatePage .EditContainerIcon {
-  float: left;
-  width: 34px; height: 26px;
-  margin: 3px 8px 0px 26px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/ShowContainerControl.png') no-repeat ;
-}
-
-.UICreatePage .EditPortletIcon {
-  float: left;
-  width: 28px; height: 24px;
-  margin: 3px 8px 0px 25px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/ShowPortletControlIcon.png') no-repeat ;
-}
-
-.UICreatePage .SavePageIcon {
-  float: left;
-  width: 24px; height: 24px;
-  margin: 3px 5px 0px 8px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/BlackFloppyDiskPage.gif') ;
-}
-
 .UICreatePage .TreeSelectorTitle {
   text-align: center; 
   font-weight: bold;
@@ -67,20 +23,24 @@
 	padding: 0px 5px;
 }
 
+.UICreatePage .WizardPageEditBar .UIToolbar .EditToolbar .Icon {
+  margin: 4px 15px 0px 27px;
+}
+
 .UICreatePage .CreatePageContainer .CreatePageBarLeft {
 	padding-left: 7px;
-  background: url('background/PolyBarL7x30.png') no-repeat left;
+  background: url('background/PolyBar.png') no-repeat left top;
   margin: 0px 5px; 
 }
 
 .UICreatePage .CreatePageContainer .CreatePageBarRight {
-  padding-right: 8px;
-  background: url('background/PolyBarR8x30.png') no-repeat right;
+  padding-right: 7px;
+  background: url('background/PolyBar.png') no-repeat right -30px;
 }
 
 .UICreatePage .CreatePageContainer .CreatePageLabel {
   height: 30px;
-  background: url('background/PolyBarM1x30.png') repeat-x ;
+  background: url('background/PolyBar.png') repeat-x bottom ;
 	font-weight: bold;
 	line-height: 30px;
 	text-align: center;

@@ -89,13 +89,11 @@
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
 	line-height: 24px; height: auto; width: auto;
 	padding-left: 25px;
-  margin: 1px 0px 0px 5px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat left center;
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
 	line-height: 24px; height: auto; width: auto;
 	padding-left: 25px;
-  margin: 1px 0px 0px 0px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
 } 

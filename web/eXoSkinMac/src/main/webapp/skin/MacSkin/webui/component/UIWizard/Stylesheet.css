@@ -16,7 +16,7 @@
 
 .UIWizard .WizardDecorator .WizardBottomLeft {
   height: 8px; line-height: 8px;
-  background: url('background/Wizard.png') no-repeat left top;
+  background: url('background/Wizard.png') no-repeat leftb -8px;
   padding-left: 6px;
 }
 
@@ -28,7 +28,7 @@
 
 .UIWizard .WizardDecorator .WizardBottomCenter {
   height: 8px; line-height: 8px;
-  background: url('background/Wizard.png') repeat-x left -8px;
+  background: url('background/Wizard.png') repeat-x left -16px;
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl {
@@ -50,14 +50,14 @@
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
   height: 34px;
-  background: url('background/Wizard.png') repea-x bottom ;
+  background: url('background/Background1x4.png');
   border: solid 1px #aeaeae; border-bottom: none;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
   float:left;
   width: 32px; height: 32px; 
-  background: url('background/Wizard.png') no-repeat left -16px;
+  background: url('background/Wizard.png') no-repeat left -24px;
   margin: 1px 8px 0px 8px;
 }
 
@@ -70,7 +70,7 @@
 .UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
   float: right;
   width: 32px; height: 32px;
-  background:  url('background/Wizard.png') no-repeat center -48px;
+  background:  url('background/Wizard.png') no-repeat left -56px;
   margin: 1px 10px 0px 0px;
   cursor: pointer;
 }
@@ -95,7 +95,7 @@
 .UIWizard .UIWizardContent .WizardControlBar {
   height: 34px;
   border: solid 1px #b7b7b7;
-  background: url('background/Wizard.png')repeat-x bottom ;
+  background: url('background/Background1x4.png');
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar {

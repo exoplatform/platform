@@ -8,20 +8,20 @@
 }
 
 .UITabSelector .UIHorizontalTabs .LeftHorizontalTabs{
-  height: 31px;
-  background: url('background/LeftFlatTabStyle2x31.gif') no-repeat left;
+  height: 30px;
+  background: url('background/TabSelector.gif') no-repeat left top;
   padding-left: 2px;
 }
 
 .UITabSelector .UIHorizontalTabs .RightHorizontalTabs{
-  height: 31px;
-  background: url('background/RightFlatTabStyle2x31.gif') no-repeat right;
+  height: 30px;
+  background: url('background/TabSelector.gif') no-repeat right top;
   padding-right: 2px;
 }
 
 .UITabSelector .UIHorizontalTabs .CenterHorizontalTabs {
   height: 30px;
-  background: url('background/CenterFlatTabStyle1x30.gif') repeat-x;
+  background: url('background/TabSelector.gif') repeat-x left -31px;
 }
 
 .UITabSelector .UIHorizontalTabs .TabsContainer {
@@ -36,7 +36,7 @@
 
 .UITabSelector .UIHorizontalTabs .LineSeparator {
   float: left;
-  background: url('background/LineSeparator.gif') no-repeat left;
+  background: url('background/TabSelector.gif') no-repeat left bottom;
   height: 30px;
   width: 2px;
   margin-top: 2px;
@@ -91,7 +91,7 @@
 
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab {
   line-height: 29px;
-  background: url('background/LeftSelectedFlatTabStyle.gif') repeat-x top;
+  background: url('background/TabSelector.gif') repeat-x left -61px;
   cursor: pointer;
   padding: 0px 6px;
 }

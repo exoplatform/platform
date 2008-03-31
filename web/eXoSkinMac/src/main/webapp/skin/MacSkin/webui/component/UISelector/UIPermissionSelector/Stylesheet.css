@@ -33,7 +33,7 @@
 .UIPermissionSelector .PermissionTypeBar .SeparateLine {
   float: left;
   width: 2px; height: 20px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UISelector/UIPermissionSelector/background/GrayLine2x2.gif') repeat-y ;
+  background: url('background/GrayLine2x2.gif') repeat-y ;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo {
