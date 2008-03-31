@@ -1,11 +1,13 @@
 <%
   import org.exoplatform.portletregistry.webui.component.ApplicationRegistryControlArea ;
-  import org.exoplatform.portletregistry.webui.component.ApplicationRegistryWorkingArea ;  
+  import org.exoplatform.portletregistry.webui.component.ApplicationRegistryWorkingArea ;
+  import org.exoplatform.webui.core.UIPopupContainer ;  
 %>
 <div >
 	<div><div style="width: 600px;" ><span style="display: none;"></span></div></div>
 	<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
 		style="_width: expression(this.previousSibling.offsetWidth - 18 + 'px'); min-width: 600px;">
+	  <%uicomponent.renderChild(UIPopupContainer.class);%>
 	  <div class="UIApplicationRegistryContainer" >
 		  <%/* Begin Portlet Registry Control*/ %>
 			<div class="ApplicationRegistryControlArea" >
@@ -17,7 +19,7 @@
 		  <%/* End Portlet Registry Control */%>		  
 			<div class="ApplicationRegistryWorkingArea" >
 			  <div class="Title"><%=_ctx.appRes("ApplicationRegistryWorkingArea.title")%></div>
-			  <div class="ApplicationWorkingAreaContainer" >
+			  <div class="ApplicationWorkingAreaContainer">
 				  <% uicomponent.renderChild(ApplicationRegistryWorkingArea.class);%>
 				</div>
 			</div>

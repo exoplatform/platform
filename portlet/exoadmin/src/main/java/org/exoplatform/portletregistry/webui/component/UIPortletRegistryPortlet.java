@@ -18,7 +18,9 @@ package org.exoplatform.portletregistry.webui.component;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.core.UIPopupContainer;
 import org.exoplatform.webui.core.UIPopupMessages;
+import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 @ComponentConfig(
@@ -31,6 +33,8 @@ public class UIPortletRegistryPortlet extends UIPortletApplication {
     addChild(ApplicationRegistryWorkingArea.class, null, null);  
     ApplicationRegistryControlArea uiControlArea = addChild(ApplicationRegistryControlArea.class, null, null);
     uiControlArea.initApplicationCategories();
+    UIPopupContainer uiPopup =  addChild(UIPopupContainer.class, null, null) ;
+    uiPopup.setId("UIPorletRegistryContainer") ;
   }
   
   public void renderPopupMessages() throws Exception {

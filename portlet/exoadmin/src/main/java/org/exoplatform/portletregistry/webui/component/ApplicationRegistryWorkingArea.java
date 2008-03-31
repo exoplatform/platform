@@ -30,6 +30,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIPopupContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -56,8 +57,8 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
   private Application select_;
   
   public ApplicationRegistryWorkingArea() throws Exception {
-    UIPopupWindow addCategoryPopup = addChild(UIPopupWindow.class, null, "WorkingPopup");
-    addCategoryPopup.setWindowSize(660, 0); 
+//    UIPopupWindow addCategoryPopup = addChild(UIPopupWindow.class, null, "WorkingPopup");
+//    addCategoryPopup.setWindowSize(660, 0); 
   }  
     
   public List<Application> getPortlets() {return portlets_;}
@@ -106,11 +107,10 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
-      UIPopupWindow popupWindow = uiWorkingArea.getChild(UIPopupWindow.class);
-      UIAvailablePortletForm uiAvailablePortletForm = uiWorkingArea.createUIComponent(UIAvailablePortletForm.class, null, null);
+      UIPopupContainer popupContainer = uiParent.getChild(UIPopupContainer.class);
+      UIAvailablePortletForm uiAvailablePortletForm = popupContainer.activate(UIAvailablePortletForm.class, 660) ;
       uiAvailablePortletForm.setValue();
-      popupWindow.setUIComponent(uiAvailablePortletForm);
-      popupWindow.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(popupContainer) ;
     }
   }
 
@@ -119,12 +119,11 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       String appName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       ApplicationRegistryWorkingArea uiWorkingArea = event.getSource();
       uiWorkingArea.setSeletcApplication(appName);
-      UIPopupWindow popupWindow = uiWorkingArea.getChild(UIPopupWindow.class);
-      UIInfoPortletForm uiAvailablePortletForm= uiWorkingArea.createUIComponent(UIInfoPortletForm.class, null, null);
+      UIPopupContainer popupWindow = uiWorkingArea.getAncestorOfType(UIPortletRegistryPortlet.class).getChild(UIPopupContainer.class) ;
+      UIInfoPortletForm uiAvailablePortletForm= popupWindow.activate(UIInfoPortletForm.class, 660) ;
       uiAvailablePortletForm.setName("UIInfoPortletForm");
       uiAvailablePortletForm.setValues(uiWorkingArea.getSelectApplication());
-      popupWindow.setUIComponent(uiAvailablePortletForm);
-      popupWindow.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(popupWindow) ;
     }
   }
 
@@ -133,11 +132,12 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       String appName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       ApplicationRegistryWorkingArea workingArea = event.getSource();
       workingArea.setSeletcApplication(appName);
-      UIPopupWindow popupWindow = workingArea.getChild(UIPopupWindow.class);
-      UIPermissionForm accessGroupForm= workingArea.createUIComponent(UIPermissionForm.class, null, null);
-      accessGroupForm.setValue(workingArea.getSelectApplication());
-      popupWindow.setUIComponent(accessGroupForm);
-      popupWindow.setShow(true);
+      UIPortletRegistryPortlet uiParent = workingArea.getAncestorOfType(UIPortletRegistryPortlet.class) ;
+      UIPopupContainer popupContainer = uiParent.getChild(UIPopupContainer.class) ;
+      UIPermissionForm accessGroupForm = popupContainer.activate(UIPermissionForm.class, 660) ;
+      //UIPermissionForm accessGroupForm= workingArea.createUIComponent(UIPermissionForm.class, null, null);
+      accessGroupForm.setValue(workingArea.getSelectApplication()) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(popupContainer) ;
     }
   }
 
@@ -151,8 +151,8 @@ public class ApplicationRegistryWorkingArea extends UIContainer {
       if(selectedPortlet == null) return ;
 
       ApplicationRegistryService service = workingArea.getApplicationComponent(ApplicationRegistryService.class) ;
-      UIPopupWindow uiPopup = workingArea.getChild(UIPopupWindow.class) ;
-      UIComponent uiComponent = uiPopup.getUIComponent();
+      UIPopupContainer uiPopup = workingArea.getAncestorOfType(UIPortletRegistryPortlet.class).getChild(UIPopupContainer.class) ;
+      UIComponent uiComponent = uiPopup.getChild(UIPopupWindow.class).getUIComponent();
       if(uiComponent != null && uiComponent instanceof UIInfoPortletForm) {
         UIInfoPortletForm uiInfoForm = (UIInfoPortletForm)uiComponent ;
         Application existingApp = uiInfoForm.getPortlet() ;

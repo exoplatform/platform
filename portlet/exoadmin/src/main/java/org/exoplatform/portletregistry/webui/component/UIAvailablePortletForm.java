@@ -37,6 +37,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIPopupComponent;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
@@ -64,7 +65,7 @@ import org.exoplatform.webui.form.UIFormTableIteratorInputSet;
       @EventConfig(listeners = UIAvailablePortletForm.BackActionListener.class, phase = Phase.DECODE)
     }
 )
-public class UIAvailablePortletForm extends UIForm {   
+public class UIAvailablePortletForm extends UIForm implements UIPopupComponent {   
 
   final static String [] TABLE_COLUMNS = {"label", "description", "input"};
   List<Application> list_ = new ArrayList<Application>();
@@ -227,4 +228,7 @@ public class UIAvailablePortletForm extends UIForm {
       parent.setShow(false);
     }
   }
+  
+  public void activate() throws Exception {}
+  public void deActivate() throws Exception {} 
 }

@@ -30,6 +30,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIPopupContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -61,11 +62,11 @@ public class ApplicationRegistryControlArea extends UIContainer {
   private List<Application> portlets ;
 
   public ApplicationRegistryControlArea() throws Exception {
-    UIPopupWindow addCategoryPopup = addChild(UIPopupWindow.class, null, "AddCategory");
-    addCategoryPopup.setWindowSize(640, 0);  
-    UICategoryForm uiCategoryForm = createUIComponent(UICategoryForm.class, null, null);
-    addCategoryPopup.setUIComponent(uiCategoryForm);
-    uiCategoryForm.setValue(null);
+//    UIPopupWindow addCategoryPopup = addChild(UIPopupWindow.class, null, "AddCategory");
+//    addCategoryPopup.setWindowSize(640, 0);  
+//    UICategoryForm uiCategoryForm = createUIComponent(UICategoryForm.class, null, null);
+//    addCategoryPopup.setUIComponent(uiCategoryForm);
+//    uiCategoryForm.setValue(null);
   }  
 
   @SuppressWarnings("unchecked")
@@ -139,7 +140,8 @@ public class ApplicationRegistryControlArea extends UIContainer {
   
   //TODO: Tung.Pham added
   public boolean isInUse(ApplicationCategory category) {
-    UIPopupWindow uiPopup = getChild(UIPopupWindow.class) ;
+    UIPortletRegistryPortlet uiParent = getAncestorOfType(UIPortletRegistryPortlet.class) ;
+    UIPopupWindow uiPopup = uiParent.getChild(UIPopupContainer.class).getChild(UIPopupWindow.class) ;
     UIComponent uiComponent = uiPopup.getUIComponent() ;
     if(uiComponent != null && uiComponent instanceof UICategoryForm) {
       UICategoryForm uiForm = (UICategoryForm) uiComponent ;
@@ -152,22 +154,33 @@ public class ApplicationRegistryControlArea extends UIContainer {
   static public class AddCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
-      UIPopupWindow popupWindow = uiRegistryCategory.getChild(UIPopupWindow.class);
-      popupWindow.setId("AddCategory");
-      UICategoryForm categoryForm = (UICategoryForm) popupWindow.getUIComponent();
-      categoryForm.setValue((ApplicationCategory)null);
-      popupWindow.setShow(true);
+      UIPortletRegistryPortlet uiparent = uiRegistryCategory.getAncestorOfType(UIPortletRegistryPortlet.class) ;
+      UIPopupContainer popupContainer = uiparent.getChild(UIPopupContainer.class);
+      UICategoryForm uiCategoryForm = (UICategoryForm)popupContainer.activate(UICategoryForm.class, 640) ;
+      uiCategoryForm.setValue((ApplicationCategory)null) ;
+      popupContainer.getChild(UIPopupWindow.class).setId("AddCategory") ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(popupContainer) ;
+      //popupWindow.setId("AddCategory");
+      //UICategoryForm categoryForm = (UICategoryForm) pop.getUIComponent();
+      //categoryForm.setValue((ApplicationCategory)null);
+      //popupWindow.setShow(true);
     }
   }
 
   static public class EditCategoryActionListener extends EventListener<ApplicationRegistryControlArea>{
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception{
       ApplicationRegistryControlArea uiRegistryCategory = event.getSource();
-      UIPopupWindow uiPopupWindow = uiRegistryCategory.getChild(UIPopupWindow.class);
-      uiPopupWindow.setId("EditCategory");
-      UICategoryForm uiCategoryForm = (UICategoryForm) uiPopupWindow.getUIComponent();
-      uiCategoryForm.setValue(uiRegistryCategory.getSelectedPortletCategory());
-      uiPopupWindow.setShow(true)
+      UIPortletRegistryPortlet uiparent = uiRegistryCategory.getAncestorOfType(UIPortletRegistryPortlet.class) ;
+      UIPopupContainer popupContainer = uiparent.getChild(UIPopupContainer.class);
+      UICategoryForm uiCategoryForm = (UICategoryForm)popupContainer.activate(UICategoryForm.class, 640) ;
+      uiCategoryForm.setValue(uiRegistryCategory.getSelectedPortletCategory()) ;
+      popupContainer.getChild(UIPopupWindow.class).setId("EditCategory") ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(popupContainer)
+      
+//      uiPopupWindow.setId("EditCategory");
+//      UICategoryForm uiCategoryForm = (UICategoryForm) uiPopupWindow.getUIComponent();
+//      uiCategoryForm.setValue(uiRegistryCategory.getSelectedPortletCategory());
+//      uiPopupWindow.setShow(true)
       ;
     }
   }

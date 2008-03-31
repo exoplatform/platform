@@ -22,6 +22,7 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIPopupComponent;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
@@ -47,7 +48,7 @@ import org.exoplatform.webui.form.validator.NameValidator;
       @EventConfig(phase = Phase.DECODE, listeners = UIInfoPortletForm.BackActionListener.class)
     }
 )
-public class UIInfoPortletForm extends UIForm {  
+public class UIInfoPortletForm extends UIForm implements UIPopupComponent {  
 
   private Application portlet_ ;
   
@@ -98,7 +99,9 @@ public class UIInfoPortletForm extends UIForm {
       uiParent.setShow(false);
     }
   }
-
+  
+  public void activate() throws Exception {}
+  public void deActivate() throws Exception {} 
 }
 
 

@@ -23,6 +23,7 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIPopupComponent;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
@@ -42,7 +43,7 @@ import org.exoplatform.webui.organization.UIListPermissionSelector;
     template = "system:/groovy/webui/form/UIForm.gtmpl",
     events = @EventConfig(listeners = UIPermissionForm.SaveActionListener.class)
 )
-public class UIPermissionForm extends UIForm {
+public class UIPermissionForm extends UIForm implements UIPopupComponent {
  
   private Application portlet_;
   
@@ -78,5 +79,6 @@ public class UIPermissionForm extends UIForm {
       uiPopupWindow.setShow(false);
     }
   }
-
+  public void activate() throws Exception {}
+  public void deActivate() throws Exception {}  
 }
