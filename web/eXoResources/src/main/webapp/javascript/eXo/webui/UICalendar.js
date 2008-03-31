@@ -155,6 +155,7 @@ UICalendar.prototype.renderCalendar = function() {
 }
 
 UICalendar.prototype.changeMonth = function(change) {
+	this.currentDate.setDate(1);
 	this.currentDate.setMonth(this.currentDate.getMonth() + change) ;
   var clndr = document.getElementById(this.calendarId) ;
   clndr.firstChild.lastChild.innerHTML = this.renderCalendar() ;
