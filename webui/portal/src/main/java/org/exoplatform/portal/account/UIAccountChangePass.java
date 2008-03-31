@@ -57,7 +57,8 @@ public class UIAccountChangePass extends UIForm {
            addValidator(MandatoryValidator.class)) ;
     addUIFormInput(new UIFormStringInput("newpass", "password", null).
            setType(UIFormStringInput.PASSWORD_TYPE).
-           addValidator(StringLengthValidator.class, 6, 30)) ;
+           addValidator(StringLengthValidator.class, 6, 30).
+           addValidator(MandatoryValidator.class)) ;
     addUIFormInput(new UIFormStringInput("confirmnewpass", "password", null).
         setType(UIFormStringInput.PASSWORD_TYPE).
         addValidator(MandatoryValidator.class)) ;

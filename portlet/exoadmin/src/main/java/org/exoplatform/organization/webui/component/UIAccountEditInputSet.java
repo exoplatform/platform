@@ -60,7 +60,8 @@ public class UIAccountEditInputSet extends UIFormInputSet {
     addUIFormInput(uiCheckbox) ;
     UIFormInputBase<String> uiInput = new UIFormStringInput(PASSWORD1X, null, null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
-                   addValidator(StringLengthValidator.class, 6,30) ;
+                   addValidator(StringLengthValidator.class, 6,30).
+                   addValidator(MandatoryValidator.class) ;
                    uiInput.setRendered(false) ;
     addUIFormInput(uiInput) ;
     uiInput = new UIFormStringInput(PASSWORD2X, null, null).

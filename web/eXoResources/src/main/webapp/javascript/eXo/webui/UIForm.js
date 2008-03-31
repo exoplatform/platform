@@ -88,7 +88,7 @@ UIForm.prototype.serializeForm = function (formElement) {
   var element ;
   var elements = formElement.elements;
   
-  this.addField = function(name, value) { 
+  this.addField = function(name, value) {
     if (queryString.length > 0) queryString += "&";
     queryString += name + "=" + encodeURIComponent(value);
   };
@@ -97,14 +97,17 @@ UIForm.prototype.serializeForm = function (formElement) {
     element = elements[i];
     //if(element.disabled) continue;
     switch(element.type) {
-      case "text":
+      case "text": break;
+      case "password": break;
       case "hidden":
-      case "password":
+      	this.addField(element.name, element.value);  
+        break;  
+        
       case "textarea" :  
-        this.addField(element.name, element.value);  
+        this.addField(element.name, element.value.replace(/\r/gi, ""));  
         break; 
           
-      case "checkbox":
+      case "checkbox": break;
       case "radio":
         if(element.checked) this.addField(element.name, element.value);  
         break;  
