@@ -97,17 +97,14 @@ UIForm.prototype.serializeForm = function (formElement) {
     element = elements[i];
     //if(element.disabled) continue;
     switch(element.type) {
-      case "text": break;
-      case "password": break;
+      case "text":
       case "hidden":
-      	this.addField(element.name, element.value);  
-        break;  
-        
+      case "password":
       case "textarea" :  
         this.addField(element.name, element.value.replace(/\r/gi, ""));  
         break; 
           
-      case "checkbox": break;
+      case "checkbox":
       case "radio":
         if(element.checked) this.addField(element.name, element.value);  
         break;  

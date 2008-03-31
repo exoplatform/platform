@@ -1,7 +1,7 @@
 <project>
   <groupId>org.exoplatform.portal</groupId>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>org.exoplatform.portal.sample.application.map</artifactId>
+  <artifactId>exo.portal.sample.application.map</artifactId>
   <version>0.1</version>
   <packaging>war</packaging>
   <name>eXo Map portlet application</name>
