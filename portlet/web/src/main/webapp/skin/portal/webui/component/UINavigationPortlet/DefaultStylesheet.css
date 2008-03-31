@@ -58,7 +58,7 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem a {
-  background: url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
+  border-bottom: 1px solid #dbdcdd;
 	cursor: pointer;
 	line-height: 24px;
 	height: 24px; width: auto;
@@ -68,12 +68,14 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem a:hover {
-	background: #dfe0e0 url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
+	background: #dfe0e0;
+	border-bottom: 1px solid #dbdcdd;
 	color: #3e8df0;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem {
-	background: #dfe0e0 url('DefaultSkin/background/BottomMenuItem220x1.gif') no-repeat bottom center;
+	background: #dfe0e0;
+	border-bottom: 1px solid #dbdcdd;
 	line-height: 24px;
 	width: auto; 
 	color: #3e8df0;
@@ -106,7 +108,7 @@
 /*============ Scroll Buttons =====================*/
 .UINavigationPortlet .ScrollButtons {
 	float: right;
-	padding: 5px 0px;
+	padding: 5px;
 	display: none;
 }
 
