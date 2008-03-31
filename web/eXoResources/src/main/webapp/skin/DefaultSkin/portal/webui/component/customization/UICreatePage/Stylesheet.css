@@ -17,46 +17,12 @@
   padding: 0px 10px ;
 }
 
-.UICreatePage .PageLayoutModeIcon {
-  float: left;
-  width: 24px; height: 22px;
-  margin: 6px 18px 0px 30px;
-  background: url('icons/CreatePage.gif') no-repeat left top;
-  cursor: pointer ;
-}
-
-.UICreatePage .PagePreviewIcon {
-  float: left;
-  width: 24px; height: 22px;
-  margin: 6px 18px 0px 30px;
-  background: url('icons/CreatePage.gif') no-repeat left -24px;
-}
-
-.UICreatePage .EditContainerIcon {
-  float: left;
-  width: 27px; height: 22px;
-  margin: 6px 18px 0px 18px;
-  background: url('icons/CreatePage.gif') no-repeat left -47px;
-}
-
-.UICreatePage .EditPortletIcon {
-  float: left;
-  width: 27px; height: 22px;
-  margin: 6px 0px 0px 24px;
-  background: url('icons/CreatePage.gif') no-repeat left -70px;
-}
-
-.UICreatePage .NavigationPortalIcon {
-	border: 1px solid red;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') ;
-}
-
 .UICreatePage .UIToolbar .EditToolbar {
   padding: 0px 6px;
 }
 
 .UICreatePage .UIToolbar .EditToolbar .Icon{
-	margin: 5px 12px 0px 27px;
+	margin: 3px 12px 0px 27px;
 }
 
 .UICreatePage .CreatePageContainer .CreatePageLabel {
