@@ -4,6 +4,7 @@
 }
 
 .UIContextMenuContainer {
+  width: 170px;
 } 
 
 .UIRightClickPopupMenu .UIRightPopupMenuContainer {
@@ -12,10 +13,9 @@
 }
 
 .UIRightClickPopupMenu .MenuItem {
-  display: block;
+  clear: both;
   cursor: pointer;
   line-height: 24px;
-  white-space: nowrap;
 }
 
 .UIRightClickPopupMenu .RightClickCustomItem {
@@ -23,7 +23,7 @@
 }
 	
 .UIRightClickPopupMenu .SelectedMenuItem {
-  display: block;
+  clear: both;
   cursor: pointer;
   line-height: 24px;
   background: #dee4f2;
