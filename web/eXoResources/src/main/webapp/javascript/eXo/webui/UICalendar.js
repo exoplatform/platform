@@ -38,8 +38,8 @@ UICalendar.prototype.show = function() {
 	if (re.test(this.dateField.value)) {
 	  var dateParts = this.dateField.value.split(" ") ;
 	  var arr = dateParts[0].split("/") ;
-	  this.selectedDate.setDate(parseInt(arr[1],10)) ;
 	  this.selectedDate.setMonth(parseInt(arr[0],10) - 1) ;
+	  this.selectedDate.setDate(parseInt(arr[1],10)) ;
 	  this.selectedDate.setFullYear(parseInt(arr[2],10)) ;
 	  if (dateParts.length > 1 && dateParts[dateParts.length - 1] != "") {
 	  	arr = dateParts[dateParts.length - 1].split(":") ;
