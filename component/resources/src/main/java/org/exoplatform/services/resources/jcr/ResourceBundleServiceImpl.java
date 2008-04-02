@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import javax.jcr.ItemNotFoundException;
+import javax.jcr.PathNotFoundException;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
@@ -74,7 +74,7 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
     RegistryEntry entry ;
     try {
       entry = regService_.getEntry(sessionProvider, resourceDataPath) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       sessionProvider.close() ;
       return null ;
     }
@@ -101,7 +101,7 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
     RegistryEntry entry ;
     try {
       entry = regService_.getEntry(sessionProvider, servicePath + "/" + id) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       entry = new RegistryEntry(id) ;
       regService_.createEntry(sessionProvider, servicePath, entry) ;
     }
