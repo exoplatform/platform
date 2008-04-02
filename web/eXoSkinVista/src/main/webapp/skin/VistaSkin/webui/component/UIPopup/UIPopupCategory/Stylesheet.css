@@ -6,22 +6,22 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
-  background: url('background/PopupCategoryTL12x16.png') no-repeat left;
+  background: url('background/PopupCategory.png') no-repeat left -16px;
   padding-left:12px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
   height:16px;
-  background: url('background/PopupCategoryTC1x16.png') repeat-x;
+  background: url('background/PopupCategory.png') repeat-x left -32px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
-  background: url('background/PopupCategoryTR45x16.png') no-repeat right;
+  background: url('background/PopupCategory.png') no-repeat right top;
   padding-right: 45px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
-  background: url('background/PopupCategoryML12x1.png') repeat-y left;
+  background: url('background/PopupCategoryRepeatY.png') repeat-y left;
   padding-left: 12px;
 }
 
@@ -30,35 +30,35 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
-  background: url('background/PopupCategoryMR14x1.png') repeat-y right;
+  background: url('background/PopupCategoryRepeatY.png') repeat-y right;
   padding-right:14px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
-  background: url('background/PopupCategoryBL12x18.png') no-repeat left;
+  background: url('background/PopupCategory.png') no-repeat left -48px;
   padding-left:12px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
   height: 18px;
-  background: url('background/PopupCategoryBC1x18.png') repeat-x;
+  background: url('background/PopupCategory.png') repeat-x left -66px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  background: url('background/PopupCategoryBR14x18.png') no-repeat right;
+  background: url('background/PopupCategory.png') no-repeat right -48px;
   padding-right:14px;
 }
 
 .UIPopupCategory .CategoryItem {
   color: black;
-  background: url('background/NormalItemBG1x22.png') repeat-x;
+  background: url('background/PopupCategory.png') repeat-x left -84px;
   border-bottom: 1px #b1b5c0 solid;
   cursor: pointer ;
   display: block;
 }
 
 .UIPopupCategory .CategoryItem:hover {
-	background: url('background/OverItemBG1x22.png') repeat-x;
+	background: url('background/PopupCategory.png') repeat-x bottom;
   color: blue;
 }
 

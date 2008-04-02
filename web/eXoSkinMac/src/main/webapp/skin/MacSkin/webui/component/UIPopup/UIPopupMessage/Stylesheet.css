@@ -3,7 +3,7 @@
 
 .UIPopupMessages .UIHorizontalTabs {
 	height: 35px;
-	background: url('background/MessageTabBar1x35.gif') repeat-x top;
+	background: url('background/PopupMessages.gif') repeat-x top;
 	padding: 1px 4px 0px 4px;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .UIPopupMessages .MessageActionBar {
-	background: url('background/MessageActionBar1x35.gif') repeat-x;
+	background: url('background/PopupMessages.gif') repeat-x bottom;
 	height: 35px;
 }
 

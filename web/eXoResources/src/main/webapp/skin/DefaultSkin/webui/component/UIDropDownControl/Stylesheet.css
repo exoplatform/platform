@@ -38,10 +38,11 @@
 }
 
 .UIDropDownControl .DropDownSelectIcon {
-	background: url(background/DropDownButton.gif) no-repeat scroll right center;
+	background: url('background/DropDownControl.gif') no-repeat scroll right top;
 	cursor: pointer;
 	height: 19px;
 	padding-right: 20px;
+	
 }
 
 .UIDropDownControl .DropDownSelectLabel {
@@ -53,13 +54,6 @@
 	margin-left: 5px;
 }
 
-.UIDropDownControl .EditIcon {
-	background: transparent url(icons/ManageButton.gif) no-repeat center top;
-	cursor: pointer;
-	height: 21px;
-	width: 20px;
-	float: right;
-}
 
 .UIDropDownControl .OptionItem {
 	display: block ;
@@ -67,11 +61,11 @@
 	border-bottom: 1px solid #e0e0e0 ;
 	border-top: 1px solid #ffffff ;
 	line-height: 20px;
-	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;
 }
 
 .UIDropDownControl .OptionItem:hover {
-	background: #7aafe5 url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
+	background: #7aafe5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;
 	color: white;
 }
 
@@ -80,37 +74,6 @@
 	right: -93px ;
 	width: 120px ;
 	top: 20px ;
-}
-
-/* -- top ---*/
-.UIPopupControl .UIPopupControlTL {
-	background: url(background/PopupControlTL29x16.gif) no-repeat left ;
-	padding-left: 29px ;
-}
-
-.UIPopupControl .UIPopupControlTR {
-	background: url(background/PopupControlTR8x6.gif) no-repeat right bottom ;
-	padding-right: 8px ;
-}
-
-.UIPopupControl .UIPopupControlTC {
-	background: url(background/PopupControlTC1x16.gif) repeat-x ;
-	height: 16px ;
-}
-/* -- end top --*/
-
-/* -- middle --*/
-.UIPopupControl .UIPopupControlML {
-	background: url(background/PopupControlML6x1.gif) repeat-y left ;
-	padding-left: 6px ;
-}
-.UIPopupControl .UIPopupControlMR {
-	background: url(background/PopupControlMR8x1.gif) repeat-y right ;
-	padding-right: 8px ;
-}
-
-.UIPopupControl .UIPopupControlMC {
-	background: #EFEFEF repeat;
 }
 
 /* -- menu Item --*/
@@ -135,24 +98,6 @@
 }
 /* -- end menuItem --*/
 
-/* -- end midle --*/
-
-/* -- bottom --*/
-.UIPopupControl .UIPopupControlBL {
-	background: url(background/PopupControlBL6x7.gif) no-repeat left;
-	padding-left: 6px ;
-}
-
-.UIPopupControl .UIPopupControlBR {
-	background: url(background/PopupControlBR8x7.gif) no-repeat right;
-	padding-right: 8px ;
-}
-
-.UIPopupControl .UIPopupControlBC {
-	background: url(background/PopupControlBC1x7.gif) repeat-x bottom;
-	height: 7px;
-}
-/* --end bottom --*/
 
 .UIPageNodeSelector .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
 	height: 16px;
@@ -163,5 +108,5 @@
 .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
 	height: 16px;
 	padding-left: 16px;
-	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif) no-repeat left center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat left center;
 }

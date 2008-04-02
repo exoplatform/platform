@@ -10,22 +10,22 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
-  background: url('background/PopupCategoryTL5x19.png') no-repeat left;
+  background: url('background/PopupCategory.png') no-repeat left -19px;
   padding-left: 5px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
   height: 19px;
-  background: url('background/PopupCategoryTC1x19.png') repeat-x;
+  background: url('background/PopupCategory.png') repeat-x left -38px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
-  background: url('background/PopupCategoryTR47x19.png') no-repeat right;
+  background: url('background/PopupCategory.png') no-repeat right top;
   padding: 0px 47px 0px 0px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
-  background: url('background/PopupCategoryML5x4.png') repeat-y left;
+  background: url('background/PopupCategoryRepeatY.png') repeat-y left;
   padding-left: 5px;
 }
 
@@ -34,22 +34,22 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
-  background: url('background/PopupCategoryMR5x4.png') repeat-y right;
+  background: url('background/PopupCategoryRepeatY.png') repeat-y right;
   padding-right: 5px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
-  background: url('background/PopupCategoryBL9x9.png') no-repeat left;
+  background: url('background/PopupCategory.png') no-repeat left -57px;
   padding-left: 9px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
   height: 9px;
-  background: url('background/PopupCategoryBC1x9.png') repeat-x;
+  background: url('background/PopupCategory.png') repeat-x left -75px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  background: url('background/PopupCategoryBR8x9.png') no-repeat right;
+  background: url('background/PopupCategory.png') no-repeat right -66px;
   padding-right: 8px;
 }
 
@@ -68,6 +68,6 @@
   padding-left: 20px;
   height: 22px;
   line-height: 22px;
-  background: url('background/CategoryItem.png') no-repeat left center ;
+  background: url('background/PopupCategory.png') no-repeat left -84px ;
   margin-left: 5px;
 }

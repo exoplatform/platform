@@ -14,12 +14,12 @@
 
 .UIDropDownControl .LeftMiddelItem {
 	display: block ;
-	background: url(background/MLItemSelector3x1.png) repeat-y left center;
+	background: url('background/DropDownControlRepeatY.png') repeat-y left center;
 	padding-left:3px;
 }
 
 .UIDropDownControl .RightMiddelItem {
-	background: url(background/MRItemSelector3x1.png) repeat-y right center;
+	background: url('background/DropDownControlRepeatY.png') repeat-y right center;
 	padding-right:3px;
 }
 
@@ -28,34 +28,34 @@
 }
 
 .UIDropDownControl .LeftBottomItem {
-	background: url(background/BLItemSelector4x4.png) no-repeat left center;
+	background: url('background/DropDownControl.png') no-repeat left -48px;
 	padding-left:4px;
 }
 
 .UIDropDownControl .RightBottomItem {
-	background: url(background/BRItemSelector4x4.png) no-repeat right center;
+	background: url('background/DropDownControl.png') no-repeat right -52px;
 	padding-right:4px;
 }
 
 .UIDropDownControl .CenterBottomItem {
-	background: url(background/BCItemSelector1x4.png) repeat-x ;
+	background: url('background/DropDownControl.png') repeat-x bottom;
 	height: 4px;
 }
 
 
 .UIDropDownControl .UIDropDownLeftTitle {
-	background: url(background/LeftItemInfoBar4x24.png) no-repeat left center;
+	background: url('background/DropDownControl.png') no-repeat left top;
 	padding-left: 4px;
 	height: 24px;
 }
 
 .UIDropDownControl .UIDropDownRightTitle {
-	background: url(background/RightItemInfoBar3x24.png) no-repeat right center;
+	background: url('background/DropDownControl.png') no-repeat right top;
 	padding-right: 3px;
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle {
-	background: url(background/ItemInfoBarBG1x24.png) repeat-x center;
+	background: url('background/DropDownControl.png') repeat-x left -24px;
 	cursor: pointer;
 	height: 24px;
 }
@@ -65,7 +65,7 @@
 }
 
 .UIDropDownControl .DropDownSelectIcon {
-	background: url(background/DropDownButton.gif) no-repeat right center;
+	background: url('background/DropDownButton.gif') no-repeat right center;
 	cursor: pointer;
 	height: 22px;
 	padding-right: 20px;	
@@ -81,13 +81,7 @@
 	color: #3F7FBF;
 }
 
-.UIDropDownControl .EditIcon {
-	background:transparent url(icons/ManageButton.gif) no-repeat center top;
-	cursor:pointer;
-	height:21px;
-	width:20px;
-	float: right;
-}
+
 
 .UIDropDownControl .OptionItem {
 	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
@@ -108,37 +102,6 @@
 	right: -93px ;
 	width: 120px ;
 	top: 20px ;
-}
-
-/* -- top ---*/
-.UIPopupControl .UIPopupControlTL {
-	background: url(background/PopupControlTL29x16.gif) no-repeat left ;
-	padding-left: 29px ;
-}
-
-.UIPopupControl .UIPopupControlTR {
-	background: url(background/PopupControlTR8x6.gif) no-repeat right bottom ;
-	padding-right: 8px ;
-}
-
-.UIPopupControl .UIPopupControlTC {
-	background: url(background/PopupControlTC1x16.gif) repeat-x ;
-	height: 16px ;
-}
-/* -- end top --*/
-
-/* -- middle --*/
-.UIPopupControl .UIPopupControlML {
-	background: url(background/PopupControlML6x1.gif) repeat-y left ;
-	padding-left: 6px ;
-}
-.UIPopupControl .UIPopupControlMR {
-	background: url(background/PopupControlMR8x1.gif) repeat-y right ;
-	padding-right: 8px ;
-}
-
-.UIPopupControl .UIPopupControlMC {
-	background: #EFEFEF repeat;
 }
 
 /* -- menu Item --*/
@@ -163,31 +126,14 @@
 }
 /* -- end menuItem --*/
 
-/* -- end midle --*/
-
-/* -- bottom --*/
-.UIPopupControl .UIPopupControlBL {
-	background: url(background/PopupControlBL6x7.gif) no-repeat left;
-	padding-left: 6px ;
-}
-
-.UIPopupControl .UIPopupControlBR {
-	background: url(background/PopupControlBR8x7.gif) no-repeat right;
-	padding-right: 8px ;
-}
-
-.UIPopupControl .UIPopupControlBC {
-	background: url(background/PopupControlBC1x7.gif) repeat-x bottom;
-	height: 7px;
-}
-/* --end bottom --*/
 
 .UIPageNodeSelector .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
 	height: 24px;
 	padding-left: 16px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat left center;
 }
+
 .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
   padding-left: 16px; height: 20px;
-	background: url(/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif) no-repeat left center
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat left center;
 }
