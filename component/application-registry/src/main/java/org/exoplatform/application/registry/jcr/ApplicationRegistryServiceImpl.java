@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import javax.jcr.ItemNotFoundException;
+import javax.jcr.PathNotFoundException;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
@@ -119,7 +119,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     RegistryEntry entry ;
     try {
       entry = regService_.getEntry(sessionProvider, categoryDataPath) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       sessionProvider.close() ;
       return null ;
     }
@@ -134,7 +134,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     RegistryEntry entry ;
     try {
       entry = regService_.getEntry(sessionProvider, categoryPath + "/" + CATEGORY_DATA) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       entry = new RegistryEntry(CATEGORY_DATA) ;
       regService_.createEntry(sessionProvider, categoryPath, entry) ;
     }
@@ -175,7 +175,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     RegistryEntry entry ;
     try {
       entry = regService_.getEntry(sessionProvider, applicationPath) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       sessionProvider.close() ;
       return null ;
     }
@@ -191,7 +191,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     RegistryEntry entry ;
     try {
       entry = regService_.getEntry(sessionProvider, applicationPath) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       sessionProvider.close() ;
       return null ;
     }
@@ -315,7 +315,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     RegistryEntry entry ;
     try {
       entry = regService_.getEntry(sessionProvider, categoryPath + "/" + CATEGORY_DATA) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       entry = new RegistryEntry(CATEGORY_DATA) ;
       mapper_.map(entry.getDocument(), category) ;
       regService_.createEntry(sessionProvider, categoryPath, entry) ;
@@ -327,7 +327,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     String appName = application.getApplicationName() ;
     try {
       entry = regService_.getEntry(sessionProvider, applicationSetPath + "/" + appName) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       entry = new RegistryEntry(appName) ;
       regService_.createEntry(sessionProvider, applicationSetPath, entry) ;
     }

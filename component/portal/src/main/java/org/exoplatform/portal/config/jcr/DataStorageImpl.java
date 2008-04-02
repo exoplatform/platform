@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import javax.jcr.ItemNotFoundException;
+import javax.jcr.PathNotFoundException;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.Session;
@@ -75,7 +75,7 @@ public class DataStorageImpl implements DataStorage, Startable {
     RegistryEntry portalEntry ;
     try {
       portalEntry = regService_.getEntry(sessionProvider, portalPath) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       sessionProvider.close() ;
       return null ;
     }
@@ -121,7 +121,7 @@ public class DataStorageImpl implements DataStorage, Startable {
     RegistryEntry pageEntry ;
     try {
       pageEntry = regService_.getEntry(sessionProvider, pagePath) ;      
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       sessionProvider.close() ;
       return null ;
     }
@@ -172,7 +172,7 @@ public class DataStorageImpl implements DataStorage, Startable {
     RegistryEntry navigationEntry ;
     try {      
      navigationEntry = regService_.getEntry(sessionProvider, navigationPath) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       sessionProvider.close() ;
       return null ;
     }
@@ -218,7 +218,7 @@ public class DataStorageImpl implements DataStorage, Startable {
     RegistryEntry widgetsEntry ;
     try {      
      widgetsEntry = regService_.getEntry(sessionProvider, widgetsPath) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       sessionProvider.close() ;
       return null ;
     }
@@ -267,7 +267,7 @@ public class DataStorageImpl implements DataStorage, Startable {
     RegistryEntry portletPreferencesEntry ;
     try {
        portletPreferencesEntry = regService_.getEntry(sessionProvider, portletPreferencesPath) ;      
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       sessionProvider.close() ;
       return null ;
     }
@@ -286,7 +286,7 @@ public class DataStorageImpl implements DataStorage, Startable {
       entry = regService_.getEntry(sessionProvider, portletPreferencesSet + "/" + name) ;
       mapper_.map(entry.getDocument(), portletPreferences) ;
       regService_.recreateEntry(sessionProvider, portletPreferencesSet, entry) ;
-    } catch (ItemNotFoundException ie) {
+    } catch (PathNotFoundException ie) {
       entry = new RegistryEntry(name) ;
       mapper_.map(entry.getDocument(), portletPreferences) ;
       regService_.createEntry(sessionProvider, portletPreferencesSet, entry) ;
