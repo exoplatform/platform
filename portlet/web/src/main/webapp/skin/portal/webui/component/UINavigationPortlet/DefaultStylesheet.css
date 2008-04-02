@@ -6,6 +6,7 @@
  */
 
 .UINavigationPortlet {
+ position: relative;
 }
 
 .UINavigationPortlet .UINavigationBar {
@@ -14,11 +15,10 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
   height: 28px;
-  position: expression('relative');
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
-  float:none;
+  float: none;
 }
 
 .UINavigationPortlet .MiddleTab .TabLabel {

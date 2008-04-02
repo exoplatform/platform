@@ -1,11 +1,19 @@
 .UINavigationPortlet {
-  height: 42px;
+  position: relative;
 }
 
 .UINavigationPortlet .UINavigationBar {
   height: 42px;
 }
 
+.UINavigationPortlet .UINavigationBar .UIHorizontalTabs  {
+  height: 41px;
+}
+
+.UINavigationPortlet .UIHorizontalTabs .TabsContainer {
+  float: none;
+}
+ 
 .UINavigationPortlet .UINavigationBar .PageNodeIcon {
   background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left;
 }
@@ -18,16 +26,6 @@
   background: url('MacSkin/background/UINavigationPortlet.png') repeat-x top;
   height: 41px;
   padding-left: 8px;
-}
-
-.UINavigationPortlet .UINavigationBar .UIHorizontalTabs  {
-  height: 41px;
-  background: none;
-  position: expression('relative');
-}
-
-.UINavigationPortlet .UIHorizontalTabs .TabsContainer {
-  float:none;
 }
 
 /* Portal Navigation sub menus */

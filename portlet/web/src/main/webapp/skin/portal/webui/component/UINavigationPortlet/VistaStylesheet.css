@@ -1,5 +1,5 @@
 .UINavigationPortlet {
-  height: 40px;
+  position: relative;
 }
 
 .UINavigationPortlet .UINavigationBar {
@@ -8,16 +8,15 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
   height: 36px;
-  position: expression('relative');
 }
 
+.UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
+  float: none;
+} 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
   line-height: 36px;
   background: url('VistaSkin/background/NavigationPortlet.png') repeat-x top;
  
-}
-.UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
-  float:none;
 }
 
 /* Portal Navigation sub menus */
