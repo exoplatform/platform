@@ -29,7 +29,9 @@ var eXo  = {
   
   forum : { }, 
    
-  mail : { }  
+  mail : { },
+  
+  faq : { }
 } ;
 
 var CG38 = {};
