@@ -12,7 +12,8 @@
   margin: 6px 0px ;
 }
 
-.UICreatePage .TabLabel {
+.UICreatePage .UIDropDownControl { 
+	width: 210px;
 }
 
 .UICreatePage .NavigationPortalIcon {

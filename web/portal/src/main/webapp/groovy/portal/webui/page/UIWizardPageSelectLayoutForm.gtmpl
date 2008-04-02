@@ -20,7 +20,7 @@
 	
 %>
 <div class="UIItemSelector">
-  <div class="RightColumnStyle" style="width: 99.5%;">
+  <div class="RightColumnStyle">
     <input type="hidden" name="<%=uicomponent.getName();%>" value ="">
     <%/*Begin ItemList*/%>
     <div class="ItemListContainer ItemSelectorAncestor">

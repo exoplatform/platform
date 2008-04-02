@@ -88,10 +88,6 @@
   height: 100%;
 }
 
-.UIWizard .UIWizardContent .WizardStepContent .UIForm {
-	padding: 10px;
-}
-
 .UIWizard .UIWizardContent .WizardControlBar {
   height: 34px;
   border: solid 1px #b7b7b7;
@@ -248,10 +244,14 @@
 }
 
 .UIWizard .UIItemSelector {
-	background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png');
-	border: 1px solid gray;
+  padding: 10px;
+  margin: 0px;
+}
+.UIWizard .UIItemSelector .RightColumnStyle {
 	padding: 10px;
-	margin: 0px;
+	width: auto;
+	border: 1px solid gray;
+	background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png');
 }
 
 .UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList {
@@ -277,11 +277,8 @@
   margin: auto;
 }
 
-.UIWizard .ScrollArea {
+.UIWizard .TreeContainer {
 	height: 235px;
-	overflow-y: auto;
-	overflow-x: hidden;
-	width: 213px;
 }
 
 .UIWizard .LAYOUT-PAGE {

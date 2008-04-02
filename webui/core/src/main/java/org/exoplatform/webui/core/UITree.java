@@ -173,10 +173,10 @@ public class UITree extends UIComponent {
       builder.append(" <a class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\">") ;
     }
     if(uiPopupMenu_ == null) {
-      builder.append(" <div class=\"NodeIcon ").append(iconGroup).append(note).append("\">").append(getFieldValue(obj, beanLabelField_)).append("</div>") ;
+      builder.append(" <div class=\"NodeIcon ").append(iconGroup).append(note).append("\"").append(" title=\"").append(getFieldValue(obj, beanLabelField_)).append("\"").append(">").append(getFieldValue(obj, beanLabelField_)).append("</div>") ;
     }
     else {
-      builder.append("<div class=\"NodeIcon ").append(iconGroup).append(note).append("\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null)).append(">")
+      builder.append("<div class=\"NodeIcon ").append(iconGroup).append(note).append("\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null)).append(" title=\"").append(getFieldValue(obj, beanLabelField_)).append("\"").append(">")
               .append(getFieldValue(obj, beanLabelField_)).append("</div>") ;
     }
     builder.append(" </a>") ;

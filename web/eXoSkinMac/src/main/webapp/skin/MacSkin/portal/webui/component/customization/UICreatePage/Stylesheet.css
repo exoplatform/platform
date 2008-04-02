@@ -36,6 +36,10 @@
   padding-bottom: 0px;
 }
 
+.UICreatePage .UIDropDownControl { 
+	width: 209px;
+}
+
 .UICreatePage .TreeSelectorTitle {
   text-align: center; font-size:11px;
   line-height: 20px; vertical-align:middle;

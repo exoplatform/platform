@@ -5,7 +5,8 @@
 
 .UITrees .TreeContainer {
 	padding: 4px 0px;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   width: 100%;
 }
 

@@ -32,6 +32,10 @@
 	text-align: center;
 }
 
+.UICreatePage .UIDropDownControl {
+  width: 212px;
+}
+
 .UICreatePage .UIPortletOptions {
 	margin: 0px 6px;
 }

@@ -13,14 +13,6 @@
   padding: 3px;
 }
 
-.UIControlWorkspace .ScrollArea {
-
-}
-
-.UIControlWorkspace .ScrollArea .TreeContainer {
-  overflow-x: hidden;
-}
-
 .UIControlWorkspace .UserWorkspaceTitle {
   height: 23px ;
   background: url('background/UserWorkspaceTitleBG1x23.png') repeat-x ;
@@ -63,9 +55,6 @@
   margin: 2px 0px ;
 }
 
-.UIControlWorkspace .UICreatePage .UIDropDownControl { 
-	width: 210px;
-}
 /*===================== End Tab =================================*/
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {
