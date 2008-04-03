@@ -13,12 +13,7 @@
 }
 
 .UIWindow .UIApplication {
-		_width: 99.6%;
 	overflow: auto;
-	/*
-	minh.js.exo
-	fix bug min-width in IE6 for portlets. 
-	*/
 }
 
 /**************************** UIPageBody ************************************/
