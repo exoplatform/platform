@@ -6,7 +6,7 @@
  */
 
 .UINavigationPortlet {
- position: relative;
+ !position: relative;
 }
 
 .UINavigationPortlet .UINavigationBar {
