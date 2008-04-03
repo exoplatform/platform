@@ -82,8 +82,10 @@ public class UploadHandler extends Command {
     }else if(uploadActionService == UploadServiceAction.DELETE){
       service.removeUpload(uploadId[0]);
     }else if(uploadActionService == UploadServiceAction.ABORT){
-      UploadResource upResource = service.getUploadResource(uploadId[0]);
-      if(upResource != null) upResource.setStatus(UploadResource.UPLOADED_STATUS) ;
+      //TODO: dang.tung - we don't need 2 statements because it'll show error when we reload browser
+      //UploadResource upResource = service.getUploadResource(uploadId[0]);
+      //if(upResource != null) upResource.setStatus(UploadResource.UPLOADED_STATUS) ;
+      service.removeUpload(uploadId[0]);
     }    
   }
   
