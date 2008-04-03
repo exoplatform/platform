@@ -52,7 +52,6 @@
   height: 100%;
 }
 
-
 .UIWizard .UIWizardContent .WizardControlBar {
   height: 36px;
   background: transparent;
@@ -92,14 +91,15 @@
   margin: 0px 10px 0px 15px;
 }
 
-.UIWizard .UIPageNodeSelector .UIDropDownControl {
+.UIWizard .UIWizardContent .UIDropDownControl {
 	width: 220px;
-  position: static;
+	position: static;
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl .UIDropDownAnchor {
 	width: 220px;
 }
+
 /*========================== End Wizard Content ==============================*/
 
 /*========================== Start ActionBar ==============================*/
