@@ -91,41 +91,41 @@
 }
 
 .UIRightClickPopupMenu .TopLeftRightClickPopupMenu {
-	background: url('background/TopLeftRightClickPopupMenu16x14.png') no-repeat left;
+	background: url('background/RightClickPopupMenu.png') no-repeat left;
 	padding-left: 16px;
 }
 
 .UIRightClickPopupMenu .TopRightRightClickPopupMenu {
-	background: url('background/TopRightRightClickPopupMenu18x14.png') no-repeat right;
+	background: url('background/RightClickPopupMenu.png') no-repeat right -14px;
 	padding-right: 18px;
 }
 
 .UIRightClickPopupMenu .TopCenterRightClickPopupMenu {
-	background: url('background/TopCenterRightClickPopupMenu1x14.png') repeat-x ;
+	background: url('background/RightClickPopupMenu.png') repeat-x left -28px;
 	height: 14px;
 }
 
 .UIRightClickPopupMenu .MiddleLeftRightClickPopupMenu {
-	background: url('background/MiddleLeftRightClickPopupMenu11x1.png') repeat-y left;
+	background: url('background/MiddleRightClickPopupMenu.png') repeat-y left;
 	padding-left: 11px;
 }
 
 .UIRightClickPopupMenu .MiddleRightRightClickPopupMenu {
-	background: url('background/MiddleRightRightClickPopupMenu13x1.png') repeat-y right;
+	background: url('background/MiddleRightClickPopupMenu.png') repeat-y right;
 	padding-right: 13px;
 }
 
 .UIRightClickPopupMenu .BottomLeftRightClickPopupMenu {
-	background: url('background/BottomLeftRightClickPopupMenu17x19.png') no-repeat left;
+	background: url('background/RightClickPopupMenu.png') no-repeat left -42px;
 	padding-left: 17px;
 }
 
 .UIRightClickPopupMenu .BottomRightRightClickPopupMenu {
-	background: url('background/BottomRightRightClickPopupMenu18x19.png') no-repeat right;
+	background: url('background/RightClickPopupMenu.png') no-repeat right -61px;
 	padding-right: 18px;
 }
 
 .UIRightClickPopupMenu .BottomCenterRightClickPopupMenu {
-	background: url('background/BottomCenterRightClickPopupMenu1x19.png') repeat-x ;
+	background: url('background/RightClickPopupMenu.png') repeat-x bottom;
 	height: 19px;
 }

@@ -41,43 +41,43 @@
 */
 .UIPageIterator .LastTopPageIcon {
   vertical-align: middle ;
-  background: url('background/ScrollDoubleBackArrows.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat top;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  background: url('background/ScrollDoubleNextArrows.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -17px ;
   cursor: pointer ;
 }
 
  .UIPageIterator .LastPageIcon {
-  background: url('background/ScrollSingleBackArrow.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -34px ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
-  background: url('background/ScrollSingleNextArrow.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -51px ;
   cursor: pointer ;
 }
 
 .UIPageIterator .DisableLastTopPageIcon {
   vertical-align: middle ;
-  background: url('background/DoubleBackArrows.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -68px ;
   cursor: pointer ;
 }
 
 .UIPageIterator .DisableNextTopPageIcon {
-  background: url('background/DoubleNextArrows.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -85px ;
   cursor: pointer ;
 }
 
  .UIPageIterator .DisableLastPageIcon {
-  background: url('background/SingleBackArrow.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -102px ;
   cursor: pointer ; 
 }
 
 .UIPageIterator .DisableNextPageIcon {
-  background: url('background/SingleNextArrow.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -119px ;
   cursor: pointer ;
 }
 /* End */
@@ -102,7 +102,7 @@
   padding: 0px 5px 1px 5px ;
   color: #333333 ;
   border: 1px solid #dfdfdf;
-  background: url('background/NumberBackground1x15.gif') repeat-x center;
+  background: url('background/ArrowPageIterator.gif') repeat-x bottom;
 }
 
 .UIPageIterator .Number a:hover {

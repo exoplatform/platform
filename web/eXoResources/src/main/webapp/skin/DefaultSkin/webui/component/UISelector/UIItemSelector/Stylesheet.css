@@ -77,13 +77,13 @@
 
 .UIItemSelector .ItemListContainer .ItemList {
   border: 1px #a4a4a4 solid;
-  background: white url('background/ItemSelector.gif') no-repeat right bottom;
+  background: white url('background/ItemList.jpg') no-repeat right bottom;
   height: 240px;
   overflow: auto;
 }
 
 .UIItemSelector .RightColumnStyle .ItemListContainer .ItemListBackground {
-  background: white url('background/ItemSelector.gif') no-repeat right bottom;
+  background: white url('background/ItemList.jpg') no-repeat right bottom;
   height: 258px;
 }
 
@@ -226,7 +226,7 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer .ItemList {
   border: 1px #b7b7b7 solid;
-  background: #ffffff url('/eXoSkinMac/skin/MacSkin/webui/component/UISelector/UIItemSelector/background/TemplateContainer.jpg') no-repeat bottom center;
+  background: white url('background/ItemList.jpg') no-repeat right bottom;
   height: 290px;
 }
 

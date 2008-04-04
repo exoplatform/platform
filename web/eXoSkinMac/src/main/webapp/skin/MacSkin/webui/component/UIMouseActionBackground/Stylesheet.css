@@ -1,4 +1,4 @@
- .NoMouseEvent64x58 {
+.NoMouseEvent64x58 {
   width: 64px;
   height: 58px;
   line-height: 58px;
@@ -6,25 +6,25 @@
   margin: auto;
 }
 
- .Over64x58 {
+.Over64x58 {
   width: 64px;
   height: 58px;
   line-height: 58px;
   vertical-align: middle;
   margin: auto;
-  background: url('background/OverBackground64x58.gif') no-repeat;
+  background: url('background/MouseAction.gif') no-repeat top;
 }
 
- .Selected64x58 {
+.Selected64x58 {
   width: 64px;
   height: 58px;
   line-height: 58px;
   vertical-align: middle;
   margin: auto;
-  background: url('background/SelectedBackground64x58.gif') no-repeat;
+  background: url('background/MouseAction.gif') no-repeat left -58px;
 }
 
- .NoMouseEvent32x32 {
+.NoMouseEvent32x32 {
   width: 32px;
   height: 32px;
   line-height: 32px;
@@ -32,25 +32,25 @@
   margin: auto;
 }
 
- .Over32x32 {
+.Over32x32 {
   width: 32px;
   height: 32px;
   line-height: 32px;
   vertical-align: middle;
   margin: auto;
-  background: url('background/OverBackground32x32.gif') no-repeat;
+  background: url('background/MouseAction.gif') no-repeat left -116px;
 }
 
- .Selected32x32 {
+.Selected32x32 {
   width: 32px;
   height: 32px;
   line-height: 32px;
   vertical-align: middle;
   margin: auto;
-  background: url('background/SelectedBackground32x32.gif') no-repeat;
+  background: url('background/MouseAction.gif') no-repeat right -116px;
 }
 
- .NoMouseEvent32x28 {
+.NoMouseEvent32x28 {
   width: 32px;
   height: 28px;
   line-height: 22px;
@@ -58,20 +58,20 @@
   margin: auto;
 }
 
- .Over32x28 {
+.Over32x28 {
   width: 32px;
   height: 28px;
   line-height: 28px;
   vertical-align: middle;
   margin: auto;
-  background: url('background/OverBackground32x28.gif') no-repeat;
+  background: url('background/MouseAction.gif') no-repeat left -148px;
 }
 
- .Selected32x28 {
+.Selected32x28 {
   width: 32px;
   height: 28px;
   line-height: 28px;
   vertical-align: middle;
   margin: auto;
-  background: url('background/SelectedBackground32x28.gif') no-repeat;
+  background: url('background/MouseAction.gif') no-repeat right -148px;
 }

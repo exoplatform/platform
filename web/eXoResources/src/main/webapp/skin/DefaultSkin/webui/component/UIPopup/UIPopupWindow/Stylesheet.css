@@ -61,7 +61,7 @@
 
 .UIPopupWindow .MiddleRightSideDecorator {
 	background: url('background/MiddlePopupWindow.gif') repeat-y right;
-	padding-right: 3px ;	
+	padding-right: 3px;	
 }
 
 .UIPopupWindow .UIWindowContent {
@@ -143,13 +143,13 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleLeftSideDecorator {
-	background: url('background/MiddleExoMessageDecorator.gif') repeat-y left; 
+	background: url('background/MiddleExoMessage.gif') repeat-y left; 
 	padding-left: 4px;
 	height: 100%;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleRightSideDecorator {
-	background: url('background/MiddleExoMessageDecorator.gif') repeat-y right; 
+	background: url('background/MiddleExoMessage.gif') repeat-y right; 
 	padding-right: 4px;
 }
 

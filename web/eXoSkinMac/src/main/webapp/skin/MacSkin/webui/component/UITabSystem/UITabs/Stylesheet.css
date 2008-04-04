@@ -1,36 +1,9 @@
 .UIHorizontalTabs {
 }
 
-.UIHorizontalTabs .LeftHorizontalTabs{
-  height: 30px;
-  background: url('background/LeftHorizontalTabs1x7.gif') no-repeat left bottom;
-  padding-left: 1px;
-}
-
-.UIHorizontalTabs .RightHorizontalTabs{
-  height: 30px;
-  background: url('background/RightHorizontalTabs1x7.gif') no-repeat right bottom;
-  padding-right: 1px;
-}
-
 .UIHorizontalTabs .CenterHorizontalTabs {
   height: 30px;
   background: url('background/LineDecorator1x7.gif') repeat-x bottom;
-}
-
-.UIHorizontalTabs .PreviousTabButton  {
-  float: left;
-  width: 14px; height: 24px;
-  margin-right: 1px;
-  cursor : pointer;
-  background: url('background/YellowLastTabButton14x24.gif') no-repeat;
-}
-
-.UIHorizontalTabs .NextTabButton  {
-  float: left;
-  width: 14px; height: 24px;
-  cursor : pointer;
-  background: url('background/YellowNextTabButton14x24.gif') no-repeat;
 }
 
 .UIHorizontalTabs .UITab {
@@ -48,18 +21,18 @@
 .UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
   line-height: 24px;
   padding-left: 6px;
-  background: url('background/LeftNormalTab6x24.png') no-repeat left;
+  background: url('background/NavigationTab.png') no-repeat left top;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .RightTab {
   line-height: 24px; 
   padding-right: 6px;
-  background: url('background/RightNormalTab6x24.png') no-repeat right;
+  background: url('background/NavigationTab.png') no-repeat right -24px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
   line-height: 24px; 
-  background: url('background/MiddleNormalTab1x24.png') repeat-x;
+  background: url('background/NavigationTab.png') repeat-x left -48px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
@@ -88,19 +61,19 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
   line-height: 24px; 
-  background: url('background/LeftHighlightTab6x24.png') no-repeat left;
+  background: url('background/NavigationTab.png') no-repeat left -72px;
   padding-left: 6px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .RightTab {
   line-height: 24px; 
-  background: url('background/RightHighlightTab6x24.png') no-repeat right;
+  background: url('background/NavigationTab.png') no-repeat right -96px;
   padding-right: 6px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
   line-height: 24px; 
-  background: url('background/MiddleHighlightTab1x24.png') repeat-x;
+  background: url('background/NavigationTab.png') repeat-x left -120px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
@@ -129,19 +102,19 @@
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
   line-height: 24px; 
-  background: url('background/LeftSelectedTab6x24.png') no-repeat left;
+  background: url('background/NavigationTab.png') no-repeat left -144px;
   padding-left: 6px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .RightTab {
   line-height: 24px; 
-  background: url('background/RightSelectedTab6x24.png') no-repeat right;
+  background: url('background/NavigationTab.png') no-repeat right -168px;
   padding-right: 6px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
   line-height: 24px;
-  background: url('background/MiddleSelectedTab1x24.png') repeat-x;
+  background: url('background/NavigationTab.png') repeat-x bottom;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
@@ -163,14 +136,14 @@
 /*###########################--NormalTab--############################*/
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab{
-  line-height: 25px;
+  line-height: 24px;
   margin: 0px 1px 0px 0px; padding-bottom: 6px;
   color: #474849;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab a {
   color: #5a5a5a;
-  line-height: 25px; 
+  line-height: 24px; 
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab a:hover {
@@ -179,25 +152,25 @@
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
   padding-left: 6px;
-  line-height: 25px;
-  background: url('background/LeftNormalTab6x24.png') no-repeat left top;
+  line-height: 24px;
+  background: url('background/NavigationTab.png') no-repeat left top;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
-  line-height: 25px;
+  line-height: 24px;
   padding-right: 6px;
-  background: url('background/RightNormalTab6x24.png') no-repeat right top;
+  background: url('background/NavigationTab.png') no-repeat right -24px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
   line-height: 24px;
-  background: url('background/MiddleNormalTab1x24.png') repeat-x top;
+  background: url('background/NavigationTab.png') repeat-x left -48px;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab {
-  line-height: 25px;
+  line-height: 24px;
   color: black;
   margin-right: 1px; margin-bottom: 6px;
 }
@@ -209,24 +182,24 @@
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .LeftTab {
   line-height: 24px;
   padding-left: 6px;
-  background: url('background/LeftHighlightTab6x24.png') no-repeat left top;
+  background: url('background/NavigationTab.png') no-repeat left -72px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .RightTab {
   line-height: 24px;
   padding-right: 6px;
-  background: url('background/RightHighlightTab6x24.png') no-repeat right top;
+  background: url('background/NavigationTab.png') no-repeat right -96px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab .MiddleTab {
   line-height: 24px;
-  background: url('background/MiddleHighlightTab1x24.png') repeat-x top;
+  background: url('background/NavigationTab.png') repeat-x left -120px;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab{
-  line-height: 25px;
+  line-height: 24px;
   color: black;
   margin-right: 1px; margin-bottom: 6px;
 }
@@ -234,18 +207,18 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
   line-height: 24px;
   padding-left: 6px;
-  background: url('background/LeftSelectedTab6x24.png') no-repeat left top;
+  background: url('background/NavigationTab.png') no-repeat left -144px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
   line-height: 24px;
   padding-right: 6px;
-  background: url('background/RightSelectedTab6x24.png') no-repeat right top;
+  background: url('background/NavigationTab.png') no-repeat right -168px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
   line-height: 24px;
-  background: url('background/MiddleSelectedTab1x24.png') repeat-x top;
+  background: url('background/NavigationTab.png') repeat-x bottom;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }
@@ -292,15 +265,15 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .InfoIcon {
-  background: url('background/BlueInfoSign.png') no-repeat;
+  background: url('background/MessageTabIcon.png') no-repeat top;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .ErrorIcon {
-  background: url('background/RedErrorSign.png') no-repeat;
+  background: url('background/MessageTabIcon.png') no-repeat center -25px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .WarningIcon {
-  background: url('background/YellowWarningSign.png') no-repeat;
+  background: url('background/MessageTabIcon.png') no-repeat center -50px;
 }
 
 /*==============================Disable Tab for MessageTab=====================*/
@@ -336,15 +309,15 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .InfoIcon {
-  background: url('background/GreyInfoSign.png') no-repeat;
+  background: url('background/MessageTabIcon.png') no-repeat center -75px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .ErrorIcon {
-  background: url('background/GreyErrorSign.png') no-repeat;
+  background: url('background/MessageTabIcon.png') no-repeat center -100px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .WarningIcon {
-  background: url('background/GreyWarningSign.png') no-repeat;
+  background: url('background/MessageTabIcon.png') no-repeat bottom;
 }
 /*==============================Selected Tab for MessageTab=====================*/
 
@@ -384,13 +357,13 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .InfoIcon {
-  background: url('background/BlueInfoSign.png') no-repeat;
+  background: url('background/MessageTabIcon.png') no-repeat top;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .ErrorIcon {
-  background: url('background/RedErrorSign.png') no-repeat;
+  background: url('background/MessageTabIcon.png') no-repeat center -25px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
-  background: url('background/YellowWarningSign.png') no-repeat;
+  background: url('background/MessageTabIcon.png') no-repeat center -50px;
 }

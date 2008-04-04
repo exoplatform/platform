@@ -163,7 +163,7 @@
 }
 
 .UIItemSelector .ItemListContainer .ItemList {
-  background: url('background/TemplateContainer.jpg') no-repeat center bottom;
+  background: url('background/ItemList.jpg')no-repeat bottom;
   border: 1px #b7b7b7 solid;
   color: #484d52;
   height: 240px;
@@ -268,7 +268,7 @@
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer .ItemList {
   border: 1px #b7b7b7 solid;
   color: #484d52;
-  background: url('background/TemplateContainer.jpg')no-repeat center bottom;
+  background: url('background/ItemList.jpg')no-repeat bottom;
   padding-top: 10px;
   height: 287px;
  

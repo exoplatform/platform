@@ -57,14 +57,7 @@
 
 .UIRightClickPopupMenu .EditSelectedNode16x16Icon {
   background: url('icons/EditNode.png') no-repeat left;
-}
-
-.UIRightClickPopupMenu .EditNavigation16x16Icon {
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat left;
-}
-
-.UIRightClickPopupMenu .CutNode16x16Icon {
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Cut.gif') no-repeat left;
+  
 }
 
 .UIRightClickPopupMenu .CopyNode16x16Icon {
@@ -73,6 +66,14 @@
 
 .UIRightClickPopupMenu .PasteNode16x16Icon {
   background: url('icons/Paste.gif') no-repeat left;
+}
+
+.UIRightClickPopupMenu .EditNavigation16x16Icon {
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat left;
+}
+
+.UIRightClickPopupMenu .CutNode16x16Icon {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Cut.gif') no-repeat left;
 }
 
 .UIRightClickPopupMenu .DeleteNode16x16Icon {

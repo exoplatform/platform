@@ -42,43 +42,43 @@
 */
 .UIPageIterator .LastTopPageIcon {
   vertical-align: middle ;
-  background: url('background/DoubleBackArrows.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat top;
   cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
-  background: url('background/DoubleNextArrows.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -20px;
   cursor: pointer ;
 }
 
  .UIPageIterator .LastPageIcon {
-  background: url('background/SingleBackArrow.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -40px;
   cursor: pointer ; 
 }
 
 .UIPageIterator .NextPageIcon {
-  background: url('background/SingleNextArrow.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -60px;
   cursor: pointer ;
 }
 
 .UIPageIterator .DisableLastTopPageIcon {
   vertical-align: middle ;
-  background: url('background/ScrollDoubleBackArrows.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -80px;
   cursor: pointer ;
 }
 
 .UIPageIterator .DisableNextTopPageIcon {
-  background: url('background/ScrollDoubleNextArrows.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -100px;
   cursor: pointer ;
 }
 
  .UIPageIterator .DisableLastPageIcon {
-  background: url('background/ScrollSingleBackArrow.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -120px;
   cursor: pointer ; 
 }
 
 .UIPageIterator .DisableNextPageIcon {
-  background: url('background/ScrollSingleNextArrow.gif') no-repeat ;
+  background: url('background/ArrowPageIterator.gif') no-repeat left -140px;
   cursor: pointer ;
 }
 /* End */
