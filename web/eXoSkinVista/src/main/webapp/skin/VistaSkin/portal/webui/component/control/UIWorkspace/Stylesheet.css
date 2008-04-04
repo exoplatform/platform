@@ -106,7 +106,7 @@
 /*########################### End Slidebar ###########################*/
 .UIWorkingWorkspace {
 	margin: 0px;
-	height: 0px;
+	*height: 0px;
 /*
  * minh.js.exo
  * bug : right click with IE7 in ECM
