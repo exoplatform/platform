@@ -102,13 +102,13 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomLeftRightClickPopupMenu {
-  background: url('background/PageDesktop.gif') left no-repeat -18px;
+  background: url('background/PageDesktop.gif') left no-repeat -19px;
   padding-left: 3px;
   line-height: 10px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomRightRightClickPopupMenu {
-  background: url('background/PageDesktop.gif') right no-repeat -18px ;
+  background: url('background/PageDesktop.gif') right no-repeat -19px ;
   padding-right: 3px;
   line-height: 10px;
 }
