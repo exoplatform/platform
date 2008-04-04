@@ -20,7 +20,7 @@ function Cometd() {
 	this.exoId = null;
 	this.exoToken = null;
 
-	this.clientId = null;
+	this.clientId = eXo.core.Browser.getCookie("cometdClientID");
 	this.messageId = 0;
 	this.batch=0;
 
@@ -36,13 +36,20 @@ function Cometd() {
 Cometd.prototype.init = function() {
 	this.currentTransport = new eXo.portal.LongPollTransport();
 	this.currentTransport.init(this);
-	this.currentTransport.initHandshake();
+	if(this.clientId)
+		this.currentTransport.initTunnel();
+	else
+		this.currentTransport.initHandshake();
 };
 
 // public API functions called by cometd or by the transport classes
 Cometd.prototype.deliver = function(messages){
 	messages.each(this._deliver, this);
 	return messages;
+}
+
+Cometd.prototype.isConnected = function(){
+	return this._connected;
 }
 
 Cometd.prototype._deliver = function(message){
@@ -177,6 +184,9 @@ Cometd.prototype._backoff = function(){
 	if(this.advice.interval<this._maxInterval){
 		this.advice.interval+=this._backoffInterval;
 	}
+	/*if(this.advice.reconnect == "handshake") {
+		
+	}*/
 }
 
 function LongPollTransport() {
@@ -245,6 +255,7 @@ function LongPollTransport() {
 		}
 
 		this._cometd.clientId = data.clientId;
+		eXo.core.Browser.setCookie("cometdClientID", this._cometd.clientId, 1);
 
 		this.initTunnel();
 	
@@ -318,6 +329,7 @@ function LongPollTransport() {
 		if(	(this._cometd["advice"])&&
 			(this._cometd.advice["reconnect"]=="handshake")
 		){
+			this._cometd.clientId = null;
 			this._cometd.init(this._cometd.url,this._cometd._props);
 		}else if(this._cometd._connected){
 			this.openTunnelWith({
