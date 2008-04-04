@@ -4,23 +4,23 @@
 
 /*######################-Rounded Style-######################*/
 .UIInfoBar .RoundedStyle .LeftBar {
-  height: 29px ;
+  height: 27px ;
   margin: 0px;
 }  
   
 .UIInfoBar .RoundedStyle .LeftBar {
-  background: url('background/RoundedBarL29x27.gif') no-repeat left ;
+  background: url('background/RoundedStyle.gif') no-repeat left ;
   padding: 0px 0px 0px 29px ;
 }
 
 .UIInfoBar .RoundedStyle .RightBar {
-  background: url('background/RoundedBarR9x27.gif') no-repeat right ;
+  background: url('background/RoundedStyle.gif') no-repeat right -29px ;
   padding: 0px 9px 0px 0px ;
 }
 
 .UIInfoBar .RoundedStyle .MiddleBar {
   height: 27px ;
-  background: url('background/RoundedBarM1x27.gif') repeat-x ;
+  background: url('background/RoundedStyle.gif') repeat-x bottom;
 }
 
 .UIInfoBar .RoundedStyle .Title {
@@ -31,33 +31,6 @@
   margin: 0px 0px 0px 5px;
 }
 
-/*######################-GrayRounded-######################*/
-.UIInfoBar .GrayRounded .LeftBar {
-  height: 23px ;
-}  
-  
-.UIInfoBar .GrayRounded .LeftBar {
-  background: url('background/GrayRoundedL26x23.gif') no-repeat left ;
-  padding-left: 26px ;
-}
-
-.UIInfoBar .GrayRounded .RightBar {
-  background: url('background/RoundedR9x23.gif') no-repeat right ;
-  padding-right: 9px ;
-}
-
-.UIInfoBar .GrayRounded .MiddleBar {
-  height: 23px ;
-  background: url('background/RoundedM1x23.gif') repeat-x ;
-}
-
-.UIInfoBar .GrayRounded .TitleBar {
-  height: 23px; line-height: 23px;
-  overflow: visible ;
-  float: left ;
-  margin-left: 5px;
-}
-
 /*######################-Blue Rounded Style-######################*/
 .UIInfoBar .BlueRoundedStyle {
 	height: 22px ;
@@ -65,18 +38,18 @@
 }
 
 .UIInfoBar .BlueRoundedStyle .LeftBar {
-  background: url('background/LeftControlBar10x22.png') no-repeat left center;
+  background: url('background/BlueRoundedStyle.png') no-repeat left top;
   padding-left: 10px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {
-  background: url('background/RightControlBar10x22.png') no-repeat right center;
+  background: url('background/BlueRoundedStyle.png') no-repeat right -22px;
   padding-right: 10px ;
 }
 
 .UIInfoBar .BlueRoundedStyle .MiddleBar {
   height: 22px ;
-  background: url('background/CenterControlBar1x22.png') repeat-x center;
+  background: url('background/BlueRoundedStyle.png') repeat-x bottom;
 }
 
 .UIInfoBar .BlueRoundedStyle .Title {
@@ -94,88 +67,36 @@
 
 /*######################-Simple Style-######################*/
 .UIInfoBar .SimpleStyle {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIInfoBar/background/MRoundedStyle1x21.gif') repeat-x ;
+  border-right: solid 1px #5f90ba ; border-left: solid 1px #5f90ba ;
   overflow: hidden ; 
-  background: url('background/RoundedStyleRP1x21.gif') repeat-x ;
-  border-right: 1px #5f90ba solid;
-  border-left: 1px #5f90ba solid;
 }
 
 .UIInfoBar .SimpleStyle .LeftBar {
   float: left ;
-  border-left: solid 1px #4e7180 ;
   height: 21px ;
   background: none ;
+  border-left: solid 1px #4e7180 ;
 }
 
 .UIInfoBar .SimpleStyle .RightBar {
   float: right ;
-  border-right: solid 1px #4e7180 ;
   height: 21px ;
   background: none ;
+  border-right: solid 1px #4e7180 ;
 }
 
 .UIInfoBar .SimpleStyle .MiddleBar {
-  padding-left: 10px ;
-  text-align: left ;
   height: 21px ;
+  text-align: left ;
+  padding: 0px 0px 0px 10px ;
 }
 
 .UIInfoBar .SimpleStyle .Title {
   float: left ;
-  height: 21px ;
-  line-height: 21px ; 
-  text-align: left ;
-  margin-left: 5px;
-}
-
-/*######################-Flat Style-######################*/
-.UIInfoBar .FlatStyle {
-  background: url('background/FlatStyleBG1x23.gif') repeat-x ;
-  margin: 0px 6px 0px 6px;
-}
-
-.UIInfoBar .FlatStyle .LeftBar {
-  float: left ;
-  width: 65px ;  height: 23px ; 
-  background: url('background/FlatStyleL65x23.gif') no-repeat ;
-}
-
-.UIInfoBar .FlatStyle .MiddleBar {
-  height: 23px ; width: 70%;
-  float: left ; margin-left: 5%;
-}
-
-.UIInfoBar .FlatStyle .RightBar {
-  float: right ;
-  height: 23px ;
-  border-right: solid 1px #7b7b7b ; 
-  background: url('background/FlatStyleRControl1x23.gif') repeat-x ;
-}
-
-.UIInfoBar .FlatStyle .Title {
-  height: 16px; line-height: 16px; vertical-align: middle;
-  width: 80%; margin: auto;
-  color: black;
-  text-align: center ;
-  margin-top: 3px ;
-}
-
-.UIInfoBar .FlatStyle .ExpandButton {
-  float: left ;
-  cursor: pointer ;
-  margin-right: 12px ;
-  width: 15px ;
-  height: 23px ;
-  background: url('background/FlatStyleExpand15x23.gif') no-repeat ;
-}
-
-.UIInfoBar .FlatStyle .CollapseButton {
-  float: left ;
-  cursor: pointer ;
-  margin-right: 12px ;
-  width: 15px ;
-  height: 23px ;
-  background: url('background/FlatStyleCollapse15x23.gif') no-repeat ;
+  height: 21px ; line-height: 21px ;  
+  vertical-align: middle ; text-align: left ;
+  margin: 0px 0px 0px 5px;
 }
 
 /*######################-Polygon Navyblue Style-######################*/
@@ -185,123 +106,50 @@
 
 .UIInfoBar .PolygonNavyBlueStyle .LeftBar {
 	padding-left: 3px;
-	background: url('background/PolygonNavyL3x26.gif') no-repeat left;
+	background: url('background/PolygonNavyBlueStyle.gif') no-repeat left top;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .RightBar {
 	padding-right: 3px;
-	background: url('background/PolygonNavyR3x26.gif') no-repeat right;
+	background: url('background/PolygonNavyBlueStyle.gif') no-repeat right top;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .MiddleBar {
   padding-left: 2px;
   height: 26px;
-	background: url('background/PolygonNavyRP1x26.gif') repeat-x;
+	background: url('background/PolygonNavyBlueStyle.gif') repeat-x bottom;
 }
 
 /*######################-Smooth Style-######################*/
+
 .UIInfoBar .SmoothStyle {
 	height: 22px;
-}
-
-.UIInfoBar .SmoothStyle .LeftBar {
-	padding-left: 1px;
-	background: url('background/SmoothStyleL1x22.gif') no-repeat left;
-}
-
-.UIInfoBar .SmoothStyle .RightBar {
-	padding-right: 1px;
-	background: url('background/SmoothStyleR1x22.gif') no-repeat right;
+	border-left: 1px solid #7c7c7c;
+	border-right: 1px solid #7c7c7c;
 }
 
 .UIInfoBar .SmoothStyle .MiddleBar {
   height: 22px;
-	background: url('background/SmoothStyleRP1x22.gif') repeat-x;
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIInfoBar/background/MSmoothStyle1x22.gif') repeat-x;
 }
 
 /*######################-Smooth Style 26 -######################*/
+
 .UIInfoBar .SmoothStyle26 {
 	height: 26px;	
 }
 
 .UIInfoBar .SmoothStyle26 .LeftBar {
-	padding-left: 1px;
-	background: url('background/SmoothStyleBigL2x26.gif') no-repeat left;
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIInfoBar/background/SmoothStyle26.gif') no-repeat left top;
+	padding: 0px 0px 0px 1px;
 }
 
 .UIInfoBar .SmoothStyle26 .RightBar {
-	padding-right: 1px;
-	background: url('background/SmoothStyleBigR2x26.gif') no-repeat right;
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIInfoBar/background/SmoothStyle26.gif') no-repeat right top;
+	padding: 0px 1px 0px 0px ;
 }
 
 .UIInfoBar .SmoothStyle26 .MiddleBar {
   height: 26px;
-	background: url('background/SmoothStyleBigRP1x26.gif') repeat-x;
-}
-
-/*######################-GrayRoundedStyle-######################*/
-.UIInfoBar .GrayRoundedStyle {
-	height: 27px;	
-}
-
-.UIInfoBar .GrayRoundedStyle .LeftBar {
-	padding-left: 10px;
-	background: url('background/RoundedL10x27.gif') no-repeat left;
-}
-
-.UIInfoBar .GrayRoundedStyle .RightBar {
-	padding-right: 10px;
-	background: url('background/RoundedR10x27.gif') no-repeat right;
-}
-
-.UIInfoBar .GrayRoundedStyle .MiddleBar {
-  margin: auto ;
-  height: 27px;
-	background: url('background/RoundedRP1x27.gif') repeat-x;
-}
-
-.UIInfoBar .GrayRoundedStyle .Icon {
-  float: left ;
-  background-position: center center ;
-  width: 27px ;  height: 27px ;
-  background-repeat: no-repeat ;
-}
-
-.UIInfoBar .GrayRoundedStyle .Title {
-  color: #005cff ;
-  font-weight: bold ;
-  text-align: left ;
-  height: 27px ;
-  line-height: 27px ;  vertical-align: middle ;
-  float: left ;
-}
-/*######################-LightBlueBevelBarStyle-######################*/
-.UIInfoBar .LightBlueBevelStyle {
-	height: 23px;
-	margin-bottom: -1px;
-}
-
-.UIInfoBar .LightBlueBevelStyle .LeftBar {
-	padding-left: 15px;
-	background: url('background/BarL15x23.gif') no-repeat left;
-}
-
-.UIInfoBar .LightBlueBevelStyle .RightBar {
-	padding-right: 15px;
-	background: url('background/BarR15x23.gif') no-repeat right;
-}
-
-.UIInfoBar .LightBlueBevelStyle .MiddleBar {
-  margin: auto ;
-  height: 23px;
-	background: url('background/BarM1x23.gif') repeat-x;
-}
-
-.UIInfoBar .LightBlueBevelStyle .Icon {
-  float: left ;
-  width: 16px ;  height: 16px ;
-  margin-top: 3px;
-}
-.UIInfoBar .LightBlueBevelStyle .Title {
-  height: 22px ;  line-height: 22px ;  vertical-align: middle ;
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIInfoBar/background/SmoothStyle26.gif') repeat-x center bottom;
 }

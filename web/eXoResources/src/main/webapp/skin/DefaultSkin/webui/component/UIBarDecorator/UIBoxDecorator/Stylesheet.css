@@ -68,61 +68,6 @@
   background-position: center -16px;
 }
 
-/*##############################- View box style-################################*/
-
-.DecoratorBox .ViewBoxStyle .MiddleCenterViewBoxStyle {
-  background: #ffffff ;
-}
-
-.DecoratorBox .ViewBoxStyle .TopLeftViewBoxStyle {
-  background: url('background/ViewBoxStyle.gif') no-repeat left top;
-  padding: 0px 0px 0px 8px;
-}
-
-.DecoratorBox .ViewBoxStyle .TopCenterViewBoxStyle {
-  height: 8px ;
-  background-image: url('background/ViewBoxStyle.gif');
-  background-repeat: repeat-x;
-  background-position: left -8px;
-}
-
-.DecoratorBox .ViewBoxStyle .TopRightViewBoxStyle {
-  background: url('background/ViewBoxStyle.gif') no-repeat right top;
-  padding: 0px 8px 0px 0px ;
-}
-
-.DecoratorBox .ViewBoxStyle .MiddleLeftViewBoxStyle {
-  background-image: url('background/MiddleViewBoxStyle.gif');
-  background-repeat: repeat-y;
-  background-position: left;
-  padding: 0px 0px 0px 4px ;
-}
-
-.DecoratorBox .ViewBoxStyle .MiddleRightViewBoxStyle {
-  background-image: url('background/MiddleViewBoxStyle.gif');
-  background-repeat: repeat-y;
-  background-position: right;
-  padding: 0px 4px 0px 0px ;
-}
-
-.DecoratorBox .ViewBoxStyle .BottomLeftViewBoxStyle {
-  width: auto; 
-  background: url('background/ViewBoxStyle.gif') no-repeat left bottom;
-  padding: 0px 0px 0px 8px ;
-}
-
-.DecoratorBox .ViewBoxStyle .BottomCenterViewBoxStyle {
-  height: 8px ;
-  background-image: url('background/ViewBoxStyle.gif');
-  background-repeat: repeat-x;
-  background-position: left -16px;
-}
-
-.DecoratorBox .ViewBoxStyle .BottomRightViewBoxStyle {
-  background: url('background/ViewBoxStyle.gif') no-repeat right bottom;
-  padding: 0px 8px 0px 0px ;
-}
-
 /*##############################- Bar Decorator-################################*/
 
 .DecoratorBox .BarDecorator .TopRightBar {
@@ -152,4 +97,51 @@
   background: url('background/BarDecorator.gif') no-repeat right bottom;
   padding-right: 3px;
   height: 3px;
+}
+
+/*##############################- View box style-################################*/
+
+.DecoratorBox .ViewBoxStyle .MiddleCenterViewBoxStyle {
+  background: #ffffff ;
+}
+
+.DecoratorBox .ViewBoxStyle .TopLeftViewBoxStyle {
+  background: url('background/ViewBoxStyle.gif') no-repeat left top;
+  padding: 0px 0px 0px 8px;
+}
+
+.DecoratorBox .ViewBoxStyle .TopCenterViewBoxStyle {
+  height: 8px ;
+  background: url('background/ViewBoxStyle.gif') repeat-x left -8px;
+}
+
+.DecoratorBox .ViewBoxStyle .TopRightViewBoxStyle {
+  background: url('background/ViewBoxStyle.gif') no-repeat right top;
+  padding: 0px 8px 0px 0px ;
+}
+
+.DecoratorBox .ViewBoxStyle .MiddleLeftViewBoxStyle {
+  background: url('background/MiddleViewBoxStyle.gif') repeat-y left;
+  padding: 0px 0px 0px 4px ;
+}
+
+.DecoratorBox .ViewBoxStyle .MiddleRightViewBoxStyle {
+  background: url('background/MiddleViewBoxStyle.gif') repeat-y right;
+  padding: 0px 4px 0px 0px ;
+}
+
+.DecoratorBox .ViewBoxStyle .BottomLeftViewBoxStyle {
+  width: auto; 
+  background: url('background/ViewBoxStyle.gif') no-repeat left bottom;
+  padding: 0px 0px 0px 8px ;
+}
+
+.DecoratorBox .ViewBoxStyle .BottomCenterViewBoxStyle {
+  height: 8px ;
+  background: url('background/ViewBoxStyle.gif') repeat-x left -16px;
+}
+
+.DecoratorBox .ViewBoxStyle .BottomRightViewBoxStyle {
+  background: url('background/ViewBoxStyle.gif') no-repeat right bottom;
+  padding: 0px 8px 0px 0px ;
 }

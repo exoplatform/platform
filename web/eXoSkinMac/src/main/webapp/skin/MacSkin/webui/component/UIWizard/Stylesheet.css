@@ -32,13 +32,13 @@
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl {
-	width: 220px;
+	width: 216px;
 	position: static;
 	margin-bottom: 2px;
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl .UIDropDownAnchor {
-	width: 220px;
+	width: 216px;
 }
 
 /*========================== Wizard Content ==============================*/

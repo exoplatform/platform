@@ -196,7 +196,7 @@
 
 .UIAddApplication .AddButton {
 	width: 20px ; height: 24px ;
-	background: url('icons/16x16/AddIcon.gif') no-repeat center;
+	background: url('background/AddApplicationButton.gif') no-repeat top;
 	float: right;
 	cursor: pointer ;
 	margin: 0px 3px;
@@ -204,7 +204,7 @@
 
 .UIAddApplication .SelectButton {
 	width: 20px ; height: 24px ;
-	background: url("icons/16x16/SelectButton.gif") no-repeat center;
+	background: url('background/AddApplicationButton.gif') no-repeat left -22px;
 	float: right;
 	cursor: pointer ;
 	margin: 0px 3px;

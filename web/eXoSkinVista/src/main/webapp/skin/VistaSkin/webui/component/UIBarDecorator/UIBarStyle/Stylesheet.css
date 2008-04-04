@@ -1,5 +1,3 @@
-.UIBarStyle {
-}
 
 /*###########################-RoundedBarStyle-###########################*/
 .UIBarStyle .RoundedBarStyle {
@@ -7,165 +5,19 @@
 }
 
 .UIBarStyle .RoundedBarStyle .LeftBar {
-  background: url('background/Rounded3BarL8x25.gif') no-repeat left;
+  background: url('background/RoundedBarStyle.gif') no-repeat left top;
   padding: 0px 0px 0px 8px;
 }
 
 .UIBarStyle .RoundedBarStyle .RightBar {
-  background: url('background/Rounded3BarR8x25.gif') no-repeat right;
+  background: url('background/RoundedBarStyle.gif') no-repeat right top;
   padding: 0px 8px 0px 0px ;
 }
 
 .UIBarStyle .RoundedBarStyle .MiddleBar {
   height: 25px;
   line-height: 25px;
-  background: url('background/Rounded3BarM1x25.gif') repeat-x;  
-}
-
-/*###########################-MacStyleBar-###########################*/
-.UIBarStyle StyleBar {
-  height: 22px;
-}
-
-.UIBarStyle StyleBar .LeftBar {
-  background: url('background/MacStyleBarL71x22.gif') no-repeat left;
-  padding: 0px 0px 0px 71px;
-}
-
-.UIBarStyle StyleBar .RightBar {
-  background: url('background/MacStyleBarR36x22.gif') no-repeat right;
-  padding: 0px 36px 0px 0px ;
-}
-
-.UIBarStyle StyleBar .MiddleBar {
-  height: 22px;
-  line-height: 22px;
-  background: url('background/MacStyleBarM1x22.gif') repeat-x;
-}
-
-/*###########################-GrayRoundedBarStyle-###########################*/
-.UIBarStyle .GrayRoundedBarStyle {
-  height: 26px;
-}
-
-.UIBarStyle .GrayRoundedBarStyle .LeftBar {
-  background: url('background/Rounded2BarLeft12x26.gif') no-repeat left;
-  padding: 0px 0px 0px 12px;
-}
-
-.UIBarStyle .GrayRoundedBarStyle .RightBar {
-  background: url('background/Rounded2BarRight12x26.gif') no-repeat right;
-  padding: 0px 12px 0px 0px ;
-}
-
-.UIBarStyle .GrayRoundedBarStyle .MiddleBar {
-  height: 26px;
-  line-height: 26px;
-  background: url('background/Rounded2BarCenter1x26.gif') repeat-x;  
-}
-
-/*###########################-BarStyle2-###########################*/
-.UIBarStyle .BarStyle2 {
-  height: 39px;
-}
-
-.UIBarStyle .BarStyle2 .LeftBar {
-  background: url('background/RoundedTopBarL7x39.png') no-repeat left;
-  padding: 0px 0px 0px 7px;
-  height: 39px;
-}
-
-.UIBarStyle .BarStyle2 .RightBar {
-  padding: 0px 7px 0px 0px ;
-  background: url('background/RoundedTopBarR7x39.png') no-repeat right;
-  height: 39px;
-}
-
-.UIBarStyle .BarStyle2 .MiddleBar {
-  height: 39px;
-  line-height: 39px;
-  background: url('background/RoundedTopBarM1x39.png') repeat-x;
-}
-
-/*###########################-Style3Bar-###########################*/
-.UIBarStyle .Style3 {
-  height: 26px;
-}
-
-.UIBarStyle .Style3 .LeftBar {
-  background: url('background/SmoothRoundedLeftBar3x26.gif') no-repeat left ;
-  padding: 0px 0px 0px 3px ;
-}
-
-.UIBarStyle .Style3 .RightBar {
-  background: url('background/SmoothRoundedRightBar3x26.gif') no-repeat right ;
-  padding: 0px 3px 0px 0px ;
-}
-
-.UIBarStyle .Style3 .MiddleBar {
-  height: 26px ;
-  line-height: 26px ;
-  vertical-align: middle ;
-  background: url('background/SmoothRoundedRepeatBar1x26.gif') repeat-x ;
-}
-
-/*###########################-Style4Bar-###########################*/
-.UIBarStyle .Style4 {
-	height:28px;
-	padding-right:45px;
-}
-
-.UIBarStyle .Style4 .RightBar {
-  background: url('background/Style4BarR11x28.png') no-repeat right ;
-  padding: 0px 11px 0px 0px ;
-}
-
-.UIBarStyle .Style4 .MiddleBar {
-  height: 28px ;
-  line-height: 28px ;
-  text-align: center;
-  font-weight: bold; 
-  background: url('background/Style4BarM1x28.png') repeat-x ;
-}
-
-/*###########################-Style5Bar-###########################*/
-.UIBarStyle .Style5 {
-  height: 30px;
-}
-
-.UIBarStyle .Style5 .LeftBar {
-  background: url('background/Style5BarL11x32.png') no-repeat left ;
-  padding: 0px 0px 0px 11px ;
-}
-
-.UIBarStyle .Style5 .RightBar {
-  background: url('background/Style5BarR15x32.png') no-repeat right ; 
-  padding: 0px 15px 0px 0px ;
-}
-
-.UIBarStyle .Style5 .MiddleBar {
-  height: 32px ;
-  line-height: 32px ;
-  vertical-align: middle ;
-  font-weight: bold;
-  background: url('background/Style5BarM1x32.png') repeat-x ;  
-}
-
-.UIBarStyle .Style5 .MiddleBar a{
-  cursor: pointer;
-}
-
-.UIBarStyle .Style5 .Icon {
-  float: left;
-}
-
-.UIBarStyle .Style5 .Label {
-  font-weight: bold;
-  text-align: center;
-}
-
-.UIBarStyle .Style5 .MiddleBar a:hover{
-  color: #0538ca;
+  background: url('background/RoundedBarStyle.gif') repeat-x bottom;  
 }
 
 /*###########################-WhiteRoundedBarStyle-###########################*/
@@ -174,84 +26,44 @@
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .LeftBar {
-  background: url('background/Rounded3BarLeft12x26.gif') no-repeat left;
+  background: url('background/WhiteRoundedBarStyle.gif') no-repeat left top;
   padding: 0px 0px 0px 12px;
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .RightBar {
-  background: url('background/Rounded3BarRight12x26.gif') no-repeat right;
+  background: url('background/WhiteRoundedBarStyle.gif') no-repeat right top;
   padding: 0px 12px 0px 0px ;
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .MiddleBar {
-  height: 24px;
-  line-height: 24px;
+  height: 26px;
+  line-height: 26px;
   background: white;
   border-top: solid 1px #c0bfbf;
   border-bottom: solid 1px #c0bfbf;  
 }
 
-/*###########################-GrayPolygonBigBarStyle-###########################*/
-.UIBarStyle .GrayPolygonBigBarStyle {
-  height: 36px;
+/*###########################-BarStyle2-###########################*/
+.UIBarStyle .BarStyle2 {
+  height: 39px;
 }
 
-.UIBarStyle .GrayPolygonBigBarStyle .LeftBar {
-  background: url('background/Polygon2BigBarLeft4x36.gif') no-repeat left;
-  padding: 0px 0px 0px 4px;
+.UIBarStyle .BarStyle2 .LeftBar {
+  background: url('background/BarStyle2.gif') no-repeat left top;
+  padding: 0px 0px 0px 7px;
+  height: 39px;
 }
 
-.UIBarStyle .GrayPolygonBigBarStyle .RightBar {
-  background: url('background/Polygon2BigBarRight4x36.gif') no-repeat right;
-  padding: 0px 4px 0px 0px ;
+.UIBarStyle .BarStyle2 .RightBar {
+  padding: 0px 7px 0px 0px ;
+  background: url('background/BarStyle2.gif') no-repeat right top;
+  height: 39px;
 }
 
-.UIBarStyle .GrayPolygonBigBarStyle .MiddleBar {
-  height: 36px;
-  line-height: 36px;
-  background: url('background/Polygon2BigBarCenter1x36.gif') repeat-x;
-}
-
-/*###########################-BluePolygonBigBarStyle-###########################*/
-.UIBarStyle .BluePolygonBigBarStyle {
-  height: 36px;
-}
-
-.UIBarStyle .BluePolygonBigBarStyle .LeftBar {
-  background: url('background/Polygon1BigBarLeft4x36.gif') no-repeat left;
-  padding: 0px 0px 0px 4px;
-}
-
-.UIBarStyle .BluePolygonBigBarStyle .RightBar {
-  background: url('background/Polygon1BigBarRight4x36.gif') no-repeat right;
-  padding: 0px 4px 0px 0px ;
-}
-
-.UIBarStyle .BluePolygonBigBarStyle .MiddleBar {
-  height: 36px;
-  line-height: 36px;
-  background: url('background/Polygon1BigBarCenter1x36.gif') repeat-x;
-}
-
-/*###########################-BluePolygonBarStyle-###########################*/
-.UIBarStyle .BluePolygonBarStyle {
-  height: 37px;
-}
-
-.UIBarStyle .BluePolygonBarStyle .LeftBar {
-  background: url('background/RoundedTopBarL9x37.gif') no-repeat left;
-  padding: 0px 0px 0px 9px;
-}
-
-.UIBarStyle .BluePolygonBarStyle .RightBar {
-  background: url('background/RoundedTopBarR9x37.gif') no-repeat right;
-  padding: 0px 9px 0px 0px ;
-}
-
-.UIBarStyle .BluePolygonBarStyle .MiddleBar {
-  height: 37px;
-  line-height: 37px;
-  background: url('background/RoundedTopBarM1x37.gif') repeat-x;
+.UIBarStyle .BarStyle2 .MiddleBar {
+  height: 39px;
+  line-height: 39px;
+  background: url('background/BarStyle2.gif') repeat-x bottom;
 }
 
 /*###########################-NavyBluePolygonBar32Style-###########################*/
@@ -260,201 +72,62 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .LeftBar {
-  background: url('background/NavyBlueBar32Left3x32.gif') no-repeat left;
+  background: url('background/NavyBluePolygonBar32Style.gif') no-repeat left top;
   padding: 0px 0px 0px 3px;
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .RightBar {
-  background: url('background/NavyBlueBar32Right3x32.gif') no-repeat right;
+  background: url('background/NavyBluePolygonBar32Style.gif') no-repeat right left;
   padding: 0px 3px 0px 0px ;
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .MiddleBar {  
   line-height: 32px;
-  background: url('background/NavyBlueBar32Center1x32.gif') repeat-x;
+  background: url('background/NavyBluePolygonBar32Style.gif') repeat-x bottom;
 }
 
-/*###########################-GrayRoundedFlatBarStyle-###########################*/
-.UIBarStyle .GrayRoundedFlatBarStyle {
-  height: 35px;
-}
-
-.UIBarStyle .GrayRoundedFlatBarStyle .LeftBar {
-  background: url('background/RoundedFlat2Left16x35.gif') no-repeat left;
-  padding: 0px 0px 0px 16px;
-}
-
-.UIBarStyle .GrayRoundedFlatBarStyle .RightBar {
-  background: url('background/RoundedFlat2Right16x35.gif') no-repeat right;
-  padding: 0px 16px 0px 0px ;
-}
-
-.UIBarStyle .GrayRoundedFlatBarStyle .MiddleBar {
-  height: 33px;  line-height: 33px;
-  background: #f3f3f3;
-  border-top: solid 1px #c6c6c9;
-  border-bottom: solid 1px #c6c6c9;
-}
-
-/*###########################-NavyBluePolygonBar32Style-###########################*/
-.UIBarStyle .NavyBluePolygonBar32Style {
-  height: 32px;
-}
-
-.UIBarStyle .NavyBluePolygonBar32Style .LeftBar {
-  background: url('background/NavyBluePolygonLeft3x32.gif') no-repeat left;
-  padding: 0px 0px 0px 3px;
-}
-
-.UIBarStyle .NavyBluePolygonBar32Style .RightBar {
-  background: url('background/NavyBluePolygonRight3x32.gif') no-repeat right;
-  padding: 0px 3px 0px 0px ;
-}
-
-.UIBarStyle .NavyBluePolygonBar32Style .MiddleBar {
-  height: 32px;
-  line-height: 32px;
-  background: url('background/NavyBluePolygonCenter1x32.gif') repeat-x;
-}
-
-/*###########################-SmoothRounded26Style-###########################*/
-.UIBarStyle .SmoothRounded26Style {
+/*###########################-Style3Bar-###########################*/
+.UIBarStyle .Style3 {
   height: 26px;
 }
 
-.UIBarStyle .SmoothRounded26Style .LeftBar {
-  background: url('background/SmoothRoundedLeftBar3x26.gif') no-repeat left ;
+.UIBarStyle .Style3 .LeftBar {
+  background: url('background/Style3Bar.gif') no-repeat left top;
   padding: 0px 0px 0px 3px ;
 }
 
-.UIBarStyle .SmoothRounded26Style .RightBar {
-  background: url('background/SmoothRoundedRightBar3x26.gif') no-repeat right ;
+.UIBarStyle .Style3 .RightBar {
+  background: url('background/Style3Bar.gif') no-repeat right top;
   padding: 0px 3px 0px 0px ;
 }
 
-.UIBarStyle .SmoothRounded26Style .MiddleBar {
-  height: 26px ;  line-height: 26px ;
+.UIBarStyle .Style3 .MiddleBar {
+  height: 26px ;
+  line-height: 26px ;
   vertical-align: middle ;
-  background: url('background/SmoothRoundedRepeatBar1x26.gif') repeat-x ;
+  background: url('background/Style3Bar.gif') repeat-x bottom;
 }
 
 /*###########################-SmoothNavy40Style-###########################*/
 .UIBarStyle .SmoothNavy40Style {
-  height: 62px;
+	height: 62px;
 }
 
 .UIBarStyle .SmoothNavy40Style .LeftBar {
-  background: url('background/QuickBarL15x62.gif') no-repeat left ;
-  padding: 0px 0px 0px 15px ;
+	background: url('background/SmoothNavy40Style.gif') no-repeat left top;
+	padding: 0px 0px 0px 15px ;
 }
 
 .UIBarStyle .SmoothNavy40Style .RightBar {
-  background: url('background/QuickBarR15x62.gif') no-repeat right ;
-  padding: 0px 15px 0px 0px ;
+	background: url('background/SmoothNavy40Style.gif') no-repeat right top ;
+	padding: 0px 15px 0px 0px ;
 }
 
 .UIBarStyle .SmoothNavy40Style .MiddleBar {
-  height: 62px ;  line-height: 62px ;
-  vertical-align: middle ;
-  background: url('background/QuickBarM1x62.gif') repeat-x ;
-}
-
-/*###########################-GrayBevelRoundedBar35Style-###########################*/
-.UIBarStyle .GrayBevelRoundedBar35Style {
-  height: 35px;
-}
-
-.UIBarStyle .GrayBevelRoundedBar35Style .LeftBar {
-  background: url('background/GrayBevel35Left15x35.gif') no-repeat left ;
-  padding: 0px 0px 0px 15px ;
-}
-
-.UIBarStyle .GrayBevelRoundedBar35Style .RightBar {
-  background: url('background/GrayBevel35Right15x35.gif') no-repeat right ;
-  padding: 0px 15px 0px 0px ;
-}
-
-.UIBarStyle .GrayBevelRoundedBar35Style .MiddleBar {
-  height: 35px ;  line-height: 35px ;
-  vertical-align: middle ;
-  background: url('background/GrayBevel35Center1x35.gif') repeat-x ;
-}
-
-.UIBarStyle .GrayBevelRoundedBar35Style .Button {
-  float: left;
-  height: 33px ; 
-  line-height: 33px ;
-  vertical-align: middle ;
-}
-
-.UIBarStyle .GrayBevelRoundedBar35Style .ButtonLabel {
-  height: 33px ; 
-  line-height: 33px ;
-  vertical-align: middle ;
-  font-weight: bold; color: black;
-}
-
-/*###########################-GrayBevelRoundBar40-###########################*/
-.UIBarStyle .GrayBevelRoundBar40 {
-  height: 48px;
-}
-
-.UIBarStyle .GrayBevelRoundBar40 .LeftBar {
-  background: url('background/LinedBarL8x48.gif') no-repeat left ;
-  padding: 0px 0px 0px 8px ;
-}
-
-.UIBarStyle .GrayBevelRoundBar40 .RightBar {
-  background: url('background/LinedBarR8x48.gif') no-repeat right ;
-  padding: 0px 8px 0px 0px ;
-}
-
-.UIBarStyle .GrayBevelRoundBar40 .MiddleBar {
-  height: 48px ;  line-height: 48px ;
-  vertical-align: middle ;
-  background: url('background/LinedBarM1x48.gif') repeat-x ;
-}
-
-/*###########################-GrayBevelRoundBar36-###########################*/
-.UIBarStyle .GrayBevelRoundBar36 {
-  height: 36px;
-}
-
-.UIBarStyle .GrayBevelRoundBar36 .LeftBar {
-  background: url('background/GrayBevelBarL9x36.gif') no-repeat left ;
-  padding: 0px 0px 0px 9px ;
-}
-
-.UIBarStyle .GrayBevelRoundBar36 .RightBar {
-  background: url('background/GrayBevelBarR9x36.gif') no-repeat right ;
-  padding: 0px 9px 0px 0px ;
-}
-
-.UIBarStyle .GrayBevelRoundBar36 .MiddleBar {
-  height: 36px ;  line-height: 36px ;
-  vertical-align: middle ;
-  background: url('background/GrayBevelBarRepeat1x36.gif') repeat-x ;
-}
-
-/*###########################-BlueBevelRoundBar36-###########################*/
-.UIBarStyle .BlueBevelRoundBar36 {
-  height: 36px;
-}
-
-.UIBarStyle .BlueBevelRoundBar36 .LeftBar {
-  background: url('background/BlueBevelBarL9x36.gif') no-repeat left ;
-  padding: 0px 0px 0px 9px ;
-}
-
-.UIBarStyle .BlueBevelRoundBar36 .RightBar {
-  background: url('background/BlueBevelBarR9x36.gif') no-repeat right ;
-  padding: 0px 9px 0px 0px ;
-}
-
-.UIBarStyle.BlueBevelRoundBar36 .MiddleBar {
-  height: 36px ;  line-height: 36px ;
-  vertical-align: middle ;
-  background: url('background/BlueBevelBarRepeat1x36.gif') repeat-x ;
+	height: 62px ; 
+	line-height: 62px ; 
+	vertical-align: middle ;
+	background: url('background/SmoothNavy40Style.gif') repeat-x bottom;
 }
 
 /*###########################-ControlBar-###########################*/
@@ -462,7 +135,7 @@
 }
 
 .UIBarStyle .ControlBar .LeftBar {
-  background: url('background/LeftControlBar14x28.png') no-repeat left ;
+  background: url('background/ControlBar.png') no-repeat left top;
   padding: 0px 0px 0px 14px ;
 }
 
@@ -471,33 +144,54 @@
 }
 
 .UIBarStyle .ControlBar .MiddleBar {
-  background: url('background/MiddleControlBar1x28.png') repeat-x ;
+  background: url('background/ControlBar.png') repeat-x bottom;
   height: 28px;
   padding: 0px 3px 0px 0px;
 }
 
-/*============================== Title Bar ========================================*/
+/*============================== TitleBar ========================================*/
 
 .UIBarStyle .TitleBar {
   margin: 15px 15px 0px 15px;
 }
 
-
 .UIBarStyle .TitleBar .LeftBar {
-  background: url('background/LeftTitleBar7x30.png') no-repeat left ;
+  background: url('background/TitleBar.gif') no-repeat left top;
   padding-left: 7px ;
   height: 30px;
 }
 
 .UIBarStyle .TitleBar .RightBar {
   padding-right: 7px ;
-  background: url('background/RightTitleBar7x30.png') no-repeat right ;
+  background: url('background/TitleBar.gif') no-repeat right top ;
   height: 30px;
 }
 
 .UIBarStyle .TitleBar .MiddleBar {
-  background: url('background/CenterTitleBar1x30.png') repeat-x;
+  background: url('background/TitleBar.gif') repeat-x bottom;
   padding-left: 8px;
   height: 30px; line-height: 30px;
   color: #058ee6; font-size: 15px; font-weight: bold;
+}
+
+/*======================================== NormalBarStyle ==================================*/
+
+.UIBarStyle .NormalBarStyle {
+  height: 38px;
+}
+
+.UIBarStyle .NormalBarStyle .LeftBar {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/NormalBarStyle.gif') no-repeat top left;
+  padding: 0px 0px 0px 6px;
+}
+
+.UIBarStyle .NormalBarStyle .RightBar {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/NormalBarStyle.gif') no-repeat top right;
+  padding: 0px 6px 0px 0px ;
+}
+
+.UIBarStyle .NormalBarStyle .MiddleBar {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBarStyle/background/NormalBarStyle.gif') repeat-x bottom;
+  height: 38px;
+  line-height: 38px;
 }

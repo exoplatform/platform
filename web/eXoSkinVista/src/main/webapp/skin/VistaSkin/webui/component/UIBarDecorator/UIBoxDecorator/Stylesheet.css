@@ -1,289 +1,137 @@
 .DecoratorBox {}
 
-/*##############################- WhiteRoundedBox Style -################################*/
-.DecoratorBox .WhiteRoundedBoxStyle {
-  margin: 7px ;
-  padding: 10px;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .DecoratorBackground {
-  background:url('background/BackgoundBoxDecorator.png');
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .TopLeftCornerBoxDecorator {
-  background: url('background/RoundedBoxLeftTop10x14.png') no-repeat left ;
-  padding: 0px 0px 0px 10px ;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .TopCenterBoxDecorator {
-  height: 14px ;
-  background: url('background/RoundedBoxMiddle1x14.png') repeat-x ;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .TopRightCornerBoxDecorator {
-  background: url('background/RoundedBoxRightTop10x14.png') no-repeat right ;
-  padding: 0px 10px 0px 0px ;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .MiddleLeftSideBoxDecorator {
-  background: url('background/MiddleLeftSideBoxDecorator10x2.png') repeat-y;
-  padding: 0px 0px 0px 10px;
-}
- 
-.DecoratorBox .WhiteRoundedBoxStyle .MiddleRightSideBoxDecorator {
-  background: url('background/MiddleRightSideBoxDecorator10x1.png') repeat-y right;
-  padding: 0px 10px 0px 0px ;
-}
- 
-.DecoratorBox .WhiteRoundedBoxStyle .MiddleRightSideBoxDecorator .CenterSideBoxDecorator {
-   background: url('background/MiddleLeftSideBoxDecoratorrBG.png') repeat;
-   padding: 5px;
-}
- 
-.DecoratorBox .WhiteRoundedBoxStyle .BottomLeftCornerBoxDecorator {
-  background: url('background/RoundedBoxLeftBottom10x12.png') no-repeat left ;
-  padding: 0px 0px 0px 10px ;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .BottomCenterBoxDecorator {
-  height: 12px ;
-  background: url('background/RoundedBoxBottomMiddle1x12.png') repeat-x ;
-}
-
-.DecoratorBox .WhiteRoundedBoxStyle .BottomRightCornerBoxDecorator {
-  background: url('background/RoundedBoxRightBottom10x12.png') no-repeat right ;
-  padding: 0px 10px 0px 0px ;
-}
 
 /*##############################- GrayRoundedFillBox Style -################################*/
 .DecoratorBox .GrayRoundedFillBoxStyle {
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopLeftCornerBoxDecorator {
-  background: url('background/TopLeftCorner10x11.png') no-repeat left ;
+  background: url('background/GrayRounded.png') no-repeat left top;
   padding: 0px 0px 0px 10px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopRightCornerBoxDecorator {
-  background: url('background/TopRightCorner14x11.png') no-repeat right ;
+  background: url('background/GrayRounded.png') no-repeat right -11px;
   padding: 0px 14px 0px 0px ;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopCenterBoxDecorator {
   height: 11px; 
   line-height: 11px;
-  background: url('background/TopCenterCorner1x11.png') repeat-x ;
+  background: url('background/GrayRounded.png') repeat-x left -22px ;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .MiddleLeftSideBoxDecorator {
   padding-left: 10px;
-  background: url('background/MiddleLeftSide10x1.png') repeat-y left ;  
+  background: url('background/MiddleGrayRounded.png') repeat-y left ;  
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .CenterBoxDecorator {
   height: auto;
-  background: url('background/CenterBoxDecoratorBG.png') repeat;
+  background: url('background/CenterBoxDecorator.png') repeat;
   padding: 10px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .MiddleRightSideBoxDecorator {
-  background: url('background/MiddleRightSide14x1.png') repeat-y right ;
+  background: url('background/MiddleGrayRounded.png') repeat-y right ;
   padding: 0px 14px 0px 0px ;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomLeftCornerBoxDecorator {
-  background: url('background/BottomLeftCorner10x15.png') no-repeat left ;
+  background: url('background/GrayRounded.png') no-repeat left -33px ;
   padding: 0px 0px 0px 10px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomRightCornerBoxDecorator {
-  background: url('background/BottomRightCorner14x15.png') no-repeat right ;
+  background: url('background/GrayRounded.png') no-repeat right -48px;
   padding: 0px 14px 0px 0px ;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomCenterBoxDecorator {
   height: 15px; 
   line-height:15px;
-  background: url('background/BottomCenterCorner1x15.png') repeat-x;
-}
-
-/*##############################- WhiteRoundedBox Style Nested-################################*/
-.DecoratorBoxNested {}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested .DecoratorBackgroundNested {
-  background: white ;
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested .TopLeftCornerBoxDecoratorNested {
-  height: 7px;
-  background: url('background/WhiteRoundedBoxLeftTop7x7.gif') no-repeat left ;
-  padding: 0px 0px 0px 7px;
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested .TopCenterBoxDecoratorNested {
-  height: 6px ;
-  background: white ;
-  border-top: solid 1px #acacac;
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested .TopRightCornerBoxDecoratorNested {
-  height: 7px;
-  background: url('background/WhiteRoundedBoxRightTop7x7.gif') no-repeat right ;
-  padding: 0px 7px 0px 0px ;
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested .MiddleLeftSideBoxDecoratorNested {
-  background: white ;
-  padding: 0px 0px 0px 7px ;
-  border-left: solid 1px #acacac;
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested .MiddleRightSideBoxDecoratorNested {
-  background: white ;
-  padding: 0px 7px 0px 0px ;
-  border-right: solid 1px #acacac ;
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested .BottomLeftCornerBoxDecoratorNested {
-  height: 7px ;
-  background: url('background/WhiteRoundedBoxLeftBottom7x7.gif') no-repeat left ;
-  padding: 0px 0px 0px 7px ;
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested .BottomCenterBoxDecoratorNested {
-  height: 6px ;
-  background: white ;
-  border-bottom: solid 1px #acacac;
-}
-
-.DecoratorBoxNested .WhiteRoundedBoxStyleNested .BottomRightCornerBoxDecoratorNested {
-  background: url('background/WhiteRoundedBoxRightBottom7x7.gif') no-repeat right ;
-  padding: 0px 7px 0px 0px ;
-}
-/*##############################- LightBlueRoundedBoxStyleNested-################################*/
-.DecoratorBoxNested .LightBlueBoxNested {}
-
-.DecoratorBoxNested .LightBlueBoxNested  .CenterDecoratorNestedBG {
-  background: #d9d9eb ;
-}
-
-.DecoratorBoxNested .LightBlueBoxNested  .TopLeftCornerNested {
-  background: url('background/LightTL.gif') no-repeat left ;
-  padding: 0px 0px 0px 10px;
-}
-
-.DecoratorBoxNested .LightBlueBoxNested  .TopCenterNested {
-  height: 10px ;
-  background: url('background/LightTC.gif') repeat-x ;
-}
-
-.DecoratorBoxNested .LightBlueBoxNested  .TopRightCornerNested {
-  background: url('background/LightTR.gif') no-repeat right ;
-  padding: 0px 10px 0px 0px ; 
-}
-
-.DecoratorBoxNested .LightBlueBoxNested  .MiddleLeftSideNested {
-  background: url('background/LightML.gif') repeat-y ;
-  padding: 0px 0px 0px 10px ;
-}
-
-.DecoratorBoxNested .LightBlueBoxNested  .MiddleRightSideNested {
-  background: url('background/LightMR.gif') repeat-y right;
-  padding: 0px 10px 0px 0px ;
-}
-
-.DecoratorBoxNested .LightBlueBoxNested  .BottomLeftCornerNested {
-  width: auto;  
-  background: url('background/LightBL.gif') no-repeat left ;
-  padding: 0px 0px 0px 10px ;
-}
-
-.DecoratorBoxNested .LightBlueBoxNested  .BottomCenterNested {
-  height: 10px ;
-  background: url('background/LightBC.gif') repeat-x ;
-}
-
-.DecoratorBoxNested .LightBlueBoxNested  .BottomRightCornerNested {
-  background: url('background/LightBR.gif') no-repeat right ;
-  padding: 0px 10px 0px 0px ;
-}
-
-/* ====================Decorator Container Options=================*/
-.TopLeftContainerOptions {
-	background: url('background/TopLeftContainerOptions4x2.png') no-repeat left;
-	padding-left: 4px;
-	margin: 0px 5px;
-}
-
-.TopRightContainerOptions {
-	background: url('background/TopRightContainerOptions5x2.png') no-repeat right;
-	padding-right: 5px;
-}
-
-.TopCenterContainerOptions {
-	background: url('background/TopCenterContainerOptions1x2.png') repeat-x ;
-	height: 2px;
-}
-
-.MiddleLeftContainerOptions {
-	background: url('background/MiddleLeftContainerOptions4x1.png') repeat-y left;
-	padding-left: 4px;
-	margin: 0px 5px;
-}
-
-.MiddleRightContainerOptions {
-	background: url('background/MiddleRightContainerOptions5x1.png') repeat-y right;
-	padding-right: 4px;
-}
-
-.BottomLeftContainerOptions {
-	background: url('background/BottomLeftContainerOptions7x9.png') no-repeat left;
-	padding-left: 7px;
-	margin: 0px 5px;
-}
-
-.BottomRightContainerOptions {
-	background: url('background/BottomRightContainerOptions8x9.png') no-repeat right;
-	padding-right: 8px;
-}
-
-.BottomCenterContainerOptions {
-	background: url('background/BottomCenterContainerOptions1x9.png') repeat-x ;
-	height: 9px;
+  background: url('background/GrayRounded.png') repeat-x bottom;
 }
 
 /*##############################- Bar Decorator-################################*/
 
 .DecoratorBox .BarDecorator .TopRightBar {
-  background: url('background/TRBarDecorator7x5.png') no-repeat right;
+  background: url('background/BarDecorator.png') no-repeat right top;
   padding-right: 7px;
   height: 5px;
 }
 
 .DecoratorBox .BarDecorator .TopCenterBar {
-  background: url('background/TLBarDecorator1x5.png') repeat-x top;
+  background: url('background/BarDecorator.png') repeat-x left -5px;
   height: 5px;
 }
 
 .DecoratorBox .BarDecorator .MiddleRightBar {
-  background: url('background/MRBarDecorator4x1.png') repeat-y right; 
+  background: url('background/MRBarDecorator.png') repeat-y right; 
   padding-right: 4px;
 }
 
 .DecoratorBox .BarDecorator .MiddleCenterBar {
-  background: url('background/MCBarDecorator1x8.png') repeat-x top; 
+  background: url('background/BarDecorator.png') repeat-x left -10px; 
   padding: 1px 4px 2px 5px;
   color: #151209;
   font-weight: bold;
 }
 
 .DecoratorBox .BarDecorator .BottomCenterBar {
-  background: url('background/BLBarDecorator1x8.png') repeat-x bottom;
+  background: url('background/BarDecorator.png') repeat-x bottom;
   height: 8px;
 }
 
 .DecoratorBox .BarDecorator .BottomRightBar {
-  background: url('background/BRBarDecorator7x8.png') no-repeat right;
+  background: url('background/BarDecorator.png') no-repeat right -18px;
   padding-right: 7px;
   height: 8px;
+}
+
+/*##############################- View box style-################################*/
+
+.DecoratorBox .ViewBoxStyle .MiddleCenterViewBoxStyle {
+  background: #ffffff ;
+}
+
+.DecoratorBox .ViewBoxStyle .TopLeftViewBoxStyle {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBoxDecorator/background/ViewBoxStyle.gif') no-repeat left top;
+  padding: 0px 0px 0px 8px;
+}
+
+.DecoratorBox .ViewBoxStyle .TopCenterViewBoxStyle {
+  height: 8px ;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBoxDecorator/background/ViewBoxStyle.gif') repeat-x left -8px;
+}
+
+.DecoratorBox .ViewBoxStyle .TopRightViewBoxStyle {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBoxDecorator/background/ViewBoxStyle.gif') no-repeat right top;
+  padding: 0px 8px 0px 0px ;
+}
+
+.DecoratorBox .ViewBoxStyle .MiddleLeftViewBoxStyle {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBoxDecorator/background/MiddleViewBoxStyle.gif') repeat-y left;
+  padding: 0px 0px 0px 4px ;
+}
+
+.DecoratorBox .ViewBoxStyle .MiddleRightViewBoxStyle {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBoxDecorator/background/MiddleViewBoxStyle.gif') repeat-y right;
+  padding: 0px 4px 0px 0px ;
+}
+
+.DecoratorBox .ViewBoxStyle .BottomLeftViewBoxStyle {
+  width: auto; 
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBoxDecorator/background/ViewBoxStyle.gif') no-repeat left bottom;
+  padding: 0px 0px 0px 8px ;
+}
+
+.DecoratorBox .ViewBoxStyle .BottomCenterViewBoxStyle {
+  height: 8px ;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBoxDecorator/background/ViewBoxStyle.gif')repet-x left -16px;
+}
+
+.DecoratorBox .ViewBoxStyle .BottomRightViewBoxStyle {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBoxDecorator/background/ViewBoxStyle.gif') no-repeat right bottom;
+  padding: 0px 8px 0px 0px ;
 }

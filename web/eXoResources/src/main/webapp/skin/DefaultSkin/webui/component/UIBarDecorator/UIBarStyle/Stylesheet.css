@@ -21,7 +21,7 @@
 
 /*###########################-WhiteRoundedBarStyle-###########################*/
 .UIBarStyle .WhiteRoundedBarStyle {
-  height: 26px;
+  height: 25px;
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .LeftBar {
@@ -35,8 +35,8 @@
 }
 
 .UIBarStyle .WhiteRoundedBarStyle .MiddleBar {
-  height: 24px;
-  line-height: 24px;
+  height: 25px;
+  line-height: 25px;
   background: white;
   border-top: solid 1px #c0bfbf;
   border-bottom: solid 1px #c0bfbf;  

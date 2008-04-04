@@ -30,17 +30,17 @@
 
 .UIBreadcumbs .LeftBreadcumbsBar {
   padding: 0px 0px 0px 5px ;
-  background: url('background/LeftBreadcumbsBar5x33.png') no-repeat left;
+  background: url('background/Breadcumbs.png') no-repeat left top;
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
   padding: 0px 7px 0px 0px;
-  background: url('background/RightBreadcumbsBar7x33.png') no-repeat right;
+  background: url('background/Breadcumbs.png') no-repeat right -33px;
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
   height: 33px; line-height: 33px; vertical-align: middle;
-  background: url('background/MiddleBreadcumbsBar1x33.png') repeat-x;
+  background: url('background/Breadcumbs.png') repeat-x bottom;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {

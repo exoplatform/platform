@@ -14,12 +14,12 @@
 
 .UIDropDownControl .LeftMiddelItem {
 	display: block ;
-	background: url('background/DropDownControlRepeatY.png') repeat-y left center;
+	background: url('background/DropDownControlRepeatY.png') repeat-y left;
 	padding-left:3px;
 }
 
 .UIDropDownControl .RightMiddelItem {
-	background: url('background/DropDownControlRepeatY.png') repeat-y right center;
+	background: url('background/DropDownControlRepeatY.png') repeat-y right;
 	padding-right:3px;
 }
 

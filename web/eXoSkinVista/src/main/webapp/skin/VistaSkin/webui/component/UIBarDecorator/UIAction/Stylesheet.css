@@ -27,6 +27,28 @@
 	height: auto;
 } 
 
+/*##############################-Normal ActionButton-################################*/
+.UIAction .NormalStyle {
+}
+
+.UIAction .NormalStyle .ButtonLeft {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') no-repeat left top;
+  padding: 0px 0px 0px 3px;
+}
+
+.UIAction .NormalStyle .ButtonRight {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') no-repeat right top;
+  padding: 0px 3px 0px 0px ;
+}
+
+.UIAction .NormalStyle .ButtonMiddle {
+  line-height: 22px;
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') repeat-x bottom;
+	padding: 0px 12px;	
+	display: table-cell;
+	white-space: nowrap;
+}
+
 /*##############################-Disabled ActionButton-################################*/
 .UIAction .DisabledStyle {
 }

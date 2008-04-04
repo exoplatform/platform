@@ -28,27 +28,29 @@
 	background-position: left center;
 } 
 
-/*##############################-LightBlueStyle ActionButton-################################*/
-.UIAction .LightBlueStyle {
-  line-height: 25px;
-}
-.UIAction .LightBlueStyle .ButtonLeft {
-  background: url('background/LightBlueStyle.png') no-repeat left top;
-  padding-left: 12px;
+
+/*##############################-Normal ActionButton-################################*/
+.UIAction .NormalStyle {
 }
 
-.UIAction .LightBlueStyle .ButtonRight {
-  background: url('background/LightBlueStyle.png') no-repeat right -25px;
-  padding-right: 12px;
+.UIAction .NormalStyle .ButtonLeft {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') no-repeat left top;
+  padding: 0px 0px 0px 3px;
 }
 
-.UIAction .LightBlueStyle .ButtonMiddle {
-  line-height: 25px; 
-  text-align: center;
-	background: url('background/LightBlueStyle.png') repeat-x left -50px;
+.UIAction .NormalStyle .ButtonRight {
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') no-repeat right top;
+  padding: 0px 3px 0px 0px ;
+}
+
+.UIAction .NormalStyle .ButtonMiddle {
+  line-height: 22px;
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') repeat-x bottom;
+	padding: 0px 12px;	
 	display: table-cell;
-	padding: 0px 12px;
+	white-space: nowrap;
 }
+
 /*##############################-Disabled ActionButton-################################*/
 .UIAction .DisabledStyle {
 }
@@ -79,6 +81,28 @@
 .UIAction .DisabledStyle a:hover {
 	color: gray;
 	cursor: default;
+}
+
+/*##############################-LightBlueStyle ActionButton-################################*/
+.UIAction .LightBlueStyle {
+  line-height: 25px;
+}
+.UIAction .LightBlueStyle .ButtonLeft {
+  background: url('background/LightBlueStyle.png') no-repeat left top;
+  padding-left: 12px;
+}
+
+.UIAction .LightBlueStyle .ButtonRight {
+  background: url('background/LightBlueStyle.png') no-repeat right -25px;
+  padding-right: 12px;
+}
+
+.UIAction .LightBlueStyle .ButtonMiddle {
+  line-height: 25px; 
+  text-align: center;
+	background: url('background/LightBlueStyle.png') repeat-x left -50px;
+	display: table-cell;
+	padding: 0px 12px;
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/

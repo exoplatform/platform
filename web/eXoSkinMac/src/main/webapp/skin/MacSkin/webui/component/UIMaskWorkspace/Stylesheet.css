@@ -115,6 +115,7 @@
 }
 
 .UIAddApplication .ApplicationDescription {
+
 }
 
 .UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
@@ -165,7 +166,7 @@
 .UIAddApplication .AddButton {
 	float: right ; 
 	width: 24px ; height: 24px ;
-	background: url('icons/AddIcon.png') no-repeat center;
+	background: url('background/AddApplicationButton.png') no-repeat top;
   margin: 2px auto;
 	cursor: pointer ;
 }
@@ -173,14 +174,14 @@
 .UIAddApplication .SelectButton {
 	float: right ; 
 	width: 24px ; height: 24px ;
-	background: url('icons/SelectButton.png') no-repeat center;
+	background: url('background/AddApplicationButton.png') no-repeat left -24px;
   margin: auto;
 	cursor: pointer ;
 }
 
 .UIAddApplication .ApplicationItemIcon {
 	width: 10px; height: 10px;
-	background: url('icons/ApplicationItemIcon.png') no-repeat ;
+	background: url('background/AddApplicationButton.png') no-repeat left -48px ;
 	float: left;
 	margin: 6px 5px 0px 5px;
 }
