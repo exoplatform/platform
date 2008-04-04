@@ -340,15 +340,17 @@ UIDockbar.prototype.showNavigation = function(event) {
 	eXo.portal.UIExoStartMenu.createSlide(dockNavigation) ;
 	
 	eXo.core.Mouse.update(event) ;
+	/*
 	var fixWidthForIE7 = 0 ;
 	var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
 	if ((uiWorkspaceContainer && uiWorkspaceContainer.style.display != "none") && (event.clientX > uiWorkspaceContainer.clientWidth)
 			 && eXo.core.Browser.isIE7() && document.getElementById("UIDockBar")){
-		fixWidthForIE7 = uiWorkspaceContainer.clientWidth ;
+		 fixWidthForIE7 = uiWorkspaceContainer.clientWidth ;
 	}
-	
+	* remove variable fixWidthForIE7
+ */
 	var intTop = eXo.core.Mouse.mouseyInPage - (eXo.core.Browser.findPosY(dockNavigation) - dockNavigation.offsetTop);
-	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(dockNavigation) - dockNavigation.offsetLeft) + fixWidthForIE7 ;
+	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(dockNavigation) - dockNavigation.offsetLeft) ;
 	dockNavigation.style.left = intLeft + "px" ;
 	
 	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
