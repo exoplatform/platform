@@ -60,7 +60,8 @@
       <scope>provided</scope>
     </dependency>
   <dependency>
-    <groupId>org.exoplatform.ws.frameworks.cometd</groupId>
+    <!--groupId>org.exoplatform.ws.frameworks.cometd</groupId-->
+    <groupId>org.exoplatform.ws</groupId>
   	<artifactId>exo.ws.frameworks.cometd.service</artifactId>
 	<version>${org.exoplatform.ws.version}</version>
 	<scope>provided</scope>
