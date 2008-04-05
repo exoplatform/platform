@@ -88,11 +88,17 @@
 
 .UIWorkingWorkspace {
 	margin: 0px;
-	*height: 0px;
 /*
  * minh.js.exo
  * bug : right click with IE7 in ECM
  */
+}
+
+[className = "UIWorkingWorkspace"] {
+	*height: 100%;
+	/*
+	for only IE7
+	*/
 }
 
 .MaskLayer {
