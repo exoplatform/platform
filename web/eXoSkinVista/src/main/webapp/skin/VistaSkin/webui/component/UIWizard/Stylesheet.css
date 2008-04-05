@@ -157,6 +157,7 @@
   background: white;
   border: solid 1px #9d9d9d;
   margin: auto;
+  overflow: hidden;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
@@ -184,6 +185,7 @@
   margin: auto;
   margin-top: 5px;
   width: 90%;
+  overflow: hidden;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction {
