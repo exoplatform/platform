@@ -54,7 +54,7 @@ UIDockbar.prototype.startDockBarEvt = function(evt) {
 	document.body.oncontextmenu = new Function("return false;") ;
 	if (eXo.core.Browser.isIE7()) {
 		var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
-		uiWorkingWorkspace.style.height = "0%" ;
+		uiWorkingWorkspace.style.height = "100%" ;
 	}
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	uiPageDesktop.onmouseover = eXo.desktop.UIDockbar.endDockBarEvt ;   
