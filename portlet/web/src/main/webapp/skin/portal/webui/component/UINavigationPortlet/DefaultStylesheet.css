@@ -68,13 +68,13 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem a:hover {
-	background: #dfe0e0;
+	background-color: #dfe0e0;
 	border-bottom: 1px solid #dbdcdd;
 	color: #3e8df0;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem {
-	background: #dfe0e0;
+	background-color: #dfe0e0;
 	border-bottom: 1px solid #dbdcdd;
 	line-height: 24px;
 	width: auto; 
@@ -96,7 +96,9 @@
 .UINavigationPortlet .MenuItemContainer .MenuItem .RightItemIcon {
   height: 24px; width: auto;
   padding-right: 20px;
-  background: url('DefaultSkin/background/UINavigationPortlet.gif') no-repeat right -107px;
+  background-image: url('DefaultSkin/background/UINavigationPortlet.gif');
+  background-repeat: no-repeat;
+  background-position: right -107px;
 }
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {

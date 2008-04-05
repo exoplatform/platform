@@ -55,12 +55,12 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem a:hover {
-  background: url('MacSkin/background/UINavigationPortlet.png') repeat-x center -150px;
   color: white;
+  background-color: #3E83D3;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem {
-  background: url('MacSkin/background/UINavigationPortlet.png') repeat-x center -150px;
+  background-color: #3E83D3;
   color: white;
 }
 

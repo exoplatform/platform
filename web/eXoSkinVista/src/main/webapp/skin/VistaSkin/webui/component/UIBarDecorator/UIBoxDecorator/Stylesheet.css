@@ -89,6 +89,50 @@
   height: 8px;
 }
 
+/* ====================Decorator Container Options=================*/
+.TopLeftContainerOptions {
+	background: url('background/TopLeftContainerOptions4x2.png') no-repeat left;
+	padding-left: 4px;
+	margin: 0px 5px;
+}
+
+.TopRightContainerOptions {
+	background: url('background/TopRightContainerOptions5x2.png') no-repeat right;
+	padding-right: 5px;
+}
+
+.TopCenterContainerOptions {
+	background: url('background/TopCenterContainerOptions1x2.png') repeat-x ;
+	height: 2px;
+}
+
+.MiddleLeftContainerOptions {
+	background: url('background/MiddleLeftContainerOptions4x1.png') repeat-y left;
+	padding-left: 4px;
+	margin: 0px 5px;
+}
+
+.MiddleRightContainerOptions {
+	background: url('background/MiddleRightContainerOptions5x1.png') repeat-y right;
+	padding-right: 4px;
+}
+
+.BottomLeftContainerOptions {
+	background: url('background/BottomLeftContainerOptions7x9.png') no-repeat left;
+	padding-left: 7px;
+	margin: 0px 5px;
+}
+
+.BottomRightContainerOptions {
+	background: url('background/BottomRightContainerOptions8x9.png') no-repeat right;
+	padding-right: 8px;
+}
+
+.BottomCenterContainerOptions {
+	background: url('background/BottomCenterContainerOptions1x9.png') repeat-x ;
+	height: 9px;
+}
+
 /*##############################- View box style-################################*/
 
 .DecoratorBox .ViewBoxStyle .MiddleCenterViewBoxStyle {
@@ -135,3 +179,40 @@
   background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIBoxDecorator/background/ViewBoxStyle.gif') no-repeat right bottom;
   padding: 0px 8px 0px 0px ;
 }
+
+/*##############################- Bar Decorator-################################*/
+
+.DecoratorBox .BarDecorator .TopRightBar {
+  background: url('background/TRBarDecorator7x5.png') no-repeat right;
+  padding-right: 7px;
+  height: 5px;
+}
+
+.DecoratorBox .BarDecorator .TopCenterBar {
+  background: url('background/TLBarDecorator1x5.png') repeat-x top;
+  height: 5px;
+}
+
+.DecoratorBox .BarDecorator .MiddleRightBar {
+  background: url('background/MRBarDecorator4x1.png') repeat-y right; 
+  padding-right: 4px;
+}
+
+.DecoratorBox .BarDecorator .MiddleCenterBar {
+  background: url('background/MCBarDecorator1x8.png') repeat-x top; 
+  padding: 1px 4px 2px 5px;
+  color: #151209;
+  font-weight: bold;
+}
+
+.DecoratorBox .BarDecorator .BottomCenterBar {
+  background: url('background/BLBarDecorator1x8.png') repeat-x bottom;
+  height: 8px;
+}
+
+.DecoratorBox .BarDecorator .BottomRightBar {
+  background: url('background/BRBarDecorator7x8.png') no-repeat right;
+  padding-right: 7px;
+  height: 8px;
+}
+
