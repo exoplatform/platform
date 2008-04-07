@@ -56,9 +56,10 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormStringInput;
-import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
+import org.exoplatform.webui.form.validator.DateTimeValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -140,8 +141,8 @@ public class UIWizardPageSetInfo extends UIForm {
     UIFormCheckBoxInput<Boolean> uiDateInputCheck = new UIFormCheckBoxInput<Boolean>(SHOW_PUBLICATION_DATE, SHOW_PUBLICATION_DATE, false) ;
     uiDateInputCheck.setOnChange("SwitchPublicationDate") ;
     addUIFormInput(uiDateInputCheck);
-    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null)) ;
-    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null)) ;
+    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null).addValidator(DateTimeValidator.class)) ;
+    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null).addValidator(DateTimeValidator.class)) ;
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
     uiTree.setUIRightClickPopupMenu(null);
     uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);    
