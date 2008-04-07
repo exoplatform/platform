@@ -17,7 +17,9 @@
 package org.exoplatform.webui.form.validator;
 
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.exception.MessageException;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInput;
 
 /**
@@ -37,7 +39,12 @@ public class MandatoryValidator implements Validator {
     if((uiInput.getValue() != null) && ((String)uiInput.getValue()).trim().length() > 0) {
       return ;
     }
-    String label = uiInput.getLabel();
+    
+    //modified by Pham Dinh Tan
+    UIComponent uiComponent = (UIComponent) uiInput ;
+    UIForm uiForm = uiComponent.getAncestorOfType(UIForm.class) ;    
+    String label = uiForm.getLabel(uiInput.getName());
+    
     if(label == null) label = uiInput.getName();
     label = label.trim();
     if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
