@@ -183,7 +183,12 @@ PortalDragDrop.prototype.init = function(e) {
         }
         /*Set properties for drag object */
         eXo.portal.PortalDragDrop.setDragObjectProperties(dragObject, tdElementList, "column", dndEvent.backupMouseEvent) ;
-      }      
+      }
+	     //when dragObject out of page
+						if (Browser.findPosY(dragObject) < 2) {
+							DragDrop.dropCallback(dndEvent);
+							document.onmousemove = null;
+						} 
     } 
   } ;
 
