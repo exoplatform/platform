@@ -73,7 +73,7 @@ public class UIFormStringInput extends UIFormInputBase<String> {
   @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {
     String val = (String) input ;
-    if((val == null || val.length() == 0) && type_ == PASSWORD_TYPE) return ; 
+    if(val == null) return ; 
     value_ = val ;
     if(value_ != null && value_.length() == 0) value_ = null ;
   }

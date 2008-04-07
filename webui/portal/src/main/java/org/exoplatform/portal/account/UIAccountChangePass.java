@@ -60,8 +60,9 @@ public class UIAccountChangePass extends UIForm {
            addValidator(StringLengthValidator.class, 6, 30).
            addValidator(MandatoryValidator.class)) ;
     addUIFormInput(new UIFormStringInput("confirmnewpass", "password", null).
-        setType(UIFormStringInput.PASSWORD_TYPE).
-        addValidator(MandatoryValidator.class)) ;
+          setType(UIFormStringInput.PASSWORD_TYPE).
+          addValidator(StringLengthValidator.class, 6, 30).
+          addValidator(MandatoryValidator.class)) ;
   }
   
   static  public class ResetActionListener extends EventListener<UIAccountChangePass> {
