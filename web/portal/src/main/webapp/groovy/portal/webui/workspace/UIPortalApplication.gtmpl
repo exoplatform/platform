@@ -53,7 +53,7 @@
       //rcontext.getJavascriptManager().addOnResizeJavascript('eXo.core.UIMaskLayer.resizeMaskLayer');
     %>
     
-	<div class="$uicomponent.skin" id="UIPortalApplication" style="!height: 100%; overflow-x: hidden;">
+	<div class="$uicomponent.skin" id="UIPortalApplication" style="!height: 100%;">
     	
 		<div class="AjaxLoadingMask" id="AjaxLoadingMask" style="display: none; margin: auto;">
       <div class="LoadingContainer">
