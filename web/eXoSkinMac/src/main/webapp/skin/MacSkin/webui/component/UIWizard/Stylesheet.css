@@ -41,6 +41,13 @@
 	width: 216px;
 }
 
+/*
+ * Lam Nguyen add attribute to Wizard Content to fix
+ * error onmouseover on Calendar
+ */
+.UIWizard .UIWizardContent .WizardControlBar .OverflowContainer {
+  overflow:visible;
+}
 /*========================== Wizard Content ==============================*/
 .UIWizard .UIWizardContent {
   padding: 5px;
