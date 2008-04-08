@@ -231,11 +231,8 @@
   width: 220px ;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UITrees {
-  padding-bottom: 10px;  
-  height: 214px;
-  width: auto;
-  _width: 218px;
+.UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
+  height: 216px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
@@ -291,10 +288,6 @@
 	float: left;
 }
 
-.UIOrganizationPortlet .UIGroupMembershipForm .UIForm input {
-	float: left;
-}
-
 .UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon { 
 	background-position: left top;
 	background-repeat: no-repeat;
@@ -321,17 +314,10 @@
 	padding-top: 10px; 
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIGroupInfo {
-	width: auto;
-}
-
 .UIOrganizationPortlet .UIFormWithTitle .UIForm {
 	background: white ;
 }
 
-.UIOrganizationPortlet .UIGrid  {
-
-}
 
 .UIOrganizationPortlet .UIGrid .ActionContainer {  
   width: 50px;

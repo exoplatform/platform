@@ -24,11 +24,6 @@
 	width: 99.3%;
 }
 
-
-.UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
-  white-space:nowrap;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIGroupInfoContainer .UIGrid td {
 	height: auto;
 	padding: 4px 0px 7px 7px;
@@ -173,12 +168,13 @@
 	padding-left: 7px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UITrees {
+.UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
  	background: url('VistaSkin/background/UITreeBG.png') repeat;
- 	border-top: none;
-  height: 223px;
-  width: auto;
-  _width: 208px;
+  height: 213px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UITrees .Node {
+  line-height: 24px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
@@ -211,7 +207,6 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
   margin-left: 220px ;
-  width: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UITabPane {
@@ -268,10 +263,9 @@
 .UIOrganizationPortlet .UIGroupManagement .UIGrid {
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .ScrollArea {
-	width:208px;
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation .UITrees {
+  border-top: none;
 }
-
 
 .UIOrganizationPortlet .UIGroupManagement .UIPageIterator {
 	width: 95%;
@@ -297,7 +291,6 @@
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .UIForm input {
-	float: left;
 	width: 210px;
 }
 

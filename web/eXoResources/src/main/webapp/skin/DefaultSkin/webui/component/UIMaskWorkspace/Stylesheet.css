@@ -248,7 +248,6 @@
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DarkBlueNextArrow.gif') no-repeat ;
 	float: left;
 	margin: 3px 5px 0px 5px;
-	border: 1px solid red;
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListIcon {
