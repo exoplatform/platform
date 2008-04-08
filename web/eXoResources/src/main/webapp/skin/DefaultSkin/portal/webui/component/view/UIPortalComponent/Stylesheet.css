@@ -154,8 +154,15 @@
 .VIEW-PORTAL .UIContainer .UITableColumnContainer {
 }
 
+.UIContainer {
+	border: 1px solid #f5f5f5;
+	/*
+	 fix bug dragdrop in IE6
+	*/
+}
+
 .UIContainer table{
-  width: 100% ;
+ width: 100% ;
 	padding: 0px ; margin: 0px ;
 	border-spacing:	0px ;
 	border-collapse: collapse ;

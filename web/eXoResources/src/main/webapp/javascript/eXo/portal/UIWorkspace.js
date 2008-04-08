@@ -209,6 +209,11 @@ eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace)
 };	
 
 if (eXo.core.Browser.isIE7() && document.getElementById("UIWorkingWorkspace")) {
-	if (document.getElementById("UIDockBar")) 	document.getElementById("UIWorkingWorkspace").style.height = "0px";
-	else document.getElementById("UIWorkingWorkspace").style.height = "auto";
+	var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace");
+	if (document.getElementById("UIDockBar")) {
+		uiWorkingWorkspace.style.position = "static";
+	} else {
+		uiWorkingWorkspace.style.position = "relative";
+		uiWorkingWorkspace.style.height = "auto";
+	}
 }

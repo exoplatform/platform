@@ -14,12 +14,16 @@ function PortalDragDrop() {
 PortalDragDrop.prototype.init = function(e) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var Browser = eXo.core.Browser ;
-  var DragDrop = eXo.core.DragDrop ;
+ var DragDrop = eXo.core.DragDrop ;
 	/**
 	 * This function is called after the DragDrop object is initialized
 	 */
-  DragDrop.initCallback = function (dndEvent) {
-  	var PortalDragDrop = eXo.portal.PortalDragDrop ;
+	 
+	 DragDrop.initCallback = function (dndEvent) {
+  		if (!eXo.core.Browser.isFF() && document.getElementById("UIWorkingWorkspace")) {
+						document.getElementById("UIWorkingWorkspace").style.position = "relative";
+				}
+  		var PortalDragDrop = eXo.portal.PortalDragDrop ;
     this.origDragObjectStyle = new eXo.core.HashMap() ;
     var dragObject = dndEvent.dragObject ;
     var properties = ["top", "left", "zIndex", "opacity", "filter", "position"] ;
@@ -98,7 +102,6 @@ PortalDragDrop.prototype.init = function(e) {
       /*################################################################################*/
       
       dndEvent.foundTargetObject.uiComponentLayoutType = uiComponentLayout ;
-      
       var componentIdElement = DOMUtil.getChildrenByTagName(uiComponentLayout, "div")[0] ;
       var layoutTypeElement = DOMUtil.getChildrenByTagName(componentIdElement, "div")[0] ;
       eXo.portal.PortalDragDrop.layoutTypeElementNode = layoutTypeElement ;
@@ -190,6 +193,7 @@ PortalDragDrop.prototype.init = function(e) {
 							document.onmousemove = null;
 						} 
     } 
+    
   } ;
 
   DragDrop.dropCallback = function(dndEvent) {
@@ -272,12 +276,12 @@ PortalDragDrop.prototype.findDropableTargets = function() {
   var uiPage = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkingWorkspace, "div", "UIPage") ;
   var viewPage = eXo.core.DOMUtil.findFirstDescendantByClass(uiPage, "div", "VIEW-PAGE") ;
   var uiContainers = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWorkspace, "div", "UIContainer") ;
-  if(viewPage.style.display == "none") {
+  if (viewPage.style.display == "none") {
     dropableTargets.push(uiPortal) ;
   } else {
     dropableTargets.push(uiPage) ;
   }
-  for(var i = 0; i < uiContainers.length; i++) {
+  for (var i = 0; i < uiContainers.length; i++) {
     dropableTargets.push(uiContainers[i]) ;
   }
    return dropableTargets ;
@@ -434,7 +438,7 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
   var dropHere = document.getElementById("DragAndDropPreview") ;
 
   var dragObject = dndEvent.dragObject ;
-	
+	 dragObject.style.border = "1px solid red";
   if(dropHere != null) {
     if(layoutTypeElement != null) {
       dropHere.parentNode.removeChild(dropHere) ;
@@ -497,7 +501,7 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
 };
 
 PortalDragDrop.prototype.fixCss =  function() {
-	var DOMUtil = eXo.core.DOMUtil ;
+		var DOMUtil = eXo.core.DOMUtil ;
  	uiPortal = document.getElementById("UIPortal-UIPortal") ;
  	if(uiPortal) {
 	  parentByClass = DOMUtil.findAncestorByClass(uiPortal, "Vista") ;

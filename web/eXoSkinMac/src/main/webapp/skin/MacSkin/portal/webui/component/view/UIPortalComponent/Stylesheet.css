@@ -102,6 +102,12 @@
 .VIEW-PORTAL .UIContainer .UITableColumnContainer {
 }
 
+.UIContainer {
+	border: 1px solid  #7b7b7b;
+	/*
+	 fix bug dragdrop in IE6
+	*/
+}
 .UIContainer .LAYOUT-CONTAINER {
   min-height: 60px;
   background: url('background/ContainerBackground1x4.gif') repeat;
