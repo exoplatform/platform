@@ -2,9 +2,8 @@ function UIDockbar() {
   this.curve = 3 ;
   this.weight = 2.3 ;
   this.isFirstTime = true;
-//  this.displayTooltip = true ;
   this.showDesktop = false ;
-	this.arrayImage = false ;
+		this.arrayImage = false ;
 };
 
 UIDockbar.prototype.init = function() {
@@ -12,7 +11,7 @@ UIDockbar.prototype.init = function() {
   var uiDockbar = document.getElementById("UIDockBar") ;
   if(!uiDockbar) return ;
   var imgObject = eXo.core.DOMUtil.findDescendantsByClass(uiDockbar, "img", "Icon") ;
-	UIDockbar.arrayImage = imgObject;
+	 UIDockbar.arrayImage = imgObject;
   
   uiDockbar.defaultIconSize = 40 ;
   uiDockbar.originalBGDockbarHeight = 47 ;
@@ -52,10 +51,6 @@ UIDockbar.prototype.waitOnLoad = function(images) {
 UIDockbar.prototype.startDockBarEvt = function(evt) {
 	evt.cancelBubble = true ;
 	document.body.oncontextmenu = new Function("return false;") ;
-	if (eXo.core.Browser.isIE7()) {
-		var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
-		uiWorkingWorkspace.style.height = "100%" ;
-	}
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	uiPageDesktop.onmouseover = eXo.desktop.UIDockbar.endDockBarEvt ;   
 } ;
