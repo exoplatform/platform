@@ -176,7 +176,7 @@
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
  	background: url('VistaSkin/background/UITreeBG.png') repeat;
  	border-top: none;
-  height: 224px;
+  height: 223px;
   width: auto;
   _width: 208px;
 }
@@ -253,7 +253,6 @@
 .UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
   margin: auto;
   padding: 0px;
-  border: 1px solid #fff;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIForm .UIFormGrid {
@@ -288,7 +287,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout { 
-	height: 198px;
+	height: 187px;
 	padding: 35px 0px 0px 0px;
 }
 

@@ -31,7 +31,7 @@
 .UICreatePage .CreatePageContainer .CreatePageBarLeft {
 	padding-left: 7px;
   background: url('background/PolyBar.png') no-repeat left top;
-  margin: 0px 5px; 
+  margin: 0px 6px 0px 5px; 
 }
 
 .UICreatePage .CreatePageContainer .CreatePageBarRight {

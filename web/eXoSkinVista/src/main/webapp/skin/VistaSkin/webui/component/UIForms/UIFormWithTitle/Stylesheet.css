@@ -15,6 +15,7 @@
 .UIFormWithTitle .HorizontalLayout {
   padding: 1px;
   border: solid 1px #bec1c7;
+  border-top: none;
 }
 
 .UIFormWithTitle .HorizontalLayout .FormContainer {

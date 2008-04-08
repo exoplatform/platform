@@ -7,19 +7,19 @@
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLeft {
-	background: url(background/NormalTab.gif) no-repeat left top;
+	background: url(background/VTabSimpleStyle.gif) no-repeat left top;
 	padding-left: 29px;
 	height: 24px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabRight {
-	background: url(background/NormalTab.gif) no-repeat right top;
+	background: url(background/VTabSimpleStyle.gif) no-repeat right top;
 	padding-right: 3px;
 	height: 24px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabRepeat {
-	background: url(background/NormalTab.gif) repeat-x bottom;
+	background: url(background/VTabSimpleStyle.gif) repeat-x left -24px;
 	height: 24px;
 }
 
@@ -37,19 +37,19 @@
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLeft {
-	background: url(background/SelectedTab.gif) no-repeat left top;
+	background: url(background/VTabSimpleStyle.gif) no-repeat left -48px;
 	padding-left: 27px;
 	height: 24px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabRight {
-	background: url(background/SelectedTab.gif) no-repeat right -24px;
+	background: url(background/VTabSimpleStyle.gif) no-repeat right -72px;
 	padding-right: 17px;
 	height: 24px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabRepeat {
-	background: url(background/SelectedTab.gif) repeat-x bottom;
+	background: url(background/VTabSimpleStyle.gif) repeat-x bottom;
 	height: 24px;
 }
 
@@ -102,17 +102,17 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
   padding-left: 3px;
-  background: url('background/VerticalSlideTabs.gif') no-repeat left top; 
+  background: url('background/VTabStyle3.gif') no-repeat left top; 
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight {
   padding-right: 3px;
-  background: url('background/VerticalSlideTabs.gif') no-repeat right top; 
+  background: url('background/VTabStyle3.gif') no-repeat right top; 
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat {
   height: 27px;
-  background: url('background/VerticalSlideTabs.gif') repeat-x left -27px; 
+  background: url('background/VTabStyle3.gif') repeat-x left -27px; 
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
@@ -150,18 +150,18 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {
   padding-left: 3px ;
-  background: url('background/VerticalSlideTabs.gif') no-repeat left -54px ;
+  background: url('background/VTabStyle3.gif') no-repeat left -54px ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRight {
   width: auto ;
   padding-right: 3px ;
-  background: url('background/VerticalSlideTabs.gif') no-repeat right -54px ;
+  background: url('background/VTabStyle3.gif') no-repeat right -54px ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRepeat {
   height: 27px ;
-  background: url('background/VerticalSlideTabs.gif') repeat-x bottom;
+  background: url('background/VTabStyle3.gif') repeat-x bottom;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .LeftIcon {

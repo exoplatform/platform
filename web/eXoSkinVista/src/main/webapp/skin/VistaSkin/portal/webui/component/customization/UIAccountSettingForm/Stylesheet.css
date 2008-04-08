@@ -41,7 +41,7 @@
 .UIAccountSettingForm .UIHorizontalTabs .CenterHorizontalTabs {
   background: url('background/HorizontalTabs.gif') repeat-x left -30px;
   cursor: pointer;
-  padding: 0px 4px 0px 4px;
+  padding: 0px 11px 0px 4px;
   height: 30px;
   line-height: 30px;
 }
@@ -94,7 +94,7 @@
   float: left;
   background: url('background/LineSeparator2x29.gif') no-repeat left;
   height: 29px;  width: 2px;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .UIAccountSettingForm .UIForm .HorizontalLayout {

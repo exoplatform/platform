@@ -233,7 +233,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
   padding-bottom: 10px;  
-  height: 208px;
+  height: 214px;
   width: auto;
   _width: 218px;
 }
@@ -263,7 +263,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
-  margin-left: 222px ;
+  margin-left: 228px ;
   height:100%;
 }
 
@@ -283,7 +283,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout { 
-	height: 220px;
+	height: 222px;
 	background: white;
 }
 
@@ -330,8 +330,7 @@
 }
 
 .UIOrganizationPortlet .UIGrid  {
-	width: 99.5%;
-	margin: auto;
+
 }
 
 .UIOrganizationPortlet .UIGrid .ActionContainer {  

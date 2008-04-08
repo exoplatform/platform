@@ -6,7 +6,7 @@
 	line-height: 25px; height: 25px;
 	cursor: pointer;
 	margin: 2px 1px;
-	background: url(background/RightOverItem1x24.gif) repeat-x;
+	background: url(background/VTabSimpleStyle.gif) repeat-x top;
 	border: 1px solid #d6d6d6;
 }
 
@@ -28,7 +28,7 @@
 	height: 25px;
 	cursor: pointer;
 	margin: 2px 1px 0px 1px;
-	background: url(background/RightSelectedItem1x24.gif) repeat-x;
+	background: url(background/VTabSimpleStyle.gif) repeat-x bottom;
 	border: 1px solid #8bc0e4;
 }
 
@@ -88,17 +88,17 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
   padding: 0px 0px 0px 4px ;
-  background: url('background/LeftSmoothRoundedBarS4x27.gif') no-repeat left ;
+  background: url('background/VTabStyle3.gif') no-repeat left top;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight {
-  background: url('background/RightSmoothRoundedBarS4x27.gif') no-repeat right ;
+  background: url('background/VTabStyle3.gif') no-repeat right top;
   padding: 0px 4px 0px 0px ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat {
   height: 27px ;
-  background: url('background/MiddleSmoothRoundedBarS1x27.gif') repeat-x ;
+  background: url('background/VTabStyle3.gif') repeat-x left -27px ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
@@ -139,18 +139,18 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {
   padding: 0px 0px 0px 4px ;
-  background: url('background/LeftSmoothRoundedBar4x27.gif') no-repeat left ;
+  background: url('background/VTabStyle3.gif') no-repeat left -54px ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRight {
   width: auto ;
   padding: 0px 4px 0px 0px;
-  background: url('background/RightSmoothRoundedBar4x27.gif') no-repeat right ;
+  background: url('background/VTabStyle3.gif') no-repeat right -54px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRepeat {
   height: 27px ;
-  background: url('background/MiddleSmoothRoundedBar1x27.gif') repeat-x ;
+  background: url('background/VTabStyle3.gif') repeat-x bottom ;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .LeftIcon {

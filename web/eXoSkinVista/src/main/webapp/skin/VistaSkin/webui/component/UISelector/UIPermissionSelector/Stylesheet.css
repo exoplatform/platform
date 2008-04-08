@@ -67,7 +67,7 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
-  margin: 8px 0px 5px 15px ;
+  padding: 8px 0px 5px 15px ;
   color: #0749c4 ;
   background: none;
   overflow: hidden;

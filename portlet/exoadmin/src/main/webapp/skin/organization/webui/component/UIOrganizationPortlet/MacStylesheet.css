@@ -288,7 +288,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
-	height: 216px;
+	height: 228px;
 	width: auto;
 	_width: 218px;
 }
@@ -333,7 +333,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
 	margin: 10px auto;
-	width: auto;
+	width: 99%;
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
@@ -345,7 +345,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm .FormContainer { 
-	height: 203px;
+	height: 206px;
 	padding: 20px 0px 0px 0px;
 }
 

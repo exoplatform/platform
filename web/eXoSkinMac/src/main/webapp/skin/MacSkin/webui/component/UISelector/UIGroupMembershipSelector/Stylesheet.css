@@ -4,7 +4,7 @@
 
 .UIGroupMembershipSelector .UIBreadcumbs {
   font-weight: normal;
-	margin-bottom: 3px; padding: 0px;
+	margin-bottom: 6px; padding: 0px;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .LeftBreadcumbsBar {
@@ -64,7 +64,7 @@
 .UIGroupMembershipSelector .MembershipSelector {
   background: #f4f4f4;
   border: 1px solid white; 
-  margin-left: 240px; height: 183px;
+  margin-left: 236px; height: 183px;
 }
 
 .UIGroupMembershipSelector .MembershipSelector .OverflowContainer {
@@ -77,7 +77,7 @@
 }
 
 .UIGroupMembershipSelector .SelectedGroupPath .UIBreadcumbs {
-  border-bottom: 1px solid #b7b7b7;
+
 }
 
 .UIGroupMembershipSelector .MembershipSelector .Label {

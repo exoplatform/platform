@@ -81,19 +81,19 @@
 }
 
 .DecoratorBox .BarDecorator .MiddleCenterBar {
-  background: #efefef url('background/BarDecorator.png') repeat-x left -8px; 
+  background: #efefef url('background/MidlleBarDecorator.png') repeat-x top; 
   padding: 2px 4px 2px 5px;
   color: #151209;
   font-weight: bold;
 }
 
 .DecoratorBox .BarDecorator .BottomCenterBar {
-  background: url('background/BarDecorator.png') repeat-x left -24px;
+  background: url('background/BarDecorator.png') repeat-x left -8px;
   height: 8px;
 }
 
 .DecoratorBox .BarDecorator .BottomRightBar {
-  background: url('background/BarDecorator.png') no-repeat right -32px;
+  background: url('background/BarDecorator.png') no-repeat right bottom;
   padding-right: 7px;
   height: 8px;
 }

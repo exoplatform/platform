@@ -16,7 +16,7 @@
 
 .UIWizard .WizardDecorator .WizardBottomLeft {
   height: 8px; line-height: 8px;
-  background: url('background/Wizard.png') no-repeat leftb -8px;
+  background: url('background/Wizard.png') no-repeat left -8px;
   padding-left: 6px;
 }
 

@@ -7,7 +7,7 @@
 		
 .UIExoStart .StartBarContainer {
 	height: 38px;
-	background: url('background/Exostart.gif') repeat-x center -157px;
+	background: url('background/StartMenuContainer.gif') repeat-x center -35px;
 }
 
 .UIExoStart .ExoStartButton {
@@ -49,7 +49,7 @@
 
 .UIExoStart .StartMenuContainer .LoginContainer {
 	height: 35px;
-	background: url('background/Exostart.gif') repeat-x center -122px;
+	background: url('background/StartMenuContainer.gif') repeat-x top;
 	border-top: solid 1px #b7b7b7;
 }
 
@@ -59,32 +59,32 @@
 }
 
 .UIExoStart .StartMenuContainer .AdministrationIcon {
-	background: url('background/Exostart.gif') no-repeat left -274px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -152px;
 	
 }
 
 .UIExoStart .StartMenuContainer .PageCreationWizardIcon {
-	background: url('background/Exostart.gif') no-repeat left -498px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -376px;
 }
 
 .UIExoStart .StartMenuContainer .EditCurrentPageIcon {
-	background: url('background/Exostart.gif') no-repeat left -530px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -408px;
 }
 
 .UIExoStart .StartMenuContainer .EditCurrentPortalIcon {
-	background: url('background/Exostart.gif') no-repeat left -562px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -440px;
 }
 
 .UIExoStart .StartMenuContainer .EditNavigationIcon {
-	background: url('background/Exostart.gif') no-repeat left -530px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -408px;
 }
 
 .UIExoStart .StartMenuContainer .BrowsePortalsIcon {
-	background: url('background/Exostart.gif') no-repeat left -658px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -536px;
 }
 
 .UIExoStart .StartMenuContainer .BrowsePagesIcon {
-	background: url('background/Exostart.gif') no-repeat left -594px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -472px;
 }
 
 .UIExoStart .StartMenuContainer .LabelText {
@@ -105,7 +105,7 @@
 
 .UIExoStart .StartMenuContainer .LogoutIcon {
 	height: 33px;	
-	background: url('background/Exostart.gif') no-repeat left -213px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -91px;
 	padding: 0px 0px 0px 34px;
 	float: right;
 	margin-right: 10px;
@@ -122,7 +122,7 @@
 }
 
 .UIExoStart .StartMenuContainer .BlackArrowIcon {
-	background: url('background/Exostart.gif') no-repeat right -306px;
+	background: url('background/StartMenuContainer.gif') no-repeat right -184px;
 	padding: 0px 25px 0px 0px;
 	margin-right: 5px;
 }
@@ -138,7 +138,7 @@
 
 .UIExoStart .StartMenuContainer .NavigationArrowIcon {
 	height: 30px;
-	background: url('background/Exostart.gif') no-repeat right -244px;
+	background: url('background/StartMenuContainer.gif') no-repeat right -122px;
 	padding: 0px 25px 0px 0px;
 }
 
@@ -187,7 +187,7 @@
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
 	line-height: 18px;
-	background: url('background/Exostart.gif') repeat-x center -195px;
+	background: url('background/StartMenuContainer.gif') repeat-x center -73px;
 	padding-left: 10px;
 	color: #125aad;
 	white-space: nowrap;
@@ -213,28 +213,28 @@
 }
 
 .UIExoStart .StartMenuContainer .BasicIcon {
-	background: url('background/Exostart.gif') no-repeat left -466px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -344px;
 }
 
 .UIExoStart .StartMenuContainer .AdvancedIcon {
-	background: url('background/Exostart.gif') no-repeat left -434px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -312px;
 }
 
 
 .UIExoStart .StartMenuContainer .SkinSettingIcon {
-	background: url('background/Exostart.gif') no-repeat left -626px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -504px;
 }
 
 .UIExoStart .StartMenuContainer .LanguageSettingIcon {
-	background: url('background/Exostart.gif') no-repeat left -402px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -280px;
 }
 
 .UIExoStart .StartMenuContainer .ChangePortalIcon {
-	background: url('background/Exostart.gif') no-repeat left -370px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -248px;
 }
 
 .UIExoStart .StartMenuContainer .AccountSettingIcon {
-	background: url('background/Exostart.gif') no-repeat left -338px;
+	background: url('background/StartMenuContainer.gif') no-repeat left -216px;
 }
 /*========================Start Menu Decorator======================*/
 .UIExoStart .StartMenuDecorator {

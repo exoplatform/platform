@@ -19,7 +19,7 @@
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
   float:left;
   width: 28px; height: 27px; 
-  background: url('background/PageCreation28x27.png') no-repeat;
+  background: url('background/WizardIcon.png') no-repeat top;
   margin: 1px 8px 0px 8px;
 }
 
@@ -32,7 +32,7 @@
 .UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
   float: right;
   width: 30px; height: 30px;
-  background:  url('icons/32x32/HelpIcon.png') no-repeat;
+  background:  url('background/WizardIcon.png') no-repeat center -27px;
   margin: 1px 10px 0px 0px;
   cursor: pointer;
 }

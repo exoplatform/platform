@@ -3,7 +3,7 @@
 
 .UIGroupInfoContainer .HorizontalLayout {
 	border: solid 1px #979797;
-	padding: 4px;
+
 }
 
 .UIGroupInfoContainer .UIGroupMembershipForm .HorizontalLayout {
@@ -12,8 +12,6 @@
 }
 
 .UIGroupInfoContainer .HorizontalLayout .FormContainer {
-	background: #ffffff;
-	border: solid 1px #b7b7b7;
 	padding: 10px;
 }
 

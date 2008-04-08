@@ -91,7 +91,7 @@
 }
 
 .UIRightClickPopupMenu .TopLeftRightClickPopupMenu {
-	background: url('background/RightClickPopupMenu.png') no-repeat left;
+	background: url('background/RightClickPopupMenu.png') no-repeat left top;
 	padding-left: 16px;
 }
 
