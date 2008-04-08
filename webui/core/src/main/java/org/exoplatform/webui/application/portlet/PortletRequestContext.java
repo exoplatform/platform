@@ -71,23 +71,21 @@ public class PortletRequestContext extends WebuiRequestContext {
   public PortletRequestContext(WebuiApplication app, Writer writer, 
                                PortletRequest req, PortletResponse res) {
     super(app) ;
+    windowId_ = req.getWindowID();
     init(writer, req, res) ;
     setSessionId(req.getPortletSession(true).getId()) ;
-    
     urlBuilder = new PortletURLBuilder();
+    PortletMode mode = req.getPortletMode() ;
+    if(mode.equals(PortletMode.VIEW))  applicationMode_ = VIEW_MODE ;
+    else if(mode.equals(PortletMode.EDIT))  applicationMode_ = EDIT_MODE ;
+    else if(mode.equals(PortletMode.HELP))  applicationMode_ = HELP_MODE ;
+    else  applicationMode_ = VIEW_MODE ;    
   }
   
   public void init(Writer writer, PortletRequest req, PortletResponse res) {
     request_ = req ;
     response_ =  res ;
     writer_ = new HtmlValidator(writer) ;
-    windowId_ = req.getWindowID();
-
-    PortletMode mode = req.getPortletMode() ;
-    if(mode.equals(PortletMode.VIEW))  applicationMode_ = VIEW_MODE ;
-    else if(mode.equals(PortletMode.EDIT))  applicationMode_ = EDIT_MODE ;
-    else if(mode.equals(PortletMode.HELP))  applicationMode_ = HELP_MODE ;
-    else  applicationMode_ = VIEW_MODE ;
   }
 
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
