@@ -134,11 +134,7 @@
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer {
 	border: none;
 	background: none;
-	_width: 250px;
-}
-
-.UIPageDesktop .UIDockbar .UIRightClickPopupMenu .UIContextMenuContainer {
-	width: 230px;
+	_width: 230px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .CloseDockBarIcon {
