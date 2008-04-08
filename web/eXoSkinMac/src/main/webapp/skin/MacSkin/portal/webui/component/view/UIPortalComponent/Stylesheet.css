@@ -108,6 +108,7 @@
 	 fix bug dragdrop in IE6
 	*/
 }
+
 .UIContainer .LAYOUT-CONTAINER {
   min-height: 60px;
   background: url('background/ContainerBackground1x4.gif') repeat;
