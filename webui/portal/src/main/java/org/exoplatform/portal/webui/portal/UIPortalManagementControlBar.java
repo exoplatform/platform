@@ -169,7 +169,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
   static public class AbortActionListener  extends EventListener<UIPortalManagementControlBar> {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       
       PortalRequestContext prContext = Util.getPortalRequestContext();  
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);

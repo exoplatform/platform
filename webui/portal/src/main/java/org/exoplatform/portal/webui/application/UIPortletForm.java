@@ -261,7 +261,7 @@ public class UIPortletForm extends UIFormTabPane {
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       pcontext.addUIComponentToUpdateByAjax(uiMaskWorkspace);
       UIPortalApplication uiPortalApp = uiPortlet.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true);
       Util.showComponentLayoutMode(UIPortlet.class);  
@@ -274,7 +274,7 @@ public class UIPortletForm extends UIFormTabPane {
       UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
       if(uiPortletForm.hasEditMode()) uiPortlet.setCurrentPortletMode(PortletMode.VIEW);
       UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true) ;

@@ -318,7 +318,7 @@ public class UIPageBrowser extends UISearch {
       uiManagement.setRenderedChild(UIPageBrowseControlBar.class) ;
       pcontext.addUIComponentToUpdateByAjax(uiControl) ;
 
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setFullRender(true);
     }

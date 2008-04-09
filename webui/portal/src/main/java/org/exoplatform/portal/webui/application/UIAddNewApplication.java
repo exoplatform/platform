@@ -141,7 +141,7 @@ public class UIAddNewApplication extends UIContainer {
       }
 
       PortalRequestContext pcontext = Util.getPortalRequestContext();
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true);
       

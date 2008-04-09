@@ -69,7 +69,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
     public void execute(Event<UIPageNavigationControlBar> event) throws Exception {
       UIPageNavigationControlBar uiPageNav = event.getSource();
       UIPortalApplication uiPortalApp = uiPageNav.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
 
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
       PortalRequestContext prcontext = Util.getPortalRequestContext();
@@ -118,7 +118,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
       pContext.addUIComponentToUpdateByAjax(uiManagement);
 
       UIPortalApplication uiPortalApp = uiPageNav.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       UIPortalToolPanel toolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
       toolPanel.setShowMaskLayer(true);
       pContext.addUIComponentToUpdateByAjax(uiWorkingWS);
@@ -168,12 +168,12 @@ public class UIPageNavigationControlBar extends UIToolbar {
     uiPortalApp.setEditting(false) ;
     PortalRequestContext prContext = Util.getPortalRequestContext();  
     UIPortal portal = Util.getUIPortal();
-    UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+    UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
     UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
     uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
     prContext.addUIComponentToUpdateByAjax(uiControl);    
     
-    UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
     UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
     portal.setNavigation(configService.getUserPortalConfig(portal.getName(), prContext.getRemoteUser()).getNavigations());
     uiWorkingWS.setRenderedChild(UIPortal.class) ;

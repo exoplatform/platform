@@ -255,7 +255,7 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
 
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
       uiWorkingArea.setUIComponent(uiWorkingArea.createUIComponent(UIWelcomeComponent.class, null, null)) ;
       pcontext.addUIComponentToUpdateByAjax(uiControl);  
@@ -265,7 +265,7 @@ public class UIPageEditWizard extends UIPageWizard {
       uiPortal.setRenderSibbling(UIPortal.class) ;    
       pcontext.setFullRender(true);
       
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
     }
   }

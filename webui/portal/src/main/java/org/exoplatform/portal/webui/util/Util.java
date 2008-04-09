@@ -106,7 +106,7 @@ public class Util {
   static public <T extends UIComponent> T showComponentOnWorking(
       UIComponent uicomp, Class<T> clazz) throws Exception {
     UIPortalApplication uiPortalApp = uicomp.getAncestorOfType(UIPortalApplication.class);
-    UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
     UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);   
     T uiWork = uiToolPanel.createUIComponent(clazz, null, null);
     uiToolPanel.setUIComponent(uiWork);
@@ -115,7 +115,7 @@ public class Util {
   }
 
   static public void showPortalComponentLayoutMode(UIPortalApplication uiPortalApp){   
-    UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
     uiWorkingWS.setRenderedChild(UIPortal.class) ;
     UIPortal uiPortal = uiWorkingWS.getChild(UIPortal.class);    
 
@@ -140,7 +140,7 @@ public class Util {
 //  }
 
   static public void showPageComponentLayoutMode(UIPortalApplication uiPortalApp){   
-    UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+    UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
     uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
     UIPortalToolPanel uiPortalToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
 

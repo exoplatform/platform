@@ -489,7 +489,7 @@ public class UIPortletActionListener {
       UIPortalApplication uiPortalApp = uiPortlet
           .getAncestorOfType(UIPortalApplication.class);
       UIWorkspace uiWorkingWS = uiPortalApp
-          .findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+          .getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = (PortalRequestContext) event
           .getRequestContext();
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);

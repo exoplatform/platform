@@ -67,13 +67,13 @@ public class UIPageActionListener {
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       uiPortalApp.setEditting(false) ;
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = Util.getPortalRequestContext();     
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
       uiPortal.setRenderSibbling(UIPortal.class);
       pcontext.setFullRender(true);
 
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
+      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
       if(uiControl != null) {
         UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
         pcontext.addUIComponentToUpdateByAjax(uiControl);  
@@ -170,7 +170,7 @@ public class UIPageActionListener {
       UIPageForm uiForm = uiPage.createUIComponent(UIPageForm.class, null, null);
       uiForm.setValues(uiPage);
       UIPortalApplication uiPortalApp = uiPage.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
       uiToolPanel.setUIComponent(uiForm) ;
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;     
