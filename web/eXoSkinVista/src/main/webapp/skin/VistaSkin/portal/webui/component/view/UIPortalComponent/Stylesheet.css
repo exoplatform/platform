@@ -232,7 +232,8 @@
 } 
 
 .UIContainer {
-	border: 1px solid   #7c7c7c;
+	border-bottom: 1px solid white;
+  margin-bottom: 10px; 
 	/*
 	 fix bug dragdrop in IE6
 	*/
@@ -241,7 +242,7 @@
 .UIContainer .LAYOUT-CONTAINER {
   background: url('background/ContainerBG3x3.png') repeat;
   border: solid 1px #7c7c7c;
-  margin: 1px 14px 10px 14px; 
+  margin: 1px 14px 0px 14px; 
   padding-top: 5px;
   min-height: 60px;
 }

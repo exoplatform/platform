@@ -32,22 +32,15 @@
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl {
-	width: 216px;
+	width: 220px;
 	position: static;
 	margin-bottom: 2px;
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl .UIDropDownAnchor {
-	width: 216px;
+	width: 220px;
 }
 
-/*
- * Lam Nguyen add attribute to Wizard Content to fix
- * error onmouseover on Calendar
- */
-.UIWizard .UIWizardContent .WizardControlBar .OverflowContainer {
-  overflow:visible;
-}
 /*========================== Wizard Content ==============================*/
 .UIWizard .UIWizardContent {
   padding: 5px;
@@ -174,7 +167,7 @@
 
 .UIWizard .UIWizardPageSetInfo .PageNodeContainer {
   float: left;
-  width: 230px;
+  width: 235px;
 }
 
 .UIWizard .UIWizardPageSetInfo .PageNodeContainer .UIContainerConfigOptions {
@@ -186,7 +179,7 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
-  margin-left: 240px;
+  margin-left: 245px;
   padding: 1px;
   border: solid 1px #b7b7b7 ;
 }
