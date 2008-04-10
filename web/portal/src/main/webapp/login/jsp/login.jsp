@@ -46,63 +46,51 @@
     <script type="text/javascript" src="/eXoResources/javascript/eXo.js"></script>
     <script type="text/javascript" src="/eXoResources/javascript/eXo/portal/UIPortalControl.js"></script>
   </head>
-  <body style="text-align: center">
-    <div class="UILoginPortlet">
-      <div class="LoginHeader"><span></span></div>
+  <body style="text-align: center; background: #f5f5f5; font-family: arial, tahoma, verdana">
+    <div class="UILogin">
+      <div class="LoginHeader">Sign in</div>
       <div class="LoginContent">
-        <div class="LeftLoginContent">
-          <div class="RightLoginContent">
-            <div class="CenterLoginContent">
-              <%/*Begin form*/%>
-              <%
-                if(userName.length() > 0) {
-              %>
-                <font color="red">Sign in failed. Wrong username or password.</font><%}%>
-              <form name="loginForm" action="<%=loginAction%>" method="post" style="margin: 0px;">        
-	              <div class="FieldContainer">
-		              <label>User name</label><input name="j_username" value="<%=userName%>"/>
-			          </div>
-		            <div class="FieldContainer" id="UIPortalLoginFormControl">
-		              <label>Password</label><input type="password" name="j_password" value=""/>
+        <div class="WelcomeText">Welcome to eXo Portal</div>
+        <div class="CenterLoginContent">
+          <%/*Begin form*/%>
+          <%
+            if(userName.length() > 0) {
+          %>
+            <font color="red">Sign in failed. Wrong username or password.</font><%}%>
+          <form name="loginForm" action="<%=loginAction%>" method="post" style="margin: 0px;">        
+              <div class="FieldContainer">
+	              <label>User name</label><input class="UserName" name="j_username" value="<%=userName%>"/>
+		          </div>
+	            <div class="FieldContainer" id="UIPortalLoginFormControl">
+	              <label>Password</label><input class="Password" type="password" name="j_password" value=""/>
+	            </div>
+		          <div class="LoginButton">
+		            <div class="LoginButtonContainer">
+		              <div class="Button">
+		                <div class="LeftButton">
+		                  <div class="RightButton">
+		                    <div class="MiddleButton">
+		                    	<a href="javascript:login();" id="UIPortalLoginFormAction">
+		                    		Sign in
+		                    	</a>
+		                    </div>
+		                  </div>
+		                </div>
+		              </div>
 		            </div>
-			          <div class="LoginButton">
-			            <div class="LoginButtonContainer">
-			              <div class="Button">
-			                <div class="LeftButton">
-			                  <div class="RightButton">
-			                    <div class="MiddleButton">
-			                    	<a href="javascript:login();" id="UIPortalLoginFormAction">
-			                    		Login
-			                    	</a>
-			                    </div>
-			                  </div>
-			                </div>
-			              </div>
-			            </div>
-			          </div>
-			          <div style="clear: left"><span></span></div>
-			          <script type='text/javascript'>			            
-                  function login() {
-                    document.loginForm.submit();                   
-                  }
-                </script>
-			        </form>
-			        <%/*End form*/%>
-            </div>
-          </div>
+		          </div>
+		          <div style="clear: left"><span></span></div>
+		          <script type='text/javascript'>			            
+              function login() {
+                document.loginForm.submit();                   
+              }
+            </script>
+		        </form>
+		        <%/*End form*/%>
         </div>
       </div>
-      <%/*Begin LoginFooter*/%>
-      <div class="LoginFooter">
-        <div class="LoginLeftFooter">
-          <div class="LoginRightFooter">
-            <div class="LoginRepeatFooter"><span></span></div>
-          </div>
-        </div>
-      </div>
-      <%/*End LoginFooter*/%>
-      <div class="CopyrightInfo">Copyright &copy 2000-2007. All rights Reserved, eXo Platform SAS.</div>
     </div>
+    <span style="margin: 10px 0px 0px 5px; font-size: 11px; color: #6f6f6f; text-align: center">Copyright &copy 2000-2008. All rights Reserved, eXo Platform SAS.</span>
     <script type='text/javascript'>
       eXo.portal.UIPortalControl.onKeyPress();
     </script>
