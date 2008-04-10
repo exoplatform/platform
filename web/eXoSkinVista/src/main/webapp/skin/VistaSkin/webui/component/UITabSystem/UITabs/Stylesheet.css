@@ -249,6 +249,7 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab {
   color: #307dcc;
   margin-right: 1px;
+   line-height: 27px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
@@ -263,7 +264,7 @@
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
   line-height: 27px;
-  background: url('background/NormalTabStyle.gif') repeat-x bottom;
+  background: url('background/NormalTabStyle.gif') repeat-x center -131px;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
 }

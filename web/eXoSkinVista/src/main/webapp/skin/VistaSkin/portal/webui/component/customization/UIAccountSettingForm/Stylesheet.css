@@ -92,7 +92,7 @@
 
 .UIAccountSettingForm .UIHorizontalTabs .LineSeparator {
   float: left;
-  background: url('background/LineSeparator2x29.gif') no-repeat left;
+  background: url('background/LineSeparator2x29.gif') repeat-y left;
   height: 29px;  width: 2px;
   margin-top: 1px;
 }

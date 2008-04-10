@@ -67,16 +67,14 @@
 }
 
 .UILoginForm .LoginDetailBox .UserNameField {
-	padding: 8px 0px 5px 0px;
-  width: 305px;
-  margin: auto;
+	padding: 5px;
+  width: 310px;
   text-align: right;
 }
 
 .UILoginForm .LoginDetailBox .PasswordField {
 	padding: 5px;
-  width: 305px;
-  margin: auto;
+  width: 310px;
   text-align: right;
 }
 
@@ -134,4 +132,8 @@
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   padding: 13px 0px 10px 0px;
+  width: 390px;
+
+
+  
 }

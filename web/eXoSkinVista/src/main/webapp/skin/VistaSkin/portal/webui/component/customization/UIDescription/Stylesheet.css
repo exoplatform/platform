@@ -19,7 +19,7 @@
   border-bottom:none;
   text-align: center; font-weight: bold;
   height: 23px; line-height: 23px;
-  background: url('background/TitleBG1x23.png') repeat-x;
+  background: url('background/UIDescription.png') repeat-x bottom;
 }
 
 .UIDescription .DescriptionContent {
@@ -34,17 +34,17 @@
 }
 
 .UIDescription .LeftTopDescriptionDecorator {
-	background: url('background/LeftTopDescriptionDecorator7x11.png') no-repeat left;
+	background: url('background/UIDescription.png') no-repeat left;
 	padding-left: 7px;
 }
 
 .UIDescription .RightTopDescriptionDecorator {
-	background: url('background/RightTopDescriptionDecorator8x11.png') no-repeat Right;
+	background: url('background/UIDescription.png') no-repeat right -11px;
 	padding-right: 8px;
 }
 
 .UIDescription .CenterTopDescriptionDecorator {
-	background: url('background/CenterTopDescriptionDecorator1x11.png') repeat-x;
+	background: url('background/UIDescription.png') repeat-x left -22px;
 	height: 11px;
 }
 
@@ -59,16 +59,16 @@
 }
 
 .UIDescription .LeftBottomDescriptionDecorator {
-	background: url('background/LeftBottomDescriptionDecorator8x9.png') no-repeat left;
+	background: url('background/UIDescription.png') no-repeat left -33px;
 	padding-left: 8px;
 }
 
 .UIDescription .RightBottomDescriptionDecorator {
-	background: url('background/RightBottomDescriptionDecorator8x9.png') no-repeat Right;
+	background: url('background/UIDescription.png') no-repeat right -42px;
 	padding-right: 8px;
 }
 
 .UIDescription .CenterBottomDescriptionDecorator {
-	background: url('background/CenterBottomDescriptionDecorator1x9.png') repeat-x;
+	background: url('background/UIDescription.png') repeat-x left -51px;
 	height: 9px;
 }

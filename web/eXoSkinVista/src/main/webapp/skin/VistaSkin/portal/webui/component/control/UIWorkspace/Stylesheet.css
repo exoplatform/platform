@@ -57,7 +57,7 @@
   float: left;  
   width: 30px ; height: 25px ;
   margin: 7px 10px 0px 5px; 
-  background: url('background/PortalManagement.gif') no-repeat ;
+  background: url('background/ControlWorkspaceIcon.gif') no-repeat top ;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .ControlPanelExpandContainer {
@@ -68,7 +68,7 @@
   float: left;
   width: 30px ; height: 25px ;
   margin: 6px 10px 0px 5px;
-  background: url('background/PageManagement.gif') no-repeat center;
+  background: url('background/ControlWorkspaceIcon.gif') no-repeat bottom;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .HideContentVTab {

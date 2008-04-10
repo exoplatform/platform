@@ -8,30 +8,6 @@
 
 .UIPortalToolPanel {}
 
-.UIPortalToolPanel .Banner {
-  background: url('background/EditBannerRepeat1x121.jpg') repeat-x ;
-  height: 121px ;
-  line-height: 121px ; text-align: center;
-}
-
-.UIPortalToolPanel .BannerLeft {
-  background: url('background/EditLeftBanner242x121.jpg') no-repeat left ;
-  float: left ;
-  height: 121px ; width: 35%;
-}
-
-.UIPortalToolPanel .BannerMiddle {
-  background: url('background/EditMiddleBanner111x121.jpg') no-repeat center ;
-  float: left ;
-  height: 121px ; width: 32%;
-}
-
-.UIPortalToolPanel .BannerRight {
-  float: right ;
-  height: 121px ; width: 220px;
-  background: url('background/EditRightBanner220x121.jpg') no-repeat right ;
-}
-
 .UIPortalToolPanel .Body {
   padding: 7px;
   height: 100%;
@@ -53,60 +29,6 @@
   background: url('background/LightGrayLinedBG1x4.gif');
   min-width: 100px;
   overflow: auto;
-}
-
-.UIPortalToolPanel .Footer {
-  height: 32px ;
-  line-height: 32px ;
-}
-
-.UIPortalToolPanel .Footer .LeftFooter {
-  background: url('background/LeftFooter28x32.gif') no-repeat left;
-  padding-left: 28px;
-  height: 32px;
-}
-
-.UIPortalToolPanel .Footer .RightFooter {
-  background: url('background/RightFooter28x32.gif') no-repeat right;
-  padding-right: 28px;
-  height: 32px;
-}
-
-.UIPortalToolPanel .Footer .MiddleFooter {
-  background: url('background/FooterRepeat1x32.gif') repeat-x;
-  height: 32px;
-}
-
-.UIPortalToolPanel .Footer .FooterInfoContainer {
-  width: 400px ;
-  margin: auto ;
-}
-
-.UIPortalToolPanel .Footer .CopyrightInfo {
-  width: 398px ;
-  margin-right: 5px ;
-}
-
-.UIPortalToolPanel .Footer .CopyrightInfo .CopyrightText {
-  float: left;
-  line-height: 24px ;
-  text-align: center ; 
-  width: 260px ;
-}
-
-.UIPortalToolPanel .Footer .CopyrightInfo .CompanyTitleText {
-  float: right ;
-  line-height: 24px ; 
-  text-align: center ;
-  width: 124px ;
-  margin-right: 5px;
-}
-
-.UIPortalToolPanel .Footer .Footer .CopyrightText {
-  height: 20px ; width: 380px;  line-height: 20px ;
-  text-align: center;
-  border: 1px solid #5f90ba ;
-  background: white;
 }
 
 /**################################ ItemDetailList ######################*/

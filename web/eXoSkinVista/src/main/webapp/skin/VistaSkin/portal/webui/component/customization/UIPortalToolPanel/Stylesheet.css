@@ -8,19 +8,19 @@
 
 .UIPortalToolPanel .WizardDecorator .WizardTopLeft {
   height: 5px;
-  background: url('background/WizardTL7x5.png') no-repeat left;
+  background: url('background/WizardDecorator.png') no-repeat left;
   padding-left: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardTopRight{
   height: 5px; 
-  background: url('background/WizardTR7x5.png') no-repeat right;
+  background: url('background/WizardDecorator.png') no-repeat right -5px;
   padding-right: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardTopCenter {
   height: 5px; 
-  background: url('background/WizardTC1x5.png') repeat-x;
+  background: url('background/WizardDecorator.png') repeat-x left -10px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardMiddleLeft {
@@ -43,82 +43,24 @@
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomLeft {
   height: 7px; 
-  background: url('background/WizardBL7x7.png') no-repeat left;
+  background: url('background/WizardDecorator.png') no-repeat left -15px;
   padding-left: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomRight{
   height: 7px; 
-  background: url('background/WizardBR7x7.png') no-repeat right;
+  background: url('background/WizardDecorator.png') no-repeat right -22px;
   padding-right: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomCenter {
   height: 7px; 
-  background: url('background/WizardBC1x7.png') repeat-x;
-}
-
-.UIPortalToolPanel .Banner {
-  background: url('background/EditBannerRepeatBg4x92.png') repeat-x ;
-  height: 92px ;
-  line-height: 92px ; text-align: center ;
-}
-
-.UIPortalToolPanel .BannerLeft {
-  float: left ;
-  height: 92px ; width: 40%;
-  background: url('background/EditBannerLBg410x92.png') no-repeat left ;
-}
-
-.UIPortalToolPanel .BannerMiddle {
-  float: left ;
-  height: 92px ; width:25%;
-  background: url('background/EditBannerMBg250x92.png') no-repeat center ;
-}
-
-.UIPortalToolPanel .BannerRight {
-  float: right ;
-  height: 92px ; width: 26%;
-  background: url('background/EditBannerRBg260x92.png') no-repeat right ;
+  background: url('background/WizardDecorator.png') repeat-x bottom;
 }
 
 .UIPortalToolPanel .Body {
   padding:7px 6px 5px;
   height: 100%;
-}
-
-.UIPortalToolPanel .Footer {
-  background: url('background/FooterRepeat1x32.png') repeat-x ;
-  height: 32px ;
-  padding: 4px 0px 0px 0px ;
-  line-height:32px ;
-}
-
-.UIPortalToolPanel .Footer .FooterInfoContainer {
-  height: 18px ; 
-  width: 400px ;
-  margin: auto ;
-  margin-top: 1px;  
-}
-
-.UIPortalToolPanel .Footer .CopyrightInfo {
-  height: 18px ; width: 398px ;
-}
-
-.UIPortalToolPanel .Footer .CopyrightInfo .CopyrightText {
-  float: left;
-  height: 18px ; line-height: 18px ; 
-  width: 260px ;
-  padding-left: 5px ;
-}
-
-.UIPortalToolPanel .Footer .CopyrightInfo .CompanyTitleText {
-  float: right ;
-  height: 18px ; 
-  line-height: 18px ; 
-  width: 124px ;
-  font-size: 10px ;
-  padding-left: 5px ;
 }
 
 .UIPortalToolPanel .UIAccountPortlet {
