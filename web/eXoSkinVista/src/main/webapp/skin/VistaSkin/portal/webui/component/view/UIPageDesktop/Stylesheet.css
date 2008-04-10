@@ -76,17 +76,17 @@
 /*=============================Right Click DockBar Menu=========================*/
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopLeftRightClickPopupMenu {
-  background: url('background/TopLeftDecktopVista7x7.png') left no-repeat ;
+  background: url('background/PageDesktop.png') left no-repeat top;
   padding-left: 7px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopRightRightClickPopupMenu {
-  background: url('background/TopRightDecktopVista10x7.png') right no-repeat ;
+  background: url('background/PageDesktop.png') right no-repeat -7px ;
   padding-right: 10px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopCenterRightClickPopupMenu {
-  background: url('background/TopCenterDecktopVista1x7.png') repeat-x ;
+  background: url('background/PageDesktop.png') repeat-x center -14px;
   height: 7px;
 }
 
@@ -102,19 +102,19 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomLeftRightClickPopupMenu {
-  background: url('background/BottomLeftDecktopVista34x18.png') left no-repeat top;
+  background: url('background/PageDesktop.png') left no-repeat -21px;
   padding-left: 34px;
   height: 18px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomRightRightClickPopupMenu {
-  background: url('background/BottomRightDecktop10x11.png') right no-repeat top ;
+  background: url('background/PageDesktop.png') right no-repeat -39px ;
   padding-right: 10px;
   height: 11px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomCenterRightClickPopupMenu {
-  background: url('background/BottomCenterDecktopVista1x11.png') repeat-x top ;
+  background: url('background/PageDesktop.png') repeat-x center -50px;
   height: 11px; 
   line-height: 11px; 
 }
@@ -129,8 +129,6 @@
 	width: 14px;  height: 10px;
 	margin: 0px 0px 0px 20px;
 }
-
-
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer {
 	border: none;
@@ -148,6 +146,6 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .CloseDockBarIcon {
-	background: url('icons/24x24/CloseDockbarIcon24x24.gif') no-repeat left ;
+	background: url('background/PageDesktop.png') no-repeat left bottom;
 	margin: 0px 0px 0px 5px;
 }

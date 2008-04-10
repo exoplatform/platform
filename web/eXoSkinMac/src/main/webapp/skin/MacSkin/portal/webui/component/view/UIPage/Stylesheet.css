@@ -10,12 +10,12 @@
 }
 
 .UIPage .PageLayoutDecorator .TopLeftPage {
-  background: url('background/TopLeftPageLayout142x114.png') no-repeat left ;
+  background: url('background/PageLayout.png') no-repeat left top;
   padding: 0px 0px 0px 142px ;
 }
 
 .UIPage .PageLayoutDecorator .TopRightPage {
-  background: url('background/TopRightPageLayout72x114.png') no-repeat right ;
+  background: url('background/PageLayout.png') no-repeat right -114px;
   padding: 0px 72px 0px 0px ; 
 }
 
@@ -23,7 +23,7 @@
   line-height: 104px; 
   color: #1f2020;  text-align: center;
 	font-weight: bold;
-  background: url('background/TopMiddlePageLayout1x114.png') repeat-x center ;  
+  background: url('background/PageLayout.png') repeat-x center -228px;  
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage .PageContent {
@@ -31,12 +31,12 @@
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {
-  background: url('background/MiddleLeftPageLayout12x1.png') repeat-y left ;
+  background: url('background/MiddlePageLayout.png') repeat-y left ;
   padding: 0px 0px 0px 12px ; 
 }
 
 .UIPage .PageLayoutDecorator .MiddleRightPage {
-  background: url('background/MiddleRightPageLayout13x1.png') repeat-y right;
+  background: url('background/MiddlePageLayout.png') repeat-y right;
   padding: 0px 13px 0px 0px ;
 }
 
@@ -54,18 +54,18 @@
 }
 
 .UIPage .PageLayoutDecorator .BottomLeftPage {
-  background: url('background/BottomLeftPageLayout14x17.png') no-repeat left ;
+  background: url('background/PageLayout.png') no-repeat left -342px;
   padding: 0px 0px 0px 14px ;
 }
 
 .UIPage .PageLayoutDecorator .BottomRightPage {
-  background: url('background/BottomRightPageLayout15x17.png') no-repeat right ;
+  background: url('background/PageLayout.png') no-repeat right -359px ;
   padding: 0px 15px 0px 0px ; 
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage {
   line-height: 17px ;   
-  background: url('background/BottomMiddlePageLayout1x17.png') repeat-x center ; 
+  background: url('background/PageLayout.png') repeat-x bottom; 
 }
 
 .UIPage .PageLayoutDecorator .BottomCenterPage .FixBug {
