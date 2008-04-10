@@ -52,6 +52,7 @@
   float: left;
   width: 200px ;  height: 18px;
   border: solid 1px #b7b7b7 ;
+  padding-left: 18px;
   background: url('../skin/images/LoginBackground.gif') no-repeat left -243px;
 }
 
@@ -59,6 +60,7 @@
   float: left;
   width: 200px ;  height: 18px;
   border: solid 1px #b7b7b7 ;
+  padding-left: 18px;
   background: url('../skin/images/LoginBackground.gif') no-repeat left -262px;
 }
 
