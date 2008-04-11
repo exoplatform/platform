@@ -104,19 +104,16 @@
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomLeftRightClickPopupMenu {
   background: url('background/PageDesktop.png') left no-repeat -21px;
   padding-left: 34px;
-  height: 18px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomRightRightClickPopupMenu {
-  background: url('background/PageDesktop.png') right no-repeat -39px ;
+  background: url('background/PageDesktop.png') right no-repeat -40px ;
   padding-right: 10px;
-  height: 11px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomCenterRightClickPopupMenu {
-  background: url('background/PageDesktop.png') repeat-x center -50px;
-  height: 11px; 
-  line-height: 11px; 
+  background: url('background/PageDesktop.png') repeat-x center -55px;
+  line-height: 18px; 
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .UIRightPopupMenuContainer {
