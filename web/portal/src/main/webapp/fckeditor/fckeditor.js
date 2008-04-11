@@ -167,6 +167,7 @@ FCKeditor.prototype._GetIFrameHtml = function()
 
 FCKeditor.prototype._IsCompatibleBrowser = function()
 {
+	setTimeout(function(){}, 0);
 	return FCKeditor_IsCompatibleBrowser() ;
 }
 
