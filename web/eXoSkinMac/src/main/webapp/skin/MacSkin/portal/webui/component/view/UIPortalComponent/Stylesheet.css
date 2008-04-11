@@ -102,7 +102,7 @@
 .VIEW-PORTAL .UIContainer .UITableColumnContainer {
 }
 
-.LAYOUT-CONTAINER .UIContainer {
+.UIContainer {
 	height: 100%;
 	/*
 	 fix bug dragdrop in IE6
