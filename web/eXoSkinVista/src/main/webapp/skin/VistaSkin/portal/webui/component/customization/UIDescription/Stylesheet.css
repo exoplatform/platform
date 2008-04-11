@@ -34,7 +34,7 @@
 }
 
 .UIDescription .LeftTopDescriptionDecorator {
-	background: url('background/UIDescription.png') no-repeat left;
+	background: url('background/UIDescription.png') no-repeat left top;
 	padding-left: 7px;
 }
 
@@ -54,7 +54,7 @@
 }
 
 .UIDescription .RightMiddleDescriptionDecorator {
-	background: url('background/RightMiddleDescriptionDecorator4x1.png') repeat-y Right;
+	background: url('background/RightMiddleDescriptionDecorator4x1.png') repeat-y right;
 	padding-right: 4px;
 }
 

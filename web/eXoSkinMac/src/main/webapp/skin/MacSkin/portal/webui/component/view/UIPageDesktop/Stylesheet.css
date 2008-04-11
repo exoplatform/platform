@@ -110,7 +110,7 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomCenterRightClickPopupMenu {
-  background: url('background/PageDesktop.gif') repeat-x center -12px;
+  background: url('background/PageDesktop.gif') repeat-x center -21px;
   height: 4px; 
   line-height: 4px; 
 }
@@ -121,11 +121,10 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .ClickCenterBottom {
-	background: url('background/PageDesktop.gif') no-repeat left -16px;
+	background: url('background/PageDesktop.gif') no-repeat left -34px;
 	width: 19px;  height: 13px;
 	margin: 0px 0px 0px 20px;
 }
-
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer {
 	border: none;
@@ -143,5 +142,5 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .CloseDockBarIcon {
-	background: url('background/PageDesktop.gif') no-repeat -5px -29px;
+	background: url('background/PageDesktop.gif') no-repeat -5px -47px;
 }
