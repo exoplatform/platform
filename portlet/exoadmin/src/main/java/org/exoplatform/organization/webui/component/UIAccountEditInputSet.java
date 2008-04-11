@@ -66,7 +66,8 @@ public class UIAccountEditInputSet extends UIFormInputSet {
     addUIFormInput(uiInput) ;
     uiInput = new UIFormStringInput(PASSWORD2X, null, null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
-                   addValidator(MandatoryValidator.class) ;
+                   addValidator(MandatoryValidator.class).
+                   addValidator(StringLengthValidator.class, 6, 30);
                    uiInput.setRendered(false) ;
     addUIFormInput(uiInput) ;
   }
