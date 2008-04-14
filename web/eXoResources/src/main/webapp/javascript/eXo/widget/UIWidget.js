@@ -31,6 +31,10 @@ UIWidget.prototype.init = function(uiWidget, inDesktop) {
 UIWidget.prototype.editWidget = function(selectedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiWidget = DOMUtil.findAncestorByClass(selectedElement,"UIWidget") ;
+	if (uiWidget && uiWidget.applicationDescriptor.application.editWidget) {
+		uiWidget.applicationDescriptor.application.editWidget(uiWidget);
+	}
+	else {
 	var editMode = DOMUtil.findFirstDescendantByClass(uiWidget, "div", "EditMode") ;
 	if (editMode) {		
 		viewMode = DOMUtil.findNextElementByTagName(editMode, "div") ;
@@ -42,6 +46,7 @@ UIWidget.prototype.editWidget = function(selectedElement) {
 			editMode.style.display = "none" ;
 		}	
 		
+	}
 	}
 } ;
 

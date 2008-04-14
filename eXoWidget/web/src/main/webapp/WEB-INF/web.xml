@@ -15,7 +15,6 @@
       org.exoplatform.widget.web.CalendarWidget,
       org.exoplatform.widget.web.CalculatorWidget,
       org.exoplatform.widget.web.CometdWidget
-
     </param-value>
   </context-param>  
   

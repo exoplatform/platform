@@ -1,14 +1,13 @@
 eXo.require('eXo.widget.UIExoWidget');
 
-UICalendarWidget.prototype = eXo.widget.UIExoWidget;
-UICalendarWidget.prototype.constructor = UICalendarWidget;
-
 function UICalendarWidget() {
 	this.init("UICalendarWidget", "calendar");
 	this.months = ['January','February','March','April','May','June','July','August','September','October','November','December'] ;
 	this.currentDate = new Date();
 	this.currentDates = new Array();
 }
+
+UICalendarWidget.inherits(eXo.widget.UIExoWidget);
 
 UICalendarWidget.prototype.show = function(appId) {
 	return this.renderCalendar(appId);

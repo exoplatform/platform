@@ -235,3 +235,11 @@ Function.prototype.bind = function(object) {
     method.apply(object, arguments);
   }
 }
+
+Function.prototype.inherits = function(parentCtor) {
+  function tempCtor() {};
+  tempCtor.prototype = parentCtor.prototype;
+  this.superClass_ = parentCtor.prototype;
+  this.prototype = new tempCtor();
+  this.prototype.constructor = this;
+};

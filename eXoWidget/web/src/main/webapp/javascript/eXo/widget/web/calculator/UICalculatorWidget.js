@@ -1,8 +1,5 @@
 eXo.require('eXo.widget.UIExoWidget');
 
-UICalculatorWidget.prototype = eXo.widget.UIExoWidget;
-UICalculatorWidget.prototype.constructor = UICalculatorWidget;
-
 function UICalculatorWidget() {
 	this.init("UICalculatorWidget", "calculator");
 	this.Result = 0 ;		// final result
@@ -13,6 +10,8 @@ function UICalculatorWidget() {
 	this.Integer ; 			// detemine display value is integer or uninteger
 	this.CurrentValue ;	// temp result
 }
+
+UICalculatorWidget.inherits(eXo.widget.UIExoWidget);
 
 UICalculatorWidget.prototype.padNum = function(obj) {
 	var numValue = obj.innerHTML ;

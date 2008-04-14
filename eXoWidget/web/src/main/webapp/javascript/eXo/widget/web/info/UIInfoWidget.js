@@ -1,12 +1,10 @@
 eXo.require('eXo.widget.UIExoWidget');
 
-UIInfoWidget.prototype = eXo.widget.UIExoWidget;
-UIInfoWidget.prototype.constructor = UIInfoWidget;
-//UIInfoWidget.superclass = eXo.widget.UIExoWidget.prototype;
-
 function UIInfoWidget() {
 	this.init("UIInfoWidget", "info");
 }
+
+UIInfoWidget.inherits(eXo.widget.UIExoWidget);
 
 if(eXo.widget.web == null) eXo.widget.web = {} ;
 if(eXo.widget.web.info == null) eXo.widget.web.info = {};

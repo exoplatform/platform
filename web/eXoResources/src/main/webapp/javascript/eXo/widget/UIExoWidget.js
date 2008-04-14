@@ -10,12 +10,13 @@ function UIExoWidget() {
 * - A widget can provide different skins but only a default is mandatory
 * 
 */
-UIExoWidget.prototype.init = function(appName, appFolder, attrsWidget) {
+UIExoWidget.prototype.init = function(appName, appFolder, attrsWidget, webAppName) {
   this.appCategory = "eXoWidgetWeb" ;
+	this.webAppName = webAppName || "eXoWidgetWeb";
 	this.appName = appName ;
 	this.attrsWidget = attrsWidget;
 	this.appFolder = appFolder;
-	var nameWidget = eXo.widget.UIExoWidget.getNameWidget(appName);
+	var nameWidget = this.getNameWidget(appName);
 	this.appIcon = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/"+nameWidget+".png" ;
 	this.skin = {
 	  Default: "/eXoWidgetWeb/skin/"+appFolder+"/DefaultStylesheet.css",
@@ -52,10 +53,10 @@ UIExoWidget.prototype.createApplicationInstance = function(appDescriptor) {
 	}
 	setWidgetData += '};';
 
-  eval(setWidgetData);
+  	eval(setWidgetData);
 												
  	appDescriptor.widget.content = 
-    eXo.core.TemplateEngine.merge("eXo/widget/web/"+this.appFolder+"/"+this.appName+".jstmpl", appDescriptor, "/eXoWidgetWeb/javascript/") ;
+    eXo.core.TemplateEngine.merge("eXo/widget/web/"+this.appFolder+"/"+this.appName+".jstmpl", appDescriptor, "/" + this.webAppName + "/javascript/") ;
     
  	appDescriptor.widget.removeApplication = 
  		"eXo.widget.web."+this.appName+".destroyInstance('" + appDescriptor.appId + "');";
@@ -65,7 +66,6 @@ UIExoWidget.prototype.createApplicationInstance = function(appDescriptor) {
  	applicationNode.applicationDescriptor = appDescriptor;
  	return applicationNode ;
 };
-
 
 /*
 * 
@@ -86,6 +86,10 @@ UIExoWidget.prototype.initApplication = function(applicationId, instanceId) {
 	var uiPageDesktop = DOMUtil.findAncestorByClass(appElement, "UIPageDesktop") ;
 	if(uiPageDesktop == null) eXo.widget.UIAddWidget.addWidget(appInstance);
 	else	eXo.widget.UIAddWidget.addWidgetToDesktop(appInstance) ;
+
+	if (this.onLoad) {
+		this.onLoad(appInstance.id);
+	}
 	DOMUtil.removeElement(appElement);
 };
 
@@ -113,4 +117,4 @@ UIExoWidget.prototype.getNameWidget = function(nameWidget) {
 	return strlabel;
 };
 
-eXo.widget.UIExoWidget = new UIExoWidget();
+eXo.widget.UIExoWidget = UIExoWidget;

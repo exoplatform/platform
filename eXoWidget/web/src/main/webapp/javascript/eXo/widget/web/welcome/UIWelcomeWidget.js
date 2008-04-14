@@ -1,12 +1,10 @@
 eXo.require('eXo.widget.UIExoWidget');
 
-UIWelcomeWidget.prototype = eXo.widget.UIExoWidget;
-UIWelcomeWidget.prototype.constructor = UIWelcomeWidget;
-
 function UIWelcomeWidget() {
 	var attrs = new Array("userName","logOutAction");
 	this.init("UIWelcomeWidget", "welcome", attrs);
 }
+UIWelcomeWidget.inherits(eXo.widget.UIExoWidget);
 
 //
 //UIWelcomeWidget.prototype.upload = function(uploadId) {  
