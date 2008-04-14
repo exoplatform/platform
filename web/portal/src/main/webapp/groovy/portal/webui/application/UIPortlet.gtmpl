@@ -139,7 +139,7 @@
   	cssStyle += "\"";
   	String theme = uicomponent.getSuitedTheme(null) ;
 %>
-		<div class="UIWindow $theme UIDragObject UIResizeObject" style="width: 100%" id="UIWindow-${portletId}"  ${cssStyle} >
+		<div class="UIWindow $theme UIDragObject UIResizeObject" id="UIWindow-${portletId}"  ${cssStyle} >
       <div class="WindowBarLeft">
         <div class="WindowBarRight">
           <div class="WindowBarCenter">
@@ -243,7 +243,7 @@
         <div class="MiddleDecoratorRight">
           <div class="MiddleDecoratorCenter">
             <div id="${portletId}" style="">
-              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight">
+              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="height: $windowHeight">
 			          <% if(windowState != WindowState.MINIMIZED) out.println(portletContent) %>
 		          </div>    
             </div>
