@@ -2,8 +2,9 @@
 }
 
 .UIGroupInfoContainer .HorizontalLayout {
-	border: solid 1px gray;
+	border: solid 1px #979797;
 	padding: 1px;
+	border-top: none;
 }
 
 .UIGroupInfoContainer .HorizontalLayout .FormContainer {

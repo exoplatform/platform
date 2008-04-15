@@ -8,11 +8,12 @@
   height: 19px; line-height: 19px; vertical-align: middle; 
   padding-left: 15px;
   border: 1px solid #b7b7b7;
-  border-bottom: none;
 }
 
 .UIFormWithTitle .UIForm .HorizontalLayout {
 	border: 1px #cdcdcd solid;	
+	border-top: none;
+	padding: 1px;
 }
 
 .UIFormWithTitle .HorizontalLayout .FormContainer {

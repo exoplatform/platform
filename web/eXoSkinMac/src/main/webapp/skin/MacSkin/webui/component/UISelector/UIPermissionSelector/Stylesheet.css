@@ -66,6 +66,7 @@
   background: none;
   margin: 8px 0px 5px 15px ;
   color: #0749c4 ;
+	width: 310px;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .FloatBlockHidden {

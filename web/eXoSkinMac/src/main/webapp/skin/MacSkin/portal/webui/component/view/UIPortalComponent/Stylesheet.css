@@ -29,14 +29,14 @@
 .UIPortlet .EditPortletPropertiesIcon {
 	float: right;
 	width: 16px; height: 16px;
-	background: url('background/PencilButton.png') no-repeat;
+	background: url('background/ContainerIcon.gif') no-repeat top;
   margin: 4px 5px 2px 0px;
 }
 
 .UIPortlet .DeletePortletIcon {
 	float:right;
 	width: 16px; height:16px; 
-	background: url('background/CloseButtonIcon.gif') no-repeat;
+	background: url('background/ContainerIcon.gif') no-repeat center -16px;
   margin: 5px 0px 0px 0px;
 }
 
@@ -47,28 +47,28 @@
 
 .PortletLayoutDecorator .TopLeft {
   height: 7px ;
-  background: url('background/TopLeftLayout11x7.png') no-repeat left ;
+  background: url('background/PortletLayoutDecorator.png') no-repeat left top;
   padding: 0px 0px 0px 11px ;
 }
 
 .PortletLayoutDecorator .TopMiddle {
   height: 7px ;
-  background: url('background/TopCenterLayout1x7.png') repeat-x ;
+  background: url('background/PortletLayoutDecorator.png') repeat-x center -14px;
 }
 
 .PortletLayoutDecorator .TopRight {
   height: 7px ;
-  background: url('background/TopRightLayout11x7.png') no-repeat right ;
+  background: url('background/PortletLayoutDecorator.png') no-repeat right -7px;
   padding: 0px 11px 0px 0px ;
 }
 
 .PortletLayoutDecorator .MiddleLeft {
-  background: url('background/MiddleLeftLayout11x1.png') repeat-y left;
+  background: url('background/MiddlePortletLayout.png') repeat-y left;
   padding: 0px 0px 0px 11px ;
 }
 
 .PortletLayoutDecorator .MiddleRight {
-  background: url('background/MiddleRightLayout11x1.png') repeat-y right;
+  background: url('background/MiddlePortletLayout.png') repeat-y right;
   padding-right: 11px ;
 }
 
@@ -84,17 +84,17 @@
 
 .PortletLayoutDecorator .BottomLeft {
   height: 12px ;
-  background: url('background/BottomLeftLayout11x12.png') no-repeat left ;
+  background: url('background/PortletLayoutDecorator.png') no-repeat left -21px;
   padding: 0px 0px 0px 11px ;
 }
 
 .PortletLayoutDecorator .BottomMiddle {
   height: 12px ;
-  background: url('background/BottomCenterLayout1x12.png') repeat-x ;
+  background: url('background/PortletLayoutDecorator.png') repeat-x bottom;
 }
 
 .PortletLayoutDecorator .BottomRight {
-  background: url('background/BottomRightLayout11x12.png') no-repeat right ;
+  background: url('background/PortletLayoutDecorator.png') no-repeat right -33px ;
   padding: 0px 11px 0px 0px;
 }
 /*############### End Decorator ###################################################*/
@@ -102,7 +102,7 @@
 .VIEW-PORTAL .UIContainer .UITableColumnContainer {
 }
 
-.UIContainer {
+.LAYOUT-CONTAINER .UIContainer {
 	height: 100%;
 	/*
 	 fix bug dragdrop in IE6
@@ -141,14 +141,14 @@
 .UIContainer .EditContainerIcon {
 	float: right;
 	width: 16px; height: 16px;
-	background: url('background/PencilButton.png') no-repeat;
+	background: url('background/ContainerIcon.gif') no-repeat top;
   margin: 4px 5px 2px 0px;
 }
 
 .UIContainer .DeleteContainerIcon {
 	float:right;
 	width: 18px; height:18px; 
-  background: url('background/CloseButtonIcon.gif') no-repeat;
+  background: url('background/ContainerIcon.gif') no-repeat center -16px;
   margin: 5px 0px 0px 0px;
 }
 

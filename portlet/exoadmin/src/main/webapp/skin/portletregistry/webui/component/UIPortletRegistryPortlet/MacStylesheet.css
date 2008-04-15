@@ -210,11 +210,10 @@
 }
 
 .UIApplicationRegistryPortlet .UIAvailablePortletForm td.text{
-  padding-left: 10px;
+  padding-left: 15px;
 }
 
 .UIApplicationRegistryPortlet .UIAvailablePortletForm input.checkbox{
-  margin: 0px 0px 0px 25px; 
   width: 16px; height: 14px;
 }
 

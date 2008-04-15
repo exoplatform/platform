@@ -191,8 +191,7 @@
 	background: url('DefaultSkin/background/BreadcumbsBar.gif') repeat-x bottom;
 	height: 25px;
 	line-height: 25px;
-	border: 1px #b7b7b7 solid; 
-	border-bottom: none;
+	border: 1px #b7b7b7 solid;
 	font-weight: bold;
 	padding-left: 15px;
 	color: #424242;

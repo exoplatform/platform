@@ -18,77 +18,6 @@
 	width: 99.5%;
 }
 
-.UIPortlet .PortletInfoBar .InfoBarLeft {
-  padding-left: 10px ;margin: 0px 1px 0px 2px;
-  background: url('background/InfoBarL10x28.png') no-repeat left ;
-}
-
-.UIPortlet .PortletInfoBar .InfoBarRight {
-  padding-right: 11px ;
-  background: url('background/InfoBarR14x28.png') no-repeat right ;
-}
-
-.UIPortlet .PortletInfoBar .InfoBarCenter {
-  height: 28px ;
-  background: url('background/InfoBarM1x28.png') repeat-x ;
-}
-
-.UIPortlet .PortletInfoBar .InfobarAction {
-  float: right ;
-  display: block ;
-  position: relative;
-}
-
-.UIPortlet .PortletInfoBar .InfobarLabel {
-  margin-right: 85px ;
-  line-height: 20px ;
-}
-
-.UIPortlet .PortletInfoBar .ControlIcon {
-  width: 30px ;
-  height: 19px ;
-  float: left;
-  margin: 4px 0px ;
-  cursor: pointer ; border:1px red solid; 
-}
-
-.UIPortlet .PortletInfoBar .ArrowDownIcon {
-  background: url('icons/16x16/ArrowDown.png') no-repeat ;
-}
-
-.UIPortlet .PortletInfoBar .OverArrowDownIcon {
-  background: url('icons/16x16/ArrowDownOver.png') no-repeat ;
-}
-
-.UIPortlet .PortletInfoBar .MinimizedIcon {
-  background: url('icons/16x16/Minimize.png') no-repeat ;
-}
-
-.UIPortlet .PortletInfoBar .OverMinimizedIcon {
-  background: url('icons/16x16/MinimizeOver.png') no-repeat ;
-}
-
-.UIPortlet .PortletInfoBar .MaximizedIcon {
-  background: url('icons/16x16/Maximize.png') no-repeat ;
-}
-
-.UIPortlet .PortletInfoBar .OverMaximizedIcon {
-  background: url('icons/16x16/MaximizeOver.png') no-repeat ;
-}
-
-.UIPortlet .PortletInfoBar .PortletIcon {
-  float: left ;
-  margin: 5px;
-  width: 16px ;  height: 16px ;
-  background: url('icons/16x16/PortletIcon.png') no-repeat ;
-}
-
-.UIPortlet .PortletInfoBar .PortletLabel {
-  float: left ;
-  margin-top: 5px ;
-  font-weight: bold ;
-}
-
 .UIPortlet .MaximizedPortletIcon {
   float: left;
   height: 16px;  width: 16px;
@@ -172,29 +101,29 @@
 }
 
 .PortletLayoutDecorator .TopLeft {
-  background: url('background/LayoutTL10x9.png') no-repeat left top;
+  background: url('background/PortletLayoutDecorator.png') no-repeat left top;
   padding-left: 10px ;
   height: 9px ;
 }
 
 .PortletLayoutDecorator .TopMiddle {
-  background: url('background/LayoutTM1x9.png') repeat-x top;
+  background: url('background/PortletLayoutDecorator.png') repeat-x center -18px;
   height: 9px ;
 }
 
 .PortletLayoutDecorator .TopRight {
-  background: url('background/LayoutTR11x9.png') no-repeat right top;
+  background: url('background/PortletLayoutDecorator.png') no-repeat right -9px;
   padding-right: 11px ;
   height: 9px ;
 }
 
 .PortletLayoutDecorator .MiddleLeft {
-  background: url('background/LayoutML10x1.png') repeat-y left;
+  background: url('background/MiddlePortletLayout.png') repeat-y left;
   padding-left: 10px;
 }
 
 .PortletLayoutDecorator .MiddleRight {
-  background: url('background/LayoutMR11x1.png') repeat-y right;
+  background: url('background/MiddlePortletLayout.png') repeat-y right;
   padding-right: 11px ;
 }
 
@@ -211,18 +140,18 @@
 }
 
 .PortletLayoutDecorator .BottomLeft {
-  background: url('background/LayoutBL10x14.png') no-repeat left bottom;
+  background: url('background/PortletLayoutDecorator.png') no-repeat left -27px;
   padding-left: 10px ;
   height: 14px ;
 }
 
 .PortletLayoutDecorator .BottomMiddle {
-  background: url('background/LayoutBM1x14.png') repeat-x bottom;
+  background: url('background/PortletLayoutDecorator.png') repeat-x bottom;
   height: 14px ;
 }
 
 .PortletLayoutDecorator .BottomRight {
-  background: url('background/LayoutBR11x14.png') no-repeat right bottom;
+  background: url('background/PortletLayoutDecorator.png') no-repeat right -41px;
   padding-right: 11px ;
 }
 /*############### End Decorator ###################################################*/

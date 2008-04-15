@@ -8,27 +8,22 @@
 	margin: 0px 0px 2px 0px;
 }
 
-.UIWidgets .UIDropDownControl .ComponentIcon {
-	background: url('icons/IconWidget.png') no-repeat center left;
-	padding-left: 20px;
-}
-
 .UIWidgets .WidgetDecorator {
 	width: 236px;
 }
 
 .UIWidgets .WidgetDecorator .TopLeftWidgetsDecorator {
-	background: url('background/TopLeftWidgets3x2.png') no-repeat left bottom;
+	background: url('background/UIWidgets.png') no-repeat left top;
 	padding: 0px 0px 0px 3px;
 }
 
 .UIWidgets .WidgetDecorator .TopRightWidgetsDecorator {
-	background: url('background/TopRightWidgets4x2.png') no-repeat right bottom;
+	background: url('background/UIWidgets.png') no-repeat right -2px;
 	padding: 0px 4px 0px 0px;
 }
 
 .UIWidgets .WidgetDecorator .TopCenterWidgetsDecorator {
-	background: url('background/TopMiddleWidgets1x2.png') repeat-x bottom;
+	background: url('background/UIWidgets.png') repeat-x center -4px;
 	height: 2px;
 }
 
@@ -43,7 +38,21 @@
 }
 
 .UIWidgets .WidgetDecorator .MiddleCenterWidgetsDecorator {
-	
+}
+
+.UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator {
+  background: url('background/UIWidgets.png') no-repeat left -6px;
+	padding: 0px 0px 0px 6px;
+}
+
+.UIWidgets .WidgetDecorator .BottomRightWidgetsDecorator {
+  background: url('background/UIWidgets.png') no-repeat right -18px;
+	padding: 0px 7px 0px 0px;
+}
+
+.UIWidgets .WidgetDecorator .BottomCenterWidgetsDecorator {
+  background: url('background/UIWidgets.png') repeat-x center -30px;
+	height:12px;
 }
 
 /******************************* UICaegorySelector  **********************************/
@@ -65,7 +74,7 @@
 	float: left;
 	padding: 2px 0px 0px 0px;
 	height: 16px; width: 16px; 
-	background: url('icon/IconWidget.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat left top;
 }
 
 .UICaegorySelector .IconLabelContent .WidgetLabel {
@@ -78,7 +87,7 @@
 .UIWidgets .EditIcon {
 	float: left;
 	width: 19px; height: 22px;
-	background: url('icons/EditIcon.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat left -16px;
 	cursor: pointer;	
 }
 
@@ -93,19 +102,19 @@
 
 .UIWidgetContainer .LeftWidgetNavBar {
 	height: 28px;
-	background: url('background/LeftWidgetNavBar12x28.png') no-repeat left;
+	background: url('background/UIWidgets.png') no-repeat left -42px;
 	padding-left: 12px;	
 }
 
 .UIWidgetContainer .RightWidgetNavBar {
 	height: 28px;
-	background: url('background/RightWidgetNavBar5x28.png') no-repeat right;
+	background: url('background/UIWidgets.png') no-repeat right -70px;
 	padding-right: 5px;	
 }
 
 .UIWidgetContainer .CenterWidgetNavBar {
 	height: 28px;
-	background: url('background/CenterWidgetNavBar1x28.png') repeat-x;
+	background: url('background/UIWidgets.png') repeat-x center -98px;
 }
 
 .UIWidgetContainer .WidgetNavigator .Icon{
@@ -117,73 +126,23 @@
 }	
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollDownButton{
-	background: url('icons/DownNomalIcon.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat center -38px;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollDownButton{
-	background: url('icons/DownSelectIcon.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat center -62px;
 }
 
 .UIWidgetContainer .WidgetNavigator .ScrollUpButton{
-	background: url('icons/UpSelectIcon.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat center -86px;
 }
 
 .UIWidgetContainer .WidgetNavigator .DisableScrollUpButton{
-	background: url('icons/UpNomalIcon.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat center -110px;
 }
 
 .UIWidgetContainer .WidgetNavigator .AddWidgetButton{
-	background: url('icons/AddWidgetButton.png') no-repeat center;
-}
-
-.UIWidgets .WidgetDecorator .BottomLeftWidgetsDecorator {
-  background: url('background/BottomLeftWidgets6x12.png') no-repeat left bottom;
-	padding: 0px 0px 0px 6px;
-}
-
-.UIWidgets .WidgetDecorator .BottomRightWidgetsDecorator {
-  background: url('background/BottomRightWidgets7x12.png') no-repeat right bottom;
-	padding: 0px 7px 0px 0px;
-}
-
-.UIWidgets .WidgetDecorator .BottomCenterWidgetsDecorator {
-  background: url('background/BottomMiddleWidgets1x12.png') repeat-x bottom;
-	height:12px;
-}
-
-.UIWidgetContainer .eXoInfoWidgetImage .TopWidgetImage {
-  height:157px;
-}
-
-.UIWidgetContainer .eXoInfoWidgetImage .Download {
-	margin: auto;
-	width: 120px; height: 20px;
-	cursor: pointer;	
-}
-
-.UIWidgetContainer .WidgetControlContainer {
-  height: 21px;
-  padding: 1px 15px 3px 0px;
-}
-
-.UIWidgetContainer .WidgetControlContainer .WidgetControl {
-  float: right;
-	width: 57px; height: 21px;
-	background: url('background/WidgetControl57x21.png') no-repeat center;
-}
-
-.UIWidgetContainer .WidgetControlContainer .CloseWidgetIcon {
-	float: left;
-	width: 24px; height: 20px;
-	cursor: pointer;
-	margin: 0px 0px 0px 2px;
-}
-
-.UIWidgetContainer .WidgetControlContainer .EditWidgetIcon {
-	float: left;
-	width: 24px; height: 20px;
-	margin: 0px 0px 0px 3px;
-	cursor: pointer;	
+	background: url('background/UIWidgetsIcons.png') no-repeat center -134px;
 }
 
 .UIWidgetContainer .WidgetNavigator {
@@ -208,30 +167,24 @@
 }
 
 .UIWidgets .ControlBar .AddIcon {
-	background: url('icons/AddIcon.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat center -134px;
 	margin: 1px 0px 0px 0px;
 }
 
 .UIWidgets .ControlBar .DownBrownArrowIcon {
-	background: url('icons/DownNomalIcon.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat center -38px;
 }
 
 .UIWidgets .ControlBar .DownBlueArrowIcon {
-	background: url('icons/DownSelectIcon.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat center -62px;
 }
 
 .UIWidgets .ControlBar .UpBlueArrowIcon {
-	background: url('icons/UpSelectIcon.png') no-repeat center;
+	background: url('background/UIWidgetsIcons.png') no-repeat center -86px;
 }
 
 .UIWidgets .ControlBar .UpBrownArrowIcon {
-	background: url('icons/UpNomalIcon.png') no-repeat center;
-}
-
-.UIWidgets .UIWidgetContainer .ClockWidget {
-	width: 185px; height: 203px;
-	background:url('background/MarketStock.png') no-repeat center;
-	margin: auto;
+	background: url('background/UIWidgetsIcons.png') no-repeat center -110px;
 }
 
 /***************************************  UIWidget   **************************************/
@@ -252,19 +205,19 @@
 
 .UIWidget .WidgetControl .LeftControlBar{
 	height: 21px;
-	background: url('background/LeftWidgetControlBar3x21.png') no-repeat left;	
+	background: url('background/UIWidgets.png') no-repeat left -126px;	
 	padding-left: 3px;
 }
 
 .UIWidget .WidgetControl .RightControlBar{
 	height: 21px;
-	background: url('background/RightWidgetControlBar3x21.png') no-repeat right;	
+	background: url('background/UIWidgets.png') no-repeat right -147px;	
 	padding-right:3px;
 }
 
 .UIWidget .WidgetControl .CenterControlBar{
 	height: 21px;
-	background: url('background/CenterWidgetControlBar1x21.png') repeat-x;	
+	background: url('background/UIWidgets.png') repeat-x bottom;	
 }
 
 .UIWidget .WidgetControl .WidgetDragHandleArea {
@@ -287,7 +240,7 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 3px 0px 0px;
-	background: url('icons/EditWidgetIcon.png');	
+	background: url('background/UIWidgetsIcons.png')no-repeat left -158px;	
 }
 
 .UIWidget .WidgetControl .CloseWidgetIcon {
@@ -295,5 +248,5 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 0px 0px 0px;
-	background: url('icons/CloseWidgetIcon.png');	
+	background: url('background/UIWidgetsIcons.png')no-repeat left bottom;	
 }
