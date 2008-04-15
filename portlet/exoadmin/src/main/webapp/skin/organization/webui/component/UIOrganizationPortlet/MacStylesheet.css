@@ -217,8 +217,8 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar {
 	height: 24px;
-	border-bottom: none;
 }
+
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar .Title {
 	float: left;
 }

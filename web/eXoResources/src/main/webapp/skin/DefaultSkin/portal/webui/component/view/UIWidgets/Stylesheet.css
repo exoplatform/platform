@@ -38,12 +38,12 @@
 }
 
 .UIWidgets .WidgetDecorator .MiddleLeftWidgetsDecorator{
-	background: url(background/MiddleUIWidgets.gif) repeat-y left;
+	background: url(background/MiddleLeftUIWidgets.gif) repeat-y left;
 	padding-left: 2px;
 }
 
 .UIWidgets .WidgetDecorator .MiddleRightWidgetsDecorator{
-	background: url(background/MiddleUIWidgets.gif) repeat-y right;
+	background: url(background/MiddleRightUIWidgets.gif) repeat-y right;
 	padding-right: 2px;
 }
 
