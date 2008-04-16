@@ -25,6 +25,7 @@ import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Created by The eXo Platform SARL
@@ -37,8 +38,9 @@ import org.exoplatform.webui.event.EventListener;
       lifecycle = UIApplicationLifecycle.class,
       template = "app:/groovy/webui/component/UIHelloPortlet.gtmpl",
       events = {
-        @EventConfig(listeners = UIHelloPortlet.OpenPopupActionListener.class),
-        @EventConfig(listeners = UIHelloPortlet.OpenCreatePagePopupActionListener.class)
+        @EventConfig(listeners = UIHelloPortlet.OpenPopupActionListener.class, phase = Phase.PROCESS),
+        @EventConfig(listeners = UIHelloPortlet.OpenCreatePagePopupActionListener.class),
+        @EventConfig(listeners = UIProcessEventPortlet.ProcessEventActionListener.class)
       }
     ),
     @ComponentConfig(

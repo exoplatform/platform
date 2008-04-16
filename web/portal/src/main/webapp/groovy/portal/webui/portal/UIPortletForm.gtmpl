@@ -62,7 +62,7 @@
 			            <div id="<%=uicomponent.getUIPortlet().getId()%>">
 				            <%= uicomponent.getEditModeContent() %>
 				            <%
-				              String strExec = "eXo.core.DOMUtil.removeElement('UIWindow-" + uicomponent.getUIPortlet().getId() + "');" ;
+				              String strExec = "eXo.core.DOMUtil.removeElement('VIEW-" + uicomponent.getUIPortlet().getId() + "');" ;
 				              rcontext.getJavascriptManager().addCustomizedOnLoadScript(strExec) ;
 				            %>
 				          </div>

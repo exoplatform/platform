@@ -17,9 +17,8 @@
 package org.exoplatform.portal.webui.component;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.core.UIDropDownControl;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
-import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 /**
  * Author : lxchiati  
@@ -27,7 +26,11 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
  * May 30, 2006
  */
 @ComponentConfig(
-  lifecycle = UIApplicationLifecycle.class
+  lifecycle = UIApplicationLifecycle.class,
+  events = {
+    @EventConfig(listeners = UIProcessEventPortlet.ProcessEventActionListener.class)
+  }
+
 )
 
 public class UITestFormPortlet extends UIPortletApplication {
