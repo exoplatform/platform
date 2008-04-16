@@ -1,16 +1,14 @@
 /*##########################################################*/
-.UIWindow .UIApplication {
-	overflow: auto;
-}
-
-/*##########################################################*/
 .UIWindow .InactiveWindowPortletControl {
 	display: none ;
 }
 
+.UIWindow .UIApplication {
+	overflow: auto;
+}
 /*======================== UIPageBody ================================*/
 
-.UIPortal .VIEW-PORTLET .UIWindow {
+.UIPageBody .UIWindow {
 	width: 99% ; height: auto;
 	margin: 0px auto 7px auto; 
 }

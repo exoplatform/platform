@@ -3,7 +3,7 @@
   width: 780px ;	
 }
 
-.UIPageDesktop .UIWindow .UIAccountPortlet{
+.UIPageDesktop .UIWindow .UIAccountPortlet {
   margin: 0px ;
   border: none;
 }
@@ -19,7 +19,8 @@
 /**************************** UIPageBody ************************************/
 
 .UIPageBody .UIWindow {
-  width: auto ; height: auto;
+  width: 99% ; height: auto;
+  margin: auto;
 }
 
 .UIPageBody .UIWindow .UIContentPortlet{
@@ -35,11 +36,6 @@
 	width: 99%;
 	margin: auto;
 	margin-bottom: 10px;
-}
-
-.UIPortal .VIEW-PORTLET .UIWindow {
-  width: 99% ; height: auto;
-  margin: auto; 
 }
 
 .UIPageBody .UIWindow .ResizeArea {

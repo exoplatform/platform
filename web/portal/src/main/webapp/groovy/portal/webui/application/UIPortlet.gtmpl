@@ -102,7 +102,7 @@
 		    </div>
 		  </div>
 		  
-		  <div class="VIEW-PORTLET">
+		  <div class="VIEW-PORTLET" id="VIEW-${portletId}">
 <%
   }
 	if(uicomponent.getShowInfoBar()) {
@@ -242,8 +242,8 @@
       <div class="MiddleDecoratorLeft">
         <div class="MiddleDecoratorRight">
           <div class="MiddleDecoratorCenter">
-            <div id="${portletId}" style="">
-              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="height: $windowHeight">
+            <div id="${portletId}" style="width: 100%">
+              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight">
 			          <% if(windowState != WindowState.MINIMIZED) out.println(portletContent) %>
 		          </div>    
             </div>
