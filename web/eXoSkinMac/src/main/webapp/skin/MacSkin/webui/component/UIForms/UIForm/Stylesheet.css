@@ -3,7 +3,8 @@
 
 /*####################- HorizontalLayout -#################*/
 .UIForm .HorizontalLayout {
-  border: solid 1px #b7b7b7; 
+  border: solid 1px #b7b7b7;
+  border-top: none; 
 }
 
 .UIForm .UIFormGrid td.FieldLabel {
@@ -26,12 +27,12 @@
 
 .UIForm .HorizontalLayout .UIFormInputSet {
 	width: 97% ;
-  padding: 10px ; margin-right: 0px ;
+  padding: 10px ; margin-right: 0px;
 }
 
 .HorizontalLayout .UIForm .UIFormInputSet {
-	width: 97% ;
-  padding: 10px ; margin-right: 0px ;
+	width: 97%;
+  padding: 10px; margin-right: 0px;
 }
 
 .UIMaskWorkspace .UINodeIconSelector .HorizontalLayout .UIForm .UIFormInputSet {
@@ -39,31 +40,31 @@
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
-  margin: 10px 0px 0px 10px ;
-  color: #5f7fd6 ;
+  margin: 10px 0px 0px 10px;
+  color: #5f7fd6;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .ItemLabel {
-  float: left ;
-  font-weight: bold ;
-  width: 130px ;
+  float: left;
+  font-weight: bold;
+  width: 130px;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .ItemValue {
-  margin-left: 5px ;
-  float: left ;
-  color: #2f76e2 ;
+  margin-left: 5px;
+  float: left;
+  color: #2f76e2;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .ItemValueDescription {
-  margin-top: 10px ;
-  height: 50px ;
-  border: solid 1px #dedee1 ;
-  background: white ;
+  margin-top: 10px;
+  height: 50px;
+  border: solid 1px #dedee1;
+  background: white;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .MultiValueContainer {
-  margin: 7px 0px 10px 0px ;
+  margin: 7px 0px 10px 0px;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .MultiValueContainer input {
@@ -72,12 +73,12 @@
 }
 
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
-	float: left ;
-	margin: 0px 10px 0px 5px ;
+	float: left;
+	margin: 0px 10px 0px 5px;
 }
 
 .UIForm .HorizontalLayout input {
-  width: 230px ;
+  width: 230px;
   font-size: 11px;
 }
 
@@ -94,18 +95,18 @@
 }
 
 .UIForm .HorizontalLayout textarea {
-  width: 232px ;  height: 75px ;
+  width: 232px;  height: 75px;
   border: 1px gray solid;
   font-size: 11px;  
 }
 
 .UIForm .HorizontalLayout select {
-  width: 235px ;
+  width: 235px;
   font-size: 11px;  
 }
 
 .HorizontalLayout .UIForm input {
-  width: 230px ;
+  width: 230px;
   font-size: 11px;
 }
 
@@ -122,13 +123,13 @@
 }
 
 .HorizontalLayout .UIForm textarea {
-  width: 232px ;  height: 75px ;
+  width: 232px;  height: 75px;
   border: 1px gray solid;
   font-size: 11px;  
 }
 
 .HorizontalLayout .UIForm select {
-  width: 235px ;
+  width: 235px;
   font-size: 11px;  
 }
 
@@ -137,28 +138,28 @@
 }
 
 .UIForm .VerticalLayout  label {
-	text-align: left ;
-  font-weight: bold ;
-  margin-bottom: 15px ;
+	text-align: left;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
 .UIForm .VerticalLayout input {
-  width: 170px ;
-  border: 1px solid #7f9db9 ;
+  width: 170px;
+  border: 1px solid #7f9db9;
 }
 
 .UIForm .VerticalLayout input.checkbox {
-  width: 17px ; height: 17px ;
+  width: 17px; height: 17px;
   margin: 0px;
 }
 
 .UIForm .VerticalLayout textarea {
-  width: 170px ;  height: 75px ;
-  border: 1px solid #7f9db9 ;
+  width: 170px;  height: 75px;
+  border: 1px solid #7f9db9;
 }
 
 .UIForm .VerticalLayout select {
-  width: 170px ;
+  width: 170px;
 }
 
 /*####################- UIPermissionForm -#################*/

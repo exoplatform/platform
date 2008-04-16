@@ -187,7 +187,7 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 3px 0px 0px;
-	background: url('background/WidgetControlIcon.gif')no-repeat left -37px;	
+	background: url('background/WidgetControlIcon.gif') no-repeat left -37px;	
 }
 
 .UIWidget .WidgetControl .CloseWidgetIcon {
@@ -195,5 +195,5 @@
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 0px 0px 0px;
-	background: url('background/WidgetControlIcon.gif')no-repeat left bottom;	
+	background: url('background/WidgetControlIcon.gif') no-repeat left bottom;	
 }
