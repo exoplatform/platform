@@ -4,6 +4,7 @@
 
 .UIFormWithTitle {
   width: 500px;
+  margin: auto;
 }
 
 .UIFormWithTitle .TitleBar {

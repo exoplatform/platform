@@ -47,8 +47,6 @@
 
 .UII18nPortlet .UIFormWithTitle .TitleBar {
 	font-weight: bold;
-  border: 1px solid #b7b7b7;
-  border-bottom: none;
 }
 
 .UII18nPortlet .UIEditResource {
