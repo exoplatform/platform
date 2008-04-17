@@ -158,6 +158,10 @@ public class UII18nPortlet extends UIPortletApplication {
   }
   
   public void update(String name , String lang) throws Exception {
+    if(name!=null && name.trim().length()>0 && name.indexOf("*")<0){ 
+      if(name.charAt(0)!='*') name = "*"+name ;
+      if(name.charAt(name.length()-1)!='*') name += "*" ;
+    }
     ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
     PageList pageList = resBundleServ.findResourceDescriptions(new Query(name,lang)) ;
     pageList.setPageSize(10) ;

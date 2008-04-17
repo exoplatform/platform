@@ -39,6 +39,7 @@ import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 import org.exoplatform.webui.organization.UIListPermissionSelector;
 import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIteratorValidator;
 
@@ -70,10 +71,13 @@ public class UICategoryForm extends UIFormTabPane implements UIPopupComponent{
     super("UICategoryForm") ;
     UIFormInputSet uiCategorySetting = new UIFormInputSet(FIELD_SETTING) ;
     uiCategorySetting.addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).
-                   addValidator(MandatoryValidator.class).
-                   addValidator(IdentifierValidator.class));
-    uiCategorySetting.addUIFormInput(new UIFormStringInput(FIELD_DISPLAY_NAME, FIELD_DISPLAY_NAME, null));
-    uiCategorySetting.addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null));
+                     addValidator(MandatoryValidator.class).
+                     addValidator(StringLengthValidator.class, 3, 30).
+                     addValidator(IdentifierValidator.class));
+    uiCategorySetting.addUIFormInput(new UIFormStringInput(FIELD_DISPLAY_NAME, FIELD_DISPLAY_NAME, null).
+                     addValidator(StringLengthValidator.class, 3, 30));
+    uiCategorySetting.addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null).
+                     setMaxLength(255));
     addChild(uiCategorySetting) ;
     setSelectedTab(uiCategorySetting.getId()) ;
     

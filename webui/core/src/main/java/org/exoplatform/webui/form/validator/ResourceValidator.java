@@ -17,7 +17,9 @@
 package org.exoplatform.webui.form.validator;
 
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.exception.MessageException;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInput;
 
 /**
@@ -32,9 +34,16 @@ public class ResourceValidator implements Validator {
     
   public void validate(UIFormInput uiInput) throws Exception {
     if (uiInput==null || ((String)uiInput.getValue()).trim().length()==0) return;
+    //  modified by Pham Dinh Tan
+    UIComponent uiComponent = (UIComponent) uiInput ;
+    UIForm uiForm = uiComponent.getAncestorOfType(UIForm.class) ;    
+    String label = uiForm.getLabel(uiInput.getName());
+    if(label == null) label = uiInput.getName();
+    label = label.trim();
+    if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
     String s = (String)uiInput.getValue();
     if(Character.isDigit(s.charAt(0)) || s.charAt(0) == '-') {
-      Object[] args = { uiInput.getName(), uiInput.getBindingField() };
+      Object[] args = { label, uiInput.getBindingField() };
       throw new MessageException(new ApplicationMessage("FirstCharacterNameValidator.msg", args, ApplicationMessage.WARNING)) ;
     }    
     for(int i = 0; i < s.length(); i ++){
@@ -42,7 +51,7 @@ public class ResourceValidator implements Validator {
       if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-' || c=='.'){
         continue;
       }
-      Object[] args = { uiInput.getName(), uiInput.getBindingField() };
+      Object[] args = { label, uiInput.getBindingField() };
       throw new MessageException(new ApplicationMessage("ResourceValidator.msg.Invalid-char", args, ApplicationMessage.WARNING)) ;
     }
   }

@@ -17,7 +17,9 @@
 package org.exoplatform.webui.form.validator;
 
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.exception.MessageException;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInput;
 
 /**
@@ -33,6 +35,13 @@ public class PositiveNumberFormatValidator implements Validator {
     
   public void validate(UIFormInput uiInput) throws Exception {
 	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
+    //  modified by Pham Dinh Tan
+    UIComponent uiComponent = (UIComponent) uiInput ;
+    UIForm uiForm = uiComponent.getAncestorOfType(UIForm.class) ;    
+    String label = uiForm.getLabel(uiInput.getName());
+    if(label == null) label = uiInput.getName();
+    label = label.trim();
+    if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
     String s = (String)uiInput.getValue();
     boolean error = false;
     for(int i = 0; i < s.length(); i ++){
@@ -42,11 +51,11 @@ public class PositiveNumberFormatValidator implements Validator {
         continue;  
       }
       error = false;
-      Object[] args = { uiInput.getName(), uiInput.getBindingField() };
+      Object[] args = { label, uiInput.getBindingField() };
       throw new MessageException(new ApplicationMessage("NumberFormatValidator.msg.Invalid-number", args)) ;
     }
     if(error == true && s.charAt(0) == '-') {
-      Object[] args = { uiInput.getName(), uiInput.getBindingField() };
+      Object[] args = { label, uiInput.getBindingField() };
       throw new MessageException(new ApplicationMessage("PositiveNumberFormatValidator.msg.Invalid-number", args)) ;
     }
   }  

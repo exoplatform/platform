@@ -51,11 +51,10 @@ public class ExpressionValidator implements Validator {
       if(value.matches(expression_)) return ;
     }    
     
-//  modified by Pham Dinh Tan
+    //  modified by Pham Dinh Tan
     UIComponent uiComponent = (UIComponent) uiInput ;
     UIForm uiForm = uiComponent.getAncestorOfType(UIForm.class) ;    
     String label = uiForm.getLabel(uiInput.getName());
-    
     if(label == null) label = uiInput.getName();
     label = label.trim();
     if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);

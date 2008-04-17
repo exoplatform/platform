@@ -145,7 +145,7 @@ public class UIPageBrowser extends UISearch {
       }) ;
     } catch (InvalidQueryException e) {
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-      uiApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.InvalidQueryException", null)) ;
+      uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
       Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
       return ;
     }
@@ -166,6 +166,13 @@ public class UIPageBrowser extends UISearch {
     UIFormSelectBox select = (UIFormSelectBox) quickSearchInput.getChild(1);
     String value = input.getValue();
     String selectBoxValue = select.getValue();
+    if(value!=null && value.trim().length()>0){ 
+      if(value.indexOf("*")<0){
+        if(value.charAt(0)!='*') value = "*"+value ;
+        if(value.charAt(value.length()-1)!='*') value += "*" ;
+      }
+      value = value.replace('?', '_') ;
+    }
     Query<Page> query = new Query<Page>(null, null, null, Page.class) ;
     if(selectBoxValue.equals("ownerType")) query.setOwnerType(value) ;
     if(selectBoxValue.equals("ownerId")) query.setOwnerId(value) ;

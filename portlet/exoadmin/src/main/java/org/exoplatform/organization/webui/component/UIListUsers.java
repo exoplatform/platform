@@ -113,6 +113,11 @@ public class UIListUsers extends UISearch {
       search(new Query()) ;
       return ;
     }
+    if(name.indexOf("*")<0){
+      if(name.charAt(0)!='*') name = "*"+name ;
+      if(name.charAt(name.length()-1)!='*') name += "*" ;
+    }
+    name = name.replace('?', '_') ;
     String selectBoxValue = select.getValue();
     if(selectBoxValue.equals(USER_NAME)) query.setUserName(name) ;
     if(selectBoxValue.equals(LAST_NAME)) query.setLastName(name) ; 

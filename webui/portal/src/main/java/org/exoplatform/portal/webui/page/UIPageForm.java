@@ -120,7 +120,8 @@ public class UIPageForm extends UIFormTabPane {
                                 addValidator(StringLengthValidator.class, 3, 30).
                                 addValidator(IdentifierValidator.class).
                                 addValidator(MandatoryValidator.class)).
-                 addUIFormInput(new UIFormStringInput("title", "title", null)).
+                 addUIFormInput(new UIFormStringInput("title", "title", null).
+                                addValidator(StringLengthValidator.class, 3, 30)).
                  addUIFormInput(new UIFormCheckBoxInput("showMaxWindow", "showMaxWindow", false));
     addUIFormInput(uiSettingSet) ;
     setSelectedTab(uiSettingSet.getId()) ;

@@ -33,6 +33,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -60,9 +61,11 @@ public class UIGroupForm extends UIForm {
   public UIGroupForm() throws Exception {
     addUIFormInput(new UIFormStringInput(GROUP_NAME, GROUP_NAME, null).
                    addValidator(MandatoryValidator.class).
+                   addValidator(StringLengthValidator.class, 3, 30).
                    addValidator(IdentifierValidator.class));
-    addUIFormInput(new UIFormStringInput(GROUP_LABEL, GROUP_LABEL, null)) ;
-    addUIFormInput(new UIFormTextAreaInput(GROUP_DESCRIPSION,GROUP_DESCRIPSION,null));    
+    addUIFormInput(new UIFormStringInput(GROUP_LABEL, GROUP_LABEL, null).
+                   addValidator(StringLengthValidator.class, 3, 30)) ;
+    addUIFormInput(new UIFormTextAreaInput(GROUP_DESCRIPSION,GROUP_DESCRIPSION,null).setMaxLength(255));    
   }
   
   public Group getGroup() { return group_; }

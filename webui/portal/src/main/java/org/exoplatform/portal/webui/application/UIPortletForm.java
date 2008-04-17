@@ -60,6 +60,8 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
+import org.exoplatform.webui.form.validator.NumberInRangeValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
@@ -90,13 +92,16 @@ public class UIPortletForm extends UIFormTabPane {
       addUIFormInput(new UIFormStringInput("id", "id", null).
                      addValidator(MandatoryValidator.class).setEditable(false)).
       addUIFormInput(new UIFormStringInput("windowId", "windowId", null).setEditable(false)).
-    	addUIFormInput(new UIFormStringInput("title", "title", null)).
-  		addUIFormInput(new UIFormStringInput("width", "width", null)).
-  		addUIFormInput(new UIFormStringInput("height", "height", null)).
+    	addUIFormInput(new UIFormStringInput("title", "title", null).
+                     addValidator(StringLengthValidator.class, 3, 30)).
+  		addUIFormInput(new UIFormStringInput("width", "width", null).
+                     addValidator(NumberInRangeValidator.class, 0, 1280)).
+  		addUIFormInput(new UIFormStringInput("height", "height", null).
+  		               addValidator(NumberInRangeValidator.class, 0, 1280)).
   		addUIFormInput(new UIFormCheckBoxInput("showInfoBar", "showInfoBar", false)).
   		addUIFormInput(new UIFormCheckBoxInput("showPortletMode", "showPortletMode", false)).
     	addUIFormInput(new UIFormCheckBoxInput("showWindowState", "showWindowState", false)).
-      addUIFormInput(new UIFormTextAreaInput("description", "description", null));
+      addUIFormInput(new UIFormTextAreaInput("description", "description", null).setMaxLength(255));
     addUIFormInput(uiSettingSet);    
     UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
     addUIFormInput(uiIconSelector) ;
@@ -276,6 +281,11 @@ public class UIPortletForm extends UIFormTabPane {
       UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
       UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      //add by Pham Dinh Tan
+      UIMaskWorkspace uiMaskWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);
+      uiMaskWorkspace.setUIComponent(null) ;
+      uiMaskWorkspace.setWindowSize(-1, -1) ;
+      pcontext.addUIComponentToUpdateByAjax(uiMaskWorkspace);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true) ;
       Util.showComponentLayoutMode(UIPortlet.class);  

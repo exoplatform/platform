@@ -35,6 +35,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -58,8 +59,11 @@ public class UIWidgetContainerForm extends UIForm {
   private Container container_ ;
   
   public UIWidgetContainerForm() throws Exception {
-    addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
-    addUIFormInput(new UIFormTextAreaInput(FIELD_DESC, FIELD_DESC, null)) ;
+    addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).
+          addValidator(MandatoryValidator.class).
+          addValidator(StringLengthValidator.class, 3, 30).
+          addValidator(SpecialCharacterValidator.class)) ;
+    addUIFormInput(new UIFormTextAreaInput(FIELD_DESC, FIELD_DESC, null).setMaxLength(255)) ;
   }
   
   public void setValue(Container container) throws Exception {

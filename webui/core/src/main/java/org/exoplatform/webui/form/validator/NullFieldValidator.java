@@ -17,7 +17,9 @@
 package org.exoplatform.webui.form.validator;
 
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.exception.MessageException;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInput;
 
 /**
@@ -32,7 +34,14 @@ public class NullFieldValidator implements Validator {
   
   public void validate(UIFormInput uiInput) throws Exception {
     if((uiInput.getValue() != null)) return ;
-    Object[]  args = {uiInput.getName(), uiInput.getBindingField() } ;
+    //  modified by Pham Dinh Tan
+    UIComponent uiComponent = (UIComponent) uiInput ;
+    UIForm uiForm = uiComponent.getAncestorOfType(UIForm.class) ;    
+    String label = uiForm.getLabel(uiInput.getName());
+    if(label == null) label = uiInput.getName();
+    label = label.trim();
+    if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
+    Object[]  args = {label, uiInput.getBindingField() } ;
     throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args)) ;
   }
 }

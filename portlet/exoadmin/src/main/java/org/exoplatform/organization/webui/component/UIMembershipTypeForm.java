@@ -32,6 +32,7 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.NameValidator;
 import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 @ComponentConfig(
   lifecycle = UIFormLifecycle.class,
@@ -52,10 +53,11 @@ public class UIMembershipTypeForm extends UIForm {
     addUIFormInput(new UIFormStringInput(MEMBERSHIP_TYPE_NAME, MEMBERSHIP_TYPE_NAME, null).
                    setEditable(UIFormStringInput.ENABLE).
                    addValidator(MandatoryValidator.class).
+                   addValidator(StringLengthValidator.class, 3, 30).
                    addValidator(NameValidator.class).
                    addValidator(SpecialCharacterValidator.class)) ;
    
-    addUIFormInput(new UIFormTextAreaInput(DESCRIPTION, DESCRIPTION, null)) ;    
+    addUIFormInput(new UIFormTextAreaInput(DESCRIPTION, DESCRIPTION, null).setMaxLength(255)) ;    
   } 
   
   public void setMembershipType(MembershipType membershipType) throws Exception {    

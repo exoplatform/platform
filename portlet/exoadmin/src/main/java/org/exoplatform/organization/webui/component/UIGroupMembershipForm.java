@@ -158,14 +158,19 @@ public class UIGroupMembershipForm extends UIForm {
       UIPopupWindow searchUserPopup = uiGroupForm.getChild(UIPopupWindow.class);
       searchUserPopup.setShow(true);
       UIListUsers form = (UIListUsers) searchUserPopup.getUIComponent();
-      Query query = new Query();
-      
+      //modified by Pham Dinh Tan
       String name = uiGroupForm.getUIStringInput("username").getValue();
-      if(name == null || name.length() < 1){  name = "*"; } 
-      else { name = "*" + name + "*"; }
-      query.setUserName(name) ;
-      form.getUISearchForm().getUIStringInput("searchTerm").setValue(name);
-      form.search(query );
+      UISearchForm uiSearchForm = form.getUISearchForm();
+      uiSearchForm.getUIStringInput("searchTerm").setValue(name);
+      uiSearchForm.getUIFormSelectBox("searchOption").setValue(UIListUsers.USER_NAME);
+      form.quickSearch(uiSearchForm.getQuickSearchInputSet()) ;
+//      Query query = new Query();      
+//      String name = uiGroupForm.getUIStringInput("username").getValue();
+//      if(name == null || name.length() < 1){  name = "*"; } 
+//      else { name = "*" + name + "*"; }
+//      query.setUserName(name) ;
+//      form.getUISearchForm().getUIStringInput("searchTerm").setValue(name);
+//      form.search(query );
     }
   }
   static  public class RefreshActionListener extends EventListener<UIGroupMembershipForm> {
