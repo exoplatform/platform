@@ -76,7 +76,7 @@
 }
 
 .UIItemSelector .ItemListContainer .ItemList {
-  border: 1px #a4a4a4 solid;
+  border: 1px #c7c7c7 solid;
   background: white url('background/ItemList.jpg') no-repeat right bottom;
   height: 240px;
   overflow: auto;
@@ -96,7 +96,7 @@
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
   height: 240px;
   background: white;
-  border: 1px #a4a4a4 solid ;
+  border: 1px #C7C7C7 solid ;
 }
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailTitle{

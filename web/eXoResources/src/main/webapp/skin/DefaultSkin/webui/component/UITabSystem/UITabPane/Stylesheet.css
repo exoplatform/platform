@@ -12,7 +12,7 @@
 .UITabPane .UITabContentContainer .UITabContent {
   background: #f7f7f7;
   border: solid 1px white; border-top: none;
-  padding: 7px ;
+  padding: 15px 7px ;
 }
 
 .UITabPane .UITabContentContainer {

@@ -21,11 +21,11 @@
 }
 
 .UIGrid td {
-  height: 26px ;
+  height: 24px ;
   border-right: 1px solid #cccccc;
   border-left: 1px solid #cccccc;
   border-top: 1px solid white;
-  padding: 4px;
+  padding: 6px 0px 0px 10px;
 }
 
 .UIGrid .OddRow {

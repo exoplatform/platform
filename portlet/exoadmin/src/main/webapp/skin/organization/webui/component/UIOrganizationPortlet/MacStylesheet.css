@@ -114,7 +114,7 @@
 
 /*##############################- UIUserManagement -###########################*/
 .UIOrganizationPortlet .UIFormTabPane {
-	width: 96%;
+	width: 100%;
 	margin: auto;
 }
 
@@ -128,8 +128,7 @@
 }
 
 .UIOrganizationPortlet .UIUserManagement .HorizontalLayout .UIFormInputSet {
-	height: 290px;
-	padding-top: 10px;
+	height: 270px;
 }
 
 .UIOrganizationPortlet .UIUserManagement .UISearch .UIForm {
@@ -137,7 +136,7 @@
 }
 
 .UIOrganizationPortlet .UIMembership {
-	padding-top: 20px;
+	padding: 5px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemList {
@@ -224,7 +223,6 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
-  margin-top: 7px ;
   overflow: hidden ;
   width: 100% ;
 }

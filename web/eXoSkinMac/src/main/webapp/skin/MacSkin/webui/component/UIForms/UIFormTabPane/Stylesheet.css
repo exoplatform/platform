@@ -1,8 +1,9 @@
 .UIFormTabPane  {
-  padding: 10px; 
-  
+  padding-top: 5px; 
 }
-
+.UIFormTabPane  .Form{
+  padding: 10px; 
+}
  .UIFormTabPane .TabPaneContainer {
   border: none;
   padding: 0px;
@@ -20,7 +21,8 @@
 
 .UIFormTabPane .UITabPane .TabPaneContent .UITabContentContainer {
   background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png');
-  border: 1px solid #c2c2c2; border-top:none;
+  border: 1px solid #c2c2c2; border-top:none; 
+  margin: 0px;
 }
 
  .UIFormTabPane .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {

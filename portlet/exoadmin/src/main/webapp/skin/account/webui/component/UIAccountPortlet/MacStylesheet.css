@@ -38,7 +38,6 @@
 /*########################-Template Selector-###########################*/
 
 .UIPersonalInfo {
-  padding: 6px;
 }
 
 .UIAccountPortlet .UIForm .HorizontalLayout .RightColumnBigItemStyle .UIFormInputSet {
@@ -48,11 +47,11 @@
 
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
   background: white;
-  height: 300px;
+  height: 310px;
 }
 
 .UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
-  height: 280px;
+  height: 290px;
 }
 
 .UIAccountPortlet .AccountInputSet .SearchIcon {

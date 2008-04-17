@@ -65,7 +65,7 @@
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
 	height: 310px;
-	padding:10px 0px 0px 0px;
+	padding: 10px 0px 0px 0px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemList {
@@ -90,7 +90,7 @@
 }
 
 .UIOrganizationPortlet .UIUserManagement .HorizontalLayout .UIFormInputSet {
-	height: 290px;
+	height: 270px;
 }
 
 /*#######################- UIUserInfo - #####################*/
@@ -335,7 +335,7 @@
 
 .UIOrganizationPortlet .UIGrid .ActionContainer {  
   margin: auto ;
-  width: 54px;
+  width: 50px;
 }
 
 .UIOrganizationPortlet .UIMembershipTypeForm .FormContainer {

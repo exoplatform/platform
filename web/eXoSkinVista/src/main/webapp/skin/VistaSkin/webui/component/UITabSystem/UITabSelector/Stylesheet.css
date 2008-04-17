@@ -76,21 +76,21 @@
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab {
-  line-height: 29px;
+  line-height: 28px;
   margin: 2px 0px 0px 0px;
   font-weight: normal; color: #307dcc;
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .LeftTab {
-  line-height: 29px;
+  line-height: 28px;
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .RightTab {
-  line-height: 29px;
+  line-height: 28px;
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab {
-  line-height: 29px;
+  line-height: 28px;
   background: url('background/TabSelector.gif') repeat-x left -61px;
   cursor: pointer;
   padding: 0px 6px;

@@ -6,14 +6,14 @@
 }
 
 .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer .UITabContent {
-  padding: 8px;
+  padding: 15px 8px 5px;
   border: none;
 }
 
 .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {
   padding: 6px 7px 12px 8px;
   background: url('background/TabContentBG.png') repeat;
-  border:1px #868686 solid;
+  border: 1px #868686 solid;
 }
 
 .UITabPane .TabPaneContent .UIQuickHelp {

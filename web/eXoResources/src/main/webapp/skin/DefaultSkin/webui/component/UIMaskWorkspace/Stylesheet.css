@@ -36,7 +36,6 @@
 .UIMaskWorkspace .MaskContainer .UIFormTabPane .TabPaneContent .UITabContentContainer {
 	border: 1px solid #c7c7c7;
 	border-top: none;
-	width: 99.8%;
 }
 
 .UIMaskWorkspace .BottomLeftDecorator {
@@ -72,7 +71,9 @@
 }
 
 .UIMaskWorkspace .UITabContent {
-	overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: auto;
 	height: 275px;
 }
 

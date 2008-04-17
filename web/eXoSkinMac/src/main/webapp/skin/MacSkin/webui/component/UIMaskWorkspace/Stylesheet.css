@@ -21,8 +21,10 @@
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
   height: 273px ; 
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   margin: auto;
+  padding: 8px;
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent .UIFormInputSet {
@@ -50,6 +52,7 @@
   width: auto;
   padding-top: 10px;
 }
+
 .UIMaskWorkspace .UIForm .HorizontalLayout .FieldContainer {
   width: 460px;
 }
