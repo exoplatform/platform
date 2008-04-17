@@ -8,6 +8,7 @@
 .UIWindow .UIIFramePortlet {
 	border: none;
 	margin: 0px auto;
+	height: 100%;
 }
 
 .UIIFramePortlet .UIFormWithTitle .UIFormGrid {
