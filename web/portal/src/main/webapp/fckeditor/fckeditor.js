@@ -167,7 +167,6 @@ FCKeditor.prototype._GetIFrameHtml = function()
 
 FCKeditor.prototype._IsCompatibleBrowser = function()
 {
-	setTimeout(function(){}, 0);
 	return FCKeditor_IsCompatibleBrowser() ;
 }
 
@@ -275,10 +274,13 @@ FCKeditor.prototype._HTMLEncode = function( text )
 
 function FCKeditor_IsCompatibleBrowser()
 {
+	// is checked in exo products level
+	return true;
+	/*
 	var sAgent = navigator.userAgent.toLowerCase() ;
 
 	// Internet Explorer 5.5+
-	if ( /*@cc_on!@*/false && sAgent.indexOf("mac") == -1 )
+	if (false && sAgent.indexOf("mac") == -1 )
 	{
 		var sBrowserVersion = navigator.appVersion.match(/MSIE (.\..)/)[1] ;
 		return ( sBrowserVersion >= 5.5 ) ;
@@ -297,4 +299,5 @@ function FCKeditor_IsCompatibleBrowser()
 		return ( sAgent.match( / applewebkit\/(\d+)/ )[1] >= 522 ) ;	// Build must be at least 522 (v3)
 
 	return false ;
+	*/
 }
