@@ -18,7 +18,9 @@ package org.exoplatform.webui.application.portlet;
 
 import java.io.Writer;
 
+import javax.portlet.ActionResponse;
 import javax.portlet.PortletMode;
+import javax.portlet.PortletModeException;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.RenderResponse;
@@ -33,26 +35,6 @@ import org.exoplatform.webui.core.lifecycle.HtmlValidator;
  *
  */
 public class PortletRequestContext extends WebuiRequestContext {
-  /**
-   * Portlet mode view
-   */
-  static public int VIEW_MODE =  0 ;
-  /**
-   * Portlet mode edit
-   */
-  static public int EDIT_MODE =  1 ;
-  /**
-   * Portlet mode help
-   */
-  static public int HELP_MODE =  2 ;
-  /**
-   * Portlet mode config
-   */
-  static public int CONFIG_MODE = 3 ;
-  /**
-   * The portlet mode
-   */
-  private int applicationMode_ ;
   /**
    * Portlet Window ID
    */
@@ -69,25 +51,21 @@ public class PortletRequestContext extends WebuiRequestContext {
   private boolean hasProcessAction_ = false ;
   
   public PortletRequestContext(WebuiApplication app, Writer writer, 
-                               PortletRequest req, PortletResponse res) {
+      PortletRequest req, PortletResponse res) {
     super(app) ;
-    windowId_ = req.getWindowID();
     init(writer, req, res) ;
     setSessionId(req.getPortletSession(true).getId()) ;
+    
     urlBuilder = new PortletURLBuilder();
-    PortletMode mode = req.getPortletMode() ;
-    if(mode.equals(PortletMode.VIEW))  applicationMode_ = VIEW_MODE ;
-    else if(mode.equals(PortletMode.EDIT))  applicationMode_ = EDIT_MODE ;
-    else if(mode.equals(PortletMode.HELP))  applicationMode_ = HELP_MODE ;
-    else  applicationMode_ = VIEW_MODE ;    
   }
   
   public void init(Writer writer, PortletRequest req, PortletResponse res) {
     request_ = req ;
     response_ =  res ;
     writer_ = new HtmlValidator(writer) ;
+    windowId_ = req.getWindowID();
   }
-
+  
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
     uiApplication_ = uiApplication ;
     appRes_ = getApplication().getResourceBundle(getParentAppRequestContext().getLocale()) ;
@@ -113,9 +91,16 @@ public class PortletRequestContext extends WebuiRequestContext {
   
   final public boolean isUserInRole(String roleUser){ return request_.isUserInRole(roleUser); }
   
-  public int getApplicationMode() { return applicationMode_ ; }
+  public  PortletMode getApplicationMode() {
+    return request_.getPortletMode() ;
+  }
   
-  public void setApplicationMode(int mode) { applicationMode_ = mode; }
+  public void setApplicationMode(PortletMode mode) throws PortletModeException {
+    if(response_ instanceof ActionResponse) {
+      ActionResponse res = (ActionResponse)response_ ;
+      res.setPortletMode(mode) ;
+    }
+  }
   
   public Writer getWriter() throws Exception {  return writer_ ; }
 

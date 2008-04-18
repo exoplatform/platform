@@ -148,9 +148,9 @@ UIWindow.prototype.resizeWindowEvt = function(evt) {
 		uiWindow.resizableObject[i].style.height = Math.max(10,(uiWindow.resizableObject[i].originalHeight + deltaY)) + "px" ;
 	}
  // fix bug minwidth in IE6.
-	if (eXo.core.Browser.isIE6() && uiWindow.resizableObject[0]){ 
-		uiWindow.resizableObject[0].style.width = Math.max(10,(uiWindow.resizableObject[0].originalWidth + deltaX)) + "px" ;
-	}
+//	if (eXo.core.Browser.isIE6() && uiWindow.resizableObject[0]){ 
+//		uiWindow.resizableObject[0].style.width = Math.max(10,(uiWindow.resizableObject[0].originalWidth + deltaX)) + "px" ;
+//	}
 } ;
 
 UIWindow.prototype.endResizeWindowEvt = function(evt) {

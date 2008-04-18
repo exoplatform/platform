@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.component;
 
 import java.net.URL;
 
+import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
 
 import org.exoplatform.web.application.ApplicationMessage;
@@ -60,7 +61,7 @@ public class UIIFrameEditMode extends UIForm {
         PortletPreferences pref = pcontext.getRequest().getPreferences();
         pref.setValue("url", event.getSource().getUIStringInput(FIELD_URL).getValue());
         pref.store();
-        pcontext.setApplicationMode(PortletRequestContext.VIEW_MODE);
+        pcontext.setApplicationMode(PortletMode.VIEW);
       } catch (Exception e) {
         Object[] args = { FIELD_URL, "URL"};
         throw new MessageException(new ApplicationMessage("ExpressionValidator.msg.value-invalid",
