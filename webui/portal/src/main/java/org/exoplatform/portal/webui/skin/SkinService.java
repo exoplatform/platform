@@ -88,7 +88,7 @@ public class SkinService {
     SkinConfig skinConfig = skinConfigs_.get(key);
     if (skinConfig == null || skinConfig.isPrimary() == false){
       skinConfigs_.put(key,
-          new SkinConfig(module, skinName, cssPath, isPrimary));
+          new SkinConfig(module, cssPath, isPrimary));
       mergeCSS(cssPath, scontext);
     }
   }
@@ -123,7 +123,7 @@ public class SkinService {
       }
       String cssPath = CSS_SERVLET_URL + "/" + key + ".css";
       mergedCSS_.put(cssPath, buffer.toString());
-      portalSkinConfig = new SkinConfig(portalName, skinName, cssPath, false);
+      portalSkinConfig = new SkinConfig(portalName, cssPath, false);
       skinConfigs_.put(key, portalSkinConfig);
     }
     return portalSkinConfig;

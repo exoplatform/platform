@@ -35,9 +35,7 @@ import org.exoplatform.services.portletcontainer.pci.model.PortletApp;
  * Created by The eXo Platform SAS
  * Jan 19, 2007  
  */
-//TODO: Rename to SkinConfigListener    
-
-public class SkinListener extends BaseComponentPlugin 
+public class SkinConfigListener extends BaseComponentPlugin 
   implements PortletLifecycleListener,  ServletContextListener {
 
   public void contextInitialized(ServletContextEvent event) {

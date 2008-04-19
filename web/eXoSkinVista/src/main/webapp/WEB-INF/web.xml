@@ -19,6 +19,6 @@ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
   <!--           LISTENER                                                 -->
   <!-- ================================================================== -->
   <listener>
-    <listener-class>org.exoplatform.portal.webui.skin.SkinListener</listener-class>
+    <listener-class>org.exoplatform.portal.webui.skin.SkinConfigListener</listener-class>
   </listener>
 </web-app>

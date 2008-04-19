@@ -10,7 +10,7 @@
     <component-plugin>
       <name>skin.deployer.listener</name>
       <set-method>addListenerPlugin</set-method>
-      <type>org.exoplatform.portal.webui.skin.SkinListener</type>
+      <type>org.exoplatform.portal.webui.skin.SkinConfigListener</type>
       <description>this listener register the skin config with the skin service</description>
     </component-plugin>
     <component-plugin>
