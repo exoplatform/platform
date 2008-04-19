@@ -24,6 +24,7 @@ import javax.portlet.PortletModeException;
 import javax.portlet.PortletRequest;
 import javax.portlet.PortletResponse;
 import javax.portlet.RenderResponse;
+import javax.portlet.StateAwareResponse;
 
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
@@ -96,9 +97,11 @@ public class PortletRequestContext extends WebuiRequestContext {
   }
   
   public void setApplicationMode(PortletMode mode) throws PortletModeException {
-    if(response_ instanceof ActionResponse) {
-      ActionResponse res = (ActionResponse)response_ ;
+    if(response_ instanceof StateAwareResponse) {
+      StateAwareResponse res = (StateAwareResponse)response_ ;
       res.setPortletMode(mode) ;
+    } else {
+      throw new PortletModeException("The portlet don't support to set a portlet mode by current runtime environment", mode) ;
     }
   }
   
