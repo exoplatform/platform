@@ -574,15 +574,12 @@ public class UIPortletActionListener {
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal
           .getAncestorOfType(UIPortalApplication.class);
-      UIMaskWorkspace uiMaskWS = uiApp
-          .getChildById(UIPortalApplication.UI_MASK_WS_ID);
-
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);
+      uiMaskWS.setUpdated(true) ;
       UIPortlet uiPortlet = event.getSource();
       UIPortletForm uiPortletForm = uiMaskWS.createUIComponent(UIPortletForm.class, null, null);
       uiPortletForm.setValues(uiPortlet);
       uiMaskWS.setWindowSize(800, -1);
-
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
 

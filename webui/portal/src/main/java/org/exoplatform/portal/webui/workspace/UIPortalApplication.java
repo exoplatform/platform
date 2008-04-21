@@ -318,9 +318,8 @@ public class UIPortalApplication extends UIApplication {
     } else {
       PortalRequestContext pcontext = (PortalRequestContext)context;
       
-//      UIMaskWorkspace uiMaskWS = getChildById(UIPortalApplication.UI_MASK_WS_ID);
-//      if(uiMaskWS.isShow())
-//        pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
+      UIMaskWorkspace uiMaskWS = getChildById(UIPortalApplication.UI_MASK_WS_ID);
+      if(uiMaskWS.isUpdated()) pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
       
       
       List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
