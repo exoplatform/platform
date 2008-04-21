@@ -44,8 +44,6 @@
 
 .UII18nPortlet .UIFormWithTitle .TitleBar {
 	font-weight: bold;
-	border-bottom: 1px solid #BEC1C7;
-	
 }
 
 .UII18nPortlet .UIEditResource {
@@ -55,8 +53,4 @@
 .UII18nPortlet .UIForm .HorizontalLayout textarea  {
 	width: 400px;
 	height: 300px;
-}
-
-.UII18nPortlet .UIGrid .ActionContainer .OverflowContainer {
-	width: 50px;
 }

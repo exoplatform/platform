@@ -129,6 +129,11 @@
 /*========================== End Wizard Content ==============================*/
 
 /*========================== Start ActionBar ==============================*/
+
+.UIWizard .UIWizardContent .WizardControlBar .OverflowContainer {
+  overflow: visible;
+}
+
 .UIWizard .UIWizardContent .WizardControlBar .ActionBar {
 	width: 50%;
 	float: right;

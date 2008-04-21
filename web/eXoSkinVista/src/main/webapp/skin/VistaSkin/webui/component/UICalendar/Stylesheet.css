@@ -23,7 +23,7 @@
 
 .UICalendar {
   border: 1px solid #ccced7;
-  background: #e0e5f7 url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarBG.gif') repeat-x top;
+  background: #e0e5f7 url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') repeat-x left -122px;;
   padding: 7px 5px;
   font: normal 12px verdana;
 	text-align: center;
@@ -52,11 +52,11 @@
 }
 
 .UICalendar .MonthYearBox .NextMonth {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/NextMonth.gif') no-repeat center center;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') no-repeat center -41px;
 }
 
 .UICalendar .MonthYearBox .PreviousMonth {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/PreviousMonth.gif') no-repeat center center;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') no-repeat center -21px;
 }
 
 .UICalendar .MonthYearBox td {
@@ -87,20 +87,20 @@
 }
 
 .UICalendar .MonthYearBox a.NextYear {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/NextYear.gif') no-repeat center center;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') no-repeat center -81px;
 }
 
 .UICalendar .MonthYearBox a:hover.NextYear {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/NextYear.gif') no-repeat center center;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') no-repeat center -81px;
 }
 
 
 .UICalendar .MonthYearBox a.PreviousYear {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/PreviousYear.gif') no-repeat center center;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') no-repeat center -61px;
 }
 
 .UICalendar .MonthYearBox a:hover.PreviousYear {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/PreviousYear.gif') no-repeat center center;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') no-repeat center -61px;
 }
 
 .UICalendar .MonthYearBox .YearButton a:hover {
@@ -132,19 +132,19 @@
 
 .UICalendar .CalendarTimeBox {
   width: 130px; margin: 5px auto;
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecoratorL.gif') no-repeat left;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') no-repeat top left;
   padding-left: 9px;
 }
 
 .UICalendar .CalendarTimeBoxR {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecoratorR.gif') no-repeat right;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') no-repeat top right;
   padding-right: 9px;
 }
 
 .UICalendar .CalendarTimeBoxM {
   line-height: 21px;
   height: 21px;
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecoratorM.gif');
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UICalendar/background/CalendarDecorator.gif') repeat-x left -101px;
   vertical-align: bottom;
 }
 

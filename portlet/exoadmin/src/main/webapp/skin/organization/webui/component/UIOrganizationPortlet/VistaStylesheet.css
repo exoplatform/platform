@@ -158,7 +158,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar .Title {
-	float:left;
+	float: left;
 }	
 
 .UIOrganizationPortlet .UIGroupManagement .TitleBar .Title {
@@ -238,11 +238,6 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm tr {
 	height: 25px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIGrid .ActionContainer {  
-  margin: auto ;
-  width: 22px; height: 16px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIForm .FormContainer {
@@ -331,11 +326,6 @@
 
 .UIOrganizationPortlet .UIMembershipTypeForm .UIForm {
 	background: white ;
-}
-
-.UIOrganizationPortlet .UIGrid .ActionContainer {  
-  margin: auto ;
-  width: 50px;
 }
 
 .UIOrganizationPortlet .UIMembershipTypeForm .FormContainer {

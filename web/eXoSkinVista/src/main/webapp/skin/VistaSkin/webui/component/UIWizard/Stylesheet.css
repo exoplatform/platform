@@ -45,14 +45,6 @@
   font-size:11px;
 }
 
-/*
- * Lam Nguyen add attribute overflow to Wizard Content to fix
- * error onmouseover on Calendar
- */
-.UIWizard .UIWizardContent .WizardControlBar .OverflowContainer {
-  overflow:visible;
-}
-
 .UIWizard .UIWizardContent .WizardStepContent {
   background: url('background/WizardStepContentBG.png') repeat-x bottom;
   background-color: white;  
@@ -111,6 +103,10 @@
 /*========================== End Wizard Content ==============================*/
 
 /*========================== Start ActionBar ==============================*/
+.UIWizard .UIWizardContent .WizardControlBar .OverflowContainer {
+  overflow: visible;
+}
+
 .UIWizard .UIWizardContent .WizardControlBar .ActionBar {
 	width: 50%;
 	float: right;

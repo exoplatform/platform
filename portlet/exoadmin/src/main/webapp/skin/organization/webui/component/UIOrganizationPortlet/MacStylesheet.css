@@ -107,11 +107,6 @@
   width: 380px;
 }
 
-.UIOrganizationPortlet .ManagementTabContent .UIGrid .ActionContainer {
-	width: 50px;
-	margin: auto;
-}
-
 /*##############################- UIUserManagement -###########################*/
 .UIOrganizationPortlet .UIFormTabPane {
 	width: 100%;
@@ -303,11 +298,6 @@
 	padding: 0px 3px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIGrid .ActionContainer {  
-  margin: auto ;
-  width: 22px; height: 16px;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle {
 	width: auto;
 	margin: auto;
@@ -352,7 +342,7 @@
 	margin-top: 3px;
 }
 
-.UIOrganizationPortlet .UIGroupInfo .ListUserForSearch{ 
+.UIOrganizationPortlet .UIGroupInfo .ListUserForSearch { 
 	padding: 10px;
 }
 
@@ -370,11 +360,6 @@
 .UIOrganizationPortlet .UIMembershipTypeForm {
 	width: 99.7%; 
 	margin: 10px auto 0px auto ; 
-}
-
-.UIOrganizationPortlet .UIGrid .ActionContainer {  
-  margin: auto ;
-  width: 46px;
 }
 
 .UIOrganizationPortlet .ManagementTabContent .UIPageIterator {

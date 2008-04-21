@@ -3,11 +3,6 @@
   width: auto;
 }
 
-.UIPortalBrowser .UIGrid .ActionContainer {  
-  margin: auto ;
-  width: 17px; height: 16px;
-}
-
 .UIPortalBrowser .UIGrid {  
 	width: 99.5%;
 	margin: auto;

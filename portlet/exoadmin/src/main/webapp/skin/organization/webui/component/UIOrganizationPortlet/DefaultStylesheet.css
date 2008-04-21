@@ -262,11 +262,6 @@
   height:100%;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIGrid .ActionContainer {  
-  width: 22px; height: 16px;
-  margin: auto ;
-}
-
 .UIOrganizationPortlet .UIFormGrid {
 	width: 400px;
 	margin: auto;
@@ -315,12 +310,6 @@
 
 .UIOrganizationPortlet .UIFormWithTitle .UIForm {
 	background: white ;
-}
-
-
-.UIOrganizationPortlet .UIGrid .ActionContainer {  
-  width: 50px;
-  margin: auto ;
 }
 
 .UIOrganizationPortlet .UIPageIterator {

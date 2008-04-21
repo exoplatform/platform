@@ -39,16 +39,16 @@
   background: #fdfbfb;
 }
 
-.UIGrid .ActionContainer {
-  margin-left: auto ;
-  margin-right: auto ;  
-}
-
 .UIGrid .ActionContainer a {
   margin-right: 6px ;
   color: #024369;
-  text-decoration: none;
-  float: left ;
+}
+
+.UIGrid .ActionContainer a img {
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .UIGrid .Datetime {

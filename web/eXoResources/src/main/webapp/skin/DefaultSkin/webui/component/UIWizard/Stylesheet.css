@@ -1,267 +1,119 @@
-/**
- * Created by The eXo Platform SAS
- * Modifile : Vu Duy Tu
- *           duytucntt@gmail.com
- * December 14, 2006
- * version: $Id$
- */
-/*#######################################-----UIWizard-----##################################*/
-.UIWizard {
-	width: 99.5%;
+.UIGrid {
+  border: 1px solid #b7b7b7;
+  border-collapse: collapse ;
+  padding-left: 1px;
 }
 
-/*========================== Wizard Content ==============================*/
-.UIWizard .UIWizardContent { 
+.UIGrid thead {
+  border: 1px solid #b7b7b7;
 }
 
-.UIWizard .UIWizardContent .WizardStepTitleBar {
-  height: 29px;
-  background: url('background/WizardStepBar.gif') repeat-x top;
-  border: solid 1px #aeaeae; border-bottom: none;
+.UIGrid th {
+  line-height: 19px;
+  border: 1px solid #b7b7b7;
+  background: #d2ddf1 url('background/ThGridRepeatBg1x19.jpg') repeat-x;
+  font-weight: normal;
+  padding: 4px 0px 0px 7px;
 }
 
-.UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
-  float:left;
-  width: 25px; height: 28px; 
-  background: url('background/WizardIcon.gif') no-repeat left bottom;
-  margin: 0px 8px 0px 10px;
+.UIGrid tbody {
+  padding-bottom: 1px;
 }
 
-.UIWizard .UIWizardContent .WizardStepTitleBar .WizardTitle {
-  float: left;
-  height: 28px; line-height: 28px;  
-  font-weight: bold;
+.UIGrid td {
+  height: 24px ;
+  border-right: 1px solid #cccccc;
+  border-left: 1px solid #cccccc;
+  border-top: 1px solid white;
+  padding: 6px 0px 0px 10px;
 }
 
-.UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
-  float: right;
-  width: 28px; height: 28px;
-  background:  url('background/WizardIcon.gif') no-repeat top;
-  margin-right: 10px;
-  cursor: pointer;
+.UIGrid .OddRow {
+  background: #f0f0f0;
 }
 
-.UIWizard .UIWizardContent .WizardStepTitleBar .StepTitle {
-  float: left;
-  height: 28px; line-height: 28px; 
-  padding-left: 10px;
-  color: #0683f7;
+.UIGrid .EvenRow {
+  background: #f5f5f5;
 }
 
-.UIWizard .UIWizardContent .WizardStepContent {
-  border: solid 1px #aeaeae; border-bottom: none;
-	height: 100%;
-  overflow: auto;
+.UIGrid .ActionContainer a {
+  margin-right: 8px ;
+  color: #024369;
 }
 
-.UIWizard .UIWizardContent .WizardStepContent .UIWizardPageSetInfo {
-	padding: 10px;
+.UIGrid .ActionContainer a img {
+  width: 20px;
+  height: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.UIWizard .UIWizardContent .WizardControlBar {
-  height: 34px;
-  border: solid 1px #b7b7b7;
-  background: url('background/WizardStepBar.gif') repeat-x bottom;
+.UIGrid .Datetime {
 }
 
-.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar {
-  float: left;
-  height: 34px; line-height: 34px;
-}
-
-.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a{
-  float: left;
-  width: 18px; height: 18px; 
-  line-height: 18px; 
-  font-weight: bold;
-  text-align: center;
-  margin: 7px 3px 0px 3px;
-  border: solid 1px gray;
-}
-
-.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a:hover {
-  height: 18px; line-height: 18px;
-  color: orange;
-  background: #f8f8f8;
-  border: solid 1px #fdb913 ;
-}
-
-.UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a.SelectedStep {
-  color: red;
-}
-
-.UIWizard .UIWizardContent .WizardControlBar .StepNavigationTitle {
-  float: left;
-  height: 33px; line-height: 33px;
-  font-weight: bold;
-  margin: 0px 10px 0px 15px;
-}
-
-.UIWizard .UIWizardContent .WizardControlBar .OverflowContainer {
-  height: 34px;
-  overflow:visible;
-}
-
-.UIWizard .UIWizardContent .UIDropDownControl {
-	width: 220px;
-	position: static;
-}
-
-.UIWizard .UIWizardContent .UIDropDownControl .UIDropDownAnchor {
-	width: 220px;
-}
-
-/*========================== End Wizard Content ==============================*/
-
-/*========================== Start ActionBar ==============================*/
-.UIWizard .UIWizardContent .WizardControlBar .ActionBar {
-	width: 50%;
-	float: right;
-	padding-right: 7px;
-}
-
-.UIWizard .WizardControlBar .UIAction .ActionButton{
-	float: right;
-}
-
-.UIWizard .WizardControlBar .UIAction .ActionContainer{
-	width: 100%;
-}
-
-/*========================== Start UIWizard Welcome ==============================*/
-.UIWizard .UIWizardWelcome {
-  height: 233px;
-  background: #ffffff url('background/WelcomeImage197x233.png') no-repeat left;
-  padding: 0px 0px 0px 210px ;
-  margin: 0px;
-}
-
-.UIWizard .UIWizardWelcome .WelcomeText {
-  padding: 20px 40px 20px 15px;
-  line-height: 20px;
-}
-
-/*========================== Start UIWizard Step2 ==============================*/
-.UIWizard .UIWizardPageSetInfo .PageNodeContainer {
-  float: left;
-  width: 240px;
-}
-
-.UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
-  border: 1px #b7b7b7 solid;
-  margin-left: 250px;
-  padding: 1px;
-}
-
-.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer {
-  background: #efefef;
-  padding: 20px 0px;
-  border:  solid 1px #cdcdcd;
- }
-
-.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo {
-  width: 90%; height: 25px; 
-  line-height: 25px;
-  background: white;
-  margin: auto;
-  border: solid 1px #b7b7b7;
-  overflow: hidden;
-}
-
-.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
-  float: left;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') no-repeat;
-  width: 16px; height: 16px;
-  margin: 5px 0px 0px 6px;
-}
-
-.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Label {
-  float: left;
-  padding: 0px 5px;
-  font-weight: bold;
-}
-
-.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Info {
-  float: left;
-  padding: 0px 5px;
-  color: #0683f7; 
-  background: none;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
-  margin: auto;
-  margin-top: 5px;
-  width: 90%;
-  overflow: hidden;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction {
-  display: none;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .HorizontalLayout {
-  padding: 1px;
-  background: white;
-  border: solid 1px #b7b7b7 ;
-  border-top: none;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
-  background: white;
-  padding: 10px;
-  height: 174px;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
-	margin: auto;
-	width: 500px;
-}
-
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {
-  width: 220px; height: 80px;
-  background: white;
-  font-family: verdana;
-  border: solid 1px gray ;
-  padding-left: 5px;
-}
-
-/*========================== Start UIWizard Step 3 ==============================*/
-.UIWizard .UIItemSelector {
-  padding: 10px;
-  background: #f4f4f4;
-  margin: 0px;
-}
-
-.UIWizard .UIItemSelector .ItemListContainer {
-  width: 250px;
-  height: auto;
-}
-
-.UIWizard .UIItemSelector .ItemDetailList {
-  background: #ffffff;
-}
-
-.UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
-  height: 260px;
-  padding-top: 21px;
-}
-
-.UIWizard .LayoutHolder {
-  width: 310px;
-  text-align: center;
-  margin: 0px auto; 
-}
-
-.UIWizard .LayoutHolder .LayoutLabel {
-  height: 30px; line-height: 30px; 
-  margin: auto;
+.UIGrid .Number {
   text-align: center;
 }
 
-.UIWizard .UIContainerConfigOptions {
-	margin: 0px 3px;
+.UIGrid .ValueWithIcon {
+  float: left ;
+  text-align: right;
 }
 
-.UIWizard .TreeContainer {
-	height: 249px;
+.UIGrid .ViewIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/LightBulbOn.gif') no-repeat ;
+}
+
+.UIGrid .DeleteIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat ;
+}
+
+.UIGrid .EditInfoIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat ;
+}
+
+.UIGrid .ExcuteIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/PageYellowLight.gif') no-repeat ;
+}
+
+.UIGrid .AddNewIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif') no-repeat ;
+}
+
+/*###################### UIListUsers Icon ######################*/
+
+.UIGrid .DeleteUserIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat ;
+  margin: auto;
+}
+
+.UIGrid .ViewUserInfoIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat ;
+  margin: auto;
+}
+
+/*###################### UIListMembershipType Icon ######################*/
+
+.UIGrid .DeleteMembershipIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat ;
+  margin: auto;  
+}
+
+.UIGrid .EditMembershipIcon {
+  width: 16px ;  height: 16px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat ;
+  margin: auto;
+}
+
+.UIGrid input.checkbox {
+  width: 15px ;  height: 15px ;
+  margin: auto;
 }

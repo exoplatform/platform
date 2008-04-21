@@ -183,7 +183,3 @@
 	background: url('background/ExoMessageDecorator.gif') repeat-x center -50px; 
 	height: 4px;
 }
-
-.UIPopupWindow .UIPageBrowser .UIGrid .ActionContainer {
-	width: 20px;
-}

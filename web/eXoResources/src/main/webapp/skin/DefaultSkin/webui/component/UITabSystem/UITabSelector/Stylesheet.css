@@ -102,10 +102,6 @@
   margin: auto;
 }
 
-.UIAccessGroup .UIGrid .ActionContainer {
-  width: 30px;
-}
-
 .UIAccessGroup .UIPageIterator {
 	width: 90%;
 }

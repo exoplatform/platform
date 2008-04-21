@@ -1,11 +1,3 @@
-.UIPageBrowser {
-}
-
-.UIPageBrowser .UIGrid .ActionContainer {  
-  margin: auto ;
-  width: 70px; height: 16px;
-}
-
 .UIPageBrowser .UIGrid {
   width: 99.5%;
 }

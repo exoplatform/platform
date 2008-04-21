@@ -15,10 +15,6 @@
   overflow: auto;
 }
 
-.UIChagnePortalForm .UIGrid .ActionContainer {
-  width: 20px;
-}
-
 .UIChagnePortalForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
 	height: auto;
 }
