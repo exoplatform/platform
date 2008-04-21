@@ -19,6 +19,9 @@ package org.exoplatform.webui.organization;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.portlet.ActionResponse;
+import javax.xml.namespace.QName;
+
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -27,6 +30,8 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -100,6 +105,8 @@ public class UIAccountForm extends UIFormTabPane {
       if(saveAccountInput == false) return;
       uiForm.getChild(UIUserProfileInputSet.class).save(service, userName, true);
       uiForm.reset() ;
+      ActionResponse actResponse = event.getRequestContext().getResponse() ;
+      actResponse.setEvent(new QName("NewAccountAdded"), null) ;
     }
   } 
   

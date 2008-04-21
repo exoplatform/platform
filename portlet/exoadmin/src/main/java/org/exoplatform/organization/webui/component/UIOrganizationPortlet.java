@@ -17,11 +17,16 @@
 package org.exoplatform.organization.webui.component;
 
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ViewChildActionListener;
+import org.exoplatform.services.organization.Query;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.organization.UIAccountForm;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -31,7 +36,11 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
  */
 
 @ComponentConfig(
-  lifecycle = UIApplicationLifecycle.class
+  lifecycle = UIApplicationLifecycle.class,
+  events = {
+    @EventConfig (listeners = UIOrganizationPortlet.NewAccountAddedActionListener.class)
+  }
+  
 )
 public class UIOrganizationPortlet extends UIPortletApplication {
  
@@ -42,7 +51,9 @@ public class UIOrganizationPortlet extends UIPortletApplication {
 
   @ComponentConfig(
       template = "app:/groovy/organization/webui/component/UIViewMode.gtmpl",
-      events = @EventConfig (listeners = ViewChildActionListener.class)
+      events = {
+          @EventConfig (listeners = ViewChildActionListener.class)
+      }
   )
   static public class UIViewMode extends UIContainer {
     public UIViewMode() throws Exception {
@@ -52,4 +63,10 @@ public class UIOrganizationPortlet extends UIPortletApplication {
     }
   } 
   
+  static public class NewAccountAddedActionListener extends EventListener<UIOrganizationPortlet> {
+    public void execute(Event<UIOrganizationPortlet> event) throws Exception {
+      UIListUsers uiListUsers = event.getSource().findFirstComponentOfType(UIListUsers.class);
+      uiListUsers.search(new Query());
+    }
+  }
 }
