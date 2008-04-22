@@ -17,10 +17,9 @@
 }
 
 .UIPopupWindow .PopupTitle {
-  margin: 5px 20px 0px 20px;
   text-align: center;
   font-weight: bold; 
-  height: 24px; line-height: 26px; vertical-align: middle;
+  height: 29px; line-height: 29px; 
   cursor: move;
 }
 
