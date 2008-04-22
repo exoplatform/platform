@@ -27,14 +27,14 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 public class SessionProviderFactory {
   
   public static SessionProvider createSystemProvider() {
-    return SessionProvider.createSystemProvider();
+    SessionProviderService service = (SessionProviderService) PortalContainer
+    .getComponent(SessionProviderService.class);
+    return service.getSystemSessionProvider(null) ;    
   }
   
   public static SessionProvider createSessionProvider() {
     SessionProviderService service = (SessionProviderService) PortalContainer
-        .getComponent(SessionProviderService.class);
-    System.out.println("Service PROVIDER -------> "+service);
-    System.out.println("GET PROVIDER -------> "+service.getSessionProvider(null));
+        .getComponent(SessionProviderService.class);    
     return service.getSessionProvider(null);
   }
   
