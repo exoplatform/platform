@@ -1,8 +1,9 @@
 function UIUpload() {
   this.listUpload = new Array();
+  this.isAutoUpload = false;
 };
 
-UIUpload.prototype.initUploadEntry = function(uploadId) {
+UIUpload.prototype.initUploadEntry = function(uploadId, isAutoUpload) {
 	var url = eXo.env.server.context + "/command?" ;
 	url += "type=org.exoplatform.web.command.handler.UploadHandler&action=progress&uploadId="+uploadId ;
 	var responseText = ajaxAsyncGetRequest(url, false);
@@ -13,14 +14,15 @@ UIUpload.prototype.initUploadEntry = function(uploadId) {
   }catch(err){
     return;  
   }
+  UIUpload.isAutoUpload = isAutoUpload;
 	if(response.upload[uploadId] == undefined || response.upload[uploadId].percent == undefined) {
-		this.createUploadEntry(uploadId);
+		this.createUploadEntry(uploadId, isAutoUpload);
 	} else if(response.upload[uploadId].percent == 100)  {
 		this.showUploaded(uploadId, decodeURIComponent(response.upload[uploadId].fileName));
 	} 
 };
 
-UIUpload.prototype.createUploadEntry = function(uploadId) {
+UIUpload.prototype.createUploadEntry = function(uploadId, isAutoUpload) {
   var iframe = document.getElementById(uploadId+'uploadFrame');
   var idoc = iframe.contentWindow.document ;
   var uploadAction = eXo.env.server.context + "/command?" ;
@@ -38,8 +40,12 @@ UIUpload.prototype.createUploadEntry = function(uploadId) {
   idoc.write("</head>");
   idoc.write("<body style='margin: 0px; border: 0px;'>");
   idoc.write("  <form id='"+uploadId+"' class='UIUploadForm' style='margin: 0px; padding: 0px' action='"+uploadAction+"' enctype='multipart/form-data' method='post'>");
-  idoc.write("    <input type='file' name='file' id='file' value='' onkeypress='return false;' />");
-  idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' src='/eXoResources/skin/sharedImages/Blank.gif'/>");
+  if(isAutoUpload){
+  	idoc.write("    <input type='file' name='file' id='file' value='' onchange='eXo.webui.UIUpload.upload(this, "+uploadId+")' onkeypress='return false;' />");
+  }else{
+		idoc.write("    <input type='file' name='file' id='file' value='' onkeypress='return false;' />");
+	  idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' src='/eXoResources/skin/sharedImages/Blank.gif'/>");  	
+  }
   idoc.write("  </form>");
   idoc.write("</body>");
   idoc.write("</html>");
@@ -128,7 +134,7 @@ UIUpload.prototype.abortUpload = function(id) {
   var container = parent.document.getElementById(id);
   var uploadIframe =  eXo.core.DOMUtil.findDescendantById(container, id+"UploadIframe");
   uploadIframe.style.display = "block";
-  eXo.webui.UIUpload.createUploadEntry(id);
+  eXo.webui.UIUpload.createUploadEntry(id, UIUpload.isAutoUpload);
   var progressIframe = eXo.core.DOMUtil.findDescendantById(container, id+"ProgressIframe");
   progressIframe.style.display = "none";
 
@@ -157,7 +163,7 @@ UIUpload.prototype.deleteUpload = function(id) {
   var container = parent.document.getElementById(id);
   var uploadIframe =  DOMUtil.findDescendantById(container, id+"UploadIframe");
   uploadIframe.style.display = "block";
-  eXo.webui.UIUpload.createUploadEntry(id);
+  eXo.webui.UIUpload.createUploadEntry(id, UIUpload.isAutoUpload);
   var progressIframe = DOMUtil.findDescendantById(container, id+"ProgressIframe");
   progressIframe.style.display = "none";
 

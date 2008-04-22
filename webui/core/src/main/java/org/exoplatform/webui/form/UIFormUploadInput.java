@@ -45,6 +45,11 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
    */
   private UploadResource uploadResource_ ;
   
+  /**
+   * The auto upload feature
+   */
+  private boolean isAutoUpload = false;
+  
   public UIFormUploadInput(String name, String bindingExpression) {
     super(name, bindingExpression, String.class);
     uploadId_ = Integer.toString(Math.abs(hashCode())) ;
@@ -98,5 +103,9 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
   }
 
   public UploadResource getUploadResource() { return uploadResource_; }
+
+  public boolean isAutoUpload() {return isAutoUpload; }
+
+  public void setAutoUpload(boolean isAutoUpload) {this.isAutoUpload = isAutoUpload;}
 
 }
