@@ -77,7 +77,7 @@ public class UICategoryForm extends UIFormTabPane implements UIPopupComponent{
     uiCategorySetting.addUIFormInput(new UIFormStringInput(FIELD_DISPLAY_NAME, FIELD_DISPLAY_NAME, null).
                      addValidator(StringLengthValidator.class, 3, 30));
     uiCategorySetting.addUIFormInput(new UIFormTextAreaInput(FIELD_DESCRIPTION, FIELD_DESCRIPTION, null).
-                     setMaxLength(255));
+                     addValidator(StringLengthValidator.class, 0, 255));
     addChild(uiCategorySetting) ;
     setSelectedTab(uiCategorySetting.getId()) ;
     

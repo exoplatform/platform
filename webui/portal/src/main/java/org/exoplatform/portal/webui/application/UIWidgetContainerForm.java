@@ -63,7 +63,8 @@ public class UIWidgetContainerForm extends UIForm {
           addValidator(MandatoryValidator.class).
           addValidator(StringLengthValidator.class, 3, 30).
           addValidator(SpecialCharacterValidator.class)) ;
-    addUIFormInput(new UIFormTextAreaInput(FIELD_DESC, FIELD_DESC, null).setMaxLength(255)) ;
+    addUIFormInput(new UIFormTextAreaInput(FIELD_DESC, FIELD_DESC, null).
+          addValidator(StringLengthValidator.class, 0, 255)) ;
   }
   
   public void setValue(Container container) throws Exception {

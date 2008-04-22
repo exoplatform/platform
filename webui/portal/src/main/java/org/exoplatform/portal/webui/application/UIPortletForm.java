@@ -101,7 +101,8 @@ public class UIPortletForm extends UIFormTabPane {
   		addUIFormInput(new UIFormCheckBoxInput("showInfoBar", "showInfoBar", false)).
   		addUIFormInput(new UIFormCheckBoxInput("showPortletMode", "showPortletMode", false)).
     	addUIFormInput(new UIFormCheckBoxInput("showWindowState", "showWindowState", false)).
-      addUIFormInput(new UIFormTextAreaInput("description", "description", null).setMaxLength(255));
+      addUIFormInput(new UIFormTextAreaInput("description", "description", null).
+                     addValidator(StringLengthValidator.class, 0, 255));
     addUIFormInput(uiSettingSet);    
     UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
     addUIFormInput(uiIconSelector) ;

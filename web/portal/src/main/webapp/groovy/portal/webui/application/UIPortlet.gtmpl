@@ -78,8 +78,18 @@
 		        <div class="MiddleRight">
 		          <div class="CenterBackground">
 		            <div class="GardientBackground">
-		            <%if(uicomponent.getDescription() != null) {%>
-  		            <%=uicomponent.getDescription();%>
+		            <%if(uicomponent.getDescription() != null) {	
+		            		String description = ""; int count = 1;
+		            		for(c in uicomponent.getDescription()){
+		            			if(c=="\n"){
+		            				c="<br>";
+		            				count++;
+		            			}
+		            			description+=c;
+		            			if(count>5) break;
+		            		}
+		            %>
+		            	<%=description;%>
 		            <%} else {
 		               String des = _ctx.appRes("UIPortlet.label.portletContent");
 			            if(uicomponent.getId() !=null) des = uicomponent.getId() + " portlet";

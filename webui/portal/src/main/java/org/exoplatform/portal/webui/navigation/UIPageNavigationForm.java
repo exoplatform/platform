@@ -40,6 +40,7 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
  * Author : Le Bien Thuy  
@@ -73,7 +74,8 @@ public class UIPageNavigationForm extends UIForm {
     addUIFormInput(uiSelectBoxOwnerId).
     addUIFormInput(new UIFormStringInput("creator", "creator", pContext.getRemoteUser()).setEditable(false)).
     addUIFormInput(new UIFormStringInput("modifier", "modifier",null).setEditable(false)).
-    addUIFormInput(new UIFormTextAreaInput("description","description", null)).
+    addUIFormInput(new UIFormTextAreaInput("description","description", null).
+                   addValidator(StringLengthValidator.class, 0, 255)).
     addUIFormInput(new UIFormSelectBox("priority", null, priorties));
   }
   

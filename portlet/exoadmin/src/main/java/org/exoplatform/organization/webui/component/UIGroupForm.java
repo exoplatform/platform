@@ -65,7 +65,8 @@ public class UIGroupForm extends UIForm {
                    addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormStringInput(GROUP_LABEL, GROUP_LABEL, null).
                    addValidator(StringLengthValidator.class, 3, 30)) ;
-    addUIFormInput(new UIFormTextAreaInput(GROUP_DESCRIPSION,GROUP_DESCRIPSION,null).setMaxLength(255));    
+    addUIFormInput(new UIFormTextAreaInput(GROUP_DESCRIPSION,GROUP_DESCRIPSION,null).
+                   addValidator(StringLengthValidator.class, 0, 255));    
   }
   
   public Group getGroup() { return group_; }

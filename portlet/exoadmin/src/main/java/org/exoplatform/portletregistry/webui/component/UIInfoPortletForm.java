@@ -60,10 +60,10 @@ public class UIInfoPortletForm extends UIForm implements UIPopupComponent {
                    addValidator(MandatoryValidator.class).
                    addValidator(StringLengthValidator.class, 3, 30).
                    addValidator(NameValidator.class)) ;
-    
     addUIFormInput(new UIFormStringInput("displayName", "displayName", null).
                    addValidator(StringLengthValidator.class, 3, 30));
-    addUIFormInput(new UIFormTextAreaInput("description", "description", null).setMaxLength(255));
+    addUIFormInput(new UIFormTextAreaInput("description", "description", null).
+                   addValidator(StringLengthValidator.class, 0, 255));
   }
   
   public String getName() {return name_;}

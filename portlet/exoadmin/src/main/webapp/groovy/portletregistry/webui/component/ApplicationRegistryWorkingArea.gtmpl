@@ -58,7 +58,7 @@
 	  		    </div>-->
 	  		    <div class="ContentLabel">
 							<span class="LeftLabel"><%=_ctx.appRes("ApplicationRegistryWorkingArea.label.DescriptionApplication")%></span>
-							<span class="RightLabel"><%=desription%></span>
+							<span class="RightLabel"><%=desription.replaceAll("\n","<br>")%></span>
 	          </div>
 		        <div class="ContentLabel">
 							<span class="LeftLabel"><%=_ctx.appRes("ApplicationRegistryWorkingArea.label.AccessPermissions")%></span>
