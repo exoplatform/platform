@@ -36,6 +36,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormInputBase;
+import org.exoplatform.webui.form.UIFormInputItemSelector;
 
 /**
  * Created by The eXo Platform SARL
@@ -220,6 +221,8 @@ public class UIItemThemeSelector extends UIFormInputBase<String> {
       String category = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UIItemThemeSelector uiFormInput = uiDropDown.getParent() ;
       uiFormInput.setSelectedCategory(category) ;
+      UIPortletForm uiportletForm = uiFormInput.getAncestorOfType(UIPortletForm.class) ;
+      uiportletForm.setSelectedTab(uiportletForm.getChild(UIFormInputThemeSelector.class).getId()) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiFormInput) ;
     }
     
@@ -231,7 +234,7 @@ public class UIItemThemeSelector extends UIFormInputBase<String> {
       UIItemThemeSelector uiFormInput = event.getSource() ;
       uiFormInput.reset() ;
       UIForm uiForm = uiFormInput.getAncestorOfType(UIForm.class) ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;      
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()) ;
     }
     
   }
