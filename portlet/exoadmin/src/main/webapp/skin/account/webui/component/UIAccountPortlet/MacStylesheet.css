@@ -1,6 +1,7 @@
 .UIWindow .UIAccountPortlet {
   border: none;
   margin: 0px;
+  overflow: visible;
 }
 
 .UIAccountPortlet {
@@ -14,6 +15,7 @@
   width: 670px;
   margin: auto;
   padding: 0px 6px;
+  overflow: hidden; /*Fix when Restore Down for IE*/
 }
 
 .UIAccountPortlet .UIFormTabPane .UITabPane {

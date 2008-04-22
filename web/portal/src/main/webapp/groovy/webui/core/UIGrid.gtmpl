@@ -76,7 +76,7 @@
 		      }  
 	        if(beanActions != null && beanActions.length > 0) { 
 	  %>
-				  <td>
+				  <td align="center">
 		        <div class="ActionContainer" style="margin: 0px auto;">
 		          <div class="OverflowContainer" style="margin: auto;">          
 		          <%
@@ -92,7 +92,7 @@
 		                actionLink = uiParent.event(action, beanId);
 		              }
 			        %>	           
-			            <a class="${action}Icon" href="$actionLink" title="$title"><span></span></a>		          
+			            <a href="$actionLink" title="$title"><img src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon"></a>		          
 		          <%}%>                 
 		          </div>
 		        </div>

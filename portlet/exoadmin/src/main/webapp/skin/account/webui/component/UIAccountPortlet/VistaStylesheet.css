@@ -1,11 +1,14 @@
 .UIWindow .UIAccountPortlet {
   border: none;
+  overflow: visible;
+  margin: 0px;
 }
 
 .UIAccountPortlet { 
   background: #ffffff;
   margin: 5px 6px 5px 6px;
   border: 1px solid #b7b7b7;
+  overflow: hidden; /*Fix when Restore Down for IE*/
 }
 
 .UIAccountPortlet .UIFormTabPane {
