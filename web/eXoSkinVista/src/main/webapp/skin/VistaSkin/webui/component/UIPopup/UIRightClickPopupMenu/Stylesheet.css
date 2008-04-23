@@ -10,6 +10,7 @@
 .UIRightClickPopupMenu .UIRightPopupMenuContainer {
   padding: 5px 0px;
   background: #ffffff;
+	width: 100%;
 }
 
 .UIRightClickPopupMenu .MenuItem {
