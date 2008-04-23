@@ -3,8 +3,6 @@
 	
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
-	//jsmanager.addJavascript('eXo.portal.UIPortal.onLoads();');
-	//System.out.println(uicomponent.getParent().getParent()) ;
 	ArrayList children = uicomponent.getChildren();
 	
 	if(children != null && children.size > 0){
@@ -44,6 +42,7 @@
 				  			String title = uiChild.getTitle();
 				  			String tabId = uiChild.getId();
 				  			if(title == null || title.trim().length() < 1 ) title = "Tab" +String.valueOf(counter);
+				  			String selectTab = uicomponent.event("SelectTab", tabId);
 				  	%>
 				  		 	<div class="UITab NormalTabStyle">
 				        	<div class="<%=status%>">
@@ -54,12 +53,11 @@
 				              		  if(uiChild.isShowEditControl()){
 				              		  	String actionLink = uicomponent.event("EditContainer", "$uiChild.id") - "javascript:";
 				              		%>
-						           				<div class="TabLabel" style="float:left;" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' )"><%=title%></div>
+						           				<div class="TabLabel" style="float:left;" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></div>
 					              	    <div class="EditIcon" onclick="<%=actionLink%>"></div>
-					              	    <!-- <a href="<%=uicomponent.event("EditContainer", "$uiChild.id")%>"></a> -->
 					              	    <div style="clear: left"><span></span></div>
 					              	<%} else {%>
-						           				<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' )"><%=title%></a>
+						           				<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></a>
 						           		<%} %>
 					              </div>
 				            	</div>
