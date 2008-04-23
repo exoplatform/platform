@@ -34,9 +34,9 @@ BrowserApplication.prototype.init = function(instanceId) {
 	};
 	
 	var iframe = DOMUtil.findFirstDescendantByClass(eXoBrowser, "iframe", "IFrame") ;
-	iframe.style.display = "block" ;
 	var parentIframe = iframe.parentNode;
-	delta = eXoBrowser.parentNode.offsetHeight - eXoBrowser.offsetHeight;
+	if (parentIframe.offsetHeight < 296) parentIframe.style.height = 296 + "px";
+	var delta = eXoBrowser.parentNode.offsetHeight - eXoBrowser.offsetHeight;
 	parentIframe.style.height = parentIframe.offsetHeight + delta + "px";
 } ;
 
