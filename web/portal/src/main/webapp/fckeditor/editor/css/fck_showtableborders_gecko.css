@@ -40,3 +40,11 @@ table:not([border]) > tfoot > tr > td, table:not([border]) > tfoot > tr > th
 {
 	border: #d3d3d3 1px dotted ;
 }
+
+/* exoplatform config table*/
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0px;
+	width: 100%;
+}
