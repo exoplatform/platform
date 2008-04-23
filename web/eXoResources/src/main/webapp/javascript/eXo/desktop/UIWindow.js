@@ -25,10 +25,10 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY) {
 	
 	var windowPortletControl = domUtil.findFirstDescendantByClass(popup, "div", "WindowPortletControl") ;
 	var minimizedIcon = domUtil.findFirstDescendantByClass(windowPortletControl, "div", "MinimizedIcon") ;
-	var maximizedIcon = domUtil.findFirstDescendantByClass(windowPortletControl, "div", "MaximizedIcon") ;
-	var resizeArea = domUtil.findFirstDescendantByClass(popup, "div", "ResizeArea") ;
 	minimizedIcon.onmouseup = this.minimizeWindowEvt ; 
+	var maximizedIcon = domUtil.findFirstDescendantByClass(windowPortletControl, "div", "MaximizedIcon") ;
 	maximizedIcon.onmouseup = this.maximizeWindowEvt ;
+	var resizeArea = domUtil.findFirstDescendantByClass(popup, "div", "ResizeArea") ;
 	resizeArea.onmousedown = this.startResizeWindowEvt ;
 //  eXo.desktop.UIWindow.windowMinHeight = popup.offsetHeight ;
 } ;

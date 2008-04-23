@@ -1,7 +1,7 @@
 /* TODO: need to manage zIndex for all popup */
 //var zIndex = 2 ;
 
-var popupArr = new Array() ;
+//var popupArr = new Array() ;
 /**
  * Main class to manage popups
  */
@@ -137,12 +137,12 @@ UIPopup.prototype.initDND = function(evt) {
  * Browses the popups on the page and closes them all
  * Clears the popupArr array (that contains the popups dom objects)
  */
-UIPopup.prototype.closeAll = function() {
-	var len = popupArr.length ;
-	for(var i = 0 ; i < len ; i++) {
-		popupArr[i].style.display = "none" ;
-	}
-	popupArr.clear() ;
-} ;
+//UIPopup.prototype.closeAll = function() {
+//	var len = popupArr.length ;
+//	for(var i = 0 ; i < len ; i++) {
+//		popupArr[i].style.display = "none" ;
+//	}
+//	popupArr.clear() ;
+//} ;
 
 eXo.webui.UIPopup = new UIPopup() ;

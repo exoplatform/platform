@@ -30,7 +30,7 @@
     <%  }
       } else {
     %>
-        <script type="text/javascript" src="/portal/javascript/merged.js""></script>
+        <script type="text/javascript" src="/portal/javascript/merged.js"></script>
     <%}%>
     <script type="text/javascript">
       eXo.env.portal.context = '<%=docBase%>' ;

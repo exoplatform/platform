@@ -1,7 +1,7 @@
 function UIComponent(node) {
   this.node = node ;
   this.type = node.className ;
-  children =  eXo.core.DOMUtil.getChildrenByTagName(node, "div") ;
+  var children =  eXo.core.DOMUtil.getChildrenByTagName(node, "div") ;
   this.metaData =  children[0] ;
   this.control = children[1] ; 
   this.layout = children[2] ; 
@@ -36,7 +36,7 @@ function UIPortal() {
 UIPortal.prototype.getUIPortlets = function() {
   var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
   var founds =  eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWorkspace, "div", "UIPortlet") ;
-  components =  new Array() ;
+  var components =  new Array() ;
   for(j = 0; j < founds.length; j++) {
     components[components.length] = new UIComponent(founds[j]) ;
   }
@@ -46,7 +46,7 @@ UIPortal.prototype.getUIPortlets = function() {
 UIPortal.prototype.getUIPortletsInUIPortal = function() {
   var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
   var founds =  eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWorkspace, "div", "UIPortlet") ;
-  components =  new Array() ;
+  var components =  new Array() ;
   for(var j = 0; j < founds.length; j++) {
     if(eXo.core.DOMUtil.findAncestorByClass(founds[j], 'UIPage') == null) {
       components[components.length] = new UIComponent(founds[j]) ;
@@ -58,7 +58,7 @@ UIPortal.prototype.getUIPortletsInUIPortal = function() {
 UIPortal.prototype.getUIPortletsInUIPage = function() {
   var uiPage = document.getElementById("UIPage") ;
   var founds =  eXo.core.DOMUtil.findDescendantsByClass(uiPage, "div", "UIPortlet");
-  components =  new Array() ;
+  var components =  new Array() ;
   for(var j = 0; j < founds.length; j++) {
     components[components.length] = new UIComponent(founds[j]) ;
   }
@@ -68,7 +68,7 @@ UIPortal.prototype.getUIPortletsInUIPage = function() {
 UIPortal.prototype.getUIContainers = function() {
   var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
   var  founds = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWorkspace, "div", "UIContainer");
-  components =  new Array() ;
+  var components =  new Array() ;
   for(var j = 0; j < founds.length; j++) {
     components[j] = new UIComponent(founds[j]) ;
   }
@@ -90,9 +90,8 @@ UIPortal.prototype.switchViewModeToLayoutMode = function(uicomponent, swapConten
   if(layoutBlock.style.display == 'block') return ;
   var viewBlock = uicomponent.getViewBlock() ;
   if(swapContent) {
-    contentNode = eXo.core.DOMUtil.findDescendantById(viewBlock, uicomponent.getId()) ;
+    var contentNode = eXo.core.DOMUtil.findDescendantById(viewBlock, uicomponent.getId()) ;
     if(contentNode != null) {
-      viewBlock.removeChild(contentNode) ;
       layoutBlock.appendChild(contentNode) ;
     }
   }
@@ -110,9 +109,8 @@ UIPortal.prototype.switchLayoutModeToViewMode = function(uicomponent, swapConten
   if(viewBlock.style.display == 'block') return ;
   var layoutBlock = uicomponent.getLayoutBlock() ;
   if(swapContent) {
-    contentNode = eXo.core.DOMUtil.findDescendantById(layoutBlock, uicomponent.getId()) ;
+    var contentNode = eXo.core.DOMUtil.findDescendantById(layoutBlock, uicomponent.getId()) ;
     if(contentNode != null) {
-      layoutBlock.removeChild(contentNode) ;
       viewBlock.appendChild(contentNode) ;
     }
   }
