@@ -109,6 +109,7 @@
 
 .UIWidgetContainerManagement .WidgetContainerView .ContainerDetail {
 	padding: 15px 0px;
+	height: 246px;
 }
 
 .ContainerManagementDetail .WidgetContainerDetail .ContainerDetail {
@@ -140,7 +141,7 @@
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent {
 	padding: 30px 0px;
-	width: 300px;
+	width: 280px;
 	margin: auto;
 }
 
