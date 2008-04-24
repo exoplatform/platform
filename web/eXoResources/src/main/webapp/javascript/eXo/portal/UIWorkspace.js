@@ -4,9 +4,7 @@ function UIWorkspace(id) {
   this.isFirstTime = true ;
 };
 
-if(!eXo.portal.Workspace) {
-  eXo.portal.Workspace = new UIWorkspace("UIWorkspace") ;
-};
+eXo.portal.Workspace = new UIWorkspace("UIWorkspace") ;
 
 if(!eXo.portal.UIControlWorkspace) {
   eXo.portal.UIControlWorkspace = new UIWorkspace("UIControlWorkspace") ;
@@ -208,12 +206,12 @@ eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace)
 	}
 };	
 
-if (eXo.core.Browser.isIE7() && document.getElementById("UIWorkingWorkspace")) {
+eXo.portal.UIWorkingWorkspace.correctPosition = function () {
 	var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace");
-	if (document.getElementById("UIDockBar")) {
-		uiWorkingWorkspace.style.position = "static";
+	if (eXo.core.Browser.isIE7() && document.getElementById("UIDockBar")) {
+			uiWorkingWorkspace.style.position = "static";
 	} else {
-		uiWorkingWorkspace.style.position = "relative";
-		uiWorkingWorkspace.style.height = "auto";
-	}
-}
+			uiWorkingWorkspace.style.position = "relative";
+			uiWorkingWorkspace.style.height = "auto";
+		}
+};
