@@ -1,6 +1,7 @@
 <%
 	import org.exoplatform.webui.core.UIComponent ;
 	import org.exoplatform.webui.form.UIFormPageIterator ;
+	import org.exoplatform.webui.form.UIFormCheckBoxInput ;
 	UIFormPageIterator uiIterator = uicomponent.getUIFormPageIterator() ;
 	
 %>
@@ -30,8 +31,12 @@
 	      if (size == 0) continue;
 	  %>
 				<tr class="$rowClass">
-				  <%for(i in 0..size-1){%>			  
+				  <%for(i in 0..size-1){%>
+				  	<% if(UIFormCheckBoxInput.class.isInstance(child.getChild(i))) { %>
+				  	<td align="center"><%child.renderChild(i);%></td>  
+				  	<% } else { %>			  
 	  			  <td class="text"><%child.renderChild(i);%></td>  
+				  	<% } %>
 				  <%}%>
 				</tr>
 	  <%}%>
