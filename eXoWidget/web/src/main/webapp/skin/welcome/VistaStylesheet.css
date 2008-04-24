@@ -86,12 +86,12 @@
 .UIWelcomeWidget .StyleContent .UserWelcomeBox {
   padding: 15px 0px 0px 6px;
   line-height: 20px; 
-  height: 40px;
+  height:40px;
 }
 
 .UIWelcomeWidget .StyleContent .UserWelcomeBox .StateMessage {
   font-size: 11px; 
-  text-align: left;
+  text-align:left;
   line-height: 20px;
 }
 
@@ -115,13 +115,13 @@
 }
 
 .UIWelcomeWidget .StyleContent .LabelSignin {
-	text-align: right;
+	text-align: center;
 	font-size: 10px;
 	color: #f98e03;
 	font-weight: bold;
-	padding: 30px 20px;
+  line-height: 73px;	
 	text-decoration: underline;
-	cursor: pointer;
+	cursor: pointer;margin: auto;
 	display: block ;
 }
 
