@@ -59,7 +59,7 @@
         	
       <%}%>
       <%if(beanActions != null && beanActions.length > 0) { %>
-	      <td>         
+	      <td align="center">         
 	        <div class="ActionContainer" style="margin: 0px auto;">
 	          <div class="OverflowContainer" style="margin: auto;">          
 	          <%	          
@@ -70,7 +70,7 @@
 	            for(action in beanActions) { 
 	              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
 	          %>     
-		            <a class="${action}Icon" href="javascript:eXo.portal.UIPortal.changePortal('<%=accessPath%>', '<%=beanId%>');" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><span></span></a>	           
+		            <a href="javascript:eXo.portal.UIPortal.changePortal('<%=accessPath%>', '<%=beanId%>');" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><img src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon"></a>	           
 	          <%}%>                 
 	          </div>
 	        </div>
