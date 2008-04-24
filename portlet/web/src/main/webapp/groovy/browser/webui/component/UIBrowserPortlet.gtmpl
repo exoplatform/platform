@@ -35,7 +35,7 @@
 			<div style="clear: right;"><span></span></div>
 		</div>
 	</div>
-	<div class="BrowserContent UIResizableBlock">
+	<div class="BrowserContent">
 		<div class="TabBackground">
 			<div class="TabContainer">
 				<div class="Separator"><span></span></div>
