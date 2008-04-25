@@ -43,10 +43,16 @@ UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
  */
 UIForm.prototype.submitEvent = function(formId, action, params) {
   var form = this.getFormElemt(formId) ;
-	if(form.updateFCKeditor) {
-		for (var i = 0 ; i < form.updateFCKeditor.length ; i++)
-			form.updateFCKeditor[i]() ;
-	}
+	 try {
+	  if (FCKeditorAPI && typeof FCKeditorAPI == "object") {
+	 	  for ( var name in FCKeditorAPI.__Instances ) {
+	 	  	var oEditor = FCKeditorAPI.__Instances[name] ;
+	 	  	if ( oEditor.GetParentForm && oEditor.GetParentForm() == form ) {
+	 	  		oEditor.UpdateLinkedField() ;
+	 	  	}
+	  	}
+	  }
+	 } catch(e) {}
   form.elements['formOp'].value = action ; 
   if(!form.originalAction) form.originalAction = form.action ; 
 	form.action =  form.originalAction +  encodeURI(params) ;
