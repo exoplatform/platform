@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.skin;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -42,6 +43,8 @@ public class SkinService {
   
   private final static String CSS_SERVLET_URL = "/portal/css";  
 
+  private Map<String, SkinConfig> portalSkins_ ;
+  
   private Map<String, SkinConfig> skinConfigs_;
 
   private HashSet<String> availableSkins_;
@@ -53,6 +56,7 @@ public class SkinService {
   private boolean cacheResource_;
 
   public SkinService() {
+    portalSkins_ = new HashMap<String, SkinConfig>() ;
     skinConfigs_ = new HashMap<String, SkinConfig>(20);
     availableSkins_ = new HashSet<String>(5);
     cacheResource_ = !"true".equals(System
@@ -70,14 +74,28 @@ public class SkinService {
     return availableSkins_.iterator();
   }
 
+  public void addPortalSkin(String module, String skinName, String cssPath, ServletContext scontext) {
+    addPortalSkin(module, skinName, cssPath, scontext, false) ;
+  }
+  
+  public void addPortalSkin(String module, String skinName, String cssPath,
+      ServletContext scontext, boolean isPrimary) {
+    availableSkins_.add(skinName) ;
+    String key = module + "$" + skinName;
+    SkinConfig skinConfig = portalSkins_.get(key);
+    if (skinConfig == null || skinConfig.isPrimary() == false) {
+      portalSkins_.put(key, new SkinConfig(module, cssPath, isPrimary));
+      mergeCSS(cssPath, scontext);
+    }
+  }
+  
   /**
    * 
    * @param module
    * @param skinName
    * @param cssPath
    */
-  public void addSkin(String module, String skinName, String cssPath,
-      ServletContext scontext) {
+  public void addSkin(String module, String skinName, String cssPath, ServletContext scontext) {
     addSkin(module, skinName, cssPath, scontext, false);
   }
 
@@ -86,9 +104,8 @@ public class SkinService {
     availableSkins_.add(skinName);
     String key = module + "$" + skinName;
     SkinConfig skinConfig = skinConfigs_.get(key);
-    if (skinConfig == null || skinConfig.isPrimary() == false){
-      skinConfigs_.put(key,
-          new SkinConfig(module, cssPath, isPrimary));
+    if (skinConfig == null || skinConfig.isPrimary() == false) {
+      skinConfigs_.put(key, new SkinConfig(module, cssPath, isPrimary));
       mergeCSS(cssPath, scontext);
     }
   }
@@ -99,35 +116,39 @@ public class SkinService {
     skinConfigs_.remove(key);
   }
 
+  public Collection<SkinConfig> getPortalSkins() {
+    return portalSkins_.values() ;
+  }
+  
   /**
    * This method is only called in production environment where all the css for the
    * portlets displayed in the portal canvas are merged into as single CSS file
    */
-  public SkinConfig getPortalSkin(String portalName,
-      String skinName, List<String> portletInPortal) {
-    String key = portalName + "$" + skinName;
-    SkinConfig portalSkinConfig = skinConfigs_.get(key);
-    if(portalSkinConfig == null) {
-      //manage the portlet in portal merge and generate the css Path
-      StringBuffer buffer = new StringBuffer();
-      for (String module : portletInPortal) {
-        String portletKey = module + "$" + skinName;
-        SkinConfig portletConfig = skinConfigs_.get(portletKey);
-        if(portletConfig != null) {
-          String portletCSS = mergedCSS_.get(portletConfig.getCSSPath());
-          if(portletCSS != null) {
-            buffer.append(portletCSS);
-          }
-        }
-
-      }
-      String cssPath = CSS_SERVLET_URL + "/" + key + ".css";
-      mergedCSS_.put(cssPath, buffer.toString());
-      portalSkinConfig = new SkinConfig(portalName, cssPath, false);
-      skinConfigs_.put(key, portalSkinConfig);
-    }
-    return portalSkinConfig;
-  }
+//  public SkinConfig getPortalSkin(String portalName,
+//      String skinName, List<String> portletInPortal) {
+//    String key = portalName + "$" + skinName;
+//    SkinConfig portalSkinConfig = skinConfigs_.get(key);
+//    if(portalSkinConfig == null) {
+//      //manage the portlet in portal merge and generate the css Path
+//      StringBuffer buffer = new StringBuffer();
+//      for (String module : portletInPortal) {
+//        String portletKey = module + "$" + skinName;
+//        SkinConfig portletConfig = skinConfigs_.get(portletKey);
+//        if(portletConfig != null) {
+//          String portletCSS = mergedCSS_.get(portletConfig.getCSSPath());
+//          if(portletCSS != null) {
+//            buffer.append(portletCSS);
+//          }
+//        }
+//
+//      }
+//      String cssPath = CSS_SERVLET_URL + "/" + key + ".css";
+//      mergedCSS_.put(cssPath, buffer.toString());
+//      portalSkinConfig = new SkinConfig(portalName, cssPath, false);
+//      skinConfigs_.put(key, portalSkinConfig);
+//    }
+//    return portalSkinConfig;
+//  }
   
 
   private void mergeCSS(String cssPath, ServletContext scontext) {

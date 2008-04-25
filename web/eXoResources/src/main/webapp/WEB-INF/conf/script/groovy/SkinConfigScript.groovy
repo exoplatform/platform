@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-SkinService.addSkin("PortalSkin","Default", "/eXoResources/skin/Stylesheet.css", ServletContext);
+SkinService.addPortalSkin("CoreSkin","Default", "/eXoResources/skin/Stylesheet.css", ServletContext);
 
 SkinService.addTheme("Simple", ["SimpleBlue","SimpleViolet","SimpleOrange","SimplePink","SimpleGreen"]);
 SkinService.addTheme("RoundConer", ["RoundConerBlue","RoundConerViolet","RoundConerOrange","RoundConerPink","RoundConerGreen"]);

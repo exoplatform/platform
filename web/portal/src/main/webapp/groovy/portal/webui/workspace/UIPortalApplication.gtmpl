@@ -7,7 +7,7 @@
   def rcontext = _ctx.getRequestContext() ;
   String docBase =  rcontext.getRequestContextPath() ;  
   String skin = uicomponent.getSkin();
-  def portalSkin = uicomponent.getSkin("PortalSkin") ;
+  def portalSkins = uicomponent.getPortalSkins() ;
   def portletSkins = uicomponent.getPortletSkins() ;
   def scriptsPaths = uicomponent.getJavascriptURLs();
 %>
@@ -17,13 +17,12 @@
     <title>eXo Portal</title>
     <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
-    <link id="PortalSkin" rel="stylesheet" type="text/css" href="$portalSkin.CSSPath" />
-    <%
-      for(portletSkin in portletSkins) {
-    %>
+    <%for(skinConfig in portalSkins) {%>
+      <link id="${skinConfig.id}" rel="stylesheet" type="text/css" href="$skinConfig.CSSPath" />
+    <%}%>
+    <%for(portletSkin in portletSkins) {%>
       <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$portletSkin.CSSPath" />
     <%}%>
-
     <%if("true".equals(System.getProperty("exo.product.developing"))) {
         for(path in scriptsPaths) { %>
           <script type="text/javascript" src="<%=path%>"></script>
