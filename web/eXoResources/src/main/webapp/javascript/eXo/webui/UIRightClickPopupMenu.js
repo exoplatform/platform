@@ -15,6 +15,7 @@ UIRightClickPopupMenu.prototype.init = function(contextMenuId) {
 }
 
 UIRightClickPopupMenu.prototype.hideContextMenu = function(contextId) {
+	if (!contextId) return;
 	document.getElementById(contextId).style.display = 'none' ;
 	eXo.core.MouseEventManager.onMouseDownHandlers = null ;
 }
