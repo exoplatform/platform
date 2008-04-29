@@ -7,8 +7,7 @@
 	overflow: auto;
 }
 /*======================== UIPageBody ================================*/
-
-.UIPageBody .UIWindow {
+.UIWindow {
 	width: 99% ; height: auto;
 	margin: 0px auto 7px auto; 
 }

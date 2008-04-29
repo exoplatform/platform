@@ -14,8 +14,8 @@
 
 /**************************** UIPageBody ************************************/
 
-.UIPageBody .UIWindow {
-  width: 99% ; height: auto;
+.UIWindow {
+  width: 99% ; height: auto; /*Fix bug for IE6*/
   margin: 5px auto;
 }
 

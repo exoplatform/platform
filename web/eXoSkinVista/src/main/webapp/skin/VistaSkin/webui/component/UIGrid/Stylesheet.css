@@ -20,9 +20,6 @@
   padding-bottom: 1px;
 }
 
-.UIGrid tr {
-}
-
 .UIGrid td {
   height: 26px ;
   border-right: 1px solid #a3a3a3;
@@ -49,6 +46,7 @@
   height: 24px;
   background-position: center;
   background-repeat: no-repeat;
+  float: none;
 }
 
 .UIGrid .Datetime {

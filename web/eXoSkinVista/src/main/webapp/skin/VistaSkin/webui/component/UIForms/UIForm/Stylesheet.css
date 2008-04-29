@@ -1,6 +1,3 @@
-.UIForm {
-}
-
 /*####################- HorizontalLayout -#################*/
 
 .UIForm .HorizontalLayout {
@@ -75,15 +72,12 @@
 }
 
 .UIForm .HorizontalLayout input.radio {
-	float: none;
-	border: none;
   width: 15px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
 	width: 16px;
 	margin: 0px;
-	border: none;
 }
 
 .UIForm .HorizontalLayout textarea {

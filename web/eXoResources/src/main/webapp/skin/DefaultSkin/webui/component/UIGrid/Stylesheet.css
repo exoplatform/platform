@@ -46,6 +46,7 @@
   height: 20px;
   background-position: center;
   background-repeat: no-repeat;
+  float: none; 
 }
 
 .UIGrid .Datetime {

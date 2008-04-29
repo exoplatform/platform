@@ -4,7 +4,6 @@
 /*####################- HorizontalLayout -#################*/
 .UIForm .HorizontalLayout {
   border: solid 1px #b7b7b7;
-  border-top: none; 
 }
 
 .UIForm .UIFormGrid td.FieldLabel {
@@ -32,10 +31,6 @@
 .HorizontalLayout .UIForm .UIFormInputSet {
 	width: 97%;
   padding: 10px; margin-right: 0px;
-}
-
-.UIMaskWorkspace .UINodeIconSelector .HorizontalLayout .UIForm .UIFormInputSet {
-	padding-bottom: 0px;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
@@ -82,15 +77,12 @@
 }
 
 .UIForm .HorizontalLayout input.radio {
-	float: none;
-	border: none;
   width: 15px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
 	width: 16px;
 	margin: 0px;
-	border: none;
 }
 
 .UIForm .HorizontalLayout textarea {
@@ -110,15 +102,12 @@
 }
 
 .HorizontalLayout .UIForm input.radio {
-	float: none;
-	border: none;
   width: 15px;
 }
 
 .HorizontalLayout .UIForm input.checkbox {
 	width: 16px;
 	margin: 0px;
-	border: none;
 }
 
 .HorizontalLayout .UIForm textarea {

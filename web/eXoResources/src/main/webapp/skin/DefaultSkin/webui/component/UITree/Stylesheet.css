@@ -1,7 +1,6 @@
 .UITrees {
   border: 1px solid #b7b7b7;
   background: white;
-  border-top: none;  
 }
 
 .UITrees .TreeContainer {
@@ -16,9 +15,6 @@
 
 .UITrees a:hover {
 	color: #058ee6;
-}
-
-.UITrees .HomeNode {
 }
 
 .UITrees .LevelUpArrowIcon {

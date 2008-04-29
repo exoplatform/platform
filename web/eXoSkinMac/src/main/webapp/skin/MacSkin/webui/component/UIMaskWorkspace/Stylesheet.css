@@ -24,7 +24,6 @@
   overflow-y: auto;
   overflow-x: hidden;
   margin: auto;
-  padding: 8px;
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent .UIFormInputSet {
@@ -32,7 +31,7 @@
   width: auto;
 }
 
-.UIMaskWorkspace .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent{
+.UIMaskWorkspace .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent {
   _padding: 0px;
 }
 
@@ -48,7 +47,7 @@
 .UIMaskWorkspace .UIContainerForm {
 }
 
-.UIMaskWorkspace .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer{
+.UIMaskWorkspace .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer {
   width: auto;
   padding-top: 10px;
 }

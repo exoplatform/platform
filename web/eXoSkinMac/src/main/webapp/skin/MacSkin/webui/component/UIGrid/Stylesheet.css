@@ -17,9 +17,6 @@
   padding-bottom: 1px;
 }
 
- .UIGrid tr {
-}
-
  .UIGrid td {
   height: 26px ;
   border-right: 1px solid #afaeae;
@@ -46,6 +43,7 @@
   height: 20px;
   background-position: center;
   background-repeat: no-repeat;
+  float: none;
 }
 
  .UIGrid .Number {

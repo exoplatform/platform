@@ -1,6 +1,3 @@
-.UIForm  {
-}
-
 /*####################- HorizontalLayout -#################*/
 .UIForm .HorizontalLayout {
   border: 1px solid #aeaeae;
@@ -70,19 +67,15 @@
 }
 
 .UIForm .FieldComponent .FieldComponent input {
-  /* TODO MinhJS: Fix bug in IE6*/
   width: 200px;
 }
 
 .UIForm .HorizontalLayout input.checkbox {
 	width: 16px;
 	margin: 0px;
-	border: none;
 }
 
 .UIForm .HorizontalLayout input.radio {
-	float: none;
-	border: none;
   width: 15px;
 }
 
@@ -104,12 +97,9 @@
 .HorizontalLayout .UIForm input.checkbox {
 	width: 16px;
 	margin: 0px;
-	border: none;
 }
 
 .HorizontalLayout .UIForm input.radio {
-	float: none;
-	border: none;
   width: 15px;
 }
 

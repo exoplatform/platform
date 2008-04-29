@@ -4,20 +4,25 @@
 
 .UIGroupMembershipSelector .UIBreadcumbs {
   font-weight: normal;
+  height: auto;
   margin-bottom: 3px; padding: 0px;
+  background: white;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .LeftBreadcumbsBar {
-  background: white;
+  background: none;
+  height: auto;
   border: 1px solid #b7b7b7;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .RightBreadcumbsBar {
-  background: white;
+  background: none;
+  height: auto;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .BreadcumbsInfoBar {
-  background: white;
+  background: none;
+  height: auto;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs a.Selected {
@@ -59,7 +64,7 @@
 }
 
 .UIGroupMembershipSelector .UITrees .TreeContainer {
-  height: 152px;
+  height: 160px;
 }
 
 .UIGroupMembershipSelector .BlueLevelUpArrow24x24Icon {
