@@ -24,11 +24,13 @@
   overflow-y: auto;
   overflow-x: hidden;
   margin: auto;
+  padding: 0px;
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent .UIFormInputSet {
   padding: 8px;
   width: auto;
+  width: 95%;
 }
 
 .UIMaskWorkspace .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent {
