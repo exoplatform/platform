@@ -36,6 +36,7 @@
 .UIMaskWorkspace .MaskContainer .UIFormTabPane .TabPaneContent .UITabContentContainer {
 	border: 1px solid #c7c7c7;
 	border-top: none;
+	*border: none;
 }
 
 .UIMaskWorkspace .BottomLeftDecorator {
@@ -57,6 +58,7 @@
 	margin-right: 0px; 
 	height: auto;
 }
+
 /***********************************	UITabContent	************************************/
 .UIMaskWorkspace .UIHorizontalTabs {
 }
@@ -75,6 +77,11 @@
   overflow-x: hidden;
   margin: auto;
 	height: 275px;
+}
+
+.UIMaskWorkspace .UITabPane .UITabContentContainer .UITabContent {
+	!border-top: none;
+	!border-bottom: 1px solid #C7C7C7; !border-left: 1px solid #C7C7C7; !border-right: 1px solid #C7C7C7;
 }
 
 .UIMaskWorkspace .UIForm .HorizontalLayout .SelectedIconInfo .UIFormInputSet {
