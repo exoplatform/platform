@@ -35,7 +35,7 @@ import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
@@ -278,7 +278,7 @@ public class UIPageForm extends UIFormTabPane {
         pcontext.setFullRender(true);
         UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID) ;
         pcontext.addUIComponentToUpdateByAjax(uiControl) ;
-        UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
+        UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
         pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
 
         return;
@@ -305,7 +305,7 @@ public class UIPageForm extends UIFormTabPane {
         UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel();
         toolPanel.setShowMaskLayer(true);
         pcontext.setFullRender(true);
-        UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
+        UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
         pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
         UserPortalConfigService service = uiEditBar.getApplicationComponent(UserPortalConfigService.class);
         service.update(page);

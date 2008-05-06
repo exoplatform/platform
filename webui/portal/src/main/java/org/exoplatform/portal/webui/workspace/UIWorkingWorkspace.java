@@ -31,7 +31,7 @@ import org.exoplatform.webui.core.UIContainer;
   id = "UIWorkingWorkspace",
   template = "system:/groovy/portal/webui/workspace/UIWorkingWorkspace.gtmpl"
 )
-public class UIWorkspace extends UIContainer {
+public class UIWorkingWorkspace extends UIContainer {
   
   private UIPortal backupUIPortal = null;
   

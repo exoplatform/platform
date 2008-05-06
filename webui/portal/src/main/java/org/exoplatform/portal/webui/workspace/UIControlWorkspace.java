@@ -21,42 +21,30 @@ import java.io.Writer;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-@ComponentConfigs({
-  @ComponentConfig(
-    id = "UIControlWorkspace",
-    template = "app:/groovy/portal/webui/workspace/UIControlWorkspace.gtmpl",
-    events = @EventConfig(listeners = UIControlWorkspace.SetVisibleActionListener.class)
-  ),  
-  @ComponentConfig(
-    type = UIContainer.class,
-    id = "UIMyPortal",
-    template = "system:/groovy/portal/webui/UIMyPortal.gtmpl"
-  )
-})
-public class UIControlWorkspace extends UIWorkspace {
+
+@ComponentConfig(
+  id = "UIControlWorkspace",
+  template = "app:/groovy/portal/webui/workspace/UIControlWorkspace.gtmpl",
+  events = @EventConfig(listeners = UIControlWorkspace.SetVisibleActionListener.class)
+)
+public class UIControlWorkspace extends UIContainer {
   
   public  static String WORKING_AREA_ID = "UIControlWSWorkingArea" ;
   
   private String visible = "false";
 
   public UIControlWorkspace() throws Exception {
-    //addChild(UIPortalControlPanel.class, null, "UIPortalControlPanel").setRendered(false) ;
     addChild(UIExoStart.class, null, null) ;
-
     UIControlWSWorkingArea uiWorking = addChild(UIControlWSWorkingArea.class, null, WORKING_AREA_ID);
     uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
-    
-//    WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
   } 
   
   public String getVisible() { return visible; }
-
   public void setVisible(String visible) { this.visible = visible; }
   
   static public class SetVisibleActionListener extends EventListener<UIControlWorkspace> {
@@ -69,11 +57,6 @@ public class UIControlWorkspace extends UIWorkspace {
 
   @ComponentConfig()
   static public class UIControlWSWorkingArea extends UIComponentDecorator {
-
-    public UIControlWSWorkingArea() throws Exception {
-      super();
-    }
-
     public void processRender(WebuiRequestContext context) throws Exception {      
       Writer w =  context.getWriter() ;
       w.write("<div id=\"") ; w.write(getId()); w.write("\">");

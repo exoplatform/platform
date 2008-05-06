@@ -20,7 +20,7 @@ import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -67,7 +67,7 @@ public class UIPageBrowseControlBar extends UIToolbar {
       uiToolPanel.setUIComponent(uiPageBrowser) ;
       uiToolPanel.setShowMaskLayer(false);
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
 
       UIPageManagement uiManagement = uiBrowseControlBar.getParent();
@@ -90,7 +90,7 @@ public class UIPageBrowseControlBar extends UIToolbar {
       uiToolPanel.setUIComponent(uiPageBrowser) ;
 
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;
 
       UIPageManagement uiManagement = uiBrowseControlBar.getParent();

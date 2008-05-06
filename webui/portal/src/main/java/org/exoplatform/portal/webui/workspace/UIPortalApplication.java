@@ -113,13 +113,11 @@ public class UIPortalApplication extends UIApplication {
     userPortalConfig_ = (UserPortalConfig)context.getAttribute(UserPortalConfig.class);
     if(userPortalConfig_ == null) throw new Exception("Can't load user portal config");
     if(context.getAccessPath() == PortalRequestContext.PUBLIC_ACCESS) {
-      if(log.isDebugEnabled())
-        log.debug("Build a public portal");
-      initPublicPortal(context, initParams) ;
+      if(log.isDebugEnabled()) log.debug("Build a public portal");
+      initPublicPortal(initParams) ;
     } else {
-      if(log.isDebugEnabled())
-        log.debug("Build a private portal");      
-      initPrivatePortal(context, context.getRemoteUser()) ;
+      if(log.isDebugEnabled()) log.debug("Build a private portal");      
+      initPrivatePortal(context.getRemoteUser()) ;
     }
     
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
@@ -168,7 +166,7 @@ public class UIPortalApplication extends UIApplication {
     List<SkinConfig> skins = new ArrayList<SkinConfig>();
     List<UIPortlet> uiportlets = new ArrayList<UIPortlet>();
 
-    UIWorkspace uiWorkingWS = getChildById(UI_WORKING_WS_ID);
+    UIWorkingWorkspace uiWorkingWS = getChildById(UI_WORKING_WS_ID);
     UIPortal uiPortal = uiWorkingWS.getChild(UIPortal.class);
     uiPortal.findComponentOfType(uiportlets, UIPortlet.class);
 
@@ -212,30 +210,26 @@ public class UIPortalApplication extends UIApplication {
   /**
    * According to the init parameters, the left the left column is shown or not.
    * 
-   * @param context
    * @param initParams
    * @throws Exception
    */
-  @SuppressWarnings("hiding")
-  private  void  initPublicPortal(PortalRequestContext context, InitParams initParams) throws Exception {
+  private  void  initPublicPortal(InitParams initParams) throws Exception {
     if("true".equals(initParams.getParam("public.showControlWorkspace").getValue())) {
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;      
     }
-    addWorkingWorkspace(context) ;
+    addWorkingWorkspace() ;
   }
   
   /**
    * A private portal always get the left column and the main area in the center.
    * 
-   * @param context
    * @throws Exception
    */
-  @SuppressWarnings("hiding")
-  private  void  initPrivatePortal(PortalRequestContext context, String remoteUser) throws Exception {
+  private void initPrivatePortal(String remoteUser) throws Exception {
     UserACL acl = getApplicationComponent(UserACL.class);
     if(acl.hasAccessControlWorkspacePermission(remoteUser))
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
-    addWorkingWorkspace(context) ;
+    addWorkingWorkspace() ;
   }
   
   /**
@@ -246,18 +240,15 @@ public class UIPortalApplication extends UIApplication {
    * 
    * A UIMaskWorkspace is also added to provide powerfull focus only popups
    * 
-   * @param context
    * @throws Exception
    */
-  @SuppressWarnings({"hiding","unused"})
-  private void addWorkingWorkspace(PortalRequestContext context) throws Exception {
-    UIWorkspace uiWorkingWorkspace = 
-      createUIComponent(UIWorkspace.class, UIPortalApplication.UI_WORKING_WS_ID, null) ;
+  private void addWorkingWorkspace() throws Exception {
+    UIWorkingWorkspace uiWorkingWorkspace = 
+      addChild(UIWorkingWorkspace.class, UIPortalApplication.UI_WORKING_WS_ID, null) ;
     UIPortal uiPortal = createUIComponent(UIPortal.class, null, null);
     PortalDataMapper.toUIPortal(uiPortal, userPortalConfig_);
     uiWorkingWorkspace.addChild(uiPortal) ;    
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
-    addChild(uiWorkingWorkspace) ;
     addChild(UIMaskWorkspace.class, UIPortalApplication.UI_MASK_WS_ID, null) ;
   }
   

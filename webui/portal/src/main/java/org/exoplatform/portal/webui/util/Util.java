@@ -45,7 +45,7 @@ import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIComponentDecorator;
@@ -106,7 +106,7 @@ public class Util {
   static public <T extends UIComponent> T showComponentOnWorking(
       UIComponent uicomp, Class<T> clazz) throws Exception {
     UIPortalApplication uiPortalApp = uicomp.getAncestorOfType(UIPortalApplication.class);
-    UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+    UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
     UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);   
     T uiWork = uiToolPanel.createUIComponent(clazz, null, null);
     uiToolPanel.setUIComponent(uiWork);
@@ -115,7 +115,7 @@ public class Util {
   }
 
   static public void showPortalComponentLayoutMode(UIPortalApplication uiPortalApp){   
-    UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+    UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
     uiWorkingWS.setRenderedChild(UIPortal.class) ;
     UIPortal uiPortal = uiWorkingWS.getChild(UIPortal.class);    
 
@@ -140,7 +140,7 @@ public class Util {
 //  }
 
   static public void showPageComponentLayoutMode(UIPortalApplication uiPortalApp){   
-    UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+    UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
     uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
     UIPortalToolPanel uiPortalToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
 
@@ -227,14 +227,14 @@ public class Util {
     }
   }
   
-  static public UIWorkspace updateUIApplication(Event<? extends UIComponent> event){
+  static public UIWorkingWorkspace updateUIApplication(Event<? extends UIComponent> event){
     PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
     UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
     
     UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
     pcontext.addUIComponentToUpdateByAjax(uiControl);
     
-    UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
+    UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
     pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
     pcontext.setFullRender(true);
     return uiWorkingWS;

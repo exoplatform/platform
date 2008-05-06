@@ -263,7 +263,7 @@ public class UIExoStart extends UIComponent {
       uiExoStart.setUIControlWSWorkingComponent(UIWizardPageCreationBar.class);
       UIPortalApplication uiApp = uiExoStart.getAncestorOfType(UIPortalApplication.class);
       uiApp.setEditting(true) ;
-      UIWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
 
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class) ;
@@ -287,7 +287,7 @@ public class UIExoStart extends UIComponent {
       UIExoStart uiExoStart = event.getSource();
       UIPortalApplication uiApp = uiExoStart.getAncestorOfType(UIPortalApplication.class);
       uiApp.setEditting(true) ;
-      UIWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class) ;
       uiToolPanel.setShowMaskLayer(false);

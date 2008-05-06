@@ -35,7 +35,7 @@ import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
@@ -105,7 +105,7 @@ public class UIPageNodeActionListener {
       
       UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiControl);
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;   
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
       uiToolPanel.setShowMaskLayer(true) ;
@@ -196,7 +196,7 @@ public class UIPageNodeActionListener {
       if(pageNodes == null) return;
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
       uiToolPanel.setUIComponent(null) ;
-      UIWorkspace uiWorkspace = uiToolPanel.getAncestorOfType(UIWorkspace.class) ;
+      UIWorkingWorkspace uiWorkspace = uiToolPanel.getAncestorOfType(UIWorkingWorkspace.class) ;
       pcontext.setFullRender(true) ;
       pcontext.addUIComponentToUpdateByAjax(uiWorkspace);
       if(pageNodes[0] == null) {

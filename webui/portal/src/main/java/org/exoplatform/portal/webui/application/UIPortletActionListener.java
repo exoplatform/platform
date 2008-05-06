@@ -41,7 +41,7 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
@@ -488,7 +488,7 @@ public class UIPortletActionListener {
 
       UIPortalApplication uiPortalApp = uiPortlet
           .getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp
           .getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = (PortalRequestContext) event
           .getRequestContext();

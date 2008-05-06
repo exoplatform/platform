@@ -34,7 +34,7 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
@@ -92,7 +92,7 @@ public class UIPortalComponentActionListener {
       
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
       UIPortalApplication uiPortalApp = uiParent.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true);
     }
@@ -115,7 +115,7 @@ public class UIPortalComponentActionListener {
       
       if(newComponent){
         UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-        UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
+        UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
         pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;        
         pcontext.setFullRender(true);        
       }

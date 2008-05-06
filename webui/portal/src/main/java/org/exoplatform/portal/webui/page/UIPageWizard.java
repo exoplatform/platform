@@ -23,7 +23,7 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIExoStart;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.UIDescription;
@@ -83,7 +83,7 @@ public abstract class UIPageWizard extends UIWizard {
     UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class) ;
     PortalRequestContext pcontext = Util.getPortalRequestContext();
 
-    UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+    UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
     pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);    
 
     UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID) ;
@@ -136,7 +136,7 @@ public abstract class UIPageWizard extends UIWizard {
       uiPortal.setRenderSibbling(UIPortal.class) ;    
       pcontext.setFullRender(true);
       
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
     }
   }

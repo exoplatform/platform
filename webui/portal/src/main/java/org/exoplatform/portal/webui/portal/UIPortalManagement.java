@@ -27,7 +27,7 @@ import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIDescription;
@@ -79,7 +79,7 @@ public class UIPortalManagement extends UIManagement {
     getChild(UIPortalManagementControlBar.class).setRendered(false);
     getChild(UIDescription.class).setRendered(true); 
 
-    UIWorkspace uiWorkingWS = Util.updateUIApplication(event);
+    UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
     UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
     uiToolPanel.setShowMaskLayer(false);
     UIPortalBrowser uiPortalBrowser = uiToolPanel.createUIComponent(UIPortalBrowser.class, null, null);

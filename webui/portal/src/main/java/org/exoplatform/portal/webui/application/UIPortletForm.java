@@ -32,7 +32,7 @@ import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.services.portletcontainer.PCConstants;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.helper.PortletWindowInternal;
@@ -267,7 +267,7 @@ public class UIPortletForm extends UIFormTabPane {
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       pcontext.addUIComponentToUpdateByAjax(uiMaskWorkspace);
       UIPortalApplication uiPortalApp = uiPortlet.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true);
       Util.showComponentLayoutMode(UIPortlet.class);  
@@ -280,7 +280,7 @@ public class UIPortletForm extends UIFormTabPane {
       UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
       if(uiPortletForm.hasEditMode()) uiPortlet.setCurrentPortletMode(PortletMode.VIEW);
       UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       //add by Pham Dinh Tan
       UIMaskWorkspace uiMaskWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);

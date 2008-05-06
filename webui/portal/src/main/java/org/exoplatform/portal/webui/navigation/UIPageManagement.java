@@ -24,7 +24,7 @@ import org.exoplatform.portal.webui.page.UIPageBrowser;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIDescription;
@@ -61,7 +61,7 @@ public class UIPageManagement extends UIManagement {
       uiTree.createEvent("ChangeNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
       return;
     }
-    UIWorkspace uiWorkingWS = Util.updateUIApplication(event);
+    UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
     getChild(UIPageNodeSelector.class).setRendered(false);
     getChild(UIPageNavigationControlBar.class).setRendered(false);
     getChild(UIDescription.class).setRendered(true);

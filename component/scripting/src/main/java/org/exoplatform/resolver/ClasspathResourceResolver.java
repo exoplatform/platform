@@ -62,6 +62,6 @@ public class ClasspathResourceResolver extends ResourceResolver {
     return false ;
   }
   
-  public String getResourceScheme() {  return "classpath:/" ; }
+  public String getResourceScheme() {  return "classpath:" ; }
   
 }

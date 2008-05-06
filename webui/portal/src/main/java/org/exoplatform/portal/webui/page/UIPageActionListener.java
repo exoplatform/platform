@@ -39,7 +39,7 @@ import org.exoplatform.portal.webui.workspace.UIExoStart;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -67,7 +67,7 @@ public class UIPageActionListener {
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       uiPortalApp.setEditting(false) ;
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = Util.getPortalRequestContext();     
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
       uiPortal.setRenderSibbling(UIPortal.class);
@@ -170,7 +170,7 @@ public class UIPageActionListener {
       UIPageForm uiForm = uiPage.createUIComponent(UIPageForm.class, null, null);
       uiForm.setValues(uiPage);
       UIPortalApplication uiPortalApp = uiPage.getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
       uiToolPanel.setUIComponent(uiForm) ;
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;     

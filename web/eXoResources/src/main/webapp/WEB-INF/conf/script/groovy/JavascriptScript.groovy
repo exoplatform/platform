@@ -26,11 +26,6 @@ JavascriptService.addJavascript("eXo.widget.UIWidget", "/javascript/eXo/widget/U
 JavascriptService.addJavascript("eXo.widget.UIAddWidget", "/javascript/eXo/widget/UIAddWidget.js", ServletContext);
 JavascriptService.addJavascript("eXo.widget.UIExoWidget", "/javascript/eXo/widget/UIExoWidget.js", ServletContext);
 
-
-/* Desktop Javascripts */
-JavascriptService.addJavascript("eXo.desktop.UIDockbar", "/javascript/eXo/desktop/UIDockbar.js", ServletContext);
-JavascriptService.addJavascript("eXo.desktop.UIDesktop", "/javascript/eXo/desktop/UIDesktop.js", ServletContext);
-
 /* WebUI Javascripts */ 
 JavascriptService.addJavascript("eXo.webui.UIItemSelector", "/javascript/eXo/webui/UIItemSelector.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIForm", "/javascript/eXo/webui/UIForm.js", ServletContext);
@@ -56,7 +51,9 @@ JavascriptService.addJavascript("eXo.portal.UIMaskWorkspace", "/javascript/eXo/p
 JavascriptService.addJavascript("eXo.portal.UIExoStartMenu", "/javascript/eXo/portal/UIExoStartMenu.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIBrowseContent", "/javascript/eXo/portal/UIBrowseContent.js", ServletContext);
 
-/* Desktop Javascripts 2 */
+/* Desktop Javascripts */
+JavascriptService.addJavascript("eXo.desktop.UIDockbar", "/javascript/eXo/desktop/UIDockbar.js", ServletContext);
+JavascriptService.addJavascript("eXo.desktop.UIDesktop", "/javascript/eXo/desktop/UIDesktop.js", ServletContext);
 JavascriptService.addJavascript("eXo.desktop.UIWindow", "/javascript/eXo/desktop/UIWindow.js", ServletContext);
 
 

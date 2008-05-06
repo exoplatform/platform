@@ -28,7 +28,7 @@ import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIWorkspace;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -113,7 +113,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
   static public class RollbackActionListener  extends EventListener<UIPortalManagementControlBar> {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = Util.updateUIApplication(event);
+      UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
       
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);      
       configService.update(uiPortalApp.getUserPortalConfig().getPortalConfig());
@@ -169,7 +169,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
   static public class AbortActionListener  extends EventListener<UIPortalManagementControlBar> {
     public void execute(Event<UIPortalManagementControlBar> event) throws Exception {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       
       PortalRequestContext prContext = Util.getPortalRequestContext();  
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
