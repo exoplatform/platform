@@ -45,6 +45,7 @@ public class UIAccountInputSet extends UIFormInputWithActions {
     //setComponentConfig(getClass(), null) ;
     addUIFormInput(new UIFormStringInput(USERNAME, "userName", null).
                    addValidator(MandatoryValidator.class).
+                   addValidator(StringLengthValidator.class, 3, 30).
                    addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormStringInput(PASSWORD1X, "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
