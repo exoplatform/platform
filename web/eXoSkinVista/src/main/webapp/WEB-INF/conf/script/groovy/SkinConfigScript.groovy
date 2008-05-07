@@ -1,4 +1,4 @@
-SkinService.addSkin("PortalSkin","Vista", "/eXoSkinVista/skin/Stylesheet.css", ServletContext);
+SkinService.addPortalSkin("CoreSkin", "Vista", "/eXoSkinVista/skin/Stylesheet.css", ServletContext);
 
 SkinService.addTheme("Simple", ["SimpleBlue","SimpleViolet","SimpleOrange","SimplePink","SimpleGreen"]);
 SkinService.addTheme("RoundConer", ["RoundConerBlue","RoundConerViolet","RoundConerOrange","RoundConerPink","RoundConerGreen"]);

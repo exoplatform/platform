@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.skin;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -41,7 +42,7 @@ public class SkinService {
 
   private final static String BACKGROUND_REGEXP = "background.*:.*url(.*).*;";
   
-  private final static String CSS_SERVLET_URL = "/portal/css";  
+//  private final static String CSS_SERVLET_URL = "/portal/css";  
 
   private Map<String, SkinConfig> portalSkins_ ;
   
@@ -83,8 +84,8 @@ public class SkinService {
     availableSkins_.add(skinName) ;
     String key = module + "$" + skinName;
     SkinConfig skinConfig = portalSkins_.get(key);
-    if (skinConfig == null || skinConfig.isPrimary() == false) {
-      portalSkins_.put(key, new SkinConfig(module, cssPath, isPrimary));
+    if (skinConfig == null || isPrimary) {
+      portalSkins_.put(key, new SkinConfig(module, cssPath));
       mergeCSS(cssPath, scontext);
     }
   }
@@ -104,20 +105,24 @@ public class SkinService {
     availableSkins_.add(skinName);
     String key = module + "$" + skinName;
     SkinConfig skinConfig = skinConfigs_.get(key);
-    if (skinConfig == null || skinConfig.isPrimary() == false) {
-      skinConfigs_.put(key, new SkinConfig(module, cssPath, isPrimary));
+    if (skinConfig == null || isPrimary) {
+      skinConfigs_.put(key, new SkinConfig(module, cssPath));
       mergeCSS(cssPath, scontext);
     }
   }
   
-  public void invalidatePortalSkinCache(String portalName,
-      String skinName) {
+  public void invalidatePortalSkinCache(String portalName, String skinName) {
     String key = portalName + "$" + skinName;
     skinConfigs_.remove(key);
   }
 
-  public Collection<SkinConfig> getPortalSkins() {
-    return portalSkins_.values() ;
+  public Collection<SkinConfig> getPortalSkins(String skinName) {
+    Collection<SkinConfig> test = portalSkins_.values() ;
+    Collection<SkinConfig> result = new ArrayList<SkinConfig>() ;
+    for(SkinConfig a : test) {
+      if(a.getCSSPath().endsWith("$" + skinName)) result.add(a) ;
+    }
+    return result ;
   }
   
   /**
@@ -251,10 +256,8 @@ public class SkinService {
   }
 
   public SkinConfig getSkin(String module, String skinName) {
-    String key = module + "$" + skinName;
-    if (skinName.length() == 0)
-      key = module + "$Default";
-    SkinConfig config = skinConfigs_.get(key);
+    SkinConfig config = skinConfigs_.get(module + "$" + skinName) ;
+    if(config == null) skinConfigs_.get(module + "$Default") ;
     return config;
   }
 

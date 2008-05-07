@@ -21,29 +21,17 @@ package org.exoplatform.portal.webui.skin;
  * Jan 19, 2007  
  */
 public class SkinConfig {
-  
   private String module_ ;
-//  private String skinName_ ;
   private String cssPath_ ;
   private String id_ ;
-  private boolean isPrimary_ = false ;
 
-//  public SkinConfig(String module, String skinName, String cssPath) {
-//    this(module, skinName, cssPath, false) ;
-//  }
-
-  public SkinConfig(String module, String cssPath, boolean isPrimary) {
+  public SkinConfig(String module, String cssPath) {
     module_ = module;
-//    skinName_ = skinName;
     cssPath_ = cssPath;
     id_  = module.replace('/', '_') ;
-    isPrimary_ = isPrimary ;
   }
   
   public String getId() { return id_ ; }
   public String getModule(){ return module_; }
-//  public String getSkinName(){ return skinName_; }
   public String getCSSPath(){ return cssPath_; }
-  public boolean isPrimary() { return isPrimary_; }
-
 }

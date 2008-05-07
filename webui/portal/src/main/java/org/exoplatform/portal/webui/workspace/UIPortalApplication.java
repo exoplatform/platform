@@ -140,17 +140,15 @@ public class UIPortalApplication extends UIApplication {
   
   public Collection<SkinConfig> getPortalSkins() {
     SkinService skinService = getApplicationComponent(SkinService.class) ;
-    return skinService.getPortalSkins() ;
+    return skinService.getPortalSkins(skin_) ;
   }
   
   public String getSkin() {  return skin_ ; }
   public void setSkin(String skin){ this.skin_ = skin; }
   
-  public SkinConfig getSkin(String module) {
+  private SkinConfig getSkin(String module) {
     SkinService skinService = getApplicationComponent(SkinService.class) ;
-    SkinConfig skinConfig = skinService.getSkin(module, skin_) ;
-    if(skinConfig == null) skinConfig = skinService.getSkin(module, "Default") ;
-    return skinConfig ;
+    return skinService.getSkin(module, skin_) ;
   }
   
   /**
@@ -388,9 +386,6 @@ public class UIPortalApplication extends UIApplication {
     for(UIPortlet uiPortlet : uiportlets){
       String module = uiPortlet.getExoWindowID().getPortletApplicationName() + "/" + uiPortlet.getExoWindowID().getPortletName() ;
       SkinConfig skinConfig = skinService.getSkin(module,skin_) ;
-      if(skinConfig == null && !"Default".equals(skin_)) {
-        skinConfig = skinService.getSkin(module, "Default") ;
-      }
       if(skinConfig != null) skins.add(skinConfig);
     }
     StringBuilder b = new StringBuilder(1000) ;
