@@ -16,7 +16,6 @@ UIForm.prototype.getFormElemt = function(pattern) {
  * A function that submits the form identified by formId, with the specified action
  * If useAjax is true, calls the ajaxPost function from PortalHttpRequest, with the given callback function
  */
- 
 UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
  if (!callback) callback = null;
  var form = this.getFormElemt(formId) ;
@@ -24,13 +23,19 @@ UIForm.prototype.submitForm = function(formId, action, useAjax, callback) {
  try {
   if (FCKeditorAPI && typeof FCKeditorAPI == "object") {
  	  for ( var name in FCKeditorAPI.__Instances ) {
- 	  	var oEditor = FCKeditorAPI.__Instances[name] ;
- 	  	if ( oEditor.GetParentForm && oEditor.GetParentForm() == form ) {
- 	  		oEditor.UpdateLinkedField() ;
+ 	  	var oEditor ;
+ 	  	try {
+ 	  	  oEditor = FCKeditorAPI.__Instances[name] ;
+	 	  	if (oEditor && oEditor.GetParentForm && oEditor.GetParentForm() == form ) {
+	 	  		oEditor.UpdateLinkedField() ;
+	 	  	}
+ 	  	} catch(e) {
+ 	  	  continue ;
  	  	}
   	}
   }
  } catch(e) {}
+
   form.elements['formOp'].value = action ;
   if(useAjax) ajaxPost(form, callback) ;
   else  form.submit();
@@ -95,9 +100,6 @@ UIForm.prototype.setHiddenValue = function(formId, typeId, hiddenValue) {
 * It also encodes the the form parameter values
 */
 UIForm.prototype.serializeForm = function (formElement) {
-  //TODO: TrongTT -> Solve the temporary problem about WYSIWYG Editor
-  try{eXo.ecm.ExoEditor.saveHandler();} catch(err) {}
-	
   var queryString = "";
   var element ;
   var elements = formElement.elements;
@@ -135,7 +137,7 @@ UIForm.prototype.serializeForm = function (formElement) {
         }
         break;
     } // switch
-   } // for   
+   } // for 
    return queryString;
 };
 
