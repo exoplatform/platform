@@ -72,17 +72,9 @@ import org.exoplatform.webui.event.Event;
 })
 public class UIPortalApplication extends UIApplication {
   
-  protected static Log log = ExoLogger.getLogger("portal:UIPortalApplication"); 
-  
-//  public static boolean DEVELOPING = false;
-  
   private boolean isEditting = false ;
   private String nodePath_;
   
-//  static {
-//    DEVELOPING =  "true".equals(System.getProperty("exo.product.developing")) ;
-//  }
-//
   final static public String UI_CONTROL_WS_ID = "UIControlWorkspace" ;
   final static public String UI_WORKING_WS_ID = "UIWorkingWorkspace" ;
   final static public String UI_MASK_WS_ID = "UIMaskWorkspace" ;
@@ -107,7 +99,8 @@ public class UIPortalApplication extends UIApplication {
    * @throws Exception
    */
   @SuppressWarnings("hiding")
-  public UIPortalApplication(InitParams initParams) throws Exception { 
+  public UIPortalApplication(InitParams initParams) throws Exception {
+    log = ExoLogger.getLogger("portal:UIPortalApplication"); 
     PortalRequestContext  context = PortalRequestContext.getCurrentInstance() ;
     context.setUIApplication(this);
     userPortalConfig_ = (UserPortalConfig)context.getAttribute(UserPortalConfig.class);

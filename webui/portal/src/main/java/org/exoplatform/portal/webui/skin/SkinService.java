@@ -117,12 +117,12 @@ public class SkinService {
   }
 
   public Collection<SkinConfig> getPortalSkins(String skinName) {
-    Collection<SkinConfig> test = portalSkins_.values() ;
-    Collection<SkinConfig> result = new ArrayList<SkinConfig>() ;
-    for(SkinConfig a : test) {
-      if(a.getCSSPath().endsWith("$" + skinName)) result.add(a) ;
+    Set<String> keys = portalSkins_.keySet();
+    Collection<SkinConfig> portalSkins = new ArrayList<SkinConfig>() ;
+    for(String key : keys) {
+      if(key.endsWith("$" + skinName)) portalSkins.add(portalSkins_.get(key)) ;
     }
-    return result ;
+    return portalSkins ;
   }
   
   /**
