@@ -14,10 +14,9 @@
 }
 
 .UIRightClickPopupMenu .MenuItem {
+  clear: both;
   cursor: pointer;
   line-height: 16px;
-  display: block;
-  white-space: nowrap;	
 }
 
 .UIRightClickPopupMenu .RightClickCustomItem {
@@ -25,7 +24,7 @@
 }
 	
 .UIRightClickPopupMenu .SelectedMenuItem {
-  display: block;
+  clear: both;
   cursor: pointer;
   line-height: 16px;
   background: #dee4f2;
@@ -57,15 +56,6 @@
 
 .UIRightClickPopupMenu .EditSelectedNode16x16Icon {
   background: url('icons/EditNode.png') no-repeat left;
-  
-}
-
-.UIRightClickPopupMenu .CopyNode16x16Icon {
-  background: url('icons/Copy.gif') no-repeat left;
-}
-
-.UIRightClickPopupMenu .PasteNode16x16Icon {
-  background: url('icons/Paste.gif') no-repeat left;
 }
 
 .UIRightClickPopupMenu .EditNavigation16x16Icon {
@@ -74,6 +64,14 @@
 
 .UIRightClickPopupMenu .CutNode16x16Icon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Cut.gif') no-repeat left;
+}
+
+.UIRightClickPopupMenu .CopyNode16x16Icon {
+  background: url('icons/Copy.gif') no-repeat left;
+}
+
+.UIRightClickPopupMenu .PasteNode16x16Icon {
+  background: url('icons/Paste.gif') no-repeat left;
 }
 
 .UIRightClickPopupMenu .DeleteNode16x16Icon {
