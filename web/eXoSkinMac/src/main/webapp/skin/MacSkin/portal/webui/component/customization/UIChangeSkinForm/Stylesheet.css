@@ -1,15 +1,6 @@
 .UIChangeSkinForm {
 }
 
-.UIChangeSkinForm .UITabContent {
-  background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png') repeat;
-  border: none;
-}
-
-.UIChangeSkinForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
-	height: auto;
-}
-
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {
 	float: left;
 	width: 175px;

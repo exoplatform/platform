@@ -46,14 +46,6 @@
 	padding: 10px 10px 5px 10px ;
 }
 
-.UIMaskWorkspace .UIContainerForm {
-}
-
-.UIMaskWorkspace .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer {
-  width: auto;
-  padding-top: 10px;
-}
-
 .UIMaskWorkspace .UIForm .HorizontalLayout .FieldContainer {
   width: 460px;
 }

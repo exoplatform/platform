@@ -53,13 +53,6 @@
 }
 /***************************************************************************/
 
-.UIMaskWorkspace .UITabContentContainer {
-  background: url('background/TabContainerBG1x11.png') repeat-x top;
-  padding: 1px;
-  border: solid 1px gray;
-  border-top: solid 1px #bec1c7;  
-}
-
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
   overflow-y: auto;
   overflow-x: hidden;
@@ -67,19 +60,11 @@
   padding: 8px;
 }
 
-.UIMaskWorkspace .ContentContainerDetail .TabsContainer {
-	width: 98%; 
-}
-
-.UIMaskWorkspace .TabPaneContent {
-	margin: 0px 5px;
-}
-
 .UIMaskWorkspace .UIForm .HorizontalLayout .SelectedIconInfo .UIFormInputSet {
   margin: auto;
 }
 
-.UIMaskWorkspace .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent{
+.UIMaskWorkspace .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent {
   _padding: 0px;
 }
 

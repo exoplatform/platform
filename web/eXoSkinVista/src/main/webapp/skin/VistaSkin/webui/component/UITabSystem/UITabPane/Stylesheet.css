@@ -1,19 +1,13 @@
 .UITabPane {
 }
 
-.UITabPane .TabPaneContent .UITabContentContainer {
+.UITabPane .UITabContentContainer {
   background: white url('background/TabContainerBG1x11.png') repeat-x top;
-}
-
-.UITabPane .TabPaneContent .WorkingArea .UITabContentContainer .UITabContent {
-  padding: 15px 8px 5px;
-  border: none;
-}
-
-.UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent {
-  padding: 6px 7px 12px 8px;
-  background: url('background/TabContentBG.png') repeat;
   border: 1px #868686 solid;
+}
+
+.UITabPane .UITabContent {
+  padding: 6px 7px 12px 8px;
 }
 
 .UITabPane .TabPaneContent .UIQuickHelp {

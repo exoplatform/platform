@@ -2,17 +2,9 @@
   padding-top: 5px ;
 }
 
-.UIFormTabPane .UITabPane .UIHorizontalTabs {
-}
-
 .UIFormTabPane .FormTabPaneContainer {
   background: white ;
   border-left: solid 1px #638294 ; border-right: solid 1px #638294 ;
-}
-
-.UIFormTabPane .TabPaneContainer {
-  border: none;
-  padding: 0px;
 }
 
 .UIFormTabPane .UITabPane {
@@ -20,7 +12,7 @@
   padding: 0px;
 }
 
-.UIFormTabPane .UITabPane .UIForm .HorizontalLayout {
+.UIFormTabPane .UITabPane .HorizontalLayout {
   border: none;
   margin: 0px; padding: 0px;
 }
@@ -29,12 +21,3 @@
 	border: 1px solid #b7b7b7;
 	border-top: none;
 }
-
-.UIFormTabPane .TabPaneContent .UITabContentContainer {
-  border: 1px solid #939393; 
-  border-top: none; 
-  background: #f4f4f4;
-}
-
-
-

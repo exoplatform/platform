@@ -77,7 +77,7 @@
 }
 
 .UIBarStyle .NavyBluePolygonBar32Style .RightBar {
-  background: url('background/NavyBluePolygonBar32Style.gif') no-repeat right left;
+  background: url('background/NavyBluePolygonBar32Style.gif') no-repeat right top;
   padding: 0px 3px 0px 0px ;
 }
 
@@ -152,7 +152,7 @@
 /*============================== TitleBar ========================================*/
 
 .UIBarStyle .TitleBar {
-  margin: 15px 15px 0px 15px;
+  margin: 15px 10px 0px 10px;
 }
 
 .UIBarStyle .TitleBar .LeftBar {

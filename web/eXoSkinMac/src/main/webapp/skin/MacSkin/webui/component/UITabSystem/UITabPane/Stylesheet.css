@@ -1,25 +1,14 @@
 .UITabPane {
 }
 
-.UITabPane .TabPaneContent {
-
-}
-
-.UITabPane .TabPaneContent .WorkingArea {
-}
-
-.UITabPane .WorkingArea .UITabContent {
-  padding: 8px ;
-  border: solid 1px #ffffff; border-top: none;
-}
-
-.UITabPane .WorkingAreaWithHelp .UITabContentContainer {
+.UITabPane .UITabContentContainer {
   border: solid 1px #b7b7b7;
-  background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png');
+  border-top: none;
 }
 
-.UITabPane .WorkingAreaWithHelp .UITabContent {
-  background: #efefef;
-  border: solid 1px #c2c2c2;
+.UITabPane .UITabContent {
+  background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png') repeat;
+  border: solid 1px white;
+  border-top: none;
   padding: 5px ;
 }
