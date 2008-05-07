@@ -20,13 +20,16 @@
     }
   }
   boolean showForm = false ;
-  boolean showError = false;
   if (userName == null || userName.length() == 0) {
     userName = request.getParameter("j_username");
     if(userName == null) userName = "";
     showForm = true ;
   }  
-  if (password == null || password.length() == 0) showForm  = true ;
+  if (password == null || password.length() == 0) {
+  	password = request.getParameter("j_password");
+    if(password == null) password = "";
+    showForm = true ;  	
+  }
   if(!showForm) {
     password = URLEncoder.encode(password) ;
     response.sendRedirect(loginAction + "?j_username=" + userName + "&j_password=" + password ) ;
@@ -54,7 +57,7 @@
         <div class="CenterLoginContent">
           <%/*Begin form*/%>
           <%
-            if(userName.length() > 0) {
+            if(userName.length() > 0 || password.length() > 0) {
           %>
             <font color="red">Sign in failed. Wrong username or password.</font><%}%>
           <form name="loginForm" action="<%=loginAction%>" method="post" style="margin: 0px;">        
