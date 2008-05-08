@@ -199,13 +199,6 @@
   display: none;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .HorizontalLayout {
-  padding: 1px;
-  background: white;
-  border: solid 1px #b7b7b7 ;
-  border-top: none;
-}
-
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   background: white;
   padding: 10px;

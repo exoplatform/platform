@@ -186,6 +186,10 @@
   margin: auto;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UITrees {
+  border-top: none;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .TitleBar{
 	background: url('DefaultSkin/background/BreadcumbsBar.gif') repeat-x bottom;
 	height: 25px;
