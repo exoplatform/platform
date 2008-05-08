@@ -1,6 +1,10 @@
 .UIChangeSkinForm {
 }
 
+.UIChangeSkinForm .UITabPane .TabPaneContent {
+	padding: 0px;
+}	
+
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {
 	float: left;
 	width: 175px;

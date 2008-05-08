@@ -1,13 +1,13 @@
 .UITabPane {
 }
 
+.UITabPane .TabPaneContent {
+	padding: 8px;
+}
+
 .UITabPane .UITabContentContainer {
   background: white url('background/TabContainerBG1x11.png') repeat-x top;
   border: 1px #868686 solid;
-}
-
-.UITabPane .UITabContent {
-  padding: 6px 7px 12px 8px;
 }
 
 .UITabPane .TabPaneContent .UIQuickHelp {

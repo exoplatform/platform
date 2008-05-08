@@ -57,7 +57,6 @@
   overflow-y: auto;
   overflow-x: hidden;
 	height: 280px;
-  padding: 8px;
 }
 
 .UIMaskWorkspace .UIForm .HorizontalLayout .SelectedIconInfo .UIFormInputSet {
@@ -96,9 +95,6 @@
 }
 
 /********************************** UIPageNavigationForm *************************************/
-
-
-
 
 /**********************************UITabSelector*****************************************/
 

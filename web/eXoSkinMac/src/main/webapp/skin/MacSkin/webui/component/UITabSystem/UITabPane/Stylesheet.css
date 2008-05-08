@@ -1,6 +1,10 @@
 .UITabPane {
 }
 
+.UITabPane .TabPaneContent {
+	padding: 8px;
+}
+
 .UITabPane .UITabContentContainer {
   border: solid 1px #b7b7b7;
   border-top: none;

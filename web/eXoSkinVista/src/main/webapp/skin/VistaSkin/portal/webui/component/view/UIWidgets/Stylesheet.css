@@ -2,10 +2,10 @@
 	padding: 10px 0px 0px 0px;
 }
 
-.UIWidgets .ItemSelectorContainer .UIDropDownControl{
-	width: 214px;
+.UIWidgets .ItemSelectorContainer .UIDropDownControl {
+	width: 212px;
 	float: left;
-	margin: 0px 0px 2px 0px;
+	margin: 0px 0px 2px 2px;
 }
 
 .UIWidgets .WidgetDecorator {

@@ -23,8 +23,6 @@
   height: 273px ; 
   overflow-y: auto;
   overflow-x: hidden;
-  margin: auto;
-  padding: 0px;
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent .UIFormInputSet {

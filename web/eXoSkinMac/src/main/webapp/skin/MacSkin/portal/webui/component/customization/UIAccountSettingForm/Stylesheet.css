@@ -2,9 +2,6 @@
   padding: 15px 15px 10px 15px;
 }
 
-.UIAccountSettingForm .ContentContainer {
-}
-
 .UIAccountSettingForm .WorkingArea {
   padding: 15px 15px 25px 15px;
 }
@@ -86,7 +83,6 @@
 
 .UIAccountSettingForm .UIForm .HorizontalLayout {
 	border: none;
-	height: 190px;
 	padding: 20px 0px;
 }
 

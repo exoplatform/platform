@@ -5,10 +5,6 @@
 	padding: 8px;
 }
 
-.UITabPane .TabPaneContent .WorkingAreaWithHelp {  
-  width: auto;
-}
-
 .UITabPane .UITabContentContainer {
   border: solid 1px #aeaeae; border-top: none;
   background: white;

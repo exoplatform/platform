@@ -4,10 +4,10 @@
 .UIWidgetContainerManagement .ContainerManagementBlock {
 	border: 1px solid #999999;
   border-top: none;
-  margin: 0px 15px 5px 15px;
+  margin: 0px 10px 5px 10px;
 }
 
-.UIWidgetContainerManagement .ContainerManagementDetail{
+.UIWidgetContainerManagement .ContainerManagementDetail {
 	border: 1px solid #ffffff;
   border-top: none;
   padding: 5px; 

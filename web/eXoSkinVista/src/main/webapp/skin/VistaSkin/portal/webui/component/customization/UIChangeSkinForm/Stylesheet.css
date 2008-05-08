@@ -10,12 +10,15 @@
 	padding-left: 5px;
 }
 
-.UIChangeSkinForm .UITabPane .TabPaneContent .WorkingArea .UITabContentContainer {
-	padding: 0px;
-	background: #ffffff;
+.UIChangeSkinForm .UITabPane .TabPaneContent {
+	padding: 0px 10px;
+}
+
+.UIChangeSkinForm .UITabPane .UITabContentContainer {
 	border: 1px solid #999999;
 	border-top: none;
-	margin: 0px 10px;
+	background: none;
+	padding: 0px 5px;
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {
@@ -51,9 +54,4 @@
 	width: 329px; height: 204px;
 	background: url('background/ChangeSkinForm.jpg') no-repeat center -412px;
 	cursor: pointer ;
-}
-
-.UIChangeSkinForm .UIFormTabPane  {
-  padding: 0px ;
-  border:none;
 }
