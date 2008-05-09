@@ -1,4 +1,5 @@
 .UITabPane {
+	height: 100%;
 }
 
 .UITabPane .TabPaneContent {

@@ -1,38 +1,46 @@
 <div class="UIChagnePortalForm" id="<%=uicomponent.getId();%>">
-	<div class="UIBarStyle">
-		<div class="TitleBar">
-			<div class="LeftBar">
-				<div class="RightBar">
-					<div class="MiddleBar"><%=_ctx.appRes("UIChangePortal.lable.TitleBar")%></div>
-		    </div>
-	    </div>
-	  </div>
-	</div>
-		
-	<div class="TabPaneContent">
-    <div class="WorkingArea">
-    	<div style="padding: 10px;">
-    		<%uicomponent.renderChildren() %>	
-    	</div>
-	  </div>
-	</div>
-		
-	<div class="UIAction"> 
-    <table class="ActionContainer" align="center">
-	    <tr>
-	    	<td align="center">
-		      <a href="<%=uicomponent.event("Close")%>" class="ActionButton LightBlueStyle">
-		        <div class="ButtonLeft">
-		          <div class="ButtonRight">
-		            <div class="ButtonMiddle">
-		              <%=_ctx.appRes("UIChangePortal.action.close")%>
-		            </div>
-		          </div>
-		        </div>
-		      </a>
-		    </td>
-      </tr>
- 	  </table>
+	<div class="UIFormTabPane">
+	  <div class="UITabPane">
+			<div class="UIBarStyle">
+				<div class="TitleBar">
+					<div class="LeftBar">
+						<div class="RightBar">
+							<div class="MiddleBar"><%=_ctx.appRes("UIChangePortal.lable.TitleBar")%></div>
+				    </div>
+			    </div>
+			  </div>
+			</div>
+				
+			<div class="TabPaneContent">
+		    <div class="WorkingArea">
+		      <div class="HorizontalLayout">
+				    <div class="UITabContentContainer">
+			        <div class="UITabContent">	 
+		    				<%uicomponent.renderChildren() %>	
+		    			</div>
+		    		</div>
+		      </div>
+				</div>
+			</div>
+				
+			<div class="UIAction"> 
+		    <table class="ActionContainer" align="center">
+			    <tr>
+			    	<td align="center">
+				      <a href="<%=uicomponent.event("Close")%>" class="ActionButton LightBlueStyle">
+				        <div class="ButtonLeft">
+				          <div class="ButtonRight">
+				            <div class="ButtonMiddle">
+				              <%=_ctx.appRes("UIChangePortal.action.close")%>
+				            </div>
+				          </div>
+				        </div>
+				      </a>
+				    </td>
+		      </tr>
+		 	  </table>
+			</div>
+		</div>
 	</div>		    
 	
 </div>

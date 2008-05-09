@@ -137,11 +137,11 @@
 	background: white;
 	overflow: auto;
 	font-family: arial;
-	color:#555555;
+	color: #555555;
 	padding: 0px 10px;
 }
 
-.UIAddApplication .UITabContentContainer .NoneAppsMessage{
+.UIAddApplication .UITabContentContainer .NoneAppsMessage {
 	padding: 10px;
 	text-align: center;
 	color: gray;

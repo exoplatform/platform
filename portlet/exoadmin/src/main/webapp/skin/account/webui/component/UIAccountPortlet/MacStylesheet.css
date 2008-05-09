@@ -9,13 +9,13 @@
   padding: 5px;
   margin: 5px;
   border: 1px solid #b7b7b7;
+  overflow: auto; /*Fix when Restore Down for IE*/
 }
 
-.UIAccountPortlet .UIFormTabPane{
+.UIAccountPortlet .UIFormTabPane {
   width: 670px;
   margin: auto;
   padding: 0px 6px;
-  overflow: hidden; /*Fix when Restore Down for IE*/
 }
 
 .UIAccountPortlet .UIFormTabPane .UITabPane {

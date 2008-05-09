@@ -46,6 +46,11 @@
   float: none;
 }
 
+table .OverflowContainer {
+	overflow: visible;
+	white-space: nowrap;
+}
+
  .UIGrid .Number {
   text-align: center;
 }

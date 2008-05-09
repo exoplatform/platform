@@ -49,7 +49,9 @@
   float: none;
 }
 
-.UIGrid .Datetime {
+table .OverflowContainer {
+	overflow: visible;
+	white-space: nowrap;
 }
 
 .UIGrid .Number {
@@ -65,17 +67,7 @@
   width: 16px ;  height: 16px ;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/LightBulbOn.gif') no-repeat ;
 }
-/*
-.UIGrid .DeleteIcon {
-  width: 16px ;  height: 16px ;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat ;
-}
 
-.UIGrid .EditIcon {
-  width: 16px ;  height: 16px ;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat ;
-}
-*/
 .UIGrid .EditInfoIcon {
   width: 16px ;  height: 16px ;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat ;

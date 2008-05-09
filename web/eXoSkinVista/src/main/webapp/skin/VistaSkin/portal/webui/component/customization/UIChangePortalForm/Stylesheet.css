@@ -13,6 +13,7 @@
 	border: 1px solid #a4a4a4;
 	border-bottom: none;
 }
+
 .UIChagnePortalForm .TabPaneContent {
   margin: 0px 10px;
   border: 1px solid #A4A4A4;
@@ -20,10 +21,10 @@
 	padding: 0px 3px 3px;
 }
 
-.UIChagnePortalForm .WorkingArea {
-  background: white;
-	border:1px solid #D9D9D9;
-	height:250px;
-	overflow:auto;
-	padding:15px 15px 25px;
+.UIChagnePortalForm .UITabPane .UITabContentContainer {
+	border: 1px solid #D9D9D9;
+}
+
+.UIChagnePortalForm .UITabPane .UITabContent {
+	padding: 15px 10px;
 }

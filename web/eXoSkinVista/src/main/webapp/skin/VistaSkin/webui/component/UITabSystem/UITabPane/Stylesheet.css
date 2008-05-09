@@ -10,6 +10,10 @@
   border: 1px #868686 solid;
 }
 
+.UITabPane .UITabContent {
+	padding: 5px;
+}
+
 .UITabPane .TabPaneContent .UIQuickHelp {
   float: right ;
   width: 25% ;

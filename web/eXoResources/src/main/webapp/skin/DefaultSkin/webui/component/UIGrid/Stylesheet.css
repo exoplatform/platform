@@ -49,6 +49,11 @@
   float: none; 
 }
 
+table .OverflowContainer {
+	overflow: visible;
+	white-space: nowrap;
+}
+
 .UIGrid .Datetime {
 }
 

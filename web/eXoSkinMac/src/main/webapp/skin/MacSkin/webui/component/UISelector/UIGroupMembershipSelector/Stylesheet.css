@@ -2,17 +2,20 @@
   padding: 10px;
 }
 
+.UIGroupMembershipSelector .SelectedGroupPath {
+  background: white;
+  border: 1px solid #b7b7b7;
+  margin-bottom: 3px; padding: 0px;
+}
+
 .UIGroupMembershipSelector .UIBreadcumbs {
   font-weight: normal;
   height: auto;
-  margin-bottom: 3px; padding: 0px;
-  background: white;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .LeftBreadcumbsBar {
-  background: none;
   height: auto;
-  border: 1px solid #b7b7b7;
+  background: none;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .RightBreadcumbsBar {
@@ -23,6 +26,10 @@
 .UIGroupMembershipSelector .UIBreadcumbs .BreadcumbsInfoBar {
   background: none;
   height: auto;
+}
+
+.UIGroupMembershipSelector .UIBreadcumbs .RightBlackGridArrowIcon {
+	margin: 10px 8px 0px 8px; 
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs a.Selected {

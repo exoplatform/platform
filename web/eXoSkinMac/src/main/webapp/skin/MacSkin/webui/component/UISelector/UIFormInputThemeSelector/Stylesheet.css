@@ -18,6 +18,7 @@
 .UIFormInputThemeSelector .LeftColumnStyle .ItemList .Item {
 	height: auto;
 	border: none;
+	margin: 5px;
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList .ItemDetailTitle {

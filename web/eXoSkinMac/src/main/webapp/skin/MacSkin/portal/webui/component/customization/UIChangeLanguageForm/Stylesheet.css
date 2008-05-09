@@ -5,10 +5,6 @@
 	padding: 0px;
 }
 
-.UIChangeLanguageForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
-	height: auto;
-}
-
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemListContainer {
 	float: left;
 	width: 175px;
