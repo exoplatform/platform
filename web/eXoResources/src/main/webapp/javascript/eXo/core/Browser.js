@@ -284,7 +284,7 @@ Browser.prototype.findMouseRelativeX = function(object, e) {
    * posXObject is double on IE7
    * */
   
-  if((eXo.core.Browser.getBrowserType() == "ie") && (!eXo.core.Browser.isIE6())) {
+  if(eXo.core.Browser.isIE7()) {
   	posXObject = posXObject / 2 ;
   }
   

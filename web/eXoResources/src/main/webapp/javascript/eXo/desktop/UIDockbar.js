@@ -3,7 +3,7 @@ function UIDockbar() {
   this.weight = 2.3 ;
   this.isFirstTime = true;
   this.showDesktop = false ;
-		this.arrayImage = false ;
+  this.arrayImage = false ;
 };
 
 UIDockbar.prototype.init = function() {
@@ -11,7 +11,7 @@ UIDockbar.prototype.init = function() {
   var uiDockbar = document.getElementById("UIDockBar") ;
   if(!uiDockbar) return ;
   var imgObject = eXo.core.DOMUtil.findDescendantsByClass(uiDockbar, "img", "Icon") ;
-	 UIDockbar.arrayImage = imgObject;
+  UIDockbar.arrayImage = imgObject;
   
   uiDockbar.defaultIconSize = 40 ;
   uiDockbar.originalBGDockbarHeight = 47 ;
@@ -34,7 +34,7 @@ UIDockbar.prototype.init = function() {
 } ;
 
 UIDockbar.prototype.waitOnLoad = function(images) {
-	var UIDockbar = eXo.desktop.UIDockbar;
+  var UIDockbar = eXo.desktop.UIDockbar;
   for (var i = 0; i < images.length; i++) {
     images[i].onmousemove = UIDockbar.animationEvt ;
     images[i].onmouseover = UIDockbar.iconOverEvt ;
@@ -69,8 +69,8 @@ UIDockbar.prototype.iconOverEvt = function() {
   var iconContainer = document.getElementById("IconContainer") ;
   var tooltip = this.nextSibling ;
   
-	eXo.webui.UIRightClickPopupMenu.hideContextMenu("DockbarContextMenu") ;
-	eXo.desktop.UIDockbar.hideNavigation() ;
+  eXo.webui.UIRightClickPopupMenu.hideContextMenu("DockbarContextMenu") ;
+  eXo.desktop.UIDockbar.hideNavigation() ;
   tooltip.style.display = "block" ;
   tooltip.style.top = (-tooltip.offsetHeight) + "px" ;
   tooltip.style.left = objectXInDockbar + "px" ;
@@ -88,9 +88,9 @@ UIDockbar.prototype.iconOutEvt = function() {
 
 UIDockbar.prototype.viewPortlets = function() {
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-  var children = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWindow") ; 
+ var children = eXo.core.DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWindow") ; 
 	var srcMonitoringImage = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Hide"+this.id+".png" ;
-  var srcPortletsViewerImage = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Show"+this.id+".png" ;
+ var srcPortletsViewerImage = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Show"+this.id+".png" ;
 	eXo.desktop.UIDockbar.showDesktop = false ;
 	for(var i = 0; i < children.length; i++) {
 		if (children[i].style.display == "block" ) {
@@ -170,10 +170,12 @@ UIDockbar.prototype.animationEvt = function(e) {
   var fixBugImageElement = document.getElementById("FixBug") ;
   
   var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+  var fixIE7Position = uiPageDesktop.offsetLeft;
+
   var selectedIconX = eXo.desktop.UIDesktop.findPosXInDesktop(this) ;
   var middleIcon = selectedIconX + (this.offsetWidth / 2) ;
   var mouseX = eXo.core.Browser.findMouseRelativeX(uiPageDesktop, e) ;
-    
+
   var distanceWeight =  (middleIcon - mouseX)/(2*curve*(middleIcon - selectedIconX)) ;
   
   var selectedIconIndex = UIDockbar.findIndex(this) ;
@@ -326,9 +328,9 @@ UIDockbar.prototype.initNav = function() {
 
 UIDockbar.prototype.showNavigation = function(event) {
 	event = event || window.event ;
-  event.cancelBubble = true ;
+ event.cancelBubble = true ;
 
-  var uiDockbar = document.getElementById("UIDockBar") ;
+ var uiDockbar = document.getElementById("UIDockBar") ;
 	var dockNavigation = document.getElementById("DockNavigation") ;
 	dockNavigation.style.display = "block" ;
 	dockNavigation.menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(dockNavigation, "div", "MenuItemContainer") ;

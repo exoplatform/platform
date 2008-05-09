@@ -205,13 +205,3 @@ eXo.portal.UIWorkingWorkspace.reorganizeWindows = function(showControlWorkspace)
 		}
 	}
 };	
-
-eXo.portal.UIWorkingWorkspace.correctPosition = function () {
-	var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace");
-	if (eXo.core.Browser.isIE7() && document.getElementById("UIDockBar")) {
-			uiWorkingWorkspace.style.position = "static";
-	} else {
-			uiWorkingWorkspace.style.position = "relative";
-			uiWorkingWorkspace.style.height = "auto";
-		}
-};
