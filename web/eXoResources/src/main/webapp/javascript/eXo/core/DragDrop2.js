@@ -1,9 +1,10 @@
 var count = 1 ;
+var DOMUtil = eXo.core.DOMUtil;
 eXo.core.DragDrop2 = {
 	obj : null,
 	
 	init : function(o, oRoot) {
-		o.onmousedown = Drag.start;
+		o.onmousedown = eXo.core.DragDrop2.start;
 		
 		o.root = oRoot && oRoot != null ? oRoot : o ;
 		o.root.onmousedown = function() {
@@ -16,46 +17,46 @@ eXo.core.DragDrop2 = {
 	},
 	
 	start : function(e)	{
-		var o = Drag.obj = this;
-		e = Drag.fixE(e);
-		var y = parseInt(o.root.style.top);
-		var x = parseInt(o.root.style.left);
-		o.lastMouseX = 		app.Browser.findMouseXInPage(e);
-		o.lastMouseY = 		app.Browser.findMouseYInPage(e);
-		o.root.onDragStart(x, y, o.lastMouseX, o.lastMouseY);
-		document.onmousemove = Drag.drag;
-		document.onmouseup = Drag.end;
+		var o = eXo.core.DragDrop2.obj = this;
+		e = eXo.core.DragDrop2.fixE(e);
+		var y = parseInt(DOMUtil.getStyle(o.root,"top"));
+		var x = parseInt(DOMUtil.getStyle(o.root,"left"));
+		o.lastMouseX = 		eXo.core.Browser.findMouseXInPage(e);
+		o.lastMouseY = 		eXo.core.Browser.findMouseYInPage(e);
+		o.root.onDragStart(x, y, o.lastMouseX, o.lastMouseY, e);
+		document.onmousemove = eXo.core.DragDrop2.drag;
+		document.onmouseup = eXo.core.DragDrop2.end;
 		return false;
 	},
 	
 	drag : function(e) {
-		e = Drag.fixE(e);
-		var o = Drag.obj;
-		var ey = app.Browser.findMouseYInPage(e);
-		var ex = app.Browser.findMouseXInPage(e);
-		var y = parseInt(o.root.style.top);
-		var x = parseInt(o.root.style.left);
+		e = eXo.core.DragDrop2.fixE(e);
+		var o = eXo.core.DragDrop2.obj;
+		var ey = eXo.core.Browser.findMouseYInPage(e);
+		var ex = eXo.core.Browser.findMouseXInPage(e);
+		var y = parseInt(DOMUtil.getStyle(o.root, "top"));
+		var x = parseInt(DOMUtil.getStyle(o.root, "left"));
 		var nx, ny;
 
 		nx = x + (ex - o.lastMouseX);
 		ny = y + (ey - o.lastMouseY);
 		
-		Drag.obj.root.style["left"] = nx + "px";
-		Drag.obj.root.style["top"] = ny + "px";
-		Drag.obj.lastMouseX = ex;
-		Drag.obj.lastMouseY = ey;
+		eXo.core.DragDrop2.obj.root.style["left"] = nx + "px";
+		eXo.core.DragDrop2.obj.root.style["top"] = ny + "px";
+		eXo.core.DragDrop2.obj.lastMouseX = ex;
+		eXo.core.DragDrop2.obj.lastMouseY = ey;
 		
-		Drag.obj.root.onDrag(nx, ny, ex, ey);
+		eXo.core.DragDrop2.obj.root.onDrag(nx, ny, ex, ey, e);
 		return false;
 	},
 	
 	end : function(e) {
-		e = Drag.fixE(e);
+		e = eXo.core.DragDrop2.fixE(e);
 		document.onmousemove = null;
 		document.onmouseup = null;
-		Drag.obj.root.onDragEnd( parseInt(Drag.obj.root.style[Drag.obj.hmode ? "left" : "right"]), 
-		parseInt(Drag.obj.root.style[Drag.obj.vmode ? "top" : "bottom"]), e.clientX, e.clientY);
-		Drag.obj = null;
+		eXo.core.DragDrop2.obj.root.onDragEnd( parseInt(eXo.core.DragDrop2.obj.root.style["left"]), 
+		parseInt(eXo.core.DragDrop2.obj.root.style["top"]), e.clientX, e.clientY);
+		eXo.core.DragDrop2.obj = null;
 	},
 	
 	fixE : function(e) {
@@ -63,5 +64,25 @@ eXo.core.DragDrop2 = {
 		if (typeof e.layerX == 'undefined') e.layerX = e.offsetX;
 		if (typeof e.layerY == 'undefined') e.layerY = e.offsetY;
 		return e;
-	}
+	},
+	
+	isIn : function(x, y, component) {
+	  var componentLeft = eXo.core.Browser.findPosX(component);
+	  var componentRight = componentLeft + component.offsetWidth ;
+	  var componentTop = eXo.core.Browser.findPosY(component) ;
+	  var componentBottom = componentTop + component.offsetHeight ;
+	  var isOver = false ;
+	
+			var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
+			if ((uiWorkspaceContainer && uiWorkspaceContainer.style.display != "none") && eXo.core.Browser.isIE7()) {
+				componentRight = componentRight - uiWorkspaceContainer.offsetWidth;
+			}
+			
+	  if((componentLeft < x) && (x < componentRight)) {
+	    if((componentTop < y) && (y < componentBottom)) {
+	      isOver = true ;
+	    }
+	  }
+	  return isOver ;
+	} 
 };

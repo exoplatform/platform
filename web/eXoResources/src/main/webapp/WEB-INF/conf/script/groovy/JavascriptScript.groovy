@@ -14,6 +14,7 @@ JavascriptService.addJavascript("eXo.core.MouseEventManager", "/javascript/eXo/c
 JavascriptService.addJavascript("eXo.core.UIMaskLayer", "/javascript/eXo/core/UIMaskLayer.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.Skin", "/javascript/eXo/core/Skin.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.DragDrop", "/javascript/eXo/core/DragDrop.js", ServletContext);
+JavascriptService.addJavascript("eXo.core.DragDrop2", "/javascript/eXo/core/DragDrop2.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.TemplateEngine", "/javascript/eXo/core/TemplateEngine.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.Topic","/javascript/eXo/core/Topic.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.JSON","/javascript/eXo/core/JSON.js", ServletContext);
@@ -25,6 +26,7 @@ JavascriptService.addJavascript("eXo.core.Notification","/javascript/eXo/core/No
 JavascriptService.addJavascript("eXo.widget.UIWidget", "/javascript/eXo/widget/UIWidget.js", ServletContext);
 JavascriptService.addJavascript("eXo.widget.UIAddWidget", "/javascript/eXo/widget/UIAddWidget.js", ServletContext);
 JavascriptService.addJavascript("eXo.widget.UIExoWidget", "/javascript/eXo/widget/UIExoWidget.js", ServletContext);
+JavascriptService.addJavascript("eXo.widget.GadgetDragDrop", "/javascript/eXo/widget/GadgetDragDrop.js", ServletContext);
 
 /* WebUI Javascripts */ 
 JavascriptService.addJavascript("eXo.webui.UIItemSelector", "/javascript/eXo/webui/UIItemSelector.js", ServletContext);

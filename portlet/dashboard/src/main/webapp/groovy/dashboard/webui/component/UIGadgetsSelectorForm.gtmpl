@@ -1,0 +1,13 @@
+<div class="$uicomponent.id" id="$uicomponent.id">
+	<% List widgets = uicomponent.getWidgets()
+		for(widget in widgets){
+	 %>
+	 	<div class="ItemLeft">
+	 		<div class="ItemRight">
+	 			<div class="ItemMiddle">
+	 				<%=widget.getDisplayName() %>
+	 			</div>
+	 		</div>
+	 	</div>
+	 <% } %>
+</div>

@@ -26,6 +26,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
@@ -55,10 +56,10 @@ public class UIAccountInputSet extends UIFormInputWithActions {
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(MandatoryValidator.class).
                    addValidator(StringLengthValidator.class, 6, 30));
-    addUIFormInput(new UIFormStringInput("firstName", "firstName", null).
-                   addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
-    addUIFormInput(new UIFormStringInput("lastName", "lastName", null).
-                   addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("firstName", "firstName", null).setMaxLength(45).
+                   addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("lastName", "lastName", null).setMaxLength(45).
+                   addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
     addUIFormInput(new UIFormStringInput("email", "email", null). 
                    addValidator(MandatoryValidator.class).
                    addValidator(EmailAddressValidator.class));    

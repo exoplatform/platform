@@ -1,0 +1,46 @@
+.UIDashboardPortlet {
+}
+
+.UIGadgetsSelectorForm {
+	float:left;
+	width:200px;
+}
+
+.UIGadgetsContainer {
+	margin-left: 203px;
+	border: 1px solid green;
+}
+
+.GadgetsContainer {
+}
+
+.UIColumn {
+	border: 1px solid pink;
+	float: left;
+	height:350px;
+	padding: 0px 10px 0px 10px;
+}
+
+.UIGadget {
+	border: 1px solid red;
+	position: static;
+	margin: 10px 0px 5px 0px;
+}
+
+.GadgetMenuBar {
+	height: 18px;
+	background: aqua;
+}
+
+.GadgetContent  {
+	height: 100px;
+}
+
+.UITarget {
+	border: 1px dotted green;
+	margin: 10px 0px 5px 0px;
+}
+
+.Dragging {
+	margin: 3px 0px 0px 3px;
+}

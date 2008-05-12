@@ -1,0 +1,4 @@
+<div id="$uicomponent.id" class="UIDashboardPortlet">
+	<% uicomponent.renderChildren(); %>
+	<div style="clear:left; display:none;"><span></span></div>
+</div>
