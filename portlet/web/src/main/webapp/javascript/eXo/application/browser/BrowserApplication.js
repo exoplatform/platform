@@ -242,33 +242,29 @@ BrowserApplication.prototype.resetIndex = function(eXoBrowser) {
 BrowserApplication.prototype.refreshIFrame = function(obj) {
 	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "UIBrowserPortlet");
 	var iframes = eXo.core.DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
-	
 	for(var i = 0; i < iframes.length; i++) {
-  	if(iframes[i].style.display == "block") {  		
-			iframes[i].src = iframes[i].src ;
-		}
+  	if(iframes[i].style.display != "none") {  		
+				iframes[i].src = iframes[i].src ;
+			}
   }
 } ;
 
 BrowserApplication.prototype.goBack = function(obj) {
-
 	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "UIBrowserPortlet");
 	var iframes = eXo.core.DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
-	
 	for(var i = 0; i < iframes.length; i++) {
-  	if(iframes[i].style.display == "block") {
-			iframes[i].contentWindow.history.back() ;
-		}
+  	if(iframes[i].style.display != "none") {
+					iframes[i].contentWindow.history.back() ;
+			}
   }
 } ;
 
 BrowserApplication.prototype.goForward = function(obj) {
 	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "UIBrowserPortlet");
 	var iframes = eXo.core.DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
-	
 	for(var i = 0; i < iframes.length; i++) {
-  	if(iframes[i].style.display == "block") {
-			iframes[i].contentWindow.history.forward() ;
+  	if(iframes[i].style.display != "none") {
+				iframes[i].contentWindow.history.forward() ;
 		}
   }
 } ;
