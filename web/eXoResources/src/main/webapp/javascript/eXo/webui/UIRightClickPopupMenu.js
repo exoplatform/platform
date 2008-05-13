@@ -75,12 +75,12 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 		tmpCustomItem.style.display = "none" ;
 	}
 		/*
-	 * fix bug right click in IE7 in ECM.
+	 * fix bug right click in IE7.
 	 */
 	var fixWidthForIE7 = 0 ;
 	var UIWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
 	if (eXo.core.Browser.isIE7() && document.getElementById("UIDockBar")) {
-		 fixWidthForIE7 = UIWorkingWorkspace.offsetLeft ;
+		  if (event.clientX > UIWorkingWorkspace.offsetLeft) fixWidthForIE7 = UIWorkingWorkspace.offsetLeft ;
 	}
 	
 	eXo.core.Mouse.update(event) ;
