@@ -176,6 +176,11 @@
 	margin-top: 5px;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UITrees {
+	border-top: none;
+	width: 99%;
+}
+
 .UIOrganizationPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
 	margin-top: 5px;
 }

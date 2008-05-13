@@ -260,6 +260,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .UITrees {
   border-top: none;
+  width: 99%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIPageIterator {

@@ -188,6 +188,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
   border-top: none;
+  width: 99%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .TitleBar{
