@@ -8,12 +8,14 @@
 .UIWindow .UIApplicationRegistryPortlet {
 	margin: 0px;
 	border: none;
+	overflow: visible;
 }
 
 .UIApplicationRegistryPortlet {
 	border: 1px solid #b7b7b7;
 	background: #fff;	
 	margin: 5px;
+	overflow: auto;
 }
 
 .UIApplicationRegistryPortlet .Title {

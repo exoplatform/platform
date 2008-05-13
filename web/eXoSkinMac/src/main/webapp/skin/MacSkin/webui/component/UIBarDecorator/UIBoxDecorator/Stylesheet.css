@@ -64,6 +64,9 @@
 
 /*##############################- Bar Decorator-################################*/
 
+.DecoratorBox .BarDecorator {
+}
+
 .DecoratorBox .BarDecorator .TopRightBar {
   background: url('background/BarDecorator.png') no-repeat right top;
   padding-right: 7px;

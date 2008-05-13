@@ -2,14 +2,15 @@
 	margin: 0px;
 	border: none;
 	height: auto;
+	overflow: visible;
 }
 
 .UII18nPortlet {
 	padding: 10px;
 	background: white;
 	border: 1px solid #b7b7b7;
-	height: 100%;
-	margin: 7px 10px;
+	margin: 5px;
+	overflow: auto;
 }
 
 .UII18nPortlet .UIGrid {

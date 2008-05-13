@@ -18,8 +18,8 @@
 
 /**************************** UIPageBody ************************************/
 
-.UIPageBody .UIWindow {
-  width: 99% ; height: auto;
+.UIWindow {
+  width: 99% ; height: auto; /*Fix bug for IE6*/
   margin: auto;
 }
 
@@ -30,12 +30,6 @@
 
 .UIPageBody .UIWindow .UIApplication {
   height: auto ;
-}
-
-.UIPageBody .UIApplicationRegistryPortlet {
-	width: 99%;
-	margin: auto;
-	margin-bottom: 10px;
 }
 
 .UIPageBody .UIWindow .ResizeArea {

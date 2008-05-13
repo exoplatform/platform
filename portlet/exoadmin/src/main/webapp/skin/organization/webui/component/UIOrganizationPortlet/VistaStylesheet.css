@@ -1,19 +1,19 @@
 .UIWindow .UIOrganizationPortlet {
-  overflow: auto;
   border: none;
   margin: 0px auto;
-}
-
-.UIOrganizationPortlet .OrganizationPortletContainer {
-  padding: 5px 8px ;
+  overflow: visible;
 }
 
 .UIOrganizationPortlet {
   background: white;
   border: 1px solid #b7b7b7;
-  margin: 5px 7px;
+  margin: 5px;
 	padding: 7px; 
-	*width: 96%;
+	overflow: auto;
+}
+
+.UIOrganizationPortlet .OrganizationPortletContainer {
+  padding: 5px 8px ;
 }
 
 .UIOrganizationPortlet .OrganizationPortletContainer .UIMembershipManagement .UIListMembershipType .UIGrid {

@@ -3,17 +3,19 @@
   border: none;
   margin: 0px auto;
   padding: 0px;
-}
-
-.UIOrganizationPortlet .OrganizationPortletContainer {
-	padding: 7px;
-	width: auto;
+  overflow: visible;
 }
 
 .UIOrganizationPortlet {
   background: white;
   border: 1px solid #b7b7b7;
   margin: 5px 12px;
+  overflow: auto;
+}
+
+.UIOrganizationPortlet .OrganizationPortletContainer {
+	padding: 7px;
+	width: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .NodeIcon {
@@ -219,8 +221,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
-  height: 16px; width: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat center;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {

@@ -8,6 +8,7 @@
 .UIWindow .UIApplicationRegistryPortlet {
 	border: none;
 	margin: 0px;
+	overflow: visible;
 }
 
 .UIApplicationRegistryPortlet {
@@ -15,6 +16,7 @@
 	margin: 5px;
 	letter-spacing: 0.4px;
 	background: #fff;
+	overflow: auto;
 }
 
 .UIApplicationRegistryPortlet .UICategoryForm {

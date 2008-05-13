@@ -2,6 +2,7 @@
 .UIWindow .UIApplicationRegistryPortlet {
 	border: none;
 	margin: 0px;
+	overflow: visible;
 }	
 	
 .UIApplicationRegistryPortlet {
@@ -9,6 +10,7 @@
 	height: auto;
 	margin: 5px;
 	background: white;
+	overflow: auto;
 }
 
 .UIApplicationRegistryPortlet .Title {

@@ -9,10 +9,9 @@
 .UIAccountPortlet {
   background: white;
   border: 1px solid #b7b7b7;
-  margin: 5px 5px 7px 5px;
+  margin: 5px;
   padding: 10px 30px;
-  overflow: auto;/*Fix when Restore Down for IE*/
-  height: 100%;
+  overflow: auto;
 }
 
 .UIAccountPortlet .UIFormTabPane {

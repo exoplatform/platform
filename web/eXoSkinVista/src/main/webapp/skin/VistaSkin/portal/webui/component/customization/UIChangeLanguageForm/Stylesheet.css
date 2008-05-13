@@ -1,8 +1,9 @@
 .UIChangeLanguageForm {
 }
+
 .UIChangeLanguageForm .UIFormTabPane {
-	border:1px solid white;
-	padding:0px;
+	border: 1px solid white;
+	padding: 0px;
 }
 
 .UIChangeLanguageForm .MiddleFormTitle {
@@ -14,9 +15,8 @@
 	padding-left:10px;
 }
 
-.UIChangeLanguageForm .UIBarStyle .TitleBar {
-	padding: 15px 5px 0px 5px; 
-	margin: 0px;
+.UIChangeLanguageForm .UITabPane .TabPaneContent {
+	padding: 0px 10px;
 }
 
 .UIChangeLanguageForm .UIFormTabPane .UITabPane .TabPaneContent .UITabContentContainer {
