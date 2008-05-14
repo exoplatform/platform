@@ -125,7 +125,7 @@
 }
 
 .UIAccessGroup .UIGrid {
-  width: 99%;
+  width: 95%;
   margin: auto;
 }
 
@@ -134,7 +134,8 @@
 }
 
 .UIAccessGroup .UIFormGrid {
-	margin: 0px 0px 5px 0px;
+	width: 95%;
+	margin: 0px auto 5px auto;
 }
 
 .UIAccessGroup .UIFormGrid td.FieldLabel {
