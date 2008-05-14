@@ -60,6 +60,7 @@ function Browser() {
   this.onResizeCallback = new eXo.core.HashMap() ;
   this.onScrollCallback = new eXo.core.HashMap() ;
   
+  this.breakStream = 0;
   window.onresize =  this.onResize ;
   window.onscroll =  this.onScroll ;
   
@@ -172,11 +173,19 @@ Browser.prototype.addOnResizeCallback = function(id, method) {
 /**
  * Calls the functions in the onResizeCallback array, if they exist
  */
+
 Browser.prototype.onResize = function(event) {
-  var callback = eXo.core.Browser.onResizeCallback ;
-  for(var name in callback.properties) {
-    var method = callback.get(name) ;
-    if (typeof(method) == "function") method(event) ;
+	var Browser = eXo.core.Browser;
+	if (Browser.breakStream == 0) {
+		setTimeout("eXo.core.Browser.breakStream = 0;", 100);
+		Browser.breakStream ++;
+	 var callback = Browser.onResizeCallback ;
+	 for(var name in callback.properties) {
+	    var method = callback.get(name) ;
+	    if (typeof(method) == "function") method(event) ;
+	  }
+  } else {
+  	Browser.breakStream ++;
   }
 } ;
 /**
@@ -355,14 +364,6 @@ Browser.prototype.getCookie = function(name) {
 	}
 	return "" ;
 } ;
-
-/* 
- * set the Title of the page
- */
-Browser.prototype.setTitle = function(/*String*/ name) {
-	document.title = name;
-} ;
-
 /************************************************************************************/
 eXo.core.Browser = new Browser() ;
 eXo.core.Mouse = new MouseObject() ;
