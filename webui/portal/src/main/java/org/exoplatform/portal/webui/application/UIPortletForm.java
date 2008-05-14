@@ -264,6 +264,16 @@ public class UIPortletForm extends UIFormTabPane {
         uiPortlet.setCurrentPortletMode(PortletMode.VIEW);
       }
       
+      String width = uiPortletForm.getUIStringInput("width").getValue();
+      if(width==null || width.length()==0)
+        uiPortlet.setWidth(null);
+      else uiPortlet.setWidth(width);
+      
+      String height = uiPortletForm.getUIStringInput("height").getValue();
+      if(height==null || height.length()==0)
+        uiPortlet.setHeight(null);
+      else uiPortlet.setHeight(height);
+      
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       pcontext.addUIComponentToUpdateByAjax(uiMaskWorkspace);
       UIPortalApplication uiPortalApp = uiPortlet.getAncestorOfType(UIPortalApplication.class);
