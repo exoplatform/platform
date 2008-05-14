@@ -31,41 +31,30 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
  **/
 UIPortalControl.prototype.fixHeight = function() {
 	var objectParent = document.getElementById("UIControlWorkspace");
-	if(objectParent) {
+	if(!objectParent) return;
+	if (objectParent.bussy) {
+		objectParent.bussy = false;
+		objectParent.recall = setTimeout("eXo.portal.UIPortalControl.fixHeight()", 1000);
+	} else {
+		objectParent.bussy = true;
+		clearTimeout(objectParent.recall);
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiControlWSWorkingArea = document.getElementById("UIControlWSWorkingArea");
+		var uiWorkspacePanel = document.getElementById("UIWorkspacePanel");
 		var uiWorkspaceContainer = DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
 		if(uiWorkspaceContainer.style.display == "block") {
 			var scrollArea = DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea") ;
 			if(scrollArea != null) {
-				if(eXo.core.Browser.isIE6()) {
-					var html = document.getElementsByTagName("html")[0];
-				  var tmp = html.offsetHeight - 82;
-				} else {
-				  var tmp = objectParent.offsetHeight - 72;
-				}
-				/* 72 is total value (UserWorkspaceTitleHeight + UIExoStartHeight)
-				 */
-				var firstHeight = scrollArea.offsetHeight;
+				var baseHeight = parseInt(uiWorkspacePanel.style.height);
 				scrollArea.style.height = "auto";
-				//scrollArea.style.width = "auto";
-				var heightChild = scrollArea.offsetHeight;
-				var maxHeight = 0;
-				if(uiControlWSWorkingArea) {
-				  maxHeight = uiControlWSWorkingArea.offsetHeight ;
-				} 
-				var deltaResize = maxHeight - tmp;
-				if(deltaResize > 0 && (heightChild - deltaResize) > 0) {
-							scrollArea.style.overflow = "auto";
-							scrollArea.style.height = heightChild - deltaResize + "px";
-							//scrollArea.style.width = scrollArea.offsetWidth  + "px";
-							//TODO: dang.tung -> fix bug if scroll display
-							//-----------------------------------------------------------
-							// Lam Nguyen comment to remove style width
-//              if(eXo.core.Browser.isIE6()) {
-//								scrollArea.style.width = scrollArea.offsetWidth - 16  + "px";
-//							}
-							//-----------------------------------------------------------
+				var scrollAreaHeight = scrollArea.scrollHeight;
+				var contentHeight = 0;
+				if(uiControlWSWorkingArea) contentHeight = uiControlWSWorkingArea.offsetHeight ; 
+				var deltaResize = contentHeight - baseHeight;
+				if(deltaResize > 0 && (scrollAreaHeight > deltaResize)) {
+						scrollArea.style.overflowY = "auto";
+						scrollArea.style.height = scrollAreaHeight - deltaResize + "px";
+						scrollArea.style.overflowX = "hidden";
 				}
 			}
 		}
