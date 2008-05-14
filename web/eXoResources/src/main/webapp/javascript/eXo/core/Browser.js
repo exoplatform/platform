@@ -44,7 +44,6 @@ MouseObject.prototype.update = function(mouseEvent) {
 } ;
 
 /************************************************************************************/
-
 /**
 * This function aims is to configure the javascript environment according to the browser in use
 *
@@ -60,8 +59,8 @@ function Browser() {
   this.onResizeCallback = new eXo.core.HashMap() ;
   this.onScrollCallback = new eXo.core.HashMap() ;
   
-  this.breakStream = 0;
-  window.onresize =  this.onResize ;
+  this.breakStream;
+  window.onresize =  this.managerResize ;
   window.onscroll =  this.onScroll ;
   
   this.initCommon() ;
@@ -71,6 +70,12 @@ function Browser() {
   else if(detect.indexOf("safari") + 1) this.initSafari() ;
   else this.initMozilla() ;
 } ;
+
+Browser.prototype.managerResize = function() {
+	var Browser = eXo.core.Browser ;
+	clearTimeout(Browser.breakStream) ;
+	Browser.breakStream = setTimeout(eXo.core.Browser.onResize, 100) ;
+}
 
 Browser.prototype.initCommon = function() {
   this.getBrowserHeight = function() { return document.documentElement.clientHeight ; }
@@ -175,18 +180,11 @@ Browser.prototype.addOnResizeCallback = function(id, method) {
  */
 
 Browser.prototype.onResize = function(event) {
-	var Browser = eXo.core.Browser;
-	if (Browser.breakStream == 0) {
-		setTimeout("eXo.core.Browser.breakStream = 0;", 100);
-		Browser.breakStream ++;
-	 var callback = Browser.onResizeCallback ;
-	 for(var name in callback.properties) {
-	    var method = callback.get(name) ;
-	    if (typeof(method) == "function") method(event) ;
-	  }
-  } else {
-  	Browser.breakStream ++;
-  }
+	var callback = eXo.core.Browser.onResizeCallback ;
+ for(var name in callback.properties) {
+   var method = callback.get(name) ;
+   if (typeof(method) == "function") method(event) ;
+ }
 } ;
 /**
  * Adds a function to the list of functions to call when the user scrolls
