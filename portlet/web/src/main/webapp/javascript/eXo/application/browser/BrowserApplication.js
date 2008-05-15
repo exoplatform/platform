@@ -3,8 +3,8 @@ function BrowserApplication() {
 
 BrowserApplication.prototype.init = function(instanceId) {
 	var DOMUtil = eXo.core.DOMUtil ;
-  this.NumberOfTab = 1 ;
-  var eXoBrowser = document.getElementById(instanceId) ;
+	this.NumberOfTab = 1 ;
+	var eXoBrowser = document.getElementById(instanceId) ;
 	
 	var buttonContainer = DOMUtil.findFirstDescendantByClass(eXoBrowser, "div","ButtonContainer") ;
 	var buttonBackground = DOMUtil.findChildrenByClass(buttonContainer, "div", "ToolbarButton") ;
@@ -34,10 +34,12 @@ BrowserApplication.prototype.init = function(instanceId) {
 	};
 	
 	var iframe = DOMUtil.findFirstDescendantByClass(eXoBrowser, "iframe", "IFrame") ;
+	iframe.style.display = "block" ;
 	var parentIframe = iframe.parentNode;
 	if (parentIframe.offsetHeight < 296) parentIframe.style.height = 296 + "px";
 	var delta = eXoBrowser.parentNode.offsetHeight - eXoBrowser.offsetHeight;
 	parentIframe.style.height = parentIframe.offsetHeight + delta + "px";
+	this.storeURL(iframe, "javascript: voild(0);");
 } ;
 
 BrowserApplication.prototype.onKeyPress = function(e) {
@@ -80,16 +82,17 @@ BrowserApplication.prototype.getUrl = function(obj) {
 	var tabContainer = DOMUtil.findFirstDescendantByClass(eXoBrowser, "div", "TabContainer") ;
 	var tabLabels = DOMUtil.findDescendantsByClass(tabContainer, "div", "TabLabel") ;
 	var src = txtAddress.value ;
-  for(var i = 0; i < iframes.length; i++) {
-  	if(iframes[i].style.display != "none") {
-  		if (src.indexOf("http") < 0){
-  			src = "http://"+ src ;
-  			txtAddress.value = src ;
-  		}
-			iframes[i].src = src ;			
+	for (var i = 0; i < iframes.length; i++) {
+		if (iframes[i].style.display != "none") {
+			if (src.indexOf("http") < 0) {
+				src = "http://"+ src ;
+				txtAddress.value = src ;
+			}
+			iframes[i].src = src ;
+			this.storeURL(iframes[i], src);
 			tabLabels[i].innerHTML = this.convertURL(src) ;
 		}
-  }
+	}
   
 } ;
 
@@ -102,9 +105,9 @@ BrowserApplication.prototype.onMouseOver = function(object, normalClass, activeC
 } ;
 
 BrowserApplication.prototype.createNewTab = function(clickedElement) {
-	var DOMUtil = eXo.core.DOMUtil ;
-	var ancestorNode = DOMUtil.findAncestorByClass(clickedElement, "BrowserContent") ;
-	var uiToolbar = DOMUtil.findPreviousElementByTagName(ancestorNode, "div") ;
+  var DOMUtil = eXo.core.DOMUtil ;
+  var ancestorNode = DOMUtil.findAncestorByClass(clickedElement, "BrowserContent") ;
+  var uiToolbar = DOMUtil.findPreviousElementByTagName(ancestorNode, "div") ;
   var txtAddress = DOMUtil.findFirstDescendantByClass(uiToolbar, 'input', "txtAddress") ;
   this.NumberOfTab++ ;
   txtAddress.value = "http://" ;
@@ -131,8 +134,8 @@ BrowserApplication.prototype.createNewTab = function(clickedElement) {
   } ;
   clickedElement.parentNode.insertBefore(cloneActiveTab, clickedElement) ;
   
-	var firstCloseButton = DOMUtil.findFirstDescendantByClass(tabParent, "div", "CloseButton") ;
-  if(firstCloseButton.style.display == "none") {
+  var firstCloseButton = DOMUtil.findFirstDescendantByClass(tabParent, "div", "CloseButton") ;
+  if (firstCloseButton.style.display == "none") {
 	  var closeButton = DOMUtil.findDescendantsByClass(tabParent, "div", "CloseButton") ;
 	  for(var i = 0; i < closeButton.length; i++) {
 	  	if(closeButton[i].style.display == "none") closeButton[i].style.display = "block" ;
@@ -148,13 +151,13 @@ BrowserApplication.prototype.createNewTab = function(clickedElement) {
   	iframes[j].style.display = "none" ;
   }
  	
- 	var tabContent = DOMUtil.findFirstDescendantByClass(ancestorNode, "div", "TabContent") ;
+  var tabContent = DOMUtil.findFirstDescendantByClass(ancestorNode, "div", "TabContent") ;
   var newIFrame = document.createElement("iframe") ;
   newIFrame.className = "IFrame" ;
   newIFrame.style.display = "block" ;
   newIFrame.frameBorder = "0" ;
   tabContent.appendChild(newIFrame) ;
-  
+  this.storeURL(newIFrame, "javascript: voild(0);");
   this.resizeTabDetail(tabParent) ;
 } ;
 
@@ -176,13 +179,13 @@ BrowserApplication.prototype.activateTabDetail = function(selectedElement, ances
 			iframes[j].style.display = "block" ;
 			txtAddress.value = (iframes[j].src !="")?iframes[j].src : "http://" ;
 		} else {
-	  	iframes[j].style.display = "none" ;
+			iframes[j].style.display = "none" ;
 		}
   }
 } ;
 BrowserApplication.prototype.removeTabDetail = function(clickedElement) {
 	var DOMUtil = eXo.core.DOMUtil ;
-	if(this.NumberOfTab > 1) {
+	if (this.NumberOfTab > 1) {
 		this.NumberOfTab-- ;
 		
 		var eXoBrowser = DOMUtil.findAncestorByClass(clickedElement, "UIBrowserPortlet") ;
@@ -196,10 +199,10 @@ BrowserApplication.prototype.removeTabDetail = function(clickedElement) {
 		var tabContent = DOMUtil.findFirstDescendantByClass(eXoBrowser, "div", "TabContent") ;
 		var iframes = DOMUtil.findDescendantsByClass(tabContent, "iframe", "IFrame") ;
 
-		if(tabDetail.className == "ActiveTabDetailBackground TabMenuItem") {
+		if (tabDetail.className == "ActiveTabDetailBackground TabMenuItem") {
 			var tabDetailList = DOMUtil.findDescendantsByClass(tabContainer, "div", "TabDetailBackground") ;
 			var index ;
-			if(tabIndex - 1 >= 0) {
+			if (tabIndex - 1 >= 0) {
 				index = tabIndex - 1 ;
 				iframes[index].style.display = "block" ;
 				txtAddress.value = iframes[index].src ;
@@ -218,7 +221,7 @@ BrowserApplication.prototype.removeTabDetail = function(clickedElement) {
 		this.resizeTabDetail(tabContainer) ;
 		
 		eXo.application.browser.BrowserApplication.resetIndex(eXoBrowser) ;
-		if(this.NumberOfTab <= 1) {
+		if (this.NumberOfTab <= 1) {
 			var firstCloseButton = DOMUtil.findFirstDescendantByClass(tabContainer, "div", "CloseButton") ;
 			firstCloseButton.style.display = "none" ;
 		}
@@ -244,29 +247,45 @@ BrowserApplication.prototype.refreshIFrame = function(obj) {
 	var iframes = eXo.core.DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
 	for(var i = 0; i < iframes.length; i++) {
   	if(iframes[i].style.display != "none") {  		
-				iframes[i].src = iframes[i].src ;
-			}
+			iframes[i].src = iframes[i].src ;
+		}
   }
 } ;
-
+	
 BrowserApplication.prototype.goBack = function(obj) {
 	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "UIBrowserPortlet");
 	var iframes = eXo.core.DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
 	for(var i = 0; i < iframes.length; i++) {
-  	if(iframes[i].style.display != "none") {
-					iframes[i].contentWindow.history.back() ;
+	  	if (iframes[i].style.display != "none") {
+			var index = this.getIndexURL(iframes[i], iframes[i].src) ;
+			if (--index) {
+				iframes[i].src = this.getFullURL(iframes[i], index);
+				var fieldAddress = eXo.core.DOMUtil.findFirstDescendantByClass(eXoBrowser, "input", "txtAddress") ;
+				if (fieldAddress) fieldAddress.value = iframes[i].src ;
+				var activeTab = eXo.core.DOMUtil.findFirstDescendantByClass(eXoBrowser, "div", "ActiveTabDetailBackground") ;
+				var tabLabel = eXo.core.DOMUtil.findFirstDescendantByClass(activeTab, "div", "TabLabel") ;
+				tabLabel.innerHTML = this.convertURL(iframes[i].src) ;
 			}
-  }
+		}
+	}
 } ;
 
 BrowserApplication.prototype.goForward = function(obj) {
 	var eXoBrowser = eXo.core.DOMUtil.findAncestorByClass(obj, "UIBrowserPortlet");
 	var iframes = eXo.core.DOMUtil.findDescendantsByClass(eXoBrowser, "iframe", "IFrame") ;
-	for(var i = 0; i < iframes.length; i++) {
-  	if(iframes[i].style.display != "none") {
-				iframes[i].contentWindow.history.forward() ;
+	for (var i = 0; i < iframes.length; i++) {
+		if (iframes[i].style.display != "none") {
+			var index = this.getIndexURL(iframes[i], iframes[i].src);
+			if (iframes[i].store[++index]) {
+				iframes[i].src = this.getFullURL(iframes[i], index);
+				var fieldAddress = eXo.core.DOMUtil.findFirstDescendantByClass(eXoBrowser, "input", "txtAddress") ;
+				if (fieldAddress) fieldAddress.value = iframes[i].src ;
+				var activeTab = eXo.core.DOMUtil.findFirstDescendantByClass(eXoBrowser, "div", "ActiveTabDetailBackground") ;
+				var tabLabel = eXo.core.DOMUtil.findFirstDescendantByClass(activeTab, "div", "TabLabel") ;
+				tabLabel.innerHTML = this.convertURL(iframes[i].src) ;
+			}
 		}
-  }
+	}
 } ;
 
 BrowserApplication.prototype.resizeTabDetail = function(tabContainer) {
@@ -336,6 +355,24 @@ BrowserApplication.prototype.stopLoad = function() {
 	} else {
 		window.stop() ;
 	}
+} ;
+
+BrowserApplication.prototype.storeURL = function (iframe, url) {
+	if (!iframe.store) iframe.store = new Array();
+	iframe.store.push(url) ;
+} ;
+
+BrowserApplication.prototype.getIndexURL = function (iframe, url) {
+	if (!iframe || !iframe.store) return ;
+	for (var i in iframe.store) {
+		if (Array.prototype[i]) continue ;
+		if (url.indexOf(iframe.store[i]) != -1) return i ;
+	}
+} ;
+
+BrowserApplication.prototype.getFullURL = function (iframe, index) {
+	if (!iframe || !iframe.store || !iframe.store[index]) return ;
+	return iframe.store[index];
 } ;
 
 eXo.application.browser.BrowserApplication = new BrowserApplication() ;
