@@ -36,17 +36,14 @@
 }
 
 .UIMaskWorkspace .IconLayout {
-  float: left ;
-  margin: 3px 5px 0px 5px ;
+	float: left ;
+	margin: 3px 5px 0px 5px ;
 }
 
 .UIMaskWorkspace .UIFormTabPane {
-  padding: 10px 10px 5px 10px ;
+	padding: 10px 10px 5px 10px ;
 }
 
-.UIMaskWorkspace .UIForm .HorizontalLayout .FieldContainer {
-  width: 460px;
-}
 
 .UIMaskWorkspace .UIForm .HorizontalLayout .SelectedIconInfo .UIFormInputSet {
   margin: auto;
