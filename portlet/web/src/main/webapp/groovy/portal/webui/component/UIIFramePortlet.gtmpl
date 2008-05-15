@@ -10,14 +10,3 @@
     }
   %>
 </div>
-<script type="text/javascript">
-	var uiPortal = document.getElementById("UIPortal");
-	if (uiPortal){
-		var iFrames = eXo.core.DOMUtil.findDescendantsByClass(uiPortal, "div", "UIIFramePortlet");
-		if (iFrames.length) {
-			for (var i = 0; i < iFrames.length; i ++) {
-				iFrames[i].style.height = 400 + "px";
-			}
-		}
-	}
-</script>
