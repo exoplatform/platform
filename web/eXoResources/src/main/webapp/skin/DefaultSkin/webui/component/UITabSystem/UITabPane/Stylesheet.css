@@ -17,7 +17,11 @@
   padding: 15px 7px ;
 }
 
-.UITabPane .UITabContentContainer .UITabContent .HorizontalLayout {
+.UITabPane .UIForm .HorizontalLayout {
 	border: none;
 	background: none;
+}
+
+.UITabPane .UIFormWidthTitle .HorizontalLayout {
+	border: 1px solid #b7b7b7;
 }
