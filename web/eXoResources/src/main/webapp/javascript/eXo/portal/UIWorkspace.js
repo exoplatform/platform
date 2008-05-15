@@ -158,16 +158,6 @@ eXo.portal.UIWorkingWorkspace.onResize = function() {
   } else {
   	uiWorkspace.style.marginLeft = "0px" ;
   }
-  var UIPortal = eXo.core.DOMUtil.findFirstChildByClass(uiWorkspace, "div", "UIPortal");
-  if (!UIPortal || UIPortal.style.overflow == "hidden") return;
-	/*
- 	* minh.js.exo
- 	* fix bug portal-1572;
- 	*/
-	UIPortal.style.height = UIPortal.offsetHeight + "px";
-	UIPortal.style.overflow = "hidden";
-	UIPortal.style.position = "relative";
-
 };
 
 eXo.portal.UIWorkingWorkspace.resizeWorkspacePanel = function(h) {
