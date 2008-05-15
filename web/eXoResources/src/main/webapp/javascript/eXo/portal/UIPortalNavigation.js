@@ -28,9 +28,15 @@ UIPortalNavigation.prototype.init = function(popupMenu, container, x, y) {
  * Calls the init function when the page loads
  */
 UIPortalNavigation.prototype.onLoad = function() {
-  var uiNavPortlet = document.getElementById("UINavigationPortlet");
-  var mainContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiNavPortlet, "div", "TabsContainer");
-  eXo.portal.UIPortalNavigation.init(uiNavPortlet, mainContainer, 0, 0);
+  var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace");
+  var uiNavPortlets = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWorkspace, "div", "UINavigationPortlet");
+  if (uiNavPortlets.length) {
+  		var mainContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiNavPortlets[0], "div", "TabsContainer");
+	 		eXo.portal.UIPortalNavigation.init(uiNavPortlets[0], mainContainer, 0, 0);
+  		for (var i = 1; i < uiNavPortlets.length; ++i) {
+					uiNavPortlets[i].style.display = "none";
+  		}
+  }
 };
 /**
  * Builds the menu and the submenus
@@ -63,7 +69,7 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
      */
     var container = DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
     if (container) {
-      if (eXo.core.Browser.browserType == "mozilla" || eXo.core.Browser.isIE7() ) {
+      if (eXo.core.Browser.browserType == "mozilla" || eXo.core.Browser.isIE7()) {
         container.style.minWidth = item.offsetWidth + "px";
       } else {
         container.style.width = item.offsetWidth + "px";
@@ -80,7 +86,7 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 
     // Set an id to each container for future reference
     var cont = DOMUtil.findAncestorByClass(menuItem, this.containerStyleClass) ;
-    if (!cont.id) cont.id = "PortalNavigationContainer-" + i;
+    if (!cont.id) cont.id = "PortalNavigationContainer-" + i + Math.random();
     cont.resized = false;
   }
 };
