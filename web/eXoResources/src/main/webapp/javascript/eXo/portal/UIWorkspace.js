@@ -11,6 +11,7 @@ if(!eXo.portal.UIControlWorkspace) {
 };
 
 eXo.portal.UIControlWorkspace.onResize = function(width, height) {
+	
 	this.width = width ;
 	this.height = height ;
 	var uiWorkspace = document.getElementById(this.id) ;
@@ -19,7 +20,6 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	var uiWorkspacePanel = document.getElementById("UIWorkspacePanel") ;
 	uiWorkspace.style.width = width + "px" ;
 	uiWorkspace.style.height = height + "px" ;
-		
 	/*	In case uiWorkspaceContainer is setted display to none, uiWorkspaceControl.offsetHeight equal 0 
 	 * 	23 is the height of User Workspace Title.
 	 * */
@@ -30,10 +30,12 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	var startMenuContainer = document.getElementById("StartMenuContainer");
 	startMenuContainer.style.display = "none";
 	uiWorkspacePanel.style.height = (height - this.uiWorkspaceControl.offsetHeight - 23) + "px" ;
-	
+	uiWorkspacePanel.style.overflow = "hidden";
 	/*Fix Bug on IE*/
 	eXo.portal.UIControlWorkspace.slidebar.style.height = height + "px" ;
+	eXo.portal.UIControlWorkspace.slidebar.style.overflow = "hidden";
 	uiWorkspace.style.top = document.documentElement.scrollTop + "px" ;
+
 } ;
 
 eXo.portal.UIControlWorkspace.onResizeDefault = function() {
@@ -156,6 +158,16 @@ eXo.portal.UIWorkingWorkspace.onResize = function() {
   } else {
   	uiWorkspace.style.marginLeft = "0px" ;
   }
+  var UIPortal = eXo.core.DOMUtil.findFirstChildByClass(uiWorkspace, "div", "UIPortal");
+  if (!UIPortal || UIPortal.style.overflow == "hidden") return;
+	/*
+ 	* minh.js.exo
+ 	* fix bug portal-1572;
+ 	*/
+	UIPortal.style.height = UIPortal.offsetHeight + "px";
+	UIPortal.style.overflow = "hidden";
+	UIPortal.style.position = "relative";
+
 };
 
 eXo.portal.UIWorkingWorkspace.resizeWorkspacePanel = function(h) {

@@ -12,7 +12,7 @@ function UIComponent(node) {
   this.id = div[0].firstChild.nodeValue ;
   this.title = div[1].firstChild.nodeValue ;
 	//minh.js.exo
-  //bug bug PORTAL-1161.
+ //bug PORTAL-1161.
 	//this.description = div[2].firstChild.nodeValue ;
 };
 //UIComponent.prototype.getDescription = function() { return this.description ; };
