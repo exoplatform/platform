@@ -5,7 +5,7 @@ eXo.core.DragDrop2 = {
 	
 	init : function(o, oRoot) {
 		o.onmousedown = eXo.core.DragDrop2.start;
-		
+
 		o.root = oRoot && oRoot != null ? oRoot : o ;
 		o.root.onmousedown = function() {
 			this.style.zIndex = ++count ;
@@ -17,6 +17,10 @@ eXo.core.DragDrop2 = {
 	},
 	
 	start : function(e)	{
+		if (!e) e = window.event;
+		if(((e.which) && (e.which == 2 || e.which == 3)) || ((e.button) && (e.button == 2)))	{
+			return;
+		}
 		var o = eXo.core.DragDrop2.obj = this;
 		e = eXo.core.DragDrop2.fixE(e);
 		var y = parseInt(DOMUtil.getStyle(o.root,"top"));
@@ -40,12 +44,11 @@ eXo.core.DragDrop2 = {
 
 		nx = x + (ex - o.lastMouseX);
 		ny = y + (ey - o.lastMouseY);
-		
 		eXo.core.DragDrop2.obj.root.style["left"] = nx + "px";
 		eXo.core.DragDrop2.obj.root.style["top"] = ny + "px";
 		eXo.core.DragDrop2.obj.lastMouseX = ex;
 		eXo.core.DragDrop2.obj.lastMouseY = ey;
-		
+
 		eXo.core.DragDrop2.obj.root.onDrag(nx, ny, ex, ey, e);
 		return false;
 	},
@@ -64,25 +67,6 @@ eXo.core.DragDrop2 = {
 		if (typeof e.layerX == 'undefined') e.layerX = e.offsetX;
 		if (typeof e.layerY == 'undefined') e.layerY = e.offsetY;
 		return e;
-	},
+	}
 	
-	isIn : function(x, y, component) {
-	  var componentLeft = eXo.core.Browser.findPosX(component);
-	  var componentRight = componentLeft + component.offsetWidth ;
-	  var componentTop = eXo.core.Browser.findPosY(component) ;
-	  var componentBottom = componentTop + component.offsetHeight ;
-	  var isOver = false ;
-	
-			var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
-			if ((uiWorkspaceContainer && uiWorkspaceContainer.style.display != "none") && eXo.core.Browser.isIE7()) {
-				componentRight = componentRight - uiWorkspaceContainer.offsetWidth;
-			}
-			
-	  if((componentLeft < x) && (x < componentRight)) {
-	    if((componentTop < y) && (y < componentBottom)) {
-	      isOver = true ;
-	    }
-	  }
-	  return isOver ;
-	} 
 };

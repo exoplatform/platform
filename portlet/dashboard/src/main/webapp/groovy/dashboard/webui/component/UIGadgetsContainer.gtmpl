@@ -1,13 +1,5 @@
-<%
-  import org.exoplatform.web.application.JavascriptManager;
-  
-  def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  jsmanager.importJavascript("eXo.widget.GadgetDragDrop");
-  jsmanager.addOnLoadJavascript("eXo.widget.GadgetDragDrop.onLoad()");
-%>
 
-<div id="drag" class="$uicomponent.id">
+<div id="$uicomponent.id" class="$uicomponent.id">
 	<div class="GadgetsContainer" id="GadgetsContainer">
 		<div class="UIColumns">
 		<%
@@ -16,12 +8,12 @@
 			for(i=0; i<count; i++){ 
 		%>
 			<div class="UIColumn" id="UIColumn<%=i%>" style="width:<%=colWidth+"%"%>;height:350px;">
-				<div class="UIGadget" id="<%=i%>" style="top:0px; left:0px;">
-					<div class="GadgetMenuBar" id="source<%=i%>" style="cursor: move;">menubar<%=i%></div>
+				<div class="UIGadget DragObject" id="<%=i%>" style="top:0px; left:0px;">
+					<div class="GadgetMenuBar DragItem" id="source<%=i%>">menubar<%=i%></div>
 					<div class="GadgetContent">content</div>
 				</div>
-				<div class="UIGadget" id="<%=i+2%>" style="top:0px; left:0px;">
-					<div class="GadgetMenuBar" id="source<%=i+2%>" style="cursor: move;">menubar<%=i+2%></div>
+				<div class="UIGadget DragObject" id="<%=i+4%>" style="top:0px; left:0px;">
+					<div class="GadgetMenuBar DragItem" id="source<%=i+4%>">menubar<%=i+4%></div>
 					<div class="GadgetContent">content</div>
 				</div>
 			

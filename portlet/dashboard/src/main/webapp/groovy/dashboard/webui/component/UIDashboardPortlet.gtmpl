@@ -1,4 +1,13 @@
-<div id="$uicomponent.id" class="UIDashboardPortlet">
+<%
+  import org.exoplatform.web.application.JavascriptManager;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  jsmanager.importJavascript("eXo.widget.GadgetDragDrop");
+  jsmanager.addOnLoadJavascript("eXo.widget.GadgetDragDrop.onLoadGadgetContainer()");
+%>
+
+<div id="$uicomponent.id-<%=new Date().getTime();%>" class="UIDashboardPortlet">
 	<% uicomponent.renderChildren(); %>
 	<div style="clear:left; display:none;"><span></span></div>
 </div>

@@ -1,11 +1,24 @@
 .UIDashboardPortlet {
 }
 
+
+/*----------------------UIGadgetsSelectorForm-------------------*/
 .UIGadgetsSelectorForm {
-	float:left;
-	width:200px;
+	float: left;
+	width: 200px;
 }
 
+.ItemGadget {
+	border: 1px solid pink;
+	background: aqua;
+	margin: 3px 5px 3px 5px;
+}
+
+.ItemLabel {
+	line-height: 18px;
+}
+
+/*----------------------UIGadgetsContainer-------------------*/
 .UIGadgetsContainer {
 	margin-left: 203px;
 	border: 1px solid green;
@@ -18,18 +31,18 @@
 	border: 1px solid pink;
 	float: left;
 	height:350px;
-	padding: 0px 10px 0px 10px;
+	padding: 10px 10px 0px 10px;
 }
 
 .UIGadget {
 	border: 1px solid red;
-	position: static;
-	margin: 10px 0px 5px 0px;
+	margin: 0px 0px 10px 0px;
 }
 
 .GadgetMenuBar {
 	height: 18px;
 	background: aqua;
+	cursor: move;
 }
 
 .GadgetContent  {
@@ -38,7 +51,7 @@
 
 .UITarget {
 	border: 1px dotted green;
-	margin: 10px 0px 5px 0px;
+	margin: 0px 0px 10px 0px;
 }
 
 .Dragging {
