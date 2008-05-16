@@ -35,7 +35,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 })
 public class UIDashboardPortlet extends UIPortletApplication {
   public UIDashboardPortlet() throws Exception {
-    addChild(UIGadgetsSelectorForm.class, null, null);
-    addChild(UIGadgetsContainer.class, null, null);
+    addChild(UIDashboardSelectForm.class, null, null);
+    addChild(UIDashboardContainer.class, null, null);
   }
 }

@@ -26,8 +26,6 @@ JavascriptService.addJavascript("eXo.core.Notification","/javascript/eXo/core/No
 JavascriptService.addJavascript("eXo.widget.UIWidget", "/javascript/eXo/widget/UIWidget.js", ServletContext);
 JavascriptService.addJavascript("eXo.widget.UIAddWidget", "/javascript/eXo/widget/UIAddWidget.js", ServletContext);
 JavascriptService.addJavascript("eXo.widget.UIExoWidget", "/javascript/eXo/widget/UIExoWidget.js", ServletContext);
-JavascriptService.addJavascript("eXo.widget.GadgetDragDrop", "/javascript/eXo/widget/GadgetDragDrop.js", ServletContext);
-JavascriptService.addJavascript("eXo.widget.GadgetUtil", "/javascript/eXo/widget/GadgetUtil.js", ServletContext);
 
 /* WebUI Javascripts */ 
 JavascriptService.addJavascript("eXo.webui.UIItemSelector", "/javascript/eXo/webui/UIItemSelector.js", ServletContext);
@@ -42,6 +40,8 @@ JavascriptService.addJavascript("eXo.webui.UIDropDownControl", "/javascript/eXo/
 JavascriptService.addJavascript("eXo.webui.UIRightClickPopupMenu", "/javascript/eXo/webui/UIRightClickPopupMenu.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIVerticalSlideTabs", "/javascript/eXo/webui/UIVerticalSlideTabs.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIPermissionSelectorTab", "/javascript/eXo/webui/UIPermissionSelectorTab.js", ServletContext);
+JavascriptService.addJavascript("eXo.webui.UIDashboard", "/javascript/eXo/webui/UIDashboard.js", ServletContext);
+JavascriptService.addJavascript("eXo.webui.UIDashboardUtil", "/javascript/eXo/webui/UIDashboardUtil.js", ServletContext);
 
 /* Portal Javascripts */ 
 JavascriptService.addJavascript("eXo.portal.PortalHttpRequest", "/javascript/eXo/portal/PortalHttpRequest.js", ServletContext);

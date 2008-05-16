@@ -33,6 +33,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 /**
  * Created by The eXo Platform SARL
  * Author : dang.tung
@@ -62,10 +63,10 @@ public class UIAccountProfiles extends UIForm {
     addUIFormInput(userName.
         addValidator(MandatoryValidator.class).
         addValidator(IdentifierValidator.class)) ;
-    addUIFormInput(new UIFormStringInput("firstName", "firstName", useraccount.getFirstName()).
-            addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
-    addUIFormInput(new UIFormStringInput("lastName", "lastName", useraccount.getLastName()).
-            addValidator(MandatoryValidator.class).addValidator(IdentifierValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("firstName", "firstName", useraccount.getFirstName()).setMaxLength(45).
+            addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("lastName", "lastName", useraccount.getLastName()).setMaxLength(45).
+            addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
     addUIFormInput(new UIFormStringInput("email", "email", useraccount.getEmail()). 
             addValidator(MandatoryValidator.class).
             addValidator(EmailAddressValidator.class)) ;

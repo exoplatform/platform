@@ -18,10 +18,7 @@ package org.exoplatform.dashboard.webui.component;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 
 /**
@@ -32,25 +29,22 @@ import org.exoplatform.webui.form.UIForm;
  */
 @ComponentConfigs({
   @ComponentConfig(
-      template = "app:/groovy/dashboard/webui/component/UIGadgetsContainer.gtmpl",
-      lifecycle = UIFormLifecycle.class,
-      events = {
-        @EventConfig(listeners = UIGadgetsContainer.CloseActionListener.class)
-      }
+      template = "app:/groovy/dashboard/webui/component/UIDashboardContainer.gtmpl",
+      lifecycle = UIFormLifecycle.class
   )
 })
-public class UIGadgetsContainer extends UIForm {
+public class UIDashboardContainer extends UIForm {
   
   /**
    * The number of columns in dashboard container
    */
   private int columns = 4;
   
-  public UIGadgetsContainer(){
+  public UIDashboardContainer(){
     
   }
   
-  public UIGadgetsContainer(Integer col){
+  public UIDashboardContainer(Integer col){
     if(col != null)
       this.columns = col;
   } 
@@ -61,11 +55,5 @@ public class UIGadgetsContainer extends UIForm {
 
   public void setNumberOfColumns(int columns) {
     this.columns = columns;
-  }
-  
-  static public class CloseActionListener extends EventListener<UIGadgetsContainer> {
-    public void execute(Event<UIGadgetsContainer> event) throws Exception{
-      
-    }
   }
 }

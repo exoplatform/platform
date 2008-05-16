@@ -37,13 +37,13 @@ import org.exoplatform.webui.form.UIForm;
  */
 @ComponentConfigs({
   @ComponentConfig(
-      template = "app:/groovy/dashboard/webui/component/UIGadgetsSelectorForm.gtmpl",
+      template = "app:/groovy/dashboard/webui/component/UIDashboardSelectForm.gtmpl",
       lifecycle = UIFormLifecycle.class
   )
 })
-public class UIGadgetsSelectorForm extends UIForm {
+public class UIDashboardSelectForm extends UIForm {
   private List<Application> widgets ;
-  public UIGadgetsSelectorForm() throws Exception {
+  public UIDashboardSelectForm() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     List<Application> applications = service.getAllApplications();
     List<Application> listWidgets = new ArrayList<Application>();

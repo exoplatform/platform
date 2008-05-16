@@ -1,4 +1,4 @@
-eXo.widget.GadgetUtil = {
+eXo.webui.UIDashboardUtil = {
 
 	findPosX : function(obj) {
 //		window.status ="";
@@ -12,16 +12,13 @@ eXo.widget.GadgetUtil = {
 	  		if( (uiPageDesktop!=null && eXo.core.DOMUtil.hasClass(obj,"UIPageDesktop") && eXo.core.Browser.isIE7()) 
 	  					|| (uiPageDesktop==null && eXo.core.DOMUtil.hasClass(obj,"UIWindow")) ){
 	  			curleft += (obj.offsetLeft - uiWorkingWorkspace.offsetLeft);
-//	  			window.status +=" "+obj.id+":"+obj.offsetLeft;
 	  			obj = obj.offsetParent ;
 	  			continue;
 	  		}
 	  	}
-//	  	window.status +=" "+obj.id+":"+obj.offsetLeft;
   		curleft += obj.offsetLeft ;
 	    obj = obj.offsetParent ;
 	  }
-//	  document.title = curleft;
 	  return curleft ;
 	} ,
 	
@@ -36,7 +33,7 @@ eXo.widget.GadgetUtil = {
 	
 	findMouseRelativeX : function (object, e){
 		var posx = -1 ;
-		var posXObject = eXo.widget.GadgetUtil.findPosX(object) ;
+		var posXObject = eXo.webui.UIDashboardUtil.findPosX(object) ;
 		if (!e) e = window.event ;
 		if (e.pageX || e.pageY) {
 		  posx = e.pageX - posXObject ;
@@ -48,7 +45,7 @@ eXo.widget.GadgetUtil = {
 	
 	findMouseRelativeY : function(object, e) {
 	  var posy = -1 ;
-	  var posYObject = eXo.widget.GadgetUtil.findPosY(object) ;
+	  var posYObject = eXo.webui.UIDashboardUtil.findPosY(object) ;
 	  if (!e) e = window.event ;
 	  if (e.pageY) {
 	    posy = e.pageY - posYObject ;
@@ -64,14 +61,14 @@ eXo.widget.GadgetUtil = {
 	},
 	
 	findPosXInContainer : function(obj, container) {
-  	var objX =  eXo.widget.GadgetUtil.findPosX(obj) ;
-  	var containerX =  eXo.widget.GadgetUtil.findPosX(container) ;  
+  	var objX =  eXo.webui.UIDashboardUtil.findPosX(obj) ;
+  	var containerX =  eXo.webui.UIDashboardUtil.findPosX(container) ;  
 	  return (objX - containerX) ;
 	},
 
 	findPosYInContainer : function(obj, container) {
-	  var objY = eXo.widget.GadgetUtil.findPosY(obj) ;
-	  var containerY =  eXo.widget.GadgetUtil.findPosY(container) ;
+	  var objY = eXo.webui.UIDashboardUtil.findPosY(obj) ;
+	  var containerY =  eXo.webui.UIDashboardUtil.findPosY(container) ;
 	  return (objY - containerY) ;
 	}, 
 	
@@ -79,8 +76,8 @@ eXo.widget.GadgetUtil = {
 		var offsetX = component.offsetLeft ;
 		var offsetY = component.offsetTop ;
 	
-		var posXInContainer = eXo.widget.GadgetUtil.findPosXInContainer(component, container) ;
-		var posYInContainer = eXo.widget.GadgetUtil.findPosYInContainer(component, container) ;
+		var posXInContainer = eXo.webui.UIDashboardUtil.findPosXInContainer(component, container) ;
+		var posYInContainer = eXo.webui.UIDashboardUtil.findPosYInContainer(component, container) ;
 	
 		var deltaX = posX - (posXInContainer - offsetX) ;
 		var deltaY = posY - (posYInContainer - offsetY) ;
@@ -90,9 +87,9 @@ eXo.widget.GadgetUtil = {
 	}, 
 	
 	isIn : function(x, y, component) {
-	  var componentLeft = eXo.widget.GadgetUtil.findPosX(component);
+	  var componentLeft = eXo.webui.UIDashboardUtil.findPosX(component);
 	  var componentRight = componentLeft + component.offsetWidth ;
-	  var componentTop = eXo.widget.GadgetUtil.findPosY(component) ;
+	  var componentTop = eXo.webui.UIDashboardUtil.findPosY(component) ;
 	  var componentBottom = componentTop + component.offsetHeight ;
 	  var isOver = false ;
 

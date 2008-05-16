@@ -49,10 +49,12 @@ public class UIAccountEditInputSet extends UIFormInputSet {
                    setEditable(false).
                    addValidator(MandatoryValidator.class).
                    addValidator(IdentifierValidator.class));    
-    addUIFormInput(new UIFormStringInput("firstName", "firstName", null).
-                   addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
-    addUIFormInput(new UIFormStringInput("lastName", "lastName", null).
-                   addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("firstName", "firstName", null).setMaxLength(45).
+                   addValidator(MandatoryValidator.class).
+                   addValidator(SpecialCharacterValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("lastName", "lastName", null).setMaxLength(45).
+                   addValidator(MandatoryValidator.class).
+                   addValidator(SpecialCharacterValidator.class)) ;
     addUIFormInput(new UIFormStringInput("email", "email", null). 
                    addValidator(MandatoryValidator.class).
                    addValidator(EmailAddressValidator.class));    

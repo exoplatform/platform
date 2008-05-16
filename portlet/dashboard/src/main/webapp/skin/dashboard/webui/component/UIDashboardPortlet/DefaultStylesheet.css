@@ -1,9 +1,10 @@
 .UIDashboardPortlet {
+
 }
 
 
 /*----------------------UIGadgetsSelectorForm-------------------*/
-.UIGadgetsSelectorForm {
+.UIDashboardSelectForm {
 	float: left;
 	width: 200px;
 }
@@ -19,18 +20,18 @@
 }
 
 /*----------------------UIGadgetsContainer-------------------*/
-.UIGadgetsContainer {
-	margin-left: 203px;
+.UIDashboardContainer {
 	border: 1px solid green;
+	margin-left: 203px;
 }
 
-.GadgetsContainer {
+.DashboardContainer {
+	width:100%;
 }
 
 .UIColumn {
 	border: 1px solid pink;
 	float: left;
-	height:350px;
 	padding: 10px 10px 0px 10px;
 }
 

@@ -1,14 +1,14 @@
 
 <div id="$uicomponent.id" class="$uicomponent.id">
-	<div class="GadgetsContainer" id="GadgetsContainer">
+	<div class="DashboardContainer" id="DashboardContainer">
 		<div class="UIColumns">
 		<%
 			int count=uicomponent.getNumberOfColumns();
-			int colWidth = Math.round(100/count) - 4;
+			int colWidth = Math.round(100/count)-3;
 			for(i=0; i<count; i++){ 
 		%>
-			<div class="UIColumn" id="UIColumn<%=i%>" style="width:<%=colWidth+"%"%>;height:350px;">
-				<div class="UIGadget DragObject" id="<%=i%>" style="top:0px; left:0px;">
+			<div class="UIColumn" id="UIColumn<%=i%>" style="width:<%=colWidth+"%"%>;">
+				<div class="UIGadget DragObject" id="<%=i%>" style="top:0px; left:0px; width:50px;">
 					<div class="GadgetMenuBar DragItem" id="source<%=i%>">menubar<%=i%></div>
 					<div class="GadgetContent">content</div>
 				</div>
