@@ -1,21 +1,23 @@
 function UIWindow() {
 	this.maxIndex = 0;
+	
 } ;
 
 UIWindow.prototype.init = function(popup, isShow, posX, posY) {
 	this.superClass = eXo.webui.UIPopup ;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
 	if(popup == null) return ;
-	var domUtil = eXo.core.DOMUtil ;
+
+	var DOMUtil = eXo.core.DOMUtil ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	var uiApplication = domUtil.findFirstDescendantByClass(popup, "div", "UIApplication") ;
+	var uiApplication = DOMUtil.findFirstDescendantByClass(popup, "div", "UIApplication") ;
 	if(!uiApplication) return ;
 
 	if(popup.style.zIndex == "") popup.style.zIndex = ++eXo.webui.UIPopup.zIndex ;
 	
 	popup.onmousedown = this.mousedownOnPopup ;
 
-	var windowPortletInfo = domUtil.findFirstDescendantByClass(popup, "div", "WindowPortletInfo") ;
+	var windowPortletInfo = DOMUtil.findFirstDescendantByClass(popup, "div", "WindowPortletInfo") ;
 	this.superClass.setPosition(popup, posX, posY) ;
 	try {
 		windowPortletInfo.onmousedown = this.initDND ;
@@ -23,14 +25,28 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY) {
 		alert("Error In DND: " + err) ;
 	}
 	
-	var windowPortletControl = domUtil.findFirstDescendantByClass(popup, "div", "WindowPortletControl") ;
-	var minimizedIcon = domUtil.findFirstDescendantByClass(windowPortletControl, "div", "MinimizedIcon") ;
+	var windowPortletControl = DOMUtil.findFirstDescendantByClass(popup, "div", "WindowPortletControl") ;
+	var minimizedIcon = DOMUtil.findFirstDescendantByClass(windowPortletControl, "div", "MinimizedIcon") ;
 	minimizedIcon.onmouseup = this.minimizeWindowEvt ; 
-	var maximizedIcon = domUtil.findFirstDescendantByClass(windowPortletControl, "div", "MaximizedIcon") ;
+	var maximizedIcon = DOMUtil.findFirstDescendantByClass(windowPortletControl, "div", "MaximizedIcon") ;
 	maximizedIcon.onmouseup = this.maximizeWindowEvt ;
-	var resizeArea = domUtil.findFirstDescendantByClass(popup, "div", "ResizeArea") ;
+	var resizeArea = DOMUtil.findFirstDescendantByClass(popup, "div", "ResizeArea") ;
 	resizeArea.onmousedown = this.startResizeWindowEvt ;
-//  eXo.desktop.UIWindow.windowMinHeight = popup.offsetHeight ;
+ /*
+  * minh.js.exo
+  * check maximize portlet in first time;
+  * posX == posY == 0;
+  */
+ if (posX == posY && posX == 0) {
+ 		popup.style.width = "100%";
+ 		popup.maximized = true;
+ 		this.posX = 15;
+ 		this.posY = 15;
+ 		this.originalWidth = 800;
+ 		this.originalHeight = 400;
+ 		maximizedIcon.className = "ControlIcon RestoreIcon";
+ 		maximizedIcon.title = "Restore Down";
+  }
 } ;
 
 UIWindow.prototype.fixHeight = function(portletId) {
@@ -38,7 +54,7 @@ UIWindow.prototype.fixHeight = function(portletId) {
 	var delta = portlet.parentNode.offsetHeight - portlet.offsetHeight ;
 	var resizeObj = eXo.core.DOMUtil.findDescendantsByClass(portlet, 'div', 'UIResizableBlock') ;
 	for(var i = 0; i < resizeObj.length; i++) {
-		var nHeight = parseInt(resizeObj[i].offsetHeight) + delta;
+		var nHeight = parseInt(resizeObj[i].offsetHeight) + delta ;
 		if (nHeight < 0 ) nHeight = "0px" ;
 		resizeObj[i].style.height = nHeight + 'px' ;
 	}
@@ -50,15 +66,15 @@ UIWindow.prototype.mousedownOnPopup = function(evt) {
 } ;
 
 UIWindow.prototype.maximizeWindowEvt = function(evt) {
-	var domUtil = eXo.core.DOMUtil ;
-	var portletWindow = domUtil.findAncestorByClass(this, "UIResizeObject") ;
+	var DOMUtil = eXo.core.DOMUtil ;
+	var portletWindow = DOMUtil.findAncestorByClass(this, "UIResizeObject") ;
 	
 	var uiWindow = eXo.desktop.UIWindow ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	// set zIndex for widgets;
 	// save properties of widgets;
 	/*
-		var uiWidgets =  domUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget");
+		var uiWidgets =  DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget");
 		if (uiWidgets.length > 0) {
 			for (var i = 0; i < uiWidgets.length; i ++ ) {
 				uiWidgets[i].style.zIndex = 0;
@@ -68,35 +84,38 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
 	*/
   var desktopWidth = uiPageDesktop.offsetWidth  ;
   var desktopHeight = uiPageDesktop.offsetHeight  ;
-  var uiResizableBlock = domUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
-  
+  var uiResizableBlock = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
   if(portletWindow.maximized) {
+    portletWindow.maximized = false ;
     portletWindow.style.top = uiWindow.posY + "px" ;
     portletWindow.style.left = uiWindow.posX + "px" ;
     portletWindow.style.width = uiWindow.originalWidth + "px" ;
-    portletWindow.maximized = false ;
-    for(var i = 0; i < uiResizableBlock.length; i++) {
-      uiResizableBlock[i].style.height = uiResizableBlock[i].originalHeight + "px" ;
-    }
+	   for(var i = 0; i < uiResizableBlock.length; i++) {
+	    	 if (uiResizableBlock[i].originalHeight) {
+		      uiResizableBlock[i].style.height = uiResizableBlock[i].originalHeight + "px" ;
+	    	 } else	{
+	    	 		uiResizableBlock[i].style.height = 400 + "px" ;
+	    	 }
+	    }
     this.className = "ControlIcon MaximizedIcon" ;
+    
   } else {
     uiWindow.backupObjectProperties(portletWindow, uiResizableBlock) ;
     portletWindow.style.top = "0px" ;
     portletWindow.style.left = "0px" ;
     portletWindow.style.width = "100%" ;
-				portletWindow.style.height = "auto";
+				portletWindow.style.height = "auto" ;
     var delta = eXo.core.Browser.getBrowserHeight() - portletWindow.clientHeight ;
     for(var i = 0; i < uiResizableBlock.length; i++) {
   			uiResizableBlock[i].style.height =  (parseInt(uiResizableBlock[i].clientHeight) + delta) + "px" ;
     }
-    portletWindow.style.height = portletWindow.clientHeight + "px";
+    portletWindow.style.height = portletWindow.clientHeight + "px" ;
     portletWindow.maximized = true ;
     this.className = "ControlIcon RestoreIcon" ;
-				eXo.desktop.UIWindow.saveWindowProperties(portletWindow);
+				eXo.desktop.UIWindow.saveWindowProperties(portletWindow) ;
   }
   // Re initializes the scroll tabs managers on the page
-	eXo.portal.UIPortalControl.initAllManagers() ;
-	
+	 eXo.portal.UIPortalControl.initAllManagers() ;
 } ;
 
 UIWindow.prototype.minimizeWindowEvt =	function(evt) {
@@ -147,10 +166,6 @@ UIWindow.prototype.resizeWindowEvt = function(evt) {
 	for(var i = 0; i < uiWindow.resizableObject.length; i++) {
 		uiWindow.resizableObject[i].style.height = Math.max(10,(uiWindow.resizableObject[i].originalHeight + deltaY)) + "px" ;
 	}
- // fix bug minwidth in IE6.
-//	if (eXo.core.Browser.isIE6() && uiWindow.resizableObject[0]){ 
-//		uiWindow.resizableObject[0].style.width = Math.max(10,(uiWindow.resizableObject[0].originalWidth + deltaX)) + "px" ;
-//	}
 } ;
 
 UIWindow.prototype.endResizeWindowEvt = function(evt) {
@@ -187,15 +202,11 @@ UIWindow.prototype.initDND = function(e) {
 	var dragObjects = DOMUtil.findDescendantsByClass(uiPageDeskTop, "div", "UIDragObject") ;
 	if (dragObjects.length > 0) {
 		for (var i = 0; i < dragObjects.length; i ++) {
-			var zIndex = dragObjects[i].style.zIndex || 1;
+			var zIndex = dragObjects[i].style.zIndex || 1 ;
 			if (maxIndex < zIndex) 	maxIndex = parseInt(zIndex);
 		}
-		maxIndex += 1;
+		maxIndex += 1 ;
 		dragBlock.style.zIndex = maxIndex ;
-//		var uiDockbar = document.getElementById("UIDockBar") ;
-//		if (uiDockbar.style.zIndex < maxIndex) {
-//			uiDockbar.style.zIndex = maxIndex + 1 ;
-//		}
 	}
 
 	
@@ -286,13 +297,13 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id") ;
 	containerBlockId = uiPageIdNode.innerHTML ;
 	var uiResizableBlock = DOMUtil.findFirstDescendantByClass(object, "div", "UIResizableBlock") ;
-
+	
 	var params ;
 	if(!appStatus) {
 	  params = [
 	  	{name : "objectId", value : object.id.replace(/^UIWindow-/, "")},
-	  	{name : "posX", value : object.offsetLeft},
-	  	{name : "posY", value : object.offsetTop},
+	  	{name : "posX", value : parseInt(object.style.top)},
+	  	{name : "posY", value : parseInt(object.style.left)},
 	  	{name : "zIndex", value : object.style.zIndex},
 	  	{name : "windowWidth", value : object.offsetWidth},
 		  {name : "windowHeight", value : uiResizableBlock.offsetHeight}
@@ -303,7 +314,7 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 		  {name : "appStatus", value : appStatus}
 	  ] ;
 	}
-	
+
 	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveWindowProperties", true, params), true) ;
 } ;
 
