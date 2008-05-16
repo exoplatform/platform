@@ -22,6 +22,7 @@ import java.util.List;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortletPreferences;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -76,6 +77,11 @@ public class RemoveUserPortalConfigListener extends Listener<UserDAOImpl, User> 
 
     Widgets widgets = dataStorage.getWidgets(id) ;
     if (widgets != null) portalConfigService.remove(widgets);
+    //TODO: dang.tung
+    //-------------------------------------------
+    Gadgets gadgets = dataStorage.getGadgets(id) ;
+    if(gadgets != null) portalConfigService.remove(gadgets) ;
+    //-------------------------------------------
   }
 
 }

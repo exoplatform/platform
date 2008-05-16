@@ -17,6 +17,8 @@ var eXo  = {
 
   widget : { },
   
+  gadget : { },
+  
   application : { 
   	browser : { }
   },

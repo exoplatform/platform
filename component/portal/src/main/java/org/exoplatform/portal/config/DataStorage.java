@@ -20,6 +20,7 @@ import java.util.Comparator;
 
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortletPreferences;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -140,4 +141,14 @@ public interface DataStorage {
   public void remove(Widgets widgets)  throws Exception ;
   
   public Widgets getWidgets(String id) throws Exception;
+  //TODO: dang.tung - add new gadgets
+  //-----------------------------------------------------
+  public void create(Gadgets gadgets)  throws Exception ;
+  
+  public void save(Gadgets gadgets)  throws Exception ;
+  
+  public void remove(Gadgets gadgets)  throws Exception ;
+  
+  public Gadgets getGadgets(String id) throws Exception ;
+  //-----------------------------------------------------
 }

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container>
+  <people>
+    <person id="john.doe" name="John Doe" gender="M">
+      <friend>jane.doe</friend>
+      <friend>george.doe</friend>
+      <friend>maija.m</friend>
+    </person>
+    <person id="jane.doe" name="Jane Doe" phone="867-5309" gender="F">
+      <friend>john.doe</friend>
+    </person>
+    <person id="george.doe" name="George Doe" gender="M">
+      <friend>john.doe</friend>
+    </person>
+    <person id="mario.rossi" name="Mario Rossi" gender="M">
+    </person>
+    <person id="maija.m" name="Maija Meikäläinen" gender="F">
+    </person>
+  </people>
+
+  <personAppData>
+    <data person="george.doe" field="count">2</data>
+    <data person="jane.doe" field="count">7</data>
+  </personAppData>
+
+  <activities>
+    <stream title="jane's photos" userId="jane.doe">
+      <activity title="Jane just posted a photo of a monkey" id="1"
+          body="and she thinks you look like him!">
+        <mediaItem type="IMAGE" mimeType="image/jpeg" url="http://animals.nationalgeographic.com/staticfiles/NGS/Shared/StaticFiles/animals/images/primary/black-spider-monkey.jpg"></mediaItem>
+        <mediaItem type="IMAGE" mimeType="image/jpeg" url="http://image.guardian.co.uk/sys-images/Guardian/Pix/gallery/2002/01/03/monkey300.jpg"></mediaItem>
+      </activity>
+      <activity title="Jane says George likes yoda!" id="1"
+          body="or is it you?">
+        <mediaItem type="IMAGE" mimeType="image/jpeg" url="http://www.funnyphotos.net.au/images/fancy-dress-dog-yoda-from-star-wars1.jpg"></mediaItem>
+      </activity>
+    </stream>
+  </activities>
+
+</container>

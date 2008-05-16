@@ -1,0 +1,460 @@
+<html><head><title>Shindig - an Apache incubator project for OpenSocial and gadgets</title>
+
+
+<style type="text/css">
+  body {
+    font-family: arial, sans-serif;
+    margin: 2em 5em;
+    padding: 0.5em;
+    border: 1px solid lightgrey;
+  }
+
+  .tabbar {
+     border-top: 5px solid lightgrey;
+     clear: both;
+   }
+
+  .tab {
+    float: left;
+    padding: .1em 1em;
+    background-color: #3366EE;
+    color: white;
+    font-weight: bold;
+    font-size: .9em;
+  }
+
+  .selectedTab {
+    background-color: lightgrey;
+    color: black;
+  }
+
+  .content {
+    clear:both;
+    padding-top: 0.5em;
+  }
+
+  .header {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: .5em;
+  }
+
+  .smaller {
+    font-size: smaller;
+  }
+</style>
+<script type="text/javascript">
+  var APPLICATION_TABS = ['home', 'download', 'building', 'contribute', 'support'];
+  var tabAnchorPrefix = "#tab-";
+
+  function changeActiveTab(activeTab, updateAnchor) {
+    if (activeTab == undefined)
+      return false;
+    if (updateAnchor)
+      location.href = tabAnchorPrefix + activeTab.id;
+    for (var idx in APPLICATION_TABS) {
+      var tab = APPLICATION_TABS[idx];
+      if (tab == activeTab.id) {
+        document.getElementById(tab).className = 'tab selectedTab';
+        document.getElementById(tab + 'Div').style.display = 'block';
+      } else {
+        document.getElementById(tab).className = 'tab';
+        document.getElementById(tab + 'Div').style.display = 'none';
+      }
+    }
+  }
+
+  function activeTabFromAnchor() {
+    // first check for match to tab name
+    var tabAnchorRE = new RegExp(tabAnchorPrefix + "(.*)$", "g");
+    var tabAnchor = tabAnchorRE.exec(location.href);
+    if (tabAnchor && tabAnchor.length == 2) {
+      var tabAnchorObj = document.getElementById(tabAnchor[1]);
+      if (tabAnchorObj != undefined) {
+        changeActiveTab(tabAnchorObj, false);
+        return;
+      }
+    }
+    // anchor might be inside hidden tab, if so then activate tab
+    var anchorIdx = location.href.indexOf("#");
+    if (anchorIdx == -1)
+      return;
+    var urlAnchor = location.href.substr(anchorIdx + 1);
+    var anchors = document.getElementsByTagName("a");
+    for (var idx in anchors) {
+      var anchor = anchors[idx];
+      if (anchor.name == urlAnchor) {
+        // found anchor, now find parent tab
+        var parent = anchor;
+        do {
+          parent = parent.parentNode;
+        } while (parent && ! /.*Div$/.test(parent.id))
+        if (! parent)
+          return; // failed
+        var divMatch = /^(.*)Div$/g.exec(parent.id);
+        if (! divMatch || divMatch.length != 2)
+          return; // failed
+        var tabAnchorObj = document.getElementById(divMatch[1]);
+        if (tabAnchorObj == undefined)
+          return; // failed
+        changeActiveTab(tabAnchorObj, false); //SUCCESS!
+        // need to set location again as browser can't navigate
+        // to anchor in hidden tab
+        location.href = location.href;
+      }
+    }
+  }
+</script></head><body onload="activeTabFromAnchor();">
+
+  <table border="0" cellspacing="0" width="100%">
+   <tbody><tr><!-- SITE BANNER AND PROJECT IMAGE -->
+    <td align="left" valign="top">
+
+<a href="http://www.apache.org/"><img src="http://incubator.apache.org/images/asf_logo_wide.gif" alt="The Apache Software Foundation" border="0"></a>
+</td>
+<td align="right">
+<a href="http://incubator.apache.org/"><img src="http://incubator.apache.org/images/apache-incubator-logo.png" alt="Apache Incubator" border="0"></a>
+</td>
+   </tr>
+<tr><td>&nbsp;</td></tr>
+  </tbody></table>
+
+
+<div class="header">Shindig - <span class="smaller"> an Apache incubator project for OpenSocial and gadgets</span></div>
+<div class="tab selectedTab" onclick="changeActiveTab(this, true);" style="cursor: pointer;" id="home">Home</div>
+
+<div class="tab" onclick="changeActiveTab(this, true);" style="cursor: pointer;" id="download">Download</div>
+<div class="tab" onclick="changeActiveTab(this, true);" style="cursor: pointer;" id="building">Building Shindig</div>
+<div class="tab" onclick="changeActiveTab(this, true);" style="cursor: pointer;" id="contribute">Contribute</div>
+<div class="tab" onclick="changeActiveTab(this, true);" style="cursor: pointer;" id="support">Support</div>
+<div class="tabbar"></div>
+
+<div class="content" id="homeDiv" style="display: block;">
+  <h3>What is Shindig?</h3>
+  <p>Shindig is a new project in the Apache Software Foundation incubator and is an open source implementation of the <a href="http://code.google.com/apis/opensocial/docs/spec.html">OpenSocial specification</a> and <a href="http://code.google.com/apis/gadgets/docs/spec.html">gadgets specification</a>.</p>
+
+<p>The architectural components of Shindig can be broken down as follows:</p>
+<ul>
+    <li><b>Gadget Container JavaScript </b>-- core JavaScript foundation for general gadget functionality. This JavaScript manages security,
+communication, UI layout, and feature extensions, such as the OpenSocial API.</li>
+
+    <li><b>Gadget Server</b> -- an open source version of Google's gmodules.com, which is used to render the gadget XML into JavaScript and HTML for
+the container to expose via the container JavaScript.
+
+    </li><li><b>OpenSocial Container JavaScript</b> -- JavaScript environment that sits on top of the Gadget Container JavaScript and provides OpenSocial
+specific functionality (profiles, friends, activities, datastore).</li>
+
+    <li><b>OpenSocial Data Server</b> -- an implementation of the server interface to container-specific
+information, including the OpenSocial REST APIs, with clear extension points so others can connect it to their own backends.</li> </ul> <p></p>
+
+</div>
+
+<div class="content" id="downloadDiv" style="display: none;">
+  <h3>Downloading periodic builds of Shindig</h3>
+  <p>
+We currently do not have an automated builds infrastructure set up to
+offer periodic builds yet, but hope to have it available soon. Check
+back here in the near future for downloadable builds of Shindig. </p>
+<p>
+In the meantime, please visit the Building Shindig tab for instructions on using the code in the repository.
+  </p>
+
+</div>
+
+<div class="content" id="buildingDiv" style="display: none;">
+  <h3>Building and running Shindig </h3>
+
+  <p>The following steps provide useful information on how to build and run Shindig.
+  </p>
+
+  <ul>
+
+    <li><a href="#preReqs">Prequisites</a></li>
+    <li><a href="#getTheCode">Get the code</a></li>
+    <li><a href="#buildTheCode">Build and run the code (with Maven)</a></li>
+    <li><a href="#eclipseProject">Setting up an Eclipse project</a></li>
+    <li><a href="#caja">Running with Caja</a></li>
+  </ul>
+
+
+  <h4><a name="preReqs">Prequisites before building Shindig</a></h4>
+  <p> In order to build Shindig, you must have the following: </p>
+  <ul>
+    <li>Java (JDK/JRE) 1.5 or later installed on your system and the JAVA_HOME environment variable set.</li>
+     <ul><li>See: <a href="http://java.sun.com/">http://java.sun.com/</a> for installation instructions.</li></ul>
+
+    <li>A Subversion client installed in order to checkout the code.</li>
+     <ul><li>Instructions for downloading and installing Subversion can be found here: <a href="http://subversion.tigris.org/">http://subversion.tigris.org/</a></li></ul>
+    <li>Apache Maven installed to perform the build.
+     <ul><li>Instructions for downloading and installing Maven can be found here: <a href="http://maven.apache.org/download.html">http://maven.apache.org/download.html</a></li></ul>
+   </li>
+  </ul>
+
+  <h4><a name="getTheCode">Getting the code</a></h4>
+  <p> Create a subdirectory and checkout the Shindig code from its Subversion repository</p>
+  <ol>
+    <li> <code>mkdir ~/src/shindig</code> (or wherever you'd like to put it)</li>
+    <li> <code>cd ~/src/shindig</code></li>
+
+    <li> <code>svn co http://svn.apache.org/repos/asf/incubator/shindig/trunk/ .</code> </li>
+  </ol>
+
+  <h4><a name="buildTheCode">Building and running the code <span class="smaller">(with Maven)</span></a></h4>
+
+
+  <p> To build a Web Archive (WAR) file for the Gadget server and run tests, perform the following: </p>
+
+  <ol>
+    <li> Make sure you have the <a href="#preReqs">prerequisites</a> installed first.</li>
+    <li> <code>cd ~/src/shindig/</code></li>
+    <li> <code>mvn</code></li>
+
+    <li>
+Once the build successfully completes, you can install the built WAR
+files located in the /target subdirectory onto your JEE
+server.</li>
+  </ol>
+
+  <p>To run the code and start a Jetty server that will run on at localhost:8080: </p>
+  <p></p><ul>
+     <li><code>mvn -Prun</code></li>
+    </ul><p></p>
+
+  <p> To run the Jetty server on a different port, use:</p>
+  <ul>
+    <li><code>cd java/server</code></li>
+    <li><code>mvn clean install jetty:run -DrunType=&lt;full|gadgets|social&gt; -Djetty.port=&lt;port&gt;</code></li>
+  </ul>
+  <p>
+Once you've either installed the WAR file on your JEE server, or are
+running locally using the Jetty server, you can test the Gadget server
+using:</p>
+  <p></p><ul><li>http://localhost:&lt;port&gt;/gadgets/ifr?url=http://www.labpixies.com/campaigns/todo/todo.xml</li></ul><p></p>
+
+  <h4><a name="eclipseProject">Setting up an Eclipse project to build Shindig</a></h4>
+  <p> These steps, after completing the previous section, will allow you to
+  build from within Eclipse using the Maven2 plugin. You should first
+  install the Maven plugin, then create the new Java project.
+  </p>
+
+  <ul><li> Create <code>~/.m2/settings.xml</code> consisting solely of
+  </li></ul>
+  <pre>&lt;settings&gt;<br>&lt;/settings&gt;<br></pre>
+
+  <ul><li> Install the Maven2 plugin
+  <ol><li> Help -&gt; Software Updates -&gt; Find and Install
+
+  </li><li> Search for new features to install
+  </li><li> Create a new remote update site for the Maven 2 plugin
+  <ul><li> Name: Maven2 - Sonatype
+  </li><li> URL: <code>http://m2eclipse.sonatype.org/update/</code>
+
+  </li></ul>
+  </li><li> Select the site and click "Finish"
+  </li><li> There are optional dependencies on mylyn and subclipse. If you don't have these plugins, you can get them <a href="http://m2eclipse.sonatype.org/update/" title="Maven Integration for Eclipse updates">here</a>. Otherwise, select only the Maven Integration plug-in.
+  </li><li> Complete the installation
+
+  </li></ol>
+  </li></ul>
+  <p>
+  </p><ul><li> Setup new workspace and project<br>
+
+  Creating a new workspace eliminates the performance cost from existing projects and makes it easier to manage the code.
+  <ol><li> File -&gt; Switch Workspace -&gt; Other...
+  </li><li> Select directory to store workspace
+  <ul><li> Do not select a parent directory of the shindig source (e.g.
+  ~/src/shindig) as Eclipse won't allow you to create the Java project.
+
+  </li><li> Something like <code>~/eclipse/workspaces/shindig</code> would work fine
+  </li></ul>
+
+  </li><li> File -&gt; New -&gt; Java Project
+  <ol><li> Select 'Create project from existing source' and navigate to:<br>
+  ~/src/shindig/java
+  </li><li> Click Finish
+  </li><li> If you see a dialog for "Open Associated Perspective", click Ok.
+  Don't worry about the errors after loading as they will be fixed in the next step.
+  </li></ol>
+
+  </li><li> Right-click the project, select <code>Maven : Enable Dependency Management</code>
+  </li><li> Right-click the project, select <code>Maven : Update Source Folders</code>
+  </li><li> Optionally, if you would like to be able to browse or step into the code of your dependent
+    jars when debugging, you need the source jars. Right-click the project, select
+    <code>Maven : Download Sources</code> and Eclipse will automatically know about
+    these sources when debugging. You can browse them under <code>Maven Dependencies</code> in your project.
+  </li>
+  </li></ol>
+  </li></ul>
+  <p>
+  </p><p>
+
+
+</p><h4><font size="3"><a name="Running_inside_Eclipse"> Running inside Eclipse </a></font></h4>
+
+  <p>
+  To debug the server in Eclipse, follow the last two steps <a href="http://cwiki.apache.org/WICKET/maven-jetty-plugin.html" target="_top">here</a> (takes a few
+minutes to set up):
+  </p><p>
+  </p><ul><li> "Using eclipse external tools"
+  </li><li> "Attaching to the server running in debug mode, using eclipse"
+  </li></ul>
+
+  <p>
+  <b>Note:</b> You must have set up Eclipse to build the code or do <code>mvn package</code> yourself after making changes, but you won't need to
+restart Jetty to see your changes.
+
+  </p><p>
+</p><h3><a name="caja">Running with Caja </a></h3>
+  <p> Caja is an
+important part of OpenSocial that greatly enhances JavaScript security.
+Caja is managed in a separate open source project hosted by Google code
+projects. For more information on Caja, see: <a href="http://code.google.com/p/google-caja/wiki/CajaEasyIntro">http://code.google.com/p/google-caja/wiki/CajaEasyIntro</a>
+
+  </p><p>
+  </p><ol><li> Load this page: <a href="http://localhost:8080/gadgets/files/samplecontainer/samplecontainer.html" target="_top">http://localhost:8080/gadgets/files/samplecontainer/samplecontainer.html</a>
+</li><li> Point it to this gadget: <a href="http://localhost:8080/gadgets/files/samplecontainer/examples/SocialHelloWorld.xml" target="_top">http://localhost:8080/gadgets/files/samplecontainer/examples/SocialHelloWorld.xml</a>
+  </li></ol>
+  <p>To see the cajoled code (Firefox only), right-click inside the iframe and do "This Frame -&gt; View Frame Source"</p>
+
+  <h3><a name="Additonal_reading"> Additional reading </a></h3>
+  Read <a href="http://svn.apache.org/repos/asf/incubator/shindig/trunk/java/README">java/README</a> for original instructions on how to start up any of the java shindig servers.
+  <p>
+  Read <a href="http://svn.apache.org/repos/asf/incubator/shindig/trunk/php/gadgets/README">php/gadgets/README</a> for original instructions on how to start up the php shindig server.
+    <p>
+  Read <a href="http://svn.apache.org/repos/asf/incubator/shindig/trunk/javascript/README">javascript/README</a> for instructions for using the
+Shindig Gadget
+  Container JavaScript to enable your page to render Gadgets using
+  gmodules.com or a server started up as described above.
+  </p>
+</div>
+
+
+
+<div class="content" id="contributeDiv" style="display: none;">
+
+  <h3>How to contribute to Shindig</h3>
+  <p>
+Shindig is strengthened by accepting quality contributions from a wide
+variety of sources. These steps serve as an in-progress guide to
+contributing code into the <a href="http://svn.apache.org/repos/asf/incubator/shindig/trunk/">source code repository for Shindig</a>.
+
+</p>
+
+  <ul>
+    <li><a href="#codeSubmissions">Code submissions</a>
+      <ul>
+        <li><a href="#creatingPatches">Creating patches</a></li>
+        <li><a href="#submittingPatches">Submitting Patches</a></li>
+      </ul>
+
+    </li>
+  </ul>
+
+
+  <h3><a name="codeSubmissions"> Code Submissions </a></h3>
+
+
+<p>
+  </p><p>
+  </p><h4><a name="creatingPatches"> Creating Patches </a></h4>
+
+  <p>
+  For new people to the project, creating patches is the way to get started and build your reputation.
+  </p><p>
+  </p><ol><li> Start editing the code, since Subversion is being used no checkout is needed
+  </li><li> Move to top level folder, e.g. <code>cd ~/src/shindig</code>
+  </li><li> Generate diffs using <code>svn di &gt; fix-xxx-bug.patch</code>
+
+  </li><li> If needed, remove from the patch file any changes you do not want to submit until later
+  </li><li> If you're new, create an account on <a href="http://www.google.com/url?sa=D&amp;q=https%3A%2F%2Fissues.apache.org%2Fjira%2Fbrowse%2FSHINDIG" target="_top">https://issues.apache.org/jira/browse/SHINDIG</a>
+  </li><li> Create a new issue with the patch:
+  <ol><li> Follow the "New" link: <a href="http://www.google.com/url?sa=D&amp;q=https%3A%2F%2Fissues.apache.org%2Fjira%2Fsecure%2FCreateIssue%21default.jspa" target="_top">https://issues.apache.org/jira/secure/CreateIssue!default.jspa</a>
+  </li><li> For the "Issue Type", select "Bug", "Improvement" or "New Feature"
+  </li><li> Click "Next&gt;&gt;"
+
+  </li><li> Enter summary / description and select the component<br></li><li> Click "Create"
+  </li><li> Click "Attach file" and select the <code>mychanges.patch</code> file
+  </li><li> Check the "Grant license to ASF for inclusion in ASF works" option
+
+  </li><li> Click on "Watching" and then click on "Start" watching to get updates
+  </li></ol>
+
+  </li></ol>
+  <p>
+  The newly created issue will automatically be sent to <a href="mailto:shindig-dev@incubator.apache.org">shindig-dev@incubator.apache.org</a>. You
+should also subscribe using <a href="mailto:shindig-dev-subscribe@incubator.apache.org">shindig-dev-subscribe@incubator.apache.org</a> to see all
+the feedback, in which case you'll get the updates on the issue without needing to "Watch" them individually.
+  </p><p>
+  </p><p>
+  </p><h4><a name="submittingPatches"> Submitting Patches </a></h4>
+
+  <p>
+If you have commit permission, then you can submit directly from
+subversion and should also look at patches provided by others. </p><p>
+  </p><ol><li> Move to top level folder, e.g. <code>cd ~/src/shindig</code> (you might find it helpful to create a separate tree from your working
+tree)
+  </li><li> Apply patch: <code>patch p0 &lt; mychanges.patch</code>
+
+  </li><li> <code>svn commit</code>
+  </li><li> For the log message put <code>Applied patch for JIRA issue SHINDIG-XXX</code>,
+  where XXX is the JIRA issue number you are applying the patch for. This
+  will automatically update the JIRA issue with a link to the subversion
+  commit. You don't need additional comments as the JIRA issue should
+  contain enough information already.
+
+  </li></ol>
+  <p>
+  </p><h4><a name="Example"> Example </a></h4>
+  <p>
+
+  </p><ul><li> JIRA Issue with patch: <a href="http://issues.apache.org/jira/browse/SHINDIG-13" target="_top">http://issues.apache.org/jira/browse/SHINDIG-13</a>
+  </li><li> Code Change: <a href="http://svn.apache.org/viewvc?view=rev&amp;revision=612299" target="_top">http://svn.apache.org/viewvc?view=rev&amp;revision=612299</a>
+  </li></ul>
+  <p>
+
+  </p><p>
+
+  </p>
+
+</div>
+
+<div class="content" id="supportDiv" style="display: none;">
+  <h3><a name="mailingList">Mailing List </a></h3>
+  <p>
+</p><ul>
+<li>To subscribe to the Shindig mailing list, send a blank email to <a href="mailto:shindig-dev-subscribe@incubator.apache.org">shindig-dev-subscribe@incubator.apache.org</a></li>
+<li>The email archives are located at:
+  <ul>
+    <li><a href="http://mail-archives.apache.org/mod_mbox/incubator-shindig-dev/">http://mail-archives.apache.org/mod_mbox/incubator-shindig-dev/</a></li>
+    <li><a href="http://shindig-dev.markmail.org/">http://shindig-dev.markmail.org/</a></li>
+  </ul>
+
+</ul>
+  <p></p>
+
+  <h3><a name="bugs">Issue Tracker (using JIRA)</a></h3>
+  <p>
+    To file bugs or feature requests, please use <a href="https://issues.apache.org/jira/secure/BrowseProject.jspa?id=12310741">Shindig's issue
+tracker (JIRA)</a>:
+    </p><ol>
+      <li>Login to the issue tracker (top right corner) or follow the instructions to make a new account (anyone can make an account).</li>
+
+      <li>Once logged in you should be able to see all of Shindig's open issues. </li>
+      <li>If the issue has not been filed, use the "Create a new issue" link (this will not be shown if you are not logged in).</li>
+    </ol>
+  <p></p>
+
+<!-- disabled until we have a faq
+  <h3><a name="FAQ">FAQ </a></h3>
+  <p>
+    <ol>
+      <li>Why don't you have any questions in your FAQ?</li>
+      <ul><li>That's a great question!</li></ul>
+    </ol>
+  </p>
+-->
+</div>
+
+
+
+</body></html>

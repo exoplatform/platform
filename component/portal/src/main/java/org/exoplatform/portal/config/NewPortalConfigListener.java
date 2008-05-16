@@ -32,6 +32,7 @@ import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.container.xml.ValueParam;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesSet;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -107,6 +108,8 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       createPage(config, owner);
       createPageNavigation(config, owner);
       createWidgets(config, owner);
+      //TODO: dang.tung - add gadgets
+      createGadgets(config, owner) ;
     }
   }
   
@@ -169,7 +172,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     pdcService_.create(navigation);
   }
   
-  private void createWidgets(NewPortalConfig config, String owner) throws Exception { 
+  private void createWidgets(NewPortalConfig config, String owner) throws Exception {
     String xml = null;
     if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
       xml = getDefaultConfig(config, owner, "widgets");
@@ -179,6 +182,20 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     Widgets widgets = fromXML(xml, Widgets.class);
     pdcService_.create(widgets);
   }
+  
+  //TODO: dang.tung
+  //-------------------------------------------------------------------------------------
+  private void createGadgets(NewPortalConfig config, String owner) throws Exception { 
+    String xml = null;
+    if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
+      xml = getDefaultConfig(config, owner, "gadgets");
+    } else {
+      xml = getTemplateConfig(config, owner, "gadgets");
+    }
+    Gadgets gadgets = fromXML(xml, Gadgets.class);
+    pdcService_.create(gadgets);
+  }
+  //-------------------------------------------------------------------------------------
   
   private void createPortletPreferences(NewPortalConfig config, String owner) throws Exception {
     String xml = null;

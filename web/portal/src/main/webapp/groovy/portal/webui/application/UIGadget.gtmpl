@@ -1,0 +1,10 @@
+<%
+	import org.exoplatform.web.application.JavascriptManager;
+	
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  def url = uicomponent.getUrl() ;
+	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
+	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$uicomponent.id');") ;
+%>
+<div class="UIGadget" id="$uicomponent.id"></div>

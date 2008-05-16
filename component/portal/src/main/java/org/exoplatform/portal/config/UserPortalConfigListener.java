@@ -24,6 +24,7 @@ import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -74,6 +75,11 @@ public class UserPortalConfigListener extends UserEventListener {
 
     Widgets widgets = dataStorage.getWidgets(id) ;
     if (widgets != null) portalConfigService.remove(widgets);
+    //TODO: dang.tung
+    //-------------------------------------------------------
+    Gadgets gadgets = dataStorage.getGadgets(id) ;
+    if(gadgets != null) portalConfigService.remove(gadgets) ;
+    //-------------------------------------------------------
   }
   @SuppressWarnings("unused")
   public void preSave(User user, boolean isNew) throws Exception {
@@ -105,5 +111,14 @@ public class UserPortalConfigListener extends UserEventListener {
     widgets.setOwnerId(userName) ;
     widgets.setChildren(new ArrayList<Container>()) ;
     portalConfigService.create(widgets) ;
+    
+    //TODO: dang.tung
+    Gadgets gadgets = new Gadgets() ;
+    //-----------------------------------------------
+    gadgets.setOwnerType(PortalConfig.USER_TYPE) ;
+    gadgets.setOwnerId(userName) ;
+    gadgets.setChildren(new ArrayList<Container>()) ;
+    portalConfigService.create(gadgets) ;
+    //-----------------------------------------------
   }
 }

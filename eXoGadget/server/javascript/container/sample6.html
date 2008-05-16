@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sample: dynamic-height support</title>
+<!-- default container look and feel -->
+<link rel="stylesheet" href="gadgets.css">
+<script type="text/javascript" src="../../js/rpc.js?c=1&debug=1"></script>
+<script type="text/javascript" src="cookies.js"></script>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="gadgets.js"></script>
+<script type="text/javascript" src="cookiebaseduserprefstore.js"></script>
+<script type="text/javascript">
+var specUrl0 = 'http://www.google.com/ig/modules/aue07otr.xml';
+
+function init() {
+  gadgets.container.layoutManager =
+      new gadgets.FloatLeftLayoutManager('gadget-parent');
+
+  var gadget = gadgets.container.createGadget({specUrl: specUrl0, title: "Dynamic Height Demo", width: 500});
+  gadgets.container.addGadget(gadget);
+};
+
+function renderGadgets() {
+  gadgets.container.renderGadgets();
+};
+</script>
+</head>
+<body onLoad="init();renderGadgets()">
+  <h2>Sample: dynamic-height support</h2>
+  <div id="gadget-parent" class="gadgets-gadget-parent"></div>
+</body>
+</html>

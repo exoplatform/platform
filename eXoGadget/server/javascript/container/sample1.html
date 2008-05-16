@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sample: Simple Container</title>
+<!-- default container look and feel -->
+<link rel="stylesheet" href="gadgets.css">
+<script type="text/javascript" src="../../js/rpc.js?c=1&debug=1"></script>
+<script type="text/javascript" src="cookies.js"></script>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="gadgets.js"></script>
+<script type="text/javascript" src="cookiebaseduserprefstore.js"></script>
+<script type="text/javascript">
+var specUrl0 = 'http://www.google.com/ig/modules/horoscope.xml';
+var specUrl1 = 'http://www.labpixies.com/campaigns/todo/todo.xml';
+
+// This container lays out and renders gadgets itself.
+
+function renderGadgets() {
+  var gadget0 = gadgets.container.createGadget({specUrl: specUrl0});
+  var gadget1 = gadgets.container.createGadget({specUrl: specUrl1});
+
+  gadgets.container.addGadget(gadget0);
+  gadgets.container.addGadget(gadget1);
+  gadgets.container.layoutManager.setGadgetChromeIds(
+      ['gadget-chrome-x', 'gadget-chrome-y']);
+
+  gadgets.container.renderGadget(gadget0);
+  gadgets.container.renderGadget(gadget1);
+};
+</script>
+</head>
+<body onLoad="renderGadgets()">
+  <h2>Sample: Simple Container</h2>
+  <div id="gadget-chrome-x" class="gadgets-gadget-chrome"></div>
+  <div id="gadget-chrome-y" class="gadgets-gadget-chrome"></div>
+</body>
+</html>

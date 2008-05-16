@@ -32,6 +32,7 @@ import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -58,6 +59,7 @@ public class DataStorageImpl implements DataStorage, Startable {
   final private static String PORTAL_CONFIG_FILE_NAME = "portal-xml" ;
   final private static String NAVIGATION_CONFIG_FILE_NAME = "navigation-xml" ;
   final private static String WIDGETS_CONFIG_FILE_NAME = "widgets-xml" ;
+  final private static String GADGETS_CONFIG_FILE_NAME = "gadgets-xml" ; //TODO: dang.tung
   final private static String PAGE_SET_NODE = "pages" ;
   final private static String PORTLET_PREFERENCES_SET_NODE = "portletPreferences" ;
 
@@ -227,6 +229,7 @@ public class DataStorageImpl implements DataStorage, Startable {
     return widgets ;
   }
   
+  
   public void create(Widgets widgets) throws Exception {
     String appRegPath = getApplicationRegistryPath(widgets.getOwnerType(), widgets.getOwnerId()) ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
@@ -252,6 +255,55 @@ public class DataStorageImpl implements DataStorage, Startable {
     regService_.removeEntry(sessionProvider, widgetsPath) ;
     sessionProvider.close() ;    
   }
+  //TODO: dang.tung
+  //---------------------------------------------------------------------------
+  public Gadgets getGadgets(String id) throws Exception {
+    String[] fragments = id.split("::") ;
+    if(fragments.length < 2) {
+      throw new Exception("Invalid Gadgets Id: " + "[" + id + "]") ;
+    }
+    String gadgetsPath = getApplicationRegistryPath(fragments[0], fragments[1])
+    + "/" + GADGETS_CONFIG_FILE_NAME ;
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    RegistryEntry gadgetsEntry ;
+    try {      
+      gadgetsEntry = regService_.getEntry(sessionProvider, gadgetsPath) ;
+    } catch (PathNotFoundException ie) {
+      sessionProvider.close() ;
+      return null ;
+    }
+    Gadgets gadgets = mapper_.toGadgets(gadgetsEntry.getDocument()) ;
+    sessionProvider.close() ;
+    return gadgets ;
+  }
+  
+  public void create(Gadgets gadgets) throws Exception {
+    String appRegPath = getApplicationRegistryPath(gadgets.getOwnerType(), gadgets.getOwnerId()) ;
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    RegistryEntry gadgetsEntry = new RegistryEntry(GADGETS_CONFIG_FILE_NAME) ;
+    mapper_.map(gadgetsEntry.getDocument(), gadgets) ;
+    regService_.createEntry(sessionProvider, appRegPath, gadgetsEntry) ;
+    sessionProvider.close() ;
+  }
+
+  public void save(Gadgets gadgets) throws Exception {
+    String appRegPath = getApplicationRegistryPath(gadgets.getOwnerType(), gadgets.getOwnerId()) ;
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    RegistryEntry gadgetsEntry = regService_.getEntry(sessionProvider, appRegPath + "/" + GADGETS_CONFIG_FILE_NAME) ;
+    mapper_.map(gadgetsEntry.getDocument(), gadgets) ;
+    regService_.recreateEntry(sessionProvider, appRegPath, gadgetsEntry) ;
+    sessionProvider.close() ;    
+  }
+  
+  public void remove(Gadgets gadgets) throws Exception {
+    String gadgetsPath = getApplicationRegistryPath(gadgets.getOwnerType(), gadgets.getOwnerId())
+                         + "/" + GADGETS_CONFIG_FILE_NAME ;
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    regService_.removeEntry(sessionProvider, gadgetsPath) ;
+    sessionProvider.close() ;    
+  }
+  
+  //-------------------------------------------------------------------------
   
   public PortletPreferences getPortletPreferences(WindowID windowID) throws Exception {
     String[] fragments = windowID.getOwner().split("#") ;

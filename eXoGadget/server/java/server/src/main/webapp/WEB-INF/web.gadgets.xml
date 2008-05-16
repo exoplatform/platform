@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<!DOCTYPE web-app
+        PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+  <!-- configuration -->
+  <!-- If you have your own Guice module(s), put them here as a colon-separated list. -->
+  <context-param>
+    <param-name>guice-modules</param-name>
+    <param-value>org.apache.shindig.common.CommonGuiceModule:org.apache.shindig.gadgets.http.HttpGuiceModule</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.apache.shindig.gadgets.http.GuiceServletContextListener</listener-class>
+  </listener>
+
+  <!-- Render a Gadget -->
+  <servlet>
+    <servlet-name>xml-to-html</servlet-name>
+    <servlet-class>
+      org.apache.shindig.gadgets.http.GadgetRenderingServlet
+    </servlet-class>
+  </servlet>
+
+  <!-- Proxy -->
+  <servlet>
+    <servlet-name>proxy</servlet-name>
+    <servlet-class>
+      org.apache.shindig.gadgets.http.ProxyServlet
+    </servlet-class>
+  </servlet>
+
+  <!-- Metadata RPC -->
+  <servlet>
+    <servlet-name>metadata</servlet-name>
+    <servlet-class>
+      org.apache.shindig.gadgets.http.RpcServlet
+    </servlet-class>
+  </servlet>
+
+  <!-- javascript serving -->
+  <servlet>
+    <servlet-name>js</servlet-name>
+    <servlet-class>org.apache.shindig.gadgets.http.JsServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>js</servlet-name>
+    <url-pattern>/gadgets/js/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>proxy</servlet-name>
+    <url-pattern>/gadgets/proxy</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>xml-to-html</servlet-name>
+    <url-pattern>/gadgets/ifr</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>metadata</servlet-name>
+    <url-pattern>/gadgets/metadata</url-pattern>
+  </servlet-mapping>
+
+</web-app>

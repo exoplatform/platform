@@ -35,6 +35,7 @@ abstract public class Application extends BaseComponentPlugin {
   final static public String EXO_PORTLET_TYPE = "portlet" ;
   final static public String EXO_WIDGET_TYPE = "eXoWidget" ;
   final static public String EXO_PORTAL_TYPE = "eXoPortal" ;
+  final static public String EXO_GAGGET_TYPE = "eXoGadget" ;
  
   private List<ApplicationLifecycle>  lifecycleListeners_ ;   
   private ApplicationResourceResolver resourceResolver_ ;

@@ -74,7 +74,6 @@ public class UIAddNewApplication extends UIContainer {
      * @throws Exception
      */
     private void addApplicationToPage(Event<UIAddNewApplication> event) throws Exception{
-      
       UIPortal uiPortal = Util.getUIPortal();
       
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
@@ -127,7 +126,23 @@ public class UIAddNewApplication extends UIContainer {
         uiWidget.getProperties().put(UIApplication.locationY, String.valueOf(posY));
 
         uiPage.addChild(uiWidget);
-        
+        //TODO: dang.tung -- add new gadget
+      } else if (org.exoplatform.web.application.Application.EXO_GAGGET_TYPE.equals(application
+          .getApplicationType())) {
+        UIGadget uiGadget = uiPage.createUIComponent(event.getRequestContext(), UIGadget.class,
+            null, null);
+
+        StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
+        windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/').append(uiGadget.hashCode());
+        uiGadget.setApplicationInstanceId(windowId.toString());
+
+        //Set Properties For Widget
+        int posX = (int) (Math.random() * 400);
+        int posY = (int) (Math.random() * 200);
+        uiGadget.getProperties().put(UIApplication.locationX, String.valueOf(posX));
+        uiGadget.getProperties().put(UIApplication.locationY, String.valueOf(posY));
+
+        uiPage.addChild(uiGadget);
       }
 
       //Save all changes

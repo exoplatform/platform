@@ -1,0 +1,87 @@
+Using Shindig Gadget Container JavaScript
+=========================================
+
+1) Try out the samples.
+   A) Set up your own Shindig Gadget Server. See java/README for details.
+
+   B) Assuming your server is running on http://yourserver:yourport/gadgets/...
+      you can hit these html files in your favorite browser to see your local
+      Shindig in action:
+
+      (Note: yourserver:yourport defaults to localhost:8080 for the java server,
+      and just localhost for the php server)
+
+      * http://yourserver:yourport/gadgets/files/container/sample1.html - basic container
+      * http://yourserver:yourport/gadgets/files/container/sample2.html - custom rendering
+      * http://yourserver:yourport/gadgets/files/container/sample3.html - custom layouts
+      * http://yourserver:yourport/gadgets/files/container/sample4.html - set pref
+      * http://yourserver:yourport/gadgets/files/container/sample5.html - set pref
+      * http://yourserver:yourport/gadgets/files/container/sample6.html - dynamic height
+      * http://yourserver:yourport/gadgets/files/container/sample7.html - set title
+
+      These samples are very basic and aren't production-ready. Shindig will
+      include a more advanced container at a later date but it hasn't been
+      completed yet.
+
+2) Play around with the code.
+
+   A) Create an HTML file including the following <head> boilerplate:
+      <script type="text/javascript" src="../../js/rpc.js?c=1"></script>
+      <script type="text/javascript" src="cookies.js"></script>
+      <script type="text/javascript" src="util.js"></script>
+      <script type="text/javascript" src="gadgets.js"></script>
+      <script type="text/javascript" src="cookiebaseduserprefstore.js"></script>
+
+   B) For each Gadget you wish to add to the page:
+      i) Create it. Example, for Gadget whose spec is at http://foo.com/spec.xml
+
+        var gadget = gadgets.container.createGadget(
+            {specUrl: "http://foo.com/spec.xml"});
+
+  Check "gadgets.js" for other options to be set in createGadget. If you are
+  debugging your own gadgets you can consider to use specVersion to get a more
+  optimal use of the cache. Alternatively, gadgets.container.setNoCache(1)
+
+      ii) Add it to the container. Example:
+
+        gadgets.container.addGadget(gadget);
+
+    If your setup is too complicated, you can need to tell each Gadget
+  where its server is. Example
+
+  gadget.setServerBase("http://yourserver:yourport/gadgets/");
+
+      iii) Ensure the Gadget's chrome ID is defined. This is the ID of the
+        elements in which the Gadget is rendered. The way these are specified
+        differs depending on the LayoutManager being used. Example with default
+        LayoutManager:
+
+        gadgets.container.layoutManager.setGadgetChromeIds([ 'gadget-id-1' ]);
+
+      iv) Render it. The chrome element must exist when this call is performed
+        (ie. this must occur onLoad of the document.body or in inline script).
+
+        gadgets.container.renderGadget(gadget);
+
+        You may also render several added Gadgets at once:
+
+        gadgets.container.renderGadgets();
+
+   C) Explore samples 2, 3, and 4 for examples using different LayoutManagers
+      and supporting UserPrefs storage.
+
+4) Run the opensocial sample container
+   A) Set up your own Shindig Gadget Server. See java/README for details. (If you
+     are using the java based server make sure you run with mvn jetty:run-war)
+
+   B) Hit the sample container at
+     http://yourserver:yourport/gadgets/files/samplecontainer/samplecontainer.html
+
+   C) See the sample container help document for more details on how it works:
+     http://yourserver:yourport/gadgets/files/samplecontainer/getting-started.html
+
+   D) Get, and try to run, coderunner.xml and compliancetests.xml from the project
+     http://opensocial-resources.googlecode.com/
+
+
+For more information, see http://incubator.apache.org/projects/shindig.html

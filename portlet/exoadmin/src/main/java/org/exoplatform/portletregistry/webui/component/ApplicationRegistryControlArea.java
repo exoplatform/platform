@@ -199,6 +199,8 @@ public class ApplicationRegistryControlArea extends UIContainer {
       ApplicationRegistryControlArea uiSource = event.getSource();
       ApplicationRegistryService service = uiSource.getApplicationComponent(ApplicationRegistryService.class) ;
       service.importExoWidgets();
+      //TODO: dang.tung - add gaggets
+      service.importExoGadgets() ;
       uiSource.initApplicationCategories();
     }
   }

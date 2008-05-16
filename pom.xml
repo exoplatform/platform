@@ -16,6 +16,12 @@
 
     <module>eXoWidget/web</module>
 
+    <module>eXoGadget/web</module>	
+    <module>eXoGadget/server/java/server</module>	
+    <module>eXoGadget/server/java/gadgets</module>	
+
+
+
     <module>webui/core</module>
     <module>webui/eXo</module>
     <module>webui/portal</module>

@@ -1,0 +1,59 @@
+# Add this stuff at bottom of your local file ~/.subversion/config
+#Note: for Windows this is normally found at
+# C:\Documents and Settings\{username}\Application Data\Subversion\config
+
+[miscellany]
+enable-auto-props = yes
+
+# Note: you may wish to add svn:keywords as well, depending on your project requirements
+# E.g. svn:keywords=Date Author Id Revision HeadURL
+
+# Do not default any files to svn:executable=*.
+# This should only be done on an individual basis as required.
+
+### Section for configuring automatic properties.
+### The format of the entries is:
+###   file-name-pattern = propname[=value][;propname[=value]...]
+### The file-name-pattern can contain wildcards (such as '*' and
+### '?').  All entries which match will be applied to the file.
+### Note that auto-props functionality must be enabled, which
+### is typically done by setting the 'enable-auto-props' option.
+[auto-props]
+INSTALL* = svn:eol-style=native;svn:mime-type=text/plain
+KEYS* = svn:eol-style=native;svn:mime-type=text/plain
+README* = svn:eol-style=native;svn:mime-type=text/plain
+LICENSE* = svn:eol-style=native;svn:mime-type=text/plain
+NOTICE* = svn:eol-style=native;svn:mime-type=text/plain
+TODO* = svn:eol-style=native;svn:mime-type=text/plain
+WHATSNEW* = svn:eol-style=native;svn:mime-type=text/plain
+NEWS* = svn:eol-style=native;svn:mime-type=text/plain
+COPYING* = svn:eol-style=native;svn:mime-type=text/plain
+DISCLAIMER* = svn:eol-style=native;svn:mime-type=text/plain
+Makefile = svn:eol-style=native;svn:mime-type=text/plain
+ChangeLog = svn:eol-style=native;svn:mime-type=text/plain
+*.c = svn:eol-style=native
+*.cpp = svn:eol-style=native
+*.h = svn:eol-style=native
+*.dsp = svn:eol-style=CRLF
+*.dsw = svn:eol-style=CRLF
+*.sh = svn:eol-style=native;svn:executable
+*.png = svn:mime-type=image/png
+*.jpg = svn:mime-type=image/jpeg
+*.gif = svn:mime-type=image/gif
+*.java = svn:eol-style=native
+*.php = svn:eol-style=native
+*.xml = svn:mime-type=text/xml;svn:eol-style=native
+*.xsl = svn:mime-type=text/xml;svn:eol-style=native
+*.xsd = svn:mime-type=text/xml;svn:eol-style=native
+*.wsdl = svn:mime-type=text/xml;svn:eol-style=native
+*.properties = svn:mime-type=text/plain;svn:eol-style=native
+*.txt = svn:eol-style=native;svn:mime-type=text/plain
+*.htm* = svn:eol-style=native;svn:mime-type=text/html
+*.bat = svn:eol-style=native
+*.pl = svn:eol-style=native
+*.py = svn:eol-style=native
+*.cmd = svn:eol-style=native
+*.css = svn:eol-style=native
+*.js = svn:eol-style=native
+*.wsdd = svn:mime-type=text/xml;svn:eol-style=native
+*.fragment = svn:eol-style=native

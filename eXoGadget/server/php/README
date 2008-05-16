@@ -1,0 +1,18 @@
+Installing and Running The PHP Shindig Gadget Server
+============================================
+
+1) Make sure you have PHP 5.x installed and have the simplexml and json extentions enabled; It also
+   requires apache with .htaccess and mod_rewrite support
+
+2) Copy the files to your web root, and edit the config.php web_prefix and debug settings
+   to your liking. Make sure that the features and javascript directories are also copied
+   or edit your config.php to reflect their location. If you change the web_prefix also
+   update the container/container.js file too point to the correct locations
+
+3) Hit server at http://<yourhost>/gadgets/ifr?url=<gadget-url>
+   Example: http://<yourhost>/gadgets/ifr?url=http://www.labpixies.com/campaigns/todo/todo.xml
+   Or hit the sample container at http://<yourhost>/gadgets/files/samplecontainer/samplecontainer.html
+
+The PHP source of the gadget server resides in the gadgets, socialdata and common directories.
+
+For more information, see http://incubator.apache.org/projects/shindig.html

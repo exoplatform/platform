@@ -1,0 +1,31 @@
+<style  type="text/css">
+.UIGadgetToWidget {
+	background-color:white;
+	width:300px;
+}
+</style>
+<div class="UIGadgetToWidget">
+	<div class="LoggedDecorator ViewMode">
+    <div class="LeftTopLoggedDecorator">
+      <div class="RightTopLoggedDecorator">
+        <div class="CenterTopLoggedDecorator"><span></span></div>
+			</div>
+		</div>
+		<div class="LeftMiddleLoggedDecorator">
+		  <div class="RightMiddleLoggedDecorator">
+        <div class="DecoratorBackground">
+
+	          <div class="gadgetBox" id="gadgetBox">
+					
+		    	</div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="LeftBottomLoggedDecorator">
+	    <div class="RightBottomLoggedDecorator">
+	      <div class="CenterBottomLoggedDecorator"><span></span></div>
+	    </div>
+	  </div>
+  </div>    
+<!--%= eXo.widget.web.gadget.UIGadgetToWidget.show(context.appId) % -->
+</div>

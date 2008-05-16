@@ -32,6 +32,7 @@ import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -68,6 +69,7 @@ public class UserPortalConfigService {
   protected ExoCache pageConfigCache_ ;
   protected ExoCache pageNavigationCache_ ;
   protected ExoCache widgetsCache_ ;
+  protected ExoCache gadgetsCache_ ;
   
   private NewPortalConfigListener newPortalConfigListener_ ;
   /**
@@ -87,6 +89,7 @@ public class UserPortalConfigService {
     pageConfigCache_     = cacheService.getCacheInstance(Page.class.getName()) ;
     pageNavigationCache_ = cacheService.getCacheInstance(PageNavigation.class.getName()) ;
     widgetsCache_ = cacheService.getCacheInstance(Widgets.class.getName()) ;
+    gadgetsCache_ = cacheService.getCacheInstance(Gadgets.class.getName()) ;
   }
 
   /**
@@ -141,8 +144,16 @@ public class UserPortalConfigService {
         return nav1.getPriority()- nav2.getPriority() ;
       }
     });
+    //TODO; dang.tung - add new gadgets
+    Gadgets userGadgets = getGadgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
+    Collections.sort(navigations, new Comparator<PageNavigation>() {
+      public int compare(PageNavigation nav1, PageNavigation nav2) {
+        return nav1.getPriority()- nav2.getPriority() ;
+      }
+    });
     
-    return new UserPortalConfig(portal, navigations, userWidgets) ;
+    
+    return new UserPortalConfig(portal, navigations, userWidgets, userGadgets) ;
   }
  
   public List<String> getMakableNavigations(String remoteUser)throws Exception {
@@ -318,6 +329,32 @@ public class UserPortalConfigService {
     return navigation;
   }
 
+  //TODO: dang.tung
+  //--------------------------------------------------------------------------
+  public void create(Gadgets gadgets) throws Exception {
+    storage_.create(gadgets) ;
+    gadgetsCache_.put(gadgets.getId(), gadgets) ;
+  }
+  
+  public void update(Gadgets gadgets) throws Exception {
+    storage_.save(gadgets) ;
+    gadgetsCache_.select(new ExpireKeyStartWithSelector(gadgets.getId())) ;
+  }
+  
+  public void remove(Gadgets gadgets) throws Exception {
+    storage_.remove(gadgets) ;
+    gadgetsCache_.remove(gadgets.getId()) ;
+  }
+  
+  public Gadgets getGadgets(String id) throws Exception {
+    Gadgets gadgets = (Gadgets) pageConfigCache_.get(id) ;
+    if(gadgets != null) return gadgets;
+    gadgets = storage_.getGadgets(id) ;
+    gadgetsCache_.put(id, gadgets) ;
+    return gadgets ;
+  }
+  //--------------------------------------------------------------------------
+  
   /**
    * This method should create the widgets object in the database
    * @param widgets

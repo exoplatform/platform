@@ -27,6 +27,7 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
+import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.application.UIWidgets;
@@ -60,6 +61,8 @@ public class PortalDataMapper {
       model = toPortletModel((UIPortlet)uiComponent);
     } else if(uiComponent instanceof UIContainer){       
       model = toContainer((UIContainer) uiComponent);
+    } else if(uiComponent instanceof UIGadget) {
+      model = toGadget((UIGadget)uiComponent) ;
     }
     return (T)model;
   }
@@ -70,6 +73,16 @@ public class PortalDataMapper {
     model.setInstanceId(uiWidget.getApplicationInstanceId());
     model.setId(uiWidget.getId());
     model.setProperties(uiWidget.getProperties());
+    return model;
+  }
+  
+  static final public Application toGadget(UIGadget uiGadget) {
+    Application model = new Application();
+    model.setApplicationType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
+    model.setInstanceId(uiGadget.getApplicationInstanceId());
+    model.setId(uiGadget.getId());
+    model.setProperties(uiGadget.getProperties());
+    model.setUrl(uiGadget.getUrl()) ;
     return model;
   }
   
@@ -186,6 +199,13 @@ public class PortalDataMapper {
     uiWidget.setApplicationInstanceId(model.getInstanceId()) ;
     uiWidget.setId(model.getInstanceId());
     uiWidget.setProperties(model.getProperties());
+  }
+  
+  static public void toUIGadget(UIGadget uiGadget, Application model) throws Exception {
+    uiGadget.setApplicationInstanceId(model.getInstanceId()) ;
+    uiGadget.setId(model.getInstanceId());
+    uiGadget.setProperties(model.getProperties());
+    uiGadget.setUrl(model.getUrl()) ;
   }
   
   /**
@@ -349,6 +369,10 @@ public class PortalDataMapper {
         UIWidget uiWidget = uiParent.createUIComponent(context, UIWidget.class, null, null);
         toUIWidget(uiWidget, application) ;
         uiComponent = uiWidget ;
+      }else if(factoryId.equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
+        UIGadget uiGadget = uiParent.createUIComponent(context, UIGadget.class, null, null) ;
+        toUIGadget(uiGadget, application) ;
+        uiComponent = uiGadget ;
       }
     } else if(model instanceof Container){
       Container container = (Container) model;

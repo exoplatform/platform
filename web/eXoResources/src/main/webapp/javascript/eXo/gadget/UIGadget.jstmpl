@@ -1,0 +1,25 @@
+<%	eXo.require('eXo.gadget.UIGadget')	%>
+<%	var deleteGadget = 'eXo.gadget.UIGadget.deleteGadget(this);' %>
+<%	var editGadget = 'eXo.gadget.UIGadget.editGadget(this);' %>
+
+<div class="UIWidget UIDragObject">
+  <div class="WidgetControlBar">
+    <div class="WidgetControl" style="display: none">
+    	<div class="LeftControlBar">
+    		<div class="RightControlBar">
+    			<div class="CenterControlBar">
+			    	<div class="WidgetDragHandleArea"><span></span></div>
+			    	<div class="SeparatorLine"><span></span></div>
+				    <div class="EditWidgetIcon" title="Edit this Gadget" onclick="<%=editGadget%>" ><span></span></div>
+				  	<div class="CloseWidgetIcon" onclick="<%=deleteGadget%>" title="Close this Gadget"><span></span></div>
+				  	<div style="clear: left"><span></span></div>
+				  </div>
+				</div>
+			</div> 
+	  </div>
+  </div>
+ 	<div style="clear: right"><span></span></div>
+	<div class="WidgetApplication">
+	<%=context.gadget.content %>
+	</div>
+</div>

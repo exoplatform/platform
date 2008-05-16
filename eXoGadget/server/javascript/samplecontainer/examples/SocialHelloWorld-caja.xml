@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?><Module><ModulePrefs title="Social Hello World"><Require feature="opensocial-samplecontainer"/></ModulePrefs><Content type="html"><![CDATA[<style type="text/css">
+.DOM-PREFIX #DOM-PREFIX-helloworlds {
+  margin: 20px;
+  font-family: arial , sans-serif;
+  width: 310px
+}
+.DOM-PREFIX div.DOM-PREFIX-person img {
+  margin-bottom: 10px
+}
+.DOM-PREFIX div.DOM-PREFIX-bubble {
+  background-image: url('/bubble.gif');
+  background-repeat: no-repeat;
+  width: 202px;
+  height: 66px;
+  padding: 12px 0px 0px 12px;
+  font-weight: bold;
+  font-size: 18px;
+  float: right
+}
+.DOM-PREFIX .DOM-PREFIX-c0 {
+  color: #008000
+}
+.DOM-PREFIX .DOM-PREFIX-c1 {
+  color: #FF8A00
+}
+.DOM-PREFIX .DOM-PREFIX-c2 {
+  color: #7777CC
+}
+.DOM-PREFIX .DOM-PREFIX-c3 {
+  color: #008000
+}
+.DOM-PREFIX .DOM-PREFIX-c4 {
+  color: #CC0000
+}
+.DOM-PREFIX .DOM-PREFIX-c5 {
+  color: #73A6FF
+}
+.DOM-PREFIX div.DOM-PREFIX-name {
+  width: 150px;
+  text-align: right;
+  font-weight: normal;
+  font-size: 12px;
+  color: #999;
+  position: relative;
+  top: 10px;
+  right: -35px
+}</style>
+<div id="ROOT_DIV_ID"></div>
+<script type="text/javascript">
+{
+  ___.loadModule(function (___OUTERS___) {
+      ___OUTERS___.c_1___ = function (thisNode___, event) {
+        ___.asSimpleFunc(___.primFreeze(___OUTERS___.sayHelloWorld))();
+        ;
+        return false;
+        ;
+      };
+      ___OUTERS___.emitHtml___('\n\n   ');
+      ___OUTERS___.hellos = new (___.asCtor(___OUTERS___.Array))('Hello World', 'Hallo Welt', 'Ciao a tutti', 'Hola mundo', '&#1055;&#1086;&#1103;&#1074;&#1083;&#1077;&#1085;&#1080;&#1077; &#1085;&#1072; &#1089;&#1074;&#1077;&#1090;', '&#12371;&#12435;&#12395;&#12385;&#12399;&#19990;&#30028;', '&#20320;&#22909;&#19990;&#30028;', '&#50668;&#47084;&#48516;, &#50504;&#45397;&#54616;&#49464;&#50836;');
+      ___OUTERS___.numberOfStyles = 6;
+      var viewerCount;
+      ___OUTERS___.render = ___.simpleFunc(function (data) {
+          var viewer = (function () {
+              var x___ = (function () {
+                  var x___ = data;
+                  var x0___ = 'viewer';
+                  return x___.get_canCall___ ? x___.get(x0___) : ___.callPub(x___, 'get', [x0___]);
+                })();
+              return x___.getData_canCall___ ? x___.getData() : ___.callPub(x___, 'getData', []);
+            })();
+          var allPeople = (function () {
+              var x___ = (function () {
+                  var x___ = (function () {
+                      var x___ = data;
+                      var x0___ = 'viewerFriends';
+                      return x___.get_canCall___ ? x___.get(x0___) : ___.callPub(x___, 'get', [x0___]);
+                    })();
+                  return x___.getData_canCall___ ? x___.getData() : ___.callPub(x___, 'getData', []);
+                })();
+              return x___.asArray_canCall___ ? x___.asArray() : ___.callPub(x___, 'asArray', []);
+            })() || new (___.asCtor(___OUTERS___.Array))();
+          if (viewer) {
+            (function () {
+                var x___ = allPeople;
+                var x0___ = viewer;
+                return x___.push_canCall___ ? x___.push(x0___) : ___.callPub(x___, 'push', [x0___]);
+              })();
+          }
+          var viewerData = (function () {
+              var x___ = (function () {
+                  var x___ = data;
+                  var x0___ = 'viewerData';
+                  return x___.get_canCall___ ? x___.get(x0___) : ___.callPub(x___, 'get', [x0___]);
+                })();
+              return x___.getData_canCall___ ? x___.getData() : ___.callPub(x___, 'getData', []);
+            })() || {
+          };
+          ___OUTERS___.viewerCount = ___.asSimpleFunc(___.primFreeze(___OUTERS___.getCount))(___.readPub(viewerData, (function () {
+                  var x___ = viewer;
+                  return x___.getId_canCall___ ? x___.getId() : ___.callPub(x___, 'getId', []);
+                })()));
+          var viewerFriendData = (function () {
+              var x___ = (function () {
+                  var x___ = data;
+                  var x0___ = 'viewerFriendData';
+                  return x___.get_canCall___ ? x___.get(x0___) : ___.callPub(x___, 'get', [x0___]);
+                })();
+              return x___.getData_canCall___ ? x___.getData() : ___.callPub(x___, 'getData', []);
+            })() || {
+          };
+          ___.setPub(viewerFriendData, (function () {
+                var x___ = viewer;
+                return x___.getId_canCall___ ? x___.getId() : ___.callPub(x___, 'getId', []);
+              })(), ___.readPub(viewerData, (function () {
+                  var x___ = viewer;
+                  return x___.getId_canCall___ ? x___.getId() : ___.callPub(x___, 'getId', []);
+                })()));
+          var html = '';
+          for (var i = 0; i < (function () {
+                var x___ = allPeople;
+                return x___.length_canRead___ ? x___.length : ___.readPub(x___, 'length');
+              })(); i++) {
+            var count = ___.asSimpleFunc(___.primFreeze(___OUTERS___.getCount))(___.readPub(viewerFriendData, (function () {
+                    var x___ = ___.readPub(allPeople, i);
+                    return x___.getId_canCall___ ? x___.getId() : ___.callPub(x___, 'getId', []);
+                  })()));
+            if (count == 0) {
+            }
+            html += '\074div class=\"person\"\076';
+            html += '\074div class=\"bubble c' + count % ___OUTERS___.numberOfStyles + '\"\076' + ___.readPub(___OUTERS___.hellos, count % (function () {
+                  var x___ = ___OUTERS___.hellos;
+                  return x___.length_canRead___ ? x___.length : ___.readPub(x___, 'length');
+                })());
+            html += '\074div class=\"name\"\076' + (function () {
+                var x___ = ___.readPub(allPeople, i);
+                return x___.getDisplayName_canCall___ ? x___.getDisplayName() : ___.callPub(x___, 'getDisplayName', []);
+              })() + ' (' + count + ')';
+            html += '\074/div\076\074/div\076';
+            if ((function () {
+                  var x___ = ___.readPub(allPeople, i);
+                  var x0___ = 'thumbnailUrl';
+                  return x___.getField_canCall___ ? x___.getField(x0___) : ___.callPub(x___, 'getField', [x0___]);
+                })() && (function () {
+                  var x___ = (function () {
+                      var x___ = ___.readPub(allPeople, i);
+                      var x0___ = 'thumbnailUrl';
+                      return x___.getField_canCall___ ? x___.getField(x0___) : ___.callPub(x___, 'getField', [x0___]);
+                    })();
+                  var x0___ = 'null';
+                  return x___.indexOf_canCall___ ? x___.indexOf(x0___) : ___.callPub(x___, 'indexOf', [x0___]);
+                })() == -1) {
+              html += '\074img src=\"' + (function () {
+                  var x___ = ___.readPub(allPeople, i);
+                  var x0___ = 'thumbnailUrl';
+                  return x___.getField_canCall___ ? x___.getField(x0___) : ___.callPub(x___, 'getField', [x0___]);
+                })() + '\"/\076';
+            } else {
+              html += '\074img src=\"http://www.corp.google.com/~doll/focus/nophoto.gif\"/\076';
+            }
+            html += '\074br style=\"clear:both\"\076\074/div\076';
+          }
+          (function () {
+              var x___ = (function () {
+                  var x___ = ___OUTERS___.document;
+                  var x0___ = 'helloworlds';
+                  return x___.getElementById_canCall___ ? x___.getElementById(x0___) : ___.callPub(x___, 'getElementById', [x0___]);
+                })();
+              var x0___ = html;
+              x___.innerHTML_canSet___ ? (x___.innerHTML = x0___) : ___.setPub(x___, 'innerHTML', x0___);
+            })();
+        });
+      ___OUTERS___.getCount = ___.simpleFunc(function (data) {
+          return data && ___.readPub(data, 'count') ? ___.asSimpleFunc(___OUTERS___.Number)(___.readPub(data, 'count')) : 0;
+        });
+      ___OUTERS___.sayHelloWorld = ___.simpleFunc(function () {
+          ___OUTERS___.viewerCount++;
+          var req = (function () {
+              var x___ = ___OUTERS___.opensocial;
+              return x___.newDataRequest_canCall___ ? x___.newDataRequest() : ___.callPub(x___, 'newDataRequest', []);
+            })();
+          (function () {
+              var x___ = req;
+              var x0___ = (function () {
+                  var x___ = req;
+                  var x0___ = 'VIEWER';
+                  var x1___ = 'count';
+                  var x2___ = ___OUTERS___.viewerCount;
+                  return x___.newUpdatePersonAppDataRequest_canCall___ ? x___.newUpdatePersonAppDataRequest(x0___, x1___, x2___) : ___.callPub(x___, 'newUpdatePersonAppDataRequest', [x0___, x1___, x2___]);
+                })();
+              var x1___ = 'updateData';
+              return x___.add_canCall___ ? x___.add(x0___, x1___) : ___.callPub(x___, 'add', [x0___, x1___]);
+            })();
+          (function () {
+              var x___ = req;
+              var x0___ = ___.primFreeze(___OUTERS___.initData);
+              return x___.send_canCall___ ? x___.send(x0___) : ___.callPub(x___, 'send', [x0___]);
+            })();
+        });
+      ___OUTERS___.initData = ___.simpleFunc(function () {
+          var req = (function () {
+              var x___ = ___OUTERS___.opensocial;
+              return x___.newDataRequest_canCall___ ? x___.newDataRequest() : ___.callPub(x___, 'newDataRequest', []);
+            })();
+          (function () {
+              var x___ = req;
+              var x0___ = (function () {
+                  var x___ = req;
+                  var x0___ = 'VIEWER';
+                  return x___.newFetchPersonRequest_canCall___ ? x___.newFetchPersonRequest(x0___) : ___.callPub(x___, 'newFetchPersonRequest', [x0___]);
+                })();
+              var x1___ = 'viewer';
+              return x___.add_canCall___ ? x___.add(x0___, x1___) : ___.callPub(x___, 'add', [x0___, x1___]);
+            })();
+          (function () {
+              var x___ = req;
+              var x0___ = (function () {
+                  var x___ = req;
+                  var x0___ = 'VIEWER_FRIENDS';
+                  return x___.newFetchPeopleRequest_canCall___ ? x___.newFetchPeopleRequest(x0___) : ___.callPub(x___, 'newFetchPeopleRequest', [x0___]);
+                })();
+              var x1___ = 'viewerFriends';
+              return x___.add_canCall___ ? x___.add(x0___, x1___) : ___.callPub(x___, 'add', [x0___, x1___]);
+            })();
+          (function () {
+              var x___ = req;
+              var x0___ = (function () {
+                  var x___ = req;
+                  var x0___ = 'VIEWER';
+                  var x1___ = 'count';
+                  return x___.newFetchPersonAppDataRequest_canCall___ ? x___.newFetchPersonAppDataRequest(x0___, x1___) : ___.callPub(x___, 'newFetchPersonAppDataRequest', [x0___, x1___]);
+                })();
+              var x1___ = 'viewerData';
+              return x___.add_canCall___ ? x___.add(x0___, x1___) : ___.callPub(x___, 'add', [x0___, x1___]);
+            })();
+          (function () {
+              var x___ = req;
+              var x0___ = (function () {
+                  var x___ = req;
+                  var x0___ = 'VIEWER_FRIENDS';
+                  var x1___ = 'count';
+                  return x___.newFetchPersonAppDataRequest_canCall___ ? x___.newFetchPersonAppDataRequest(x0___, x1___) : ___.callPub(x___, 'newFetchPersonAppDataRequest', [x0___, x1___]);
+                })();
+              var x1___ = 'viewerFriendData';
+              return x___.add_canCall___ ? x___.add(x0___, x1___) : ___.callPub(x___, 'add', [x0___, x1___]);
+            })();
+          (function () {
+              var x___ = req;
+              var x0___ = ___.primFreeze(___OUTERS___.render);
+              return x___.send_canCall___ ? x___.send(x0___) : ___.callPub(x___, 'send', [x0___]);
+            })();
+        });
+      ___.asSimpleFunc(___OUTERS___._IG_RegisterOnloadHandler)(___.primFreeze(___OUTERS___.initData));
+      ___OUTERS___.emitHtml___('\n\n   \074div style=\"margin-bottom: 1em\"\076\n     \074input type=\"button\" value=\"Say hello\" onclick=\"return plugin_dispatchEvent___(event || window.event, this, ', ___.getId(___OUTERS___), ', \'c_1___\')\"\076\n   \074/div\076\n   \074div id=\"DOM-PREFIX-helloworlds\" style=\"margin: 4px\"\076\n   \074/div\076\n  \n  ');
+    });
+}</script>
+]]></Content></Module>

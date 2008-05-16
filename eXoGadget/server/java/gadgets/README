@@ -1,0 +1,12 @@
+Installing and Running Shindig Gadget Server
+============================================
+
+Please see BUILD-JAVA in the base project directory for information.
+
+Once the server is running, you can hit the server at
+http://localhost:<port>/gadgets/ifr?url=<gadget-url>
+
+Example: http://localhost:<port>/gadgets/ifr?url=http://www.labpixies.com/campaigns/todo/todo.xml
+
+
+For more information, see http://incubator.apache.org/projects/shindig.html

@@ -1,0 +1,10 @@
+Installing and running both servers
+============================================
+
+This is an example server setup containing web.xml files to run
+the gadget rendering and social-api services together or separately.
+
+Please see BUILD-JAVA in the base project directory for information.
+
+
+For more information, see http://incubator.apache.org/projects/shindig.html

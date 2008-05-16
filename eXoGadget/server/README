@@ -1,0 +1,14 @@
+Welcome to Apache Shindig!
+
+* Read java/README for instructions on using the java gadget servers.
+
+* To build and run the Java server see BUILD-JAVA
+
+* Read php/gadgets/README for instructions on how to run a php gadget server
+  instead of a java gadget server.
+
+* Read javascript/README for instructions for using the Shindig Gadget
+  Container JavaScript to enable your page to render Gadgets using
+  gmodules.com or a server started up as described above.
+
+For more information, see http://incubator.apache.org/projects/shindig.html

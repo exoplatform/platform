@@ -19,6 +19,7 @@ package org.exoplatform.portal.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
@@ -31,14 +32,17 @@ public class UserPortalConfig {
   
   private Widgets widgets;
   
+  private Gadgets gadgets ;//TODO dang.tung
+  
   public UserPortalConfig(){
     
   }
   
-  public UserPortalConfig(PortalConfig portal, List<PageNavigation> navigations, Widgets widgets){
+  public UserPortalConfig(PortalConfig portal, List<PageNavigation> navigations, Widgets widgets, Gadgets gadgets){
     this.portal = portal;
     this.navigations = navigations;
     this.widgets = widgets;
+    this.gadgets = gadgets ;
   }
   
   public PortalConfig getPortalConfig() { return portal ; }
@@ -55,5 +59,10 @@ public class UserPortalConfig {
 
   public Widgets getWidgets() { return widgets; }
   public void setWidgets(Widgets widgets) { this.widgets = widgets; }
-    
+  
+  //TODO: dang.tung
+  //----------------------------------------------------------------
+  public Gadgets getGadgets() { return gadgets; }
+  public void setGadgets(Gadgets gadgets) { this.gadgets = gadgets; }
+  //-----------------------------------------------------------------
 }

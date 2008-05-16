@@ -21,6 +21,7 @@
     <value name="width" usage="optional" field="width"  />
     <value name="height" usage="optional" field="height" />
     <structure field="properties" usage="optional"/>
+    <value name="url" usage="optional" field="url" />
   </mapping>
   
   <mapping name="page-body" label="pageBody" class="org.exoplatform.portal.config.model.PageBody">
@@ -131,6 +132,16 @@
   </mapping>
   
   <mapping name="widgets" label="widgets" class="org.exoplatform.portal.config.model.Widgets">
+    <value name="owner-type" field="ownerType"/>
+    <value name="owner-id" field="ownerId"/>
+    <value name="access-permissions" field="accessPermissions" usage="optional"/>
+    <value name="edit-permission" field="editPermission" usage="optional"/>
+    <collection field="children" ordered="false">
+      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
+    </collection>
+  </mapping>
+  
+  <mapping name="gadgets" label="gadgets" class="org.exoplatform.portal.config.model.Gadgets">
     <value name="owner-type" field="ownerType"/>
     <value name="owner-id" field="ownerId"/>
     <value name="access-permissions" field="accessPermissions" usage="optional"/>

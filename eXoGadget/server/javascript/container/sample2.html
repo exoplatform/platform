@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sample: Dynamic Height</title>
+<!-- default container look and feel -->
+<link rel="stylesheet" href="gadgets.css">
+<script type="text/javascript" src="../../js/rpc.js?c=1&debug=1"></script>
+<script type="text/javascript" src="cookies.js"></script>
+<script type="text/javascript" src="util.js"></script>
+<script type="text/javascript" src="gadgets.js"></script>
+<script type="text/javascript" src="cookiebaseduserprefstore.js"></script>
+<script type="text/javascript">
+var my = {};
+
+my.gadgetSpecUrls = [
+  'http://www.google.com/ig/modules/horoscope.xml',
+  'http://www.google.com/ig/modules/aue07otr.xml',
+  'http://www.labpixies.com/campaigns/todo/todo.xml'
+];
+
+
+// This container lays out and renders gadgets itself.
+
+my.LayoutManager = function() {
+  gadgets.LayoutManager.call(this);
+};
+
+my.LayoutManager.inherits(gadgets.LayoutManager);
+
+my.LayoutManager.prototype.getGadgetChrome = function(gadget) {
+  var chromeId = 'gadget-chrome-' + gadget.id;
+  return chromeId ? document.getElementById(chromeId) : null;
+};
+
+my.init = function() {
+  gadgets.container.layoutManager = new my.LayoutManager();
+};
+
+my.renderGadgets = function() {
+  for (var i = 0; i < my.gadgetSpecUrls.length; ++i) {
+    var gadget = gadgets.container.createGadget(
+        {specUrl: my.gadgetSpecUrls[i]});
+    gadgets.container.addGadget(gadget);
+    gadgets.container.renderGadget(gadget);
+  }
+};
+</script>
+</head>
+<body onLoad="my.init();my.renderGadgets()">
+  <h2>Sample: Dynamic Height</h2>
+  <div id="gadget-chrome-0" class="gadgets-gadget-chrome"></div>
+  <div id="gadget-chrome-1" class="gadgets-gadget-chrome"></div>
+  <div id="gadget-chrome-2" class="gadgets-gadget-chrome"></div>
+</body>
+</html>
