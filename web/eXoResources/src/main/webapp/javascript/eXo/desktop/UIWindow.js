@@ -1,6 +1,5 @@
 function UIWindow() {
 	this.maxIndex = 0;
-	
 } ;
 
 UIWindow.prototype.init = function(popup, isShow, posX, posY) {
@@ -46,6 +45,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY) {
  		this.originalHeight = 400;
  		maximizedIcon.className = "ControlIcon RestoreIcon";
  		maximizedIcon.title = "Restore Down";
+ 	 setTimeout(eXo.desktop.UIWindow.toForcus, 1000);
   }
 } ;
 
@@ -60,6 +60,18 @@ UIWindow.prototype.fixHeight = function(portletId) {
 	}
 } ;
 
+UIWindow.prototype.toForcus = function() {
+	//reset zIndex all widget when in case them over to maximize portlet.
+	var DOMUtil = eXo.core.DOMUtil ;
+	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
+	var uiWidgets =  DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget");
+	if (uiWidgets.length) {
+		for (var i = 0; i < uiWidgets.length; i ++ ) {
+			uiWidgets[i].style.zIndex = 1;
+		}
+	}
+} ;
+
 UIWindow.prototype.mousedownOnPopup = function(evt) {
 	var isMaxZIndex = eXo.desktop.UIDesktop.isMaxZIndex(this) ;
 	if(!isMaxZIndex)	eXo.desktop.UIDesktop.resetZIndex(this) ;
@@ -71,17 +83,6 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
 	
 	var uiWindow = eXo.desktop.UIWindow ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
-	// set zIndex for widgets;
-	// save properties of widgets;
-	/*
-		var uiWidgets =  DOMUtil.findDescendantsByClass(uiPageDesktop, "div", "UIWidget");
-		if (uiWidgets.length > 0) {
-			for (var i = 0; i < uiWidgets.length; i ++ ) {
-				uiWidgets[i].style.zIndex = 0;
-				eXo.widget.UIWidget.saveWindowProperties(uiWidgets[i]) ;
-			}
-		}
-	*/
   var desktopWidth = uiPageDesktop.offsetWidth  ;
   var desktopHeight = uiPageDesktop.offsetHeight  ;
   var uiResizableBlock = DOMUtil.findDescendantsByClass(portletWindow, "div", "UIResizableBlock") ;
