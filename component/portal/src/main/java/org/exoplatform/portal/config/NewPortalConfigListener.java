@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.net.URL;
 
 import org.apache.commons.lang.StringUtils;
 import org.exoplatform.commons.utils.IOUtil;
@@ -185,15 +186,22 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   
   //TODO: dang.tung
   //-------------------------------------------------------------------------------------
-  private void createGadgets(NewPortalConfig config, String owner) throws Exception { 
+  private void createGadgets(NewPortalConfig config, String owner) throws Exception {
     String xml = null;
     if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
-      xml = getDefaultConfig(config, owner, "gadgets");
+      String ownerType = config.getOwnerType();
+      String path = "/" + ownerType + "/" + owner +"/"+"gadgets.xml";
+      String location = config.getTemplateLocation() ;
+      URL url = cmanager_.getURL(location+path) ;
+      if(url != null) xml = IOUtil.getStreamContentAsString(cmanager_.getInputStream(location + path));
+      //xml = getDefaultConfig(config, owner, "gadgets");
     } else {
       xml = getTemplateConfig(config, owner, "gadgets");
     }
-    Gadgets gadgets = fromXML(xml, Gadgets.class);
-    pdcService_.create(gadgets);
+    if(xml!=null) {
+      Gadgets gadgets = fromXML(xml, Gadgets.class);
+      pdcService_.create(gadgets);
+    }
   }
   //-------------------------------------------------------------------------------------
   
