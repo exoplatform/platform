@@ -34,8 +34,11 @@ function Cometd() {
 
 
 Cometd.prototype.init = function() {
-	this.currentTransport = new eXo.portal.LongPollTransport();
-	this.currentTransport.init(this);
+	if(!this.currentTransport) {
+		this.currentTransport = new eXo.portal.LongPollTransport();
+		this.currentTransport.init(this);
+	}
+	
 	if(this.clientId)
 		this.currentTransport.initTunnel();
 	else
@@ -154,6 +157,22 @@ Cometd.prototype.startBatch = function(){
 	this.batch++;
 }
 
+Cometd.prototype.increaseRetryInterval = function() {
+	if (!this.advice)
+		this.advice = {};
+	if(!this.advice.interval)
+		this.advice.interval = 0;
+	if (this.advice.interval < 115000) {
+		this.advice.interval += 5000;
+	}
+}
+
+Cometd.prototype.resetRetryInterval = function() {
+	if(this.advice) 
+		this.advice.interval = 0;
+
+}
+
 Cometd.prototype.endBatch = function(){
 	if(--this.batch <= 0 && this.currentTransport && this._connected){
 		this.batch=0;
@@ -242,7 +261,7 @@ function LongPollTransport() {
 			}
 
 			if( this._cometd.advice && this._cometd.advice["interval"] && this._cometd.advice.interval>0 ){
-				setTimeout(function(){ this._cometd.init(cometd.url,cometd._props); }, this._cometd.advice.interval);
+				setTimeout(function(){ eXo.core.Cometd.init(); }, this._cometd.advice.interval);
 			}else{
 				this._cometd.init(this.url,this._props);
 			}
@@ -281,8 +300,10 @@ function LongPollTransport() {
 		request.timeout = 180000;
 		request.onSuccess = function(request){
 								this._cometd._polling = false;
-								if (request.status >=200 && request.status < 300)
+								if (request.status >=200 && request.status < 300) {
 									this._cometd.deliver(request.evalResponse());
+									this._cometd.resetRetryInterval();
+								}
 								else
 									this._cometd._backoff();
 								this.tunnelReq = null;
@@ -316,11 +337,14 @@ function LongPollTransport() {
 					var transport = this;
 					setTimeout(function(){ transport._connect(); },
 						this._cometd.advice.interval);
+						this._cometd.increaseRetryInterval();
 				}else{
 					this._connect();
+					this._cometd.increaseRetryInterval();
 				}
 			}else{
 				this._connect();
+				this._cometd.increaseRetryInterval();
 			}
 		}
 	}
