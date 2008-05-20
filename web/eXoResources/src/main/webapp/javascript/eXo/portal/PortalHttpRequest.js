@@ -272,12 +272,12 @@ function AjaxRequest(method, url, queryString) {
 			instance.responseText = instance.request.responseText ;
 			instance.responseXML = instance.request.responseXML ;
 		}catch(err){
-			return ;
+			instance.status = 0;
 		}
 		
 		if(typeof(instance.onComplete) == "function") instance.onComplete(instance) ;
 		
-		if (instance.request.status == 200 && typeof(instance.onSuccess) == "function") {
+		if (instance.status == 200 && typeof(instance.onSuccess) == "function") {
 			instance.onSuccess(instance) ;
 			instance.onCompleteInternalHandled = true ;
 			if (typeof(instance.callBack) == "function") {
