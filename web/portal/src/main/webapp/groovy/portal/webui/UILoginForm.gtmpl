@@ -2,13 +2,9 @@
   import org.exoplatform.web.application.JavascriptManager;
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  
-  jsmanager.importJavascript('eXo.portal.UIPortalControl');
-  
+  jsmanager.importJavascript('eXo.portal.UIPortalControl'); 
   jsmanager.addCustomizedOnLoadScript('document.getElementById("UIPortalComponentLogin").username.focus();') ;
-  jsmanager.addJavascript('eXo.portal.UIPortalControl.onKeyPress();') ;
 %>
-
 <div class="UILoginForm">
   <div class="LoginDecorator">
 	  <div class="TopLeftLoginDecorator">
@@ -28,7 +24,7 @@
 		              <label><%=_ctx.appRes("UILoginForm.label.UserName")%></label>
 		              <% uiform.renderChild(0)%>
 		            </div>
-		            <div class="PasswordField" id="UIPortalLoginFormControl">
+		            <div class="PasswordField" id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event)">
 		              <label><%=_ctx.appRes("UILoginForm.label.password")%></label>
 		              <% uiform.renderChild(1)%>
 		            </div> 				        
