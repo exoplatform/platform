@@ -65,16 +65,13 @@ public class SkinService {
     mergedCSS_ = new HashMap<String, String>();
   }
 
-  /**
-   * TODO: should return a collection or list This method should return the
-   * availables skin in the service
-   * 
-   * @return
-   */
-  public Iterator<String> getAvailableSkins() {
-    return availableSkins_.iterator();
-  }
-
+  public void addCategoryTheme(String categoryName) {
+    if (portletThemes_ == null)
+      portletThemes_ = new HashMap<String, Set<String>>();
+    if (!portletThemes_.containsKey(categoryName))
+      portletThemes_.put(categoryName, new HashSet<String>());
+  }  
+  
   public void addPortalSkin(String module, String skinName, String cssPath, ServletContext scontext) {
     addPortalSkin(module, skinName, cssPath, scontext, false) ;
   }
@@ -90,6 +87,15 @@ public class SkinService {
     }
   }
   
+  public void addPortalSkin(String module,String skinName, String cssPath, ServletContext scontext,String cssData) {
+    String key = module + "$" + skinName;
+    SkinConfig skinConfig = skinConfigs_.get(key);
+    if (skinConfig == null) {
+      portalSkins_.put(key, new SkinConfig(module, cssPath));
+      mergedCSS_.put(cssPath, cssData);
+    }
+  }
+  
   /**
    * 
    * @param module
@@ -99,7 +105,7 @@ public class SkinService {
   public void addSkin(String module, String skinName, String cssPath, ServletContext scontext) {
     addSkin(module, skinName, cssPath, scontext, false);
   }
-
+  
   public void addSkin(String module, String skinName, String cssPath,
       ServletContext scontext, boolean isPrimary) {
     availableSkins_.add(skinName);
@@ -111,9 +117,28 @@ public class SkinService {
     }
   }
   
-  public void invalidatePortalSkinCache(String portalName, String skinName) {
-    String key = portalName + "$" + skinName;
-    skinConfigs_.remove(key);
+  public void addTheme(String categoryName, List<String> themesName) {
+    if (portletThemes_ == null)
+      portletThemes_ = new HashMap<String, Set<String>>();
+    if (!portletThemes_.containsKey(categoryName))
+      portletThemes_.put(categoryName, new HashSet<String>());
+    Set<String> catThemes = portletThemes_.get(categoryName);
+    for (String theme : themesName)
+      catThemes.add(theme);
+  }
+
+  /**
+   * TODO: should return a collection or list This method should return the
+   * availables skin in the service
+   * 
+   * @return
+   */
+  public Iterator<String> getAvailableSkins() {
+    return availableSkins_.iterator();
+  }
+  
+  public String getMergedCSS(String cssPath) {
+    return mergedCSS_.get(cssPath);
   }
 
   public Collection<SkinConfig> getPortalSkins(String skinName) {
@@ -124,7 +149,45 @@ public class SkinService {
     }
     return portalSkins ;
   }
-  
+
+  public Map<String, Set<String>> getPortletThemes() {
+    return portletThemes_;
+  }
+
+  public SkinConfig getSkin(String key) {
+    return skinConfigs_.get(key);
+  }
+
+  public SkinConfig getSkin(String module, String skinName) {
+    SkinConfig config = skinConfigs_.get(module + "$" + skinName) ;
+    if(config == null) skinConfigs_.get(module + "$Default") ;
+    return config;
+  }
+
+  public void invalidatePortalSkinCache(String portalName, String skinName) {
+    String key = portalName + "$" + skinName;
+    skinConfigs_.remove(key);
+  }
+
+  public void remove(String key) throws Exception {
+    skinConfigs_.remove(key);
+  }
+
+  public void remove(String module, String skinName) throws Exception {
+    String key = module + "$" + skinName;
+    if (skinName.length() == 0)
+      key = module + "$Default";
+    skinConfigs_.remove(key);
+  }
+
+  public void setPortletThemes(Map<String, Set<String>> portletThemes_) {
+    this.portletThemes_ = portletThemes_;
+  }
+
+  public int size() {
+    return skinConfigs_.size();
+  }
+
   /**
    * This method is only called in production environment where all the css for the
    * portlets displayed in the portal canvas are merged into as single CSS file
@@ -249,59 +312,5 @@ public class SkinService {
     sB.append(basePath + urlToRewrite);
     sB.append(line.substring(lastIndex) + "\n");
 
-  }
-
-  public String getMergedCSS(String cssPath) {
-    return mergedCSS_.get(cssPath);
-  }
-
-  public SkinConfig getSkin(String module, String skinName) {
-    SkinConfig config = skinConfigs_.get(module + "$" + skinName) ;
-    if(config == null) skinConfigs_.get(module + "$Default") ;
-    return config;
-  }
-
-  public int size() {
-    return skinConfigs_.size();
-  }
-
-  public SkinConfig getSkin(String key) {
-    return skinConfigs_.get(key);
-  }
-
-  public void remove(String key) throws Exception {
-    skinConfigs_.remove(key);
-  }
-
-  public void remove(String module, String skinName) throws Exception {
-    String key = module + "$" + skinName;
-    if (skinName.length() == 0)
-      key = module + "$Default";
-    skinConfigs_.remove(key);
-  }
-
-  public void addTheme(String categoryName, List<String> themesName) {
-    if (portletThemes_ == null)
-      portletThemes_ = new HashMap<String, Set<String>>();
-    if (!portletThemes_.containsKey(categoryName))
-      portletThemes_.put(categoryName, new HashSet<String>());
-    Set<String> catThemes = portletThemes_.get(categoryName);
-    for (String theme : themesName)
-      catThemes.add(theme);
-  }
-
-  public void addCategoryTheme(String categoryName) {
-    if (portletThemes_ == null)
-      portletThemes_ = new HashMap<String, Set<String>>();
-    if (!portletThemes_.containsKey(categoryName))
-      portletThemes_.put(categoryName, new HashSet<String>());
-  }
-
-  public Map<String, Set<String>> getPortletThemes() {
-    return portletThemes_;
-  }
-
-  public void setPortletThemes(Map<String, Set<String>> portletThemes_) {
-    this.portletThemes_ = portletThemes_;
   }
 }
