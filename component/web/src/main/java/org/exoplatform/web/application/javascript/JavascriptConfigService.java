@@ -22,6 +22,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 
 import javax.servlet.ServletContext;
 
@@ -31,12 +32,15 @@ public class JavascriptConfigService {
   private Collection<String> availableScriptsPaths_;
 
   private String mergedJavascript = "";
-  
+
+  private HashMap<String,String> extendedJavascripts ;
+
   private ByteArrayOutputStream jsStream_ = null;
-  
+
   public JavascriptConfigService() {
     availableScripts_ = new ArrayList<String>();
     availableScriptsPaths_ = new ArrayList<String>();
+    extendedJavascripts = new HashMap<String, String>();
   }
 
   /**
@@ -48,10 +52,18 @@ public class JavascriptConfigService {
   public Collection<String> getAvailableScripts() {
     return availableScripts_;
   }
-  
+
   public Collection<String> getAvailableScriptsPaths() {
     return availableScriptsPaths_;
   }  
+
+  public void addExtendedJavascript(String module,String scriptPath, ServletContext scontext,String scriptData) {
+    String servletContextName = scontext.getServletContextName();
+    String path = "/" + servletContextName + scriptPath ;
+    availableScripts_.add(module);
+    availableScriptsPaths_.add(path);    
+    extendedJavascripts.put(path, scriptData) ;
+  }
 
   /**
    * 
@@ -86,11 +98,16 @@ public class JavascriptConfigService {
     sB.append("\n");
     mergedJavascript = mergedJavascript.concat(sB.toString());
   }
-  
+
   public byte[] getMergedJavascript() {
     if(jsStream_ == null) {
       jsStream_ = new ByteArrayOutputStream();
-      ByteArrayInputStream input = new ByteArrayInputStream(mergedJavascript.getBytes());
+      StringBuffer allJavascript = new StringBuffer() ;
+      allJavascript.append(mergedJavascript) ;
+      for(String script: extendedJavascripts.values()) {
+        allJavascript.append(script) ;
+      }
+      ByteArrayInputStream input = new ByteArrayInputStream(allJavascript.toString().getBytes());
       JSMin jsMin = new JSMin(input,jsStream_);
       try {
         jsMin.jsmin();
@@ -100,9 +117,17 @@ public class JavascriptConfigService {
     }
     return jsStream_.toByteArray();
   }
-  
+
   public boolean isModuleLoaded(CharSequence module) {
     return getAvailableScripts().contains(module);
   }
-  
+
+  public void removeExtendedJavascript(String module,String scriptPath, ServletContext scontext) {
+    String servletContextName = scontext.getServletContextName();           
+    availableScripts_.remove(module);
+    String path = "/" + servletContextName + scriptPath ;
+    availableScriptsPaths_.remove(path);
+    extendedJavascripts.remove(path) ;
+    jsStream_ = null ;
+  }
 }
