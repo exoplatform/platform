@@ -21,7 +21,7 @@
     <module>eXoGadget/server/java/gadgets</module -->	
 
 	<module>gadgets/shindig</module>
-	<module>gadgets/eXoGadget</module>
+	<module>gadgets/eXoGadgetServer</module>
 	
     <module>webui/core</module>
     <module>webui/eXo</module>

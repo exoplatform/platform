@@ -27,7 +27,7 @@ under the License.
   </parent>
 
   <groupId>org.exoplatform.portal</groupId>
-  <artifactId>exo.portal.eXoGadget</artifactId>
+  <artifactId>exo.portal.eXoGadgetServer</artifactId>
   <packaging>war</packaging>
   <version>trunk</version>
 
