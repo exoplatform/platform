@@ -7,7 +7,7 @@
 		<name>Sample</name>
 		<description>Sample's Description</description>
   	<application>
-  		<instance-id>user#demo:/eXoGadgetWeb/Sample/Sample1</instance-id>
+  		<instance-id>user#demo:/eXoGadgets/Sample/Sample1</instance-id>
       <application-type>eXoGadget</application-type>
     </application>
   </container>	

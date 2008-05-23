@@ -12,17 +12,17 @@ function UIExoGadget() {
 * 
 */
 UIExoGadget.prototype.init = function(appName, appFolder, attrsGadget, webAppName) {
-  this.appCategory = "eXoGadgetWeb" ;
-	this.webAppName = webAppName || "eXoGadgetWeb";
+  this.appCategory = "eXoGadgets" ;
+	this.webAppName = webAppName || "eXoGadgets";
 	this.appName = appName ;
 	this.attrsGadget = attrsGadget;
 	this.appFolder = appFolder;
 	var nameGadget = this.getNameGadget(appName);
 	this.appIcon = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/"+nameGadget+".png" ;
 	this.skin = {
-	  Default: "/eXoGadgetWeb/skin/"+appFolder+"/DefaultStylesheet.css",
-	  Mac:     "/eXoGadgetWeb/skin/"+appFolder+"/MacStylesheet.css",
-	  Vista:   "/eXoGadgetWeb/skin/"+appFolder+"/VistaStylesheet.css"
+	  Default: "/eXoGadgets/skin/"+appFolder+"/DefaultStylesheet.css",
+	  Mac:     "/eXoGadgets/skin/"+appFolder+"/MacStylesheet.css",
+	  Vista:   "/eXoGadgets/skin/"+appFolder+"/VistaStylesheet.css"
 	} ;
 	this.width = "220px" ;
 	this.height = "auto" ;

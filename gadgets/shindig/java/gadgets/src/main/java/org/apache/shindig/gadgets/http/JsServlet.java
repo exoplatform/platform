@@ -113,10 +113,16 @@ public class JsServlet extends InjectedServlet {
       }
     } while (features.size() != found.size());
 
-    if (jsData.length() == 0) {
-      resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-      return;
+    
+    String sJsData = jsData.toString();
+    
+    if (req.getParameter("p") != null) {
+      sJsData = sJsData.replaceAll("gadgets\\.", "eXo\\.gadgets\\.");
     }
+      if (sJsData.length() == 0) {
+        resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        return;
+      }
 
     if (req.getParameter("v") != null) {
       // Versioned files get cached indefinitely
@@ -126,7 +132,7 @@ public class JsServlet extends InjectedServlet {
       HttpUtil.setCachingHeaders(resp, 60 * 60);
     }
     resp.setContentType("text/javascript; charset=utf-8");
-    resp.setContentLength(jsData.length());
-    resp.getOutputStream().write(jsData.toString().getBytes());
+    resp.setContentLength(sJsData.length());
+    resp.getOutputStream().write(sJsData.toString().getBytes());
   }
 }

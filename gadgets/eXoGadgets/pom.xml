@@ -1,0 +1,39 @@
+<project>
+  <parent>
+    <groupId>org.exoplatform.portal</groupId>
+    <artifactId>config</artifactId>
+    <version>trunk</version>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>exo.portal.eXoGadgets</artifactId>
+  <packaging>war</packaging>
+  <version>${org.exoplatform.portal.version}</version>
+  <name>eXoGadgets</name>
+  <url>http://www.exoplatform.org</url>
+  <description>eXo Gadgets</description>
+
+  <dependencies>
+  <dependency>
+    <!--groupId>org.exoplatform.ws.frameworks.cometd</groupId-->
+    <groupId>org.exoplatform.ws</groupId>
+  	<artifactId>exo.ws.frameworks.cometd.service</artifactId>
+	<version>${org.exoplatform.ws.version}</version>
+	<scope>provided</scope>
+  </dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.web</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.webui.portal</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    
+  </dependencies>
+</project>

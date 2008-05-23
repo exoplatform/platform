@@ -55,9 +55,19 @@ under the License.
               <!-- this is relative to the pom.xml directory -->
               <directory>${basedir}/../shindig/javascript/</directory>
               <targetPath>/gadgets/files</targetPath>
+             	<excludes>
+		        		<exclude>container/gadgets.js</exclude>
+		        		<exclude>container/cookiebaseduserprefstore.js</exclude>
+		        	</excludes>
+            </resource>
+            <resource>
+              <!-- this is relative to the pom.xml directory -->
+              <directory>${basedir}/../eXoGadgets/src/main/webapp/javascript/shindig/</directory>
+              <targetPath>/gadgets/files/container</targetPath>
               <includes>
-                <include>**/*.*</include>
-              </includes>
+		        		<include>gadgets.js</include>
+		        		<include>cookiebaseduserprefstore.js</include>
+		        	</includes>
             </resource>
           </webResources>
         </configuration>
@@ -76,12 +86,27 @@ under the License.
       <resource>
         <targetPath>features</targetPath>
         <directory>${basedir}/../shindig/features</directory>
+        <excludes><exclude>rpc/rpc.js</exclude></excludes>
+      </resource>
+      <resource>
+        <targetPath>features/rpc</targetPath>
+        <directory>${basedir}/../eXoGadgets/src/main/webapp/javascript/shindig</directory>
+        <includes><include>rpc.js</include></includes>
       </resource>
       <resource>
         <directory>${basedir}/../shindig/javascript/</directory>
         <targetPath>/gadgets/files</targetPath>
+				<excludes>
+        	<exclude>container/gadgets.js</exclude>
+        	<exclude>container/cookiebaseduserprefstore.js</exclude>
+        </excludes>
+      </resource>
+      <resource>
+        <directory>${basedir}/../eXoGadgets/src/main/webapp/javascript/shindig</directory>
+        <targetPath>/gadgets/files/container</targetPath>
         <includes>
-          <include>**/*.*</include>
+        	<include>gadgets.js</include>
+        	<include>cookiebaseduserprefstore.js</include>
         </includes>
       </resource>
       <resource>
@@ -93,7 +118,7 @@ under the License.
       </resource>
       <resource>
         <targetPath>config</targetPath>
-        <directory>${basedir}/../shindig/config</directory>
+        <directory>${basedir}/../eXoGadgets/src/main/webapp/config</directory>
         <includes>
           <include>oauth.json</include>
         </includes>

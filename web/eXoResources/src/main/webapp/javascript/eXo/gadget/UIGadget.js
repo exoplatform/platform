@@ -231,8 +231,8 @@ UIGadget.prototype.createGadget = function(url,id) {
 	if (!eXo.gadgets || !eXo.gadgets.rpc) {
 		eXo.loadJS("/eXoGadgetServer/gadgets/js/rpc.js?c=1&debug=1&p=1");
 	}
-	eXo.require("eXo.gadgets.Gadgets", "/eXoGadgetWeb/javascript/");
-	eXo.require("eXo.gadgets.CookieBasedUserPrefStore", "/eXoGadgetWeb/javascript/");
+	eXo.require("eXo.gadgets.Gadgets", "/eXoGadgets/javascript/");
+	eXo.require("eXo.gadgets.CookieBasedUserPrefStore", "/eXoGadgets/javascript/");
 	window.gadgets = eXo.gadgets.Gadgets;
 	var gadget = eXo.gadgets.Gadgets.container.createGadget({specUrl: url});
 	
