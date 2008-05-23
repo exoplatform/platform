@@ -1,4 +1,4 @@
-.UIAccountSettingForm {
+i.UIAccountSettingForm {
   padding: 5px;
 }
 
@@ -117,10 +117,6 @@
 	border-bottom: none;
 	height: 165px;
 	padding: 25px 0px;
-}
-
-.UIAccountSettingForm .UIFormGrid td.FieldLabel {
-	width: 200px;
 }
 
 .UIAccountSettingForm .UIForm .UIAction {

@@ -131,18 +131,9 @@
   width: 30px;
 }
 
-.UIAccessGroup .UIFormGrid {
-	margin: 0px 0px 5px 0px;
-	width: 95%;
-	margin: 0px auto 5px auto;
-}
-
-.UIAccessGroup .UIFormGrid td.FieldLabel {
-	width: 310px;
-}
-
 .UIAccessGroup .UIPageIterator {
 	width: 95%;
+	margin: auto;
 }
 
 .UIForm .HorizontalLayout .UIAccessGroup input.checkbox {

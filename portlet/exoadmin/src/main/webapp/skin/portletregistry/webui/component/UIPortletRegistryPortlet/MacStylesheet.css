@@ -108,7 +108,7 @@
 }
 
 .ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout{
-  padding: 10px 10px 10px 40px;
+  padding: 10px;
   background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
   border: 1px solid white;
 }
@@ -211,16 +211,12 @@
   border: 1px solid #b7b7b7;
 }
 
-.UIApplicationRegistryPortlet .UIAvailablePortletForm td.text{
-  padding-left: 15px;
+.ApplicationRegistryWorkingArea .UIAvailablePortletForm .UIFormGrid {
+	width: 100%;
 }
 
-.UIApplicationRegistryPortlet .UIAvailablePortletForm input.checkbox{
-  width: 16px; height: 14px;
-}
-
-.ApplicationRegistryWorkingArea .UIPermissionForm .UIAccessGroup .UIGrid td.text{
-  padding-left: 8px;
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIFormGrid {
+	width: 100%;
 }
 
 .ApplicationRegistryWorkingArea .UIInfoPortletForm {

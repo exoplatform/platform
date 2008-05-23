@@ -45,6 +45,10 @@
 }
 
 
+.UIMaskWorkspace .UINodeIconSelector .SelectedIconInfo .UIFormInputSet {
+	padding: 0px;
+}
+
 .UIMaskWorkspace .UIForm .HorizontalLayout .SelectedIconInfo .UIFormInputSet {
   margin: auto;
 }

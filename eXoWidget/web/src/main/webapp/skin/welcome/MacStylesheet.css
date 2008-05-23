@@ -6,59 +6,22 @@
   padding: 0px 0px 0px 25px;
 }
 
-.UIWelcomeWidget .DecoratorBackground {
-	background: url('MacSkin/background/WelcomeWidgetBG.png') repeat;
-}
-
-.UIWelcomeWidget .LoggedDecorator .LeftTopLoggedDecorator {
-	background: url('MacSkin/background/WelcomeWidget.png') no-repeat left -17px;
-	padding: 0px 0px 0px 16px;
-}
-
-.UIWelcomeWidget .LoggedDecorator .RightTopLoggedDecorator {
-	background: url('MacSkin/background/WelcomeWidget.png') no-repeat right -34px;
-	padding: 0px 13px 0px 0px;
-}
-
-.UIWelcomeWidget .LoggedDecorator .CenterTopLoggedDecorator {
-	background: url('MacSkin/background/WelcomeWidget.png') repeat-x top;
-	height: 16px;
-}
-
-.UIWelcomeWidget .LoggedDecorator .LeftMiddleLoggedDecorator {
-	padding: 0px 0px 0px 16px;
-	background: url('MacSkin/background/WelcomeWidgetML.png') repeat-y left;
-}
-
-.UIWelcomeWidget .LoggedDecorator .RightMiddleLoggedDecorator {
-	padding: 0px 13px 0px 0px;
-	background: url('MacSkin/background/WelcomeWidgetMR.png') repeat-y right;
-}
-
-.UIWelcomeWidget .LoggedDecorator .LeftBottomLoggedDecorator {
-	padding: 0px 0px 0px 16px;
-	background: url('MacSkin/background/WelcomeWidget.png') no-repeat left -51px;
-}
-
-.UIWelcomeWidget .LoggedDecorator .RightBottomLoggedDecorator {
-	padding: 0px 13px 0px 0px;
-	background: url('MacSkin/background/WelcomeWidget.png') no-repeat right -68px;
-}
-
-.UIWelcomeWidget .LoggedDecorator .CenterBottomLoggedDecorator {
-  height: 16px;
-	background: url('MacSkin/background/WelcomeWidget.png') repeat-x center -85px;
+.UIWelcomeWidget .LoggedDecorator {
+	margin: 1px 0px 8px 0px;
+	background: url('MacSkin/background/WelcomeWidgetBG.png') no-repeat;
+	width: 215px;
+	height: 129px;
 }
 
 .UIWelcomeWidget .StyleContent .AvatarContainer {
 	float: left;
 	width: 80px;
-	padding: 14px 0px 0px 10px;
+	padding: 23px 0px 0px 20px;
 }
 
 .UIWelcomeWidget .AvatarContainer .AvatarImage {
 	width: 69px; height: 76px;
-	background: url('MacSkin/background/WelcomeWidget.png') no-repeat left -102px;
+	background: url('MacSkin/background/AvatarImage69x76.png') no-repeat center;
 }
 
 .UIWelcomeWidget .StyleContent .WelcomeBox {
@@ -78,7 +41,7 @@
 }
 
 .UIWelcomeWidget .StyleContent .UserWelcomeBox .LoggedUserName {
-  color: #84ccfc ;
+  color: #000 ;
   line-height: 26px;
   font-weight: bold; 
   text-align: center;
@@ -127,7 +90,7 @@
 /****************************** Icon *********************************/
 .UIWelcomeWidget .SelectedBG {
 	float: left;
-	/*background: url('MacSkin/background/SelectedBG.gif') no-repeat center;*/
+	/*background: url('DefaultSkin/background/SelectedBG.gif') no-repeat center;*/
 }
 
 .UIWelcomeWidget .NormalBG {

@@ -114,11 +114,6 @@
 	padding: 20px 0px ;
 }
 
-.UIOrganizationPortlet .UIForm .UIFormInputSet .UIFormGrid {
-	width: 500px;
-	margin: auto;
-}
-
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
 	height: 332px;
 	padding-bottom:0px;
@@ -132,10 +127,6 @@
 	border: none;
 	background: none;
 	height: auto;
-}
-
-.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .UIFormGrid {
-	width: 400px;
 }
 
 .UIOrganizationPortlet .UIUserManagement .UIGrid {
@@ -266,11 +257,6 @@
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
   margin-left: 228px ;
   height:100%;
-}
-
-.UIOrganizationPortlet .UIFormGrid {
-	width: 400px;
-	margin: auto;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {

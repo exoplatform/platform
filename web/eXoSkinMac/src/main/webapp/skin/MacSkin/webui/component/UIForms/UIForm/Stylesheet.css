@@ -6,6 +6,11 @@
   border: solid 1px #b7b7b7;
 }
 
+.UIFormGrid {
+	width: auto;
+	margin: auto;
+}
+
 .UIForm .UIFormGrid td.FieldLabel {
   padding: 4px;
   text-align: right;
@@ -14,6 +19,7 @@
 
 .UIForm .UIFormGrid td.FieldComponent {
   padding: 4px;
+	*padding: 0px 0px 4px 4px;
 }
 
 .UIForm .HorizontalLayout .MultiValueContainer {
@@ -153,6 +159,7 @@
 /*####################- UIPermissionForm -#################*/
 
 .UIPermissionForm .UIForm .HorizontalLayout .UIAccessGroup td.FieldLabel {
+	width: 370px;
   line-height: 16px;
 }
 

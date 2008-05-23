@@ -37,6 +37,15 @@
   margin: auto;
 }
 
+.UIApplicationRegistryPortlet .UIAvailablePortletForm .UIFormGrid {
+	width: 100%;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIFormGrid {
+	width: 100%;
+}
+
+
 .UIApplicationRegistryPortlet .UIAvailablePortletForm td.text{
   padding-left: 15px;
 }
@@ -61,11 +70,6 @@
   padding: 10px 10px 0px 0px;
 }
 
-.ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout .UIFormGrid {
-	width: 400px;
-	margin: auto;
-}
-
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs {
   padding-bottom: 20px;
 }
@@ -82,11 +86,6 @@
 
 .ApplicationRegistryControlArea .CategoryManagement {
   border: 1px solid white;
-}
-
-.ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout .UIFormGrid {
-	width: 400px;
-	margin: auto;
 }
 
 .ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout{

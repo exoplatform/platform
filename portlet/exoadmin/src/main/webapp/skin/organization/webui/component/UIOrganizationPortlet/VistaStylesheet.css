@@ -84,11 +84,6 @@
   width: 97%;
 }
 
-.UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet .UIFormGrid {
-	width: 400px;
-	margin: auto;
-}
-
 .UIOrganizationPortlet .UIUserManagement .HorizontalLayout .UIFormInputSet {
 	height: 270px;
 }
@@ -213,11 +208,6 @@
   height: auto;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormGrid {
-  width: 400px;
-  margin: auto;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .WorkingArea {
   padding-left: 2px ;
 }
@@ -245,17 +235,9 @@
   padding: 0px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm .UIForm .UIFormGrid {
-	width: 350px;
-	margin: auto;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup {
 	width: 94.5%;
 	margin: auto;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIGrid {
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .UITrees {

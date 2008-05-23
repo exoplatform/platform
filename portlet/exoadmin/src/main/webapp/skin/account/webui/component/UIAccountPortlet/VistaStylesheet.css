@@ -22,12 +22,6 @@
   margin: 5px;
 }
 
-.UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
-	width: 420px;
-	padding-top: 10px;
-	margin: auto;
-}
-
 .UIAccountPortlet .UIFormTabPane .WorkingArea .UIForm {
 	padding: 0px;
 }

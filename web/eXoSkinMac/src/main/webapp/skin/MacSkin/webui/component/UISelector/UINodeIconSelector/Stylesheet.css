@@ -18,19 +18,20 @@
   margin-top: 6px;
 }
 
-.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer{
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer {
   white-space: nowrap;
   margin: 0px;
+	line-height: 32px;
 }
 
-.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel{
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel {
   font-size: 12px; font-weight: normal;
   float: left;
   margin: 0px 10px 0px 10px;
   width: auto;
 }
 
-.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue {
   margin-left: 0px;
   float: none;
   color: #2F76E2;

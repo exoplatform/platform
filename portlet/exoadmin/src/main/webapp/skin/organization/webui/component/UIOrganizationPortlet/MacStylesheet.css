@@ -264,11 +264,6 @@
   margin-left: 227px ;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupDetail .UIFormGrid {
-  width: 360px;
-  margin: auto;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIHorizontalTabs  {
   width: 100%;
 }
@@ -295,22 +290,12 @@
 	margin: auto;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .PopupContent .UIGrid {
-	width: 100%;
-	margin: auto;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIGrid th {
 	padding: 0px 3px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle {
 	width: auto;
-	margin: auto;
-}
-
-.UIOrganizationPortlet .UIFormGrid {
-	width: 360px;
 	margin: auto;
 }
 

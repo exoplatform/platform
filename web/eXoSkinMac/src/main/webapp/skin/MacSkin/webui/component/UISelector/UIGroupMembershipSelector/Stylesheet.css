@@ -11,6 +11,7 @@
 .UIGroupMembershipSelector .UIBreadcumbs {
   font-weight: normal;
   height: auto;
+  overflow: hidden;
 }
 
 .UIGroupMembershipSelector .UIBreadcumbs .LeftBreadcumbsBar {

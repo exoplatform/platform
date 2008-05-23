@@ -19,14 +19,6 @@
   padding-left: 10px;
 }
 
-.UIApplicationRegistryPortlet .UIAvailablePortletForm td.text{
-  padding-left: 15px;
-}
-
-.UIApplicationRegistryPortlet .UIAvailablePortletForm input.checkbox{
-  width: 16px; height: 14px;
-}
-
 .UIApplicationRegistryPortlet .UIApplicationRegistryContainer {
   padding: 10px;
 }
@@ -34,6 +26,14 @@
 .UIApplicationRegistryPortlet .UIAvailablePortletForm {
   margin: auto;
   padding: 0px 10px;
+}
+
+.ApplicationRegistryWorkingArea .UIAvailablePortletForm .UIFormGrid {
+	width: 100%;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIFormGrid {
+	width: 100%;
 }
 
 /*################################Application Registry Control################################*/

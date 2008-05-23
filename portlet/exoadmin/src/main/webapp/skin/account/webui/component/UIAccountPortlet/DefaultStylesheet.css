@@ -25,21 +25,11 @@
 }
 
 .UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
-  width: 420px;
+  width: auto;
   padding-top: 15px;
 }
 
-
-.UIAccountPortlet .UIFormTabPane .WorkingArea .UIForm {
-	padding: 0px;
-}
-
 /*########################-UIPersonalInfo-###########################*/
-
-.UIAccountPortlet .UITabContent .UIFormInputSet .FieldContainer {
-  width: 430px;
-  padding:6px 0px 0px 35px;
-}
 
 .UIAccountPortlet .UIItemSelector .ItemDetail .FieldContainer {
   padding:0px;
@@ -56,36 +46,32 @@
   padding-top: 5px;
 }
 
-.UIAccountPortlet .UIItemSelector .ItemDetailList .DefaultAccountImage{
+.UIAccountPortlet .UIItemSelector .ItemDetailList .DefaultAccountImage {
   width: 330px;
   height: 195px;
   margin: auto;
   background: url('DefaultSkin/background/DefaultAccountImage.jpg') no-repeat;
 }
 
-.UIAccountPortlet .UIItemSelector .ItemDetailList .AdminAccountImage{
+.UIAccountPortlet .UIItemSelector .ItemDetailList .AdminAccountImage {
   width: 330px;
   height: 195px;
   margin: auto;
   background: url('DefaultSkin/background/AdminAccountImage.jpg') no-repeat;
 }
 
-.UIAccountPortlet .UIItemSelector .ItemDetailList .CommunityAccountImage{
+.UIAccountPortlet .UIItemSelector .ItemDetailList .CommunityAccountImage {
   width: 330px;
   height: 195px;
   margin: auto;
   background: url('DefaultSkin/background/CommunityAccountImage.jpg') no-repeat;
 }
 
-.UIAccountPortlet .UIItemSelector .ItemDetailList .CompanyAccountImage{
+.UIAccountPortlet .UIItemSelector .ItemDetailList .CompanyAccountImage {
   width: 330px;
   height: 195px;
   margin: auto;
   background: url('DefaultSkin/background/CompanyAccountImage.jpg') no-repeat;
-}
-
-.UIAccountForm .UITabPane .TabPaneContent .UITabContentContainer {
-  border: 1px solid #939393;
 }
 
 .UIAccountPortlet .AccountInputSet .SearchIcon {

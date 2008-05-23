@@ -239,11 +239,6 @@
   height: 174px;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
-	width: 500px;
-	margin: auto;
-}
-
 /*========================== Start UIWizard Step 3 ==============================*/
 .UIWizard .UIFormTabPane {
   padding: 10px;

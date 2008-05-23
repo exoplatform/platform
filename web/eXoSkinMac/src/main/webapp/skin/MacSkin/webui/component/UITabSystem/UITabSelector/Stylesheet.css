@@ -116,11 +116,11 @@
   padding: 10px;
 }
 
-.UIAccessGroup .UIAccessGroup .PublicCheck input.checkbox{
+.UIAccessGroup .UIAccessGroup .PublicCheck input.checkbox {
   _margin: 0px;
 }
 
-.UIAccessGroup .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent{
+.UIAccessGroup .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent {
   _padding: 0px;
 }
 
@@ -130,16 +130,8 @@
 }
 
 .UIAccessGroup .UIPageIterator {
-	width: 90%;
-}
-
-.UIAccessGroup .UIFormGrid {
 	width: 95%;
-	margin: 0px auto 5px auto;
-}
-
-.UIAccessGroup .UIFormGrid td.FieldLabel {
-	width: 335px;
+	margin: auto;
 }
 
 .UIForm .HorizontalLayout .UIAccessGroup input.checkbox {
