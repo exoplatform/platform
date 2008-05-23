@@ -38,6 +38,13 @@ import javax.servlet.http.HttpServletResponse;
  * Simple servlet serving up JavaScript files by their registered aliases.
  * Used by type=URL gadgets in loading JavaScript resources.
  */
+
+/**
+ * Modified : dang.tung
+ *          tungcnw@gmail.com
+ * April 05, 2008          
+ */
+
 public class JsServlet extends InjectedServlet {
 
   private GadgetFeatureRegistry registry;

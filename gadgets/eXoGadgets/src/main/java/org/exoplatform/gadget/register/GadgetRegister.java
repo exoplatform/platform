@@ -14,16 +14,26 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.web.application;
+package org.exoplatform.gadget.register;
+
+import java.io.InputStream;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
+import org.exoplatform.gadget.web.Sample;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.application.Application;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 /**
  * Created by The eXo Platform SAS
  * Author : dang.tung
@@ -40,19 +50,29 @@ public class GadgetRegister implements ServletContextListener {
    */
   public void contextInitialized(ServletContextEvent event) {
     try {
-      String applications = event.getServletContext().getInitParameter("exo.application"); 
-      String[] classes = applications.split(",") ;
+      String gadgets = event.getServletContext().getInitParameter("exo.gadget");
       RootContainer root = RootContainer.getInstance() ;
       //TODO avoid portal hardcode
       PortalContainer pcontainer =  root.getPortalContainer("portal") ;
       WebAppController controller = (WebAppController)pcontainer.getComponentInstanceOfType(WebAppController.class) ;
-      ClassLoader loader = Thread.currentThread().getContextClassLoader() ;
-      for(String className : classes) {
-        className = className.trim() ;
-        log.info("Deploy Gadget class name: " + className);
-        Class type = loader.loadClass(className) ;
-        Application application = (Application)type.newInstance() ;
-        controller.addApplication(application) ;
+      String strLocation = "/gadgets/" + gadgets + ".xml" ;
+      DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder() ;
+      InputStream in = event.getServletContext().getResourceAsStream(strLocation) ;
+      Document docXML = db.parse(in) ;
+      NodeList nodeList = docXML.getElementsByTagName("gadget") ;
+      for(int i=0; i<nodeList.getLength(); i++) {
+        Sample sample = new Sample() ;
+        NodeList nodeChild = nodeList.item(i).getChildNodes() ;
+        for(int j=0; j<nodeChild.getLength(); j++) {
+          Node node = nodeChild.item(j) ;
+          if(node.getNodeName().equals("name")) {
+            sample.setApplicationId("eXoGadgets/" + node.getTextContent()) ;
+            sample.setApplicationName(node.getTextContent()) ;
+            sample.setApplicationGroup("eXoGadgets") ;
+          }
+          if(node.getNodeName().equals("url")) sample.setUrl(node.getTextContent()) ;
+        }
+        controller.addApplication((Application)sample) ;
       }
     } catch(Exception ex) {
       log.error("Error while deploying a gadget", ex);

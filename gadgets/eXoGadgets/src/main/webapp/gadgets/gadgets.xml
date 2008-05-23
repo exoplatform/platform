@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<gadgets>
+	<gadget>
+		<name>Todo</name>
+		<url>http://www.labpixies.com/campaigns/todo/todo.xml</url>
+	</gadget>
+	<gadget>
+		<name>Horoscope</name>
+		<url>http://www.google.com/ig/modules/horoscope.xml</url>
+	</gadget>
+</gadgets>

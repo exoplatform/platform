@@ -7,10 +7,8 @@
 <web-app>
   <display-name>eXoGadges</display-name>
   <context-param>
-    <param-name>exo.application</param-name>
-    <param-value>
-      org.exoplatform.gadget.web.Sample
-    </param-value>
+    <param-name>exo.gadget</param-name>
+    <param-value>gadgets</param-value>
   </context-param>   
   <filter>
     <filter-name>ResourceRequestFilter</filter-name>
@@ -23,7 +21,7 @@
   </filter-mapping>  
   
 	<listener>
-    <listener-class>org.exoplatform.web.application.GadgetRegister</listener-class>
+    <listener-class>org.exoplatform.gadget.register.GadgetRegister</listener-class>
   </listener>
 
 </web-app>

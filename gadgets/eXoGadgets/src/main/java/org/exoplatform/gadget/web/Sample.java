@@ -31,17 +31,27 @@ import org.exoplatform.web.application.mvc.MVCRequestContext;
  */
 public class Sample extends GadgetApplication<UIGadget> {
   
-  public String getApplicationId() { return "eXoGadgets/Sample"; }
-
-  public String getApplicationName() { return "Sample"; }
-
-  public String getApplicationGroup() { return "eXoGadgets"; }
+  private String appId_ ;
+  private String appName_ ;
+  private String appGroup_ ;
+  private String url_ ;
+  public void setApplicationId(String appId) { appId_ = appId ; }
+  public String getApplicationId() { return appId_ ;}
+  
+  public void setApplicationName(String appName) { appName_ = appName ; }
+  public String getApplicationName() { return appName_; }
+  
+  public void setApplicationGroup(String appGroup) { appGroup_ = appGroup ; }
+  public String getApplicationGroup() { return appGroup_; }
+  
+  public void setUrl(String url) { url_ = url ;}
+  public String getUrl() { return url_ ;}
   
   public void processRender(UIGadget uiGadget, Writer w) throws Exception {
     PortalRequestContext pContext = Util.getPortalRequestContext();
     MVCRequestContext appReqContext = new MVCRequestContext(this, pContext) ;
     String instanceId = uiGadget.getApplicationInstanceUniqueId() ;
-    String url = uiGadget.getUrl() ;
+    String url = getUrl() ;
     if(url==null || url.length()==0)url = "http://www.google.com/ig/modules/horoscope.xml";
     int posX = uiGadget.getProperties().getIntValue("locationX") ;
     int posY = uiGadget.getProperties().getIntValue("locationY") ;
