@@ -32,8 +32,6 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
-import org.exoplatform.webui.form.validator.NullFieldValidator;
-import org.exoplatform.webui.form.validator.PositiveNumberFormatValidator;
 
 /**
  * Created by The eXo Platform SARL Author : Tran The Trong trongtt@gmail.com
@@ -49,18 +47,34 @@ public class UIIFrameEditMode extends UIForm {
         .getCurrentInstance();
     PortletPreferences pref = pcontext.getRequest().getPreferences();
     addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, pref.getValue("url",
-        "http://www.exoplatform.com")).addValidator(PositiveNumberFormatValidator.class));
+        "http://www.exoplatform.org")));
+  }
+  
+  public void setValue() {
+   UIIFramePortlet uiPortlet = getParent() ;
+   getUIStringInput(FIELD_URL).setValue(uiPortlet.getURL()) ; 
   }
 
   static public class SaveActionListener extends EventListener<UIIFrameEditMode> {
     public void execute(Event<UIIFrameEditMode> event) throws Exception {
-      String url = event.getSource().getUIStringInput(FIELD_URL).getValue();
+      
+      UIIFrameEditMode uiForm = event.getSource();
+      String url = uiForm.getUIStringInput(FIELD_URL).getValue();
+      if(url==null || url.length()==0){
+        UIIFramePortlet uiPortlet = uiForm.getParent();
+        
+        Object args[] = {uiForm.getLabel(uiForm.getUIStringInput(FIELD_URL).getId())};
+        uiPortlet.addMessage(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args));
+        uiForm.getUIStringInput(FIELD_URL).setValue(uiPortlet.getURL());
+        return;
+      }
       try {
-        new URL(url);
         PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext
-            .getCurrentInstance();
+        .getCurrentInstance();
         PortletPreferences pref = pcontext.getRequest().getPreferences();
-        pref.setValue("url", event.getSource().getUIStringInput(FIELD_URL).getValue());
+        new URL(url);
+        
+        pref.setValue("url", uiForm.getUIStringInput(FIELD_URL).getValue());
         pref.store();
         pcontext.setApplicationMode(PortletMode.VIEW);
       } catch (Exception e) {
