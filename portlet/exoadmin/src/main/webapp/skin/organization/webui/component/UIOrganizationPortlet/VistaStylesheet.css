@@ -134,6 +134,7 @@
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
   margin-top: 7px ;
   overflow: hidden ;
+  height: 100%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
