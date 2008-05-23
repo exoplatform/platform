@@ -205,11 +205,6 @@
   height: 174px;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer .UIFormGrid {
-	margin: auto;
-	width: 500px;
-}
-
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {
   width: 220px; height: 80px;
   background: white;
@@ -258,4 +253,3 @@
 .UIWizard .TreeContainer {
 	height: 257px;
 }
-	
