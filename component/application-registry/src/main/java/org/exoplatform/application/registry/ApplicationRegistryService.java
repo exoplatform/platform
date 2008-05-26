@@ -43,7 +43,7 @@ public interface ApplicationRegistryService {
   public void update(Application application) throws Exception;
   public void remove(Application app) throws Exception;
   
-  public void importJSR168Portlets() throws Exception;
+  public void importAllPortlets() throws Exception;
   
   public void importExoWidgets() throws Exception;
   
