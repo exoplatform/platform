@@ -52,3 +52,8 @@
 	height: 24px;	width: 16px;
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DisableEditIcon.gif') no-repeat center;
 }
+
+.UITabContainer .HorizontalLayout .UIWindow {
+	margin: auto;
+	padding-top: 5px;
+}
