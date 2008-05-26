@@ -23,10 +23,7 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 
 /**
@@ -42,20 +39,23 @@ import org.exoplatform.webui.form.UIForm;
   )
 })
 public class UIDashboardSelectForm extends UIForm {
-  private List<Application> widgets ;
+  
+  private List<Application> gadgets ;
+  
   public UIDashboardSelectForm() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
+    service.importExoGadgets();
     List<Application> applications = service.getAllApplications();
-    List<Application> listWidgets = new ArrayList<Application>();
+    List<Application> listGadgets = new ArrayList<Application>();
     for (Application app : applications) {
-      if (app.getApplicationType().equals(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE)) {
-        listWidgets.add(app);
+      if (app.getApplicationType().equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
+        listGadgets.add(app);
       }
     }
-    widgets = listWidgets;
+    gadgets = listGadgets;
   }
 
   public List<Application> getWidgets() {
-    return widgets;
+    return gadgets;
   }
 }

@@ -1,5 +1,5 @@
 .UIDashboardPortlet {
-
+	
 }
 
 
@@ -7,6 +7,7 @@
 .UIDashboardSelectForm {
 	float: left;
 	width: 200px;
+	border: 2px solid black;
 }
 
 .ItemGadget {
@@ -17,41 +18,47 @@
 
 .ItemLabel {
 	line-height: 18px;
+	width: 100px;
 }
 
 /*----------------------UIGadgetsContainer-------------------*/
 .UIDashboardContainer {
-	border: 1px solid green;
 	margin-left: 203px;
+	border: 2px solid green;
 }
 
 .DashboardContainer {
-	width:100%;
+	border: 1px solid orange;
+}
+
+.UIColumns {
+	height: 400px;
 }
 
 .UIColumn {
-	border: 1px solid pink;
 	float: left;
 	padding: 10px 10px 0px 10px;
+	border: 1px solid black;
 }
 
-.UIGadget {
+.UIGadgetModule {
 	border: 1px solid red;
 	margin: 0px 0px 10px 0px;
 }
 
 .GadgetMenuBar {
-	height: 18px;
+	line-height: 18px;
 	background: aqua;
 	cursor: move;
 }
 
 .GadgetContent  {
-	height: 100px;
+	text-align: center;
+	height:150px;
 }
 
 .UITarget {
-	border: 1px dotted green;
+	border: 1px dotted red;
 	margin: 0px 0px 10px 0px;
 }
 

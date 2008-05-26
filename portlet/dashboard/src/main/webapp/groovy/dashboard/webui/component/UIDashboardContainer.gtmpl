@@ -2,24 +2,31 @@
 <div id="$uicomponent.id" class="$uicomponent.id">
 	<div class="DashboardContainer" id="DashboardContainer">
 		<div class="UIColumns">
+		
 		<%
-			int count=uicomponent.getNumberOfColumns();
-			int colWidth = Math.round(100/count)-3;
-			for(i=0; i<count; i++){ 
+			int columnsSize=uicomponent.getColumns().size();
+			int colWidth = Math.round(100/columnsSize)-3;
+			for(int iCol=0; iCol<columnsSize; iCol++){ 
 		%>
-			<div class="UIColumn" id="UIColumn<%=i%>" style="width:<%=colWidth+"%"%>;">
-				<div class="UIGadget DragObject" id="<%=i%>" style="top:0px; left:0px; width:50px;">
-					<div class="GadgetMenuBar DragItem" id="source<%=i%>">menubar<%=i%></div>
-					<div class="GadgetContent">content</div>
-				</div>
-				<div class="UIGadget DragObject" id="<%=i+4%>" style="top:0px; left:0px;">
-					<div class="GadgetMenuBar DragItem" id="source<%=i+4%>">menubar<%=i+4%></div>
-					<div class="GadgetContent">content</div>
-				</div>
+				<div class="UIColumn" id="UIColumn<%=iCol%>" style="width:<%=colWidth+"%"%>;">
 			
-			</div>
+				<% 
+						for(int iRow=0; iRow<uicomponent.getColumn(iCol).size(); iRow++ ){
+				%>
+				
+						<div class="UIGadgetModule DragObject" id="Module-<%=iCol%>-<%=iRow%>" style="top:0px; left:0px;">
+							<div class="GadgetMenuBar DragItem"><%=iCol%>-<%=iRow%></div>
+							<div class="GadgetContent">
+								<% uicomponent.renderUIGadget(iCol,iRow); %>
+								<div class="UIMask" style="display: none;"></div>
+							</div>
+						</div>
+					
+				<% 	} %>
+			
+				</div>
 		<% } %>
-			<div style="clear:left;"><span></span></div>
+			<div style="clear:left; display:none;"><span></span></div>
 		</div>
 	</div>
 </div>

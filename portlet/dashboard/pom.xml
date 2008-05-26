@@ -6,7 +6,7 @@
 	</parent>
 	
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>org.portal.portlet.dashboard</artifactId>
+	<artifactId>exo.portal.portlet.dashboard</artifactId>
 	<packaging>war</packaging>
 	<version>${org.exoplatform.portal.version}</version>
 	<name>exo-portal.portlets.dashboard Portlet</name>

@@ -1,5 +1,4 @@
 var count = 1 ;
-var DOMUtil = eXo.core.DOMUtil;
 eXo.core.DragDrop2 = {
 	obj : null,
 	
@@ -23,8 +22,8 @@ eXo.core.DragDrop2 = {
 		}
 		var o = eXo.core.DragDrop2.obj = this;
 		e = eXo.core.DragDrop2.fixE(e);
-		var y = parseInt(DOMUtil.getStyle(o.root,"top"));
-		var x = parseInt(DOMUtil.getStyle(o.root,"left"));
+		var y = parseInt(eXo.core.DOMUtil.getStyle(o.root,"top"));
+		var x = parseInt(eXo.core.DOMUtil.getStyle(o.root,"left"));
 		o.lastMouseX = 		eXo.core.Browser.findMouseXInPage(e);
 		o.lastMouseY = 		eXo.core.Browser.findMouseYInPage(e);
 		o.root.onDragStart(x, y, o.lastMouseX, o.lastMouseY, e);
@@ -38,8 +37,8 @@ eXo.core.DragDrop2 = {
 		var o = eXo.core.DragDrop2.obj;
 		var ey = eXo.core.Browser.findMouseYInPage(e);
 		var ex = eXo.core.Browser.findMouseXInPage(e);
-		var y = parseInt(DOMUtil.getStyle(o.root, "top"));
-		var x = parseInt(DOMUtil.getStyle(o.root, "left"));
+		var y = parseInt(eXo.core.DOMUtil.getStyle(o.root, "top"));
+		var x = parseInt(eXo.core.DOMUtil.getStyle(o.root, "left"));
 		var nx, ny;
 
 		nx = x + (ex - o.lastMouseX);

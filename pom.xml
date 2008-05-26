@@ -26,6 +26,7 @@
     
     <module>portlet/exoadmin</module>
     <module>portlet/web</module>
+    <module>portlet/dashboard</module>
 
     <module>web/eXoResources</module>
     <module>web/eXoSkinMac</module>

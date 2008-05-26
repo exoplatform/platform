@@ -10,7 +10,7 @@
 		 	<div class="ItemLeft">
 		 		<div class="ItemRight">
 		 			<div class="ItemMiddle">
-		 				<div class="ItemLabel DragItem" style="cursor:move;"><%=widget.getDisplayName() %></div>
+		 				<div class="ItemLabel DragItem" style="cursor:move; "><%=widget.getDisplayName() %></div>
 		 			</div>
 		 		</div>
 		 	</div>

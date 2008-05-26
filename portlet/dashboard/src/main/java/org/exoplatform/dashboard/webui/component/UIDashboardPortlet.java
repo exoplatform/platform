@@ -36,6 +36,11 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 public class UIDashboardPortlet extends UIPortletApplication {
   public UIDashboardPortlet() throws Exception {
     addChild(UIDashboardSelectForm.class, null, null);
-    addChild(UIDashboardContainer.class, null, null);
+    addChild(UIDashboardContainer.class, null, null).setColumns(3).
+          addUIGadget("http://www.labpixies.com/campaigns/calendar/calendar.xml", 0);
+//    UIDashboardContainer db = createUIComponent(UIDashboardContainer.class, null, null);
+//    db.setColumns(3);
+//    db.addUIGadget("http://www.labpixies.com/campaigns/calendar/calendar.xml", 0);
+//    addChild(db);
   }
 }
