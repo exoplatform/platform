@@ -21,8 +21,10 @@ import java.util.ArrayList;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
+import org.exoplatform.portal.webui.application.UIGadgets;
 import org.exoplatform.portal.webui.application.UIWidgets;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
@@ -61,6 +63,20 @@ public class UIWelcomeComponent extends UIContainer {
       UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
       configService.create(widgets) ;
     }
+    //TODO: dang.tung - get gadgets - mapper to UIGadgets
+    //---------------------------------------------------
+//    Gadgets gadgets = userPortalConfig.getGadgets() ;
+//    if(gadgets == null) {
+//      gadgets = new Gadgets() ;
+//      gadgets.setOwnerType(PortalConfig.USER_TYPE) ;
+//      gadgets.setOwnerId(rcontext.getRemoteUser()) ;
+//      gadgets.setChildren(new ArrayList<Container>()) ;
+//      UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
+//      configService.create(gadgets) ;
+//    }
+//    UIGadgets uiGadgets = addChild(UIGadgets.class, null, null) ;
+//    PortalDataMapper.toUIGadgets(uiGadgets, gadgets) ;
+//    ---------------------------------------------------
     PortalDataMapper.toUIWidgets(uiWidgets, widgets);
   }  
 

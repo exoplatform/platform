@@ -168,13 +168,12 @@ public class UIAddNewApplication extends UIContainer {
      * @throws Exception
      */
     private void addApplicationToContainer(Event<UIAddNewApplication> event) throws Exception{
-           
+      
       UIContainer uiWidgetContainer = (UIContainer)event.getSource().getUiComponentParent() ;
       String applicationId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);  
       ApplicationRegistryService service = uiWidgetContainer.getApplicationComponent(ApplicationRegistryService.class) ;
       Application application = service.getApplication(applicationId);
       if(application == null) return;
-      
       StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
       windowId.append("#").append(event.getRequestContext().getRemoteUser()) ;
       windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');

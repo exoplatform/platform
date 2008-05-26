@@ -7,4 +7,24 @@
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$uicomponent.id');") ;
 %>
-<div class="UIGadget" id="$uicomponent.id"></div>
+<div class="UIGadget">
+  <div class="WidgetControlBar">
+    <div class="WidgetControl">
+    	<div class="LeftControlBar">
+    		<div class="RightControlBar">
+    			<div class="CenterControlBar">
+			    	<div class="WidgetDragHandleArea"><span></span></div>
+			    	<div class="SeparatorLine"><span></span></div>
+				    <div class="EditWidgetIcon" title="Edit this Widget" onclick="" ><span></span></div>
+				  	<div class="CloseWidgetIcon" onclick="" title="Close this Widget"><span></span></div>
+				  	<div style="clear: left"><span></span></div>
+				  </div>
+				</div>
+			</div> 
+	  </div>
+  </div>
+ 	<div style="clear: right"><span></span></div>
+	<div class="WidgetApplication">
+		<div id="$uicomponent.id"></div>
+	</div>
+</div>

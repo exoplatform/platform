@@ -8,4 +8,12 @@
 		<name>Horoscope</name>
 		<url>http://www.google.com/ig/modules/horoscope.xml</url>
 	</gadget>
+	<gadget>
+		<name>TravelPhoto</name>
+		<url>http://www.etravelreviews.com/gadget.xml</url>
+	</gadget>
+	<gadget>
+		<name>TravelPhoto</name>
+		<url>http://www.google.com/ig/calendar.xml</url>
+	</gadget>
 </gadgets>

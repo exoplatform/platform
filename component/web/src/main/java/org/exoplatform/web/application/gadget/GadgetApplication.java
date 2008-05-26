@@ -16,7 +16,6 @@
  */
 package org.exoplatform.web.application.gadget;
 
-import java.io.Writer;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -27,17 +26,37 @@ import org.exoplatform.web.application.Application;
  *          tungcnw@gmail.com
  * May 06, 2008   
  */
-abstract public class GadgetApplication<T> extends Application {
+public class GadgetApplication extends Application {
+  private String appId_ ;
+  private String url_ ;
   
+  public GadgetApplication(String appId, String url) {
+    appId_ = appId ;
+    url_ = url ;
+  }
   public String getApplicationType() { return "eXoGadget" ; }
+
+  public String getApplicationGroup() {
+    return "eXoGadgets";
+  }
   
-  abstract public void processRender(T uiGadget, Writer w) throws Exception ;
-  
+  public String getUrl() {
+    return url_ ;
+  }
+
+  public String getApplicationId() {
+    return appId_;
+  }
+
+  public String getApplicationName() {
+    return appId_;
+  }
+
   public ResourceBundle getOwnerResourceBundle(String username, Locale locale) throws Exception {
-    throw new Exception("This method is not supported") ;
+    return null;
   }
 
   public ResourceBundle getResourceBundle(Locale locale) throws Exception {
-    throw new Exception("This method is not supported") ;
-  }
+    return null;
+  }  
 }

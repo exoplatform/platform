@@ -47,12 +47,12 @@ public class UIGadgetLifecycle extends Lifecycle {
       super.processRender(uicomponent, context) ;
       return ;
     }
-    UIGadget uiGadget = (UIGadget)  uicomponent ;
-    PortalContainer container = PortalContainer.getInstance() ;
-    WebAppController controller = 
-      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-    GadgetApplication application =
-      (GadgetApplication) controller.getApplication(uiGadget.getApplicationId()) ;
-    if(application != null) application.processRender(uiGadget, context.getWriter()) ;
+//    UIGadget uiGadget = (UIGadget)  uicomponent ;
+//    PortalContainer container = PortalContainer.getInstance() ;
+//    WebAppController controller = 
+//      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
+//    GadgetApplication application =
+//      (GadgetApplication) controller.getApplication(uiGadget.getApplicationId()) ;
+//    if(application != null) application.processRender(uiGadget, context.getWriter()) ;
   }
 }

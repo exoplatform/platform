@@ -21,7 +21,6 @@
     <value name="width" usage="optional" field="width"  />
     <value name="height" usage="optional" field="height" />
     <structure field="properties" usage="optional"/>
-    <value name="url" usage="optional" field="url" />
   </mapping>
   
   <mapping name="page-body" label="pageBody" class="org.exoplatform.portal.config.model.PageBody">

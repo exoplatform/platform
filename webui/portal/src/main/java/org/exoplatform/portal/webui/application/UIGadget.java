@@ -16,17 +16,23 @@
  */
 package org.exoplatform.portal.webui.application;
 
+import java.util.List;
+
+import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.Properties;
+import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.application.Application;
+import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
-
 /**
  * Created by The eXo Platform SAS
  * Author : dang.tung
  *          tungcnw@gmail.com
  * May 06, 2008   
  */
-@ComponentConfig(lifecycle = UIGadgetLifecycle.class)
+@ComponentConfig(lifecycle = UIGadgetLifecycle.class,
+    template = "system:/groovy/portal/webui/application/UIGadget.gtmpl")
 public class UIGadget extends UIComponent {
   
   private String applicationInstanceId_ ;
@@ -36,7 +42,6 @@ public class UIGadget extends UIComponent {
   private String applicationName_ ;
   private String applicationInstanceUniqueId_ ;
   private String applicationId_ ;
-  private String url_ ;
   
   private Properties properties;
   
@@ -75,7 +80,13 @@ public class UIGadget extends UIComponent {
   }
   public void setProperties(Properties properties) { this.properties = properties; }
   
-  public String getUrl() {return url_ ;}
-  public void setUrl(String url) {url_ = url ;} 
-  
+  public String getUrl() {
+    PortalContainer container = PortalContainer.getInstance() ;
+    WebAppController controller = 
+      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
+    List<Application> apps = controller.getApplicationByType("eXoGadget") ;
+    GadgetApplication application =
+      (GadgetApplication) controller.getApplication(applicationId_.split("/")[1]) ;
+    return application.getUrl() ;
+  }
 }

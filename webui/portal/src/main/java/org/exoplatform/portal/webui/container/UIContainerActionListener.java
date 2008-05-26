@@ -100,7 +100,6 @@ public class UIContainerActionListener {
 
     @Override
     public void execute(Event<UIContainer> event) throws Exception {
-         
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWorkspace = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;  
@@ -108,7 +107,7 @@ public class UIContainerActionListener {
       UIAddNewApplication uiAddApplication = uiPortal.createUIComponent(UIAddNewApplication.class,
           null, null);
       //get Widget Applications only
-      String[] applicationTypes = {org.exoplatform.web.application.Application.EXO_WIDGET_TYPE};
+      String[] applicationTypes = {org.exoplatform.web.application.Application.EXO_WIDGET_TYPE, org.exoplatform.web.application.Application.EXO_GAGGET_TYPE};
       
       //Set parent container
       uiAddApplication.setInPage(false);

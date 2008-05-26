@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.gadget.register;
+package org.exoplatform.web.application;
 
 import java.io.InputStream;
 
@@ -26,10 +26,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
-import org.exoplatform.gadget.web.Sample;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.WebAppController;
-import org.exoplatform.web.application.Application;
+import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -60,19 +59,15 @@ public class GadgetRegister implements ServletContextListener {
       InputStream in = event.getServletContext().getResourceAsStream(strLocation) ;
       Document docXML = db.parse(in) ;
       NodeList nodeList = docXML.getElementsByTagName("gadget") ;
+      String name=null, url=null ;
       for(int i=0; i<nodeList.getLength(); i++) {
-        Sample sample = new Sample() ;
         NodeList nodeChild = nodeList.item(i).getChildNodes() ;
         for(int j=0; j<nodeChild.getLength(); j++) {
           Node node = nodeChild.item(j) ;
-          if(node.getNodeName().equals("name")) {
-            sample.setApplicationId("eXoGadgets/" + node.getTextContent()) ;
-            sample.setApplicationName(node.getTextContent()) ;
-            sample.setApplicationGroup("eXoGadgets") ;
-          }
-          if(node.getNodeName().equals("url")) sample.setUrl(node.getTextContent()) ;
+          if(node.getNodeName().equals("name"))  name = node.getTextContent() ;
+          if(node.getNodeName().equals("url"))  url = node.getTextContent() ;
         }
-        controller.addApplication((Application)sample) ;
+        controller.addApplication(new GadgetApplication(name, url)) ;
       }
     } catch(Exception ex) {
       log.error("Error while deploying a gadget", ex);

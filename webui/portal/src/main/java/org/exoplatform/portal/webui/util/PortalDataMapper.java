@@ -23,11 +23,13 @@ import org.exoplatform.Constants;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.application.UIGadget;
+import org.exoplatform.portal.webui.application.UIGadgets;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.application.UIWidgets;
@@ -82,7 +84,6 @@ public class PortalDataMapper {
     model.setInstanceId(uiGadget.getApplicationInstanceId());
     model.setId(uiGadget.getId());
     model.setProperties(uiGadget.getProperties());
-    model.setUrl(uiGadget.getUrl()) ;
     return model;
   }
   
@@ -205,7 +206,6 @@ public class PortalDataMapper {
     uiGadget.setApplicationInstanceId(model.getInstanceId()) ;
     uiGadget.setId(model.getInstanceId());
     uiGadget.setProperties(model.getProperties());
-    uiGadget.setUrl(model.getUrl()) ;
   }
   
   /**
@@ -348,6 +348,26 @@ public class PortalDataMapper {
       uiWidgets.addChild(uiContainer);
     }
     uiWidgets.updateDropdownList();
+  }
+  
+  static public void toUIGadgets(UIGadgets uiGadgets, Gadgets model) throws Exception {
+    uiGadgets.setId(model.getId());
+    uiGadgets.setAccessPermissions(model.getAccessPermissions());
+    uiGadgets.setEditPermission(model.getEditPermission());
+    uiGadgets.setOwnerType(model.getOwnerType());
+    uiGadgets.setOwnerId(model.getOwnerId());
+    
+    uiGadgets.getChildren().clear() ;
+    ArrayList<Container> children  = model.getChildren();
+    if(children == null)  return;
+    WebuiRequestContext  context = Util.getPortalRequestContext() ;
+    for(Container child : children) { 
+      UIContainer uiContainer = uiGadgets.createUIComponent(context, UIContainer.class, "GadgetContainer", null);
+      uiContainer.setRendered(false);
+      toUIContainer(uiContainer, child);
+      uiGadgets.addChild(uiContainer);
+    }
+    uiGadgets.updateDropdownList();
   }
   
   

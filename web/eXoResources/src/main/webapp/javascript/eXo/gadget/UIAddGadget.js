@@ -18,9 +18,8 @@ UIAddGadget.prototype.show = function() {
 UIAddGadget.prototype.addGadget = function(gadgetElement) {
 	var appDescriptor = gadgetElement.applicationDescriptor;
 	
-	var uiGadgets = document.getElementById("UIGadgets");
-	var gadgetContainerScrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadgets, "div", "GadgetContainerScrollArea");
-	
+	var uiGadgets = document.getElementById("UIWidgets");
+	var gadgetContainerScrollArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadgets, "div", "WidgetContainerScrollArea");
 	gadgetContainerScrollArea.appendChild(gadgetElement);
 	
 	eXo.gadget.UIGadget.init(gadgetElement);

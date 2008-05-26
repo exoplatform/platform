@@ -40,7 +40,6 @@ public class Application {
   private String width ;
   private String height ;
   private Properties properties;
-  private String url ; //TODO: dang.tung
   
   public Application(){
   }
@@ -86,10 +85,4 @@ public class Application {
 
 public String getTheme() { return theme; }
 public void setTheme(String theme) { this.theme = theme; }
-
-  //TODO: dang.tung
-  //-----------------------------------------------
-  public String getUrl() {return url ;}
-  public void setUrl(String url) {this.url = url ;}
-  //-----------------------------------------------
 }

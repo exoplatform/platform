@@ -2,5 +2,31 @@
 <gadgets>
 	<owner-type>user</owner-type>
 	<owner-id>root</owner-id>
-	
+	<container id="Todo">
+		<name>Todo</name>
+		<description>Todo's Description</description>
+		<application>
+      <instance-id>user#root:/eXoGadgets/Todo/Todo1</instance-id>
+      <application-type>eXoGadget</application-type>
+    </application>
+      
+    <application>
+      <instance-id>user#root:/eXoGadgets/Horoscope/Horoscope1</instance-id>
+      <application-type>eXoGadget</application-type> 
+    </application>
+    
+    <application>
+      <instance-id>user#root:/eXoGadgets/Todo/Todo2</instance-id>
+      <application-type>eXoGadget</application-type>
+    </application>
+	</container>
+		<container id="Horoscope">
+		<name>Horoscope</name>
+		<description>Horoscope's Description</description>
+    
+    <application>
+      <instance-id>user#root:/eXoGadgets/Horoscope/Horoscope1</instance-id>
+      <application-type>eXoGadget</application-type> 
+    </application>
+	</container>
 </gadgets>
