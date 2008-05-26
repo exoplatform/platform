@@ -189,7 +189,7 @@ public class ApplicationRegistryControlArea extends UIContainer {
     public void execute(Event<ApplicationRegistryControlArea> event) throws Exception {
       ApplicationRegistryControlArea uiSource = event.getSource();
       ApplicationRegistryService service = uiSource.getApplicationComponent(ApplicationRegistryService.class) ;
-      service.importJSR168Portlets() ;       
+      service.importAllPortlets() ;       
       uiSource.initApplicationCategories() ;
     }
   }

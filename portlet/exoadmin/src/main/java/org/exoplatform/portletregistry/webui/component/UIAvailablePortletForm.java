@@ -31,8 +31,7 @@ import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
-import org.exoplatform.services.portletcontainer.monitor.PortletContainerMonitor;
-import org.exoplatform.services.portletcontainer.monitor.PortletRuntimeData;
+import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -132,15 +131,16 @@ public class UIAvailablePortletForm extends UIForm implements UIPopupComponent {
   @SuppressWarnings("unchecked")
   private Application findPortletInDataRuntime(String id) {
     PortalContainer manager  = PortalContainer.getInstance();
-    PortletContainerMonitor monitor =
-      (PortletContainerMonitor) manager.getComponentInstanceOfType(PortletContainerMonitor.class) ;
-    Collection portletDatas = monitor.getPortletRuntimeDataMap().values();  
-    Iterator iterator = portletDatas.iterator();
+    PortletContainerService pcService =
+      (PortletContainerService) manager.getComponentInstanceOfType(PortletContainerService.class) ;
+    Map<String, PortletData> allPortletMetaData = pcService.getAllPortletMetaData();
+    Iterator<String> iterator = allPortletMetaData.keySet().iterator();
+    
     while(iterator.hasNext()) {
-      PortletRuntimeData portletRuntimeData = (PortletRuntimeData) iterator.next();
-      String categoryName = portletRuntimeData.getPortletAppName();
-      String portletName = portletRuntimeData.getPortletName();
-      String fullName = categoryName + "/" + portletName;
+      String fullName = iterator.next();
+      String categoryName = fullName.split("/")[0];
+      String portletName = fullName.split("/")[1];
+      
       if(id.equals(fullName)){
         Application app = new Application();
         app.setDisplayName(portletName) ;
