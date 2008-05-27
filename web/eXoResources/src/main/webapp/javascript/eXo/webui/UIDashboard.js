@@ -46,11 +46,11 @@ eXo.webui.UIDashboard = {
 			var slideBar = document.getElementById("ControlWorkspaceSlidebar");
 			if(slideBar!=null && slideBar.style.display!="none" && eXo.core.Browser.getBrowserType()=="ie")
 				x -= slideBar.offsetWidth;
-				
+			
+			var uiTarget = null;
 			if(eXo.core.DOMUtil.hasClass(dragObj, "UIGadgetModule")){
-				var uiTarget = eXo.webui.UIDashboard.createTarget(ggwidth, ggheight);
+				uiTarget = eXo.webui.UIDashboard.createTarget(ggwidth, 0);
 				dragObj.parentNode.insertBefore(uiTarget, dragObj.nextSibling);
-				eXo.webui.UIDashboard.targetObj = uiTarget;
 				eXo.webui.UIDashboard.currCol = uiTarget.parentNode;
 			}else{
 				var dragCopyObj = dragObj.cloneNode(true);
@@ -63,24 +63,27 @@ eXo.webui.UIDashboard = {
 			//increase speed of mouse when over iframe by create div layer above it
 			var masks = eXo.core.DOMUtil.findDescendantsByClass(uiWindow, "div" , "UIMask");
 			for(var i=0; i<masks.length; i++){
+				if(eXo.core.DOMUtil.findAncestorByClass(masks[i], "UIGadgetModule").id==dragObj.id) continue;
 				var gadgetIframe = eXo.core.DOMUtil.findDescendantsByTagName(masks[i].parentNode, "iframe");
 				if(gadgetIframe.length>0)
 					masks[i].style.marginTop = - gadgetIframe[0].offsetHeight + "px";
-				masks[i].style.height = ggheight - dragItem.offsetHeight + "px";
-				masks[i].style.width = ggwidth + "px";
+				masks[i].style.height = masks[i].parentNode.offsetHeight + "px";
+				masks[i].style.width = masks[i].parentNode.offsetWidth + "px";
 				masks[i].style.display = "block";
-				masks[i].style.backgroundColor = "black";
-				eXo.core.Browser.setOpacity(masks[i], 10);
+				masks[i].style.backgroundColor = "white";
+				eXo.core.Browser.setOpacity(masks[i], 5);
 			}
 			
 			if(!eXo.core.DOMUtil.hasClass(dragObj, "Dragging"))
 				eXo.core.DOMUtil.addClass(dragObj, "Dragging");
 				
 			//set position of drag object
-			dragObj.style.zIndex = "10000";
 			dragObj.style.position = "absolute";
 			eXo.webui.UIDashboardUtil.setPositionInContainer(uiWorkingWS, dragObj, x, y);
-			
+			if(uiTarget!=null){
+				uiTarget.style.height = ggheight +"px";
+				eXo.webui.UIDashboard.targetObj = uiTarget;
+			}
 		}
 		
 		
@@ -176,7 +179,6 @@ eXo.webui.UIDashboard = {
 			var masks = eXo.core.DOMUtil.findDescendantsByClass(uiWindow, "div", "UIMask");
 			for(var i=0; i<masks.length; i++){
 				masks[i].style.display = "none";
-//				masks[i].style.height = "0px";
 			}
 			
 			var uiTarget = eXo.webui.UIDashboard.targetObj;

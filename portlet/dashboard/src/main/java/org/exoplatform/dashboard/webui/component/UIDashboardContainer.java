@@ -68,13 +68,11 @@ public class UIDashboardContainer extends UIForm {
   
   public void addUIGadget(String url, int col) throws Exception{
     UIGadget gadget = addChild(UIGadget.class, "UIGadget", null);
-    gadget.setUrl(url);
     addUIGadget(gadget, col);
   }
   
   public void addUIGadget(String url, int col, int row) throws Exception{
     UIGadget gadget = addChild(UIGadget.class, "UIGadget", null);
-    gadget.setUrl(url);
     addUIGadget(gadget, col, row);
   }
   
