@@ -147,6 +147,11 @@
   margin: 1px auto ;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIGrid {
+	width: 99%;
+	margin: auto;
+}
+
 /*#######################- UIUserInfo - #####################*/
 
 .UIOrganizationPortlet .UIUserManagement .UIUserInfo {
