@@ -53,31 +53,31 @@ public class UIWelcomeComponent extends UIContainer {
     UIPortalApplication uiPortalApplication = (UIPortalApplication)rcontext.getUIApplication();
     UserPortalConfig userPortalConfig = uiPortalApplication.getUserPortalConfig();
     if(userPortalConfig == null) return;
-    UIWidgets uiWidgets = addChild(UIWidgets.class, null, null) ;
-    Widgets widgets = userPortalConfig.getWidgets();
-    if(widgets == null) {
-      widgets = new Widgets() ;
-      widgets.setOwnerType(PortalConfig.USER_TYPE) ;
-      widgets.setOwnerId(rcontext.getRemoteUser()) ;
-      widgets.setChildren(new ArrayList<Container>()) ;
-      UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
-      configService.create(widgets) ;
-    }
+//    UIWidgets uiWidgets = addChild(UIWidgets.class, null, null) ;
+//    Widgets widgets = userPortalConfig.getWidgets();
+//    if(widgets == null) {
+//      widgets = new Widgets() ;
+//      widgets.setOwnerType(PortalConfig.USER_TYPE) ;
+//      widgets.setOwnerId(rcontext.getRemoteUser()) ;
+//      widgets.setChildren(new ArrayList<Container>()) ;
+//      UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
+//      configService.create(widgets) ;
+//    }
     //TODO: dang.tung - get gadgets - mapper to UIGadgets
     //---------------------------------------------------
-//    Gadgets gadgets = userPortalConfig.getGadgets() ;
-//    if(gadgets == null) {
-//      gadgets = new Gadgets() ;
-//      gadgets.setOwnerType(PortalConfig.USER_TYPE) ;
-//      gadgets.setOwnerId(rcontext.getRemoteUser()) ;
-//      gadgets.setChildren(new ArrayList<Container>()) ;
-//      UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
-//      configService.create(gadgets) ;
-//    }
-//    UIGadgets uiGadgets = addChild(UIGadgets.class, null, null) ;
-//    PortalDataMapper.toUIGadgets(uiGadgets, gadgets) ;
-//    ---------------------------------------------------
-    PortalDataMapper.toUIWidgets(uiWidgets, widgets);
+    Gadgets gadgets = userPortalConfig.getGadgets() ;
+    if(gadgets == null) {
+      gadgets = new Gadgets() ;
+      gadgets.setOwnerType(PortalConfig.USER_TYPE) ;
+      gadgets.setOwnerId(rcontext.getRemoteUser()) ;
+      gadgets.setChildren(new ArrayList<Container>()) ;
+      UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
+      configService.create(gadgets) ;
+    }
+    UIGadgets uiGadgets = addChild(UIGadgets.class, null, null) ;
+    PortalDataMapper.toUIGadgets(uiGadgets, gadgets) ;
+    //---------------------------------------------------
+//    PortalDataMapper.toUIWidgets(uiWidgets, widgets);
   }  
 
 }

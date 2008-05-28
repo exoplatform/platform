@@ -26,6 +26,7 @@ import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
@@ -136,9 +137,10 @@ public class UIAddNewApplication extends UIContainer {
         windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/').append(uiGadget.hashCode());
         uiGadget.setApplicationInstanceId(windowId.toString());
 
-        //Set Properties For Widget
+        //Set Properties For gadget
         int posX = (int) (Math.random() * 400);
         int posY = (int) (Math.random() * 200);
+        
         uiGadget.getProperties().put(UIApplication.locationX, String.valueOf(posX));
         uiGadget.getProperties().put(UIApplication.locationY, String.valueOf(posY));
 
@@ -168,31 +170,56 @@ public class UIAddNewApplication extends UIContainer {
      * @throws Exception
      */
     private void addApplicationToContainer(Event<UIAddNewApplication> event) throws Exception{
-      
       UIContainer uiWidgetContainer = (UIContainer)event.getSource().getUiComponentParent() ;
-      String applicationId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);  
-      ApplicationRegistryService service = uiWidgetContainer.getApplicationComponent(ApplicationRegistryService.class) ;
-      Application application = service.getApplication(applicationId);
-      if(application == null) return;
-      StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
-      windowId.append("#").append(event.getRequestContext().getRemoteUser()) ;
-      windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
-      UIWidget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
-      windowId.append(uiWidget.hashCode());
-      uiWidget.setApplicationInstanceId(windowId.toString());
-      uiWidgetContainer.addChild(uiWidget);
-
-      UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
-      Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
-      UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
-      configService.update(widgets);
-      
-      UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
-      uiPortalApp.getUserPortalConfig().setWidgets(widgets) ;
-      
-      UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
-      
+      String applicationId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      if(applicationId.contains("eXoGadgets")) {
+        ApplicationRegistryService service = uiWidgetContainer.getApplicationComponent(ApplicationRegistryService.class) ;
+        Application application = service.getApplication(applicationId);
+        if(application == null) return;
+        StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
+        windowId.append("#").append(event.getRequestContext().getRemoteUser()) ;
+        windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
+        UIGadget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIGadget.class, null, null);
+        windowId.append(uiWidget.hashCode());
+        uiWidget.setApplicationInstanceId(windowId.toString());
+        uiWidgetContainer.addChild(uiWidget);
+  
+        UIGadgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIGadgets.class);
+        Gadgets widgets = PortalDataMapper.toGadgets(uiWidgets);
+        UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
+        configService.update(widgets);
+        
+        UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
+        uiPortalApp.getUserPortalConfig().setGadgets(widgets) ;
+        
+        UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
+        return;
+      }
+      else {
+        UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
+        if(uiWidgets==null) return ;
+        ApplicationRegistryService service = uiWidgetContainer.getApplicationComponent(ApplicationRegistryService.class) ;
+        Application application = service.getApplication(applicationId);
+        if(application == null) return;
+        StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
+        windowId.append("#").append(event.getRequestContext().getRemoteUser()) ;
+        windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
+        UIWidget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIWidget.class, null, null);
+        windowId.append(uiWidget.hashCode());
+        uiWidget.setApplicationInstanceId(windowId.toString());
+        uiWidgetContainer.addChild(uiWidget);
+  
+        Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
+        UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
+        configService.update(widgets);
+        
+        UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
+        uiPortalApp.getUserPortalConfig().setWidgets(widgets) ;
+        
+        UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);
+      }
     }
     
   }

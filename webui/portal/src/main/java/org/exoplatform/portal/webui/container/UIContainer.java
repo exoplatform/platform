@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.container;
 
 import java.util.List;
 
+import org.exoplatform.portal.webui.container.UIContainerActionListener.DeleteGadgetActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.DeleteWidgetActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.EditContainerActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.ShowAddNewApplicationActionListener;
@@ -50,11 +51,11 @@ import org.exoplatform.webui.event.EventListener;
   ),
   @ComponentConfig( 
       id = "GadgetContainer",
-      template = "system:/groovy/portal/webui/container/UIGadgetContainer.gtmpl"
-//      events = {
-//          @EventConfig(listeners = DeleteWidgetActionListener.class),
-//          @EventConfig(listeners = ShowAddNewApplicationActionListener.class)
-//      }
+      template = "system:/groovy/portal/webui/container/UIGadgetContainer.gtmpl",
+      events = {
+          @EventConfig(listeners = DeleteGadgetActionListener.class),
+          @EventConfig(listeners = ShowAddNewApplicationActionListener.class)
+      }
   ),
   @ComponentConfig(
       id = "TabContainer", 

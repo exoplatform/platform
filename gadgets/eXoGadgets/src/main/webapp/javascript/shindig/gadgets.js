@@ -24,7 +24,7 @@ var gadgets = gadgets || {};
 
 //do not load twice this library
 if (!gadgets.Gadget) {
-
+alert("what") ;
 gadgets.error = {};
 gadgets.error.SUBCLASS_RESPONSIBILITY = 'subclass responsibility';
 gadgets.error.TO_BE_DONE = 'to be done';
@@ -526,7 +526,7 @@ gadgets.IfrGadget.prototype.getMainContent = function(continuation) {
   continuation('<div class="' + this.cssClassGadgetContent + '"><iframe id="' +
       iframeId + '" name="' + iframeId + '" class="' + this.cssClassGadget +
       '" src="' + this.getIframeUrl() +
-      '" frameborder="no" scrolling="no"' +
+      '" frameborder="no" scrolling="true"' +
       (this.height ? ' height="' + this.height + '"' : '') +
       (this.width ? ' width="' + this.width + '"' : '') +
       '></iframe></div>');

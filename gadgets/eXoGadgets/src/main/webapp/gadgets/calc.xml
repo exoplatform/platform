@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module>
+	<ModulePrefs author="LabPixies"
+	author_email="info+calc@labpixies.com"
+	description="__MSG_description__"
+	directory_title="__MSG_gTitle__"
+	height="260"
+	render_inline="never"
+	screenshot="http://www.labpixies.com/campaigns/calc/images/screenshot.jpg"
+	thumbnail="http://www.labpixies.com/campaigns/calc/images/thumbnail.jpg"
+	title="__MSG_gTitle__"
+	title_url="http://www.labpixies.com">
+	
+	<Locale messages="http://www.labpixies.com/campaigns/calc/all_all.xml"/>
+    <Locale lang="iw" 		messages="http://www.labpixies.com/campaigns/calc/iw_all.xml"/>
+	<Locale lang="es" 		messages="http://www.labpixies.com/campaigns/calc/sp_all.xml"/>
+	<Locale lang="pt-BR" 	messages="http://www.labpixies.com/campaigns/calc/pt_all.xml"/>
+	
+	</ModulePrefs>
+	
+	<Content type="url" href="http://cdn.labpixies.com/campaigns/calc/calc.html" />
+</Module>

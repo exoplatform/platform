@@ -196,6 +196,24 @@ public class PortalDataMapper {
     return model;
   }
   
+  static final public Gadgets toGadgets(UIGadgets uiGadgets) throws Exception {
+    Gadgets model = new Gadgets();
+    model.setAccessPermissions(uiGadgets.getAccessPermissions());
+    model.setEditPermission(uiGadgets.getEditPermission());
+    model.setOwnerType(uiGadgets.getOwnerType());
+    model.setOwnerId(uiGadgets.getOwnerId());
+    
+    List<UIComponent> uiChildren  = uiGadgets.getChildren();
+    if(uiChildren == null)  return model;
+    ArrayList<Container> modelChildren = new ArrayList<Container>();
+    for(UIComponent uiChild : uiChildren) {
+      Container container = toContainer((UIContainer)uiChild) ;
+      modelChildren.add(container) ;
+    }
+    model.setChildren(modelChildren);
+    return model;
+  }
+  
   static public void toUIWidget(UIWidget uiWidget, Application model) throws Exception {
     uiWidget.setApplicationInstanceId(model.getInstanceId()) ;
     uiWidget.setId(model.getInstanceId());

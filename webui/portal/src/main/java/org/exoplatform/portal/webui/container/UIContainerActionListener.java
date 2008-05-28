@@ -96,6 +96,37 @@ public class UIContainerActionListener {
     }
   }
   
+  
+  static public class DeleteGadgetActionListener extends EventListener<UIContainer> {
+    public void execute(Event<UIContainer> event) throws Exception {
+      WebuiRequestContext pContext = event.getRequestContext();
+      String id = pContext.getRequestParameter(UIComponent.OBJECTID) ;
+      UIContainer uiWidgetContainer = event.getSource();
+      List<UIComponent> children = uiWidgetContainer.getChildren();
+      for(UIComponent uiChild : children) {
+        UIWidget uiWidget = (UIWidget) uiChild ;
+        if(uiWidget.getApplicationInstanceUniqueId().equals(id)) {
+          children.remove(uiWidget) ;
+          String userName = pContext.getRemoteUser() ;
+          if(userName != null && userName.trim().length() > 0) {
+            UserWidgetStorage widgetDataService = uiWidgetContainer.getApplicationComponent(UserWidgetStorage.class) ;
+            widgetDataService.delete(userName, uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;            
+          }
+          break ;
+        }
+      }
+      
+      UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
+      Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
+      UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
+      configService.update(widgets);
+      UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
+      uiPortalApp.getUserPortalConfig().setWidgets(widgets) ;
+      pContext.setResponseComplete(true) ;
+      pContext.getWriter().write(EventListener.RESULT_OK) ;
+    }
+  }
+  
   static public class ShowAddNewApplicationActionListener extends EventListener<UIContainer> {
 
     @Override
@@ -106,7 +137,7 @@ public class UIContainerActionListener {
       
       UIAddNewApplication uiAddApplication = uiPortal.createUIComponent(UIAddNewApplication.class,
           null, null);
-      //get Widget Applications only
+      //get Widget and Gadget Applications only
       String[] applicationTypes = {org.exoplatform.web.application.Application.EXO_WIDGET_TYPE, org.exoplatform.web.application.Application.EXO_GAGGET_TYPE};
       
       //Set parent container

@@ -7,7 +7,7 @@
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$uicomponent.id');") ;
 %>
-<div class="UIGadget">
+<div class="UIWidget" style="height: auto ;">
   <div class="WidgetControlBar">
     <div class="WidgetControl">
     	<div class="LeftControlBar">

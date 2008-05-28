@@ -23,10 +23,5 @@
 		<container id="Horoscope">
 		<name>Horoscope</name>
 		<description>Horoscope's Description</description>
-    
-    <application>
-      <instance-id>user#root:/eXoGadgets/Horoscope/Horoscope1</instance-id>
-      <application-type>eXoGadget</application-type> 
-    </application>
 	</container>
 </gadgets>
