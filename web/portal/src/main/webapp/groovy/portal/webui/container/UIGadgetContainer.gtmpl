@@ -4,7 +4,7 @@
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
-  jsmanager.importJavascript('eXo.gadget.UIAddGadget');
+  jsmanager.importJavascript('eXo.gadget.UIGadget');
   String componentId = uicomponent.getId();
   String addGadgetAction = uicomponent.event("ShowAddNewApplication");
   String scrollUpAction = "eXo.webui.UIVerticalScroller.refreshScroll(1);";
