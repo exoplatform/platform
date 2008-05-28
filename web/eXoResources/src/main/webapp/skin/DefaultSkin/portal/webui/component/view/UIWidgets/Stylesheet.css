@@ -197,3 +197,76 @@
 	margin: 2px 0px 0px 0px;
 	background: url('background/WidgetControlIcon.gif') no-repeat left bottom;	
 }
+
+/***************************************  UIWidget   **************************************/
+
+.UIGadget {
+	border: 1px solid red;	
+}
+
+.UIGadget .WidgetControlBar {
+  float: right;
+	width: 76px; height: 20px;
+	padding-right: 7px;
+}
+
+.UIGadget .WidgetControl {
+	width: 74px; height: 20px;
+	display:none;
+}
+
+.UIGadget .WidgetApplication {
+	padding: 0px 0px 5px 0px;
+}
+
+.UIGadget .WidgetControl .LeftControlBar{
+	height: 19px;
+	background: url('background/UIWidgets.gif') no-repeat left -58px;	
+	padding-left: 2px;
+}
+
+.UIGadget .WidgetControl .RightControlBar{
+	height: 19px;
+	background: url('background/UIWidgets.gif') no-repeat right -58px;	
+	padding-right: 2px;
+}
+
+.UIGadget .WidgetControl .CenterControlBar{
+	height: 19px;
+	background: url('background/UIWidgets.gif') repeat-x bottom;	
+}
+
+.UIGadget .WidgetControl .WidgetDragHandleArea {
+	float: left;
+	width: 17px; height: 13px;
+	cursor: move;
+	margin: 3px 3px 0px 3px;
+	background: url('background/WidgetDragArea2x2.gif');
+}
+
+.UIWorkspacePanel .UIGadget .WidgetControl .WidgetDragHandleArea {
+	cursor: auto;
+}
+
+.UIGadget .WidgetControl .SeparatorLine {
+	float: left;
+	width: 2px; height: 13px;
+	margin: 3px 3px 0px 3px;
+	background: url('background/SeparatorLine2x1.gif') repeat-y;
+}
+
+.UIGadget .WidgetControl .EditWidgetIcon {
+	float: left;
+	width: 16px; height: 16px;
+	cursor: pointer;
+	margin: 2px 3px 0px 0px;
+	background: url('background/WidgetControlIcon.gif') no-repeat left -37px;	
+}
+
+.UIGadget .WidgetControl .CloseWidgetIcon {
+	float: left;
+	width: 16px; height: 16px;
+	cursor: pointer;
+	margin: 2px 0px 0px 0px;
+	background: url('background/WidgetControlIcon.gif') no-repeat left bottom;	
+}

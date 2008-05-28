@@ -20,8 +20,11 @@ import java.util.List;
 
 import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.application.UIAddNewApplication;
+import org.exoplatform.portal.webui.application.UIGadget;
+import org.exoplatform.portal.webui.application.UIGadgets;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.application.UIWidgets;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -101,27 +104,27 @@ public class UIContainerActionListener {
     public void execute(Event<UIContainer> event) throws Exception {
       WebuiRequestContext pContext = event.getRequestContext();
       String id = pContext.getRequestParameter(UIComponent.OBJECTID) ;
-      UIContainer uiWidgetContainer = event.getSource();
-      List<UIComponent> children = uiWidgetContainer.getChildren();
+      UIContainer uiGadgetContainer = event.getSource();
+      List<UIComponent> children = uiGadgetContainer.getChildren();
       for(UIComponent uiChild : children) {
-        UIWidget uiWidget = (UIWidget) uiChild ;
-        if(uiWidget.getApplicationInstanceUniqueId().equals(id)) {
-          children.remove(uiWidget) ;
+        UIGadget uiGadget = (UIGadget) uiChild ;
+        if(uiGadget.getApplicationInstanceUniqueId().equals(id)) {
+          children.remove(uiGadget) ;
           String userName = pContext.getRemoteUser() ;
           if(userName != null && userName.trim().length() > 0) {
-            UserWidgetStorage widgetDataService = uiWidgetContainer.getApplicationComponent(UserWidgetStorage.class) ;
-            widgetDataService.delete(userName, uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;            
+            UserWidgetStorage widgetDataService = uiGadgetContainer.getApplicationComponent(UserWidgetStorage.class) ;
+            widgetDataService.delete(userName, uiGadget.getApplicationName(), uiGadget.getApplicationInstanceUniqueId()) ;            
           }
           break ;
         }
       }
       
-      UIWidgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIWidgets.class);
-      Widgets widgets = PortalDataMapper.toWidgets(uiWidgets);
-      UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
-      configService.update(widgets);
+      UIGadgets uiGadgets = uiGadgetContainer.getAncestorOfType(UIGadgets.class);
+      Gadgets gadgets = PortalDataMapper.toGadgets(uiGadgets);
+      UserPortalConfigService configService = uiGadgetContainer.getApplicationComponent(UserPortalConfigService.class);
+      configService.update(gadgets);
       UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
-      uiPortalApp.getUserPortalConfig().setWidgets(widgets) ;
+      uiPortalApp.getUserPortalConfig().setGadgets(gadgets) ;
       pContext.setResponseComplete(true) ;
       pContext.getWriter().write(EventListener.RESULT_OK) ;
     }

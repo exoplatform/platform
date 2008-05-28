@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
@@ -28,6 +29,7 @@ import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIAddNewApplication;
 import org.exoplatform.portal.webui.application.UIApplication;
+import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
@@ -190,6 +192,37 @@ public class UIPageActionListener {
           String userName = pContext.getRemoteUser() ;
           if(userName != null && userName.trim().length() > 0) {
             UserWidgetStorage widgetDataService = uiPage.getApplicationComponent(UserWidgetStorage.class) ;
+            widgetDataService.delete(userName, uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;            
+          }
+          if(uiPage.isModifiable()) {
+            Page page = PortalDataMapper.toPageModel(uiPage);    
+            UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
+            if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+            configService.update(page);
+          }
+          break;
+        }
+      }
+      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      pcontext.setFullRender(false);
+      pcontext.setResponseComplete(true) ;
+      pcontext.getWriter().write(EventListener.RESULT_OK) ;
+    }
+  }
+  
+  static public class DeleteGadgetActionListener extends EventListener<UIPage> {
+    public void execute(Event<UIPage> event) throws Exception {
+      WebuiRequestContext pContext = event.getRequestContext();
+      String id  = pContext.getRequestParameter(UIComponent.OBJECTID);
+      UIPage uiPage = event.getSource();
+      List<UIGadget> uiWidgets = new ArrayList<UIGadget>();
+      uiPage.findComponentOfType(uiWidgets, UIGadget.class);
+      for(UIGadget uiWidget : uiWidgets) {
+        if(uiWidget.getApplicationInstanceUniqueId().equals(id)) {
+          uiPage.getChildren().remove(uiWidget);
+          String userName = pContext.getRemoteUser() ;
+          if(userName != null && userName.trim().length() > 0) {
+            UserGadgetStorage widgetDataService = uiPage.getApplicationComponent(UserGadgetStorage.class) ;
             widgetDataService.delete(userName, uiWidget.getApplicationName(), uiWidget.getApplicationInstanceUniqueId()) ;            
           }
           if(uiPage.isModifiable()) {
