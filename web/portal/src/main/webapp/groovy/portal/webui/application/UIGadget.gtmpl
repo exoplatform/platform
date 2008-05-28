@@ -4,8 +4,9 @@
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   def url = uicomponent.getUrl() ;
+  def id = uicomponent.getApplicationInstanceId() ;
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
-	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$uicomponent.id');") ;
+	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id');") ;
 %>
 <div class="UIWidget" style="height: auto ;">
   <div class="WidgetControlBar">
@@ -25,6 +26,6 @@
   </div>
  	<div style="clear: right"><span></span></div>
 	<div class="WidgetApplication">
-		<div id="$uicomponent.id"></div>
+		<div id="$id"></div>
 	</div>
 </div>
