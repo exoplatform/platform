@@ -17,7 +17,6 @@
 package org.exoplatform.portletregistry.webui.component;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -48,7 +47,7 @@ import org.exoplatform.webui.form.UIFormInputInfo;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormTableInputSet;
-import org.exoplatform.webui.form.UIFormTableIteratorInputSet;
+import org.exoplatform.portletregistry.webui.component.UIFormTableIteratorInputSet;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
