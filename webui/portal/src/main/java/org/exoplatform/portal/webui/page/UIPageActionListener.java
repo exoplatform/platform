@@ -295,6 +295,37 @@ public class UIPageActionListener {
     }
   }
   
+  static public class SaveGadgetPropertiesActionListener  extends EventListener<UIPage> {
+    public void execute(Event<UIPage> event) throws Exception {
+     
+      UIPage uiPage = event.getSource();
+      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      List<UIGadget> uiGadgets = new ArrayList<UIGadget>();
+      uiPage.findComponentOfType(uiGadgets, UIGadget.class);
+      UIGadget uiGadget = null;
+      for(UIGadget ele : uiGadgets) {
+        if(ele.getApplicationInstanceUniqueId().equals(objectId)) {
+          uiGadget = ele;
+          break;
+        }
+      }
+      if(uiGadget == null) return;
+      String posX  = event.getRequestContext().getRequestParameter("posX");
+      String posY  = event.getRequestContext().getRequestParameter("posY");
+      String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
+      
+      uiGadget.getProperties().put(UIApplication.locationX, posX) ;
+      uiGadget.getProperties().put(UIApplication.locationY, posY) ;
+      uiGadget.getProperties().put(UIApplication.zIndex, zIndex) ;
+      
+      if(!uiPage.isModifiable()) return;
+      Page page = PortalDataMapper.toPageModel(uiPage);
+      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
+      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+      configService.update(page);
+    }
+  }
+  
   static public class SaveWindowPropertiesActionListener  extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
       UIPage uiPage = event.getSource();

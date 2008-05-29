@@ -30,6 +30,7 @@ import org.exoplatform.portal.webui.page.UIPageActionListener.DeleteGadgetAction
 import org.exoplatform.portal.webui.page.UIPageActionListener.EditPageActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.RemoveChildActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.SaveWidgetPropertiesActionListener;
+import org.exoplatform.portal.webui.page.UIPageActionListener.SaveGadgetPropertiesActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.SaveWindowPropertiesActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.ShowAddNewApplicationActionListener;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
@@ -66,6 +67,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = DeleteGadgetActionListener.class),
         @EventConfig(listeners = RemoveChildActionListener.class),
         @EventConfig(listeners = SaveWidgetPropertiesActionListener.class),
+        @EventConfig(listeners = SaveGadgetPropertiesActionListener.class),
         @EventConfig(listeners = SaveWindowPropertiesActionListener.class),
         @EventConfig(listeners = ShowAddNewApplicationActionListener.class),
         @EventConfig(listeners = UIPage.ChangePageActionListener.class)
