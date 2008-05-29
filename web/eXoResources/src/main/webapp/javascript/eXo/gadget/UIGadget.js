@@ -4,7 +4,6 @@ eXo.gadget.UIGadget = {
 		//eXo = eXo || {};
 		eXo.gadgets = eXo.gadgets || {};
 		//window.gadgets = eXo.gadget.Gadgets;
-		
 		if (!eXo.gadgets || !eXo.gadgets.rpc) {
 			eXo.loadJS("/eXoGadgetServer/gadgets/js/rpc.js?c=1&debug=1&p=1");
 		}
@@ -21,7 +20,8 @@ eXo.gadget.UIGadget = {
 		var uiGadget = eXo.core.DOMUtil.findAncestorByClass(gadgetBlock, "UIGadget");
 		if(eXo.core.DOMUtil.findAncestorByClass(uiGadget, "UIPage")) {
 			uiGadget.style.position = "absolute" ;
-		}	
+		}
+		else uiGadget.style.width="" ;	
 		var isDesktop = false;
 		if(eXo.core.DOMUtil.findAncestorByClass(uiGadget, "UIPageDesktop"))	isDesktop = true;
 		eXo.gadget.UIGadget.init(uiGadget, isDesktop);
