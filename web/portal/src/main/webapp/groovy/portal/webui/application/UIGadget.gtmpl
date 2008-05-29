@@ -4,13 +4,16 @@
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   def url = uicomponent.getUrl() ;
+  def posX = uicomponent.getProperties().getIntValue("locationX") + "px";
+  def posY = uicomponent.getProperties().getIntValue("locationY") + "px";
+  def zIndex = uicomponent.getProperties().getIntValue("zIndex") ;
   def id = uicomponent.getApplicationInstanceId() ;
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id');") ;
 %>
-<div class="UIGadget" style="height: auto ;">
+<div class="UIGadget" style="left: $posX; top: $posY; z-Index: $zIndex; width: 300px" >
   <div class="WidgetControlBar">
-    <div class="WidgetControl">
+    <div class="WidgetControl" style="display: none;">
     	<div class="LeftControlBar">
     		<div class="RightControlBar">
     			<div class="CenterControlBar">
@@ -27,5 +30,6 @@
  	<div style="clear: right"><span></span></div>
 	<div class="WidgetApplication">
 		<div id="$id"></div>
+		<div class="UIMask" style="display: none;"></div>
 	</div>
 </div>

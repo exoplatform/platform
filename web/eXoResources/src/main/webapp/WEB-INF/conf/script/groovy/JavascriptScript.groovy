@@ -27,6 +27,9 @@ JavascriptService.addJavascript("eXo.widget.UIWidget", "/javascript/eXo/widget/U
 JavascriptService.addJavascript("eXo.widget.UIAddWidget", "/javascript/eXo/widget/UIAddWidget.js", ServletContext);
 JavascriptService.addJavascript("eXo.widget.UIExoWidget", "/javascript/eXo/widget/UIExoWidget.js", ServletContext);
 
+/* Gadget Javascripts */
+JavascriptService.addJavascript("eXo.gadget.UIGadget", "/javascript/eXo/gadget/UIGadget.js", ServletContext);
+
 /* WebUI Javascripts */ 
 JavascriptService.addJavascript("eXo.webui.UIItemSelector", "/javascript/eXo/webui/UIItemSelector.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIForm", "/javascript/eXo/webui/UIForm.js", ServletContext);

@@ -24,6 +24,7 @@ eXo.core.DragDrop2 = {
 		e = eXo.core.DragDrop2.fixE(e);
 		var y = parseInt(eXo.core.DOMUtil.getStyle(o.root,"top"));
 		var x = parseInt(eXo.core.DOMUtil.getStyle(o.root,"left"));
+		if(isNaN(x)) x=0;		if(isNaN(y)) y=0;
 		o.lastMouseX = 		eXo.core.Browser.findMouseXInPage(e);
 		o.lastMouseY = 		eXo.core.Browser.findMouseYInPage(e);
 		o.root.onDragStart(x, y, o.lastMouseX, o.lastMouseY, e);
@@ -39,8 +40,8 @@ eXo.core.DragDrop2 = {
 		var ex = eXo.core.Browser.findMouseXInPage(e);
 		var y = parseInt(eXo.core.DOMUtil.getStyle(o.root, "top"));
 		var x = parseInt(eXo.core.DOMUtil.getStyle(o.root, "left"));
+		if(isNaN(x)) x=0;		if(isNaN(y)) y=0;
 		var nx, ny;
-
 		nx = x + (ex - o.lastMouseX);
 		ny = y + (ey - o.lastMouseY);
 		eXo.core.DragDrop2.obj.root.style["left"] = nx + "px";

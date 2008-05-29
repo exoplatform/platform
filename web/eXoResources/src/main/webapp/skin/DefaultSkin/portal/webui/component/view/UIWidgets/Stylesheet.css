@@ -201,7 +201,6 @@
 /***************************************  UIWidget   **************************************/
 
 .UIGadget {
-	border: 1px solid gray;	
 }
 
 .UIGadget .WidgetControlBar {
@@ -212,7 +211,6 @@
 
 .UIGadget .WidgetControl {
 	width: 74px; height: 20px;
-	display:none;
 }
 
 .UIGadget .WidgetApplication {

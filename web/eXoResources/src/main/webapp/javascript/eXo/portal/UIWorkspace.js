@@ -115,7 +115,6 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 		var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
 		var size = uiWidget.length ;
 		var limitX = 50 ;
-			
 		for(var i = 0 ; i < size ; i ++) {
 			var dragObject = uiWidget[i] ;
 			if (cws.showControlWorkspace) {
@@ -133,6 +132,28 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	  	if (dragObject.offsetTop < 0) dragObject.style.top = "0px" ;
 	  	if (offsetTop > offsetHeight) dragObject.style.top = (offsetHeight + limitX) + "px" ;
 	  	if (offsetLeft > offsetWidth) dragObject.style.left = (offsetWidth + limitX) + "px" ;				
+		}		
+		
+		//fix for UIGadget by Pham Dinh Tan
+		var uiGadgets = DOMUtil.findChildrenByClass(uiPageDesktop, "div", "UIGadget") ;
+		var limitXGadget = 80;
+		for(var i = 0 ; i < uiGadgets.length; i++) {
+			var dragObject = uiGadgets[i] ;
+			if (cws.showControlWorkspace) {
+				dragObject.style.left = (parseInt(dragObject.style.left) - uiControlWorkspace.offsetWidth) + "px";	
+			}
+			else {
+				dragObject.style.left = (parseInt(dragObject.style.left) + uiControlWorkspace.offsetWidth + dragObject.offsetWidth - limitXGadget) + "px";			
+			}
+			
+			var offsetHeight = uiPageDesktop.offsetHeight - dragObject.offsetHeight ;
+			var offsetWidth = uiPageDesktop.offsetWidth - dragObject.offsetWidth ;
+			var dragPosX = parseInt(dragObject.style.left);
+			var dragPosY = parseInt(dragObject.style.top);
+			if (dragPosX < 0) dragObject.style.left = "0px" ;
+	  	if (dragPosY < 0) dragObject.style.top = "0px" ;
+	  	if (dragPosY > offsetHeight) dragObject.style.top = offsetHeight + "px" ;
+	  	if (dragPosX > offsetWidth) dragObject.style.left = offsetWidth + "px" ;			
 		}		
 	}
 	/* -- END -- */
