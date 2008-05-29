@@ -215,6 +215,7 @@
 
 .UIGadget .WidgetApplication {
 	padding: 0px 0px 5px 0px;
+	border: 1px solid gray;
 }
 
 .UIGadget .WidgetControl .LeftControlBar{
