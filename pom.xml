@@ -16,9 +16,7 @@
 
     <module>eXoWidget/web</module>
 
-	<module>gadgets/shindig</module>
-	<module>gadgets/eXoGadgets</module>
-	<module>gadgets/eXoGadgetServer</module>
+    <module>gadgets</module>
 	
     <module>webui/core</module>
     <module>webui/eXo</module>
