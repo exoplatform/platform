@@ -26,13 +26,7 @@
       <artifactId>exo.core.component.security</artifactId>
       <version>${org.exoplatform.core.version}</version>
     </dependency>
-
-	<dependency>
-      <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.component.xml-parser</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
-    </dependency>
-    
+        
     <dependency>
       <groupId>org.exoplatform.portletcontainer</groupId>
       <artifactId>exo.pc.component.core</artifactId>
