@@ -20,6 +20,7 @@
 .UITabPane .UIForm .HorizontalLayout {
 	border: none;
 	background: none;
+	padding: 0px;
 }
 
 .UITabPane .UIFormWidthTitle .HorizontalLayout {
