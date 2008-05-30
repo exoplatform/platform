@@ -28,19 +28,19 @@
  * @constructor
  */
 
-eXo.gadgets.CookieBasedUserPrefStore = function() {
-  eXo.gadgets.Gadgets.UserPrefStore.call(this);
+gadgets.CookieBasedUserPrefStore = function() {
+  gadgets.UserPrefStore.call(this);
 };
 
-eXo.gadgets.CookieBasedUserPrefStore.inherits(eXo.gadgets.Gadgets.UserPrefStore);
+gadgets.CookieBasedUserPrefStore.inherits(gadgets.UserPrefStore);
 
-eXo.gadgets.CookieBasedUserPrefStore.prototype.USER_PREFS_PREFIX =
+gadgets.CookieBasedUserPrefStore.prototype.USER_PREFS_PREFIX =
     'gadgetUserPrefs-';
 
-eXo.gadgets.CookieBasedUserPrefStore.prototype.getPrefs = function(gadget) {
+gadgets.CookieBasedUserPrefStore.prototype.getPrefs = function(gadget) {
   var userPrefs = {};
   var cookieName = this.USER_PREFS_PREFIX + gadget.id;
-  var cookie = eXo.core.Browser.getCookie(cookieName);
+  var cookie; // = eXo.core.Browser.getCookie(cookieName);
   if (cookie) {
     var pairs = cookie.split('&');
     for (var i = 0; i < pairs.length; i++) {
@@ -50,11 +50,10 @@ eXo.gadgets.CookieBasedUserPrefStore.prototype.getPrefs = function(gadget) {
       userPrefs[name] = value;
     }
   }
-
   return userPrefs;
 };
 
-eXo.gadgets.CookieBasedUserPrefStore.prototype.savePrefs = function(gadget) {
+gadgets.CookieBasedUserPrefStore.prototype.savePrefs = function(gadget) {
   var pairs = [];
   for (var name in gadget.getUserPrefs()) {
     var value = gadget.getUserPref(name);
@@ -67,6 +66,6 @@ eXo.gadgets.CookieBasedUserPrefStore.prototype.savePrefs = function(gadget) {
   eXo.core.Browser.setCookie(cookieName, cookieValue, 15);
 };
 
-eXo.gadgets.Gadgets.Container.prototype.userPrefStore =
-    new eXo.gadgets.CookieBasedUserPrefStore();
+gadgets.Container.prototype.userPrefStore =
+    new gadgets.CookieBasedUserPrefStore();
 //}

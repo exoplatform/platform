@@ -1,0 +1,31 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.portal</groupId>
+    <artifactId>config</artifactId>
+    <version>trunk</version>
+  </parent>
+
+  <artifactId>gadget</artifactId>
+  <name>eXo gadget Config</name>
+  <packaging>pom</packaging>
+
+  <modules>
+	<module>features</module>
+	<module>eXoGadgets</module>
+	<module>server</module>
+  </modules>
+
+  <profiles>
+    <profile>
+      <id>default</id>
+      <activation>
+        <property><name>default</name></property>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <org.shindig.version>1-SNAPSHOT</org.shindig.version>
+      </properties>
+    </profile>
+  </profiles>
+</project>

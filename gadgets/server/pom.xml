@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.portal</groupId>
+    <artifactId>gadget</artifactId>
+    <version>trunk</version>
+  </parent>
+
+  <artifactId>exo.portal.gadget-server</artifactId>
+
+  <packaging>war</packaging>
+
+  <name>eXo Gadget Web App</name>
+  <description>Server war containing both the gadget rendering code code.</description>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+          <!-- default value is ** --> 
+  		  <dependentWarExcludes>WEB-INF/lib/shindig-features-1-SNAPSHOT.jar</dependentWarExcludes>
+        </configuration>
+       </plugin>
+
+
+	<!--plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-war-plugin</artifactId>
+	        <version>2.0.2</version>
+	        <configuration>
+	        <warSourceIncludes>**</warSourceIncludes>
+	        </configuration>
+ 	</plugin-->
+
+
+    </plugins>
+
+
+  </build>
+
+  <dependencies>
+    <!-- project dependencies -->
+    <dependency>
+      <groupId>org.apache.shindig</groupId>
+      <artifactId>shindig-server</artifactId>
+	  <version>${org.shindig.version}</version>
+	  <type>war</type>
+	  <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.gadget-features</artifactId>
+	  <version>trunk</version>
+	  <type>jar</type>
+	  <scope>runtime</scope>
+    </dependency>
+    <!-- external dependencies -->
+  </dependencies>
+</project>

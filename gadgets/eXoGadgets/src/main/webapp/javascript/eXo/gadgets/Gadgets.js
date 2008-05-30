@@ -19,12 +19,7 @@
 /**
  * @fileoverview Open Gadget Container
  */
-
 var gadgets = gadgets || {};
-
-//do not load twice this library
-if (!gadgets.Gadget) {
-
 gadgets.error = {};
 gadgets.error.SUBCLASS_RESPONSIBILITY = 'subclass responsibility';
 gadgets.error.TO_BE_DONE = 'to be done';
@@ -182,10 +177,10 @@ gadgets.GadgetService.prototype.setUserPref = function(id) {
  */
 gadgets.IfrGadgetService = function() {
   gadgets.GadgetService.call(this);
-  eXo.gadgets.rpc.register('resize_iframe', this.setHeight);
-  eXo.gadgets.rpc.register('set_pref', this.setUserPref);
-  eXo.gadgets.rpc.register('set_title', this.setTitle);
-  eXo.gadgets.rpc.register('requestNavigateTo', this.requestNavigateTo);
+  gadgets.rpc.register('resize_iframe', this.setHeight);
+  gadgets.rpc.register('set_pref', this.setUserPref);
+  gadgets.rpc.register('set_title', this.setTitle);
+  gadgets.rpc.register('requestNavigateTo', this.requestNavigateTo);
 };
 
 gadgets.IfrGadgetService.inherits(gadgets.GadgetService);
@@ -320,16 +315,6 @@ gadgets.StaticLayoutManager.prototype.getGadgetChrome = function(gadget) {
 };
 
 
-/**
- *
- * eXo's layout manager
- */
-var EXoLayoutManager = function() {
-	gadgets.LayoutManager.call(this);
-	this.gadgetList = new HashTable();
-};
-
-
 // ----------------------
 // FloatLeftLayoutManager
 
@@ -392,6 +377,11 @@ gadgets.Gadget = function(params) {
     for (var name in params)  if (params.hasOwnProperty(name)) {
       this[name] = params[name];
     }
+  }
+  if (!this.secureToken) {
+    // Assume that the default security token implementation is
+    // in use on the server.
+    this.secureToken = 'john.doe:john.doe:appid:cont:url:0';
   }
 };
 
@@ -477,7 +467,7 @@ gadgets.IfrGadget.inherits(gadgets.Gadget);
 
 gadgets.IfrGadget.prototype.GADGET_IFRAME_PREFIX_ = 'remote_iframe_';
 
-gadgets.IfrGadget.prototype.SYND = 'default';
+gadgets.IfrGadget.prototype.CONTAINER = 'default';
 
 gadgets.IfrGadget.prototype.cssClassGadget = 'gadgets-gadget';
 gadgets.IfrGadget.prototype.cssClassTitleBar = 'gadgets-gadget-title-bar';
@@ -491,7 +481,7 @@ gadgets.IfrGadget.prototype.cssClassGadgetUserPrefsDialogActionBar =
 gadgets.IfrGadget.prototype.cssClassTitleButton = 'gadgets-gadget-title-button';
 gadgets.IfrGadget.prototype.cssClassGadgetContent = 'gadgets-gadget-content';
 gadgets.IfrGadget.prototype.rpcToken = (0x7FFFFFFF * Math.random()) | 0;
-gadgets.IfrGadget.prototype.rpcRelay = 'files/rpc_relay.html';
+gadgets.IfrGadget.prototype.rpcRelay = 'files/container/rpc_relay.html';
 
 gadgets.IfrGadget.prototype.getTitleBarContent = function(continuation) {
   /*continuation('<div id="' + this.cssClassTitleBar + '-' + this.id +
@@ -522,8 +512,8 @@ gadgets.IfrGadget.prototype.getServerBase = function() {
 
 gadgets.IfrGadget.prototype.getMainContent = function(continuation) {
   var iframeId = this.getIframeId();
-  eXo.gadgets.rpc.setRelayUrl(iframeId, this.serverBase_ + this.rpcRelay);
-  eXo.gadgets.rpc.setAuthToken(iframeId, this.rpcToken);
+  gadgets.rpc.setRelayUrl(iframeId, this.serverBase_ + this.rpcRelay);
+  gadgets.rpc.setAuthToken(iframeId, this.rpcToken);
   continuation('<div class="' + this.cssClassGadgetContent + '"><iframe id="' +
       iframeId + '" name="' + iframeId + '" class="' + this.cssClassGadget +
       '" src="' + this.getIframeUrl() +
@@ -543,8 +533,7 @@ gadgets.IfrGadget.prototype.getUserPrefsDialogId = function() {
 
 gadgets.IfrGadget.prototype.getIframeUrl = function() {
   return this.serverBase_ + 'ifr?' +
-      'url=' + encodeURIComponent(this.specUrl) +
-      '&synd=' + this.SYND +
+      'container=' + this.CONTAINER +
       '&mid=' +  this.id +
       '&nocache=' + gadgets.container.nocache_ +
       '&country=' + gadgets.container.country_ +
@@ -555,6 +544,7 @@ gadgets.IfrGadget.prototype.getIframeUrl = function() {
       (this.debug ? '&debug=1' : '') +
       this.getAdditionalParams() +
       this.getUserPrefsParams() +
+      '&url=' + encodeURIComponent(this.specUrl) +
       '#rpctoken=' + this.rpcToken +
       (this.secureToken ? '&st=' + this.secureToken : '') +
       (this.viewParams ?
@@ -596,8 +586,8 @@ gadgets.IfrGadget.prototype.handleOpenUserPrefsDialog = function() {
     };
 
     var script = document.createElement('script');
-    script.src = 'http://gmodules.com/ig/gadgetsettings?url=' + this.specUrl +
-        '&mid=' + this.id + '&output=js' + this.getUserPrefsParams();
+    script.src = 'http://gmodules.com/ig/gadgetsettings?mid=' + this.id +
+        '&output=js' + this.getUserPrefsParams() +  '&url=' + this.specUrl;
     document.body.appendChild(script);
   }
 };
@@ -732,11 +722,11 @@ gadgets.Container.prototype.addGadget = function(gadget) {
   this.gadgets_[this.getGadgetKey_(gadget.id)] = gadget;
 };
 
-/*gadgets.Container.prototype.addGadgets = function(gadgets) {
+gadgets.Container.prototype.addGadgets = function(gadgets) {
   for (var i = 0; i < gadgets.length; i++) {
     this.addGadget(gadgets[i]);
   }
-};*/
+};
 
 /**
  * Renders all gadgets in the container.
@@ -810,7 +800,3 @@ gadgets.IfrContainer.prototype.renderGadget = function(gadget) {
  * Default container.
  */
 gadgets.container = new gadgets.IfrContainer();
-
-eXo.gadgets = eXo.gadgets || {};
-eXo.gadgets.Gadgets = gadgets;
-}
