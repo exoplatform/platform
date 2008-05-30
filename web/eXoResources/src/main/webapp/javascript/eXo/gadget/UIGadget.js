@@ -1,46 +1,50 @@
 eXo.gadget.UIGadget = {
-	
+	limitX : 50,
 	createGadget : function(url,id) {
-		//eXo = eXo || {};
-		eXo.gadgets = eXo.gadgets || {};
-		//window.gadgets = eXo.gadget.Gadgets;
-		if (!eXo.gadgets || !eXo.gadgets.rpc) {
-			eXo.loadJS("/eXoGadgetServer/gadgets/js/rpc.js?c=1&debug=1&p=1");
-		}
-		eXo.require("eXo.gadgets.Gadgets", "/eXoGadgets/javascript/");
-		eXo.require("eXo.gadgets.CookieBasedUserPrefStore", "/eXoGadgets/javascript/");
-		window.gadgets = eXo.gadgets.Gadgets;
-		var gadget = eXo.gadgets.Gadgets.container.createGadget({specUrl: url});
-		
-	  eXo.gadgets.Gadgets.container.addGadget(gadget);
-	  var gadgetBlock = document.getElementById(id);
-		gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "'> </div>";
-		eXo.gadgets.Gadgets.container.renderGadgets();
-		
-		var uiGadget = eXo.core.DOMUtil.findAncestorByClass(gadgetBlock, "UIGadget");
-		if(eXo.core.DOMUtil.findAncestorByClass(uiGadget, "UIPage")) {
-			uiGadget.style.position = "absolute" ;
-		}
-		else uiGadget.style.width="" ;	
-		var isDesktop = false;
-		if(eXo.core.DOMUtil.findAncestorByClass(uiGadget, "UIPageDesktop"))	isDesktop = true;
-		eXo.gadget.UIGadget.init(uiGadget, isDesktop);
+	//eXo = eXo || {};
+  window.gadgets = window.gadgets || {};
+  eXo.gadgets = window.gadgets;
+	//window.gadgets = eXo.gadget.Gadgets;
+
+	if (!eXo.gadgets || !eXo.gadgets.rpc) {
+    	eXo.core.Using.register('rpc','/eXoGadgetServer/gadgets/js/rpc.js?c=1&debug=1&p=1');
+    	eXo.core.Using.register('eXo.gadgets.Gadgets','/eXoGadgets/javascript/eXo/gadgets/Gadgets.js');
+    	eXo.core.Using.register('eXo.gadgets.CookieBasedUserPrefStore','/eXoGadgets/javascript/eXo/gadgets/CookieBasedUserPrefStore.js');
+
+    	eXo.core.Using("rpc");
+		  eXo.core.Using("eXo.gadgets.Gadgets");
+  		eXo.core.Using("eXo.gadgets.CookieBasedUserPrefStore");
+	}
+
+
+  var gadget = gadgets.container.createGadget({specUrl: url});
+
+  gadgets.container.addGadget(gadget);
+  var gadgetBlock = document.getElementById(id);
+	gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "'> </div>";
+	gadgets.container.renderGadgets();
+
+	var uiGadget = eXo.core.DOMUtil.findAncestorByClass(gadgetBlock, "UIGadget");
+	var isDesktop = false;
+	if(eXo.core.DOMUtil.findAncestorByClass(uiGadget, "UIPageDesktop"))	isDesktop = true;
+	eXo.gadget.UIGadget.init(uiGadget, isDesktop);
 	},
-	
-	
+
 	init : function(uiGadget, inDesktop) {
-	
+
 		uiGadget.onmouseover = eXo.gadget.UIGadget.showGadgetControl ;
 		uiGadget.onmouseout = eXo.gadget.UIGadget.hideGadgetControl ;
+
 		if(inDesktop) {
 			var dragHandleArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "WidgetDragHandleArea");
-			
+
 			if(uiGadget.style.zIndex<0) uiGadget.style.zIndex = 0;
 			eXo.core.DragDrop2.init(dragHandleArea, uiGadget);
 		}
-		
+
 		// drag start callback
 		uiGadget.onDragStart = function(x, y, lastMouseX, lastMouseY, e){
+
 			var uiPageDesktop =document.getElementById("UIPageDesktop");
 			var uiGadgets = eXo.core.DOMUtil.findChildrenByClass(uiPageDesktop, "div", "UIGadget");
 			for(var i=0; i<uiGadgets.length; i++){
@@ -56,15 +60,17 @@ eXo.gadget.UIGadget = {
 				}
 			}
 		}
-		
+
 		//drag callback
 		uiGadget.onDrag = function(nx, ny, ex, ey, e){
+
 			if(nx<0) uiGadget.style.left = "0px";
 			if(ny<0) uiGadget.style.top = "0px";
 		}
-		
+
 		//drop callback		
 		uiGadget.onDragEnd = function(x, y, clientX, clientY){
+
 			var uiPageDesktop =document.getElementById("UIPageDesktop");
 			var uiGadgets = eXo.core.DOMUtil.findChildrenByClass(uiPageDesktop, "div", "UIGadget");
 			for(var i=0; i<uiGadgets.length; i++){
@@ -86,7 +92,7 @@ eXo.gadget.UIGadget = {
 	  	
 	  	eXo.gadget.UIGadget.saveWindowProperties(uiGadget);
 		}
-		
+
 	},
 
 	showGadgetControl : function(e) {
@@ -96,15 +102,15 @@ eXo.gadget.UIGadget = {
 		var uiGadget = this ;
 		var gadgetControl = DOMUtil.findFirstDescendantByClass(uiGadget, "div", "WidgetControl");
 		gadgetControl.style.display = "block" ;
-	
+
 		var uiPageDesktop = DOMUtil.findAncestorByClass(uiGadget, "UIPageDesktop");
 		if(uiPageDesktop) {
 			var dragHandleArea = DOMUtil.findFirstDescendantByClass(gadgetControl, "div", "WidgetDragHandleArea");
 			dragHandleArea.title = "Drag this Gadget";
 		}
 	},
-	
-	
+
+
 	hideGadgetControl : function(e) {
 		if (!e) e = window.event ;
 	  e.cancelBubble = true ;
@@ -112,7 +118,7 @@ eXo.gadget.UIGadget = {
 		var gadgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "WidgetControl");
 		gadgetControl.style.display = "none" ;
 	},
-	
+
 	editGadget : function(selectedElement) {
 		var DOMUtil = eXo.core.DOMUtil ;
 		var uiGadget = DOMUtil.findAncestorByClass(selectedElement,"UIWidget") ;
@@ -120,19 +126,19 @@ eXo.gadget.UIGadget = {
 			uiGadget.applicationDescriptor.application.editGadget(uiGadget);
 		}	else {
 			var editMode = DOMUtil.findFirstDescendantByClass(uiGadget, "div", "EditMode") ;
-			if (editMode) {		
+			if (editMode) {
 				viewMode = DOMUtil.findNextElementByTagName(editMode, "div") ;
 				if (editMode.style.display == "none") {
 					editMode.style.position = "absolute" ;
 					editMode.style.display = "block" ;
-					editMode.style.left = viewMode.offsetWidth + "px" ;			
+					editMode.style.left = viewMode.offsetWidth + "px" ;
 				} else {
 					editMode.style.display = "none" ;
-				}	
-				
+				}
+
 			}
 		}
-	}, 
+	},
 
 	deleteGadget : function(selectedElement) {
 		var DOMUtil = eXo.core.DOMUtil ;
@@ -157,13 +163,13 @@ eXo.gadget.UIGadget = {
 	  ] ;
 		if (confirm("Are you sure you want to delete this gadget ?")) {
 			var result = ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "DeleteGadget", true, params), false) ;
-			if(result == "OK") { 
+			if(result == "OK") {
 				DOMUtil.removeElement(uiGadget) ;
 				if(isInControlWorkspace) eXo.webui.UIVerticalScroller.refreshScroll(0) ;
 			}
-		}	
+		}
 	},
-	
+
 	saveWindowProperties : function(object) {
 		var DOMUtil = eXo.core.DOMUtil ;
 		var uiPage = DOMUtil.findAncestorByClass(object, "UIPage") ;
@@ -180,22 +186,24 @@ eXo.gadget.UIGadget = {
 	  	{name: "posY", value : object.offsetTop},
 	  	{name: "zIndex", value : object.style.zIndex}
 	  ] ;
+
   	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveGadgetProperties", true, params), false) ;
+
 	} ,
-	
+
 	resizeContainer : function() {
 		var gadgets  = document.getElementById("UIGadgets") ;
-		if(gadgets == null) return ;	
-		
+		if(gadgets == null) return ;
+
 		var DOMUtil = eXo.core.DOMUtil ;
 		var workspacePanel = document.getElementById("UIWorkspacePanel") ;
 		if(workspacePanel.style.display == "none") return;
 		var uiGadgetContainer = DOMUtil.findFirstDescendantByClass(gadgets, "div", "UIGadgetContainer");
 		if(uiGadgetContainer == null) return ;
-		var gadgetNavigator = DOMUtil.findFirstChildByClass(uiGadgetContainer, "div", "WidgetNavigator") ;	
+		var gadgetNavigator = DOMUtil.findFirstChildByClass(uiGadgetContainer, "div", "WidgetNavigator") ;
 		var gadgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiGadgetContainer, "div", "WidgetContainerScrollArea") ;
 		var itemSelectorContainer = DOMUtil.findFirstChildByClass(gadgets, "div", "ItemSelectorContainer") ;
-		
+
 		var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + gadgetNavigator.offsetHeight + 40) ;
 		if(eXo.core.Browser.isIE6() || workspacePanel.offsetHeight < 1) {
 			//var html = document.getElementsByTagName("html")[0];
@@ -203,7 +211,7 @@ eXo.gadget.UIGadget = {
 			var fixHeight = uiControlWorkspace.offsetHeight - 153;
 	    fixHeight = (fixHeight < 0) ? 0 : fixHeight ;
 			/* 153 is total value (UserWorkspaceTitleHeight + UIExoStartHeight + WidgetNavigatorHeight + 40)
-			 * 40 is distance between UIGadgets and UIExoStart 
+			 * 40 is distance between UIGadgets and UIExoStart
 			 * */
 			if(gadgetContainerScrollArea.offsetHeight == fixHeight) return;
 			gadgetContainerScrollArea.style.height = fixHeight + "px" ;
@@ -212,5 +220,5 @@ eXo.gadget.UIGadget = {
 			gadgetContainerScrollArea.style.height = availableHeight + "px" ;
 		}
 	  gadgetContainerScrollArea.style.overflow = "hidden" ;
-	} 
+	}
 }
