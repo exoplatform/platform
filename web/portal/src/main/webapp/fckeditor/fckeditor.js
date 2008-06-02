@@ -102,6 +102,10 @@ FCKeditor.prototype.ReplaceTextarea = function()
 	{
 		// We must check the elements firstly using the Id and then the name.
 		var oTextarea = document.getElementById( this.InstanceName ) ;
+		//Fixbug by Vu Duy Tu, set value for FCKEditor
+		var value = oTextarea.value ;
+		value = value.replace(/<>;/g, "&lt;").replace(/ /g, "&nbsp;");
+		oTextarea.value = value;
 		var colElementsByName = document.getElementsByName( this.InstanceName ) ;
 		var i = 0;
 		while ( oTextarea || i == 0 )
