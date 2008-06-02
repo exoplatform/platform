@@ -195,6 +195,11 @@
       <priority value="INFO"/>
    </category>
 
+   <!-- Limit the JSR-168 and JSR-286 categories -->
+   <category name="org.exoplatform.services">
+      <priority value="INFO"/>
+   </category>
+
    <!-- Enable JBossWS message tracing
    <category name="jbossws.SOAPMessage">
     <priority value="TRACE"/>
