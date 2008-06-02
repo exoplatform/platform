@@ -9,4 +9,4 @@ JAVA_OPTS="$JAVA_OPTS -Dorg.apache.catalina.STRICT_SERVLET_COMPLIANCE=false"
 
 export JAVA_OPTS
 
-./run.sh
+./run.sh $@
