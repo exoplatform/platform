@@ -24,30 +24,29 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
 /**
- * Author : Dang Van Minh
- *          minhdv81@yahoo.com
- * Jun 20, 2006
+ * Author : Tran The Trong
+ *          trongtt@gmail.com
+ * June 3, 2008
  */
 public class UIPortalActionListener {
   
-  //TODO: dang.tung - this method isn't use will be delete in next week for test
-  //@SuppressWarnings("unchecked")
-//  static  public class LogoutActionListener extends EventListener {
-//    public void execute(Event event) throws Exception {
-//      PortalRequestContext prContext = Util.getPortalRequestContext();
-//      HttpServletRequest request = prContext.getRequest() ;
-//      UIPortal currentPortal = Util.getUIPortal() ;
-//      String portalName = currentPortal.getName() ;
-//      portalName = URLEncoder.encode(portalName, "UTF-8") ;
-//      String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
-//      prContext.getResponse().sendRedirect(redirect) ;
-//      prContext.setResponseComplete(false) ;
-//    }
-//  }    
+  @SuppressWarnings("unused")
+  static  public class LogoutActionListener extends EventListener<UIComponent> {
+    public void execute(Event<UIComponent> event) throws Exception {
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      prContext.getRequest().getSession().invalidate() ;
+      HttpServletRequest request = prContext.getRequest() ;
+      String portalName = URLEncoder.encode(Util.getUIPortal().getName(), "UTF-8") ;
+      String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
+      prContext.getResponse().sendRedirect(redirect) ;
+      prContext.setResponseComplete(true) ;
+    }
+  }    
 
   static public class ChangeWindowStateActionListener extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {

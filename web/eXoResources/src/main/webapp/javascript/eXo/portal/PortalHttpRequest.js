@@ -577,7 +577,7 @@ function doRequest(method, url, queryString, callback) {
 }	;
 
 function ajaxAbort() {	
-  eXo.core.UIMaskLayer.removeMask(eXo.portal.AjaxRequest.maskLayer) ;
+  eXo.core.UIMaskLayer.removeMasks(eXo.portal.AjaxRequest.maskLayer) ;
   eXo.portal.AjaxRequest.maskLayer = null ;	  
 
   eXo.portal.CurrentRequest.request.abort() ;  

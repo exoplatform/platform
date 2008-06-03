@@ -40,6 +40,7 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalManagement;
 import org.exoplatform.portal.webui.portal.UIPortalSelector;
 import org.exoplatform.portal.webui.portal.UISkinSelector;
+import org.exoplatform.portal.webui.portal.UIPortalActionListener.LogoutActionListener;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -76,7 +77,8 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIExoStart.LanguageSettingsActionListener.class),
         @EventConfig(listeners = UIExoStart.SkinSettingsActionListener.class),
         @EventConfig(listeners = UIExoStart.ChangePortalActionListener.class),
-        @EventConfig(listeners = UIExoStart.AccountSettingsActionListener.class)
+        @EventConfig(listeners = UIExoStart.AccountSettingsActionListener.class),
+        @EventConfig(listeners = LogoutActionListener.class)
     }
 )
 public class UIExoStart extends UIComponent {

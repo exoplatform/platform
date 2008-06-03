@@ -80,17 +80,7 @@ public class PortalStateManager extends StateManager {
     PortalRequestContext  pcontext = (PortalRequestContext) context ;
     PortalApplicationState state = uiApplications.get(pcontext.getSessionId()) ;
     if(state != null) {
-      if(state.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS  &&
-         pcontext.getAccessPath() != PortalRequestContext.PRIVATE_ACCESS) {
-        pcontext.getRequest().getSession().invalidate() ;
-        HttpServletResponse response = pcontext.getResponse();
-        response.sendRedirect(pcontext.getNodeURI());
-        pcontext.setResponseComplete(true) ;
-        return null;
-      } else if(state.getAccessPath() != pcontext.getAccessPath()) {
-        clearSession(pcontext.getRequest().getSession()) ;
-        state = null ;
-      } else if(!pcontext.getPortalOwner().equals(state.getUIPortalApplication().getOwner())) {
+      if(!pcontext.getPortalOwner().equals(state.getUIPortalApplication().getOwner())) {
         clearSession(pcontext.getRequest().getSession()) ;
         state = null ;
       }
@@ -126,12 +116,10 @@ public class PortalStateManager extends StateManager {
     }
     return state.getUIPortalApplication() ;
   }
-
+  
   @SuppressWarnings("unused")
-  public void storeUIRootComponent(WebuiRequestContext context) {
-    
-  }
-
+  public void storeUIRootComponent(WebuiRequestContext context) {}
+  
   public void expire(String sessionId, WebuiApplication app) {
     PortalApplicationState state = uiApplications.remove(sessionId) ;
     if(state != null){

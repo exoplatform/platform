@@ -249,7 +249,7 @@
       </div>
     """ ;
   }
-*/  
+
   void renderLoginAction(String name, String icon, String action) {
     //String  href = uicomponent.url(action) ;
     String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
@@ -268,6 +268,7 @@
       </div>
     """ ;
   }
+*/  
 %>
 <div class="UIExoStart" id="UIExoStart">
   <div class="StartBarContainer">
@@ -300,13 +301,20 @@
                   """ ; 
                 }
                 renderNavigations() ;
-                renderLoginAction("Logout", "LogoutIcon", "Logout") ;
+                //renderLoginAction("Logout", "LogoutIcon", "Logout") ;
                 //if(uicomponent.isLogged()) {
                   //renderLoginAction("Logout", "LogoutIcon", "Logout") ;
                 //} else {
                   //renderLoginAction("Login", "LoginIcon", "Login") ;
                 //}
               %>
+              <div class="LoginContainer">
+				        <div class="LabelItem">
+				          <div class="LogoutIcon">
+				            <div class="LabelText"><a href="javascript:eXo.portal.logout();"><%=_ctx.appRes(uicomponent.getId() + ".item.Logout")%></a></div>
+				          </div>
+				        </div>
+				      </div>
             </div>
             <div style="clear: left"><span></span></div>
           </div>

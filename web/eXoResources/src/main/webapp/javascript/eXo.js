@@ -85,3 +85,6 @@ eXo.env.server.createPortalURL = function(targetComponentId, actionName, useAjax
   return  href ;
 } ;
 
+eXo.portal.logout = function() {
+	window.location = eXo.env.server.createPortalURL("UIPortal", "Logout", false) ;
+}

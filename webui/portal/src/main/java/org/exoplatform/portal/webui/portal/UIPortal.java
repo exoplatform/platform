@@ -47,6 +47,7 @@ import org.exoplatform.webui.core.UIComponent;
       @EventConfig(listeners = MoveChildActionListener.class),
       @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class),
       @EventConfig(listeners = UIPortalActionListener.ChangeWindowStateActionListener.class),
+      @EventConfig(listeners = UIPortalActionListener.LogoutActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = ChangeOptionActionListener.class),
       @EventConfig(listeners = ChangeLanguageActionListener.class)
