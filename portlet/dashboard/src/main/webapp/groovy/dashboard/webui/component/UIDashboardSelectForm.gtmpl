@@ -1,20 +1,16 @@
 
-<div class="$uicomponent.id" id="$uicomponent.id">
+<div class="$uicomponent.id" id="UIDashboardSelectForm">
 	<div class="GadgetsNavigation"></div>
 	
 	<div class="GadgetItemsContainer" id="GadgetItemsContainer">
 	<% List widgets = uicomponent.getWidgets()
 		for(widget in widgets){
 	 %>
-	 	<div class="ItemGadget DragObject" id="<%= widget.getApplicationName() %>" style="top:0px; left:0px;">
-		 	<div class="ItemLeft">
-		 		<div class="ItemRight">
-		 			<div class="ItemMiddle">
-		 				<div class="ItemLabel DragItem" style="cursor:move; "><%=widget.getDisplayName() %></div>
-		 			</div>
-		 		</div>
-		 	</div>
-		 </div>
+	 	<div class="UIGadget SelectItem" id="<%= widget.getId() %>" style="top:0px; left:0px;">
+	 		<div class="GadgetControl">
+ 				<div class="GadgetTitle" style="cursor:move; "><%=widget.getDisplayName() %></div>
+ 			</div>
+		</div>
 	 <% } %>
 	</div>
 	

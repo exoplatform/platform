@@ -1,28 +1,18 @@
-
-<div id="$uicomponent.id" class="$uicomponent.id">
+<div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="DashboardContainer" id="DashboardContainer">
 		<div class="UIColumns">
 		
 		<%
 			int columnsSize=uicomponent.getColumns().size();
-			int colWidth = Math.round(100/columnsSize)-3;
+			float colWidth = (96-columnsSize)/columnsSize;
 			for(int iCol=0; iCol<columnsSize; iCol++){ 
 		%>
-				<div class="UIColumn" id="UIColumn<%=iCol%>" style="width:<%=colWidth+"%"%>;">
+				<div class="UIColumn" id="UIColumn-<%=iCol%>" style="width:<%=colWidth+"%"%>;">
 			
-				<% 
-						for(int iRow=0; iRow<uicomponent.getColumn(iCol).size(); iRow++ ){
+				<% for(int iRow=0; iRow<uicomponent.getColumn(iCol).size(); iRow++ ){
+							uicomponent.renderUIGadget(iCol,iRow);
+					 }
 				%>
-				
-						<div class="UIGadgetModule DragObject" id="Module-<%=iCol%>-<%=iRow%>" style="top:0px; left:0px;">
-							<div class="GadgetMenuBar DragItem"><%=iCol%>-<%=iRow%></div>
-							<div class="GadgetContent">
-								<% uicomponent.renderUIGadget(iCol,iRow); %>
-								<div class="UIMask" style="display: none;"></div>
-							</div>
-						</div>
-					
-				<% 	} %>
 			
 				</div>
 		<% } %>

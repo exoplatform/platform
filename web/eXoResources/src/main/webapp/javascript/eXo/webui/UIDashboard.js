@@ -1,4 +1,6 @@
 eXo.webui.UIDashboard = {
+	
+	compId: null,
 		
 	portletWindow: null,
 	
@@ -9,21 +11,23 @@ eXo.webui.UIDashboard = {
 	currZIndex : null,
 	
 	init : function (dragItem, dragObj) {
+		var uiDashboard = eXo.webui.UIDashboard ;
 		eXo.core.DragDrop2.init(dragItem, dragObj)	;
 
 		dragObj.onDragStart = function(x, y, lastMouseX, lastMouseY, e){
-			
+			var DOMUtil = eXo.core.DOMUtil;
 			var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
-			var uiWindow = eXo.core.DOMUtil.findAncestorByClass(dragObj, "UIWindow");
-			eXo.webui.UIDashboard.portletWindow = uiWindow;
-			eXo.webui.UIDashboard.currZIndex = dragObj.style.zIndex;
-			var dashboardContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
+			var uiWindow = DOMUtil.findAncestorByClass(dragObj, "UIWindow");
+			uiDashboard.portletWindow = uiWindow;
+			uiDashboard.currZIndex = dragObj.style.zIndex;
+			var dashboardContainer = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
+			var portletApp = DOMUtil.findAncestorByClass(dashboardContainer, "UIApplication");
+			uiDashboard.compId = portletApp.parentNode.id;
 			
-			
-			var ggwidth = dragObj.offsetWidth - parseInt(eXo.core.DOMUtil.getStyle(dragObj,"borderLeftWidth"))
-											- parseInt(eXo.core.DOMUtil.getStyle(dragObj,"borderRightWidth"));
-			var ggheight = dragObj.offsetHeight - parseInt(eXo.core.DOMUtil.getStyle(dragObj,"borderTopWidth"))
-											- parseInt(eXo.core.DOMUtil.getStyle(dragObj,"borderBottomWidth"));
+			var ggwidth = dragObj.offsetWidth - parseInt(DOMUtil.getStyle(dragObj,"borderLeftWidth"))
+											- parseInt(DOMUtil.getStyle(dragObj,"borderRightWidth"));
+			var ggheight = dragObj.offsetHeight - parseInt(DOMUtil.getStyle(dragObj,"borderTopWidth"))
+											- parseInt(DOMUtil.getStyle(dragObj,"borderBottomWidth"));
 											
 			//find position to put drag object in
 			var mx = eXo.webui.UIDashboardUtil.findMouseRelativeX(uiWorkingWS, e);
@@ -35,7 +39,7 @@ eXo.webui.UIDashboard = {
 			var y = my-oy;
 
 			var temp = dragObj;
-			while(temp.parentNode && eXo.core.DOMUtil.hasDescendant(uiWindow, temp)){
+			while(temp.parentNode && DOMUtil.hasDescendant(uiWindow, temp)){
 				if(temp.scrollLeft>0) 
 					x -= temp.scrollLeft;
 				if(temp.scrollTop>0)
@@ -48,33 +52,35 @@ eXo.webui.UIDashboard = {
 				x -= slideBar.offsetWidth;
 			
 			var uiTarget = null;
-			if(eXo.core.DOMUtil.hasClass(dragObj, "UIGadgetModule")){
-				uiTarget = eXo.webui.UIDashboard.createTarget(ggwidth, 0);
+			if(!DOMUtil.hasClass(dragObj, "SelectItem")){
+				uiTarget = uiDashboard.createTarget(ggwidth, 0);
 				dragObj.parentNode.insertBefore(uiTarget, dragObj.nextSibling);
-				eXo.webui.UIDashboard.currCol = uiTarget.parentNode;
+				uiDashboard.currCol = uiTarget.parentNode;
 			}else{
 				var dragCopyObj = dragObj.cloneNode(true);
-				eXo.core.DOMUtil.addClass(dragCopyObj, "CopyObj");
+				DOMUtil.addClass(dragCopyObj, "CopyObj");
 				dragObj.parentNode.insertBefore(dragCopyObj, dragObj);
-				eXo.webui.UIDashboard.targetObj = null;
+				uiDashboard.targetObj = null;
 			}
 			dragObj.style.width = ggwidth +"px";
 
 			//increase speed of mouse when over iframe by create div layer above it
-			var masks = eXo.core.DOMUtil.findDescendantsByClass(uiWindow, "div" , "UIMask");
-			for(var i=0; i<masks.length; i++){
-				if(eXo.core.DOMUtil.findAncestorByClass(masks[i], "UIGadgetModule").id==dragObj.id) continue;
-				var gadgetIframe = eXo.core.DOMUtil.findDescendantsByTagName(masks[i].parentNode, "iframe");
-				if(gadgetIframe.length>0)
-					masks[i].style.marginTop = - gadgetIframe[0].offsetHeight + "px";
-				masks[i].style.height = masks[i].parentNode.offsetHeight + "px";
-				masks[i].style.width = masks[i].parentNode.offsetWidth + "px";
-				masks[i].style.display = "block";
-				masks[i].style.backgroundColor = "white";
-				eXo.core.Browser.setOpacity(masks[i], 5);
+			var uiGadgets = DOMUtil.findDescendantsByClass(dashboardContainer, "div", "UIGadget");
+
+			for(var i=0; i<uiGadgets.length; i++){
+				var uiMask = DOMUtil.findFirstDescendantByClass(uiGadgets[i], "div", "UIMask");
+				if(uiMask!=null){
+					var gadgetContent = DOMUtil.findFirstDescendantByClass(uiGadgets[i], "div", "gadgets-gadget-content");
+					uiMask.style.marginTop = - gadgetContent.offsetHeight + "px";
+					uiMask.style.height = gadgetContent.offsetHeight + "px";
+					uiMask.style.width = gadgetContent.offsetWidth + "px";
+					uiMask.style.backgroundColor = "red";
+					eXo.core.Browser.setOpacity(uiMask, 5);
+					uiMask.style.display = "block";
+				}
 			}
 			
-			if(!eXo.core.DOMUtil.hasClass(dragObj, "Dragging"))
+			if(!DOMUtil.hasClass(dragObj, "Dragging"))
 				eXo.core.DOMUtil.addClass(dragObj, "Dragging");
 				
 			//set position of drag object
@@ -82,19 +88,20 @@ eXo.webui.UIDashboard = {
 			eXo.webui.UIDashboardUtil.setPositionInContainer(uiWorkingWS, dragObj, x, y);
 			if(uiTarget!=null){
 				uiTarget.style.height = ggheight +"px";
-				eXo.webui.UIDashboard.targetObj = uiTarget;
+				uiDashboard.targetObj = uiTarget;
 			}
 		}
 		
 		
 		
-		dragObj.onDrag = function(nx, ny, ex, ey, e){			
+		dragObj.onDrag = function(nx, ny, ex, ey, e){	
+			var DOMUtil = eXo.core.DOMUtil;		
 			var uiTarget = eXo.webui.UIDashboard.targetObj;
 			var uiWindow = eXo.webui.UIDashboard.portletWindow;
 
 			if(uiWindow == null) return;
 
-			var dashboardCont = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
+			var dashboardCont = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
 			var cols = null;
 
 			if(eXo.webui.UIDashboardUtil.isIn(ex, ey, dashboardCont)){
@@ -106,7 +113,7 @@ eXo.webui.UIDashboard = {
 				var uiCol = eXo.webui.UIDashboard.currCol ;
 				
 				if(uiCol == null){
-					if(cols == null) cols = eXo.core.DOMUtil.findDescendantsByClass(dashboardCont, "div", "UIColumn");
+					if(cols == null) cols = DOMUtil.findDescendantsByClass(dashboardCont, "div", "UIColumn");
 					for(var i=0; i<cols.length; i++){
 						var uiColLeft = eXo.webui.UIDashboardUtil.findPosX(cols[i]);
 						if(uiColLeft<ex  &&  ex<uiColLeft+cols[i].offsetWidth){
@@ -119,11 +126,10 @@ eXo.webui.UIDashboard = {
 				}
 				
 				if(uiCol==null) return;
-				
+
 				var uiColLeft = eXo.webui.UIDashboardUtil.findPosX(uiCol);
 				if(uiColLeft<ex  &&  ex<uiColLeft+uiCol.offsetWidth ){
-					var gadgets = eXo.core.DOMUtil.findDescendantsByClass(uiCol, "div", "UIGadgetModule");
-					
+					var gadgets = DOMUtil.findDescendantsByClass(uiCol, "div", "UIGadget");
 					//remove drag object from dropable target
 					for(var i=0; i<gadgets.length; i++){
 						if(dragObj.id==gadgets[i].id){
@@ -131,15 +137,16 @@ eXo.webui.UIDashboard = {
 							break;
 						}
 					}
-					
+
 					if(gadgets.length == 0){
 						uiCol.appendChild(uiTarget);
 						return;
 					}
-					
+
 					//find position and add uiTarget into column				
 					for(var i=0; i<gadgets.length; i++){
 						var oy = eXo.webui.UIDashboardUtil.findPosY(gadgets[i]) + gadgets[i].offsetHeight/2;
+						
 						if(ey<=oy){
 							uiCol.insertBefore(uiTarget, gadgets[i]);
 							break;
@@ -152,7 +159,7 @@ eXo.webui.UIDashboard = {
 				}	else {
 
 					//find column which draggin in					
-					if(cols == null) cols = eXo.core.DOMUtil.findDescendantsByClass(dashboardCont, "div", "UIColumn");
+					if(cols == null) cols = DOMUtil.findDescendantsByClass(dashboardCont, "div", "UIColumn");
 					for(var i=0; i<cols.length; i++){
 						var uiColLeft = eXo.webui.UIDashboardUtil.findPosX(cols[i]);
 						if(uiColLeft<ex  &&  ex<uiColLeft+cols[i].offsetWidth){
@@ -163,7 +170,7 @@ eXo.webui.UIDashboard = {
 				}
 			} else {
 				//prevent dragging gadget object out of DashboardContainer
-				if(uiTarget!=null && !eXo.core.DOMUtil.hasClass(dragObj, "UIGadgetModule")){
+				if(uiTarget!=null && DOMUtil.hasClass(dragObj, "SelectItem")){
 					uiTarget.parentNode.removeChild(uiTarget);					
 					eXo.webui.UIDashboard.targetObj = uiTarget = null;
 				}
@@ -173,20 +180,25 @@ eXo.webui.UIDashboard = {
 
 	
 		dragObj.onDragEnd = function(x, y, clientX, clientY){
-			var uiWindow = eXo.webui.UIDashboard.portletWindow;
+			var uiDashboard = eXo.webui.UIDashboard;
+			var uiDashboardUtil = eXo.webui.UIDashboardUtil;
+			var uiWindow = uiDashboard.portletWindow;
+			
 			if(uiWindow == null) return;
 			
 			var masks = eXo.core.DOMUtil.findDescendantsByClass(uiWindow, "div", "UIMask");
 			for(var i=0; i<masks.length; i++){
+				eXo.core.Browser.setOpacity(masks[i], 100);
 				masks[i].style.display = "none";
 			}
 			
-			var uiTarget = eXo.webui.UIDashboard.targetObj;
-			dragObj.style.zIndex = eXo.webui.UIDashboard.currZIndex;
-			eXo.webui.UIDashboard.currZIndex = null;
+			var uiTarget = uiDashboard.targetObj;
+			dragObj.style.zIndex = uiDashboard.currZIndex;
+			uiDashboard.currZIndex = null;
 			dragObj.style.position = "static";
-			if(eXo.core.DOMUtil.hasClass(dragObj, "Dragging"))
-			eXo.core.DOMUtil.replaceClass(dragObj," Dragging","");
+			if(eXo.core.DOMUtil.hasClass(dragObj, "Dragging")){
+				eXo.core.DOMUtil.replaceClass(dragObj," Dragging","");
+			}
 
 			var dragCopyObj = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "CopyObj");
 			if(dragCopyObj != null){
@@ -195,22 +207,16 @@ eXo.webui.UIDashboard = {
 			
 			if(uiTarget!=null){	
 				//if drag object is not gadget module, create an module
-				if(!eXo.core.DOMUtil.hasClass(dragObj, "UIGadgetModule")){
-					var innerHTML ="";
-					innerHTML +=  '<div class="UIGadgetModule DragObject" id="'+dragObj.id+'-'+ new Date().getTime()+'" style="top:0px; left:0px;">';
-					innerHTML +=		'<div class="GadgetMenuBar DragItem" id="">'+dragObj.id+'-'+ new Date().getTime()+'</div>';
-					innerHTML +=		'<div class="GadgetContent">';
-					
-					innerHTML += 			'<div class="UIMask" style="display:none;"></div>'
-					innerHTML += 		'</div>';
-					innerHTML +=	'</div>';
-					var uiGadget = eXo.core.DOMUtil.createElementNode(innerHTML, "div", "GadgetMenuBar");
-					eXo.webui.UIDashboard.init(eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetMenuBar"), uiGadget);
-					uiTarget.parentNode.replaceChild(uiGadget, uiTarget);
-//					if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;
-					return;
+				if(eXo.core.DOMUtil.hasClass(dragObj, "SelectItem")){
+					uiDashboardUtil.createRequest(uiDashboard.compId, 'AddNewGadget',
+									uiDashboardUtil.findPosXInDashboard(uiTarget), 
+									uiDashboardUtil.findPosYInDashboard(uiTarget), dragObj.id);
 				} else {
 					uiTarget.parentNode.replaceChild(dragObj, uiTarget);
+					gadgetId = dragObj.id;
+					uiDashboardUtil.createRequest(uiDashboard.compId, 'MoveGadget',
+									uiDashboardUtil.findPosXInDashboard(dragObj), 
+									uiDashboardUtil.findPosYInDashboard(dragObj), gadgetId);
 				}
 			}
 			
@@ -219,9 +225,10 @@ eXo.webui.UIDashboard = {
 				eXo.core.DOMUtil.removeElement(uiTarget);
 				uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UITarget");
 			}
-			eXo.webui.UIDashboard.targetObj = null;
-			eXo.webui.UIDashboard.currCol = null;
-			eXo.webui.UIDashboard.portletWindow = null;
+			uiDashboard.targetObj = null;
+			uiDashboard.currCol = null;
+			uiDashboard.portletWindow = null;
+			uiDashboard.compId = null;
 		}	
 		
 	},
@@ -234,14 +241,13 @@ eXo.webui.UIDashboard = {
 		if(dashboards.length<=0) return;
 
 		for(var i=0; i < dashboards.length; i++){
-			var dragItems = eXo.core.DOMUtil.findDescendantsByClass(dashboards[i], "div", "DragItem");
-			for(var j=0; j<dragItems.length; j++) {
-				eXo.webui.UIDashboard.init(dragItems[j], eXo.core.DOMUtil.findAncestorByClass(dragItems[j],"DragObject"));
+			var gadgetControls = eXo.core.DOMUtil.findDescendantsByClass(dashboards[i], "div", "GadgetTitle");
+			for(var j=0; j<gadgetControls.length; j++) {
+				eXo.webui.UIDashboard.init(gadgetControls[j], eXo.core.DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
 			}
 		}
-
-	},
-	
+		
+	},	
 	createTarget : function(width, height){
 		var uiTarget = document.createElement("div");
 		uiTarget.id = "UITarget";

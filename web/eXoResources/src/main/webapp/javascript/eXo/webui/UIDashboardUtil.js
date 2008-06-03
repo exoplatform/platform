@@ -100,5 +100,32 @@ eXo.webui.UIDashboardUtil = {
 	  }
 	  
 	  return isOver ;
+	},
+	
+	findPosXInDashboard : function(dragObj){
+		var col = dragObj.parentNode;
+		if(col==null) return null;
+		var colId = col.id;
+		index = colId.substring(colId.lastIndexOf('-')+1, colId.length);
+		return index;
+	},
+	
+	findPosYInDashboard : function(dragObj){
+		var modules = eXo.core.DOMUtil.getChildrenByTagName(dragObj.parentNode, "div");
+		for(var i=0; i<modules.length; i++){
+			if(modules[i].id == dragObj.id) return i;
+		}
+	},
+	
+	createRequest : function(componentId, action, colIndex, rowIndex, objectId){
+		var url = eXo.env.server.portalBaseURL;
+		url += '?portal:componentId=' + componentId +
+							'&portal:type=action&uicomponent=UIDashboardPortlet&op=' + action ;
+		if(objectId!=null)					
+			url += '&objectId=' + objectId ;
+		url += '&colIndex=' + colIndex ;
+		url += '&rowIndex=' + rowIndex ;
+		url += '&ajaxRequest=true';
+		ajaxGet(url);
 	}
 }

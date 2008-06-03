@@ -7,61 +7,41 @@
 .UIDashboardSelectForm {
 	float: left;
 	width: 200px;
-	border: 2px solid black;
 }
 
-.ItemGadget {
-	border: 1px solid pink;
-	background: aqua;
-	margin: 3px 5px 3px 5px;
-}
-
-.ItemLabel {
-	line-height: 18px;
-	width: 100px;
+.UIDashboardSelectForm .UIGadget {
+	margin: 3px 3px;
+	border: 1px solid gray;
 }
 
 /*----------------------UIGadgetsContainer-------------------*/
 .UIDashboardContainer {
 	margin-left: 203px;
-	border: 2px solid green;
 }
 
 .DashboardContainer {
-	border: 1px solid orange;
+	overflow: auto;
 }
 
-.UIColumns {
+.DashboardContainer .UIColumns {
 	height: 400px;
 }
 
 .UIColumn {
 	float: left;
 	padding: 10px 10px 0px 10px;
-	border: 1px solid black;
+	border: 1px solid green;
 }
 
-.UIGadgetModule {
-	border: 1px solid red;
+.UIDashboardContainer .UIGadget {
 	margin: 0px 0px 10px 0px;
 }
 
-.GadgetMenuBar {
-	line-height: 18px;
-	background: aqua;
-	cursor: move;
-}
-
-.GadgetContent  {
-	text-align: center;
-	height:150px;
-}
-
-.UITarget {
+.UIDashboardContainer .UITarget {
 	border: 1px dotted red;
 	margin: 0px 0px 10px 0px;
 }
 
-.Dragging {
+.UIDashboardPortlet .Dragging {
 	margin: 3px 0px 0px 3px;
 }

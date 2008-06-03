@@ -54,101 +54,67 @@ public class UIDashboardContainer extends UIForm {
     columns.add(new ArrayList<UIGadget>());
   }
   
-  private void addUIGadget(UIGadget gadget, int col) throws Exception{
+  public void addUIGadget(UIGadget gadget, int col, int row) throws Exception{
     List<UIGadget> column = getColumn(col);
-    if(column==null) return;
-    column.add(gadget);
-  }
-  
-  private void addUIGadget(UIGadget gadget, int col, int row) throws Exception{
-    List<UIGadget> column = getColumn(col);
-    if(column==null || row<0 || row>column.size()-1) return;
+    if(column==null || row<0 || row>column.size()) return;
     column.add(row, gadget);
-  }
-  
-  public void addUIGadget(String url, int col) throws Exception{
-    UIGadget gadget = addChild(UIGadget.class, "UIGadget", null);
-    addUIGadget(gadget, col);
-  }
-  
-  public void addUIGadget(String url, int col, int row) throws Exception{
-    UIGadget gadget = addChild(UIGadget.class, "UIGadget", null);
-    addUIGadget(gadget, col, row);
   }
   
   public UIGadget getUIGadget(int col, int row) throws Exception{
     List<UIGadget> column = getColumn(col);
-    if(column==null || row<0 || row>column.size()-1) return null;
+    if(column==null || row<0 || row>column.size()) return null;
     return column.get(row);
   }
   
-  public UIGadget getUIGadget(String gadgetName) throws Exception{
+  public UIGadget getUIGadget(String gadgetId) throws Exception{
     if(columns==null) {
       columns = new ArrayList<List<UIGadget>>();
       columns.add(new ArrayList<UIGadget>());
     }
     for(int iCol=0; iCol<columns.size(); iCol++)
       for(int iRow=0; iRow<columns.get(iCol).size(); iRow++)
-         if(gadgetName.equals(columns.get(iCol).get(iRow).getName()))
+         if(gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId()))
            return columns.get(iCol).get(iRow);
     return null;
   }
   
+  public UIGadget removeUIGadget(String gadgetId) throws Exception {
+    this.columns = getColumns();
+    int col=-1, row=-1;
+    for(int iCol=0; iCol<columns.size(); iCol++)
+      for(int iRow=0; iRow<columns.get(iCol).size() ;iRow++)
+        if(gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId())){
+          col = iCol;
+          row = iRow;
+          break;
+        }
+    if( col<0 || row<0) return null;
+    return removeUIGadget(col, row);
+  }
+  
   public UIGadget removeUIGadget(int col, int row) throws Exception{
     List<UIGadget> column = getColumn(col);
-    if(column==null || row<0 || row>column.size()-1) return null;
+    if(column==null || row<0 || row>column.size()) return null;
     UIGadget temp = column.get(row);
     column.remove(row);
     return temp;
   }
   
-  public UIGadget removeUIGadget(String gadgetName) throws Exception{
-    if(columns==null) {
-      columns = new ArrayList<List<UIGadget>>();
-      columns.add(new ArrayList<UIGadget>());
-    }
-    for(int iCol=0; iCol<columns.size(); iCol++){
-      List<UIGadget> column = columns.get(iCol);
-      for(int iRow=0; iRow<column.size(); iRow++)
-        if(gadgetName.equals(column.get(iRow).getName())){
-          UIGadget temp = column.get(iRow);
-          column.remove(iRow);
-          return temp;
-        }
-    }
-    return null;
-  }
-  
-  public void moveUIGadget(UIGadget gadget, int col, int row) throws Exception{
-    this.columns = getColumns();
-    int srcCol = -1, srcRow= -1;
-    for(int iCol=0; iCol<columns.size(); iCol++)
-      for(int iRow=0; iCol<columns.get(iCol).size(); iRow++)
-        if(gadget.getName().equals(columns.get(iCol).get(iRow).getName())){
-          srcCol = iCol;
-          srcRow = iRow;
-          break;
-        }
-    if(srcCol<0 || srcRow<0) return;
-    addUIGadget(gadget, col, row);
-    columns.get(srcCol).remove(srcRow);
-  }
-  
-  public void moveUIGadget(String gadgetName , int col, int row) throws Exception{
+  public void moveUIGadget(String gadgetId, int col, int row) throws Exception{
     this.columns = getColumns();
     int srcCol = -1, srcRow= -1;
     UIGadget gadget = null;
     for(int iCol=0; iCol<columns.size(); iCol++)
-      for(int iRow=0; iCol<columns.get(iCol).size(); iRow++)
-        if(gadgetName.equals(columns.get(iCol).get(iRow).getName())){
+      for(int iRow=0; iRow<columns.get(iCol).size() ;iRow++)
+        if(gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId())){
           srcCol = iCol;
           srcRow = iRow;
           gadget = columns.get(iCol).get(iRow);
           break;
         }
-    if(srcCol<0 || srcRow<0) return;
-    addUIGadget(gadget, col, row);
+    if(srcCol<0 || srcRow<0 || (srcCol==col && srcRow==row)) return;
     columns.get(srcCol).remove(srcRow);
+    addUIGadget(gadget, col, row);
   }
   
   public List<List<UIGadget>> getColumns() throws Exception{

@@ -11,14 +11,16 @@
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id');") ;
 %>
-<div class="UIGadget" style="left: $posX; top: $posY; z-Index: $zIndex; width: 300px" >
-	<div class="GadgetControl" style="display: none;">
-		<div class="GadgetTitle">Exo welcome</div>
-  	<div class="CloseGadget IconControl" onclick="eXo.gadget.UIGadget.deleteGadget(this)" title="Close this Gadget"><span></span></div>
-		<div class="MinimizeGadget IconControl"><span></span></div>
-    <div class="EditGadget IconControl" title="Edit this Gadget" onclick="eXo.gadget.UIGadget.editGadget(this)" ><span></span></div>
-	 	<div style="clear: both"><span></span></div>
-  </div>
+<div class="UIGadget" id="<%= uicomponent.getApplicationInstanceUniqueId() %>" style="left: $posX; top: $posY; z-Index: $zIndex; width: 300px" >
+	<div class="GadgetMenuBar">
+		<div class="GadgetControl" style="display: none;">
+	  	<div class="CloseGadget IconControl" onclick="eXo.gadget.UIGadget.deleteGadget(this)"><span></span></div>
+			<div class="MinimizeGadget IconControl" onclick="eXo.gadget.UIGadget.minimizeGadget(this)"><span></span></div>
+	    <div class="EditGadget IconControl" onclick="eXo.gadget.UIGadget.editGadget(this)" ><span></span></div>
+			<div class="GadgetTitle"><%= uicomponent.getApplicationName() %></div>
+		 	<div style="clear: both"><span></span></div>
+	  </div>
+	</div>
 	<div class="GadgetApplication">
 		<div id="$id"></div>
 		<div class="UIMask" style="display: none;"></div>
