@@ -9,7 +9,7 @@
   <artifactId>exo.portal.server.websphere.plugin</artifactId>
   <version>${org.exoplatform.portal.version}</version>
   <packaging>jar</packaging>
-  <name>eXo Tomcat Server</name>
+  <name>eXo Websphere Server Plugin</name>
   <url>http://www.exoplatform.org</url>
   <description>eXo Websphere Server Plugin</description>
   
