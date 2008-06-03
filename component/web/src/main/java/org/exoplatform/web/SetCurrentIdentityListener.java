@@ -24,7 +24,7 @@ import org.exoplatform.services.listener.Event;
 import org.exoplatform.services.listener.Listener;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.auth.AuthenticationService;
-import org.exoplatform.services.organization.auth.Identity;
+import org.exoplatform.services.security.Identity;
 
 /**
  * Created by The eXo Platform SAS
