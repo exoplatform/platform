@@ -104,7 +104,7 @@ FCKeditor.prototype.ReplaceTextarea = function()
 		var oTextarea = document.getElementById( this.InstanceName ) ;
 		//Fixbug by Vu Duy Tu, set value for FCKEditor
 		var value = oTextarea.value ;
-		value = value.replace(/<>;/g, "&lt;").replace(/ /g, "&nbsp;");
+		value = value.replace(/<>;/g, "&lt;").replace(/  /g, "&#32;&nbsp;");
 		oTextarea.value = value;
 		var colElementsByName = document.getElementsByName( this.InstanceName ) ;
 		var i = 0;
