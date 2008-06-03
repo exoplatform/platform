@@ -12,23 +12,14 @@
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id');") ;
 %>
 <div class="UIGadget" style="left: $posX; top: $posY; z-Index: $zIndex; width: 300px" >
-  <div class="WidgetControlBar">
-    <div class="WidgetControl" style="display: none;">
-    	<div class="LeftControlBar">
-    		<div class="RightControlBar">
-    			<div class="CenterControlBar">
-			    	<div class="WidgetDragHandleArea"><span></span></div>
-			    	<div class="SeparatorLine"><span></span></div>
-				    <div class="EditWidgetIcon" title="Edit this Gadget" onclick="eXo.gadget.UIGadget.editGadget(this)" ><span></span></div>
-				  	<div class="CloseWidgetIcon" onclick="eXo.gadget.UIGadget.deleteGadget(this)" title="Close this Gadget"><span></span></div>
-				  	<div style="clear: left"><span></span></div>
-				  </div>
-				</div>
-			</div> 
-	  </div>
+	<div class="GadgetControl" style="display: none;">
+		<div class="GadgetTitle">Exo welcome</div>
+  	<div class="CloseGadget IconControl" onclick="eXo.gadget.UIGadget.deleteGadget(this)" title="Close this Gadget"><span></span></div>
+		<div class="MinimizeGadget IconControl"><span></span></div>
+    <div class="EditGadget IconControl" title="Edit this Gadget" onclick="eXo.gadget.UIGadget.editGadget(this)" ><span></span></div>
+	 	<div style="clear: both"><span></span></div>
   </div>
- 	<div style="clear: right"><span></span></div>
-	<div class="WidgetApplication">
+	<div class="GadgetApplication">
 		<div id="$id"></div>
 		<div class="UIMask" style="display: none;"></div>
 	</div>

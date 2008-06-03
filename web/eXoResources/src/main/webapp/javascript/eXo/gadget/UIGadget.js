@@ -27,6 +27,7 @@ eXo.gadget.UIGadget = {
 	var uiGadget = eXo.core.DOMUtil.findAncestorByClass(gadgetBlock, "UIGadget");
 	var isDesktop = false;
 	if(eXo.core.DOMUtil.findAncestorByClass(uiGadget, "UIPageDesktop"))	isDesktop = true;
+	if(!isDesktop) uiGadget.style.width = "" ;
 	eXo.gadget.UIGadget.init(uiGadget, isDesktop);
 	},
 
@@ -36,7 +37,7 @@ eXo.gadget.UIGadget = {
 		uiGadget.onmouseout = eXo.gadget.UIGadget.hideGadgetControl ;
 
 		if(inDesktop) {
-			var dragHandleArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "WidgetDragHandleArea");
+			var dragHandleArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetDragHandleArea");
 
 			if(uiGadget.style.zIndex<0) uiGadget.style.zIndex = 0;
 			eXo.core.DragDrop2.init(dragHandleArea, uiGadget);
@@ -100,12 +101,12 @@ eXo.gadget.UIGadget = {
 	  e.cancelBubble = true ;
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiGadget = this ;
-		var gadgetControl = DOMUtil.findFirstDescendantByClass(uiGadget, "div", "WidgetControl");
+		var gadgetControl = DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetControl");
 		gadgetControl.style.display = "block" ;
 
 		var uiPageDesktop = DOMUtil.findAncestorByClass(uiGadget, "UIPageDesktop");
 		if(uiPageDesktop) {
-			var dragHandleArea = DOMUtil.findFirstDescendantByClass(gadgetControl, "div", "WidgetDragHandleArea");
+			var dragHandleArea = DOMUtil.findFirstDescendantByClass(gadgetControl, "div", "GadgetDragHandleArea");
 			dragHandleArea.title = "Drag this Gadget";
 		}
 	},
@@ -115,13 +116,13 @@ eXo.gadget.UIGadget = {
 		if (!e) e = window.event ;
 	  e.cancelBubble = true ;
 		var uiGadget = this ;
-		var gadgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "WidgetControl");
+		var gadgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetControl");
 		gadgetControl.style.display = "none" ;
 	},
 
 	editGadget : function(selectedElement) {
 		var DOMUtil = eXo.core.DOMUtil ;
-		var uiGadget = DOMUtil.findAncestorByClass(selectedElement,"UIWidget") ;
+		var uiGadget = DOMUtil.findAncestorByClass(selectedElement,"UIGadget") ;
 		if (uiGadget && uiGadget.applicationDescriptor.application.editGadget) {
 			uiGadget.applicationDescriptor.application.editGadget(uiGadget);
 		}	else {
@@ -142,7 +143,7 @@ eXo.gadget.UIGadget = {
 
 	deleteGadget : function(selectedElement) {
 		var DOMUtil = eXo.core.DOMUtil ;
-		var uiGadgetContainer = DOMUtil.findAncestorByClass(selectedElement, "UIWidgetContainer") ;
+		var uiGadgetContainer = DOMUtil.findAncestorByClass(selectedElement, "UIGadgetContainer") ;
 		var uiPage = DOMUtil.findAncestorByClass(selectedElement, "UIPage") ;
 		var uiGadget = DOMUtil.findAncestorByClass(selectedElement, "UIGadget") ;
 		var containerBlockId ;
@@ -155,7 +156,7 @@ eXo.gadget.UIGadget = {
 			containerBlockId = uiGadgetContainer.id ;
 			isInControlWorkspace = true ;
 		}
-		var gadgetApp = DOMUtil.findFirstDescendantByClass(uiGadget, "div", "WidgetApplication");
+		var gadgetApp = DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetApplication");
 		var gadgetId = DOMUtil.getChildrenByTagName(gadgetApp,"div")[0].id;
 		gadgetId = gadgetId.substring(gadgetId.lastIndexOf("/")+1, gadgetId.length);
 		var params = [
@@ -176,7 +177,7 @@ eXo.gadget.UIGadget = {
   	var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
 		containerBlockId = uiPageIdNode.innerHTML;
 		
-		var gadgetApp = DOMUtil.findFirstDescendantByClass(object, "div", "WidgetApplication");
+		var gadgetApp = DOMUtil.findFirstDescendantByClass(object, "div", "GadgetApplication");
 		var gadgetId = DOMUtil.getChildrenByTagName(gadgetApp,"div")[0].id;
 		gadgetId = gadgetId.substring(gadgetId.lastIndexOf("/")+1, gadgetId.length);
 		
@@ -200,8 +201,8 @@ eXo.gadget.UIGadget = {
 		if(workspacePanel.style.display == "none") return;
 		var uiGadgetContainer = DOMUtil.findFirstDescendantByClass(gadgets, "div", "UIGadgetContainer");
 		if(uiGadgetContainer == null) return ;
-		var gadgetNavigator = DOMUtil.findFirstChildByClass(uiGadgetContainer, "div", "WidgetNavigator") ;
-		var gadgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiGadgetContainer, "div", "WidgetContainerScrollArea") ;
+		var gadgetNavigator = DOMUtil.findFirstChildByClass(uiGadgetContainer, "div", "GadgetNavigator") ;
+		var gadgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiGadgetContainer, "div", "GadgetContainerScrollArea") ;
 		var itemSelectorContainer = DOMUtil.findFirstChildByClass(gadgets, "div", "ItemSelectorContainer") ;
 
 		var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + gadgetNavigator.offsetHeight + 40) ;
@@ -210,7 +211,7 @@ eXo.gadget.UIGadget = {
 			var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
 			var fixHeight = uiControlWorkspace.offsetHeight - 153;
 	    fixHeight = (fixHeight < 0) ? 0 : fixHeight ;
-			/* 153 is total value (UserWorkspaceTitleHeight + UIExoStartHeight + WidgetNavigatorHeight + 40)
+			/* 153 is total value (UserWorkspaceTitleHeight + UIExoStartHeight + GadgetNavigatorHeight + 40)
 			 * 40 is distance between UIGadgets and UIExoStart
 			 * */
 			if(gadgetContainerScrollArea.offsetHeight == fixHeight) return;
