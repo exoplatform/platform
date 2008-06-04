@@ -28,15 +28,15 @@ import org.exoplatform.services.security.Identity;
 
 /**
  * Created by The eXo Platform SAS
- * May 17, 2007  
+ * May 17, 2007
  */
 public class SetCurrentIdentityListener extends Listener<WebAppController, HttpServletRequest> {
-  
+
   protected static Log log = ExoLogger.getLogger("authentication:SetCurrentIdentityListener");
-  
+
   public void onEvent(Event<WebAppController, HttpServletRequest> event)  throws Exception {
     PortalContainer container =  PortalContainer.getInstance() ;
-    AuthenticationService authService = 
+    AuthenticationService authService =
       (AuthenticationService)  container.getComponentInstanceOfType(AuthenticationService.class) ;
     String remoteUser = event.getData().getRemoteUser() ;
     if(remoteUser != null) {

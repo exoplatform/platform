@@ -23,7 +23,7 @@
 
 		<dependency>
       <groupId>org.exoplatform.core</groupId>
-      <artifactId>exo.core.component.security</artifactId>
+      <artifactId>exo.core.component.organization.api</artifactId>
       <version>${org.exoplatform.core.version}</version>
     </dependency>
         
