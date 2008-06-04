@@ -3,55 +3,50 @@
 	import org.exoplatform.portal.webui.util.Util;
 	
 	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
-	String signInAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true)) ;" ;
-	String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));" ;
-	String portletId = uicomponent.getId() ;
 	
-	String portalName = Util.getUIPortal().getName() ;
-  portalName = URLEncoder.encode(portalName, "UTF-8") ;
-  String signOutAction = prContext.getRequestContextPath() + "/public/" + portalName + "/" ;
+	String signInAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true));" ;
+	String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));" ;
+	String portletId = uicomponent.getId() ;	
 %>
-
 <div id="$portletId" class="UIBannerPortlet UIApplication">
 	<div class="ApplicationMinWidth">
-  <div class="InlineContainer">
-    <div class="LeftBanner">
-      <div class="RightBanner">
-        <div class="MiddleBanner">
-        	<div class="BannerTitle"><span></span></div>
-					<div class="LoginContainer">
-						<div class="LoginContent">
-						<%if(prContext.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS) {%>
-						  	
-					  	<div class="LoginLeft" style="float: left">
-					  		<%=_ctx.appRes("UILogged.note.loggedUser")%>
-						  	<span style="padding: 0px 10px 0px 2px; color: #529ef1; font-weight:bold;">
-						  		<%=prContext.getRemoteUser();%> 
-						  	</span>
-					  	</div>
-						  <div class="LoginRight" style="float: left;" title="Sign Out" onclick="location.href='$signOutAction'">
-						    <div class="LoginSeperatorLine"><span></span></div>				  	
-								<a class="LogoutIcon"><%=_ctx.appRes("UILogged.action.signout")%></a>
+	  <div class="InlineContainer">
+	    <div class="LeftBanner">
+	      <div class="RightBanner">
+	        <div class="MiddleBanner">
+	        	<div class="BannerTitle"><span></span></div>
+						<div class="LoginContainer">
+							<div class="LoginContent">
+								<%if(prContext.getRemoteUser() != null) {%>
+								  	<div class="LoginLeft" style="float: left">
+								  		<%=_ctx.appRes("UILogged.note.loggedUser")%>
+									  	<span style="padding: 0px 10px 0px 2px; color: red; font-weight:bold;">
+									  		<%=prContext.getRemoteUser();%> 
+									  	</span>
+								  	</div>
+									  <div class="LoginRight" style="float: left;" title="Sign Out">
+									    <div class="LoginSeperatorLine"><span></span></div>				  	
+											<a class="LogoutIcon" onclick="eXo.portal.logout();"><%=_ctx.appRes("UILogged.action.signout")%></a>
+										</div>
+										<div style="clear: left;"><span></span></div>
+								<%} else {%>
+										<div class="SignIn">
+											<a class="LoginIcon" onclick="$signInAction"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>								
+											<div class="SeperatorLine"><span></span></div>
+											<a class="SettingIcon" onclick="$changeLanguageAction">
+												<%=_ctx.appRes("UIChangeLanguage.title.LanguageSetting")%>
+											</a>		
+											<div class="SeperatorLine"><span></span></div>
+											<div style="clear: right;"><span></span></div>
+										</div>
+							  <%}%>   
 							</div>
-							<div style="clear: left;"><span></span></div>
-						<%} else {%>
-							<div class="SignIn">
-								<a class="LoginIcon" onclick="$signInAction"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>
-								<div class="SeperatorLine"><span></span></div>
-								<a class="SettingIcon" onclick="$changeLanguageAction">
-									<%=_ctx.appRes("UIChangeLanguage.title.LanguageSetting")%>
-								</a>
-								<div class="SeperatorLine"><span></span></div>
-								<div style="clear: right;"><span></span></div>
-							</div>
-					  <%}%> 
+							<div style="clear: right;"><span></span></div>
 						</div>
-						<div style="clear: right;"><span></span></div>
-					</div>
-        </div>
-      </div>   
-    </div>
-  </div>
+	        </div>
+	      </div>   
+	    </div>
+	  </div>
   </div>
 </div>
 
