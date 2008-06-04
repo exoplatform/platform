@@ -1,7 +1,7 @@
 <project>
   <parent>
     <groupId>org.exoplatform.portal</groupId>
-    <artifactId>config</artifactId>
+    <artifactId>exo.portal.gadgets</artifactId>
     <version>trunk</version>
   </parent>
 
@@ -9,7 +9,7 @@
   <artifactId>exo.portal.eXoGadgets</artifactId>
   <packaging>war</packaging>
   <version>${org.exoplatform.portal.version}</version>
-  <name>eXoGadgets</name>
+  <name>eXo Gadgets Application</name>
   <url>http://www.exoplatform.org</url>
   <description>eXo Gadgets</description>
 

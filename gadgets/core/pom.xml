@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.exoplatform.portal</groupId>
+		<artifactId>exo.portal.gadgets</artifactId>
+		<version>trunk</version>
+	</parent>
+	<artifactId>exo.portal.gadgets-core</artifactId>
+	<packaging>jar</packaging>
+	<name>eXo Gadgets Core</name>
+	<description>gadget code</description>
+	<build>
+		<plugins>
+			<plugin>
+			   <groupId>org.apache.maven.plugins</groupId>
+			   <artifactId>maven-dependency-plugin</artifactId>
+			   <executions>
+			     <execution>
+			       <id>unpack</id>
+			       <phase>compile</phase>
+			       <goals>
+			         <goal>unpack</goal>
+			       </goals>
+			       <configuration>
+			         <artifactItems>
+			           <artifactItem>
+			             <groupId>org.apache.shindig</groupId>
+			             <artifactId>shindig-gadgets</artifactId>
+			             <version>${org.shindig.version}</version>
+			             <type>jar</type>
+			             <overWrite>false</overWrite>
+			             <outputDirectory>${project.build.directory}/classes</outputDirectory>
+			             <excludes>config/oauth.json,containers/default/container.js</excludes>
+			           </artifactItem>
+			         </artifactItems>
+			       </configuration>
+			     </execution>
+			   </executions>
+			 </plugin>
+
+		</plugins>
+				
+	    <resources>
+	      <resource>
+	        <targetPath>containers/default</targetPath>
+	        <directory>${basedir}/../config</directory>
+	        <includes>
+	          <include>container.js</include>
+	        </includes>
+	      </resource>
+	      <resource>
+	        <targetPath>config</targetPath>
+	        <directory>${basedir}/../config</directory>
+	        <includes>
+	          <include>oauth.json</include>
+	        </includes>
+	      </resource>
+	    </resources>		
+	</build>
+	<dependencies>
+<!-- project dependencies -->
+		<!--dependency>
+			<groupId>org.apache.shindig</groupId>
+			<artifactId>shindig-gadgets</artifactId>
+			<version>${org.shindig.version}</version>
+			<type>jar</type>
+			<scope>runtime</scope>
+		</dependency-->
+	</dependencies>
+</project>

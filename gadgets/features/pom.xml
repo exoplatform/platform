@@ -22,14 +22,14 @@ under the License.
 
   <parent>
     <groupId>org.exoplatform.portal</groupId>
-    <artifactId>gadget</artifactId>
+    <artifactId>exo.portal.gadgets</artifactId>
     <version>trunk</version>
   </parent>
 
-  <artifactId>exo.portal.gadget-features</artifactId>
+  <artifactId>exo.portal.gadgets-features</artifactId>
   <packaging>jar</packaging>
 
-  <name>Apache Shindig Features</name>
+  <name>eXo Gadgets Features</name>
   <description>Packages all the features that shindig provides into a single jar file to allow
                loading from the classpath</description>
 

@@ -6,14 +6,15 @@
     <version>trunk</version>
   </parent>
 
-  <artifactId>gadget</artifactId>
-  <name>eXo gadget Config</name>
+  <artifactId>exo.portal.gadgets</artifactId>
+  <name>eXo Gadgets Config</name>
   <packaging>pom</packaging>
 
   <modules>
 	<module>features</module>
-	<module>eXoGadgets</module>
+	<module>core</module>
 	<module>server</module>
+	<module>eXoGadgets</module>
   </modules>
 
   <profiles>
