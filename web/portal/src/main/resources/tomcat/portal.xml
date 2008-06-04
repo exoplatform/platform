@@ -8,7 +8,7 @@
 
   <Realm className="org.apache.catalina.realm.JAASRealm"
     appName="exo-domain"
-    userClassNames="org.exoplatform.services.organization.auth.UserPrincipal"
-    roleClassNames="org.exoplatform.services.organization.auth.RolePrincipal"
+    userClassNames="org.exoplatform.services.security.jaas.UserPrincipal"
+    roleClassNames="org.exoplatform.services.security.jaas.RolePrincipal"
     debug="0" cache="false"/>
 </Context>
