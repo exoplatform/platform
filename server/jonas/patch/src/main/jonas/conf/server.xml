@@ -157,8 +157,8 @@
       <!-- This Realm uses the JAAS model to authenticate users.
            User and Role Principals are eXo Platform specific. -->
       <Realm className="org.objectweb.jonas.security.realm.web.catalina55.JAAS"
-           userClassNames="org.exoplatform.services.organization.auth.UserPrincipal"
-           roleClassNames="org.exoplatform.services.organization.auth.RolePrincipal"
+           userClassNames="org.exoplatform.services.security.jaas.UserPrincipal"
+           roleClassNames="org.exoplatform.services.security.jaas.RolePrincipal"
            debug="99"/>
 <!-- ======================= End eXo configuration ========================= -->
       <!-- Note that the validation can be turned on/off in JOnAS configuration
