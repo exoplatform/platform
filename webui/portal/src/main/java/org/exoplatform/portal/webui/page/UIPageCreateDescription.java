@@ -16,6 +16,9 @@
  */
 package org.exoplatform.portal.webui.page;
 
+import java.util.ResourceBundle;
+
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIContainer;
 
@@ -29,13 +32,18 @@ import org.exoplatform.webui.core.UIContainer;
   template = "system:/groovy/portal/webui/page/UIPageCreateDescription.gtmpl"   
 )
 public class UIPageCreateDescription extends UIContainer{
-   
-  private String title_ = "Page Creation Wizard";
+  
+
+  private String title_ ;
   
   public UIPageCreateDescription() throws Exception{   
   } 
   
-  public void setTitle(String title){ title_ = title; }
+  public void setTitle(String key){
+	WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+	ResourceBundle res = context.getApplicationResourceBundle();
+	title_ = res.getString(key);
+  }
   
   public String getTitle(){ return title_; }
 }

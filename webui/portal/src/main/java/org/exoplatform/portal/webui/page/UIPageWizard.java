@@ -16,6 +16,8 @@
  */
 package org.exoplatform.portal.webui.page;
 
+import java.util.ResourceBundle;
+
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -37,109 +39,145 @@ import org.exoplatform.webui.event.EventListener;
  * Mar 21, 2007  
  */
 public abstract class UIPageWizard extends UIWizard {
-  
-  protected UIPopupWindow uiHelpWindow;
-  private int numberStep_ ; 
-  private boolean showWelcome = true;
-  
-  public UIPageWizard() throws Exception {
-    uiHelpWindow = createUIComponent(UIPopupWindow.class, null, null);      
-    uiHelpWindow.setWindowSize(300, 200);  
-    uiHelpWindow.setShow(false);
-    uiHelpWindow.setId("UIPageWizardHelp") ;
-  }
-  
-  public void setNumberSteps(int s) { numberStep_ = s; }
-  public int getNumberSteps() {return numberStep_; }
-  
-  public void processRender(WebuiRequestContext context) throws Exception {
-    super.processRender(context);
-    uiHelpWindow.processRender(context);
-  }
-  
-  public boolean isShowWelcomeComponent(){ return showWelcome; }
-  public void setShowWelcomeComponent(boolean value) { showWelcome = value; }
-  
-  public UIPopupWindow getHelpWindow() { return uiHelpWindow; }
-  
-  void updateUIPortal(UIPortalApplication uiPortalApp, Event<? extends UIPageWizard> event) throws Exception {
-    PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
 
-    UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-    UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-    uiWorkingArea.setUIComponent(uiWorkingArea.createUIComponent(UIWelcomeComponent.class, null, null)) ;
-//    pcontext.addUIComponentToUpdateByAjax(uiControl);  
+	protected UIPopupWindow uiHelpWindow;
 
-    UIPortal uiPortal = Util.getUIPortal();
-    uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
-    uiPortal.setRenderSibbling(UIPortal.class) ;    
-    pcontext.setFullRender(true);
-    
-//    UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
-//    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
-  }
-  
-  void updateWizardComponent(){
-    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class) ;
-    PortalRequestContext pcontext = Util.getPortalRequestContext();
+	private int numberStep_;
 
-    UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);    
+	private boolean showWelcome = true;
 
-    UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID) ;
-    pcontext.addUIComponentToUpdateByAjax(uiControl) ;
-    
-    pcontext.setFullRender(true) ;
-  }
-  
-  public void setDescriptionWizard() throws Exception {
-    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
-    UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);
-    uiExoStart.setUIControlWSWorkingComponent(UIPageCreateDescription.class);
-    UIPageCreateDescription uiPageDescription = uiExoStart.getUIControlWSWorkingComponent();
-    if(this.getClass() == UIPageEditWizard.class){
-      uiPageDescription.setTitle("Page Edit Wizard");
-      uiPageDescription.addChild(UIDescription.class, null, "pageEditWizard");
-      return;
-    }
-    uiPageDescription.setTitle("Page Creation Wizard");
-    uiPageDescription.addChild(UIDescription.class, null, "pageWizard");
-  }
-  
-  public void setDescriptionWizard(int step) throws Exception {
-    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
-    UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);
-    uiExoStart.setUIControlWSWorkingComponent(UIPageCreateDescription.class);
-    UIPageCreateDescription uiPageDescription = uiExoStart.getUIControlWSWorkingComponent();
-    if(this.getClass() == UIPageEditWizard.class){
-      uiPageDescription.setTitle("Page Edit Wizard");
-      uiPageDescription.addChild(UIDescription.class, null, "pageEditWizard" + Integer.toString(step));
-      return;
-    }
-    uiPageDescription.setTitle("Page Creation Wizard");
-    uiPageDescription.addChild(UIDescription.class, null, "pageWizard" + Integer.toString(step));
-  }
-  
-  static public class AbortActionListener extends EventListener<UIPageWizard> {
-    public void execute(Event<UIPageWizard> event) throws Exception {
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      uiPortalApp.setEditting(false) ;
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+	public UIPageWizard() throws Exception {
+		uiHelpWindow = createUIComponent(UIPopupWindow.class, null, null);
+		uiHelpWindow.setWindowSize(300, 200);
+		uiHelpWindow.setShow(false);
+		uiHelpWindow.setId("UIPageWizardHelp");
+	}
 
-      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-      uiWorkingArea.setUIComponent(uiWorkingArea.createUIComponent(UIWelcomeComponent.class, null, null)) ;
-      pcontext.addUIComponentToUpdateByAjax(uiControl);  
+	public void setNumberSteps(int s) {
+		numberStep_ = s;
+	}
 
-      UIPortal uiPortal = Util.getUIPortal();
-      uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
-      uiPortal.setRenderSibbling(UIPortal.class) ;    
-      pcontext.setFullRender(true);
-      
-      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
-    }
-  }
-  
-  
+	public int getNumberSteps() {
+		return numberStep_;
+	}
+
+	public void processRender(WebuiRequestContext context) throws Exception {
+		super.processRender(context);
+		uiHelpWindow.processRender(context);
+	}
+
+	public boolean isShowWelcomeComponent() {
+		return showWelcome;
+	}
+
+	public void setShowWelcomeComponent(boolean value) {
+		showWelcome = value;
+	}
+
+	public UIPopupWindow getHelpWindow() {
+		return uiHelpWindow;
+	}
+
+	void updateUIPortal(UIPortalApplication uiPortalApp,
+			Event<? extends UIPageWizard> event) throws Exception {
+		PortalRequestContext pcontext = (PortalRequestContext) event
+				.getRequestContext();
+
+		UIControlWorkspace uiControl = uiPortalApp
+				.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
+		UIComponentDecorator uiWorkingArea = uiControl
+				.getChildById(UIControlWorkspace.WORKING_AREA_ID);
+		uiWorkingArea.setUIComponent(uiWorkingArea.createUIComponent(
+				UIWelcomeComponent.class, null, null));
+		//    pcontext.addUIComponentToUpdateByAjax(uiControl);  
+
+		UIPortal uiPortal = Util.getUIPortal();
+		uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
+		uiPortal.setRenderSibbling(UIPortal.class);
+		pcontext.setFullRender(true);
+
+		//    UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
+		//    pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
+	}
+
+	void updateWizardComponent() {
+		UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
+		PortalRequestContext pcontext = Util.getPortalRequestContext();
+
+		UIWorkingWorkspace uiWorkingWS = uiPortalApp
+				.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+		pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+
+		UIControlWorkspace uiControl = uiPortalApp
+				.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
+		pcontext.addUIComponentToUpdateByAjax(uiControl);
+
+		pcontext.setFullRender(true);
+	}
+
+	public void setDescriptionWizard() throws Exception {
+		UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
+		UIExoStart uiExoStart = uiPortalApp
+				.findFirstComponentOfType(UIExoStart.class);
+		uiExoStart
+				.setUIControlWSWorkingComponent(UIPageCreateDescription.class);
+		UIPageCreateDescription uiPageDescription = uiExoStart
+				.getUIControlWSWorkingComponent();
+		if (this.getClass() == UIPageEditWizard.class) {
+			uiPageDescription.setTitle("UIPageCreateDescription.title.edit");
+			uiPageDescription.addChild(UIDescription.class, null,
+					"pageEditWizard");
+			return;
+		}
+		uiPageDescription.setTitle("UIPageCreateDescription.title.create");
+		uiPageDescription.addChild(UIDescription.class, null, "pageWizard");
+	}
+
+	public void setDescriptionWizard(int step) throws Exception {
+		UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
+		UIExoStart uiExoStart = uiPortalApp
+				.findFirstComponentOfType(UIExoStart.class);
+		uiExoStart
+				.setUIControlWSWorkingComponent(UIPageCreateDescription.class);
+		UIPageCreateDescription uiPageDescription = uiExoStart
+				.getUIControlWSWorkingComponent();
+
+		if (this.getClass() == UIPageEditWizard.class) {
+			uiPageDescription.setTitle("UIPageCreateDescription.title.edit");
+			uiPageDescription.addChild(UIDescription.class, null,
+					"pageEditWizard" + Integer.toString(step));
+			return;
+		}
+
+		uiPageDescription.setTitle("UIPageCreateDescription.title.create");
+		uiPageDescription.addChild(UIDescription.class, null, "pageWizard"
+				+ Integer.toString(step));
+	}
+
+	static public class AbortActionListener extends EventListener<UIPageWizard> {
+		public void execute(Event<UIPageWizard> event) throws Exception {
+			UIPortalApplication uiPortalApp = event.getSource()
+					.getAncestorOfType(UIPortalApplication.class);
+			uiPortalApp.setEditting(false);
+			PortalRequestContext pcontext = (PortalRequestContext) event
+					.getRequestContext();
+
+			UIControlWorkspace uiControl = uiPortalApp
+					.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
+			UIComponentDecorator uiWorkingArea = uiControl
+					.getChildById(UIControlWorkspace.WORKING_AREA_ID);
+			uiWorkingArea.setUIComponent(uiWorkingArea.createUIComponent(
+					UIWelcomeComponent.class, null, null));
+			pcontext.addUIComponentToUpdateByAjax(uiControl);
+
+			UIPortal uiPortal = Util.getUIPortal();
+			uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
+			uiPortal.setRenderSibbling(UIPortal.class);
+			pcontext.setFullRender(true);
+
+			UIWorkingWorkspace uiWorkingWS = uiPortalApp
+					.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+			pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+		}
+	}
 }
