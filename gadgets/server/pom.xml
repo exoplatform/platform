@@ -70,5 +70,38 @@
 	  <scope>runtime</scope>
     </dependency>
     <!-- external dependencies -->
+    <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <version>20070829</version>
+    </dependency>
+    <dependency>
+      <groupId>caja</groupId>
+      <artifactId>caja</artifactId>
+      <scope>compile</scope>
+      <version>r820</version>
+    </dependency>
+    <dependency>
+      <groupId>net.oauth</groupId>
+      <artifactId>core</artifactId>
+      <scope>compile</scope>
+      <version>20080328</version>
+    </dependency>
+		<dependency>
+      <groupId>com.google.code.google-collections</groupId>
+      <artifactId>google-collect</artifactId>
+      <version>snapshot-20080321</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.guice</groupId>
+      <artifactId>guice</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <scope>compile</scope>
+      <version>2.0</version>
+    </dependency>                                                     
   </dependencies>
 </project>
