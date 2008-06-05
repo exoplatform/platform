@@ -56,8 +56,6 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
     
     if (value_ == null) value_ = "" ;
     value_ = value_.replaceAll("'", "\\\\'");
-    //Vu Duy Tu : Fixbug set value for FCKEditor
-    value_ = value_.replaceAll("&lt;", "&lt;>;");
     value_ = value_.replaceAll("[\r\n]", "");
     w.write("<textarea id='" + getName() + "' name='" + getName() + "'>" + value_ + "</textarea>") ;
     context.getJavascriptManager().addJavascript(jsExec.toString()) ;
