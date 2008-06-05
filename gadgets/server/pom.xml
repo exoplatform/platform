@@ -71,37 +71,112 @@
     </dependency>
     <!-- external dependencies -->
     <dependency>
-      <groupId>org.json</groupId>
-      <artifactId>json</artifactId>
-      <version>20070829</version>
+    	<groupId>commons-digester</groupId>
+    	<artifactId>commons-digester</artifactId>
+    	<version>1.7</version>
+    	<type>jar</type>
     </dependency>
     <dependency>
-      <groupId>caja</groupId>
-      <artifactId>caja</artifactId>
-      <scope>compile</scope>
-      <version>r820</version>
+    	<groupId>commons-io</groupId>
+    	<artifactId>commons-io</artifactId>
+    	<version>1.4</version>
+    	<type>jar</type>
     </dependency>
     <dependency>
-      <groupId>net.oauth</groupId>
-      <artifactId>core</artifactId>
-      <scope>compile</scope>
-      <version>20080328</version>
-    </dependency>
-		<dependency>
-      <groupId>com.google.code.google-collections</groupId>
-      <artifactId>google-collect</artifactId>
-      <version>snapshot-20080321</version>
+    	<groupId>net.oauth</groupId>
+    	<artifactId>core</artifactId>
+    	<version>20080328</version>
+    	<type>jar</type>
     </dependency>
     <dependency>
-      <groupId>com.google.code.guice</groupId>
-      <artifactId>guice</artifactId>
-      <version>1.0</version>
+    	<groupId>com.google.code.google-collections</groupId>
+    	<artifactId>google-collect</artifactId>
+    	<version>snapshot-20080321</version>
+    	<type>jar</type>
+    </dependency>    
+    <dependency>
+    	<groupId>com.google.code.guice</groupId>
+    	<artifactId>guice</artifactId>
+    	<version>1.0</version>
+    	<type>jar</type>
+    </dependency>   
+    <dependency>
+    	<groupId>org.hamcrest</groupId>
+    	<artifactId>hamcrest-all</artifactId>
+    	<version>1.1</version>
+    	<type>jar</type>
     </dependency>
     <dependency>
-      <groupId>commons-lang</groupId>
-      <artifactId>commons-lang</artifactId>
-      <scope>compile</scope>
-      <version>2.0</version>
-    </dependency>                                                     
+    	<groupId>nu.validator.htmlparser</groupId>
+    	<artifactId>htmlparser</artifactId>
+    	<version>1.0.5</version>
+    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>jaxen</groupId>
+    	<artifactId>jaxen</artifactId>
+    	<version>1.1.1</version>
+    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>joda-time</groupId>
+    	<artifactId>joda-time</artifactId>
+    	<version>1.5.2</version>
+    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>org.json</groupId>
+    	<artifactId>json</artifactId>
+    	<version>20070829</version>
+    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.shindig</groupId>
+    	<artifactId>shindig-common</artifactId>
+    	<version>1-SNAPSHOT</version>
+    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.shindig</groupId>
+    	<artifactId>shindig-social-api</artifactId>
+    	<version>1-SNAPSHOT</version>
+    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>org.exoplatform.portal</groupId>
+    	<artifactId>exo.portal.gadgets-core</artifactId>
+    	<version>trunk</version>
+    	<type>jar</type>
+    </dependency>    
+    <dependency>
+    	<groupId>org.exoplatform.portal</groupId>
+    	<artifactId>exo.portal.gadgets-features</artifactId>
+    	<version>trunk</version>
+    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>org.codehaus.woodstox</groupId>
+    	<artifactId>wstx-asl</artifactId>
+    	<version>3.2.1</version>
+    	<type>jar</type>
+    </dependency>    
+    <dependency>
+    	<groupId>xerces</groupId>
+    	<artifactId>xercesImpl</artifactId>
+    	<version>2.6.2</version>
+    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>caja</groupId>
+    	<artifactId>caja</artifactId>
+    	<version>r820</version>
+    	<type>jar</type>
+    </dependency>
+    <dependency>
+    	<groupId>xml-apis</groupId>
+    	<artifactId>xml-apis</artifactId>
+    	<version>1.0.b2</version>
+    	<type>jar</type>
+    </dependency>                                                         
   </dependencies>
 </project>
