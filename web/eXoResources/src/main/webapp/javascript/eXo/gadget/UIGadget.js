@@ -1,5 +1,5 @@
 eXo.gadget.UIGadget = {
-	createGadget : function(url,id) {
+	createGadget : function(url,id, metadata) {
 		//eXo = eXo || {};
 	  window.gadgets = window.gadgets || {};
 	  eXo.gadgets = window.gadgets;
@@ -16,8 +16,9 @@ eXo.gadget.UIGadget = {
 		}
 	
 	  var gadget = gadgets.container.createGadget({specUrl: url});
-	  
-	  gadgets.container.addGadget(gadget);
+    gadget.metadata = metadata.gadgets[0];
+
+    gadgets.container.addGadget(gadget);
 	  var gadgetBlock = document.getElementById(id);
 		gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "'> </div>";
 		gadgets.container.renderGadgets();

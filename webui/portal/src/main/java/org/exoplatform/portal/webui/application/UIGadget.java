@@ -79,14 +79,23 @@ public class UIGadget extends UIComponent {
     return properties; 
   }
   public void setProperties(Properties properties) { this.properties = properties; }
-  
-  public String getUrl() {
+
+  private GadgetApplication getApplication() {
     PortalContainer container = PortalContainer.getInstance() ;
-    WebAppController controller = 
+    WebAppController controller =
       (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-    List<Application> apps = controller.getApplicationByType("eXoGadget") ;
     GadgetApplication application =
       (GadgetApplication) controller.getApplication(applicationId_.split("/")[1]) ;
+    return application;
+  }
+
+  public String getUrl() {
+    GadgetApplication application = getApplication();
     return application.getUrl() ;
+  }
+
+  public String getMetadata() {
+    GadgetApplication application = getApplication();
+    return application.getMetadata();
   }
 }

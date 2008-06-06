@@ -18,30 +18,59 @@ package org.exoplatform.web.application.gadget;
 
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.io.*;
+import java.net.URL;
+import java.net.URLConnection;
 
 import org.exoplatform.web.application.Application;
+
+import org.apache.commons.io.IOUtils;
+
+
 /**
  * Created by The eXo Platform SAS
  * Author : dang.tung
- *          tungcnw@gmail.com
- * May 06, 2008   
+ * tungcnw@gmail.com
+ * May 06, 2008
  */
 public class GadgetApplication extends Application {
-  private String appId_ ;
-  private String url_ ;
-  
+  private String appId_;
+  private String url_;
+  private String metadata = null;
+
   public GadgetApplication(String appId, String url) {
-    appId_ = appId ;
-    url_ = url ;
+    appId_ = appId;
+    url_ = url;
   }
-  public String getApplicationType() { return "eXoGadget" ; }
+
+  public String getApplicationType() {
+    return "eXoGadget";
+  }
 
   public String getApplicationGroup() {
     return "eXoGadgets";
   }
-  
+
   public String getUrl() {
-    return url_ ;
+    return url_;
+  }
+
+  public String getMetadata() {
+
+    if(metadata == null)  {
+      try {
+        metadata = fetchGagdetMetadata();
+      } catch (IOException e) {
+        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+      }
+    }
+
+    if(metadata == null){
+      return "{}";
+    }
+    return metadata;
+
+
   }
 
   public String getApplicationId() {
@@ -58,5 +87,35 @@ public class GadgetApplication extends Application {
 
   public ResourceBundle getResourceBundle(Locale locale) throws Exception {
     return null;
-  }  
+  }
+
+
+  private String fetchGagdetMetadata() throws IOException {
+/*    JSONArray gadgets = new JSONArray()
+        .put(createGadget(url_, 0, null));
+
+    JSONObject input = new JSONObject()
+        .put("context", createContext("en", "US"))
+        .put("gadgets", gadgets);*/
+
+
+
+    String data = "{\"context\":{\"country\":\"US\",\"language\":\"en\"},\"gadgets\":[" +
+        "{\"moduleId\":0,\"url\":\"" + url_ + "\",\"prefs\":[]}]}";
+
+    // Send data
+    URL url = new URL("http://localhost:8080/eXoGadgetServer/gadgets/metadata");
+    URLConnection conn = url.openConnection();
+    conn.setDoOutput(true);
+    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+    wr.write(data);
+    wr.flush();
+
+    // Get the response
+    String result = IOUtils.toString(conn.getInputStream(), "UTF-8");
+
+    wr.close();
+
+    return result;
+  }
 }

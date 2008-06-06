@@ -32,5 +32,13 @@
       <artifactId>exo.pc.component.core</artifactId>
       <version>${org.exoplatform.pc.version}</version>
     </dependency>
+
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>1.4</version>
+        <type>jar</type>
+    </dependency>
+
   </dependencies>
 </project>

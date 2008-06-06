@@ -3,13 +3,14 @@
 	
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  def url = uicomponent.getUrl() ;
+  def url = uicomponent.getUrl();
+  def metadata = uicomponent.getMetadata();
   def posX = uicomponent.getProperties().getIntValue("locationX") + "px";
   def posY = uicomponent.getProperties().getIntValue("locationY") + "px";
   def zIndex = uicomponent.getProperties().getIntValue("zIndex") ;
   def id = uicomponent.getApplicationInstanceId() ;
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
-	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id');") ;
+	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id', $metadata);") ;
 %>
 <div class="UIGadget" id="<%= uicomponent.getApplicationInstanceUniqueId() %>" style="left: $posX; top: $posY; z-Index: $zIndex; width: 300px" >
 	<div class="GadgetMenuBar">
