@@ -2,6 +2,11 @@
   padding: 20px 15px 10px 15px;
 }
 
+.UIChagnePortalForm .UIGrid {
+  width: 95%;
+  margin: auto;
+}
+
 .UIChagnePortalForm .UITabPane .TabPaneContent {
 	padding: 0px;
 }

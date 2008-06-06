@@ -1,6 +1,12 @@
 .UIChagnePortalForm {
 }
 
+.UIChagnePortalForm .UIGrid {
+  width: 95%;
+  margin: auto;
+}
+
+
 .UIChagnePortalForm .MiddleFormTitle {
 	background: url('background/MiddleFormTitle1x29.png') repeat-x;
 	height: 29px;
