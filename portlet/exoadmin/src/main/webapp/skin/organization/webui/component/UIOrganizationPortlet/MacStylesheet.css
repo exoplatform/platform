@@ -314,6 +314,7 @@
 .UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
 	background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png') repeat;
 	border: 1px solid white;
+	padding: 16px 0px 6px 0px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup {
@@ -332,12 +333,17 @@
 	background-position: left top;
 	background-repeat: no-repeat;
 	float: left;
-	height: 24px; width: 24px;
+	width: 24px;
 	margin-left: 4px;
 }
 
 .UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm .SearchIcon { 
 	margin-top: 3px;
+	_height: 23px;
+}
+
+.UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm .Refresh16x16Icon {
+  height: 20px;
 }
 
 .UIOrganizationPortlet .UIGroupInfo .ListUserForSearch { 
