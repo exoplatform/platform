@@ -517,7 +517,7 @@ gadgets.IfrGadget.prototype.getMainContent = function(continuation) {
   continuation('<div class="' + this.cssClassGadgetContent + '"><iframe id="' +
       iframeId + '" name="' + iframeId + '" class="' + this.cssClassGadget +
       '" src="' + this.getIframeUrl() +
-      '" frameborder="no" scrolling="true"' +
+      '" frameborder="no" scrolling="no"' +
       (this.height ? ' height="' + this.height + '"' : '') +
       (this.width ? ' width="' + this.width + '"' : '') +
       '></iframe></div>');

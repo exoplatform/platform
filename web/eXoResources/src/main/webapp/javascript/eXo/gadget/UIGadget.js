@@ -14,15 +14,12 @@ eXo.gadget.UIGadget = {
 			  eXo.core.Using("eXo.gadgets.Gadgets");
 	  		eXo.core.Using("eXo.gadgets.CookieBasedUserPrefStore");
 		}
-	
-	  var gadget = gadgets.container.createGadget({specUrl: url});
+	  var gadget = gadgets.container.createGadget({specUrl: url,height: metadata.gadgets[0].height});
     gadget.metadata = metadata.gadgets[0];
-
     gadgets.container.addGadget(gadget);
 	  var gadgetBlock = document.getElementById(id);
 		gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "'> </div>";
 		gadgets.container.renderGadgets();
-	
 		var uiGadget = eXo.core.DOMUtil.findAncestorByClass(gadgetBlock, "UIGadget");
 		
 		var isDesktop = false;
