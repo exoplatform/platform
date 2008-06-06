@@ -126,6 +126,7 @@ eXo.webui.UIDashboardUtil = {
 		url += '&colIndex=' + colIndex ;
 		url += '&rowIndex=' + rowIndex ;
 		url += '&ajaxRequest=true';
-		ajaxGet(url);
+		if(action=='AddNewGadget') ajaxGet(url) ;
+		else ajaxAsyncGetRequest(url,true) ;
 	}
 }
