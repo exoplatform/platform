@@ -159,7 +159,6 @@
 /*####################- UIPermissionForm -#################*/
 
 .UIPermissionForm .UIForm .HorizontalLayout .UIAccessGroup td.FieldLabel {
-	width: 370px;
   line-height: 16px;
 }
 

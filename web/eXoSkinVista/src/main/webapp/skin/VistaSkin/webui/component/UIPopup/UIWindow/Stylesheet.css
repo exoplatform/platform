@@ -16,6 +16,16 @@
 	overflow: auto;
 }
 
+.UIApplicationRegistryPortlet .UIFormGrid {
+	width: 100%;
+	margin: 0px;
+}
+
+.UIApplicationRegistryPortlet .UIFormGrid .UIFormGrid{
+	width: auto;
+	margin: auto;
+}
+
 /**************************** UIPageBody ************************************/
 
 .UIWindow {
