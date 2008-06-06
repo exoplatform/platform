@@ -22,7 +22,7 @@
   <component>
     <type>org.exoplatform.web.WebAppController</type>
   </component>
-  
+<!--  
   
   <external-component-plugins>
     <target-component>org.exoplatform.services.listener.ListenerService</target-component>
@@ -31,5 +31,5 @@
 		  <set-method>addListener</set-method>
       <type>org.exoplatform.web.SetCurrentIdentityListener</type>
 		</component-plugin>
-  </external-component-plugins>
+  </external-component-plugins>-->
 </configuration>

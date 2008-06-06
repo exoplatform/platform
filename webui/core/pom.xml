@@ -19,12 +19,6 @@
       <artifactId>exo.portal.component.web</artifactId>
       <version>${org.exoplatform.portal.version}</version>
     </dependency>
-    
-    <dependency>
-      <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-all-minimal</artifactId>
-      <version>1.5.4</version>
-    </dependency>
   </dependencies>
 
   <build>

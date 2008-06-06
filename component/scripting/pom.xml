@@ -34,8 +34,8 @@
 
     <dependency>
       <groupId>org.codehaus.groovy</groupId>
-      <artifactId>groovy-all-minimal</artifactId>
-      <version>1.5.4</version>
+      <artifactId>groovy-all</artifactId>
+      <version>1.5.6</version>
     </dependency>
   </dependencies>
 </project>

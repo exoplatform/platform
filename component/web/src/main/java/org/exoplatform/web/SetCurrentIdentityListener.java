@@ -30,6 +30,7 @@ import org.exoplatform.services.security.Identity;
  * Created by The eXo Platform SAS
  * May 17, 2007
  */
+// TODO TrongTT : should be removed
 public class SetCurrentIdentityListener extends Listener<WebAppController, HttpServletRequest> {
 
   protected static Log log = ExoLogger.getLogger("authentication:SetCurrentIdentityListener");
