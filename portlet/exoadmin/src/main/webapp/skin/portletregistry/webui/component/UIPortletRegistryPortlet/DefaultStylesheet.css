@@ -19,17 +19,6 @@
 	overflow: auto;
 }
 
-.UIApplicationRegistryPortlet .UIFormGrid {
-	width: 100%;
-	margin: 0px;
-}
-
-.UIApplicationRegistryPortlet .UIFormGrid .UIFormGrid{
-	width: auto;
-	margin: auto;
-}
-
-
 .UIApplicationRegistryPortlet .UICategoryForm {
 	padding: 10px;
 }
@@ -49,6 +38,10 @@
 }
 
 .UIApplicationRegistryPortlet .UIAvailablePortletForm .UIFormGrid {
+	width: 100%;
+}
+
+.UIApplicationRegistryPortlet #UICategoryForm .UIFormGrid {
 	width: 100%;
 }
 

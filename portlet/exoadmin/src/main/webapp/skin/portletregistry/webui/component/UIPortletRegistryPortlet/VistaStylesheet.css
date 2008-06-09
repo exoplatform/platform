@@ -36,6 +36,18 @@
 	width: 100%;
 }
 
+.UIApplicationRegistryPortlet .UIAvailablePortletForm .UIFormGrid {
+	width: 100%;
+}
+
+.UIApplicationRegistryPortlet #UICategoryForm .UIFormGrid {
+	width: 100%;
+}
+
+.ApplicationRegistryWorkingArea .UIPermissionForm .UIFormGrid {
+	width: 100%;
+}
+
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
 	float: left;
