@@ -6,17 +6,30 @@
 /*----------------------UIGadgetsSelectorForm-------------------*/
 .UIDashboardSelectForm {
 	float: left;
-	width: 200px;
+}
+
+.UIDashboardSelectForm .UIDashboardItemContainer{
+	float: left;
+	width: 198px;
 }
 
 .UIDashboardSelectForm .UIGadget {
-	margin: 3px 3px;
+	margin: 3px 0px 3px 2px;
 	border: 1px solid gray;
+}
+
+.UIDashboardSelectForm .UIDashboardSlideBar{
+	border: 1px solid red;
+	float: left;
+	height: 400px;
+	margin: 0px 2px;
+	cursor: pointer;
 }
 
 /*----------------------UIGadgetsContainer-------------------*/
 .UIDashboardContainer {
-	margin-left: 203px;
+	margin-left: 3px;
+	border: 1px solid red;
 }
 
 .DashboardContainer {

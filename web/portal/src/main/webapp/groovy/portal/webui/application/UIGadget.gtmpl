@@ -24,6 +24,6 @@
 	</div>
 	<div class="GadgetApplication">
 		<div id="$id"></div>
-		<div class="UIMask" style="display: none;"></div>
 	</div>
+	<div class="UIMask" style="display: none; border:solid 1px red"><span></span></div>
 </div>

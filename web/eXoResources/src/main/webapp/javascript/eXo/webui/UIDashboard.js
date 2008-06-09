@@ -8,18 +8,16 @@ eXo.webui.UIDashboard = {
 	
 	targetObj : null,
 	
-	currZIndex : null,
-	
 	init : function (dragItem, dragObj) {
-		var uiDashboard = eXo.webui.UIDashboard ;
+		
 		eXo.core.DragDrop2.init(dragItem, dragObj)	;
 
 		dragObj.onDragStart = function(x, y, lastMouseX, lastMouseY, e){
 			var DOMUtil = eXo.core.DOMUtil;
+			var uiDashboard = eXo.webui.UIDashboard ;
 			var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
 			var uiWindow = DOMUtil.findAncestorByClass(dragObj, "UIWindow");
 			uiDashboard.portletWindow = uiWindow;
-			uiDashboard.currZIndex = dragObj.style.zIndex;
 			var dashboardContainer = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
 			var portletApp = DOMUtil.findAncestorByClass(dashboardContainer, "UIApplication");
 			uiDashboard.compId = portletApp.parentNode.id;
@@ -55,7 +53,7 @@ eXo.webui.UIDashboard = {
 			if(!DOMUtil.hasClass(dragObj, "SelectItem")){
 				uiTarget = uiDashboard.createTarget(ggwidth, 0);
 				dragObj.parentNode.insertBefore(uiTarget, dragObj.nextSibling);
-				uiDashboard.currCol = uiTarget.parentNode;
+				uiDashboard.currCol = eXo.webui.UIDashboardUtil.findRowIndexInDashboard(dragObj);
 			}else{
 				var dragCopyObj = dragObj.cloneNode(true);
 				DOMUtil.addClass(dragCopyObj, "CopyObj");
@@ -66,7 +64,7 @@ eXo.webui.UIDashboard = {
 
 			//increase speed of mouse when over iframe by create div layer above it
 			var uiGadgets = DOMUtil.findDescendantsByClass(dashboardContainer, "div", "UIGadget");
-
+			
 			for(var i=0; i<uiGadgets.length; i++){
 				var uiMask = DOMUtil.findFirstDescendantByClass(uiGadgets[i], "div", "UIMask");
 				if(uiMask!=null){
@@ -74,14 +72,14 @@ eXo.webui.UIDashboard = {
 					uiMask.style.marginTop = - gadgetContent.offsetHeight + "px";
 					uiMask.style.height = gadgetContent.offsetHeight + "px";
 					uiMask.style.width = gadgetContent.offsetWidth + "px";
-					uiMask.style.backgroundColor = "red";
-					eXo.core.Browser.setOpacity(uiMask, 5);
 					uiMask.style.display = "block";
+					uiMask.style.backgroundColor = "white";
+					eXo.core.Browser.setOpacity(uiMask, 3);
 				}
 			}
 			
 			if(!DOMUtil.hasClass(dragObj, "Dragging"))
-				eXo.core.DOMUtil.addClass(dragObj, "Dragging");
+				DOMUtil.addClass(dragObj, "Dragging");
 				
 			//set position of drag object
 			dragObj.style.position = "absolute";
@@ -193,8 +191,6 @@ eXo.webui.UIDashboard = {
 			}
 			
 			var uiTarget = uiDashboard.targetObj;
-			dragObj.style.zIndex = uiDashboard.currZIndex;
-			uiDashboard.currZIndex = null;
 			dragObj.style.position = "static";
 			if(eXo.core.DOMUtil.hasClass(dragObj, "Dragging")){
 				eXo.core.DOMUtil.replaceClass(dragObj," Dragging","");
@@ -207,16 +203,22 @@ eXo.webui.UIDashboard = {
 			
 			if(uiTarget!=null){	
 				//if drag object is not gadget module, create an module
+				var col = uiDashboardUtil.findColIndexInDashboard(uiTarget);
+				var row = uiDashboardUtil.findRowIndexInDashboard(uiTarget);
+				
 				if(eXo.core.DOMUtil.hasClass(dragObj, "SelectItem")){
-					uiDashboardUtil.createRequest(uiDashboard.compId, 'AddNewGadget',
-									uiDashboardUtil.findPosXInDashboard(uiTarget), 
-									uiDashboardUtil.findPosYInDashboard(uiTarget), dragObj.id);
+					var url = uiDashboardUtil.createRequest(uiDashboard.compId, 'AddNewGadget', col, row, dragObj.id);
+					ajaxGet(url);
 				} else {
-					uiTarget.parentNode.replaceChild(dragObj, uiTarget);
-					gadgetId = dragObj.id;
-					uiDashboardUtil.createRequest(uiDashboard.compId, 'MoveGadget',
-									uiDashboardUtil.findPosXInDashboard(dragObj), 
-									uiDashboardUtil.findPosYInDashboard(dragObj), gadgetId);
+					//in case: drop to old position
+					if(uiTarget.previousSibling != null && uiTarget.previousSibling.id == dragObj.id){
+						uiTarget.parentNode.removeChild(uiTarget);
+					} else {					
+						uiTarget.parentNode.replaceChild(dragObj, uiTarget);
+						gadgetId = dragObj.id;
+						var url = uiDashboardUtil.createRequest(uiDashboard.compId, 'MoveGadget', col, row, gadgetId);
+						ajaxAsyncGetRequest(url);
+					}
 				}
 			}
 			
@@ -225,26 +227,26 @@ eXo.webui.UIDashboard = {
 				eXo.core.DOMUtil.removeElement(uiTarget);
 				uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UITarget");
 			}
-			uiDashboard.targetObj = null;
-			uiDashboard.currCol = null;
-			uiDashboard.portletWindow = null;
-			uiDashboard.compId = null;
+			uiDashboard.targetObj = uiDashboard.currCol = uiDashboard.portletWindow = uiDashboard.compId = null;
 		}	
 		
 	},
 	
 	onLoad : function() {	
-		
 		var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
 		var dashboards = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWS, "div", "UIDashboardPortlet");
 
 		if(dashboards.length<=0) return;
 
 		for(var i=0; i < dashboards.length; i++){
+			var uiSelectForm = eXo.core.DOMUtil.findFirstDescendantByClass(dashboards[i], "div", "UIDashboardSelectForm");
+			var uiContainer = eXo.core.DOMUtil.findFirstDescendantByClass(dashboards[i], "div", "UIDashboardContainer");
 			var gadgetControls = eXo.core.DOMUtil.findDescendantsByClass(dashboards[i], "div", "GadgetTitle");
 			for(var j=0; j<gadgetControls.length; j++) {
 				eXo.webui.UIDashboard.init(gadgetControls[j], eXo.core.DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
 			}
+			if(uiContainer!=null)
+				uiContainer.style.marginLeft = uiSelectForm.offsetWidth +"px";
 		}
 		
 	},	
@@ -265,5 +267,25 @@ eXo.webui.UIDashboard = {
 		uiTarget.className = "UITarget";
 		uiTarget.style.height = ggheight + "px";
 		return uiTarget;
+	},
+	
+	showHideSelectForm : function(slideBar){
+		var DOMUtil = eXo.core.DOMUtil;
+		var uiSelectForm = DOMUtil.findAncestorByClass(slideBar, "UIDashboardSelectForm") ;
+		var uiDashboardPortlet = DOMUtil.findAncestorByClass(uiSelectForm, "UIDashboardPortlet");
+		var portletId = DOMUtil.findAncestorByClass(uiDashboardPortlet, "UIApplication").parentNode.id;
+		
+		var uiDashboardContainer = DOMUtil.findFirstDescendantByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
+		var dashboardItemContainer = DOMUtil.findFirstDescendantByClass(uiSelectForm, "div", "UIDashboardItemContainer");
+		
+		var url = eXo.env.server.portalBaseURL + '?portal:componentId=' + portletId +
+						'&portal:type=action&portal:isSecure=false&uicomponent=' + uiDashboardPortlet.id +
+						'&op=SetShowSelectForm&ajaxRequest=true' ;
+		if(dashboardItemContainer.style.display!="none"){
+			url += '&isShow=false';
+		} else {
+			url += '&isShow=true';
+		}
+		ajaxGet(url);
 	}
 }

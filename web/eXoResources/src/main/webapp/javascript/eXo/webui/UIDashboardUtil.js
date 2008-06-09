@@ -102,7 +102,7 @@ eXo.webui.UIDashboardUtil = {
 	  return isOver ;
 	},
 	
-	findPosXInDashboard : function(dragObj){
+	findColIndexInDashboard : function(dragObj){
 		var col = dragObj.parentNode;
 		if(col==null) return null;
 		var colId = col.id;
@@ -110,7 +110,7 @@ eXo.webui.UIDashboardUtil = {
 		return index;
 	},
 	
-	findPosYInDashboard : function(dragObj){
+	findRowIndexInDashboard : function(dragObj){
 		var modules = eXo.core.DOMUtil.getChildrenByTagName(dragObj.parentNode, "div");
 		for(var i=0; i<modules.length; i++){
 			if(modules[i].id == dragObj.id) return i;
@@ -126,7 +126,6 @@ eXo.webui.UIDashboardUtil = {
 		url += '&colIndex=' + colIndex ;
 		url += '&rowIndex=' + rowIndex ;
 		url += '&ajaxRequest=true';
-		if(action=='AddNewGadget') ajaxGet(url) ;
-		else ajaxAsyncGetRequest(url,true) ;
+		return url;
 	}
 }

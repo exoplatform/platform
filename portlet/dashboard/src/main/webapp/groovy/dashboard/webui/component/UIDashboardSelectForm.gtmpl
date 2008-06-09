@@ -1,17 +1,23 @@
 
 <div class="$uicomponent.id" id="UIDashboardSelectForm">
-	<div class="GadgetsNavigation"></div>
-	
-	<div class="GadgetItemsContainer" id="GadgetItemsContainer">
-	<% List widgets = uicomponent.getWidgets()
-		for(widget in widgets){
-	 %>
-	 	<div class="UIGadget SelectItem" id="<%= widget.getId() %>" style="top:0px; left:0px;">
-	 		<div class="GadgetControl">
- 				<div class="GadgetTitle" style="cursor:move; "><%=widget.getDisplayName() %></div>
- 			</div>
+	<div class="UIDashboardItemContainer" style="display: <%= uicomponent.isShowSelectForm()? "block" : "none"; %>;">
+		<div class="GadgetsNavigation"></div>
+		
+		<div class="GadgetItemsContainer" id="GadgetItemsContainer">
+		<% List gadgets = uicomponent.getAllGadgets();
+			for(gadget in gadgets){
+		 %>
+		 	<div class="UIGadget SelectItem" id="<%= gadget.getId() %>" style="top:0px; left:0px;">
+		 		<div class="GadgetControl">
+	 				<div class="GadgetTitle" style="cursor:move;">
+	 					<%=gadget.getDisplayName(); %>
+	 				</div>
+	 			</div>
+			</div>
+		 <% } %>
 		</div>
-	 <% } %>
 	</div>
 	
+	<div class="UIDashboardSlideBar" style="width:6px;" onclick="eXo.webui.UIDashboard.showHideSelectForm(this);"></div>
+	<div style="display: none; clear:left"><span></span></div>
 </div>

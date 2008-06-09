@@ -43,17 +43,18 @@ import org.exoplatform.webui.event.EventListener;
       events = {
         @EventConfig(listeners = UIDashboardPortlet.MoveGadgetActionListener.class),
         @EventConfig(listeners = UIDashboardPortlet.AddNewGadgetActionListener.class),
+        @EventConfig(listeners = UIDashboardSelectForm.SetShowSelectFormActionListener.class),
         @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class)
       }
   )
 })
 public class UIDashboardPortlet extends UIPortletApplication {
-  public UIDashboardPortlet() throws Exception {
+  public UIDashboardPortlet() throws Exception { 
     addChild(UIDashboardSelectForm.class, null, null);
     addChild(UIDashboardContainer.class, null, null).setColumns(3);
+    addChild(UIDashboardEditForm.class, null, null);
   }
   
-
   static public class AddNewGadgetActionListener extends EventListener<UIDashboardPortlet> {
     public void execute(Event<UIDashboardPortlet> event) throws Exception {
       WebuiRequestContext context = event.getRequestContext();

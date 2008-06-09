@@ -21,9 +21,14 @@ import java.util.List;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 
 /**
@@ -42,6 +47,8 @@ public class UIDashboardSelectForm extends UIForm {
   
   private List<Application> gadgets ;
   
+  private boolean isShowSelectForm = true;
+  
   public UIDashboardSelectForm() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     service.importExoGadgets();
@@ -55,7 +62,27 @@ public class UIDashboardSelectForm extends UIForm {
     gadgets = listGadgets;
   }
 
-  public List<Application> getWidgets() {
+  public List<Application> getAllGadgets() {
     return gadgets;
   }
+
+  public boolean isShowSelectForm() {
+    return isShowSelectForm;
+  }
+
+  public void setShowSelectForm(boolean isShowSelectForm) {
+    this.isShowSelectForm = isShowSelectForm;
+  }
+  
+  static public class SetShowSelectFormActionListener extends EventListener<UIDashboardPortlet> {
+    public void execute(Event<UIDashboardPortlet> event) throws Exception {
+      UIDashboardPortlet uiPortlet = event.getSource();
+      UIDashboardSelectForm uiForm = uiPortlet.getChild(UIDashboardSelectForm.class);
+      PortletRequestContext pcontext = (PortletRequestContext) event.getRequestContext();
+      boolean isShow = Boolean.parseBoolean(pcontext.getRequestParameter("isShow"));
+
+      uiForm.setShowSelectForm(isShow);
+    }
+  }
+  
 }

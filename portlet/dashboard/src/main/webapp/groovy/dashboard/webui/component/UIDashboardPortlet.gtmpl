@@ -1,5 +1,9 @@
 <%
   import org.exoplatform.web.application.JavascriptManager;
+  import javax.portlet.PortletMode ;
+  import org.exoplatform.dashboard.webui.component.UIDashboardContainer;
+  import org.exoplatform.dashboard.webui.component.UIDashboardEditForm;
+  import org.exoplatform.dashboard.webui.component.UIDashboardSelectForm;
   
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -8,6 +12,18 @@
 %>
 
 <div id="$uicomponent.id" class="UIDashboardPortlet">
-	<% uicomponent.renderChildren(); %>
-	<div style="clear:left; display:none;"><span></span></div>
+			<%if( _ctx.getRequestContext().getApplicationMode() == PortletMode.VIEW ) {
+					uicomponent.getChild(UIDashboardSelectForm.class).setRendered(true);
+					uicomponent.getChild(UIDashboardContainer.class).setRendered(true);
+					uicomponent.getChild(UIDashboardEditForm.class).setRendered(false);
+			 %>
+					<div style="clear:left; display:none;"><span></span></div>
+			<% } else {
+					uicomponent.getChild(UIDashboardSelectForm.class).setRendered(false);
+					uicomponent.getChild(UIDashboardContainer.class).setRendered(false);
+					uicomponent.getChild(UIDashboardEditForm.class).setRendered(true);
+			 }
+			 uicomponent.renderChildren();
+			 %>
+			 
 </div>

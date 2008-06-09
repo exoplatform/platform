@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.webui.application.UIGadget;
-import org.exoplatform.portal.webui.application.UIGadgetLifecycle;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -37,12 +36,6 @@ import org.exoplatform.webui.form.UIForm;
   @ComponentConfig(
       template = "app:/groovy/dashboard/webui/component/UIDashboardContainer.gtmpl",
       lifecycle = UIFormLifecycle.class
-  ),
-  @ComponentConfig(
-      type = UIGadget.class ,
-      id="UIGadget",
-      lifecycle = UIGadgetLifecycle.class,
-      template = "system:/groovy/portal/webui/application/UIGadget.gtmpl"
   )
 })
 public class UIDashboardContainer extends UIForm {
@@ -67,10 +60,6 @@ public class UIDashboardContainer extends UIForm {
   }
   
   public UIGadget getUIGadget(String gadgetId) throws Exception{
-    if(columns==null) {
-      columns = new ArrayList<List<UIGadget>>();
-      columns.add(new ArrayList<UIGadget>());
-    }
     for(int iCol=0; iCol<columns.size(); iCol++)
       for(int iRow=0; iRow<columns.get(iCol).size(); iRow++)
          if(gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId()))
@@ -114,6 +103,7 @@ public class UIDashboardContainer extends UIForm {
         }
     if(srcCol<0 || srcRow<0 || (srcCol==col && srcRow==row)) return;
     columns.get(srcCol).remove(srcRow);
+    if(row>columns.get(col).size()) row = columns.get(col).size();
     addUIGadget(gadget, col, row);
   }
   
@@ -126,20 +116,12 @@ public class UIDashboardContainer extends UIForm {
   }
   
   public List<UIGadget> getColumn(int col) throws Exception{
-    if(columns==null) {
-      columns = new ArrayList<List<UIGadget>>();
-      columns.add(new ArrayList<UIGadget>());
-    }
     if(col<0 || col>columns.size()) return null;
     return columns.get(col);
   }
     
   public boolean hasUIGadget() throws Exception{
     boolean flag = false;
-    if(columns==null) {
-      columns = new ArrayList<List<UIGadget>>();
-      columns.add(new ArrayList<UIGadget>());
-    }
     for(int iCol=0; iCol<columns.size(); iCol++)
       if(!columns.get(iCol).isEmpty()){
         flag = true;
