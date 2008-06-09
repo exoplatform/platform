@@ -16,7 +16,8 @@
 
 .UIWindow {
   width: 99% ; height: auto; /*Fix bug for IE6*/
-  margin: 5px auto;
+  margin: auto;
+	padding: 5px 0px;
 }
 
 .UIPageBody .UIWindow .UIApplication {

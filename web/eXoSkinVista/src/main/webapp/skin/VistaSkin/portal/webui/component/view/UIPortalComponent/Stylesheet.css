@@ -251,7 +251,7 @@
 }
 
 .UIPage .UIRowContainer {
-  margin: 6px 0px 6px 3px;
+  padding: 6px 0px 6px 3px;
 }
 
 .UIPage .EditPageIcon {
