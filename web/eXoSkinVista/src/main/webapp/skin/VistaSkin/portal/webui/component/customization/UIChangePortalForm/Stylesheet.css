@@ -6,6 +6,9 @@
   margin: auto;
 }
 
+.UIChagnePortalForm .UITabPane .UITabContentContainer .UITabContent {
+	padding: 15px 0px;
+}
 
 .UIChagnePortalForm .MiddleFormTitle {
 	background: url('background/MiddleFormTitle1x29.png') repeat-x;
@@ -28,8 +31,4 @@
 
 .UIChagnePortalForm .UITabPane .UITabContentContainer {
 	border: 1px solid #D9D9D9;
-}
-
-.UIChagnePortalForm .UITabPane .UITabContent {
-	padding: 15px 10px;
 }

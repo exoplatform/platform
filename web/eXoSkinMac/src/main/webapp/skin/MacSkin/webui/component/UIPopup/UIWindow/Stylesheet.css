@@ -40,16 +40,6 @@
 	margin: auto;
 }
 
-.UIApplicationRegistryPortlet .UIFormGrid {
-	width: 100%;
-	margin: 0px;
-}
-
-.UIApplicationRegistryPortlet .UIFormGrid .UIFormGrid{
-	width: auto;
-	margin: auto;
-}
-
 .UIPageBody .Empty {
   width: 500px;
   margin: 30px auto 30px auto;
