@@ -44,8 +44,20 @@
 	width: 100%;
 }
 
+.UIApplicationRegistryPortlet #UICategoryForm .UIFormGrid .UIFormGrid {
+	width: auto;
+}
+
 .ApplicationRegistryWorkingArea .UIPermissionForm .UIFormGrid {
 	width: 100%;
+}
+
+.UIApplicationRegistryPortlet .UIPermissionForm .UIFormGrid {
+	width: 100%;
+}
+
+.UIApplicationRegistryPortlet .UIPermissionForm .UIFormGrid .UIFormGrid {
+	width: auto;
 }
 
 /*################################Application Registry Control################################*/
