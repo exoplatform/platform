@@ -24,7 +24,6 @@ var gadgets = gadgets || {};
 
 //do not load twice this library
 if (!gadgets.Gadget) {
-alert("what") ;
 gadgets.error = {};
 gadgets.error.SUBCLASS_RESPONSIBILITY = 'subclass responsibility';
 gadgets.error.TO_BE_DONE = 'to be done';
@@ -593,7 +592,7 @@ gadgets.IfrGadget.prototype.handleOpenUserPrefsDialog = function() {
       gadget.buildUserPrefsDialog(userPrefsDialogContent);
       gadget.showUserPrefsDialog();
     };
-
+	
     var script = document.createElement('script');
     script.src = 'http://gmodules.com/ig/gadgetsettings?url=' + this.specUrl +
         '&mid=' + this.id + '&output=js' + this.getUserPrefsParams();

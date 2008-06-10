@@ -130,8 +130,12 @@ eXo.gadget.UIGadget = {
 		uiGadget.style.border = "none";
 	},
 
-	editGadget : function(selectedElement) {
-		alert("edit");
+	editGadget : function(id) {
+		var DOMUtil = eXo.core.DOMUtil ;
+		var uiapp = document.getElementById(id) ;
+		var id = eXo.core.DOMUtil.findFirstDescendantByClass(uiapp,"iframe","gadgets-gadget") ;
+		var tempId = id.id.split('_')[2] ;
+		gadgets.container.getGadget(tempId).handleOpenUserPrefsDialog();
 	},
 	
 	minimizeGadget: function(selectedElement){
