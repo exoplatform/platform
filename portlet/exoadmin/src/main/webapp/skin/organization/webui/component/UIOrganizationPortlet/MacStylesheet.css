@@ -125,6 +125,7 @@
 
 .UIOrganizationPortlet .UIUserManagement .HorizontalLayout .UIFormInputSet {
 	height: 270px;
+	padding-top: 10px;
 }
 
 .UIOrganizationPortlet .UIUserManagement .UISearch .UIForm {

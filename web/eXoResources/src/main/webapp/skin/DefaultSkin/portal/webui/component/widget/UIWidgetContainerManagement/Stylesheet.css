@@ -158,3 +158,7 @@
 	 */
 	*word-wrap: break-word;
 }
+
+.UIWidgetContainerManagement .PopupContent .UIForm .HorizontalLayout {
+	padding-top: 10px;
+}
