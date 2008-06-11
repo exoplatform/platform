@@ -40,7 +40,6 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalManagement;
 import org.exoplatform.portal.webui.portal.UIPortalSelector;
 import org.exoplatform.portal.webui.portal.UISkinSelector;
-import org.exoplatform.portal.webui.portal.UIPortalActionListener.LogoutActionListener;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -77,26 +76,20 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIExoStart.LanguageSettingsActionListener.class),
         @EventConfig(listeners = UIExoStart.SkinSettingsActionListener.class),
         @EventConfig(listeners = UIExoStart.ChangePortalActionListener.class),
-        @EventConfig(listeners = UIExoStart.AccountSettingsActionListener.class),
-        @EventConfig(listeners = LogoutActionListener.class)
+        @EventConfig(listeners = UIExoStart.AccountSettingsActionListener.class)
     }
 )
 public class UIExoStart extends UIComponent {
-
   private List<List<MenuItemContainer>> menus = new ArrayList<List<MenuItemContainer>>(4);
-  private boolean logged ;
 
   public UIExoStart(InitParams initParams) throws Exception {
     PortalRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-    logged = context.getAccessPath() == PortalRequestContext.PRIVATE_ACCESS ;
-    List<MenuItemContainer> menu  = null ;
-    if(logged) {
-      menu = initParams.getParam("UIExoStartPersonnalizationMenu").getMapGroovyObject(context); 
+    if(context.getRemoteUser() != null) {
+      List<MenuItemContainer> menu = initParams.getParam("UIExoStartPersonnalizationMenu")
+                                               .getMapGroovyObject(context); 
       menus.add(menu) ;     
     }
   }
-
-  public boolean isLogged() { return logged ; }
 
   public List<List<MenuItemContainer>>  getMenus() {  return menus ; }
 

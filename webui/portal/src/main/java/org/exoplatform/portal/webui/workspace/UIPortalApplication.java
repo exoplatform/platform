@@ -60,14 +60,14 @@ import org.exoplatform.webui.event.Event;
 @ComponentConfigs({
   @ComponentConfig (
     lifecycle = UIPortalApplicationLifecycle.class,
-    template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl",
-    initParams = @ParamConfig(name = "public.showControlWorkspace", value = "true" )
+    template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
+//    initParams = @ParamConfig(name = "public.showControlWorkspace", value = "true" )
   ),
   @ComponentConfig (
     id = "office" ,
     lifecycle = UIPortalApplicationLifecycle.class,
-    template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl",
-    initParams = @ParamConfig( name = "public.showControlWorkspace", value = "false" )    
+    template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
+//    initParams = @ParamConfig( name = "public.showControlWorkspace", value = "false" )    
   )
 })
 public class UIPortalApplication extends UIApplication {
@@ -99,19 +99,25 @@ public class UIPortalApplication extends UIApplication {
    * @throws Exception
    */
   @SuppressWarnings("hiding")
-  public UIPortalApplication(InitParams initParams) throws Exception {
+  public UIPortalApplication() throws Exception {
     log = ExoLogger.getLogger("portal:UIPortalApplication"); 
     PortalRequestContext  context = PortalRequestContext.getCurrentInstance() ;
     context.setUIApplication(this);
     userPortalConfig_ = (UserPortalConfig)context.getAttribute(UserPortalConfig.class);
     if(userPortalConfig_ == null) throw new Exception("Can't load user portal config");
-    if(context.getAccessPath() == PortalRequestContext.PUBLIC_ACCESS) {
-      if(log.isDebugEnabled()) log.debug("Build a public portal");
-      initPublicPortal(initParams) ;
-    } else {
-      if(log.isDebugEnabled()) log.debug("Build a private portal");      
-      initPrivatePortal(context.getRemoteUser()) ;
-    }
+    UserACL acl = getApplicationComponent(UserACL.class);
+    String test = context.getRemoteUser();
+    if(acl.hasAccessControlWorkspacePermission(test))
+      addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
+    addWorkingWorkspace() ;
+
+//    if(context.getAccessPath() == PortalRequestContext.PUBLIC_ACCESS) {
+//      if(log.isDebugEnabled()) log.debug("Build a public portal");
+//      initPublicPortal(initParams) ;
+//    } else {
+//      if(log.isDebugEnabled()) log.debug("Build a private portal");      
+//      initPrivatePortal(context.getRemoteUser()) ;
+//    }
     
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
     if(currentSkin != null && currentSkin.trim().length() > 0) skin_ = currentSkin;
