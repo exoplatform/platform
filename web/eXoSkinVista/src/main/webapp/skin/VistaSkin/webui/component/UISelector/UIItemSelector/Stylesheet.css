@@ -469,8 +469,11 @@
 .UIItemSelector .LeftColumnStyle .ItemList .Item .ItemTitle {
   height: 24px; line-height: 23px; 
   background: url('background/SelectedItem.png') repeat-x left -24px;
-  color: #526791;
+  color: #526791 ;
   padding-left: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 138px;
 }
 
 /*###########################- Item Over -############################*/
@@ -498,6 +501,9 @@
   background: url('background/SelectedItem.png') repeat-x left -96px ;
   color: #059ce2;
   padding-left: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 138px;
 }
 
 /*##########################- Item Selected -#########################*/
@@ -524,6 +530,9 @@
   background: url('background/SelectedItem.png') repeat-x left -168px;
   color: black;
   padding-left: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 138px;
 }
 
 /*###########################- End RightItemListStyle -#########################*/

@@ -435,6 +435,9 @@
 .UIItemSelector .LeftColumnStyle .ItemList .Item .ItemTitle {
   height: 26px; line-height: 24px; 
   padding-left: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 95%;
 }
 
 /*###########################- Over Item (When mouse over on this item) -############################*/
@@ -460,6 +463,9 @@
   height: 26px; line-height: 24px;
   color: #f67a02;
   padding-left: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 95%;
 }
 
 /*##########################- Selected Item  (When Item is selected)-#########################*/
@@ -485,6 +491,9 @@
   height: 26px; line-height: 24px;
   color: #0575CA; 
   padding-left: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 95%;
 }
 
 /*###########################- End LeftColumnItemList -#########################*/
