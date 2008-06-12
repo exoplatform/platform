@@ -12,7 +12,6 @@
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .UIDropDownControl .UIDropDownTitle {
-	margin-bottom: 5px;
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemList .Item {
@@ -42,6 +41,7 @@
 	background: white;
 	height: 230px;
 	border: 1px solid #b7b7b7;
+	margin-top: 5px;
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList .ItemDetailTitle {
