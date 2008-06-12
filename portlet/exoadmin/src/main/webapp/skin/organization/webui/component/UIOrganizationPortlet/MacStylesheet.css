@@ -210,10 +210,6 @@
   font-weight: bold;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle .TitleBar {
- 	font-weight:600;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .TitleBar .Title {
 	color:#1c1c1c;
 	font-weight:bold;
