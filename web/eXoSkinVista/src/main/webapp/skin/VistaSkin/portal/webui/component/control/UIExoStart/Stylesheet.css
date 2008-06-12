@@ -226,13 +226,13 @@
 }
 
 .UIExoStart .StartMenuContainer .UpNavigatorIcon {
-	background: url('icon/16x16/UpNaviArrow.gif') no-repeat center ;
+	background: url('icons/16x16/UpNaviArrow.gif') no-repeat center ;
 	height: 12px;
 	width: 100%;
 }
 
 .UIExoStart .StartMenuContainer .DownNavigatorIcon {
-	background: url('icon/16x16//DownNaviArrow.gif') no-repeat center ;
+	background: url('icons/16x16//DownNaviArrow.gif') no-repeat center ;
 	height: 12px;
 	width: 100%;
 }
