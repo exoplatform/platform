@@ -7,7 +7,7 @@
     <name>content</name>		
     <factory-id>Desktop</factory-id>
 	  <access-permissions>Everyone</access-permissions>
-	  <edit-permission>*:/portal/administrators</edit-permission>
+	  <edit-permission>*:/platform/administrators</edit-permission>
     <show-max-window>true</show-max-window>
     
     <application>
@@ -36,8 +36,8 @@
 		<owner-id>@owner@</owner-id>  	
     <name>desktop</name>		
     <factory-id>Desktop</factory-id>
-	  <access-permissions>*:/guest</access-permissions>
-	  <edit-permission>owner:/portal/admin</edit-permission>
+	  <access-permissions>*:/platform/guests</access-permissions>
+	  <edit-permission>owner:/platform/administrators</edit-permission>
     <show-max-window>true</show-max-window>
 
     <application>
