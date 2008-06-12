@@ -1,22 +1,23 @@
 <div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="DashboardContainer" id="DashboardContainer">
-		<div class="UIColumns">
+		<div class="UIColumns" style="width: 99%;" >
 		
 		<%
 			int columnsSize=uicomponent.getColumns().size();
-			float colWidth = (96-columnsSize)/columnsSize;
-			for(int iCol=0; iCol<columnsSize; iCol++){ 
+			for(int iCol=0; iCol<4; iCol++){ 
+				if(iCol < columnsSize){
 		%>
-				<div class="UIColumn" id="UIColumn-<%=iCol%>" style="width:<%=colWidth+"%"%>;">
-			
-				<% for(int iRow=0; iRow<uicomponent.getColumn(iCol).size(); iRow++ ){
-							uicomponent.renderUIGadget(iCol,iRow);
-					 }
+				<div class="UIColumn" id="UIColumn-<%=iCol%>" >
+				<%for(int iRow=0; iRow<uicomponent.getColumn(iCol).size(); iRow++ ){
+									uicomponent.renderUIGadget(iCol,iRow);
+					}
+				} else {
 				%>
-			
+				<div class="UIColumn" id="UIColumn-<%=iCol%>" style="display: none;" >
+				<% } %>
 				</div>
 		<% } %>
-			<div style="clear:left; display:none;"><span></span></div>
+			<div style="clear:left;"><span></span></div>
 		</div>
 	</div>
 </div>

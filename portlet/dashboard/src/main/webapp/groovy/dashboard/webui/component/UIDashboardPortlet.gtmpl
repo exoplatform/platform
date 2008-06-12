@@ -4,26 +4,30 @@
   import org.exoplatform.dashboard.webui.component.UIDashboardContainer;
   import org.exoplatform.dashboard.webui.component.UIDashboardEditForm;
   import org.exoplatform.dashboard.webui.component.UIDashboardSelectForm;
+  import org.exoplatform.webui.application.portlet.PortletRequestContext;
   
   def rcontext = _ctx.getRequestContext() ;
+  def pcontext = (PortletRequestContext) rcontext;
+  def windowId = pcontext.getWindowId();
+  
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   jsmanager.importJavascript("eXo.webui.UIDashboard");
-  jsmanager.addOnLoadJavascript("eXo.webui.UIDashboard.onLoad()");
+  jsmanager.addOnLoadJavascript("eXo.webui.UIDashboard.onLoad(" + windowId + ")");
+  def selectForm = uicomponent.getChild(UIDashboardSelectForm.class);
+  def popupMsgs = uicomponent.getUIPopupMessages();
 %>
 
 <div id="$uicomponent.id" class="UIDashboardPortlet">
-			<%if( _ctx.getRequestContext().getApplicationMode() == PortletMode.VIEW ) {
-					uicomponent.getChild(UIDashboardSelectForm.class).setRendered(true);
-					uicomponent.getChild(UIDashboardContainer.class).setRendered(true);
-					uicomponent.getChild(UIDashboardEditForm.class).setRendered(false);
+			<% if(rcontext.getApplicationMode() == PortletMode.VIEW ) {
+					uicomponent.renderChild(UIDashboardSelectForm.class);
+			%>
+					<div class="UIDashboardSideBar <%= selectForm.isShowSelectForm()? "CollapseSideBar" : "ExpandSideBar"; %>" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"><span></span></div> 
+			<%
+					uicomponent.renderChild(UIDashboardContainer.class);
+			  } else {
+					uicomponent.renderChild(UIDashboardEditForm.class);
+			  }
 			 %>
-					<div style="clear:left; display:none;"><span></span></div>
-			<% } else {
-					uicomponent.getChild(UIDashboardSelectForm.class).setRendered(false);
-					uicomponent.getChild(UIDashboardContainer.class).setRendered(false);
-					uicomponent.getChild(UIDashboardEditForm.class).setRendered(true);
-			 }
-			 uicomponent.renderChildren();
-			 %>
-			 
+			<div style="clear:left;"><span></span></div>
+			<% if(popupMsgs != null) popupMsgs.processRender(rcontext); %>
 </div>

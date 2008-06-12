@@ -1,60 +1,77 @@
 .UIDashboardPortlet {
-	
+	height: 100%;
+	position: relative;
 }
 
+.UIDashboardPortlet .UIDashboardSideBar{
+	border: 1px solid red;
+	float: left;
+	height: 100%;
+	cursor: pointer;
+	width: 6px;
+	margin: 0px 2px;
+}
 
 /*----------------------UIGadgetsSelectorForm-------------------*/
 .UIDashboardSelectForm {
 	float: left;
+	height: 100%;
+	width: 198px;
 }
 
 .UIDashboardSelectForm .UIDashboardItemContainer{
 	float: left;
-	width: 198px;
+	width: 100%;
+}
+
+.UIDashboardSelectForm .CategoryTitleBarL {
+	margin: 3px 0px 3px 2px;
+	border: 1px solid gray;
+	background: aqua;
+	line-height: 18px;
+	padding-left: 5px;
 }
 
 .UIDashboardSelectForm .UIGadget {
-	margin: 3px 0px 3px 2px;
+	margin: 3px 10px 3px 22px;
 	border: 1px solid gray;
 }
 
-.UIDashboardSelectForm .UIDashboardSlideBar{
-	border: 1px solid red;
-	float: left;
-	height: 400px;
-	margin: 0px 2px;
-	cursor: pointer;
-}
 
 /*----------------------UIGadgetsContainer-------------------*/
 .UIDashboardContainer {
-	margin-left: 3px;
-	border: 1px solid red;
+	height: 100%;
 }
 
-.DashboardContainer {
+.UIDashboardContainer .DashboardContainer {
 	overflow: auto;
+	height: 100%;
 }
 
 .DashboardContainer .UIColumns {
-	height: 400px;
 }
 
-.UIColumn {
+.DashboardContainer .UIColumn {
 	float: left;
-	padding: 10px 10px 0px 10px;
+	padding: 10px 0px 0px 0px;
 	border: 1px solid green;
+	text-align: center;
+	width: 320px;
 }
 
 .UIDashboardContainer .UIGadget {
-	margin: 0px 0px 10px 0px;
+	margin: 0px 5px 10px 5px;
+}
+.UIDashboardContainer .UIGadget .GadgetMenuBar{
+	text-align:left;
 }
 
 .UIDashboardContainer .UITarget {
 	border: 1px dotted red;
-	margin: 0px 0px 10px 0px;
+	margin: 0px 5px 10px 5px;
 }
 
 .UIDashboardPortlet .Dragging {
 	margin: 3px 0px 0px 3px;
 }
+

@@ -17,15 +17,17 @@
 package org.exoplatform.dashboard.webui.component;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -45,25 +47,61 @@ import org.exoplatform.webui.form.UIForm;
 })
 public class UIDashboardSelectForm extends UIForm {
   
-  private List<Application> gadgets ;
+  private List<ApplicationCategory> categories;
+  
+  private Hashtable<ApplicationCategory, List<Application>> gadgets;
   
   private boolean isShowSelectForm = true;
   
   public UIDashboardSelectForm() throws Exception {
+    
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     service.importExoGadgets();
-    List<Application> applications = service.getAllApplications();
-    List<Application> listGadgets = new ArrayList<Application>();
-    for (Application app : applications) {
-      if (app.getApplicationType().equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
-        listGadgets.add(app);
+    
+    //demo
+//    List<Application> applications = service.getAllApplications();
+//    List<Application> listGadgets = new ArrayList<Application>();
+//    for (Application app : applications) {
+//      if (app.getApplicationType().equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
+//        listGadgets.add(app);
+//      }
+//    }
+//    gadgets = listGadgets;
+//    
+    String remoteUser = ((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()).getRemoteUser();
+    List<ApplicationCategory> listCategories = service.getApplicationCategories(
+            remoteUser, org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
+    
+    gadgets = new Hashtable<ApplicationCategory, List<Application>>();
+    
+    for(int i=0; i<listCategories.size(); i++){
+      ApplicationCategory cate = listCategories.get(i);
+      List<Application> listGadgets = service.getApplications(cate, org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
+      if(listGadgets == null || listGadgets.size() == 0) {
+        listCategories.remove(i);
+        i--;
+      } else {
+        gadgets.put(cate, listGadgets);
       }
     }
-    gadgets = listGadgets;
+    
+    categories = listCategories;
+    
   }
 
-  public List<Application> getAllGadgets() {
-    return gadgets;
+  public List<ApplicationCategory> getCategories() throws Exception {
+    return categories;
+  }
+
+  public void setCategories(List<ApplicationCategory> categories) throws Exception {
+    this.categories = categories;
+  }
+
+  public List<Application> getGadgetsOfCategory(ApplicationCategory appCategory) throws Exception {
+    List<Application> listGadgets = gadgets.get(appCategory);
+    if(listGadgets == null || listGadgets.size() == 0)
+      return null;
+    return listGadgets;
   }
 
   public boolean isShowSelectForm() {
@@ -73,16 +111,5 @@ public class UIDashboardSelectForm extends UIForm {
   public void setShowSelectForm(boolean isShowSelectForm) {
     this.isShowSelectForm = isShowSelectForm;
   }
-  
-  static public class SetShowSelectFormActionListener extends EventListener<UIDashboardPortlet> {
-    public void execute(Event<UIDashboardPortlet> event) throws Exception {
-      UIDashboardPortlet uiPortlet = event.getSource();
-      UIDashboardSelectForm uiForm = uiPortlet.getChild(UIDashboardSelectForm.class);
-      PortletRequestContext pcontext = (PortletRequestContext) event.getRequestContext();
-      boolean isShow = Boolean.parseBoolean(pcontext.getRequestParameter("isShow"));
-
-      uiForm.setShowSelectForm(isShow);
-    }
-  }
-  
+ 
 }

@@ -132,10 +132,26 @@ public class UIDashboardContainer extends UIForm {
   
   public UIDashboardContainer setColumns(int num) throws Exception{
     if(num<1 || num>4) return null;
-    columns = new ArrayList<List<UIGadget>>();
-    for(int i=0; i<num; i++){
-      columns.add(new ArrayList<UIGadget>());
+    if(columns == null || columns.size() == 0){
+      columns = new ArrayList<List<UIGadget>>();
+      for(int i=0; i<num; i++){
+        columns.add(new ArrayList<UIGadget>());
+      }
+      return this;
     }
+
+    int colSize = columns.size();
+    if(num < colSize) 
+      do {
+        columns.remove(colSize-1);
+        colSize--;
+      } while (num < colSize);
+    else if(num > colSize)
+      do {
+        columns.add(new ArrayList<UIGadget>());
+        colSize++;
+      } while (num > colSize);
+    
     return this;
   }
   

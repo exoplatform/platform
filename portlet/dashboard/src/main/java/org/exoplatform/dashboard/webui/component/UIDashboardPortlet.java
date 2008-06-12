@@ -16,11 +16,14 @@
  */
 package org.exoplatform.dashboard.webui.component;
 
+import javax.portlet.PortletPreferences;
+
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -43,16 +46,42 @@ import org.exoplatform.webui.event.EventListener;
       events = {
         @EventConfig(listeners = UIDashboardPortlet.MoveGadgetActionListener.class),
         @EventConfig(listeners = UIDashboardPortlet.AddNewGadgetActionListener.class),
-        @EventConfig(listeners = UIDashboardSelectForm.SetShowSelectFormActionListener.class),
+        @EventConfig(listeners = UIDashboardPortlet.SetShowSelectFormActionListener.class),
         @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class)
       }
   )
 })
 public class UIDashboardPortlet extends UIPortletApplication {
-  public UIDashboardPortlet() throws Exception { 
+  public UIDashboardPortlet() throws Exception {
+    PortletRequestContext context = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
+    PortletPreferences pref = context.getRequest().getPreferences();
     addChild(UIDashboardSelectForm.class, null, null);
-    addChild(UIDashboardContainer.class, null, null).setColumns(3);
     addChild(UIDashboardEditForm.class, null, null);
+    UIDashboardContainer uiDashboardContainer = addChild(UIDashboardContainer.class, null, null).
+            setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
+    
+    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
+    Application application = service.getApplication("eXoGadgets/Todo");
+    if(application == null) return;
+    StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
+    windowId.append("#").append(context.getRemoteUser()) ;
+    windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
+    UIGadget uiGadget = createUIComponent(context, UIGadget.class, null, null);
+    windowId.append(uiGadget.hashCode());
+    uiGadget.setApplicationInstanceId(windowId.toString());
+    uiDashboardContainer.addUIGadget(uiGadget, 0, 0) ;
+  }
+  
+  
+  static public class SetShowSelectFormActionListener extends EventListener<UIDashboardPortlet> {
+    public void execute(Event<UIDashboardPortlet> event) throws Exception {
+      UIDashboardPortlet uiPortlet = event.getSource();
+      UIDashboardSelectForm uiForm = uiPortlet.getChild(UIDashboardSelectForm.class);
+      PortletRequestContext pcontext = (PortletRequestContext) event.getRequestContext();
+      boolean isShow = Boolean.parseBoolean(pcontext.getRequestParameter("isShow"));
+
+      uiForm.setShowSelectForm(isShow);
+    }
   }
   
   static public class AddNewGadgetActionListener extends EventListener<UIDashboardPortlet> {

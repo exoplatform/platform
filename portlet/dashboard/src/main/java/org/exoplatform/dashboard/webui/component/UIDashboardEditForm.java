@@ -31,6 +31,7 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 
 /**
  * Created by The eXo Platform SAS
@@ -62,7 +63,12 @@ public class UIDashboardEditForm extends UIForm {
 
       UIDashboardEditForm uiForm = event.getSource();
       UIFormStringInput uiInput = uiForm.getUIStringInput(TOTAL_COLUMNS);
-      Object[] args = { TOTAL_COLUMNS, String.valueOf(1), String.valueOf(4)};
+      
+      String label = uiForm.getLabel(uiInput.getName());
+      if(label == null) label = uiInput.getName();
+      label = label.trim();
+      if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
+      Object[] args = { label, String.valueOf(1), String.valueOf(4)};
       
       PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
       PortletPreferences pref = pcontext.getRequest().getPreferences();

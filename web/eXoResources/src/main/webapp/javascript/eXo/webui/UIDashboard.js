@@ -20,7 +20,6 @@ eXo.webui.UIDashboard = {
 			uiDashboard.portletWindow = uiWindow;
 			var dashboardContainer = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
 			var portletApp = DOMUtil.findAncestorByClass(dashboardContainer, "UIApplication");
-			uiDashboard.compId = portletApp.parentNode.id;
 			
 			var ggwidth = dragObj.offsetWidth - parseInt(DOMUtil.getStyle(dragObj,"borderLeftWidth"))
 											- parseInt(DOMUtil.getStyle(dragObj,"borderRightWidth"));
@@ -98,7 +97,7 @@ eXo.webui.UIDashboard = {
 			var uiWindow = eXo.webui.UIDashboard.portletWindow;
 
 			if(uiWindow == null) return;
-
+			
 			var dashboardCont = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
 			var cols = null;
 
@@ -143,7 +142,7 @@ eXo.webui.UIDashboard = {
 
 					//find position and add uiTarget into column				
 					for(var i=0; i<gadgets.length; i++){
-						var oy = eXo.webui.UIDashboardUtil.findPosY(gadgets[i]) + gadgets[i].offsetHeight/2;
+						var oy = eXo.webui.UIDashboardUtil.findPosY(gadgets[i]);
 						
 						if(ey<=oy){
 							uiCol.insertBefore(uiTarget, gadgets[i]);
@@ -205,9 +204,10 @@ eXo.webui.UIDashboard = {
 				//if drag object is not gadget module, create an module
 				var col = uiDashboardUtil.findColIndexInDashboard(uiTarget);
 				var row = uiDashboardUtil.findRowIndexInDashboard(uiTarget);
+				var compId = uiWindow.id.substring(uiWindow.id.lastIndexOf('-')+1, uiWindow.id.length);
 				
 				if(eXo.core.DOMUtil.hasClass(dragObj, "SelectItem")){
-					var url = uiDashboardUtil.createRequest(uiDashboard.compId, 'AddNewGadget', col, row, dragObj.id);
+					var url = uiDashboardUtil.createRequest(compId, 'AddNewGadget', col, row, dragObj.id);
 					ajaxGet(url);
 				} else {
 					//in case: drop to old position
@@ -216,7 +216,7 @@ eXo.webui.UIDashboard = {
 					} else {					
 						uiTarget.parentNode.replaceChild(dragObj, uiTarget);
 						gadgetId = dragObj.id;
-						var url = uiDashboardUtil.createRequest(uiDashboard.compId, 'MoveGadget', col, row, gadgetId);
+						var url = uiDashboardUtil.createRequest(compId, 'MoveGadget', col, row, gadgetId);
 						ajaxAsyncGetRequest(url);
 					}
 				}
@@ -227,29 +227,38 @@ eXo.webui.UIDashboard = {
 				eXo.core.DOMUtil.removeElement(uiTarget);
 				uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UITarget");
 			}
-			uiDashboard.targetObj = uiDashboard.currCol = uiDashboard.portletWindow = uiDashboard.compId = null;
+			uiDashboard.targetObj = uiDashboard.currCol = uiDashboard.compId = uiDashboard.portletWindow = null;
 		}	
 		
 	},
 	
-	onLoad : function() {	
-		var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
-		var dashboards = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWS, "div", "UIDashboardPortlet");
+	onLoad : function(windowId) {	
+		var uiWindow = document.getElementById(windowId);
+		if(uiWindow == null) return;
 
-		if(dashboards.length<=0) return;
+		var uiDashboard = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardPortlet");
+		if(uiDashboard == null) return;
 
-		for(var i=0; i < dashboards.length; i++){
-			var uiSelectForm = eXo.core.DOMUtil.findFirstDescendantByClass(dashboards[i], "div", "UIDashboardSelectForm");
-			var uiContainer = eXo.core.DOMUtil.findFirstDescendantByClass(dashboards[i], "div", "UIDashboardContainer");
-			var gadgetControls = eXo.core.DOMUtil.findDescendantsByClass(dashboards[i], "div", "GadgetTitle");
-			for(var j=0; j<gadgetControls.length; j++) {
-				eXo.webui.UIDashboard.init(gadgetControls[j], eXo.core.DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
-			}
-			if(uiContainer!=null)
-				uiContainer.style.marginLeft = uiSelectForm.offsetWidth +"px";
+		uiDashboard.style.overflow = "hidden";
+
+		var uiContainer = eXo.core.DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
+		
+		var gadgetControls = eXo.core.DOMUtil.findDescendantsByClass(uiDashboard, "div", "GadgetTitle");
+		for(var j=0; j<gadgetControls.length; j++) {
+			eXo.webui.UIDashboard.init(gadgetControls[j], eXo.core.DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
 		}
 		
-	},	
+		if(uiContainer == null) return;
+		var dbContainer = eXo.core.DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
+		var colsContainer = eXo.core.DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
+		var columns = eXo.core.DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
+		var colsSize = 0;
+		for(var i=0; i<columns.length; i++){
+			if(columns[i].style.display != "none") colsSize++;
+		}
+		colsContainer.style.width = colsSize*320 + 20 + "px";
+	},
+	
 	createTarget : function(width, height){
 		var uiTarget = document.createElement("div");
 		uiTarget.id = "UITarget";
@@ -269,23 +278,25 @@ eXo.webui.UIDashboard = {
 		return uiTarget;
 	},
 	
-	showHideSelectForm : function(slideBar){
+	showHideSelectForm : function(sideBar){
 		var DOMUtil = eXo.core.DOMUtil;
-		var uiSelectForm = DOMUtil.findAncestorByClass(slideBar, "UIDashboardSelectForm") ;
-		var uiDashboardPortlet = DOMUtil.findAncestorByClass(uiSelectForm, "UIDashboardPortlet");
-		var portletId = DOMUtil.findAncestorByClass(uiDashboardPortlet, "UIApplication").parentNode.id;
-		
-		var uiDashboardContainer = DOMUtil.findFirstDescendantByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
-		var dashboardItemContainer = DOMUtil.findFirstDescendantByClass(uiSelectForm, "div", "UIDashboardItemContainer");
+		var uiDashboardPortlet = DOMUtil.findAncestorByClass(sideBar, "UIDashboardPortlet");
+		var uiSelectForm = DOMUtil.findFirstDescendantByClass(uiDashboardPortlet, "div", "UIDashboardSelectForm");
+		var portletId = DOMUtil.findAncestorById(uiDashboardPortlet, "PORTLET-FRAGMENT").parentNode.id;
 		
 		var url = eXo.env.server.portalBaseURL + '?portal:componentId=' + portletId +
 						'&portal:type=action&portal:isSecure=false&uicomponent=' + uiDashboardPortlet.id +
 						'&op=SetShowSelectForm&ajaxRequest=true' ;
-		if(dashboardItemContainer.style.display!="none"){
+						
+		if(DOMUtil.hasClass(sideBar, "CollapseSideBar")){
+			uiSelectForm.style.display = "none";
 			url += '&isShow=false';
+			DOMUtil.replaceClass(sideBar, "CollapseSideBar", "ExpandSideBar");
 		} else {
+			uiSelectForm.style.display = "block";
 			url += '&isShow=true';
+			DOMUtil.replaceClass(sideBar, "ExpandSideBar", "CollapseSideBar");
 		}
-		ajaxGet(url);
+		ajaxAsyncGetRequest(url, false);
 	}
 }
