@@ -14,4 +14,36 @@
   <build>
     <finalName>eXoResources</finalName>
   </build>
+ <reporting>  
+    <plugins>  
+       <!-- ... -->  
+       <plugin>  
+          <groupId>gr.abiss.mvn.plugins</groupId>  
+          <artifactId>maven-jstools-plugin</artifactId>  
+          <inherited>false</inherited>  
+          <configuration>  
+             <!-- the default is src/main/js -->  
+             <jsDir>src/main/webapp/javascript</jsDir>  
+             <!-- this is actually the default -->  
+             <includes>**/*.js</includes>  
+             <!-- maybe you need to exclude compressed JS files -->  
+             <excludes>**/*-compressed.js</excludes>  
+             <!-- this is actually the default -->  
+             <caseSensitive>true</caseSensitive>  
+             <!-- for more configuration properties, see the goals documentation -->  
+          </configuration>  
+          <reportSets>  
+             <reportSet>  
+                <reports>  
+                   <!-- include the desired reports -->  
+                   <report>jslint</report>  
+                   <report>jsdoc</report>  
+                </reports>  
+             </reportSet>  
+          </reportSets>  
+       </plugin>  
+       <!-- ... -->  
+    </plugins>  
+ </reporting>
+
 </project>
