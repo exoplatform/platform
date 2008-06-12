@@ -60,7 +60,7 @@ abstract public class URLBuilder<T> {
   public String createAjaxURL(T targetComponent, String action, String confirm, String targetBeanId, Parameter[] params) {
     StringBuilder builder = new StringBuilder("javascript:");
     if(confirm != null && confirm.length() > 0) {
-      builder.append("if(confirm('").append(confirm).append("'))");
+      builder.append("if(confirm('").append(confirm.replaceAll("'", "\\\\'")).append("'))");
     }
     builder.append("ajaxGet('");  
     if(targetBeanId != null) {
@@ -79,7 +79,7 @@ abstract public class URLBuilder<T> {
     StringBuilder builder = new StringBuilder();
     boolean hasConfirm = confirm != null && confirm.length() > 0; 
     if(hasConfirm) {
-      builder.append("javascript:if(confirm('").append(confirm).append("'))");
+      builder.append("javascript:if(confirm('").append(confirm.replaceAll("'", "\\\\'")).append("'))");
       builder.append("window.location=\'");
     }   
     if(targetBeanId != null) {
