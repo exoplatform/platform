@@ -226,7 +226,7 @@ public class UIForm extends UIContainer  {
     String confirm = event.getConfirm() ;
     if(confirm != null && confirm.trim().length() > 0) {
       confirm = rcontext.getApplicationResourceBundle().getString(confirm) ;
-      b.append("if(confirm('").append(confirm.replaceAll("'", "\\'")).append("'))") ;
+      b.append("if(confirm('").append(confirm.replaceAll("'", "\\\\'")).append("'))") ;
     }
     b.append("eXo.webui.UIForm.submitEvent('").append(getFormId()).append("','");
     //b.append("javascript:eXo.webui.UIForm.submitEvent('").append(getId()).append("','");
