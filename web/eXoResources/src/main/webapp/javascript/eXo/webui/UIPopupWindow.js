@@ -63,6 +63,7 @@ UIPopupWindow.prototype.showMask = function(popup, isShowPopup) {
  *  . gets the highest z-index from these, if it's still at 0, set an arbitrary value of 2000
  * sets the position of the popup on the page (top and left properties)
  */
+
 UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
@@ -88,7 +89,10 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 	popup.style.visibility = "hidden" ;
 	this.superClass.show(popup) ;
  	var offsetParent = popup.offsetParent ;
- 	var scrollY = (window.scrollY)?window.scrollY:document.documentElement.scrollTop ;
+ 	var scrollY = 0;
+		if (window.pageYOffset != undefined) scrollY = window.pageYOffset;
+		else if (document.documentElement != undefined) 	scrollY = document.documentElement.scrollTop;
+		else	scrollY = document.body.scrollTop;
 	//reference
 	if(offsetParent) {
 		var middleWindow = (eXo.core.DOMUtil.hasClass(offsetParent, "UIPopupWindow") || eXo.core.DOMUtil.hasClass(offsetParent, "UIWindow"));
@@ -96,10 +100,11 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 			popup.style.top = Math.ceil((offsetParent.offsetHeight - popup.offsetHeight) / 2) + "px" ;
 		} 
 		if (middleBrowser || !middleWindow) {
-			popup.style.top = Math.ceil((eXo.core.Browser.getBrowserHeight() - popup.offsetHeight ) / 2) + "px" ;
+			popup.style.top = Math.ceil((eXo.core.Browser.getBrowserHeight() - popup.offsetHeight ) / 2) + scrollY + "px";
 		}
 		// hack for position popup alway top in IE6.
 		var checkHeight = popup.offsetHeight > 300; 
+
 		if (document.getElementById("UIDockBar") && checkHeight) {
 			popup.style.top = "6px";
 		}
