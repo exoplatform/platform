@@ -298,5 +298,26 @@ eXo.webui.UIDashboard = {
 			DOMUtil.replaceClass(sideBar, "ExpandSideBar", "CollapseSideBar");
 		}
 		ajaxAsyncGetRequest(url, false);
+	}, 
+	
+	onTabClick : function(clickElement, normalStyle, selectedType){
+		var DOMUtil = eXo.core.DOMUtil;
+		var category = DOMUtil.findAncestorByClass(clickElement, "GadgetCategory");
+		var categoryContent = DOMUtil.findFirstChildByClass(category, "div", "ItemsContainer");
+		var categoriesContainer = DOMUtil.findAncestorByClass(category, "GadgetItemsContainer");
+		var categories = DOMUtil.findChildrenByClass(categoriesContainer, "div", "GadgetCategory");
+		var gadgetTab = DOMUtil.findFirstChildByClass(category, "div", "GadgetTab");
+		
+		if(DOMUtil.hasClass(gadgetTab, normalStyle)) {
+			for(var i=0; i<categories.length; i++){
+				DOMUtil.findFirstChildByClass(categories[i], "div", "GadgetTab").className = "GadgetTab "+normalStyle;
+				DOMUtil.findFirstChildByClass(categories[i], "div", "ItemsContainer").style.display = "none";
+			}
+			DOMUtil.findFirstChildByClass(category, "div", "GadgetTab").className = "GadgetTab "+selectedType;
+			categoryContent.style.display = "block";
+		} else {
+			DOMUtil.findFirstChildByClass(category, "div", "GadgetTab").className = "GadgetTab "+normalStyle;
+			categoryContent.style.display = "none";
+		}
 	}
 }

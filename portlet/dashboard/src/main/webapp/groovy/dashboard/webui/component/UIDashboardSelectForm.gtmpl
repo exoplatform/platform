@@ -6,12 +6,17 @@
 				 if(categories != null && categories.size > 0){
 					for(category in categories){
 			%>
-							<div class="GadgetCategory">
-								<div class="CategoryTitleBarL">
-									<div class="CategoryTitleBarR">
-										<div class="CategoryTitleBarM">
-											<div class="CategoryTile">${category.getDisplayName()}</div>
-										</div>								
+							<div class="GadgetCategory" id="${category.getName()}}">
+								<div class="GadgetTab NormalTab">
+									<div class="CategoryTitleBarL">
+										<div class="CategoryTitleBarR">
+											<div class="CategoryTitleBarM">
+												<div class="CategoryContainer" onclick="eXo.webui.UIDashboard.onTabClick(this, 'NormalTab', 'SelectedTab')">
+													<div class="CategoryIcon"><span></span></div>
+													<div class="CategoryTile" title="${category.getDisplayName()}">${category.getDisplayName()}</div>
+												</div>
+											</div>								
+										</div>
 									</div>
 								</div>
 								<div class="ItemsContainer">
