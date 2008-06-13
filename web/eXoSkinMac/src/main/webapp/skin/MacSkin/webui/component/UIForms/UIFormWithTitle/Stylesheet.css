@@ -22,6 +22,10 @@
   background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png');
 }
 
+.UIFormWithTitle .HorizontalLayout {
+	border-top: none;
+}
+
 .UIFormWithTitle .HorizontalLayout .FieldContainer .FieldLabel {
   float: left; width: 120px;
   text-align: right;
