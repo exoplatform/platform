@@ -6,7 +6,7 @@
 				 if(categories != null && categories.size > 0){
 					for(category in categories){
 			%>
-							<div class="GadgetCategory" id="${category.getName()}}">
+							<div class="GadgetCategory" id="${category.getName()}">
 								<div class="GadgetTab NormalTab">
 									<div class="CategoryTitleBarL">
 										<div class="CategoryTitleBarR">

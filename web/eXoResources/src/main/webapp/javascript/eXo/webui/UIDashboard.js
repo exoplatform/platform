@@ -1,7 +1,5 @@
 eXo.webui.UIDashboard = {
 	
-	compId: null,
-		
 	portletWindow: null,
 	
 	currCol : null,

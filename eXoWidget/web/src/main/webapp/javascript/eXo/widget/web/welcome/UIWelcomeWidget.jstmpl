@@ -62,7 +62,7 @@
 							  <div class="StateMessage">Welcome !</div>
 							  <div class="LoggedUserName"><%=userName%></div>
 							</div>
-							<a class="LabelSignout" title="Sign Out" href="<%=logOutAction%>">
+							<a class="LabelSignout" title="Sign Out" onclick="eXo.portal.logout();">
 								Sign Out 
 							</a>
 						<%} else {%>
