@@ -37,7 +37,7 @@
     <name>desktop</name>		
     <factory-id>Desktop</factory-id>
 	  <access-permissions>*:/platform/guests</access-permissions>
-	  <edit-permission>owner:/platform/administrators</edit-permission>
+	  <edit-permission>*:/platform/administrators</edit-permission>
     <show-max-window>true</show-max-window>
 
     <application>
