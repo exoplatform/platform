@@ -459,6 +459,11 @@
 .UIItemSelector .LeftColumnStyle .ItemList .Item .LeftItem {
   background: url('background/SelectedItem.png') no-repeat left top;
   padding-left: 30px;
+  margin: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 84%;
+ 
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .Item .RightItem {
@@ -471,9 +476,6 @@
   background: url('background/SelectedItem.png') repeat-x left -24px;
   color: #526791 ;
   padding-left: 3px;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 138px;
 }
 
 /*###########################- Item Over -############################*/
@@ -488,6 +490,10 @@
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .LeftItem {
   background: url('background/SelectedItem.png') no-repeat left -72px;
   padding-left: 30px;
+   margin: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 84%;
 }
 
 
@@ -518,6 +524,10 @@
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .LeftItem {
   background: url('background/SelectedItem.png') no-repeat left -144px;
   padding-left: 30px;
+  margin: auto;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 84%;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .RightItem {
