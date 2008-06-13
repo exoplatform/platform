@@ -16,29 +16,19 @@
  */
 package org.exoplatform.dashboard.webui.component;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 
-/**
- * Created by The eXo Platform SAS
- * Author : Pham Dinh Tan
- *          tan.pham@exoplatform.com
- * Apr 24, 2008  
- */
+
 @ComponentConfigs({
   @ComponentConfig(
       template = "app:/groovy/dashboard/webui/component/UIDashboardSelectForm.gtmpl",
@@ -68,16 +58,16 @@ public class UIDashboardSelectForm extends UIForm {
 //    }
 //    gadgets = listGadgets;
 //    
-    String remoteUser = ((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()).getRemoteUser();
+    String remoteUser = ((WebuiRequestContext) WebuiRequestContext.getCurrentInstance()).getRemoteUser();
     List<ApplicationCategory> listCategories = service.getApplicationCategories(
             remoteUser, org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
     
     gadgets = new Hashtable<ApplicationCategory, List<Application>>();
     
-    for(int i=0; i<listCategories.size(); i++){
+    for (int i = 0; i < listCategories.size(); i++) {
       ApplicationCategory cate = listCategories.get(i);
       List<Application> listGadgets = service.getApplications(cate, org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
-      if(listGadgets == null || listGadgets.size() == 0) {
+      if (listGadgets == null || listGadgets.size() == 0) {
         listCategories.remove(i);
         i--;
       } else {
@@ -93,14 +83,15 @@ public class UIDashboardSelectForm extends UIForm {
     return categories;
   }
 
-  public void setCategories(List<ApplicationCategory> categories) throws Exception {
+  public void setCategories(final List<ApplicationCategory> categories) throws Exception {
     this.categories = categories;
   }
 
-  public List<Application> getGadgetsOfCategory(ApplicationCategory appCategory) throws Exception {
+  public List<Application> getGadgetsOfCategory(final ApplicationCategory appCategory) throws Exception {
     List<Application> listGadgets = gadgets.get(appCategory);
-    if(listGadgets == null || listGadgets.size() == 0)
+    if (listGadgets == null || listGadgets.size() == 0) {
       return null;
+    }
     return listGadgets;
   }
 
