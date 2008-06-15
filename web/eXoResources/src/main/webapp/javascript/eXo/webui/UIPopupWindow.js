@@ -82,7 +82,6 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 		currZIndex = DOMUtil.getStyle(popupWindows[i], "zIndex") ;
 		if (!isNaN(currZIndex) && currZIndex > zIndex) zIndex = currZIndex ;
 	}
-  
 	if (zIndex == 0) zIndex = 2000 ;
 	// We don't increment zIndex here because it is done in the superClass.show function
 	if(isShowMask) eXo.webui.UIPopupWindow.showMask(popup, true) ;
@@ -111,7 +110,8 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 		popup.style.left = Math.ceil((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
 	}
 	if (eXo.core.Browser.findPosY(popup) < 0) popup.style.top = scrollY + "px" ;
-  popup.style.visibility = "visible" ;
+ popup.style.visibility = "visible" ;
+ popup.scrollIntoView(true);
 } ;
 /**
  * @param {Object} evt
