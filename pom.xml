@@ -52,6 +52,25 @@
   </modules>
 
   <build>
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/java</directory>
+        <includes>
+          <include>**/*.properties</include>
+          <include>**/*.xml</include>
+          <include>**/*.jstmpl</include>
+        </includes>
+      </testResource>
+    </testResources>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
