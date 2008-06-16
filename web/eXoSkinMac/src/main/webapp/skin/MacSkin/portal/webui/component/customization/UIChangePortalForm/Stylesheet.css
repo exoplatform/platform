@@ -6,11 +6,16 @@
 	padding: 15px 0px;
 }
 
-.UIChagnePortalForm .UIGrid {
+.UIChagnePortalForm .UITabPane .TabPaneContent {
+	padding: 0px;
+}
+
+.UIChagnePortalForm #PortalSelector {
   width: 95%;
   margin: auto;
 }
 
-.UIChagnePortalForm .UITabPane .TabPaneContent {
-	padding: 0px;
+.UIChagnePortalForm .TabPaneContent .UITabContentContainer .UIPageIterator {
+	width: 95%;
+	margin: auto;
 }

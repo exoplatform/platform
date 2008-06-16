@@ -1,9 +1,14 @@
 .UIChagnePortalForm {
 }
 
-.UIChagnePortalForm .UIGrid {
+.UIChagnePortalForm #PortalSelector {
   width: 95%;
   margin: auto;
+}
+
+.UIChagnePortalForm .TabPaneContent .UITabContentContainer .UIPageIterator {
+	width: 95%;
+	margin: auto;
 }
 
 .UIChagnePortalForm .UITabPane .UITabContentContainer .UITabContent {
