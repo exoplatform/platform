@@ -202,19 +202,11 @@ public class UIPortletLifecycle extends Lifecycle {
       bcontext.put("portletTitle", portletTitle);
       try {
         renderTemplate(uicomponent.getTemplate(), bcontext);
-      } catch (Throwable ex) {
-        ex = ExceptionUtil.getRootCause(ex);
-        portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
-        log.error("Exception print in the portlet content", ex);
-      }
+      } catch (Throwable ex) {}
     }
     try {
       prcontext.getResponse().flushBuffer();
-    } catch (Throwable ex) {
-      ex = ExceptionUtil.getRootCause(ex);
-      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
-      log.error("Exception print in the portlet content", ex);
-    }
+    } catch (Throwable ex) {}
   }
 
   /**
