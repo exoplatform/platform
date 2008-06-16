@@ -209,7 +209,7 @@ public class UIPageBrowser extends UISearch {
   void reset() throws Exception {
     UIPageIterator uiPageIterator = getChild(UIPageIterator.class);
     int currentPage = uiPageIterator.getCurrentPage();
-    defaultValue(lastQuery_) ;
+    defaultValue(null) ;
     while(currentPage > uiPageIterator.getAvailablePage()) currentPage--;
     if(currentPage > 0) uiPageIterator.setCurrentPage(currentPage);
   }
