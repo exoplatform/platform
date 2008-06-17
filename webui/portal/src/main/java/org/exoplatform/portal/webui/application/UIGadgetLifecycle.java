@@ -16,9 +16,6 @@
  */
 package org.exoplatform.portal.webui.application;
 
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.web.WebAppController;
-import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.lifecycle.Lifecycle;
@@ -29,12 +26,6 @@ import org.exoplatform.webui.core.lifecycle.Lifecycle;
  * May 06, 2008   
  */
 public class UIGadgetLifecycle extends Lifecycle {
-  
-  @SuppressWarnings("unused")
-  public void processAction(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
-    
-  }
-  
   /**
    * The processRender method of the UIGadget component is implemented in its bound Lifecycle object.
    * 

@@ -1,5 +1,5 @@
 eXo.gadget.UIGadget = {
-	createGadget : function(url,id, metadata) {
+	createGadget : function(url,id, metadata, userPref) {
 		//eXo = eXo || {};
 	  window.gadgets = window.gadgets || {};
 	  eXo.gadgets = window.gadgets;
@@ -17,6 +17,7 @@ eXo.gadget.UIGadget = {
 	  var gadget = gadgets.container.createGadget({specUrl: url,height: metadata.gadgets[0].height});
     gadget.metadata = metadata.gadgets[0];
     gadgets.container.addGadget(gadget);
+    if(userPref != null) gadget.setUserPrefs(userPref) ;
 	  var gadgetBlock = document.getElementById(id);
 		gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "'> </div>";
 		gadgets.container.renderGadgets();
@@ -154,7 +155,6 @@ eXo.gadget.UIGadget = {
 		var portletFragment = DOMUtil.findAncestorById(uiGadget, "PORTLET-FRAGMENT");
 		
 		if(portletFragment != null){
-			
 			var compId = portletFragment.parentNode.id;
 			var uicomp = DOMUtil.getChildrenByTagName(portletFragment, "div")[0].className;
 			if (confirm("Are you sure you want to delete this gadget ?")) {
@@ -174,7 +174,6 @@ eXo.gadget.UIGadget = {
 					containerBlockId = uiGadgetContainer.id ;
 					isInControlWorkspace = true ;
 			}
-		
 			if (confirm("Are you sure you want to delete this gadget ?")) {
 				var params = [
 			  	{name: "objectId", value : gadgetId}
@@ -203,7 +202,7 @@ eXo.gadget.UIGadget = {
 	  	{name: "posY", value : object.offsetTop},
 	  	{name: "zIndex", value : object.style.zIndex}
 	  ] ;
-
+		
   	ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveGadgetProperties", true, params), false) ;
 
 	} ,

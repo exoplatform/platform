@@ -6,7 +6,7 @@
 	</gadget>
 	<gadget>
 		<name>Horoscope</name>
-		<url>http://localhost:8080/eXoGadgets/gadgets/horoscope.xml</url>
+		<url>http://www.google.com/ig/modules/horoscope.xml</url>
 	</gadget>
 	<gadget>
 		<name>Calculator</name>

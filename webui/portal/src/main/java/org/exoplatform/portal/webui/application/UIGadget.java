@@ -16,23 +16,26 @@
  */
 package org.exoplatform.portal.webui.application;
 
-import java.util.List;
-
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.web.WebAppController;
-import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 /**
  * Created by The eXo Platform SAS
  * Author : dang.tung
  *          tungcnw@gmail.com
  * May 06, 2008   
  */
-@ComponentConfig(lifecycle = UIGadgetLifecycle.class,
-    template = "system:/groovy/portal/webui/application/UIGadget.gtmpl")
+@ComponentConfig(
+    //lifecycle = Lifecycle.class,
+    template = "system:/groovy/portal/webui/application/UIGadget.gtmpl",
+    events = @EventConfig(listeners = UIGadget.SaveUserPrefActionListener.class)
+)
 public class UIGadget extends UIComponent {
   
   private String applicationInstanceId_ ;
@@ -42,7 +45,7 @@ public class UIGadget extends UIComponent {
   private String applicationName_ ;
   private String applicationInstanceUniqueId_ ;
   private String applicationId_ ;
-  
+  private String userPref_ ;
   private Properties properties;
   
   public UIGadget() throws Exception {
@@ -97,5 +100,15 @@ public class UIGadget extends UIComponent {
   public String getMetadata() {
     GadgetApplication application = getApplication();
     return application.getMetadata();
+  }
+  
+  public String getUserPref() { return userPref_ ;}
+  public void setUserPref(String userPref) {userPref_ = userPref ;}
+  static public class SaveUserPrefActionListener extends EventListener<UIGadget> {
+    public void execute(Event<UIGadget> event) throws Exception {
+     UIGadget uiGadget = event.getSource() ;
+     String userPref = event.getRequestContext().getRequestParameter("userPref") ;
+     uiGadget.setUserPref(userPref) ;
+    }
   }
 }

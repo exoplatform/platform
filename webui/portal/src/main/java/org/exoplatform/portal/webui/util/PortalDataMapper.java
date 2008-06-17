@@ -83,6 +83,7 @@ public class PortalDataMapper {
     model.setApplicationType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
     model.setInstanceId(uiGadget.getApplicationInstanceId());
     model.setId(uiGadget.getId());
+    model.setUserPref(uiGadget.getUserPref()) ;
     model.setProperties(uiGadget.getProperties());
     return model;
   }
@@ -223,6 +224,7 @@ public class PortalDataMapper {
   static public void toUIGadget(UIGadget uiGadget, Application model) throws Exception {
     uiGadget.setApplicationInstanceId(model.getInstanceId()) ;
     uiGadget.setId(model.getInstanceId());
+    uiGadget.setUserPref(model.getUserPref()) ;
     uiGadget.setProperties(model.getProperties());
   }
   

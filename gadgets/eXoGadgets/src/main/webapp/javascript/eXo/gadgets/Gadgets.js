@@ -627,7 +627,31 @@ gadgets.IfrGadget.prototype.handleSaveUserPrefs = function() {
       prefs[userPrefName] = userPrefValue;
     }
   }
-
+  var userPref = eXo.core.JSON.stringify(prefs) ;
+	//TODO: dang.tung - sent event to portal
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	var DOMUtil = eXo.core.DOMUtil ;
+  var gadget = document.getElementById("gadget_" + this.id) ;
+	var portletFragment = DOMUtil.findAncestorById(gadget, "PORTLET-FRAGMENT");
+	var uiPage = DOMUtil.findAncestorByClass(gadget, "UIPage") ;
+	var uiGadgetContainer = DOMUtil.findAncestorByClass(gadget, "UIWidgetContainer") ;
+	var uiGadget = DOMUtil.findAncestorByClass(gadget, "UIGadget") ;
+	if (portletFragment != null) {
+		alert("portlet") ;
+	} else {
+		if(uiPage) {
+			var params = [
+				{name: "userPref", value : userPref}
+			] ;
+			ajaxAsyncGetRequest(eXo.env.server.createPortalURL(gadget.parentNode.id, "SaveUserPref", true, params),true) ;
+		} else {
+			var params = [
+				{name: "userPref", value : userPref}, {name : "gadgetId", value : uiGadget.id}
+			] ;
+			ajaxAsyncGetRequest(eXo.env.server.createPortalURL(uiGadgetContainer.id, "SaveUserPref", true, params),true) ;
+		}
+	}
+	//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   this.setUserPrefs(prefs);
   this.refresh();
 };

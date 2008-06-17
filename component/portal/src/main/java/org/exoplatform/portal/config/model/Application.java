@@ -40,6 +40,7 @@ public class Application {
   private String width ;
   private String height ;
   private Properties properties;
+  private String userPref ;
   
   public Application(){
   }
@@ -83,6 +84,9 @@ public class Application {
   }
   public void setProperties(Properties properties) { this.properties = properties; }
 
-public String getTheme() { return theme; }
-public void setTheme(String theme) { this.theme = theme; }
+  public String getTheme() { return theme; }
+  public void setTheme(String theme) { this.theme = theme; }
+  
+  public String getUserPref() { return userPref; }
+  public void setUserPref(String userPref) { this.userPref = userPref; }
 }
