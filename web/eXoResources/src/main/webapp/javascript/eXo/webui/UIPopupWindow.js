@@ -111,7 +111,7 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 	}
 	if (eXo.core.Browser.findPosY(popup) < 0) popup.style.top = scrollY + "px" ;
  popup.style.visibility = "visible" ;
- popup.scrollIntoView(true);
+ //popup.scrollIntoView(true);
 } ;
 /**
  * @param {Object} evt
