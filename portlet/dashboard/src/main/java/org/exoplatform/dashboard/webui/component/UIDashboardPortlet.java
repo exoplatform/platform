@@ -36,35 +36,39 @@ import org.exoplatform.webui.event.EventListener;
 /**
  * set the event listeners.
  */
-@ComponentConfigs({
-@ComponentConfig(
-    lifecycle = UIApplicationLifecycle.class,
-    template = "app:/groovy/dashboard/webui/component/UIDashboardPortlet.gtmpl",
+/**
+ * @author exo
+ */
+@ComponentConfigs({ 
+  @ComponentConfig(
+    lifecycle = UIApplicationLifecycle.class, 
+    template = "app:/groovy/dashboard/webui/component/UIDashboardPortlet.gtmpl", 
     events = {
-    @EventConfig(listeners = UIDashboardPortlet.MoveGadgetActionListener.class),
-    @EventConfig(listeners = UIDashboardPortlet.AddNewGadgetActionListener.class),
-    @EventConfig(listeners = UIDashboardPortlet.SetShowSelectFormActionListener.class),
-    @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class)
-        }
-)
-    })
-
+      @EventConfig(listeners = UIDashboardPortlet.AddNewGadgetActionListener.class),
+      @EventConfig(listeners = UIDashboardPortlet.MoveGadgetActionListener.class),
+      @EventConfig(listeners = UIDashboardPortlet.SetShowSelectFormActionListener.class),
+      @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class) 
+    }) 
+})
 /**
  * Dashboard portlet that display google gadgets
  */
 public class UIDashboardPortlet extends UIPortletApplication {
+
   public final static String COLINDEX = "colIndex";
+
   public final static String ROWINDEX = "rowIndex";
+
   public final static String OBJECTID = "objectId";
 
-
   public UIDashboardPortlet() throws Exception {
-    PortletRequestContext context = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
+    PortletRequestContext context = (PortletRequestContext) WebuiRequestContext
+        .getCurrentInstance();
     PortletPreferences pref = context.getRequest().getPreferences();
     addChild(UIDashboardSelectForm.class, null, null);
     addChild(UIDashboardEditForm.class, null, null);
-    UIDashboardContainer uiDashboardContainer = addChild(UIDashboardContainer.class, null, null).
-        setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
+    UIDashboardContainer uiDashboardContainer = addChild(UIDashboardContainer.class, null, null)
+        .setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
 
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     Application application = service.getApplication("eXoGadgets/Todo");
@@ -73,15 +77,15 @@ public class UIDashboardPortlet extends UIPortletApplication {
     }
     StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
     windowId.append("#").append(context.getRemoteUser());
-    windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
+    windowId.append(":/").append(
+        application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
     UIGadget uiGadget = createUIComponent(context, UIGadget.class, null, null);
     windowId.append(uiGadget.hashCode());
     uiGadget.setApplicationInstanceId(windowId.toString());
     uiDashboardContainer.addUIGadget(uiGadget, 0, 0);
   }
 
-
-  static class SetShowSelectFormActionListener extends EventListener<UIDashboardPortlet> {
+  static public class SetShowSelectFormActionListener extends EventListener<UIDashboardPortlet> {
     public final void execute(final Event<UIDashboardPortlet> event) throws Exception {
       UIDashboardPortlet uiPortlet = event.getSource();
       UIDashboardSelectForm uiForm = uiPortlet.getChild(UIDashboardSelectForm.class);
@@ -92,7 +96,7 @@ public class UIDashboardPortlet extends UIPortletApplication {
     }
   }
 
-  static class AddNewGadgetActionListener extends EventListener<UIDashboardPortlet> {
+  static public class AddNewGadgetActionListener extends EventListener<UIDashboardPortlet> {
     public final void execute(final Event<UIDashboardPortlet> event) throws Exception {
       WebuiRequestContext context = event.getRequestContext();
       UIDashboardPortlet uiPortlet = event.getSource();
@@ -100,14 +104,16 @@ public class UIDashboardPortlet extends UIPortletApplication {
       int row = Integer.parseInt(context.getRequestParameter(ROWINDEX));
       String objectId = context.getRequestParameter(UIComponent.OBJECTID);
 
-      ApplicationRegistryService service = uiPortlet.getApplicationComponent(ApplicationRegistryService.class);
+      ApplicationRegistryService service = uiPortlet
+          .getApplicationComponent(ApplicationRegistryService.class);
       Application application = service.getApplication(objectId);
       if (application == null) {
         return;
       }
       StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
       windowId.append("#").append(context.getRemoteUser());
-      windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
+      windowId.append(":/").append(
+          application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
       UIGadget uiGadget = event.getSource().createUIComponent(context, UIGadget.class, null, null);
       windowId.append(uiGadget.hashCode());
       uiGadget.setApplicationInstanceId(windowId.toString());
@@ -115,7 +121,7 @@ public class UIDashboardPortlet extends UIPortletApplication {
     }
   }
 
-  static class MoveGadgetActionListener extends EventListener<UIDashboardPortlet> {
+  static public class MoveGadgetActionListener extends EventListener<UIDashboardPortlet> {
     public final void execute(final Event<UIDashboardPortlet> event) throws Exception {
       WebuiRequestContext context = event.getRequestContext();
       UIDashboardPortlet uiPortlet = event.getSource();
@@ -128,7 +134,7 @@ public class UIDashboardPortlet extends UIPortletApplication {
     }
   }
 
-  static class DeleteGadgetActionListener extends EventListener<UIDashboardPortlet> {
+  static public class DeleteGadgetActionListener extends EventListener<UIDashboardPortlet> {
     public final void execute(final Event<UIDashboardPortlet> event) throws Exception {
       WebuiRequestContext context = event.getRequestContext();
       UIDashboardPortlet uiPortlet = event.getSource();

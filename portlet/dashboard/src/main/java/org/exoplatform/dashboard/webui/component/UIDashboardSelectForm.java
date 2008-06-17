@@ -28,45 +28,36 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.form.UIForm;
 
-
-@ComponentConfigs({
+@ComponentConfigs({ 
   @ComponentConfig(
-      template = "app:/groovy/dashboard/webui/component/UIDashboardSelectForm.gtmpl",
+      template = "app:/groovy/dashboard/webui/component/UIDashboardSelectForm.gtmpl", 
       lifecycle = UIFormLifecycle.class
-  )
+  ) 
 })
 public class UIDashboardSelectForm extends UIForm {
-  
+
   private List<ApplicationCategory> categories;
-  
+
   private Hashtable<ApplicationCategory, List<Application>> gadgets;
-  
+
   private boolean isShowSelectForm = true;
-  
+
   public UIDashboardSelectForm() throws Exception {
-    
+
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     service.importExoGadgets();
-    
-    //demo
-//    List<Application> applications = service.getAllApplications();
-//    List<Application> listGadgets = new ArrayList<Application>();
-//    for (Application app : applications) {
-//      if (app.getApplicationType().equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
-//        listGadgets.add(app);
-//      }
-//    }
-//    gadgets = listGadgets;
-//    
-    String remoteUser = ((WebuiRequestContext) WebuiRequestContext.getCurrentInstance()).getRemoteUser();
-    List<ApplicationCategory> listCategories = service.getApplicationCategories(
-            remoteUser, org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
-    
+
+    String remoteUser = ((WebuiRequestContext) WebuiRequestContext.getCurrentInstance())
+        .getRemoteUser();
+    List<ApplicationCategory> listCategories = service.getApplicationCategories(remoteUser,
+        org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
+
     gadgets = new Hashtable<ApplicationCategory, List<Application>>();
-    
+
     for (int i = 0; i < listCategories.size(); i++) {
       ApplicationCategory cate = listCategories.get(i);
-      List<Application> listGadgets = service.getApplications(cate, org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
+      List<Application> listGadgets = service.getApplications(cate,
+          org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
       if (listGadgets == null || listGadgets.size() == 0) {
         listCategories.remove(i);
         i--;
@@ -74,12 +65,12 @@ public class UIDashboardSelectForm extends UIForm {
         gadgets.put(cate, listGadgets);
       }
     }
-    
+
     categories = listCategories;
-    
+
   }
 
-  public List<ApplicationCategory> getCategories() throws Exception {
+  public final List<ApplicationCategory> getCategories() throws Exception {
     return categories;
   }
 
@@ -87,7 +78,8 @@ public class UIDashboardSelectForm extends UIForm {
     this.categories = categories;
   }
 
-  public List<Application> getGadgetsOfCategory(final ApplicationCategory appCategory) throws Exception {
+  public List<Application> getGadgetsOfCategory(final ApplicationCategory appCategory)
+    throws Exception {
     List<Application> listGadgets = gadgets.get(appCategory);
     if (listGadgets == null || listGadgets.size() == 0) {
       return null;
@@ -99,8 +91,8 @@ public class UIDashboardSelectForm extends UIForm {
     return isShowSelectForm;
   }
 
-  public void setShowSelectForm(boolean isShowSelectForm) {
+  public void setShowSelectForm(final boolean isShowSelectForm) {
     this.isShowSelectForm = isShowSelectForm;
   }
- 
+
 }

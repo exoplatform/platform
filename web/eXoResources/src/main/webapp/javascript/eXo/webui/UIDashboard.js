@@ -236,7 +236,8 @@ eXo.webui.UIDashboard = {
 
 		var uiDashboard = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardPortlet");
 		if(uiDashboard == null) return;
-
+		
+		uiDashboard.parentNode.style.height = "400px";
 		uiDashboard.style.overflow = "hidden";
 
 		var uiContainer = eXo.core.DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");

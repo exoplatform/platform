@@ -35,7 +35,7 @@ import org.exoplatform.webui.form.UIForm;
 public class UIDashboardContainer extends UIForm {
   public final static int MAX_COLUMN = 4;
   
-  private List<List<UIGadget>> columns = null;
+  private List<List<UIGadget>> columns;
   
   public UIDashboardContainer() throws Exception {
     columns = new ArrayList<List<UIGadget>>();
@@ -58,21 +58,22 @@ public class UIDashboardContainer extends UIForm {
     return column.get(row);
   }
   
-  public UIGadget getUIGadget(String gadgetId) throws Exception {
+  public UIGadget getUIGadget(final String gadgetId) throws Exception {
     for (int iCol = 0; iCol < columns.size(); iCol++) {
       for (int iRow = 0; iRow < columns.get(iCol).size(); iRow++) {
-         if (gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId())) {
-           return columns.get(iCol).get(iRow);
-         }
+        if (gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId())) {
+          return columns.get(iCol).get(iRow);
+        }
       }
     }
     return null;
   }
   
-  public UIGadget removeUIGadget(String gadgetId) throws Exception {
+  public UIGadget removeUIGadget(final String gadgetId) throws Exception {
     this.columns = getColumns();
-    int col = -1, row = -1;
-    for (int iCol = 0; iCol < columns.size(); iCol++)
+    int col = -1;
+    int row = -1;
+    for (int iCol = 0; iCol < columns.size(); iCol++) {
       for (int iRow = 0; iRow < columns.get(iCol).size(); iRow++) {
         if (gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId())) {
           col = iCol;
@@ -80,6 +81,7 @@ public class UIDashboardContainer extends UIForm {
           break;
         }
       }
+    }
     if (col < 0 || row < 0) {
       return null;
     }
@@ -96,18 +98,21 @@ public class UIDashboardContainer extends UIForm {
     return temp;
   }
   
-  public void moveUIGadget(String gadgetId, final int col, int row) throws Exception {
+  public void moveUIGadget(final String gadgetId, final int col, int row) throws Exception {
     this.columns = getColumns();
-    int srcCol = -1, srcRow = -1;
+    int srcCol = -1;
+    int srcRow = -1;
     UIGadget gadget = null;
-    for (int iCol = 0; iCol < columns.size(); iCol++)
-      for (int iRow = 0; iRow < columns.get(iCol).size(); iRow++)
+    for (int iCol = 0; iCol < columns.size(); iCol++) {
+      for (int iRow = 0; iRow < columns.get(iCol).size(); iRow++) {
         if (gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId())) {
           srcCol = iCol;
           srcRow = iRow;
           gadget = columns.get(iCol).get(iRow);
           break;
         }
+      }
+    }
     if (srcCol < 0 || srcRow < 0 || (srcCol == col && srcRow == row)) {
       return;
     }
@@ -127,7 +132,7 @@ public class UIDashboardContainer extends UIForm {
   }
   
   public List<UIGadget> getColumn(final int col) throws Exception {
-    if ((col < 0) || (col > columns.size())) return null;
+    if ((col < 0) || (col > columns.size())) { return null; }
     return columns.get(col);
   }
     
@@ -142,7 +147,7 @@ public class UIDashboardContainer extends UIForm {
     return flag;    
   }
   
-  public UIDashboardContainer setColumns(int num) throws Exception {
+  public UIDashboardContainer setColumns(final int num) throws Exception {
     if (num < 1 || num > MAX_COLUMN) {
       return null;
     }
@@ -161,17 +166,17 @@ public class UIDashboardContainer extends UIForm {
         colSize--;
       } while (num < colSize);
     } else {
-      if (num > colSize)    
+      if (num > colSize) {
         do {
           columns.add(new ArrayList<UIGadget>());
           colSize++;
         } while (num > colSize);
-
       }
+    }
     return this;
   }
   
-  public void renderUIGadget(int col, int row) throws Exception {
+  public void renderUIGadget(final int col, final int row) throws Exception {
     UIGadget gadget = getUIGadget(col, row);
     if (gadget == null) {
       return;

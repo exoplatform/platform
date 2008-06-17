@@ -32,34 +32,37 @@ import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 
-@ComponentConfigs({
-    @ComponentConfig(
-        template = "system:/groovy/webui/form/UIForm.gtmpl",
-        lifecycle = UIFormLifecycle.class,
-        events = {
-          @EventConfig(listeners = UIDashboardEditForm.SaveActionListener.class)
-        }
-    )
+@ComponentConfigs({ 
+  @ComponentConfig(
+      template = "system:/groovy/webui/form/UIForm.gtmpl", 
+      lifecycle = UIFormLifecycle.class, 
+      events = { 
+        @EventConfig(listeners = UIDashboardEditForm.SaveActionListener.class)
+      }
+  ) 
 })
 public class UIDashboardEditForm extends UIForm {
 
-  
   final static public String TOTAL_COLUMNS = "totalColumns";
+
   final static public int MAX_COLUMNS = 4;
+
   final static public int DEFAULT_COLUMNS = 3;
-  
+
   public UIDashboardEditForm() throws Exception {
-    PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
+    PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext
+        .getCurrentInstance();
     PortletPreferences pref = pcontext.getRequest().getPreferences();
-    addUIFormInput(new UIFormStringInput(TOTAL_COLUMNS, TOTAL_COLUMNS, pref.getValue("totalColumns", "3")));
+    addUIFormInput(new UIFormStringInput(TOTAL_COLUMNS, TOTAL_COLUMNS, pref.getValue(
+        "totalColumns", "3")));
   }
-  
+
   static public class SaveActionListener extends EventListener<UIDashboardEditForm> {
-    public final void execute(Event<UIDashboardEditForm> event) throws Exception {
+    public final void execute(final Event<UIDashboardEditForm> event) throws Exception {
 
       UIDashboardEditForm uiForm = event.getSource();
       UIFormStringInput uiInput = uiForm.getUIStringInput(TOTAL_COLUMNS);
-      
+
       String label = uiForm.getLabel(uiInput.getName());
       if (label == null) {
         label = uiInput.getName();
@@ -68,34 +71,39 @@ public class UIDashboardEditForm extends UIForm {
       if (label.charAt(label.length() - 1) == ':') {
         label = label.substring(0, label.length() - 1);
       }
-      Object[] args = {label, String.valueOf(1), String.valueOf(MAX_COLUMNS)};
-      
-      PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
+      Object[] args = {label, String.valueOf(1), String.valueOf(MAX_COLUMNS) };
+
+      PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext
+          .getCurrentInstance();
       PortletPreferences pref = pcontext.getRequest().getPreferences();
       String lastValue = pref.getValue(TOTAL_COLUMNS, "" + DEFAULT_COLUMNS);
-      
+
       if (uiInput.getValue() == null || uiInput.getValue().length() == 0) {
         uiInput.setValue(lastValue);
-        throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args));
+        throw new MessageException(new ApplicationMessage("EmptyFieldValidator.msg.empty-input",
+            args));
       }
-      
+
       int totalCols = 0;
       try {
         totalCols = Integer.parseInt(uiInput.getValue());
       } catch (Exception e) {
         uiInput.setValue(lastValue);
-        throw new MessageException(new ApplicationMessage("NumberFormatValidator.msg.Invalid-number", args));
+        throw new MessageException(new ApplicationMessage(
+            "NumberFormatValidator.msg.Invalid-number", args));
       }
 
       if (totalCols < 1 || totalCols > MAX_COLUMNS) {
         uiInput.setValue(lastValue);
-        throw new MessageException(new ApplicationMessage("NumberInRangeValidator.msg.Invalid-number", args));
+        throw new MessageException(new ApplicationMessage(
+            "NumberInRangeValidator.msg.Invalid-number", args));
       }
-      
+
       pref.setValue(TOTAL_COLUMNS, String.valueOf(totalCols));
       pref.store();
 
-      UIDashboardContainer uiDashboardContainer = ((UIDashboardPortlet) uiForm.getParent()).getChild(UIDashboardContainer.class);
+      UIDashboardContainer uiDashboardContainer = ((UIDashboardPortlet) uiForm.getParent())
+          .getChild(UIDashboardContainer.class);
       uiDashboardContainer.setColumns(totalCols);
       pcontext.setApplicationMode(PortletMode.VIEW);
     }
