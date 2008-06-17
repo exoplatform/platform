@@ -19,6 +19,7 @@ package org.exoplatform.portal.webui.navigation;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
@@ -171,6 +172,11 @@ public class UIPageNodeSelector extends UIContainer {
   }
   
   private void updateUI() {
+	 
+	 WebuiRequestContext contextres = WebuiRequestContext.getCurrentInstance();
+	 ResourceBundle res = contextres.getApplicationResourceBundle();
+	 String navValueEnd = res.getString("UIPageNavigation.navvalue.endstring");
+	 
     if(navigations == null || navigations.size() < 1) {
       getChild(UIDropDownControl.class).setOptions(null) ;
       getChild(UITree.class).setSibbling(null) ;
@@ -179,7 +185,7 @@ public class UIPageNodeSelector extends UIContainer {
     
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations) {
-      String label = navigation.getOwnerId() + "'s Nav";
+      String label = navigation.getOwnerId() + navValueEnd;
       options.add(new SelectItemOption<String>(navigation.getOwnerType() + ":" + label, navigation.getId()));
     }
     UIDropDownControl uiNavigationSelector = getChild(UIDropDownControl.class);
