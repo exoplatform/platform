@@ -13,4 +13,13 @@
   <url>http://www.exoplatform.org</url>
   <description>eXo Websphere Server Plugin</description>
   
+  <dependencies>
+    <dependency>
+      <groupId>com.sun.org.apache</groupId>
+      <artifactId>jaxp-ri</artifactId>
+      <version>1.4</version>
+      <optional>compile</optional>
+    </dependency>
+  </dependencies>
+  
 </project>
