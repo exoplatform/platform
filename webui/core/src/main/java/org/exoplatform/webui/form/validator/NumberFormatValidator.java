@@ -36,9 +36,13 @@ public class NumberFormatValidator implements Validator {
 	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).length()==0) return;
 	  //  modified by Pham Dinh Tan
     UIComponent uiComponent = (UIComponent) uiInput ;
-    UIForm uiForm = uiComponent.getAncestorOfType(UIForm.class) ;    
-    String label = uiForm.getLabel(uiInput.getName());
-    if(label == null) label = uiInput.getName();
+    UIForm uiForm = uiComponent.getAncestorOfType(UIForm.class) ;
+    String label;
+    try{
+      label = uiForm.getLabel(uiInput.getName());
+    } catch(Exception e) {
+      label = uiInput.getName();
+    }
     label = label.trim();
     if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
     String s = (String)uiInput.getValue();
