@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<jboss-web>
+  <security-domain>java:/jaas/exo-domain</security-domain>
+</jboss-web>
