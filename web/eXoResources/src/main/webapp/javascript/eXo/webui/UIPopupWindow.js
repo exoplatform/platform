@@ -63,7 +63,6 @@ UIPopupWindow.prototype.showMask = function(popup, isShowPopup) {
  *  . gets the highest z-index from these, if it's still at 0, set an arbitrary value of 2000
  * sets the position of the popup on the page (top and left properties)
  */
-
 UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	if(typeof(popup) == "string") popup = document.getElementById(popup) ;
@@ -89,9 +88,9 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 	this.superClass.show(popup) ;
  	var offsetParent = popup.offsetParent ;
  	var scrollY = 0;
-		if (window.pageYOffset != undefined) scrollY = window.pageYOffset;
-		else if (document.documentElement != undefined) 	scrollY = document.documentElement.scrollTop;
-		else	scrollY = document.body.scrollTop;
+	if (window.pageYOffset != undefined) scrollY = window.pageYOffset;
+	else if (document.documentElement != undefined) scrollY = document.documentElement.scrollTop;
+	else	scrollY = document.body.scrollTop;
 	//reference
 	if(offsetParent) {
 		var middleWindow = (eXo.core.DOMUtil.hasClass(offsetParent, "UIPopupWindow") || eXo.core.DOMUtil.hasClass(offsetParent, "UIWindow"));
@@ -110,8 +109,7 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 		popup.style.left = Math.ceil((offsetParent.offsetWidth - popup.offsetWidth) / 2) + "px" ;
 	}
 	if (eXo.core.Browser.findPosY(popup) < 0) popup.style.top = scrollY + "px" ;
- popup.style.visibility = "visible" ;
- //popup.scrollIntoView(true);
+  popup.style.visibility = "visible" ;
 } ;
 /**
  * @param {Object} evt
