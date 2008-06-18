@@ -215,6 +215,10 @@
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitle {
 	background: none;
+	text-align: left;
+	margin: 4px 26px 0px 26px;
+	line-height: 24px;
+	height: 24px;;
 }
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitleIcon {
