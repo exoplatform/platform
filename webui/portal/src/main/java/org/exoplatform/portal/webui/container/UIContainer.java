@@ -18,10 +18,10 @@ package org.exoplatform.portal.webui.container;
 
 import java.util.List;
 
-import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.DeleteGadgetActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.DeleteWidgetActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.EditContainerActionListener;
+import org.exoplatform.portal.webui.container.UIContainerActionListener.SaveUserPrefActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.ShowAddNewApplicationActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
@@ -56,7 +56,7 @@ import org.exoplatform.webui.event.EventListener;
       events = {
           @EventConfig(listeners = DeleteGadgetActionListener.class),
           @EventConfig(listeners = ShowAddNewApplicationActionListener.class),
-          @EventConfig(listeners = UIContainer.SaveUserPrefActionListener.class)
+          @EventConfig(listeners = SaveUserPrefActionListener.class)
       }
   ),
   @ComponentConfig(
@@ -101,21 +101,6 @@ public class UIContainer extends  UIPortalComponent {
           continue;
         }
         child.setRendered(false);
-      }
-    }
-  }
-  //TODO - dang.tung: save user preference of gadget
-  static public class SaveUserPrefActionListener extends EventListener<UIContainer> {
-    public void execute(Event<UIContainer> event) throws Exception {
-      String gadgetId = event.getRequestContext().getRequestParameter("gadgetId") ;
-      String userPref = event.getRequestContext().getRequestParameter("userPref") ;
-      UIContainer container = event.getSource() ;
-      for(UIComponent child : container.getChildren()) {
-        UIGadget uiGadget = (UIGadget)child ;
-        if(uiGadget.getApplicationInstanceUniqueId().equals(gadgetId)) {
-          uiGadget.setUserPref(userPref) ;
-          return ;
-        }
       }
     }
   }

@@ -21,10 +21,7 @@ import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 /**
  * Created by The eXo Platform SAS
  * Author : dang.tung
@@ -32,9 +29,7 @@ import org.exoplatform.webui.event.EventListener;
  * May 06, 2008   
  */
 @ComponentConfig(
-    //lifecycle = Lifecycle.class,
-    template = "system:/groovy/portal/webui/application/UIGadget.gtmpl",
-    events = @EventConfig(listeners = UIGadget.SaveUserPrefActionListener.class)
+    template = "system:/groovy/portal/webui/application/UIGadget.gtmpl"
 )
 public class UIGadget extends UIComponent {
   
@@ -104,11 +99,4 @@ public class UIGadget extends UIComponent {
   
   public String getUserPref() { return userPref_ ;}
   public void setUserPref(String userPref) {userPref_ = userPref ;}
-  static public class SaveUserPrefActionListener extends EventListener<UIGadget> {
-    public void execute(Event<UIGadget> event) throws Exception {
-     UIGadget uiGadget = event.getSource() ;
-     String userPref = event.getRequestContext().getRequestParameter("userPref") ;
-     uiGadget.setUserPref(userPref) ;
-    }
-  }
 }

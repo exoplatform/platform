@@ -23,6 +23,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -30,6 +31,7 @@ import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIAddNewApplication;
 import org.exoplatform.portal.webui.application.UIApplication;
 import org.exoplatform.portal.webui.application.UIGadget;
+import org.exoplatform.portal.webui.application.UIGadgets;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
@@ -394,6 +396,29 @@ public class UIPageActionListener {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
 
     }
-  }  
+  }
+  
+  //TODO - dang.tung: save user preference of gadget
+  static public class SaveUserPrefActionListener extends EventListener<UIPage> {
+    public void execute(Event<UIPage> event) throws Exception {
+      String gadgetId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID) ;
+      String userPref = event.getRequestContext().getRequestParameter("userPref") ;
+      UIPage uiPage = event.getSource() ;
+      List<UIGadget> uiGadgets = new ArrayList<UIGadget>();
+      uiPage.findComponentOfType(uiGadgets, UIGadget.class);
+      for(UIGadget child : uiGadgets) {
+        if(child.getApplicationInstanceUniqueId().equals(gadgetId)) {
+          child.setUserPref(userPref) ;
+          if(uiPage.isModifiable()) {
+            Page page = PortalDataMapper.toPageModel(uiPage);    
+            UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
+            if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+            configService.update(page);
+          }
+          return;
+        }
+      }
+    }
+  } 
   
 }

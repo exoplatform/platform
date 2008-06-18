@@ -131,7 +131,6 @@ public class UIContainerActionListener {
   }
   
   static public class ShowAddNewApplicationActionListener extends EventListener<UIContainer> {
-
     @Override
     public void execute(Event<UIContainer> event) throws Exception {
       UIPortal uiPortal = Util.getUIPortal();
@@ -152,9 +151,28 @@ public class UIContainerActionListener {
       uiMaskWorkspace.setUIComponent(uiAddApplication);
       uiMaskWorkspace.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
-      
     }
-
   }
   
+  //TODO - dang.tung: save user preference of gadget
+  static public class SaveUserPrefActionListener extends EventListener<UIContainer> {
+    public void execute(Event<UIContainer> event) throws Exception {
+      String gadgetId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID) ;
+      String userPref = event.getRequestContext().getRequestParameter("userPref") ;
+      UIContainer container = event.getSource() ;
+      for(UIComponent child : container.getChildren()) {
+        UIGadget uiGadget = (UIGadget)child ;
+        if(uiGadget.getApplicationInstanceUniqueId().equals(gadgetId)) {
+          uiGadget.setUserPref(userPref) ;
+          break ;
+        }
+      }
+      UIGadgets uiGadgets = container.getAncestorOfType(UIGadgets.class);
+      Gadgets gadgets = PortalDataMapper.toGadgets(uiGadgets);
+      UserPortalConfigService configService = container.getApplicationComponent(UserPortalConfigService.class);
+      configService.update(gadgets);
+      UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
+      uiPortalApp.getUserPortalConfig().setGadgets(gadgets) ;
+    }
+  }
 }

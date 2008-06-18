@@ -636,20 +636,27 @@ gadgets.IfrGadget.prototype.handleSaveUserPrefs = function() {
 	var uiPage = DOMUtil.findAncestorByClass(gadget, "UIPage") ;
 	var uiGadgetContainer = DOMUtil.findAncestorByClass(gadget, "UIWidgetContainer") ;
 	var uiGadget = DOMUtil.findAncestorByClass(gadget, "UIGadget") ;
+	var containerBlockId ;
 	if (portletFragment != null) {
-		alert("portlet") ;
+		var compId = portletFragment.parentNode.id;
+		var uicomp = DOMUtil.getChildrenByTagName(portletFragment, "div")[0].className;
+		var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
+		href += "&portal:type=action&uicomponent=" + uicomp;
+		href += "&op=SaveUserPref";
+		href += "&objectId=" + uiGadget.id + "&userPref=" + userPref + "&ajaxRequest=true";
+		ajaxAsyncGetRequest(href,true);
 	} else {
 		if(uiPage) {
-			var params = [
-				{name: "userPref", value : userPref}
-			] ;
-			ajaxAsyncGetRequest(eXo.env.server.createPortalURL(gadget.parentNode.id, "SaveUserPref", true, params),true) ;
-		} else {
-			var params = [
-				{name: "userPref", value : userPref}, {name : "gadgetId", value : uiGadget.id}
-			] ;
-			ajaxAsyncGetRequest(eXo.env.server.createPortalURL(uiGadgetContainer.id, "SaveUserPref", true, params),true) ;
+			var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
+			containerBlockId = uiPageIdNode.innerHTML;
 		}
+		else {
+			containerBlockId = uiGadgetContainer.id ;
+		}
+		var params = [
+			 {name : "objectId", value : uiGadget.id}, {name : "userPref", value : userPref}
+		] ;
+		ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveUserPref", true, params),true) ;
 	}
 	//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   this.setUserPrefs(prefs);

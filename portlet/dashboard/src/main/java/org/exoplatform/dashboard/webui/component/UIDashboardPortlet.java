@@ -44,11 +44,13 @@ import org.exoplatform.webui.event.EventListener;
     lifecycle = UIApplicationLifecycle.class, 
     template = "app:/groovy/dashboard/webui/component/UIDashboardPortlet.gtmpl", 
     events = {
-      @EventConfig(listeners = UIDashboardPortlet.AddNewGadgetActionListener.class),
-      @EventConfig(listeners = UIDashboardPortlet.MoveGadgetActionListener.class),
-      @EventConfig(listeners = UIDashboardPortlet.SetShowSelectFormActionListener.class),
-      @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class) 
-    }) 
+    @EventConfig(listeners = UIDashboardPortlet.MoveGadgetActionListener.class),
+    @EventConfig(listeners = UIDashboardPortlet.AddNewGadgetActionListener.class),
+    @EventConfig(listeners = UIDashboardPortlet.SetShowSelectFormActionListener.class),
+    @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class),
+    @EventConfig(listeners = UIDashboardPortlet.SaveUserPrefActionListener.class)
+        }
+)
 })
 /**
  * Dashboard portlet that display google gadgets
@@ -71,7 +73,7 @@ public class UIDashboardPortlet extends UIPortletApplication {
         .setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
 
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
-    Application application = service.getApplication("eXoGadgets/Todo");
+    Application application = service.getApplication("eXoGadgets/Horoscope");
     if (application == null) {
       return;
     }
@@ -145,4 +147,16 @@ public class UIDashboardPortlet extends UIPortletApplication {
       uiDashboardContainer.removeUIGadget(objectId);
     }
   }
+  
+  //TODO: dang.tung - save gadget's user preference
+  static public class SaveUserPrefActionListener extends EventListener<UIDashboardPortlet> {
+    public void execute(Event<UIDashboardPortlet> event) throws Exception {
+      WebuiRequestContext context = event.getRequestContext();
+      UIDashboardPortlet uiPortlet = event.getSource() ;
+      String objectId = context.getRequestParameter(OBJECTID) ;
+      String userPref = context.getRequestParameter("userPref") ;
+      UIGadget uigadget = uiPortlet.getChild(UIDashboardContainer.class).getUIGadget(objectId) ;
+      uigadget.setUserPref(userPref) ;
+  }
+ }
 }
