@@ -193,10 +193,7 @@ public class UIPortlet extends UIApplication {
       if ("text/html".equals(mimeType)) {
         List<String> modes = supports.getPortletMode() ;
         for (int j =0 ; j < modes.size() ; j++) {
-          String mode =modes.get(j) ;
-          mode = mode.toLowerCase() ;
-          if("config".equals(mode)) supportModes.add(mode) ;
-          else supportModes.add(mode) ;
+          supportModes.add(modes.get(j).toLowerCase()) ;
         }
         break ;
       }

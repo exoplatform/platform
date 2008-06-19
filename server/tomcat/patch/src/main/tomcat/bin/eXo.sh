@@ -20,7 +20,7 @@ REMOTE_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspen
 #export LD_LIBRARY_PATH
 #YOURKIT_PROFILE_OPTION="-agentlib:yjpagent  -Djava.awt.headless=true"
 
-JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $EXO_CONFIG_OPTS"
+JAVA_OPTS="$YOURKIT_PROFILE_OPTION $JAVA_OPTS $LOG_OPTS $SECURITY_OPTS $EXO_OPTS $EXO_CONFIG_OPTS $REMOTE_DEBUG"
 export JAVA_OPTS
 
 # Launches the server

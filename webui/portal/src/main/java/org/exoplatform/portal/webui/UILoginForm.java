@@ -74,7 +74,6 @@ public class UILoginForm extends UIForm {
         
       PortalRequestContext prContext = Util.getPortalRequestContext();
       HttpServletRequest request = prContext.getRequest();
-      request.getSession().invalidate();
       HttpSession session = request.getSession();
       session.setAttribute("authentication.username", username);
       session.setAttribute("authentication.password", password);

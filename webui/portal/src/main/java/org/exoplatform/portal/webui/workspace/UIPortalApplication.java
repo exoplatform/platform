@@ -106,8 +106,7 @@ public class UIPortalApplication extends UIApplication {
     userPortalConfig_ = (UserPortalConfig)context.getAttribute(UserPortalConfig.class);
     if(userPortalConfig_ == null) throw new Exception("Can't load user portal config");
     UserACL acl = getApplicationComponent(UserACL.class);
-    String test = context.getRemoteUser();
-    if(acl.hasAccessControlWorkspacePermission(test))
+    if(acl.hasAccessControlWorkspacePermission(context.getRemoteUser()))
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
     addWorkingWorkspace() ;
 
