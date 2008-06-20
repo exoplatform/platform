@@ -20,6 +20,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.gadget.GadgetApplication;
+import org.exoplatform.web.application.gadget.GadgetRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 /**
@@ -80,10 +81,15 @@ public class UIGadget extends UIComponent {
 
   private GadgetApplication getApplication() {
     PortalContainer container = PortalContainer.getInstance() ;
-    WebAppController controller =
-      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-    GadgetApplication application =
-      (GadgetApplication) controller.getApplication(applicationId_.split("/")[1]) ;
+//    WebAppController controller =
+//      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
+    GadgetRegistryService gadgetService = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class) ;
+    //TODO: Review try catch block
+    GadgetApplication application = null ;
+    try {
+      application = gadgetService.getGadget(applicationId_.split("/")[1]) ;
+    } catch (Exception e) {}
+//    controller.addApplication(application) ;
     return application;
   }
 

@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<configuration>    
+<configuration>
+  <component>
+    <key>org.exoplatform.application.newregistry.ApplicationRegistryService</key>
+    <type>org.exoplatform.application.newregistry.jcr.ApplicationRegistryServiceImpl</type>
+  </component>
+  
+  <component>
+    <key>org.exoplatform.web.application.gadget.GadgetRegistryService</key>
+    <type>org.exoplatform.application.gadget.GadgetRegistryServiceImp</type>
+  </component>
+      
   <component>
     <key>org.exoplatform.application.registry.ApplicationRegistryService</key>
     <type>org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl</type>

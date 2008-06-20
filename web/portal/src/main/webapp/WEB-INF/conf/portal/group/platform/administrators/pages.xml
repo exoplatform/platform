@@ -99,5 +99,19 @@
       <show-info-bar>false</show-info-bar>
     </application>  
   </page>           
+
+  <page>
+  	<page-id>group::platform/administrators::registry</page-id>
+  	<owner-type>group</owner-type>
+    <owner-id>platform/administrators</owner-id>
+    <name>registry</name>
+    <access-permissions>*:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/ApplicationRegistryPortlet/ApplicationRegistry</instance-id>
+      <title>Application Registry</title>
+      <show-info-bar>false</show-info-bar>
+    </application>   
+  </page>           
         
 </page-set>

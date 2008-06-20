@@ -4,7 +4,14 @@
   <owner-id>platform/administrators</owner-id>
   <priority>2</priority>
   
-  <page-nodes>   
+  <page-nodes>
+     <node>
+	    <uri>registry</uri>
+	    <name>registry</name>
+	    <label>Registry</label>
+	    <page-reference>group::platform/administrators::registry</page-reference>
+    </node>
+     
     <node>
       <uri>administration</uri>
       <name>Administration</name>

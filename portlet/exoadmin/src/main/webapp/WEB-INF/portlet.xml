@@ -113,5 +113,36 @@
       <short-title>Internationalization</short-title>
       <keywords>portlet, registry</keywords>
     </portlet-info>
-  </portlet>    
+  </portlet>
+  
+  <portlet>
+    <description xml:lang="EN">Application Registry</description>
+    <portlet-name>ApplicationRegistryPortlet</portlet-name>
+    <display-name xml:lang="EN">Application Registry</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/ApplicationRegistryPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    
+    <resource-bundle>locale.portlet.exoadmin.ApplicationRegistryPortlet</resource-bundle>
+    <portlet-info>
+      <title>Application Registry Portlet</title>
+      <short-title>Registry</short-title>
+      <keywords>application, registry</keywords>
+    </portlet-info>
+    
+    <security-role-ref>
+      <role-name>admin</role-name>
+      <role-link>admin</role-link>
+    </security-role-ref>
+  </portlet>      
 </portlet-app>

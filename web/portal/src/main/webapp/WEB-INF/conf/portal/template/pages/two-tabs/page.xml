@@ -17,8 +17,8 @@
       	</container>
       	<container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 			    <application>
-			      <instance-id>/web/BrowserPortlet</instance-id>
-			      <title>Web Explorer</title>
+			      <instance-id>/web/SiteMapPortlet</instance-id>
+			      <title>Sitemap Portlet</title>
 			      <show-info-bar>true</show-info-bar>
 			      <show-application-state>true</show-application-state>
 			    </application>        	

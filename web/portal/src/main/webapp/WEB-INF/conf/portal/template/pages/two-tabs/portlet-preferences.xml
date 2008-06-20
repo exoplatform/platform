@@ -14,10 +14,10 @@
 	<portlet-preferences>
 		<owner-type></owner-type>
 		<owner-id></owner-id>
-		<window-id>/web/BrowserPortlet</window-id>
+		<window-id>/web/SiteMapPortlet</window-id>
 		<preference>
-			<name>WebPreference</name>
-			<value>Preference value for Web portlet</value>
+			<name>SitemapPreference</name>
+			<value>Preference value for Sitemap portlet</value>
 			<read-only>false</read-only>
 		</preference>
 	</portlet-preferences>	

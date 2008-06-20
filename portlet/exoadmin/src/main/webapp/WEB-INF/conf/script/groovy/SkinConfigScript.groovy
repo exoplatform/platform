@@ -83,3 +83,24 @@ SkinService.addSkin(
     "/exoadmin/skin/i18n/webui/component/UII18nPortlet/MacStylesheet.css",
     ServletContext
 ) ;
+
+SkinService.addSkin(
+    "exoadmin/ApplicationRegistryPortlet",
+    "Default",
+    "/exoadmin/skin/applicationregistry/webui/component/UIApplicationRegistryPortlet/DefaultStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
+    "exoadmin/ApplicationRegistryPortlet",
+    "Mac",
+    "/exoadmin/skin/applicationregistry/webui/component/UIApplicationRegistryPortlet/MacStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
+    "exoadmin/ApplicationRegistryPortlet",
+    "Vista",
+    "/exoadmin/skin/applicationregistry/webui/component/UIApplicationRegistryPortlet/VistaStylesheet.css",
+    ServletContext
+) ;

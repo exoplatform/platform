@@ -15,5 +15,10 @@
     <key>org.exoplatform.application.registry.ApplicationRegistryService</key>
     <type>org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl</type>
   </component>
+  
+  <component>
+    <key>org.exoplatform.application.newregistry.ApplicationRegistryService</key>
+    <type>org.exoplatform.application.newregistry.jcr.ApplicationRegistryServiceImpl</type>
+  </component>
 
 </configuration>
