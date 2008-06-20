@@ -71,20 +71,20 @@ public class UIDashboardPortlet extends UIPortletApplication {
     addChild(UIDashboardEditForm.class, null, null);
     UIDashboardContainer uiDashboardContainer = addChild(UIDashboardContainer.class, null, null)
         .setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
-
-    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
-    Application application = service.getApplication("eXoGadgets/Horoscope");
-    if (application == null) {
-      return;
-    }
-    StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
-    windowId.append("#").append(context.getRemoteUser());
-    windowId.append(":/").append(
-        application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
-    UIGadget uiGadget = createUIComponent(context, UIGadget.class, null, null);
-    windowId.append(uiGadget.hashCode());
-    uiGadget.setApplicationInstanceId(windowId.toString());
-    uiDashboardContainer.addUIGadget(uiGadget, 0, 0);
+//
+//    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
+//    Application application = service.getApplication("eXoGadgets/Horoscope");
+//    if (application == null) {
+//      return;
+//    }
+//    StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
+//    windowId.append("#").append(context.getRemoteUser());
+//    windowId.append(":/").append(
+//        application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
+//    UIGadget uiGadget = createUIComponent(context, UIGadget.class, null, null);
+//    windowId.append(uiGadget.hashCode());
+//    uiGadget.setApplicationInstanceId(windowId.toString());
+//    uiDashboardContainer.addUIGadget(uiGadget, 0, 0);
   }
 
   static public class SetShowSelectFormActionListener extends EventListener<UIDashboardPortlet> {

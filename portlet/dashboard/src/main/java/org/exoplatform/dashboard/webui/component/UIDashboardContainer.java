@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.webui.application.UIGadget;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -35,34 +37,42 @@ import org.exoplatform.webui.form.UIForm;
 public class UIDashboardContainer extends UIForm {
   public final static int MAX_COLUMN = 4;
   
-  private List<List<UIGadget>> columns;
+//  private List<List<UIGadget>> columns;
+  
+  private List<UIContainer> columns ;
   
   public UIDashboardContainer() throws Exception {
-    columns = new ArrayList<List<UIGadget>>();
-    columns.add(new ArrayList<UIGadget>());
+    columns = new ArrayList<UIContainer>();
+    columns.add(addChild(UIContainer.class, null, "UIColumn-1"));
+    columns.add(addChild(UIContainer.class, null, "UIColumn-2"));
+    columns.add(addChild(UIContainer.class, null, "UIColumn-3"));
+    columns.add(addChild(UIContainer.class, null, "UIColumn-4"));
   }
   
   public void addUIGadget(final UIGadget gadget, final int col, final int row) throws Exception {
-    List<UIGadget> column = getColumn(col);
-    if (column == null || row < 0 || row > column.size()) {
+    UIContainer uiContainer = getColumn(col);
+    List<UIComponent> children = uiContainer.getChildren();
+    if (uiContainer == null || row < 0 || row > children.size()) {
       return;
     }
-    column.add(row, gadget);
+    gadget.setParent(uiContainer);
+    children.add(row, gadget);
   }
   
   public UIGadget getUIGadget(final int col, final int row) throws Exception {
-    List<UIGadget> column = getColumn(col);
-    if (column == null || row < 0 || row > column.size()) {
+    UIContainer uiContainer = getColumn(col);
+    if (uiContainer == null || row < 0 || row >= uiContainer.getChildren().size()) {
       return null;
     }
-    return column.get(row);
+    return uiContainer.getChild(row);
   }
   
   public UIGadget getUIGadget(final String gadgetId) throws Exception {
-    for (int iCol = 0; iCol < columns.size(); iCol++) {
-      for (int iRow = 0; iRow < columns.get(iCol).size(); iRow++) {
-        if (gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId())) {
-          return columns.get(iCol).get(iRow);
+    for (int iCol = 0; iCol < getRenderedColumnsCount(); iCol++) {
+      for (int iRow = 0; iRow < columns.get(iCol).getChildren().size(); iRow++) {
+        UIGadget gadget = (UIGadget) columns.get(iCol).getChild(iRow);
+        if (gadgetId.equals(gadget.getApplicationInstanceUniqueId())) {
+          return gadget;
         }
       }
     }
@@ -70,80 +80,67 @@ public class UIDashboardContainer extends UIForm {
   }
   
   public UIGadget removeUIGadget(final String gadgetId) throws Exception {
-    this.columns = getColumns();
-    int col = -1;
-    int row = -1;
-    for (int iCol = 0; iCol < columns.size(); iCol++) {
-      for (int iRow = 0; iRow < columns.get(iCol).size(); iRow++) {
-        if (gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId())) {
-          col = iCol;
-          row = iRow;
-          break;
-        }
-      }
+    UIGadget gadget = getUIGadget(gadgetId);
+    if(gadget != null) {
+      UIContainer uiContainer = gadget.getParent();
+      gadget.setParent(null);
+      uiContainer.getChildren().remove(gadget);
     }
-    if (col < 0 || row < 0) {
-      return null;
-    }
-    return removeUIGadget(col, row);
+    return gadget;
   }
   
   public UIGadget removeUIGadget(final int col, final int row) throws Exception {
-    List<UIGadget> column = getColumn(col);
-    if (column == null || row < 0 || row > column.size()) {
-      return null;
+    UIGadget gadget = getUIGadget(col, row);
+    if(gadget != null) {
+      removeUIGadget(gadget.getId());
     }
-    UIGadget temp = column.get(row);
-    column.remove(row);
-    return temp;
+    return gadget;
   }
   
   public void moveUIGadget(final String gadgetId, final int col, int row) throws Exception {
-    this.columns = getColumns();
-    int srcCol = -1;
-    int srcRow = -1;
-    UIGadget gadget = null;
-    for (int iCol = 0; iCol < columns.size(); iCol++) {
-      for (int iRow = 0; iRow < columns.get(iCol).size(); iRow++) {
-        if (gadgetId.equals(columns.get(iCol).get(iRow).getApplicationInstanceUniqueId())) {
-          srcCol = iCol;
-          srcRow = iRow;
-          gadget = columns.get(iCol).get(iRow);
-          break;
-        }
-      }
-    }
-    if (srcCol < 0 || srcRow < 0 || (srcCol == col && srcRow == row)) {
+    UIGadget gadget = removeUIGadget(gadgetId);
+    if (gadget == null) {
       return;
-    }
-    columns.get(srcCol).remove(srcRow);
-    if (row > columns.get(col).size()) {
-      row = columns.get(col).size();
     }
     addUIGadget(gadget, col, row);
   }
   
-  public List<List<UIGadget>> getColumns() throws Exception {
+  public List<UIContainer> getColumns() throws Exception {
     if (columns == null) {
-      columns = new ArrayList<List<UIGadget>>();
-      columns.add(new ArrayList<UIGadget>());
+      columns = new ArrayList<UIContainer>();
+      for (int i = 0; i < MAX_COLUMN; i++) {
+        UIContainer uiContainer = this.addChild(UIContainer.class, null, "Column"+(i+1));
+        if(i==0) {
+          uiContainer.setRendered(true);
+        } else {
+          uiContainer.setRendered(false);
+        }
+        columns.add(uiContainer);
+      }
     }
     return columns;
   }
   
-  public List<UIGadget> getColumn(final int col) throws Exception {
-    if ((col < 0) || (col > columns.size())) { return null; }
+  public int getRenderedColumnsCount() throws Exception {
+    if(columns == null) {
+      columns = getColumns();
+    }
+    int count = 0;
+    for (int i = 0; i < columns.size(); i++) {
+      if(columns.get(i).isRendered()) { count++; }
+    }
+    return count;
+  }
+  
+  public UIContainer getColumn(final int col) throws Exception {
+    if (col < 0 || col > getRenderedColumnsCount()) { return null; }
     return columns.get(col);
   }
     
   public boolean hasUIGadget() throws Exception {
     boolean flag = false;
-    for (int iCol = 0; iCol < columns.size(); iCol++) {
-      if (!columns.get(iCol).isEmpty()) {
-        flag = true;
-        break;
-      }
-    }
+    UIGadget gadget = findFirstComponentOfType(UIGadget.class);
+    if(gadget != null) flag = true;
     return flag;    
   }
   
@@ -152,23 +149,23 @@ public class UIDashboardContainer extends UIForm {
       return null;
     }
     if (columns == null || columns.size() == 0) {
-      columns = new ArrayList<List<UIGadget>>();
-      for (int i = 0; i < num; i++) {
-        columns.add(new ArrayList<UIGadget>());
-      }
-      return this;
+     columns = this.getColumns();
     }
-
-    int colSize = columns.size();
+    
+    int colSize = 0;
+    for (int i = 0; i < columns.size(); i++) {
+      if(columns.get(i).isRendered()) { colSize++; }
+    }
+    
     if (num < colSize) {
       do {
-        columns.remove(colSize - 1);
-        colSize--;
+        columns.get(--colSize).removeChild(UIGadget.class);
+        columns.get(colSize).setRendered(false);
       } while (num < colSize);
     } else {
       if (num > colSize) {
         do {
-          columns.add(new ArrayList<UIGadget>());
+          columns.get(colSize).setRendered(true);
           colSize++;
         } while (num > colSize);
       }

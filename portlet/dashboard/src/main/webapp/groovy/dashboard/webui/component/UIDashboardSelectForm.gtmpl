@@ -22,10 +22,13 @@
 								<div class="ItemsContainer">
 									<%
 									List lstGadgets = uicomponent.getGadgetsOfCategory(category);
-										if(lstGadgets != null)
+										if(lstGadgets != null){
+											def j=0;
 											for(gadget in lstGadgets){
+												j++;
+												if(j>5) j=1;
 									%>
-													 	<div class="UIGadget SelectItem" id="${gadget.getId()}" style="top:0px; left:0px;">
+													 	<div class="UIGadget SelectItem Item$j" id="${gadget.getId()}" style="top:0px; left:0px;">
 													 		<div class="GadgetControl">
 												 				<div class="GadgetTitle" style="cursor:move;">
 												 					${gadget.getDisplayName()}
@@ -34,7 +37,7 @@
 														</div>
 			<%
 											}
-										else print """ 
+										}	else print """ 
 														<span></span> 
 													 """;
 			%>

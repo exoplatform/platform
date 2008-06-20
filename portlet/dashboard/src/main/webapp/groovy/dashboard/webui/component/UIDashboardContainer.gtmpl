@@ -1,21 +1,20 @@
+<% 
+	import org.exoplatform.webui.core.UIComponent;
+	import org.exoplatform.webui.core.UIContainer;
+%>
 <div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="DashboardContainer" id="DashboardContainer">
 		<div class="UIColumns" style="width: 99%;" >
 		
 		<%
-			int columnsSize=uicomponent.getColumns().size();
-			for(int iCol=0; iCol<4; iCol++){ 
-				if(iCol < columnsSize){
+			for(int iCol=0; iCol<uicomponent.MAX_COLUMN; iCol++){ 
+				UIContainer uiContainer = uicomponent.getChild(iCol);
 		%>
-				<div class="UIColumn" id="UIColumn-<%=iCol%>" >
-				<%for(int iRow=0; iRow<uicomponent.getColumn(iCol).size(); iRow++ ){
-									uicomponent.renderUIGadget(iCol,iRow);
-					}
-				} else {
+				<div class="UIColumn" id="<%= uiContainer.getId() %>" style="display: <%= uiContainer.isRendered()? "block" : "none" %>" >
+				<%
+					if(uiContainer.hasChildren()) { uiContainer.renderChildren(); }
 				%>
-				<div class="UIColumn" id="UIColumn-<%=iCol%>" style="display: none;" >
-				<% } %>
-				</div>
+				</div>	
 		<% } %>
 			<div style="clear:left;"><span></span></div>
 		</div>

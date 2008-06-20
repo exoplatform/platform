@@ -113,7 +113,6 @@ eXo.gadget.UIGadget = {
 		var uiGadget = this ;
 		var gadgetControl = DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetControl");
 		gadgetControl.style.display = "block" ;
-		uiGadget.style.border = "1px solid #9e9e9e";
 
 		var uiPageDesktop = DOMUtil.findAncestorByClass(uiGadget, "UIPageDesktop");
 		if(uiPageDesktop) {

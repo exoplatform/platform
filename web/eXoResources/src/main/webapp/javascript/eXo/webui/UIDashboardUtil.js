@@ -106,8 +106,8 @@ eXo.webui.UIDashboardUtil = {
 		var col = dragObj.parentNode;
 		if(col==null) return null;
 		var colId = col.id;
-		index = colId.substring(colId.lastIndexOf('-')+1, colId.length);
-		return index;
+		index = parseInt(colId.substring(colId.lastIndexOf('-')+1, colId.length));
+		return index-1;
 	},
 	
 	findRowIndexInDashboard : function(dragObj){

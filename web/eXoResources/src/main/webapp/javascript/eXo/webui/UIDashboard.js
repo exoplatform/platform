@@ -18,12 +18,15 @@ eXo.webui.UIDashboard = {
 			uiDashboard.portletWindow = uiWindow;
 			var dashboardContainer = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
 			var portletApp = DOMUtil.findAncestorByClass(dashboardContainer, "UIApplication");
+
+//			var ggwidth = dragObj.offsetWidth - parseInt(DOMUtil.getStyle(dragObj,"borderLeftWidth"))
+//											- parseInt(DOMUtil.getStyle(dragObj,"borderRightWidth"));
+//			var ggheight = dragObj.offsetHeight - parseInt(DOMUtil.getStyle(dragObj,"borderTopWidth"))
+//											- parseInt(DOMUtil.getStyle(dragObj,"borderBottomWidth"));
 			
-			var ggwidth = dragObj.offsetWidth - parseInt(DOMUtil.getStyle(dragObj,"borderLeftWidth"))
-											- parseInt(DOMUtil.getStyle(dragObj,"borderRightWidth"));
-			var ggheight = dragObj.offsetHeight - parseInt(DOMUtil.getStyle(dragObj,"borderTopWidth"))
-											- parseInt(DOMUtil.getStyle(dragObj,"borderBottomWidth"));
-											
+			var ggwidth = dragObj.offsetWidth;
+			var ggheight = dragObj.offsetHeight;
+			
 			//find position to put drag object in
 			var mx = eXo.webui.UIDashboardUtil.findMouseRelativeX(uiWorkingWS, e);
 			var ox = eXo.webui.UIDashboardUtil.findMouseRelativeX(dragObj, e);
@@ -209,7 +212,8 @@ eXo.webui.UIDashboard = {
 					ajaxGet(url);
 				} else {
 					//in case: drop to old position
-					if(uiTarget.previousSibling != null && uiTarget.previousSibling.id == dragObj.id){
+					if(uiDashboardUtil.findColIndexInDashboard(dragObj) == col 
+								&& uiDashboardUtil.findRowIndexInDashboard(dragObj) == (row-1)){
 						uiTarget.parentNode.removeChild(uiTarget);
 					} else {					
 						uiTarget.parentNode.replaceChild(dragObj, uiTarget);
