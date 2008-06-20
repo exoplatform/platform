@@ -55,7 +55,7 @@ public class AbstractPortalTestCase extends SeleneseTestCase {
    * add the capture of screenshot in case of error.
    * @throws Exception on an initialization error
    */
-  public final void setUp() throws Exception {
+  public void setUp() throws Exception {
     setCaptureScreetShotOnFailure(true);
     super.setUp();
   }
