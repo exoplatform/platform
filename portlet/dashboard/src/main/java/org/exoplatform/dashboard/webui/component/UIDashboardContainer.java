@@ -158,10 +158,19 @@ public class UIDashboardContainer extends UIForm {
     }
     
     if (num < colSize) {
-      do {
-        columns.get(--colSize).removeChild(UIGadget.class);
-        columns.get(colSize).setRendered(false);
-      } while (num < colSize);
+      for (int i = num; i < colSize; i++) {
+        UIContainer tempCol = columns.get(i);
+        List<UIComponent> components = new ArrayList<UIComponent>();
+        for(UIComponent component : tempCol.getChildren()){
+          columns.get(num-1).addChild(component);
+          components.add(component);
+        }
+        tempCol.removeChild(UIGadget.class);
+        for (UIComponent component : components) {
+          component.setParent(columns.get(num-1));
+        }
+        tempCol.setRendered(false);
+      }
     } else {
       if (num > colSize) {
         do {

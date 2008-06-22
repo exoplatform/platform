@@ -487,10 +487,10 @@ PortalDragDrop.prototype.fixCss =  function() {
 	  	uiRowContainer = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "UIRowContainer") ;
 	  	if(uiRowContainer != null) { 
 	  		if(layoutPortal.style.display == "block" || viewPortal.style.display == "none") {
-	  		  viewPage.style.paddingTop = "8px";
-			  	viewPage.style.paddingRight = "0px";
-			  	viewPage.style.paddingBottom = "0px";
-			  	viewPage.style.paddingLeft = "0px";
+	  		  uiPortal.style.paddingTop = "8px";
+			  	uiPortal.style.paddingRight = "0px";
+			  	uiPortal.style.paddingBottom = "0px";
+			  	uiPortal.style.paddingLeft = "0px";
 	  		} else {
 	  			uiPortal.style.padding = "0px" ;
 	  		}

@@ -16,6 +16,16 @@
 	float: left;
 	height: 100%;
 	width: 198px;
+	margin-right: 5px;
+}
+
+.UIDashboardSelectForm .CloseButton {
+	border: 1px solid black;
+	background: red;
+	cursor: pointer;
+	float: right;
+	height: 15px;
+	width: 15px;
 }
 
 .UIDashboardSelectForm .UIDashboardItemContainer{
@@ -47,6 +57,26 @@
 	height: 100%;
 }
 
+.UIDashboardContainer .DashboardContainer .ContainerControlBarL {
+	background: lightgray;
+	padding: 3px 0px 3px 5px;
+	width: 150px;
+	cursor: pointer;
+}
+
+.UIDashboardContainer .DashboardContainer .AddIcon {
+	height: 15px;
+	width: 15px;
+	border: 1px solid green;
+	text-align: center;
+	float: left;
+}
+
+.UIDashboardContainer .DashboardContainer .AddLabel {
+	line-height: 18px;
+	padding-left: 20px;
+}
+
 .DashboardContainer .UIColumns {
 }
 
@@ -66,7 +96,7 @@
 }
 
 .UIDashboardContainer .UITarget {
-	border: 1px dotted red;
+	border: 2px dashed red;
 	margin: 0px 5px 10px 5px;
 }
 

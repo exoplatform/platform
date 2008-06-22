@@ -1,4 +1,8 @@
 <div class="$uicomponent.id" id="UIDashboardSelectForm" style="display: <%= uicomponent.isShowSelectForm()? "block" : "none"; %>;">
+	<div class="SelectFormControlBar">
+		<div class="CloseButton" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"><span></span></div>
+		<div style="clear:right;"><span></span></div>
+	</div>
 	<div class="UIDashboardItemContainer">
 		
 		<div class="GadgetItemsContainer" id="GadgetItemsContainer">

@@ -20,9 +20,6 @@
 <div id="$uicomponent.id" class="UIDashboardPortlet">
 			<% if(rcontext.getApplicationMode() == PortletMode.VIEW ) {
 					uicomponent.renderChild(UIDashboardSelectForm.class);
-			%>
-					<div class="UIDashboardSideBar <%= selectForm.isShowSelectForm()? "CollapseSideBar" : "ExpandSideBar"; %>" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"><span></span></div> 
-			<%
 					uicomponent.renderChild(UIDashboardContainer.class);
 			  } else {
 					uicomponent.renderChild(UIDashboardEditForm.class);

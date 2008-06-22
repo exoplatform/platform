@@ -1,9 +1,27 @@
 <% 
 	import org.exoplatform.webui.core.UIComponent;
 	import org.exoplatform.webui.core.UIContainer;
+  import org.exoplatform.dashboard.webui.component.UIDashboardPortlet;
+  import org.exoplatform.dashboard.webui.component.UIDashboardSelectForm;
+  
+  def uiPortlet = uicomponent.getParent();
+  def uiSelectForm = uiPortlet.getChild(UIDashboardSelectForm.class);
 %>
 <div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="DashboardContainer" id="DashboardContainer">
+		<div class="ContainerControlBarL" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"
+												 style="visibility: <%= uiSelectForm.isShowSelectForm()? "hidden" : "visible"; %>;">
+			<div class="ContainerControlBarR">
+				<div class="ContainerControlBarM">
+					<div class="AddContentControlBar">
+						<div class="AddIcon">+</div>
+						<div class="AddLabel">Add Content</div>
+						<div style="clear: left"><span></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<div class="UIColumns" style="width: 99%;" >
 		
 		<%

@@ -113,7 +113,7 @@ eXo.webui.UIDashboard = {
 				if(uiCol == null){
 					if(cols == null) cols = DOMUtil.findDescendantsByClass(dashboardCont, "div", "UIColumn");
 					for(var i=0; i<cols.length; i++){
-						var uiColLeft = eXo.webui.UIDashboardUtil.findPosX(cols[i]);
+						var uiColLeft = eXo.webui.UIDashboardUtil.findPosX(cols[i]) - dashboardCont.scrollLeft;
 						if(uiColLeft<ex  &&  ex<uiColLeft+cols[i].offsetWidth){
 							uiCol = cols[i];
 							eXo.webui.UIDashboard.currCol = uiCol;
@@ -125,7 +125,7 @@ eXo.webui.UIDashboard = {
 				
 				if(uiCol==null) return;
 
-				var uiColLeft = eXo.webui.UIDashboardUtil.findPosX(uiCol);
+				var uiColLeft = eXo.webui.UIDashboardUtil.findPosX(uiCol) - dashboardCont.scrollLeft;
 				if(uiColLeft<ex  &&  ex<uiColLeft+uiCol.offsetWidth ){
 					var gadgets = DOMUtil.findDescendantsByClass(uiCol, "div", "UIGadget");
 					//remove drag object from dropable target
@@ -159,7 +159,7 @@ eXo.webui.UIDashboard = {
 					//find column which draggin in					
 					if(cols == null) cols = DOMUtil.findDescendantsByClass(dashboardCont, "div", "UIColumn");
 					for(var i=0; i<cols.length; i++){
-						var uiColLeft = eXo.webui.UIDashboardUtil.findPosX(cols[i]);
+						var uiColLeft = eXo.webui.UIDashboardUtil.findPosX(cols[i]) - dashboardCont.scrollLeft;
 						if(uiColLeft<ex  &&  ex<uiColLeft+cols[i].offsetWidth){
 							eXo.webui.UIDashboard.currCol = cols[i];
 							break;
@@ -191,6 +191,9 @@ eXo.webui.UIDashboard = {
 			}
 			
 			var uiTarget = uiDashboard.targetObj;
+			if(uiTarget != null && (uiTarget.parentNode == null || uiTarget.parentNode == "undefined")) { 
+				uiTarget = null; 
+			}
 			dragObj.style.position = "static";
 			if(eXo.core.DOMUtil.hasClass(dragObj, "Dragging")){
 				eXo.core.DOMUtil.replaceClass(dragObj," Dragging","");
@@ -245,7 +248,7 @@ eXo.webui.UIDashboard = {
 		uiDashboard.style.overflow = "hidden";
 
 		var uiContainer = eXo.core.DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
-		
+
 		var gadgetControls = eXo.core.DOMUtil.findDescendantsByClass(uiDashboard, "div", "GadgetTitle");
 		for(var j=0; j<gadgetControls.length; j++) {
 			eXo.webui.UIDashboard.init(gadgetControls[j], eXo.core.DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
@@ -281,24 +284,28 @@ eXo.webui.UIDashboard = {
 		return uiTarget;
 	},
 	
-	showHideSelectForm : function(sideBar){
+	showHideSelectForm : function(comp){
 		var DOMUtil = eXo.core.DOMUtil;
-		var uiDashboardPortlet = DOMUtil.findAncestorByClass(sideBar, "UIDashboardPortlet");
-		var uiSelectForm = DOMUtil.findFirstDescendantByClass(uiDashboardPortlet, "div", "UIDashboardSelectForm");
+		var uiDashboardPortlet = DOMUtil.findAncestorByClass(comp, "UIDashboardPortlet");
+		var uiSelectForm = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardSelectForm");
+		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
+		
 		var portletId = DOMUtil.findAncestorById(uiDashboardPortlet, "PORTLET-FRAGMENT").parentNode.id;
+		
+		var addButton = DOMUtil.findFirstDescendantByClass(uiContainer, "div", "ContainerControlBarL");
 		
 		var url = eXo.env.server.portalBaseURL + '?portal:componentId=' + portletId +
 						'&portal:type=action&portal:isSecure=false&uicomponent=' + uiDashboardPortlet.id +
 						'&op=SetShowSelectForm&ajaxRequest=true' ;
 						
-		if(DOMUtil.hasClass(sideBar, "CollapseSideBar")){
+		if(uiSelectForm.style.display != "none"){
 			uiSelectForm.style.display = "none";
 			url += '&isShow=false';
-			DOMUtil.replaceClass(sideBar, "CollapseSideBar", "ExpandSideBar");
+			addButton.style.visibility = "visible";
 		} else {
 			uiSelectForm.style.display = "block";
 			url += '&isShow=true';
-			DOMUtil.replaceClass(sideBar, "ExpandSideBar", "CollapseSideBar");
+			addButton.style.visibility = "hidden";
 		}
 		ajaxAsyncGetRequest(url, false);
 	}, 
