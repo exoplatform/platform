@@ -1,0 +1,105 @@
+
+/***************************************  UIGadget   **************************************/
+
+.UIGadget {
+	margin: 3px 0px;
+}
+
+.UIGadget .GadgetMenuBar {
+	height: 20px;
+}
+
+.UIGadget .GadgetControl {
+  float: right;
+	width: 110px; height: 20px;
+	margin-right: 6px;
+}
+
+.UIGadget .GadgetControl .LeftControlBar {
+	background: url('background/Gadget.png') no-repeat left top;	
+	padding-left: 23px;
+}
+
+.UIGadget .GadgetControl .RightControlBar{
+	background: url('background/Gadget.png') no-repeat right top;	
+	padding-right: 4px;
+}
+
+.UIGadget .GadgetControl .CenterControlBar{
+	height: 19px;
+	background: url('background/Gadget.png') repeat-x center -19px;	
+}
+
+.UIGadget .GadgetControl .GadgetDragHandleArea {
+	float: right;
+	width: 13px; height: 13px;
+	cursor: move;
+	margin: 3px 3px 0px 3px;
+	background: url('background/Gadget.png') left -78px;
+}
+
+.UIGadget .GadgetControl .IconControl {
+	background-image: url('background/Gadget.png');
+	background-position: no-repeat;
+	float: right;
+	height: 13px;
+	width: 13px;
+	margin: 3px;
+	cursor: pointer;
+}
+
+.UIGadget .GadgetControl .CloseGadget {
+	background-position: right -91px;
+}
+
+.UIGadget .GadgetControl .MinimizeGadget {
+	background-position: left -91px;
+}
+
+.UIGadget .GadgetControl .EditGadget {
+	background-position: right -78px;
+}
+
+.UIGadget .TLGadget {
+	background: url('background/Gadget.png') no-repeat left -38px;
+	padding-left: 8px;
+}
+
+.UIGadget .TRGadget {
+	background: url('background/Gadget.png') no-repeat right -38px;
+	padding-right: 8px;
+}
+
+.UIGadget .TCGadget {
+	background: url('background/Gadget.png') repeat-x center -43px;
+	height: 5px;
+}
+
+.UIGadget .MLGadget {
+	background: url('background/MiddleGadget.png') repeat-y left;
+	padding-left: 6px;
+}
+
+.UIGadget .MRGadget {
+	background: url('background/MiddleGadget.png') repeat-y right;
+	padding-right: 6px;
+}
+
+.UIGadget .MCGadget {
+	background: white;
+}
+
+.UIGadget .BLGadget {
+	background: url('background/Gadget.png') no-repeat left -58px;
+	padding-left: 9px;
+}
+
+.UIGadget .BRGadget {
+	background: url('background/Gadget.png') no-repeat right -68px;
+	padding-right: 9px;
+}
+
+.UIGadget .BCGadget {
+	background: url('background/Gadget.png') repeat-x center -48px;
+	height: 10px;
+}
