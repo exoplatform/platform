@@ -14,17 +14,36 @@
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id', $metadata, $userPref);") ;
 %>
 <div class="UIGadget" id="<%= uicomponent.getApplicationInstanceUniqueId() %>" style="left: $posX; top: $posY; z-Index: $zIndex; width: 320px" >
-	<div class="GadgetMenuBar">
-		<div class="GadgetControl" style="display: none;">
-	  	<div class="CloseGadget IconControl" onclick="eXo.gadget.UIGadget.deleteGadget(this)"><span></span></div>
-			<div class="MinimizeGadget IconControl" onclick="eXo.gadget.UIGadget.minimizeGadget(this)"><span></span></div>
-	    <div class="EditGadget IconControl" onclick="eXo.gadget.UIGadget.editGadget('$id')"><span></span></div>
-			<div class="GadgetTitle"><%= uicomponent.getApplicationName() %></div>
-		 	<div style="clear: both"><span></span></div>
-	  </div>
-	</div>
+	<div class="GadgetControl" style="display: none;">
+		<div class="LeftControlBar">
+			<div class="RightControlBar">
+				<div class="CenterControlBar">
+			  	<div class="CloseGadget IconControl" onclick="eXo.gadget.UIGadget.deleteGadget(this)"><span></span></div>
+					<div class="MinimizeGadget IconControl" onclick="eXo.gadget.UIGadget.minimizeGadget(this)"><span></span></div>
+			    <div class="EditGadget IconControl" onclick="eXo.gadget.UIGadget.editGadget('$id')"><span></span></div>
+			  	<div class="GadgetDragHandleArea" onclick="eXo.gadget.UIGadget.deleteGadget(this)"><span></span></div>
+				 	<div style="clear: right"><span></span></div>
+				</div>
+			</div>
+		</div>
+  </div>
+ 	<div style="clear: right"><span></span></div>
 	<div class="GadgetApplication">
-		<div id="$id"></div>
+		<div class="TLGadget">
+			<div class="TRGadget">
+				<div class="TCGadget"><span></span></div>
+			</div>
+		</div>
+		<div class="MLGadget">
+			<div class="MRGadget">
+				<div id="$id" class="MCGadget"></div>
+			</div>
+		</div>
+		<div class="BLGadget">
+			<div class="BRGadget">
+				<div class="BCGadget"><span></span></div>
+			</div>
+		</div>
 	</div>
 	<div class="UIMask" style="display: none; border:solid 1px red"><span></span></div>
 </div>
