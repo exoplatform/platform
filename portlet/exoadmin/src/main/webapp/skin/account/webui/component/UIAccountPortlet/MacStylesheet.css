@@ -27,6 +27,14 @@
 	padding: 0px;
 }
 
+.UIAccountPortlet .UITabPane .UIForm .HorizontalLayout .UITabContent {
+	padding-top: 15px;
+}
+
+.UIAccountPortlet .UITabPane .UIForm  .HorizontalLayout .UIFormInputSet {
+	padding: 0px;
+}
+
 /*########################-Template Selector-###########################*/
 
 .UIPersonalInfo {

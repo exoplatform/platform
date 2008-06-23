@@ -29,6 +29,10 @@
   padding-top: 15px;
 }
 
+.UIAccountPortlet .UIForm .HorizontalLayout .UITabContent {
+  padding: 0px 0px 5px 0px;
+}
+
 /*########################-UIPersonalInfo-###########################*/
 
 .UIAccountPortlet .UIItemSelector .ItemDetail .FieldContainer {
