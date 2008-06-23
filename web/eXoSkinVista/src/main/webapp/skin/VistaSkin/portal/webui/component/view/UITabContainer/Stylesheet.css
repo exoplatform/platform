@@ -48,3 +48,7 @@
 	height: 26px;	width: 16px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center ;
 }
+
+.UITabContainer .UIApplicationRegistryPortlet .UIAvailablePortletForm .HorizontalLayout {
+  border: none;
+}

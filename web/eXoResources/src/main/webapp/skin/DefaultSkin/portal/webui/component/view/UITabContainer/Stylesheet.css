@@ -39,3 +39,22 @@
 	width: 16px; height: 24px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center;
 } 
+
+.UITabContainer .HorizontalLayout .UIOrganizationPortlet .UIForm .HorizontalLayout {
+  padding: 0px;
+}
+
+.UITabContainer .UIOrganizationPortlet .UIGroupInfo .UIForm .UIFormGrid {
+  width: auto;
+  margin: auto;
+}
+
+.UITabContainer .UIOrganizationPortlet .UIMembershipManagement .UIForm .UIFormGrid {
+  width: auto;
+  margin: auto;
+}
+
+.UITabContainer .UIAccountPortlet .UIForm .UIFormGrid {
+  margin: auto;
+  width: auto;
+}
