@@ -43,21 +43,21 @@ import org.exoplatform.webui.form.UIFormStringInput;
 })
 public class UIDashboardEditForm extends UIForm {
 
-  final static public String TOTAL_COLUMNS = "totalColumns";
+  public static final String TOTAL_COLUMNS = "totalColumns";
 
-  final static public int MAX_COLUMNS = 4;
+  public static final int MAX_COLUMNS = 4;
 
-  final static public int DEFAULT_COLUMNS = 3;
+  public static final int DEFAULT_COLUMNS = 3;
 
   public UIDashboardEditForm() throws Exception {
     PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext
         .getCurrentInstance();
     PortletPreferences pref = pcontext.getRequest().getPreferences();
     addUIFormInput(new UIFormStringInput(TOTAL_COLUMNS, TOTAL_COLUMNS, pref.getValue(
-        "totalColumns", "3")));
+        TOTAL_COLUMNS, "3")));
   }
 
-  static public class SaveActionListener extends EventListener<UIDashboardEditForm> {
+  public static class SaveActionListener extends EventListener<UIDashboardEditForm> {
     public final void execute(final Event<UIDashboardEditForm> event) throws Exception {
 
       UIDashboardEditForm uiForm = event.getSource();

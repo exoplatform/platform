@@ -91,8 +91,8 @@ public class UIDashboardSelectForm extends UIForm {
     return isShowSelectForm;
   }
 
-  public void setShowSelectForm(final boolean isShowSelectForm) {
-    this.isShowSelectForm = isShowSelectForm;
+  public void setShowSelectForm(final boolean value) {
+    this.isShowSelectForm = value;
   }
 
 }

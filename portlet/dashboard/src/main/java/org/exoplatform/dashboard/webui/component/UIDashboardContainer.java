@@ -35,11 +35,11 @@ import org.exoplatform.webui.form.UIForm;
   )
 })
 public class UIDashboardContainer extends UIForm {
-  public final static int MAX_COLUMN = 4;
+  public static final int MAX_COLUMN = 4;
   
 //  private List<List<UIGadget>> columns;
   
-  private List<UIContainer> columns ;
+  private List<UIContainer> columns;
   
   public UIDashboardContainer() throws Exception {
     columns = new ArrayList<UIContainer>();
@@ -81,7 +81,7 @@ public class UIDashboardContainer extends UIForm {
   
   public UIGadget removeUIGadget(final String gadgetId) throws Exception {
     UIGadget gadget = getUIGadget(gadgetId);
-    if(gadget != null) {
+    if (gadget != null) {
       UIContainer uiContainer = gadget.getParent();
       gadget.setParent(null);
       uiContainer.getChildren().remove(gadget);
@@ -91,13 +91,13 @@ public class UIDashboardContainer extends UIForm {
   
   public UIGadget removeUIGadget(final int col, final int row) throws Exception {
     UIGadget gadget = getUIGadget(col, row);
-    if(gadget != null) {
+    if (gadget != null) {
       removeUIGadget(gadget.getId());
     }
     return gadget;
   }
   
-  public void moveUIGadget(final String gadgetId, final int col, int row) throws Exception {
+  public void moveUIGadget(final String gadgetId, final int col, final int row) throws Exception {
     UIGadget gadget = removeUIGadget(gadgetId);
     if (gadget == null) {
       return;
@@ -109,8 +109,8 @@ public class UIDashboardContainer extends UIForm {
     if (columns == null) {
       columns = new ArrayList<UIContainer>();
       for (int i = 0; i < MAX_COLUMN; i++) {
-        UIContainer uiContainer = this.addChild(UIContainer.class, null, "Column"+(i+1));
-        if(i==0) {
+        UIContainer uiContainer = this.addChild(UIContainer.class, null, "Column" + (i + 1));
+        if (i == 0) {
           uiContainer.setRendered(true);
         } else {
           uiContainer.setRendered(false);
@@ -122,12 +122,12 @@ public class UIDashboardContainer extends UIForm {
   }
   
   public int getRenderedColumnsCount() throws Exception {
-    if(columns == null) {
+    if (columns == null) {
       columns = getColumns();
     }
     int count = 0;
     for (int i = 0; i < columns.size(); i++) {
-      if(columns.get(i).isRendered()) { count++; }
+      if (columns.get(i).isRendered()) { count++; }
     }
     return count;
   }
@@ -140,7 +140,9 @@ public class UIDashboardContainer extends UIForm {
   public boolean hasUIGadget() throws Exception {
     boolean flag = false;
     UIGadget gadget = findFirstComponentOfType(UIGadget.class);
-    if(gadget != null) flag = true;
+    if (gadget != null) {
+      flag = true;
+    }
     return flag;    
   }
   
@@ -149,25 +151,25 @@ public class UIDashboardContainer extends UIForm {
       return null;
     }
     if (columns == null || columns.size() == 0) {
-     columns = this.getColumns();
+      columns = this.getColumns();
     }
     
     int colSize = 0;
     for (int i = 0; i < columns.size(); i++) {
-      if(columns.get(i).isRendered()) { colSize++; }
+      if (columns.get(i).isRendered()) { colSize++; }
     }
     
     if (num < colSize) {
       for (int i = num; i < colSize; i++) {
         UIContainer tempCol = columns.get(i);
         List<UIComponent> components = new ArrayList<UIComponent>();
-        for(UIComponent component : tempCol.getChildren()){
-          columns.get(num-1).addChild(component);
+        for (UIComponent component : tempCol.getChildren()) {
+          columns.get(num - 1).addChild(component);
           components.add(component);
         }
         tempCol.removeChild(UIGadget.class);
         for (UIComponent component : components) {
-          component.setParent(columns.get(num-1));
+          component.setParent(columns.get(num - 1));
         }
         tempCol.setRendered(false);
       }
