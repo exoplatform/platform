@@ -202,6 +202,7 @@ eXo.webui.UIDashboard = {
 			var dragCopyObj = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "CopyObj");
 			if(dragCopyObj != null){
 				dragCopyObj.parentNode.replaceChild(dragObj, dragCopyObj);
+				dragObj.style.width = "auto";
 			}
 			
 			if(uiTarget!=null){	
@@ -226,7 +227,7 @@ eXo.webui.UIDashboard = {
 					}
 				}
 			}
-			
+
 			uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UITarget");
 			while(uiTarget!=null){
 				eXo.core.DOMUtil.removeElement(uiTarget);

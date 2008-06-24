@@ -18,17 +18,17 @@
 		<div class="LeftControlBar">
 			<div class="RightControlBar">
 				<div class="CenterControlBar">
-					<div class="TitleGadget" style="display: none"><%= uicomponent.getApplicationName() %></div>
+					<div class="GadgetTitle" style="display: none"><%= uicomponent.getApplicationName() %></div>
 			  	<div class="CloseGadget IconControl" onclick="eXo.gadget.UIGadget.deleteGadget(this)"><span></span></div>
 					<div class="MinimizeGadget IconControl" onclick="eXo.gadget.UIGadget.minimizeGadget(this)"><span></span></div>
 			    <div class="EditGadget IconControl" onclick="eXo.gadget.UIGadget.editGadget('$id')"><span></span></div>
 			  	<div class="GadgetDragHandleArea"><span></span></div>
-				 	<div style="clear: right"><span></span></div>
+				 	<div style="clear: both;"><span></span></div>
 				</div>
 			</div>
 		</div>
   </div>
- 	<div style="clear: right"><span></span></div>
+ 	<div style="clear: right;"><span></span></div>
 	<div class="GadgetApplication">
 		<div class="TLGadget">
 			<div class="TRGadget">

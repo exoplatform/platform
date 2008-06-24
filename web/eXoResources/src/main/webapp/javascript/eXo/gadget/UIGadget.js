@@ -34,8 +34,15 @@ eXo.gadget.UIGadget = {
 
 	init : function(uiGadget, inDesktop) {
 	
-		uiGadget.onmouseover = eXo.gadget.UIGadget.showGadgetControl ;
-		uiGadget.onmouseout = eXo.gadget.UIGadget.hideGadgetControl ;
+		var uiWindow = eXo.core.DOMUtil.findAncestorByClass(uiGadget, "UIWindow");
+		if(uiWindow == null){
+			uiGadget.onmouseover = eXo.gadget.UIGadget.showGadgetControl ;
+			uiGadget.onmouseout = eXo.gadget.UIGadget.hideGadgetControl ;
+		} else{
+			var gadgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetControl");
+			gadgetControl.style.display = "block" ;
+			eXo.core.DOMUtil.findFirstDescendantByClass(gadgetControl, "div", "GadgetTitle").style.display = "block" ;
+		}
 		
 		if(inDesktop) {
 			var dragHandleArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetDragHandleArea");
