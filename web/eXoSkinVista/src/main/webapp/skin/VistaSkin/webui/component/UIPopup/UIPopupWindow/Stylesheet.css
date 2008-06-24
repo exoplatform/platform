@@ -273,3 +273,13 @@
 	width: 460px;
 	margin: auto;
 }
+
+.UIPopupWindow .ExoMessageDecorator .UITabContentContainer .UITabContent {
+	height: auto;
+	padding: 0px;
+}
+
+.UIPopupWindow .ExoMessageDecorator .UIPopupMessages .UITabContentContainer {
+	border: none;
+	background: none;
+}

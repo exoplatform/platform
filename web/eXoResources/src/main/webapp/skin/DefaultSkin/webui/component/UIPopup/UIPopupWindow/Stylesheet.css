@@ -183,3 +183,10 @@
 	background: url('background/ExoMessageDecorator.gif') repeat-x center -50px; 
 	height: 4px;
 }
+
+.UIPopupWindow .ExoMessageDecorator .UITabContentContainer .UITabContent {
+	height: auto;
+	background: none;
+	border: none;
+	padding: 0px;
+}

@@ -338,3 +338,8 @@
 }
 
 /**************************************Container Form*************************************/
+
+/**************************************ExoMessageDecorator*************************************/
+.UIMaskWorkspace .UIIFramePortlet .ExoMessageDecorator .UIPopupMessages .UITabContentContainer {
+	border: none;
+}
