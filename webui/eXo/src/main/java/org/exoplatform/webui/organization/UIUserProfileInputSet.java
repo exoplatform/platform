@@ -17,11 +17,14 @@
 package org.exoplatform.webui.organization;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.organization.UserProfileHandler;
+import org.exoplatform.services.resources.LocaleConfig;
+import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -81,6 +84,17 @@ public class UIUserProfileInputSet extends UIFormInputSet {
         ls.add(new SelectItemOption<String>(FEMALE, FEMALE)) ;;
         UIFormSelectBox genderSelectBox = new UIFormSelectBox(key, key, ls);
         set.addUIFormInput(genderSelectBox);  
+        continue;
+      }else if(key.equalsIgnoreCase("user.language")){
+        List<SelectItemOption<String>> lang = new ArrayList<SelectItemOption<String>>() ;
+        LocaleConfigService localeService = getApplicationComponent(LocaleConfigService.class) ;
+        Iterator i = localeService.getLocalConfigs().iterator() ;
+        while (i.hasNext()) {
+          LocaleConfig config = (LocaleConfig) i.next() ;
+          lang.add(new SelectItemOption<String>(config.getLocaleName(), config.getLanguage()))  ;
+        }
+        UIFormSelectBox langSelectBox = new UIFormSelectBox(key, key, lang);
+        set.addUIFormInput(langSelectBox);  
         continue;
       }
       set.addUIFormInput( new UIFormStringInput(key, null, null)) ;

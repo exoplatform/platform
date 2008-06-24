@@ -33,7 +33,6 @@ eXo.gadget.UIGadget = {
 	},
 
 	init : function(uiGadget, inDesktop) {
-	
 		var uiWindow = eXo.core.DOMUtil.findAncestorByClass(uiGadget, "UIWindow");
 		if(uiWindow == null){
 			uiGadget.onmouseover = eXo.gadget.UIGadget.showGadgetControl ;

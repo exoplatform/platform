@@ -22,10 +22,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.UserProfile;
+import org.exoplatform.services.resources.LocaleConfig;
+import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -77,9 +85,21 @@ public class UILoginForm extends UIForm {
       HttpSession session = request.getSession();
       session.setAttribute("authentication.username", username);
       session.setAttribute("authentication.password", password);
+      UIPortal uiPortal = Util.getUIPortal();
+      //TODO - dang.tung - set language for user
+      //--------------------------------------------------------------------------------------------
+//      UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(username) ;
+//      String userLanguage = userProfile.getUserInfoMap().get("user.language") ;
+//      if(userLanguage != null) {
+//        UserPortalConfigService userPortalConfigService = uiForm.getApplicationComponent(UserPortalConfigService.class) ;
+//        UserPortalConfig userPortalConfig = userPortalConfigService.getUserPortalConfig(uiPortal.getName(), username) ;
+//        PortalConfig portalConfig = userPortalConfig.getPortalConfig() ;
+//        portalConfig.setLocale(userLanguage) ;
+//        userPortalConfigService.update(portalConfig) ;
+//      }
+        //--------------------------------------------------------------------------------------------
       prContext.setResponseComplete(true);  
-      UIPortal uiCurrentPortal = Util.getUIPortal() ;
-      String portalName = uiCurrentPortal.getName() ;
+      String portalName = uiPortal.getName() ;
       portalName = URLEncoder.encode(portalName, "UTF-8") ;
       String redirect = request.getContextPath() + "/private/" + portalName + "/";
       prContext.getResponse().sendRedirect(redirect);      

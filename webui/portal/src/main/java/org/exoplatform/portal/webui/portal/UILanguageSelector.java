@@ -22,6 +22,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
+import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -106,7 +109,12 @@ public class UILanguageSelector extends UIContainer {
       UIPortal uiPortal = uiApp.findFirstComponentOfType(UIPortal.class) ;
       uiPortal.setLocale(localeConfig.getLanguage()) ;
       uiPortal.refreshNavigation() ;
+      //TODO: dang.tung - save change language for sign in/ sign out
+      UserPortalConfigService userPortalConfiService = event.getSource().getApplicationComponent(UserPortalConfigService.class) ;
+      UserPortalConfig userPortalConfig = userPortalConfiService.getUserPortalConfig(uiPortal.getName(), Util.getPortalRequestContext().getRemoteUser()) ;
+      PortalConfig portalConfig = userPortalConfig.getPortalConfig() ;
+      portalConfig.setLocale(language) ;
+      userPortalConfiService.update(portalConfig) ;
     }
-  }
-
+ }
 }
