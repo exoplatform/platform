@@ -2,7 +2,7 @@
 }
 
 .UIPopupMessages .UIHorizontalTabs {
-	height: 50px;
+	height: 40px;
 	background: url('background/MessageTabBar1x50.png') repeat-x top;
 	padding: 8px 4px 0px 4px;
 }
