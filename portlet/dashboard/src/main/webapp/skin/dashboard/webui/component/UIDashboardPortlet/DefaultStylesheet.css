@@ -15,39 +15,172 @@
 .UIDashboardSelectForm {
 	float: left;
 	height: 100%;
-	width: 198px;
-	margin-right: 5px;
+	width: 210px;
+	border-right: 1px solid #b7b7b7;
 }
 
-.UIDashboardSelectForm .CloseButton {
-	border: 1px solid black;
-	background: red;
-	cursor: pointer;
-	float: right;
-	height: 15px;
-	width: 15px;
+.UIDashboardSelectForm .DashboardControlBar {
+	height: 23px;
+	background: url('background/Dashboard.gif') repeat-x top;
+	border-bottom: 1px solid #b7b7b7;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer{
+.UIDashboardSelectForm .TitleControlBar {
+	color: black;
+	font-weight: bold;
+	line-height: 23px;
 	float: left;
-	width: 100%;
+	padding-left: 20px;
 }
 
-.UIDashboardSelectForm .CategoryTitleBarL {
-	margin: 3px 0px 3px 2px;
-	border: 1px solid gray;
-	background: aqua;
-	line-height: 18px;
-	padding-left: 5px;
+.UIDashboardSelectForm .CloseIcon {
+	float: right;
+	background: url('background/Dashboard.gif') no-repeat bottom;
+	height: 20px;
+	width: 20px;
 }
 
-.UIDashboardSelectForm .UIGadget {
-	margin: 3px 10px 3px 22px;
-	border: 1px solid gray;
+.UIDashboardSelectForm .UIDashboardItemContainer {
+	border: 1px solid white;
+	background: #ececec;
+	padding: 5px;
+	height: 100%;
 }
 
+.UIDashboardSelectForm .UIDashboardItemContainer .GadgetItemsContainer {
+	height: 100%;
+	border: 1px solid #b7b7b7;
+	background: white;
+	font-weight: bold;
+}
+
+.UIDashboardSelectForm .UIDashboardItemContainer .TopItemContainer {
+	background: url('background/Dashboard.gif') repeat-x center -23px;
+	height: 12px;
+	padding: 1px;
+	border-bottom: 1px solid #b7b7b7;
+}
+
+.UIDashboardSelectForm .UIDashboardItemContainer .UpArrowIcon {
+	background: url('background/Dashboard.gif') repeat-x center -98px;
+	height: 11px; width: 15px;
+	margin: auto;
+}
+
+.UIDashboardSelectForm .UIDashboardItemContainer .BottomItemContainer {
+	background: url('background/Dashboard.gif') repeat-x center -37px;
+	height: 12px;
+	padding: 1px;
+	border-top: 1px solid #b7b7b7;
+}
+
+.UIDashboardSelectForm .UIDashboardItemContainer .DownArrowIcon {
+	background: url('background/Dashboard.gif') repeat-x center -114px;
+	height: 11px; width: 15px;
+	margin: auto;
+}
+
+.UIDashboardSelectForm .UIDashboardItemContainer .GadgetCategory {
+	padding: 5px 10px;
+}
+
+.UIDashboardSelectForm .GadgetCategory .GadgetTab .LeftCategoryTitleBar {
+	padding-left: 8px;
+	background: url('background/Catalogue.gif') no-repeat left top;
+}
+
+.UIDashboardSelectForm .GadgetCategory .GadgetTab .RightCategoryTitleBar {
+	padding-right: 8px;
+	background: url('background/Catalogue.gif') no-repeat right top;
+}
+
+.UIDashboardSelectForm .GadgetCategory .GadgetTab .MiddleCategoryTitleBar {
+	padding-right: 8px;
+	background: url('background/Catalogue.gif') repeat-x center -26px;
+	height: 26px;
+}
+
+.UIDashboardSelectForm .GadgetCategory .GadgetTab .ArrowIcon {
+	background: url('background/Catalogue.gif') no-repeat left -76px;
+	line-height: 26px;
+	width: 90%;
+	overflow: hidden;
+	padding-left: 18px;
+	color: #286f9b;
+}
+
+.UIDashboardSelectForm .GadgetCategory .SelectedTab .ArrowIcon {
+	background: url('background/Catalogue.gif') no-repeat left -102px;
+}
+
+.UIDashboardSelectForm .GadgetCategory .ItemsContainer {
+	border: 1px solid #a2c2e2;
+	padding: 0px 1px;
+	margin-top: 2px;
+}
+
+.UIDashboardSelectForm .GadgetCategory .UIGadget {
+	background: url('background/Catalogue.gif') repeat-x left -52px;
+	margin: 2px 0px;
+	height: 24px;
+	line-height: 24px;
+	color: #7d7d7d;
+	padding: 0px 5px;
+}
 
 /*----------------------UIGadgetsContainer-------------------*/
+
+.UIDashboardPortlet .UIGadget .GadgetControl {
+	float: none;
+	margin: auto;
+	height: auto; width: auto;
+}
+
+.UIDashboardPortlet .UIGadget .GadgetControl .LeftControlBar {
+	background: url('background/Dashboard.gif') no-repeat left -51px;
+	padding-left: 3px;
+}
+
+.UIDashboardPortlet .UIGadget .GadgetControl .RightControlBar {
+	background: url('background/Dashboard.gif') no-repeat right -51px;
+	padding-right: 3px;
+}
+
+.UIDashboardPortlet .UIGadget .GadgetControl .CenterControlBar {
+	background: url('background/Dashboard.gif') repeat-x center -73px;
+	height: 22px;
+	line-height: 22px;
+}
+
+.UIDashboardPortlet .UIGadget .GadgetControl .GadgetDragHandleArea {
+	display: none;
+}	
+
+.UIDashboardPortlet .UIGadget .TLGadget {
+	display: none;
+}
+
+.UIDashboardPortlet .UIGadget .MLGadget {
+	background: none;
+	border: 1px solid #81a7c6;
+	border-top: none;
+}
+
+.UIDashboardPortlet .UIGadget .MRGadget {
+	background: none;
+}
+
+.UIDashboardPortlet .UIGadget .BLGadget {
+	display: none;
+}
+
+.UIDashboardPortlet .TitleGadget {
+	float: left;
+	padding: 0px 5px;
+	color: #5b5b5b;
+	font-weight: bold;
+}
+
 .UIDashboardContainer {
 	height: 100%;
 }
@@ -82,8 +215,6 @@
 
 .DashboardContainer .UIColumn {
 	float: left;
-	padding: 10px 0px 0px 0px;
-	border: 1px solid green;
 	text-align: center;
 	width: 320px;
 }

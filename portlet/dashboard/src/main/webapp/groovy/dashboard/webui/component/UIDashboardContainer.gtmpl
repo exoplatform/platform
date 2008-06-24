@@ -9,8 +9,7 @@
 %>
 <div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="DashboardContainer" id="DashboardContainer">
-		<div class="ContainerControlBarL" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"
-												 style="visibility: <%= uiSelectForm.isShowSelectForm()? "hidden" : "visible"; %>;">
+		<div class="ContainerControlBarL" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)" style="visibility: <%= uiSelectForm.isShowSelectForm()? "hidden" : "visible"; %>;">
 			<div class="ContainerControlBarR">
 				<div class="ContainerControlBarM">
 					<div class="AddContentControlBar">
