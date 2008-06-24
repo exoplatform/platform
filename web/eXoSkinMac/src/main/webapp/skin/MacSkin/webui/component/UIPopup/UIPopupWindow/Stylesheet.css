@@ -276,3 +276,7 @@
 	border: none;
 }
 
+.UIPopupWindow .ExoMessageDecorator .UIPopupMessages .PopupMessageBox {
+	height: 185px;
+}
+
