@@ -24,11 +24,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.exoplatform.application.newregistry.Application;
-import org.exoplatform.application.newregistry.ApplicationCategory;
 import org.exoplatform.application.newregistry.ApplicationRegistryService;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portletregistry.webui.component.UIFormTableIteratorInputSet;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -47,7 +47,6 @@ import org.exoplatform.webui.form.UIFormInputInfo;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormTableInputSet;
-import org.exoplatform.portletregistry.webui.component.UIFormTableIteratorInputSet;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -176,36 +175,36 @@ public class UIAvailablePortletForm extends UIForm implements UIPopupComponent {
   @SuppressWarnings("unchecked")
   static public class SaveActionListener  extends EventListener<UIAvailablePortletForm> {
     public void execute(Event<UIAvailablePortletForm> event) throws Exception {
-      UIAvailablePortletForm uiForm = event.getSource() ;
-      UIPopupWindow parent = uiForm.getParent();
-      parent.setShow(false);
-      
-      List<UIFormCheckBoxInput> listCheckbox =  new ArrayList<UIFormCheckBoxInput>();
-      uiForm.findComponentOfType(listCheckbox, UIFormCheckBoxInput.class);
-     
-      UIApplicationRegistryPortlet uiRegistryPortlet = event.getSource().getAncestorOfType(UIApplicationRegistryPortlet.class);
-      ApplicationRegistryControlArea uiRegistryCategory =  uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class);
-      ApplicationCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory();      
-      ApplicationRegistryService service = event.getSource().getApplicationComponent(ApplicationRegistryService.class);
-      
-      Comparator portletComparator = new Comparator<Application>(){
-        public int compare(Application portlet1, Application portlet2){  
-          return portlet1.getId().compareTo(portlet2.getId());
-        }
-      };     
-      
-      List<Application> oldPortlets = uiRegistryCategory.getPortlets();      
-      Collections.sort(oldPortlets, portletComparator);
-      
-      for(UIFormCheckBoxInput<Integer> ele : listCheckbox){
-        if(!ele.isChecked())continue;    
-        Application portlet = uiForm.getListApplication().get(ele.getValue());    
-        if(Collections.binarySearch(oldPortlets, portlet, portletComparator) > -1) continue;
-        Application newPortlet = clonePortlet(portlet);
-        service.save(selectedCategory, newPortlet);
-      }      
-      uiRegistryCategory.initApplicationCategories() ;
-      uiRegistryCategory.setSelectedCategory(selectedCategory);
+//      UIAvailablePortletForm uiForm = event.getSource() ;
+//      UIPopupWindow parent = uiForm.getParent();
+//      parent.setShow(false);
+//      
+//      List<UIFormCheckBoxInput> listCheckbox =  new ArrayList<UIFormCheckBoxInput>();
+//      uiForm.findComponentOfType(listCheckbox, UIFormCheckBoxInput.class);
+//     
+//      UIApplicationRegistryPortlet uiRegistryPortlet = event.getSource().getAncestorOfType(UIApplicationRegistryPortlet.class);
+//      ApplicationRegistryControlArea uiRegistryCategory =  uiRegistryPortlet.getChild(ApplicationRegistryControlArea.class);
+//      ApplicationCategory selectedCategory = uiRegistryCategory.getSelectedPortletCategory();      
+//      ApplicationRegistryService service = event.getSource().getApplicationComponent(ApplicationRegistryService.class);
+//      
+//      Comparator portletComparator = new Comparator<Application>(){
+//        public int compare(Application portlet1, Application portlet2){  
+//          return portlet1.getId().compareTo(portlet2.getId());
+//        }
+//      };     
+//      
+//      List<Application> oldPortlets = uiRegistryCategory.getPortlets();      
+//      Collections.sort(oldPortlets, portletComparator);
+//      
+//      for(UIFormCheckBoxInput<Integer> ele : listCheckbox){
+//        if(!ele.isChecked())continue;    
+//        Application portlet = uiForm.getListApplication().get(ele.getValue());    
+//        if(Collections.binarySearch(oldPortlets, portlet, portletComparator) > -1) continue;
+//        Application newPortlet = clonePortlet(portlet);
+//        service.save(selectedCategory, newPortlet);
+//      }      
+//      uiRegistryCategory.initApplicationCategories() ;
+//      uiRegistryCategory.setSelectedCategory(selectedCategory);
     }  
     
     private Application clonePortlet(Application portlet){

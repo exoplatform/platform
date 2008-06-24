@@ -16,31 +16,25 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
-import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ViewChildActionListener;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.core.UIPopupContainer;
-import org.exoplatform.webui.core.UIPopupMessages;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+
 @ComponentConfig(
     lifecycle = UIApplicationLifecycle.class,
-    template = "app:/groovy/applicationregistry/webui/component/UIPortletRegistryPortlet.gtmpl"
+    template = "app:/groovy/applicationregistry/webui/component/UIApplicationRegistryPortlet.gtmpl",
+    events = {
+      @EventConfig(listeners = ViewChildActionListener.class)
+    }
 )
+
 public class UIApplicationRegistryPortlet extends UIPortletApplication {
   
   public UIApplicationRegistryPortlet() throws Exception{
-    addChild(ApplicationRegistryWorkingArea.class, null, null);  
-    ApplicationRegistryControlArea uiControlArea = addChild(ApplicationRegistryControlArea.class, null, null);
-    uiControlArea.initApplicationCategories();
-    UIPopupContainer uiPopup =  addChild(UIPopupContainer.class, null, null) ;
-    uiPopup.setId("UIPorletRegistryContainer") ;
+    addChild(UIApplicationOrganizer.class, null, null).setRendered(false) ;
+    addChild(UIPortletManagement.class, null, null).setRendered(false) ;
+    addChild(UIGadgetManagement.class, null, null).setRendered(true) ;
   }
-  
-  public void renderPopupMessages() throws Exception {
-    UIPopupMessages uiPopupMsg = getUIPopupMessages();
-    if(uiPopupMsg == null)  return ;
-    WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;
-    uiPopupMsg.processRender(context);
-  }
-
 }

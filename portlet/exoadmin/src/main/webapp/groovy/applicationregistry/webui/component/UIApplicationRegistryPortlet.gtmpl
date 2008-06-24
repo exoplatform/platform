@@ -1,0 +1,42 @@
+<div>
+	<div><div style="width: 600px;" ><span style="display: none;"></span></div></div>
+	<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
+		style="_width: expression(this.previousSibling.offsetWidth - 18 + 'px'); min-width: 600px;">
+		<div class="UIToolbar">
+	    <div class="LargeToolbar">
+	      <div class="ToolbarContainer">
+	        <div class="LeftToolbar">
+	          <div class="RightToolbar">
+	            <div class="MiddleToolbar">
+	             
+	              <div class="ManagementIconContainer">
+	               
+	                <a href="<%=uicomponent.event("ViewChild", "UIApplicationOrganizer")%>" class="UserButton ItemButton">
+	                  <div class="ButtonLabel">Organize</div>
+	                </a>
+	                <div class="HorizontalSeparator"><span></span></div>
+	                
+	                <a href="<%=uicomponent.event("ViewChild", "UIPortletManagement")%>" class="GroupButton ItemButton">
+	                  <div class="ButtonLabel">Porlet</div>
+	                </a>
+	                <div class="HorizontalSeparator"><span></span></div>
+	                
+	                <a href="<%=uicomponent.event("ViewChild", "UIGadgetManagement")%>" class="MembershipButton ItemButton">
+	                  <div class="SelectButtonLabel">Gadget</div>
+	                </a>
+	                <div class="HorizontalSeparator"><span></span></div>
+	                <div style="clear: left;"><span></span></div>
+	              </div>
+	         
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	
+	<div class="PortletContainer">
+		<%uicomponent.renderChildren() ;%>
+	</div>
+	</div>
+</div>

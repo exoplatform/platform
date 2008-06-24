@@ -1,0 +1,45 @@
+<div class="UIGadgetManagement">
+  <div class="UIControlbar">
+  	<div class="IconControl AddNewIcon">Add a remove gadget</div>
+  	<div class="IconControl CreateNewIcon">Create a new gadget</div>
+  	<div style="clear: left"><span></span></div>
+  </div>
+  
+	<div class="AppRegistryContainer">
+		<div class="AppRegistryControl">
+			<div class="ListItem">
+   	    	
+		      <div class="SelectedItem Item">
+        <a title="web" href="#" class="TabLabel">- Gadget 1</a>
+          <a href="#" title="Delete Category" class="ControlItem">remove</a>
+      	<div style="clear: both;"><span></span></div>
+			  </div>
+				
+	      <div class="NormalItem Item">
+        <a title="Administration" href="#" class="TabLabel">+ Meteo</a>
+          <a  href="#" title="Delete Category" class="ControlItem">remove</a>
+      	<div style="clear: both;"><span></span></div>
+			  </div>
+				
+	      <div class="NormalItem Item">
+        <a title="Administration" href="#" class="TabLabel">+ Stock quote</a>
+          <a  href="#" title="Delete Category" class="ControlItem">remove</a>
+      	<div style="clear: both;"><span></span></div>
+			  </div>
+				
+	      <div class="NormalItem Item">
+        <a title="Administration" href="#" class="TabLabel">+ Notebook</a>
+          <a  href="#" title="Delete Category" class="ControlItem">remove</a>
+      	<div style="clear: both;"><span></span></div>
+			  </div>
+				
+			</div>
+		</div>
+		<div class="Slidebar"><span></span></div>
+		
+		<div class="AppWorkingArea">
+			sgj
+		</div>
+		<div style="clear: left"><span></span></div>
+	</div>  
+</div>
