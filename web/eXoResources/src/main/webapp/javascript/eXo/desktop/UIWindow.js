@@ -303,8 +303,8 @@ UIWindow.prototype.saveWindowProperties = function(object, appStatus) {
 	if(!appStatus) {
 	  params = [
 	  	{name : "objectId", value : object.id.replace(/^UIWindow-/, "")},
-	  	{name : "posX", value : parseInt(object.style.top)},
-	  	{name : "posY", value : parseInt(object.style.left)},
+	  	{name : "posX", value : parseInt(object.style.left)},
+	  	{name : "posY", value : parseInt(object.style.top)},
 	  	{name : "zIndex", value : object.style.zIndex},
 	  	{name : "windowWidth", value : object.offsetWidth},
 		  {name : "windowHeight", value : uiResizableBlock.offsetHeight}
