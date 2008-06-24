@@ -213,11 +213,13 @@
 }
 
 .DashboardContainer .UIColumns {
+	height: 100%;
 }
 
 .DashboardContainer .UIColumn {
 	float: left;
 	width: 320px;
+	height: 100%;
 }
 
 .UIDashboardContainer .UIGadget {
