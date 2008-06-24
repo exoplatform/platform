@@ -35,6 +35,8 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.application.gadget.GadgetApplication;
+import org.exoplatform.web.application.gadget.GadgetRegistryService;
 import org.picocontainer.Startable;
 
 /**
@@ -254,11 +256,32 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   
   //TODO: dang.tung
   public void importExoGadgets() throws Exception {
+//    PortalContainer container = PortalContainer.getInstance();
+//    WebAppController appController = (WebAppController) container
+//        .getComponentInstanceOfType(WebAppController.class);
+//    List<org.exoplatform.web.application.Application> eXoGadgets = appController
+//        .getApplicationByType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
+//    if(eXoGadgets == null || eXoGadgets.size() < 1) {
+//      return ;
+//    }
+//    org.exoplatform.web.application.Application sampleApp = eXoGadgets.get(0) ;
+//    ApplicationCategory category = getApplicationCategory(sampleApp.getApplicationGroup());
+//    if (category == null) {
+//      category = new ApplicationCategory();
+//      category.setName(sampleApp.getApplicationGroup());
+//      category.setDisplayName(sampleApp.getApplicationGroup());
+//      category.setDescription(sampleApp.getApplicationGroup());
+//      save(category);
+//    }
+//
+//    for (org.exoplatform.web.application.Application ele : eXoGadgets) {
+//      Application app = getApplication(category.getName() + "/" + ele.getApplicationName()) ;
+//      if (app == null)
+//        save(category, convertApplication(ele));
+//    }
     PortalContainer container = PortalContainer.getInstance();
-    WebAppController appController = (WebAppController) container
-        .getComponentInstanceOfType(WebAppController.class);
-    List<org.exoplatform.web.application.Application> eXoGadgets = appController
-        .getApplicationByType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
+    GadgetRegistryService gadgetService = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class) ;
+    List<GadgetApplication> eXoGadgets = gadgetService.getAllGadgets() ;
     if(eXoGadgets == null || eXoGadgets.size() < 1) {
       return ;
     }
