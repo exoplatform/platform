@@ -38,7 +38,7 @@ eXo.gadget.UIGadget = {
 		uiGadget.onmouseout = eXo.gadget.UIGadget.hideGadgetControl ;
 		
 		if(inDesktop) {
-			var dragHandleArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetTitle");
+			var dragHandleArea = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetDragHandleArea");
 			
 			if(uiGadget.style.zIndex<0) uiGadget.style.zIndex = 0;
 			eXo.core.DragDrop2.init(dragHandleArea, uiGadget);
