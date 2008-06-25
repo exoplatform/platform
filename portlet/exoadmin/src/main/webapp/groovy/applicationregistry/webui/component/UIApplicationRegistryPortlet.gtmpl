@@ -19,7 +19,7 @@
 	                
 	                <a href="<%=uicomponent.event("ViewChild", "UIPortletManagement")%>" class="ItemButton">
 	                  <div class="LablelIcon PorletIcon"><span></span></div>
-	                  <div class="ButtonLabel">Porlet</div>
+	                  <div class="ButtonLabel">Portlet</div>
 	                </a>
 	                <div class="HorizontalSeparator"><span></span></div>
 	                
