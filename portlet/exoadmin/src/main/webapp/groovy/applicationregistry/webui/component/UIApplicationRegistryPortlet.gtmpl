@@ -3,7 +3,7 @@
 	<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
 		style="_width: expression(this.previousSibling.offsetWidth - 18 + 'px'); min-width: 600px;">
 		<div class="UIToolbar">
-	    <div class="LargeToolbar">
+	    <div class="BlueLargeToolbar">
 	      <div class="ToolbarContainer">
 	        <div class="LeftToolbar">
 	          <div class="RightToolbar">
@@ -11,20 +11,22 @@
 	             
 	              <div class="ManagementIconContainer">
 	               
-	                <a href="<%=uicomponent.event("ViewChild", "UIApplicationOrganizer")%>" class="UserButton ItemButton">
+	                <a href="<%=uicomponent.event("ViewChild", "UIApplicationOrganizer")%>" class="ItemButton">
+	                	<div class="LablelIcon OrganizeIcon"><span></span></div>
 	                  <div class="ButtonLabel">Organize</div>
 	                </a>
 	                <div class="HorizontalSeparator"><span></span></div>
 	                
-	                <a href="<%=uicomponent.event("ViewChild", "UIPortletManagement")%>" class="GroupButton ItemButton">
+	                <a href="<%=uicomponent.event("ViewChild", "UIPortletManagement")%>" class="ItemButton">
+	                  <div class="LablelIcon PorletIcon"><span></span></div>
 	                  <div class="ButtonLabel">Porlet</div>
 	                </a>
 	                <div class="HorizontalSeparator"><span></span></div>
 	                
-	                <a href="<%=uicomponent.event("ViewChild", "UIGadgetManagement")%>" class="MembershipButton ItemButton">
-	                  <div class="SelectButtonLabel">Gadget</div>
+	                <a href="<%=uicomponent.event("ViewChild", "UIGadgetManagement")%>" class="ItemButton SelectItemButton">
+	                  <div class="LablelIcon GadgetIcon"><span></span></div>
+	                  <div class="ButtonLabel">Gadget</div>
 	                </a>
-	                <div class="HorizontalSeparator"><span></span></div>
 	                <div style="clear: left;"><span></span></div>
 	              </div>
 	         

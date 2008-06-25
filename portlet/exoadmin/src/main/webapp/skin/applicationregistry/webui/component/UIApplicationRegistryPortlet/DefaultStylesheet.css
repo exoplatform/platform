@@ -20,57 +20,116 @@
 	padding: 10px;
 }
 
-.UIApplicationRegistryPortlet .UIToolbar .ItemButton {
-	float: left;
-	text-align: center;
+.UIApplicationRegistryPortlet .UIControlbar {
+	background: url('DefaultSkin/background/ControlIcon.gif') repeat-x center -222px;
+	border: 1px solid #b7b7b7;
+	height: 23px; line-height: 23px;
+	padding: 0px 10px;
+	margin: 5px 0px;
 }
 
 .UIApplicationRegistryPortlet .UIControlbar .IconControl {
 	float: left;
-	margin: 5px;
 	cursor: pointer;
-	text-decoration: underline;
+	background-image: url('DefaultSkin/background/ControlIcon.gif');
+	background-repeat: no-repeat;
+	padding-left: 25px;
+	line-height: 23px;
+	margin: 0px 7px;
+}
+
+.UIApplicationRegistryPortlet .UIControlbar .AddNewIcon {
+	background-position: left top;
+}
+
+.UIApplicationRegistryPortlet .UIControlbar .CreateNewIcon {
+	background-position: left -23px;
+}
+
+.UIApplicationRegistryPortlet .UIControlbar .ImportIcon {
+	background-position: left -69px;
+	float: right;
+}
+
+.UIApplicationRegistryPortlet .AppRegistryContainer {
+	border: 1px solid #b7b7b7;
+}
+
+.UIApplicationRegistryPortlet .AppRegistryContainer .AppRegistryControl {
+	float: left;
+	width: 245px;
+	height: 300px;
+}
+
+.UIApplicationRegistryPortlet .AppRegistryContainer .WorkingArea {
+	border: 1px solid white;
+	border-right: none;
+	background: #f5f5f5;
+	height: 288px;
+	width: 220px;
+	float: left;
+	padding: 5px 2px 5px 5px;
 }
 
 .UIApplicationRegistryPortlet .Slidebar {
 	float: left;
-	width: 6px;
-	height: 100px;
-	border: 1px solid red;
-	margin: 0px 3px;
+	width: 14px;
+	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y -16px 0px;
 	cursor: pointer;
+	height: 100%;
 }
 
-.UIApplicationRegistryPortlet .AppRegistryControl {
-	width: 220px;
-	float: left;
-	border: 1px solid red;
-	padding: 5px;
+.UIApplicationRegistryPortlet .Slidebar .SlidebarControl {
+	background: url('DefaultSkin/background/AppRegistryControl.gif') no-repeat left center;
+	height: 100%;
+	width: 14px;
 }
 
-.UIApplicationRegistryPortlet .AppRegistryControl .ListItem {
-	border: 1px solid #d7d7d7;
-	padding: 10px;
+.UIApplicationRegistryPortlet .AppRegistryControl .CategoryContent {
+	padding: 1px;
 	background: white;
+	border: 1px solid #d7d7d7;
 }
 
-.UIApplicationRegistryPortlet .ListItem .Item {
-	line-height: 20px;
+.UIApplicationRegistryPortlet .AppRegistryControl .TitleCategory {
+	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y -32px top;
+	height: 17px;
+	padding: 10px 5px 0px 5px;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 
-.UIApplicationRegistryPortlet .ListItem .Item .ControlItem {
-	
+.UIApplicationRegistryPortlet .CategoryContent .ListContent {
+	border: 1px solid #d7d7d7;
+	margin: 5px;
 }
 
-.UIApplicationRegistryPortlet .ListItem a.TabLabel {
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent {
+	line-height: 26px;
+	height: 26px;
+	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y -485px -20px;
+	padding: 0px 5px;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent a.TabLabel {
 	display: block;
 	float: left;
+	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
+	padding-left: 20px;
 }
 
-.UIApplicationRegistryPortlet .ListItem .ControlItem {
+.UIApplicationRegistryPortlet .CategoryContent .ControlItem {
 	display: block;
 	float: right;
-	color: #058ee6;
+	margin: 3px;
+	filter: alpha(opacity=30);
+	-moz-opacity: 0.3;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent a.ControlItem:hover {
+	filter: alpha(opacity=100);
+	-moz-opacity: 1.0;
 }
 
 .UIApplicationRegistryPortlet .ListItem .SelectedItem a.TabLabel {

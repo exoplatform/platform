@@ -2,40 +2,48 @@
   <div class="UIControlbar">
   	<div class="IconControl AddNewIcon">Add a remove gadget</div>
   	<div class="IconControl CreateNewIcon">Create a new gadget</div>
-  	<div style="clear: left"><span></span></div>
+  	<div class="IconControl ImportIcon">Auto import</div>
+  	<div style="clear: both"><span></span></div>
   </div>
   
 	<div class="AppRegistryContainer">
 		<div class="AppRegistryControl">
-			<div class="ListItem">
-   	    	
-		      <div class="SelectedItem Item">
-        <a title="web" href="#" class="TabLabel">- Gadget 1</a>
-          <a href="#" title="Delete Category" class="ControlItem">remove</a>
-      	<div style="clear: both;"><span></span></div>
-			  </div>
-				
-	      <div class="NormalItem Item">
-        <a title="Administration" href="#" class="TabLabel">+ Meteo</a>
-          <a  href="#" title="Delete Category" class="ControlItem">remove</a>
-      	<div style="clear: both;"><span></span></div>
-			  </div>
-				
-	      <div class="NormalItem Item">
-        <a title="Administration" href="#" class="TabLabel">+ Stock quote</a>
-          <a  href="#" title="Delete Category" class="ControlItem">remove</a>
-      	<div style="clear: both;"><span></span></div>
-			  </div>
-				
-	      <div class="NormalItem Item">
-        <a title="Administration" href="#" class="TabLabel">+ Notebook</a>
-          <a  href="#" title="Delete Category" class="ControlItem">remove</a>
-      	<div style="clear: both;"><span></span></div>
-			  </div>
-				
+			<div class="WorkingArea">
+				<div class="CategoryContent">
+					<div class="TitleCategory">CATEGORIE</div>
+	   	    <div class="ListContent">	
+				    <div class="SelectedItem ItemContent">
+		        	<a title="web" href="#" class="TabLabel">Gadget 1</a>
+		          <a href="#" title="Delete Category" class="ControlItem DeletePortalIcon"><span></span></a>
+		      		<div style="clear: both;"><span></span></div>
+					  </div>
+						
+			      <div class="NormalItem ItemContent">
+		        	<a title="Administration" href="#" class="TabLabel">Meteo</a>
+		          <a href="#" title="Delete Category" class="ControlItem DeletePortalIcon"><span></span></a>
+		      		<div style="clear: both;"><span></span></div>
+					  </div>
+						
+			      <div class="NormalItem ItemContent">
+		        	<a title="Administration" href="#" class="TabLabel">Stock quote</a>
+		          <a href="#" title="Delete Category" class="ControlItem DeletePortalIcon"><span></span></a>
+		      		<div style="clear: both;"><span></span></div>
+					  </div>
+						
+			      <div class="NormalItem ItemContent">
+		        	<a title="Administration" href="#" class="TabLabel">Notebook</a>
+		          <a href="#" title="Delete Category" class="ControlItem DeletePortalIcon"><span></span></a>
+		      		<div style="clear: both;"><span></span></div>
+					  </div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="Slidebar">	
+				<div class="SlidebarControl"><span></span></div>
 			</div>
 		</div>
-		<div class="Slidebar"><span></span></div>
+		
 		
 		<div class="AppWorkingArea">
 			sgj
