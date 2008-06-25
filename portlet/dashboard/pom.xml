@@ -31,6 +31,8 @@
   
   <build>
     <finalName>dashboard</finalName>
+  </build>
+  <reporting>
     <plugins>
       <plugin>
         <!-- Apply the Checkstyle configurations defined in the top level pom.xml file -->
@@ -40,6 +42,6 @@
 			<suppressionsLocation>${basedir}/src/main/resources/suppressions.xml</suppressionsLocation>
         </configuration>
       </plugin>
-      </plugins>
-  </build>
+    </plugins>
+  </reporting>
 </project>
