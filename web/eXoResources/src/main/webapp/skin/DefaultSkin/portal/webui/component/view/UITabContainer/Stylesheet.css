@@ -22,6 +22,7 @@
 
 .UITabContainer .EditIcon {
 	overflow: hidden;
+	float: left;
 }
 
 .LAYOUT-CONTAINER .UIHorizontalTabs .UITab  {
@@ -40,6 +41,13 @@
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center;
 } 
 
+.UITabContainer .UIAccountPortlet .UIForm .UIFormGrid {
+  margin: auto;
+  width: auto;
+}
+
+/*##############################- UIOrganizationPortlet -###########################*/
+
 .UITabContainer .HorizontalLayout .UIOrganizationPortlet .UIForm .HorizontalLayout {
   padding: 0px;
 }
@@ -54,7 +62,8 @@
   margin: auto;
 }
 
-.UITabContainer .UIAccountPortlet .UIForm .UIFormGrid {
-  margin: auto;
-  width: auto;
+/*##############################- UIApplicationRegistryPortlet -###########################*/
+.UITabContainer .UIApplicationRegistryPortlet .UIFormInputSet .UIFormGrid {
+	margin: auto;
+	width: auto;
 }
