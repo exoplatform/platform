@@ -15,7 +15,9 @@
 				          }   
 				          String quickSearchlink = uicomponent.event("QuickSearch") ;
 		            %>
-		            <a class="SimpleSearchIcon" href="$quickSearchlink" title="Quick Search"><span></span></a>
+		            <a class="SimpleSearchIcon" href="$quickSearchlink" title="<%= _ctx.appRes("UISearch.label.QuickSearch") %>">
+		            	<span></span>
+		            </a>
 				         
 				      </div>  
 					    <%uiform.end()%>   
