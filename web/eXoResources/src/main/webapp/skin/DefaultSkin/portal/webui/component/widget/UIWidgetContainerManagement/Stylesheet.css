@@ -112,9 +112,10 @@
 
 .UIWidgetContainerManagement .ContainerManagementDetail .Empty {
 	color: #797979;
-	width: 110px;
-	line-height: 50px;
-	margin: auto;	
+	width: 100%;
+	line-height: 20px;
+	text-align: center;	
+	padding: 20px 0px;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .HeadTitle {
