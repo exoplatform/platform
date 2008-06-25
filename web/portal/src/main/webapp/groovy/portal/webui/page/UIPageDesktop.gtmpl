@@ -90,11 +90,13 @@
   void renderPageNavigation(PageNavigation navigation) {
   	nodes = navigation.getNodes() ;
   	if(nodes.size() < 1) return ;
+		String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
+		navTitle = navTitle.replace("{0}", navigation.ownerId);
     print """
     	<div class="PageNavigationBlock">
 	      <div class="DecoratorBlock">
 	      	<div class="PageOwnerContainer">
-	        	<div class="TitleBar">${navigation.ownerId}'s pages </div>
+	        	<div class="TitleBar">$navTitle </div>
 				    """ ;
 				    for(node in nodes) {
 				      if(node.getChildren() != null && node.getChildren().size() > 0) {
