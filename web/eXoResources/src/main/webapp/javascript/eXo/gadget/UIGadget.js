@@ -118,7 +118,7 @@ eXo.gadget.UIGadget = {
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiGadget = this ;
 		var gadgetControl = DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetControl");
-		gadgetControl.style.display = "block" ;
+		gadgetControl.style.visibility = "visible" ;
 
 		var uiPageDesktop = DOMUtil.findAncestorByClass(uiGadget, "UIPageDesktop");
 		if(uiPageDesktop) {
@@ -132,7 +132,7 @@ eXo.gadget.UIGadget = {
 	  e.cancelBubble = true ;
 		var uiGadget = this ;
 		var gadgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetControl");
-		gadgetControl.style.display = "none" ;
+		gadgetControl.style.visibility = "hidden" ;
 		uiGadget.style.border = "none";
 	},
 

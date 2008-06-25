@@ -566,7 +566,7 @@ function ajaxPost(formElement, callback) {
 *    the AjaxRequest and will be called by the XHR during the process method 
 */
 function doRequest(method, url, queryString, callback) {
-  request = new AjaxRequest(method, url, queryString) ;
+  request = new AjaxRequest(method, encodeURI(url), queryString) ;
   handler = new HttpResponseHandler() ;
   request.onSuccess = handler.ajaxResponse ;
   request.onLoading = handler.ajaxLoading ;
