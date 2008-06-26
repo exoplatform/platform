@@ -40,6 +40,7 @@ import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
+import org.exoplatform.services.listener.ListenerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.WindowID;
 import org.picocontainer.Startable;
@@ -52,6 +53,10 @@ import org.picocontainer.Startable;
  */
 public class DataStorageImpl implements DataStorage, Startable {
   
+  public final static String CREATE_PORTAL_EVENT = "UserPortalConfigService.portal.event.createPortal".intern();
+  public final static String REMOVE_PORTAL_EVENT = "UserPortalConfigService.portal.event.removePortal".intern();  
+  public final static String UPDATE_PORTAL_EVENT = "UserPortalConfigService.portal.event.updatePortal".intern();
+  
   final private static String PORTAL_DATA = "MainPortalData" ;
   final private static String USER_DATA = "UserPortalData";
   final private static String GROUP_DATA = "SharedPortalData";
@@ -63,11 +68,13 @@ public class DataStorageImpl implements DataStorage, Startable {
   final private static String PAGE_SET_NODE = "pages" ;
   final private static String PORTLET_PREFERENCES_SET_NODE = "portletPreferences" ;
 
-  private RegistryService regService_ ;
+  private RegistryService regService_ ;     
   private DataMapper mapper_ = new DataMapper() ;
+  private ListenerService listenerService;
   
-  public DataStorageImpl(RegistryService service) throws Exception {
+  public DataStorageImpl(RegistryService service,ListenerService listenerService) throws Exception {
     regService_ = service ;
+    this.listenerService = listenerService; 
   }
 
   public PortalConfig getPortalConfig(String portalName) throws Exception {
@@ -92,6 +99,17 @@ public class DataStorageImpl implements DataStorage, Startable {
     RegistryEntry portalEntry = new RegistryEntry(PORTAL_CONFIG_FILE_NAME) ;
     mapper_.map(portalEntry.getDocument(), config) ;
     regService_.createEntry(sessionProvider, portalAppPath, portalEntry) ;
+    //Broadcase event should be on UserPortalConfigService
+    /**
+     * Broadcast event should be on UserPortalConfigService
+     * but in current implement, portal use 2 component to create new portal:
+     * UserPortalConfigservice create/update/remove new portal from web ui
+     * NewPortalConfigListener create new portal from config to create some predefined portal from
+     * xml configuration. 
+     * this implement prevent us broadcast the event in UserPortalConfigService level.
+     * 
+     * */
+    listenerService.broadcast(CREATE_PORTAL_EVENT,this,config);
     sessionProvider.close() ;
   }
   
@@ -101,6 +119,7 @@ public class DataStorageImpl implements DataStorage, Startable {
     RegistryEntry portalEntry = regService_.getEntry(sessionProvider, portalAppPath + "/" + PORTAL_CONFIG_FILE_NAME) ;
     mapper_.map(portalEntry.getDocument(), config) ;
     regService_.recreateEntry(sessionProvider, portalAppPath, portalEntry) ;
+    listenerService.broadcast(UPDATE_PORTAL_EVENT,this,config);
     sessionProvider.close() ;
   }
 
@@ -109,6 +128,7 @@ public class DataStorageImpl implements DataStorage, Startable {
                         + "/"  + PORTAL_CONFIG_FILE_NAME;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     regService_.removeEntry(sessionProvider, portalPath) ;
+    listenerService.broadcast(REMOVE_PORTAL_EVENT,this,config);
     sessionProvider.close() ;
   }
 
