@@ -1,6 +1,4 @@
 <% 
-	import org.exoplatform.webui.core.UIComponent;
-	import org.exoplatform.webui.core.UIContainer;
   import org.exoplatform.dashboard.webui.component.UIDashboardPortlet;
   import org.exoplatform.dashboard.webui.component.UIDashboardSelectForm;
   
@@ -9,6 +7,7 @@
 %>
 <div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="DashboardContainer" id="DashboardContainer">
+		
 		<div class="ContainerControlBarL" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)" style="visibility: <%= uiSelectForm.isShowSelectForm()? "hidden" : "visible"; %>;">
 			<div class="ContainerControlBarR">
 				<div class="ContainerControlBarM">
@@ -21,19 +20,10 @@
 			</div>
 		</div>
 		
-		<div class="UIColumns" style="width: 99%;" >
-		
-		<%
-			for(int iCol=0; iCol<uicomponent.MAX_COLUMN; iCol++){ 
-				UIContainer uiContainer = uicomponent.getChild(iCol);
+		<% 
+			System.out.println("\n\n\n\n\nhello:" +uicomponent.getChildren().size()) ;
+			uicomponent.renderChildren() ;
 		%>
-				<div class="UIColumn" id="<%= uiContainer.getId() %>" style="display: <%= uiContainer.isRendered()? "block" : "none" %>" >
-				<%
-					if(uiContainer.hasChildren()) { uiContainer.renderChildren(); }
-				%>
-				</div>	
-		<% } %>
-			<div style="clear:left;"><span></span></div>
-		</div>
+		
 	</div>
 </div>

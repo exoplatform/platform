@@ -16,37 +16,97 @@
  */
 package org.exoplatform.dashboard.webui.component;
 
+import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.layout.PortalLayoutService;
 import org.exoplatform.portal.webui.application.UIGadget;
-import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.portal.webui.container.UIContainer;
+import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.config.InitParams;
+import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
+import org.exoplatform.webui.config.annotation.ParamConfig;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.core.model.SelectItemOption;
+import org.jibx.runtime.BindingDirectory;
+import org.jibx.runtime.IBindingFactory;
+import org.jibx.runtime.IUnmarshallingContext;
 
 @ComponentConfigs({
   @ComponentConfig(
       template = "app:/groovy/dashboard/webui/component/UIDashboardContainer.gtmpl",
-      lifecycle = UIFormLifecycle.class
+      lifecycle = UIFormLifecycle.class,
+      initParams = @ParamConfig(
+          name = "ContainerConfigs",
+          value = "app:/WEB-INF/conf/uiconf/dashboard/webui/container/ContainerConfig.groovy"
+      )
   )
 })
-public class UIDashboardContainer extends UIForm {
-  public static final int MAX_COLUMN = 4;
+public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer {
   
-//  private List<List<UIGadget>> columns;
+  public static final int MAX_COLUMN = 4;  
+  final static public String COLUMN_CONTAINER = "column";
+  final static public String ROW_CONTAINER = "row";
+  public static final String ROOT_CONTAINER = "dashboard";
+  private List<SelectItemOption<String>> containerOptions;
+  private List<UIContainer> columns = new ArrayList<UIContainer>(3);
   
-  private List<UIContainer> columns;
+  public UIDashboardContainer(InitParams initParams) throws Exception {
+    if(initParams == null) return;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+    Param param = initParams.getParam("ContainerConfigs");          
+    containerOptions = param.getMapGroovyObject(context);
+    if(containerOptions == null) return;
+    initData();
+    PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
+    Container container = service.getContainer(ROOT_CONTAINER);
+    UIContainer uiRoot = createUIComponent(UIContainer.class, null, null); 
+    PortalDataMapper.toUIContainer(uiRoot, container);
+    addChild(uiRoot);
+    columns = getColumns();
+  }
   
-  public UIDashboardContainer() throws Exception {
-    columns = new ArrayList<UIContainer>();
-    columns.add(addChild(UIContainer.class, null, "UIColumn-1"));
-    columns.add(addChild(UIContainer.class, null, "UIColumn-2"));
-    columns.add(addChild(UIContainer.class, null, "UIColumn-3"));
-    columns.add(addChild(UIContainer.class, null, "UIColumn-4"));
+  public List<UIContainer> getColumns() {
+    List<UIContainer> list = new ArrayList<UIContainer>(3);
+    findFirstComponentOfType(UIContainer.class).findComponentOfType(list, UIContainer.class);
+    return list;
+  }
+  
+  public Container createContainer(String type, String id) throws Exception {
+    for(SelectItemOption<String> item : containerOptions) {
+      if(item.getLabel().equals(type)) {
+        Container container = toContainer(item.getValue());
+        container.setId(id);
+        return container;
+      }
+    }    
+    return null;
+  }
+  
+  private Container toContainer(String xml) throws Exception {
+    ByteArrayInputStream is = new ByteArrayInputStream( xml.getBytes()); 
+    IBindingFactory bfact = BindingDirectory.getFactory(Container.class);
+    IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
+    return (Container) uctx.unmarshalDocument(is, null);
+  }
+  
+  private void initData() throws Exception {
+    PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
+    if(service.getContainer(ROOT_CONTAINER) != null) return;
+    Container root = createContainer(COLUMN_CONTAINER, ROOT_CONTAINER);
+    ArrayList<Object> children = new ArrayList<Object>(3);
+    //TODO: Use value form PortletPreference instead of "3"
+    for(int i = 0; i < 3; i++) {
+      children.add(createContainer(ROW_CONTAINER, "UIColumn-" + i));
+    }
+    root.setChildren(children);
+    service.create(root);
   }
   
   public void addUIGadget(final UIGadget gadget, final int col, final int row) throws Exception {
@@ -103,22 +163,6 @@ public class UIDashboardContainer extends UIForm {
       return;
     }
     addUIGadget(gadget, col, row);
-  }
-  
-  public List<UIContainer> getColumns() throws Exception {
-    if (columns == null) {
-      columns = new ArrayList<UIContainer>();
-      for (int i = 0; i < MAX_COLUMN; i++) {
-        UIContainer uiContainer = this.addChild(UIContainer.class, null, "Column" + (i + 1));
-        if (i == 0) {
-          uiContainer.setRendered(true);
-        } else {
-          uiContainer.setRendered(false);
-        }
-        columns.add(uiContainer);
-      }
-    }
-    return columns;
   }
   
   public int getRenderedColumnsCount() throws Exception {

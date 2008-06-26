@@ -1,0 +1,12 @@
+<div class="UIColumns" style="width: 99%;" >
+<%
+	for(uichild in uicomponent.getChildren()){ 
+%>
+	<div class="UIColumn" id="<%= uichild.getId() %>" >
+		<%
+			uicomponent.renderUIComponent(uichild) ;
+		%>
+	</div>	
+<% } %>
+	<div style="clear:left;"><span></span></div>
+</div>

@@ -69,8 +69,8 @@ public class UIDashboardPortlet extends UIPortletApplication {
     PortletPreferences pref = context.getRequest().getPreferences();
     addChild(UIDashboardSelectForm.class, null, null);
     addChild(UIDashboardEditForm.class, null, null);
-    UIDashboardContainer uiDashboardContainer = addChild(UIDashboardContainer.class, null, null)
-        .setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
+    UIDashboardContainer uiDashboardContainer = addChild(UIDashboardContainer.class, null, null);
+        //.setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
 //
 //    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
 //    Application application = service.getApplication("eXoGadgets/Horoscope");
