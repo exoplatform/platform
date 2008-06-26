@@ -8,132 +8,130 @@
   
 	<div class="AppRegistryContainer">
 		<div class="AppRegistryControl">
-			<div class="WorkingArea">
-				<div class="CategoryContent">
-					<div class="TitleCategory">CATEGORIE</div>
-	   	    <div class="ListContent">	
-	   	    	
-	   	    	<div class="UIVerticalSlideTabs">
-	   	    	
-	   	    		<div class="UIVTab VTabSimpleStyle">
-					      <div class="SelectedTab">
-					        <div class="TabLeft">
-					          <div class="TabRight">
-					            <div class="TabRepeat">
-									      <a class="TabLabel" href="#">Categorie Name</a>
-						            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
-						            <a class="ControlIcon EditIcon" href="#"><span></span></a>
-							          <div style="clear: both"><span></span></div>
-							         </div>
-					          </div>
-					        </div>
-							  </div>
-							  <div class="UIVTabContent" style="display: block">
-									<div class="ItemContent SelectedItem">
-										<a href="#" class="ItemLabel">Portlet 1</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-									<div class="ItemContent NormalItem">
-										<a href="#" class="ItemLabel">Portlet 2</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-									<div class="ItemContent NormalItem">
-										<a href="#" class="ItemLabel">Portlet 3</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-									<div class="ItemContent NormalItem">
-										<a href="#" class="ItemLabel">Portlet 4</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-								</div>
-							</div>
-							
-	   	    		<div class="UIVTab VTabSimpleStyle">
-					      <div class="NormalTab">
-					        <div class="TabLeft">
-					          <div class="TabRight">
-					            <div class="TabRepeat">
-									      <a class="TabLabel" href="#">Categorie Name1</a>
-						            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
-						            <a class="ControlIcon EditIcon" href="#"><span></span></a>
-							          <div style="clear: both"><span></span></div>
-							         </div>
-					          </div>
-					        </div>
-							  </div>
-							  <div class="UIVTabContent" style="display: none;">
-									<div class="ItemContent SelectedItem">
-										<a href="#" class="ItemLabel">Portlet 1</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-									<div class="ItemContent NormalItem">
-										<a href="#" class="ItemLabel">Portlet 2</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-									<div class="ItemContent NormalItem">
-										<a href="#" class="ItemLabel">Portlet 3</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-									<div class="ItemContent NormalItem">
-										<a href="#" class="ItemLabel">Portlet 4</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
+			<div class="Slidebar">
+				<div class="WorkingArea">
+					<div class="CategoryContent">
+						<div class="TitleCategory">CATEGORIE</div>
+		   	    <div class="ListContent">	
+		   	    	
+		   	    	<div class="UIVerticalSlideTabs">
+		   	    	
+		   	    		<div class="UIVTab VTabSimpleStyle">
+						      <div class="SelectedTab">
+						        <div class="TabLeft">
+						          <div class="TabRight">
+						            <div class="TabRepeat">
+										      <a class="TabLabel" href="#">Categorie Name</a>
+							            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
+							            <a class="ControlIcon EditIcon" href="#"><span></span></a>
+								          <div style="clear: both"><span></span></div>
+								         </div>
+						          </div>
+						        </div>
+								  </div>
+								  <div class="UIVTabContent" style="display: block">
+										<div class="ItemContent SelectedItem">
+											<a href="#" class="ItemLabel">Portlet 1</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+										<div class="ItemContent NormalItem">
+											<a href="#" class="ItemLabel">Portlet 2</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+										<div class="ItemContent NormalItem">
+											<a href="#" class="ItemLabel">Portlet 3</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+										<div class="ItemContent NormalItem">
+											<a href="#" class="ItemLabel">Portlet 4</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
 									</div>
 								</div>
-							</div>
-							
-	   	    		<div class="UIVTab VTabSimpleStyle">
-					      <div class="NormalTab">
-					        <div class="TabLeft">
-					          <div class="TabRight">
-					            <div class="TabRepeat">
-									      <a class="TabLabel" href="#">Categorie Name2</a>
-						            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
-						            <a class="ControlIcon EditIcon" href="#"><span></span></a>
-							          <div style="clear: both"><span></span></div>
-							         </div>
-					          </div>
-					        </div>
-							  </div>
-							  <div class="UIVTabContent" style="display: none;">
-									<div class="ItemContent SelectedItem">
-										<a href="#" class="ItemLabel">Portlet 1</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-									<div class="ItemContent NormalItem">
-										<a href="#" class="ItemLabel">Portlet 2</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-									<div class="ItemContent NormalItem">
-										<a href="#" class="ItemLabel">Portlet 3</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
-									</div>
-									<div class="ItemContent NormalItem">
-										<a href="#" class="ItemLabel">Portlet 4</a>
-										<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-					          <div style="clear: both"><span></span></div>
+								
+		   	    		<div class="UIVTab VTabSimpleStyle">
+						      <div class="NormalTab">
+						        <div class="TabLeft">
+						          <div class="TabRight">
+						            <div class="TabRepeat">
+										      <a class="TabLabel" href="#">Categorie Name1</a>
+							            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
+							            <a class="ControlIcon EditIcon" href="#"><span></span></a>
+								          <div style="clear: both"><span></span></div>
+								         </div>
+						          </div>
+						        </div>
+								  </div>
+								  <div class="UIVTabContent" style="display: none;">
+										<div class="ItemContent SelectedItem">
+											<a href="#" class="ItemLabel">Portlet 1</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+										<div class="ItemContent NormalItem">
+											<a href="#" class="ItemLabel">Portlet 2</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+										<div class="ItemContent NormalItem">
+											<a href="#" class="ItemLabel">Portlet 3</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+										<div class="ItemContent NormalItem">
+											<a href="#" class="ItemLabel">Portlet 4</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
 									</div>
 								</div>
-							</div>
-							
-	   	    	</div>	
-	   	    	        	
+								
+		   	    		<div class="UIVTab VTabSimpleStyle">
+						      <div class="NormalTab">
+						        <div class="TabLeft">
+						          <div class="TabRight">
+						            <div class="TabRepeat">
+										      <a class="TabLabel" href="#">Categorie Name2</a>
+							            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
+							            <a class="ControlIcon EditIcon" href="#"><span></span></a>
+								          <div style="clear: both"><span></span></div>
+								         </div>
+						          </div>
+						        </div>
+								  </div>
+								  <div class="UIVTabContent" style="display: none;">
+										<div class="ItemContent SelectedItem">
+											<a href="#" class="ItemLabel">Portlet 1</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+										<div class="ItemContent NormalItem">
+											<a href="#" class="ItemLabel">Portlet 2</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+										<div class="ItemContent NormalItem">
+											<a href="#" class="ItemLabel">Portlet 3</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+										<div class="ItemContent NormalItem">
+											<a href="#" class="ItemLabel">Portlet 4</a>
+											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+						          <div style="clear: both"><span></span></div>
+										</div>
+									</div>
+								</div>
+								
+		   	    	</div>	
+		   	    	        	
+						</div>
 					</div>
 				</div>
-			</div>
-			
-			<div class="Slidebar">	
-				<div class="SlidebarControl"><span></span></div>
 			</div>
 		</div>
 		
@@ -155,8 +153,34 @@
 			</div>
 			
 
+		  <div class="Application">
+	  		<div title="Portlet 1" class="PortletIcons">
+	  				<img src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png"/>
+	  		</div>
+	  		<div class="ApplicationContent">
+	  		  <div class="TitleBarApplication">
+	  		  	<span class="LeftLabel">Name :</span>
+	  		    <span>Portlet_1</span>
+	  		  </div>
+	  		  <div class="ApplicationContentLabel">
+	  		    <div class="ContentLabel">
+	  		      <span class="LeftLabel">Display Name :</span>
+	  		      <span class="RightLabel">Portlet 1</span>
+	  		    </div>
+	  		    <div class="ContentLabel">
+							<span class="LeftLabel">Description :</span>
+							<span class="RightLabel">Here is my wonderful description</span>
+	          </div>
+	  		  </div>
+	  		</div>
 
+			</div>
+			<div class="UIAcessPermissions">
+		  	Acess permissions
+		  </div>
 		</div>
+		
 		<div style="clear: left"><span></span></div>
 	</div>  
+	
 </div>

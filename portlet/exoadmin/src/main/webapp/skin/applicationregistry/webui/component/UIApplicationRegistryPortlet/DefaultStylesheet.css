@@ -14,7 +14,6 @@
 .UIApplicationRegistryPortlet {
 	border: 1px solid #b7b7b7;
 	margin: 5px;
-	letter-spacing: 0.4px;
 	background: #fff;
 	overflow: auto;
 	padding: 10px;
@@ -42,12 +41,20 @@
 	background-position: left top;
 }
 
+.UIApplicationRegistryPortlet .AddIcon {
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -247px;
+}
+
+.UIApplicationRegistryPortlet .ReloadIcon {
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -271px;
+}
+
 .UIApplicationRegistryPortlet .UIControlbar .AddCategoryIcon {
 	background-position: left -46px;
 }
 
-.UIApplicationRegistryPortlet .UIControlbar .CreateNewIcon {
-	background-position: left -23px;
+.UIApplicationRegistryPortlet .CreateNewIcon {
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -23px;
 }
 
 .UIApplicationRegistryPortlet .UIControlbar .ImportIcon {
@@ -62,31 +69,20 @@
 .UIApplicationRegistryPortlet .AppRegistryContainer .AppRegistryControl {
 	float: left;
 	width: 245px;
-	height: 300px;
+	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y 213px 0px;
+}
+
+.UIApplicationRegistryPortlet .Slidebar {
+	background: url('DefaultSkin/background/AppRegistryControl.gif') no-repeat 229px center;
+	padding-right: 14px;
 }
 
 .UIApplicationRegistryPortlet .AppRegistryContainer .WorkingArea {
 	border: 1px solid white;
 	border-right: none;
 	background: #f5f5f5;
-	height: 288px;
-	width: 220px;
-	float: left;
+	height: 380px;
 	padding: 5px 2px 5px 5px;
-}
-
-.UIApplicationRegistryPortlet .Slidebar {
-	float: left;
-	width: 14px;
-	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y -16px 0px;
-	cursor: pointer;
-	height: 100%;
-}
-
-.UIApplicationRegistryPortlet .Slidebar .SlidebarControl {
-	background: url('DefaultSkin/background/AppRegistryControl.gif') no-repeat left center;
-	height: 100%;
-	width: 14px;
 }
 
 .UIApplicationRegistryPortlet .AppRegistryControl .CategoryContent {
@@ -131,11 +127,6 @@
 	-moz-opacity: 0.3;
 }
 
-.UIApplicationRegistryPortlet .CategoryContent a.ControlIcon:hover {
-	filter: alpha(opacity=100);
-	-moz-opacity: 1.0;
-}
-
 .UIApplicationRegistryPortlet .ListItem .SelectedItem a.TabLabel {
 	font-weight: bold;
 	padding-left: 3px;
@@ -157,10 +148,16 @@
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
 	float: right;
+	width: 19px; height: 24px;
+	margin-top: 0px;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab .ControlIcon {
 	float: right;
+	filter: alpha(opacity=100);
+	-moz-opacity: 1.0;
+	width: 19px; height: 24px;
+	margin-top: 0px;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ItemLabel {
@@ -181,6 +178,8 @@
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ControlIcon {
 	float: right;
+	width: 18px;
+	height: 20px;
 }
 
 .UIApplicationRegistryPortlet .AppWorkingArea {
@@ -211,7 +210,7 @@
 .UIApplicationRegistryPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
 	background-position: center;
 	float: left;
-	height: 7px;
+	height: 6px;
 	margin: 10px 0px 0px;
 }
 
@@ -222,6 +221,51 @@
 
 /********************************* UIOrganizerManagement *****************************/
 .UIApplicationRegistryPortlet .AppWorkingArea {
-
 }
+
+.UIApplicationRegistryPortlet .ApplicationContainer {
+  padding: 10px 0px;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContent {
+  margin-left: 90px;
+  padding: 12px;
+}
+
+.UIApplicationRegistryPortlet .TitleBarApplication {
+	background: none;
+	border-bottom: 1px solid #dfdfdf;
+	padding: 0px 1px 3px 1px;
+	margin: 0px auto 5px auto;
+  font-weight: bold ; font-size: 12px; color: #1553B9;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContentLabel {
+  line-height: 16px;
+  margin: auto;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContent .LeftLabel {
+	font-weight: bold;
+	font-size: 11px;
+	color: black;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContentLabel .RightLabel {
+	padding: 0px 5px;
+}
+
+.UIApplicationRegistryPortlet .PortletIcons {
+	float: left;
+	width: 80px; height: 80px;
+	cursor: pointer ;
+	margin-top: 2px;
+}
+
+.UIApplicationRegistryPortlet .UIAcessPermissions {
+	padding: 20px;
+	margin: 20px 0px;
+	border: 1px solid red;
+}
+
 

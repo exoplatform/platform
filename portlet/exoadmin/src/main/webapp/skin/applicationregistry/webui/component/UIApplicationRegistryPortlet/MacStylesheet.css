@@ -4,261 +4,266 @@
  * May 8, 2007
  * version: $Id$
  */
-
+ 
 .UIWindow .UIApplicationRegistryPortlet {
-	margin: 0px;
 	border: none;
+	margin: 0px;
 	overflow: visible;
 }
 
 .UIApplicationRegistryPortlet {
 	border: 1px solid #b7b7b7;
-	background: #fff;	
 	margin: 5px;
+	background: #fff;
 	overflow: auto;
+	padding: 10px;
 }
 
-.UIApplicationRegistryPortlet .Title {
-  font-size: 14px; color: #3470d4; font-weight: bold; font-family: arial;
-  margin: 5px 0px; 
-  padding-left: 10px;
+.UIApplicationRegistryPortlet .UIControlbar {
+	background: url('DefaultSkin/background/ControlIcon.gif') repeat-x center -222px;
+	border: 1px solid #b7b7b7;
+	height: 23px; line-height: 23px;
+	padding: 0px 10px;
+	margin: 5px 0px;
 }
 
-.UIApplicationRegistryPortlet .UIApplicationRegistryContainer {
-  padding: 10px;
-}
-
-.UIApplicationRegistryPortlet .UIForm .HorizontalLayout .UIFormGrid td.FieldLabel {
-	line-height: 18px;
-}
-
-.UIApplicationRegistryPortlet .UIAvailablePortletForm .UIFormGrid {
-	width: 100%;
-}
-
-.UIApplicationRegistryPortlet #UICategoryForm .UIFormGrid {
-	width: 100%;
-}
-
-.UIApplicationRegistryPortlet #UICategoryForm .UIFormGrid .UIFormGrid {
-	width: auto;
-}
-
-.ApplicationRegistryWorkingArea .UIPermissionForm .UIFormGrid {
-	width: 100%;
-}
-
-.UIApplicationRegistryPortlet .UIPermissionForm .UIFormGrid {
-	width: 100%;
-}
-
-.UIApplicationRegistryPortlet .UIPermissionForm .UIFormGrid .UIFormGrid {
-	width: auto;
-}
-
-/*################################Application Registry Control################################*/
-.UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
+.UIApplicationRegistryPortlet .UIControlbar .IconControl {
 	float: left;
-	width: 236px;
+	cursor: pointer;
+	background-image: url('DefaultSkin/background/ControlIcon.gif');
+	background-repeat: no-repeat;
+	padding-left: 25px;
+	line-height: 23px;
+	margin: 0px 15px 0px 7px;
 }
 
-.ApplicationRegistryControlArea .ApplicationRegistryCategory {
-  border: 1px solid #d7d7d7;
-  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
-  letter-spacing: 0.5px;
+.UIApplicationRegistryPortlet .UIControlbar .AddNewIcon {
+	background-position: left top;
 }
 
-.ApplicationRegistryControlArea .CategoryManagement {
-  border: 1px solid white;
+.UIApplicationRegistryPortlet .AddIcon {
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -247px;
 }
 
-.ApplicationRegistryControlArea .CategoryContainer {
-  margin: 6px 5px;
-  padding-bottom: 10px;
+.UIApplicationRegistryPortlet .ReloadIcon {
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -271px;
 }
 
-.ApplicationRegistryControlArea  .CategoryControlBar {
-  background: url('MacSkin/background/BGCategoryControlBar236x28.gif') no-repeat;
-  height: 28px;
-  border-bottom: 1px solid white;
+.UIApplicationRegistryPortlet .UIControlbar .AddCategoryIcon {
+	background-position: left -46px;
 }
 
-.ApplicationRegistryControlArea .UIToolbar .ActionsContainer {
-  float: right;
-  width: auto;
-  margin-right: 5px;
+.UIApplicationRegistryPortlet .CreateNewIcon {
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -23px;
 }
 
-.ApplicationRegistryControlArea .CategoryControlIcon {
-  float: left;
-  margin: 4px 2px;
+.UIApplicationRegistryPortlet .UIControlbar .ImportIcon {
+	background-position: left -69px;
+	float: right;
 }
 
-.ApplicationRegistryControlArea .AddCategoryIcon {
-  height: 22px; width: 31px;
-  background: url('MacSkin/background/Icons.png') no-repeat ;
-}
-
-.ApplicationRegistryControlArea .ImportApplicationsIcon {
-  height: 22px; width: 29px;
-  background: url('MacSkin/background/Icons.png') no-repeat left -67px;
-}
-
-.ApplicationRegistryControlArea .ImportPortletsIcon {
-  height: 22px; width: 31px;
-  background: url('MacSkin/background/Icons.png') no-repeat left -44px ;
-}
-
-.ApplicationRegistryControlArea .SeparatorLine {
-  float: left;
-  height: 21px; width: 2px;
-  margin: 3px 2px 0px 3px;
-  background: url('MacSkin/background/SeparatorLine2x2.gif') repeat-y ;
-}
-
-.ApplicationRegistryControlArea .DeleteCategoryIcon {
-  height: 22px; width: 31px;
-  background: url('MacSkin/background/Icons.png') no-repeat left -22px ;
-}
-
-.ApplicationRegistryControlArea .UIVerticalSlideTabs {
-  border-left: none;
-  margin:0px;
-  padding: 0px;
-}
-
-.ApplicationRegistryControlArea .UICategoryForm {
+.UIApplicationRegistryPortlet .AppRegistryContainer {
 	border: 1px solid #b7b7b7;
 }
 
-.ApplicationRegistryControlArea .UICategoryForm .HorizontalLayout{
-  padding: 10px;
-  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
-  border: 1px solid white;
+.UIApplicationRegistryPortlet .AppRegistryContainer .AppRegistryControl {
+	float: left;
+	width: 245px;
+	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y 213px 0px;
 }
 
-/*################################Application Registry Working################################*/
-.UIApplicationRegistryPortlet .ApplicationRegistryWorkingArea {
-	margin-left: 245px;
-	height: 100%; 
+.UIApplicationRegistryPortlet .Slidebar {
+	background: url('DefaultSkin/background/AppRegistryControl.gif') no-repeat 229px center;
+	padding-right: 14px;
 }
 
-.ApplicationRegistryWorkingArea .ApplicationWorkingAreaContainer {
-  border: 1px solid #dfdfdf;
-  letter-spacing: 0.5px;
+.UIApplicationRegistryPortlet .AppRegistryContainer .WorkingArea {
+	border: 1px solid white;
+	border-right: none;
+	background: #f5f5f5;
+	height: 380px;
+	padding: 5px 2px 5px 5px;
 }
 
-.ApplicationRegistryWorkingArea .ApplicationContainer {
-  padding: 0px 5px 5px 5px;
-  border:  1px solid white;
-  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
-}
-
-.ApplicationRegistryWorkingArea .UIItemSelector .ItemListContainer .ItemList {
-  height: 240px ;
-  overflow: auto ;
-  border: 1px solid #C3C3C3;
-  background: white url('MacSkin/background/ApplicationBackground165x65.gif') no-repeat left bottom;
-}
-
-.ApplicationRegistryWorkingArea .Application {
-  margin: 7px 0px 0px 0px ;
-	border: solid 1px #e4e4e4 ;
-	padding: 10px;
+.UIApplicationRegistryPortlet .AppRegistryControl .CategoryContent {
+	padding: 1px;
 	background: white;
+	border: 1px solid #d7d7d7;
 }
 
-.ApplicationRegistryWorkingArea .ApplicationContent {
-  margin-left: 85px;
-  padding-bottom: 5px;
-  border:  1px solid white;
+.UIApplicationRegistryPortlet .AppRegistryControl .TitleCategory {
+	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y -32px top;
+	height: 17px;
+	padding: 10px 5px 0px 5px;
+	color: white;
+	font-weight: bold;
+	letter-spacing: 2px;
 }
 
-.ApplicationRegistryWorkingArea .TitleBarApplication {
+.UIApplicationRegistryPortlet .CategoryContent .ListContent {
+	border: 1px solid #d7d7d7;
+	margin: 5px;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent {
+	line-height: 26px;
+	height: 26px;
+	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y -485px -20px;
+	padding: 0px 5px;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent a.TabLabel {
+	display: block;
+	float: left;
+	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
+	padding-left: 20px;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ControlIcon {
+	display: block;
+	float: right;
+	margin: 3px;
+	filter: alpha(opacity=30);
+	-moz-opacity: 0.3;
+}
+
+.UIApplicationRegistryPortlet .ListItem .SelectedItem a.TabLabel {
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs {
+	margin: 1px 1px 1px 0px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab a.TabLabel {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;
+	padding: 0px 0px 0px 18px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab a.TabLabel {
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat left center;
+	padding: 0px 0px 0px 18px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
+	float: right;
+	width: 19px; height: 24px;
+	margin-top: 0px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab .ControlIcon {
+	float: right;
+	filter: alpha(opacity=100);
+	-moz-opacity: 1.0;
+	width: 19px; height: 24px;
+	margin-top: 0px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ItemLabel {
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -170px;
+	padding-left: 10px;
+	display: block;
+	float: left;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
+	padding: 5px;
+	margin: 0px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .SelectedItem .ItemLabel {
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -196px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ControlIcon {
+	float: right;
+	width: 18px;
+	height: 20px;
+}
+
+.UIApplicationRegistryPortlet .AppWorkingArea {
+	margin-left: 260px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumbs {
+	padding: 10px 0px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumbs .LeftBreadcumbsBar {
+	background: none;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumbs .RightBreadcumbsBar {
+	background: none;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumbs .BreadcumbsInfoBar {
+	background: none;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumbs .HomeIcon {
+	background: none;
+	width: 0px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
+	background-position: center;
+	float: left;
+	height: 6px;
+	margin: 10px 0px 0px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumbs a.Selected  {
+	color: #4b4b4b;
+	font-weight: bold;
+}
+
+/********************************* UIOrganizerManagement *****************************/
+.UIApplicationRegistryPortlet .AppWorkingArea {
+}
+
+.UIApplicationRegistryPortlet .ApplicationContainer {
+  padding: 10px 0px;
+}
+
+.UIApplicationRegistryPortlet .ApplicationContent {
+  margin-left: 90px;
+  padding: 12px;
+}
+
+.UIApplicationRegistryPortlet .TitleBarApplication {
 	background: none;
 	border-bottom: 1px solid #dfdfdf;
-	width: 98%;
 	padding: 0px 1px 3px 1px;
 	margin: 0px auto 5px auto;
+  font-weight: bold ; font-size: 12px; color: #1553B9;
 }
 
-.ApplicationRegistryWorkingArea .TitleBarApplication label {
-  float: left;
-  margin-top: 6px;
-  font-weight: bold ; font-size: 12px; color: #1553B9; 
-}
-
-.ApplicationRegistryWorkingArea .ApplicationButton .Icon {
-  float: right;
-	cursor: pointer ;
-	margin: 3px 3px 0px 3px;
-}
-
-.ApplicationRegistryWorkingArea .DeleteIcon {
-  width: 18px ;  height: 18px ;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat ;
-}
-
-.ApplicationRegistryWorkingArea .EditInfoIcon {
-  width: 16px ;  height: 16px ;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat ;
-}
-
-.ApplicationRegistryWorkingArea .ApplicationContentLabel {
+.UIApplicationRegistryPortlet .ApplicationContentLabel {
   line-height: 16px;
-  width: 99%;
   margin: auto;
 }
 
-.ApplicationRegistryWorkingArea .ApplicationContentLabel .RightLabel {
-  color: #058ee6;
+.UIApplicationRegistryPortlet .ApplicationContent .LeftLabel {
+	font-weight: bold;
+	font-size: 11px;
+	color: black;
 }
 
-.ApplicationRegistryWorkingArea .PortletIcons {
+.UIApplicationRegistryPortlet .ApplicationContentLabel .RightLabel {
+	padding: 0px 5px;
+}
+
+.UIApplicationRegistryPortlet .PortletIcons {
 	float: left;
 	width: 80px; height: 80px;
 	cursor: pointer ;
 	margin-top: 2px;
 }
 
-.ApplicationRegistryWorkingArea .eXoBrowserIcon {
-  background: url(/eXoResources/skin/portal/webui/component/view/UIPageDesktop/DefaultSkin/icons/80x80/Register.png) no-repeat;
-}
-
-.ApplicationRegistryWorkingArea .UIForm .HorizontalLayout {
-  border: none;
-}
-
-.ApplicationRegistryWorkingArea .UIAvailablePortletForm {
-  padding: 10px;
-  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif');
-  border: 1px solid #b7b7b7;
-}
-
-.ApplicationRegistryWorkingArea .UIAvailablePortletForm .UIFormGrid {
-	width: 100%;
-}
-
-.ApplicationRegistryWorkingArea .UIPermissionForm .UIFormGrid {
-	width: 100%;
-}
-
-.ApplicationRegistryWorkingArea .UIInfoPortletForm {
-  border: 1px solid #b7b7b7;
-}
-
-.ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout{
-  padding: 10px 10px 10px 40px;
-  background: url('/eXoSkinMac/skin/MacSkin/background/BgApplicationRegistryPortle1x4.gif') repeat;
-  border: 1px solid white;
-}
-
-.ApplicationRegistryWorkingArea .UIInfoPortletForm .HorizontalLayout .UIFormGrid {
-  margin-top: 15px;
-}
-
-.ApplicationRegistryWorkingArea .LabelButton {
-	text-align: center; 
-	color: #3c3c3c; 
-	line-height: 25px;
+.UIApplicationRegistryPortlet .UIAcessPermissions {
+	padding: 20px;
+	margin: 20px 0px;
+	border: 1px solid red;
 }
