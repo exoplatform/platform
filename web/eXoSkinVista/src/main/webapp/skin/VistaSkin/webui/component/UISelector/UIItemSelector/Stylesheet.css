@@ -92,6 +92,7 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer .ItemListTitle {
 	height: 25px; line-height: 25px;
+	font-size: 12px;
   font-weight: bold; text-align: center;
   background: url('/eXoSkinVista/skin/VistaSkin/background/ItemListTitleBG1x25.png') repeat-x ;
 }
