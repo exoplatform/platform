@@ -35,14 +35,14 @@ import org.exoplatform.web.application.gadget.GadgetRegistryService;
  *          thanhtungty@gmail.com
  * Jun 18, 2008  
  */
-public class GadgetRegistryServiceImp implements GadgetRegistryService {
+public class GadgetRegistryServiceImpl implements GadgetRegistryService {
   
   private static final String PATH = RegistryService.EXO_SERVICES + "/Gadgets" ;
   
   private RegistryService regService_ ;
   private DataMapper mapper_ = new DataMapper() ;
   
-  public GadgetRegistryServiceImp(RegistryService service) throws Exception {
+  public GadgetRegistryServiceImpl(RegistryService service) throws Exception {
     regService_ = service ;
   }
 

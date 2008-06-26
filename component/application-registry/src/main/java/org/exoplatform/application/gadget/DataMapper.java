@@ -39,7 +39,7 @@ public class DataMapper {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
     root.setAttribute(PRIMARY_TYPE, EXO_REGISTRYENTRY_NT) ;
-    root.setAttribute(EXO_DATA_TYPE, GadgetApplication.class.getSimpleName()) ;
+    root.setAttribute(EXO_DATA_TYPE, app.getClass().getSimpleName()) ;
     root.setAttribute(EXO_GADGET_ID, app.getApplicationId()) ;
     root.setAttribute(EXO_GADGET_URL, app.getUrl()) ;
   }

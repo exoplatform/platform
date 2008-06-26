@@ -7,7 +7,7 @@
   
   <component>
     <key>org.exoplatform.web.application.gadget.GadgetRegistryService</key>
-    <type>org.exoplatform.application.gadget.GadgetRegistryServiceImp</type>
+    <type>org.exoplatform.application.gadget.GadgetRegistryServiceImpl</type>
   </component>
       
   <component>
