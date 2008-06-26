@@ -270,6 +270,94 @@
 }
 
 
+/*------------------- BlueLargeToolbar style ------------------------*/
+
+.UIToolbar .BlueLargeToolbar {
+  height: 61px; line-height: 61px;
+}
+
+.UIToolbar .BlueLargeToolbar .LeftToolbar {
+  background: url('background/BlueLargeToolbar.gif') no-repeat left top;
+  padding-left: 5px;
+}
+
+.UIToolbar .BlueLargeToolbar .RightToolbar {
+  background: url('background/BlueLargeToolbar.gif') no-repeat right top;
+  padding-right: 5px;
+}
+
+.UIToolbar .BlueLargeToolbar .MiddleToolbar {
+  height: 61px;
+  line-height: 61px; 
+  background: url('background/BlueLargeToolbar.gif') repeat-x center -61px;
+}
+
+.UIToolbar .BlueLargeToolbar a {
+  color: #7e9bc9; font-weight: bold;
+  padding: 0px 5px 0px 5px;
+  cursor: pointer;
+}
+
+.UIToolbar .BlueLargeToolbar a:hover {
+  color: #003c7f;
+}
+
+.UIToolbar .BlueLargeToolbar .ItemButton .LablelIcon {
+}
+
+.UIToolbar .BlueLargeToolbar .SelectItemButton .LablelIcon {
+	filter: alpha(opacity=100);
+	-moz-opacity: 1.0;
+}
+
+.UIToolbar .BlueLargeToolbar .SelectItemButton .ButtonLabel {
+  line-height: 18px;
+  color: #003c7f;
+}
+
+.UIToolbar .BlueLargeToolbar .HorizontalSeparator {
+  float: left;
+  margin: 0px 8px 0px 10px;
+  width: 2px; height: 48px;
+  background: url('background/BlueLargeToolbar.gif') no-repeat -6px top;
+}
+
+.UIToolbar .BlueLargeToolbar .ButtonLabel {
+  height: 20px; line-height: 20px;
+}
+
+.UIToolbar .BlueLargeToolbar .ManagementIconContainer {
+  padding-top: 4px;
+  margin-left: 5px;
+}
+
+.UIToolbar .BlueLargeToolbar .ItemButton {
+	float: left;
+	text-align: center;
+	padding: 5px;
+	width: 150px;
+}
+
+.UIToolbar .BlueLargeToolbar .LablelIcon {
+  width: 32px; height: 26px; 
+	margin: auto;
+  background-image: url('background/BlueLargeToolbar.gif');
+  background-repeat: no-repeat;
+}
+
+.UIToolbar .BlueLargeToolbar .OrganizeIcon {
+  background-position: center -122px;
+}
+
+.UIToolbar .BlueLargeToolbar .PorletIcon {
+  background-position: center -148px;
+}
+
+.UIToolbar .BlueLargeToolbar .GadgetIcon {
+  background-position: center -174px;
+}
+
+
 /*#################################- LightToolbar -##############################*/
 
 .UIToolbar .LightToolbar {
