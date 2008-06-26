@@ -20,5 +20,11 @@
     <key>org.exoplatform.application.newregistry.ApplicationRegistryService</key>
     <type>org.exoplatform.application.newregistry.jcr.ApplicationRegistryServiceImpl</type>
   </component>
+  
+  <component>
+    <key>org.exoplatform.web.application.gadget.GadgetRegistryService</key>
+    <type>org.exoplatform.application.gadget.GadgetRegistryServiceImp</type>
+  </component>
+  
 
 </configuration>

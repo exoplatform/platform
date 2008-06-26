@@ -32,6 +32,11 @@
   </component>      
   
   <component>
+    <key>org.exoplatform.portal.layout.PortalLayoutService</key>
+    <type>org.exoplatform.portal.layout.jcr.PortalLayoutServiceImpl</type>
+  </component>    
+  
+  <component>
     <key>org.exoplatform.portal.config.UserACL</key>
     <type>org.exoplatform.portal.config.UserACL</type>   
     <init-params>	     
