@@ -2,9 +2,8 @@
   padding: 10px;
 }
 
-.UIAccountSettingForm .UITabPane .TabPaneContent .WorkingAreaWithHelp .UITabContentContainer .UITabContent{
- border: none;
- height: auto;
+.UIAccountSettingForm .UITabPane .UITabContentContainer .UITabContent{
+  padding: 0px;
 }
 
 .UIAccountSettingForm .UITabPane .TabPaneContent .UITabContentContainer {
@@ -97,12 +96,10 @@
   margin-top: 1px;
 }
 
-.UIAccountSettingForm .UIForm .HorizontalLayout {
-	border: none;
-	height: 190px;
-	padding: 15px 0px;
-}
-
 .UIAccountSettingForm .UIForm .UIAction {
 	padding-top: 18px;
+}
+
+.UIAccountSettingForm .UIForm .HorizontalLayout {
+	padding-top: 16px;
 }

@@ -22,6 +22,12 @@
   white-space:nowrap;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIFormGrid {
+  width: auto;
+  margin: auto;
+}
+
+
 .UIOrganizationPortlet .UIToolbar .LargeToolbar  {
 	width: 100%;
   margin: 0px 0px 5px 0px;
@@ -227,7 +233,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
-  height: 226px;
+  height: 220px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
@@ -265,7 +271,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout { 
-	height: 226px;
+	height: 219px;
 	background: white;
 	padding: 0px;
 }
@@ -312,4 +318,13 @@
 
 .UIOrganizationPortlet .UIMembershipManagement .UIGrid {
 	margin: auto;
+}
+
+.UIOrganizationPortlet .UIGroupInfoContainer .HorizontalLayout .FormContainer {
+	padding: 5px;
+	margin: 0px;
+}
+
+.UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
+	padding-top: 16px;
 }

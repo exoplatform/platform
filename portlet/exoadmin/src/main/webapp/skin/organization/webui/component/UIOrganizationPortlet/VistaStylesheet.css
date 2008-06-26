@@ -120,6 +120,7 @@
 
 .UIOrganizationPortlet .UIGroupInfoContainer .UIGroupMembershipForm .HorizontalLayout {
 	border-top: none;
+	padding-top: 12px;
 }
 
 .UIOrganizationPortlet .UIGroupInfoContainer .HorizontalLayout {
@@ -166,7 +167,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
  	background: url('VistaSkin/background/UITreeBG.png') repeat;
-  height: 213px;
+  height: 220px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .Node {
@@ -236,6 +237,10 @@
   padding: 0px;
 }
 
+.UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
+  padding: 16px 0px 0px 0px;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .UIUserInGroup {
 	width: 94.5%;
 	margin: auto;
@@ -260,7 +265,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout { 
-	height: 207px;
+	height: 213px;
 	padding: 15px 0px 0px 0px;
 }
 
@@ -315,4 +320,8 @@
 .UIOrganizationPortlet .UIMembershipTypeForm .FormContainer {
 	width: 480px;
 	margin: auto;
+}
+
+.UIOrganizationPortlet .UIFormWithTitle .HorizontalLayout {
+ 	padding-top: 12px;
 }

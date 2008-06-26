@@ -83,9 +83,13 @@
 
 .UIAccountSettingForm .UIForm .HorizontalLayout {
 	border: none;
-	padding: 20px 0px;
+	padding-top: 16px;
 }
 
 .UIAccountSettingForm .UIForm .UIAction {
-	padding-top: 18px;
+	padding-top: 12px;
+}
+
+.UIAccountSettingForm .UITabPane .UITabContentContainer .UITabContent {
+	padding: 0px;
 }
