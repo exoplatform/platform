@@ -73,6 +73,7 @@ public class UIWelcomeComponent extends UIContainer {
       gadgets.setChildren(new ArrayList<Container>()) ;
       UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
       configService.create(gadgets) ;
+      userPortalConfig.setGadgets(gadgets) ;
     }
     UIGadgets uiGadgets = addChild(UIGadgets.class, null, null) ;
     PortalDataMapper.toUIGadgets(uiGadgets, gadgets) ;
