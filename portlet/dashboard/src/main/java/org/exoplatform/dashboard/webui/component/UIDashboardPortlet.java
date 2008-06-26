@@ -69,22 +69,8 @@ public class UIDashboardPortlet extends UIPortletApplication {
     PortletPreferences pref = context.getRequest().getPreferences();
     addChild(UIDashboardSelectForm.class, null, null);
     addChild(UIDashboardEditForm.class, null, null);
-    UIDashboardContainer uiDashboardContainer = addChild(UIDashboardContainer.class, null, null);
-        //.setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
-//
-//    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
-//    Application application = service.getApplication("eXoGadgets/Horoscope");
-//    if (application == null) {
-//      return;
-//    }
-//    StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
-//    windowId.append("#").append(context.getRemoteUser());
-//    windowId.append(":/").append(
-//        application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
-//    UIGadget uiGadget = createUIComponent(context, UIGadget.class, null, null);
-//    windowId.append(uiGadget.hashCode());
-//    uiGadget.setApplicationInstanceId(windowId.toString());
-//    uiDashboardContainer.addUIGadget(uiGadget, 0, 0);
+    addChild(UIDashboardContainer.class, null, null).
+        setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
   }
 
   public static class SetShowSelectFormActionListener extends EventListener<UIDashboardPortlet> {
@@ -119,7 +105,10 @@ public class UIDashboardPortlet extends UIPortletApplication {
       UIGadget uiGadget = event.getSource().createUIComponent(context, UIGadget.class, null, null);
       windowId.append(uiGadget.hashCode());
       uiGadget.setApplicationInstanceId(windowId.toString());
-      uiPortlet.getChild(UIDashboardContainer.class).addUIGadget(uiGadget, col, row);
+      UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class); 
+      uiDashboardContainer.addUIGadget(uiGadget, col, row);
+      uiDashboardContainer.save();
+      
     }
   }
 
@@ -133,6 +122,7 @@ public class UIDashboardPortlet extends UIPortletApplication {
       String objectId = context.getRequestParameter(OBJECTID);
 
       uiDashboardContainer.moveUIGadget(objectId, col, row);
+      uiDashboardContainer.save();
     }
   }
 
@@ -141,10 +131,10 @@ public class UIDashboardPortlet extends UIPortletApplication {
       WebuiRequestContext context = event.getRequestContext();
       UIDashboardPortlet uiPortlet = event.getSource();
       String objectId = context.getRequestParameter(OBJECTID);
-
+      
       UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
-
       uiDashboardContainer.removeUIGadget(objectId);
+      uiDashboardContainer.save();
     }
   }
   

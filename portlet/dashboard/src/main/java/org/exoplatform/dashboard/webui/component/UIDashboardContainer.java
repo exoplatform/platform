@@ -20,12 +20,15 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.portlet.PortletPreferences;
+
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.layout.PortalLayoutService;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -50,63 +53,28 @@ import org.jibx.runtime.IUnmarshallingContext;
 })
 public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer {
   
-  public static final int MAX_COLUMN = 4;  
+  final static public int MAX_COLUMN = 4;  
   final static public String COLUMN_CONTAINER = "column";
   final static public String ROW_CONTAINER = "row";
-  public static final String ROOT_CONTAINER = "dashboard";
+  final static public String ROOT_CONTAINER = "dashboard";
+  
   private List<SelectItemOption<String>> containerOptions;
-  private List<UIContainer> columns = new ArrayList<UIContainer>(3);
+  private String windowId;
   
   public UIDashboardContainer(InitParams initParams) throws Exception {
     if(initParams == null) return;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+    windowId = ((PortletRequestContext) context).getRequest().getWindowID();
+    
     Param param = initParams.getParam("ContainerConfigs");          
     containerOptions = param.getMapGroovyObject(context);
     if(containerOptions == null) return;
     initData();
     PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
-    Container container = service.getContainer(ROOT_CONTAINER);
+    Container container = service.getContainer(ROOT_CONTAINER + "-" + windowId);
     UIContainer uiRoot = createUIComponent(UIContainer.class, null, null); 
     PortalDataMapper.toUIContainer(uiRoot, container);
     addChild(uiRoot);
-    columns = getColumns();
-  }
-  
-  public List<UIContainer> getColumns() {
-    List<UIContainer> list = new ArrayList<UIContainer>(3);
-    findFirstComponentOfType(UIContainer.class).findComponentOfType(list, UIContainer.class);
-    return list;
-  }
-  
-  public Container createContainer(String type, String id) throws Exception {
-    for(SelectItemOption<String> item : containerOptions) {
-      if(item.getLabel().equals(type)) {
-        Container container = toContainer(item.getValue());
-        container.setId(id);
-        return container;
-      }
-    }    
-    return null;
-  }
-  
-  private Container toContainer(String xml) throws Exception {
-    ByteArrayInputStream is = new ByteArrayInputStream( xml.getBytes()); 
-    IBindingFactory bfact = BindingDirectory.getFactory(Container.class);
-    IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    return (Container) uctx.unmarshalDocument(is, null);
-  }
-  
-  private void initData() throws Exception {
-    PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
-    if(service.getContainer(ROOT_CONTAINER) != null) return;
-    Container root = createContainer(COLUMN_CONTAINER, ROOT_CONTAINER);
-    ArrayList<Object> children = new ArrayList<Object>(3);
-    //TODO: Use value form PortletPreference instead of "3"
-    for(int i = 0; i < 3; i++) {
-      children.add(createContainer(ROW_CONTAINER, "UIColumn-" + i));
-    }
-    root.setChildren(children);
-    service.create(root);
   }
   
   public void addUIGadget(final UIGadget gadget, final int col, final int row) throws Exception {
@@ -128,7 +96,8 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
   }
   
   public UIGadget getUIGadget(final String gadgetId) throws Exception {
-    for (int iCol = 0; iCol < getRenderedColumnsCount(); iCol++) {
+    List<UIContainer> columns = getColumns();
+    for (int iCol = 0; iCol < getColumns().size(); iCol++) {
       for (int iRow = 0; iRow < columns.get(iCol).getChildren().size(); iRow++) {
         UIGadget gadget = (UIGadget) columns.get(iCol).getChild(iRow);
         if (gadgetId.equals(gadget.getApplicationInstanceUniqueId())) {
@@ -165,20 +134,9 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     addUIGadget(gadget, col, row);
   }
   
-  public int getRenderedColumnsCount() throws Exception {
-    if (columns == null) {
-      columns = getColumns();
-    }
-    int count = 0;
-    for (int i = 0; i < columns.size(); i++) {
-      if (columns.get(i).isRendered()) { count++; }
-    }
-    return count;
-  }
-  
   public UIContainer getColumn(final int col) throws Exception {
-    if (col < 0 || col > getRenderedColumnsCount()) { return null; }
-    return columns.get(col);
+    if (col < 0 || col > getColumns().size()) { return null; }
+    return getColumns().get(col);
   }
     
   public boolean hasUIGadget() throws Exception {
@@ -194,14 +152,10 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     if (num < 1 || num > MAX_COLUMN) {
       return null;
     }
-    if (columns == null || columns.size() == 0) {
-      columns = this.getColumns();
-    }
     
-    int colSize = 0;
-    for (int i = 0; i < columns.size(); i++) {
-      if (columns.get(i).isRendered()) { colSize++; }
-    }
+    UIContainer uiRoot = findFirstComponentOfType(UIContainer.class);
+    List<UIContainer> columns = getColumns();
+    int colSize = columns.size();
     
     if (num < colSize) {
       for (int i = num; i < colSize; i++) {
@@ -211,16 +165,18 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
           columns.get(num - 1).addChild(component);
           components.add(component);
         }
-        tempCol.removeChild(UIGadget.class);
+        uiRoot.removeChildById(tempCol.getId());
         for (UIComponent component : components) {
           component.setParent(columns.get(num - 1));
         }
-        tempCol.setRendered(false);
       }
     } else {
       if (num > colSize) {
         do {
-          columns.get(colSize).setRendered(true);
+          UIContainer uiContainer = createUIComponent(UIContainer.class, null, null);
+          PortalDataMapper.toUIContainer(uiContainer, 
+              createContainer(ROW_CONTAINER, "UIColumn-"+colSize));
+          uiRoot.addChild(uiContainer);
           colSize++;
         } while (num > colSize);
       }
@@ -228,12 +184,58 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     return this;
   }
   
-  public void renderUIGadget(final int col, final int row) throws Exception {
-    UIGadget gadget = getUIGadget(col, row);
-    if (gadget == null) {
-      return;
+  public List<UIContainer> getColumns() {
+    List<UIContainer> list = new ArrayList<UIContainer>(3);
+    UIContainer uiRoot = findFirstComponentOfType(UIContainer.class);
+    uiRoot.findComponentOfType(list, UIContainer.class);
+    if(list.size() > 0 && list.contains(uiRoot)) {
+      list.remove(uiRoot);
     }
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
-    gadget.processRender(context);
+    return list;
   }
+  
+  public Container createContainer(String type, String id) throws Exception {
+    for(SelectItemOption<String> item : containerOptions) {
+      if(item.getLabel().equals(type)) {
+        Container container = toContainer(item.getValue());
+        container.setId(id);
+        return container;
+      }
+    }    
+    return null;
+  }
+  
+  private Container toContainer(String xml) throws Exception {
+    ByteArrayInputStream is = new ByteArrayInputStream( xml.getBytes()); 
+    IBindingFactory bfact = BindingDirectory.getFactory(Container.class);
+    IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
+    return (Container) uctx.unmarshalDocument(is, null);
+  }
+  
+  private void initData() throws Exception {
+    PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
+    if(service.getContainer(ROOT_CONTAINER + "-" + windowId) != null) return;
+    Container root = createContainer(COLUMN_CONTAINER, ROOT_CONTAINER + "-" + windowId);
+    ArrayList<Object> children = new ArrayList<Object>(3);
+    
+    //TODO: Use value from PortletPreference
+    PortletRequestContext pcontext = (PortletRequestContext) 
+      WebuiRequestContext.getCurrentInstance();
+    PortletPreferences pref = pcontext.getRequest().getPreferences();
+    int totalCols = Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3"));
+    for(int i = 0; i < totalCols; i++) {
+      children.add(createContainer(ROW_CONTAINER, "UIColumn-" + i));
+    }
+    root.setChildren(children);
+    service.create(root);
+  }
+  
+  public void save() throws Exception {
+    UIContainer uiRoot = findFirstComponentOfType(UIContainer.class) ;
+    PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
+    service.save(PortalDataMapper.toContainer(uiRoot)) ;
+  }
+  
 }
+
+

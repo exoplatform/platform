@@ -105,6 +105,7 @@ public class UIDashboardEditForm extends UIForm {
       UIDashboardContainer uiDashboardContainer = ((UIDashboardPortlet) uiForm.getParent())
           .getChild(UIDashboardContainer.class);
       uiDashboardContainer.setColumns(totalCols);
+      uiDashboardContainer.save();
       pcontext.setApplicationMode(PortletMode.VIEW);
     }
   }
