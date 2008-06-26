@@ -152,6 +152,18 @@ public class UIPortal extends UIContainer {
     }
   }
   
+  public void refreshNavigation(String locale) {
+    LocaleConfig localeConfig = getApplicationComponent(LocaleConfigService.class).
+                                getLocaleConfig(locale) ;
+    for(PageNavigation nav : navigations) {
+      if(nav.getOwnerType().equals(PortalConfig.USER_TYPE)) continue ;
+      ResourceBundle res = localeConfig.getNavigationResourceBundle(nav.getOwnerType(), nav.getOwnerId()) ;
+      for(PageNode node : nav.getNodes()) {
+        resolveLabel(res, node) ;
+      }
+    }
+  }
+  
   private void resolveLabel(ResourceBundle res, PageNode node) {
     node.setResolvedLabel(res) ;
     if(node.getChildren() == null) return;

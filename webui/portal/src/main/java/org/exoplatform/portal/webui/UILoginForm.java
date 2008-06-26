@@ -86,18 +86,6 @@ public class UILoginForm extends UIForm {
       session.setAttribute("authentication.username", username);
       session.setAttribute("authentication.password", password);
       UIPortal uiPortal = Util.getUIPortal();
-      //TODO - dang.tung - set language for user
-      //--------------------------------------------------------------------------------------------
-//      UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(username) ;
-//      String userLanguage = userProfile.getUserInfoMap().get("user.language") ;
-//      if(userLanguage != null) {
-//        UserPortalConfigService userPortalConfigService = uiForm.getApplicationComponent(UserPortalConfigService.class) ;
-//        UserPortalConfig userPortalConfig = userPortalConfigService.getUserPortalConfig(uiPortal.getName(), username) ;
-//        PortalConfig portalConfig = userPortalConfig.getPortalConfig() ;
-//        portalConfig.setLocale(userLanguage) ;
-//        userPortalConfigService.update(portalConfig) ;
-//      }
-        //--------------------------------------------------------------------------------------------
       prContext.setResponseComplete(true);  
       String portalName = uiPortal.getName() ;
       portalName = URLEncoder.encode(portalName, "UTF-8") ;

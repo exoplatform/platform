@@ -12,7 +12,7 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 	if((container.style.display != "block") || !container) return ;
 	var itemContainer = document.getElementById("UIWidgets") ;
 	if(itemContainer == null) return;
-	var items = DOMUtil.findDescendantsByClass(itemContainer, "div", "UIWidget") ;
+	var items = DOMUtil.findDescendantsByClass(itemContainer, "div", "UIGadget") ;
 	if(items == null || items.length < 1) return ;
 	var scrollZone = DOMUtil.findFirstDescendantByClass(itemContainer, "div", "ScrollZone") ;
 	var widgetNavigator = DOMUtil.findFirstDescendantByClass(container, "div", "WidgetNavigator") ;

@@ -28,6 +28,8 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -109,12 +111,12 @@ public class UILanguageSelector extends UIContainer {
       UIPortal uiPortal = uiApp.findFirstComponentOfType(UIPortal.class) ;
       uiPortal.setLocale(localeConfig.getLanguage()) ;
       uiPortal.refreshNavigation() ;
-      //TODO: dang.tung - save change language for sign in/ sign out
-      UserPortalConfigService userPortalConfiService = event.getSource().getApplicationComponent(UserPortalConfigService.class) ;
-      UserPortalConfig userPortalConfig = userPortalConfiService.getUserPortalConfig(uiPortal.getName(), Util.getPortalRequestContext().getRemoteUser()) ;
-      PortalConfig portalConfig = userPortalConfig.getPortalConfig() ;
-      portalConfig.setLocale(language) ;
-      userPortalConfiService.update(portalConfig) ;
+      OrganizationService orgService = event.getSource().getApplicationComponent(OrganizationService.class) ;
+      String remoteUser = event.getRequestContext().getRemoteUser() ;
+      if(remoteUser != null) {
+        UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(remoteUser) ;
+        userProfile.getUserInfoMap().put("user.language", language) ;
+      }
     }
  }
 }

@@ -20,6 +20,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -32,6 +33,8 @@ import org.exoplatform.portal.webui.skin.SkinConfig;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.javascript.JavascriptConfigService;
@@ -120,11 +123,35 @@ public class UIPortalApplication extends UIApplication {
     
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
     if(currentSkin != null && currentSkin.trim().length() > 0) skin_ = currentSkin;
-    LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
-    LocaleConfig localeConfig = localeConfigService.getLocaleConfig(userPortalConfig_.getPortalConfig().getLocale());
-    if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-    setLocale(localeConfig.getLocale());
     setOwner(context.getPortalOwner());    
+    //TODO: dang.tung - set portal language by user preference -> browser -> default
+    //------------------------------------------------------------------------------
+    String portalLanguage = null ;
+    LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
+    OrganizationService orgService = getApplicationComponent(OrganizationService.class) ;
+    LocaleConfig localeConfig = localeConfigService.getLocaleConfig(userPortalConfig_.getPortalConfig().getLocale());
+    //LocaleConfig localeConfig = localeConfigService.getDefaultLocaleConfig() ;
+    UIPortal uiPortal = findFirstComponentOfType(UIPortal.class) ;
+    if(context.getRemoteUser() != null) {
+      UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(context.getRemoteUser()) ;
+      portalLanguage = userProfile.getUserInfoMap().get("user.language") ;
+    }
+    localeConfig = localeConfigService.getLocaleConfig(portalLanguage) ;
+    if(portalLanguage != null && portalLanguage.equals(localeConfig.getLanguage())) {
+      setLocale(localeConfig.getLocale());
+      uiPortal.refreshNavigation(portalLanguage) ;
+      return ;
+    }
+    // if user language no support by portal -> get browser language if no -> get portal
+    portalLanguage = context.getRequest().getLocale().getLanguage() ;
+    localeConfig = localeConfigService.getLocaleConfig(portalLanguage) ;
+    if(!portalLanguage.equals(localeConfig.getLanguage())) {
+      localeConfig = localeConfigService.getLocaleConfig(uiPortal.getLocale()) ;
+      portalLanguage = uiPortal.getLocale() ;
+    }
+    setLocale(localeConfig.getLocale()) ;
+    uiPortal.refreshNavigation(portalLanguage) ;
+    //-------------------------------------------------------------------------------
   } 
 
 
