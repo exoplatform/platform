@@ -54,7 +54,7 @@
 }
 
 .UIDashboardSelectForm .UIDashboardItemContainer .TopItemContainer {
-	background: url('background/Dashboard.gif') repeat-x center -23px;
+	background: url('background/Dashboard.gif') repeat-x center -37px;
 	height: 12px;
 	padding: 1px;
 	border-bottom: 1px solid #b7b7b7;
@@ -64,10 +64,16 @@
 	background: url('background/Dashboard.gif') repeat-x center -98px;
 	height: 11px; width: 15px;
 	margin: auto;
+	cursor: pointer;
+}
+
+.UIDashboardSelectForm .UIDashboardItemContainer .DisableArrowIcon {
+	filter: alpha(opacity=30);
+	-moz-opacity: 0.3;
 }
 
 .UIDashboardSelectForm .UIDashboardItemContainer .BottomItemContainer {
-	background: url('background/Dashboard.gif') repeat-x center -37px;
+	background: url('background/Dashboard.gif') repeat-x center -23px;
 	height: 12px;
 	padding: 1px;
 	border-top: 1px solid #b7b7b7;
@@ -77,6 +83,7 @@
 	background: url('background/Dashboard.gif') repeat-x center -114px;
 	height: 11px; width: 15px;
 	margin: auto;
+	cursor: pointer;
 }
 
 .UIDashboardSelectForm .UIDashboardItemContainer .GadgetCategory {
