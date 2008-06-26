@@ -178,7 +178,8 @@
 .UIToolbar .BlueLargeToolbar .ItemButton {
 	float: left;
 	text-align: center;
-	padding: 5px 40px;
+	padding: 5px;
+	width: 150px;
 }
 
 .UIToolbar .BlueLargeToolbar .LablelIcon {
