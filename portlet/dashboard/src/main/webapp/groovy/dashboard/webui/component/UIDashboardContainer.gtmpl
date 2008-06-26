@@ -21,7 +21,6 @@
 		</div>
 		
 		<% 
-			System.out.println("\n\n\n\n\nhello:" +uicomponent.getChildren().size()) ;
 			uicomponent.renderChildren() ;
 		%>
 		
