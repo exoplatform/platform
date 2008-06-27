@@ -49,11 +49,10 @@ public class GadgetRegister implements ServletContextListener {
    */
   public void contextInitialized(ServletContextEvent event) {
     try {
-      String gadgets = event.getServletContext().getInitParameter("exo.gadget");
       RootContainer root = RootContainer.getInstance() ;
       PortalContainer pcontainer =  root.getPortalContainer("portal") ;
       GadgetRegistryService gadgetService = (GadgetRegistryService) pcontainer.getComponentInstanceOfType(GadgetRegistryService.class) ;
-      String strLocation = "/gadgets/" + gadgets + ".xml" ;
+      String strLocation = "/WEB-INF/gadget.xml" ;
       DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder() ;
       InputStream in = event.getServletContext().getResourceAsStream(strLocation) ;
       Document docXML = db.parse(in) ;
