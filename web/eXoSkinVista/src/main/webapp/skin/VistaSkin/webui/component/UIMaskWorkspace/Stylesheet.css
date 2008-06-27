@@ -110,6 +110,7 @@
   border: 1px solid #999999;
   border-top: none;
   background: none;
+  padding: 10px 10px 0px 10px;
 }
 
 .UIAddApplication .UIItemSelector .LeftColumnStyle {
@@ -158,7 +159,7 @@
 }
 
 .UIAddApplication .ContentContainerDetail {
-	padding: 0px 15px;
+	padding: 0px 10px;
 	border-top: none;
 }
 
