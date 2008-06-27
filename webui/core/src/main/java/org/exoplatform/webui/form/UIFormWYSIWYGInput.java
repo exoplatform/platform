@@ -58,6 +58,7 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
     value_ = value_.replaceAll("'", "\\\\'");
     value_ = value_.replaceAll("[\r\n]", "");
     w.write("<textarea id='" + getName() + "' name='" + getName() + "'>" + value_ + "</textarea>") ;
+    if (this.isMandatory()) w.write(" *");
     context.getJavascriptManager().addJavascript(jsExec.toString()) ;
   }
 }
