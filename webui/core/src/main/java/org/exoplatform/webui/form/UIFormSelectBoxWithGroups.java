@@ -189,9 +189,11 @@ public class UIFormSelectBoxWithGroups extends UIFormStringInput {
     	} else if (item instanceof SelectOptionGroup) {
     		for (SelectOption opt : ((SelectOptionGroup)item).getOptions()) {
     			if (i > -1 && ((SelectOption)opt).getValue().equals(values[i])) {
-    		    	((SelectOption)opt).setSelected(true) ;
-    			}
-    		    if(values.length == ++i) i = -1 ;
+    		    		((SelectOption)opt).setSelected(true) ;
+                        	if (values.length == ++i) i = -1;
+    			} else {
+				((SelectOption)opt).setSelected(false);
+			}
     		}
     	}
     }
@@ -266,9 +268,9 @@ public class UIFormSelectBoxWithGroups extends UIFormStringInput {
   
   private String renderOption(SelectOption option, String label) {
 	  StringBuffer buf = new StringBuffer();
-	  buf.append("<option value=\"");  buf.append(option.getValue());
+	  buf.append("<option value=\"");  buf.append(option.getValue()); buf.append("\"");
 	  if (option.isSelected())  buf.append("selected=\"selected\"");
-	  buf.append("\">");
+	  buf.append(">");
 	  buf.append(label); buf.append("</option>\n");
 	  return buf.toString();
   }
