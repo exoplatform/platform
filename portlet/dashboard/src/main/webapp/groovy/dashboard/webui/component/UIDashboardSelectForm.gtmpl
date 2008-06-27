@@ -2,7 +2,7 @@
 	<div class="DashboardControlBar">
 		<div class="TitleControlBar">Gadget Workspace</div>
 		<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"><span></span></div>
-		<div style="clear:both;"><span></span></div>
+		<div style="clear: right;"><span></span></div>
 	</div>
 	<div class="UIDashboardItemContainer">
 		
@@ -10,6 +10,7 @@
 			<div class="TopItemContainer">
 				<div class="UpArrowIcon DisableArrowIcon"><span></span></div>
 			</div>
+			<div class="MiddleItemContainer UIResizableBlock">
 			<% List categories = uicomponent.getCategories();
 				 if(categories != null && categories.size > 0){
 					for(category in categories){
@@ -54,12 +55,11 @@
 				 				<span></span> 
 				 				""";
 			%>
+			</div>
 			<div class="BottomItemContainer">
 				<div class="DownArrowIcon"><span></span></div>
 			</div>
 		</div>
 		
 	</div>
-	
-	<div style="clear:left;"><span></span></div>
 </div>

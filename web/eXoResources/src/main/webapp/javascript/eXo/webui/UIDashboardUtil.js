@@ -105,9 +105,13 @@ eXo.webui.UIDashboardUtil = {
 	findColIndexInDashboard : function(dragObj){
 		var col = dragObj.parentNode;
 		if(col==null) return null;
-		var colId = col.id;
-		index = parseInt(colId.substring(colId.lastIndexOf('-')+1, colId.length));
-		return index-1;
+		var dashboardContainer = eXo.core.DOMUtil.findAncestorByClass(col, "DashboardContainer");
+		var columns = eXo.core.DOMUtil.findDescendantsByClass(dashboardContainer, "div", "UIColumn");
+		for(var i=0; i<columns.length; i++){
+			if(col.id == columns[i].id){
+				return i;
+			}
+		}
 	},
 	
 	findRowIndexInDashboard : function(dragObj){

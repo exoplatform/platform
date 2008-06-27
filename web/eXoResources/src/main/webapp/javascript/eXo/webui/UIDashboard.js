@@ -19,11 +19,6 @@ eXo.webui.UIDashboard = {
 			var dashboardContainer = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
 			var portletApp = DOMUtil.findAncestorByClass(dashboardContainer, "UIApplication");
 
-//			var ggwidth = dragObj.offsetWidth - parseInt(DOMUtil.getStyle(dragObj,"borderLeftWidth"))
-//											- parseInt(DOMUtil.getStyle(dragObj,"borderRightWidth"));
-//			var ggheight = dragObj.offsetHeight - parseInt(DOMUtil.getStyle(dragObj,"borderTopWidth"))
-//											- parseInt(DOMUtil.getStyle(dragObj,"borderBottomWidth"));
-			
 			var ggwidth = dragObj.offsetWidth;
 			var ggheight = dragObj.offsetHeight;
 			
@@ -264,6 +259,15 @@ eXo.webui.UIDashboard = {
 			if(columns[i].style.display != "none") colsSize++;
 		}
 		colsContainer.style.width = colsSize*320 + 20 + "px";
+		
+		var uiSelectForm = eXo.core.DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardSelectForm");
+		if(uiSelectForm.style.display != "none") {
+			var middleItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiSelectForm, "div", "MiddleItemContainer");
+			middleItemContainer.style.height = "334px";
+			uiContainer.style.marginLeft = "210px";
+		} else {
+			uiContainer.style.marginLeft = "0px";
+		}
 	},
 	
 	createTarget : function(width, height){
@@ -303,10 +307,12 @@ eXo.webui.UIDashboard = {
 			uiSelectForm.style.display = "none";
 			url += '&isShow=false';
 			addButton.style.visibility = "visible";
+			uiContainer.style.marginLeft = "0px";
 		} else {
 			uiSelectForm.style.display = "block";
 			url += '&isShow=true';
 			addButton.style.visibility = "hidden";
+			uiContainer.style.marginLeft = "210px";
 		}
 		ajaxAsyncGetRequest(url, false);
 	}, 

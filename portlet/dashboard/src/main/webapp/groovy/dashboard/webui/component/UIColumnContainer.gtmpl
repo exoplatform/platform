@@ -1,4 +1,4 @@
-<div class="UIColumns" style="width: 99%;" >
+<div class="UIColumns">
 <%
 	for(uichild in uicomponent.getChildren()){ 
 %>

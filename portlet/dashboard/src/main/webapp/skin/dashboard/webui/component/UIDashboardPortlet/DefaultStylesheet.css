@@ -43,11 +43,9 @@
 	border: 1px solid white;
 	background: #ececec;
 	padding: 5px;
-	height: 100%;
 }
 
 .UIDashboardSelectForm .UIDashboardItemContainer .GadgetItemsContainer {
-	height: 100%;
 	border: 1px solid #b7b7b7;
 	background: white;
 	font-weight: bold;
@@ -55,7 +53,7 @@
 
 .UIDashboardSelectForm .UIDashboardItemContainer .TopItemContainer {
 	background: url('background/Dashboard.gif') repeat-x center -37px;
-	height: 12px;
+	height: 11px;
 	padding: 1px;
 	border-bottom: 1px solid #b7b7b7;
 }
@@ -72,9 +70,13 @@
 	-moz-opacity: 0.3;
 }
 
+.UIDashboardSelectForm .UIDashboardItemContainer .MiddleItemContainer {
+	overflow: hidden;
+}
+	
 .UIDashboardSelectForm .UIDashboardItemContainer .BottomItemContainer {
 	background: url('background/Dashboard.gif') repeat-x center -23px;
-	height: 12px;
+	height: 11px;
 	padding: 1px;
 	border-top: 1px solid #b7b7b7;
 }
@@ -109,7 +111,6 @@
 .UIDashboardSelectForm .GadgetCategory .GadgetTab .ArrowIcon {
 	background: url('background/Catalogue.gif') no-repeat left -102px;
 	line-height: 26px;
-	width: 90%;
 	overflow: hidden;
 	padding-left: 18px;
 	color: #286f9b;
@@ -226,7 +227,7 @@
 .DashboardContainer .UIColumn {
 	float: left;
 	width: 320px;
-	height: 100%;
+	padding: 2px 0px;
 }
 
 .UIDashboardContainer .UIGadget {
