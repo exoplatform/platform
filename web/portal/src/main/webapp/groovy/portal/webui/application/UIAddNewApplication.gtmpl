@@ -35,7 +35,7 @@
 	                %>
                     <div onmouseout="eXo.webui.UIItemSelector.onOver(this, false);" onmouseover="eXo.webui.UIItemSelector.onOver(this, true);" onclick="eXo.webui.UIItemSelector.onClick(this);" class="<%= selected ? "SelectedItem" : "" %> Item">
                         <div class="LeftItem">
-                            <div class="RightItem"><div id="<%=category.getName()%>" class="ItemTitle"><%=category.getDisplayName()%></div></div>
+                            <div class="RightItem"><div id="<%=category.getName()%>" class="ItemTitle"><div class="CenterItemTitle"><%=category.getDisplayName()%></div></div></div>
                         </div>
                     </div>
                   <% 
