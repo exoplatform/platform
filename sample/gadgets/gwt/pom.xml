@@ -178,6 +178,17 @@
         <gwtArtifactId>gwt-mac</gwtArtifactId>
       </properties>
     </profile>
+	<profile>
+      <id>windows xp</id>
+      <activation>
+        <os>
+		  <name>windows xp</name>
+        </os>
+      </activation>
+      <properties>
+        <gwtArtifactId>gwt-windows</gwtArtifactId>
+      </properties>
+    </profile>
     <profile>
       <id>windows</id>
       <activation>
