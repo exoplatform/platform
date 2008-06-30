@@ -27,4 +27,29 @@
 			<role-link>admin</role-link>
 		</security-role-ref>
 	</portlet>
+	<portlet>
+		<description xml:lang="EN">Gadget Portlet</description>
+		<portlet-name>GadgetPortlet</portlet-name>
+		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+		<init-param>
+			<name>webui.configuration</name>
+			<value>/WEB-INF/conf/portlet/gadget/GadgetPortlet/webui/configuration.xml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>locale.portlet.gadget.GadgetPortlet</resource-bundle>
+		<portlet-info>
+			<title>Gadget Portlet</title>
+			<short-title>Gadget Portlet</short-title>
+			<keywords>portlet,gadget</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>admin</role-name>
+			<role-link>admin</role-link>
+		</security-role-ref>
+	</portlet>
 </portlet-app>

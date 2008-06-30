@@ -14,22 +14,30 @@ eXo.gadget.UIGadget = {
 			  eXo.core.Using("eXo.gadgets.Gadgets");
 	  		eXo.core.Using("eXo.gadgets.CookieBasedUserPrefStore");
 		}
-	  var gadget = gadgets.container.createGadget({specUrl: url,height: metadata.gadgets[0].height});
-    gadget.metadata = metadata.gadgets[0];
+		var gadget;
+		if (metadata != null) {
+	  	gadget = gadgets.container.createGadget({specUrl: url,height: metadata.gadgets[0].height});
+    	gadget.metadata = metadata.gadgets[0];
+		} else {
+			gadget = gadgets.container.createGadget({specUrl: url});
+		}	
     gadgets.container.addGadget(gadget);
     if(userPref != null) gadget.setUserPrefs(userPref) ;
 	  var gadgetBlock = document.getElementById(id);
-		gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "'> </div>";
+		gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "' class='UIGadgetContent'> </div>";
 		gadgets.container.renderGadgets();
 		var uiGadget = eXo.core.DOMUtil.findAncestorByClass(gadgetBlock, "UIGadget");
-		
-		var isDesktop = false;
-		if(uiGadget.parentNode.className=="UIPageDesktop") {
-			uiGadget.style.position = "absolute" ;
-			isDesktop = true;
+		//TODO: dang.tung - isn't portlet
+		if(uiGadget != null) {
+			var isDesktop = false;
+			if(uiGadget.parentNode.className=="UIPageDesktop") {
+				uiGadget.style.position = "absolute" ;
+				isDesktop = true;
+			}
+			else uiGadget.style.width="auto" ;	
+			eXo.gadget.UIGadget.init(uiGadget, isDesktop);	
 		}
-		else uiGadget.style.width="" ;	
-		eXo.gadget.UIGadget.init(uiGadget, isDesktop);
+		
 	},
 
 	init : function(uiGadget, inDesktop) {

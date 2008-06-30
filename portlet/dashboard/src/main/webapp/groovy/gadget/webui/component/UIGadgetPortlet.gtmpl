@@ -1,0 +1,12 @@
+<% 	import javax.portlet.PortletMode ; 
+		import org.exoplatform.gadget.webui.component.UIGadgetViewMode ;
+		import org.exoplatform.gadget.webui.component.UIGadgetEditMode ;
+%>
+<div class="UIGadgetPortlet" id="$uicomponent.id">
+	<%if( _ctx.getRequestContext().getApplicationMode() == PortletMode.VIEW ) {
+	    uicomponent.renderChild(UIGadgetViewMode.class) ;
+  } else {
+      	uicomponent.renderChild(UIGadgetEditMode.class);
+    }
+  %>
+</div>

@@ -1,0 +1,17 @@
+.UIGadgetPortlet {
+	height: 100%;
+}
+.UIGadgetPortlet .UIGadgetViewMode {
+	height: 100%;
+}
+
+.UIGadgetPortlet .gadgets-gadget-content {
+	height: 100%;
+}
+
+.UIGadgetPortlet .gadgets-gadget {
+	height: 100%;
+}
+.UIGadgetPortlet .UIGadgetContent {
+	height: 100%;
+}
