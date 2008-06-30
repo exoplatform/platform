@@ -1,5 +1,6 @@
 .UITabContainer {
 	padding: 2px 7px 7px 7px;
+	width: 98%;
 }
 
 .UITabContainer .HorizontalLayout {
