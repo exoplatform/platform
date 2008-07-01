@@ -17,7 +17,6 @@
 package org.exoplatform.portal.webui.portal;
 
 import java.util.Iterator;
-import java.util.List;
 
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
@@ -74,17 +73,11 @@ public class UIPortalSelector extends UIContainer {
   
   private PageList extractPermissedPortal(PageList pageList, String accessUser) throws Exception {
     UserACL userACL = getApplicationComponent(UserACL.class) ;
-    int i = 1 ;
-    while(i <= pageList.getAvailablePage()) {
-      List<?> list = pageList.getPage(i) ;
-      Iterator<?> itr = list.iterator() ;
-      while(itr.hasNext()) {
-        PortalConfig pConfig = (PortalConfig)itr.next() ;
-        if(!userACL.hasPermission(pConfig, accessUser) )itr.remove() ;
-      }
-      i++ ;
+    Iterator<?> itr = pageList.getAll().iterator();
+    while(itr.hasNext()) {
+      PortalConfig pConfig = (PortalConfig)itr.next() ;
+      if(!userACL.hasPermission(pConfig, accessUser) )itr.remove() ;
     }
-    
     return new ObjectPageList(pageList.getAll(), 10) ;
   }
   
