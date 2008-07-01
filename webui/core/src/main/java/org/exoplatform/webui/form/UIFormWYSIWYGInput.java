@@ -26,6 +26,10 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  *          trongtt@gmail.com
  * November 07, 2007
  */
+@Deprecated
+/**
+ * Should use org.exoplatform.webui.form.wysiwyg.UIFormWYSIWYGInput
+ * */
 public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
   
   private int height_ = 300 ;
