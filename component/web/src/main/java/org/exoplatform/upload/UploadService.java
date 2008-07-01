@@ -19,6 +19,7 @@ package org.exoplatform.upload;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -75,7 +76,35 @@ public class UploadService {
     
     uploadResources.remove(uploadId) ;
     fileStore.delete();  
-  }  
+  }
+  
+  public void createUploadResource(String uploadId, String fileName, 
+      InputStream inputStream, double contentLength, String mimetype) throws Exception {   
+    UploadResource upResource = new UploadResource(uploadId) ;
+    RequestStreamReader reader = new RequestStreamReader(upResource);               
+    if(fileName == null) fileName = uploadId;
+    fileName = fileName.substring(fileName.lastIndexOf('\\') + 1) ;    
+    
+    upResource.setFileName(fileName);
+    upResource.setMimeType(mimetype);
+    upResource.setStoreLocation(uploadLocation_ + "/" + uploadId+"."+fileName) ;
+    upResource.setEstimatedSize(contentLength) ;
+    
+    uploadResources.put(upResource.getUploadId(), upResource) ;
+    
+    File fileStore = new File(upResource.getStoreLocation());
+    if(!fileStore.exists()) fileStore.createNewFile();
+    FileOutputStream output = new FileOutputStream(fileStore);
+    reader.readBodyData(inputStream, mimetype, output);
+
+    if(upResource.getStatus() == UploadResource.UPLOADING_STATUS){
+      upResource.setStatus(UploadResource.UPLOADED_STATUS) ;
+      return;
+    }
+    
+    uploadResources.remove(uploadId) ;
+    fileStore.delete();
+  }
   
   public UploadResource getUploadResource(String uploadId) {//throws Exception 
     UploadResource upResource = uploadResources.get(uploadId) ;

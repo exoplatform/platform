@@ -36,7 +36,7 @@ import org.exoplatform.services.html.refs.RefsDecoder;
  * 
  */
 class RequestStreamReader {
-  
+
   private static final byte LF = 0x0A;
   private static final byte DASH = 0x2D;
   private static final byte CR = 0x0D;
@@ -49,7 +49,7 @@ class RequestStreamReader {
   private static final int HEADER_PART_SIZE_MAX = 10240;
   private static final String ATTACHMENT = "attachment";
   private static final int DEFAULT_BUFSIZE = 4096;
-  
+
   static final String CONTENT_TYPE = "content-type";
 
 
@@ -71,18 +71,18 @@ class RequestStreamReader {
   }
 
   void readBodyData(HttpServletRequest request, OutputStream output) throws IOException {
+    readBodyData(request.getInputStream(),request.getContentType(),output);    
+  }
+
+  void readBodyData(InputStream input, String contentType, OutputStream output) throws IOException {
     int pad;
     int bytesRead;
     int total = 0;
 
-    byte[] bdr = getBoundary(request.getContentType());
+    byte[] bdr = getBoundary(contentType);
     byte [] boundary = new byte[bdr.length + BOUNDARY_PREFIX.length];
-    int keepRegion = boundary.length + 4 ;
-
-    InputStream input = null;
+    int keepRegion = boundary.length + 4 ;    
     try {
-      input = request.getInputStream();
-
       while(upResource_.getStatus() == UploadResource.UPLOADING_STATUS) {   
         if (tail - head > keepRegion) {
           pad = keepRegion;
@@ -110,7 +110,7 @@ class RequestStreamReader {
       if(input != null) input.close() ;
       if(output != null) output.close();  
     }
-  }
+  }    
 
   Map<String, String> parseHeaders(InputStream input, String headerEncoding)  throws IOException {
     String txtHeaders =  readHeaders(input, headerEncoding);
@@ -175,7 +175,7 @@ class RequestStreamReader {
     } 
     return baos.toString("UTF-8");
   }
- 
+
   private byte readByte(InputStream input) throws IOException {
     if (head != tail) return buffer[head++];  
     head = 0;
@@ -214,5 +214,5 @@ class RequestStreamReader {
     }
     return null;
   }
-  
+
 }
