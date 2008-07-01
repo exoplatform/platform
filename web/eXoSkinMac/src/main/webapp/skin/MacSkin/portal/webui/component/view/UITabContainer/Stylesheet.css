@@ -25,6 +25,10 @@
 	margin: 0px;
 }
 
+.UITabContainer .HorizontalLayout .UIPortlet .CONTROL-PORTLET .UIInfoBar {
+  margin-bottom: 0px;
+}
+
 .UITabContainer .HorizontalLayout .UIPortlet .LAYOUT-PORTLET{
 	margin: 0px;
 }
