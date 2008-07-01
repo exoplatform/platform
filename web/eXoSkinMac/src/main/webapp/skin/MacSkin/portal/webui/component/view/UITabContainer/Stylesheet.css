@@ -37,6 +37,10 @@
 	margin-left: 4px;
 }
 
+.UITabContainer .HorizontalLayout .UITabContentContainer .UITabContent{
+	padding-top: 10px;
+}
+
 .UITabContainer a.TabLabel {
 	padding: 0px 10px 0px 2px;
 	line-height: 24px; height: 24px;

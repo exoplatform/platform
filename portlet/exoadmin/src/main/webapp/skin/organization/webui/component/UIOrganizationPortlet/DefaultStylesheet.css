@@ -300,6 +300,18 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectIcon.gif') center ;
 }
 
+.UIOrganizationPortlet .UIGroupInfoContainer .HorizontalLayout .FormContainer {
+	padding: 5px;
+}
+
+.UIOrganizationPortlet .UIGroupInfoContainer .UIGroupMembershipForm .HorizontalLayout .FormContainer {
+	padding: 16px 0px 10px 0px;
+}
+
+.UIOrganizationPortlet .UIGroupManagement .UIGroupForm .HorizontalLayout .FormContainer {
+	padding: 16px 0px 0px 0px;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMembershipTypeForm {
