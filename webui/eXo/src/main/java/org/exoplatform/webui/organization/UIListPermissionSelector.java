@@ -73,7 +73,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     uiIterator.setPageList(new ObjectPageList(new ArrayList<Permission>(), 10));
     addChild(uiIterator) ;
     uiIterator.setRendered(false) ;
-    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UIGroupMembershipSelector");
+    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UIPopupGroupMembershipSelector");
     uiPopup.setWindowSize(540, 0);
     
     UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, null) ;

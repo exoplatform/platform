@@ -519,7 +519,7 @@ gadgets.IfrGadget.prototype.getMainContent = function(continuation) {
       '" src="' + this.getIframeUrl() +
       '" frameborder="no" scrolling="no"' +
       (this.height ? ' height="' + this.height + '"' : '') +
-      (this.width ? ' width="' + this.width + '"' : '') +
+      (this.width ? ' width="' + this.width + '"' : 'width="100%"') +
       '></iframe></div>');
 };
 
