@@ -54,14 +54,17 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
     HttpServletRequest request = context.getRequest();           
     FCKEditor editor = new FCKEditor(request,getName());
     if(fckConfig == null) {
-      editor.setConfig(new FCKEditorConfig());
+      FCKEditorConfig editorConfig = new FCKEditorConfig();
+      localize(editorConfig);
+      editor.setConfig(editorConfig);
       if(useBasicToolbar) {
         editor.setToolbarSet(BASIC_TOOLBAR);
       }else {
         editor.setToolbarSet(DEFAULT_TOOLBAR);
       }            
     }else {
-      editor.setConfig(fckConfig);
+      localize(fckConfig);
+      editor.setConfig(fckConfig);      
     }    
     if (value_ == null) 
       value_ = "" ;
@@ -70,4 +73,12 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
     w.write(editor.createHtml());
     if (this.isMandatory()) w.write(" *");    
   }
+
+  private void localize(final FCKEditorConfig config){
+    WebuiRequestContext requestContext = WebuiRequestContext.getCurrentInstance();
+    String currentLanguage = requestContext.getLocale().getLanguage();
+    config.put("AutoDetectLanguage","false");
+    config.put("DefaultLanguage",currentLanguage);    
+  }
+
 }

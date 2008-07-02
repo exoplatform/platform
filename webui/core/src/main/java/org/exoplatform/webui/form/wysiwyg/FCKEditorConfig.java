@@ -21,13 +21,8 @@
 
 package org.exoplatform.webui.form.wysiwyg;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
-
-import org.apache.commons.logging.Log;
-import org.exoplatform.services.log.ExoLogger;
 
 /**
  * Contains the configuration settings for the FCKEditor.<br>
@@ -38,8 +33,7 @@ import org.exoplatform.services.log.ExoLogger;
  */
 public class FCKEditorConfig extends HashMap<String, String> {
 
-  private static final long serialVersionUID = -4831190504944866644L;
-  private final Log logger = ExoLogger.getLogger(this.getClass());
+  private static final long serialVersionUID = -4831190504944866644L;  
 
   /**
    * Initialize the configuration collection
@@ -55,20 +49,20 @@ public class FCKEditorConfig extends HashMap<String, String> {
    * @return html endocode sequence of configuration parameters
    */
   public String getUrlParams() {
-    StringBuffer osParams = new StringBuffer();
-    try {
-      for (Map.Entry<String, String> entry : this.entrySet()) {				
-        osParams.append("&");
-        osParams.append(URLEncoder.encode(entry.getKey(),"UTF-8"));
-        osParams.append("=");
-        osParams.append(URLEncoder.encode(entry.getValue(),"UTF-8"));				
-      }
-    } catch (UnsupportedEncodingException e) {
-      logger.error("Configuration parameters could not be encoded", e);
-    }
-
-    if (osParams.length() > 0)
-      osParams.deleteCharAt(0);
+    StringBuffer osParams = new StringBuffer();    
+    for (Map.Entry<String, String> entry : this.entrySet()) {				
+      osParams.append("&");
+      osParams.append(encodeConfig(entry.getKey()));
+      osParams.append("=");
+      osParams.append(encodeConfig(entry.getValue()));				
+    }    
     return osParams.toString();
+  }
+
+  private String encodeConfig(String s) {
+    s=s.replaceAll("&","%26");
+    s=s.replaceAll("=","%3D");
+    s=s.replaceAll("\"","%22");
+    return s;
   }
 }
