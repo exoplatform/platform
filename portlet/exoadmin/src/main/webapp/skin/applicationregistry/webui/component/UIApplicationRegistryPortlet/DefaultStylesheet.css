@@ -19,6 +19,10 @@
 	padding: 10px;
 }
 
+.UIApplicationRegistryPortlet .CategoryContainer .EditIcon  {
+	float: none;
+}
+
 .UIApplicationRegistryPortlet .UIControlbar {
 	background: url('DefaultSkin/background/ControlIcon.gif') repeat-x center -222px;
 	border: 1px solid #b7b7b7;

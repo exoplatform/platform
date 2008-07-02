@@ -280,7 +280,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
-	height: 220px;
+	height: 216px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .Node {
@@ -319,7 +319,7 @@
 
 .UIOrganizationPortlet .UIGroupForm .FormContainer { 
 	height: 209px;
-	padding: 15px 0px 0px 0px;
+	padding: 11px 0px 0px 0px;
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .UIForm select {
