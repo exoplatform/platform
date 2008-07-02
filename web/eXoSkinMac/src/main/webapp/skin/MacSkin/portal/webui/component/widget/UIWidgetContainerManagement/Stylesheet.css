@@ -104,19 +104,20 @@
 	background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png');
 	border: 1px #b7b7b7 solid;
 	margin-left: 260px;
-	height: 255px;
 	padding: 10px;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView .ContainerDetail {
-	background: white;
+.UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView .WidgetContainerDetail {
+  background: white;
 	border: 1px solid #dcdcdc;
-	padding: 15px 0px;
-	height: 224px;
+	height: 253px; margin: auto;
+	overflow-y: auto;
 }
 
-.ContainerManagementDetail .WidgetContainerDetail .ContainerDetail {
-	overflow: auto;
+.UIWidgetContainerManagement .WidgetContainerView .ContainerDetail {
+	margin: auto;
+	padding: 15px 0px;
+	width: 94%;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .HeadTitle {

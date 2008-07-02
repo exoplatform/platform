@@ -107,13 +107,14 @@
 	border: 1px #b7b7b7 solid;
 }
 
-.UIWidgetContainerManagement .WidgetContainerView .ContainerDetail {
-	padding: 15px 0px;
-	height: 246px;
+.UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView .WidgetContainerDetail {
+  height: 275px;
+  overflow-y: auto;
 }
 
-.ContainerManagementDetail .WidgetContainerDetail .ContainerDetail {
-	overflow: auto;
+.UIWidgetContainerManagement .WidgetContainerView .ContainerDetail {
+	padding: 15px 0px;
+	width: 93%;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .HeadTitle {
