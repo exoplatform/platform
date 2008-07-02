@@ -7,12 +7,11 @@
  */
 
 .UIWindow .UISitemapPortlet {
-  padding: 10px;
   border: none;
+  margin: 0px;
 }
 
 .UISitemapPortlet {
-  padding: 10px;
   border: 1px solid #b7b7b7;
   margin: 10px;
   background: white;
@@ -20,6 +19,7 @@
 
 .UISitemap {
 	overflow: hidden ;
+	padding: 10px;
 }
 
 .UISitemap .TitleBar {
