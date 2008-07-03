@@ -477,6 +477,11 @@ PortalDragDrop.prototype.tableColumnContainerAddChild = function(insertBlock, ta
 };
 
 PortalDragDrop.prototype.fixCss =  function() {
+	return;
+	/*
+	* minh.js.exo
+	* don't need this method;
+	*/
 	var DOMUtil = eXo.core.DOMUtil ;
  	uiPortal = document.getElementById("UIPortal-UIPortal") ;
  	if(uiPortal) {
