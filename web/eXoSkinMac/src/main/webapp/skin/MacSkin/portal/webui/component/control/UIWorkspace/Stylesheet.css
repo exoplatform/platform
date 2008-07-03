@@ -55,6 +55,10 @@
   margin: 2px 0px ;
 }
 
+.UIControlWorkspace .UIWorkspacePanel {
+  padding-bottom: 5px;
+}
+
 /*===================== End Tab =================================*/
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {

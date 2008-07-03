@@ -35,6 +35,10 @@
   height: 100%; 
 }
 
+.UIControlWorkspace .UIWorkspacePanel {
+  padding-bottom: 5px;
+}
+
 .UIControlWorkspace .UIWorkspaceControl {
   height: 35px ;
 }
