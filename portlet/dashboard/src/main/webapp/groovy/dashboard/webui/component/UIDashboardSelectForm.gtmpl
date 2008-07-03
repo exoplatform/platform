@@ -7,7 +7,8 @@
 	<div class="UIDashboardItemContainer">
 		
 		<div class="GadgetItemsContainer" id="GadgetItemsContainer">
-			<div class="TopItemContainer">
+			<div class="TopItemContainer DisableContainer" onmouseover="eXo.webui.UIDashboard.enableContainer(this)" 
+												onmouseout="eXo.webui.UIDashboard.disableContainer(this)">
 				<div class="UpArrowIcon DisableArrowIcon"><span></span></div>
 			</div>
 			<div class="MiddleItemContainer UIResizableBlock">
@@ -56,7 +57,8 @@
 				 				""";
 			%>
 			</div>
-			<div class="BottomItemContainer">
+			<div class="BottomItemContainer DisableContainer" onmouseover="eXo.webui.UIDashboard.enableContainer(this)" 
+												onmouseout="eXo.webui.UIDashboard.disableContainer(this)">
 				<div class="DownArrowIcon"><span></span></div>
 			</div>
 		</div>

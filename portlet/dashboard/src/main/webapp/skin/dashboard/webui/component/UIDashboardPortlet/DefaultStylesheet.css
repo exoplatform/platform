@@ -75,7 +75,7 @@
 }
 	
 .UIDashboardSelectForm .UIDashboardItemContainer .BottomItemContainer {
-	background: url('background/Dashboard.gif') repeat-x center -23px;
+	background: url('background/Dashboard.gif') repeat-x center -37px;
 	height: 11px;
 	padding: 1px;
 	border-top: 1px solid #b7b7b7;
@@ -86,6 +86,10 @@
 	height: 11px; width: 15px;
 	margin: auto;
 	cursor: pointer;
+}
+
+.UIDashboardSelectForm .UIDashboardItemContainer .DisableContainer {
+	background:	url('background/Dashboard.gif') repeat-x center -23px;
 }
 
 .UIDashboardSelectForm .UIDashboardItemContainer .GadgetCategory {
