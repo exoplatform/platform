@@ -20,9 +20,7 @@
 	        even = !even ;
 	      %>
 		      <div class="$rowCssClass">
-		        <div class="ItemIcon"><span></span></div>
-		        <a href="<%=uicomponent.event("SelectMembership", member)%>">$member</a>	
-		        <div style="clear: left"><span></span></div>								           
+		        <div class="ItemIcon"><a href="<%=uicomponent.event("SelectMembership", member)%>">$member</a></div>
 		      </div>
 	      <%}%>
       </div>

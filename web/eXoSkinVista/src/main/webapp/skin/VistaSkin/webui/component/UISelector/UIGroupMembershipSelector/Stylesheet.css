@@ -84,8 +84,8 @@
   border: #aeaeae 1px solid;
   border-top: none;
   background: white;
-  height: 150px; width: auto;
-  padding: 5px 10px;
+  height: 148px; width: 90.5%;
+  padding: 7px 10px 5px 10px;
   overflow: auto;
 }
 
@@ -98,16 +98,16 @@
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .OddRow {
-  line-height: 26px ;
+  line-height: 22px ;
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .EvenRow {
-  line-height: 26px ;
+  line-height: 22px ;
 }
 
 .UIGroupMembershipSelector .MembershipSelector .ItemIcon {
-  margin: 5px 5px 0px 7px ;  
-  float: left ;
-  width: 16px; height: 16px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/GrayBorderRightArrow.gif') no-repeat;  
+  margin: 0px 5px 0px 7px ;  
+  height: 22px; line-height: 22px;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/GrayBorderRightArrow.gif') no-repeat left;  
+  padding-left: 20px;
 }
