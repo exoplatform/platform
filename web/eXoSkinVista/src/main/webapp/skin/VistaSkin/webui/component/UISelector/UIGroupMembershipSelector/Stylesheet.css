@@ -106,7 +106,7 @@
 }
 
 .UIGroupMembershipSelector .MembershipSelector .ItemIcon {
-  margin: 0px 5px 0px 7px ;  
+  margin: 0px 5px 0px 1px ;  
   height: 22px; line-height: 22px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/GrayBorderRightArrow.gif') no-repeat left;  
   padding-left: 20px;
