@@ -27,12 +27,13 @@ form {
 	padding: 0px ; margin: 0px ;
 }
 
-* html {
+html {
+	margin: 0px ; padding: 0px;
 	overflow-x: hidden;
 }
 
 body {
-  background: url('/eXoSkinVista/skin/VistaSkin/background/eXoDesktopBG1.jpg') no-repeat fixed ;
+ background: url('/eXoSkinVista/skin/VistaSkin/background/eXoDesktopBG1.jpg') no-repeat fixed ;
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif ;
 	font-size: 11px;
 	margin: 0px ; padding: 0px;
