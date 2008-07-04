@@ -24,7 +24,6 @@ import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.ApplicationLifecycle;
 import org.exoplatform.webui.Util;
 import org.exoplatform.webui.config.Component;
-import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -94,16 +93,16 @@ abstract public class WebuiApplication extends Application {
     config.getUIComponentLifecycle().init(uicomponent, context) ;
     return type.cast(uicomponent) ;
   }
-  
-  public void  processDecode(UIApplication uiApp, WebuiRequestContext context) throws Exception {
-    context.setUIApplication(uiApp) ;
-    uiApp.processDecode(context) ;
-  }
-  
-  public void  processAction(UIApplication uiApp, WebuiRequestContext context) throws Exception {
-    context.setUIApplication(uiApp) ;
-    uiApp.processAction(context) ;
-  }
+//  
+//  public void  processDecode(UIApplication uiApp, WebuiRequestContext context) throws Exception {
+//    context.setUIApplication(uiApp) ;
+//    uiApp.processDecode(context) ;
+//  }
+//  
+//  public void  processAction(UIApplication uiApp, WebuiRequestContext context) throws Exception {
+//    context.setUIApplication(uiApp) ;
+//    uiApp.processAction(context) ;
+//  }
   
   public List<UIComponent> getDefaultUIComponentToUpdateByAjax(WebuiRequestContext context) {
     List<UIComponent> list = new ArrayList<UIComponent>(3) ;

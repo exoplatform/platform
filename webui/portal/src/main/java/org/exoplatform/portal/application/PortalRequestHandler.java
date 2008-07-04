@@ -81,10 +81,10 @@ public class PortalRequestHandler extends WebRequestHandler {
       UIApplication uiApp = app.getStateManager().restoreUIRootComponent(context) ;
       if(context.getUIApplication() != uiApp) context.setUIApplication(uiApp) ;
       
-      if(uiApp != null) app.processDecode(uiApp, context) ;
+      if(uiApp != null) uiApp.processDecode(context) ;
       
       if(!context.isResponseComplete() && !context.getProcessRender()) {
-        app.processAction(uiApp, context) ;
+        uiApp.processAction(context) ;
       }
       
       if(!context.isResponseComplete()) uiApp.processRender(context) ;

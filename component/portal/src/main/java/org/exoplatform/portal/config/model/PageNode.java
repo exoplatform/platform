@@ -81,10 +81,9 @@ public class PageNode  {
   public void setEndPublicationDate(Date endDate) { endPublicationDate = endDate ; }
 
   public boolean isEnable() {
-    if(showPublicationDate) {
-      if(endPublicationDate == null) enable = true ;
-      else if(endPublicationDate.compareTo(Calendar.getInstance().getTime()) < 0 ) enable = false ;
-      else enable = true ;
+    if(enable && showPublicationDate) {
+      if(endPublicationDate == null) return true ;
+      else if(endPublicationDate.compareTo(Calendar.getInstance().getTime()) < 0 ) return false ;
     }
     return enable ; 
   }

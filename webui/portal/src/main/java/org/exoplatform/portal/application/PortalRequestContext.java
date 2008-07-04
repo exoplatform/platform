@@ -20,6 +20,7 @@ import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -28,11 +29,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.Constants;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.HtmlValidator;
 
 /**
@@ -103,10 +106,14 @@ public class PortalRequestContext extends WebuiRequestContext {
     urlBuilder = new PortalURLBuilder(nodeURI_);
   }
   
-  public String getCacheLevel() {
-    return cacheLevel_;
+  public void refreshResourceBundle() throws Exception {
+    appRes_ = getApplication().getResourceBundle(uiApplication_.getLocale()) ;  
   }
   
+  public Locale getLocale() {  return uiApplication_.getLocale() ;} 
+  
+  public String getCacheLevel() { return cacheLevel_ ; }
+
   public String getRequestParameter(String name) { return request_.getParameter(name) ; }
   
   public String[] getRequestParameterValues(String name)  {

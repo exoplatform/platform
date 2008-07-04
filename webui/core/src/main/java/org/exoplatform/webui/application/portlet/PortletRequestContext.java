@@ -18,7 +18,6 @@ package org.exoplatform.webui.application.portlet;
 
 import java.io.Writer;
 
-import javax.portlet.ActionResponse;
 import javax.portlet.PortletMode;
 import javax.portlet.PortletModeException;
 import javax.portlet.PortletRequest;

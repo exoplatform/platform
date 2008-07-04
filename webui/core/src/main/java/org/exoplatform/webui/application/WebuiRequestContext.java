@@ -59,20 +59,12 @@ abstract public class WebuiRequestContext extends RequestContext {
   public String getSessionId() {  return sessionId_  ; }  
   protected void setSessionId(String id) { sessionId_ = id ;}
   
-  @SuppressWarnings("unchecked")
   public UIApplication getUIApplication() { return uiApplication_ ; }  
-  
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
     uiApplication_ = uiApplication ;
     appRes_ = getApplication().getResourceBundle(uiApplication.getLocale()) ;   
   }
-  
-  public void refreshResourceBundle() throws Exception {
-    appRes_ = getApplication().getResourceBundle(uiApplication_.getLocale()) ;  
-  }
-  
-  public Locale getLocale() {  return uiApplication_.getLocale() ;} 
-  
+
   public ResourceBundle getApplicationResourceBundle() {  return appRes_ ; }
   
   public  String getActionParameterName() {  return WebuiRequestContext.ACTION ; }

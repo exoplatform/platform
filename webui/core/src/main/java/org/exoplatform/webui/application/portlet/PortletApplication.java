@@ -140,9 +140,9 @@ public class PortletApplication extends WebuiApplication {
       } 
       UIApplication uiApp = getStateManager().restoreUIRootComponent(context) ;
       context.setUIApplication(uiApp) ;
-      processDecode(uiApp, context) ;
+      uiApp.processDecode(context) ;
       if(!context.isResponseComplete() && !context.getProcessRender()) {
-        processAction(uiApp, context) ;
+        uiApp.processAction(context) ;
       }
     } finally {
       context.setProcessAction(true) ;
