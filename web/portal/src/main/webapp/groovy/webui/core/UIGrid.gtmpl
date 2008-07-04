@@ -67,12 +67,11 @@
 			      	fieldValue = "";
 			      }
 			      String value = fieldValue.toString();
-			      if(value.length() > 40){
-				      println "<td class=\""+cssClass+"\" title='"+value+"'>"+value.substring(0,28)+"...</td>";				      
+			      if(value.length() > 50){
+				      println "<td class=\""+cssClass+"\" title='"+value+"'>"+value.substring(0, 47)+"...</td>";				      
 			      } else {
 				      println "<td class=\""+cssClass+"\">"+fieldValue+"</td>";
 				    }
-		    
 		      }  
 	        if(beanActions != null && beanActions.length > 0) { 
 	  %>
