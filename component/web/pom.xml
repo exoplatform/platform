@@ -14,13 +14,6 @@
   <description>eXo portal component web</description>
 
   <dependencies>
-
-    <dependency>
-      <groupId>org.exoplatform.portal</groupId>
-      <artifactId>exo.portal.component.scripting</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
-    </dependency>
-
 		<dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.organization.api</artifactId>
@@ -31,6 +24,12 @@
       <groupId>org.exoplatform.portletcontainer</groupId>
       <artifactId>exo.pc.component.core</artifactId>
       <version>${org.exoplatform.pc.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.scripting</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
     </dependency>
 
     <dependency>

@@ -115,9 +115,6 @@ public class WebAppController {
       PortalContainer portalContainer = PortalContainer.getInstance() ;
       List<ComponentRequestLifecycle> components = 
         portalContainer.getComponentInstancesOfType(ComponentRequestLifecycle.class) ;
-//      ListenerService lservice = 
-//        (ListenerService) portalContainer.getComponentInstanceOfType(ListenerService.class) ;
-//      lservice.broadcast("exo.application.portal.start-http-request", this, req) ;
       for(ComponentRequestLifecycle component : components) {
         component.startRequest(portalContainer);
       }
@@ -128,7 +125,6 @@ public class WebAppController {
       for(ComponentRequestLifecycle component : components) {
         component.endRequest(portalContainer);
       }
-//      lservice.broadcast("exo.application.portal.end-http-request", this, req) ;
     }
   }
 }
