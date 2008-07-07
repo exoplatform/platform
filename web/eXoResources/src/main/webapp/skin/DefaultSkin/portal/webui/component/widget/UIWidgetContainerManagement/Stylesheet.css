@@ -95,15 +95,12 @@
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
 	margin-left: 260px;
 	border: 1px #b7b7b7 solid;
-	background: #fbfbfb;
-	padding: 10px;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView .WidgetContainerDetail {
-  height: 253px; margin: auto;
+  height: 275px;
 	overflow-y: auto;
 	background: #ffffff;
-	border: 1px #b7b7b7 solid;
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .ContainerDetail {

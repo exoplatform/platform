@@ -81,7 +81,7 @@
 }
 
 .UIOrganizationPortlet .UIUserManagement .UIPageIterator {  
-  width: 97%;
+  width: 100%;
 }
 
 .UIOrganizationPortlet .UIUserManagement .HorizontalLayout .UIFormInputSet {
@@ -124,6 +124,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupInfoContainer .HorizontalLayout {
+	border: 1px solid #B7B7B7;
 	border-top: none;
 }
 
@@ -265,7 +266,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .UISearch {
-	width: 99%;
+	width: 100%;
 	margin: 0px auto 2px 0px;
 	border-bottom: 1px solid #A3A3A3;
 }
@@ -330,4 +331,8 @@
 
 .UIOrganizationPortlet .UIFormWithTitle .HorizontalLayout {
  	padding-top: 12px;
+}
+
+.UIOrganizationPortlet .UIMembershipManagement .UIListMembershipType .UIPageIterator {
+	width: 100%;
 }
