@@ -172,6 +172,7 @@
 	padding-left: 10px;
 	display: block;
 	float: left;
+	cursor: pointer;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {

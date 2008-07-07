@@ -16,54 +16,32 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
-import java.util.List;
-
-import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetRegistryService;
+import org.exoplatform.application.newregistry.Application;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
-import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SAS
  * Author : Pham Thanh Tung
  *          thanhtungty@gmail.com
- * Jun 24, 2008  
+ * Jul 4, 2008  
  */
 
 @ComponentConfig(
-    template = "app:/groovy/applicationregistry/webui/component/UIGadgetManagement.gtmpl",
-    events = {
-        @EventConfig(listeners = UIGadgetManagement.AddRemoteGadgetActionListener.class)
-    }
+    template = "app:/groovy/applicationregistry/webui/component/UIApplicationInfo.gtmpl"
 )
 
-public class UIGadgetManagement extends UIContainer {
+public class UIApplicationInfo extends UIContainer {
   
-  public UIGadgetManagement() throws Exception {
-    
-  }
-  
-  public List<GadgetApplication> getGadgets() throws Exception {
-    GadgetRegistryService service = getApplicationComponent(GadgetRegistryService.class) ;
-    return service.getAllGadgets() ;
-  }
-  
+  private Application application_ ;
 
+  public Application getApplication() { return application_ ; }
+  
+  public void setApplication(Application app) { application_ = app ; }
+  
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
-  }
-  
-  public static class AddRemoteGadgetActionListener extends EventListener<UIGadgetManagement> {
-
-    public void execute(Event<UIGadgetManagement> event) throws Exception {
-      UIGadgetManagement uiManagement = event.getSource() ;
-      uiManagement.addChild(UIGadgetEditor.class, null, null) ;  
-    }
-    
   }
 
 }

@@ -39,6 +39,7 @@
 	padding-left: 25px;
 	line-height: 23px;
 	margin: 0px 15px 0px 7px;
+	width: auto; height: auto;
 }
 
 .UIApplicationRegistryPortlet .UIControlbar .AddNewIcon {
@@ -47,10 +48,14 @@
 
 .UIApplicationRegistryPortlet .AddIcon {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -247px;
+	width: 19px;
+	height: 20px
 }
 
 .UIApplicationRegistryPortlet .ReloadIcon {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -271px;
+	width: 19px;
+	height: 20px
 }
 
 .UIApplicationRegistryPortlet .UIControlbar .AddCategoryIcon {
@@ -59,6 +64,8 @@
 
 .UIApplicationRegistryPortlet .CreateNewIcon {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -23px;
+	width: 19px;
+	height: 20px
 }
 
 .UIApplicationRegistryPortlet .UIControlbar .ImportIcon {
@@ -152,16 +159,12 @@
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
 	float: right;
-	width: 19px; height: 24px;
-	margin-top: 0px;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab .ControlIcon {
 	float: right;
 	filter: alpha(opacity=100);
 	-moz-opacity: 1.0;
-	width: 19px; height: 24px;
-	margin-top: 0px;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ItemLabel {
@@ -169,6 +172,7 @@
 	padding-left: 10px;
 	display: block;
 	float: left;
+	cursor: pointer;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
@@ -182,8 +186,6 @@
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ControlIcon {
 	float: right;
-	width: 18px;
-	height: 20px;
 }
 
 .UIApplicationRegistryPortlet .AppWorkingArea {
@@ -223,7 +225,6 @@
 	font-weight: bold;
 }
 
-/********************************* UIOrganizerManagement *****************************/
 .UIApplicationRegistryPortlet .AppWorkingArea {
 }
 
@@ -270,4 +271,14 @@
 	padding: 20px;
 	margin: 20px 0px;
 	border: 1px solid red;
+}
+
+/********************************* UIPortletManagement *****************************/
+
+.UIPortletManagement .UIVerticalSlideTabs .NormalTab .ControlIcon {
+	margin-top: 0px;
+}
+
+.UIPortletManagement .UIVerticalSlideTabs .SelectedTab .ControlIcon {
+	margin-top: 0px;
 }

@@ -1,0 +1,48 @@
+<%
+def application = uicomponent.getApplication() ;
+String name = application.getApplicationName() ;
+String srcBG = "/" + application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + name + ".png";
+String srcBGError = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png";
+%>
+<div class="AppWorkingArea" id="$uicomponent.id">
+	<div class="UIBreadcumbs">
+	  <div class="LeftBreadcumbsBar">
+	    <div class="RightBreadcumbsBar">
+	      <div class="BreadcumbsInfoBar">
+	  	  	<div class="HomeIcon LeftBlock BCHome16x16Icon"><span></span></div>
+          <a class="LeftBlock" href="#"><%= application.getCategoryName() %></a> 		          		              
+		    	<div class="RightBlackGridArrowIcon LeftBlock RightBlackGridArrow16x16Icon"><span></span></div>	                
+          <a class="Selected" href="#"><%= application.getDisplayName() %></a> 		          		              
+			    <div style="clear: left;"><span></span></div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+
+  <div class="Application">
+  		<div class="PortletIcons">
+  				<img src="$srcBG" onError="src='$srcBGError'"/>
+  		</div>
+  		<div class="ApplicationContent">
+  		  <div class="TitleBarApplication">
+  		  	<span class="LeftLabel">Name :</span>
+  		    <span><%= name %></span>
+  		  </div>
+  		  <div class="ApplicationContentLabel">
+  		    <div class="ContentLabel">
+  		      <span class="LeftLabel">Display Name :</span>
+  		      <span class="RightLabel"><%= application.getDisplayName() %></span>
+  		    </div>
+  		    <div class="ContentLabel">
+					<span class="LeftLabel">Description :</span>
+					<span class="RightLabel"><%= application.getDescription() %></span>
+      </div>
+  		  </div>
+  		</div>
+
+	</div>
+	<div class="UIAcessPermissions">
+  	Acess permissions
+  </div>
+</div>

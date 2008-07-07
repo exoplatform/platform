@@ -1,8 +1,10 @@
+<%
+import org.exoplatform.web.application.gadget.GadgetApplication ;
+%>
 <div class="UIGadgetManagement">
   <div class="UIControlbar">
-  	<div class="IconControl AddNewIcon">Add a remove gadget</div>
+  	<div class="IconControl AddNewIcon" onclick="<%= uicomponent.event("AddRemoteGadget") %>">Add a remote gadget</div>
   	<div class="IconControl CreateNewIcon">Create a new gadget</div>
-  	<div class="IconControl ImportIcon">Auto import</div>
   	<div style="clear: both"><span></span></div>
   </div>
   
@@ -12,29 +14,13 @@
 				<div class="WorkingArea">
 					<div class="CategoryContent">
 		   	    <div class="ListContent">	
+		   	    <% for(gadget in uicomponent.getGadgets()) { %>
 					    <div class="SelectedItem ItemContent">
-			        	<a title="web" href="#" class="TabLabel">Gadget 1</a>
+			        	<a title="web" href="#" class="TabLabel"><%= gadget.getApplicationName() %></a>
 			          <a href="#" title="Delete Category" class="ControlIcon DeletePortalIcon"><span></span></a>
 			      		<div style="clear: both;"><span></span></div>
 						  </div>
-							
-				      <div class="NormalItem ItemContent">
-			        	<a title="Administration" href="#" class="TabLabel">Meteo</a>
-			          <a href="#" title="Delete Category" class="ControlIcon DeletePortalIcon"><span></span></a>
-			      		<div style="clear: both;"><span></span></div>
-						  </div>
-							
-				      <div class="NormalItem ItemContent">
-			        	<a title="Administration" href="#" class="TabLabel">Stock quote</a>
-			          <a href="#" title="Delete Category" class="ControlIcon DeletePortalIcon"><span></span></a>
-			      		<div style="clear: both;"><span></span></div>
-						  </div>
-							
-				      <div class="NormalItem ItemContent">
-			        	<a title="Administration" href="#" class="TabLabel">Notebook</a>
-			          <a href="#" title="Delete Category" class="ControlIcon DeletePortalIcon"><span></span></a>
-			      		<div style="clear: both;"><span></span></div>
-						  </div>
+						<% } %>
 						</div>
 					</div>
 				</div>
@@ -43,7 +29,7 @@
 		
 		
 		<div class="AppWorkingArea">
-			sgj
+			<% uicomponent.renderChildren() %>
 		</div>
 		<div style="clear: left"><span></span></div>
 	</div>  

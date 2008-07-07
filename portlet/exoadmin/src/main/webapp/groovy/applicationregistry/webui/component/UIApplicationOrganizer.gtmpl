@@ -1,8 +1,19 @@
-<div class="UIOrganizerManagement">
+<%
+import org.exoplatform.web.application.JavascriptManager;
+
+def rcontext = _ctx.getRequestContext() ;
+JavascriptManager jsmanager = rcontext.getJavascriptManager();
+jsmanager.importJavascript('eXo.webui.UIVerticalSlideTabs'); 
+def categories = uicomponent.getCategories();
+def selectedCategory = uicomponent.getSelectedCategory() ;
+def apps = uicomponent.getApplications() ;
+def selectedApp = uicomponent.getSelectedApplication() ;
+%>
+<div class="UIOrganizerManagement" id="$uicomponent.id">
   <div class="UIControlbar">
   	<div class="IconControl AddCategoryIcon">Add Categorie</div>
   	<div class="IconControl CreateNewIcon">Add</div>
-  	<div class="IconControl ImportIcon">Auto import</div>
+  	<div class="IconControl ImportIcon" onclick="<%= uicomponent.event("ImportAllApplications") %>">Auto import</div>
   	<div style="clear: both"><span></span></div>
   </div>
   
@@ -15,13 +26,30 @@
 		   	    <div class="ListContent">	
 		   	    	
 		   	    	<div class="UIVerticalSlideTabs">
-		   	    	
+			   	    <% 
+							  for(category in categories) { 			     
+				 			    String cTab, cName , display, description, displayName, clickEvt;
+							    cName  = category.getName();
+							    displayName =category.getDisplayName();
+							    if(displayName == null || displayName.length() < 1 ) displayName = cName;
+							    if(selectedCategory != null && cName == selectedCategory.getName()) {
+							      cTab = "SelectedTab" ;
+							      display = "display: block";
+							      clickEvt = "" ;
+							    }else {
+							    	cTab = "NormalTab" ;
+					          display = "display: none";
+					          clickEvt = uicomponent.event("ShowCategory", cName) ;
+							    }
+							%>			   	    	
 		   	    		<div class="UIVTab VTabSimpleStyle">
-						      <div class="SelectedTab">
+						      <div class="$cTab">
 						        <div class="TabLeft">
 						          <div class="TabRight">
 						            <div class="TabRepeat">
-										      <a class="TabLabel" href="#">Categorie Name</a>
+										      <a class="TabLabel" onclick="$clickEvt; eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
+										      	<%= displayName %>
+										      </a>
 							            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
 							            <a class="ControlIcon EditIcon" href="#"><span></span></a>
 								          <div style="clear: both"><span></span></div>
@@ -29,104 +57,23 @@
 						          </div>
 						        </div>
 								  </div>
-								  <div class="UIVTabContent" style="display: block">
-										<div class="ItemContent SelectedItem">
-											<a href="#" class="ItemLabel">Portlet 1</a>
+								  <div class="UIVTabContent" style="$display">
+								  <%
+								  String cssClass = "NormalItem" ;
+								  for(application in apps) {
+								  	if(application.getApplicationName().equals(selectedApp.getApplicationName())) cssClass = "SelectedItem" ;
+								  	else cssClass = "NormalItem" ;
+								  	String appName= application.getApplicationName() ;
+								  %>
+										<div class="ItemContent $cssClass">
+											<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel"><%= application.getDisplayName() %></a>
 											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
 						          <div style="clear: both"><span></span></div>
 										</div>
-										<div class="ItemContent NormalItem">
-											<a href="#" class="ItemLabel">Portlet 2</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-										<div class="ItemContent NormalItem">
-											<a href="#" class="ItemLabel">Portlet 3</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-										<div class="ItemContent NormalItem">
-											<a href="#" class="ItemLabel">Portlet 4</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
+									<% } %>	
 									</div>
 								</div>
-								
-		   	    		<div class="UIVTab VTabSimpleStyle">
-						      <div class="NormalTab">
-						        <div class="TabLeft">
-						          <div class="TabRight">
-						            <div class="TabRepeat">
-										      <a class="TabLabel" href="#">Categorie Name1</a>
-							            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
-							            <a class="ControlIcon EditIcon" href="#"><span></span></a>
-								          <div style="clear: both"><span></span></div>
-								         </div>
-						          </div>
-						        </div>
-								  </div>
-								  <div class="UIVTabContent" style="display: none;">
-										<div class="ItemContent SelectedItem">
-											<a href="#" class="ItemLabel">Portlet 1</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-										<div class="ItemContent NormalItem">
-											<a href="#" class="ItemLabel">Portlet 2</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-										<div class="ItemContent NormalItem">
-											<a href="#" class="ItemLabel">Portlet 3</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-										<div class="ItemContent NormalItem">
-											<a href="#" class="ItemLabel">Portlet 4</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-									</div>
-								</div>
-								
-		   	    		<div class="UIVTab VTabSimpleStyle">
-						      <div class="NormalTab">
-						        <div class="TabLeft">
-						          <div class="TabRight">
-						            <div class="TabRepeat">
-										      <a class="TabLabel" href="#">Categorie Name2</a>
-							            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
-							            <a class="ControlIcon EditIcon" href="#"><span></span></a>
-								          <div style="clear: both"><span></span></div>
-								         </div>
-						          </div>
-						        </div>
-								  </div>
-								  <div class="UIVTabContent" style="display: none;">
-										<div class="ItemContent SelectedItem">
-											<a href="#" class="ItemLabel">Portlet 1</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-										<div class="ItemContent NormalItem">
-											<a href="#" class="ItemLabel">Portlet 2</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-										<div class="ItemContent NormalItem">
-											<a href="#" class="ItemLabel">Portlet 3</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-										<div class="ItemContent NormalItem">
-											<a href="#" class="ItemLabel">Portlet 4</a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-									</div>
-								</div>
-								
+							<% } %>									
 		   	    	</div>	
 		   	    	        	
 						</div>
@@ -134,52 +81,7 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		<div class="AppWorkingArea">
-			
-			<div class="UIBreadcumbs">
-			  <div class="LeftBreadcumbsBar">
-			    <div class="RightBreadcumbsBar">
-			      <div class="BreadcumbsInfoBar">
-			  	  	<div class="HomeIcon LeftBlock BCHome16x16Icon"><span></span></div>
-		          <a class="LeftBlock" href="#">Categorie Name</a> 		          		              
-            	<div class="RightBlackGridArrowIcon LeftBlock RightBlackGridArrow16x16Icon"><span></span></div>	                
-		          <a class="Selected" href="#">Portlet 1</a> 		          		              
-					    <div style="clear: left;"><span></span></div>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			
-
-		  <div class="Application">
-	  		<div title="Portlet 1" class="PortletIcons">
-	  				<img src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png"/>
-	  		</div>
-	  		<div class="ApplicationContent">
-	  		  <div class="TitleBarApplication">
-	  		  	<span class="LeftLabel">Name :</span>
-	  		    <span>Portlet_1</span>
-	  		  </div>
-	  		  <div class="ApplicationContentLabel">
-	  		    <div class="ContentLabel">
-	  		      <span class="LeftLabel">Display Name :</span>
-	  		      <span class="RightLabel">Portlet 1</span>
-	  		    </div>
-	  		    <div class="ContentLabel">
-							<span class="LeftLabel">Description :</span>
-							<span class="RightLabel">Here is my wonderful description</span>
-	          </div>
-	  		  </div>
-	  		</div>
-
-			</div>
-			<div class="UIAcessPermissions">
-		  	Acess permissions
-		  </div>
-		</div>
-		
+		<% uicomponent.renderChild("UIApplicationInfo") %>
 		<div style="clear: left"><span></span></div>
 	</div>  
 	

@@ -18,6 +18,7 @@ package org.exoplatform.webui.form;
 
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -246,8 +247,12 @@ public class UIForm extends UIContainer  {
   }
 
   public String getLabel(ResourceBundle res, String id) throws Exception {
-    String label = getId() + ".label." + id;    
-    return res.getString(label);
+    String label = getId() + ".label." + id;
+    try {
+      return res.getString(label);      
+    } catch (MissingResourceException e) {
+      return id ;
+    }
   }
   
   public String getUIComponentName() { return "uiform"; }
