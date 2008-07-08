@@ -5,7 +5,7 @@
 .UIWidgets .ItemSelectorContainer .UIDropDownControl {
 	width: 212px;
 	float: left;
-	margin: 0px 0px 2px 2px;
+	padding: 0px 0px 0px 2px;
 }
 
 .UIWidgets .WidgetDecorator {
