@@ -51,8 +51,9 @@ public class UIGrid extends UIComponent {
   protected  String classname_;
   protected  String label_ ;
   protected  boolean useAjax = true;
-  
-  public UIGrid() throws Exception {
+  protected int displayedChars_ = 30;
+
+public UIGrid() throws Exception {
     uiIterator_ = createUIComponent(UIPageIterator.class, null, null);
     uiIterator_.setParent(this);
   }
@@ -93,4 +94,12 @@ public class UIGrid extends UIComponent {
   public boolean isUseAjax() { return useAjax; }
   public void setUseAjax(boolean value) { useAjax = value; }
   
+
+  public int getDisplayedChars() {
+	return displayedChars_;
+  }
+
+	public void setDisplayedChars(int displayedChars) {
+		this.displayedChars_ = displayedChars;
+	}
 }

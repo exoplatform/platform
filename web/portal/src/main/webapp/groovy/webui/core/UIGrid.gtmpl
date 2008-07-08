@@ -67,8 +67,8 @@
 			      	fieldValue = "";
 			      }
 			      String value = fieldValue.toString();
-			      if(value.length() > 50){
-				      println "<td class=\""+cssClass+"\" title='"+value+"'>"+value.substring(0, 47)+"...</td>";				      
+			      if(value.length() > uicomponent.getDisplayedChars()){
+				      println "<td class=\""+cssClass+"\" title='"+value+"'>"+value.substring(0, uicomponent.getDisplayedChars()-3)+"...</td>";				      
 			      } else {
 				      println "<td class=\""+cssClass+"\">"+fieldValue+"</td>";
 				    }
