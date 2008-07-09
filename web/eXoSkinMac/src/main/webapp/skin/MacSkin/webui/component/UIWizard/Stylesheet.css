@@ -281,6 +281,10 @@
   margin: auto;
 }
 
+.UIWizard .UITrees {
+	overflow: hidden;
+}
+
 .UIWizard .TreeContainer {
 	height: 235px;
 }
