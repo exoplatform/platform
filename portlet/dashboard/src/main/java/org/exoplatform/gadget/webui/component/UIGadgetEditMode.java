@@ -42,7 +42,8 @@ import org.exoplatform.webui.form.UIFormStringInput;
     template = "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
     events = { @EventConfig(listeners = UIGadgetEditMode.SaveActionListener.class) })
 public class UIGadgetEditMode extends UIForm {
-  final static private String FIELD_URL = "gadgetUrl";
+  
+  public static final String FIELD_URL = "gadgetUrl";
 
   public UIGadgetEditMode() throws Exception {
     PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext
@@ -52,12 +53,12 @@ public class UIGadgetEditMode extends UIForm {
         "http://www.google.com/ig/modules/horoscope.xml")));
   }
 
-  static public class SaveActionListener extends EventListener<UIGadgetEditMode> {
+  public static class SaveActionListener extends EventListener<UIGadgetEditMode> {
     public void execute(final Event<UIGadgetEditMode> event) throws Exception {
       UIGadgetEditMode uiGadgetEditMode = event.getSource();
       String url = uiGadgetEditMode.getUIStringInput(FIELD_URL).getValue();
       UIGadgetPortlet uiPortlet = uiGadgetEditMode.getParent();
-      if (url == null || url.length() == 0){
+      if (url == null || url.length() == 0) {
 //        Object args[] = {uiGadgetEditMode.getLabel(uiGadgetEditMode.getUIStringInput(FIELD_URL).getId())};
 //        uiPortlet.addMessage(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args));
         uiGadgetEditMode.getUIStringInput(FIELD_URL).setValue(uiPortlet.getUrl());
