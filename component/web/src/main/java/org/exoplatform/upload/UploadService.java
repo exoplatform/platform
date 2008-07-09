@@ -50,7 +50,7 @@ public class UploadService {
     UploadResource upResource = new UploadResource(uploadId) ;
     RequestStreamReader reader = new RequestStreamReader(upResource);
     
-    String headerEncoding =  request.getCharacterEncoding();    
+    String headerEncoding =  request.getCharacterEncoding();     
     Map<String, String> headers = reader.parseHeaders(request.getInputStream(), headerEncoding);
    
     String fileName = reader.getFileName(headers);
@@ -78,24 +78,24 @@ public class UploadService {
     fileStore.delete();  
   }
   
-  public void createUploadResource(String uploadId, String fileName, 
-      InputStream inputStream, double contentLength, String mimetype) throws Exception {   
-    UploadResource upResource = new UploadResource(uploadId) ;
-    RequestStreamReader reader = new RequestStreamReader(upResource);               
+  public void createUploadResource(String uploadId, String encoding, String contentType,double contentLength, InputStream inputStream) throws Exception {    
+    UploadResource upResource = new UploadResource(uploadId) ;    
+    RequestStreamReader reader = new RequestStreamReader(upResource);    
+    Map<String, String> headers = reader.parseHeaders(inputStream,encoding);
+   
+    String fileName = reader.getFileName(headers);
     if(fileName == null) fileName = uploadId;
     fileName = fileName.substring(fileName.lastIndexOf('\\') + 1) ;    
     
     upResource.setFileName(fileName);
-    upResource.setMimeType(mimetype);
+    upResource.setMimeType(headers.get(RequestStreamReader.CONTENT_TYPE));
     upResource.setStoreLocation(uploadLocation_ + "/" + uploadId+"."+fileName) ;
     upResource.setEstimatedSize(contentLength) ;
-    
-    uploadResources.put(upResource.getUploadId(), upResource) ;
-    
+    uploadResources.put(upResource.getUploadId(), upResource) ;    
     File fileStore = new File(upResource.getStoreLocation());
     if(!fileStore.exists()) fileStore.createNewFile();
     FileOutputStream output = new FileOutputStream(fileStore);
-    reader.readBodyData(inputStream, mimetype, output);
+    reader.readBodyData(inputStream,contentType,output);
 
     if(upResource.getStatus() == UploadResource.UPLOADING_STATUS){
       upResource.setStatus(UploadResource.UPLOADED_STATUS) ;
