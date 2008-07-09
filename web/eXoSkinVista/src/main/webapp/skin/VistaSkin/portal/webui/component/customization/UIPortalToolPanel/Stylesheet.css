@@ -7,20 +7,21 @@
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardTopLeft {
-  height: 5px;
-  background: url('background/WizardDecorator.png') no-repeat left;
+  background: url('background/WizardDecorator.png') no-repeat left top;
   padding-left: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardTopRight{
-  height: 5px; 
   background: url('background/WizardDecorator.png') no-repeat right -5px;
   padding-right: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardTopCenter {
-  height: 5px; 
   background: url('background/WizardDecorator.png') repeat-x left -10px;
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardTopCenter .FixBug {
+  height: 5px; 
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardMiddleLeft {
@@ -42,20 +43,21 @@
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomLeft {
-  height: 7px; 
   background: url('background/WizardDecorator.png') no-repeat left -15px;
   padding-left: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomRight{
-  height: 7px; 
   background: url('background/WizardDecorator.png') no-repeat right -22px;
   padding-right: 7px;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardBottomCenter {
-  height: 7px; 
   background: url('background/WizardDecorator.png') repeat-x bottom;
+}
+
+.UIPortalToolPanel .WizardDecorator .WizardBottomCenter .FixBug {
+	height: 7px;
 }
 
 .UIPortalToolPanel .Body {

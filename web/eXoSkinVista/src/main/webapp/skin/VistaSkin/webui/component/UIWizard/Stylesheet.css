@@ -1,6 +1,6 @@
 /*#######################################-----UIWizard-----##################################*/
 .UIWizard {
-	width: 99.7%;	
+	width: 99%;	
 	margin: auto;
 }
 
@@ -9,6 +9,7 @@
   padding: 5px;
   border: solid 1px #7e8284;
   background: url('background/LayoutPortalBG.png') repeat;
+  height: 100%;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {

@@ -6,7 +6,9 @@
         	<div class="WizardDecorator">
 				    <div class="WizardTopLeft">
 				      <div class="WizardTopRight">
-				        <div class="WizardTopCenter"><span></span></div>
+				        <div class="WizardTopCenter">
+				        	<div class="FixBug"<span></span></div>
+				        </div>
 				      </div>
 				    </div>
 					  <div class="WizardMiddleLeft">
@@ -19,7 +21,9 @@
 					  <div><span></span></div>
 					  <div class="WizardBottomLeft">
 					    <div class="WizardBottomRight">
-					      <div class="WizardBottomCenter"><span></span></div>
+					      <div class="WizardBottomCenter">
+					      	<div class="FixBug"><span></span></div>
+					      </div>
 					    </div>
 					  </div>
 					</div>
