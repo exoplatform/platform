@@ -113,8 +113,8 @@
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .ContainerDetail {
-	padding: 15px 0px;
-	width: 93%;
+	padding: 10px 0px 0px 0px;
+	width: 93%; margin: auto;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .HeadTitle {
@@ -147,14 +147,14 @@
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent .Label {
-	width: 150px;
+	width: 140px;
 	text-align: right;
 	line-height: 20px;
 	float: left;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent .FieldComponent {
-	margin-left: 155px;	
+	margin-left: 143px;	
 	line-height: 20px;
 	color: #058ee6;
 	font-size: 12px;
