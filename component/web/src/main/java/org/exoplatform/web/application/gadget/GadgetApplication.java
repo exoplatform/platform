@@ -16,47 +16,78 @@
  */
 package org.exoplatform.web.application.gadget;
 
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Locale;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 
 import org.exoplatform.web.application.Application;
-
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.apache.commons.io.IOUtils;
-
-
 /**
  * Created by The eXo Platform SAS
  * Author : dang.tung
  * tungcnw@gmail.com
  * May 06, 2008
  */
+
+/**
+ * This class extends from Application, it represents an gadget application in eXo and used for registry
+ * Gadgets.
+ */
 public class GadgetApplication extends Application {
   private String appId_;
   private String url_;
   private String metadata = null;
 
+  /**
+   * Initializes a newly created <code>GadgetApplication</code> object
+   * @param appId an String that is the application id of gadget application
+   * @param url an String that is the the url of gadget application such as 
+   *        "http://www.google.com/ig/modules/horoscope.xml"
+   */
   public GadgetApplication(String appId, String url) {
     appId_ = appId;
     url_ = url;
   }
-
+  
+  /**
+   * Gets gadget application type
+   * @return org.exoplatform.web.application.Application.EXO_GAGGET_TYPE
+   * @see org.exoplatform.web.application.Application
+   */
   public String getApplicationType() {
     return "eXoGadget";
   }
-
+  
+  /**
+   * Gets group of gadget application
+   * @return alway returns "eXoGadgets"
+   */
   public String getApplicationGroup() {
     return "eXoGadgets";
   }
 
+  /**
+   * Gets url of gadget application
+   * @return string represents url of gadget application
+   */
   public String getUrl() {
     return url_;
   }
 
+  /**
+   * Gets metadata of gadget application
+   * @return string represents metadata of gaget application
+   * @exception throws IOException when can't create the http connection or streaming 
+   */
   public String getMetadata() {
-
     if(metadata == null)  {
       try {
         metadata = fetchGagdetMetadata();
@@ -64,32 +95,54 @@ public class GadgetApplication extends Application {
         e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
       }
     }
-
     if(metadata == null){
       return "{}";
     }
     return metadata;
-
-
   }
 
+  /**
+   * Gets id of gadget application
+   * @return the string represents id of gadget application
+   */
   public String getApplicationId() {
     return appId_;
   }
 
+  /**
+   * Gets name of gadget application
+   * @return the string represents name of gadget application
+   */
   public String getApplicationName() {
     return appId_;
   }
 
+  /**
+   * Gets owner resource bundle of gadget application
+   * @param username remote username logged in portal
+   * @param locale the location of logged user
+   * @return always return null
+   * @throws Exception if can't get the resource bundle by the ResouceBundleService
+   */
   public ResourceBundle getOwnerResourceBundle(String username, Locale locale) throws Exception {
     return null;
   }
 
+  /**
+   * Gets resource bundle of gadget application
+   * @param locale the location of logged user
+   * @return always return null
+   * @throws Exception if can't get the resource bundle by the ResourceBundleService
+   */
   public ResourceBundle getResourceBundle(Locale locale) throws Exception {
     return null;
   }
 
-
+  /**
+   * Fetchs Metatada of gadget application, create the connection to shindig server to get the metadata
+   * @return the string represents metadata of gadget application
+   * @throws IOException if can't crate the connection to shindig server or from streaming
+   */
   private String fetchGagdetMetadata() throws IOException {
 /*    JSONArray gadgets = new JSONArray()
         .put(createGadget(url_, 0, null));
@@ -97,12 +150,8 @@ public class GadgetApplication extends Application {
     JSONObject input = new JSONObject()
         .put("context", createContext("en", "US"))
         .put("gadgets", gadgets);*/
-
-
-
     String data = "{\"context\":{\"country\":\"US\",\"language\":\"en\"},\"gadgets\":[" +
         "{\"moduleId\":0,\"url\":\"" + url_ + "\",\"prefs\":[]}]}";
-
     // Send data
     URL url = new URL("http://localhost:8080/eXoGadgetServer/gadgets/metadata");
     URLConnection conn = url.openConnection();
@@ -110,12 +159,29 @@ public class GadgetApplication extends Application {
     OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
     wr.write(data);
     wr.flush();
-
     // Get the response
     String result = IOUtils.toString(conn.getInputStream(), "UTF-8");
-
     wr.close();
-
     return result;
   }
+  /**
+   * Gets map metadata of gadget application
+   * @return  map metadata of gadget application so can get value of metadata by it's key
+   *          such as title, url
+   * @throws JSONException if can't create jsonObject from metadata
+   */
+  @SuppressWarnings("unchecked")
+  public Map<String, String> getMapMetadata() throws JSONException {
+    Map<String, String> mapMetaData = new HashMap<String, String>();
+    String metadata = getMetadata();
+    metadata = metadata.substring(metadata.indexOf("[")+1,metadata.lastIndexOf("]"));
+    JSONObject jsonObj = new JSONObject(metadata);
+    Iterator<String> iter = jsonObj.keys();
+    while (iter.hasNext()) {
+      String element = iter.next();
+      mapMetaData.put(element, jsonObj.get(element).toString());
+    }
+    return mapMetaData;
+  }
 }
+  

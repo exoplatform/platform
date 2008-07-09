@@ -39,13 +39,16 @@ import org.w3c.dom.NodeList;
  *          tungcnw@gmail.com
  * May 15, 2008   
  */
+/**
+ * This class represents an registry for gadget application, it hear from context and then deployed
+ * gadget
+ */
 public class GadgetRegister implements ServletContextListener {
-  
   protected static Log log = ExoLogger.getLogger("gadget:GadgetRegister");
-  
   /**
-   * Each time a new gadget application war is deployed then gadgets are registered into the
-   * WebAppController
+   * Initializes the listener and each time a new gadget application war is deployed the gadgets
+   * are added into the JCR node by GadgetRegistryService
+   * @throws Exception when can't parse xml file
    */
   public void contextInitialized(ServletContextEvent event) {
     try {
@@ -71,7 +74,10 @@ public class GadgetRegister implements ServletContextListener {
       log.error("Error while deploying a gadget", ex);
     }
   }
-
+  
+  /**
+   * Destroys the listener context
+   */
   public void contextDestroyed(ServletContextEvent servletContextEvent) {
   } 
 }

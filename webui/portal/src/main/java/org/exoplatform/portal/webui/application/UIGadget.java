@@ -18,7 +18,6 @@ package org.exoplatform.portal.webui.application;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.config.model.Properties;
-import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.web.application.gadget.GadgetRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -32,6 +31,10 @@ import org.exoplatform.webui.core.UIComponent;
 @ComponentConfig(
     template = "system:/groovy/portal/webui/application/UIGadget.gtmpl"
 )
+/**
+ * This class represents user interface gadgets, it using UIGadget.gtmpl for rendering
+ * UI in eXo. It mapped to Application model in page or container.
+ */
 public class UIGadget extends UIComponent {
   
   private String applicationInstanceId_ ;
@@ -44,11 +47,24 @@ public class UIGadget extends UIComponent {
   private String userPref_ ;
   private Properties properties;
   
+  /**
+   * Initializes a newly created <code>UIGadget</code> object
+   * @throws Exception if can't initialize object
+   */
   public UIGadget() throws Exception {
   }
   
+  /**
+   * Gets instance id of gadget application
+   * @return the string represents instance id of gadget application
+   */
   public String getApplicationInstanceId() { return applicationInstanceId_ ; }
-  public void   setApplicationInstanceId(String s) {  
+  
+  /**
+   * Sets instance id of gadget application
+   * @param s an string that is the instance id of gadget application 
+   */
+  public void setApplicationInstanceId(String s) {  
     applicationInstanceId_ = s ;
     String[]  tmp =  applicationInstanceId_.split("/") ;
     applicationGroup_ = tmp[1] ;
@@ -57,52 +73,126 @@ public class UIGadget extends UIComponent {
     applicationInstanceUniqueId_ = tmp[3] ;
   }
   
+  /**
+   * Gets owner type of gadget application
+   * @return the string represents owner type of gadget application
+   */
   public String getApplicationOwnerType() { return applicationOwnerType_ ;}
+  
+  /**
+   * Sets owner type of gadget application
+   * @param ownerType an string that is the owner type of gadget application
+   */
   public void setApplicationOwnerType(String ownerType){ applicationOwnerType_ = ownerType;}
   
+  /**
+   * Gets owner id of gadget application
+   * @return the string represents owner id of gadget application
+   */
   public String getApplicationOwnerId() { return applicationOwnerId_ ;}
+  
+  /**
+   * Sets owner id of gadget application
+   * @param ownerId an string that is the owner id of gadget application
+   */
   public void setApplicationOwnerId(String ownerId){ applicationOwnerId_ = ownerId;} 
   
+  /**
+   * Gets group of gadget application such as eXoGadgets...
+   * @return the string represents group of gadget application
+   */
   public String getApplicationGroup() { return applicationGroup_ ;}
+  
+  /**
+   * Sets group of gadget application
+   * @param group an string that is the group of gadget application
+   */
   public void setApplicationGroup(String group){ applicationGroup_ = group;}
   
+  /**
+   * Gets name of gadget application
+   * @return the string represents name of gadget application
+   */
   public String getApplicationName() { return applicationName_ ;}
+  
+  /**
+   * Sets name of gadget application
+   * @param name an string that is the name of gadget application
+   */
   public void setApplicationName(String name) { applicationName_ = name;}
   
+  /**
+   * Gets Id of gadget application
+   * @return gadget application's id
+   */
   public String getApplicationId() { return applicationId_ ; }
-  
+ 
+  /**
+   * Gets Unique id of instance gadget application
+   * @return Id of instance gadget application
+   */
   public String getApplicationInstanceUniqueId() { return applicationInstanceUniqueId_ ;}
   
+  /**
+   * Gets Properties of gadget application such as locationX, locationY in desktop page
+   * @return all properties of gadget application
+   * @see org.exoplatform.portal.config.model.Application
+   * @see org.exoplatform.portal.config.model.Properties
+   */
   public Properties getProperties() {
     if(properties == null) properties  = new Properties();
     return properties; 
   }
+  
+  /**
+   * Sets Properties of gadget application such as locationX, locationY in desktop page
+   * @param properties Properties that is the properties of gadget application
+   * @see org.exoplatform.portal.config.model.Properties
+   * @see org.exoplatform.portal.config.model.Application
+   */
   public void setProperties(Properties properties) { this.properties = properties; }
 
+  /**
+   * Gets GadgetApplication by GadgedRegistryService
+   * @return Gadget Application 
+   */
   private GadgetApplication getApplication() {
     PortalContainer container = PortalContainer.getInstance() ;
-//    WebAppController controller =
-//      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
     GadgetRegistryService gadgetService = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class) ;
-    //TODO: Review try catch block
     GadgetApplication application = null ;
     try {
       application = gadgetService.getGadget(applicationId_.split("/")[1]) ;
     } catch (Exception e) {}
-//    controller.addApplication(application) ;
     return application;
   }
 
+  /**
+   * Gets Url of gadget application, it saved before by GadgetRegistryService
+   * @return url of gadget application, such as "http://www.google.com/ig/modules/horoscope.xml"
+   */
   public String getUrl() {
     GadgetApplication application = getApplication();
     return application.getUrl() ;
   }
 
+  /**
+   * Gets Metadata of gadget application, it'll use in client to rendering gadget application
+   * @return the string represents Metadata of gadget application
+   */
   public String getMetadata() {
     GadgetApplication application = getApplication();
     return application.getMetadata();
   }
   
+  /**
+   * Gets user preference of gadget application
+   * @return the string represents user preference of gadget application
+   */
   public String getUserPref() { return userPref_ ;}
+  
+  /**
+   * Sets user preference of gadget application
+   * @param userPref an string that is the user preference of gadget application
+   */
   public void setUserPref(String userPref) {userPref_ = userPref ;}
 }

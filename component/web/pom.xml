@@ -38,6 +38,12 @@
         <version>1.4</version>
         <type>jar</type>
     </dependency>
-
+		
+		<dependency>
+    	<groupId>org.json</groupId>
+    	<artifactId>json</artifactId>
+    	<version>20070829</version>
+    	<type>jar</type>
+    </dependency>
   </dependencies>
 </project>
