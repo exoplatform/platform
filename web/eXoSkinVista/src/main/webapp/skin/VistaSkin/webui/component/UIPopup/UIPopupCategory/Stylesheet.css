@@ -41,24 +41,24 @@
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
   height: 18px;
-  background: url('background/PopupCategory.png') repeat-x left -66px;
+  background: url('background/PopupCategory.png') repeat-x left -84px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  background: url('background/PopupCategory.png') no-repeat right -48px;
+  background: url('background/PopupCategory.png') no-repeat right -66px;
   padding-right:14px;
 }
 
 .UIPopupCategory .CategoryItem {
   color: black;
-  background: url('background/PopupCategory.png') repeat-x left -84px;
+  background: url('background/PopupCategory.png') repeat-x center -102px;
   border-bottom: 1px #b1b5c0 solid;
   cursor: pointer ;
   display: block;
 }
 
 .UIPopupCategory .CategoryItem:hover {
-	background: url('background/PopupCategory.png') repeat-x bottom;
+	background: url('background/PopupCategory.png') repeat-x center -124px;
   color: blue;
 }
 
