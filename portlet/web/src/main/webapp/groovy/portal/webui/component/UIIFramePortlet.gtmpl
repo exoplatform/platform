@@ -16,7 +16,16 @@
 		var iFrames = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWS, "div", "UIIFramePortlet");
 		if (iFrames.length) {
 			for (var i = 0; i < iFrames.length; i ++) {
-				iFrames[i].style.height = 400 + "px";
+				var portletFrag = eXo.core.DOMUtil.findAncestorById(iFrames[i], "PORTLET-FRAGMENT");
+				if(!portletFrag.style.height) {
+					iFrames[i].style.height = 400 + "px";
+				} else {
+					var uiWindow = eXo.core.DOMUtil.findAncestorByClass(portletFrag, "UIWindow");
+					if(!uiWindow) {
+						var windowHeight = parseInt(portletFrag.style.height) - 15 + "px";
+						iFrames[i].style.height = windowHeight;
+					}
+				}
 			}
 		}
 	}
