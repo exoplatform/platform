@@ -91,7 +91,11 @@ public class UIUserProfileInputSet extends UIFormInputSet {
         Iterator i = localeService.getLocalConfigs().iterator() ;
         while (i.hasNext()) {
           LocaleConfig config = (LocaleConfig) i.next() ;
-          lang.add(new SelectItemOption<String>(config.getLocaleName(), config.getLanguage()))  ;
+          if(config.getLanguage().equals("en")) {
+            lang.add(0,new SelectItemOption<String>(config.getLocale().getDisplayLanguage(), config.getLanguage()));
+            continue;
+          }
+          lang.add(new SelectItemOption<String>(config.getLocale().getDisplayLanguage(), config.getLanguage()))  ;
         }
         UIFormSelectBox langSelectBox = new UIFormSelectBox(key, key, lang);
         set.addUIFormInput(langSelectBox);  
