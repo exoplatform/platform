@@ -18,20 +18,47 @@ package org.exoplatform.portal.layout;
 
 import org.exoplatform.portal.config.model.Container;
 
-/**
- * Created by The eXo Platform SAS
- * Author : Pham Thanh Tung
- *          thanhtungty@gmail.com
- * Jun 25, 2008  
+/** 
+ * The <code>PortalLayoutService</code> is used to save
+ * and load the layout of components.
+ * In eXo Portal, components are arranged in containers
+ * and a list of containers is a layout.
+ * <p>
+ * Created by The eXo Platform SAS<br />
+ * Jun 25, 2008<br />
+ * </p>
  */
 public interface PortalLayoutService {
   
+  /**
+   * Creates new container object in the database.
+   * If container is existing, it will throw exception.
+   * @param container  the container that is created.
+   * @throws Exception
+   */
   public void create(Container container) throws Exception ;
   
+  /**
+   * Updates the container object in the database.
+   * If the container does not exist, it will throw exception.
+   * @param container  the container that is updated.
+   * @throws Exception
+   */
   public void save(Container container) throws Exception ;
   
+  /**
+   * Removes the container from database.
+   * @param container the container object that is removed.
+   * @throws Exception
+   */
   public void remove(Container container) throws Exception ;
   
+  /**
+   * Gets the container in the database by id.
+   * @param id the id of container.
+   * @return the container or null if not found.
+   * @throws Exception
+   */
   public Container getContainer(String id) throws Exception ;
 
 }

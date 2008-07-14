@@ -19,19 +19,43 @@ package org.exoplatform.web.application.gadget;
 import java.util.List;
 
 /**
- * Created by The eXo Platform SAS
- * Author : Pham Thanh Tung
- *          thanhtungty@gmail.com
- * Jun 18, 2008  
+ * This service is used to register the gadget with portal.
+ * Developer uses this service to manage list of gadgets.
+ * <p>
+ * Created by The eXo Platform SAS<br/>
+ * Jun 18, 2008<br/>
+ * </p> 
  */
 public interface GadgetRegistryService {
   
+  /**
+   * Gets the gadget from database by id.
+   * @param  id  the id of gadget
+   * @return  the gadget or null if not found    
+   * @throws Exception
+   */
   public GadgetApplication getGadget(String id) throws Exception ;
     
+  /**
+   * Gets all of available gadgets from the database.
+   * @return  a list of gadgets
+   * @throws Exception
+   */
   public List<GadgetApplication> getAllGadgets() throws Exception ;
   
+  /**
+   * Adds the gadget to the database.
+   * If the gadget is existing, it will be updated.
+   * @param app  the gadget that is saved to database
+   * @throws Exception
+   */
   public void addGadget(GadgetApplication app) throws Exception ;
   
+  /**
+   * Removes the gadget from the database.
+   * @param id  the id of gadget
+   * @throws Exception
+   */
   public void removeGadget(String id) throws Exception ;
 
 }
