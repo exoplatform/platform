@@ -52,9 +52,15 @@ public class GadgetApplication extends Application {
    * @param url an String that is the the url of gadget application such as 
    *        "http://www.google.com/ig/modules/horoscope.xml"
    */
-  public GadgetApplication(String appId, String url) {
-    appId_ = appId;
+  
+  public GadgetApplication(String url) throws Exception {
     url_ = url;
+    appId_ = getMapMetadata().get("directoryTitle").replace(' ', '_') ;
+  }
+
+  public GadgetApplication(String appId, String url) {
+    url_ = url;
+    appId_ = appId;
   }
   
   /**

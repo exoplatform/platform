@@ -17,16 +17,17 @@
 package org.exoplatform.applicationregistry.webui.component;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import org.exoplatform.application.newregistry.ApplicationCategory;
+import org.exoplatform.application.newregistry.ApplicationRegistryService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIPopupComponent;
-import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
@@ -47,11 +48,10 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
     lifecycle = UIFormLifecycle.class,
     template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl",
     events = {
-      @EventConfig(listeners = UICategoryForm.SaveActionListener.class),
-      @EventConfig(phase = Phase.DECODE, listeners = UICategoryForm.CloseActionListener.class)
+      @EventConfig(listeners = UICategoryForm.SaveActionListener.class)
     }
 )
-public class UICategoryForm extends UIFormTabPane implements UIPopupComponent{ 
+public class UICategoryForm extends UIFormTabPane { 
 
   final static private String FIELD_NAME = "name" ;
   final static private String FIELD_DISPLAY_NAME = "displayName" ;
@@ -109,56 +109,43 @@ public class UICategoryForm extends UIFormTabPane implements UIPopupComponent{
 
   static public class SaveActionListener extends EventListener<UICategoryForm> {
     public void execute(Event<UICategoryForm> event) throws Exception{
-      //TODO: dang.tung replaced, we don't use binding method for setup value
-//      UICategoryForm uiForm = event.getSource() ;
-//      UIFormInputSet uiSetting = uiForm.getChildById(FIELD_SETTING) ;
-//      UIFormInputSet uiPermission = uiForm.getChildById(FIELD_PERMISSION) ;
-//      UIApplicationRegistryPortlet uiParent = uiForm.getAncestorOfType(UIApplicationRegistryPortlet.class);
-//      ApplicationRegistryControlArea uiRegistryCategory = uiParent.getChild(ApplicationRegistryControlArea.class);
-//      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
-//
-//      ApplicationCategory category = uiForm.getCategory() ;
-//      if(category == null) category = new ApplicationCategory();
-//      category.setName(uiSetting.getUIStringInput(FIELD_NAME).getValue()) ;
-//      String displayName = uiSetting.getUIStringInput(FIELD_DISPLAY_NAME).getValue();
-//      if(displayName == null || displayName.length() < 1 ) category.setDisplayName(category.getName());
-//      else category.setDisplayName(displayName) ;
-//      category.setDescription(uiSetting.getUIStringInput(FIELD_DESCRIPTION).getValue()) ;
-//      
-//      UIListPermissionSelector uiListPermissionSelector = uiPermission.getChild(UIListPermissionSelector.class) ;
-//      ArrayList<String> pers = new ArrayList<String>();
-//      if(uiListPermissionSelector.getValue()!= null)
-//      for(String per: uiListPermissionSelector.getValue()) pers.add(per);
-//      category.setAccessPermissions(pers) ;
-//      if(category == uiForm.getCategory()) {
-//        category.setModifiedDate(new Date()) ;
-//      }else {
-//        ApplicationCategory existCategory = uiRegistryCategory.getCategory(category.getName()) ; 
-//        if(existCategory != null) {
-//          UIApplication uiApp = event.getRequestContext().getUIApplication() ;
-//          uiApp.addMessage(new ApplicationMessage("UICategoryForm.msg.SameName", null)) ;
-//          return ;
-//        }
-//        category.setModifiedDate(new Date()) ;
-//        category.setCreatedDate(new Date()) ;
-//      }
-//      service.save(category) ;
-//      uiForm.setValue(null) ;
-//      uiRegistryCategory.initApplicationCategories();
-//      uiRegistryCategory.setSelectedCategory(category);
-//      uiParent.getChild(UIPopupContainer.class).deActivate() ;
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
+      UICategoryForm uiForm = event.getSource() ;
+      UIApplicationOrganizer uiOrganizer = uiForm.getParent() ;
+      UIFormInputSet uiSetting = uiForm.getChildById(FIELD_SETTING) ;
+      UIFormInputSet uiPermission = uiForm.getChildById(FIELD_PERMISSION) ;
+      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
+
+      ApplicationCategory category = uiForm.getCategory() ;
+      if(category == null) category = new ApplicationCategory();
+      category.setName(uiSetting.getUIStringInput(FIELD_NAME).getValue()) ;
+      String displayName = uiSetting.getUIStringInput(FIELD_DISPLAY_NAME).getValue();
+      if(displayName == null || displayName.length() < 1 ) category.setDisplayName(category.getName());
+      else category.setDisplayName(displayName) ;
+      category.setDescription(uiSetting.getUIStringInput(FIELD_DESCRIPTION).getValue()) ;
+      
+      UIListPermissionSelector uiListPermissionSelector = uiPermission.getChild(UIListPermissionSelector.class) ;
+      ArrayList<String> pers = new ArrayList<String>();
+      if(uiListPermissionSelector.getValue()!= null)
+      for(String per: uiListPermissionSelector.getValue()) pers.add(per);
+      category.setAccessPermissions(pers) ;
+      if(category == uiForm.getCategory()) {
+        category.setModifiedDate(new Date()) ;
+      }else {
+        ApplicationCategory existCategory = uiOrganizer.getCategory(category.getName()) ; 
+        if(existCategory != null) {
+          UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+          uiApp.addMessage(new ApplicationMessage("UICategoryForm.msg.SameName", null)) ;
+          return ;
+        }
+        category.setModifiedDate(new Date()) ;
+        category.setCreatedDate(new Date()) ;
+      }
+      service.save(category) ;
+      uiForm.setValue(null) ;
+      uiOrganizer.initApplicationCategories(false);
+      uiOrganizer.setSelectedCategory(category);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
   }
 
-  static public class CloseActionListener extends EventListener<UICategoryForm>{
-    public void execute(Event<UICategoryForm> event) throws Exception{
-      UICategoryForm uiForm = event.getSource() ;
-      uiForm.setValue(null) ;
-      UIPopupWindow uiParent = uiForm.getParent();
-      uiParent.setShow(false);
-    }
-  }
-  public void activate() throws Exception {}
-  public void deActivate() throws Exception {}  
 }

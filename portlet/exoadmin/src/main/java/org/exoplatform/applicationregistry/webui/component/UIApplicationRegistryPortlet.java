@@ -33,9 +33,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 public class UIApplicationRegistryPortlet extends UIPortletApplication {
   
   public UIApplicationRegistryPortlet() throws Exception{
-    UIApplicationOrganizer uiOrganizer = addChild(UIApplicationOrganizer.class, null, null) ; 
-    uiOrganizer.setRendered(false) ;
-    uiOrganizer.initApplicationCategories() ;
+    addChild(UIApplicationOrganizer.class, null, null).setRendered(false) ; 
     addChild(UIPortletManagement.class, null, null).setRendered(false) ;
     addChild(UIGadgetManagement.class, null, null).setRendered(true) ;
   }

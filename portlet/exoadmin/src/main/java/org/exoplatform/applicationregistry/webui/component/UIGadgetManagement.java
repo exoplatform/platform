@@ -37,19 +37,26 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
     template = "app:/groovy/applicationregistry/webui/component/UIGadgetManagement.gtmpl",
     events = {
-        @EventConfig(listeners = UIGadgetManagement.AddRemoteGadgetActionListener.class)
+        @EventConfig(listeners = UIGadgetManagement.AddRemoteGadgetActionListener.class),
+        @EventConfig(listeners = UIGadgetManagement.RemoveGadgetActionListener.class)
     }
 )
 
 public class UIGadgetManagement extends UIContainer {
   
+  private List<GadgetApplication> gadgets_ ;
+  
   public UIGadgetManagement() throws Exception {
-    
+    reload() ;
+  }
+  
+  public void reload() throws Exception {
+    GadgetRegistryService service = getApplicationComponent(GadgetRegistryService.class) ;
+    gadgets_ = service.getAllGadgets() ;
   }
   
   public List<GadgetApplication> getGadgets() throws Exception {
-    GadgetRegistryService service = getApplicationComponent(GadgetRegistryService.class) ;
-    return service.getAllGadgets() ;
+    return gadgets_ ; 
   }
   
 
@@ -61,7 +68,22 @@ public class UIGadgetManagement extends UIContainer {
 
     public void execute(Event<UIGadgetManagement> event) throws Exception {
       UIGadgetManagement uiManagement = event.getSource() ;
-      uiManagement.addChild(UIGadgetEditor.class, null, null) ;  
+      uiManagement.getChildren().clear() ;
+      uiManagement.addChild(UIGadgetEditor.class, null, null) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+    }
+    
+  }
+  
+  public static class RemoveGadgetActionListener extends EventListener<UIGadgetManagement> {
+
+    public void execute(Event<UIGadgetManagement> event) throws Exception {
+      UIGadgetManagement uiManagement = event.getSource() ;
+      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      GadgetRegistryService service = uiManagement.getApplicationComponent(GadgetRegistryService.class) ;
+      service.removeGadget(id) ;
+      uiManagement.reload() ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
     
   }

@@ -41,7 +41,11 @@ import org.exoplatform.webui.event.EventListener;
     events = {
         @EventConfig(listeners = UIApplicationOrganizer.ShowCategoryActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.ImportAllApplicationsActionListener.class),
-        @EventConfig(listeners = UIApplicationOrganizer.SelectApplicationActionListener.class)
+        @EventConfig(listeners = UIApplicationOrganizer.SelectApplicationActionListener.class),
+        @EventConfig(listeners = UIApplicationOrganizer.AddCategoryActionListener.class),
+        @EventConfig(listeners = UIApplicationOrganizer.RemoveCategoryActionListener.class),
+        @EventConfig(listeners = UIApplicationOrganizer.EditCategoryActionListener.class),
+        @EventConfig(listeners = UIApplicationOrganizer.AddApplicationActionListener.class)
     }
 )    
 public class UIApplicationOrganizer extends UIContainer {
@@ -54,18 +58,17 @@ public class UIApplicationOrganizer extends UIContainer {
   
   public UIApplicationOrganizer() throws Exception {
     addChild(UIApplicationInfo.class, null, null) ;
+    initApplicationCategories(true) ;
+
   }
   
-  public void initApplicationCategories() throws Exception {
+  public void initApplicationCategories(boolean selectFirst) throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
     categories = service.getApplicationCategories(accessUser, new String[] {});
-    if(categories == null) categories = new ArrayList<ApplicationCategory>(0);
-    if(categories.size() > 0) {
-      setSelectedCategory(categories.get(0));
-      return;
-    }
-    setSelectedCategory((ApplicationCategory)null);
+    if(!selectFirst || categories == null || categories.size() < 1) return ;
+    setSelectedCategory(categories.get(0)) ;
+    
   }
 
   public List<ApplicationCategory> getCategories() { return categories ;  }
@@ -82,18 +85,20 @@ public class UIApplicationOrganizer extends UIContainer {
   }
 
   public void setSelectedCategory(ApplicationCategory category) throws Exception {
+    switchToDefaulView() ;
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
+    selectedApplication = null ;
     selectedCategory = null;
     applications = new ArrayList<Application>(0); 
     selectedCategory = category;
-    if(selectedCategory == null){
-      uiAppInfo.setApplication(null);
-      return;
-    }
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
     applications = service.getApplications(selectedCategory) ;
+    if(applications == null || applications.size() < 1) {
+      uiAppInfo.setApplication(null);
+      return ;
+    }
     selectedApplication = applications.get(0) ;
-    uiAppInfo.setApplication(selectedApplication);
+    uiAppInfo.setApplication(selectedApplication);      
   }
   
   public ApplicationCategory getCategory(String name) {
@@ -123,6 +128,13 @@ public class UIApplicationOrganizer extends UIContainer {
     }
   }
   
+  public void switchToDefaulView() throws Exception {
+    if(getChild(UIApplicationInfo.class) == null) {
+      getChildren().clear() ;
+      addChild(UIApplicationInfo.class, null, null) ;
+    }
+  }
+  
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
   }
@@ -146,7 +158,10 @@ public class UIApplicationOrganizer extends UIContainer {
       service.importAllPortlets() ;
       service.importExoWidgets() ;
       service.importExoGadgets() ;
-      uiOrganizer.initApplicationCategories() ;
+      uiOrganizer.initApplicationCategories(true) ;
+      if(uiOrganizer.getCategories().size() > 0) {        
+        uiOrganizer.setSelectedCategory(uiOrganizer.getCategories().get(0)) ;
+      }
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
@@ -166,7 +181,48 @@ public class UIApplicationOrganizer extends UIContainer {
   public static class AddCategoryActionListener extends EventListener<UIApplicationOrganizer> {
 
     public void execute(Event<UIApplicationOrganizer> event) throws Exception {
-      
+     UIApplicationOrganizer uiOrganizer = event.getSource() ;
+     uiOrganizer.getChildren().clear() ;
+     uiOrganizer.addChild(UICategoryForm.class, null, null) ;
+     event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+    }
+    
+  }
+  
+  public static class RemoveCategoryActionListener extends EventListener<UIApplicationOrganizer> {
+
+    public void execute(Event<UIApplicationOrganizer> event) throws Exception {
+      UIApplicationOrganizer uiOrganizer = event.getSource() ;
+      String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
+      service.remove(uiOrganizer.getCategory(name)) ;
+      uiOrganizer.initApplicationCategories(true) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+    }
+    
+  }
+  
+  public static class EditCategoryActionListener extends EventListener<UIApplicationOrganizer> {
+
+    public void execute(Event<UIApplicationOrganizer> event) throws Exception {
+      UIApplicationOrganizer uiOrganizer = event.getSource() ;
+      String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      UICategoryForm uiCategoryForm = uiOrganizer.createUIComponent(UICategoryForm.class, null, null) ;
+      uiCategoryForm.setValue(uiOrganizer.getCategory(name))  ;
+      uiOrganizer.getChildren().clear() ;
+      uiOrganizer.addChild(uiCategoryForm) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+    }
+    
+  }
+  
+  public static class AddApplicationActionListener extends EventListener<UIApplicationOrganizer> {
+
+    public void execute(Event<UIApplicationOrganizer> event) throws Exception {
+      UIApplicationOrganizer uiOrganizer = event.getSource() ;
+      uiOrganizer.getChildren().clear() ;
+      uiOrganizer.addChild(UIAddApplicationForm.class, null, null) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;      
     }
     
   }

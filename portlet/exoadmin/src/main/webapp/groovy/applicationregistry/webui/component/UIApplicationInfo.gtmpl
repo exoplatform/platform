@@ -1,10 +1,14 @@
 <%
 def application = uicomponent.getApplication() ;
-String name = application.getApplicationName() ;
-String srcBG = "/" + application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + name + ".png";
-String srcBGError = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png";
 %>
 <div class="AppWorkingArea" id="$uicomponent.id">
+	<% if(application == null) { %>
+	<div class="NoApplicationMessage">This category does not have any application, click "add" button to add application.</div>
+	<% } else { 
+				String name = application.getApplicationName() ;
+				String srcBG = "/" + application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + name + ".png";
+				String srcBGError = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png";
+	%>
 	<div class="UIBreadcumbs">
 	  <div class="LeftBreadcumbsBar">
 	    <div class="RightBreadcumbsBar">
@@ -45,4 +49,5 @@ String srcBGError = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/
 	<div class="UIAcessPermissions">
   	Acess permissions
   </div>
+  <% } %>
 </div>

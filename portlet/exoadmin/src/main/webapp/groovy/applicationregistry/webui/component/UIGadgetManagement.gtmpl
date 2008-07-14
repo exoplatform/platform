@@ -1,7 +1,4 @@
-<%
-import org.exoplatform.web.application.gadget.GadgetApplication ;
-%>
-<div class="UIGadgetManagement">
+<div class="UIGadgetManagement" id="$uicomponent.id">
   <div class="UIControlbar">
   	<div class="IconControl AddNewIcon" onclick="<%= uicomponent.event("AddRemoteGadget") %>">Add a remote gadget</div>
   	<div class="IconControl CreateNewIcon">Create a new gadget</div>
@@ -17,7 +14,7 @@ import org.exoplatform.web.application.gadget.GadgetApplication ;
 		   	    <% for(gadget in uicomponent.getGadgets()) { %>
 					    <div class="SelectedItem ItemContent">
 			        	<a title="web" href="#" class="TabLabel"><%= gadget.getApplicationName() %></a>
-			          <a href="#" title="Delete Category" class="ControlIcon DeletePortalIcon"><span></span></a>
+			          <a title="Delete Category" class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveGadget", gadget.getApplicationName()) %>"><span></span></a>
 			      		<div style="clear: both;"><span></span></div>
 						  </div>
 						<% } %>

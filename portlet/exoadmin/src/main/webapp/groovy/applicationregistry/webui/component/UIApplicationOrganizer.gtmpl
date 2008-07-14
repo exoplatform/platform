@@ -11,8 +11,8 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 %>
 <div class="UIOrganizerManagement" id="$uicomponent.id">
   <div class="UIControlbar">
-  	<div class="IconControl AddCategoryIcon">Add Categorie</div>
-  	<div class="IconControl CreateNewIcon">Add</div>
+  	<div class="IconControl AddCategoryIcon" onclick="<%= uicomponent.event("AddCategory") %>">Add Categorie</div>
+  	<div class="IconControl CreateNewIcon" onclick="<%= uicomponent.event("AddApplication") %>">Add</div>
   	<div class="IconControl ImportIcon" onclick="<%= uicomponent.event("ImportAllApplications") %>">Auto import</div>
   	<div style="clear: both"><span></span></div>
   </div>
@@ -50,8 +50,8 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 										      <a class="TabLabel" onclick="$clickEvt; eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
 										      	<%= displayName %>
 										      </a>
-							            <a class="ControlIcon DeleteIcon" href="#"><span></span></a>
-							            <a class="ControlIcon EditIcon" href="#"><span></span></a>
+							            <a class="ControlIcon DeleteIcon" onclick="<%= uicomponent.event("RemoveCategory", "$cName") %>"><span></span></a>
+							            <a class="ControlIcon EditIcon" onclick="<%= uicomponent.event("EditCategory", "$cName") %>"><span></span></a>
 								          <div style="clear: both"><span></span></div>
 								         </div>
 						          </div>
@@ -67,7 +67,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 								  %>
 										<div class="ItemContent $cssClass">
 											<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel"><%= application.getDisplayName() %></a>
-											<a class="ControlIcon DeletePortalIcon" href="#"><span></span></a>
+											<a class="ControlIcon DeletePortalIcon"><span></span></a>
 						          <div style="clear: both"><span></span></div>
 										</div>
 									<% } %>	
@@ -81,7 +81,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 				</div>
 			</div>
 		</div>
-		<% uicomponent.renderChild("UIApplicationInfo") %>
+		<% uicomponent.renderChildren() %>
 		<div style="clear: left"><span></span></div>
 	</div>  
 	

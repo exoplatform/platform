@@ -49,12 +49,12 @@ import org.exoplatform.webui.form.UIFormStringInput;
 
 public class UIGadgetEditor extends UIForm {
   
-  static final String FIELD_NAME = "name" ;
+  //static final String FIELD_NAME = "name" ;
   static final String FIELD_URL = "url" ;
   static final String FIELD_DISPLAY = "display" ;
   
   public UIGadgetEditor() throws Exception {
-    addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
+    //addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
     addUIFormInput(new UIFormStringInput(FIELD_URL, null, null)) ;
     List<SelectItemOption<String>> displayOptions = new ArrayList<SelectItemOption<String>>(2) ;
     displayOptions.add(new SelectItemOption<String>("apllication", "application")) ;
@@ -67,9 +67,13 @@ public class UIGadgetEditor extends UIForm {
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
-      String name = uiForm.getUIStringInput(FIELD_NAME) .getValue();
+      //String name = uiForm.getUIStringInput(FIELD_NAME) .getValue();
       String url = uiForm.getUIStringInput(FIELD_URL) .getValue();
-      service.addGadget(new GadgetApplication(name, url)) ;
+      GadgetApplication gadgetApplication = new GadgetApplication(url) ;
+      service.addGadget(gadgetApplication) ;
+      UIGadgetManagement uiParent = uiForm.getParent() ;
+      uiParent.reload() ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
     }
     
   }
@@ -78,7 +82,9 @@ public class UIGadgetEditor extends UIForm {
 
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
-      uiForm.getChildren().clear() ;
+      UIGadgetManagement uiParent = uiForm.getParent() ;
+      uiParent.getChildren().clear() ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
     }
     
   }
