@@ -2,16 +2,8 @@
 	import org.exoplatform.webui.core.UIComponent ;
 	import org.exoplatform.webui.form.UIFormPageIterator ;
 	import org.exoplatform.webui.form.UIFormCheckBoxInput ;
-	UIFormPageIterator uiIterator = uicomponent.getUIFormPageIterator() ;
-	
-	def rcontext = _ctx.getRequestContext() ;
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIAvailablePortletControl', '/exoadmin/javascript/');
+	UIFormPageIterator uiIterator = uicomponent.getUIFormPageIterator() ;	
 %>
-<div align="right" style="margin-bottom: 5px;">
-	<a href="#" style="color: blue" onclick="eXo.webui.UIAvailablePortletControl.checkAll();">Select All</a> &nbsp;
-	<a href="#" style="color: blue" onclick="eXo.webui.UIAvailablePortletControl.removeCheck();">None</a>
-</div>
-
 <div class="UIFormTableIterator" id="UIFormTableIterator">
 	<table  class="UIGrid" cellspacing="0" borderspacing="0">
 	  <thead>

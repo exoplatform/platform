@@ -22,15 +22,17 @@ import java.util.List;
 import java.util.Map;
 
 import org.exoplatform.application.newregistry.Application;
+import org.exoplatform.application.newregistry.ApplicationCategory;
+import org.exoplatform.application.newregistry.ApplicationRegistryService;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.portletregistry.webui.component.UIFormTableIteratorInputSet;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.web.application.gadget.GadgetRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -52,12 +54,18 @@ import org.exoplatform.webui.form.UIFormTableInputSet;
  */
 @ComponentConfig(
     template = "system:/groovy/webui/form/UIForm.gtmpl",
-    lifecycle = UIFormLifecycle.class
+    lifecycle = UIFormLifecycle.class,
+    events = {
+      @EventConfig(listeners = UIAddApplicationForm.ChangeTypeActionListener.class),
+      @EventConfig(listeners = UIAddApplicationForm.SaveActionListener.class),
+      @EventConfig(listeners = UIAddApplicationForm.BackActionListener.class)
+    }
 )
 public class UIAddApplicationForm extends UIForm {
   
   final static public String FIELD_NAME = "name" ;
   final static public String FIELD_TYPE = "type" ;
+  final static public String FIELD_APPLICATION = "application" ;
   final static String [] TABLE_COLUMNS = {"input", "label", "description"};
   
   private List<Application> applications_ = new ArrayList<Application>() ;
@@ -68,18 +76,22 @@ public class UIAddApplicationForm extends UIForm {
                                            org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) ;
     types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE,
                                            org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) ;
-    addUIFormInput(new UIFormSelectBox(FIELD_TYPE, null, types)) ;
+    UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_TYPE, null, types) ;
+    uiSelectBox.setOnChange("ChangeType") ;
+    addUIFormInput(uiSelectBox) ;
     addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
     String tableName = getClass().getSimpleName();    
     UIFormTableIteratorInputSet uiTableInputSet = createUIComponent(UIFormTableIteratorInputSet.class, null, null) ;
     uiTableInputSet.setName(tableName);
     uiTableInputSet.setColumns(TABLE_COLUMNS);
     addChild(uiTableInputSet);
-    //addApplicationList(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE) ;
-    addApplicationList(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE) ;
+    setApplicationList(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE) ;
+    setActions(new String[]{"Save", "Back"}) ;
   }
   
-  public void addApplicationList(String type) throws Exception {
+  public List<Application> getApplications() { return applications_ ; }
+  
+  public void setApplicationList(String type) throws Exception {
     applications_.clear() ;
     applications_ = getApplcationByType(type) ;
     setup() ;   
@@ -93,7 +105,7 @@ public class UIAddApplicationForm extends UIForm {
       UIFormInputSet uiInputSet = new UIFormInputSet(app.getId()) ;
       ArrayList<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>(5) ;
       options.add(new SelectItemOption<String>("", String.valueOf(i))) ;
-      UIFormRadioBoxInput uiRadioInput = new UIFormRadioBoxInput("application", "", options) ;
+      UIFormRadioBoxInput uiRadioInput = new UIFormRadioBoxInput(FIELD_APPLICATION, "", options) ;
       uiInputSet.addChild(uiRadioInput);
       UIFormInputInfo uiInfo = new UIFormInputInfo("label", null, app.getDisplayName());
       uiInputSet.addChild(uiInfo);
@@ -155,9 +167,53 @@ public class UIAddApplicationForm extends UIForm {
   public static class ChangeTypeActionListener extends EventListener<UIAddApplicationForm> {
 
     public void execute(Event<UIAddApplicationForm> event) throws Exception {
+      UIAddApplicationForm uiForm = event.getSource() ;
+      String type = uiForm.getUIFormSelectBox(UIAddApplicationForm.FIELD_TYPE).getValue() ;
+      uiForm.setApplicationList(type) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiForm) ; 
+    }
+    
+  }
+  
+  public static class SaveActionListener extends EventListener<UIAddApplicationForm> {
+
+    public void execute(Event<UIAddApplicationForm> event) throws Exception {
+      UIAddApplicationForm uiForm = event.getSource() ;
+      ApplicationRegistryService appRegService = uiForm.getApplicationComponent(ApplicationRegistryService.class) ;
+      UIFormRadioBoxInput uiRadio = uiForm.getUIInput("application") ;
+      UIFormStringInput uiNameInput = uiForm.getUIStringInput(FIELD_NAME) ;
+      UIApplicationOrganizer uiOrganizer = uiForm.getParent() ;
+      Application tmp = uiForm.getApplications().get(Integer.parseInt(uiRadio.getValue()));
+      Application app = clonePortlet(tmp) ;
+      app.setDisplayName(uiNameInput.getValue()) ;
+      ApplicationCategory selectedCate = uiOrganizer.getSelectedCategory() ;
+      appRegService.save(selectedCate, app) ;
+      uiOrganizer.initApplicationCategories(false) ;
+      uiOrganizer.setSelectedCategory(selectedCate) ;
+      uiOrganizer.selectApplication(app.getApplicationName()) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+    }
+    
+    private Application clonePortlet(Application portlet){
+      Application newPortlet = new Application();
+      newPortlet.setAccessPermissions(portlet.getAccessPermissions()) ;
+      newPortlet.setApplicationGroup(portlet.getApplicationGroup());
+      newPortlet.setApplicationType(portlet.getApplicationType());
+      newPortlet.setApplicationName(portlet.getApplicationName()) ;
+      newPortlet.setDescription(portlet.getDescription()) ;
+      newPortlet.setDisplayName(portlet.getDisplayName()) ;
+      return newPortlet;
+    }
+    
+  }
+  
+  public static class BackActionListener extends EventListener<UIAddApplicationForm> {
+
+    public void execute(Event<UIAddApplicationForm> event) throws Exception {
       
     }
     
   }
+
   
 }
