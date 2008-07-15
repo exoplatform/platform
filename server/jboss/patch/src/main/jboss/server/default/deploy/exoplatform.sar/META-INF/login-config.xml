@@ -4,8 +4,7 @@
 <policy>
   <application-policy name="exo-domain">
     <authentication>
-      <login-module code="org.exoplatform.services.organization.auth.ExoLoginJAASLoginModule" flag="required"></login-module>
-      <login-module code="org.exoplatform.services.organization.auth.ExoBroadcastJAASLoginModule" flag="required"></login-module>
+      <login-module code="org.exoplatform.services.security.j2ee.JbossLoginModule" flag="required"></login-module>
     </authentication>
   </application-policy>
 </policy>
