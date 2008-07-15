@@ -32,9 +32,9 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.NameValidator;
-import org.exoplatform.webui.form.validator.NumberInRangeValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
@@ -71,9 +71,9 @@ public class UIContainerForm extends UIForm {
                  addUIFormInput(new UIFormStringInput("title", "title", null).
                                 addValidator(StringLengthValidator.class, 3, 30)).
                  addUIFormInput(new UIFormStringInput("width", "width", null).
-                                addValidator(NumberInRangeValidator.class, 0, 1280)).
+                                addValidator(ExpressionValidator.class, "(^([1-9]\\d*)(px||%)$)?", "width")).
                  addUIFormInput(new UIFormStringInput("height", "height", null).
-                                addValidator(NumberInRangeValidator.class, 0, 800));
+                                addValidator(ExpressionValidator.class, "(^([1-9]\\d*)(px||%)$)?", "height"));
     
 //    addChild(uiSettingSet);
 //    UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");

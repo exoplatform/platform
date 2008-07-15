@@ -59,6 +59,7 @@ import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.NumberInRangeValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
@@ -95,9 +96,9 @@ public class UIPortletForm extends UIFormTabPane {
     	addUIFormInput(new UIFormStringInput("title", "title", null).
                      addValidator(StringLengthValidator.class, 3, 30)).
   		addUIFormInput(new UIFormStringInput("width", "width", null).
-                     addValidator(NumberInRangeValidator.class, 0, 1280)).
+                     addValidator(ExpressionValidator.class, "(^([1-9]\\d*)px$)?", "width")).
   		addUIFormInput(new UIFormStringInput("height", "height", null).
-  		               addValidator(NumberInRangeValidator.class, 0, 1280)).
+  		               addValidator(ExpressionValidator.class, "(^([1-9]\\d*)px$)?", "height")).
   		addUIFormInput(new UIFormCheckBoxInput("showInfoBar", "showInfoBar", false)).
   		addUIFormInput(new UIFormCheckBoxInput("showPortletMode", "showPortletMode", false)).
     	addUIFormInput(new UIFormCheckBoxInput("showWindowState", "showWindowState", false)).
