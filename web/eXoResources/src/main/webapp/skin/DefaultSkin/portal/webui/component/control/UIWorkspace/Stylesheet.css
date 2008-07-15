@@ -1,11 +1,11 @@
 .UIControlWorkspace {
 	background: url('background/Repeat-y.gif') repeat-y center top;
-  width: 6px ; height: 100% ;
-  padding: 0px ;
-  top: 0px ;
+  width: 6px; height: 100%;
+  padding: 0px;
+  top: 0px;
 }
 
-.UIControlWorkspace .TopTitleBar{
+.UIControlWorkspace .TopTitleBar {
   padding: 12px 0px 6px 0px ;
   text-align: center;
   width: 180px;
@@ -15,32 +15,29 @@
   padding: 3px; 
 }
 
-.UIControlWorkspace .ScrollArea {
-}
-
 .UIControlWorkspace .ScrollArea .TreeContainer {
   overflow-x: hidden;
 }
 
 .UIControlWorkspace .UserWorkspaceTitle {
   height: 23px ;
-  background: url('background/UserWorkspaceTitleBG1x23.gif') repeat-x ;
+  background: url('background/UserWorkspaceTitleBG1x23.gif') repeat-x;
   color: #434343;
-  font-weight: bold ;
-  line-height: 22px ; 
-  padding-left: 13px ; margin-right: 2px ;
+  font-weight: bold;
+  line-height: 22px; 
+  padding-left: 13px; margin-right: 2px;
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
-	float: right ;
-	width: 21px ;	height: 15px ;
-	margin: 3px 5px 0px 0px ;
+	float: right;
+	width: 21px;	height: 15px;
+	margin: 3px 5px 0px 0px;
 	background: url('background/No-Repeat.gif') no-repeat right top;
-	cursor: pointer ;
+	cursor: pointer;
 }
 
 .UIControlWorkspace .UIWorkspaceControl { 
-  margin-right: 2px ;
+  margin-right: 2px;
 }
 
 /*########################### Tab ###########################*/
@@ -49,13 +46,13 @@
 }
 
 .UIControlWorkspace .UIWorkspacePanel .HideContentVTab {
-  display: none ;
-  border: solid 1px #a3abb6 ;
-  margin: 2px 0px ;
+  display: none;
+  border: solid 1px #a3abb6;
+  margin: 2px 0px;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .ShowContent {
-  display: block ;
+  display: block;
   border: solid 1px #a3abb6;
   margin: 2px 0px;
 }

@@ -1,23 +1,20 @@
 .UITabContainer {
-	padding: 3px 7px 9px 7px;
+	padding: 7px;
 }
 
 .UITabContainer .HorizontalLayout {
-	margin: 0px;
 	border: 1px solid #b7b7b7;
 	border-top: none;
 	background: #ffffff;
-	padding: 0px 8px;
 }
 
-.UITabContainer .HorizontalLayout .UITabContentContainer .UITabContent{
-	padding-top: 10px;
+.UITabContainer .UITabContentContainer .UITabContent {
+	padding: 10px;
 }
 
 .UITabContainer a.TabLabel {
 	padding: 0px 10px 0px 2px;
 	line-height: 22px; 
-
 }
 
 .UITabContainer .EditIcon {

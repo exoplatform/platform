@@ -20,7 +20,7 @@
   border: 1px #a5a5a5 solid;
   border-bottom: 1px #d0d0d0 solid;
   border-right: 1px #d0d0d0 solid;
-  padding: 10px 7px;
+  padding: 10px;
   min-width: 100px;
   overflow: auto;
 }

@@ -4,6 +4,7 @@
 
 .UIPortalToolPanel .WizardDecorator {
   margin: 0px;
+  height: 100%;
 }
 
 .UIPortalToolPanel .WizardDecorator .WizardTopLeft {

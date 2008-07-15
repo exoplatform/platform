@@ -1,8 +1,7 @@
 /*##############################-Page Layout Decorator-################################*/
 .UIPage .PageLayoutDecorator  {
   padding: 0px ;
-  margin: 0px 3px auto 0px;
-  _margin: 0px 2px auto 2px;
+  margin: 0px 2px auto 2px;
 }
 
 .UIPage .VIEW-PAGE {
@@ -49,7 +48,6 @@
 .UIPage .PageLayoutDecorator .BottomLeftPage {  
   background: url('background/ViewPage.gif') no-repeat left -378px;
   padding: 0px 0px 0px 46px ;
-  margin-bottom: 7px;
 }
 
 .UIPage .PageLayoutDecorator .BottomRightPage {
