@@ -223,10 +223,10 @@ UIPortal.prototype.showLayoutModeForPage = function(control) {
 	  var uiContainer = eXo.core.DOMUtil.findFirstDescendantByClass(viewPage, "div", "UIContainer") ;
 	  if(uiContainer != null) {
 	  	viewPage.style.border = "none" ;
-	  	viewPage.style.paddingTop = "8px" ;
+	  	viewPage.style.paddingTop = "5px" ;
 	  	viewPage.style.paddingRight = "5px";
-	  	viewPage.style.paddingBottom = "3px";
-	  	viewPage.style.paddingLeft = "3px";
+	  	viewPage.style.paddingBottom = "5px";
+	  	viewPage.style.paddingLeft = "5px";
 	  }
   }
 	
@@ -238,10 +238,10 @@ UIPortal.prototype.showLayoutModeForPage = function(control) {
 	  var uiPortlet = eXo.core.DOMUtil.findFirstDescendantByClass(viewPage, "div", "UIPortlet") ;
 	  if(uiPortlet != null) {
 	  	viewPage.style.border = "none" ;
-	  	viewPage.style.paddingTop = "8px" ;
+	  	viewPage.style.paddingTop = "5px" ;
 	  	viewPage.style.paddingRight = "5px" ;
-			viewPage.style.paddingBottom = "3px" ;
-			viewPage.style.paddingLeft = "3px" ;
+			viewPage.style.paddingBottom = "5px" ;
+			viewPage.style.paddingLeft = "5px" ;
 	  }
   }
 };
