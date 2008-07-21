@@ -22,14 +22,4 @@
   <component>
     <type>org.exoplatform.web.WebAppController</type>
   </component>
-<!--  
-  
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.listener.ListenerService</target-component>
-    <component-plugin>
-      <name>exo.application.portal.start-http-request</name>
-		  <set-method>addListener</set-method>
-      <type>org.exoplatform.web.SetCurrentIdentityListener</type>
-		</component-plugin>
-  </external-component-plugins>-->
 </configuration>

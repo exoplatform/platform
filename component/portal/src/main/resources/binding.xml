@@ -80,7 +80,7 @@
   <mapping name="portal-config" class="org.exoplatform.portal.config.model.PortalConfig">
     <value name="portal-name" field="name"/>
     <value name="locale" field="locale"/>    
-    <value name="factory-id" field="factoryId" usage="optional"/>
+    <!--<value name="factory-id" field="factoryId" usage="optional"/>-->
     <value name="access-permissions" field="accessPermissions" usage="optional"/>
     <value name="edit-permission" field="editPermission" usage="optional"/>
     <value name="skin" field="skin" usage="optional"/>

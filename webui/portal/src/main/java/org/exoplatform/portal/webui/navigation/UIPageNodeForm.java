@@ -120,7 +120,7 @@ public class UIPageNodeForm extends UIFormTabPane {
     String icon = pageNode_.getIcon();
     if( icon == null || icon.length() < 0) icon = "Default" ;
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
-    getUIStringInput("label").setValue(pageNode_.getResolvedLabel()) ;
+    getUIStringInput("label").setValue(pageNode_.getLabel()) ;
     setShowPublicationDate(pageNode.isShowPublicationDate()) ;
     Calendar cal = Calendar.getInstance() ;
     if(pageNode.getStartPublicationDate() != null) {

@@ -29,13 +29,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.Constants;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.HtmlValidator;
 
 /**
@@ -175,9 +173,9 @@ public class PortalRequestContext extends WebuiRequestContext {
 
   
   public void setHeaders(Map<String, String> headers) {
-    Set keys = headers.keySet();
-    for (Iterator iter = keys.iterator(); iter.hasNext();) {
-      String key = (String) iter.next();
+    Set<String> keys = headers.keySet();
+    for (Iterator<String> iter = keys.iterator(); iter.hasNext();) {
+      String key = iter.next();
       response_.setHeader(key, headers.get(key));
     }
   }

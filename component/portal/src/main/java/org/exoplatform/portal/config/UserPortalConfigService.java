@@ -44,6 +44,7 @@ import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.PCConstants;
+import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.helper.PortletWindowInternal;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.Input;
@@ -454,49 +455,31 @@ public class UserPortalConfigService {
     }    
   }
 
-  private static Map<String, String[]> getPreferencesMap(Application app) throws Exception {
+  private Map<String, String[]> getPreferencesMap(Application app) throws Exception {
    
     ExoWindowID windowID = new ExoWindowID(app.getInstanceId()) ;
     Input input = new Input() ;
     input.setInternalWindowID(windowID) ;
     PortalContainer container = PortalContainer.getInstance() ;
-    PortletApplicationsHolder holder = (PortletApplicationsHolder) container.getComponentInstanceOfType(PortletApplicationsHolder.class) ;
-    Portlet pDatas = holder.getPortletMetaData(windowID.getPortletApplicationName(), windowID.getPortletName());
-    ExoPortletPreferences defaultPrefs = pDatas.getPortletPreferences();
-    PersistenceManager manager = (PersistenceManager) container.getComponentInstanceOfType(PersistenceManager.class) ;
-    PortletWindowInternal windowInfos = manager.getWindow(input, defaultPrefs);
-    PortletPreferencesImp preferences = (PortletPreferencesImp) windowInfos.getPreferences();
-    return preferences.getMap() ;
+    PortletContainerService pcServ = (PortletContainerService) container.getComponentInstanceOfType(PortletContainerService.class) ;
+    return pcServ.getPortletPreference(input) ;
   }
   
-  private static void renewInstanceId(Application app, String ownerId) {
-  
+  private void renewInstanceId(Application app, String ownerId) {
     ExoWindowID newExoWindowID = new ExoWindowID(app.getInstanceId()) ;
     newExoWindowID.setOwner(PortalConfig.USER_TYPE + "#" + ownerId) ;
     newExoWindowID.setUniqueID(String.valueOf(newExoWindowID.hashCode())) ;
     app.setInstanceId(newExoWindowID.generatePersistenceId()) ;
   }
   
-  private static void setPreferences(Application portlet, Map<String, String[]> portletPreferences) throws Exception {
-    
+  private void setPreferences(Application portlet, Map<String, String[]> portletPreferences) throws Exception {
     if(portletPreferences == null || portletPreferences.size() < 1) return ;
     ExoWindowID windowID = new ExoWindowID(portlet.getInstanceId()) ;
     Input input = new Input() ;
     input.setInternalWindowID(windowID) ;
     PortalContainer container = PortalContainer.getInstance() ;
-    PortletApplicationsHolder holder = (PortletApplicationsHolder) container.getComponentInstanceOfType(PortletApplicationsHolder.class) ;
-    Portlet pDatas = holder.getPortletMetaData(windowID.getPortletApplicationName(), windowID.getPortletName());
-    ExoPortletPreferences defaultPrefs = pDatas.getPortletPreferences();
-    PersistenceManager manager = (PersistenceManager) container.getComponentInstanceOfType(PersistenceManager.class) ;
-    PortletWindowInternal windowInfos = manager.getWindow(input, defaultPrefs);
-    PortletPreferencesImp preferences = (PortletPreferencesImp) windowInfos.getPreferences();
-    Iterator<Entry<String, String[]>> itr = portletPreferences.entrySet().iterator() ;
-    while(itr.hasNext()) {
-      Entry<String, String[]> entry = itr.next() ;
-      preferences.setValues(entry.getKey(), entry.getValue()) ;
-    }
-    preferences.setMethodCalledIsAction(PCConstants.ACTION_INT) ;
-    preferences.store() ;
+    PortletContainerService pcServ = (PortletContainerService) container.getComponentInstanceOfType(PortletContainerService.class) ;
+    pcServ.setPortletPreference2(input, portletPreferences) ;
   }
   
   public Page createPageTemplate(String temp, String ownerType, String ownerId) throws Exception {

@@ -20,9 +20,7 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.commons.logging.Log;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
@@ -39,10 +37,7 @@ import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.javascript.JavascriptConfigService;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.ComponentConfigs;
-import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
@@ -60,19 +55,18 @@ import org.exoplatform.webui.event.Event;
  *  - UIPopupWindow: a popup window that display or not
  * 
  */
-@ComponentConfigs({
+//@ComponentConfigs({
   @ComponentConfig (
     lifecycle = UIPortalApplicationLifecycle.class,
     template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
-//    initParams = @ParamConfig(name = "public.showControlWorkspace", value = "true" )
-  ),
-  @ComponentConfig (
-    id = "office" ,
-    lifecycle = UIPortalApplicationLifecycle.class,
-    template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
-//    initParams = @ParamConfig( name = "public.showControlWorkspace", value = "false" )    
   )
-})
+//  ,
+//  @ComponentConfig (
+//    id = "office" ,
+//    lifecycle = UIPortalApplicationLifecycle.class,
+//    template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
+//  )
+//})
 public class UIPortalApplication extends UIApplication {
   
   private boolean isEditting = false ;
@@ -112,14 +106,6 @@ public class UIPortalApplication extends UIApplication {
     if(acl.hasAccessControlWorkspacePermission(context.getRemoteUser()))
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
     addWorkingWorkspace() ;
-
-//    if(context.getAccessPath() == PortalRequestContext.PUBLIC_ACCESS) {
-//      if(log.isDebugEnabled()) log.debug("Build a public portal");
-//      initPublicPortal(initParams) ;
-//    } else {
-//      if(log.isDebugEnabled()) log.debug("Build a private portal");      
-//      initPrivatePortal(context.getRemoteUser()) ;
-//    }
     
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
     if(currentSkin != null && currentSkin.trim().length() > 0) skin_ = currentSkin;
@@ -197,29 +183,6 @@ public class UIPortalApplication extends UIApplication {
     if (toolPanel != null && toolPanel.isRendered()) {
       toolPanel.findComponentOfType(uiportlets, UIPortlet.class);
     }
-//
-//    if ("false".equals(System.getProperty("exo.product.developing")) && !isEditting) {
-//      List<UIPortlet> portletInPage = new ArrayList<UIPortlet>();
-//      List<String> portletInPortal = new ArrayList<String>();
-//      for (UIPortlet uiPortlet : uiportlets) {
-//        if (uiPortlet.isPortletInPortal()) {
-//          String module = uiPortlet.getExoWindowID()
-//              .getPortletApplicationName()
-//              + "/" + uiPortlet.getExoWindowID().getPortletName();
-//          portletInPortal.add(module);
-//        } else {
-//          portletInPage.add(uiPortlet);
-//        }
-//      }
-//      uiportlets = portletInPage;
-//
-//      // Add a merged skin of the portlets located in the portal and not the
-//      // page
-//      SkinService skinService = getApplicationComponent(SkinService.class);
-//      SkinConfig skinConfig = skinService.getPortalSkin(uiPortal.getName(), skin_, portletInPortal);
-//      if (skinConfig != null)
-//        skins.add(skinConfig);
-//    }
 
     for (UIPortlet uiPortlet : uiportlets) {
       String module = uiPortlet.getExoWindowID().getPortletApplicationName()
@@ -229,31 +192,6 @@ public class UIPortalApplication extends UIApplication {
     }
     return skins;
   } 
-  
-  /**
-   * According to the init parameters, the left the left column is shown or not.
-   * 
-   * @param initParams
-   * @throws Exception
-   */
-  private  void  initPublicPortal(InitParams initParams) throws Exception {
-    if("true".equals(initParams.getParam("public.showControlWorkspace").getValue())) {
-      addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;      
-    }
-    addWorkingWorkspace() ;
-  }
-  
-  /**
-   * A private portal always get the left column and the main area in the center.
-   * 
-   * @throws Exception
-   */
-  private void initPrivatePortal(String remoteUser) throws Exception {
-    UserACL acl = getApplicationComponent(UserACL.class);
-    if(acl.hasAccessControlWorkspacePermission(remoteUser))
-      addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
-    addWorkingWorkspace() ;
-  }
   
   /**
    * The central area is called the WorkingWorkspace. It is composed of:

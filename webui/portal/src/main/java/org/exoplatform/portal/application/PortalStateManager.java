@@ -102,7 +102,7 @@ public class PortalStateManager extends StateManager {
         }
         pcontext.setAttribute(UserPortalConfig.class, config);
         UIPortalApplication uiApplication = 
-          (UIPortalApplication)app.createUIComponent(type, config.getPortalConfig().getFactoryId(), null, context) ;
+          (UIPortalApplication)app.createUIComponent(type, null, null, context) ;
         state = new PortalApplicationState(uiApplication, pcontext.getRemoteUser()) ;
         uiApplications.put(context.getSessionId(), state) ;
         PortalContainer pcontainer = (PortalContainer) app.getApplicationServiceContainer() ;

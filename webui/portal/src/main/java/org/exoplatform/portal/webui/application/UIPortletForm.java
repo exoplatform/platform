@@ -33,7 +33,6 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
-import org.exoplatform.services.portletcontainer.PCConstants;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.helper.PortletWindowInternal;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
@@ -43,7 +42,6 @@ import org.exoplatform.services.portletcontainer.pci.RenderOutput;
 import org.exoplatform.services.portletcontainer.pci.model.ExoPortletPreferences;
 import org.exoplatform.services.portletcontainer.pci.model.Portlet;
 import org.exoplatform.services.portletcontainer.plugins.pc.PortletApplicationsHolder;
-import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.PortletPreferencesImp;
 import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.persistenceImp.PersistenceManager;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -61,7 +59,6 @@ import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
-import org.exoplatform.webui.form.validator.NumberInRangeValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
 /**
  * Author : Nhu Dinh Thuan
@@ -183,29 +180,26 @@ public class UIPortletForm extends UIFormTabPane {
       ExoWindowID windowID = uiPortlet.getExoWindowID();
       Input input = new Input() ;
       input.setInternalWindowID(windowID) ;
-      PortletApplicationsHolder holder = getApplicationComponent(PortletApplicationsHolder.class) ;
-      Portlet pDatas = holder.getPortletMetaData(windowID.getPortletApplicationName(), windowID.getPortletName());
-      ExoPortletPreferences defaultPrefs = pDatas.getPortletPreferences();
-      PersistenceManager manager = getApplicationComponent(PersistenceManager.class) ;
-      PortletWindowInternal windowInfos = manager.getWindow(input, defaultPrefs);
-      PortletPreferences preferences = windowInfos.getPreferences();
-
-      UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF) ;
-      uiPortletPrefSet.getChildren().clear() ;
-      Enumeration<String> prefNames = preferences.getNames() ;
-
-      if(!prefNames.hasMoreElements()) {
-        setSelectedTab("PortletSetting") ;
-        return ;
-      }
-      uiPortletPrefSet.setRendered(true) ;
-      setSelectedTab(FIELD_PORTLET_PREF) ;
-      while(prefNames.hasMoreElements()) {
-        String name = prefNames.nextElement() ;
-        if(!preferences.isReadOnly(name)) {
-          uiPortletPrefSet.addUIFormInput(new UIFormStringInput(name, null, preferences.getValue(name, "value"))) ;
+      PortletContainerService pcServ = getApplicationComponent(PortletContainerService.class) ;
+      PortletPreferences preferences = pcServ.getPortletPreferences(input);
+      if(preferences != null) {
+        UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF) ;
+        uiPortletPrefSet.getChildren().clear() ;
+        Enumeration<String> prefNames = preferences.getNames() ;
+  
+        while(prefNames.hasMoreElements()) {
+          String name = prefNames.nextElement() ;
+          if(!preferences.isReadOnly(name)) {
+            uiPortletPrefSet.addUIFormInput(new UIFormStringInput(name, null, preferences.getValue(name, "value"))) ;
+          }
+        }
+        if(uiPortletPrefSet.getChildren().size() > 0) {
+          uiPortletPrefSet.setRendered(true) ;
+          setSelectedTab(FIELD_PORTLET_PREF) ;
+          return ;
         }
       }
+      setSelectedTab("PortletSetting") ;
     } 
   }
   
@@ -214,20 +208,12 @@ public class UIPortletForm extends UIFormTabPane {
     List<UIFormStringInput> uiFormInputs = new ArrayList<UIFormStringInput>(3) ;
     uiPortletPrefSet.findComponentOfType(uiFormInputs, UIFormStringInput.class) ;
     if(uiFormInputs.size() < 1) return ;
-    ExoWindowID windowID = uiPortlet_.getExoWindowID();
     Input input = new Input() ;
-    input.setInternalWindowID(windowID) ;
-    PortletApplicationsHolder holder = getApplicationComponent(PortletApplicationsHolder.class) ;
-    Portlet pDatas = holder.getPortletMetaData(windowID.getPortletApplicationName(), windowID.getPortletName());
-    ExoPortletPreferences defaultPrefs = pDatas.getPortletPreferences();
-    PersistenceManager manager = getApplicationComponent(PersistenceManager.class) ;
-    PortletWindowInternal windowInfos = manager.getWindow(input, defaultPrefs);
-    PortletPreferencesImp preferences = (PortletPreferencesImp) windowInfos.getPreferences();
-    for(UIFormStringInput ele : uiFormInputs) {
-      preferences.setValue(ele.getName(), ele.getValue()) ;
-    }
-    preferences.setMethodCalledIsAction(PCConstants.ACTION_INT);
-    preferences.store();
+    input.setInternalWindowID(uiPortlet_.getExoWindowID()) ;
+    Map<String, String> pers = new HashMap<String, String>() ;
+    for(UIFormStringInput ele : uiFormInputs) pers.put(ele.getName(), ele.getValue()) ;
+    PortletContainerService preferences = getApplicationComponent(PortletContainerService.class) ;
+    preferences.setPortletPreference(input, pers) ;
   }
   
   

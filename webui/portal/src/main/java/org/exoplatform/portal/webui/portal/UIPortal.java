@@ -152,9 +152,9 @@ public class UIPortal extends UIContainer {
     }
   }
   
-  public void refreshNavigation(String locale) {
+  public void refreshNavigation(String lcl) {
     LocaleConfig localeConfig = getApplicationComponent(LocaleConfigService.class).
-                                getLocaleConfig(locale) ;
+                                getLocaleConfig(lcl) ;
     for(PageNavigation nav : navigations) {
       if(nav.getOwnerType().equals(PortalConfig.USER_TYPE)) continue ;
       ResourceBundle res = localeConfig.getNavigationResourceBundle(nav.getOwnerType(), nav.getOwnerId()) ;
