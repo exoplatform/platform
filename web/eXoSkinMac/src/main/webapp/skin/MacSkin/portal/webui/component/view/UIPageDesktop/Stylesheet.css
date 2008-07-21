@@ -72,12 +72,12 @@
 /*=============================Right Click DockBar Menu=========================*/
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopLeftRightClickPopupMenu {
-  background: url('background/PageDesktop.gif') left no-repeat top;
+  background: url('background/PageDesktop.gif') no-repeat left top;
   padding-left: 4px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopRightRightClickPopupMenu {
-  background: url('background/PageDesktop.gif') right no-repeat top;
+  background: url('background/PageDesktop.gif') no-repeat right top;
   padding-right: 4px;
 }
 
@@ -98,12 +98,12 @@
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomLeftRightClickPopupMenu {
-  background: url('background/PageDesktop.gif') left no-repeat -8px;
+  background: url('background/PageDesktop.gif') no-repeat left -8px;
   padding-left: 4px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomRightRightClickPopupMenu {
-  background: url('background/PageDesktop.gif') right no-repeat -8px;
+  background: url('background/PageDesktop.gif') no-repeat right -8px;
   padding-right: 4px;
 }
 
