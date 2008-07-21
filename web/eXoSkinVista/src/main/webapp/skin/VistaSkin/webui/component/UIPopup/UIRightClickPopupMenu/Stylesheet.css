@@ -17,6 +17,7 @@
   clear: both;
   cursor: pointer;
   line-height: 24px;
+  white-space: nowrap;
 }
 
 .UIRightClickPopupMenu .RightClickCustomItem {
