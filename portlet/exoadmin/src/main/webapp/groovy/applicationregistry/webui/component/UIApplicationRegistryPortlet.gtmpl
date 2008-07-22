@@ -1,3 +1,6 @@
+<%
+	String cssClass ; 
+%>
 <div>
 	<div><div style="width: 600px;" ><span style="display: none;"></span></div></div>
 	<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
@@ -10,20 +13,29 @@
 	            <div class="MiddleToolbar">
 	             
 	              <div class="ManagementIconContainer">
-	               
-	                <a href="<%=uicomponent.event("ViewChild", "UIApplicationOrganizer")%>" class="ItemButton">
+		              <%
+		              cssClass = "ItemButton" ;
+		              if(uicomponent.getChild(0).isRendered()) cssClass = "ItemButton SelectItemButton" ;
+		              %>
+	                <a href="<%=uicomponent.event("ViewChild", "UIApplicationOrganizer")%>" class="$cssClass">
 	                	<div class="LablelIcon OrganizeIcon"><span></span></div>
 	                  <div class="ButtonLabel">Organize</div>
 	                </a>
 	                <div class="HorizontalSeparator"><span></span></div>
-	                
-	                <a href="<%=uicomponent.event("ViewChild", "UIPortletManagement")%>" class="ItemButton">
+	                <%
+	                cssClass = "ItemButton" ;
+	                if(uicomponent.getChild(1).isRendered()) cssClass = "ItemButton SelectItemButton" ;
+	                %>	                
+	                <a href="<%=uicomponent.event("ViewChild", "UIPortletManagement")%>" class="$cssClass">
 	                  <div class="LablelIcon PorletIcon"><span></span></div>
 	                  <div class="ButtonLabel">Portlet</div>
 	                </a>
 	                <div class="HorizontalSeparator"><span></span></div>
-	                
-	                <a href="<%=uicomponent.event("ViewChild", "UIGadgetManagement")%>" class="ItemButton SelectItemButton">
+	                <%
+	                cssClass = "ItemButton" ;
+	                if(uicomponent.getChild(2).isRendered()) cssClass = "ItemButton SelectItemButton" ;
+	                %>	                	                
+	                <a href="<%=uicomponent.event("ViewChild", "UIGadgetManagement")%>" class="$cssClass">
 	                  <div class="LablelIcon GadgetIcon"><span></span></div>
 	                  <div class="ButtonLabel">Gadget</div>
 	                </a>
