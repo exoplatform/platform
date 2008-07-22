@@ -184,6 +184,10 @@
 	height: 4px;
 }
 
+.UIPopupWindow .ExoMessageDecorator .UITabContentContainer {
+	border: none;
+}
+
 .UIPopupWindow .ExoMessageDecorator .UITabContentContainer .UITabContent {
 	height: auto;
 	background: none;

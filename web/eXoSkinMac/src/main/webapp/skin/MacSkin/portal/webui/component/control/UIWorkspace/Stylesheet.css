@@ -1,7 +1,7 @@
 .UIControlWorkspace {
   width: 18px ; height: 100% ;
-  padding: 0px ;
-  top: 0px ;
+  padding: 0px;
+  top: 0px;
   background: url('background/ControlWorkspaceBG.gif') repeat-y center right;
 }
 
@@ -14,24 +14,24 @@
 }
 
 .UIControlWorkspace .UserWorkspaceTitle {
-  height: 23px ;
-  background: url('background/UserWorkspaceTitleBG1x23.png') repeat-x ;
+  height: 23px;
+  background: url('background/UserWorkspaceTitleBG1x23.png') repeat-x;
   color: #333333;
-  font-weight: bold ; 
-  line-height: 22px ;
-  padding: 0px 0px 0px 13px ; margin-right: 2px ;
+  font-weight: bold; 
+  line-height: 22px;
+  padding: 0px 0px 0px 13px; margin-right: 2px;
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
-	float: right ;
-	width: 18px ;	height: 18px ;
+	float: right;
+	width: 18px ;	height: 18px;
 	margin: 3px 7px 0px 0px ;
-	background: url('background/CloseControlWorkspace.gif') no-repeat ;
-	cursor: pointer ;
+	background: url('background/CloseControlWorkspace.gif') no-repeat;
+	cursor: pointer;
 }
 
 .UIControlWorkspace .UIWorkspaceControl { 
-  margin-right: 2px ;
+  margin-right: 2px;
 }
 
 .UIControlWorkspace .UIDropDownControl { 
@@ -44,37 +44,35 @@
 }
 
 .UIControlWorkspace .UIWorkspacePanel .HideContentVTab {
-  display: none ;
-  border: solid 1px #a3abb6 ;
-  margin: 2px 0px ;
+  display: none;
+  border: solid 1px #a3abb6;
+  margin: 2px 0px;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .ShowContent {
-  display: block ;
-  border: solid 1px #a3abb6 ;
-  margin: 2px 0px ;
-}
-
-.UIControlWorkspace .UIWorkspacePanel {
-  padding-bottom: 5px;
+  display: block;
+  border: solid 1px #a3abb6;
+  margin: 2px 0px;
 }
 
 /*===================== End Tab =================================*/
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {
-	float: right ;
-  width: 8px ; height: 100% ;
+	float: right;
+  width: 8px;
+	height: 100%;
   background: url('background/SlidebarBackground8x1.gif') repeat-y right;
   cursor: pointer ;
 }
 
 .UIControlWorkspace .SlidebarButton {
-	height: 100% ;	width: 8px ;
+	height: 100%;
+	width: 8px;
 	background: url('background/SlidebarButton8x137.gif') no-repeat center center ;
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
-	float: left ;
+	float: left;
 	height: 100%;
 }
 
