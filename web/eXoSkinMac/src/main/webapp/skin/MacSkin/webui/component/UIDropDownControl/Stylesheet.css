@@ -23,6 +23,11 @@
 	padding-right:3px;
 }
 
+.UIDropDownControl .RightMiddelItem .ItemListContent {
+	width: 100%;
+	overflow: hidden;
+}
+
 .UIDropDownControl .ItemListContent {
 	background:white url(/eXoSkinMac/skin/MacSkin/background/Background1x4.png) repeat;
 }

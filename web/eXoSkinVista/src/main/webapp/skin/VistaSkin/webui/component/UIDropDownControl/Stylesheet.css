@@ -20,9 +20,15 @@
 	background: url('background/DropDownControlRepeatY.png') repeat-y left top;
 	padding-left: 9px;
 }
+
 .UIDropDownControl .RightMiddelItem {
 	background: url('background/DropDownControlRepeatY.png') repeat-y right top;
 	padding-right: 12px;
+}
+
+.UIDropDownControl .RightMiddelItem .ItemListContent {
+	width: 100%;
+	overflow: hidden;
 }
 
 .UIDropDownControl .UIDropDownAnchor .ItemListOption {

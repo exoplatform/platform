@@ -26,6 +26,11 @@
 	padding: 4px ;
 }
 
+.UIDropDownControl .RightMiddelItem .ItemListContent {
+	width: 100%;
+	overflow: hidden;
+}
+
 .UIDropDownControl .ItemListContent {
 	border: 1px solid #e0e0e0  ;
 	border-bottom: 0px ;
