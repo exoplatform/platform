@@ -629,36 +629,23 @@ gadgets.IfrGadget.prototype.handleSaveUserPrefs = function() {
   }
   var userPref = eXo.core.JSON.stringify(prefs) ;
 	//TODO: dang.tung - sent event to portal
-	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	var DOMUtil = eXo.core.DOMUtil ;
-  var gadget = document.getElementById("gadget_" + this.id) ;
+  var DOMUtil = eXo.core.DOMUtil ;
+	var gadget = document.getElementById("gadget_" + this.id) ;
 	var portletFragment = DOMUtil.findAncestorById(gadget, "PORTLET-FRAGMENT");
-	var uiPage = DOMUtil.findAncestorByClass(gadget, "UIPage") ;
-	var uiGadgetContainer = DOMUtil.findAncestorByClass(gadget, "UIWidgetContainer") ;
-	var uiGadget = DOMUtil.findAncestorByClass(gadget, "UIGadget") ;
-	var containerBlockId ;
+	var uiGadget = gadget.parentNode;
 	if (portletFragment != null) {
 		var compId = portletFragment.parentNode.id;
-		var uicomp = DOMUtil.getChildrenByTagName(portletFragment, "div")[0].className;
 		var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
-		href += "&portal:type=action&uicomponent=" + uicomp;
+		href += "&portal:type=action&uicomponent=" + uiGadget.id;
 		href += "&op=SaveUserPref";
-		href += "&objectId=" + uiGadget.id + "&userPref=" + userPref + "&ajaxRequest=true";
-		ajaxAsyncGetRequest(href,true);
+		href += "&userPref=" + userPref + "&ajaxRequest=true";
+		ajaxGet(href);
 	} else {
-		if(uiPage) {
-			var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
-			containerBlockId = uiPageIdNode.innerHTML;
-		}
-		else {
-			containerBlockId = uiGadgetContainer.id ;
-		}
 		var params = [
-			 {name : "objectId", value : uiGadget.id}, {name : "userPref", value : userPref}
+		 {name : "userPref", value : userPref}
 		] ;
-		ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveUserPref", true, params),true) ;
+		ajaxAsyncGetRequest(eXo.env.server.createPortalURL(uiGadget.id, "SaveUserPref", true, params),true) ;
 	}
-	//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   this.setUserPrefs(prefs);
   this.refresh();
 };

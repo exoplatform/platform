@@ -395,28 +395,4 @@ public class UIPageActionListener {
 
     }
   }
-  
-  //TODO - dang.tung: save user preference of gadget
-  static public class SaveUserPrefActionListener extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {
-      String gadgetId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID) ;
-      String userPref = event.getRequestContext().getRequestParameter("userPref") ;
-      UIPage uiPage = event.getSource() ;
-      List<UIGadget> uiGadgets = new ArrayList<UIGadget>();
-      uiPage.findComponentOfType(uiGadgets, UIGadget.class);
-      for(UIGadget child : uiGadgets) {
-        if(child.getApplicationInstanceUniqueId().equals(gadgetId)) {
-          child.setUserPref(userPref) ;
-          if(uiPage.isModifiable()) {
-            Page page = PortalDataMapper.toPageModel(uiPage);    
-            UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);     
-            if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-            configService.update(page);
-          }
-          return;
-        }
-      }
-    }
-  } 
-  
 }

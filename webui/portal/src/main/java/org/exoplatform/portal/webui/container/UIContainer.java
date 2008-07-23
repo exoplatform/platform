@@ -21,7 +21,6 @@ import java.util.List;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.DeleteGadgetActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.DeleteWidgetActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.EditContainerActionListener;
-import org.exoplatform.portal.webui.container.UIContainerActionListener.SaveUserPrefActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.ShowAddNewApplicationActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
@@ -55,8 +54,7 @@ import org.exoplatform.webui.event.EventListener;
       template = "system:/groovy/portal/webui/container/UIGadgetContainer.gtmpl",
       events = {
           @EventConfig(listeners = DeleteGadgetActionListener.class),
-          @EventConfig(listeners = ShowAddNewApplicationActionListener.class),
-          @EventConfig(listeners = SaveUserPrefActionListener.class)
+          @EventConfig(listeners = ShowAddNewApplicationActionListener.class)
       }
   ),
   @ComponentConfig(

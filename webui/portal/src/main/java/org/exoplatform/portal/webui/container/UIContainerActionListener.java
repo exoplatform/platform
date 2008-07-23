@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.container;
 
 import java.util.List;
 
+import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Gadgets;
@@ -112,7 +113,7 @@ public class UIContainerActionListener {
           children.remove(uiGadget) ;
           String userName = pContext.getRemoteUser() ;
           if(userName != null && userName.trim().length() > 0) {
-            UserWidgetStorage widgetDataService = uiGadgetContainer.getApplicationComponent(UserWidgetStorage.class) ;
+            UserGadgetStorage widgetDataService = uiGadgetContainer.getApplicationComponent(UserGadgetStorage.class) ;
             widgetDataService.delete(userName, uiGadget.getApplicationName(), uiGadget.getApplicationInstanceUniqueId()) ;            
           }
           break ;
@@ -151,28 +152,6 @@ public class UIContainerActionListener {
       uiMaskWorkspace.setUIComponent(uiAddApplication);
       uiMaskWorkspace.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
-    }
-  }
-  
-  //TODO - dang.tung: save user preference of gadget
-  static public class SaveUserPrefActionListener extends EventListener<UIContainer> {
-    public void execute(Event<UIContainer> event) throws Exception {
-      String gadgetId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID) ;
-      String userPref = event.getRequestContext().getRequestParameter("userPref") ;
-      UIContainer container = event.getSource() ;
-      for(UIComponent child : container.getChildren()) {
-        UIGadget uiGadget = (UIGadget)child ;
-        if(uiGadget.getApplicationInstanceUniqueId().equals(gadgetId)) {
-          uiGadget.setUserPref(userPref) ;
-          break ;
-        }
-      }
-      UIGadgets uiGadgets = container.getAncestorOfType(UIGadgets.class);
-      Gadgets gadgets = PortalDataMapper.toGadgets(uiGadgets);
-      UserPortalConfigService configService = container.getApplicationComponent(UserPortalConfigService.class);
-      configService.update(gadgets);
-      UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
-      uiPortalApp.getUserPortalConfig().setGadgets(gadgets) ;
     }
   }
 }

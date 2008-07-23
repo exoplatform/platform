@@ -47,9 +47,8 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIDashboardPortlet.MoveGadgetActionListener.class),
     @EventConfig(listeners = UIDashboardPortlet.AddNewGadgetActionListener.class),
     @EventConfig(listeners = UIDashboardPortlet.SetShowSelectFormActionListener.class),
-    @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class),
-    @EventConfig(listeners = UIDashboardPortlet.SaveUserPrefActionListener.class)
-        }
+    @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class)
+   }
 )
 })
 /**
@@ -103,6 +102,7 @@ public class UIDashboardPortlet extends UIPortletApplication {
       windowId.append(":/").append(
           application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
       UIGadget uiGadget = event.getSource().createUIComponent(context, UIGadget.class, null, null);
+      uiGadget.setId(Integer.toString(uiGadget.hashCode()+1));
       windowId.append(uiGadget.hashCode());
       uiGadget.setApplicationInstanceId(windowId.toString());
       UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class); 
@@ -135,18 +135,6 @@ public class UIDashboardPortlet extends UIPortletApplication {
       UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
       uiDashboardContainer.removeUIGadget(objectId);
       uiDashboardContainer.save();
-    }
-  }
-  
-  //TODO: dang.tung - save gadget's user preference
-  public static class SaveUserPrefActionListener extends EventListener<UIDashboardPortlet> {
-    public void execute(final Event<UIDashboardPortlet> event) throws Exception {
-      WebuiRequestContext context = event.getRequestContext();
-      UIDashboardPortlet uiPortlet = event.getSource();
-      String objectId = context.getRequestParameter(OBJECTID);
-      String userPref = context.getRequestParameter("userPref");
-      UIGadget uigadget = uiPortlet.getChild(UIDashboardContainer.class).getUIGadget(objectId);
-      uigadget.setUserPref(userPref);
     }
   }
 }

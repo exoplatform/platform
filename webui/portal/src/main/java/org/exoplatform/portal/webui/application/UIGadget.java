@@ -17,11 +17,16 @@
 package org.exoplatform.portal.webui.application;
 
 import org.exoplatform.container.PortalContainer;
+import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.config.model.Properties;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.web.application.gadget.GadgetRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 /**
  * Created by The eXo Platform SAS
  * Author : dang.tung
@@ -29,7 +34,8 @@ import org.exoplatform.webui.core.UIComponent;
  * May 06, 2008   
  */
 @ComponentConfig(
-    template = "system:/groovy/portal/webui/application/UIGadget.gtmpl"
+    template = "system:/groovy/portal/webui/application/UIGadget.gtmpl",
+    events = {@EventConfig(listeners = UIGadget.SaveUserPrefActionListener.class)}
 )
 /**
  * This class represents user interface gadgets, it using UIGadget.gtmpl for rendering
@@ -44,7 +50,6 @@ public class UIGadget extends UIComponent {
   private String applicationName_ ;
   private String applicationInstanceUniqueId_ ;
   private String applicationId_ ;
-  private String userPref_ ;
   private Properties properties;
   
   /**
@@ -187,12 +192,30 @@ public class UIGadget extends UIComponent {
   /**
    * Gets user preference of gadget application
    * @return the string represents user preference of gadget application
+   * @throws Exception 
+   * @throws Exception when can't convert object to string
    */
-  public String getUserPref() { return userPref_ ;}
+  public String getUserPref() throws Exception {
+    byte[] bytes = null;
+    UserGadgetStorage userGadgetStorage = (UserGadgetStorage)PortalContainer.getInstance().getComponentInstanceOfType(UserGadgetStorage.class);
+    bytes = (byte[])userGadgetStorage.get(Util.getPortalRequestContext().getRemoteUser(), getApplicationName(), getApplicationInstanceUniqueId());
+    if(bytes == null) return null;
+    else return new String(bytes);
+  }
   
   /**
-   * Sets user preference of gadget application
-   * @param userPref an string that is the user preference of gadget application
+   * Initializes a newly created <code>SaveUserPrefActionListener</code> object
+   * @throws Exception if can't initialize object
    */
-  public void setUserPref(String userPref) {userPref_ = userPref ;}
+  static public class SaveUserPrefActionListener extends EventListener<UIGadget> {
+    public void execute(Event<UIGadget> event) throws Exception {
+      String userPref = event.getRequestContext().getRequestParameter("userPref") ;
+      UIGadget uiGadget = event.getSource() ;
+      String userName = event.getRequestContext().getRemoteUser();
+      UserGadgetStorage userGadgetStorage = uiGadget.getApplicationComponent(UserGadgetStorage.class);
+      if(userName != null && userName.trim().length()>0) {
+        userGadgetStorage.save(userName, uiGadget.getApplicationName(), uiGadget.getApplicationInstanceUniqueId(), userPref);
+      }
+    }
+  }
 }

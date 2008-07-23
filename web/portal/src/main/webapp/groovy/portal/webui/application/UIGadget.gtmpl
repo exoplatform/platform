@@ -8,7 +8,7 @@
   def posX = uicomponent.getProperties().getIntValue("locationX") + "px";
   def posY = uicomponent.getProperties().getIntValue("locationY") + "px";
   def zIndex = uicomponent.getProperties().getIntValue("zIndex") ;
-  def id = uicomponent.getApplicationInstanceId() ;
+  def id = uicomponent.getId() ;
   def userPref = uicomponent.getUserPref() ;
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id', $metadata, $userPref);") ;
