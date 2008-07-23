@@ -44,6 +44,7 @@ public class UIApplicationInfo extends UIContainer {
   
   public void setApplication(Application app) throws Exception { 
     application_ = app ;
+    if(application_ == null) return ;
     UIPermissionForm uiPermissionForm = getChild(UIPermissionForm.class) ;
     uiPermissionForm.setValue(application_) ;
   }
