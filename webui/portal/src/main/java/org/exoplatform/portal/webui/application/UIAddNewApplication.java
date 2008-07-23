@@ -136,7 +136,7 @@ public class UIAddNewApplication extends UIContainer {
         StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
         windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/').append(uiGadget.hashCode());
         uiGadget.setApplicationInstanceId(windowId.toString());
-        uiGadget.setId(windowId.toString()) ;
+        uiGadget.setId(Integer.toString(uiGadget.hashCode()+1)) ;
  
         //Set Properties For gadget
         int posX = (int) (Math.random() * 400);
@@ -183,7 +183,7 @@ public class UIAddNewApplication extends UIContainer {
         UIGadget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIGadget.class, null, null);
         windowId.append(uiWidget.hashCode());
         uiWidget.setApplicationInstanceId(windowId.toString());
-        uiWidget.setId(windowId.toString()) ;
+        uiWidget.setId(Integer.toString(uiWidget.hashCode()+1)) ;
         uiWidgetContainer.addChild(uiWidget);
   
         UIGadgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIGadgets.class);
