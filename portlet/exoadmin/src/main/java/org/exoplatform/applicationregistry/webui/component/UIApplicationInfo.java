@@ -35,10 +35,18 @@ import org.exoplatform.webui.core.UIContainer;
 public class UIApplicationInfo extends UIContainer {
   
   private Application application_ ;
+  
+  public UIApplicationInfo() throws Exception {
+    addChild(UIPermissionForm.class, null, null) ;
+  }
 
   public Application getApplication() { return application_ ; }
   
-  public void setApplication(Application app) { application_ = app ; }
+  public void setApplication(Application app) throws Exception { 
+    application_ = app ;
+    UIPermissionForm uiPermissionForm = getChild(UIPermissionForm.class) ;
+    uiPermissionForm.setValue(application_) ;
+  }
   
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);

@@ -110,7 +110,7 @@ public class UIApplicationOrganizer extends UIContainer {
   
   public Application getSelectedApplication() { return selectedApplication ; }
   
-  public void setSelectedApplication(Application app) {
+  public void setSelectedApplication(Application app) throws Exception {
     selectedApplication = app ;
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
     uiAppInfo.setApplication(selectedApplication) ;
@@ -118,7 +118,7 @@ public class UIApplicationOrganizer extends UIContainer {
   
   public List<Application> getApplications() { return applications ;  }
   
-  public void selectApplication(String name) {
+  public void selectApplication(String name) throws Exception {
     for(Application ele : applications) {
       if(ele.getApplicationName().equals(name)) {
         setSelectedApplication(ele) ;

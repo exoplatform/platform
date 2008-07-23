@@ -23,8 +23,6 @@ import org.exoplatform.application.newregistry.Application;
 import org.exoplatform.application.newregistry.ApplicationRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIPopupComponent;
-import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -37,19 +35,23 @@ import org.exoplatform.webui.organization.UIListPermissionSelector;
  *          hoa.nguyen@exoplatform.com
  * Sep 26, 2006  
  */
-
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/form/UIForm.gtmpl",
-    events = @EventConfig(listeners = UIPermissionForm.SaveActionListener.class)
+    events = {
+      @EventConfig(listeners = UIPermissionForm.SelectMembershipActionListener.class),
+      @EventConfig(listeners = UIPermissionForm.DeleteActionListener.class),
+      @EventConfig(listeners = UIPermissionForm.ChangePublicModeActionListener.class)
+    }
 )
-public class UIPermissionForm extends UIForm implements UIPopupComponent {
+public class UIPermissionForm extends UIForm {
  
   private Application portlet_;
   
   public UIPermissionForm() throws Exception{
     UIListPermissionSelector selector = addChild(UIListPermissionSelector.class, null, "UIListPermissionSelector") ;
     selector.setName("UIListPermissionSelector") ;
+    setActions(new String [] {}) ;
   }
   
   public void setValue(Application portlet) throws Exception {
@@ -63,22 +65,45 @@ public class UIPermissionForm extends UIForm implements UIPopupComponent {
   
   public Application getPortlet() { return portlet_; }
   
-  static public class SaveActionListener extends EventListener<UIPermissionForm> {    
+  public void save() throws Exception {
+    UIListPermissionSelector uiListPermissionSelector = getChild(UIListPermissionSelector.class) ;
+    ArrayList<String> pers = new ArrayList<String>();
+    if(uiListPermissionSelector.getValue()!= null)
+    for(String per: uiListPermissionSelector.getValue()) pers.add(per);
+    portlet_.setAccessPermissions(pers) ;
+    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
+    portlet_.setModifiedDate(Calendar.getInstance().getTime());
+    service.update(portlet_) ;    
+  }
+  
+  static public class SelectMembershipActionListener extends EventListener<UIPermissionForm> {
+
     public void execute(Event<UIPermissionForm> event) throws Exception {
       UIPermissionForm  uiPermissionForm = event.getSource();
-      Application portlet = uiPermissionForm.getPortlet() ;
-      UIListPermissionSelector uiListPermissionSelector = uiPermissionForm.getChild(UIListPermissionSelector.class) ;
-      ArrayList<String> pers = new ArrayList<String>();
-      if(uiListPermissionSelector.getValue()!= null)
-      for(String per: uiListPermissionSelector.getValue()) pers.add(per);
-      portlet.setAccessPermissions(pers) ;
-      ApplicationRegistryService service = uiPermissionForm.getApplicationComponent(ApplicationRegistryService.class) ;
-      portlet.setModifiedDate(Calendar.getInstance().getTime());
-      service.update(portlet) ;      
-      UIPopupWindow uiPopupWindow = uiPermissionForm.getParent();
-      uiPopupWindow.setShow(false);
+      uiPermissionForm.save() ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPermissionForm.getParent()) ;
     }
+    
   }
-  public void activate() throws Exception {}
-  public void deActivate() throws Exception {}  
+  
+  static public class DeleteActionListener extends EventListener<UIPermissionForm> {
+
+    public void execute(Event<UIPermissionForm> event) throws Exception {
+      UIPermissionForm  uiPermissionForm = event.getSource();
+      uiPermissionForm.save() ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPermissionForm.getParent()) ;
+    }
+    
+  }
+  
+  static public class ChangePublicModeActionListener extends EventListener<UIPermissionForm> {
+
+    public void execute(Event<UIPermissionForm> event) throws Exception {
+      UIPermissionForm  uiPermissionForm = event.getSource();
+      uiPermissionForm.save() ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPermissionForm.getParent()) ;
+    }
+    
+  }
+
 }

@@ -200,6 +200,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       UIContainer uiParent = uiPermissions.getParent() ;
       uiParent.setRenderedChild(UIListPermissionSelector.class) ;
       UIForm uiForm = uiPermissions.getAncestorOfType(UIForm.class);
+      uiForm.broadcast(event, event.getExecutionPhase()) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent());
     }
   }
@@ -221,6 +222,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       UIPermissionSelector uiPermission = uiForm.findFirstComponentOfType(UIPermissionSelector.class) ;
       if(uiPermission != null) uiPermission.setRendered(false) ;
       if(uiForm != null) {
+        uiForm.broadcast(event, event.getExecutionPhase()) ;
         event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
       }
     }

@@ -47,7 +47,8 @@ def application = uicomponent.getApplication() ;
 
 	</div>
 	<div class="UIAcessPermissions">
-  	Acess permissions
+	<div>Access Permissions:</div>
+	<% uicomponent.renderChildren() %>
   </div>
   <% } %>
 </div>
