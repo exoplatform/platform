@@ -20,6 +20,7 @@
 .UITabContainer .EditIcon {
 	overflow: hidden;
 	float: left;
+	_float: none;
 }
 
 .UITabContainer .UIHorizontalTabs .UITab {

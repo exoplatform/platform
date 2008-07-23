@@ -1,9 +1,12 @@
 .UIHorizontalTabs {
 }
 
+.UIHorizontalTabs .RightHorizontalTabs {
+	background: url('background/LineDecorator1x7.gif') repeat-x bottom;
+}
+
 .UIHorizontalTabs .CenterHorizontalTabs {
   height: 30px;
-  background: url('background/LineDecorator1x7.gif') repeat-x bottom;
 }
 
 .UIHorizontalTabs .UITab {
@@ -137,7 +140,7 @@
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab{
   line-height: 24px;
-  margin: 0px 1px 0px 0px; padding-bottom: 6px;
+  margin: 0px 1px 0px 0px;
   color: #474849;
 }
 
@@ -201,7 +204,7 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab{
   line-height: 24px;
   color: black;
-  margin-right: 1px; margin-bottom: 6px;
+  margin-right: 1px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
