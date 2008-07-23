@@ -49,13 +49,13 @@
 .UIApplicationRegistryPortlet .AddIcon {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -247px;
 	width: 19px;
-	height: 20px
+	height: 20px;
 }
 
 .UIApplicationRegistryPortlet .ReloadIcon {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -271px;
 	width: 19px;
-	height: 20px
+	height: 20px;
 }
 
 .UIApplicationRegistryPortlet .UIControlbar .AddCategoryIcon {
@@ -65,7 +65,7 @@
 .UIApplicationRegistryPortlet .CreateNewIcon {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -23px;
 	width: 19px;
-	height: 20px
+	height: 20px;
 }
 
 .UIApplicationRegistryPortlet .UIControlbar .ImportIcon {
@@ -123,6 +123,10 @@
 	padding: 0px 5px;
 }
 
+.UIApplicationRegistryPortlet .CategoryContent a.TabLabel:hover {
+	color: #058ee6;
+}
+
 .UIApplicationRegistryPortlet .CategoryContent a.TabLabel {
 	display: block;
 	float: left;
@@ -147,14 +151,24 @@
 	margin: 1px 1px 1px 0px;
 }
 
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs a:hover {
+	color: #058ee6;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .TabLabel:hover {
+	color: #058ee6;
+}
+
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab a.TabLabel {
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;
 	padding: 0px 0px 0px 18px;
+	display: block;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab a.TabLabel {
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat left center;
 	padding: 0px 0px 0px 18px;
+	display: block;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
@@ -182,14 +196,18 @@
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .SelectedItem .ItemLabel {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -196px;
+	display: block;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ControlIcon {
 	float: right;
 }
 
+/**************************** AppWorkingArea *****************************/
+
 .UIApplicationRegistryPortlet .AppWorkingArea {
-	margin-left: 260px;
+	margin-left: 245px;
+	padding: 0px 10px;
 }
 
 .UIApplicationRegistryPortlet .UIBreadcumbs {
@@ -206,11 +224,13 @@
 
 .UIApplicationRegistryPortlet .UIBreadcumbs .BreadcumbsInfoBar {
 	background: none;
+	border-bottom: 1px solid #b7b7b7;
 }
 
 .UIApplicationRegistryPortlet .UIBreadcumbs .HomeIcon {
 	background: none;
 	width: 0px;
+	margin: 0px;
 }
 
 .UIApplicationRegistryPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
@@ -234,14 +254,11 @@
 
 .UIApplicationRegistryPortlet .ApplicationContent {
   margin-left: 90px;
-  padding: 12px;
+  padding: 15px;
 }
 
 .UIApplicationRegistryPortlet .TitleBarApplication {
 	background: none;
-	border-bottom: 1px solid #dfdfdf;
-	padding: 0px 1px 3px 1px;
-	margin: 0px auto 5px auto;
   font-weight: bold ; font-size: 12px; color: #1553B9;
 }
 
@@ -267,10 +284,33 @@
 	margin-top: 2px;
 }
 
+/*******************************UIAcessPermissions******************************/
+
 .UIApplicationRegistryPortlet .UIAcessPermissions {
-	padding: 20px;
 	margin: 20px 0px;
-	border: 1px solid red;
+	width: auto;
+}
+
+.UIApplicationRegistryPortlet .UIAcessPermissions .HorizontalLayout .FormContainer {
+	padding: 0px;
+}
+
+.UIApplicationRegistryPortlet .UIAcessPermissions .UIAccessGroup {
+	padding: 0px;
+}
+
+.UIApplicationRegistryPortlet .UIAcessPermissions .UIForm .HorizontalLayout {
+	padding: 0px;
+	border: none;
+	background: #f5f5f5;
+}
+
+.UIApplicationRegistryPortlet .UIAcessPermissions .UIFormGrid {
+	width: 100%;
+}
+
+.UIApplicationRegistryPortlet .UIAcessPermissions .UIFormGrid .UIFormGrid {
+	width: auto;
 }
 
 /********************************* UIPortletManagement *****************************/

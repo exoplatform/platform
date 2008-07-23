@@ -46,9 +46,13 @@ def application = uicomponent.getApplication() ;
   		</div>
 
 	</div>
-	<div class="UIAcessPermissions">
-	<div>Access Permissions:</div>
-	<% uicomponent.renderChildren() %>
-  </div>
+	<div class="UIAcessPermissions UIFormWithTitle">
+	  <div class="TitleBar">Access Permissions:</div>
+	  <div class="HorizontalLayout">
+	    <div class="FormContainer">
+				<% uicomponent.renderChildren() %>
+			</div>
+		</div>
+	</div>
   <% } %>
 </div>
