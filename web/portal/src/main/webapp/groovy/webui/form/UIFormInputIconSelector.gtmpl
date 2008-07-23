@@ -2,19 +2,6 @@
   import org.exoplatform.webui.form.UIForm; 
   import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.webui.core.UIDropDownControl;
- 
-  def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory');  
-  
-  //String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true);";
-  //String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false);";
-	String onMouseOver 		= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
-	String onMouseOut			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
-	
-  String onClick = "eXo.webui.UIItemSelector.onClick(this)";
-  String showPopupCategory =	"eXo.webui.UIPopupSelectCategory.show(this, 247);" ;
-  String selectCategory =			"eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
   
   def selectedIconSet = uicomponent.getSelectedIconSet();
   if(selectedIconSet.getName().equals("null")) {
@@ -26,9 +13,6 @@
 %>
 
 <div class="UIItemSelector UINodeIconSelector">
-<%
-	jsmanager.addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
-%>
 	<div class="LeftColumnStyle">
 	
     <input type="hidden" name="${uicomponent.name}" value ="$selectedIcon"/>

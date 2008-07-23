@@ -4,16 +4,8 @@
   import org.exoplatform.webui.core.UIRightClickPopupMenu ;
   import org.exoplatform.web.application.JavascriptManager;
 
-  def rcontext = _ctx.getRequestContext() ;
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');  
-  
   navigations = uicomponent.getPageNavigations();
   def selectedNav =  uicomponent.getSelectedNavigation();
-
-  String showCategory 	= "eXo.webui.UIPopupSelectCategory.show(this, 215);" ;
-  String onMouseOver 		= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
-  String onMouseOut			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
-  String selectCategory		= "eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
   
   UIRightClickPopupMenu uiPopupMenu = uicomponent.getChild(UIRightClickPopupMenu.class);
   String popupMenu = "";
@@ -23,7 +15,7 @@
   if(uiPopupMenu != null && uiPopupMenu.isRendered()) {
     String id = uicomponent.getParent().getId();
   	
-  	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  	JavascriptManager jsmanager = _ctx.getRequestContext().getJavascriptManager();
   	jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
     if(uicomponent.getCopyNode()!= null) {
       popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode,EditNavigation,SaveNavigation,DeleteNavigation");

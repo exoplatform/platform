@@ -1,22 +1,8 @@
 <%
-  import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.webui.core.UIDropDownControl; 
 
-  def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  
-  jsmanager.importJavascript('eXo.webui.UIContainerConfigOptions');
-	jsmanager.addOnLoadJavascript('eXo.webui.UIContainerConfigOptions.init');	
-	
   def categories = uicomponent.getCategories();
   def categorySelected = uicomponent.getCategorySelected();
-  
-  String showCategory 	= "eXo.webui.UIPopupSelectCategory.show(this, 217);" ;
-
-  String selectCategory = "eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
-  
-  String onMouseOver1 		= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
-  String onMouseOut1			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
 %>
 <div id="UIContainerConfigOptions">
 	<div class="TopLeftContainerOptions">
@@ -48,7 +34,7 @@
 										String setLabel = template.getLabel();
 										String title = _ctx.appRes("UIContainerConfigOptions.template." + setLabel) ;
 					      %>   
-					         <div class="$setIcon" title="$title" id="$setLabel"><span></span></div>
+					         <div class="$setIcon" title="$title" id="$setLabel" onmousedown="eXo.portal.PortalDragDrop.init.call(this, event) ;"><span></span></div>
 					      <%}%> 
 					    </div>  
 					  </div>

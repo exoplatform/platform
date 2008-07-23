@@ -6,83 +6,17 @@
   def rcontext = _ctx.getRequestContext() ;
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory');
   rcontext.getJavascriptManager().importJavascript('eXo.webui.UIItemSelector');
-  rcontext.getJavascriptManager().addJavascript("eXo.require('eXo.webui.UIPopupSelectCategory');");
 
   def categories = uicomponent.getItemCategories();
   UIForm form = uicomponent.getParent();
   UIDropDownControl drop = form.getChild(UIDropDownControl.class);
-  
-  
-  String showCategory  	= 		"eXo.webui.UIPopupSelectCategory.show(this, 250);" ;
-	String selectCategory =			"eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
-	String onMouseOver1		= 		"eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
-  String onMouseOut1		= 		"eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
-	
 %>
 <div class="UIItemSelector">
   <div class="RightColumnStyle">
     <input type="hidden" name="<%=uicomponent.getName();%>" value ="">
     <%/*Begin ItemList*/%>
     <div class="ItemListContainer ItemSelectorAncestor">
-      <%uicomponent.renderChild(UIDropDownControl.class);%>
-      <div class="UIPopupCategory" style="display: none">
-        <div class="PopupCategoryDecorator">
-          
-          <div class="PopupCategoryTL">
-            <div class="PopupCategoryTR">
-              <div class="PopupCategoryTC"><span></span></div>
-            </div>
-          </div>
-        
-          <div class="PopupCategoryML">
-            <div class="PopupCategoryMR">
-              <div class="PopupCategoryMC">
-                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
-                  <div class="Icon"><span></span></div>
-                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.DefaultPage")%></a>
-                  <div style="clear: left"><span></span></div>
-                </div>
-                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
-                  <div class="Icon"><span></span></div>
-                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.ColumnPage")%></a>
-                </div>
-                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
-                  <div class="Icon"><span></span></div>
-                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.RowsPage")%></a>
-                  <div style="clear: left"><span></span></div>
-                </div>
-                <div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
-                  <div class="Icon"><span></span></div>
-                  <a class="CategoryItemLabel"><%=_ctx.appRes("UIPageTemplateOptions.label.MixinPage")%></a>
-                  <div style="clear: left"><span></span></div>
-                </div>
-                <%
-                //<div class="CategoryItem" onclick="$selectCategory" onmouseover="$onMouseOver1" onmouseout="$onMouseOut1">
-                //  <div class="Icon"><span></span></div>
-                //  <a class="CategoryItemLabel"> 
-                %>
-                <%
-                  //=_ctx.appRes("UIPageTemplateOptions.label.TabPage")
-                %>
-                <%
-                // </a>
-                //  <div style="clear: left"><span></span></div>
-                //</div>
-                %>
-              </div>
-            </div>
-          </div>
-          
-          <div class="PopupCategoryBL">
-            <div class="PopupCategoryBR">
-              <div class="PopupCategoryBC"><span></span></div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-	    
-	    
+      <%uicomponent.renderChild(UIDropDownControl.class);%>	    
 	    <% 
 	      for(category in categories){
 	        templates = category.getSelectItemOptions();

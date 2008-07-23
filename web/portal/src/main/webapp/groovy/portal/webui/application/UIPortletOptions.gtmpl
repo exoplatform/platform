@@ -6,22 +6,11 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
   jsmanager.importJavascript('eXo.webui.UIVerticalSlideTabs');
-  jsmanager.importJavascript('eXo.webui.UIConfigOptions'); 
-	jsmanager.addOnLoadJavascript('eXo.webui.UIConfigOptions.init'); 
-	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
-%>
-
-<%
-	String showPortletCategory  = "eXo.webui.UIPopupSelectCategory.show(this, 217);" ;
-	String selectCategory = "eXo.webui.UIPopupSelectCategory.selectdCategory(this);" ;
-	
-	String onMouseOver 		= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, true);" ;
-  String onMouseOut			= "eXo.webui.UIPopupSelectCategory.onMouseOver(this, false);" ;
-  
+	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');  
   List portletCategoryDatas = uicomponent.getPortletCategorDatas();
 %>
 
-<div id="$uicomponent.id" >
+<div id="$uicomponent.id">
 	<div class="TopLeftContainerOptions">
 		<div class="TopRightContainerOptions">
 	  	<div class="TopCenterContainerOptions"><span></span></div>
@@ -56,9 +45,7 @@
 							            <div class="TabRepeat">
 							              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
 												      <div class="LeftIcon"><span></span></div>
-										          <div class="TabLabel" title="$title Portlet">
-										          	$name
-										          </div>
+										          <div class="TabLabel" title="$title Portlet" style="cursor:move;" onmousedown="eXo.portal.PortalDragDrop.init.call(this, event) ;">$name</div>
 									          </div>
 							            </div>
 							          </div>
