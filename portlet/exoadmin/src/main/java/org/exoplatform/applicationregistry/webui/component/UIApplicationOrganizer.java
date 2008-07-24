@@ -110,6 +110,7 @@ public class UIApplicationOrganizer extends UIContainer {
   
   public void setSelectedApplication(Application app) throws Exception {
     selectedApplication = app ;
+    switchToDefaulView() ;
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
     uiAppInfo.setApplication(selectedApplication) ;
   }
