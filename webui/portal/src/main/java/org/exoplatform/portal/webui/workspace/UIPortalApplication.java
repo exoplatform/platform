@@ -290,6 +290,14 @@ public class UIPortalApplication extends UIApplication {
         }
       }
       w.write("<div class=\"PortalResponse\">") ;
+      w.  write("<div class=\"PortalResponseData\">");
+      for(UIComponent uicomponent : uiDataComponents) {
+        if(log.isDebugEnabled())
+          log.debug("AJAX call: Need to refresh the UI component " + uicomponent.getName());
+        renderBlockToUpdate(uicomponent, context, w) ;
+      }
+      w.  write("</div>");
+      
       if(!context.getFullRender()) {
         for(UIPortlet uiPortlet : uiPortlets) {
           if(log.isDebugEnabled())
@@ -314,14 +322,7 @@ public class UIPortalApplication extends UIApplication {
           w.write("</div>") ;
         }
       }
-      w.  write("<div class=\"PortalResponseData\">");
-      for(UIComponent uicomponent : uiDataComponents) {
-        if(log.isDebugEnabled())
-          log.debug("AJAX call: Need to refresh the UI component " + uicomponent.getName());
-    	  renderBlockToUpdate(uicomponent, context, w) ;
-      }
-      
-      w.  write("</div>");
+
       w.  write("<div class=\"PortalResponseScript\">"); 
       w.    write(pcontext.getJavascriptManager().getJavascript());
       w.    write("eXo.core.Browser.onLoad();\n"); 
