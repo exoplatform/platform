@@ -188,8 +188,8 @@ public class UIAddApplicationForm extends UIForm {
       app.setDisplayName(uiNameInput.getValue()) ;
       ApplicationCategory selectedCate = uiOrganizer.getSelectedCategory() ;
       appRegService.save(selectedCate, app) ;
-      uiOrganizer.initApplicationCategories(false) ;
-      uiOrganizer.setSelectedCategory(selectedCate) ;
+      uiOrganizer.initApplicationCategories() ;
+      uiOrganizer.setSelectedCategory(selectedCate.getName()) ;
       uiOrganizer.selectApplication(app.getApplicationName()) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }

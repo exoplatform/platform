@@ -11,7 +11,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 %>
 <div class="UIOrganizerManagement" id="$uicomponent.id">
   <div class="UIControlbar">
-  	<div class="IconControl AddCategoryIcon" onclick="<%= uicomponent.event("AddCategory") %>">Add Categorie</div>
+  	<div class="IconControl AddCategoryIcon" onclick="<%= uicomponent.event("AddCategory") %>">Add Category</div>
   	<div class="IconControl CreateNewIcon" onclick="<%= uicomponent.event("AddApplication") %>">Add</div>
   	<div class="IconControl ImportIcon" onclick="<%= uicomponent.event("ImportAllApplications") %>">Auto import</div>
   	<div style="clear: both"><span></span></div>
@@ -22,7 +22,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 			<div class="Slidebar">
 				<div class="WorkingArea">
 					<div class="CategoryContent">
-						<div class="TitleCategory">CATEGORIE</div>
+						<div class="TitleCategory">CATEGORIES</div>
 		   	    <div class="ListContent">	
 		   	    	
 		   	    	<div class="UIVerticalSlideTabs">
@@ -67,7 +67,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 								  %>
 										<div class="ItemContent $cssClass">
 											<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel"><%= application.getDisplayName() %></a>
-											<a class="ControlIcon DeletePortalIcon"><span></span></a>
+											<a class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveApplication", "$appName") %>"><span></span></a>
 						          <div style="clear: both"><span></span></div>
 										</div>
 									<% } %>	
