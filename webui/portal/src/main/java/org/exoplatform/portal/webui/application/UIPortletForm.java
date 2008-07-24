@@ -70,17 +70,17 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
 )   
 public class UIPortletForm extends UIFormTabPane {	
   
-  private UIPortlet uiPortlet_ ;
-  private UIComponent backComponent_ ;
-  final static private String FIELD_THEME = "Theme" ; 
-  final static private String FIELD_PORTLET_PREF = "PortletPref" ;
+  private UIPortlet uiPortlet_;
+  private UIComponent backComponent_;
+  private static final String FIELD_THEME = "Theme"; 
+  private static final String FIELD_PORTLET_PREF = "PortletPref";
   
   @SuppressWarnings("unchecked")
   public UIPortletForm() throws Exception {
   	super("UIPortletForm");
-  	UIFormInputSet uiPortletPrefSet = new UIFormInputSet(FIELD_PORTLET_PREF).setRendered(false) ;
-  	addUIFormInput(uiPortletPrefSet) ;
-    UIFormInputSet uiSettingSet = new UIFormInputSet("PortletSetting") ;
+  	UIFormInputSet uiPortletPrefSet = new UIFormInputSet(FIELD_PORTLET_PREF).setRendered(false);
+  	addUIFormInput(uiPortletPrefSet);
+    UIFormInputSet uiSettingSet = new UIFormInputSet("PortletSetting");
   	uiSettingSet.
       addUIFormInput(new UIFormStringInput("id", "id", null).
                      addValidator(MandatoryValidator.class).setEditable(false)).
@@ -88,40 +88,42 @@ public class UIPortletForm extends UIFormTabPane {
     	addUIFormInput(new UIFormStringInput("title", "title", null).
                      addValidator(StringLengthValidator.class, 3, 30)).
   		addUIFormInput(new UIFormStringInput("width", "width", null).
-                     addValidator(ExpressionValidator.class, "(^([1-9]\\d*)px$)?", "width")).
+                     addValidator(ExpressionValidator.class, "(^([1-9]\\d*)px$)?",
+                         "UIPortletForm.msg.InvalidWidthHeight")).
   		addUIFormInput(new UIFormStringInput("height", "height", null).
-  		               addValidator(ExpressionValidator.class, "(^([1-9]\\d*)px$)?", "height")).
+  		               addValidator(ExpressionValidator.class, "(^([1-9]\\d*)px$)?", 
+                         "UIPortletForm.msg.InvalidWidthHeight")).
   		addUIFormInput(new UIFormCheckBoxInput("showInfoBar", "showInfoBar", false)).
   		addUIFormInput(new UIFormCheckBoxInput("showPortletMode", "showPortletMode", false)).
     	addUIFormInput(new UIFormCheckBoxInput("showWindowState", "showWindowState", false)).
       addUIFormInput(new UIFormTextAreaInput("description", "description", null).
                      addValidator(StringLengthValidator.class, 0, 255));
     addUIFormInput(uiSettingSet);    
-    UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon") ;
-    addUIFormInput(uiIconSelector) ;
+    UIFormInputIconSelector uiIconSelector = new UIFormInputIconSelector("Icon", "icon");
+    addUIFormInput(uiIconSelector);
     
-    UIFormInputThemeSelector uiThemeSelector = new UIFormInputThemeSelector(FIELD_THEME, null) ;
-    SkinService skinService = getApplicationComponent(SkinService.class) ;
-    uiThemeSelector.getChild(UIItemThemeSelector.class).setValues(skinService.getPortletThemes()) ;
-    addUIFormInput(uiThemeSelector) ;
+    UIFormInputThemeSelector uiThemeSelector = new UIFormInputThemeSelector(FIELD_THEME, null);
+    SkinService skinService = getApplicationComponent(SkinService.class);
+    uiThemeSelector.getChild(UIItemThemeSelector.class).setValues(skinService.getPortletThemes());
+    addUIFormInput(uiThemeSelector);
   }
   
-  public UIComponent getBackComponent() { return backComponent_ ; }
-  public void setBackComponent(UIComponent uiComp) throws Exception {
+  public UIComponent getBackComponent() { return backComponent_; }
+  public void setBackComponent(final UIComponent uiComp) throws Exception {
     backComponent_ = uiComp;
   }
   
   public UIPortlet getUIPortlet() { return uiPortlet_; }
 
   public boolean hasEditMode() {
-    return uiPortlet_.getSupportModes().contains("edit") ;
+    return uiPortlet_.getSupportModes().contains("edit");
   }
   
   public String getEditModeContent() {
     StringBuilder portletContent = new StringBuilder();
     try {
-      PortalRequestContext prcontext = (PortalRequestContext) WebuiRequestContext.getCurrentInstance() ;
-      prcontext.setFullRender(true) ;
+      PortalRequestContext prcontext = (PortalRequestContext) WebuiRequestContext.getCurrentInstance();
+      prcontext.setFullRender(true);
       ExoContainer container = prcontext.getApplication().getApplicationServiceContainer();
       PortletContainerService portletContainer = (PortletContainerService) container
       .getComponentInstanceOfType(PortletContainerService.class);
@@ -156,59 +158,59 @@ public class UIPortletForm extends UIFormTabPane {
       portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
       System.err.println("Exception print in the portlet content" + portletContent);
     }
-    return portletContent.toString() ;
+    return portletContent.toString();
   }
   
   @SuppressWarnings("unchecked")
-  public void setValues(UIPortlet uiPortlet) throws Exception {
+  public void setValues(final UIPortlet uiPortlet) throws Exception {
   	uiPortlet_ = uiPortlet;
-    invokeGetBindingBean(uiPortlet_) ;
+    invokeGetBindingBean(uiPortlet_);
     String icon = uiPortlet.getIcon();
     
-    if( icon == null || icon.length() < 0) icon = "PortletIcon" ;
+    if (icon == null || icon.length() < 0) { icon = "PortletIcon"; }
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
-    getChild(UIFormInputThemeSelector.class).getChild(UIItemThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null)) ;
+    getChild(UIFormInputThemeSelector.class).getChild(UIItemThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null));
     
-    if(hasEditMode()) {
-      uiPortlet.setCurrentPortletMode(PortletMode.EDIT) ;
+    if (hasEditMode()) {
+      uiPortlet.setCurrentPortletMode(PortletMode.EDIT);
     } else {
       ExoWindowID windowID = uiPortlet.getExoWindowID();
-      Input input = new Input() ;
-      input.setInternalWindowID(windowID) ;
-      PortletContainerService pcServ = getApplicationComponent(PortletContainerService.class) ;
+      Input input = new Input();
+      input.setInternalWindowID(windowID);
+      PortletContainerService pcServ = getApplicationComponent(PortletContainerService.class);
       PortletPreferences preferences = pcServ.getPortletPreferences(input);
-      if(preferences != null) {
-        UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF) ;
-        uiPortletPrefSet.getChildren().clear() ;
-        Enumeration<String> prefNames = preferences.getNames() ;
+      if (preferences != null) {
+        UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF);
+        uiPortletPrefSet.getChildren().clear();
+        Enumeration<String> prefNames = preferences.getNames();
   
-        while(prefNames.hasMoreElements()) {
-          String name = prefNames.nextElement() ;
-          if(!preferences.isReadOnly(name)) {
-            uiPortletPrefSet.addUIFormInput(new UIFormStringInput(name, null, preferences.getValue(name, "value"))) ;
+        while (prefNames.hasMoreElements()) {
+          String name = prefNames.nextElement();
+          if (!preferences.isReadOnly(name)) {
+            uiPortletPrefSet.addUIFormInput(new UIFormStringInput(name, null, preferences.getValue(name, "value")));
           }
         }
-        if(uiPortletPrefSet.getChildren().size() > 0) {
-          uiPortletPrefSet.setRendered(true) ;
-          setSelectedTab(FIELD_PORTLET_PREF) ;
-          return ;
+        if (uiPortletPrefSet.getChildren().size() > 0) {
+          uiPortletPrefSet.setRendered(true);
+          setSelectedTab(FIELD_PORTLET_PREF);
+          return;
         }
       }
-      setSelectedTab("PortletSetting") ;
+      setSelectedTab("PortletSetting");
     } 
   }
   
   private void savePreferences() throws Exception {
-    UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF) ;
-    List<UIFormStringInput> uiFormInputs = new ArrayList<UIFormStringInput>(3) ;
-    uiPortletPrefSet.findComponentOfType(uiFormInputs, UIFormStringInput.class) ;
-    if(uiFormInputs.size() < 1) return ;
-    Input input = new Input() ;
-    input.setInternalWindowID(uiPortlet_.getExoWindowID()) ;
-    Map<String, String> pers = new HashMap<String, String>() ;
-    for(UIFormStringInput ele : uiFormInputs) pers.put(ele.getName(), ele.getValue()) ;
-    PortletContainerService preferences = getApplicationComponent(PortletContainerService.class) ;
-    preferences.setPortletPreference(input, pers) ;
+    UIFormInputSet uiPortletPrefSet = getChildById(FIELD_PORTLET_PREF);
+    List<UIFormStringInput> uiFormInputs = new ArrayList<UIFormStringInput>(3);
+    uiPortletPrefSet.findComponentOfType(uiFormInputs, UIFormStringInput.class);
+    if (uiFormInputs.size() < 1) { return; }
+    Input input = new Input();
+    input.setInternalWindowID(uiPortlet_.getExoWindowID());
+    Map<String, String> pers = new HashMap<String, String>();
+    for(UIFormStringInput ele : uiFormInputs) { pers.put(ele.getName(), ele.getValue()); }
+    PortletContainerService preferences = getApplicationComponent(PortletContainerService.class);
+    preferences.setPortletPreference(input, pers);
   }
   
   
@@ -230,33 +232,34 @@ public class UIPortletForm extends UIFormTabPane {
   }
   
 	static public class SaveActionListener extends EventListener<UIPortletForm> {
-    public void execute(Event<UIPortletForm> event) throws Exception {
-      UIPortletForm uiPortletForm = event.getSource() ;
-      UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
+    public void execute(final Event<UIPortletForm> event) throws Exception {
+      UIPortletForm uiPortletForm = event.getSource();
+      UIPortlet uiPortlet = uiPortletForm.getUIPortlet();
       UIFormInputIconSelector uiIconSelector = uiPortletForm.getChild(UIFormInputIconSelector.class);
-      uiPortletForm.invokeSetBindingBean(uiPortlet) ;
-      if(uiIconSelector.getSelectedIcon().equals("Default")) uiPortlet.setIcon("PortletIcon") ;
-      else uiPortlet.setIcon(uiIconSelector.getSelectedIcon());
-      UIFormInputThemeSelector uiThemeSelector = uiPortletForm.getChild(UIFormInputThemeSelector.class) ;
-      uiPortlet.putSuitedTheme(null, uiThemeSelector.getChild(UIItemThemeSelector.class).getSelectedTheme()) ;
-      uiPortletForm.savePreferences() ;
+      uiPortletForm.invokeSetBindingBean(uiPortlet);
+      if (uiIconSelector.getSelectedIcon().equals("Default")) { 
+        uiPortlet.setIcon("PortletIcon"); 
+      } else { uiPortlet.setIcon(uiIconSelector.getSelectedIcon()); }
+      UIFormInputThemeSelector uiThemeSelector = uiPortletForm.getChild(UIFormInputThemeSelector.class);
+      uiPortlet.putSuitedTheme(null, uiThemeSelector.getChild(UIItemThemeSelector.class).getSelectedTheme());
+      uiPortletForm.savePreferences();
       UIMaskWorkspace uiMaskWorkspace = uiPortletForm.getParent();
       uiMaskWorkspace.setUIComponent(null);
-      if(uiPortletForm.hasEditMode()) {
+      if (uiPortletForm.hasEditMode()) {
         uiPortlet.setCurrentPortletMode(PortletMode.VIEW);
       }
       
       String width = uiPortletForm.getUIStringInput("width").getValue();
-      if(width==null || width.length()==0)
-        uiPortlet.setWidth(null);
-      else uiPortlet.setWidth(width);
+      if (width == null || width.length() == 0) { 
+        uiPortlet.setWidth(null); 
+      } else { uiPortlet.setWidth(width); }
       
       String height = uiPortletForm.getUIStringInput("height").getValue();
-      if(height==null || height.length()==0)
-        uiPortlet.setHeight(null);
-      else uiPortlet.setHeight(height);
+      if (height == null || height.length() == 0) { 
+        uiPortlet.setHeight(null); 
+      } else { uiPortlet.setHeight(height); }
       
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
       pcontext.addUIComponentToUpdateByAjax(uiMaskWorkspace);
       UIPortalApplication uiPortalApp = uiPortlet.getAncestorOfType(UIPortalApplication.class);
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
@@ -266,21 +269,21 @@ public class UIPortletForm extends UIFormTabPane {
     }
   }
 	
-  static public class CloseActionListener extends EventListener<UIPortletForm> {
-    public void execute(Event<UIPortletForm> event) throws Exception {
-      UIPortletForm uiPortletForm = event.getSource() ;
-      UIPortlet uiPortlet = uiPortletForm.getUIPortlet() ;
-      if(uiPortletForm.hasEditMode()) uiPortlet.setCurrentPortletMode(PortletMode.VIEW);
-      UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
+  public static class CloseActionListener extends EventListener<UIPortletForm> {
+    public void execute(final Event<UIPortletForm> event) throws Exception {
+      UIPortletForm uiPortletForm = event.getSource();
+      UIPortlet uiPortlet = uiPortletForm.getUIPortlet();
+      if (uiPortletForm.hasEditMode()) { uiPortlet.setCurrentPortletMode(PortletMode.VIEW); }
+      UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
       //add by Pham Dinh Tan
       UIMaskWorkspace uiMaskWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);
-      uiMaskWorkspace.setUIComponent(null) ;
-      uiMaskWorkspace.setWindowSize(-1, -1) ;
+      uiMaskWorkspace.setUIComponent(null);
+      uiMaskWorkspace.setWindowSize(-1, -1);
       pcontext.addUIComponentToUpdateByAjax(uiMaskWorkspace);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
-      pcontext.setFullRender(true) ;
+      pcontext.setFullRender(true);
       Util.showComponentLayoutMode(UIPortlet.class);  
     }
   }

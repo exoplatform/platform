@@ -34,35 +34,35 @@ public class ExpressionValidator implements Validator {
   private String expression_;
   private String key_;
   
-  public ExpressionValidator(String expression) {
+  public ExpressionValidator(final String expression) {
     expression_ = expression;
     key_ = "ExpressionValidator.msg.value-invalid";
   }
   
-  public ExpressionValidator(String exp, String key){
+  public ExpressionValidator(final String exp, final String key) {
     expression_ = exp; 
     key_ = key;
   }
   
-  public void validate(UIFormInput uiInput) throws Exception {
-	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
-    if((uiInput.getValue() != null) ){
-      String value = ((String)uiInput.getValue()).trim();
-      if(value.matches(expression_)) return ;
+  public void validate(final UIFormInput uiInput) throws Exception {
+	  if (uiInput.getValue() == null || ((String) uiInput.getValue()).trim().length() == 0) { return; }
+    if (uiInput.getValue() != null) {
+      String value = ((String) uiInput.getValue()).trim();
+      if (value.matches(expression_)) { return; }
     }    
     
     //  modified by Pham Dinh Tan
-    UIComponent uiComponent = (UIComponent) uiInput ;
-    UIForm uiForm = uiComponent.getAncestorOfType(UIForm.class) ;    
+    UIComponent uiComponent = (UIComponent) uiInput;
+    UIForm uiForm = uiComponent.getAncestorOfType(UIForm.class);    
     String label;
-    try{
+    try {
       label = uiForm.getLabel(uiInput.getName());
-    } catch(Exception e) {
+    } catch (Exception e) {
       label = uiInput.getName();
     }
     label = label.trim();
-    if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
-    Object[]  args = {label,} ;
-    throw new MessageException(new ApplicationMessage(key_, args, ApplicationMessage.WARNING)) ;
+    if (label.charAt(label.length() - 1) == ':') { label = label.substring(0, label.length() - 1); }
+    Object[] args = {label, };
+    throw new MessageException(new ApplicationMessage(key_, args, ApplicationMessage.WARNING));
   }
 }
