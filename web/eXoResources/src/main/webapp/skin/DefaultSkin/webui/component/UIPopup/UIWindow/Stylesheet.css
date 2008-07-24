@@ -27,6 +27,10 @@
 	margin: 30px auto 30px auto;
 }
 
+.UIPageBody .UIPage .UITabContainer .HorizontalLayout {
+	*width: 99.5%;
+}
+
 /*======================== UIPortalWarning ================================*/
 .UIPageBody .UIPortalWarning {
 	font-family: tahoma;

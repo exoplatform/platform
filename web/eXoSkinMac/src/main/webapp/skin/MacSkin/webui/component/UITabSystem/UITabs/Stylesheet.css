@@ -1,12 +1,9 @@
 .UIHorizontalTabs {
 }
 
-.UIHorizontalTabs .RightHorizontalTabs {
-	background: url('background/LineDecorator1x7.gif') repeat-x bottom;
-}
-
 .UIHorizontalTabs .CenterHorizontalTabs {
   height: 30px;
+  background: url('background/LineDecorator1x7.gif') repeat-x bottom;
 }
 
 .UIHorizontalTabs .UITab {

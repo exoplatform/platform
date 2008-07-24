@@ -112,6 +112,10 @@
   height: 7px;
 }
 
+.UIPageBody .UIPage .UITabContainer .HorizontalLayout {
+	*width: 99.5%;
+}
+
 .UIPortal .VIEW-CONTAINER .VIEW-PORTLET .UIWindow {
   width: auto ; height: auto;
   padding: 8px 5px 5px 0px; 

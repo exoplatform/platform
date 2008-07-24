@@ -109,3 +109,7 @@
   background: url('/eXoResources/skin/sharedImages/CenterBottomWarning1x7.gif') repeat-x center;	
   height: 7px;
 }
+
+.UIPageBody .UIPage .UITabContainer .HorizontalLayout {
+	*width: 99.5%;
+}
