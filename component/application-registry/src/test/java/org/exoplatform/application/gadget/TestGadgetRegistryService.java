@@ -39,17 +39,31 @@ public class TestGadgetRegistryService extends BasicTestCase {
   }
   
   public void testAddGadget() throws Exception {
+    GadgetApplication g1 = new GadgetApplication("weather", "http://www.labpixies.com/campaigns/weather/weather.xml") ;
+    GadgetApplication g2 = new GadgetApplication("map", "http://www.labpixies.com/campaigns/maps/maps.xml") ;
+    service_.addGadget(g1) ;
+    service_.addGadget(g2) ;
+    assertEquals(2, service_.getAllGadgets().size()) ;
+    GadgetApplication g3 = service_.getGadget(g1.getApplicationId()) ; 
+    assertNotNull(g3) ;
+    assertEquals("weather", g3.getApplicationId()) ;
+    assertEquals("http://www.labpixies.com/campaigns/weather/weather.xml", g3.getUrl()) ;
+    
+    GadgetApplication g4 = service_.getGadget(g2.getApplicationId()) ; 
+    assertNotNull(g4) ;
+    assertEquals("map", g4.getApplicationId()) ;
+    assertEquals("http://www.labpixies.com/campaigns/maps/maps.xml", g4.getUrl()) ;
+
+  }
+  
+  public void testGetGadget() throws Exception {
     GadgetApplication gadget = new GadgetApplication("weather", "http://www.labpixies.com/campaigns/weather/weather.xml") ;
     service_.addGadget(gadget) ;
     GadgetApplication g = service_.getGadget(gadget.getApplicationId()) ;
     assertNotNull(g) ;
     assertEquals(1, service_.getAllGadgets().size()) ;
     assertEquals("weather", g.getApplicationId()) ;
-    assertEquals("http://www.labpixies.com/campaigns/weather/weather.xml", g.getUrl()) ;
-  }
-  
-  public void testGetGadget() {
-    
+    assertEquals("http://www.labpixies.com/campaigns/weather/weather.xml", g.getUrl()) ;    
   }
   
   public void testGetAllGadgets() {
