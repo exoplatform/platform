@@ -1,4 +1,50 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
-  <import>classpath:/conf/portal/testjcr/test-jcr-configuration.xml</import> 
+  <component>
+    <key>org.exoplatform.application.registry.ApplicationRegistryService</key>
+    <type>org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl</type>
+  </component>
+  
+  <component>
+    <key>org.exoplatform.application.newregistry.ApplicationRegistryService</key>
+    <type>org.exoplatform.application.newregistry.jcr.ApplicationRegistryServiceImpl</type>
+  </component>
+  
+  <component>
+    <key>org.exoplatform.web.application.gadget.GadgetRegistryService</key>
+    <type>org.exoplatform.application.gadget.GadgetRegistryServiceImpl</type>
+  </component>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
+    <component-plugin>
+          <name>bind.datasource</name>
+          <set-method>addPlugin</set-method>
+          <type>org.exoplatform.services.naming.BindReferencePlugin</type>
+          <init-params>
+            <value-param>
+              <name>bind-name</name>
+              <value>jdbcexo</value>
+            </value-param>
+            <value-param>
+              <name>class-name</name>
+              <value>javax.sql.DataSource</value>
+            </value-param>
+            <value-param>
+              <name>factory</name>
+              <value>org.apache.commons.dbcp.BasicDataSourceFactory</value>
+            </value-param>
+            <properties-param>
+              <name>ref-addresses</name>
+              <description>ref-addresses</description>
+              <property name="driverClassName" value="org.hsqldb.jdbcDriver"/>
+              <property name="url" value="jdbc:hsqldb:file:target/temp/data/portal"/>
+              <property name="username" value="sa"/>
+              <property name="password" value=""/>
+            </properties-param>
+          </init-params>
+        </component-plugin>        
+  </external-component-plugins>
+  
+  <import>jar:/conf/portal/jcr-configuration.xml</import>
 </configuration>

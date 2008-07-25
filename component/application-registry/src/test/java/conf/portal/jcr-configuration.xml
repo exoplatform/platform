@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+  <component>
+    <key>org.exoplatform.services.jcr.config.RepositoryServiceConfiguration</key>
+    <type>org.exoplatform.services.jcr.impl.config.RepositoryServiceConfigurationImpl</type>
+    <init-params>
+      <value-param>
+        <name>conf-path</name>
+        <description>JCR configuration file</description>
+        <value>jar:/conf/portal/repository-configuration.xml</value>
+      </value-param>
+      <properties-param>
+        <name>working-conf</name>
+        <description>working-conf</description>
+        <property name="persister-class-name" value="org.exoplatform.services.jcr.impl.config.JDBCConfigurationPersister"/>
+        <property name="source-name" value="jdbcexo"/>
+        <property name="dialect" value="hsqldb"/>
+      </properties-param>
+    </init-params>
+  </component>
+  
+  <component>
+    <key>org.exoplatform.services.jcr.RepositoryService</key>
+    <type>org.exoplatform.services.jcr.impl.RepositoryServiceImpl</type>
+  </component>
+  
+  <component>
+    <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
+    <init-params>
+      <properties-param>
+      	<name>locations</name>
+      	<property name="repository" value="system"/>
+      </properties-param>
+    </init-params>
+  </component>
+</configuration>

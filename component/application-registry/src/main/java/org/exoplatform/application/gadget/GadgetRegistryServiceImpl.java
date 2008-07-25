@@ -63,6 +63,10 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
   public List<GadgetApplication> getAllGadgets() throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
+    if(!regNode.hasNode(PATH)) {
+      sessionProvider.close() ;
+      return new ArrayList<GadgetApplication>() ;
+    }
     NodeIterator itr = regNode.getNode(PATH).getNodes() ;
     List<GadgetApplication> apps = new ArrayList<GadgetApplication>() ;
     while(itr.hasNext()) {
