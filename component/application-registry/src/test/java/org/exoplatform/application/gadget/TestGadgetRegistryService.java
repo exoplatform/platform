@@ -38,8 +38,14 @@ public class TestGadgetRegistryService extends BasicTestCase {
     service_ = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class) ;
   }
   
-  public void testAddGadget() { 
-    
+  public void testAddGadget() throws Exception {
+    GadgetApplication gadget = new GadgetApplication("weather", "http://www.labpixies.com/campaigns/weather/weather.xml") ;
+    service_.addGadget(gadget) ;
+    GadgetApplication g = service_.getGadget(gadget.getApplicationId()) ;
+    assertNotNull(g) ;
+    assertEquals(1, service_.getAllGadgets().size()) ;
+    assertEquals("weather", g.getApplicationId()) ;
+    assertEquals("http://www.labpixies.com/campaigns/weather/weather.xml", g.getUrl()) ;
   }
   
   public void testGetGadget() {
