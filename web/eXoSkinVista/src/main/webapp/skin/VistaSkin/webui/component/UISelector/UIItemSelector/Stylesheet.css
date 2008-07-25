@@ -214,7 +214,7 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .RightItem {
   background: url('background/SelectedItem.png') no-repeat right -192px;
-  padding-right: 30px;
+  padding-right: 2px;
   height: 24px;
 }
 
@@ -242,13 +242,13 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .RightItem {
   background: url('background/SelectedItem.png') no-repeat right -120px;
-  padding-right: 30px;
+  padding-right: 2px;
   height: 24px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .ItemTitle {
 	background: url('background/SelectedItem.png') repeat-x left -96px;
-  height: 24px; line-height: 24px; vertical-align: middle;
+  height: 24px; line-height: 24px;
   color: black;
 }
 

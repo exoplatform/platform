@@ -22,20 +22,22 @@
         <div class="LeftBar">
           <div class="RightBar">
 		        <div class="MiddleBar">
-		          <div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.title.DragControlArea")%>"><span></span></div>
-		          <div class="ContainerIcon"><span></span></div>             
-              <div class="Title">
-	              <% 
-	                if(uicomponent.getTitle() != null) {
-	                  println(uicomponent.getTitle()) ;
-	                } else {
-	              %>
-	              <%=_ctx.appRes("UIContainer.title.Container")%>
-	              <%}%>
-              </div>            
-	            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"><span></span></a>
-							<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"><span></span></a>
-              <div style="clear: both"><span></span></div>
+		        	<div class="FixHeight">
+			          <div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.title.DragControlArea")%>"><span></span></div>
+			          <div class="ContainerIcon"><span></span></div>             
+	              <div class="Title">
+		              <% 
+		                if(uicomponent.getTitle() != null) {
+		                  println(uicomponent.getTitle()) ;
+		                } else {
+		              %>
+		              <%=_ctx.appRes("UIContainer.title.Container")%>
+		              <%}%>
+	              </div>            
+		            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"><span></span></a>
+								<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"><span></span></a>
+	              <div style="clear: both"><span></span></div>
+	            </div>
 		        </div>
           </div>
         </div>

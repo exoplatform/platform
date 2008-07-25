@@ -46,8 +46,6 @@
 	background: url('background/DropDownControl.gif') no-repeat scroll right top;
 	cursor: pointer;
 	height: 19px;
-	padding-right: 20px;
-	
 }
 
 .UIDropDownControl .DropDownSelectLabel {

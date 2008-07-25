@@ -1,5 +1,5 @@
 .UITabContainer {
-	padding: 2px 7px 7px 7px;
+	padding: 7px;
 }
 
 .UITabContainer .HorizontalLayout {
@@ -8,36 +8,8 @@
 	border-top: none;
 }
 
-.UITabContainer .HorizontalLayout .UIContainer .LAYOUT-CONTAINER{
-	margin: 0px 5px 5px 5px;
-}
-
-.UITabContainer .HorizontalLayout .UIContainer .CONTROL-CONTAINER{
-	margin: 0px 2px 0px 2px;
-}
-
-.UITabContainer .HorizontalLayout .UIContainer .CONTROL-CONTAINER .UIInfoBar{
-	margin-bottom: 0px;
-}
-
-.UITabContainer .HorizontalLayout .UIPortlet .CONTROL-PORTLET{
-	margin: 0px;
-}
-
-.UITabContainer .HorizontalLayout .UIPortlet .CONTROL-PORTLET .UIInfoBar {
-  margin-bottom: 0px;
-}
-
-.UITabContainer .HorizontalLayout .UIPortlet .LAYOUT-PORTLET{
-	margin: 0px;
-}
-
-.UITabContainer .HorizontalLayout .UIPortlet .VIEW-PORTLET{
-	margin-left: 4px;
-}
-
-.UITabContainer .HorizontalLayout .UITabContentContainer .UITabContent{
-	padding-top: 10px;
+.UITabContainer .HorizontalLayout .UITabContentContainer .UITabContent {
+	padding: 5px;
 }
 
 .UITabContainer a.TabLabel {
@@ -69,4 +41,8 @@
 .UITabContainer .HorizontalLayout .UIWindow {
 	margin: auto;
 	padding-top: 5px;
+}
+
+.UIPage .UITabContainer .TabContent {
+	height: 100%;
 }

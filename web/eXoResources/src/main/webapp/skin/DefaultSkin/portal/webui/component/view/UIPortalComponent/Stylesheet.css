@@ -3,7 +3,6 @@
 }
 
 .UIPortlet .CONTROL-PORTLET {
-  margin: 0px 0px -1px 0px;
 }
 
 .UIPortlet .CONTROL-PORTLET .Login {
@@ -45,20 +44,21 @@
 }
 
 .PortletLayoutDecorator .TopLeft {
-  height: 6px ;
   background: url('background/PortletLayoutDecorator.gif') no-repeat left top;
   padding-left: 7px ;
 }
 
 .PortletLayoutDecorator .TopMiddle {
-  height: 6px ;
   background: url('background/PortletLayoutDecorator.gif') repeat-x center -6px;
 }
 
 .PortletLayoutDecorator .TopRight {
-  height: 6px ;
   background: url('background/PortletLayoutDecorator.gif') no-repeat right top;
   padding-right: 7px ;
+}
+
+.PortletLayoutDecorator .TopLeft .FixHeight {
+	height: 6px;
 }
 
 .PortletLayoutDecorator .MiddleLeft {
@@ -82,13 +82,11 @@
 }
 
 .PortletLayoutDecorator .BottomLeft {
-  height: 5px ;
   background: url('background/PortletLayoutDecorator.gif') no-repeat left -12px;
   padding-left:7px ;
 }
 
 .PortletLayoutDecorator .BottomMiddle {
-  height: 5px ;
   background: url('background/PortletLayoutDecorator.gif') repeat-x center -17px;
 }
 
@@ -96,14 +94,19 @@
   background: url('background/PortletLayoutDecorator.gif') no-repeat right -12px;
   padding-right: 7px;
 }
+
+.PortletLayoutDecorator .BottomLeft .FixHeight {
+	height: 5px;
+}
 /*############### End Decorator ###################################################*/
 
 .UIContainer {
-	padding: 5px;
+	margin: 3px;
 }
 
 .LAYOUT-CONTAINER .UIContainer {
   height: 100%;
+  margin: 5px;
 	/*
 	 fix bug dragdrop in IE6
 	*/
@@ -112,8 +115,8 @@
 
 .UIContainer .LAYOUT-CONTAINER {
   background: #f5f5f5;
-  border: solid 1px #38acf3;
-  padding: 8px;
+ 	border: solid 1px #38acf3;
+  padding: 5px;
   margin: 0px 1px;
   min-height: 60px;
 }
@@ -133,6 +136,7 @@
 .UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
   background: none ;
   border: none ;
+  margin: auto;
 }
 
 .UIContainer .EditContainerIcon {

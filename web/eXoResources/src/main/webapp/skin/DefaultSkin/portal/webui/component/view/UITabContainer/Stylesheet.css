@@ -9,7 +9,7 @@
 }
 
 .UITabContainer .UITabContentContainer .UITabContent {
-	padding: 10px;
+	padding: 5px;
 }
 
 .UITabContainer a.TabLabel {
@@ -64,4 +64,8 @@
 .UITabContainer .UIApplicationRegistryPortlet .UIFormInputSet .UIFormGrid {
 	margin: auto;
 	width: auto;
+}
+
+.UIPage .UITabContainer .UITabContent {
+	height: 100%;
 }

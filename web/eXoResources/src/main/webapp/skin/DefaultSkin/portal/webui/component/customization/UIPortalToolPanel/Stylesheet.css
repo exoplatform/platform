@@ -8,19 +8,19 @@
 .UIPortalToolPanel {}
 
 .UIPortalToolPanel .Body {
-  padding: 7px 6px 5px 6px;
+  padding: 1px;
 }
 
 .UIPortalToolPanel .Body .PageDecoratorContainer {
   background: #f7f7f7;
-  padding: 1px;
-}
-
-.UIPortalToolPanel .Body .PageDecoratorContent {
+  padding: 5px;
+  margin: 5px;
   border: 1px #a5a5a5 solid;
   border-bottom: 1px #d0d0d0 solid;
   border-right: 1px #d0d0d0 solid;
-  padding: 10px;
+}
+
+.UIPortalToolPanel .Body .PageDecoratorContent {
   min-width: 100px;
   overflow: auto;
 }

@@ -1,5 +1,4 @@
 .UIInfoBar {
-  margin:  0px 0px 1px 0px ;
 }
 
 /*######################-Rounded Style-######################*/
@@ -34,7 +33,6 @@
 
 /*######################-Blue Rounded Style-######################*/
 .UIInfoBar .BlueRoundedStyle {
-  height: 23px ;
   padding: 0px; margin: 0px;
 }
 
@@ -48,8 +46,11 @@
   padding: 0px 12px 0px 0px ;
 }
 
+.UIInfoBar .BlueRoundedStyle .FixHeight {
+	height: 23px;
+}
+
 .UIInfoBar .BlueRoundedStyle .MiddleBar {
-  height: 23px ;
   background: url('background/BlueRoundedStyle.png') repeat-x bottom;
 }
 

@@ -33,7 +33,6 @@
 
 /*######################-Blue Rounded Style-######################*/
 .UIInfoBar .BlueRoundedStyle {
-  height: 22px ;
   padding: 0px; margin: 0px;
 }
 
@@ -48,8 +47,11 @@
 }
 
 .UIInfoBar .BlueRoundedStyle .MiddleBar {
-  height: 22px ;
   background: url('background/BlueRoundedStyle.gif') repeat-x center bottom;
+}
+
+.UIInfoBar .BlueRoundedStyle .FixHeight {
+	height: 22px;
 }
 
 .UIInfoBar .BlueRoundedStyle .Title {

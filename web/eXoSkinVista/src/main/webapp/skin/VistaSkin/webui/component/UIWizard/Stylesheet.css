@@ -6,7 +6,7 @@
 
 /*========================== Wizard Content ==============================*/
 .UIWizard .UIWizardContent {
-  padding: 5px;
+  padding: 7px;
   border: solid 1px #7e8284;
   background: url('background/LayoutPortalBG.png') repeat;
   height: 100%;

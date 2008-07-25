@@ -113,7 +113,7 @@
 	background-position: left -90px;
 }
 
-.DefaultTheme .WindowBarCenter .FixBug {
+.DefaultTheme .WindowBarCenter .FixHeight {
 	height: 29px;
 }
 
@@ -151,7 +151,7 @@
 	background-position: left top;
 }
 
-.DefaultTheme .BottomDecoratorCenter .FixBug {
+.DefaultTheme .BottomDecoratorCenter .FixHeight {
 	height: 30px;
 }
 
@@ -291,7 +291,7 @@
 	background-position: center top;
 }
 
-.MacTheme .BottomDecoratorCenter .FixBug {
+.MacTheme .BottomDecoratorCenter .FixHeight {
 	height: 23px; line-height: 23px;
 }
 
@@ -315,7 +315,7 @@
 	background-position: center -69px;
 }
 
-.MacTheme .WindowBarCenter .FixBug {
+.MacTheme .WindowBarCenter .FixHeight {
 	height: 23px;
 }
 
@@ -455,7 +455,7 @@
 	background-position: left top;
 }
 
-.MacGray .BottomDecoratorCenter .FixBug {
+.MacGray .BottomDecoratorCenter .FixHeight {
 	height: 24px; line-height: 24px;
 }
 
@@ -479,7 +479,7 @@
 	background-position: center -72px;
 }
 
-.MacGray .WindowBarCenter .FixBug {
+.MacGray .WindowBarCenter .FixHeight {
 	height: 23px;
 }
 
@@ -619,7 +619,7 @@
 	background-position: left top;
 }
 
-.MacBlack .BottomDecoratorCenter .FixBug {
+.MacBlack .BottomDecoratorCenter .FixHeight {
 	height: 24px; line-height: 24px;
 }
 
@@ -643,7 +643,7 @@
 	background-position: center -72px;
 }
 
-.MacBlack .WindowBarCenter .FixBug {
+.MacBlack .WindowBarCenter .FixHeight {
 	height: 23px;
 }
 
@@ -783,7 +783,7 @@
 	background-position: left top;
 }
 
-.MacGreenSteel .BottomDecoratorCenter .FixBug {
+.MacGreenSteel .BottomDecoratorCenter .FixHeight {
 	height: 24px; line-height: 24px;
 }
 
@@ -807,7 +807,7 @@
 	background-position: center -72px;
 }
 
-.MacGreenSteel .WindowBarCenter .FixBug {
+.MacGreenSteel .WindowBarCenter .FixHeight {
 	height: 23px;
 }
 
@@ -939,7 +939,7 @@
 	background-position: left top;
 }
 
-.VistaTheme .BottomDecoratorCenter .FixBug {
+.VistaTheme .BottomDecoratorCenter .FixHeight {
 	height: 24px;
 }
 
@@ -970,7 +970,7 @@
 	background-position: left -72px;
 }
 
-.VistaTheme .WindowBarCenter .FixBug {
+.VistaTheme .WindowBarCenter .FixHeight {
 	height: 29px;
 }
 
@@ -1106,7 +1106,7 @@
 	background-position: left top;
 }
 
-.VistaBlue .BottomDecoratorCenter .FixBug {
+.VistaBlue .BottomDecoratorCenter .FixHeight {
 	height: 27px;
 }
 
@@ -1130,7 +1130,7 @@
 	background-position: left -81px;
 }
 
-.VistaBlue .WindowBarCenter .FixBug {
+.VistaBlue .WindowBarCenter .FixHeight {
 	height: 35px;
 }
 
@@ -1236,7 +1236,7 @@
 	background-position: left -90px;
 }
 
-.RoundConerBlue .WindowBarCenter .FixBug {
+.RoundConerBlue .WindowBarCenter .FixHeight {
 	height: 32px;
 }
 
@@ -1277,7 +1277,7 @@
 	background-position: top;
 }
 
-.RoundConerBlue .BottomDecoratorCenter .FixBug {
+.RoundConerBlue .BottomDecoratorCenter .FixHeight {
 	height: 30px;
 }
 
@@ -1383,7 +1383,7 @@
 	background-position: left -90px;
 }
 
-.RoundConerViolet .WindowBarCenter .FixBug {
+.RoundConerViolet .WindowBarCenter .FixHeight {
 	height: 32px;
 }
 
@@ -1428,7 +1428,7 @@
 	background-position: top;
 }
 
-.RoundConerViolet .BottomDecoratorCenter .FixBug {
+.RoundConerViolet .BottomDecoratorCenter .FixHeight {
 	height: 30px;
 }
 
@@ -1534,7 +1534,7 @@
 	background-position: left -90px;
 }
 
-.RoundConerOrange .WindowBarCenter .FixBug {
+.RoundConerOrange .WindowBarCenter .FixHeight {
 	height: 32px;
 }
 
@@ -1579,7 +1579,7 @@
 	background-position: top;
 }
 
-.RoundConerOrange .BottomDecoratorCenter .FixBug {
+.RoundConerOrange .BottomDecoratorCenter .FixHeight {
 	height: 30px;
 }
 
@@ -1685,7 +1685,7 @@
 	background-position: left -90px;
 }
 
-.RoundConerPink .WindowBarCenter .FixBug {
+.RoundConerPink .WindowBarCenter .FixHeight {
 	height: 32px;
 }
 
@@ -1730,7 +1730,7 @@
 	background-position: top;
 }
 
-.RoundConerPink .BottomDecoratorCenter .FixBug {
+.RoundConerPink .BottomDecoratorCenter .FixHeight {
 	height: 30px;
 }
 
@@ -1836,7 +1836,7 @@
 	background-position: left -90px;
 }
 
-.RoundConerGreen .WindowBarCenter .FixBug {
+.RoundConerGreen .WindowBarCenter .FixHeight {
 	height: 32px;
 }
 
@@ -1881,7 +1881,7 @@
 	background-position: top;
 }
 
-.RoundConerGreen .BottomDecoratorCenter .FixBug {
+.RoundConerGreen .BottomDecoratorCenter .FixHeight {
 	height: 30px;
 }
 
@@ -1988,7 +1988,7 @@
 	background-position: center -84px;
 }
 
-.ShadowBlue .WindowBarCenter .FixBug {
+.ShadowBlue .WindowBarCenter .FixHeight {
 	height: 29px;
 }
 
@@ -2030,7 +2030,7 @@
 	background-position: center top;
 }
 
-.ShadowBlue .BottomDecoratorCenter .FixBug {
+.ShadowBlue .BottomDecoratorCenter .FixHeight {
 	height: 28px;
 }
 
@@ -2137,7 +2137,7 @@
 	background-position: center -84px;
 }
 
-.ShadowViolet .WindowBarCenter .FixBug {
+.ShadowViolet .WindowBarCenter .FixHeight {
 	height: 29px;
 }
 
@@ -2179,7 +2179,7 @@
 	background-position: center top;
 }
 
-.ShadowViolet .BottomDecoratorCenter .FixBug {
+.ShadowViolet .BottomDecoratorCenter .FixHeight {
 	height: 28px;
 }
 
@@ -2287,7 +2287,7 @@
 	background-position: center -84px;
 }
 
-.ShadowOrange .WindowBarCenter .FixBug {
+.ShadowOrange .WindowBarCenter .FixHeight {
 	height: 29px;
 }
 
@@ -2329,7 +2329,7 @@
 	background-position: center top;
 }
 
-.ShadowOrange .BottomDecoratorCenter .FixBug {
+.ShadowOrange .BottomDecoratorCenter .FixHeight {
 	height: 28px;
 }
 
@@ -2437,7 +2437,7 @@
 	background-position: center -84px;
 }
 
-.ShadowPink .WindowBarCenter .FixBug {
+.ShadowPink .WindowBarCenter .FixHeight {
 	height: 29px;
 }
 
@@ -2479,7 +2479,7 @@
 	background-position: center top;
 }
 
-.ShadowPink .BottomDecoratorCenter .FixBug {
+.ShadowPink .BottomDecoratorCenter .FixHeight {
 	height: 28px;
 }
 
@@ -2587,7 +2587,7 @@
 	background-position: center -84px;
 }
 
-.ShadowGreen .WindowBarCenter .FixBug {
+.ShadowGreen .WindowBarCenter .FixHeight {
 	height: 29px;
 }
 
@@ -2629,7 +2629,7 @@
 	background-position: center top;
 }
 
-.ShadowGreen .BottomDecoratorCenter .FixBug {
+.ShadowGreen .BottomDecoratorCenter .FixHeight {
 	height: 28px;
 }
 
@@ -2728,7 +2728,7 @@
 	background: #b0c0f5;
 }
 
-.SimpleBlue .WindowBarCenter .FixBug {
+.SimpleBlue .WindowBarCenter .FixHeight {
 	height: 18px;
 	line-height: 18px;
 }
@@ -2769,7 +2769,7 @@
 	background: white url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 }
 
-.SimpleBlue .BottomDecoratorCenter .FixBug {
+.SimpleBlue .BottomDecoratorCenter .FixHeight {
 	height: 19px;
 }
 
@@ -2868,7 +2868,7 @@
 	background: #c4a6ff;
 }
 
-.SimpleViolet .WindowBarCenter .FixBug {
+.SimpleViolet .WindowBarCenter .FixHeight {
 	height: 18px;
 	line-height: 18px;
 }
@@ -2907,7 +2907,7 @@
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 }
 
-.SimpleViolet .BottomDecoratorCenter .FixBug {
+.SimpleViolet .BottomDecoratorCenter .FixHeight {
 	height: 19px;
 }
 
@@ -3011,7 +3011,7 @@
 	background: #ffd1a8;
 }
 
-.SimpleOrange .WindowBarCenter .FixBug {
+.SimpleOrange .WindowBarCenter .FixHeight {
 	height: 18px;
 	line-height: 18px;
 }
@@ -3050,7 +3050,7 @@
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 }
 
-.SimpleOrange .BottomDecoratorCenter .FixBug {
+.SimpleOrange .BottomDecoratorCenter .FixHeight {
 	height: 19px;
 }
 
@@ -3154,7 +3154,7 @@
 	background: #fdd8f9;
 }
 
-.SimplePink .WindowBarCenter .FixBug {
+.SimplePink .WindowBarCenter .FixHeight {
 	height: 18px;
 	line-height: 18px;
 }
@@ -3193,7 +3193,7 @@
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 }
 
-.SimplePink .BottomDecoratorCenter .FixBug {
+.SimplePink .BottomDecoratorCenter .FixHeight {
 	height: 19px;
 }
 
@@ -3297,7 +3297,7 @@
 	background: #a3d0ff;
 }
 
-.SimpleGreen .WindowBarCenter .FixBug {
+.SimpleGreen .WindowBarCenter .FixHeight {
 	height: 18px;
 	line-height: 18px;
 }
@@ -3337,7 +3337,7 @@
 	background: url('background/BGDecoratorCenter1x18.gif') repeat-x; 
 }
 
-.SimpleGreen .BottomDecoratorCenter .FixBug {
+.SimpleGreen .BottomDecoratorCenter .FixHeight {
 	height: 19px;
 }
 

@@ -39,20 +39,22 @@
 		        <div class="LeftBar">
 		          <div class="RightBar">
 				        <div class="MiddleBar">
-				          <div class="DragControlArea" title="<%=_ctx.appRes("UIPortlet.tooltip.DragControl");%>"><span></span></div>
-				          <% 
-				            String portletIcon = uicomponent.getIcon();
-				            if(portletIcon == null) portletIcon = "PortletIcon";
-				            
-				            String title = portletTitle;
-				            if(uicomponent.getId() !=null) title = uicomponent.getId() ;
-				            if(uicomponent.getTitle() !=null) title = uicomponent.getTitle() ;
-				          %>
-				          <div class="Icon $portletIcon WindowPortletIcon NovaPortletIcon"><span></span></div>
-		              <div class="Title">$title</div>
-			            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.deletePortlet");%>"><span></span></a>
-			            <a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.editPortlet");%>"><span></span></a>
-			            <div style="clear: both"><span></span></div>
+				        	<div class="FixHeight">
+					          <div class="DragControlArea" title="<%=_ctx.appRes("UIPortlet.tooltip.DragControl");%>"><span></span></div>
+					          <% 
+					            String portletIcon = uicomponent.getIcon();
+					            if(portletIcon == null) portletIcon = "PortletIcon";
+					            
+					            String title = portletTitle;
+					            if(uicomponent.getId() !=null) title = uicomponent.getId() ;
+					            if(uicomponent.getTitle() !=null) title = uicomponent.getTitle() ;
+					          %>
+					          <div class="Icon $portletIcon WindowPortletIcon NovaPortletIcon"><span></span></div>
+			              <div class="Title">$title</div>
+				            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.deletePortlet");%>"><span></span></a>
+				            <a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.editPortlet");%>"><span></span></a>
+				            <div style="clear: both"><span></span></div>
+				          </div>
 				        </div>
 		          </div>
 		        </div>
@@ -68,7 +70,9 @@
 		      <div class="TopLeft">
 		        <div class="TopRight">
 		          <div class="TopMiddle">
-		            <div class="TopMiddleCenter"><span></span></div>
+		            <div class="TopMiddleCenter">
+		            	<div class="FixHeight"><span></span></div>
+		            </div>
 		          </div>
 		        </div>
 		      </div>
@@ -105,7 +109,9 @@
 		      <%/*Begin Bottom Portlet Layout Decorator*/%>
 		      <div class="BottomLeft">
 		        <div class="BottomRight">
-		          <div class="BottomMiddle"><span></span></div>
+		          <div class="BottomMiddle">
+		          	<div class="FixHeight"><span></span></div>
+		          </div>
 		        </div>
 		      </div>
 		      
@@ -153,7 +159,7 @@
       <div class="WindowBarLeft">
         <div class="WindowBarRight">
           <div class="WindowBarCenter">
-            <div class="FixBug">
+            <div class="FixHeight">
 	            <div class="WindowPortletControl CategoryDetectPosition">
 	              <%
 	                List supportModes = uicomponent.getSupportModes();
@@ -265,7 +271,7 @@
       <div class="BottomDecoratorLeft">
         <div class="BottomDecoratorRight">
           <div class="BottomDecoratorCenter">
-          	<div class="FixBug">
+          	<div class="FixHeight">
 	            <div class="ResizeArea" title="<%=_ctx.appRes("UIPortlet.tooltip.ResizeWindow");%>Resize Window"><span></span></div>
 	            <div class="Information"><%=_ctx.appRes("UIPortlet.lable.information");%></div>
 	            <div style="clear: right"><span></span></div>

@@ -10,22 +10,23 @@
 		  <%uicomponent.renderChild(UITree.class);%>
 		</div>
 	  <div class="MembershipSelector">
-	    <div class="MembershipTitle"><%=_ctx.appRes("UIGroupMembershipSelector.label.selectMembership")%></div>
-      <div class="OverflowContainer">
-	      <%                
-	      boolean even = true ;
-	      for(member in uicomponent.getListMemberhip()){
-	        String rowCssClass = "OddRow" ;
-	        if(even) rowCssClass = "EvenRow" ;  
-	        even = !even ;
-	      %>
-		      <div class="$rowCssClass">
-		        <div class="ItemIcon"><a href="<%=uicomponent.event("SelectMembership", member)%>">$member</a></div>
-		      </div>
-	      <%}%>
-      </div>
+	  	<div class="ContentContainer">
+		    <div class="MembershipTitle"><%=_ctx.appRes("UIGroupMembershipSelector.label.selectMembership")%></div>
+	      <div class="OverflowContainer">
+		      <%                
+		      boolean even = true ;
+		      for(member in uicomponent.getListMemberhip()){
+		        String rowCssClass = "OddRow" ;
+		        if(even) rowCssClass = "EvenRow" ;  
+		        even = !even ;
+		      %>
+			      <div class="$rowCssClass">
+			        <div class="ItemIcon"><a href="<%=uicomponent.event("SelectMembership", member)%>">$member</a></div>
+			      </div>
+		      <%}%>
+	      </div>
+	    </div>
 	  </div>
 		<div style="clear: left"><span></span></div>
 	</div>
 </div> 		
-

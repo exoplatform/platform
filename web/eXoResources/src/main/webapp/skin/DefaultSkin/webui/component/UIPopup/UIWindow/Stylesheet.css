@@ -9,7 +9,7 @@
 /*======================== UIPageBody ================================*/
 .UIWindow {
 	width: 98.5% ; height: auto;
-	margin: 0px auto 7px auto; 
+	margin: 0px auto 0px auto; 
 }
 
 .UIPageBody .UIWindow .UIApplication {
@@ -25,10 +25,6 @@
 .UIPageBody .Empty {
 	width: 500px;
 	margin: 30px auto 30px auto;
-}
-
-.UIPageBody .UIPage .UITabContainer .HorizontalLayout {
-	*width: 99.5%;
 }
 
 /*======================== UIPortalWarning ================================*/

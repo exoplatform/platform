@@ -20,21 +20,23 @@
         <div class="LeftBar">
           <div class="RightBar">
             <div class="MiddleBar">
-              <div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.tooltip.drag")%>"><span></span></div>
-              <div class="ContainerIcon DefaultContainer16x16Icon"><span></span></div>
-              <div class="Title">
-                <% 
-                  if(uicomponent.getTitle() != null) {
-                    println(uicomponent.getTitle()) ; 
-                  } else {
-                %>
-                    <%=_ctx.appRes("UIContainer.title.Container")%>
-                <%}%>
-              </div>
-              
-              <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"><span></span></a>
-              <a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"><span></span></a>
-              <div style="clear: both"><span></span></div>
+            	<div class="FixHeight">
+	              <div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.tooltip.drag")%>"><span></span></div>
+	              <div class="ContainerIcon DefaultContainer16x16Icon"><span></span></div>
+	              <div class="Title">
+	                <% 
+	                  if(uicomponent.getTitle() != null) {
+	                    println(uicomponent.getTitle()) ; 
+	                  } else {
+	                %>
+	                    <%=_ctx.appRes("UIContainer.title.Container")%>
+	                <%}%>
+	              </div>
+	              
+	              <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"><span></span></a>
+	              <a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"><span></span></a>
+	              <div style="clear: both"><span></span></div>
+	            </div>
             </div>
           </div>
         </div>
@@ -53,7 +55,7 @@
   %>
   <div class="VIEW-CONTAINER" >
     <div id="$uicomponent.id">    
-      <table class="UITableColumnContainer" style="table-layout: fixed; width: 99%; $style">
+      <table class="UITableColumnContainer" style="table-layout: fixed; margin: 0px auto; width: 99%; $style">
         <tr class="TRContainer">
           <% for(uiChild in uicomponent.getChildren()) { %>
             <td class="${uiChild.id}TDContainer"><% uicomponent.renderUIComponent(uiChild) %></td>

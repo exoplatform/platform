@@ -1,9 +1,7 @@
 .UIPortlet .LAYOUT-PORTLET {
-  margin: 0px 10px 8px 10px;
 }
 
 .UIPortlet .CONTROL-PORTLET {
-  margin: 2px 10px -1px 10px;
 }
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
@@ -15,7 +13,6 @@
 }
 
 .UIPortlet .CONTROL-PORTLET .UIInfoBar {
-	width: 99.5%;
 }
 
 .UIPortlet .MaximizedPortletIcon {
@@ -97,24 +94,24 @@
 
 /*##############################- PortletLayoutDecorator  -################################*/
 .PortletLayoutDecorator {
-	width: 99.5%;
 }
 
 .PortletLayoutDecorator .TopLeft {
   background: url('background/PortletLayoutDecorator.png') no-repeat left top;
   padding-left: 10px ;
-  height: 9px ;
 }
 
 .PortletLayoutDecorator .TopMiddle {
   background: url('background/PortletLayoutDecorator.png') repeat-x center -18px;
-  height: 9px ;
 }
 
 .PortletLayoutDecorator .TopRight {
   background: url('background/PortletLayoutDecorator.png') no-repeat right -9px;
   padding-right: 11px ;
-  height: 9px ;
+}
+
+.PortletLayoutDecorator .TopLeft .FixHeight {
+	height: 9px;
 }
 
 .PortletLayoutDecorator .MiddleLeft {
@@ -142,23 +139,28 @@
 .PortletLayoutDecorator .BottomLeft {
   background: url('background/PortletLayoutDecorator.png') no-repeat left -27px;
   padding-left: 10px ;
-  height: 14px ;
 }
 
 .PortletLayoutDecorator .BottomMiddle {
   background: url('background/PortletLayoutDecorator.png') repeat-x bottom;
-  height: 14px ;
 }
 
 .PortletLayoutDecorator .BottomRight {
   background: url('background/PortletLayoutDecorator.png') no-repeat right -41px;
   padding-right: 11px ;
 }
+
+.PortletLayoutDecorator .BottomLeft .FixHeight {
+	height: 14px;
+}
 /*############### End Decorator ###################################################*/
 
 .VIEW-PORTAL .UIContainer .UITableColumnContainer {
-	width: 99.7%;
 } 
+
+.UIContainer {
+	padding: 5px;
+}
 
 .LAYOUT-CONTAINER .UIContainer {
 	height: 100%;
@@ -170,8 +172,8 @@
 .UIContainer .LAYOUT-CONTAINER {
   background: url('background/ContainerBG3x3.png') repeat;
   border: solid 1px #7c7c7c;
-  margin: 1px 14px 10px 14px; 
-  padding-top: 5px;
+  padding: 5px;
+  margin: 0px 3px;
   min-height: 60px;
 }
 
@@ -180,7 +182,6 @@
 }
 
 .UIContainer .CONTROL-CONTAINER {
-  margin: 0px 10px -1px 10px;
 }
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
@@ -194,6 +195,7 @@
 .UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
   background:none ;
   border: none ;
+  margin: auto;
 }
 
 .UIContainer .EditContainerIcon {
@@ -248,10 +250,6 @@
 
 .UIPage .CONTROL-PAGE .RoundedStyle .RightBar {
   background-color: #bdcccc;
-}
-
-.UIPage .UIRowContainer {
-  padding: 6px 0px 6px 3px;
 }
 
 .UIPage .EditPageIcon {

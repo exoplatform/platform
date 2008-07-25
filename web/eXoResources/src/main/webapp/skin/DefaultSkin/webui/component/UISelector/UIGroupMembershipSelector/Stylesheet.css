@@ -51,7 +51,7 @@
 
 .UIGroupMembershipSelector .MembershipTitle{
   background: url('background/TitleBG1x20.gif') repeat-x;
-  border: 1px #b7b7b7 solid; 
+  border-bottom: 1px #b7b7b7 solid; 
   height: 20px; line-height: 20px;
   padding-left: 15px;
 }
@@ -81,12 +81,14 @@
   margin-left: 240px; height: 183px;
 }
 
+.UIGroupMembershipSelector .MembershipSelector .ContentContainer {
+  border: 1px solid #b7b7b7;
+}
+
 .UIGroupMembershipSelector .MembershipSelector .OverflowContainer {
-  border: #b7b7b7 1px solid;
-  border-top: none;
   background: white;
-  height: 148px; width: 91%;
-  padding: 7px 10px 5px 10px;
+  height: 146px; width: auto;
+  padding: 7px 0px;
   overflow: auto;
 }
 
@@ -99,11 +101,13 @@
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .OddRow {
-  line-height: 22px ;
+  line-height: 22px;
+  padding: 0px 5px;
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .EvenRow {
-  line-height: 22px ;
+  line-height: 22px;
+  padding: 0px 5px;
 }
 
 .UIGroupMembershipSelector .MembershipSelector .ItemIcon {
