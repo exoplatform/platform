@@ -51,8 +51,8 @@ public class UITree extends UIComponent {
   /**
    * The css class name to show the selected icon
    */
-  private String selectedIcon ;
-  private String icon;
+  private String selectedIcon = "";
+  private String icon = "";
   /**
    * The bean field that holds the id of the bean
    */
@@ -215,5 +215,17 @@ public class UITree extends UIComponent {
       event.getSource().<UIComponent>getParent().broadcast(event, event.getExecutionPhase()) ;    
     }
   }
+
+  public String getBeanIdField() { return beanIdField_; }  
+
+  public String getBeanLabelField() { return beanLabelField_; }  
+
+  public String getBeanIconField() { return beanIconField_; }  
+  
+  public UIRightClickPopupMenu getUiPopupMenu() { return uiPopupMenu_; }
+
+  public void setUiPopupMenu(UIRightClickPopupMenu uiPopupMenu) { this.uiPopupMenu_ = uiPopupMenu; }
+
+  public void setColapseIcon(String colapseIcon) { this.colapseIcon = colapseIcon; }
   
 }
