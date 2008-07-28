@@ -199,6 +199,10 @@ ScrollManager.prototype.loadElements = function(elementClass, clean) {
  * the firstVisibleIndex is 0, the lastVisibleIndex is the last element with isVisible to true
  */
 ScrollManager.prototype.checkAvailableSpace = function(maxSpace) { // in pixels
+	var navigationPortlet = eXo.core.DOMUtil.findAncestorByClass(this.mainContainer, "UINavigationPortlet");
+	if(navigationPortlet) {
+		navigationPortlet.parentNode.style.display = "block";
+	}
 	if (!maxSpace) maxSpace = this.getElementSpace(this.mainContainer) - this.getElementSpace(this.arrowsContainer);
 	var elementsSpace = 0;
 	var margin = 0;
