@@ -19,6 +19,8 @@ import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategoriesPlugins;
 import org.exoplatform.application.registry.ApplicationCategory;
@@ -35,8 +37,6 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.web.WebAppController;
-import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetRegistryService;
 import org.picocontainer.Startable;
 
 /**
@@ -281,11 +281,11 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
 //    }
     PortalContainer container = PortalContainer.getInstance();
     GadgetRegistryService gadgetService = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class) ;
-    List<GadgetApplication> eXoGadgets = gadgetService.getAllGadgets() ;
+    List<Gadget> eXoGadgets = gadgetService.getAllGadgets() ;
     if(eXoGadgets == null || eXoGadgets.size() < 1) {
       return ;
     }
-    org.exoplatform.web.application.Application sampleApp = eXoGadgets.get(0) ;
+    org.exoplatform.web.application.Application sampleApp = eXoGadgets.get(0).toGadgetApplication() ;
     ApplicationCategory category = getApplicationCategory(sampleApp.getApplicationGroup());
     if (category == null) {
       category = new ApplicationCategory();
@@ -295,10 +295,10 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       save(category);
     }
 
-    for (org.exoplatform.web.application.Application ele : eXoGadgets) {
-      Application app = getApplication(category.getName() + "/" + ele.getApplicationName()) ;
+    for (Gadget ele : eXoGadgets) {
+      Application app = getApplication(category.getName() + "/" + ele.getName()) ;
       if (app == null)
-        save(category, convertApplication(ele));
+        save(category, convertApplication(ele.toGadgetApplication()));
     }
   }
   

@@ -19,8 +19,8 @@ package org.exoplatform.applicationregistry.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetRegistryService;
+import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
@@ -49,12 +49,12 @@ import org.exoplatform.webui.form.UIFormStringInput;
 
 public class UIGadgetEditor extends UIForm {
   
-  //static final String FIELD_NAME = "name" ;
+  static final String FIELD_NAME = "name" ;
   static final String FIELD_URL = "url" ;
   static final String FIELD_DISPLAY = "display" ;
   
   public UIGadgetEditor() throws Exception {
-    //addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
+    addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
     addUIFormInput(new UIFormStringInput(FIELD_URL, null, null)) ;
     List<SelectItemOption<String>> displayOptions = new ArrayList<SelectItemOption<String>>(2) ;
     displayOptions.add(new SelectItemOption<String>("apllication", "application")) ;
@@ -67,10 +67,12 @@ public class UIGadgetEditor extends UIForm {
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
-      //String name = uiForm.getUIStringInput(FIELD_NAME) .getValue();
+      String name = uiForm.getUIStringInput(FIELD_NAME) .getValue();
       String url = uiForm.getUIStringInput(FIELD_URL) .getValue();
-      GadgetApplication gadgetApplication = new GadgetApplication(url) ;
-      service.addGadget(gadgetApplication) ;
+      Gadget gadget = new Gadget() ;
+      gadget.setName(name) ;
+      gadget.setUrl(url) ;
+      service.addGadget(gadget) ;
       UIGadgetManagement uiParent = uiForm.getParent() ;
       uiParent.reload() ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;

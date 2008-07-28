@@ -18,8 +18,8 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import java.util.List;
 
-import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetRegistryService;
+import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -44,7 +44,7 @@ import org.exoplatform.webui.event.EventListener;
 
 public class UIGadgetManagement extends UIContainer {
   
-  private List<GadgetApplication> gadgets_ ;
+  private List<Gadget> gadgets_ ;
   
   public UIGadgetManagement() throws Exception {
     reload() ;
@@ -55,7 +55,7 @@ public class UIGadgetManagement extends UIContainer {
     gadgets_ = service.getAllGadgets() ;
   }
   
-  public List<GadgetApplication> getGadgets() throws Exception {
+  public List<Gadget> getGadgets() throws Exception {
     return gadgets_ ; 
   }
   

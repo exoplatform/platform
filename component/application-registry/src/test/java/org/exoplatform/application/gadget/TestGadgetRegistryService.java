@@ -20,8 +20,6 @@ import java.util.List;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.test.BasicTestCase;
-import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetRegistryService;
 
 /**
  * Created by The eXo Platform SAS
@@ -39,30 +37,36 @@ public class TestGadgetRegistryService extends BasicTestCase {
   }
   
   public void testAddGadget() throws Exception {
-    GadgetApplication g1 = new GadgetApplication("weather", "http://www.labpixies.com/campaigns/weather/weather.xml") ;
-    GadgetApplication g2 = new GadgetApplication("map", "http://www.labpixies.com/campaigns/maps/maps.xml") ;
+    Gadget g1 = new Gadget() ;
+    g1.setName("weather") ;
+    g1.setUrl("http://www.labpixies.com/campaigns/weather/weather.xml") ;
+    Gadget g2 = new Gadget() ;
+    g2.setName("map") ;
+    g2.setUrl("http://www.labpixies.com/campaigns/maps/maps.xml") ;
     service_.addGadget(g1) ;
     service_.addGadget(g2) ;
     assertEquals(2, service_.getAllGadgets().size()) ;
-    GadgetApplication g3 = service_.getGadget(g1.getApplicationId()) ; 
+    Gadget g3 = service_.getGadget(g1.getName()) ; 
     assertNotNull(g3) ;
-    assertEquals("weather", g3.getApplicationId()) ;
+    assertEquals("weather", g3.getName()) ;
     assertEquals("http://www.labpixies.com/campaigns/weather/weather.xml", g3.getUrl()) ;
     
-    GadgetApplication g4 = service_.getGadget(g2.getApplicationId()) ; 
+    Gadget g4 = service_.getGadget(g2.getName()) ; 
     assertNotNull(g4) ;
-    assertEquals("map", g4.getApplicationId()) ;
+    assertEquals("map", g4.getName()) ;
     assertEquals("http://www.labpixies.com/campaigns/maps/maps.xml", g4.getUrl()) ;
 
   }
   
   public void testGetGadget() throws Exception {
-    GadgetApplication gadget = new GadgetApplication("weather", "http://www.labpixies.com/campaigns/weather/weather.xml") ;
+    Gadget gadget = new Gadget() ;
+    gadget.setName("weather") ;
+    gadget.setUrl("http://www.labpixies.com/campaigns/weather/weather.xml") ;
     service_.addGadget(gadget) ;
-    GadgetApplication g = service_.getGadget(gadget.getApplicationId()) ;
+    Gadget g = service_.getGadget(gadget.getName()) ;
     assertNotNull(g) ;
     assertEquals(1, service_.getAllGadgets().size()) ;
-    assertEquals("weather", g.getApplicationId()) ;
+    assertEquals("weather", g.getName()) ;
     assertEquals("http://www.labpixies.com/campaigns/weather/weather.xml", g.getUrl()) ;    
   }
   
@@ -75,9 +79,9 @@ public class TestGadgetRegistryService extends BasicTestCase {
   }
   
   public void tearDown() throws Exception {
-    List<GadgetApplication> gadgets = service_.getAllGadgets() ;
-    for(GadgetApplication ele : gadgets) {
-      service_.removeGadget(ele.getApplicationId()) ;
+    List<Gadget> gadgets = service_.getAllGadgets() ;
+    for(Gadget ele : gadgets) {
+      service_.removeGadget(ele.getName()) ;
     }
   }
 

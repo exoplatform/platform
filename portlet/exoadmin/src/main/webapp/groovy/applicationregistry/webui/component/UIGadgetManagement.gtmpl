@@ -13,8 +13,8 @@
 		   	    <div class="ListContent">	
 		   	    <% for(gadget in uicomponent.getGadgets()) { %>
 					    <div class="SelectedItem ItemContent">
-			        	<a title="web" href="#" class="TabLabel"><%= gadget.getApplicationName() %></a>
-			          <a title="Delete Category" class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveGadget", gadget.getApplicationName()) %>"><span></span></a>
+			        	<a title="web" href="#" class="TabLabel"><%= gadget.getName() %></a>
+			          <a title="Delete Category" class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveGadget", gadget.getName()) %>"><span></span></a>
 			      		<div style="clear: both;"><span></span></div>
 						  </div>
 						<% } %>

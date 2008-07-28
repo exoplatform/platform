@@ -21,7 +21,7 @@ import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetRegistryService;
+import org.exoplatform.web.application.gadget.GadgetStorage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
@@ -163,10 +163,10 @@ public class UIGadget extends UIComponent {
    */
   private GadgetApplication getApplication() {
     PortalContainer container = PortalContainer.getInstance() ;
-    GadgetRegistryService gadgetService = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class) ;
+    GadgetStorage gadgetStorage = (GadgetStorage)container.getComponentInstanceOfType(GadgetStorage.class) ;
     GadgetApplication application = null ;
     try {
-      application = gadgetService.getGadget(applicationId_.split("/")[1]) ;
+      application = gadgetStorage.getGadget(applicationId_.split("/")[1]) ;
     } catch (Exception e) {}
     return application;
   }

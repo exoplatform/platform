@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.application.gadget;
+package org.exoplatform.application.gadget.jcr;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,11 +23,11 @@ import javax.jcr.Node;
 import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
 
+import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
-import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetRegistryService;
 
 /**
  * Created by The eXo Platform SAS
@@ -46,49 +46,49 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
     regService_ = service ;
   }
 
-  public GadgetApplication getGadget(String id) throws Exception {
+  public Gadget getGadget(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     RegistryEntry entry ;
     try {
-      entry = regService_.getEntry(sessionProvider, PATH + "/" + id) ;
+      entry = regService_.getEntry(sessionProvider, PATH + "/" + name) ;
     } catch (PathNotFoundException pnfe) {
       sessionProvider.close() ;
       return null ;
     }
-    GadgetApplication gadget = mapper_.toApplciation(entry.getDocument()) ;
+    Gadget gadget = mapper_.toApplciation(entry.getDocument()) ;
     sessionProvider.close() ;    
     return gadget ;
   }
   
-  public List<GadgetApplication> getAllGadgets() throws Exception {
+  public List<Gadget> getAllGadgets() throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
     if(!regNode.hasNode(PATH)) {
       sessionProvider.close() ;
-      return new ArrayList<GadgetApplication>() ;
+      return new ArrayList<Gadget>() ;
     }
     NodeIterator itr = regNode.getNode(PATH).getNodes() ;
-    List<GadgetApplication> apps = new ArrayList<GadgetApplication>() ;
+    List<Gadget> gadgets = new ArrayList<Gadget>() ;
     while(itr.hasNext()) {
       String entryPath = itr.nextNode().getPath().substring(regNode.getPath().length() + 1) ;
       RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
-      GadgetApplication app = mapper_.toApplciation(entry.getDocument()) ;
-      apps.add(app) ;
+      Gadget gadget = mapper_.toApplciation(entry.getDocument()) ;
+      gadgets.add(gadget) ;
     }
     sessionProvider.close() ;
-    return apps ;
+    return gadgets ;
   }
   
-  public void addGadget(GadgetApplication app) throws Exception {
+  public void addGadget(Gadget gadget) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     RegistryEntry entry ;
     try {
-      entry = regService_.getEntry(sessionProvider, PATH + "/" + app.getApplicationId()) ;
-      mapper_.map(entry.getDocument(), app) ;
+      entry = regService_.getEntry(sessionProvider, PATH + "/" + gadget.getName()) ;
+      mapper_.map(entry.getDocument(), gadget) ;
       regService_.recreateEntry(sessionProvider, PATH, entry) ;
     } catch (PathNotFoundException pnfe) {
-      entry = new RegistryEntry(app.getApplicationId()) ;
-      mapper_.map(entry.getDocument(), app) ;
+      entry = new RegistryEntry(gadget.getName()) ;
+      mapper_.map(entry.getDocument(), gadget) ;
       regService_.createEntry(sessionProvider, PATH, entry) ;
     } finally {
       sessionProvider.close() ;      

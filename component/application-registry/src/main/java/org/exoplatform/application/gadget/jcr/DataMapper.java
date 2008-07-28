@@ -14,9 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.application.gadget;
+package org.exoplatform.application.gadget.jcr;
 
-import org.exoplatform.web.application.gadget.GadgetApplication;
+import org.exoplatform.application.gadget.Gadget;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -32,21 +32,26 @@ public class DataMapper {
   final static String PRIMARY_TYPE = "jcr:primaryType" ;
   
   final static String EXO_DATA_TYPE = "exo:dataType" ;
-  final static String EXO_GADGET_ID = "exo:gadgetId" ;
+  final static String EXO_GADGET_NAME = "exo:gadgetName" ;
   final static String EXO_GADGET_URL = "exo:gadgetUrl" ;  
+  final static String EXO_GADGET_IS_REMOTE = "exo:gadgetIsRemote" ;
 
-  public void map(Document doc, GadgetApplication app) throws Exception {
+  public void map(Document doc, Gadget app) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
     root.setAttribute(PRIMARY_TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(EXO_DATA_TYPE, app.getClass().getSimpleName()) ;
-    root.setAttribute(EXO_GADGET_ID, app.getApplicationId()) ;
+    root.setAttribute(EXO_GADGET_NAME, app.getName()) ;
     root.setAttribute(EXO_GADGET_URL, app.getUrl()) ;
+    root.setAttribute(EXO_GADGET_IS_REMOTE, String.valueOf(app.isRemote())) ;
   }
   
-  public GadgetApplication toApplciation(Document doc) throws Exception {
+  public Gadget toApplciation(Document doc) throws Exception {
     Element root = doc.getDocumentElement() ;
-    GadgetApplication app = new GadgetApplication(root.getAttribute(EXO_GADGET_ID), root.getAttribute(EXO_GADGET_URL)) ;
+    Gadget app = new Gadget() ;
+    app.setName(root.getAttribute(EXO_GADGET_NAME)) ;
+    app.setUrl(root.getAttribute(EXO_GADGET_URL)) ;
+    app.setRemote(Boolean.valueOf(root.getAttribute(EXO_GADGET_IS_REMOTE))) ;
     return app ;
   }
   

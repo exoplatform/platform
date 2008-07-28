@@ -28,7 +28,7 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetRegistryService;
+import org.exoplatform.web.application.gadget.GadgetStorage;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -54,7 +54,7 @@ public class GadgetRegister implements ServletContextListener {
     try {
       RootContainer root = RootContainer.getInstance() ;
       PortalContainer pcontainer =  root.getPortalContainer("portal") ;
-      GadgetRegistryService gadgetService = (GadgetRegistryService) pcontainer.getComponentInstanceOfType(GadgetRegistryService.class) ;
+      GadgetStorage gadgetStoreage =  (GadgetStorage) pcontainer.getComponentInstanceOfType(GadgetStorage.class) ;
       String strLocation = "/WEB-INF/gadget.xml" ;
       DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder() ;
       InputStream in = event.getServletContext().getResourceAsStream(strLocation) ;
@@ -68,7 +68,7 @@ public class GadgetRegister implements ServletContextListener {
           if(node.getNodeName().equals("name"))  name = node.getTextContent() ;
           if(node.getNodeName().equals("url"))  url = node.getTextContent() ;
         }
-        gadgetService.addGadget(new GadgetApplication(name, url)) ;
+        gadgetStoreage.addGadget(new GadgetApplication(name, url)) ;
       }
     } catch(Exception ex) {
       log.error("Error while deploying a gadget", ex);

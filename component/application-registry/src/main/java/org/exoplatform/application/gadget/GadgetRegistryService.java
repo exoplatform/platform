@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.web.application.gadget;
+package org.exoplatform.application.gadget;
 
 import java.util.List;
 
@@ -29,19 +29,19 @@ import java.util.List;
 public interface GadgetRegistryService {
   
   /**
-   * Gets the gadget from database by id.
-   * @param  id  the id of gadget
+   * Gets the gadget from database by name.
+   * @param  name  the name of gadget
    * @return  the gadget or null if not found    
    * @throws Exception
    */
-  public GadgetApplication getGadget(String id) throws Exception ;
+  public Gadget getGadget(String name) throws Exception ;
     
   /**
    * Gets all of available gadgets from the database.
    * @return  a list of gadgets
    * @throws Exception
    */
-  public List<GadgetApplication> getAllGadgets() throws Exception ;
+  public List<Gadget> getAllGadgets() throws Exception ;
   
   /**
    * Adds the gadget to the database.
@@ -49,7 +49,7 @@ public interface GadgetRegistryService {
    * @param app  the gadget that is saved to database
    * @throws Exception
    */
-  public void addGadget(GadgetApplication app) throws Exception ;
+  public void addGadget(Gadget gadget) throws Exception ;
   
   /**
    * Removes the gadget from the database.

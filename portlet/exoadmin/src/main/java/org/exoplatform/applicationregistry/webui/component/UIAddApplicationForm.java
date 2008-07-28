@@ -21,6 +21,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.newregistry.Application;
 import org.exoplatform.application.newregistry.ApplicationCategory;
 import org.exoplatform.application.newregistry.ApplicationRegistryService;
@@ -30,7 +32,6 @@ import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
@@ -147,9 +148,9 @@ public class UIAddApplicationForm extends UIForm {
       }
     } else if(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE.equals(type)) {
       GadgetRegistryService gadgetService = getApplicationComponent(GadgetRegistryService.class) ;
-      Iterator<GadgetApplication> iterator = gadgetService.getAllGadgets().iterator() ;
+      Iterator<Gadget> iterator = gadgetService.getAllGadgets().iterator() ;
       while(iterator.hasNext()) {
-        GadgetApplication tmp = iterator.next() ;
+        GadgetApplication tmp = iterator.next().toGadgetApplication() ;
         Application app = new Application() ;
         app.setApplicationName(tmp.getApplicationName()) ;
         app.setDisplayName(tmp.getApplicationName()) ;
