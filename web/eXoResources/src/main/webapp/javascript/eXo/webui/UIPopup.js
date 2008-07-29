@@ -50,6 +50,15 @@ UIPopup.prototype.show = function(popup) {
 	if(typeof(popup) == "string") {	
 		popup = document.getElementById(popup) ;
 	}
+	
+	var uiMaskWS = document.getElementById("UIMaskWorkspace");
+	if(uiMaskWS) {
+		uiMaskWSzIndex = eXo.core.DOMUtil.getStyle(uiMaskWS, "zIndex");
+		if(uiMaskWSzIndex && (uiMaskWSzIndex > eXo.webui.UIPopup.zIndex))	{
+			eXo.webui.UIPopup.zIndex = uiMaskWSzIndex;
+		}
+	}
+	
 	popup.style.zIndex = ++eXo.webui.UIPopup.zIndex ;
 	popup.style.display = "block" ;
 } ;
