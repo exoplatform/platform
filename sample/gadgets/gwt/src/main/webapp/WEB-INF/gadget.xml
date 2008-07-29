@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<gadgets>
+        <gadget>
+                <name>HelloWorld</name>
+                <url>http://localhost:8080/sampleGwt/org.exoplatform.portal.sample.gadget.gwthelloworld.HelloWorld/org.exoplatform.portal.sample.gadget.gwthelloworld.client.HelloWorld.gadget.xml</url>
+        </gadget>
+</gadgets>
+    

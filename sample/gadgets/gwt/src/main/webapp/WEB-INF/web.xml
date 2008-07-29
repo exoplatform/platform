@@ -5,5 +5,21 @@
     "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
+  <display-name>Sample gadgets</display-name>
+  <!--filter>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping-->
+
+        <listener>
+    <listener-class>org.exoplatform.web.application.GadgetRegister</listener-class>
+  </listener>
+
+  
 </web-app>
     
