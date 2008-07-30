@@ -33,6 +33,7 @@ import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.Chang
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RemoveJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
+import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RecoveryPasswordAndUsernameActionListener;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -50,7 +51,8 @@ import org.exoplatform.webui.core.UIComponent;
       @EventConfig(listeners = UIPortalActionListener.LogoutActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = ChangeOptionActionListener.class),
-      @EventConfig(listeners = ChangeLanguageActionListener.class)
+      @EventConfig(listeners = ChangeLanguageActionListener.class),
+      @EventConfig(listeners = RecoveryPasswordAndUsernameActionListener.class)
     }
 )
 public class UIPortal extends UIContainer { 

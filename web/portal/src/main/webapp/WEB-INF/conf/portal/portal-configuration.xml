@@ -20,7 +20,12 @@
     <key>org.exoplatform.portal.layout.PortalLayoutService</key>
     <type>org.exoplatform.portal.layout.jcr.PortalLayoutServiceImpl</type>
   </component>    
-
+	
+	<component>
+    <key>org.exoplatform.portal.mail.MailService</key>
+    <type>org.exoplatform.portal.mail.impl.MailServiceImpl</type>
+  </component> 
+	
   <component>
     <key>org.exoplatform.portal.config.UserACL</key>
     <type>org.exoplatform.portal.config.UserACL</type>   

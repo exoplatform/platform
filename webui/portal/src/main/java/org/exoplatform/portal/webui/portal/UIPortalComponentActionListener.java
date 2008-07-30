@@ -17,17 +17,20 @@
 package org.exoplatform.portal.webui.portal;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.UILoginForm;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
+import org.exoplatform.portal.webui.login.UILogin;
+import org.exoplatform.portal.webui.login.UIResetPassword;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
@@ -35,10 +38,15 @@ import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.Query;
+import org.exoplatform.services.organization.User;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.exception.MessageException;
 
 /**
  * Author : Nhu Dinh Thuan
@@ -60,8 +68,8 @@ public class UIPortalComponentActionListener {
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      UILoginForm uiLoginForm = uiMaskWS.createUIComponent(UILoginForm.class, null, "UIPortalComponentLogin");
-      uiMaskWS.setUIComponent(uiLoginForm);
+      UILogin uiLogin = uiMaskWS.createUIComponent(UILogin.class, null, null);
+      uiMaskWS.setUIComponent(uiLogin);
       uiMaskWS.setWindowSize(630, -1);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
@@ -206,6 +214,38 @@ public class UIPortalComponentActionListener {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
     }
     
+  }
+  
+  public static class RecoveryPasswordAndUsernameActionListener extends EventListener<UIPortal> {
+    @Override
+    public void execute(Event<UIPortal> event) throws Exception {
+      UIPortal uiPortal = event.getSource() ;
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      String date = event.getRequestContext().getRequestParameter("datesend");
+      String email = event.getRequestContext().getRequestParameter("email");
+      OrganizationService orgSrc = uiPortal.getApplicationComponent(OrganizationService.class);
+      //get user
+      PageList userPageList = orgSrc.getUserHandler().findUsers(new Query());
+      List userList = userPageList.currentPage();
+      User user = null;
+      for(int i=0; i<userList.size(); i++) {
+        user = (User)userList.get(i);
+        if(user.getEmail().equals(email)) break;
+      }
+      // delete link active by one day
+      long now = new Date().getTime();
+      if(now-Long.parseLong(date) > 86400000) {
+        user.setPassword(Long.toString(now));
+        orgSrc.getUserHandler().saveUser(user, true) ;
+        throw new MessageException(new ApplicationMessage("UIForgetPassword.msg.expration", null));
+      }
+      UIResetPassword uiReset = uiMaskWS.createUIComponent(UIResetPassword.class, null, null);
+      uiReset.setData(user);
+      uiMaskWS.setUIComponent(uiReset);
+      uiMaskWS.setWindowSize(630, -1);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+    }
   }
   
 }

@@ -30,6 +30,7 @@
 		            </div> 				        
 			        <div class="UIAction"> 
 						<table class="ActionContainer" align="center">
+							<tr align="center"><a href="<%= uicomponent.event("ForgetPassword") %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></tr>
 							<tr>
 								<td align="center">
 									 <a href="<%=uicomponent.url("Signin");%>" id="UIPortalLoginFormAction" class="ActionButton SimpleStyle">
