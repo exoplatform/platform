@@ -102,7 +102,7 @@ public class UIFormLifecycle  extends Lifecycle {
     uiForm.findComponentOfType(inputs, UIFormInputBase.class) ;
     uiForm.setSubmitAction(context.getRequestParameter(UIForm.ACTION)) ;
     for(UIFormInputBase input :  inputs) {
-      if(input.isValid()) continue;
+      if(!input.isValid()) continue;
       String inputValue = context.getRequestParameter(input.getId()) ;
       if(inputValue == null || inputValue.trim().length() == 0){
         inputValue = context.getRequestParameter(input.getName()) ;
@@ -143,7 +143,7 @@ public class UIFormLifecycle  extends Lifecycle {
     for(UIComponent uiChild : children) {
       if(uiChild instanceof UIFormInputBase) {
         UIFormInputBase uiInput =  (UIFormInputBase) uiChild ;
-        if(!checkVisible(uiInput)) continue;
+        if(!uiInput.isValid()) continue;
         List<Validator> validators = uiInput.getValidators() ;
         if(validators == null) continue;
         try {
