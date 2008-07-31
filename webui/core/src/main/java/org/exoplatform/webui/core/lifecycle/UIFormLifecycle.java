@@ -102,17 +102,13 @@ public class UIFormLifecycle  extends Lifecycle {
     uiForm.findComponentOfType(inputs, UIFormInputBase.class) ;
     uiForm.setSubmitAction(context.getRequestParameter(UIForm.ACTION)) ;
     for(UIFormInputBase input :  inputs) {
-      if(!checkVisible(input)) continue;
+      if(input.isValid()) continue;
       String inputValue = context.getRequestParameter(input.getId()) ;
       if(inputValue == null || inputValue.trim().length() == 0){
         inputValue = context.getRequestParameter(input.getName()) ;
       }
       input.decode(inputValue, context);
     }
-  }
-  
-  public boolean checkVisible(UIFormInputBase input) {
-    return (input.isRendered() && input.isEditable() && input.isEnable());
   }
   
   /*private void processMultipartRequest(UIForm uiForm, RequestContext context) throws Exception {

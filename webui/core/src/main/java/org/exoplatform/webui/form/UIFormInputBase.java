@@ -113,6 +113,10 @@ abstract public class UIFormInputBase<T> extends UIContainer implements UIFormIn
     return this;
   }
   
+  public boolean isValid() {
+    return (isRendered() && isEditable() && isEnable());
+  }
+  
   public <E extends Validator> UIFormInputBase<T> addValidator(Class<E> clazz, Object...params) throws Exception {
     if(validators == null)  validators = new ArrayList<Validator>(3) ;
     if(params.length > 0) {
@@ -138,18 +142,15 @@ abstract public class UIFormInputBase<T> extends UIContainer implements UIFormIn
   }
 
   public boolean isMandatory() {
-	  List<Validator> validators = this.getValidators() ;
 	  if(validators == null) return false;
-      for(Validator validator : validators)
-    	  if(validator instanceof MandatoryValidator) return true;
-      return false;
+    for(Validator validator : validators) {
+      if(validator instanceof MandatoryValidator) return true;
+    }
+    return false;
   }
   
   abstract public  void decode(Object input,  WebuiRequestContext context) throws Exception ;
   
-  @SuppressWarnings("unused")
-  public void decodeFromMultipartFields(WebuiRequestContext context, UIComponent component, List items) {}
-
   public String getLabel() { return label; }
 
   public void setLabel(String label) { this.label = label; }
