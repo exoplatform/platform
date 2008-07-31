@@ -7,7 +7,7 @@
  */
 /*#######################################-----UIWizard-----##################################*/
 .UIWizard {
-	width: 99.5%;
+	width: 98.9%;
 	margin: auto;
 }
 
@@ -51,8 +51,6 @@
 
 .UIWizard .UIWizardContent .WizardStepContent {
   border: solid 1px #aeaeae; border-bottom: none;
-	height: 100%;
-  overflow: auto;
 }
 
 .UIWizard .UIWizardContent .WizardStepContent .UIWizardPageSetInfo {

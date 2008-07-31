@@ -14,11 +14,11 @@
 }
 
 .UIHorizontalTabs .CenterHorizontalTabs {
-  height: 31px;
   background: url('background/HorizontalTabs.gif') repeat-x left -62px;
 }
 
 .UIHorizontalTabs .TabsContainer {
+  height: 31px;
   padding: 0px 0px 0px 10px;
 }
 

@@ -49,7 +49,7 @@
   border: 1px solid #e4e4e4;
 }
 
-.UIGroupMembershipSelector .MembershipTitle{
+.UIGroupMembershipSelector .MembershipTitle {
   background: url('background/TitleBG1x20.gif') repeat-x;
   border-bottom: 1px #b7b7b7 solid; 
   height: 20px; line-height: 20px;
@@ -63,8 +63,7 @@
 }
 
 .UIGroupMembershipSelector .UITrees {
-  border-top: none;  
-  _width: 99%;
+  border: none;  
 }
 
 .UIGroupMembershipSelector .UITrees .TreeContainer {
@@ -81,7 +80,7 @@
   margin-left: 240px; height: 183px;
 }
 
-.UIGroupMembershipSelector .MembershipSelector .ContentContainer {
+.UIGroupMembershipSelector .ContentContainer {
   border: 1px solid #b7b7b7;
 }
 
@@ -103,16 +102,20 @@
 .UIGroupMembershipSelector  .MembershipSelector .OddRow {
   line-height: 22px;
   padding: 0px 5px;
+  width: 80.5%;
+  overflow: hidden;
 }
 
 .UIGroupMembershipSelector  .MembershipSelector .EvenRow {
   line-height: 22px;
   padding: 0px 5px;
+  width: 80.5%;
+  overflow: hidden;
 }
 
 .UIGroupMembershipSelector .MembershipSelector .ItemIcon {
-  margin: 0px 3px 0px 1px ;
   height: 22px; line-height: 22px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left;  
   padding-left: 20px;
+  display: block;
 }

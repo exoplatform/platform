@@ -62,8 +62,7 @@
 }
 
 .UIGroupMembershipSelector .UITrees {
-  border-top: none;  
-  _width: 99%;
+  border: none;  
 }
 
 .UIGroupMembershipSelector .UITrees .TreeContainer {
@@ -80,7 +79,7 @@
   margin-left: 240px; height: 183px;
 }
 
-.UIGroupMembershipSelector .MembershipSelector .ContentContainer {
+.UIGroupMembershipSelector .ContentContainer {
 	border: 1px solid #aeaeae;
 }
 

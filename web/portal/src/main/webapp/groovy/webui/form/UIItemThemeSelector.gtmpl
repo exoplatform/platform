@@ -23,7 +23,7 @@
 						  <div class="WindowBarLeft">
 						    <div class="WindowBarRight">
 						      <div class="WindowBarCenter">
-						      	<div class="FixBug">
+						      	<div class="FixHeight">
 							        <div class="WindowPortletControl">
 							          <div class="ControlIcon MinimizedIcon"><span></span></div>
 							          <div class="ControlIcon RestoreIcon"><span></span></div>
@@ -52,7 +52,7 @@
 						  <div class="BottomDecoratorLeft">
 						    <div class="BottomDecoratorRight">
 						      <div class="BottomDecoratorCenter">
-						      	<div class="FixBug">
+						      	<div class="FixHeight">
 											<div class="ResizeArea" title="Resize Window"><span></span></div>
 							        <div class="Information">Done</div>
 							        <div style="clear: right"><span></span></div>

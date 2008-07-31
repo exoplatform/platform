@@ -3,12 +3,12 @@
 
 .UIHorizontalTabs .CenterHorizontalTabs {
 	overflow-y: hidden;
-  height: 24px;
-  padding: 0px 6px;
   background: url('background/NormalTabStyle.gif') repeat-x center top;
+  padding: 0px 6px;
 }
 
 .UIHorizontalTabs .TabsContainer {
+ 	height: 24px;
 }
 
 .UIHorizontalTabs .UITab {
