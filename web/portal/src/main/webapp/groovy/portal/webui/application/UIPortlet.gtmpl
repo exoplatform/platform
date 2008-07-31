@@ -291,7 +291,6 @@
 		  String cssStyle = "style=\"";
 	    cssStyle += "width: "+ windowWidth +";" ;
 	    cssStyle += "height: "+ windowHeight +";" ;
-	    cssStyle += "overflow: auto;" ;
 	    cssStyle += "\"";
 %>      
 	    <div id="${portletId}">
