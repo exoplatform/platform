@@ -151,7 +151,7 @@
   	cssStyle += "display: "+ appDisplay +";" ;
   	cssStyle += "z-index: "+ appZIndex +";" ;
   	cssStyle += "width: "+ windowWidth +";" ;
-/*  	cssStyle += "height: "+ windowHeight +";" ;*/
+  	cssStyle += "height: "+ windowHeight +";" ;
   	cssStyle += "\"";
   	String theme = uicomponent.getSuitedTheme(null) ;
 %>
@@ -226,15 +226,15 @@
 		                if(windowState == WindowState.MAXIMIZED) {
 	  	                maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'normal');" ;
 	  	                maximizedMode = "Normal";
-	  	                restoreDown = "Restore Down";
+	  	                restoreDown = _ctx.appRes("UIPortlet.tooltip.MaximizeRestore");
 		                } else if(windowState == WindowState.MINIMIZED) {
 		                  minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'normal');" ;
 	  	                minimizedMode = "Normal";
-	  	                restore = "Restore";
+	  	                restore = _ctx.appRes("UIPortlet.tooltip.MinimizeRestore");
 		                }
 	              %>
-		                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction" title="<%=_ctx.appRes("UIPortlet.tooltip.Minimize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-		            		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction" title="<%=_ctx.appRes("UIPortlet.tooltip.Maximize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+		                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction" title="<%=restore;%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+		            		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction" title="<%=restoreDown;%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	              <%}%>    
 	              <div style="clear: left"><span></span></div>  
 	            </div>
@@ -259,7 +259,7 @@
         <div class="MiddleDecoratorRight">
           <div class="MiddleDecoratorCenter">
             <div id="${portletId}" style="width: 100%">
-              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight;">
+              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="width: 100%;">
 			          <% if(windowState != WindowState.MINIMIZED) out.println(portletContent) %>
 		          </div>    
             </div>
