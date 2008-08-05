@@ -27,7 +27,6 @@ var FCKLang		= oEditor.FCKLang ;
 var FCKConfig	= oEditor.FCKConfig ;
 var FCKRegexLib	= oEditor.FCKRegexLib ;
 var FCKTools	= oEditor.FCKTools ;
-var eXoPlugin = oEditor.eXoPlugin ;
 //#### Dialog Tabs
 
 // Set the dialog tabs.
