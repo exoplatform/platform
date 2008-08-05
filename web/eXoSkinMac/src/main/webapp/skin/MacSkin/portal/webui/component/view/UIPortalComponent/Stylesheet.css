@@ -125,8 +125,9 @@
 	height: 60px ;
 }
 
-.UIContainer .CONTROL-CONTAINER {
-
+.UIContainer .UIInfoBar .BlueRoundedStyle {
+  padding: 0px; margin: 0px;
+  height: 23px;
 }
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {

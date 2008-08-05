@@ -33,7 +33,7 @@
 }
 
 .UIPortlet .DeletePortletIcon {
-	float:right;
+	float: right;
 	width: 22px; height:16px; 
   background: url('background/ContainerIcon.gif') no-repeat bottom;
   margin: 4px 4px 2px 0px;
@@ -122,6 +122,11 @@
 
 * html .UIContainer .LAYOUT-CONTAINER {
 	height: 60px ;
+}
+
+.UIContainer .UIInfoBar .BlueRoundedStyle {
+  padding: 0px; margin: 0px;
+  height: 22px;
 }
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {

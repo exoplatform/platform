@@ -181,6 +181,11 @@
 	height: 60px;
 }
 
+.UIContainer .UIInfoBar .BlueRoundedStyle {
+  padding: 0px; margin: 0px;
+  height: 22px;
+}
+
 .UIContainer .CONTROL-CONTAINER {
 }
 
