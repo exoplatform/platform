@@ -1,6 +1,10 @@
 /*##############################-Page Layout Decorator-################################*/
-.UIPage {
-	padding: 1px 0px;
+.UIPage {}
+
+.UIPage .PageLayoutDecorator {
+	padding: 0px;
+	/*_padding: 0px 10px 0px 12px ;*/
+	/*width: 97%;*/
 }
 
 .UIPage .PageLayoutDecorator .TopLeftPage {
