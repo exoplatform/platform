@@ -113,6 +113,9 @@ function Ok()
 	SetAttribute( table, 'width'		, sWidth ) ;
 	SetAttribute( table, 'height'		, GetE('txtHeight').value ) ;
 	SetAttribute( table, 'border'		, GetE('txtBorder').value ) ;
+	SetAttribute( table, 'borderColor'	, GetE('txtBorderColor').value ) ;
+	SetAttribute( table, 'bgColor'		, GetE('txtBgColor').value ) ;
+	SetAttribute( table, 'style'		, GetE('txtInlineStyle').value ) ;
 	SetAttribute( table, 'align'		, GetE('selAlignment').value ) ;
 	SetAttribute( table, 'cellPadding'	, GetE('txtCellPadding').value ) ;
 	SetAttribute( table, 'cellSpacing'	, GetE('txtCellSpacing').value ) ;
@@ -170,7 +173,7 @@ function Ok()
 	<table id="otable" cellspacing="0" cellpadding="0" width="100%" border="0" style="height: 100%">
 		<tr>
 			<td>
-				<table cellspacing="1" cellpadding="1" width="100%" border="0">
+				<table cellspacing="1" cellpadding="1" width="100%" border="0" >
 					<tr>
 						<td valign="top">
 							<table cellspacing="0" cellpadding="0" border="0">
@@ -200,6 +203,12 @@ function Ok()
 									<td>
 										&nbsp;<input id="txtBorder" type="text" maxlength="2" size="2" value="1" name="txtBorder"
 											onkeypress="return IsDigit(event);" /></td>
+								</tr>
+								<tr>
+									<td>
+										<span fcklang="DlgTableBorderColor">Border color</span>:</td>
+									<td>		
+										&nbsp;<input id="txtBorderColor" type="text" size="6" value="#000000" /></td>
 								</tr>
 								<tr>
 									<td>
@@ -264,11 +273,27 @@ function Ok()
 									<td>
 										&nbsp;</td>
 								</tr>
+								<tr>
+									<td nowrap="nowrap">
+										<span fcklang="DlgTableBgColor">Background</span>:</td>
+									<td>
+										&nbsp;<input id="txtBgColor" type="text" size="6" name="txtBgColor" value="#FFFFFF"/></td>
+									<td>
+										&nbsp;</td>
+								</tr>
 							</table>
 						</td>
 					</tr>
 				</table>
 				<table cellspacing="0" cellpadding="0" width="100%" border="0">
+					<tr>
+						<td nowrap="nowrap"  valign="top">
+							<span fcklang="DlgTableStyle">Style</span>:&nbsp;</td>
+						<td>
+							&nbsp;</td>
+						<td width="100%" nowrap="nowrap">
+							<textarea id="txtInlineStyle" style="width: 100%; height: 43px; overflow: auto;" ></textarea></td>
+					</tr>
 					<tr>
 						<td nowrap="nowrap">
 							<span fcklang="DlgTableCaption">Caption</span>:&nbsp;</td>
