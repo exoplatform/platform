@@ -1,7 +1,7 @@
 <div class="UIGadgetManagement" id="$uicomponent.id">
   <div class="UIControlbar">
   	<div class="IconControl AddNewIcon" onclick="<%= uicomponent.event("AddRemoteGadget") %>">Add a remote gadget</div>
-  	<div class="IconControl CreateNewIcon">Create a new gadget</div>
+  	<div class="IconControl CreateNewIcon" onclick="<%= uicomponent.event("AddLocalGadget") %>">Create a new gadget</div>
   	<div style="clear: both"><span></span></div>
   </div>
   

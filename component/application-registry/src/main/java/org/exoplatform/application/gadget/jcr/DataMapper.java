@@ -19,6 +19,7 @@ package org.exoplatform.application.gadget.jcr;
 import org.exoplatform.application.gadget.Gadget;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
 
 /**
  * Created by The eXo Platform SAS
@@ -30,7 +31,8 @@ public class DataMapper {
   
   final static String EXO_REGISTRYENTRY_NT = "exo:registryEntry" ;
   final static String PRIMARY_TYPE = "jcr:primaryType" ;
-  
+  final static String GADGET_SOURCE = "GadgetSource" ;
+  final static private String DATA_ELEMENT = "data" ;
   final static String EXO_DATA_TYPE = "exo:dataType" ;
   final static String EXO_GADGET_NAME = "exo:gadgetName" ;
   final static String EXO_GADGET_URL = "exo:gadgetUrl" ;  
@@ -55,6 +57,18 @@ public class DataMapper {
     return app ;
   }
   
+  public void map(Document doc, String source) throws Exception {
+    Element root = doc.getDocumentElement() ;
+    prepareXmlNamespace(root) ;
+    root.setAttribute(PRIMARY_TYPE, EXO_REGISTRYENTRY_NT) ;
+    root.setAttribute(EXO_DATA_TYPE, GADGET_SOURCE) ;
+    setDataValue(doc, DATA_ELEMENT, source) ;
+  }
+  
+  public String toSource(Document doc) throws Exception {
+    return getDataValue(doc, DATA_ELEMENT) ;
+  }
+  
   private void prepareXmlNamespace(Element element) {
     setXmlNameSpace(element, "xmlns:exo", "http://www.exoplatform.com/jcr/exo/1.0") ;
     setXmlNameSpace(element, "xmlns:jcr", "http://www.jcp.org/jcr/1.0") ;
@@ -66,5 +80,30 @@ public class DataMapper {
       element.setAttribute(key, value) ;
     }    
   }
+  
+  private void setDataValue(Document doc, String name, String value) {
+    Node dataElement = createDataElement(doc, name) ;
+    Node child ;
+    while((child = dataElement.getFirstChild()) != null) {
+      dataElement.removeChild(child) ;
+    }
+    Node data = doc.createCDATASection(value);
+    dataElement.appendChild(data) ;    
+  }
+
+  private String getDataValue(Document doc, String name) {
+    Node dataElement = createDataElement(doc, name) ;
+    return dataElement.getFirstChild().getNodeValue() ;
+  }
+  
+  private Element createDataElement(Document doc, String name) {
+    Element ele = (Element) doc.getElementsByTagName(name).item(0) ;
+    if(ele == null) {
+      ele = doc.createElement(name) ;
+      doc.getDocumentElement().appendChild(ele) ;
+    }
+    return ele ;
+  }
+
   
 }

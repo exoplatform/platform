@@ -38,7 +38,8 @@ import org.exoplatform.webui.event.EventListener;
     template = "app:/groovy/applicationregistry/webui/component/UIGadgetManagement.gtmpl",
     events = {
         @EventConfig(listeners = UIGadgetManagement.AddRemoteGadgetActionListener.class),
-        @EventConfig(listeners = UIGadgetManagement.RemoveGadgetActionListener.class)
+        @EventConfig(listeners = UIGadgetManagement.RemoveGadgetActionListener.class),
+        @EventConfig(listeners = UIGadgetManagement.AddLocalGadgetActionListener.class)
     }
 )
 
@@ -69,7 +70,7 @@ public class UIGadgetManagement extends UIContainer {
     public void execute(Event<UIGadgetManagement> event) throws Exception {
       UIGadgetManagement uiManagement = event.getSource() ;
       uiManagement.getChildren().clear() ;
-      uiManagement.addChild(UIGadgetEditor.class, null, null) ;
+      uiManagement.addChild(UIAddGadget.class, null, null) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
     
@@ -83,6 +84,17 @@ public class UIGadgetManagement extends UIContainer {
       GadgetRegistryService service = uiManagement.getApplicationComponent(GadgetRegistryService.class) ;
       service.removeGadget(id) ;
       uiManagement.reload() ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+    }
+    
+  }
+  
+  public static class AddLocalGadgetActionListener extends EventListener<UIGadgetManagement> {
+
+    public void execute(Event<UIGadgetManagement> event) throws Exception {
+      UIGadgetManagement uiManagement = event.getSource() ;
+      uiManagement.getChildren().clear() ;
+      uiManagement.addChild(UIGadgetEditor.class, null, null) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
     

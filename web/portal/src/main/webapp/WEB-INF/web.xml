@@ -10,10 +10,70 @@
 	  <filter-name>ResourceRequestFilter</filter-name> 
 	  <filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class> 
 	</filter>
+	
+	<filter>
+    <filter-name>PortalContainerInitializedFilter</filter-name>
+    <filter-class>org.exoplatform.frameworks.jcr.web.PortalContainerInitializedFilter</filter-class>
+  </filter>
+  
+  <filter>
+    <filter-name>ThreadLocalSessionProviderInitializedFilter</filter-name>
+    <filter-class>org.exoplatform.frameworks.jcr.web.ThreadLocalSessionProviderInitializedFilter</filter-class>
+  </filter>  
+
+	<filter>
+    <filter-name>AnonymousUserContextRedirectionFilter</filter-name>
+    <filter-class>org.exoplatform.ws.frameworks.servlet.AnonymousUserContextRedirectionFilter</filter-class>
+		<init-param>
+      <param-name>context-name</param-name>
+      <param-value>/rest</param-value>
+    </init-param>
+  </filter>
+
+  <filter>
+    <filter-name>SetCurrentIdentityFilter</filter-name>
+    <filter-class>org.exoplatform.services.security.web.SetCurrentIdentityFilter</filter-class>
+  </filter>
+	
+  <filter>                                                                                                                                     
+    <filter-name>RestEncodingFilter</filter-name>                                                                                              
+      <filter-class>org.exoplatform.services.rest.servlet.RestEncodingFilter</filter-class>                                                      
+      <init-param>                                                                                                                               
+        <param-name>REQUEST_ENCODING</param-name>                                                                                                
+        <param-value>UTF-8</param-value>                                                                                                         
+      </init-param>                                                                                                                              
+  </filter>       
+
 	<filter-mapping>
 	  <filter-name>ResourceRequestFilter</filter-name> 
 	  <url-pattern>/javascript/*</url-pattern> 
 	</filter-mapping>
+	
+  <filter-mapping>
+    <filter-name>PortalContainerInitializedFilter</filter-name>
+    <url-pattern>/rest/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>SetCurrentIdentityFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>RestEncodingFilter</filter-name>
+    <url-pattern>/rest/*</url-pattern>
+  </filter-mapping> 
+
+  <filter-mapping>
+  <!-- This must be before ThreadLocalSessionProviderInitializedFilter for URI /rest/* -->
+    <filter-name>AnonymousUserContextRedirectionFilter</filter-name>
+    <url-pattern>/rest/*</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+    <filter-name>ThreadLocalSessionProviderInitializedFilter</filter-name>
+    <url-pattern>/rest/*</url-pattern>
+  </filter-mapping>   
 
   <!-- ================================================================== -->
   <!--           LISTENER                                                 -->
@@ -40,6 +100,14 @@
 	  </init-param>
 	  <load-on-startup>1</load-on-startup> 
 	</servlet>
+  
+  <servlet>
+    <servlet-name>RestServer</servlet-name>
+    <description>eXo - Platform REST Server</description>
+    <servlet-class>org.exoplatform.services.rest.servlet.RestServlet</servlet-class>
+    <load-on-startup>4</load-on-startup>
+  </servlet>
+	
 	<servlet>
 	  <servlet-name>javascript</servlet-name> 
 	  <servlet-class>org.exoplatform.portal.webui.javascript.JavascriptServlet</servlet-class> 
@@ -70,6 +138,10 @@
 	  <servlet-name>portal</servlet-name> 
 	  <url-pattern>/command/*</url-pattern> 
 	</servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>RestServer</servlet-name>
+    <url-pattern>/rest/*</url-pattern>
+  </servlet-mapping>	
 	<session-config>
 	  <session-timeout>30</session-timeout> 
 	</session-config>

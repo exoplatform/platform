@@ -30,5 +30,10 @@
     <key>org.exoplatform.application.gadget.GadgetRegistryService</key>
     <type>org.exoplatform.application.gadget.jcr.GadgetRegistryServiceImpl</type>
   </component>
+  
+  <component>
+  	<key>org.exoplatform.application.gadget.SourceStorage</key>
+  	<type>org.exoplatform.application.gadget.jcr.SourceStorageImpl</type>
+  </component>
 
 </configuration>

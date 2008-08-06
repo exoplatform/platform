@@ -16,79 +16,65 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
+import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.UIFormRadioBoxInput;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTextAreaInput;
 
 /**
  * Created by The eXo Platform SAS
  * Author : Pham Thanh Tung
  *          thanhtungty@gmail.com
- * Jul 4, 2008  
+ * Jul 29, 2008  
  */
-
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/form/UIForm.gtmpl",
     events = {
-      @EventConfig(listeners = UIGadgetEditor.SaveActionListener.class),
-      @EventConfig(listeners = UIGadgetEditor.BackActionListener.class)
+      @EventConfig(listeners = UIGadgetEditor.SaveActionListener.class)
     }
 )
-
 public class UIGadgetEditor extends UIForm {
   
-  static final String FIELD_NAME = "name" ;
-  static final String FIELD_URL = "url" ;
-  static final String FIELD_DISPLAY = "display" ;
+  final static public String FIELD_NAME = "name" ;
+  final static public String FIELD_SOURCE = "source" ;
   
   public UIGadgetEditor() throws Exception {
     addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
-    addUIFormInput(new UIFormStringInput(FIELD_URL, null, null)) ;
-    List<SelectItemOption<String>> displayOptions = new ArrayList<SelectItemOption<String>>(2) ;
-    displayOptions.add(new SelectItemOption<String>("apllication", "application")) ;
-    displayOptions.add(new SelectItemOption<String>("widget", "widget")) ;
-    addUIFormInput(new UIFormRadioBoxInput(FIELD_DISPLAY, null, displayOptions)) ;
+    addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, null)) ;
   }
   
   public static class SaveActionListener extends EventListener<UIGadgetEditor> {
 
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
+      String name = uiForm.getUIStringInput(UIGadgetEditor.FIELD_NAME).getValue() ;
+      String source = uiForm.getUIFormTextAreaInput(UIGadgetEditor.FIELD_SOURCE).getValue() ;
+      SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
-      String name = uiForm.getUIStringInput(FIELD_NAME) .getValue();
-      String url = uiForm.getUIStringInput(FIELD_URL) .getValue();
+      sourceStorage.saveSource(name, source) ;
+      PortalRequestContext pContext = Util.getPortalRequestContext() ;
+      StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
+      int index = requestUrl.indexOf(pContext.getRequestContextPath()) ;
+      String link = requestUrl.substring(0, index) + "/" + sourceStorage.getSourceLink(name) ;
       Gadget gadget = new Gadget() ;
       gadget.setName(name) ;
-      gadget.setUrl(url) ;
+      gadget.setUrl(link) ;
+      gadget.setRemote(false) ;
       service.addGadget(gadget) ;
-      UIGadgetManagement uiParent = uiForm.getParent() ;
-      uiParent.reload() ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
+      UIGadgetManagement uiManagement = uiForm.getParent() ;
+      uiManagement.reload() ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
     
   }
-  
-  public static class BackActionListener extends EventListener<UIGadgetEditor> {
-
-    public void execute(Event<UIGadgetEditor> event) throws Exception {
-      UIGadgetEditor uiForm = event.getSource() ;
-      UIGadgetManagement uiParent = uiForm.getParent() ;
-      uiParent.getChildren().clear() ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
-    }
-    
-  }
-  
 }

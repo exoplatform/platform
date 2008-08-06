@@ -57,5 +57,5 @@ public interface GadgetRegistryService {
    * @throws Exception
    */
   public void removeGadget(String id) throws Exception ;
-
+  
 }

@@ -28,7 +28,7 @@ public class Gadget {
   
   private String name ;
   private String url ;
-  private boolean isRemote = false ;
+  private boolean isRemote = true ;
   
   public Gadget() {}
   public Gadget(GadgetApplication app) {

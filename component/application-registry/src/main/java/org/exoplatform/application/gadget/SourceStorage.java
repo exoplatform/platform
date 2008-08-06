@@ -14,32 +14,22 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.web.application.gadget;
-
-
+package org.exoplatform.application.gadget;
 
 /**
  * Created by The eXo Platform SAS
- * @author Pham Thanh Tung
- *          thanhtungty@gmail.com</br>
- * Jul 28, 2008</br>
- * This class is used to add and get gadget application. 
+ * Author : Pham Thanh Tung
+ *          thanhtungty@gmail.com
+ * Aug 6, 2008  
  */
-public interface GadgetStorage {
+public interface SourceStorage {
+
+  public String getSource(String name) throws Exception ;
   
-  /**
-   * Gets the gadget application from portal by name
-   * @param name the name of gadget application
-   * @return the gadget application or null if not found
-   * @throws Exception
-   */
-  public GadgetApplication getGadget(String name) throws Exception ;
+  public void saveSource(String name, String source) throws Exception ;
   
-  /**
-   * Adds the gadget application to portal
-   * @param app the gadget application
-   * @throws Exception
-   */
-  public void addGadget(GadgetApplication app) throws Exception ;
+  public void removeSource(String name) throws Exception ;
+  
+  public String getSourceLink(String name) throws Exception ;
 
 }
