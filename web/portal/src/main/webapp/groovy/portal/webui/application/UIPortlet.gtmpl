@@ -151,7 +151,7 @@
   	cssStyle += "display: "+ appDisplay +";" ;
   	cssStyle += "z-index: "+ appZIndex +";" ;
   	cssStyle += "width: "+ windowWidth +";" ;
-  	cssStyle += "height: "+ windowHeight +";" ;
+  	//cssStyle += "height: "+ windowHeight +";" ;
   	cssStyle += "\"";
   	String theme = uicomponent.getSuitedTheme(null) ;
 %>
@@ -259,7 +259,7 @@
         <div class="MiddleDecoratorRight">
           <div class="MiddleDecoratorCenter">
             <div id="${portletId}" style="width: 100%">
-              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="width: 100%;">
+              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight;">
 			          <% if(windowState != WindowState.MINIMIZED) out.println(portletContent) %>
 		          </div>    
             </div>
