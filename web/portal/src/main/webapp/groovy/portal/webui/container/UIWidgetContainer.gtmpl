@@ -13,6 +13,8 @@
 	jsmanager.importJavascript('eXo.webui.UIVerticalScroller') ;
 	jsmanager.addJavascript('eXo.webui.UIVerticalScroller.init();');
   jsmanager.addOnResizeJavascript('eXo.webui.UIVerticalScroller.init');
+  
+  String uri = addWidgetAction.substring(addWidgetAction.indexOf("'")+1, addWidgetAction.lastIndexOf("'"));
 %>
 
 
@@ -24,7 +26,7 @@
 		<div class="LeftWidgetNavBar">
 			<div class="RightWidgetNavBar">
 				<div class="CenterWidgetNavBar">
-					<div class="Icon AddWidgetButton" onclick="$addWidgetAction" title="<%=_ctx.appRes("UIWidgetContainer.tooltip.addWidget")%>"><span></span></div>
+					<div class="Icon AddWidgetButton" onclick="javascript:ajaxGet(eXo.widget.UIAddWidget.prepareShowNew('$uri'));" title="<%=_ctx.appRes("UIWidgetContainer.tooltip.addWidget")%>"><span></span></div>
 					<div class="Icon DisableScrollDownButton" onclick="$scrollDownAction" title="<%=_ctx.appRes("UIWidgetContainer.tooltip.scrollDown")%>"><span></span></div>
   				<div class="Icon DisableScrollUpButton" onclick="$scrollUpAction" title="<%=_ctx.appRes("UIWidgetContainer.tooltip.scrollUp")%>"><span></span></div>
    				<div style="clear: left"><span></span></div> 									

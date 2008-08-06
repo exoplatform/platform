@@ -44,4 +44,11 @@ UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {
 	eXo.core.Skin.addSkin(styleId, appDescriptor.application.skin[eXo.env.client.skin]);
 };
 
+UIAddWidget.prototype.prepareShowNew = function(url) {
+	alert(url);
+	var subURL = url.substring(url.indexOf("componentId"));
+	var componentId = subURL.substring(subURL.indexOf("=")+1, subURL.indexOf("&"));
+	return url.replace(componentId, encodeURI(componentId));
+};
+
 eXo.widget.UIAddWidget = new UIAddWidget();
