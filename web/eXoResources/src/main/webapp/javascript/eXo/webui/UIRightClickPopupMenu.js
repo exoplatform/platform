@@ -33,7 +33,7 @@ UIRightClickPopupMenu.prototype.disableContextMenu = function(comp) {
 
 UIRightClickPopupMenu.prototype.prepareObjectId = function(evt, elemt) {
 	var contextMenu = eXo.core.DOMUtil.findAncestorByClass(elemt, "UIRightClickPopupMenu") ;
-	contextMenu.style.dispay = "none" ;
+	contextMenu.style.display = "none" ;
 	var href = elemt.getAttribute('href') ;
 	if(href.indexOf("javascript") == 0) {
 		eval(unescape(href).replace('_objectid_', encodeURI(contextMenu.objId.replace(/'/g, "\\'")))) ; 
