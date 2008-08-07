@@ -113,6 +113,12 @@ public class UIPortalBrowser extends UIContainer {
         return;
       }
       
+      if(config == null && !Util.getUIPortal().getName().equals(portalName)) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-deletePermission", new String[] {portalName}));
+        prContext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+        return;
+      }
+      
       if(config == null || Util.getUIPortal().getName().equals(portalName)) {
         HttpServletRequest request = prContext.getRequest() ;
         request.getSession().invalidate() ;
