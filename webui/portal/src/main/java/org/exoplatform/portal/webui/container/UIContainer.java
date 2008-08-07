@@ -91,6 +91,7 @@ public class UIContainer extends  UIPortalComponent {
       String objectId = event.getRequestContext().getRequestParameter(OBJECTID);
       UIContainer container = event.getSource();
       UIComponent goal = container.findComponentById(objectId);
+      if(goal == null) { return; }
       UIContainer parent = goal.getParent();
       List<UIComponent> children = parent.getChildren();
       for(UIComponent child: children){
