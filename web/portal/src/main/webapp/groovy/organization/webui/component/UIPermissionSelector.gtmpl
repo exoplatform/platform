@@ -24,7 +24,14 @@
         </div>
 	      <div class="OverflowContainer">
 	        <div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.groupId")%> :</div>
-	        <div class="Info"><%=permission.getGroupId() %></div>
+	        <% 
+        	def groupId = permission.getGroupId();
+        	if(groupId.length() < 60) {
+	        %>
+			        <div class="Info"><%=permission.getGroupId() %></div>
+		      <% } else { %>
+		      		<div class="Info" title="$groupId"><%=groupId.substring(0,57) + "..." %></div>
+		      <% } %>
 	      </div>         
 	      <div class="OverflowContainer">
 	        <div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.membershipMember")%> :</div>
