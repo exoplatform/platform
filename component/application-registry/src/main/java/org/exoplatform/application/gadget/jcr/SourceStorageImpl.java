@@ -36,54 +36,57 @@ import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 public class SourceStorageImpl implements SourceStorage {
 
   public String getSource(String name) throws Exception {
-  SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-  RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
-  Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
-  NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
-  Node homeNode = (Node)session.getItem(nodeCreator.getJcrPath("GadgetSources"));
-  String source = homeNode.getNode(name + ".xml" + "/jcr:content").getProperty("jcr:data").getString() ;
-  sessionProvider.close() ;
-  return source ;
-}
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    Node homeNode = getHomeNode(sessionProvider) ;
+    String source = homeNode.getNode(name + ".xml" + "/jcr:content").getProperty("jcr:data").getString() ;
+    sessionProvider.close() ;
+    return source ;
+  }
 
-public void saveSource(String name, String source) throws Exception {
-  SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-  RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
-  Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
-  NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
-  Node homeNode = (Node)session.getItem(nodeCreator.getJcrPath("GadgetSources"));
-  Node contentNode ;
-  String fileName = name + ".xml" ;
-  if(!homeNode.hasNode(fileName)) {
-    Node fileNode = homeNode.addNode(fileName, "nt:file") ;
-    contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
-  } else contentNode = homeNode.getNode(fileName + "/jcr:content") ;
-  contentNode.setProperty("jcr:data", source) ;
-  contentNode.setProperty("jcr:mimeType", "text/xml") ;
-  contentNode.setProperty("jcr:lastModified", Calendar.getInstance()) ;
-  session.save() ;
-  sessionProvider.close() ;
-}
+  public void saveSource(String name, String source) throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
+    Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
+    NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
+    Node homeNode = (Node)session.getItem(nodeCreator.getJcrPath("GadgetSources"));
+    Node contentNode ;
+    String fileName = name + ".xml" ;
+    if(!homeNode.hasNode(fileName)) {
+      Node fileNode = homeNode.addNode(fileName, "nt:file") ;
+      contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
+    } else contentNode = homeNode.getNode(fileName + "/jcr:content") ;
+    contentNode.setProperty("jcr:data", source) ;
+    contentNode.setProperty("jcr:mimeType", "text/xml") ;
+    contentNode.setProperty("jcr:lastModified", Calendar.getInstance()) ;
+    session.save() ;
+    sessionProvider.close() ;
+  }
 
-public void removeSource(String name) throws Exception {
-  SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-  RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
-  Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
-  NodeHierarchyCreator nodeHi = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
-  Node homeNode = (Node)session.getItem(nodeHi.getJcrPath("GadgetSources"));
-  Node serviceNode = homeNode.addNode(name) ;
-  serviceNode.remove() ;
-  session.save() ;
-  sessionProvider.close() ;
-}
+  public void removeSource(String name) throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
+    Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
+    NodeHierarchyCreator nodeHi = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
+    Node homeNode = (Node)session.getItem(nodeHi.getJcrPath("GadgetSources"));
+    Node serviceNode = homeNode.addNode(name) ;
+    serviceNode.remove() ;
+    session.save() ;
+    sessionProvider.close() ;
+  }
 
-public String getSourceLink(String name) throws Exception {
-  SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-  RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
-  Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
-  NodeHierarchyCreator nodeHi = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
-  Node homeNode = (Node)session.getItem(nodeHi.getJcrPath("GadgetSources"));
-  return "rest/public/jcr/repository/collaboration" + homeNode.getNode(name + ".xml").getPath() ;
-}
+  public String getSourceLink(String name) throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    Node homeNode = getHomeNode(sessionProvider) ;
+    String link = "rest/public/jcr/repository/collaboration" + homeNode.getNode(name + ".xml").getPath() ;
+    sessionProvider.close() ;
+    return link ;
+  }
+
+  private Node getHomeNode(SessionProvider sessionProvider) throws Exception {
+    RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
+    Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
+    NodeHierarchyCreator nodeHi = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
+    return (Node)session.getItem(nodeHi.getJcrPath("GadgetSources")) ; 
+  }
 
 }
