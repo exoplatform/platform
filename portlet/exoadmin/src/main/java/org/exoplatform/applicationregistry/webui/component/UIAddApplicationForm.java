@@ -72,6 +72,7 @@ public class UIAddApplicationForm extends UIForm {
   private List<Application> applications_ = new ArrayList<Application>() ;
   
   public UIAddApplicationForm() throws Exception {
+    addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
     List<SelectItemOption<String>> types = new ArrayList<SelectItemOption<String>>(2) ;
     types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE,
                                            org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) ;
@@ -80,7 +81,6 @@ public class UIAddApplicationForm extends UIForm {
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_TYPE, null, types) ;
     uiSelectBox.setOnChange("ChangeType") ;
     addUIFormInput(uiSelectBox) ;
-    addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
     String tableName = getClass().getSimpleName();    
     UIFormTableIteratorInputSet uiTableInputSet = createUIComponent(UIFormTableIteratorInputSet.class, null, null) ;
     uiTableInputSet.setName(tableName);
