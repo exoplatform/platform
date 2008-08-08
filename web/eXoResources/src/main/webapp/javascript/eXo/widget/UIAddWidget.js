@@ -45,7 +45,6 @@ UIAddWidget.prototype.addWidgetToDesktop = function(widgetElement) {
 };
 
 UIAddWidget.prototype.prepareShowNew = function(url) {
-	alert(url);
 	var subURL = url.substring(url.indexOf("componentId"));
 	var componentId = subURL.substring(subURL.indexOf("=")+1, subURL.indexOf("&"));
 	return url.replace(componentId, encodeURI(componentId));
