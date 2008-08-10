@@ -213,7 +213,6 @@ Browser.prototype.getBrowserType = function() {
  */
 Browser.prototype.findPosX = function(obj) {
   var curleft = 0;
-  var str = "" ;
   while (obj) {
     curleft += obj.offsetLeft ;
     obj = obj.offsetParent ;

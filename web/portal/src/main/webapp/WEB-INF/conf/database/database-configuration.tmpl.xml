@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
   <component>
-    <key>org.exoplatform.services.database.impl.ExoCacheProvider</key>
-    <type>org.exoplatform.services.database.impl.ExoCacheProvider</type>
-  </component>
-
-  <component>
     <key>org.exoplatform.services.database.HibernateService</key>
     <jmx-name>database:type=HibernateService</jmx-name>
     <type>org.exoplatform.services.database.impl.HibernateServiceImpl</type>
