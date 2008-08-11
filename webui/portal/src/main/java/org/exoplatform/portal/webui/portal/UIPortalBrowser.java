@@ -106,6 +106,11 @@ public class UIPortalBrowser extends UIContainer {
       
       UserPortalConfig config = service.getUserPortalConfig(portalName, prContext.getRemoteUser());
       if(config != null && config.getPortalConfig().isModifiable()) {
+        if(Util.getUIPortal().getName().equals(portalName)) {
+          uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.PortalInUse", new String[] {portalName}));
+          prContext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+          return;
+        }
         service.removeUserPortalConfig(portalName);
       } else if(config != null){
         uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-deletePermission", new String[]{config.getPortalConfig().getName()})) ;;
