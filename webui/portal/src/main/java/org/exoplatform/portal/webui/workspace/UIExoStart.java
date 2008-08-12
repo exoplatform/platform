@@ -325,7 +325,7 @@ public class UIExoStart extends UIComponent {
       uiMaskWS.setWindowSize(640, 400);
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event); 
+//      Util.updateUIApplication(event); 
     }
   }
 
