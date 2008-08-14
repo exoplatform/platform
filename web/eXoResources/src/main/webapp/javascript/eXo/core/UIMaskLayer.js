@@ -112,8 +112,9 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 			}
 			eXo.core.UIMaskLayer.doScroll() ;
 	  }
-		
-		eXo.core.UIMaskLayer.disableDockbar();
+		if(maskLayer.parentNode.id == "UIPage") {
+			eXo.core.UIMaskLayer.enablePageDesktop(false);
+	  }
 	}catch(err) {
 		alert(err) ;
 	}
@@ -158,7 +159,6 @@ UIMaskLayer.prototype.createMaskForFrame = function(blockContainerId, object, op
 				blockContainer.appendChild(object) ;
 	  }
 		
-		eXo.core.UIMaskLayer.disableDockbar();
 	}catch(err) {}
 	return maskLayer ;
 } ;
@@ -237,10 +237,14 @@ UIMaskLayer.prototype.removeMask = function(maskLayer) {
  * Added by Tan Pham
  * Fix for bug : In FF3, can action on dockbar when edit node
  */
-UIMaskLayer.prototype.disableDockbar = function() {
-	var uiDockbar = document.getElementById("UIDockBar");
-	if(uiDockbar) {
-		uiDockbar.style.zIndex = "0";
+UIMaskLayer.prototype.enablePageDesktop = function(enabled) {
+	var pageDesktop = document.getElementById("UIPageDesktop");
+	if(pageDesktop) {
+		if(enabled) {
+			pageDesktop.style.zIndex = "";
+		} else {
+			pageDesktop.style.zIndex = "-1";
+		}
 	}
 };
 
