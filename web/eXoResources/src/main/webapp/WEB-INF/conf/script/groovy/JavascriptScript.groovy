@@ -46,6 +46,7 @@ JavascriptService.addJavascript("eXo.webui.UIVerticalSlideTabs", "/javascript/eX
 JavascriptService.addJavascript("eXo.webui.UIPermissionSelectorTab", "/javascript/eXo/webui/UIPermissionSelectorTab.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIDashboard", "/javascript/eXo/webui/UIDashboard.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIDashboardUtil", "/javascript/eXo/webui/UIDashboardUtil.js", ServletContext);
+JavascriptService.addJavascript("eXo.webui.UINotification", "/javascript/eXo/webui/UINotification.js", ServletContext);
 
 /* Portal Javascripts */ 
 JavascriptService.addJavascript("eXo.portal.PortalHttpRequest", "/javascript/eXo/portal/PortalHttpRequest.js", ServletContext);
