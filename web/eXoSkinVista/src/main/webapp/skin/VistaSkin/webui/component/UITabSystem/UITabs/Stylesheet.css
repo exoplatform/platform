@@ -1,5 +1,5 @@
 .UIHorizontalTabs {
-  height: 31px;
+  height: 30px;
 }
 
 .UIHorizontalTabs .LeftHorizontalTabs{
@@ -18,7 +18,7 @@
 }
 
 .UIHorizontalTabs .TabsContainer {
-  height: 31px;
+  height: 30px;
   padding: 0px 0px 0px 10px;
 }
 
