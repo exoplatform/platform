@@ -41,7 +41,7 @@
 							if(selectedContainer!= null && container.getId().equals(selectedContainer.getId())) itemClass = "SelectedItem" ;
 						%>
 							<div class="<%=itemClass%>" onclick="<%=uicomponent.event("ChangeContainer", "$container.id")%>">
-								<div class="Label"><%=container.getName()%></div>
+								<div class="Label" title="<%=container.getName()%>"><%=container.getName()%></div>
 							</div>
 						<%}%>
 						<%}%>

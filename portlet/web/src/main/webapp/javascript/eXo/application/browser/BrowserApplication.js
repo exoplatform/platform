@@ -23,8 +23,8 @@ BrowserApplication.prototype.init = function(instanceId) {
 	txtAddress.onkeypress = eXo.application.browser.BrowserApplication.onKeyPress ;
 
 	var firstCloseButton = DOMUtil.findFirstDescendantByClass(eXoBrowser, "div", "CloseButton") ;
-	firstCloseButton.onclick = function() {
-		eXo.application.browser.BrowserApplication.removeTabDetail(this) ;
+	firstCloseButton.onclick = function(event) {
+		eXo.application.browser.BrowserApplication.removeTabDetail(this, event) ;
 	};
 		
 	var firstTabDetail = firstCloseButton.parentNode.parentNode ;
@@ -129,8 +129,8 @@ BrowserApplication.prototype.createNewTab = function(clickedElement) {
   	eXo.application.browser.BrowserApplication.activateTabDetail(this, ancestorNode) ;
   } ;
   var closeButton = DOMUtil.findFirstDescendantByClass(cloneActiveTab, "div", "CloseButton") ;
-  closeButton.onclick = function() {
-  	eXo.application.browser.BrowserApplication.removeTabDetail(this) ;
+  closeButton.onclick = function(event) {
+  	eXo.application.browser.BrowserApplication.removeTabDetail(this, event) ;
   } ;
   clickedElement.parentNode.insertBefore(cloneActiveTab, clickedElement) ;
   
@@ -183,7 +183,9 @@ BrowserApplication.prototype.activateTabDetail = function(selectedElement, ances
 		}
   }
 } ;
-BrowserApplication.prototype.removeTabDetail = function(clickedElement) {
+BrowserApplication.prototype.removeTabDetail = function(clickedElement, event) {
+	if(!event && window.event) event = window.event;
+	event.cancelBubble = true;
 	var DOMUtil = eXo.core.DOMUtil ;
 	if (this.NumberOfTab > 1) {
 		this.NumberOfTab-- ;
