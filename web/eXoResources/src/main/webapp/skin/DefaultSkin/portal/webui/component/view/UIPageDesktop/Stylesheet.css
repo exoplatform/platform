@@ -86,15 +86,17 @@
   padding-right: 3px;
 }
 
-.UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopCenterRightClickPopupMenu {
-  background: url('background/PageDesktop.gif') repeat-x ;
+.UIPageDesktop .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .TopCenterRightClickPopupMenu {
+  background: url('background/PageDesktop.gif') repeat-x top left;
   height: 3px;
+	width: 222px;
+	_width: 224px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .MiddleLeftRightClickPopupMenu {
   background: url('background/PageDesktopRepeat.gif') repeat-y left ;
   padding-left: 3px;
-	height: 100%;
+  height: 100%;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .MiddleRightRightClickPopupMenu {
@@ -105,13 +107,11 @@
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomLeftRightClickPopupMenu {
   background: url('background/PageDesktop.gif') left no-repeat -19px;
   padding-left: 3px;
-  line-height: 10px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomRightRightClickPopupMenu {
   background: url('background/PageDesktop.gif') right no-repeat -19px ;
   padding-right: 3px;
-  line-height: 10px;
 }
 
 .UIDockBar .UIRightClickPopupMenu .UIContextMenuContainer .BottomCenterRightClickPopupMenu {
