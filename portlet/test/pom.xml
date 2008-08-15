@@ -26,7 +26,15 @@
       <artifactId>exo.portal.webui.eXo</artifactId>
       <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
-    </dependency> 
+    </dependency>
+    
+  <dependency>
+    <groupId>org.exoplatform.ws</groupId>
+  	<artifactId>exo.ws.frameworks.cometd.service</artifactId>
+		<version>${org.exoplatform.ws.version}</version>
+		<scope>provided</scope>
+  </dependency>
+  
   </dependencies> 
 
   <build>

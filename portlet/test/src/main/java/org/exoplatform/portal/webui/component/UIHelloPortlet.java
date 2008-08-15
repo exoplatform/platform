@@ -26,6 +26,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.ws.frameworks.cometd.ContinuationService;
 
 /**
  * Created by The eXo Platform SARL
@@ -40,6 +41,7 @@ import org.exoplatform.webui.event.Event.Phase;
       events = {
         @EventConfig(listeners = UIHelloPortlet.OpenPopupActionListener.class, phase = Phase.PROCESS),
         @EventConfig(listeners = UIHelloPortlet.OpenCreatePagePopupActionListener.class),
+        @EventConfig(listeners = UIHelloPortlet.TestActionListener.class),
         @EventConfig(listeners = UIProcessEventPortlet.ProcessEventActionListener.class)
       }
     ),
@@ -86,5 +88,13 @@ public class UIHelloPortlet extends UIPortletApplication {
       popup.setShow(true);
     }
   }
-
+  
+  static public class TestActionListener extends EventListener<UIHelloPortlet> {
+    public void execute(Event<UIHelloPortlet> event) throws Exception {
+      UIHelloPortlet uicomp = event.getSource() ;
+      System.out.println("\n\n\n =========== Lambkin ============== \n\n\n");
+      ContinuationService continuation = uicomp.getApplicationComponent(ContinuationService.class);
+      continuation.sendMessage("root", "/portal/notification", "tran the trong");  
+    }
+  }
 }

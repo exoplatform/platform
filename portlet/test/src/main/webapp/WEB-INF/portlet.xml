@@ -78,27 +78,4 @@
     <supported-processing-event><name>ProcessEvent</name></supported-processing-event>
   </portlet>
    
-  <portlet>
-    <description xml:lang="EN">TestGadget Portlet</description>
-    <portlet-name>TestGadgetPortlet</portlet-name>
-    <display-name xml:lang="EN">TestGadget Portlet</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-    
-    <init-param>
-      <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/test/TestGadgetPortlet/webui/configuration.xml</value>
-    </init-param>    
-
-    <expiration-cache>0</expiration-cache>
-    <supports>
-      <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
-    </supports>
-    <portlet-info>
-      <title>TestGadget Portlet</title>
-      <short-title>TestGadget</short-title>
-      <keywords>portlet, registry</keywords>
-    </portlet-info>
-  </portlet> 
-   
 </portlet-app>

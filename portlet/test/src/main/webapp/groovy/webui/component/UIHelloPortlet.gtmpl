@@ -1,6 +1,9 @@
-<div id="<%=uicomponent.getId();%>">
-  <% uicomponent.renderChildren(); %>
-	<div style="clear: left;"><span></span></div> 
+<%
+  import org.exoplatform.ws.frameworks.cometd.ContinuationService;
+      ContinuationService continuation = uicomponent.getApplicationComponent(ContinuationService.class);
+%>
+
+<div id="<%=uicomponent.getId();%>" >
 	<div class="UIAction" > 
 		<div class="ActionContainer">
 	    
@@ -9,7 +12,7 @@
 	        <div class="ButtonLeft">
 	          <div class="ButtonRight">
 	            <div class="ButtonMiddle">
-	              <a href="<%=uicomponent.event("OpenPopup", "")%>">Open Form Popup</a>
+	              <a href="javascript: eXo.webui.UINotification.init('root','<%=continuation.getUserToken("root")%>')">Open Form Popup</a>
 	            </div>
 	          </div>
 	        </div>
@@ -21,7 +24,7 @@
 	        <div class="ButtonLeft">
 	          <div class="ButtonRight">
 	            <div class="ButtonMiddle">
-	              <a href="<%=uicomponent.event("OpenCreatePagePopup")%>">Create Page</a>
+	              <a href="<%=uicomponent.event("Test")%>">Create Page</a>
 	            </div>
 	          </div>
 	        </div>
