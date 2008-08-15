@@ -1,4 +1,8 @@
 /*##############################-Page Layout Decorator-################################*/
+.UIPage .PageLayoutDecorator {
+	padding: 0px;
+}
+
 .UIPage .PageLayoutDecorator .TopLeftPage {
   background: url('background/PageLayout.png') no-repeat left top;
   padding: 0px 0px 0px 98px ;
