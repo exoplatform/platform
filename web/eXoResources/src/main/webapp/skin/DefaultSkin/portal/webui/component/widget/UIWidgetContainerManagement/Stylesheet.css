@@ -87,7 +87,9 @@
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerCategory {
 	float: left;
 	width: 252px; height: 275px;
-	background: white; overflow: auto;
+	background: white; 
+	overflow-x: hidden;
+	overflow-y: auto;
 	border: 1px solid #b7b7b7;
 }
 
@@ -99,6 +101,7 @@
 
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView .WidgetContainerDetail {
   height: 275px;
+	overflow-x: hidden;
 	overflow-y: auto;
 	background: #ffffff;
 }
