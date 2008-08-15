@@ -44,11 +44,15 @@ public class SourceStorageImpl implements SourceStorage {
   }
 
   public void saveSource(String name, String source) throws Exception {
+//    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+//    RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
+//    Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
+//    NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
+//    Node homeNode = (Node)session.getItem(nodeCreator.getJcrPath("GadgetSources"));
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
-    Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
-    NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
-    Node homeNode = (Node)session.getItem(nodeCreator.getJcrPath("GadgetSources"));
+    Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
+    Node homeNode = session.getRootNode() ;
     Node contentNode ;
     String fileName = name + ".xml" ;
     if(!homeNode.hasNode(fileName)) {
@@ -63,13 +67,17 @@ public class SourceStorageImpl implements SourceStorage {
   }
 
   public void removeSource(String name) throws Exception {
+//    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+//    RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
+//    Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
+//    NodeHierarchyCreator nodeHi = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
+//    Node homeNode = (Node)session.getItem(nodeHi.getJcrPath("GadgetSources"));
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
-    Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
-    NodeHierarchyCreator nodeHi = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
-    Node homeNode = (Node)session.getItem(nodeHi.getJcrPath("GadgetSources"));
-    Node serviceNode = homeNode.addNode(name) ;
-    serviceNode.remove() ;
+    Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
+    Node homeNode = session.getRootNode() ;
+    Node sourceNode = homeNode.getNode(name) ;
+    sourceNode.remove() ;
     session.save() ;
     sessionProvider.close() ;
   }
@@ -77,16 +85,25 @@ public class SourceStorageImpl implements SourceStorage {
   public String getSourceLink(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node homeNode = getHomeNode(sessionProvider) ;
-    String link = "rest/public/jcr/repository/collaboration" + homeNode.getNode(name + ".xml").getPath() ;
+    String link = "rest/public/jcr/repository/gadgets" + homeNode.getNode(name + ".xml").getPath() ;
     sessionProvider.close() ;
     return link ;
+//    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+//    Node homeNode = getHomeNode(sessionProvider) ;
+//    String link = "rest/public/jcr/repository/collaboration" + homeNode.getNode(name + ".xml").getPath() ;
+//    sessionProvider.close() ;
+//    return link ;
   }
 
   private Node getHomeNode(SessionProvider sessionProvider) throws Exception {
     RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
-    Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
-    NodeHierarchyCreator nodeHi = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
-    return (Node)session.getItem(nodeHi.getJcrPath("GadgetSources")) ; 
+    Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
+    return session.getRootNode() ; 
+
+//    RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
+//    Session session = sessionProvider.getSession("collaboration", repoService.getRepository("repository")) ;
+//    NodeHierarchyCreator nodeHi = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
+//    return (Node)session.getItem(nodeHi.getJcrPath("GadgetSources")) ; 
   }
 
 }
