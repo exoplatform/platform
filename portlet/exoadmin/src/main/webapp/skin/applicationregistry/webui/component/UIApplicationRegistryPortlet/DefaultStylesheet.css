@@ -203,6 +203,11 @@
 	float: right;
 }
 
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
+	width: 147px;
+	overflow: hidden;
+}
+
 /**************************** AppWorkingArea *****************************/
 
 .UIApplicationRegistryPortlet .AppWorkingArea {
