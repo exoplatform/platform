@@ -303,7 +303,6 @@ eXo.webui.UIDashboard = {
 						'&portal:type=action&portal:isSecure=false&uicomponent=' + uiDashboardPortlet.id +
 						'&op=SetShowSelectForm&ajaxRequest=true' ;
 		
-		document.title = uiWindow.offsetHeight;
 		if(uiSelectForm.style.display != "none"){
 			uiSelectForm.style.display = "none";
 			url += '&isShow=false';

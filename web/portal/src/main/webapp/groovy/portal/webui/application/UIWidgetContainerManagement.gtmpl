@@ -59,7 +59,7 @@
 							<div class="InfoContent">
 								<div>
 									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.label")%></div>
-									<div class="FieldComponent"><%=selectedContainer.getName()%></div>
+									<div class="FieldComponent" title="<%=selectedContainer.getName()%>"><%=selectedContainer.getName()%></div>
 								</div>
 								<div>
 									<div class="Label"><%=_ctx.appRes("UIWidgetContainerManagement.label.description")%></div>

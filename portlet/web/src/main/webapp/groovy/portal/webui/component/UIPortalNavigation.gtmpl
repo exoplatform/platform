@@ -8,7 +8,7 @@
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	jsmanager.importJavascript('eXo.webui.UIHorizontalTabs');
 	jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
-	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalNavigation.onLoad');
+	jsmanager.addCustomizedOnLoadScript("eXo.portal.UIPortalNavigation.onLoad");
 	
 	jsmanager.addOnLoadJavascript('eXo.portal.UIPortalNavigation.loadScroll');
 	//jsmanager.addOnResizeJavascript('eXo.portal.UIPortalNavigation.initScroll');
