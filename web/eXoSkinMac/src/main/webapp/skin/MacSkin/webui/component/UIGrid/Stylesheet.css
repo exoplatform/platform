@@ -22,7 +22,7 @@
   border-right: 1px solid #afaeae;
   border-left: 1px solid #afaeae;
   border-top: 1px solid #d9d8d8;
-  padding: 4px 0px 0px 7px;
+  padding: 4px;
 }
 
  .UIGrid .OddRow {
@@ -34,7 +34,7 @@
 }
 
  .UIGrid .ActionContainer a {
-  margin-right: 6px ;
+  margin: 0px 3px;
   color: #024369;
 }
 

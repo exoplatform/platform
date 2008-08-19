@@ -14,6 +14,10 @@
 	padding: 0px 10px;
 }
 
+.UIChangeSkinForm .UITabPane .UITabContent {
+	padding: 0px;
+}
+
 .UIChangeSkinForm .UITabPane .UITabContentContainer {
 	border: 1px solid #999999;
 	border-top: none;

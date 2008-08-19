@@ -97,6 +97,14 @@
   line-height: 20px; 
 }
 
+.UILoginForm .LoginDetailBox .ForgetPass {
+	padding-left: 150px;
+}
+
+.UILoginForm .LoginDetailBox .ForgetPass a {
+	color: orange;
+}
+
 .UILoginForm .LoginDetailBox label {
   font-weight: bold;
   padding-right: 4px;

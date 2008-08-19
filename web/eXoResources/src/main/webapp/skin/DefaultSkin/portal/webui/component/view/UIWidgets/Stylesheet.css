@@ -26,31 +26,31 @@
 	height: 2px;
 }
 
-.UIWidgets .WidgetDecorator .TopRightWidgetsDecorator{
+.UIWidgets .WidgetDecorator .TopRightWidgetsDecorator {
 	background: url(background/UIWidgets.gif) no-repeat top right;
 	padding-right: 2px;
 	height: 2px;
 }
 
-.UIWidgets .WidgetDecorator .TopCenterWidgetsDecorator{
+.UIWidgets .WidgetDecorator .TopCenterWidgetsDecorator {
 	background: url(background/UIWidgets.gif) repeat-x center -2px;
 	height: 2px;	
 }
 
-.UIWidgets .WidgetDecorator .MiddleLeftWidgetsDecorator{
+.UIWidgets .WidgetDecorator .MiddleLeftWidgetsDecorator {
 	background: url(background/MiddleLeftUIWidgets.gif) repeat-y left;
 	padding-left: 2px;
 }
 
-.UIWidgets .WidgetDecorator .MiddleRightWidgetsDecorator{
+.UIWidgets .WidgetDecorator .MiddleRightWidgetsDecorator {
 	background: url(background/MiddleRightUIWidgets.gif) repeat-y right;
 	padding-right: 2px;
 }
 
-.UIWidgets .WidgetDecorator .MiddleCenterWidgetsDecorator{
+.UIWidgets .WidgetDecorator .MiddleCenterWidgetsDecorator {
 }
 
-.UIWidgets .WidgetDecorator .WidgetsDecoratorBackground{
+.UIWidgets .WidgetDecorator .WidgetsDecoratorBackground {
 	padding: 5px;
 }
 
@@ -102,7 +102,7 @@
 	background: url('background/UIWidgets.gif') repeat-x center -33px;
 }
 
-.UIWidgetContainer .WidgetNavigator .Icon{
+.UIWidgetContainer .WidgetNavigator .Icon {
 	height: 16px;
 	width: 16px;
 	float: left;
@@ -146,7 +146,7 @@
 	padding: 0px 0px 5px 0px;
 }
 
-.UIWidget .WidgetControl .LeftControlBar{
+.UIWidget .WidgetControl .LeftControlBar {
 	height: 19px;
 	background: url('background/UIWidgets.gif') no-repeat left -58px;	
 	padding-left: 2px;

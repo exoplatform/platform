@@ -18,27 +18,7 @@
   padding: 0px 6px;
 }
 
-.UIAccountPortlet .UIFormTabPane .UITabPane {
-  background: none; 
-  padding-top: 5px;
-}
-
-.UIAccountPortlet .UIFormTabPane .WorkingArea .UIForm {
-	padding: 0px;
-}
-
-.UIAccountPortlet .UITabPane .UIForm .HorizontalLayout .UITabContent {
-	padding: 5px;
-}
-
-.UIAccountPortlet .UITabPane .UIForm  .HorizontalLayout .UIFormInputSet {
-	padding: 15px 0px 0px 0px;
-}
-
 /*########################-Template Selector-###########################*/
-
-.UIPersonalInfo {
-}
 
 .UIAccountPortlet .UIForm .HorizontalLayout .RightColumnBigItemStyle .UIFormInputSet {
 	width: auto;

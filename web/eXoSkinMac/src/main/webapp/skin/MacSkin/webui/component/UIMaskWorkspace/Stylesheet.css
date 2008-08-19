@@ -25,12 +25,6 @@
   overflow-x: hidden;
 }
 
-.UIMaskWorkspace .UITabContentContainer .UITabContent .UIFormInputSet {
-  padding: 8px;
-  width: auto;
-  width: 95%;
-}
-
 .UIMaskWorkspace .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent {
   _padding: 0px;
 }

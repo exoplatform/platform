@@ -186,7 +186,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
 	border-top: none;
-	width: 99%;
+/*	width: 99%;*/
 }
 
 .UIOrganizationPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
@@ -267,35 +267,22 @@
   margin-left: 227px ;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIHorizontalTabs  {
-  width: 100%;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .HorizontalLayout  {
-	border: 1px solid #b7b7b7;
-	border-top: none;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UITabContentContainer {
   background: url('MacSkin/background/LightGrayLinedBG1x4.gif');
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
-	height: 216px;
+	height: 214px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .Node {
   line-height: 24px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement  .UISearch {
+.UIOrganizationPortlet .UIGroupManagement .UISearch {
   width: 99%;
   margin: auto;
   margin-bottom: 2px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIGrid th {
-	padding: 0px 3px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIFormWithTitle {
@@ -304,9 +291,8 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
-	margin: 0px auto;
+	margin: 8px auto 0px;
 	width: 99%;
-	padding: 10px 0px;
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
@@ -315,12 +301,8 @@
 	padding: 16px 0px 6px 0px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIUserInGroup {
-}
-
 .UIOrganizationPortlet .UIGroupForm .FormContainer { 
-	height: 209px;
-	padding: 11px 0px 0px 0px;
+	height: 200px;
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .UIForm select {

@@ -24,14 +24,6 @@
  	white-space: nowrap;
 }
 
-.UIAccountPortlet .UIForm .HorizontalLayout .UITabContent {
-  padding: 5px;
-}
-
-.UIAccountPortlet .UIForm .HorizontalLayout .UIFormInputSet {
-	padding: 15px 0px 0px 0px;
-}
-
 .UIAccountPortlet .TabPaneContent .UITabContentContainer .UIItemSelector {
 	padding: 2px 0px 2px 2px;
 	margin: 0px;

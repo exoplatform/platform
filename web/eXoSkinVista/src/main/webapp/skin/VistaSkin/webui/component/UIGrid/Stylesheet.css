@@ -2,6 +2,7 @@
   border: 1px solid #a3a3a3;
   border-collapse: collapse ;
   padding-left: 1px;
+  margin: auto;
 }
 
 .UIGrid thead {
@@ -13,7 +14,7 @@
   border: 1px solid #a3a3a3;
   background: url('background/ThGridRepeatBg1x20.gif') repeat-x;
   font-weight: normal;
-  padding: 0px 4px;
+  padding: 0px 3px;
 }
 
 .UIGrid tbody {
@@ -25,7 +26,7 @@
   border-right: 1px solid #a3a3a3;
   border-left: 1px solid #a3a3a3;
   border-top: 1px solid white;
-  padding: 4px 0px 0px 7px;
+  padding: 4px;
 }
 
 .UIGrid .OddRow {
@@ -37,7 +38,7 @@
 }
 
 .UIGrid .ActionContainer a {
-  margin-right: 6px ;
+  margin: 0px 3px ;
   color: #024369;
 }
 

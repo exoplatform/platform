@@ -2,11 +2,6 @@
    width: 700px ;
 }
 
-.UIMaskWorkspace .ContentContainer {
-  background:#ffffff;
-  border: solid 1px #5a5b5d ;
-}
-
 .UIMaskWorkspace .MaskContainer {
   background:#ffffff;
   border: solid 1px #6c6d6f ;
@@ -97,6 +92,10 @@
 /********************************** UIPageNavigationForm *************************************/
 
 /**********************************UITabSelector*****************************************/
+
+.UIMaskWorkspace .UITabPane .TabPaneContent .CSSContent {
+	border: 1px solid #d4d4d4;
+}
 
 .UIMaskWorkspace .UITabPane .TabPaneContent .CSSContent .UITabContent {
   height: auto;

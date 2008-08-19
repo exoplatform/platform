@@ -45,6 +45,10 @@
   line-height: 30px;
 }
 
+.UIAccountSettingForm .UIHorizontalTabs .TabsContainer {
+	height: 30px;
+}
+
 .UIAccountSettingForm .UIHorizontalTabs .UITab a.Icon {
 	padding-left: 20px;
 	display: block;
@@ -96,10 +100,10 @@
   margin-top: 1px;
 }
 
-.UIAccountSettingForm .UIForm .UIAction {
-	padding-top: 18px;
+.UIAccountSettingForm .UITabPane .UIForm .HorizontalLayout {
+	padding: 10px;
 }
 
-.UIAccountSettingForm .UIForm .HorizontalLayout {
-	padding-top: 16px;
+.UIAccountSettingForm .UIForm .UIAction {
+	padding-top: 18px;
 }

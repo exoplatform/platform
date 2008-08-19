@@ -4,6 +4,8 @@
 /*####################- HorizontalLayout -#################*/
 .UIForm .HorizontalLayout {
   border: solid 1px #b7b7b7;
+  background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png') repeat;
+  padding: 10px;
 }
 
 .UIFormGrid {
@@ -31,12 +33,13 @@
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
-	width: 97% ;
+	width: 95% ;
+  padding: 8px; margin: auto;
 }
 
 .HorizontalLayout .UIForm .UIFormInputSet {
-	width: 97%;
-  padding: 10px; margin-right: 0px;
+	width: 95%;
+  padding: 8px; margin: auto;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .Title {

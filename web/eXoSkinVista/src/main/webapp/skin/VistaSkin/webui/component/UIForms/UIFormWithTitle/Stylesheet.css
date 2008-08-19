@@ -12,13 +12,12 @@
 }
 
 .UIFormWithTitle .HorizontalLayout {
-  padding: 1px;
   border: solid 1px #bec1c7;
   border-top: none;
 }
 
 .UIFormWithTitle .HorizontalLayout .FormContainer {
-  padding: 5px 15px;
+	padding: 5px;
 }
 
 .UIFormWithTitle .HorizontalLayout .FieldContainer .FieldLabel {

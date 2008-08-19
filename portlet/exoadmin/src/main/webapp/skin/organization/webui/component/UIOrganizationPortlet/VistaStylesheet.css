@@ -64,12 +64,11 @@
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
-	height: 310px;
-	padding: 10px 0px 0px 0px;
+	height: 300px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemList {
-	height: 285px;
+	height: 268px;
 }
 
 .UIOrganizationPortlet .UIUserManagement .GroupGridIterator {
@@ -115,19 +114,6 @@
 
 /*#######################  UIGroupManagement #################################*/
 
-.UIOrganizationPortlet .UIGroupManagement {
-}
-
-.UIOrganizationPortlet .UIGroupInfoContainer .UIGroupMembershipForm .HorizontalLayout {
-	border-top: none;
-	padding-top: 12px;
-}
-
-.UIOrganizationPortlet .UIGroupInfoContainer .HorizontalLayout {
-	border: 1px solid #B7B7B7;
-	border-top: none;
-}
-
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat;
   height: 24px; width: 24px;
@@ -168,7 +154,7 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
  	background: url('VistaSkin/background/UITreeBG.png') repeat;
-  height: 220px;
+  height: 224px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees .Node {
@@ -224,9 +210,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
-	overflow: visible;
-	margin: 5px auto;
-	width: 95%;
+	margin: 5px auto 0px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm tr {
@@ -272,8 +256,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout { 
-	height: 220px;
-	padding: 15px 0px 0px 0px;
+	height: 213px;
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .UIForm select {
@@ -320,17 +303,9 @@
 	margin: 10px auto 0px auto ; 
 }
 
-.UIOrganizationPortlet .UIMembershipTypeForm .UIForm {
-	background: white ;
-}
-
 .UIOrganizationPortlet .UIMembershipTypeForm .FormContainer {
 	width: 480px;
 	margin: auto;
-}
-
-.UIOrganizationPortlet .UIFormWithTitle .HorizontalLayout {
- 	padding-top: 12px;
 }
 
 .UIOrganizationPortlet .UIMembershipManagement .UIListMembershipType .UIPageIterator {

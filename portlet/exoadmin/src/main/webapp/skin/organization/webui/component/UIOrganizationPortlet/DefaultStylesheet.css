@@ -121,17 +121,15 @@
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemDetailList {
-	height: 332px;
-	padding-bottom:0px;
+	height: 320px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIItemSelector .ItemList {
-	height: 310px;
+	height: 300px;
 }
 
 .UIOrganizationPortlet .UIPersonalInfo .UIFormInputSet {
 	border: none;
-	background: none;
 	height: auto;
 }
 
@@ -190,6 +188,10 @@
   width: 99%;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
+  height: 212px;
+}
+
 .UIOrganizationPortlet .UIGroupManagement .TitleBar{
 	background: url('DefaultSkin/background/BreadcumbsBar.gif') repeat-x bottom;
 	height: 25px;
@@ -207,7 +209,7 @@
 	line-height: 25px;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs{
+.UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs {
 	padding:0px ;
 }
 
@@ -230,10 +232,6 @@
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
   float: left ;
   width: 220px ;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UITrees .TreeContainer {
-  height: 220px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
@@ -271,9 +269,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupForm .HorizontalLayout { 
-	height: 219px;
-	background: white;
-	padding: 0px;
+	height: 192px;
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .UIForm select {
@@ -300,26 +296,10 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectIcon.gif') center ;
 }
 
-.UIOrganizationPortlet .UIGroupInfoContainer .HorizontalLayout .FormContainer {
-	padding: 5px;
-}
-
-.UIOrganizationPortlet .UIGroupInfoContainer .UIGroupMembershipForm .HorizontalLayout .FormContainer {
-	padding: 16px 0px 10px 0px;
-}
-
-.UIOrganizationPortlet .UIGroupManagement .UIGroupForm .HorizontalLayout .FormContainer {
-	padding: 16px 0px 0px 0px;
-}
-
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMembershipTypeForm {
 	padding-top: 10px; 
-}
-
-.UIOrganizationPortlet .UIFormWithTitle .UIForm {
-	background: white ;
 }
 
 .UIOrganizationPortlet .UIPageIterator {
@@ -330,13 +310,4 @@
 
 .UIOrganizationPortlet .UIMembershipManagement .UIGrid {
 	margin: auto;
-}
-
-.UIOrganizationPortlet .UIGroupInfoContainer .HorizontalLayout .FormContainer {
-	padding: 5px;
-	margin: 0px;
-}
-
-.UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
-	padding-top: 16px;
 }

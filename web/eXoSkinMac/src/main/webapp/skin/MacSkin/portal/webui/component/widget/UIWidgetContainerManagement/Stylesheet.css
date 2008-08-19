@@ -95,9 +95,7 @@
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerCategory {
 	float: left;
 	width: 255px; height: 275px;
-	background: white; 
-	overflow-x: hidden;
-	overflow-y: auto;
+	background: white; overflow: auto;
 	border: 1px solid #b7b7b7;
 }
 
@@ -113,7 +111,6 @@
   background: white;
 	border: 1px solid #dcdcdc;
 	height: 253px; margin: auto;
-	overflow-y: hidden;
 	overflow-y: auto;
 }
 
@@ -171,8 +168,4 @@
 	 * to break long string (container description) in widget containers management in IE6+
 	 */
 	*word-wrap: break-word;	
-}
-
-.UIWidgetContainerManagement .PopupContent .UIForm .HorizontalLayout {
-	padding-top: 10px;
 }

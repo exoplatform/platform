@@ -7,7 +7,7 @@
   border-top: none;
 }
 
-.UIWidgetContainerManagement .ContainerManagementDetail{
+.UIWidgetContainerManagement .ContainerManagementDetail {
 	border: 1px solid #ffffff;
   border-top: none;
   padding: 5px; 
@@ -68,7 +68,7 @@
 	padding-left: 27px;
 }
 
-.UIWidgetContainerManagement .ContainerList .SelectedItem{
+.UIWidgetContainerManagement .ContainerList .SelectedItem {
 	cursor: pointer ;
 	color: #058ee6;
 	text-decoration: none;
@@ -78,7 +78,7 @@
 	margin: 0px 5px;
 }
 
-.UIWidgetContainerManagement .ContainerList a:hover{
+.UIWidgetContainerManagement .ContainerList a:hover {
 	color: #058ee6;
 }
 
@@ -160,8 +160,4 @@
 	 * to break long string (container description) in widget containers management in IE6+
 	 */
 	*word-wrap: break-word;
-}
-
-.UIWidgetContainerManagement .PopupContent .UIForm .HorizontalLayout {
-	padding-top: 10px;
 }

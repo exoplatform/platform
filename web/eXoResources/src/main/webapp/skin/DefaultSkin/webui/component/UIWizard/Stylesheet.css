@@ -188,7 +188,6 @@
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
-  margin: auto;
   margin-top: 5px;
   width: 90%;
   overflow: hidden;
@@ -198,10 +197,9 @@
   display: none;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .HorizontalLayout {
   background: white;
-  padding: 10px;
-  height: 174px;
+  height: 175px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {
