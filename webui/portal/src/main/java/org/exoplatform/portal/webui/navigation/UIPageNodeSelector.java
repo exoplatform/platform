@@ -49,6 +49,7 @@ import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -175,8 +176,7 @@ public class UIPageNodeSelector extends UIContainer {
 	 
 	 WebuiRequestContext contextres = WebuiRequestContext.getCurrentInstance();
 	 ResourceBundle res = contextres.getApplicationResourceBundle();
-	 String navValueEnd = res.getString("UIPageNavigation.navvalue.endstring");
-	 
+   String navValueEnd = res.getString("UIPageNavigation.nav.label");
     if(navigations == null || navigations.size() < 1) {
       getChild(UIDropDownControl.class).setOptions(null) ;
       getChild(UITree.class).setSibbling(null) ;
@@ -184,9 +184,10 @@ public class UIPageNodeSelector extends UIContainer {
     }
     
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
-    for(PageNavigation navigation: navigations) {
-      String label = navigation.getOwnerId() + navValueEnd;
-      options.add(new SelectItemOption<String>(navigation.getOwnerType() + ":" + label, navigation.getId()));
+    for(PageNavigation navigation: navigations) { //navigation.getOwnerId()
+     
+      String label = navValueEnd.replace("{0}",navigation.getOwnerType() + ":" + navigation.getOwnerId());
+      options.add(new SelectItemOption<String>(label, navigation.getId()));
     }
     UIDropDownControl uiNavigationSelector = getChild(UIDropDownControl.class);
     uiNavigationSelector.setOptions(options);
