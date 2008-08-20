@@ -3,15 +3,6 @@
   width: 780px ;	
 }
 
-.UIPageDesktop .UIWindow .UIAccountPortlet {
-  margin: 0px ;
-  border: none;
-}
-
-.UIPageDesktop .UIWindow .UIApplication {
-  height: 360px ;
-}
-
 .UIWindow .UIApplication {
 	overflow: auto;
 }
@@ -19,7 +10,7 @@
 /**************************** UIPageBody ************************************/
 
 .UIWindow {
-  width: 99% ; height: auto; /*Fix bug for IE6*/
+  width: 98.5% ; height: auto; /*Fix bug for IE6*/
   margin: auto;
 }
 
