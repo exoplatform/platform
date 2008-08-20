@@ -32,6 +32,7 @@ import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.login.UILogin;
 import org.exoplatform.portal.webui.login.UIResetPassword;
 import org.exoplatform.portal.webui.page.UIPage;
+import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -96,6 +97,26 @@ public class UIPortalComponentActionListener {
       UIComponent uiComponent = event.getSource();
       UIPortalComponent uiParent = (UIPortalComponent)uiComponent.getParent();
       UIComponent uiRemoveComponent = uiParent.removeChildById(id);
+      UIPage uiPage = uiParent.getAncestorOfType(UIPage.class);
+      if(uiPage != null && uiPage.getMaximizedUIPortlet() != null) {
+        if(id.equals(uiPage.getMaximizedUIPortlet().getId())) {
+          uiPage.setMaximizedUIPortlet(null);
+        }
+      } else {
+        UIPortal uiPortal = Util.getUIPortal();
+        if(uiPortal != null && uiPortal.getMaximizedUIComponent() != null) {
+          if(id.equals(uiPortal.getMaximizedUIComponent().getId())) {
+            uiPortal.setMaximizedUIComponent(null);
+          }
+        } else {
+          UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
+          if(uiPageBody != null && uiPageBody.getMaximizedUIComponent() != null) {
+            if(id.equals(uiPageBody.getMaximizedUIComponent().getId())) {
+              uiPageBody.setMaximizedUIComponent(null);
+            }
+          }
+        }
+      }
       Util.showComponentLayoutMode(uiRemoveComponent.getClass());
       
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
