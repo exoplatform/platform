@@ -41,11 +41,11 @@ public class SkinService {
   private final static String REGEXP = "@import url(.*).*;";
 
   private final static String BACKGROUND_REGEXP = "background.*:.*url(.*).*;";
-  
-//  private final static String CSS_SERVLET_URL = "/portal/css";  
+
+//private final static String CSS_SERVLET_URL = "/portal/css";  
 
   private Map<String, SkinConfig> portalSkins_ ;
-  
+
   private Map<String, SkinConfig> skinConfigs_;
 
   private HashSet<String> availableSkins_;
@@ -71,11 +71,11 @@ public class SkinService {
     if (!portletThemes_.containsKey(categoryName))
       portletThemes_.put(categoryName, new HashSet<String>());
   }  
-  
+
   public void addPortalSkin(String module, String skinName, String cssPath, ServletContext scontext) {
     addPortalSkin(module, skinName, cssPath, scontext, false) ;
   }
-  
+
   public void addPortalSkin(String module, String skinName, String cssPath,
       ServletContext scontext, boolean isPrimary) {
     availableSkins_.add(skinName) ;
@@ -86,16 +86,16 @@ public class SkinService {
       mergeCSS(cssPath, scontext);
     }
   }
-  
-  public void addPortalSkin(String module,String skinName, String cssPath, ServletContext scontext,String cssData) {
+
+  public void addPortalSkin(String module,String skinName, String cssPath, String cssData) {
     String key = module + "$" + skinName;
-    SkinConfig skinConfig = skinConfigs_.get(key);
+    SkinConfig skinConfig = portalSkins_.get(key);
     if (skinConfig == null) {
-      portalSkins_.put(key, new SkinConfig(module, cssPath));
-      mergedCSS_.put(cssPath, cssData);
+      portalSkins_.put(key, new SkinConfig(module, cssPath));      
     }
+    mergedCSS_.put(cssPath, cssData);
   }
-  
+
   /**
    * 
    * @param module
@@ -105,7 +105,7 @@ public class SkinService {
   public void addSkin(String module, String skinName, String cssPath, ServletContext scontext) {
     addSkin(module, skinName, cssPath, scontext, false);
   }
-  
+
   public void addSkin(String module, String skinName, String cssPath,
       ServletContext scontext, boolean isPrimary) {
     availableSkins_.add(skinName);
@@ -116,7 +116,17 @@ public class SkinService {
       mergeCSS(cssPath, scontext);
     }
   }
-  
+
+  public void addSkin(String module, String skinName, String cssPath, String cssData) {
+    availableSkins_.add(skinName);
+    String key = module + "$" + skinName;
+    SkinConfig skinConfig = skinConfigs_.get(key);    
+    if (skinConfig == null) {      
+      skinConfigs_.put(key, new SkinConfig(module, cssPath));      
+    }
+    mergedCSS_.put(cssPath,cssData);
+  }
+
   public void addTheme(String categoryName, List<String> themesName) {
     if (portletThemes_ == null)
       portletThemes_ = new HashMap<String, Set<String>>();
@@ -136,7 +146,7 @@ public class SkinService {
   public Iterator<String> getAvailableSkins() {
     return availableSkins_.iterator();
   }
-  
+
   public String getMergedCSS(String cssPath) {
     return mergedCSS_.get(cssPath);
   }
@@ -192,32 +202,32 @@ public class SkinService {
    * This method is only called in production environment where all the css for the
    * portlets displayed in the portal canvas are merged into as single CSS file
    */
-//  public SkinConfig getPortalSkin(String portalName,
-//      String skinName, List<String> portletInPortal) {
-//    String key = portalName + "$" + skinName;
-//    SkinConfig portalSkinConfig = skinConfigs_.get(key);
-//    if(portalSkinConfig == null) {
-//      //manage the portlet in portal merge and generate the css Path
-//      StringBuffer buffer = new StringBuffer();
-//      for (String module : portletInPortal) {
-//        String portletKey = module + "$" + skinName;
-//        SkinConfig portletConfig = skinConfigs_.get(portletKey);
-//        if(portletConfig != null) {
-//          String portletCSS = mergedCSS_.get(portletConfig.getCSSPath());
-//          if(portletCSS != null) {
-//            buffer.append(portletCSS);
-//          }
-//        }
-//
-//      }
-//      String cssPath = CSS_SERVLET_URL + "/" + key + ".css";
-//      mergedCSS_.put(cssPath, buffer.toString());
-//      portalSkinConfig = new SkinConfig(portalName, cssPath, false);
-//      skinConfigs_.put(key, portalSkinConfig);
-//    }
-//    return portalSkinConfig;
-//  }
-  
+//public SkinConfig getPortalSkin(String portalName,
+//String skinName, List<String> portletInPortal) {
+//String key = portalName + "$" + skinName;
+//SkinConfig portalSkinConfig = skinConfigs_.get(key);
+//if(portalSkinConfig == null) {
+////manage the portlet in portal merge and generate the css Path
+//StringBuffer buffer = new StringBuffer();
+//for (String module : portletInPortal) {
+//String portletKey = module + "$" + skinName;
+//SkinConfig portletConfig = skinConfigs_.get(portletKey);
+//if(portletConfig != null) {
+//String portletCSS = mergedCSS_.get(portletConfig.getCSSPath());
+//if(portletCSS != null) {
+//buffer.append(portletCSS);
+//}
+//}
+
+//}
+//String cssPath = CSS_SERVLET_URL + "/" + key + ".css";
+//mergedCSS_.put(cssPath, buffer.toString());
+//portalSkinConfig = new SkinConfig(portalName, cssPath, false);
+//skinConfigs_.put(key, portalSkinConfig);
+//}
+//return portalSkinConfig;
+//}
+
 
   private void mergeCSS(String cssPath, ServletContext scontext) {
     if (cacheResource_) {
@@ -237,7 +247,7 @@ public class SkinService {
   private void processMergeRecursively(Pattern pattern, StringBuffer sB,
       ServletContext scontext, String basePath, String pathToResolve) {
     String resolvedPath = basePath.substring(0, basePath.lastIndexOf("/") + 1)
-        + pathToResolve;
+    + pathToResolve;
 
     String line = "";
     try {
@@ -256,25 +266,25 @@ public class SkinService {
                   .indexOf(")"));
             }
             if(includedPath.startsWith("/")) {
-            	String targetedContextName = includedPath.substring(includedPath.indexOf("/"), 
-                        includedPath.indexOf("/", 2));
-                String targetedResolvedPath = includedPath.substring(includedPath.indexOf("/", 2), 
-                    includedPath.lastIndexOf("/") + 1);
-                String targetedIncludedPath = includedPath.substring(includedPath
-                    .lastIndexOf("/") + 1);      
-                ServletContext targetedContext = scontext.getContext(targetedContextName);
-                
-                StringBuffer tempSB = new StringBuffer();
-                processMergeRecursively(pattern, tempSB, targetedContext, 
-                    targetedResolvedPath, targetedIncludedPath );
-                sB.append(tempSB);
+              String targetedContextName = includedPath.substring(includedPath.indexOf("/"), 
+                  includedPath.indexOf("/", 2));
+              String targetedResolvedPath = includedPath.substring(includedPath.indexOf("/", 2), 
+                  includedPath.lastIndexOf("/") + 1);
+              String targetedIncludedPath = includedPath.substring(includedPath
+                  .lastIndexOf("/") + 1);      
+              ServletContext targetedContext = scontext.getContext(targetedContextName);
+
+              StringBuffer tempSB = new StringBuffer();
+              processMergeRecursively(pattern, tempSB, targetedContext, 
+                  targetedResolvedPath, targetedIncludedPath );
+              sB.append(tempSB);
             } else 
               processMergeRecursively(pattern, sB, scontext, resolvedPath, includedPath);
           } else {
             String rootContext = resolvedPath.substring(0, resolvedPath
                 .lastIndexOf("/") + 1);
             String rootURL = "/" + scontext.getServletContextName()
-                + rootContext;
+            + rootContext;
             rewriteLine(line, rootURL, sB);
           }
         }

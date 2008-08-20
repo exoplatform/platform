@@ -30,6 +30,7 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.skin.SkinConfig;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
@@ -56,30 +57,30 @@ import org.exoplatform.webui.event.Event;
  * 
  */
 //@ComponentConfigs({
-  @ComponentConfig (
+@ComponentConfig (
     lifecycle = UIPortalApplicationLifecycle.class,
     template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
-  )
-//  ,
-//  @ComponentConfig (
-//    id = "office" ,
-//    lifecycle = UIPortalApplicationLifecycle.class,
-//    template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
-//  )
+)
+//,
+//@ComponentConfig (
+//id = "office" ,
+//lifecycle = UIPortalApplicationLifecycle.class,
+//template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
+//)
 //})
 public class UIPortalApplication extends UIApplication {
-  
+
   private boolean isEditting = false ;
   private String nodePath_;
-  
+
   final static public String UI_CONTROL_WS_ID = "UIControlWorkspace" ;
   final static public String UI_WORKING_WS_ID = "UIWorkingWorkspace" ;
   final static public String UI_MASK_WS_ID = "UIMaskWorkspace" ;
-  
+
   private String skin_ = "Default" ;
-  
+
   private UserPortalConfig userPortalConfig_;
-  
+
   /**
    * The constructor of this class is used to build the tree of UI components that will be aggregated
    * in the portal page. 
@@ -106,7 +107,7 @@ public class UIPortalApplication extends UIApplication {
     if(acl.hasAccessControlWorkspacePermission(context.getRemoteUser()))
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
     addWorkingWorkspace() ;
-    
+
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
     if(currentSkin != null && currentSkin.trim().length() > 0) skin_ = currentSkin;
     setOwner(context.getPortalOwner());    
@@ -148,20 +149,25 @@ public class UIPortalApplication extends UIApplication {
     JavascriptConfigService service = getApplicationComponent(JavascriptConfigService.class);
     return service.getAvailableScriptsPaths();
   }
-  
+
   public Collection<SkinConfig> getPortalSkins() {
     SkinService skinService = getApplicationComponent(SkinService.class) ;
-    return skinService.getPortalSkins(skin_) ;
+    Collection<SkinConfig> portalSkins = skinService.getPortalSkins(skin_);
+    SkinConfig skinConfig = skinService.getSkin(Util.getUIPortal().getName(),skin_);
+    if(skinConfig != null) {
+      portalSkins.add(skinConfig);
+    }
+    return portalSkins;
   }
-  
+
   public String getSkin() {  return skin_ ; }
   public void setSkin(String skin){ this.skin_ = skin; }
-  
+
   private SkinConfig getSkin(String module) {
     SkinService skinService = getApplicationComponent(SkinService.class) ;
     return skinService.getSkin(module, skin_) ;
   }
-  
+
   /**
    * Returns a list of portlets skin that have to be added in the HTML
    * head tag. The skin can directly point to a real css file (this
@@ -186,13 +192,13 @@ public class UIPortalApplication extends UIApplication {
 
     for (UIPortlet uiPortlet : uiportlets) {
       String module = uiPortlet.getExoWindowID().getPortletApplicationName()
-          + "/" + uiPortlet.getExoWindowID().getPortletName();
+      + "/" + uiPortlet.getExoWindowID().getPortletName();
       SkinConfig skinConfig = getSkin(module);
       if (skinConfig != null) skins.add(skinConfig);
     }
     return skins;
   } 
-  
+
   /**
    * The central area is called the WorkingWorkspace. It is composed of:
    * 
@@ -212,8 +218,8 @@ public class UIPortalApplication extends UIApplication {
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false) ;    
     addChild(UIMaskWorkspace.class, UIPortalApplication.UI_MASK_WS_ID, null) ;
   }
-  
-  
+
+
   /**
    * The processDecode() method is doing 3 actions:
    * 1) if the nodePath is null (case of the first request) a call to super.processDecode(context) 
@@ -236,7 +242,7 @@ public class UIPortalApplication extends UIApplication {
       super.processDecode(context);
       return;
     }
-    
+
     nodePath_ = nodePath;
     UIPortal uiPortal = findFirstComponentOfType(UIPortal.class);
     PageNodeEvent<UIPortal> pnevent = 
@@ -244,7 +250,7 @@ public class UIPortalApplication extends UIApplication {
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
     super.processDecode(context);
   }
-  
+
   /**
    * The processrender() method handles the creation of the returned HTML either for a full
    * page render or in the case of an AJAX call
@@ -274,11 +280,11 @@ public class UIPortalApplication extends UIApplication {
       super.processRender(context) ;
     } else {
       PortalRequestContext pcontext = (PortalRequestContext)context;
-      
+
       UIMaskWorkspace uiMaskWS = getChildById(UIPortalApplication.UI_MASK_WS_ID);
       if(uiMaskWS.isUpdated()) pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
-      
-      
+
+
       List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
       List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>(3);
       List<UIComponent> uiDataComponents = new ArrayList<UIComponent>(5);
@@ -297,26 +303,26 @@ public class UIPortalApplication extends UIApplication {
         renderBlockToUpdate(uicomponent, context, w) ;
       }
       w.  write("</div>");
-      
+
       if(!context.getFullRender()) {
         for(UIPortlet uiPortlet : uiPortlets) {
           if(log.isDebugEnabled())
             log.debug("AJAX call: Need to refresh the Portlet " + uiPortlet.getWindowId());
-          
+
           w.write("<div class=\"PortletResponse\" style=\"display: none\">") ;
           w.  append("<div class=\"PortletResponsePortletId\">" + uiPortlet.getExoWindowID().getUniqueID()+"</div>") ;
           w.  append("<div class=\"PortletResponsePortletTitle\"></div>") ;
           w.  append("<div class=\"PortletResponsePortletMode\"></div>") ;
           w.  append("<div class=\"PortletResponsePortletState\"></div>") ;
           w.  append("<div class=\"PortletResponseData\">") ;
-          
+
           /*
            * If the portlet is using our UI framework or supports it then it will return a set of block
            * to updates. If there is not block to update the javascript client will see that as a full 
            * refresh of the content part
            */
-           uiPortlet.processRender(context) ;       
-          
+          uiPortlet.processRender(context) ;       
+
           w.  append("</div>") ;
           w.  append("<div class=\"PortletResponseScript\"></div>") ;
           w.write("</div>") ;
@@ -355,11 +361,11 @@ public class UIPortalApplication extends UIApplication {
     StringBuilder b = new StringBuilder(1000) ;
     for(SkinConfig ele : skins) {
       b.append("eXo.core.Skin.addSkin('").append(ele.getId()).
-        append("','").append(ele.getCSSPath()).append("');\n"); 
+      append("','").append(ele.getCSSPath()).append("');\n"); 
     }
     return b.toString() ;
   }
-  
+
   public UserPortalConfig getUserPortalConfig() { return userPortalConfig_; }
   public void setUserPortalConfig(UserPortalConfig userPortalConfig) {
     this.userPortalConfig_ = userPortalConfig; 
