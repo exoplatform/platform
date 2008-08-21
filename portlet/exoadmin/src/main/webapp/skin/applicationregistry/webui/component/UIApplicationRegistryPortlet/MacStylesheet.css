@@ -273,11 +273,6 @@
 	border: 1px solid red;
 }
 
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
-	width: 145px;
-	overflow: hidden;
-}
-
 /********************************* UIPortletManagement *****************************/
 
 .UIPortletManagement .UIVerticalSlideTabs .NormalTab .ControlIcon {

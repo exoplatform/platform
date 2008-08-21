@@ -89,6 +89,11 @@
   padding-bottom: 20px;
 }
 
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
+	width: 147px;
+	overflow: hidden;
+}
+
 /*################################Application Registry Control################################*/
 .UIApplicationRegistryPortlet .ApplicationRegistryControlArea {
 	float: left;
