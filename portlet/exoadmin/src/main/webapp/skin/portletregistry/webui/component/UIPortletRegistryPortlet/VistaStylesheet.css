@@ -13,6 +13,10 @@
 	overflow: auto;
 }
 
+.UIApplicationRegistryPortlet .UIForm .HorizontalLayout .UIFormInputSet {
+	width: 90%; margin: auto;
+}
+
 .UIApplicationRegistryPortlet .Title {
   font-size: 14px; color: #058ee6; font-weight: bold; font-family: arial;
   margin: 5px 0px; 
