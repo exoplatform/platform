@@ -20,7 +20,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 	<div class="AppRegistryContainer">
 		<div class="AppRegistryControl">
 			<div class="Slidebar">
-				<div class="WorkingArea">
+				<div class="ControlArea" style="height: 400px;">
 					<div class="CategoryContent">
 						<div class="TitleCategory">CATEGORIES</div>
 		   	    <div class="ListContent">	
@@ -81,7 +81,9 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 				</div>
 			</div>
 		</div>
-		<% uicomponent.renderChildren() %>
+		<div class="AppWorkingArea">
+			<% uicomponent.renderChildren() %>
+		</div>
 		<div style="clear: left"><span></span></div>
 	</div>  
 	

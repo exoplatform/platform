@@ -8,7 +8,7 @@
 	<div class="AppRegistryContainer">
 		<div class="AppRegistryControl">
 			<div class="Slidebar">
-				<div class="WorkingArea">
+				<div class="ControlArea" style="height: 400px;">
 					<div class="CategoryContent">
 		   	    <div class="ListContent">	
 		   	    <% for(gadget in uicomponent.getGadgets()) { %>

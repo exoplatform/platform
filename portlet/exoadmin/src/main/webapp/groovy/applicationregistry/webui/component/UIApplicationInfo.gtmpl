@@ -1,7 +1,7 @@
 <%
 def application = uicomponent.getApplication() ;
 %>
-<div class="AppWorkingArea" id="$uicomponent.id">
+<div class="$uicomponent.id" id="$uicomponent.id">
 	<% if(application == null) { %>
 	<div class="NoApplicationMessage">This category does not have any application, click "add" button to add application.</div>
 	<% } else { 
