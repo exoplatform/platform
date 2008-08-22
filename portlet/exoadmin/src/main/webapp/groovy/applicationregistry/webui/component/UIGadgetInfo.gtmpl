@@ -1,0 +1,7 @@
+<%
+	def gadget = uicomponent.getGadget() ;
+%>
+<div class="UIGadgetInfo" id="$uicomponent.id">
+	<div>Gadget details</div>
+	<div><%= gadget.getName() %></div>
+</div>

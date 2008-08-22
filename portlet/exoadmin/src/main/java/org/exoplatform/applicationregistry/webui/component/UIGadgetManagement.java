@@ -39,7 +39,8 @@ import org.exoplatform.webui.event.EventListener;
     events = {
         @EventConfig(listeners = UIGadgetManagement.AddRemoteGadgetActionListener.class),
         @EventConfig(listeners = UIGadgetManagement.RemoveGadgetActionListener.class),
-        @EventConfig(listeners = UIGadgetManagement.AddLocalGadgetActionListener.class)
+        @EventConfig(listeners = UIGadgetManagement.AddLocalGadgetActionListener.class),
+        @EventConfig(listeners = UIGadgetManagement.SelectGadgetActionListener.class)
     }
 )
 
@@ -58,6 +59,13 @@ public class UIGadgetManagement extends UIContainer {
   
   public List<Gadget> getGadgets() throws Exception {
     return gadgets_ ; 
+  }
+  
+  public Gadget getGadget(String name) {
+    for(Gadget ele : gadgets_) {
+      if(ele.getName().equals(name)) return ele ;
+    }
+    return null ;
   }
   
 
@@ -100,4 +108,17 @@ public class UIGadgetManagement extends UIContainer {
     
   }
 
+  public static class SelectGadgetActionListener extends EventListener<UIGadgetManagement> {
+
+    public void execute(Event<UIGadgetManagement> event) throws Exception {
+      UIGadgetManagement uiManagement = event.getSource() ;
+      String name = event.getRequestContext().getRequestParameter(OBJECTID) ; 
+      uiManagement.getChildren().clear() ;
+      Gadget selectedGadget = uiManagement.getGadget(name) ;
+      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null) ;
+      uiInfo.setGadget(selectedGadget) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
+    }
+    
+  }
 }
