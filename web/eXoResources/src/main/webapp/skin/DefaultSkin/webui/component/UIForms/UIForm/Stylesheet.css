@@ -10,6 +10,10 @@
 	margin: auto;
 }
 
+.UITabContent .UIForm .HorizontalLayout .FormContainer {
+	padding: 10px;
+}
+
 .UIForm .UIFormGrid td.FieldLabel {
   padding: 4px;
   text-align: right;
@@ -36,13 +40,15 @@
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
-	width: 97% ;
-  padding: 10px auto; margin: auto ;
+	width: 97%;
+	padding: 10px;
+	margin: auto;
 }
 
 .HorizontalLayout .UIForm .UIFormInputSet {
 	width: 97% ;
-  padding: 10px auto ; margin: auto ;
+	padding: 10px;
+	margin: auto;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .Title {

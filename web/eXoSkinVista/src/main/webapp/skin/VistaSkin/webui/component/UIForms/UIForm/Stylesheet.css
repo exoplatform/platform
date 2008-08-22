@@ -5,9 +5,18 @@
   border: 1px solid #b7b7b7;
 }
 
+.PopupContent .UIForm .HorizontalLayout {
+  padding: 10px; 
+  border: none;
+}
+
 .UIFormGrid {
 	width: auto;
 	margin: auto;
+}
+
+.UITabContent .UIForm .HorizontalLayout .FormContainer {
+	padding: 10px;
 }
 
 .UIForm .UIFormGrid td.FieldLabel {
@@ -40,13 +49,15 @@
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
-	width: 95%;
-  padding: 10px ; 
+	width: 97% ;
+	padding: 10px;
+	margin: auto;
 }
 
 .HorizontalLayout .UIForm .UIFormInputSet {
-	width: 95%;
-  padding: 10px ; 
+	width: 97% ;
+	padding: 10px;
+	margin: auto;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
