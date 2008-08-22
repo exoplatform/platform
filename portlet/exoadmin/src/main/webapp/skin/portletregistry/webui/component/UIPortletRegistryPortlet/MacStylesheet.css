@@ -63,6 +63,11 @@
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
 	width: 145px;
 	overflow: hidden;
+	padding: 0px;
+}
+
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .EditIcon {
+	padding: 0px;
 }
 
 /*################################Application Registry Control################################*/
