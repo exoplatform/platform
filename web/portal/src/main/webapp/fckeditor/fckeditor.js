@@ -303,7 +303,7 @@ function FCKeditor_IsCompatibleBrowser()
 {
 	// is checked in exo products level
 	return true;
-	/*
+
 	var sAgent = navigator.userAgent.toLowerCase() ;
 
 	// Internet Explorer 5.5+
