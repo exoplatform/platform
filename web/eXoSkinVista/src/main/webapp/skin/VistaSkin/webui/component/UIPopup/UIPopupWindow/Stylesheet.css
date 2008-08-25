@@ -73,6 +73,12 @@
   overflow: auto;
 }
 
+.UIPopupWindow .PopupContent .UIGroupMembershipSelector .Container {
+  padding: 10px;
+  border: none;
+  background: none;
+}
+
 .UIPopupWindow .Content .UIPopupMessages {
   overflow: auto;
 }

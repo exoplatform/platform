@@ -13,7 +13,6 @@
 .UINodeIconSelector .SelectedIconInfo {
   background: white;
   border: solid 1px #b7b7b7 ;
-  height: 35px; line-height: 35px;
   margin-top: 6px;
 }
 
@@ -21,6 +20,7 @@
   white-space: nowrap;
   margin: 0px;
   _line-height: 34px;
+  padding:10px;
 }
 
 .UINodeIconSelector .ItemDetailList .SelectedIconInfo .UIFormInputSet {
