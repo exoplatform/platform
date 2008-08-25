@@ -9,7 +9,6 @@
   
   UIRightClickPopupMenu uiPopupMenu = uicomponent.getChild(UIRightClickPopupMenu.class);
   String popupMenu = "";
-  uicomponent.loadNavigations();
 %>
 <div id="UIPageNodeSelector">
 <%

@@ -17,7 +17,7 @@
 			  				<div class="DropDownSelectLabel">
 				  				<% 
 										if (options.size() > 0) { 
-										String label = _ctx.appRes("UIPageNavigation.nav.label").replace("{0}", uicomponent.getLabel());
+										String label = _ctx.appRes("UIPageNavigation.label.navigation").replace("{0}", uicomponent.getLabel());
 										if(label.length() > 25) {
 									%>
 				  					<span title="<%=label%>"><%=label.substring(0,22)%>...</span>
@@ -49,7 +49,7 @@
 					   %>
 					  <div class="ItemListOption">
 					  		<% 
-					  			String label = _ctx.appRes("UIPageNavigation.nav.label").replace("{0}", option.label);
+					  			String label = _ctx.appRes("UIPageNavigation.label.navigation").replace("{0}", option.label);
 					  			if(label.length() > 30) {
 					  		%>
 						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)" title="<%=label%>"><%=label.substring(0,25)%>...</a>

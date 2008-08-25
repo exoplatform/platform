@@ -108,7 +108,7 @@ import org.exoplatform.webui.event.EventListener;
   @ComponentConfig (
       type = UIDropDownControl.class ,
       id = "UIDropDown",
-      template = "app:/groovy/portal/webui/navigation/UINavigationSelector.gtmpl",
+      template = "system:/groovy/portal/webui/navigation/UINavigationSelector.gtmpl",
       events = {
         @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class)
       }
@@ -173,8 +173,6 @@ public class UIPageNodeSelector extends UIContainer {
   }
   
   private void updateUI() {
-	 
-	 WebuiRequestContext contextres = WebuiRequestContext.getCurrentInstance();
     if(navigations == null || navigations.size() < 1) {
       getChild(UIDropDownControl.class).setOptions(null) ;
       getChild(UITree.class).setSibbling(null) ;
@@ -183,9 +181,7 @@ public class UIPageNodeSelector extends UIContainer {
     
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations) { //navigation.getOwnerId()
-     
-      String label = navigation.getOwnerType() + ":" + navigation.getOwnerId();
-      options.add(new SelectItemOption<String>(label, navigation.getId()));
+      options.add(new SelectItemOption<String>(navigation.getOwnerType() + ":" + navigation.getOwnerId(), navigation.getId()));
     }
     UIDropDownControl uiNavigationSelector = getChild(UIDropDownControl.class);
     uiNavigationSelector.setOptions(options);
