@@ -16,7 +16,7 @@
  */
 package org.exoplatform.webui.form.validator;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
@@ -35,7 +35,7 @@ import org.exoplatform.webui.exception.MessageException;
 public class PermissionValidaror {
   
   public void validate(UIComponent uicomponent, String permission) throws Exception {
-    OrganizationService service = (OrganizationService) PortalContainer.getComponent(OrganizationService.class);
+    OrganizationService service = (OrganizationService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(OrganizationService.class);
     if(permission == null || permission.length() < 1 || permission.equals("*")) return; 
     Object[] args = {uicomponent.getName()} ;
     String[] tmp = permission.split(":", 2) ;

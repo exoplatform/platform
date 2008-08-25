@@ -31,8 +31,8 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import org.apache.commons.logging.Log;
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.container.RootContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.WebAppController;
 /**
@@ -104,7 +104,7 @@ public class PortletApplicationController extends GenericPortlet {
    * controller
    */
   private PortletApplication getPortletApplication() throws Exception {
-    PortalContainer container = PortalContainer.getInstance() ;
+    ExoContainer container = ExoContainerContext.getCurrentContainer() ;
     WebAppController controller = 
       (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
     PortletApplication application = controller.getApplication(applicationId_) ;
@@ -123,12 +123,13 @@ public class PortletApplicationController extends GenericPortlet {
    */
   @SuppressWarnings("unchecked")
   public void destroy() {
-    RootContainer rootContainer =  RootContainer.getInstance() ;
-    List<PortalContainer> containers = 
-      rootContainer.getComponentInstancesOfType(PortalContainer.class) ;
+	  ExoContainer rootContainer = ExoContainerContext.getTopContainer();
+	  List<ExoContainer> containers = 
+		  rootContainer.getComponentInstancesOfType(ExoContainer.class);
+
     try {
-      for(PortalContainer container : containers) {
-        PortalContainer.setInstance(container) ;
+      for(ExoContainer container : containers) {
+        ExoContainerContext.setCurrentContainer(container) ;
         WebAppController controller = 
           (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
         PortletApplication application = controller.getApplication(applicationId_) ;

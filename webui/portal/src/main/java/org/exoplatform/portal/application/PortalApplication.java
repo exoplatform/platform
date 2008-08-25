@@ -23,7 +23,7 @@ import javax.servlet.ServletConfig;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.ServletResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
@@ -122,7 +122,4 @@ public class PortalApplication extends WebuiApplication {
     String value = sconfig_.getInitParameter(name);
     return value ;
   }
-  
-  public ExoContainer getApplicationServiceContainer() { return PortalContainer.getInstance() ; }
-
 }

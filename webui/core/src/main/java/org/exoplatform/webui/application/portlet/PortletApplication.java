@@ -34,7 +34,7 @@ import javax.portlet.RenderResponse;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.PortletResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
@@ -107,9 +107,6 @@ public class PortletApplication extends WebuiApplication {
   }
 
   public String getApplicationInitParam(String name) { return  portletConfig_.getInitParameter(name); }
-  
-  public ExoContainer getApplicationServiceContainer() { return PortalContainer.getInstance() ; }
-  
   
   /**
    * The processAction() method is the one modelled according to the Portlet API specification

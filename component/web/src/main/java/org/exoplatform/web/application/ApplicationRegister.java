@@ -20,6 +20,8 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
 import org.exoplatform.services.log.ExoLogger;
@@ -39,9 +41,8 @@ public class ApplicationRegister implements ServletContextListener {
     try {
       String applications = event.getServletContext().getInitParameter("exo.application"); 
       String[] classes = applications.split(",") ;
-      RootContainer root = RootContainer.getInstance() ;
       //TODO avoid portal hardcode
-      PortalContainer pcontainer =  root.getPortalContainer("portal") ;
+      ExoContainer pcontainer =  ExoContainerContext.getContainerByName("portal") ;
       WebAppController controller = (WebAppController)pcontainer.getComponentInstanceOfType(WebAppController.class) ;
       ClassLoader loader = Thread.currentThread().getContextClassLoader() ;
       for(String className : classes) {

@@ -20,7 +20,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -41,7 +42,7 @@ public class RemoveGroupPortalConfigListener extends Listener<GroupDAOImpl, Grou
   @Override
   public void onEvent(Event<GroupDAOImpl, Group> event) throws Exception {
     Group group = event.getData() ;
-    PortalContainer container  = PortalContainer.getInstance() ;
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     UserPortalConfigService portalConfigService = 
       (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
     DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;

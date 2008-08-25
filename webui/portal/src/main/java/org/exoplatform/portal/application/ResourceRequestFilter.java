@@ -29,8 +29,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.container.RootContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.services.log.ExoLogger;
 
@@ -53,8 +53,7 @@ public class ResourceRequestFilter implements Filter  {
       HttpServletResponse httpResponse = (HttpServletResponse)  response ;
       if(uri.endsWith(".css")) {
         httpResponse.setHeader("Cache-Control", "no-cache");
-        RootContainer rootContainer = RootContainer.getInstance() ;
-        PortalContainer portalContainer = rootContainer.getPortalContainer("portal") ;
+        ExoContainer portalContainer = ExoContainerContext.getCurrentContainer();
         SkinService skinService = (SkinService) portalContainer.getComponentInstanceOfType(SkinService.class);
         String mergedCSS = skinService.getMergedCSS(uri);
         if(mergedCSS != null) {

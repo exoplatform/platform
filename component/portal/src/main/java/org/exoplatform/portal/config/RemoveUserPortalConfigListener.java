@@ -20,7 +20,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
@@ -43,7 +44,7 @@ public class RemoveUserPortalConfigListener extends Listener<UserDAOImpl, User> 
   @Override
   public void onEvent(Event<UserDAOImpl, User> event) throws Exception {
     User user = event.getData() ;
-    PortalContainer container  = PortalContainer.getInstance() ;
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     UserPortalConfigService portalConfigService = 
       (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
     DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;

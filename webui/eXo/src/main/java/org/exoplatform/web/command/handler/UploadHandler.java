@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.upload.UploadResource;
 import org.exoplatform.upload.UploadService;
 import org.exoplatform.web.WebAppController;
@@ -52,7 +52,7 @@ public class UploadHandler extends Command {
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception { 
     res.setHeader("Cache-Control", "no-cache");
     
-    ExoContainer container =  PortalContainer.getInstance();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
     UploadService service = (UploadService)container.getComponentInstanceOfType(UploadService.class) ;
     if(action == null ||  action.length() < 1) return;
     

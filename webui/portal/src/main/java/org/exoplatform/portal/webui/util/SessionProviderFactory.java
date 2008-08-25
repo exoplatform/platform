@@ -16,7 +16,8 @@
  */
 package org.exoplatform.portal.webui.util;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.ext.app.SessionProviderService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 
@@ -27,14 +28,14 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 public class SessionProviderFactory {
   
   public static SessionProvider createSystemProvider() {
-    SessionProviderService service = (SessionProviderService) PortalContainer
-    .getComponent(SessionProviderService.class);
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    SessionProviderService service = (SessionProviderService) container.getComponentInstanceOfType(SessionProviderService.class);
     return service.getSystemSessionProvider(null) ;    
   }
   
   public static SessionProvider createSessionProvider() {
-    SessionProviderService service = (SessionProviderService) PortalContainer
-        .getComponent(SessionProviderService.class);    
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    SessionProviderService service = (SessionProviderService) container.getComponentInstanceOfType(SessionProviderService.class);    
     return service.getSessionProvider(null);
   }
   

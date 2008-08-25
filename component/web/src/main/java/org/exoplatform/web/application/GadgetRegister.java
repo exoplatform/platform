@@ -24,6 +24,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
 import org.exoplatform.services.log.ExoLogger;
@@ -52,8 +54,7 @@ public class GadgetRegister implements ServletContextListener {
    */
   public void contextInitialized(ServletContextEvent event) {
     try {
-      RootContainer root = RootContainer.getInstance() ;
-      PortalContainer pcontainer =  root.getPortalContainer("portal") ;
+      ExoContainer pcontainer =  ExoContainerContext.getContainerByName("portal") ;
       GadgetStorage gadgetStoreage =  (GadgetStorage) pcontainer.getComponentInstanceOfType(GadgetStorage.class) ;
       String strLocation = "/WEB-INF/gadget.xml" ;
       DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder() ;

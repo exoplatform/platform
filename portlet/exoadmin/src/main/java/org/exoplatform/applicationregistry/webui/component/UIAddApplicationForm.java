@@ -28,6 +28,8 @@ import org.exoplatform.application.newregistry.ApplicationCategory;
 import org.exoplatform.application.newregistry.ApplicationRegistryService;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
@@ -126,7 +128,7 @@ public class UIAddApplicationForm extends UIForm {
   private List<Application> getApplcationByType(String type) throws Exception {
     List<Application> list = new ArrayList<Application>(10) ;
     if(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(type)) {
-      PortalContainer manager  = PortalContainer.getInstance();
+      ExoContainer manager  = ExoContainerContext.getCurrentContainer();
       PortletContainerService pcService =
         (PortletContainerService) manager.getComponentInstanceOfType(PortletContainerService.class) ;
       Map<String, PortletData> allPortletMetaData = pcService.getAllPortletMetaData();

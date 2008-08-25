@@ -23,7 +23,8 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Gadgets;
@@ -51,7 +52,7 @@ public class GetGadgetContainerHandler extends Command {
   }
   //{gadgetContainers: [{"cId" : "testid", "cName" : "testname", "cDescription" : "testDes"}]}
   private StringBuilder getGadgetContainers(HttpServletRequest req) throws Exception {    
-    PortalContainer container = PortalContainer.getInstance();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
     DataStorage dataService = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
     String userGadgetsId = PortalConfig.USER_TYPE + "::" + req.getRemoteUser() ;
     

@@ -21,7 +21,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Gadgets;
@@ -41,7 +42,7 @@ import org.exoplatform.services.organization.UserEventListener;
 public class UserPortalConfigListener extends UserEventListener {
   
   public void preDelete(User user) throws Exception {
-    PortalContainer container  = PortalContainer.getInstance() ;
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     UserPortalConfigService portalConfigService = 
       (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
     DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
@@ -83,7 +84,7 @@ public class UserPortalConfigListener extends UserEventListener {
   }
   @SuppressWarnings("unused")
   public void preSave(User user, boolean isNew) throws Exception {
-    PortalContainer container  = PortalContainer.getInstance() ;
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     /*     
      * TODO Call start method on RegistryService to allow ecm, ultimate can run with JDK6. 
      * This is uncommon behavior. We need find other way to fix it

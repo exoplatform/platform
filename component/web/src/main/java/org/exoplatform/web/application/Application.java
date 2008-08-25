@@ -22,6 +22,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.resolver.ApplicationResourceResolver;
@@ -56,7 +57,7 @@ abstract public class Application extends BaseComponentPlugin {
   abstract public ResourceBundle  getResourceBundle(Locale locale) throws Exception ;
   abstract public ResourceBundle  getOwnerResourceBundle(String username, Locale locale) throws Exception ;
   
-  public ExoContainer getApplicationServiceContainer() {  return PortalContainer.getInstance() ; }
+  public ExoContainer getApplicationServiceContainer() {  return ExoContainerContext.getCurrentContainer(); }
   
   final public List<ApplicationLifecycle> getApplicationLifecycle(){ return lifecycleListeners_; }
   final public void setApplicationLifecycle(List<ApplicationLifecycle> list) { lifecycleListeners_ = list ; }

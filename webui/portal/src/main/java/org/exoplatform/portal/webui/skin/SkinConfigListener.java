@@ -27,7 +27,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import org.exoplatform.container.RootContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.services.portletcontainer.PortletLifecycleListener;
 import org.exoplatform.services.portletcontainer.pci.model.PortletApp;
@@ -52,7 +53,7 @@ public class SkinConfigListener extends BaseComponentPlugin
       if(is == null)  return ;
       
       Binding binding = new Binding();
-      RootContainer rootContainer = RootContainer.getInstance() ;
+      ExoContainer rootContainer = ExoContainerContext.getTopContainer() ;
       SkinService skinService = 
         (SkinService)rootContainer.getComponentInstanceOfType(SkinService.class);
       binding.setVariable("SkinService", skinService) ;

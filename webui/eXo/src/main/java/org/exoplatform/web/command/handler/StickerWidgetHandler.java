@@ -20,7 +20,8 @@ package org.exoplatform.web.command.handler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.command.Command;
@@ -41,7 +42,7 @@ public class StickerWidgetHandler extends Command {
     try{ 
       String userName = req.getRemoteUser();
       if(userName == null || userName.trim().length() < 1) return ;
-      PortalContainer container  = PortalContainer.getInstance();
+      ExoContainer container = ExoContainerContext.getCurrentContainer();
       UserWidgetStorage service = 
         (UserWidgetStorage)container.getComponentInstanceOfType(UserWidgetStorage.class) ;    
       String[] split = objectId.split("/");

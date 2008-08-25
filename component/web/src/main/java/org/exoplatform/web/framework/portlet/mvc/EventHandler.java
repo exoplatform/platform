@@ -22,7 +22,7 @@ import javax.portlet.PortletResponse;
 import javax.portlet.PortletURL;
 import javax.portlet.RenderResponse;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.javascript.TemplateContext;
 /**
  * Created by The eXo Platform SARL
@@ -53,7 +53,7 @@ abstract public class EventHandler {
   }
   
   public <T>  T getService(Class<T> type) throws Exception {
-    return (T) PortalContainer.getInstance().getComponentInstanceOfType(type) ;
+    return (T) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(type) ;
   }
   
   public void onAction() throws Exception { 

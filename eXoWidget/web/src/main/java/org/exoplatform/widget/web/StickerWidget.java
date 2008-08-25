@@ -18,7 +18,8 @@ package org.exoplatform.widget.web;
 
 import java.io.Writer;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.portal.webui.application.UIWidget;
@@ -52,7 +53,7 @@ public class StickerWidget extends WidgetApplication<UIWidget> {
   public String getApplicationGroup() { return "eXoWidgetWeb"; }
   
   public void processRender(UIWidget uiWidget, Writer w) throws Exception {
-    PortalContainer container  = PortalContainer.getInstance();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
     UserWidgetStorage service = 
       (UserWidgetStorage)container.getComponentInstanceOfType(UserWidgetStorage.class) ;    
 

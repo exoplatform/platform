@@ -28,7 +28,8 @@ import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -47,7 +48,6 @@ import org.exoplatform.webui.form.UIFormInputInfo;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormPageIterator;
 import org.exoplatform.webui.form.UIFormTableInputSet;
-import org.exoplatform.portletregistry.webui.component.UIFormTableIteratorInputSet;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -129,9 +129,9 @@ public class UIAvailablePortletForm extends UIForm implements UIPopupComponent {
 
   @SuppressWarnings("unchecked")
   private Application findPortletInDataRuntime(String id) {
-    PortalContainer manager  = PortalContainer.getInstance();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
     PortletContainerService pcService =
-      (PortletContainerService) manager.getComponentInstanceOfType(PortletContainerService.class) ;
+      (PortletContainerService) container.getComponentInstanceOfType(PortletContainerService.class) ;
     Map<String, PortletData> allPortletMetaData = pcService.getAllPortletMetaData();
     Iterator<String> iterator = allPortletMetaData.keySet().iterator();
     

@@ -17,13 +17,12 @@
 package org.exoplatform.web.command.handler;
 
 import java.io.InputStream;
-import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.download.DownloadResource;
 import org.exoplatform.download.DownloadService;
 import org.exoplatform.web.WebAppController;
@@ -42,7 +41,7 @@ public class DownloadHandler extends Command {
   @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     res.setHeader("Cache-Control", "private max-age=600, s-maxage=120");
-    ExoContainer container =  PortalContainer.getInstance();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
     DownloadService dservice = (DownloadService)container.getComponentInstanceOfType(DownloadService.class) ;
     DownloadResource dresource = dservice.getDownloadResource(resourceId);
     if(dresource == null){

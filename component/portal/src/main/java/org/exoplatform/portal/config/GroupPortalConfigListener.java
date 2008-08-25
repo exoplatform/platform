@@ -20,7 +20,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -35,11 +36,8 @@ import org.exoplatform.services.organization.GroupEventListener;
  * May 29, 2007  
  */
 public class GroupPortalConfigListener extends GroupEventListener {
-  
   public void preDelete(Group group) throws Exception {
-    
-    
-    PortalContainer container  = PortalContainer.getInstance() ;
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     UserPortalConfigService portalConfigService = 
       (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
     DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;

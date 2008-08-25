@@ -23,7 +23,8 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Gadgets;
@@ -248,9 +249,7 @@ public class UIAddNewApplication extends UIContainer {
   }
    
   public List<ApplicationCategory> getApplicationCategories(String remoteUser, String[] applicationType) throws Exception {
-
-    // Get Categories
-    PortalContainer container = PortalContainer.getInstance();
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     ApplicationRegistryService prService = (ApplicationRegistryService) container
         .getComponentInstanceOfType(ApplicationRegistryService.class);
 

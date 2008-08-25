@@ -22,10 +22,10 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 
 import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
-import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 
 /**
  * Created by The eXo Platform SAS
@@ -50,7 +50,7 @@ public class SourceStorageImpl implements SourceStorage {
 //    NodeHierarchyCreator nodeCreator = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
 //    Node homeNode = (Node)session.getItem(nodeCreator.getJcrPath("GadgetSources"));
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
+    RepositoryService repoService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
     Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
     Node homeNode = session.getRootNode() ;
     Node contentNode ;
@@ -73,7 +73,7 @@ public class SourceStorageImpl implements SourceStorage {
 //    NodeHierarchyCreator nodeHi = (NodeHierarchyCreator) PortalContainer.getComponent(NodeHierarchyCreator.class) ;
 //    Node homeNode = (Node)session.getItem(nodeHi.getJcrPath("GadgetSources"));
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
+    RepositoryService repoService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
     Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
     Node homeNode = session.getRootNode() ;
     Node sourceNode = homeNode.getNode(name) ;
@@ -96,7 +96,7 @@ public class SourceStorageImpl implements SourceStorage {
   }
 
   private Node getHomeNode(SessionProvider sessionProvider) throws Exception {
-    RepositoryService repoService = (RepositoryService) PortalContainer.getComponent(RepositoryService.class) ; 
+    RepositoryService repoService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
     Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
     return session.getRootNode() ; 
 

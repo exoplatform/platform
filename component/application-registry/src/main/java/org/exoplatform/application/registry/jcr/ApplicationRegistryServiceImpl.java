@@ -25,6 +25,8 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategoriesPlugins;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.portal.config.UserACL;
@@ -65,7 +67,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   throws Exception {
     List<ApplicationCategory> categories = getApplicationCategories() ;
     Iterator<ApplicationCategory> cateItr = categories.iterator() ;
-    PortalContainer container = PortalContainer.getInstance() ;
+    ExoContainer container = ExoContainerContext.getCurrentContainer() ;
     OrganizationService orgService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class) ;
     UserACL acl = (UserACL) container.getComponentInstanceOfType(UserACL.class) ;
     while(cateItr.hasNext()) {
@@ -229,7 +231,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
 
   public void importExoWidgets() throws Exception {
-    PortalContainer container = PortalContainer.getInstance();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
     WebAppController appController = (WebAppController) container
         .getComponentInstanceOfType(WebAppController.class);
     List<org.exoplatform.web.application.Application> eXoWidgets = appController
@@ -279,7 +281,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
 //      if (app == null)
 //        save(category, convertApplication(ele));
 //    }
-    PortalContainer container = PortalContainer.getInstance();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
     GadgetRegistryService gadgetService = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class) ;
     List<Gadget> eXoGadgets = gadgetService.getAllGadgets() ;
     if(eXoGadgets == null || eXoGadgets.size() < 1) {
@@ -315,7 +317,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
 
   public void importAllPortlets() throws Exception {
-    PortalContainer manager  = PortalContainer.getInstance();
+    ExoContainer manager  = ExoContainerContext.getCurrentContainer();
     PortletContainerService pcService =
       (PortletContainerService) manager.getComponentInstanceOfType(PortletContainerService.class) ;
     Map<String, PortletData> allPortletMetaData = pcService.getAllPortletMetaData();

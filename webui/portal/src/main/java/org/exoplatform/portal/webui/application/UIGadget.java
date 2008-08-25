@@ -16,6 +16,8 @@
  */
 package org.exoplatform.portal.webui.application;
 
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.config.model.Properties;
@@ -162,7 +164,7 @@ public class UIGadget extends UIComponent {
    * @return Gadget Application 
    */
   private GadgetApplication getApplication() {
-    PortalContainer container = PortalContainer.getInstance() ;
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     GadgetStorage gadgetStorage = (GadgetStorage)container.getComponentInstanceOfType(GadgetStorage.class) ;
     GadgetApplication application = null ;
     try {
@@ -197,7 +199,7 @@ public class UIGadget extends UIComponent {
    */
   public String getUserPref() throws Exception {
     byte[] bytes = null;
-    UserGadgetStorage userGadgetStorage = (UserGadgetStorage)PortalContainer.getInstance().getComponentInstanceOfType(UserGadgetStorage.class);
+    UserGadgetStorage userGadgetStorage = (UserGadgetStorage) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(UserGadgetStorage.class);
     bytes = (byte[])userGadgetStorage.get(Util.getPortalRequestContext().getRemoteUser(), getApplicationName(), getApplicationInstanceUniqueId());
     if(bytes == null) return null;
     else return new String(bytes);

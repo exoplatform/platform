@@ -25,7 +25,8 @@ import java.nio.channels.FileChannel;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.upload.UploadResource;
 import org.exoplatform.upload.UploadService;
@@ -45,7 +46,7 @@ public class WelcomeWidgetHandler extends Command {
   @SuppressWarnings("unused")
   public void execute(WebAppController controller,  HttpServletRequest req, HttpServletResponse res) throws Exception {
     try{
-      PortalContainer container  = PortalContainer.getInstance();
+      ExoContainer container = ExoContainerContext.getCurrentContainer();
       
       UploadService uploadService = (UploadService)container.getComponentInstanceOfType(UploadService.class) ;
       UploadResource upResource = uploadService.getUploadResource(uploadId);

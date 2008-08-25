@@ -16,7 +16,8 @@
  */
 package org.exoplatform.portal.webui.application;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.widget.WidgetApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -42,7 +43,7 @@ public class UIWidgetLifecycle extends Lifecycle {
   @SuppressWarnings("unchecked")
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     UIWidget uiWidget = (UIWidget)  uicomponent ;
-    PortalContainer container = PortalContainer.getInstance() ;
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     WebAppController controller = 
       (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
     WidgetApplication application =

@@ -16,7 +16,9 @@
  */
 package org.exoplatform.portal.application;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.container.SessionManagerContainer;
 import org.exoplatform.container.SessionContainer;
 import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.ApplicationLifecycle;
@@ -30,14 +32,14 @@ public class PortalApplicationLifecycle  implements  ApplicationLifecycle<WebuiR
  
   @SuppressWarnings("unused")
   public void onStartRequest(Application app, WebuiRequestContext rcontext) throws Exception {
-    PortalContainer pcontainer = PortalContainer.getInstance() ;
-    SessionContainer.setInstance(pcontainer.getSessionManager().getSessionContainer(rcontext.getSessionId())) ;
+	  ExoContainer pcontainer = ExoContainerContext.getCurrentContainer() ;
+	  SessionContainer.setInstance(((SessionManagerContainer) pcontainer).getSessionManager().getSessionContainer(rcontext.getSessionId()));
   }
 
   @SuppressWarnings("unused")
   public void onEndRequest(Application app, WebuiRequestContext rcontext) throws Exception {
     SessionContainer.setInstance(null) ;
-    PortalContainer.setInstance(null) ;
+    ExoContainerContext.setCurrentContainer(null);
   }
   
   @SuppressWarnings("unused")

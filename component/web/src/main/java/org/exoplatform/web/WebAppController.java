@@ -24,9 +24,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.component.ComponentRequestLifecycle;
-import org.exoplatform.services.listener.ListenerService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.portletcontainer.helper.WindowInfosContainer;
 import org.exoplatform.web.application.Application;
@@ -112,7 +112,7 @@ public class WebAppController {
       log.debug("Handler used for this path: " + handler);
     }
     if(handler != null) {
-      PortalContainer portalContainer = PortalContainer.getInstance() ;
+      ExoContainer portalContainer = ExoContainerContext.getCurrentContainer();
       List<ComponentRequestLifecycle> components = 
         portalContainer.getComponentInstancesOfType(ComponentRequestLifecycle.class) ;
       for(ComponentRequestLifecycle component : components) {

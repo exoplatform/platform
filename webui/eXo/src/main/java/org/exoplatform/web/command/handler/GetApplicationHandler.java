@@ -26,7 +26,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.json.BeanToJSONPlugin;
 import org.exoplatform.json.JSONService;
 import org.exoplatform.web.WebAppController;
@@ -58,7 +59,7 @@ public class GetApplicationHandler extends Command {
   
   @SuppressWarnings("unchecked")
   private StringBuilder getApplications(String remoteUser) throws Exception {
-    PortalContainer container  = PortalContainer.getInstance();
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
     ApplicationRegistryService prService = 
       (ApplicationRegistryService)container.getComponentInstanceOfType(ApplicationRegistryService.class) ;    
 

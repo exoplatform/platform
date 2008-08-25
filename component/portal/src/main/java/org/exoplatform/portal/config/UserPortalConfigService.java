@@ -24,10 +24,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Application;
@@ -43,16 +43,9 @@ import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.portletcontainer.PCConstants;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
-import org.exoplatform.services.portletcontainer.helper.PortletWindowInternal;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.Input;
-import org.exoplatform.services.portletcontainer.pci.model.ExoPortletPreferences;
-import org.exoplatform.services.portletcontainer.pci.model.Portlet;
-import org.exoplatform.services.portletcontainer.plugins.pc.PortletApplicationsHolder;
-import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.PortletPreferencesImp;
-import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.persistenceImp.PersistenceManager;
 /**
  * Created by The eXo Platform SAS
  * Apr 19, 2007
@@ -460,7 +453,7 @@ public class UserPortalConfigService {
     ExoWindowID windowID = new ExoWindowID(app.getInstanceId()) ;
     Input input = new Input() ;
     input.setInternalWindowID(windowID) ;
-    PortalContainer container = PortalContainer.getInstance() ;
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     PortletContainerService pcServ = (PortletContainerService) container.getComponentInstanceOfType(PortletContainerService.class) ;
     return pcServ.getPortletPreference(input) ;
   }
@@ -477,7 +470,7 @@ public class UserPortalConfigService {
     ExoWindowID windowID = new ExoWindowID(portlet.getInstanceId()) ;
     Input input = new Input() ;
     input.setInternalWindowID(windowID) ;
-    PortalContainer container = PortalContainer.getInstance() ;
+    ExoContainer container  = ExoContainerContext.getCurrentContainer();
     PortletContainerService pcServ = (PortletContainerService) container.getComponentInstanceOfType(PortletContainerService.class) ;
     pcServ.setPortletPreference2(input, portletPreferences) ;
   }

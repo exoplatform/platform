@@ -22,7 +22,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -40,8 +41,8 @@ public class UpdateWidgetContainerHandler extends Command {
 
   public void execute(WebAppController controller, HttpServletRequest req, HttpServletResponse res) throws Exception {
     try {
-      PortalContainer portalContainer = PortalContainer.getInstance() ;
-      UserPortalConfigService configService = (UserPortalConfigService)portalContainer.getComponentInstanceOfType(UserPortalConfigService.class) ;
+      ExoContainer container = ExoContainerContext.getCurrentContainer();
+      UserPortalConfigService configService = (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
       String ownerType = PortalConfig.USER_TYPE ;
       String ownerId = req.getRemoteUser() ;
       String widgetsId = ownerType + "::" + ownerId ; 
