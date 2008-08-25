@@ -44,6 +44,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.UIWizard;
@@ -109,6 +110,14 @@ import org.exoplatform.webui.form.validator.DateTimeValidator;
         @EventConfig(listeners = SaveNavigationActionListener.class),
         @EventConfig(listeners = EditNavigationActionListener.class),
         @EventConfig(listeners = DeleteNavigationActionListener.class, confirm = "UIPageNodeSelector.deleteNode")
+      }
+  ),
+  @ComponentConfig(
+      id = "UIDropDown",
+      type = UIDropDownControl.class,
+      template = "system:/groovy/portal/webui/navigation/UINavigationSelector.gtmpl",
+      events = {
+        @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class)
       }
   )
 })
