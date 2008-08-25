@@ -123,8 +123,8 @@ public class RSSParser {
           item.setLink(attributes.getAttributeValue("href"));
         }
       }
-      else if((ele.isNode("pubDate") || ele.isNode("issued")) && ele.getTotalChildren() > 0) 
-        item.setTime(ele.getChild(0).getNodeValue());
+      else if((ele.isNode("pubDate") || ele.isNode("issued")) && ele.getTotalChildren() > 0)
+        item.setTime(removeCData(ele.getChild(0).getNodeValue().trim()));       
       else if(ele.isNode("image") && ele.getTotalChildren() > 0)
         item.setImage(ele.getChild(0).getNodeValue());
       //TODO: set creator of content
