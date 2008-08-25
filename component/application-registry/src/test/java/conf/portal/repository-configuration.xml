@@ -24,7 +24,7 @@
      <workspaces>
        <workspace name="system" auto-init-root-nodetype="nt:unstructured" 
                   auto-init-permissions="*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" >
-          <!-- for system storage -->
+          <!-- for collaboration storage -->
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
@@ -68,7 +68,7 @@
        </workspace>
        <workspace name="collaboration" auto-init-root-nodetype="nt:unstructured" 
                   auto-init-permissions="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove" >
-          <!-- for system storage -->
+          <!-- for collaboration storage -->
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="sourceName" value="jdbcexo"/>
