@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
   <import>war:/conf/common/common-configuration.xml</import> 
+  <import>war:/conf/common/logs-configuration.xml</import> 
   <import>war:/conf/database/database-configuration.xml</import>
   <import>war:/conf/jcr/jcr-configuration.xml</import>
   <import>war:/conf/common/portlet-container-configuration.xml</import>  
