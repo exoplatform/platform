@@ -24,8 +24,8 @@ import java.util.ResourceBundle;
 
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.mail.MailService;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.services.mail.MailService;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
@@ -119,7 +119,7 @@ public class UIForgetPassword extends UIForm {
       String activeLink = host + requestContext.getRequestContextPath() + "/public/" + portalName;
       activeLink += "?portal:componentId=UIPortal&portal:action=RecoveryPasswordAndUsername&datesend="+now.toString()+"&email="+email;
       activeLink = headerMail + activeLink + footerMail;
-      mailSrc.sendMessage(new String[] {email}, "Remind password and username", activeLink, "exoservice@gmail.com");
+      mailSrc.sendMessage("exoservice@gmail.com",email, "Remind password and username", activeLink);
       uiForm.reset();
       uilogin.getChild(UILoginForm.class).setRendered(true);
       uilogin.getChild(UIForgetPasswordWizard.class).setRendered(false);
