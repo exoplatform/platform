@@ -6,7 +6,8 @@
 }
 
 .UIGroupInfoContainer .HorizontalLayout .FormContainer {
-	margin: 5px;
+	padding: 7px;
+	_padding: 8px 7px 7px;
 }
 
 .UIGroupInfoContainer .UIGroupMembershipForm .TitleBar {
