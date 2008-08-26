@@ -75,50 +75,6 @@ import org.exoplatform.webui.form.validator.DateTimeValidator;
         @EventConfig(listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE),
         @EventConfig(listeners = UIWizardPageSetInfo.SwitchPublicationDateActionListener.class, phase=Phase.DECODE)
       }
-  ),
-  @ComponentConfig(
-      id = "WizardPageNodeSelector",
-      type = UIPageNodeSelector.class,
-      template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
-      events = {
-        @EventConfig(listeners = UIWizardPageSetInfo.SelectNavigationActionListener.class, phase=Phase.DECODE) 
-      }
-  ),
-  @ComponentConfig(
-      id = "PageNodePopupMenu",
-      type = UIRightClickPopupMenu.class,
-      template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
-      events = {
-        @EventConfig(listeners = AddNodeActionListener.class),
-        @EventConfig(listeners = EditPageNodeActionListener.class),
-        @EventConfig(listeners = EditSelectedNodeActionListener.class),
-        @EventConfig(listeners = CopyNodeActionListener.class),
-        @EventConfig(listeners = CutNodeActionListener.class),
-        @EventConfig(listeners = PasteNodeActionListener.class),
-        @EventConfig(listeners = MoveUpActionListener.class),
-        @EventConfig(listeners = MoveDownActionListener.class),
-        @EventConfig(listeners = DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation")
-      }
-  ),
-  @ComponentConfig(
-      id = "UIPageNodeSelectorPopupMenu",
-      type = UIRightClickPopupMenu.class,
-      template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
-      events = {
-        @EventConfig(listeners = AddNodeActionListener.class),
-        @EventConfig(listeners = PasteNodeActionListener.class),
-        @EventConfig(listeners = SaveNavigationActionListener.class),
-        @EventConfig(listeners = EditNavigationActionListener.class),
-        @EventConfig(listeners = DeleteNavigationActionListener.class, confirm = "UIPageNodeSelector.deleteNode")
-      }
-  ),
-  @ComponentConfig(
-      id = "UIDropDown",
-      type = UIDropDownControl.class,
-      template = "system:/groovy/portal/webui/navigation/UINavigationSelector.gtmpl",
-      events = {
-        @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class)
-      }
   )
 })
 public class UIWizardPageSetInfo extends UIForm {   
@@ -237,16 +193,6 @@ public class UIWizardPageSetInfo extends UIForm {
 
   public void setFirstTime(boolean firstTime){
     this.firstTime = firstTime;
-  }
-
-  static public class SelectNavigationActionListener  extends EventListener<UIPageNodeSelector> {
-    public void execute(Event<UIPageNodeSelector> event) throws Exception {
-      String id = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIPageNodeSelector uiPageNodeSelector = event.getSource();
-      UIWizard uiWizard = uiPageNodeSelector.getAncestorOfType(UIWizard.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard);
-      if(id != null) uiPageNodeSelector.selectNavigation(id);
-    }
   }
 
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
