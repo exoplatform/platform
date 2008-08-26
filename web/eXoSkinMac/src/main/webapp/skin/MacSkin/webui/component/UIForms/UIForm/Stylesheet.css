@@ -37,13 +37,20 @@
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
-	width: 95% ;
-  padding: 10px; margin: auto;
+	width: 95%;
+	padding: 10px;
+	margin: auto;
 }
 
 .HorizontalLayout .UIForm .UIFormInputSet {
 	width: 97%;
-  padding: 10px; margin: auto;
+	padding: 10px; margin: auto;
+}
+
+.HorizontalLayout .UIForm .SelectedIconInfo .UIFormInputSet {
+	width: 97% ;
+	padding: 0px;
+	margin: auto;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
