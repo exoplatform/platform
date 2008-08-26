@@ -3,5 +3,8 @@
 %>
 <div class="UIGadgetInfo" id="$uicomponent.id">
 	<div>Gadget details</div>
-	<div><%= gadget.getName() %></div>
+	<img src="<%= gadget.getThumbnail() %>" />
+	<div><%= gadget.getTitle() %></div>
+	<div><%= gadget.getDescription() %></div>
+	<div><%= gadget.getReferenceUrl() %></div>
 </div>

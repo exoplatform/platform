@@ -19,7 +19,6 @@ package org.exoplatform.application.gadget.jcr;
 import org.exoplatform.application.gadget.Gadget;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
 /**
  * Created by The eXo Platform SAS
@@ -31,11 +30,13 @@ public class DataMapper {
   
   final static String EXO_REGISTRYENTRY_NT = "exo:registryEntry" ;
   final static String PRIMARY_TYPE = "jcr:primaryType" ;
-  final static String GADGET_SOURCE = "GadgetSource" ;
-  final static private String DATA_ELEMENT = "data" ;
   final static String EXO_DATA_TYPE = "exo:dataType" ;
   final static String EXO_GADGET_NAME = "exo:gadgetName" ;
   final static String EXO_GADGET_URL = "exo:gadgetUrl" ;  
+  final static String EXO_GADGET_TITLE = "exo:gadgetTitle" ;
+  final static String EXO_GADGET_DESCRIPTION = "exo:gadgetDescription" ;
+  final static String EXO_GADGET_REF_URL = "exo:gadgetRefUrl" ;
+  final static String EXO_GADGET_THUMB = "exo:gadgetThumb" ;
   final static String EXO_GADGET_IS_REMOTE = "exo:gadgetIsRemote" ;
 
   public void map(Document doc, Gadget app) throws Exception {
@@ -45,6 +46,10 @@ public class DataMapper {
     root.setAttribute(EXO_DATA_TYPE, app.getClass().getSimpleName()) ;
     root.setAttribute(EXO_GADGET_NAME, app.getName()) ;
     root.setAttribute(EXO_GADGET_URL, app.getUrl()) ;
+    root.setAttribute(EXO_GADGET_TITLE, app.getTitle()) ;
+    root.setAttribute(EXO_GADGET_DESCRIPTION, app.getDescription()) ;
+    root.setAttribute(EXO_GADGET_REF_URL, app.getReferenceUrl()) ;
+    root.setAttribute(EXO_GADGET_THUMB, app.getThumbnail()) ;
     root.setAttribute(EXO_GADGET_IS_REMOTE, String.valueOf(app.isRemote())) ;
   }
   
@@ -53,20 +58,12 @@ public class DataMapper {
     Gadget app = new Gadget() ;
     app.setName(root.getAttribute(EXO_GADGET_NAME)) ;
     app.setUrl(root.getAttribute(EXO_GADGET_URL)) ;
+    app.setTitle(root.getAttribute(EXO_GADGET_TITLE)) ;
+    app.setDescription(root.getAttribute(EXO_GADGET_DESCRIPTION)) ;
+    app.setReferenceUrl(root.getAttribute(EXO_GADGET_REF_URL)) ;
+    app.setThumbnail(root.getAttribute(EXO_GADGET_THUMB)) ;
     app.setRemote(Boolean.valueOf(root.getAttribute(EXO_GADGET_IS_REMOTE))) ;
     return app ;
-  }
-  
-  public void map(Document doc, String source) throws Exception {
-    Element root = doc.getDocumentElement() ;
-    prepareXmlNamespace(root) ;
-    root.setAttribute(PRIMARY_TYPE, EXO_REGISTRYENTRY_NT) ;
-    root.setAttribute(EXO_DATA_TYPE, GADGET_SOURCE) ;
-    setDataValue(doc, DATA_ELEMENT, source) ;
-  }
-  
-  public String toSource(Document doc) throws Exception {
-    return getDataValue(doc, DATA_ELEMENT) ;
   }
   
   private void prepareXmlNamespace(Element element) {
@@ -80,30 +77,5 @@ public class DataMapper {
       element.setAttribute(key, value) ;
     }    
   }
-  
-  private void setDataValue(Document doc, String name, String value) {
-    Node dataElement = createDataElement(doc, name) ;
-    Node child ;
-    while((child = dataElement.getFirstChild()) != null) {
-      dataElement.removeChild(child) ;
-    }
-    Node data = doc.createCDATASection(value);
-    dataElement.appendChild(data) ;    
-  }
-
-  private String getDataValue(Document doc, String name) {
-    Node dataElement = createDataElement(doc, name) ;
-    return dataElement.getFirstChild().getNodeValue() ;
-  }
-  
-  private Element createDataElement(Document doc, String name) {
-    Element ele = (Element) doc.getElementsByTagName(name).item(0) ;
-    if(ele == null) {
-      ele = doc.createElement(name) ;
-      doc.getDocumentElement().appendChild(ele) ;
-    }
-    return ele ;
-  }
-
   
 }

@@ -28,11 +28,16 @@ public class Gadget {
   
   private String name ;
   private String url ;
+  private String title ;
+  private String description ;
+  private String referenceUrl ;
+  private String thumbnail ;
   private boolean isRemote = true ;
   
   public Gadget() {}
   public Gadget(GadgetApplication app) {
     name = app.getApplicationName() ;
+    title = name ;
     url = app.getUrl() ;
   }
   
@@ -44,6 +49,18 @@ public class Gadget {
   
   public boolean isRemote() { return isRemote; }
   public void setRemote(Boolean b) { isRemote = b.booleanValue(); }
+  
+  public String getTitle() { return title; }
+  public void setTitle(String title) { this.title = title; }
+  
+  public String getDescription() { return description; }
+  public void setDescription(String description) { this.description = description; }
+  
+  public String getReferenceUrl() { return referenceUrl; }
+  public void setReferenceUrl(String referenceUrl) { this.referenceUrl = referenceUrl; }
+  
+  public String getThumbnail() { return thumbnail; }
+  public void setThumbnail(String thumbnail) { this.thumbnail = thumbnail; }
   
   public GadgetApplication toGadgetApplication() {
     return new GadgetApplication(name, url) ;

@@ -16,26 +16,20 @@
  */
 package org.exoplatform.web.application.gadget;
 
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
-import java.io.*;
-import java.net.URL;
-import java.net.URLConnection;
 
+import org.apache.commons.io.IOUtils;
 import org.exoplatform.web.application.Application;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.apache.commons.io.IOUtils;
-/**
- * Created by The eXo Platform SAS
- * Author : dang.tung
- * tungcnw@gmail.com
- * May 06, 2008
- */
 
 /**
  * This class extends from Application, it represents an gadget application in eXo and used for registry
