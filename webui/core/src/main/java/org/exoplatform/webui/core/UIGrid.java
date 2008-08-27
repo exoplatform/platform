@@ -51,7 +51,7 @@ public class UIGrid extends UIComponent {
   protected  String classname_;
   protected  String label_ ;
   protected  boolean useAjax = true;
-  protected int displayedChars_ = 30;
+  protected int displayedChars_ = 40;
 
 public UIGrid() throws Exception {
     uiIterator_ = createUIComponent(UIPageIterator.class, null, null);
