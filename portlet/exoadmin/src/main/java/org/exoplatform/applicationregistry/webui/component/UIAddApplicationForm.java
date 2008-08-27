@@ -66,7 +66,7 @@ import org.exoplatform.webui.form.UIFormTableInputSet;
 )
 public class UIAddApplicationForm extends UIForm {
   
-  final static public String FIELD_NAME = "name" ;
+  final static public String FIELD_NAME = "displayName" ;
   final static public String FIELD_TYPE = "type" ;
   final static public String FIELD_APPLICATION = "application" ;
   final static String [] TABLE_COLUMNS = {"input", "label", "description"};
