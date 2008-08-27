@@ -18,9 +18,7 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;

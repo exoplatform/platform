@@ -16,9 +16,19 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
+import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.util.Calendar;
 import java.util.Map;
 
+import javax.jcr.Node;
+import javax.jcr.Session;
+
 import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.services.jcr.RepositoryService;
+import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 
 /**
@@ -41,8 +51,28 @@ public class ModelDataMapper {
     gadget.setName(name);
     gadget.setDescription(metaData.get("description")) ;
     gadget.setReferenceUrl(metaData.get("titleUrl")) ;
-    gadget.setThumbnail(metaData.get("thumbnail")) ;
+    gadget.setThumbnail(saveThumbnail(name, metaData.get("thumbnail"))) ;
     return gadget ;
   }
-
+  
+  static final private String saveThumbnail(String name, String u) throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    RepositoryService repoService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
+    Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
+    Node homeNode = session.getRootNode() ;
+    URL url = new URL(u) ;
+    URLConnection conn = url.openConnection() ;
+    InputStream is = conn.getInputStream() ;
+    Node contentNode ;
+    if(!homeNode.hasNode(name)) {
+      Node fileNode = homeNode.addNode(name, "nt:file") ;
+      contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
+    } else contentNode = homeNode.getNode(name + "/jcr:content") ;
+    contentNode.setProperty("jcr:data", is) ;
+    contentNode.setProperty("jcr:mimeType", conn.getContentType()) ;
+    contentNode.setProperty("jcr:lastModified", Calendar.getInstance()) ;
+    session.save() ;
+    sessionProvider.close() ;
+    return "/portal/rest/jcr/repository/gadgets/" + name ;
+  }
 }
