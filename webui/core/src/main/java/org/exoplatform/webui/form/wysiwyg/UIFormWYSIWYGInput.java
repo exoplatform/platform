@@ -20,7 +20,6 @@ import java.io.Writer;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.lang.StringUtils;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.form.UIFormInputBase;
 
@@ -88,12 +87,7 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
 	 */
 	public void decode(Object input, WebuiRequestContext context) throws Exception {
 		value_ = (String) input;
-		if(value_ != null && value_.length() == 0) value_ = null ;
-		//In FireFox, FCKEditor add <br /> at these end of content 
-		//when FCKConfig.EnterMode = br so we need clear the tag		
-		if(value_.endsWith("<br />")) {
-			value_ = StringUtils.substringBeforeLast(value_, "<br />");
-		}
+		if(value_ != null && value_.length() == 0) value_ = null ;		
 	}
 
 	/* (non-Javadoc)
