@@ -278,20 +278,20 @@
                 <div class="IconContainer" id="IconContainer" style="text-align: center;">
                   <img id="FixBug" src="/eXoResources/skin/sharedImages/Debug1x32.gif" />
                   
-  	                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/NavigationIcon.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
+  	                  <img class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/NavigationIcon.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
 	                       id="UIAddApplicationIcon"
 	                       onclick="eXo.desktop.UIDockbar.showNavigation(event)"/><span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.pageNavigation")%></span>
 	                <%if(rcontext.getRemoteUser() == null) {%>
-		                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/Signin.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
+		                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/Signin.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
 		                         onclick="<%=uicomponent.event("ShowLoginForm", null);%>" /><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
-		                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>
+		                  <img class="Separator" src="/webosResources/skin/Defaultskin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>
                   <%}%>
 
                   <%if(modifiable) {%>
-		                  <img class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/AddPortlet.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
+		                  <img class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/AddPortlet.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""
 		                       id="UIAddApplicationIcon"
 		                       onclick="<%=uicomponent.event("ShowAddNewApplication")%>"/><span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.AddApplication")%></span>
-		                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>
+		                  <img class="Separator" src="/webosResources/skin/Defaultskin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>
                   <%}%>
                   <%                  
                     def res = rcontext.getApplicationResourceBundle() ;
@@ -304,15 +304,15 @@
                     if(rcontext.getRemoteUser() != null) {
                   %>
                       <img id="DockItem${uiChild.id}" onmousedown="eXo.webui.UIRightClickPopupMenu.clickRightMouse(event, this, 'DockbarContextMenu', '${uiChild.id}', null, 1)" class="Icon" src="/${imgLocation}.png" alt="/eXoResources/skin/sharedImages/Blank.gif"
-                           onerror="this.src='/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png'" onclick="eXo.desktop.UIDesktop.showHideWindow('UIWindow-${uiChild.id}', this);" /><span class="Tooltip" style="display: none"><%=uiChild.getTitle();%></span>
+                           onerror="this.src='/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png'" onclick="eXo.desktop.UIDesktop.showHideWindow('UIWindow-${uiChild.id}', this);" /><span class="Tooltip" style="display: none"><%=uiChild.getTitle();%></span>
                   <%}else{%>
                   		<img id="DockItem${uiChild.id}" class="Icon" src="/${imgLocation}.png" alt="/eXoResources/skin/sharedImages/Blank.gif"
-                           onerror="this.src='/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png'" onclick="eXo.desktop.UIDesktop.showHideWindow('UIWindow-${uiChild.id}', this);" /><span class="Tooltip" style="display: none"><%=uiChild.getTitle();%></span>
+                           onerror="this.src='/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png'" onclick="eXo.desktop.UIDesktop.showHideWindow('UIWindow-${uiChild.id}', this);" /><span class="Tooltip" style="display: none"><%=uiChild.getTitle();%></span>
 									<%}}%>
 			
-                  <img class="Separator" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
-                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/ShowPortletsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowPortletDesktop")%></span>
-                  <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/HideWidgetsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
+                  <img class="Separator" src="/webosResources/skin/Defaultskin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
+                  <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/ShowPortletsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowPortletDesktop")%></span>
+                  <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/HideWidgetsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
                 </div>
               </div>
             </div>

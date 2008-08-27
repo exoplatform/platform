@@ -7,7 +7,7 @@ def application = uicomponent.getApplication() ;
 	<% } else { 
 				String name = application.getApplicationName() ;
 				String srcBG = "/" + application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + name + ".png";
-				String srcBGError = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png";
+				String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 	%>
 	<div class="UIBreadcumbs">
 	  <div class="LeftBreadcumbsBar">

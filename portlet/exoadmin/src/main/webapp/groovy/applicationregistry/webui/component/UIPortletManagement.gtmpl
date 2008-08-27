@@ -162,7 +162,7 @@
 
 		  <div class="Application">
 	  		<div title="Portlet 1" class="PortletIcons">
-	  				<img src="/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/DefaultPortlet.png"/>
+	  				<img src="/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png"/>
 	  		</div>
 	  		<div class="ApplicationContent">
 	  		  <div class="TitleBarApplication">

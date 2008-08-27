@@ -27,7 +27,7 @@
 		  }
 		  String applicationType = portlet.getApplicationType();
 		  String desription = portlet.getDescription();
-		  String srcBGError = "/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80/";
+		  String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/";
 		%>
 
 	  <div class="Application">

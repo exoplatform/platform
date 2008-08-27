@@ -36,11 +36,6 @@
   background: url('null') repeat bottom right;
 }
 
-.UIPageBody .UIApplicationRegistryPortlet {
-	width: 99%;
-	margin: auto;
-}
-
 .UIPageBody .Empty {
   width: 500px;
   margin: 30px auto 30px auto;
