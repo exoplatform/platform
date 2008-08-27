@@ -111,6 +111,7 @@
   background: white;
 	border: 1px solid #dcdcdc;
 	height: 253px; margin: auto;
+	overflow-x: hidden;
 	overflow-y: auto;
 }
 
