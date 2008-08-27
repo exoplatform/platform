@@ -55,7 +55,7 @@ abstract public class WebuiApplication extends Application {
    * and initialized at the same time.
    * 
    */
-  public void onInit() throws Exception {        
+  public void onInit() throws Exception {
     String configPath = getApplicationInitParam("webui.configuration") ;
     InputStream is = getResourceResolver().getInputStream(configPath) ;
     configManager_ = new ConfigurationManager(is) ;

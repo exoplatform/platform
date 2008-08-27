@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.PortalContainer;
+import org.exoplatform.container.SessionManagerContainer;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -105,7 +105,7 @@ public class PortalStateManager extends StateManager {
           (UIPortalApplication)app.createUIComponent(type, null, null, context) ;
         state = new PortalApplicationState(uiApplication, pcontext.getRemoteUser()) ;
         uiApplications.put(context.getSessionId(), state) ;
-        PortalContainer pcontainer = (PortalContainer) app.getApplicationServiceContainer() ;
+        SessionManagerContainer pcontainer = (SessionManagerContainer) app.getApplicationServiceContainer() ;
         pcontainer.createSessionContainer(context.getSessionId(), uiApplication.getOwner()) ;
       }
     }
@@ -120,7 +120,7 @@ public class PortalStateManager extends StateManager {
     if(state != null){
       log.warn("Session expires, remove application: " + state.getUIPortalApplication());
     }
-    PortalContainer pcontainer =  (PortalContainer) app.getApplicationServiceContainer() ;
+    SessionManagerContainer pcontainer = (SessionManagerContainer) app.getApplicationServiceContainer() ;
     pcontainer.removeSessionContainer(sessionId) ;
   }
   

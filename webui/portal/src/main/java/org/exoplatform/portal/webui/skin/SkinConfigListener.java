@@ -53,7 +53,7 @@ public class SkinConfigListener extends BaseComponentPlugin
       if(is == null)  return ;
       
       Binding binding = new Binding();
-      ExoContainer rootContainer = ExoContainerContext.getTopContainer() ;
+      ExoContainer rootContainer = ExoContainerContext.getTopContainer();
       SkinService skinService = 
         (SkinService)rootContainer.getComponentInstanceOfType(SkinService.class);
       binding.setVariable("SkinService", skinService) ;

@@ -32,8 +32,8 @@ public class PortalApplicationLifecycle  implements  ApplicationLifecycle<WebuiR
  
   @SuppressWarnings("unused")
   public void onStartRequest(Application app, WebuiRequestContext rcontext) throws Exception {
-	  ExoContainer pcontainer = ExoContainerContext.getCurrentContainer() ;
-	  SessionContainer.setInstance(((SessionManagerContainer) pcontainer).getSessionManager().getSessionContainer(rcontext.getSessionId()));
+    ExoContainer pcontainer = ExoContainerContext.getCurrentContainer() ;
+    SessionContainer.setInstance(((SessionManagerContainer) pcontainer).getSessionManager().getSessionContainer(rcontext.getSessionId()));
   }
 
   @SuppressWarnings("unused")

@@ -48,7 +48,7 @@ public class PortletApplicationController extends GenericPortlet {
   
   protected static Log log = ExoLogger.getLogger("portlet:PortletApplicationController"); 
   
-  private String applicationId_ ;
+  private String applicationId_;
   
   /**
    * This method is called when the portlet is initialised, in eXo this is a lazy loading
@@ -58,10 +58,10 @@ public class PortletApplicationController extends GenericPortlet {
    *         applicationId_  = portlet-application-name + "/" + portlet-name 
    */
   public void init(PortletConfig config) throws PortletException {
-    super.init(config) ;
+    super.init(config);
     PortletContext pcontext = config.getPortletContext();
     String contextName = pcontext.getPortletContextName();
-    applicationId_  = contextName + "/" + config.getPortletName() ;
+    applicationId_  = contextName + "/" + config.getPortletName();
   }
   
   /**
@@ -69,7 +69,7 @@ public class PortletApplicationController extends GenericPortlet {
    */
   public void processAction(ActionRequest req, ActionResponse res) throws PortletException, IOException {
     try {
-      getPortletApplication().processAction(req, res) ;
+      getPortletApplication().processAction(req, res);
     } catch(Exception ex) {
       log.error("Error while processing action in the porlet", ex);
     }
@@ -80,7 +80,7 @@ public class PortletApplicationController extends GenericPortlet {
    */
   public void processEvent(EventRequest req, EventResponse res) {
     try {
-      getPortletApplication().processEvent(req, res) ;
+      getPortletApplication().processEvent(req, res);
     } catch(Exception ex) {
       log.error("Error while processing event in the porlet", ex);
     }    
@@ -91,7 +91,7 @@ public class PortletApplicationController extends GenericPortlet {
    */  
   public  void render(RenderRequest req,  RenderResponse res) throws PortletException, IOException {
     try {
-      getPortletApplication().render(req, res) ;
+      getPortletApplication().render(req, res);
     } catch(Exception ex) {
       log.error("Error while rendering the porlet", ex);
     }
@@ -104,14 +104,14 @@ public class PortletApplicationController extends GenericPortlet {
    * controller
    */
   private PortletApplication getPortletApplication() throws Exception {
-    ExoContainer container = ExoContainerContext.getCurrentContainer() ;
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
     WebAppController controller = 
-      (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-    PortletApplication application = controller.getApplication(applicationId_) ;
+      (WebAppController)container.getComponentInstanceOfType(WebAppController.class);
+    PortletApplication application = controller.getApplication(applicationId_);
     if(application == null) {
-      application = new PortletApplication(getPortletConfig()) ;
-      application.onInit() ; 
-      controller.addApplication(application) ;
+      application = new PortletApplication(getPortletConfig());
+      application.onInit(); 
+      controller.addApplication(application);
     }
     return application;
   }
@@ -123,19 +123,19 @@ public class PortletApplicationController extends GenericPortlet {
    */
   @SuppressWarnings("unchecked")
   public void destroy() {
-	  ExoContainer rootContainer = ExoContainerContext.getTopContainer();
-	  List<ExoContainer> containers = 
-		  rootContainer.getComponentInstancesOfType(ExoContainer.class);
-
+    ExoContainer rootContainer = ExoContainerContext.getTopContainer();
+    List<ExoContainer> containers = 
+      rootContainer.getComponentInstancesOfType(ExoContainer.class);
+    containers.add(rootContainer);
     try {
       for(ExoContainer container : containers) {
-        ExoContainerContext.setCurrentContainer(container) ;
+        ExoContainerContext.setCurrentContainer(container);
         WebAppController controller = 
-          (WebAppController)container.getComponentInstanceOfType(WebAppController.class) ;
-        PortletApplication application = controller.getApplication(applicationId_) ;
+          (WebAppController)container.getComponentInstanceOfType(WebAppController.class);
+        PortletApplication application = controller.getApplication(applicationId_);
         if(application != null) {
-          application.onDestroy() ;
-          controller.removeApplication(applicationId_) ;
+          application.onDestroy();
+          controller.removeApplication(applicationId_);
         }
       }
     } catch(Exception ex) {
