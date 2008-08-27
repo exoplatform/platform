@@ -51,7 +51,7 @@ public class ModelDataMapper {
     gadget.setName(name);
     gadget.setDescription(metaData.get("description")) ;
     gadget.setReferenceUrl(metaData.get("titleUrl")) ;
-    gadget.setThumbnail(saveThumbnail(name, metaData.get("thumbnail"))) ;
+    gadget.setThumbnail(metaData.get("thumbnail")) ;
     return gadget ;
   }
   
