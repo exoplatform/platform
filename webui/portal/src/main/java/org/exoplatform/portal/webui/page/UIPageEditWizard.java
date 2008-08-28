@@ -24,23 +24,19 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIExoStart;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -58,7 +54,7 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIPageEditWizard.ViewStep2ActionListener.class),
         @EventConfig(listeners = UIPageEditWizard.ViewStep3ActionListener.class),
         @EventConfig(listeners = UIPageEditWizard.ViewStep4ActionListener.class),
-        @EventConfig(listeners = UIPageEditWizard.AbortActionListener.class)
+        @EventConfig(listeners = UIPageWizard.AbortActionListener.class)
     }
 )
 public class UIPageEditWizard extends UIPageWizard {
@@ -249,25 +245,4 @@ public class UIPageEditWizard extends UIPageWizard {
       uiWizard.updateUIPortal(uiPortalApp, event);
     }
   }  
-  
-  static public class AbortActionListener extends EventListener<UIPageEditWizard> {
-    public void execute(Event<UIPageEditWizard> event) throws Exception {
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
-
-      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-      uiWorkingArea.setUIComponent(uiWorkingArea.createUIComponent(UIWelcomeComponent.class, null, null)) ;
-      pcontext.addUIComponentToUpdateByAjax(uiControl);  
-
-      UIPortal uiPortal = Util.getUIPortal();
-      uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
-      uiPortal.setRenderSibbling(UIPortal.class) ;    
-      pcontext.setFullRender(true);
-      
-      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
-    }
-  }
-
 }

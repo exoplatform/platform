@@ -10,7 +10,7 @@
       </div>
       <div class="MiddleLeftBar">
         <div class="MiddleRightBar">
-          <div class="MiddleCenterBar"><%=uicomponent.getTitle()%></div>
+          <div class="MiddleCenterBar"><%=_ctx.appRes(uicomponent.getTitleKey())%></div>
         </div>
       </div>
       <div class="BottomLeftBar">

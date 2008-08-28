@@ -19,7 +19,6 @@ package org.exoplatform.portal.webui.navigation;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ResourceBundle;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
@@ -27,7 +26,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.CreateNavigationActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.DeleteNavigationActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.EditNavigationActionListener;
@@ -44,13 +42,11 @@ import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNod
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
-import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
-import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -59,7 +55,6 @@ import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
-import org.exoplatform.webui.core.UIWizard;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -77,13 +72,7 @@ import org.exoplatform.webui.event.Event.Phase;
       template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
       events = {
         @EventConfig(listeners = UIPageNodeSelector.ChangeNodeActionListener.class),
-        @EventConfig(listeners = CreateNavigationActionListener.class)
-      }
-  ),
-  @ComponentConfig(
-      id = "WizardPageNodeSelector",
-      template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
-      events = {
+        @EventConfig(listeners = CreateNavigationActionListener.class),
         @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class, phase=Phase.DECODE) 
       }
   ),
@@ -161,13 +150,7 @@ public class UIPageNodeSelector extends UIContainer {
     List<PageNavigation> pnavigations = getExistedNavigation(Util.getUIPortal().getNavigations()) ;
     UserACL userACL = getApplicationComponent(UserACL.class);
     for(PageNavigation nav  : pnavigations){      
-      if(PortalConfig.PORTAL_TYPE.equals(nav.getOwnerType())){
-        if(userACL.hasPermission(remoteUser, Util.getUIPortal().getEditPermission())){
-          navigations.add(nav.clone()) ;
-        }
-      }else if(userACL.hasEditPermission(nav, remoteUser)){
-        navigations.add(nav);
-      }
+      navigations.add(nav);
     }
     
     updateUI() ;

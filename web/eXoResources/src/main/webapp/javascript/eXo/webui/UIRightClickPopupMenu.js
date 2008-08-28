@@ -69,11 +69,13 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 	}
 	var customItem = eXo.core.DOMUtil.findFirstChildByClass(elemt, "div", "RightClickCustomItem") ;
 	var tmpCustomItem = eXo.core.DOMUtil.findFirstDescendantByClass(contextMenu, "div", "RightClickCustomItem") ;
-	if(customItem) {
-		tmpCustomItem.innerHTML = customItem.innerHTML ;
-		tmpCustomItem.style.display = "block" ;
-	} else {
-		tmpCustomItem.style.display = "none" ;
+	if(tmpCustomItem) {
+		if(customItem) {
+			tmpCustomItem.innerHTML = customItem.innerHTML ;
+			tmpCustomItem.style.display = "block" ;
+		} else {
+			tmpCustomItem.style.display = "none" ;
+		}
 	}
 		/*
 	 * fix bug right click in IE7.

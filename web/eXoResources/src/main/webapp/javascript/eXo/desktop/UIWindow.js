@@ -45,7 +45,7 @@ UIWindow.prototype.init = function(popup, isShow, posX, posY) {
  		this.originalHeight = 400;
  		maximizedIcon.className = "ControlIcon RestoreIcon";
  		maximizedIcon.title = "Restore Down";
- 	 setTimeout(eXo.desktop.UIWindow.toForcus, 1000);
+		setTimeout(eXo.desktop.UIWindow.toForcus, 1000);
   }
 } ;
 
@@ -91,13 +91,13 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
     portletWindow.style.top = uiWindow.posY + "px" ;
     portletWindow.style.left = uiWindow.posX + "px" ;
     portletWindow.style.width = uiWindow.originalWidth + "px" ;
-	   for(var i = 0; i < uiResizableBlock.length; i++) {
-	    	 if (uiResizableBlock[i].originalHeight) {
-		      uiResizableBlock[i].style.height = uiResizableBlock[i].originalHeight + "px" ;
-	    	 } else	{
-	    	 		uiResizableBlock[i].style.height = 400 + "px" ;
-	    	 }
-	    }
+		for(var i = 0; i < uiResizableBlock.length; i++) {
+  	 if (uiResizableBlock[i].originalHeight) {
+      uiResizableBlock[i].style.height = uiResizableBlock[i].originalHeight + "px" ;
+  	 } else	{
+  	 		uiResizableBlock[i].style.height = 400 + "px" ;
+  	 }
+    }
     this.className = "ControlIcon MaximizedIcon" ;
     
   } else {
@@ -105,18 +105,18 @@ UIWindow.prototype.maximizeWindowEvt = function(evt) {
     portletWindow.style.top = "0px" ;
     portletWindow.style.left = "0px" ;
     portletWindow.style.width = "100%" ;
-				portletWindow.style.height = "auto" ;
+		portletWindow.style.height = "auto" ;
     var delta = eXo.core.Browser.getBrowserHeight() - portletWindow.clientHeight ;
     for(var i = 0; i < uiResizableBlock.length; i++) {
-  			uiResizableBlock[i].style.height =  (parseInt(uiResizableBlock[i].clientHeight) + delta) + "px" ;
+			uiResizableBlock[i].style.height =  (parseInt(uiResizableBlock[i].clientHeight) + delta) + "px" ;
     }
     portletWindow.style.height = portletWindow.clientHeight + "px" ;
     portletWindow.maximized = true ;
     this.className = "ControlIcon RestoreIcon" ;
-				eXo.desktop.UIWindow.saveWindowProperties(portletWindow) ;
   }
+	eXo.desktop.UIWindow.saveWindowProperties(portletWindow) ;
   // Re initializes the scroll tabs managers on the page
-	 eXo.portal.UIPortalControl.initAllManagers() ;
+	eXo.portal.UIPortalControl.initAllManagers() ;
 } ;
 
 UIWindow.prototype.minimizeWindowEvt =	function(evt) {

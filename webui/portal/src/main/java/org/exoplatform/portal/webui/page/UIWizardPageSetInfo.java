@@ -88,7 +88,7 @@ public class UIWizardPageSetInfo extends UIForm {
   private boolean firstTime = true;
 
   public UIWizardPageSetInfo() throws Exception {
-    UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, "WizardPageNodeSelector", null);    
+    UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, null, null);    
     addUIFormInput(new UIFormStringInput(PAGE_NAME, "name", null).
     				   addValidator(MandatoryValidator.class).
     				   addValidator(StringLengthValidator.class, 3, 30).
