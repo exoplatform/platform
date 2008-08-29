@@ -16,6 +16,7 @@
  */
 package org.exoplatform.portal.webui.page;
 
+import org.exoplatform.portal.webui.UIManagement.ManagementMode;
 import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -72,6 +73,7 @@ public class UIPageBrowseControlBar extends UIToolbar {
 
       UIPageManagement uiManagement = uiBrowseControlBar.getParent();
       uiManagement.setRenderedChild(UIDescription.class);
+      uiManagement.setMode(ManagementMode.BROWSE, event);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
   }
@@ -95,6 +97,7 @@ public class UIPageBrowseControlBar extends UIToolbar {
 
       UIPageManagement uiManagement = uiBrowseControlBar.getParent();
       uiManagement.setRenderedChild(UIDescription.class);
+      uiManagement.setMode(ManagementMode.BROWSE, event);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
   }
