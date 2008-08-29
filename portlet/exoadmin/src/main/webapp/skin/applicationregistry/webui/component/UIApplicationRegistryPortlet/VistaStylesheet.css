@@ -63,7 +63,7 @@
 }
 
 .UIApplicationRegistryPortlet .CreateNewIcon {
-	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -23px;
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -27px;
 	width: 19px;
 	height: 20px;
 }
@@ -208,8 +208,6 @@
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
-	width: 84px;
-	overflow: hidden;
 }
 
 /**************************** AppWorkingArea *****************************/
