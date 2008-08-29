@@ -1,7 +1,5 @@
 eXo.webui.UIDashboard = {
 	
-	windowId: null,
-	
 	currCol : null,
 	
 	targetObj : null,
@@ -13,11 +11,11 @@ eXo.webui.UIDashboard = {
 		dragObj.onDragStart = function(x, y, lastMouseX, lastMouseY, e) {
 			var DOMUtil = eXo.core.DOMUtil;
 			var uiDashboard = eXo.webui.UIDashboard ;
-			if(!uiDashboard.windowId) return;
-			var uiWindow = document.getElementById(uiDashboard.windowId);
+			var portletFragment = DOMUtil.findAncestorById(dragObj, "PORTLET-FRAGMENT");
+			if(!portletFragment) return;
 			
 			var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
-			var dashboardContainer = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
+			var dashboardContainer = DOMUtil.findFirstDescendantByClass(portletFragment, "div", "DashboardContainer");
 			var portletApp = DOMUtil.findAncestorByClass(dashboardContainer, "UIApplication");
 
 			var ggwidth = dragObj.offsetWidth;
@@ -33,7 +31,7 @@ eXo.webui.UIDashboard = {
 			var y = my-oy;
 
 			var temp = dragObj;
-			while(temp.parentNode && DOMUtil.hasDescendant(uiWindow, temp)) {
+			while(temp.parentNode && DOMUtil.hasDescendant(portletFragment, temp)) {
 				if(temp.scrollLeft>0) 
 					x -= temp.scrollLeft;
 				if(temp.scrollTop>0)
@@ -91,11 +89,11 @@ eXo.webui.UIDashboard = {
 		dragObj.onDrag = function(nx, ny, ex, ey, e) {	
 			var DOMUtil = eXo.core.DOMUtil;		
 			var uiTarget = eXo.webui.UIDashboard.targetObj;
-			var uiWindow = document.getElementById(eXo.webui.UIDashboard.windowId);
+			var portletFragment = DOMUtil.findAncestorById(dragObj, "PORTLET-FRAGMENT");
 
-			if(!uiWindow) return;
+			if(!portletFragment) return;
 			
-			var dashboardCont = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "DashboardContainer");
+			var dashboardCont = DOMUtil.findFirstDescendantByClass(portletFragment, "div", "DashboardContainer");
 			var cols = null;
 
 			if(eXo.webui.UIDashboardUtil.isIn(ex, ey, dashboardCont)) {
@@ -176,11 +174,11 @@ eXo.webui.UIDashboard = {
 		dragObj.onDragEnd = function(x, y, clientX, clientY) {
 			var uiDashboard = eXo.webui.UIDashboard;
 			var uiDashboardUtil = eXo.webui.UIDashboardUtil;
-			var uiWindow = document.getElementById(uiDashboard.windowId);
+			var portletFragment = eXo.core.DOMUtil.findAncestorById(dragObj, "PORTLET-FRAGMENT");
 			
-			if(!uiWindow) return;
+			if(!portletFragment) return;
 			
-			var masks = eXo.core.DOMUtil.findDescendantsByClass(uiWindow, "div", "UIMask");
+			var masks = eXo.core.DOMUtil.findDescendantsByClass(portletFragment, "div", "UIMask");
 			for(var i=0; i<masks.length; i++) {
 				eXo.core.Browser.setOpacity(masks[i], 100);
 				masks[i].style.display = "none";
@@ -195,7 +193,7 @@ eXo.webui.UIDashboard = {
 				eXo.core.DOMUtil.replaceClass(dragObj," Dragging","");
 			}
 
-			var dragCopyObj = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "CopyObj");
+			var dragCopyObj = eXo.core.DOMUtil.findFirstDescendantByClass(portletFragment, "div", "CopyObj");
 			if(dragCopyObj) {
 				dragCopyObj.parentNode.replaceChild(dragObj, dragCopyObj);
 				dragObj.style.width = "auto";
@@ -205,7 +203,7 @@ eXo.webui.UIDashboard = {
 				//if drag object is not gadget module, create an module
 				var col = uiDashboardUtil.findColIndexInDashboard(uiTarget);
 				var row = uiDashboardUtil.findRowIndexInDashboard(uiTarget);
-				var compId = uiWindow.id.substring(uiWindow.id.lastIndexOf('-')+1, uiWindow.id.length);
+				var compId = portletFragment.parentNode.id;
 				
 				if(eXo.core.DOMUtil.hasClass(dragObj, "SelectItem")) {
 					var url = uiDashboardUtil.createRequest(compId, 'AddNewGadget', col, row, dragObj.id);
@@ -224,10 +222,10 @@ eXo.webui.UIDashboard = {
 				}
 			}
 
-			uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UITarget");
+			uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(portletFragment, "div", "UITarget");
 			while (uiTarget) {
 				eXo.core.DOMUtil.removeElement(uiTarget);
-				uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UITarget");
+				uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(portletFragment, "div", "UITarget");
 			}
 			uiDashboard.targetObj = uiDashboard.currCol = uiDashboard.compId = null;
 		}	
@@ -236,7 +234,6 @@ eXo.webui.UIDashboard = {
 	onLoad : function(windowId) {	
 		var uiWindow = document.getElementById(windowId);
 		if(!uiWindow) return;
-		eXo.webui.UIDashboard.windowId = windowId;
 
 		var uiDashboard = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardPortlet");
 		if(!uiDashboard) return;
@@ -292,7 +289,7 @@ eXo.webui.UIDashboard = {
 	showHideSelectForm : function(comp) {
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiDashboardPortlet = DOMUtil.findAncestorByClass(comp, "UIDashboardPortlet");
-		var uiWindow = uiDashboardPortlet.parentNode;
+		var portletFragment = DOMUtil.findAncestorById(comp, "PORTLET-FRAGMENT");
 		var uiSelectForm = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardSelectForm");
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
 		
@@ -312,7 +309,7 @@ eXo.webui.UIDashboard = {
 		} else {
 			uiSelectForm.style.display = "block";
 			var middleItemContainer = DOMUtil.findFirstDescendantByClass(uiSelectForm, "div", "MiddleItemContainer");
-			middleItemContainer.style.height = uiWindow.offsetHeight - 66 + "px";
+			middleItemContainer.style.height = portletFragment.offsetHeight - 66 + "px";
 			url += '&isShow=true';
 			addButton.style.visibility = "hidden";
 			uiContainer.style.marginLeft = "210px";
