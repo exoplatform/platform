@@ -7,7 +7,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.exoplatform.portal</groupId>
   <artifactId>config</artifactId>
-  <name>eXo Core Config</name>
+  <name>eXo Portal Config</name>
   <version>trunk</version>
   <packaging>pom</packaging>
 
