@@ -41,8 +41,8 @@ eXo.gadget.UIGadget = {
 	},
 
 	init : function(uiGadget, inDesktop) {
-		var uiWindow = eXo.core.DOMUtil.findAncestorByClass(uiGadget, "UIWindow");
-		if(uiWindow == null){
+		var portletFragment = eXo.core.DOMUtil.findAncestorById(uiGadget, "PORTLET-FRAGMENT");
+		if(portletFragment == null){
 			uiGadget.onmouseover = eXo.gadget.UIGadget.showGadgetControl ;
 			uiGadget.onmouseout = eXo.gadget.UIGadget.hideGadgetControl ;
 		} else{
