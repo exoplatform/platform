@@ -65,13 +65,8 @@ public class UIGadgetEditor extends UIForm {
       PortalRequestContext pContext = Util.getPortalRequestContext() ;
       StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
       int index = requestUrl.indexOf(pContext.getRequestContextPath()) ;
-      String link = requestUrl.substring(0, index) + "/" + sourceStorage.getSourceLink(name) ;
-//      Gadget gadget = new Gadget() ;
-//      gadget.setName(name) ;
-//      gadget.setUrl(link) ;
-//      gadget.setRemote(false) ;
-//      service.addGadget(gadget) ;
-      GadgetApplication app = new GadgetApplication(name, link) ;
+      String url = requestUrl.substring(0, index) + "/" + sourceStorage.getSourceLink(name) ;
+      GadgetApplication app = new GadgetApplication(name, url) ;
       service.addGadget(ModelDataMapper.toGadgetModel(app)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
       uiManagement.reload() ;

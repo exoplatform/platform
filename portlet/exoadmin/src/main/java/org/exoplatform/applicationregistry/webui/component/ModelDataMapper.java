@@ -47,7 +47,10 @@ public class ModelDataMapper {
     if(title == null || title.trim().length() < 1) title = metaData.get("title") ;
     gadget.setTitle(title) ;
     String name = gadgetApp.getApplicationName() ;
-    if(name == null || name.trim().length() < 1) name = title.replace(' ', '_') ;
+    if(name == null || name.trim().length() < 1) {
+      String url = gadget.getUrl() ;
+      name = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.')) ;
+    }
     gadget.setName(name);
     gadget.setDescription(metaData.get("description")) ;
     gadget.setReferenceUrl(metaData.get("titleUrl")) ;

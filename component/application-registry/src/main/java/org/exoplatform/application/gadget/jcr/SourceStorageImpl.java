@@ -23,7 +23,6 @@ import javax.jcr.Session;
 
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 
