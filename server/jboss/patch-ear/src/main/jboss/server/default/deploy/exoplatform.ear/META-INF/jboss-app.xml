@@ -1,6 +1,0 @@
-<jboss-app>
-  <loader-repository>
-    dot.com:loader=eXoPortal
-    <loader-repository-config>java2ParentDelegation=false</loader-repository-config>
-  </loader-repository> 
-</jboss-app>
