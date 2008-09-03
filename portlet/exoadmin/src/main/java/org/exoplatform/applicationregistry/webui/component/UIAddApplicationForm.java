@@ -30,7 +30,6 @@ import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.container.PortalContainer;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.web.application.gadget.GadgetApplication;
@@ -152,13 +151,13 @@ public class UIAddApplicationForm extends UIForm {
       GadgetRegistryService gadgetService = getApplicationComponent(GadgetRegistryService.class) ;
       Iterator<Gadget> iterator = gadgetService.getAllGadgets().iterator() ;
       while(iterator.hasNext()) {
-        GadgetApplication tmp = iterator.next().toGadgetApplication() ;
+        Gadget tmp = iterator.next() ;
         Application app = new Application() ;
-        app.setApplicationName(tmp.getApplicationName()) ;
-        app.setDisplayName(tmp.getApplicationName()) ;
-        app.setCategoryName(tmp.getApplicationGroup()) ;
-        app.setApplicationGroup(tmp.getApplicationGroup()) ;
-        app.setDescription("A gadget application") ;
+        app.setApplicationName(tmp.getName()) ;
+        app.setDisplayName(tmp.getTitle()) ;
+        app.setCategoryName(GadgetApplication.EXO_GADGET_GROUP) ;
+        app.setApplicationGroup(GadgetApplication.EXO_GADGET_GROUP) ;
+        app.setDescription(tmp.getDescription()) ;
         app.setApplicationType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE) ;
         app.setAccessPermissions(new ArrayList<String>()) ;
         list.add(app) ;
@@ -184,11 +183,13 @@ public class UIAddApplicationForm extends UIForm {
       UIAddApplicationForm uiForm = event.getSource() ;
       ApplicationRegistryService appRegService = uiForm.getApplicationComponent(ApplicationRegistryService.class) ;
       UIFormRadioBoxInput uiRadio = uiForm.getUIInput("application") ;
-      UIFormStringInput uiNameInput = uiForm.getUIStringInput(FIELD_NAME) ;
+      String displayName = uiForm.getUIStringInput(FIELD_NAME).getValue() ;
       UIApplicationOrganizer uiOrganizer = uiForm.getParent() ;
       Application tmp = uiForm.getApplications().get(Integer.parseInt(uiRadio.getValue()));
       Application app = clonePortlet(tmp) ;
-      app.setDisplayName(uiNameInput.getValue()) ;
+      if(displayName != null && displayName.trim().length() > 0) {
+        app.setDisplayName(displayName) ;
+      }
       ApplicationCategory selectedCate = uiOrganizer.getSelectedCategory() ;
       appRegService.save(selectedCate, app) ;
       uiOrganizer.initApplicationCategories() ;

@@ -36,6 +36,8 @@ import org.json.JSONObject;
  * Gadgets.
  */
 public class GadgetApplication extends Application {
+  
+  static final public String  EXO_GADGET_GROUP = "eXoGadgets" ;
   private String appId_;
   private String url_;
   private String metadata = null;
@@ -63,7 +65,7 @@ public class GadgetApplication extends Application {
    * @see org.exoplatform.web.application.Application
    */
   public String getApplicationType() {
-    return "eXoGadget";
+    return EXO_GADGET_GROUP;
   }
   
   /**
@@ -71,7 +73,7 @@ public class GadgetApplication extends Application {
    * @return alway returns "eXoGadgets"
    */
   public String getApplicationGroup() {
-    return "eXoGadgets";
+    return EXO_GADGET_GROUP;
   }
 
   /**
@@ -184,4 +186,3 @@ public class GadgetApplication extends Application {
     return mapMetaData;
   }
 }
-  
