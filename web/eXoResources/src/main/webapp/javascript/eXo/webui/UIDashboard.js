@@ -253,7 +253,7 @@ eXo.webui.UIDashboard = {
 		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
 
 		if(!uiDashboard.parentNode.style.height || uiDashboard.parentNode.style.height == "auto")	{
-//			dbContainer.style.height = "400px";
+			dbContainer.style.height = "400px";
 		}
 		
 		var colsContainer = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
