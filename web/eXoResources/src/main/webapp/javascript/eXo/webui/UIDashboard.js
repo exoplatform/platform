@@ -234,13 +234,15 @@ eXo.webui.UIDashboard = {
 	onLoad : function(windowId) {	
 		var uiWindow = document.getElementById(windowId);
 		if(!uiWindow) return;
-
-		var uiDashboard = eXo.core.DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardPortlet");
+		
+		var DOMUtil = eXo.core.DOMUtil;
+		
+		var uiDashboard = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardPortlet");
 		if(!uiDashboard) return;
 		
 		uiDashboard.style.overflow = "hidden";
 
-		var uiContainer = eXo.core.DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
+		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
 
 		var gadgetControls = eXo.core.DOMUtil.findDescendantsByClass(uiDashboard, "div", "GadgetControl");
 		for(var j=0; j<gadgetControls.length; j++) {
@@ -248,22 +250,35 @@ eXo.webui.UIDashboard = {
 		}
 		
 		if(uiContainer == null) return;
-		var dbContainer = eXo.core.DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
-		var colsContainer = eXo.core.DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
-		var columns = eXo.core.DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
+		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
+
+		if(!uiDashboard.parentNode.style.height || uiDashboard.parentNode.style.height == "auto")	{
+//			dbContainer.style.height = "400px";
+		}
+		
+		var colsContainer = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
+		var columns = DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
 		var colsSize = 0;
 		for(var i=0; i<columns.length; i++) {
 			if(columns[i].style.display != "none") colsSize++;
 		}
 		colsContainer.style.width = colsSize*320 + 20 + "px";
-		
-		var uiSelectForm = eXo.core.DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardSelectForm");
-		if(uiSelectForm.style.display != "none") {
-			var middleItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiSelectForm, "div", "MiddleItemContainer");
-			middleItemContainer.style.height = uiWindow.offsetHeight - 66 + "px";
+	},
+	
+	setHeightsOnLoad : function(windowId)	{
+		var DOMUtil = eXo.core.DOMUtil;
+		var uiWindow = document.getElementById(windowId);
+		var uiContainer = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardContainer");
+		var uiSelect = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardSelectForm");
+		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
+		if(uiSelect.style.display != "none") {
 			uiContainer.style.marginLeft = "210px";
+			var middleItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiSelect, "div", "MiddleItemContainer");
+			middleItemContainer.style.height = uiWindow.offsetHeight - 66 + "px";
+			dbContainer.style.height = uiSelect.offsetHeight + "px";
 		} else {
 			uiContainer.style.marginLeft = "0px";
+			dbContainer.style.height = uiWindow.offsetHeight + "px";
 		}
 	},
 	

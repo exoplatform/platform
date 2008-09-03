@@ -1,5 +1,4 @@
 .UIDashboardPortlet {
-	height: 100%;
 }
 
 .UIDashboardPortlet .GadgetTitle {
@@ -13,7 +12,6 @@
 /*----------------------UIGadgetsSelectorForm-------------------*/
 .UIDashboardSelectForm {
 	float: left;
-	height: 100%;
 	width: 210px;
 	border-right: 1px solid #b7b7b7;
 }
@@ -192,7 +190,6 @@
 
 
 .UIDashboardContainer {
-	height: 100%;
 }
 
 .UIDashboardPortlet .UIDashboardContainer .GadgetTitle {
@@ -201,7 +198,6 @@
 
 .UIDashboardContainer .DashboardContainer {
 	overflow: auto;
-	height: 100%;
 }
 
 .UIDashboardContainer .DashboardContainer .ContainerControlBarL {
@@ -225,13 +221,13 @@
 }
 
 .DashboardContainer .UIColumns {
-	height: 100%;
 }
 
 .DashboardContainer .UIColumn {
 	float: left;
 	width: 320px;
 	padding: 2px 0px;
+	border-right: 1px solid red;
 }
 
 .UIDashboardContainer .UIGadget {
