@@ -11,12 +11,17 @@
   <packaging>pom</packaging>
 
   <modules>
-	<module>features</module>
 	<module>core</module>
 	<module>server</module>
 	<module>eXoGadgets</module>
   </modules>
-
+  <dependencies>
+	<dependency>
+		<groupId>org.apache.shindig</groupId>
+	    <version>1-SNAPSHOT</version>
+		<artifactId>shindig-features</artifactId>
+	</dependency>
+  </dependencies>
   <profiles>
     <profile>
       <id>default</id>
