@@ -1,12 +1,3 @@
 .UIFormTabPane  {
   padding-top: 5px; 
 }
-
-.UIFormTabPane  .Form {
-  padding: 10px; 
-}
-
- .UIFormTabPane .UITabPane .TabPaneContent .HorizontalLayout {
-  border: none;
-  margin: 0px; padding: 0px;
-}

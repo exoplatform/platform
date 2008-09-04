@@ -8,11 +8,6 @@
   border-left: solid 1px #638294 ; border-right: solid 1px #638294 ;
 }
 
-.UIFormTabPane .UITabPane .TabPaneContent .HorizontalLayout {
-  border: none;
-  margin: 0px; padding: 0px;  
-}
-
 .UIFormTabPane .UIBoxDecorator .DecoratorBox {
 	width: 400px ;  height: 220px ;	
 }
