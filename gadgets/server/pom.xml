@@ -171,6 +171,12 @@
     	<artifactId>xml-apis</artifactId>
     	<version>1.0.b2</version>
     	<type>jar</type>
-    </dependency>                                                         
+    </dependency>
+    <dependency>
+    	<groupId>com.ibm.icu</groupId>
+    	<artifactId>icu4j</artifactId>
+    	<version>3.8</version>
+    	<type>jar</type>
+    </dependency>  	
   </dependencies>
 </project>
