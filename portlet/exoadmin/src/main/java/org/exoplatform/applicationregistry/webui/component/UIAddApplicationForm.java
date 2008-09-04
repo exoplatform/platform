@@ -75,10 +75,8 @@ public class UIAddApplicationForm extends UIForm {
   public UIAddApplicationForm() throws Exception {
     addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
     List<SelectItemOption<String>> types = new ArrayList<SelectItemOption<String>>(2) ;
-    types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE,
-                                           org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) ;
-    types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE,
-                                           org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) ;
+    types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) ;
+    types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) ;
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_TYPE, null, types) ;
     uiSelectBox.setOnChange("ChangeType") ;
     addUIFormInput(uiSelectBox) ;
@@ -141,7 +139,6 @@ public class UIAddApplicationForm extends UIForm {
         app.setDisplayName(portletName) ;
         app.setApplicationName(portletName);
         app.setApplicationGroup(categoryName);
-        app.setCategoryName(categoryName);
         app.setApplicationType(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE);
         app.setDescription("A portlet application");
         app.setAccessPermissions(new ArrayList<String>());
@@ -155,7 +152,6 @@ public class UIAddApplicationForm extends UIForm {
         Application app = new Application() ;
         app.setApplicationName(tmp.getName()) ;
         app.setDisplayName(tmp.getTitle()) ;
-        app.setCategoryName(GadgetApplication.EXO_GADGET_GROUP) ;
         app.setApplicationGroup(GadgetApplication.EXO_GADGET_GROUP) ;
         app.setDescription(tmp.getDescription()) ;
         app.setApplicationType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE) ;
@@ -186,7 +182,7 @@ public class UIAddApplicationForm extends UIForm {
       String displayName = uiForm.getUIStringInput(FIELD_NAME).getValue() ;
       UIApplicationOrganizer uiOrganizer = uiForm.getParent() ;
       Application tmp = uiForm.getApplications().get(Integer.parseInt(uiRadio.getValue()));
-      Application app = clonePortlet(tmp) ;
+      Application app = cloneApplication(tmp) ;
       if(displayName != null && displayName.trim().length() > 0) {
         app.setDisplayName(displayName) ;
       }
@@ -198,15 +194,15 @@ public class UIAddApplicationForm extends UIForm {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
-    private Application clonePortlet(Application portlet){
-      Application newPortlet = new Application();
-      newPortlet.setAccessPermissions(portlet.getAccessPermissions()) ;
-      newPortlet.setApplicationGroup(portlet.getApplicationGroup());
-      newPortlet.setApplicationType(portlet.getApplicationType());
-      newPortlet.setApplicationName(portlet.getApplicationName()) ;
-      newPortlet.setDescription(portlet.getDescription()) ;
-      newPortlet.setDisplayName(portlet.getDisplayName()) ;
-      return newPortlet;
+    private Application cloneApplication(Application app){
+      Application newApp = new Application();
+      newApp.setApplicationName(app.getApplicationName()) ;
+      newApp.setDisplayName(app.getDisplayName()) ;
+      newApp.setApplicationType(app.getApplicationType());
+      newApp.setApplicationGroup(app.getApplicationGroup());
+      newApp.setDescription(app.getDescription()) ;
+      newApp.setAccessPermissions(app.getAccessPermissions()) ;
+      return newApp;
     }
     
   }
