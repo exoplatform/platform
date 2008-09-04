@@ -1,9 +1,7 @@
 .UIHorizontalTabs {
-  height: 30px;
 }
 
 .UIHorizontalTabs .LeftHorizontalTabs{
-
   background: url('background/HorizontalTabs.gif') no-repeat left top;
   padding-left: 1px;
 }
