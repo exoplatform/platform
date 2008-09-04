@@ -16,6 +16,7 @@
 
 .UITabContainer .UITabContent {
 	padding: 0px;
+	height: auto;
 }
 
 .UITabContainer .TabLabel {
@@ -59,5 +60,4 @@
 }
 
 .UIPage .UITabContainer .TabContent {
-	height: 100%;
 }

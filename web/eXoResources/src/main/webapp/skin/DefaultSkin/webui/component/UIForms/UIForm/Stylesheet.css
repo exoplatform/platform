@@ -50,12 +50,6 @@
 	padding: 10px; margin: auto;
 }
 
-.HorizontalLayout .UIForm .SelectedIconInfo .UIFormInputSet {
-	width: 97% ;
-	padding: 0px;
-	margin: auto;
-}
-
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
   margin: 10px 0px 0px 10px ;
   color: #5f7fd6 ;
