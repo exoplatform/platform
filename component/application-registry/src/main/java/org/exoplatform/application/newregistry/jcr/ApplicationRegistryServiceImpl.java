@@ -294,7 +294,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   private Application convertApplication(Gadget gadget) {
     Application returnApplication = new Application() ;
     returnApplication.setApplicationGroup(GadgetApplication.EXO_GADGET_GROUP) ;
-    returnApplication.setApplicationType(GadgetApplication.EXO_GADGET_GROUP) ;
+    returnApplication.setApplicationType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE) ;
     returnApplication.setApplicationName(gadget.getName()) ;
     returnApplication.setCategoryName(GadgetApplication.EXO_GADGET_GROUP) ;
     returnApplication.setDisplayName(gadget.getTitle()) ;

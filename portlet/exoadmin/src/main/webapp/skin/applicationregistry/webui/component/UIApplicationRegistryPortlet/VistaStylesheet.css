@@ -73,6 +73,12 @@
 	float: right;
 }
 
+.UIApplicationRegistryPortlet .CopyGadgetIcon {
+	background: url('DefaultSkin/background/ControlIcon.gif') repeat-x left -69px;
+	width: 23px;
+	height: 22px;
+}
+
 .UIApplicationRegistryPortlet .AppRegistryContainer {
 	border: 1px solid #b7b7b7;
 }

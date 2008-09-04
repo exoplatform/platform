@@ -41,17 +41,12 @@ public class ModelDataMapper {
 
   static final public Gadget toGadgetModel(GadgetApplication gadgetApp) throws Exception {
     Gadget gadget = new Gadget();
-    Map<String, String> metaData = gadgetApp.getMapMetadata() ;
+    gadget.setName(gadgetApp.getApplicationName());
     gadget.setUrl(gadgetApp.getUrl()) ;
+    Map<String, String> metaData = gadgetApp.getMapMetadata() ;
     String title = metaData.get("directoryTitle") ;
     if(title == null || title.trim().length() < 1) title = metaData.get("title") ;
     gadget.setTitle(title) ;
-    String name = gadgetApp.getApplicationName() ;
-    if(name == null || name.trim().length() < 1) {
-      String url = gadget.getUrl() ;
-      name = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.')) ;
-    }
-    gadget.setName(name);
     gadget.setDescription(metaData.get("description")) ;
     gadget.setReferenceUrl(metaData.get("titleUrl")) ;
     gadget.setThumbnail(metaData.get("thumbnail")) ;

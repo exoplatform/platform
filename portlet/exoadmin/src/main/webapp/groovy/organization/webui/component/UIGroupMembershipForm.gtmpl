@@ -2,8 +2,8 @@
 	import org.exoplatform.webui.form.UIFormSelectBox;
 	import org.exoplatform.webui.form.UIFormStringInput;
 	import org.exoplatform.webui.core.UIPopupWindow;
-	 uicomponent.renderChild(UIPopupWindow.class);
- %>
+	uicomponent.renderChild(UIPopupWindow.class);
+%>
 <div class="UIFormWithTitle $uicomponent.id">
   <div class="TitleBar"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
   <% uiform.begin() 
@@ -13,11 +13,9 @@
     <div class="FormContainer">
       <table class="UIFormGrid">
         <% 
-            System.out.println(" " + uicomponent + " -- " + uiform);
             UIFormStringInput name = uicomponent.getChild(UIFormStringInput.class);
             UIFormSelectBox membership = uicomponent.getChild(UIFormSelectBox.class);
             UIPopupWindow popupWindow = uicomponent.getChild(UIPopupWindow.class);
-            
          %>
           <tr>
   	        <td class="FieldLabel"><%=_ctx.appRes(uicomponent.getName() + ".label.username")%></td>
