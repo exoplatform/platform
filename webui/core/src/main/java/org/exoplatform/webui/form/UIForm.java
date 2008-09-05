@@ -203,7 +203,7 @@ public class UIForm extends UIContainer  {
 
     StringBuilder b = new StringBuilder() ;
     b.append("javascript:eXo.webui.UIForm.submitForm('").append(getFormId()).append("','");
-    b.append(name).append("', true)");
+    b.append(name).append("',true)");
     return b.toString() ;
   }
   

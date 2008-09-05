@@ -18,8 +18,8 @@ package org.exoplatform.dashboard.webui.component;
 
 import javax.portlet.PortletPreferences;
 
-import org.exoplatform.application.registry.Application;
-import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.application.newregistry.Application;
+import org.exoplatform.application.newregistry.ApplicationRegistryService;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.webui.application.WebuiRequestContext;

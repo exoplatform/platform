@@ -19,9 +19,9 @@ package org.exoplatform.dashboard.webui.component;
 import java.util.Hashtable;
 import java.util.List;
 
-import org.exoplatform.application.registry.Application;
-import org.exoplatform.application.registry.ApplicationCategory;
-import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.application.newregistry.Application;
+import org.exoplatform.application.newregistry.ApplicationCategory;
+import org.exoplatform.application.newregistry.ApplicationRegistryService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;

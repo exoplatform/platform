@@ -47,7 +47,7 @@ eXo.webui.UIDashboard = {
 			if(!DOMUtil.hasClass(dragObj, "SelectItem")) {
 				uiTarget = uiDashboard.createTarget(ggwidth, 0);
 				dragObj.parentNode.insertBefore(uiTarget, dragObj.nextSibling);
-				uiDashboard.currCol = eXo.webui.UIDashboardUtil.findRowIndexInDashboard(dragObj);
+				uiDashboard.currCol = eXo.webui.UIDashboardUtil.findColIndexInDashboard(dragObj);
 			}else{
 				var dragCopyObj = dragObj.cloneNode(true);
 				DOMUtil.addClass(dragCopyObj, "CopyObj");
@@ -95,7 +95,9 @@ eXo.webui.UIDashboard = {
 			
 			var dashboardCont = DOMUtil.findFirstDescendantByClass(portletFragment, "div", "DashboardContainer");
 			var cols = null;
+			
 
+			eXo.webui.UIDashboard.scrollOnDrag(dragObj);
 			if(eXo.webui.UIDashboardUtil.isIn(ex, ey, dashboardCont)) {
 				if(!uiTarget) {
 					uiTarget = eXo.webui.UIDashboard.createTargetOfAnObject(dragObj);
@@ -137,15 +139,13 @@ eXo.webui.UIDashboard = {
 
 					//find position and add uiTarget into column				
 					for(var i=0; i<gadgets.length; i++) {
-						var oy = eXo.webui.UIDashboardUtil.findPosY(gadgets[i]);
+						var oy = eXo.webui.UIDashboardUtil.findPosY(gadgets[i]) + (gadgets[i].offsetHeight/3) - dashboardCont.scrollTop;
 						
 						if(ey<=oy) {
 							uiCol.insertBefore(uiTarget, gadgets[i]);
 							break;
 						}
-						if(i==gadgets.length-1 && ey>oy)
-							uiCol.appendChild(uiTarget);
-						
+						if(i==gadgets.length-1 && ey>oy) uiCol.appendChild(uiTarget);
 					}
 					
 				}	else {
@@ -215,6 +215,7 @@ eXo.webui.UIDashboard = {
 						uiTarget.parentNode.removeChild(uiTarget);
 					} else {					
 						uiTarget.parentNode.replaceChild(dragObj, uiTarget);
+						row = uiDashboardUtil.findRowIndexInDashboard(dragObj);
 						gadgetId = dragObj.id;
 						var url = uiDashboardUtil.createRequest(compId, 'MoveGadget', col, row, gadgetId);
 						ajaxAsyncGetRequest(url);
@@ -342,13 +343,13 @@ eXo.webui.UIDashboard = {
 		
 		if(DOMUtil.hasClass(gadgetTab, normalStyle)) {
 			for(var i=0; i<categories.length; i++) {
-				DOMUtil.findFirstChildByClass(categories[i], "div", "GadgetTab").className = "GadgetTab "+normalStyle;
+				DOMUtil.findFirstChildByClass(categories[i], "div", "GadgetTab").className = "GadgetTab " + normalStyle;
 				DOMUtil.findFirstChildByClass(categories[i], "div", "ItemsContainer").style.display = "none";
 			}
-			DOMUtil.findFirstChildByClass(category, "div", "GadgetTab").className = "GadgetTab "+selectedType;
+			DOMUtil.findFirstChildByClass(category, "div", "GadgetTab").className = "GadgetTab " + selectedType;
 			categoryContent.style.display = "block";
 		} else {
-			DOMUtil.findFirstChildByClass(category, "div", "GadgetTab").className = "GadgetTab "+normalStyle;
+			DOMUtil.findFirstChildByClass(category, "div", "GadgetTab").className = "GadgetTab " + normalStyle;
 			categoryContent.style.display = "none";
 		}
 	},
@@ -364,6 +365,43 @@ eXo.webui.UIDashboard = {
 		var DOMUtil = eXo.core.DOMUtil;
 		if(!DOMUtil.hasClass(elemt, "DisableContainer")) {
 			DOMUtil.addClass(elemt, "DisableContainer");
+		}
+	},
+	
+	scrollOnDrag : function(dragObj) {
+		var DOMUtil = eXo.core.DOMUtil;
+		var dashboardUtil = eXo.webui.UIDashboardUtil;
+		var uiDashboard = DOMUtil.findAncestorByClass(dragObj, "UIDashboardPortlet");
+		var dbContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "DashboardContainer");
+		var colCont = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
+		
+		if(!DOMUtil.findFirstDescendantByClass(colCont, "div", "UITarget")) return;
+		
+		var visibleWidth = dbContainer.offsetWidth;
+		var visibleHeight = dbContainer.offsetHeight;
+		var trueWidth = colCont.offsetWidth;
+		var trueHeight = colCont.offsetHeight;
+		
+		var objLeft = dashboardUtil.findPosXInContainer(dragObj, dbContainer);
+		var objRight = objLeft + dragObj.offsetWidth;
+		var objTop = dashboardUtil.findPosYInContainer(dragObj, dbContainer);
+		var objBottom = objTop + dragObj.offsetHeight;
+		
+		//controls horizontal scroll
+		var deltaX = dbContainer.scrollLeft;
+		if((trueWidth - (visibleWidth + deltaX) > 0) && objRight > visibleWidth) {
+			dbContainer.scrollLeft += 5;
+		} else {
+			if(objLeft < 0 && deltaX > 0) dbContainer.scrollLeft -= 5;
+		}
+		
+		//controls vertical scroll
+		var buttonHeight = DOMUtil.findFirstChildByClass(dbContainer, "div", "ContainerControlBarL").offsetHeight;
+		var deltaY = dbContainer.scrollTop;
+		if((trueHeight - (visibleHeight -10 - buttonHeight + deltaY) > 0) && objBottom > visibleHeight) {
+			dbContainer.scrollTop += 5;
+		}	else {
+			if(objTop < 0 && deltaY > 0) dbContainer.scrollTop -= 5;
 		}
 	}
 }
