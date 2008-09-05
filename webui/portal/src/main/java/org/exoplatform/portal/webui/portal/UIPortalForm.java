@@ -153,7 +153,7 @@ public class UIPortalForm extends UIFormTabPane {
       Locale locale = localeConfig.getLocale() ;
       SelectItemOption<String> option = new SelectItemOption<String>(
           localeConfig.getLocale().getDisplayName(currentLocate), localeConfig.getLanguage()) ;
-      if(locale.getDisplayName().equalsIgnoreCase(currentLocate.getDisplayName())){
+      if(locale.getLanguage().equalsIgnoreCase(uiPortal.getLocale())){
         option.setSelected(true) ;
       }
       languages.add(option) ;
