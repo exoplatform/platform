@@ -65,7 +65,7 @@ public class GadgetApplication extends Application {
    * @see org.exoplatform.web.application.Application
    */
   public String getApplicationType() {
-    return Application.EXO_GAGGET_TYPE;
+    return EXO_GAGGET_TYPE;
   }
   
   /**
