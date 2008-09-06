@@ -522,7 +522,6 @@ public class UserPortalConfigService {
     }
   }
     
-  @SuppressWarnings("unused")
   public void initListener(ComponentPlugin listener) { 
     if(listener instanceof  NewPortalConfigListener) {
       newPortalConfigListener_ = (NewPortalConfigListener)listener;

@@ -27,8 +27,6 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
-import org.exoplatform.portal.webui.application.UIAddNewApplication;
-import org.exoplatform.portal.webui.application.UIApplication;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
@@ -38,9 +36,7 @@ import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIExoStart;
-import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -165,19 +161,19 @@ public class UIPageActionListener {
       return null;
     }
   }
-
-  static public class EditPageActionListener  extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {      
-      UIPage uiPage = event.getSource();
-      UIPageForm uiForm = uiPage.createUIComponent(UIPageForm.class, null, null);
-      uiForm.setValues(uiPage);
-      UIPortalApplication uiPortalApp = uiPage.getAncestorOfType(UIPortalApplication.class);
-      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-      uiToolPanel.setUIComponent(uiForm) ;
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;     
-    }
-  }
+//
+//  static public class EditPageActionListener  extends EventListener<UIPage> {
+//    public void execute(Event<UIPage> event) throws Exception {      
+//      UIPage uiPage = event.getSource();
+//      UIPageForm uiForm = uiPage.createUIComponent(UIPageForm.class, null, null);
+//      uiForm.setValues(uiPage);
+//      UIPortalApplication uiPortalApp = uiPage.getAncestorOfType(UIPortalApplication.class);
+//      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+//      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
+//      uiToolPanel.setUIComponent(uiForm) ;
+//      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;     
+//    }
+//  }
   
   static public class DeleteWidgetActionListener extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
@@ -261,138 +257,6 @@ public class UIPageActionListener {
 
         pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
       }
-    }
-  }
-    
-  static public class SaveWidgetPropertiesActionListener  extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {
-     
-      UIPage uiPage = event.getSource();
-      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
-      uiPage.findComponentOfType(uiWidgets, UIWidget.class);
-      UIWidget uiWidget = null;
-      for(UIWidget ele : uiWidgets) {
-        if(ele.getApplicationInstanceUniqueId().equals(objectId)) {
-          uiWidget = ele;
-          break;
-        }
-      }
-      if(uiWidget == null) return;
-      String posX  = event.getRequestContext().getRequestParameter("posX");
-      String posY  = event.getRequestContext().getRequestParameter("posY");
-      String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
-      
-      uiWidget.getProperties().put(UIApplication.locationX, posX) ;
-      uiWidget.getProperties().put(UIApplication.locationY, posY) ;
-      uiWidget.getProperties().put(UIApplication.zIndex, zIndex) ;
-      
-      if(!uiPage.isModifiable()) return;
-      Page page = PortalDataMapper.toPageModel(uiPage);
-      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
-      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-      configService.update(page);
-    }
-  }
-  
-  static public class SaveGadgetPropertiesActionListener  extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {
-     
-      UIPage uiPage = event.getSource();
-      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      List<UIGadget> uiGadgets = new ArrayList<UIGadget>();
-      uiPage.findComponentOfType(uiGadgets, UIGadget.class);
-      UIGadget uiGadget = null;
-      for(UIGadget ele : uiGadgets) {
-        if(ele.getApplicationInstanceUniqueId().equals(objectId)) {
-          uiGadget = ele;
-          break;
-        }
-      }
-      if(uiGadget == null) return;
-      String posX  = event.getRequestContext().getRequestParameter("posX");
-      String posY  = event.getRequestContext().getRequestParameter("posY");
-      String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
-      
-      uiGadget.getProperties().put(UIApplication.locationX, posX) ;
-      uiGadget.getProperties().put(UIApplication.locationY, posY) ;
-      uiGadget.getProperties().put(UIApplication.zIndex, zIndex) ;
-      
-      if(!uiPage.isModifiable()) return;
-      Page page = PortalDataMapper.toPageModel(uiPage);
-      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
-      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-      configService.update(page);
-    }
-  }
-  
-  static public class SaveWindowPropertiesActionListener  extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {
-      UIPage uiPage = event.getSource();
-      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      
-      UIApplication uiApp = uiPage.getChildById(objectId) ;
-      if(uiApp == null) return ;
-      
-      /*########################## Save Position ##########################*/
-      String posX = event.getRequestContext().getRequestParameter("posX");
-      String posY = event.getRequestContext().getRequestParameter("posY");
-      
-      if(posX != null) uiApp.getProperties().put(UIApplication.locationX, posX);
-      if(posY != null) uiApp.getProperties().put(UIApplication.locationY, posY);
-      
-      //System.out.println("\n\n\n\n\n\n\n\n\n\n\n SAVE POSX: "+posX+"\n SAVE POSY: "+posY+"\n\n\n\n\n\n\n\n\n");
-      /*########################## Save ZIndex ##########################*/
-      String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
-      
-      if(zIndex != null) uiApp.getProperties().put(UIApplication.zIndex, zIndex) ;
-      
-      /*########################## Save Dimension ##########################*/
-      String windowWidth = event.getRequestContext().getRequestParameter("windowWidth");
-      String windowHeight = event.getRequestContext().getRequestParameter("windowHeight");
-      
-      if(windowWidth != null) uiApp.getProperties().put("windowWidth", windowWidth);
-      if(windowHeight != null) uiApp.getProperties().put("windowHeight", windowHeight);
-      
-//      if(appWidth != null) uiComponent.getProperties().put(UIApplication.appWidth, appWidth);
-//      if(appHeight != null) uiComponent.getProperties().put(UIApplication.appHeight, appHeight);
-      
-//      String applicationHeight = event.getRequestContext().getRequestParameter("applicationHeight");
-//      if(applicationHeight != null) uiComponent.getProperties().put("applicationHeight", applicationHeight);
-      
-      /*########################## Save Window status (SHOW / HIDE) ##########################*/
-      String appStatus = event.getRequestContext().getRequestParameter(UIApplication.appStatus);
-      if(appStatus != null) uiApp.getProperties().put(UIApplication.appStatus, appStatus);
-      
-//      if(!uiPage.isModifiable()) return;
-//      Page page = PortalDataMapper.toPageModel(uiPage);
-//      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
-//      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-//      configService.update(page);
-    }
-  }
-  
-  static public class ShowAddNewApplicationActionListener extends EventListener<UIPage> {
-
-    @Override
-    public void execute(Event<UIPage> event) throws Exception {
-
-      UIPage uiPage = event.getSource();
-
-      UIPortalApplication uiPortalApp = uiPage.getAncestorOfType(UIPortalApplication.class);
-      UIMaskWorkspace uiMaskWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);      
-
-      UIAddNewApplication uiAddApplication = uiPage.createUIComponent(UIAddNewApplication.class,
-          null, null);
-      uiAddApplication.setInPage(true);
-      uiAddApplication.setUiComponentParent(uiPage);
-      uiAddApplication.getApplicationCategories(event.getRequestContext().getRemoteUser(), null);
-
-      uiMaskWorkspace.setWindowSize(700, 375);
-      uiMaskWorkspace.setUIComponent(uiAddApplication);
-      uiMaskWorkspace.setShow(true);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace);
-
     }
   }
 }

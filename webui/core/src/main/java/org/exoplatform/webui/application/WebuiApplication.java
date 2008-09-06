@@ -93,16 +93,6 @@ abstract public class WebuiApplication extends Application {
     config.getUIComponentLifecycle().init(uicomponent, context) ;
     return type.cast(uicomponent) ;
   }
-//  
-//  public void  processDecode(UIApplication uiApp, WebuiRequestContext context) throws Exception {
-//    context.setUIApplication(uiApp) ;
-//    uiApp.processDecode(context) ;
-//  }
-//  
-//  public void  processAction(UIApplication uiApp, WebuiRequestContext context) throws Exception {
-//    context.setUIApplication(uiApp) ;
-//    uiApp.processAction(context) ;
-//  }
   
   public List<UIComponent> getDefaultUIComponentToUpdateByAjax(WebuiRequestContext context) {
     List<UIComponent> list = new ArrayList<UIComponent>(3) ;

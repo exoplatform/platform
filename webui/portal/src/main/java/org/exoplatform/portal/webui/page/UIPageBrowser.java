@@ -477,8 +477,7 @@ public class UIPageBrowser extends UISearch {
 
 				page.setModifier(pcontext.getRemoteUser());
 				PortalDataMapper.toUIPage(uiPage, page);
-				if (page.getTemplate() == null)
-					page.setTemplate(uiPage.getTemplate());
+//				if (page.getTemplate() == null) page.setTemplate(uiPage.getTemplate());
 				if (page.getChildren() == null)
 					page.setChildren(new ArrayList<Object>());
 				configService.update(page);
@@ -500,8 +499,7 @@ public class UIPageBrowser extends UISearch {
 
 			page.setModifier(pcontext.getRemoteUser());
 			PortalDataMapper.toUIPage(uiPage, page);
-			if (page.getTemplate() == null)
-				page.setTemplate(uiPage.getTemplate());
+//			if (page.getTemplate() == null) page.setTemplate(uiPage.getTemplate());
 			if (page.getChildren() == null)
 				page.setChildren(new ArrayList<Object>());
 

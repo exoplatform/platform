@@ -220,7 +220,7 @@ public class UIPageForm extends UIFormTabPane {
       SelectItemOption<?> itemOption = uiTemplate.getSelectedItemOption();
       if(itemOption != null){
         page.setFactoryId(itemOption.getIcon());
-        page.setTemplate((String)itemOption.getValue());
+//        page.setTemplate((String)itemOption.getValue());
         if(page.getFactoryId().equals(Page.DESKTOP_PAGE)) page.setShowMaxWindow(true);
       } 
     } 
@@ -267,7 +267,7 @@ public class UIPageForm extends UIFormTabPane {
 
         page.setModifier(pcontext.getRemoteUser());
         PortalDataMapper.toUIPage(uiPage, page);  
-        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
+//        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
         uiEditBar.setUIPage(uiPage);
@@ -290,7 +290,7 @@ public class UIPageForm extends UIFormTabPane {
 
         page.setModifier(pcontext.getRemoteUser());
         PortalDataMapper.toUIPage(uiPage, page);  
-        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
+//        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
         uiEditBar.setUIPage(uiPage);
@@ -327,7 +327,7 @@ public class UIPageForm extends UIFormTabPane {
 
       page.setModifier(pcontext.getRemoteUser());
       PortalDataMapper.toUIPage(uiPage, page);  
-      if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
+//      if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
       if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
     }
     

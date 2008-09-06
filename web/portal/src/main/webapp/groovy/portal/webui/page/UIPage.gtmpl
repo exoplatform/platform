@@ -4,6 +4,7 @@
 %>
 
 <div class="UIPage" id="UIPage-${uicomponent.id}">
+<%if(rcontext.getUIApplication().isEditting()){%>
   <div class="META-DATA-BLOCK" style="display: none">
     <div class="id">$uicomponent.id</div>
     <div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>
@@ -42,7 +43,7 @@
 				
 		</div>  	
   </div>
-  
+<%}%>
   <div class="VIEW-PAGE">
     <div id="UIPage">
 	    <div class="UIRowContainer">

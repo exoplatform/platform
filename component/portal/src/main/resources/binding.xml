@@ -50,7 +50,6 @@
     <value name="owner-id" field="ownerId"/>
     <value name="name" field="name"/>
     <value name="title" field="title" usage="optional"/>
-    <value name="template" field="template" usage="optional"/>
     <value name="factory-id" field="factoryId" usage="optional"/>
     <value name="access-permissions" field="accessPermissions" usage="optional"/>
     <value name="edit-permission" field="editPermission" usage="optional"/>

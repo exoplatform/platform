@@ -60,9 +60,4 @@ JavascriptService.addJavascript("eXo.portal.UIExoStartMenu", "/javascript/eXo/po
 JavascriptService.addJavascript("eXo.portal.UIBrowseContent", "/javascript/eXo/portal/UIBrowseContent.js", ServletContext);
 
 /* Desktop Javascripts */
-JavascriptService.addJavascript("eXo.desktop.UIDockbar", "/javascript/eXo/desktop/UIDockbar.js", ServletContext);
-JavascriptService.addJavascript("eXo.desktop.UIDesktop", "/javascript/eXo/desktop/UIDesktop.js", ServletContext);
 JavascriptService.addJavascript("eXo.desktop.UIWindow", "/javascript/eXo/desktop/UIWindow.js", ServletContext);
-
-
-

@@ -16,64 +16,22 @@
  */
 package org.exoplatform.portal.webui.page;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.portlet.WindowState;
-
-import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
-import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
-import org.exoplatform.portal.webui.page.UIPageActionListener.DeleteWidgetActionListener;
-import org.exoplatform.portal.webui.page.UIPageActionListener.DeleteGadgetActionListener;
-import org.exoplatform.portal.webui.page.UIPageActionListener.EditPageActionListener;
-import org.exoplatform.portal.webui.page.UIPageActionListener.RemoveChildActionListener;
-import org.exoplatform.portal.webui.page.UIPageActionListener.SaveWidgetPropertiesActionListener;
-import org.exoplatform.portal.webui.page.UIPageActionListener.SaveGadgetPropertiesActionListener;
-import org.exoplatform.portal.webui.page.UIPageActionListener.SaveWindowPropertiesActionListener;
-import org.exoplatform.portal.webui.page.UIPageActionListener.ShowAddNewApplicationActionListener;
-import org.exoplatform.portal.webui.portal.PageNodeEvent;
-import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
-import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.EventListener;
 /**
  * May 19, 2006
  */
-@ComponentConfigs({
-  @ComponentConfig(
-      lifecycle = UIPageLifecycle.class,
-      template = "system:/groovy/portal/webui/page/UIPage.gtmpl",
-      events = {
-        @EventConfig(listeners = EditPageActionListener.class ),
-        @EventConfig(listeners = MoveChildActionListener.class)
-      }
-  ), //save desktop setting
-  @ComponentConfig(
-      id = "Desktop",
-      lifecycle = UIPageLifecycle.class,
-      template = "system:/groovy/portal/webui/page/UIPageDesktop.gtmpl",
-      events = {
-        @EventConfig(listeners = EditPageActionListener.class ),
-        @EventConfig(listeners = MoveChildActionListener.class),
-        @EventConfig(listeners = ShowLoginFormActionListener.class),
-        @EventConfig(listeners = DeleteWidgetActionListener.class),
-        @EventConfig(listeners = DeleteGadgetActionListener.class),
-        @EventConfig(listeners = RemoveChildActionListener.class),
-        @EventConfig(listeners = SaveWidgetPropertiesActionListener.class),
-        @EventConfig(listeners = SaveGadgetPropertiesActionListener.class),
-        @EventConfig(listeners = SaveWindowPropertiesActionListener.class),
-        @EventConfig(listeners = ShowAddNewApplicationActionListener.class),
-        @EventConfig(listeners = UIPage.ChangePageActionListener.class)
-      }
-  )
-})
+@ComponentConfig(
+		lifecycle = UIPageLifecycle.class,
+		template = "system:/groovy/portal/webui/page/UIPage.gtmpl",
+		events = {
+//			@EventConfig(listeners = EditPageActionListener.class ),
+			@EventConfig(listeners = MoveChildActionListener.class)
+		}
+)
 public class UIPage extends UIContainer {
   
   private String pageId;
@@ -109,36 +67,4 @@ public class UIPage extends UIContainer {
   public void setMaximizedUIPortlet(UIPortlet maximizedUIPortlet) {
     this.maximizedUIPortlet = maximizedUIPortlet;
   }
-  
-  //TODO: dang.tung -> page navigation
-  //-----------------------------------------------------------------
-  public List<PageNavigation> getNavigations() throws Exception {
-    List<PageNavigation> allNav =Util.getUIPortal().getNavigations() ;
-    String removeUser = Util.getPortalRequestContext().getRemoteUser();
-    List<PageNavigation> result = new ArrayList<PageNavigation>();
-    for(PageNavigation nav: allNav){
-      result.add(PageNavigationUtils.filter(nav, removeUser));
-    }
-    return result;
-  }
-  
-  static  public class ChangePageActionListener extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {
-      String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIPortal uiPortal = Util.getUIPortal();
-      uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
-      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
-      if(uiPageBody != null) {
-        if(uiPageBody.getMaximizedUIComponent() != null) {
-          UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
-          currentPortlet.setCurrentWindowState(WindowState.NORMAL);
-          uiPageBody.setMaximizedUIComponent(null);
-        }
-      }
-      PageNodeEvent<UIPortal> pnevent = 
-        new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
-      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      
-    }
-  }
-  //------------------------------------------------------------------
 }

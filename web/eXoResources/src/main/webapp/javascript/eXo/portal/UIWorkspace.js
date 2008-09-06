@@ -4,7 +4,7 @@ function UIWorkspace(id) {
   this.isFirstTime = true ;
 };
 
-eXo.portal.Workspace = new UIWorkspace("UIWorkspace") ;
+eXo.portal.UIWorkspace = new UIWorkspace("UIWorkspace") ;
 
 if(!eXo.portal.UIControlWorkspace) {
   eXo.portal.UIControlWorkspace = new UIWorkspace("UIControlWorkspace") ;

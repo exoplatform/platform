@@ -25,7 +25,6 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.form.UISearchForm.*;
 
 /**
  * Author : Nguyen Viet Chung
@@ -38,7 +37,7 @@ import org.exoplatform.webui.form.UISearchForm.*;
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/form/UISearchForm.gtmpl",
-    events = @EventConfig(listeners = QuickSearchActionListener.class)
+    events = @EventConfig(listeners = UISearchForm.QuickSearchActionListener.class)
 )
 public class UISearchForm extends UIForm {
   /**

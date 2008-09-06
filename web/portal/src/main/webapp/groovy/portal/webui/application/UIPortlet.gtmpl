@@ -6,7 +6,6 @@
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
-  jsmanager.importJavascript('eXo.desktop.UIDesktop');
   jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
   jsmanager.importJavascript('eXo.desktop.UIWindow') ;
   jsmanager.importJavascript('eXo.portal.UIPortalControl');

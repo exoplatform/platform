@@ -21,6 +21,7 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.layout.PageLayoutService;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
@@ -53,7 +54,6 @@ public class UIPageBody extends UIComponentDecorator {
     setId("UIPageBody");
   }
   
-  @SuppressWarnings("unused")
   public void setPageBody(PageNode pageNode, UIPortal uiPortal) throws Exception {
     WebuiRequestContext  context = Util.getPortalRequestContext() ;
     ExoContainer appContainer  =  context.getApplication().getApplicationServiceContainer() ;
@@ -71,8 +71,11 @@ public class UIPageBody extends UIComponentDecorator {
     }
     
     if(page != null) {
-      if(Page.DEFAULT_PAGE.equals(page.getFactoryId())) page.setFactoryId(null);
-      uiPage = createUIComponent(context, UIPage.class, page.getFactoryId(), null);
+      if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
+        uiPage = createUIComponent(context, UIDesktopPage.class, null, null);      	
+      } else {
+        uiPage = createUIComponent(context, UIPage.class, null, null);      	
+      }
       PortalDataMapper.toUIPage(uiPage, page);
       if(uiPage.isShowMaxWindow()) {
         uiPortal.setMaximizedUIComponent(uiPage);

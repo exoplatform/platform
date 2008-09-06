@@ -239,7 +239,13 @@ public class UIPageCreationWizard extends UIPageWizard {
       if(isDesktopPage) page.setShowMaxWindow(true);
 
       UIPagePreview uiPagePreview = uiWizard.getChild(UIPagePreview.class);
-      UIPage uiPage = uiPagePreview.createUIComponent(context, UIPage.class, page.getFactoryId(), null);
+      UIPage uiPage ;
+      if(Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
+        uiPage = uiWizard.createUIComponent(context, UIDesktopPage.class, null, null);      	
+      } else {
+        uiPage = uiWizard.createUIComponent(context, UIPage.class, null, null);      	
+      }
+
       PortalDataMapper.toUIPage(uiPage, page);
       uiPagePreview.setUIComponent(uiPage);
 
