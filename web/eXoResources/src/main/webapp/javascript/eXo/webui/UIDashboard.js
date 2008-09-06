@@ -270,6 +270,7 @@ eXo.webui.UIDashboard = {
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiWindow = document.getElementById(windowId);
 		var uiContainer = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardContainer");
+		if(!uiContainer) return;
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardSelectForm");
 		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
 		if(uiSelect.style.display != "none") {
