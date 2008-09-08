@@ -10,10 +10,6 @@
 	margin: auto;
 }
 
-.UITabContent .UIForm .HorizontalLayout .FormContainer {
-	padding: 10px;
-}
-
 .UIForm .UIFormGrid td.FieldLabel {
   padding: 4px;
   text-align: right;
