@@ -17,6 +17,7 @@
 package org.exoplatform.portal.webui.page;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.webui.util.Util;
@@ -81,13 +82,7 @@ public class UIPageSelector extends UIFormInputContainer<String> {
     
     UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
     Page page = service.getPage(value, pcontext.getRemoteUser()) ;
-    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);
-    if(page == null){
-      uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{value})) ;;
-      pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());      
-      return this ;
-    }
-
+   
     UIFormPopupWindow uiPopup = getAncestorOfType(UIFormPopupWindow.class);
     if(uiPopup != null) uiPopup.setShow(false);
     page_ = page;
@@ -111,6 +106,14 @@ public class UIPageSelector extends UIFormInputContainer<String> {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       event.getRequestContext().getRequestContextPath();
       UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
+      UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
+      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
+      if(!userACL.hasPermission(service.getPage(id), pcontext.getRemoteUser())) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{id})) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()); 
+      }
       uiPageSelector.setValue(id);
       //TODO: Tung.Pham added
       //---------------------------------------------------

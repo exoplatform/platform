@@ -246,6 +246,19 @@ public class UserPortalConfigService {
 //**************************************************************************************************
 
   /**
+   * this method will load the page according to the pageId
+   * @param pageId
+   * @return
+   * @throws Exception
+   */
+  
+  public Page getPage(String pageId) throws Exception {
+    Page page = (Page) pageConfigCache_.get(pageId);
+    if(page == null) page  = storage_.getPage(pageId);
+    return page;
+  }
+  
+  /**
    * This method  should load the page according to the pageId,  set view and edit  permission for the
    * Page object  according to the accessUser.
    * @param accessUser

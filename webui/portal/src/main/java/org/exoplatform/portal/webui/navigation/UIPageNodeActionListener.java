@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -161,23 +162,42 @@ public class UIPageNodeActionListener {
       UIRightClickPopupMenu popupMenu = event.getSource();
       UIComponent parent = popupMenu.getParent();
       UIPageNodeSelector uiPageNodeSelector = parent.getParent();
-      
+      int selectIndex = 1;
       UIPortalApplication uiApp = uiPageNodeSelector.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.<UIPageManagement>getParent());
       
-      UIPageNodeForm uiNodeForm = uiMaskWS.createUIComponent(UIPageNodeForm.class, null, null);
-      uiMaskWS.setUIComponent(uiNodeForm);
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       PageNavigation selectedNav = uiPageNodeSelector.getSelectedNavigation();
       Object obj = PageNavigationUtils.searchParentNode(selectedNav, uri);
       PageNode selectedNode = PageNavigationUtils.searchPageNodeByUri(selectedNav, uri);
+      String pageId = selectedNode.getPageReference();
+      UserPortalConfigService service = parent.getApplicationComponent(UserPortalConfigService.class);
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      UIPortalApplication uiPortalApp = parent.getAncestorOfType(UIPortalApplication.class);
+      Page test = service.getPage(pageId) ;
+      if(test != null) {
+        UserACL userACL = parent.getApplicationComponent(UserACL.class) ;
+        if(!userACL.hasPermission(test, pcontext.getRemoteUser())) {
+          uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.UserNotPermission", new String[]{pageId}, 1)) ;;
+          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+          return;
+        }
+      } else {               
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{pageId},1)) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
+        selectIndex = 2;
+      }
+      
+      UIPageNodeForm uiNodeForm = uiMaskWS.createUIComponent(UIPageNodeForm.class, null, null);
+      uiMaskWS.setUIComponent(uiNodeForm);     
       uiNodeForm.setValues(selectedNode);
       uiNodeForm.setSelectedParent(obj);
-      uiMaskWS.setShow(true);
+      uiNodeForm.setSelectedTab(selectIndex);
     }
   }
+
 
   static public class DeleteNodeActionListener  extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {  
