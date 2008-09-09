@@ -1,9 +1,11 @@
 <project>
+
   <parent>
-    <groupId>org.exoplatform.tool</groupId>
-    <artifactId>eXoParentPom</artifactId>
-    <version>trunk</version>
+    <groupId>org.exoplatform</groupId>
+    <artifactId>parent</artifactId>
+    <version>1.0.0-rc1</version>
   </parent>
+
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.exoplatform.portal</groupId>
   <artifactId>config</artifactId>
@@ -73,6 +75,14 @@
       </testResource>
     </testResources>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
