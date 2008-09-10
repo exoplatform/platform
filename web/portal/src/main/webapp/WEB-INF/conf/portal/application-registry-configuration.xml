@@ -44,6 +44,7 @@
 									    <field name="applicationName"><string>PortletRegistryPortlet</string></field>
 	                    <field  name="categoryName"><string>administration</string></field>
 						          <field name="displayName"><string>Application Registry</string></field>
+						          <field name="description"><string>Application Registry</string></field>
 		                  <field name="applicationType"><string>portlet</string></field>
 		                  <field name="applicationGroup"><string>exoadmin</string></field>       
 						          <field name="accessPermissions">
@@ -59,6 +60,7 @@
 		                  <field name="applicationName"><string>OrganizationPortlet</string></field>
 		                  <field  name="categoryName"><string>administration</string></field>
 	                    <field name="displayName"><string>Organization Management</string></field>
+	                    <field name="description"><string>Organization Management</string></field>
 		                  <field name="applicationType"><string>portlet</string></field>
 		                  <field name="applicationGroup"><string>exoadmin</string></field>
 		                  <field name="accessPermissions">
@@ -74,6 +76,7 @@
 		                  <field name="applicationName"><string>AccountPortlet</string></field>
 		                  <field  name="categoryName"><string>administration</string></field>
 						          <field name="displayName"><string>New Account</string></field>
+						          <field name="description"><string>New Account</string></field>
 		                  <field name="applicationType"><string>portlet</string></field>
 		                  <field name="applicationGroup"><string>exoadmin</string></field>
 		                  <field name="accessPermissions">
@@ -103,6 +106,7 @@
 		                  <field  name="categoryName"><string>web</string></field>
 		                  <field name="applicationName"><string>IFramePortlet</string></field>
 						          <field name="displayName"><string>IFrame</string></field>
+						          <field name="description"><string>IFrame</string></field>
 		                  <field name="applicationType"><string>portlet</string></field>
 		                  <field name="applicationGroup"><string>web</string></field>
 		                  <field name="accessPermissions">
@@ -117,6 +121,7 @@
 		                  <field  name="categoryName"><string>web</string></field>
 		                  <field name="applicationName"><string>SiteMapPortlet</string></field>
 						          <field name="displayName"><string>SiteMap</string></field>
+						          <field name="description"><string>SiteMap</string></field>
 		                  <field name="applicationType"><string>portlet</string></field>
 		                  <field name="applicationGroup"><string>web</string></field>
 		                  <field name="accessPermissions">
@@ -131,6 +136,7 @@
 		                  <field  name="categoryName"><string>web</string></field>
 		                  <field name="applicationName"><string>BrowserPortlet</string></field>
 						          <field name="displayName"><string>Web Explorer</string></field>
+						          <field name="description"><string>Web Explorer</string></field>
 		                  <field name="applicationType"><string>portlet</string></field>
 		                  <field name="applicationGroup"><string>web</string></field>
 		                  <field name="accessPermissions">
@@ -159,6 +165,7 @@
 		                  <field  name="categoryName"><string>eXoWidgetWeb</string></field>
 		                  <field name="applicationName"><string>InfoWidget</string></field>
 						          <field name="displayName"><string>Information</string></field>
+						          <field name="description"><string>Information</string></field>
 		                  <field name="applicationType"><string>eXoWidget</string></field>
 		                  <field name="applicationGroup"><string>eXoWidgetWeb</string></field>
 		                  <field name="accessPermissions">
@@ -173,6 +180,7 @@
 		                  <field  name="categoryName"><string>eXoWidgetWeb</string></field>
 		                  <field name="applicationName"><string>WelcomeWidget</string></field>
 						          <field name="displayName"><string>Welcome</string></field>
+						          <field name="description"><string>Welcome</string></field>
 		                  <field name="applicationType"><string>eXoWidget</string></field>
 		                  <field name="applicationGroup"><string>eXoWidgetWeb</string></field>
 		                  <field name="accessPermissions">
@@ -187,6 +195,7 @@
 		                  <field  name="categoryName"><string>eXoWidgetWeb</string></field>
 		                  <field name="applicationName"><string>StickerWidget</string></field>
 						          <field name="displayName"><string>Sticker</string></field>
+						          <field name="description"><string>Sticker</string></field>
 		                  <field name="applicationType"><string>eXoWidget</string></field>
 		                  <field name="applicationGroup"><string>eXoWidgetWeb</string></field>
 		                  <field name="accessPermissions">
@@ -201,6 +210,7 @@
 		                  <field  name="categoryName"><string>eXoWidgetWeb</string></field>
 		                  <field name="applicationName"><string>CalendarWidget</string></field>
 						          <field name="displayName"><string>Calendar</string></field>
+						          <field name="description"><string>Calendar</string></field>
 		                  <field name="applicationType"><string>eXoWidget</string></field>
 		                  <field name="applicationGroup"><string>eXoWidgetWeb</string></field>
 		                  <field name="accessPermissions">
@@ -215,6 +225,7 @@
 		                  <field  name="categoryName"><string>eXoWidgetWeb</string></field>
 		                  <field name="applicationName"><string>CalculatorWidget</string></field>
 						          <field name="displayName"><string>Caculator</string></field>
+						          <field name="description"><string>Caculator</string></field>
 		                  <field name="applicationType"><string>eXoWidget</string></field>
 		                  <field name="applicationGroup"><string>eXoWidgetWeb</string></field>
 		                  <field name="accessPermissions">
