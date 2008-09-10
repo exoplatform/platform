@@ -91,18 +91,17 @@ public class UIPageBrowser extends UISearch {
 
 	protected String pageSelectedId_;
 
-	private static List<SelectItemOption<String>> OPTIONS = new ArrayList<SelectItemOption<String>>(
-			3);
+	private static List<SelectItemOption<String>> OPTIONS = new ArrayList<SelectItemOption<String>>(3);
 
-	static {
-		WebuiRequestContext contextui = WebuiRequestContext
-				.getCurrentInstance();
-		ResourceBundle res = contextui.getApplicationResourceBundle();
-		OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageBrowser.selectItem.ownerType"), "ownerType"));
-		OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageBrowser.selectItem.ownerId"), "ownerId"));
-		OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageBrowser.selectItem.name"), "name"));
-	}
-
+  static {
+    WebuiRequestContext contextui = WebuiRequestContext
+        .getCurrentInstance();
+    ResourceBundle res = contextui.getApplicationResourceBundle();
+    OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageSearch.label.option.ownerType"), "ownerType"));
+    OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageSearch.label.option.ownerId"), "ownerId"));
+    OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageSearch.label.option.name"), "name"));
+  }
+  
 	private Query<Page> lastQuery_;
 
 	public UIPageBrowser() throws Exception {
