@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -37,6 +38,8 @@ import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
+import org.exoplatform.services.portletcontainer.pci.model.Description;
+import org.exoplatform.services.portletcontainer.pci.model.DisplayName;
 import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.picocontainer.Startable;
@@ -279,39 +282,16 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     }
   }
 
-  private Application convertApplication(org.exoplatform.web.application.Application app) {
-    Application returnApplication = new Application() ;
-    returnApplication.setApplicationGroup(app.getApplicationGroup()) ;
-    returnApplication.setApplicationType(app.getApplicationType()) ;
-    returnApplication.setApplicationName(app.getApplicationName()) ;
-    returnApplication.setCategoryName(app.getApplicationGroup()) ;
-    returnApplication.setDisplayName(app.getApplicationName()) ;
-    returnApplication.setDescription(app.getDescription()) ;
-    
-    return returnApplication ;
-  }
-  
-  private Application convertApplication(Gadget gadget) {
-    Application returnApplication = new Application() ;
-    returnApplication.setApplicationGroup(GadgetApplication.EXO_GADGET_GROUP) ;
-    returnApplication.setApplicationType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE) ;
-    returnApplication.setApplicationName(gadget.getName()) ;
-    returnApplication.setCategoryName(GadgetApplication.EXO_GADGET_GROUP) ;
-    returnApplication.setDisplayName(gadget.getTitle()) ;
-    returnApplication.setDescription(gadget.getDescription()) ;
-    
-    return returnApplication ;
-  }
-
   public void importAllPortlets() throws Exception {
     ExoContainer manager  = ExoContainerContext.getCurrentContainer();
     PortletContainerService pcService =
       (PortletContainerService) manager.getComponentInstanceOfType(PortletContainerService.class) ;
     Map<String, PortletData> allPortletMetaData = pcService.getAllPortletMetaData();
-    Iterator<String> iterator = allPortletMetaData.keySet().iterator();
+    Iterator<Entry<String, PortletData>> iterator = allPortletMetaData.entrySet().iterator();
     
     while(iterator.hasNext()) {
-      String portletHandle = iterator.next();
+      Entry<String, PortletData> entry = iterator.next();
+      String portletHandle = entry.getKey();
       String categoryName = portletHandle.split("/")[0];
       String portletName = portletHandle.split("/")[1];
       
@@ -327,14 +307,14 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
 
       Application app = getApplication(categoryName + "/" + portletName) ;
       if(app != null) continue ; 
+      PortletData portlet = entry.getValue() ;
       app = new Application();
-      app.setDisplayName(portletName) ;
       app.setApplicationName(portletName);
       app.setApplicationGroup(categoryName);
       app.setCategoryName(categoryName);
       app.setApplicationType(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE);
-      app.setDescription("A portlet application");
-      app.setDisplayName(portletName);
+      app.setDisplayName(getDisplayNameValue(portlet.getDisplayName(), portletName)) ;
+      app.setDescription(getDescriptionValue(portlet.getDescription(), portletName));
       save(category, app);
     }
   }
@@ -420,7 +400,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return false;
   }
   //TODO: dang.tung: check ApplicationCategory permission
-  //-----------------------------------------------------
   private boolean hasAccessPermission(OrganizationService orgService, UserACL acl, String remoteUser, ApplicationCategory app) throws Exception {
     if(acl.getSuperUser().equals(remoteUser)) return true ;
     List<String> permissions = app.getAccessPermissions() ; 
@@ -430,7 +409,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     }
     return false;
   }
-  //-----------------------------------------------------
+
   private boolean hasViewPermission(OrganizationService orgService, UserACL acl, String remoteUser, String expPerm) throws Exception {
     if(UserACL.EVERYONE.equals(expPerm)) return true ;
     String[] temp = expPerm.split(":") ;
@@ -458,5 +437,38 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return false;
   }
 
-}
+  private Application convertApplication(org.exoplatform.web.application.Application app) {
+    Application returnApplication = new Application() ;
+    returnApplication.setApplicationGroup(app.getApplicationGroup()) ;
+    returnApplication.setApplicationType(app.getApplicationType()) ;
+    returnApplication.setApplicationName(app.getApplicationName()) ;
+    returnApplication.setCategoryName(app.getApplicationGroup()) ;
+    returnApplication.setDisplayName(app.getApplicationName()) ;
+    returnApplication.setDescription(app.getDescription()) ;
+    
+    return returnApplication ;
+  }
+  
+  private Application convertApplication(Gadget gadget) {
+    Application returnApplication = new Application() ;
+    returnApplication.setApplicationGroup(GadgetApplication.EXO_GADGET_GROUP) ;
+    returnApplication.setApplicationType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE) ;
+    returnApplication.setApplicationName(gadget.getName()) ;
+    returnApplication.setCategoryName(GadgetApplication.EXO_GADGET_GROUP) ;
+    returnApplication.setDisplayName(gadget.getTitle()) ;
+    returnApplication.setDescription(gadget.getDescription()) ;
+    
+    return returnApplication ;
+  }
+  
+  private String getDisplayNameValue(List<DisplayName> list, String defaultValue) {
+    if(list == null || list.isEmpty()) return defaultValue;
+    return list.get(0).getDisplayName();
+  }
+  
+  private String getDescriptionValue(List<Description> list, String defaultValue) {
+    if(list == null || list.isEmpty()) return defaultValue;
+    return list.get(0).getDescription();
+  }
 
+}

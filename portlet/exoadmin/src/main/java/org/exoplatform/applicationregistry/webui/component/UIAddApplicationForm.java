@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
@@ -32,6 +33,8 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
+import org.exoplatform.services.portletcontainer.pci.model.Description;
+import org.exoplatform.services.portletcontainer.pci.model.DisplayName;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -109,9 +112,7 @@ public class UIAddApplicationForm extends UIForm {
       uiInputSet.addChild(uiRadioInput);
       UIFormInputInfo uiInfo = new UIFormInputInfo("label", null, app.getDisplayName());
       uiInputSet.addChild(uiInfo);
-      String description = app.getDescription();
-      if(description == null || description.length() < 1) description = app.getApplicationType();
-      uiInfo = new UIFormInputInfo("description", null, description);
+      uiInfo = new UIFormInputInfo("description", null, app.getDescription());
       uiInputSet.addChild(uiInfo);
       uiTableInputSet.addChild(uiInputSet);
       uiInputSetList.add(uiInputSet) ;
@@ -129,18 +130,20 @@ public class UIAddApplicationForm extends UIForm {
       PortletContainerService pcService =
         (PortletContainerService) manager.getComponentInstanceOfType(PortletContainerService.class) ;
       Map<String, PortletData> allPortletMetaData = pcService.getAllPortletMetaData();
-      Iterator<String> iterator = allPortletMetaData.keySet().iterator();
+       Iterator<Entry<String, PortletData>> iterator = allPortletMetaData.entrySet().iterator();
 
       while(iterator.hasNext()) {
-        String fullName = iterator.next();
+        Entry<String, PortletData> entry = iterator.next() ;
+        String fullName = entry.getKey();
         String categoryName = fullName.split("/")[0];
         String portletName = fullName.split("/")[1];
+        PortletData portlet = entry.getValue();
         Application app = new Application();
-        app.setDisplayName(portletName) ;
         app.setApplicationName(portletName);
         app.setApplicationGroup(categoryName);
         app.setApplicationType(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE);
-        app.setDescription("A portlet application");
+        app.setDisplayName(getDisplayNameValue(portlet.getDisplayName(), portletName)) ;
+        app.setDescription(getDescriptionValue(portlet.getDescription(), portletName));
         app.setAccessPermissions(new ArrayList<String>());
         list.add(app) ;
       }
@@ -151,15 +154,26 @@ public class UIAddApplicationForm extends UIForm {
         Gadget tmp = iterator.next() ;
         Application app = new Application() ;
         app.setApplicationName(tmp.getName()) ;
-        app.setDisplayName(tmp.getTitle()) ;
         app.setApplicationGroup(GadgetApplication.EXO_GADGET_GROUP) ;
-        app.setDescription(tmp.getDescription()) ;
         app.setApplicationType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE) ;
+        app.setDisplayName(tmp.getTitle()) ;
+        String description = (tmp.getDescription() == null || tmp.getDescription().length() < 1) ? tmp.getName() : tmp.getDescription() ; 
+        app.setDescription(description) ;
         app.setAccessPermissions(new ArrayList<String>()) ;
         list.add(app) ;
       }
     }
     return list ;
+  }
+  
+  private String getDisplayNameValue(List<DisplayName> list, String defaultValue) {
+    if(list == null || list.isEmpty()) return defaultValue;
+    return list.get(0).getDisplayName();
+  }
+  
+  private String getDescriptionValue(List<Description> list, String defaultValue) {
+    if(list == null || list.isEmpty()) return defaultValue;
+    return list.get(0).getDescription();
   }
   
   public static class ChangeTypeActionListener extends EventListener<UIAddApplicationForm> {
