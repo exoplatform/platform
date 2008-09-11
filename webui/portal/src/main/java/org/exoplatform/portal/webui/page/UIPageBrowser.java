@@ -107,7 +107,7 @@ public class UIPageBrowser extends UISearch {
 	public UIPageBrowser() throws Exception {
 		super(OPTIONS);
 		//getChild(UISearchForm.class).setId("UIPageSearch");
-		getChild(UISearchForm.class).setId("UIPageSearch" + hashCode());
+		getChild(UISearchForm.class).setId("UIPageSearch");
 		UIGrid uiGrid = addChild(UIGrid.class, null, null);		
 		uiGrid.configure("pageId", BEAN_FIELD, ACTIONS);		
 		UIPageIterator uiIterator = uiGrid.getUIPageIterator();

@@ -117,7 +117,7 @@ public class UIPageNodeActionListener {
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         uiToolPanel.setUIComponent(null) ;
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.null", new String[]{})) ;
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.NotEditPage", new String[]{})) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
         return;
       }
