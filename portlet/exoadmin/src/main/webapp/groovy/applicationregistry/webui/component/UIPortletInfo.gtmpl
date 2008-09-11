@@ -1,0 +1,50 @@
+<% 
+	import org.exoplatform.applicationregistry.util.Util;
+	def portlet = uicomponent.getPortlet();
+	String name = portlet.getPortletName();
+%>
+<div class="UIPortletInfo" id="$uicomponent.id">	
+	<div class="AppWorkingArea">
+		
+		<div class="UIBreadcumbs">
+		  <div class="LeftBreadcumbsBar">
+		    <div class="RightBreadcumbsBar">
+		      <div class="BreadcumbsInfoBar">
+		  	  	<div class="HomeIcon LeftBlock BCHome16x16Icon"><span></span></div>
+	          <a class="LeftBlock" href="#">Categorie Name</a> 		          		              
+        	<div class="RightBlackGridArrowIcon LeftBlock RightBlackGridArrow16x16Icon"><span></span></div>	                
+	          <a class="Selected" href="#">Portlet 1</a> 		          		              
+				    <div style="clear: left;"><span></span></div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		
+
+	  <div class="Application">
+  		<div title="Portlet 1" class="PortletIcons">
+  				<img src="/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png"/>
+  		</div>
+  		<div class="ApplicationContent">
+  		  <div class="TitleBarApplication">
+  		  	<span class="LeftLabel">Name :</span>
+  		    <span>$name</span>
+  		  </div>
+  		  <div class="ApplicationContentLabel">
+  		    <div class="ContentLabel">
+  		      <span class="LeftLabel">Display Name :</span>
+  		      <span class="RightLabel"><%= Util.getDisplayNameValue(portlet.getDisplayName(), name) %></span>
+  		    </div>
+  		    <div class="ContentLabel">
+						<span class="LeftLabel">Description :</span>
+						<span class="RightLabel"><%= Util.getDescriptionValue(portlet.getDescription(), name) %></span>
+          </div>
+  		  </div>
+  		</div>
+
+		</div>
+		<div class="Preferences">
+	  	Portlet Preferences
+	  </div>
+	</div>
+</div>	

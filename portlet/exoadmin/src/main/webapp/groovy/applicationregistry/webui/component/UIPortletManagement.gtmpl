@@ -2,7 +2,7 @@
 	import org.exoplatform.applicationregistry.util.Util;
 	def localPortlets = uicomponent.getLocalPortlets();
 %>
-<div class="UIPortletManagement">
+<div class="UIPortletManagement" id="$uicomponent.id">
 	<div class="AppRegistryContainer">
 		<div class="AppRegistryControl">
 			<div class="Slidebar">
@@ -16,9 +16,11 @@
 			   	    	<div class="UIVerticalSlideTabs">
 			   	    		<div class="UIVTab VTabSimpleStyle">
 									  <div class="UIVTabContent" style="display: block">
-									  <% for(portlet in localPortlets) {%>
+									  <% for(portlet in localPortlets) {
+									  	 		String name = portlet.getPortletName() ;
+									  %>
 											<div class="ItemContent SelectedItem">
-												<a href="#" class="ItemLabel"><%= Util.getDisplayNameValue(portlet.getDisplayName(), portlet.getPortletName()) %></a>
+												<a href="#" class="ItemLabel" onclick="<%= uicomponent.event("SelectPortlet", name) %>"><%= Util.getDisplayNameValue(portlet.getDisplayName(), name) %></a>
 							          <div style="clear: both"><span></span></div>
 											</div>
 										<% } %>
@@ -64,53 +66,10 @@
 				</div>
 			</div>
 		</div>
-		
-		
-		<div class="AppWorkingArea">
-			
-			<div class="UIBreadcumbs">
-			  <div class="LeftBreadcumbsBar">
-			    <div class="RightBreadcumbsBar">
-			      <div class="BreadcumbsInfoBar">
-			  	  	<div class="HomeIcon LeftBlock BCHome16x16Icon"><span></span></div>
-		          <a class="LeftBlock" href="#">Categorie Name</a> 		          		              
-            	<div class="RightBlackGridArrowIcon LeftBlock RightBlackGridArrow16x16Icon"><span></span></div>	                
-		          <a class="Selected" href="#">Portlet 1</a> 		          		              
-					    <div style="clear: left;"><span></span></div>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			
-
-		  <div class="Application">
-	  		<div title="Portlet 1" class="PortletIcons">
-	  				<img src="/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png"/>
-	  		</div>
-	  		<div class="ApplicationContent">
-	  		  <div class="TitleBarApplication">
-	  		  	<span class="LeftLabel">Name :</span>
-	  		    <span>Portlet_1</span>
-	  		  </div>
-	  		  <div class="ApplicationContentLabel">
-	  		    <div class="ContentLabel">
-	  		      <span class="LeftLabel">Display Name :</span>
-	  		      <span class="RightLabel">Portlet 1</span>
-	  		    </div>
-	  		    <div class="ContentLabel">
-							<span class="LeftLabel">Description :</span>
-							<span class="RightLabel">Here is my wonderful description</span>
-	          </div>
-	  		  </div>
-	  		</div>
-
-			</div>
-			<div class="UIAcessPermissions">
-		  	Acess permissions
-		  </div>
+		<div class="ManagementContainer">
+		<% uicomponent.renderChildren() %>
 		</div>
-		
-		<div style="clear: left"><span></span></div>
+	<div style="clear: left"><span></span></div>
 	</div>  
 	
 </div>
