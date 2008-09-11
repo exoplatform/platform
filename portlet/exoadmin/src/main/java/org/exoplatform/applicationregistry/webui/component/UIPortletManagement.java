@@ -16,6 +16,14 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.services.portletcontainer.PortletContainerService;
+import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIContainer;
@@ -32,6 +40,31 @@ import org.exoplatform.webui.core.UIContainer;
 )
 
 public class UIPortletManagement extends UIContainer {
+  
+  static final public String LOCAL = "local";
+  static final public String REMOTE = "remote";
+  List<PortletData> localPortlets;
+  List<PortletData> remotePortlets;
+  
+  public UIPortletManagement() throws Exception {
+    init() ;
+  }
+  
+  public void init() throws Exception {
+    ExoContainer manager  = ExoContainerContext.getCurrentContainer();
+    PortletContainerService pcService =
+      (PortletContainerService) manager.getComponentInstanceOfType(PortletContainerService.class) ;
+    Map<String, PortletData> allPortletMetaData = pcService.getAllPortletMetaData();
+    localPortlets = new ArrayList<PortletData>(allPortletMetaData.values()) ;
+  }
+  
+  public List<PortletData> getLocalPortlets() {
+    return localPortlets;
+  }
+  
+  public List<PortletData> getRemotePortlets() {
+    return remotePortlets;
+  }
 
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);

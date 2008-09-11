@@ -27,14 +27,13 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.newregistry.Application;
 import org.exoplatform.application.newregistry.ApplicationCategory;
 import org.exoplatform.application.newregistry.ApplicationRegistryService;
+import org.exoplatform.applicationregistry.util.Util;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
-import org.exoplatform.services.portletcontainer.pci.model.Description;
-import org.exoplatform.services.portletcontainer.pci.model.DisplayName;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -142,8 +141,8 @@ public class UIAddApplicationForm extends UIForm {
         app.setApplicationName(portletName);
         app.setApplicationGroup(categoryName);
         app.setApplicationType(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE);
-        app.setDisplayName(getDisplayNameValue(portlet.getDisplayName(), portletName)) ;
-        app.setDescription(getDescriptionValue(portlet.getDescription(), portletName));
+        app.setDisplayName(Util.getDisplayNameValue(portlet.getDisplayName(), portletName)) ;
+        app.setDescription(Util.getDescriptionValue(portlet.getDescription(), portletName));
         app.setAccessPermissions(new ArrayList<String>());
         list.add(app) ;
       }
@@ -164,16 +163,6 @@ public class UIAddApplicationForm extends UIForm {
       }
     }
     return list ;
-  }
-  
-  private String getDisplayNameValue(List<DisplayName> list, String defaultValue) {
-    if(list == null || list.isEmpty()) return defaultValue;
-    return list.get(0).getDisplayName();
-  }
-  
-  private String getDescriptionValue(List<Description> list, String defaultValue) {
-    if(list == null || list.isEmpty()) return defaultValue;
-    return list.get(0).getDescription();
   }
   
   public static class ChangeTypeActionListener extends EventListener<UIAddApplicationForm> {
