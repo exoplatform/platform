@@ -6,7 +6,7 @@
 .UITrees .TreeContainer {
   overflow-y: auto;
   overflow-x: hidden;
-  width: 100%;
+  width: 99.5%;
 }
 
 .UITrees a {

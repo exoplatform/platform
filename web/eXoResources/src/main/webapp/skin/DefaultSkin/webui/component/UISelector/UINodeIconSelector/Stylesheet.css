@@ -16,25 +16,19 @@
   margin-top: 6px;
 }
 
-.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer{
-  white-space: nowrap;
-  margin: 0px;
-  _line-height: 34px;
-  padding:10px;
-}
-
 .UINodeIconSelector .ItemDetailList .SelectedIconInfo .UIFormInputSet {
-	padding-bottom: 0px;
+	padding: 10px 0px;
+  white-space: nowrap;
 }
 
-.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel{
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel {
   font-size: 12px; font-weight: normal;
   margin: 0px 10px 0px 10px;
   float: left;
   width: auto;
 }
 
-.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue{
+.UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue {
   margin-left: 0px;
   float: none;
   color: #2F76E2;

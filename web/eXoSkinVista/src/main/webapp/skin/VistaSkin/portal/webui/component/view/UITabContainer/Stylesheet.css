@@ -1,5 +1,6 @@
 .UITabContainer {
 	padding: 7px;
+	height: 100%;
 }
 
 .UITabContainer .UIHorizontalTabs {
