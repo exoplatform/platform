@@ -14,6 +14,7 @@
   String onclick = "eXo.portal.UIExoStartMenu.showStartMenu(event);" ;
   
   void renderSinglePageNode(PageNavigation nav, PageNode node) {
+  	if(!node.visible) return;
     String  href = uicomponent.event("ChangePage",  nav.getId() + "::" + node.getUri()) ;
     String icon = node.getIcon();
     if(icon == null) icon = "DefaultPageIcon";
@@ -21,7 +22,15 @@
       <div class="MenuItem">
         <div class="LabelItem">
           <div class="Icon $icon"  style="padding-left: 18px">
-            <div class="LabelText"><a href="#" onclick="$href">$node.resolvedLabel</a></div>
+          	<div class="LabelText">
+		""";
+						if(node.pageReference != null) {
+				        print """<a href="#" onclick="$href">$node.resolvedLabel</a>""";
+						} else {
+								print """<a href="#" >$node.resolvedLabel</a>""";
+						}
+		print """
+						</div>
           </div>
         </div>
       </div>
@@ -29,17 +38,26 @@
   }
   
   void renderPageNode(PageNavigation nav, PageNode node) {
-     String  href = uicomponent.event("ChangePage",   nav.getId() + "::" +  node.getUri()) ;
-     String icon = node.getIcon();
-     String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;
-  	 String scrollDownTitle = _ctx.appRes("UIExoStart.tooltip.scrollDown") ;
-     if(icon == null) icon = "DefaultPageIcon";
-     print """
+  	if(!node.visible) return;
+    String  href = uicomponent.event("ChangePage",   nav.getId() + "::" +  node.getUri()) ;
+    String icon = node.getIcon();
+    String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;
+  	String scrollDownTitle = _ctx.appRes("UIExoStart.tooltip.scrollDown") ;
+    if(icon == null) icon = "DefaultPageIcon";
+    print """
       <div class="MenuItem">
         <div class="LabelItem">
           <div class="Icon $icon" style="padding-left: 18px"> 
             <div class="BlackArrowIcon">
-              <div class="LabelText "><a href="#" onclick="$href">$node.resolvedLabel</a></div>
+              <div class="LabelText ">
+		""";
+					if(node.pageReference != null ){
+            	print """<a href="#" onclick="$href">$node.resolvedLabel</a>""";
+          }else {
+          		print """<a href="#" >$node.resolvedLabel</a>""";
+          }
+    print """
+    					</div>
             </div>
           </div>
         </div>

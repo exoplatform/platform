@@ -34,9 +34,9 @@ public class PageNode  {
   private String resolvedLabel ;
   private Date startPublicationDate ;
   private Date endPublicationDate ;
-  private boolean enable = true ;
   private boolean showPublicationDate = false ; 
   
+  private boolean visible = true ;
   private String pageReference ;
   
   private transient boolean modifiable ;
@@ -80,15 +80,15 @@ public class PageNode  {
   public Date getEndPublicationDate() { return endPublicationDate ; }
   public void setEndPublicationDate(Date endDate) { endPublicationDate = endDate ; }
 
-  public boolean isEnable() {
-    if(enable && showPublicationDate) {
+  public boolean isVisible() {
+    if(visible && showPublicationDate) {
       if(endPublicationDate == null) return true ;
       else if(endPublicationDate.compareTo(Calendar.getInstance().getTime()) < 0 ) return false ;
     }
-    return enable ; 
+    return visible ; 
   }
   
-  public void setEnable(boolean b) { enable = b ; }
+  public void setVisible(boolean b) { visible = b ; }
   
   public void setShowPublicationDate(Boolean show) { showPublicationDate = show.booleanValue() ; }
   public boolean isShowPublicationDate() { return showPublicationDate ; }
@@ -105,7 +105,7 @@ public class PageNode  {
     newNode.setShowPublicationDate(showPublicationDate) ;
     newNode.setStartPublicationDate(startPublicationDate) ;
     newNode.setEndPublicationDate(endPublicationDate) ;
-    newNode.setEnable(enable) ;
+    newNode.setVisible(visible) ;
     if(children == null || children.size() < 1) return newNode;
     for(PageNode ele : children) {
       newNode.getChildren().add(ele.clone());

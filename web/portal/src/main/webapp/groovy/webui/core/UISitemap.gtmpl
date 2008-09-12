@@ -3,6 +3,7 @@
 	def navigations = uicomponent.getNavigations() ;
   public void renderNextLevelNode(nav, children, int intLevel) {
   	for(PageNode node in children) {
+  		if(!node.visible) continue;
 	    String actionLink = uicomponent.event("SelectNode", nav.getId() + "::" + node.getUri()) ;
 	    String iconType = node.getIcon();
 			if(iconType == null) {
@@ -20,7 +21,13 @@
 	  	  <div class="Item">
 		      <div class="Level$intLevel">
 		        <div class="OverflowContainer">
-		          <a class="IconItem ${iconType}" href="$actionLink" title="$title">$label</a>
+		 	""";
+			 				if(node.pageReference != null) {
+			          print """<a class="IconItem ${iconType}" href="$actionLink" title="$title">$label</a>""";
+			        } else {
+			        	print """<a class="IconItem ${iconType}" title="$title">$label</a>""";
+			        }
+		 	println """
 		        </div>
 		      </div>
 		    </div>
@@ -39,6 +46,7 @@
 	        String cssfloat = "left";
 	        for(nav in navigations) { 
 	          for(node in nav.getNodes()) { 
+	          	if(!node.visible) continue;
 	            String iconType = node.getIcon();
 							if(iconType == null) {
 								iconType = "DefaultPageIcon";
@@ -58,7 +66,11 @@
 	      <div class="SitemapItemBox" style="float:${cssfloat};">
 	      	<div class="SitemapItemContainer">
 				    <div class="TitleBar">
-		          <a href="<%=actionLink%>" class="Icon ${iconType}" title="$title">$label</a>
+				    	<%if(node.pageReference != null) {%>
+		          	<a href="<%=actionLink%>" class="Icon ${iconType}" title="$title">$label</a>
+		          <%} else {%>
+		          	<a class="Icon ${iconType}" title="$title">$label</a>
+		          <%}%>
 		        </div>
 		        <%if(node.getChildren() == null || node.getChildren().size() < 1) { %>
 		            <div class="NestedSitemapItemBox">

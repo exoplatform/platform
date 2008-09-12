@@ -48,6 +48,7 @@
   }
   
   public void renderChildNode(PageNavigation nav, PageNode node) {
+  	if(!node.visible) return;
     PageNode selectedNode = uicomponent.getSelectedPageNode() ;
     PageNavigation selectedNav = uicomponent.getSelectedNavigation() ;
   	String tabStyleNavigation = "NormalItem" ; // OverItem
@@ -63,7 +64,6 @@
     String arrowIcon = "MenuItemRight";
     if (node.getChildren() != null && node.getChildren().size() > 0) arrowIcon = "RightItemIcon";
 
-	//
     String label = node.resolvedLabel;
     String title = "";
     if(label.length() > 40) {
@@ -72,27 +72,37 @@
     }
     
     String pageURI = Util.getPortalRequestContext().getPortalURI() + node.getUri() ;
-  	if(uicomponent.isUseAjax()) {
-      String onclickEvt = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) + ";return false;" ;
-	  	print """
-	  			<div class="MenuItem $tabStyleNavigation" >
-						<a href="$pageURI" class="$arrowIcon" onclick="$onclickEvt" title="$title">
-							<div class="ItemIcon $icon" style="border-left: none;">
-	  							$label
-							</div>
-						</a>
-			""" ;
+    if(node.pageReference != null) {
+	  	if(uicomponent.isUseAjax()) {
+	      String onclickEvt = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) + ";return false;" ;
+		  	print """
+		  			<div class="MenuItem $tabStyleNavigation" >
+							<a href="$pageURI" class="$arrowIcon" onclick="$onclickEvt" title="$title">
+								<div class="ItemIcon $icon" style="border-left: none;">
+		  							$label
+								</div>
+							</a>
+				""" ;
+			} else {
+		  	print """
+		  			<div class="MenuItem $tabStyleNavigation" >
+		  			  <a href="$pageURI" class="$arrowIcon" title="$title">
+								<div class="ItemIcon $icon" >
+										$label
+								</div>
+							</a>
+				""" ;
+			}
 		} else {
-	  	print """
+			print """
 	  			<div class="MenuItem $tabStyleNavigation" >
-	  			  <a href="$pageURI" class="$arrowIcon" title="$title">
+	  			  <a class="$arrowIcon" title="$title">
 							<div class="ItemIcon $icon" >
 									$label
 							</div>
 						</a>
 			""" ;
 		}
-			
 		
     if (node.getChildren() != null && node.getChildren().size() > 0) {
     	renderChildrenContainer(nav, node) ;
@@ -117,6 +127,7 @@
   		            PageNode selectedNode = uicomponent.getSelectedPageNode() ;
 		              def pageNodes = nav.getNodes() ;
 		              for(PageNode node in pageNodes) {
+		              	if(!node.visible) continue;
 		                String tabStyleNavigation = "NormalNavigationTab" ;
 		                if(selectedNode != null && selectedNav != null &&
 		                   selectedNav.getId() == nav.getId() &&
@@ -146,14 +157,18 @@
 						                   	  	String pageURI = Util.getPortalRequestContext().getPortalURI() + node.getUri() ;
 						                   	  	String label = node.resolvedLabel ;
 						                   	  	if(label.length() > 30) label = label.substring(0,29) + "..." ;
-						                   	    if(uicomponent.isUseAjax()) {
-						                   	      String onclickEvt = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) + ";return false;" ;
+						                   	  	if(node.pageReference != null) {
+						                   	    	if(uicomponent.isUseAjax()) {
+						                   	      	String onclickEvt = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) + ";return false;" ;
 						                   	  %>
-								                   	  <a class="TabLabel ${iconType}" onclick="$onclickEvt" href="$pageURI">$label</a>
+								                   	  	<a class="TabLabel ${iconType}" onclick="$onclickEvt" href="$pageURI">$label</a>
 								                  <%
-								                    } else {
+								                    	} else {
 								                  %>
-								                      <a class="TabLabel ${iconType}" href="$pageURI">$label</a>
+								                      	<a class="TabLabel ${iconType}" href="$pageURI">$label</a>
+								                  <%	}
+								                  	} else {%>
+							                  			<a class="TabLabel ${iconType}">$label</a>
 								                  <%}%>
 						                   	</div>
 				                      </div>

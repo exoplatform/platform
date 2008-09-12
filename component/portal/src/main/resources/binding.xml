@@ -68,10 +68,11 @@
     <value name="name" field="name"/>
     <value name="label" field="label" usage="optional" set-method="setLabel"/>
     <value name="icon" field="icon" usage="optional"/>
-    <value name="page-reference" field="pageReference" usage="optional"/>
-    <value name="show-publication-date" field="showPublicationDate" usage="optional"/>    
     <value name="start-publication-date" field="startPublicationDate" usage="optional"/>
     <value name="end-publication-date" field="endPublicationDate" usage="optional"/>
+    <value name="show-publication-date" field="showPublicationDate" usage="optional"/>    
+    <value name="visible" field="visible" usage="optional" default="true"/>
+    <value name="page-reference" field="pageReference" usage="optional"/>
     <collection field="children" usage="optional" item-type="org.exoplatform.portal.config.model.PageNode"/>
   </mapping>
   
