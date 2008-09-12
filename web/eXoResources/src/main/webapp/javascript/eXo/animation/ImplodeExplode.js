@@ -135,11 +135,10 @@ ImplodeExplode.prototype.doExplode = function(containerId ) {
 			} else {
 				win.style.top = X0 + "px" ;
 				win.style.left = Y0 + "px" ;
-				win.style.width = win.style.width ;
+				win.style.width = (!win.maximized) ? W0 + "px" : win.style.width ;
 				win.style.height = H0 + "px" ;
 				win.style.display = "block" ;
 				if(win.maximized) {
-					win.style.width = W0 + "px";
 					var pageDesktop = eXo.core.DOMUtil.findAncestorByClass(win, "UIPageDesktop");
 					win.style.height = "100%";
 					var resizeBlock = eXo.core.DOMUtil.findFirstDescendantByClass(win, "div", "UIResizableBlock");
