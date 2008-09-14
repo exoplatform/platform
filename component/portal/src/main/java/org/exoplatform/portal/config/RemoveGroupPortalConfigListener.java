@@ -68,7 +68,7 @@ public class RemoveGroupPortalConfigListener extends Listener<GroupDAOImpl, Grou
       i++ ;
     }
     
-    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.GROUP_TYPE + "::" + groupId) ;
+    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.GROUP_TYPE, groupId) ;
     if (navigation != null) portalConfigService.remove(navigation) ;
   }
 

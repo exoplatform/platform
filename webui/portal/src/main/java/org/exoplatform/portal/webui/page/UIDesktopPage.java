@@ -216,7 +216,7 @@ public class UIDesktopPage extends UIPage {
         }
       }
       PageNodeEvent<UIPortal> pnevent = 
-        new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
+        new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, uri) ;      
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      
     }
   }

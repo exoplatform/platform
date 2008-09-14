@@ -234,7 +234,6 @@ public class UIPageForm extends UIFormTabPane {
     
   }
 
-  @SuppressWarnings("unchecked")
   static public class SaveActionListener  extends EventListener<UIPageForm> {
     public void execute(Event<UIPageForm> event) throws Exception {
       UIPageForm uiPageForm = event.getSource();   

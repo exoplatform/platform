@@ -23,6 +23,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -70,7 +71,7 @@ public class UIPageNavigationForm extends UIForm {
     for(int i = 1; i < 11; i++){
       priorties.add(new SelectItemOption<String>(String.valueOf(i), String.valueOf(i)));
     }
-    addUIFormInput(new UIFormStringInput("ownerType", "ownerType", "group").setEditable(false)).
+    addUIFormInput(new UIFormStringInput("ownerType", "ownerType", PortalConfig.GROUP_TYPE).setEditable(false)).
     addUIFormInput(uiSelectBoxOwnerId).
     addUIFormInput(new UIFormStringInput("creator", "creator", pContext.getRemoteUser()).setEditable(false)).
     addUIFormInput(new UIFormStringInput("modifier", "modifier",null).setEditable(false)).
@@ -122,7 +123,7 @@ public class UIPageNavigationForm extends UIForm {
       
       
       PageNavigation existingNavi = uiPageNodeSelector.getPageNavigation(pageNav.getId()) ; 
-      if( existingNavi != null || checkExiting(pageNav.getId())) {
+      if( existingNavi != null || checkExiting(pageNav)) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return ;        
@@ -138,14 +139,14 @@ public class UIPageNavigationForm extends UIForm {
       pcontext.addUIComponentToUpdateByAjax(uiMaskWS) ;
     }
 
-    private boolean checkExiting(String navId) throws Exception {
+    private boolean checkExiting(PageNavigation navi) throws Exception {
        UIPortal portal = Util.getUIPortal();
        DataStorage service = portal.getApplicationComponent(DataStorage.class);
        List<PageNavigation> list = portal.getNavigations();
-       if(service.getPageNavigation(navId) == null) return false;
+       if(service.getPageNavigation(navi.getOwnerType(), navi.getOwnerId()) == null) return false;
        
        for(PageNavigation nav: list){
-         if(nav.getId().equals(navId) ) return false;
+         if(nav.getId() == navi.getId()) return false;
        }
        return true;
     }

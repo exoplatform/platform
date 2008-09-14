@@ -129,12 +129,12 @@ public class UIPageNavigationActionListener {
       PageNavigation navigation = uiNodeSelector.getSelectedNavigation();
       if(navigation == null) return;
       UserPortalConfigService dataService = uiManagement.getApplicationComponent(UserPortalConfigService.class);
-      PageNavigation oldNavigation = dataService.getPageNavigation(navigation.getId());
+      PageNavigation oldNavigation = dataService.getPageNavigation(navigation.getOwnerType(), navigation.getOwnerId());
       if(oldNavigation == null) dataService.create(navigation); else dataService.update(navigation);
       rcontext.addUIComponentToUpdateByAjax(uiManagement);   
       List<PageNavigation> pnavigations = Util.getUIPortal().getNavigations();
       for(int i = 0; i < pnavigations.size(); i++) {
-        if(pnavigations.get(i).getId().equals(navigation.getId())) {
+        if(pnavigations.get(i).getId() == navigation.getId()) {
           pnavigations.set(i, navigation);
           return;
         }

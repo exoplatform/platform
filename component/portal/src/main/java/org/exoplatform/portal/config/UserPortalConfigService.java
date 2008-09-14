@@ -102,17 +102,17 @@ public class UserPortalConfigService {
     if(portal == null || !userACL_.hasPermission(portal, accessUser)) return null ;
     
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
-    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE+"::"+portalName) ;
+    PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE, portalName) ;
     if (navigation != null) { 
       navigation.setModifiable(userACL_.hasEditPermission(portal, accessUser));
       navigations.add(navigation) ;
     }
     
     if(accessUser == null) {
-      navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+userACL_.getGuestsGroup()) ;
+      navigation = getPageNavigation(PortalConfig.GROUP_TYPE, userACL_.getGuestsGroup()) ;
       if(navigation != null) navigations.add(navigation) ;
     } else {
-      navigation = getPageNavigation(PortalConfig.USER_TYPE+"::"+accessUser) ;
+      navigation = getPageNavigation(PortalConfig.USER_TYPE, accessUser) ;
       if (navigation != null) {
         navigation.setModifiable(true);
         navigations.add(navigation);  
@@ -125,7 +125,7 @@ public class UserPortalConfigService {
       while(iterator.hasNext()) {
         Group m = (Group) iterator.next() ;   
         String groupId = m.getId().trim();
-        navigation = getPageNavigation(PortalConfig.GROUP_TYPE+"::"+groupId) ;
+        navigation = getPageNavigation(PortalConfig.GROUP_TYPE, groupId) ;
         if(navigation == null) continue;
         navigation.setModifiable(userACL_.hasEditPermission(navigation, accessUser));
         navigations.add(navigation) ;
@@ -176,7 +176,6 @@ public class UserPortalConfigService {
    * @return
    * @throws Exception
    */
-  @SuppressWarnings("unchecked")
   public void createUserPortalConfig(String portalName, String template) throws Exception {
     NewPortalConfig portalConfig = newPortalConfigListener_.getPortalConfig(PortalConfig.PORTAL_TYPE);
     portalConfig.setTemplateOwner(template);
@@ -208,8 +207,7 @@ public class UserPortalConfigService {
       i++;
     }
     
-    String id = PortalConfig.PORTAL_TYPE + "::" + portalName ;
-    PageNavigation navigation = storage_.getPageNavigation(id) ;
+    PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE, portalName) ;
     if (navigation != null) remove(navigation) ;
     
     Query<PortletPreferences> portletPrefQuery = new Query<PortletPreferences>(null, null, null, PortletPreferences.class) ;
@@ -266,8 +264,7 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public Page getPage(String pageId, String accessUser) throws Exception {
-    Page page = (Page) pageConfigCache_.get(pageId) ;    
-    if(page == null) page  = storage_.getPage(pageId) ;
+    Page page = getPage(pageId) ;
     if(page == null || !userACL_.hasPermission(page, accessUser)) return null;
     pageConfigCache_.put(pageId, page);
     return page ; 
@@ -307,7 +304,7 @@ public class UserPortalConfigService {
 
   public void create(PageNavigation navigation) throws Exception {
     storage_.create(navigation);
-    pageNavigationCache_.put(navigation.getId(), navigation);
+    pageNavigationCache_.put(navigation.getOwner(), navigation);
   }
 
   /**
@@ -317,7 +314,7 @@ public class UserPortalConfigService {
    */
   public void update(PageNavigation navigation) throws Exception {
     storage_.save(navigation) ;
-    pageNavigationCache_.select(new ExpireKeyStartWithSelector(navigation.getId())) ;
+    pageNavigationCache_.select(new ExpireKeyStartWithSelector(navigation.getOwner())) ;
   }
 
   /**
@@ -327,12 +324,12 @@ public class UserPortalConfigService {
    */
   public void remove(PageNavigation navigation) throws Exception {
     storage_.remove(navigation) ;
-    pageNavigationCache_.remove(navigation.getId());
+    pageNavigationCache_.remove(navigation.getOwner());
   }
   
-  public PageNavigation getPageNavigation(String id) throws Exception{
-    PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(id);
-    if(navigation == null) navigation  = storage_.getPageNavigation(id) ;
+  public PageNavigation getPageNavigation(String ownerType, String id) throws Exception{
+    PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(ownerType+"::"+id);
+    if(navigation == null) navigation  = storage_.getPageNavigation(ownerType, id) ;
     return navigation;
   }
 

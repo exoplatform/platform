@@ -94,7 +94,6 @@ public class UIPageTemplateOptions extends UIFormInputItemSelector {
   
   public SelectItemOption getSelectedItemOption() { return selectedItemOption_; }
   
-  @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {  
     if(input == null || String.valueOf(input).length() < 1) return;    
     setSelectOptionItem((String)input) ;

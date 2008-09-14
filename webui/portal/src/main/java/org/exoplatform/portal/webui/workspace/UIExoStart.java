@@ -186,7 +186,6 @@ public class UIExoStart extends UIComponent {
 
 
   static public class BasicCustomizationActionListener extends EventListener<UIExoStart>{
-    @SuppressWarnings("unused")
     public void execute(Event<UIExoStart> event ) throws Exception{
       System.out.println("Call BasicCustomizationActionListener");
     }
@@ -299,7 +298,6 @@ public class UIExoStart extends UIComponent {
   }
 
   static  public class SkinSettingsActionListener extends EventListener<UIExoStart> {
-    @SuppressWarnings("unchecked")
     public void execute(Event<UIExoStart> event) throws Exception {
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
@@ -314,7 +312,6 @@ public class UIExoStart extends UIComponent {
   }
   
   static  public class LanguageSettingsActionListener extends EventListener<UIExoStart> {
-    @SuppressWarnings("unchecked")
     public void execute(Event<UIExoStart> event) throws Exception {
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
@@ -343,7 +340,7 @@ public class UIExoStart extends UIComponent {
         }
       }
       PageNodeEvent<UIPortal> pnevent = 
-        new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
+        new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, uri) ;      
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      
     }
   }

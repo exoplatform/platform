@@ -16,15 +16,20 @@
  */
 package org.exoplatform.portal.webui.portal;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIWidgets.ChangeOptionActionListener;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.page.UIPageBody;
@@ -34,11 +39,15 @@ import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveC
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RemoveJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RecoveryPasswordAndUsernameActionListener;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
     lifecycle = UIPortalLifecycle.class,
@@ -47,8 +56,8 @@ import org.exoplatform.webui.core.UIComponent;
       @EventConfig(listeners = ChangePageNodeActionListener.class),
       @EventConfig(listeners = MoveChildActionListener.class),
       @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class),
-      @EventConfig(listeners = UIPortalActionListener.ChangeWindowStateActionListener.class),
-      @EventConfig(listeners = UIPortalActionListener.LogoutActionListener.class),
+      @EventConfig(listeners = UIPortal.ChangeWindowStateActionListener.class),
+      @EventConfig(listeners = UIPortal.LogoutActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = ChangeOptionActionListener.class),
       @EventConfig(listeners = ChangeLanguageActionListener.class),
@@ -126,9 +135,9 @@ public class UIPortal extends UIContainer {
     return getNavigations().get(0);
   }
   
-  public PageNavigation getPageNavigation(String id){
+  public PageNavigation getPageNavigation(int id){
     for(PageNavigation nav: navigations){
-      if(nav.getId().equals(id)) return nav;
+      if(nav.getId() == id) return nav;
     }
     return null;
   }
@@ -171,6 +180,28 @@ public class UIPortal extends UIContainer {
     if(node.getChildren() == null) return;
     for(PageNode childNode : node.getChildren()) {
       resolveLabel(res, childNode) ;
+    }
+  }
+  
+  static  public class LogoutActionListener extends EventListener<UIComponent> {
+    public void execute(Event<UIComponent> event) throws Exception {
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      prContext.getRequest().getSession().invalidate() ;
+      HttpServletRequest request = prContext.getRequest() ;
+      String portalName = URLEncoder.encode(Util.getUIPortal().getName(), "UTF-8") ;
+      String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
+      prContext.getResponse().sendRedirect(redirect) ;
+      prContext.setResponseComplete(true) ;
+    }
+  }    
+
+  static public class ChangeWindowStateActionListener extends EventListener<UIPortal> {
+    public void execute(Event<UIPortal> event) throws Exception {
+      UIPortal uiPortal  = event.getSource();
+      String portletId = event.getRequestContext().getRequestParameter("portletId");
+      UIPortlet uiPortlet = uiPortal.findComponentById(portletId);
+      WebuiRequestContext context = event.getRequestContext();
+      uiPortlet.createEvent("ChangeWindowState", event.getExecutionPhase(), context).broadcast();
     }
   }
 }

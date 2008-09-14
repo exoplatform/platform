@@ -106,7 +106,6 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     return groups;
   }
   
-  @SuppressWarnings("unchecked")
   public void setGroups(String [] groups) throws Exception {
     List<Object> list = new ArrayList<Object>();
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();

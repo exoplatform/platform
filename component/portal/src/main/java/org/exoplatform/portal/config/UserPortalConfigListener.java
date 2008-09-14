@@ -70,10 +70,10 @@ public class UserPortalConfigListener extends UserEventListener {
       i++ ;
     }
    
-    String id = PortalConfig.USER_TYPE + "::" + userName ;
-    PageNavigation navigation = dataStorage.getPageNavigation(id) ;
+    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE, userName) ;
     if (navigation != null) portalConfigService.remove(navigation) ;
 
+    String id = PortalConfig.USER_TYPE + "::" + userName ;
     Widgets widgets = dataStorage.getWidgets(id) ;
     if (widgets != null) portalConfigService.remove(widgets);
     //TODO: dang.tung
@@ -97,8 +97,7 @@ public class UserPortalConfigListener extends UserEventListener {
       (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
     DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
     String userName = user.getUserName() ;
-    String id = PortalConfig.USER_TYPE + "::" + userName ;
-    PageNavigation navigation = dataStorage.getPageNavigation(id) ;
+    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE, userName) ;
     if (navigation != null) return;
     PageNavigation pageNav = new PageNavigation();
     pageNav.setOwnerType(PortalConfig.USER_TYPE);

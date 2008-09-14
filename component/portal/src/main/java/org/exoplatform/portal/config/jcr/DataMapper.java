@@ -89,8 +89,8 @@ public class DataMapper {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
     root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
-    root.setAttribute(EXO_ID, navigation.getId()) ;
-    root.setAttribute(EXO_NAME, navigation.getId()) ;    
+    root.setAttribute(EXO_ID, navigation.getOwner()) ;
+    root.setAttribute(EXO_NAME, navigation.getOwner()) ;    
     root.setAttribute(EXO_OWNER_TYPE, navigation.getOwnerType());
     root.setAttribute(EXO_OWNER_ID, navigation.getOwnerId());
     root.setAttribute(EXO_DATA_TYPE, navigation.getClass().getSimpleName()) ;    

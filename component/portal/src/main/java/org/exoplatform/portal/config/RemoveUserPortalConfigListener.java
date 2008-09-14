@@ -72,10 +72,10 @@ public class RemoveUserPortalConfigListener extends Listener<UserDAOImpl, User> 
       i++ ;
     }
    
-    String id = PortalConfig.USER_TYPE + "::" + userName ;
-    PageNavigation navigation = dataStorage.getPageNavigation(id) ;
+    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE, userName) ;
     if (navigation != null) portalConfigService.remove(navigation) ;
 
+    String id = PortalConfig.USER_TYPE + "::" + userName ;
     Widgets widgets = dataStorage.getWidgets(id) ;
     if (widgets != null) portalConfigService.remove(widgets);
     //TODO: dang.tung

@@ -79,7 +79,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       NewPortalConfig portalConfig  = (NewPortalConfig)ele;
       if(portalConfig.getOwnerType().equals("user")) {
         initUserTypeDB(portalConfig);  
-      } else if (portalConfig.getOwnerType().equals("group")){
+      } else if (portalConfig.getOwnerType().equals(PortalConfig.GROUP_TYPE)){
         initGroupTypeDB(portalConfig);
       } else {
         initPortalTypeDB(portalConfig);

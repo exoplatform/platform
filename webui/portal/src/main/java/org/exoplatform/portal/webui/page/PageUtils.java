@@ -71,7 +71,7 @@ public class PageUtils {
     
   private static void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
     for(int i = 0; i < navs.size(); i++) {
-      if(navs.get(i).getId().equals(nav.getId())) {
+      if(navs.get(i).getId() == nav.getId()) {
         navs.set(i, nav);
         return;
       }

@@ -209,7 +209,7 @@ public class TestDataStorage extends BasicTestCase {
     assertEquals(ownerId, navi.getOwnerId()) ;
     
     storage_.create(navi) ;
-    PageNavigation returnedNavi = storage_.getPageNavigation(navi.getId()) ;
+    PageNavigation returnedNavi = storage_.getPageNavigation(navi.getOwnerType(), navi.getOwnerId()) ;
     assertNotNull(navi) ;
     assertEquals(navi.getOwnerType(), returnedNavi.getOwnerType()) ;
     assertEquals(navi.getOwnerId(), returnedNavi.getOwnerId()) ;
@@ -234,7 +234,7 @@ public class TestDataStorage extends BasicTestCase {
     String newModifier = "Tung.Pham" ;
     navi.setModifier(newModifier) ;
     storage_.save(navi) ;    
-    PageNavigation afterSaveNavi = storage_.getPageNavigation(navi.getId()) ;
+    PageNavigation afterSaveNavi = storage_.getPageNavigation(navi.getOwnerType(), navi.getOwnerId()) ;
     assertEquals(newModifier, afterSaveNavi.getModifier()) ;
     assertEquals(navi.getModifier(), afterSaveNavi.getModifier()) ;
     assertEquals(navi.getNodes().size(), afterSaveNavi.getNodes().size()) ;

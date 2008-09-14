@@ -174,7 +174,7 @@ public class UIPageNodeSelector extends UIContainer {
     
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
     for(PageNavigation navigation: navigations) { //navigation.getOwnerId()
-      options.add(new SelectItemOption<String>(navigation.getOwnerType() + ":" + navigation.getOwnerId(), navigation.getId()));
+      options.add(new SelectItemOption<String>(navigation.getOwnerType() + ":" + navigation.getOwnerId(), String.valueOf(navigation.getId())));
     }
     UIDropDownControl uiNavigationSelector = getChild(UIDropDownControl.class);
     uiNavigationSelector.setOptions(options);
@@ -192,9 +192,9 @@ public class UIPageNodeSelector extends UIContainer {
     if(selectedNode.getNode() != null) selectPageNodeByUri(selectedNode.getNode().getUri()) ;
   }
   
-  public void selectNavigation(String id){    
+  public void selectNavigation(int id){    
     for(int i = 0; i < navigations.size(); i++){
-      if(!navigations.get(i).getId().equals(id)) continue ;
+      if(navigations.get(i).getId() != id) continue ;
       selectedNode = new SelectedNode(navigations.get(i), null, null);
       selectPageNodeByUri(null) ;
       UITree uiTree = getChild(UITree.class);
@@ -269,9 +269,9 @@ public class UIPageNodeSelector extends UIContainer {
     updateUI() ;
   }
 
-  public PageNavigation getPageNavigation(String id) {
+  public PageNavigation getPageNavigation(int id) {
     for(PageNavigation ele : getPageNavigations()) {
-      if(ele.getId().equals(id)) return ele ;
+      if(ele.getId() == id) return ele ;
     }
     return null ;
   }
@@ -292,8 +292,8 @@ public class UIPageNodeSelector extends UIContainer {
     Iterator<PageNavigation> itr = navis.iterator() ;
     UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);
     while(itr.hasNext()) {
-      PageNavigation navi = itr.next() ;
-      if(configService.getPageNavigation(navi.getId()) == null) itr.remove() ;
+      PageNavigation nav = itr.next() ;
+      if(configService.getPageNavigation(nav.getOwnerType(), nav.getOwnerId()) == null) itr.remove() ;
     }
     return navis ;
   }
@@ -370,7 +370,7 @@ public class UIPageNodeSelector extends UIContainer {
       UIDropDownControl uiDropDownControl = event.getSource();
       UIPageNodeSelector uiPageNodeSelector = uiDropDownControl.getParent();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent()) ;
-      if(id != null) uiPageNodeSelector.selectNavigation(id);
+      if(id != null) uiPageNodeSelector.selectNavigation(Integer.parseInt(id));
     }
   }
 

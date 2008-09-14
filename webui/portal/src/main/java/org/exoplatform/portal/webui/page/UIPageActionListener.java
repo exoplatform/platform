@@ -53,15 +53,13 @@ import org.exoplatform.webui.event.EventListener;
  */
 public class UIPageActionListener {
 
-  @SuppressWarnings("unchecked")
-  static public class ChangePageNodeActionListener  extends EventListener {
-    
+  static public class ChangePageNodeActionListener  extends EventListener<UIPortal> {
     private UIPortal uiPortal ;
     private List<PageNode> selectedPaths_;
     
-    public void execute(Event event) throws Exception {
-      PageNodeEvent<?> pnevent = (PageNodeEvent<?>) event ;
-      uiPortal = (UIPortal) event.getSource();
+    public void execute(Event<UIPortal> event) throws Exception {
+      PageNodeEvent<UIPortal> pnevent = (PageNodeEvent<UIPortal>) event ;
+      uiPortal = pnevent.getSource();
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       uiPortalApp.setEditting(false) ;
@@ -126,7 +124,7 @@ public class UIPageActionListener {
       uri = uri.substring(idx+2, uri.length());
       PageNavigation nav = null;
       for(PageNavigation ele : navigations){
-        if(ele.getId().equals(navId)) {
+        if(ele.getId() == Integer.parseInt(navId)) {
           nav = ele;
           break;
         }

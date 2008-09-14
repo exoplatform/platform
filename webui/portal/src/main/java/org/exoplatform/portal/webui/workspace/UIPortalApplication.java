@@ -56,18 +56,10 @@ import org.exoplatform.webui.event.Event;
  *  - UIPopupWindow: a popup window that display or not
  * 
  */
-//@ComponentConfigs({
 @ComponentConfig (
     lifecycle = UIPortalApplicationLifecycle.class,
     template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
 )
-//,
-//@ComponentConfig (
-//id = "office" ,
-//lifecycle = UIPortalApplicationLifecycle.class,
-//template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl"
-//)
-//})
 public class UIPortalApplication extends UIApplication {
 
   private boolean isEditting = false ;
@@ -246,7 +238,7 @@ public class UIPortalApplication extends UIApplication {
     nodePath_ = nodePath;
     UIPortal uiPortal = findFirstComponentOfType(UIPortal.class);
     PageNodeEvent<UIPortal> pnevent = 
-      new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, nodePath_) ;
+      new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, nodePath_) ;
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
     super.processDecode(context);
   }

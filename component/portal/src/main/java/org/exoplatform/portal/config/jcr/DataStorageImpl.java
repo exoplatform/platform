@@ -183,12 +183,16 @@ public class DataStorageImpl implements DataStorage, Startable {
     sessionProvider.close() ;
   }
   
-  public PageNavigation getPageNavigation(String id) throws Exception {
-    String[] fragments = id.split("::") ;
+  public PageNavigation getPageNavigation(String fullId) throws Exception {
+    String[] fragments = fullId.split("::") ;
     if(fragments.length < 2) {
-      throw new Exception("Invalid PageNavigation Id: " + "[" + id + "]") ;
+      throw new Exception("Invalid PageNavigation Id: " + "[" + fullId + "]") ;
     }
-    String navigationPath = getApplicationRegistryPath(fragments[0], fragments[1])
+    return getPageNavigation(fragments[0], fragments[1]) ;
+  }
+  
+  public PageNavigation getPageNavigation(String ownerType, String id) throws Exception {
+    String navigationPath = getApplicationRegistryPath(ownerType, id)
                             + "/" + NAVIGATION_CONFIG_FILE_NAME ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     RegistryEntry navigationEntry ;

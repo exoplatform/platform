@@ -135,13 +135,13 @@ public class UIPageNavigationControlBar extends UIToolbar {
       UserPortalConfigService dataService = uiPageManagement.getApplicationComponent(UserPortalConfigService.class);
       List<PageNavigation> deleteNavigations = uiNodeSelector.getDeleteNavigations();
       for(PageNavigation nav : deleteNavigations) {
-        if(dataService.getPageNavigation(nav.getId()) != null) dataService.remove(nav) ;
+        if(dataService.getPageNavigation(nav.getOwnerType(), nav.getOwnerId()) != null) dataService.remove(nav) ;
       }
       
       List<PageNavigation> navigations = uiNodeSelector.getPageNavigations();
       String accessUser = event.getRequestContext().getRemoteUser();
       for(PageNavigation nav : navigations) {       
-        if(dataService.getPageNavigation(nav.getId()) != null) {
+        if(dataService.getPageNavigation(nav.getOwnerType(), nav.getOwnerId()) != null) {
           dataService.update(nav) ;
           continue;
         }

@@ -17,7 +17,6 @@
 package org.exoplatform.portal.config.model;
 
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class PageNavigation {
   private String      ownerType;
@@ -28,6 +27,8 @@ public class PageNavigation {
   private  String     modifier ;
   private ArrayList<PageNode>	pageNodes = new ArrayList<PageNode>();
   private int         priority = 1 ;
+  
+  public int getId() { return getOwner().hashCode(); }
   
   public String getOwnerId() { return ownerId; }
   public void setOwnerId(String ownerId) { this.ownerId = ownerId; }
@@ -50,7 +51,7 @@ public class PageNavigation {
   public String getModifier() { return modifier ; }
   public void   setModifier(String s) { modifier = s ; }
   
-  public String getId() { return ownerType +"::"+ownerId; }
+  public String getOwner() { return ownerType +"::"+ownerId; }
   
   public void addNode(PageNode node) {
     if(pageNodes == null) pageNodes = new ArrayList<PageNode>();
@@ -68,7 +69,7 @@ public class PageNavigation {
 //    newNav.setAccessPermissions(accessPermissions);
 //    newNav.setEditPermission(editPermission);
     newNav.setModifiable(modifiable);
-    newNav.setDescription(description);
+//    newNav.setDescription(description);
     newNav.setCreator(creator);
     newNav.setModifier(modifier);
 

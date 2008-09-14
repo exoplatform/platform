@@ -25,17 +25,12 @@ public class  PageNodeEvent<T extends UIComponent> extends Event<T> {
   
   final static  public String CHANGE_PAGE_NODE = "ChangePageNode" ;
   
-  private String  sourceNodeUri ; 
   private String  targetNodeUri ; 
   
-  public PageNodeEvent(T source, String name, String sourceNodeUri, String  targetNodeUri) {
+  public PageNodeEvent(T source, String name, String  targetNodeUri) {
     super(source, name, null);
-    this.sourceNodeUri = sourceNodeUri ;
     this.targetNodeUri = targetNodeUri ;
   }
   
-  public String getSourceNodeUri() { return sourceNodeUri ; }
-  
   public String getTargetNodeUri() { return targetNodeUri ; }
-
 }

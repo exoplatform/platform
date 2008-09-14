@@ -92,13 +92,13 @@ public class UIPageEditWizard extends UIPageWizard {
       setNavigation(uiPortal.getNavigations(), editNav);
     }
     String uri = pageNav.getId() + "::" + uiNodeSelector.getSelectedPageNode().getUri();
-    PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;
+    PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, uri) ;
     uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
   }
   
   private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
     for(int i = 0; i < navs.size(); i++) {
-      if(navs.get(i).getId().equals(nav.getId())) {
+      if(navs.get(i).getId() == nav.getId()) {
         navs.set(i, nav);
         return;
       }

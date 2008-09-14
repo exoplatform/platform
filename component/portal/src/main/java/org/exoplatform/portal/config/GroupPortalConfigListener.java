@@ -67,7 +67,7 @@ public class GroupPortalConfigListener extends GroupEventListener {
       i++ ;
     }
     
-    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.GROUP_TYPE + "::" + groupId) ;
+    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.GROUP_TYPE, groupId) ;
     if (navigation != null) portalConfigService.remove(navigation) ;
   }
 

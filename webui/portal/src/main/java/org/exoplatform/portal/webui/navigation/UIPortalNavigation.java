@@ -109,12 +109,12 @@ public class UIPortalNavigation extends UIComponent {
       UIPortal uiPortal = Util.getUIPortal();
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
       int index = uri.lastIndexOf("::");
-      String id = uri.substring(index +2);
+      String id = uri.substring(index + 2);
       PageNavigation selectNav = null;
       if(index <= 0) {selectNav = uiPortal.getSelectedNavigation();}
       else {
         String navId = uri.substring(0, index);
-        selectNav = uiPortal.getPageNavigation(navId);
+        selectNav = uiPortal.getPageNavigation(Integer.parseInt(navId));
       }
       PageNode selectNode = PageNavigationUtils.searchPageNodeByUri(selectNav, id);
       uiNavigation.selectedNode_ = selectNode;
@@ -132,7 +132,7 @@ public class UIPortalNavigation extends UIComponent {
         }
       }
       PageNodeEvent<UIPortal> pnevent ;
-      pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, null, uri) ;      
+      pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, uri) ;      
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
     }
   }

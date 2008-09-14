@@ -88,7 +88,6 @@ public class UIPageEditBar extends UIToolbar {
     uiToolPanel.setUIComponent(uiPage_);    
   }
 
-  @SuppressWarnings("unused")
   static public class PagePreviewActionListener  extends EventListener<UIPageEditBar> {
     public void execute(Event<UIPageEditBar> event) throws Exception {
     }

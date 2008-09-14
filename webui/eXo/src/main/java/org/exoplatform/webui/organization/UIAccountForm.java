@@ -30,8 +30,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIApplication;
-import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -67,7 +65,6 @@ import org.exoplatform.webui.form.UIFormInputWithActions.ActionData;
     )
 public class UIAccountForm extends UIFormTabPane {
   
-  @SuppressWarnings("unchecked")
   public UIAccountForm(InitParams initParams) throws Exception {
     super("UIAccountForm") ;
     UIFormInputWithActions accountInputSet = new UIAccountInputSet("AccountInputSet") ;

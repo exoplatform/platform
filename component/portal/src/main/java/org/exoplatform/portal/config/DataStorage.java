@@ -89,6 +89,7 @@ public interface DataStorage {
   public void create(Page page) throws Exception ;
   
   /**
+   * @deprecated
    * This method should create  or  udate the given page object
    * @param page
    * @throws Exception
@@ -101,7 +102,17 @@ public interface DataStorage {
    * @return
    * @throws Exception
    */
-  public PageNavigation getPageNavigation(String id) throws Exception ;
+  public PageNavigation getPageNavigation(String fullId) throws Exception ;
+  
+  /**
+   * This method  should load the PageNavigation object from the database according to the ownerType
+   * and id
+   * @param ownerType
+   * @param id
+   * @return
+   * @throws Exception
+   */
+  public PageNavigation getPageNavigation(String ownerType, String id) throws Exception ;
   
   /**
    * This method should update the navigation object in the database
