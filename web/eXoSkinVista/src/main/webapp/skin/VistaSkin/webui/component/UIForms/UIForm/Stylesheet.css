@@ -49,13 +49,13 @@
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet {
-	width: 95%;
+	width: 94%;
 	padding: 10px;
 	margin: auto;
 }
 
 .HorizontalLayout .UIForm .UIFormInputSet {
-	width: 95% ;
+	width: 94% ;
 	padding: 0px;
 	margin: auto;
 }
