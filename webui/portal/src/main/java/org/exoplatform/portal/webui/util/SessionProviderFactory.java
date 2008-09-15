@@ -27,6 +27,13 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
  */
 public class SessionProviderFactory {
   
+  public static boolean isAnonim() {
+    String userId = Util.getPortalRequestContext().getRemoteUser();
+    if (userId == null)
+      return true;
+    return false;
+  }
+  
   public static SessionProvider createSystemProvider() {
     ExoContainer container = ExoContainerContext.getCurrentContainer();
     SessionProviderService service = (SessionProviderService) container.getComponentInstanceOfType(SessionProviderService.class);
