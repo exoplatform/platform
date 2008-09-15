@@ -14,7 +14,6 @@
   String onclick = "eXo.portal.UIExoStartMenu.showStartMenu(event);" ;
   
   void renderSinglePageNode(PageNavigation nav, PageNode node) {
-  	if(!node.visible) return;
     String  href = uicomponent.event("ChangePage",  nav.getId() + "::" + node.getUri()) ;
     String icon = node.getIcon();
     if(icon == null) icon = "DefaultPageIcon";
@@ -38,7 +37,6 @@
   }
   
   void renderPageNode(PageNavigation nav, PageNode node) {
-  	if(!node.visible) return;
     String  href = uicomponent.event("ChangePage",   nav.getId() + "::" +  node.getUri()) ;
     String icon = node.getIcon();
     String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;

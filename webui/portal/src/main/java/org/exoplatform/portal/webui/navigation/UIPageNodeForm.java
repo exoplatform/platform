@@ -85,6 +85,7 @@ public class UIPageNodeForm extends UIFormTabPane {
                    addValidator(IdentifierValidator.class)).
     addUIFormInput(new UIFormStringInput("label", "label", null).
                    addValidator(StringLengthValidator.class, 3, 30)).
+    addUIFormInput(new UIFormCheckBoxInput<Boolean>("visible", "visible", false)).
     addUIFormInput(uiDateInputCheck).
     addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null)).
     addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null)) ;
@@ -121,6 +122,7 @@ public class UIPageNodeForm extends UIFormTabPane {
     if( icon == null || icon.length() < 0) icon = "Default" ;
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     getUIStringInput("label").setValue(pageNode_.getLabel()) ;
+    getUIFormCheckBoxInput("visible").setChecked(pageNode_.isVisible()) ;
     setShowPublicationDate(pageNode.isShowPublicationDate()) ;
     Calendar cal = Calendar.getInstance() ;
     if(pageNode.getStartPublicationDate() != null) {
@@ -170,11 +172,11 @@ public class UIPageNodeForm extends UIFormTabPane {
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIPortalApplication uiPortalApp = uiPageNodeForm.getAncestorOfType(UIPortalApplication.class);
      
-      if(pageSelector.getPage() == null) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.selectPage", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
-        return;
-      }
+//      if(pageSelector.getPage() == null) {
+//        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.selectPage", null)) ;
+//        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
+//        return;
+//      }
       
       PageNode pageNode = uiPageNodeForm.getPageNode();
       if(pageNode == null) pageNode  = new PageNode();

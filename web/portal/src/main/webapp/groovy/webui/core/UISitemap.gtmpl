@@ -3,7 +3,6 @@
 	def navigations = uicomponent.getNavigations() ;
   public void renderNextLevelNode(nav, children, int intLevel) {
   	for(PageNode node in children) {
-  		if(!node.visible) continue;
 	    String actionLink = uicomponent.event("SelectNode", nav.getId() + "::" + node.getUri()) ;
 	    String iconType = node.getIcon();
 			if(iconType == null) {
@@ -46,7 +45,6 @@
 	        String cssfloat = "left";
 	        for(nav in navigations) { 
 	          for(node in nav.getNodes()) { 
-	          	if(!node.visible) continue;
 	            String iconType = node.getIcon();
 							if(iconType == null) {
 								iconType = "DefaultPageIcon";

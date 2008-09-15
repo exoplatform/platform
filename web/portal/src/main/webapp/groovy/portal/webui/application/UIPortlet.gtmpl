@@ -211,30 +211,41 @@
 									    </div>
 								      <% /*End Popup Menu*/ %>
 	              		</div>
-	              <%}%>
-	              <%if(isDesktop) {%>
-		            		<div class="ControlIcon MinimizedIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.Minimize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-		            		<div class="ControlIcon MaximizedIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.Maximize");%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+	              <%}
+	                String restoreDown = _ctx.appRes("UIPortlet.tooltip.MaximizeRestore");
+                  String restore = _ctx.appRes("UIPortlet.tooltip.MinimizeRestore");
+                  String miniTooltip = _ctx.appRes("UIPortlet.tooltip.Minimize");
+                  String maxiTooltip = _ctx.appRes("UIPortlet.tooltip.Maximize");
+                  String renderMaxi = maxiTooltip;
+                  String renderMini = maxiTooltip;
+              		if(windowState == WindowState.MAXIMIZED) {
+  	                renderMaxi = restoreDown;
+	                } else if(windowState == WindowState.MINIMIZED) {
+  	                renderMini = restore;
+	                }
+	              	if(isDesktop) {%>
+		            		<div class="ControlIcon MinimizedIcon" title="$renderMini" normalTitle="$miniTooltip" modeTitle="$restore"
+		            				onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+		            		<div class="ControlIcon MaximizedIcon" title="$renderMaxi" normalTitle="$maxiTooltip" modeTitle="$restoreDown"
+		            				onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 		            <%
 		              } else if(uicomponent.getShowWindowState()) {	                    
-		                String maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'maximized');" ;
+		                String maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'maximized');";
 		                String minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'minimized');";
 		                String maximizedMode = "Maximized";
 		                String minimizedMode = "Minimized";
-		                String restoreDown = "Maximized";
-	                  String restore = "Minimized";
 		                if(windowState == WindowState.MAXIMIZED) {
 	  	                maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'normal');" ;
 	  	                maximizedMode = "Normal";
-	  	                restoreDown = _ctx.appRes("UIPortlet.tooltip.MaximizeRestore");
 		                } else if(windowState == WindowState.MINIMIZED) {
 		                  minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'normal');" ;
 	  	                minimizedMode = "Normal";
-	  	                restore = _ctx.appRes("UIPortlet.tooltip.MinimizeRestore");
 		                }
 	              %>
-		                <div class="ControlIcon ${minimizedMode}Icon" onclick="$minimizedAction" title="<%=restore;%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
-		            		<div class="ControlIcon ${maximizedMode}Icon" onclick="$maximizedAction" title="<%=restoreDown;%>" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
+		                <div class="ControlIcon ${minimizedMode}Icon" title="$renderMini" normalTitle="$miniTooltip" modeTitle="$restore"
+		                		onclick="$minimizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+		                <div class="ControlIcon ${maximizedMode}Icon" title="$renderMaxi" normalTitle="$maxiTooltip" modeTitle="$restoreDown"
+		                		onclick="$maximizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	              <%}%>    
 	              <div style="clear: left"><span></span></div>  
 	            </div>

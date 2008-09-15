@@ -48,7 +48,6 @@
   }
   
   public void renderChildNode(PageNavigation nav, PageNode node) {
-  	if(!node.visible) return;
     PageNode selectedNode = uicomponent.getSelectedPageNode() ;
     PageNavigation selectedNav = uicomponent.getSelectedNavigation() ;
   	String tabStyleNavigation = "NormalItem" ; // OverItem
@@ -127,7 +126,6 @@
   		            PageNode selectedNode = uicomponent.getSelectedPageNode() ;
 		              def pageNodes = nav.getNodes() ;
 		              for(PageNode node in pageNodes) {
-		              	if(!node.visible) continue;
 		                String tabStyleNavigation = "NormalNavigationTab" ;
 		                if(selectedNode != null && selectedNav != null &&
 		                   selectedNav.getId() == nav.getId() &&

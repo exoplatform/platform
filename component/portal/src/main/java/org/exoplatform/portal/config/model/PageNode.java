@@ -88,7 +88,7 @@ public class PageNode  {
     return visible ; 
   }
   
-  public void setVisible(boolean b) { visible = b ; }
+  public void setVisible(Boolean b) { visible = b.booleanValue() ; }
   
   public void setShowPublicationDate(Boolean show) { showPublicationDate = show.booleanValue() ; }
   public boolean isShowPublicationDate() { return showPublicationDate ; }
