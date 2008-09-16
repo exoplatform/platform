@@ -47,7 +47,8 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = UIDashboardPortlet.MoveGadgetActionListener.class),
     @EventConfig(listeners = UIDashboardPortlet.AddNewGadgetActionListener.class),
     @EventConfig(listeners = UIDashboardPortlet.SetShowSelectFormActionListener.class),
-    @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class)
+    @EventConfig(listeners = UIDashboardPortlet.DeleteGadgetActionListener.class),
+    @EventConfig(listeners = UIDashboardPortlet.MinimizeGadgetActionListener.class)
    }
 )
 })
@@ -59,8 +60,6 @@ public class UIDashboardPortlet extends UIPortletApplication {
   public static final String COLINDEX = "colIndex";
 
   public static final String ROWINDEX = "rowIndex";
-
-  public static final String OBJECTID = "objectId";
 
   public UIDashboardPortlet() throws Exception {
     PortletRequestContext context = (PortletRequestContext) WebuiRequestContext
@@ -135,6 +134,19 @@ public class UIDashboardPortlet extends UIPortletApplication {
       UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
       uiDashboardContainer.removeUIGadget(objectId);
       uiDashboardContainer.save();
+    }
+  }
+  
+  public static class MinimizeGadgetActionListener extends EventListener<UIDashboardPortlet> {
+    public final void execute(final Event<UIDashboardPortlet> event) throws Exception {
+      WebuiRequestContext context = event.getRequestContext() ;
+      UIDashboardPortlet uiPortlet = event.getSource() ;
+      String objectId = context.getRequestParameter(OBJECTID) ;
+      String minimized = context.getRequestParameter("minimized") ;
+      
+      UIGadget uiGadget = uiPortlet.getChild(UIDashboardContainer.class).getUIGadget(objectId) ;
+      uiGadget.getProperties().setProperty("minimized", minimized) ;
+      uiPortlet.getChild(UIDashboardContainer.class).save() ;
     }
   }
 }

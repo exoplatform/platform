@@ -145,12 +145,10 @@ public class UIPageNodeSelector extends UIContainer {
 	}
 	
   public void loadNavigations() throws Exception {
-    String remoteUser = Util.getPortalRequestContext().getRemoteUser();
     navigations = new ArrayList<PageNavigation>();
     List<PageNavigation> pnavigations = getExistedNavigation(Util.getUIPortal().getNavigations()) ;
-    UserACL userACL = getApplicationComponent(UserACL.class);
     for(PageNavigation nav  : pnavigations){      
-      navigations.add(nav);
+      if(nav.isModifiable()) navigations.add(nav);
     }
     
     updateUI() ;

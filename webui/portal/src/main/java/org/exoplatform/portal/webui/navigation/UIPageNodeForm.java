@@ -85,7 +85,7 @@ public class UIPageNodeForm extends UIFormTabPane {
                    addValidator(IdentifierValidator.class)).
     addUIFormInput(new UIFormStringInput("label", "label", null).
                    addValidator(StringLengthValidator.class, 3, 30)).
-    addUIFormInput(new UIFormCheckBoxInput<Boolean>("visible", "visible", false)).
+    addUIFormInput(new UIFormCheckBoxInput<Boolean>("visible", "visible", true)).
     addUIFormInput(uiDateInputCheck).
     addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null)).
     addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null)) ;

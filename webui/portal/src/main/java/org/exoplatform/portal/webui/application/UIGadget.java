@@ -18,7 +18,6 @@ package org.exoplatform.portal.webui.application;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.webui.util.Util;

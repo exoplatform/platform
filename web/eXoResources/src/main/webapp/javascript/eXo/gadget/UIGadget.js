@@ -48,6 +48,7 @@ eXo.gadget.UIGadget = {
 		} else{
 			var gadgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetControl");
 			gadgetControl.style.display = "block" ;
+			eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "MinimizeGadget").style.display = "block" ;
 			eXo.core.DOMUtil.findFirstDescendantByClass(gadgetControl, "div", "GadgetTitle").style.display = "block" ;
 		}
 		
@@ -153,7 +154,32 @@ eXo.gadget.UIGadget = {
 	},
 	
 	minimizeGadget: function(selectedElement){
-		alert("minimize");
+		var DOMUtil = eXo.core.DOMUtil ;
+		var	uiGadget = DOMUtil.findAncestorByClass(selectedElement, "UIGadget") ;
+		var portletFrag = DOMUtil.findAncestorById(uiGadget, "PORTLET-FRAGMENT") ;
+		if (!portletFrag) return;
+		
+		var gadgetApp = DOMUtil.findFirstChildByClass(uiGadget, "div", "GadgetApplication") ;
+		var minimized = false;
+		if(gadgetApp.style.display != "none") {
+			minimized = true ;
+			gadgetApp.style.display = "none" ;
+			DOMUtil.replaceClass(selectedElement, "MinimizeGadget", "RestoreGadget") ;
+		} else {
+			minimized = false ;
+			gadgetApp.style.display = "block" ;
+			DOMUtil.replaceClass(selectedElement, "RestoreGadget", "MinimizeGadget") ;
+		}
+		
+		
+		var compId = portletFrag.parentNode.id;
+		var uicomp = DOMUtil.getChildrenByTagName(portletFrag, "div")[0].className ;
+		var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId ;
+		href += "&portal:type=action&uicomponent=" + uicomp ;
+		href += "&op=MinimizeGadget" ;
+		href += "&minimized="+minimized;
+		href += "&objectId=" + uiGadget.id + "&ajaxRequest=true" ;
+		ajaxAsyncGetRequest(href) ;
 	},
 
 	deleteGadget : function(selectedElement) {
