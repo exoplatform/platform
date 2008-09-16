@@ -60,3 +60,7 @@
 .UIPage .PageLayoutDecorator .BottomCenterPage .FixBug {
   height: 15px;
 }
+
+.UIPage .UIRowContainer {
+	padding: 1px;
+}

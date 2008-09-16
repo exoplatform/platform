@@ -64,7 +64,6 @@
   height: 38px ;   
 }
 
-.UIPage .UIRowContainer .UITabContainer .UIHorizontalTabs {
-  padding: 0px;
+.UIPage .UIRowContainer {
+	padding: 1px;
 }
-

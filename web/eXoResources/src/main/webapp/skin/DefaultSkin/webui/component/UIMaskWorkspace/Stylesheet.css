@@ -33,11 +33,6 @@
 	background: #f5f5f5;
 }
 
-.UIMaskWorkspace .MaskContainer .UIFormTabPane .TabPaneContent .UITabContentContainer {
-	border: 1px solid #c7c7c7;
-	border-top: none;
-}
-
 .UIMaskWorkspace .BottomLeftDecorator {
 	background: url('background/MaskWorkspace.gif') no-repeat left bottom;
 	padding: 0px 0px 0px 4px ;
@@ -58,9 +53,6 @@
 	height: auto;
 }
 
-.UIMaskWorkspace .UINodeIconSelector .SelectedIconInfo .UIFormInputSet {
-	padding: 0px;
-}
 /***********************************	UITabContent	************************************/
 .UIMaskWorkspace .UIFormTabPane {
 	padding: 10px;
