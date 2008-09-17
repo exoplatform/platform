@@ -23,18 +23,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.DeleteNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.EditNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.SaveNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.AddNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CopyNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CutNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.DeleteNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditPageNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditSelectedNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.MoveDownActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.MoveUpActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNodeActionListener;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -44,7 +32,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.UIWizard;
@@ -56,10 +43,10 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.validator.DateTimeValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
-import org.exoplatform.webui.form.validator.DateTimeValidator;
 
 /**
  * Created by The eXo Platform SARL
