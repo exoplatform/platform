@@ -22,8 +22,7 @@
 											<div class="SeperatorLine"><span></span></div>
 												<a class="SettingIcon" onclick="$changeLanguageAction">
 													<%=_ctx.appRes("UIChangeLanguage.title.LanguageSetting")%>
-												</a>
-											<div style="clear: left;"><span></span></div>
+												</a>											
 										</div>
 								  	<div class="LoginLeft" style="float: left">
 								  		<%=_ctx.appRes("UILogged.note.loggedUser")%>
@@ -34,7 +33,8 @@
 									  <div class="LoginRight" style="float: left;" title="Sign Out">
 									    <div class="LoginSeperatorLine"><span></span></div>				  	
 											<a class="LogoutIcon" onclick="eXo.portal.logout();"><%=_ctx.appRes("UILogged.action.signout")%></a>
-										</div>										
+										</div>		
+										<div style="clear: left;"><span></span></div>								
 								<%} else {%>
 										<div class="SignIn">
 											<a class="LoginIcon" onclick="$signInAction"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>								
