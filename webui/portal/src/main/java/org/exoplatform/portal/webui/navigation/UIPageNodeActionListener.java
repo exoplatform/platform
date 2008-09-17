@@ -161,8 +161,7 @@ public class UIPageNodeActionListener {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {     
       UIRightClickPopupMenu popupMenu = event.getSource();
       UIComponent parent = popupMenu.getParent();
-      UIPageNodeSelector uiPageNodeSelector = parent.getParent();
-      int selectIndex = 1;
+      UIPageNodeSelector uiPageNodeSelector = parent.getParent();     
       UIPortalApplication uiApp = uiPageNodeSelector.getAncestorOfType(UIPortalApplication.class);      
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
@@ -176,7 +175,7 @@ public class UIPageNodeActionListener {
       UserPortalConfigService service = parent.getApplicationComponent(UserPortalConfigService.class);
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIPortalApplication uiPortalApp = parent.getAncestorOfType(UIPortalApplication.class);
-      Page node = service.getPage(pageId) ;
+      Page node = (pageId != null) ? service.getPage(pageId) : null ;
       if(node != null) {
         UserACL userACL = parent.getApplicationComponent(UserACL.class) ;
         if(!userACL.hasPermission(node, pcontext.getRemoteUser())) {
@@ -184,17 +183,12 @@ public class UIPageNodeActionListener {
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
           return;
         }
-      } else {               
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{pageId},1)) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
-        selectIndex = 2;
-      }
+      } 
       
       UIPageNodeForm uiNodeForm = uiMaskWS.createUIComponent(UIPageNodeForm.class, null, null);
       uiMaskWS.setUIComponent(uiNodeForm);     
       uiNodeForm.setValues(selectedNode);
-      uiNodeForm.setSelectedParent(obj);
-      uiNodeForm.setSelectedTab(selectIndex);
+      uiNodeForm.setSelectedParent(obj);    
     }
   }
 

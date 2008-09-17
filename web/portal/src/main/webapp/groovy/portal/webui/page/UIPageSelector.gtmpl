@@ -1,7 +1,9 @@
-<% import org.exoplatform.portal.config.model.Page; %>
-<% import org.exoplatform.webui.core.UIPopupWindow; %>
+<% 
+	import org.exoplatform.portal.config.model.Page; 
+	import org.exoplatform.webui.core.UIPopupWindow;
+	import org.exoplatform.webui.form.UIForm; 
 
-<%
+
 	Page page  = uicomponent.getPage();    
 	String name = "";
 	String title = "";
@@ -52,6 +54,26 @@
 	  <table align="center" class="ActionContainer">
 	  	<tr>
 	  		<td align="center">
+  			 <%
+		      String clearPageEvent = "#" ;
+		      String css = "FloatBlockHidden ActionButton SimpleStyle" ;
+	      	def uiForm = uicomponent.getAncestorOfType(UIForm.class) ;
+		      if(page != null) {
+		      	clearPageEvent = uiForm.event("ClearPage") ;
+		      	css = "ActionButton SimpleStyle" ;
+		      } 
+		      %>
+	  			<a href="<%=clearPageEvent%>" class="<%=css%>">
+			      <div class="ButtonLeft">
+			        <div class="ButtonRight">
+			          <div class="ButtonMiddle">
+			          	<div class="DustBin16x16Icon Icon" title="<%=_ctx.appRes(uicomponent.getId()+".label.clearPage")%>">
+					        		<%=_ctx.appRes(uicomponent.getId() + ".label.clearPage")%>
+					        </div>
+			      	 	</div>
+					    </div>
+			    	</div>			    
+			  	</a> 
 	  			<a class="ActionButton SimpleStyle" href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
 				    <div class="ButtonLeft">
 				      <div class="ButtonRight">

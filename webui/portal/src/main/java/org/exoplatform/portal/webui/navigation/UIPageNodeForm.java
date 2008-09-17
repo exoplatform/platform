@@ -61,7 +61,8 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
     events = {
       @EventConfig(listeners = UIPageNodeForm.SaveActionListener.class ),
       @EventConfig(phase = Phase.DECODE, listeners = UIMaskWorkspace.CloseActionListener.class ),
-      @EventConfig(listeners = UIPageNodeForm.SwitchPublicationDateActionListener.class, phase = Phase.DECODE )
+      @EventConfig(listeners = UIPageNodeForm.SwitchPublicationDateActionListener.class, phase = Phase.DECODE ),
+      @EventConfig(listeners = UIPageNodeForm.ClearPageActionListener.class, phase = Phase.DECODE)
     }
 )
 public class UIPageNodeForm extends UIFormTabPane {
@@ -85,7 +86,7 @@ public class UIPageNodeForm extends UIFormTabPane {
                    addValidator(IdentifierValidator.class)).
     addUIFormInput(new UIFormStringInput("label", "label", null).
                    addValidator(StringLengthValidator.class, 3, 30)).
-    addUIFormInput(new UIFormCheckBoxInput<Boolean>("visible", "visible", true)).
+    addUIFormInput(new UIFormCheckBoxInput<Boolean>("visible", "visible", true).setChecked(true)).
     addUIFormInput(uiDateInputCheck).
     addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null)).
     addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null)) ;
@@ -181,6 +182,7 @@ public class UIPageNodeForm extends UIFormTabPane {
       PageNode pageNode = uiPageNodeForm.getPageNode();
       if(pageNode == null) pageNode  = new PageNode();
       uiPageNodeForm.invokeSetBindingBean(pageNode) ;
+      if(pageSelector.getPage() == null) pageNode.setPageReference(null) ;
       UIFormInputIconSelector uiIconSelector = uiPageNodeForm.getChild(UIFormInputIconSelector.class);
       
       if(uiIconSelector.getSelectedIcon().equals("Default")) pageNode.setIcon(null);
@@ -189,7 +191,8 @@ public class UIPageNodeForm extends UIFormTabPane {
       UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
       UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
-      UIPage uiPage = Util.toUIPage(pageSelector.getPage(),uiToolPanel);
+      UIPage uiPage = null;
+      if(pageSelector.getPage() != null) uiPage = Util.toUIPage(pageSelector.getPage(),uiToolPanel);
       uiToolPanel.setShowMaskLayer(true);
       uiToolPanel.setUIComponent(uiPage);
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
@@ -247,10 +250,12 @@ public class UIPageNodeForm extends UIFormTabPane {
       pageNodeSelector.selectPageNodeByUri(pageNode.getUri());
       UIPageEditBar editBar = uiManagement.getChild(UIPageEditBar.class);
       editBar.setUIPage(uiPage);
-      if(uiPage.getFactoryId() != null) {
-        editBar.setRendered(uiPage.isModifiable() && !uiPage.getFactoryId().equals("Desktop"));
-      } else {
-        editBar.setRendered(uiPage.isModifiable());
+      if(uiPage != null) {
+        if(uiPage.getFactoryId() != null) {
+          editBar.setRendered(uiPage.isModifiable() && !uiPage.getFactoryId().equals("Desktop"));
+        } else {
+          editBar.setRendered(uiPage.isModifiable());
+        }
       }
       pcontext.addUIComponentToUpdateByAjax(uiManagement);   
       pcontext.addUIComponentToUpdateByAjax(uiToolPanel.getParent());
@@ -267,5 +272,13 @@ public class UIPageNodeForm extends UIFormTabPane {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm) ;
     } 
   }  
-
+  
+  static public class ClearPageActionListener extends EventListener<UIPageNodeForm> {
+    public void execute(Event<UIPageNodeForm> event) throws Exception {
+      UIPageNodeForm uiForm = event.getSource() ;
+      UIPageSelector pageSelector = uiForm.findFirstComponentOfType(UIPageSelector.class) ;
+      pageSelector.setPage(null) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(pageSelector) ;
+    }
+  }
 }

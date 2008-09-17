@@ -21,7 +21,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -319,7 +318,7 @@ public class UIPageNodeSelector extends UIContainer {
       if(uiPageNodeSelector.getSelectedNode() == null) {
         node = Util.getUIPortal().getSelectedNode();
       } else {
-      node  = uiPageNodeSelector.getSelectedNode().getNode();
+        node  = uiPageNodeSelector.getSelectedNode().getNode();
       }
       if(node == null) {
         uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId());
@@ -328,7 +327,10 @@ public class UIPageNodeSelector extends UIContainer {
       }
       
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
-      Page page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
+      Page page = null;
+      if(node.getPageReference() != null) {
+       page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
+      } 
       
       if(page == null){
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      

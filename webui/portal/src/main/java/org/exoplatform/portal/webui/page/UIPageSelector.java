@@ -47,7 +47,7 @@ import org.exoplatform.webui.form.UIFormPopupWindow;
       id = "SelectPage",
       type = UIPageBrowser.class,
       template = "app:/groovy/portal/webui/page/UIPageBrowser.gtmpl" ,      
-      events = @EventConfig(listeners = UIPageSelector.SelectPageActionListener.class) 
+      events = @EventConfig(listeners = UIPageSelector.SelectPageActionListener.class)
   )
 })
 public class UIPageSelector extends UIFormInputContainer<String> {
@@ -91,6 +91,10 @@ public class UIPageSelector extends UIFormInputContainer<String> {
   }
   
   public Page getPage() { return page_; }
+  
+  public void setPage(Page page) {
+    page_ = page;
+  }
 
   public Class<String> getTypeValue() {  return String.class ; }
 
@@ -124,5 +128,5 @@ public class UIPageSelector extends UIFormInputContainer<String> {
       //---------------------------------------------------
     }
   }
-  
+ 
 }

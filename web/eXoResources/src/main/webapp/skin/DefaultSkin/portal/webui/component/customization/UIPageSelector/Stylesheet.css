@@ -53,3 +53,8 @@
   color: #3176e3;
   padding: 4px;
 }
+
+.UIPageSelector .FloatBlockHidden {
+	filter:alpha(opacity=30);-moz-opacity:.30;opacity:.30 ;
+	cursor: default;
+}
