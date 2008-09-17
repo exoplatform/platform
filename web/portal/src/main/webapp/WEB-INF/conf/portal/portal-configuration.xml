@@ -76,8 +76,7 @@
 	          <object type="org.exoplatform.portal.config.NewPortalConfig">
 	            <field  name="predefinedOwner">
 	              <collection type="java.util.HashSet">                
-	                <value><string>classic</string></value>
-	                <value><string>webos</string></value>
+	                <value><string>classic</string></value>	               
 	              </collection>
 	            </field>
 	            <field  name="ownerType"><string>portal</string></field>

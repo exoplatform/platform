@@ -7,66 +7,7 @@
     <name>web</name>
     <access-permissions>*:/guest</access-permissions>
     <edit-permission>owner:/portal/admin</edit-permission>
-  </page>
-  
-  <page>
-  	<page-id>group::portal/admin::administration</page-id>
-  	<owner-type>group</owner-type>
-    <owner-id>portal/admin</owner-id>  	
-    <name>administration</name>
-    <factory-id>Desktop</factory-id>
-    <access-permissions>*:/guest</access-permissions>
-    <edit-permission>owner:/portal/admin</edit-permission>
-    <show-max-window>true</show-max-window>
-    
-    <application location-x="100" location-y="150">
-      <instance-id>portal:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget</instance-id>
-      <application-type>eXoWidget</application-type>
-    </application>
-   
-    <application>
-      <instance-id>group#portal/admin:/exoadmin/OrganizationPortlet/Organization</instance-id>
-      <title>Organization Portlet</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>  
-
-    <application>
-      <instance-id>group#portal/admin:/exoadmin/AccountPortlet/Account</instance-id>
-      <title>Account Portlet</title>
-      <show-info-bar>false</show-info-bar>
-    </application>  
-
-    <application>
-      <instance-id>group#portal/admin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
-      <title>Portlet-Registry Portlet</title>
-      <show-info-bar>false</show-info-bar>
-    </application>  
-
-    <application>
-      <instance-id>group#portal/admin:/exoadmin/I18nPortlet/i18n</instance-id>
-      <title>Internationalization Portlet</title>
-      <show-info-bar>false</show-info-bar>
-    </application>  
-
-    <application>
-      <instance-id>group#portal/admin:/web/BrowserPortlet/BrowserPortlet</instance-id>
-      <title>Browser Portlet</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>  
-
-    <application>
-      <instance-id>group#portal/admin:/web/ConsolePortlet/ConsolePortlet</instance-id>
-      <title>Console Portlet</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>  
-    
-  </page> 
+  </page>  
   
   <page>
   	<page-id>group::portal/admin::portletregistry</page-id>
@@ -262,60 +203,7 @@
       <show-application-state>true</show-application-state>
     </application>  
   </page>
-  
-  <page>
-  	<page-id>group::portal/admin::ecmdesktop</page-id>
-  	<owner-type>group</owner-type>
-    <owner-id>portal/admin</owner-id>
-    <name>ecmdesktop</name>    
-    <factory-id>Desktop</factory-id>
-    <access-permissions>*:/guest</access-permissions>
-    <edit-permission>owner:/portal/admin</edit-permission>          
-    <show-max-window>true</show-max-window>
-
-    <application>
-      <instance-id>group#portal/admin:/ecm/ECMAdminPortlet/ecmadmin</instance-id>    
-      <title>ECMAdmin</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-mode>true</show-application-mode>
-    </application>  
-
-    <application>
-      <instance-id>group#portal/admin:/ecm/FileExplorerPortlet/fileexplorer</instance-id>
-      <title>File Explorer</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-mode>true</show-application-mode>
-    </application>   
     
-    <application>
-      <instance-id>group#portal/admin:/ecm/FastContentCreatorPortlet/fastcontentcreator</instance-id>
-      <title>Fast Content Creator</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-mode>true</show-application-mode>
-    </application>  
-  
-    <application>
-      <instance-id>group#portal/admin:/ecm/ContentBrowserPortlet/contentbrowser</instance-id>
-      <title>Content Browser</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-mode>true</show-application-mode>
-    </application>
-        
-    <application>
-      <instance-id>group#portal/admin:/workflow/WorkflowControllerPortlet/workflowcontroller</instance-id>
-      <title>Workflow Controller</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-mode>true</show-application-mode>
-    </application>    
-
-    <application>
-      <instance-id>group#portal/admin:/workflow/WorkflowAdministrationPortlet/workflowadministration</instance-id>    
-      <title>Workflow Administration</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-mode>true</show-application-mode>
-    </application>    
-  </page>
-  
   <page>
   	<page-id>group::portal/admin::groupwaredesktop</page-id>
   	<owner-type>group</owner-type>

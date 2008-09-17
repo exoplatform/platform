@@ -1,49 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>  
-  <page>
-  	<page-id>group::platform/administrators::administration</page-id>    
-  	<owner-type>group</owner-type>
-    <owner-id>platform/administrators</owner-id>
-    <name>administration</name>
-    <factory-id>Desktop</factory-id>
-    <access-permissions>manager:/platform/administrators</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <show-max-window>true</show-max-window>
-    
-    <application location-x="100" location-y="150">
-      <instance-id>portal:/eXoWidgetWeb/WelcomeWidget/WelcomeWidget</instance-id>
-      <application-type>eXoWidget</application-type>
-    </application>
-    
-    <application>
-      <instance-id>group#platform/administrators:/exoadmin/AccountPortlet/Account</instance-id>
-      <title>New Account</title>
-      <show-application-state>true</show-application-state>
-    </application>  
-   
-    <application>
-      <instance-id>group#platform/administrators:/exoadmin/OrganizationPortlet/Organization</instance-id>
-      <title>Community Management</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>      
-    </application>     
-    
-    <application>
-      <instance-id>group#platform/administrators:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
-      <title>Application Registry</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-    </application>  
-
-    <application>
-      <instance-id>group#platform/administrators:/exoadmin/I18nPortlet/i18n</instance-id>
-      <title>Internationalization</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-    </application>
-               
-  </page>    
-         
+          
   <page>
   	<page-id>group::platform/administrators::newAccount</page-id>
   	<owner-type>group</owner-type>

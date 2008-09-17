@@ -16,8 +16,7 @@
       <uri>administration</uri>
       <name>Administration</name>
       <label>#{administration}</label>     
-      <page-reference>group::platform/administrators::administration</page-reference>      
-      
+          
       <node>
 		    <uri>administration/applicationregistry</uri>
 		    <name>applicationregistry</name>

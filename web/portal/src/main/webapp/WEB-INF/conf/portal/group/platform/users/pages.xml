@@ -13,51 +13,7 @@
       <show-info-bar>false</show-info-bar>
     </application>  
   </page>               
-    
-  <page>
-  	<page-id>group::platform/users::mylink</page-id>
-  	<owner-type>group</owner-type>
-    <owner-id>platform/users</owner-id>
-    <name>mylink</name>
-    <factory-id>Desktop</factory-id>
-    <access-permissions>*:/platform/users</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <show-max-window>true</show-max-window>
-    
-    <application>
-      <instance-id>group#platform/users:/web/IFramePortlet/blog</instance-id>
-      <title>Blog</title>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>
-    
-    <application>
-      <instance-id>group#platform/users:/web/IFramePortlet/google</instance-id>
-      <title>Google</title>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>
-    
-    <application>
-      <instance-id>group#platform/users:/web/IFramePortlet/facebook</instance-id>
-      <title>FaceBook</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>
-    
-    <application>
-      <instance-id>group#platform/users:/web/BrowserPortlet/WebExplorer</instance-id>
-      <title>Web Explorer</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>
-                         
-  </page>
-  
+       
   <page>
   	<page-id>group::platform/users::mylink-blog</page-id>
   	<owner-type>group</owner-type>

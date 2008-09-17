@@ -9,7 +9,6 @@
       <uri>organization</uri>
       <name>organization</name>
       <label>#{organization}</label>
-      <page-reference>group::organization/management/executive-board::organization</page-reference>
       
       <node>
 	      <uri>organization/newStaff</uri>

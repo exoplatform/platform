@@ -11,11 +11,5 @@ List options = new ArrayList();
       new PortalTemplateConfigOption("", "classic", "Classic Portal", "ClassicPortal").addGroup("/platform/guests")
   );
   options.add(guest);
-
-  SelectItemCategory webos = new SelectItemCategory("WebOSPortal");
-  webos.addSelectItemOption(
-    new PortalTemplateConfigOption("", "webos", "WebOS Portal", "WebOSPortal").addGroup("/platform/guests")
-  );
-  options.add(webos);
   
 return options ;

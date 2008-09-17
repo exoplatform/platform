@@ -1,34 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <page-set>
-	
-	<page>
-  	<page-id>group::platform/guests::webos</page-id>
-  	<owner-type>group</owner-type>
-		<owner-id>platform/guests</owner-id>
-    <name>webos</name>		
-    <factory-id>Desktop</factory-id>
-	  <access-permissions>*:/platform/guests</access-permissions>
-	  <edit-permission>*:/platform/administrators</edit-permission>
-    <show-max-window>true</show-max-window>
-                    	  
-	  <application>
-      <instance-id>group#platform/guests:/exoadmin/AccountPortlet/webosAccount</instance-id>    
-      <title>Register</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>true</show-application-mode>
-    </application>           
-    
-    <application>
-      <instance-id>group#platform/guests:/web/IFramePortlet/blog</instance-id>
-      <title>Blog</title>
-      <show-info-bar>true</show-info-bar>
-      <show-application-state>true</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </application>
-                                                    
-  </page>
-  		
+		 		
   <page>
   	<page-id>group::platform/guests::register</page-id>
     <owner-type>group</owner-type>

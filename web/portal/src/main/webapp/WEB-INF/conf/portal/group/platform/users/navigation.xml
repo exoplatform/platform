@@ -9,8 +9,7 @@
 	  <node>
 	    <uri>mylink</uri>
 	    <name>mylink</name>
-	    <label>#{platform.users.mylink}</label>
-	    <page-reference>group::platform/users::mylink</page-reference>
+	    <label>#{platform.users.mylink}</label>	  
 	    
 		  <node>
 		    <uri>mylink/blog</uri>

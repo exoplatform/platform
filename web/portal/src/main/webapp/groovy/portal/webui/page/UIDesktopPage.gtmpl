@@ -218,17 +218,12 @@
               title = popupId;
               uiChild.setTitle(title);
             }
-            
-            //String removeChildAction = uicomponent.event("RemoveChild", popupId) ;
-        
             uiChild.setShowInfoBar(true);
             uiChild.setPortletStyle("Window");
 	          uicomponent.renderUIComponent(uiChild);
 	          
 	          String posX = uiChild.getProperties().get("locationX");
 	          String posY = uiChild.getProperties().get("locationY");
-	          
-	          //System.out.println("\n\n\n\n\n\n\n\n GET POSX: "+posX+" \n GET POSY: "+posY+"\n\n\n\n\n\n\n\n");
 	          
 	          if(posX == null) posX = (String)x ;
 	          if(posY == null) posY = (String)y ;
@@ -312,11 +307,12 @@
 			
                   <img class="Separator" src="/webosResources/skin/Defaultskin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
                   <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/ShowPortletsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowPortletDesktop")%></span>
-                  <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/HideWidgetsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
+                  <img id="eXoWebOSResources" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/HideWidgetsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
                 </div>
               </div>
             </div>
           </div>
+
         </div> 
       </div>
     </div>
