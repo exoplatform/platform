@@ -1,6 +1,8 @@
 <%
 	import org.exoplatform.applicationregistry.util.Util;
-	def localPortlets = uicomponent.getLocalPortlets();
+	def portlets = uicomponent.getPortlets();
+	def portletTypes = uicomponent.getPortletTypes();
+	String selectedType = uicomponent.getSelectedType();
 %>
 <div class="UIPortletManagement" id="$uicomponent.id">
 	<div class="AppRegistryContainer">
@@ -9,14 +11,17 @@
 				<div class="ControlArea" style="height: 400px;">
 				
 					<div class="CategoryContent">
+					<% for(type in portletTypes) {%>
 						<div>
-							<div class="TitleCategory">LOCAL</div>
+							<div class="TitleCategory" onclick="<%= uicomponent.event("SelectPortletType", type) %>">$type</div>
+							<% if(type.equals(selectedType)) {%>	
 			   	    <div class="ListContent">	
 			   	    	
 			   	    	<div class="UIVerticalSlideTabs">
 			   	    		<div class="UIVTab VTabSimpleStyle">
 									  <div class="UIVTabContent" style="display: block">
-									  <% for(portlet in localPortlets) {
+									  
+									  <% for(portlet in portlets) {
 									  	 		String name = portlet.getPortletName() ;
 									  %>
 											<div class="ItemContent SelectedItem">
@@ -29,37 +34,9 @@
 			   	    	</div>	
 			   	    	        	
 							</div>
+							<% } %>
 						</div>
-						
-						<div>
-							<div class="TitleCategory">REMOTE</div>
-			   	    <div class="ListContent">	
-			   	    	
-			   	    	<div class="UIVerticalSlideTabs">
-			   	    	
-			   	    		<div class="UIVTab VTabSimpleStyle">
-							      
-									  <div class="UIVTabContent" style="display: block">
-											<div class="ItemContent SelectedItem">
-												<a href="#" class="ItemLabel">Portlet 1</a>
-							          <div style="clear: both"><span></span></div>
-											</div>
-											<div class="ItemContent NormalItem">
-												<a href="#" class="ItemLabel">Portlet 2</a>
-							          <div style="clear: both"><span></span></div>
-											</div>
-											<div class="ItemContent NormalItem">
-												<a href="#" class="ItemLabel">Portlet 4</a>
-							          <div style="clear: both"><span></span></div>
-											</div>
-										</div>
-									</div>
-									
-			   	    		
-			   	    	</div>	
-			   	    	        	
-							</div>
-						</div>
+					<% } %>							
 					</div>
 					
 					

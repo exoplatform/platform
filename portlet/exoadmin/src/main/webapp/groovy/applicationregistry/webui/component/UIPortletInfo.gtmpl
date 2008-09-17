@@ -2,6 +2,7 @@
 	import org.exoplatform.applicationregistry.util.Util;
 	def portlet = uicomponent.getPortlet();
 	String name = portlet.getPortletName();
+	String portletType = uicomponent.getPortletType();
 %>
 <div class="UIPortletInfo" id="$uicomponent.id">	
 	<div class="AppWorkingArea">
@@ -11,9 +12,9 @@
 		    <div class="RightBreadcumbsBar">
 		      <div class="BreadcumbsInfoBar">
 		  	  	<div class="HomeIcon LeftBlock BCHome16x16Icon"><span></span></div>
-	          <a class="LeftBlock" href="#">Categorie Name</a> 		          		              
+	          <a class="LeftBlock" href="#">$portletType</a> 		          		              
         	<div class="RightBlackGridArrowIcon LeftBlock RightBlackGridArrow16x16Icon"><span></span></div>	                
-	          <a class="Selected" href="#">Portlet 1</a> 		          		              
+	          <a class="Selected" href="#">$name</a> 		          		              
 				    <div style="clear: left;"><span></span></div>
 		      </div>
 		    </div>

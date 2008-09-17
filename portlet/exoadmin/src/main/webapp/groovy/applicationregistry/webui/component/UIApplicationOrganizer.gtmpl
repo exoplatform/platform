@@ -26,18 +26,19 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 		   	    	
 		   	    	<div class="UIVerticalSlideTabs">
 			   	    <% 
+				 			  String cTab, cName, description, displayName, clickEvt;
+				 			  boolean isSelected = false;
 							  for(category in categories) { 			     
-				 			    String cTab, cName , display, description, displayName, clickEvt;
 							    cName  = category.getName();
 							    displayName =category.getDisplayName();
 							    if(displayName == null || displayName.length() < 1 ) displayName = cName;
 							    if(selectedCategory != null && cName == selectedCategory.getName()) {
+							    	isSelected = true;
 							      cTab = "SelectedTab" ;
-							      display = "display: block";
 							      clickEvt = "" ;
 							    }else {
+							    	isSelected = false;
 							    	cTab = "NormalTab" ;
-					          display = "display: none";
 					          clickEvt = uicomponent.event("ShowCategory", cName) ;
 							    }
 							%>			   	    	
@@ -46,7 +47,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 						        <div class="TabLeft">
 						          <div class="TabRight">
 						            <div class="TabRepeat">
-										      <a class="TabLabel" onclick="$clickEvt; eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
+										      <a class="TabLabel" onclick="$clickEvt;">
 										      	<%= displayName %>
 										      </a>
 							            <a class="ControlIcon DeleteIcon" onclick="<%= uicomponent.event("RemoveCategory", "$cName") %>"><span></span></a>
@@ -57,7 +58,8 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 						          </div>
 						        </div>
 								  </div>
-								  <div class="UIVTabContent" style="$display">
+								<% if(isSelected) { %>
+								  <div class="UIVTabContent" style="display: block">
 								  <%
 								  String cssClass = "NormalItem" ;
 								  for(application in apps) {
@@ -72,6 +74,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 										</div>
 									<% } %>	
 									</div>
+								<% } %>
 								</div>
 							<% } %>									
 		   	    	</div>	

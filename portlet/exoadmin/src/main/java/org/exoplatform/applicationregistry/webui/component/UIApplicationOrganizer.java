@@ -16,7 +16,6 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.application.newregistry.Application;
@@ -84,19 +83,13 @@ public class UIApplicationOrganizer extends UIContainer {
   }
 
   public void setSelectedCategory(ApplicationCategory category) throws Exception {
-    switchToDefaulView() ;
-    UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
-    selectedApplication = null ;
-    selectedCategory = null;
-    applications = new ArrayList<Application>(0); 
     selectedCategory = category;
     applications = selectedCategory.getApplications() ;
     if(applications == null || applications.size() < 1) {
-      uiAppInfo.setApplication(null);
+      setSelectedApplication(null);
       return ;
     }
-    selectedApplication = applications.get(0) ;
-    uiAppInfo.setApplication(selectedApplication);      
+    setSelectedApplication(applications.get(0));
   }
   
   public ApplicationCategory getCategory(String name) {
@@ -110,8 +103,11 @@ public class UIApplicationOrganizer extends UIContainer {
   
   public void setSelectedApplication(Application app) throws Exception {
     selectedApplication = app ;
-    switchToDefaulView() ;
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
+    if(uiAppInfo == null) {
+      getChildren().clear() ;
+      uiAppInfo = addChild(UIApplicationInfo.class, null, null) ;
+    }
     uiAppInfo.setApplication(selectedApplication) ;
   }
   
@@ -131,13 +127,6 @@ public class UIApplicationOrganizer extends UIContainer {
         break ;
         
       }
-    }
-  }
-  
-  public void switchToDefaulView() throws Exception {
-    if(getChild(UIApplicationInfo.class) == null) {
-      getChildren().clear() ;
-      addChild(UIApplicationInfo.class, null, null) ;
     }
   }
   

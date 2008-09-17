@@ -32,8 +32,12 @@ import org.exoplatform.webui.core.UIComponent;
 public class UIPortletInfo extends UIComponent {
   
   private PortletData portlet_;
+  private String portletType_;
   
   public void setPortlet(PortletData portlet) { portlet_ = portlet; }
-  
   public PortletData getPortlet() { return portlet_; }
+  
+  public void setPortletType(String type) { portletType_ = type; }
+  public String getPortletType() { return portletType_; }
+  
 }

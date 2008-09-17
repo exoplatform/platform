@@ -18,7 +18,6 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
@@ -41,7 +40,8 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
     template = "app:/groovy/applicationregistry/webui/component/UIPortletManagement.gtmpl",
     events = {
-        @EventConfig(listeners = UIPortletManagement.SelectPortletActionListener.class)
+        @EventConfig(listeners = UIPortletManagement.SelectPortletActionListener.class),
+        @EventConfig(listeners = UIPortletManagement.SelectPortletType.class)
     }
 )
 
@@ -49,38 +49,42 @@ public class UIPortletManagement extends UIContainer {
   
   static final public String LOCAL = "local";
   static final public String REMOTE = "remote";
-  private List<PortletData> localPortlets;
-  private List<PortletData> remotePortlets;
-  private PortletData selectedPorlet ;
+  private List<PortletData> portlets;
+  private PortletData selectedPorlet;
+  private String [] portletTypes;
+  private String selectedType;
   
   public UIPortletManagement() throws Exception {
-    init() ;
+    portletTypes = new String [] {LOCAL, REMOTE};
+    setSelectedType(LOCAL);
     UIPortletInfo uiPortletInfo = addChild(UIPortletInfo.class, null, null) ;
-    uiPortletInfo.setPortlet(localPortlets.get(0)) ;
+    uiPortletInfo.setPortlet(selectedPorlet) ;
+    uiPortletInfo.setPortletType(LOCAL);
   }
   
-  public void init() throws Exception {
+  private List<PortletData> getAllPortletData(boolean isLocal) throws Exception {
     ExoContainer manager  = ExoContainerContext.getCurrentContainer();
     PortletContainerService pcService =
       (PortletContainerService) manager.getComponentInstanceOfType(PortletContainerService.class) ;
-    Map<String, PortletData> allPortletMetaData = pcService.getAllPortletMetaData();
-    localPortlets = new ArrayList<PortletData>(allPortletMetaData.values()) ;
+    return new ArrayList<PortletData>(pcService.getAllPortletMetaData(isLocal).values()) ;
   }
   
-  public List<PortletData> getLocalPortlets() {
-    return localPortlets;
+  public List<PortletData> getPortlets() { return portlets; }
+  public void setPortlets(List<PortletData> list) { portlets = list; }
+  
+  public String getSelectedType() { return selectedType; }
+  public void setSelectedType(String type) throws Exception { 
+    selectedType = type;
+    portlets = getAllPortletData((selectedType.equals(LOCAL)) ? true : false) ;
+    selectedPorlet = (portlets == null || portlets.size() < 1) ? null : portlets.get(0) ;
   }
   
-  public List<PortletData> getRemotePortlets() {
-    return remotePortlets;
-  }
+  public String [] getPortletTypes() { return portletTypes; }
   
-  public PortletData getSelectedPortlet() { return selectedPorlet; }
-  
+  public PortletData getSelectedPortlet() { return selectedPorlet; }  
   public void setSelectedPortlet(PortletData portlet) { selectedPorlet = portlet; }
-  
   public void setSelectedPortlet(String name) {
-    for(PortletData ele : localPortlets) {
+    for(PortletData ele : portlets) {
       if(ele.getPortletName().equals(name)) {
         setSelectedPortlet(ele) ;
         break ;
@@ -90,6 +94,17 @@ public class UIPortletManagement extends UIContainer {
 
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
+  }
+  
+  static public class SelectPortletType extends EventListener<UIPortletManagement> {
+
+    public void execute(Event<UIPortletManagement> event) throws Exception {
+      UIPortletManagement uiManagement = event.getSource() ;
+      String type = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      uiManagement.setSelectedType(type) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+    }
+    
   }
   
   static public class SelectPortletActionListener extends EventListener<UIPortletManagement> {
@@ -104,6 +119,7 @@ public class UIPortletManagement extends UIContainer {
         uiPortletInfo = uiManagement.addChild(UIPortletInfo.class, null, null) ;
       }
       uiPortletInfo.setPortlet(uiManagement.getSelectedPortlet()) ;
+      uiPortletInfo.setPortletType(uiManagement.getSelectedType()) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
     
