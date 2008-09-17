@@ -255,6 +255,7 @@ eXo.webui.UIDashboard = {
 
 		if(!uiDashboard.parentNode.style.height || uiDashboard.parentNode.style.height == "auto")	{
 			dbContainer.style.height = "400px";
+			if(eXo.core.Browser.isIE6()) dbContainer.style.width = "99.5%";
 		}
 		
 		var colsContainer = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
