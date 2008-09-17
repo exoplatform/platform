@@ -204,44 +204,4 @@
     </application>  
   </page>
     
-  <page>
-  	<page-id>group::portal/admin::groupwaredesktop</page-id>
-  	<owner-type>group</owner-type>
-    <owner-id>portal/admin</owner-id>
-    <name>groupwaredesktop</name>
-    <factory-id>Desktop</factory-id>
-    <access-permissions>*:/guest</access-permissions>
-    <edit-permission>owner:/portal/admin</edit-permission>
-    <show-max-window>true</show-max-window>
-
-    <application>
-      <instance-id>group#portal/admin:/forum/ForumPortlet/forum</instance-id>
-      <title>Forum Portlet</title>
-      <show-info-bar>true</show-info-bar>
-    </application>    
-
-    <application>
-      <instance-id>group#portal/admin:/mail/MailPortlet/mail</instance-id>
-      <title>Mail Portlet</title>
-      <show-info-bar>true</show-info-bar>
-    </application>
-    
-    <application>
-      <instance-id>group#portal/admin:/calendar/CalendarPortlet/calendar</instance-id>
-      <title>Calendar Portlet</title>
-      <show-info-bar>true</show-info-bar>
-    </application>
-    
-    <application>
-      <instance-id>group#portal/admin:/contact/ContactPortlet/contact</instance-id>
-      <title>Contact Portlet</title>
-      <show-info-bar>true</show-info-bar>
-    </application>
-    
-    <application>
-      <instance-id>group#portal/admin:/content/RSSReaderPortlet/content</instance-id>
-      <title>RSS Reader Portlet</title>
-      <show-info-bar>true</show-info-bar>
-    </application>
-   </page>
-</page-set>
+ </page-set>
