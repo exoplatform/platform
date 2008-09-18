@@ -25,7 +25,7 @@ import java.util.List;
 import org.apache.commons.io.IOUtils;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
-import org.exoplatform.applicationregistry.util.ModelDataMapper;
+import org.exoplatform.applicationregistry.webui.ModelDataMapper;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.gadget.GadgetApplication;

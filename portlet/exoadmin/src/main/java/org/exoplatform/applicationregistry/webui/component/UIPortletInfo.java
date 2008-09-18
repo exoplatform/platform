@@ -16,7 +16,7 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
-import org.exoplatform.services.portletcontainer.pci.PortletData;
+import org.exoplatform.applicationregistry.webui.PortletExtra;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 
@@ -31,13 +31,9 @@ import org.exoplatform.webui.core.UIComponent;
 )
 public class UIPortletInfo extends UIComponent {
   
-  private PortletData portlet_;
-  private String portletType_;
+  private PortletExtra portlet_;
   
-  public void setPortlet(PortletData portlet) { portlet_ = portlet; }
-  public PortletData getPortlet() { return portlet_; }
-  
-  public void setPortletType(String type) { portletType_ = type; }
-  public String getPortletType() { return portletType_; }
-  
+  public void setPortlet(PortletExtra portlet) { portlet_ = portlet; }
+  public PortletExtra getPortlet() { return portlet_; }
+    
 }

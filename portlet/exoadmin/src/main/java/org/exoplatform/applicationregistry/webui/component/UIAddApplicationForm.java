@@ -27,7 +27,7 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.newregistry.Application;
 import org.exoplatform.application.newregistry.ApplicationCategory;
 import org.exoplatform.application.newregistry.ApplicationRegistryService;
-import org.exoplatform.applicationregistry.util.Util;
+import org.exoplatform.applicationregistry.webui.Util;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.ExoContainer;

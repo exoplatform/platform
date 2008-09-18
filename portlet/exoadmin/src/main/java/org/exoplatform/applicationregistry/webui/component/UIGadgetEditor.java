@@ -18,7 +18,7 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
-import org.exoplatform.applicationregistry.util.ModelDataMapper;
+import org.exoplatform.applicationregistry.webui.ModelDataMapper;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.gadget.GadgetApplication;

@@ -1,5 +1,4 @@
 <%
-	import org.exoplatform.applicationregistry.util.Util;
 	def portlets = uicomponent.getPortlets();
 	def portletTypes = uicomponent.getPortletTypes();
 	String selectedType = uicomponent.getSelectedType();
@@ -22,10 +21,10 @@
 									  <div class="UIVTabContent" style="display: block">
 									  
 									  <% for(portlet in portlets) {
-									  	 		String name = portlet.getPortletName() ;
+									  	 		String id = portlet.getId();
 									  %>
 											<div class="ItemContent SelectedItem">
-												<a href="#" class="ItemLabel" onclick="<%= uicomponent.event("SelectPortlet", name) %>"><%= Util.getDisplayNameValue(portlet.getDisplayName(), name) %></a>
+												<a href="#" class="ItemLabel" onclick="<%= uicomponent.event("SelectPortlet", id) %>"><%= portlet.getDisplayName() %></a>
 							          <div style="clear: both"><span></span></div>
 											</div>
 										<% } %>
