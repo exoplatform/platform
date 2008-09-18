@@ -13,7 +13,7 @@
 				<div class="ContainerControlBarM">
 					<div class="AddContentControlBar">
 						<div class="AddIcon">+</div>
-						<div class="AddLabel">Add Content</div>
+						<div class="AddLabel"><%=_ctx.appRes("UIDashboardPortlet.label.openWorkspace");%></div>
 						<div style="clear: left"><span></span></div>
 					</div>
 				</div>

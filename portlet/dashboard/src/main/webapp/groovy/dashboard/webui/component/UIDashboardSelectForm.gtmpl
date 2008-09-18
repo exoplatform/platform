@@ -1,7 +1,7 @@
 <div class="$uicomponent.id" id="UIDashboardSelectForm" style="display: <%= uicomponent.isShowSelectForm()? "block" : "none"; %>;">
 	<div class="DashboardControlBar">
-		<div class="TitleControlBar">Gadget Workspace</div>
-		<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"><span></span></div>
+		<div class="TitleControlBar"><%=_ctx.appRes("UIDashboardPortlet.label.workspace");%></div>
+		<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)" title="<%=_ctx.appRes("UIDashboardPortlet.tooltip.close");%>"><span></span></div>
 		<div style="clear: right;"><span></span></div>
 	</div>
 	<div class="UIDashboardItemContainer">
