@@ -62,7 +62,9 @@ public class UIPageBody extends UIComponentDecorator {
     UIPage uiPage = null;
     if(pageNode != null){
       try {
-        page  = userPortalConfigService.getPage(pageNode.getPageReference(), context.getRemoteUser());
+        if(pageNode.getPageReference() != null) {
+          page = userPortalConfigService.getPage(pageNode.getPageReference(), context.getRemoteUser());
+        }
       }catch (Exception e) {
         UIPortalApplication uiApp = getAncestorOfType(UIPortalApplication.class);
         uiApp.addMessage(new ApplicationMessage(e.getMessage(), new Object[]{}));

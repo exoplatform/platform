@@ -113,7 +113,7 @@ public class UIWizardPageSetInfo extends UIForm {
 
   public PageNode getPageNode() throws Exception {
     if(isEditMode) {
-      PageNode pageNode = getSelectedPageNode() ;  
+      PageNode pageNode = getSelectedPageNode() ;
       invokeSetBindingBean(pageNode);
       if(pageNode.getLabel() == null || pageNode.getLabel().trim().length() == 0) {
         pageNode.setLabel(pageNode.getName());
@@ -217,7 +217,8 @@ public class UIWizardPageSetInfo extends UIForm {
       if(pageNode == null) return ;
       UserPortalConfigService configService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
       String accessUser = event.getRequestContext().getRemoteUser() ;
-      Page page = configService.getPage(pageNode.getPageReference(), accessUser) ;
+      Page page = null ;
+      if(pageNode.getPageReference() != null) page = configService.getPage(pageNode.getPageReference(), accessUser) ;
       if(page == null){
         uiPortalApp.addMessage(new ApplicationMessage("UIWizardPageSetInfo.msg.null", null)) ;
         event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
