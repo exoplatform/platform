@@ -18,18 +18,19 @@
 						<div class="LoginContainer">
 							<div class="LoginContent">
 								<%if(prContext.getRemoteUser() != null) {%>
-										<div class="LoginLeft" style="float: left">
-											<div class="SeperatorLine"><span></span></div>
-												<a class="SettingIcon" onclick="$changeLanguageAction">
-													<%=_ctx.appRes("UIChangeLanguage.title.LanguageSetting")%>
-												</a>											
-										</div>
 								  	<div class="LoginLeft" style="float: left">
 								  		<%=_ctx.appRes("UILogged.note.loggedUser")%>
 									  	<span style="padding: 0px 10px 0px 2px; color: red; font-weight:bold;">
 									  		<%=prContext.getRemoteUser();%> 
 									  	</span>
 								  	</div>
+								  	
+										<div class="LoginLeft" style="float: left">
+											<div class="LoginSeperatorLine"><span></span></div>																						
+											<a class="SettingIcon" style="float: left" onclick="$changeLanguageAction">
+												<%=_ctx.appRes("UIExoStart.item.LanguageSettings")%>
+											</a>
+										</div>
 									  <div class="LoginRight" style="float: left;" title="Sign Out">
 									    <div class="LoginSeperatorLine"><span></span></div>				  	
 											<a class="LogoutIcon" onclick="eXo.portal.logout();"><%=_ctx.appRes("UILogged.action.signout")%></a>
