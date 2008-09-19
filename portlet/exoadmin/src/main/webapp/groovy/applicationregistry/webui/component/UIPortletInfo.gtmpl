@@ -1,5 +1,7 @@
 <% 
 	def portlet = uicomponent.getPortlet();
+	String srcBG = "/" + portlet.getPortletGroup() + "/skin/DefaultSkin/portletIcons/" + portlet.getName() + ".png";
+	String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 %>
 <div class="UIPortletInfo" id="$uicomponent.id">	
 	<div class="AppWorkingArea">
@@ -21,7 +23,7 @@
 
 	  <div class="Application">
   		<div title="Portlet 1" class="PortletIcons">
-  				<img src="/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png"/>
+  				<img src="$srcBG" onError="src='$srcBGError'"/>
   		</div>
   		<div class="ApplicationContent">
   		  <div class="TitleBarApplication">

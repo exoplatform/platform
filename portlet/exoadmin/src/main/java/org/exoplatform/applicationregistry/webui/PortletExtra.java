@@ -50,7 +50,7 @@ public class PortletExtra {
   
   public String getName() { return name_; }
   
-  public String getGroup() { return group_; }
+  public String getPortletGroup() { return group_; }
   
   public String getType() { return type_; }
   
