@@ -1,5 +1,9 @@
-<% 
+<%
+	import java.util.Iterator;
+	import java.util.Map.Entry 
+
 	def portlet = uicomponent.getPortlet();
+	def portletPreferences = portlet.getPortletPreferences();
 	String srcBG = "/" + portlet.getPortletGroup() + "/skin/DefaultSkin/portletIcons/" + portlet.getName() + ".png";
 	String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 %>
@@ -41,22 +45,24 @@
 	  		<tr>
 	  			<th colspan="2">Portlet Preferences</th>
 	  		</tr>
+	  		<% if(portletPreferences == null || portletPreferences.isEmpty()) {%>
 	  		<tr>
-	  			<td width="30%">Name 1</td>
+	  			<td colspan="2" style="text-align: center; font-weight: bold;">No PortletPreferences</td>
+	  		</tr>
+	  		<% } else {
+		  		Iterator<Entry<String, String[]>> itr = portletPreferences.getMap().entrySet().iterator();
+		  		while(itr.hasNext()) {
+	        Entry<String, String[]> entry = itr.next(); 
+		  	%>
+	  		<tr>
+	  			<td width="30%"><%= entry.getKey() %></td>
 	  			<td>
-	  				<div>- Value1</div>
-	  				<div>- Value1</div>
-	  				<div>- Value1</div>
+	  			<% for(value in entry.getValue()) { %>
+	  				<div>$value</div>
+	  			<% } %>
 	  			</td>
 	  		</tr>
-	  		<tr>
-	  			<td width="30%">Name 1</td>
-	  			<td>
-	  				<div>- Value1</div>
-	  				<div>- Value1</div>
-	  				<div>- Value1</div>
-	  			</td>
-	  		</tr>
+	  		<% } }%>
 	  	</table>
 	  </div>
 	</div>
