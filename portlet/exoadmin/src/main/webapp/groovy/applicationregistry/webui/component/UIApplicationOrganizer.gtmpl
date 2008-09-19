@@ -18,68 +18,66 @@ def selectedApp = uicomponent.getSelectedApplication() ;
   
 	<div class="AppRegistryContainer">
 		<div class="AppRegistryControl">
-			<div class="Slidebar">
-				<div class="ControlArea" style="height: 400px;">
-					<div class="CategoryContent">
-						<div class="TitleCategory">CATEGORIES</div>
-		   	    <div class="ListContent">	
-		   	    	
-		   	    	<div class="UIVerticalSlideTabs">
-			   	    <% 
-				 			  String cTab, cName, description, displayName, clickEvt;
-				 			  boolean isSelected = false;
-							  for(category in categories) { 			     
-							    cName  = category.getName();
-							    displayName =category.getDisplayName();
-							    if(displayName == null || displayName.length() < 1 ) displayName = cName;
-							    if(selectedCategory != null && cName == selectedCategory.getName()) {
-							    	isSelected = true;
-							      cTab = "SelectedTab" ;
-							      clickEvt = "" ;
-							    }else {
-							    	isSelected = false;
-							    	cTab = "NormalTab" ;
-					          clickEvt = uicomponent.event("ShowCategory", cName) ;
-							    }
-							%>			   	    	
-		   	    		<div class="UIVTab VTabSimpleStyle">
-						      <div class="$cTab">
-						        <div class="TabLeft">
-						          <div class="TabRight">
-						            <div class="TabRepeat">
-										      <a class="TabLabel" onclick="$clickEvt;">
-										      	<%= displayName %>
-										      </a>
-							            <a class="ControlIcon DeleteIcon" onclick="<%= uicomponent.event("RemoveCategory", "$cName") %>"><span></span></a>
-							            <div class="ControlIcon CreateNewIcon" onclick="<%= uicomponent.event("AddApplication") %>"><span></span></div>
-							            <a class="ControlIcon EditIcon" onclick="<%= uicomponent.event("EditCategory", "$cName") %>"><span></span></a>
-								          <div style="clear: both"><span></span></div>
-								         </div>
-						          </div>
-						        </div>
-								  </div>
-								<% if(isSelected) { %>
-								  <div class="UIVTabContent" style="display: block">
-								  <%
-								  String cssClass = "NormalItem" ;
-								  for(application in apps) {
-								  	if(application.getApplicationName().equals(selectedApp.getApplicationName())) cssClass = "SelectedItem" ;
-								  	else cssClass = "NormalItem" ;
-								  	String appName= application.getApplicationName() ;
-								  %>
-										<div class="ItemContent $cssClass">
-											<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel"><%= application.getDisplayName() %></a>
-											<a class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveApplication", "$appName") %>"><span></span></a>
-						          <div style="clear: both"><span></span></div>
-										</div>
-									<% } %>	
+			<div class="ControlArea">
+				<div class="CategoryContent">
+					<div class="TitleCategory">CATEGORIES</div>
+	   	    <div class="ListContent">	
+	   	    	
+	   	    	<div class="UIVerticalSlideTabs">
+		   	    <% 
+			 			  String cTab, cName, description, displayName, clickEvt;
+			 			  boolean isSelected = false;
+						  for(category in categories) { 			     
+						    cName  = category.getName();
+						    displayName =category.getDisplayName();
+						    if(displayName == null || displayName.length() < 1 ) displayName = cName;
+						    if(selectedCategory != null && cName == selectedCategory.getName()) {
+						    	isSelected = true;
+						      cTab = "SelectedTab" ;
+						      clickEvt = "" ;
+						    }else {
+						    	isSelected = false;
+						    	cTab = "NormalTab" ;
+				          clickEvt = uicomponent.event("ShowCategory", cName) ;
+						    }
+						%>			   	    	
+	   	    		<div class="UIVTab VTabSimpleStyle">
+					      <div class="$cTab">
+					        <div class="TabLeft">
+					          <div class="TabRight">
+					            <div class="TabRepeat">
+									      <a class="TabLabel" onclick="$clickEvt;">
+									      	<%= displayName %>
+									      </a>
+						            <a class="ControlIcon DeleteIcon" onclick="<%= uicomponent.event("RemoveCategory", "$cName") %>"><span></span></a>
+						            <div class="ControlIcon CreateNewIcon" onclick="<%= uicomponent.event("AddApplication") %>"><span></span></div>
+						            <a class="ControlIcon EditIcon" onclick="<%= uicomponent.event("EditCategory", "$cName") %>"><span></span></a>
+							          <div style="clear: both"><span></span></div>
+							         </div>
+					          </div>
+					        </div>
+							  </div>
+							<% if(isSelected) { %>
+							  <div class="UIVTabContent" style="display: block">
+							  <%
+							  String cssClass = "NormalItem" ;
+							  for(application in apps) {
+							  	if(application.getApplicationName().equals(selectedApp.getApplicationName())) cssClass = "SelectedItem" ;
+							  	else cssClass = "NormalItem" ;
+							  	String appName= application.getApplicationName() ;
+							  %>
+									<div class="ItemContent $cssClass">
+										<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel"><%= application.getDisplayName() %></a>
+										<a class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveApplication", "$appName") %>"><span></span></a>
+					          <div style="clear: both"><span></span></div>
 									</div>
-								<% } %>
+								<% } %>	
 								</div>
-							<% } %>									
-		   	    	</div>	
-		   	    	        	
-						</div>
+							<% } %>
+							</div>
+						<% } %>									
+	   	    	</div>	
+	   	    	        	
 					</div>
 				</div>
 			</div>

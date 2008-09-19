@@ -81,23 +81,15 @@
 
 .UIApplicationRegistryPortlet .AppRegistryContainer {
 	border: 1px solid #b7b7b7;
+	background: url('DefaultSkin/background/Repeat-Y16x2.gif') repeat-y left top;
 }
 
 .UIApplicationRegistryPortlet .AppRegistryContainer .AppRegistryControl {
 	float: left;
-	width: 245px;
-	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y 213px 0px;
-}
-
-.UIApplicationRegistryPortlet .Slidebar {
-	background: url('DefaultSkin/background/AppRegistryControl.gif') no-repeat 229px center;
-	padding-right: 14px;
+	width: 239px;
 }
 
 .UIApplicationRegistryPortlet .AppRegistryContainer .ControlArea {
-	border: 1px solid white;
-	border-right: none;
-	background: #f5f5f5;
 	padding: 5px 2px 5px 5px;
 }
 
@@ -107,8 +99,13 @@
 	border: 1px solid #d7d7d7;
 }
 
+.UIApplicationRegistryPortlet .AppRegistryControl .Border {
+	border: 1px solid #d7d7d7;	
+	padding: 1px; margin: 1px;
+}
+
 .UIApplicationRegistryPortlet .AppRegistryControl .TitleCategory {
-	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y -32px top;
+	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y left top;
 	height: 17px;
 	padding: 10px 5px 0px 5px;
 	color: white;
@@ -124,7 +121,7 @@
 .UIApplicationRegistryPortlet .CategoryContent .ItemContent {
 	line-height: 26px;
 	height: 26px;
-	background: url('DefaultSkin/background/AppRegistryControl.gif') repeat-y -485px -20px;
+	background: url('DefaultSkin/background/AppRegistryControl.gif') no-repeat -453px bottom;
 	padding: 0px 5px;
 }
 
@@ -224,46 +221,27 @@
 }
 
 .UIApplicationRegistryPortlet .UIBreadcumbs {
-	padding: 10px 0px;
-}
-
-.UIApplicationRegistryPortlet .UIBreadcumbs .LeftBreadcumbsBar {
-	background: none;
-}
-
-.UIApplicationRegistryPortlet .UIBreadcumbs .RightBreadcumbsBar {
-	background: none;
-}
-
-.UIApplicationRegistryPortlet .UIBreadcumbs .BreadcumbsInfoBar {
-	background: none;
+	padding: 0px 10px;
 	border-bottom: 1px solid #b7b7b7;
+	height: 19px;
 }
 
-.UIApplicationRegistryPortlet .UIBreadcumbs .HomeIcon {
-	background: none;
-	width: 0px;
-	margin: 0px;
-}
-
-.UIApplicationRegistryPortlet .UIBreadcumbs .RightBlackGridArrowIcon {
+.UIApplicationRegistryPortlet .UIBreadcumbs .RightBlackGridArrow16x16Icon {
 	background-position: center;
 	float: left;
 	height: 6px;
-	margin: 10px 0px 0px;
+	margin: 8px 0px 0px;
 }
 
-.UIApplicationRegistryPortlet .UIBreadcumbs a.Selected  {
+.UIApplicationRegistryPortlet .UIBreadcumbs .Selected {
 	color: #4b4b4b;
 	font-weight: bold;
+	float: left;
 }
 
-.UIApplicationRegistryPortlet .UIGroupMembershipSelector .UIBreadcumbs {
-	padding: 0px;
-}
-
-.UIApplicationRegistryPortlet .UIGroupMembershipSelector .UIBreadcumbs .BreadcumbsInfoBar {
-	border: none;
+.UIApplicationRegistryPortlet .UIBreadcumbs .ControlIcon {
+	float: right;
+	margin: 0px 5px;
 }
 
 .UIApplicationRegistryPortlet .ApplicationContainer {

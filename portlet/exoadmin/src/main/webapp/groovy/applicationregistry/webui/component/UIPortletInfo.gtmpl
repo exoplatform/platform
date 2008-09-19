@@ -7,17 +7,10 @@
 	<div class="AppWorkingArea">
 		
 		<div class="UIBreadcumbs">
-		  <div class="LeftBreadcumbsBar">
-		    <div class="RightBreadcumbsBar">
-		      <div class="BreadcumbsInfoBar">
-		  	  	<div class="HomeIcon LeftBlock BCHome16x16Icon"><span></span></div>
-	          <a class="LeftBlock" href="#"><%= portlet.getType() %></a> 		          		              
-        	<div class="RightBlackGridArrowIcon LeftBlock RightBlackGridArrow16x16Icon"><span></span></div>	                
-	          <a class="Selected" href="#"><%= portlet.getDisplayName() %></a> 		          		              
-				    <div style="clear: left;"><span></span></div>
-		      </div>
-		    </div>
-		  </div>
+	    <div class="LeftBlock"><%= portlet.getType() %></div>    
+      <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
+	    <div class="Selected"><%= portlet.getDisplayName() %></div> 		          		              
+			<div style="clear: left;"><span></span></div>
 		</div>
 		
 
@@ -43,8 +36,28 @@
   		</div>
 
 		</div>
-		<div class="Preferences">
-	  	Portlet Preferences
+		<div class="Preferences" style="border: 1px solid #b7b7b7; padding: 10px; margin: 10px; background: #f7f7f7">
+	  	<table class="UIGrid">
+	  		<tr>
+	  			<th colspan="2">Portlet Preferences</th>
+	  		</tr>
+	  		<tr>
+	  			<td width="30%">Name 1</td>
+	  			<td>
+	  				<div>- Value1</div>
+	  				<div>- Value1</div>
+	  				<div>- Value1</div>
+	  			</td>
+	  		</tr>
+	  		<tr>
+	  			<td width="30%">Name 1</td>
+	  			<td>
+	  				<div>- Value1</div>
+	  				<div>- Value1</div>
+	  				<div>- Value1</div>
+	  			</td>
+	  		</tr>
+	  	</table>
 	  </div>
 	</div>
 </div>	

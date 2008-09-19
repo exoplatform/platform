@@ -10,17 +10,12 @@ def application = uicomponent.getApplication() ;
 				String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 	%>
 	<div class="UIBreadcumbs">
-	  <div class="LeftBreadcumbsBar">
-	    <div class="RightBreadcumbsBar">
-	      <div class="BreadcumbsInfoBar">
-	  	  	<div class="HomeIcon LeftBlock BCHome16x16Icon"><span></span></div>
-          <a class="LeftBlock" href="#"><%= application.getCategoryName() %></a> 		          		              
-		    	<div class="RightBlackGridArrowIcon LeftBlock RightBlackGridArrow16x16Icon"><span></span></div>	                
-          <a class="Selected" href="#"><%= application.getDisplayName() %></a> 		          		              
-			    <div style="clear: left;"><span></span></div>
-	      </div>
-	    </div>
-	  </div>
+	  <div class="LeftBlock"><%= application.getCategoryName() %></div> 		          		              
+	  <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
+	  <div class="Selected"><%= application.getDisplayName() %></div> 
+	  <div class="ControlIcon DeletePortalIcon"><span></span></div>		          		              
+	  <div class="ControlIcon EditIcon"><span></span></div>
+		<div style="clear: left;"><span></span></div>
 	</div>
 	
 
