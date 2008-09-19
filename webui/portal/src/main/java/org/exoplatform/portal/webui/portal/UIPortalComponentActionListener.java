@@ -251,8 +251,14 @@ public class UIPortalComponentActionListener {
       List userList = userPageList.currentPage();
       User user = null;
       for(int i=0; i<userList.size(); i++) {
-        user = (User)userList.get(i);
-        if(user.getEmail().equals(email)) break;
+        User tmpUser = (User)userList.get(i);
+        if(tmpUser.getEmail().equals(email)){
+          user = tmpUser;
+          break;
+        }
+      }
+      if(user == null) {
+        throw new MessageException(new ApplicationMessage("UIForgetPassword.msg.user-delete", null));
       }
       // delete link active by one day
       long now = new Date().getTime();
