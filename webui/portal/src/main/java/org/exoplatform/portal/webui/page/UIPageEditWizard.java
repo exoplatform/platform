@@ -188,6 +188,7 @@ public class UIPageEditWizard extends UIPageWizard {
       }
       uiWizard.viewStep(3);      
       if(uiWizard.getSelectedStep() < 3){
+        uiWizard.setDescriptionWizard(2);
         uiWizard.updateWizardComponent();
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.selectStep2", null)) ;
         context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
