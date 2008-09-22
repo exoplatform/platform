@@ -1,9 +1,4 @@
 <%
-import org.exoplatform.web.application.JavascriptManager;
-
-def rcontext = _ctx.getRequestContext() ;
-JavascriptManager jsmanager = rcontext.getJavascriptManager();
-jsmanager.importJavascript('eXo.webui.UIVerticalSlideTabs'); 
 def categories = uicomponent.getCategories();
 def selectedCategory = uicomponent.getSelectedCategory() ;
 def apps = uicomponent.getApplications() ;
@@ -68,7 +63,6 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 							  %>
 									<div class="ItemContent $cssClass">
 										<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel"><%= application.getDisplayName() %></a>
-										<a class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveApplication", "$appName") %>"><span></span></a>
 					          <div style="clear: both"><span></span></div>
 									</div>
 								<% } %>	

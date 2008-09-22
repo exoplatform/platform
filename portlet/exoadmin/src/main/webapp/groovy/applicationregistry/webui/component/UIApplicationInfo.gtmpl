@@ -13,7 +13,7 @@ def application = uicomponent.getApplication() ;
 	  <div class="LeftBlock"><%= application.getCategoryName() %></div> 		          		              
 	  <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
 	  <div class="Selected"><%= application.getDisplayName() %></div> 
-	  <div class="ControlIcon DeletePortalIcon"><span></span></div>		          		              
+	  <div class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveApplication", name) %>"><span></span></div>		          		              
 	  <div class="ControlIcon EditIcon"><span></span></div>
 		<div style="clear: left;"><span></span></div>
 	</div>

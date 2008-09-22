@@ -74,7 +74,7 @@ public class SourceStorageImpl implements SourceStorage {
   public String getSourceLink(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node homeNode = getHomeNode(sessionProvider) ;
-    String link = "rest/public/jcr/repository/gadgets" + homeNode.getNode(name + ".xml").getPath() ;
+    String link = "rest/jcr/repository/gadgets" + homeNode.getNode(name + ".xml").getPath() ;
     sessionProvider.close() ;
     return link ;
   }
