@@ -77,6 +77,7 @@ public class UIPortletManagement extends UIContainer {
       list.add(new PortletExtra(entry.getKey(), type, entry.getValue())) ;
     }
    return list; 
+    
   }
   
   public List<PortletExtra> getPortlets() { return portlets; }
