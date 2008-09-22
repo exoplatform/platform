@@ -44,9 +44,11 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 									      <a class="TabLabel" onclick="$clickEvt;">
 									      	<%= displayName %>
 									      </a>
+									      <% if(isSelected) { %>
 						            <a class="ControlIcon DeleteIcon" onclick="<%= uicomponent.event("RemoveCategory", "$cName") %>"><span></span></a>
-						            <div class="ControlIcon CreateNewIcon" onclick="<%= uicomponent.event("AddApplication") %>"><span></span></div>
+						            <a class="ControlIcon CreateNewIcon" onclick="<%= uicomponent.event("AddApplication") %>"><span></span></a>
 						            <a class="ControlIcon EditIcon" onclick="<%= uicomponent.event("EditCategory", "$cName") %>"><span></span></a>
+						            <% } %>
 							          <div style="clear: both"><span></span></div>
 							         </div>
 					          </div>
