@@ -11,6 +11,10 @@
   border: none; 
 }
 
+.UIPageNodeSelector .UIVerticalSlideTabs .TreeContainer {
+	_width: 92%; 
+}
+
 /*Created Dang.Tung*/
 .UIPageNodeSelector .UIDropDownControl {
   padding-left: 1px;
