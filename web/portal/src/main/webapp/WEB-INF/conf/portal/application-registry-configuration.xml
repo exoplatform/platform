@@ -36,7 +36,13 @@
 	          <object type="org.exoplatform.application.registry.ApplicationCategory">
 	            <field  name="name"><string>administration</string></field>
 	            <field  name="displayName"><string>Administration</string></field> 
-	            <field  name="description"><string>application for administration</string></field> 
+	            <field  name="description"><string>application for administration</string></field>
+		          <field name="accessPermissions">
+				        <collection type="java.util.ArrayList" item-type="java.lang.String">													
+				        	<value><string>*:/platform/administrators</string></value>
+				        	<value><string>*:/organization/management/executive-board</string></value>
+				        </collection>
+		          </field> 
 	            <field  name="applications">
 		            <collection type="java.util.ArrayList">
 									<value>                 
@@ -98,7 +104,12 @@
 	          <object type="org.exoplatform.application.registry.ApplicationCategory">
 	            <field  name="name"><string>web</string></field>
 	            <field  name="displayName"><string>web</string></field> 
-	            <field  name="description"><string>BasicPortlets</string></field> 
+	            <field  name="description"><string>BasicPortlets</string></field>
+              <field name="accessPermissions">
+				        <collection type="java.util.ArrayList" item-type="java.lang.String">													
+									<value><string>*:/platform/users</string></value>													
+				        </collection>
+		          </field>                 	             
 	            <field  name="applications">
 		            <collection type="java.util.ArrayList">
 	                <value>                 
@@ -157,7 +168,12 @@
 	          <object type="org.exoplatform.application.registry.ApplicationCategory">
 	            <field  name="name"><string>eXoWidgetWeb</string></field>
 	            <field  name="displayName"><string>All Widgets</string></field> 
-	            <field  name="description"><string>All Widgets</string></field> 
+	            <field  name="description"><string>All Widgets</string></field>
+              <field name="accessPermissions">
+				        <collection type="java.util.ArrayList" item-type="java.lang.String">													
+									<value><string>*:/platform/users</string></value>													
+				        </collection>
+		          </field>
 	            <field  name="applications">
 		            <collection type="java.util.ArrayList">
 	                <value>                 
