@@ -17,6 +17,8 @@
 package org.exoplatform.portal.webui.page;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -139,6 +141,19 @@ public class UIPageEditWizard extends UIPageWizard {
         return ;
       }
       
+      if(uiPageInfo.getUIFormCheckBoxInput(UIWizardPageSetInfo.SHOW_PUBLICATION_DATE).isChecked()) {
+        Calendar startCalendar = uiPageInfo.getUIFormDateTimeInput(UIWizardPageSetInfo.START_PUBLICATION_DATE).getCalendar();
+        Date startDate = startCalendar.getTime();
+        Calendar endCalendar = uiPageInfo.getUIFormDateTimeInput(UIWizardPageSetInfo.END_PUBLICATION_DATE).getCalendar();
+        Date endDate = endCalendar.getTime();
+        if(startDate.after(endDate)) {
+          uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.startDateBeforeEndDate", null)) ;
+          event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+          uiWizard.viewStep(1);
+          return;
+        }
+      }
+      
       UserPortalConfigService configService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
       Page page = null;
       if(pageNode.getPageReference() != null) {
@@ -168,13 +183,13 @@ public class UIPageEditWizard extends UIPageWizard {
       WebuiRequestContext context = event.getRequestContext() ;
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
-      PageNode selectedPageNode = uiPageInfo.getSelectedPageNode() ;
       UserPortalConfigService userService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
-      if(selectedPageNode == null) {
+      if(uiPageInfo.getSelectedPageNode() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPage", null)) ;
         context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         return ;
       }
+      PageNode selectedPageNode = uiPageInfo.getPageNode() ;
       Page selectPage = null ;
       if(selectedPageNode.getPageReference() != null) {
         selectPage = userService.getPage(selectedPageNode.getPageReference(), context.getRemoteUser()) ;

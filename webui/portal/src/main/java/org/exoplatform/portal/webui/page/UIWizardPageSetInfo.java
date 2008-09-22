@@ -66,11 +66,12 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
 })
 public class UIWizardPageSetInfo extends UIForm {   
 
-  final private static String PAGE_NAME = "pageName" ;
-  final private static String PAGE_DISPLAY_NAME = "pageDisplayName" ;
-  final private static String   SHOW_PUBLICATION_DATE = "showPublicationDate" ;
-  final private static String   START_PUBLICATION_DATE = "startPublicationDate" ;
-  final private static String   END_PUBLICATION_DATE = "endPublicationDate" ; 
+  final public static String PAGE_NAME = "pageName" ;
+  final public static String PAGE_DISPLAY_NAME = "pageDisplayName" ;
+  final public static String VISIBLE = "visible" ;
+  final public static String SHOW_PUBLICATION_DATE = "showPublicationDate" ;
+  final public static String START_PUBLICATION_DATE = "startPublicationDate" ;
+  final public static String END_PUBLICATION_DATE = "endPublicationDate" ; 
   private boolean isEditMode = false;
   private boolean firstTime = true;
 
@@ -82,11 +83,14 @@ public class UIWizardPageSetInfo extends UIForm {
     				   addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormStringInput(PAGE_DISPLAY_NAME, "label", null).setMaxLength(255).
                addValidator(StringLengthValidator.class, 3, 30));
+    addUIFormInput(new UIFormCheckBoxInput<Boolean>(VISIBLE, VISIBLE, false).setChecked(true));
     UIFormCheckBoxInput<Boolean> uiDateInputCheck = new UIFormCheckBoxInput<Boolean>(SHOW_PUBLICATION_DATE, SHOW_PUBLICATION_DATE, false) ;
     uiDateInputCheck.setOnChange("SwitchPublicationDate") ;
     addUIFormInput(uiDateInputCheck);
-    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null).addValidator(DateTimeValidator.class)) ;
-    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null).addValidator(DateTimeValidator.class)) ;
+    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null).
+              addValidator(DateTimeValidator.class).addValidator(MandatoryValidator.class)) ;
+    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null).
+              addValidator(DateTimeValidator.class).addValidator(MandatoryValidator.class)) ;
     UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
     uiTree.setUIRightClickPopupMenu(null);
     uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);    
@@ -103,6 +107,7 @@ public class UIWizardPageSetInfo extends UIForm {
   public void invokeSetBindingBean(Object bean) throws Exception {
     super.invokeSetBindingBean(bean) ;
     PageNode node = (PageNode)bean ;
+    node.setVisible(getUIFormCheckBoxInput(VISIBLE).isChecked());
     Calendar cal = getUIFormDateTimeInput(START_PUBLICATION_DATE).getCalendar() ;
     Date date = (cal != null) ? cal.getTime() : null ; 
     node.setStartPublicationDate(date) ;
@@ -145,6 +150,7 @@ public class UIWizardPageSetInfo extends UIForm {
     String pageName = pageNode.getPageReference().split("::")[2] ;
     if(pageNode.getName() != null) getUIStringInput(PAGE_NAME).setValue(pageName) ;
     if(pageNode.getLabel() != null) getUIStringInput(PAGE_DISPLAY_NAME).setValue(pageNode.getResolvedLabel()) ;
+    getUIFormCheckBoxInput(VISIBLE).setChecked(pageNode.isVisible()) ;
     setShowPublicationDate(pageNode.isShowPublicationDate()) ;
     Calendar cal = Calendar.getInstance() ;
     if(pageNode.getStartPublicationDate() != null) {

@@ -114,7 +114,7 @@ public class PageNavigationUtils {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     ExoContainer container = context.getApplication().getApplicationServiceContainer() ;
     UserPortalConfigService userService = (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class);
-    if(!node.isVisible() || 
+    if(!node.isDisplay() || 
         (node.getPageReference() != null && userService.getPage(node.getPageReference(), userName) == null)) return null;
     PageNode copyNode = node.clone();
     copyNode.setChildren(new ArrayList<PageNode>());

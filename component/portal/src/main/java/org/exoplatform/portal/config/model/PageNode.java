@@ -79,16 +79,28 @@ public class PageNode  {
 
   public Date getEndPublicationDate() { return endPublicationDate ; }
   public void setEndPublicationDate(Date endDate) { endPublicationDate = endDate ; }
+  
+  public boolean isDisplay() {
+    if(visible && showPublicationDate) {
+      return isInPublicationDate() ;
+    }
+    return visible ;
+  }
 
   public boolean isVisible() {
-    if(visible && showPublicationDate) {
-      if(endPublicationDate == null) return true ;
-      else if(endPublicationDate.compareTo(Calendar.getInstance().getTime()) < 0 ) return false ;
-    }
     return visible ; 
   }
   
   public void setVisible(Boolean b) { visible = b.booleanValue() ; }
+  
+  private boolean isInPublicationDate() {
+    if(startPublicationDate != null && endPublicationDate != null) {
+      Date currentDate = new Date() ;
+      if(currentDate.compareTo(startPublicationDate) >= 0 && 
+          currentDate.compareTo(endPublicationDate) <= 0) return true ;
+    } else if(startPublicationDate == null && endPublicationDate == null) return true ;
+    return false ;
+  }
   
   public void setShowPublicationDate(Boolean show) { showPublicationDate = show.booleanValue() ; }
   public boolean isShowPublicationDate() { return showPublicationDate ; }

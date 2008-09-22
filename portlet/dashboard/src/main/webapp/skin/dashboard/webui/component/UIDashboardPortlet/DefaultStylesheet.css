@@ -222,6 +222,7 @@
 .UIDashboardContainer .DashboardContainer .AddIcon a {
 	text-decoration: underline;
 	color: #292929;
+	cursor: pointer;
 }
 
 .UIDashboardContainer .DashboardContainer .AddIcon a:hover {

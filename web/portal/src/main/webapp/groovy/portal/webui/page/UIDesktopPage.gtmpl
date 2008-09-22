@@ -307,7 +307,7 @@
 			
                   <img class="Separator" src="/webosResources/skin/Defaultskin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png" />
                   <img id="PortletsViewer" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/ShowPortletsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowPortletDesktop")%></span>
-                  <img id="eXoWebOSResources" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/HideWidgetsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
+                  <img id="WidgetsViewer" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/HideWidgetsViewer.png"  alt="/eXoResources/skin/sharedImages/Blank.gif" title=""/><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.ShowWidgetDesktop")%></span>
                 </div>
               </div>
             </div>

@@ -20,7 +20,9 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.exception.MessageException;
+import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInput;
 
 /**
@@ -41,7 +43,15 @@ public class DateTimeValidator implements Validator {
 	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
     String s = (String)uiInput.getValue() ;
     if(s.matches(DATETIME_REGEX) && isValidDateTime(s)) return ;
-    Object[]  args = { uiInput.getName(), s } ;
+    
+    UIForm uiForm = ((UIComponent) uiInput).getAncestorOfType(UIForm.class);
+    String label;
+    try{
+      label = uiForm.getLabel(uiInput.getName());
+    } catch(Exception e) {
+      label = uiInput.getName();
+    }
+    Object[]  args = { label, s } ;
     throw new MessageException(new ApplicationMessage("DateTimeValidator.msg.Invalid-input", args)) ;
   }
   

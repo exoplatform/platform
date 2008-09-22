@@ -27,6 +27,7 @@ import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.page.UIPageSelector;
+import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -47,6 +48,7 @@ import org.exoplatform.webui.form.UIFormInputIconSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
+import org.exoplatform.webui.form.validator.DateTimeValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
@@ -88,8 +90,10 @@ public class UIPageNodeForm extends UIFormTabPane {
                    addValidator(StringLengthValidator.class, 3, 30)).
     addUIFormInput(new UIFormCheckBoxInput<Boolean>("visible", "visible", true).setChecked(true)).
     addUIFormInput(uiDateInputCheck).
-    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null)).
-    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null)) ;
+    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null).
+        addValidator(MandatoryValidator.class).addValidator(DateTimeValidator.class)).
+    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null).
+        addValidator(MandatoryValidator.class).addValidator(DateTimeValidator.class)) ;
     addUIFormInput(uiSettingSet);
     setSelectedTab(uiSettingSet.getId()) ;
 
@@ -173,6 +177,17 @@ public class UIPageNodeForm extends UIFormTabPane {
       PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIPortalApplication uiPortalApp = uiPageNodeForm.getAncestorOfType(UIPortalApplication.class);
      
+      if(uiPageNodeForm.getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).isChecked()) {
+        Calendar startCalendar = uiPageNodeForm.getUIFormDateTimeInput(UIWizardPageSetInfo.START_PUBLICATION_DATE).getCalendar();
+        Date startDate = startCalendar.getTime();
+        Calendar endCalendar = uiPageNodeForm.getUIFormDateTimeInput(UIWizardPageSetInfo.END_PUBLICATION_DATE).getCalendar();
+        Date endDate = endCalendar.getTime();
+        if(startDate.after(endDate)) {
+          uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.startDateBeforeEndDate", null)) ;
+          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+          return;
+        }
+      }
 //      if(pageSelector.getPage() == null) {
 //        uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.selectPage", null)) ;
 //        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );

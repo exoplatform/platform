@@ -42,8 +42,9 @@ public class UIDashboardSelectForm extends UIForm {
 
   private boolean isShowSelectForm = true;
 
-  public UIDashboardSelectForm() throws Exception {
+  public UIDashboardSelectForm() throws Exception { }
 
+  public final List<ApplicationCategory> getCategories() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     service.importExoGadgets();
 
@@ -65,12 +66,7 @@ public class UIDashboardSelectForm extends UIForm {
         gadgets.put(cate, listGadgets);
       }
     }
-
     categories = listCategories;
-
-  }
-
-  public final List<ApplicationCategory> getCategories() throws Exception {
     return categories;
   }
 

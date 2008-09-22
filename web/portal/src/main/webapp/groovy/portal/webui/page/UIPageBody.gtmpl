@@ -21,6 +21,7 @@
 					  <div class="WarningContent">
 						<div class="Icon"><%=_ctx.appRes("UIPageBody.msg.pageNotFoundLine2")%></div>
 						<div class="Icon"><%=_ctx.appRes("UIPageBody.msg.pageNotFoundLine3")%></div>
+						<div class="Icon"><%=_ctx.appRes("UIPageBody.msg.pageNotFoundLine4")%></div>
 					  </div>
 					</div>
 				  </div>
