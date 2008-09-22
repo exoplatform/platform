@@ -38,7 +38,7 @@
 }
 
 .UIWidgetContainerManagement .ContainerList {
-	padding: 5px 0px 10px 0px;
+	padding: 5px;
 }
 
 .UIWidgetContainerManagement .ContainerList .EmptyListMessage {
@@ -51,7 +51,7 @@
 	color: #000000;
 	text-decoration: none;
 	line-height: 21px;
-	padding-left: 17px;
+	padding-left: 27px;
 }
 
 .UIWidgetContainerManagement .ContainerList .SelectedItem {

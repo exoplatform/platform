@@ -52,7 +52,7 @@
 }
 
 .UIWidgetContainerManagement .ContainerList {
-	padding: 5px 0px 10px 0px;
+	padding: 5px;
 }
 
 .UIWidgetContainerManagement .ContainerList .EmptyListMessage {
@@ -65,7 +65,7 @@
 	color: #000000;
 	text-decoration: none;
 	line-height: 21px;
-	padding-left: 27px;
+	padding-left: 24px;
 }
 
 .UIWidgetContainerManagement .ContainerList .SelectedItem {
@@ -75,7 +75,6 @@
 	line-height: 21px;
 	background: #dbdef5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif') no-repeat 5px 3px;
 	padding-left: 24px;
-	margin: 0px 5px;
 }
 
 .UIWidgetContainerManagement .ContainerList a:hover {
