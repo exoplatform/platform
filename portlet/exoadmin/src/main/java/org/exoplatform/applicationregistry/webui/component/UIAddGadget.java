@@ -19,8 +19,6 @@ package org.exoplatform.applicationregistry.webui.component;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.apache.commons.io.IOUtils;
 import org.exoplatform.application.gadget.GadgetRegistryService;
@@ -32,11 +30,9 @@ import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
-import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.UIFormRadioBoxInput;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.ext.UIFormInputSetWithAction;
 
@@ -61,17 +57,12 @@ public class UIAddGadget extends UIForm {
   
   static final String FIELD_URL = "url" ;
   static final String URL = "urlText" ;
-  static final String FIELD_DISPLAY = "display" ;
   
   public UIAddGadget() throws Exception {
     UIFormInputSetWithAction uiInput = new UIFormInputSetWithAction(FIELD_URL) ;
     uiInput.addUIFormInput(new UIFormStringInput(URL, null, null)) ;
     uiInput.setActionInfo(URL, new String [] {"CopyGadget"}) ;
     addUIComponentInput(uiInput) ;
-    List<SelectItemOption<String>> displayOptions = new ArrayList<SelectItemOption<String>>(2) ;
-    displayOptions.add(new SelectItemOption<String>("apllication", "application")) ;
-    displayOptions.add(new SelectItemOption<String>("widget", "widget")) ;
-    addUIFormInput(new UIFormRadioBoxInput(FIELD_DISPLAY, null, displayOptions)) ;
     setActions(new String [] {"Save", "Back"}) ;
   }
   

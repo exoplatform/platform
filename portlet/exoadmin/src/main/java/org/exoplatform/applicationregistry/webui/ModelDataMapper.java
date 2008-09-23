@@ -46,6 +46,7 @@ public class ModelDataMapper {
     Map<String, String> metaData = gadgetApp.getMapMetadata() ;
     String title = metaData.get("directoryTitle") ;
     if(title == null || title.trim().length() < 1) title = metaData.get("title") ;
+    if(title == null || title.trim().length() < 1) title = gadget.getName() ;
     gadget.setTitle(title) ;
     gadget.setDescription(metaData.get("description")) ;
     gadget.setReferenceUrl(metaData.get("titleUrl")) ;
