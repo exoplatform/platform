@@ -19,16 +19,7 @@
   <filter>
     <filter-name>ThreadLocalSessionProviderInitializedFilter</filter-name>
     <filter-class>org.exoplatform.frameworks.jcr.web.ThreadLocalSessionProviderInitializedFilter</filter-class>
-  </filter>  
-
-	<filter>
-    <filter-name>AnonymousUserContextRedirectionFilter</filter-name>
-    <filter-class>org.exoplatform.ws.frameworks.servlet.AnonymousUserContextRedirectionFilter</filter-class>
-		<init-param>
-      <param-name>context-name</param-name>
-      <param-value>/rest</param-value>
-    </init-param>
-  </filter>
+  </filter>  	
 
   <filter>
     <filter-name>SetCurrentIdentityFilter</filter-name>
@@ -62,18 +53,12 @@
   <filter-mapping>
     <filter-name>RestEncodingFilter</filter-name>
     <url-pattern>/rest/*</url-pattern>
-  </filter-mapping> 
-
-  <filter-mapping>
-  <!-- This must be before ThreadLocalSessionProviderInitializedFilter for URI /rest/* -->
-    <filter-name>AnonymousUserContextRedirectionFilter</filter-name>
-    <url-pattern>/rest/*</url-pattern>
   </filter-mapping>
   
   <filter-mapping>
     <filter-name>ThreadLocalSessionProviderInitializedFilter</filter-name>
-    <url-pattern>/rest/*</url-pattern>
-  </filter-mapping>   
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>      
 
   <!-- ================================================================== -->
   <!--           LISTENER                                                 -->
@@ -87,7 +72,9 @@
 	<listener>
 	  <listener-class>org.exoplatform.portal.webui.javascript.JavascriptListener</listener-class> 
 	</listener>
-	
+	<listener>
+    <listener-class>org.exoplatform.services.security.web.JAASConversationStateListener</listener-class>
+  </listener>	
   <!-- ================================================================== -->
   <!--           SERVLET                                                  -->
   <!-- ================================================================== -->  
