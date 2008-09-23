@@ -25,7 +25,7 @@
     <filter-class>org.exoplatform.ws.frameworks.servlet.AnonymousUserContextRedirectionFilter</filter-class>
 		<init-param>
       <param-name>context-name</param-name>
-      <param-value>/rest</param-value>
+      <param-value>/rest/private</param-value>
     </init-param>
   </filter>
   
@@ -51,23 +51,33 @@
   </filter-mapping>
   
   <filter-mapping>
-  <!-- This must be before ThreadLocalSessionProviderInitializedFilter for URI /rest/* -->
-    <filter-name>AnonymousUserContextRedirectionFilter</filter-name>
-    <url-pattern>/rest/*</url-pattern>
-  </filter-mapping>     
-    
-  <filter-mapping>
     <filter-name>RestEncodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
+      
+  <filter-mapping>
+  <!-- This must be before ThreadLocalSessionProviderInitializedFilter for URI /rest/private/* -->
+    <filter-name>AnonymousUserContextRedirectionFilter</filter-name>
+    <url-pattern>/rest/private/*</url-pattern>
+  </filter-mapping>
+  
+  <filter-mapping>
+    <filter-name>ThreadLocalSessionProviderInitializedFilter</filter-name>
+    <url-pattern>/rest/private/*</url-pattern>
+  </filter-mapping>
+  
   <servlet>
     <servlet-name>RestServer</servlet-name>
     <description>eXo - Platform REST Server</description>
     <servlet-class>org.exoplatform.services.rest.servlet.RestServlet</servlet-class>
     <load-on-startup>4</load-on-startup>
   </servlet>
-
+  
+  <servlet-mapping>
+    <servlet-name>RestServer</servlet-name>
+    <url-pattern>/private/*</url-pattern>
+  </servlet-mapping>
+  
   <servlet-mapping>
     <servlet-name>RestServer</servlet-name>
     <url-pattern>/*</url-pattern>
@@ -76,7 +86,7 @@
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>rest</web-resource-name>
-      <url-pattern>/*</url-pattern>
+      <url-pattern>/private/*</url-pattern>      	            
     </web-resource-collection>
     <auth-constraint>
       <role-name>users</role-name>
@@ -87,9 +97,9 @@
   </security-constraint>
 
   <login-config>
-    <auth-method>BASIC</auth-method>
-    <realm-name>exo-domain</realm-name>
-  </login-config>
+	  <auth-method>BASIC</auth-method> 
+	  <realm-name>exo-domain</realm-name> 		
+	</login-config>
 
   <security-role>
     <description>the user role</description>
