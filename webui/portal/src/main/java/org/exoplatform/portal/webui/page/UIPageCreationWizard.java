@@ -166,6 +166,8 @@ public class UIPageCreationWizard extends UIPageWizard {
         uiWizard.updateWizardComponent();
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.StepByStep",null)) ;
         context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        uiWizard.setDescriptionWizard(2);
+        uiWizard.viewStep(2);
         return ;
       }
 
