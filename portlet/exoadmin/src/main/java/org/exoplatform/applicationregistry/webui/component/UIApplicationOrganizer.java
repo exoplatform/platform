@@ -44,7 +44,8 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIApplicationOrganizer.AddCategoryActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.RemoveCategoryActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.EditCategoryActionListener.class),
-        @EventConfig(listeners = UIApplicationOrganizer.AddApplicationActionListener.class)
+        @EventConfig(listeners = UIApplicationOrganizer.AddApplicationActionListener.class),
+        @EventConfig(listeners = UIApplicationOrganizer.RemoveApplicationActionListener.class)
     }
 )    
 public class UIApplicationOrganizer extends UIContainer {
@@ -218,4 +219,20 @@ public class UIApplicationOrganizer extends UIContainer {
     
   }
   
+  public static class RemoveApplicationActionListener extends EventListener<UIApplicationOrganizer> {
+
+    public void execute(Event<UIApplicationOrganizer> event) throws Exception {
+     UIApplicationOrganizer uiOrganizer = event.getSource() ;
+     String appName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+     ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
+     Application app = uiOrganizer.getApplication(appName) ;
+     service.remove(app) ;
+     String cateName = uiOrganizer.getSelectedCategory().getName() ;
+     uiOrganizer.initApplicationCategories() ;
+     uiOrganizer.setSelectedCategory(cateName) ;
+     event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+    }
+    
+  }
+
 }

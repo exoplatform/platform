@@ -17,7 +17,6 @@
 package org.exoplatform.applicationregistry.webui.component;
 
 import org.exoplatform.application.newregistry.Application;
-import org.exoplatform.application.newregistry.ApplicationRegistryService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -35,7 +34,7 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
     template = "app:/groovy/applicationregistry/webui/component/UIApplicationInfo.gtmpl",
     events = {
-        @EventConfig(listeners = UIApplicationInfo.RemoveApplicationActionListener.class)
+        @EventConfig(listeners = UIApplicationInfo.EditApplicationActionListener.class)
     }
 )
 
@@ -60,16 +59,15 @@ public class UIApplicationInfo extends UIContainer {
     super.processRender(context);
   }
 
-  public static class RemoveApplicationActionListener extends EventListener<UIApplicationInfo> {
+  public static class EditApplicationActionListener extends EventListener<UIApplicationInfo> {
 
     public void execute(Event<UIApplicationInfo> event) throws Exception {
-     UIApplicationOrganizer uiOrganizer = event.getSource().getParent() ;
-     String appName = event.getRequestContext().getRequestParameter(OBJECTID) ;
-     ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
-     Application app = uiOrganizer.getApplication(appName) ;
-     service.remove(app) ;
-     uiOrganizer.initApplicationCategories() ;
-     event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+      UIApplicationOrganizer uiOrganizer = event.getSource().getParent();
+      uiOrganizer.getChildren().clear();
+      UIApplicationForm uiForm = uiOrganizer.createUIComponent(UIApplicationForm.class, null, null);
+      uiForm.setValues(uiOrganizer.getSelectedApplication()) ;
+      uiOrganizer.addChild(uiForm);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer); 
     }
     
   }

@@ -46,7 +46,7 @@ import org.exoplatform.webui.organization.UIListPermissionSelector;
 )
 public class UIPermissionForm extends UIForm {
  
-  private Application portlet_;
+  private Application application_;
   
   public UIPermissionForm() throws Exception{
     UIListPermissionSelector selector = addChild(UIListPermissionSelector.class, null, "UIListPermissionSelector") ;
@@ -54,26 +54,26 @@ public class UIPermissionForm extends UIForm {
     setActions(new String [] {}) ;
   }
   
-  public void setValue(Application portlet) throws Exception {
-    portlet_ = portlet;
-    ArrayList<String> accessPermissions = portlet_.getAccessPermissions() ;
+  public void setValue(Application app) throws Exception {
+    application_ = app;
+    ArrayList<String> accessPermissions = application_.getAccessPermissions() ;
     String[] per = new String[accessPermissions.size()];
     if (accessPermissions != null && accessPermissions.size() > 0) {
       getChild(UIListPermissionSelector.class).setValue(accessPermissions.toArray(per)) ;
     }
   }
   
-  public Application getPortlet() { return portlet_; }
+  public Application getApplication() { return application_; }
   
   public void save() throws Exception {
     UIListPermissionSelector uiListPermissionSelector = getChild(UIListPermissionSelector.class) ;
     ArrayList<String> pers = new ArrayList<String>();
     if(uiListPermissionSelector.getValue()!= null)
     for(String per: uiListPermissionSelector.getValue()) pers.add(per);
-    portlet_.setAccessPermissions(pers) ;
+    application_.setAccessPermissions(pers) ;
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
-    portlet_.setModifiedDate(Calendar.getInstance().getTime());
-    service.update(portlet_) ;    
+    application_.setModifiedDate(Calendar.getInstance().getTime());
+    service.update(application_) ;    
   }
   
   static public class SelectMembershipActionListener extends EventListener<UIPermissionForm> {
