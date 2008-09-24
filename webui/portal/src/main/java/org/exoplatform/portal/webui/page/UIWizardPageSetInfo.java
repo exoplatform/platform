@@ -169,7 +169,7 @@ public class UIWizardPageSetInfo extends UIForm {
   }
 
   public void processRender(WebuiRequestContext context) throws Exception {
-    if(isEditMode && getChild(UIPageNodeSelector.class).getSelectedPageNode() == null) reset() ;
+//    if(isEditMode && getChild(UIPageNodeSelector.class).getSelectedPageNode() == null) reset() ;
     super.processRender(context) ;
   }
 

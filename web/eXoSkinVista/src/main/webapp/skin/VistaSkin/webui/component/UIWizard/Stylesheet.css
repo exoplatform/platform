@@ -152,12 +152,9 @@
   margin-left: 250px;
 }
 
-.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer{
+.UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer {
   background: #f4f4f4;
-  padding: 10px;
-  
-  /*fix for bug PORTAL-1635*/
-  margin-bottom: 6px;
+  padding: 12px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo {
