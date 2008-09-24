@@ -106,7 +106,7 @@ public class UITree extends UIComponent {
     return event("ChangeNode", (String)getId(parentSelected));
   }
   //TODO review equals object with id
-  public boolean isSelected(Object obj){
+  public boolean isSelected(Object obj) throws Exception{
     if(selected == null) return false;    
     return obj.equals(selected);
   }
