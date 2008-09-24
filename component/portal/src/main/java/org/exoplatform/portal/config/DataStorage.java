@@ -89,7 +89,6 @@ public interface DataStorage {
   public void create(Page page) throws Exception ;
   
   /**
-   * @deprecated
    * This method should create  or  udate the given page object
    * @param page
    * @throws Exception

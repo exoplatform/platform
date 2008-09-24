@@ -103,15 +103,20 @@ public class UIPageActionListener {
       int idx = uri.lastIndexOf("::");
       if(idx < 0)  {
         for(PageNavigation nav : navigations){
-          List<PageNode>  nodes = nav.getNodes();
-          PageNode nodeResult = null;
-          for(PageNode node : nodes){       
-            nodeResult = searchPageNodeByUri(uri, node);
-            if(nodeResult == null) continue;
-            selectedPaths_.add(0, nodeResult);          
-            break;
-          }
-          if(nodeResult != null) {
+        	String[] nodeNames = uri.split("/");
+          int i = 0;
+          PageNode tempNode = nav.getNode(nodeNames[i]);
+          PageNode selecttedNode = tempNode ;
+          while(tempNode != null && ++i < nodeNames.length) {
+          	selecttedNode = tempNode ;
+          	tempNode = tempNode.getChild(nodeNames[i]) ;
+  				}
+        	if(tempNode != null) selecttedNode = tempNode ;
+
+          uiPortal.setSelectedNode(selecttedNode) ;
+          uiPortal.setSelectedNavigation(nav);
+          
+          if(selecttedNode != null) {
             uiPortal.setSelectedNavigation(nav);
             break;
           }
@@ -130,34 +135,39 @@ public class UIPageActionListener {
         }
       }
       if(nav != null) {
-        List<PageNode>  nodes = nav.getNodes();
-        for(PageNode node : nodes){       
-          PageNode nodeResult = searchPageNodeByUri(uri, node);
-          if(nodeResult == null) continue;
-          selectedPaths_.add(0, nodeResult);          
-          break;
-        }
+      	String[] nodeNames = uri.split("/");
+        int i = 0;
+        PageNode tempNode = nav.getNode(nodeNames[i]);
+        PageNode selecttedNode = tempNode ;
+        while(tempNode != null && ++i < nodeNames.length) {
+        	selecttedNode = tempNode ;
+        	tempNode = tempNode.getChild(nodeNames[i]) ;
+				}
+      	if(tempNode != null) selecttedNode = tempNode ;
+
+        uiPortal.setSelectedNode(selecttedNode) ;
         uiPortal.setSelectedNavigation(nav);
       }
       uiPortal.setSelectedPaths(selectedPaths_);
       uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
     }
-
-    private PageNode searchPageNodeByUri(String uri, PageNode node){
-      if(node.getUri().equals(uri)){
-        uiPortal.setSelectedNode(node);
-        return node;
-      }
-      List<PageNode> children = node.getChildren();
-      if(children == null) return null;
-      for(PageNode ele : children){
-        PageNode nodeResult = searchPageNodeByUri(uri, ele);
-        if(nodeResult == null) continue;
-        selectedPaths_.add(0, nodeResult);
-        return node; 
-      }
-      return null;
-    }
+//
+//    private PageNode searchPageNodeByUri(String uri, PageNode node){
+//    	String[] nodeNames = uri.split("/");
+//      if(node.getUri().equals(uri)){
+//        uiPortal.setSelectedNode(node);
+//        return node;
+//      }
+//      List<PageNode> children = node.getChildren();
+//      if(children == null) return null;
+//      for(PageNode ele : children){
+//        PageNode nodeResult = searchPageNodeByUri(uri, ele);
+//        if(nodeResult == null) continue;
+//        selectedPaths_.add(0, nodeResult);
+//        return node; 
+//      }
+//      return null;
+//    }
   }
 //
 //  static public class EditPageActionListener  extends EventListener<UIPage> {

@@ -1,8 +1,5 @@
 JavascriptService.addJavascript("eXo", "/javascript/eXo.js", ServletContext);
 
-/* Animation Javascripts */
-JavascriptService.addJavascript("eXo.animation.ImplodeExplode", "/javascript/eXo/animation/ImplodeExplode.js", ServletContext);
-
 /* Application descriptor */
 JavascriptService.addJavascript("eXo.application.ApplicationDescriptor", "/javascript/eXo/application/ApplicationDescriptor.js", ServletContext);
 
@@ -58,3 +55,5 @@ JavascriptService.addJavascript("eXo.portal.UIPortalNavigation", "/javascript/eX
 JavascriptService.addJavascript("eXo.portal.UIMaskWorkspace", "/javascript/eXo/portal/UIMaskWorkspace.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIExoStartMenu", "/javascript/eXo/portal/UIExoStartMenu.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIBrowseContent", "/javascript/eXo/portal/UIBrowseContent.js", ServletContext);
+
+JavascriptService.addJavascript("eXo.desktop.UIWindow", "/javascript/eXo/desktop/UIWindow.js", ServletContext);

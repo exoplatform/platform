@@ -14,7 +14,7 @@
      
     <node>
       <uri>administration</uri>
-      <name>Administration</name>
+      <name>administration</name>
       <label>#{administration}</label>     
           
       <node>

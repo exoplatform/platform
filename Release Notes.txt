@@ -1,0 +1,41 @@
+==============================================
+	eXo Portal 2.5 release notes
+==============================================
+
+- Introduction
+	Portal, a typical product of eXoplatform, is a web operating system application. With the latest version 2.1, eXo portal not only takes advantages of a normal portal but it is also developed with outstanding features as:
+	+ Security:  Intelligently integrate and access to enterprise content, applications and processes. It is also very useful to establish internal or external information of an enterprise. It enables  administrators to decide which content and applications are pushed to which user according to the roles he has in a group or a business unit.
+	+ Personalization: Users are encouraged to design their own private layout and create personal content.
+	+ Flexibility: It is suitable for different operating system environments and adaptive to many types of databases.
+	+ Customization: Meets the requirements of both technical and non-technical users. This application provides open functions to encourage user's experiences and easily adapt to personal requirements and the technologies.
+	+ Collaboration: eXo Portal also provides community concepts. Access/Edit Permissions depend on a specific group of members while a member can be in some certain groups. It means that a member can have different types of permission.
+	+ Multi – languages: eXo Portal supports some package of languages for users of different countries as: English, French, Italian, Vietnamese,...
+	+ Multi - Skin: eXo portal allows to change the skin with: Default Skin, Vista Skin and MAC skin
+
+
+- System Requirements
+        Web Browser: IE6, IE7, FF2, FF3, Safari. Best for Frirefox 2 and upgrading to Firefox 3
+        JVM: version 1.5.0_xx only
+        Application Server : Tomcat, JBoss, Jonas, Websphere
+        Building Tools: Maven 2.0.6 and up
+
+
+- What is new in eXo Portal 2.5
+	- Clean up and optimze code so much
+	- Develop new application registry :
+		+ Permission for category
+		+ Permission for portlet ( not sure )
+	- Integrate gadget and opensocial to exo portal
+	- Dashboard portlet.
+	- Support forgot username and password feature.
+	
+
+- Complete list of issues fixed in eXo Portal 2.5
+	
+
+- Other resources and links
+     Company site        http://www.exoplatform.com
+     Community JIRA      http://jira.exoplatform.org
+     Comminity site      http://www.exoplatform.org
+     Developers wiki     http://wiki.exoplatform.org
+     Documentation       http://docs.exoplatform.org 

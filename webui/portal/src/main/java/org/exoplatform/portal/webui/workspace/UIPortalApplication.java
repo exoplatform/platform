@@ -88,7 +88,6 @@ public class UIPortalApplication extends UIApplication {
    * @param initParams
    * @throws Exception
    */
-  @SuppressWarnings("hiding")
   public UIPortalApplication() throws Exception {
     log = ExoLogger.getLogger("portal:UIPortalApplication"); 
     PortalRequestContext  context = PortalRequestContext.getCurrentInstance() ;
@@ -103,7 +102,7 @@ public class UIPortalApplication extends UIApplication {
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
     if(currentSkin != null && currentSkin.trim().length() > 0) skin_ = currentSkin;
     setOwner(context.getPortalOwner());    
-    //TODO: dang.tung - set portal language by user preference -> browser -> default
+    //dang.tung - set portal language by user preference -> browser -> default
     //------------------------------------------------------------------------------
     String portalLanguage = null ;
     LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;

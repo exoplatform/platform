@@ -61,6 +61,13 @@ public class PageNavigation {
   public ArrayList<PageNode> getNodes(){ return pageNodes; }
   public void setNodes(ArrayList<PageNode> nodes) { pageNodes = nodes; }
   
+  public PageNode getNode(String name) {
+    for(PageNode node : pageNodes){       
+      if(node.getName().equals(name)) return node;
+    }
+    return null;
+  }
+  
   public PageNavigation clone() {
     PageNavigation newNav = new PageNavigation();
     newNav.setOwnerId(ownerId);

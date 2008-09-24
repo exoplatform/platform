@@ -105,6 +105,14 @@ public class PageNode  {
   public void setShowPublicationDate(Boolean show) { showPublicationDate = show.booleanValue() ; }
   public boolean isShowPublicationDate() { return showPublicationDate ; }
   
+  public PageNode getChild(String name) {
+  	if(children == null) return null;
+    for(PageNode node : children){       
+      if(node.getName().equals(name)) return node;
+    }
+    return null;
+  }
+  
   public PageNode clone() {
     PageNode newNode = new PageNode() ;
     newNode.setUri(uri);
