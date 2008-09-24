@@ -41,7 +41,7 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/form/UIForm.gtmpl",
     events = {
-      @EventConfig(listeners = UIGadgetEditor.SaveActionListener.class)
+      @EventConfig(listeners = UIGadgetEditor.CreateActionListener.class)
     }
 )
 public class UIGadgetEditor extends UIForm {
@@ -54,7 +54,7 @@ public class UIGadgetEditor extends UIForm {
     addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, null)) ;
   }
   
-  public static class SaveActionListener extends EventListener<UIGadgetEditor> {
+  public static class CreateActionListener extends EventListener<UIGadgetEditor> {
 
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;

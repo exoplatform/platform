@@ -47,8 +47,8 @@ import org.exoplatform.webui.form.ext.UIFormInputSetWithAction;
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/form/UIForm.gtmpl",
     events = {
-      @EventConfig(listeners = UIAddGadget.SaveActionListener.class),
-      @EventConfig(listeners = UIAddGadget.BackActionListener.class),
+      @EventConfig(listeners = UIAddGadget.AddActionListener.class),
+      @EventConfig(listeners = UIAddGadget.CancelActionListener.class),
       @EventConfig(listeners = UIAddGadget.CopyGadgetActionListener.class)
     }
 )
@@ -63,10 +63,10 @@ public class UIAddGadget extends UIForm {
     uiInput.addUIFormInput(new UIFormStringInput(URL, null, null)) ;
     uiInput.setActionInfo(URL, new String [] {"CopyGadget"}) ;
     addUIComponentInput(uiInput) ;
-    setActions(new String [] {"Save", "Back"}) ;
+    setActions(new String [] {"Add", "Cancel"}) ;
   }
   
-  public static class SaveActionListener extends EventListener<UIAddGadget> {
+  public static class AddActionListener extends EventListener<UIAddGadget> {
 
     public void execute(Event<UIAddGadget> event) throws Exception {
       UIAddGadget uiForm = event.getSource() ;
@@ -81,7 +81,7 @@ public class UIAddGadget extends UIForm {
     }    
   }
   
-  public static class BackActionListener extends EventListener<UIAddGadget> {
+  public static class CancelActionListener extends EventListener<UIAddGadget> {
 
     public void execute(Event<UIAddGadget> event) throws Exception {
       UIAddGadget uiForm = event.getSource() ;
