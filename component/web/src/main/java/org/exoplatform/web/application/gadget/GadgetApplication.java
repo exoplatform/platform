@@ -38,7 +38,7 @@ import org.json.JSONObject;
 public class GadgetApplication extends Application {
   
   static final public String  EXO_GADGET_GROUP = "eXoGadgets" ;
-  private String appId_;
+  private String name;
   private String url_;
   private String metadata = null;
 
@@ -51,12 +51,12 @@ public class GadgetApplication extends Application {
   
   public GadgetApplication(String url) throws Exception {
     url_ = url;
-    appId_ = getMapMetadata().get("directoryTitle").replace(' ', '_') ;
+    name = getMapMetadata().get("directoryTitle").replace(' ', '_') ;
   }
 
   public GadgetApplication(String appId, String url) {
     url_ = url;
-    appId_ = appId;
+    name = appId;
   }
   
   /**
@@ -108,7 +108,7 @@ public class GadgetApplication extends Application {
    * @return the string represents id of gadget application
    */
   public String getApplicationId() {
-    return appId_;
+    return EXO_GADGET_GROUP + "/" + name;
   }
 
   /**
@@ -116,7 +116,7 @@ public class GadgetApplication extends Application {
    * @return the string represents name of gadget application
    */
   public String getApplicationName() {
-    return appId_;
+    return name;
   }
 
   /**
