@@ -63,7 +63,7 @@
 }
 
 .UIApplicationRegistryPortlet .CreateNewIcon {
-	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -27px;
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -25px;
 	width: 19px;
 	height: 20px;
 }
@@ -220,26 +220,26 @@
 	padding: 10px;
 }
 
-.UIApplicationRegistryPortlet .UIBreadcumbs {
+.UIApplicationRegistryPortlet .UIBreadcumb {
 	padding: 0px 10px;
 	border-bottom: 1px solid #b7b7b7;
 	height: 19px;
 }
 
-.UIApplicationRegistryPortlet .UIBreadcumbs .RightBlackGridArrow16x16Icon {
+.UIApplicationRegistryPortlet .UIBreadcumb .RightBlackGridArrow16x16Icon {
 	background-position: center;
 	float: left;
 	height: 6px;
-	margin: 8px 0px 0px;
+	margin: 5px 0px 0px;
 }
 
-.UIApplicationRegistryPortlet .UIBreadcumbs .Selected {
+.UIApplicationRegistryPortlet .UIBreadcumb .Selected {
 	color: #4b4b4b;
 	font-weight: bold;
 	float: left;
 }
 
-.UIApplicationRegistryPortlet .UIBreadcumbs .ControlIcon {
+.UIApplicationRegistryPortlet .UIBreadcumb .ControlIcon {
 	float: right;
 	margin: 0px 5px;
 }
@@ -285,34 +285,34 @@
 .UIApplicationRegistryPortlet .UIAcessPermissions {
 	margin: 20px 0px;
 	width: auto;
-}
-
-.UIApplicationRegistryPortlet .UIAcessPermissions .HorizontalLayout .FormContainer {
-	padding: 0px;
-}
-
-.UIApplicationRegistryPortlet .UIAcessPermissions .UIAccessGroup {
-	padding: 0px;
+	height: 100%;
 }
 
 .UIApplicationRegistryPortlet .UIAcessPermissions .UIForm .HorizontalLayout {
 	padding: 0px;
 	border: none;
-	background: #f5f5f5;
 }
 
 .UIApplicationRegistryPortlet .UIAcessPermissions .UIFormGrid {
 	width: 100%;
 }
 
-.UIApplicationRegistryPortlet .UIAcessPermissions .UIFormGrid .UIFormGrid {
+.UIApplicationRegistryPortlet .UIAcessPermissions .PublicCheck .UIFormGrid {
 	width: auto;
 }
 
 /**************************** UIOrganizerManagement ***************************/
 
 .UIApplicationRegistryPortlet .UIAddApplicationForm .UIFormGrid {
+	width: 99%;
+}
+
+.UIOrganizerManagement .UIFormInputSet .UIFormGrid {
 	width: 100%;
+}
+
+.UIOrganizerManagement .UIFormInputSet .PublicCheck .UIFormGrid {
+	width: auto;
 }
 
 /***************************** UIPortletManagement ***************************/
@@ -325,4 +325,25 @@
 	margin-top: 0px;
 }
 
+.UIPortletManagement .UIGrid .FieldLable {
+	width: 30%;
+	text-align: right;
+}
+
+.UIPortletManagement .UIGrid .FieldComponent {
+	padding: 4px 0px;
+}
+
 /******************************** UIGadgetManagement ******************************/
+.UIGadgetManagement .url .UIFormInputSet {
+	padding: 0px;
+	width: auto;
+}
+
+.UIGadgetManagement .url table {
+	width: 100%;
+}
+
+.UIGadgetManagement .url table td.FieldComponent {
+	padding: 0px;
+}

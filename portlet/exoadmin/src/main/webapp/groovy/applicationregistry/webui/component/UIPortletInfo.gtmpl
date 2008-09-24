@@ -10,7 +10,7 @@
 <div class="UIPortletInfo" id="$uicomponent.id">	
 	<div class="AppWorkingArea">
 		
-		<div class="UIBreadcumbs">
+		<div class="UIBreadcumb">
 	    <div class="LeftBlock"><%= portlet.getType() %></div>    
       <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
 	    <div class="Selected"><%= portlet.getDisplayName() %></div> 		          		              
@@ -41,7 +41,7 @@
 
 		</div>
 		<div class="Preferences" style="border: 1px solid #b7b7b7; padding: 10px; margin: 10px; background: #f7f7f7">
-	  	<table class="UIGrid">
+	  	<table class="UIGrid" style="width: 99%">
 	  		<tr>
 	  			<th colspan="2">Portlet Preferences</th>
 	  		</tr>

@@ -9,7 +9,7 @@ def application = uicomponent.getApplication() ;
 				String srcBG = "/" + application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + name + ".png";
 				String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 	%>
-	<div class="UIBreadcumbs">
+	<div class="UIBreadcumb">
 	  <div class="LeftBlock"><%= application.getCategoryName() %></div> 		          		              
 	  <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
 	  <div class="Selected"><%= application.getDisplayName() %></div> 
@@ -43,9 +43,7 @@ def application = uicomponent.getApplication() ;
 	<div class="UIAcessPermissions UIFormWithTitle">
 	  <div class="TitleBar">Access Permissions:</div>
 	  <div class="HorizontalLayout">
-	    <div class="FormContainer">
-				<% uicomponent.renderChildren() %>
-			</div>
+			<% uicomponent.renderChildren() %>
 		</div>
 	</div>
   <% } %>
