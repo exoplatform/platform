@@ -187,6 +187,14 @@ public class UIWizardPageSetInfo extends UIForm {
   public void setFirstTime(boolean firstTime){
     this.firstTime = firstTime;
   }
+  
+  public void reset() {
+    super.reset();
+    
+    getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).setChecked(false) ;
+    getUIFormDateTimeInput(START_PUBLICATION_DATE).setRendered(false);
+    getUIFormDateTimeInput(END_PUBLICATION_DATE).setRendered(false);
+  }
 
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
     public void execute(Event<UIWizardPageSetInfo> event) throws Exception {
