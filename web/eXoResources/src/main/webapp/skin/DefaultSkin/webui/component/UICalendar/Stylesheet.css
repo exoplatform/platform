@@ -28,6 +28,7 @@
   font: normal 12px verdana;
 	text-align: center;
 	cursor: default;
+	height: 100%;
 }
 
 .UICalendar table {
