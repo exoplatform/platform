@@ -28,6 +28,7 @@
 	- Integrate gadget and opensocial to exo portal
 	- Dashboard portlet.
 	- Support forgot username and password feature.
+	- Support visible option for node in navigation
 	
 
 - Complete list of issues fixed in eXo Portal 2.5

@@ -108,10 +108,10 @@ public class UIPageActionListener {
           PageNode tempNode = nav.getNode(nodeNames[i]);
           PageNode selecttedNode = tempNode ;
           while(tempNode != null && ++i < nodeNames.length) {
-          	selecttedNode = tempNode ;
+          	selectedPaths_.add(selecttedNode = tempNode) ;
           	tempNode = tempNode.getChild(nodeNames[i]) ;
   				}
-        	if(tempNode != null) selecttedNode = tempNode ;
+        	if(tempNode != null) selectedPaths_.add(selecttedNode = tempNode) ;
 
           uiPortal.setSelectedNode(selecttedNode) ;
           uiPortal.setSelectedNavigation(nav);
@@ -140,10 +140,10 @@ public class UIPageActionListener {
         PageNode tempNode = nav.getNode(nodeNames[i]);
         PageNode selecttedNode = tempNode ;
         while(tempNode != null && ++i < nodeNames.length) {
-        	selecttedNode = tempNode ;
+        	selectedPaths_.add(selecttedNode = tempNode) ;
         	tempNode = tempNode.getChild(nodeNames[i]) ;
 				}
-      	if(tempNode != null) selecttedNode = tempNode ;
+      	if(tempNode != null) selectedPaths_.add(selecttedNode = tempNode) ;
 
         uiPortal.setSelectedNode(selecttedNode) ;
         uiPortal.setSelectedNavigation(nav);
@@ -151,37 +151,24 @@ public class UIPageActionListener {
       uiPortal.setSelectedPaths(selectedPaths_);
       uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
     }
-//
-//    private PageNode searchPageNodeByUri(String uri, PageNode node){
-//    	String[] nodeNames = uri.split("/");
-//      if(node.getUri().equals(uri)){
-//        uiPortal.setSelectedNode(node);
-//        return node;
-//      }
-//      List<PageNode> children = node.getChildren();
-//      if(children == null) return null;
-//      for(PageNode ele : children){
-//        PageNode nodeResult = searchPageNodeByUri(uri, ele);
-//        if(nodeResult == null) continue;
-//        selectedPaths_.add(0, nodeResult);
-//        return node; 
-//      }
-//      return null;
-//    }
+/*
+    private PageNode searchPageNodeByUri(String uri, PageNode node){
+    	String[] nodeNames = uri.split("/");
+      if(node.getUri().equals(uri)){
+        uiPortal.setSelectedNode(node);
+        return node;
+      }
+      List<PageNode> children = node.getChildren();
+      if(children == null) return null;
+      for(PageNode ele : children){
+        PageNode nodeResult = searchPageNodeByUri(uri, ele);
+        if(nodeResult == null) continue;
+        selectedPaths_.add(0, nodeResult);
+        return node; 
+      }
+      return null;
+    }*/
   }
-//
-//  static public class EditPageActionListener  extends EventListener<UIPage> {
-//    public void execute(Event<UIPage> event) throws Exception {      
-//      UIPage uiPage = event.getSource();
-//      UIPageForm uiForm = uiPage.createUIComponent(UIPageForm.class, null, null);
-//      uiForm.setValues(uiPage);
-//      UIPortalApplication uiPortalApp = uiPage.getAncestorOfType(UIPortalApplication.class);
-//      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-//      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-//      uiToolPanel.setUIComponent(uiForm) ;
-//      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;     
-//    }
-//  }
   
   static public class DeleteWidgetActionListener extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
