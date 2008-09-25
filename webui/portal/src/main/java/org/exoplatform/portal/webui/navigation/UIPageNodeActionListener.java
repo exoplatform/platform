@@ -257,9 +257,8 @@ public class UIPageNodeActionListener {
       uiPageNodeSelector.getCopyNode().setDeleteNode(true);
     }
   }
-
   static public class PasteNodeActionListener extends EventListener<UIRightClickPopupMenu> {
-    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {   
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {        
       String targetUri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UIRightClickPopupMenu uiPopupMenu = event.getSource();
       UIPageNodeSelector uiPageNodeSelector =  uiPopupMenu.getAncestorOfType(UIPageNodeSelector.class);
@@ -267,33 +266,26 @@ public class UIPageNodeActionListener {
       Class<?> [] childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class };
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
-      
       SelectedNode selectedNode = uiPageNodeSelector.getCopyNode();
       if(selectedNode == null) return;
       
       PageNode newNode = selectedNode.getNode().clone();
       PageNavigation targetNav = uiPageNodeSelector.getSelectedNavigation();
       PageNode targetNode = PageNavigationUtils.searchPageNodeByUri(targetNav, targetUri);
-      boolean hasTargetNode = (targetNode != null) ;
-      
-      if(hasTargetNode && newNode.getUri().equals(targetNode.getUri())) {
+              
+      if(targetNode != null && newNode.getUri().equals(targetNode.getUri())) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameSrcAndDes", null)) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
       
-      if(hasTargetNode) renewPageNodeUri(targetNode, newNode) ;
-      
-      if( (hasTargetNode && hasNode(targetNode, newNode.getUri())) || 
-          hasNode(targetNav, newNode.getUri()) ){
+      if(isExistChild(targetNode, newNode) || (targetNode == null && isExitChild(targetNav, newNode))) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameName", null)) ;
         Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
-      
-      
       if(selectedNode.isDeleteNode()) {
         if(selectedNode.getParentNode() != null) {
           selectedNode.getParentNode().getChildren().remove(selectedNode.getNode());
@@ -308,44 +300,46 @@ public class UIPageNodeActionListener {
       popup.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", 
                                      "CutNode", "DeleteNode", "MoveUp", "MoveDown"});
        
-      if(!hasTargetNode) { 
-        renewPageNodeUri(null, newNode) ;
+      if(targetNode == null) { 
+        newNode.setUri(newNode.getName());
         targetNav.addNode(newNode);
         return;
+      } else {
+        setNewUri(targetNode, newNode);
       }
       targetNode.getChildren().add(newNode);
       uiPageNodeSelector.selectPageNodeByUri(targetNode.getUri());
     }
     
-    private void renewPageNodeUri(PageNode parent, PageNode current) {
-      String newUri = (parent != null) ? parent.getUri() + "/" + current.getName() : current.getName() ;
-      current.setUri(newUri) ;
-      List<PageNode> children = current.getChildren() ;
-      if(children != null) for(PageNode ele : children) renewPageNodeUri(current, ele) ; 
+    private void setNewUri(PageNode parent, PageNode child) {
+      String newUri = (parent != null) ? parent.getUri() + "/" + child.getName() : child.getName() ;
+      child.setUri(newUri) ;
+      List<PageNode> children = child.getChildren() ;
+      if(children != null) for(PageNode node : children) setNewUri(child, node) ; 
     }
     
-    private boolean hasNode(PageNode node, String uri) {
-      if(node == null) return false;
-      List<PageNode> children = node.getChildren();
-      if(children == null) {
-        node.setChildren(new ArrayList<PageNode>());
+    private boolean isExistChild(PageNode parent, PageNode child) {
+      if(parent == null) return false;
+      List<PageNode> nodes = parent.getChildren();
+      if(nodes == null) {
+        parent.setChildren(new ArrayList<PageNode>());
         return false;
       }
-      for(PageNode ele : children) {
-        if(ele.getUri().equals(uri)) return true;
+      for (PageNode node: nodes) {
+        if(node.getName().equals(child.getName())) return true;
       }
       return false;
     }
     
-    private boolean hasNode(PageNavigation nav, String uri) {
+    private boolean isExitChild(PageNavigation nav, PageNode child) {
       List<PageNode> nodes = nav.getNodes();
-      for(PageNode ele : nodes) {
-        if(ele.getUri().equals(uri)) return true;
+      if(nodes.size() == 0) return false;
+      for(PageNode node : nodes){
+        if(node.getName().equals(child.getName())) return true;
       }
       return false;
     }
   }
-  
   static public class MoveUpActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {      
       moveNode(event, -1);
