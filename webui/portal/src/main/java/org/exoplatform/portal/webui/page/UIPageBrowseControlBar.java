@@ -64,7 +64,7 @@ public class UIPageBrowseControlBar extends UIToolbar {
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel(); 
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
       UIPageBrowser uiPageBrowser = (UIPageBrowser) uiBrowseControlBar.getBackComponent() ;
-      uiPageBrowser.reset();
+      uiPageBrowser.defaultValue(uiPageBrowser.getLastQuery());
       uiToolPanel.setUIComponent(uiPageBrowser) ;
       uiToolPanel.setShowMaskLayer(false);
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
@@ -97,6 +97,7 @@ public class UIPageBrowseControlBar extends UIToolbar {
 
       UIPageManagement uiManagement = uiBrowseControlBar.getParent();
       uiManagement.setRenderedChild(UIDescription.class);
+      uiManagement.setMode(ManagementMode.BROWSE, event);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
   }

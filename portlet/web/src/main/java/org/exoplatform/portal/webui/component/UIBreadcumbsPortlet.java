@@ -52,7 +52,11 @@ public class UIBreadcumbsPortlet extends UIPortletApplication {
     List<PageNode> nodes = Util.getUIPortal().getSelectedPaths() ;
     List<LocalPath> paths = new ArrayList<LocalPath>();
     for(PageNode node : nodes){
-      paths.add(new LocalPath(node.getUri(), node.getResolvedLabel()));
+      if(node.getPageReference() == null){
+        paths.add(new LocalPath(null, node.getResolvedLabel()));
+      } else {
+        paths.add(new LocalPath(node.getUri(), node.getResolvedLabel()));
+      }
     }
     UIBreadcumbs uiBreadCumbs = getChild(UIBreadcumbs.class);
     uiBreadCumbs.setPath(paths);

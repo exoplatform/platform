@@ -56,7 +56,7 @@ public class UIBreadcumbs extends UIComponent {
   public void setSelectPath(String path){
     List<LocalPath> list = getPath();
     for(LocalPath p : list) {
-      if(!p.getId().equals(path)) continue;
+      if(!path.equals(p.getId())) continue;
       setSelectLocalPath(p);
       break ;
     }

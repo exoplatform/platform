@@ -212,8 +212,7 @@ public class UIPageBrowser extends UISearch {
 		if (currentPage > 0) uiPageIterator.setCurrentPage(currentPage);
 	}
 
-	static public class DeleteActionListener extends
-			EventListener<UIPageBrowser> {
+	static public class DeleteActionListener extends EventListener<UIPageBrowser> {
 		public void execute(Event<UIPageBrowser> event) throws Exception {
 			UIPageBrowser uiPageBrowser = event.getSource();
 			PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
@@ -242,13 +241,13 @@ public class UIPageBrowser extends UISearch {
         return;
       }
 			service.remove(page);
-			uiPageBrowser.reset();
+			uiPageBrowser.defaultValue(uiPageBrowser.getLastQuery());
+			pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID));
 			pcontext.addUIComponentToUpdateByAjax(uiPageBrowser);
 		}
 	}
 
-	static public class EditInfoActionListener extends
-			EventListener<UIPageBrowser> {
+	static public class EditInfoActionListener extends EventListener<UIPageBrowser> {
 		public void execute(Event<UIPageBrowser> event) throws Exception {
 			UIPageBrowser uiPageBrowser = event.getSource();
 			UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
@@ -304,8 +303,7 @@ public class UIPageBrowser extends UISearch {
 		}
 	}
 
-	static public class PreviewActionListener extends
-			EventListener<UIPageBrowser> {
+	static public class PreviewActionListener extends EventListener<UIPageBrowser> {
 		public void execute(Event<UIPageBrowser> event) throws Exception {
 			UIPageBrowser uiPageBrowser = event.getSource();
 			PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
@@ -356,8 +354,7 @@ public class UIPageBrowser extends UISearch {
 		}
 	}
 
-	static public class AddNewActionListener extends
-			EventListener<UIPageBrowser> {
+	static public class AddNewActionListener extends EventListener<UIPageBrowser> {
 		public void execute(Event<UIPageBrowser> event) throws Exception {
 			PortalRequestContext prContext = Util.getPortalRequestContext();
 			UIPortalApplication uiApp = event.getSource().getAncestorOfType(
@@ -377,8 +374,7 @@ public class UIPageBrowser extends UISearch {
 	}
 
 	@SuppressWarnings("unchecked")
-	static public class SavePageActionListener extends
-			UIPageForm.SaveActionListener {
+	static public class SavePageActionListener extends UIPageForm.SaveActionListener {
 		public void execute(Event<UIPageForm> event) throws Exception {
 			UIPageForm uiPageForm = event.getSource();
 			UIPortalApplication uiPortalApp = uiPageForm.getAncestorOfType(UIPortalApplication.class);

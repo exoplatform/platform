@@ -17,7 +17,7 @@
 	      	    String actionLink = uicomponent.event("SelectPath", localPath.getId());
 	      	    if(i == list.size()-1) note = "Selected";
 	  	  %>
-		          <a href="$actionLink"	class="$note">$localPath.label</a> 		          		              
+		          <a href="<%=(localPath.getId() == null) ? "#" : actionLink%>"	class="$note">$localPath.label</a> 		          		              
 		    <%      
     		      if(i != list.size()-1) {
 		    %>
