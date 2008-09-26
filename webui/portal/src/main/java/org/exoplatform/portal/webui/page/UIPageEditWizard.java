@@ -132,6 +132,12 @@ public class UIPageEditWizard extends UIPageWizard {
         uiWizard.viewStep(1);
         return ;
       }
+      if(uiPageInfo.getSelectedPageNode().getPageReference() == null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIWizardPageSetInfo.msg.null", null)) ;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        uiWizard.viewStep(1);
+        return ;
+      }
       
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode() ;
       if(pageNode == null) {
@@ -186,6 +192,11 @@ public class UIPageEditWizard extends UIPageWizard {
       UserPortalConfigService userService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
       if(uiPageInfo.getSelectedPageNode() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPage", null)) ;
+        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        return ;
+      }
+      if(uiPageInfo.getSelectedPageNode().getPageReference() == null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIWizardPageSetInfo.msg.null", null)) ;
         context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         return ;
       }

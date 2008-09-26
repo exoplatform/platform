@@ -265,6 +265,7 @@ eXo.webui.UIDashboard = {
 			if(columns[i].style.display != "none") colsSize++;
 		}
 		colsContainer.style.width = colsSize*320 + 20 + "px";
+		eXo.webui.UIDashboard.setHeightsOnLoad(windowId);
 	},
 	
 	setHeightsOnLoad : function(windowId)	{
