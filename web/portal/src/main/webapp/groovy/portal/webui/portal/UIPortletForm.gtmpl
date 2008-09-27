@@ -89,9 +89,10 @@
 			      	<tr>
 			     	 		<td align="center">
 		          		<%for(action in uicomponent.getActions()) { 
+		          		System.out.println(action.contains("Save"));
 								      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
 								      String link = uicomponent.event(action) ;
-								      if(uicomponent.hasEditMode() && selTabId.equals("") && actionLabel.contains("Save")) {
+								      if(uicomponent.hasEditMode() && selTabId.equals("") && action.contains("Save")) {
 					        %>
 									<a href="$link" class="ActionButton LightBlueStyle" style="display : none;">
 										<%} else {%>
@@ -99,7 +100,7 @@
 										<%}%>
 									  <div class="ButtonLeft">
 										  <div class="ButtonRight">
-										    <div class="ButtonMiddle">
+										    <div class="ButtonMiddle" id="$action">
 									       $actionLabel
 										    </div>
 									    </div>
@@ -124,7 +125,7 @@
 			var uiAction = DOMUtil.findFirstChildByClass(horLayout, "div", "UIAction");
 			var buttons = DOMUtil.findDescendantsByClass(uiAction, "div", "ButtonMiddle");
 			for (var i = 0; i < buttons.length; i++) {
-				if (buttons[i].innerHTML.indexOf("Save") >= 0) {
+				if (buttons[i].id.indexOf("Save") >= 0) {
 					DOMUtil.findAncestorByClass(buttons[i], "ActionButton").style.display = "none";
 				}
 			}
@@ -137,7 +138,7 @@
 			var uiAction = DOMUtil.findFirstChildByClass(horLayout, "div", "UIAction");
 			var buttons = DOMUtil.findDescendantsByClass(uiAction, "div", "ButtonMiddle");
 			for (var i = 0; i < buttons.length; i++) {
-				if (buttons[i].innerHTML.indexOf("Save") >= 0) {
+				if (buttons[i].id.indexOf("Save") >= 0) {
 					DOMUtil.findAncestorByClass(buttons[i], "ActionButton").style.display = "block";
 				}
 			}
