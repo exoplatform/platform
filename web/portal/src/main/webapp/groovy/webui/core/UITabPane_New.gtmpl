@@ -24,8 +24,9 @@
 			            <div class="UITab NormalTabStyle">
 			              <div class="$style">
 			                <div class="LeftTab">
-			                  <div class="RightTab">                
-			                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '$tabId', '$url')"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
+			                  <div class="RightTab">
+			                  	<% String actionLink = "ajaxAsyncGetRequest('" + uicomponent.url("SelectTab",tabId) + "', true)" %>                
+			                    <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '$tabId', '$url');$actionLink"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
 			                  </div>
 			                </div>
 			              </div>

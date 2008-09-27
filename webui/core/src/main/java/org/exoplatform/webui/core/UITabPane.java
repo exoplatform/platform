@@ -45,6 +45,7 @@ public class UITabPane extends UIContainer {
 	      String renderTab = context.getRequestParameter(UIComponent.OBJECTID) ;
 	      if(renderTab == null) return;
 	      selectedTabId = renderTab ;
+        context.setResponseComplete(true);
 	    }
 	  }
 }
