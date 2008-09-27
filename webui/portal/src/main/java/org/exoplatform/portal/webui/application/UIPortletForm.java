@@ -128,7 +128,7 @@ public class UIPortletForm extends UIFormTabPane {
       PortletContainerService portletContainer = (PortletContainerService) container
       .getComponentInstanceOfType(PortletContainerService.class);
       RenderInput input = new RenderInput();
-      String baseUrl = new StringBuilder(prcontext.getNodeURI()).append(
+      String baseUrl = new StringBuilder(prcontext.getRequestURI()).append(
           "?" + PortalRequestContext.UI_COMPONENT_ID).append("=").append(
           uiPortlet_.getId()).toString();
       input.setBaseURL(baseUrl);

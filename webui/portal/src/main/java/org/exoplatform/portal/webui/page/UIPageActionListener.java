@@ -47,19 +47,16 @@ import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SAS
- * Author : Dang Van Minh
- *          minhdv81@yahoo.com
+ * Author : Tran The Trong
+ *          trongtt@gmail.com
  * Jun 14, 2006
  */
 public class UIPageActionListener {
 
   static public class ChangePageNodeActionListener  extends EventListener<UIPortal> {
-    private UIPortal uiPortal ;
-    private List<PageNode> selectedPaths_;
-    
     public void execute(Event<UIPortal> event) throws Exception {
       PageNodeEvent<UIPortal> pnevent = (PageNodeEvent<UIPortal>) event ;
-      uiPortal = pnevent.getSource();
+      UIPortal uiPortal = pnevent.getSource();
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
       uiPortalApp.setEditting(false) ;
@@ -80,7 +77,9 @@ public class UIPageActionListener {
         }
       }
 
-      selectedPaths_ = new ArrayList<PageNode>(5);
+      uiPortal.setSelectedNavigation(null);
+      uiPortal.setSelectedNode(null);
+      List<PageNode> selectedPaths_ = new ArrayList<PageNode>(5);
 
       List<PageNavigation> navigations = uiPortal.getNavigations();
       String uri = pnevent.getTargetNodeUri();
@@ -102,26 +101,26 @@ public class UIPageActionListener {
 
       int idx = uri.lastIndexOf("::");
       if(idx < 0)  {
+        PageNode selecttedNode = null;
         for(PageNavigation nav : navigations){
         	String[] nodeNames = uri.split("/");
           int i = 0;
           PageNode tempNode = nav.getNode(nodeNames[i]);
-          PageNode selecttedNode = tempNode ;
+          selecttedNode = tempNode;
           while(tempNode != null && ++i < nodeNames.length) {
           	selectedPaths_.add(selecttedNode = tempNode) ;
           	tempNode = tempNode.getChild(nodeNames[i]) ;
   				}
         	if(tempNode != null) selectedPaths_.add(selecttedNode = tempNode) ;
-
-          uiPortal.setSelectedNode(selecttedNode) ;
-          uiPortal.setSelectedNavigation(nav);
           
           if(selecttedNode != null) {
-            uiPortal.setSelectedNavigation(nav);
-            break;
+          	uiPortal.setSelectedNavigation(nav);
+          	break;
           }
-        }      
-        uiPortal.setSelectedPaths(selectedPaths_);     
+        }
+        uiPortal.setSelectedNode(selecttedNode);
+				if(selecttedNode == null) selectedPaths_.add(uiPortal.getSelectedNode()) ;
+				uiPortal.setSelectedPaths(selectedPaths_);
         uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
         return;
       }
@@ -151,23 +150,6 @@ public class UIPageActionListener {
       uiPortal.setSelectedPaths(selectedPaths_);
       uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
     }
-/*
-    private PageNode searchPageNodeByUri(String uri, PageNode node){
-    	String[] nodeNames = uri.split("/");
-      if(node.getUri().equals(uri)){
-        uiPortal.setSelectedNode(node);
-        return node;
-      }
-      List<PageNode> children = node.getChildren();
-      if(children == null) return null;
-      for(PageNode ele : children){
-        PageNode nodeResult = searchPageNodeByUri(uri, ele);
-        if(nodeResult == null) continue;
-        selectedPaths_.add(0, nodeResult);
-        return node; 
-      }
-      return null;
-    }*/
   }
   
   static public class DeleteWidgetActionListener extends EventListener<UIPage> {

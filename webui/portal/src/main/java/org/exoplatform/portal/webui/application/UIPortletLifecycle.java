@@ -148,7 +148,7 @@ public class UIPortletLifecycle extends Lifecycle {
     OrganizationService service = uicomponent.getApplicationComponent(OrganizationService.class);
     UserProfile userProfile = service.getUserProfileHandler().findUserProfileByName(uiPortal.getOwner());
     RenderInput input = new RenderInput();
-    String baseUrl = new StringBuilder(prcontext.getNodeURI()).append(
+    String baseUrl = new StringBuilder(prcontext.getRequestURI()).append(
         "?" + PortalRequestContext.UI_COMPONENT_ID).append("=").append(
         uiPortlet.getId()).toString();
     input.setBaseURL(baseUrl);

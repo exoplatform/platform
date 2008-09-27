@@ -65,6 +65,8 @@ import org.exoplatform.webui.event.EventListener;
 	}
 )
 public class UIDesktopPage extends UIPage {
+	public boolean isShowMaxWindow() { return true; }
+	
   public List<PageNavigation> getNavigations() throws Exception {
     List<PageNavigation> allNav =Util.getUIPortal().getNavigations() ;
     String removeUser = Util.getPortalRequestContext().getRemoteUser();

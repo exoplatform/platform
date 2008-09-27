@@ -56,7 +56,6 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   private DataStorage pdcService_;  
   private List<?> configs;
   private PageTemplateConfig pageTemplateConfig_ ;
-  
   private String defaultPortal ;
   
   public NewPortalConfigListener(DataStorage pdcService,
@@ -72,9 +71,9 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     ValueParam valueParam = params.getValueParam("default.portal");
     if(valueParam != null) checkPortal = valueParam.getValue();
     if(checkPortal == null  || checkPortal.trim().length() == 0) checkPortal = "classic";       
-    if(isInitedDB(checkPortal)) return;
-    
     configs = params.getObjectParamValues(NewPortalConfig.class);
+
+    if(isInitedDB(checkPortal)) return;
     for (Object ele : configs) {
       NewPortalConfig portalConfig  = (NewPortalConfig)ele;
       if(portalConfig.getOwnerType().equals("user")) {

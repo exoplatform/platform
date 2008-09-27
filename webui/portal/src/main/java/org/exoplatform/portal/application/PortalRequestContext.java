@@ -18,6 +18,7 @@ package org.exoplatform.portal.application;
 
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
@@ -55,7 +56,7 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   private String portalOwner_ ;
   private String nodePath_ ;
-  private String nodeURI_ ;
+  private String requestURI_ ;
   private String portalURI ;
   
   private int accessPath = -1 ;  
@@ -80,7 +81,7 @@ public class PortalRequestContext extends WebuiRequestContext {
     String cache = req.getParameter(CACHE_LEVEL);
     if(cache != null) cacheLevel_ = cache;
     
-    nodeURI_ = req.getRequestURI() ;
+    requestURI_ = URLDecoder.decode(req.getRequestURI(), "UTF-8");
     String pathInfo = req.getPathInfo() ;
     if(pathInfo == null) pathInfo = "/" ;
     int colonIndex = pathInfo.indexOf("/", 1)  ;
@@ -88,10 +89,10 @@ public class PortalRequestContext extends WebuiRequestContext {
     portalOwner_ =  pathInfo.substring(1, colonIndex) ;
     nodePath_ = pathInfo.substring(colonIndex , pathInfo.length()) ;
     
-    portalURI = nodeURI_.substring(0, nodeURI_.lastIndexOf(nodePath_)) + "/";
+    portalURI = requestURI_.substring(0, requestURI_.lastIndexOf(nodePath_)) + "/";
     
-    if(nodeURI_.indexOf("/public/") >= 0) accessPath =  PUBLIC_ACCESS ;
-    else if(nodeURI_.indexOf("/private/") >= 0) accessPath =  PRIVATE_ACCESS ;
+    if(requestURI_.indexOf("/public/") >= 0) accessPath =  PUBLIC_ACCESS ;
+    else if(requestURI_.indexOf("/private/") >= 0) accessPath =  PRIVATE_ACCESS ;
     
     //TODO use the encoding from the locale-config.xml file
     response_.setContentType("text/html; charset=UTF-8");
@@ -101,7 +102,7 @@ public class PortalRequestContext extends WebuiRequestContext {
       log.error("Encoding not supported", e);
     }
     
-    urlBuilder = new PortalURLBuilder(nodeURI_);
+    urlBuilder = new PortalURLBuilder(requestURI_);
   }
   
   public void refreshResourceBundle() throws Exception {
@@ -141,7 +142,7 @@ public class PortalRequestContext extends WebuiRequestContext {
   
   public String getNodePath() { return nodePath_  ; }
   
-  public String getNodeURI()  { return nodeURI_ ; }
+  public String getRequestURI()  { return requestURI_ ; }
   
   public String getPortalURI() { return portalURI ; }
   

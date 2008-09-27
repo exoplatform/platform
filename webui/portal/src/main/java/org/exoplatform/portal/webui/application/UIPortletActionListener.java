@@ -235,7 +235,7 @@ public class UIPortletActionListener {
             .getRequestContext();
         input.setRenderParameters(getResourceParameterMap(uiPortlet, context));
         input.setCacheability(context.getCacheLevel());
-        String baseUrl = new StringBuilder(context.getNodeURI()).append(
+        String baseUrl = new StringBuilder(context.getRequestURI()).append(
             "?" + PortalRequestContext.UI_COMPONENT_ID).append("=").append(
             uiPortlet.getId()).toString();
         input.setBaseURL(baseUrl);
@@ -398,7 +398,7 @@ public class UIPortletActionListener {
       PortalRequestContext context = (PortalRequestContext) WebuiRequestContext
           .getCurrentInstance();
       EventInput input = new EventInput();
-      String baseUrl = new StringBuilder(context.getNodeURI()).append(
+      String baseUrl = new StringBuilder(context.getRequestURI()).append(
           "?" + PortalRequestContext.UI_COMPONENT_ID).append("=").append(
           uiPortlet.getId()).toString();
       input.setBaseURL(baseUrl);
