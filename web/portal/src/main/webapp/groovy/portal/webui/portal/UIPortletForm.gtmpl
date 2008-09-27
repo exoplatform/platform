@@ -22,7 +22,7 @@
 				                <div class="$className">
 				                  <div class="LeftTab">
 				                    <div class="RightTab">
-						                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', 'EditMode')">Edit Mode</div>
+						                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.hideSaveButton(this)" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', 'EditMode')">Edit Mode</div>
 						                </div>
 				                  </div>
 				                </div>
@@ -40,7 +40,7 @@
 					                <div class="$className">
 					                  <div class="LeftTab">
 					                    <div class="RightTab">
-							                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
+							                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.showSaveButton(this)" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
 							                </div>
 					                  </div>
 					                </div>
@@ -89,10 +89,14 @@
 			      	<tr>
 			     	 		<td align="center">
 		          		<%for(action in uicomponent.getActions()) { 
-							      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
-							      String link = uicomponent.event(action) ;
+								      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
+								      String link = uicomponent.event(action) ;
+								      if(uicomponent.hasEditMode() && selTabId.equals("") && actionLabel.contains("Save")) {
 					        %>
+									<a href="$link" class="ActionButton LightBlueStyle" style="display : none;">
+										<%} else {%>
 									<a href="$link" class="ActionButton LightBlueStyle">
+										<%}%>
 									  <div class="ButtonLeft">
 										  <div class="ButtonRight">
 										    <div class="ButtonMiddle">
@@ -111,3 +115,32 @@
 		</div>  
   </div>
 </div>
+<script language="javascript">
+	eXo.UIPortletForm = {
+		hideSaveButton : function(comp) {
+			var DOMUtil = eXo.core.DOMUtil;
+			var workingArea = DOMUtil.findAncestorByClass(comp, "WorkingArea");
+			var horLayout = DOMUtil.findFirstChildByClass(workingArea, "div", "HorizontalLayout");
+			var uiAction = DOMUtil.findFirstChildByClass(horLayout, "div", "UIAction");
+			var buttons = DOMUtil.findDescendantsByClass(uiAction, "div", "ButtonMiddle");
+			for (var i = 0; i < buttons.length; i++) {
+				if (buttons[i].innerHTML.indexOf("Save") >= 0) {
+					DOMUtil.findAncestorByClass(buttons[i], "ActionButton").style.display = "none";
+				}
+			}
+		},
+	
+		showSaveButton : function(comp) {
+			var DOMUtil = eXo.core.DOMUtil;
+			var workingArea = DOMUtil.findAncestorByClass(comp, "WorkingArea");
+			var horLayout = DOMUtil.findFirstChildByClass(workingArea, "div", "HorizontalLayout");
+			var uiAction = DOMUtil.findFirstChildByClass(horLayout, "div", "UIAction");
+			var buttons = DOMUtil.findDescendantsByClass(uiAction, "div", "ButtonMiddle");
+			for (var i = 0; i < buttons.length; i++) {
+				if (buttons[i].innerHTML.indexOf("Save") >= 0) {
+					DOMUtil.findAncestorByClass(buttons[i], "ActionButton").style.display = "block";
+				}
+			}
+		}
+	}
+</script>
