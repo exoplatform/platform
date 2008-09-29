@@ -10,8 +10,8 @@
 			
 				<div class="CategoryContent">
 				<% for(type in portletTypes) {%>
-					<div>
-						<div class="TitleCategory" onclick="<%= uicomponent.event("SelectPortletType", type) %>">$type</div>
+					<div class="BoxContent">
+						<div class="TitleCategory" onclick="<%= uicomponent.event("SelectPortletType", type) %>"><%=_ctx.appRes("UIPortletManagement.title." + type)%></div>
 						<% if(type.equals(selectedType)) {%>	
 		   	    <div class="ListContent">	
 		   	    	

@@ -111,6 +111,7 @@
 	color: white;
 	font-weight: bold;
 	letter-spacing: 2px;
+	text-transform: uppercase;
 }
 
 .UIApplicationRegistryPortlet .CategoryContent .ListContent {
@@ -138,6 +139,7 @@
 	float: left;
 	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
 	padding-left: 20px;
+	cursor: pointer;
 }
 
 .UIApplicationRegistryPortlet .CategoryContent .ControlIcon {
@@ -212,7 +214,7 @@
 /**************************** AppWorkingArea *****************************/
 
 .UIApplicationRegistryPortlet .AppWorkingArea {
-	margin-left: 245px;
+	margin-left: 260px;
 	padding: 10px;
 }
 
@@ -220,6 +222,8 @@
 	padding: 0px 10px;
 	border-bottom: 1px solid #b7b7b7;
 	height: 19px;
+	color: #4b4b4b;
+	font-weight: bold;
 }
 
 .UIApplicationRegistryPortlet .UIBreadcumb .RightBlackGridArrow16x16Icon {
@@ -230,10 +234,10 @@
 }
 
 .UIApplicationRegistryPortlet .UIBreadcumb .Selected {
-	color: #4b4b4b;
-	font-weight: bold;
 	float: left;
+	color: #058ee6;
 }
+
 
 .UIApplicationRegistryPortlet .UIBreadcumb .ControlIcon {
 	float: right;
@@ -313,12 +317,19 @@
 
 /***************************** UIPortletManagement ***************************/
 
-.UIPortletManagement .UIVerticalSlideTabs .NormalTab .ControlIcon {
-	margin-top: 0px;
+.UIPortletManagement .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
+	background: none;
 }
 
-.UIPortletManagement .UIVerticalSlideTabs .SelectedTab .ControlIcon {
-	margin-top: 0px;
+.UIPortletManagement .BoxContent {
+	padding: 1px;
+	border: 1px solid #d7d7d7;
+	margin: 1px;
+}
+
+.UIPortletManagement .BoxContent .TitleCategory {
+	cursor: pointer;
+	text-transform: capitalize;
 }
 
 .UIPortletManagement .UIGrid .FieldLable {

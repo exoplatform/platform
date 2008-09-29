@@ -2,9 +2,28 @@
 	def gadget = uicomponent.getGadget() ;
 %>
 <div class="UIGadgetInfo" id="$uicomponent.id">
-	<div>Gadget details</div>
-	<img src="<%= gadget.getThumbnail() %>" />
-	<div><%= gadget.getTitle() %></div>
-	<div><%= gadget.getDescription() %></div>
-	<div><%= gadget.getReferenceUrl() %></div>
+	<div class="UIBreadcumb"><%=_ctx.appRes("UIGadgetInfo.title.gadgetDetails")%></div>
+	
+ 		<div class="Application">
+  		<div class="PortletIcons">
+  				<img src="<%= gadget.getThumbnail() %>"/>
+  		</div>
+  		<div class="ApplicationContent">
+  		  <div class="ApplicationContentLabel">
+  		    <div class="ContentLabel">
+  		      <span class="LeftLabel"><%=_ctx.appRes("Application.label.name")%></span>
+  		      <span class="RightLabel"><%= gadget.getTitle() %></span>
+  		    </div>
+  		    <div class="ContentLabel">
+						<span class="LeftLabel"><%=_ctx.appRes("Application.label.description")%></span>
+						<span class="RightLabel"><%= gadget.getDescription() %></span>
+      		</div>
+  		    <div class="ContentLabel">
+						<span class="LeftLabel"><%=_ctx.appRes("Application.label.url")%></span>
+						<span class="RightLabel"><%= gadget.getReferenceUrl() %></span>
+      		</div>
+  		  </div>
+  		</div>
+		</div>
+	
 </div>

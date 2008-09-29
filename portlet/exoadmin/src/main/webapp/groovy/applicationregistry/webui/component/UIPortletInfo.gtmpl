@@ -24,16 +24,16 @@
   		</div>
   		<div class="ApplicationContent">
   		  <div class="TitleBarApplication">
-  		  	<span class="LeftLabel">Name :</span>
+  		  	<span class="LeftLabel"><%=_ctx.appRes("Application.label.name")%></span>
   		    <span><%= portlet.getName() %></span>
   		  </div>
   		  <div class="ApplicationContentLabel">
   		    <div class="ContentLabel">
-  		      <span class="LeftLabel">Display Name :</span>
+  		      <span class="LeftLabel"><%=_ctx.appRes("Application.label.display")%></span>
   		      <span class="RightLabel"><%= portlet.getDisplayName() %></span>
   		    </div>
   		    <div class="ContentLabel">
-						<span class="LeftLabel">Description :</span>
+						<span class="LeftLabel"><%=_ctx.appRes("Application.label.description")%></span>
 						<span class="RightLabel"><%= portlet.getDescription() %></span>
           </div>
   		  </div>
