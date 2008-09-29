@@ -346,5 +346,73 @@ DOMUtil.prototype.removeElement = function(elemt) {
 	parentElement.removeChild(elemt) ;
 } ;
 
+/**
+ * Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+   Code licensed under the BSD License:
+   http://developer.yahoo.net/yui/license.txt
+   version: 2.5.2
+ * Returns a array of HTMLElements that pass the test applied by supplied boolean method.
+ * For optimized performance, include a tag and/or root node when possible.
+ * @method getElementsBy
+ * @param {Function} method - A boolean method for testing elements which receives the element as its only argument.
+ * @param {String} tag (optional) The tag name of the elements being collected
+ * @param {String | HTMLElement} root (optional) The HTMLElement or an ID to use as the starting point 
+ * @param {Function} apply (optional) A function to apply to each element when found 
+ * @return {Array} Array of HTMLElements
+ */
+DOMUtil.prototype.getElementsBy = function(method, tag, root, apply) {
+  tag = tag || '*';
+  root = (root) ? this.get(root) : null || document;
+
+  if (!root) {
+    return [];
+  }
+
+  var nodes = [],
+    elements = root.getElementsByTagName(tag);
+
+  for (var i = 0, len = elements.length; i < len; ++i) {
+    if ( method(elements[i]) ) {
+      nodes[nodes.length] = elements[i];
+      if (apply) {
+        apply(elements[i]);
+      }
+    }
+  }
+
+  return nodes;
+}
+
+     /**
+	  * Copyright (c) 2008, Yahoo! Inc. All rights reserved.
+	   Code licensed under the BSD License:
+	   http://developer.yahoo.net/yui/license.txt
+	   version: 2.5.2
+      * Returns an HTMLElement reference.
+      * @method get
+      * @param {String | HTMLElement |Array} el Accepts a string to use as an ID for getting a DOM reference, an actual DOM reference, or an Array of IDs and/or HTMLElements.
+      * @return {HTMLElement | Array} A DOM reference to an HTML element or an array of HTMLElements.
+      */
+DOMUtil.prototype.get = function(el) {
+  if (el && (el.nodeType || el.item)) { // Node, or NodeList
+    return el;
+  }
+
+  if ((typeof el === 'string') || !el) { // id or null
+    return document.getElementById(el);
+  }
+         
+  if (el.length !== undefined) { // array-like
+    var c = [];
+    for (var i = 0, len = el.length; i < len; ++i) {
+      c[c.length] = eXo.core.DOMUtil.get(el[i]);
+    }
+             
+    return c;
+  }
+
+  return el; // some other object, just pass it back
+ }
+
 /****************************************************************************/
 eXo.core.DOMUtil = new DOMUtil() ;
