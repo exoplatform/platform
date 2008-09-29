@@ -41,6 +41,7 @@ import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
+import org.exoplatform.services.listener.ListenerService;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
@@ -54,11 +55,20 @@ import org.exoplatform.services.portletcontainer.pci.Input;
  * user.
  */
 public class UserPortalConfigService {
-
+  
+  public final static String CREATE_PAGE_EVENT = "UserPortalConfigService.page.onCreate".intern();
+  public final static String REMOVE_PAGE_EVENT = "UserPortalConfigService.page.onRemove".intern();  
+  public final static String UPDATE_PAGE_EVENT = "UserPortalConfigService.page.onUpdate".intern();
+  
+  public final static String CREATE_NAVIGATION_EVENT = "UserPortalConfigService.navigation.onCreate".intern();
+  public final static String REMOVE_NAVIGATION_EVENT = "UserPortalConfigService.navigation.onRemove".intern();  
+  public final static String UPDATE_NAVIGATION_EVENT = "UserPortalConfigService.navigation.onUpdate".intern();
+  
   private DataStorage  storage_ ;
   private UserACL userACL_;
   private OrganizationService orgService_;
-
+  private ListenerService listenerService;
+  
   protected ExoCache portalConfigCache_ ;
   protected ExoCache pageConfigCache_ ;
   protected ExoCache pageNavigationCache_ ;
@@ -73,10 +83,11 @@ public class UserPortalConfigService {
   public UserPortalConfigService(UserACL userACL,
                                  DataStorage storage,
                                  CacheService cacheService,
-                                 OrganizationService  orgService) throws Exception {
+                                 OrganizationService  orgService,
+                                 ListenerService listenerService) throws Exception {
     storage_ = storage ;
     orgService_ = orgService;
-
+    this.listenerService = listenerService;
     userACL_ = userACL;
 
     portalConfigCache_   = cacheService.getCacheInstance(PortalConfig.class.getName()) ;
@@ -279,6 +290,7 @@ public class UserPortalConfigService {
   public void remove(Page page) throws Exception {    
     storage_.remove(page) ;
     pageConfigCache_.remove(page.getPageId());
+    listenerService.broadcast(REMOVE_PAGE_EVENT,this,page);
   }
   /**
    * This method should create the given page object
@@ -288,6 +300,7 @@ public class UserPortalConfigService {
   public void create(Page page) throws Exception {
     storage_.create(page) ;
     pageConfigCache_.put(page.getPageId(), page);
+    listenerService.broadcast(CREATE_PAGE_EVENT,this,page);
   }
 
   /**
@@ -298,6 +311,7 @@ public class UserPortalConfigService {
   public void update(Page page) throws Exception {
     storage_.save(page) ;    
     pageConfigCache_.select(new ExpireKeyStartWithSelector(page.getPageId())) ;
+    listenerService.broadcast(UPDATE_PAGE_EVENT,this,page);
   }
 
 //**************************************************************************************************
@@ -305,6 +319,7 @@ public class UserPortalConfigService {
   public void create(PageNavigation navigation) throws Exception {
     storage_.create(navigation);
     pageNavigationCache_.put(navigation.getOwner(), navigation);
+    listenerService.broadcast(CREATE_NAVIGATION_EVENT,this,navigation);
   }
 
   /**
@@ -315,6 +330,7 @@ public class UserPortalConfigService {
   public void update(PageNavigation navigation) throws Exception {
     storage_.save(navigation) ;
     pageNavigationCache_.select(new ExpireKeyStartWithSelector(navigation.getOwner())) ;
+    listenerService.broadcast(UPDATE_NAVIGATION_EVENT,this,navigation);
   }
 
   /**
@@ -325,6 +341,7 @@ public class UserPortalConfigService {
   public void remove(PageNavigation navigation) throws Exception {
     storage_.remove(navigation) ;
     pageNavigationCache_.remove(navigation.getOwner());
+    listenerService.broadcast(REMOVE_NAVIGATION_EVENT,this,navigation);
   }
   
   public PageNavigation getPageNavigation(String ownerType, String id) throws Exception{
