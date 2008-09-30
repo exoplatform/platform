@@ -5,24 +5,17 @@
   <priority>2</priority>
   
   <page-nodes>
-     <node>
-	    <uri>registry</uri>
-	    <name>registry</name>
-	    <label>Registry</label>
-	    <page-reference>group::platform/administrators::registry</page-reference>
-    </node>
-     
     <node>
       <uri>administration</uri>
       <name>administration</name>
       <label>#{administration}</label>     
           
-      <node>
-		    <uri>administration/applicationregistry</uri>
-		    <name>applicationregistry</name>
-		    <label>#{administration.application-registry}</label>
-		    <page-reference>group::platform/administrators::applicationRegistry</page-reference>
-	    </node>
+			<node>
+				<uri>administration/registry</uri>
+				<name>registry</name>
+				<label>#{administration.application-registry}</label>
+				<page-reference>group::platform/administrators::registry</page-reference>
+			</node>
 	    
 	    <node>
 		    <uri>administration/newAccount</uri>

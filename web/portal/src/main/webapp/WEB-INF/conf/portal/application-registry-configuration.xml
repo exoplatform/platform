@@ -47,7 +47,7 @@
 		            <collection type="java.util.ArrayList">
 									<value>                 
 	                  <object type="org.exoplatform.application.registry.Application">                     
-									    <field name="applicationName"><string>PortletRegistryPortlet</string></field>
+									    <field name="applicationName"><string>ApplicationRegistryPortlet</string></field>
 	                    <field  name="categoryName"><string>administration</string></field>
 						          <field name="displayName"><string>Application Registry</string></field>
 						          <field name="description"><string>Application Registry</string></field>

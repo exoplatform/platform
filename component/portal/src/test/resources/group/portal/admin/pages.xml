@@ -7,21 +7,7 @@
     <name>web</name>
     <access-permissions>*:/guest</access-permissions>
     <edit-permission>owner:/portal/admin</edit-permission>
-  </page>  
-  
-  <page>
-  	<page-id>group::portal/admin::portletregistry</page-id>
-  	<owner-type>group</owner-type>
-    <owner-id>portal/admin</owner-id>
-    <name>portletregistry</name>
-    <access-permissions>*:/guest</access-permissions>
-    <edit-permission>owner:/portal/admin</edit-permission>
-    <application>
-      <instance-id>group#portal/admin:/exoadmin/PortletRegistryPortlet/PortletRegistry</instance-id>
-      <title>Portlet-Registry Portlet</title>
-      <show-info-bar>false</show-info-bar>
-    </application>  
-  </page> 
+  </page>
   
   <page>
   	<page-id>group::portal/admin::ecmadmin</page-id>

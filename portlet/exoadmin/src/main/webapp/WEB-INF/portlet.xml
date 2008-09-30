@@ -58,38 +58,7 @@
       <keywords>Account</keywords>
     </portlet-info>
   </portlet>  
-  
-  <portlet>
-    <description xml:lang="EN">Portlet Registry</description>
-    <portlet-name>PortletRegistryPortlet</portlet-name>
-    <display-name xml:lang="EN">Portlet Registry</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-    
-    <init-param>
-      <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/exoadmin/PortletRegistryPortlet/webui/configuration.xml</value>
-    </init-param>    
 
-    <expiration-cache>0</expiration-cache>
-    <supports>
-      <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
-    </supports>
-    <supported-locale>en</supported-locale>
-    
-    <resource-bundle>locale.portlet.exoadmin.PortletRegistryPortlet</resource-bundle>
-    <portlet-info>
-      <title>Portlet Registry Portlet</title>
-      <short-title>Registry</short-title>
-      <keywords>portlet, registry</keywords>
-    </portlet-info>
-    
-    <security-role-ref>
-      <role-name>admin</role-name>
-      <role-link>admin</role-link>
-    </security-role-ref>
-  </portlet>
-  
   <portlet>
     <description xml:lang="EN">Internationalization Portlet</description>
     <portlet-name>I18nPortlet</portlet-name>
