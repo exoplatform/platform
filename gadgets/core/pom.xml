@@ -4,8 +4,9 @@
 	<parent>
 		<groupId>org.exoplatform.portal</groupId>
 		<artifactId>exo.portal.gadgets</artifactId>
-		<version>trunk</version>
+		<version>2.5-SNAPSHOT</version>
 	</parent>
+	
 	<artifactId>exo.portal.gadgets-core</artifactId>
 	<packaging>jar</packaging>
 	<name>eXo Gadgets Core</name>
