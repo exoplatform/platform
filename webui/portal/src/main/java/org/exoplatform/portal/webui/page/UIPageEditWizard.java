@@ -132,6 +132,11 @@ public class UIPageEditWizard extends UIPageWizard {
         uiWizard.viewStep(1);
         return ;
       }
+      if(uiPageInfo.getSelectedPageNode() == null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPage", null)) ;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        return ;
+      }
       if(uiPageInfo.getSelectedPageNode().getPageReference() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIWizardPageSetInfo.msg.null", null)) ;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;

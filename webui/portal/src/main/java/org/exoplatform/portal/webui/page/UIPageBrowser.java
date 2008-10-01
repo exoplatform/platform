@@ -82,8 +82,7 @@ import org.exoplatform.webui.form.UISearchForm;
 
 public class UIPageBrowser extends UISearch {
 
-	public static String[] BEAN_FIELD = { "ownerType", "ownerId", "name",
-			"accessPermissions", "editPermission" };
+	public static String[] BEAN_FIELD = { "pageId", "title", "accessPermissions", "editPermission" };
 
 	public static String[] ACTIONS = { "Preview", "EditInfo", "Delete" };
 
@@ -99,7 +98,6 @@ public class UIPageBrowser extends UISearch {
     ResourceBundle res = contextui.getApplicationResourceBundle();
     OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageSearch.label.option.ownerType"), "ownerType"));
     OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageSearch.label.option.ownerId"), "ownerId"));
-    OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageSearch.label.option.name"), "name"));
   }
   
 	private Query<Page> lastQuery_;
@@ -167,7 +165,7 @@ public class UIPageBrowser extends UISearch {
 		Query<Page> query = new Query<Page>(null, null, null, Page.class);
 		if (selectBoxValue.equals("ownerType"))	query.setOwnerType(value);
 		if (selectBoxValue.equals("ownerId"))	query.setOwnerId(value);
-		if (selectBoxValue.equals("name")) query.setName(value);
+		query.setName(null);
 		lastQuery_ = query;
 		defaultValue(lastQuery_);
 		if (this.<UIComponent> getParent() instanceof UIPopupWindow) {

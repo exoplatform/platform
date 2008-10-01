@@ -132,6 +132,30 @@ public class UIPageCreationWizard extends UIPageWizard {
       }
     }
   }
+  
+  public boolean isSelectedNodeExist() throws Exception {
+    UIWizardPageSetInfo uiPageSetInfo = getChild(UIWizardPageSetInfo.class) ;
+    PageNavigation navigation = uiPageSetInfo.getChild(UIPageNodeSelector.class).getSelectedNavigation();
+    PageNode pageNode = uiPageSetInfo.getPageNode() ;
+    PageNode selectedPageNode = uiPageSetInfo.getSelectedPageNode() ;
+    List<PageNode> sibbling = null ;
+    if(selectedPageNode != null) sibbling = selectedPageNode.getChildren() ;
+    else sibbling = navigation.getNodes() ;
+    if(sibbling != null) {
+      for(PageNode ele : sibbling) {
+        if(ele.getUri().equals(pageNode.getUri())){
+          return true;   
+        }
+      }        
+    }
+
+    String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
+    DataStorage storage = getApplicationComponent(DataStorage.class);
+    if(storage.getPage(pageId) != null) {
+      return true;        
+    }
+    return false;
+  }
 
   static  public class ViewStep1ActionListener extends EventListener<UIPageCreationWizard> {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
@@ -163,12 +187,20 @@ public class UIPageCreationWizard extends UIPageWizard {
       uiWizard.viewStep(3);
 
       if(uiWizard.getSelectedStep() < 3){
-        uiWizard.updateWizardComponent();
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.StepByStep",null)) ;
         context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.setDescriptionWizard(2);
         uiWizard.viewStep(2);
+        uiWizard.updateWizardComponent();
         return ;
+      }
+      
+      if(uiWizard.isSelectedNodeExist()) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        uiWizard.viewStep(2) ;
+        uiWizard.updateWizardComponent() ;
+        return;
       }
 
       UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
@@ -196,31 +228,6 @@ public class UIPageCreationWizard extends UIPageWizard {
         }
       }
 
-      PageNode pageNode = uiPageSetInfo.getPageNode();
-      PageNode selectedPageNode = uiNodeSelector.getSelectedPageNode() ;
-      List<PageNode> sibbling = null ;
-      if(selectedPageNode != null) sibbling = selectedPageNode.getChildren() ;
-      else sibbling = navigation.getNodes() ;
-      if(sibbling != null) {
-        for(PageNode ele : sibbling) {
-          if(ele.getUri().equals(pageNode.getUri())){
-            uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-            context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
-            uiWizard.viewStep(2);
-            return;   
-          }
-        }        
-      }
-
-      String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
-      DataStorage storage = uiWizard.getApplicationComponent(DataStorage.class);
-      if(storage.getPage(pageId) != null) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
-        uiWizard.viewStep(2);
-        return;        
-      }
-
     }
   }
 
@@ -229,6 +236,15 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPageCreationWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
       WebuiRequestContext context = Util.getPortalRequestContext() ;
+      
+      if(uiWizard.isSelectedNodeExist()) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        uiWizard.setDescriptionWizard(2) ;
+        uiWizard.viewStep(2) ;
+        uiWizard.updateWizardComponent() ;
+        return;
+      }
       uiWizard.viewStep(4);
 
       if(uiWizard.getSelectedStep() < 4){
@@ -250,7 +266,7 @@ public class UIPageCreationWizard extends UIPageWizard {
       PageNode pageNode = uiPageInfo.getPageNode();
       Page page = uiPageTemplateOptions.createPageFromSelectedOption(ownerType, ownerId);
       page.setCreator(context.getRemoteUser());
-      page.setName(pageNode.getName());
+      page.setName("page" + page.hashCode());
       page.setModifiable(true);
       if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getName()) ;
 
@@ -292,6 +308,14 @@ public class UIPageCreationWizard extends UIPageWizard {
     public void execute(Event<UIPageCreationWizard> event) throws Exception {
       UIPageCreationWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      if(uiWizard.isSelectedNodeExist()) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        uiWizard.setDescriptionWizard(2) ;
+        uiWizard.viewStep(2) ;
+        uiWizard.updateWizardComponent() ;
+        return;
+      }
       uiPortalApp.setEditting(false) ;
       uiWizard.saveData();
       uiWizard.updateUIPortal(uiPortalApp, event);   

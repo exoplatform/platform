@@ -53,7 +53,7 @@ public class UIGrid extends UIComponent {
   protected  boolean useAjax = true;
   protected int displayedChars_ = 30;
 
-public UIGrid() throws Exception {
+  public UIGrid() throws Exception {
     uiIterator_ = createUIComponent(UIPageIterator.class, null, null);
     uiIterator_.setParent(this);
   }

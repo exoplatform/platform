@@ -89,7 +89,6 @@
 			      	<tr>
 			     	 		<td align="center">
 		          		<%for(action in uicomponent.getActions()) { 
-		          		System.out.println(action.contains("Save"));
 								      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
 								      String link = uicomponent.event(action) ;
 								      if(uicomponent.hasEditMode() && selTabId.equals("") && action.contains("Save")) {

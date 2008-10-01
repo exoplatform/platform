@@ -147,8 +147,7 @@ public class UIWizardPageSetInfo extends UIForm {
   }
   
   public void setPageNode(PageNode pageNode) throws Exception {
-    String pageName = pageNode.getPageReference().split("::")[2] ;
-    if(pageNode.getName() != null) getUIStringInput(PAGE_NAME).setValue(pageName) ;
+    if(pageNode.getName() != null) getUIStringInput(PAGE_NAME).setValue(pageNode.getName()) ;
     if(pageNode.getLabel() != null) getUIStringInput(PAGE_DISPLAY_NAME).setValue(pageNode.getResolvedLabel()) ;
     getUIFormCheckBoxInput(VISIBLE).setChecked(pageNode.isVisible()) ;
     setShowPublicationDate(pageNode.isShowPublicationDate()) ;

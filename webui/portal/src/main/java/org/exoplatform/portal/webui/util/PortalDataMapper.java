@@ -141,6 +141,7 @@ public class PortalDataMapper {
     model.setOwnerType(uiPage.getOwnerType());
     model.setIcon(uiPage.getIcon());
     model.setPageId(uiPage.getPageId());
+    model.setTitle(uiPage.getTitle());
     model.setAccessPermissions(uiPage.getAccessPermissions());
     model.setEditPermission(uiPage.getEditPermission());
     model.setFactoryId(uiPage.getFactoryId());
@@ -311,6 +312,7 @@ public class PortalDataMapper {
     uiPage.setEditPermission(model.getEditPermission());
     uiPage.setFactoryId(model.getFactoryId());
     uiPage.setPageId(model.getPageId());
+    uiPage.setTitle(model.getTitle());
     uiPage.setShowMaxWindow(model.isShowMaxWindow());   
     uiPage.setModifiable(model.isModifiable());
     
