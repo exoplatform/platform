@@ -294,6 +294,7 @@
 .UIApplicationRegistryPortlet .UIAcessPermissions .UIForm .HorizontalLayout {
 	padding: 0px;
 	border: none;
+	background: none;
 }
 
 .UIApplicationRegistryPortlet .UIAcessPermissions .UIFormGrid {
