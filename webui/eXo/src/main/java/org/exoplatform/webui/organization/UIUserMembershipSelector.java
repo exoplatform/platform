@@ -31,6 +31,7 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
@@ -144,10 +145,14 @@ public class UIUserMembershipSelector extends UISelector<String> {
     public void execute(Event<UIUserMembershipSelector> event) throws Exception{
       UIUserMembershipSelector uiUserMembershipSelector = event.getSource();
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
+      UIPageIterator pageIterator = uiUserMembershipSelector.getChild(UIGrid.class).getUIPageIterator();
+      int currentPage = pageIterator.getCurrentPage();
       OrganizationService service = uiUserMembershipSelector.getApplicationComponent(OrganizationService.class);
       service.getMembershipHandler().removeMembership(id, true);
       User user = service.getUserHandler().findUserByName(uiUserMembershipSelector.getUser()) ;
       uiUserMembershipSelector.setUser(user) ;
+      while(currentPage > pageIterator.getAvailablePage()) currentPage--;
+      pageIterator.setCurrentPage(currentPage);
     }
   }
   

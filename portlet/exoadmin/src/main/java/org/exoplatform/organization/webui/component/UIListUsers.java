@@ -160,8 +160,12 @@ public class UIListUsers extends UISearch {
         uiApp.addMessage(new ApplicationMessage("UIListUsers.msg.DeleteSuperUser", new String[] {userName},ApplicationMessage.WARNING)) ;
         return ;
       }
+      UIPageIterator pageIterator = uiListUser.getChild(UIGrid.class).getUIPageIterator() ;
+      int currentPage = pageIterator.getCurrentPage() ;
       service.getUserHandler().removeUser(userName, true) ;
-      uiListUser.search(uiListUser.lastQuery_);
+      uiListUser.search(uiListUser.lastQuery_) ;
+      while(currentPage > pageIterator.getAvailablePage()) currentPage-- ;
+      pageIterator.setCurrentPage(currentPage) ;
       UIComponent uiToUpdateAjax = uiListUser.getAncestorOfType(UIUserManagement.class) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiToUpdateAjax) ;
     }

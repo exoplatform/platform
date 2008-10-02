@@ -35,6 +35,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 /**
@@ -127,10 +128,15 @@ public class UIUserInGroup extends UIContainer {
     public void execute(Event<UIUserInGroup> event) throws Exception {
       UIUserInGroup uiUserInGroup = event.getSource() ;
       String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      UIPageIterator pageIterator = uiUserInGroup.getChild(UIGridUser.class).getUIPageIterator();
+      int currentPage = pageIterator.getCurrentPage();
       OrganizationService service = uiUserInGroup.getApplicationComponent(OrganizationService.class);
       MembershipHandler handler = service.getMembershipHandler();
       handler.removeMembership(id, true) ;
       uiUserInGroup.refresh();
+      while(currentPage > pageIterator.getAvailablePage()) currentPage--;
+      pageIterator.setCurrentPage(currentPage);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiUserInGroup.getChild(UIGridUser.class));
     }
   }
 

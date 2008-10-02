@@ -31,6 +31,7 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
@@ -98,13 +99,20 @@ public class UIListMembershipType extends UIContainer {
         return ;
       }
       
-      OrganizationService service = uiMembership.getApplicationComponent(OrganizationService.class);
+      OrganizationService service = uiMembership.getApplicationComponent(OrganizationService.class) ;
       MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(name) ;
+      UIPageIterator pageIterator = uiMembership.getChild(UIGrid.class).getUIPageIterator() ;
+      int currentPage = -1 ;
       if(membershipType != null) {
-        service.getMembershipTypeHandler().removeMembershipType(name,true);
+        currentPage = pageIterator.getCurrentPage() ;
+        service.getMembershipTypeHandler().removeMembershipType(name,true) ;
         membership.deleteOptions(membershipType) ;
       }
-      uiMembership.loadData();
+      uiMembership.loadData() ;
+      if(currentPage >= 0) {
+        while(currentPage > pageIterator.getAvailablePage()) currentPage-- ;
+        pageIterator.setCurrentPage(currentPage) ;
+      }
     }
   }
   

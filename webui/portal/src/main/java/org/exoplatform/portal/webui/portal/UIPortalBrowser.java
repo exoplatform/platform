@@ -37,6 +37,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -74,6 +75,8 @@ public class UIPortalBrowser extends UIContainer {
     DataStorage service = getApplicationComponent(DataStorage.class) ;
 //    UserACL userACL = getApplicationComponent(UserACL.class) ;
 //    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
+    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
+    int currentPage = uiGrid.getUIPageIterator().getCurrentPage() ;
     Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
     PageList pageList = service.find(query, new Comparator<PortalConfig>(){
       public int compare(PortalConfig pconfig1, PortalConfig pconfig2) {
@@ -92,9 +95,10 @@ public class UIPortalBrowser extends UIContainer {
 //      }
 //      i++ ;
 //    }
-    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     uiGrid.setUseAjax(false);
     uiGrid.getUIPageIterator().setPageList(pageList);
+    while(currentPage > uiGrid.getUIPageIterator().getAvailablePage()) currentPage-- ;
+    uiGrid.getUIPageIterator().setCurrentPage(currentPage) ;
   } 
 
   static public class DeletePortalActionListener extends EventListener<UIPortalBrowser> {
