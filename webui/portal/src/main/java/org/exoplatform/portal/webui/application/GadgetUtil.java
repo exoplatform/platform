@@ -44,7 +44,7 @@ public class GadgetUtil {
     return new GadgetApplication(model.getName(), model.getUrl(), model.isLocal());
   }
   
-  static public Gadget toGadget(String name, String url, boolean isLocal) throws Exception{
+  static final public Gadget toGadget(String name, String url, boolean isLocal) throws Exception{
     Gadget gadget = new Gadget();
     gadget.setName(name);
     gadget.setUrl(url) ;
@@ -64,7 +64,7 @@ public class GadgetUtil {
    * Fetchs Metatada of gadget application, create the connection to shindig server to get the metadata
    * @return the string represents metadata of gadget application
    */
-  static public String fetchGagdetMetadata(String urlStr) {
+  static final public String fetchGagdetMetadata(String urlStr) {
     String result = null;
     try {
       String data = "{\"context\":{\"country\":\"US\",\"language\":\"en\"},\"gadgets\":[" +
@@ -91,7 +91,7 @@ public class GadgetUtil {
    * @throws JSONException if can't create jsonObject from metadata
    */
   @SuppressWarnings("unchecked")
-  static public Map<String, String> getMapMetadata(String url) throws JSONException {
+  static final public Map<String, String> getMapMetadata(String url) throws JSONException {
     Map<String, String> mapMetaData = new HashMap<String, String>();
     String metadata = fetchGagdetMetadata(url);
     metadata = metadata.substring(metadata.indexOf("[")+1,metadata.lastIndexOf("]"));
@@ -104,7 +104,7 @@ public class GadgetUtil {
     return mapMetaData;
   }
   
-  static public String reproduceUrl(String path, boolean isLocal) {
+  static final public String reproduceUrl(String path, boolean isLocal) {
     if(isLocal) {
       PortalRequestContext pContext = Util.getPortalRequestContext() ;
       StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
