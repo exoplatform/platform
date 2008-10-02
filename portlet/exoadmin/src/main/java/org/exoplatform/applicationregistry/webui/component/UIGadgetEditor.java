@@ -18,6 +18,7 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -60,7 +61,7 @@ public class UIGadgetEditor extends UIForm {
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       sourceStorage.saveSource(name, source) ;
-      service.addGadget(Util.toGadget(name, sourceStorage.getSourceLink(name), true)) ;
+      service.addGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceLink(name), true)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
       uiManagement.reload() ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;

@@ -16,19 +16,9 @@
  */
 package org.exoplatform.portal.webui.application;
 
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import org.apache.commons.io.IOUtils;
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.webui.util.Util;
@@ -39,8 +29,6 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.json.JSONException;
-import org.json.JSONObject;
 /**
  * Created by The eXo Platform SAS
  * Author : dang.tung
@@ -174,75 +162,11 @@ public class UIGadget extends UIComponent {
   
   public String getMetadata() {
     if(metadata_ == null) {
-      metadata_ = getMetadata(getUrl());
+      metadata_ = GadgetUtil.fetchGagdetMetadata(getUrl());
     }
     return metadata_;
   }
 
-  /**
-   * Gets metadata of gadget application
-   * @return string represents metadata of gaget application
-   * @exception throws IOException when can't create the http connection or streaming 
-   */
-  static public String getMetadata(String url) {
-    String data = null;
-    try {
-      data = fetchGagdetMetadata(url);
-    } catch (IOException e) {
-      e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-    }
-    if(data == null){
-      data = "{}";
-    }
-    return data;
-  }
-
-  /**
-   * Fetchs Metatada of gadget application, create the connection to shindig server to get the metadata
-   * @return the string represents metadata of gadget application
-   * @throws IOException if can't crate the connection to shindig server or from streaming
-   */
-  static private String fetchGagdetMetadata(String urlStr) throws IOException {
-/*    JSONArray gadgets = new JSONArray()
-        .put(createGadget(url_, 0, null));
-
-    JSONObject input = new JSONObject()
-        .put("context", createContext("en", "US"))
-        .put("gadgets", gadgets);*/
-    String data = "{\"context\":{\"country\":\"US\",\"language\":\"en\"},\"gadgets\":[" +
-        "{\"moduleId\":0,\"url\":\"" + urlStr + "\",\"prefs\":[]}]}";
-    // Send data
-    URL url = new URL("http://localhost:8080/eXoGadgetServer/gadgets/metadata");
-    URLConnection conn = url.openConnection();
-    conn.setDoOutput(true);
-    OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-    wr.write(data);
-    wr.flush();
-    // Get the response
-    String result = IOUtils.toString(conn.getInputStream(), "UTF-8");
-    wr.close();
-    return result;
-  }
-  /**
-   * Gets map metadata of gadget application
-   * @return  map metadata of gadget application so can get value of metadata by it's key
-   *          such as title, url
-   * @throws JSONException if can't create jsonObject from metadata
-   */
-  @SuppressWarnings("unchecked")
-  static public Map<String, String> getMapMetadata(String url) throws JSONException {
-    Map<String, String> mapMetaData = new HashMap<String, String>();
-    String metadata = getMetadata(url);
-    metadata = metadata.substring(metadata.indexOf("[")+1,metadata.lastIndexOf("]"));
-    JSONObject jsonObj = new JSONObject(metadata);
-    Iterator<String> iter = jsonObj.keys();
-    while (iter.hasNext()) {
-      String element = iter.next();
-      mapMetaData.put(element, jsonObj.get(element).toString());
-    }
-    return mapMetaData;
-  }
-  
   /**
    * Gets GadgetApplication by GadgedRegistryService
    * @return Gadget Application 
@@ -256,7 +180,7 @@ public class UIGadget extends UIComponent {
       Gadget model;
       try{ model = gadgetServcie.getGadget(applicationName_); }
       catch(Exception ex) { return null; }
-      application = Util.toGadgetApplication(model);
+      application = GadgetUtil.toGadgetApplication(model);
       webController.addApplication(application);
     }
     return application;
@@ -268,20 +192,9 @@ public class UIGadget extends UIComponent {
    */
   public String getUrl() {
     GadgetApplication application = getApplication();
-    return getUrl(application.getUrl(), application.isLocal());
+    return GadgetUtil.reproduceUrl(application.getUrl(), application.isLocal());
   }
   
-  static public String getUrl(String path, boolean isLocal) {
-    if(isLocal) {
-      PortalRequestContext pContext = Util.getPortalRequestContext() ;
-      StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
-      int index = requestUrl.indexOf(pContext.getRequestContextPath()) ;
-      return requestUrl.substring(0, index) + "/" + path;
-
-    }
-    return path ;    
-  }
-
   /**
    * Gets user preference of gadget application
    * @return the string represents user preference of gadget application

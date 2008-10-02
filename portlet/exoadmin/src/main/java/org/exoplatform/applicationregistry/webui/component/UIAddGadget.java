@@ -23,6 +23,7 @@ import java.net.URLConnection;
 import org.apache.commons.io.IOUtils;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -70,7 +71,7 @@ public class UIAddGadget extends UIForm {
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       String url = uiForm.getUIStringInput(URL) .getValue();
       String name  = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.')) ;
-      service.addGadget(Util.toGadget(name, url, false)) ;
+      service.addGadget(GadgetUtil.toGadget(name, url, false)) ;
       UIGadgetManagement uiParent = uiForm.getParent() ;
       uiParent.reload() ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
@@ -101,7 +102,7 @@ public class UIAddGadget extends UIForm {
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
       String name  = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.')) ;
       sourceStorage.saveSource(name, source) ;
-      service.addGadget(Util.toGadget(name, sourceStorage.getSourceLink(name), true)) ;
+      service.addGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceLink(name), true)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
       uiManagement.reload() ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;

@@ -245,24 +245,4 @@ public class Util {
     return uiWorkingWS;
   }
   
-  static final public GadgetApplication toGadgetApplication(Gadget model) {
-    return new GadgetApplication(model.getName(), model.getUrl(), model.isLocal());
-  }
-  
-  static public Gadget toGadget(String name, String url, boolean isLocal) throws Exception{
-    Gadget gadget = new Gadget();
-    gadget.setName(name);
-    gadget.setUrl(url) ;
-    gadget.setLocal(isLocal);
-    Map<String, String> metaData = UIGadget.getMapMetadata(UIGadget.getUrl(url, isLocal));
-    String title = metaData.get("directoryTitle") ;
-    if(title == null || title.trim().length() < 1) title = metaData.get("title") ;
-    if(title == null || title.trim().length() < 1) title = gadget.getName() ;
-    gadget.setTitle(title) ;
-    gadget.setDescription(metaData.get("description")) ;
-    gadget.setReferenceUrl(metaData.get("titleUrl")) ;
-    gadget.setThumbnail(metaData.get("thumbnail")) ;
-    return gadget;
-  }  
-
 }
