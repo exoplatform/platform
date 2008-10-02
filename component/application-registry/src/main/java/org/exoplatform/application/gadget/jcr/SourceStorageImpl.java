@@ -22,6 +22,8 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 
 import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.container.xml.PropertiesParam;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 
@@ -34,8 +36,16 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 public class SourceStorageImpl implements SourceStorage {
   
   private RepositoryService repoService;
+  private String repo;
+  private String wsName;
+  private String storePath;
   
-  public SourceStorageImpl(RepositoryService service) {
+  public SourceStorageImpl(InitParams params, RepositoryService service) throws Exception {
+    PropertiesParam properties = params.getPropertiesParam("location");
+    if(properties == null) throw new Exception("The 'location' properties parameter is expected.");
+    repo = properties.getProperty("repository");
+    wsName = properties.getProperty("workspace");
+    storePath = properties.getProperty("store.path");
     repoService = service;
   }
 
@@ -49,8 +59,8 @@ public class SourceStorageImpl implements SourceStorage {
 
   public void saveSource(String name, String source) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
-    Node homeNode = session.getRootNode() ;
+    Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
+    Node homeNode = (Node) session.getItem(storePath);
     Node contentNode ;
     String fileName = name + ".xml" ;
     if(!homeNode.hasNode(fileName)) {
@@ -66,8 +76,8 @@ public class SourceStorageImpl implements SourceStorage {
 
   public void removeSource(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
-    Node homeNode = session.getRootNode() ;
+    Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
+    Node homeNode = (Node) session.getItem(storePath);
     Node sourceNode = homeNode.getNode(name) ;
     sourceNode.remove() ;
     session.save() ;
@@ -77,14 +87,16 @@ public class SourceStorageImpl implements SourceStorage {
   public String getSourceLink(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node homeNode = getHomeNode(sessionProvider) ;
-    String link = "rest/jcr/repository/gadgets" + homeNode.getNode(name + ".xml").getPath() ;
+    StringBuilder link = new StringBuilder(30);
+    link.append("rest/jcr/").append(repo).append("/")
+    .append(wsName).append(homeNode.getNode(name + ".xml").getPath());
     sessionProvider.close() ;
-    return link ;
+    return link.toString() ;
   }
 
   private Node getHomeNode(SessionProvider sessionProvider) throws Exception {
-    Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
-    return session.getRootNode() ; 
+    Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
+    return (Node) session.getItem(storePath) ; 
   }
 
 }
