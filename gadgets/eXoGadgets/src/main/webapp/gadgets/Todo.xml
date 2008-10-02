@@ -1,609 +1,120 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Module>
-<!-- 
-	ToDo Module
-	Design & Code: LabPixies
-	All subsequent code and resources used are proprietary of LabPixies unless directly stated otherwise.
-	Copyright (C) 2006 LabPixies.    
-	www.labpixies.com
-
-	This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivs 2.5 License.
-	To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/2.5/ or
-	send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
--->
-
-<ModulePrefs author="LabPixes"
-author_email="info+todo@labpixies.com"
-description="__MSG_description__"
-screenshot="http://www.labpixies.com/campaigns/todo/images/screenshot.gif"
-title="__MSG_gTitle__"
-directory_title="__MSG_gTitle__"
-title_url="http://www.labpixies.com"
-thumbnail="http://www.labpixies.com/campaigns/todo/images/thumbnail.jpg" height="260" render_inline="never">
-
-  <Locale 								messages="http://www.labpixies.com/campaigns/todo/i18n/ALL_ALL.xml"/>
-  <Locale lang="de" 					messages="http://www.labpixies.com/campaigns/todo/i18n/de_ALL.xml"/>
-  <Locale lang="de" 	country="AT" 	messages="http://www.labpixies.com/campaigns/todo/i18n/de_AT.xml"/> 
-  <Locale lang="de" 	country="CH" 	messages="http://www.labpixies.com/campaigns/todo/i18n/de_CH.xml"/> 
-  <Locale lang="fr" 					messages="http://www.labpixies.com/campaigns/todo/i18n/fr_ALL.xml"/>
-  <Locale lang="fr" 	country="CH" 	messages="http://www.labpixies.com/campaigns/todo/i18n/fr_CH.xml"/> 
-  <Locale lang="fr" 	country="BE" 	messages="http://www.labpixies.com/campaigns/todo/i18n/fr_BE.xml"/> 
-  <Locale lang="pl" 					messages="http://www.labpixies.com/campaigns/todo/i18n/pl_ALL.xml"/>
-  <Locale lang="es" 					messages="http://www.labpixies.com/campaigns/todo/i18n/es_ALL.xml"/>
-  <Locale lang="pt-BR" 					messages="http://www.labpixies.com/campaigns/todo/i18n/pt_ALL.xml"/>
-  <Locale lang="pt-PT" 					messages="http://www.labpixies.com/campaigns/todo/i18n/pt_pt.xml"/>
-  <Locale lang="ru" 					messages="http://www.labpixies.com/campaigns/todo/i18n/ru_ALL.xml"/>
-  <Locale lang="nl" 					messages="http://www.labpixies.com/campaigns/todo/i18n/nl_ALL.xml"/>
-  <Locale lang="nl" 	country="BE" 	messages="http://www.labpixies.com/campaigns/todo/i18n/nl_BE.xml"/>
-  <Locale lang="it" 					messages="http://www.labpixies.com/campaigns/todo/i18n/it_ALL.xml"/>
-  <Locale lang="it" 	country="CH" 	messages="http://www.labpixies.com/campaigns/todo/i18n/it_CH.xml"/> 
-  <Locale lang="iw" 					messages="http://www.labpixies.com/campaigns/todo/i18n/iw_ALL.xml"/>
-  <Locale lang="se" 					messages="http://www.labpixies.com/campaigns/todo/i18n/se_ALL.xml"/>
-  <Locale lang="da" 					messages="http://www.labpixies.com/campaigns/todo/i18n/dk_ALL.xml"/>
-  <Locale lang="no" 					messages="http://www.labpixies.com/campaigns/todo/i18n/no_ALL.xml"/>
-  <Locale lang="fi" 					messages="http://www.labpixies.com/campaigns/todo/i18n/fi_ALL.xml"/>
- 
-<Require feature="setprefs"/>
-<Require feature="analytics" /> 
-<Require feature="locked-domain"/>
-
-</ModulePrefs>
-
-<UserPref name="saved_tasks" datatype="hidden" default_value="" />
-<Content type="html">
-      <![CDATA[
-
-<title>ToDo</title>
-<style type="text/css">
+<?xml version="1.0" encoding="UTF-8" ?>
 <!--
-.style0{
-font-size: 1px;
-}
-.style1 {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 9px;
-}
-.style2 {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	font-weight: bold;
-	height: 16px;
-	background-color: Transparent;
-	border: 0px solid Transparent;
-	width: 140px;
-	align: bottom;
-    overflow: hidden;
-}
-.style3 {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	font-weight: bold;
-	height: 16px;
-	background-color: Transparent;
-	border: 0px solid Transparent;
-	width: 140px;
-	align: bottom;
-    overflow: hidden;
-}
-.style4 {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	font-weight: bold;
-	height: 16px;
-	background-color: Transparent;
-    border: 0px solid Transparent;
-	width: 140px;
-	align: bottom;
-    overflow: hidden;
-}
-
-#lp_ad_div a:link, #lp_ad_div a:visited	{text-decoration:none;color:#006CB3;font-family: Verdana, Arial, sans-serif; font-size:11px;}
-#lp_ad_div a:hover, #lp_ad_div a:active	{text-decoration:underline;color:#006CB3;font-family: Verdana, Arial, sans-serif; font-size:11px;}
-
-#tdada a:link{font-size:11px;text-decoration:none;color:#006CB3;font-family:Verdana,Arial,sans-serif;}
-#tdada a:visited{font-size:11px;text-decoration:none;color:#006CB3;font-family:Verdana,Arial,sans-serif;}
-#tdada a:hover{font-size:11px;text-decoration:underline;color:#006CB3;font-family:Verdana,Arial,sans-serif;}
-#tdada a:active{font-size:11px;text-decoration:underline;color:#006CB3;font-family:Verdana,Arial,sans-serif;}
-
+ **
+ * Created by The eXo Platform SARL
+ * Author : dang.tung
+ *          tungcnw@gmail.com
+ * Oct 01, 2008          
+ *
 -->
-</style>
-
-<script type="text/javascript">
-_gadgetID = 33;
-	
-  var mAll = _IG_GetCachedUrl("http://www.labpixies.com/lib/lp_utils_all_cookie.js");
-  document.write('<scr'+'ipt type="text/javascript" src="'+mAll+'"></scr'+'ipt>');
-    
-	var IMAGES_BASE = "http://www.labpixies.com/campaigns/todo/images/";
-	var DELIMITER = "_#$LAB_UDI$#_";
-	var EXT_DELIMITER = "_#$LAB_MATAN$#_";
-	
-	var tasks = new Array();
-	var prefs = null;
-	
-	var currentColorSelection = 0;
-	var colors = new Array("#000000", "#E22974","#DC4A20","#006CB3","#7E9D1E","#ED1C24","#737373","#F7941D","#662D91");
-	
-	//task class element
-	function taskElement(){
-		this.text_color = "black";
-		this.content = "";
-		this.position = 0;
-		this.isEmpty = false;
-
-		this.toString = function(){
-		  var txt = "";
-		  
-		  if (!this.isEmpty) {
-			txt += ('<div><table width="226" height="24" border="0" cellpadding="0" cellspacing="0">'+
-						'<tr>'+
-						'<td width="10">'+
-							'<table width="10" border="0" cellspacing="0" cellpadding="0">'+
-							'<tr>'+
-								'<td><img title="__MSG_priority__" onclick="changeOrder(-1,'+this.position+');" onmouseout="on_image_out(this);" onmouseover="on_image_over(this);" src='+this.getUpImage()+' width="10" height="8" /></td>'+
-							'</tr>'+
-							'<tr>'+
-								'<td><img title="__MSG_priority__" onclick="changeOrder(1,'+this.position+');" onmouseout="on_image_out(this);" onmouseover="on_image_over(this);" src='+this.getDownImage()+' width="10" height="8" /></td>'+
-							'</tr>'+
-							'</table>'+
-						'</td>');
-            
-     if(__MSG_leftAlign__){
-					txt += ('<td width="16">&nbsp;</td>'+'<td width="10"><span style="width:10px;color:'+ this.text_color+';" id="numElm'+ this.position +'" class="style2">'+ (this.position+1) +'.</span> </td>'+
-						'<td id="inputCont'+this.position+'" width="140" ><div onclick="startEdit('+ this.position +');" onfocus="startEdit('+ this.position +');" style="color:'+ this.text_color+';"  class="style2"   id="content'+ this.position +'">&nbsp;'+ this.content +'</div></td>');
-		 }else{
-				  txt += ('<td dir="rtl" id="inputCont'+this.position+'" width="140" ><div onclick="startEdit('+ this.position +');" onfocus="startEdit('+ this.position +');" style="color:'+ this.text_color+';"  class="style2"   id="content'+ this.position +'">&nbsp;'+ this.content +'</div></td>'+
-                  '<td  width="10"><span dir="rtl" style="width:10px;color:'+ this.text_color+';" id="numElm'+ this.position +'" class="style2">'+ (this.position+1) +'.</span> </td>'+'<td width="12">&nbsp;</td>');
-     }
-          txt += ('<td width="50"><img title="__MSG_delete__" onclick="removeElement('+ this.position +');" onmouseout="on_image_out(this);" onmouseover="on_image_over(this);" src="'+_IG_GetImageUrl(IMAGES_BASE+"remove_off.gif")+'" width="11" height="11" /><img title="__MSG_change__" onclick="toggleColorPal('+ this.position +');" onmouseout="on_image_out(this);" onmouseover="on_image_over(this);" src="'+_IG_GetImageUrl(IMAGES_BASE+"color_off.gif")+'" width="11" height="11" /></td>'+
-						'</tr>'+
-					'</table></div>');
-		  }else{
-			txt += ('<div><table width="226" height="24" border="0" cellpadding="0" cellspacing="0">'+
-						'<tr>'+
-						'<td width="10">'+
-							'<table width="10" border="0" cellspacing="0" cellpadding="0">'+
-							'<tr>'+
-								'<td><img onmouseout="on_image_out(this);" onmouseover="on_image_over(this);" src="'+_IG_GetImageUrl(IMAGES_BASE+"no_up_down.gif")+'" width="10" height="8" /></td>'+
-							'</tr>'+
-							'<tr>'+
-								'<td><img onmouseout="on_image_out(this);" onmouseover="on_image_over(this);" src="'+_IG_GetImageUrl(IMAGES_BASE+"no_up_down.gif")+'" width="10" height="8" /></td>'+
-							'</tr>'+
-							'</table>'+
-						'</td>');
-       if(__MSG_leftAlign__){
-					txt += ('<td width="16">&nbsp;</td>'+'<td width="10"><span style="width:10px;color:'+ this.text_color+';" id="numElm'+ this.position +'" class="style2">'+ (this.position+1) +'. </td>'+
-						'<td id="inputCont'+this.position+'" width="140" ><div  onclick="startEdit('+ this.position +');" onfocus="startEdit('+ this.position +');" style="color:'+ this.text_color+';"    class="style2"   id="content'+ this.position +'" >&nbsp;'+ this.content +'</div></td>');
-		   }else{
-				    txt += ('<td dir="rtl" id="inputCont'+this.position+'" width="140" ><div  onclick="startEdit('+ this.position +');" onfocus="startEdit('+ this.position +');" style="color:'+ this.text_color+';"    class="style2"   id="content'+ this.position +'" >&nbsp;'+ this.content +'</div></td>'+
-            '<td dir="rtl" width="10"><span style="width:10px;color:'+ this.text_color+';" id="numElm'+ this.position +'" class="style2">'+ (this.position+1) +'. </td>'+'<td width="12">&nbsp;</td>');			
-       }
-          txt += ('<td width="50"></td>'+
-						'</tr>'+
-					'</table></div>');
-			}
-			return txt;
-		};
-
-		this.getUpImage = function(){
-		  return (this.position == 0 ? (_IG_GetImageUrl(IMAGES_BASE+"no_up_down.gif")) : (_IG_GetImageUrl(IMAGES_BASE+"up_off.gif")));
-		};
-
-		this.getDownImage = function(){
-		  return (this.position == 6 || (this.position==tasks.length-2 && tasks[tasks.length-1].isEmpty) ? (_IG_GetImageUrl(IMAGES_BASE+"no_up_down.gif")) : (_IG_GetImageUrl(IMAGES_BASE+"down_off.gif")));
-		};
+<Module>
+	<ModulePrefs author="eXoPlatform"
+		title="Calendar"
+		directory_title="Calendar"
+		title_url="http://www.exoplatform.org"
+		height="235">
+	</ModulePrefs>
+	<Content type="html">
+	<![CDATA[
+		<style type="text/css">
 		
-		this.getTextStyle = function(){
-			return (this.content == "__MSG_empty__" ? "style3" : "style2");
-		}
-
-		this.serialize = function(){
-			return (this.position + DELIMITER + this.content + DELIMITER + this.text_color);
-		};
-
-		this.deserialize = function(token){
-			var tokArr = token.split(DELIMITER);
-			this.position = parseInt(tokArr[0]);
-			this.content = tokArr[1];
-			this.text_color = tokArr[2];
-		};
-		
-		
-	}
-	
-	
-	function onKeyHandle(e,index){
-		var keynum;
-		var keychar;
-		var numcheck;
-		
-		if(window.event) // IE
-		{
-			keynum = e.keyCode;
-		}
-		else if(e.which) // Netscape/Firefox/Opera
-		{
-			keynum = e.which;
-		}
-		
-		
-		if (keynum == 13) {
-			
-			try{
-				_gel("content"+index).blur();
-			}catch(e){}
-			
-			if (_gel("content"+index).value == "") {
-				endEdit(index);
-			}
-			return false;
-		}
-		
-		return true;
-	}
-	
-	
-	function changeOrder(dir,index){
-		if (dir==-1 && index==0) {
-			return;
-		}
-		if ((dir==1 && index==6) || (index == tasks.length-1 && dir==1)) {
-			return;
-		}
-		if (tasks[index+dir].isEmpty) {
-			return;
-		}
-		
-		var temp = tasks[index+dir];
-		tasks[index+dir] = tasks[index];
-		tasks[index] = temp;
-		
-		saveTasks();
-		updateTaskDisplay();
-		
-	}
-	
-	function switchToInput(index){
-		//take content from div
-		//put in input
-		_gel("inputCont"+index).innerHTML = '<input maxlength="96" onblur="endEdit('+ tasks[index].position +');" style="color:'+ tasks[index].text_color+';" onkeypress="onKeyHandle(event,'+ tasks[index].position +');" onchange="endEdit('+ tasks[index].position +');" type="text" class="style2"   id="content'+ tasks[index].position +'" value="'+ tasks[index].content +'" />';
-		 
-	}
-	
-	function startEdit(index){
-		switchToInput(index);
-		if (tasks[index].isEmpty) {
-			_gel("content"+index).value = "";
-		}
-		_gel("content"+index).focus();
-		_gel("content"+index).select();
-		
-	}
-	
-	function endEdit(index){
-		
-		//remove focus to avoid blinking cursor
-		_gel("content"+index).blur();
-		//reset the text so the input will display the string from starting index
-		var text = _gel("content"+index).value;
-		
-		if(text==null){
-			//no text to enter, problem that can happen in safari
-			// return and do nothing
-			return;
-		}
-		
-		if (text == "") {
-			if (tasks[index].isEmpty) {
-				text = "__MSG_empty__";
-			}else{
-				removeElement(index);
-				return;
+			body {
+				margin: 0;
+				outline: none;
+				font: normal 100%/1.25  Verdana, Tahoma, Arial, Helvetica, sans-serif;
+				text-decoration: none;
+				text-align: center;
 			}
 			
-		}
-		
-		var old_content = tasks[index].content;
-		
-		tasks[index].content = text.replace(/"/g,"&quot;");
-		
-		
-		if (tasks[index].isEmpty) {
-			if (tasks[index].content != "__MSG_empty__") {
-				tasks[index].text_color = "black";
-				tasks[index].isEmpty = false;
-				_gel("content"+index).title = text;
-				addEmptyTask();
-				saveTasks();
+			img {
+				border:none;
 			}
-		}else{
-			if(tasks[index].content){
-				
-				if (tasks[index].content != old_content) {
-					saveTasks();
-				}
-			}
-		}
-		
-		updateTaskDisplay();
-		
-		return false;
-	}
-	
-	function removeElement(index){
-		
-		if (tasks[index].isEmpty) {
-			return;
-		}
-	
-		tasks.splice(index,1);
-		
-		saveTasks();
-		updateTasks();
-	}
-
-	function toggleColorPal(index){
-		
-		if(index == -1 || _gel("colormap").style.visibility == "visible"){
-			_gel("colormap").style.visibility = "hidden";
-			return;
-		}
-		
-		currentColorSelection = index;
-		
-		var refernceTop,referenceLeft;
-		
-		refernceTop = lp_getAbsoluteTop("test1");
-		referenceLeft = lp_getAbsoluteLeft("test1");
-		
-		
-		var top = refernceTop+42+(24*index);
-		var left = referenceLeft+178;
-		
-		
-		_gel("colormap").style.top = (top+"px");
-		_gel("colormap").style.left = (left+"px");
-		
-		_gel("colormap").style.visibility = "visible";
-	}
-
-	function on_image_over(elm){
-		elm.src = elm.src.replace("_off","_on");
-	}
-	
-	function on_image_out(elm){
-		elm.src = elm.src.replace("_on","_off");
-	}
-
-	function setColor(colIndex){
-		
-		//if (tasks[currentColorSelection].isEmpty) {
-		//	return;
-		//}
-		
-		tasks[currentColorSelection].text_color = colors[colIndex];
-		
-		saveTasks();
-		toggleColorPal(-1);
-		updateTasks();
-	}
-	
-	
-	function load(){
-		prefs = new _IG_Prefs();
-		setImages();
-		updateTasks();
-		//saveTasks(); 
-		
-	}
-	
-	function setImages() {
-		
-		_gel("bg_of_all").style.background = 'transparent url('+_IG_GetImageUrl(IMAGES_BASE+"__MSG_back__")+') 0px 0px no-repeat';
-		_gel("colormap").src = _IG_GetImageUrl(IMAGES_BASE+"color_pallete.gif");
-	}
-	
-	/*
-	 * This function should parse the current saved tasks and update tasks display
-	 */
-	function updateTasks(){
-		
-		clearTasks();
-		
-		var taskStr = "";
-		try {
-			if (prefs)
-				taskStr = prefs.getString("saved_tasks");
-		} catch (eee) {}
-		
-		var taskNum = 0;
-		var taskTokens = null;
-		var i = 0;
-		
-		if (taskStr != null) {
-			taskTokens = taskStr.split(EXT_DELIMITER);
-			taskNum = taskTokens.length;
-		}
-		
-		for(i=1;i < taskNum;i++){
-			var currTask = new taskElement();
-			currTask.deserialize(taskTokens[i]);
-			tasks.push(currTask);
-		}
-		
-		if (i < 8) {
-			addEmptyTask();
-		}
-		
-		updateTaskDisplay();
-	}
-	
-	function addEmptyTask(){
-		var position = tasks.length;
-		if (position >= 7) {
-			return;
-		}
-		var token = (position+DELIMITER+"__MSG_empty__"+DELIMITER+"#A7A7A7");
-		var currTask = new taskElement();
-		currTask.isEmpty = true;
-		currTask.deserialize(token);
-		tasks.push(currTask);
-	}
-	
-	function saveTasks(){
-		var i = 0;
-		var saveSTR = "";
-		
-		for(i=0;i < tasks.length;i++){
 			
-			if (!tasks[i].isEmpty) {
-				saveSTR += EXT_DELIMITER;
-				saveSTR += tasks[i].serialize();
-				
+			li {
+				list-style-type:none;
 			}
-		}
-		
-		try {
-			if (prefs)
-				prefs.set("saved_tasks", saveSTR);
-		} catch (eee) {}
-		
-	}
-	
-	function clearTasks(){
-		while(tasks.pop()){}
-	}
-	
-	function updateTaskDisplay(){
-		var i = 0;
-		
-		for(i=0;i<7;i++){
-		  _gel("elmCont"+i).innerHTML = "";
-		}
-		
-		i = 0;
-		
-		for(i=0;i < tasks.length;i++){
-		  
-		  var container = _gel("elmCont"+i);
-		  tasks[i].position = i;
-		  container.innerHTML = tasks[i].toString();
-		  container.title = tasks[i].content.replace(/&quot;/g,'"');
-		}
-	}
-	
-</script>
-</head>
-
-	<body>
-		<center>
-			<table width="240"  border="0" cellpadding="0" cellspacing="0" >
-				<tr>
-					<td id="bg_of_all">
-						<table id="test1" width="240" height="228" border="0" cellpadding="0" cellspacing="0">
-							<tr>
-								<td width="14">&nbsp;</td>
-								<td width="226">
-									<table  width="226" border="0" cellspacing="0" cellpadding="0" >
-										<tr>
-											<td height="42">&nbsp;</td>
-										</tr>
-										<tr>
-											<td align="left" id="elmCont0" height="24"></td>
-										</tr>
-										<tr>
-											<td align="left" id="elmCont1" height="24"></td>
-										</tr>
-										<tr>
-											<td align="left" id="elmCont2" height="24"></td>
-										</tr>
-										<tr>
-											<td align="left" id="elmCont3" height="24"></td>
-										</tr>
-										<tr>
-											<td align="left" id="elmCont4" height="24"></td>
-										</tr>
-										<tr>
-											<td align="left" id="elmCont5" height="24"></td>
-										</tr>
-										<tr>
-											<td align="left" id="elmCont6" height="24"></td>
-										</tr>
-										<tr>
-											<td height="18" id="why"><span class="style1">&nbsp;</span></td>
-										</tr>
-									</table>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr style="height:14px;">
-					<td id="tdada">
-						<script type="text/javascript">
-                        if (__MSG_show_ad__==0) {
-                            document.write('<a target="_top" href="__MSG_ad_link_1__">__MSG_ad_text_1__</a>');
-                            document.write('<table border="0" cellpadding="0" cellspacing="0" style="display:none;">');
-                        }
-                        else {
-                            document.write('<table border="0" cellpadding="0" cellspacing="0">');
-                        }
-                        </script>
-							<tr>
-								<td width="4" class="style0">&nbsp;</td>
-								<td width="176" height="14" id="tdad_title">
-									<div id="lp_ad_div">
-										<script type='text/javascript'>
-										   var m3_u = (location.protocol=='https:'?'https://ad.labpixies.com/ajs.php':'http://ad.labpixies.com/ajs.php');
-										   var m3_r = Math.floor(Math.random()*99999999999);
-										   if (!document.MAX_used) document.MAX_used = ',';
-										   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
-										   document.write ("?zoneid=32");
-										   document.write ('&amp;cb=' + m3_r);
-										   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
-										   document.write ("&amp;loc=" + escape(window.location));
-										   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
-										   if (document.context) document.write ("&context=" + escape(document.context));
-										   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
-										   document.write ("'><\/scr"+"ipt>");
-										</script>
-									</div>
-								</td>
-								<td align="right" valign="top" width="54" height="14">
-								    <script type="text/javascript">
-								      var mURL = _IG_GetCachedUrl("http://www.labpixies.com/lib/popup/lp_menu_ann.js");
-								      document.write('<scr'+'ipt type="text/javascript" src="'+mURL+'"></scr'+'ipt>');
-								    </script>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
-		</center>
-		<img style="position:absolute;visibility:hidden;" src="" name="colormap" width="23" height="23" border="0" usemap="#colormapMap" id="colormap" />
-		<map name="colormapMap" id="colormapMap">
-			<area shape="rect" coords="1,14,7,21" 	onclick="setColor(8);"  />
-			<area shape="rect" coords="8,14,14,21" 	onclick="setColor(7);"  />
-			<area shape="rect" coords="15,14,21,21" onClick="setColor(6);"  />
-			<area shape="rect" coords="15,7,21,14" 	onclick="setColor(5);"  />
-			<area shape="rect" coords="8,7,14,14" 	onclick="setColor(4);"  />
-			<area shape="rect" coords="1,7,7,14" 	onclick="setColor(3);"  />
-			<area shape="rect" coords="15,1,21,8" 	onclick="setColor(2);"  />
-			<area shape="rect" coords="8,1,14,8" 	onclick="setColor(1);"  />
-			<area shape="rect" coords="1,1,7,8"		onclick="setColor(0);"  />
-		</map>
-		
-		<!-- init module operations -->
+			
+			.clear {
+				clear:both;
+				width:0;
+				height:0;
+				line-height:0;
+				font-size:0;
+			}
+			
+			.Note {
+				background: url(/eXoGadgets/skin/image/Note.jpg) top left no-repeat;
+				width: 160px;
+				height: 235px;
+				margin: 0 auto;
+				padding: 42px 18px 0 18px;
+			}
+			
+			.write {
+				width: 155px;
+				height: 165px;
+				overflow: auto;
+			}
+			
+			.write input {
+				background: url(/eXoGadgets/skin/image/line.gif) bottom left repeat-x;
+				font-size: 11px; 
+				color: #be0d08;
+				border: none;
+				width: 100%;
+				line-height: auto;
+				font-style: italic;
+				margin-bottom: 2px;
+				height: 18px;
+			}
+			
+		</style>
 		<script type="text/javascript">
-			_IG_RegisterOnloadHandler(load);
+				var keynum;
+				function finish(element,e) {
+					var appendParrent = document.getElementById("write");
+					var nameElement = parseInt(element.name) + 1;
+					if(window.event) {
+						keynum = e.keyCode;
+					}else if(e.which) {
+						keynum = e.which;
+					}
+					if(keynum == 13) {
+						if(nameElement == 8 && element.nextSibling.nextSibling!=null) {
+							element.nextSibling.nextSibling.focus();
+							return;
+						}
+						if(nameElement > 8 && element.nextSibling!=null) {
+							element.nextSibling.focus();
+							return;
+						}	
+						if(nameElement > 7) {
+							var input = document.createElement("input");
+							input.setAttribute("type","text");
+							input.setAttribute("name",nameElement);
+							input.setAttribute("onkeydown","finish(this,event);");
+							appendParrent.insertBefore(input,null);
+						}
+						var nextInput = element.nextSibling.nextSibling;
+						if(nameElement > 8) nextInput = element.nextSibling;
+						if(nextInput.value == null || nextInput.value=="") nextInput.value = nameElement + ".";
+						nextInput.focus();
+					}
+				}
 		</script>
-		
-<!-- init google analytics -->
-<script type="text/javascript">
-	_IG_Analytics("UA-345375-1", "/todo");
-</script>
-	
-]]> 
-</Content>
+		<body>
+			<div class="Note">
+	    	<div class="write" id="write">
+	        <input type="text" onfocus="javascript: if(this.value == '1. Type new task here') this.value='1.'" value="1. Type new task here" name="1" onkeydown="finish(this,event);"/>
+	        <input type="text" name="2" onkeydown="finish(this,event);"/>
+	        <input type="text" name="3" onkeydown="finish(this,event);"/>
+					<input type="text" name="4" onkeydown="finish(this,event);"/>
+					<input type="text" name="5" onkeydown="finish(this,event);"/>
+					<input type="text" name="6" onkeydown="finish(this,event);"/>
+					<input type="text" name="7" onkeydown="finish(this,event);"/>
+	      </div>
+		   </div>
+		</body>
+	]]>
+	</Content>
 </Module>

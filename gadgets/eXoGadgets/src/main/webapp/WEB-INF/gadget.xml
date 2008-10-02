@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <gadgets>
 	<gadget>
-		<name>Todo</name>
-		<title>Todo gadget</title>
-		<description>ToDo Gadget, easily manage and track your daily to-do list.</description>
-		<thumbnail>http://www.labpixies.com/campaigns/todo/images/thumbnail.jpg</thumbnail>
-		<reference>http://www.labpixies.com</reference>
-	</gadget>
-	<gadget>
 		<name>Calculator</name>
-		<title>Caculator Gadget</title>
-		<description>This simple and useful calculator lets you perform most of the basic arithmetic operations.</description>
-		<thumbnail>http://www.labpixies.com/campaigns/calc/images/thumbnail.jpg</thumbnail>
-		<reference>http://www.labpixies.com</reference>
+		<title>Calculator gadget</title>
+		<description>The coolest calculator. This simple and useful calculator lets you perform most of the basic arithmetic operations.</description>
+		<thumbnail></thumbnail>
+		<reference>http://www.exoplatform.org</reference>
 	</gadget>
 	<gadget>
 		<name>Calendar</name>
 		<title>Calendar Gadget</title>
 		<description>What date is it? Use this cool calendar to keep track of the date in style.</description>
-		<thumbnail>http://www.labpixies.com/campaigns/calendar/images/thumbnail.jpg</thumbnail>
-		<reference>http://www.labpixies.com</reference>
+		<thumbnail></thumbnail>
+		<reference>http://www.exoplatform.org</reference>
+	</gadget>
+	<gadget>
+		<name>Todo</name>
+		<title>Todo Gadget</title>
+		<description>ToDo Gadget, easily manage and track your daily to-do list</description>
+		<thumbnail></thumbnail>
+		<reference>http://www.exoplatform.org</reference>
 	</gadget>
 </gadgets>

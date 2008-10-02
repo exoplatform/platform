@@ -1,22 +1,279 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+ **
+ * Created by The eXo Platform SARL
+ * Author : dang.tung
+ *          tungcnw@gmail.com
+ * Sep 30, 2008          
+ *
+-->
 <Module>
-	<ModulePrefs author="LabPixies"
-	author_email="info+calc@labpixies.com"
-	description="__MSG_description__"
-	directory_title="__MSG_gTitle__"
-	height="260"
-	render_inline="never"
-	screenshot="http://www.labpixies.com/campaigns/calc/images/screenshot.jpg"
-	thumbnail="http://www.labpixies.com/campaigns/calc/images/thumbnail.jpg"
-	title="__MSG_gTitle__"
-	title_url="http://www.labpixies.com">
-	
-	<Locale messages="http://www.labpixies.com/campaigns/calc/all_all.xml"/>
-    <Locale lang="iw" 		messages="http://www.labpixies.com/campaigns/calc/iw_all.xml"/>
-	<Locale lang="es" 		messages="http://www.labpixies.com/campaigns/calc/sp_all.xml"/>
-	<Locale lang="pt-BR" 	messages="http://www.labpixies.com/campaigns/calc/pt_all.xml"/>
-	
+	<ModulePrefs author="eXoPlatform"
+		title="Calculator"
+		directory_title="Caculator"
+		title_url="http://www.exoplatform.org"
+		height="227">
 	</ModulePrefs>
-	
-	<Content type="url" href="http://cdn.labpixies.com/campaigns/calc/calc.html" />
+	<Content type="html">
+	<![CDATA[
+		<style type="text/css">
+			body {
+				margin: 0;
+				outline: none;
+				font: normal 100%/1.25 Arial, Verdana, Tahoma, Helvetica, sans-serif;
+				text-decoration: none;
+				text-align: center;
+			}
+			img {
+				border:none;
+			}
+			
+			li {
+				list-style-type:none;
+			}
+			
+			.clear {
+				clear:both;
+				width:0;
+				height:0;
+				line-height:0;
+				font-size:0;
+			}
+			
+			.LeftCalculator {
+				background: url(/eXoGadgets/skin/image/Calculator.png) no-repeat top left;
+				width: 193px;
+				padding-left: 7px;
+				margin: 0 auto;
+			}
+			
+			.RightCalculator {
+				background: url(/eXoGadgets/skin/image/Calculator.png) no-repeat top right;
+				padding-right: 9px;
+			}
+			
+			.CenterCalculator {
+				background: url(/eXoGadgets/skin/image/Calculator.png) repeat-x bottom left;
+				height: 227px;
+			}
+			
+			.Display {
+				padding-top: 24px;
+				text-align: center;
+			}
+			
+			.Display p {
+				background: url(/eXoGadgets/skin/image/Display.png) no-repeat top left;
+				width: 164px;
+				height: 23px;
+				text-align: right;
+				margin: 0 auto;
+				font-size: 15px;
+				line-height: auto;
+				color: #333333;
+				font-weight: bold;
+				padding: 11px 3px 0 0;
+			}
+			
+			.Number {
+				padding: 8px 0 0 9px;
+			}
+			
+			.Row a {
+				width: 38px;
+				height: 24px;
+				display: block;
+				float: left;
+				margin: 4px 5px 0 0;
+				cursor: pointer;
+			}
+			
+			.Row a {
+				background: url(/eXoGadgets/skin/image/Button.gif) no-repeat top left;
+				color: #000000;
+				font-weight: bold;
+				text-align: center;
+				font-size: 13px;
+				width: 38px;
+				height: 24px;
+				display: block;
+				float: left;
+				margin: 4px 3px 0 0;
+				cursor: pointer;
+				padding-top: 3px;
+			}
+			
+			.Row a sup {
+				font-size: 8px;
+			}
+			
+			a.Orange {
+				font-size: 15px;
+				color: orange;
+			}
+			
+			a.Blue {
+				font-size: 15px;
+				color: blue;
+				line-height: 6px;
+			}
+			
+			a.Red {
+				font-size: 15px;
+				color: red;
+			}
+			
+			a.Green {
+				color: green;
+			}
+			
+			.bold {
+				font-weight: bold;
+			}
+	</style>
+		<script type="text/javascript">
+			var Number1 = "";
+			var Number2 = "";
+			var NewNumber = "blank";
+			var opvalue = "";
+			function Display(displaynumber) {
+				document.getElementById("calculator").innerHTML = displaynumber;
+			}
+			function ClearCalc() {
+				Number1 = "";
+				Number2 = "";
+				NewNumber = "blank";
+				Display("0");
+			}
+			function CheckNumber(answer) {
+				if(answer == ".") {
+					Number = document.getElementById("calculator").innerHTML;;
+					if(Number.indexOf(".") != -1) {
+						answer = "";
+				  }
+				}
+				if(NewNumber == "yes") {
+					Number2 += answer;
+					Display(Number2);
+				}
+				else {
+					if(NewNumber == "blank") {
+						Number1 = answer;
+						Number2 = "";
+						NewNumber = "no";
+					}
+					else {
+						Number1 += answer;
+					}
+					Display(Number1);
+				}
+			}
+			function AddButton(x) {
+				if(x == 1) EqualButton();
+				if(Number2 != "") {
+					Number1 = parseFloat(Number1) + parseFloat(Number2);
+				}
+				NewNumber = "yes";
+				opvalue = '+';
+				Display(Number1);
+			}
+			function SubButton(x) {
+				if(x == 1) EqualButton();
+				if(Number2 != "") {
+					Number1 = parseFloat(Number1) - parseFloat(Number2);
+				}
+				NewNumber = "yes";
+				opvalue = '-';
+				Display(Number1);
+			}
+			function MultButton(x) {
+				if(x == 1) EqualButton();
+				if(Number2 != "") {
+					Number1 = parseFloat(Number1) * parseFloat(Number2);
+				}
+				NewNumber = "yes";
+				opvalue = '*';
+				Display(Number1);
+			}
+			function DivButton(x) {
+				if(x == 1) EqualButton();
+				if(Number2 != "") {
+					Number1 = parseFloat(Number1) / parseFloat(Number2);
+				}
+				NewNumber = "yes";
+				opvalue = '/';
+				Display(Number1);
+			}
+			function PercentButton() {
+				if(NewNumber != "blank") {
+					Number2 *= .01;
+					NewNumber = "blank";
+					Display(Number2);
+			  }
+			}
+			function RecipButton() {
+				Number1 = 1/Number1;
+				NewNumber = "blank";
+				Display(Number1);
+			}
+			function NegateButton() {
+				Number1 = parseFloat(-Number1);
+				NewNumber = "no";
+				Display(Number1);
+			}
+			function EqualButton() {
+				if(opvalue == '+') AddButton(0);
+				if(opvalue == '-') SubButton(0);
+				if(opvalue == '*') MultButton(0);
+				if(opvalue == '/') DivButton(0);
+				Number2 = "";
+				opvalue = "";
+			}
+		</script>
+		<body>
+			<div class="LeftCalculator">
+				<div class="RightCalculator">
+					<div class="CenterCalculator">
+						<div class="Display">
+							<p id="calculator">0</p>
+						</div>
+						<div class="Number">
+							<div class="Row">
+								<a onClick="RecipButton(); return false;">1/x</a>
+								<a onClick="NegateButton(); return false;">+/-</a>
+								<a onClick="PercentButton(); return false;">%</a>
+								<a class="Orange" onClick="AddButton(1); return false;">+</a>
+							</div>
+							<div class="Row">
+								<a onClick="CheckNumber('7'); return false;">7</a>
+								<a onClick="CheckNumber('8'); return false;">8</a>
+								<a onClick="CheckNumber('9'); return false;">9</a>
+								<a class="Blue" onClick="SubButton(1); return false;">_</a>
+							</div>
+							<div class="Row">
+								<a onClick="CheckNumber('4'); return false;">4</a>
+								<a onClick="CheckNumber('5'); return false;">5</a>
+								<a onClick="CheckNumber('6'); return false;">6</a>
+								<a class="Red" onClick="MultButton(1); return false;">x</a>
+							</div>
+							<div class="Row">
+								<a onClick="CheckNumber('1'); return false;">1</a>
+								<a onClick="CheckNumber('2'); return false;">2</a>
+								<a onClick="CheckNumber('3'); return false;">3</a>
+								<a class="Green" onClick="DivButton(1); return false;">:</a>
+							</div>
+							<div class="Row">
+								<a onClick="CheckNumber('0'); return false;">0</a>
+								<a style="line-height:9px" onClick="CheckNumber('.'); return false;">.</a>
+								<a onClick="ClearCalc(); return false;">C</a>
+								<a style="font-size:15px" onClick="EqualButton(); return false;">=</a>
+							</div>
+							<div style="clear: left"><span></span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</body>
+	]]>
+	</Content>
 </Module>
