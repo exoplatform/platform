@@ -2,18 +2,23 @@
 <gadgets>
 	<gadget>
 		<name>Todo</name>
-		<url>http://localhost:8080/eXoGadgets/gadgets/todo.xml</url>
-	</gadget>
-	<gadget>
-		<name>Horoscope</name>
-		<url>http://www.google.com/ig/modules/horoscope.xml</url>
+		<title>Todo gadget</title>
+		<description>ToDo Gadget, easily manage and track your daily to-do list.</description>
+		<thumbnail>http://www.labpixies.com/campaigns/todo/images/thumbnail.jpg</thumbnail>
+		<reference>http://www.labpixies.com</reference>
 	</gadget>
 	<gadget>
 		<name>Calculator</name>
-		<url>http://localhost:8080/eXoGadgets/gadgets/calc.xml</url>
+		<title>Caculator Gadget</title>
+		<description>This simple and useful calculator lets you perform most of the basic arithmetic operations.</description>
+		<thumbnail>http://www.labpixies.com/campaigns/calc/images/thumbnail.jpg</thumbnail>
+		<reference>http://www.labpixies.com</reference>
 	</gadget>
 	<gadget>
 		<name>Calendar</name>
-		<url>http://localhost:8080/eXoGadgets/gadgets/calendar.xml</url>
+		<title>Calendar Gadget</title>
+		<description>What date is it? Use this cool calendar to keep track of the date in style.</description>
+		<thumbnail>http://www.labpixies.com/campaigns/calendar/images/thumbnail.jpg</thumbnail>
+		<reference>http://www.labpixies.com</reference>
 	</gadget>
 </gadgets>

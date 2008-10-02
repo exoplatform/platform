@@ -11,17 +11,8 @@
     </application>
       
     <application>
-      <instance-id>user#root:/eXoGadgets/Horoscope/Horoscope1</instance-id>
-      <application-type>eXoGadget</application-type> 
-    </application>
-    
-    <application>
       <instance-id>user#root:/eXoGadgets/Todo/Todo2</instance-id>
       <application-type>eXoGadget</application-type>
     </application>
-	</container>
-		<container id="Horoscope">
-		<name>Horoscope</name>
-		<description>Horoscope's Description</description>
 	</container>
 </gadgets>

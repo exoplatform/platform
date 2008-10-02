@@ -17,7 +17,7 @@
   </filter-mapping>  
   
 	<listener>
-    <listener-class>org.exoplatform.web.application.GadgetRegister</listener-class>
+    <listener-class>org.exoplatform.application.gadget.GadgetRegister</listener-class>
   </listener>
 
 </web-app>

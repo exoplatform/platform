@@ -22,7 +22,6 @@ import javax.jcr.Node;
 import javax.jcr.Session;
 
 import org.exoplatform.application.gadget.SourceStorage;
-import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 
@@ -33,6 +32,12 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
  * Aug 6, 2008  
  */
 public class SourceStorageImpl implements SourceStorage {
+  
+  private RepositoryService repoService;
+  
+  public SourceStorageImpl(RepositoryService service) {
+    repoService = service;
+  }
 
   public String getSource(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
@@ -44,7 +49,6 @@ public class SourceStorageImpl implements SourceStorage {
 
   public void saveSource(String name, String source) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RepositoryService repoService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
     Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
     Node homeNode = session.getRootNode() ;
     Node contentNode ;
@@ -62,7 +66,6 @@ public class SourceStorageImpl implements SourceStorage {
 
   public void removeSource(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RepositoryService repoService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
     Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
     Node homeNode = session.getRootNode() ;
     Node sourceNode = homeNode.getNode(name) ;
@@ -80,7 +83,6 @@ public class SourceStorageImpl implements SourceStorage {
   }
 
   private Node getHomeNode(SessionProvider sessionProvider) throws Exception {
-    RepositoryService repoService = (RepositoryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(RepositoryService.class);
     Session session = sessionProvider.getSession("gadgets", repoService.getRepository("repository")) ;
     return session.getRootNode() ; 
   }

@@ -50,7 +50,7 @@ public class DataMapper {
     root.setAttribute(EXO_GADGET_DESCRIPTION, app.getDescription()) ;
     root.setAttribute(EXO_GADGET_REF_URL, app.getReferenceUrl()) ;
     root.setAttribute(EXO_GADGET_THUMB, app.getThumbnail()) ;
-    root.setAttribute(EXO_GADGET_IS_REMOTE, String.valueOf(app.isRemote())) ;
+    root.setAttribute(EXO_GADGET_IS_REMOTE, String.valueOf(app.isLocal())) ;
   }
   
   public Gadget toApplciation(Document doc) throws Exception {
@@ -62,7 +62,7 @@ public class DataMapper {
     app.setDescription(root.getAttribute(EXO_GADGET_DESCRIPTION)) ;
     app.setReferenceUrl(root.getAttribute(EXO_GADGET_REF_URL)) ;
     app.setThumbnail(root.getAttribute(EXO_GADGET_THUMB)) ;
-    app.setRemote(Boolean.valueOf(root.getAttribute(EXO_GADGET_IS_REMOTE))) ;
+    app.setLocal(Boolean.valueOf(root.getAttribute(EXO_GADGET_IS_REMOTE))) ;
     return app ;
   }
   

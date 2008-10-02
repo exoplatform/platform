@@ -16,7 +16,6 @@
  */
 package org.exoplatform.application.gadget;
 
-import org.exoplatform.web.application.gadget.GadgetApplication;
 
 /**
  * Created by The eXo Platform SAS
@@ -32,23 +31,16 @@ public class Gadget {
   private String description ;
   private String referenceUrl ;
   private String thumbnail ;
-  private boolean isRemote = true ;
-  
-  public Gadget() {}
-  public Gadget(GadgetApplication app) {
-    name = app.getApplicationName() ;
-    title = name ;
-    url = app.getUrl() ;
-  }
-  
+  private boolean isLocal = true ;
+
   public String getName() { return name; }
   public void setName(String n) { name = n; }
   
   public String getUrl() { return url; }
   public void setUrl(String u) { url = u; }
   
-  public boolean isRemote() { return isRemote; }
-  public void setRemote(Boolean b) { isRemote = b.booleanValue(); }
+  public boolean isLocal() { return isLocal; }
+  public void setLocal(Boolean b) { isLocal = b.booleanValue(); }
   
   public String getTitle() { return title; }
   public void setTitle(String title) { this.title = title; }
@@ -61,9 +53,5 @@ public class Gadget {
   
   public String getThumbnail() { return thumbnail; }
   public void setThumbnail(String thumbnail) { this.thumbnail = thumbnail; }
-  
-  public GadgetApplication toGadgetApplication() {
-    return new GadgetApplication(name, url) ;
-  }
   
 }

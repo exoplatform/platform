@@ -18,10 +18,7 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
-import org.exoplatform.applicationregistry.webui.ModelDataMapper;
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
@@ -63,12 +60,7 @@ public class UIGadgetEditor extends UIForm {
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       sourceStorage.saveSource(name, source) ;
-      PortalRequestContext pContext = Util.getPortalRequestContext() ;
-      StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
-      int index = requestUrl.indexOf(pContext.getRequestContextPath()) ;
-      String url = requestUrl.substring(0, index) + "/" + sourceStorage.getSourceLink(name) ;
-      GadgetApplication app = new GadgetApplication(name, url) ;
-      service.addGadget(ModelDataMapper.toGadgetModel(app)) ;
+      service.addGadget(Util.toGadget(name, sourceStorage.getSourceLink(name), true)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
       uiManagement.reload() ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.web.application;
+package org.exoplatform.application.gadget;
 
 import java.io.InputStream;
 
@@ -23,14 +23,11 @@ import javax.servlet.ServletContextListener;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.container.RootContainer;
 import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.web.application.gadget.GadgetApplication;
-import org.exoplatform.web.application.gadget.GadgetStorage;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -55,21 +52,38 @@ public class GadgetRegister implements ServletContextListener {
   public void contextInitialized(ServletContextEvent event) {
     try {
       ExoContainer pcontainer =  ExoContainerContext.getContainerByName("portal") ;
-      GadgetStorage gadgetStoreage =  (GadgetStorage) pcontainer.getComponentInstanceOfType(GadgetStorage.class) ;
-      String strLocation = "/WEB-INF/gadget.xml" ;
+      SourceStorage sourceStorage = (SourceStorage) pcontainer.getComponentInstanceOfType(SourceStorage.class);
+      GadgetRegistryService gadgetService = (GadgetRegistryService) pcontainer.getComponentInstanceOfType(GadgetRegistryService.class);
+      String confLocation = "/WEB-INF/gadget.xml" ;
       DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder() ;
-      InputStream in = event.getServletContext().getResourceAsStream(strLocation) ;
+      InputStream in = event.getServletContext().getResourceAsStream(confLocation) ;
       Document docXML = db.parse(in) ;
       NodeList nodeList = docXML.getElementsByTagName("gadget") ;
-      String name=null, url=null ;
+      String name = null, title = null, desc = null, thumb = null, ref= null ;
       for(int i=0; i<nodeList.getLength(); i++) {
         NodeList nodeChild = nodeList.item(i).getChildNodes() ;
         for(int j=0; j<nodeChild.getLength(); j++) {
           Node node = nodeChild.item(j) ;
-          if(node.getNodeName().equals("name"))  name = node.getTextContent() ;
-          if(node.getNodeName().equals("url"))  url = node.getTextContent() ;
+          if (node.getNodeName().equals("name"))  name = node.getTextContent() ;
+          else if (node.getNodeName().equals("title"))  title = node.getTextContent() ;
+          else if (node.getNodeName().equals("description"))  desc = node.getTextContent() ;
+          else if (node.getNodeName().equals("thumbnail")) thumb = node.getTextContent() ;
+          else if (node.getNodeName().equals("reference"))  ref = node.getTextContent() ;
         }
-        gadgetStoreage.addGadget(new GadgetApplication(name, url)) ;
+        String filePath = "/gadgets/" + name + ".xml";
+        InputStream sourceIn = event.getServletContext().getResourceAsStream(filePath) ;
+        String source = IOUtils.toString(sourceIn, "UTF-8");
+        sourceStorage.saveSource(name, source);
+        Gadget gadget = new Gadget();
+        gadget.setName(name);
+        gadget.setUrl(sourceStorage.getSourceLink(name));
+        gadget.setTitle(title);
+        gadget.setDescription(desc);
+        gadget.setThumbnail(thumb);
+        gadget.setReferenceUrl(ref);
+        gadget.setLocal(true);
+        
+        gadgetService.addGadget(gadget);
       }
     } catch(Exception ex) {
       log.error("Error while deploying a gadget", ex);
