@@ -73,12 +73,6 @@
   overflow: auto;
 }
 
-.UIPopupWindow .PopupContent .UIGroupMembershipSelector .Container {
-  padding: 10px;
-  border: none;
-  background: none;
-}
-
 .UIPopupWindow .Content .UIPopupMessages {
   overflow: auto;
 }
@@ -273,11 +267,6 @@
 .UIPopupWindow .ExoMessageDecorator .BottomCenterDecorator {
 	background: url('background/PopupWindow.png') repeat-x bottom; 
 	height: 24px;
-}
-
-.UIPopupWindow .UICategoryForm .FormContainer {
-	width: 460px;
-	margin: auto;
 }
 
 .UIPopupWindow .ExoMessageDecorator .UITabContentContainer .UITabContent {
