@@ -91,9 +91,31 @@ public class UIPortalApplication extends UIApplication {
   public UIPortalApplication() throws Exception {
     log = ExoLogger.getLogger("portal:UIPortalApplication"); 
     PortalRequestContext  context = PortalRequestContext.getCurrentInstance() ;
-    context.setUIApplication(this);
     userPortalConfig_ = (UserPortalConfig)context.getAttribute(UserPortalConfig.class);
     if(userPortalConfig_ == null) throw new Exception("Can't load user portal config");
+    
+    //  dang.tung - set portal language by user preference -> browser -> default
+    //------------------------------------------------------------------------------
+    String portalLanguage = null ;
+    LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
+    OrganizationService orgService = getApplicationComponent(OrganizationService.class) ;
+    LocaleConfig localeConfig = localeConfigService.getLocaleConfig(userPortalConfig_.getPortalConfig().getLocale());
+    if(context.getRemoteUser() != null) {
+      UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(context.getRemoteUser()) ;
+      portalLanguage = userProfile.getUserInfoMap().get("user.language") ;
+    }
+    localeConfig = localeConfigService.getLocaleConfig(portalLanguage) ;
+    if(portalLanguage == null || !portalLanguage.equals(localeConfig.getLanguage())) {
+      // if user language no support by portal -> get browser language if no -> get portal
+      portalLanguage = context.getRequest().getLocale().getLanguage() ;
+      localeConfig = localeConfigService.getLocaleConfig(portalLanguage) ;
+      if(!portalLanguage.equals(localeConfig.getLanguage())) {
+        localeConfig = localeConfigService.getLocaleConfig(userPortalConfig_.getPortalConfig().getLocale()) ;
+      }
+    }
+    setLocale(localeConfig.getLocale()) ;
+    //-------------------------------------------------------------------------------
+    context.setUIApplication(this);
     UserACL acl = getApplicationComponent(UserACL.class);
     if(acl.hasAccessControlWorkspacePermission(context.getRemoteUser()))
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
@@ -101,35 +123,8 @@ public class UIPortalApplication extends UIApplication {
 
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
     if(currentSkin != null && currentSkin.trim().length() > 0) skin_ = currentSkin;
-    setOwner(context.getPortalOwner());    
-    //dang.tung - set portal language by user preference -> browser -> default
-    //------------------------------------------------------------------------------
-    String portalLanguage = null ;
-    LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
-    OrganizationService orgService = getApplicationComponent(OrganizationService.class) ;
-    LocaleConfig localeConfig = localeConfigService.getLocaleConfig(userPortalConfig_.getPortalConfig().getLocale());
-    //LocaleConfig localeConfig = localeConfigService.getDefaultLocaleConfig() ;
-    UIPortal uiPortal = findFirstComponentOfType(UIPortal.class) ;
-    if(context.getRemoteUser() != null) {
-      UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(context.getRemoteUser()) ;
-      portalLanguage = userProfile.getUserInfoMap().get("user.language") ;
-    }
-    localeConfig = localeConfigService.getLocaleConfig(portalLanguage) ;
-    if(portalLanguage != null && portalLanguage.equals(localeConfig.getLanguage())) {
-      setLocale(localeConfig.getLocale());
-      uiPortal.refreshNavigation(portalLanguage) ;
-      return ;
-    }
-    // if user language no support by portal -> get browser language if no -> get portal
-    portalLanguage = context.getRequest().getLocale().getLanguage() ;
-    localeConfig = localeConfigService.getLocaleConfig(portalLanguage) ;
-    if(!portalLanguage.equals(localeConfig.getLanguage())) {
-      localeConfig = localeConfigService.getLocaleConfig(uiPortal.getLocale()) ;
-      portalLanguage = uiPortal.getLocale() ;
-    }
-    setLocale(localeConfig.getLocale()) ;
-    uiPortal.refreshNavigation(portalLanguage) ;
-    //-------------------------------------------------------------------------------
+    setOwner(context.getPortalOwner());
+    
   } 
 
 

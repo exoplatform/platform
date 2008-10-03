@@ -106,8 +106,7 @@ public class UILanguageSelector extends UIContainer {
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
       uiApp.setLocale(localeConfig.getLocale());
       UIPortal uiPortal = uiApp.findFirstComponentOfType(UIPortal.class) ;
-      //uiPortal.setLocale(localeConfig.getLanguage()) ;
-      uiPortal.refreshNavigation(localeConfig.getLanguage()) ;
+      uiPortal.refreshNavigation(localeConfig.getLocale()) ;
       OrganizationService orgService = event.getSource().getApplicationComponent(OrganizationService.class) ;
       String remoteUser = event.getRequestContext().getRemoteUser() ;
       if(remoteUser != null) {

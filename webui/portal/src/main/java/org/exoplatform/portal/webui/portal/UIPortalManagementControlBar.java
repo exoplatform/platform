@@ -29,6 +29,8 @@ import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -81,7 +83,18 @@ public class UIPortalManagementControlBar extends UIToolbar {
     LocaleConfigService localeConfigService  = uiPortalApp.getApplicationComponent(LocaleConfigService.class) ;
     LocaleConfig localeConfig = localeConfigService.getLocaleConfig(portalConfig.getLocale());
     if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
-    uiPortalApp.setLocale(localeConfig.getLocale());
+    //TODO dang.tung - change layout when portal get language from UIPortal (user and browser not support)
+    //----------------------------------------------------------------------------------------------------
+    String portalAppLanguage = uiPortalApp.getLocale().getLanguage();
+    OrganizationService orgService = getApplicationComponent(OrganizationService.class) ;
+    UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(remoteUser) ;
+    String userLanguage = userProfile.getUserInfoMap().get("user.language");
+    String browserLanguage = prContext.getRequest().getLocale().getLanguage();
+    if(!portalAppLanguage.equals(userLanguage) && !portalAppLanguage.equals(browserLanguage)) {  
+      uiPortalApp.setLocale(localeConfig.getLocale());
+      uiPortal.refreshNavigation(localeConfig.getLocale());
+    }
+    //----------------------------------------------------------------------------------------------------
     uiPortalApp.setSkin(uiPortal.getSkin());
     prContext.refreshResourceBundle();
     SkinService skinService = getApplicationComponent(SkinService.class);

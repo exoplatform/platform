@@ -20,6 +20,7 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -40,12 +41,14 @@ import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.Remov
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RecoveryPasswordAndUsernameActionListener;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -113,7 +116,8 @@ public class UIPortal extends UIContainer {
     UIPageBody uiPageBody = findFirstComponentOfType(UIPageBody.class);    
     if(uiPageBody == null) return;
     uiPageBody.setPageBody(selectedNode_, this);
-    refreshNavigation() ;
+    UIPortalApplication uiApp = Util.getUIPortalApplication() ;
+    refreshNavigation(uiApp.getLocale()) ;
   }
 
   public void setSelectedNode(PageNode node) { selectedNode_ = node; }
@@ -151,6 +155,7 @@ public class UIPortal extends UIContainer {
     this.maximizedUIComponent = maximizedReferenceComponent;
   }
   
+  @Deprecated
   public void refreshNavigation() {
     LocaleConfig localeConfig = getApplicationComponent(LocaleConfigService.class).
                                 getLocaleConfig(locale) ;
@@ -163,9 +168,8 @@ public class UIPortal extends UIContainer {
     }
   }
   
-  public void refreshNavigation(String lcl) {
-    LocaleConfig localeConfig = getApplicationComponent(LocaleConfigService.class).
-                                getLocaleConfig(lcl) ;
+  public void refreshNavigation(Locale locale) {
+    LocaleConfig localeConfig = getApplicationComponent(LocaleConfigService.class).getLocaleConfig(locale.getLanguage()) ;
     for(PageNavigation nav : navigations) {
       if(nav.getOwnerType().equals(PortalConfig.USER_TYPE)) continue ;
       ResourceBundle res = localeConfig.getNavigationResourceBundle(nav.getOwnerType(), nav.getOwnerId()) ;
