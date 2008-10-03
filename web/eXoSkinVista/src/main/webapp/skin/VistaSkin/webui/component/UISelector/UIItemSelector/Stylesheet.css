@@ -418,7 +418,7 @@
 }
 
 .UIItemSelector .LeftColumnStyle .Title {
-  line-height: 22px; 
+  line-height: 22px; height: 22px; width: 210px; overflow: hidden;
   font-weight: bold; color: #5c5c5c; 
   float: left;
 }

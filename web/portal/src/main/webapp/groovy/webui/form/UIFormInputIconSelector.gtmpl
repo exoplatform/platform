@@ -52,10 +52,7 @@
     <div class="ItemDetailList">
       <div class="ItemDetailTitle">
       	<div class="TitleIcon ViewListIcon"><span></span></div>
-  	    <div class="Title">
-  	    	<%String title = _ctx.appRes("UIFormInputIconSelector.label.iconPreview")%>
-  	    	<%=(title.trim().length() >= 20) ? title.substring(0,17)+"..." : title ;%>
-  	    </div>
+  	    <div class="Title"><%=_ctx.appRes("UIFormInputIconSelector.label.iconPreview")%></div>
   	    <div class="SetDefault" style="float: right;">
   	    	<a href="<%=form.event('SelectIcon', "Default");%>"><%= _ctx.appRes(uicomponent.getParent().getId() + "." + uicomponent.getId() + ".title.SetDefault") %></a>
   	    </div>
