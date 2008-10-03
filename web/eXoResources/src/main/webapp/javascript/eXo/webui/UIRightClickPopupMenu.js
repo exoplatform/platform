@@ -67,7 +67,7 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 			}
 		}
 	}
-	var customItem = eXo.core.DOMUtil.findFirstChildByClass(elemt, "div", "RightClickCustomItem") ;
+	var customItem = eXo.core.DOMUtil.findFirstDescendantByClass(elemt, "div", "RightClickCustomItem") ;
 	var tmpCustomItem = eXo.core.DOMUtil.findFirstDescendantByClass(contextMenu, "div", "RightClickCustomItem") ;
 	if(tmpCustomItem) {
 		if(customItem) {
@@ -86,7 +86,7 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 		  if (event.clientX > UIWorkingWorkspace.offsetLeft) fixWidthForIE7 = UIWorkingWorkspace.offsetLeft ;
 	}
 	
-	eXo.core.Mouse.update(event) ;
+	eXo.core.Mouse.update(event);
 	eXo.webui.UIPopup.show(contextMenu);
 	var intTop = eXo.core.Mouse.mouseyInPage - (eXo.core.Browser.findPosY(contextMenu) - contextMenu.offsetTop) ;
 	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft) + fixWidthForIE7 ;
