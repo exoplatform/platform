@@ -65,17 +65,11 @@
     </dependency>
     <dependency>
           <groupId>org.apache.shindig</groupId>
-          <version>1-SNAPSHOT</version>
+          <version>${org.shindig.version}</version>
           <artifactId>shindig-features</artifactId>
 	  <scope>runtime</scope>
     </dependency>
     <!-- external dependencies -->
-    <dependency>
-    	<groupId>commons-digester</groupId>
-    	<artifactId>commons-digester</artifactId>
-    	<version>1.7</version>
-    	<type>jar</type>
-    </dependency>
     <dependency>
     	<groupId>commons-io</groupId>
     	<artifactId>commons-io</artifactId>
@@ -85,7 +79,7 @@
     <dependency>
     	<groupId>net.oauth</groupId>
     	<artifactId>core</artifactId>
-    	<version>20080328</version>
+    	<version>20080621</version>
     	<type>jar</type>
     </dependency>
     <dependency>
@@ -109,7 +103,7 @@
     <dependency>
     	<groupId>nu.validator.htmlparser</groupId>
     	<artifactId>htmlparser</artifactId>
-    	<version>1.0.5</version>
+    	<version>1.0.7</version>
     	<type>jar</type>
     </dependency>
     <dependency>
@@ -133,19 +127,19 @@
     <dependency>
     	<groupId>org.apache.shindig</groupId>
     	<artifactId>shindig-common</artifactId>
-    	<version>1-SNAPSHOT</version>
+    	<version>${org.shindig.version}</version>
     	<type>jar</type>
     </dependency>
     <dependency>
     	<groupId>org.apache.shindig</groupId>
     	<artifactId>shindig-social-api</artifactId>
-    	<version>1-SNAPSHOT</version>
+    	<version>${org.shindig.version}</version>
     	<type>jar</type>
     </dependency>
     <dependency>
     	<groupId>org.exoplatform.portal</groupId>
     	<artifactId>exo.portal.gadgets-core</artifactId>
-    	<version>trunk</version>
+    	<version>${org.exoplatform.portal.version}</version>
     	<type>jar</type>
     </dependency>    
     <dependency>

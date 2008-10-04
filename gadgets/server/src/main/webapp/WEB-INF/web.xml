@@ -18,16 +18,38 @@
   under the License.
 -->
 <!DOCTYPE web-app
-        PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-        "http://java.sun.com/dtd/web-app_2_3.dtd">
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
   <!-- configuration -->
   <!-- If you have your own Guice module(s), put them here as a colon-separated list. -->
   <context-param>
     <param-name>guice-modules</param-name>
-    <param-value>org.apache.shindig.gadgets.servlet.HttpGuiceModule</param-value>
+    <param-value>
+      org.apache.shindig.common.PropertiesModule:org.apache.shindig.gadgets.DefaultGuiceModule:org.apache.shindig.social.core.config.SocialApiGuiceModule:org.apache.shindig.gadgets.oauth.OAuthModule
+    </param-value>
   </context-param>
+
+  <filter>
+    <filter-name>authFilter</filter-name>
+    <filter-class>org.apache.shindig.auth.AuthenticationServletFilter</filter-class>
+  </filter>
+
+  <!-- filter-mapping>
+    <filter-name>authFilter</filter-name>
+    <url-pattern>/social/*</url-pattern>
+  </filter-mapping-->
+
+  <filter-mapping>
+    <filter-name>authFilter</filter-name>
+    <url-pattern>/gadgets/ifr</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>authFilter</filter-name>
+    <url-pattern>/gadgets/makeRequest</url-pattern>
+  </filter-mapping>
 
   <listener>
     <listener-class>org.apache.shindig.common.servlet.GuiceServletContextListener</listener-class>
@@ -49,6 +71,15 @@
     </servlet-class>
   </servlet>
 
+  <!-- makeRequest -->
+  <servlet>
+    <servlet-name>makeRequest</servlet-name>
+    <servlet-class>
+      org.apache.shindig.gadgets.servlet.MakeRequestServlet
+    </servlet-class>
+  </servlet>
+
+  <!-- Concat -->
   <servlet>
     <servlet-name>concat</servlet-name>
     <servlet-class>
@@ -78,6 +109,22 @@
     <servlet-class>org.apache.shindig.gadgets.servlet.JsServlet</servlet-class>
   </servlet>
 
+  <!-- Serve REST api -->
+  <!--servlet>
+    <servlet-name>restapiServlet</servlet-name>
+    <servlet-class>
+      org.apache.shindig.social.opensocial.service.DataServiceServlet
+    </servlet-class>
+  </servlet-->
+
+  <!-- Serve RPC api -->
+  <!--servlet>
+    <servlet-name>jsonRpcServlet</servlet-name>
+    <servlet-class>
+      org.apache.shindig.social.opensocial.service.JsonRpcServlet
+    </servlet-class>
+  </servlet-->
+
   <servlet-mapping>
     <servlet-name>js</servlet-name>
     <url-pattern>/gadgets/js/*</url-pattern>
@@ -86,6 +133,11 @@
   <servlet-mapping>
     <servlet-name>proxy</servlet-name>
     <url-pattern>/gadgets/proxy/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>makeRequest</servlet-name>
+    <url-pattern>/gadgets/makeRequest</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
@@ -108,4 +160,13 @@
     <url-pattern>/gadgets/metadata</url-pattern>
   </servlet-mapping>
 
+  <!--servlet-mapping>
+    <servlet-name>restapiServlet</servlet-name>
+    <url-pattern>/social/rest/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>jsonRpcServlet</servlet-name>
+    <url-pattern>/social/rpc/*</url-pattern>
+  </servlet-mapping-->
 </web-app>

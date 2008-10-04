@@ -17,13 +17,24 @@
  * under the License.
  */
 
-// Default container configuration. Rather than replacing this
-// file, you should create your own container.js file and
-// load it directly by modifying the value of web.xml.
+// Default container configuration. To change the configuration, you have two options:
+//
+// A. If you run the Java server: Create your own "myContainer.js" file and
+// modify the value in web.xml. 
+//
+//  B. If you run the PHP server: Create a myContainer.js, copy the contents of container.js to it,
+//  change 
+//		{"gadgets.container" : ["default"],
+//  to
+//		﻿{"gadgets.container" : ["myContainer"],
+// And make your changes that you need to myContainer.js.
+// Just make sure on the iframe URL you specify &container=myContainer 
+// for it to use that config. 
+//
 // All configurations will automatically inherit values from this
 // config, so you only need to provide configuration for items
 // that you require explicit special casing for.
-
+//
 // Please namespace your attributes using the same conventions
 // as you would for javascript objects, e.g. gadgets.features
 // rather than "features".
@@ -49,6 +60,14 @@
 // DNS domain on which gadgets should render.
 "gadgets.lockedDomainSuffix" : "-a.example.com:8080",
 
+// Use an insecure security token by default
+"gadgets.securityTokenType" : "insecure",
+
+// Uncomment these to switch to a secure version
+// 
+//"gadgets.securityTokenType" : "secure",
+//"gadgets.securityTokenKeyFile" : "/path/to/key/file.txt",
+
 // This config data will be passed down to javascript. Please
 // configure your object using the feature name rather than
 // the javascript name.
@@ -59,15 +78,17 @@
   "core.io" : {
     // Note: /proxy is an open proxy. Be careful how you expose this!
     "proxyUrl" : "proxy?refresh=%refresh%&url=%url%",
-    "jsonProxyUrl" : "proxy?output=js"
+    "jsonProxyUrl" : "makeRequest"
   },
   "views" : {
     "profile" : {
       "isOnlyVisible" : false,
+      "urlTemplate" : "http://localhost/gadgets/profile?{var}",
       "aliases": ["DASHBOARD", "default"]
     },
     "canvas" : {
       "isOnlyVisible" : true,
+      "urlTemplate" : "http://localhost/gadgets/canvas?{var}",
       "aliases" : ["FULL_PAGE"]
     }
   },
@@ -96,18 +117,14 @@
   "opensocial-0.8" : {
     // Path to fetch opensocial data from
     // Must be on the same domain as the gadget rendering server
-    "path" : "/social/data",
+    "impl" : "rpc",  //Use "rpc" to enable JSON-RPC, "rest' for REST
+    "path" : "/social/social",
     "domain" : "shindig",
     "enableCaja" : false,
     "supportedFields" : {
-       "person" : ["id", "name", "thumbnailUrl", "profileUrl"],
+       "person" : ["id", {"name" : ["familyName", "givenName", "unstructured"]}, "thumbnailUrl", "profileUrl"],
        "activity" : ["id", "title"]
-    },
-    // If true, the restful wire format will be used.
-    // Otherwise, uses the json wire format.
-    // If you are using the default Shindig setup and want to use rest, don't
-    // forget to change the "path" config to /social/rest
-    "useRestful" : false
+    }
   }
 
 }}
