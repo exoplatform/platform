@@ -30,6 +30,7 @@ import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.De
 import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.EditNavigationActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.SaveNavigationActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.AddNodeActionListener;
+import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CloneNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CopyNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CutNodeActionListener;
 import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.DeleteNodeActionListener;
@@ -85,6 +86,7 @@ import org.exoplatform.webui.event.Event.Phase;
         @EventConfig(listeners = EditSelectedNodeActionListener.class),
         @EventConfig(listeners = CopyNodeActionListener.class),
         @EventConfig(listeners = CutNodeActionListener.class),
+        @EventConfig(listeners = CloneNodeActionListener.class),
         @EventConfig(listeners = PasteNodeActionListener.class),
         @EventConfig(listeners = MoveUpActionListener.class),
         @EventConfig(listeners = MoveDownActionListener.class),
@@ -137,7 +139,7 @@ public class UIPageNodeSelector extends UIContainer {
     uiTree.setBeanIconField("icon");
     
     UIRightClickPopupMenu uiPopupMenu = createUIComponent(UIRightClickPopupMenu.class, "PageNodePopupMenu", null) ;
-    uiPopupMenu.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", "CutNode", "DeleteNode", "MoveUp", "MoveDown"});
+    uiPopupMenu.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", "CloneNode" ,"CutNode", "DeleteNode", "MoveUp", "MoveDown"});
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
     
     loadNavigations();
@@ -384,6 +386,8 @@ public class UIPageNodeSelector extends UIContainer {
     
     private boolean deleteNode = false;
     
+    private boolean cloneNode = false;
+    
     public SelectedNode(PageNavigation nav, PageNode parentNode, PageNode node) {
       this.nav = nav;
       this.parentNode = parentNode;
@@ -402,6 +406,8 @@ public class UIPageNodeSelector extends UIContainer {
     public boolean isDeleteNode() { return deleteNode; }
     public void setDeleteNode(boolean deleteNode) { this.deleteNode = deleteNode; }
     
+    public boolean isCloneNode() { return cloneNode; }
+    public void setCloneNode(boolean b) { cloneNode = b; }
   }
 
   public SelectedNode getSelectedNode() { return selectedNode; }

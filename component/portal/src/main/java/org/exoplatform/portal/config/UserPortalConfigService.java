@@ -20,10 +20,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import java.util.Map.Entry;
 
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.ExoContainer;
@@ -426,11 +425,11 @@ public class UserPortalConfigService {
    * @throws Exception
    */
   public PageNode createNodeFromPageTemplate(String nodeName, String nodeLabel,
-      String pageId, Map<String, String[]> portletPreferences, String accessUser) throws Exception {
+      String pageId, String ownerType, String ownerId,
+      javax.portlet.PortletPreferences portletPreferences) throws Exception {
     
     Page page = storage_.getPage(pageId) ;
-    page = createPageFromPageTemplate(page, nodeName, portletPreferences, accessUser) ;
-    create(page) ;
+    renewPage(page, nodeName, ownerType, ownerId, portletPreferences) ;
     PageNode pageNode = new PageNode() ;
     if(nodeLabel == null || nodeLabel.trim().length() < 1) nodeLabel = nodeName  ;
     pageNode.setName(nodeName) ;
@@ -439,30 +438,28 @@ public class UserPortalConfigService {
     return  pageNode ;
   }
   
-  private Page createPageFromPageTemplate(Page page, String pageName, Map<String, String[]> portletPreferences, String accessUser) throws Exception {
+  public void renewPage(Page page, String pageName,
+      String ownerType, String ownerId,
+      javax.portlet.PortletPreferences portletPreferences) throws Exception {
     
-    String newId = PortalConfig.USER_TYPE + "::" + accessUser + "::" + pageName ;
     page.setName(pageName) ;
-    page.setPageId(newId) ;
-    page.setOwnerType(PortalConfig.USER_TYPE) ;
-    page.setOwnerId(accessUser) ;
-    page.setAccessPermissions(null) ;
-    page.setEditPermission(null) ;
+    page.setOwnerType(ownerType) ;
+    page.setOwnerId(ownerId) ;
+    page.setPageId(ownerType + "::" + ownerId + "::" + pageName);
     List<Application> apps = new ArrayList<Application>(5) ; 
     getApplications(apps, page) ;
-    Map<String, String[]> mergedPreferences ;
     for(Application ele : apps) {
       String appType = ele.getApplicationType() ;
       if(appType == null || org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(appType)) {
-        mergedPreferences = new HashMap<String, String[]>(getPreferencesMap(ele)) ;
-        mergedPreferences.putAll(portletPreferences) ;
-        renewInstanceId(ele, accessUser) ;
+        javax.portlet.PortletPreferences mergedPreferences = getPreferences(ele) ;
+        if(portletPreferences != null) addPreferrences(mergedPreferences, portletPreferences);
+        renewInstanceId(ele, ownerType, ownerId) ;
         setPreferences(ele, mergedPreferences) ;
       } else {
-        renewInstanceId(ele, accessUser) ;
+        renewInstanceId(ele, ownerType, ownerId) ;
       }
     }
-    return page ;
+    create(page);
   }
   
   private void getApplications(List<Application> apps, Object component) {
@@ -475,31 +472,38 @@ public class UserPortalConfigService {
     }    
   }
 
-  private Map<String, String[]> getPreferencesMap(Application app) throws Exception {
-   
+  private void addPreferrences(javax.portlet.PortletPreferences to,
+      javax.portlet.PortletPreferences from) throws Exception {
+    Iterator<Entry<String, String[]>> itr = from.getMap().entrySet().iterator();
+    while(itr.hasNext()) {
+      Entry<String, String[]> entry = itr.next();
+      to.setValues(entry.getKey(), entry.getValue());
+    }
+  }
+  
+  private javax.portlet.PortletPreferences getPreferences(Application app) throws Exception {
     ExoWindowID windowID = new ExoWindowID(app.getInstanceId()) ;
     Input input = new Input() ;
     input.setInternalWindowID(windowID) ;
     ExoContainer container  = ExoContainerContext.getCurrentContainer();
     PortletContainerService pcServ = (PortletContainerService) container.getComponentInstanceOfType(PortletContainerService.class) ;
-    return pcServ.getPortletPreference(input) ;
+    return pcServ.getPortletPreferences(input) ;
   }
   
-  private void renewInstanceId(Application app, String ownerId) {
-    ExoWindowID newExoWindowID = new ExoWindowID(app.getInstanceId()) ;
-    newExoWindowID.setOwner(PortalConfig.USER_TYPE + "#" + ownerId) ;
-    newExoWindowID.setUniqueID(String.valueOf(newExoWindowID.hashCode())) ;
-    app.setInstanceId(newExoWindowID.generatePersistenceId()) ;
-  }
-  
-  private void setPreferences(Application portlet, Map<String, String[]> portletPreferences) throws Exception {
-    if(portletPreferences == null || portletPreferences.size() < 1) return ;
+  private void setPreferences(Application portlet, javax.portlet.PortletPreferences portletPreferences) throws Exception {
     ExoWindowID windowID = new ExoWindowID(portlet.getInstanceId()) ;
     Input input = new Input() ;
     input.setInternalWindowID(windowID) ;
     ExoContainer container  = ExoContainerContext.getCurrentContainer();
     PortletContainerService pcServ = (PortletContainerService) container.getComponentInstanceOfType(PortletContainerService.class) ;
-    pcServ.setPortletPreference2(input, portletPreferences) ;
+    pcServ.setPortletPreferences(input, portletPreferences);
+  }
+  
+  private void renewInstanceId(Application app, String ownerType, String ownerId) {
+    ExoWindowID newExoWindowID = new ExoWindowID(app.getInstanceId()) ;
+    newExoWindowID.setOwner(ownerType + "#" + ownerId) ;
+    newExoWindowID.setUniqueID(String.valueOf(newExoWindowID.hashCode())) ;
+    app.setInstanceId(newExoWindowID.generatePersistenceId()) ;
   }
   
   public Page createPageTemplate(String temp, String ownerType, String ownerId) throws Exception {

@@ -245,7 +245,7 @@ public class UIPageNodeActionListener {
       selectedNode.setDeleteNode(false);
       uiPageNodeSelector.setCopyNode(selectedNode);
       event.getSource().setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", 
-                                                 "CopyNode", "CutNode", "PasteNode", "DeleteNode", "MoveUp", "MoveDown"});
+                                                 "CopyNode", "CloneNode", "CutNode", "PasteNode", "DeleteNode", "MoveUp", "MoveDown"});
     }
   }
   
@@ -257,6 +257,15 @@ public class UIPageNodeActionListener {
       uiPageNodeSelector.getCopyNode().setDeleteNode(true);
     }
   }
+  
+  static public class CloneNodeActionListener extends UIPageNodeActionListener.CopyNodeActionListener {
+    public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
+      super.execute(event);
+      UIPageNodeSelector uiPageNodeSelector = event.getSource().getAncestorOfType(UIPageNodeSelector.class);
+      uiPageNodeSelector.getCopyNode().setCloneNode(true);
+    }
+  }
+  
   static public class PasteNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {        
       String targetUri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
@@ -298,17 +307,42 @@ public class UIPageNodeActionListener {
       UITree uitree = uiPageNodeSelector.getChild(UITree.class);
       UIRightClickPopupMenu popup = uitree.getUIRightClickPopupMenu();
       popup.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", 
-                                     "CutNode", "DeleteNode", "MoveUp", "MoveDown"});
+                                     "CutNode", "CloneNode", "DeleteNode", "MoveUp", "MoveDown"});
        
+      UserPortalConfigService service = uiPopupMenu.getApplicationComponent(UserPortalConfigService.class);
       if(targetNode == null) { 
         newNode.setUri(newNode.getName());
         targetNav.addNode(newNode);
+        if(selectedNode.isCloneNode()) {
+          clonePageFromNode(newNode, targetNav.getOwnerType(), targetNav.getOwnerId(), service);
+        }
         return;
-      } else {
-        setNewUri(targetNode, newNode);
       }
+      setNewUri(targetNode, newNode);
       targetNode.getChildren().add(newNode);
+      if(selectedNode.isCloneNode()) {
+        clonePageFromNode(newNode, targetNav.getOwnerType(), targetNav.getOwnerId(), service);
+      }
       uiPageNodeSelector.selectPageNodeByUri(targetNode.getUri());
+      
+    }
+    
+    private void clonePageFromNode(PageNode node, String ownerType,
+                                   String ownerId, UserPortalConfigService service) throws Exception {
+      String pageId = node.getPageReference();
+      if(pageId != null) {
+        Page page = service.getPage(pageId);
+        String newName = "page" + node.hashCode();
+        if(page != null) {
+          service.renewPage(page, newName, ownerType, ownerId, null);
+          node.setPageReference(page.getPageId());
+        }
+      }
+      List<PageNode> children = node.getChildren();
+      if(children == null || children.size() < 1) return ;
+      for(PageNode ele : children) {
+        clonePageFromNode(ele, ownerType, ownerId, service);
+      }
     }
     
     private void setNewUri(PageNode parent, PageNode child) {
