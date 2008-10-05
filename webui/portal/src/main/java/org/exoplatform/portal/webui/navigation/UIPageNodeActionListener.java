@@ -324,7 +324,7 @@ public class UIPageNodeActionListener {
         clonePageFromNode(newNode, targetNav.getOwnerType(), targetNav.getOwnerId(), service);
       }
       uiPageNodeSelector.selectPageNodeByUri(targetNode.getUri());
-      
+
     }
     
     private void clonePageFromNode(PageNode node, String ownerType,
@@ -332,9 +332,9 @@ public class UIPageNodeActionListener {
       String pageId = node.getPageReference();
       if(pageId != null) {
         Page page = service.getPage(pageId);
-        String newName = "page" + node.hashCode();
         if(page != null) {
-          service.renewPage(page, newName, ownerType, ownerId, null);
+          String newName = "page" + node.hashCode();
+          page = service.renewPage(pageId, newName, ownerType, ownerId, null);
           node.setPageReference(page.getPageId());
         }
       }

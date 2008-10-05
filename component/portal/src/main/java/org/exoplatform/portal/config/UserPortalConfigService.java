@@ -428,8 +428,7 @@ public class UserPortalConfigService {
       String pageId, String ownerType, String ownerId,
       javax.portlet.PortletPreferences portletPreferences) throws Exception {
     
-    Page page = storage_.getPage(pageId) ;
-    renewPage(page, nodeName, ownerType, ownerId, portletPreferences) ;
+    Page page = renewPage(pageId, nodeName, ownerType, ownerId, portletPreferences) ;
     PageNode pageNode = new PageNode() ;
     if(nodeLabel == null || nodeLabel.trim().length() < 1) nodeLabel = nodeName  ;
     pageNode.setName(nodeName) ;
@@ -438,13 +437,12 @@ public class UserPortalConfigService {
     return  pageNode ;
   }
   
-  public void renewPage(Page page, String pageName,
+  public Page renewPage(String pageId, String pageName,
       String ownerType, String ownerId,
       javax.portlet.PortletPreferences portletPreferences) throws Exception {
     
+    Page page = storage_.getPage(pageId) ;
     page.setName(pageName) ;
-    page.setOwnerType(ownerType) ;
-    page.setOwnerId(ownerId) ;
     page.setPageId(ownerType + "::" + ownerId + "::" + pageName);
     List<Application> apps = new ArrayList<Application>(5) ; 
     getApplications(apps, page) ;
@@ -460,6 +458,7 @@ public class UserPortalConfigService {
       }
     }
     create(page);
+    return page;
   }
   
   private void getApplications(List<Application> apps, Object component) {
