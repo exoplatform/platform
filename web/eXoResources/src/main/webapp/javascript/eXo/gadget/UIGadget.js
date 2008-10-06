@@ -247,33 +247,33 @@ eXo.gadget.UIGadget = {
 	} ,
 
 	resizeContainer : function() {
-		var gadgets  = document.getElementById("UIGadgets") ;
-		if(gadgets == null) return ;
-
+		var widgets  = document.getElementById("UIWidgets") ;
+		if(widgets == null) return ;	
+		
 		var DOMUtil = eXo.core.DOMUtil ;
 		var workspacePanel = document.getElementById("UIWorkspacePanel") ;
 		if(workspacePanel.style.display == "none") return;
-		var uiGadgetContainer = DOMUtil.findFirstDescendantByClass(gadgets, "div", "UIGadgetContainer");
-		if(uiGadgetContainer == null) return ;
-		var gadgetNavigator = DOMUtil.findFirstChildByClass(uiGadgetContainer, "div", "GadgetNavigator") ;
-		var gadgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiGadgetContainer, "div", "GadgetContainerScrollArea") ;
-		var itemSelectorContainer = DOMUtil.findFirstChildByClass(gadgets, "div", "ItemSelectorContainer") ;
-
-		var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + gadgetNavigator.offsetHeight + 40) ;
+		var uiWidgetContainer = DOMUtil.findFirstDescendantByClass(widgets, "div", "UIWidgetContainer");
+		if(uiWidgetContainer == null) return ;
+		var widgetNavigator = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator") ;	
+		var widgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetContainerScrollArea") ;
+		var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;
+		
+		var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + 40) ;
 		if(eXo.core.Browser.isIE6() || workspacePanel.offsetHeight < 1) {
 			//var html = document.getElementsByTagName("html")[0];
 			var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
 			var fixHeight = uiControlWorkspace.offsetHeight - 153;
 	    fixHeight = (fixHeight < 0) ? 0 : fixHeight ;
-			/* 153 is total value (UserWorkspaceTitleHeight + UIExoStartHeight + GadgetNavigatorHeight + 40)
-			 * 40 is distance between UIGadgets and UIExoStart
+			/* 153 is total value (UserWorkspaceTitleHeight + UIExoStartHeight + WidgetNavigatorHeight + 40)
+			 * 40 is distance between UIWidgets and UIExoStart 
 			 * */
-			if(gadgetContainerScrollArea.offsetHeight == fixHeight) return;
-			gadgetContainerScrollArea.style.height = fixHeight + "px" ;
+			if(widgetContainerScrollArea.offsetHeight == fixHeight) return;
+			widgetContainerScrollArea.style.height = fixHeight + "px" ;
 		} else {
 			if(availableHeight < 0) return ;
-			gadgetContainerScrollArea.style.height = availableHeight + "px" ;
+			widgetContainerScrollArea.style.height = availableHeight + "px" ;
 		}
-	  gadgetContainerScrollArea.style.overflow = "hidden" ;
+	  widgetContainerScrollArea.style.overflow = "hidden" ;
 	}
 }

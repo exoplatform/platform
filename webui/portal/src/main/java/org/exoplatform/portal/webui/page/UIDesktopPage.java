@@ -28,10 +28,8 @@ import org.exoplatform.portal.webui.application.UIAddNewApplication;
 import org.exoplatform.portal.webui.application.UIApplication;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.application.UIPortlet;
-import org.exoplatform.portal.webui.application.UIWidget;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.page.UIPageActionListener.DeleteGadgetActionListener;
-import org.exoplatform.portal.webui.page.UIPageActionListener.DeleteWidgetActionListener;
 import org.exoplatform.portal.webui.page.UIPageActionListener.RemoveChildActionListener;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -54,10 +52,8 @@ import org.exoplatform.webui.event.EventListener;
 	template = "system:/groovy/portal/webui/page/UIDesktopPage.gtmpl",
 	events = {
 		@EventConfig(listeners = ShowLoginFormActionListener.class),
-		@EventConfig(listeners = DeleteWidgetActionListener.class),
 		@EventConfig(listeners = DeleteGadgetActionListener.class),
 		@EventConfig(listeners = RemoveChildActionListener.class),
-		@EventConfig(listeners = UIDesktopPage.SaveWidgetPropertiesActionListener.class),
 		@EventConfig(listeners = UIDesktopPage.SaveGadgetPropertiesActionListener.class),
 		@EventConfig(listeners = UIDesktopPage.SaveWindowPropertiesActionListener.class),
 		@EventConfig(listeners = UIDesktopPage.ShowAddNewApplicationActionListener.class),
@@ -77,36 +73,36 @@ public class UIDesktopPage extends UIPage {
     return result;
   }
   
-  static public class SaveWidgetPropertiesActionListener  extends EventListener<UIPage> {
-    public void execute(Event<UIPage> event) throws Exception {
-     
-      UIPage uiPage = event.getSource();
-      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
-      uiPage.findComponentOfType(uiWidgets, UIWidget.class);
-      UIWidget uiWidget = null;
-      for(UIWidget ele : uiWidgets) {
-        if(ele.getApplicationInstanceUniqueId().equals(objectId)) {
-          uiWidget = ele;
-          break;
-        }
-      }
-      if(uiWidget == null) return;
-      String posX  = event.getRequestContext().getRequestParameter("posX");
-      String posY  = event.getRequestContext().getRequestParameter("posY");
-      String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
-      
-      uiWidget.getProperties().put(UIApplication.locationX, posX) ;
-      uiWidget.getProperties().put(UIApplication.locationY, posY) ;
-      uiWidget.getProperties().put(UIApplication.zIndex, zIndex) ;
-      
-      if(!uiPage.isModifiable()) return;
-      Page page = PortalDataMapper.toPageModel(uiPage);
-      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
-      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-      configService.update(page);
-    }
-  }
+//  static public class SaveWidgetPropertiesActionListener  extends EventListener<UIPage> {
+//    public void execute(Event<UIPage> event) throws Exception {
+//     
+//      UIPage uiPage = event.getSource();
+//      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+//      List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
+//      uiPage.findComponentOfType(uiWidgets, UIWidget.class);
+//      UIWidget uiWidget = null;
+//      for(UIWidget ele : uiWidgets) {
+//        if(ele.getApplicationInstanceUniqueId().equals(objectId)) {
+//          uiWidget = ele;
+//          break;
+//        }
+//      }
+//      if(uiWidget == null) return;
+//      String posX  = event.getRequestContext().getRequestParameter("posX");
+//      String posY  = event.getRequestContext().getRequestParameter("posY");
+//      String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
+//      
+//      uiWidget.getProperties().put(UIApplication.locationX, posX) ;
+//      uiWidget.getProperties().put(UIApplication.locationY, posY) ;
+//      uiWidget.getProperties().put(UIApplication.zIndex, zIndex) ;
+//      
+//      if(!uiPage.isModifiable()) return;
+//      Page page = PortalDataMapper.toPageModel(uiPage);
+//      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
+//      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+//      configService.update(page);
+//    }
+//  }
   
   static public class SaveGadgetPropertiesActionListener  extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {

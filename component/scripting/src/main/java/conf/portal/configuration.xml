@@ -9,8 +9,4 @@
       </value-param>
     </init-params>
   </component>
-
-  <component>
-    <type>org.exoplatform.javascript.JavaScriptEngineService</type>
-  </component>
 </configuration>

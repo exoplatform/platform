@@ -33,7 +33,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * 
  * Represents an upload form
  */
-
 @ComponentConfig(template = "system:/groovy/webui/form/UIFormUploadInput.gtmpl")    
 public class UIFormUploadInput extends UIFormInputBase<String> {
   /**
@@ -56,14 +55,12 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
     setComponentConfig(UIFormUploadInput.class, null) ;
   }
   
-  @SuppressWarnings("unused")
   public void decode(Object input, WebuiRequestContext context) throws Exception {
     uploadResource_ = null ;
     boolean hasUpload = "true".equals(input) ;
     if(hasUpload) {
       UploadService service = getApplicationComponent(UploadService.class) ;
       uploadResource_ = service.getUploadResource(uploadId_) ;
-      System.out.println("upload stores at " + uploadResource_.getStoreLocation()) ;
     }
   }
   
@@ -95,7 +92,6 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     WebuiRequestContext pcontext = (WebuiRequestContext)context.getParentAppRequestContext();
     if(pcontext == null) pcontext = context;
-//    String uploadAction = pcontext.getRequestContextPath() + "/upload?uploadId=" + uploadId_+"&action=upload" ;
     String uploadAction = pcontext.getRequestContextPath() + "/command?";
     uploadAction += "type=org.exoplatform.web.command.handler.UploadHandler";
     uploadAction += "&uploadId=" + uploadId_+"&action=upload" ;

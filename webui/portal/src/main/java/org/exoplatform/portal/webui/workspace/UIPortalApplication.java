@@ -217,23 +217,15 @@ public class UIPortalApplication extends UIApplication {
    */
   public void  processDecode(WebuiRequestContext context) throws Exception {
     PortalRequestContext pcontext = (PortalRequestContext) context;
-    String nodePath = pcontext.getNodePath();
-    if(nodePath == null) {
-      super.processDecode(context);
-      return ;
-    }
+    String nodePath = pcontext.getNodePath().trim();
 
-    nodePath = nodePath.trim();
-    if(nodePath.equals(nodePath_)) {
-      super.processDecode(context);
-      return;
+    if(!nodePath.equals(nodePath_)) {
+	    nodePath_ = nodePath;
+	    UIPortal uiPortal = findFirstComponentOfType(UIPortal.class);
+	    PageNodeEvent<UIPortal> pnevent = 
+	      new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, nodePath_) ;
+	    uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
     }
-
-    nodePath_ = nodePath;
-    UIPortal uiPortal = findFirstComponentOfType(UIPortal.class);
-    PageNodeEvent<UIPortal> pnevent = 
-      new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, nodePath_) ;
-    uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
     super.processDecode(context);
   }
 

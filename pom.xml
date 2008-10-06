@@ -21,8 +21,6 @@
     <module>component/web</module>
     <module>component/scripting</module>
 
-    <module>eXoWidget/web</module>
-
     <module>gadgets</module>
 	
     <module>webui/core</module>

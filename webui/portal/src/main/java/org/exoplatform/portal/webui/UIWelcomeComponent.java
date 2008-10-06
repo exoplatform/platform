@@ -25,7 +25,6 @@ import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.application.UIGadgets;
-import org.exoplatform.portal.webui.application.UIWidgets;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
