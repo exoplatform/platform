@@ -27,12 +27,12 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 			var topCont = DOMUtil.findPreviousElementByTagName(middleCont, "div") ;
 			var bottomCont = DOMUtil.findNextElementByTagName(middleCont, "div") ;
 			middleCont.style.height = "auto";
-			var visibleHeight = Browser.getBrowserHeight() - Browser.findPosY(middleCont) - 45 ;
+			var visibleHeight = Browser.getBrowserHeight() - Browser.findPosY(middleCont) - 40 ;
 			var scrollHeight = middleCont.scrollHeight ;
 			if(scrollHeight > visibleHeight) {
-				middleCont.style.height = visibleHeight + "px" ;
 				topCont.style.display = "block" ;
 				bottomCont.style.display = "block" ;
+				middleCont.style.height = visibleHeight - topCont.offsetHeight - bottomCont.offsetHeight + "px" ;
 			} else {
 				topCont.style.display = "none" ;
 				bottomCont.style.display = "none" ;

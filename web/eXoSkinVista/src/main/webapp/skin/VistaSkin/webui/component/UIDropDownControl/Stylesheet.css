@@ -41,6 +41,20 @@
 	display: block;
 }
 
+.ItemListContent .TopItemContainer {
+	height: 8px;
+	background: transparent url('background/UpNaviArrow.gif') no-repeat center;
+}
+
+.ItemListContent .MiddleItemContainer {
+	overflow: hidden;
+}
+
+.ItemListContent .BottomItemContainer {
+	height: 8px;
+	background: url('background/DownNaviArrow.gif') no-repeat center;
+}
+
 .UIDropDownControl .LeftTopItem {
 	background: url('background/DropDownControl.png') no-repeat left top;
 	padding-left: 14px;

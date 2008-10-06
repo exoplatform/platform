@@ -32,6 +32,20 @@
 	background:white url(/eXoSkinMac/skin/MacSkin/background/Background1x4.png) repeat;
 }
 
+.ItemListContent .TopItemContainer {
+	height: 8px;
+	background: url('background/UpNaviArrow.gif') no-repeat center;
+}
+
+.ItemListContent .MiddleItemContainer {
+	overflow: hidden;
+}
+
+.ItemListContent .BottomItemContainer {
+	height: 8px;
+	background: url('background/DownNaviArrow.gif') no-repeat center;
+}
+
 .UIDropDownControl .LeftBottomItem {
 	background: url('background/DropDownControl.png') no-repeat left -48px;
 	padding-left:4px;
