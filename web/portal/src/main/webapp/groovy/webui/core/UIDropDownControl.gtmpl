@@ -42,12 +42,16 @@
 			<div class="LeftMiddelItem">
 				<div class="RightMiddelItem">
 				
-					<div class="ItemListContent">
+					<div class="ItemListContent ItemContainer">
+						<div class="TopItemContainer" onmousedown="eXo.portal.VerticalScrollManager.initScroll(this, true, 10)">
+							<div class="Arrow UpArrowIcon"><span></span></div>
+						</div>
+						<div class="MiddleItemContainer">
 					  <%
 					    int selectedIndex = 0 ;
 					    for(option in options) {
 					   %>
-					  <div class="ItemListOption">
+					 	 	<div class="ItemListOption Item">
 					  		<% 
 					  			String label = _ctx.appRes(uicomponent.getId() + ".item." + option.label);
 					  			if(label.length() > 30) {
@@ -56,8 +60,12 @@
 						    <% } else { %>
 						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)"><%=label%></a>
 						    <% } %>
-						</div>
+							</div>
 						<% selectedIndex++ ;}%>
+						</div>
+						<div class="BottomItemContainer" onmousedown="eXo.portal.VerticalScrollManager.initScroll(this, false, 10)">
+							<div class="Arrow DownArrowIcon"><span></span></div>
+						</div>
 					</div>
 				</div>
 			</div>

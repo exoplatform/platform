@@ -8,11 +8,11 @@
 <div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="DashboardContainer UIResizableBlock" id="DashboardContainer">
 		
-		<div class="ContainerControlBarL" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)" style="visibility: <%= uiSelectForm.isShowSelectForm()? "hidden" : "visible"; %>;">
+		<div class="ContainerControlBarL" style="visibility: <%= uiSelectForm.isShowSelectForm()? "hidden" : "visible"; %>;">
 			<div class="ContainerControlBarR">
 				<div class="ContainerControlBarM">
 					<div class="AddIcon">
-						<a href ="#"><%=_ctx.appRes("UIDashboardPortlet.label.openWorkspace");%></a>
+						<a href="#" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"><%=_ctx.appRes("UIDashboardPortlet.label.openWorkspace");%></a>
 					</div>
 				</div>
 			</div>

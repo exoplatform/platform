@@ -42,22 +42,30 @@
 			<div class="LeftMiddelItem">
 				<div class="RightMiddelItem">
 				
-					<div class="ItemListContent">
-					  <%
-					    int selectedIndex = 0 ;
-					    for(option in options) {
-					   %>
-					  <div class="ItemListOption">
-					  		<% 
-					  			String label = _ctx.appRes("UIPageNavigation.label.navigation").replace("{0}", option.label);
-					  			if(label.length() > 30) {
-					  		%>
-						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)" title="<%=label%>"><%=label.substring(0,25)%>...</a>
-						    <% } else { %>
-						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)"><%=label%></a>
-						    <% } %>
+					<div class="ItemListContent ItemContainer">
+						<div class="TopItemContainer" onmousedown="eXo.portal.VerticalScrollManager.initScroll(this, true, 10)">
+							<div class="Arrow UpArrowIcon"><span></span></div>
 						</div>
-						<% selectedIndex++ ;}%>
+						<div class="MiddleItemContainer">
+						  <%
+						    int selectedIndex = 0 ;
+						    for(option in options) {
+						   %>
+						  <div class="ItemListOption Item">
+						  		<% 
+						  			String label = _ctx.appRes("UIPageNavigation.label.navigation").replace("{0}", option.label);
+						  			if(label.length() > 30) {
+						  		%>
+							    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)" title="<%=label%>"><%=label.substring(0,25)%>...</a>
+							    <% } else { %>
+							    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)"><%=label%></a>
+							    <% } %>
+							</div>
+							<% selectedIndex++ ;}%>
+						</div>
+						<div class="BottomItemContainer" onmousedown="eXo.portal.VerticalScrollManager.initScroll(this, false, 10)">
+							<div class="Arrow DownArrowIcon"><span></span></div>
+						</div>
 					</div>
 				</div>
 			</div>

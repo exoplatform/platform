@@ -37,6 +37,21 @@
 	background: #f3f3f3 ;
 	height: 100%;
 }
+.ItemListContent .TopItemContainer {
+	height: 8px;
+	background: url('background/UpNaviArrow.gif') no-repeat center;
+	//display: none;
+}
+
+.ItemListContent .MiddleItemContainer {
+	overflow: hidden;
+}
+
+.ItemListContent .BottomItemContainer {
+	height: 8px;
+	background: url('background/DownNaviArrow.gif') no-repeat center;
+	//display: none;
+}
 
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {
 	width: auto;

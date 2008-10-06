@@ -49,60 +49,62 @@
 	width: 20px;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer {
+.UIDashboardSelectForm .DashboardItemContainer {
 	border: 1px solid white;
 	background: #ececec;
 	padding: 5px;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer .GadgetItemsContainer {
+.UIDashboardSelectForm .DashboardItemContainer .GadgetItemsContainer {
 	border: 1px solid #b7b7b7;
 	background: white;
 	font-weight: bold;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer .TopItemContainer {
+.UIDashboardSelectForm .DashboardItemContainer .TopItemContainer {
 	background: url('background/Dashboard.gif') repeat-x center -37px;
 	height: 11px;
 	padding: 1px;
 	border-bottom: 1px solid #b7b7b7;
+	display: none;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer .UpArrowIcon {
+.UIDashboardSelectForm .DashboardItemContainer .UpArrowIcon {
 	background: url('background/Dashboard.gif') repeat-x center -98px;
 	height: 11px; width: 15px;
 	margin: auto;
 	cursor: pointer;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer .DisableArrowIcon {
+.UIDashboardSelectForm .DashboardItemContainer .DisableArrowIcon {
 	filter: alpha(opacity=30);
 	-moz-opacity: 0.3;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer .MiddleItemContainer {
+.UIDashboardSelectForm .DashboardItemContainer .MiddleItemContainer {
 	overflow: hidden;
 }
 	
-.UIDashboardSelectForm .UIDashboardItemContainer .BottomItemContainer {
+.UIDashboardSelectForm .DashboardItemContainer .BottomItemContainer {
 	background: url('background/Dashboard.gif') repeat-x center -37px;
 	height: 11px;
 	padding: 1px;
 	border-top: 1px solid #b7b7b7;
+	display: none;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer .DownArrowIcon {
+.UIDashboardSelectForm .DashboardItemContainer .DownArrowIcon {
 	background: url('background/Dashboard.gif') repeat-x center -114px;
 	height: 11px; width: 15px;
 	margin: auto;
 	cursor: pointer;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer .DisableContainer {
+.UIDashboardSelectForm .DashboardItemContainer .DisableContainer {
 	background:	url('background/Dashboard.gif') repeat-x center -23px;
 }
 
-.UIDashboardSelectForm .UIDashboardItemContainer .GadgetCategory {
+.UIDashboardSelectForm .DashboardItemContainer .GadgetCategory {
 	padding: 5px 10px;
 }
 

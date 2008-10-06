@@ -18,11 +18,29 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 	evt.cancelBubble = true ;
 	
 	var DOMUtil = eXo.core.DOMUtil ;
-	var itemContainer = DOMUtil.findNextElementByTagName(obj, 'div') ;	
-	if (itemContainer) {
-		if (itemContainer.style.display == "none") itemContainer.style.display = "block" ;
-		else itemContainer.style.display = "none" ;
+	var Browser = eXo.core.Browser ;
+	var dropDownAnchor = DOMUtil.findNextElementByTagName(obj, 'div') ;	
+	if (dropDownAnchor) {
+		if (dropDownAnchor.style.display == "none") {
+			dropDownAnchor.style.display = "block" ;
+			var middleCont = DOMUtil.findFirstDescendantByClass(dropDownAnchor, "div", "MiddleItemContainer") ;
+			var topCont = DOMUtil.findPreviousElementByTagName(middleCont, "div") ;
+			var bottomCont = DOMUtil.findNextElementByTagName(middleCont, "div") ;
+			middleCont.style.height = "auto";
+			var visibleHeight = Browser.getBrowserHeight() - Browser.findPosY(middleCont) - 45 ;
+			var scrollHeight = middleCont.scrollHeight ;
+			if(scrollHeight > visibleHeight) {
+				middleCont.style.height = visibleHeight + "px" ;
+				topCont.style.display = "block" ;
+				bottomCont.style.display = "block" ;
+			} else {
+				topCont.style.display = "none" ;
+				bottomCont.style.display = "none" ;
+			}
+		}
+		else dropDownAnchor.style.display = "none" ;
 	}
+	
 } ;
 
 UIDropDownControl.prototype.hide = function(obj) {

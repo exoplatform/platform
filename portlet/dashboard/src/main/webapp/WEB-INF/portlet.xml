@@ -22,6 +22,12 @@
 			<short-title>Dashboard Portlet</short-title>
 			<keywords>portlet,dashboard</keywords>
 		</portlet-info>
+		<portlet-preferences>
+			<preference>
+				<name>totalColumns</name>
+				<value>4</value>
+			</preference>
+		</portlet-preferences>
 		<security-role-ref>
 			<role-name>admin</role-name>
 			<role-link>admin</role-link>

@@ -240,14 +240,15 @@ eXo.webui.UIDashboard = {
 		
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardPortlet");
 		if(!uiDashboard) return;
-		
 		uiDashboard.style.overflow = "hidden";
+		
+		if(!uiDashboard.parentNode.style.height) uiDashboard.parentNode.style.height = "400px";
 
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
 
-		var gadgetControls = eXo.core.DOMUtil.findDescendantsByClass(uiDashboard, "div", "GadgetControl");
+		var gadgetControls = DOMUtil.findDescendantsByClass(uiDashboard, "div", "GadgetControl");
 		for(var j=0; j<gadgetControls.length; j++) {
-			eXo.webui.UIDashboard.init(gadgetControls[j], eXo.core.DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
+			eXo.webui.UIDashboard.init(gadgetControls[j], DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
 		}
 		
 		if(uiContainer == null) return;
@@ -265,24 +266,38 @@ eXo.webui.UIDashboard = {
 			if(columns[i].style.display != "none") colsSize++;
 		}
 		colsContainer.style.width = colsSize*320 + 20 + "px";
-		eXo.webui.UIDashboard.setHeightsOnLoad(windowId);
+		eXo.webui.UIDashboard.initSelectForm(uiDashboard);
 	},
 	
-	setHeightsOnLoad : function(windowId)	{
+	initSelectForm : function(uiDashboard) {
 		var DOMUtil = eXo.core.DOMUtil;
-		var uiWindow = document.getElementById(windowId);
-		var uiContainer = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardContainer");
-		if(!uiContainer) return;
-		var uiSelect = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardSelectForm");
+		var uiWindow = DOMUtil.findAncestorById(uiDashboard, "PORTLET-FRAGMENT").parentNode;
+		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectForm");
+		var itemCont = DOMUtil.findFirstChildByClass(uiSelect, "div", "DashboardItemContainer");
+		var middleItemCont = DOMUtil.findFirstDescendantByClass(uiSelect, "div", "MiddleItemContainer");
+		var topItemCont = DOMUtil.findNextElementByTagName(middleItemCont, "div");
+		var bottomItemCont = DOMUtil.findPreviousElementByTagName(middleItemCont, "div");
+		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
 		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
 		if(uiSelect.style.display != "none") {
+			middleItemCont.style.height = uiWindow.offsetHeight - DOMUtil.findPreviousElementByTagName(itemCont, "div").offsetHeight
+						- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
+						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
+						- parseInt(DOMUtil.getStyle(itemCont,"borderTopWidth"))
+						- parseInt(DOMUtil.getStyle(itemCont,"borderBottomWidth")) - 3 + "px";
 			uiContainer.style.marginLeft = "210px";
-			var middleItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiSelect, "div", "MiddleItemContainer");
-			middleItemContainer.style.height = uiWindow.offsetHeight - 66 + "px";
-			dbContainer.style.height = uiSelect.offsetHeight + "px";
 		} else {
 			uiContainer.style.marginLeft = "0px";
-			dbContainer.style.height = uiWindow.offsetHeight + "px";
+		}
+		dbContainer.style.height = uiWindow.offsetHeight + "px";
+		
+		if(middleItemCont.scrollHeight > middleItemCont.offsetHeight) {
+			topItemCont.style.display = "block";
+			bottomItemCont.style.display = "block";
+			middleItemCont.style.height = middleItemCont.offsetHeight - topItemCont.offsetHeight - bottomItemCont.offsetHeight + "px";
+		} else {
+			topItemCont.style.display = "none";
+			bottomItemCont.style.display = "none";
 		}
 	},
 	
@@ -319,20 +334,16 @@ eXo.webui.UIDashboard = {
 		var url = eXo.env.server.portalBaseURL + '?portal:componentId=' + portletId +
 						'&portal:type=action&portal:isSecure=false&uicomponent=' + uiDashboardPortlet.id +
 						'&op=SetShowSelectForm&ajaxRequest=true' ;
-		
 		if(uiSelectForm.style.display != "none") {
 			uiSelectForm.style.display = "none";
 			url += '&isShow=false';
 			addButton.style.visibility = "visible";
-			uiContainer.style.marginLeft = "0px";
 		} else {
 			uiSelectForm.style.display = "block";
-			var middleItemContainer = DOMUtil.findFirstDescendantByClass(uiSelectForm, "div", "MiddleItemContainer");
-			middleItemContainer.style.height = portletFragment.offsetHeight - 66 + "px";
 			url += '&isShow=true';
 			addButton.style.visibility = "hidden";
-			uiContainer.style.marginLeft = "210px";
 		}
+		eXo.webui.UIDashboard.initSelectForm(uiDashboardPortlet);
 		ajaxAsyncGetRequest(url, false);
 	}, 
 	
@@ -362,6 +373,8 @@ eXo.webui.UIDashboard = {
 		if(DOMUtil.hasClass(elemt, "DisableContainer")) {
 			DOMUtil.replaceClass(elemt, " DisableContainer", "");
 		}
+		var arrow = DOMUtil.findFirstChildByClass(elemt, "div", "Arrow");
+		if(DOMUtil.hasClass(arrow, "DisableArrowIcon")) DOMUtil.replaceClass(arrow," DisableArrowIcon", "");
 	},
 	
 	disableContainer : function(elemt) {
@@ -369,6 +382,8 @@ eXo.webui.UIDashboard = {
 		if(!DOMUtil.hasClass(elemt, "DisableContainer")) {
 			DOMUtil.addClass(elemt, "DisableContainer");
 		}
+		var arrow = DOMUtil.findFirstChildByClass(elemt, "div", "Arrow");
+		if(!DOMUtil.hasClass(arrow, "DisableArrowIcon")) DOMUtil.addClass(arrow," DisableArrowIcon");
 	},
 	
 	scrollOnDrag : function(dragObj) {
@@ -406,5 +421,6 @@ eXo.webui.UIDashboard = {
 		}	else {
 			if(objTop < 0 && deltaY > 0) dbContainer.scrollTop -= 5;
 		}
-	}
+	}	
+	
 }

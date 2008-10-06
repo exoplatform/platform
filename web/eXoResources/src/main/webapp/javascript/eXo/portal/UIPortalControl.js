@@ -500,4 +500,43 @@ UIPortalControl.prototype.newScrollManager = function(id_) {
 };
 /*********** Scroll Manager *************/
 
+/*********** Vertical Scroll Manager ************/
+function VerticalScrollManager() {
+	repeat = null;
+}
+
+VerticalScrollManager.prototype.initScroll = function (clickedEle, isUp, step) {
+	var DOMUtil = eXo.core.DOMUtil;
+	var verticalScroll = eXo.portal.VerticalScrollManager;
+	var container = DOMUtil.findAncestorByClass(clickedEle, "ItemContainer");
+	var middleCont = DOMUtil.findFirstDescendantByClass(container, "div", "MiddleItemContainer");
+	if(!middleCont.id) middleCont.id = "IC" + new Date().getTime() + Math.random().toString().substring(2);
+	document.onmouseup = verticalScroll.cancelScroll;
+	verticalScroll.scrollComponent(middleCont.id, isUp, step);
+};
+	
+VerticalScrollManager.prototype.scrollComponent = function (id, isUp, step) {
+	var verticalScroll = eXo.portal.VerticalScrollManager;
+	var scrollComp = document.getElementById(id);
+	if(isUp) {
+		scrollComp.scrollTop -= step;
+	} else {
+		scrollComp.scrollTop += step;
+	}
+	if(verticalScroll.repeat) {
+		clearTimeout(verticalScroll.repeat) ;
+		verticalScroll.repeat = null;
+	}
+	verticalScroll.repeat = setTimeout("eXo.portal.VerticalScrollManager.scrollComponent('" + id + "'," + isUp + "," + step + ")", 100);
+};
+
+VerticalScrollManager.prototype.cancelScroll = function () {
+	clearTimeout(eXo.portal.VerticalScrollManager.repeat);
+	eXo.portal.VerticalScrollManager.repeat = null;
+};
+
+eXo.portal.VerticalScrollManager = new VerticalScrollManager();
+
+/*********** End Of Vertical Scroll Manager ************/
+
 eXo.portal.UIPortalControl = new UIPortalControl();

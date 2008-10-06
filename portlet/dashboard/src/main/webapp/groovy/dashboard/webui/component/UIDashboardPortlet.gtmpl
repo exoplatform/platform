@@ -11,7 +11,6 @@
   def windowId = pcontext.getWindowId();
   
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  jsmanager.addOnLoadJavascript("eXo.webui.UIDashboard.onLoad(\""+windowId+"\")");
   def selectForm = uicomponent.getChild(UIDashboardSelectForm.class);
   def popupMsgs = uicomponent.getUIPopupMessages();
 %>
@@ -27,3 +26,4 @@
 			<div style="clear:left;"><span></span></div>
 			<% if(popupMsgs != null) popupMsgs.processRender(rcontext); %>
 </div>
+<% jsmanager.addJavascript("eXo.webui.UIDashboard.onLoad(\""+windowId+"\");"); %>
