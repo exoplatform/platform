@@ -39,8 +39,9 @@
 }
 
 .ItemListContent .TopItemContainer {
-	height: 8px;
-	background: url('background/UpNaviArrow.gif') no-repeat center;
+	height: 15px;
+	background: #e3e3e3 url('background/UpNaviArrow.gif') no-repeat center;
+	border-bottom: 1px solid #E0E0E0;
 }
 
 .ItemListContent .MiddleItemContainer {
@@ -48,8 +49,10 @@
 }
 
 .ItemListContent .BottomItemContainer {
-	height: 8px;
-	background: url('background/DownNaviArrow.gif') no-repeat center;
+	height: 15px;
+	background: #e3e3e3 url('background/DownNaviArrow.gif') no-repeat center;
+	border-top: 1px solid white;
+	border-bottom: 1px solid #E0E0E0;
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {

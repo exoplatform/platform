@@ -20,7 +20,6 @@
 	background: url('background/DropDownControlRepeatY.png') repeat-y left top;
 	padding-left: 9px;
 }
-
 .UIDropDownControl .RightMiddelItem {
 	background: url('background/DropDownControlRepeatY.png') repeat-y right top;
 	padding-right: 12px;
@@ -42,8 +41,9 @@
 }
 
 .ItemListContent .TopItemContainer {
-	height: 8px;
-	background: transparent url('background/UpNaviArrow.gif') no-repeat center;
+	height: 15px;
+	background: white url('background/UpNaviArrow.gif') no-repeat center;
+	border-bottom: 1px solid #cdcdcd;
 }
 
 .ItemListContent .MiddleItemContainer {
@@ -51,8 +51,8 @@
 }
 
 .ItemListContent .BottomItemContainer {
-	height: 8px;
-	background: url('background/DownNaviArrow.gif') no-repeat center;
+	height: 15px;
+	background: white url('background/DownNaviArrow.gif') no-repeat center;
 }
 
 .UIDropDownControl .LeftTopItem {
