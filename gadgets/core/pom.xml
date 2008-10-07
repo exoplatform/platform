@@ -55,18 +55,36 @@
 	        <directory>${basedir}/../config</directory>
 	        <includes>
 	          <include>oauth.json</include>
+              <include>key.txt</include>
+	        </includes>
+	      </resource>
+          <resource>
+	        <targetPath>conf/portal</targetPath>
+	        <directory>${basedir}/src/main/java/conf/portal</directory>
+	        <includes>
+	          <include>configuration.xml</include>
 	        </includes>
 	      </resource>
 	    </resources>		
 	</build>
 	<dependencies>
-<!-- project dependencies -->
 		<!--dependency>
+			<groupId>com.google.code.guice</groupId>
+			<artifactId>guice</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+		</dependency-->
+            <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.web</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
+    </dependency>
+		<dependency>
 			<groupId>org.apache.shindig</groupId>
-			<artifactId>shindig-gadgets</artifactId>
+			<artifactId>shindig-common</artifactId>
 			<version>${org.shindig.version}</version>
 			<type>jar</type>
-			<scope>runtime</scope>
-		</dependency-->
+		</dependency>
 	</dependencies>
 </project>

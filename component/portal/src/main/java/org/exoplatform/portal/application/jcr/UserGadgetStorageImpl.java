@@ -16,67 +16,88 @@
  */
 package org.exoplatform.portal.application.jcr;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-
 import javax.jcr.Node;
 
-import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator;
 
+import java.util.Set;
+import java.util.Map;
+import java.util.HashMap;
+
 public class UserGadgetStorageImpl implements UserGadgetStorage {
 
-  public static final String GADGETS_REGETSTRY_NODE = "gadgets";
+  public static final String GADGETS_REGISTRY_NODE = "gadgets";
   public static final String DATA = "data";
   public static final String GADGET_NODE_TYPE = "exo:gadget";
   private NodeHierarchyCreator nodeCreator ;
 
-  public UserGadgetStorageImpl(NodeHierarchyCreator creator) throws Exception{   
+    public UserGadgetStorageImpl(NodeHierarchyCreator creator) throws Exception{
     nodeCreator = creator ;
   }
 
   private Node createGadgetInstanceNode(SessionProvider sessionProvider, String userName, String gadgetType, String instanceId) throws Exception{
     Node userApplicationsNode = nodeCreator.getUserApplicationNode(sessionProvider, userName) ;
-    Node gadgetsApp = getNode(userApplicationsNode, GADGETS_REGETSTRY_NODE, null) ;
+    Node gadgetsApp = getNode(userApplicationsNode, GADGETS_REGISTRY_NODE, null) ;
     Node gadgetsTypeNode = getNode(gadgetsApp, gadgetType, null);
     Node node = getNode(gadgetsTypeNode, instanceId, GADGET_NODE_TYPE);
     userApplicationsNode.save();
     return node;
   }
 
-  public void save(String userName, String gadgetType, String instantId, Object data) throws Exception{
+  public void save(String userName, String gadgetType, String instanceId, String key, String value) throws Exception{
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Node gadgetNode = createGadgetInstanceNode(sessionProvider, userName, gadgetType, instantId);
-    InputStream  inputStream;
-    if(data instanceof byte[]) {
-      inputStream  = new ByteArrayInputStream((byte[])data);
-    } else if (data instanceof InputStream){
-      inputStream = (InputStream) data;
-    } else {
-      inputStream  = new ByteArrayInputStream(data.toString().getBytes());
-    }
-    gadgetNode.setProperty(DATA, inputStream);
+    Node gadgetNode = createGadgetInstanceNode(sessionProvider, userName, gadgetType, instanceId);
+
+    gadgetNode.setProperty(key, value);
     gadgetNode.save();
     sessionProvider.close() ;
   }
-  
-  public Object get(String userName, String gadgetType, String instantId) throws Exception {
+
+  public void save(String userName, String gadgetType, String instanceId, Map<String, String> values) throws Exception{
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Node gadgetNode = getGadgetNode(sessionProvider, userName, gadgetType, instantId);
+    Node gadgetNode = createGadgetInstanceNode(sessionProvider, userName, gadgetType, instanceId);
+
+    for (String key : values.keySet()) {
+      gadgetNode.setProperty(key, values.get(key));
+    }
+    gadgetNode.save();
+    sessionProvider.close();
+  }
+  
+  public String get(String userName, String gadgetType, String instanceId, String key) throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    Node gadgetNode = getGadgetNode(sessionProvider, userName, gadgetType, instanceId);
     if(gadgetNode == null ) {
       sessionProvider.close() ;
       return null;
     }
-    byte[] bytes =  IOUtil.getStreamContentAsBytes(gadgetNode.getProperty(DATA).getStream());
+    String value = gadgetNode.getProperty(key).getString();
     sessionProvider.close() ;
-    return bytes;
+    return value;
   }
 
-  public void delete(String userName, String gadgetType, String instantId) throws Exception {
+  public Map<String, String> get(String userName, String gadgetType, String instanceId, Set<String> keys) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Node gadgetNode = getGadgetNode(sessionProvider, userName, gadgetType, instantId);
+    Node gadgetNode = getGadgetNode(sessionProvider, userName, gadgetType, instanceId);
+    if(gadgetNode == null ) {
+      sessionProvider.close() ;
+      return null;
+    }
+    Map<String, String> res = new HashMap<String, String>();
+
+    for (String key : keys) {
+      if(gadgetNode.hasProperty(key))
+        res.put(key, gadgetNode.getProperty(key).getString());
+    }
+    sessionProvider.close() ;
+    return res;
+  }
+
+  public void delete(String userName, String gadgetType, String instanceId) throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    Node gadgetNode = getGadgetNode(sessionProvider, userName, gadgetType, instanceId);
     if(gadgetNode == null ) {
       sessionProvider.close() ;
       return;
@@ -87,7 +108,24 @@ public class UserGadgetStorageImpl implements UserGadgetStorage {
     sessionProvider.close() ;
   }
 
-  private Node getNode(Node parent, String name, String nodeType) throws Exception {
+  public void delete(String userName, String gadgetType, String instanceId, Set<String> keys) throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    Node gadgetNode = getGadgetNode(sessionProvider, userName, gadgetType, instanceId);
+    if(gadgetNode == null ) {
+      sessionProvider.close() ;
+      return;
+    }
+
+    for (String key : keys) {
+      if (gadgetNode.hasProperty(key))
+        gadgetNode.getProperty(key).remove();
+    }
+
+    gadgetNode.save();
+    sessionProvider.close() ;
+  }
+
+    private Node getNode(Node parent, String name, String nodeType) throws Exception {
     if(parent.hasNode(name)){
       return parent.getNode(name);
     }
@@ -98,9 +136,9 @@ public class UserGadgetStorageImpl implements UserGadgetStorage {
     return node;
   }
 
-  private Node getGadgetNode(SessionProvider sessionProvider, String userName, String gadgetType, String instantId) throws Exception {
+  private Node getGadgetNode(SessionProvider sessionProvider, String userName, String gadgetType, String instanceId) throws Exception {
     Node userAppsNode = nodeCreator.getUserApplicationNode(sessionProvider, userName) ;
-    String instancePath = GADGETS_REGETSTRY_NODE + "/" + gadgetType + "/" + instantId ;
+    String instancePath = GADGETS_REGISTRY_NODE + "/" + gadgetType + "/" + instanceId ;
     if(userAppsNode.hasNode(instancePath)) return userAppsNode.getNode(instancePath) ;
     return null;
   }

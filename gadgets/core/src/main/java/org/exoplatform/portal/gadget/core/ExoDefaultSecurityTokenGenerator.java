@@ -1,0 +1,62 @@
+package org.exoplatform.portal.gadget.core;
+
+import org.apache.shindig.auth.BlobCrypterSecurityToken;
+import org.apache.shindig.common.crypto.BlobCrypterException;
+import org.apache.shindig.common.crypto.BlobCrypter;
+import org.apache.shindig.common.crypto.BasicBlobCrypter;
+import org.apache.shindig.common.util.TimeSource;
+import org.exoplatform.web.application.RequestContext;
+
+import java.io.File;
+import java.io.IOException;
+
+
+
+
+public class ExoDefaultSecurityTokenGenerator implements SecurityTokenGenerator{
+    private String containerKey;
+    private final TimeSource timeSource;
+
+
+  public ExoDefaultSecurityTokenGenerator() {
+    //TODO should be moved to config
+    this.containerKey = "key.txt";
+    this.timeSource = new TimeSource(); 
+  }
+
+  protected String createToken(String gadgetURL, String owner, String viewer, String container) {
+      try {
+        BlobCrypterSecurityToken t = new BlobCrypterSecurityToken(
+          getBlobCrypter(this.containerKey), container, null);
+
+        t.setAppUrl(gadgetURL);
+        t.setModuleId(12345L);
+        t.setOwnerId(owner);
+        t.setViewerId(viewer);
+        t.setTrustedJson("trusted");
+
+        return t.encrypt();
+    } catch (IOException e) {
+      e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+    } catch (BlobCrypterException e) {
+      e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+    }
+      return null;
+  }
+
+  public String createToken(String gadgetURL) {
+    RequestContext context = RequestContext.getCurrentInstance();
+    String rUser = context.getRemoteUser();
+
+
+    return createToken(gadgetURL, "Anonymous", rUser, "default");
+  }
+
+  private BlobCrypter getBlobCrypter(String fileName) throws IOException {
+    BasicBlobCrypter c = new BasicBlobCrypter(new File(fileName));
+    c.timeSource = timeSource;
+    return c;
+  }
+    
+}
+

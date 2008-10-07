@@ -61,12 +61,12 @@
 "gadgets.lockedDomainSuffix" : "-a.example.com:8080",
 
 // Use an insecure security token by default
-"gadgets.securityTokenType" : "insecure",
+//"gadgets.securityTokenType" : "insecure",
 
 // Uncomment these to switch to a secure version
 // 
-//"gadgets.securityTokenType" : "secure",
-//"gadgets.securityTokenKeyFile" : "/path/to/key/file.txt",
+"gadgets.securityTokenType" : "secure",
+"gadgets.securityTokenKeyFile" : "key.txt",
 
 // This config data will be passed down to javascript. Please
 // configure your object using the feature name rather than
@@ -77,7 +77,7 @@
 "gadgets.features" : {
   "core.io" : {
     // Note: /proxy is an open proxy. Be careful how you expose this!
-    "proxyUrl" : "proxy?refresh=%refresh%&url=%url%",
+    "proxyUrl" : "/eXoGadgetServer/proxy?refresh=%refresh%&url=%url%",
     "jsonProxyUrl" : "makeRequest"
   },
   "views" : {

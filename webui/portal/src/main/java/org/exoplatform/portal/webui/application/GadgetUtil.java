@@ -25,10 +25,15 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.shindig.common.crypto.BlobCrypterException;
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.gadget.core.ExoDefaultSecurityTokenGenerator;
+import org.exoplatform.portal.gadget.core.SecurityTokenGenerator;
 import org.exoplatform.web.application.gadget.GadgetApplication;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,6 +44,7 @@ import org.json.JSONObject;
  * Oct 2, 2008  
  */
 public class GadgetUtil {
+  private static SecurityTokenGenerator securityTokenGenerator = null;
   
   static final public GadgetApplication toGadgetApplication(Gadget model) {
     return new GadgetApplication(model.getName(), model.getUrl(), model.isLocal());
@@ -60,8 +66,19 @@ public class GadgetUtil {
     return gadget;
   }
 
+  private static SecurityTokenGenerator getSecurityTokenGenerator() {
+    if (securityTokenGenerator == null) {
+      ExoContainer container = ExoContainerContext.getCurrentContainer() ;
+      //OrganizationService orgService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class) ;
+      securityTokenGenerator = (SecurityTokenGenerator) container.getComponentInstanceOfType(SecurityTokenGenerator.class);
+    }
+    return securityTokenGenerator;
+  }
+
+
   /**
    * Fetchs Metatada of gadget application, create the connection to shindig server to get the metadata
+   * TODO cache the informations for better performance
    * @return the string represents metadata of gadget application
    */
   static final public String fetchGagdetMetadata(String urlStr) {
@@ -82,9 +99,23 @@ public class GadgetUtil {
     } catch (IOException ioexc) {
       return "{}";
     }
-    return result;
+    try {
+      JSONObject jsonObj = new JSONObject(result);
+      JSONObject obj = jsonObj.getJSONArray("gadgets").getJSONObject(0);
+      String token = createToken(urlStr);
+      obj.put("secureToken", token);
+      result = jsonObj.toString();
+    } catch (JSONException e) {
+        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+    }
+      return result;
   }
-  /**
+
+    private static String createToken(String gadgetURL) {
+      return getSecurityTokenGenerator().createToken(gadgetURL);
+    }
+
+    /**
    * Gets map metadata of gadget application
    * @return  map metadata of gadget application so can get value of metadata by it's key
    *          such as title, url

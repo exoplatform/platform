@@ -16,7 +16,7 @@ eXo.gadget.UIGadget = {
 		}
 		var gadget;
 		if (metadata != null) {
-	  	gadget = gadgets.container.createGadget({specUrl: url,height: metadata.gadgets[0].height});
+	  	gadget = gadgets.container.createGadget({specUrl: url,height: metadata.gadgets[0].height, secureToken: metadata.gadgets[0].secureToken});
     	gadget.metadata = metadata.gadgets[0];
 		} else {
 			gadget = gadgets.container.createGadget({specUrl: url});

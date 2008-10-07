@@ -381,9 +381,11 @@ gadgets.Gadget = function(params) {
   if (!this.secureToken) {
     // Assume that the default security token implementation is
     // in use on the server.
-    this.secureToken = 'john.doe:john.doe:appid:cont:url:0';
+    this.secureToken = 'root:john:appid:cont:url:0';
   }
 };
+
+
 
 gadgets.Gadget.prototype.getUserPrefs = function() {
   return this.userPrefs_;
@@ -546,7 +548,7 @@ gadgets.IfrGadget.prototype.getIframeUrl = function() {
       this.getUserPrefsParams() +
       '&url=' + encodeURIComponent(this.specUrl) +
       '#rpctoken=' + this.rpcToken +
-      (this.secureToken ? '&st=' + this.secureToken : '') +
+      (this.secureToken ? '&st=' + encodeURIComponent(this.secureToken) : '') +
       (this.viewParams ?
           '&view-params=' +  encodeURIComponent(JSON.stringify(this.viewParams)) : '') +
       (this.hashData ? '&' + this.hashData : '');

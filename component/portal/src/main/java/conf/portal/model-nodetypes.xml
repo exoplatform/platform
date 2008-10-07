@@ -14,12 +14,12 @@
   
    	<nodeType name="exo:gadget" isMixin="false" hasOrderableChildNodes="false" primaryItemName="">
     <supertypes>
-      <supertype>nt:base</supertype>
+      <supertype>nt:unstructured</supertype>
     </supertypes>
     <propertyDefinitions>
-        <propertyDefinition name="data" requiredType="Binary" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
+        <!--propertyDefinition name="data" requiredType="Binary" autoCreated="false" mandatory="false" onParentVersion="COPY" protected="false" multiple="false">
             <valueConstraints/>
-      </propertyDefinition>
+      </propertyDefinition-->
     </propertyDefinitions>    
   </nodeType>	
     

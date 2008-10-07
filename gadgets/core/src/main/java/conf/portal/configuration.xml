@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+  <component>
+   <key>org.exoplatform.portal.gadget.core.SecurityTokenGenerator</key>
+   <type>org.exoplatform.portal.gadget.core.ExoDefaultSecurityTokenGenerator</type>
+  </component>
+</configuration>

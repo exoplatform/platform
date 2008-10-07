@@ -16,6 +16,9 @@
  */
 package org.exoplatform.portal.application;
 
+import java.util.Set;
+import java.util.Map;
+
 /**
  * Created by The eXo Platform SARL
  * Author : Nhu Dinh Thuan
@@ -24,10 +27,16 @@ package org.exoplatform.portal.application;
  */
 public interface UserGadgetStorage {
 
-  public void save(String userName, String widgetType, String instantId, Object data) throws Exception ;
+  public void save(String userName, String gadgetType, String instanceId, String key, String value) throws Exception ;
+
+  public void save(String userName, String gadgetType, String instanceId, Map<String, String> values) throws Exception ;
   
-  public Object get(String userName, String widgetType, String instantId) throws Exception ;
+  public String get(String userName, String gadgetType, String instanceId, String key) throws Exception ;
+
+  public Map<String,String> get(String userName, String gadgetType, String instanceId, Set<String> key) throws Exception ;
   
-  public void delete(String userName, String widgetType, String instantId) throws Exception ;
+  public void delete(String userName, String gadgetType, String instanceId) throws Exception ;
+
+  public void delete(String userName, String gadgetType, String instanceId, Set<String> keys) throws Exception ;
   
 }

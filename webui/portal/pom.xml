@@ -48,6 +48,17 @@
       <groupId>org.exoplatform.jcr</groupId>
       <artifactId>exo.jcr.component.ext</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
-    </dependency>    
+    </dependency>
+    <dependency>
+	  <groupId>org.apache.shindig</groupId>
+	  <artifactId>shindig-common</artifactId>
+	  <version>r701294</version>
+	  <type>jar</type>
+	</dependency>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.gadgets-core</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+    </dependency>
   </dependencies>
 </project>

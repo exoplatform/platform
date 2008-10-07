@@ -54,7 +54,8 @@ public class UIGadget extends UIComponent {
   private String applicationId_ ;
   private Properties properties_;
   private String metadata_;
-  
+  public static final String PREF_KEY = "_pref_gadget_";
+
   /**
    * Initializes a newly created <code>UIGadget</code> object
    * @throws Exception if can't initialize object
@@ -202,11 +203,10 @@ public class UIGadget extends UIComponent {
    * @throws Exception when can't convert object to string
    */
   public String getUserPref() throws Exception {
-    byte[] bytes = null;
+    String prefs;
     UserGadgetStorage userGadgetStorage = (UserGadgetStorage) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(UserGadgetStorage.class);
-    bytes = (byte[])userGadgetStorage.get(Util.getPortalRequestContext().getRemoteUser(), getApplicationName(), getApplicationInstanceUniqueId());
-    if(bytes == null) return null;
-    else return new String(bytes);
+    prefs = userGadgetStorage.get(Util.getPortalRequestContext().getRemoteUser(), getApplicationName(), getApplicationInstanceUniqueId(), PREF_KEY);
+    return prefs;
   }
   
   /**
@@ -220,7 +220,7 @@ public class UIGadget extends UIComponent {
       String userName = event.getRequestContext().getRemoteUser();
       UserGadgetStorage userGadgetStorage = uiGadget.getApplicationComponent(UserGadgetStorage.class);
       if(userName != null && userName.trim().length()>0) {
-        userGadgetStorage.save(userName, uiGadget.getApplicationName(), uiGadget.getApplicationInstanceUniqueId(), userPref);
+        userGadgetStorage.save(userName, uiGadget.getApplicationName(), uiGadget.getApplicationInstanceUniqueId(), PREF_KEY, userPref);
       }
     }
   }
