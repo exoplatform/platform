@@ -100,9 +100,14 @@ public class UIPortalApplication extends UIApplication {
     LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
     OrganizationService orgService = getApplicationComponent(OrganizationService.class) ;
     LocaleConfig localeConfig = localeConfigService.getLocaleConfig(userPortalConfig_.getPortalConfig().getLocale());
-    if(context.getRemoteUser() != null) {
-      UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(context.getRemoteUser()) ;
-      portalLanguage = userProfile.getUserInfoMap().get("user.language") ;
+    String user = context.getRemoteUser();
+    if(user != null) {
+      UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(user) ;
+      if(userProfile != null) {
+        portalLanguage = userProfile.getUserInfoMap().get("user.language") ;
+       } else {
+         if (log.isWarnEnabled()) log.warn("Could not load user profile for " + user + ". Using default portal locale.");
+       }
     }
     localeConfig = localeConfigService.getLocaleConfig(portalLanguage) ;
     if(portalLanguage == null || !portalLanguage.equals(localeConfig.getLanguage())) {
