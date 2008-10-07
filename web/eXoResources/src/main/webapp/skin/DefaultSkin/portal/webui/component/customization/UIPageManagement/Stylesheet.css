@@ -7,3 +7,6 @@
   margin: 3px 10px 0px 10px;
 }
 
+.UIPageManagement .UIVerticalSlideTabs .TreeContainer {
+	_width: 92%; background: red; 
+}

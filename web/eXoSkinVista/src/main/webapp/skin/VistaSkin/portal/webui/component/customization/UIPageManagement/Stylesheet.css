@@ -13,3 +13,7 @@
 .UIPageManagement .TopTitleBar {
   padding: 15px 60px 15px 0px;
 }
+
+.UIPageManagement .UIVerticalSlideTabs .TreeContainer {
+	_width: 92%; 
+}

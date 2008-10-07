@@ -232,11 +232,11 @@
   overflow: hidden;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction{
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction {
   display: none;
 }
 
-.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer{
+.UIWizard .UIWizardPageSetInfo .UIFormWithTitle .FormContainer {
   height: 179px;
 }
 
