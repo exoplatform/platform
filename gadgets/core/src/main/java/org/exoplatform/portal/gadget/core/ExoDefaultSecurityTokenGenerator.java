@@ -24,13 +24,13 @@ public class ExoDefaultSecurityTokenGenerator implements SecurityTokenGenerator{
     this.timeSource = new TimeSource(); 
   }
 
-  protected String createToken(String gadgetURL, String owner, String viewer, String container) {
+  protected String createToken(String gadgetURL, String owner, String viewer, Long moduleId, String container) {
       try {
         BlobCrypterSecurityToken t = new BlobCrypterSecurityToken(
           getBlobCrypter(this.containerKey), container, null);
 
         t.setAppUrl(gadgetURL);
-        t.setModuleId(12345L);
+        t.setModuleId(moduleId);
         t.setOwnerId(owner);
         t.setViewerId(viewer);
         t.setTrustedJson("trusted");
@@ -44,12 +44,12 @@ public class ExoDefaultSecurityTokenGenerator implements SecurityTokenGenerator{
       return null;
   }
 
-  public String createToken(String gadgetURL) {
+  public String createToken(String gadgetURL, Long moduleId) {
     RequestContext context = RequestContext.getCurrentInstance();
     String rUser = context.getRemoteUser();
 
 
-    return createToken(gadgetURL, "Anonymous", rUser, "default");
+    return createToken(gadgetURL, "Anonymous", rUser, moduleId, "default");
   }
 
   private BlobCrypter getBlobCrypter(String fileName) throws IOException {

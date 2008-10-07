@@ -29,6 +29,9 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.json.JSONObject;
+import org.json.JSONException;
+
 /**
  * Created by The eXo Platform SAS
  * Author : dang.tung
@@ -164,6 +167,15 @@ public class UIGadget extends UIComponent {
   public String getMetadata() {
     if(metadata_ == null) {
       metadata_ = GadgetUtil.fetchGagdetMetadata(getUrl());
+      try {
+        JSONObject jsonObj = new JSONObject(metadata_);
+        JSONObject obj = jsonObj.getJSONArray("gadgets").getJSONObject(0);
+        String token = GadgetUtil.createToken(this.getUrl(), new Long(this.getApplicationInstanceId().hashCode()));
+        obj.put("secureToken", token);
+        metadata_ = jsonObj.toString();
+      } catch (JSONException e) {
+        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+      }
     }
     return metadata_;
   }
@@ -177,9 +189,9 @@ public class UIGadget extends UIComponent {
     WebAppController webController = getApplicationComponent(WebAppController.class);
     GadgetApplication application = webController.getApplication(applicationId_);
     if(application == null) {
-      GadgetRegistryService gadgetServcie = getApplicationComponent(GadgetRegistryService.class);
+      GadgetRegistryService gadgetService = getApplicationComponent(GadgetRegistryService.class);
       Gadget model;
-      try{ model = gadgetServcie.getGadget(applicationName_); }
+      try{ model = gadgetService.getGadget(applicationName_); }
       catch(Exception ex) { return null; }
       application = GadgetUtil.toGadgetApplication(model);
       webController.addApplication(application);

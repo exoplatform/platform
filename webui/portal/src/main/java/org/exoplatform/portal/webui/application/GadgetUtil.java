@@ -99,21 +99,12 @@ public class GadgetUtil {
     } catch (IOException ioexc) {
       return "{}";
     }
-    try {
-      JSONObject jsonObj = new JSONObject(result);
-      JSONObject obj = jsonObj.getJSONArray("gadgets").getJSONObject(0);
-      String token = createToken(urlStr);
-      obj.put("secureToken", token);
-      result = jsonObj.toString();
-    } catch (JSONException e) {
-        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
-    }
-      return result;
+    return result;
   }
 
-    private static String createToken(String gadgetURL) {
-      return getSecurityTokenGenerator().createToken(gadgetURL);
-    }
+  public static String createToken(String gadgetURL, Long moduleId) {
+    return getSecurityTokenGenerator().createToken(gadgetURL, moduleId);
+  }
 
     /**
    * Gets map metadata of gadget application

@@ -9,5 +9,5 @@ package org.exoplatform.portal.gadget.core;
  */
 public interface SecurityTokenGenerator {
 
-  String createToken(String gadgetURL);
+  String createToken(String gadgetURL, Long moduleId);
 }
