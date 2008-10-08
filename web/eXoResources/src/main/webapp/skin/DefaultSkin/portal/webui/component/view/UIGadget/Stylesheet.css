@@ -12,7 +12,7 @@
 .UIGadget .GadgetControl {
   float: right;
 	width: 100px; height: 20px;
-	margin-right: 6px;
+	padding-right: 6px;
 }
 
 .UIGadget .GadgetControl .LeftControlBar {
