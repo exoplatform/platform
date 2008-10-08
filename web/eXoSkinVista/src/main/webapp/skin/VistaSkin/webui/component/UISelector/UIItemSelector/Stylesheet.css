@@ -412,13 +412,12 @@
   height: auto;
 }
 
-.UIItemSelector .LeftColumnStyle .ItemDetailList .ItemDetailTitle{
+.UIItemSelector .LeftColumnStyle .ItemDetailList .ItemDetailTitle {
   height: 26px;
-
 }
 
 .UIItemSelector .LeftColumnStyle .Title {
-  line-height: 22px; height: 22px; width: 210px; overflow: hidden;
+  line-height: 22px; height: 22px;s
   font-weight: bold; color: #5c5c5c; 
   float: left;
 }
@@ -436,8 +435,8 @@
 }
 
 .UIItemSelector .LeftColumnStyle .TitleIcon {
-	float:left;
-	margin:0px 5px;
+	float: left;
+	margin: 0px 5px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemListContainer .ItemListTitle {

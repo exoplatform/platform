@@ -9,6 +9,11 @@
   background: white;
 }
 
+.UINodeIconSelector .LeftColumnStyle .Title {
+  line-height: 22px; height: 22px; 
+  width: 200px; overflow: hidden;
+}
+
 .UINodeIconSelector .SelectedIconInfo {
   background: white;
   border: solid 1px #b7b7b7 ;
