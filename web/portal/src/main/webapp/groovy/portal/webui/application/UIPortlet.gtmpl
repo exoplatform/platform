@@ -217,7 +217,7 @@
                   String miniTooltip = _ctx.appRes("UIPortlet.tooltip.Minimize");
                   String maxiTooltip = _ctx.appRes("UIPortlet.tooltip.Maximize");
                   String renderMaxi = maxiTooltip;
-                  String renderMini = maxiTooltip;
+                  String renderMini = miniTooltip;
               		if(windowState == WindowState.MAXIMIZED) {
   	                renderMaxi = restoreDown;
 	                } else if(windowState == WindowState.MINIMIZED) {

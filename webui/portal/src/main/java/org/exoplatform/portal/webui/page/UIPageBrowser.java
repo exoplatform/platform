@@ -253,18 +253,15 @@ public class UIPageBrowser extends UISearch {
 			PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
 			String id = pcontext.getRequestParameter(OBJECTID);
 			UserPortalConfigService dao = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
-      Page page = dao.getPage(id) ;    
-      if(page != null) {
-        UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class) ;
-        if(!userACL.hasPermission(page, pcontext.getRemoteUser())) {
-          uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.NotEditPage", new String[]{id}, 1)) ;;
-          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-          return;
-        }
-      } 
-      if(page == null){               
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
+			if(dao.getPage(id) == null){               
+			  uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
+			  pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
+			  return;
+			}
+      Page page = dao.getPage(id, event.getRequestContext().getRemoteUser()) ;    
+      if(!page.isModifiable()){
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.NotEditPage", new String[]{id}, 1)) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
 

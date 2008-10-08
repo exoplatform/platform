@@ -26,7 +26,8 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 			var middleCont = DOMUtil.findFirstDescendantByClass(dropDownAnchor, "div", "MiddleItemContainer") ;
 			var topCont = DOMUtil.findPreviousElementByTagName(middleCont, "div") ;
 			var bottomCont = DOMUtil.findNextElementByTagName(middleCont, "div") ;
-			middleCont.style.height = "auto";
+			topCont.style.display = "block" ;
+			bottomCont.style.display = "block" ;
 			var visibleHeight = Browser.getBrowserHeight() - Browser.findPosY(middleCont) - 40 ;
 			var scrollHeight = middleCont.scrollHeight ;
 			if(scrollHeight > visibleHeight) {
@@ -36,6 +37,8 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 			} else {
 				topCont.style.display = "none" ;
 				bottomCont.style.display = "none" ;
+				middleCont.scrollTop = 0;
+				middleCont.style.height = "auto";
 			}
 		}
 		else dropDownAnchor.style.display = "none" ;
