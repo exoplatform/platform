@@ -24,7 +24,6 @@ import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Widgets;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IMarshallingContext;
@@ -101,26 +100,7 @@ public class DataMapper {
     String data = getDataValue(doc, DATA_ELEMENT) ;    
     return fromXML(data, PageNavigation.class) ;
   }
-  
-  public void map(Document doc, Widgets widgets) throws Exception {
-    Element root = doc.getDocumentElement() ;
-    prepareXmlNamespace(root) ;
-    root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
-    root.setAttribute(EXO_ID, widgets.getId()) ;
-    root.setAttribute(EXO_NAME, widgets.getId()) ;    
-    root.setAttribute(EXO_OWNER_TYPE, widgets.getOwnerType());
-    root.setAttribute(EXO_OWNER_ID, widgets.getOwnerId());
-    root.setAttribute(EXO_DATA_TYPE, widgets.getClass().getSimpleName()) ;    
-    setDataValue(doc, DATA_ELEMENT, toXML(widgets)) ;
-  }
-  
-  public Widgets toWidgets(Document doc) throws Exception {
-    String data = getDataValue(doc, DATA_ELEMENT) ;
-    return fromXML(data, Widgets.class) ;
-  }
-  
-  //TODO: dang.tung
-  //------------------------------------------------------------------------
+
   public void map(Document doc, Gadgets gadgets) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;
@@ -137,7 +117,6 @@ public class DataMapper {
     String data = getDataValue(doc, DATA_ELEMENT) ;
     return fromXML(data, Gadgets.class) ;
   }
-  //------------------------------------------------------------------------
   
   public void map(Document doc, PortletPreferences portletPreferences) throws Exception {
     Element root = doc.getDocumentElement() ;

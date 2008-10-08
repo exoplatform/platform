@@ -28,7 +28,6 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 		lifecycle = UIPageLifecycle.class,
 		template = "system:/groovy/portal/webui/page/UIPage.gtmpl",
 		events = {
-//			@EventConfig(listeners = EditPageActionListener.class ),
 			@EventConfig(listeners = MoveChildActionListener.class)
 		}
 )

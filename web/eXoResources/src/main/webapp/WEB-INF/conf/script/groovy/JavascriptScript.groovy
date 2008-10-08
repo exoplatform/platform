@@ -50,4 +50,4 @@ JavascriptService.addJavascript("eXo.portal.UIMaskWorkspace", "/javascript/eXo/p
 JavascriptService.addJavascript("eXo.portal.UIExoStartMenu", "/javascript/eXo/portal/UIExoStartMenu.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIBrowseContent", "/javascript/eXo/portal/UIBrowseContent.js", ServletContext);
 
-JavascriptService.addJavascript("eXo.desktop.UIWindow", "/javascript/eXo/desktop/UIWindow.js", ServletContext);
+JavascriptService.addJavascript("eXo.webui.UIPortlet", "/javascript/eXo/webui/UIPortlet.js", ServletContext);

@@ -86,7 +86,6 @@
     <value name="title" field="title" usage="optional"/>
     <value name="creator" field="creator" usage="optional"/>
     <value name="modifier" field="modifier" usage="optional"/> 
-    <structure name="widget-layout" using="container" field="widgetLayout" usage="optional"/>   
     <structure name="portal-layout" using="container" field="portalLayout" usage="optional"/>
   </mapping>
 
@@ -128,16 +127,6 @@
     <collection field="preferences" 
                 item-type="org.exoplatform.portal.application.Preference"/>    
     <value name="preferences-validator" field="preferencesValidator" usage="optional"/>
-  </mapping>
-  
-  <mapping name="widgets" label="widgets" class="org.exoplatform.portal.config.model.Widgets">
-    <value name="owner-type" field="ownerType"/>
-    <value name="owner-id" field="ownerId"/>
-    <value name="access-permissions" field="accessPermissions" usage="optional"/>
-    <value name="edit-permission" field="editPermission" usage="optional"/>
-    <collection field="children" ordered="false">
-      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
-    </collection>
   </mapping>
   
   <mapping name="gadgets" label="gadgets" class="org.exoplatform.portal.config.model.Gadgets">

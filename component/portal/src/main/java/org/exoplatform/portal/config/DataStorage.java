@@ -24,7 +24,6 @@ import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.portletcontainer.pci.WindowID;
 
 /**
@@ -144,15 +143,6 @@ public interface DataStorage {
   
   public  PageList find(Query<?> q, Comparator<?> sortComparator) throws Exception ;
   
-  public void create(Widgets widgets)  throws Exception ;
-  
-  public void save(Widgets widgets)  throws Exception ;
-  
-  public void remove(Widgets widgets)  throws Exception ;
-  
-  public Widgets getWidgets(String id) throws Exception;
-  //TODO: dang.tung - add new gadgets
-  //-----------------------------------------------------
   public void create(Gadgets gadgets)  throws Exception ;
   
   public void save(Gadgets gadgets)  throws Exception ;
@@ -160,5 +150,4 @@ public interface DataStorage {
   public void remove(Gadgets gadgets)  throws Exception ;
   
   public Gadgets getGadgets(String id) throws Exception ;
-  //-----------------------------------------------------
 }

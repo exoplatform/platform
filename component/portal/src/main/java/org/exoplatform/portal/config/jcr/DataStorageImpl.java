@@ -36,7 +36,6 @@ import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
@@ -233,54 +232,6 @@ public class DataStorageImpl implements DataStorage, Startable {
     sessionProvider.close() ;;
   }
   
-  public Widgets getWidgets(String id) throws Exception {
-    String[] fragments = id.split("::") ;
-    if(fragments.length < 2) {
-      throw new Exception("Invalid Widgets Id: " + "[" + id + "]") ;
-    }
-    String widgetsPath = getApplicationRegistryPath(fragments[0], fragments[1])
-                         + "/" + WIDGETS_CONFIG_FILE_NAME ;
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry widgetsEntry ;
-    try {      
-     widgetsEntry = regService_.getEntry(sessionProvider, widgetsPath) ;
-    } catch (PathNotFoundException ie) {
-      sessionProvider.close() ;
-      return null ;
-    }
-    Widgets widgets = mapper_.toWidgets(widgetsEntry.getDocument()) ;
-    sessionProvider.close() ;
-    return widgets ;
-  }
-  
-  
-  public void create(Widgets widgets) throws Exception {
-    String appRegPath = getApplicationRegistryPath(widgets.getOwnerType(), widgets.getOwnerId()) ;
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry widgetsEntry = new RegistryEntry(WIDGETS_CONFIG_FILE_NAME) ;
-    mapper_.map(widgetsEntry.getDocument(), widgets) ;
-    regService_.createEntry(sessionProvider, appRegPath, widgetsEntry) ;
-    sessionProvider.close() ;
-  }
-
-  public void save(Widgets widgets) throws Exception {
-    String appRegPath = getApplicationRegistryPath(widgets.getOwnerType(), widgets.getOwnerId()) ;
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry widgetsEntry = regService_.getEntry(sessionProvider, appRegPath + "/" + WIDGETS_CONFIG_FILE_NAME) ;
-    mapper_.map(widgetsEntry.getDocument(), widgets) ;
-    regService_.recreateEntry(sessionProvider, appRegPath, widgetsEntry) ;
-    sessionProvider.close() ;    
-  }
-  
-  public void remove(Widgets widgets) throws Exception {
-    String widgetsPath = getApplicationRegistryPath(widgets.getOwnerType(), widgets.getOwnerId())
-                         + "/" + WIDGETS_CONFIG_FILE_NAME ;
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    regService_.removeEntry(sessionProvider, widgetsPath) ;
-    sessionProvider.close() ;    
-  }
-  //TODO: dang.tung
-  //---------------------------------------------------------------------------
   public Gadgets getGadgets(String id) throws Exception {
     String[] fragments = id.split("::") ;
     if(fragments.length < 2) {
@@ -326,8 +277,6 @@ public class DataStorageImpl implements DataStorage, Startable {
     regService_.removeEntry(sessionProvider, gadgetsPath) ;
     sessionProvider.close() ;    
   }
-  
-  //-------------------------------------------------------------------------
   
   public PortletPreferences getPortletPreferences(WindowID windowID) throws Exception {
     String[] fragments = windowID.getOwner().split("#") ;

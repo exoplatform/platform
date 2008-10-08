@@ -160,7 +160,6 @@ abstract public class UIComponent {
     return urlBuilder.createAjaxURL(this, event.getName(), confirm, beanId, params).toString();
   } 
   
-  @SuppressWarnings("unused")
   protected String loadConfirmMesssage(org.exoplatform.webui.config.Event event, WebuiRequestContext context, String beanId) {
     String confirmKey  = event.getConfirm();
     if(confirmKey.length() < 1) return confirmKey;  

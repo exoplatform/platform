@@ -27,7 +27,6 @@ import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.listener.Event;
 import org.exoplatform.services.listener.Listener;
 import org.exoplatform.services.organization.User;
@@ -76,13 +75,8 @@ public class RemoveUserPortalConfigListener extends Listener<UserDAOImpl, User> 
     if (navigation != null) portalConfigService.remove(navigation) ;
 
     String id = PortalConfig.USER_TYPE + "::" + userName ;
-    Widgets widgets = dataStorage.getWidgets(id) ;
-    if (widgets != null) portalConfigService.remove(widgets);
-    //TODO: dang.tung
-    //-------------------------------------------
     Gadgets gadgets = dataStorage.getGadgets(id) ;
     if(gadgets != null) portalConfigService.remove(gadgets) ;
-    //-------------------------------------------
   }
 
 }

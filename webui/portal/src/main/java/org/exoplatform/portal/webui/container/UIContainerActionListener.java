@@ -19,10 +19,8 @@ package org.exoplatform.portal.webui.container;
 import java.util.List;
 
 import org.exoplatform.portal.application.UserGadgetStorage;
-import org.exoplatform.portal.application.UserWidgetStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Gadgets;
-import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.application.UIAddNewApplication;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.application.UIGadgets;

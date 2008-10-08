@@ -78,14 +78,10 @@ public class UIPageBody extends UIComponentDecorator {
         uiPage = createUIComponent(context, UIPage.class, null, null);      	
       }
       PortalDataMapper.toUIPage(uiPage, page);
-      if(uiPage.isShowMaxWindow()) {
-        uiPortal.setMaximizedUIComponent(uiPage);
-      } else {     
-        uiPortal.setMaximizedUIComponent(null);
-      }   
+      if(uiPage.isShowMaxWindow()) uiPortal.setMaximizedUIComponent(uiPage);
+      else uiPortal.setMaximizedUIComponent(null);
     } 
-    
-   setUIComponent(uiPage);
+  	setUIComponent(uiPage);
   }
   
   public void renderChildren() throws Exception {

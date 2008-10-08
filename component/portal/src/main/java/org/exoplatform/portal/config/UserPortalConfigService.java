@@ -36,7 +36,6 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
@@ -71,7 +70,6 @@ public class UserPortalConfigService {
   protected ExoCache portalConfigCache_ ;
   protected ExoCache pageConfigCache_ ;
   protected ExoCache pageNavigationCache_ ;
-  protected ExoCache widgetsCache_ ;
   protected ExoCache gadgetsCache_ ;
   
   private NewPortalConfigListener newPortalConfigListener_ ;
@@ -92,7 +90,6 @@ public class UserPortalConfigService {
     portalConfigCache_   = cacheService.getCacheInstance(PortalConfig.class.getName()) ;
     pageConfigCache_     = cacheService.getCacheInstance(Page.class.getName()) ;
     pageNavigationCache_ = cacheService.getCacheInstance(PageNavigation.class.getName()) ;
-    widgetsCache_ = cacheService.getCacheInstance(Widgets.class.getName()) ;
     gadgetsCache_ = cacheService.getCacheInstance(Gadgets.class.getName()) ;
   }
 
@@ -141,14 +138,6 @@ public class UserPortalConfigService {
         navigations.add(navigation) ;
       }
     }
-    
-    Widgets userWidgets = getWidgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
-    Collections.sort(navigations, new Comparator<PageNavigation>() {
-      public int compare(PageNavigation nav1, PageNavigation nav2) {
-        return nav1.getPriority()- nav2.getPriority() ;
-      }
-    });
-    //TODO; dang.tung - add new gadgets
     Gadgets userGadgets = getGadgets(PortalConfig.USER_TYPE+"::"+accessUser) ;
     Collections.sort(navigations, new Comparator<PageNavigation>() {
       public int compare(PageNavigation nav1, PageNavigation nav2) {
@@ -157,7 +146,7 @@ public class UserPortalConfigService {
     });
     
     
-    return new UserPortalConfig(portal, navigations, userWidgets, userGadgets) ;
+    return new UserPortalConfig(portal, navigations, userGadgets) ;
   }
  
   public List<String> getMakableNavigations(String remoteUser)throws Exception {
@@ -349,8 +338,6 @@ public class UserPortalConfigService {
     return navigation;
   }
 
-  //TODO: dang.tung
-  //--------------------------------------------------------------------------
   public void create(Gadgets gadgets) throws Exception {
     storage_.create(gadgets) ;
     gadgetsCache_.put(gadgets.getId(), gadgets) ;
@@ -373,52 +360,7 @@ public class UserPortalConfigService {
     gadgetsCache_.put(id, gadgets) ;
     return gadgets ;
   }
-  //--------------------------------------------------------------------------
-  
-  /**
-   * This method should create the widgets object in the database
-   * @param widgets
-   * @throws Exception
-   */
-  public void create(Widgets widgets) throws Exception {
-    storage_.create(widgets) ;
-    widgetsCache_.put(widgets.getId(), widgets) ;
-  }
-  
-  /**
-   * This method should update the widgets object in the database
-   * @param widgets
-   * @throws Exception
-   */
-  public void update(Widgets widgets) throws Exception {
-    storage_.save(widgets) ;
-    widgetsCache_.select(new ExpireKeyStartWithSelector(widgets.getId())) ;
-  }
-  
-  /**
-   * This method should remove the widgets object from the database
-   * @param widgets
-   * @throws Exception
-   */
-  public void remove(Widgets widgets) throws Exception {
-    storage_.remove(widgets) ;
-    widgetsCache_.remove(widgets.getId()) ;
-  }
-  
-  /**
-   * This method load the widgets according to the id
-   * @param id
-   * @return Widgets
-   * @throws Exception
-   */
-  public Widgets getWidgets(String id) throws Exception {
-    Widgets widgets = (Widgets) pageConfigCache_.get(id) ;
-    if(widgets != null) return widgets;
-    widgets = storage_.getWidgets(id) ;
-    widgetsCache_.put(id, widgets) ;
-    return widgets ;
-  }
-  
+
   /**
    * This method creates new page from an existing page and links new page to a PageNode
    * @return PageNode

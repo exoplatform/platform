@@ -6,10 +6,6 @@
   <access-permissions>*:/guest,*:/user</access-permissions>
   <edit-permission>*:/user</edit-permission>
   <creator>exo</creator>
-  
-  <widget-layout>
-  </widget-layout>
-  
  	<portal-layout> 		
 		<application>
 	    <instance-id>portalone:/web/BannerPortlet/banner</instance-id>

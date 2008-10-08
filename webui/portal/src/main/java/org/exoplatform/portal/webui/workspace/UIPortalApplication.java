@@ -19,7 +19,9 @@ package org.exoplatform.portal.webui.workspace;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
@@ -168,8 +170,8 @@ public class UIPortalApplication extends UIApplication {
    * all the portlets included in a portal, and hence there on everypage
    * are merged into a single CSS file)
    */
-  public List<SkinConfig> getPortletSkins() {
-    List<SkinConfig> skins = new ArrayList<SkinConfig>();
+  public Set<SkinConfig> getPortletSkins() {
+    Set<SkinConfig> skins = new HashSet<SkinConfig>();
     List<UIPortlet> uiportlets = new ArrayList<UIPortlet>();
 
     UIWorkingWorkspace uiWorkingWS = getChildById(UI_WORKING_WS_ID);

@@ -73,40 +73,8 @@ public class UIDesktopPage extends UIPage {
     return result;
   }
   
-//  static public class SaveWidgetPropertiesActionListener  extends EventListener<UIPage> {
-//    public void execute(Event<UIPage> event) throws Exception {
-//     
-//      UIPage uiPage = event.getSource();
-//      String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-//      List<UIWidget> uiWidgets = new ArrayList<UIWidget>();
-//      uiPage.findComponentOfType(uiWidgets, UIWidget.class);
-//      UIWidget uiWidget = null;
-//      for(UIWidget ele : uiWidgets) {
-//        if(ele.getApplicationInstanceUniqueId().equals(objectId)) {
-//          uiWidget = ele;
-//          break;
-//        }
-//      }
-//      if(uiWidget == null) return;
-//      String posX  = event.getRequestContext().getRequestParameter("posX");
-//      String posY  = event.getRequestContext().getRequestParameter("posY");
-//      String zIndex = event.getRequestContext().getRequestParameter(UIApplication.zIndex);
-//      
-//      uiWidget.getProperties().put(UIApplication.locationX, posX) ;
-//      uiWidget.getProperties().put(UIApplication.locationY, posY) ;
-//      uiWidget.getProperties().put(UIApplication.zIndex, zIndex) ;
-//      
-//      if(!uiPage.isModifiable()) return;
-//      Page page = PortalDataMapper.toPageModel(uiPage);
-//      UserPortalConfigService configService = uiPage.getApplicationComponent(UserPortalConfigService.class);
-//      if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-//      configService.update(page);
-//    }
-//  }
-  
   static public class SaveGadgetPropertiesActionListener  extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
-     
       UIPage uiPage = event.getSource();
       String objectId  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       List<UIGadget> uiGadgets = new ArrayList<UIGadget>();
@@ -134,7 +102,7 @@ public class UIDesktopPage extends UIPage {
       configService.update(page);
     }
   }
-  
+
   static public class SaveWindowPropertiesActionListener  extends EventListener<UIPage> {
     public void execute(Event<UIPage> event) throws Exception {
       UIPage uiPage = event.getSource();

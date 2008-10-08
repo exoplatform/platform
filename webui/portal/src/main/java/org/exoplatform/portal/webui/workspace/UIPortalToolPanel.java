@@ -50,7 +50,6 @@ public class UIPortalToolPanel extends UIComponentDecorator {
   
   public void processRender(WebuiRequestContext context) throws Exception {
     JavascriptManager jsmanager = context.getJavascriptManager(); 
-    String init = "eXo.core.UIMaskLayer.createMask('UIPortalToolPanel', null, 10) ;";
     UIComponent uiComponent = getUIComponent();
     if(uiComponent instanceof UIPage){
       UIPage uiPage = (UIPage) uiComponent;
@@ -58,9 +57,8 @@ public class UIPortalToolPanel extends UIComponentDecorator {
       if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())){
         uiComponent.processRender(context);
         if(showMaskLayer ){
-          init = "eXo.core.UIMaskLayer.createMask('UIPage', null, 10) ;";
           jsmanager.importJavascript("eXo.core.UIMaskLayer");
-          jsmanager.addCustomizedOnLoadScript(init);
+          jsmanager.addCustomizedOnLoadScript("eXo.core.UIMaskLayer.createMask('UIPage', null, 10) ;");
         }
         return;
       }
@@ -69,7 +67,7 @@ public class UIPortalToolPanel extends UIComponentDecorator {
     super.processRender(context);
     if(showMaskLayer){
       jsmanager.importJavascript("eXo.core.UIMaskLayer");
-      jsmanager.addCustomizedOnLoadScript(init);
+      jsmanager.addCustomizedOnLoadScript("eXo.core.UIMaskLayer.createMask('UIPortalToolPanel', null, 10) ;");
     }
   }
   

@@ -4,18 +4,6 @@
   <locale>en</locale>
   <access-permissions>*:/guest</access-permissions>
   
-  <widget-layout>
-    <container>
-      <application>
-        <instance-id>exo:/widget/info</instance-id>
-        <application-type>widget</application-type>
-        <show-info-bar>false</show-info-bar>
-        <show-application-state>false</show-application-state>
-        <show-application-mode>false</show-application-mode>
-      </application>
-    </container>
-  </widget-layout>
-
 	<portal-layout>
 	  <application>
 	    <instance-id>exo:/content/DisplayStaticContent/banner</instance-id>	  

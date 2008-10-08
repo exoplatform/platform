@@ -21,7 +21,6 @@ import java.io.FileOutputStream;
 
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.config.model.Page.PageSet;
 import org.exoplatform.test.BasicTestCase;
 import org.jibx.runtime.BindingDirectory;
@@ -94,20 +93,5 @@ public class TestJIBXXmlMapping  extends BasicTestCase {
     IMarshallingContext mctx = bfact.createMarshallingContext();
     mctx.setIndent(2);
     mctx.marshalDocument(obj, "UTF-8", null,  new FileOutputStream("target/portlet-preferences.xml")) ;
-  }
-  
-  public void testWidgetsMapping() throws Exception {
-    IBindingFactory bfact = BindingDirectory.getFactory(Widgets.class) ;
-    IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
-    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/widgets.xml"), null) ;
-    assertNotNull(obj) ;
-    assertEquals("portalone", ((Widgets)obj).getOwnerId()) ;
-    
-    IMarshallingContext mctx = bfact.createMarshallingContext() ;
-    mctx.marshalDocument(obj, "UTF-8", null, new FileOutputStream("target/widgets.xml")) ;
-    
-    obj = uctx.unmarshalDocument(new FileInputStream("target/widgets.xml"), null) ;
-    assertNotNull(obj) ;
-    assertEquals("portalone", ((Widgets)obj).getOwnerId()) ;    
   }
 }

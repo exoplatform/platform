@@ -27,7 +27,6 @@ import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.config.model.Page.PageSet;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.test.BasicTestCase;
@@ -255,37 +254,6 @@ public class TestDataStorage extends BasicTestCase {
     storage_.create(navi) ;
     storage_.remove(navi) ;
   }
-  
-  public void testWidgetsCreate() throws Exception {
-    Widgets widgets = loadWidgets("exoadmin") ;
-    assertNotNull(widgets) ;
-    storage_.create(widgets) ;
-    Widgets returnedWidgets = storage_.getWidgets(widgets.getId()) ;
-    assertEquals(widgets.getOwnerType(), returnedWidgets.getOwnerType()) ;
-    assertEquals(widgets.getOwnerId(), returnedWidgets.getOwnerId()) ;
-    assertEquals(widgets.getChildren().size(), returnedWidgets.getChildren().size()) ;
-    storage_.remove(widgets) ;
-  }
-  
-  public void testWidgetsSave() throws Exception {
-    Widgets widgets = loadWidgets("exoadmin") ;
-    storage_.create(widgets) ;
-    int childrenSize = widgets.getChildren().size() ;
-    widgets.getChildren().add(new Container()) ;
-    storage_.save(widgets) ;
-    Widgets afterSaveWidget = storage_.getWidgets(widgets.getId()) ;
-    assertEquals(childrenSize + 1, afterSaveWidget.getChildren().size()) ;
-    storage_.remove(widgets) ;
-  }
-  
-  public void testWidgetRemove() throws Exception {
-    Widgets widgets = loadWidgets("exoadmin") ;
-    storage_.create(widgets) ;
-    storage_.remove(widgets) ;
-    storage_.create(widgets) ;
-    storage_.remove(widgets) ;
-  }
-  
   public void testPortletPreferencesCreate() throws Exception {
     List<PortletPreferences> prefList = loadPortletPreferences(PortalConfig.PORTAL_TYPE, "portalone") ;
     for(PortletPreferences ele : prefList) {
@@ -416,13 +384,6 @@ public class TestDataStorage extends BasicTestCase {
     PageSet pageSet = loadObject(PageSet.class, pageSetFile) ;
  
     return pageSet.getPages() ;
-  }
-  
-  private Widgets loadWidgets(String userName) throws Exception {
-    String widgetFile = "user/" + userName + "/widgets.xml" ;
-    Widgets widgets = loadObject(Widgets.class, widgetFile) ;
-    
-    return widgets ;
   }
   
   private List<PortletPreferences> loadPortletPreferences(String ownerType, String ownerId) throws Exception {

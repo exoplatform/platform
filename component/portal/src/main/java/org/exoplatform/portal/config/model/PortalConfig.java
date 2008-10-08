@@ -50,7 +50,6 @@ public class PortalConfig {
   
   public PortalConfig() {
     portalLayout = new Container();
-    widgetLayout = new Container();
   }
   
   public String getName() { return name ; }
@@ -70,9 +69,6 @@ public class PortalConfig {
     return skin; 
   }
   public void setSkin(String s ) { skin = s; }
-  
-  public Container getWidgetLayout() { return widgetLayout; }
-  public void setWidgetLayout(Container container) { widgetLayout = container; }
   
   public Container   getPortalLayout() { return portalLayout; }
   public void setPortalLayout(Container container) { portalLayout = container; }

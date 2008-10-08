@@ -7,11 +7,10 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
   jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
-  jsmanager.importJavascript('eXo.desktop.UIWindow') ;
   jsmanager.importJavascript('eXo.portal.UIPortalControl');
 
-  String onControlOver  = "eXo.desktop.UIWindow.onControlOver(this, true);" ;
-  String onControlOut    = "eXo.desktop.UIWindow.onControlOver(this, false);" ;
+  String onControlOver  = "eXo.webui.UIPortlet.onControlOver(this, true);" ;
+  String onControlOut    = "eXo.webui.UIPortlet.onControlOver(this, false);" ;
 
   WindowState windowState = uicomponent.getCurrentWindowState();  
   boolean isDesktop = "Window".equals(uicomponent.getPortletStyle());

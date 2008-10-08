@@ -23,7 +23,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.portal.webui.application.UIGadgets;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
@@ -37,33 +36,13 @@ import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
  * Created by The eXo Platform SAS
  * Jul 11, 2006  
  */
-
 @ComponentConfig(lifecycle = UIContainerLifecycle.class)
 public class UIWelcomeComponent extends UIContainer {
-
   public UIWelcomeComponent() throws Exception {
     WebuiRequestContext rcontext = Util.getPortalRequestContext();
-//    int accessibility = prContext.getAccessPath() ;
-//    if(accessibility == PortalRequestContext.PUBLIC_ACCESS) {
-//      addChild(UILoginForm.class, null, "LoginWelcomeComponent");
-//      return ;
-//    }
-    
     UIPortalApplication uiPortalApplication = (UIPortalApplication)rcontext.getUIApplication();
     UserPortalConfig userPortalConfig = uiPortalApplication.getUserPortalConfig();
     if(userPortalConfig == null) return;
-//    UIWidgets uiWidgets = addChild(UIWidgets.class, null, null) ;
-//    Widgets widgets = userPortalConfig.getWidgets();
-//    if(widgets == null) {
-//      widgets = new Widgets() ;
-//      widgets.setOwnerType(PortalConfig.USER_TYPE) ;
-//      widgets.setOwnerId(rcontext.getRemoteUser()) ;
-//      widgets.setChildren(new ArrayList<Container>()) ;
-//      UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class) ;
-//      configService.create(widgets) ;
-//    }
-    //TODO: dang.tung - get gadgets - mapper to UIGadgets
-    //---------------------------------------------------
     Gadgets gadgets = userPortalConfig.getGadgets() ;
     if(gadgets == null) {
       gadgets = new Gadgets() ;
@@ -76,8 +55,5 @@ public class UIWelcomeComponent extends UIContainer {
     }
     UIGadgets uiGadgets = addChild(UIGadgets.class, null, null) ;
     PortalDataMapper.toUIGadgets(uiGadgets, gadgets) ;
-    //---------------------------------------------------
-//    PortalDataMapper.toUIWidgets(uiWidgets, widgets);
   }  
-
 }

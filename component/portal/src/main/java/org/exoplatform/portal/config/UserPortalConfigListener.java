@@ -30,7 +30,6 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Widgets;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
@@ -74,15 +73,10 @@ public class UserPortalConfigListener extends UserEventListener {
     if (navigation != null) portalConfigService.remove(navigation) ;
 
     String id = PortalConfig.USER_TYPE + "::" + userName ;
-    Widgets widgets = dataStorage.getWidgets(id) ;
-    if (widgets != null) portalConfigService.remove(widgets);
-    //TODO: dang.tung
-    //-------------------------------------------------------
     Gadgets gadgets = dataStorage.getGadgets(id) ;
     if(gadgets != null) portalConfigService.remove(gadgets) ;
-    //-------------------------------------------------------
   }
-  @SuppressWarnings("unused")
+  
   public void preSave(User user, boolean isNew) throws Exception {
     ExoContainer container  = ExoContainerContext.getCurrentContainer();
     /*     
@@ -106,19 +100,10 @@ public class UserPortalConfigListener extends UserEventListener {
     pageNav.setNodes(new ArrayList<PageNode>());
     portalConfigService.create(pageNav);
     
-    Widgets widgets = new Widgets() ;
-    widgets.setOwnerType(PortalConfig.USER_TYPE) ;
-    widgets.setOwnerId(userName) ;
-    widgets.setChildren(new ArrayList<Container>()) ;
-    portalConfigService.create(widgets) ;
-    
-    //TODO: dang.tung
     Gadgets gadgets = new Gadgets() ;
-    //-----------------------------------------------
     gadgets.setOwnerType(PortalConfig.USER_TYPE) ;
     gadgets.setOwnerId(userName) ;
     gadgets.setChildren(new ArrayList<Container>()) ;
     portalConfigService.create(gadgets) ;
-    //-----------------------------------------------
   }
 }
