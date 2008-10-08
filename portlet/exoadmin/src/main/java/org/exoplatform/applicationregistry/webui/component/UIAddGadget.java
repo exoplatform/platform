@@ -70,7 +70,7 @@ public class UIAddGadget extends UIForm {
       UIAddGadget uiForm = event.getSource() ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       String url = uiForm.getUIStringInput(URL) .getValue();
-      String name  = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.')) ;
+      String name = "gadget" + url.hashCode();
       service.addGadget(GadgetUtil.toGadget(name, url, false)) ;
       UIGadgetManagement uiParent = uiForm.getParent() ;
       uiParent.reload() ;
@@ -100,7 +100,7 @@ public class UIAddGadget extends UIForm {
       String source = IOUtils.toString(is, "UTF-8") ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
-      String name  = url.substring(url.lastIndexOf('/') + 1, url.lastIndexOf('.')) ;
+      String name  = "gadget" + url.hashCode();
       sourceStorage.saveSource(name, source) ;
       service.addGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceLink(name), true)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
