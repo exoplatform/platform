@@ -64,7 +64,7 @@ public class UIPortalSelector extends UIContainer {
     uiGrid.getUIPageIterator().setRendered(false) ;
     DataStorage dataService = getApplicationComponent(DataStorage.class) ;
     String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
-    Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
+    Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, null, PortalConfig.class) ;
     PageList pageList = dataService.find(query) ;
     pageList.setPageSize(10) ;
     pageList = extractPermissedPortal(pageList, accessUser) ;

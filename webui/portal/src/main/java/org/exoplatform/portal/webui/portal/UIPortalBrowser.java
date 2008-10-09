@@ -77,7 +77,7 @@ public class UIPortalBrowser extends UIContainer {
 //    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     int currentPage = uiGrid.getUIPageIterator().getCurrentPage() ;
-    Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, PortalConfig.class) ;
+    Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, null, PortalConfig.class) ;
     PageList pageList = service.find(query, new Comparator<PortalConfig>(){
       public int compare(PortalConfig pconfig1, PortalConfig pconfig2) {
         return pconfig1.getName().compareTo(pconfig2.getName());

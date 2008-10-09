@@ -27,6 +27,8 @@ import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIDescription;
+import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIToolbar;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -63,8 +65,14 @@ public class UIPageBrowseControlBar extends UIToolbar {
 
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel(); 
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
+
       UIPageBrowser uiPageBrowser = (UIPageBrowser) uiBrowseControlBar.getBackComponent() ;
+      UIPageIterator pageIterator = uiPageBrowser.getChild(UIGrid.class).getUIPageIterator() ;
+      int currentPage = pageIterator.getCurrentPage() ;
       uiPageBrowser.defaultValue(uiPageBrowser.getLastQuery());
+      while(currentPage > pageIterator.getAvailablePage()) currentPage-- ;
+      pageIterator.setCurrentPage(currentPage) ;
+      
       uiToolPanel.setUIComponent(uiPageBrowser) ;
       uiToolPanel.setShowMaskLayer(false);
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
@@ -88,9 +96,13 @@ public class UIPageBrowseControlBar extends UIToolbar {
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();      
       uiToolPanel.setShowMaskLayer(false);
       UIPageBrowser uiPageBrowser = (UIPageBrowser) uiBrowseControlBar.getBackComponent() ;
+      UIPageIterator pageIterator = uiPageBrowser.getChild(UIGrid.class).getUIPageIterator() ;
+      int currentPage = pageIterator.getCurrentPage() ;
       uiPageBrowser.defaultValue(uiPageBrowser.getLastQuery());
+      while(currentPage > pageIterator.getAvailablePage()) currentPage-- ;
+      pageIterator.setCurrentPage(currentPage) ;
+      
       uiToolPanel.setUIComponent(uiPageBrowser) ;
-
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;

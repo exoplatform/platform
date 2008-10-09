@@ -15,6 +15,9 @@
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
 package org.exoplatform.portal.config;
+
+import java.lang.reflect.Method;
+
 /**
  * Created by The eXo Platform SARL        .
  * Author : Tuan Nguyen
@@ -27,6 +30,7 @@ public class Query <T> {
   private String ownerType_ ;
   private String ownerId_ ;
   private String name_;
+  private String title_;
   private Class<T> classType_;
 
   public Query(String ownerType, String ownerId, Class<T> clazz) {
@@ -35,11 +39,15 @@ public class Query <T> {
     classType_ = clazz;
   }
   
-  public Query(String ownerType, String ownerId, String name, Class<T> clazz) {
+  public Query(String ownerType, String ownerId, String name, String title, Class<T> clazz) {
     ownerType_ = ownerType ;
     ownerId_ = ownerId;
     classType_ = clazz;
     name_ = name;
+    try {
+      Method method = clazz.getMethod("getTitle", null) ;
+      if(method != null) title_ = title ;
+    } catch (Exception e) {}
   }
   
   
@@ -53,6 +61,9 @@ public class Query <T> {
   public void   setClassType(Class<T> clazz) { classType_ = clazz;  }
 
   public String getName() { return name_; }
-  public void setName(String name_) { this.name_ = name_; }
+  public void   setName(String name_) { this.name_ = name_; }
+  
+  public String getTitle() { return title_; }
+  public void   setTitle(String title_) {this.title_ = title_; }
   
 }

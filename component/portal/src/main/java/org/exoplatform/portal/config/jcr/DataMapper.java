@@ -49,6 +49,7 @@ public class DataMapper {
   final static public String EXO_OWNER_TYPE = "exo:ownerType" ;
   final static public String EXO_OWNER_ID = "exo:ownerId" ;
   final static public String EXO_DATA_TYPE = "exo:dataType" ;
+  final static public String EXO_TITLE = "exo:title" ;
   
   public void map(Document doc, PortalConfig portal) throws Exception {
     Element root = doc.getDocumentElement() ;
@@ -56,6 +57,7 @@ public class DataMapper {
     root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(EXO_ID, portal.getName()) ;
     root.setAttribute(EXO_NAME, portal.getName()) ;    
+    root.setAttribute(EXO_TITLE, portal.getTitle()) ;
     root.setAttribute(EXO_OWNER_TYPE, PortalConfig.PORTAL_TYPE);
     root.setAttribute(EXO_OWNER_ID, "portalConfig");
     root.setAttribute(EXO_DATA_TYPE, portal.getClass().getSimpleName()) ;    
@@ -73,6 +75,7 @@ public class DataMapper {
     root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
     root.setAttribute(EXO_ID, page.getPageId()) ;
     root.setAttribute(EXO_NAME, page.getName()) ;    
+    root.setAttribute(EXO_TITLE, page.getTitle()) ;
     root.setAttribute(EXO_OWNER_TYPE, page.getOwnerType());
     root.setAttribute(EXO_OWNER_ID, page.getOwnerId());
     root.setAttribute(EXO_DATA_TYPE, page.getClass().getSimpleName()) ;    

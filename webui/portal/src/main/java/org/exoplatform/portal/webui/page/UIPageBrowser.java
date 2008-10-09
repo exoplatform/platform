@@ -27,7 +27,6 @@ import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
-import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -98,6 +97,7 @@ public class UIPageBrowser extends UISearch {
     ResourceBundle res = contextui.getApplicationResourceBundle();
     OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageSearch.label.option.ownerType"), "ownerType"));
     OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageSearch.label.option.ownerId"), "ownerId"));
+    OPTIONS.add(new SelectItemOption<String>(res.getString("UIPageSearch.label.option.title"), "title"));
   }
   
 	private Query<Page> lastQuery_;
@@ -123,7 +123,7 @@ public class UIPageBrowser extends UISearch {
 		lastQuery_ = query;
 		DataStorage service = getApplicationComponent(DataStorage.class);
 		if (lastQuery_ == null)
-			lastQuery_ = new Query<Page>(null, null, null, Page.class);
+			lastQuery_ = new Query<Page>(null, null, null, null, Page.class);
 		PageList pagelist = null;
 		try {
 			pagelist = service.find(lastQuery_, new Comparator<Object>() {
@@ -162,9 +162,10 @@ public class UIPageBrowser extends UISearch {
 			}
 			value = value.replace('?', '_');
 		}
-		Query<Page> query = new Query<Page>(null, null, null, Page.class);
+		Query<Page> query = new Query<Page>(null, null, null, null, Page.class);
 		if (selectBoxValue.equals("ownerType"))	query.setOwnerType(value);
 		if (selectBoxValue.equals("ownerId"))	query.setOwnerId(value);
+		if (selectBoxValue.equals("title")) query.setTitle(value) ;
 		query.setName(null);
 		lastQuery_ = query;
 		defaultValue(lastQuery_);
@@ -216,30 +217,29 @@ public class UIPageBrowser extends UISearch {
 			PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
 			String id = pcontext.getRequestParameter(OBJECTID);
 			UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
-			Page page = service.getPage(id);
 
 			UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
+			if(service.getPage(id) == null){               
+			  uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
+			  pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
+			  return;
+			}
+			Page page = service.getPage(id, event.getRequestContext().getRemoteUser());
       if(page != null) {
-        UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class) ;
-        if(!userACL.hasPermission(page, pcontext.getRemoteUser())) {
+        if(!page.isModifiable()) {
           uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.delete.NotDelete", new String[]{id}, 1)) ;;
           pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
           return;
         }
       } 
-      if(page == null){               
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
-        return;
-      }
-     
-      if(!page.isModifiable()){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.delete.NotDelete", new String[]{page.getName()})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
-        return;
-      }
+      
+      UIPageIterator pageIterator = uiPageBrowser.getChild(UIGrid.class).getUIPageIterator() ;
+      int currentPage = pageIterator.getCurrentPage() ;
 			service.remove(page);
 			uiPageBrowser.defaultValue(uiPageBrowser.getLastQuery());
+			while(currentPage > pageIterator.getAvailablePage()) currentPage-- ;
+			pageIterator.setCurrentPage(currentPage) ;
+			
 			pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID));
 			pcontext.addUIComponentToUpdateByAjax(uiPageBrowser);
 		}
@@ -252,13 +252,13 @@ public class UIPageBrowser extends UISearch {
 			uiPortalApp.setEditting(true);
 			PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
 			String id = pcontext.getRequestParameter(OBJECTID);
-			UserPortalConfigService dao = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
-			if(dao.getPage(id) == null){               
+			UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
+			if(service.getPage(id) == null){               
 			  uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
 			  pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
 			  return;
 			}
-      Page page = dao.getPage(id, event.getRequestContext().getRemoteUser()) ;    
+      Page page = service.getPage(id, event.getRequestContext().getRemoteUser()) ;    
       if(!page.isModifiable()){
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.NotEditPage", new String[]{id}, 1)) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
@@ -304,26 +304,23 @@ public class UIPageBrowser extends UISearch {
 			PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
 			String id = pcontext.getRequestParameter(OBJECTID);
 			UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
-			Page page = service.getPage(id);
 			UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      if(service.getPage(id) == null){               
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
+        return;
+      }
+      Page page = service.getPage(id, event.getRequestContext().getRemoteUser());
+      if(page != null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NotViewPage", new String[]{id}, 1)) ;;
+        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+        return;
+      } 
       if (Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.Invalid-Preview", new String[] { page.getName() }));
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
-      if(page != null) {
-          UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class) ;
-          if(!userACL.hasPermission(page, pcontext.getRemoteUser())) {
-            uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NotViewPage", new String[]{id}, 1)) ;;
-            pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
-            return;
-          }
-        } 
-        if(page == null){               
-          uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
-          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
-          return;
-        }
 		
 
 			UIPage uiPage = uiPageBrowser.createUIComponent(event.getRequestContext(), UIPage.class, null, null);
