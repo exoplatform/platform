@@ -87,7 +87,7 @@ public class GadgetUtil {
       String data = "{\"context\":{\"country\":\"US\",\"language\":\"en\"},\"gadgets\":[" +
       "{\"moduleId\":0,\"url\":\"" + urlStr + "\",\"prefs\":[]}]}";
       // Send data
-      URL url = new URL("http://project1.demo.exoplatform.org/eXoGadgetServer/gadgets/metadata");
+      URL url = new URL("http://localhost:8080/eXoGadgetServer/gadgets/metadata");
       URLConnection conn = url.openConnection();
       conn.setDoOutput(true);
       OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
