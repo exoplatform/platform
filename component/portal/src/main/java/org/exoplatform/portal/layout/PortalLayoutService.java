@@ -37,6 +37,15 @@ public interface PortalLayoutService {
    * @throws Exception
    */
   public void create(Container container) throws Exception ;
+
+  /**
+   * Creates new container object in the database.
+   * If container is existing, it will throw exception.
+   * @param container  the container that is created.
+   * @param userId of the user owner of this container.
+   * @throws Exception
+   */
+  public void create(Container container, String userId) throws Exception ;
   
   /**
    * Updates the container object in the database.
@@ -45,13 +54,32 @@ public interface PortalLayoutService {
    * @throws Exception
    */
   public void save(Container container) throws Exception ;
+
+
+  /**
+   * Updates the container object in the database.
+   * If the container does not exist, it will throw exception.
+   * @param container  the container that is updated.
+   * @param userId of the user owner of this container.
+   * @throws Exception
+   */
+  public void save(Container container, String userId) throws Exception ;
   
   /**
    * Removes the container from database.
    * @param container the container object that is removed.
+   * @param userId of the user owner of this container.
    * @throws Exception
    */
   public void remove(Container container) throws Exception ;
+
+  /**
+   * Removes the container from database.
+   * @param container the container object that is removed.
+   * @param userId of the user owner of this container.
+   * @throws Exception
+   */
+  public void remove(Container container, String userId) throws Exception ;
   
   /**
    * Gets the container in the database by id.
@@ -60,5 +88,15 @@ public interface PortalLayoutService {
    * @throws Exception
    */
   public Container getContainer(String id) throws Exception ;
+
+
+  /**
+   * Gets the container in the database by id.
+   * @param id the id of container.
+   * @param userId of the user owner of this container.
+   * @return the container or null if not found.
+   * @throws Exception
+   */
+  public Container getContainer(String id, String userId) throws Exception ;
 
 }

@@ -21,6 +21,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 import org.apache.commons.io.IOUtils;
+
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.portal.webui.application.GadgetUtil;
@@ -33,6 +34,7 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.ext.UIFormInputSetWithAction;
+import org.exoplatform.common.http.client.URI;
 
 /**
  * Created by The eXo Platform SAS

@@ -61,6 +61,14 @@ public class UIDashboardPortlet extends UIPortletApplication {
 
   public static final String ROWINDEX = "rowIndex";
 
+  public static final String ISPRIVATE = "isPrivate";
+  public static final String OWNER = "owner";
+
+
+  private boolean isPrivate;
+  private String owner;
+
+
   public UIDashboardPortlet() throws Exception {
     PortletRequestContext context = (PortletRequestContext) WebuiRequestContext
         .getCurrentInstance();
@@ -68,7 +76,21 @@ public class UIDashboardPortlet extends UIPortletApplication {
     addChild(UIDashboardSelectForm.class, null, null);
     addChild(UIDashboardEditForm.class, null, null);
     addChild(UIDashboardContainer.class, null, null).
-        setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
+    setColumns(Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")));
+
+    isPrivate = pref.getValue(ISPRIVATE, "0").equals(1);
+    owner = pref.getValue(OWNER, null);
+    if ("__CURRENT_USER__".equals(owner)) {
+      owner = context.getRemoteUser();
+    }
+  }
+
+  public boolean isPrivate() {
+    return isPrivate;
+  }
+
+  public String getOwner() {
+    return owner;
   }
 
   public static class SetShowSelectFormActionListener extends EventListener<UIDashboardPortlet> {

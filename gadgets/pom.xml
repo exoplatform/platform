@@ -18,7 +18,7 @@
   <dependencies>
 	<dependency>
 		<groupId>org.apache.shindig</groupId>
-		<version>r701294</version>
+		<version>1-SNAPSHOT</version>
 		<artifactId>shindig-features</artifactId>
 	</dependency>
   </dependencies>
@@ -30,7 +30,7 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <org.shindig.version>r701294</org.shindig.version>
+        <org.shindig.version>r702815</org.shindig.version>
       </properties>
     </profile>
   </profiles>

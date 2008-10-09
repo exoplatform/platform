@@ -85,8 +85,9 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
    * @see UIDashboardPortlet
    */
   private String windowId;
-  
-  /**
+
+
+    /**
    * Constructs new UIDashboardContainer which belongs to a UIDashboardPortlet
    * @param initParams initial parameters
    * @throws Exception if can't create UIDashboardContainer
@@ -98,17 +99,42 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     windowId = ((PortletRequestContext) context).getRequest().getWindowID();
     
-    Param param = initParams.getParam("ContainerConfigs");          
+    Param param = initParams.getParam("ContainerConfigs");
     containerOptions = param.getMapGroovyObject(context);
     if (containerOptions == null) { return; }
+
+   // UIContainer uiRoot = createUIComponent(UIContainer.class, null, null);
+    addChild(UIContainer.class, null, null);
+  }
+
+
+/*  public boolean isPrivate() {
+    return isPrivate;
+  }
+
+  public String getOwner() {
+    return owner;
+  }     */
+
+
+  public void processRender(WebuiRequestContext context) throws Exception {
+    //----
     initData();
     PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
-    Container container = service.getContainer(ROOT_CONTAINER  + "-" + windowId);
-    UIContainer uiRoot = createUIComponent(UIContainer.class, null, null); 
+    UIDashboardPortlet parent = getParent();
+
+    Container container = service.getContainer(ROOT_CONTAINER  + "-" + windowId, parent.getOwner());
+    UIContainer uiRoot = getChild(UIContainer.class);
+
+    //remove the existing children, mybe it should be done in PortalDataMapper.toUIContainer
+    uiRoot.getChildren().clear();
+
     PortalDataMapper.toUIContainer(uiRoot, container);
-    addChild(uiRoot);
+    //----
+    super.processRender(context);
   }
-  
+
+
   /**
    * Adds an UIGadget into UIDashboardContainer in specified position
    * @param gadget  UIGadget to add in UIDashboardContainer
@@ -338,7 +364,10 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
    */
   private void initData() throws Exception {
     PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
-    if (service.getContainer(ROOT_CONTAINER + "-" + windowId) != null) { return; }
+
+    UIDashboardPortlet parent = getParent();
+
+    if (service.getContainer(ROOT_CONTAINER + "-" + windowId, parent.getOwner()) != null) { return; }
     Container root = createContainer(COLUMN_CONTAINER, ROOT_CONTAINER + "-" + windowId);
     ArrayList<Object> children = new ArrayList<Object>();
     
@@ -351,7 +380,8 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
       children.add(createContainer(ROW_CONTAINER, "UIColumn-" + i));
     }
     root.setChildren(children);
-    service.create(root);
+
+    service.create(root, parent.getOwner());
   }
   
   /**
@@ -361,9 +391,12 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
   public void save() throws Exception {
     UIContainer uiRoot = findFirstComponentOfType(UIContainer.class);
     PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
-    service.save(PortalDataMapper.toContainer(uiRoot));
+
+    UIDashboardPortlet parent = getParent();
+
+    service.save(PortalDataMapper.toContainer(uiRoot), parent.getOwner());
   }
-  
+
 }
 
 

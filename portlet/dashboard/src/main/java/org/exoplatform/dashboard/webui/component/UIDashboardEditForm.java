@@ -55,6 +55,10 @@ public class UIDashboardEditForm extends UIForm {
     PortletPreferences pref = pcontext.getRequest().getPreferences();
     addUIFormInput(new UIFormStringInput(TOTAL_COLUMNS, TOTAL_COLUMNS, pref.getValue(
         TOTAL_COLUMNS, "3")));
+    addUIFormInput(new UIFormStringInput(UIDashboardPortlet.OWNER, UIDashboardPortlet.OWNER, pref.getValue(
+        UIDashboardPortlet.OWNER, null)));
+    addUIFormInput(new UIFormStringInput(UIDashboardPortlet.ISPRIVATE, UIDashboardPortlet.ISPRIVATE, pref.getValue(
+        UIDashboardPortlet.ISPRIVATE, null)));
   }
 
   public static class SaveActionListener extends EventListener<UIDashboardEditForm> {
@@ -98,6 +102,12 @@ public class UIDashboardEditForm extends UIForm {
         throw new MessageException(new ApplicationMessage(
             "NumberInRangeValidator.msg.Invalid-number", args));
       }
+
+      uiInput = uiForm.getUIStringInput(UIDashboardPortlet.ISPRIVATE);
+      pref.setValue(UIDashboardPortlet.ISPRIVATE, uiInput.getValue());
+
+      uiInput = uiForm.getUIStringInput(UIDashboardPortlet.OWNER);
+      pref.setValue(UIDashboardPortlet.OWNER, uiInput.getValue());
 
       pref.setValue(TOTAL_COLUMNS, String.valueOf(totalCols));
       pref.store();

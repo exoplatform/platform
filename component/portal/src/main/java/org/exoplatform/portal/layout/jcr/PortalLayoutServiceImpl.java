@@ -17,6 +17,7 @@
 package org.exoplatform.portal.layout.jcr;
 
 import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
 
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.layout.PortalLayoutService;
@@ -32,7 +33,9 @@ import org.exoplatform.services.jcr.ext.registry.RegistryService;
  */
 public class PortalLayoutServiceImpl implements PortalLayoutService {
   
-  final static public String APP_PATH = RegistryService.EXO_APPLICATIONS + "/DashBoard" ;
+  final static public String APP_PATH = RegistryService.EXO_APPLICATIONS + "/Dashboard";
+  final static public String SHARED_PATH = "shared";
+  final static public String USERS_PATH = "users";
   
   private RegistryService regService_ ;
   private DataMapper mapper_ = new DataMapper () ;
@@ -42,16 +45,29 @@ public class PortalLayoutServiceImpl implements PortalLayoutService {
   }
 
   public void create(Container container) throws Exception {
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry entry = new RegistryEntry(container.getId()) ;
-    mapper_.map(entry.getDocument(), container) ;
-    regService_.createEntry(sessionProvider, APP_PATH, entry) ;
-    sessionProvider.close() ;
+    create(container, null);
+  }
+
+  public void create(Container container, String userId) throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider();
+    RegistryEntry entry = new RegistryEntry(container.getId());
+    mapper_.map(entry.getDocument(), container);
+    String path;
+    if(userId == null)
+      path = getSharedPath();
+    else
+      path = getUserPath(userId);
+    regService_.createEntry(sessionProvider, path, entry);
+    sessionProvider.close();
   }
 
   public Container getContainer(String id) throws Exception {
+    return getContainer(id, null);
+  }
+
+  public Container getContainer(String id, String userId) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    String path = APP_PATH + "/" + id ;
+    String path = getPath(id, userId);
     RegistryEntry entry ;
     try {
       entry = regService_.getEntry(sessionProvider, path) ;
@@ -65,18 +81,53 @@ public class PortalLayoutServiceImpl implements PortalLayoutService {
   }
 
   public void remove(Container container) throws Exception {
+    remove(container, null);
+  }
+
+  public void remove(Container container, String userId) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    String path = APP_PATH + "/" + container.getId() ;
+
+    String path = getPath(container.getId(), userId);
     regService_.removeEntry(sessionProvider, path) ;
     sessionProvider.close() ;
   }
 
   public void save(Container container) throws Exception {
+    save(container, null);
+  }
+
+  public void save(Container container, String userId) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry entry = regService_.getEntry(sessionProvider, APP_PATH + "/" + container.getId());
+
+    String path = getPath(container.getId(), userId);
+
+    String parentPath;
+    if(userId == null)
+      parentPath = getSharedPath();
+    else
+      parentPath = getUserPath(userId);
+
+    RegistryEntry entry = regService_.getEntry(sessionProvider, path);
     mapper_.map(entry.getDocument(), container) ;
-    regService_.recreateEntry(sessionProvider, APP_PATH, entry) ;
+    regService_.recreateEntry(sessionProvider, parentPath, entry) ;
     sessionProvider.close() ;
   }
 
+  private String getPath(String containerId, String userId) {
+    String path;
+    if(userId == null)
+      path = getSharedPath() + "/" + containerId;
+    else {
+      path = getUserPath(userId) + "/" + containerId;
+    }
+    return path;
+  }
+
+  private String getSharedPath() {
+    return APP_PATH + "/"  + SHARED_PATH;
+  }
+
+  private String getUserPath(String userId) {
+    return APP_PATH + "/"  + USERS_PATH + "/" + userId;
+  }
 }

@@ -33,7 +33,7 @@ public class UserGadgetStorageImpl implements UserGadgetStorage {
   public static final String GADGET_NODE_TYPE = "exo:gadget";
   private NodeHierarchyCreator nodeCreator ;
 
-    public UserGadgetStorageImpl(NodeHierarchyCreator creator) throws Exception{
+  public UserGadgetStorageImpl(NodeHierarchyCreator creator) throws Exception{
     nodeCreator = creator ;
   }
 

@@ -77,8 +77,8 @@
 "gadgets.features" : {
   "core.io" : {
     // Note: /proxy is an open proxy. Be careful how you expose this!
-    "proxyUrl" : "/eXoGadgetServer/proxy?refresh=%refresh%&url=%url%",
-    "jsonProxyUrl" : "makeRequest"
+    "proxyUrl" : "http://%host%/eXoGadgetServer/gadgets/proxy?refresh=%refresh%&url=%url%",
+    "jsonProxyUrl" : "http://%host%/eXoGadgetServer/gadgets/makeRequest"
   },
   "views" : {
     "profile" : {
@@ -97,7 +97,7 @@
     /// parameter if it passes input validation and is not null.
     // This should never be on the same host in a production environment!
     // Only use this for TESTING!
-    "parentRelayUrl" : "/gadgets/files/container/rpc_relay.html",
+    "parentRelayUrl" : "eXoGadgetServer/gadgets/files/container/rpc_relay.html",
 
     // If true, this will use the legacy ifpc wire format when making rpc
     // requests.
@@ -118,7 +118,7 @@
     // Path to fetch opensocial data from
     // Must be on the same domain as the gadget rendering server
     "impl" : "rpc",  //Use "rpc" to enable JSON-RPC, "rest' for REST
-    "path" : "/social/social",
+    "path" : "http://%host%/social/social",
     "domain" : "shindig",
     "enableCaja" : false,
     "supportedFields" : {

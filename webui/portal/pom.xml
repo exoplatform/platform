@@ -52,7 +52,7 @@
     <dependency>
 	  <groupId>org.apache.shindig</groupId>
 	  <artifactId>shindig-common</artifactId>
-	  <version>r701294</version>
+	  <version>r702815</version>
 	  <type>jar</type>
 	</dependency>
     <dependency>
