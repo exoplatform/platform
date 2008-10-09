@@ -7,7 +7,7 @@
 <web-app>
 
 	<!--If define the Portlet Application name MUST end with .par-->
-	<display-name>exoadmin</display-name>
+	<display-name>dashboard</display-name>
 
 	<description>
     This application is a portlet. It can not be used outside a portal.
