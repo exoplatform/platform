@@ -17,6 +17,8 @@
 package org.exoplatform.application.gadget;
 
 import java.io.InputStream;
+import java.net.URL;
+import java.net.URLConnection;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -25,10 +27,14 @@ import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
+import org.apache.shindig.common.uri.Uri;
+import org.apache.shindig.gadgets.spec.ModulePrefs;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -59,31 +65,47 @@ public class GadgetRegister implements ServletContextListener {
       InputStream in = event.getServletContext().getResourceAsStream(confLocation) ;
       Document docXML = db.parse(in) ;
       NodeList nodeList = docXML.getElementsByTagName("gadget") ;
-      String name = null, title = null, desc = null, thumb = null, ref= null ;
+      String name = null, address = null ;
       for(int i=0; i<nodeList.getLength(); i++) {
-        NodeList nodeChild = nodeList.item(i).getChildNodes() ;
+        Element gadgetElement = (Element) nodeList.item(i);
+        name = gadgetElement.getAttribute("name");
+        NodeList nodeChild = gadgetElement.getChildNodes() ;
         for(int j=0; j<nodeChild.getLength(); j++) {
           Node node = nodeChild.item(j) ;
-          if (node.getNodeName().equals("name"))  name = node.getTextContent() ;
-          else if (node.getNodeName().equals("title"))  title = node.getTextContent() ;
-          else if (node.getNodeName().equals("description"))  desc = node.getTextContent() ;
-          else if (node.getNodeName().equals("thumbnail")) thumb = node.getTextContent() ;
-          else if (node.getNodeName().equals("reference"))  ref = node.getTextContent() ;
+          if (node.getNodeName().equals("path")) {
+            address = node.getTextContent() ;
+            InputStream sourceIn = event.getServletContext().getResourceAsStream(address) ;
+            String source = IOUtils.toString(sourceIn, "UTF-8");
+            sourceStorage.saveSource(name, source);
+            ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse("http://www.exoplatform.org"), source);
+            Gadget gadget = new Gadget();
+            gadget.setName(name);
+            gadget.setUrl(sourceStorage.getSourceLink(name));
+            gadget.setTitle(prefs.getDirectoryTitle());
+            gadget.setDescription(prefs.getDescription());
+            gadget.setThumbnail(prefs.getThumbnail().toString());
+            gadget.setReferenceUrl(prefs.getTitleUrl().toString());
+            gadget.setLocal(true);            
+            gadgetService.addGadget(gadget);            
+          }
+          else if (node.getNodeName().equals("url")) {
+            address = node.getTextContent() ;
+            URL urlObj = new URL(address) ;
+            URLConnection conn = urlObj.openConnection() ;
+            InputStream is = conn.getInputStream() ;
+            String source = IOUtils.toString(is, "UTF-8") ;            
+            ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse(address), source);
+            Gadget gadget = new Gadget();
+            gadget.setName(name);
+            gadget.setUrl(address);
+            gadget.setTitle(prefs.getDirectoryTitle());
+            gadget.setDescription(prefs.getDescription());
+            gadget.setThumbnail(prefs.getThumbnail().toString());
+            gadget.setReferenceUrl(prefs.getTitleUrl().toString());
+            gadget.setLocal(false);            
+            gadgetService.addGadget(gadget);            
+          }
         }
-        String filePath = "/gadgets/" + name + ".xml";
-        InputStream sourceIn = event.getServletContext().getResourceAsStream(filePath) ;
-        String source = IOUtils.toString(sourceIn, "UTF-8");
-        sourceStorage.saveSource(name, source);
-        Gadget gadget = new Gadget();
-        gadget.setName(name);
-        gadget.setUrl(sourceStorage.getSourceLink(name));
-        gadget.setTitle(title);
-        gadget.setDescription(desc);
-        gadget.setThumbnail(thumb);
-        gadget.setReferenceUrl(ref);
-        gadget.setLocal(true);
-        
-        gadgetService.addGadget(gadget);
       }
     } catch(Exception ex) {
       log.error("Error while deploying a gadget", ex);

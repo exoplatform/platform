@@ -33,6 +33,12 @@
     </dependency>
 
     <dependency>
+	    <groupId>org.apache.shindig</groupId>
+		  <artifactId>shindig-gadgets</artifactId>
+      <version>r702815</version>
+    </dependency>
+
+    <dependency>
         <groupId>commons-io</groupId>
         <artifactId>commons-io</artifactId>
         <version>1.4</version>
