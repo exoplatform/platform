@@ -29,7 +29,7 @@ import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
   id = "UIControlWorkspace",
-  template = "app:/groovy/portal/webui/workspace/UIControlWorkspace.gtmpl",
+  template = "system:/groovy/portal/webui/workspace/UIControlWorkspace.gtmpl",
   events = @EventConfig(listeners = UIControlWorkspace.SetVisibleActionListener.class)
 )
 public class UIControlWorkspace extends UIContainer {

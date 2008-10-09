@@ -66,7 +66,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UISearchForm;
 
 @ComponentConfigs( {
-		@ComponentConfig(template = "app:/groovy/portal/webui/page/UIPageBrowser.gtmpl", events = {
+		@ComponentConfig(template = "system:/groovy/portal/webui/page/UIPageBrowser.gtmpl", events = {
 				@EventConfig(listeners = UIPageBrowser.DeleteActionListener.class, confirm = "UIPageBrowse.deletePage"),
 				@EventConfig(listeners = UIPageBrowser.EditInfoActionListener.class),
 				@EventConfig(listeners = UIPageBrowser.PreviewActionListener.class),

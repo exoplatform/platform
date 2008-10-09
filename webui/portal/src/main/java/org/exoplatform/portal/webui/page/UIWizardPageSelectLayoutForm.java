@@ -36,10 +36,10 @@ import org.exoplatform.webui.form.UIForm;
   @ComponentConfig(
       id = "PageTemplateOption",
       type = UIPageTemplateOptions.class,
-      template = "app:/groovy/portal/webui/page/UIWizardPageSelectLayoutForm.gtmpl",
+      template = "system:/groovy/portal/webui/page/UIWizardPageSelectLayoutForm.gtmpl",
       initParams = @ParamConfig(
           name = "PageLayout",
-          value = "app:/WEB-INF/conf/uiconf/portal/webui/page/PageConfigOptions.groovy"
+          value = "system:/WEB-INF/conf/uiconf/portal/webui/page/PageConfigOptions.groovy"
       )
   )  
 })

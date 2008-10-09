@@ -37,10 +37,10 @@ import org.exoplatform.webui.form.UIFormInputItemSelector;
  * Aug 10, 2006  
  */
 @ComponentConfig(
-    template = "app:/groovy/portal/webui/page/UIPageTemplateOptions.gtmpl",
+    template = "system:/groovy/portal/webui/page/UIPageTemplateOptions.gtmpl",
     initParams = @ParamConfig(
         name = "PageLayout",
-        value = "app:/WEB-INF/conf/uiconf/portal/webui/page/PageConfigOptions.groovy"
+        value = "system:/WEB-INF/conf/uiconf/portal/webui/page/PageConfigOptions.groovy"
     )
 )
 public class UIPageTemplateOptions extends UIFormInputItemSelector {

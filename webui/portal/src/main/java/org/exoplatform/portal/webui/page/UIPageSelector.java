@@ -41,12 +41,12 @@ import org.exoplatform.webui.form.UIFormPopupWindow;
  */
 @ComponentConfigs({
   @ComponentConfig(
-      template = "app:/groovy/portal/webui/page/UIPageSelector.gtmpl"
+      template = "system:/groovy/portal/webui/page/UIPageSelector.gtmpl"
   ),
   @ComponentConfig(      
       id = "SelectPage",
       type = UIPageBrowser.class,
-      template = "app:/groovy/portal/webui/page/UIPageBrowser.gtmpl" ,      
+      template = "system:/groovy/portal/webui/page/UIPageBrowser.gtmpl" ,      
       events = @EventConfig(listeners = UIPageSelector.SelectPageActionListener.class)
   )
 })

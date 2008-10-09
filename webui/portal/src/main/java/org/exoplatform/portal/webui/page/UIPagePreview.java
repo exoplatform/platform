@@ -32,7 +32,7 @@ import org.exoplatform.webui.core.UIComponentDecorator;
   @ComponentConfig( lifecycle = UIComponentDecorator.UIComponentDecoratorLifecycle.class ),
   @ComponentConfig(
       id = "UIPagePreviewWithMessage", 
-      template = "app:/groovy/portal/webui/page/UIPagePreview.gtmpl"
+      template = "system:/groovy/portal/webui/page/UIPagePreview.gtmpl"
         //events = @EventConfig(listeners = UIPagePreview.BackActionListener.class)
   )
 })

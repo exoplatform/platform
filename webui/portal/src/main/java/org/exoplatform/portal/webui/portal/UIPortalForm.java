@@ -79,7 +79,7 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
     template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",
     initParams = @ParamConfig(
         name = "PortalTemplateConfigOption", 
-        value = "app:/WEB-INF/conf/uiconf/portal/webui/portal/PortalTemplateConfigOption.groovy"
+        value = "system:/WEB-INF/conf/uiconf/portal/webui/portal/PortalTemplateConfigOption.groovy"
     ),
     events = {
       @EventConfig(name  = "Save", listeners = UIPortalForm.CreateActionListener.class),

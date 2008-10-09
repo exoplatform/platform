@@ -40,7 +40,7 @@ import org.exoplatform.webui.event.Event.Phase;
  * Jun 23, 2006
  * 10:07:15 AM
  */
-@ComponentConfig(template = "app:/groovy/portal/webui/portal/UIPortalManagement.gtmpl")
+@ComponentConfig(template = "system:/groovy/portal/webui/portal/UIPortalManagement.gtmpl")
 public class UIPortalManagement extends UIManagement {
   
 	public UIPortalManagement() throws Exception {

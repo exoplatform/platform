@@ -67,7 +67,7 @@ import org.exoplatform.webui.event.EventListener;
   @ComponentConfig(
       id = "ViewStep1",
       type = UIContainer.class,
-      template = "app:/groovy/portal/webui/page/UIWizardPageWelcome.gtmpl" 
+      template = "system:/groovy/portal/webui/page/UIWizardPageWelcome.gtmpl" 
   )
 })
 public class UIPageCreationWizard extends UIPageWizard {
