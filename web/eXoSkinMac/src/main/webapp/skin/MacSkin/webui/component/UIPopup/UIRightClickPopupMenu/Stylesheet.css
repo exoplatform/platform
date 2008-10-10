@@ -72,6 +72,10 @@
   background: url('icons/Copy.gif') no-repeat left;
 }
 
+.UIRightClickPopupMenu .CloneNode16x16Icon {
+  background: url('icons/Clone.gif') no-repeat left;
+}
+
 .UIRightClickPopupMenu .PasteNode16x16Icon {
   background: url('icons/Paste.gif') no-repeat left;
 }

@@ -63,6 +63,10 @@
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/CopyIcon.png') no-repeat left 4px;
 }
 
+.UIRightClickPopupMenu .CloneNode16x16Icon{
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/CloneIcon.gif') no-repeat left 4px;
+}
+
 .UIRightClickPopupMenu .PasteNode16x16Icon{
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PasteIcon.png') no-repeat left 4px;
 }

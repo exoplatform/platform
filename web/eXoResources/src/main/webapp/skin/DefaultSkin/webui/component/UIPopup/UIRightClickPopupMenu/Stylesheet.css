@@ -41,32 +41,36 @@
   background: #dee4f2;
 }
 
-.UIRightClickPopupMenu .AddNode16x16Icon{
+.UIRightClickPopupMenu .AddNode16x16Icon {
   width: auto;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif') no-repeat left center;
 }
 
-.UIRightClickPopupMenu .EditPageNode16x16Icon{
+.UIRightClickPopupMenu .EditPageNode16x16Icon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditPageNode.gif') no-repeat left center;
 }
 
-.UIRightClickPopupMenu .EditSelectedNode16x16Icon{
+.UIRightClickPopupMenu .EditSelectedNode16x16Icon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditNode.gif') no-repeat left center;
 }
 
-.UIRightClickPopupMenu .CopyNode16x16Icon{
+.UIRightClickPopupMenu .CopyNode16x16Icon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/CopyIcon.gif') no-repeat left center;
 }
 
-.UIRightClickPopupMenu .CutNode16x16Icon{
+.UIRightClickPopupMenu .CloneNode16x16Icon {
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/CloneIcon.gif') no-repeat left center;
+}
+
+.UIRightClickPopupMenu .CutNode16x16Icon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Cut.gif') no-repeat left center;
 }
 
-.UIRightClickPopupMenu .PasteNode16x16Icon{
+.UIRightClickPopupMenu .PasteNode16x16Icon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/PasteIcon.gif') no-repeat left center;
 }
 
-.UIRightClickPopupMenu .DeleteNode16x16Icon{
+.UIRightClickPopupMenu .DeleteNode16x16Icon {
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat left center;
 }
 
