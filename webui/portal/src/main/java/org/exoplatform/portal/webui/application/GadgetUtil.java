@@ -25,15 +25,13 @@ import java.util.Iterator;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.shindig.common.crypto.BlobCrypterException;
 import org.exoplatform.application.gadget.Gadget;
-import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.gadget.core.ExoDefaultSecurityTokenGenerator;
-import org.exoplatform.portal.gadget.core.SecurityTokenGenerator;
-import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.gadget.core.SecurityTokenGenerator;
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -50,12 +48,12 @@ public class GadgetUtil {
     return new GadgetApplication(model.getName(), model.getUrl(), model.isLocal());
   }
   
-  static final public Gadget toGadget(String name, String url, boolean isLocal) throws Exception{
+  static final public Gadget toGadget(String name, String path, boolean isLocal) throws Exception{
     Gadget gadget = new Gadget();
     gadget.setName(name);
-    gadget.setUrl(url) ;
+    gadget.setUrl(path) ;
     gadget.setLocal(isLocal);
-    Map<String, String> metaData = GadgetUtil.getMapMetadata(GadgetUtil.reproduceUrl(url, isLocal));
+    Map<String, String> metaData = getMapMetadata(reproduceUrl(path, isLocal));
     String title = metaData.get("directoryTitle") ;
     if(title == null || title.trim().length() < 1) title = metaData.get("title") ;
     if(title == null || title.trim().length() < 1) title = gadget.getName() ;
@@ -87,7 +85,7 @@ public class GadgetUtil {
       String data = "{\"context\":{\"country\":\"US\",\"language\":\"en\"},\"gadgets\":[" +
       "{\"moduleId\":0,\"url\":\"" + urlStr + "\",\"prefs\":[]}]}";
       // Send data
-      URL url = new URL("http://localhost:8080/eXoGadgetServer/gadgets/metadata");
+      URL url = new URL(getHostName() + "/eXoGadgetServer/gadgets/metadata");
       URLConnection conn = url.openConnection();
       conn.setDoOutput(true);
       OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
@@ -128,12 +126,15 @@ public class GadgetUtil {
   
   static final public String reproduceUrl(String path, boolean isLocal) {
     if(isLocal) {
-      PortalRequestContext pContext = Util.getPortalRequestContext() ;
-      StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
-      int index = requestUrl.indexOf(pContext.getRequestContextPath()) ;
-      return requestUrl.substring(0, index) + "/" + path;
+      return getHostName() + "/" + path;
     }
     return path ;    
   }
 
+  static final private String getHostName() {
+    PortalRequestContext pContext = Util.getPortalRequestContext() ;
+    StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
+    int index = requestUrl.indexOf(pContext.getRequestContextPath()) ;
+    return requestUrl.substring(0, index);    
+  }
 }

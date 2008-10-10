@@ -98,7 +98,10 @@ public class GadgetRegister implements ServletContextListener {
             Gadget gadget = new Gadget();
             gadget.setName(name);
             gadget.setUrl(address);
-            gadget.setTitle(prefs.getDirectoryTitle());
+            String title = prefs.getDirectoryTitle() ;
+            if(title == null || title.trim().length() < 1) title = prefs.getTitle() ;
+            if(title == null || title.trim().length() < 1) title = gadget.getName() ;            
+            gadget.setTitle(title);
             gadget.setDescription(prefs.getDescription());
             gadget.setThumbnail(prefs.getThumbnail().toString());
             gadget.setReferenceUrl(prefs.getTitleUrl().toString());

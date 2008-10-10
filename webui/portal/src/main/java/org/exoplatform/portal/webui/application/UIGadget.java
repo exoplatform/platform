@@ -57,6 +57,7 @@ public class UIGadget extends UIComponent {
   private String applicationId_ ;
   private Properties properties_;
   private String metadata_;
+  private String url_;
   public static final String PREF_KEY = "_pref_gadget_";
 
   /**
@@ -204,8 +205,11 @@ public class UIGadget extends UIComponent {
    * @return url of gadget application, such as "http://www.google.com/ig/modules/horoscope.xml"
    */
   public String getUrl() {
-    GadgetApplication application = getApplication();
-    return GadgetUtil.reproduceUrl(application.getUrl(), application.isLocal());
+    if(url_ == null) {
+      GadgetApplication application = getApplication();
+      url_ =  GadgetUtil.reproduceUrl(application.getUrl(), application.isLocal());
+    }
+    return url_;
   }
   
   /**
