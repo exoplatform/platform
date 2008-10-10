@@ -41,7 +41,9 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
 	private boolean useBasicToolbar = true;
 	private boolean sourceModeOnStartup = false;
 	private String toolBarName;
-
+	private String width;
+	private String height;
+	
 	/**
 	 * Instantiates a new uI form wysiwyg input.
 	 * 
@@ -82,6 +84,12 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
 	public String getToolBarName() { return this.toolBarName; }
 	public void setToolBarName(String name) { this.toolBarName = name; }
 	
+	public String getWidth() { return this.width; }
+	public void setWidth(String s) { this.width = s; }
+	
+	public String getHeight() { return this.height; }
+	public void setHeight(String s ) { this.height = s; };
+	
 	/* (non-Javadoc)
 	 * @see org.exoplatform.webui.form.UIFormInputBase#decode(java.lang.Object, org.exoplatform.webui.application.WebuiRequestContext)
 	 */
@@ -111,6 +119,12 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
 		}
 		if (value_ == null) 
 			value_ = "" ;
+		if(height != null && height.length()>0) {
+		  editor.setHeight(height);
+		}
+		if(width != null && width.length()>0) {
+      editor.setHeight(width);
+    }		
 		editor.setValue(value_);
 		Writer w =  context.getWriter();            
 		w.write(editor.createHtml());
