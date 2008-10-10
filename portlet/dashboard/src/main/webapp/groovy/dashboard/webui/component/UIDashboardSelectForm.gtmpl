@@ -4,7 +4,7 @@
 		<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)" title="<%=_ctx.appRes("UIDashboardPortlet.tooltip.close");%>"><span></span></div>
 		<div style="clear: right;"><span></span></div>
 	</div>
-	<div class="DashboardItemContainer ItemContainer">
+	<div class="DashboardItemContainer ItemContainer" style="padding: 5px;">
 		
 		<div class="GadgetItemsContainer " id="GadgetItemsContainer">
 			<div class="TopItemContainer DisableContainer" onmouseover="eXo.webui.UIDashboard.enableContainer(this)" 

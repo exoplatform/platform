@@ -237,14 +237,20 @@ eXo.webui.UIDashboard = {
 		if(!uiWindow) return;
 		
 		var DOMUtil = eXo.core.DOMUtil;
-		
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardPortlet");
-		if(!uiDashboard) return;
+		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
+		if(uiContainer == null) return;
+		
+		var viewLayoutTag = DOMUtil.findAncestorByClass(uiWindow, "VIEW-PORTLET");
+		var wasHiddenView = false;
+		if(viewLayoutTag.style.display == "none") {
+			wasHiddenView = true;
+			viewLayoutTag.style.display = "block" ;
+		}
+		
+		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
 		uiDashboard.style.overflow = "hidden";
 		uiDashboard.parentNode.style.overflow = "hidden" ;
-		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
-		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
-		
 		if(!uiDashboard.parentNode.style.height || uiDashboard.parentNode.style.height == "auto")	{
 			uiDashboard.style.height = "400px" ;
 			if(eXo.core.Browser.isIE6()) dbContainer.style.width = "99%";
@@ -263,6 +269,9 @@ eXo.webui.UIDashboard = {
 		}
 		colsContainer.style.width = colsSize*320 + 20 + "px";
 		eXo.webui.UIDashboard.initSelectForm(uiDashboard);
+		if(wasHiddenView) {
+			viewLayoutTag.style.display = "none" ;
+		}
 	},
 	
 	initSelectForm : function(uiDashboard) {
@@ -279,8 +288,7 @@ eXo.webui.UIDashboard = {
 			middleItemCont.style.height = uiWindow.offsetHeight - DOMUtil.findPreviousElementByTagName(itemCont, "div").offsetHeight
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
-						- parseInt(DOMUtil.getStyle(itemCont,"borderTopWidth"))
-						- parseInt(DOMUtil.getStyle(itemCont,"borderBottomWidth")) - 3 + "px";
+						- 5 + "px";
 			uiContainer.style.marginLeft = "210px";
 		} else {
 			uiContainer.style.marginLeft = "0px";
