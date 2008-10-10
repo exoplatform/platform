@@ -1,50 +1,59 @@
 <div class="UIHomePagePortlet" id="$uicomponent.id">
 	<div class="PortletDecoration">
+	
 		<div class="HomePortletAdBackround">
-			<div class="AdImage">
-				<div class="EmptyBlock"><span></span></div>
-				<div class="ProductSlogan">Virtualize Your Desktop</div>
-				<div class="ProductIntro">New version comes with a revolutionary user interface.<br>Classic and WebOS Desktop Layouts.<br> Drag and Drop Layouts. Create Pages Wizard.<br>And many more...</div>
-			</div>
-		</div>
-		<div class="HomePortletContent">
-			<div class="InstructionTitle">Try eXo Portal 2.0 with following available user accounts:</div>
-			<div class="UserAccountsContainer">
-				<div class="AccountsContainerDeco">
-					<div class="AccountBlock AdministratorUser">
-						<div class="AccountInfos">
-							<div class="AccountTitle">Administrator</div>
-							<div class="Username">Username:<span>root</span></div>
-							<div class="Passwords">Password:<span>exo</span></div>
-						</div>
-					</div>
-					<div class="SeparatorLine"><span></span></div>
-					<div class="AccountBlock ManagerUser">
-						<div class="AccountInfos">
-							<div class="AccountTitle">Manager</div>
-							<div class="Username">Username:<span>john</span></div>
-							<div class="Passwords">Password:<span>exo</span></div>
-						</div>
-					</div>
-					<div class="SeparatorLine"><span></span></div>
-					<div class="AccountBlock NormalUser">
-						<div class="AccountInfos">
-							<div class="AccountTitle">User</div>
-							<div class="Username">Username:<span>marry</span></div>
-							<div class="Passwords">Password:<span>exo</span></div>
-						</div>
-					</div>
-					<div class="SeparatorLine"><span></span></div>
-					<div class="AccountBlock DemoUser" style="margin-right: 0px;">
-						<div class="AccountInfos">
-							<div class="AccountTitle">Demo</div>
-							<div class="Username">Username:<span>demo</span></div>
-							<div class="Passwords">Password:<span>exo</span></div>
-						</div>
-					</div>
-					<div style="clear: both"><span></span></div>
+			<div class="AdImageLeft">
+				<div class="AdImageRight">
+					<div class="EmptyBlock"><span></span></div>
+					<div class="ProductSlogan">Virtualize Your Desktop</div>
+					<div class="ProductIntro">New version comes with a revolutionary user interface<br>Classic and WebOS Desktop Layouts.<br> Drag and Drop Layouts. Create Pages Wizard<br>And many more...</div>
 				</div>
 			</div>
 		</div>
+		
+		<div class="HomePortletContent">
+			<div class="LeftAccountsContainer">
+				<div class="RightAccountsContainer">
+					<div class="MiddleAccountsContainer">
+						<div class="InstructionTitle"><strong>Try eXo Portal 2.0</strong> with following available user accounts:</div>
+						<div class="AccountsContainerDeco">
+							<div class="AccountBlock AdministratorUser">
+								<div class="AccountInfos">
+									<div class="AccountTitle">Administrator</div>
+									<div class="Username">Username:<span>root</span></div>
+									<div class="Passwords">Password:<span>exo</span></div>
+								</div>
+							</div>	
+							<div class="SeparatorLine"><span></span></div>
+							<div class="AccountBlock ManagerUser">
+								<div class="AccountInfos">
+									<div class="AccountTitle">Manager</div>
+									<div class="Username">Username:<span>john</span></div>
+									<div class="Passwords">Password:<span>exo</span></div>
+								</div>
+							</div>
+							<div class="SeparatorLine"><span></span></div>
+							<div class="AccountBlock NormalUser">
+								<div class="AccountInfos">
+									<div class="AccountTitle">User</div>
+									<div class="Username">Username:<span>marry</span></div>
+									<div class="Passwords">Password:<span>exo</span></div>
+								</div>
+							</div>
+							<div class="SeparatorLine"><span></span></div>
+							<div class="AccountBlock DemoUser" style="margin-right: 0px;">
+								<div class="AccountInfos">
+									<div class="AccountTitle">Demo</div>
+									<div class="Username">Username:<span>demo</span></div>
+									<div class="Passwords">Password:<span>exo</span></div>
+								</div>
+							</div>
+							<div style="clear: both"><span></span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 	</div>		
 </div>
