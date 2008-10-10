@@ -241,24 +241,20 @@ eXo.webui.UIDashboard = {
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardPortlet");
 		if(!uiDashboard) return;
 		uiDashboard.style.overflow = "hidden";
-		
-		if(!uiDashboard.parentNode.style.height) uiDashboard.parentNode.style.height = "400px";
-
+		uiDashboard.parentNode.style.overflow = "hidden" ;
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
+		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
+		
+		if(!uiDashboard.parentNode.style.height || uiDashboard.parentNode.style.height == "auto")	{
+			uiDashboard.style.height = "400px" ;
+			if(eXo.core.Browser.isIE6()) dbContainer.style.width = "99%";
+		}
 
 		var gadgetControls = DOMUtil.findDescendantsByClass(uiDashboard, "div", "GadgetControl");
 		for(var j=0; j<gadgetControls.length; j++) {
 			eXo.webui.UIDashboard.init(gadgetControls[j], DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
 		}
-		
-		if(uiContainer == null) return;
-		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
 
-		if(!uiDashboard.parentNode.style.height || uiDashboard.parentNode.style.height == "auto")	{
-			dbContainer.style.height = "400px";
-			if(eXo.core.Browser.isIE6()) dbContainer.style.width = "99.5%";
-		}
-		
 		var colsContainer = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
 		var columns = DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
 		var colsSize = 0;

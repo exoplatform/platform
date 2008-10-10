@@ -25,7 +25,6 @@ import javax.portlet.PortletPreferences;
 
 import org.exoplatform.application.newregistry.Application;
 import org.exoplatform.application.newregistry.ApplicationRegistryService;
-import org.exoplatform.dashboard.webui.component.UIDashboardContainer;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIGadget;
@@ -82,6 +81,7 @@ public class UIGadgetEditMode extends UIForm {
         new ArrayList<SelectItemOption<String>>()) ;
     gadgetSelector.setRendered(false) ;
     addUIFormInput(gadgetSelector) ;
+    setActions(new String[]{"Save"}) ;
   }
 
   public static class SaveActionListener extends EventListener<UIGadgetEditMode> {
@@ -105,6 +105,7 @@ public class UIGadgetEditMode extends UIForm {
           new URL(url);
           pref.setValue("url", url);
           pref.store();
+          uiGadgetEditMode.getUIStringInput(FIELD_URL).setValue(url) ;
           pcontext.setApplicationMode(PortletMode.VIEW);
         } catch (Exception e) {
           uiGadgetEditMode.getUIStringInput(FIELD_URL).setValue(uiPortlet.getUrl());
@@ -133,6 +134,7 @@ public class UIGadgetEditMode extends UIForm {
         PortletPreferences pref = pcontext.getRequest().getPreferences();
         pref.setValue("url", uiGadget.getUrl()) ;
         pref.store() ;
+        uiGadgetEditMode.getUIStringInput(FIELD_URL).setValue(uiGadget.getUrl()) ;
         pcontext.setApplicationMode(PortletMode.VIEW) ;
       }
     }

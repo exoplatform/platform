@@ -241,12 +241,13 @@
 
 .DashboardContainer .UIColumn {
 	float: left;
-	width: 320px;
+	width: 325px;
 	padding: 2px 0px;
 }
 
 .UIDashboardContainer .UIGadget {
 	margin: 0px 5px 10px 5px;
+	width: 320px;
 }
 .UIDashboardContainer .UIGadget .GadgetMenuBar{
 	text-align:left;

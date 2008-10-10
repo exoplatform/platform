@@ -129,7 +129,6 @@ public class UIDashboardPortlet extends UIPortletApplication {
       UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class); 
       uiDashboardContainer.addUIGadget(uiGadget, col, row);
       uiDashboardContainer.save();
-      
     }
   }
 
@@ -169,6 +168,7 @@ public class UIDashboardPortlet extends UIPortletApplication {
       UIGadget uiGadget = uiPortlet.getChild(UIDashboardContainer.class).getUIGadget(objectId) ;
       uiGadget.getProperties().setProperty("minimized", minimized) ;
       uiPortlet.getChild(UIDashboardContainer.class).save() ;
+      context.addUIComponentToUpdateByAjax(uiPortlet.getChild(UIDashboardContainer.class)) ;
     }
   }
 }

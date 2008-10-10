@@ -1,5 +1,6 @@
 <%
 	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.portal.webui.application.UIGadget;
 	
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();

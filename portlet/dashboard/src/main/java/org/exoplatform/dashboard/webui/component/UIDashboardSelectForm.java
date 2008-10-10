@@ -46,7 +46,6 @@ public class UIDashboardSelectForm extends UIForm {
 
   public final List<ApplicationCategory> getCategories() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
-    service.importExoGadgets();
 
     String remoteUser = ((WebuiRequestContext) WebuiRequestContext.getCurrentInstance())
         .getRemoteUser();

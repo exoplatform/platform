@@ -39,12 +39,10 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
-import org.exoplatform.webui.form.validator.MandatoryValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -76,6 +74,8 @@ import org.exoplatform.webui.form.validator.MandatoryValidator;
 public class UII18nPortlet extends UIPortletApplication {
   private static String[] RESOURCE_LIST = {"name", "language"} ;
   private static String[] RESOURCE_ACTION = {"View", "Delete"} ;
+  
+  private Query lastQuery_ ;
 
   public UII18nPortlet() throws Exception {
     
@@ -105,12 +105,19 @@ public class UII18nPortlet extends UIPortletApplication {
     update(null,null);
   } 
   
+  public Query getLastQuery() { return lastQuery_; }
+  
   static public class DeleteActionListener extends EventListener<UII18nPortlet> {
     public void execute(Event<UII18nPortlet> event) throws Exception {
-      ResourceBundleService serv = event.getSource().getApplicationComponent(ResourceBundleService.class);
-      serv.removeResourceBundleData(event.getRequestContext().getRequestParameter(OBJECTID)) ;
       UII18nPortlet uiI18n = event.getSource() ;
-      uiI18n.update(null, null) ;
+      UIPageIterator pageIterator = uiI18n.getChild(UIGrid.class).getUIPageIterator() ;
+      int currentPage = pageIterator.getCurrentPage() ;
+      ResourceBundleService serv = uiI18n.getApplicationComponent(ResourceBundleService.class);
+      serv.removeResourceBundleData(event.getRequestContext().getRequestParameter(OBJECTID)) ;
+      Query lastQuery = uiI18n.getLastQuery() ;
+      uiI18n.update(lastQuery.getName(), lastQuery.getLanguage()) ;
+      while(currentPage > pageIterator.getAvailablePage()) currentPage-- ;
+      pageIterator.setCurrentPage(currentPage) ;
     }
   }
   
@@ -163,7 +170,8 @@ public class UII18nPortlet extends UIPortletApplication {
       if(name.charAt(name.length()-1)!='*') name += "*" ;
     }
     ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
-    PageList pageList = resBundleServ.findResourceDescriptions(new Query(name,lang)) ;
+    lastQuery_ = new Query(name, lang) ;
+    PageList pageList = resBundleServ.findResourceDescriptions(lastQuery_) ;
     pageList.setPageSize(10) ;
     getChild(UIGrid.class).getUIPageIterator().setPageList(pageList) ;
     UIPageIterator pageIterator = getChild(UIGrid.class).getUIPageIterator();

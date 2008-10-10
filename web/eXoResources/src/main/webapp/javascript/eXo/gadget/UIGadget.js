@@ -48,7 +48,7 @@ eXo.gadget.UIGadget = {
 		} else{
 			var gadgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetControl");
 			gadgetControl.style.display = "block" ;
-			eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "MinimizeGadget").style.display = "block" ;
+			eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "MinimizeAction").style.display = "block" ;
 			eXo.core.DOMUtil.findFirstDescendantByClass(gadgetControl, "div", "GadgetTitle").style.display = "block" ;
 		}
 		

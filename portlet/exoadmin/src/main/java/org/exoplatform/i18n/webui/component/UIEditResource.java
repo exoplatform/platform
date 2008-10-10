@@ -21,7 +21,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.services.resources.Query;
@@ -32,7 +31,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIGrid;
-import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -43,9 +41,7 @@ import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
-import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.form.validator.ResourceValidator;
-import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -109,7 +105,8 @@ public class UIEditResource extends UIForm {
       serv.saveResourceBundle(resData) ;
       
       // update when create new resource
-      uiI18n.update(null, null) ;
+      if(uiEditResource.isSave()) uiI18n.update(null, null) ;
+      else uiI18n.update(uiI18n.getLastQuery().getName(), uiI18n.getLastQuery().getLanguage()) ;
       uiI18n.getChild(UIGrid.class).setRendered(true) ;
       UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
       uiSearch.setRendered(true) ;

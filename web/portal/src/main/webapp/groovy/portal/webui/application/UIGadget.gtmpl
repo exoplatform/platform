@@ -20,7 +20,8 @@
 				<div class="CenterControlBar">
 					<div class="GadgetTitle" style="display: none"><%= uicomponent.getApplicationName() %></div>
 			  	<div class="CloseGadget IconControl" onclick="eXo.gadget.UIGadget.deleteGadget(this)" onmousedown="event.cancelBubble=true;"><span></span></div>
-					<div class="MinimizeGadget IconControl" onclick="eXo.gadget.UIGadget.minimizeGadget(this)" onmousedown="event.cancelBubble=true;" style="display:none;"><span></span></div>
+					<div class="<%=Boolean.parseBoolean(uicomponent.getProperties().get("minimized")) ? "RestoreGadget": "MinimizeGadget";%> MinimizeAction IconControl" 
+									onclick="eXo.gadget.UIGadget.minimizeGadget(this)" onmousedown="event.cancelBubble=true;" style="display:none;"><span></span></div>
 			    <div class="EditGadget IconControl" onclick="eXo.gadget.UIGadget.editGadget('$id')" onmousedown="event.cancelBubble=true;"><span></span></div>
 			  	<div class="GadgetDragHandleArea"><span></span></div>
 				 	<div style="clear: both;"><span></span></div>
