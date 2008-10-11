@@ -5,11 +5,6 @@
     <type>org.exoplatform.application.registry.jcr.ApplicationRegistryServiceImpl</type>
   </component>
   
-  <component>
-    <key>org.exoplatform.application.newregistry.ApplicationRegistryService</key>
-    <type>org.exoplatform.application.newregistry.jcr.ApplicationRegistryServiceImpl</type>
-  </component>
-  
 	<component>
 		<key>org.exoplatform.web.application.gadget.GadgetStorage</key>
 		<type>org.exoplatform.application.gadget.jcr.GadgetStorageImpl</type>

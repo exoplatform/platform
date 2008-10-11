@@ -19,8 +19,8 @@ package org.exoplatform.applicationregistry.webui.component;
 import java.util.ArrayList;
 import java.util.Date;
 
-import org.exoplatform.application.newregistry.ApplicationCategory;
-import org.exoplatform.application.newregistry.ApplicationRegistryService;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;

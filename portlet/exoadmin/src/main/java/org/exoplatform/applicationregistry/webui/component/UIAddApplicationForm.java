@@ -24,9 +24,9 @@ import java.util.Map.Entry;
 
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
-import org.exoplatform.application.newregistry.Application;
-import org.exoplatform.application.newregistry.ApplicationCategory;
-import org.exoplatform.application.newregistry.ApplicationRegistryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.applicationregistry.webui.Util;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;

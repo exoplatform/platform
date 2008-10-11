@@ -18,8 +18,8 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import java.util.Calendar;
 
-import org.exoplatform.application.newregistry.Application;
-import org.exoplatform.application.newregistry.ApplicationRegistryService;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
