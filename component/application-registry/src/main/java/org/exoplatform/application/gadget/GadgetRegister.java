@@ -69,6 +69,7 @@ public class GadgetRegister implements ServletContextListener {
       for(int i=0; i<nodeList.getLength(); i++) {
         Element gadgetElement = (Element) nodeList.item(i);
         name = gadgetElement.getAttribute("name");
+        if(gadgetService.getGadget(name) != null) continue;
         NodeList nodeChild = gadgetElement.getChildNodes() ;
         for(int j=0; j<nodeChild.getLength(); j++) {
           Node node = nodeChild.item(j) ;
