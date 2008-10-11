@@ -43,27 +43,6 @@ SkinService.addSkin(
 ) ;
  
 SkinService.addSkin(
-    "exoadmin/PortletRegistryPortlet",
-    "Default",
-    "/exoadmin/skin/portletregistry/webui/component/UIPortletRegistryPortlet/DefaultStylesheet.css",
-    ServletContext
-) ;
-
-SkinService.addSkin(
-    "exoadmin/PortletRegistryPortlet",
-    "Vista",
-    "/exoadmin/skin/portletregistry/webui/component/UIPortletRegistryPortlet/VistaStylesheet.css",
-    ServletContext
-) ;
- 
-SkinService.addSkin(
-    "exoadmin/PortletRegistryPortlet",
-    "Mac",
-    "/exoadmin/skin/portletregistry/webui/component/UIPortletRegistryPortlet/MacStylesheet.css",
-    ServletContext
-) ;
-
-SkinService.addSkin(
     "exoadmin/I18nPortlet",
     "Default",
     "/exoadmin/skin/i18n/webui/component/UII18nPortlet/DefaultStylesheet.css",
