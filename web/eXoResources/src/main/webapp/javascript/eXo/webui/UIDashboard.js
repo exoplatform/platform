@@ -243,7 +243,7 @@ eXo.webui.UIDashboard = {
 		
 		var viewLayoutTag = DOMUtil.findAncestorByClass(uiWindow, "VIEW-PORTLET");
 		var wasHiddenView = false;
-		if(viewLayoutTag.style.display == "none") {
+		if(viewLayoutTag && viewLayoutTag.style.display == "none") {
 			wasHiddenView = true;
 			viewLayoutTag.style.display = "block" ;
 		}
@@ -269,7 +269,7 @@ eXo.webui.UIDashboard = {
 		}
 		colsContainer.style.width = colsSize*320 + 20 + "px";
 		eXo.webui.UIDashboard.initSelectForm(uiDashboard);
-		if(wasHiddenView) {
+		if(viewLayoutTag && wasHiddenView) {
 			viewLayoutTag.style.display = "none" ;
 		}
 	},
