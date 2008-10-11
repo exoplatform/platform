@@ -32,6 +32,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.UIWizard;
@@ -60,7 +61,8 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
       template = "system:/groovy/portal/webui/page/UIWizardPageSetInfo.gtmpl",
       events = {
         @EventConfig(listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE),
-        @EventConfig(listeners = UIWizardPageSetInfo.SwitchPublicationDateActionListener.class, phase=Phase.DECODE)
+        @EventConfig(listeners = UIWizardPageSetInfo.SwitchPublicationDateActionListener.class, phase=Phase.DECODE),
+        @EventConfig(listeners = UIWizardPageSetInfo.SelectNavigationActionListener.class)
       }
   )
 })
@@ -168,7 +170,7 @@ public class UIWizardPageSetInfo extends UIForm {
   }
 
   public void processRender(WebuiRequestContext context) throws Exception {
-//    if(isEditMode && getChild(UIPageNodeSelector.class).getSelectedPageNode() == null) reset() ;
+    if(isEditMode && getChild(UIPageNodeSelector.class).getSelectedPageNode() == null) reset() ;
     super.processRender(context) ;
   }
 
@@ -189,10 +191,6 @@ public class UIWizardPageSetInfo extends UIForm {
   
   public void reset() {
     super.reset();
-    
-    getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).setChecked(false) ;
-    getUIFormDateTimeInput(START_PUBLICATION_DATE).setRendered(false);
-    getUIFormDateTimeInput(END_PUBLICATION_DATE).setRendered(false);
   }
 
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
@@ -220,6 +218,7 @@ public class UIWizardPageSetInfo extends UIForm {
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode() ;
 
       if(pageNode == null && uiForm.isFirstTime()) {
+        uiForm.setShowPublicationDate(false) ;
         uiForm.setFirstTime(false) ;
         UIPortal uiPortal = Util.getUIPortal() ;
         uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId()) ;
@@ -227,7 +226,10 @@ public class UIWizardPageSetInfo extends UIForm {
         pageNode = uiPageNodeSelector.getSelectedPageNode() ;
       }
 
-      if(pageNode == null) return ;
+      if(pageNode == null) {
+        uiForm.setShowPublicationDate(false) ;
+        return ;
+      }
       UserPortalConfigService configService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
       String accessUser = event.getRequestContext().getRemoteUser() ;
       Page page = null ;
@@ -236,6 +238,7 @@ public class UIWizardPageSetInfo extends UIForm {
         uiPortalApp.addMessage(new ApplicationMessage("UIWizardPageSetInfo.msg.null", null)) ;
         event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiForm.reset() ;
+        uiForm.setShowPublicationDate(false) ;
         return ;
       }
       uiForm.setPageNode(pageNode) ;
@@ -252,5 +255,16 @@ public class UIWizardPageSetInfo extends UIForm {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWizard) ;
     }
     
+  }
+  
+  static public class SelectNavigationActionListener extends EventListener<UIDropDownControl> {
+    public void execute(Event<UIDropDownControl> event) throws Exception {
+      UIDropDownControl uiDropDownControl = event.getSource() ;
+      UIWizardPageSetInfo uiForm = uiDropDownControl.getAncestorOfType(UIWizardPageSetInfo.class) ;
+      if(uiForm.isEditMode()) {
+        uiForm.reset() ;
+        uiForm.setShowPublicationDate(false) ;
+      }
+    }
   }
 }
