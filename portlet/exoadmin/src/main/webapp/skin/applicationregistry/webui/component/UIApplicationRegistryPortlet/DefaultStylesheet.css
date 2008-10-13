@@ -130,7 +130,7 @@
 	color: #058ee6;
 }
 
-.UIApplicationRegistryPortlet .CategoryContent .SelectedItem a.TabLabel {
+.UIApplicationRegistryPortlet .CategoryContent .SelectedItem .TabLabel {
 	color: #058ee6;
 }
 
@@ -155,6 +155,14 @@
 	padding-left: 3px;
 }
 
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent:hover {
+	background-color: #9d9d9d;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent:hover a {
+	color: white;
+}
+
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs {
 	margin: 1px 1px 1px 0px;
 }
@@ -163,7 +171,7 @@
 	color: #058ee6;
 }
 
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .TabLabel:hover {
+*html .UIApplicationRegistryPortlet .UIVerticalSlideTabs .TabLabel:hover {
 	color: #058ee6;
 }
 
@@ -195,6 +203,8 @@
 	display: block;
 	float: left;
 	cursor: pointer;
+	width: 160px;
+	overflow: hidden;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
@@ -202,7 +212,7 @@
 	margin: 0px;
 }
 
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .SelectedItem .ItemLabel {
+.UIApplicationRegistryPortlet .CategoryContent .UIVTabContent .SelectedItem .ItemLabel {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -196px;
 	display: block;
 	color: #058ee6;
@@ -210,9 +220,6 @@
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ControlIcon {
 	float: right;
-}
-
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
 }
 
 /**************************** AppWorkingArea *****************************/
@@ -245,6 +252,11 @@
 .UIApplicationRegistryPortlet .UIBreadcumb .ControlIcon {
 	float: right;
 	margin: 0px 5px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumb .CopyIcon {
+	background: url('DefaultSkin/background/CopyIcon.gif') no-repeat;
+	width: 16px; height: 16px;
 }
 
 .UIApplicationRegistryPortlet .ApplicationContainer {
@@ -346,6 +358,11 @@
 }
 
 /******************************** UIGadgetManagement ******************************/
+.UIApplicationRegistryPortlet .UIGadgetManagement .PortletIcons {
+	width: 150px; height: 120px;
+	padding-top: 20px;
+}
+
 .UIGadgetManagement .url .UIFormInputSet {
 	padding: 0px;
 	width: auto;

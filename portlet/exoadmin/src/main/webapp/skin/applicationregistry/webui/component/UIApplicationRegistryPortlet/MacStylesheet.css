@@ -1,4 +1,4 @@
-/**
+e/**
  * Created by The eXo Platform SARL
  * Modifile : Nguyen Ngoc Thuy
  * May 8, 2007
@@ -345,6 +345,11 @@
 }
 
 /******************************** UIGadgetManagement ******************************/
+.UIApplicationRegistryPortlet .UIGadgetManagement .PortletIcons {
+	width: 150px; height: 120px;
+	padding-top: 20px;
+}
+
 .UIGadgetManagement .url .UIFormInputSet {
 	padding: 0px;
 	width: auto;

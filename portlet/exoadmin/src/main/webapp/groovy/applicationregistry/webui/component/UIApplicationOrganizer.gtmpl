@@ -37,11 +37,11 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 						    }
 						%>			   	    	
 	   	    		<div class="UIVTab VTabSimpleStyle">
-					      <div class="$cTab">
+					      <div class="$cTab" onclick="$clickEvt;">
 					        <div class="TabLeft">
 					          <div class="TabRight">
 					            <div class="TabRepeat">
-									      <a class="TabLabel" onclick="$clickEvt;">
+									      <a class="TabLabel">
 									      	<%= displayName %>
 									      </a>
 									      <% if(isSelected) { %>

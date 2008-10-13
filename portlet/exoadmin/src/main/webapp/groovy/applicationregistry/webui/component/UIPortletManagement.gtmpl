@@ -22,7 +22,7 @@
 								  <% for(portlet in portlets) {
 								  	 		String id = portlet.getId();
 								  %>
-										<div class="ItemContent SelectedItem">
+										<div class="ItemContent <%=portlet.equals(uicomponent.getSelectedPortlet())? "SelectedItem" : "NormalItem"%>">
 											<a href="#" class="ItemLabel" onclick="<%= uicomponent.event("SelectPortlet", id) %>"><%= portlet.getDisplayName() %></a>
 						          <div style="clear: both"><span></span></div>
 										</div>

@@ -2,28 +2,32 @@
 	def gadget = uicomponent.getGadget() ;
 %>
 <div class="UIGadgetInfo" id="$uicomponent.id">
-	<div class="UIBreadcumb"><%=_ctx.appRes("UIGadgetInfo.title.gadgetDetails")%></div>
-	
- 		<div class="Application">
-  		<div class="PortletIcons">
-  				<img src="<%= gadget.getThumbnail() %>"/>
+	<div class="UIBreadcumb">
+		<div class="LeftBlock"><%=_ctx.appRes("UIGadgetInfo.title.gadgetDetails")%></div>
+		<div class="CopyIcon ControlIcon"><span></span></div>
+		<div class="EditIcon ControlIcon"><span></span></div>
+		<div class="Refresh16x16Icon ControlIcon"><span></span></div>
+		<div style="clear: both"><span></span></div>
+	</div>
+ 	<div class="Application" style="float: left;">
+  	<div class="PortletIcons">
+  			<img src="<%= gadget.getThumbnail() %>"/>
+  	</div>
+  	<div class="ApplicationContent">
+  	  <div class="ApplicationContentLabel">
+  	    <div class="ContentLabel">
+  	      <span class="LeftLabel"><%=_ctx.appRes("Application.label.name")%></span>
+  	      <span class="RightLabel"><%= gadget.getTitle() %></span>
+  	    </div>
+  	    <div class="ContentLabel">
+					<span class="LeftLabel"><%=_ctx.appRes("Application.label.description")%></span>
+					<span class="RightLabel"><%= gadget.getDescription() %></span>
+  			</div>
+  	    <div class="ContentLabel">
+					<span class="LeftLabel"><%=_ctx.appRes("Application.label.url")%></span>
+					<span class="RightLabel"><%= gadget.getReferenceUrl() %></span>
+  			</div>
   		</div>
-  		<div class="ApplicationContent">
-  		  <div class="ApplicationContentLabel">
-  		    <div class="ContentLabel">
-  		      <span class="LeftLabel"><%=_ctx.appRes("Application.label.name")%></span>
-  		      <span class="RightLabel"><%= gadget.getTitle() %></span>
-  		    </div>
-  		    <div class="ContentLabel">
-						<span class="LeftLabel"><%=_ctx.appRes("Application.label.description")%></span>
-						<span class="RightLabel"><%= gadget.getDescription() %></span>
-      		</div>
-  		    <div class="ContentLabel">
-						<span class="LeftLabel"><%=_ctx.appRes("Application.label.url")%></span>
-						<span class="RightLabel"><%= gadget.getReferenceUrl() %></span>
-      		</div>
-  		  </div>
-  		</div>
-		</div>
-	
+  	</div>
+	</div>
 </div>

@@ -114,43 +114,20 @@
 	text-transform: uppercase;
 }
 
-.UIApplicationRegistryPortlet .CategoryContent .ListContent {
-	border: 1px solid #d7d7d7;
-	margin: 5px;
-}
-
 .UIApplicationRegistryPortlet .CategoryContent .ItemContent {
 	line-height: 26px;
 	height: 26px;
 	background: url('DefaultSkin/background/AppRegistryControl.gif') no-repeat -453px bottom;
-	padding: 0px 5px;
-}
-
-.UIApplicationRegistryPortlet .CategoryContent a.TabLabel:hover {
-	color: #058ee6;
-}
-
-.UIApplicationRegistryPortlet .CategoryContent .SelectedItem a.TabLabel {
-	color: #058ee6;
-}
-
-.UIApplicationRegistryPortlet .CategoryContent a.TabLabel {
-	display: block;
-	float: left;
-	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
-	padding-left: 20px;
+	padding: 2px 5px 0px;
 	cursor: pointer;
 }
 
-.UIApplicationRegistryPortlet .CategoryContent .ControlIcon {
-	display: block;
-	float: right;
-	margin: 3px 3px 0px;
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent:hover {
+	background-color: #9d9d9d;
 }
 
-.UIApplicationRegistryPortlet .ListItem .SelectedItem a.TabLabel {
-	font-weight: bold;
-	padding-left: 3px;
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent:hover a {
+	color: white;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs {
@@ -161,20 +138,14 @@
 	color: #058ee6;
 }
 
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .TabLabel:hover {
-	color: #058ee6;
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab .TabLabel {
+	width: 100px;
+	overflow: hidden;
 }
 
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab a.TabLabel {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;
-	padding: 0px 0px 0px 18px;
-	display: block;
-}
-
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab a.TabLabel {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat left center;
-	padding: 0px 0px 0px 18px;
-	display: block;
+.UIApplicationRegistryPortlet .UIVerticalSlideTabs .TabLabel {
+	width: 160px;
+	overflow: hidden;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
@@ -191,13 +162,14 @@
 	display: block;
 	float: left;
 	cursor: pointer;
+	width: 144px; overflow: hidden;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
 	padding: 5px;
 }
 
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .SelectedItem .ItemLabel {
+.UIApplicationRegistryPortlet .UIVTabContent .SelectedItem .ItemLabel {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -196px;
 	display: block;
 	color: #058ee6;
@@ -217,7 +189,7 @@
 .UIApplicationRegistryPortlet .UIBreadcumb {
 	padding: 0px 10px;
 	border-bottom: 1px solid #b7b7b7;
-	height: 19px;
+	height: 22px;
 	color: #4b4b4b;
 	font-weight: bold;
 }
@@ -342,6 +314,11 @@
 	border: none;
 }
 /******************************** UIGadgetManagement ******************************/
+.UIApplicationRegistryPortlet .UIGadgetManagement .PortletIcons {
+	width: 150px; height: 120px;
+	padding-top: 20px;
+}
+
 .UIGadgetManagement .url .UIFormInputSet {
 	padding: 0px;
 	width: auto;
@@ -353,4 +330,32 @@
 
 .UIGadgetManagement .url table td.FieldComponent {
 	padding: 0px;
+}
+
+.UIGadgetManagement .CategoryContent .ListContent {
+	border: 1px solid #d7d7d7;
+	margin: 5px;
+}
+
+.UIGadgetManagement .CategoryContent .SelectedItem .TabLabel {
+	color: #058ee6;
+}
+
+.UIGadgetManagement .CategoryContent a.TabLabel {
+	display: block;
+	float: left;
+	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
+	padding-left: 20px;
+	cursor: pointer;
+}
+
+.UIGadgetManagement .CategoryContent .ControlIcon {
+	display: block;
+	float: right;
+	margin: 3px 3px 0px;
+}
+
+.UIGadgetManagement .ListItem .SelectedItem a.TabLabel {
+	font-weight: bold;
+	padding-left: 3px;
 }

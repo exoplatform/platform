@@ -94,6 +94,11 @@
   width: 16px;  height: 16px;
 }
 
+.Copy16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/CopyIcon.gif') ;
+}
+
 .CloseFolder16x16Icon {
 	width: 16px;	height: 16px;
 	background: url('icons/CloseFolder.gif') no-repeat;
@@ -118,6 +123,7 @@
 	width: 16px;	height: 16px;
   background: url('icons/DeleteIcon.png') no-repeat;
 }
+
 .DustBin16x16Icon {
 	width: 17px;	height: 18px;
   background: url('icons/DeleteIcon.png') no-repeat center left;   
@@ -131,6 +137,11 @@
 .Lock16x16Icon {
 	width: 16px;  height: 16px;
   background: url('icons/Lock.gif') no-repeat;
+}
+
+.CopyIcon {
+	width: 16px;  height: 16px;
+  background: url('icons/Copy.gif') no-repeat;
 }
 
 .PastePalate16x16Icon {
@@ -152,6 +163,7 @@
   width: 16px;  height: 16px;
   background: url('icons/LoadingInfo.gif') no-repeat;
 }
+
 .BlueArrowFloppy16x16Icon {
   background: url('icons/BlueArrowBlackFloppy.gif') no-repeat;
   width: 16px;  height: 16px;
@@ -223,7 +235,7 @@
 }
 
 .Refresh16x16Icon {
-  width: 16px;  height: 16px;
+  width: 18px;  height: 18px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/RefreshIcon.gif');
 }
 

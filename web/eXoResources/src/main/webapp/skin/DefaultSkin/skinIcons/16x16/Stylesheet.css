@@ -122,7 +122,7 @@
 }
 
 .Refresh16x16Icon {
-  width: 16px ;  height: 16px ;
+  width: 18px ;  height: 18px ;
   background: url('icons/RefreshIcon.gif') ;
 }
 
@@ -134,6 +134,11 @@
 .Back16x16Icon {
   width: 16px ;  height: 16px ;
   background: url('icons/BlueBackArrow.gif') ;
+}
+
+.Copy16x16Icon {
+  width: 16px ;  height: 16px ;
+  background: url('icons/CopyIcon.gif') ;
 }
 
 .CloseFolder16x16Icon {

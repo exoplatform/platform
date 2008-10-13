@@ -121,11 +121,6 @@
   width: 16px;  height: 16px;
 }
 
-.Refresh16x16Icon {
-  background: url('icons/Refresh.gif') no-repeat;
-  width: 16px; height: 16px;
-}
-
 .Update16x16Icon {
   background: url('icons/Refresh.gif') no-repeat;
   width: 16px; height: 16px;
@@ -208,8 +203,13 @@
 }
 
 .Refresh16x16Icon {
-  width: 24px;  height: 24px;
+  width: 24px;  height: 22px;
   background: url('icons/Refresh.png');
+}
+
+.CopyIcon {
+  width: 19px ;  height: 19px ;
+  background: url('icons/CopyIcon.png') ;
 }
 
 .LoadingInfo16x16Icon {
