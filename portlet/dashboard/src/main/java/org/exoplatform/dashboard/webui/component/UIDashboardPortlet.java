@@ -59,8 +59,21 @@ public class UIDashboardPortlet extends UIPortletApplication implements Dashboar
     owner = pref.getValue(OWNER, null);
   }
 
-  public boolean isPrivate() {
-    return isPrivate;
+  public boolean canEdit() {
+
+    if ("__CURRENT_USER__".equals(owner)) {
+      return true;
+    }
+
+    PortletRequestContext context = (PortletRequestContext) WebuiRequestContext
+	    .getCurrentInstance();
+    context.getRemoteUser();
+    if (isPrivate) {
+      if (context.getRemoteUser().equals(owner))
+        return true;
+      return false;
+    }
+    return true;
   }
 
   public String getDashboardOwner() {

@@ -41,7 +41,7 @@ public class UIDashboardSelectForm extends UIForm {
 
   private Hashtable<ApplicationCategory, List<Application>> gadgets;
 
-  private boolean isShowSelectForm = true;
+  private boolean isShowSelectForm = false;
 
   public UIDashboardSelectForm() throws Exception { }
 

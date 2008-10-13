@@ -52,6 +52,7 @@ public class Param {
       if(object != null)  return (T)object ;
       ResourceResolver resolver = context.getResourceResolver(value) ;
       InputStream is = resolver.getInputStream(value) ;
+      //TODO if is == null throw an exception saying the it's impossible to find the file
       Binding binding = new Binding();
       GroovyShell shell = new GroovyShell(Thread.currentThread().getContextClassLoader(), binding);
       object = shell.evaluate(is);

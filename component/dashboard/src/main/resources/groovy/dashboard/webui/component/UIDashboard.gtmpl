@@ -16,9 +16,9 @@
 
 %>
 <div id="$uicomponent.id" class="UIDashboard">
-			<% 
-					uicomponent.renderChild(UIDashboardSelectForm.class);
-					uicomponent.renderChild(UIDashboardContainer.class);
+			<%
+			  uicomponent.renderChild(UIDashboardSelectForm.class);
+			  uicomponent.renderChild(UIDashboardContainer.class);
 			 %>
 			<div style="clear:left;"><span></span></div>
 			<% if(popupMsgs != null) popupMsgs.processRender(rcontext); %>

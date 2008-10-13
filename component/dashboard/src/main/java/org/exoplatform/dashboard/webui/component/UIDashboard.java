@@ -21,6 +21,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPopupMessages;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIComponent;
 
 import javax.portlet.PortletPreferences;
 
@@ -49,4 +50,10 @@ public class UIDashboard extends UIContainer {
   public void setColumns(int num) throws Exception {
     getChild(UIDashboardContainer.class).setColumns(num);
   }
+
+  public boolean canEdit() {
+    DashboardParent parent = (DashboardParent)getParent();
+    return parent.canEdit();
+  }
+  
 }

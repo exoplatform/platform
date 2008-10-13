@@ -397,6 +397,10 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
    */
   public void save() throws Exception {
     UIContainer uiRoot = findFirstComponentOfType(UIContainer.class);
+
+    if (!((UIDashboard)getParent()).canEdit())
+      return;
+
     PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
 
     DashboardParent parent = (DashboardParent)((UIComponent)getParent()).getParent();
@@ -407,6 +411,8 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     public static class SetShowSelectFormActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
       public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
         org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
+        if (!((UIDashboard)uiPortlet).canEdit())
+          return;
         UIDashboardSelectForm uiForm = uiPortlet.getChild(UIDashboardSelectForm.class);
         PortletRequestContext pcontext = (PortletRequestContext) event.getRequestContext();
         boolean isShow = Boolean.parseBoolean(pcontext.getRequestParameter("isShow"));
@@ -419,6 +425,8 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
       public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
         WebuiRequestContext context = event.getRequestContext();
         org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
+        if (!((UIDashboard)uiPortlet).canEdit())
+          return;
         int col = Integer.parseInt(context.getRequestParameter(COLINDEX));
         int row = Integer.parseInt(context.getRequestParameter(ROWINDEX));
         String objectId = context.getRequestParameter(UIComponent.OBJECTID);
@@ -448,6 +456,8 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
       public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
         WebuiRequestContext context = event.getRequestContext();
         org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
+        if (!((UIDashboard)uiPortlet).canEdit())
+          return;
         UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
         int col = Integer.parseInt(context.getRequestParameter(COLINDEX));
         int row = Integer.parseInt(context.getRequestParameter(ROWINDEX));
@@ -462,6 +472,8 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
       public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
         WebuiRequestContext context = event.getRequestContext();
         org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
+        if (!((UIDashboard)uiPortlet).canEdit())
+          return;
         String objectId = context.getRequestParameter(OBJECTID);
 
         UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);

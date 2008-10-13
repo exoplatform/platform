@@ -21,5 +21,5 @@ public interface DashboardParent {
     String OWNER = "owner";
 
     String getDashboardOwner();
-    boolean isPrivate();
+    boolean canEdit();
 }

@@ -6,7 +6,7 @@
 %>
 <div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="DashboardContainer UIResizableBlock" id="DashboardContainer">
-		
+		<% if (uicomponent.getParent().canEdit()) { %>
 		<div class="ContainerControlBarL" style="visibility: <%= uiSelectForm.isShowSelectForm()? "hidden" : "visible"; %>;">
 			<div class="ContainerControlBarR">
 				<div class="ContainerControlBarM">
@@ -17,8 +17,9 @@
 			</div>
 		</div>
 		
-		<% 
-			uicomponent.renderChildren() ;
+		<%
+		   }
+	       uicomponent.renderChildren() ;
 		%>
 		
 	</div>
