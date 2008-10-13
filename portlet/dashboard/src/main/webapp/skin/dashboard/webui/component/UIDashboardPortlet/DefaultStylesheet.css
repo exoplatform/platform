@@ -1,14 +1,14 @@
-.UIWindow .UIDashboardPortlet {
+.UIWindow .UIDashboard {
 	border: none;
 	margin: 0px;
 }
 
-.UIDashboardPortlet {
+.UIDashboard {
 	border: 1px solid #b7b7b7;
 	margin: 5px;
 }
 
-.UIDashboardPortlet .GadgetTitle {
+.UIDashboard .GadgetTitle {
 	float: left;
 	padding: 0px 5px;
 	color: #5b5b5b;
@@ -16,7 +16,7 @@
 	cursor: move;
 }
 
-.UIDashboardPortlet .UIDashboardEditForm {
+.UIDashboard .UIDashboardEditForm {
 	background: white;
 	padding: 10px;
 }
@@ -150,54 +150,54 @@
 	padding: 0px 5px;
 }
 
-.UIDashboardPortlet .UIDashboardSelectForm .GadgetTitle {
+.UIDashboard .UIDashboardSelectForm .GadgetTitle {
 	width: 150px;	
 	float: none;
 }
 
 /*----------------------UIGadgetsContainer-------------------*/
 
-.UIDashboardPortlet .UIGadget .GadgetControl {
+.UIDashboard .UIGadget .GadgetControl {
 	float: none;
 	margin: auto;
 	height: auto; width: auto;
 }
 
-.UIDashboardPortlet .UIGadget .GadgetControl .LeftControlBar {
+.UIDashboard .UIGadget .GadgetControl .LeftControlBar {
 	background: url('background/Dashboard.gif') no-repeat left -51px;
 	padding-left: 3px;
 }
 
-.UIDashboardPortlet .UIGadget .GadgetControl .RightControlBar {
+.UIDashboard .UIGadget .GadgetControl .RightControlBar {
 	background: url('background/Dashboard.gif') no-repeat right -51px;
 	padding-right: 3px;
 }
 
-.UIDashboardPortlet .UIGadget .GadgetControl .CenterControlBar {
+.UIDashboard .UIGadget .GadgetControl .CenterControlBar {
 	background: url('background/Dashboard.gif') repeat-x center -73px;
 	height: 22px;
 	line-height: 22px;
 }
 
-.UIDashboardPortlet .UIGadget .GadgetControl .GadgetDragHandleArea {
+.UIDashboard .UIGadget .GadgetControl .GadgetDragHandleArea {
 	display: none;
 }	
 
-.UIDashboardPortlet .UIGadget .TLGadget {
+.UIDashboard .UIGadget .TLGadget {
 	display: none;
 }
 
-.UIDashboardPortlet .UIGadget .MLGadget {
+.UIDashboard .UIGadget .MLGadget {
 	background: none;
 	border: 1px solid #81a7c6;
 	border-top: none;
 }
 
-.UIDashboardPortlet .UIGadget .MRGadget {
+.UIDashboard .UIGadget .MRGadget {
 	background: none;
 }
 
-.UIDashboardPortlet .UIGadget .BLGadget {
+.UIDashboard .UIGadget .BLGadget {
 	display: none;
 }
 
@@ -205,7 +205,7 @@
 	background: white;
 }
 
-.UIDashboardPortlet .UIDashboardContainer .GadgetTitle {
+.UIDashboard .UIDashboardContainer .GadgetTitle {
 	width: 230px;	
 }
 
@@ -257,7 +257,7 @@
 	margin: 0px 5px 10px 5px;
 }
 
-.UIDashboardPortlet .Dragging {
+.UIDashboard .Dragging {
 	margin: 3px 0px 0px 3px;
 }
 

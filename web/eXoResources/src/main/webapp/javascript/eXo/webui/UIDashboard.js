@@ -237,30 +237,28 @@ eXo.webui.UIDashboard = {
 		if(!uiWindow) return;
 		
 		var DOMUtil = eXo.core.DOMUtil;
-		var uiDashboard = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboardPortlet");
-		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
-		if(uiContainer == null) return;
 		
-		var viewLayoutTag = DOMUtil.findAncestorByClass(uiWindow, "VIEW-PORTLET");
-		var wasHiddenView = false;
-		if(viewLayoutTag && viewLayoutTag.style.display == "none") {
-			wasHiddenView = true;
-			viewLayoutTag.style.display = "block" ;
-		}
-		
-		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
+		var uiDashboard = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboard");
+		if(!uiDashboard) return;
 		uiDashboard.style.overflow = "hidden";
-		uiDashboard.parentNode.style.overflow = "hidden" ;
-		if(!uiDashboard.parentNode.style.height || uiDashboard.parentNode.style.height == "auto")	{
-			uiDashboard.style.height = "400px" ;
-			if(eXo.core.Browser.isIE6()) dbContainer.style.width = "99%";
-		}
+		
+		if(!uiDashboard.parentNode.style.height) uiDashboard.parentNode.style.height = "400px";
+
+		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
 
 		var gadgetControls = DOMUtil.findDescendantsByClass(uiDashboard, "div", "GadgetControl");
 		for(var j=0; j<gadgetControls.length; j++) {
 			eXo.webui.UIDashboard.init(gadgetControls[j], DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
 		}
+		
+		if(uiContainer == null) return;
+		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
 
+		if(!uiDashboard.parentNode.style.height || uiDashboard.parentNode.style.height == "auto")	{
+			dbContainer.style.height = "400px";
+			if(eXo.core.Browser.isIE6()) dbContainer.style.width = "99.5%";
+		}
+		
 		var colsContainer = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
 		var columns = DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
 		var colsSize = 0;
@@ -269,9 +267,6 @@ eXo.webui.UIDashboard = {
 		}
 		colsContainer.style.width = colsSize*320 + 20 + "px";
 		eXo.webui.UIDashboard.initSelectForm(uiDashboard);
-		if(viewLayoutTag && wasHiddenView) {
-			viewLayoutTag.style.display = "none" ;
-		}
 	},
 	
 	initSelectForm : function(uiDashboard) {
@@ -288,7 +283,8 @@ eXo.webui.UIDashboard = {
 			middleItemCont.style.height = uiWindow.offsetHeight - DOMUtil.findPreviousElementByTagName(itemCont, "div").offsetHeight
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
-						- 5 + "px";
+						- parseInt(DOMUtil.getStyle(itemCont,"borderTopWidth"))
+						- parseInt(DOMUtil.getStyle(itemCont,"borderBottomWidth")) - 3 + "px";
 			uiContainer.style.marginLeft = "210px";
 		} else {
 			uiContainer.style.marginLeft = "0px";
@@ -326,7 +322,7 @@ eXo.webui.UIDashboard = {
 	
 	showHideSelectForm : function(comp) {
 		var DOMUtil = eXo.core.DOMUtil;
-		var uiDashboardPortlet = DOMUtil.findAncestorByClass(comp, "UIDashboardPortlet");
+		var uiDashboardPortlet = DOMUtil.findAncestorByClass(comp, "UIDashboard");
 		var portletFragment = DOMUtil.findAncestorById(comp, "PORTLET-FRAGMENT");
 		var uiSelectForm = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardSelectForm");
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
@@ -336,7 +332,7 @@ eXo.webui.UIDashboard = {
 		var addButton = DOMUtil.findFirstDescendantByClass(uiContainer, "div", "ContainerControlBarL");
 		
 		var url = eXo.env.server.portalBaseURL + '?portal:componentId=' + portletId +
-						'&portal:type=action&portal:isSecure=false&uicomponent=' + uiDashboardPortlet.id +
+						'&portal:type=action&portal:isSecure=false&uicomponent=UIDashboard' +
 						'&op=SetShowSelectForm&ajaxRequest=true' ;
 		if(uiSelectForm.style.display != "none") {
 			uiSelectForm.style.display = "none";
@@ -393,7 +389,7 @@ eXo.webui.UIDashboard = {
 	scrollOnDrag : function(dragObj) {
 		var DOMUtil = eXo.core.DOMUtil;
 		var dashboardUtil = eXo.webui.UIDashboardUtil;
-		var uiDashboard = DOMUtil.findAncestorByClass(dragObj, "UIDashboardPortlet");
+		var uiDashboard = DOMUtil.findAncestorByClass(dragObj, "UIDashboard");
 		var dbContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "DashboardContainer");
 		var colCont = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
 		

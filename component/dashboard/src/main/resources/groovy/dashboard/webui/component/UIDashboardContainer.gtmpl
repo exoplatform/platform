@@ -1,5 +1,4 @@
 <% 
-  import org.exoplatform.dashboard.webui.component.UIDashboardPortlet;
   import org.exoplatform.dashboard.webui.component.UIDashboardSelectForm;
   
   def uiPortlet = uicomponent.getParent();
@@ -12,7 +11,7 @@
 			<div class="ContainerControlBarR">
 				<div class="ContainerControlBarM">
 					<div class="AddIcon">
-						<a onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"><%=_ctx.appRes("UIDashboardPortlet.label.openWorkspace");%></a>
+						<a href="#" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)"><%=_ctx.appRes("UIDashboardPortlet.label.openWorkspace");%></a>
 					</div>
 				</div>
 			</div>

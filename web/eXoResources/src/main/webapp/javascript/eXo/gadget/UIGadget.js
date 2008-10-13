@@ -195,7 +195,12 @@ eXo.gadget.UIGadget = {
 		
 		if(portletFragment != null){
 			var compId = portletFragment.parentNode.id;
-			var uicomp = DOMUtil.getChildrenByTagName(portletFragment, "div")[0].className;
+            var uicomp = "";
+            if (DOMUtil.findChildrenByClass(portletFragment, "div", "UIDashboard")) {
+              uicomp = "UIDashboard";
+            }
+            else
+			  uicomp = DOMUtil.getChildrenByTagName(portletFragment, "div")[0].className;
 			if (confirm("Are you sure you want to delete this gadget ?")) {
 				var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
 				href += "&portal:type=action&uicomponent=" + uicomp;

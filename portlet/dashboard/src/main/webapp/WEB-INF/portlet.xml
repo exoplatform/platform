@@ -25,7 +25,7 @@
 		<portlet-preferences>
 			<preference>
 				<name>totalColumns</name>
-				<value>4</value>
+				<value>2</value>
 			</preference>
             <preference>
 				<name>isPrivate</name>

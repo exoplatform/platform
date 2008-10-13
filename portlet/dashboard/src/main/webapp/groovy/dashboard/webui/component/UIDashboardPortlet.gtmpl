@@ -1,32 +1,19 @@
 <%
-  import org.exoplatform.web.application.JavascriptManager;
   import javax.portlet.PortletMode ;
-  import org.exoplatform.dashboard.webui.component.UIDashboardContainer;
+  import org.exoplatform.dashboard.webui.component.UIDashboard;
   import org.exoplatform.dashboard.webui.component.UIDashboardEditForm;
-  import org.exoplatform.dashboard.webui.component.UIDashboardSelectForm;
   import org.exoplatform.webui.application.portlet.PortletRequestContext;
-  
+
   def rcontext = _ctx.getRequestContext() ;
   def pcontext = (PortletRequestContext) rcontext;
   def windowId = pcontext.getWindowId();
-  
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  jsmanager.importJavascript("eXo.webui.UIDashboard");
-  def selectForm = uicomponent.getChild(UIDashboardSelectForm.class);
-  def popupMsgs = uicomponent.getUIPopupMessages();
-%>
 
+%>
 <div id="$uicomponent.id" class="UIDashboardPortlet">
 			<% if(rcontext.getApplicationMode() == PortletMode.VIEW ) {
-					uicomponent.renderChild(UIDashboardSelectForm.class);
-					uicomponent.renderChild(UIDashboardContainer.class);
+					uicomponent.renderChild(UIDashboard.class);
 			  } else {
 					uicomponent.renderChild(UIDashboardEditForm.class);
 			  }
 			 %>
-			<div style="clear:left;"><span></span></div>
-			<% if(popupMsgs != null) popupMsgs.processRender(rcontext); %>
 </div>
-<% 
-	jsmanager.addCustomizedOnLoadScript("eXo.webui.UIDashboard.onLoad('"+windowId+"');");
-%>

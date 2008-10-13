@@ -124,7 +124,7 @@ eXo.webui.UIDashboardUtil = {
 	createRequest : function(componentId, action, colIndex, rowIndex, objectId){
 		var url = eXo.env.server.portalBaseURL;
 		url += '?portal:componentId=' + componentId +
-							'&portal:type=action&uicomponent=UIDashboardPortlet&op=' + action ;
+							'&portal:type=action&uicomponent=UIDashboard&op=' + action ;
 		if(objectId!=null)					
 			url += '&objectId=' + objectId ;
 		url += '&colIndex=' + colIndex ;

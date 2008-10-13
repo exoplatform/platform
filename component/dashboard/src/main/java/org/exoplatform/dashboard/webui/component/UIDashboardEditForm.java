@@ -26,6 +26,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.exception.MessageException;
@@ -34,7 +35,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 
 @ComponentConfigs({ 
   @ComponentConfig(
-      template = "system:/groovy/webui/form/UIForm.gtmpl", 
+      template = "system:groovy/webui/form/UIForm.gtmpl",
       lifecycle = UIFormLifecycle.class, 
       events = { 
         @EventConfig(listeners = UIDashboardEditForm.SaveActionListener.class)
@@ -55,10 +56,10 @@ public class UIDashboardEditForm extends UIForm {
     PortletPreferences pref = pcontext.getRequest().getPreferences();
     addUIFormInput(new UIFormStringInput(TOTAL_COLUMNS, TOTAL_COLUMNS, pref.getValue(
         TOTAL_COLUMNS, "3")));
-    addUIFormInput(new UIFormStringInput(UIDashboardPortlet.OWNER, UIDashboardPortlet.OWNER, pref.getValue(
-        UIDashboardPortlet.OWNER, null)));
-    addUIFormInput(new UIFormStringInput(UIDashboardPortlet.ISPRIVATE, UIDashboardPortlet.ISPRIVATE, pref.getValue(
-        UIDashboardPortlet.ISPRIVATE, null)));
+    addUIFormInput(new UIFormStringInput(DashboardParent.OWNER, DashboardParent.OWNER, pref.getValue(
+        DashboardParent.OWNER, null)));
+    addUIFormInput(new UIFormStringInput(DashboardParent.ISPRIVATE, DashboardParent.ISPRIVATE, pref.getValue(
+        DashboardParent.ISPRIVATE, null)));
   }
 
   public static class SaveActionListener extends EventListener<UIDashboardEditForm> {
@@ -103,17 +104,17 @@ public class UIDashboardEditForm extends UIForm {
             "NumberInRangeValidator.msg.Invalid-number", args));
       }
 
-      uiInput = uiForm.getUIStringInput(UIDashboardPortlet.ISPRIVATE);
-      pref.setValue(UIDashboardPortlet.ISPRIVATE, uiInput.getValue());
+      uiInput = uiForm.getUIStringInput(DashboardParent.ISPRIVATE);
+      pref.setValue(DashboardParent.ISPRIVATE, uiInput.getValue());
 
-      uiInput = uiForm.getUIStringInput(UIDashboardPortlet.OWNER);
-      pref.setValue(UIDashboardPortlet.OWNER, uiInput.getValue());
+      uiInput = uiForm.getUIStringInput(DashboardParent.OWNER);
+      pref.setValue(DashboardParent.OWNER, uiInput.getValue());
 
       pref.setValue(TOTAL_COLUMNS, String.valueOf(totalCols));
       pref.store();
 
-      UIDashboardContainer uiDashboardContainer = ((UIDashboardPortlet) uiForm.getParent())
-          .getChild(UIDashboardContainer.class);
+      UIDashboardContainer uiDashboardContainer = ((UIContainer) uiForm.getParent())
+          .getChild(UIDashboard.class).getChild(UIDashboardContainer.class);
       uiDashboardContainer.setColumns(totalCols);
       uiDashboardContainer.save();
       pcontext.setApplicationMode(PortletMode.VIEW);
