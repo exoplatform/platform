@@ -81,13 +81,13 @@ public class GadgetRegister implements ServletContextListener {
             ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse("http://www.exoplatform.org"), source);
             Gadget gadget = new Gadget();
             gadget.setName(name);
-            gadget.setUrl(sourceStorage.getSourceLink(name));
+            gadget.setUrl(sourceStorage.getSourcePath(name));
             gadget.setTitle(prefs.getDirectoryTitle());
             gadget.setDescription(prefs.getDescription());
             gadget.setThumbnail(prefs.getThumbnail().toString());
             gadget.setReferenceUrl(prefs.getTitleUrl().toString());
             gadget.setLocal(true);            
-            gadgetService.addGadget(gadget);            
+            gadgetService.saveGadget(gadget);            
           }
           else if (node.getNodeName().equals("url")) {
             address = node.getTextContent() ;
@@ -107,7 +107,7 @@ public class GadgetRegister implements ServletContextListener {
             gadget.setThumbnail(prefs.getThumbnail().toString());
             gadget.setReferenceUrl(prefs.getTitleUrl().toString());
             gadget.setLocal(false);            
-            gadgetService.addGadget(gadget);            
+            gadgetService.saveGadget(gadget);            
           }
         }
       }

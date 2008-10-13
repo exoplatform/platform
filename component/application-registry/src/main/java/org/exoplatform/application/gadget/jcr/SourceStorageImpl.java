@@ -78,13 +78,13 @@ public class SourceStorageImpl implements SourceStorage {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
     Node homeNode = (Node) session.getItem(storePath);
-    Node sourceNode = homeNode.getNode(name) ;
+    Node sourceNode = homeNode.getNode(name + ".xml") ;
     sourceNode.remove() ;
     session.save() ;
     sessionProvider.close() ;
   }
 
-  public String getSourceLink(String name) throws Exception {
+  public String getSourcePath(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node homeNode = getHomeNode(sessionProvider) ;
     StringBuilder link = new StringBuilder(30);

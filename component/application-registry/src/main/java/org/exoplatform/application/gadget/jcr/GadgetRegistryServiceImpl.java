@@ -79,7 +79,7 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
     return gadgets ;
   }
   
-  public void addGadget(Gadget gadget) throws Exception {
+  public void saveGadget(Gadget gadget) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     RegistryEntry entry ;
     try {
@@ -95,9 +95,9 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
     }
   }
 
-  public void removeGadget(String id) throws Exception {
+  public void removeGadget(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    regService_.removeEntry(sessionProvider, PATH + "/" + id) ;
+    regService_.removeEntry(sessionProvider, PATH + "/" + name) ;
     sessionProvider.close() ;
   }
   

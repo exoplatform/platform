@@ -30,6 +30,6 @@ public interface SourceStorage {
   
   public void removeSource(String name) throws Exception ;
   
-  public String getSourceLink(String name) throws Exception ;
+  public String getSourcePath(String name) throws Exception ;
 
 }

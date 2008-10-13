@@ -49,13 +49,13 @@ public interface GadgetRegistryService {
    * @param app  the gadget that is saved to database
    * @throws Exception
    */
-  public void addGadget(Gadget gadget) throws Exception ;
+  public void saveGadget(Gadget gadget) throws Exception ;
   
   /**
    * Removes the gadget from the database.
    * @param id  the id of gadget
    * @throws Exception
    */
-  public void removeGadget(String id) throws Exception ;
+  public void removeGadget(String name) throws Exception ;
   
 }

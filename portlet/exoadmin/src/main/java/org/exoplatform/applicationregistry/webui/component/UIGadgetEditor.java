@@ -19,7 +19,6 @@ package org.exoplatform.applicationregistry.webui.component;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.portal.webui.application.GadgetUtil;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
@@ -39,7 +38,8 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/form/UIForm.gtmpl",
     events = {
-      @EventConfig(listeners = UIGadgetEditor.CreateActionListener.class)
+      @EventConfig(listeners = UIGadgetEditor.SaveActionListener.class),
+      @EventConfig(listeners = UIGadgetEditor.CancelActionListener.class)
     }
 )
 public class UIGadgetEditor extends UIForm {
@@ -49,10 +49,21 @@ public class UIGadgetEditor extends UIForm {
   
   public UIGadgetEditor() throws Exception {
     addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
-    addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, null)) ;
+    UIFormTextAreaInput uiInputSource = new UIFormTextAreaInput(FIELD_SOURCE, null, null);
+    uiInputSource.setRows(20);
+    uiInputSource.setColumns(50);
+    addUIFormInput(uiInputSource) ;
   }
   
-  public static class CreateActionListener extends EventListener<UIGadgetEditor> {
+  public void setEditValue(String name, String source) {
+    UIFormStringInput uiInputName = getUIStringInput(FIELD_NAME);
+    uiInputName.setValue(name);
+    uiInputName.setEditable(false);
+    UIFormTextAreaInput uiInputSource = getUIFormTextAreaInput(FIELD_SOURCE);
+    uiInputSource.setValue(source);
+  }
+  
+  public static class SaveActionListener extends EventListener<UIGadgetEditor> {
 
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
@@ -61,10 +72,27 @@ public class UIGadgetEditor extends UIForm {
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       sourceStorage.saveSource(name, source) ;
-      service.addGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceLink(name), true)) ;
+      service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourcePath(name), true)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
       uiManagement.reload() ;
+      uiManagement.setSelectedGadget(name);
+      uiManagement.getChildren().clear();
+      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null);
+      uiInfo.setGadget(uiManagement.getSelectedGadget());      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+    }
+    
+  }
+  
+  public static class CancelActionListener extends EventListener<UIGadgetEditor> {
+
+    public void execute(Event<UIGadgetEditor> event) throws Exception {
+      UIGadgetEditor uiForm = event.getSource() ;
+      UIGadgetManagement uiManagement = uiForm.getParent() ;
+      uiManagement.getChildren().clear();
+      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null);
+      uiInfo.setGadget(uiManagement.getSelectedGadget());   
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
     }
     
   }

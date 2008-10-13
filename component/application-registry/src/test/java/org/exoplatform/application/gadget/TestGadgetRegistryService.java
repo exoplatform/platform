@@ -43,8 +43,8 @@ public class TestGadgetRegistryService extends BasicTestCase {
     Gadget g2 = new Gadget() ;
     g2.setName("map") ;
     g2.setUrl("http://www.labpixies.com/campaigns/maps/maps.xml") ;
-    service_.addGadget(g1) ;
-    service_.addGadget(g2) ;
+    service_.saveGadget(g1) ;
+    service_.saveGadget(g2) ;
     assertEquals(2, service_.getAllGadgets().size()) ;
     Gadget g3 = service_.getGadget(g1.getName()) ; 
     assertNotNull(g3) ;
@@ -62,7 +62,7 @@ public class TestGadgetRegistryService extends BasicTestCase {
     Gadget gadget = new Gadget() ;
     gadget.setName("weather") ;
     gadget.setUrl("http://www.labpixies.com/campaigns/weather/weather.xml") ;
-    service_.addGadget(gadget) ;
+    service_.saveGadget(gadget) ;
     Gadget g = service_.getGadget(gadget.getName()) ;
     assertNotNull(g) ;
     assertEquals(1, service_.getAllGadgets().size()) ;

@@ -4,12 +4,15 @@
 <div class="UIGadgetInfo" id="$uicomponent.id">
 	<div class="UIBreadcumb">
 		<div class="LeftBlock"><%=_ctx.appRes("UIGadgetInfo.title.gadgetDetails")%></div>
-		<div class="CopyIcon ControlIcon"><span></span></div>
-		<div class="EditIcon ControlIcon"><span></span></div>
-		<div class="Refresh16x16Icon ControlIcon"><span></span></div>
+		<% if(gadget.isLocal()) {%>
+		<div class="EditIcon ControlIcon" onclick="<%= uicomponent.event("Edit") %>"><span></span></div>
+		<% } else { %>
+		<div class="CopyIcon ControlIcon" onclick="<%= uicomponent.event("Copy") %>"><span></span></div>
+		<% } %>
+		<div class="Refresh16x16Icon ControlIcon" onclick="<%= uicomponent.event("Refresh") %>"><span></span></div>
 		<div style="clear: both"><span></span></div>
 	</div>
- 	<div class="Application" style="float: left;">
+ 	<div class="Application">
   	<div class="PortletIcons">
   			<img src="<%= gadget.getThumbnail() %>"/>
   	</div>

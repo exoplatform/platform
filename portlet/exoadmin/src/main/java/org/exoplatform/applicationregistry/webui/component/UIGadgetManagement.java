@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
+import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -47,6 +48,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIGadgetManagement extends UIContainer {
   
   private List<Gadget> gadgets_ ;
+  private Gadget selectedGadget_;
   
   public UIGadgetManagement() throws Exception {
     reload() ;
@@ -66,6 +68,23 @@ public class UIGadgetManagement extends UIContainer {
       if(ele.getName().equals(name)) return ele ;
     }
     return null ;
+  }
+  
+  public Gadget getSelectedGadget() {
+    return selectedGadget_;
+  }
+  
+  public void setSelectedGadget(String name) {
+    for(Gadget ele : gadgets_) {
+      if(ele.getName().equals(name)) {
+        setSelectedGadget(ele);
+        return;
+      }
+    }
+  }
+  
+  public void setSelectedGadget(Gadget gadget) {
+    selectedGadget_ = gadget;
   }
   
 
@@ -88,10 +107,23 @@ public class UIGadgetManagement extends UIContainer {
 
     public void execute(Event<UIGadgetManagement> event) throws Exception {
       UIGadgetManagement uiManagement = event.getSource() ;
-      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
       GadgetRegistryService service = uiManagement.getApplicationComponent(GadgetRegistryService.class) ;
-      service.removeGadget(id) ;
+      service.removeGadget(name) ;
+      Gadget gadget = uiManagement.getGadget(name);
+      if(gadget.isLocal()) {
+        SourceStorage sourceStorage = uiManagement.getApplicationComponent(SourceStorage.class);
+        sourceStorage.removeSource(name);
+      }
       uiManagement.reload() ;
+      List<Gadget> gadgets = uiManagement.getGadgets();
+      if(gadgets != null && !gadgets.isEmpty()) {
+        uiManagement.setSelectedGadget(gadgets.get(0));
+      } else {
+        uiManagement.setSelectedGadget((Gadget)null);
+      }
+      UIGadgetInfo uiGadgetInfo = uiManagement.getChild(UIGadgetInfo.class);
+      uiGadgetInfo.setGadget(uiManagement.getSelectedGadget());        
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
     
@@ -114,9 +146,9 @@ public class UIGadgetManagement extends UIContainer {
       UIGadgetManagement uiManagement = event.getSource() ;
       String name = event.getRequestContext().getRequestParameter(OBJECTID) ; 
       uiManagement.getChildren().clear() ;
-      Gadget selectedGadget = uiManagement.getGadget(name) ;
+      uiManagement.setSelectedGadget(name);
       UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null) ;
-      uiInfo.setGadget(selectedGadget) ;
+      uiInfo.setGadget(uiManagement.getSelectedGadget()) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
     }
     
