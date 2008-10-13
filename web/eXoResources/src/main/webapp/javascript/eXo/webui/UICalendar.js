@@ -204,10 +204,10 @@ UICalendar.prototype.setSeconds = function(object) {
 			if(seconds.length < 2) seconds = "0" + seconds;
 			var timeString = this.currentDate.getHours() + ":" + this.currentDate.getMinutes() + ":" + seconds;
 			this.currentDate.setSeconds(seconds);
-			if(!this.currentDay) this.currentDay = this.currentDate.getDay();
+			if(!this.currentDay) this.currentDay = this.currentDate.getDate();
 			if(!this.currentMonth) this.currentMonth = this.currentDate.getMonth() + 1;
 			if(!this.currentYear) this.currentYear = this.currentDate.getFullYear();
-			if(this.isDisplayTime) timeString = this.currentDay + "/" + this.currentMonth + "/" + this.currentYear + " " + timeString;
+			if(this.isDisplayTime) timeString = this.currentMonth + "/" + this.currentDay + "/" + this.currentYear + " " + timeString;
 			this.dateField.value = timeString;
 	}
 	return;
@@ -225,10 +225,10 @@ UICalendar.prototype.setMinus = function(object) {
 			if(minus.length < 2) minus = "0" + minus;
 			this.currentDate.setMinutes(minus);
 			var timeString = this.currentDate.getHours() + ":" + minus + ":" + this.currentDate.getSeconds();
-			if(!this.currentDay) this.currentDay = this.currentDate.getDay();
+			if(!this.currentDay) this.currentDay = this.currentDate.getDate();
 			if(!this.currentMonth) this.currentMonth = this.currentDate.getMonth() + 1;
 			if(!this.currentYear) this.currentYear = this.currentDate.getFullYear();
-			if(this.isDisplayTime) timeString = this.currentDay + "/" + this.currentMonth + "/" + this.currentYear + " " + timeString;
+			if(this.isDisplayTime) timeString = this.currentMonth + "/" + this.currentDay + "/" + this.currentYear + " " + timeString;
 			this.dateField.value = timeString;
 	}
 	return;
@@ -246,10 +246,10 @@ UICalendar.prototype.setHour = function(object) {
 			if(hour.length < 2) hour = "0" + hour;
 			this.currentDate.setHours(hour);
 			var timeString = hour + ":" + this.currentDate.getMinutes() + ":" + this.currentDate.getSeconds();
-			if(!this.currentDay) this.currentDay = this.currentDate.getDay();
+			if(!this.currentDay) this.currentDay = this.currentDate.getDate();
 			if(!this.currentMonth) this.currentMonth = this.currentDate.getMonth() + 1;
 			if(!this.currentYear) this.currentYear = this.currentDate.getFullYear();
-			if(this.isDisplayTime) timeString = this.currentDay + "/" + this.currentMonth + "/" + this.currentYear + " " + timeString;
+			if(this.isDisplayTime) timeString = this.currentMonth + "/" + this.currentDay + "/" + this.currentYear + " " + timeString;
 			this.dateField.value = timeString;
 	}
 	return;

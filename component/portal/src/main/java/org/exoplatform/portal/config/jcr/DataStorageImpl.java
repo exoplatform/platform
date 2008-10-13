@@ -346,10 +346,7 @@ public class DataStorageImpl implements DataStorage, Startable {
     generateScript(builder, DataMapper.EXO_NAME, q.getName()) ;
     generateScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType()) ;
     generateScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId()) ;
-    try {
-      Method method = q.getClassType().getMethod("getTitle", null) ;
-      if(method != null) generateScript(builder, DataMapper.EXO_TITLE, q.getTitle()) ;
-    } catch (Exception e) {}
+    generateScript(builder, DataMapper.EXO_TITLE, q.getTitle()) ;
     Session session = regService_.getRegistry(sessionProvider).getNode().getSession() ;
     QueryManager queryManager = session.getWorkspace().getQueryManager() ;
     javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql") ;

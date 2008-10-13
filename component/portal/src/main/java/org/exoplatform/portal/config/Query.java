@@ -16,8 +16,6 @@
  */
 package org.exoplatform.portal.config;
 
-import java.lang.reflect.Method;
-
 /**
  * Created by The eXo Platform SARL        .
  * Author : Tuan Nguyen
@@ -44,10 +42,7 @@ public class Query <T> {
     ownerId_ = ownerId;
     classType_ = clazz;
     name_ = name;
-    try {
-      Method method = clazz.getMethod("getTitle", null) ;
-      if(method != null) title_ = title ;
-    } catch (Exception e) {}
+    title_ = title ;
   }
   
   
