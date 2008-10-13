@@ -25,7 +25,6 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
-import org.exoplatform.webui.form.ext.UIFormInputSetWithAction;
 
 /**
  * Created by The eXo Platform SAS
@@ -46,13 +45,9 @@ import org.exoplatform.webui.form.ext.UIFormInputSetWithAction;
 public class UIAddGadget extends UIForm {
   
   static final String FIELD_URL = "url" ;
-  static final String URL = "urlText" ;
   
   public UIAddGadget() throws Exception {
-    UIFormInputSetWithAction uiInput = new UIFormInputSetWithAction(FIELD_URL) ;
-    uiInput.addUIFormInput(new UIFormStringInput(URL, null, null)) ;
-    uiInput.setActionInfo(URL, new String [] {"CopyGadget"}) ;
-    addUIComponentInput(uiInput) ;
+    addUIFormInput(new UIFormStringInput(FIELD_URL, null, null)) ;
   }
   
   public static class AddActionListener extends EventListener<UIAddGadget> {
@@ -60,12 +55,16 @@ public class UIAddGadget extends UIForm {
     public void execute(Event<UIAddGadget> event) throws Exception {
       UIAddGadget uiForm = event.getSource() ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
-      String url = uiForm.getUIStringInput(URL) .getValue();
+      String url = uiForm.getUIStringInput(FIELD_URL) .getValue();
       String name = "gadget" + url.hashCode();
       service.saveGadget(GadgetUtil.toGadget(name, url, false)) ;
-      UIGadgetManagement uiParent = uiForm.getParent() ;
-      uiParent.reload() ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
+      UIGadgetManagement uiManagement = uiForm.getParent() ;
+      uiManagement.reload() ;
+      uiManagement.setSelectedGadget(name);
+      uiManagement.getChildren().clear();
+      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null);
+      uiInfo.setGadget(uiManagement.getSelectedGadget());            
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }    
   }
   
@@ -73,9 +72,11 @@ public class UIAddGadget extends UIForm {
 
     public void execute(Event<UIAddGadget> event) throws Exception {
       UIAddGadget uiForm = event.getSource() ;
-      UIGadgetManagement uiParent = uiForm.getParent() ;
-      uiParent.getChildren().clear() ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent) ;
+      UIGadgetManagement uiManagement = uiForm.getParent() ;
+      uiManagement.getChildren().clear();
+      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null);
+      uiInfo.setGadget(uiManagement.getSelectedGadget());   
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
     }
     
   }

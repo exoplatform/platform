@@ -49,10 +49,7 @@ public class UIGadgetEditor extends UIForm {
   
   public UIGadgetEditor() throws Exception {
     addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
-    UIFormTextAreaInput uiInputSource = new UIFormTextAreaInput(FIELD_SOURCE, null, null);
-    uiInputSource.setRows(20);
-    uiInputSource.setColumns(50);
-    addUIFormInput(uiInputSource) ;
+    addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, null)) ;
   }
   
   public void setEditValue(String name, String source) {

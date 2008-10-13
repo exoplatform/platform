@@ -51,7 +51,12 @@ public class UIGadgetManagement extends UIContainer {
   private Gadget selectedGadget_;
   
   public UIGadgetManagement() throws Exception {
+    UIGadgetInfo uiGadgetInfo = addChild(UIGadgetInfo.class, null, null);
     reload() ;
+    if(gadgets_ != null && !gadgets_.isEmpty()) {
+      setSelectedGadget(gadgets_.get(0));
+      uiGadgetInfo.setGadget(selectedGadget_);        
+    }  
   }
   
   public void reload() throws Exception {
