@@ -20,7 +20,7 @@
     <module>component/portal</module>
     <module>component/web</module>
     <module>component/scripting</module>
-
+    <module>component/dashboard</module>
     <module>gadgets</module>
 	
     <module>webui/core</module>
