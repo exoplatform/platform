@@ -10,7 +10,7 @@ def application = uicomponent.getApplication() ;
 				String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 	%>
 	<div class="UIBreadcumb">
-	  <div class="LeftBlock"><%= application.getCategoryName() %></div> 		          		              
+	  <div class="LeftBlock"><%= uicomponent.getApplicationCategory().getDisplayName() %></div> 		          		              
 	  <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
 	  <div class="Selected"><%= application.getDisplayName() %></div> 
 	  <div class="ControlIcon EditIcon" onclick="<%= uicomponent.event("EditApplication", name) %>"><span></span></div>

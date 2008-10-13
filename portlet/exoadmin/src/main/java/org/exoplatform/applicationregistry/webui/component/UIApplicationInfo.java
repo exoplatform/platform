@@ -17,6 +17,7 @@
 package org.exoplatform.applicationregistry.webui.component;
 
 import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -53,6 +54,11 @@ public class UIApplicationInfo extends UIContainer {
     if(application_ == null) return ;
     UIPermissionForm uiPermissionForm = getChild(UIPermissionForm.class) ;
     uiPermissionForm.setValue(application_) ;
+  }
+  
+  public ApplicationCategory getApplicationCategory() {
+    UIApplicationOrganizer uiOrganizer = getParent();
+    return uiOrganizer.getSelectedCategory();
   }
   
   public void processRender(WebuiRequestContext context) throws Exception {
