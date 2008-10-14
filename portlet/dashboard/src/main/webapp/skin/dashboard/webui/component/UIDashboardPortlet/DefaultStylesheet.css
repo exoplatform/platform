@@ -159,7 +159,7 @@
 
 .UIDashboard .UIGadget .GadgetControl {
 	float: none;
-	margin: auto;
+	padding: 0px;
 	height: auto; width: auto;
 }
 

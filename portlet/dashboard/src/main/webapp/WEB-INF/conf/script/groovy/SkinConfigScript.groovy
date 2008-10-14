@@ -8,7 +8,14 @@ SkinService.addSkin(
 
 SkinService.addSkin(
     "dashboard/GadgetPortlet",
-    "Default",
+    "Mac",
+    "/dashboard/skin/gadget/webui/component/UIGadgetPortlet/DefaultStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
+    "dashboard/GadgetPortlet",
+    "Vista",
     "/dashboard/skin/gadget/webui/component/UIGadgetPortlet/DefaultStylesheet.css",
     ServletContext
 ) ;
