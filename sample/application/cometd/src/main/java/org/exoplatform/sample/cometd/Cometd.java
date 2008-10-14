@@ -93,7 +93,7 @@ public class Cometd extends GenericPortlet {
 	
 	PortalRequestContext pContext = Util.getPortalRequestContext();
     String userName = pContext.getRemoteUser();
-    continuation.sendMessage(userName, "/eXo/topics", msg);	
+    continuation.sendMessage(userName, "/eXo/topics", msg,null);	
   }
 
   public void render(RenderRequest renderRequest, RenderResponse renderResponse)
