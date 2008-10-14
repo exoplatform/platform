@@ -140,6 +140,7 @@
 	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
 	padding-left: 20px;
 	cursor: pointer;
+	width: 160px; overflow: hidden;
 }
 
 .UIApplicationRegistryPortlet .CategoryContent .ControlIcon {
@@ -185,6 +186,7 @@
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat left center;
 	padding: 0px 0px 0px 18px;
 	display: block;
+	width: 120px; overflow: hidden;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
@@ -212,7 +214,7 @@
 	margin: 0px;
 }
 
-.UIApplicationRegistryPortlet .CategoryContent .UIVTabContent .SelectedItem .ItemLabel {
+.UIApplicationRegistryPortlet .UIVTabContent .SelectedItem .ItemLabel {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -196px;
 	display: block;
 	color: #058ee6;
@@ -254,8 +256,8 @@
 	margin: 0px 5px;
 }
 
-.UIApplicationRegistryPortlet .UIBreadcumb .CopyIcon {
-	background: url('DefaultSkin/background/CopyIcon.gif') no-repeat;
+.UIApplicationRegistryPortlet .UIBreadcumb .DownLoadIcon {
+	background: url('DefaultSkin/background/DownLoadIcon.gif') no-repeat;
 	width: 16px; height: 16px;
 }
 
@@ -331,6 +333,9 @@
 	width: auto;
 }
 
+.UIOrganizerManagement .UIAddApplicationForm .UIFormGrid td.text {
+	white-space: normal;
+}
 /***************************** UIPortletManagement ***************************/
 
 .UIPortletManagement .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
@@ -374,4 +379,8 @@
 
 .UIGadgetManagement .url table td.FieldComponent {
 	padding: 0px;
+}
+
+.UIGadgetManagement .UIGadgetEditor .HorizontalLayout textarea {
+	height: 250px; width: 400px; overflow: auto;
 }

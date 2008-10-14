@@ -212,6 +212,11 @@
 	margin: 0px 5px;
 }
 
+.UIApplicationRegistryPortlet .UIBreadcumb .DownLoadIcon {
+	background: url('DefaultSkin/background/DownLoadIcon.gif') no-repeat;
+	width: 16px; height: 16px;
+}
+
 .UIApplicationRegistryPortlet .ApplicationContainer {
   padding: 10px 0px;
 }

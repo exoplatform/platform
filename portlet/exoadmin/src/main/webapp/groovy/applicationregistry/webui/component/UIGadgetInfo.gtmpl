@@ -7,7 +7,7 @@
 		<% if(gadget.isLocal()) {%>
 		<div class="EditIcon ControlIcon" onclick="<%= uicomponent.event("Edit") %>"><span></span></div>
 		<% } else { %>
-		<div class="CopyIcon ControlIcon" onclick="<%= uicomponent.event("Copy") %>"><span></span></div>
+		<div class="DownLoadIcon ControlIcon" onclick="<%= uicomponent.event("Copy") %>"><span></span></div>
 		<% } %>
 		<div class="Refresh16x16Icon ControlIcon" onclick="<%= uicomponent.event("Refresh") %>"><span></span></div>
 		<div style="clear: both"><span></span></div>

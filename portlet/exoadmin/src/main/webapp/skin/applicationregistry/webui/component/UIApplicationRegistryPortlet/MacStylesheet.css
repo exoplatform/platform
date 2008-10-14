@@ -146,13 +146,19 @@ e/**
 	display: block;
 	float: right;
 	margin: 3px;
-	filter: alpha(opacity=30);
-	-moz-opacity: 0.3;
 }
 
 .UIApplicationRegistryPortlet .ListItem .SelectedItem a.TabLabel {
 	font-weight: bold;
 	padding-left: 3px;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent:hover {
+	background-color: #9d9d9d;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ItemContent:hover a {
+	color: white;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs {
@@ -163,7 +169,7 @@ e/**
 	color: #058ee6;
 }
 
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .TabLabel:hover {
+*html .UIApplicationRegistryPortlet .UIVerticalSlideTabs .TabLabel:hover {
 	color: #058ee6;
 }
 
@@ -177,6 +183,7 @@ e/**
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat left center;
 	padding: 0px 0px 0px 18px;
 	display: block;
+	width: 120px; overflow: hidden;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
@@ -185,8 +192,6 @@ e/**
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab .ControlIcon {
 	float: right;
-	filter: alpha(opacity=100);
-	-moz-opacity: 1.0;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ItemLabel {
@@ -195,13 +200,14 @@ e/**
 	display: block;
 	float: left;
 	cursor: pointer;
+	width: 155px; overflow: hidden;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
 	padding: 5px;
 }
 
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .SelectedItem .ItemLabel {
+.UIApplicationRegistryPortlet .UIVTabContent .SelectedItem .ItemLabel {
 	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -196px;
 	display: block;
 	color: #058ee6;
@@ -209,9 +215,6 @@ e/**
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ControlIcon {
 	float: right;
-}
-
-.UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
 }
 
 /**************************** AppWorkingArea *****************************/
@@ -241,10 +244,14 @@ e/**
 	color: #058ee6;
 }
 
-
 .UIApplicationRegistryPortlet .UIBreadcumb .ControlIcon {
 	float: right;
 	margin: 0px 5px;
+}
+
+.UIApplicationRegistryPortlet .UIBreadcumb .DownLoadIcon {
+	background: url('DefaultSkin/background/DownLoadIcon.gif') no-repeat;
+	width: 16px; height: 16px;
 }
 
 .UIApplicationRegistryPortlet .ApplicationContainer {
