@@ -18,7 +18,6 @@ package org.exoplatform.organization.webui.component;
 
 import java.io.Writer;
 
-import org.exoplatform.organization.webui.component.UIOrganizationPortlet.UIViewMode;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -39,7 +38,7 @@ public class UIMembershipManagement extends UIContainer {
   }
 
   public UIGroupMembershipForm getGroupMembershipForm () {
-    UIViewMode uiParent = getParent() ;
+    UIOrganizationPortlet uiParent = getParent() ;
     UIGroupManagement groupManagement = uiParent.getChild(UIGroupManagement.class) ;
     UIGroupDetail groupDetail = groupManagement.getChild(UIGroupDetail.class) ;
     UIGroupInfo groupInfo = groupDetail.getChild(UIGroupInfo.class) ;

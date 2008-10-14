@@ -20,13 +20,10 @@ import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ViewC
 import org.exoplatform.services.organization.Query;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.organization.UIAccountForm;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -37,32 +34,34 @@ import org.exoplatform.webui.organization.UIAccountForm;
 
 @ComponentConfig(
   lifecycle = UIApplicationLifecycle.class,
+  template = "app:/groovy/organization/webui/component/UIOrganizationPortlet.gtmpl",
   events = {
-    @EventConfig (listeners = UIOrganizationPortlet.NewAccountAddedActionListener.class)
+    @EventConfig (listeners = UIOrganizationPortlet.NewAccountAddedActionListener.class),
+    @EventConfig (listeners = ViewChildActionListener.class)
   }
   
 )
 public class UIOrganizationPortlet extends UIPortletApplication {
  
   public UIOrganizationPortlet() throws Exception {
-    setMinWidth(730) ;
-  	addChild(UIViewMode.class, null, UIPortletApplication.VIEW_MODE);
+//    setMinWidth(730) ;
+//  	addChild(UIViewMode.class, null, UIPortletApplication.VIEW_MODE);
+    addChild(UIUserManagement.class, null, null);
+    addChild(UIGroupManagement.class, null, null).setRendered(false);
+    addChild(UIMembershipManagement.class, null, null).setRendered(false);
   }
 
-  @ComponentConfig(
-      template = "app:/groovy/organization/webui/component/UIViewMode.gtmpl",
-      events = {
-          @EventConfig (listeners = ViewChildActionListener.class)
-      }
-  )
-  static public class UIViewMode extends UIContainer {
-    public UIViewMode() throws Exception {
-      addChild(UIUserManagement.class, null, null);
-      addChild(UIGroupManagement.class, null, null).setRendered(false);
-      addChild(UIMembershipManagement.class, null, null).setRendered(false);
-    }
-  } 
-  
+//  @ComponentConfig(
+//      template = "app:/groovy/organization/webui/component/UIViewMode.gtmpl",
+//      events = {
+//          @EventConfig (listeners = ViewChildActionListener.class)
+//      }
+//  )
+//  static public class UIViewMode extends UIContainer {
+//    public UIViewMode() throws Exception {
+//    }
+//  } 
+//  
   static public class NewAccountAddedActionListener extends EventListener<UIOrganizationPortlet> {
     public void execute(Event<UIOrganizationPortlet> event) throws Exception {
       UIListUsers uiListUsers = event.getSource().findFirstComponentOfType(UIListUsers.class);
