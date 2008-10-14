@@ -22,10 +22,13 @@ import java.util.List;
 
 import javax.portlet.PortletPreferences;
 
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.layout.PortalLayoutService;
 import org.exoplatform.portal.webui.application.UIGadget;
+import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -33,29 +36,22 @@ import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.InitParams;
 import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
-import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.application.registry.Application;
+import org.exoplatform.webui.event.EventListener;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IUnmarshallingContext;
 
-@ComponentConfigs({
-  @ComponentConfig(
-      template = "classpath:groovy/dashboard/webui/component/UIDashboardContainer.gtmpl",
-      lifecycle = UIFormLifecycle.class,
-      initParams = @ParamConfig(
-          name = "ContainerConfigs",
-          value = "classpath:conf/uiconf/dashboard/webui/container/ContainerConfig.groovy"
-      )
-  )
-})
+@ComponentConfig(
+    template = "classpath:groovy/dashboard/webui/component/UIDashboardContainer.gtmpl",
+    initParams = @ParamConfig(
+        name = "ContainerConfigs",
+        value = "classpath:conf/uiconf/dashboard/webui/container/ContainerConfig.groovy"
+    )
+)
 public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer {
   
   /**

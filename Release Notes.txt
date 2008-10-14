@@ -3,7 +3,7 @@
 ==============================================
 
 - Introduction
-	Portal, a typical product of eXoplatform, is a web operating system application. With the latest version 2.1, eXo portal not only takes advantages of a normal portal but it is also developed with outstanding features as:
+	Portal, a typical product of eXoplatform, is a web operating system application. With the latest version 2.2.x, eXo portal not only takes advantages of a normal portal but it is also developed with outstanding features as:
 	+ Security:  Intelligently integrate and access to enterprise content, applications and processes. It is also very useful to establish internal or external information of an enterprise. It enables  administrators to decide which content and applications are pushed to which user according to the roles he has in a group or a business unit.
 	+ Personalization: Users are encouraged to design their own private layout and create personal content.
 	+ Flexibility: It is suitable for different operating system environments and adaptive to many types of databases.
@@ -24,16 +24,25 @@
 	- Clean up and optimze code so much
 	- Develop new application registry :
 		+ Permission for category
-		+ Permission for portlet ( not sure )
+		+ Permission for portlet ( not complete )
 	- Integrate gadget and opensocial to exo portal
 	- Dashboard portlet.
 	- Support forgot username and password feature.
 	- Support visible option for node in navigation
-	- Remove the Widgets. !
+	- Remove completely the Widgets. !
 	
 
 - Complete list of issues fixed in eXo Portal 2.5
-	
+
+
+
+
+
+
+- The changes of configuration from 2.2.x version
+
+
+
 
 - Other resources and links
      Company site        http://www.exoplatform.com

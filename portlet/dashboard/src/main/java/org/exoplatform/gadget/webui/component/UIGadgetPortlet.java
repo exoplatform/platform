@@ -30,12 +30,10 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
  *          tungcnw@gmail.com
  * June 27, 2008
  */
-
 @ComponentConfig(
-      lifecycle = UIApplicationLifecycle.class,
-      template = "app:/groovy/gadget/webui/component/UIGadgetPortlet.gtmpl"
+		lifecycle = UIApplicationLifecycle.class,
+		template = "app:/groovy/gadget/webui/component/UIGadgetPortlet.gtmpl"
 )
-
 public class UIGadgetPortlet extends UIPortletApplication {
   public UIGadgetPortlet() throws Exception {
     addChild(UIGadgetViewMode.class, null, null);

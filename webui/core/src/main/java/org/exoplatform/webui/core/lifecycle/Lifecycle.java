@@ -76,16 +76,11 @@ public class Lifecycle {
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     String template = uicomponent.getTemplate() ;
     ResourceResolver resolver =  uicomponent.getTemplateResourceResolver(context, template);
-//    if(template.endsWith(".jstmpl")) {
-//      Map<String, Object>  variables = new HashMap<String, Object>() ;
-//      renderJSTemplate(template, variables, resolver, uicomponent, context) ;
-//    } else {
-      WebuiBindingContext bcontext = 
-        new WebuiBindingContext(resolver, context.getWriter(), uicomponent, context) ;
-      bcontext.put("uicomponent", uicomponent) ;
-      bcontext.put(uicomponent.getUIComponentName(), uicomponent) ;   
-      renderTemplate(template, bcontext) ;
-//    }
+    WebuiBindingContext bcontext = 
+      new WebuiBindingContext(resolver, context.getWriter(), uicomponent, context) ;
+    bcontext.put("uicomponent", uicomponent) ;
+    bcontext.put(uicomponent.getUIComponentName(), uicomponent) ;   
+    renderTemplate(template, bcontext) ;
   }
   
   @SuppressWarnings("unused")

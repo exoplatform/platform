@@ -19,22 +19,18 @@ package org.exoplatform.dashboard.webui.component;
 import java.util.Hashtable;
 import java.util.List;
 
-
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.application.registry.ApplicationCategory;
-import org.exoplatform.application.registry.Application;
-import org.exoplatform.application.registry.ApplicationRegistryService;
 
-@ComponentConfigs({ 
-  @ComponentConfig(
-      template = "classpath:groovy/dashboard/webui/component/UIDashboardSelectForm.gtmpl", 
-      lifecycle = UIFormLifecycle.class
-  ) 
-})
+@ComponentConfig(
+    template = "classpath:groovy/dashboard/webui/component/UIDashboardSelectForm.gtmpl", 
+    lifecycle = UIFormLifecycle.class
+) 
 public class UIDashboardSelectForm extends UIForm {
 
   private List<ApplicationCategory> categories;

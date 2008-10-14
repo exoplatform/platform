@@ -1,12 +1,15 @@
 <% 	import javax.portlet.PortletMode ; 
 		import org.exoplatform.gadget.webui.component.UIGadgetViewMode ;
-		import org.exoplatform.gadget.webui.component.UIGadgetEditMode ;
+		import org.exoplatform.gadget.webui.component.UIGadgetEditMode ;\
+  	def popupMsgs = uicomponent.getUIPopupMessages();
 %>
 <div class="UIGadgetPortlet" id="$uicomponent.id">
-	<%if( _ctx.getRequestContext().getApplicationMode() == PortletMode.VIEW ) {
-	    uicomponent.renderChild(UIGadgetViewMode.class) ;
+<%
+	if( _ctx.getRequestContext().getApplicationMode() == PortletMode.VIEW ) {
+		uicomponent.renderChild(UIGadgetViewMode.class) ;
   } else {
-      	uicomponent.renderChild(UIGadgetEditMode.class);
-    }
-  %>
+    uicomponent.renderChild(UIGadgetEditMode.class);
+  }
+	
+	if(popupMsgs != null) popupMsgs.processRender(rcontext); %>
 </div>

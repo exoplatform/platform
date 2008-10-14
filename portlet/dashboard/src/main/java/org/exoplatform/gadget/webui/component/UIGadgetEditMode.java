@@ -53,7 +53,8 @@ import org.exoplatform.webui.form.UIFormStringInput;
     events = { 
       @EventConfig(listeners = UIGadgetEditMode.SaveActionListener.class),
       @EventConfig(listeners = UIGadgetEditMode.SelectTypeActionListener.class, phase = Phase.DECODE)
-    })
+    }
+)
 public class UIGadgetEditMode extends UIForm {
   
   public static final String FIELD_URL = "gadgetUrl";

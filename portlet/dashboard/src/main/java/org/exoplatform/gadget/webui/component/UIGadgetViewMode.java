@@ -17,7 +17,7 @@
 package org.exoplatform.gadget.webui.component;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIComponent;
 
 /**
  * Created by The eXo Platform SARL
@@ -28,8 +28,7 @@ import org.exoplatform.webui.core.UIContainer;
 @ComponentConfig(
     template = "app:/groovy/gadget/webui/component/UIGadgetViewMode.gtmpl"
 )
-public class UIGadgetViewMode extends UIContainer {
+public class UIGadgetViewMode extends UIComponent {
 
-  public UIGadgetViewMode() throws Exception {
-  }
+  public UIGadgetViewMode() throws Exception {}
 }

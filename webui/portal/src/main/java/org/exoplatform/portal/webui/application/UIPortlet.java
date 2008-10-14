@@ -84,8 +84,8 @@ public class UIPortlet extends UIApplication {
   
   private List<String> supportModes_ ;
 
-  private List supportedProcessingEvents_;
-  private List supportedPublicParams_;
+  private List<QName> supportedProcessingEvents_;
+  private List<String> supportedPublicParams_;
   private boolean portletInPortal_ = true;  
   
   public String getId()  { return exoWindowId_.getUniqueID() ; }
@@ -169,13 +169,13 @@ public class UIPortlet extends UIApplication {
   public WindowState getCurrentWindowState() { return currentWindowState_ ;}
   public void  setCurrentWindowState(WindowState state) { currentWindowState_ = state;}
   
-  public List getSupportedProcessingEvents() { return supportedProcessingEvents_; }
-  public void setSupportedProcessingEvents(List supportedProcessingEvents) {
+  public List<QName> getSupportedProcessingEvents() { return supportedProcessingEvents_; }
+  public void setSupportedProcessingEvents(List<QName> supportedProcessingEvents) {
     supportedProcessingEvents_ = supportedProcessingEvents;
   }
   
-  public List getSupportedPublicRenderParameters() { return supportedPublicParams_; }
-  public void setSupportedPublicRenderParameters(List supportedPublicRenderParameters) {
+  public List<String> getSupportedPublicRenderParameters() { return supportedPublicParams_; }
+  public void setSupportedPublicRenderParameters(List<String> supportedPublicRenderParameters) {
     supportedPublicParams_ = supportedPublicRenderParameters;
   }
   
@@ -217,8 +217,8 @@ public class UIPortlet extends UIApplication {
       supportedProcessingEvents_ = portletData.getSupportedProcessingEvent();
 	  }
 	  if(supportedProcessingEvents_ == null) return false;
-	  for (Iterator iter = supportedProcessingEvents_.iterator(); iter.hasNext();) {
-	    QName eventName = (QName) iter.next();
+	  for (Iterator<QName> iter = supportedProcessingEvents_.iterator(); iter.hasNext();) {
+	    QName eventName = iter.next();
 	    if(eventName.equals(name)) {
 		    log.info("The Portlet " + windowId + " supports the event : " + name);
 		    return true;
@@ -239,8 +239,8 @@ public class UIPortlet extends UIApplication {
       supportedPublicParams_ = portletData.getSupportedPublicRenderParameter();
 	  }	
 	  if(supportedPublicParams_ == null) return false;
-	  for (Iterator iter = supportedPublicParams_.iterator(); iter.hasNext();) {
-	    String publicParam = (String) iter.next();
+	  for (Iterator<String> iter = supportedPublicParams_.iterator(); iter.hasNext();) {
+	    String publicParam = iter.next();
 	    if(publicParam.equals(supportedPublicParam)) {
         if(log.isDebugEnabled())
 		      log.debug("The Portlet " + windowId + " supports the public render parameter : " + supportedPublicParam);

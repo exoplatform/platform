@@ -161,7 +161,7 @@
         <exo.platform.version>2.0</exo.platform.version>
         <org.exoplatform.kernel.version>trunk</org.exoplatform.kernel.version>
         <org.exoplatform.core.version>trunk</org.exoplatform.core.version>
-	<org.exoplatform.ws.version>trunk</org.exoplatform.ws.version>
+		<org.exoplatform.ws.version>trunk</org.exoplatform.ws.version>
         <org.exoplatform.jcr.version>trunk</org.exoplatform.jcr.version>
         <org.exoplatform.pc.version>trunk</org.exoplatform.pc.version>
         <org.exoplatform.portal.version>2.5-SNAPSHOT</org.exoplatform.portal.version>

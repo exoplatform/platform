@@ -25,7 +25,6 @@ import org.exoplatform.webui.core.UIContainer;
  */
 public class UIContainerLifecycle extends Lifecycle {
   
-  @SuppressWarnings("unused")
   public void processRender(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     context.getWriter().append("<div class=\"").append(uicomponent.getId()).append("\" id=\"").append(uicomponent.getId()).append("\">");
     UIContainer uiContainer = (UIContainer) uicomponent;

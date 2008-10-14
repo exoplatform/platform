@@ -18,22 +18,16 @@ package org.exoplatform.dashboard.webui.component;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIPopupMessages;
-import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
-import org.exoplatform.webui.core.UIComponent;
-
-import javax.portlet.PortletPreferences;
-
 
 @ComponentConfig(
     template = "classpath:groovy/dashboard/webui/component/UIDashboard.gtmpl",
     events = {
-    @EventConfig(listeners = UIDashboardContainer.MoveGadgetActionListener.class),
-    @EventConfig(listeners = UIDashboardContainer.AddNewGadgetActionListener.class),
-    @EventConfig(listeners = UIDashboardContainer.SetShowSelectFormActionListener.class),
-    @EventConfig(listeners = UIDashboardContainer.DeleteGadgetActionListener.class),
-    @EventConfig(listeners = UIDashboardContainer.MinimizeGadgetActionListener.class)
+      @EventConfig(listeners = UIDashboardContainer.MoveGadgetActionListener.class),
+      @EventConfig(listeners = UIDashboardContainer.AddNewGadgetActionListener.class),
+      @EventConfig(listeners = UIDashboardContainer.SetShowSelectFormActionListener.class),
+      @EventConfig(listeners = UIDashboardContainer.DeleteGadgetActionListener.class),
+      @EventConfig(listeners = UIDashboardContainer.MinimizeGadgetActionListener.class)
    }
 )
 public class UIDashboard extends UIContainer {
@@ -41,10 +35,6 @@ public class UIDashboard extends UIContainer {
   public UIDashboard() throws Exception {
     addChild(UIDashboardSelectForm.class, null, null);
     addChild(UIDashboardContainer.class, null, null).setColumns(3);
-  }
-
-  public UIPopupMessages getUIPopupMessages() {
-    return getAncestorOfType(UIApplication.class).getUIPopupMessages();
   }
 
   public void setColumns(int num) throws Exception {
@@ -55,5 +45,4 @@ public class UIDashboard extends UIContainer {
     DashboardParent parent = (DashboardParent)getParent();
     return parent.canEdit();
   }
-  
 }
