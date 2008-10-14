@@ -137,7 +137,7 @@ public class UIContainerActionListener {
       UIAddNewApplication uiAddApplication = uiPortal.createUIComponent(UIAddNewApplication.class,
           null, null);
       //get Widget and Gadget Applications only
-      String[] applicationTypes = {org.exoplatform.web.application.Application.EXO_WIDGET_TYPE, org.exoplatform.web.application.Application.EXO_GAGGET_TYPE};
+      String[] applicationTypes = {org.exoplatform.web.application.Application.EXO_GAGGET_TYPE};
       
       //Set parent container
       uiAddApplication.setInPage(false);

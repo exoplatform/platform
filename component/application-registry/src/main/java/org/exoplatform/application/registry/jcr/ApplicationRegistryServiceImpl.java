@@ -40,7 +40,6 @@ import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.services.portletcontainer.pci.model.Description;
 import org.exoplatform.services.portletcontainer.pci.model.DisplayName;
-import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.picocontainer.Startable;
 
@@ -232,31 +231,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     sessionProvider.close() ;
     return applications ;
   }
-
-  public void importExoWidgets() throws Exception {
-    ExoContainer container = ExoContainerContext.getCurrentContainer();
-    WebAppController appController = (WebAppController) container
-        .getComponentInstanceOfType(WebAppController.class);
-    List<org.exoplatform.web.application.Application> eXoWidgets = appController
-        .getApplicationByType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE);
-    if(eXoWidgets == null || eXoWidgets.size() < 1) {
-      return ;
-    }
-    org.exoplatform.web.application.Application sampleApp = eXoWidgets.get(0) ;
-    ApplicationCategory category = getApplicationCategory(sampleApp.getApplicationGroup());
-    if (category == null) {
-      category = new ApplicationCategory();
-      category.setName(sampleApp.getApplicationGroup());
-      category.setDisplayName(sampleApp.getApplicationGroup());
-      category.setDescription(sampleApp.getApplicationGroup());
-      save(category);
-    }
-
-    for (org.exoplatform.web.application.Application ele : eXoWidgets) {
-      Application app = getApplication(category.getName() + "/" + ele.getApplicationName()) ;
-      if (app == null) save(category, convertApplication(ele));
-    }
-  }
   
   //TODO: dang.tung
   public void importExoGadgets() throws Exception {
@@ -266,6 +240,8 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     if(eXoGadgets == null || eXoGadgets.size() < 1) {
       return ;
     }
+    ArrayList<String> permissions = new ArrayList<String>();
+    permissions.add(UserACL.EVERYONE);
     String categoryName = GadgetApplication.EXO_GADGET_GROUP ;
     ApplicationCategory category = getApplicationCategory(categoryName);
     if (category == null) {
@@ -273,12 +249,17 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       category.setName(categoryName);
       category.setDisplayName(categoryName);
       category.setDescription(categoryName);
+      category.setAccessPermissions(permissions);
       save(category);
     }
 
     for (Gadget ele : eXoGadgets) {
       Application app = getApplication(category.getName() + "/" + ele.getName()) ;
-      if (app == null) save(category, convertApplication(ele));
+      if (app == null) {
+        app = convertApplication(ele);
+        app.setAccessPermissions(permissions);
+        save(category, app);
+      }
     }
   }
 
@@ -437,18 +418,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return false;
   }
 
-  private Application convertApplication(org.exoplatform.web.application.Application app) {
-    Application returnApplication = new Application() ;
-    returnApplication.setApplicationGroup(app.getApplicationGroup()) ;
-    returnApplication.setApplicationType(app.getApplicationType()) ;
-    returnApplication.setApplicationName(app.getApplicationName()) ;
-    returnApplication.setCategoryName(app.getApplicationGroup()) ;
-    returnApplication.setDisplayName(app.getApplicationName()) ;
-    returnApplication.setDescription(app.getDescription()) ;
-    
-    return returnApplication ;
-  }
-  
   private Application convertApplication(Gadget gadget) {
     Application returnApplication = new Application() ;
     returnApplication.setApplicationGroup(GadgetApplication.EXO_GADGET_GROUP) ;
@@ -457,7 +426,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     returnApplication.setCategoryName(GadgetApplication.EXO_GADGET_GROUP) ;
     returnApplication.setDisplayName(gadget.getTitle()) ;
     returnApplication.setDescription(gadget.getDescription()) ;
-    
     return returnApplication ;
   }
   

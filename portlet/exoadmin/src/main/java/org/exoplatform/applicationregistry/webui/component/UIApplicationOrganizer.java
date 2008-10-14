@@ -21,7 +21,6 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -63,8 +62,7 @@ public class UIApplicationOrganizer extends UIContainer {
   
   public void initApplicationCategories() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
-    String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
-    categories = service.getApplicationCategories(accessUser, new String[] {});
+    categories = service.getApplicationCategories();
     if(categories == null || categories.size() < 1) return ;
     setSelectedCategory(categories.get(0)) ;
   }
@@ -84,7 +82,8 @@ public class UIApplicationOrganizer extends UIContainer {
 
   public void setSelectedCategory(ApplicationCategory category) throws Exception {
     selectedCategory = category;
-    applications = selectedCategory.getApplications() ;
+    ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
+    applications = service.getApplications(selectedCategory, new String [] {});
     if(applications == null || applications.size() < 1) {
       setSelectedApplication(null);
       return ;
@@ -151,7 +150,6 @@ public class UIApplicationOrganizer extends UIContainer {
       UIApplicationOrganizer uiOrganizer = event.getSource() ;
       ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
       service.importAllPortlets() ;
-      service.importExoWidgets() ;
       service.importExoGadgets() ;
       uiOrganizer.initApplicationCategories() ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
