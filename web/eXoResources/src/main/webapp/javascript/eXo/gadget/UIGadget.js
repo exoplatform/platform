@@ -8,11 +8,11 @@ eXo.gadget.UIGadget = {
 		if (!eXo.gadgets || !eXo.gadgets.rpc) {
 	    	eXo.core.Using.register('rpc','/eXoGadgetServer/gadgets/js/rpc.js?c=1&debug=1&p=1');
 	    	eXo.core.Using.register('eXo.gadgets.Gadgets','/eXoGadgets/javascript/eXo/gadgets/Gadgets.js');
-	    	eXo.core.Using.register('eXo.gadgets.CookieBasedUserPrefStore','/eXoGadgets/javascript/eXo/gadgets/CookieBasedUserPrefStore.js');
+	    	eXo.core.Using.register('eXo.gadgets.ExoBasedUserPrefStore','/eXoGadgets/javascript/eXo/gadgets/ExoBasedUserPrefStore.js');
 	
 	    	eXo.core.Using("rpc");
-			  eXo.core.Using("eXo.gadgets.Gadgets");
-	  		eXo.core.Using("eXo.gadgets.CookieBasedUserPrefStore");
+			eXo.core.Using("eXo.gadgets.Gadgets");
+	  		eXo.core.Using("eXo.gadgets.ExoBasedUserPrefStore");
 		}
 		var gadget;
 		if (metadata != null) {
@@ -22,7 +22,8 @@ eXo.gadget.UIGadget = {
 			gadget = gadgets.container.createGadget({specUrl: url});
 		}	
     gadgets.container.addGadget(gadget);
-    if(userPref != null) gadget.setUserPrefs(userPref) ;
+    // i use the internal var "gadget.userPrefs_" to not call the save on the server side
+    if(userPref != null) gadget.userPrefs_ = userPref ;
 	  var gadgetBlock = document.getElementById(id);
 		gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "' class='UIGadgetContent'> </div>";
 		gadgets.container.renderGadgets();
