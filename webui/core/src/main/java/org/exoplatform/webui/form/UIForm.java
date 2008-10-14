@@ -195,7 +195,7 @@ public class UIForm extends UIContainer  {
   public String url(String name) throws Exception {
     StringBuilder b = new StringBuilder() ;
     b.append("javascript:eXo.webui.UIForm.submitForm('").append(getFormId()).append("','");
-    b.append(name).append("', false)");
+    b.append(name).append("',false)");
     return b.toString() ;
   }
   

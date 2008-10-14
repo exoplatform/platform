@@ -1,15 +1,22 @@
 <%
 	import org.exoplatform.web.application.JavascriptManager;
 	import org.exoplatform.portal.webui.application.UIGadget;
+	import org.exoplatform.portal.webui.application.GadgetUtil;
+	import org.exoplatform.webui.application.portlet.PortletRequestContext;
 	
   def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  def pcontext = (PortletRequestContext) rcontext;
+  def windowId = pcontext.getWindowId();
+  def id = uicomponent.getId() + "-" + windowId ;
   def url = uicomponent.getParent().getUrl();
-  def metadata = null;//uicomponent.getMetadata();
-  def id = uicomponent.getId() ;
+  def metadata = uicomponent.getParent().getMetadata();
   def userPref = null;//uicomponent.getUserPref() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id', $metadata, $userPref);") ;
+	java.util.Map<String, String> metadataMap = GadgetUtil.getMapMetadata(url) ;
+	String height = "auto" ;
+	if(metadataMap.containsKey("height")) height = (Integer.parseInt(metadataMap.get("height")) + 10) + "px" ;
 %>
 
-<div class="UIGadgetViewMode" id="$id"></div>
+<div class="UIGadgetViewMode" id="$id" style="height: <%=height%>;"></div>

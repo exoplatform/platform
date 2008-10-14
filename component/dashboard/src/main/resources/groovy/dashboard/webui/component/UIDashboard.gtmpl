@@ -1,15 +1,12 @@
 <%
-  import org.exoplatform.web.application.JavascriptManager;
   import org.exoplatform.dashboard.webui.component.UIDashboardContainer;
   import org.exoplatform.dashboard.webui.component.UIDashboardSelectForm;
 
   def rcontext = _ctx.getRequestContext() ;
 
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
 %>
 
 <div id="$uicomponent.id" class="UIDashboard">
 	<% uicomponent.renderChildren(); %>
 	<div style="clear:left;"><span></span></div>
 </div>
-<% jsmanager.addJavascript("eXo.webui.UIDashboard.onLoad(\""+ rcontext.getWindowId()+ "\");"); %>

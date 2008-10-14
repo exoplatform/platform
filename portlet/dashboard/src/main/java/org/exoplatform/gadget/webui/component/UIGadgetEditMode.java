@@ -137,6 +137,7 @@ public class UIGadgetEditMode extends UIForm {
         pref.store() ;
         uiGadgetEditMode.getUIStringInput(FIELD_URL).setValue(uiGadget.getUrl()) ;
         pcontext.setApplicationMode(PortletMode.VIEW) ;
+        pcontext.addUIComponentToUpdateByAjax(uiPortlet) ;
       }
     }
   }

@@ -146,17 +146,16 @@ public class UIPortletForm extends UIFormTabPane {
       RenderOutput output = portletContainer.render(prcontext.getRequest(), prcontext
           .getResponse(), input);
       if (output.getContent() == null) {
-        portletContent.append(
-            "EXO-ERROR: Portlet container throw an exception\n").append(
-            uiPortlet_.getId()).append(" has error");
+        portletContent.append("This portlet encountered an error and could not be displayed.");
       } else {
         portletContent.setLength(0);
         portletContent.append(output.getContent());
       }
     } catch (Throwable ex) {
       ex = ExceptionUtil.getRootCause(ex);
-      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
-      System.err.println("Exception print in the portlet content" + portletContent);
+//      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
+      System.err.println("The portlet " + uiPortlet_.getName() + " could not be loaded. Check if properly deployed.");
+      System.err.println(ExceptionUtil.getStackTrace(ex, 100));
     }
     return portletContent.toString();
   }

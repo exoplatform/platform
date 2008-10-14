@@ -19,7 +19,6 @@ package org.exoplatform.dashboard.webui.component;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
-
 @ComponentConfig(
     template = "classpath:groovy/dashboard/webui/component/UIDashboard.gtmpl",
     events = {

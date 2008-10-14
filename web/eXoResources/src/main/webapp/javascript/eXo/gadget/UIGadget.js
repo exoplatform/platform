@@ -25,7 +25,11 @@ eXo.gadget.UIGadget = {
     // i use the internal var "gadget.userPrefs_" to not call the save on the server side
     if(userPref != null) gadget.userPrefs_ = userPref ;
 	  var gadgetBlock = document.getElementById(id);
-		gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "' class='UIGadgetContent'> </div>";
+	  if(gadget.metadata && gadget.metadata.height) {
+			gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "' class='UIGadgetContent' style='height:" + gadget.metadata.height  + "px;'> </div>";
+	  } else {
+	  	gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "' class='UIGadgetContent'> </div>";
+	  }
 		gadgets.container.renderGadgets();
 		var uiGadget = eXo.core.DOMUtil.findAncestorByClass(gadgetBlock, "UIGadget");
 		//TODO: dang.tung - isn't portlet
@@ -36,12 +40,12 @@ eXo.gadget.UIGadget = {
 				isDesktop = true;
 			}
 			else uiGadget.style.width="auto" ;	
-			eXo.gadget.UIGadget.init(uiGadget, isDesktop);	
+			eXo.gadget.UIGadget.init(uiGadget, isDesktop, gadget.metadata);	
 		}
 		
 	},
 
-	init : function(uiGadget, inDesktop) {
+	init : function(uiGadget, inDesktop, metadata) {
 		var portletFragment = eXo.core.DOMUtil.findAncestorById(uiGadget, "PORTLET-FRAGMENT");
 		if(portletFragment == null){
 			uiGadget.onmouseover = eXo.gadget.UIGadget.showGadgetControl ;
@@ -50,7 +54,9 @@ eXo.gadget.UIGadget = {
 			var gadgetControl = eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "GadgetControl");
 			gadgetControl.style.display = "block" ;
 			eXo.core.DOMUtil.findFirstDescendantByClass(uiGadget, "div", "MinimizeAction").style.display = "block" ;
-			eXo.core.DOMUtil.findFirstDescendantByClass(gadgetControl, "div", "GadgetTitle").style.display = "block" ;
+			var gadgetTitle = eXo.core.DOMUtil.findFirstDescendantByClass(gadgetControl, "div", "GadgetTitle") ;
+			gadgetTitle.style.display = "block" ;
+			if(metadata && metadata.title.length > 0) gadgetTitle.innerHTML = metadata.title ; 
 		}
 		
 		if(inDesktop) {

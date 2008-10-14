@@ -31,6 +31,7 @@ import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
+import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.InitParams;
@@ -133,6 +134,8 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     uiRoot.getChildren().clear();
 
     PortalDataMapper.toUIContainer(uiRoot, container);
+    JavascriptManager jsmanager = context.getJavascriptManager() ;
+    jsmanager.addCustomizedOnLoadScript("eXo.webui.UIDashboard.onLoad('" + windowId + "');") ;
     //----
     super.processRender(context);
   }
@@ -444,7 +447,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
         UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
         uiDashboardContainer.addUIGadget(uiGadget, col, row);
         uiDashboardContainer.save();
-
+        context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
       }
     }
 
@@ -461,6 +464,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
 
         uiDashboardContainer.moveUIGadget(objectId, col, row);
         uiDashboardContainer.save();
+        context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
       }
     }
 
@@ -475,6 +479,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
         UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
         uiDashboardContainer.removeUIGadget(objectId);
         uiDashboardContainer.save();
+        context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
       }
     }
 
@@ -488,6 +493,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
         UIGadget uiGadget = uiPortlet.getChild(UIDashboardContainer.class).getUIGadget(objectId) ;
         uiGadget.getProperties().setProperty("minimized", minimized) ;
         uiPortlet.getChild(UIDashboardContainer.class).save() ;
+        context.addUIComponentToUpdateByAjax(uiGadget) ;
       }
     }
 }

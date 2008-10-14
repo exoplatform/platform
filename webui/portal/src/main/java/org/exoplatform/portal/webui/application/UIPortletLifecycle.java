@@ -32,6 +32,7 @@ import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
+import org.exoplatform.services.portletcontainer.PortletContainerException;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.RenderInput;
 import org.exoplatform.services.portletcontainer.pci.RenderOutput;
@@ -170,8 +171,7 @@ public class UIPortletLifecycle extends Lifecycle {
         output = portletContainer.render(prcontext.getRequest(), prcontext
             .getResponse(), input);
         if (output.getContent() == null) {
-          portletContent.append("EXO-ERROR: Portlet container throw an exception\n")
-                        .append(uiPortlet.getId()).append(" has error");
+          portletContent.append("This portlet encountered an error and could not be displayed.");
         } else {
           portletContent.setLength(0);
           portletContent.append(output.getContent());
@@ -179,8 +179,12 @@ public class UIPortletLifecycle extends Lifecycle {
       }
     } catch (Throwable ex) {
       ex = ExceptionUtil.getRootCause(ex);
-      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
-      log.error("Exception print in the portlet content", ex);
+//      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
+//      log.error("The portlet " + uiPortlet.getName() + " could not be loaded. Check if properly deployed.", ex);
+      String errorString = "ERROR:  The portlet " + uiPortlet.getName() + ", id " + uiPortlet.getId() ; 
+      if (ex instanceof PortletContainerException) {
+        errorString += " could not be loaded." ;
+      }
     }
     if (output != null) {
       portletTitle = output.getTitle();

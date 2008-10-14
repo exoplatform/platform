@@ -18,11 +18,14 @@ package org.exoplatform.gadget.webui.component;
 
 import javax.portlet.PortletPreferences;
 
+import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by The eXo Platform SARL
@@ -44,6 +47,20 @@ public class UIGadgetPortlet extends UIPortletApplication {
     PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
     PortletPreferences pref = pcontext.getRequest().getPreferences();
     return pref.getValue("url", "http://www.google.com/ig/modules/horoscope.xml");
+  }
+  
+  public String getMetadata() {
+    String metadata_ = GadgetUtil.fetchGagdetMetadata(getUrl());
+    try {
+      JSONObject jsonObj = new JSONObject(metadata_);
+      JSONObject obj = jsonObj.getJSONArray("gadgets").getJSONObject(0);
+      String token = GadgetUtil.createToken(getUrl(), new Long(hashCode()));
+      obj.put("secureToken", token);
+      metadata_ = jsonObj.toString();
+    } catch (JSONException e) {
+      e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+    }
+    return metadata_;
   }
 }
 
