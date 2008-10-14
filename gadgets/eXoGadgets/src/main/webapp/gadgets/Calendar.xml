@@ -60,8 +60,7 @@
 		
 			.Month {
 				text-align: center;
-				padding-top: 10px;
-				height: 36px;
+				height: 46px;
 			}
 		
 			.LeftButtonCalendarMonth,
@@ -71,7 +70,7 @@
 				height: 16px;
 				display: block;
 				float: left;
-				margin-top: 6px;
+				margin-top: 17px;
 				cursor: pointer;
 			}
 		
@@ -86,7 +85,7 @@
 				line-height: auto;
 				float: left;
 				text-align: center;
-				padding-top: 5px;
+				padding-top: 13px;
 				cursor: pointer;
 			}
 		
