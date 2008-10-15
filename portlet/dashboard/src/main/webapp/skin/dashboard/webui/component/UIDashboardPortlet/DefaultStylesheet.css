@@ -54,6 +54,15 @@
 	background: #ececec;
 }
 
+.UIDashboardSelectForm .DashboardItemContainer .InputContainer {
+	padding: 2px;
+}
+
+.UIDashboardSelectForm .DashboardItemContainer .InputContainer input {
+	margin: 0 3px 0 0;
+	font-size: 11px; width: 170px;
+}
+
 .UIDashboardSelectForm .DashboardItemContainer .GadgetItemsContainer {
 	border: 1px solid #b7b7b7;
 	background: white;
