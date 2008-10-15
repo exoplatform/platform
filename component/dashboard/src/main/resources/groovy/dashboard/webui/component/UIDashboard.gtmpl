@@ -1,11 +1,3 @@
-<%
-  import org.exoplatform.dashboard.webui.component.UIDashboardContainer;
-  import org.exoplatform.dashboard.webui.component.UIDashboardSelectForm;
-
-  def rcontext = _ctx.getRequestContext() ;
-
-%>
-
 <div id="$uicomponent.id" class="UIDashboard">
 	<% uicomponent.renderChildren(); %>
 	<div style="clear:left;"><span></span></div>

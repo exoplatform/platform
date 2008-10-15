@@ -24,14 +24,14 @@ import org.exoplatform.webui.core.UIContainer;
     events = {
       @EventConfig(listeners = UIDashboardContainer.MoveGadgetActionListener.class),
       @EventConfig(listeners = UIDashboardContainer.AddNewGadgetActionListener.class),
-      @EventConfig(listeners = UIDashboardContainer.SetShowSelectFormActionListener.class),
+      @EventConfig(listeners = UIDashboardSelectContainer.SetShowSelectContainerActionListener.class),
       @EventConfig(listeners = UIDashboardContainer.DeleteGadgetActionListener.class)
    }
 )
 public class UIDashboard extends UIContainer {
 
   public UIDashboard() throws Exception {
-    addChild(UIDashboardSelectForm.class, null, null);
+    addChild(UIDashboardSelectContainer.class, null, null);
     addChild(UIDashboardContainer.class, null, null).setColumns(3);
   }
 

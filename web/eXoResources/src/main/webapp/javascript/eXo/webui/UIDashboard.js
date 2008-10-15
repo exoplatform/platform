@@ -269,16 +269,16 @@ eXo.webui.UIDashboard = {
 			if(columns[i].style.display != "none") colsSize++;
 		}
 		colsContainer.style.width = colsSize*320 + 20 + "px";
-		eXo.webui.UIDashboard.initSelectForm(uiDashboard);
+		eXo.webui.UIDashboard.initSelectContainer(uiDashboard);
 		if(viewLayoutTag && wasHiddenView) {
 			viewLayoutTag.style.display = "none" ;
 		}
 	},
 	
-	initSelectForm : function(uiDashboard) {
+	initSelectContainer : function(uiDashboard) {
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiWindow = DOMUtil.findAncestorById(uiDashboard, "PORTLET-FRAGMENT").parentNode;
-		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectForm");
+		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
 		var itemCont = DOMUtil.findFirstChildByClass(uiSelect, "div", "DashboardItemContainer");
 		var middleItemCont = DOMUtil.findFirstDescendantByClass(uiSelect, "div", "MiddleItemContainer");
 		var topItemCont = DOMUtil.findNextElementByTagName(middleItemCont, "div");
@@ -325,11 +325,11 @@ eXo.webui.UIDashboard = {
 		return uiTarget;
 	},
 	
-	showHideSelectForm : function(comp) {
+	showHideSelectContainer : function(comp) {
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiDashboardPortlet = DOMUtil.findAncestorByClass(comp, "UIDashboard");
 		var portletFragment = DOMUtil.findAncestorById(comp, "PORTLET-FRAGMENT");
-		var uiSelectForm = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardSelectForm");
+		var uiSelectContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardSelectContainer");
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
 		
 		var portletId = DOMUtil.findAncestorById(uiDashboardPortlet, "PORTLET-FRAGMENT").parentNode.id;
@@ -338,17 +338,17 @@ eXo.webui.UIDashboard = {
 		
 		var url = eXo.env.server.portalBaseURL + '?portal:componentId=' + portletId +
 						'&portal:type=action&portal:isSecure=false&uicomponent=' + uiDashboardPortlet.id +
-						'&op=SetShowSelectForm&ajaxRequest=true' ;
-		if(uiSelectForm.style.display != "none") {
-			uiSelectForm.style.display = "none";
+						'&op=SetShowSelectContainer&ajaxRequest=true' ;
+		if(uiSelectContainer.style.display != "none") {
+			uiSelectContainer.style.display = "none";
 			url += '&isShow=false';
 			addButton.style.visibility = "visible";
 		} else {
-			uiSelectForm.style.display = "block";
+			uiSelectContainer.style.display = "block";
 			url += '&isShow=true';
 			addButton.style.visibility = "hidden";
 		}
-		eXo.webui.UIDashboard.initSelectForm(uiDashboardPortlet);
+		eXo.webui.UIDashboard.initSelectContainer(uiDashboardPortlet);
 		ajaxAsyncGetRequest(url, false);
 	}, 
 	

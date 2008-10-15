@@ -22,32 +22,38 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.UIFormStringInput;
 
 @ComponentConfig(
-    template = "classpath:groovy/dashboard/webui/component/UIDashboardSelectForm.gtmpl", 
-    lifecycle = UIFormLifecycle.class,
-    events = @EventConfig(listeners = UIDashboardSelectForm.AddGadgetByUrl.class)
+    template = "classpath:groovy/dashboard/webui/component/UIDashboardSelectContainer.gtmpl", 
+    lifecycle = UIFormLifecycle.class
 ) 
-public class UIDashboardSelectForm extends UIForm {
+public class UIDashboardSelectContainer extends UIContainer {
   
-  public static String URL_FIELD = "url" ;
+  private List<ApplicationCategory> categories ;
+  
+  private ApplicationCategory selectedCategory ;
 
-  private List<ApplicationCategory> categories;
+  private Hashtable<ApplicationCategory, List<Application>> gadgets ;
 
-  private Hashtable<ApplicationCategory, List<Application>> gadgets;
+  private boolean isShow = false;
 
-  private boolean isShowSelectForm = false;
-
-  public UIDashboardSelectForm() throws Exception {
-    addUIFormInput(new UIFormStringInput(URL_FIELD, null)) ;
+  public UIDashboardSelectContainer() throws Exception {
+    addChild(UIAddGadgetForm.class, null, null) ;
+  }
+  
+  public void setSelectedCategory(ApplicationCategory category) {
+    selectedCategory = category ;
+  }
+  
+  public ApplicationCategory getSelectedCategory() {
+    return selectedCategory ;
   }
 
   public final List<ApplicationCategory> getCategories() throws Exception {
@@ -88,17 +94,24 @@ public class UIDashboardSelectForm extends UIForm {
     return listGadgets;
   }
 
-  public boolean isShowSelectForm() {
-    return isShowSelectForm;
+  public boolean isShow() {
+    return isShow;
   }
 
-  public void setShowSelectForm(final boolean value) {
-    this.isShowSelectForm = value;
+  public void setShow(final boolean value) {
+    this.isShow = value;
   }
   
-  static public class AddGadgetByUrl extends EventListener<UIDashboardSelectForm> {
-    public void execute(Event<UIDashboardSelectForm> event) throws Exception {
-      
+  static public class SetShowSelectContainerActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
+    public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
+      org.exoplatform.webui.core.UIContainer uiDashboard = event.getSource();
+      if (!((UIDashboard)uiDashboard).canEdit())
+        return;
+      UIDashboardSelectContainer uiForm = uiDashboard.getChild(UIDashboardSelectContainer.class);
+      PortletRequestContext pcontext = (PortletRequestContext) event.getRequestContext();
+      boolean isShow = Boolean.parseBoolean(pcontext.getRequestParameter("isShow"));
+
+      uiForm.setShow(isShow);
     }
   }
 

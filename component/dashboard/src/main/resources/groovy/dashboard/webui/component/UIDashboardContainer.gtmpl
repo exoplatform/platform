@@ -1,13 +1,13 @@
 <% 
-  import org.exoplatform.dashboard.webui.component.UIDashboardSelectForm;
+  import org.exoplatform.dashboard.webui.component.UIDashboardSelectContainer;
   
-  def uiPortlet = uicomponent.getParent();
-  def uiSelectForm = uiPortlet.getChild(UIDashboardSelectForm.class);
+  def uiDashboard = uicomponent.getParent();
+  def uiSelectForm = uiDashboard.getChild(UIDashboardSelectContainer.class);
 %>
 <div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="DashboardContainer UIResizableBlock" id="DashboardContainer">
-		<% if (uicomponent.getParent().canEdit()) { %>
-		<div class="ContainerControlBarL" style="visibility: <%= uiSelectForm.isShowSelectForm()? "hidden" : "visible"; %>;">
+		<% if (uiDashboard.canEdit()) { %>
+		<div class="ContainerControlBarL" style="visibility: <%= uiSelectForm.isShow()? "hidden" : "visible"; %>;">
 			<div class="ContainerControlBarR">
 				<div class="ContainerControlBarM">
 					<div class="AddIcon">

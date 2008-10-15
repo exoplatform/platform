@@ -1,17 +1,18 @@
-<div class="$uicomponent.id" id="UIDashboardSelectForm" style="display: <%= uicomponent.isShowSelectForm()? "block" : "none"; %>;">
+<% 
+	def uiDashboard = uicomponent.getParent();
+	if(!uiDashboard.canEdit()) return;
+ %>
+<div class="$uicomponent.id" id="UIDashboardSelectContainer" style="display: <%= uicomponent.isShow()? "block" : "none"; %>;">
 	<div class="DashboardControlBar">
 		<div class="TitleControlBar">
 			<div class="TitleBar"><%=_ctx.appRes("UIDashboardPortlet.label.workspace");%></div>
-			<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)" title="<%=_ctx.appRes("UIDashboardPortlet.tooltip.close");%>"><span></span></div>
+			<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectContainer(this)" title="<%=_ctx.appRes("UIDashboardPortlet.tooltip.close");%>"><span></span></div>
 			<div style="clear: right;"><span></span></div>
 		</div>
 	</div>
 	<div class="DashboardItemContainer ItemContainer">
 		<div class="InputContainer">
-				<%uicomponent.renderChild(0);%>
-				<a  href="<%=uicomponent.event("AddGadgetByUrl")%>" title="<%=_ctx.appRes("UIDashboardSelectForm.action.addGadget")%>">
-					<img class="AddNewNodeIcon" src="/eXoResources/skin/sharedImages/Blank.gif"/>
-				</a>
+				<% uicomponent.renderChildren(); %>
 		</div>
 		
 		<div class="GadgetItemsContainer " id="GadgetItemsContainer">

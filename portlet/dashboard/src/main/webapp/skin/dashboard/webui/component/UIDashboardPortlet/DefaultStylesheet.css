@@ -22,19 +22,19 @@
 }
 
 /*----------------------UIGadgetsSelectorForm-------------------*/
-.UIDashboardSelectForm {
+.UIDashboardSelectContainer {
 	float: left;
 	width: 209px;
 	border-right: 1px solid #b7b7b7;
 }
 
-.UIDashboardSelectForm .DashboardControlBar {
+.UIDashboardSelectContainer .DashboardControlBar {
 	height: 23px;
 	background: url('background/Dashboard.gif') repeat-x top;
 	border-bottom: 1px solid #b7b7b7;
 }
 
-.UIDashboardSelectForm .TitleBar {
+.UIDashboardSelectContainer .TitleBar {
 	color: black;
 	font-weight: bold;
 	line-height: 23px;
@@ -42,34 +42,34 @@
 	padding-left: 20px;
 }
 
-.UIDashboardSelectForm .CloseIcon {
+.UIDashboardSelectContainer .CloseIcon {
 	float: right;
 	background: url('background/Dashboard.gif') no-repeat left -180px;
 	height: 20px;
 	width: 20px;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer {
+.UIDashboardSelectContainer .DashboardItemContainer {
 	border: 1px solid white;
 	background: #ececec;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .InputContainer {
+.UIDashboardSelectContainer .DashboardItemContainer .InputContainer {
 	padding: 2px;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .InputContainer input {
+.UIDashboardSelectContainer .DashboardItemContainer .InputContainer input {
 	margin: 0 3px 0 0;
 	font-size: 11px; width: 170px;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .GadgetItemsContainer {
+.UIDashboardSelectContainer .DashboardItemContainer .GadgetItemsContainer {
 	border: 1px solid #b7b7b7;
 	background: white;
 	font-weight: bold;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .TopItemContainer {
+.UIDashboardSelectContainer .DashboardItemContainer .TopItemContainer {
 	background: url('background/Dashboard.gif') repeat-x center -37px;
 	height: 11px;
 	padding: 1px;
@@ -77,23 +77,23 @@
 	display: none;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .UpArrowIcon {
+.UIDashboardSelectContainer .DashboardItemContainer .UpArrowIcon {
 	background: url('background/Dashboard.gif') repeat-x center -98px;
 	height: 11px; width: 15px;
 	margin: auto;
 	cursor: pointer;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .DisableArrowIcon {
+.UIDashboardSelectContainer .DashboardItemContainer .DisableArrowIcon {
 	filter: alpha(opacity=30);
 	-moz-opacity: 0.3;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .MiddleItemContainer {
+.UIDashboardSelectContainer .DashboardItemContainer .MiddleItemContainer {
 	overflow: hidden;
 }
 	
-.UIDashboardSelectForm .DashboardItemContainer .BottomItemContainer {
+.UIDashboardSelectContainer .DashboardItemContainer .BottomItemContainer {
 	background: url('background/Dashboard.gif') repeat-x center -37px;
 	height: 11px;
 	padding: 1px;
@@ -101,38 +101,38 @@
 	display: none;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .DownArrowIcon {
+.UIDashboardSelectContainer .DashboardItemContainer .DownArrowIcon {
 	background: url('background/Dashboard.gif') repeat-x center -114px;
 	height: 11px; width: 15px;
 	margin: auto;
 	cursor: pointer;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .DisableContainer {
+.UIDashboardSelectContainer .DashboardItemContainer .DisableContainer {
 	background:	url('background/Dashboard.gif') repeat-x center -23px;
 }
 
-.UIDashboardSelectForm .DashboardItemContainer .GadgetCategory {
+.UIDashboardSelectContainer .DashboardItemContainer .GadgetCategory {
 	padding: 5px 10px;
 }
 
-.UIDashboardSelectForm .GadgetCategory .GadgetTab .LeftCategoryTitleBar {
+.UIDashboardSelectContainer .GadgetCategory .GadgetTab .LeftCategoryTitleBar {
 	padding-left: 8px;
 	background: url('background/Catalogue.gif') no-repeat left top;
 }
 
-.UIDashboardSelectForm .GadgetCategory .GadgetTab .RightCategoryTitleBar {
+.UIDashboardSelectContainer .GadgetCategory .GadgetTab .RightCategoryTitleBar {
 	padding-right: 8px;
 	background: url('background/Catalogue.gif') no-repeat right top;
 }
 
-.UIDashboardSelectForm .GadgetCategory .GadgetTab .MiddleCategoryTitleBar {
+.UIDashboardSelectContainer .GadgetCategory .GadgetTab .MiddleCategoryTitleBar {
 	padding-right: 8px;
 	background: url('background/Catalogue.gif') repeat-x center -26px;
 	height: 26px;
 }
 
-.UIDashboardSelectForm .GadgetCategory .GadgetTab .ArrowIcon {
+.UIDashboardSelectContainer .GadgetCategory .GadgetTab .ArrowIcon {
 	background: url('background/Catalogue.gif') no-repeat left -102px;
 	line-height: 26px;
 	overflow: hidden;
@@ -140,17 +140,17 @@
 	color: #286f9b;
 }
 
-.UIDashboardSelectForm .GadgetCategory .SelectedTab .ArrowIcon {
+.UIDashboardSelectContainer .GadgetCategory .SelectedTab .ArrowIcon {
 	background: url('background/Catalogue.gif') no-repeat left -76px;
 }
 
-.UIDashboardSelectForm .GadgetCategory .ItemsContainer {
+.UIDashboardSelectContainer .GadgetCategory .ItemsContainer {
 	border: 1px solid #a2c2e2;
 	padding: 0px 1px;
 	margin-top: 2px;
 }
 
-.UIDashboardSelectForm .GadgetCategory .UIGadget {
+.UIDashboardSelectContainer .GadgetCategory .UIGadget {
 	background: url('background/Catalogue.gif') repeat-x left -52px;
 	margin: 2px 0px;
 	height: 24px;
@@ -159,7 +159,7 @@
 	padding: 0px 5px;
 }
 
-.UIDashboard .UIDashboardSelectForm .GadgetTitle {
+.UIDashboard .UIDashboardSelectContainer .GadgetTitle {
 	width: 150px;	
 	float: none;
 }

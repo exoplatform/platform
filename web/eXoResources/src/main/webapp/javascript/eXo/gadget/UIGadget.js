@@ -178,9 +178,7 @@ eXo.gadget.UIGadget = {
 			DOMUtil.replaceClass(selectedElement, "RestoreGadget", "MinimizeGadget") ;
 		}
 		
-		
 		var compId = portletFrag.parentNode.id;
-		alert(DOMUtil.getChildrenByTagName(portletFrag, "div")[0].className);
 		var uicomp = DOMUtil.getChildrenByTagName(portletFrag, "div")[0].className ;
 		var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId ;
 		href += "&portal:type=action&uicomponent=" + uicomp ;
