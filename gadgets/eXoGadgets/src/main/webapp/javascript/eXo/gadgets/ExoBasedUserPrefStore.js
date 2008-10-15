@@ -23,8 +23,8 @@ gadgets.ExoBasedUserPrefStore.prototype.savePrefs = function(gadget) {
 			var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
 			href += "&portal:type=action&uicomponent=" + uiGadget.id;
 			href += "&op=SaveUserPref";
-			href += "&userPref=" + prefs + "&ajaxRequest=true";
-			ajaxGet(href);
+			href += "&userPref=" + prefs;
+			ajaxAsyncGetRequest(href,true);
 		} else {
 			var params = [
 			 {name : "userPref", value : prefs}
