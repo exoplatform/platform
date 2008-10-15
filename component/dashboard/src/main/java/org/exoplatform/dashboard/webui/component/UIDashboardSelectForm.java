@@ -24,14 +24,21 @@ import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormStringInput;
 
 @ComponentConfig(
     template = "classpath:groovy/dashboard/webui/component/UIDashboardSelectForm.gtmpl", 
-    lifecycle = UIFormLifecycle.class
+    lifecycle = UIFormLifecycle.class,
+    events = @EventConfig(listeners = UIDashboardSelectForm.AddGadgetByUrl.class)
 ) 
 public class UIDashboardSelectForm extends UIForm {
+  
+  public static String URL_FIELD = "url" ;
 
   private List<ApplicationCategory> categories;
 
@@ -39,7 +46,9 @@ public class UIDashboardSelectForm extends UIForm {
 
   private boolean isShowSelectForm = false;
 
-  public UIDashboardSelectForm() throws Exception { }
+  public UIDashboardSelectForm() throws Exception {
+    addUIFormInput(new UIFormStringInput(URL_FIELD, null)) ;
+  }
 
   public final List<ApplicationCategory> getCategories() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
@@ -85,6 +94,12 @@ public class UIDashboardSelectForm extends UIForm {
 
   public void setShowSelectForm(final boolean value) {
     this.isShowSelectForm = value;
+  }
+  
+  static public class AddGadgetByUrl extends EventListener<UIDashboardSelectForm> {
+    public void execute(Event<UIDashboardSelectForm> event) throws Exception {
+      
+    }
   }
 
 }

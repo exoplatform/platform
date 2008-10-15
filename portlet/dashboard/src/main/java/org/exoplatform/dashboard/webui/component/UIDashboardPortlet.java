@@ -18,11 +18,15 @@ package org.exoplatform.dashboard.webui.component;
 
 import javax.portlet.PortletPreferences;
 
+import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 
 /**
  * set the event listeners.
@@ -32,7 +36,8 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
  */
 @ComponentConfig(
   lifecycle = UIApplicationLifecycle.class, 
-  template = "app:/groovy/dashboard/webui/component/UIDashboardPortlet.gtmpl"
+  template = "app:/groovy/dashboard/webui/component/UIDashboardPortlet.gtmpl",
+  events = @EventConfig(listeners = UIDashboardPortlet.MinimizeGadgetActionListener.class)
 )
 /**
  * Dashboard portlet that display google gadgets
@@ -80,5 +85,19 @@ public class UIDashboardPortlet extends UIPortletApplication implements Dashboar
     }
     return owner;
   }
+  
+  public static class MinimizeGadgetActionListener extends EventListener<UIDashboardPortlet> {
+    public final void execute(final Event<UIDashboardPortlet> event) throws Exception {
+      WebuiRequestContext context = event.getRequestContext() ;
+      UIDashboardPortlet uiPortlet = event.getSource() ;
+      String objectId = context.getRequestParameter(OBJECTID) ;
+      String minimized = context.getRequestParameter("minimized") ;
 
+      UIDashboard uiDashboard = uiPortlet.getChild(UIDashboard.class) ;
+      UIGadget uiGadget = uiDashboard.getChild(UIDashboardContainer.class).getUIGadget(objectId) ;
+      uiGadget.getProperties().setProperty("minimized", minimized) ;
+      uiDashboard.getChild(UIDashboardContainer.class).save() ;
+      context.addUIComponentToUpdateByAjax(uiGadget) ;
+    }
+  }
 }

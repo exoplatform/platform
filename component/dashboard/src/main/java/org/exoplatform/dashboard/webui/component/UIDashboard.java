@@ -25,8 +25,7 @@ import org.exoplatform.webui.core.UIContainer;
       @EventConfig(listeners = UIDashboardContainer.MoveGadgetActionListener.class),
       @EventConfig(listeners = UIDashboardContainer.AddNewGadgetActionListener.class),
       @EventConfig(listeners = UIDashboardContainer.SetShowSelectFormActionListener.class),
-      @EventConfig(listeners = UIDashboardContainer.DeleteGadgetActionListener.class),
-      @EventConfig(listeners = UIDashboardContainer.MinimizeGadgetActionListener.class)
+      @EventConfig(listeners = UIDashboardContainer.DeleteGadgetActionListener.class)
    }
 )
 public class UIDashboard extends UIContainer {

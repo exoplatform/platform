@@ -1,8 +1,17 @@
 <div class="$uicomponent.id" id="UIDashboardSelectForm" style="display: <%= uicomponent.isShowSelectForm()? "block" : "none"; %>;">
 	<div class="DashboardControlBar">
-		<div class="TitleControlBar"><%=_ctx.appRes("UIDashboardPortlet.label.workspace");%></div>
-		<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)" title="<%=_ctx.appRes("UIDashboardPortlet.tooltip.close");%>"><span></span></div>
-		<div style="clear: right;"><span></span></div>
+		<div class="TitleControlBar">
+			<div class="TitleBar"><%=_ctx.appRes("UIDashboardPortlet.label.workspace");%></div>
+			<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectForm(this)" title="<%=_ctx.appRes("UIDashboardPortlet.tooltip.close");%>"><span></span></div>
+			<div style="clear: right;"><span></span></div>
+		</div>
+		<div class="InputContainer">
+			<div class="URLInput"><%uicomponent.renderChild(0);%></div>
+			<a class="AddButton" href="<%=uicomponent.event("AddGadgetByUrl")%>" title="<%=_ctx.appRes("UIDashboardSelectForm.action.addGadget")%>">
+				<span></span>
+			</a>
+			<div style="clear: right"><span></span></div>
+		</div>
 	</div>
 	<div class="DashboardItemContainer ItemContainer">
 		

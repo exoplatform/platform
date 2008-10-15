@@ -407,95 +407,82 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     service.save(PortalDataMapper.toContainer(uiRoot), parent.getDashboardOwner());
   }
 
-    public static class SetShowSelectFormActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
-      public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
-        org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
-        if (!((UIDashboard)uiPortlet).canEdit())
-          return;
-        UIDashboardSelectForm uiForm = uiPortlet.getChild(UIDashboardSelectForm.class);
-        PortletRequestContext pcontext = (PortletRequestContext) event.getRequestContext();
-        boolean isShow = Boolean.parseBoolean(pcontext.getRequestParameter("isShow"));
+  public static class SetShowSelectFormActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
+    public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
+      org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
+      if (!((UIDashboard)uiPortlet).canEdit())
+        return;
+      UIDashboardSelectForm uiForm = uiPortlet.getChild(UIDashboardSelectForm.class);
+      PortletRequestContext pcontext = (PortletRequestContext) event.getRequestContext();
+      boolean isShow = Boolean.parseBoolean(pcontext.getRequestParameter("isShow"));
 
-        uiForm.setShowSelectForm(isShow);
-      }
+      uiForm.setShowSelectForm(isShow);
     }
+  }
 
-    public static class AddNewGadgetActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
-      public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
-        WebuiRequestContext context = event.getRequestContext();
-        org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
-        if (!((UIDashboard)uiPortlet).canEdit())
-          return;
-        int col = Integer.parseInt(context.getRequestParameter(COLINDEX));
-        int row = Integer.parseInt(context.getRequestParameter(ROWINDEX));
-        String objectId = context.getRequestParameter(UIComponent.OBJECTID);
+  public static class AddNewGadgetActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
+    public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
+      WebuiRequestContext context = event.getRequestContext();
+      org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
+      if (!((UIDashboard)uiPortlet).canEdit())
+        return;
+      int col = Integer.parseInt(context.getRequestParameter(COLINDEX));
+      int row = Integer.parseInt(context.getRequestParameter(ROWINDEX));
+      String objectId = context.getRequestParameter(UIComponent.OBJECTID);
 
-        ApplicationRegistryService service = uiPortlet
-            .getApplicationComponent(ApplicationRegistryService.class);
-        Application application = service.getApplication(objectId);
-        if (application == null) {
-          return;
-        }
-        StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
-        windowId.append("#").append(context.getRemoteUser());
-        windowId.append(":/").append(
-            application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
-        UIGadget uiGadget = event.getSource().createUIComponent(context, UIGadget.class, null, null);
-        uiGadget.setId(Integer.toString(uiGadget.hashCode()+1));
-        windowId.append(uiGadget.hashCode());
-        uiGadget.setApplicationInstanceId(windowId.toString());
-        UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
-        uiDashboardContainer.addUIGadget(uiGadget, col, row);
-        uiDashboardContainer.save();
-        context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
+      ApplicationRegistryService service = uiPortlet
+          .getApplicationComponent(ApplicationRegistryService.class);
+      Application application = service.getApplication(objectId);
+      if (application == null) {
+        return;
       }
+      StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
+      windowId.append("#").append(context.getRemoteUser());
+      windowId.append(":/").append(
+          application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
+      UIGadget uiGadget = event.getSource().createUIComponent(context, UIGadget.class, null, null);
+      uiGadget.setId(Integer.toString(uiGadget.hashCode()+1));
+      windowId.append(uiGadget.hashCode());
+      uiGadget.setApplicationInstanceId(windowId.toString());
+      UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
+      uiDashboardContainer.addUIGadget(uiGadget, col, row);
+      uiDashboardContainer.save();
+      context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
     }
+  }
 
-    public static class MoveGadgetActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
-      public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
-        WebuiRequestContext context = event.getRequestContext();
-        org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
-        if (!((UIDashboard)uiPortlet).canEdit())
-          return;
-        UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
-        int col = Integer.parseInt(context.getRequestParameter(COLINDEX));
-        int row = Integer.parseInt(context.getRequestParameter(ROWINDEX));
-        String objectId = context.getRequestParameter(OBJECTID);
+  public static class MoveGadgetActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
+    public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
+      WebuiRequestContext context = event.getRequestContext();
+      org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
+      if (!((UIDashboard)uiPortlet).canEdit())
+        return;
+      UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
+      int col = Integer.parseInt(context.getRequestParameter(COLINDEX));
+      int row = Integer.parseInt(context.getRequestParameter(ROWINDEX));
+      String objectId = context.getRequestParameter(OBJECTID);
 
-        uiDashboardContainer.moveUIGadget(objectId, col, row);
-        uiDashboardContainer.save();
-        context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
-      }
+      uiDashboardContainer.moveUIGadget(objectId, col, row);
+      uiDashboardContainer.save();
+      context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
     }
+  }
 
-    public static class DeleteGadgetActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
-      public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
-        WebuiRequestContext context = event.getRequestContext();
-        org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
-        if (!((UIDashboard)uiPortlet).canEdit())
-          return;
-        String objectId = context.getRequestParameter(OBJECTID);
+  public static class DeleteGadgetActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
+    public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
+      WebuiRequestContext context = event.getRequestContext();
+      org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource();
+      if (!((UIDashboard)uiPortlet).canEdit())
+        return;
+      String objectId = context.getRequestParameter(OBJECTID);
 
-        UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
-        uiDashboardContainer.removeUIGadget(objectId);
-        uiDashboardContainer.save();
-        context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
-      }
+      UIDashboardContainer uiDashboardContainer = uiPortlet.getChild(UIDashboardContainer.class);
+      uiDashboardContainer.removeUIGadget(objectId);
+      uiDashboardContainer.save();
+      context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
     }
+  }
 
-    public static class MinimizeGadgetActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
-      public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
-        WebuiRequestContext context = event.getRequestContext() ;
-        org.exoplatform.webui.core.UIContainer uiPortlet = event.getSource() ;
-        String objectId = context.getRequestParameter(OBJECTID) ;
-        String minimized = context.getRequestParameter("minimized") ;
-
-        UIGadget uiGadget = uiPortlet.getChild(UIDashboardContainer.class).getUIGadget(objectId) ;
-        uiGadget.getProperties().setProperty("minimized", minimized) ;
-        uiPortlet.getChild(UIDashboardContainer.class).save() ;
-        context.addUIComponentToUpdateByAjax(uiGadget) ;
-      }
-    }
 }
 
 
