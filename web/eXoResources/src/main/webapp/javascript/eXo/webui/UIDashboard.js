@@ -96,7 +96,6 @@ eXo.webui.UIDashboard = {
 			var dashboardCont = DOMUtil.findFirstDescendantByClass(portletFragment, "div", "DashboardContainer");
 			var cols = null;
 			
-
 			eXo.webui.UIDashboard.scrollOnDrag(dragObj);
 			if(eXo.webui.UIDashboardUtil.isIn(ex, ey, dashboardCont)) {
 				if(!uiTarget) {
@@ -221,6 +220,7 @@ eXo.webui.UIDashboard = {
 						ajaxAsyncGetRequest(url);
 					}
 				}
+				uiDashboard.initHeight(portletFragment.parentNode.id) ;
 			}
 
 			uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(portletFragment, "div", "UITarget");
@@ -240,8 +240,35 @@ eXo.webui.UIDashboard = {
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboard");
 		var portletFragment = DOMUtil.findAncestorById(uiDashboard, "PORTLET-FRAGMENT") ;
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
+		var uiSelect = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardSelectContainer") ;
 		if(!uiContainer) return;
 		
+		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
+		uiDashboard.style.overflow = "hidden";
+		portletFragment.style.overflow = "hidden" ;
+//		if(!portletFragment.style.height || portletFragment.style.height == "auto")	{
+//			uiDashboard.style.height = "400px" ;
+//			if(eXo.core.Browser.isIE6()) dbContainer.style.width = "99%";
+//		}
+
+		eXo.webui.UIDashboard.initDragDrop(windowId) ;
+		setTimeout("eXo.webui.UIDashboard.initHeight("+windowId+")",50);
+	},
+	
+	initDragDrop : function(windowId) {
+		var DOMUtil = eXo.core.DOMUtil ;
+		var uiWindow = document.getElementById(windowId) ;
+		var gadgetControls = DOMUtil.findDescendantsByClass(uiWindow, "div", "GadgetControl");
+		for(var j=0; j<gadgetControls.length; j++) {
+			var uiGadget = DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget");
+			eXo.webui.UIDashboard.init(gadgetControls[j], uiGadget);
+			uiGadget.minimizeCallback = eXo.webui.UIDashboard.initHeight ;
+		}
+	},
+	
+	initHeight : function(windowId) {
+		var DOMUtil = eXo.core.DOMUtil;
+		var uiWindow = document.getElementById(windowId);
 		var viewLayoutTag = DOMUtil.findAncestorByClass(uiWindow, "VIEW-PORTLET");
 		var wasHiddenView = false;
 		if(viewLayoutTag && viewLayoutTag.style.display == "none") {
@@ -249,50 +276,65 @@ eXo.webui.UIDashboard = {
 			viewLayoutTag.style.display = "block" ;
 		}
 		
-		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
-		uiDashboard.style.overflow = "hidden";
-		portletFragment.style.overflow = "hidden" ;
-		if(!portletFragment.style.height || portletFragment.style.height == "auto")	{
-			uiDashboard.style.height = "400px" ;
-			if(eXo.core.Browser.isIE6()) dbContainer.style.width = "99%";
-		}
-
-		var gadgetControls = DOMUtil.findDescendantsByClass(uiDashboard, "div", "GadgetControl");
-		for(var j=0; j<gadgetControls.length; j++) {
-			eXo.webui.UIDashboard.init(gadgetControls[j], DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget"));
-		}
-
-		var colsContainer = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
-		var columns = DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
-		var colsSize = 0;
-		for(var i=0; i<columns.length; i++) {
-			if(columns[i].style.display != "none") colsSize++;
-		}
-		colsContainer.style.width = colsSize*320 + 20 + "px";
-		eXo.webui.UIDashboard.initSelectContainer(uiDashboard);
-		if(viewLayoutTag && wasHiddenView) {
-			viewLayoutTag.style.display = "none" ;
-		}
-	},
-	
-	initSelectContainer : function(uiDashboard) {
-		var DOMUtil = eXo.core.DOMUtil;
-		var uiWindow = DOMUtil.findAncestorById(uiDashboard, "PORTLET-FRAGMENT").parentNode;
+		var uiDashboard = DOMUtil.findFirstDescendantByClass(uiWindow, "div", "UIDashboard") ;
+		var portletFragment = DOMUtil.findAncestorById(uiDashboard, "PORTLET-FRAGMENT") ;
+		
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
 		var itemCont = DOMUtil.findFirstChildByClass(uiSelect, "div", "DashboardItemContainer");
 		var middleItemCont = DOMUtil.findFirstDescendantByClass(uiSelect, "div", "MiddleItemContainer");
 		var topItemCont = DOMUtil.findNextElementByTagName(middleItemCont, "div");
 		var bottomItemCont = DOMUtil.findPreviousElementByTagName(middleItemCont, "div");
+		
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
 		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
-		if(uiSelect.style.display != "none") {
-			middleItemCont.style.height = uiWindow.offsetHeight - DOMUtil.findPreviousElementByTagName(itemCont, "div").offsetHeight
+		var colsContainer = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
+		var columns = DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
+		
+		var colsSize = 0;
+		for(var i=0; i<columns.length; i++) {
+			if(columns[i].style.display != "none") colsSize++;
+		}
+		colsContainer.style.width = colsSize*320 + 20 + "px";
+		
+		var wasUISelectHidden = true ;
+		if(uiSelect.style.display == "none") {
+			uiSelect.style.display = "block" ;
+		} else {
+			wasUISelectHidden = false ;
+		}
+		
+		var minusHeight = 0 ;
+		var minusHeightEle = DOMUtil.findPreviousElementByTagName(middleItemCont.parentNode, "div") ; 
+		while(minusHeightEle) {
+			minusHeight += minusHeightEle.offsetHeight ;
+			minusHeightEle = DOMUtil.findPreviousElementByTagName(minusHeightEle, "div") ;
+		}
+		minusHeightEle = DOMUtil.findPreviousElementByTagName(itemCont, "div") ;
+		while(minusHeightEle) {
+			minusHeight += minusHeightEle.offsetHeight ;
+			minusHeightEle = DOMUtil.findPreviousElementByTagName(minusHeightEle, "div") ;
+		}
+		minusHeightEle = null;
+		
+		if(!document.getElementById("UIPageDesktop")) {
+			dbContainer.style.height = "auto" ;
+			middleItemCont.style.height = "auto" ;
+			var selectHeight = (uiSelect.offsetHeight >= uiSelect.scrollHeight) ? uiSelect.offsetHeight : uiSelect.scrollHeight ;
+			var containerHeight = (uiContainer.offsetHeight >= uiContainer.scrollHeight) ? uiContainer.offsetHeight : uiContainer.scrollHeight ;
+			if(selectHeight >= containerHeight) {
+				portletFragment.style.height = uiSelect.offsetHeight + "px" ;
+			} else {
+				portletFragment.style.height = uiContainer.offsetHeight + "px" ;
+				middleItemCont.style.height = uiWindow.offsetHeight - minusHeight
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
 						- 5 + "px";
-			uiContainer.style.marginLeft = "210px";
+			}
 		} else {
-			uiContainer.style.marginLeft = "0px";
+			middleItemCont.style.height = uiWindow.offsetHeight - minusHeight
+						- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
+						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
+						- 5 + "px";
 		}
 		dbContainer.style.height = uiWindow.offsetHeight + "px";
 		
@@ -303,6 +345,17 @@ eXo.webui.UIDashboard = {
 		} else {
 			topItemCont.style.display = "none";
 			bottomItemCont.style.display = "none";
+		}
+		
+		if(wasUISelectHidden) {
+			uiSelect.style.display = "none" ;
+			uiContainer.style.marginLeft = "0px";
+		} else {
+			uiContainer.style.marginLeft = "210px";
+		}
+		
+		if(viewLayoutTag && wasHiddenView) {
+			viewLayoutTag.style.display = "none" ;
 		}
 	},
 	
@@ -328,11 +381,11 @@ eXo.webui.UIDashboard = {
 	showHideSelectContainer : function(comp) {
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiDashboardPortlet = DOMUtil.findAncestorByClass(comp, "UIDashboard");
-		var portletFragment = DOMUtil.findAncestorById(comp, "PORTLET-FRAGMENT");
+		var portletFragment = DOMUtil.findAncestorById(uiDashboardPortlet, "PORTLET-FRAGMENT");
 		var uiSelectContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardSelectContainer");
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
 		
-		var portletId = DOMUtil.findAncestorById(uiDashboardPortlet, "PORTLET-FRAGMENT").parentNode.id;
+		var portletId = portletFragment.parentNode.id;
 		
 		var addButton = DOMUtil.findFirstDescendantByClass(uiContainer, "div", "ContainerControlBarL");
 		
@@ -348,7 +401,7 @@ eXo.webui.UIDashboard = {
 			url += '&isShow=true';
 			addButton.style.visibility = "hidden";
 		}
-		eXo.webui.UIDashboard.initSelectContainer(uiDashboardPortlet);
+		eXo.webui.UIDashboard.initHeight(portletId);
 		ajaxAsyncGetRequest(url, false);
 	}, 
 	

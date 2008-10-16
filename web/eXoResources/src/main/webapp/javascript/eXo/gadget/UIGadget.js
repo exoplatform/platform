@@ -186,6 +186,7 @@ eXo.gadget.UIGadget = {
 		href += "&minimized="+minimized;
 		href += "&objectId=" + uiGadget.id + "&ajaxRequest=true" ;
 		ajaxAsyncGetRequest(href) ;
+		if(uiGadget.minimizeCallback) uiGadget.minimizeCallback(portletFrag.parentNode.id) ;
 	},
 
 	deleteGadget : function(selectedElement) {
