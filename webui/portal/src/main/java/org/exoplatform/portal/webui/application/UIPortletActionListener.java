@@ -568,8 +568,7 @@ public class UIPortletActionListener {
    *
    * It places the form in the portal black mask
    */
-  static public class EditPortletActionListener extends
-      EventListener<UIPortlet> {
+  static public class EditPortletActionListener extends EventListener<UIPortlet> {
     public void execute(Event<UIPortlet> event) throws Exception {
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal

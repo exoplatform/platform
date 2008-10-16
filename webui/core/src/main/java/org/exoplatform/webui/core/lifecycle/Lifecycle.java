@@ -18,9 +18,6 @@ package org.exoplatform.webui.core.lifecycle;
 
 import groovy.text.Template;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.groovyscript.text.TemplateService;
@@ -45,15 +42,9 @@ public class Lifecycle {
   
   private Decorator decorator_ = new Decorator()   ;
   
-  @SuppressWarnings("unused")
-  public void init(UIComponent uicomponent, WebuiRequestContext context) throws Exception {  
-    
-  }
+//  public void init(UIComponent uicomponent, WebuiRequestContext context) throws Exception {}
   
-  @SuppressWarnings("unused")
-  public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception {  
-    
-  }
+  public void processDecode(UIComponent uicomponent , WebuiRequestContext context) throws Exception {}
   
   public void processAction(UIComponent uicomponent , WebuiRequestContext context) throws Exception {
     String action =  context.getRequestParameter(context.getActionParameterName()) ;
@@ -83,10 +74,7 @@ public class Lifecycle {
     renderTemplate(template, bcontext) ;
   }
   
-  @SuppressWarnings("unused")
-  public void destroy(UIComponent uicomponent) throws Exception {  
-    
-  }
+//  public void destroy(UIComponent uicomponent) throws Exception {}
    
   /**
    * The method allows to use Groovy templates to render the portal components.
@@ -134,18 +122,4 @@ public class Lifecycle {
       log.error("template : " + template, e);
     }
   }
-//  
-//  protected void renderJSTemplate(String template, Map<String, Object> variables, ResourceResolver resolver, 
-//                                  UIComponent uicomponent, WebuiRequestContext context) throws Exception {
-//    ExoContainer pcontainer =  context.getApplication().getApplicationServiceContainer() ;
-//    JavaScriptEngineService service = 
-//      (JavaScriptEngineService) pcontainer.getComponentInstanceOfType(JavaScriptEngineService.class) ;
-//    WebuiTemplateContext webuiTmplContext = 
-//      new WebuiTemplateContext(service, resolver, uicomponent, context) ;
-//    webuiTmplContext.setVariables(variables) ;
-//    webuiTmplContext.setVariable("decorator", decorator_) ;
-//    webuiTmplContext.setVariable("uicomponent", uicomponent) ;
-//    webuiTmplContext.setVariable(uicomponent.getUIComponentName(), uicomponent) ;
-//    webuiTmplContext.render(template) ;
-//  }
 }

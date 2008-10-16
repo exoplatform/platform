@@ -53,7 +53,7 @@ public class Event<T>  {
   }
   
   static public enum Phase {
-    ANY, INIT, RESTORE, DECODE, PROCESS, RENDER, DESTROY
+    ANY, DECODE, PROCESS, RENDER
   }
   
 }

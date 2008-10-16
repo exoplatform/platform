@@ -90,7 +90,6 @@ abstract public class WebuiApplication extends Application {
     }
     T uicomponent =   Util.createObject(type, config.getInitParams());
     uicomponent.setComponentConfig(id, config) ;
-    config.getUIComponentLifecycle().init(uicomponent, context) ;
     return type.cast(uicomponent) ;
   }
   

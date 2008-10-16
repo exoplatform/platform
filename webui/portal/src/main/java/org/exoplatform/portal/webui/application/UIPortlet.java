@@ -184,9 +184,9 @@ public class UIPortlet extends UIApplication {
     PortletContainerService portletContainer =  getApplicationComponent(PortletContainerService.class);
     String  portletId = exoWindowId_.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + exoWindowId_.getPortletName();   
     PortletData portletData = portletContainer.getAllPortletMetaData().get(portletId);
-    if(portletData == null) return null;
-    List<Supports> sukepportsList = portletData.getSupports() ;
     List<String> supportModes = new ArrayList<String>() ;
+    if(portletData == null) return supportModes ;
+    List<Supports> sukepportsList = portletData.getSupports() ;
     for (int i = 0; i < sukepportsList.size(); i++) {
       Supports supports = sukepportsList.get(i) ;
       String mimeType = supports.getMimeType() ;
@@ -203,7 +203,6 @@ public class UIPortlet extends UIApplication {
     return supportModes;
   }
   public void setSupportModes(List<String> supportModes) { supportModes_ = supportModes; }
-
   
   /**
    * Tells, according to the info located in portlet.xml, wether this portlet can handle

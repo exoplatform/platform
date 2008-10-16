@@ -124,16 +124,12 @@ public class UIPortletForm extends UIFormTabPane {
     try {
       PortalRequestContext prcontext = (PortalRequestContext) WebuiRequestContext.getCurrentInstance();
       prcontext.setFullRender(true);
-      ExoContainer container = prcontext.getApplication().getApplicationServiceContainer();
-      PortletContainerService portletContainer = (PortletContainerService) container
-      .getComponentInstanceOfType(PortletContainerService.class);
+      PortletContainerService portletContainer = uiPortlet_.getApplicationComponent(PortletContainerService.class);
       RenderInput input = new RenderInput();
       String baseUrl = new StringBuilder(prcontext.getRequestURI()).append(
           "?" + PortalRequestContext.UI_COMPONENT_ID).append("=").append(
           uiPortlet_.getId()).toString();
       input.setBaseURL(baseUrl);
-//      if (userProfile != null)   input.setUserAttributes(userProfile.getUserInfoMap());
-//      else  input.setUserAttributes(new HashMap<String, String>());
       input.setUserAttributes(new HashMap<String, String>());
       
       input.setPortletMode(PortletMode.EDIT);
@@ -143,24 +139,18 @@ public class UIPortletForm extends UIFormTabPane {
       input.setInternalWindowID(uiPortlet_.getExoWindowID());
       input.setRenderParameters(getRenderParameterMap(uiPortlet_));
       input.setPublicParamNames(uiPortlet_.getPublicRenderParamNames());
-      RenderOutput output = portletContainer.render(prcontext.getRequest(), prcontext
-          .getResponse(), input);
-      if (output.getContent() == null) {
-        portletContent.append("This portlet encountered an error and could not be displayed.");
-      } else {
-        portletContent.setLength(0);
-        portletContent.append(output.getContent());
-      }
+      RenderOutput output = portletContainer.render(prcontext.getRequest(), prcontext.getResponse(), input);
+      portletContent.setLength(0);
+      portletContent.append(output.getContent());
     } catch (Throwable ex) {
+      portletContent.append("This portlet encountered an error and could not be displayed.");
       ex = ExceptionUtil.getRootCause(ex);
-//      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
       System.err.println("The portlet " + uiPortlet_.getName() + " could not be loaded. Check if properly deployed.");
       System.err.println(ExceptionUtil.getStackTrace(ex, 100));
     }
     return portletContent.toString();
   }
   
-  @SuppressWarnings("unchecked")
   public void setValues(final UIPortlet uiPortlet) throws Exception {
   	uiPortlet_ = uiPortlet;
     invokeGetBindingBean(uiPortlet_);

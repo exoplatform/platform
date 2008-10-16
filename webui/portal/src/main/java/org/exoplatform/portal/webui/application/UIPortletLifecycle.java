@@ -23,7 +23,6 @@ import javax.portlet.WindowState;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.Constants;
-import org.exoplatform.commons.utils.ExceptionUtil;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -32,7 +31,6 @@ import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
-import org.exoplatform.services.portletcontainer.PortletContainerException;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.RenderInput;
 import org.exoplatform.services.portletcontainer.pci.RenderOutput;
@@ -70,28 +68,23 @@ public class UIPortletLifecycle extends Lifecycle {
     String action = context
         .getRequestParameter(PortalRequestContext.UI_COMPONENT_ACTION);
     if (action != null) {
-      Event event = uicomponent.createEvent(action, Event.Phase.PROCESS,
-          context);
-      if (event != null)
-        event.broadcast();
+			Event<UIComponent> event = uicomponent.createEvent(action, Event.Phase.PROCESS, context);
+      if (event != null) event.broadcast();
       return;
     }
 
     boolean addUpdateComponent = false;
     String portletMode = context.getRequestParameter("portal:portletMode");
     if (portletMode != null) {
-      Event event = uicomponent.createEvent("ChangePortletMode",
-          Event.Phase.PROCESS, context);
-      if (event != null)
-        event.broadcast();
+      Event<UIComponent> event = uicomponent.createEvent("ChangePortletMode", Event.Phase.PROCESS, context);
+      if (event != null) event.broadcast();
       addUpdateComponent = true;
     }
+    
     String windowState = context.getRequestParameter("portal:windowState");
     if (windowState != null) {
-      Event event = uicomponent.createEvent("ChangeWindowState",
-          Event.Phase.PROCESS, context);
-      if (event != null)
-        event.broadcast();
+      Event<UIComponent> event = uicomponent.createEvent("ChangeWindowState", Event.Phase.PROCESS, context);
+      if (event != null) event.broadcast();
       addUpdateComponent = true;
     }
 
@@ -102,30 +95,22 @@ public class UIPortletLifecycle extends Lifecycle {
      * In case of a RenderURL, the parameter state map must be invalidated and
      * ths is done in the associated ActionListener
      */
-    String portletActionType = context
-        .getRequestParameter(Constants.TYPE_PARAMETER);
+    String portletActionType = context.getRequestParameter(Constants.TYPE_PARAMETER);
     if (portletActionType != null) {
       if (portletActionType.equals(Constants.PORTAL_PROCESS_ACTION)) {
-        Event event = uicomponent.createEvent("ProcessAction",
-            Event.Phase.PROCESS, context);
-        if (event != null)
-          event.broadcast();
+        Event<UIComponent> event = uicomponent.createEvent("ProcessAction", Event.Phase.PROCESS, context);
+        if (event != null) event.broadcast();
         addUpdateComponent = true;
       } else if (portletActionType.equals(Constants.PORTAL_SERVE_RESOURCE)) {
-        Event event = uicomponent.createEvent("ServeResource",
-            Event.Phase.PROCESS, context);
-        if (event != null)
-          event.broadcast();
+        Event<UIComponent> event = uicomponent.createEvent("ServeResource", Event.Phase.PROCESS, context);
+        if (event != null) event.broadcast();
       } else {
-        Event event = uicomponent.createEvent("Render", Event.Phase.PROCESS,
-            context);
-        if (event != null)
-          event.broadcast();
+        Event<UIComponent> event = uicomponent.createEvent("Render", Event.Phase.PROCESS, context);
+        if (event != null) event.broadcast();
         addUpdateComponent = true;
       }
     }
-    if (addUpdateComponent)
-      context.addUIComponentToUpdateByAjax(uicomponent);
+    if (addUpdateComponent) context.addUIComponentToUpdateByAjax(uicomponent);
   }
 
   /**
@@ -142,11 +127,11 @@ public class UIPortletLifecycle extends Lifecycle {
       throws Exception {
     UIPortlet uiPortlet = (UIPortlet) uicomponent;
     PortalRequestContext prcontext = (PortalRequestContext) context;
-    ExoContainer container = context.getApplication().getApplicationServiceContainer();
+    ExoContainer container = prcontext.getApplication().getApplicationServiceContainer();
     UIPortal uiPortal = Util.getUIPortal();
     PortletContainerService portletContainer = (PortletContainerService) container
         .getComponentInstanceOfType(PortletContainerService.class);
-    OrganizationService service = uicomponent.getApplicationComponent(OrganizationService.class);
+    OrganizationService service = uiPortlet.getApplicationComponent(OrganizationService.class);
     UserProfile userProfile = service.getUserProfileHandler().findUserProfileByName(uiPortal.getOwner());
     RenderInput input = new RenderInput();
     String baseUrl = new StringBuilder(prcontext.getRequestURI()).append(
@@ -154,7 +139,7 @@ public class UIPortletLifecycle extends Lifecycle {
         uiPortlet.getId()).toString();
     input.setBaseURL(baseUrl);
     if (userProfile != null)   input.setUserAttributes(userProfile.getUserInfoMap());
-    else  input.setUserAttributes(new HashMap());
+    else  input.setUserAttributes(new HashMap<String, String>());
     
     input.setPortletMode(uiPortlet.getCurrentPortletMode());
     input.setWindowState(uiPortlet.getCurrentWindowState());
@@ -168,44 +153,32 @@ public class UIPortletLifecycle extends Lifecycle {
     String portletTitle = null;
     try {
       if (uiPortlet.getCurrentWindowState() != WindowState.MINIMIZED) {
-        output = portletContainer.render(prcontext.getRequest(), prcontext
-            .getResponse(), input);
-        if (output.getContent() == null) {
-          portletContent.append("This portlet encountered an error and could not be displayed.");
-        } else {
-          portletContent.setLength(0);
-          portletContent.append(output.getContent());
-        }
+        output = portletContainer.render(prcontext.getRequest(), prcontext.getResponse(), input);
+        portletContent.setLength(0);
+        portletContent.append(output.getContent());
       }
     } catch (Throwable ex) {
-      ex = ExceptionUtil.getRootCause(ex);
-//      portletContent.append(ExceptionUtil.getStackTrace(ex, 100));
-//      log.error("The portlet " + uiPortlet.getName() + " could not be loaded. Check if properly deployed.", ex);
-      String errorString = "ERROR:  The portlet " + uiPortlet.getName() + ", id " + uiPortlet.getId() ; 
-      if (ex instanceof PortletContainerException) {
-        errorString += " could not be loaded." ;
-      }
+    	portletContent.append("This portlet encountered an error and could not be displayed.");
+      log.error("The portlet " + uiPortlet.getName() + " could not be loaded. Check if properly deployed.");
     }
     if (output != null) {
       portletTitle = output.getTitle();
-      //Manage headers
       prcontext.setHeaders(output.getHeaderProperties()); 
     }
-    if (portletTitle == null)
-      portletTitle = "Portlet";
+    if (portletTitle == null) portletTitle = "Portlet";
 
     if (context.useAjax() && !prcontext.getFullRender()) {
-      context.getWriter().write(portletContent.toString());
+      prcontext.getWriter().write(portletContent.toString());
     } else {
-      WebuiApplication app = (WebuiApplication) context.getApplication();
+      WebuiApplication app = (WebuiApplication) prcontext.getApplication();
       ApplicationResourceResolver resolver = app.getResourceResolver();
       WebuiBindingContext bcontext = new WebuiBindingContext(resolver, context
-          .getWriter(), uicomponent, context);
-      bcontext.put("uicomponent", uicomponent);
+          .getWriter(), uiPortlet, prcontext);
+      bcontext.put("uicomponent", uiPortlet);
       bcontext.put("portletContent", portletContent);
       bcontext.put("portletTitle", portletTitle);
       try {
-        renderTemplate(uicomponent.getTemplate(), bcontext);
+        renderTemplate(uiPortlet.getTemplate(), bcontext);
       } catch (Throwable ex) {}
     }
     try {

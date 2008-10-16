@@ -66,16 +66,16 @@ abstract public class UIComponent {
     this.rendered =  b ;
     return (T)this ;
   } 
-  
-  public void processInit(WebuiRequestContext context) throws Exception {
-    MonitorEvent<UIComponent> mevent = createMonitorEvent(Event.Phase.INIT, context);
-    config.getUIComponentLifecycle().init(this, context) ;
-    if(mevent != null) {
-      mevent.setEndExecutionTime(System.currentTimeMillis()) ;
-      mevent.broadcast()  ;
-    }
-  }
-  
+//  
+//  public void processInit(WebuiRequestContext context) throws Exception {
+//    MonitorEvent<UIComponent> mevent = createMonitorEvent(Event.Phase.INIT, context);
+//    config.getUIComponentLifecycle().init(this, context) ;
+//    if(mevent != null) {
+//      mevent.setEndExecutionTime(System.currentTimeMillis()) ;
+//      mevent.broadcast()  ;
+//    }
+//  }
+//  
   public void processDecode(WebuiRequestContext context) throws Exception {
     MonitorEvent<UIComponent> mevent = createMonitorEvent(Event.Phase.DECODE, context);
     config.getUIComponentLifecycle().processDecode(this, context) ;
@@ -102,15 +102,15 @@ abstract public class UIComponent {
       mevent.broadcast()  ;
     }
   }
-  
-  public void processDestroy(WebuiRequestContext context) throws Exception {
-    MonitorEvent<UIComponent> mevent = createMonitorEvent(Event.Phase.DESTROY, context);
-    config.getUIComponentLifecycle().init(this, context) ;
-    if(mevent != null) {
-      mevent.setEndExecutionTime(System.currentTimeMillis()) ;
-      mevent.broadcast()  ;
-    }
-  }
+//  
+//  public void processDestroy(WebuiRequestContext context) throws Exception {
+//    MonitorEvent<UIComponent> mevent = createMonitorEvent(Event.Phase.DESTROY, context);
+//    config.getUIComponentLifecycle().init(this, context) ;
+//    if(mevent != null) {
+//      mevent.setEndExecutionTime(System.currentTimeMillis()) ;
+//      mevent.broadcast()  ;
+//    }
+//  }
   
   public  Component getComponentConfig() { return this.config ; }
   
