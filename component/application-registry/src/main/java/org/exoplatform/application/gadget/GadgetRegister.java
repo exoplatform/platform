@@ -82,7 +82,7 @@ public class GadgetRegister implements ServletContextListener {
             Gadget gadget = new Gadget();
             gadget.setName(name);
             gadget.setUrl(sourceStorage.getSourcePath(name));
-            gadget.setTitle(prefs.getDirectoryTitle());
+            gadget.setTitle(getGadgetTitle(prefs, gadget.getName()));
             gadget.setDescription(prefs.getDescription());
             gadget.setThumbnail(prefs.getThumbnail().toString());
             gadget.setReferenceUrl(prefs.getTitleUrl().toString());
@@ -99,10 +99,7 @@ public class GadgetRegister implements ServletContextListener {
             Gadget gadget = new Gadget();
             gadget.setName(name);
             gadget.setUrl(address);
-            String title = prefs.getDirectoryTitle() ;
-            if(title == null || title.trim().length() < 1) title = prefs.getTitle() ;
-            if(title == null || title.trim().length() < 1) title = gadget.getName() ;            
-            gadget.setTitle(title);
+            gadget.setTitle(getGadgetTitle(prefs, gadget.getName()));
             gadget.setDescription(prefs.getDescription());
             gadget.setThumbnail(prefs.getThumbnail().toString());
             gadget.setReferenceUrl(prefs.getTitleUrl().toString());
@@ -114,6 +111,13 @@ public class GadgetRegister implements ServletContextListener {
     } catch(Exception ex) {
       log.error("Error while deploying a gadget", ex);
     }
+  }
+  
+  private String getGadgetTitle(ModulePrefs prefs, String defaultValue) {
+    String title = prefs.getDirectoryTitle() ;
+    if(title == null || title.trim().length() < 1) title = prefs.getTitle() ;
+    if(title == null || title.trim().length() < 1) return defaultValue ;
+    return title;
   }
   
   /**

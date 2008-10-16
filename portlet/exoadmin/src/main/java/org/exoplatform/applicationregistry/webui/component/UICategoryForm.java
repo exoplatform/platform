@@ -144,6 +144,7 @@ public class UICategoryForm extends UIFormTabPane {
       uiForm.setValue(null) ;
       uiOrganizer.initApplicationCategories();
       uiOrganizer.setSelectedCategory(category.getName());
+      uiOrganizer.removeChild(UICategoryForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
   }

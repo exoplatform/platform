@@ -80,7 +80,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 			</div>
 		</div>
 		<div class="AppWorkingArea">
-			<% uicomponent.renderChildren() %>
+		<% uicomponent.renderChildren() %>
 		</div>
 		<div style="clear: left"><span></span></div>
 	</div>  

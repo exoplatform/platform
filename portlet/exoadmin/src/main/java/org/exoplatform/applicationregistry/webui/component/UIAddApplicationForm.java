@@ -194,6 +194,7 @@ public class UIAddApplicationForm extends UIForm {
       uiOrganizer.initApplicationCategories() ;
       uiOrganizer.setSelectedCategory(selectedCate.getName()) ;
       uiOrganizer.selectApplication(app.getApplicationName()) ;
+      uiOrganizer.removeChild(UIAddApplicationForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
@@ -213,7 +214,11 @@ public class UIAddApplicationForm extends UIForm {
   public static class BackActionListener extends EventListener<UIAddApplicationForm> {
 
     public void execute(Event<UIAddApplicationForm> event) throws Exception {
-      
+      UIApplicationOrganizer uiOrganizer = event.getSource().getParent() ;
+      uiOrganizer.removeChild(UIAddApplicationForm.class);
+      uiOrganizer.setSelectedApplication(uiOrganizer.getSelectedApplication()) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+
     }
     
   }

@@ -56,14 +56,16 @@ public class UIApplicationOrganizer extends UIContainer {
 
   
   public UIApplicationOrganizer() throws Exception {
-    addChild(UIApplicationInfo.class, null, null) ;
     initApplicationCategories() ;
   }
   
   public void initApplicationCategories() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     categories = service.getApplicationCategories();
-    if(categories == null || categories.size() < 1) return ;
+    if(categories == null || categories.size() < 1) {
+      setSelectedCategory((ApplicationCategory)null);
+      return ;
+    }
     setSelectedCategory(categories.get(0)) ;
   }
 
@@ -82,6 +84,11 @@ public class UIApplicationOrganizer extends UIContainer {
 
   public void setSelectedCategory(ApplicationCategory category) throws Exception {
     selectedCategory = category;
+    if(selectedCategory == null) {
+      applications = null;
+      setSelectedApplication(null);
+      return;
+    }
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     applications = service.getApplications(selectedCategory, new String [] {});
     if(applications == null || applications.size() < 1) {
@@ -102,9 +109,12 @@ public class UIApplicationOrganizer extends UIContainer {
   
   public void setSelectedApplication(Application app) throws Exception {
     selectedApplication = app ;
+    if(selectedApplication == null) {
+      removeChild(UIApplicationInfo.class);
+      return;
+    }
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
     if(uiAppInfo == null) {
-      getChildren().clear() ;
       uiAppInfo = addChild(UIApplicationInfo.class, null, null) ;
     }
     uiAppInfo.setApplication(selectedApplication) ;

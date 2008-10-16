@@ -85,6 +85,7 @@ public class UIApplicationForm extends UIForm {
       service.update(application) ;
       uiForm.setValues(null) ;
       uiOrganizer.setSelectedApplication(uiOrganizer.getSelectedApplication());
+      uiOrganizer.removeChild(UIApplicationForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer);
     }
   }
@@ -95,6 +96,7 @@ public class UIApplicationForm extends UIForm {
       UIApplicationOrganizer uiOrganizer = uiForm.getParent();
       uiForm.setValues(null) ;
       uiOrganizer.setSelectedApplication(uiOrganizer.getSelectedApplication());
+      uiOrganizer.removeChild(UIApplicationForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer);
     }
   }

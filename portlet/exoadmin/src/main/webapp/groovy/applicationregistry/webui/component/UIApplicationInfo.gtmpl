@@ -1,15 +1,11 @@
 <%
 def application = uicomponent.getApplication();
 def category = uicomponent.getApplicationCategory();
+String name = application.getApplicationName() ;
+String srcBG = "/" + application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + name + ".png";
+String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 %>
 <div class="$uicomponent.id" id="$uicomponent.id">
-	<% if(application == null) { %>
-	<div class="NoApplicationMessage">This category does not have any application, click "add" button to add application.</div>
-	<% } else { 
-				String name = application.getApplicationName() ;
-				String srcBG = "/" + application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + name + ".png";
-				String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
-	%>
 	<div class="UIBreadcumb">
 	  <div class="LeftBlock"><%= category.getDisplayName() %></div> 		          		              
 	  <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
@@ -17,8 +13,6 @@ def category = uicomponent.getApplicationCategory();
 	  <div class="ControlIcon EditIcon" onclick="<%= uicomponent.event("EditApplication", name) %>"><span></span></div>
 		<div style="clear: left;"><span></span></div>
 	</div>
-	
-
   <div class="Application">
   		<div class="PortletIcons">
   				<img src="$srcBG" onError="src='$srcBGError'"/>
@@ -47,5 +41,4 @@ def category = uicomponent.getApplicationCategory();
 			<% uicomponent.renderChildren() %>
 		</div>
 	</div>
-  <% } %>
 </div>
