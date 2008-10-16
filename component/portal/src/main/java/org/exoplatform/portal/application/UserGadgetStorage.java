@@ -33,6 +33,8 @@ public interface UserGadgetStorage {
   
   public String get(String userName, String gadgetType, String instanceId, String key) throws Exception ;
 
+  public Map<String, String> get(String userName, String gadgetType, String instanceId) throws Exception ;
+
   public Map<String,String> get(String userName, String gadgetType, String instanceId, Set<String> key) throws Exception ;
   
   public void delete(String userName, String gadgetType, String instanceId) throws Exception ;

@@ -17,6 +17,9 @@
 package org.exoplatform.portal.application.jcr;
 
 import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.PropertyIterator;
+import javax.jcr.Property;
 
 import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
@@ -56,8 +59,11 @@ public class UserGadgetStorageImpl implements UserGadgetStorage {
   }
 
   public void save(String userName, String gadgetType, String instanceId, Map<String, String> values) throws Exception{
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Node gadgetNode = createGadgetInstanceNode(sessionProvider, userName, gadgetType, instanceId);
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider();
+
+    Node gadgetNode = getGadgetNode(sessionProvider, userName, gadgetType, instanceId);
+    if(gadgetNode == null)
+      gadgetNode = createGadgetInstanceNode(sessionProvider, userName, gadgetType, instanceId);
 
     for (String key : values.keySet()) {
       gadgetNode.setProperty(key, values.get(key));
@@ -78,6 +84,10 @@ public class UserGadgetStorageImpl implements UserGadgetStorage {
     return value;
   }
 
+  public Map<String, String> get(String userName, String gadgetType, String instanceId) throws Exception {
+    return get(userName, gadgetType, instanceId, (Set<String>)null);
+  }
+
   public Map<String, String> get(String userName, String gadgetType, String instanceId, Set<String> keys) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node gadgetNode = getGadgetNode(sessionProvider, userName, gadgetType, instanceId);
@@ -87,9 +97,18 @@ public class UserGadgetStorageImpl implements UserGadgetStorage {
     }
     Map<String, String> res = new HashMap<String, String>();
 
-    for (String key : keys) {
-      if(gadgetNode.hasProperty(key))
-        res.put(key, gadgetNode.getProperty(key).getString());
+    if (keys == null) {
+      PropertyIterator it = gadgetNode.getProperties();
+      while (it.hasNext()) {
+        Property prop = it.nextProperty();
+        res.put(prop.getName(), prop.getString());
+      }
+    }
+    else {
+      for (String key : keys) {
+        if(gadgetNode.hasProperty(key))
+          res.put(key, gadgetNode.getProperty(key).getString());
+      }
     }
     sessionProvider.close() ;
     return res;

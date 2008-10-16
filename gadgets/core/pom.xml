@@ -86,5 +86,11 @@
 			<version>${org.shindig.version}</version>
 			<type>jar</type>
 		</dependency>
+		<dependency>
+			<groupId>org.apache.shindig</groupId>
+			<artifactId>shindig-features</artifactId>
+			<version>${org.shindig.version}</version>
+			<type>jar</type>
+		</dependency>
 	</dependencies>
 </project>
