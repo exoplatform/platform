@@ -252,7 +252,7 @@ eXo.webui.UIDashboard = {
 //		}
 
 		eXo.webui.UIDashboard.initDragDrop(windowId) ;
-		setTimeout("eXo.webui.UIDashboard.initHeight("+windowId+")",50);
+		setTimeout("eXo.webui.UIDashboard.initHeight('"+windowId+"')",50);
 	},
 	
 	initDragDrop : function(windowId) {
