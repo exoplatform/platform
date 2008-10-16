@@ -19,6 +19,7 @@ package org.exoplatform.applicationregistry.webui.component;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -28,6 +29,7 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
@@ -48,7 +50,8 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
     lifecycle = UIFormLifecycle.class,
     template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl",
     events = {
-      @EventConfig(listeners = UICategoryForm.SaveActionListener.class)
+      @EventConfig(listeners = UICategoryForm.SaveActionListener.class),
+      @EventConfig(listeners = UICategoryForm.CancelActionListener.class, phase = Phase.DECODE)
     }
 )
 public class UICategoryForm extends UIFormTabPane { 
@@ -147,6 +150,21 @@ public class UICategoryForm extends UIFormTabPane {
       uiOrganizer.removeChild(UICategoryForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
+  }
+  
+  static public class CancelActionListener extends EventListener<UICategoryForm> {
+
+    public void execute(Event<UICategoryForm> event) throws Exception {
+      UICategoryForm uiForm = event.getSource();
+      UIApplicationOrganizer uiOrganizer = uiForm.getParent();
+      Application application = uiOrganizer.getSelectedApplication();
+      if(application != null) {
+        uiOrganizer.setSelectedApplication(application);
+      }
+      uiOrganizer.removeChild(UICategoryForm.class);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer);
+    }
+    
   }
 
 }

@@ -191,7 +191,6 @@ public class UIAddApplicationForm extends UIForm {
       }
       ApplicationCategory selectedCate = uiOrganizer.getSelectedCategory() ;
       appRegService.save(selectedCate, app) ;
-      uiOrganizer.initApplicationCategories() ;
       uiOrganizer.setSelectedCategory(selectedCate.getName()) ;
       uiOrganizer.selectApplication(app.getApplicationName()) ;
       uiOrganizer.removeChild(UIAddApplicationForm.class);

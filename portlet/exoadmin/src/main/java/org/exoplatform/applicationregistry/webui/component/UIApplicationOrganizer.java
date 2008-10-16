@@ -56,17 +56,21 @@ public class UIApplicationOrganizer extends UIContainer {
 
   
   public UIApplicationOrganizer() throws Exception {
+    reset();
+  }
+  
+  public void reset() throws Exception {
     initApplicationCategories() ;
+    if(categories == null || categories.isEmpty()) {
+      setSelectedCategory((ApplicationCategory)null);
+    } else {
+      setSelectedCategory(categories.get(0)) ;
+    }    
   }
   
   public void initApplicationCategories() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     categories = service.getApplicationCategories();
-    if(categories == null || categories.size() < 1) {
-      setSelectedCategory((ApplicationCategory)null);
-      return ;
-    }
-    setSelectedCategory(categories.get(0)) ;
   }
 
   public List<ApplicationCategory> getCategories() { return categories ;  }
@@ -91,11 +95,11 @@ public class UIApplicationOrganizer extends UIContainer {
     }
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
     applications = service.getApplications(selectedCategory, new String [] {});
-    if(applications == null || applications.size() < 1) {
+    if(applications == null || applications.isEmpty()) {
       setSelectedApplication(null);
-      return ;
-    }
-    setSelectedApplication(applications.get(0));
+      return;
+     }
+    setSelectedApplication(applications.get(0)); 
   }
   
   public ApplicationCategory getCategory(String name) {
@@ -110,11 +114,12 @@ public class UIApplicationOrganizer extends UIContainer {
   public void setSelectedApplication(Application app) throws Exception {
     selectedApplication = app ;
     if(selectedApplication == null) {
-      removeChild(UIApplicationInfo.class);
+      getChildren().clear();
       return;
     }
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
     if(uiAppInfo == null) {
+      getChildren().clear();
       uiAppInfo = addChild(UIApplicationInfo.class, null, null) ;
     }
     uiAppInfo.setApplication(selectedApplication) ;
@@ -161,7 +166,7 @@ public class UIApplicationOrganizer extends UIContainer {
       ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
       service.importAllPortlets() ;
       service.importExoGadgets() ;
-      uiOrganizer.initApplicationCategories() ;
+      uiOrganizer.reset();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
@@ -196,7 +201,7 @@ public class UIApplicationOrganizer extends UIContainer {
       String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
       ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
       service.remove(uiOrganizer.getCategory(name)) ;
-      uiOrganizer.initApplicationCategories() ;
+      uiOrganizer.reset();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
