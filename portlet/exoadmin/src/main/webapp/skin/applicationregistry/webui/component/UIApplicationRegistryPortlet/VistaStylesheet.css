@@ -366,3 +366,16 @@
 	font-weight: bold;
 	padding-left: 3px;
 }
+
+.UIGadgetManagement .UIGadgetEditor .HorizontalLayout input {
+	width: 400px;
+}
+
+.UIGadgetManagement .URL .LeftLabel {
+	float: left;
+}
+
+.UIGadgetManagement .URL .RightLabel {
+	float: left;
+	width: 80%; overflow: hidden;
+}

@@ -26,9 +26,9 @@
 					<span class="LeftLabel"><%=_ctx.appRes("Application.label.description")%></span>
 					<span class="RightLabel"><%= gadget.getDescription() %></span>
   			</div>
-  	    <div class="ContentLabel">
+  	    <div class="ContentLabel URL">
 					<span class="LeftLabel"><%=_ctx.appRes("Application.label.url")%></span>
-					<span class="RightLabel"><%= gadget.getReferenceUrl() %></span>
+					<span class="RightLabel" title="<%=gadget.getReferenceUrl()%>"><%= gadget.getReferenceUrl() %></span>
   			</div>
   		</div>
   	</div>
