@@ -140,6 +140,8 @@ e/**
 	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
 	padding-left: 20px;
 	cursor: pointer;
+	width: 160px; overflow: hidden;
+	white-space: nowrap;
 }
 
 .UIApplicationRegistryPortlet .CategoryContent .ControlIcon {
@@ -201,6 +203,7 @@ e/**
 	float: left;
 	cursor: pointer;
 	width: 155px; overflow: hidden;
+	white-space: nowrap;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {

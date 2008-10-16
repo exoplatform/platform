@@ -146,6 +146,7 @@
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .TabLabel {
 	width: 160px;
 	overflow: hidden;
+	white-space: nowrap;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
@@ -163,6 +164,7 @@
 	float: left;
 	cursor: pointer;
 	width: 144px; overflow: hidden;
+	white-space: nowrap;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
