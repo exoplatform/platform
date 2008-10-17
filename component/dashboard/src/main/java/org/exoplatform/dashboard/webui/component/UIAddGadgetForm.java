@@ -16,6 +16,8 @@
  */
 package org.exoplatform.dashboard.webui.component;
 
+import java.net.URL;
+
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.registry.Application;
@@ -25,10 +27,12 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -64,6 +68,14 @@ public class UIAddGadgetForm extends UIForm {
       
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       String url = uiForm.getUIStringInput(FIELD_URL) .getValue();
+      try {
+        new URL(url) ;
+      } catch (Exception e) {
+        UIApplication uiApplication = context.getUIApplication() ;
+        uiApplication.addMessage(new ApplicationMessage("UIDashboard.message.notUrl", null)) ;
+        context.addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages()) ;
+        return ;
+      }
       String name = "gadget" + url.hashCode();
       Gadget gadget = GadgetUtil.toGadget(name, url, false) ;
       service.saveGadget(gadget) ;
@@ -77,6 +89,8 @@ public class UIAddGadgetForm extends UIForm {
       uiGadget.setApplicationInstanceId(windowId.toString());
       uiContainer.addUIGadget(uiGadget, 0, 0) ;
       uiContainer.save() ;
+      uiForm.reset() ;
+      context.addUIComponentToUpdateByAjax(uiForm) ;
       context.addUIComponentToUpdateByAjax(uiContainer) ;
     }
     

@@ -35,19 +35,19 @@ UICalendar.prototype.show = function() {
 	document.onmousedown = new Function('eXo.webui.UICalendar.hide()') ;
 	var re = /^(\d{1,2}\/\d{1,2}\/\d{1,4})\s*(\s+\d{1,2}:\d{1,2}:\d{1,2})?$/i ;
   this.selectedDate = new Date() ;
-	if (re.test(this.dateField.value)) {
-	  var dateParts = this.dateField.value.split(" ") ;
-	  var arr = dateParts[0].split("/") ;
-	  this.selectedDate.setMonth(parseInt(arr[0],10) - 1) ;
-	  this.selectedDate.setDate(parseInt(arr[1],10)) ;
-	  this.selectedDate.setFullYear(parseInt(arr[2],10)) ;
-	  if (dateParts.length > 1 && dateParts[dateParts.length - 1] != "") {
-	  	arr = dateParts[dateParts.length - 1].split(":") ;
-	  	this.selectedDate.setHours(arr[0], 10) ;
-	  	this.selectedDate.setMinutes(arr[1], 10) ;
-	  	this.selectedDate.setSeconds(arr[2], 10) ;
-	  }
-	}
+//	if (re.test(this.dateField.value)) {
+//	  var dateParts = this.dateField.value.split(" ") ;
+//	  var arr = dateParts[0].split("/") ;
+//	  this.selectedDate.setMonth(parseInt(arr[0],10) - 1) ;
+//	  this.selectedDate.setDate(parseInt(arr[1],10)) ;
+//	  this.selectedDate.setFullYear(parseInt(arr[2],10)) ;
+//	  if (dateParts.length > 1 && dateParts[dateParts.length - 1] != "") {
+//	  	arr = dateParts[dateParts.length - 1].split(":") ;
+//	  	this.selectedDate.setHours(arr[0], 10) ;
+//	  	this.selectedDate.setMinutes(arr[1], 10) ;
+//	  	this.selectedDate.setSeconds(arr[2], 10) ;
+//	  }
+//	}
 	this.currentDate = new Date(this.selectedDate.valueOf()) ;
   var clndr = document.getElementById(this.calendarId) ;
   clndr.firstChild.lastChild.innerHTML = this.renderCalendar() ;
@@ -182,10 +182,10 @@ UICalendar.prototype.setDate = function(year, month, day) {
     if (month < 10) month = "0" + month ;
     if (day < 10) day = "0" + day ;
     var dateString = month + "/" + day + "/" + year ;
-    if (!this.currentHours) this.currentHours = new Date().getHours() ;
-    if (!this.currentMinutes) this.currentMinutes = new Date().getMinutes() ;
-    if (!this.currentSeconds) this.currentSeconds = new Date().getSeconds() ;
-    if(this.isDisplayTime) dateString += " " + this.currentHours + ":" + this.currentMinutes + ":" + this.currentSeconds ;
+    this.currentHours = this.currentDate.getHours() ;
+    this.currentMinutes = this.currentDate.getMinutes() ;
+    this.currentSeconds = this.currentDate.getSeconds() ;
+    if(this.isDisplayTime) dateString += " " + this.makeTimeString(this.currentHours, this.currentMinutes, this.currentSeconds );
     this.dateField.value = dateString ;
     this.hide() ;
   }
@@ -202,7 +202,7 @@ UICalendar.prototype.setSeconds = function(object) {
 //			this.currentHours = this.currentDate.getHours() ;
 //    	this.currentMinutes = this.currentDate.getMinutes() ;
 			if(seconds.length < 2) seconds = "0" + seconds;
-			var timeString = this.currentDate.getHours() + ":" + this.currentDate.getMinutes() + ":" + seconds;
+			var timeString = this.makeTimeString(this.currentDate.getHours(), this.currentDate.getMinutes(), seconds);
 			this.currentDate.setSeconds(seconds);
 			if(!this.currentDay) this.currentDay = this.currentDate.getDate();
 			if(!this.currentMonth) this.currentMonth = this.currentDate.getMonth() + 1;
@@ -224,7 +224,7 @@ UICalendar.prototype.setMinus = function(object) {
 // 			this.currentSeconds = this.currentDate.getSeconds() ;
 			if(minus.length < 2) minus = "0" + minus;
 			this.currentDate.setMinutes(minus);
-			var timeString = this.currentDate.getHours() + ":" + minus + ":" + this.currentDate.getSeconds();
+			var timeString = this.makeTimeString(this.currentDate.getHours(), minus, this.currentDate.getSeconds());
 			if(!this.currentDay) this.currentDay = this.currentDate.getDate();
 			if(!this.currentMonth) this.currentMonth = this.currentDate.getMonth() + 1;
 			if(!this.currentYear) this.currentYear = this.currentDate.getFullYear();
@@ -245,7 +245,7 @@ UICalendar.prototype.setHour = function(object) {
 //    	this.currentSeconds = this.currentDate.getSeconds() ;
 			if(hour.length < 2) hour = "0" + hour;
 			this.currentDate.setHours(hour);
-			var timeString = hour + ":" + this.currentDate.getMinutes() + ":" + this.currentDate.getSeconds();
+			var timeString = this.makeTimeString(hour, this.currentDate.getMinutes(), this.currentDate.getSeconds());
 			if(!this.currentDay) this.currentDay = this.currentDate.getDate();
 			if(!this.currentMonth) this.currentMonth = this.currentDate.getMonth() + 1;
 			if(!this.currentYear) this.currentYear = this.currentDate.getFullYear();
@@ -253,6 +253,16 @@ UICalendar.prototype.setHour = function(object) {
 			this.dateField.value = timeString;
 	}
 	return;
+}
+
+UICalendar.prototype.makeTimeString = function(hour, minute, second, time) {
+	if(typeof(hour) != "string") hour = hour.toString() ;
+	if(typeof(minute) != "string") minute = minute.toString() ;
+	if(typeof(second) != "year") second = second.toString() ;
+	while(hour.length < 2) { hour = "0" + hour ; }
+	while(minute.length < 2) { minute = "0" + minute ; }
+	while(second.length < 2) { second = "0" + second ; }
+	return hour + ":" + minute + ":" + second;
 }
 
 UICalendar.prototype.clearDate = function() {
