@@ -194,6 +194,16 @@ gadgets.IfrGadgetService.prototype.setHeight = function(height) {
   if (element) {
     element.style.height = height + 'px';
   }
+  var prNode = element.parentNode ;
+  var portletFrag = null ;
+  while(prNode) {
+  	if(prNode.id && prNode.id == "PORTLET-FRAGMENT") {
+  		portletFrag = prNode ;
+  		break ;
+  	}
+  	prNode = prNode.parentNode ;
+  }
+  if(portletFrag && element.onResizeCallback) element.onResizeCallback(portletFrag.parentNode.id) ;
 };
 
 gadgets.IfrGadgetService.prototype.setTitle = function(title) {

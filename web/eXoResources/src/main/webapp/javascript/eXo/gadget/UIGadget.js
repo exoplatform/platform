@@ -25,11 +25,7 @@ eXo.gadget.UIGadget = {
     // i use the internal var "gadget.userPrefs_" to not call the save on the server side
     if(userPref != null) gadget.userPrefs_ = userPref ;
 	  var gadgetBlock = document.getElementById(id);
-	  if(gadget.metadata && gadget.metadata.height) {
-			gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "' class='UIGadgetContent' style='height:" + gadget.metadata.height  + "px;'> </div>";
-	  } else {
-	  	gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "' class='UIGadgetContent'> </div>";
-	  }
+  	gadgetBlock.innerHTML = "<div id='gadget_" + gadget.id + "' class='UIGadgetContent'> </div>";
 		gadgets.container.renderGadgets();
 		var uiGadget = eXo.core.DOMUtil.findAncestorByClass(gadgetBlock, "UIGadget");
 		//TODO: dang.tung - isn't portlet
