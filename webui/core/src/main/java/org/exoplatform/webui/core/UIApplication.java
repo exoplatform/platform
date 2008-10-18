@@ -40,7 +40,7 @@ abstract public class UIApplication  extends  UIContainer {
 
   public UIApplication() throws Exception {
     uiPopupMessages_ = createUIComponent(UIPopupMessages.class, null , null) ;
-    uiPopupMessages_.setId(String.valueOf(uiPopupMessages_.hashCode())) ;
+    uiPopupMessages_.setId("_" + uiPopupMessages_.hashCode()) ;
   }
 
   public String getOwner() { return owner ; }  

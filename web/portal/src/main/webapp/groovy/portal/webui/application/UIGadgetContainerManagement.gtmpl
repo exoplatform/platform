@@ -66,7 +66,7 @@
 									<%
 									String cDescription = selectedContainer.getDescription() ;
 									if(cDescription == null) cDescription = "" ;
-									else cDescription = cDescription.replaceAll("\n","<br>");
+									else cDescription = cDescription.replaceAll("\n","<br/>");
 									%>
 									<div class="FieldComponent"><span><%=cDescription%></span></div>
 								</div>

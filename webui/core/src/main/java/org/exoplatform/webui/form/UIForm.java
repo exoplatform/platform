@@ -131,16 +131,11 @@ public class UIForm extends UIContainer  {
     String b = context.getURLBuilder().createURL(this, null, null) ;   
     
     Writer writer = context.getWriter() ;
-    writer.
-      append("<form class=\"UIForm\" name=\"").append(getId()).
-      append("\" id=\"").append(getId()).append("\" action=\"").
-      append(b).append('\"') ;
-      if(submitAction_ != null) writer.append(" onsubmit=\"").append(submitAction_).append("\"");
-    if(multipart_) {
-      writer.append(" enctype=\"multipart/form-data\"") ;
-    }
+    writer.append("<form class=\"UIForm\" id=\"").append(getId()).append("\" action=\"").append(b).append('\"') ;
+    if(submitAction_ != null) writer.append(" onsubmit=\"").append(submitAction_).append("\"");
+    if(multipart_) writer.append(" enctype=\"multipart/form-data\"") ;
     writer.append(" method=\"post\">");
-    writer.append("<input type=\"hidden\" name=\"").append(ACTION).append("\" value=\"\"/>") ;
+    writer.append("<div><input type=\"hidden\" name=\"").append(ACTION).append("\" value=\"\"/></div>") ;
   }
 
   @Override

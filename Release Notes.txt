@@ -19,9 +19,12 @@
         Application Server : Tomcat, JBoss, Jonas, Websphere
         Building Tools: Maven 2.0.6 and up
 
+- Summary of principal changes
+	- Clean up and optimize code to improve performence
+	- Remove completely the Widgets and use Gadgets instead
+
 
 - What is new in eXo Portal 2.5
-	- Clean up and optimze code so much
 	- Develop new application registry :
 		+ Permission for category
 		+ Permission for portlet ( not complete )
@@ -29,7 +32,6 @@
 	- Dashboard portlet.
 	- Support forgot username and password feature.
 	- Support visible option for node in navigation
-	- Remove completely the Widgets. !
 	
 
 - Complete list of issues fixed in eXo Portal 2.5

@@ -465,7 +465,7 @@ function HttpResponseHandler(){
 	        * id="PORTLET-FRAGMENT" block
 	        */
 	        var parentBlock =  document.getElementById(portletResponse.portletId) ;
-	        var target = eXo.core.DOMUtil.findDescendantById(parentBlock, "PORTLET-FRAGMENT") ;
+	        var target = eXo.core.DOMUtil.findFirstDescendantByClass(parentBlock, "div", "PORTLET-FRAGMENT") ;
 	        target.innerHTML = portletResponse.portletData;
 	        
 	        //update embedded scripts 

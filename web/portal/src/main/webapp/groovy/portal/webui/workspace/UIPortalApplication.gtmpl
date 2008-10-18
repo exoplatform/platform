@@ -15,7 +15,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head id="head">
     <title>eXo Portal</title>
-    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
     <%for(skinConfig in portalSkins) {%>
       <link id="${skinConfig.id}" rel="stylesheet" type="text/css" href="$skinConfig.CSSPath" />

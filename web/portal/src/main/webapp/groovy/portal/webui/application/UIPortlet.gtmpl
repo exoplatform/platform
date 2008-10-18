@@ -84,7 +84,7 @@
 		            		String description = ""; int count = 1;
 		            		for(c in uicomponent.getDescription()){
 		            			if(c=="\n"){
-		            				c="<br>";
+		            				c="<br/>";
 		            				count++;
 		            			}
 		            			description+=c;
@@ -269,7 +269,7 @@
         <div class="MiddleDecoratorRight">
           <div class="MiddleDecoratorCenter">
             <div id="${portletId}" style="width: 100%">
-              <div id="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight;">
+              <div class="PORTLET-FRAGMENT" class="UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight;">
 			          <% if(windowState != WindowState.MINIMIZED) out.println(portletContent) %>
 		          </div>    
             </div>
@@ -304,7 +304,7 @@
 	    cssStyle += "\"";
 %>      
 	    <div id="${portletId}">
-	      <div id="PORTLET-FRAGMENT"  ${cssStyle}>
+	      <div class="PORTLET-FRAGMENT"  ${cssStyle}>
 	       <% out.println(portletContent); %>
 	      </div>
 	    </div>  
