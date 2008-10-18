@@ -89,7 +89,7 @@
 				height: 24px;
 				display: block;
 				float: left;
-				margin: 4px 3px 0 2px;
+				margin: 4px 0px 0 3px;
 				cursor: pointer;
 				padding-top: 3px;
 			}
