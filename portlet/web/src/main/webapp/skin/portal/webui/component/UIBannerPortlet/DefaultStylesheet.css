@@ -3,99 +3,84 @@
 }
 
 .UIBannerPortlet .LeftBanner {
-	height: 73px ;
-	padding: 0px 0px 0px 184px;
-  background: url('DefaultSkin/background/Banner.gif') no-repeat left top;
-}
-
-.UIBannerPortlet .MiddleBanner {
-	height: 73px;
-  background: url('DefaultSkin/background/MiddleBanner10x73.jpg') repeat-x ;
+  background: url('DefaultSkin/background/BannerPortlet.gif') repeat-x left top;
 }
 
 .UIBannerPortlet .RightBanner {
-	height: 73px;
-  padding: 0px 30px 0px 0px ;
-  background: url('DefaultSkin/background/Banner.gif') no-repeat right -73px;
+  background: url('DefaultSkin/background/Logo.gif') no-repeat left bottom;
 }
 
-.UIBannerPortlet .BannerTitle {
-  height: 38px;
-  background: url('DefaultSkin/background/Banner.gif') no-repeat left -146px;
-  margin: 0px 0px 0px 15px;
+.UIBannerPortlet .MiddleBanner {
+  height: 74px ;
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent {
+.UIBannerPortlet .LeftLoginContainer {
+  background: url('DefaultSkin/background/Container.gif') no-repeat top left;
+  padding-left: 10px;
   float: right;
-  line-height: 22px;
-  padding: 4px 13px 0px 0px;
+  margin-right: 5px;
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent .LoginLeft {
-  margin-top: 3px;
+.UIBannerPortlet .RightLoginContainer {
+  background: url('DefaultSkin/background/Container.gif') no-repeat top right;
+  padding-right: 5px;
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent .LoginRight {
-  margin-top: 3px;
+.UIBannerPortlet .MiddleLoginContainer {
+  background: url('DefaultSkin/background/Container.gif') left -50px repeat-x;
+  height: 45px;
+  padding: 5px 10px 0 10px;
+  width: 265px;
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent a {
+.UIBannerPortlet .MiddleLoginContainer a {
   color: #0d62af;
   display: block;
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent a:hover {
+.UIBannerPortlet .MiddleLoginContainer a:hover {
   color: #058ee6;
 }
 
-.UIBannerPortlet .LoginContent .LoginSeperatorLine {
-  float: left;
-  width: 2px; height: 21px;
-  background: url('DefaultSkin/background/Banner.gif') repeat-y left -184px;
-  margin: 0px 7px;
- }
+.UIBannerPortlet .MiddleLoginContainer .Name {
+	text-align: left;
+	color: #0d62af;
+	font-size: 10px;
+	margin-bottom: 6px;
+}
 
-.UIBannerPortlet .LoginContent .LogoutIcon {
-  height: 22px;
-  background: url('DefaultSkin/background/Banner.gif') no-repeat left -249px;
-  padding-left: 26px;
+.UIBannerPortlet .MiddleLoginContainer .Logout {
+  background: url('DefaultSkin/background/Container.gif') no-repeat left -144px;
+  margin-right: 12px;
+  padding-left: 20px;
+  cursor: pointer;
   float: left;
+  font-weight: bold;
+  line-height: 17px;
+  font-size: 10px;
+  display: block;
+}
+
+.UIBannerPortlet .MiddleLoginContainer .Login {
+  background: url('DefaultSkin/background/Container.gif') no-repeat left -123px;
+  margin-right: 12px;
+  padding-left: 20px;
+  cursor: pointer;
+  float: left;
+  font-weight: bold;
+  line-height: 17px;
+  font-size: 10px;
+  display: block;
+}
+ 
+.UIBannerPortlet .MiddleLoginContainer .Language {
+  background: url('DefaultSkin/background/Container.gif') no-repeat left -103px;
+  padding-left: 18px;
   cursor: pointer;
   font-weight: bold;
+  float: left;
+  display: block;
+  line-height: 17px;
+  font-size: 10px;
 }
 
-.UIBannerPortlet .LoginContent .LoginIcon {
-  height: 22px;
-  background: url('DefaultSkin/background/Banner.gif') no-repeat left -227px;
-  margin-right: 2px;
-  padding-left: 26px;
-  cursor: pointer;
-	float: right;
-	font-weight: bold;
-}
-
-.UIBannerPortlet .LoginContent .SignIn {
-  padding-top: 2px;
-}
-
-.UIBannerPortlet .LoginContent .PortalSetting {
-  float: right;
-}
-
-.UIBannerPortlet .LoginContent .SeperatorLine {
-  float: right;
-  width: 2px; height: 21px;
-  background: url('DefaultSkin/background/Banner.gif') repeat-y left -184px;
-  margin: 2px 7px;
- }
- 
- .UIBannerPortlet .LoginContent .SettingIcon {
-  height: 22px;
-  background: url('DefaultSkin/background/Banner.gif') no-repeat left -205px;
-  margin-right: 2px;
-  padding-left: 26px;
-  cursor: pointer;
-	font-weight: bold;
-	float: right;
-	display: block;
-}

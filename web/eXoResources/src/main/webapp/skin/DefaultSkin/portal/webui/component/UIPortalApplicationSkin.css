@@ -32,7 +32,7 @@ html {
 }
 
 body {
-	background: url('/eXoResources/skin/DefaultSkin/background/PortalBG2x2.gif');
+	background: #ebedf2;
 	margin: 0px ; padding: 0px;
 	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif ;
 	font-size: 11px;

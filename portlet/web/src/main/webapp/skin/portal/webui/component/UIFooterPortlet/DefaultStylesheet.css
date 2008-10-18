@@ -1,7 +1,7 @@
 .UIFooterPortlet {
-  height: 25px ;
-  background: url('DefaultSkin/background/FooterBG.gif') repeat-x top;
-  margin: 0px 12px;
+  background: url('DefaultSkin/background/FooterBG.gif') repeat-x top left;
+  margin: 0;
+  padding: 14px 0 0 20px;
 }
 
 .UIFooterPortlet .RepeatFooter {
@@ -14,6 +14,9 @@
 }
 
 .UIFooterPortlet .CopyrightInfo {
-  line-height: 25px;
-  text-align: center;
+  background: url('DefaultSkin/background/FooterLogo.gif') no-repeat top left;
+  text-align: left;
+  color: #395c88;
+  padding-left: 80px;
+  line-height: 30px;
 }

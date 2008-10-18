@@ -1,16 +1,16 @@
 .UIBannerPortlet {
   height: 74px;
-	overflow: auto;
+  overflow: auto;
 }
 
 .UIBannerPortlet .LeftBanner {
-	height: 74px;
-	padding: 0px 0px 0px 157px;
+  height: 74px;
+  padding: 0px 0px 0px 157px;
   background: url('MacSkin/background/Banner.gif') no-repeat left top;
 }
 
-.UIBannerPortlet .MiddleBanner{
-	height: 74px;
+.UIBannerPortlet .MiddleBanner {
+  height: 74px;
   background: url('MacSkin/background/Banner.gif') repeat-x right -219px;
 }
 
@@ -26,58 +26,45 @@
   padding: 8px 0px 0px 3px;
 }
 
-.UIBannerPortlet .LoginContainer {
+.UIBannerPortlet .LeftLoginContainer {
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent {
+.UIBannerPortlet .LeftLoginContainer .RightLoginContainer {
+  padding: 2px 0px 0px 0px;
+  line-height: 20px;
   float: right;
-  padding: 2px 10px 0px 0px;
-  line-height: 22px;
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent a {
+.UIBannerPortlet .LeftLoginContainer .MiddleLoginContainer {
+  width: 420px;
+}
+
+.UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
   color: #cd0101;
   display: block;
 }
 
-.UIBannerPortlet .LoginContent .LoginSeperatorLine {
-	float: left;
-	width: 2px; height: 23px;
-	background: url('MacSkin/background/SaperatorLine.gif') repeat-y;
-	margin: 0px 7px;
+.UIBannerPortlet .RightLoginContainer .Name {
+  color: #0d62af;
+  float: left;
+  margin-right: 10px;
 }
 
-.UIBannerPortlet .LoginContent .SeperatorLine {
-	float: right;
-	width: 2px; height: 23px;
-	background: url('MacSkin/background/SaperatorLine.gif') repeat-y;
-	margin: 0px 7px;
-}
-
-.UIBannerPortlet .LoginContent .LogoutIcon {
+.UIBannerPortlet .RightLoginContainer .Logout {
   float: left;
   height: 24px;
   background: url('MacSkin/background/Banner.gif') no-repeat left -340px;
+  margin-right : 15px;
   cursor: pointer;
-  margin: 1px 2px 0px 0px;
   padding-left: 28px;
+  display: block;
 }
 
- .UIBannerPortlet .LoginContent .SettingIcon {
+ .UIBannerPortlet .RightLoginContainer .Language {
   height: 22px;
   background: url('MacSkin/background/Banner.gif') no-repeat left -293px;
-  margin-right: 2px;
   padding: 0px 7px 0px 26px;
   cursor: pointer;
-	float: right;
-	display: block;
+  float: left;
+  display: block;
 }
-
-.UIBannerPortlet .LoginContent .LoginIcon {
-  height: 24px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -317px;
-  cursor: pointer;
-  padding-left: 28px;
-  margin: 1px 2px 0px 0px;
-  float: right;
-} 

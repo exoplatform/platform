@@ -367,6 +367,10 @@
 	padding-left: 3px;
 }
 
+.UIGadgetManagement .UIGadgetEditor .HorizontalLayout textarea {
+	height: 250px; width: 400px; overflow: auto;
+}
+
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout input {
 	width: 400px;
 }

@@ -1,16 +1,16 @@
 .UIBannerPortlet {
-	overflow: auto;
+  overflow: auto;
   height: 74px;
 }
 
 .UIBannerPortlet .LeftBanner {
-	height: 74px;
-	padding: 0px 0px 0px 264px;
+  height: 74px;
+  padding: 0px 0px 0px 264px;
   background: url('VistaSkin/background/Banner.png') no-repeat left top;
 }
 
 .UIBannerPortlet .MiddleBanner{
-	height: 74px;
+  height: 74px;
   background: url('VistaSkin/background/Banner.png') repeat-x right -219px;
 }
 
@@ -26,63 +26,50 @@
   margin: 0px 0px 0px 5px;
 }
 
-.UIBannerPortlet .LoginContainer {
+.UIBannerPortlet .LeftLoginContainer {
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent {
-  float: right;
+.UIBannerPortlet .LeftLoginContainer .RightLoginContainer {
   padding: 2px 0px 0px 0px;
   line-height: 20px;
+  float: right;
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent a {
+.UIBannerPortlet .LeftLoginContainer .MiddleLoginContainer {
+}
+
+.UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
   font-weight: bold;
   color: #5098EB;
-	display: block;  
+  display: block;  
 }
 
-.UIBannerPortlet .LoginContainer .LoginContent a:hover {
+.UIBannerPortlet .LeftLoginContainer .RightLoginContainer a:hover {
   color: #b3e2fb;
 }
 
-.UIBannerPortlet .LoginContent .SeperatorLine {
-  float: right;
-  width: 2px; height: 20px;
-  background: url('DefaultSkin/background/2x2.gif') repeat-y;
-  margin: 2px 7px;
- }
- 
-
-.UIBannerPortlet .LoginContent .LogoutIcon {
+.UIBannerPortlet .RightLoginContainer .Logout {
+  margin-right: 15px;
   float: left;
   height: 22px;
   background: url('VistaSkin/background/Banner.png') no-repeat left -340px;
   cursor: pointer; 
   padding-left: 25px;
+  display: block;
 }
 
-.UIBannerPortlet .LoginContent .LoginIcon {
-  height: 22px;
-  background: url('VistaSkin/background/Banner.png') no-repeat left -317px;
-  cursor: pointer;
-  padding-left: 25px;
-  float: right;
-}
-
-.UIBannerPortlet .LoginContent .LoginSeperatorLine {
+.UIBannerPortlet .RightLoginContainer .Name {
+  color: #0d62af;
   float: left;
-  width: 2px; height: 20px;
-  background: url('DefaultSkin/background/2x2.gif') repeat-y;
-  margin: 4px 7px 0px 7px;
- }
+  margin-right: 15px;
+}
  
-.UIBannerPortlet .LoginContent .SettingIcon {
+.UIBannerPortlet .RightLoginContainer .Language {
   height: 22px;
   background: url('VistaSkin/background/Banner.png') no-repeat left -293px;
-  margin-right: 2px;
   padding-left: 28px;
   cursor: pointer;
-	font-weight: bold;
-	float: right;
-	display: block;
+  font-weight: bold;
+  float: left;
+  display: block;
 }

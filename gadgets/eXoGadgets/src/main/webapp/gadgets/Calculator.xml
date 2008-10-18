@@ -78,27 +78,18 @@
 			.Number {
 				padding: 8px 0 0 9px;
 			}
-			
-			.Row a {
-				width: 38px;
-				height: 24px;
-				display: block;
-				float: left;
-				margin: 4px 5px 0 0;
-				cursor: pointer;
-			}
-			
+		
 			.Row a {
 				background: url(/eXoGadgets/skin/image/Button.gif) no-repeat top left;
 				color: #000000;
 				font-weight: bold;
 				text-align: center;
 				font-size: 13px;
-				width: 38px;
+				width: 37px;
 				height: 24px;
 				display: block;
 				float: left;
-				margin: 4px 3px 0 0;
+				margin: 4px 3px 0 2px;
 				cursor: pointer;
 				padding-top: 3px;
 			}
