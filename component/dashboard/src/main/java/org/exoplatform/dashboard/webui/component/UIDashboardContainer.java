@@ -369,25 +369,34 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
    * @throws Exception
    */
   private void initData() throws Exception {
+//    PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
+//
+//    DashboardParent parent = (DashboardParent)((UIComponent)getParent()).getParent();
+//
+//    if (service.getContainer(ROOT_CONTAINER + "-" + windowId, parent.getDashboardOwner()) != null) { return; }
+//    Container root = createContainer(COLUMN_CONTAINER, ROOT_CONTAINER + "-" + windowId);
+//    ArrayList<Object> children = new ArrayList<Object>();
+//    
+//    //TODO: Use value from PortletPreference
+//    PortletRequestContext pcontext = (PortletRequestContext) 
+//      WebuiRequestContext.getCurrentInstance();
+//    PortletPreferences pref = pcontext.getRequest().getPreferences();
+//    int totalCols = Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3"));
+//    for (int i = 0; i < totalCols; i++) {
+//      children.add(createContainer(ROW_CONTAINER, "UIColumn-" + i));
+//    }
+//    root.setChildren(children);
+//
+//    service.create(root, parent.getDashboardOwner());
     PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
-
     DashboardParent parent = (DashboardParent)((UIComponent)getParent()).getParent();
-
-    if (service.getContainer(ROOT_CONTAINER + "-" + windowId, parent.getDashboardOwner()) != null) { return; }
-    Container root = createContainer(COLUMN_CONTAINER, ROOT_CONTAINER + "-" + windowId);
-    ArrayList<Object> children = new ArrayList<Object>();
-    
-    //TODO: Use value from PortletPreference
+    String id = ROOT_CONTAINER + "-" + windowId;
+    if (service.getContainer(id, parent.getDashboardOwner()) != null) { return; }
     PortletRequestContext pcontext = (PortletRequestContext) 
-      WebuiRequestContext.getCurrentInstance();
+                                     WebuiRequestContext.getCurrentInstance();
     PortletPreferences pref = pcontext.getRequest().getPreferences();
-    int totalCols = Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3"));
-    for (int i = 0; i < totalCols; i++) {
-      children.add(createContainer(ROW_CONTAINER, "UIColumn-" + i));
-    }
-    root.setChildren(children);
-
-    service.create(root, parent.getDashboardOwner());
+    String template = pref.getValue("template", "three-columns");
+    service.create(id, template, parent.getDashboardOwner());
   }
   
   /**

@@ -16,14 +16,27 @@
  */
 package org.exoplatform.portal.layout.jcr;
 
-import javax.jcr.PathNotFoundException;
-import javax.jcr.RepositoryException;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.jcr.PathNotFoundException;
+
+import org.exoplatform.commons.utils.IOUtil;
+import org.exoplatform.container.configuration.ConfigurationManager;
+import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.container.xml.ValueParam;
+import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.layout.PortalLayoutService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
+import org.jibx.runtime.BindingDirectory;
+import org.jibx.runtime.IBindingFactory;
+import org.jibx.runtime.IUnmarshallingContext;
 
 /**
  * Created by The eXo Platform SAS
@@ -39,8 +52,14 @@ public class PortalLayoutServiceImpl implements PortalLayoutService {
   
   private RegistryService regService_ ;
   private DataMapper mapper_ = new DataMapper () ;
+  ConfigurationManager confManager_;
+  private String tempLocation_;
   
-  public PortalLayoutServiceImpl(RegistryService service) throws Exception {
+  public PortalLayoutServiceImpl(InitParams params, RegistryService service,
+                                 ConfigurationManager confManager) throws Exception {
+    ValueParam locationParam = params.getValueParam("template.location");
+    if(locationParam != null) tempLocation_ = locationParam.getValue();
+    confManager_ = confManager;
     regService_ = service ;
   }
 
@@ -59,6 +78,12 @@ public class PortalLayoutServiceImpl implements PortalLayoutService {
       path = getUserPath(userId);
     regService_.createEntry(sessionProvider, path, entry);
     sessionProvider.close();
+  }
+  
+  public void create(String id, String template, String userId) throws Exception {
+    Container container = getContainerFromTemplate(template, PortalConfig.USER_TYPE, userId);
+    container.setId(id);
+    create(container, userId);
   }
 
   public Container getContainer(String id) throws Exception {
@@ -130,4 +155,49 @@ public class PortalLayoutServiceImpl implements PortalLayoutService {
   private String getUserPath(String userId) {
     return APP_PATH + "/"  + USERS_PATH + "/" + userId;
   }
+  
+  private Container getContainerFromTemplate(String temp, String ownerType, String ownerId) throws Exception {
+    Container container = fromXML(getTemplateConfig(temp), Container.class);
+    List<Application> apps = new ArrayList<Application>(3) ;
+    getApplications(apps, container) ;
+    if(!apps.isEmpty()) {
+      for(Application ele : apps){
+        makeInstanceId(ele, ownerType, ownerId) ;
+      }
+    }
+    return container;
+  }
+  
+  private String getTemplateConfig(String name) throws Exception {
+    if(tempLocation_ == null || tempLocation_.trim().length() < 1) {
+      throw new Exception("The 'template.location' parameter is expected.");
+    }
+    String path = tempLocation_ + "/" + name + "/container.xml";
+    InputStream is = confManager_.getInputStream(path);
+    return IOUtil.getStreamContentAsString(is);
+  }
+
+  private void getApplications(List<Application> apps, Object component) {
+    if(component instanceof Application) {
+      apps.add((Application) component) ;
+    } else if(component instanceof Container) {
+      Container container = (Container) component ;
+      List<Object> children = container.getChildren() ;
+      if(children != null) for(Object ele : children) getApplications(apps, ele) ;
+    }    
+  }
+  
+  private void makeInstanceId(Application app, String ownerType, String ownerId) {
+    StringBuilder builder = new StringBuilder(20) ;
+    builder.append(ownerType + "#" + ownerId + ":").append(app.getInstanceId()).append("/" + builder.hashCode()) ;
+    app.setInstanceId(builder.toString()) ;
+  }
+  
+  private <T> T fromXML(String xml, Class<T> clazz) throws Exception {
+    ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes("UTF-8")) ;
+    IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
+    IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
+    return clazz.cast(uctx.unmarshalDocument(is, "UTF-8"));
+  }
+
 }

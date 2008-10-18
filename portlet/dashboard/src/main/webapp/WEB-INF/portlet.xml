@@ -27,14 +27,18 @@
 				<name>totalColumns</name>
 				<value>2</value>
 			</preference>
-            <preference>
+      <preference>
 				<name>isPrivate</name>
 				<value>1</value>
 			</preference>
-            <preference>
+      <preference>
 				<name>owner</name>
 				<value>__CURRENT_USER__</value>
 			</preference>
+			<preference>
+				<name>template</name>
+				<value>three-columns</value>
+			</preference>			
 		</portlet-preferences>
 		<security-role-ref>
 			<role-name>admin</role-name>

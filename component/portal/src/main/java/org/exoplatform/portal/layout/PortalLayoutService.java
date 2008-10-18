@@ -47,6 +47,9 @@ public interface PortalLayoutService {
    */
   public void create(Container container, String userId) throws Exception ;
   
+  
+  public void create(String id, String template, String userId) throws Exception ;
+  
   /**
    * Updates the container object in the database.
    * If the container does not exist, it will throw exception.
