@@ -238,7 +238,7 @@ eXo.webui.UIDashboard = {
 		
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(portletWindow, "div", "UIDashboard");
-		var portletFragment = DOMUtil.findAncestorById(uiDashboard, "PORTLET-FRAGMENT") ;
+		var portletFragment = DOMUtil.findAncestorByClass(uiDashboard, "PORTLET-FRAGMENT") ;
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
 		var uiSelect = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardSelectContainer") ;
 		if(!uiContainer) return;
