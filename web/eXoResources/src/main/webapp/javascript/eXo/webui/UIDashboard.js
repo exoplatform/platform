@@ -273,15 +273,25 @@ eXo.webui.UIDashboard = {
 	initHeight : function(windowId) {
 		var DOMUtil = eXo.core.DOMUtil;
 		var portletWindow = document.getElementById(windowId);
-		var viewLayoutTag = DOMUtil.findAncestorByClass(portletWindow, "VIEW-PORTLET");
-		var wasHiddenView = false;
-		if(viewLayoutTag && viewLayoutTag.style.display == "none") {
-			wasHiddenView = true;
-			viewLayoutTag.style.display = "block" ;
-		}
-		
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(portletWindow, "div", "UIDashboard") ;
 		var portletFragment = DOMUtil.findAncestorByClass(uiDashboard, "PORTLET-FRAGMENT") ;
+		
+//		var viewLayoutTag = DOMUtil.findAncestorByClass(portletWindow, "VIEW-PORTLET");
+//		var wasHiddenView = false;
+//		if(viewLayoutTag && viewLayoutTag.style.display == "none") {
+//			wasHiddenView = true;
+//			viewLayoutTag.style.display = "block" ;
+//		}
+		
+		var hiddenAncestors = [] ;
+		var prNode = uiDashboard ;
+		while(prNode && (prNode.nodeType == 1)) {
+			if(prNode.style.display == "none") {
+				hiddenAncestors.push(prNode) ;
+				prNode.style.display = "block" ;
+			}
+			prNode = prNode.parentNode ;
+		}
 		
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
 		var itemCont = DOMUtil.findFirstChildByClass(uiSelect, "div", "DashboardItemContainer");
@@ -364,9 +374,12 @@ eXo.webui.UIDashboard = {
 			uiContainer.style.marginLeft = "210px";
 		}
 		
-		if(viewLayoutTag && wasHiddenView) {
-			viewLayoutTag.style.display = "none" ;
-		}
+		for(var i = 0; i < hiddenAncestors.length; i++) {
+			hiddenAncestors[i].style.display = "none" ;
+		}		
+//		if(viewLayoutTag && wasHiddenView) {
+//			viewLayoutTag.style.display = "none" ;
+//		}
 	},
 	
 	createTarget : function(width, height) {

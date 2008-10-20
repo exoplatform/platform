@@ -11,8 +11,8 @@ UIMaskLayer.prototype.createTransparentMask = function() {
 	if (!mask) {
 		mask = document.createElement("div");
 		mask.id = "TransparentMaskLayer";
-		mask.style.top = "0px" ;
-		mask.style.left = "0px" ;
+		mask.style.top = "1px" ;
+		mask.style.left = "1px" ;
 		eXo.core.Browser.setOpacity(mask, 0);
 		mask.style.backgroundColor = "white";
 		mask.style.zIndex = "2" ;
@@ -83,8 +83,8 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 		maskLayer.maxZIndex = 3 ;
 		maskLayer.style.width = "100%"  ;
 		maskLayer.style.height = "100%" ;
-		maskLayer.style.top = "0px" ;
-		maskLayer.style.left = "0px" ;
+		maskLayer.style.top = "1px" ;
+		maskLayer.style.left = "1px" ;
 		maskLayer.style.zIndex = maskLayer.maxZIndex ;
 
 		if(opacity) {
@@ -137,8 +137,8 @@ UIMaskLayer.prototype.createMaskForFrame = function(blockContainerId, object, op
 		maskLayer.maxZIndex = 3 ;
 		maskLayer.style.width = blockContainer.offsetWidth + "px"  ;
 		maskLayer.style.height =  blockContainer.offsetHeight + "px"  ;
-		maskLayer.style.top = "0px" ;
-		maskLayer.style.left = "0px" ;
+		maskLayer.style.top = "1px" ;
+		maskLayer.style.left = "1px" ;
 		maskLayer.style.zIndex = maskLayer.maxZIndex ;
 		if(opacity) {
 	    Browser.setOpacity(maskLayer, opacity) ;

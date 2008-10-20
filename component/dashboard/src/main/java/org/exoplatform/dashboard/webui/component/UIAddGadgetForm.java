@@ -70,11 +70,16 @@ public class UIAddGadgetForm extends UIForm {
       
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       String url = uiForm.getUIStringInput(FIELD_URL).getValue();
+      UIApplication uiApplication = context.getUIApplication() ;
+      if(url == null || url.trim().length() == 0) {
+        uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.required", null)) ;
+        context.addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages()) ;
+        return ;
+      }
       try {
         new URL(url) ;
       } catch (Exception e) {
-        UIApplication uiApplication = context.getUIApplication() ;
-        uiApplication.addMessage(new ApplicationMessage("UIDashboard.message.notUrl", null)) ;
+        uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.notUrl", null)) ;
         context.addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages()) ;
         return ;
       }
