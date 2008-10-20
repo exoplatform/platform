@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+<ModulePrefs title="__UP_mtitle__" title_url="__UP_titlelink__" directory_title="RSS Reader">
+<Require feature="dynamic-height" />
+<Require feature="setprefs"/>
+</ModulePrefs>
+    <UserPref name="mtitle" display_name="Title name" default_value="RSS Reader"/>
+	<UserPref name="rssurl" display_name="FEED URL" default_value="http://blog.exoplatform.org/feed/" required="true" />
+	<UserPref name="title" display_name="Custom Gadget Title" default_value="CustomRSS" />
+	<UserPref name="num_entries" display_name="# of Items (1-100)" default_value="10"/>
+    <!-- design var -->
+	<UserPref name="dborder" display_name="Open Border Color" default_value="DFCE6F"/>
+	<UserPref name="tcolor" display_name="Open Title Color" default_value="1C57A9"/>
+	<UserPref name="thighlight" display_name="Open Title Bgrnd" default_value="FFF19D"/>
+<Content type="html"><![CDATA[
+<style type="text/css">
+	.feedContainer {
+	background:#F5F5F5 none repeat scroll 0 0;
+	border:1px solid #C7C7C7;
+	padding:8px;
+	}
+
+
+	.item {
+	  font-size:8pt;
+	}
+
+	.item .date {
+		color:#9F9F9F;
+		font-size:8pt;
+		left:10px;
+		padding-bottom:2px;
+		padding-left:2px;
+		padding-right:2px;
+		padding-top:2px;
+		position:relative;
+		top:-3px;
+	}
+
+	.item .more {
+		background:#FFFFFF none repeat scroll 0 0;
+		color:#000000;
+		display:block;
+		font-size:9pt;
+		padding:5px 5px 5px 25px;
+		width:90%;
+	}
+
+	.descriptionHighlight .title {
+		border-bottom: 1px solid #B7B7B7;
+		font-weight:bold;
+	}
+	.descriptionHighlight {
+		background:white none repeat scroll 0 0;
+		border:1px solid #C7C7C7;
+		margin:4px;
+		padding:2px 8px 8px 8px;
+		position:relative;
+	}
+	.item .link a {
+	  text-decoration:none;
+		color:#B7B7B7;
+		line-height:16px;
+	}
+</style>
+<script type="text/javascript">
+
+
+    function getFavicon(feedurl) {
+        var favicon = feedurl.match( /:\/\/(www\.)?([^\/:]+)/ );
+        favicon = favicon[2]?favicon[2]:'';
+        favicon = "http://"+favicon+"/favicon.ico";
+        return favicon;
+    }
+
+    function toggleDescription(elmnt_id) {
+        if (_gel('more_'+elmnt_id).style.display == 'none') {
+            _gel('more_'+elmnt_id).style.display = '';
+            _gel('item_'+elmnt_id).className = 'item descriptionHighlight';
+        } else {
+            _gel('more_'+elmnt_id).style.display = 'none';
+            _gel('item_'+elmnt_id).className = 'item';
+        }
+        gadgets.window.adjustHeight();
+    }
+
+    function timeToPrettyString(B) {
+        if (isNaN(B)) {
+            return "an indeterminate amount of time ago"
+        }
+        time = (new Date().getTime() - B) / 1000;
+        if (time < 60) {
+            return "less than a minute ago"
+        } else {
+            if (time < 120) {
+                return "about a minute ago"
+            } else {
+                if (time < 3600) {
+                    var A = Math.round(time / 60);
+                    return "about " + A + " minutes ago"
+                } else {
+                    if (time < 7200) {
+                        return "about an hour ago"
+                    } else {
+                        if (time < 86400) {
+                            var A = Math.round(time / 3600);
+                            return "about " + A + " hours ago"
+                        } else {
+                            if (time < 172800) {
+                                return "about a day ago"
+                            } else {
+                                if (time < 2592000) {
+                                    var A = Math.round(time / 86400);
+                                    return "about " + A + " days ago"
+                                } else {
+                                    if (time < 5184000) {
+                                        return "about a month ago"
+                                    } else {
+                                        var A = Math.round(time / 2592000);
+                                        return "about " + A + " months ago"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Get userprefs
+    var prefs = new _IG_Prefs(__MODULE_ID__);
+    var entries = prefs.getInt("num_entries");
+    var feedurl = prefs.getString("rssurl");
+
+    if (isNaN(entries)) {
+      entries = 10;
+    }
+    else {
+      if (entries < 1) { entries = 1; }
+	  if (entries > 100) { entries = 100; }
+    }
+
+
+    var bullet = "<img src='" + getFavicon(feedurl) + "' border=0 align='absmiddle' style='height:16;width:16;' onerror='this.style.visibility=\"hidden\";'>&nbsp;&nbsp;";
+
+    function renderFeed(feed) {
+        var feedEl = _gel("feedContainer");
+        if (feed != null) {
+	        // Access the data for a given entry
+	        if (feed.Entry) {
+				console.log("feed", feed);
+	            for (var i = 0; i < feed.Entry.length; i++) {
+					console.log("entry", feed.Entry[i]);
+	                var itemEl = document.createElement('div');
+	                var item_title = document.createElement('div');
+	                var item_more = document.createElement('div');
+	                var item_desc = document.createElement('div');
+	                var item_date = document.createElement('div');
+	                var item_link = document.createElement('div');
+
+	                itemEl.id = 'item_'+i;
+	                item_title.id = 'title_'+i;
+	                item_more.id = 'more_'+i;
+	                item_more.style.display='none';
+	                item_desc.id = 'desc_'+i;
+	                item_date.id = 'date_'+i;
+	                item_link.id = 'link_'+i;
+
+
+					itemEl.className = 'item';
+	                item_title.className = 'title';
+	                item_more.className = 'more';
+	                item_desc.className = 'desc';
+	                item_date.className = 'date';
+	                item_link.className = 'link';
+
+	                item_title.innerHTML = bullet + "<a id='link_title_"+i+"' class='titlelink' href='javascript:toggleDescription("+i+");'>" + feed.Entry[i].Title + "</a>";
+					item_date.innerHTML = timeToPrettyString(feed.Entry[i].Date);
+
+
+					item_desc.innerHTML = feed.Entry[i].Summary;
+
+	                item_link.innerHTML = "<a href='" + feed.Entry[i].Link + "' target='_blank'>view link &raquo;</a>";
+
+
+	                item_more.appendChild(item_date);
+	                item_more.appendChild(item_desc);
+	                item_more.appendChild(item_link);
+
+
+	                itemEl.appendChild(item_title);
+	                itemEl.appendChild(item_more);
+
+	                feedEl.appendChild(itemEl);
+	            }
+			}
+        } else {
+            document.write("No feed found at " + feedurl);
+        }
+        gadgets.window.adjustHeight();
+    }
+
+	function refreshFeed() {
+		_IG_FetchFeedAsJSON(prefs.getString("rssurl"), renderFeed, entries, true);
+	}
+
+	gadgets.util.registerOnLoadHandler(refreshFeed);
+</script>
+<div id="feedContainer"></div>
+]]>
+</Content>
+</Module>

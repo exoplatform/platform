@@ -27,6 +27,8 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -67,7 +69,7 @@ public class UIAddGadgetForm extends UIForm {
       UIDashboardContainer uiContainer = uiDashboard.getChild(UIDashboardContainer.class) ;
       
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
-      String url = uiForm.getUIStringInput(FIELD_URL) .getValue();
+      String url = uiForm.getUIStringInput(FIELD_URL).getValue();
       try {
         new URL(url) ;
       } catch (Exception e) {
@@ -76,17 +78,42 @@ public class UIAddGadgetForm extends UIForm {
         context.addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages()) ;
         return ;
       }
-      String name = "gadget" + url.hashCode();
-      Gadget gadget = GadgetUtil.toGadget(name, url, false) ;
-      service.saveGadget(gadget) ;
+      Gadget gadget;
+      UIGadget uiGadget;
+
+      //TODO check the way we create the unique ID, is it really unique?
+      try {
+        String name = "gadget" + url.hashCode();
+        gadget = GadgetUtil.toGadget(name, url, false) ;
+        service.saveGadget(gadget);
+
+        StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
+        windowId.append("#").append(context.getRemoteUser());
+        windowId.append(":/dashboard/").append(gadget.getName()).append('/');
+        uiGadget = uiForm.createUIComponent(context, UIGadget.class, null, null);
+        //TODO why do we do +1
+        uiGadget.setId(Integer.toString(uiGadget.hashCode()+1));
+        windowId.append(uiGadget.hashCode());
+        uiGadget.setApplicationInstanceId(windowId.toString());
+      }  catch (Exception e) {
+         //rssAggregator
+        gadget = service.getGadget("rssAggregator");
+        //TODO make sure it's an rss feed
+        StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
+        windowId.append("#").append(context.getRemoteUser());
+        windowId.append(":/dashboard/").append(gadget.getName()).append('/');
+        uiGadget = uiForm.createUIComponent(context, UIGadget.class, null, null);
+        uiGadget.setId(Integer.toString(url.hashCode()+1));
+        windowId.append(url.hashCode());
+        uiGadget.setApplicationInstanceId(windowId.toString());
+
+        String params = "{'rssurl':'" + url + "'}";
+
+        UserGadgetStorage userGadgetStorage = uiForm.getApplicationComponent(UserGadgetStorage.class);
+        userGadgetStorage.save(Util.getPortalRequestContext().getRemoteUser(), gadget.getName(), "" + url.hashCode(), UIGadget.PREF_KEY, params);
+      }
       
-      StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
-      windowId.append("#").append(context.getRemoteUser());
-      windowId.append(":/dashboard/").append(gadget.getName()).append('/');
-      UIGadget uiGadget = uiForm.createUIComponent(context, UIGadget.class, null, null);
-      uiGadget.setId(Integer.toString(uiGadget.hashCode()+1));
-      windowId.append(uiGadget.hashCode());
-      uiGadget.setApplicationInstanceId(windowId.toString());
+
       uiContainer.addUIGadget(uiGadget, 0, 0) ;
       uiContainer.save() ;
       uiForm.reset() ;

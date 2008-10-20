@@ -54,6 +54,8 @@ public class GadgetUtil {
     gadget.setUrl(path) ;
     gadget.setLocal(isLocal);
     Map<String, String> metaData = getMapMetadata(reproduceUrl(path, isLocal));
+    if(metaData.containsKey("errors"))
+      throw new Exception("error on the server: " + metaData.get("errors"));
     String title = metaData.get("directoryTitle") ;
     if(title == null || title.trim().length() < 1) title = metaData.get("title") ;
     if(title == null || title.trim().length() < 1) title = gadget.getName() ;
@@ -132,6 +134,8 @@ public class GadgetUtil {
   }
 
   static final private String getHostName() {
+    // TODO we should check first if it's in the configuration since the gadget server can be on another
+    //server
     PortalRequestContext pContext = Util.getPortalRequestContext() ;
     StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
     int index = requestUrl.indexOf(pContext.getRequestContextPath()) ;
