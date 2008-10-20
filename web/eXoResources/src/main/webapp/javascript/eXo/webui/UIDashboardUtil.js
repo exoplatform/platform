@@ -1,7 +1,6 @@
 eXo.webui.UIDashboardUtil = {
 
 	findPosX : function(obj) {
-//		window.status ="";
 	  var curleft = 0;
 	  var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer");
 	  var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace");
@@ -10,7 +9,7 @@ eXo.webui.UIDashboardUtil = {
 	  					 && eXo.core.Browser.getBrowserType()=="ie"){
 	  		var uiPageDesktop = document.getElementById("UIPageDesktop");
 	  		if( (uiPageDesktop!=null && eXo.core.DOMUtil.hasClass(obj,"UIPageDesktop") && eXo.core.Browser.isIE7()) 
-	  					|| (uiPageDesktop==null && eXo.core.DOMUtil.hasClass(obj,"UIWindow")) ){
+	  					|| (uiPageDesktop==null && eXo.core.DOMUtil.hasClass(obj,"PORTLET-FRAGMENT")) ){
 	  			curleft += (obj.offsetLeft - uiWorkingWorkspace.offsetLeft);
 	  			obj = obj.offsetParent ;
 	  			continue;
