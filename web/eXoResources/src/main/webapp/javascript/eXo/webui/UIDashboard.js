@@ -434,7 +434,7 @@ eXo.webui.UIDashboard = {
 			DOMUtil.findFirstChildByClass(category, "div", "GadgetTab").className = "GadgetTab " + normalStyle;
 			categoryContent.style.display = "none";
 		}
-		eXo.webui.UIDashboard.initHeight(DOMUtil.findAncestorById(category, "PORTLET-FRAGMENT").parentNode.id) ;
+		eXo.webui.UIDashboard.initHeight(DOMUtil.findAncestorByClass(category, "PORTLET-FRAGMENT").parentNode.id) ;
 	},
 	
 	enableContainer : function(elemt) {

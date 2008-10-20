@@ -42,7 +42,7 @@ eXo.gadget.UIGadget = {
 	},
 
 	init : function(uiGadget, inDesktop, metadata) {
-		var portletFragment = eXo.core.DOMUtil.findAncestorById(uiGadget, "PORTLET-FRAGMENT");
+		var portletFragment = eXo.core.DOMUtil.findAncestorByClass(uiGadget, "PORTLET-FRAGMENT");
 		if(portletFragment == null){
 			uiGadget.onmouseover = eXo.gadget.UIGadget.showGadgetControl ;
 			uiGadget.onmouseout = eXo.gadget.UIGadget.hideGadgetControl ;
@@ -159,7 +159,7 @@ eXo.gadget.UIGadget = {
 	minimizeGadget: function(selectedElement){
 		var DOMUtil = eXo.core.DOMUtil ;
 		var	uiGadget = DOMUtil.findAncestorByClass(selectedElement, "UIGadget") ;
-		var portletFrag = DOMUtil.findAncestorById(uiGadget, "PORTLET-FRAGMENT") ;
+		var portletFrag = DOMUtil.findAncestorByClass(uiGadget, "PORTLET-FRAGMENT") ;
 		if (!portletFrag) return;
 		
 		var gadgetApp = DOMUtil.findFirstChildByClass(uiGadget, "div", "GadgetApplication") ;
@@ -194,7 +194,7 @@ eXo.gadget.UIGadget = {
 		var isInControlWorkspace = false ;
 		
 		gadgetId = uiGadget.id;
-		var portletFragment = DOMUtil.findAncestorById(uiGadget, "PORTLET-FRAGMENT");
+		var portletFragment = DOMUtil.findAncestorByClass(uiGadget, "PORTLET-FRAGMENT");
 		
 		if(portletFragment != null){
 			var compId = portletFragment.parentNode.id;
