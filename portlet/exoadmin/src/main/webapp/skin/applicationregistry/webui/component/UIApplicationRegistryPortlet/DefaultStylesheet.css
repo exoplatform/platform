@@ -384,7 +384,13 @@
 }
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout textarea {
-	height: 250px; width: 400px; overflow: auto;
+	height: 250px; 
+	width:100%; 
+	overflow: auto;
+}
+
+.UIGadgetManagement .UIGadgetEditor td.FieldComponent {
+	width:100%;
 }
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout input {
@@ -399,3 +405,4 @@
 	float: left;
 	width: 80%; overflow: hidden;
 }
+
