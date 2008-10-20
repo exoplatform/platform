@@ -5,8 +5,7 @@
 	import org.exoplatform.webui.application.portlet.PortletRequestContext;
 	
   def rcontext = _ctx.getRequestContext() ;
-  def pcontext = (PortletRequestContext) rcontext;
-  def windowId = pcontext.getWindowId();
+  def windowId = rcontext.getWindowId();
   def id = uicomponent.getId() + "-" + windowId ;
   def url = uicomponent.getParent().getUrl();
   def metadata = uicomponent.getParent().getMetadata();
@@ -16,7 +15,9 @@
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id', $metadata, $userPref);") ;
 	java.util.Map<String, String> metadataMap = GadgetUtil.getMapMetadata(url) ;
 	String height = "auto" ;
-	if(metadataMap.containsKey("height")) height = (Integer.parseInt(metadataMap.get("height")) + 10) + "px" ;
+	System.out.println(metadataMap.get("height")) ;
+	if(metadataMap.containsKey("height")  && Integer.parseInt(metadataMap.get("height")) > 0) 
+			height = (Integer.parseInt(metadataMap.get("height")) + 10) + "px" ;
 %>
 
 <div class="UIGadgetViewMode" id="$id" style="height: <%=height%>;"></div>
