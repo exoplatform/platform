@@ -36,7 +36,7 @@
 }
 
 .UIBannerPortlet .LeftLoginContainer .MiddleLoginContainer {
-  width: 420px;
+  width: 430px;
 }
 
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
@@ -60,7 +60,17 @@
   display: block;
 }
 
- .UIBannerPortlet .RightLoginContainer .Language {
+.UIBannerPortlet .RightLoginContainer .Login {
+  float: left;
+  height: 24px;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -316px;
+  margin-right : 15px;
+  cursor: pointer;
+  padding-left: 28px;
+  display: block;
+}
+
+.UIBannerPortlet .RightLoginContainer .Language {
   height: 22px;
   background: url('MacSkin/background/Banner.gif') no-repeat left -293px;
   padding: 0px 7px 0px 26px;

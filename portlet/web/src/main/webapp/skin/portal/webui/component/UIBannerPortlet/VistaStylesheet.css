@@ -36,6 +36,7 @@
 }
 
 .UIBannerPortlet .LeftLoginContainer .MiddleLoginContainer {
+  width: 430px;
 }
 
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
@@ -53,6 +54,16 @@
   float: left;
   height: 22px;
   background: url('VistaSkin/background/Banner.png') no-repeat left -340px;
+  cursor: pointer; 
+  padding-left: 25px;
+  display: block;
+}
+
+.UIBannerPortlet .RightLoginContainer .Login {
+  margin-right: 15px;
+  float: left;
+  height: 22px;
+  background: url('VistaSkin/background/Banner.png') no-repeat left -315px;
   cursor: pointer; 
   padding-left: 25px;
   display: block;
