@@ -11,7 +11,7 @@ eXo.webui.UIDashboard = {
 		dragObj.onDragStart = function(x, y, lastMouseX, lastMouseY, e) {
 			var DOMUtil = eXo.core.DOMUtil;
 			var uiDashboard = eXo.webui.UIDashboard ;
-			var portletFragment = DOMUtil.findAncestorById(dragObj, "PORTLET-FRAGMENT");
+			var portletFragment = DOMUtil.findAncestorByClass(dragObj, "PORTLET-FRAGMENT");
 			if(!portletFragment) return;
 			
 			var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
@@ -89,7 +89,7 @@ eXo.webui.UIDashboard = {
 		dragObj.onDrag = function(nx, ny, ex, ey, e) {	
 			var DOMUtil = eXo.core.DOMUtil;		
 			var uiTarget = eXo.webui.UIDashboard.targetObj;
-			var portletFragment = DOMUtil.findAncestorById(dragObj, "PORTLET-FRAGMENT");
+			var portletFragment = DOMUtil.findAncestorByClass(dragObj, "PORTLET-FRAGMENT");
 
 			if(!portletFragment) return;
 			
@@ -173,7 +173,7 @@ eXo.webui.UIDashboard = {
 		dragObj.onDragEnd = function(x, y, clientX, clientY) {
 			var uiDashboard = eXo.webui.UIDashboard;
 			var uiDashboardUtil = eXo.webui.UIDashboardUtil;
-			var portletFragment = eXo.core.DOMUtil.findAncestorById(dragObj, "PORTLET-FRAGMENT");
+			var portletFragment = eXo.core.DOMUtil.findAncestorByClass(dragObj, "PORTLET-FRAGMENT");
 			
 			if(!portletFragment) return;
 			
@@ -281,7 +281,7 @@ eXo.webui.UIDashboard = {
 		}
 		
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(portletWindow, "div", "UIDashboard") ;
-		var portletFragment = DOMUtil.findAncestorById(uiDashboard, "PORTLET-FRAGMENT") ;
+		var portletFragment = DOMUtil.findAncestorByClass(uiDashboard, "PORTLET-FRAGMENT") ;
 		
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
 		var itemCont = DOMUtil.findFirstChildByClass(uiSelect, "div", "DashboardItemContainer");
@@ -391,7 +391,7 @@ eXo.webui.UIDashboard = {
 	showHideSelectContainer : function(comp) {
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiDashboardPortlet = DOMUtil.findAncestorByClass(comp, "UIDashboard");
-		var portletFragment = DOMUtil.findAncestorById(uiDashboardPortlet, "PORTLET-FRAGMENT");
+		var portletFragment = DOMUtil.findAncestorByClass(uiDashboardPortlet, "PORTLET-FRAGMENT");
 		var uiSelectContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardSelectContainer");
 		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
 		
