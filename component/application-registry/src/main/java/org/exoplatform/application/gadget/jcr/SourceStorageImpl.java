@@ -61,15 +61,15 @@ public class SourceStorageImpl implements SourceStorage {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
     Node homeNode = (Node) session.getItem(storePath);
-    Node contentNode ;
     String fileName = name + ".xml" ;
-    if(!homeNode.hasNode(fileName)) {
-      Node fileNode = homeNode.addNode(fileName, "nt:file") ;
-      contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
-    } else contentNode = homeNode.getNode(fileName + "/jcr:content") ;
-    contentNode.setProperty("jcr:data", source) ;
-    contentNode.setProperty("jcr:mimeType", "text/xml") ;
-    contentNode.setProperty("jcr:lastModified", Calendar.getInstance()) ;
+    saveContent(homeNode, fileName, source);
+//    if(!homeNode.hasNode(fileName)) {
+//      Node fileNode = homeNode.addNode(fileName, "nt:file") ;
+//      contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
+//    } else contentNode = homeNode.getNode(fileName + "/jcr:content") ;
+//    contentNode.setProperty("jcr:data", source) ;
+//    contentNode.setProperty("jcr:mimeType", "text/xml") ;
+//    contentNode.setProperty("jcr:lastModified", Calendar.getInstance()) ;
     session.save() ;
     sessionProvider.close() ;
   }
@@ -99,4 +99,28 @@ public class SourceStorageImpl implements SourceStorage {
     return (Node) session.getItem(storePath) ; 
   }
 
+  public void addDependency(String name, String dependencyName,
+                            String dependencySource) throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
+    Node homeNode = (Node) session.getItem(storePath);
+    Node parent;
+    if(!homeNode.hasNode(name))  parent = homeNode.addNode(name, "nt:unstructured");
+    else parent = homeNode.getNode(name);
+    saveContent(parent, dependencyName, dependencySource);
+    session.save();
+    sessionProvider.close();
+  }
+
+  private void saveContent(Node parentNdoe, String name, String source) throws Exception {
+    Node contentNode ;
+    if(!parentNdoe.hasNode(name)) {
+      Node fileNode = parentNdoe.addNode(name, "nt:file") ;
+      contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
+    } else contentNode = parentNdoe.getNode(name + "/jcr:content") ;
+    contentNode.setProperty("jcr:data", source) ;
+    contentNode.setProperty("jcr:mimeType", "text/xml") ;
+    contentNode.setProperty("jcr:lastModified", Calendar.getInstance()) ;
+  }
+  
 }

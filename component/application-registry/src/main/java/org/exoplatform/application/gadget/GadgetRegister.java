@@ -73,8 +73,8 @@ public class GadgetRegister implements ServletContextListener {
         NodeList nodeChild = gadgetElement.getChildNodes() ;
         for(int j=0; j<nodeChild.getLength(); j++) {
           Node node = nodeChild.item(j) ;
+          address = node.getTextContent() ;
           if (node.getNodeName().equals("path")) {
-            address = node.getTextContent() ;
             InputStream sourceIn = event.getServletContext().getResourceAsStream(address) ;
             String source = IOUtils.toString(sourceIn, "UTF-8");
             sourceStorage.saveSource(name, source);
@@ -90,7 +90,6 @@ public class GadgetRegister implements ServletContextListener {
             gadgetService.saveGadget(gadget);            
           }
           else if (node.getNodeName().equals("url")) {
-            address = node.getTextContent() ;
             URL urlObj = new URL(address) ;
             URLConnection conn = urlObj.openConnection() ;
             InputStream is = conn.getInputStream() ;
@@ -105,6 +104,15 @@ public class GadgetRegister implements ServletContextListener {
             gadget.setReferenceUrl(prefs.getTitleUrl().toString());
             gadget.setLocal(false);            
             gadgetService.saveGadget(gadget);            
+          }
+          else if (node.getNodeName().equals("include")) {
+            InputStream sourceIn = event.getServletContext().getResourceAsStream(address);
+            String source = IOUtils.toString(sourceIn, "UTF-8");
+            String dependencyName ;
+            int index = address.lastIndexOf('/');
+            if(index < 0) dependencyName = address;
+            else dependencyName = address.substring(index + 1);
+            sourceStorage.addDependency(name, dependencyName, source);
           }
         }
       }

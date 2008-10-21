@@ -28,6 +28,9 @@ public interface SourceStorage {
   
   public void saveSource(String name, String source) throws Exception ;
   
+  public void addDependency(String name, String dependencyName,
+                            String dependencySource) throws Exception;
+  
   public void removeSource(String name) throws Exception ;
   
   public String getSourcePath(String name) throws Exception ;
