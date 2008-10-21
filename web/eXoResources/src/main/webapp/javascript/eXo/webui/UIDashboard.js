@@ -332,19 +332,20 @@ eXo.webui.UIDashboard = {
 		
 		if(!document.getElementById("UIPageDesktop")) {
 			dbContainer.style.height = "auto" ;
+			portletFragment.style.height = "auto" ;
 			middleItemCont.style.height = "auto" ;
 			var selectHeight = (uiSelect.offsetHeight >= uiSelect.scrollHeight) ? uiSelect.offsetHeight : uiSelect.scrollHeight ;
 			var containerHeight = (uiContainer.offsetHeight >= uiContainer.scrollHeight) ? uiContainer.offsetHeight : uiContainer.scrollHeight ;
 			if(selectHeight >= containerHeight) {
-				portletFragment.style.height = uiSelect.offsetHeight + "px" ;
+				//portletFragment.style.height = uiSelect.offsetHeight + "px" ;
 			} else {
-				portletFragment.style.height = uiContainer.offsetHeight + "px" ;
+				//portletFragment.style.height = uiContainer.offsetHeight + "px" ;
 				middleItemCont.style.height = portletWindow.offsetHeight - minusHeight
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
 						- 5 + "px";
 			}
-			dbContainer.style.height = portletWindow.offsetHeight + "px";
+			//dbContainer.style.height = portletWindow.offsetHeight + "px";
 		} else {
 			var windowHeight = portletWindow.offsetHeight ; 
 			var uiWindow = DOMUtil.findAncestorByClass(portletWindow, "UIWindow") ;
@@ -355,7 +356,7 @@ eXo.webui.UIDashboard = {
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
 						- 5 + "px";
-			dbContainer.style.height = windowHeight + "px";
+			//dbContainer.style.height = windowHeight + "px";
 		}
 		
 		if(middleItemCont.scrollHeight > middleItemCont.offsetHeight) {
