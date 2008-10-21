@@ -28,9 +28,12 @@
 
 .UIBannerPortlet .MiddleLoginContainer {
   background: url('DefaultSkin/background/Container.gif') left -50px repeat-x;
-  height: 45px;
-  padding: 5px 10px 0 10px;
-  width: 265px;
+  padding: 5px 15px 7px 15px;
+}
+
+.UIBannerPortlet .Signin {
+  background: url('DefaultSkin/background/Container.gif') left -50px repeat-x;
+  padding: 15px 15px 20px 15px;
 }
 
 .UIBannerPortlet .MiddleLoginContainer a {
@@ -47,6 +50,7 @@
 	color: #0d62af;
 	font-size: 10px;
 	margin-bottom: 6px;
+	line-height: 15px;
 }
 
 .UIBannerPortlet .MiddleLoginContainer .Logout {
@@ -56,31 +60,31 @@
   cursor: pointer;
   float: left;
   font-weight: bold;
-  line-height: 17px;
   font-size: 10px;
   display: block;
+  line-height: 17px;
 }
 
 .UIBannerPortlet .MiddleLoginContainer .Login {
-  background: url('DefaultSkin/background/Container.gif') no-repeat left -123px;
+  background: url('DefaultSkin/background/Container.gif') no-repeat left -124px;
   margin-right: 12px;
   padding-left: 20px;
   cursor: pointer;
   float: left;
   font-weight: bold;
-  line-height: 17px;
   font-size: 10px;
   display: block;
+  line-height: 17px;
 }
  
 .UIBannerPortlet .MiddleLoginContainer .Language {
-  background: url('DefaultSkin/background/Container.gif') no-repeat left -103px;
+  background: url('DefaultSkin/background/Container.gif') no-repeat left -105px;
   padding-left: 18px;
   cursor: pointer;
   font-weight: bold;
   float: left;
   display: block;
-  line-height: 17px;
   font-size: 10px;
+  line-height: 17px;
 }
 

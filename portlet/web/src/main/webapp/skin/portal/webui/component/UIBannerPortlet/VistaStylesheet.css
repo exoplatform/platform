@@ -36,7 +36,7 @@
 }
 
 .UIBannerPortlet .LeftLoginContainer .MiddleLoginContainer {
-  width: 430px;
+  float: right;
 }
 
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {

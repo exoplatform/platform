@@ -31,12 +31,12 @@
 								<div style="clear: both;"><span></span></div>	
 							</div>							
 						<%} else {%>
-							<div class="MiddleLoginContainer">
+							<div class="MiddleLoginContainer Signin">
 								<a class="Login" onclick="$signInAction"><%=_ctx.appRes("UILoginForm.label.Signin")%></a>								
 								<a class="Language" onclick="$changeLanguageAction">
 									<%=_ctx.appRes("UIExoStart.item.ChangeLanguage")%>
 								</a>		
-								<div style="clear:both"><span></span></div>
+								<div style="clear:both"></div>
 							</div>
 						<%}%>   
 					</div>
