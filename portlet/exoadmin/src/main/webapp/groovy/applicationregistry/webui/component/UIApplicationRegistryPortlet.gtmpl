@@ -4,7 +4,7 @@
 <div>
 	<div style="height:0px"><div style="width: 730px;" ><span style="display: none;"></span></div></div>
 	<div class="UIApplicationRegistryPortlet" id="$uicomponent.id" 
-		style="_width: expression(this.previousSibling.offsetWidth - 50 + 'px'); min-width: 730px;">
+		style="_width: expression(this.previousSibling.offsetWidth - 38 + 'px'); min-width: 730px;">
 		<div class="UIToolbar">
 	    <div class="BlueLargeToolbar">
 	      <div class="ToolbarContainer">

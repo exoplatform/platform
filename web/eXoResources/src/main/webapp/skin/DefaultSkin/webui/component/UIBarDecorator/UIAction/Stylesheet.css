@@ -11,6 +11,7 @@
 	display: block;
 	float: left;
 	margin: 0px 3px;
+	cursor: pointer;
 }
 
 .UIAction a {
