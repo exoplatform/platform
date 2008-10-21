@@ -2,7 +2,6 @@
 <gadgets>
 	<gadget name="Todo">
 		<path>/gadgets/Todo.xml</path>
-		<include>/gadgets/todo/datetime.js</include>
 	</gadget>
 	
 	<gadget name="Calendar">
@@ -19,5 +18,7 @@
 	
 	<gadget name="rssAggregator">
 		<path>/gadgets/rssAggregator.xml</path>
+        <include>/gadgets/rssAggregator/script.js</include>
+        <include>/gadgets/rssAggregator/style.css</include>
 	</gadget>
 </gadgets>
