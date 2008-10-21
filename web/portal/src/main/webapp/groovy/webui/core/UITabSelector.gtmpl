@@ -18,7 +18,7 @@
 			          <div class="$style" >
 		              <div class="LeftTab" >
 		                <div class="RightTab">                
-		                  <div class="MiddleTab" onClick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">
+		                  <div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.displayTabContent(this)">
 		                    <div class="TabIcon ${uiChild.id}24x24Icon"><span></span></div>
 		                    <a class="Title"><%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></a>
 		                    <div style="clear: left;"><span></span></div>

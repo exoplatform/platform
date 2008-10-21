@@ -53,11 +53,11 @@
 				              		  if(uiChild.isShowEditControl()){
 				              		  	String actionLink = uicomponent.event("EditContainer", "$uiChild.id") - "javascript:";
 				              		%>
-						           				<div class="TabLabel" style="float:left;" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></div>
+						           				<div class="TabLabel" style="float:left;" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></div>
 					              	    <div class="EditIcon" onclick="<%=actionLink%>"></div>
 					              	    <div style="clear: left"><span></span></div>
 					              	<%} else {%>
-						           				<a class="TabLabel" onClick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></a>
+						           				<a class="TabLabel" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></a>
 						           		<%} %>
 					              </div>
 				            	</div>

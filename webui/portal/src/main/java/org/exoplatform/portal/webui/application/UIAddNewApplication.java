@@ -130,13 +130,12 @@ public class UIAddNewApplication extends UIContainer {
 //        //TODO: dang.tung -- add new gadget
       } else if (org.exoplatform.web.application.Application.EXO_GAGGET_TYPE.equals(application
           .getApplicationType())) {
-        UIGadget uiGadget = uiPage.createUIComponent(event.getRequestContext(), UIGadget.class,
-            null, null);
+        UIGadget uiGadget = uiPage.createUIComponent(event.getRequestContext(), UIGadget.class, null, null);
 
         StringBuilder windowId = new StringBuilder(Util.getUIPortal().getOwner());
         windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/').append(uiGadget.hashCode());
         uiGadget.setApplicationInstanceId(windowId.toString());
-        uiGadget.setId(Integer.toString(uiGadget.hashCode()+1)) ;
+        uiGadget.setId("_" + uiGadget.hashCode()) ;
  
         //Set Properties For gadget
         int posX = (int) (Math.random() * 400);
@@ -180,11 +179,11 @@ public class UIAddNewApplication extends UIContainer {
         StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
         windowId.append("#").append(event.getRequestContext().getRemoteUser()) ;
         windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/');
-        UIGadget uiWidget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIGadget.class, null, null);
-        windowId.append(uiWidget.hashCode());
-        uiWidget.setApplicationInstanceId(windowId.toString());
-        uiWidget.setId(Integer.toString(uiWidget.hashCode()+1)) ;
-        uiWidgetContainer.addChild(uiWidget);
+        UIGadget uiGadget = uiWidgetContainer.createUIComponent(event.getRequestContext(), UIGadget.class, null, null);
+        windowId.append(uiGadget.hashCode());
+        uiGadget.setApplicationInstanceId(windowId.toString());
+        uiGadget.setId("_" + uiGadget.hashCode()) ;
+        uiWidgetContainer.addChild(uiGadget);
   
         UIGadgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIGadgets.class);
         Gadgets widgets = PortalDataMapper.toGadgets(uiWidgets);

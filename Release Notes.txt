@@ -14,35 +14,21 @@
 
 
 - System Requirements
-        Web Browser: IE6, IE7, FF2, FF3, Safari. Best for Frirefox 2 and upgrading to Firefox 3
+        Web Browser: IE6, IE7, FF2, FF3, Safari, Google Chrome. Best for Frirefox.
         JVM: version 1.5.0_xx only
         Application Server : Tomcat, JBoss, Jonas, Websphere
         Building Tools: Maven 2.0.6 and up
 
-- Summary of principal changes
-	- Clean up and optimize code to improve performence
-	- Remove completely the Widgets and use Gadgets instead
-
 
 - What is new in eXo Portal 2.5
-	- Develop new application registry :
-		+ Permission for category
-		+ Permission for portlet ( not complete )
-	- Integrate gadget and opensocial to exo portal
-	- Dashboard portlet.
-	- Support forgot username and password feature.
-	- Support visible option for node in navigation
-	
-
-- Complete list of issues fixed in eXo Portal 2.5
-
-
-
-
-
-
-- The changes of configuration from 2.2.x version
-
+	- Clean up and optimize code to improve performence
+	- Remove completely the Widgets and use Gadgets instead
+	- Develop a new Application Registry, concurrently remove old Portlet Registry.
+	- Integrate Gadget API to exo portal.
+	- Develop a Dashboard portlet for Gadget Organization
+	- Implement the feature "forgot username and password"
+	- Support an option to decide whether the node will be visibled in Navigation.
+	- Make new Home Page skin for eXo Portal.
 
 
 

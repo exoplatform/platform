@@ -22,7 +22,7 @@
 				                <div class="$className">
 				                  <div class="LeftTab">
 				                    <div class="RightTab">
-						                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.hideSaveButton(this)" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', 'EditMode')">Edit Mode</div>
+						                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.hideSaveButton(this)" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', 'EditMode')">Edit Mode</div>
 						                </div>
 				                  </div>
 				                </div>
@@ -40,7 +40,7 @@
 					                <div class="$className">
 					                  <div class="LeftTab">
 					                    <div class="RightTab">
-							                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.showSaveButton(this)" onClick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
+							                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.showSaveButton(this)" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
 							                </div>
 					                  </div>
 					                </div>

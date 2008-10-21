@@ -16,14 +16,12 @@
  */
 package org.exoplatform.web.application.gadget;
 
-import java.net.URI;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.apache.shindig.common.uri.Uri;
 import org.apache.shindig.gadgets.spec.GadgetSpec;
 import org.apache.shindig.gadgets.spec.ModulePrefs;
-import org.apache.shindig.gadgets.spec.SpecParserException;
 import org.exoplatform.web.application.Application;
 
 /**
