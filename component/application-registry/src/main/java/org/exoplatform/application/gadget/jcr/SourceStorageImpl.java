@@ -62,7 +62,7 @@ public class SourceStorageImpl implements SourceStorage {
     Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
     Node homeNode = (Node) session.getItem(storePath);
     String fileName = name + ".xml" ;
-    saveContent(homeNode, fileName, source);
+    saveContent(homeNode, fileName, source, "text/xml");
 //    if(!homeNode.hasNode(fileName)) {
 //      Node fileNode = homeNode.addNode(fileName, "nt:file") ;
 //      contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
@@ -107,19 +107,19 @@ public class SourceStorageImpl implements SourceStorage {
     Node parent;
     if(!homeNode.hasNode(name))  parent = homeNode.addNode(name, "nt:unstructured");
     else parent = homeNode.getNode(name);
-    saveContent(parent, dependencyName, dependencySource);
+    saveContent(parent, dependencyName, dependencySource, "text/plain");
     session.save();
     sessionProvider.close();
   }
 
-  private void saveContent(Node parentNdoe, String name, String source) throws Exception {
+  private void saveContent(Node parentNdoe, String name, String source, String mimeType) throws Exception {
     Node contentNode ;
     if(!parentNdoe.hasNode(name)) {
       Node fileNode = parentNdoe.addNode(name, "nt:file") ;
       contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
     } else contentNode = parentNdoe.getNode(name + "/jcr:content") ;
     contentNode.setProperty("jcr:data", source) ;
-    contentNode.setProperty("jcr:mimeType", "text/xml") ;
+    contentNode.setProperty("jcr:mimeType", mimeType) ;
     contentNode.setProperty("jcr:lastModified", Calendar.getInstance()) ;
   }
   
