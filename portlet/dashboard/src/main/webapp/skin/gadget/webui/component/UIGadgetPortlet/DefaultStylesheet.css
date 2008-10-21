@@ -1,4 +1,5 @@
 .UIGadgetPortlet {
+	padding: 1px;
 	height: 100%;
 }
 .UIGadgetPortlet .UIGadgetViewMode {

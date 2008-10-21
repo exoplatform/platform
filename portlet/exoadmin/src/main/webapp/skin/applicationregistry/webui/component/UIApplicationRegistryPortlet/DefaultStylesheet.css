@@ -385,16 +385,17 @@
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout textarea {
 	height: 250px; 
-	width:100%; 
+	padding: 0px;
+	width: 99%; 
 	overflow: auto;
 }
 
 .UIGadgetManagement .UIGadgetEditor td.FieldComponent {
-	width:100%;
+	width: 100%;
 }
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout input {
-	width: 400px;
+	width: 99%;
 }
 
 .UIGadgetManagement .URL .LeftLabel {
@@ -405,4 +406,3 @@
 	float: left;
 	width: 80%; overflow: hidden;
 }
-

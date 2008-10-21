@@ -374,11 +374,18 @@ e/**
 }
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout textarea {
-	height: 250px; width: 400px; overflow: auto;
+	height: 250px; 
+	width: 99%; 
+	padding: 0px;
+	overflow: auto;
+}
+
+.UIGadgetManagement .UIGadgetEditor td.FieldComponent {
+	width: 100%;
 }
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout input {
-	width: 400px;
+	width: 99%;
 }
 
 .UIGadgetManagement .URL .LeftLabel {

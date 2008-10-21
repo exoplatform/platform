@@ -26,4 +26,5 @@
 .UITabPane .UIFormWithTitle .HorizontalLayout {
 	border: 1px solid #b7b7b7;
 	border-top: none;
+	padding: 10px;
 }
