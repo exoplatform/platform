@@ -55,18 +55,18 @@
 	<% if(uicomponent.isAdminRole()) { %>
 	
 	<div class="UIAction"> 
-    <table class="ActionContainer" align="center">
+    <table class="ActionContainer">
 	    <tr>
-	    	<td align="center">
-		      <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');" class="ActionButton LightBlueStyle">
+	    	<td
+		      <div onclick="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');" class="ActionButton LightBlueStyle">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
-		            	<%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
+		            	<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%></a>
 		            </div>
 		          </div>
 		        </div>
-		      </a>
+		      </div>
 		    </td>
       </tr>
  	  </table>

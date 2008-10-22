@@ -2,18 +2,18 @@
 	<%uicomponent.renderChildren() %>	
 	
 	<div class="UIAction"> 
-    <table class="ActionContainer" align="center">
+    <table class="ActionContainer">
 	    <tr>
-	    	<td align="center">
-		      <a href="<%=uicomponent.event("AddNewPortal")%>" class="ActionButton LightBlueStyle">
+	    	<td>
+		      <div onclick="<%=uicomponent.event("AddNewPortal")%>" class="ActionButton LightBlueStyle">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
-		              <%=_ctx.appRes(uicomponent.getId() + ".action.addNewPortal")%>
+		              <a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.addNewPortal")%></a>
 		            </div>
 		          </div>
 		        </div>
-		      </a>
+		      </div>
 		    </td>
       </tr>
  	  </table>

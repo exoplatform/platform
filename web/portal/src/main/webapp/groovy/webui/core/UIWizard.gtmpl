@@ -54,18 +54,18 @@
 			      <div class="ActionBar">
 			      
 				      <div class="UIAction">
-				      	<table class="ActionContainer" align="right">
+				      	<table class="ActionContainer">
 				      		<tr>
-				      			<td align="right">
-					      			<a href="<%=uicomponent.event("Abort", "");%>" class="ActionButton LightBlueStyle">
+				      			<td>
+					      			<div onclick="<%=uicomponent.event("Abort", "");%>" class="ActionButton LightBlueStyle">
 						            <div class="ButtonLeft">
 						              <div class="ButtonRight">
 						                <div class="ButtonMiddle">
-															<%=_ctx.appRes(uicomponent.getId() + ".label.abort")%>
+															<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".label.abort")%></a>
 							              </div>
 						              </div>
 						            </div>
-											</a>
+											</div>
 				              <%
 				                String action = "next";
 				                if(step == children.size()){
@@ -76,7 +76,7 @@
 							            }
 							        %>  
 							        			                  
-											<a href="$actionLink" class="ActionButton LightBlueStyle">
+											<div onclick="$actionLink" class="ActionButton LightBlueStyle">
 						            <div class="ButtonLeft">
 						              <div class="ButtonRight">
 						                <div class="ButtonMiddle">
@@ -84,7 +84,7 @@
 							              </div>
 						              </div>
 						            </div>
-											</a>
+											</div>
 					    
 							        <% 
 							        int showBack = step;
@@ -93,7 +93,7 @@
 				                actionLink = uicomponent.url("ViewStep" + String.valueOf(step-1));
 					              String display = "LightBlueStyle";
 							        %>
-					      			<a href="$actionLink" class="ActionButton $display">
+					      			<div onclick="$actionLink" class="ActionButton $display">
 						            <div class="ButtonLeft">
 						              <div class="ButtonRight">
 						                <div class="ButtonMiddle">
@@ -101,7 +101,7 @@
 							              </div>
 						              </div>
 						            </div>
-											</a>
+											</div>
 									    <% } %>
 						    
 				      			</td>

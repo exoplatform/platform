@@ -41,10 +41,10 @@
 	    </div>	  
 	    
 	    <% if(uicomponent.isEditable()) { %>  
-		    <div  class="UIAction">
-		    	<table class="ActionContainer" align="center">
+		    <div class="UIAction">
+		    	<table class="ActionContainer">
 		    		<tr>
-		    			<td align="center">
+		    			<td>
 						    <%/*Click on this action button will pop up the permission selector*/%>
 					      <%
 					      String deletePermissionEvent = "#" ;
@@ -54,28 +54,28 @@
 					      	css = "ActionButton SimpleStyle" ;
 					      } 
 					      %>
-						   	<a href="<%=deletePermissionEvent%>" class="<%=css%>">
+						   	<div onclick="<%=deletePermissionEvent%>" class="<%=css%>">
 						      <div class="ButtonLeft">
 						        <div class="ButtonRight">
 						          <div class="ButtonMiddle">
 						          	<div class="DeletePermissionIcon">
-								        		<%=_ctx.appRes(uicomponent.getId() + ".action.DeletePermission")%>
+							        		<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.DeletePermission")%></a>
 								        </div>
 						      	 	</div>
 								    </div>
 						    	</div>			    
-						  	</a> 
-						    <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>', true);" class="ActionButton SimpleStyle">
+						  	</div> 
+						    <div onclick="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>', true);" class="ActionButton SimpleStyle">
 						      <div class="ButtonLeft">
 						        <div class="ButtonRight">
 						          <div class="ButtonMiddle">
 								        <div class="SelectPermissionIcon">
-									          <%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%>
+									        <a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%></a>
 									      </div>
 								      </div>
 								    </div>
 					        </div>			    
-							  </a> 
+							  </div> 
 				  		</td>
 				  	</tr>
 				  </table>   	      

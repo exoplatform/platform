@@ -23,18 +23,20 @@
 		uicomponent.renderChild(UIFormPopupWindow.class);
 	%>
   <div class="UIAction"> 
-    <table class="ActionContainer" align="center">
+    <table class="ActionContainer">
 	    <tr>
-	    	<td align="center">
-		      <a href="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIFormPopupWindow.class).getId();%>', true);" class="ActionButton SimpleStyle">
+	    	<td>
+		      <div onclick="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIFormPopupWindow.class).getId();%>', true);" class="ActionButton SimpleStyle">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
-		            	<div class="Icon SmallGroup16x16Icon"><%=_ctx.appRes("UIListPermissionSelector.action.addPermission")%></div>
+		            	<div class="Icon SmallGroup16x16Icon">
+		            		<a href="javascript:void(0);"><%=_ctx.appRes("UIListPermissionSelector.action.addPermission")%></a>
+		            	</div>
 		            </div>
 		          </div>
 		        </div>
-		      </a>
+		      </div>
 		    </td>
       </tr>
  	  </table>

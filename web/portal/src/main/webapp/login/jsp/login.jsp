@@ -67,15 +67,13 @@
 	            <div class="FieldContainer" id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);">
 	              <label>Password</label><input class="Password" type="password" name="j_password" value=""/>
 	            </div>
-		          <div class="LoginButton">
+		          <div id="UIPortalLoginFormAction" class="LoginButton" onclick="login();">
 		            <div class="LoginButtonContainer">
 		              <div class="Button">
 		                <div class="LeftButton">
 		                  <div class="RightButton">
 		                    <div class="MiddleButton">
-		                    	<a href="javascript:login();" id="UIPortalLoginFormAction">
-		                    		Sign in
-		                    	</a>
+		                    	<a href="javascript:void(0);">Sign in</a>
 		                    </div>
 		                  </div>
 		                </div>

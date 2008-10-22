@@ -152,29 +152,29 @@
 		  %>
 		  <%if(actions != null && actions.length > 0) { %>
 			  <div class="UIAction">
-			    <table class="ActionContainer" align="center"> 
+			    <table class="ActionContainer"> 
 			    	<tr>
-			    		<td align="center">
+			    		<td>
 						    <%for(i in 0..actions.length -1) { 
 						    		if(actionValues != null && actionValues.length > 0) { 
 						    		  if(actionValues[i] != null) { %>
-                        <a class="ActionButton LightBlueStyle" href="javascript:eXo.webui.UIForm.submitEvent('<%=formName%>','<%=actions[i]%>','&objectId=<%=actionValues[i]%>');"> 
+                        <div class="ActionButton LightBlueStyle" onclick="javascript:eXo.webui.UIForm.submitEvent('<%=formName%>','<%=actions[i]%>','&objectId=<%=actionValues[i]%>');"> 
 	                  <%} else { %>
-	                      <a class="ActionButton LightBlueStyle" href="javascript:eXo.webui.UIForm.submitForm('<%=formName%>','<%=actions[i]%>', true);">     
+	                      <div class="ActionButton LightBlueStyle" onclick="javascript:eXo.webui.UIForm.submitForm('<%=formName%>','<%=actions[i]%>', true);">     
 	               	 <%
 	                    }
 	                  } else { 
 	                  %>
-		                  <a class="ActionButton LightBlueStyle" href="javascript:eXo.webui.UIForm.submitForm('<%=formName%>','<%=actions[i]%>', true);">     
+		                  <div class="ActionButton LightBlueStyle" onclick="javascript:eXo.webui.UIForm.submitForm('<%=formName%>','<%=actions[i]%>', true);">     
 		              <%}%>
 	                     <div class="ButtonLeft">
 				                 <div class="ButtonRight">
 				                   <div class="ButtonMiddle">
-				                     <%=_ctx.appRes(formName + ".action." + actions[i])%>
+				                     <a href="javascript:void(0);"><%=_ctx.appRes(formName + ".action." + actions[i])%></a>
 				                   </div>
 				                 </div>
 				               </div>
-					           </a> 
+					           </div> 
 						    <%} %>	           
 					    </td>
 					  </tr>

@@ -32,27 +32,27 @@
 			</div>  
 			
 			<div class="UIAction"> 
-		    <table class="ActionContainer" align="center">
+		    <table class="ActionContainer">
 			    <tr>
-			    	<td align="center">
-				      <a href="javascript: void(0);" onclick="javascript:eXo.portal.UIPortal.changeSkin('<%=uicomponent.url("Save");%>');" class="ActionButton LightBlueStyle">
+			    	<td>
+				      <div onclick="javascript:eXo.portal.UIPortal.changeSkin('<%=uicomponent.url("Save");%>');" class="ActionButton LightBlueStyle">
 				        <div class="ButtonLeft">
 				          <div class="ButtonRight">
 				            <div class="ButtonMiddle">
-				              <%=_ctx.appRes("UIChangeSkin.action.save");%>
+				              <a href="javascript:void(0);"><%=_ctx.appRes("UIChangeSkin.action.save");%></a>
 				            </div>
 				          </div>
 				        </div>
-				      </a>
-				      <a href="javascript: void(0);" onclick="<%=uicomponent.event("Close");%>" class="ActionButton LightBlueStyle">
+				      </div>
+				      <div onclick="<%=uicomponent.event("Close");%>" class="ActionButton LightBlueStyle">
 				        <div class="ButtonLeft">
 				          <div class="ButtonRight">
 				            <div class="ButtonMiddle">
-				              <%=_ctx.appRes("UIChangeSkin.action.close");%>
+				              <a href="javascript:void(0);"><%=_ctx.appRes("UIChangeSkin.action.close");%></a>
 				            </div>
 				          </div>
 				        </div>
-				      </a>
+				      </div>
 				    </td>
 		      </tr>
 		 	  </table>

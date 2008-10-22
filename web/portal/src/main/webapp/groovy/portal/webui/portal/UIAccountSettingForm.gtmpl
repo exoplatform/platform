@@ -59,22 +59,22 @@
 	</div>
 	
 	<div class="UIAction">
-    <table align="center" class="ActionContainer">
-		    	<tr>
-		    		<td align="center">
-			        <%for(action in uicomponent.getActions()) { %>
-				        <a href="<%=uicomponent.event(action)%>" class="ActionButton LightBlueStyle" >
-				          <div class="ButtonLeft">
-				            <div class="ButtonRight">
-				              <div class="ButtonMiddle">
-				                <%=_ctx.appRes(uicomponent.getId() + ".action." + action)%>
-				              </div>
-				            </div>
-				          </div>
-				        </a>
-			        <%} %>
-	        	</td>
-	        </tr>
-		    </table>
+    <table class="ActionContainer">
+    	<tr>
+    		<td>
+	        <%for(action in uicomponent.getActions()) { %>
+		        <div onclick="<%=uicomponent.event(action)%>" class="ActionButton LightBlueStyle" >
+		          <div class="ButtonLeft">
+		            <div class="ButtonRight">
+		              <div class="ButtonMiddle">
+		                <a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action." + action)%></a>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        <%} %>
+    		</td>
+    	</tr>
+    </table>
   </div>
 </div>

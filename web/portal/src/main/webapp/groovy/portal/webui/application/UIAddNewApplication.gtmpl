@@ -128,20 +128,20 @@
   </div>
   
   <div class="UIAction">
-    <table class="ActionContainer" align="center">
-        <tr>
-            <td align="center">
-              <a class="ActionButton LightBlueStyle" href="<%= uicomponent.event("Close") %>" >
-              <div class="ButtonLeft">
-                <div class="ButtonRight">
-                  <div class="ButtonMiddle">
-                      Close
-                  </div>
-                </div>
+    <table class="ActionContainer">
+	    <tr>
+        <td>
+          <div class="ActionButton LightBlueStyle" onclick="<%= uicomponent.event("Close") %>" >
+          <div class="ButtonLeft">
+            <div class="ButtonRight">
+              <div class="ButtonMiddle">
+                <a href="javascript:void(0);">Close</a>
               </div>
-              </a>
-            </td>
-        </tr>
+            </div>
+          </div>
+          </div>
+        </td>
+	    </tr>
     </table>
   </div>
   
