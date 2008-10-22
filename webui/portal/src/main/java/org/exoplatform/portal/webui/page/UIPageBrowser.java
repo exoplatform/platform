@@ -219,13 +219,13 @@ public class UIPageBrowser extends UISearch {
 			UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
 
 			UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
-			if(service.getPage(id) == null){               
+			Page page = service.getPage(id);
+			if(page == null){               
 			  uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
 			  pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
 			  return;
 			}
-			Page page = service.getPage(id, event.getRequestContext().getRemoteUser());
-      if(page != null && !page.isModifiable()) {
+      if(!page.isModifiable()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.delete.NotDelete", new String[]{id}, 1)) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
@@ -251,13 +251,13 @@ public class UIPageBrowser extends UISearch {
 			PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
 			String id = pcontext.getRequestParameter(OBJECTID);
 			UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
-			if(service.getPage(id) == null){               
+			Page page = service.getPage(id) ;    
+			if(page == null){               
 			  uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
 			  pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
 			  return;
 			}
-      Page page = service.getPage(id, event.getRequestContext().getRemoteUser()) ;    
-      if(page != null && !page.isModifiable()){
+      if(!page.isModifiable()){
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.NotEditPage", new String[]{id}, 1)) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
@@ -303,13 +303,13 @@ public class UIPageBrowser extends UISearch {
 			String id = pcontext.getRequestParameter(OBJECTID);
 			UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
 			UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      if(service.getPage(id) == null){               
+			Page page = service.getPage(id);
+      if(page == null){               
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{id},1)) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());    
         return;
       }
-      Page page = service.getPage(id, event.getRequestContext().getRemoteUser());
-      if(page == null) {
+      if(!page.isModifiable()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NotViewPage", new String[]{id}, 1)) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
