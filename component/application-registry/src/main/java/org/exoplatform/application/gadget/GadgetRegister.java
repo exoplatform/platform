@@ -16,6 +16,7 @@
  */
 package org.exoplatform.application.gadget;
 
+import java.io.File;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
@@ -29,6 +30,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.shindig.common.uri.Uri;
 import org.apache.shindig.gadgets.spec.ModulePrefs;
+import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
@@ -87,7 +89,21 @@ public class GadgetRegister implements ServletContextListener {
             gadget.setThumbnail(prefs.getThumbnail().toString());
             gadget.setReferenceUrl(prefs.getTitleUrl().toString());
             gadget.setLocal(true);            
-            gadgetService.saveGadget(gadget);            
+            gadgetService.saveGadget(gadget);
+            String dirPath = address.substring(0, address.lastIndexOf('.'));
+            String realPath =  event.getServletContext().getRealPath(dirPath);
+            File dir = new File(realPath);
+            if(dir.exists()) {
+              File [] files = dir.listFiles();
+              for(int k = 0; k < files.length; k++) {
+                File file = files[k]; 
+                if(file.isFile()) {
+                  String fileContent = 
+                  (file.length() > 0) ? IOUtil.getFileContenntAsString(file, "UTF-8") : "" ;
+                  sourceStorage.addDependency(name, file.getName(), fileContent);
+                }
+              }
+            }
           }
           else if (node.getNodeName().equals("url")) {
             URL urlObj = new URL(address) ;
@@ -104,15 +120,6 @@ public class GadgetRegister implements ServletContextListener {
             gadget.setReferenceUrl(prefs.getTitleUrl().toString());
             gadget.setLocal(false);            
             gadgetService.saveGadget(gadget);            
-          }
-          else if (node.getNodeName().equals("include")) {
-            InputStream sourceIn = event.getServletContext().getResourceAsStream(address);
-            String source = IOUtils.toString(sourceIn, "UTF-8");
-            String dependencyName ;
-            int index = address.lastIndexOf('/');
-            if(index < 0) dependencyName = address;
-            else dependencyName = address.substring(index + 1);
-            sourceStorage.addDependency(name, dependencyName, source);
           }
         }
       }

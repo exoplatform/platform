@@ -18,7 +18,5 @@
 	
 	<gadget name="rssAggregator">
 		<path>/gadgets/rssAggregator.xml</path>
-        <include>/gadgets/rssAggregator/script.js</include>
-        <include>/gadgets/rssAggregator/style.css</include>
 	</gadget>
 </gadgets>
