@@ -19,6 +19,11 @@ DOMUtil.prototype.addClass = function(elemt, className) {
 	if (this.hasClass(elemt, className)) return ;
 	elemt['className'] = [elemt['className'], className].join(' ') ;
 } ;
+
+DOMUtil.prototype.removeClass = function(elemt, className) {
+ var reg = new RegExp('(^|\\s+)' + className) ;
+ elemt['className'] = elemt['className'].replace(reg, '') ;
+} ;
 /**
  * Replaces oldClazz by newClazz in elemt
  */

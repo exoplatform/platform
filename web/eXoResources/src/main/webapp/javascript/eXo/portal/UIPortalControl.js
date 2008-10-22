@@ -72,7 +72,7 @@ UIPortalControl.prototype.onEnterPress = function(e) {
 		else if (e.which) code = e.which;
 		if(code ==13) {
 			if(this.t != 13) {
-		    window.location.href = uiPortalLoginFormAction.href ;
+		    uiPortalLoginFormAction.onclick() ;
 			}
 		  this.t = code;
 		}
