@@ -13,14 +13,11 @@
   <url>http://www.exoplatform.org</url>
   <description>eXo Gadgets</description>
 
+  <build>
+    <finalName>eXoGadgets</finalName>
+  </build>
+
   <dependencies>
-  <dependency>
-    <!--groupId>org.exoplatform.ws.frameworks.cometd</groupId-->
-    <groupId>org.exoplatform.ws</groupId>
-  	<artifactId>exo.ws.frameworks.cometd.service</artifactId>
-	<version>${org.exoplatform.ws.version}</version>
-	<scope>provided</scope>
-  </dependency>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.web</artifactId>

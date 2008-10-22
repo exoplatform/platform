@@ -165,6 +165,7 @@
         <org.exoplatform.jcr.version>1.9.3</org.exoplatform.jcr.version>
         <org.exoplatform.pc.version>2.0.3</org.exoplatform.pc.version>
         <org.exoplatform.portal.version>2.5-SNAPSHOT</org.exoplatform.portal.version>
+		<org.shindig.version>r706872</org.shindig.version>
       </properties>
     </profile>
   </profiles>

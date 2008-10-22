@@ -35,7 +35,7 @@
     <dependency>
 	    <groupId>org.apache.shindig</groupId>
 		  <artifactId>shindig-gadgets</artifactId>
-      <version>r702815</version>
+      <version>${org.shindig.version}</version>
     </dependency>
 
     <dependency>

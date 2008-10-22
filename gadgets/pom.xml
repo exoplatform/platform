@@ -22,9 +22,6 @@
         <property><name>default</name></property>
         <activeByDefault>true</activeByDefault>
       </activation>
-      <properties>
-        <org.shindig.version>r702815</org.shindig.version>
-      </properties>
     </profile>
   </profiles>
 </project>

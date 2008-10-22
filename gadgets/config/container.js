@@ -60,6 +60,17 @@
 // DNS domain on which gadgets should render.
 "gadgets.lockedDomainSuffix" : "-a.example.com:8080",
 
+// Various urls generated throughout the code base.
+// iframeBaseUri will automatically have the host inserted
+// if locked domain is enabled and the implementation supports it.
+// query parameters will be added.
+"gadgets.iframeBaseUri" : "/eXoGadgetServer/gadgets/ifr",
+
+// jsUriTemplate will have %host% and %js% substituted.
+// No locked domain special cases, but jsUriTemplate must
+// never conflict with a lockedDomainSuffix.
+"gadgets.jsUriTemplate" : "http://%host%/eXoGadgetServer/gadgets/js/%js%",
+        
 // Use an insecure security token by default
 //"gadgets.securityTokenType" : "insecure",
 
