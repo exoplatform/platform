@@ -265,6 +265,7 @@ eXo.webui.UIDashboard = {
 			var iframe = DOMUtil.findFirstDescendantByClass(uiGadget, "iframe", "gadgets-gadget") ;
 			if (iframe) {
 				iframe.onResizeCallback = eXo.webui.UIDashboard.initHeight ;
+				iframe.style.width = "auto" ;
 			}
 			uiGadget.minimizeCallback = eXo.webui.UIDashboard.initHeight ;
 		}

@@ -53,6 +53,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
 import org.exoplatform.webui.form.UIFormInputItemSelector;
 import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormPopupWindow;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTabPane;
@@ -145,7 +146,9 @@ public class UIPageForm extends UIFormTabPane {
     uiEditPermission.setEditable(false);
     uiEditPermission.configure("UIPermissionSelector", "editPermission");
     uiPermissionSetting.addChild(uiEditPermission);
-
+    
+    //TODO: This following line is fixed for bug PORTAL-2127
+    uiListPermissionSelector.getChild(UIFormPopupWindow.class).setId("UIPageFormPopupGroupMembershipSelector") ;
     
     List<String> groups = configService.getMakableNavigations(pcontext.getRemoteUser());
     if(groups.size() > 0){
