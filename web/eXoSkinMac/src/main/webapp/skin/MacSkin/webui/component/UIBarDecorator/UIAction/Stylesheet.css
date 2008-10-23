@@ -11,10 +11,10 @@
 	display: block;
 	float: left;
 	margin: 0px 3px;
+	cursor: pointer;
 }
 
 .UIAction .ActionContainer  a {
-  line-height: 24px ; 
 }
 
 .UIAction .ActionContainer  a:hover {

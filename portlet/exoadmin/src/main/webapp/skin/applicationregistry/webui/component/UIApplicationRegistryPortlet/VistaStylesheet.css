@@ -354,6 +354,8 @@
 	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
 	padding-left: 20px;
 	cursor: pointer;
+	width: 150px; 
+	overflow: hidden;
 }
 
 .UIGadgetManagement .CategoryContent .ControlIcon {
