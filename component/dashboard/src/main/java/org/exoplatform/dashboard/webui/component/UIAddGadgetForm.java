@@ -32,6 +32,7 @@ import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
@@ -40,6 +41,8 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
+
+import javax.portlet.PortletPreferences;
 
 /**
  * Created by The eXo Platform SAS
@@ -101,9 +104,13 @@ public class UIAddGadgetForm extends UIForm {
         windowId.append(uiGadget.hashCode());
         uiGadget.setApplicationInstanceId(windowId.toString());
       }  catch (Exception e) {
-         //rssAggregator
-        gadget = service.getGadget("rssAggregator");
+        PortletRequestContext pcontext = (PortletRequestContext)
+                                     WebuiRequestContext.getCurrentInstance();
+        PortletPreferences pref = pcontext.getRequest().getPreferences();
+        String aggregatorId = pref.getValue("aggregatorId", "rssAggregator");
+        gadget = service.getGadget(aggregatorId);
         //TODO make sure it's an rss feed
+        // TODO make sure that we did not add it already
         StringBuilder windowId = new StringBuilder(PortalConfig.USER_TYPE);
         windowId.append("#").append(context.getRemoteUser());
         windowId.append(":/dashboard/").append(gadget.getName()).append('/');
