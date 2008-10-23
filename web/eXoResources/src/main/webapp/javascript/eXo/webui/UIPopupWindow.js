@@ -43,7 +43,7 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	if(isShow == true) {
 		var iframes = DOMUtil.findDescendantsByTagName(popup, "iframe") ;
 		if(iframes.length > 0) {
-			setTimeout("eXo.webui.UIPopupWindow.show(" + popupId + "," + isShowMask + ")", 500) ;
+			setTimeout("eXo.webui.UIPopupWindow.show('" + popupId + "'," + isShowMask + ")", 500) ;
 		} else {
 			this.show(popup, isShowMask) ;
 		}
