@@ -102,8 +102,7 @@
 .UINavigationPortlet .ScrollLeftButton {
   cursor: pointer;
   background: url('DefaultSkin/background/Button.gif') no-repeat left -15px;
-  padding-left: 15px;
-  _padding-left: 12px;
+  padding-left: 18px;
   margin: 0px 5px;
 }
 
@@ -112,14 +111,12 @@
   background: url('DefaultSkin/background/Button.gif') no-repeat right -15px;
   width: 15px;
   height: 15px;
-  margin-left: 3px;
 }
 
 .UINavigationPortlet .DisableScrollLeftButton {
   cursor: pointer;
   background: url('DefaultSkin/background/Button.gif') no-repeat left bottom;
-  padding-left: 15px;
-  _padding-left: 12px;
+  padding-left: 18px;
   margin: 0px 5px;
 }
 
@@ -128,14 +125,12 @@
   background: url('DefaultSkin/background/Button.gif') no-repeat right bottom;
   width: 15px;
   height: 15px;
-  margin-left: 3px;
 }
 
 .UINavigationPortlet .HighlightScrollLeftButton {
   cursor: pointer;
   background: url('DefaultSkin/background/Button.gif') no-repeat left top;
-  padding-left: 15px;
-  _padding-left: 12px;
+  padding-left: 18px;
   margin: 0px 5px;
 }
 
@@ -144,5 +139,4 @@
   background: url('DefaultSkin/background/Button.gif') no-repeat right top;
   width: 15px;
   height: 15px;
-  margin-left: 3px;
 }
