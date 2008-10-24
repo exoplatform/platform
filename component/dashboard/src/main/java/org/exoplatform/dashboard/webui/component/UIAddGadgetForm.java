@@ -20,29 +20,24 @@ import java.net.URL;
 
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
-import org.exoplatform.application.registry.Application;
-import org.exoplatform.application.registry.ApplicationCategory;
-import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.portal.webui.application.UIGadget;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormStringInput;
-
-import javax.portlet.PortletPreferences;
+import org.exoplatform.webui.form.validator.Validator;
 
 /**
  * Created by The eXo Platform SAS
@@ -60,7 +55,7 @@ public class UIAddGadgetForm extends UIForm {
   public static String FIELD_URL = "url" ;
   
   public UIAddGadgetForm() throws Exception {
-    addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, null)) ;
+    addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, null).addValidator(URLValidator.class)) ;
   }
   
   static public class AddGadgetByUrlActionListener extends EventListener<UIAddGadgetForm> {
@@ -104,10 +99,7 @@ public class UIAddGadgetForm extends UIForm {
         windowId.append(uiGadget.hashCode());
         uiGadget.setApplicationInstanceId(windowId.toString());
       }  catch (Exception e) {
-        PortletRequestContext pcontext = (PortletRequestContext)
-                                     WebuiRequestContext.getCurrentInstance();
-        PortletPreferences pref = pcontext.getRequest().getPreferences();
-        String aggregatorId = pref.getValue("aggregatorId", "rssAggregator");
+        String aggregatorId = uiDashboard.getChild(UIDashboardSelectContainer.class).getAggregatorId() ;
         gadget = service.getGadget(aggregatorId);
         //TODO make sure it's an rss feed
         // TODO make sure that we did not add it already
@@ -133,5 +125,44 @@ public class UIAddGadgetForm extends UIForm {
       context.addUIComponentToUpdateByAjax(uiContainer) ;
     }
     
+  }
+  
+  static public class URLValidator implements Validator {
+    @SuppressWarnings("unchecked")
+    public void validate(UIFormInput uiInput) throws Exception {
+      String s = (String)uiInput.getValue();
+//      System.out.println(" \n\n\nTest url: " + s);
+      if(s == null || s.trim().length() == 0) { return; }
+      s=s.trim();
+      if (!s.startsWith("http://") && !s.startsWith("shttp://")){ 
+        if(!s.startsWith("//")) s = "//" + s;
+        s = "http:" + s;
+      }
+      String[] k = s.split(":");
+      if(k.length > 3) {
+        Object[] args = { uiInput.getName(), uiInput.getBindingField() };
+        throw new MessageException(new ApplicationMessage("URLValidator.msg.Invalid-config", args)) ;
+      }
+      for(int i = 0; i < s.length(); i ++){
+        char c = s.charAt(i);
+        //TODO: Tung.Pham modified
+        //if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-' || c=='.' || c==':' || c=='/' || c== '?' || c=='%'){
+        if (Character.isLetter(c) || Character.isDigit(c) || isAllowedSpecialChar(c)) {
+          continue;
+        }
+        Object[] args = { uiInput.getName(), uiInput.getBindingField() };
+        throw new MessageException(new ApplicationMessage("URLValidator.msg.Invalid-Url", args)) ;
+      }
+      uiInput.setValue(s);
+    }
+    
+    //TODO: Tung.Pham added
+    private boolean isAllowedSpecialChar(char chr) {
+      char[] allowedCharArray = {'_', '-', '.', ':', '/', '?', '=', '&', '%'} ;
+      for(char ele : allowedCharArray) {
+        if(chr == ele) return true ;
+      }
+      return false ;
+    }
   }
 }

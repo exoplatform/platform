@@ -220,6 +220,11 @@
 
 .UIDashboardContainer .DashboardContainer {
 	overflow: auto;
+	min-height: 400px;
+}
+
+*html .UIDashboardContainer .DashboardContainer {
+	height: 400px;
 }
 
 .UIDashboardContainer .DashboardContainer .ContainerControlBarL {

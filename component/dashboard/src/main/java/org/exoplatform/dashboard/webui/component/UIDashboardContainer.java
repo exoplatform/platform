@@ -20,8 +20,6 @@ import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.portlet.PortletPreferences;
-
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.config.model.Container;
@@ -87,8 +85,14 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
    * @see org.exoplatform.dashboard.webui.component.DashboardParent
    */
   private String windowId;
-    public static final String COLINDEX = "colIndex";
-    public static final String ROWINDEX = "rowIndex";
+  
+  /**
+   * Preconfig template
+   */
+  private String template = null ;
+  
+  public static final String COLINDEX = "colIndex";
+  public static final String ROWINDEX = "rowIndex";
 
 
     /**
@@ -365,6 +369,20 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
   }
   
   /**
+   * 
+   */
+  public void setTemplate(String template) {
+    this.template = template ;
+  }
+  
+  /**
+   * 
+   */
+  public String getTemlate() {
+    return this.template ;
+  }
+  
+  /**
    * Loads all data from database through {@link PortalLayoutService} to initialize UIDashboardContainer 
    * @throws Exception
    */
@@ -392,10 +410,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     DashboardParent parent = (DashboardParent)((UIComponent)getParent()).getParent();
     String id = ROOT_CONTAINER + "-" + windowId;
     if (service.getContainer(id, parent.getDashboardOwner()) != null) { return; }
-    PortletRequestContext pcontext = (PortletRequestContext) 
-                                     WebuiRequestContext.getCurrentInstance();
-    PortletPreferences pref = pcontext.getRequest().getPreferences();
-    String template = pref.getValue("template", "three-columns");
+    if(template == null) template = "three-columns" ;
     service.create(id, template, parent.getDashboardOwner());
   }
   

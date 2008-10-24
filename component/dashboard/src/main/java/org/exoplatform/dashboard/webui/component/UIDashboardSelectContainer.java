@@ -42,7 +42,9 @@ public class UIDashboardSelectContainer extends UIContainer {
 
   private Hashtable<ApplicationCategory, List<Application>> gadgets ;
 
-  private boolean isShow = false;
+  private boolean isShow = false ;
+  
+  private String aggregatorId ;
 
   public UIDashboardSelectContainer() throws Exception {
     addChild(UIAddGadgetForm.class, null, null) ;
@@ -102,6 +104,14 @@ public class UIDashboardSelectContainer extends UIContainer {
     this.isShow = value;
   }
   
+  public String getAggregatorId() {
+    return aggregatorId;
+  }
+
+  public void setAggregatorId(String aggregatorId) {
+    this.aggregatorId = aggregatorId;
+  }
+
   static public class SetShowSelectContainerActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
     public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
       org.exoplatform.webui.core.UIContainer uiDashboard = event.getSource();

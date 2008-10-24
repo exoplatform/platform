@@ -5,8 +5,8 @@
 <div class="$uicomponent.id" id="UIDashboardSelectContainer" style="display: <%= uicomponent.isShow()? "block" : "none"; %>;">
 	<div class="DashboardControlBar">
 		<div class="TitleControlBar">
-			<div class="TitleBar"><%=_ctx.appRes("UIDashboardPortlet.label.workspace");%></div>
-			<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectContainer(this)" title="<%=_ctx.appRes("UIDashboardPortlet.tooltip.close");%>"><span></span></div>
+			<div class="TitleBar"><%=_ctx.appRes("UIDashboardSelectContainer.label.workspace");%></div>
+			<div class="CloseIcon" onclick="eXo.webui.UIDashboard.showHideSelectContainer(this)" title="<%=_ctx.appRes("UIDashboardSelectContainer.tooltip.close");%>"><span></span></div>
 			<div style="clear: right;"><span></span></div>
 		</div>
 	</div>

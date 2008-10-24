@@ -38,6 +38,10 @@ public class UIDashboard extends UIContainer {
   public void setColumns(int num) throws Exception {
     getChild(UIDashboardContainer.class).setColumns(num);
   }
+  
+  public void setTemplate(String template) {
+    getChild(UIDashboardContainer.class).setTemplate(template) ;
+  }
 
   public boolean canEdit() {
     DashboardParent parent = (DashboardParent)getParent();

@@ -16,7 +16,6 @@
 			<portlet-mode>edit</portlet-mode>
 		</supports>
 		<supported-locale>en</supported-locale>
-		<resource-bundle>locale.portlet.dashboard.DashboardPortlet</resource-bundle>
 		<portlet-info>
 			<title>Dashboard Portlet</title>
 			<short-title>Dashboard Portlet</short-title>
@@ -35,10 +34,6 @@
 				<name>owner</name>
 				<value>__CURRENT_USER__</value>
 			</preference>
-			<preference>
-				<name>template</name>
-				<value>three-columns</value>
-			</preference>			
 		</portlet-preferences>
 		<security-role-ref>
 			<role-name>admin</role-name>
