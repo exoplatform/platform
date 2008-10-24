@@ -67,7 +67,7 @@ public class UIPageEditBar extends UIToolbar {
 
   public UIPageEditBar() throws Exception {
     setToolbarStyle("EditToolbar") ;
-    setJavascript("PagePreview","onClick='eXo.portal.UIPortal.switchModeForPage(this)';") ;
+    setJavascript("PagePreview","onclick='eXo.portal.UIPortal.switchModeForPage(this)';") ;
   }
   
   public <T extends UIComponent> T setRendered(boolean b) { 

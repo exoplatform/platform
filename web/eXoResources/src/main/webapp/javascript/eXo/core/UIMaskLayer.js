@@ -11,8 +11,8 @@ UIMaskLayer.prototype.createTransparentMask = function() {
 	if (!mask) {
 		mask = document.createElement("div");
 		mask.id = "TransparentMaskLayer";
-		mask.style.top = "1px" ;
-		mask.style.left = "1px" ;
+		mask.style.top = "0px" ;
+		mask.style.left = "0px" ;
 		eXo.core.Browser.setOpacity(mask, 0);
 		mask.style.backgroundColor = "white";
 		mask.style.zIndex = "2" ;

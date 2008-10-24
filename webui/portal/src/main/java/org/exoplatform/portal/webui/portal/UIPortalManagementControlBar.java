@@ -60,7 +60,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
   public UIPortalManagementControlBar() throws Exception {
     super();
     setToolbarStyle("ControlToolbar") ;
-    setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
+    setJavascript("Preview","onclick='eXo.portal.UIPortal.switchMode(this);'") ;
   }
   
   public void save() throws Exception {

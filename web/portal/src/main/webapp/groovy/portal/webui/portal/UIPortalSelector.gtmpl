@@ -70,7 +70,7 @@
 	            for(action in beanActions) { 
 	              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
 	          %>     
-		            <a href="javascript:eXo.portal.UIPortal.changePortal('<%=accessPath%>', '<%=beanId%>');" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><img src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon"></a>	           
+		            <a href="javascript:eXo.portal.UIPortal.changePortal('<%=accessPath%>', '<%=beanId%>');" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><img src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon" /></a>	           
 	          <%}%>                 
 	          </div>
 	        </div>

@@ -55,7 +55,7 @@ public class UIPortalManagementEditBar extends UIToolbar {
   
   public UIPortalManagementEditBar() throws Exception {
     setToolbarStyle("EditToolbar") ;
-    setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
+    setJavascript("Preview","onclick='eXo.portal.UIPortal.switchMode(this);'") ;
   }
   
   public <T extends UIComponent> T setRendered(boolean b) { 

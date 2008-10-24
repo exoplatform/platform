@@ -62,7 +62,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
 
   public UIPageNavigationControlBar() throws Exception {
     setToolbarStyle("ControlToolbar") ;
-    setJavascript("Preview","onClick='eXo.portal.UIPortal.switchMode(this);'") ;
+    setJavascript("Preview","onclick='eXo.portal.UIPortal.switchMode(this);'") ;
   }
   
   static public class RollbackActionListener extends EventListener<UIPageNavigationControlBar> {
