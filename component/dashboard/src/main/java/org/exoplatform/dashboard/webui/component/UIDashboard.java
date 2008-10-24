@@ -39,8 +39,8 @@ public class UIDashboard extends UIContainer {
     getChild(UIDashboardContainer.class).setColumns(num);
   }
   
-  public void setTemplate(String template) {
-    getChild(UIDashboardContainer.class).setTemplate(template) ;
+  public void setContainerTemplate(String template) {
+    getChild(UIDashboardContainer.class).setContainerTemplate(template) ;
   }
 
   public boolean canEdit() {

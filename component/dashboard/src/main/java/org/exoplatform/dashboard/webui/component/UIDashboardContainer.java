@@ -89,7 +89,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
   /**
    * Preconfig template
    */
-  private String template = null ;
+  private String containerTemplate = null ;
   
   public static final String COLINDEX = "colIndex";
   public static final String ROWINDEX = "rowIndex";
@@ -371,15 +371,15 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
   /**
    * 
    */
-  public void setTemplate(String template) {
-    this.template = template ;
+  public void setContainerTemplate(String template) {
+    this.containerTemplate = template ;
   }
   
   /**
    * 
    */
-  public String getTemplate() {
-    return this.template ;
+  public String getContainerTemplate() {
+    return this.containerTemplate ;
   }
   
   /**
@@ -410,8 +410,8 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     DashboardParent parent = (DashboardParent)((UIComponent)getParent()).getParent();
     String id = ROOT_CONTAINER + "-" + windowId;
     if (service.getContainer(id, parent.getDashboardOwner()) != null) { return; }
-    if(template == null) template = "three-columns" ;
-    service.create(id, template, parent.getDashboardOwner());
+    if(containerTemplate == null) containerTemplate = "three-columns" ;
+    service.create(id, containerTemplate, parent.getDashboardOwner());
   }
   
   /**

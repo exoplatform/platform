@@ -26,13 +26,13 @@
 				<name>isPrivate</name>
 				<value>1</value>
 			</preference>
-			<preference>
-				<name>template</name>
-				<value>three-columns</value>
-			</preference>
       <preference>
 				<name>owner</name>
 				<value>__CURRENT_USER__</value>
+			</preference>
+			<preference>
+				<name>template</name>
+				<value>two-columns</value>
 			</preference>
 		</portlet-preferences>
 		<security-role-ref>

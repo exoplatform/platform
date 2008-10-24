@@ -57,7 +57,7 @@ public class UIDashboardPortlet extends UIPortletApplication implements Dashboar
 
     PortletPreferences pref = context.getRequest().getPreferences();
     String containerTemplate = pref.getValue("template", "three-columns") ;
-    dashboard.setTemplate(containerTemplate) ;
+    dashboard.setContainerTemplate(containerTemplate) ;
     
     String aggregatorId = pref.getValue("aggregatorId", "rssAggregator") ;
     dashboard.getChild(UIDashboardSelectContainer.class).setAggregatorId(aggregatorId) ;
