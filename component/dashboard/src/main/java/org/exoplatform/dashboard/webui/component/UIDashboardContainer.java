@@ -378,7 +378,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
   /**
    * 
    */
-  public String getTemlate() {
+  public String getTemplate() {
     return this.template ;
   }
   

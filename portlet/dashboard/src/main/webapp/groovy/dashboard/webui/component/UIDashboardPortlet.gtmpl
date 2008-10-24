@@ -1,5 +1,6 @@
 <%
   import javax.portlet.PortletMode ;
+  import org.exoplatform.dashboard.webui.component.DashboardParent ;
   import org.exoplatform.dashboard.webui.component.UIDashboard;
   import org.exoplatform.dashboard.webui.component.UIDashboardEditForm;
 
@@ -10,7 +11,8 @@
 	<% if(rcontext.getApplicationMode() == PortletMode.VIEW ) {
 			uicomponent.renderChild(UIDashboard.class);
 	  } else {
-			uicomponent.renderChild(UIDashboardEditForm.class);
+			def uiEditForm = uicomponent.renderChild(UIDashboardEditForm.class);
+			uiEditForm.getUIStringInput(DashboardParent.ISPRIVATE).setValue(uicomponent.getNumberOfCols());
 	  }
 		if(popupMsgs != null) popupMsgs.processRender(rcontext);
 	%>

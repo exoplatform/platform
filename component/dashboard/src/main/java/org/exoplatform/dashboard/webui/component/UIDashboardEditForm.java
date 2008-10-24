@@ -107,9 +107,6 @@ public class UIDashboardEditForm extends UIForm {
       uiInput = uiForm.getUIStringInput(DashboardParent.OWNER);
       pref.setValue(DashboardParent.OWNER, uiInput.getValue());
 
-      pref.setValue(TOTAL_COLUMNS, String.valueOf(totalCols));
-      pref.store();
-
       UIDashboardContainer uiDashboardContainer = ((UIContainer) uiForm.getParent())
           .getChild(UIDashboard.class).getChild(UIDashboardContainer.class);
       uiDashboardContainer.setColumns(totalCols);

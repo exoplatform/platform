@@ -19,6 +19,7 @@ package org.exoplatform.dashboard.webui.component;
 import javax.portlet.PortletPreferences;
 
 import org.exoplatform.portal.webui.application.UIGadget;
+import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -55,27 +56,7 @@ public class UIDashboardPortlet extends UIPortletApplication implements Dashboar
     addChild(UIDashboardEditForm.class, null, null);
 
     PortletPreferences pref = context.getRequest().getPreferences();
-    int cols = Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3")) ;
-    if( (cols < 1) || (cols > 4) ) cols = 3;
-    dashboard.setColumns(cols);
-    
-    String containerTemplate = null ;
-    switch (cols) {
-      case 1 :
-        containerTemplate = "one-column" ;
-        break ;
-      case 2 :
-        containerTemplate = "two-columns" ;
-        break ;
-      case 3 :
-        containerTemplate = "three-columns" ;
-        break ;
-      case 4 :
-        containerTemplate = "four-columns" ;
-        break ;
-      default :
-        break ;
-    }
+    String containerTemplate = pref.getValue("template", "three-columns") ;
     dashboard.setTemplate(containerTemplate) ;
     
     String aggregatorId = pref.getValue("aggregatorId", "rssAggregator") ;
@@ -83,6 +64,11 @@ public class UIDashboardPortlet extends UIPortletApplication implements Dashboar
     
     isPrivate = pref.getValue(ISPRIVATE, "0").equals(1);
     owner = pref.getValue(OWNER, null);
+  }
+  
+  public int getNumberOfCols() {
+    UIDashboardContainer dbCont = getChild(UIDashboard.class).getChild(UIDashboardContainer.class) ;
+    return dbCont.getChild(UIContainer.class).getChildren().size() ;
   }
 
   public boolean canEdit() {

@@ -22,13 +22,13 @@
 			<keywords>portlet,dashboard</keywords>
 		</portlet-info>
 		<portlet-preferences>
-			<preference>
-				<name>totalColumns</name>
-				<value>2</value>
-			</preference>
       <preference>
 				<name>isPrivate</name>
 				<value>1</value>
+			</preference>
+			<preference>
+				<name>template</name>
+				<value>three-columns</value>
 			</preference>
       <preference>
 				<name>owner</name>
