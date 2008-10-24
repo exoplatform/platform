@@ -40,35 +40,38 @@
   padding-bottom: 6px;
 }
 
-.UINavigationPortlet .MenuItemContainer .MenuItem a {
+.UINavigationPortlet .MenuItemContainer .MenuItem {
   border-bottom: 1px solid #fff;
 	cursor: pointer;
 	line-height: 24px;
 	height: 24px; width: auto;
 	display: block;
 	white-space: nowrap;
-	color: #333333; 
 	font-weight: normal;
 }
 
+.UINavigationPortlet .MenuItemContainer .MenuItem a {
+	padding: 0px 20px 0px 25px;
+	display: block;
+}
+
 .UINavigationPortlet .MenuItemContainer .MenuItem a:hover {
-	background-color: #dfe0e0;
-	border-bottom: 1px solid #dbdcdd;
 	color: #3e8df0;
+	background: url('DefaultSkin/background/HoverItem.gif') repeat-x bottom;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem {
-	background-color: #dfe0e0;
-	border-bottom: 1px solid #dbdcdd;
 	line-height: 24px;
 	width: auto; 
+	background: url('DefaultSkin/background/HoverItem.gif') repeat-x bottom;
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem a {
 	color: #3e8df0;
 }
 
 .UINavigationPortlet .MenuItemContainer .ItemIcon {
   height: 24px; width: auto;
-  padding-left: 20px;
-  margin-left: 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItemLabel {
@@ -77,9 +80,8 @@
   font-weight: normal;
 }
 
-.UINavigationPortlet .MenuItemContainer .MenuItem .RightItemIcon {
+.UINavigationPortlet .MenuItemContainer .MenuItem .ArrowIcon {
   height: 24px; width: auto;
-  padding-right: 20px;
   background-image: url('DefaultSkin/background/UINavigationPortlet.gif');
   background-repeat: no-repeat;
   background-position: right -107px;
@@ -87,8 +89,7 @@
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   height: 24px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat left;
-  padding: 0px 0px 0px 19px ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultPageIcon.gif') no-repeat 5px;
 }
 
 /*============ Scroll Buttons =====================*/

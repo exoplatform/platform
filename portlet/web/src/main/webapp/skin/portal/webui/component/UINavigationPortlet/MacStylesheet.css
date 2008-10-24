@@ -46,52 +46,47 @@
   border-top: 1px solid #b3b3b3;
 }
 
-.UINavigationPortlet .MenuItemContainer .MenuItem  a{
+.UINavigationPortlet .MenuItemContainer .MenuItem {
   white-space: nowrap;
   cursor: pointer;
   display: block;
   border-bottom: 1px solid #dbdbdb;
+}
+
+.UINavigationPortlet .MenuItemContainer .MenuItem a {
   color: #1d1d1d;
+  padding: 0px 20px 0px 25px;
+  display: block;
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem a:hover {
-  color: white;
-  background-color: #3E83D3;
+  color: #134580;
+  background: url('DefaultSkin/background/HoverItem.gif') repeat-x bottom;
 }
 
-.UINavigationPortlet .MenuItemContainer .SelectedItem {
+.UINavigationPortlet .MenuItemContainer .SelectedItem a {
   background-color: #3E83D3;
-  color: white;
+  color: #134580;
+  display: block;
 }
 
 .UINavigationPortlet .MenuItemContainer .ItemIcon {
   line-height: 25px; 
-  padding-left: 20px;
-  margin-left: 4px;
 }
 
-.UINavigationPortlet .MenuItemContainer .MenuItem .RightItemIcon {
+.UINavigationPortlet .MenuItemContainer .MenuItem .ArrowIcon {
   line-height: 25px; 
-  padding-right: 20px;
   background: url('MacSkin/background/UINavigationPortlet.png') no-repeat right -210px;
 }
 
-.UINavigationPortlet .MenuItemContainer .MenuItem a:hover .RightItemIcon {
+.UINavigationPortlet .MenuItemContainer .SelectedItem .ArrowIcon {
   line-height: 25px; 
-  padding-right: 20px;
-  background: url('MacSkin/background/UINavigationPortlet.png') no-repeat right -237px;
-}
-
-.UINavigationPortlet .MenuItemContainer .SelectedItem .RightItemIcon {
-  line-height: 25px; 
-  padding-right: 20px;
   background: url('MacSkin/background/UINavigationPortlet.png') no-repeat right -237px;
 }
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {
   line-height: 25px ;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left center;
-  padding: 0px 0px 0px 20px ;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat 5px;
 }
 
 .UINavigationPortlet .ScrollButtons {

@@ -60,8 +60,8 @@
 		
   	String icon = node.getIcon();
     if(icon == null) icon = "PageNodeIcon";
-    String arrowIcon = "MenuItemRight";
-    if (node.getChildren() != null && node.getChildren().size() > 0) arrowIcon = "RightItemIcon";
+    String arrowIcon = "";
+    if (node.getChildren() != null && node.getChildren().size() > 0) arrowIcon = "ArrowIcon";
 
     String label = node.resolvedLabel;
     String title = "";
@@ -75,31 +75,31 @@
 	  	if(uicomponent.isUseAjax()) {
 	      String onclickEvt = uicomponent.event("SelectNode",  nav.getId() + "::" + node.getUri()) + ";return false;" ;
 		  	print """
-		  			<div class="MenuItem $tabStyleNavigation" >
-							<a href="$pageURI" class="$arrowIcon" onclick="$onclickEvt" title="$title">
-								<div class="ItemIcon $icon" style="border-left: none;">
-		  							$label
+		  			<div class="MenuItem $tabStyleNavigation">
+							<div class="$arrowIcon" title="$title">
+								<div class="ItemIcon $icon">
+		  							<a href="$pageURI" onclick="$onclickEvt">$label</a>
 								</div>
-							</a>
+							</div>
 				""" ;
 			} else {
 		  	print """
-		  			<div class="MenuItem $tabStyleNavigation" >
-		  			  <a href="$pageURI" class="$arrowIcon" title="$title">
-								<div class="ItemIcon $icon" >
-										$label
+		  			<div class="MenuItem $tabStyleNavigation">
+		  			  <div class="$arrowIcon" title="$title">
+								<div class="ItemIcon $icon">
+										<a href="$pageURI">$label</a>
 								</div>
-							</a>
+							</div>
 				""" ;
 			}
 		} else {
 			print """
-	  			<div class="MenuItem $tabStyleNavigation" >
-	  			  <a class="$arrowIcon" title="$title">
-							<div class="ItemIcon $icon" >
-									$label
+	  			<div class="MenuItem $tabStyleNavigation">
+	  			  <div class="$arrowIcon" title="$title">
+							<div class="ItemIcon $icon">
+									<a href="$pageURI">$label</a>
 							</div>
-						</a>
+						</div>
 			""" ;
 		}
 		

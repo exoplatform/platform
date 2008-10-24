@@ -383,6 +383,10 @@
 	padding: 0px;
 }
 
+.UIGadgetManagement .UIGadgetEditor table {
+	table-layout: fixed;
+}
+
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout textarea {
 	height: 250px; 
 	padding: 0px;
