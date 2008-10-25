@@ -16,7 +16,10 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
+import java.util.Calendar;
+
 import org.exoplatform.application.gadget.GadgetRegistryService;
+import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -65,11 +68,15 @@ public class UIGadgetEditor extends UIForm {
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
       String name = uiForm.getUIStringInput(UIGadgetEditor.FIELD_NAME).getValue() ;
-      String source = uiForm.getUIFormTextAreaInput(UIGadgetEditor.FIELD_SOURCE).getValue() ;
+      String text = uiForm.getUIFormTextAreaInput(UIGadgetEditor.FIELD_SOURCE).getValue() ;
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
+      String fileName = name + ".xml";
+      Source source = new Source(fileName, "application/xml", "UTF-8");
+      source.setTextContent(text);
+      source.setLastModified(Calendar.getInstance());
+      sourceStorage.saveSource(null, source) ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
-      sourceStorage.saveSource(name, source) ;
-      service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourcePath(name), true)) ;
+      service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(fileName), true)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
       uiManagement.reload() ;
       uiManagement.setSelectedGadget(name);

@@ -118,7 +118,7 @@ public class UIGadgetManagement extends UIContainer {
       Gadget gadget = uiManagement.getGadget(name);
       if(gadget.isLocal()) {
         SourceStorage sourceStorage = uiManagement.getApplicationComponent(SourceStorage.class);
-        sourceStorage.removeSource(name);
+        sourceStorage.removeSource(name + ".xml");
       }
       uiManagement.reload() ;
       List<Gadget> gadgets = uiManagement.getGadgets();

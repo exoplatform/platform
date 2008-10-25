@@ -16,11 +16,11 @@
  */
 package org.exoplatform.application.gadget.jcr;
 
-import java.util.Calendar;
-
 import javax.jcr.Node;
+import javax.jcr.PathNotFoundException;
 import javax.jcr.Session;
 
+import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.PropertiesParam;
@@ -35,92 +35,123 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
  */
 public class SourceStorageImpl implements SourceStorage {
   
+  static final private String NT_UNSTRUCTURED = "nt:unstructured";
+  static final private String NT_FOLDER = "nt:folder";
+  static final private String JCR_DATA = "jcr:data";
+  static final private String JCR_MIME = "jcr:mimeType";
+  static final private String JCR_ENCODING = "jcr:encoding";
+  static final private String JCR_MODIFIED = "jcr:lastModified";
+  
   private RepositoryService repoService;
   private String repo;
   private String wsName;
-  private String storePath;
+  private String homePath;
   
   public SourceStorageImpl(InitParams params, RepositoryService service) throws Exception {
     PropertiesParam properties = params.getPropertiesParam("location");
     if(properties == null) throw new Exception("The 'location' properties parameter is expected.");
     repo = properties.getProperty("repository");
     wsName = properties.getProperty("workspace");
-    storePath = properties.getProperty("store.path");
+    homePath = reproduceDirPath(properties.getProperty("store.path"));
     repoService = service;
   }
 
-  public String getSource(String name) throws Exception {
+  public Source getSource(String sourcePath) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Node homeNode = getHomeNode(sessionProvider) ;
-    String source = homeNode.getNode(name + ".xml" + "/jcr:content").getProperty("jcr:data").getString() ;
+    Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
+    String fullPath = homePath + sourcePath;
+    Node sourceNode;
+    try {
+       sourceNode = (Node)session.getItem(fullPath + "/jcr:content") ;
+    } catch (PathNotFoundException pnfe) {
+      sessionProvider.close() ;
+      return null;
+    }
+    String [] strs = sourcePath.split("/");
+    String name = strs[strs.length-1];
+    Source source = toSource(name, sourceNode);
     sessionProvider.close() ;
     return source ;
   }
-
-  public void saveSource(String name, String source) throws Exception {
+  
+  public void saveSource(String dirPath, Source source) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    String storePath; 
+    if(dirPath == null || dirPath.trim().length() < 1) {
+      storePath = homePath;
+    } else {
+      storePath = homePath + dirPath;
+      createStructure(sessionProvider, dirPath);
+    }
     Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
-    Node homeNode = (Node) session.getItem(storePath);
-    String fileName = name + ".xml" ;
-    saveContent(homeNode, fileName, source, "text/xml");
-//    if(!homeNode.hasNode(fileName)) {
-//      Node fileNode = homeNode.addNode(fileName, "nt:file") ;
-//      contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
-//    } else contentNode = homeNode.getNode(fileName + "/jcr:content") ;
-//    contentNode.setProperty("jcr:data", source) ;
-//    contentNode.setProperty("jcr:mimeType", "text/xml") ;
-//    contentNode.setProperty("jcr:lastModified", Calendar.getInstance()) ;
+    Node storeNode = (Node) session.getItem(storePath);
+    Node contentNode ;
+    String fileName = source.getName();
+    if(!storeNode.hasNode(fileName)) {
+      Node fileNode = storeNode.addNode(fileName, "nt:file") ;
+      contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
+    } else contentNode = storeNode.getNode(fileName + "/jcr:content") ;
+    map(contentNode,source);
     session.save() ;
     sessionProvider.close() ;
   }
 
-  public void removeSource(String name) throws Exception {
+  public void removeSource(String sourcePath) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
-    Node homeNode = (Node) session.getItem(storePath);
-    Node sourceNode = homeNode.getNode(name + ".xml") ;
+    String fullPath = homePath + sourcePath;
+    Node sourceNode = (Node) session.getItem(fullPath);
     sourceNode.remove() ;
     session.save() ;
     sessionProvider.close() ;
   }
 
-  public String getSourcePath(String name) throws Exception {
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Node homeNode = getHomeNode(sessionProvider) ;
-    StringBuilder link = new StringBuilder(30);
-    link.append("rest/jcr/").append(repo).append("/")
-    .append(wsName).append(homeNode.getNode(name + ".xml").getPath());
-    sessionProvider.close() ;
-    return link.toString() ;
-  }
-
-  private Node getHomeNode(SessionProvider sessionProvider) throws Exception {
-    Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
-    return (Node) session.getItem(storePath) ; 
-  }
-
-  public void addDependency(String name, String dependencyName,
-                            String dependencySource) throws Exception {
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo)) ;
-    Node homeNode = (Node) session.getItem(storePath);
-    Node parent;
-    if(!homeNode.hasNode(name))  parent = homeNode.addNode(name, "nt:unstructured");
-    else parent = homeNode.getNode(name);
-    saveContent(parent, dependencyName, dependencySource, "text/plain");
-    session.save();
-    sessionProvider.close();
-  }
-
-  private void saveContent(Node parentNdoe, String name, String source, String mimeType) throws Exception {
-    Node contentNode ;
-    if(!parentNdoe.hasNode(name)) {
-      Node fileNode = parentNdoe.addNode(name, "nt:file") ;
-      contentNode = fileNode.addNode("jcr:content", "nt:resource") ;
-    } else contentNode = parentNdoe.getNode(name + "/jcr:content") ;
-    contentNode.setProperty("jcr:data", source) ;
-    contentNode.setProperty("jcr:mimeType", mimeType) ;
-    contentNode.setProperty("jcr:lastModified", Calendar.getInstance()) ;
+  public String getSourceURI(String sourcePath) {
+    StringBuilder path = new StringBuilder(30);
+    path.append("rest/jcr/").append(repo).append("/")
+        .append(wsName).append(homePath).append(sourcePath);
+    return path.toString() ;
   }
   
+  private void createStructure(SessionProvider sessionProvider, String dirPath) throws Exception {
+    Session session = sessionProvider.getSession(wsName, repoService.getRepository(repo));
+    String [] dirs = dirPath.split("/");
+    String parentPath = homePath;
+    for(String name : dirs) {
+      String path = parentPath + name + "/";
+      try {
+        Node node = (Node) session.getItem(path);
+        if(!node.isNodeType(NT_UNSTRUCTURED) && !node.isNodeType(NT_FOLDER)){
+          throw new Exception("Node at " + path + " should be " + NT_UNSTRUCTURED + " or " + NT_FOLDER + " type.");
+        }
+      } catch (PathNotFoundException pnfe) {
+        Node parentNode = (Node) session.getItem(parentPath);
+        parentNode.addNode(name, NT_FOLDER);
+        parentNode.save();
+      }
+      parentPath = path;
+    }
+  }
+
+  private Source toSource(String name, Node node) throws Exception {
+    Source source = new Source(name);
+    source.setMimeType(node.getProperty(JCR_MIME).getString());
+    source.setEncoding(node.getProperty(JCR_ENCODING).getString());
+    source.setStreamContent(node.getProperty(JCR_DATA).getStream());
+    source.setLastModified(node.getProperty(JCR_MODIFIED).getDate());
+    return source;
+  }
+  
+  private void map(Node node, Source source) throws Exception {
+    node.setProperty(JCR_MIME, source.getMimeType());
+    node.setProperty(JCR_ENCODING, source.getEncoding());
+    node.setProperty(JCR_DATA, source.getStreamContent());
+    node.setProperty(JCR_MODIFIED, source.getLastModified());
+  }
+  
+  private String reproduceDirPath(String path) {
+    if(path.endsWith("/")) return path;
+    return path + "/";
+  }
+
 }

@@ -17,10 +17,13 @@
 package org.exoplatform.application.gadget;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.Calendar;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import javax.xml.parsers.DocumentBuilder;
@@ -30,7 +33,6 @@ import org.apache.commons.io.IOUtils;
 import org.apache.commons.logging.Log;
 import org.apache.shindig.common.uri.Uri;
 import org.apache.shindig.gadgets.spec.ModulePrefs;
-import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
@@ -67,41 +69,45 @@ public class GadgetRegister implements ServletContextListener {
       InputStream in = event.getServletContext().getResourceAsStream(confLocation) ;
       Document docXML = db.parse(in) ;
       NodeList nodeList = docXML.getElementsByTagName("gadget") ;
-      String name = null, address = null ;
+      String gadgetName = null, address = null ;
       for(int i=0; i<nodeList.getLength(); i++) {
         Element gadgetElement = (Element) nodeList.item(i);
-        name = gadgetElement.getAttribute("name");
-        if(gadgetService.getGadget(name) != null) continue;
+        gadgetName = gadgetElement.getAttribute("name");
+        if(gadgetService.getGadget(gadgetName) != null) continue;
         NodeList nodeChild = gadgetElement.getChildNodes() ;
         for(int j=0; j<nodeChild.getLength(); j++) {
           Node node = nodeChild.item(j) ;
           address = node.getTextContent() ;
           if (node.getNodeName().equals("path")) {
-            InputStream sourceIn = event.getServletContext().getResourceAsStream(address) ;
-            String source = IOUtils.toString(sourceIn, "UTF-8");
-            sourceStorage.saveSource(name, source);
-            ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse("http://www.exoplatform.org"), source);
+            InputStream sourceIs = event.getServletContext().getResourceAsStream(address) ;
+            int idx = address.lastIndexOf('/');
+            String fileName = address.substring(idx + 1);
+            //Saves source of gadget
+            Source source = new Source(fileName, getMimeType(event.getServletContext(), fileName), "UTF-8");
+            source.setStreamContent(sourceIs);
+            source.setLastModified(Calendar.getInstance());
+            sourceStorage.saveSource(null, source);
+            //Saves gadget
+            ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse("http://www.exoplatform.org"), source.getTextContent());
             Gadget gadget = new Gadget();
-            gadget.setName(name);
-            gadget.setUrl(sourceStorage.getSourcePath(name));
+            gadget.setName(gadgetName);
+            gadget.setUrl(sourceStorage.getSourceURI(fileName));
             gadget.setTitle(getGadgetTitle(prefs, gadget.getName()));
             gadget.setDescription(prefs.getDescription());
             gadget.setThumbnail(prefs.getThumbnail().toString());
             gadget.setReferenceUrl(prefs.getTitleUrl().toString());
             gadget.setLocal(true);            
             gadgetService.saveGadget(gadget);
-            String dirPath = address.substring(0, address.lastIndexOf('.'));
+            //Saves source's included
+            int dotIdx = address.lastIndexOf('.'); 
+            if(dotIdx < 0) continue;
+            String dirPath = address.substring(0, dotIdx);
             String realPath =  event.getServletContext().getRealPath(dirPath);
             File dir = new File(realPath);
-            if(dir.exists()) {
+            if(dir.exists() && dir.isDirectory()) {
               File [] files = dir.listFiles();
               for(int k = 0; k < files.length; k++) {
-                File file = files[k]; 
-                if(file.isFile()) {
-                  String fileContent = 
-                  (file.length() > 0) ? IOUtil.getFileContenntAsString(file, "UTF-8") : "" ;
-                  sourceStorage.addDependency(name, file.getName(), fileContent);
-                }
+                saveTree(files[k], gadgetName, event.getServletContext(), sourceStorage);
               }
             }
           }
@@ -112,7 +118,7 @@ public class GadgetRegister implements ServletContextListener {
             String source = IOUtils.toString(is, "UTF-8") ;            
             ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse(address), source);
             Gadget gadget = new Gadget();
-            gadget.setName(name);
+            gadget.setName(gadgetName);
             gadget.setUrl(address);
             gadget.setTitle(getGadgetTitle(prefs, gadget.getName()));
             gadget.setDescription(prefs.getDescription());
@@ -128,11 +134,29 @@ public class GadgetRegister implements ServletContextListener {
     }
   }
   
+  private void saveTree(File file, String savePath,
+                        ServletContext context, SourceStorage storage) throws Exception {
+    if(file.isFile()) {
+      Source includedSource = new Source(file.getName(), getMimeType(context, file.getName()), "UTF-8");
+      includedSource.setStreamContent(new FileInputStream(file));
+      includedSource.setLastModified(Calendar.getInstance());
+      storage.saveSource(savePath, includedSource);
+    } else if (file.isDirectory()) {
+      File [] files = file.listFiles();
+      String childPath = savePath + "/" + file.getName();
+      for(int i = 0; i < files.length; i++) saveTree(files[i], childPath, context, storage);
+    }
+  }
+  
   private String getGadgetTitle(ModulePrefs prefs, String defaultValue) {
     String title = prefs.getDirectoryTitle() ;
     if(title == null || title.trim().length() < 1) title = prefs.getTitle() ;
     if(title == null || title.trim().length() < 1) return defaultValue ;
     return title;
+  }
+  
+  private String getMimeType(ServletContext context, String fileName) {
+    return (context.getMimeType(fileName) != null) ? context.getMimeType(fileName) : "text/plain" ;    
   }
   
   /**
