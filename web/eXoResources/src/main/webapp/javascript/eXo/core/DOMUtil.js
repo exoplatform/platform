@@ -206,7 +206,6 @@ DOMUtil.prototype.findFirstDescendantByClass = function(root, elementName, clazz
  * Returns null if no element is found
  */
 DOMUtil.prototype.findDescendantById = function(root, id) {
-	if(!root) return;
   var elements = root.getElementsByTagName('*') ;
   var ln = elements.length ;
   for (var i = 0; i < ln; i++) {

@@ -1,11 +1,11 @@
 function UIComponent(node) {
-	if(!node) return;
   this.node = node ;
   this.type = node.className ;
   var children =  eXo.core.DOMUtil.getChildrenByTagName(node, "div") ;
   this.metaData =  children[0] ;
   this.control = children[1] ; 
   this.layout = children[2] ; 
+  this.view = children[3] ; 
   this.component = "";
   
   var div = eXo.core.DOMUtil.getChildrenByTagName(this.metaData, "div"); 
@@ -86,19 +86,16 @@ UIPortal.prototype.getUIPortal = function() {
 };
 
 UIPortal.prototype.switchViewModeToLayoutMode = function(uicomponent, swapContent) {
-	if(!uicomponent) return;
   var layoutBlock = uicomponent.getLayoutBlock() ;
-  if(layoutBlock) {
-  	if(layoutBlock.style.display == 'block') return ;
-  		var viewBlock = uicomponent.getViewBlock() ;
-  		if(swapContent) {
-    	var contentNode = eXo.core.DOMUtil.findDescendantById(viewBlock, uicomponent.getId()) ;
-    	if(contentNode != null) {
-      	layoutBlock.appendChild(contentNode) ;
-    	}
-  	}
+  if(layoutBlock.style.display == 'block') return ;
+  var viewBlock = uicomponent.getViewBlock() ;
+  if(swapContent) {
+    var contentNode = eXo.core.DOMUtil.findDescendantById(viewBlock, uicomponent.getId()) ;
+    if(contentNode != null) {
+      layoutBlock.appendChild(contentNode) ;
+    }
   }
-    
+  
   try {
 	  viewBlock.style.display = "none" ;
   	layoutBlock.style.display = "block" ;
@@ -152,7 +149,6 @@ UIPortal.prototype.switchModeForPage = function(elemtClicked) {
 
 UIPortal.prototype.showUIComponentControl = function(uicomponent, flag) {
   var controlBlock = uicomponent.getControlBlock() ;
-  if(!controlBlock) return;
   var clickObject = eXo.core.DOMUtil.findFirstDescendantByClass(controlBlock, "div", "DragControlArea") ;
   if(flag) {
     clickObject.onmousedown = eXo.portal.PortalDragDrop.init ;
@@ -276,8 +272,7 @@ UIPortal.prototype.showViewMode = function() {
 };
 
 UIPortal.prototype.showLayoutModeForPortal = function(control) {
-	if(!control) return;
-	this.component = control;
+	if(control) this.component = control;
   var portal = this.getUIPortal() ;
   this.switchViewModeToLayoutMode(portal, true) ;
   this.showUIComponentControl(portal, this.component == 'UIPortal') ;
