@@ -51,8 +51,7 @@ public class UIDashboardEditForm extends UIForm {
     PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext
         .getCurrentInstance();
     PortletPreferences pref = pcontext.getRequest().getPreferences();
-    addUIFormInput(new UIFormStringInput(TOTAL_COLUMNS, TOTAL_COLUMNS, pref.getValue(
-        TOTAL_COLUMNS, "3")));
+    addUIFormInput(new UIFormStringInput(TOTAL_COLUMNS, TOTAL_COLUMNS, null));
     addUIFormInput(new UIFormStringInput(DashboardParent.OWNER, DashboardParent.OWNER, pref.getValue(
         DashboardParent.OWNER, null)));
     addUIFormInput(new UIFormStringInput(DashboardParent.ISPRIVATE, DashboardParent.ISPRIVATE, pref.getValue(

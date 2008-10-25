@@ -11,8 +11,9 @@
 	<% if(rcontext.getApplicationMode() == PortletMode.VIEW ) {
 			uicomponent.renderChild(UIDashboard.class);
 	  } else {
-			def uiEditForm = uicomponent.renderChild(UIDashboardEditForm.class);
-			uiEditForm.getUIStringInput(DashboardParent.ISPRIVATE).setValue(uicomponent.getNumberOfCols());
+			UIDashboardEditForm uiEditForm = uicomponent.getChild(UIDashboardEditForm.class);
+			uiEditForm.getUIStringInput(UIDashboardEditForm.TOTAL_COLUMNS).setValue(uicomponent.getNumberOfCols() + "");
+			uicomponent.renderUIComponent(uiEditForm) ;
 	  }
 		if(popupMsgs != null) popupMsgs.processRender(rcontext);
 	%>
