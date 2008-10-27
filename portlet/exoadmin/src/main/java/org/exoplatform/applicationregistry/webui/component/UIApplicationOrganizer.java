@@ -42,10 +42,12 @@ import org.exoplatform.webui.event.EventListener;
                      confirm   = "UIOrganizerManagement.msg.importAll"),
         @EventConfig(listeners = UIApplicationOrganizer.SelectApplicationActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.AddCategoryActionListener.class),
-        @EventConfig(listeners = UIApplicationOrganizer.RemoveCategoryActionListener.class),
+        @EventConfig(listeners = UIApplicationOrganizer.RemoveCategoryActionListener.class,
+                     confirm   = "UIOrganizerManagement.msg.deleteCategory"),
         @EventConfig(listeners = UIApplicationOrganizer.EditCategoryActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.AddApplicationActionListener.class),
-        @EventConfig(listeners = UIApplicationOrganizer.RemoveApplicationActionListener.class)
+        @EventConfig(listeners = UIApplicationOrganizer.RemoveApplicationActionListener.class,
+                     confirm   = "UIOrganizerManagement.msg.deleteApplication")
     }
 )    
 public class UIApplicationOrganizer extends UIContainer {
