@@ -38,38 +38,28 @@ public class ResourceRequestFilter implements Filter  {
   
   protected static Log log = ExoLogger.getLogger("portal:ResourceRequestFilter");
  
-  private boolean cacheResource_ = false ;
+  private boolean isDeveloping_ = false ;
   
-  @SuppressWarnings("unused")
   public void init(FilterConfig filterConfig) {
-    cacheResource_ =  !"true".equals(System.getProperty("exo.product.developing")) ;
-    log.info("Cache eXo Resource at client: " + cacheResource_);
+    isDeveloping_ = "true".equals(System.getProperty("exo.product.developing")) ;
+    log.info("Cache eXo Resource at client: " + !isDeveloping_);
   }
   
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpRequest = (HttpServletRequest) request ;
     String uri = URLDecoder.decode(httpRequest.getRequestURI(),"UTF-8");
-    if(cacheResource_) {
-      HttpServletResponse httpResponse = (HttpServletResponse)  response ;
-      if(uri.endsWith(".css")) {
-        httpResponse.setHeader("Cache-Control", "no-cache");
-        ExoContainer portalContainer = ExoContainerContext.getCurrentContainer();
-        SkinService skinService = (SkinService) portalContainer.getComponentInstanceOfType(SkinService.class);
-        String mergedCSS = skinService.getMergedCSS(uri);
-        if(mergedCSS != null) {
-          log.info("Use a merged CSS: " + uri);
-          response.getWriter().print(mergedCSS);
-          return;
-        }
-      } else httpResponse.addHeader("Cache-Control", "max-age=2592000,s-maxage=2592000") ;
-
-    } else {
-      if(uri.endsWith(".jstmpl") || uri.endsWith(".css") || uri.endsWith(".js")) {
-        HttpServletResponse httpResponse = (HttpServletResponse)  response ;
-        httpResponse.setHeader("Cache-Control", "no-cache");
-      }
-      if(log.isDebugEnabled())
-        log.debug(" Load Resource: " + uri);
+    HttpServletResponse httpResponse = (HttpServletResponse)  response ;
+    if(isDeveloping_ && (uri.endsWith(".jstmpl") || uri.endsWith(".css") || uri.endsWith(".js"))) {
+      httpResponse.setHeader("Cache-Control", "no-cache");
+    } else if(uri.endsWith(".css")) {
+    	ExoContainer portalContainer = ExoContainerContext.getCurrentContainer();
+    	SkinService skinService = (SkinService) portalContainer.getComponentInstanceOfType(SkinService.class);
+    	String mergedCSS = skinService.getMergedCSS(uri);
+    	if(mergedCSS != null) {
+    		log.info("Use a merged CSS: " + uri);
+    		response.getWriter().print(mergedCSS);
+    		return;
+    	}
     }
     chain.doFilter(request, response) ;
   }
