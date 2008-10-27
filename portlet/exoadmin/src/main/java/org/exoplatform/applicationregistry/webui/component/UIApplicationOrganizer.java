@@ -38,7 +38,8 @@ import org.exoplatform.webui.event.EventListener;
     template = "app:/groovy/applicationregistry/webui/component/UIApplicationOrganizer.gtmpl",
     events = {
         @EventConfig(listeners = UIApplicationOrganizer.ShowCategoryActionListener.class),
-        @EventConfig(listeners = UIApplicationOrganizer.ImportAllApplicationsActionListener.class),
+        @EventConfig(listeners = UIApplicationOrganizer.ImportAllApplicationsActionListener.class,
+                     confirm   = "UIOrganizerManagement.msg.importAll"),
         @EventConfig(listeners = UIApplicationOrganizer.SelectApplicationActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.AddCategoryActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.RemoveCategoryActionListener.class),
