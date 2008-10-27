@@ -149,11 +149,6 @@ public class UIPageCreationWizard extends UIPageWizard {
       }        
     }
 
-    String pageId = navigation.getOwnerType() + "::" + navigation.getOwnerId() + "::" + pageNode.getName() ;
-    DataStorage storage = getApplicationComponent(DataStorage.class);
-    if(storage.getPage(pageId) != null) {
-      return true;        
-    }
     return false;
   }
 
@@ -267,6 +262,15 @@ public class UIPageCreationWizard extends UIPageWizard {
       Page page = uiPageTemplateOptions.createPageFromSelectedOption(ownerType, ownerId);
       page.setCreator(context.getRemoteUser());
       page.setName("page" + page.hashCode());
+      String pageId = pageNavi.getOwnerType() + "::" + pageNavi.getOwnerId() + "::" + page.getName() ;
+      DataStorage storage = uiWizard.getApplicationComponent(DataStorage.class);
+      if(storage.getPage(pageId) != null) {
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+        uiWizard.setDescriptionWizard(2) ;
+        uiWizard.viewStep(2) ;
+        uiWizard.updateWizardComponent() ;
+      }
       page.setModifiable(true);
       if(page.getTitle() == null || page.getTitle().trim().length() == 0) page.setTitle(pageNode.getName()) ;
 
