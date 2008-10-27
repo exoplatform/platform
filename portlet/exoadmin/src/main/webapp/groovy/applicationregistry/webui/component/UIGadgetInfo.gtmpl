@@ -28,8 +28,12 @@
   			</div>
   	    <div class="ContentLabel URL">
 					<span class="LeftLabel"><%=_ctx.appRes("Application.label.url")%></span>
-					<span class="RightLabel" title="<%=gadget.getReferenceUrl()%>"><%= gadget.getReferenceUrl() %></span>
+					<span class="RightLabel"><%= uicomponent.getGadgetUrl() %></span>
   			</div>
+  	    <div class="ContentLabel URL">
+					<span class="LeftLabel"><%=_ctx.appRes("Application.label.reference")%></span>
+					<span class="RightLabel"><%= gadget.getReferenceUrl() %></span>
+  			</div>  			
   		</div>
   	</div>
 	</div>

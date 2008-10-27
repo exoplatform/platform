@@ -58,6 +58,10 @@ public class UIGadgetInfo extends UIComponent {
   
   public void setGadget(Gadget gadget) { gadget_ = gadget ; }
   
+  public String getGadgetUrl() {
+    return (GadgetUtil.reproduceUrl(gadget_.getUrl(), gadget_.isLocal()));
+  }
+  
   static public class RefreshActionListener extends EventListener<UIGadgetInfo> {
     
     public void execute(Event<UIGadgetInfo> event) throws Exception {

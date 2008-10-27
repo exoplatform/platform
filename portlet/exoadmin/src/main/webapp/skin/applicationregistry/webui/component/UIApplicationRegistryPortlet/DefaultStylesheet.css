@@ -403,10 +403,8 @@
 }
 
 .UIGadgetManagement .URL .LeftLabel {
-	float: left;
 }
 
 .UIGadgetManagement .URL .RightLabel {
-	float: left;
 	width: 80%; overflow: hidden;
 }
