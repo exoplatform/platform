@@ -12,17 +12,18 @@
 
 .UIExoStart .ExoStartButton {
 	float: left;
-	width: 103px; height: 38px;
+	width: 94px; 
+	height: 38px;
 	margin: 0px;
 	cursor: pointer;
 }
 
 .UIExoStart .ButtonNormal {
-	background: url('background/Exostart.gif') no-repeat -4px -46px;
+	background: url('background/Exostart.gif') no-repeat -4px -45px;
 }
 
 .UIExoStart .ButtonOver {
-	background: url('background/Exostart.gif') -106px -46px;
+	background: url('background/Exostart.gif') -98px -45px;
 }
 
 .UIExoStart .ButtonClicked {

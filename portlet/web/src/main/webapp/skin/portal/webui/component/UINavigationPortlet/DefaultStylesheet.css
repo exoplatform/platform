@@ -81,10 +81,11 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem .ArrowIcon {
-  height: 24px; width: auto;
-  background-image: url('DefaultSkin/background/UINavigationPortlet.gif');
+  height: 24px; 
+  width: auto;
+  background-image: url('DefaultSkin/background/Button.gif');
   background-repeat: no-repeat;
-  background-position: right -107px;
+  background-position: right -48px;
 }
 
 .UINavigationPortlet .MenuItemContainer .PageNodeIcon {

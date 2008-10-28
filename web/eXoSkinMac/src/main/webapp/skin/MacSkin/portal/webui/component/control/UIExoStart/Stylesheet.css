@@ -8,27 +8,28 @@
 
 .UIExoStart .ExoStartButton {
   float: left ;
-  width: 97px ; height: 39px ;
+  width: 97px ; 
+  height: 39px ;
   cursor: pointer ;
   margin: 0px 0px 0px 5px;
 }
 
 .UIExoStart .ButtonNormal {
-	background: url('background/ExoStartDecoration.png') no-repeat left -36px;
+	background: url('background/ExoStartDecoration.gif') no-repeat left -36px;
 }
 
 .UIExoStart .ButtonOver {
-	background: url('background/ExoStartDecoration.png') no-repeat left -75px ;
+	background: url('background/ExoStartDecoration.gif') no-repeat left -76px ;
 }
 
 .UIExoStart .ButtonClicked {
-	background: url('background/ExoStartDecoration.png') no-repeat -97px -36px;
+	background: url('background/ExoStartDecoration.gif') no-repeat -97px -36px;
 }
 
 .UIExoStart .VLineSeparator {
   float: right ;
   width: 2px ; height: 34px ;
-  background: url('background/ExoStartDecoration.png') no-repeat left top;
+  background: url('background/ExoStartDecoration.gif') no-repeat left top;
   margin: 4px 4px 0px 4px;
 }
 
@@ -123,7 +124,7 @@
 
 .UIExoStart .StartMenuContainer .HLineSeparator {
   height: 1px ;
-  background: url('background/ExoStartDecoration.png') no-repeat center -35px;
+  background: url('background/ExoStartDecoration.gif') no-repeat center -35px;
   margin: 3px 0px 5px 0px ;
 }
 
@@ -241,7 +242,7 @@
 
 .UIExoStart .StartMenuDecorator .TopDecorator {
   width: 238px ; height: 35px ;
-  background: url('background/ExoStartDecoration.png') no-repeat top right;
+  background: url('background/ExoStartDecoration.gif') no-repeat top right;
 }
 
 .UIExoStart .StartMenuDecorator .StartMenuBG {
