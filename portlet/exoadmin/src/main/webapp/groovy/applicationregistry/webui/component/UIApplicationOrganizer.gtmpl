@@ -45,9 +45,9 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 									      	<%= displayName %>
 									      </a>
 									      <% if(isSelected) { %>
-						            <a class="ControlIcon DeleteIcon" onclick="<%= uicomponent.event("RemoveCategory", "$cName") %>"><span></span></a>
-						            <a class="ControlIcon CreateNewIcon" onclick="<%= uicomponent.event("AddApplication") %>"><span></span></a>
-						            <a class="ControlIcon EditIcon" onclick="<%= uicomponent.event("EditCategory", "$cName") %>"><span></span></a>
+						            <a class="ControlIcon DeleteIcon" title="<%=_ctx.appRes("UIOrganizerManagement.title.deleteCategory")%>" onclick="<%= uicomponent.event("RemoveCategory", "$cName") %>"><span></span></a>
+						            <a class="ControlIcon CreateNewIcon" title="<%=_ctx.appRes("UIOrganizerManagement.title.addApplication")%>" onclick="<%= uicomponent.event("AddApplication") %>"><span></span></a>
+						            <a class="ControlIcon EditIcon" title="<%=_ctx.appRes("UIOrganizerManagement.title.editCategory")%>" onclick="<%= uicomponent.event("EditCategory", "$cName") %>"><span></span></a>
 						            <% } %>
 							          <div style="clear: both"><span></span></div>
 							         </div>

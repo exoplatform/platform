@@ -21,6 +21,7 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -118,6 +119,8 @@ public class UIApplicationOrganizer extends UIContainer {
     selectedApplication = app ;
     if(selectedApplication == null) {
       getChildren().clear();
+      UIMessageBoard uiMessageBoard = addChild(UIMessageBoard.class, null, null);
+      uiMessageBoard.setMessage(new ApplicationMessage("UIOrganizer.Msg.EmptyCategory", null));
       return;
     }
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
