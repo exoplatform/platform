@@ -62,7 +62,7 @@ import org.exoplatform.webui.form.UIFormTableInputSet;
     events = {
       @EventConfig(listeners = UIAddApplicationForm.ChangeTypeActionListener.class),
       @EventConfig(listeners = UIAddApplicationForm.SaveActionListener.class),
-      @EventConfig(listeners = UIAddApplicationForm.BackActionListener.class)
+      @EventConfig(listeners = UIAddApplicationForm.CancelActionListener.class)
     }
 )
 public class UIAddApplicationForm extends UIForm {
@@ -88,7 +88,7 @@ public class UIAddApplicationForm extends UIForm {
     uiTableInputSet.setColumns(TABLE_COLUMNS);
     addChild(uiTableInputSet);
     setApplicationList(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE) ;
-    setActions(new String[]{"Save", "Back"}) ;
+    setActions(new String[]{"Save", "Cancel"}) ;
   }
   
   public List<Application> getApplications() { return applications_ ; }
@@ -210,7 +210,7 @@ public class UIAddApplicationForm extends UIForm {
     
   }
   
-  public static class BackActionListener extends EventListener<UIAddApplicationForm> {
+  public static class CancelActionListener extends EventListener<UIAddApplicationForm> {
 
     public void execute(Event<UIAddApplicationForm> event) throws Exception {
       UIApplicationOrganizer uiOrganizer = event.getSource().getParent() ;

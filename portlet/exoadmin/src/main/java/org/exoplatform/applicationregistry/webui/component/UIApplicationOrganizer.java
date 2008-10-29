@@ -40,15 +40,15 @@ import org.exoplatform.webui.event.EventListener;
     events = {
         @EventConfig(listeners = UIApplicationOrganizer.ShowCategoryActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.ImportAllApplicationsActionListener.class,
-                     confirm   = "UIOrganizerManagement.msg.importAll"),
+                     confirm   = "UIOrganizer.msg.importAll"),
         @EventConfig(listeners = UIApplicationOrganizer.SelectApplicationActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.AddCategoryActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.RemoveCategoryActionListener.class,
-                     confirm   = "UIOrganizerManagement.msg.deleteCategory"),
+                     confirm   = "UIOrganizer.msg.deleteCategory"),
         @EventConfig(listeners = UIApplicationOrganizer.EditCategoryActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.AddApplicationActionListener.class),
         @EventConfig(listeners = UIApplicationOrganizer.RemoveApplicationActionListener.class,
-                     confirm   = "UIOrganizerManagement.msg.deleteApplication")
+                     confirm   = "UIOrganizer.msg.deleteApplication")
     }
 )    
 public class UIApplicationOrganizer extends UIContainer {
@@ -116,16 +116,15 @@ public class UIApplicationOrganizer extends UIContainer {
   public Application getSelectedApplication() { return selectedApplication ; }
   
   public void setSelectedApplication(Application app) throws Exception {
+    getChildren().clear();
     selectedApplication = app ;
     if(selectedApplication == null) {
-      getChildren().clear();
       UIMessageBoard uiMessageBoard = addChild(UIMessageBoard.class, null, null);
       uiMessageBoard.setMessage(new ApplicationMessage("UIOrganizer.Msg.EmptyCategory", null));
       return;
     }
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
     if(uiAppInfo == null) {
-      getChildren().clear();
       uiAppInfo = addChild(UIApplicationInfo.class, null, null) ;
     }
     uiAppInfo.setApplication(selectedApplication) ;

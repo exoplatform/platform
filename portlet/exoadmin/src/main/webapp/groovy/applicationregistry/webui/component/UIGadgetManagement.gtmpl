@@ -1,7 +1,7 @@
 <div class="UIGadgetManagement" id="$uicomponent.id">
   <div class="UIControlbar">
-  	<div class="IconControl AddNewIcon" onclick="<%= uicomponent.event("AddRemoteGadget") %>"><%=_ctx.appRes("UIGadgetManagement.controlBar.addRemote")%></div>
-  	<div class="IconControl CreateNewIcon" onclick="<%= uicomponent.event("AddLocalGadget") %>"><%=_ctx.appRes("UIGadgetManagement.controlBar.createNew")%></div>
+  	<div class="IconControl AddNewIcon" onclick="<%= uicomponent.event("AddRemoteGadget") %>"><%=_ctx.appRes("UIGadgetManagement.label.addRemote")%></div>
+  	<div class="IconControl CreateNewIcon" onclick="<%= uicomponent.event("AddLocalGadget") %>"><%=_ctx.appRes("UIGadgetManagement.label.createNew")%></div>
   	<div style="clear: both"><span></span></div>
   </div>
   
@@ -15,8 +15,8 @@
 	   	    	String gadgetType = (gadget.isLocal() ? "LocalGadget" : "RemoteGadget"); 
 	   	    %>
 				    <div class="SelectedItem ItemContent">
-		        	<a title="web" onclick="<%= uicomponent.event("SelectGadget", gadget.getName()) %>" class="TabLabel $gadgetType"><%= gadget.getTitle() %></a>
-		          <a title="Delete Category" class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveGadget", gadget.getName()) %>"><span></span></a>
+		        	<a onclick="<%= uicomponent.event("SelectGadget", gadget.getName()) %>" class="TabLabel $gadgetType"><%= gadget.getTitle() %></a>
+		          <a title="<%=_ctx.appRes("UIGadgetManagement.title.deleteGadget")%>" class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveGadget", gadget.getName()) %>"><span></span></a>
 		      		<div style="clear: both;"><span></span></div>
 					  </div>
 					<% } %>

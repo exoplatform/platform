@@ -69,9 +69,9 @@ public class UIApplicationInfo extends UIContainer {
 
     public void execute(Event<UIApplicationInfo> event) throws Exception {
       UIApplicationOrganizer uiOrganizer = event.getSource().getParent();
-      uiOrganizer.getChildren().clear();
       UIApplicationForm uiForm = uiOrganizer.createUIComponent(UIApplicationForm.class, null, null);
       uiForm.setValues(uiOrganizer.getSelectedApplication()) ;
+      uiOrganizer.getChildren().clear();
       uiOrganizer.addChild(uiForm);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer); 
     }

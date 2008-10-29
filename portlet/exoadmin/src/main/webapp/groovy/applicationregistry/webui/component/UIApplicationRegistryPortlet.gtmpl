@@ -19,7 +19,7 @@
 		              %>
 	                <a href="<%=uicomponent.event("ViewChild", "UIApplicationOrganizer")%>" class="$cssClass">
 	                	<div class="LablelIcon OrganizeIcon"><span></span></div>
-	                  <div class="ButtonLabel"><%=_ctx.appRes("UIToolbar.buttonLabel.organize")%></div>
+	                  <div class="ButtonLabel"><%=_ctx.appRes("UIToolbar.label.organize")%></div>
 	                </a>
 	                <div class="HorizontalSeparator"><span></span></div>
 	                <%
@@ -28,7 +28,7 @@
 	                %>	                
 	                <a href="<%=uicomponent.event("ViewChild", "UIPortletManagement")%>" class="$cssClass">
 	                  <div class="LablelIcon PorletIcon"><span></span></div>
-	                  <div class="ButtonLabel"><%=_ctx.appRes("UIToolbar.buttonLabel.portlet")%></div>
+	                  <div class="ButtonLabel"><%=_ctx.appRes("UIToolbar.label.portlet")%></div>
 	                </a>
 	                <div class="HorizontalSeparator"><span></span></div>
 	                <%
@@ -37,7 +37,7 @@
 	                %>	                	                
 	                <a href="<%=uicomponent.event("ViewChild", "UIGadgetManagement")%>" class="$cssClass">
 	                  <div class="LablelIcon GadgetIcon"><span></span></div>
-	                  <div class="ButtonLabel"><%=_ctx.appRes("UIToolbar.buttonLabel.gadget")%></div>
+	                  <div class="ButtonLabel"><%=_ctx.appRes("UIToolbar.label.gadget")%></div>
 	                </a>
 	                <div style="clear: left;"><span></span></div>
 	              </div>

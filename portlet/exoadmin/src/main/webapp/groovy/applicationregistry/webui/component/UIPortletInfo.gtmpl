@@ -11,7 +11,7 @@
 	<div class="AppWorkingArea">
 		
 		<div class="UIBreadcumb">
-	    <div class="LeftBlock"><%= portlet.getType() %></div>    
+	    <div class="LeftBlock"><%=_ctx.appRes("UIPortletManagement.title." + portlet.getType())%></div>    
       <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
 	    <div class="Selected"><%= portlet.getDisplayName() %></div> 		          		              
 			<div style="clear: left;"><span></span></div>
@@ -24,16 +24,16 @@
   		</div>
   		<div class="ApplicationContent">
   		  <div class="TitleBarApplication">
-  		  	<span class="LeftLabel"><%=_ctx.appRes("Application.label.display")%></span>
+  		  	<span class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.display")%></span>
   		    <span><%= portlet.getDisplayName() %></span>
   		  </div>
   		  <div class="ApplicationContentLabel">
   		    <div class="ContentLabel">
-  		      <span class="LeftLabel"><%=_ctx.appRes("Application.label.name")%></span>
+  		      <span class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.name")%></span>
   		      <span class="RightLabel"><%= portlet.getName() %></span>
   		    </div>
   		    <div class="ContentLabel">
-						<span class="LeftLabel"><%=_ctx.appRes("Application.label.description")%></span>
+						<span class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.description")%></span>
 						<span class="RightLabel"><%= portlet.getDescription() %></span>
           </div>
   		  </div>
@@ -43,11 +43,11 @@
 		<div class="Preferences" style="border: 1px solid #b7b7b7; padding: 10px; margin: 10px; background: #f7f7f7">
 	  	<table class="UIGrid" style="width: 99%">
 	  		<tr>
-	  			<th colspan="2">Portlet Preferences</th>
+	  			<th colspan="2"><%=_ctx.appRes("UIPortletInfo.title.portletPreferences")%></th>
 	  		</tr>
 	  		<% if(portletPreferences == null || portletPreferences.isEmpty()) {%>
 	  		<tr>
-	  			<td colspan="2" style="text-align: center; font-weight: bold;">No PortletPreferences</td>
+	  			<td colspan="2" style="text-align: center; font-weight: bold;"><%=_ctx.appRes("UIPortletInfo.msg.noPortletPreferences")%></td>
 	  		</tr>
 	  		<% } else {
 		  		Iterator<Entry<String, String[]>> itr = portletPreferences.getMap().entrySet().iterator();

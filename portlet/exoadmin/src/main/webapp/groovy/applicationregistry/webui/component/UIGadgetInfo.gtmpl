@@ -3,13 +3,13 @@
 %>
 <div class="UIGadgetInfo" id="$uicomponent.id">
 	<div class="UIBreadcumb">
-		<div class="LeftBlock"><%=_ctx.appRes("UIGadgetInfo.title.gadgetDetails")%></div>
+		<div class="LeftBlock"><%=_ctx.appRes("UIGadgetInfo.label.gadgetDetails")%></div>
 		<% if(gadget.isLocal()) {%>
-		<div class="EditIcon ControlIcon" onclick="<%= uicomponent.event("Edit") %>"><span></span></div>
+		<div class="EditIcon ControlIcon" title="<%=_ctx.appRes("UIGadgetInfo.title.editGadget")%>" onclick="<%= uicomponent.event("Edit") %>"><span></span></div>
 		<% } else { %>
-		<div class="DownLoadIcon ControlIcon" onclick="<%= uicomponent.event("Copy") %>"><span></span></div>
+		<div class="DownLoadIcon ControlIcon" title="<%=_ctx.appRes("UIGadgetInfo.title.copy")%>" onclick="<%= uicomponent.event("Copy") %>"><span></span></div>
 		<% } %>
-		<div class="Refresh16x16Icon ControlIcon" onclick="<%= uicomponent.event("Refresh") %>"><span></span></div>
+		<div class="Refresh16x16Icon ControlIcon" title="<%=_ctx.appRes("UIGadgetInfo.title.refresh")%>" onclick="<%= uicomponent.event("Refresh") %>"><span></span></div>
 		<div style="clear: both"><span></span></div>
 	</div>
  	<div class="Application">
@@ -17,21 +17,21 @@
   			<img src="<%= gadget.getThumbnail() %>"/>
   	</div>
   	<div class="ApplicationContent">
+		  <div class="TitleBarApplication">
+	      <span class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.name")%></span>
+	      <span class="RightLabel"><%= gadget.getTitle() %></span>
+		  </div>
   	  <div class="ApplicationContentLabel">
   	    <div class="ContentLabel">
-  	      <span class="LeftLabel"><%=_ctx.appRes("Application.label.name")%></span>
-  	      <span class="RightLabel"><%= gadget.getTitle() %></span>
-  	    </div>
-  	    <div class="ContentLabel">
-					<span class="LeftLabel"><%=_ctx.appRes("Application.label.description")%></span>
+					<span class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.description")%></span>
 					<span class="RightLabel"><%= gadget.getDescription() %></span>
   			</div>
   	    <div class="ContentLabel URL">
-					<span class="LeftLabel"><%=_ctx.appRes("Application.label.url")%></span>
+					<span class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.url")%></span>
 					<span class="RightLabel"><%= uicomponent.getGadgetUrl() %></span>
   			</div>
   	    <div class="ContentLabel URL">
-					<span class="LeftLabel"><%=_ctx.appRes("Application.label.reference")%></span>
+					<span class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.reference")%></span>
 					<span class="RightLabel"><%= gadget.getReferenceUrl() %></span>
   			</div>  			
   		</div>

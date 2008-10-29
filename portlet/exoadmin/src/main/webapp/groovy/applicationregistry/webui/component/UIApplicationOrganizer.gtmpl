@@ -6,8 +6,8 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 %>
 <div class="UIOrganizerManagement" id="$uicomponent.id">
   <div class="UIControlbar">
-  	<div class="IconControl AddCategoryIcon" onclick="<%= uicomponent.event("AddCategory") %>"><%=_ctx.appRes("UIOrganizerManagement.controlBar.addCategory")%></div>
-  	<div class="IconControl ImportIcon" onclick="<%= uicomponent.event("ImportAllApplications") %>"><%=_ctx.appRes("UIOrganizerManagement.controlBar.autoImport")%></div>
+  	<div class="IconControl AddCategoryIcon" onclick="<%= uicomponent.event("AddCategory") %>"><%=_ctx.appRes("UIOrganizer.label.addCategory")%></div>
+  	<div class="IconControl ImportIcon" onclick="<%= uicomponent.event("ImportAllApplications") %>"><%=_ctx.appRes("UIOrganizer.label.autoImport")%></div>
   	<div style="clear: both"><span></span></div>
   </div>
   
@@ -15,7 +15,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 		<div class="AppRegistryControl">
 			<div class="ControlArea">
 				<div class="CategoryContent">
-					<div class="TitleCategory"><%=_ctx.appRes("UIOrganizerManagement.title.categories")%></div>
+					<div class="TitleCategory"><%=_ctx.appRes("UIOrganizer.label.categories")%></div>
 	   	    <div class="ListContent">	
 	   	    	
 	   	    	<div class="UIVerticalSlideTabs">
@@ -45,9 +45,9 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 									      	<%= displayName %>
 									      </a>
 									      <% if(isSelected) { %>
-						            <a class="ControlIcon DeleteIcon" title="<%=_ctx.appRes("UIOrganizerManagement.title.deleteCategory")%>" onclick="<%= uicomponent.event("RemoveCategory", "$cName") %>"><span></span></a>
-						            <a class="ControlIcon CreateNewIcon" title="<%=_ctx.appRes("UIOrganizerManagement.title.addApplication")%>" onclick="<%= uicomponent.event("AddApplication") %>"><span></span></a>
-						            <a class="ControlIcon EditIcon" title="<%=_ctx.appRes("UIOrganizerManagement.title.editCategory")%>" onclick="<%= uicomponent.event("EditCategory", "$cName") %>"><span></span></a>
+						            <a class="ControlIcon DeleteIcon" title="<%=_ctx.appRes("UIOrganizer.title.deleteCategory")%>" onclick="<%= uicomponent.event("RemoveCategory", "$cName") %>"><span></span></a>
+						            <a class="ControlIcon CreateNewIcon" title="<%=_ctx.appRes("UIOrganizer.title.addApplication")%>" onclick="<%= uicomponent.event("AddApplication") %>"><span></span></a>
+						            <a class="ControlIcon EditIcon" title="<%=_ctx.appRes("UIOrganizer.title.editCategory")%>" onclick="<%= uicomponent.event("EditCategory", "$cName") %>"><span></span></a>
 						            <% } %>
 							          <div style="clear: both"><span></span></div>
 							         </div>

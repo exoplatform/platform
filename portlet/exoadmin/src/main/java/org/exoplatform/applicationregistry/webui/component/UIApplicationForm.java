@@ -44,7 +44,7 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
     template =  "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
     events = {
       @EventConfig(listeners = UIApplicationForm.SaveActionListener.class),
-      @EventConfig(phase = Phase.DECODE, listeners = UIApplicationForm.BackActionListener.class)
+      @EventConfig(phase = Phase.DECODE, listeners = UIApplicationForm.CancelActionListener.class)
     }
 )
 public class UIApplicationForm extends UIForm {  
@@ -89,7 +89,7 @@ public class UIApplicationForm extends UIForm {
     }
   }
 
-  static public class BackActionListener extends EventListener<UIApplicationForm>{
+  static public class CancelActionListener extends EventListener<UIApplicationForm>{
     public void execute(Event<UIApplicationForm> event) throws Exception{
       UIApplicationForm uiForm = event.getSource() ;
       UIApplicationOrganizer uiOrganizer = uiForm.getParent();
