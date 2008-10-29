@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="__UP_mtitle__" title_url="__UP_titlelink__" directory_title="RSS Reader">
+<ModulePrefs title="__UP_mtitle__" title_url="__UP_titlelink__" directory_title="RSS Reader" description="RSS Reader">
 <Require feature="dynamic-height" />
 <Require feature="setprefs"/>
 </ModulePrefs>

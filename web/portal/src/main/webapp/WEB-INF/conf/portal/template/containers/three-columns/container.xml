@@ -14,7 +14,7 @@
  		</container>
  		<container template="classpath:groovy/dashboard/webui/component/UIContainer.gtmpl">
 			<application>
-	      <instance-id>/eXoGadgets/Todo</instance-id>
+	      <instance-id>/eXoGadgets/rssAggregator</instance-id>
 	      <application-type>eXoGadget</application-type>
 	    </application> 		
  		</container>

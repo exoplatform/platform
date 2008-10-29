@@ -12,6 +12,7 @@
 		title="Calculator"
 		directory_title="Caculator"
 		title_url="http://www.exoplatform.org"
+		description="This simple and useful calculator lets you perform most of the basic arithmetic operations."
 		height="227">
 	</ModulePrefs>
 	<Content type="html">
