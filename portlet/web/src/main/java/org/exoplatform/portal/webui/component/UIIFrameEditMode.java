@@ -67,20 +67,19 @@ public class UIIFrameEditMode extends UIForm {
         uiForm.getUIStringInput(FIELD_URL).setValue(uiPortlet.getURL());
         return;
       }
-      try {
-        PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext
-        .getCurrentInstance();
-        PortletPreferences pref = pcontext.getRequest().getPreferences();
-        new URL(url);
-        pref.setValue("url", uiForm.getUIStringInput(FIELD_URL).getValue());
-        pref.store();
-        pcontext.setApplicationMode(PortletMode.VIEW);
-      } catch (Exception e) {
+      String regEx = "^(ht|f)tp(s?)://(\\w+:\\w+@)?(\\w+\\.)+(\\w{2,5})(:\\d{1,5})?($|((/[+a-zA-Z0-9 -]+/?)+|/?))(\\w+\\.\\w+)?([?]?(\\w+=\\w+)(&\\w+=\\w+)*)?" ;
+      if(!url.trim().matches(regEx)) {
         uiForm.getUIStringInput(FIELD_URL).setValue(uiPortlet.getURL());
         Object[] args = { FIELD_URL, "URL"};
         throw new MessageException(new ApplicationMessage("ExpressionValidator.msg.value-invalid",
             args));
       }
+      PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext
+      .getCurrentInstance();
+      PortletPreferences pref = pcontext.getRequest().getPreferences();
+      pref.setValue("url", uiForm.getUIStringInput(FIELD_URL).getValue());
+      pref.store();
+      pcontext.setApplicationMode(PortletMode.VIEW);
     }
   }
 

@@ -55,7 +55,7 @@ public class UIAddGadgetForm extends UIForm {
   public static String FIELD_URL = "url" ;
   
   public UIAddGadgetForm() throws Exception {
-    addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, null).addValidator(URLValidator.class)) ;
+    addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, null)) ;
   }
   
   static public class AddGadgetByUrlActionListener extends EventListener<UIAddGadgetForm> {
@@ -74,9 +74,9 @@ public class UIAddGadgetForm extends UIForm {
         context.addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages()) ;
         return ;
       }
-      try {
-        new URL(url) ;
-      } catch (Exception e) {
+      url = url.trim() ;
+      String regEx = "^(ht|f)tp(s?)://(\\w+:\\w+@)?(\\w+\\.)+(\\w{2,5})(:\\d{1,5})?($|((/[+a-zA-Z0-9 -]+/?)+|/?))(\\w+\\.\\w+)?([?]?(\\w+=\\w+)(&\\w+=\\w+)*)?" ;
+      if(!url.matches(regEx)) {
         uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.notUrl", null)) ;
         context.addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages()) ;
         return ;
@@ -127,42 +127,4 @@ public class UIAddGadgetForm extends UIForm {
     
   }
   
-  static public class URLValidator implements Validator {
-    @SuppressWarnings("unchecked")
-    public void validate(UIFormInput uiInput) throws Exception {
-      String s = (String)uiInput.getValue();
-//      System.out.println(" \n\n\nTest url: " + s);
-      if(s == null || s.trim().length() == 0) { return; }
-      s=s.trim();
-      if (!s.startsWith("http://") && !s.startsWith("shttp://")){ 
-        if(!s.startsWith("//")) s = "//" + s;
-        s = "http:" + s;
-      }
-      String[] k = s.split(":");
-      if(k.length > 3) {
-        Object[] args = { uiInput.getName(), uiInput.getBindingField() };
-        throw new MessageException(new ApplicationMessage("URLValidator.msg.Invalid-config", args)) ;
-      }
-      for(int i = 0; i < s.length(); i ++){
-        char c = s.charAt(i);
-        //TODO: Tung.Pham modified
-        //if (Character.isLetter(c) || Character.isDigit(c) || c=='_' || c=='-' || c=='.' || c==':' || c=='/' || c== '?' || c=='%'){
-        if (Character.isLetter(c) || Character.isDigit(c) || isAllowedSpecialChar(c)) {
-          continue;
-        }
-        Object[] args = { uiInput.getName(), uiInput.getBindingField() };
-        throw new MessageException(new ApplicationMessage("URLValidator.msg.Invalid-Url", args)) ;
-      }
-      uiInput.setValue(s);
-    }
-    
-    //TODO: Tung.Pham added
-    private boolean isAllowedSpecialChar(char chr) {
-      char[] allowedCharArray = {'_', '-', '.', ':', '/', '?', '=', '&', '%'} ;
-      for(char ele : allowedCharArray) {
-        if(chr == ele) return true ;
-      }
-      return false ;
-    }
-  }
 }

@@ -18,8 +18,11 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.portal.webui.application.GadgetUtil;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -54,8 +57,21 @@ public class UIAddGadget extends UIForm {
 
     public void execute(Event<UIAddGadget> event) throws Exception {
       UIAddGadget uiForm = event.getSource() ;
+      WebuiRequestContext context = event.getRequestContext() ;
+      UIApplication uiPortletApp = context.getUIApplication() ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       String url = uiForm.getUIStringInput(FIELD_URL) .getValue();
+      if(url == null || url.trim().length() == 0) {
+        uiPortletApp.addMessage(new ApplicationMessage("UIAddGadget.msg.null", null)) ;
+        context.addUIComponentToUpdateByAjax(uiPortletApp.getUIPopupMessages()) ;
+        return ;
+      }
+      String regEx = "^http(s?)://(\\w+:\\w+@)?(\\w+\\.)+(\\w{2,5})(:\\d{1,5})?/(([+a-zA-Z0-9 -]+/)*)\\w+\\.xml$" ;
+      if(!url.trim().matches(regEx)) {
+        uiPortletApp.addMessage(new ApplicationMessage("UIAddGadget.msg.notUrl", null)) ;
+        context.addUIComponentToUpdateByAjax(uiPortletApp.getUIPopupMessages()) ;
+        return ;
+      }
       String name = "gadget" + url.hashCode();
       service.saveGadget(GadgetUtil.toGadget(name, url, false)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
@@ -64,7 +80,7 @@ public class UIAddGadget extends UIForm {
       uiManagement.getChildren().clear();
       UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null);
       uiInfo.setGadget(uiManagement.getSelectedGadget());            
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+      context.addUIComponentToUpdateByAjax(uiManagement) ;
     }    
   }
   
