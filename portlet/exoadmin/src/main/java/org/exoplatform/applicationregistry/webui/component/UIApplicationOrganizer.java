@@ -120,7 +120,7 @@ public class UIApplicationOrganizer extends UIContainer {
     selectedApplication = app ;
     if(selectedApplication == null) {
       UIMessageBoard uiMessageBoard = addChild(UIMessageBoard.class, null, null);
-      uiMessageBoard.setMessage(new ApplicationMessage("UIOrganizer.Msg.EmptyCategory", null));
+      uiMessageBoard.setMessage(new ApplicationMessage("UIOrganizer.msg.emptyCategory", null));
       return;
     }
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
