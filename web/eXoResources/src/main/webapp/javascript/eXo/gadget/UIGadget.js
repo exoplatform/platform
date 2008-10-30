@@ -6,7 +6,7 @@ eXo.gadget.UIGadget = {
 		//window.gadgets = eXo.gadget.Gadgets;
 	
 		if (!eXo.gadgets || !eXo.gadgets.rpc) {
-	    	eXo.core.Using.register('rpc','/eXoGadgetServer/gadgets/js/rpc.js?c=1&debug=1&p=1');
+	    	eXo.core.Using.register('rpc','/eXoGadgetServer/gadgets/js/rpc.js?amp;c=1&amp;debug=1&amp;p=1');
 	    	eXo.core.Using.register('eXo.gadgets.Gadgets','/eXoGadgets/javascript/eXo/gadgets/Gadgets.js');
 	    	eXo.core.Using.register('eXo.gadgets.ExoBasedUserPrefStore','/eXoGadgets/javascript/eXo/gadgets/ExoBasedUserPrefStore.js');
 	
@@ -177,10 +177,10 @@ eXo.gadget.UIGadget = {
 		var compId = portletFrag.parentNode.id;
 		var uicomp = DOMUtil.getChildrenByTagName(portletFrag, "div")[0].className ;
 		var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId ;
-		href += "&portal:type=action&uicomponent=" + uicomp ;
-		href += "&op=MinimizeGadget" ;
-		href += "&minimized="+minimized;
-		href += "&objectId=" + uiGadget.id + "&ajaxRequest=true" ;
+		href += "&amp;portal:type=action&amp;uicomponent=" + uicomp ;
+		href += "&amp;op=MinimizeGadget" ;
+		href += "&amp;minimized="+minimized;
+		href += "&amp;objectId=" + uiGadget.id + "&amp;ajaxRequest=true" ;
 		ajaxAsyncGetRequest(href) ;
 		if(uiGadget.minimizeCallback) uiGadget.minimizeCallback(portletFrag.parentNode.id) ;
 	},
@@ -206,9 +206,9 @@ eXo.gadget.UIGadget = {
 			  uicomp = DOMUtil.getChildrenByTagName(portletFragment, "div")[0].className;
 			if (confirm("Are you sure you want to delete this gadget ?")) {
 				var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
-				href += "&portal:type=action&uicomponent=" + uicomp;
-				href += "&op=DeleteGadget";
-				href += "&objectId=" + gadgetId + "&ajaxRequest=true";
+				href += "&amp;portal:type=action&amp;uicomponent=" + uicomp;
+				href += "&amp;op=DeleteGadget";
+				href += "&amp;objectId=" + gadgetId + "&amp;ajaxRequest=true";
 				ajaxGet(href);
 			}
 			
