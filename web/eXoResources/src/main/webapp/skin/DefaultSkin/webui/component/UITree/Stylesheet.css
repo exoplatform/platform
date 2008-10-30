@@ -19,11 +19,13 @@
 
 .UITrees .LevelUpArrowIcon {
   height: 20px;
-  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat 10px center;
+  margin-left: 10px;
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat 0 center;
 }
 
 .UITrees a.LevelUpArrowIcon:hover {
-  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat 10px center;
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat 0 center;
+	margin-left: 10px;
 }
 
 .UITrees .Node {

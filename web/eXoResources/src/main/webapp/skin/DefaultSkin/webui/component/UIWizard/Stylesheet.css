@@ -118,6 +118,9 @@
 	float: right;
 	padding-right: 7px;
 }
+.UIWizard .UIWizardContent .UIAction {
+	padding: 8px 0 0;
+}
 
 .UIWizard .WizardControlBar .UIAction .ActionButton {
 	float: right;
