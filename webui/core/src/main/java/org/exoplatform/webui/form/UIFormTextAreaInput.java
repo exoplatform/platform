@@ -27,11 +27,11 @@ public class UIFormTextAreaInput extends UIFormStringInput {
   /**
    * number of rows
    */
-  private int rows = -1;
+  private int rows = 10;
   /**
    * number of columns
    */
-  private int columns = -1;
+  private int columns = 30;
   
   public UIFormTextAreaInput(String name, String bindingExpression, String value) {
     super(name, bindingExpression, value);
@@ -45,8 +45,8 @@ public class UIFormTextAreaInput extends UIFormStringInput {
       append("' id='").append(getId()).append("'");
     if(readonly_) w.write(" readonly ");
     if(!enable_)  w.write(" disabled ");
-    if(rows > -1) w.append(" rows=\"").append(String.valueOf(rows)).append("\"");
-    if(columns > -1) w.append(" cols=\"").append(String.valueOf(columns)).append("\"");
+    w.append(" rows=\"").append(String.valueOf(rows)).append("\"");
+    w.append(" cols=\"").append(String.valueOf(columns)).append("\"");
     w.write(">");
     if(value != null) w.write(value) ;  
     w.write("</textarea>");

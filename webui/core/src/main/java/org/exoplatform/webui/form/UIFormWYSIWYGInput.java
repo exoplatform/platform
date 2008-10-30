@@ -32,8 +32,16 @@ import org.exoplatform.webui.application.WebuiRequestContext;
  * */
 public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
   
-  private int height_ = 300 ;
-  private boolean isBasic_ = false ;
+  private int height_ = 300;
+  private boolean isBasic_ = false;
+  /**
+   * number of rows
+   */
+  private int rows = 70;
+  /**
+   * number of columns
+   */
+  private int columns = 110;
   
   public UIFormWYSIWYGInput(String name, String bindingExpression, String value, boolean isBasic) {
     super(name, bindingExpression, String.class);
@@ -43,6 +51,13 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
   
   public int getHeight() { return height_ ; }
   public void setHeight(int height) { this.height_ = height; }
+  public int getColumns() { return columns; }
+
+  public void setColumns(int columns) { this.columns = columns; }
+  
+  public int getRows() { return rows; }
+
+  public void setRows(int rows) { this.rows = rows; }
 
   public void decode(Object input, WebuiRequestContext context) throws Exception {
     value_ = (String) input;
@@ -61,8 +76,8 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
     if (value_ == null) value_ = "" ;
     value_ = value_.replaceAll("'", "\\\\'");
     value_ = value_.replaceAll("[\r\n]", "");
-    w.write("<textarea id='" + getName() + "' name='" + getName() + "'>" + value_ + "</textarea>") ;
+    w.write("<textarea id='" + getName() + "' rows='" + String.valueOf(rows) + "' cols='" + String.valueOf(columns) + "' name='" + getName() + "'>" + value_ + "</textarea>");
     if (this.isMandatory()) w.write(" *");
-    context.getJavascriptManager().addJavascript(jsExec.toString()) ;
+    context.getJavascriptManager().addJavascript(jsExec.toString());
   }
 }
