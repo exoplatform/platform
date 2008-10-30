@@ -39,7 +39,7 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 		portalApp.onmouseup = this.endResizeEvt ;
 	}
 	
-	popup.style.visibility = "visible" ;
+	popup.style.visibility = "hidden" ;
 	if(isShow == true) {
 		var iframes = DOMUtil.findDescendantsByTagName(popup, "iframe") ;
 		if(iframes.length > 0) {

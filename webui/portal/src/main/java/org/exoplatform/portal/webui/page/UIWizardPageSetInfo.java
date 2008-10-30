@@ -189,10 +189,6 @@ public class UIWizardPageSetInfo extends UIForm {
     this.firstTime = firstTime;
   }
   
-  public void reset() {
-    super.reset();
-  }
-
   static public class ChangeNodeActionListener  extends EventListener<UIWizardPageSetInfo> {
     public void execute(Event<UIWizardPageSetInfo> event) throws Exception {
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID) ;
