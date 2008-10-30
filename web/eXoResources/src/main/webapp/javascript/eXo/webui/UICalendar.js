@@ -22,9 +22,9 @@ UICalendar.prototype.init = function(field, isDisplayTime) {
 UICalendar.prototype.create = function() {
 	var clndr = document.createElement("div") ;
 	clndr.id = this.calendarId ;
-	clndr.style.position = "absolute" ;
-	if (document.all) {
-		clndr.innerHTML = "<div class='UICalendarComponent'><iframe id='" + this.calendarId + "IFrame' frameBorder='0' style='height: 256px;' scrolling='no'></iframe><div style='position: absolute;'></div></div>" ;
+	clndr.style.position = "relative" ;
+	if (eXo.core.Browser.isIE6()) {
+		clndr.innerHTML = "<div class='UICalendarComponent'><iframe id='" + this.calendarId + "IFrame' frameBorder='0' style='position:absolute;height:100%;' scrolling='no'></iframe><div style='position:absolute;'></div></div>" ;
 	} else {
 		clndr.innerHTML = "<div class='UICalendarComponent'><div style='position: absolute; width: 100%;'></div></div>" ;
 	}
