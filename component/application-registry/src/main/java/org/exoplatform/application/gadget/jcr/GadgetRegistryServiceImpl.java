@@ -17,6 +17,8 @@
 package org.exoplatform.application.gadget.jcr;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.jcr.Node;
@@ -61,6 +63,10 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
   }
   
   public List<Gadget> getAllGadgets() throws Exception {
+    return getAllGadgets(null);
+  }
+  
+  public List<Gadget> getAllGadgets(Comparator<Gadget> sortComparator) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
     if(!regNode.hasNode(PATH)) {
@@ -76,6 +82,7 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
       gadgets.add(gadget) ;
     }
     sessionProvider.close() ;
+    if(sortComparator != null) Collections.sort(gadgets, sortComparator);
     return gadgets ;
   }
   
@@ -100,5 +107,5 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
     regService_.removeEntry(sessionProvider, PATH + "/" + name) ;
     sessionProvider.close() ;
   }
-  
+
 }

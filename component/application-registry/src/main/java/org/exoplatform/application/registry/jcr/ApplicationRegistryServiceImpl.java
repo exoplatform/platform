@@ -6,6 +6,8 @@ package org.exoplatform.application.registry.jcr;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -66,7 +68,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
   
   public List<ApplicationCategory> getApplicationCategories(String accessUser, String... appTypes)
-  throws Exception {
+                                                           throws Exception {
     List<ApplicationCategory> categories = getApplicationCategories() ;
     Iterator<ApplicationCategory> cateItr = categories.iterator() ;
     ExoContainer container = ExoContainerContext.getCurrentContainer() ;
@@ -91,6 +93,11 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
   
   public List<ApplicationCategory> getApplicationCategories() throws Exception {
+    return getApplicationCategories(null);
+  }
+  
+  public List<ApplicationCategory> getApplicationCategories(Comparator<ApplicationCategory> sortComparator)
+                                                           throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
     Session session = regNode.getSession() ;
@@ -110,6 +117,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       categories.add(cate) ;
     }
     sessionProvider.close() ;
+    if(sortComparator != null) Collections.sort(categories, sortComparator);
     return categories;
   }
   
@@ -208,18 +216,28 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   }
 
   public List<Application> getApplications(ApplicationCategory category, String... appTypes)
-      throws Exception {
+                                          throws Exception {
+    
+    return getApplications(category, null, appTypes);
+  }
+  
+  @SuppressWarnings("unchecked")
+  public List<Application> getApplications(ApplicationCategory category,
+                                           Comparator<Application> sortComparator,
+                                           String... appTypes) throws Exception {
+    
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
     Session session = regNode.getSession() ;
-    StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
-    generateScript(builder, "jcr:path", (regNode.getPath() + "/" + RegistryService.EXO_APPLICATIONS + "/" + APPLICATION_REGISTRY + "/%")) ;
-    generateScript(builder, DataMapper.TYPE, Application.class.getSimpleName()) ;
-    generateScript(builder, DataMapper.APPLICATION_CATEGORY_NAME, category.getName()) ;
-    QueryManager queryManager = session.getWorkspace().getQueryManager() ;
-    Query query = queryManager.createQuery(builder.toString(), "sql") ;
-    QueryResult result = query.execute() ;
-    NodeIterator itr = result.getNodes() ;
+    String appsPath = regNode.getPath() + "/" + getCategoryPath(category.getName()) + "/" + APPLICATIONS;
+    Node appsNode;
+    try {
+       appsNode = (Node) session.getItem(appsPath);
+    } catch (PathNotFoundException pnfe) {
+      sessionProvider.close();
+      return new ArrayList<Application>();
+    }
+    NodeIterator itr = appsNode.getNodes() ;
     List<Application> applications = new ArrayList<Application>() ;
     while(itr.hasNext()) {
       Node appNode = itr.nextNode() ;
@@ -229,6 +247,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
       if(isApplicationType(app, appTypes)) applications.add(app) ;
     }
     sessionProvider.close() ;
+    if(sortComparator != null) Collections.sort(applications, sortComparator);
     return applications ;
   }
   

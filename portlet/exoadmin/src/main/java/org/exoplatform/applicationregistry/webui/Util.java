@@ -16,8 +16,12 @@
  */
 package org.exoplatform.applicationregistry.webui;
 
+import java.util.Comparator;
 import java.util.List;
 
+import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.registry.Application;
+import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.services.portletcontainer.pci.model.Description;
 import org.exoplatform.services.portletcontainer.pci.model.DisplayName;
 
@@ -37,6 +41,30 @@ public class Util {
   static final public String getDescriptionValue(List<Description> list, String defaultValue) {
     if(list == null || list.isEmpty()) return defaultValue;
     return list.get(0).getDescription();
+  }
+  
+  static public class CategoryComparator implements Comparator<ApplicationCategory> {
+
+    public int compare(ApplicationCategory cate1, ApplicationCategory cate2) {
+      return cate1.getDisplayName().compareTo(cate2.getDisplayName());
+    }
+    
+  }
+  
+  static public class ApplicationComparator implements Comparator<Application> {
+
+    public int compare(Application app1, Application app2) {
+      return app1.getDisplayName().compareTo(app2.getDisplayName());
+    }
+    
+  }
+  
+  static public class GadgetComparator implements Comparator<Gadget> {
+
+    public int compare(Gadget gadget1, Gadget gadget2) {
+      return gadget1.getTitle().compareTo(gadget2.getTitle());
+    }
+    
   }
   
 }

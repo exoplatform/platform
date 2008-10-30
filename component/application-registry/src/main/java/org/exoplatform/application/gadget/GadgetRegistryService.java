@@ -16,6 +16,7 @@
  */
 package org.exoplatform.application.gadget;
 
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -43,6 +44,14 @@ public interface GadgetRegistryService {
    */
   public List<Gadget> getAllGadgets() throws Exception ;
   
+  /**
+   * Gets all of available gadgets from the database.</br>
+   * The list of gadgets are sorted.
+   * @param sortComparator The comparator is used to control the order of gadgets
+   * @return  a list of gadgets
+   * @throws Exception
+   */
+  public List<Gadget> getAllGadgets(Comparator<Gadget> sortComparator) throws Exception ;
   /**
    * Adds the gadget to the database.
    * If the gadget is existing, it will be updated.

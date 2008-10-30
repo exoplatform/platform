@@ -17,6 +17,7 @@
 
 package org.exoplatform.application.registry;
 
+import java.util.Comparator;
 import java.util.List;
 
 import org.exoplatform.container.component.ComponentPlugin;
@@ -31,11 +32,13 @@ public interface ApplicationRegistryService {
   public List<ApplicationCategory> getApplicationCategories(String accessUser, String ... appTypes) throws Exception;
   public void initListener(ComponentPlugin com) throws Exception;
   public List<ApplicationCategory> getApplicationCategories() throws Exception;
+  public List<ApplicationCategory> getApplicationCategories(Comparator<ApplicationCategory> sortComparator) throws Exception;
   public ApplicationCategory getApplicationCategory(String name) throws Exception;
   public void save(ApplicationCategory category) throws Exception;
   public void remove(ApplicationCategory category) throws Exception;
   
   public List<Application> getApplications(ApplicationCategory category, String...appTypes) throws Exception;
+  public List<Application> getApplications(ApplicationCategory category, Comparator<Application> sortComparator, String...appTypes) throws Exception;
   public List<Application> getAllApplications() throws Exception;
   public Application getApplication(String id) throws Exception;
   public Application getApplication(String category, String name) throws Exception;

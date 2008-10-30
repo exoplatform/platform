@@ -18,6 +18,7 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import java.util.Calendar;
 
+import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
@@ -78,11 +79,8 @@ public class UIGadgetEditor extends UIForm {
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(fileName), true)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
-      uiManagement.reload() ;
+      uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
-      uiManagement.getChildren().clear();
-      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null);
-      uiInfo.setGadget(uiManagement.getSelectedGadget());      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
     
@@ -93,9 +91,10 @@ public class UIGadgetEditor extends UIForm {
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
-      uiManagement.getChildren().clear();
-      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null);
-      uiInfo.setGadget(uiManagement.getSelectedGadget());   
+      Gadget selectedGadget = uiManagement.getSelectedGadget();      
+      if(selectedGadget != null) {
+        uiManagement.setSelectedGadget(selectedGadget.getName());
+      } else uiManagement.reload();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
     }
     

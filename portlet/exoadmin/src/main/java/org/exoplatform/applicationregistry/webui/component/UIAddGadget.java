@@ -16,6 +16,7 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
+import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -65,11 +66,8 @@ public class UIAddGadget extends UIForm {
       String name = "gadget" + url.hashCode();
       service.saveGadget(GadgetUtil.toGadget(name, url, false)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
-      uiManagement.reload() ;
+      uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
-      uiManagement.getChildren().clear();
-      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null);
-      uiInfo.setGadget(uiManagement.getSelectedGadget());            
       context.addUIComponentToUpdateByAjax(uiManagement) ;
     }    
   }
@@ -79,9 +77,10 @@ public class UIAddGadget extends UIForm {
     public void execute(Event<UIAddGadget> event) throws Exception {
       UIAddGadget uiForm = event.getSource() ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
-      uiManagement.getChildren().clear();
-      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null);
-      uiInfo.setGadget(uiManagement.getSelectedGadget());   
+      Gadget selectedGadget = uiManagement.getSelectedGadget();
+      if(selectedGadget != null) {
+        uiManagement.setSelectedGadget(selectedGadget.getName());
+      } else uiManagement.reload();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
     }
     

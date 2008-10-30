@@ -70,7 +70,7 @@ public class UIGadgetInfo extends UIComponent {
       GadgetRegistryService service = uiInfo.getApplicationComponent(GadgetRegistryService.class) ;
       service.saveGadget(GadgetUtil.toGadget(gadget.getName(), gadget.getUrl(), gadget.isLocal())) ;
       UIGadgetManagement uiManagement = uiInfo.getParent() ;
-      uiManagement.reload() ;
+      uiManagement.initData() ;
       uiManagement.setSelectedGadget(gadget.getName());
       uiInfo.setGadget(uiManagement.getSelectedGadget());
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
@@ -96,7 +96,7 @@ public class UIGadgetInfo extends UIComponent {
       GadgetRegistryService service = uiInfo.getApplicationComponent(GadgetRegistryService.class) ;
       service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(fileName), true)) ;
       UIGadgetManagement uiManagement = uiInfo.getParent() ;
-      uiManagement.reload() ;
+      uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
       uiInfo.setGadget(uiManagement.getSelectedGadget());      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      

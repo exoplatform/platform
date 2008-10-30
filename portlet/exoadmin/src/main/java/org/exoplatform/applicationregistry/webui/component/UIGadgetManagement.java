@@ -21,6 +21,8 @@ import java.util.List;
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.SourceStorage;
+import org.exoplatform.applicationregistry.webui.Util;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -51,17 +53,24 @@ public class UIGadgetManagement extends UIContainer {
   private Gadget selectedGadget_;
   
   public UIGadgetManagement() throws Exception {
-    UIGadgetInfo uiGadgetInfo = addChild(UIGadgetInfo.class, null, null);
-    reload() ;
-    if(gadgets_ != null && !gadgets_.isEmpty()) {
-      setSelectedGadget(gadgets_.get(0));
-      uiGadgetInfo.setGadget(selectedGadget_);        
-    }  
+    reload();
   }
   
   public void reload() throws Exception {
+    initData();
+    if(gadgets_ == null || gadgets_.isEmpty()) {
+      selectedGadget_ = null;
+      getChildren().clear();
+      UIMessageBoard uiMessageBoard = addChild(UIMessageBoard.class, null, null);
+      uiMessageBoard.setMessage(new ApplicationMessage("UIGadgetManagement.msg.noGadget", null));
+    } else {
+      setSelectedGadget(gadgets_.get(0));
+    }
+  }
+  
+  public void initData() throws Exception {
     GadgetRegistryService service = getApplicationComponent(GadgetRegistryService.class) ;
-    gadgets_ = service.getAllGadgets() ;
+    gadgets_ = service.getAllGadgets(new Util.GadgetComparator()) ;
   }
   
   public List<Gadget> getGadgets() throws Exception {
@@ -79,7 +88,7 @@ public class UIGadgetManagement extends UIContainer {
     return selectedGadget_;
   }
   
-  public void setSelectedGadget(String name) {
+  public void setSelectedGadget(String name) throws Exception {
     for(Gadget ele : gadgets_) {
       if(ele.getName().equals(name)) {
         setSelectedGadget(ele);
@@ -88,8 +97,14 @@ public class UIGadgetManagement extends UIContainer {
     }
   }
   
-  public void setSelectedGadget(Gadget gadget) {
+  public void setSelectedGadget(Gadget gadget) throws Exception {
     selectedGadget_ = gadget;
+    UIGadgetInfo uiGadgetInfo = getChild(UIGadgetInfo.class);
+    if(uiGadgetInfo == null) {
+      getChildren().clear();
+      uiGadgetInfo = addChild(UIGadgetInfo.class, null, null);
+    }
+    uiGadgetInfo.setGadget(selectedGadget_);
   }
   
 
@@ -120,15 +135,7 @@ public class UIGadgetManagement extends UIContainer {
         SourceStorage sourceStorage = uiManagement.getApplicationComponent(SourceStorage.class);
         sourceStorage.removeSource(name + ".xml");
       }
-      uiManagement.reload() ;
-      List<Gadget> gadgets = uiManagement.getGadgets();
-      if(gadgets != null && !gadgets.isEmpty()) {
-        uiManagement.setSelectedGadget(gadgets.get(0));
-      } else {
-        uiManagement.setSelectedGadget((Gadget)null);
-      }
-      UIGadgetInfo uiGadgetInfo = uiManagement.getChild(UIGadgetInfo.class);
-      uiGadgetInfo.setGadget(uiManagement.getSelectedGadget());        
+      uiManagement.reload();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
     }
     
@@ -150,10 +157,7 @@ public class UIGadgetManagement extends UIContainer {
     public void execute(Event<UIGadgetManagement> event) throws Exception {
       UIGadgetManagement uiManagement = event.getSource() ;
       String name = event.getRequestContext().getRequestParameter(OBJECTID) ; 
-      uiManagement.getChildren().clear() ;
       uiManagement.setSelectedGadget(name);
-      UIGadgetInfo uiInfo = uiManagement.addChild(UIGadgetInfo.class, null, null) ;
-      uiInfo.setGadget(uiManagement.getSelectedGadget()) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
     }
     

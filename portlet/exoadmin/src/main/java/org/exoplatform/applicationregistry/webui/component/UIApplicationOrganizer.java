@@ -21,6 +21,7 @@ import java.util.List;
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.applicationregistry.webui.Util;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -60,13 +61,18 @@ public class UIApplicationOrganizer extends UIContainer {
 
   
   public UIApplicationOrganizer() throws Exception {
-    reset();
+    reload();
   }
   
-  public void reset() throws Exception {
+  public void reload() throws Exception {
     initApplicationCategories() ;
     if(categories == null || categories.isEmpty()) {
-      setSelectedCategory((ApplicationCategory)null);
+      selectedCategory = null;
+      applications = null;
+      selectedApplication = null;
+      getChildren().clear();
+      UIMessageBoard uiMessageBoard = addChild(UIMessageBoard.class, null, null);
+      uiMessageBoard.setMessage(new ApplicationMessage("UIOrganizer.msg.noCategory", null));
     } else {
       setSelectedCategory(categories.get(0)) ;
     }    
@@ -74,7 +80,7 @@ public class UIApplicationOrganizer extends UIContainer {
   
   public void initApplicationCategories() throws Exception {
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
-    categories = service.getApplicationCategories();
+    categories = service.getApplicationCategories(new Util.CategoryComparator());
   }
 
   public List<ApplicationCategory> getCategories() { return categories ;  }
@@ -92,13 +98,8 @@ public class UIApplicationOrganizer extends UIContainer {
 
   public void setSelectedCategory(ApplicationCategory category) throws Exception {
     selectedCategory = category;
-    if(selectedCategory == null) {
-      applications = null;
-      setSelectedApplication(null);
-      return;
-    }
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class);
-    applications = service.getApplications(selectedCategory, new String [] {});
+    applications = service.getApplications(selectedCategory, new Util.ApplicationComparator(), new String [] {});
     if(applications == null || applications.isEmpty()) {
       setSelectedApplication(null);
       return;
@@ -116,15 +117,16 @@ public class UIApplicationOrganizer extends UIContainer {
   public Application getSelectedApplication() { return selectedApplication ; }
   
   public void setSelectedApplication(Application app) throws Exception {
-    getChildren().clear();
     selectedApplication = app ;
     if(selectedApplication == null) {
+      getChildren().clear();
       UIMessageBoard uiMessageBoard = addChild(UIMessageBoard.class, null, null);
       uiMessageBoard.setMessage(new ApplicationMessage("UIOrganizer.msg.emptyCategory", null));
       return;
     }
     UIApplicationInfo uiAppInfo = getChild(UIApplicationInfo.class) ;
     if(uiAppInfo == null) {
+      getChildren().clear();
       uiAppInfo = addChild(UIApplicationInfo.class, null, null) ;
     }
     uiAppInfo.setApplication(selectedApplication) ;
@@ -171,7 +173,7 @@ public class UIApplicationOrganizer extends UIContainer {
       ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
       service.importAllPortlets() ;
       service.importExoGadgets() ;
-      uiOrganizer.reset();
+      uiOrganizer.reload();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
@@ -206,7 +208,7 @@ public class UIApplicationOrganizer extends UIContainer {
       String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
       ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
       service.remove(uiOrganizer.getCategory(name)) ;
-      uiOrganizer.reset();
+      uiOrganizer.reload();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
