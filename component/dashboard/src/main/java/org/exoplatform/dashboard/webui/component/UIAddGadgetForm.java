@@ -16,8 +16,6 @@
  */
 package org.exoplatform.dashboard.webui.component;
 
-import java.net.URL;
-
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.portal.application.UserGadgetStorage;
@@ -33,11 +31,9 @@ import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormStringInput;
-import org.exoplatform.webui.form.validator.Validator;
+import org.exoplatform.webui.form.validator.URLValidator;
 
 /**
  * Created by The eXo Platform SAS
@@ -75,8 +71,7 @@ public class UIAddGadgetForm extends UIForm {
         return ;
       }
       url = url.trim() ;
-      String regEx = "^(ht|f)tp(s?)://(\\w+:\\w+@)?(\\w+\\.)+(\\w{2,5})(:\\d{1,5})?($|((/[+a-zA-Z0-9 -]+/?)+|/?))(\\w+\\.\\w+)?([?]?(\\w+=\\w+)(&\\w+=\\w+)*)?" ;
-      if(!url.matches(regEx)) {
+      if(!url.matches(URLValidator.URL_REGEX)) {
         uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.notUrl", null)) ;
         context.addUIComponentToUpdateByAjax(uiApplication.getUIPopupMessages()) ;
         return ;

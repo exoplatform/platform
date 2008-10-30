@@ -1,0 +1,62 @@
+/*
+ * Copyright (C) 2003-2008 eXo Platform SAS.
+ *
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Affero General Public License
+ * as published by the Free Software Foundation; either version 3
+ * of the License, or (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, see<http://www.gnu.org/licenses/>.
+ */
+package org.exoplatform.webui.form.validator;
+
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.exception.MessageException;
+import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInput;
+
+/**
+ * Created by The eXo Platform SAS
+ * Author : Tan Pham Dinh
+ *          pdtanit@gmail.com
+ * Oct 30, 2008  
+ */
+public class URLValidator implements Validator {
+  
+  static public final String URL_REGEX = 
+    "^(ht|f)tp(s?)://(\\w+:\\w+@)?(\\w+\\.)+(\\w{2,5})(:\\d{1,5})?($|((/[+a-zA-Z0-9 -]+/?)+|/?))" +
+    "(\\w+\\.\\w+)?([?]?(\\w+=\\w+)(&\\w+=\\w+)*)?" ;
+  
+  private String key_ ;
+  
+  public URLValidator() {
+    key_ = "URLValidator.msg.invalid-url" ;
+  }
+  
+  public URLValidator(String key) {
+    if(key != null) key_ = key ;
+  }
+  
+  public void validate(UIFormInput uiInput) throws Exception {
+    if((uiInput.getValue() == null) || (uiInput.getValue().toString().trim().length() == 0)) return ;
+    String s = uiInput.getValue().toString().trim() ;
+    if(s.matches(URL_REGEX)) return ;
+    
+    UIForm uiForm = ((UIComponent) uiInput).getAncestorOfType(UIForm.class);
+    String label;
+    try{
+      label = uiForm.getLabel(uiInput.getName());
+    } catch(Exception e) {
+      label = uiInput.getName();
+    }
+    Object[]  args = { label } ;
+    throw new MessageException(new ApplicationMessage(key_, args, ApplicationMessage.WARNING)) ;
+  }
+}
