@@ -117,14 +117,14 @@
 
 .UINavigationPortlet .DisableScrollLeftButton {
   cursor: pointer;
-  background: url('DefaultSkin/background/Button.gif') no-repeat left bottom;
+  background: url('DefaultSkin/background/Button.gif') no-repeat left -30px;
   padding-left: 18px;
   margin: 0px 5px;
 }
 
 .UINavigationPortlet .DisableScrollRightButton { 
   cursor: pointer;
-  background: url('DefaultSkin/background/Button.gif') no-repeat right bottom;
+  background: url('DefaultSkin/background/Button.gif') no-repeat right -30px;
   width: 15px;
   height: 15px;
 }
