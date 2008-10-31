@@ -25,14 +25,15 @@ import java.util.Map;
 import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.commons.utils.ExceptionUtil;
-import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.Input;
@@ -69,7 +70,8 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
     }
 )   
 public class UIPortletForm extends UIFormTabPane {	
-  
+	private static Log log = ExoLogger.getLogger("portal:UIPortletForm");
+	
   private UIPortlet uiPortlet_;
   private UIComponent backComponent_;
   private static final String FIELD_THEME = "Theme"; 
@@ -144,9 +146,7 @@ public class UIPortletForm extends UIFormTabPane {
       portletContent.append(output.getContent());
     } catch (Throwable ex) {
       portletContent.append("This portlet encountered an error and could not be displayed.");
-      ex = ExceptionUtil.getRootCause(ex);
-      System.err.println("The portlet " + uiPortlet_.getName() + " could not be loaded. Check if properly deployed.");
-      System.err.println(ExceptionUtil.getStackTrace(ex, 100));
+      log.error("The portlet " + uiPortlet_.getName() + " could not be loaded. Check if properly deployed.", ExceptionUtil.getRootCause(ex));
     }
     return portletContent.toString();
   }

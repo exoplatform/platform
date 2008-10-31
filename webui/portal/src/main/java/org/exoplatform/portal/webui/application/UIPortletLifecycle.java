@@ -23,6 +23,7 @@ import javax.portlet.WindowState;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.Constants;
+import org.exoplatform.commons.utils.ExceptionUtil;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -160,7 +161,7 @@ public class UIPortletLifecycle extends Lifecycle {
       }
     } catch (Throwable ex) {
     	portletContent.append("This portlet encountered an error and could not be displayed.");
-      log.error("The portlet " + uiPortlet.getName() + " could not be loaded. Check if properly deployed.");
+      log.error("The portlet " + uiPortlet.getName() + " could not be loaded. Check if properly deployed.", ExceptionUtil.getRootCause(ex));
     }
     if (output != null) {
       portletTitle = output.getTitle();
