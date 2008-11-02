@@ -34,8 +34,6 @@ import javax.servlet.ServletContext;
 import org.apache.commons.logging.Log;
 import org.exoplatform.services.log.ExoLogger;
 
-import edu.emory.mathcs.backport.java.util.Collections;
-
 public class SkinService {
 
   protected static Log log = ExoLogger.getLogger("portal.SkinService");
@@ -215,10 +213,10 @@ public class SkinService {
   
   /**
    * Get names of all the currently registered skins.
-   * @return an unmodifiable Set of the currently registered skins
+   * @return a Set of the currently registered skins
    */
   public Set<String> getAvailableSkinNames() {
-    return Collections.unmodifiableSet(availableSkins_);
+    return availableSkins_;
   }
 
   /**
