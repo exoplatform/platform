@@ -125,6 +125,7 @@
 			}
 	</style>
 		<script type="text/javascript">
+		  var lenAfterPoint = 3;
 			var Number1 = "";
 			var Number2 = "";
 			var NewNumber = "blank";
@@ -186,7 +187,7 @@
 				}
 				NewNumber = "yes";
 				opvalue = '*';
-				Display(Number1);
+				Display(parseFloat(parseFloat(Number1).toFixed(lenAfterPoint)));
 			}
 			function DivButton(x) {
 				if(x == 1) EqualButton();
@@ -195,7 +196,7 @@
 				}
 				NewNumber = "yes";
 				opvalue = '/';
-				Display(Number1);
+				Display(parseFloat(parseFloat(Number1).toFixed(lenAfterPoint)));
 			}
 			function PercentButton() {
 				if(NewNumber != "blank") {
