@@ -129,6 +129,13 @@
       <short-title>Navigation Portlet</short-title>
       <keywords>Navigation</keywords>
     </portlet-info>
+    <portlet-preferences>
+      <preference>
+        <name>useAJAX</name>
+        <value>false</value>
+        <read-only>false</read-only>
+      </preference>
+    </portlet-preferences>
   </portlet> 
   
   <portlet>
