@@ -70,6 +70,8 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
     return new FileInputStream(file);
   }
   
+  @Deprecated
+  // use getUploadDataAsStream() menthod instead
   public byte[] getUploadData() throws Exception {
     if(uploadResource_ == null) return null;
     File file = new File(uploadResource_.getStoreLocation());
