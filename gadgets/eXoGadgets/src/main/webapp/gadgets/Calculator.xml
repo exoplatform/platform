@@ -13,6 +13,7 @@
 		directory_title="Caculator"
 		title_url="http://www.exoplatform.org"
 		description="This simple and useful calculator lets you perform most of the basic arithmetic operations."
+		thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/Calculator.png"
 		height="227">
 	</ModulePrefs>
 	<Content type="html">

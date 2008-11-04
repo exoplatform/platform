@@ -13,6 +13,7 @@
 		directory_title="Todo"
 		title_url="http://www.exoplatform.org"
 		description="ToDo Gadget, easily manage and track your daily to-do list."
+		thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/Todo.png"
 		height="235">
 	<Require feature="setprefs" />
 	</ModulePrefs>
