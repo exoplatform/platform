@@ -3,19 +3,32 @@
            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <%
 	import org.exoplatform.webui.core.UIComponent;
-	
+	import java.util.Iterator;
+		
   def rcontext = _ctx.getRequestContext() ;
   String docBase =  rcontext.getRequestContextPath() ;  
   String skin = uicomponent.getSkin();
   def portalSkins = uicomponent.getPortalSkins() ;
   def portletSkins = uicomponent.getPortletSkins() ;
   def scriptsPaths = uicomponent.getJavascriptURLs();
+  def title = rcontext.getTitle();
+  def metaInformation = rcontext.getMetaInformation();
 %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head id="head">
-    <title>eXo Portal</title>
+    <title><%=title%></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <%
+    	if(metaInformation!= null) {
+	    	Iterator<String> keys = metaInformation.keySet().iterator();
+	    	while(keys.hasNext()) {
+	    		String metaName = keys.next();
+	    		String metaContent = metaInformation.get(metaName);
+	  %>
+	   	<meta name="<%=metaName%>" content = "<%=metaContent%>">
+	  <% } } %>
+	  
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
     <%for(skinConfig in portalSkins) {%>
       <link id="${skinConfig.id}" rel="stylesheet" type="text/css" href="$skinConfig.CSSPath" />
