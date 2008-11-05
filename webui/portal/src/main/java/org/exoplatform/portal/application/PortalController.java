@@ -36,7 +36,7 @@ import org.exoplatform.web.WebAppController;
  * Both the init() and service() methods are implemented. The first one is used to configure all the
  * portal resources to prepare the platform to receive requests. The second one is used to handle them.
  * 
- * Basically, this class is just dispacther as the real business logic is implemented inside 
+ * Basically, this class is just dispatcher as the real business logic is implemented inside 
  * the WebAppController class.
  */
 @SuppressWarnings("serial")
@@ -70,9 +70,14 @@ public class PortalController  extends HttpServlet {
       application.onInit() ;
       controller.addApplication(application) ;
       controller.register(new PortalRequestHandler()) ;
-      PortalContainer.setInstance(null) ;
     } catch (Throwable t){
       throw new ServletException(t) ;
+    } finally {
+      try {
+        PortalContainer.setInstance(null) ;
+      } catch (Exception e) {
+        log.warn("An error occured while cleaning the ThreadLocal", e);
+      }      
     }
     log.info("Init of PortalController Servlet successful");
   }
@@ -90,9 +95,14 @@ public class PortalController  extends HttpServlet {
       WebAppController controller = 
         (WebAppController)portalContainer.getComponentInstanceOfType(WebAppController.class) ;
       controller.service(req, res) ;
-      PortalContainer.setInstance(null) ;
     } catch (Throwable t){
       throw new ServletException(t) ;
+    } finally {
+      try {
+        PortalContainer.setInstance(null) ;
+      } catch (Exception e) {
+        log.warn("An error occured while cleaning the ThreadLocal", e);
+      }      
     }
   }
 }
