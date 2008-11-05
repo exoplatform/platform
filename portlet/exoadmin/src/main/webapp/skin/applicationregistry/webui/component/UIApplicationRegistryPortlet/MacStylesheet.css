@@ -16,7 +16,6 @@ e/**
 	margin: 5px;
 	background: #fff;
 	overflow: auto;
-	padding: 10px;
 }
 
 .UIApplicationRegistryPortlet .CategoryContainer .EditIcon  {
@@ -331,8 +330,37 @@ e/**
 
 /***************************** UIPortletManagement ***************************/
 
+.UIPortletManagement .ListCategory .CategoryLable {
+	background: url(DefaultSkin/background/ControlIcon.gif) no-repeat scroll 5px -170px;
+	padding: 0px 0px 0px 15px;
+	display: block;
+	line-height: 25px;
+	border-bottom: 1px solid #dddddd;
+}
+
+.UIPortletManagement .SelectedCategory .CategoryLable {
+	background: #b7b7b7 url(DefaultSkin/background/ControlIcon.gif) no-repeat scroll 5px -196px;
+	color: white;
+	font-weight: bold;
+}
+
+.UIPortletManagement .ListCategory .ListItem {
+	background: #f7f7f7;
+	border-bottom: 1px solid #dddddd;
+}
+
+.UIPortletManagement .ListCategory .Item {
+	display: block;
+	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
+	padding-left: 20px;
+	cursor: pointer;
+	width: 160px; overflow: hidden;
+	white-space: nowrap;
+	line-height: 25px;
+}
+
 .UIPortletManagement .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
-	border: none;
+	background: none;
 }
 
 .UIPortletManagement .BoxContent {
@@ -343,6 +371,7 @@ e/**
 
 .UIPortletManagement .BoxContent .TitleCategory {
 	cursor: pointer;
+	text-transform: capitalize;
 }
 
 .UIPortletManagement .UIGrid .FieldLable {
@@ -353,7 +382,6 @@ e/**
 .UIPortletManagement .UIGrid .FieldComponent {
 	padding: 4px 0px;
 }
-
 /******************************** UIGadgetManagement ******************************/
 .UIApplicationRegistryPortlet .UIGadgetManagement .PortletIcons {
 	width: 150px; height: 120px;

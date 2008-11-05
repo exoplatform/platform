@@ -16,7 +16,7 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
-import org.exoplatform.applicationregistry.webui.PortletExtra;
+import org.exoplatform.applicationregistry.webui.component.UIPortletManagement.PortletExtra;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 

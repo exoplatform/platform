@@ -8,7 +8,6 @@
 	String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 %>
 <div class="UIPortletInfo" id="$uicomponent.id">	
-	<div class="AppWorkingArea">
 		
 		<div class="UIBreadcumb">
 	    <div class="LeftBlock"><%=_ctx.appRes("UIPortletManagement.title." + portlet.getType())%></div>    
@@ -65,5 +64,4 @@
 	  		<% } }%>
 	  	</table>
 	  </div>
-	</div>
 </div>	
