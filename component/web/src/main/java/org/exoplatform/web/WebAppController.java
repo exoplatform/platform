@@ -115,16 +115,22 @@ public class WebAppController {
       ExoContainer portalContainer = ExoContainerContext.getCurrentContainer();
       List<ComponentRequestLifecycle> components = 
         portalContainer.getComponentInstancesOfType(ComponentRequestLifecycle.class) ;
-      for(ComponentRequestLifecycle component : components) {
-        component.startRequest(portalContainer);
-      }
-      WindowInfosContainer.createInstance(portalContainer, req.getSession().getId(), req.getRemoteUser());
-      
-      handler.execute(this, req, res) ;
-      
-      for(ComponentRequestLifecycle component : components) {
-        component.endRequest(portalContainer);
-      }
+      try {
+        for(ComponentRequestLifecycle component : components) {
+          component.startRequest(portalContainer);
+        }
+        WindowInfosContainer.createInstance(portalContainer, req.getSession().getId(), req.getRemoteUser());
+        
+        handler.execute(this, req, res) ;
+      } finally {
+        for(ComponentRequestLifecycle component : components) {
+          try {
+            component.endRequest(portalContainer);
+          } catch (Exception e) {
+            log.warn("An error occured while calling the endRequest method", e);
+          }
+        }
+      }      
     }
   }
 }
