@@ -11,8 +11,10 @@
 		
 		<div class="UIBreadcumb">
 	    <div class="LeftBlock"><%=_ctx.appRes("UIPortletManagement.title." + portlet.getType())%></div>    
+      <div class="RightBlackGridArrow16x16Icon"><span></span></div>
+      <div class="Selected"><%=portlet.getPortletGroup()%></div>
       <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
-	    <div class="Selected"><%= portlet.getDisplayName() %></div> 		          		              
+	    <div class="Selected"><%=portlet.getDisplayName() %></div> 		          		              
 			<div style="clear: left;"><span></span></div>
 		</div>
 		
