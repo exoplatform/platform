@@ -243,7 +243,7 @@ public class UIPortletManagement extends UIContainer {
   static public class WebAppComparator implements Comparator<WebApp> {
 
     public int compare(WebApp app1, WebApp app2) {
-      return app1.getName().compareTo(app2.getName());
+      return app1.getName().compareToIgnoreCase(app2.getName());
     }
     
   }
@@ -251,7 +251,7 @@ public class UIPortletManagement extends UIContainer {
   static public class PortletComparator implements Comparator<PortletExtra> {
 
     public int compare(PortletExtra portlet1, PortletExtra portlet2) {
-      return portlet1.getName().compareTo(portlet2.getName());
+      return portlet1.getName().compareToIgnoreCase(portlet2.getName());
     }
     
   }

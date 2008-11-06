@@ -46,7 +46,7 @@ public class Util {
   static public class CategoryComparator implements Comparator<ApplicationCategory> {
 
     public int compare(ApplicationCategory cate1, ApplicationCategory cate2) {
-      return cate1.getDisplayName().compareTo(cate2.getDisplayName());
+      return cate1.getDisplayName().compareToIgnoreCase(cate2.getDisplayName());
     }
     
   }
@@ -54,7 +54,7 @@ public class Util {
   static public class ApplicationComparator implements Comparator<Application> {
 
     public int compare(Application app1, Application app2) {
-      return app1.getDisplayName().compareTo(app2.getDisplayName());
+      return app1.getDisplayName().compareToIgnoreCase(app2.getDisplayName());
     }
     
   }
@@ -62,7 +62,7 @@ public class Util {
   static public class GadgetComparator implements Comparator<Gadget> {
 
     public int compare(Gadget gadget1, Gadget gadget2) {
-      return gadget1.getTitle().compareTo(gadget2.getTitle());
+      return gadget1.getTitle().compareToIgnoreCase(gadget2.getTitle());
     }
     
   }
