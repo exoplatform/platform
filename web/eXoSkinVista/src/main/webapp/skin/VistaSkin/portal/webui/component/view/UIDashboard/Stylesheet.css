@@ -1,3 +1,7 @@
+.UIDashboardPortlet {
+	height: 100%;
+}
+
 .UIWindow .UIDashboard {
 	border: none;
 	margin: 0px;
@@ -6,6 +10,13 @@
 .UIDashboard {
 	border: 1px solid #b7b7b7;
 	margin: 5px;
+	background: url('background/BgRepeat.gif') repeat-y top left;
+	height: 100%;
+}
+
+.UIDashboard .DashboardContainer {
+	background: url('background/BgBottom.gif') no-repeat bottom left;
+	height: 100%;
 }
 
 .UIDashboard .GadgetTitle {
@@ -25,7 +36,7 @@
 .UIDashboardSelectContainer {
 	float: left;
 	width: 209px;
-	border-right: 1px solid #b7b7b7;
+	height: 100%;
 }
 
 .UIDashboardSelectContainer .DashboardControlBar {
@@ -50,12 +61,11 @@
 }
 
 .UIDashboardSelectContainer .DashboardItemContainer {
-	border: 1px solid white;
-	background: #ececec;
 }
 
 .UIDashboardSelectContainer .DashboardItemContainer .InputContainer {
 	padding: 2px;
+	background: #ececec;
 }
 
 .UIDashboardSelectContainer .DashboardItemContainer .InputContainer input {
@@ -64,8 +74,7 @@
 }
 
 .UIDashboardSelectContainer .DashboardItemContainer .GadgetItemsContainer {
-	border: 1px solid #b7b7b7;
-	background: white;
+	border-top: 1px solid #b7b7b7;
 	font-weight: bold;
 }
 
@@ -210,24 +219,28 @@
 	display: none;
 }
 
+/*------------------UIDashboardContainer----------------*/
+
 .UIDashboardContainer {
 	background: white;
+	height: 100%;
 }
 
 .UIDashboard .UIDashboardContainer .GadgetTitle {
 	width: 230px;	
 }
 
-.UIDashboardContainer .DashboardContainer {
+.UIDashboardContainer .GadgetContainer {
 	overflow: auto;
-	min-height: 400px;
+	height: 100%;
+//	min-height: 400px;
 }
 
-*html .UIDashboardContainer .DashboardContainer {
+/**html .UIDashboardContainer .GadgetContainer {
 	height: 400px;
-}
+}*/
 
-.UIDashboardContainer .DashboardContainer .ContainerControlBarL {
+.UIDashboardContainer .GadgetContainer .ContainerControlBarL {
 	padding: 5px 10px;
 }
 
@@ -239,20 +252,20 @@
 	line-height: 22px;
 }
 
-.UIDashboardContainer .DashboardContainer .AddIcon a {
+.UIDashboardContainer .GadgetContainer .AddIcon a {
 	text-decoration: underline;
 	color: #292929;
 	cursor: pointer;
 }
 
-.UIDashboardContainer .DashboardContainer .AddIcon a:hover {
+.UIDashboardContainer .GadgetContainer .AddIcon a:hover {
 	text-decoration: none;
 }
 
-.DashboardContainer .UIColumns {
+.GadgetContainer .UIColumns {
 }
 
-.DashboardContainer .UIColumn {
+.GadgetContainer .UIColumn {
 	float: left;
 	width: 325px;
 	padding: 2px 0px;
