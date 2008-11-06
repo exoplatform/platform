@@ -5,7 +5,7 @@
   def uiSelectForm = uiDashboard.getChild(UIDashboardSelectContainer.class);
 %>
 <div id="$uicomponent.id" class="UIDashboardContainer">
-	<div class="DashboardContainer UIResizableBlock" id="DashboardContainer">
+	<div class="GadgetContainer UIResizableBlock" id="GadgetContainer">
 		<% if (uiDashboard.canEdit()) { %>
 		<div class="ContainerControlBarL" style="visibility: <%= uiSelectForm.isShow()? "hidden" : "visible"; %>;">
 			<div class="ContainerControlBarR">

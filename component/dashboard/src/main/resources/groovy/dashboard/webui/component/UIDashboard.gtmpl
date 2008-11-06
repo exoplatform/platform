@@ -1,4 +1,6 @@
 <div id="$uicomponent.id" class="UIDashboard">
-	<% uicomponent.renderChildren(); %>
-	<div style="clear:left;"><span></span></div>
+	<div class="DashboardContainer">
+		<% uicomponent.renderChildren(); %>
+		<div style="clear:left;"><span></span></div>
+	</div>
 </div>

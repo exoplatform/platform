@@ -15,8 +15,8 @@ eXo.webui.UIDashboard = {
 			if(!portletFragment) return;
 			
 			var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
-			var dashboardContainer = DOMUtil.findFirstDescendantByClass(portletFragment, "div", "DashboardContainer");
-			var portletApp = DOMUtil.findAncestorByClass(dashboardContainer, "UIApplication");
+			var gadgetContainer = DOMUtil.findFirstDescendantByClass(portletFragment, "div", "GadgetContainer");
+			var portletApp = DOMUtil.findAncestorByClass(gadgetContainer, "UIApplication");
 
 			var ggwidth = dragObj.offsetWidth;
 			var ggheight = dragObj.offsetHeight;
@@ -57,7 +57,7 @@ eXo.webui.UIDashboard = {
 			dragObj.style.width = ggwidth +"px";
 
 			//increase speed of mouse when over iframe by create div layer above it
-			var uiGadgets = DOMUtil.findDescendantsByClass(dashboardContainer, "div", "UIGadget");
+			var uiGadgets = DOMUtil.findDescendantsByClass(gadgetContainer, "div", "UIGadget");
 			
 			for(var i=0; i<uiGadgets.length; i++) {
 				var uiMask = DOMUtil.findFirstDescendantByClass(uiGadgets[i], "div", "UIMask");
@@ -93,7 +93,7 @@ eXo.webui.UIDashboard = {
 
 			if(!portletFragment) return;
 			
-			var dashboardCont = DOMUtil.findFirstDescendantByClass(portletFragment, "div", "DashboardContainer");
+			var dashboardCont = DOMUtil.findFirstDescendantByClass(portletFragment, "div", "GadgetContainer");
 			var cols = null;
 			
 			eXo.webui.UIDashboard.scrollOnDrag(dragObj);
@@ -220,7 +220,6 @@ eXo.webui.UIDashboard = {
 						ajaxAsyncGetRequest(url);
 					}
 				}
-				uiDashboard.initHeight(portletFragment.parentNode.id) ;
 			}
 
 			uiTarget = eXo.core.DOMUtil.findFirstDescendantByClass(portletFragment, "div", "UITarget");
@@ -232,27 +231,39 @@ eXo.webui.UIDashboard = {
 		}	
 	},
 	
-	onLoad : function(windowId) {	
+	onLoad : function(windowId) { 
 		var portletWindow = document.getElementById(windowId);
 		if(!portletWindow) return;
 		
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(portletWindow, "div", "UIDashboard");
 		var portletFragment = DOMUtil.findAncestorByClass(uiDashboard, "PORTLET-FRAGMENT") ;
-		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
-		var uiSelect = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardSelectContainer") ;
+		var uiContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardContainer");
+		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer") ;
 		if(!uiContainer) return;
 		
-		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
+		var gadgetContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "GadgetContainer");
 		uiDashboard.style.overflow = "hidden";
 		portletFragment.style.overflow = "hidden" ;
-//		if(!portletFragment.style.height || portletFragment.style.height == "auto")	{
-//			uiDashboard.style.height = "400px" ;
-//			if(eXo.core.Browser.isIE6()) dbContainer.style.width = "99%";
-//		}
+		
+		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
+		if(uiSelect.style.display != "none") {
+			uiContainer.style.marginLeft = "211px" ;
+		} else {
+			uiContainer.style.marginLeft = "0px" ;	
+		}
+		
+		var gadgetContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "GadgetContainer");
+		var colsContainer = DOMUtil.findFirstChildByClass(gadgetContainer, "div", "UIColumns");
+		var columns = DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
+		var colsSize = 0;
+		for(var i=0; i<columns.length; i++) {
+			if(columns[i].style.display != "none") colsSize++;
+		}
+		colsContainer.style.width = colsSize*320 + 20 + "px";
 
-		setTimeout("eXo.webui.UIDashboard.initDragDrop('" + windowId + "');", 300) ;
-		setTimeout("eXo.webui.UIDashboard.initHeight('" + windowId + "');", 300) ;
+		eXo.webui.UIDashboard.initDragDrop(windowId) ;
+		eXo.webui.UIDashboard.initHeight(windowId) ;
 	},
 	
 	initDragDrop : function(windowId) {
@@ -277,77 +288,28 @@ eXo.webui.UIDashboard = {
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(portletWindow, "div", "UIDashboard") ;
 		var portletFragment = DOMUtil.findAncestorByClass(uiDashboard, "PORTLET-FRAGMENT") ;
 		
-//		var viewLayoutTag = DOMUtil.findAncestorByClass(portletWindow, "VIEW-PORTLET");
-//		var wasHiddenView = false;
-//		if(viewLayoutTag && viewLayoutTag.style.display == "none") {
-//			wasHiddenView = true;
-//			viewLayoutTag.style.display = "block" ;
-//		}
-		
-		var hiddenAncestors = [] ;
-		var prNode = uiDashboard ;
-		while(prNode && (prNode.nodeType == 1)) {
-			if(prNode.style.display == "none") {
-				hiddenAncestors.push(prNode) ;
-				prNode.style.display = "block" ;
-			}
-			prNode = prNode.parentNode ;
-		}
-		
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
-		var itemCont = DOMUtil.findFirstChildByClass(uiSelect, "div", "DashboardItemContainer");
-		var middleItemCont = DOMUtil.findFirstDescendantByClass(uiSelect, "div", "MiddleItemContainer");
-		var topItemCont = DOMUtil.findNextElementByTagName(middleItemCont, "div");
-		var bottomItemCont = DOMUtil.findPreviousElementByTagName(middleItemCont, "div");
+		var uiContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardContainer");
 		
-		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboard, "div", "UIDashboardContainer");
-		var dbContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "DashboardContainer");
-		var colsContainer = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
-		var columns = DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
-		
-		var colsSize = 0;
-		for(var i=0; i<columns.length; i++) {
-			if(columns[i].style.display != "none") colsSize++;
-		}
-		colsContainer.style.width = colsSize*320 + 20 + "px";
-		
-		var wasUISelectHidden = true ;
-		if(uiSelect.style.display == "none") {
-			uiSelect.style.display = "block" ;
-		} else {
-			wasUISelectHidden = false ;
-		}
-		
-		var minusHeight = 0 ;
-		var minusHeightEle = DOMUtil.findPreviousElementByTagName(middleItemCont.parentNode, "div") ; 
-		while(minusHeightEle) {
-			minusHeight += minusHeightEle.offsetHeight ;
-			minusHeightEle = DOMUtil.findPreviousElementByTagName(minusHeightEle, "div") ;
-		}
-		minusHeightEle = DOMUtil.findPreviousElementByTagName(itemCont, "div") ;
-		while(minusHeightEle) {
-			minusHeight += minusHeightEle.offsetHeight ;
-			minusHeightEle = DOMUtil.findPreviousElementByTagName(minusHeightEle, "div") ;
-		}
-		minusHeightEle = null;
-		
-		if(!document.getElementById("UIPageDesktop")) {
-			dbContainer.style.height = "auto" ;
-			portletFragment.style.height = "auto" ;
-			middleItemCont.style.height = "auto" ;
-			var selectHeight = (uiSelect.offsetHeight >= uiSelect.scrollHeight) ? uiSelect.offsetHeight : uiSelect.scrollHeight ;
-			var containerHeight = (uiContainer.offsetHeight >= uiContainer.scrollHeight) ? uiContainer.offsetHeight : uiContainer.scrollHeight ;
-			if(selectHeight >= containerHeight) {
-				//portletFragment.style.height = uiSelect.offsetHeight + "px" ;
-			} else {
-				//portletFragment.style.height = uiContainer.offsetHeight + "px" ;
-				middleItemCont.style.height = portletWindow.offsetHeight - minusHeight
-						- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
-						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
-						- 5 + "px";
+		if(document.getElementById("UIPageDesktop")) {
+			var itemCont = DOMUtil.findFirstChildByClass(uiSelect, "div", "DashboardItemContainer");
+			var middleItemCont = DOMUtil.findFirstDescendantByClass(uiSelect, "div", "MiddleItemContainer");
+			var topItemCont = DOMUtil.findNextElementByTagName(middleItemCont, "div");
+			var bottomItemCont = DOMUtil.findPreviousElementByTagName(middleItemCont, "div");
+			
+			
+			var minusHeight = 0 ;
+			var minusHeightEle = DOMUtil.findPreviousElementByTagName(middleItemCont.parentNode, "div") ; 
+			while(minusHeightEle) {
+				minusHeight += minusHeightEle.offsetHeight ;
+				minusHeightEle = DOMUtil.findPreviousElementByTagName(minusHeightEle, "div") ;
 			}
-			//dbContainer.style.height = portletWindow.offsetHeight + "px";
-		} else {
+			minusHeightEle = DOMUtil.findPreviousElementByTagName(itemCont, "div") ;
+			while(minusHeightEle) {
+				minusHeight += minusHeightEle.offsetHeight ;
+				minusHeightEle = DOMUtil.findPreviousElementByTagName(minusHeightEle, "div") ;
+			}
+			minusHeightEle = null;
 			var windowHeight = portletWindow.offsetHeight ; 
 			var uiWindow = DOMUtil.findAncestorByClass(portletWindow, "UIWindow") ;
 			if(uiWindow && uiWindow.style.display == "none") {
@@ -358,30 +320,18 @@ eXo.webui.UIDashboard = {
 						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
 						- 5 + "px";
 			//dbContainer.style.height = windowHeight + "px";
+			if(middleItemCont.scrollHeight > middleItemCont.offsetHeight) {
+				topItemCont.style.display = "block";
+				bottomItemCont.style.display = "block";
+				middleItemCont.style.height = middleItemCont.offsetHeight - topItemCont.offsetHeight - bottomItemCont.offsetHeight + "px";
+			} else {
+				topItemCont.style.display = "none";
+				bottomItemCont.style.display = "none";
+			}
 		}
 		
-		if(middleItemCont.scrollHeight > middleItemCont.offsetHeight) {
-			topItemCont.style.display = "block";
-			bottomItemCont.style.display = "block";
-			middleItemCont.style.height = middleItemCont.offsetHeight - topItemCont.offsetHeight - bottomItemCont.offsetHeight + "px";
-		} else {
-			topItemCont.style.display = "none";
-			bottomItemCont.style.display = "none";
-		}
 		
-		if(wasUISelectHidden) {
-			uiSelect.style.display = "none" ;
-			uiContainer.style.marginLeft = "0px";
-		} else {
-			uiContainer.style.marginLeft = "210px";
-		}
-		
-		for(var i = 0; i < hiddenAncestors.length; i++) {
-			hiddenAncestors[i].style.display = "none" ;
-		}		
-//		if(viewLayoutTag && wasHiddenView) {
-//			viewLayoutTag.style.display = "none" ;
-//		}
+
 	},
 	
 	createTarget : function(width, height) {
@@ -407,8 +357,8 @@ eXo.webui.UIDashboard = {
 		var DOMUtil = eXo.core.DOMUtil;
 		var uiDashboardPortlet = DOMUtil.findAncestorByClass(comp, "UIDashboard");
 		var portletFragment = DOMUtil.findAncestorByClass(uiDashboardPortlet, "PORTLET-FRAGMENT");
-		var uiSelectContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardSelectContainer");
-		var uiContainer = DOMUtil.findFirstChildByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
+		var uiSelectContainer = DOMUtil.findFirstDescendantByClass(uiDashboardPortlet, "div", "UIDashboardSelectContainer");
+		var uiContainer = DOMUtil.findFirstDescendantByClass(uiDashboardPortlet, "div", "UIDashboardContainer");
 		
 		var portletId = portletFragment.parentNode.id;
 		
@@ -421,12 +371,13 @@ eXo.webui.UIDashboard = {
 			uiSelectContainer.style.display = "none";
 			url += '&isShow=false';
 			addButton.style.visibility = "visible";
+			uiContainer.style.marginLeft = "0px" ;
 		} else {
 			uiSelectContainer.style.display = "block";
 			url += '&isShow=true';
 			addButton.style.visibility = "hidden";
+			uiContainer.style.marginLeft = "211px" ;
 		}
-		eXo.webui.UIDashboard.initHeight(portletId);
 		ajaxAsyncGetRequest(url, false);
 	}, 
 	
@@ -449,7 +400,6 @@ eXo.webui.UIDashboard = {
 			DOMUtil.findFirstChildByClass(category, "div", "GadgetTab").className = "GadgetTab " + normalStyle;
 			categoryContent.style.display = "none";
 		}
-		eXo.webui.UIDashboard.initHeight(DOMUtil.findAncestorByClass(category, "PORTLET-FRAGMENT").parentNode.id) ;
 	},
 	
 	enableContainer : function(elemt) {
@@ -474,36 +424,36 @@ eXo.webui.UIDashboard = {
 		var DOMUtil = eXo.core.DOMUtil;
 		var dashboardUtil = eXo.webui.UIDashboardUtil;
 		var uiDashboard = DOMUtil.findAncestorByClass(dragObj, "UIDashboard");
-		var dbContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "DashboardContainer");
-		var colCont = DOMUtil.findFirstChildByClass(dbContainer, "div", "UIColumns");
+		var gadgetContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "GadgetContainer");
+		var colCont = DOMUtil.findFirstChildByClass(gadgetContainer, "div", "UIColumns");
 		
 		if(!DOMUtil.findFirstDescendantByClass(colCont, "div", "UITarget")) return;
 		
-		var visibleWidth = dbContainer.offsetWidth;
-		var visibleHeight = dbContainer.offsetHeight;
+		var visibleWidth = gadgetContainer.offsetWidth;
+		var visibleHeight = gadgetContainer.offsetHeight;
 		var trueWidth = colCont.offsetWidth;
 		var trueHeight = colCont.offsetHeight;
 		
-		var objLeft = dashboardUtil.findPosXInContainer(dragObj, dbContainer);
+		var objLeft = dashboardUtil.findPosXInContainer(dragObj, gadgetContainer);
 		var objRight = objLeft + dragObj.offsetWidth;
-		var objTop = dashboardUtil.findPosYInContainer(dragObj, dbContainer);
+		var objTop = dashboardUtil.findPosYInContainer(dragObj, gadgetContainer);
 		var objBottom = objTop + dragObj.offsetHeight;
 		
 		//controls horizontal scroll
-		var deltaX = dbContainer.scrollLeft;
+		var deltaX = gadgetContainer.scrollLeft;
 		if((trueWidth - (visibleWidth + deltaX) > 0) && objRight > visibleWidth) {
-			dbContainer.scrollLeft += 5;
+			gadgetContainer.scrollLeft += 5;
 		} else {
-			if(objLeft < 0 && deltaX > 0) dbContainer.scrollLeft -= 5;
+			if(objLeft < 0 && deltaX > 0) gadgetContainer.scrollLeft -= 5;
 		}
 		
 		//controls vertical scroll
-		var buttonHeight = DOMUtil.findFirstChildByClass(dbContainer, "div", "ContainerControlBarL").offsetHeight;
-		var deltaY = dbContainer.scrollTop;
+		var buttonHeight = DOMUtil.findFirstChildByClass(gadgetContainer, "div", "ContainerControlBarL").offsetHeight;
+		var deltaY = gadgetContainer.scrollTop;
 		if((trueHeight - (visibleHeight -10 - buttonHeight + deltaY) > 0) && objBottom > visibleHeight) {
-			dbContainer.scrollTop += 5;
+			gadgetContainer.scrollTop += 5;
 		}	else {
-			if(objTop < 0 && deltaY > 0) dbContainer.scrollTop -= 5;
+			if(objTop < 0 && deltaY > 0) gadgetContainer.scrollTop -= 5;
 		}
 	}	
 	
