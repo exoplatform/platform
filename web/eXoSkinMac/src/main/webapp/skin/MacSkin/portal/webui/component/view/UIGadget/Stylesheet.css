@@ -56,6 +56,10 @@
 	background-position: left -91px;
 }
 
+.UIGadget .GadgetControl .RestoreGadget {
+	background-position: left -104px;
+}
+
 .UIGadget .GadgetControl .EditGadget {
 	background-position: right -78px;
 }

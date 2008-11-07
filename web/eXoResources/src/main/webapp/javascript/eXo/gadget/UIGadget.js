@@ -6,13 +6,13 @@ eXo.gadget.UIGadget = {
 		//window.gadgets = eXo.gadget.Gadgets;
 	
 		if (!eXo.gadgets || !eXo.gadgets.rpc) {
-	    	eXo.core.Using.register('rpc','/eXoGadgetServer/gadgets/js/rpc.js?amp;c=1&amp;debug=1&amp;p=1');
-	    	eXo.core.Using.register('eXo.gadgets.Gadgets','/eXoGadgets/javascript/eXo/gadgets/Gadgets.js');
-	    	eXo.core.Using.register('eXo.gadgets.ExoBasedUserPrefStore','/eXoGadgets/javascript/eXo/gadgets/ExoBasedUserPrefStore.js');
-	
-	    	eXo.core.Using("rpc");
+    	eXo.core.Using.register('rpc','/eXoGadgetServer/gadgets/js/rpc.js?amp;c=1&amp;debug=1&amp;p=1');
+    	eXo.core.Using.register('eXo.gadgets.Gadgets','/eXoGadgets/javascript/eXo/gadgets/Gadgets.js');
+    	eXo.core.Using.register('eXo.gadgets.ExoBasedUserPrefStore','/eXoGadgets/javascript/eXo/gadgets/ExoBasedUserPrefStore.js');
+
+    	eXo.core.Using("rpc");
 			eXo.core.Using("eXo.gadgets.Gadgets");
-	  		eXo.core.Using("eXo.gadgets.ExoBasedUserPrefStore");
+  		eXo.core.Using("eXo.gadgets.ExoBasedUserPrefStore");
 		}
 		var gadget;
 		if (metadata != null) {

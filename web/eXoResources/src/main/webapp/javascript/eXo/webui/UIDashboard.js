@@ -245,6 +245,7 @@ eXo.webui.UIDashboard = {
 		var gadgetContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "GadgetContainer");
 		uiDashboard.style.overflow = "hidden";
 		portletFragment.style.overflow = "hidden" ;
+		if(eXo.core.Browser.isIE6()) gadgetContainer.style.width = "99.5%";
 		
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
 		if(uiSelect.style.display != "none") {
@@ -262,8 +263,8 @@ eXo.webui.UIDashboard = {
 		}
 		colsContainer.style.width = colsSize*320 + 20 + "px";
 
-		eXo.webui.UIDashboard.initDragDrop(windowId) ;
 		eXo.webui.UIDashboard.initHeight(windowId) ;
+		setTimeout("eXo.webui.UIDashboard.initDragDrop('" + windowId + "');", 300) ;
 	},
 	
 	initDragDrop : function(windowId) {
