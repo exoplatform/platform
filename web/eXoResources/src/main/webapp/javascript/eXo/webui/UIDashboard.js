@@ -239,7 +239,6 @@ eXo.webui.UIDashboard = {
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(portletWindow, "div", "UIDashboard");
 		var portletFragment = DOMUtil.findAncestorByClass(uiDashboard, "PORTLET-FRAGMENT") ;
 		var uiContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardContainer");
-		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer") ;
 		if(!uiContainer) return;
 		
 		var gadgetContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "GadgetContainer");
@@ -248,10 +247,10 @@ eXo.webui.UIDashboard = {
 		if(eXo.core.Browser.isIE6()) gadgetContainer.style.width = "99.5%";
 		
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
-		if(uiSelect.style.display != "none") {
-			uiContainer.style.marginLeft = "211px" ;
+		if(!uiSelect || uiSelect.style.display == "none") {
+			uiContainer.style.marginLeft = "0px" ;
 		} else {
-			uiContainer.style.marginLeft = "0px" ;	
+			uiContainer.style.marginLeft = "211px" ;	
 		}
 		
 		var gadgetContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "GadgetContainer");
@@ -290,14 +289,14 @@ eXo.webui.UIDashboard = {
 		var portletFragment = DOMUtil.findAncestorByClass(uiDashboard, "PORTLET-FRAGMENT") ;
 		
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
-		var uiContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardContainer");
 		
-		if(document.getElementById("UIPageDesktop")) {
+		if(uiSelect && document.getElementById("UIPageDesktop")) {
 			var itemCont = DOMUtil.findFirstChildByClass(uiSelect, "div", "DashboardItemContainer");
 			var middleItemCont = DOMUtil.findFirstDescendantByClass(uiSelect, "div", "MiddleItemContainer");
 			var topItemCont = DOMUtil.findNextElementByTagName(middleItemCont, "div");
 			var bottomItemCont = DOMUtil.findPreviousElementByTagName(middleItemCont, "div");
 			
+			var uiContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardContainer");
 			
 			var minusHeight = 0 ;
 			var minusHeightEle = DOMUtil.findPreviousElementByTagName(middleItemCont.parentNode, "div") ; 
@@ -330,9 +329,6 @@ eXo.webui.UIDashboard = {
 				bottomItemCont.style.display = "none";
 			}
 		}
-		
-		
-
 	},
 	
 	createTarget : function(width, height) {
@@ -449,7 +445,9 @@ eXo.webui.UIDashboard = {
 		}
 		
 		//controls vertical scroll
-		var buttonHeight = DOMUtil.findFirstChildByClass(gadgetContainer, "div", "ContainerControlBarL").offsetHeight;
+		var controlBar = DOMUtil.findFirstChildByClass(gadgetContainer, "div", "ContainerControlBarL");
+		var buttonHeight = 0 ;
+		if(controlBar) buttonHeight = controlBar.offsetHeight;
 		var deltaY = gadgetContainer.scrollTop;
 		if((trueHeight - (visibleHeight -10 - buttonHeight + deltaY) > 0) && objBottom > visibleHeight) {
 			gadgetContainer.scrollTop += 5;
