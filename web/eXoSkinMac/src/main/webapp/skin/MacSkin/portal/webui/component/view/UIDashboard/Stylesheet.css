@@ -25,6 +25,7 @@
 	color: #5b5b5b;
 	font-weight: bold;
 	cursor: move;
+	overflow: hidden;
 }
 
 .UIDashboard .UIDashboardEditForm {
