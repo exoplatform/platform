@@ -149,13 +149,15 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     RegistryEntry entry ;
     try {
       entry = regService_.getEntry(sessionProvider, categoryPath + "/" + CATEGORY_DATA) ;
+      mapper_.map(entry.getDocument(), category) ;
+      regService_.recreateEntry(sessionProvider, categoryPath, entry) ;
     } catch (PathNotFoundException ie) {
       entry = new RegistryEntry(CATEGORY_DATA) ;
+      mapper_.map(entry.getDocument(), category) ;
       regService_.createEntry(sessionProvider, categoryPath, entry) ;
+    } finally {
+      sessionProvider.close() ;
     }
-    mapper_.map(entry.getDocument(), category) ;
-    regService_.recreateEntry(sessionProvider, categoryPath, entry) ;
-    sessionProvider.close() ;
   }
   
   public void remove(ApplicationCategory category) throws Exception {
@@ -221,7 +223,6 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return getApplications(category, null, appTypes);
   }
   
-  @SuppressWarnings("unchecked")
   public List<Application> getApplications(ApplicationCategory category,
                                            Comparator<Application> sortComparator,
                                            String... appTypes) throws Exception {
@@ -347,12 +348,13 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     String appName = application.getApplicationName() ;
     try {
       entry = regService_.getEntry(sessionProvider, applicationSetPath + "/" + appName) ;
+      mapper_.map(entry.getDocument(), application) ;
+      regService_.recreateEntry(sessionProvider, applicationSetPath, entry) ;
     } catch (PathNotFoundException ie) {
       entry = new RegistryEntry(appName) ;
+      mapper_.map(entry.getDocument(), application) ;
       regService_.createEntry(sessionProvider, applicationSetPath, entry) ;
     }
-    mapper_.map(entry.getDocument(), application) ;
-    regService_.recreateEntry(sessionProvider, applicationSetPath, entry) ;
     sessionProvider.close() ;
   }
 

@@ -2,6 +2,7 @@
 	def webApps = uicomponent.getWebApps();
 	def portletTypes = uicomponent.getPortletTypes();
 	String selectedType = uicomponent.getSelectedType();
+	def selectedPortlet = uicomponent.getSelectedPortlet();
 %>
 <div class="UIPortletManagement" id="$uicomponent.id">
 	<div class="AppRegistryContainer">
@@ -18,13 +19,22 @@
 		   	    	<div class="UIVerticalSlideTabs">
 		   	    		<div class="UIVTab VTabSimpleStyle">
 								  <div class="UIVTabContent" style="display: block">
+								  <%
+								   	boolean isSelected = false;
+								   	String cssClass;
+								  %>
 								  <% for(app in webApps) {%>
 										<div class="ListCategory SelectedCategory">
 											<div class="CategoryLable"><%= app.getName() %></div>
 											
 											<div class="ListItem">
-											<% for(portlet in app.getPortlets()) {%>
-												<a class="Item" onclick="<%= uicomponent.event("SelectPortlet", portlet.getId()) %>"><%= portlet.getDisplayName() %></a>
+											<% for(portlet in app.getPortlets()) {
+												if(!isSelected && portlet.getId().equals(selectedPortlet.getId())) {
+													cssClass = "Item";
+													isSelected = true;
+												} else cssClass = "Item";
+											%>
+												<a class="$cssClass" onclick="<%= uicomponent.event("SelectPortlet", portlet.getId()) %>"><%= portlet.getDisplayName() %></a>
 											<% } %>
 											</div>
 											

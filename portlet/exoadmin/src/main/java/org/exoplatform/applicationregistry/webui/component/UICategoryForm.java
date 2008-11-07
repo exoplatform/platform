@@ -134,7 +134,7 @@ public class UICategoryForm extends UIFormTabPane {
       if(category == uiForm.getCategory()) {
         category.setModifiedDate(new Date()) ;
       }else {
-        ApplicationCategory existCategory = uiOrganizer.getCategory(category.getName()) ; 
+        ApplicationCategory existCategory = service.getApplicationCategory(category.getName()); 
         if(existCategory != null) {
           UIApplication uiApp = event.getRequestContext().getUIApplication() ;
           uiApp.addMessage(new ApplicationMessage("UICategoryForm.msg.SameName", null)) ;
@@ -147,7 +147,6 @@ public class UICategoryForm extends UIFormTabPane {
       uiForm.setValue(null) ;
       uiOrganizer.initApplicationCategories();
       uiOrganizer.setSelectedCategory(category.getName());
-      uiOrganizer.removeChild(UICategoryForm.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
   }
