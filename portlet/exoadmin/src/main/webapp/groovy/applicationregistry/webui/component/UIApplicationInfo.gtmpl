@@ -15,7 +15,7 @@ String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.pn
 	</div>
   <div class="Application">
   		<div class="PortletIcons">
-  				<img src="$srcBG" onError="src='$srcBGError'"/>
+  				<img src="$srcBG" onError="src='$srcBGError'" alt=""/>
   		</div>
   		<div class="ApplicationContent">
   		  <div class="TitleBarApplication">

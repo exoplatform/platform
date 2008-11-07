@@ -167,19 +167,19 @@ public class UITree extends UIComponent {
     String actionLink = event("ChangeNode", objId);
     StringBuilder builder = new StringBuilder();
     if(nodeIcon.equals(expandIcon)) {
-      builder.append(" <a class=\"").append(nodeIcon).append("\" href=\"").append(actionLink).append("\">") ;
+      builder.append(" <div class=\"").append(nodeIcon).append("\" onclick=\"").append(actionLink).append("\">") ;
     }
     else {
-      builder.append(" <a class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\">") ;
+      builder.append(" <div class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\">") ;
     }
     if(uiPopupMenu_ == null) {
-      builder.append(" <div class=\"NodeIcon ").append(iconGroup).append(note).append("\"").append(" title=\"").append(getFieldValue(obj, beanLabelField_)).append("\"").append(">").append(getFieldValue(obj, beanLabelField_)).append("</div>") ;
+      builder.append(" <a href=\"javascript:void(0);\" class=\"NodeIcon ").append(iconGroup).append(note).append("\"").append(" title=\"").append(getFieldValue(obj, beanLabelField_)).append("\"").append(">").append(getFieldValue(obj, beanLabelField_)).append("</a>") ;
     }
     else {
-      builder.append("<div class=\"NodeIcon ").append(iconGroup).append(note).append("\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null)).append(" title=\"").append(getFieldValue(obj, beanLabelField_)).append("\"").append(">")
-              .append(getFieldValue(obj, beanLabelField_)).append("</div>") ;
+      builder.append("<a href=\"javascript:void(0);\" class=\"NodeIcon ").append(iconGroup).append(note).append("\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null)).append(" title=\"").append(getFieldValue(obj, beanLabelField_)).append("\"").append(">")
+              .append(getFieldValue(obj, beanLabelField_)).append("</a>") ;
     }
-    builder.append(" </a>") ;
+    builder.append(" </div>") ;
     return builder.toString();
   }
   

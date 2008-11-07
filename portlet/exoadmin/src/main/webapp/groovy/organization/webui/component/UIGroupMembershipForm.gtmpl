@@ -21,7 +21,7 @@
   	        <td class="FieldLabel"><%=_ctx.appRes(uicomponent.getName() + ".label.username")%></td>
   	        <td class="FieldComponent" >
   	        	<div style="float: left;"><% uiform.renderField(name) %></div>
- 	            <a class="Icon SearchIcon" href="<%=uicomponent.event("SearchUser")%>" title="<%=_ctx.appRes(uicomponent.getName() + ".label.SearchUser")%>"><span></span></a>
+ 	            <a class="Icon SearchIcon" href="<%=uicomponent.event("SearchUser")%>" title="<%=_ctx.appRes(uicomponent.getName() + ".label.SearchUser")%>"></a>
  	            <div style="clear: left;"><span></span></div>
   	        </td>
           </tr>
@@ -29,7 +29,7 @@
             <td class="FieldLabel"><%=_ctx.appRes(uicomponent.getName() + ".label.membership")%></td>
             <td class="FieldComponent">
             	<% uiform.renderField(membership) %>
-              <a class="Icon Refresh16x16Icon" href="<%=uicomponent.event("Refresh")%>" title="<%=_ctx.appRes(uicomponent.getName() + ".label.Refresh")%>"><span></span></a>
+              <a class="Icon Refresh16x16Icon" href="<%=uicomponent.event("Refresh")%>" title="<%=_ctx.appRes(uicomponent.getName() + ".label.Refresh")%>"></a>
             </td>
           </tr>
       </table>

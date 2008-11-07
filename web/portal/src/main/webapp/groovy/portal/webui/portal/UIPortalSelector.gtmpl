@@ -59,9 +59,8 @@
         	
       <%}%>
       <%if(beanActions != null && beanActions.length > 0) { %>
-	      <td align="center">         
-	        <div class="ActionContainer" style="margin: 0px auto;">
-	          <div class="OverflowContainer" style="margin: auto;">          
+	      <td>         
+	        <div class="ActionContainer">
 	          <%	          
 	            def beanIdField = uicomponent.getBeanIdField() ;      
 	            def access = rcontext.getAccessPath();
@@ -70,7 +69,7 @@
 	            for(action in beanActions) { 
 	              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
 	          %>     
-		            <a href="javascript:eXo.portal.UIPortal.changePortal('<%=accessPath%>', '<%=beanId%>');" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>"><img src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon" /></a>	           
+		          <img onclick="javascript:eXo.portal.UIPortal.changePortal('<%=accessPath%>', '<%=beanId%>');" title = "<%=_ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action)%>" src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon" />          
 	          <%}%>                 
 	          </div>
 	        </div>

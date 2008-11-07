@@ -10,7 +10,7 @@ table {
 	width: 100% ;
 	border-spacing:	0px ;
 	border-collapse: collapse ;
-	padding: 0px ; margin: 0px ;
+	padding: 0px ; margin: 0px auto;
 }
 
 th, td {
@@ -20,7 +20,7 @@ th, td {
 
 img {
 	padding: 0px ; margin: 0px ; border: none ;
-	vertical-align: bottom;
+	vertical-align: middle;
 }
 
 form {

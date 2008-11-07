@@ -13,7 +13,7 @@
   DateFormat dateFormat = null;
 %>
 <div id="$uicomponent.id">
-	<table class="UIGrid" cellspacing="0" borderspacing="0">
+	<table class="UIGrid" cellspacing="0">
 	  <thead>
 	  	<tr>
 	      <%if(name != null) {%>
@@ -37,7 +37,7 @@
 	  <tbody>
 	  <%if(uicomponent.getUIPageIterator().getAvailable() < 1) {%>
 	    <tr>
-	      <td align="center" style="font-style:italic; color: #FF5604" colspan="<%=beanFields.length+1%>">
+	      <td style="font-style:italic; color: #FF5604; text-align: center;" colspan="<%=beanFields.length+1%>">
 	        <%=_ctx.appRes("UIGrid.msg.empty")%>
 	      </td>
 	    </tr>  
@@ -62,22 +62,21 @@
 			          cssClass = "Datetime" ;
 			          fieldValue = dateFormat.format(fieldValue);
 			        } 
-			        else cssClass = "text" ;
+			        else cssClass = "Text" ;
 			      } else {
 			      	fieldValue = "";
 			      }
 			      String value = fieldValue.toString();
-			      if(value.length() > uicomponent.getDisplayedChars()){
-				      println "<td class=\""+cssClass+"\" title='"+value+"'>"+value.substring(0, uicomponent.getDisplayedChars()-3)+"...</td>";				      
-			      } else {
-				      println "<td class=\""+cssClass+"\">"+fieldValue+"</td>";
-				    }
+			      //if(value.length() > uicomponent.getDisplayedChars()){
+				    //  println "<td class=\""+cssClass+"\" title='"+value+"'>"+value.substring(0, uicomponent.getDisplayedChars()-3)+"...</td>";				      
+			      //} else {
+				      println "<td><div class=\""+cssClass+"\">"+fieldValue+"</div></td>";
+				    //}
 		      }  
 	        if(beanActions != null && beanActions.length > 0) { 
 	  %>
-				  <td align="center">
-		        <div class="ActionContainer" style="margin: 0px auto;">
-		          <div class="OverflowContainer" style="margin: auto;">          
+				  <td>
+		        <div class="ActionContainer">
 		          <%
 		            def beanIdField = uicomponent.getBeanIdField() ;           
 		            for(action in beanActions) { 
@@ -91,9 +90,8 @@
 		                actionLink = uiParent.event(action, beanId);
 		              }
 			        %>	           
-			            <a href="$actionLink" title="$title"><img src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon" /></a>		          
+			            <img onclick="$actionLink" alt="" title="$title" src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon" />
 		          <%}%>                 
-		          </div>
 		        </div>
 		      </td>
 	  <%

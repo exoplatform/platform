@@ -51,9 +51,7 @@
 					  	          if(uicomponent.isDeleteOnly()) { %>
 						  	          <div class="InforField">
 						  	            <span class="ActionField"><%=listInfor[j]%></span>  
-                            <a href="javascript:eXo.webui.UIForm.submitEvent('<%=formName%>', '<%=actionInfo[0]%>', '&objectId=<%=j%>');" onclick="return confirm('<%=confirm%>');">
-						                  <img class="DeleteIconInfo" src="/eXoResources/skin/DefaultSkin/background/Blank.gif" alt="" />
-						                </a>
+						                <img onclick="if(confirm('<%=confirm%>')) eXo.webui.UIForm.submitEvent('<%=formName%>', '<%=actionInfo[1]%>', '&objectId=<%=arrInfor[i]%>');" alt="" class="DeleteIconInfo" src="/eXoResources/skin/DefaultSkin/background/Blank.gif"/>
 						              </div>	
 						        <%
 					              }
@@ -72,18 +70,14 @@
 								                <div class="ActionField">
 								                  <%=arrInfor[i]%>
 								                </div>      	          
-									              <a href="javascript:eXo.webui.UIForm.submitEvent('<%=formName%>', '<%=actionInfo[0]%>', '&objectId=<%=arrInfor[i]%>');" onclick="return confirm('<%=confirm%>');">
-									                <div class="DeleteIconInfo"><span></span></div>		                  
-									              </a>
+									              <img onclick="if(confirm('<%=confirm%>')) eXo.webui.UIForm.submitEvent('<%=formName%>', '<%=actionInfo[0]%>', '&objectId=<%=arrInfor[i]%>');" alt="" class="DeleteIconInfo" src="/eXoResources/skin/DefaultSkin/background/Blank.gif"/>                     
 							              <%} else { %>
 						                    <div class="ActionField" style="float:left;">
 								                  [ <a href="javascript:eXo.webui.UIForm.submitEvent('<%=formName%>', '<%=actionInfo[0]%>', '&objectId=<%=arrInfor[i]%>');">
 								                      <%=arrInfor[i]%>
 								                  </a> ]
 								                </div>
-									              <a href="javascript:eXo.webui.UIForm.submitEvent('<%=formName%>', '<%=actionInfo[1]%>', '&objectId=<%=arrInfor[i]%>');" onclick="return confirm('<%=confirm%>');">
-  									              <img class="DeleteIconInfo" src="/eXoResources/skin/DefaultSkin/background/Blank.gif" alt="" />
-									              </a>
+  									              <img onclick="if(confirm('<%=confirm%>')) eXo.webui.UIForm.submitEvent('<%=formName%>', '<%=actionInfo[1]%>', '&objectId=<%=arrInfor[i]%>');" alt="" class="DeleteIconInfo" src="/eXoResources/skin/DefaultSkin/background/Blank.gif"/>                
 									              <div style="clear:left"><span></span></div>
 							              <%
 							                }
@@ -123,18 +117,14 @@
 							        if(actionField != null && actionField.length > 0) {
 							          for(i in 0..actionField.length -1) {
 							      %>      
-						              <a href="javascript:eXo.webui.UIForm.submitForm('<%=formName%>', '<%=actionField[i]%>', true)" title="<%=_ctx.appRes(uicomponent.getId() + ".title." + actionField[i])%>">
-						                <img class="AddIcon16x16 <%=actionField[i]%>Icon" src="/eXoResources/skin/DefaultSkin/background/Blank.gif" alt="" />
-						              </a>
+						                <img onclick="eXo.webui.UIForm.submitForm('<%=formName%>', '<%=actionField[i]%>', true)" class="AddIcon16x16 <%=actionField[i]%>Icon" alt="<%=_ctx.appRes(uicomponent.getId() + ".title." + actionField[i])%>" src="/eXoResources/skin/DefaultSkin/background/Blank.gif"/>
 							      <%
 						            }
 							        }
 						        } else if(isShowAction) {						        	 
 							        for(String action : uicomponent.getFieldActions(inputEntry.getName())) {
 							      %>      
-						              <a href="javascript:eXo.webui.UIForm.submitForm('<%=formName%>', '<%=action%>', true)" title="<%=_ctx.appRes(uicomponent.getId() + ".title." + action)%>">
-						               <img class="AddIcon16x16 <%=action%>Icon" class="AddIcon16x16 <%=action%>Icon" src="/eXoResources/skin/DefaultSkin/background/Blank.gif" alt="" />
-						              </a>
+						          	<img onclick="eXo.webui.UIForm.submitForm('<%=formName%>', '<%=action%>', true)" class="AddIcon16x16 <%=action%>Icon" alt="<%=_ctx.appRes(uicomponent.getId() + ".title." + action)%>" src="/eXoResources/skin/DefaultSkin/background/Blank.gif"/>
 							      <%
 						          }
 						        }

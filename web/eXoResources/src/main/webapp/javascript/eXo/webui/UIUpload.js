@@ -44,7 +44,7 @@ UIUpload.prototype.createUploadEntry = function(uploadId, isAutoUpload) {
   	idoc.write("    <input type='file' name='file' id='file' value='' onchange='eXo.webui.UIUpload.upload(this, "+uploadId+")' onkeypress='return false;' />");
   }else{
 		idoc.write("    <input type='file' name='file' id='file' value='' onkeypress='return false;' />");
-	  idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' src='/eXoResources/skin/sharedImages/Blank.gif'/>");  	
+	  idoc.write("    <img class='UploadButton' onclick='eXo.webui.UIUpload.upload(this, "+uploadId+")' alt='' src='/eXoResources/skin/sharedImages/Blank.gif'/>");  	
   }
   idoc.write("  </form>");
   idoc.write("</body>");

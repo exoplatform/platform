@@ -79,7 +79,7 @@
                         <div class="Application">
 	                        <div class="ApplicationDescription">
 		                        <div onclick="$addApplicationURL" title="<%= application.getDisplayName() %>" class="PortletIcon">
-		                            <span><img src="/$srcBG" onError="src='$srcNormalBG'" /></span>
+		                            <span><img src="/$srcBG" alt="" onError="src='$srcNormalBG'" /></span>
 		                        </div>
 		                        <div class="ApplicationContent">
 	                            <div class="TitleBarApplication">

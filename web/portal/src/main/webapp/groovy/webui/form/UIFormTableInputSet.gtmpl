@@ -1,6 +1,6 @@
 <%import org.exoplatform.webui.core.UIComponent ;%>
 <div class="UIFormTableInputSet">
-	<table  class="UIGrid" cellspacing="0" borderspacing="0">
+	<table class="UIGrid" cellspacing="0" borderspacing="0">
 	  <thead>
 	    <tr>
 	      <%

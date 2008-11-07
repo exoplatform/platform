@@ -14,7 +14,7 @@
 	</div>
  	<div class="Application">
   	<div class="PortletIcons">
-  			<img src="<%= gadget.getThumbnail() %>"/>
+  			<img src="<%= gadget.getThumbnail() %>" alt=""/>
   	</div>
   	<div class="ApplicationContent">
 		  <div class="TitleBarApplication">

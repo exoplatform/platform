@@ -120,13 +120,13 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
 
       if(i == size - 1) {
         if(size >= 2){
-          writer.append("<a href=\"");
-          writer.append(uiForm.event("Remove", getId()+String.valueOf(i))).append("\" title=\"Remove Item\">");
-          writer.append("<img class=\"MultiFieldAction Remove16x16Icon\" src=\"/eXoResources/skin/sharedImages/Blank.gif\" ></a>");
+          writer.append("<img onclick=\""); 
+          writer.append(uiForm.event("Remove", getId()+String.valueOf(i))).append("\" title=\"Remove Item\" alt=\"\"");
+          writer.append(" class=\"MultiFieldAction Remove16x16Icon\" src=\"/eXoResources/skin/sharedImages/Blank.gif\" />");
         }
-        writer.append("<a href=\"");
-        writer.append(uiForm.event("Add", getId())).append("\" title=\"Add Item\">");
-        writer.append("<img class=\"MultiFieldAction AddNewNodeIcon\" src=\"/eXoResources/skin/sharedImages/Blank.gif\" ></a>");
+        writer.append("<img onclick=\"");
+        writer.append(uiForm.event("Add", getId())).append("\" title=\"Add Item\" alt=\"\"");
+        writer.append(" class=\"MultiFieldAction AddNewNodeIcon\" src=\"/eXoResources/skin/sharedImages/Blank.gif\" />");
       }      
       writer.append("</div>") ;
     }    

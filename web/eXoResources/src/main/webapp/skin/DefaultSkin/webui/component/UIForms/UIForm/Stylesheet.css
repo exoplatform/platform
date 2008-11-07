@@ -91,6 +91,7 @@
 .UIForm .HorizontalLayout textarea {
 	width: 235px ;	height: 75px ;
 	font-size: 11px;
+	border: 1px solid #b7b7b7;
 }
 
 .UIForm .HorizontalLayout select {
@@ -152,6 +153,11 @@
 .UIForm .VerticalLayout select {
 	width: 170px ;
 	font-size: 11px; 
+}
+
+/*####################- UIFormInputSet -#################*/
+.UIFormInputSet .UIFormInputSetWithAction .UIFormGrid td {
+	padding: 0px 4px;
 }
 
 /*####################- UIPermissionForm -#################*/

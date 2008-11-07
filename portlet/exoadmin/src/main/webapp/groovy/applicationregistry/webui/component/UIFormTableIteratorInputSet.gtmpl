@@ -32,7 +32,7 @@
 				<tr class="$rowClass">
 				  <%for(i in 0..size-1){%>
 				  	<% if(UIFormCheckBoxInput.class.isInstance(child.getChild(i))) { %>
-				  	<td align="center"><%child.renderChild(i);%></td>  
+				  	<td><div style="text-align: center"><%child.renderChild(i);%></div></td>  
 				  	<% } else { %>			  
 	  			  <td class="text"><%child.renderChild(i);%></td>  
 				  	<% } %>

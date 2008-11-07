@@ -81,27 +81,30 @@
 	</div>
 	
 	<div class="UIAction">
-		<table class="ActionContainer" align="center">
+		<table class="ActionContainer">
 			<tr>
-
-				<td align="center">
-					<a class="ActionButton LightBlueStyle" href="<%=uicomponent.event("Save")%>">
+				<td>
+					<div class="ActionButton LightBlueStyle" onclick="<%=uicomponent.event("Save")%>">
 						<div class="ButtonLeft">
 							<div class="ButtonRight">
-								<div class="ButtonMiddle"><%=_ctx.appRes(uicomponent.getId() + ".action.save")%></div>
+								<div class="ButtonMiddle">
+									<a href="javascript: void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.save")%></a>
+								</div>
 							</div>
 						</div>
-					</a>
+					</div>
 				</td>
 			
-				<td align="center">
-					<a class="ActionButton LightBlueStyle" href="<%=uicomponent.event("Close")%>">
+				<td>
+					<div class="ActionButton LightBlueStyle" onclick="<%=uicomponent.event("Close")%>">
 						<div class="ButtonLeft">
 							<div class="ButtonRight">
-								<div class="ButtonMiddle"><%=_ctx.appRes(uicomponent.getId() + ".action.close")%></div>
+								<div class="ButtonMiddle">
+									<%=_ctx.appRes(uicomponent.getId() + ".action.close")%></a>
+								</div>
 							</div>
 						</div>
-					</a>
+					</div>
 				</td>				
 			</tr>
 		</table>

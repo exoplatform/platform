@@ -273,7 +273,7 @@
 /*------------------- BlueLargeToolbar style ------------------------*/
 
 .UIToolbar .BlueLargeToolbar {
-  height: 61px; line-height: 61px;
+  height: 61px;
 }
 
 .UIToolbar .BlueLargeToolbar .LeftToolbar {
@@ -288,7 +288,6 @@
 
 .UIToolbar .BlueLargeToolbar .MiddleToolbar {
   height: 61px;
-  line-height: 61px; 
   background: url('background/BlueLargeToolbar.gif') repeat-x center -61px;
 }
 

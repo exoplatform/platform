@@ -85,14 +85,15 @@ public class UIFormInputWithActions extends UIFormInputSet {
           }else {
             actionLink = ((UIComponent)getParent()).event(action.getActionListener()) ;
           }
-          w.write("<a title=\"" + actionLabel + "\" href=\"" + actionLink +"\">") ;
+          
           if(action.getActionType() == ActionData.TYPE_ICON) {
-            w.write("<img src=\"/eXoResources/skin/DefaultSkin/background/Blank.gif\" class=\"" + action.getCssIconClass()+"\"/>") ;
+            w.write("<img title=\"" + actionLabel + "\" onclick=\"" + actionLink +"\" "
+                + "src=\"/eXoResources/skin/DefaultSkin/background/Blank.gif\" class=\"" + action.getCssIconClass()+"\" alt=\"\"/>") ;
             if(action.isShowLabel) w.write(actionLabel) ;
           }else if(action.getActionType() == ActionData.TYPE_LINK){
-            w.write(actionLabel) ;
+            w.write("<a title=\"" + actionLabel + "\" href=\"" + actionLink +"\">" + actionLabel + "</a>") ;
           }
-          w.write("</a>") ; w.write("&nbsp;") ; 
+          w.write("&nbsp;") ; 
           if(action.isBreakLine()) w.write("<br/>") ; 
         }
       }

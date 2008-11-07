@@ -85,17 +85,17 @@
 		        %>
           </div>
 			    <div class="UIAction">
-			      <table class="ActionContainer" align="center">
+			      <table class="ActionContainer">
 			      	<tr>
-			     	 		<td align="center">
+			     	 		<td>
 		          		<%for(action in uicomponent.getActions()) { 
 								      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
 								      String link = uicomponent.event(action) ;
 								      if(uicomponent.hasEditMode() && selTabId.equals("") && action.contains("Save")) {
 					        %>
-									<a href="$link" class="ActionButton LightBlueStyle" style="display : none;">
+									<div onclick="$link" class="ActionButton LightBlueStyle" style="display : none;">
 										<%} else {%>
-									<a href="$link" class="ActionButton LightBlueStyle">
+									<div onclick="$link" class="ActionButton LightBlueStyle">
 										<%}%>
 									  <div class="ButtonLeft">
 										  <div class="ButtonRight">
@@ -103,16 +103,16 @@
 										  		String closeLabel = _ctx.appRes("word.close");
 										  	%>
 										    <div class="ButtonMiddle" id="$action" closeLabel="$closeLabel" cancelLabel="$actionLabel">
-									       <%=(uicomponent.hasEditMode() && selTabId.equals("")) ? closeLabel : actionLabel%>
+									        <a href="javascript:void(0);"><%=(uicomponent.hasEditMode() && selTabId.equals("")) ? closeLabel : actionLabel%></a>
 										    </div>
 										    <%} else {%>
 										    <div class="ButtonMiddle" id="$action" >
-									       $actionLabel
+									        <a href="javascript:void(0);">$actionLabel</a>
 										    </div>
 										    <%}%>
 									    </div>
 										</div>
-									</a>
+									</div>
 	            		<%}%>
            			</td>
 	          	</tr>

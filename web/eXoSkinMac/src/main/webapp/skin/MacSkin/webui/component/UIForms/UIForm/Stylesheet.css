@@ -170,6 +170,11 @@
   width: 170px;
 }
 
+/*####################- UIFormInputSet -#################*/
+.UIFormInputSet .UIFormInputSetWithAction .UIFormGrid td {
+	padding: 0px 4px;
+}
+
 /*####################- UIPermissionForm -#################*/
 
 .UIPermissionForm .UIForm .HorizontalLayout .UIAccessGroup td.FieldLabel {

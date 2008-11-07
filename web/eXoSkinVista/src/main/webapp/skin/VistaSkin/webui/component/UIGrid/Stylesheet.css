@@ -1,8 +1,8 @@
 .UIGrid {
   border: 1px solid #a3a3a3;
   border-collapse: collapse ;
-  padding-left: 1px;
-  margin: auto;
+  padding-left: 1px; margin: auto;
+  table-layout: fixed;
 }
 
 .UIGrid thead {
@@ -37,12 +37,17 @@
   background: #fdfbfb;
 }
 
+.UIGrid .ActionContainer {
+	white-space: nowrap;
+	text-align: center;
+}
+
 .UIGrid .ActionContainer a {
   margin: 0px 3px ;
   color: #024369;
 }
 
-.UIGrid .ActionContainer a img {
+.UIGrid .ActionContainer img {
   width: 24px;
   height: 24px;
   background-position: center;
@@ -50,9 +55,8 @@
   float: none;
 }
 
-table .OverflowContainer {
-	overflow: visible;
-	white-space: nowrap;
+.UIGrid .Text {
+	overflow: hidden;
 }
 
 .UIGrid .Number {
