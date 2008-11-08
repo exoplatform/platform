@@ -146,16 +146,18 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
   public void save(ApplicationCategory category) throws Exception {
     String categoryPath = getCategoryPath(category.getName()) ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry entry ;
     try {
-      entry = regService_.getEntry(sessionProvider, categoryPath + "/" + CATEGORY_DATA) ;
+      RegistryEntry entry ;
+      try {
+        entry = regService_.getEntry(sessionProvider, categoryPath + "/" + CATEGORY_DATA) ;
+      } catch (PathNotFoundException ie) {
+        entry = new RegistryEntry(CATEGORY_DATA) ;
+        regService_.createEntry(sessionProvider, categoryPath, entry) ;
+      }
       mapper_.map(entry.getDocument(), category) ;
       regService_.recreateEntry(sessionProvider, categoryPath, entry) ;
-    } catch (PathNotFoundException ie) {
-      entry = new RegistryEntry(CATEGORY_DATA) ;
-      mapper_.map(entry.getDocument(), category) ;
-      regService_.createEntry(sessionProvider, categoryPath, entry) ;
-    } finally {
+    }
+    finally {
       sessionProvider.close() ;
     }
   }
@@ -223,6 +225,7 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     return getApplications(category, null, appTypes);
   }
   
+  @SuppressWarnings("unchecked")
   public List<Application> getApplications(ApplicationCategory category,
                                            Comparator<Application> sortComparator,
                                            String... appTypes) throws Exception {
@@ -333,29 +336,32 @@ public class ApplicationRegistryServiceImpl implements ApplicationRegistryServic
     String cateName = category.getName() ;
     String categoryPath = getCategoryPath(cateName) ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry entry ;
     try {
-      entry = regService_.getEntry(sessionProvider, categoryPath + "/" + CATEGORY_DATA) ;
-    } catch (PathNotFoundException ie) {
-      entry = new RegistryEntry(CATEGORY_DATA) ;
-      mapper_.map(entry.getDocument(), category) ;
-      regService_.createEntry(sessionProvider, categoryPath, entry) ;
-    }
-    
-    //save application
-    application.setCategoryName(cateName) ;
-    String applicationSetPath = getCategoryPath(cateName) + "/" + APPLICATIONS ;
-    String appName = application.getApplicationName() ;
-    try {
-      entry = regService_.getEntry(sessionProvider, applicationSetPath + "/" + appName) ;
+      RegistryEntry entry ;
+      try {
+        entry = regService_.getEntry(sessionProvider, categoryPath + "/" + CATEGORY_DATA) ;
+      } catch (PathNotFoundException ie) {
+        entry = new RegistryEntry(CATEGORY_DATA) ;
+        mapper_.map(entry.getDocument(), category) ;
+        regService_.createEntry(sessionProvider, categoryPath, entry) ;
+      }
+
+      //save application
+      application.setCategoryName(cateName) ;
+      String applicationSetPath = getCategoryPath(cateName) + "/" + APPLICATIONS ;
+      String appName = application.getApplicationName() ;
+      try {
+        entry = regService_.getEntry(sessionProvider, applicationSetPath + "/" + appName) ;
+      } catch (PathNotFoundException ie) {
+        entry = new RegistryEntry(appName) ;
+        regService_.createEntry(sessionProvider, applicationSetPath, entry) ;
+      }
       mapper_.map(entry.getDocument(), application) ;
       regService_.recreateEntry(sessionProvider, applicationSetPath, entry) ;
-    } catch (PathNotFoundException ie) {
-      entry = new RegistryEntry(appName) ;
-      mapper_.map(entry.getDocument(), application) ;
-      regService_.createEntry(sessionProvider, applicationSetPath, entry) ;
     }
-    sessionProvider.close() ;
+    finally {
+      sessionProvider.close() ;
+    }
   }
 
   public void update(Application application) throws Exception {
