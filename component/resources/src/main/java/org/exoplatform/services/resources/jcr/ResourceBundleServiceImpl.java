@@ -71,16 +71,19 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
   public ResourceBundleData getResourceBundleData(String id) throws Exception {
     String resourceDataPath = getServiceRegistryPath() + "/" + id ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry entry ;
     try {
-      entry = regService_.getEntry(sessionProvider, resourceDataPath) ;
-    } catch (PathNotFoundException ie) {
-      sessionProvider.close() ;
-      return null ;
+      RegistryEntry entry ;
+      try {
+        entry = regService_.getEntry(sessionProvider, resourceDataPath) ;
+      } catch (PathNotFoundException ie) {
+        return null ;
+      }
+      ResourceBundleData resourceData = mapper_.toResourceBundleData(entry.getDocument()) ;
+      return resourceData ;
     }
-    ResourceBundleData resourceData = mapper_.toResourceBundleData(entry.getDocument()) ;
-    sessionProvider.close() ;
-    return resourceData ;
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   public ResourceBundleData removeResourceBundleData(String id) throws Exception {
@@ -88,51 +91,63 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
     if(resource == null) return null ;
     String resourceDataPath = getServiceRegistryPath() + "/" + id ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    regService_.removeEntry(sessionProvider, resourceDataPath) ;
-    cache_.remove(id) ;
-    sessionProvider.close() ;
-    return resource ;
+    try {
+      regService_.removeEntry(sessionProvider, resourceDataPath) ;
+      cache_.remove(id) ;
+      return resource ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   public void saveResourceBundle(ResourceBundleData resourceData) throws Exception {
     String id = resourceData.getId() ;
     String servicePath = getServiceRegistryPath() ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry entry ;
     try {
-      entry = regService_.getEntry(sessionProvider, servicePath + "/" + id) ;
-    } catch (PathNotFoundException ie) {
-      entry = new RegistryEntry(id) ;
-      regService_.createEntry(sessionProvider, servicePath, entry) ;
+      RegistryEntry entry ;
+      try {
+        entry = regService_.getEntry(sessionProvider, servicePath + "/" + id) ;
+      } catch (PathNotFoundException ie) {
+        entry = new RegistryEntry(id) ;
+        regService_.createEntry(sessionProvider, servicePath, entry) ;
+      }
+      mapper_.map(entry.getDocument(), resourceData) ;
+      regService_.recreateEntry(sessionProvider, servicePath, entry) ;
+      cache_.select(new ExpireKeyStartWithSelector(id)) ;
     }
-    mapper_.map(entry.getDocument(), resourceData) ;
-    regService_.recreateEntry(sessionProvider, servicePath, entry) ;
-    cache_.select(new ExpireKeyStartWithSelector(id)) ;
-    sessionProvider.close() ;
+    finally {
+      sessionProvider.close();
+    }
   }
   
   public PageList findResourceDescriptions(Query q) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
-    StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
-    generateScript(builder, "jcr:path", regNode.getPath() + "/" + getServiceRegistryPath() + "/%") ;
-    generateScript(builder, DataMapper.TYPE, DataMapper.LOCALE) ;
-    generateScript(builder, DataMapper.NAME, q.getName()) ;
-    generateScript(builder, DataMapper.LANGUAGE, q.getLanguage()) ;
-    Session session = regNode.getSession() ;
-    QueryManager queryManager = session.getWorkspace().getQueryManager() ;
-    javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql") ;
-    QueryResult result = query.execute() ;
-    NodeIterator itr = result.getNodes() ;
-    List<ResourceBundleData> resources = new ArrayList<ResourceBundleData>() ;
-    while(itr.hasNext()) {
-      String entryPath = itr.nextNode().getPath().substring(regNode.getPath().length() + 1) ;
-      RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
-      ResourceBundleData data = mapper_.toResourceBundleData(entry.getDocument()) ;
-      resources.add(data) ;
+    try {
+      Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
+      StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
+      generateScript(builder, "jcr:path", regNode.getPath() + "/" + getServiceRegistryPath() + "/%") ;
+      generateScript(builder, DataMapper.TYPE, DataMapper.LOCALE) ;
+      generateScript(builder, DataMapper.NAME, q.getName()) ;
+      generateScript(builder, DataMapper.LANGUAGE, q.getLanguage()) ;
+      Session session = regNode.getSession() ;
+      QueryManager queryManager = session.getWorkspace().getQueryManager() ;
+      javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql") ;
+      QueryResult result = query.execute() ;
+      NodeIterator itr = result.getNodes() ;
+      List<ResourceBundleData> resources = new ArrayList<ResourceBundleData>() ;
+      while(itr.hasNext()) {
+        String entryPath = itr.nextNode().getPath().substring(regNode.getPath().length() + 1) ;
+        RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
+        ResourceBundleData data = mapper_.toResourceBundleData(entry.getDocument()) ;
+        resources.add(data) ;
+      }
+      return new ObjectPageList(resources, 20);
     }
-    sessionProvider.close() ;
-    return new ObjectPageList(resources, 20);
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   @Override

@@ -85,51 +85,63 @@ public class DataStorageImpl implements DataStorage, Startable {
     try {
       portalEntry = regService_.getEntry(sessionProvider, portalPath) ;
     } catch (PathNotFoundException ie) {
-      sessionProvider.close() ;
       return null ;
+    } finally {
+      sessionProvider.close() ;
     }
     PortalConfig config = mapper_.toPortalConfig(portalEntry.getDocument()) ;
-    sessionProvider.close() ;
     return config ;
   }
   
   public void create(PortalConfig config) throws Exception {
     String portalAppPath = getApplicationRegistryPath(PortalConfig.PORTAL_TYPE, config.getName()) ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry portalEntry = new RegistryEntry(PORTAL_CONFIG_FILE_NAME) ;
-    mapper_.map(portalEntry.getDocument(), config) ;
-    regService_.createEntry(sessionProvider, portalAppPath, portalEntry) ;
-    //Broadcase event should be on UserPortalConfigService
-    /**
+    try {
+      RegistryEntry portalEntry = new RegistryEntry(PORTAL_CONFIG_FILE_NAME) ;
+      mapper_.map(portalEntry.getDocument(), config) ;
+      regService_.createEntry(sessionProvider, portalAppPath, portalEntry) ;
+      //Broadcase event should be on UserPortalConfigService
+      /**
      * Broadcast event should be on UserPortalConfigService
-     * but in current implement, portal use 2 component to create new portal:
-     * UserPortalConfigservice create/update/remove new portal from web ui
-     * NewPortalConfigListener create new portal from config to create some predefined portal from
-     * xml configuration. 
-     * this implement prevent us broadcast the event in UserPortalConfigService level.
-     * 
-     * */
-    listenerService.broadcast(CREATE_PORTAL_EVENT,this,config);
-    sessionProvider.close() ;
+       * but in current implement, portal use 2 component to create new portal:
+       * UserPortalConfigservice create/update/remove new portal from web ui
+       * NewPortalConfigListener create new portal from config to create some predefined portal from
+       * xml configuration.
+       * this implement prevent us broadcast the event in UserPortalConfigService level.
+       *
+       * */
+      listenerService.broadcast(CREATE_PORTAL_EVENT,this,config);
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   public void save(PortalConfig config) throws Exception {
     String portalAppPath = getApplicationRegistryPath(PortalConfig.PORTAL_TYPE, config.getName()) ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry portalEntry = regService_.getEntry(sessionProvider, portalAppPath + "/" + PORTAL_CONFIG_FILE_NAME) ;
-    mapper_.map(portalEntry.getDocument(), config) ;
-    regService_.recreateEntry(sessionProvider, portalAppPath, portalEntry) ;
-    listenerService.broadcast(UPDATE_PORTAL_EVENT,this,config);
-    sessionProvider.close() ;
+    try {
+      RegistryEntry portalEntry = regService_.getEntry(sessionProvider, portalAppPath + "/" + PORTAL_CONFIG_FILE_NAME) ;
+      mapper_.map(portalEntry.getDocument(), config) ;
+      regService_.recreateEntry(sessionProvider, portalAppPath, portalEntry) ;
+      listenerService.broadcast(UPDATE_PORTAL_EVENT,this,config);
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
 
   public void remove(PortalConfig config) throws Exception {
     String portalPath = getApplicationRegistryPath(PortalConfig.PORTAL_TYPE, config.getName())
                         + "/"  + PORTAL_CONFIG_FILE_NAME;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    regService_.removeEntry(sessionProvider, portalPath) ;
-    listenerService.broadcast(REMOVE_PORTAL_EVENT,this,config);
-    sessionProvider.close() ;
+    try {
+      regService_.removeEntry(sessionProvider, portalPath) ;
+      listenerService.broadcast(REMOVE_PORTAL_EVENT,this,config);
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
 
   public Page getPage(String pageId) throws Exception {
@@ -144,11 +156,11 @@ public class DataStorageImpl implements DataStorage, Startable {
     try {
       pageEntry = regService_.getEntry(sessionProvider, pagePath) ;      
     } catch (PathNotFoundException ie) {
-      sessionProvider.close() ;
       return null ;
+    } finally {
+      sessionProvider.close() ;
     }
     Page page = mapper_.toPageConfig(pageEntry.getDocument()) ;
-    sessionProvider.close() ;
     return page ;
   }
   
@@ -157,10 +169,14 @@ public class DataStorageImpl implements DataStorage, Startable {
     String pageSetPath = getApplicationRegistryPath(fragments[0], fragments[1])
                          + "/" + PAGE_SET_NODE ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry pageEntry = new RegistryEntry(page.getName()) ;
-    mapper_.map(pageEntry.getDocument(), page) ;
-    regService_.createEntry(sessionProvider, pageSetPath, pageEntry) ;
-    sessionProvider.close() ;
+    try {
+      RegistryEntry pageEntry = new RegistryEntry(page.getName()) ;
+      mapper_.map(pageEntry.getDocument(), page) ;
+      regService_.createEntry(sessionProvider, pageSetPath, pageEntry) ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
 
@@ -168,10 +184,14 @@ public class DataStorageImpl implements DataStorage, Startable {
     String[] fragments = page.getPageId().split("::") ;
     String pageSetPath = getApplicationRegistryPath(fragments[0], fragments[1]) + "/" + PAGE_SET_NODE ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry pageEntry = regService_.getEntry(sessionProvider, pageSetPath + "/" + page.getName()) ;
-    mapper_.map(pageEntry.getDocument(), page) ;
-    regService_.recreateEntry(sessionProvider, pageSetPath, pageEntry) ;
-    sessionProvider.close() ;
+    try {
+      RegistryEntry pageEntry = regService_.getEntry(sessionProvider, pageSetPath + "/" + page.getName()) ;
+      mapper_.map(pageEntry.getDocument(), page) ;
+      regService_.recreateEntry(sessionProvider, pageSetPath, pageEntry) ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   public void remove(Page page) throws Exception {
@@ -179,8 +199,12 @@ public class DataStorageImpl implements DataStorage, Startable {
     String pagePath = getApplicationRegistryPath(fragments[0], fragments[1])
                       + "/" + PAGE_SET_NODE + "/" + page.getName() ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    regService_.removeEntry(sessionProvider, pagePath) ;
-    sessionProvider.close() ;
+    try {
+      regService_.removeEntry(sessionProvider, pagePath) ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   public PageNavigation getPageNavigation(String fullId) throws Exception {
@@ -199,21 +223,25 @@ public class DataStorageImpl implements DataStorage, Startable {
     try {      
      navigationEntry = regService_.getEntry(sessionProvider, navigationPath) ;
     } catch (PathNotFoundException ie) {
-      sessionProvider.close() ;
       return null ;
+    } finally {
+      sessionProvider.close() ;
     }
     PageNavigation navigation = mapper_.toPageNavigation(navigationEntry.getDocument()) ;
-    sessionProvider.close() ;
     return navigation ;
   }
   
   public void create(PageNavigation navigation) throws Exception {
     String appRegPath = getApplicationRegistryPath(navigation.getOwnerType(), navigation.getOwnerId()) ; 
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry NavigationEntry = new RegistryEntry(NAVIGATION_CONFIG_FILE_NAME) ;
-    mapper_.map(NavigationEntry.getDocument(), navigation) ;
-    regService_.createEntry(sessionProvider, appRegPath, NavigationEntry) ;
-    sessionProvider.close() ;
+    try {
+      RegistryEntry NavigationEntry = new RegistryEntry(NAVIGATION_CONFIG_FILE_NAME) ;
+      mapper_.map(NavigationEntry.getDocument(), navigation) ;
+      regService_.createEntry(sessionProvider, appRegPath, NavigationEntry) ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
 
   public void save(PageNavigation navigation) throws Exception {
@@ -229,8 +257,12 @@ public class DataStorageImpl implements DataStorage, Startable {
     String navigationPath = getApplicationRegistryPath(navigation.getOwnerType(), navigation.getOwnerId())
                             + "/" + NAVIGATION_CONFIG_FILE_NAME ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    regService_.removeEntry(sessionProvider, navigationPath) ;
-    sessionProvider.close() ;;
+    try {
+      regService_.removeEntry(sessionProvider, navigationPath) ;
+    }
+    finally {
+      sessionProvider.close() ;;
+    }
   }
   
   public Gadgets getGadgets(String id) throws Exception {
@@ -245,38 +277,50 @@ public class DataStorageImpl implements DataStorage, Startable {
     try {      
       gadgetsEntry = regService_.getEntry(sessionProvider, gadgetsPath) ;
     } catch (PathNotFoundException ie) {
-      sessionProvider.close() ;
       return null ;
+    } finally {
+      sessionProvider.close() ;
     }
     Gadgets gadgets = mapper_.toGadgets(gadgetsEntry.getDocument()) ;
-    sessionProvider.close() ;
     return gadgets ;
   }
   
   public void create(Gadgets gadgets) throws Exception {
     String appRegPath = getApplicationRegistryPath(gadgets.getOwnerType(), gadgets.getOwnerId()) ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry gadgetsEntry = new RegistryEntry(GADGETS_CONFIG_FILE_NAME) ;
-    mapper_.map(gadgetsEntry.getDocument(), gadgets) ;
-    regService_.createEntry(sessionProvider, appRegPath, gadgetsEntry) ;
-    sessionProvider.close() ;
+    try {
+      RegistryEntry gadgetsEntry = new RegistryEntry(GADGETS_CONFIG_FILE_NAME) ;
+      mapper_.map(gadgetsEntry.getDocument(), gadgets) ;
+      regService_.createEntry(sessionProvider, appRegPath, gadgetsEntry) ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
 
   public void save(Gadgets gadgets) throws Exception {
     String appRegPath = getApplicationRegistryPath(gadgets.getOwnerType(), gadgets.getOwnerId()) ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry gadgetsEntry = regService_.getEntry(sessionProvider, appRegPath + "/" + GADGETS_CONFIG_FILE_NAME) ;
-    mapper_.map(gadgetsEntry.getDocument(), gadgets) ;
-    regService_.recreateEntry(sessionProvider, appRegPath, gadgetsEntry) ;
-    sessionProvider.close() ;    
+    try {
+      RegistryEntry gadgetsEntry = regService_.getEntry(sessionProvider, appRegPath + "/" + GADGETS_CONFIG_FILE_NAME) ;
+      mapper_.map(gadgetsEntry.getDocument(), gadgets) ;
+      regService_.recreateEntry(sessionProvider, appRegPath, gadgetsEntry) ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   public void remove(Gadgets gadgets) throws Exception {
     String gadgetsPath = getApplicationRegistryPath(gadgets.getOwnerType(), gadgets.getOwnerId())
                          + "/" + GADGETS_CONFIG_FILE_NAME ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    regService_.removeEntry(sessionProvider, gadgetsPath) ;
-    sessionProvider.close() ;    
+    try {
+      regService_.removeEntry(sessionProvider, gadgetsPath) ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   public PortletPreferences getPortletPreferences(WindowID windowID) throws Exception {
@@ -294,11 +338,11 @@ public class DataStorageImpl implements DataStorage, Startable {
     try {
        portletPreferencesEntry = regService_.getEntry(sessionProvider, portletPreferencesPath) ;      
     } catch (PathNotFoundException ie) {
-      sessionProvider.close() ;
       return null ;
+    } finally {
+      sessionProvider.close() ;
     }
     PortletPreferences portletPreferences = mapper_.toPortletPreferences(portletPreferencesEntry.getDocument()) ;
-    sessionProvider.close() ;
     return portletPreferences ;
   }
   
@@ -327,8 +371,12 @@ public class DataStorageImpl implements DataStorage, Startable {
                                     + "/" + PORTLET_PREFERENCES_SET_NODE
                                     + "/" + name ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    regService_.removeEntry(sessionProvider, portletPreferencesPath) ;
-    sessionProvider.close() ;
+    try {
+      regService_.removeEntry(sessionProvider, portletPreferencesPath) ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   @SuppressWarnings("unchecked")
@@ -348,20 +396,24 @@ public class DataStorageImpl implements DataStorage, Startable {
     generateScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId()) ;
     generateScript(builder, DataMapper.EXO_TITLE, q.getTitle()) ;
     Session session = regService_.getRegistry(sessionProvider).getNode().getSession() ;
-    QueryManager queryManager = session.getWorkspace().getQueryManager() ;
-    javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql") ;
-    QueryResult result = query.execute() ;
-    ArrayList<Object> list = new ArrayList<Object>() ;
-    NodeIterator itr = result.getNodes() ;
-    while(itr.hasNext()) {
-      Node node = itr.nextNode() ;
-      String entryPath = node.getPath().substring(registryNodePath.length() + 1) ;
-      RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
-      list.add(mapper_.fromDocument(entry.getDocument(), q.getClassType())) ;
+    try {
+      QueryManager queryManager = session.getWorkspace().getQueryManager() ;
+      javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql") ;
+      QueryResult result = query.execute() ;
+      ArrayList<Object> list = new ArrayList<Object>() ;
+      NodeIterator itr = result.getNodes() ;
+      while(itr.hasNext()) {
+        Node node = itr.nextNode() ;
+        String entryPath = node.getPath().substring(registryNodePath.length() + 1) ;
+        RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
+        list.add(mapper_.fromDocument(entry.getDocument(), q.getClassType())) ;
+      }
+      if(sortComparator != null) Collections.sort(list, sortComparator) ;
+      return new ObjectPageList(list, 10);
     }
-    sessionProvider.close() ;
-    if(sortComparator != null) Collections.sort(list, sortComparator) ;
-    return new ObjectPageList(list, 10);
+    finally {
+      sessionProvider.close() ;
+    }
   }
   
   public void start() {}

@@ -54,11 +54,11 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
     try {
       entry = regService_.getEntry(sessionProvider, PATH + "/" + name) ;
     } catch (PathNotFoundException pnfe) {
-      sessionProvider.close() ;
       return null ;
+    } finally {
+      sessionProvider.close() ;
     }
     Gadget gadget = mapper_.toApplciation(entry.getDocument()) ;
-    sessionProvider.close() ;    
     return gadget ;
   }
   
@@ -68,22 +68,25 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
   
   public List<Gadget> getAllGadgets(Comparator<Gadget> sortComparator) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
-    if(!regNode.hasNode(PATH)) {
+    try {
+      Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
+      if(!regNode.hasNode(PATH)) {
+        return new ArrayList<Gadget>() ;
+      }
+      NodeIterator itr = regNode.getNode(PATH).getNodes() ;
+      List<Gadget> gadgets = new ArrayList<Gadget>() ;
+      while(itr.hasNext()) {
+        String entryPath = itr.nextNode().getPath().substring(regNode.getPath().length() + 1) ;
+        RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
+        Gadget gadget = mapper_.toApplciation(entry.getDocument()) ;
+        gadgets.add(gadget) ;
+      }
+      if(sortComparator != null) Collections.sort(gadgets, sortComparator);
+      return gadgets ;
+    }
+    finally {
       sessionProvider.close() ;
-      return new ArrayList<Gadget>() ;
     }
-    NodeIterator itr = regNode.getNode(PATH).getNodes() ;
-    List<Gadget> gadgets = new ArrayList<Gadget>() ;
-    while(itr.hasNext()) {
-      String entryPath = itr.nextNode().getPath().substring(regNode.getPath().length() + 1) ;
-      RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
-      Gadget gadget = mapper_.toApplciation(entry.getDocument()) ;
-      gadgets.add(gadget) ;
-    }
-    sessionProvider.close() ;
-    if(sortComparator != null) Collections.sort(gadgets, sortComparator);
-    return gadgets ;
   }
   
   public void saveGadget(Gadget gadget) throws Exception {
@@ -104,8 +107,12 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
 
   public void removeGadget(String name) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    regService_.removeEntry(sessionProvider, PATH + "/" + name) ;
-    sessionProvider.close() ;
+    try {
+      regService_.removeEntry(sessionProvider, PATH + "/" + name) ;
+    }
+    finally {
+      sessionProvider.close() ;
+    }
   }
 
 }
