@@ -51,7 +51,7 @@ public class UILanguageSelector extends UIContainer {
   public UILanguageSelector() throws Exception  { 
     name_ = "UIChangeLanguage";    
     LocaleConfigService configService = getApplicationComponent(LocaleConfigService.class) ;
-    Locale currentLocale = Util.getUIPortal().getAncestorOfType(UIPortalApplication.class).getLocale() ; ;    
+    Locale currentLocale = Util.getPortalRequestContext().getLocale() ;    
     SelectItemOption localeItem = null ;
     List<SelectItemOption> optionsList = new ArrayList<SelectItemOption>() ;
     

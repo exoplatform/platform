@@ -25,6 +25,7 @@ import org.apache.commons.logging.Log;
 import org.exoplatform.groovyscript.text.BindingContext;
 import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.resources.Orientation;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIComponentDecorator;
@@ -47,6 +48,13 @@ public class WebuiBindingContext extends BindingContext {
     super(resolver, w) ;
     uicomponent_ =  uicomponent ;
     rcontext_ = context ;
+
+    // Add Orientation specific information
+    Orientation orientation = context.getOrientation();
+    this.put("orientation", orientation);
+    this.put("isLT", orientation.isLT());
+    this.put("isRT", orientation.isRT());
+    this.put("dir", orientation.isLT() ? "ltr" : "rtl");
   }
   
   public UIComponent getUIComponent() {  return uicomponent_ ; }

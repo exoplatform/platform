@@ -34,7 +34,6 @@ abstract public class UIApplication  extends  UIContainer {
   protected static Log log = ExoLogger.getLogger("portal:UIApplication"); 
 
   private String owner ;
-  private Locale locale_ = Locale.ENGLISH  ;
   private long lastAccessApplication_ ;
   private UIPopupMessages uiPopupMessages_ ;
 
@@ -45,9 +44,6 @@ abstract public class UIApplication  extends  UIContainer {
 
   public String getOwner() { return owner ; }  
   public void   setOwner(String s) { owner = s ; }
-
-  public Locale getLocale() {  return locale_ ; }  
-  public void   setLocale(Locale locale) { locale_ = locale ; }
 
   public UIPopupMessages getUIPopupMessages() { return uiPopupMessages_ ; }
 

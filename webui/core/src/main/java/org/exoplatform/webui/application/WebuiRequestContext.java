@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.lang.reflect.UndeclaredThrowableException;
 
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.ResourceResolver;
@@ -62,10 +63,22 @@ abstract public class WebuiRequestContext extends RequestContext {
   public UIApplication getUIApplication() { return uiApplication_ ; }  
   public void  setUIApplication(UIApplication uiApplication) throws Exception { 
     uiApplication_ = uiApplication ;
-    appRes_ = getApplication().getResourceBundle(uiApplication.getLocale()) ;   
+    appRes_ = null;
   }
 
-  public ResourceBundle getApplicationResourceBundle() {  return appRes_ ; }
+  public ResourceBundle getApplicationResourceBundle() {
+    if (appRes_ == null)
+    {
+      try {
+        Locale locale = getLocale();
+        appRes_ = getApplication().getResourceBundle(locale) ;
+      }
+      catch (Exception e) {
+        throw new UndeclaredThrowableException(e);
+      }
+    }
+    return appRes_ ;
+  }
   
   public  String getActionParameterName() {  return WebuiRequestContext.ACTION ; }
   

@@ -22,12 +22,19 @@
 
 - What is new in eXo Portal 2.5
 	- Clean up and optimize code to improve performence
+
 	- Remove completely the Widgets and use Gadgets instead
+
 	- Develop a new Application Registry, concurrently remove old Portlet Registry.
+
 	- Integrate Gadget API to exo portal.
+
 	- Develop a Dashboard portlet for Gadget Organization
+
 	- Implement the feature "forgot username and password"
+
 	- Support an option to decide whether the node will be visibled in Navigation.
+
 	- Make new Home Page skin for eXo Portal.
 
 

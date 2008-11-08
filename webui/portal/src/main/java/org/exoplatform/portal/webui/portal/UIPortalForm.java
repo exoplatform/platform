@@ -146,7 +146,7 @@ public class UIPortalForm extends UIFormTabPane {
     UIPortal uiPortal = Util.getUIPortal();
     LocaleConfigService localeConfigService  = getApplicationComponent(LocaleConfigService.class) ;
     Collection<?> listLocaleConfig = localeConfigService.getLocalConfigs() ;
-    Locale currentLocate = uiPortal.getAncestorOfType(UIPortalApplication.class).getLocale();
+    Locale currentLocate = Util.getPortalRequestContext().getLocale() ;
     Iterator<?> iterator = listLocaleConfig.iterator() ;
     while(iterator.hasNext()) {
       LocaleConfig localeConfig = (LocaleConfig) iterator.next() ;

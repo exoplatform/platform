@@ -19,6 +19,8 @@ package org.exoplatform.web.application.mvc;
 import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.web.application.URLBuilder;
+import org.exoplatform.services.resources.Orientation;
+
 /**
  * Created by The eXo Platform SAS
  * Apr 23, 2007
@@ -28,7 +30,11 @@ public class MVCRequestContext extends RequestContext {
     super(app) ;
     setParentAppRequestContext(parent) ;
   }
-  
+
+  public Orientation getOrientation() {
+    return null;
+  }
+
   public String getRequestParameter(String arg0) {
     return null ;
   }

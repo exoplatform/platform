@@ -16,22 +16,48 @@
  */
 package org.exoplatform.portal.webui.skin;
 
+import org.exoplatform.services.resources.Orientation;
+
+import java.util.Map;
+import java.util.EnumMap;
+
 /**
  * Created by The eXo Platform SAS
  * Jan 19, 2007  
  */
 public class SkinConfig {
-  private String module_ ;
-  private String cssPath_ ;
-  private String id_ ;
+
+  private final String module_ ;
+  private final String cssPath_ ;
+  private final String id_ ;
+  private final Orientation orientation_;
+  private final String virtualCSSPath_;
 
   public SkinConfig(String module, String cssPath) {
+    this(module, cssPath, Orientation.LT);
+  }
+
+  public SkinConfig(String module, String cssPath, Orientation orientation) {
     module_ = module;
     cssPath_ = cssPath;
+    orientation_ = orientation;
     id_  = module.replace('/', '_') ;
+    virtualCSSPath_ = cssPath_.replaceAll("\\.css$", SkinService.getSuffix(getOrientation()));
   }
-  
+
+  /**
+  * This method is used to compute the virtual path of a CSS, which is the
+  * actual CSS path in the war file, augmented with an orientation suffix.
+  * (e.g : "/portal/templates/skin/webui/component/UIHomePagePortlet/DefaultStylesheet-lt.css")
+  * This virtual path with be used by the browser to retrieve the CSS
+  * corresponding to the appopriate orientation.
+  *
+  * @return the augmented CSS path, containing the orientation suffix.
+  */
+  public String getVirtualCSSPath() { return virtualCSSPath_;  }
+
   public String getId() { return id_ ; }
   public String getModule(){ return module_; }
   public String getCSSPath(){ return cssPath_; }
+  public Orientation getOrientation() { return orientation_; }
 }

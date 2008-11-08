@@ -20,6 +20,15 @@
     <output-encoding>UTF-8</output-encoding>
     <input-encoding>UTF-8</input-encoding>
     <description>Default configuration for the french locale</description>
+    <orientation>rt</orientation>
+  </locale-config>
+
+  <locale-config>
+    <locale>ar</locale>
+    <output-encoding>UTF-8</output-encoding>
+    <input-encoding>UTF-8</input-encoding>
+    <description>Default configuration for the arabic locale</description>
+    <orientation>rt</orientation>
   </locale-config>
 
 </locales-config>

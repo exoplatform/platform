@@ -30,6 +30,8 @@ import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.HtmlValidator;
+import org.exoplatform.services.resources.Orientation;
+
 /**
  * The request context of a portlet
  *
@@ -77,6 +79,10 @@ public class PortletRequestContext extends WebuiRequestContext {
 
   final public String[] getRequestParameterValues(String name) {
     return request_.getParameterValues(name);
+  }
+
+  public Orientation getOrientation() {
+    return parentAppRequestContext_.getOrientation(); 
   }
 
   public String getRequestContextPath() { return  request_.getContextPath(); }

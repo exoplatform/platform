@@ -21,6 +21,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
+import org.exoplatform.services.resources.Orientation;
+
 /**
  * Created by The eXo Platform SAS
  * May 7, 2006
@@ -52,7 +54,14 @@ abstract public class RequestContext {
   public Application getApplication() { return  app_ ; }
   
   public Locale getLocale() { return parentAppRequestContext_.getLocale() ; }
-  
+
+  /**
+   * Returns the orientation for the current request.
+   *
+   * @return the orientation
+   */
+  public abstract Orientation getOrientation();
+
   public ResourceBundle getApplicationResourceBundle() { return null; }
   
   abstract  public String getRequestParameter(String name)  ;

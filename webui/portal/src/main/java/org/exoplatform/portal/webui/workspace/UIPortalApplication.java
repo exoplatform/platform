@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Locale;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
@@ -38,6 +39,7 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.services.resources.Orientation;
 import org.exoplatform.web.application.javascript.JavascriptConfigService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -66,6 +68,8 @@ public class UIPortalApplication extends UIApplication {
 
   private boolean isEditting = false ;
   private String nodePath_;
+  private Locale locale_ = Locale.ENGLISH  ;
+  private Orientation orientation_ = Orientation.LT;
 
   final static public String UI_CONTROL_WS_ID = "UIControlWorkspace" ;
   final static public String UI_WORKING_WS_ID = "UIWorkingWorkspace" ;
@@ -121,6 +125,7 @@ public class UIPortalApplication extends UIApplication {
       }
     }
     setLocale(localeConfig.getLocale()) ;
+    setOrientation(localeConfig.getOrientation());
     //-------------------------------------------------------------------------------
     context.setUIApplication(this);
     UserACL acl = getApplicationComponent(UserACL.class);
@@ -131,9 +136,18 @@ public class UIPortalApplication extends UIApplication {
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();
     if(currentSkin != null && currentSkin.trim().length() > 0) skin_ = currentSkin;
     setOwner(context.getPortalOwner());
-    
-  } 
+  }
 
+  public Orientation getOrientation() {
+    return orientation_;
+  }
+
+  public void setOrientation(Orientation orientation) {
+    this.orientation_ = orientation;
+  }
+
+  public Locale getLocale() {  return locale_ ; }
+  public void   setLocale(Locale locale) { locale_ = locale ; }
 
   public void setEditting(boolean bln) { this.isEditting = bln ; }  
   public boolean isEditting() { return isEditting ; }
@@ -145,8 +159,8 @@ public class UIPortalApplication extends UIApplication {
 
   public Collection<SkinConfig> getPortalSkins() {
     SkinService skinService = getApplicationComponent(SkinService.class) ;
-    Collection<SkinConfig> portalSkins = skinService.getPortalSkins(skin_);
-    SkinConfig skinConfig = skinService.getSkin(Util.getUIPortal().getName(),skin_);
+    Collection<SkinConfig> portalSkins = skinService.getPortalSkins(skin_, getOrientation());
+    SkinConfig skinConfig = skinService.getSkin(Util.getUIPortal().getName(),skin_, getOrientation());
     if(skinConfig != null) {
       portalSkins.add(skinConfig);
     }
@@ -157,8 +171,9 @@ public class UIPortalApplication extends UIApplication {
   public void setSkin(String skin){ this.skin_ = skin; }
 
   private SkinConfig getSkin(String module) {
+    Orientation orientation = orientation_;
     SkinService skinService = getApplicationComponent(SkinService.class) ;
-    return skinService.getSkin(module, skin_) ;
+    return skinService.getSkin(module, skin_, orientation) ;
   }
 
   /**
@@ -340,13 +355,13 @@ public class UIPortalApplication extends UIApplication {
     SkinService skinService = getApplicationComponent(SkinService.class);
     for(UIPortlet uiPortlet : uiportlets){
       String module = uiPortlet.getExoWindowID().getPortletApplicationName() + "/" + uiPortlet.getExoWindowID().getPortletName() ;
-      SkinConfig skinConfig = skinService.getSkin(module,skin_) ;
+      SkinConfig skinConfig = skinService.getSkin(module,skin_, orientation_) ;
       if(skinConfig != null) skins.add(skinConfig);
     }
     StringBuilder b = new StringBuilder(1000) ;
     for(SkinConfig ele : skins) {
       b.append("eXo.core.Skin.addSkin('").append(ele.getId()).
-      append("','").append(ele.getCSSPath()).append("');\n"); 
+      append("','").append(ele.getVirtualCSSPath()).append("');\n");
     }
     return b.toString() ;
   }

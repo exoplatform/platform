@@ -32,7 +32,9 @@ import org.apache.commons.logging.Log;
 import org.exoplatform.Constants;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.resources.Orientation;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.web.application.URLBuilder;
 import org.exoplatform.webui.application.WebuiApplication;
@@ -109,7 +111,7 @@ public class PortalRequestContext extends WebuiRequestContext {
   }
 
   public void refreshResourceBundle() throws Exception {
-    appRes_ = getApplication().getResourceBundle(uiApplication_.getLocale()) ;  
+    appRes_ = getApplication().getResourceBundle(getLocale()) ;
   }
 
   public String getTitle() {
@@ -118,12 +120,17 @@ public class PortalRequestContext extends WebuiRequestContext {
     UIPortal uiportal = Util.getUIPortal();
     return uiportal.getSelectedNode().getResolvedLabel();    
   }
+
+  public Orientation getOrientation() {
+    return ((UIPortalApplication)uiApplication_).getOrientation();
+  }
+
+  public Locale getLocale() {  return ((UIPortalApplication)uiApplication_).getLocale();}
   
   @SuppressWarnings("unchecked")
   public Map<String,String> getMetaInformation() {
     return (Map<String,String>)request_.getAttribute(REQUEST_METADATA);    
   }
-  public Locale getLocale() {  return uiApplication_.getLocale() ;} 
 
   public String getCacheLevel() { return cacheLevel_ ; }
 
