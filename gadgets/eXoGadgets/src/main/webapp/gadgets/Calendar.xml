@@ -237,7 +237,18 @@
 				}
 				
 				function changeMonth(change) {	
-					currentDate.setMonth(currentDate.getMonth() + change) ;
+          var indexMonth = currentDate.getMonth()+change;
+
+          if(indexMonth == 12) {  
+            currentDate.setMonth(0);
+          } else {
+            if(indexMonth == -1) {
+              currentDate.setMonth(11);  
+            }  else {
+              currentDate.setMonth(indexMonth);
+            }
+          }
+          
 				  renderCalendar() ;
 				}
 				
