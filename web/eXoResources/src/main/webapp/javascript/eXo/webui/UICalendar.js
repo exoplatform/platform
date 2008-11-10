@@ -13,19 +13,29 @@ UICalendar.prototype.init = function(field, isDisplayTime) {
 		this.dateField.parentNode.style.position = '' ;
 	}
 	this.dateField = field ;
-	if (!document.getElementById(this.calendarId)) this.create() ;
-//	field.parentNode.style.position = 'relative' ;
-  field.parentNode.insertBefore(document.getElementById(this.calendarId), field) ;
+	if (!document.getElementById(this.calendarId)) this.create();
   this.show() ;
+
+
+// fix bug for IE 6
+
+  var cld = document.getElementById(this.calendarId);
+  if(eXo.core.Browser.isIE6())  {
+    var blockClnd = document.getElementById('BlockCaledar') ;
+    var iframe = document.getElementById(this.calendarId + 'IFrame') ;
+    iframe.style.height = blockClnd.offsetHeight + "px";
+  }
+  field.parentNode.insertBefore(cld, field) ;
 }
 
 UICalendar.prototype.create = function() {
 	var clndr = document.createElement("div") ;
 	clndr.id = this.calendarId ;
-	clndr.style.position = "relative" ;
 	if (eXo.core.Browser.isIE6()) {
+		clndr.style.position = "relative" ;
 		clndr.innerHTML = "<div class='UICalendarComponent'><iframe id='" + this.calendarId + "IFrame' frameBorder='0' style='position:absolute;height:100%;' scrolling='no'></iframe><div style='position:absolute;'></div></div>" ;
 	} else {
+		clndr.style.position = "absolute" ;
 		clndr.innerHTML = "<div class='UICalendarComponent'><div style='position: absolute; width: 100%;'></div></div>" ;
 	}
 	document.body.appendChild(clndr) ;
