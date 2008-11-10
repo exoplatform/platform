@@ -49,8 +49,7 @@ public class UIIFrameEditMode extends UIForm {
         .getCurrentInstance();
     PortletPreferences pref = pcontext.getRequest().getPreferences();
     addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, pref.getValue("url",
-        "http://www.exoplatform.org")).
-        addValidator(MandatoryValidator.class).addValidator(URLValidator.class));
+        "http://www.exoplatform.org")));
   }
   
   public void setValue() {
@@ -62,21 +61,20 @@ public class UIIFrameEditMode extends UIForm {
     public void execute(Event<UIIFrameEditMode> event) throws Exception {
       
       UIIFrameEditMode uiForm = event.getSource();
-//      String url = uiForm.getUIStringInput(FIELD_URL).getValue();
-//      UIIFramePortlet uiPortlet = uiForm.getParent();
-//      if(url==null || url.length()==0){
-//        Object args[] = {uiForm.getLabel(uiForm.getUIStringInput(FIELD_URL).getId())};
-//        uiPortlet.addMessage(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args));
-//        uiForm.getUIStringInput(FIELD_URL).setValue(uiPortlet.getURL());
-//        return;
-//      }
-//      String regEx = "^(ht|f)tp(s?)://(\\w+:\\w+@)?(\\w+\\.)+(\\w{2,5})(:\\d{1,5})?($|((/[+a-zA-Z0-9 -]+/?)+|/?))(\\w+\\.\\w+)?([?]?(\\w+=\\w+)(&\\w+=\\w+)*)?" ;
-//      if(!url.trim().matches(regEx)) {
-//        uiForm.getUIStringInput(FIELD_URL).setValue(uiPortlet.getURL());
-//        Object[] args = { FIELD_URL, "URL"};
-//        throw new MessageException(new ApplicationMessage("ExpressionValidator.msg.value-invalid",
-//            args));
-//      }
+      String url = uiForm.getUIStringInput(FIELD_URL).getValue();
+      UIIFramePortlet uiPortlet = uiForm.getParent();
+      if(url == null || url.length() == 0){
+        Object args[] = {uiForm.getLabel(uiForm.getUIStringInput(FIELD_URL).getId())};
+        uiPortlet.addMessage(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args));
+        uiForm.getUIStringInput(FIELD_URL).setValue(uiPortlet.getURL());
+        return;
+      }
+      if(!url.trim().matches(URLValidator.URL_REGEX)) {
+        uiForm.getUIStringInput(FIELD_URL).setValue(uiPortlet.getURL());
+        Object[] args = { FIELD_URL, "URL"};
+        throw new MessageException(new ApplicationMessage("ExpressionValidator.msg.value-invalid",
+            args));
+      }
       PortletRequestContext pcontext = (PortletRequestContext) WebuiRequestContext
       .getCurrentInstance();
       PortletPreferences pref = pcontext.getRequest().getPreferences();

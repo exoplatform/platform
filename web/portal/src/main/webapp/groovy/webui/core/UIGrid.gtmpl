@@ -70,7 +70,7 @@
 			      //if(value.length() > uicomponent.getDisplayedChars()){
 				    //  println "<td class=\""+cssClass+"\" title='"+value+"'>"+value.substring(0, uicomponent.getDisplayedChars()-3)+"...</td>";				      
 			      //} else {
-				      println "<td><div class=\""+cssClass+"\">"+fieldValue+"</div></td>";
+				      println "<td><div class=\""+cssClass+"\" title=\"$fieldValue\">"+fieldValue+"</div></td>";
 				    //}
 		      }  
 	        if(beanActions != null && beanActions.length > 0) { 
