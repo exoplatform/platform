@@ -74,7 +74,8 @@ public class UIForgetPassword extends UIForm {
       MailService mailSrc = uiForm.getApplicationComponent(MailService.class);
       OrganizationService orgSrc = uiForm.getApplicationComponent(OrganizationService.class);
       String userName = uiForm.getUIStringInput(Username).getValue();
-      String email = uiForm.getUIStringInput(Email).getValue();;
+      String email = uiForm.getUIStringInput(Email).getValue();
+      uiForm.reset();
       if(userName != null) {
         if (orgSrc.getUserHandler().findUserByName(userName)==null) {
           requestContext.getUIApplication().addMessage(new ApplicationMessage("UIForgetPassword.msg.user-not-exist", null));
@@ -120,7 +121,6 @@ public class UIForgetPassword extends UIForm {
       activeLink += "?portal:componentId=UIPortal&portal:action=RecoveryPasswordAndUsername&datesend="+now.toString()+"&email="+email;
       activeLink = headerMail + activeLink + footerMail;
       mailSrc.sendMessage("exoservice@gmail.com",email, "Remind password and username", activeLink);
-      uiForm.reset();
       uilogin.getChild(UILoginForm.class).setRendered(true);
       uilogin.getChild(UIForgetPasswordWizard.class).setRendered(false);
       uilogin.getChild(UIForgetPassword.class).setRendered(false);
@@ -134,6 +134,7 @@ public class UIForgetPassword extends UIForm {
       uilogin.getChild(UILoginForm.class).setRendered(false);
       uilogin.getChild(UIForgetPasswordWizard.class).setRendered(true);
       uilogin.getChild(UIForgetPassword.class).setRendered(false);
+      event.getSource().reset();
       event.getRequestContext().addUIComponentToUpdateByAjax(uilogin);
     }   
   }
