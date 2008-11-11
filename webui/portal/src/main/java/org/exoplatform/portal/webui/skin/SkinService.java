@@ -57,7 +57,7 @@ public class SkinService {
   private static final Pattern IMPORT_PATTERN = Pattern.compile("(@import\\s+" + "url" + LEFT_P + "['\"]?" + ")([^'\"]+)(" + "['\"]?" + RIGHT_P + "\\s*;)");
 
   /** Immutable and therefore thread safe. */
-  private static final Pattern BACKGROUND_PATTERN = Pattern.compile("(background\\s+:\\s+url" + LEFT_P + "['\"]?" + ")([^'\"]+)(" + "['\"]?" + RIGHT_P + "\\s*;)");
+  private static final Pattern BACKGROUND_PATTERN = Pattern.compile("(background\\s*:\\s*url" + LEFT_P + "['\"]?" + ")([^'\"]+)(" + "['\"]?" + RIGHT_P + ".*;)");
 
   /** Immutable and therefore thread safe. */
   private static final Pattern LT = Pattern.compile("/\\*\\s*orientation=lt\\s*\\*/");
@@ -387,34 +387,14 @@ public class SkinService {
     Pattern orientationPattern = orientation == Orientation.LT ? RT : LT;
     Matcher matcher2 = orientationPattern.matcher(line);
     if (matcher2.find()) return;
-
     
-		Pattern backgroundPattern = Pattern.compile("background.*:.*url(.*).*;");
-		Matcher matcher = backgroundPattern.matcher(line);
-		if ((!matcher.find()) || line.contains("url(/") || line.contains("url('/")
-				|| line.contains("url(\"/")) {
-			sB.append(line + "\n");
-			return;
-		}
-		int firstIndex = line.indexOf("url(") + "url(".length();
-		int lastIndex = line.indexOf(")");
-		sB.append(line.substring(0, firstIndex));
-		String urlToRewrite = "";
-		if (line.contains("url('") || line.contains("url(\"")) {
-			urlToRewrite = line.substring(firstIndex + 1, lastIndex - 1);
-		} else {
-			urlToRewrite = line.substring(firstIndex, lastIndex);
-		}
-		sB.append(basePath + urlToRewrite);
-		sB.append(line.substring(lastIndex) + "\n");
-    
-    // Rewrite background url pattern
-//    Matcher matcher = BACKGROUND_PATTERN.matcher(line);
-//    if (matcher.find() && !matcher.group(2).startsWith("\"") && !matcher.group(2).startsWith("'")) {
-//      sB.append(matcher.group(1)).append(basePath).append(matcher.group(2)).append(matcher.group(3)).append('\n');
-//    } else {
-//      sB.append(line).append('\n');
-//    }
+//     Rewrite background url pattern
+    Matcher matcher = BACKGROUND_PATTERN.matcher(line);
+    if (matcher.find() && !matcher.group(2).startsWith("\"") && !matcher.group(2).startsWith("'")) {
+      sB.append(matcher.group(1)).append(basePath).append(matcher.group(2)).append(matcher.group(3)).append('\n');
+    } else {
+      sB.append(line).append('\n');
+    }
   }
 
   static String getSuffix(Orientation orientation) {
