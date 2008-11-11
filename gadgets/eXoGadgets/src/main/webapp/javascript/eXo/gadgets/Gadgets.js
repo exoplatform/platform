@@ -197,8 +197,6 @@ gadgets.IfrGadgetService.prototype.setHeight = function(height) {
 };
 
 gadgets.IfrGadgetService.prototype.setTitle = function(title) {
-  console.log(this);
-
   var element = document.getElementById(this.f);
   element = eXo.core.DOMUtil.findAncestorByClass(element, "UIGadget");
   element = eXo.core.DOMUtil.findFirstDescendantByClass(element, "div", "GadgetTitle");
