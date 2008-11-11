@@ -54,12 +54,12 @@ gadgets.callAsyncAndJoin = function(functions, continuation, opt_this) {
   var pending = functions.length;
   var results = [];
   for (var i = 0; i < functions.length; i++) {
-    // we need a wrapper here because i changes and we need once index
+    // we need a wrapper here because i changes and we need one index
     // variable per closure
     var wrapper = function(index) {
       functions[index].call(opt_this, function(result) {
         results[index] = result;
-        if (--pending == 0) {
+        if (--pending === 0) {
           continuation(results);
         }
       });
@@ -194,20 +194,15 @@ gadgets.IfrGadgetService.prototype.setHeight = function(height) {
   if (element) {
     element.style.height = height + 'px';
   }
-  var prNode = element.parentNode ;
-  var portletFrag = null ;
-  while(prNode) {
-  	if(prNode.id && prNode.id == "PORTLET-FRAGMENT") {
-  		portletFrag = prNode ;
-  		break ;
-  	}
-  	prNode = prNode.parentNode ;
-  }
-  if(portletFrag && element.onResizeCallback) element.onResizeCallback(portletFrag.parentNode.id) ;
 };
 
 gadgets.IfrGadgetService.prototype.setTitle = function(title) {
-  var element = document.getElementById(this.f + '_title');
+  console.log(this);
+
+  var element = document.getElementById(this.f);
+  element = eXo.core.DOMUtil.findAncestorByClass(element, "UIGadget");
+  element = eXo.core.DOMUtil.findFirstDescendantByClass(element, "div", "GadgetTitle");
+
   if (element) {
     element.innerHTML = title.replace(/&/g, '&amp;').replace(/</g, '&lt;');
   }
@@ -556,9 +551,9 @@ gadgets.IfrGadget.prototype.getIframeUrl = function() {
       (this.debug ? '&debug=1' : '') +
       this.getAdditionalParams() +
       this.getUserPrefsParams() +
+      (this.secureToken ? '&st=' + encodeURIComponent(this.secureToken) : '') +
       '&url=' + encodeURIComponent(this.specUrl) +
       '#rpctoken=' + this.rpcToken +
-      (this.secureToken ? '&st=' + encodeURIComponent(this.secureToken) : '') +
       (this.viewParams ?
           '&view-params=' +  encodeURIComponent(JSON.stringify(this.viewParams)) : '') +
       (this.hashData ? '&' + this.hashData : '');

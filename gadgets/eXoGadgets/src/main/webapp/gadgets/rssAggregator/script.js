@@ -66,6 +66,7 @@ RssAggregator.prototype.timeToPrettyString = function(B) {
 
 RssAggregator.prototype.renderFeed = function(feed) {
     this.feed = feed;
+    gadgets.window.setTitle("RSS: " + feed.Title);
     var feedEl = _gel("feedContainer");
 	var bullet = "<img src='" + this.getFavicon(feedurl) + "' alt='' border=0 align='absmiddle' style='height:16;width:16;' onerror='this.style.visibility=\"hidden\";'>&nbsp;&nbsp;";
 

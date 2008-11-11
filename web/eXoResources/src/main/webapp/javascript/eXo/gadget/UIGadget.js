@@ -13,6 +13,7 @@ eXo.gadget.UIGadget = {
     	eXo.core.Using("rpc");
 			eXo.core.Using("eXo.gadgets.Gadgets");
   		eXo.core.Using("eXo.gadgets.ExoBasedUserPrefStore");
+            
 		}
 		var gadget;
 		if (metadata != null) {
@@ -20,7 +21,8 @@ eXo.gadget.UIGadget = {
     	gadget.metadata = metadata.gadgets[0];
 		} else {
 			gadget = gadgets.container.createGadget({specUrl: url});
-		}	
+		}
+    gadget.parentId = id;    
     gadgets.container.addGadget(gadget);
     // i use the internal var "gadget.userPrefs_" to not call the save on the server side
     if(userPref != null) gadget.userPrefs_ = userPref ;

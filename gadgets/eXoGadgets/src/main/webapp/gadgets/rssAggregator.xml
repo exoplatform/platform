@@ -3,6 +3,7 @@
 <ModulePrefs title="__UP_mtitle__" title_url="__UP_titlelink__" directory_title="RSS Reader" description="RSS Reader">
 <Require feature="dynamic-height" />
 <Require feature="setprefs"/>
+<Require feature="settitle"/>
 </ModulePrefs>
     <UserPref name="mtitle" display_name="Title name" default_value="RSS Reader"/>
 	<UserPref name="rssurl" display_name="FEED URL" default_value="http://blog.exoplatform.org/feed/" required="true" />
