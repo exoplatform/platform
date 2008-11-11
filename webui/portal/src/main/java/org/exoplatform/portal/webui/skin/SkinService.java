@@ -75,14 +75,13 @@ public class SkinService {
 
   private Map<String, Set<String>> portletThemes_;
 
-  private boolean cacheResource_;
+  private boolean isDeveloping_;
 
   public SkinService() {
+    isDeveloping_ = "true".equals(System.getProperty("exo.product.developing"));
     portalSkins_ = new HashMap<SkinKey, SkinConfig>() ;
     skinConfigs_ = new HashMap<SkinKey, SkinConfig>(20);
     availableSkins_ = new HashSet<String>(5);
-    cacheResource_ = !"true".equals(System
-        .getProperty("exo.product.developing"));
     cssCache_ = new HashMap<String, String>();
   }
 
@@ -231,7 +230,7 @@ public class SkinService {
     String css = null;
 
     // Try cache first
-    if (cacheResource_) {
+    if (!isDeveloping_) {
       css = cssCache_.get(cssPath);
     }
 
@@ -244,6 +243,7 @@ public class SkinService {
         cssPath = cssPath.substring(0, cssPath.length() - "-rt.css".length()) + ".css";
         orientation = Orientation.RT;
       }
+//      css = processCSS(cssPath, orientation, scontext, true);
       css = processCSS(cssPath, orientation, scontext, false);
     }
 
@@ -305,7 +305,8 @@ public class SkinService {
   }
 
   private void cacheCSS(SkinConfig config, ServletContext scontext) {
-    if (cacheResource_) {
+//  	if (false) {
+    if (!isDeveloping_) {
       String css = processCSS(config.getCSSPath(), config.getOrientation(), scontext, true);
       cssCache_.put(config.getVirtualCSSPath(), css);
     }
@@ -314,9 +315,9 @@ public class SkinService {
   private String processCSS(String cssPath, Orientation orientation, ServletContext scontext, boolean merge) {
     String relativeCSSPath = cssPath.substring(cssPath.indexOf("/", 2));
     String resolvedPath = relativeCSSPath.substring(0, relativeCSSPath.lastIndexOf("/") + 1);
-    String includedPath = relativeCSSPath.substring(relativeCSSPath.lastIndexOf("/") + 1);
+    String fileName = relativeCSSPath.substring(relativeCSSPath.lastIndexOf("/") + 1);
     StringBuffer sB = new StringBuffer();
-    processCSSRecursively(sB, merge, scontext, resolvedPath, includedPath, orientation);
+    processCSSRecursively(sB, merge, scontext, resolvedPath, fileName, orientation);
     return sB.toString();
   }
 
@@ -325,9 +326,9 @@ public class SkinService {
       boolean merge,
       ServletContext scontext,
       String basePath,
-      String pathToResolve,
+      String fileName,
       Orientation orientation) {
-    String resolvedPath = basePath.substring(0, basePath.lastIndexOf("/") + 1) + pathToResolve;
+    String resolvedPath = basePath.substring(0, basePath.lastIndexOf("/") + 1) + fileName;
     String rootContext = resolvedPath.substring(0, resolvedPath.lastIndexOf("/") + 1);
     String rootURL = "/" + scontext.getServletContextName() + rootContext;
     String line = "";
@@ -338,8 +339,8 @@ public class SkinService {
           Matcher matcher = IMPORT_PATTERN.matcher(line);
           if (matcher.find()) {
             String includedPath = matcher.group(2);
-            if (merge) {
-              if(includedPath.startsWith("/")) {
+            if(includedPath.startsWith("/")) {
+            	if(merge) {
                 int i1 = 0;
                 int i2 = includedPath.indexOf("/", 2);
                 int i3 = includedPath.lastIndexOf("/") + 1;
@@ -348,14 +349,19 @@ public class SkinService {
                 String targetedIncludedPath = includedPath.substring(i3);
                 ServletContext targetedContext = scontext.getContext(targetedContextName);
                 processCSSRecursively(sB, merge, targetedContext, targetedResolvedPath, targetedIncludedPath, orientation);
-              } else
-                processCSSRecursively(sB, merge, scontext, resolvedPath, includedPath, orientation);
+            	} else {
+                sB.append(line);
+            	}
             } else {
-              sB.append(matcher.group(1));
-              sB.append(rootURL);
-              sB.append(includedPath.substring(0, includedPath.length() - ".css".length()));
-              sB.append(getSuffix(orientation));
-              sB.append(matcher.group(3));
+            	if(merge) {
+            		processCSSRecursively(sB, merge, scontext, resolvedPath, includedPath, orientation);
+            	} else {
+              	sB.append(matcher.group(1));
+              	sB.append(rootURL);
+              	sB.append(includedPath.substring(0, includedPath.length() - ".css".length()));
+              	sB.append(getSuffix(orientation));
+              	sB.append(matcher.group(3));
+            	}
             }
           } else {
             append(line, rootURL, sB, orientation);
@@ -380,18 +386,35 @@ public class SkinService {
     // Filter what if it's annotated with the alternative orientation
     Pattern orientationPattern = orientation == Orientation.LT ? RT : LT;
     Matcher matcher2 = orientationPattern.matcher(line);
-    if (matcher2.find()) {
-      return;
-    }
+    if (matcher2.find()) return;
 
+    
+		Pattern backgroundPattern = Pattern.compile("background.*:.*url(.*).*;");
+		Matcher matcher = backgroundPattern.matcher(line);
+		if ((!matcher.find()) || line.contains("url(/") || line.contains("url('/")
+				|| line.contains("url(\"/")) {
+			sB.append(line + "\n");
+			return;
+		}
+		int firstIndex = line.indexOf("url(") + "url(".length();
+		int lastIndex = line.indexOf(")");
+		sB.append(line.substring(0, firstIndex));
+		String urlToRewrite = "";
+		if (line.contains("url('") || line.contains("url(\"")) {
+			urlToRewrite = line.substring(firstIndex + 1, lastIndex - 1);
+		} else {
+			urlToRewrite = line.substring(firstIndex, lastIndex);
+		}
+		sB.append(basePath + urlToRewrite);
+		sB.append(line.substring(lastIndex) + "\n");
+    
     // Rewrite background url pattern
-    Matcher matcher = BACKGROUND_PATTERN.matcher(line);
-    if (matcher.find() && !matcher.group(2).startsWith("\"") && !matcher.group(2).startsWith("'")) {
-      sB.append(matcher.group(1)).append(basePath).append(matcher.group(2)).append(matcher.group(3)).append('\n');
-    }
-    else {
-      sB.append(line).append('\n');
-    }
+//    Matcher matcher = BACKGROUND_PATTERN.matcher(line);
+//    if (matcher.find() && !matcher.group(2).startsWith("\"") && !matcher.group(2).startsWith("'")) {
+//      sB.append(matcher.group(1)).append(basePath).append(matcher.group(2)).append(matcher.group(3)).append('\n');
+//    } else {
+//      sB.append(line).append('\n');
+//    }
   }
 
   static String getSuffix(Orientation orientation) {

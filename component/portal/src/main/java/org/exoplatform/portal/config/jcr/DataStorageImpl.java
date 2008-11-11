@@ -63,7 +63,6 @@ public class DataStorageImpl implements DataStorage, Startable {
   
   final private static String PORTAL_CONFIG_FILE_NAME = "portal-xml" ;
   final private static String NAVIGATION_CONFIG_FILE_NAME = "navigation-xml" ;
-  final private static String WIDGETS_CONFIG_FILE_NAME = "widgets-xml" ;
   final private static String GADGETS_CONFIG_FILE_NAME = "gadgets-xml" ; //TODO: dang.tung
   final private static String PAGE_SET_NODE = "pages" ;
   final private static String PORTLET_PREFERENCES_SET_NODE = "portletPreferences" ;

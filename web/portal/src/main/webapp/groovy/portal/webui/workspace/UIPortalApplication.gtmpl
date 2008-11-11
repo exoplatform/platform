@@ -15,7 +15,7 @@
   def metaInformation = rcontext.getMetaInformation();
 %>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="$dir">
   <head id="head">
     <title><%=title%></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -31,10 +31,10 @@
 	  
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
     <%for(skinConfig in portalSkins) {%>
-      <link id="${skinConfig.id}" rel="stylesheet" type="text/css" href="$skinConfig.CSSPath" />
+      <link id="${skinConfig.id}" rel="stylesheet" type="text/css" href="$skinConfig.virtualCSSPath" />
     <%}%>
     <%for(portletSkin in portletSkins) {%>
-      <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$portletSkin.CSSPath" />
+      <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$portletSkin.virtualCSSPath" />
     <%}%>
     <%if("true".equals(System.getProperty("exo.product.developing"))) {
         for(path in scriptsPaths) { %>
