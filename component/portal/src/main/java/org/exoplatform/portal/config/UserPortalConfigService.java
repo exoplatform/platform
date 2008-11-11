@@ -264,9 +264,9 @@ public class UserPortalConfigService {
    */
   public Page getPage(String pageId, String accessUser) throws Exception {
     Page page = getPage(pageId) ;
-    if(page == null || !userACL_.hasPermission(page, accessUser)) return null;
     pageConfigCache_.put(pageId, page);
-    return page ; 
+    if(page == null || !userACL_.hasPermission(page, accessUser)) return null;
+    return page ;
   }
 
   /**
