@@ -25,7 +25,9 @@
   background:  #dbe4f8 url(DefaultSkin/background/SitemapItemBoxTitle150x1.gif) repeat-y right;
   height: 22px; line-height: 22px;
   overflow: hidden;
-  padding-left: 5px;
+  padding-left: 5px; /* orientation=lt */
+  padding-right: 5px; /* orientation=rt */
+    
 }
 
 .UISitemap .TitleBar a:hover {
@@ -33,11 +35,13 @@
 }
 
 .UISitemap .TitleBar a.Icon {
-  margin-left: 5px;
+  margin-left: 5px;  /* orientation=lt */
+  margin-right: 5px;  /* orientation=rt */
   width: auto; height: 22px;
   line-height: 22px;
   overflow: hidden;
-  padding-left: 20px;
+  padding-left: 20px; /* orientation=lt */
+  padding-right: 20px; /* orientation=rt */
   display: block;
 	color: #1248ac;
 }
@@ -106,15 +110,18 @@
   width: auto; height: auto;
   margin: 4px 5px 0px 5px ;
   background-repeat: no-repeat;
-  padding-left: 20px;
+  padding-left: 20px; /* orientation=lt */
+  padding-right: 20px; /* orientation=rt */
   color: #a5a5a5;
   width: 170px;
   text-align: center;	
 }
 
 .UISitemap .SitemapItemBox .Item .IconItem {
-	padding-left: 20px;
-	background-position: left 4px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	background-position: left 4px; /* orientation=lt */
+	background-position: right 4px; /* orientation=rt */
 	line-height: 25px;
 }
 
@@ -137,4 +144,3 @@
   padding: 0px 0px 3px 40px ;
   border: 1px solid #d9d9d9;
   border-top: none;
-}

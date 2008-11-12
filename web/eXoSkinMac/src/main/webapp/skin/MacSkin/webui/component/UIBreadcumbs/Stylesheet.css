@@ -10,7 +10,8 @@
 }
 
 .UIBreadcumbs a {
-	float: left ;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 .UIBreadcumbs a.Selected {
@@ -18,7 +19,8 @@
 }
 
 .UIBreadcumbs .HomeIcon {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 24px; height: 24px;
   margin: 3px 3px 0px 3px ;
   background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/BreadcumbsHomeIcon.gif') no-repeat;

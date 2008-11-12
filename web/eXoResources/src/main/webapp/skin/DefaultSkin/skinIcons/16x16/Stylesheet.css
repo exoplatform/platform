@@ -287,7 +287,8 @@
 
 .BlueInfoBox16x16Icon {
   width: 16px ; height: 16px ;
-  background: url('icons/Info.gif') ;
+  background: url('icons/Info.gif') ; /* orientation=lt */
+  background: url('icons/Info.gif') right center ; /* orientation=rt */ 
 }
 
 .Config16x16Icon {
@@ -592,7 +593,8 @@
 }
 
 .DefaultPageIcon {
-  background: url('icons/DefaultPageIcon.gif') no-repeat left center;
+  background: url('icons/DefaultPageIcon.gif') no-repeat left center; /* orientation=lt */
+  background: url('icons/DefaultPageIcon.gif') no-repeat right center; /* orientation=rt */
 }
 
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/

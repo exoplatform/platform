@@ -57,7 +57,7 @@ public class SkinService {
   private static final Pattern IMPORT_PATTERN = Pattern.compile("(@import\\s+" + "url" + LEFT_P + "['\"]?" + ")([^'\"]+)(" + "['\"]?" + RIGHT_P + "\\s*;)");
 
   /** Immutable and therefore thread safe. */
-  private static final Pattern BACKGROUND_PATTERN = Pattern.compile("(background\\s*:\\s*url" + LEFT_P + "['\"]?" + ")([^'\"]+)(" + "['\"]?" + RIGHT_P + ".*;)");
+  private static final Pattern BACKGROUND_PATTERN = Pattern.compile("(background.*:.*url" + LEFT_P + "['\"]?" + ")([^'\"]+)(" + "['\"]?" + RIGHT_P + ".*;)");
 
   /** Immutable and therefore thread safe. */
   private static final Pattern LT = Pattern.compile("/\\*\\s*orientation=lt\\s*\\*/");
@@ -243,11 +243,9 @@ public class SkinService {
         cssPath = cssPath.substring(0, cssPath.length() - "-rt.css".length()) + ".css";
         orientation = Orientation.RT;
       }
-//      css = processCSS(cssPath, orientation, scontext, true);
       css = processCSS(cssPath, orientation, scontext, false);
     }
 
-    //
     return css;
   }
 
@@ -305,7 +303,6 @@ public class SkinService {
   }
 
   private void cacheCSS(SkinConfig config, ServletContext scontext) {
-//  	if (false) {
     if (!isDeveloping_) {
       String css = processCSS(config.getCSSPath(), config.getOrientation(), scontext, true);
       cssCache_.put(config.getVirtualCSSPath(), css);
@@ -341,12 +338,11 @@ public class SkinService {
             String includedPath = matcher.group(2);
             if(includedPath.startsWith("/")) {
             	if(merge) {
-                int i1 = 0;
-                int i2 = includedPath.indexOf("/", 2);
-                int i3 = includedPath.lastIndexOf("/") + 1;
-                String targetedContextName = includedPath.substring(i1, i2);
-                String targetedResolvedPath = includedPath.substring(i2, i3);
-                String targetedIncludedPath = includedPath.substring(i3);
+                int i1 = includedPath.indexOf("/", 2);
+                int i2 = includedPath.lastIndexOf("/") + 1;
+                String targetedContextName = includedPath.substring(0, i1);
+                String targetedResolvedPath = includedPath.substring(i1, i2);
+                String targetedIncludedPath = includedPath.substring(i2);
                 ServletContext targetedContext = scontext.getContext(targetedContextName);
                 processCSSRecursively(sB, merge, targetedContext, targetedResolvedPath, targetedIncludedPath, orientation);
             	} else {
@@ -390,7 +386,7 @@ public class SkinService {
     
 //     Rewrite background url pattern
     Matcher matcher = BACKGROUND_PATTERN.matcher(line);
-    if (matcher.find() && !matcher.group(2).startsWith("\"") && !matcher.group(2).startsWith("'")) {
+    if (matcher.find() && !matcher.group(2).startsWith("\"/") && !matcher.group(2).startsWith("'/") && !matcher.group(2).startsWith("/")) {
       sB.append(matcher.group(1)).append(basePath).append(matcher.group(2)).append(matcher.group(3)).append('\n');
     } else {
       sB.append(line).append('\n');
@@ -400,60 +396,4 @@ public class SkinService {
   static String getSuffix(Orientation orientation) {
     return suffixMap.get(orientation);
   }
-
-
-/*
-  private void processCSSRecursively(StringBuffer sB, boolean merge,
-      ServletContext scontext, String basePath, String pathToResolve) {
-    String resolvedPath = basePath.substring(0, basePath.lastIndexOf("/") + 1) + pathToResolve;
-    String rootContext = resolvedPath.substring(0, resolvedPath.lastIndexOf("/") + 1);
-    String rootURL = "/" + scontext.getServletContextName() + rootContext;
-    String line = "";
-    try {
-      BufferedReader reader = new BufferedReader(new InputStreamReader(scontext.getResourceAsStream(resolvedPath)));
-      try {
-        while ((line = reader.readLine()) != null) {
-          Matcher matcher = IMPORT_PATTERN.matcher(line);
-          if (matcher.find()) {
-            String includedPath = matcher.group(1);
-            if(includedPath.startsWith("/")) {
-              int i1 = 0;
-              int i2 = includedPath.indexOf("/", 2);
-              int i3 = includedPath.lastIndexOf("/") + 1;
-              String targetedContextName = includedPath.substring(i1, i2);
-              String targetedResolvedPath = includedPath.substring(i2, i3);
-              String targetedIncludedPath = includedPath.substring(i3);
-              ServletContext targetedContext = scontext.getContext(targetedContextName);
-              processCSSRecursively(sB, merge, targetedContext, targetedResolvedPath, targetedIncludedPath );
-            } else 
-              processCSSRecursively(sB, merge, scontext, resolvedPath, includedPath);
-          } else {
-            rewriteLine(line, rootURL, sB);
-          }
-        }
-      } catch (Exception ex) {
-        log.error("Problem while processing line : " + line, ex);
-      } finally {
-        try {
-          reader.close();
-        } catch (Exception ex) {
-        }
-      }
-    } catch (Exception e) {
-      log.error("Problem while merging CSS : " + resolvedPath, e);
-    }
-
-  }
-
-  private void rewriteLine(String line, String basePath, StringBuffer sB) {
-    Matcher matcher = BACKGROUND_PATTERN.matcher(line);
-    if (!matcher.find() || matcher.group(2).startsWith("\"") || matcher.group(2).startsWith("'")) {
-      sB.append(line).append('\n');
-      return;
-    }
-    sB.append(matcher.group(1));
-    sB.append(basePath).append(matcher.group(2));
-    sB.append(matcher.group(3)).append('\n');
-  }
-*/
 }

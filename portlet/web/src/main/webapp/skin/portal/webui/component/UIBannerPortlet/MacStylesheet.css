@@ -5,8 +5,10 @@
 
 .UIBannerPortlet .LeftBanner {
   height: 74px;
-  padding: 0px 0px 0px 157px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left top;
+  padding: 0px 0px 0px 157px; /* orientation=lt */
+  padding: 0px 157px 0px 0px; /* orientation=rt */
+  background: url('MacSkin/background/Banner.gif') no-repeat left top; /* orientation=lt */
+  background: url('MacSkin/background/Banner.gif') no-repeat right top; /* orientation=rt */
 }
 
 .UIBannerPortlet .MiddleBanner {
@@ -16,14 +18,18 @@
 
 .UIBannerPortlet .RightBanner {
   height: 74px;
-  padding: 0px 84px 0px 0px ;
-  background: url('MacSkin/background/Banner.gif') no-repeat right -75px;
+  padding: 0px 84px 0px 0px ; /* orientation=lt */
+  padding: 0px 0px 0px 84px ; /* orientation=rt */
+  background: url('MacSkin/background/Banner.gif') no-repeat right -75px; /* orientation=lt */
+  background: url('MacSkin/background/Banner-rt.gif') no-repeat left -75px; /* orientation=rt */
 }
 
 .UIBannerPortlet .BannerTitle {
   height: 35px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -150px;
-  padding: 8px 0px 0px 3px;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -150px; /* orientation=lt */
+  background: url('MacSkin/background/Banner.gif') no-repeat right -150px; /* orientation=rt */
+  padding: 8px 0px 0px 3px; /* orientation=lt */
+  padding: 8px 3px 0px 0px; /* orientation=rt */
 }
 
 .UIBannerPortlet .LeftLoginContainer {
@@ -32,7 +38,8 @@
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer {
   padding: 2px 0px 0px 0px;
   line-height: 20px;
-  float: right;
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */
 }
 
 .UIBannerPortlet .LeftLoginContainer .MiddleLoginContainer {

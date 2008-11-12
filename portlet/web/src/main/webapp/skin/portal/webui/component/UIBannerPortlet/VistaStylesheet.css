@@ -5,8 +5,10 @@
 
 .UIBannerPortlet .LeftBanner {
   height: 74px;
-  padding: 0px 0px 0px 264px;
-  background: url('VistaSkin/background/Banner.png') no-repeat left top;
+  padding: 0px 0px 0px 264px;  /* orientation=lt */
+  padding: 0px 264px 0px 0px;  /* orientation=rt */
+	background: url('VistaSkin/background/Banner.png') no-repeat left top; /* orientation=lt */
+  background: url('VistaSkin/background/Banner.png') no-repeat right top; /* orientation=rt */
 }
 
 .UIBannerPortlet .MiddleBanner{
@@ -16,23 +18,28 @@
 
 .UIBannerPortlet .RightBanner {
   height: 74px;
-  padding: 0px 60px 0px 0px ;
-  background: url('VistaSkin/background/Banner.png') no-repeat right -75px;
+  padding: 0px 60px 0px 0px ; /* orientation=lt */
+  padding: 0px 0px 0px 60px ; /* orientation=rt */
+  background: url('VistaSkin/background/Banner.png') no-repeat right -75px; /* orientation=lt */
+  background: url('VistaSkin/background/Banner-rt.png') no-repeat left -75px; /* orientation=rt */
 }
 
 .UIBannerPortlet .BannerTitle {
   height: 45px;
-  background: url('VistaSkin/background/Banner.png') no-repeat left -150px;
-  margin: 0px 0px 0px 5px;
+  background: url('VistaSkin/background/Banner.png') no-repeat left -150px; /* orientation=lt */
+  background: url('VistaSkin/background/Banner.png') no-repeat right -150px; /* orientation=rt */
+  margin: 0px 0px 0px 5px; /* orientation=lt */
+  margin: 0px 5px 0px 0px; /* orientation=rt */
 }
 
 .UIBannerPortlet .LeftLoginContainer {
 }
 
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer {
-  padding: 2px 0px 0px 0px;
+  padding: 2px 0px 0px 0px; 
   line-height: 20px;
-  float: right;
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */
 }
 
 .UIBannerPortlet .LeftLoginContainer .MiddleLoginContainer {

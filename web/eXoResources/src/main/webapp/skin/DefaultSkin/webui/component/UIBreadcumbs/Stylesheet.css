@@ -11,7 +11,8 @@
 }
 
 .UIBreadcumbs a {
-  float: left ;
+  float: left ; /* orientation=lt */
+  float: right ; /* orientation=rt */
   color: #6d7fa1 ; 
 }
 
@@ -20,8 +21,10 @@
 }
 
 .UIBreadcumbs .HomeIcon {
-  float: left;
-  margin: 4px 5px 0 0 ;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  margin: 4px 5px 0 0 ; /* orientation=lt */
+  margin: 4px 0 0 5px ; /* orientation=rt */
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {

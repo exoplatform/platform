@@ -7,7 +7,8 @@
 }
 
 .UIBannerPortlet .RightBanner {
-  background: url('DefaultSkin/background/Logo.gif') no-repeat left bottom;
+  background: url('DefaultSkin/background/Logo.gif') no-repeat left bottom; /* orientation=lt */
+  background: url('DefaultSkin/background/Logo.gif') no-repeat right bottom; /* orientation=rt */
 }
 
 .UIBannerPortlet .MiddleBanner {
@@ -15,10 +16,14 @@
 }
 
 .UIBannerPortlet .LeftLoginContainer {
-  background: url('DefaultSkin/background/Container.gif') no-repeat top left;
-  padding-left: 10px;
-  float: right;
-  margin-right: 5px;
+  background: url('DefaultSkin/background/Container.gif') no-repeat top left; /* orientation=lt */
+  background: url('DefaultSkin/background/Container.gif') no-repeat top left; /* orientation=rt */
+  padding-left: 10px; /* orientation=lt */
+  padding-right: 10px; /* orientation=rt */
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */
+  margin-right: 5px; /* orientation=lt */
+  margin-left: 5px; /* orientation=rt */
 }
 
 .UIBannerPortlet .RightLoginContainer {

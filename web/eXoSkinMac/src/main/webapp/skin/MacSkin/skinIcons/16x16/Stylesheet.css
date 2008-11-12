@@ -170,7 +170,8 @@
 }
 
 .BlueInfoBox16x16Icon {
-  background: url('icons/BlueInfoBox.gif') no-repeat;
+  background: url('icons/BlueInfoBox.gif') no-repeat; /* orientation=lt */
+  background: url('icons/BlueInfoBox.gif') no-repeat right center; /* orientation=rt */
   width: 16px;  height: 16px;
 }
 
@@ -492,7 +493,8 @@
 }
 
 .DefaultPageIcon {
-  background: url('icons/DefaultPageIcon.png') no-repeat left center;
+  background: url('icons/DefaultPageIcon.png') no-repeat left center; /* orientation=lt */
+  background: url('icons/DefaultPageIcon.png') no-repeat right center; /* orientation=rt */
 }
 
 /********************* Icon PortletIcon************************************/

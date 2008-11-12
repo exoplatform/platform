@@ -35,11 +35,13 @@
 }
 
 .UISitemap .TitleBar a.Icon {
-  margin-left: 5px;
+  margin-left: 5px;  /* orientation=lt */
+  margin-right: 5px;  /* orientation=rt */
   width: auto; height: 22px;
   line-height: 22px;
   overflow: hidden;
-  padding-left: 20px;
+  padding-left: 20px; /* orientation=lt */
+  padding-right: 20px; /* orientation=rt */
   display: block;
 }
 
@@ -92,7 +94,8 @@
 
 .UISitemap .SitemapItemBox .Item .Icon {
   width: 200px; height: auto;
-	padding-left: 20px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
 	margin: auto;
 	text-align: center;
 	color: gray;
@@ -100,8 +103,10 @@
 }
 
 .UISitemap .SitemapItemBox .Item .IconItem {
-	padding-left: 20px;
-	background-position: left 4px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	background-position: left 4px; /* orientation=lt */
+	background-position: right 4px; /* orientation=rt */
 	line-height: 25px;
 }
 

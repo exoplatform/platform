@@ -31,7 +31,8 @@
 .UISitemap .SitemapItemBox .TitleBar a.Icon {
   line-height: 22px;
   width: auto;
-  padding-left: 20px;
+  padding-left: 20px; /* orientation=lt */
+  padding-right: 20px; /* orientation=rt */
   overflow: hidden;
   display: block;
 }
@@ -121,15 +122,18 @@
 .UISitemap .SitemapItemBox .Item .Icon {
   height: auto;
 	width: 200px;
-	padding-left: 20px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
   text-align: center;	
   margin: auto;
   line-height: 22px;
 }
 
 .UISitemap .SitemapItemBox .Item .IconItem {
-	padding-left: 20px;
-	background-position: left 4px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	background-position: left 4px; /* orientation=lt */
+	background-position: right 4px; /* orientation=rt */
 	line-height: 25px;
 }
 
