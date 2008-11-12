@@ -21,9 +21,9 @@ gadgets.ExoBasedUserPrefStore.prototype.savePrefs = function(gadget) {
 		if (portletFragment != null) {
 			var compId = portletFragment.parentNode.id;
 			var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
-			href += "&amp;portal:type=action&uicomponent=" + uiGadget.id;
-			href += "&amp;op=SaveUserPref";
-			href += "&amp;userPref=" + prefs;
+			href += "&portal:type=action&uicomponent=" + uiGadget.id;
+			href += "&op=SaveUserPref";
+			href += "&userPref=" + prefs;
 			ajaxAsyncGetRequest(href,true);
 		} else {
 			var params = [
