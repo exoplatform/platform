@@ -59,7 +59,7 @@
 		}
 		
   	String icon = node.getIcon();
-    if(icon == null) icon = "PageNodeIcon";
+    if(icon == null) icon = "DefaultPageIcon";
     String arrowIcon = "";
     if (node.getChildren() != null && node.getChildren().size() > 0) arrowIcon = "ArrowIcon";
 
@@ -133,7 +133,7 @@
 		                  tabStyleNavigation = "SelectedNavigationTab" ;
 		                }
 		                String icon = node.getIcon();
-								    if(icon == null) icon = "PageNodeIcon";
+								    if(icon == null) icon = "DefaultPageIcon";
 		        %>      
 		        
 				            <div class="UITab">

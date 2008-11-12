@@ -12,7 +12,8 @@
 }
 
 .UIHorizontalTabs .UITab {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   font-weight: bold;
   text-align: center;
   width: auto;
@@ -49,13 +50,11 @@
   color: #fff;
 }
 
-.UIHorizontalTabs .UITab .NormalNavigationTab .DefaultPageIcon {
-  padding: 2px 0 1px 20px;
-}
-
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
-  padding-right: 20px;
-  background: url(background/NavDownArrow.gif) no-repeat right;
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: url(background/NavDownArrow.gif) no-repeat right; /* orientation=lt */
+  background: url(background/NavDownArrow.gif) no-repeat left; /* orientation=rt */
   cursor: pointer;
 }
 
@@ -92,13 +91,11 @@
   color: #fff;
 }
 
-.UIHorizontalTabs .UITab .HighlightNavigationTab .DefaultPageIcon {
-  padding: 2px 0 1px 20px;
-}
-
 .UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
-  padding-right: 20px;
-  background: url(background/NavDownArrow.gif) no-repeat right;
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: url(background/NavDownArrow.gif) no-repeat right; /* orientation=lt */
+  background: url(background/NavDownArrow.gif) no-repeat left; /* orientation=rt */
   cursor: pointer;
 }
 
@@ -137,13 +134,11 @@
   color: #f57a00;
 }
 
-.UIHorizontalTabs .UITab .SelectedNavigationTab .DefaultPageIcon {
-  padding: 2px 0 1px 20px;
-}
-
 .UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
-  padding-right: 20px;
-  background: transparent url(background/NavDownArrow.gif) no-repeat scroll right center;
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: transparent url(background/NavDownArrow.gif) no-repeat scroll right center;  /* orientation=lt */
+  background: transparent url(background/NavDownArrow.gif) no-repeat scroll left center;  /* orientation=rt */
   cursor: pointer;
 }
 

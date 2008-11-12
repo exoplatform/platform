@@ -10,7 +10,8 @@
 }
 
 .UIHorizontalTabs .UITab {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   text-align: center;
 }
 
@@ -49,8 +50,10 @@
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
-  padding-right: 20px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat right;
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat right; /* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat left; /* orientation=rt */
   cursor: pointer;
 }
 
@@ -90,8 +93,10 @@
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
-  padding-right: 20px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat right;
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat right; /* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat left; /* orientation=rt */
   cursor: pointer;
 }
 
@@ -131,8 +136,9 @@
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {
-  padding-right: 20px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat right;
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat left;
   cursor: pointer;
 }
 

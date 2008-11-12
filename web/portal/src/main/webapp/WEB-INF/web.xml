@@ -39,6 +39,21 @@
     <filter-name>ResourceRequestFilter</filter-name>
     <url-pattern>*.css</url-pattern> 
   </filter-mapping>
+  
+	<filter-mapping>
+		<filter-name>ResourceRequestFilter</filter-name>
+		<url-pattern>*.gif</url-pattern> 
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>ResourceRequestFilter</filter-name>
+		<url-pattern>*.png</url-pattern> 
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>ResourceRequestFilter</filter-name>
+		<url-pattern>*.jpg</url-pattern> 
+	</filter-mapping>
 
 	<filter-mapping>
 	  <filter-name>ResourceRequestFilter</filter-name> 

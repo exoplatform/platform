@@ -195,7 +195,7 @@
 .UIToolbar .LargeToolbar a {
   color: black ; font-weight: bold ;
   margin-left: 10px ;
-  padding: 0px 5px 0px 5px ;
+  padding: 0px 3px;
   cursor: pointer ;
 }
 
@@ -218,7 +218,7 @@
 
 .UIToolbar .LargeToolbar .HorizontalSeparator {
   float: left ;
-  margin: 13px 3px 0px 3px ;
+  margin: 13px 0px 0px 0px ;
   width: 2px; height: 40px ;
 }
 

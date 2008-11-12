@@ -127,15 +127,6 @@
   margin: auto;
 }
 
-.UIAccessGroup .UIGrid .ActionContainer {
-  width: 30px;
-}
-
-
-.UIAccessGroup .UIGrid .ActionContainer a img {
-  width: 16px;
-}
-
 .UIAccessGroup .UIPageIterator {
 	width: 95%;
 	margin: auto;

@@ -16,10 +16,8 @@
 }
 
 .UIBannerPortlet .LeftLoginContainer {
-  background: url('DefaultSkin/background/Container.gif') no-repeat top left; /* orientation=lt */
-  background: url('DefaultSkin/background/Container.gif') no-repeat top left; /* orientation=rt */
-  padding-left: 10px; /* orientation=lt */
-  padding-right: 10px; /* orientation=rt */
+  background: url('DefaultSkin/background/Container.gif') no-repeat top left;
+  padding-left: 10px;
   float: right; /* orientation=lt */
   float: left; /* orientation=rt */
   margin-right: 5px; /* orientation=lt */

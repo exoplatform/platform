@@ -18,8 +18,10 @@
   background: url('VistaSkin/background/NavigationPortlet.png') repeat-x top;
 }
 
-.UINavigationPortlet .MiddleTab .TabLabel{
-	padding: 3px 0px 3px 20px ;
+.UINavigationPortlet .MiddleTab .TabLabel {
+	padding: 0px 0px 0px 20px ; /* orientation=lt */
+	padding: 0px 20px 0px 0px ; /* orientation=rt */
+	display: block;
 }
 
 /* Portal Navigation sub menus */
@@ -36,38 +38,35 @@
 
 /*======================== Menu Item Container ===================*/
 .UINavigationPortlet .MenuItemContainer {
-	text-align: left; 
+	text-align: left;  /* orientation=lt */
+	text-align: right;  /* orientation=rt */
 }
 
 .UINavigationPortlet .MenuItemContainer .ItemIcon {
   line-height: 24px; width: auto;
-  margin-left: 5px;
+  margin-left: 5px; /* orientation=lt */
+  margin-right: 5px; /* orientation=rt */
 }
 
 .UINavigationPortlet .MenuItemContainer .ArrowIcon {
   height: 24px; width: auto;
-  padding-right: 20px;
-  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat right -177px;
+  padding-right: 20px; /* orientation=lt */
+  padding-left: 20px; /* orientation=rt */
+  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat right -177px; /* orientation=lt */
+  background: url('VistaSkin/background/NavigationPortlet-rt.png') no-repeat left -177px; /* orientation=rt */
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem a {
   color: #4f4f4f;
   display: block;
-  padding: 0px 20px 0px 25px;
+  padding: 0px 20px 0px 25px; /* orientation=lt */
+  padding: 0px 25px 0px 20px; /* orientation=rt */
   line-height: 24px;
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem a:hover {
   color: #3e8df0;
   line-height: 24px;
-}
-
-.UINavigationPortlet .MenuItemContainer .PageNodeIcon {
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
-}
-
-.UINavigationPortlet .MiddleTab .DefaultPageIcon {
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat left ;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem {
@@ -129,7 +128,8 @@
 /*** Scroll Buttons ***/
 
 .UINavigationPortlet .ScrollButtons {
-	float: right;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	padding: 9px;
 	display: none;
 }

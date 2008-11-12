@@ -78,6 +78,7 @@
   padding: 10px ;
   margin: 0px 1px;
   background: white;
+  text-transform:capitalize;
 }
 
 /*#######################-VTabStyle3 Style VerticalSlideTabs-######################*/

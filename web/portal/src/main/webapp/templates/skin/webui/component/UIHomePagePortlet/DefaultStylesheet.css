@@ -19,14 +19,18 @@
 }
 
 .UIHomePagePortlet .AdImageLeft {
-	background: url('DefaultSkin/background/LeftHome.jpg') no-repeat left;
+	background: url('DefaultSkin/background/LeftHome.jpg') no-repeat left; /* orientation=lt */
+	background: url('DefaultSkin/background/LeftHome-rt.jpg') no-repeat right; /* orientation=rt */
 }
 
 .UIHomePagePortlet .AdImageRight {
-	background: url('DefaultSkin/background/RightHome.gif') no-repeat right;
-	text-align: right;
+	background: url('DefaultSkin/background/RightHome.gif') no-repeat right; /* orientation=lt */
+	background: url('DefaultSkin/background/RightHome-rt.gif') no-repeat left; /* orientation=rt */
+	text-align: right; /* orientation=lt */
+	text-align: left; /* orientation=rt */
 	height: 240px; oveflow: hidden;
-	padding: 0px 22% 0px 0px;
+	padding: 0px 22% 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 22%; /* orientation=rt */
 	letter-spacing: 1px;
 }
 
@@ -52,15 +56,17 @@
 
 .UIHomePagePortlet .HomePortletContent .LeftAccountsContainer {
 	padding-left: 3px;
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat left -516px;
+	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat left -516px; /* orientation=lt */
+	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat right -516px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .RightAccountsContainer {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') repeat-x left -389px;
+	background: url('DefaultSkin/background/HomePagePortlet.gif') repeat-x center -389px;
 }
 
 .UIHomePagePortlet .HomePortletContent .MiddleAccountsContainer {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -643px;
+	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -643px; /* orientation=lt */
+	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat left -643px; /* orientation=rt */
 	height: 127px;
 	padding: 0px 15px 0px;
 }
@@ -78,33 +84,42 @@
 
 .UIHomePagePortlet .HomePortletContent .AccountBlock {
 	height: 105px;
-	float: left;
-	padding: 0px 90px 0px 0px;
-	text-align: right;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding: 0px 90px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 90px; /* orientation=rt */
+	text-align: right; /* orientation=lt */
+	text-align: left; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .AdministratorUser {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right top;
+	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right top; /* orientation=lt */
+	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat left top; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .ManagerUser {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -95px;
+	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -95px; /* orientation=lt */
+	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat left -95px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .NormalUser {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -185px;
+	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -185px; /* orientation=lt */
+	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat left -185px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .DemoUser {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -275px;
+	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -275px; /* orientation=lt */
+	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat left -275px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .SeparatorLine {
 	height: 100px;
 	width: 9px;
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	padding: 0px 10px 0px;
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat left -770px;
+	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat left -770px; /* orientation=lt */
+	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat right -770px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .AccountInfos {

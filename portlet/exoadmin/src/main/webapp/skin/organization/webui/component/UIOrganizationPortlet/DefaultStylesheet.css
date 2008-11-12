@@ -44,18 +44,6 @@
   width: 2px; height: 50px ;
 }
 
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .UserButton {
-	text-align: center;
-}
-
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
-  text-align: center;
-}
-
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
-  text-align: center;
-}
-
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
   height: 18px; line-height: 18px;
   padding-left: 0px;
@@ -84,6 +72,7 @@
 .UIOrganizationPortlet .ManagementIconContainer {
   padding-top: 4px;
   margin-left: 5px;
+  text-align: center;
 }
 
 .UIOrganizationPortlet .UserManagementIcon {
