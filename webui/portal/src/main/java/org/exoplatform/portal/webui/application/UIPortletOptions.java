@@ -84,17 +84,11 @@ public class UIPortletOptions extends UIContainer {
     
     for(PortletCategoryData categoryData: pCategoryDatas) {
       categoryData.getPortlets();
-      options.add(new SelectItemOption<String>(categoryData.getPortletCategory().getName()));
+      options.add(new SelectItemOption<String>(categoryData.getPortletCategory().getDisplayName(),
+                                               categoryData.getPortletCategory().getName()));
     }
   }
 
-  public String removeStringPortlet(String name) {
-    int index = name.lastIndexOf("Portlet") ;
-    if(index != 0 && index != -1) return name.substring(0,index) ;
-    return name ;
-  }
-  
-  
   public Application getPortlet(String id) throws Exception {
     for(PortletCategoryData category : pCategoryDatas){
       List<Application> items = category.getPortlets();
@@ -122,13 +116,13 @@ public class UIPortletOptions extends UIContainer {
   
   static class PortletCategoryComparator implements Comparator<ApplicationCategory> {
     public int compare(ApplicationCategory cat1, ApplicationCategory cat2) {
-      return cat1.getName().compareTo(cat2.getName()) ;
+      return cat1.getDisplayName().compareTo(cat2.getDisplayName()) ;
     }
   }
 
   static class PortletComparator implements Comparator<Application> {
     public int compare(Application p1, Application p2) {
-      return p1.getApplicationName().compareTo(p2.getApplicationName()) ;
+      return p1.getDisplayName().compareTo(p2.getDisplayName()) ;
     }
   }
 

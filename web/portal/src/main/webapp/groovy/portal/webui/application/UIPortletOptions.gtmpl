@@ -32,8 +32,8 @@
 							<div class="UIVerticalSlideTabs">
 							<%
 								for(portlet in portletCategoryData.getPortlets()) {
-							    String name = uicomponent.removeStringPortlet(portlet.getApplicationName()) ;
-							    String title = name ;
+							    String name = portlet.getDisplayName();
+							    String title = name;
 							    if(name.length() > 22) name = name.substring(0,22) + "..." ;
 							    String des = portlet.getDescription();
 							    if(des == null || des.equals("")) des = _ctx.appRes("UIPortletOptions.label.description");						    
@@ -45,7 +45,7 @@
 							            <div class="TabRepeat">
 							              <div class="OverflowContainer" onclick="eXo.webui.UIVerticalSlideTabs.onTabClick(this, 'NormalTab', 'SelectedTab')">
 												      <div class="LeftIcon"><span></span></div>
-										          <div class="TabLabel" title="$title Portlet" style="cursor:move;" onmousedown="eXo.portal.PortalDragDrop.init.call(this, event) ;">$name</div>
+										          <div class="TabLabel" title="$title" style="cursor:move;" onmousedown="eXo.portal.PortalDragDrop.init.call(this, event) ;">$name</div>
 									          </div>
 							            </div>
 							          </div>
