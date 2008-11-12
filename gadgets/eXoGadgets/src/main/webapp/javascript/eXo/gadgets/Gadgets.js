@@ -584,17 +584,91 @@ gadgets.IfrGadget.prototype.handleOpenUserPrefsDialog = function() {
   } else {
     var gadget = this;
     var igCallbackName = 'ig_callback_' + this.id;
-    window[igCallbackName] = function(userPrefsDialogContent) {
+    //window[igCallbackName] = function(userPrefsDialogContent) {
       gadget.userPrefsDialogContentLoaded = true;
-      gadget.buildUserPrefsDialog(userPrefsDialogContent);
+      this.generateForm(gadget, this.getUserPrefsParams());
+      //gadget.buildUserPrefsDialog(userPrefsDialogContent);
       gadget.showUserPrefsDialog();
-    };
+    //};
 
-    var script = document.createElement('script');
+    /*var script = document.createElement('script');
     script.src = 'http://gmodules.com/ig/gadgetsettings?mid=' + this.id +
         '&output=js' + this.getUserPrefsParams() +  '&url=' + this.specUrl;
-    document.body.appendChild(script);
+    document.body.appendChild(script); */
   }
+};
+
+gadgets.IfrGadget.prototype.generateForm = function(gadget) {
+    var prefs = gadget.metadata.userPrefs;
+    var userPrefs = gadget.userPrefs_;
+    console.log(userPrefs);
+    var gadgetId = gadget.id;
+    var parentEl = document.getElementById(this.getUserPrefsDialogId());
+    var formEl = document.createElement("form");
+    var prefix = "m_" + gadgetId + "_up_";
+
+    var j = 0;
+    for (var att in prefs) {
+        var attEl = document.createElement("div");
+        var labelEl = document.createElement("span");
+
+        var elID = "m_" + gadgetId + '_' + j;
+
+        labelEl.innerHTML = prefs[att].displayName + ": ";
+        attEl.appendChild(labelEl);
+
+
+        type = prefs[att].type;
+        if (type == "enum") {
+            var el = document.createElement("select");
+            el.name = prefix + att;
+            var values = prefs[att].orderedEnumValues;
+            var userValue = userPrefs[att];
+            console.log("userValue", userValue);
+
+            for (var i = 0; i < values.length; i++) {
+                var value = values[i];
+                var optEl = document.createElement("option");
+                theText = document.createTextNode(value.displayValue);
+                optEl.appendChild(theText);
+                optEl.setAttribute("value", value.value);
+                console.log(value.value, userValue);
+                if(userValue && value.value == userValue)
+                    optEl.setAttribute("selected", "selected");  
+                el.appendChild(optEl);
+            }
+            el.id = elID;
+            attEl.appendChild(el);
+        }
+        else if (type == "string" || type == "number") {
+            var el = document.createElement("input");
+            el.name = prefix + att;
+            el.id = elID;
+            if (userPrefs[att]) {
+                el.value = userPrefs[att];
+            }
+            attEl.appendChild(el);
+        }
+        formEl.appendChild(attEl);
+        j++;
+    }
+
+    var numFieldsEl = document.createElement("input");
+    numFieldsEl.type = "hidden";
+    numFieldsEl.value = j;
+    numFieldsEl.id = "m_" + gadgetId + "_numfields";
+    formEl.appendChild(numFieldsEl);
+
+
+    parentEl.appendChild(formEl);
+
+    var saveEl = document.createElement("div");
+    saveEl.className = this.cssClassGadgetUserPrefsDialogActionBar;
+    saveEl.innerHTML = '<input type="button" value="Save" onclick="gadgets.container.getGadget(' +
+      this.id +').handleSaveUserPrefs()"> <input type="button" value="Cancel" onclick="gadgets.container.getGadget(' +
+      this.id +').handleCancelUserPrefs()">';
+    parentEl.appendChild(saveEl);
+
 };
 
 gadgets.IfrGadget.prototype.buildUserPrefsDialog = function(content) {
@@ -623,6 +697,7 @@ gadgets.IfrGadget.prototype.handleSaveUserPrefs = function() {
   var prefs = {};
   var numFields = document.getElementById('m_' + this.id +
       '_numfields').value;
+  console.log("numFields", numFields);
   for (var i = 0; i < numFields; i++) {
     var input = document.getElementById('m_' + this.id + '_' + i);
     if (input.type != 'hidden') {
