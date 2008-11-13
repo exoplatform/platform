@@ -2,6 +2,7 @@
   import org.exoplatform.portal.webui.page.UIPage;
   import javax.portlet.WindowState;
   import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.commons.utils.Text;
   
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -93,7 +94,7 @@
 		            %>
 		            	<%=description;%>
 		            <%} else {
-		               String des = _ctx.appRes("UIPortlet.label.portletContent");
+		               Text des = _ctx.appRes("UIPortlet.label.portletContent");
 			            if(uicomponent.getId() !=null) des = uicomponent.getId() + " portlet";
 			            if(uicomponent.getName() !=null) des = uicomponent.getTitle() + " portlet";
 		            %>

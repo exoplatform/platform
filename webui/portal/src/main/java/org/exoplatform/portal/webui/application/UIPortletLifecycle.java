@@ -18,12 +18,14 @@ package org.exoplatform.portal.webui.application;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Collections;
 
 import javax.portlet.WindowState;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.Constants;
 import org.exoplatform.commons.utils.ExceptionUtil;
+import org.exoplatform.commons.utils.Text;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -31,7 +33,6 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.RenderInput;
 import org.exoplatform.services.portletcontainer.pci.RenderOutput;
@@ -133,16 +134,18 @@ public class UIPortletLifecycle extends Lifecycle {
     PortletContainerService portletContainer = (PortletContainerService) container
         .getComponentInstanceOfType(PortletContainerService.class);
     OrganizationService service = uiPortlet.getApplicationComponent(OrganizationService.class);
-    UserProfile userProfile = service.getUserProfileHandler().findUserProfileByName(uiPortal.getOwner());
+    // UserProfile userProfile = service.getUserProfileHandler().findUserProfileByName(uiPortal.getOwner());
     RenderInput input = new RenderInput();
     String baseUrl = new StringBuilder(prcontext.getRequestURI()).append(
         "?" + PortalRequestContext.UI_COMPONENT_ID).append("=").append(
         uiPortlet.getId()).toString();
     input.setBaseURL(baseUrl);
     input.setEscapeXml(true);
-    if (userProfile != null)   input.setUserAttributes(userProfile.getUserInfoMap());
-    else  input.setUserAttributes(new HashMap<String, String>());
-    
+//    if (userProfile != null)   input.setUserAttributes(userProfile.getUserInfoMap());
+//    else  input.setUserAttributes(new HashMap<String, String>());
+    Map<String, String> emptyMap = Collections.emptyMap();
+    input.setUserAttributes(emptyMap);
+
     input.setPortletMode(uiPortlet.getCurrentPortletMode());
     input.setWindowState(uiPortlet.getCurrentWindowState());
     input.setMarkup("text/html");
@@ -151,16 +154,15 @@ public class UIPortletLifecycle extends Lifecycle {
     input.setRenderParameters(getRenderParameterMap(uiPortlet));
     input.setPublicParamNames(uiPortlet.getPublicRenderParamNames());
     RenderOutput output = null;
-    StringBuilder portletContent = new StringBuilder();
+    Text markup = null;
     String portletTitle = null;
     try {
       if (uiPortlet.getCurrentWindowState() != WindowState.MINIMIZED) {
         output = portletContainer.render(prcontext.getRequest(), prcontext.getResponse(), input);
-        portletContent.setLength(0);
-        portletContent.append(output.getContent());
+        markup = output.getMarkup();
       }
     } catch (Throwable ex) {
-    	portletContent.append("This portlet encountered an error and could not be displayed.");
+      markup = Text.create("This portlet encountered an error and could not be displayed.");
       log.error("The portlet " + uiPortlet.getName() + " could not be loaded. Check if properly deployed.", ExceptionUtil.getRootCause(ex));
     }
     if (output != null) {
@@ -170,14 +172,16 @@ public class UIPortletLifecycle extends Lifecycle {
     if (portletTitle == null) portletTitle = "Portlet";
 
     if (context.useAjax() && !prcontext.getFullRender()) {
-      prcontext.getWriter().write(portletContent.toString());
+      if (markup != null) {
+        markup.writeTo(prcontext.getWriter());
+      }
     } else {
       WebuiApplication app = (WebuiApplication) prcontext.getApplication();
       ApplicationResourceResolver resolver = app.getResourceResolver();
       WebuiBindingContext bcontext = new WebuiBindingContext(resolver, context
           .getWriter(), uiPortlet, prcontext);
       bcontext.put("uicomponent", uiPortlet);
-      bcontext.put("portletContent", portletContent);
+      bcontext.put("portletContent", markup);
       bcontext.put("portletTitle", portletTitle);
       try {
         renderTemplate(uiPortlet.getTemplate(), bcontext);

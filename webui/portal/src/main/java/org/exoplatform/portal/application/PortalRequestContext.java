@@ -18,6 +18,7 @@ package org.exoplatform.portal.application;
 
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
+import java.io.PrintWriter;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -176,7 +177,7 @@ public class PortalRequestContext extends WebuiRequestContext {
 
   final public Writer getWriter() throws Exception { 
     if(writer_ == null) {
-      writer_ = new HtmlValidator(response_.getWriter()) ;
+      writer_ = new PrintWriter(new HtmlValidator(response_.getWriter())) ;
     }
     return writer_ ; 
   }

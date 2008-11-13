@@ -4,6 +4,8 @@ import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import groovy.lang.Script;
 import groovy.lang.Writable;
+import groovy.lang.GroovyClassLoader;
+import groovy.lang.GroovyCodeSource;
 import groovy.text.Template;
 import groovy.text.TemplateEngine;
 
@@ -13,10 +15,14 @@ import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Map;
 
 import org.codehaus.groovy.control.CompilationFailedException;
+import org.codehaus.groovy.control.CompilerConfiguration;
 import org.codehaus.groovy.runtime.InvokerHelper;
+import org.exoplatform.commons.utils.Text;
 
 /**
  * This simple template engine uses JSP <% %> script and <%= %> expression syntax.  It also lets you use normal groovy expressions in
@@ -44,13 +50,59 @@ public class SimpleTemplateEngine extends TemplateEngine {
       System.out.print(script);
       System.out.println("\n-- script end --\n");
     }
-    template.script = shell.parse(script);
+
+    //
+    CompilerConfiguration config = new CompilerConfiguration();
+    config.setScriptBaseClass(ExoScript.class.getName());
+    byte[] bytes = script.getBytes(config.getSourceEncoding());
+    InputStream in = new ByteArrayInputStream(bytes);
+    GroovyCodeSource gcs = new GroovyCodeSource(in, "fic", "/groovy/shell");
+    GroovyClassLoader loader = new GroovyClassLoader(Thread.currentThread().getContextClassLoader(), config);
+    loader.parseClass(gcs, false);
+    template.scriptClass = loader.parseClass(script);
     return template;
+  }
+
+  public static abstract class ExoScript extends Script {
+
+    private PrintWriter printer;
+
+    protected ExoScript() {
+    }
+
+    protected ExoScript(Binding binding) {
+      super(binding);
+    }
+
+    @Override
+    public void println(Object o) {
+      print(o);
+      println();
+    }
+
+    @Override
+    public void println() {
+      printer.println();
+    }
+
+    @Override
+    public void print(Object o) {
+      if (o instanceof Text) {
+        try {
+          ((Text)o).writeTo(printer);
+        }
+        catch (IOException e) {
+          e.printStackTrace();
+        }
+      } else {
+        printer.print(o);
+      }
+    }
   }
 
   private static class SimpleTemplate implements Template {
 
-    protected Script script;
+    protected Class scriptClass;
 
     public Writable make() {
       return make(null);
@@ -64,16 +116,26 @@ public class SimpleTemplateEngine extends TemplateEngine {
          * @see groovy.lang.Writable#writeTo(java.io.Writer)
          */
         public Writer writeTo(Writer writer) {
-          Binding binding;
+          Binding context;
           if (map == null)
-            binding = new Binding();
+            context = new Binding();
           else
-            binding = new Binding(map);
-          Script scriptObject = InvokerHelper.createScript(script.getClass(), binding);
-          PrintWriter pw = new PrintWriter(writer);
-          scriptObject.setProperty("out", pw);
-          scriptObject.run();
-          pw.flush();
+            context = new Binding(map);
+
+          // Normally we should have a PrintWriter to avoid the cost creation of one
+          PrintWriter printer;
+          if (writer instanceof PrintWriter) {
+            printer = (PrintWriter)writer;
+          } else {
+            printer = new PrintWriter(writer);
+          }
+
+          //
+          ExoScript script = (ExoScript)InvokerHelper.createScript(scriptClass, context);
+          script.printer = printer;
+          script.setProperty("out", script.printer);
+          script.run();
+          script.printer.flush();
           return writer;
         }
 
