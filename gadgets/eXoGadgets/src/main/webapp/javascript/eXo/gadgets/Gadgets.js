@@ -601,7 +601,6 @@ gadgets.IfrGadget.prototype.handleOpenUserPrefsDialog = function() {
 gadgets.IfrGadget.prototype.generateForm = function(gadget) {
     var prefs = gadget.metadata.userPrefs;
     var userPrefs = gadget.userPrefs_;
-    console.log(userPrefs);
     var gadgetId = gadget.id;
     var parentEl = document.getElementById(this.getUserPrefsDialogId());
     var formEl = document.createElement("form");
@@ -624,7 +623,6 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
             el.name = prefix + att;
             var values = prefs[att].orderedEnumValues;
             var userValue = userPrefs[att];
-            console.log("userValue", userValue);
 
             for (var i = 0; i < values.length; i++) {
                 var value = values[i];
@@ -632,7 +630,6 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
                 theText = document.createTextNode(value.displayValue);
                 optEl.appendChild(theText);
                 optEl.setAttribute("value", value.value);
-                console.log(value.value, userValue);
                 if(userValue && value.value == userValue)
                     optEl.setAttribute("selected", "selected");  
                 el.appendChild(optEl);
@@ -697,7 +694,6 @@ gadgets.IfrGadget.prototype.handleSaveUserPrefs = function() {
   var prefs = {};
   var numFields = document.getElementById('m_' + this.id +
       '_numfields').value;
-  console.log("numFields", numFields);
   for (var i = 0; i < numFields; i++) {
     var input = document.getElementById('m_' + this.id + '_' + i);
     if (input.type != 'hidden') {
