@@ -26,6 +26,7 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -206,6 +207,15 @@ public class UIApplicationOrganizer extends UIContainer {
     public void execute(Event<UIApplicationOrganizer> event) throws Exception {
       UIApplicationOrganizer uiOrganizer = event.getSource() ;
       String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      UICategoryForm uiCategoryForm = uiOrganizer.getChild(UICategoryForm.class);
+      if(uiCategoryForm != null) {
+        ApplicationCategory edittingCategory = uiCategoryForm.getCategory();
+        if(edittingCategory != null && edittingCategory.getName().equals(name)) {
+          UIApplication uiApp = event.getRequestContext().getUIApplication();
+          uiApp.addMessage(new ApplicationMessage("UIOrganizer.msg.deleteCategoryInUse", null));
+          return;
+        }
+      }
       ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
       service.remove(uiOrganizer.getCategory(name)) ;
       uiOrganizer.reload();
@@ -244,6 +254,15 @@ public class UIApplicationOrganizer extends UIContainer {
     public void execute(Event<UIApplicationOrganizer> event) throws Exception {
      UIApplicationOrganizer uiOrganizer = event.getSource() ;
      String appName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+     UIApplicationForm uiApplicationForm = uiOrganizer.getChild(UIApplicationForm.class);
+     if(uiApplicationForm != null) {
+       Application app = uiApplicationForm.getApplication();
+       if(app != null && app.getApplicationName().equals(appName)){
+         UIApplication uiApp = event.getRequestContext().getUIApplication();
+         uiApp.addMessage(new ApplicationMessage("UIOrganizer.msg.deleteApplicationInUse", null));
+         return;
+       }
+     }
      ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
      Application app = uiOrganizer.getApplication(appName) ;
      service.remove(app) ;
