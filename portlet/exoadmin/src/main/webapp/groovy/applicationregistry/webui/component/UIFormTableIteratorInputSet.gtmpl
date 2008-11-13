@@ -34,7 +34,7 @@
 				  	<% if(UIFormCheckBoxInput.class.isInstance(child.getChild(i))) { %>
 				  	<td><div style="text-align: center"><%child.renderChild(i);%></div></td>  
 				  	<% } else { %>			  
-	  			  <td class="text"><%child.renderChild(i);%></td>  
+	  			  <td class="text" style="<%=(i==0 ? "text-align: center;" : "");%>")%><%child.renderChild(i);%></td>  
 				  	<% } %>
 				  <%}%>
 				</tr>

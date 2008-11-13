@@ -282,7 +282,7 @@
         <div class="BottomDecoratorRight">
           <div class="BottomDecoratorCenter">
           	<div class="FixHeight">
-	            <div class="ResizeArea" title="<%=_ctx.appRes("UIPortlet.tooltip.ResizeWindow");%>Resize Window"><span></span></div>
+	            <div class="ResizeArea" title="<%=_ctx.appRes("UIPortlet.tooltip.ResizeWindow");%>"><span></span></div>
 	            <div class="Information"><%=_ctx.appRes("UIPortlet.lable.information");%></div>
 	            <div style="clear: right"><span></span></div>
 						</div>
