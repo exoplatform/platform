@@ -18,7 +18,6 @@ package org.exoplatform.webui.core;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -34,13 +33,17 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(lifecycle = UIContainerLifecycle.class)
 public class UIContainer extends UIComponent {
   
-  private List<UIComponent> children = new CopyOnWriteArrayList<UIComponent>();
+  private List<UIComponent> children ;
   
   public void visit() throws Exception {
     
   }
 
   public  boolean hasChildren() { return children != null ; }
+  
+  public void setChildren(List<UIComponent> ls) {
+    this.children = ls ;
+  }
   
   public List<UIComponent> getChildren() {
     if(children == null) children = new ArrayList<UIComponent>(3) ;

@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.util;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.exoplatform.Constants;
 import org.exoplatform.portal.config.UserPortalConfig;
@@ -380,6 +381,7 @@ public class PortalDataMapper {
     WebuiRequestContext  context = Util.getPortalRequestContext() ;
     for(Container child : children) { 
       UIContainer uiContainer = uiGadgets.createUIComponent(context, UIContainer.class, "GadgetContainer", null);
+      uiContainer.setChildren((List<UIComponent>) new CopyOnWriteArrayList<UIComponent>()) ;
       uiContainer.setRendered(false);
       toUIContainer(uiContainer, child);
       uiGadgets.addChild(uiContainer);

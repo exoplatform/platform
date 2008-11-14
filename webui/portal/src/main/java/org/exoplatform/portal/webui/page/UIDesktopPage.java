@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.page;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import javax.portlet.WindowState;
 
@@ -61,6 +62,12 @@ import org.exoplatform.webui.event.EventListener;
 	}
 )
 public class UIDesktopPage extends UIPage {
+  
+  public UIDesktopPage() {
+    setChildren((List<UIComponent>)new CopyOnWriteArrayList<UIComponent>()) ;
+  }
+  
+  
 	public boolean isShowMaxWindow() { return true; }
 	
   public List<PageNavigation> getNavigations() throws Exception {

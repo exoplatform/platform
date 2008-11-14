@@ -19,6 +19,7 @@ package org.exoplatform.dashboard.webui.component;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
@@ -28,7 +29,9 @@ import org.exoplatform.portal.layout.PortalLayoutService;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
+import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
@@ -135,9 +138,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     UIContainer uiRoot = getChild(UIContainer.class);
 
     //remove the existing children, mybe it should be done in PortalDataMapper.toUIContainer
-    uiRoot.getChildren().clear();
-
-    PortalDataMapper.toUIContainer(uiRoot, container);
+    toUIContainer(uiRoot, container);
     JavascriptManager jsmanager = context.getJavascriptManager() ;
     jsmanager.addCustomizedOnLoadScript("eXo.webui.UIDashboard.onLoad('" + windowId + "');") ;
     //----
@@ -387,25 +388,6 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
    * @throws Exception
    */
   private void initData() throws Exception {
-//    PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
-//
-//    DashboardParent parent = (DashboardParent)((UIComponent)getParent()).getParent();
-//
-//    if (service.getContainer(ROOT_CONTAINER + "-" + windowId, parent.getDashboardOwner()) != null) { return; }
-//    Container root = createContainer(COLUMN_CONTAINER, ROOT_CONTAINER + "-" + windowId);
-//    ArrayList<Object> children = new ArrayList<Object>();
-//    
-//    //TODO: Use value from PortletPreference
-//    PortletRequestContext pcontext = (PortletRequestContext) 
-//      WebuiRequestContext.getCurrentInstance();
-//    PortletPreferences pref = pcontext.getRequest().getPreferences();
-//    int totalCols = Integer.parseInt(pref.getValue(UIDashboardEditForm.TOTAL_COLUMNS, "3"));
-//    for (int i = 0; i < totalCols; i++) {
-//      children.add(createContainer(ROW_CONTAINER, "UIColumn-" + i));
-//    }
-//    root.setChildren(children);
-//
-//    service.create(root, parent.getDashboardOwner());
     PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
     DashboardParent parent = (DashboardParent)((UIComponent)getParent()).getParent();
     String id = ROOT_CONTAINER + "-" + windowId;
@@ -429,6 +411,54 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     DashboardParent parent = (DashboardParent)((UIComponent)getParent()).getParent();
 
     service.save(PortalDataMapper.toContainer(uiRoot), parent.getDashboardOwner());
+  }
+  
+  private void toUIContainer(UIContainer uiContainer, Container model) throws Exception {
+    uiContainer.setId(model.getId());
+    uiContainer.setWidth(model.getWidth());
+    uiContainer.setHeight(model.getHeight());
+    uiContainer.setTitle(model.getTitle());
+    uiContainer.setIcon(model.getIcon());
+    uiContainer.setDescription(model.getDescription());
+    uiContainer.setFactoryId(model.getFactoryId());
+    uiContainer.setName(model.getName());
+    uiContainer.setTemplate(model.getTemplate());
+    
+    List<Object> children  = model.getChildren();
+    if(children == null)  return;
+    for (int i = 0; i < children.size() ; i++) {
+      Object child = children.get(i) ;
+      UIComponent uiComp = buildChild(uiContainer, child);
+      if(uiComp != null) {
+        if(uiContainer.getChild(i) == null) {
+          uiContainer.addChild(uiComp) ;
+          continue ;
+        }
+        uiContainer.getChildren().set(i, uiComp);
+      }
+    }
+  }
+  
+  @SuppressWarnings("unchecked")
+  private <T extends UIComponent> T buildChild(UIPortalComponent uiParent, Object model) throws Exception {
+    UIComponent uiComponent = null;
+    WebuiRequestContext  context = Util.getPortalRequestContext() ;
+    if(model instanceof org.exoplatform.portal.config.model.Application){
+      org.exoplatform.portal.config.model.Application application = (org.exoplatform.portal.config.model.Application) model;
+      String factoryId = application.getApplicationType();    
+      if(factoryId.equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
+        UIGadget uiGadget = uiParent.createUIComponent(context, UIGadget.class, null, null) ;
+        PortalDataMapper.toUIGadget(uiGadget, application) ;
+        uiComponent = uiGadget ;
+      }
+    } else if(model instanceof Container){
+      Container container = (Container) model;
+      UIContainer uiContainer = uiParent.createUIComponent(context, UIContainer.class, container.getFactoryId(), null);
+      uiContainer.setChildren((List<UIComponent>) new CopyOnWriteArrayList<UIComponent>()) ;
+      PortalDataMapper.toUIContainer(uiContainer, (Container)model);
+      uiComponent = uiContainer;
+    }
+    return (T)uiComponent;
   }
 
   public static class AddNewGadgetActionListener extends EventListener<org.exoplatform.webui.core.UIContainer> {
