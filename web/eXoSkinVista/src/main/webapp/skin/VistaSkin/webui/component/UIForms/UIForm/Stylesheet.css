@@ -21,7 +21,8 @@
 
 .UIForm .UIFormGrid td.FieldLabel {
   padding: 4px;
-  text-align: right;
+  text-align: right; /* orientation=lt */
+  text-align: left; /* orientation=rt */
 	vertical-align: top;
 }
 

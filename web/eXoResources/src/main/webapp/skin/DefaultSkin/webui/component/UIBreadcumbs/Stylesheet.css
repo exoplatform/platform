@@ -43,6 +43,7 @@
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   margin: 5px 0px 0px 0px;
 }

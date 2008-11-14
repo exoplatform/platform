@@ -215,7 +215,8 @@
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer {
-  float: right;
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */
   width: 210px;
 }
 
@@ -228,7 +229,9 @@
 .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
   border: 1px #b7b7b7 solid;
   background: white;
-  padding: 1px; margin-right: 220px;
+  padding: 1px; 
+  margin-right: 220px; /* orientation=lt */
+  margin-left: 220px; /* orientation=rt */
   height: 311px;
 }
 
@@ -266,33 +269,44 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserProfileIcon {  
   height: 32px;
-  background: url('background/SelectedItem.png') no-repeat left -144px;
-  padding-left: 30px;
+  background: url('background/SelectedItem.png') no-repeat left -144px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -144px; /* orientation=rt */
+  padding-left: 30px; /* orientation=lt */
+  padding-right: 30px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserHomeInfoIcon {    
   height: 32px;
-  background: url('background/SelectedItem.png') no-repeat left -176px;
-  padding-left: 30px;
+  background: url('background/SelectedItem.png') no-repeat left -176px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -176px; /* orientation=rt */
+  padding-left: 30px; /* orientation=lt */
+  padding-right: 30px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserBusinessInfoIcon {
   height: 32px;
-  background: url('background/SelectedItem.png') no-repeat left -208px;
-  padding-left: 30px;
+  background: url('background/SelectedItem.png') no-repeat left -208px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -208px; /* orientation=rt */
+  padding-left: 30px; /* orientation=lt */
+  padding-right: 30px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemName {
   height: 32px; line-height: 32px;
-  background: url('background/SelectedItem.png') no-repeat right -336px;
-  padding-right: 23px; color: #526791;
+  background: url('background/SelectedItem.png') no-repeat right -336px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat left -336px; /* orientation=rt */
+  padding-right: 23px; /* orientation=lt */
+  padding-left: 23px; /* orientation=rt */
+  color: #526791;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemTitle {
   height: 32px; line-height: 32px;
-  background: url('background/SelectedItem.png') repeat-x left -400px;
+  background: url('background/SelectedItem.png') repeat-x left -400px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') repeat-x right -400px; /* orientation=rt */
   color: gray;
-  padding-left: 10px;
+  padding-left: 10px; /* orientation=lt */
+  padding-right: 10px; /* orientation=rt */
 }
 
 
@@ -317,33 +331,42 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserProfileIcon {
   height: 32px;
-  background: url('background/SelectedItem.png') no-repeat left -240px;
-  padding-left: 30px;
+  background: url('background/SelectedItem.png') no-repeat left -240px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -240px; /* orientation=rt */
+  padding-left: 30px; /* orientation=lt */
+  padding-right: 30px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserHomeInfoIcon {
   height: 32px;
-  background: url('background/SelectedItem.png') no-repeat left -272px;
-  padding-left: 30px;
+  background: url('background/SelectedItem.png') no-repeat left -272px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -272px; /* orientation=rt */
+  padding-left: 30px; /* orientation=lt */
+  padding-right: 30px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserBusinessInfoIcon {
   height: 32px;
-  background: url('background/SelectedItem.png') no-repeat left -304px;
+  background: url('background/SelectedItem.png') no-repeat left -304px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -304px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemName {
   height: 32px; line-height: 32px;
-  background: url('background/SelectedItem.png') no-repeat right -368px;
-  padding-right: 23px;
+  background: url('background/SelectedItem.png') no-repeat right -368px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat left -368px; /* orientation=rt */
+  padding-right: 23px; /* orientation=lt */
+  padding-left: 23px; /* orientation=rt */
   color: black;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemTitle {
   height: 32px; line-height: 32px; 
-  background: url('background/SelectedItem.png') repeat-x left -432px;
+  background: url('background/SelectedItem.png') repeat-x left -432px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') repeat-x right -432px; /* orientation=rt */
   font-weight: bold; color: black;
-  padding-left: 10px;
+  padding-left: 10px; /* orientation=lt */
+  padding-right: 10px; /* orientation=rt */
 }
 
 /*#####################- End Item Selected && END BIG STYLE -#########################*/

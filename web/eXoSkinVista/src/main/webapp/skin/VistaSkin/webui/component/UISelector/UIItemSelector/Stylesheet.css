@@ -262,7 +262,8 @@
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemListContainer {
-  float: right;
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */
   width: 220px;
 }
 
@@ -278,7 +279,9 @@
 .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
   border: 1px #b7b7b7 solid;
   background: white;
-  padding: 1px; margin-right: 225px;
+  padding: 1px; 
+  margin-right: 225px; /* orientation=lt */
+  margin-left: 225px; /* orientation=rt */
   height: 322px;
 }
 
@@ -306,33 +309,44 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserProfileIcon {  
   height: 26px; line-height: 26px;
-  background: url('background/SelectedItem.png') no-repeat left -441px;
-  padding-left: 34px;
+  background: url('background/SelectedItem.png') no-repeat left -441px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -441px; /* orientation=rt */
+  padding-left: 34px; /* orientation=lt */
+  padding-right: 34px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserHomeInfoIcon {    
   height: 26px;
-  background: url('background/SelectedItem.png') no-repeat left -467px;
-  padding-left: 34px;
+  background: url('background/SelectedItem.png') no-repeat left -467px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -467px; /* orientation=rt */
+  padding-left: 34px; /* orientation=lt */
+  padding-right: 34px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .UserBusinessInfoIcon {
   height:26px;
-  background: url('background/SelectedItem.png') no-repeat left -493px;
-  padding-left: 34px;
+  background: url('background/SelectedItem.png') no-repeat left -493px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -493px; /* orientation=rt */
+  padding-left: 34px; /* orientation=lt */
+  padding-right: 34px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemName {
   height: 26px; line-height: 26px;
-  background: url('background/SelectedItem.png') no-repeat right -649px;
-  padding-right: 30px; color: #526791;
+  background: url('background/SelectedItem.png') no-repeat right -649px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat left -649px; /* orientation=rt */
+  padding-right: 30px; /* orientation=lt */
+  padding-left: 30px; /* orientation=rt */
+  color: #526791;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .Item .ItemTitle {
   height: 26px; line-height:26px;
-  background: url('background/SelectedItem.png') repeat-x left -597px;
+  background: url('background/SelectedItem.png') repeat-x left -597px; /* orientation=lt */
+  background: url('background/SelectedItem.png') repeat-x left -597px; /* orientation=rt */
   color: #3e3d3d;
-  padding-left: 10px;
+  padding-left: 10px; /* orientation=lt */
+  padding-right: 10px; /* orientation=rt */
 }
 
 
@@ -345,45 +359,58 @@
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserAccountIcon {
   height: 32px;
-  background: url('background/BigStyleUserAccountSelected.gif') no-repeat left;
-  padding-left: 30px;
+  background: url('background/BigStyleUserAccountSelected.gif') no-repeat left; /* orientation=lt */
+  background: url('background/BigStyleUserAccountSelected-rt.gif') no-repeat right; /* orientation=rt */
+  padding-left: 30px; /* orientation=lt */
+  padding-right: 30px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .MembershipIcon {
   height: 32px;
-  background: url('background/BigStyleMembershipSelected.gif') no-repeat left;
-  padding-left: 30px;
+  background: url('background/BigStyleMembershipSelected.gif') no-repeat left; /* orientation=lt */
+  background: url('background/BigStyleMembershipSelected-rt.gif') no-repeat right; /* orientation=rt */
+  padding-left: 30px; /* orientation=lt */
+  padding-right: 30px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserProfileIcon {
   height: 26px;
-  background: url('background/SelectedItem.png') no-repeat left -519px;
-  padding-left: 34px;
+  background: url('background/SelectedItem.png') no-repeat left -519px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -519px; /* orientation=rt */
+  padding-left: 34px; /* orientation=lt */
+  padding-right: 34px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserHomeInfoIcon {
   height: 26px;
-  background: url('background/SelectedItem.png') no-repeat left -545px;
-  padding-left: 34px;
+  background: url('background/SelectedItem.png') no-repeat left -545px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -545px; /* orientation=rt */
+  padding-left: 34px; /* orientation=lt */
+  padding-right: 34px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .UserBusinessInfoIcon {
   height: 26px;
-  background: url('background/SelectedItem.png') no-repeat left -571px;
+  background: url('background/SelectedItem.png') no-repeat left -571px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -571px; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemName {
   height: 26px; line-height: 26px; 
-  background: url('background/SelectedItem.png') no-repeat right -675px;
-  padding-right: 2px;
+  background: url('background/SelectedItem.png') no-repeat right -675px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat left -675px; /* orientation=rt */
+  padding-right: 2px; /* orientation=lt */
+  padding-left: 2px; /* orientation=rt */
   color: black;
 }
 
 .UIItemSelector .RightColumnBigItemStyle .ItemList .SelectedItem .ItemTitle {
   height: 26px; line-height: 26px; 
-  background: url('background/SelectedItem.png') repeat-x left -623px;
+  background: url('background/SelectedItem.png') repeat-x left -623px; /* orientation=lt */
+  background: url('background/SelectedItem-rt.png') repeat-x right -623px; /* orientation=rt */
   color: black;
-  padding-left: 10px;
+  padding-left: 10px; /* orientation=lt */
+  padding-right: 10px; /* orientation=rt */
 }
 /*###########################- FloatRightStyle -#########################*/
 

@@ -3,7 +3,8 @@
 }
 
 .UIPopupWindow .PopupTitleIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   margin-top: 10px;
   width: 16px; height: 16px;
   background: url('background/PopupWindowIcon.gif') no-repeat left top;
@@ -24,7 +25,8 @@
 }
 
 .UIPopupWindow .CloseButton {
-  float: right;
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */
   margin-top: 10px;
   cursor: pointer;
   width: 16px; height: 16px;
@@ -103,88 +105,6 @@
   padding: 7px 2px 0px 8px;
 }
 
-/***************************Begin PoupWindow Caledar**********************************/
-.UIPopupWindow .CaledarStyle .TopLeftCornerDecorator {
-	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventTL12x25.gif') no-repeat left; 
-	padding-left: 12px;
-}
-
-.UIPopupWindow .CaledarStyle .TopRightCornerDecorator {
-	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventTR3x25.gif') no-repeat right; 
-	padding-right: 3px;
-}
-
-.UIPopupWindow .CaledarStyle .TopCenterDecorator {
-	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventTC1x25.gif') repeat-x ; 
-	height: 25px;
-}
-
-.UIPopupWindow .CaledarStyle .PopupTitle {
-	background: none;
-}
-
-.UIPopupWindow .CaledarStyle .PopupTitleIcon {
-	width: 16px;	height: 16px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/AddNewEventIcon.gif') no-repeat;
-	float: left;
-	margin: 5px 0px 0px 4px;
-}
-
-.UIPopupWindow .CaledarStyle .MiddleLeftSideDecorator {
-	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventML3x1.gif') repeat-y left; 
-	padding-left: 3px;
-}
-
-.UIPopupWindow .CaledarStyle .MiddleRightSideDecorator {
-	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventMR3x1.gif') repeat-y right; 
-	padding-right: 3px;
-}
-
-.UIPopupWindow .CaledarStyle .MiddleCenterDecorator {
-	background: #ffffff;
-	padding: 0px;
-}
-
-.UIPopupWindow .CaledarStyle .UIWindowContent {
-	padding: 0px; margin:0px;
-	background: url('null') no-repeat;
-}
-
-.UIPopupWindow .CaledarStyle .UIWindowContent .Content {
-	padding: 0px; margin:0px;
-	border: none;
-	background: url('null') no-repeat;
-}
-
-.UIPopupWindow .CaledarStyle .BottomBar {
-	height: 0px; 
-	padding: 0px; margin:0px;
-}
-
-.UIPopupWindow .CaledarStyle .BottomBar .ResizeButton {
-	background: url('null') no-repeat;
-	height: 0px;
-}
-
-.UIPopupWindow .CaledarStyle .BottomLeftCornerDecorator {
-	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventBL12x12.gif') no-repeat left; 
-	padding-left: 12px; height: 12px;
-}
-
-.UIPopupWindow .CaledarStyle .BottomRightCornerDecorator {
-	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventBR12x12.gif') no-repeat right; 
-	padding-right: 12px;height: 12px;
-}
-
-.UIPopupWindow .CaledarStyle .BottomCenterDecorator {
-	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIPopup/UIPopupWindow/background/PopupCreatEventBC1x12.gif') repeat-x ; 
-	height: 12px;
-}
-/***************************End PoupWindow Caledar**********************************/
-
-.UIPopupWindow .Content .UIPageBrowser {
-  padding: 7px 4px 0px 8px;
-}
 /***************************Begin PoupWindow ExoMessage**********************************/
 .UIPopupWindow .ExoMessageDecorator {
 }
@@ -208,7 +128,8 @@
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitle {
 	background: none;
-	text-align: left;
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
 	margin: 8px 26px 0px 26px;
 	line-height: 20px;
 	height: 20px;
@@ -222,8 +143,8 @@
 .UIPopupWindow .ExoMessageDecorator .PopupTitleIcon {
 	width: 25px;	height: 20px;
 	background: url('background/PopupWindowIcon.gif') no-repeat left bottom;
-	float: left;
-
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleLeftSideDecorator {

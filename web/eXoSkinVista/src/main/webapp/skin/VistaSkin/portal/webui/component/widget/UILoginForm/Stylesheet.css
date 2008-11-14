@@ -14,8 +14,10 @@
 }
 
 .UILoginForm .LoginDecorator .TopLeftLoginDecorator {
-  background: url('background/BoxLoginDecorator.png') no-repeat left top;
-  padding: 0px 0px 0px 36px ;
+  background: url('background/BoxLoginDecorator.png') no-repeat left top; /* orientation=lt */
+  background: url('background/BoxLoginDecorator-rt.png') no-repeat right top; /* orientation=rt */
+  padding: 0px 0px 0px 36px ; /* orientation=lt */
+  padding: 0px 36px 0px 0px ; /* orientation=rt */
 }
 
 .UILoginForm .LoginDecorator .TopCenterLoginDecorator {
@@ -31,23 +33,31 @@
 }
 
 .UILoginForm .LoginDecorator .TopRightLoginDecorator {
-  background: url('background/BoxLoginDecorator.png') no-repeat right -60px ;
-  padding: 0px 54px 0px 0px ;
+  background: url('background/BoxLoginDecorator.png') no-repeat right -60px ; /* orientation=lt */
+  background: url('background/BoxLoginDecorator-rt.png') no-repeat left -60px ; /* orientation=rt */
+  padding: 0px 54px 0px 0px ; /* orientation=lt */
+  padding: 0px 0px 0px 54px ; /* orientation=rt */
 }
 
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
-  background: url('background/BoxLoginRepeat-y.png') no-repeat left top;
-  padding: 0px 0px 0px 136px ;
+  background: url('background/BoxLoginRepeat-y.png') no-repeat left top; /* orientation=lt */
+  background: url('background/BoxLoginRepeat-y-rt.png') no-repeat right top; /* orientation=rt */
+  padding: 0px 0px 0px 136px ; /* orientation=lt */
+  padding: 0px 136px 0px 0px ; /* orientation=rt */
 }
 
 .UILoginForm .LoginDecorator .MiddleRightLoginDecorator {
-  background: url('background/BoxLoginRepeat-y.png') repeat-y right ;
-  padding: 0px 16px 0px 0px ;
+  background: url('background/BoxLoginRepeat-y.png') repeat-y right ; /* orientation=lt */
+  background: url('background/BoxLoginRepeat-y-rt.png') repeat-y left ; /* orientation=rt */
+  padding: 0px 16px 0px 0px ; /* orientation=lt */
+  padding: 0px 0px 0px 16px ; /* orientation=rt */
 }
 
 .UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
-  background: url('background/BoxLoginDecorator.png') no-repeat left -90px ;
-  padding: 0px 0px 0px 14px ;
+  background: url('background/BoxLoginDecorator.png') no-repeat left -90px ; /* orientation=lt */
+  background: url('background/BoxLoginDecorator-rt.png') no-repeat right -90px ; /* orientation=rt */
+  padding: 0px 0px 0px 14px ; /* orientation=lt */
+  padding: 0px 14px 0px 0px ; /* orientation=rt */
 }
 
 .UILoginForm .LoginDecorator .BottomCenterLoginDecorator {
@@ -56,8 +66,10 @@
 }
 
 .UILoginForm .LoginDecorator .BottomRightLoginDecorator {
-  background: url('background/BoxLoginDecorator.png') no-repeat right -90px ;
-  padding: 0px 16px 0px 0px ;
+  background: url('background/BoxLoginDecorator.png') no-repeat right -90px ; /* orientation=lt */
+  background: url('background/BoxLoginDecorator-rt.png') no-repeat left -90px ; /* orientation=rt */
+  padding: 0px 16px 0px 0px ; /* orientation=lt */
+  padding: 0px 0px 0px 16px ; /* orientation=rt */
 }
 /* ============================End LoginDecorator============================== */
 
@@ -69,20 +81,24 @@
 .UILoginForm .LoginDetailBox .UserNameField {
 	padding: 5px;
   width: 310px;
-  text-align: right;
+  text-align: right; /* orientation=lt */
+  text-align: left; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .PasswordField {
 	padding: 5px;
   width: 310px;
-  text-align: right;
+  text-align: right; /* orientation=lt */
+  text-align: left; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .CheckField {
   height: 20px;
   width: 170px;
-  margin: 4px 0px 4px 110px;
-  padding-left: 30px;
+  margin: 4px 0px 4px 110px; /* orientation=lt */
+  margin: 4px 110px 4px 0px; /* orientation=rt */
+  padding-left: 30px; /* orientation=lt */
+  padding-right: 30px; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .CheckField input {
@@ -92,13 +108,16 @@
 }
 
 .UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
-  float: left;
-  margin-left: 7px;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  margin-left: 7px; /* orientation=lt */
+  margin-right: 7px; /* orientation=rt */
   line-height: 20px; 
 }
 
 .UILoginForm .LoginDetailBox .ForgetPass {
-	padding-left: 110px;
+	padding-left: 110px; /* orientation=lt */
+	padding-right: 110px; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .ForgetPass a {
@@ -107,29 +126,37 @@
 
 .UILoginForm .LoginDetailBox label {
   font-weight: bold;
-  padding-right: 4px;
+  padding-right: 4px; /* orientation=lt */
+  padding-left: 4px; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .UserNameField input {
-  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -96px;
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -96px; /* orientation=lt */
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login-rt.gif') no-repeat right -96px; /* orientation=rt */
   width: 180px; height: 20px;
   border: solid 1px #c4c4c4 ;
-  padding: 0px 0px 0px 22px;
+  padding: 0px 0px 0px 22px; /* orientation=lt */
+  padding: 0px 22px 0px 0px; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .PasswordField input {
-  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -114px;
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -114px; /* orientation=lt */
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login-rt.gif') no-repeat right -114px; /* orientation=rt */
   width: 180px; height: 20px;
   border: solid 1px #c4c4c4 ;
-  padding: 0px 0px 0px 22px;
+  padding: 0px 0px 0px 22px; /* orientation=lt */
+  padding: 0px 22px 0px 0px; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .Message {
   width: 280px; margin: auto; 
-  height: 20px; line-height: 20px; text-align: right;
+  height: 20px; line-height: 20px; 
+  text-align: right; /* orientation=lt */
+  text-align: left; /* orientation=rt */
   color: #2169d4 ;
   white-space: nowrap;
-  padding: 0px 10px 0px 0px;
+  padding: 0px 10px 0px 0px; /* orientation=lt */
+  padding: 0px 0px 0px 10px; /* orientation=rt */
   cursor: pointer;
 }
 
@@ -141,7 +168,4 @@
 .UILoginForm .UIForm .VerticalLayout .UIAction {
   padding: 13px 0px 10px 0px;
   width: 390px;
-
-
-  
 }

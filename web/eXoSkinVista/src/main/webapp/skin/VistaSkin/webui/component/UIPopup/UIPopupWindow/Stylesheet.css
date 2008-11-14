@@ -4,15 +4,19 @@
 }
 
 .UIPopupWindow .PopupTitleIcon {
-  float: left;
-  margin-top: 9px; margin-left: 3px;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  margin: 9px 0px 0px 3px; /* orientation=lt */
+  margin: 9px 3px 0px 0px; /* orientation=rt */
   width: 16px; height: 16px;
   background: url('background/PopupWindowIcon.gif') no-repeat left -21px;
 }
 
 .UIPopupWindow .PopupTitleIconRight {
-  float: right;
-  margin: 9px 3px 0px 0px;
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */
+  margin: 9px 3px 0px 0px; /* orientation=lt */
+  margin: 9px 0px 0px 3px; /* orientation=rt */
   width: 16px; height: 16px;
   background: url('background/PopupWindowIcon.gif') no-repeat left -21px;
 }
@@ -26,7 +30,8 @@
 }
 
 .UIPopupWindow .CloseButton {
-  float: right;
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */
   margin-top: 4px;
   cursor: pointer;
   width: 35px; height: 21px;
@@ -215,16 +220,18 @@
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitle {
 	background: none;
-	text-align: left;
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
 	margin: 4px 26px 0px 26px;
 	line-height: 24px;
-	height: 24px;;
+	height: 24px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .PopupTitleIcon {
 	width: 16px;	height: 16px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Message.gif') no-repeat;
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	margin: 10px 0px 0px 4px;
 }
 
