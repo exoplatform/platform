@@ -19,6 +19,8 @@ package org.exoplatform.portal.application;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -41,7 +43,7 @@ public class PortalStateManager extends StateManager {
 
   protected static Log log = ExoLogger.getLogger("portal:PortalStateManager");  
   
-  private Map<String, PortalApplicationState> uiApplications = new HashMap<String, PortalApplicationState>(); 
+  private ConcurrentMap<String, PortalApplicationState> uiApplications = new ConcurrentHashMap<String, PortalApplicationState>();
   
   /**
    * This method is used to restore the UI component tree either the current request targets a portlet 
@@ -67,13 +69,11 @@ public class PortalStateManager extends StateManager {
       String key =  pcontext.getApplication().getApplicationId() + "/" + pcontext.getWindowId();
       UIApplication uiApplication =  state.get(key) ;
       if(uiApplication != null)  return uiApplication;
-      synchronized(uiApplications) {
-        ConfigurationManager cmanager = app.getConfigurationManager() ;
-        String uirootClass = cmanager.getApplication().getUIRootComponent() ;
-        Class type = Thread.currentThread().getContextClassLoader().loadClass(uirootClass) ;
-        uiApplication = (UIApplication)app.createUIComponent(type, null, null, context) ;     
-        state.put(key, uiApplication) ;
-      }
+      ConfigurationManager cmanager = app.getConfigurationManager() ;
+      String uirootClass = cmanager.getApplication().getUIRootComponent() ;
+      Class type = Thread.currentThread().getContextClassLoader().loadClass(uirootClass) ;
+      uiApplication = (UIApplication)app.createUIComponent(type, null, null, context) ;
+      state.put(key, uiApplication) ;
       return uiApplication ;
     } 
     
@@ -87,27 +87,25 @@ public class PortalStateManager extends StateManager {
       }
     }
     if(state == null) {
-      synchronized(uiApplications) {
-        ConfigurationManager cmanager = app.getConfigurationManager() ;
-        String uirootClass = cmanager.getApplication().getUIRootComponent() ;
-        Class type = Thread.currentThread().getContextClassLoader().loadClass(uirootClass) ;
-        UserPortalConfig config = getUserPortalConfig(pcontext) ;
-        if(config == null) {
-          pcontext.getRequest().getSession().invalidate() ;
-          HttpServletResponse response = pcontext.getResponse();
-          if(pcontext.getRemoteUser() == null) response.sendRedirect("/portal/portal-warning.jsp");
-          else response.sendRedirect("/portal/portal-unavailable.jsp");
-          pcontext.setResponseComplete(true);
-          return null;
-        }
-        pcontext.setAttribute(UserPortalConfig.class, config);
-        UIPortalApplication uiApplication = 
-          (UIPortalApplication)app.createUIComponent(type, null, null, context) ;
-        state = new PortalApplicationState(uiApplication, pcontext.getRemoteUser()) ;
-        uiApplications.put(context.getSessionId(), state) ;
-        SessionManagerContainer pcontainer = (SessionManagerContainer) app.getApplicationServiceContainer() ;
-        pcontainer.createSessionContainer(context.getSessionId(), uiApplication.getOwner()) ;
+      ConfigurationManager cmanager = app.getConfigurationManager() ;
+      String uirootClass = cmanager.getApplication().getUIRootComponent() ;
+      Class type = Thread.currentThread().getContextClassLoader().loadClass(uirootClass) ;
+      UserPortalConfig config = getUserPortalConfig(pcontext) ;
+      if(config == null) {
+        pcontext.getRequest().getSession().invalidate() ;
+        HttpServletResponse response = pcontext.getResponse();
+        if(pcontext.getRemoteUser() == null) response.sendRedirect("/portal/portal-warning.jsp");
+        else response.sendRedirect("/portal/portal-unavailable.jsp");
+        pcontext.setResponseComplete(true);
+        return null;
       }
+      pcontext.setAttribute(UserPortalConfig.class, config);
+      UIPortalApplication uiApplication =
+        (UIPortalApplication)app.createUIComponent(type, null, null, context) ;
+      state = new PortalApplicationState(uiApplication, pcontext.getRemoteUser()) ;
+      uiApplications.put(context.getSessionId(), state) ;
+      SessionManagerContainer pcontainer = (SessionManagerContainer) app.getApplicationServiceContainer() ;
+      pcontainer.createSessionContainer(context.getSessionId(), uiApplication.getOwner()) ;
     }
     return state.getUIPortalApplication() ;
   }
@@ -144,8 +142,8 @@ public class PortalStateManager extends StateManager {
   @SuppressWarnings("serial")
   static public class PortalApplicationState extends HashMap<String, UIApplication> {
     
-    private UIPortalApplication uiPortalApplication_ ;
-    private String userName_ ;
+    private final UIPortalApplication uiPortalApplication_ ;
+    private final String userName_ ;
     
     public PortalApplicationState(UIPortalApplication uiPortalApplication, String userName) {
       uiPortalApplication_ = uiPortalApplication ;
