@@ -17,7 +17,6 @@
 package org.exoplatform.webui.application.portlet;
 
 import java.io.Writer;
-import java.io.PrintWriter;
 
 import javax.portlet.PortletMode;
 import javax.portlet.PortletModeException;
@@ -32,6 +31,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.HtmlValidator;
 import org.exoplatform.services.resources.Orientation;
+import org.exoplatform.commons.utils.WriterPrinter;
 
 /**
  * The request context of a portlet
@@ -65,7 +65,7 @@ public class PortletRequestContext extends WebuiRequestContext {
   public void init(Writer writer, PortletRequest req, PortletResponse res) {
     request_ = req ;
     response_ =  res ;
-    writer_ = new PrintWriter(new HtmlValidator(writer)) ;
+    writer_ = new WriterPrinter(new HtmlValidator(writer)) ;
     windowId_ = req.getWindowID();
   }
   

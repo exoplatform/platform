@@ -11,7 +11,6 @@ import groovy.text.TemplateEngine;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
@@ -22,7 +21,7 @@ import java.util.Map;
 import org.codehaus.groovy.control.CompilationFailedException;
 import org.codehaus.groovy.control.CompilerConfiguration;
 import org.codehaus.groovy.runtime.InvokerHelper;
-import org.exoplatform.commons.utils.Text;
+import org.exoplatform.commons.utils.Printer;
 
 /**
  * This simple template engine uses JSP <% %> script and <%= %> expression syntax.  It also lets you use normal groovy expressions in
@@ -65,7 +64,7 @@ public class SimpleTemplateEngine extends TemplateEngine {
 
   public static abstract class ExoScript extends Script {
 
-    private PrintWriter printer;
+    private Printer printer;
 
     protected ExoScript() {
     }
@@ -76,8 +75,7 @@ public class SimpleTemplateEngine extends TemplateEngine {
 
     @Override
     public void println(Object o) {
-      print(o);
-      println();
+      printer.println(o);
     }
 
     @Override
@@ -87,15 +85,15 @@ public class SimpleTemplateEngine extends TemplateEngine {
 
     @Override
     public void print(Object o) {
-      if (o instanceof Text) {
-        try {
-          ((Text)o).writeTo(printer);
-        }
-        catch (IOException e) {
-          e.printStackTrace();
-        }
-      } else {
-        printer.print(o);
+      printer.print(o);
+    }
+
+    public void flush() {
+      try {
+        printer.flush();
+      }
+      catch (IOException e) {
+        e.printStackTrace();
       }
     }
   }
@@ -122,20 +120,12 @@ public class SimpleTemplateEngine extends TemplateEngine {
           else
             context = new Binding(map);
 
-          // Normally we should have a PrintWriter to avoid the cost creation of one
-          PrintWriter printer;
-          if (writer instanceof PrintWriter) {
-            printer = (PrintWriter)writer;
-          } else {
-            printer = new PrintWriter(writer);
-          }
-
           //
           ExoScript script = (ExoScript)InvokerHelper.createScript(scriptClass, context);
-          script.printer = printer;
+          script.printer = (Printer)writer;
           script.setProperty("out", script.printer);
           script.run();
-          script.printer.flush();
+          script.flush();
           return writer;
         }
 
