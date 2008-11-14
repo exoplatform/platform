@@ -80,7 +80,7 @@ public class PortalStateManager extends StateManager {
     PortalRequestContext pcontext = (PortalRequestContext) context ;
     PortalApplicationState state = uiApplications.get(pcontext.getSessionId()) ;
     if(state != null) {
-      if((pcontext.getRemoteUser() != state.getUserName()) || 
+      if((!pcontext.getRemoteUser().equals(state.getUserName())) || 
           (!pcontext.getPortalOwner().equals(state.getUIPortalApplication().getOwner()))) {
         clearSession(pcontext.getRequest().getSession()) ;
         state = null ;
