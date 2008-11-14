@@ -24,6 +24,10 @@ import org.exoplatform.web.application.javascript.JavascriptConfigService;
  * Mar 27, 2007  
  */
 public class JavascriptManager {
+
+  /** Cache the developping value as it is expensive to read a system property. */
+  private static boolean developping = "true".equals(System.getProperty("exo.product.developing"));
+
   private StringBuilder javascript = new StringBuilder(1000) ;
   private StringBuilder customizedOnloadJavascript ;
   private JavascriptConfigService jsSrevice_ ;
@@ -35,14 +39,14 @@ public class JavascriptManager {
   public void addJavascript(CharSequence s) { javascript.append(s).append(" \n") ; }
 
   public void importJavascript(CharSequence s) {
-    if(!jsSrevice_.isModuleLoaded(s) || "true".equals(System.getProperty("exo.product.developing"))) {
+    if(!jsSrevice_.isModuleLoaded(s) || developping) {
       javascript.append("eXo.require('").append(s).append("'); \n") ;      
     }
   }
 
   public void importJavascript(String s, String location) {
     if(!location.endsWith("/")) location =  location + '/' ;
-    if(!jsSrevice_.isModuleLoaded(s) || "true".equals(System.getProperty("exo.product.developing"))) {
+    if(!jsSrevice_.isModuleLoaded(s) || developping) {
       javascript.append("eXo.require('").append(s).append("', '").append(location).append("'); \n") ;
     }
   }
