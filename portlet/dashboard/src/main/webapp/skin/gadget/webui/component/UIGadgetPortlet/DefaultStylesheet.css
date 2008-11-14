@@ -2,6 +2,9 @@
 	padding: 1px;
 	height: 100%;
 }
+.UIGadgetPortlet .UIGadgetEditMode{
+	padding: 50px 0;
+}
 .UIGadgetPortlet .UIGadgetViewMode {
 	height: 100%;
 }
