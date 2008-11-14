@@ -36,7 +36,7 @@
     <%for(portletSkin in portletSkins) {%>
       <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$portletSkin.virtualCSSPath" />
     <%}%>
-    <%if("true".equals(System.getProperty("exo.product.developing"))) {
+    <%if("true".equals(org.exoplatform.commons.utils.PropertyManager.isDevelopping()) {
         for(path in scriptsPaths) { %>
           <script type="text/javascript" src="<%=path%>"></script>
     <%  }

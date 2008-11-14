@@ -26,19 +26,15 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
+import org.exoplatform.commons.utils.PropertyManager;
+
 /**
  * Created by The eXo Platform SAS
  * May 7, 2006
  */
 public class Lifecycle {
   
-  private static boolean DEVELOPING = false;
-  
   protected static Log log = ExoLogger.getLogger("portal:Lifecycle");
-  
-  static {
-    DEVELOPING =  "true".equals(System.getProperty("exo.product.developing")) ;
-  }
   
   private Decorator decorator_ = new Decorator()   ;
   
@@ -96,7 +92,7 @@ public class Lifecycle {
       (TemplateService) pcontainer.getComponentInstanceOfType(TemplateService.class) ;
     ResourceResolver resolver = bcontext.getResourceResolver() ;
     
-    if(DEVELOPING) {
+    if(PropertyManager.isDevelopping()) {
       WebuiRequestContext rootContext = (WebuiRequestContext)context.getParentAppRequestContext() ;
       if(rootContext == null)  rootContext = context ;
       long lastAccess =  rootContext.getUIApplication().getLastAccessApplication() ;

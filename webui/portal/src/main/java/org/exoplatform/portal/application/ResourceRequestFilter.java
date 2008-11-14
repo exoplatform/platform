@@ -45,13 +45,12 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.commons.utils.PropertyManager;
 
 public class ResourceRequestFilter implements Filter  {
   
   protected static Log log = ExoLogger.getLogger("portal:ResourceRequestFilter");
  
-  private boolean isDeveloping_ = false ;
-
   private FilterConfig cfg;
 
   private ImageType[] imageTypes = ImageType.values();
@@ -59,9 +58,8 @@ public class ResourceRequestFilter implements Filter  {
   private ConcurrentMap<String, FutureTask<Image>> mirroredImageCache = new ConcurrentHashMap<String, FutureTask<Image>>();
 
   public void init(FilterConfig filterConfig) {
-    isDeveloping_ = "true".equals(System.getProperty("exo.product.developing")) ;
     cfg = filterConfig;
-    log.info("Cache eXo Resource at client: " + !isDeveloping_);
+    log.info("Cache eXo Resource at client: " + !PropertyManager.isDevelopping());
   }
 
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
@@ -152,7 +150,7 @@ public class ResourceRequestFilter implements Filter  {
       }
 
       //
-      if(!isDeveloping_) {
+      if(!PropertyManager.isDevelopping()) {
           httpResponse.addHeader("Cache-Control", "max-age=2592000,s-maxage=2592000") ;
       } else {
         if(uri.endsWith(".jstmpl") || uri.endsWith(".js")) {

@@ -35,6 +35,7 @@ import javax.servlet.ServletContext;
 import org.apache.commons.logging.Log;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.resources.Orientation;
+import org.exoplatform.commons.utils.PropertyManager;
 
 public class SkinService {
 
@@ -75,10 +76,7 @@ public class SkinService {
 
   private Map<String, Set<String>> portletThemes_;
 
-  private boolean isDeveloping_;
-
   public SkinService() {
-    isDeveloping_ = "true".equals(System.getProperty("exo.product.developing"));
     portalSkins_ = new HashMap<SkinKey, SkinConfig>() ;
     skinConfigs_ = new HashMap<SkinKey, SkinConfig>(20);
     availableSkins_ = new HashSet<String>(5);
@@ -230,7 +228,7 @@ public class SkinService {
     String css = null;
 
     // Try cache first
-    if (!isDeveloping_) {
+    if (!PropertyManager.isDevelopping()) {
       css = cssCache_.get(cssPath);
     }
 
@@ -303,7 +301,7 @@ public class SkinService {
   }
 
   private void cacheCSS(SkinConfig config, ServletContext scontext) {
-    if (!isDeveloping_) {
+    if (!PropertyManager.isDevelopping()) {
       String css = processCSS(config.getCSSPath(), config.getOrientation(), scontext, true);
       cssCache_.put(config.getVirtualCSSPath(), css);
     }
