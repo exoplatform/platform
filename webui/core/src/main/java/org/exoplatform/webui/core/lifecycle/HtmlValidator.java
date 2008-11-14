@@ -29,8 +29,8 @@ import org.exoplatform.services.html.tidy.HTMLTidy;
  */
 public class HtmlValidator extends Writer {
 
-  private static boolean DEBUG_MODE = false;
-  
+  public static final boolean DEBUG_MODE = false;
+
   private Writer finalWriter_ ;
   private HTMLTidy tidy_;
   private StringBuilder content_;
@@ -38,8 +38,6 @@ public class HtmlValidator extends Writer {
   
   public HtmlValidator(Writer w) {
     finalWriter_ = w ;
-    
-    if(!DEBUG_MODE) return;
     tidy_ = new HTMLTidy();
     content_ = new StringBuilder();
     queue = new Stack<Integer>();
@@ -54,17 +52,16 @@ public class HtmlValidator extends Writer {
   }
   
   public void startComponent() {
-    if(DEBUG_MODE) queue.push(content_.length());
+    queue.push(content_.length());
   }
 
   @Override
   public void write(char[] buf, int offset, int len) throws IOException {
     finalWriter_.write(buf, offset, len);
-    if(DEBUG_MODE) content_.append(buf, offset, len);
+    content_.append(buf, offset, len);
   }
   
   public void endComponent() throws Exception {
-    if(!DEBUG_MODE) return;
     Integer start = queue.pop();
     String chunk = content_.substring(start);
     content_.delete(start, content_.length()-1);

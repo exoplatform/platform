@@ -181,7 +181,11 @@ public class PortalRequestContext extends WebuiRequestContext {
 
   final public Writer getWriter() throws Exception { 
     if(writer_ == null) {
-      writer_ = new WriterPrinter(new HtmlValidator(new OutputStreamPrinter(TextEncoder.getUTF8(), response_.getOutputStream()))) ;
+      if (HtmlValidator.DEBUG_MODE) {
+        writer_ = new WriterPrinter(new HtmlValidator(new OutputStreamPrinter(TextEncoder.getUTF8(), response_.getOutputStream()))) ;
+      } else {
+        writer_ = new OutputStreamPrinter(TextEncoder.getUTF8(), response_.getOutputStream()) ;
+      }
     }
     return writer_ ; 
   }
