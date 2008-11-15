@@ -419,6 +419,13 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     uiContainer.setHeight(model.getHeight());
     uiContainer.setTitle(model.getTitle());
     uiContainer.setIcon(model.getIcon());
+    uiContainer.setTitle(model.getTitle());
+    uiContainer.setIcon(model.getIcon());
+    uiContainer.setDescription(model.getDescription());
+    uiContainer.setFactoryId(model.getFactoryId());
+    uiContainer.setName(model.getName());
+    uiContainer.setTemplate(model.getTemplate());
+    
     uiContainer.setDescription(model.getDescription());
     uiContainer.setFactoryId(model.getFactoryId());
     uiContainer.setName(model.getName());
@@ -430,12 +437,21 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
       Object child = children.get(i) ;
       UIComponent uiComp = buildChild(uiContainer, child);
       if(uiComp != null) {
-        if(uiContainer.getChild(i) == null) {
+        UIComponent comp = uiContainer.getChild(i) ;
+        if(comp == null) {
           uiContainer.addChild(uiComp) ;
+          continue ;
+        }
+        if(comp instanceof UIContainer && uiComp instanceof UIContainer) {
+          ((UIContainer) comp).setChildren(((UIContainer) uiComp).getChildren()) ;
           continue ;
         }
         uiContainer.getChildren().set(i, uiComp);
       }
+    }
+    while(uiContainer.getChild(children.size()) != null) {
+      String id = ((UIComponent) uiContainer.getChild(children.size())).getId() ;
+      uiContainer.removeChildById(id) ;
     }
   }
   

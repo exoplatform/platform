@@ -92,6 +92,7 @@ public class UIContainer extends UIComponent {
   @SuppressWarnings("unchecked")
   public <T extends UIComponent> T getChild(int idx){
     if(children == null)  return null ;
+    if(children.size() <= idx) return null ;
     return (T)children.get(idx);
   }
   
