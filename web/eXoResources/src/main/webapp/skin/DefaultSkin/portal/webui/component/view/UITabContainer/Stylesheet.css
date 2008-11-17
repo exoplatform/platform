@@ -27,7 +27,6 @@
 }
 
 .UITabContainer .SelectedTab .EditIcon {
-	padding: 0px 8px 0px 2px;
 	width: 16px; height: 24px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedEditTab.gif') no-repeat center;
 }

@@ -44,7 +44,7 @@
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabRight {
 	background: url(background/VTabSimpleStyle.gif) no-repeat right -72px;
-	padding-right: 17px;
+	padding-right: 2px;
 	height: 24px;
 }
 
@@ -75,7 +75,8 @@
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .EditIcon{
-  width: 19px;  height: 17px;
+  width: 16px;  
+  height: 17px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat;
 }
 

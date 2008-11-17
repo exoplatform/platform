@@ -54,7 +54,8 @@
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .EditIcon{
-  width: 19px;  height: 17px;
+  width: 16px;  
+  height: 17px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat;
 }
 

@@ -27,7 +27,6 @@
 }
 
 .UITabContainer .SelectedTab .EditIcon {
-  padding: 0px 6px 0px 0px;
 	height: 24px;	width: 16px;
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat center;
 }
