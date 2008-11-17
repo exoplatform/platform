@@ -25,6 +25,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.exoplatform.commons.utils.Safe;
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.SessionManagerContainer;
@@ -44,22 +45,6 @@ public class PortalStateManager extends StateManager {
   protected static Log log = ExoLogger.getLogger("portal:PortalStateManager");  
   
   private ConcurrentMap<String, PortalApplicationState> uiApplications = new ConcurrentHashMap<String, PortalApplicationState>();
-
-  /**
-   * Return true if both strings are null or both are non null and the equals method of one string returns true when
-   * it is invoked with the other string as argument.
-   *
-   * @param s1 the first string
-   * @param s2 the second string
-   * @return true if string are safely equal
-   */
-  private boolean safeEquals(String s1, String s2) {
-    if (s1 == null) {
-      return s2 == null;
-    } else {
-      return s2 != null && s1.equals(s2);
-    }
-  }
 
   /**
    * This method is used to restore the UI component tree either the current request targets a portlet 
@@ -96,7 +81,7 @@ public class PortalStateManager extends StateManager {
     PortalRequestContext pcontext = (PortalRequestContext) context ;
     PortalApplicationState state = uiApplications.get(pcontext.getSessionId()) ;
     if(state != null) {
-      if((!(safeEquals(pcontext.getRemoteUser(), state.getUserName()))) || 
+      if((!(Safe.equals(pcontext.getRemoteUser(), state.getUserName()))) ||
           (!pcontext.getPortalOwner().equals(state.getUIPortalApplication().getOwner()))) {
         clearSession(pcontext.getRequest().getSession()) ;
         state = null ;
