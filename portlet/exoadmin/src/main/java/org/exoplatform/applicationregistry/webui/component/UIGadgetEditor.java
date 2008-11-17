@@ -51,17 +51,42 @@ public class UIGadgetEditor extends UIForm {
   final static public String FIELD_NAME = "name" ;
   final static public String FIELD_SOURCE = "source" ;
   
+  private Source source_;
+  private String fullName_;
+  
   public UIGadgetEditor() throws Exception {
     addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
     addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, null)) ;
   }
   
-  public void setEditValue(String name, String source) {
+  public Source getSource() { return source_; }
+  
+  public void setSource(Source source) throws Exception {
+    source_ = source;
+    fullName_ = source_.getName();
     UIFormStringInput uiInputName = getUIStringInput(FIELD_NAME);
-    uiInputName.setValue(name);
+    uiInputName.setValue(extractName(fullName_));
     uiInputName.setEditable(false);
     UIFormTextAreaInput uiInputSource = getUIFormTextAreaInput(FIELD_SOURCE);
-    uiInputSource.setValue(source);
+    uiInputSource.setValue(source_.getTextContent());
+  }
+  
+  public String getSourceFullName() {
+    return (fullName_ != null) ? fullName_ : appendTail(getUIStringInput(FIELD_NAME).getValue());
+  }
+  
+  public String getSourceName() {
+    return extractName(fullName_);
+  }
+  
+  private String extractName(String fullName) {
+    int idx = fullName.indexOf('.');
+    return (idx > 0) ? fullName.substring(0, idx) : fullName;
+  }
+  
+  private String appendTail(String name) {
+    int idx = name.indexOf('.');
+    return (idx > 0) ? name : name + ".xml";
   }
   
   public static class SaveActionListener extends EventListener<UIGadgetEditor> {
@@ -71,7 +96,7 @@ public class UIGadgetEditor extends UIForm {
       String name = uiForm.getUIStringInput(UIGadgetEditor.FIELD_NAME).getValue() ;
       String text = uiForm.getUIFormTextAreaInput(UIGadgetEditor.FIELD_SOURCE).getValue() ;
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
-      String fileName = name + ".xml";
+      String fileName = uiForm.getSourceFullName();
       Source source = new Source(fileName, "application/xml", "UTF-8");
       source.setTextContent(text);
       source.setLastModified(Calendar.getInstance());

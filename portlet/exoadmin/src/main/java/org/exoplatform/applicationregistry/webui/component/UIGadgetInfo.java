@@ -72,7 +72,6 @@ public class UIGadgetInfo extends UIComponent {
       UIGadgetManagement uiManagement = uiInfo.getParent() ;
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(gadget.getName());
-      uiInfo.setGadget(uiManagement.getSelectedGadget());
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
     }
     
@@ -98,7 +97,6 @@ public class UIGadgetInfo extends UIComponent {
       UIGadgetManagement uiManagement = uiInfo.getParent() ;
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
-      uiInfo.setGadget(uiManagement.getSelectedGadget());      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
     }
     
@@ -113,8 +111,8 @@ public class UIGadgetInfo extends UIComponent {
       Gadget gadget = uiInfo.getGadget();
       UIGadgetEditor uiEditor = uiManagement.createUIComponent(UIGadgetEditor.class, null, null);
       String fileName = gadget.getName() + ".xml";
-      String text = sourceStorage.getSource(fileName).getTextContent();
-      uiEditor.setEditValue(gadget.getName(), text);
+      Source source = sourceStorage.getSource(fileName);
+      uiEditor.setSource(source);
       uiManagement.getChildren().clear();
       uiManagement.addChild(uiEditor);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);

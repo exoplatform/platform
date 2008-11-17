@@ -20,12 +20,14 @@ import java.util.List;
 
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
+import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.applicationregistry.webui.Util;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -127,7 +129,17 @@ public class UIGadgetManagement extends UIContainer {
 
     public void execute(Event<UIGadgetManagement> event) throws Exception {
       UIGadgetManagement uiManagement = event.getSource() ;
-      String name = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      WebuiRequestContext ctx = event.getRequestContext();
+      String name = ctx.getRequestParameter(OBJECTID) ;
+      UIGadgetEditor uiEditor = uiManagement.getChild(UIGadgetEditor.class);
+      if(uiEditor != null) {
+        Source source = uiEditor.getSource();
+        if(source != null && name.equals(uiEditor.getSourceName())) {
+          UIApplication uiApp = ctx.getUIApplication();
+          uiApp.addMessage(new ApplicationMessage("UIGadgetManagement.msg.deleteGadgetInUse", null));
+          return;
+        }
+      }
       GadgetRegistryService service = uiManagement.getApplicationComponent(GadgetRegistryService.class) ;
       service.removeGadget(name) ;
       Gadget gadget = uiManagement.getGadget(name);
@@ -136,7 +148,7 @@ public class UIGadgetManagement extends UIContainer {
         sourceStorage.removeSource(name + ".xml");
       }
       uiManagement.reload();
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
+      ctx.addUIComponentToUpdateByAjax(uiManagement) ;
     }
     
   }
