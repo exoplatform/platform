@@ -35,11 +35,23 @@ BrowserApplication.prototype.init = function(instanceId) {
 	
 	var iframe = DOMUtil.findFirstDescendantByClass(eXoBrowser, "iframe", "IFrame") ;
 	iframe.style.display = "block" ;
+  var hiddenAncestors = [] ;
+  var prNode = iframe ;
+	while(prNode && (prNode.nodeType == 1)) {
+	  if(prNode.style.display == "none") {
+			hiddenAncestors.push(prNode) ;
+			prNode.style.display = "block" ;
+		}
+		prNode = prNode.parentNode ;
+	}
 	var parentIframe = iframe.parentNode;
 	if (parentIframe.offsetHeight < 296) parentIframe.style.height = 296 + "px";
 	var delta = eXoBrowser.parentNode.offsetHeight - eXoBrowser.offsetHeight;
 	parentIframe.style.height = parentIframe.offsetHeight + delta + "px";
 	this.storeURL(iframe, "javascript: voild(0);");
+  for (var i = 0; i < hiddenAncestors.length; i++) {
+ 	 hiddenAncestors[i].style.display = "none" ;
+  }
 } ;
 
 BrowserApplication.prototype.onKeyPress = function(e) {
