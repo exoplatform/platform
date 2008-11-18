@@ -37,6 +37,8 @@
 
 	- Make new Home Page skin for eXo Portal.
 
+	- update to groovy-all 1.5.7
+
 
 
 - Other resources and links

@@ -158,14 +158,13 @@ public class UIGadgetEditMode extends UIForm {
         List<SelectItemOption<String>> gadgetItems = gadgetSelector.getOptions() ;
         gadgetItems.clear() ;
         
-        String userName = event.getRequestContext().getRemoteUser() ;
         ApplicationRegistryService service = uiGadgetEdit.getApplicationComponent(ApplicationRegistryService.class) ;
         UserACL acl = uiGadgetEdit.getApplicationComponent(UserACL.class) ;
         List<Application> appList = service.getAllApplications() ;
         for (Application app : appList) {
           if(app.getApplicationType().equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
             for (String per : app.getAccessPermissions()) {
-              if(acl.hasPermission(userName, per)) {
+              if(acl.hasPermission(per)) {
                 gadgetItems.add(new SelectItemOption<String>(app.getDisplayName(), app.getId())) ;
                 break ;
               }
