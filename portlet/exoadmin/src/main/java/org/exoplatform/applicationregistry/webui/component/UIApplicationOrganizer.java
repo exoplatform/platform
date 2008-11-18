@@ -217,7 +217,9 @@ public class UIApplicationOrganizer extends UIContainer {
         }
       }
       ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
-      service.remove(uiOrganizer.getCategory(name)) ;
+      if(service.getApplicationCategory(name) != null) {
+        service.remove(uiOrganizer.getCategory(name)) ;
+      }
       uiOrganizer.reload();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
     }

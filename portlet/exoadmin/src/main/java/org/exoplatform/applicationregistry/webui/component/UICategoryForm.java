@@ -23,6 +23,7 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
@@ -113,13 +114,14 @@ public class UICategoryForm extends UIFormTabPane {
   static public class SaveActionListener extends EventListener<UICategoryForm> {
     public void execute(Event<UICategoryForm> event) throws Exception{
       UICategoryForm uiForm = event.getSource() ;
+      WebuiRequestContext ctx = event.getRequestContext();
       UIApplicationOrganizer uiOrganizer = uiForm.getParent() ;
+      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
+      ApplicationCategory category = uiForm.getCategory() ;
+      boolean isCreateNew = category == null;
+      if(isCreateNew) category = new ApplicationCategory();
       UIFormInputSet uiSetting = uiForm.getChildById(FIELD_SETTING) ;
       UIFormInputSet uiPermission = uiForm.getChildById(FIELD_PERMISSION) ;
-      ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class);
-
-      ApplicationCategory category = uiForm.getCategory() ;
-      if(category == null) category = new ApplicationCategory();
       category.setName(uiSetting.getUIStringInput(FIELD_NAME).getValue()) ;
       String displayName = uiSetting.getUIStringInput(FIELD_DISPLAY_NAME).getValue();
       if(displayName == null || displayName.length() < 1 ) category.setDisplayName(category.getName());
@@ -131,10 +133,18 @@ public class UICategoryForm extends UIFormTabPane {
       if(uiListPermissionSelector.getValue()!= null)
       for(String per: uiListPermissionSelector.getValue()) pers.add(per);
       category.setAccessPermissions(pers) ;
-      if(category == uiForm.getCategory()) {
+      ApplicationCategory existCategory = service.getApplicationCategory(category.getName()); 
+      if(!isCreateNew) {
+        if(existCategory == null) {
+          uiOrganizer.reload();
+          UIApplication uiApp = ctx.getUIApplication() ;
+          uiApp.addMessage(new ApplicationMessage("Category.msg.notExist", null)) ;
+          ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
+          ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
+          return ;
+        }
         category.setModifiedDate(new Date()) ;
       }else {
-        ApplicationCategory existCategory = service.getApplicationCategory(category.getName()); 
         if(existCategory != null) {
           UIApplication uiApp = event.getRequestContext().getUIApplication() ;
           uiApp.addMessage(new ApplicationMessage("UICategoryForm.msg.SameName", null)) ;
@@ -147,7 +157,7 @@ public class UICategoryForm extends UIFormTabPane {
       uiForm.setValue(null) ;
       uiOrganizer.initApplicationCategories();
       uiOrganizer.setSelectedCategory(category.getName());
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+      ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
   }
   
