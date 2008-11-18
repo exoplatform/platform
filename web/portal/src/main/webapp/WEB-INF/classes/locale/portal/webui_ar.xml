@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+
+  <!--
+  ############################################################################
+  #		            org.exoplatform.portal.component.view.UIPageDesktop        #
+  ############################################################################
+  -->
+  <UIPageDesktop>
+    <title>
+      <SignIn>تسجيل الدخول</SignIn>
+    </title>
+  </UIPageDesktop>
+
+
+  <!--
+  #############################################################################
+  #                             UIChangeLanguage				                      #
+  #############################################################################
+  -->
+  <UIChangeLanguage>
+    <action>
+      <close> الغاء</close>
+      <save> طبق</save>
+    </action>
+    <title>
+      <LanguageSetting>ضبط لغة الواجهة</LanguageSetting>
+    </title>
+  </UIChangeLanguage>
+
+
+  <!--
+  #############################################################################
+  #org.exoplatform.portal.component.customization.UIPortalManagementControlBar#
+  #############################################################################
+  -->
+  <UIPortalManagementControlBar>
+    <tooltip>
+      <Abort>الغاء</Abort>
+    </tooltip>
+  </UIPortalManagementControlBar>
+
+
+  <!--
+  ############################################################################
+  #   			org.exoplatform.portal.component.widget.UILoginForm              #
+  ############################################################################
+  -->
+  <UILoginForm>
+    <label>
+      <Discard>الغاء</Discard>
+      <Signin>تسجيل الدخول</Signin>
+      <UserName>اسم المستخدم</UserName>
+      <password>كلمة السر</password>
+      <forgot>نسيت اسم المستخدم / كلمة السر؟</forgot>
+    </label>
+  </UILoginForm>
+
+  <!--
+  ############################################################################
+  #		  org.exoplatform.portal.component.customization.UIPortalToolPanel     #
+  ############################################################################
+  -->
+  <UIPortalToolPanel>
+    <label>
+      <copyrightText>جميع الحقوق محفوظة Copyright © 2000-2008</copyrightText>
+      <companyTitleText>eXo Platform SAS.</companyTitleText>
+    </label>
+  </UIPortalToolPanel>
+
+
+  <!--
+  ############################################################################
+  #   			 org.exoplatform.portal.webui.component.UISitemapPortlet         #
+  ############################################################################
+  -->
+  <UISitemap>
+    <label>
+      <message>لا يوجد عنوان صفحة في هذا الموقع</message>
+    </label>
+  </UISitemap>
+
+  <!--
+  #############################################################################
+  #  org.exoplatform.organization.webui.component.UIUserProfileInputSet   #
+  #############################################################################
+  -->
+  <UIUserProfileInputSet>
+    <title>المعلومات الشخصية</title>
+    <label>
+      <Profile>التعريفة</Profile>
+      <HomeInfo>معلومات الاقامة</HomeInfo>
+      <BusinessInfo>معلومات العمل</BusinessInfo>
+    </label>
+  </UIUserProfileInputSet>
+
+  <!--
+  ############################################################################
+  #   			org.exoplatform.portal.component.widget.UILogged                 #
+  ############################################################################
+  -->
+
+  <UILogged>
+    <action>
+      <signout>تسجيل الخروج</signout>
+    </action>
+  </UILogged>
+
+
+</bundle>

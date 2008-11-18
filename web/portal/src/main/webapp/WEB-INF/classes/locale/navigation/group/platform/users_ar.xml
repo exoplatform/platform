@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+
+  <platform>
+    <users>
+      <sitemap>خريطه الموقع</sitemap>
+      <mylink>عناوين</mylink>
+    </users>
+  </platform>
+
+</bundle>

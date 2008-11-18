@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+
+  <word>
+    <userName>اسم المستخدم</userName>
+    <firstName>الاسم</firstName>
+    <lastName>اسم العائلة</lastName>
+    <givenName>الاسم</givenName>
+    <familyName>اسم العائلة</familyName>
+    <nickName>الكنية</nickName>
+    <birthday>تاريخ الولادة</birthday>
+    <gender>الجنس</gender>
+    <employer>الشركة</employer>
+    <department>الادارة</department>
+    <jobTitle>الوظيفة</jobTitle>
+    <save>احفظ</save>
+    <postalCode> الرقم البريدي</postalCode>
+    <city>المدينة</city>
+    <stateProv> الولاية </stateProv>
+    <country> البلد  </country>
+    <mobile> الجوال  </mobile>
+    <tel> الهاتف  </tel>
+    <email>البريد الالكتروني</email>
+    <website> موقع الواب  </website>
+    <street>الشارع</street>
+    <language>اللغة</language>
+  </word>
+</bundle>
