@@ -1,9 +1,10 @@
-<div class="UIPageBody UIComponent">
+<div class="UIPageBody UIComponent" id="${uicomponent.id}">
   <div class="META-DATA-BLOCK" style="display: none">
     <div class="id">$uicomponent.id</div>
     <div class="title"><%=_ctx.appRes("UIPageBody.label.title")%></div>
     <div class="description"><%=_ctx.appRes("UIPageBody.label.description")%></div>
   </div>
+  <div class="CONTROL-PAGE CONTROL-BLOCK" style="display: none"><span></span></div>
   <div>	      
      <%uicomponent.renderChildren()%>
      <% if(uicomponent.getUIComponent() == null){ %>

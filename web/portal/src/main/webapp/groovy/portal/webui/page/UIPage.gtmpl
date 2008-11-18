@@ -12,7 +12,7 @@
   </div>
   <div class="CONTROL-PAGE CONTROL-BLOCK" style="display: none"><span></span></div>
 
-  <div class="LAYOUT-PAGE" style="display: none;">
+  <div class="LAYOUT-PAGE" style="display: none;" onmousedown="eXo.portal.PortalDragDrop.init.call(eXo.core.DOMUtil.findAncestorByClass(this, 'UIPageBody'), event);">
   	<div class="PageLayoutDecorator">
 			<%/*Begin Top Decorator*/%>
 			<div class="TopLeftPage">
