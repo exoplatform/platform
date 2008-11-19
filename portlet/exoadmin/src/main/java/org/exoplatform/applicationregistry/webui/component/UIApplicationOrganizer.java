@@ -160,9 +160,18 @@ public class UIApplicationOrganizer extends UIContainer {
 
     public void execute(Event<UIApplicationOrganizer> event) throws Exception {
       String categoryName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      WebuiRequestContext ctx = event.getRequestContext();
       UIApplicationOrganizer uiOrganizer = event.getSource() ;
+      ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
+      ApplicationCategory existingCate = service.getApplicationCategory(categoryName);
+      if(existingCate == null) {
+        UIApplication uiApp = ctx.getUIApplication();
+        uiApp.addMessage(new ApplicationMessage("UIOrganizer.msg.selectNoExist", null));
+        uiOrganizer.reload();
+        return;
+      }
       uiOrganizer.setSelectedCategory(categoryName) ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+      ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
   }

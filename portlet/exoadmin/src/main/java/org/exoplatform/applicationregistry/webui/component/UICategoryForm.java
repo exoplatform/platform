@@ -148,6 +148,9 @@ public class UICategoryForm extends UIFormTabPane {
         if(existCategory != null) {
           UIApplication uiApp = event.getRequestContext().getUIApplication() ;
           uiApp.addMessage(new ApplicationMessage("UICategoryForm.msg.SameName", null)) ;
+          if(uiOrganizer.getCategory(category.getName()) == null) {
+            uiOrganizer.initApplicationCategories();
+          }
           return ;
         }
         category.setModifiedDate(new Date()) ;

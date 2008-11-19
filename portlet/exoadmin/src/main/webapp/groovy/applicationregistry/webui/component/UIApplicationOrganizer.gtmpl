@@ -29,19 +29,17 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 						    if(selectedCategory != null && cName == selectedCategory.getName()) {
 						    	isSelected = true;
 						      cTab = "SelectedTab" ;
-						      clickEvt = "" ;
 						    }else {
 						    	isSelected = false;
 						    	cTab = "NormalTab" ;
-				          clickEvt = uicomponent.event("ShowCategory", cName) ;
 						    }
 						%>			   	    	
 	   	    		<div class="UIVTab VTabSimpleStyle">
-					      <div class="$cTab" onclick="$clickEvt;">
+					      <div class="$cTab">
 					        <div class="TabLeft">
 					          <div class="TabRight">
 					            <div class="TabRepeat">
-									      <a class="TabLabel">
+									      <a class="TabLabel" onclick="<%= uicomponent.event("ShowCategory", cName) %>">
 									      	<%= displayName %>
 									      </a>
 									      <% if(isSelected) { %>
