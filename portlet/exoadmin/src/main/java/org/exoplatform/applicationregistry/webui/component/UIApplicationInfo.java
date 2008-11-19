@@ -57,7 +57,7 @@ public class UIApplicationInfo extends UIContainer {
   }
   
   public ApplicationCategory getApplicationCategory() {
-    UIApplicationOrganizer uiOrganizer = getParent();
+    UIApplicationOrganizer uiOrganizer = getAncestorOfType(UIApplicationOrganizer.class);
     return uiOrganizer.getSelectedCategory();
   }
   

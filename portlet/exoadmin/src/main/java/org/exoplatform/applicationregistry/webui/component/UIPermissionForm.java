@@ -21,8 +21,11 @@ import java.util.Calendar;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -73,6 +76,13 @@ public class UIPermissionForm extends UIForm {
     application_.setAccessPermissions(pers) ;
     ApplicationRegistryService service = getApplicationComponent(ApplicationRegistryService.class) ;
     application_.setModifiedDate(Calendar.getInstance().getTime());
+    WebuiRequestContext ctx = WebuiRequestContext.getCurrentInstance();
+    if(service.getApplication(application_.getId()) == null) {
+      UIApplication uiApp = ctx.getUIApplication();
+      uiApp.addMessage(new ApplicationMessage("application.msg.changeNotExist", null));
+      ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
+      return;
+    }
     service.update(application_) ;    
   }
   

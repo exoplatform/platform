@@ -20,8 +20,11 @@ import java.util.Calendar;
 
 import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationRegistryService;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -77,15 +80,23 @@ public class UIApplicationForm extends UIForm {
   static public class SaveActionListener extends EventListener<UIApplicationForm> {
     public void execute(Event<UIApplicationForm> event) throws Exception{
       UIApplicationForm uiForm = event.getSource() ;
+      WebuiRequestContext ctx = event.getRequestContext();
       UIApplicationOrganizer uiOrganizer = uiForm.getParent();
       ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class) ;
       Application application = uiForm.getApplication() ;
       uiForm.invokeSetBindingBean(application);
       application.setModifiedDate(Calendar.getInstance().getTime());
+      if(service.getApplication(application.getId()) == null) {
+        UIApplication uiApp = ctx.getUIApplication();
+        uiApp.addMessage(new ApplicationMessage("application.msg.changeNotExist", null));
+        uiOrganizer.setSelectedCategory(application.getCategoryName());
+        ctx.addUIComponentToUpdateByAjax(uiOrganizer);
+        ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
+        return;
+      }
       service.update(application) ;
-      uiForm.setValues(null) ;
       uiOrganizer.setSelectedApplication(uiOrganizer.getSelectedApplication());
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer);
+      ctx.addUIComponentToUpdateByAjax(uiOrganizer);
     }
   }
 
@@ -93,7 +104,6 @@ public class UIApplicationForm extends UIForm {
     public void execute(Event<UIApplicationForm> event) throws Exception{
       UIApplicationForm uiForm = event.getSource() ;
       UIApplicationOrganizer uiOrganizer = uiForm.getParent();
-      uiForm.setValues(null) ;
       uiOrganizer.setSelectedApplication(uiOrganizer.getSelectedApplication());
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer);
     }

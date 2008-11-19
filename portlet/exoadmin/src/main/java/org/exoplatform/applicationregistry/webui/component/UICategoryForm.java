@@ -138,9 +138,9 @@ public class UICategoryForm extends UIFormTabPane {
         if(existCategory == null) {
           uiOrganizer.reload();
           UIApplication uiApp = ctx.getUIApplication() ;
-          uiApp.addMessage(new ApplicationMessage("Category.msg.notExist", null)) ;
-          ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
+          uiApp.addMessage(new ApplicationMessage("category.msg.changeNotExist", null)) ;
           ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
+          ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
           return ;
         }
         category.setModifiedDate(new Date()) ;

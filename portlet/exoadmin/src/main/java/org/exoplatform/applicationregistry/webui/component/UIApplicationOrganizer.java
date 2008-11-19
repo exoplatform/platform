@@ -267,7 +267,9 @@ public class UIApplicationOrganizer extends UIContainer {
      }
      ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
      Application app = uiOrganizer.getApplication(appName) ;
-     service.remove(app) ;
+     if(service.getApplication(app.getId()) != null) {
+       service.remove(app) ;
+     }
      String cateName = uiOrganizer.getSelectedCategory().getName() ;
      uiOrganizer.initApplicationCategories() ;
      uiOrganizer.setSelectedCategory(cateName) ;

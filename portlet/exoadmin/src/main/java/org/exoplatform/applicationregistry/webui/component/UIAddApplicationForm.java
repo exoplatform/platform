@@ -34,9 +34,12 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.gadget.GadgetApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -61,7 +64,7 @@ import org.exoplatform.webui.form.UIFormTableInputSet;
     lifecycle = UIFormLifecycle.class,
     events = {
       @EventConfig(listeners = UIAddApplicationForm.ChangeTypeActionListener.class),
-      @EventConfig(listeners = UIAddApplicationForm.SaveActionListener.class),
+      @EventConfig(listeners = UIAddApplicationForm.AddActionListener.class),
       @EventConfig(listeners = UIAddApplicationForm.CancelActionListener.class)
     }
 )
@@ -88,7 +91,7 @@ public class UIAddApplicationForm extends UIForm {
     uiTableInputSet.setColumns(TABLE_COLUMNS);
     addChild(uiTableInputSet);
     setApplicationList(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE) ;
-    setActions(new String[]{"Save", "Cancel"}) ;
+    setActions(new String[]{"Add", "Cancel"}) ;
   }
   
   public List<Application> getApplications() { return applications_ ; }
@@ -176,25 +179,33 @@ public class UIAddApplicationForm extends UIForm {
     
   }
   
-  public static class SaveActionListener extends EventListener<UIAddApplicationForm> {
+  public static class AddActionListener extends EventListener<UIAddApplicationForm> {
 
     public void execute(Event<UIAddApplicationForm> event) throws Exception {
       UIAddApplicationForm uiForm = event.getSource() ;
+      UIApplicationOrganizer uiOrganizer = uiForm.getParent() ;
+      WebuiRequestContext ctx = event.getRequestContext();
       ApplicationRegistryService appRegService = uiForm.getApplicationComponent(ApplicationRegistryService.class) ;
+      ApplicationCategory selectedCate = uiOrganizer.getSelectedCategory() ;
+      if(appRegService.getApplicationCategory(selectedCate.getName()) == null) {
+        uiOrganizer.reload();
+        UIApplication uiApp = ctx.getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("category.msg.changeNotExist", null)) ;
+        ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
+        ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
+        return ;
+      }
       UIFormRadioBoxInput uiRadio = uiForm.getUIInput("application") ;
       String displayName = uiForm.getUIStringInput(FIELD_NAME).getValue() ;
-      UIApplicationOrganizer uiOrganizer = uiForm.getParent() ;
       Application tmp = uiForm.getApplications().get(Integer.parseInt(uiRadio.getValue()));
       Application app = cloneApplication(tmp) ;
       if(displayName != null && displayName.trim().length() > 0) {
         app.setDisplayName(displayName) ;
       }
-      ApplicationCategory selectedCate = uiOrganizer.getSelectedCategory() ;
       appRegService.save(selectedCate, app) ;
-      uiOrganizer.setSelectedCategory(selectedCate.getName()) ;
+      uiOrganizer.setSelectedCategory(selectedCate);
       uiOrganizer.selectApplication(app.getApplicationName()) ;
-      uiOrganizer.removeChild(UIAddApplicationForm.class);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+      ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
     private Application cloneApplication(Application app){
@@ -214,7 +225,6 @@ public class UIAddApplicationForm extends UIForm {
 
     public void execute(Event<UIAddApplicationForm> event) throws Exception {
       UIApplicationOrganizer uiOrganizer = event.getSource().getParent() ;
-      uiOrganizer.removeChild(UIAddApplicationForm.class);
       uiOrganizer.setSelectedApplication(uiOrganizer.getSelectedApplication()) ;
       event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
 
