@@ -30,11 +30,17 @@
 	  <% } } %>
 	  
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
-    <%for(skinConfig in portalSkins) {%>
-      <link id="${skinConfig.id}" rel="stylesheet" type="text/css" href="$skinConfig.virtualCSSPath" />
+    <%for(skinConfig in portalSkins) {
+    def url = skinConfig.getURL();
+    url.setOrientation(orientation);
+    %>
+      <link id="${skinConfig.id}" rel="stylesheet" type="text/css" href="$url" />
     <%}%>
-    <%for(portletSkin in portletSkins) {%>
-      <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$portletSkin.virtualCSSPath" />
+    <%for(portletSkin in portletSkins) {
+    def url = portletSkin.getURL();
+    url.setOrientation(orientation);
+    %>
+      <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$url" />
     <%}%>
     <%if(org.exoplatform.commons.utils.PropertyManager.isDevelopping()) {
         for(path in scriptsPaths) { %>

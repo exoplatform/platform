@@ -16,42 +16,16 @@
  */
 package org.exoplatform.portal.webui.skin;
 
-import org.exoplatform.services.resources.Orientation;
+import java.io.Reader;
 
 /**
- * Created by The eXo Platform SAS
- * Jan 19, 2007  
+ * A resource resolver for char based resources.
+ *
+ * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
+ * @version $Revision$
  */
-public interface SkinConfig {
+public interface ResourceResolver {
 
-  /**
-   * Returns the skin id.
-   *
-   * @return the skin id
-   */
-  String getId();
-
-  String getName();
-
-  /**
-   * Returns the skin module.
-   *
-   * @return the module
-   */
-  String getModule();
-
-  /**
-   * Returns the css path.
-   *
-   * @return the css path
-   */
-  String getCSSPath();
-
-  /**
-   * Returns the skin URL.
-   * 
-   * @return the skin URL
-   */
-  SkinURL getURL();
+  Reader resolve(String path);
 
 }

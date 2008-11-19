@@ -17,6 +17,11 @@
 package org.exoplatform.portal.webui.workspace;
 
 import java.io.Writer;
+import java.io.Reader;
+import java.io.StringReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -31,6 +36,7 @@ import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.skin.SkinConfig;
+import org.exoplatform.portal.webui.skin.SkinURL;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
@@ -159,11 +165,37 @@ public class UIPortalApplication extends UIApplication {
 
   public Collection<SkinConfig> getPortalSkins() {
     SkinService skinService = getApplicationComponent(SkinService.class) ;
-    Collection<SkinConfig> portalSkins = skinService.getPortalSkins(skin_, getOrientation());
-    SkinConfig skinConfig = skinService.getSkin(Util.getUIPortal().getName(),skin_, getOrientation());
+    Collection<SkinConfig> portalSkins = skinService.getPortalSkins(skin_);
+    SkinConfig skinConfig = skinService.getSkin(Util.getUIPortal().getName(),skin_);
     if(skinConfig != null) {
       portalSkins.add(skinConfig);
     }
+
+    //
+    Set<SkinConfig> portletConfigs = new HashSet<SkinConfig>();
+    for (UIComponent child : getChildren()) {
+      if (child instanceof UIPortlet) {
+        SkinConfig portletConfig = getPortletSkinConfig((UIPortlet)child);
+        if (portletConfig != null) {
+          portletConfigs.add(skinConfig);
+        }
+      }
+    }
+
+    //
+    try {
+      ByteArrayOutputStream baos = new ByteArrayOutputStream();
+      DataOutputStream dos = new DataOutputStream(baos);
+      dos.writeInt(portletConfigs.size());
+      for (SkinConfig cfg : portletConfigs) {
+        dos.writeUTF(cfg.getId());
+      }
+      dos.flush();
+    }
+    catch (IOException e) {
+      e.printStackTrace();
+    }
+
     return portalSkins;
   }
 
@@ -173,7 +205,7 @@ public class UIPortalApplication extends UIApplication {
   private SkinConfig getSkin(String module) {
     Orientation orientation = orientation_;
     SkinService skinService = getApplicationComponent(SkinService.class) ;
-    return skinService.getSkin(module, skin_, orientation) ;
+    return skinService.getSkin(module, skin_) ;
   }
 
   /**
@@ -193,19 +225,55 @@ public class UIPortalApplication extends UIApplication {
     UIPortal uiPortal = uiWorkingWS.getChild(UIPortal.class);
     uiPortal.findComponentOfType(uiportlets, UIPortlet.class);
 
+    // Remove all
+    // uiportlets.removeAll(uiPortal.getChildren());
+
     UIPortalToolPanel toolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
     if (toolPanel != null && toolPanel.isRendered()) {
       toolPanel.findComponentOfType(uiportlets, UIPortlet.class);
     }
 
     for (UIPortlet uiPortlet : uiportlets) {
-      String module = uiPortlet.getExoWindowID().getPortletApplicationName()
-      + "/" + uiPortlet.getExoWindowID().getPortletName();
-      SkinConfig skinConfig = getSkin(module);
+      SkinConfig skinConfig = getPortletSkinConfig(uiPortlet);
       if (skinConfig != null) skins.add(skinConfig);
     }
     return skins;
-  } 
+  }
+
+  public Reader getPortalStylesheet() {
+    Set<SkinConfig> skinConfigs = null;
+    for (UIComponent child : getChildren()) {
+      if (child instanceof UIPortlet) {
+        SkinConfig skinConfig = getPortletSkinConfig((UIPortlet)child);
+        if (skinConfig != null) {
+          if (skinConfigs == null) {
+            skinConfigs = new HashSet<SkinConfig>();
+          }
+          skinConfigs.add(skinConfig);
+        }
+      }
+    }
+
+    //
+    if (skinConfigs == null) {
+      return null;
+    }
+
+    //
+    StringBuilder builder = new StringBuilder(100);
+    for (SkinConfig skinConfig : skinConfigs) {
+      builder.append("@import url(").append(skinConfig.getCSSPath()).append(")");
+    }
+
+    //
+    return new StringReader(builder.toString());
+  }
+
+  private SkinConfig getPortletSkinConfig(UIPortlet portlet) {
+    String module = portlet.getExoWindowID().getPortletApplicationName()
+    + "/" + portlet.getExoWindowID().getPortletName();
+    return getSkin(module);
+  }
 
   /**
    * The central area is called the WorkingWorkspace. It is composed of:
@@ -355,13 +423,15 @@ public class UIPortalApplication extends UIApplication {
     SkinService skinService = getApplicationComponent(SkinService.class);
     for(UIPortlet uiPortlet : uiportlets){
       String module = uiPortlet.getExoWindowID().getPortletApplicationName() + "/" + uiPortlet.getExoWindowID().getPortletName() ;
-      SkinConfig skinConfig = skinService.getSkin(module,skin_, orientation_) ;
+      SkinConfig skinConfig = skinService.getSkin(module,skin_) ;
       if(skinConfig != null) skins.add(skinConfig);
     }
     StringBuilder b = new StringBuilder(1000) ;
     for(SkinConfig ele : skins) {
+      SkinURL url = ele.getURL();
+      url.setOrientation(orientation_);
       b.append("eXo.core.Skin.addSkin('").append(ele.getId()).
-      append("','").append(ele.getVirtualCSSPath()).append("');\n");
+      append("','").append(url).append("');\n");
     }
     return b.toString() ;
   }

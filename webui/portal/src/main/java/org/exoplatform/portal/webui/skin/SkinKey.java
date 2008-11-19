@@ -16,8 +16,6 @@
  */
 package org.exoplatform.portal.webui.skin;
 
-import org.exoplatform.services.resources.Orientation;
-
 /**
  * A key for skin config lookup.
  *
@@ -26,58 +24,37 @@ import org.exoplatform.services.resources.Orientation;
  */
 class SkinKey {
 
-  private final String base;
+  private final String module;
   private final String name;
-  private final Orientation orientation;
   private final int hashCode;
 
   /**
    * Creates a new skin key.
    *
-   * @param base the skin base
+   * @param module the skin base
    * @param name the skin name
    * @throws IllegalArgumentException if any argument is null
    */
-  public SkinKey(String base, String name) {
-    this(base, name, Orientation.LT);
-  }
-
-  /**
-   * Creates a new skin key.
-   *
-   * @param base the skin base
-   * @param name the skin name
-   * @param orientation the skin orientation
-   * @throws IllegalArgumentException if any argument is null
-   */
-  public SkinKey(String base, String name, Orientation orientation) throws IllegalArgumentException {
-    if (base == null) {
+  public SkinKey(String module, String name) throws IllegalArgumentException {
+    if (module == null) {
       throw new IllegalArgumentException("No null base accepted");
     }
     if (name == null) {
       throw new IllegalArgumentException("No null skin name accepted");
     }
-    if (orientation == null) {
-      throw new IllegalArgumentException("No null orientation accepted");
-    }
 
     //
-    this.base = base;
+    this.module = module;
     this.name = name;
-    this.orientation = orientation;
-    this.hashCode = (base.hashCode() * 41 + name.hashCode()) * 41 + orientation.hashCode();
+    this.hashCode = module.hashCode() * 41 + name.hashCode();
   }
 
-  public String getBase() {
-    return base;
+  public String getModule() {
+    return module;
   }
 
   public String getName() {
     return name;
-  }
-
-  public Orientation getOrientation() {
-    return orientation;
   }
 
   public int hashCode() {
@@ -93,12 +70,12 @@ class SkinKey {
     }
     if (obj instanceof SkinKey) {
       SkinKey that = (SkinKey)obj;
-      return that.orientation.equals(orientation) && that.base.equals(base) && that.name.equals(name);
+      return that.module.equals(module) && that.name.equals(name);
     }
     return false;
   }
 
   public String toString() {
-    return "SkinKey[base=" + base + ",name=" + name + ",orientation=" + orientation + "]";
+    return "SkinKey[base=" + module + ",name=" + name + "]";
   }
 }

@@ -19,39 +19,26 @@ package org.exoplatform.portal.webui.skin;
 import org.exoplatform.services.resources.Orientation;
 
 /**
- * Created by The eXo Platform SAS
- * Jan 19, 2007  
+ * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
+ * @version $Revision$
  */
-public interface SkinConfig {
+public interface SkinURL {
 
   /**
-   * Returns the skin id.
+   * Sets the orientation on the skin URL.
    *
-   * @return the skin id
+   * @param orientation the orientation
    */
-  String getId();
-
-  String getName();
+  void setOrientation(Orientation orientation);
 
   /**
-   * Returns the skin module.
-   *
-   * @return the module
-   */
-  String getModule();
-
-  /**
-   * Returns the css path.
-   *
-   * @return the css path
-   */
-  String getCSSPath();
-
-  /**
-   * Returns the skin URL.
-   * 
-   * @return the skin URL
-   */
-  SkinURL getURL();
-
+  * This method is used to compute the virtual path of a CSS, which is the
+  * actual CSS path in the war file, augmented with an orientation suffix.
+  * (e.g : "/portal/templates/skin/webui/component/UIHomePagePortlet/DefaultStylesheet-lt.css")
+  * This virtual path with be used by the browser to retrieve the CSS
+  * corresponding to the appopriate orientation.
+  *
+  * @return the augmented CSS path, containing the orientation suffix.
+  */
+  String toString();
 }
