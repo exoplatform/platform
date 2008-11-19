@@ -19,6 +19,8 @@ package org.exoplatform.portal.webui.page;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.portlet.WindowState;
+
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.application.UserGadgetStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
@@ -27,6 +29,7 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIGadget;
+import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -63,6 +66,8 @@ public class UIPageActionListener {
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
       uiPortal.setRenderSibbling(UIPortal.class);
       pcontext.setFullRender(true);
+      
+      String currentUri = uiPortal.getSelectedNode().getUri() ;
 
       UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
       if(uiControl != null) {
@@ -88,7 +93,14 @@ public class UIPageActionListener {
             if(PageNavigationUtils.filter(child, pcontext.getRemoteUser()) != null) {
               selectedPaths_.add(child);
               uiPortal.setSelectedNode(child);
-              uiPortal.setSelectedPaths(selectedPaths_);  
+              uiPortal.setSelectedPaths(selectedPaths_);
+              if(!currentUri.equals(uiPortal.getSelectedNode().getUri())) {
+                if(uiPageBody.getMaximizedUIComponent() != null) {
+                  UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
+                  currentPortlet.setCurrentWindowState(WindowState.NORMAL);
+                  uiPageBody.setMaximizedUIComponent(null);
+                }
+              } 
               uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
               return;
             }
@@ -119,6 +131,13 @@ public class UIPageActionListener {
         uiPortal.setSelectedNode(selecttedNode);
 				if(selecttedNode == null) selectedPaths_.add(uiPortal.getSelectedNode()) ;
 				uiPortal.setSelectedPaths(selectedPaths_);
+				if(!currentUri.equals(uiPortal.getSelectedNode().getUri())) {
+          if(uiPageBody.getMaximizedUIComponent() != null) {
+            UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
+            currentPortlet.setCurrentWindowState(WindowState.NORMAL);
+            uiPageBody.setMaximizedUIComponent(null);
+          }
+        } 
         uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
         return;
       }
@@ -146,6 +165,13 @@ public class UIPageActionListener {
         uiPortal.setSelectedNavigation(nav);
       }
       uiPortal.setSelectedPaths(selectedPaths_);
+      if(!currentUri.equals(uiPortal.getSelectedNode().getUri())) {
+        if(uiPageBody.getMaximizedUIComponent() != null) {
+          UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
+          currentPortlet.setCurrentWindowState(WindowState.NORMAL);
+          uiPageBody.setMaximizedUIComponent(null);
+        }
+      } 
       uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
     }
   }

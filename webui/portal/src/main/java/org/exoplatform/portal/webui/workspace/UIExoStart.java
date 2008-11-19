@@ -329,14 +329,14 @@ public class UIExoStart extends UIComponent {
       String uri  = event.getRequestContext().getRequestParameter(OBJECTID);
       UIPortal uiPortal = Util.getUIPortal();
       uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
-      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
-      if(uiPageBody != null) {
-        if(uiPageBody.getMaximizedUIComponent() != null) {
-          UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
-          currentPortlet.setCurrentWindowState(WindowState.NORMAL);
-          uiPageBody.setMaximizedUIComponent(null);
-        }
-      }
+//      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
+//      if(uiPageBody != null) {
+//        if(uiPageBody.getMaximizedUIComponent() != null) {
+//          UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
+//          currentPortlet.setCurrentWindowState(WindowState.NORMAL);
+//          uiPageBody.setMaximizedUIComponent(null);
+//        }
+//      }
       PageNodeEvent<UIPortal> pnevent = 
         new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, uri) ;      
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      

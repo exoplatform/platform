@@ -19,12 +19,8 @@ package org.exoplatform.portal.webui.navigation;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.portlet.WindowState;
-
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.webui.application.UIPortlet;
-import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
@@ -123,14 +119,14 @@ public class UIPortalNavigation extends UIComponent {
       if(index > 0) parentUri = uri.substring(0, index);
       if(parentUri == null || parentUri.length() < 1) uiNavigation.selectedParent_ = selectNav;
       else uiNavigation.selectedParent_ = PageNavigationUtils.searchPageNodeByUri(selectNav, parentUri);
-      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
-      if(uiPageBody != null) {
-        if(uiPageBody.getMaximizedUIComponent() != null) {
-          UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
-          currentPortlet.setCurrentWindowState(WindowState.NORMAL);
-          uiPageBody.setMaximizedUIComponent(null);
-        }
-      }
+//      UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class);
+//      if(uiPageBody != null) {
+//        if(uiPageBody.getMaximizedUIComponent() != null) {
+//          UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
+//          currentPortlet.setCurrentWindowState(WindowState.NORMAL);
+//          uiPageBody.setMaximizedUIComponent(null);
+//        }
+//      }
       PageNodeEvent<UIPortal> pnevent ;
       pnevent = new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, uri) ;      
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;
