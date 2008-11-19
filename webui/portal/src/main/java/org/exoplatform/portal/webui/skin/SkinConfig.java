@@ -48,10 +48,10 @@ public interface SkinConfig {
   String getCSSPath();
 
   /**
-   * Returns the skin URL.
+   * Creates and return a skin URL.
    * 
    * @return the skin URL
    */
-  SkinURL getURL();
+  SkinURL createURL();
 
 }

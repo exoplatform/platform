@@ -153,6 +153,10 @@ public class SkinService implements ISkinService {
     addSkin(module, skinName, cssPath, scontext, false);
   }
 
+//  public SkinURL createURL() {
+//
+//  }
+
   public void addSkin(String module, String skinName, String cssPath, ServletContext scontext, boolean isPrimary) {
 
     // Triggers a put if absent

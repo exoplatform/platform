@@ -41,7 +41,7 @@ public class SimpleSkin implements SkinConfig {
   public String getCSSPath(){ return cssPath_; }
   public String getName() { return name_; }
 
-  public SkinURL getURL() {
+  public SkinURL createURL() {
     return new SkinURL() {
 
       Orientation orientation = null;

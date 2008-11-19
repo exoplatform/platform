@@ -428,7 +428,7 @@ public class UIPortalApplication extends UIApplication {
     }
     StringBuilder b = new StringBuilder(1000) ;
     for(SkinConfig ele : skins) {
-      SkinURL url = ele.getURL();
+      SkinURL url = ele.createURL();
       url.setOrientation(orientation_);
       b.append("eXo.core.Skin.addSkin('").append(ele.getId()).
       append("','").append(url).append("');\n");
