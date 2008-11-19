@@ -9,7 +9,8 @@
 
 .UIAction .ActionButton {
 	display: block;
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	margin: 0px 3px;
 	cursor: pointer;
 }

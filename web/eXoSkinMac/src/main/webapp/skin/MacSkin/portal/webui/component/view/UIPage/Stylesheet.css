@@ -15,7 +15,7 @@
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage {
-  line-height: 104px; 
+  line-height: 104px; white-space: nowrap;
   color: #1f2020;  text-align: center;
 	font-weight: bold;
   background: url('background/PageLayout.png') repeat-x center -228px;  

@@ -79,6 +79,7 @@ e/**
 }
 
 .UIApplicationRegistryPortlet .AppRegistryContainer {
+	height: 100%;
 	border: 1px solid #b7b7b7;
 	background: url('DefaultSkin/background/Repeat-Y16x2.gif') repeat-y left top;
 }
@@ -409,7 +410,7 @@ e/**
 }
 
 .UIGadgetManagement .UIGadgetEditor td.FieldComponent {
-	width: 100%;
+	width: 90%;
 }
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout input {

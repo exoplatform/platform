@@ -79,6 +79,7 @@
 }
 
 .UIApplicationRegistryPortlet .AppRegistryContainer {
+	height: 100%;
 	border: 1px solid #b7b7b7;
 	background: url('DefaultSkin/background/Repeat-Y16x2.gif') repeat-y left top;
 }
@@ -411,7 +412,7 @@
 	padding: 0px;
 }
 
-.UIGadgetManagement .UIGadgetEditor table {
+.UIGadgetManagement .UIGadgetEditor table.UIFormGrid {
 	table-layout: fixed;
 }
 
