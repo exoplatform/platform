@@ -17,30 +17,23 @@
 package org.exoplatform.portal.webui.skin;
 
 /**
- * Created by The eXo Platform SAS
- * Jan 19, 2007  
+ * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
+ * @version $Revision$
  */
-public interface SkinConfig extends Skin {
+public interface Skin {
 
   /**
-   * Returns the skin name
+   * Returns the skin id.
    *
-   * @return the skin name
+   * @return the skin id
    */
-  String getName();
+  String getId();
 
   /**
-   * Returns the skin module.
+   * Creates and return a skin URL.
    *
-   * @return the module
+   * @return the skin URL
    */
-  String getModule();
-
-  /**
-   * Returns the css path.
-   *
-   * @return the css path
-   */
-  String getCSSPath();
+  SkinURL createURL();
 
 }

@@ -19,9 +19,6 @@ package org.exoplatform.portal.webui.workspace;
 import java.io.Writer;
 import java.io.Reader;
 import java.io.StringReader;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.DataOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -38,6 +35,7 @@ import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.skin.SkinConfig;
 import org.exoplatform.portal.webui.skin.SkinURL;
 import org.exoplatform.portal.webui.skin.SkinService;
+import org.exoplatform.portal.webui.skin.Skin;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;
@@ -97,7 +95,6 @@ public class UIPortalApplication extends UIApplication {
    * 4) The skin to use is setup
    * 5) Finally, the current component is associated with the current portal owner      
    * 
-   * @param initParams
    * @throws Exception
    */
   public UIPortalApplication() throws Exception {
@@ -163,12 +160,16 @@ public class UIPortalApplication extends UIApplication {
     return service.getAvailableScriptsPaths();
   }
 
-  public Collection<SkinConfig> getPortalSkins() {
+  public Collection<Skin> getPortalSkins() {
     SkinService skinService = getApplicationComponent(SkinService.class) ;
-    Collection<SkinConfig> portalSkins = skinService.getPortalSkins(skin_);
+
+    //
+    Collection<Skin> skins = new ArrayList<Skin>(skinService.getPortalSkins(skin_));
+
+    //
     SkinConfig skinConfig = skinService.getSkin(Util.getUIPortal().getName(),skin_);
     if(skinConfig != null) {
-      portalSkins.add(skinConfig);
+      skins.add(skinConfig);
     }
 
     //
@@ -181,29 +182,16 @@ public class UIPortalApplication extends UIApplication {
         }
       }
     }
+    skins.add(skinService.merge(portletConfigs));
 
     //
-    try {
-      ByteArrayOutputStream baos = new ByteArrayOutputStream();
-      DataOutputStream dos = new DataOutputStream(baos);
-      dos.writeInt(portletConfigs.size());
-      for (SkinConfig cfg : portletConfigs) {
-        dos.writeUTF(cfg.getId());
-      }
-      dos.flush();
-    }
-    catch (IOException e) {
-      e.printStackTrace();
-    }
-
-    return portalSkins;
+    return skins;
   }
 
   public String getSkin() {  return skin_ ; }
   public void setSkin(String skin){ this.skin_ = skin; }
 
   private SkinConfig getSkin(String module) {
-    Orientation orientation = orientation_;
     SkinService skinService = getApplicationComponent(SkinService.class) ;
     return skinService.getSkin(module, skin_) ;
   }
@@ -216,9 +204,11 @@ public class UIPortalApplication extends UIApplication {
    * lower the number of HTTP calls (this is the case in production as
    * all the portlets included in a portal, and hence there on everypage
    * are merged into a single CSS file)
+   *
+   * @return the portlet skins
    */
-  public Set<SkinConfig> getPortletSkins() {
-    Set<SkinConfig> skins = new HashSet<SkinConfig>();
+  public Set<Skin> getPortletSkins() {
+    Set<Skin> skins = new HashSet<Skin>();
     List<UIPortlet> uiportlets = new ArrayList<UIPortlet>();
 
     UIWorkingWorkspace uiWorkingWS = getChildById(UI_WORKING_WS_ID);

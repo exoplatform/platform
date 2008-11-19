@@ -31,13 +31,13 @@
 	  
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />
     <%for(skinConfig in portalSkins) {
-    def url = skinConfig.getURL();
+    def url = skinConfig.createURL();
     url.setOrientation(orientation);
     %>
       <link id="${skinConfig.id}" rel="stylesheet" type="text/css" href="$url" />
     <%}%>
     <%for(portletSkin in portletSkins) {
-    def url = portletSkin.getURL();
+    def url = portletSkin.createURL();
     url.setOrientation(orientation);
     %>
       <link id="${portletSkin.id}" rel="stylesheet" type="text/css" href= "$url" />

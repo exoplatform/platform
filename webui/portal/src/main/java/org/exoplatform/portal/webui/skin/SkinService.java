@@ -18,6 +18,7 @@ package org.exoplatform.portal.webui.skin;
 
 import java.io.BufferedReader;
 import java.io.Reader;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -27,8 +28,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.EnumMap;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletContext;
 
@@ -153,9 +156,53 @@ public class SkinService implements ISkinService {
     addSkin(module, skinName, cssPath, scontext, false);
   }
 
-//  public SkinURL createURL() {
-//
-//  }
+  public Skin merge(Collection<SkinConfig> skins) {
+    TreeSet<String> ids = new TreeSet<String>();
+    for (SkinConfig skin : skins) {
+      ids.add(skin.getId());
+    }
+
+    //
+    final StringBuilder builder = new StringBuilder();
+    builder.append("/portal/resource");
+
+    //
+    try {
+      for (String id : ids) {
+        String encodedId = URLEncoder.encode(id, "UTF8");
+        builder.append("/").append(encodedId);
+      }
+    }
+    catch (UnsupportedEncodingException e) {
+      throw new Error(e);
+    }
+
+    //
+    return new Skin() {
+      public String getId() {
+
+        // todo
+        return "FOO";
+      }
+
+      public SkinURL createURL() {
+        return new SkinURL() {
+
+          Orientation orientation;
+
+          public void setOrientation(Orientation orientation) {
+            this.orientation = orientation;
+          }
+
+          @Override
+          public String toString() {
+            Orientation o = orientation == null ? Orientation.LT : orientation;
+            return builder.toString() + "/style" + SkinService.getSuffix(o) + ".css";
+          }
+        };
+      }
+    };
+  }
 
   public void addSkin(String module, String skinName, String cssPath, ServletContext scontext, boolean isPrimary) {
 
