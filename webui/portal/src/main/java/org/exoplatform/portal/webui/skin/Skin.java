@@ -17,6 +17,8 @@
 package org.exoplatform.portal.webui.skin;
 
 /**
+ * A skin.
+ *
  * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
  * @version $Revision$
  */

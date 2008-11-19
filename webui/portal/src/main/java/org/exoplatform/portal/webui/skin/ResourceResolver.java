@@ -26,6 +26,12 @@ import java.io.Reader;
  */
 public interface ResourceResolver {
 
+  /**
+   * Returns a reader for the provided path or null if the resource cannot be resolved.
+   *
+   * @param path the path
+   * @return a reader 
+   */
   Reader resolve(String path);
 
 }

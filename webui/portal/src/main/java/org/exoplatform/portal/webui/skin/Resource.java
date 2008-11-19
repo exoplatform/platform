@@ -19,17 +19,16 @@ package org.exoplatform.portal.webui.skin;
 import java.io.Reader;
 
 /**
+ * Represents a resource.
+ *
  * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
  * @version $Revision$
  */
 public class Resource {
 
   private final ResourceResolver resolver;
-
   private final String contextPath;
-
   private final String parentPath;
-
   private final String fileName;
 
   public Resource(ResourceResolver resolver, String path) {

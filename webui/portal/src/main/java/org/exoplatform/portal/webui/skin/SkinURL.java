@@ -19,6 +19,8 @@ package org.exoplatform.portal.webui.skin;
 import org.exoplatform.services.resources.Orientation;
 
 /**
+ * The URL of a skin.
+ *
  * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
  * @version $Revision$
  */
@@ -32,13 +34,9 @@ public interface SkinURL {
   void setOrientation(Orientation orientation);
 
   /**
-  * This method is used to compute the virtual path of a CSS, which is the
-  * actual CSS path in the war file, augmented with an orientation suffix.
-  * (e.g : "/portal/templates/skin/webui/component/UIHomePagePortlet/DefaultStylesheet-lt.css")
-  * This virtual path with be used by the browser to retrieve the CSS
-  * corresponding to the appopriate orientation.
+  * This method is used to compute the path of a CSS.
   *
-  * @return the augmented CSS path, containing the orientation suffix.
+  * @return the CSS path, containing the orientation suffix.
   */
   String toString();
 }

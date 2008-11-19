@@ -19,6 +19,8 @@ package org.exoplatform.portal.webui.skin;
 import org.exoplatform.services.resources.Orientation;
 
 /**
+ * An implementation of the skin config.
+ *
  * Created by The eXo Platform SAS
  * Jan 19, 2007
  */

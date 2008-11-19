@@ -17,6 +17,8 @@
 package org.exoplatform.portal.webui.skin;
 
 /**
+ * Extends a skin with additional information.
+ *
  * Created by The eXo Platform SAS
  * Jan 19, 2007  
  */
