@@ -70,7 +70,7 @@ public class ResourceRequestFilter implements Filter  {
       httpResponse.setHeader("Cache-Control", "no-cache");
       ExoContainer portalContainer = ExoContainerContext.getCurrentContainer();
       SkinService skinService = (SkinService) portalContainer.getComponentInstanceOfType(SkinService.class);
-      String mergedCSS = skinService.getCSS(uri, cfg.getServletContext());
+      String mergedCSS = skinService.getCSS(uri);
       if(mergedCSS != null) {
         log.info("Use a merged CSS: " + uri);
         response.getWriter().print(mergedCSS);

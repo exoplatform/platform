@@ -18,7 +18,6 @@ package org.exoplatform.portal.application;
 
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
-import java.io.OutputStreamWriter;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -31,10 +30,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.Constants;
-import org.exoplatform.commons.utils.Printer;
 import org.exoplatform.commons.utils.WriterPrinter;
 import org.exoplatform.commons.utils.OutputStreamPrinter;
-import org.exoplatform.commons.utils.TextEncoder;
+import org.exoplatform.commons.utils.CharsetTextEncoder;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -182,9 +180,9 @@ public class PortalRequestContext extends WebuiRequestContext {
   final public Writer getWriter() throws Exception { 
     if(writer_ == null) {
       if (HtmlValidator.DEBUG_MODE) {
-        writer_ = new WriterPrinter(new HtmlValidator(new OutputStreamPrinter(TextEncoder.getUTF8(), response_.getOutputStream()))) ;
+        writer_ = new WriterPrinter(new HtmlValidator(new OutputStreamPrinter(CharsetTextEncoder.getUTF8(), response_.getOutputStream()))) ;
       } else {
-        writer_ = new OutputStreamPrinter(TextEncoder.getUTF8(), response_.getOutputStream()) ;
+        writer_ = new OutputStreamPrinter(CharsetTextEncoder.getUTF8(), response_.getOutputStream()) ;
       }
     }
     return writer_ ; 

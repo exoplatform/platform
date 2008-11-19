@@ -31,26 +31,10 @@ public class SimpleResourceContext {
 
   private final ServletContext context;
 
-  /** The optional delegate. */
-  ResourceResolver delegate;
-
   private final ResourceResolver resolver = new ResourceResolver() {
     public Reader resolve(String path) {
-      Reader reader = null;
-
-      //
-      if (delegate != null) {
-        reader = delegate.resolve(path);
-      }
-
-      //
-      if (reader == null) {
-        InputStream in = context.getResourceAsStream(path);
-        reader = in != null ? new InputStreamReader(in) : null;
-      }
-
-      //
-      return reader;
+      InputStream in = context.getResourceAsStream(path);
+      return in != null ? new InputStreamReader(in) : null;
     }
   };
 

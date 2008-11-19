@@ -39,7 +39,7 @@ import org.exoplatform.commons.utils.PropertyManager;
 
 public interface ISkinService {
 
-  String getCSS(String cssPath, ServletContext scontext);
+  String getCSS(String cssPath);
 
   void addTheme(String categoryName, List<String> themesName);
 

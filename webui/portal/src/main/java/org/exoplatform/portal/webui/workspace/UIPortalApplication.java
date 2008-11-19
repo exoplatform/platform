@@ -173,19 +173,24 @@ public class UIPortalApplication extends UIApplication {
     }
 
     //
-    Set<SkinConfig> portletConfigs = new HashSet<SkinConfig>();
-    for (UIComponent child : getChildren()) {
-      if (child instanceof UIPortlet) {
-        SkinConfig portletConfig = getPortletSkinConfig((UIPortlet)child);
-        if (portletConfig != null) {
-          portletConfigs.add(skinConfig);
-        }
-      }
-    }
+    Set<SkinConfig> portletConfigs = getPortalPortletSkins();
     skins.add(skinService.merge(portletConfigs));
 
     //
     return skins;
+  }
+
+  private Set<SkinConfig> getPortalPortletSkins() {
+    Set<SkinConfig> portletConfigs = new HashSet<SkinConfig>();
+    for (UIComponent child : findFirstComponentOfType(UIPortal.class).getChildren()) {
+      if (child instanceof UIPortlet) {
+        SkinConfig portletConfig = getPortletSkinConfig((UIPortlet)child);
+        if (portletConfig != null) {
+          portletConfigs.add(portletConfig);
+        }
+      }
+    }
+    return portletConfigs;
   }
 
   public String getSkin() {  return skin_ ; }
@@ -208,55 +213,32 @@ public class UIPortalApplication extends UIApplication {
    * @return the portlet skins
    */
   public Set<Skin> getPortletSkins() {
+    // Set to avoid repetition
     Set<Skin> skins = new HashSet<Skin>();
-    List<UIPortlet> uiportlets = new ArrayList<UIPortlet>();
 
+    // Determine portlets visible on the page
+    List<UIPortlet> uiportlets = new ArrayList<UIPortlet>();
     UIWorkingWorkspace uiWorkingWS = getChildById(UI_WORKING_WS_ID);
     UIPortal uiPortal = uiWorkingWS.getChild(UIPortal.class);
     uiPortal.findComponentOfType(uiportlets, UIPortlet.class);
-
-    // Remove all
-    // uiportlets.removeAll(uiPortal.getChildren());
-
     UIPortalToolPanel toolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
     if (toolPanel != null && toolPanel.isRendered()) {
       toolPanel.findComponentOfType(uiportlets, UIPortlet.class);
     }
 
+    // Get portal portlets to filter since they are already in the portal skins
+    Set<SkinConfig> portletConfigs = getPortalPortletSkins();
+
+    //
     for (UIPortlet uiPortlet : uiportlets) {
       SkinConfig skinConfig = getPortletSkinConfig(uiPortlet);
-      if (skinConfig != null) skins.add(skinConfig);
-    }
-    return skins;
-  }
-
-  public Reader getPortalStylesheet() {
-    Set<SkinConfig> skinConfigs = null;
-    for (UIComponent child : getChildren()) {
-      if (child instanceof UIPortlet) {
-        SkinConfig skinConfig = getPortletSkinConfig((UIPortlet)child);
-        if (skinConfig != null) {
-          if (skinConfigs == null) {
-            skinConfigs = new HashSet<SkinConfig>();
-          }
-          skinConfigs.add(skinConfig);
-        }
+      if (skinConfig != null && !portletConfigs.contains(skinConfig)) {
+        skins.add(skinConfig);
       }
     }
 
     //
-    if (skinConfigs == null) {
-      return null;
-    }
-
-    //
-    StringBuilder builder = new StringBuilder(100);
-    for (SkinConfig skinConfig : skinConfigs) {
-      builder.append("@import url(").append(skinConfig.getCSSPath()).append(")");
-    }
-
-    //
-    return new StringReader(builder.toString());
+    return skins;
   }
 
   private SkinConfig getPortletSkinConfig(UIPortlet portlet) {

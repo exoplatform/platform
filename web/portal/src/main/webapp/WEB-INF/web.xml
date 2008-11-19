@@ -145,10 +145,6 @@
 	  <servlet-name>portal</servlet-name> 
 	  <url-pattern>/command/*</url-pattern> 
 	</servlet-mapping>
-    <servlet-mapping>
-      <servlet-name>portal</servlet-name>
-      <url-pattern>/resource/*</url-pattern> 
-    </servlet-mapping>
   <servlet-mapping>
     <servlet-name>RestServer</servlet-name>
     <url-pattern>/rest/*</url-pattern>
