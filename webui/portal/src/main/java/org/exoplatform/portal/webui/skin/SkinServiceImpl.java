@@ -98,34 +98,15 @@ public class SkinServiceImpl implements SkinService {
     portletThemes_ = new HashMap<String, Set<String>>();
   }
 
-  /**
-	 * Create a new portlet theme category
-	 * @param categoryName portlet theme category
-	 */
   public void addCategoryTheme(String categoryName) {
     if (!portletThemes_.containsKey(categoryName))
       portletThemes_.put(categoryName, new HashSet<String>());
   }
 
-  /**
-   * Register the stylesheet for a portal Skin.
-   * @param module skin module identifier
-   * @param skinName skin name
-   * @param cssPath path uri to the css file. This is relative to the root context, use leading '/'
-   * @param scontext the webapp's {@link javax.servlet.ServletContext}
-   */
   public void addPortalSkin(String module, String skinName, String cssPath, ServletContext scontext) {
     addPortalSkin(module, skinName, cssPath, scontext, false) ;
   }
 
-  /**
-   * Register the stylesheet for a portal Skin.
-   * @param module skin module identifier
-   * @param skinName skin name
-   * @param cssPath path uri to the css file. This is relative to the root context, use leading '/'
-   * @param scontext the webapp's {@link javax.servlet.ServletContext}
-   * @param overwrite
-   */
   public void addPortalSkin(String module, String skinName, String cssPath,
       ServletContext scontext, boolean overwrite) {
 
