@@ -126,15 +126,23 @@
 	padding-top: 8px;
 }
 
-.UIHomePagePortlet span {
+.UIHomePagePortlet .AccountInfos lable {
+	line-height: 16px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.UIHomePagePortlet .AccountInfos span {
 	font-weight: bold;
 	color: #2c6fbd;
-	padding-left: 3px;
+	padding: 0px 3px;
 	line-height: 16px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .AccountTitle {
 	font-size: 16px;
 	color: #454e56;
-	line-height: 46px;
+	line-height: 40px;
 }

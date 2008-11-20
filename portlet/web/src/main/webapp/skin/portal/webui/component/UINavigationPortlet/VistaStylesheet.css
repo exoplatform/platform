@@ -4,6 +4,7 @@
 
 .UINavigationPortlet .UINavigationBar {
   height: 36px;
+  white-space: nowrap;
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {

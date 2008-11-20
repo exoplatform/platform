@@ -27,7 +27,7 @@
   background: url('background/ViewPage.gif') repeat-x center top;  
   color: #525252; text-align: center;
   font-weight: bold;
-  padding: 0px;
+  padding: 0px; white-space: nowrap;
 }
 
 .UIPage .PageLayoutDecorator .MiddleLeftPage {

@@ -20,32 +20,56 @@
 							<div class="AccountBlock AdministratorUser">
 								<div class="AccountInfos">
 									<div class="AccountTitle">Administrator</div>
-									<div class="Username">Username:<span>root</span></div>
-									<div class="Passwords">Password:<span>exo</span></div>
+									<div class="Username">
+										<lable>Username:</lable><span>root</span>
+										<div style="clear:both"><span></span></div>
+									</div>
+									<div class="Passwords">
+										<lable>Password:</lable><span>exo</span>
+										<div style="clear:both"><span></span></div>
+									</div>
 								</div>
 							</div>	
 							<div class="SeparatorLine"><span></span></div>
 							<div class="AccountBlock ManagerUser">
 								<div class="AccountInfos">
 									<div class="AccountTitle">Manager</div>
-									<div class="Username">Username:<span>john</span></div>
-									<div class="Passwords">Password:<span>exo</span></div>
+									<div class="Username">
+										<lable>Username:</lable><span>john</span>
+										<div style="clear:both"><span></span></div>
+									</div>
+									<div class="Passwords">
+										<lable>Password:</lable><span>exo</span>
+										<div style="clear:both"><span></span></div>
+									</div>
 								</div>
 							</div>
 							<div class="SeparatorLine"><span></span></div>
 							<div class="AccountBlock NormalUser">
 								<div class="AccountInfos">
 									<div class="AccountTitle">User</div>
-									<div class="Username">Username:<span>marry</span></div>
-									<div class="Passwords">Password:<span>exo</span></div>
+									<div class="Username">
+										<lable>Username:</lable><span>marry</span>
+										<div style="clear:both"><span></span></div>
+									</div>
+									<div class="Passwords">
+										<lable>Password:</lable><span>exo</span>
+										<div style="clear:both"><span></span></div>
+									</div>
 								</div>
 							</div>
 							<div class="SeparatorLine"><span></span></div>
 							<div class="AccountBlock DemoUser" style="margin-right: 0px;">
 								<div class="AccountInfos">
 									<div class="AccountTitle">Demo</div>
-									<div class="Username">Username:<span>demo</span></div>
-									<div class="Passwords">Password:<span>exo</span></div>
+									<div class="Username">
+										<lable>Username:</lable><span>demo</span>
+										<div style="clear:both"><span></span></div>
+									</div>
+									<div class="Passwords">
+										<lable>Password:</lable><span>exo</span>
+										<div style="clear:both"><span></span></div>
+									</div>
 								</div>
 							</div>
 							<div style="clear: both"><span></span></div>

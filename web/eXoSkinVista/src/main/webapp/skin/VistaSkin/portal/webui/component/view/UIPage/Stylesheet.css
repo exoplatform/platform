@@ -18,7 +18,7 @@
   background: url('background/PageLayout.png') repeat-x center -156px ; 
   color: #3b3b3b; 
   font-weight: bold;
-	text-align: center;
+	text-align: center; white-space: nowrap;
 }
 
 .UIPage .PageLayoutDecorator .TopCenterPage .PageContent {
