@@ -27,6 +27,7 @@ import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
+import org.exoplatform.services.organization.UserProfileHandler;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -112,6 +113,8 @@ public class UILanguageSelector extends UIContainer {
       if(remoteUser != null) {
         UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(remoteUser) ;
         userProfile.getUserInfoMap().put("user.language", language) ;
+        UserProfileHandler hanlder = orgService.getUserProfileHandler();
+        hanlder.saveUserProfile(userProfile, true) ;
       }
     }
  }
