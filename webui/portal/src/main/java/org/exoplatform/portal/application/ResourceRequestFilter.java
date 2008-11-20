@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.Writer;
 import java.net.URLDecoder;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentHashMap;
@@ -44,6 +45,7 @@ import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.webui.skin.SkinService;
+import org.exoplatform.portal.webui.skin.ResourceRenderer;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.commons.utils.PropertyManager;
 
@@ -65,18 +67,33 @@ public class ResourceRequestFilter implements Filter  {
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpRequest = (HttpServletRequest) request ;
     String uri = URLDecoder.decode(httpRequest.getRequestURI(),"UTF-8");
-    HttpServletResponse httpResponse = (HttpServletResponse)  response ;
+    final HttpServletResponse httpResponse = (HttpServletResponse)  response ;
+    ExoContainer portalContainer = ExoContainerContext.getCurrentContainer();
+    SkinService skinService = (SkinService) portalContainer.getComponentInstanceOfType(SkinService.class);
+
+    //
     if(uri.endsWith(".css")) {
-      httpResponse.setHeader("Cache-Control", "no-cache");
-      ExoContainer portalContainer = ExoContainerContext.getCurrentContainer();
-      SkinService skinService = (SkinService) portalContainer.getComponentInstanceOfType(SkinService.class);
-      String mergedCSS = skinService.getCSS(uri);
-      if(mergedCSS != null) {
+      final Writer writer = response.getWriter();
+      ResourceRenderer renderer = new ResourceRenderer() {
+        public Appendable getAppendable() {
+          return writer;
+        }
+        public void setExpiration(long seconds) {
+          if (seconds > 0) {
+            httpResponse.addHeader("Cache-Control", "max-age=" + seconds + ",s-maxage=" + seconds) ;
+          } else {
+            httpResponse.setHeader("Cache-Control", "no-cache");
+          }
+        }
+      };
+
+      //
+      try {
+        skinService.renderCSS(renderer, uri);
         log.info("Use a merged CSS: " + uri);
-        response.getWriter().print(mergedCSS);
       }
-      else {
-        // We did not find it
+      catch (Exception e) {
+        log.error("Could not render css " + uri, e);
         httpResponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
       }
     } else {

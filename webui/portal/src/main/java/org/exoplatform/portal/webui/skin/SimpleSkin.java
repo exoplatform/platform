@@ -26,12 +26,14 @@ import org.exoplatform.services.resources.Orientation;
  */
 class SimpleSkin implements SkinConfig {
 
+  private final SkinServiceImpl service_;
   private final String module_ ;
   private final String name_;
   private final String cssPath_ ;
   private final String id_ ;
 
-  public SimpleSkin(String module, String name, String cssPath) {
+  public SimpleSkin(SkinServiceImpl service, String module, String name, String cssPath) {
+    service_ = service;
     module_ = module;
     name_ = name;
     cssPath_ = cssPath;
@@ -54,15 +56,7 @@ class SimpleSkin implements SkinConfig {
 
       @Override
       public String toString() {
-        Orientation o = orientation;
-
-        //
-        if (o == null) {
-          o = Orientation.LT;
-        }
-
-        //
-        return cssPath_.replaceAll("\\.css$", SkinServiceImpl.getSuffix(o));
+        return cssPath_.replaceAll("\\.css$", service_.getSuffix(orientation));
       }
     };
   }

@@ -17,6 +17,7 @@
 package org.exoplatform.portal.webui.skin;
 
 import org.exoplatform.services.resources.Orientation;
+import org.exoplatform.commons.utils.PropertyManager;
 
 import java.util.Collection;
 import java.util.TreeMap;
@@ -31,12 +32,15 @@ import java.io.IOException;
 class CompositeSkin implements Skin {
 
   /** . */
+  private final SkinServiceImpl service;
+
+  /** . */
   private final String id;
 
   /** . */
   private final String urlPrefix;
 
-  CompositeSkin(Collection<SkinConfig> skins) {
+  CompositeSkin(SkinServiceImpl service, Collection<SkinConfig> skins) {
     TreeMap<String, SkinConfig> urlSkins = new TreeMap<String, SkinConfig>();
     for (SkinConfig skin : skins) {
       urlSkins.put(skin.getCSSPath(), skin);
@@ -67,6 +71,7 @@ class CompositeSkin implements Skin {
     }
 
     //
+    this.service = service;
     this.id = id.toString();
     this.urlPrefix = builder.toString();
   }
@@ -86,8 +91,9 @@ class CompositeSkin implements Skin {
 
       @Override
       public String toString() {
-        Orientation o = orientation == null ? Orientation.LT : orientation;
-        return urlPrefix + "/style" + SkinServiceImpl.getSuffix(o);
+        return urlPrefix +
+          "/" + (PropertyManager.isDevelopping() ? "style" : service.id) +
+          service.getSuffix(orientation);
       }
     };
   }

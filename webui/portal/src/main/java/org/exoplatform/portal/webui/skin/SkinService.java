@@ -45,7 +45,7 @@ public interface SkinService {
    */
   String getCSS(String cssPath);
 
-  void renderCSS(ResourceRenderer renderer, String path) throws IOException;
+  void renderCSS(ResourceRenderer renderer, String path) throws IOException, RenderingException;
 
   void addTheme(String categoryName, List<String> themesName);
 
