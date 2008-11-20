@@ -24,7 +24,7 @@ import org.exoplatform.services.resources.Orientation;
  * Created by The eXo Platform SAS
  * Jan 19, 2007
  */
-public class SimpleSkin implements SkinConfig {
+class SimpleSkin implements SkinConfig {
 
   private final String module_ ;
   private final String name_;
@@ -62,7 +62,7 @@ public class SimpleSkin implements SkinConfig {
         }
 
         //
-        return cssPath_.replaceAll("\\.css$", SkinService.getSuffix(o));
+        return cssPath_.replaceAll("\\.css$", SkinServiceImpl.getSuffix(o));
       }
     };
   }

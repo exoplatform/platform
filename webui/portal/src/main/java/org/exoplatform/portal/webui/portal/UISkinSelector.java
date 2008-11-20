@@ -48,9 +48,7 @@ public class UISkinSelector extends UIContainer {
     UIPortal uiPortal = Util.getUIPortal();
     List<SelectItemCategory> itemCategories = new ArrayList<SelectItemCategory>();
     SkinService skinService = uiPortal.getApplicationComponent(SkinService.class);
-    Iterator<String> skinIterator = skinService.getAvailableSkins();
-    while(skinIterator.hasNext()){
-      String skin = skinIterator.next();
+    for (String skin : skinService.getAvailableSkinNames()) {
       SelectItemCategory skinCategory = new  SelectItemCategory(skin, false);
       skinCategory.addSelectItemOption(new SelectItemOption(skin, skin, skin));
       itemCategories.add(skinCategory);

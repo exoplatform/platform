@@ -171,9 +171,7 @@ public class UIPortalForm extends UIFormTabPane {
 
     List<SelectItemOption<String>> listSkin = new ArrayList<SelectItemOption<String>>() ;
     SkinService skinService = getApplicationComponent(SkinService.class);
-    Iterator<String> skinIterator = skinService.getAvailableSkins();
-    while(skinIterator.hasNext()){
-      String skin = skinIterator.next();
+    for (String skin : skinService.getAvailableSkinNames()) {
       SelectItemOption<String> skinOption = new SelectItemOption<String>(skin, skin);
       if(uiPortal.getSkin().equals(skin)) skinOption.setSelected(true) ;
       listSkin.add(skinOption);

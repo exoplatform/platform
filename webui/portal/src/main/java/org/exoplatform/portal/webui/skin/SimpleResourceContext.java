@@ -25,7 +25,7 @@ import java.io.InputStreamReader;
  * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
  * @version $Revision$
  */
-public class SimpleResourceContext {
+class SimpleResourceContext {
 
   private final String contextPath;
 

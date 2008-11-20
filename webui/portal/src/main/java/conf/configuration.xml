@@ -2,7 +2,7 @@
 <configuration>
   <component>
    <key>org.exoplatform.portal.webui.skin.SkinService</key>
-   <type>org.exoplatform.portal.webui.skin.SkinService</type>
+   <type>org.exoplatform.portal.webui.skin.SkinServiceImpl</type>
   </component>  
 
   <external-component-plugins>
