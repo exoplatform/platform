@@ -90,7 +90,7 @@ public class ResourceRequestFilter implements Filter  {
       //
       try {
         skinService.renderCSS(renderer, uri);
-        log.info("Use a merged CSS: " + uri);
+        log.debug("Use a merged CSS: " + uri);
       }
       catch (Exception e) {
         log.error("Could not render css " + uri, e);
