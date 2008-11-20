@@ -166,7 +166,7 @@ public class UIApplicationOrganizer extends UIContainer {
       ApplicationCategory existingCate = service.getApplicationCategory(categoryName);
       if(existingCate == null) {
         UIApplication uiApp = ctx.getUIApplication();
-        uiApp.addMessage(new ApplicationMessage("UIOrganizer.msg.selectNoExist", null));
+        uiApp.addMessage(new ApplicationMessage("UIOrganizer.msg.categoryNoExist", null));
         uiOrganizer.reload();
         return;
       }
@@ -192,10 +192,23 @@ public class UIApplicationOrganizer extends UIContainer {
   public static class SelectApplicationActionListener extends EventListener<UIApplicationOrganizer> {
 
     public void execute(Event<UIApplicationOrganizer> event) throws Exception {
-      String appName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      WebuiRequestContext ctx = event.getRequestContext();
+      String appName = ctx.getRequestParameter(OBJECTID) ;
       UIApplicationOrganizer uiOrganizer = event.getSource() ;
+      Application selectedApp = uiOrganizer.getApplication(appName);
+      ApplicationRegistryService service = uiOrganizer.getApplicationComponent(ApplicationRegistryService.class) ;
+      if(service.getApplication(selectedApp.getId()) == null) {
+        UIApplication uiApp = ctx.getUIApplication();
+        uiApp.addMessage(new ApplicationMessage("UIOrganizer.msg.applicationNoExist", null));
+        ApplicationCategory selectedCategory = uiOrganizer.getSelectedCategory();
+        if(service.getApplicationCategory(selectedCategory.getName()) != null) {
+          uiOrganizer.setSelectedCategory(selectedCategory);
+        }
+        else uiOrganizer.reload();
+        return;
+      }
       uiOrganizer.selectApplication(appName) ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiOrganizer) ;
+      ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
   }
