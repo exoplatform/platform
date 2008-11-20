@@ -21,6 +21,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.io.IOException;
 import javax.servlet.ServletContext;
 
 /**
@@ -43,6 +44,8 @@ public interface SkinService {
    * @return the css
    */
   String getCSS(String cssPath);
+
+  void renderCSS(ResourceRenderer renderer, String path) throws IOException;
 
   void addTheme(String categoryName, List<String> themesName);
 
@@ -70,6 +73,8 @@ public interface SkinService {
   SkinConfig getSkin(String module, String skinName);
 
   String getMergedCSS(String cssPath);
+
+  void addSkin(String module, String skinName, String cssPath, String cssData);
 
   void addPortalSkin(
     String module,
