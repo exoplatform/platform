@@ -260,8 +260,8 @@ public class SkinServiceImpl implements SkinService {
         processCSS(sb, path, orientation, true);
         css = sb.toString();
         cache.put(path, css);
-        renderer.getAppendable().append(css);
       }
+      renderer.getAppendable().append(css);
     } else {
       processCSS(renderer.getAppendable(), path, orientation, false);
     }
