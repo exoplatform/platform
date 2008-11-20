@@ -31,6 +31,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.EnumMap;
 import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.net.URLDecoder;
@@ -63,7 +64,7 @@ public class SkinService implements ISkinService {
   private static final String RIGHT_P = "\\)";
 
   /** Immutable and therefore thread safe. */
-  private static final Pattern IMPORT_PATTERN = Pattern.compile("(@import\\s+" + "url" + LEFT_P + "['\"]?" + ")([^'\"]+)(" + "['\"]?" + RIGHT_P + "\\s*;)");
+  private static final Pattern IMPORT_PATTERN = Pattern.compile("(@import\\s+" + "url" + LEFT_P + "['\"]?" + ")([^'\"]+.css)(" + "['\"]?" + RIGHT_P + "\\s*;)");
 
   /** Immutable and therefore thread safe. */
   private static final Pattern BACKGROUND_PATTERN = Pattern.compile("(background.*:.*url" + LEFT_P + "['\"]?" + ")([^'\"]+)(" + "['\"]?" + RIGHT_P + ".*;)");
@@ -91,8 +92,8 @@ public class SkinService implements ISkinService {
     portalSkins_ = new HashMap<SkinKey, SkinConfig>() ;
     skinConfigs_ = new HashMap<SkinKey, SkinConfig>(20);
     availableSkins_ = new HashSet<String>(5);
-    ltCache = new HashMap<String, String>();
-    rtCache = new HashMap<String, String>();
+    ltCache = new ConcurrentHashMap<String, String>();
+    rtCache = new ConcurrentHashMap<String, String>();
     contexts = new HashMap<String, SimpleResourceContext>();
     portletThemes_ = new HashMap<String, Set<String>>();
   }
@@ -137,8 +138,6 @@ public class SkinService implements ISkinService {
     if (skinConfig == null || isPrimary) {
     	skinConfig = new SimpleSkin(module, skinName, cssPath) ;
 			portalSkins_.put(key, skinConfig);
-      cacheCSS(skinConfig, Orientation.LT);
-      cacheCSS(skinConfig, Orientation.RT);
     }
   }
 
@@ -282,8 +281,6 @@ public class SkinService implements ISkinService {
     if (skinConfig == null || isPrimary) {
     	skinConfig = new SimpleSkin(module, skinName, cssPath);
     	skinConfigs_.put(key, skinConfig);
-      cacheCSS(skinConfig, Orientation.LT);
-      cacheCSS(skinConfig, Orientation.RT);
     }
   }
 
@@ -337,7 +334,7 @@ public class SkinService implements ISkinService {
    * @return the css
    */
   public String getCSS(String cssPath) {
-    String css = null;
+    String css;
 
     //
     Orientation orientation = Orientation.LT;
@@ -350,15 +347,13 @@ public class SkinService implements ISkinService {
 
     // Try cache first
     if (!PropertyManager.isDevelopping()) {
-      if (orientation == Orientation.LT) {
-        css = ltCache.get(cssPath);
-      } else {
-        css = rtCache.get(cssPath);
+      Map<String, String> cache = orientation == Orientation.LT ? ltCache : rtCache;
+      css = cache.get(cssPath);
+      if (css == null) {
+        css = processCSS(cssPath, orientation, true);
+        cache.put(cssPath, css);
       }
-    }
-
-    //
-    if (css == null) {
+    } else {
       css = processCSS(cssPath, orientation, false);
     }
 
@@ -411,18 +406,7 @@ public class SkinService implements ISkinService {
     return skinConfigs_.size();
   }
 
-  private void cacheCSS(SkinConfig config, Orientation orientation) {
-    if (!PropertyManager.isDevelopping()) {
-      String css = processCSS(config.getCSSPath(), orientation, true);
-      if (orientation == Orientation.LT) {
-        ltCache.put(config.getCSSPath(), css);
-      } else {
-        rtCache.put(config.getCSSPath(), css);
-      }
-    }
-  }
-
-  private Resource getResource(final String resourcePath, final boolean merge) {
+  private Resource getResource(final String resourcePath) {
       if (resourcePath.startsWith("/portal/resource/") && resourcePath.endsWith("/style.css")) {
         return new Resource(new ResourceResolver() {
           public Reader resolve(String path) {
@@ -435,8 +419,7 @@ public class SkinService implements ISkinService {
               SkinKey key = new SkinKey(module, name);
               SkinConfig skin = skinConfigs_.get(key);
               if (skin != null) {
-                Resource res = getResource(skin.getCSSPath(), merge);
-                processCSSRecursively(sb, merge, res, null);
+                sb.append("@import url(").append(skin.getCSSPath()).append(");").append("\n");
               }
             }
             return new StringReader(sb.toString());
@@ -451,7 +434,7 @@ public class SkinService implements ISkinService {
   }
 
   private String processCSS(String cssPath, Orientation orientation, boolean merge) {
-    Resource skin = getResource(cssPath, merge);
+    Resource skin = getResource(cssPath);
     StringBuffer sB = new StringBuffer();
     processCSSRecursively(sB, merge, skin, orientation);
     return sB.toString();
@@ -478,15 +461,19 @@ public class SkinService implements ISkinService {
             String includedPath = matcher.group(2);
             if(includedPath.startsWith("/")) {
             	if(merge) {
-                Resource ssskin = getResource(includedPath, merge);
+                Resource ssskin = getResource(includedPath);
                 processCSSRecursively(sB, merge, ssskin, orientation);
             	} else {
-                sB.append(line);
+                sB.append(matcher.group(1)).
+                   append(includedPath.substring(0, includedPath.length() - ".css".length())).
+                   append(getSuffix(orientation)).
+                   append(matcher.group(3)).
+                   append("\n");
             	}
             } else {
             	if(merge) {
                 String path = skin.getContextPath() + skin.getParentPath() + includedPath;
-                Resource ssskin = getResource(path, merge);
+                Resource ssskin = getResource(path);
             		processCSSRecursively(sB, merge, ssskin, orientation);
             	} else {
               	sB.append(matcher.group(1));
