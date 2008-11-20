@@ -159,109 +159,8 @@ public class SkinServiceImpl implements SkinService {
     addSkin(module, skinName, cssPath, scontext, false);
   }
 
-  private static final char[][] table = new char[256][];
-
-  static {
-    char[] a = "0123456789ABCDEF".toCharArray();
-    for (int b = 0;b < 256;b++) {
-      int b1 = (b & 0xF0) >> 4;
-      int b2 = b & 0x0F;
-      table[b] = new char[]{a[b1],a[b2]};
-    }
-  }
-
-  private String decode(String s) {
-    try {
-      s = s.replace("_", "%2F");
-      return URLDecoder.decode(s, "UTF8");
-    }
-    catch (UnsupportedEncodingException e) {
-      throw new Error(e);
-    }
-  }
-
-  private void encode(Appendable appendable, String s) throws IOException {
-    for (int i = 0; i < s.length(); i++) {
-      char c = s.charAt(i);
-      if (Character.isLetter(c)) {
-        appendable.append(c);
-      } else {
-        switch (c) {
-          case 'A':
-          case '.':
-          case '-':
-          case '*':
-            appendable.append(c);
-            break;
-          case ' ':
-            appendable.append('+');
-            break;
-          case '/':
-            appendable.append('_');
-            break;
-          default:
-            CharEncoder encoder = CharsetCharEncoder.getUTF8();
-            byte[] bytes = encoder.encode(c);
-            appendable.append('%');
-            for (byte b : bytes) {
-              for (char cc : table[b]) {
-                appendable.append(cc);
-              }
-            }
-        }
-      }
-    }
-  }
-
   public Skin merge(Collection<SkinConfig> skins) {
-    TreeMap<String, SkinConfig> urlSkins = new TreeMap<String, SkinConfig>();
-    for (SkinConfig skin : skins) {
-      urlSkins.put(skin.getCSSPath(), skin);
-    }
-
-    //
-    final StringBuilder builder = new StringBuilder();
-    builder.append("/portal/resource");
-
-    //
-    try {
-      for (SkinConfig cfg : urlSkins.values()) {
-        StringBuilder encodedName = new StringBuilder();
-        encode(encodedName, cfg.getName());
-        StringBuilder encodedModule = new StringBuilder();
-        encode(encodedModule, cfg.getModule());
-        builder.append("/").append(encodedName).append("/").append(encodedModule);
-      }
-    }
-    catch (IOException e) {
-      throw new Error(e);
-    }
-
-    //
-    return new Skin() {
-      public String getId() {
-
-        // todo
-        return "FOO";
-      }
-
-      public SkinURL createURL() {
-        return new SkinURL() {
-
-          Orientation orientation;
-
-          public void setOrientation(Orientation orientation) {
-            this.orientation = orientation;
-          }
-
-          @Override
-          public String toString() {
-            Orientation o = orientation == null ? Orientation.LT : orientation;
-            return builder.toString() + "/style" + SkinServiceImpl.getSuffix(o);
-          }
-        };
-      }
-    };
+    return new CompositeSkin(skins);
   }
 
   public void addSkin(String module, String skinName, String cssPath, ServletContext scontext, boolean isPrimary) {
@@ -408,8 +307,8 @@ public class SkinServiceImpl implements SkinService {
             String encoded = resourcePath.substring("/portal/resource".length() + 1, resourcePath.length() - "/style.css".length());
             String blah[] = encoded.split("/");
             for (int i = 0; i < blah.length; i += 2) {
-              String name = decode(blah[i]);
-              String module = decode(blah[i + 1]);
+              String name = Codec.decode(blah[i]);
+              String module = Codec.decode(blah[i + 1]);
               SkinKey key = new SkinKey(module, name);
               SkinConfig skin = skinConfigs_.get(key);
               if (skin != null) {
