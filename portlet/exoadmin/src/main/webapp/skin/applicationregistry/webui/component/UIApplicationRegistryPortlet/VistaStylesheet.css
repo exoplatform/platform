@@ -379,7 +379,7 @@
 	padding-left: 20px;
 	cursor: pointer;
 	width: 150px; 
-	overflow: hidden;
+	overflow: hidden; white-space: nowrap;
 }
 
 .UIGadgetManagement .CategoryContent .ControlIcon {

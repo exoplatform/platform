@@ -154,7 +154,7 @@
 }
 
 .UIBrowserPortlet .TabLabel {
-  width: 150px; height: 18px;
+  width: 150px; height: 18px; line-height: 18px;
 	background: url("DefaultSkin/background/UIBrowserPortlet.gif") no-repeat left -193px;
 	padding: 2px 5px 0px 21px; 
 }

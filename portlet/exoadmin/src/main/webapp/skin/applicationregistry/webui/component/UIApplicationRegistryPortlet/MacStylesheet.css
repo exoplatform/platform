@@ -138,7 +138,7 @@ e/**
 	display: block;
 	float: left;
 	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
-	padding-left: 20px;
+	padding: 0px 0px 0px 20px;
 	cursor: pointer;
 	width: 160px; overflow: hidden;
 	white-space: nowrap;

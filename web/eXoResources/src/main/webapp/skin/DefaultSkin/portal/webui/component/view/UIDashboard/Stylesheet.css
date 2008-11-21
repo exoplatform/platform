@@ -124,6 +124,7 @@
 
 .UIDashboardSelectContainer .DashboardItemContainer .GadgetCategory {
 	padding: 5px 10px;
+	text-transform: capitalize;
 }
 
 .UIDashboardSelectContainer .GadgetCategory .GadgetTab .LeftCategoryTitleBar {

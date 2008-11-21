@@ -9,11 +9,11 @@
 }
 
 .UIDropDownControl .UIDropDownTitle {
-	cursor:pointer;
+	cursor: pointer;
 	height: 100% ;
-	border-right:medium none;
-	border-top:1px solid #959595;
-	height:20px;
+	border-right: medium none;
+	border-top: 1px solid #959595;
+	height: 20px;
 }
 
 .UIDropDownControl .LeftMiddelItem {
@@ -124,7 +124,8 @@
 
 .UIDropDownControl .OptionItem {
 	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left 3px;
-	padding: 4px 4px 4px 17px ;
+	padding: 0px 4px 0px 17px ;
+	diplay: block;
 }
 
 .UIDropDownControl .OptionItem:hover {
