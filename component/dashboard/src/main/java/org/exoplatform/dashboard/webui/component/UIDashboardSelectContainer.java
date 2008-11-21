@@ -16,6 +16,8 @@
  */
 package org.exoplatform.dashboard.webui.component;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Hashtable;
 import java.util.List;
 
@@ -79,7 +81,12 @@ public class UIDashboardSelectContainer extends UIContainer {
         gadgets.put(cate, listGadgets);
       }
     }
-    categories = listCategories;
+    Collections.sort(listCategories, new Comparator<ApplicationCategory>() {
+        public int compare(ApplicationCategory cate1, ApplicationCategory cate2) {
+            return cate1.getDisplayName().compareToIgnoreCase(cate2.getDisplayName());
+        } 
+    });
+    categories = listCategories ;
     return categories;
   }
 
@@ -93,6 +100,11 @@ public class UIDashboardSelectContainer extends UIContainer {
     if (listGadgets == null || listGadgets.size() == 0) {
       return null;
     }
+    Collections.sort(listGadgets, new Comparator<Application>() {
+        public int compare(Application app1, Application app2) {
+            return app1.getDisplayName().compareToIgnoreCase(app2.getDisplayName());
+        } 
+    });
     return listGadgets;
   }
 
