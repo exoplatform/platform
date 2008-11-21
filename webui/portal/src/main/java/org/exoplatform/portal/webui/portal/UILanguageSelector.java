@@ -106,6 +106,7 @@ public class UILanguageSelector extends UIContainer {
       LocaleConfig localeConfig = localeConfigService.getLocaleConfig(language);
       if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
       uiApp.setLocale(localeConfig.getLocale());
+      uiApp.setOrientation(localeConfig.getOrientation()) ;
       UIPortal uiPortal = uiApp.findFirstComponentOfType(UIPortal.class) ;
       uiPortal.refreshNavigation(localeConfig.getLocale()) ;
       OrganizationService orgService = event.getSource().getApplicationComponent(OrganizationService.class) ;

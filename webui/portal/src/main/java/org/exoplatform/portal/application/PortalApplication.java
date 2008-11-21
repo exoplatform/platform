@@ -23,7 +23,6 @@ import javax.servlet.ServletConfig;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.ServletResourceResolver;
 import org.exoplatform.services.log.ExoLogger;

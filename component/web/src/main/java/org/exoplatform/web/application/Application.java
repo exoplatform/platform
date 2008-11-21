@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.BaseComponentPlugin;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 /**
