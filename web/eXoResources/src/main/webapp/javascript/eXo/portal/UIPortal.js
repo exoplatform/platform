@@ -1,16 +1,20 @@
 function UIComponent(node) {
   this.node = node ;
-  this.type = node.className ;
+  if(node) this.type = node.className ;
   var children =  eXo.core.DOMUtil.getChildrenByTagName(node, "div") ;
-  this.metaData =  children[0] ;
-  this.control = children[1] ; 
-  this.layout = children[2] ; 
-  this.view = children[3] ; 
+  if(children.length > 0) {
+	  this.metaData =  children[0] ;
+	  this.control = children[1] ; 
+	  this.layout = children[2] ; 
+	  this.view = children[3] ;
+  } 
   this.component = "";
   
-  var div = eXo.core.DOMUtil.getChildrenByTagName(this.metaData, "div"); 
-  this.id = div[0].firstChild.nodeValue ;
-  this.title = div[1].firstChild.nodeValue ;
+  var div = eXo.core.DOMUtil.getChildrenByTagName(this.metaData, "div");
+  if(div.length > 0) {
+  	this.id = div[0].firstChild.nodeValue ;
+  	this.title = div[1].firstChild.nodeValue ;
+  }
 	//minh.js.exo
  //bug PORTAL-1161.
 	//this.description = div[2].firstChild.nodeValue ;
@@ -75,9 +79,10 @@ UIPortal.prototype.getUIContainers = function() {
   return components ;
 };
 
-UIPortal.prototype.getUIPage = function() {
-  var uiPortal = document.getElementById("UIPortal") ;
-  return new UIComponent(eXo.core.DOMUtil.findFirstDescendantByClass(uiPortal, "div", "UIPage")) ;
+UIPortal.prototype.getUIPageBody = function() {
+//  var uiPortal = document.getElementById("UIPortal") ;
+//  return new UIComponent(eXo.core.DOMUtil.findFirstDescendantByClass(uiPortal, "div", "UIPage")) ;
+	return new UIComponent(document.getElementById("UIPageBody")) ;
 };
 
 UIPortal.prototype.getUIPortal = function() {
@@ -87,7 +92,7 @@ UIPortal.prototype.getUIPortal = function() {
 
 UIPortal.prototype.switchViewModeToLayoutMode = function(uicomponent, swapContent) {
   var layoutBlock = uicomponent.getLayoutBlock() ;
-  if(layoutBlock.style.display == 'block') return ;
+  if(!layoutBlock || layoutBlock.style.display == 'block') return ;
   var viewBlock = uicomponent.getViewBlock() ;
   if(swapContent) {
     var contentNode = eXo.core.DOMUtil.findDescendantById(viewBlock, uicomponent.getId()) ;
@@ -106,7 +111,7 @@ UIPortal.prototype.switchViewModeToLayoutMode = function(uicomponent, swapConten
 
 UIPortal.prototype.switchLayoutModeToViewMode = function(uicomponent, swapContent) {
   var viewBlock =  uicomponent.getViewBlock() ;
-  if(viewBlock.style.display == 'block') return ;
+  if(!viewBlock || viewBlock.style.display == 'block') return ;
   var layoutBlock = uicomponent.getLayoutBlock() ;
   if(swapContent) {
     var contentNode = eXo.core.DOMUtil.findDescendantById(layoutBlock, uicomponent.getId()) ;
@@ -149,6 +154,7 @@ UIPortal.prototype.switchModeForPage = function(elemtClicked) {
 
 UIPortal.prototype.showUIComponentControl = function(uicomponent, flag) {
   var controlBlock = uicomponent.getControlBlock() ;
+  if(!controlBlock) return ;
   var clickObject = eXo.core.DOMUtil.findFirstDescendantByClass(controlBlock, "div", "DragControlArea") ;
   if(flag) {
     clickObject.onmousedown = eXo.portal.PortalDragDrop.init ;
@@ -203,12 +209,13 @@ UIPortal.prototype.showViewLayoutModeForPage = function() {
 UIPortal.prototype.showLayoutModeForPage = function(control) {
 	var uiPage = eXo.core.DOMUtil.findFirstDescendantByClass(document.body, "div", "UIPage") ;
 	if(uiPage == null) return;
-	var viewPage = eXo.core.DOMUtil.findFirstDescendantByClass(uiPage, "div", "VIEW-PAGE") ;
+	var viewPage = eXo.core.DOMUtil.findFirstChildByClass(uiPage, "div", "VIEW-PAGE") ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var uiPortalApplication = document.getElementById("UIPortalApplication");
 	if(uiPortalApplication.className != "Vista") {
 	 viewPage.style.border = "solid 3px #dadada" ;
 	}
+	
 	viewPage.style.paddingTop = "50px" ;
 	viewPage.style.paddingRight = "0px";
 	viewPage.style.paddingBottom = "50px";
@@ -253,9 +260,9 @@ UIPortal.prototype.showViewMode = function() {
   
   var uiPageDesktop = document.getElementById("UIPageDesktop") ;
   if(!uiPageDesktop) {
-  	var page = this.getUIPage() ;
-  	this.switchLayoutModeToViewMode(page, true) ;
-  	this.showUIComponentControl(page, false) ;
+  	var pageBody = this.getUIPageBody() ;
+  	this.switchLayoutModeToViewMode(pageBody, true) ;
+  	this.showUIComponentControl(pageBody, false) ;
   }
 
   var container = this.getUIContainers() ;
@@ -277,9 +284,9 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
   this.switchViewModeToLayoutMode(portal, true) ;
   this.showUIComponentControl(portal, this.component == 'UIPortal') ;
 
-  var page = this.getUIPage() ;
-  this.switchViewModeToLayoutMode(page, false) ;
-  this.showUIComponentControl(page, this.component == 'UIPage') ;
+  var pageBody = this.getUIPageBody() ;
+  this.switchViewModeToLayoutMode(pageBody, false) ;
+  this.showUIComponentControl(pageBody, this.component == 'UIPageBody') ;
 
   var container = this.getUIContainers() ;
   for(var i = 0; i < container.length; i++) {
@@ -299,7 +306,7 @@ UIPortal.prototype.findUIComponentOf = function(element) {
   while(parent != null) {
     var className = parent.className ;
     if(className == 'UIPortlet' || className == 'UIContainer' ||  
-       className == 'UIPage' ||  className == 'UIPortal')  {
+       className == 'UIPageBody' ||  className == 'UIPortal')  {
       return parent ;
     }
     parent = parent.parentNode ;

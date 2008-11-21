@@ -73,6 +73,7 @@ PortalDragDrop.prototype.init = function(e) {
     if((dndEvent.foundTargetObject) && (dndEvent.lastFoundTargetObject)) {
       /*Check and asign UIPage to uiComponentLayout when DND on UIPage*/
       var uiComponentLayout ;
+      window.status = dndEvent.foundTargetObject.className ;
       if(dndEvent.foundTargetObject.className == "UIPage") {
         uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "VIEW-PAGE") ;
       } else if(dndEvent.foundTargetObject.className == "UIPortal") {
@@ -190,11 +191,11 @@ PortalDragDrop.prototype.init = function(e) {
         /*Set properties for drag object */
         eXo.portal.PortalDragDrop.setDragObjectProperties(dragObject, tdElementList, "column", dndEvent.backupMouseEvent) ;
       }
-						//when dragObject out of page
-						if ((Browser.findPosY(dragObject) < 2)  || (Browser.findPosX(dragObject) + 64 > eXo.core.Browser.getBrowserWidth())) {
-							DragDrop.dropCallback(dndEvent);
-							document.onmousemove = null;
-						} 
+			//when dragObject out of page
+			if ((Browser.findPosY(dragObject) < 2)  || (Browser.findPosX(dragObject) + 64 > eXo.core.Browser.getBrowserWidth())) {
+				DragDrop.dropCallback(dndEvent);
+				document.onmousemove = null;
+			} 
     } 
   } ;
 
@@ -219,11 +220,13 @@ PortalDragDrop.prototype.init = function(e) {
   if(controlBlock != null) {
     var dragBlock = eXo.portal.UIPortal.findUIComponentOf(controlBlock) ;
     DragDrop.init(eXo.portal.PortalDragDrop.findDropableTargets(), clickObject, dragBlock, e) ;
-  } else if(DOMUtil.findAncestorByClass(clickObject, "DragObjectPortlet")) {
+  } else {
   	var dragBlock = DOMUtil.findAncestorByClass(clickObject, "DragObjectPortlet") ;
-  	DragDrop.init(eXo.portal.PortalDragDrop.findDropableTargets(), clickObject, dragBlock, e) ;
-	} else {
-    DragDrop.init(eXo.portal.PortalDragDrop.findDropableTargets(), clickObject, clickObject, e) ;
+		if(dragBlock) {
+  		DragDrop.init(eXo.portal.PortalDragDrop.findDropableTargets(), clickObject, dragBlock, e) ;
+		} else {
+    	DragDrop.init(eXo.portal.PortalDragDrop.findDropableTargets(), clickObject, clickObject, e) ;
+		}
   }
 };
 
@@ -275,13 +278,13 @@ PortalDragDrop.prototype.findDropableTargets = function() {
   var dropableTargets = new Array() ;
   var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
   var uiPortal = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkingWorkspace, "div", "UIPortal") ;
-  var uiPage = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkingWorkspace, "div", "UIPage") ;
-  var viewPage = eXo.core.DOMUtil.findFirstDescendantByClass(uiPage, "div", "VIEW-PAGE") ;
+  var viewPagebody = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkingWorkspace, "div", "VIEW-PAGEBODY") ;
   var uiContainers = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWorkspace, "div", "UIContainer") ;
-  if(viewPage.style.display == "none") {
+  if(viewPagebody && viewPagebody.style.display == "none") {
     dropableTargets.push(uiPortal) ;
   } else {
-    dropableTargets.push(uiPage) ;
+  	var uiPage = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkingWorkspace, "div", "UIPage") ;
+    if(uiPage) dropableTargets.push(uiPage) ;
   }
   for(var i = 0; i < uiContainers.length; i++) {
     dropableTargets.push(uiContainers[i]) ;
@@ -401,14 +404,15 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
 	var DOMUtil = eXo.core.DOMUtil ;
   var uiComponentLayout ;
   try{
-  if(dndEvent.lastFoundTargetObject.className == "UIPage") {
-    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PAGE") ;
-  } else if(dndEvent.lastFoundTargetObject.className == "UIPortal") {
-    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "LAYOUT-PORTAL") ;
-  } else {
-    var foundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.lastFoundTargetObject) ;
-    uiComponentLayout = foundUIComponent.getLayoutBlock() ;
-  }
+  	window.status = dndEvent.lastFoundTargetObject.className ;
+	  if(dndEvent.lastFoundTargetObject.className == "UIPage") {
+	    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PAGE") ;
+	  } else if(dndEvent.lastFoundTargetObject.className == "UIPortal") {
+	    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "LAYOUT-PORTAL") ;
+	  } else {
+	    var foundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.lastFoundTargetObject) ;
+	    uiComponentLayout = foundUIComponent.getLayoutBlock() ;
+	  }
   }catch(e) {}  
   var componentIdElement = DOMUtil.getChildrenByTagName(uiComponentLayout ,"div")[0] ;
   var layoutTypeElement = DOMUtil.getChildrenByTagName(componentIdElement ,"div")[0] ;

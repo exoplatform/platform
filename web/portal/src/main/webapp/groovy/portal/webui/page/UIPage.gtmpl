@@ -4,51 +4,11 @@
 %>
 
 <div class="UIPage" id="UIPage-${uicomponent.id}">
-<%if(rcontext.getUIApplication().isEditting()){%>
-  <div class="META-DATA-BLOCK" style="display: none">
-    <div class="id">$uicomponent.id</div>
-    <div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>
-    <div class="description"><%=_ctx.appRes("UIPage.label.description")%></div>
-  </div>
-  <div class="CONTROL-PAGE CONTROL-BLOCK" style="display: none"><span></span></div>
-
-  <div class="LAYOUT-PAGE" style="display: none;" onmousedown="eXo.portal.PortalDragDrop.init.call(eXo.core.DOMUtil.findAncestorByClass(this, 'UIPageBody'), event);">
-  	<div class="PageLayoutDecorator">
-			<%/*Begin Top Decorator*/%>
-			<div class="TopLeftPage">
-				<div class="TopRightPage">
-					<div class="TopCenterPage">
-					  <%=_ctx.appRes("UIPage.label.pageContent")%>
-					</div>												
-				</div>
-			</div>
-			
-			<%/*Begin Middle Decorator*/%>
-			<div class="MiddleLeftPage">
-				<div class="MiddleRightPage">
-				  <div class="MiddlePageBG">
-				    <div class="FixBug"><span></span></div>
-				  </div>
-				</div>
-			</div>
-			
-			<%/*Begin Bottom Decorator*/%>
-			<div class="BottomLeftPage">
-				<div class="BottomRightPage">
-					<div class="BottomCenterPage">
-            <div class="FixBug"><span></span></div>
-          </div>												
-				</div>
-			</div>
-				
-		</div>  	
-  </div>
-<%}%>
-  <div class="VIEW-PAGE">
-    <div id="UIPage">
+	<div class="VIEW-PAGE">
+		<div id="UIPage">
 	    <div class="UIRowContainer">
 	      <%uicomponent.renderChildren()%>
 	    </div>
-	  </div>
+		</div>
   </div>
 </div>
