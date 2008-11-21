@@ -16,8 +16,6 @@
  */
 package org.exoplatform.portal.webui.skin;
 
-import java.io.Reader;
-
 /**
  * A resource resolver for char based resources.
  *
@@ -32,6 +30,6 @@ public interface ResourceResolver {
    * @param path the path
    * @return a reader 
    */
-  Reader resolve(String path);
+  Resource resolve(String path);
 
 }

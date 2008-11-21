@@ -18,7 +18,6 @@ package org.exoplatform.portal.webui.skin;
 
 import java.io.BufferedReader;
 import java.io.Reader;
-import java.io.StringReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -29,7 +28,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.EnumMap;
-import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -83,7 +81,7 @@ public class SkinServiceImpl implements SkinService {
   private final Map<String, String> ltCache;
   private final Map<String, String> rtCache;
   private final Map<String, Set<String>> portletThemes_;
-  private final Map<String, SimpleResourceContext> contexts;
+  private final MainResourceResolver mainResolver;
 
   /**
    * An id used for caching request. The id life cycle is the same than the class instance because
@@ -98,8 +96,8 @@ public class SkinServiceImpl implements SkinService {
     availableSkins_ = new HashSet<String>(5);
     ltCache = new ConcurrentHashMap<String, String>();
     rtCache = new ConcurrentHashMap<String, String>();
-    contexts = new HashMap<String, SimpleResourceContext>();
     portletThemes_ = new HashMap<String, Set<String>>();
+    mainResolver = new MainResourceResolver(skinConfigs_);
   }
 
   public void addCategoryTheme(String categoryName) {
@@ -115,7 +113,7 @@ public class SkinServiceImpl implements SkinService {
       ServletContext scontext, boolean overwrite) {
 
     // Triggers a put if absent
-    getResourceContext(scontext);
+    mainResolver.registerContext(scontext);
 
     availableSkins_.add(skinName) ;
     SkinKey key = new SkinKey(module, skinName);
@@ -148,10 +146,14 @@ public class SkinServiceImpl implements SkinService {
     return new CompositeSkin(this, skins);
   }
 
+  public void addResourceResolver(ResourceResolver resolver) {
+    mainResolver.resolvers.addIfAbsent(resolver);
+  }
+
   public void addSkin(String module, String skinName, String cssPath, ServletContext scontext, boolean overwrite) {
 
     // Triggers a put if absent
-    getResourceContext(scontext);
+    mainResolver.registerContext(scontext);
 
     availableSkins_.add(skinName);
     SkinKey key = new SkinKey(module, skinName);
@@ -173,15 +175,6 @@ public class SkinServiceImpl implements SkinService {
     rtCache.put(cssPath, cssData);
   }
 
-  private SimpleResourceContext getResourceContext(ServletContext servletContext) {
-    String key = "/" + servletContext.getServletContextName();
-    SimpleResourceContext ctx = contexts.get(key);
-    if (ctx == null) {
-      ctx = new SimpleResourceContext(key, servletContext);
-      contexts.put(ctx.getContextPath(), ctx);
-    }
-    return ctx;
-  }
 
   public void addTheme(String categoryName, List<String> themesName) {
     if (!portletThemes_.containsKey(categoryName))
@@ -308,36 +301,8 @@ public class SkinServiceImpl implements SkinService {
     return skinConfigs_.size();
   }
 
-  private Resource getResource(final String resourcePath) {
-      if (resourcePath.startsWith("/portal/resource/") && resourcePath.endsWith(".css")) {
-        return new Resource(new ResourceResolver() {
-          public Reader resolve(String path) {
-            StringBuffer sb = new StringBuffer();
-            String encoded = resourcePath.substring("/portal/resource/".length());
-            String blah[] = encoded.split("/");
-            int len = (blah.length >> 1) << 1;
-            for (int i = 0; i < len; i += 2) {
-              String name = Codec.decode(blah[i]);
-              String module = Codec.decode(blah[i + 1]);
-              SkinKey key = new SkinKey(module, name);
-              SkinConfig skin = skinConfigs_.get(key);
-              if (skin != null) {
-                sb.append("@import url(").append(skin.getCSSPath()).append(");").append("\n");
-              }
-            }
-            return new StringReader(sb.toString());
-          }
-        }, resourcePath);
-      } else {
-        int i1 = resourcePath.indexOf("/", 2);
-        String targetedContextPath = resourcePath.substring(0, i1);
-        SimpleResourceContext servletContext = contexts.get(targetedContextPath);
-        return servletContext.getResource(resourcePath.substring(i1));
-      }
-  }
-
   private void processCSS(Appendable appendable, String cssPath, Orientation orientation, boolean merge) throws RenderingException, IOException {
-    Resource skin = getResource(cssPath);
+    Resource skin = mainResolver.resolve(cssPath);
     processCSSRecursively(appendable, merge, skin, orientation);
   }
 
@@ -364,7 +329,7 @@ public class SkinServiceImpl implements SkinService {
           String includedPath = matcher.group(2);
           if(includedPath.startsWith("/")) {
             if(merge) {
-              Resource ssskin = getResource(includedPath);
+              Resource ssskin = mainResolver.resolve(includedPath);
               processCSSRecursively(appendable, merge, ssskin, orientation);
             } else {
               appendable.append(matcher.group(1)).
@@ -376,7 +341,7 @@ public class SkinServiceImpl implements SkinService {
           } else {
             if(merge) {
               String path = skin.getContextPath() + skin.getParentPath() + includedPath;
-              Resource ssskin = getResource(path);
+              Resource ssskin = mainResolver.resolve(path);
               processCSSRecursively(appendable, merge, ssskin, orientation);
             } else {
               appendable.append(matcher.group(1));

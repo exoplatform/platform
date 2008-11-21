@@ -18,8 +18,10 @@ package org.exoplatform.portal.webui.skin;
 
 import javax.servlet.ServletContext;
 import java.io.Reader;
-import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.IOException;
+import java.net.URL;
+import java.net.MalformedURLException;
 
 /**
  * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
@@ -31,13 +33,6 @@ class SimpleResourceContext {
 
   private final ServletContext context;
 
-  private final ResourceResolver resolver = new ResourceResolver() {
-    public Reader resolve(String path) {
-      InputStream in = context.getResourceAsStream(path);
-      return in != null ? new InputStreamReader(in) : null;
-    }
-  };
-
   public SimpleResourceContext(String contextPath, ServletContext context) {
     this.contextPath = contextPath;
     this.context = context;
@@ -47,7 +42,21 @@ class SimpleResourceContext {
     int i2 = path.lastIndexOf("/") + 1;
     String targetedParentPath = path.substring(0, i2);
     String targetedFileName = path.substring(i2);
-    return new Resource(resolver, contextPath, targetedParentPath, targetedFileName);
+    try {
+      final URL url = context.getResource(path);
+      if (url != null) {
+        return new Resource(contextPath, targetedParentPath, targetedFileName) {
+          @Override
+          public Reader read() throws IOException {
+            return new InputStreamReader(url.openStream());
+          }
+        };
+      }
+    }
+    catch (MalformedURLException e) {
+      e.printStackTrace();
+    }
+    return null;
   }
 
   public String getContextPath() {

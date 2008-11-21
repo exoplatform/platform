@@ -45,6 +45,13 @@ public interface SkinService {
    */
   String getCSS(String cssPath);
 
+  /**
+   * Add a resource resolver to plug external resolvers.
+   *
+   * @param resolver a resolver to add
+   */
+  void addResourceResolver(ResourceResolver resolver);
+
   void renderCSS(ResourceRenderer renderer, String path) throws IOException, RenderingException;
 
   void addTheme(String categoryName, List<String> themesName);

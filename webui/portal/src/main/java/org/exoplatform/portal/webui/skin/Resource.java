@@ -17,6 +17,7 @@
 package org.exoplatform.portal.webui.skin;
 
 import java.io.Reader;
+import java.io.IOException;
 
 /**
  * Represents a resource.
@@ -24,50 +25,48 @@ import java.io.Reader;
  * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
  * @version $Revision$
  */
-public class Resource {
+public abstract class Resource {
 
-  private final ResourceResolver resolver;
   private final String contextPath;
   private final String parentPath;
   private final String fileName;
 
-  public Resource(ResourceResolver resolver, String path) {
+  public Resource(String path) {
     int index = path.indexOf("/", 2);
     String relativeCSSPath = path.substring(index);
     int index2 = relativeCSSPath.lastIndexOf("/") + 1;
 
     //
-    this.resolver = resolver;
     this.contextPath = path.substring(0, index);
     this.parentPath = relativeCSSPath.substring(0, index2);
     this.fileName = relativeCSSPath.substring(index2);
   }
 
-  public Resource(ResourceResolver resolver, String contextPath, String parentPath, String fileName) {
-    this.resolver = resolver;
+  public Resource(String contextPath, String parentPath, String fileName) {
     this.contextPath = contextPath;
     this.parentPath = parentPath;
     this.fileName = fileName;
   }
 
-  public String getContextPath() {
+  public final String getPath() {
+    return getContextPath() + getParentPath() + getFileName();
+  }
+
+  public final String getContextPath() {
     return contextPath;
   }
 
-  public String getParentPath() {
+  public final String getParentPath() {
     return parentPath;
   }
 
-  public String getFileName() {
+  public final String getFileName() {
     return fileName;
   }
 
-  public String getResourcePath() {
+  public final String getResourcePath() {
     return getParentPath() + getFileName();
   }
 
-  public Reader read() {
-    String resourcePath = getResourcePath();
-    return resolver.resolve(resourcePath);
-  }
+  public abstract Reader read() throws IOException;
 }
