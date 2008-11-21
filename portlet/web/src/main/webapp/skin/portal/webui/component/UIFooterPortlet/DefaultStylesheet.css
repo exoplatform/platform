@@ -24,4 +24,5 @@
   padding-left: 80px; /* orientation=lt */
   padding-right: 80px; /* orientation=rt */
   line-height: 30px;
+  height: 30px;
 }
