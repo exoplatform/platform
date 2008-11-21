@@ -7,8 +7,8 @@
 }
 
 .UIBannerPortlet .RightBanner {
-  background: url('DefaultSkin/background/Logo.gif') no-repeat left bottom; /* orientation=lt */
-  background: url('DefaultSkin/background/Logo.gif') no-repeat right bottom; /* orientation=rt */
+  background: url('DefaultSkin/background/Logo.gif') no-repeat left top; /* orientation=lt */
+  background: url('DefaultSkin/background/Logo.gif') no-repeat right -74px; /* orientation=rt */
 }
 
 .UIBannerPortlet .MiddleBanner {
