@@ -16,9 +16,7 @@ UICalendar.prototype.init = function(field, isDisplayTime) {
 	if (!document.getElementById(this.calendarId)) this.create();
   this.show() ;
 
-
-// fix bug for IE 6
-
+	// fix bug for IE 6
   var cld = document.getElementById(this.calendarId);
   if(eXo.core.Browser.isIE6())  {
     var blockClnd = document.getElementById('BlockCaledar') ;
@@ -62,24 +60,31 @@ UICalendar.prototype.show = function() {
   clndr.firstChild.lastChild.innerHTML = this.renderCalendar() ;
   var x = 0 ;
   var y = this.dateField.offsetHeight ;
+  var beforeShow = eXo.core.Browser.getBrowserHeight();
   with (clndr.firstChild.style) {
   	display = 'block' ;
 	  left = x + "px" ;
 	  top = y + "px" ;
   }
+  var posCal = eXo.core.Browser.findPosY(this.dateField) - y;
+  var heightCal = document.getElementById('BlockCaledar');
+  var afterShow = posCal+heightCal.offsetHeight;
+  if(afterShow > beforeShow)	 {
+    clndr.firstChild.style.top = -heightCal.offsetHeight + 'px';
+  }
 	
-		var drag = document.getElementById("BlockCaledar");
-		var component =  eXo.core.DOMUtil.findAncestorByClass(drag, "UICalendarComponent");
-		var calendar = eXo.core.DOMUtil.findFirstChildByClass(drag, "div", "UICalendar");
-		var innerWidth = drag.offsetWidth;
-		drag.onmousedown = function(evt) {
-			var event = evt || window.event;
-			event.cancelBubble = true;
-			drag.style.position = "absolute";
-			if(eXo.core.Browser.isIE7()) drag.style.height = calendar.offsetHeight + "px";
-			drag.style.width = innerWidth + "px";
-			eXo.core.DragDrop.init(null, drag, component, event);
-	 	}
+	var drag = document.getElementById("BlockCaledar");
+	var component =  eXo.core.DOMUtil.findAncestorByClass(drag, "UICalendarComponent");
+	var calendar = eXo.core.DOMUtil.findFirstChildByClass(drag, "div", "UICalendar");
+	var innerWidth = drag.offsetWidth;
+	drag.onmousedown = function(evt) {
+		var event = evt || window.event;
+		event.cancelBubble = true;
+		drag.style.position = "absolute";
+		if(eXo.core.Browser.isIE7()) drag.style.height = calendar.offsetHeight + "px";
+		drag.style.width = innerWidth + "px";
+		eXo.core.DragDrop.init(null, drag, component, event);
+ 	}
 	
 	//
 	var primary = eXo.core.DOMUtil.findAncestorById(this.dateField, "UIECMSearch");
@@ -88,7 +93,6 @@ UICalendar.prototype.show = function() {
 			calendar.style.top = "0px";
 			calendar.style.left = this.dateField.offsetLeft - this.dateField.offsetWidth - 32 + "px";
 	}
-	
 }
 
 UICalendar.prototype.hide = function() {
