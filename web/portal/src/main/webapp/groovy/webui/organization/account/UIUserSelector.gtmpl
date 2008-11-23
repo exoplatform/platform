@@ -7,7 +7,7 @@
  rcontext.getJavascriptManager().addJavascript('eXo.webui.UISelectUserForm.init("'+uiform.id+'") ;') ;
  //rcontext.getJavascriptManager().addJavascript('eXo.cs.Utils.captureInput("'+uiform.FIELD_KEYWORD+'","'+uicomponent.event('Search')+'") ;') ;
 %> 
-<div class="UISelectUserForm">
+<div class="UIUserSelector">
   <div class="SelectUserContainer">
   	<%if(uicomponent.isShowSearch()){%>
     <div class="UISearch">
@@ -18,15 +18,7 @@
               <div class="MiddleBar">
                 
                 <div class="UIAddressSearchForm">
-                  
-                  <div class="QuickSet">
-                    <%uiform.renderField(uiform.FIELD_KEYWORD)%>
-                  	<div class="FilterSelect">
-                  		<%uiform.renderField(uiform.FIELD_FILTER)%>
-                  	</div>  
-                  	<a class="SearchIcon" href="<%=uicomponent.event('Search')%>" title="<%=uiform.getLabel(uiform.FIELD_KEYWORD)%>"><span></span></a>
-                  </div>
-                	<div class="AddressesGroup">
+                  <div class="AddressesGroup">
                   	<div class="AddressLabel">
                   		<%=uiform.getLabel(uiform.FIELD_GROUP)%>
                   	</div>
@@ -35,7 +27,14 @@
                   	</div>
                   	<a class="SearchIcon" href="<%=uicomponent.event('SearchGroup')%>" title="<%=uiform.getLabel(uiform.FIELD_GROUP)%>"><span></span></a>
                 	</div>
-                	
+                  
+                  <div class="QuickSet">
+                    <%uiform.renderField(uiform.FIELD_KEYWORD)%>
+                  	<div class="FilterSelect">
+                  		<%uiform.renderField(uiform.FIELD_FILTER)%>
+                  	</div>  
+                  	<a class="SearchIcon" href="<%=uicomponent.event('Search')%>" title="<%=uiform.getLabel(uiform.FIELD_KEYWORD)%>"><span></span></a>
+                  </div>
                 </div>
                 
               </div>

@@ -45,11 +45,11 @@ import org.exoplatform.webui.form.UIForm;
  */
 @ComponentConfigs({ 
   @ComponentConfig(
-      template = "system:/groovy/organization/webui/component/UISelectGroupForm.gtmpl",
+      template = "system:/groovy/webui/organization/account/UIGroupSelector.gtmpl",
       events = {
-          @EventConfig(phase = Phase.DECODE, listeners = UISelectGroupForm.ChangeNodeActionListener.class),
-          @EventConfig(phase = Phase.DECODE, listeners = UISelectGroupForm.SelectGroupActionListener.class),
-          @EventConfig(phase = Phase.DECODE, listeners = UISelectGroupForm.SelectPathActionListener.class)  
+          @EventConfig(phase = Phase.DECODE, listeners = UIGroupSelector.ChangeNodeActionListener.class),
+          @EventConfig(phase = Phase.DECODE, listeners = UIGroupSelector.SelectGroupActionListener.class),
+          @EventConfig(phase = Phase.DECODE, listeners = UIGroupSelector.SelectPathActionListener.class)  
       }  
   ),
   @ComponentConfig(
@@ -63,11 +63,11 @@ import org.exoplatform.webui.form.UIForm;
       events = @EventConfig(phase = Phase.DECODE, listeners = UIBreadcumbs.SelectPathActionListener.class)
   )
 })
-public class UISelectGroupForm extends UIContainer {
+public class UIGroupSelector extends UIContainer {
 
   private Group selectGroup_ ;
  
-  public UISelectGroupForm() throws Exception {
+  public UIGroupSelector() throws Exception {
     UIBreadcumbs uiBreadcumbs = addChild(UIBreadcumbs.class, "BreadcumbGroupSelector", "BreadcumbGroupSelector") ;
     UITree tree = addChild(UITree.class, "UITreeGroupSelector", "TreeGroupSelector");
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
@@ -151,16 +151,16 @@ public class UISelectGroupForm extends UIContainer {
 
   static  public class ChangeNodeActionListener extends EventListener<UITree> {   
     public void execute(Event<UITree> event) throws Exception {
-      UISelectGroupForm uiGroupSelector = event.getSource().getAncestorOfType(UISelectGroupForm.class) ;
+      UIGroupSelector uiGroupSelector = event.getSource().getAncestorOfType(UIGroupSelector.class) ;
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;
       uiGroupSelector.changeGroup(groupId);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiGroupSelector) ;
     }
   }
 
-  static  public class SelectGroupActionListener extends EventListener<UISelectGroupForm> {   
-    public void execute(Event<UISelectGroupForm> event) throws Exception {
-      UISelectGroupForm uiSelector = event.getSource();
+  static  public class SelectGroupActionListener extends EventListener<UIGroupSelector> {   
+    public void execute(Event<UIGroupSelector> event) throws Exception {
+      UIGroupSelector uiSelector = event.getSource();
       UIComponent uiPermission = uiSelector.<UIComponent>getParent().getParent();
       //uiPermission.setRenderSibbling(uiPermission.getClass());
       WebuiRequestContext pcontext = event.getRequestContext();
@@ -189,7 +189,7 @@ public class UISelectGroupForm extends UIContainer {
   static  public class SelectPathActionListener extends EventListener<UIBreadcumbs> {
     public void execute(Event<UIBreadcumbs> event) throws Exception {
       UIBreadcumbs uiBreadcumbs = event.getSource();
-      UISelectGroupForm uiSelector = uiBreadcumbs.getParent() ; 
+      UIGroupSelector uiSelector = uiBreadcumbs.getParent() ; 
       String objectId =  event.getRequestContext().getRequestParameter(OBJECTID) ;
       uiBreadcumbs.setSelectPath(objectId);     
       String selectGroupId = uiBreadcumbs.getSelectLocalPath().getId() ;

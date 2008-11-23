@@ -1,99 +1,99 @@
-.UISelectUserForm .SelectUserContainer{
+.UIUserSelector .SelectUserContainer{
  padding: 8px;
 }
 
-.UISelectUserForm .SelectUserContainer{
+.UIUserSelector .SelectUserContainer{
  background: #f3f3f3;
  padding: 16px;
  border: 1px solid #b7b7b7;
 }
 
-.UISelectUserForm .InsertAddressContainer {
+.UIUserSelector .InsertAddressContainer {
 	padding: 10px;
 	border: 1px solid #c0c0c0;
 }
 
-.UISelectUserForm .AddressContainer {
+.UIUserSelector .AddressContainer {
 	padding-top: 10px;
 }
 
-.UISelectUserForm .UIGrid th {
+.UIUserSelector .UIGrid th {
 	background: url('background/ThGridTitle1x20.gif') repeat-x;
 	line-height: 17px; height: 18px;
 	text-align: left;
 	padding: 0px 5px;
 }
 
-.UISelectUserForm .UIGrid th input {
+.UIUserSelector .UIGrid th input {
 	text-align: center;
 	margin: 2px 0px 0px 0px;
 }
 
-.UISelectUserForm .UIGrid tbody {
+.UIUserSelector .UIGrid tbody {
 	background: white;	
 	padding-bottom: 10px;
 }
 
-.UISelectUserForm .UIGrid td {
+.UIUserSelector .UIGrid td {
 	height: 23px;
 	padding: 4px 0px 0px 5px;
 }
 
-.UISelectUserForm .UIGrid .BorderAddress {
+.UIUserSelector .UIGrid .BorderAddress {
 	border-right: 1px solid #e8e8e8;
 }
 
 /*********************************************UISearch*****************************************/
 
-.UISelectUserForm .UIAddressSearchForm {
+.UIUserSelector .UIAddressSearchForm {
 	width: auto;
 	float:left;
 }
 
-.UISelectUserForm .UIAddressSearchForm input{
+.UIUserSelector .UIAddressSearchForm input{
 	float: left;
 	width: 170px;
 	height: 13px;
 }
 
-.UISelectUserForm .UIAddressSearchForm .SearchIcon {
+.UIUserSelector .UIAddressSearchForm .SearchIcon {
   float: left;
   height: 20px; width: 24px;
   margin-left: 10px;
 }
 
-.UISelectUserForm .UIAddressSearchForm .SearchTitle {
+.UIUserSelector .UIAddressSearchForm .SearchTitle {
 	float: left;
 	line-height: 25px;
 	margin: 5px 0px;
 	color: #555; 
 }
-.UISelectUserForm .AddressesGroup {
+.UIUserSelector .AddressesGroup {
 	width: auto;
-	float:right;
+	float: left;
 	height: 32px;
 	text-align: right;
 }
 
-.UISelectUserForm .AddressesGroup .AddressLabel {
+.UIUserSelector .AddressesGroup .AddressLabel {
 	float: left;
 	padding: 0px 4px;
 	text-align: right;
 }
 
-.UISelectUserForm .AddressesGroup select {
+.UIUserSelector .AddressesGroup select {
 	width: 160px;
 	font-size: 11px;
 	line-height: 0px;
 }
-.UISelectUserForm .GroupSelect {
+.UIUserSelector .GroupSelect {
 	float:left;
 	padding-top: 10px;
 	line-height: 0px;
 }
 /*********************************************ListAddress*****************************************/
 
-.UISelectUserForm .ListAddress {
+.UIUserSelector .ListAddress {
 	background: white;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -101,43 +101,43 @@
 }
 
 
-.UISelectUserForm .ListAddress .UIGrid {
+.UIUserSelector .ListAddress .UIGrid {
 	border-top: none;
 	border-left: none;
 	border-right: none;
 }
 
-.UISelectUserForm .ListAddress .UIGrid .BlueDownArrowIcon{
+.UIUserSelector .ListAddress .UIGrid .BlueDownArrowIcon{
   padding: 0px 10px 0px 4px; 
   width: 34px;
   float: left;
   cursor: pointer;
 }
 
-.UISelectUserForm .ListAddress .UIGrid thead {
+.UIUserSelector .ListAddress .UIGrid thead {
 	border: none;
 }
 
-.UISelectUserForm .ListAddress .UIGrid th {
+.UIUserSelector .ListAddress .UIGrid th {
 	border-left: none;
 	border-top: none;
 }
 
-.UISelectUserForm .ListAddress .UIGrid td {
+.UIUserSelector .ListAddress .UIGrid td {
 	border-left: none;
 }
-.UISelectUserForm .QuickSet {
-	float:left;
+.UIUserSelector .QuickSet {
+	float:right;
 	padding-top: 10px;
 }
 
-.UISelectUserForm .FilterSelect {
+.UIUserSelector .FilterSelect {
 	float:left;
 	line-height: 0px;
 	margin-left: 4px;
 }
 
-.UISelectUserForm .FilterSelect select{
+.UIUserSelector .FilterSelect select{
 	font-size: 10px;
 	height: 18px;
 }

@@ -164,7 +164,6 @@ public class UIGroupMembershipSelector extends UIContainer {
 
   static  public class ChangeNodeActionListener extends EventListener<UIComponent> {   
     public void execute(Event<UIComponent> event) throws Exception {
-      System.out.println("\n\n\n buc ca minh");
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID)  ;
       UIComponent uiComp = event.getSource();
       UIGroupMembershipSelector uiSelector = uiComp.getParent();    

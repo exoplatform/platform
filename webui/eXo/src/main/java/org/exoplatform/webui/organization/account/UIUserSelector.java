@@ -43,19 +43,19 @@ import org.exoplatform.webui.form.UIFormStringInput;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/organization/webui/component/UISelectUserForm.gtmpl",
+    template = "system:/groovy/webui/organization/account/UIUserSelector.gtmpl",
     events = {
-      @EventConfig(listeners = UISelectUserForm.AddActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UISelectUserForm.AddUserActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UISelectUserForm.SearchActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UISelectUserForm.SearchGroupActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UISelectUserForm.SelectGroupActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UISelectUserForm.ShowPageActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UISelectUserForm.CloseActionListener.class, phase = Phase.DECODE)
+      @EventConfig(listeners = UIUserSelector.AddActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIUserSelector.AddUserActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIUserSelector.SearchActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIUserSelector.SearchGroupActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIUserSelector.SelectGroupActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIUserSelector.ShowPageActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIUserSelector.CloseActionListener.class, phase = Phase.DECODE)
     }
 )
 
-public class UISelectUserForm extends UIForm implements UIPopupComponent { 
+public class UIUserSelector extends UIForm implements UIPopupComponent { 
   final public static String FIELD_KEYWORD = "keyWord".intern() ;
   final public static String FIELD_FILTER = "filter".intern() ;
   final public static String FIELD_GROUP = "group".intern() ;
@@ -73,13 +73,13 @@ public class UISelectUserForm extends UIForm implements UIPopupComponent {
   private String selectedUsers;
   private boolean multi = true;
   
-  public UISelectUserForm() throws Exception {  
+  public UIUserSelector() throws Exception {  
     addUIFormInput(new UIFormStringInput(FIELD_KEYWORD, FIELD_KEYWORD, null)) ;
     addUIFormInput(new UIFormSelectBox(FIELD_FILTER, FIELD_FILTER, getFilters())) ;
     addUIFormInput(new UIFormStringInput(FIELD_GROUP, FIELD_GROUP, null)) ;
     isShowSearch_ = true ;
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-    ObjectPageList objPageList = new ObjectPageList(service.getUserHandler().findUsers(new Query()).currentPage(), 10) ;
+    ObjectPageList objPageList = new ObjectPageList(service.getUserHandler().findUsers(new Query()).currentPage(), 2) ;
     uiIterator_ = new UIPageIterator() ;
     uiIterator_.setPageList(objPageList) ;
     uiIterator_.setId("UISelectUserPage") ;
@@ -87,7 +87,7 @@ public class UISelectUserForm extends UIForm implements UIPopupComponent {
     // create group selector
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupGroupSelector");
     uiPopup.setWindowSize(540, 0);
-    UISelectGroupForm uiGroup = createUIComponent(UISelectGroupForm.class, null, null);
+    UIGroupSelector uiGroup = createUIComponent(UIGroupSelector.class, null, null);
     uiPopup.setUIComponent(uiGroup);
     uiGroup.setId("GroupSelector");
     uiGroup.getChild(UITree.class).setId("TreeGroupSelector");
@@ -161,10 +161,10 @@ public class UISelectUserForm extends UIForm implements UIPopupComponent {
   public void setSelectedGroup(String selectedGroup) {
     getUIStringInput(FIELD_GROUP).setValue(selectedGroup);
   }
-  static  public class AddActionListener extends EventListener<UISelectUserForm> {
+  static  public class AddActionListener extends EventListener<UIUserSelector> {
     @SuppressWarnings("unchecked")
-    public void execute(Event<UISelectUserForm> event) throws Exception {
-      UISelectUserForm uiForm = event.getSource();
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiForm = event.getSource();
       UIPopupContainer uiContainer = uiForm.getAncestorOfType(UIPopupContainer.class) ;
       StringBuilder sb = new StringBuilder() ;
       int count = 0;
@@ -179,25 +179,24 @@ public class UISelectUserForm extends UIForm implements UIPopupComponent {
       }
       if(count == 0) {
         UIApplication uiApp = uiForm.getAncestorOfType(UIApplication.class) ;
-        uiApp.addMessage(new ApplicationMessage("UISelectUserForm.msg.user-required",null)) ;
+        uiApp.addMessage(new ApplicationMessage("UIUserSelector.msg.user-required",null)) ;
         event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
         return ;
       }
       uiForm.setSelectedUsers(sb.toString());
       System.out.println("\n\n\n user added: " + uiForm.getSelectedUsers());
-      if(uiContainer !=null) uiContainer.cancelPopupAction();
+      uiForm.<UIComponent>getParent().broadcast(event, event.getExecutionPhase());
     }  
   }
   
   
-  static  public class AddUserActionListener extends EventListener<UISelectUserForm> {
-    public void execute(Event<UISelectUserForm> event) throws Exception {
-      UISelectUserForm uiForm = event.getSource();
-      UIPopupContainer uiContainer = uiForm.getAncestorOfType(UIPopupContainer.class) ;
+  static  public class AddUserActionListener extends EventListener<UIUserSelector> {
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiForm = event.getSource();
       String userName = event.getRequestContext().getRequestParameter(OBJECTID);
       uiForm.setSelectedUsers(userName);
       System.out.println("\n\n\n user added: " + uiForm.getSelectedUsers());
-      if(uiContainer !=null) uiContainer.cancelPopupAction();
+      uiForm.<UIComponent>getParent().broadcast(event, event.getExecutionPhase()) ;
     }  
   }
 
@@ -208,10 +207,10 @@ public class UISelectUserForm extends UIForm implements UIPopupComponent {
     getUIStringInput(FIELD_KEYWORD).setValue(value) ;
   }
   
-  static  public class SelectGroupActionListener extends EventListener<UISelectGroupForm> {   
-    public void execute(Event<UISelectGroupForm> event) throws Exception {
-      UISelectGroupForm uiSelectGroupForm = event.getSource();
-      UISelectUserForm uiSelectUserForm = uiSelectGroupForm.<UIComponent>getParent().getParent(); 
+  static  public class SelectGroupActionListener extends EventListener<UIGroupSelector> {   
+    public void execute(Event<UIGroupSelector> event) throws Exception {
+      UIGroupSelector uiSelectGroupForm = event.getSource();
+      UIUserSelector uiSelectUserForm = uiSelectGroupForm.<UIComponent>getParent().getParent(); 
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID);
       uiSelectUserForm.setSelectedGroup(groupId);
       OrganizationService service = uiSelectGroupForm.getApplicationComponent(OrganizationService.class);
@@ -221,9 +220,9 @@ public class UISelectUserForm extends UIForm implements UIPopupComponent {
   }
   
   @SuppressWarnings("unchecked")
-  static  public class SearchActionListener extends EventListener<UISelectUserForm> {
-    public void execute(Event<UISelectUserForm> event) throws Exception {
-      UISelectUserForm uiForm = event.getSource() ;
+  static  public class SearchActionListener extends EventListener<UIUserSelector> {
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiForm = event.getSource() ;
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
       String keyword = uiForm.getUIStringInput(FIELD_KEYWORD).getValue();
       String filter = uiForm.getUIFormSelectBox(FIELD_FILTER).getValue();
@@ -250,23 +249,22 @@ public class UISelectUserForm extends UIForm implements UIPopupComponent {
     }
   }
 
-  static  public class CloseActionListener extends EventListener<UISelectUserForm> {
-    public void execute(Event<UISelectUserForm> event) throws Exception {
-      UISelectUserForm uiForm = event.getSource();  
-      UIPopupContainer uiContainer = uiForm.getAncestorOfType(UIPopupContainer.class) ;
-      if(uiContainer !=null) uiContainer.cancelPopupAction();
+  static  public class CloseActionListener extends EventListener<UIUserSelector> {
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiForm = event.getSource();
+      uiForm.<UIComponent>getParent().broadcast(event, event.getExecutionPhase()) ;
     }
   }
   
-  static  public class SearchGroupActionListener extends EventListener<UISelectUserForm> {
-    public void execute(Event<UISelectUserForm> event) throws Exception {
-      UISelectUserForm uiForm = event.getSource();
+  static  public class SearchGroupActionListener extends EventListener<UIUserSelector> {
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiForm = event.getSource();
       uiForm.getChild(UIPopupWindow.class).setShow(true);
     }
   }
-  static  public class ShowPageActionListener extends EventListener<UISelectUserForm> {
-    public void execute(Event<UISelectUserForm> event) throws Exception {
-      UISelectUserForm uiSelectUserForm = event.getSource() ;
+  static  public class ShowPageActionListener extends EventListener<UIUserSelector> {
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiSelectUserForm = event.getSource() ;
       int page = Integer.parseInt(event.getRequestContext().getRequestParameter(OBJECTID)) ;
       uiSelectUserForm.updateCurrentPage(page) ; 
       event.getRequestContext().addUIComponentToUpdateByAjax(uiSelectUserForm);           

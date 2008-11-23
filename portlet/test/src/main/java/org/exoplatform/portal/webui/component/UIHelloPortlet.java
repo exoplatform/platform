@@ -20,6 +20,7 @@ import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupContainer;
 import org.exoplatform.webui.core.UIPopupMessages;
@@ -29,7 +30,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
-import org.exoplatform.webui.organization.account.UISelectUserForm;
+import org.exoplatform.webui.organization.account.UIUserSelector;
 import org.exoplatform.ws.frameworks.cometd.ContinuationService;
 
 
@@ -55,6 +56,15 @@ import org.exoplatform.ws.frameworks.cometd.ContinuationService;
         type = UIContainer.class,
         id = "UIHelloContent",
         template = "app:/groovy/webui/component/UIHelloContent.gtmpl"
+    ),
+    @ComponentConfig(
+    		type = UIPopupWindow.class,
+    		id = "tranthetrong",
+      template =  "system:/groovy/webui/core/UIPopupWindow.gtmpl",
+      events = {
+    			@EventConfig(listeners = UIPopupWindow.CloseActionListener.class, name = "ClosePopup")  ,
+    			@EventConfig(listeners = UIHelloPortlet.CloseActionListener.class, name = "Close", phase = Phase.DECODE)
+    		}
     )
 })
 public class UIHelloPortlet extends UIPortletApplication {
@@ -115,12 +125,26 @@ public class UIHelloPortlet extends UIPortletApplication {
   static public class SelectUserActionListener extends EventListener<UIHelloPortlet> {
     public void execute(Event<UIHelloPortlet> event) throws Exception {
       UIHelloPortlet uicomp = event.getSource() ;
+      if(event.getRequestContext().getRequestParameter(OBJECTID) == null) {
+        UIPopupContainer uiPopup = uicomp.getChild(UIPopupContainer.class);
+        UIUserSelector uiSelectUserForm = (UIUserSelector)uiPopup.activate(UIUserSelector.class, 800);
+        uiSelectUserForm.setMulti(false);
+        uiPopup.getChild(UIPopupWindow.class).setComponentConfig(UIHelloPortlet.class, "tranthetrong");
+        event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
+      	return;
+      }
       UIPopupContainer uiPopup = uicomp.getChild(UIPopupContainer.class);
-      UISelectUserForm uiSelectUserForm = (UISelectUserForm)uiPopup.activate(UISelectUserForm.class, 800);
-      uiSelectUserForm.setMulti(true);
-      uiPopup.getChild(UIPopupWindow.class).setId("SelectUser");
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
-      
+      uiPopup.activate(UIUserSelector.class, 800);
+      uiPopup.getChild(UIPopupWindow.class).setComponentConfig(UIPopupWindow.class, "tranthetrong");
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);      
+    }
+  }
+  
+  static  public class CloseActionListener extends EventListener<UIUserSelector> {
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiForm = event.getSource();
+      UIPopupContainer uiContainer = uiForm.getAncestorOfType(UIPopupContainer.class) ;
+      if(uiContainer !=null) uiContainer.cancelPopupAction();
     }
   }
 }

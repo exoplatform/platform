@@ -20,6 +20,18 @@
 	      </div>
 	  	</div>
 
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	              <a href="<%=uicomponent.event("SelectUser", "1")%>">Select User multi</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	  	</div>
+	  	
 		</div>
 	</div>
 	<%uicomponent.renderChild(UIPopupContainer.class);%>
