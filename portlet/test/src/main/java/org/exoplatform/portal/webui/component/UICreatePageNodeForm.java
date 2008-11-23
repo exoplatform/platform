@@ -71,8 +71,8 @@ public class UICreatePageNodeForm extends UIForm {
       Map<String, String[]> map = new HashMap<String, String[]>()  ;
       map.put("nameA", new String[] {"valueA1", "valueA2"}) ;
       map.put("nameB", new String[] {"valueB1", "valueB2"}) ;
-      PageNavigation userNavi = uiPortal.getPageNavigation(PortalConfig.USER_TYPE + "::" + pContext.getRemoteUser()) ; 
-      PageUtils.createNodeFromPageTemplate(givenName, givenName, pageId, map, userNavi) ;
+      //PageNavigation userNavi = uiPortal.getPageNavigation(PortalConfig.USER_TYPE + "::" + pContext.getRemoteUser()) ; 
+      //PageUtils.createNodeFromPageTemplate(givenName, givenName, pageId, map, userNavi) ;
       
       //Hide Popup
       UIPopupWindow uiPopup = uiForm.getParent() ;

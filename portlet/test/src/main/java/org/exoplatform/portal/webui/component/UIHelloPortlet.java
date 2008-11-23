@@ -16,17 +16,22 @@
  */
 package org.exoplatform.portal.webui.component;
 
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIPopupContainer;
+import org.exoplatform.webui.core.UIPopupMessages;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.organization.account.UISelectUserForm;
 import org.exoplatform.ws.frameworks.cometd.ContinuationService;
+
 
 /**
  * Created by The eXo Platform SARL
@@ -42,7 +47,8 @@ import org.exoplatform.ws.frameworks.cometd.ContinuationService;
         @EventConfig(listeners = UIHelloPortlet.OpenPopupActionListener.class, phase = Phase.PROCESS),
         @EventConfig(listeners = UIHelloPortlet.OpenCreatePagePopupActionListener.class),
         @EventConfig(listeners = UIHelloPortlet.TestActionListener.class),
-        @EventConfig(listeners = UIProcessEventPortlet.ProcessEventActionListener.class)
+        @EventConfig(listeners = UIProcessEventPortlet.ProcessEventActionListener.class),
+        @EventConfig(listeners = UIHelloPortlet.SelectUserActionListener.class)
       }
     ),
     @ComponentConfig(
@@ -54,16 +60,24 @@ import org.exoplatform.ws.frameworks.cometd.ContinuationService;
 public class UIHelloPortlet extends UIPortletApplication {
 
   public UIHelloPortlet() throws Exception {
-    UIContainer uiContainer = createUIComponent(UIContainer.class, "UIHelloContent", null); 
-    uiContainer.addChild(UIHelloSelector.class, null, null);
-    uiContainer.addChild(UIHelloWelcome.class, null, null);
-    uiContainer.addChild(UIHelloForm.class, null, null).setRendered(false);
-    addChild(uiContainer);
-    UIPopupWindow popup = addChild(UIPopupWindow.class, null, null);
-    popup.setWindowSize(400, 300);
-    UIHelloForm form = createUIComponent(UIHelloForm.class, null, null);
-    popup.setUIComponent(form);
-    popup.setRendered(false);
+//    UIContainer uiContainer = createUIComponent(UIContainer.class, "UIHelloContent", null); 
+//    uiContainer.addChild(UIHelloSelector.class, null, null);
+//    uiContainer.addChild(UIHelloWelcome.class, null, null);
+//    uiContainer.addChild(UIHelloForm.class, null, null).setRendered(false);
+//    addChild(uiContainer);
+//    UIPopupWindow popup = addChild(UIPopupWindow.class, null, null);
+//    popup.setWindowSize(400, 300);
+//    UIHelloForm form = createUIComponent(UIHelloForm.class, null, null);
+//    popup.setUIComponent(form);
+//    popup.setRendered(false);
+      addChild(UIPopupContainer.class, null, null);
+  }
+  
+  public void renderPopupMessages() throws Exception {
+    UIPopupMessages uiPopupMsg = getUIPopupMessages();
+    if(uiPopupMsg == null)  return ;
+    WebuiRequestContext  context =  WebuiRequestContext.getCurrentInstance() ;
+    uiPopupMsg.processRender(context);
   }
   
   static public class OpenPopupActionListener extends EventListener<UIHelloPortlet> {
@@ -95,6 +109,18 @@ public class UIHelloPortlet extends UIPortletApplication {
       System.out.println("\n\n\n =========== Lambkin ============== \n\n\n");
       ContinuationService continuation = uicomp.getApplicationComponent(ContinuationService.class);
       continuation.sendMessage("root", "/portal/notification", "tran the trong");  
+    }
+  }
+  
+  static public class SelectUserActionListener extends EventListener<UIHelloPortlet> {
+    public void execute(Event<UIHelloPortlet> event) throws Exception {
+      UIHelloPortlet uicomp = event.getSource() ;
+      UIPopupContainer uiPopup = uicomp.getChild(UIPopupContainer.class);
+      UISelectUserForm uiSelectUserForm = (UISelectUserForm)uiPopup.activate(UISelectUserForm.class, 800);
+      uiSelectUserForm.setMulti(true);
+      uiPopup.getChild(UIPopupWindow.class).setId("SelectUser");
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
+      
     }
   }
 }
