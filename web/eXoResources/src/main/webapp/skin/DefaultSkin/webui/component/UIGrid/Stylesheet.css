@@ -16,6 +16,7 @@
   background: #d2ddf1 url('background/ThGridRepeatBg1x19.jpg') repeat-x;
   font-weight: normal;
   padding: 0px 4px;
+  vertical-align: middle;
 }
 
 .UIGrid tbody {
@@ -127,5 +128,4 @@
 
 .UIGrid input.checkbox {
   width: 15px ;  height: 15px ;
-  margin: auto;
 }

@@ -129,7 +129,7 @@ public class UIHelloPortlet extends UIPortletApplication {
         UIPopupContainer uiPopup = uicomp.getChild(UIPopupContainer.class);
         UIUserSelector uiSelectUserForm = (UIUserSelector)uiPopup.activate(UIUserSelector.class, 800);
         uiSelectUserForm.setMulti(false);
-        uiPopup.getChild(UIPopupWindow.class).setComponentConfig(UIHelloPortlet.class, "tranthetrong");
+        uiPopup.getChild(UIPopupWindow.class).setComponentConfig(UIPopupWindow.class, "tranthetrong");
         event.getRequestContext().addUIComponentToUpdateByAjax(uiPopup);
       	return;
       }
