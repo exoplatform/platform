@@ -7,7 +7,7 @@
     <div class="TitleBar">
       <div class="LeftBar">
         <div class="RightBar">
-          <div class="MiddleBar">Add Application</div>
+          <div class="MiddleBar"><%=_ctx.appRes("UIAddNewApplication.label.AddApplication")%></div>
         </div>
       </div>
     </div>
@@ -25,7 +25,7 @@
                 
                   <div class="ItemListTitle">
                     <div class="TitleIcon ItemListIcon"><span></span></div>
-                    <div class="Title">Categories</div>
+                    <div class="Title"><%=_ctx.appRes("UIAddNewApplication.label.Categories")%></div>
                     <div style="clear: left;"><span></span></div>
                   </div>
                   <div class="ItemList">
@@ -49,14 +49,14 @@
                 <div class="ItemDetailList">
                     <div class="ItemDetailTitle">
                       <div class="TitleIcon ViewListIcon"><span></span></div>
-                      <div class="Title">Select Applications</div>
+                      <div class="Title"><%=_ctx.appRes("UIAddNewApplication.label.Select")%></div>
                       <div style="clear: left;"><span></span></div>
                     </div>
                     <div class="ApplicationListContainer">
                     <% if(appCategories==null || appCategories.isEmpty()){ %>
 	                    <div class="ItemDetail" style="display:block">                    
 	                          <div class="NoneAppsMessage" style="display:block">
-	                            There is no application in this location. Go to Application Registry portlet to import applications.
+	                            <%=_ctx.appRes("UIAddNewApplication.label.NoneApp")%>
 	                          </div>
 	                    </div>
                     <% } %>
@@ -90,15 +90,15 @@
 	                            </div>
 	                            <div class="ApplicationContentLabel">
 	                              <div class="ContentLabel">
-                                    <span class="LeftLabel">Type:</span>
+                                    <span class="LeftLabel"><%=_ctx.appRes("UIAddNewApplication.label.Type")%></span>
                                     <span class="RightLabel"><%=application.getApplicationType()%></span>
                                 </div>
                                 <div class="ContentLabel">
-                                    <span class="LeftLabel">Created by:</span>
+                                    <span class="LeftLabel"><%=_ctx.appRes("UIAddNewApplication.label.Created")%></span>
                                     <span class="RightLabel">eXo Platform SAS.</span>
                                 </div>
                                 <div class="ContentLabel">
-                                    <span class="LeftLabel">Description:</span>
+                                    <span class="LeftLabel"><%=_ctx.appRes("UIAddNewApplication.label.Description")%></span>
                                     <span class="RightLabel"><%= application.getDescription() %></span>
                                 </div>
 	                            </div>
@@ -135,7 +135,7 @@
           <div class="ButtonLeft">
             <div class="ButtonRight">
               <div class="ButtonMiddle">
-                <a href="javascript:void(0);">Close</a>
+                <a href="javascript:void(0);"><%=_ctx.appRes("UIAddNewApplication.label.Close")%></a>
               </div>
             </div>
           </div>
