@@ -162,46 +162,6 @@
 
 
 <div class="UIPage" id="UIPage-${uicomponent.id}">
-  <div class="META-DATA-BLOCK" style="display: none">
-    <div class="id">$uicomponent.id</div>
-    <div class="title"><%=_ctx.appRes("UIPageDesktop.title.PortalPage")%></div>
-    <div class="description"><%=_ctx.appRes("UIPageDesktop.label.pagebody")%></div>
-  </div>
-  <div class="CONTROL-PAGE CONTROL-BLOCK" style="display: none"><span></span></div>
-
-  <div class="LAYOUT-PAGE" style="display: none;">
-    <div class="PageLayoutDecorator">
-    
-      <%/*Begin Top Decorator*/%>
-      <div class="TopLeftPage">
-        <div class="TopRightPage">
-          <div class="TopCenterPage">
-            <div class="PageContent"><%=_ctx.appRes("UIPageDesktop.label.PageContent")%></div>
-          </div>
-        </div>
-      </div>
-      
-      <%/*Begin Middle Decorator*/%>
-      <div class="MiddleLeftPage">
-        <div class="MiddleRightPage">
-          <div class="MiddlePageBG">
-						<div class="FixBug"><span></span></div>
-					</div>
-        </div>
-      </div>
-      
-      <%/*Begin Bottom Decorator*/%>
-      <div class="BottomLeftPage">
-        <div class="BottomRightPage">
-          <div class="BottomCenterPage">
-          	<div class="FixBug"><span></span></div>
-					</div>
-        </div>
-      </div>
-        
-    </div>    
-  </div>
-  
   <div class="VIEW-PAGE">
     <div id="UIPage">
       <div class="UIPageDesktop" id="UIPageDesktop">
@@ -271,7 +231,7 @@
               <div class="DockbarCenter" id="DockbarCenter">
               	
                 <div class="IconContainer" id="IconContainer" style="text-align: center;">
-                  <img id="FixBug" src="/eXoResources/skin/sharedImages/Debug1x32.gif" />
+                  <img id="FixBug" alt="" src="/eXoResources/skin/sharedImages/Debug1x32.gif" />
                   
   	                  <img class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/NavigationIcon.png" alt="" altText="/eXoResources/skin/sharedImages/Blank.gif" title=""
 	                       id="UIAddApplicationIcon"
