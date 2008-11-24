@@ -75,8 +75,8 @@ UIUserSelector.prototype.onEnter = function(evt) {
   _e.cancelBubble = true ;
   var keynum = eXo.webui.UIUserSelector.getKeynum(_e) ;
   if (keynum == 13) {
-    var action = eXo.core.DOMUtil.findPreviousElementByTagName(this, "a") ;
-		if(!action) action = eXo.core.DOMUtil.findNextElementByTagName(this, "a") ;
+    var action = eXo.core.DOMUtil.findNextElementByTagName(this, "a");
+		if(!action) action = eXo.core.DOMUtil.findPreviousElementByTagName(this, "a")  ;
     action = String(action.href).replace("javascript:","").replace("%20","") ;
     eval(action) ;
   }

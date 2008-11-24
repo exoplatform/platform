@@ -5,8 +5,10 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.exoplatform.commons.utils.ObjectPageList;
+import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
@@ -27,7 +29,6 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormCheckBoxInput;
-import org.exoplatform.webui.form.UIFormPopupWindow;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 
@@ -85,7 +86,7 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
     uiIterator_.setId("UISelectUserPage") ;
     
     // create group selector
-    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupGroupSelector");
+    UIPopupWindow uiPopup = addChild(UIPopupWindow.class, null, "PopupGroupSelector");
     uiPopup.setWindowSize(540, 0);
     UIGroupSelector uiGroup = createUIComponent(UIGroupSelector.class, null, null);
     uiPopup.setUIComponent(uiGroup);
@@ -251,8 +252,16 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
       if(EMAIL.equals(filter)) {
         q.setEmail(keyword) ;
       }
-      List results = new ArrayList() ;
+      List results = new CopyOnWriteArrayList() ;
       results.addAll(service.getUserHandler().findUsers(q).getAll()) ;
+      // remove if user doesn't exist in selected group
+      MembershipHandler memberShipHandler = service.getMembershipHandler();
+      String groupId = uiForm.getSelectedGroup();
+      for(Object user : results) {
+        if(memberShipHandler.findMembershipsByUserAndGroup(((User)user).getUserName(), groupId).size() == 0) {
+          results.remove(user);
+        }
+      }
       ObjectPageList objPageList = new ObjectPageList(results, 10) ;
       uiForm.uiIterator_.setPageList(objPageList);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm) ;
