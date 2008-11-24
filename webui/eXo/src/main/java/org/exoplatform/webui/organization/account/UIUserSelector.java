@@ -184,7 +184,6 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
         return ;
       }
       uiForm.setSelectedUsers(sb.toString());
-      System.out.println("\n\n\n user added: " + uiForm.getSelectedUsers());
       uiForm.<UIComponent>getParent().broadcast(event, event.getExecutionPhase());
     }  
   }
@@ -195,7 +194,6 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
       UIUserSelector uiForm = event.getSource();
       String userName = event.getRequestContext().getRequestParameter(OBJECTID);
       uiForm.setSelectedUsers(userName);
-      System.out.println("\n\n\n user added: " + uiForm.getSelectedUsers());
       uiForm.<UIComponent>getParent().broadcast(event, event.getExecutionPhase()) ;
     }  
   }
