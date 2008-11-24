@@ -90,6 +90,7 @@ public class PageNode  {
     return visible ; 
   }
   
+  public boolean getVisible() { return visible; }
   public void setVisible(Boolean b) { visible = b.booleanValue() ; }
   
   private boolean isInPublicationDate() {

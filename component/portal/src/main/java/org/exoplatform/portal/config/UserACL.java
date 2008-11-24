@@ -34,42 +34,43 @@ import org.exoplatform.services.security.Identity;
 public class UserACL {
   public final static String EVERYONE = "Everyone" ;
   protected static Log log = ExoLogger.getLogger("organization:UserACL");
-  
-//  private OrganizationService orgService_ ;
-  
+
+//private OrganizationService orgService_ ;
+
   private String superUser_;
   private String guestGroup_ ;
   private List<String> portalCreatorGroups_;
   private List<String> accessControlWorkspaceGroups_;
   private String navigationCreatorMembershipType_;
+  private PortalACLPlugin portalACLPlugin;
 
   public UserACL(InitParams params) throws Exception {
-//    this.orgService_ = orgService;
-    
+//  this.orgService_ = orgService;
+
     ValueParam superUserParam = params.getValueParam("super.user");
     if(superUserParam != null) superUser_ = superUserParam.getValue();
     if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "root";
-    
+
     String accessControlWorkspace = "";
     ValueParam accessControlWorkspaceParam = params.getValueParam("access.control.workspace");
     if(accessControlWorkspaceParam != null) accessControlWorkspace = accessControlWorkspaceParam.getValue();
     accessControlWorkspaceGroups_ = defragmentPermission(accessControlWorkspace);    
-    
+
     ValueParam guestGroupParam = params.getValueParam("guests.group") ;
     if(guestGroupParam != null) guestGroup_ = guestGroupParam.getValue() ;
     if(guestGroup_ == null || guestGroup_.trim().length() < 1) guestGroup_ = "/platform/guests" ; 
-    
+
     ValueParam navCretorParam = params.getValueParam("navigation.creator.membership.type");
     if(navCretorParam != null) navigationCreatorMembershipType_ = navCretorParam.getValue();
     if(navigationCreatorMembershipType_ == null || 
-       navigationCreatorMembershipType_.trim().length() == 0) navigationCreatorMembershipType_= "owner";
-    
+        navigationCreatorMembershipType_.trim().length() == 0) navigationCreatorMembershipType_= "owner";
+
     String allGroups = "";
     ValueParam portalCretorGroupsParam = params.getValueParam("portal.creator.groups");
     if(portalCretorGroupsParam != null) allGroups = portalCretorGroupsParam.getValue();
     portalCreatorGroups_ = defragmentPermission(allGroups);
   }
-  
+
   private List<String> defragmentPermission(String permission) {
     List<String> result = new ArrayList<String>();
     if(permission !=null ) {
@@ -82,7 +83,27 @@ public class UserACL {
     }
     return result;
   }
-  
+
+  public void addPortalACLPlugin(PortalACLPlugin plugin) {
+    this.portalACLPlugin = plugin;
+    //Overridden some roles that defined as init param of the service
+    String superUser = portalACLPlugin.getSuperUser();
+    if(superUser != null) {
+      log.info("Overidden SuperUser by PortalACLPlugin");
+      superUser_ = superUser;
+    }
+    List<String> accessWorkspaceRoles = portalACLPlugin.getAccessControlWorkspacesRoles();
+    if(accessWorkspaceRoles != null) {
+      log.info("Overidden AcessControlWorkspacegroup by PortalACLPlugin");
+      accessControlWorkspaceGroups_ = accessWorkspaceRoles;
+    }
+    List<String> portalCreationRoles = portalACLPlugin.getPortalCreationRoles();
+    if(portalCreationRoles != null) {
+      log.info("Overidden PortalCreatorGroup by PortalACLPlugin");
+      portalCreatorGroups_ = portalCreationRoles;
+    }    
+  }
+
   public String getMakableMT() { return navigationCreatorMembershipType_; }
   public List<String> getPortalCreatorGroups() { return portalCreatorGroups_;  }
   public List<String> getAccessControlWorkspaceGroups() { return accessControlWorkspaceGroups_;  }
@@ -148,16 +169,16 @@ public class UserACL {
 
     return findMembershipByUserAndGroupAndType(groupId, membership);
   }
-  
+
   public boolean hasPermission(String expPerm) {
-  	ConversationState conv = ConversationState.getCurrent();
-		String currentUser = null;
-  	Identity id = null;
-  	if (conv != null) {
-  		id = conv.getIdentity();
-  		currentUser = id.getUserId();
-  	}
-		
+    ConversationState conv = ConversationState.getCurrent();
+    String currentUser = null;
+    Identity id = null;
+    if (conv != null) {
+      id = conv.getIdentity();
+      currentUser = id.getUserId();
+    }
+
     if(superUser_.equals(currentUser)) return true;
     if(expPerm == null) return false ;
     if(EVERYONE.equals(expPerm)) return true ;
@@ -165,12 +186,12 @@ public class UserACL {
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
     if(currentUser == null && groupId.equals(guestGroup_)) return true;
-    
+
     if (id == null) { return false; }
     String membership = permission.getMembership() ;
-  	return id.isMemberOf(groupId, membership) ;
+    return id.isMemberOf(groupId, membership) ;
   }
-  
+
   public boolean hasCreatePortalPermission(String remoteUser) throws Exception {
     if(superUser_.equals(remoteUser)) return true;
     if( portalCreatorGroups_ == null || portalCreatorGroups_.size() < 1) return false;
@@ -179,7 +200,7 @@ public class UserACL {
     }
     return false;
   }
-  
+
   /**
    * @param pconfig
    * @param remoteUser
@@ -192,7 +213,7 @@ public class UserACL {
     if(superUser_.equals(remoteUser)) return true;
     return hasPermission(pconfig.getEditPermission());
   }
-  
+
   public boolean hasEditPermission(PageNavigation pageNav, String remoteUser) throws Exception {
     if(superUser_.equals(remoteUser)) {
       pageNav.setModifiable(true);
@@ -207,7 +228,7 @@ public class UserACL {
     }
     return false;
   }
- 
+
   public boolean hasEditPermission(Page page, String remoteUser)  throws Exception {
     if(PortalConfig.USER_TYPE.equals(page.getOwnerType())){
       if( remoteUser.equals(page.getOwnerId())){
@@ -223,24 +244,24 @@ public class UserACL {
     page.setModifiable(false);
     return false;
   }
-  
+
   public boolean hasAccessControlWorkspacePermission(String remoteUser) throws Exception {
-    if(superUser_.equals(remoteUser)) return true;
+    if(superUser_.equals(remoteUser)) return true;       
     if( accessControlWorkspaceGroups_ == null || accessControlWorkspaceGroups_.size() < 1) return false;
     for(String ele: accessControlWorkspaceGroups_){
       if(hasPermission(ele)) return true;
     }
     return false;
   }
-  
+
   protected boolean findMembershipByUserAndGroupAndType(String groupId, String membership) throws Exception {
-  	ConversationState conv = ConversationState.getCurrent();
-  	Identity id = null;
-  	if (conv != null) id = conv.getIdentity();
+    ConversationState conv = ConversationState.getCurrent();
+    Identity id = null;
+    if (conv != null) id = conv.getIdentity();
 
-  	if (id == null) { return false; }
+    if (id == null) { return false; }
 
-  	return id.isMemberOf(groupId, membership) ;
+    return id.isMemberOf(groupId, membership) ;
   }
 
   static public class Permission {
@@ -250,7 +271,7 @@ public class UserACL {
     private String groupId_ = ""  ;  
     private String membership_ = "" ;
     private String expression;
-    
+
     private boolean selected_  = false;
 
     public void setPermissionExpression(String exp) {
@@ -272,7 +293,7 @@ public class UserACL {
       if(membership_ .length() == 0 || groupId_.length() == 0) return null;
       return membership_+":"+groupId_;
     }
-    
+
     public String getMembership(){ return membership_; }
     public void setMembership(String membership) { membership_ = membership; }
 
