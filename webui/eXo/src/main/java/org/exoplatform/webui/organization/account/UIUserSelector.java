@@ -18,7 +18,6 @@ import org.exoplatform.webui.core.UIBreadcumbs;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPopupComponent;
-import org.exoplatform.webui.core.UIPopupContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
@@ -50,6 +49,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
       @EventConfig(listeners = UIUserSelector.SearchActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIUserSelector.SearchGroupActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIUserSelector.SelectGroupActionListener.class, phase = Phase.DECODE),
+      @EventConfig(listeners = UIUserSelector.FindGroupActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIUserSelector.ShowPageActionListener.class, phase = Phase.DECODE),
       @EventConfig(listeners = UIUserSelector.CloseActionListener.class, phase = Phase.DECODE)
     }
@@ -165,7 +165,6 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
     @SuppressWarnings("unchecked")
     public void execute(Event<UIUserSelector> event) throws Exception {
       UIUserSelector uiForm = event.getSource();
-      UIPopupContainer uiContainer = uiForm.getAncestorOfType(UIPopupContainer.class) ;
       StringBuilder sb = new StringBuilder() ;
       int count = 0;
       for(Object o : uiForm.uiIterator_.getCurrentPageData()) {
@@ -214,6 +213,17 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID);
       uiSelectUserForm.setSelectedGroup(groupId);
       OrganizationService service = uiSelectGroupForm.getApplicationComponent(OrganizationService.class);
+      uiSelectUserForm.uiIterator_.setPageList(service.getUserHandler().findUsersByGroup(groupId));
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiSelectUserForm) ;
+    }
+  }
+  
+  static  public class FindGroupActionListener extends EventListener<UIUserSelector> {   
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiSelectUserForm = event.getSource();
+      String groupId = uiSelectUserForm.getSelectedGroup();
+      uiSelectUserForm.setSelectedGroup(groupId);
+      OrganizationService service = uiSelectUserForm.getApplicationComponent(OrganizationService.class);
       uiSelectUserForm.uiIterator_.setPageList(service.getUserHandler().findUsersByGroup(groupId));
       event.getRequestContext().addUIComponentToUpdateByAjax(uiSelectUserForm) ;
     }

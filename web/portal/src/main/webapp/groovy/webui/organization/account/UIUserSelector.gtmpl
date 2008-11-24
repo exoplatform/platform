@@ -4,8 +4,9 @@
  uiform.begin()
  def rcontext = _ctx.getRequestContext() ;
  boolean isMulti = uicomponent.getMulti();
- rcontext.getJavascriptManager().addJavascript('eXo.webui.UISelectUserForm.init("'+uiform.id+'") ;') ;
- //rcontext.getJavascriptManager().addJavascript('eXo.cs.Utils.captureInput("'+uiform.FIELD_KEYWORD+'","'+uicomponent.event('Search')+'") ;') ;
+ rcontext.getJavascriptManager().addJavascript('eXo.webui.UIUserSelector.init("'+uiform.id+'") ;') ;
+ rcontext.getJavascriptManager().addJavascript('eXo.webui.UIUserSelector.captureInput("'+uiform.FIELD_KEYWORD+'","'+uicomponent.event('Search')+'") ;') ;
+ rcontext.getJavascriptManager().addJavascript('eXo.webui.UIUserSelector.captureInput("'+uiform.FIELD_GROUP+'","'+uicomponent.event('FindGroup',uicomponent.getSelectedGroup())+'") ;') ;
 %> 
 <div class="UIUserSelector">
   <div class="SelectUserContainer">
@@ -22,9 +23,8 @@
                   	<div class="AddressLabel">
                   		<%=uiform.getLabel(uiform.FIELD_GROUP)%>
                   	</div>
-                  	<div class="GroupSelect">
                   	<%uiform.renderField(uiform.FIELD_GROUP)%>
-                  	</div>
+                  	<a class="SearchIcon" style="display: none" href="<%=uicomponent.event('FindGroup')%>"><span></span></a>
                   	<a class="SearchIcon" href="<%=uicomponent.event('SearchGroup')%>" title="<%=uiform.getLabel(uiform.FIELD_GROUP)%>"><span></span></a>
                   
                     <%uiform.renderField(uiform.FIELD_KEYWORD)%>
