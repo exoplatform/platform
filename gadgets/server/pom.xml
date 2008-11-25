@@ -84,6 +84,12 @@
             <artifactId>shindig-features</artifactId>
             <scope>provided</scope>
         </dependency>
+	<dependency>
+            <groupId>org.apache.shindig</groupId>
+            <version>${org.shindig.version}</version>
+            <artifactId>shindig-social-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <!-- external dependencies -->
 
         <dependency>
