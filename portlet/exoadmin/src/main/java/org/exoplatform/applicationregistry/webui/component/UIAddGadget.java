@@ -19,9 +19,11 @@ package org.exoplatform.applicationregistry.webui.component;
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.portal.webui.application.GadgetUtil;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -30,6 +32,8 @@ import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.URLValidator;
+
+import com.mysql.jdbc.Util;
 
 /**
  * Created by The eXo Platform SAS
@@ -64,12 +68,29 @@ public class UIAddGadget extends UIForm {
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       String url = uiForm.getUIStringInput(FIELD_URL) .getValue();
       String name = "gadget" + url.hashCode();
-      service.saveGadget(GadgetUtil.toGadget(name, url, false)) ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
+      // check url exits
+      boolean urlExist = checkUrlExist(uiManagement, GadgetUtil.toGadget(name, url, false));
+      if (urlExist == true) return;
+      service.saveGadget(GadgetUtil.toGadget(name, url, false)) ;
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
       context.addUIComponentToUpdateByAjax(uiManagement) ;
-    }    
+    }   
+    
+    private boolean checkUrlExist (UIGadgetManagement uiManagement, Gadget gadget) throws Exception {  
+      WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+      UIApplication uiApp = context.getUIApplication() ;
+      String url = gadget.getUrl();
+      for(Gadget ele : uiManagement.getGadgets()) {
+        String urlReRrocedure = GadgetUtil.reproduceUrl(ele.getUrl(), ele.isLocal());
+        if(urlReRrocedure.equals(url)) {
+          uiApp.addMessage(new ApplicationMessage("UIAddGadget.label.urlExist", null)) ;
+          return true ;
+        }
+      }
+      return false;
+    }
   }
   
   public static class CancelActionListener extends EventListener<UIAddGadget> {
