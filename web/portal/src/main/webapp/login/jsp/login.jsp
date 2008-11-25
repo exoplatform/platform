@@ -1,5 +1,8 @@
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="javax.servlet.http.Cookie"%>
+<%@ page import="org.exoplatform.container.ExoContainerContext"%>
+<%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
+<%@ page import="java.util.ResourceBundle"%>
 <%@ page language="java" %>
 <%@ page contentType="text/html" %>
 <%
@@ -35,7 +38,9 @@
     response.sendRedirect(loginAction + "?j_username=" + userName + "&j_password=" + password ) ;
     return ;
   }
-  
+  ResourceBundleService service = (ResourceBundleService)ExoContainerContext.getContainerByName("portal")
+  														.getComponentInstanceOfType(ResourceBundleService.class);
+  ResourceBundle res = service.getResourceBundle(service.getSharedResourceBundleNames(), request.getLocale()) ;
 %>
 <!DOCTYPE html 
     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
@@ -62,10 +67,10 @@
             <font color="red">Sign in failed. Wrong username or password.</font><%}%>
           <form name="loginForm" action="<%=loginAction%>" method="post" style="margin: 0px;">        
               <div class="FieldContainer">
-	              <label>User name</label><input class="UserName" name="j_username" value="<%=userName%>"/>
+	              <label><%=res.getString("UILoginForm.label.UserName")%></label><input class="UserName" name="j_username" value="<%=userName%>"/>
 		          </div>
 	            <div class="FieldContainer" id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);">
-	              <label>Password</label><input class="Password" type="password" name="j_password" value=""/>
+	              <label><%=res.getString("UILoginForm.label.password")%></label><input class="Password" type="password" name="j_password" value=""/>
 	            </div>
 		          <div id="UIPortalLoginFormAction" class="LoginButton" onclick="login();">
 		            <div class="LoginButtonContainer">
@@ -73,7 +78,7 @@
 		                <div class="LeftButton">
 		                  <div class="RightButton">
 		                    <div class="MiddleButton">
-		                    	<a href="#">Sign in</a>
+		                    	<a href="#"><%=res.getString("UILoginForm.label.Signin")%></a>
 		                    </div>
 		                  </div>
 		                </div>

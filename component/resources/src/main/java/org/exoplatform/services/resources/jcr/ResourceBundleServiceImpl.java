@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import javax.jcr.PathNotFoundException;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
+import javax.jcr.PathNotFoundException;
 import javax.jcr.Session;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
@@ -37,7 +37,7 @@ import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
-import org.exoplatform.services.log.LogService;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.resources.ExoResourceBundle;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.services.resources.Query;
@@ -57,11 +57,10 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
   static final private String SERVICE_NAME = "ResourceBundles" ;
 
   public ResourceBundleServiceImpl(InitParams params, 
-      LogService lservice, 
       CacheService cService, 
       RegistryService service,
       LocaleConfigService localeService) throws Exception {
-    log_ = lservice.getLog("org.exoplatform.services.resources");
+    log_ = ExoLogger.getLogger("org.exoplatform.services.resources");
     localeService_ = localeService;
     cache_ = cService.getCacheInstance(ResourceBundleData.class.getName());
     regService_ = service ;
