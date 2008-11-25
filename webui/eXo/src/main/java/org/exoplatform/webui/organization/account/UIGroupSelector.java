@@ -67,6 +67,7 @@ public class UIGroupSelector extends UIContainer {
 
   private Group selectGroup_ ;
  
+  @SuppressWarnings("unchecked")
   public UIGroupSelector() throws Exception {
     UIBreadcumbs uiBreadcumbs = addChild(UIBreadcumbs.class, "BreadcumbGroupSelector", "BreadcumbGroupSelector") ;
     UITree tree = addChild(UITree.class, "UITreeGroupSelector", "TreeGroupSelector");
@@ -162,7 +163,6 @@ public class UIGroupSelector extends UIContainer {
     public void execute(Event<UIGroupSelector> event) throws Exception {
       UIGroupSelector uiSelector = event.getSource();
       UIComponent uiPermission = uiSelector.<UIComponent>getParent().getParent();
-      //uiPermission.setRenderSibbling(uiPermission.getClass());
       WebuiRequestContext pcontext = event.getRequestContext();
       
       UIPopupWindow uiPopup = uiSelector.getParent();
@@ -174,7 +174,7 @@ public class UIGroupSelector extends UIContainer {
       }
       if(uiSelector.getCurrentGroup() == null) {
         UIApplication uiApp = pcontext.getUIApplication() ;
-        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipSelector.msg.selectGroup", null)) ;
+        uiApp.addMessage(new ApplicationMessage("UIGroupSelector.msg.selectGroup", null)) ;
         pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         uiPopup.setShow(true) ;
         return ;

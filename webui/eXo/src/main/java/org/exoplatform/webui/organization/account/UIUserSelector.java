@@ -86,7 +86,7 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
     uiIterator_.setId("UISelectUserPage") ;
     
     // create group selector
-    UIPopupWindow uiPopup = addChild(UIPopupWindow.class, null, "PopupGroupSelector");
+    UIPopupWindow uiPopup = addChild(UIPopupWindow.class, null, "UIPopupGroupSelector");
     uiPopup.setWindowSize(540, 0);
     UIGroupSelector uiGroup = createUIComponent(UIGroupSelector.class, null, null);
     uiPopup.setUIComponent(uiGroup);
@@ -223,7 +223,11 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
       String groupId = uiSelectUserForm.getSelectedGroup();
       uiSelectUserForm.setSelectedGroup(groupId);
       OrganizationService service = uiSelectUserForm.getApplicationComponent(OrganizationService.class);
-      uiSelectUserForm.uiIterator_.setPageList(service.getUserHandler().findUsersByGroup(groupId));
+      if(groupId != null && groupId.trim().length() != 0)
+        uiSelectUserForm.uiIterator_.setPageList(service.getUserHandler().findUsersByGroup(groupId));
+      else {
+        uiSelectUserForm.uiIterator_.setPageList(service.getUserHandler().findUsers(new Query()));
+      }
       event.getRequestContext().addUIComponentToUpdateByAjax(uiSelectUserForm) ;
     }
   }
@@ -237,27 +241,31 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
       String filter = uiForm.getUIFormSelectBox(FIELD_FILTER).getValue();
       if(filter == null || filter.trim().length() == 0) return;
       Query q = new Query() ;
-      keyword = "*" + keyword + "*" ;
-      if(USER_NAME.equals(filter)) {
-        q.setUserName(keyword) ;
-      } 
-      if(LAST_NAME.equals(filter)) {
-        q.setLastName(keyword) ;
-      }
-      if(FIRST_NAME.equals(filter)) {
-        q.setFirstName(keyword) ;
-      }
-      if(EMAIL.equals(filter)) {
-        q.setEmail(keyword) ;
+      if(keyword != null && keyword.trim().length() != 0) {
+        keyword = "*" + keyword + "*" ;
+        if(USER_NAME.equals(filter)) {
+          q.setUserName(keyword) ;
+        } 
+        if(LAST_NAME.equals(filter)) {
+          q.setLastName(keyword) ;
+        }
+        if(FIRST_NAME.equals(filter)) {
+          q.setFirstName(keyword) ;
+        }
+        if(EMAIL.equals(filter)) {
+          q.setEmail(keyword) ;
+        }
       }
       List results = new CopyOnWriteArrayList() ;
       results.addAll(service.getUserHandler().findUsers(q).getAll()) ;
       // remove if user doesn't exist in selected group
       MembershipHandler memberShipHandler = service.getMembershipHandler();
       String groupId = uiForm.getSelectedGroup();
-      for(Object user : results) {
-        if(memberShipHandler.findMembershipsByUserAndGroup(((User)user).getUserName(), groupId).size() == 0) {
-          results.remove(user);
+      if(groupId != null && groupId.trim().length() != 0) {
+        for(Object user : results) {
+          if(memberShipHandler.findMembershipsByUserAndGroup(((User)user).getUserName(), groupId).size() == 0) {
+            results.remove(user);
+          }
         }
       }
       ObjectPageList objPageList = new ObjectPageList(results, 10) ;

@@ -37,8 +37,9 @@
 
 .UIUserSelector .UIAddressSearchForm input {
 	float: left;
-	width: 170px;
+	width: 200px;
 	height: 16px;
+	font-size: 11px;
 }
 
 .UIUserSelector .UIAddressSearchForm .SearchIcon {
