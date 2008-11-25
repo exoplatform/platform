@@ -23,7 +23,9 @@
                   	<div class="AddressLabel">
                   		<%=uiform.getLabel(uiform.FIELD_GROUP)%>
                   	</div>
-                  	<%uiform.renderField(uiform.FIELD_GROUP)%>
+                  	<div class="GroupInput">
+                  		<%uiform.renderField(uiform.FIELD_GROUP)%>
+                  	</div>
                   	<a class="SearchIcon" style="display: none" href="<%=uicomponent.event('FindGroup')%>"><span></span></a>
                   	<a class="SearchIcon" href="<%=uicomponent.event('SearchGroup')%>" title="<%=uiform.getLabel(uiform.FIELD_GROUP)%>"><span></span></a>
                   
@@ -58,7 +60,7 @@
 	                  <%=uiform.getLabel('email')%>
 	                </th>
 	                <% if(!isMulti) { %>
-	                <th width="100px"><%=uiform.getLabel('action')%></th>
+	                <th width="100px">Action</th>
 	                <% } %>
 	              </tr>
 	            </thead>

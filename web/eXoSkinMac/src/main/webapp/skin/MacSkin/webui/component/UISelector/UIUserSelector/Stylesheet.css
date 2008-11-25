@@ -35,10 +35,18 @@
 	padding-top: 7px;
 }
 
-.UIUserSelector .UIAddressSearchForm input {
+.UIUserSelector .UIAddressSearchForm input,.UIUserSelector .UIAddressSearchForm .GroupInput {
 	float: left;
-	width: 170px;
+}
+
+.UIUserSelector .UIAddressSearchForm input{
+	font-size: 11px;
 	height: 16px;
+	width: 120px;
+}
+
+.UIUserSelector .UIAddressSearchForm .GroupInput input {
+	width: 300px;
 }
 
 .UIUserSelector .UIAddressSearchForm .SearchIcon {
