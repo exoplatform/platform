@@ -29,7 +29,6 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
-import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 
 /**
@@ -48,14 +47,12 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
 )
 public class UIGadgetEditor extends UIForm {
   
-  final static public String FIELD_NAME = "name" ;
   final static public String FIELD_SOURCE = "source" ;
   
   private Source source_;
   private String fullName_;
   
   public UIGadgetEditor() throws Exception {
-    addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
     addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, null)) ;
   }
   
@@ -64,19 +61,16 @@ public class UIGadgetEditor extends UIForm {
   public void setSource(Source source) throws Exception {
     source_ = source;
     fullName_ = source_.getName();
-    UIFormStringInput uiInputName = getUIStringInput(FIELD_NAME);
-    uiInputName.setValue(extractName(fullName_));
-    uiInputName.setEditable(false);
     UIFormTextAreaInput uiInputSource = getUIFormTextAreaInput(FIELD_SOURCE);
     uiInputSource.setValue(source_.getTextContent());
   }
   
   public String getSourceFullName() {
-    return (fullName_ != null) ? fullName_ : appendTail(getUIStringInput(FIELD_NAME).getValue());
+    return fullName_;
   }
   
   public String getSourceName() {
-    return extractName(fullName_);
+    return (fullName_ != null) ? extractName(fullName_) : null;
   }
   
   private String extractName(String fullName) {
@@ -93,10 +87,18 @@ public class UIGadgetEditor extends UIForm {
 
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
-      String name = uiForm.getUIStringInput(UIGadgetEditor.FIELD_NAME).getValue() ;
+      String name, fileName;
       String text = uiForm.getUIFormTextAreaInput(UIGadgetEditor.FIELD_SOURCE).getValue() ;
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
-      String fileName = uiForm.getSourceFullName();
+      boolean isEdit = uiForm.getSource() != null;
+      if(isEdit) {
+        fileName = uiForm.getSourceFullName();
+        name = uiForm.getSourceName();
+      }
+      else {
+        name = "gadget" + Calendar.getInstance().hashCode();
+        fileName = name + ".xml";
+      }
       Source source = new Source(fileName, "application/xml", "UTF-8");
       source.setTextContent(text);
       source.setLastModified(Calendar.getInstance());
