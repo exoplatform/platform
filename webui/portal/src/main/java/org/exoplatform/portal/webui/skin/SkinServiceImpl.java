@@ -24,6 +24,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -91,8 +92,8 @@ public class SkinServiceImpl implements SkinService {
   final String id = Long.toString(System.currentTimeMillis());
 
   public SkinServiceImpl() {
-    portalSkins_ = new HashMap<SkinKey, SkinConfig>() ;
-    skinConfigs_ = new HashMap<SkinKey, SkinConfig>(20);
+    portalSkins_ = new LinkedHashMap<SkinKey, SkinConfig>() ;
+    skinConfigs_ = new LinkedHashMap<SkinKey, SkinConfig>(20);
     availableSkins_ = new HashSet<String>(5);
     ltCache = new ConcurrentHashMap<String, String>();
     rtCache = new ConcurrentHashMap<String, String>();
