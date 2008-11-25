@@ -111,6 +111,11 @@ public class UIAddApplicationForm extends UIForm {
       ArrayList<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>(5) ;
       options.add(new SelectItemOption<String>("", String.valueOf(i))) ;
       UIFormRadioBoxInput uiRadioInput = new UIFormRadioBoxInput(FIELD_APPLICATION, "", options) ;
+      //TODO review
+      if(i == 0) {
+        uiRadioInput.setValue(options.get(0).getValue());
+      }
+      //----------------------------------------------
       uiInputSet.addChild(uiRadioInput);
       UIFormInputInfo uiInfo = new UIFormInputInfo("label", null, app.getDisplayName());
       uiInputSet.addChild(uiInfo);
@@ -195,10 +200,17 @@ public class UIAddApplicationForm extends UIForm {
         ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
         return ;
       }
+      
       UIFormRadioBoxInput uiRadio = uiForm.getUIInput("application") ;
       String displayName = uiForm.getUIStringInput(FIELD_NAME).getValue() ;
       Application tmp = uiForm.getApplications().get(Integer.parseInt(uiRadio.getValue()));
-      Application app = cloneApplication(tmp) ;
+      
+      //check portet name is exist
+      List<Application> applications = appRegService.getApplications(selectedCate, new Util.ApplicationComparator(), new String [] {});
+      boolean isPorletExist = checkPorletNameExist(applications, tmp.getApplicationName());
+      if (isPorletExist==true) return ;
+      
+      Application app = cloneApplication(tmp) ;      
       if(displayName != null && displayName.trim().length() > 0) {
         app.setDisplayName(displayName) ;
       }
@@ -208,6 +220,17 @@ public class UIAddApplicationForm extends UIForm {
       ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
+    private boolean checkPorletNameExist (List<Application> applications, String name) {
+      WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+      UIApplication uiApp = context.getUIApplication() ;
+      for(Application ele : applications) {
+        if(ele.getApplicationName().equals(name)) {
+          uiApp.addMessage(new ApplicationMessage("UIAddApplicationForm.msg.PortletExist", null)) ;
+          return true ;
+        }
+      }
+      return false;
+    }
     private Application cloneApplication(Application app){
       Application newApp = new Application();
       newApp.setApplicationName(app.getApplicationName()) ;
