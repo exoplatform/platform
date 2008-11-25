@@ -79,6 +79,16 @@
 "gadgets.securityTokenType" : "secure",
 "gadgets.securityTokenKeyFile" : "key.txt",
 
+
+"gadgets.content-rewrite" : {
+"include-urls": ".*",
+"exclude-urls": "",
+"include-tags": ["link", "script", "embed", "img", "style"],
+"expires": "86400",
+"proxy-url": "http://localhost:8080/eXoGadgetServer/gadgets/proxy?url=",
+"concat-url": "http://localhost:8080/eXoGadgetServer/gadgets/concat?"
+},
+
 // This config data will be passed down to javascript. Please
 // configure your object using the feature name rather than
 // the javascript name.

@@ -4,7 +4,7 @@
  * Created by The eXo Platform SARL
  * Author : dang.tung
  *          tungcnw@gmail.com
- * Oct 01, 2008          
+ * Oct 01, 2008
  *
 -->
 <Module>
@@ -15,14 +15,13 @@
 		description="ToDo Gadget, easily manage and track your daily to-do list."
 		thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/Todo.png"
 		height="235">
-	<Require feature="setprefs" />
+		<Require feature="setprefs"/>
 	</ModulePrefs>
-	<UserPref name="todoList" 
-    datatype="list"/>
+	<UserPref name="todoList" datatype="list"/>
 	<Content type="html">
 	<![CDATA[
 		<style type="text/css">
-		
+
 			body {
 				margin: 0;
 				outline: none;
@@ -30,15 +29,15 @@
 				text-decoration: none;
 				text-align: center;
 			}
-			
+
 			img {
 				border:none;
 			}
-			
+
 			li {
 				list-style-type:none;
 			}
-			
+
 			.clear {
 				clear:both;
 				width:0;
@@ -46,7 +45,7 @@
 				line-height:0;
 				font-size:0;
 			}
-			
+
 			.Note {
 				background: url(/eXoGadgets/skin/image/Note.jpg) top left no-repeat;
 				width: 160px;
@@ -54,16 +53,16 @@
 				margin: 0 auto;
 				padding: 42px 18px 0 18px;
 			}
-			
+
 			.write {
 				width: 155px;
 				height: 165px;
 				overflow: auto;
 			}
-			
+
 			.write input {
 				background: url(/eXoGadgets/skin/image/line.gif) bottom left repeat-x;
-				font-size: 11px; 
+				font-size: 11px;
 				color: #be0d08;
 				border: none;
 				width: 100%;
@@ -72,20 +71,19 @@
 				margin-bottom: 2px;
 				height: 18px;
 			}
-			
+
 		</style>
 		<script type="text/javascript">
-				var prefs = new gadgets.Prefs();
+				var prefs = new _IG_Prefs(__MODULE_ID__);
 				var keynum;
-				var parentGadgets = window.top.gadgets;
-				var gadget = parentGadgets.container.getGadget(prefs.getModuleId());
-				
+				//var parentGadgets = window.top.gadgets;
+				//var gadget = parentGadgets.container.getGadget(prefs.getModuleId());
+
 				function onLoad() {
+				var listsTodo = prefs.getArray("todoList");
+				console.log(prefs);
 				var appendParrent = document.getElementById("write");
-				var lists = window.top.JSON.stringify(gadget.getUserPrefs());
-				if(lists == "{}") return;
-				lists = lists.substring(1,lists.length-1);
-				var listsTodo = lists.split("|");
+
 					for(var i=0; i<listsTodo.length; i++) {
 						if(i>6) {
 							var input = document.createElement("input");
@@ -100,14 +98,23 @@
 					}
 				}
 
-				
+
+				function save() {
+					values = [];
+					for (var i = 1; i < 8; i++) {
+						values.push(document.getElementById(i).value || "");
+					}
+
+					prefs.setArray("todoList", values);
+				}
+
 				function finish(element,e) {
-					var lists = window.top.JSON.stringify(gadget.getUserPrefs());
-					if(lists.length == 0 || lists == "{}") lists = null;
+					//var lists = window.top.JSON.stringify(gadget.getUserPrefs());
+					/* if(lists.length == 0 || lists == "{}") lists = null;
 					else {
 						lists = lists.substring(1,lists.length-1);
 						var listTodo = lists.split("|");
-					}
+					}*/
 					var appendParrent = document.getElementById("write");
 					var nameElement = parseInt(element.name) + 1;
 					if(window.event) {
@@ -123,7 +130,7 @@
 						if(nameElement > 8 && element.nextSibling!=null) {
 							element.nextSibling.focus();
 							return;
-						}	
+						}
 						if(nameElement > 7) {
 							var input = document.createElement("input");
 							input.setAttribute("type","text");
@@ -145,13 +152,13 @@
 							var oldStr = listTodo[parseInt(nameElement-2)];
 							var lists = lists.replace(oldStr,element.value);
 						}
-						prefs.setArray("todoList",[lists]);
-						gadget.setUserPrefs(lists);
+						//prefs.setArray("todoList",[lists]);
+						//gadget.setUserPrefs(lists);
 						nextInput.focus();
 					}
 				}
+			    gadgets.util.registerOnLoadHandler(onLoad);
 		</script>
-		<body onload="onLoad()">
 			<div class="Note">
 	    	<div class="write" id="write">
 	        <input type="text" id="1" onfocus="javascript: if(this.value == '1. Type new task here') this.value='1.'" value="1. Type new task here" name="1" onkeydown="finish(this,event);"/>
@@ -161,9 +168,9 @@
 					<input type="text" id="5" name="5" onkeydown="finish(this,event);"/>
 					<input type="text" id="6" name="6" onkeydown="finish(this,event);"/>
 					<input type="text" id="7" name="7" onkeydown="finish(this,event);"/>
+					<a onclick="save();">Save</a>
 	      </div>
 		   </div>
-		</body>
 	]]>
 	</Content>
 </Module>

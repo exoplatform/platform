@@ -215,7 +215,7 @@ gadgets.IfrGadgetService.prototype.setTitle = function(title) {
  */
 gadgets.IfrGadgetService.prototype.setUserPref = function(editToken, name,
     value) {
-  var id = this.getGadgetIdFromModuleId(this.f);
+  var id = gadgets.container.gadgetService.getGadgetIdFromModuleId(this.f);
   var gadget = gadgets.container.getGadget(id);
   var prefs = gadget.getUserPrefs();
   for (var i = 1, j = arguments.length; i < j; i += 2) {
@@ -379,6 +379,7 @@ gadgets.Gadget = function(params) {
   if (params) {
     for (var name in params)  if (params.hasOwnProperty(name)) {
       this[name] = params[name];
+      console.log(this, name);
     }
   }
   if (!this.secureToken) {
@@ -489,16 +490,6 @@ gadgets.IfrGadget.prototype.rpcToken = (0x7FFFFFFF * Math.random()) | 0;
 gadgets.IfrGadget.prototype.rpcRelay = 'files/container/rpc_relay.html';
 
 gadgets.IfrGadget.prototype.getTitleBarContent = function(continuation) {
-  /*continuation('<div id="' + this.cssClassTitleBar + '-' + this.id +
-      '" class="' + this.cssClassTitleBar + '"><span id="' +
-      this.getIframeId() + '_title" class="' +
-      this.cssClassTitle + '">' + (this.title ? this.title : 'Title') + '</span> | <span class="' +
-      this.cssClassTitleButtonBar +
-      '"><a href="#" onclick="gadgets.container.getGadget(' + this.id +
-      ').handleOpenUserPrefsDialog();return false;" class="' + this.cssClassTitleButton +
-      '">settings</a> <a href="#" onclick="gadgets.container.getGadget(' +
-      this.id + ').handleToggle();return false;" class="' + this.cssClassTitleButton +
-      '">toggle</a></span></div>');*/
 	continuation('');
 };
 
@@ -543,7 +534,7 @@ gadgets.IfrGadget.prototype.getIframeUrl = function() {
       '&nocache=' + gadgets.container.nocache_ +
       '&country=' + gadgets.container.country_ +
       '&lang=' + gadgets.container.language_ +
-      '&view=' + gadgets.container.view_ +
+      '&view=' + (this.view || gadgets.container.view_) +
       (this.specVersion ? '&v=' + this.specVersion : '') +
       (gadgets.container.parentUrl_ ? '&parent=' + encodeURIComponent(gadgets.container.parentUrl_) : '') +
       (this.debug ? '&debug=1' : '') +
