@@ -18,7 +18,12 @@ package org.exoplatform.webui.form;
 
 import java.io.Writer;
 
+
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.w3c.dom.html.HTMLTextAreaElement;
+
+import com.lowagie.text.html.HtmlEncoder;
+
 /**
  * Represents a textarea element
  * The value is stored in UIFormInputBase
@@ -39,7 +44,7 @@ public class UIFormTextAreaInput extends UIFormStringInput {
   
   public void processRender(WebuiRequestContext context) throws Exception {
     Writer w =  context.getWriter() ;
-    String value = getValue() ;
+    String value =  getValue() ;
     if(value == null) value = getDefaultValue();
     w.append("<textarea class='textarea' name='").append(getName()).
       append("' id='").append(getId()).append("'");
@@ -48,7 +53,8 @@ public class UIFormTextAreaInput extends UIFormStringInput {
     w.append(" rows=\"").append(String.valueOf(rows)).append("\"");
     w.append(" cols=\"").append(String.valueOf(columns)).append("\"");
     w.write(">");
-    if(value != null) w.write(value) ;  
+    
+    if(value != null) w.write(HtmlEncoder.encode(value)) ;  
     w.write("</textarea>");
     if (this.isMandatory()) w.write(" *");
   }
