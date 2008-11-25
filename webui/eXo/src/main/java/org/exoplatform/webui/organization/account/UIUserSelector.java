@@ -80,7 +80,7 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
     addUIFormInput(new UIFormStringInput(FIELD_GROUP, FIELD_GROUP, null)) ;
     isShowSearch_ = true ;
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
-    ObjectPageList objPageList = new ObjectPageList(service.getUserHandler().findUsers(new Query()).currentPage(), 2) ;
+    ObjectPageList objPageList = new ObjectPageList(service.getUserHandler().findUsers(new Query()).getAll(), 10) ;
     uiIterator_ = new UIPageIterator() ;
     uiIterator_.setPageList(objPageList) ;
     uiIterator_.setId("UISelectUserPage") ;

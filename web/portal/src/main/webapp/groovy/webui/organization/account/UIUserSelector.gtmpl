@@ -25,8 +25,8 @@
                   	</div>
                   	<div class="GroupInput">
                   		<%uiform.renderField(uiform.FIELD_GROUP)%>
+                  		<a class="SearchIcon" style="display: none" href="<%=uicomponent.event('FindGroup')%>"><span></span></a>
                   	</div>
-                  	<a class="SearchIcon" style="display: none" href="<%=uicomponent.event('FindGroup')%>"><span></span></a>
                   	<a class="SearchIcon" href="<%=uicomponent.event('SearchGroup')%>" title="<%=uiform.getLabel(uiform.FIELD_GROUP)%>"><span></span></a>
                   
                     <%uiform.renderField(uiform.FIELD_KEYWORD)%>
