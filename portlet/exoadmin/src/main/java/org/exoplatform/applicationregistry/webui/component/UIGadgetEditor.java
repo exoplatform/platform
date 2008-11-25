@@ -23,8 +23,10 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.portal.webui.application.GadgetUtil;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -87,8 +89,10 @@ public class UIGadgetEditor extends UIForm {
 
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
+      UIGadgetManagement uiManagement = uiForm.getParent() ;
       String name, fileName;
       String text = uiForm.getUIFormTextAreaInput(UIGadgetEditor.FIELD_SOURCE).getValue() ;
+      GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
       boolean isEdit = uiForm.getSource() != null;
       if(isEdit) {
@@ -99,13 +103,19 @@ public class UIGadgetEditor extends UIForm {
         name = "gadget" + Calendar.getInstance().hashCode();
         fileName = name + ".xml";
       }
+      if(isEdit) {
+        if(service.getGadget(name) == null) {
+          UIApplication uiApp = event.getRequestContext().getUIApplication();
+          uiApp.addMessage(new ApplicationMessage("gadget.msg.changeNotExist", null));
+          uiManagement.reload();
+          return;
+        }
+      }
       Source source = new Source(fileName, "application/xml", "UTF-8");
       source.setTextContent(text);
       source.setLastModified(Calendar.getInstance());
       sourceStorage.saveSource(null, source) ;
-      GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(fileName), true)) ;
-      UIGadgetManagement uiManagement = uiForm.getParent() ;
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;

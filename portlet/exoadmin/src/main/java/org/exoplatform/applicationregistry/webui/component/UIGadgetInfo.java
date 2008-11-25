@@ -27,8 +27,11 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.portal.webui.application.GadgetUtil;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -66,13 +69,20 @@ public class UIGadgetInfo extends UIComponent {
     
     public void execute(Event<UIGadgetInfo> event) throws Exception {
       UIGadgetInfo uiInfo = event.getSource() ;
+      WebuiRequestContext ctx = event.getRequestContext();
+      UIGadgetManagement uiManagement = uiInfo.getParent() ;
       Gadget gadget = uiInfo.getGadget();
       GadgetRegistryService service = uiInfo.getApplicationComponent(GadgetRegistryService.class) ;
+      if(service.getGadget(gadget.getName()) == null) {
+        UIApplication uiApp = ctx.getUIApplication();
+        uiApp.addMessage(new ApplicationMessage("UIGadgetInfo.msg.gadgetNotExist", null));
+        uiManagement.reload();
+        return;
+      }
       service.saveGadget(GadgetUtil.toGadget(gadget.getName(), gadget.getUrl(), gadget.isLocal())) ;
-      UIGadgetManagement uiManagement = uiInfo.getParent() ;
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(gadget.getName());
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
+      ctx.addUIComponentToUpdateByAjax(uiManagement) ;      
     }
     
   }
@@ -81,8 +91,16 @@ public class UIGadgetInfo extends UIComponent {
     
     public void execute(Event<UIGadgetInfo> event) throws Exception {
       UIGadgetInfo uiInfo = event.getSource() ;
+      UIGadgetManagement uiManagement = uiInfo.getParent() ;
       String url = uiInfo.getGadget().getUrl();
       String name = uiInfo.getGadget().getName();
+      GadgetRegistryService service = uiInfo.getApplicationComponent(GadgetRegistryService.class) ;
+      if(service.getGadget(name) == null) {
+        UIApplication uiApp = event.getRequestContext().getUIApplication();
+        uiApp.addMessage(new ApplicationMessage("UIGadgetInfo.msg.gadgetNotExist", null));
+        uiManagement.reload();
+        return;
+      }
       URL urlObj = new URL(url) ;
       URLConnection conn = urlObj.openConnection() ;
       InputStream is = conn.getInputStream() ;
@@ -92,9 +110,7 @@ public class UIGadgetInfo extends UIComponent {
       source.setTextContent(IOUtils.toString(is, "UTF-8"));
       source.setLastModified(Calendar.getInstance());
       sourceStorage.saveSource(null, source) ;
-      GadgetRegistryService service = uiInfo.getApplicationComponent(GadgetRegistryService.class) ;
       service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(fileName), true)) ;
-      UIGadgetManagement uiManagement = uiInfo.getParent() ;
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
@@ -106,9 +122,16 @@ public class UIGadgetInfo extends UIComponent {
     
     public void execute(Event<UIGadgetInfo> event) throws Exception {
       UIGadgetInfo uiInfo = event.getSource();
-      UIGadgetManagement uiManagement = uiInfo.getParent();
-      SourceStorage sourceStorage = uiManagement.getApplicationComponent(SourceStorage.class);
       Gadget gadget = uiInfo.getGadget();
+      UIGadgetManagement uiManagement = uiInfo.getParent();
+      GadgetRegistryService service = uiInfo.getApplicationComponent(GadgetRegistryService.class) ;
+      if(service.getGadget(gadget.getName()) == null) {
+        UIApplication uiApp = event.getRequestContext().getUIApplication();
+        uiApp.addMessage(new ApplicationMessage("UIGadgetInfo.msg.gadgetNotExist", null));
+        uiManagement.reload();
+        return;
+      }
+      SourceStorage sourceStorage = uiManagement.getApplicationComponent(SourceStorage.class);
       UIGadgetEditor uiEditor = uiManagement.createUIComponent(UIGadgetEditor.class, null, null);
       String fileName = gadget.getName() + ".xml";
       Source source = sourceStorage.getSource(fileName);

@@ -131,6 +131,12 @@ public class UIGadgetManagement extends UIContainer {
       UIGadgetManagement uiManagement = event.getSource() ;
       WebuiRequestContext ctx = event.getRequestContext();
       String name = ctx.getRequestParameter(OBJECTID) ;
+      GadgetRegistryService service = uiManagement.getApplicationComponent(GadgetRegistryService.class) ;
+      if(service.getGadget(name) == null) {
+        uiManagement.reload();
+        ctx.addUIComponentToUpdateByAjax(uiManagement) ;
+        return;
+      }
       UIGadgetEditor uiEditor = uiManagement.getChild(UIGadgetEditor.class);
       if(uiEditor != null) {
         Source source = uiEditor.getSource();
@@ -140,7 +146,6 @@ public class UIGadgetManagement extends UIContainer {
           return;
         }
       }
-      GadgetRegistryService service = uiManagement.getApplicationComponent(GadgetRegistryService.class) ;
       service.removeGadget(name) ;
       Gadget gadget = uiManagement.getGadget(name);
       if(gadget.isLocal()) {
