@@ -18,7 +18,6 @@ package org.exoplatform.webui.form;
 
 import java.io.Writer;
 
-import org.apache.commons.lang.StringEscapeUtils;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
@@ -50,7 +49,7 @@ public class UIFormTextAreaInput extends UIFormStringInput {
     w.append(" rows=\"").append(String.valueOf(rows)).append("\"");
     w.append(" cols=\"").append(String.valueOf(columns)).append("\"");
     w.write(">");
-    if(value != null) w.write(StringEscapeUtils.escapeHtml(value)) ;  
+    if(value != null) w.write(value) ;  
     w.write("</textarea>");
     if (this.isMandatory()) w.write(" *");
   }
