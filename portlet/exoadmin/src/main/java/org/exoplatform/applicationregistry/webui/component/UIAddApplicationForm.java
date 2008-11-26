@@ -44,6 +44,7 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInputInfo;
 import org.exoplatform.webui.form.UIFormInputSet;
@@ -52,6 +53,7 @@ import org.exoplatform.webui.form.UIFormRadioBoxInput;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.UIFormTableInputSet;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
  * Created by The eXo Platform SAS
@@ -65,7 +67,7 @@ import org.exoplatform.webui.form.UIFormTableInputSet;
     events = {
       @EventConfig(listeners = UIAddApplicationForm.ChangeTypeActionListener.class),
       @EventConfig(listeners = UIAddApplicationForm.AddActionListener.class),
-      @EventConfig(listeners = UIAddApplicationForm.CancelActionListener.class)
+      @EventConfig(listeners = UIAddApplicationForm.CancelActionListener.class, phase = Phase.DECODE)
     }
 )
 public class UIAddApplicationForm extends UIForm {
@@ -78,7 +80,8 @@ public class UIAddApplicationForm extends UIForm {
   private List<Application> applications_ = new ArrayList<Application>() ;
   
   public UIAddApplicationForm() throws Exception {
-    addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null)) ;
+    addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null).
+                   addValidator(StringLengthValidator.class, 3, 30) ) ;
     List<SelectItemOption<String>> types = new ArrayList<SelectItemOption<String>>(2) ;
     types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) ;
     types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) ;
