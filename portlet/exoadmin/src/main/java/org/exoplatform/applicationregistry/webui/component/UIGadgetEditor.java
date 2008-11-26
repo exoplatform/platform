@@ -18,12 +18,14 @@ package org.exoplatform.applicationregistry.webui.component;
 
 import java.util.Calendar;
 
+import org.apache.commons.lang.StringEscapeUtils;
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
@@ -49,6 +51,7 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
 )
 public class UIGadgetEditor extends UIForm {
   
+
   final static public String FIELD_SOURCE = "source" ;
   
   private Source source_;
@@ -74,6 +77,14 @@ public class UIGadgetEditor extends UIForm {
   public String getSourceName() {
     return (fullName_ != null) ? extractName(fullName_) : null;
   }
+  
+  public void processRender(WebuiRequestContext context) throws Exception {
+    UIFormTextAreaInput uiInputSource = getUIFormTextAreaInput(FIELD_SOURCE);
+    String encoded = StringEscapeUtils.escapeHtml(uiInputSource.getValue());
+    uiInputSource.setValue(encoded);
+    super.processRender(context);
+  }
+  
   
   private String extractName(String fullName) {
     int idx = fullName.indexOf('.');
