@@ -26,14 +26,19 @@ import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.portal.webui.application.GadgetUtil;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.config.InitParams;
+import org.exoplatform.webui.config.Param;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 
 /**
  * Created by The eXo Platform SAS
@@ -44,9 +49,13 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
     template = "system:/groovy/webui/form/UIForm.gtmpl",
+    initParams = @ParamConfig(
+      name = "SampleGadget",
+      value = "app:/WEB-INF/conf/uiconf/applicationregistry/component/SampleGadget.groovy"
+                              ),
     events = {
       @EventConfig(listeners = UIGadgetEditor.SaveActionListener.class),
-      @EventConfig(listeners = UIGadgetEditor.CancelActionListener.class)
+      @EventConfig(listeners = UIGadgetEditor.CancelActionListener.class, phase = Phase.DECODE)
     }
 )
 public class UIGadgetEditor extends UIForm {
@@ -57,8 +66,11 @@ public class UIGadgetEditor extends UIForm {
   private Source source_;
   private String fullName_;
   
-  public UIGadgetEditor() throws Exception {
-    addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, null)) ;
+  public UIGadgetEditor(InitParams initParams) throws Exception {
+    Param param = initParams.getParam("SampleGadget");
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    String sample = param.getMapGroovyObject(context);
+    addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, sample).addValidator(MandatoryValidator.class)) ;
   }
   
   public Source getSource() { return source_; }
