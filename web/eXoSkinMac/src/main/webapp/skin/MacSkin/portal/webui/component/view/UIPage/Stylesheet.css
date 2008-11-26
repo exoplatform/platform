@@ -1,72 +1,72 @@
 /*##############################-Page Layout Decorator-################################*/
 
-.UIPage .VIEW-PAGE {
-  padding: 0px;
-}
-
-.UIPage .PageLayoutDecorator .TopLeftPage {
+.UIPageBody .PageLayoutDecorator .TopLeftPage {
   background: url('background/PageLayout.png') no-repeat left top;
   padding: 0px 0px 0px 142px ;
 }
 
-.UIPage .PageLayoutDecorator .TopRightPage {
+.UIPageBody .PageLayoutDecorator .TopRightPage {
   background: url('background/PageLayout.png') no-repeat right -114px;
   padding: 0px 72px 0px 0px ; 
 }
 
-.UIPage .PageLayoutDecorator .TopCenterPage {
+.UIPageBody .PageLayoutDecorator .TopCenterPage {
   line-height: 104px; white-space: nowrap;
   color: #1f2020;  text-align: center;
 	font-weight: bold;
   background: url('background/PageLayout.png') repeat-x center -228px;  
 }
 
-.UIPage .PageLayoutDecorator .TopCenterPage .PageContent {
+.UIPageBody .PageLayoutDecorator .TopCenterPage .PageContent {
 	height: 104px;
 }
 
-.UIPage .PageLayoutDecorator .MiddleLeftPage {
+.UIPageBody .PageLayoutDecorator .MiddleLeftPage {
   background: url('background/MiddlePageLayout.png') repeat-y left ;
   padding: 0px 0px 0px 12px ; 
 }
 
-.UIPage .PageLayoutDecorator .MiddleRightPage {
+.UIPageBody .PageLayoutDecorator .MiddleRightPage {
   background: url('background/MiddlePageLayout.png') repeat-y right;
   padding: 0px 13px 0px 0px ;
 }
 
-.UIPage .PageLayoutDecorator .MiddlePageBG {
+.UIPageBody .PageLayoutDecorator .MiddlePageBG {
   background: url('background/Pagebackground1x111.gif') repeat-x center ;
 }
 
-.UIPage .PageLayoutDecorator .MiddlePageBG .FixBug {
+.UIPageBody .PageLayoutDecorator .MiddlePageBG .FixBug {
 	height: 90px;
 }
 
-.UIPage .PageLayoutDecorator .PageContent {
+.UIPageBody .PageLayoutDecorator .PageContent {
   padding: 6px 10px 0px 10px; 
   height: 104px;
 }
 
-.UIPage .PageLayoutDecorator .BottomLeftPage {
+.UIPageBody .PageLayoutDecorator .BottomLeftPage {
   background: url('background/PageLayout.png') no-repeat left -342px;
   padding: 0px 0px 0px 14px ;
 }
 
-.UIPage .PageLayoutDecorator .BottomRightPage {
+.UIPageBody .PageLayoutDecorator .BottomRightPage {
   background: url('background/PageLayout.png') no-repeat right -359px ;
   padding: 0px 15px 0px 0px ; 
 }
 
-.UIPage .PageLayoutDecorator .BottomCenterPage {
+.UIPageBody .PageLayoutDecorator .BottomCenterPage {
   line-height: 17px ;   
   background: url('background/PageLayout.png') repeat-x bottom; 
 }
 
-.UIPage .PageLayoutDecorator .BottomCenterPage .FixBug {
+.UIPageBody .PageLayoutDecorator .BottomCenterPage .FixBug {
   height: 17px;
 }
 
 .UIPage .UIRowContainer {
 	padding: 1px;
+}
+
+.UIPage .VIEW-PAGE {
+  padding: 0px;
 }
