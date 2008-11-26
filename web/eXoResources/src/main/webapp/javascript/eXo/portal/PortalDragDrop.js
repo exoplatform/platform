@@ -73,7 +73,6 @@ PortalDragDrop.prototype.init = function(e) {
     if((dndEvent.foundTargetObject) && (dndEvent.lastFoundTargetObject)) {
       /*Check and asign UIPage to uiComponentLayout when DND on UIPage*/
       var uiComponentLayout ;
-      window.status = dndEvent.foundTargetObject.className ;
       if(dndEvent.foundTargetObject.className == "UIPage") {
         uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "VIEW-PAGE") ;
       } else if(dndEvent.foundTargetObject.className == "UIPortal") {

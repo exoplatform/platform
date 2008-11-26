@@ -16,7 +16,7 @@ Resize.prototype.start = function(e)	{
 	Resize.obj.initMouseY = browser.findMouseYInPage(e);
 	Resize.obj.initWidth = parseInt(o.oToResizeWidth.style.width) ;
 	Resize.obj.initHeight = parseInt(o.oToResizeHeight.style.height);
-	window.status = Resize.obj.initWidth + " : " + Resize.obj.initHeight;
+//	window.status = Resize.obj.initWidth + " : " + Resize.obj.initHeight;
 	document.onmousemove = Resize.drag;
 	document.onmouseup = Resize.end;
 	return false;

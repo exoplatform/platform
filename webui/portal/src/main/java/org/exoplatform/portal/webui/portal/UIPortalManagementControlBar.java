@@ -173,6 +173,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
       }
       
       UIPortal uiPortal = Util.getUIPortal();
+      Util.getUIPortalApplication().setEditting(false) ;
       PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
            PageNodeEvent.CHANGE_PAGE_NODE, uiPortal.getSelectedNode().getUri()) ;
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ; 
@@ -187,6 +188,7 @@ public class UIPortalManagementControlBar extends UIToolbar {
       PortalRequestContext prContext = Util.getPortalRequestContext();  
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
       configService.update(uiPortalApp.getUserPortalConfig().getPortalConfig());
+      uiPortalApp.setEditting(false) ;
       
       String remoteUser = prContext.getRemoteUser();
       String ownerUser = prContext.getPortalOwner();   

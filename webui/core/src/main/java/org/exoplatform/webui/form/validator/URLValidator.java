@@ -32,8 +32,8 @@ public class URLValidator implements Validator {
   
   static private final String IP_REGEX = "(((25[0-5])|(2[0-4][0-9])|([01]?[0-9]?[0-9]))\\.){3}((25[0-5])|(2[0-4][0-9])|([01]?[0-9]?[0-9]))" ;
   static public final String URL_REGEX = 
-    "^(ht|f)tp(s?)://(\\w+:\\w+@)?(("+ IP_REGEX +")|([a-zA-Z][-a-zA-Z0-9]+)|((www.)?(\\w+\\.){1,2}(\\w{2,5})))" +
-    "(:\\d{1,5})?($|((/[+a-zA-Z0-9 -]+/?)+|/?))(\\w+\\.\\w+)?([?]?(\\w+=\\w+)(&\\w+=\\w+)*)?" ;
+    "^(ht|f)tp(s?)://(\\w+:\\w+@)?(("+ IP_REGEX +")|([a-zA-Z][-a-zA-Z0-9]+)|((www.)?(\\S+\\.){1,2}(\\w{2,5})))" +
+    "(:\\d{1,5})?($|((/\\w+/?)+|/?))(\\w+\\.\\w+)?([?]?(\\w+=\\w+)(&\\w+=\\w+)*)?" ;
   
   private String key_ ;
   

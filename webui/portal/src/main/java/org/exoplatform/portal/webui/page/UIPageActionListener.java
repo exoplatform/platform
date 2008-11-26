@@ -23,6 +23,7 @@ import javax.portlet.WindowState;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.application.UserGadgetStorage;
+import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -60,7 +61,14 @@ public class UIPageActionListener {
       UIPortal uiPortal = pnevent.getSource();
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      uiPortalApp.setEditting(false) ;
+      if(uiPortalApp.isEditting()) {
+        UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class) ;
+        String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
+        UserPortalConfig portalConfig = configService.getUserPortalConfig(uiPortal.getOwner(), remoteUser) ;
+        uiPortal.getChildren().clear() ;
+        PortalDataMapper.toUIPortal(uiPortal, portalConfig) ;
+        uiPortalApp.setEditting(false) ;
+      }
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = Util.getPortalRequestContext();     
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);      
