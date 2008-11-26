@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.exoplatform.portal.account.UIAccountSetting;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -40,6 +41,8 @@ import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.Recov
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RemoveJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIExoStart;
+import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
@@ -61,7 +64,8 @@ import org.exoplatform.webui.event.EventListener;
       @EventConfig(listeners = UIPortal.LogoutActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = ChangeLanguageActionListener.class),
-      @EventConfig(listeners = RecoveryPasswordAndUsernameActionListener.class)
+      @EventConfig(listeners = RecoveryPasswordAndUsernameActionListener.class),
+      @EventConfig(listeners = UIPortal.AccountSettingsActionListener.class)
     }
 )
 public class UIPortal extends UIContainer { 
@@ -204,5 +208,18 @@ public class UIPortal extends UIContainer {
       WebuiRequestContext context = event.getRequestContext();
       uiPortlet.createEvent("ChangeWindowState", event.getExecutionPhase(), context).broadcast();
     }
-  }
+  }  
+  
+  public static class AccountSettingsActionListener extends EventListener<UIPortal> {
+	    public void execute(Event<UIPortal> event) throws Exception {
+	      UIPortal uiPortal = Util.getUIPortal() ;
+	      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class) ;
+	      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+	     
+	      UIAccountSetting uiAccountForm = uiMaskWS.createUIComponent(UIAccountSetting.class, null, null) ;
+	      uiMaskWS.setUIComponent(uiAccountForm) ;
+	      uiMaskWS.setShow(true) ;
+	      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
+	    }
+	  }	  
 }

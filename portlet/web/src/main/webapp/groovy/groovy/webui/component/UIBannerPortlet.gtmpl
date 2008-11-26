@@ -7,6 +7,7 @@
 	String signInAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ShowLoginForm', true));" ;
 	String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));" ;
 	String portletId = uicomponent.getId() ;	
+	String accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
 %>
 <div id="$portletId" class="UIBannerPortlet UIApplication">
 	<div class="ApplicationMinWidth">
@@ -22,9 +23,9 @@
 							<div class="MiddleLoginContainer">
 								<div class="Name">
 									<%=_ctx.appRes("UILogged.note.loggedUser")%>
-									<span style="padding: 0px 10px 0px 2px; color: red; font-weight:bold;">
-										<%=prContext.getRemoteUser();%> 
-									</span>
+									<a style="padding: 0px 10px 0px 2px; color: red; font-weight:bold; cursor:pointer;" href="$accountSetting">
+										<%=prContext.getRemoteUser();%>
+									</a>
 								</div>
 								<a class="Logout" onclick="eXo.portal.logout();"><%=_ctx.appRes("UILogged.action.signout")%></a>
 								<a class="Language" onclick="$changeLanguageAction"><%=_ctx.appRes("UIExoStart.item.ChangeLanguage")%></a>
