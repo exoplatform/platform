@@ -67,6 +67,8 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
 
   protected Map<String, User> userData_ = new HashMap<String, User>() ;
   private boolean isShowSearch_ = false ;
+  private boolean isShowSearchGroup = true;
+  private boolean isShowSearchUser = true;
   protected String groupId_ = null ;
   protected Collection<String> pars_ ;
   public UIPageIterator uiIterator_ ;
@@ -156,6 +158,22 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
   public boolean isShowSearch() {
     return isShowSearch_;
   }
+  
+  public void setShowSearchGroup(boolean isShowSearchGroup) {
+    this.isShowSearchGroup = isShowSearchGroup;
+  }
+  public boolean isShowSearchGroup() {
+    return isShowSearchGroup;
+  }
+  
+  public void setShowSearchUser(boolean isShowSearchUser) {
+    this.isShowSearchUser = isShowSearchUser;
+  }
+  
+  public boolean isShowSearchUser() {
+    return isShowSearchUser;
+  }
+  
   public String getSelectedGroup() {
     return getUIStringInput(FIELD_GROUP).getValue();
   }

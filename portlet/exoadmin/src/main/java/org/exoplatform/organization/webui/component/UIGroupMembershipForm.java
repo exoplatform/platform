@@ -23,25 +23,24 @@ import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
-import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIGrid;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
-import org.exoplatform.webui.form.UISearchForm;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
+import org.exoplatform.webui.organization.account.UIUserSelector;
 /**
  * Created by The eXo Platform SARL
  * Author : chungnv
@@ -49,34 +48,45 @@ import org.exoplatform.webui.form.validator.MandatoryValidator;
  * Jun 23, 2006
  * 1:55:22 PM 
  */
-@ComponentConfig(
-  lifecycle = UIFormLifecycle.class,
-  template = "app:/groovy/organization/webui/component/UIGroupMembershipForm.gtmpl",
-  events = {
-      @EventConfig(listeners = UIGroupMembershipForm.SaveActionListener.class),
-      @EventConfig(phase = Phase.DECODE ,listeners = UIGroupMembershipForm.SearchUserActionListener.class),
-      @EventConfig(listeners = UIGroupMembershipForm.RefreshActionListener.class, phase = Phase.DECODE)
-    }
-)
+@ComponentConfigs ({
+  @ComponentConfig(
+     lifecycle = UIFormLifecycle.class,
+     template = "app:/groovy/organization/webui/component/UIGroupMembershipForm.gtmpl",
+     events = {
+       @EventConfig(listeners = UIGroupMembershipForm.SaveActionListener.class),
+       @EventConfig(phase = Phase.DECODE ,listeners = UIGroupMembershipForm.SearchUserActionListener.class),
+       @EventConfig(listeners = UIGroupMembershipForm.RefreshActionListener.class, phase = Phase.DECODE)
+     }
+  ),
+  
+  @ComponentConfig(
+     type = UIPopupWindow.class,
+     id = "SearchUser",
+     template =  "system:/groovy/webui/core/UIPopupWindow.gtmpl",
+     events = {
+       @EventConfig(listeners = UIPopupWindow.CloseActionListener.class, name = "ClosePopup")  ,
+       @EventConfig(listeners = UIGroupMembershipForm.AddUserActionListener.class, name = "AddUser", phase = Phase.DECODE)
+     }
+  )
+})
 public class UIGroupMembershipForm extends UIForm {  
     
   private List<SelectItemOption<String>> listOption = new ArrayList<SelectItemOption<String>>();
   
-  @SuppressWarnings("unchecked")
   public UIGroupMembershipForm() throws Exception {
     addUIFormInput(new UIFormStringInput("username", "username", null).
                    addValidator(MandatoryValidator.class));
     addUIFormInput(new UIFormSelectBox("membership","membership", listOption).setSize(1));
-    UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, null, "SearchUser");
+    UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, "SearchUser", "SearchUser");
     searchUserPopup.setWindowSize(640, 0); 
-    UIListUsers listUsers = createUIComponent(UIListUsers.class, null, "ListUserForSearch");
-    searchUserPopup.setUIComponent(listUsers);
-    UIGrid grid = listUsers.findFirstComponentOfType(UIGrid.class);
-    grid.setId("SearchUserGrid");
-    grid.configure(grid.getBeanIdField(), grid.getBeanFields(), new String[]{"SelectUser"});
-    grid.getUIPageIterator().setId("SearchUserPageIterator");
-    
-    listUsers.getChild(UISearchForm.class).setId("SearchUserForm");
+//    UIListUsers listUsers = createUIComponent(UIListUsers.class, null, "ListUserForSearch");
+//    searchUserPopup.setUIComponent(listUsers);
+//    UIGrid grid = listUsers.findFirstComponentOfType(UIGrid.class);
+//    grid.setId("SearchUserGrid");
+//    grid.configure(grid.getBeanIdField(), grid.getBeanFields(), new String[]{"SelectUser"});
+//    grid.getUIPageIterator().setId("SearchUserPageIterator");
+//    
+//    listUsers.getChild(UISearchForm.class).setId("SearchUserForm");
     loadData();
   } 
   
@@ -118,6 +128,18 @@ public class UIGroupMembershipForm extends UIForm {
     listOption.add(option) ;
   }
   
+  static  public class AddUserActionListener extends EventListener<UIUserSelector> {
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiForm = event.getSource();
+      UIGroupMembershipForm uiParent = uiForm.getAncestorOfType(UIGroupMembershipForm.class);
+      uiParent.setUserName(uiForm.getSelectedUsers());
+      UIPopupWindow uiPopup = uiParent.getChild(UIPopupWindow.class);
+      uiPopup.setUIComponent(null);
+      uiPopup.setShow(false);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
+    }  
+  }
+  
   static  public class SaveActionListener extends EventListener<UIGroupMembershipForm> {
     public void execute(Event<UIGroupMembershipForm> event) throws Exception {
       UIGroupMembershipForm uiForm = event.getSource() ;
@@ -156,14 +178,18 @@ public class UIGroupMembershipForm extends UIForm {
     public void execute(Event<UIGroupMembershipForm> event) throws Exception {
       UIGroupMembershipForm uiGroupForm = event.getSource() ;
       UIPopupWindow searchUserPopup = uiGroupForm.getChild(UIPopupWindow.class);
+      UIUserSelector userSelector = uiGroupForm.createUIComponent(UIUserSelector.class, null, null);
+      userSelector.setMulti(false);
+      userSelector.setShowSearchGroup(false);
+      searchUserPopup.setUIComponent(userSelector);
       searchUserPopup.setShow(true);
-      UIListUsers form = (UIListUsers) searchUserPopup.getUIComponent();
       //modified by Pham Dinh Tan
-      String name = uiGroupForm.getUIStringInput("username").getValue();
-      UISearchForm uiSearchForm = form.getUISearchForm();
-      uiSearchForm.getUIStringInput("searchTerm").setValue(name);
-      uiSearchForm.getUIFormSelectBox("searchOption").setValue(UIListUsers.USER_NAME);
-      form.quickSearch(uiSearchForm.getQuickSearchInputSet()) ;
+      //UIListUsers form = (UIListUsers) searchUserPopup.getUIComponent();
+//      String name = uiGroupForm.getUIStringInput("username").getValue();
+//      UISearchForm uiSearchForm = form.getUISearchForm();
+//      uiSearchForm.getUIStringInput("searchTerm").setValue(name);
+//      uiSearchForm.getUIFormSelectBox("searchOption").setValue(UIListUsers.USER_NAME);
+//      form.quickSearch(uiSearchForm.getQuickSearchInputSet();
 //      Query query = new Query();      
 //      String name = uiGroupForm.getUIStringInput("username").getValue();
 //      if(name == null || name.length() < 1){  name = "*"; } 

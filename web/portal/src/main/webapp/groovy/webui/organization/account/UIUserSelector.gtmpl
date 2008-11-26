@@ -6,7 +6,7 @@
  boolean isMulti = uicomponent.getMulti();
  rcontext.getJavascriptManager().addJavascript('eXo.webui.UIUserSelector.init("'+uiform.id+'") ;') ;
  rcontext.getJavascriptManager().addJavascript('eXo.webui.UIUserSelector.captureInput("'+uiform.FIELD_KEYWORD+'","'+uicomponent.event('Search')+'") ;') ;
- rcontext.getJavascriptManager().addJavascript('eXo.webui.UIUserSelector.captureInput("'+uiform.FIELD_GROUP+'","'+uicomponent.event('FindGroup',uicomponent.getSelectedGroup())+'") ;') ;
+ if(uicomponent.isShowSearchGroup()) rcontext.getJavascriptManager().addJavascript('eXo.webui.UIUserSelector.captureInput("'+uiform.FIELD_GROUP+'","'+uicomponent.event('FindGroup',uicomponent.getSelectedGroup())+'") ;') ;
 %> 
 <div class="UIUserSelector">
   <div class="SelectUserContainer">
@@ -18,8 +18,8 @@
 	          <div class="LeftBar">
 	            <div class="RightBar">
 	              <div class="MiddleBar">
-	                
 	              	<div class="UIAddressSearchForm">
+	                	<% if(uicomponent.isShowSearchGroup()) { %>
                   	<div class="AddressLabel">
                   		<%=uiform.getLabel(uiform.FIELD_GROUP)%>
                   	</div>
@@ -28,12 +28,17 @@
                   		<a class="SearchIcon" style="display: none" href="<%=uicomponent.event('FindGroup')%>"><span></span></a>
                   	</div>
                   	<a class="SearchIcon" href="<%=uicomponent.event('SearchGroup')%>" title="<%=uiform.getLabel(uiform.FIELD_GROUP)%>"><span></span></a>
-                  
+                  	<% } %>
+                  	<% if(uicomponent.isShowSearchUser()) { %>
+                    <div class="AddressLabel">
+											<%=uiform.getLabel('user')%>
+                  	</div>
                     <%uiform.renderField(uiform.FIELD_KEYWORD)%>
                   	<div class="FilterSelect">
                   		<%uiform.renderField(uiform.FIELD_FILTER)%>
                   	</div>  
                   	<a class="SearchIcon" href="<%=uicomponent.event('Search')%>" title="<%=uiform.getLabel(uiform.FIELD_KEYWORD)%>"><span></span></a>
+                  	<% } %>
                   	<div style="clear: left"><span></span></div>
 	                </div>
 	                
@@ -54,7 +59,13 @@
 	                <th style="width: 30px;"><input type="checkbox" class="checkbox" value="4" /></th>
 	                <% } %>
 	                <th>
-	                  <%=uiform.getLabel('name')%>
+	                  <%=uiform.getLabel('userName')%>
+	                </th>
+	                <th>
+	                  <%=uiform.getLabel('firstName')%>
+	                </th>
+	                <th>
+	                  <%=uiform.getLabel('lastName')%>
 	                </th>
 	                <th>
 	                  <%=uiform.getLabel('email')%>
@@ -79,8 +90,10 @@
 	                    </div>
 	                  </td>
 	                  <% } %>
-	                  <td><div class="Text"><%=data.getFullName() != null ? data.getFullName() : data.getUserName()%></div></td>
-	                  <td><div class="Text"><%=data.getEmail() != null ? data.getEmail() : "" %></div></td>
+	                  <td><div class="Text"><%=data.getUserName() != null ? data.getUserName() : ""%></div></td>
+	                  <td><div class="Text"><%=data.getFirstName() != null ? data.getFirstName() : "" %></div></td>
+	                  <td><div class="Text"><%=data.getLastName() != null ? data.getLastName() : ""%></div></td>
+	                  <td><div class="Text"><%=data.getEmail() != null ? data.getEmail() : ""%></div></td>
 	                  <% if(!isMulti) {
 	                  	 String addAction = uicomponent.event("AddUser", data.getUserName()) + "; return false;";
 	                  %>
