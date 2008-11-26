@@ -208,32 +208,25 @@ public class UIAddApplicationForm extends UIForm {
       String displayName = uiForm.getUIStringInput(FIELD_NAME).getValue() ;
       Application tmp = uiForm.getApplications().get(Integer.parseInt(uiRadio.getValue()));
       
-      //check portet name is exist
-      List<Application> applications = appRegService.getApplications(selectedCate, new Util.ApplicationComparator(), new String [] {});
-      boolean isPorletExist = checkPorletNameExist(applications, tmp.getApplicationName());
-      if (isPorletExist==true) return ;
+      // check portet name is exist
+      if (appRegService.getApplication(tmp.getApplicationGroup(), tmp.getApplicationName()) != null) {
+        WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+        UIApplication uiApp = context.getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIAddApplicationForm.msg.PortletExist", null)) ;
+        return;
+      }
       
       Application app = cloneApplication(tmp) ;      
       if(displayName != null && displayName.trim().length() > 0) {
         app.setDisplayName(displayName) ;
       }
+      
       appRegService.save(selectedCate, app) ;
       uiOrganizer.setSelectedCategory(selectedCate);
       uiOrganizer.selectApplication(app.getApplicationName()) ;
       ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
     }
     
-    private boolean checkPorletNameExist (List<Application> applications, String name) {
-      WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-      UIApplication uiApp = context.getUIApplication() ;
-      for(Application ele : applications) {
-        if(ele.getApplicationName().equals(name)) {
-          uiApp.addMessage(new ApplicationMessage("UIAddApplicationForm.msg.PortletExist", null)) ;
-          return true ;
-        }
-      }
-      return false;
-    }
     private Application cloneApplication(Application app){
       Application newApp = new Application();
       newApp.setApplicationName(app.getApplicationName()) ;
