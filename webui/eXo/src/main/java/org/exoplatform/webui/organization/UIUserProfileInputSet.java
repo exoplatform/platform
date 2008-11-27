@@ -141,7 +141,7 @@ public class UIUserProfileInputSet extends UIFormInputSet {
       UIFormInputSet inputSet = (UIFormInputSet) set ;
       for(UIComponent uiComp : inputSet.getChildren()) {
         UIFormStringInput uiInput = (UIFormStringInput) uiComp ;
-        if(uiInput.getValue() == null || uiInput.getValue().length() < 1) continue;
+        //if(uiInput.getValue() == null || uiInput.getValue().length() < 1) continue;
         userProfile.getUserInfoMap().put(uiInput.getName(),uiInput.getValue());
       }
     }
