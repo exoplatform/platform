@@ -25,6 +25,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
+import org.exoplatform.services.jcr.ext.organization.OrganizationServiceException;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -69,10 +70,16 @@ public class UILoginForm extends UIForm {
       String password = uiForm.getUIStringInput(PASSWORD).getValue();
       
       OrganizationService orgService = uiForm.getApplicationComponent(OrganizationService.class);
-      boolean authentication = orgService.getUserHandler().authenticate(username, password);
-      if(!authentication){
-        throw new MessageException(new ApplicationMessage("UILoginForm.msg.Invalid-account", null));
+      
+      // TODO: 
+      try{
+      //boolean authentication = orgService.getUserHandler().authenticate(username, password);
+      } catch (Exception e) {
+    	  throw new MessageException(new ApplicationMessage("UILoginForm.msg.Invalid-account", null));
       }
+      /*if(!authentication){
+        throw new MessageException(new ApplicationMessage("UILoginForm.msg.Invalid-account", null));
+      }*/
         
       PortalRequestContext prContext = Util.getPortalRequestContext();
       HttpServletRequest request = prContext.getRequest();
