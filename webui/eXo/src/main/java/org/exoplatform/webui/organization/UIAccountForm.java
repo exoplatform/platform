@@ -123,12 +123,10 @@ public class UIAccountForm extends UIFormTabPane {
       String userName = uiForm.getChild(UIAccountInputSet.class).getUserName() ;
       if(userName==null) {
         uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.empty-input", null,0)) ;
-        uiForm.reset() ;
         return;
       }
       if(service.getUserHandler().findUserByName(userName) != null) {
         uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.user-exist", null,0)) ;
-        uiForm.reset() ;
         return;
       }
       uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.user-not-exist", null)) ;
