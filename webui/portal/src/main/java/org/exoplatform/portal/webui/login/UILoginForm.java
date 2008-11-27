@@ -73,7 +73,7 @@ public class UILoginForm extends UIForm {
       
       // TODO: 
       try{
-      //boolean authentication = orgService.getUserHandler().authenticate(username, password);
+      boolean authentication = orgService.getUserHandler().authenticate(username, password);
       } catch (Exception e) {
     	  throw new MessageException(new ApplicationMessage("UILoginForm.msg.Invalid-account", null));
       }
