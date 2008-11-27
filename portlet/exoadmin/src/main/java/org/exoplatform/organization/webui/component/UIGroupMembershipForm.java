@@ -18,6 +18,8 @@ package org.exoplatform.organization.webui.component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
@@ -147,8 +149,8 @@ public class UIGroupMembershipForm extends UIForm {
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
       UIApplication uiApp = event.getRequestContext().getUIApplication() ;
       String username = uiForm.getUserName();
-      // ":" character doesn't accept
-      if(username.indexOf(":") > 0) {
+      // don't accept special character
+      if(!username.matches("^[\\p{L}_][\\p{L}._\\d]+$")) {
         Object[]  args = {"UserName", username } ;
         uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-doesn't-exist", args)) ;
         return ;
