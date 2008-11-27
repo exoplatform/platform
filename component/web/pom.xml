@@ -55,8 +55,7 @@
     <dependency>
       <groupId>org.exoplatform.core</groupId>
       <artifactId>exo.core.component.resources.api</artifactId>
-      <version>trunk</version>
-      <type>jar</type>
+      <version>${org.exoplatform.core.version}</version>
     </dependency>
 
   </dependencies>
