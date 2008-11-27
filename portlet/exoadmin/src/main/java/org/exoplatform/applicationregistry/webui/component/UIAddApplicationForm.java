@@ -209,7 +209,7 @@ public class UIAddApplicationForm extends UIForm {
       Application tmp = uiForm.getApplications().get(Integer.parseInt(uiRadio.getValue()));
       
       // check portet name is exist
-      if (appRegService.getApplication(selectedCate.getDisplayName(), tmp.getApplicationName()) != null) {
+      if (appRegService.getApplication(selectedCate.getName(), tmp.getApplicationName()) != null) {
         WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
         UIApplication uiApp = context.getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIAddApplicationForm.msg.PortletExist", null)) ;
