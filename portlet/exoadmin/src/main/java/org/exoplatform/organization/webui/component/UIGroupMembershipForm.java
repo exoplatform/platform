@@ -147,6 +147,12 @@ public class UIGroupMembershipForm extends UIForm {
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
       UIApplication uiApp = event.getRequestContext().getUIApplication() ;
       String username = uiForm.getUserName();
+      // ":" character doesn't accept
+      if(username.indexOf(":") > 0) {
+        Object[]  args = {"UserName", username } ;
+        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-doesn't-exist", args)) ;
+        return ;
+      }
       User user = service.getUserHandler().findUserByName(username) ;
       if(user==null) {
         Object[]  args = {"UserName", username } ;
