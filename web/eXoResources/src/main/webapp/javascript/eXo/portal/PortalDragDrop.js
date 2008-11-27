@@ -403,7 +403,6 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
 	var DOMUtil = eXo.core.DOMUtil ;
   var uiComponentLayout ;
   try{
-  	window.status = dndEvent.lastFoundTargetObject.className ;
 	  if(dndEvent.lastFoundTargetObject.className == "UIPage") {
 	    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PAGE") ;
 	  } else if(dndEvent.lastFoundTargetObject.className == "UIPortal") {

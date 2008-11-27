@@ -68,6 +68,8 @@ public class UIPageActionListener {
         uiPortal.getChildren().clear() ;
         PortalDataMapper.toUIPortal(uiPortal, portalConfig) ;
         uiPortalApp.setEditting(false) ;
+        uiPortal.broadcast(event, event.getExecutionPhase()) ;
+        return ;
       }
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = Util.getPortalRequestContext();     

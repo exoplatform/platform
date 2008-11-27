@@ -322,16 +322,19 @@ DOMUtil.prototype.getStyle = function(element, style, intValue) {
   * and that all opened popup menu should be hidden
   */
 DOMUtil.prototype.hideElements = function() {
-	document.onclick = function() {
-		var ln = eXo.core.DOMUtil.hideElementList.length ;
-		if (ln > 0) {
-			for (var i = 0; i < ln; i++) {
-				eXo.core.DOMUtil.hideElementList[i].style.display = "none" ;
-			}
-			eXo.core.DOMUtil.hideElementList.clear() ;
+	document.onclick = eXo.core.DOMUtil.cleanUpHiddenElements;
+};
+
+DOMUtil.prototype.cleanUpHiddenElements = function() {
+	var ln = eXo.core.DOMUtil.hideElementList.length ;
+	if (ln > 0) {
+		for (var i = 0; i < ln; i++) {
+			eXo.core.DOMUtil.hideElementList[i].style.display = "none" ;
 		}
+		eXo.core.DOMUtil.hideElementList.clear() ;
 	}
-} ;
+};
+
 /**
  * Adds an element to the hideElementList array
  * Should only contain elements from a popup menu
