@@ -16,6 +16,8 @@
  */
 package org.exoplatform.applicationregistry.webui.component;
 
+import java.util.List;
+
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.portal.webui.application.GadgetUtil;
@@ -69,23 +71,31 @@ public class UIAddGadget extends UIForm {
       String url = uiForm.getUIStringInput(FIELD_URL) .getValue();
       String name = "gadget" + url.hashCode();
       UIGadgetManagement uiManagement = uiForm.getParent() ;
-      // check url exits
-      boolean urlExist = checkUrlExist(uiManagement, GadgetUtil.toGadget(name, url, false));
-      if (urlExist == true) return;
-      service.saveGadget(GadgetUtil.toGadget(name, url, false)) ;
+      // check url exist
+      boolean urlExist = checkUrlExist(uiManagement.getGadgets(), url);
+      if (urlExist == true) {
+        UIApplication uiApp = context.getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIAddGadget.label.urlExist", null)) ;
+        return;
+      }
+      Gadget gadget;
+      try {
+        gadget = GadgetUtil.toGadget(name, url, false);
+      } catch (Exception e) {
+        UIApplication uiApp = context.getUIApplication() ;
+        uiApp.addMessage(new ApplicationMessage("UIAddGadget.label.urlError", new String [] {url})) ;
+        return;
+      }
+      service.saveGadget(gadget) ;
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
       context.addUIComponentToUpdateByAjax(uiManagement) ;
     }   
     
-    private boolean checkUrlExist (UIGadgetManagement uiManagement, Gadget gadget) throws Exception {  
-      WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
-      UIApplication uiApp = context.getUIApplication() ;
-      String url = gadget.getUrl();
-      for(Gadget ele : uiManagement.getGadgets()) {
+    private boolean checkUrlExist (List<Gadget> gadgets, String url) throws Exception {  
+      for(Gadget ele : gadgets) {
         String urlReRrocedure = GadgetUtil.reproduceUrl(ele.getUrl(), ele.isLocal());
         if(urlReRrocedure.equals(url)) {
-          uiApp.addMessage(new ApplicationMessage("UIAddGadget.label.urlExist", null)) ;
           return true ;
         }
       }
