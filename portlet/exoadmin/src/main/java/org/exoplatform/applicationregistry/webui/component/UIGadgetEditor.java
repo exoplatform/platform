@@ -19,6 +19,9 @@ package org.exoplatform.applicationregistry.webui.component;
 import java.util.Calendar;
 
 import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.shindig.common.uri.Uri;
+import org.apache.shindig.gadgets.spec.GadgetSpec;
+import org.apache.shindig.gadgets.spec.SpecParserException;
 import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
@@ -36,9 +39,12 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
+import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
+import org.exoplatform.webui.form.validator.Validator;
 
 /**
  * Created by The eXo Platform SAS
@@ -70,7 +76,9 @@ public class UIGadgetEditor extends UIForm {
     Param param = initParams.getParam("SampleGadget");
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     String sample = param.getMapGroovyObject(context);
-    addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, sample).addValidator(MandatoryValidator.class)) ;
+    addUIFormInput(new UIFormTextAreaInput(FIELD_SOURCE, null, sample).
+                   addValidator(MandatoryValidator.class).
+                   addValidator(GadgetSpecValidator.class)) ;
   }
   
   public Source getSource() { return source_; }
@@ -156,6 +164,19 @@ public class UIGadgetEditor extends UIForm {
         uiManagement.setSelectedGadget(selectedGadget.getName());
       } else uiManagement.reload();
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
+    }
+    
+  }
+  
+  public static class GadgetSpecValidator implements Validator {
+
+    public void validate(UIFormInput uiInput) throws Exception {
+      try {
+        new GadgetSpec(Uri.parse("http://exoplatform.org"), (String)uiInput.getValue());
+      } catch (SpecParserException se) {
+        throw new MessageException(new ApplicationMessage("UIGadgetEditor.msg.invalidSpec", null,
+                                                          ApplicationMessage.WARNING));
+      }
     }
     
   }
