@@ -16,8 +16,6 @@
  */
 package org.exoplatform.portal.webui.component;
 
-import java.net.URL;
-
 import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
 
@@ -32,7 +30,6 @@ import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
-import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.URLValidator;
 
 /**
