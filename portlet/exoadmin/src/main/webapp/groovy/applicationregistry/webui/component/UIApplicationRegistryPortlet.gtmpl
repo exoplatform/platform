@@ -2,9 +2,9 @@
 	String cssClass ; 
 %>
 <div class="UIApplicationRegistryPortlet" id="$uicomponent.id">
-	<div style="height:0px"><div style="width: 730px;" ><span style="display: none;"></span></div></div>
+	<div style="height:0px"><div style="width: 790px;" ><span style="display: none;"></span></div></div>
 	<div 
-		style="!width: expression(this.previousSibling.offsetWidth - 22 + 'px'); min-width: 730px; padding: 10px;">
+		style="!width: expression(this.previousSibling.offsetWidth - 22 + 'px'); min-width: 790px; padding: 10px;">
 		<div class="UIToolbar">
 	    <div class="BlueLargeToolbar">
 	      <div class="ToolbarContainer">

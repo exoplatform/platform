@@ -80,8 +80,8 @@
 	font-size: 12px;
 	line-height: 22px;
 	color: #808185;
-	text-align: right; /* orientation=lt */
-	text-align: left; /* orientation=rt */
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .AccountBlock {

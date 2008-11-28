@@ -396,23 +396,24 @@
 /******************************** UIGadgetManagement ******************************/
 .UIApplicationRegistryPortlet .UIGadgetManagement .PortletIcons {
 	width: 150px; height: 120px;
-	padding-top: 20px;
+	padding-top: 20px; text-align: center;
 }
 
-.UIGadgetManagement .url .UIFormInputSet {
-	padding: 0px;
-	width: auto;
+.UIApplicationRegistryPortlet .UIGadgetManagement .ApplicationContent {
+	margin-left: 150px;
 }
 
-.UIGadgetManagement .url table {
-	width: 100%;
+.UIApplicationRegistryPortlet .UIGadgetManagement .URL table {
+	width: 99%;
+	table-layout: fixed;
 }
 
-.UIGadgetManagement .url table td.FieldComponent {
-	padding: 0px;
+.UIApplicationRegistryPortlet .UIGadgetManagement .URL .RightLabel {
+	overflow: hidden;
 }
 
 .UIGadgetManagement .UIGadgetEditor table.UIFormGrid {
+	width: 99%;
 	table-layout: fixed;
 }
 
@@ -429,11 +430,4 @@
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout input {
 	width: 99%;
-}
-
-.UIGadgetManagement .URL .LeftLabel {
-}
-
-.UIGadgetManagement .URL .RightLabel {
-	width: 80%; overflow: hidden;
 }

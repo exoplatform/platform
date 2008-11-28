@@ -278,18 +278,6 @@
 
 /**************************** UIOrganizerManagement ***************************/
 
-.UIApplicationRegistryPortlet .UIAddApplicationForm .UIFormGrid {
-	width: 99%;
-}
-
-.UIOrganizerManagement .UIFormInputSet .UIFormGrid {
-	width: 100%;
-}
-
-.UIOrganizerManagement .UIFormInputSet .PublicCheck .UIFormGrid {
-	width: auto;
-}
-
 /***************************** UIPortletManagement ***************************/
 
 .UIPortletManagement .ListCategory .CategoryLable {
@@ -344,59 +332,35 @@
 .UIPortletManagement .UIGrid .FieldComponent {
 	padding: 4px 0px;
 }
+
 /******************************** UIGadgetManagement ******************************/
 .UIApplicationRegistryPortlet .UIGadgetManagement .PortletIcons {
 	width: 150px; height: 120px;
-	padding-top: 20px;
+	padding-top: 20px; text-align: center;
 }
 
-.UIGadgetManagement .url .UIFormInputSet {
-	padding: 0px;
-	width: auto;
+.UIApplicationRegistryPortlet .UIGadgetManagement .ApplicationContent {
+	margin-left: 150px;
 }
 
-.UIGadgetManagement .url table {
-	width: 100%;
+.UIApplicationRegistryPortlet .UIGadgetManagement .URL table {
+	width: 99%;
+	table-layout: fixed;
 }
 
-.UIGadgetManagement .url table td.FieldComponent {
-	padding: 0px;
+.UIApplicationRegistryPortlet .UIGadgetManagement .URL .RightLabel {
+	overflow: hidden;
 }
 
-.UIGadgetManagement .CategoryContent .ListContent {
-	border: 1px solid #d7d7d7;
-	margin: 5px;
-}
-
-.UIGadgetManagement .CategoryContent .SelectedItem .TabLabel {
-	color: #058ee6;
-}
-
-.UIGadgetManagement .CategoryContent a.TabLabel {
-	display: block;
-	float: left;
-	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
-	padding-left: 20px;
-	cursor: pointer;
-	width: 150px; 
-	overflow: hidden; white-space: nowrap;
-}
-
-.UIGadgetManagement .CategoryContent .ControlIcon {
-	display: block;
-	float: right;
-	margin: 3px 3px 0px;
-}
-
-.UIGadgetManagement .ListItem .SelectedItem a.TabLabel {
-	font-weight: bold;
-	padding-left: 3px;
+.UIGadgetManagement .UIGadgetEditor table.UIFormGrid {
+	width: 99%;
+	table-layout: fixed;
 }
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout textarea {
 	height: 250px; 
-	width: 99%; 
 	padding: 0px;
+	width: 99%; 
 	overflow: auto;
 }
 
@@ -406,11 +370,4 @@
 
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout input {
 	width: 99%;
-}
-
-.UIGadgetManagement .URL .LeftLabel {
-}
-
-.UIGadgetManagement .URL .RightLabel {
-	width: 80%; overflow: hidden;
 }

@@ -89,7 +89,6 @@
 	background: green ;
 	text-align: center ;
 	position: absolute ;
-	overflow: auto; /*fix for FF*/
 }
 
 .WarningLayer {
