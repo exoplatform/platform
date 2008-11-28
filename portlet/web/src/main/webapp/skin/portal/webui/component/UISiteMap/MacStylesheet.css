@@ -129,3 +129,9 @@
   background: white ;
   padding-left: 40px;
 }
+
+.UISitemap .SitemapItemBox .Level4 {
+  border: solid 1px #cecece ; border-top: none;
+  background: white ;
+  padding-left: 60px;
+}

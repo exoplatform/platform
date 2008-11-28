@@ -145,3 +145,11 @@
   padding: 0px 0px 3px 40px ;
   border: 1px solid #d9d9d9;
   border-top: none;
+}
+
+.UISitemap .SitemapItemBox .Level4 {
+  background: white ;
+  padding: 0px 0px 3px 60px ;
+  border: 1px solid #d9d9d9;
+  border-top: none;
+}

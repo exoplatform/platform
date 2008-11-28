@@ -2,6 +2,8 @@
 <%
 	def navigations = uicomponent.getNavigations() ;
   public void renderNextLevelNode(nav, children, int intLevel) {
+  	if(intLevel > 4) return ;
+  	
   	for(PageNode node in children) {
 	    String actionLink = uicomponent.event("SelectNode", nav.getId() + "::" + node.getUri()) ;
 	    String iconType = node.getIcon();
@@ -9,10 +11,22 @@
 				iconType = "DefaultPageIcon";
 			}
 			
+			if(intLevel == 4) {
+	  		println """
+		  	  <div class="Item">
+			      <div class="Level$intLevel">
+			        <div class="OverflowContainer">
+				          <a class="IconItem ${iconType}" href="javascript: void(0);">...</a>
+			        </div>
+			      </div>
+			    </div>
+			  """ ;
+			 	break ;
+  		}
+			
 			String label = node.resolvedLabel;
-	    String title = "";
+	    String title = label;
 	    if(label.length() > 38) {
-	    	title = label;
 	    	label = label.substring(0,35) + "...";	            	
 	    }
 	            

@@ -153,3 +153,7 @@
   padding-left: 60px;
 }
 
+.UISitemap .SitemapItemBox .Level4 {
+  background: url('VistaSkin/background/SitemapItemBoxBG1x22.gif') repeat-x bottom;
+  padding-left: 92px;
+}
