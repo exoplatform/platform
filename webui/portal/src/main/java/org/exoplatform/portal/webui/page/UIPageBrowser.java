@@ -309,7 +309,7 @@ public class UIPageBrowser extends UISearch {
         return;
       }
       Page page = service.getPage(id, pcontext.getRemoteUser());
-      if(page == null || !page.isModifiable()) {
+      if(page == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NotViewPage", new String[]{id}, 1)) ;;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
