@@ -16,12 +16,14 @@
  */
 package org.exoplatform.portal.application;
 
+import java.net.URLEncoder;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ConcurrentHashMap;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -31,6 +33,8 @@ import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.SessionManagerContainer;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.webui.application.ConfigurationManager;
@@ -95,7 +99,12 @@ public class PortalStateManager extends StateManager {
       if(config == null) {
         pcontext.getRequest().getSession().invalidate() ;
         HttpServletResponse response = pcontext.getResponse();
-        if(pcontext.getRemoteUser() == null) response.sendRedirect("/portal/portal-warning.jsp");
+        if(pcontext.getRemoteUser() == null) {
+          String portalName = pcontext.getPortalOwner() ;
+          portalName = URLEncoder.encode(portalName, "UTF-8") ;
+          String redirect = pcontext.getRequest().getContextPath() + "/private/" + portalName + "/";
+          response.sendRedirect(redirect);
+        }
         else response.sendRedirect("/portal/portal-unavailable.jsp");
         pcontext.setResponseComplete(true);
         return null;
