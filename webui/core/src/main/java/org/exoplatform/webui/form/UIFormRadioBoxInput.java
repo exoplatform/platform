@@ -89,7 +89,7 @@ public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
     for(int i = index; i < options_.size(); i++) {      
       SelectItemOption<String> si = options_.get(i) ;
       String checked = "" ;
-      if (si.getValue().equals(value_)) checked = " checked" ;
+      if (si.getValue().equals(value_)) checked = " checked='checked'" ;
 //      if(align_ == VERTICAL_ALIGN) w.write("<div style='overflow:hidden; width: 100%'>");
       //if(align_ == VERTICAL_ALIGN) w.write("<div style='clear:both;'><span></span></div>") ;
       w.write("<input class='radio' type='radio'");
