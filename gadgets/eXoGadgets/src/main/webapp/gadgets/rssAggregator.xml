@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="__UP_mtitle__" title_url="__UP_titlelink__" directory_title="RSS Reader" description="RSS Reader">
+<ModulePrefs title="__UP_mtitle__" title_url="__UP_titlelink__" directory_title="RSS Reader" 
+	description="RSS Reader"
+	thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/rssAggregator.png">
 <Require feature="dynamic-height" />
 <Require feature="setprefs"/>
 <Require feature="settitle"/>
