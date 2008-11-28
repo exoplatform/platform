@@ -65,7 +65,15 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
     else dateFormat_ = new SimpleDateFormat("MM/dd/yyyy");
   }
   
-  public void setCalendar(Calendar date) { value_ = dateFormat_.format(date.getTime()) ; }
+  public void setCalendar(Calendar date) { 
+	  if(date != null){
+		  value_ = dateFormat_.format(date.getTime()) ;
+	  }else
+	  {
+		  value_ = null;
+	  }
+	   
+  }
   public Calendar getCalendar() {
     try {
       Calendar calendar = new GregorianCalendar() ;
