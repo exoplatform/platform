@@ -81,7 +81,6 @@
 
 				function onLoad() {
 				var listsTodo = prefs.getArray("todoList");
-				console.log(prefs);
 				var appendParrent = document.getElementById("write");
 
 					for(var i=0; i<listsTodo.length; i++) {
