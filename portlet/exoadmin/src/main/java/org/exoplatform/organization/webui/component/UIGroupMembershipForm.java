@@ -152,12 +152,14 @@ public class UIGroupMembershipForm extends UIForm {
       // don't accept special character
       if(!username.matches("^[\\p{L}_][\\p{L}._\\d]+$")) {
         Object[]  args = {"UserName", username } ;
+        uiForm.reset();
         uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-doesn't-exist", args)) ;
         return ;
       }
       User user = service.getUserHandler().findUserByName(username) ;
       if(user==null) {
         Object[]  args = {"UserName", username } ;
+        uiForm.reset();
         uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-doesn't-exist", args)) ;
         return ;
       }
