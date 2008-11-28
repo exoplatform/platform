@@ -599,6 +599,10 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
 
     var j = 0;
     for (var att in prefs) {
+	    	//TODO: dang.tung not append when using list
+				type = prefs[att].type;
+				if(type == "list"|| type == "hidden") continue;
+				// end
         var attEl = document.createElement("div");
         var labelEl = document.createElement("span");
 
@@ -606,9 +610,6 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
 
         labelEl.innerHTML = prefs[att].displayName + ": ";
         attEl.appendChild(labelEl);
-
-
-        type = prefs[att].type;
         if (type == "enum") {
             var el = document.createElement("select");
             el.name = prefix + att;
@@ -641,6 +642,10 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
         j++;
     }
 
+		//TODO: dang.tung remove save and cancel button when doesn't have any pref
+    if(formEl.innerHTML == "") return;
+    // end
+    
     var numFieldsEl = document.createElement("input");
     numFieldsEl.type = "hidden";
     numFieldsEl.value = j;
