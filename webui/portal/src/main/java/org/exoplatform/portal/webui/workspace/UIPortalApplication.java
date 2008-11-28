@@ -17,14 +17,12 @@
 package org.exoplatform.portal.webui.workspace;
 
 import java.io.Writer;
-import java.io.Reader;
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import java.util.Locale;
+import java.util.Set;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
@@ -32,10 +30,10 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
-import org.exoplatform.portal.webui.skin.SkinConfig;
-import org.exoplatform.portal.webui.skin.SkinURL;
-import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.skin.Skin;
+import org.exoplatform.portal.webui.skin.SkinConfig;
+import org.exoplatform.portal.webui.skin.SkinService;
+import org.exoplatform.portal.webui.skin.SkinURL;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.log.ExoLogger;

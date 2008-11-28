@@ -21,6 +21,12 @@
     </dependency>
         
     <dependency>
+      <groupId>org.exoplatform.core</groupId>
+      <artifactId>exo.core.component.resources.api</artifactId>
+      <version>${org.exoplatform.core.version}</version>
+    </dependency>
+    
+    <dependency>
       <groupId>org.exoplatform.portletcontainer</groupId>
       <artifactId>exo.pc.component.core</artifactId>
       <version>${org.exoplatform.pc.version}</version>
@@ -51,12 +57,5 @@
     	<version>20070829</version>
     	<type>jar</type>
     </dependency>
-
-    <dependency>
-      <groupId>org.exoplatform.core</groupId>
-      <artifactId>exo.core.component.resources.api</artifactId>
-      <version>${org.exoplatform.core.version}</version>
-    </dependency>
-
   </dependencies>
 </project>
