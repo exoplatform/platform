@@ -67,20 +67,12 @@ public class UILoginForm extends UIForm {
     public void execute(Event<UILoginForm> event) throws Exception {
       UILoginForm uiForm = event.getSource();
       String username = uiForm.getUIStringInput(USER_NAME).getValue();
-      String password = uiForm.getUIStringInput(PASSWORD).getValue();
-      
-      OrganizationService orgService = uiForm.getApplicationComponent(OrganizationService.class);
-      
-      // TODO: 
-      try{
+      String password = uiForm.getUIStringInput(PASSWORD).getValue();      
+      OrganizationService orgService = uiForm.getApplicationComponent(OrganizationService.class);      
       boolean authentication = orgService.getUserHandler().authenticate(username, password);
-      } catch (Exception e) {
-    	  throw new MessageException(new ApplicationMessage("UILoginForm.msg.Invalid-account", null));
-      }
-      /*if(!authentication){
+      if(!authentication){
         throw new MessageException(new ApplicationMessage("UILoginForm.msg.Invalid-account", null));
-      }*/
-        
+      }        
       PortalRequestContext prContext = Util.getPortalRequestContext();
       HttpServletRequest request = prContext.getRequest();
       HttpSession session = request.getSession();
