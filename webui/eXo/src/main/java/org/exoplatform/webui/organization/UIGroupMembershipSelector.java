@@ -80,7 +80,6 @@ public class UIGroupMembershipSelector extends UIContainer {
     for(Object obj : collection){
       listMemberhip.add(((MembershipType)obj).getName());
     }
-    listMemberhip.add("*"); 
     
     tree.setSibbling((List)sibblingsGroup);
     tree.setIcon("GroupAdminIcon");

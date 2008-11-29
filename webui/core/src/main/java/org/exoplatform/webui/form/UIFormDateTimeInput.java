@@ -68,8 +68,7 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   public void setCalendar(Calendar date) { 
 	  if(date != null){
 		  value_ = dateFormat_.format(date.getTime()) ;
-	  }else
-	  {
+	  } else {
 		  value_ = null;
 	  }
 	   
