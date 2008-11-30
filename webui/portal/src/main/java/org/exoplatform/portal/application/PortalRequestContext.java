@@ -31,7 +31,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.exoplatform.Constants;
 import org.exoplatform.commons.utils.WriterPrinter;
-import org.exoplatform.commons.utils.OutputStreamPrinter;
+import org.exoplatform.commons.utils.PortalPrinter;
 import org.exoplatform.commons.utils.CharsetTextEncoder;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
@@ -84,6 +84,7 @@ public class PortalRequestContext extends WebuiRequestContext {
     super(app);
     request_ = req ;
     response_ =  res ;
+    response_.setBufferSize(1024 * 100) ;
     setSessionId(req.getSession().getId()) ;
     ajaxRequest_ = "true".equals(req.getParameter("ajaxRequest")) ;
     String cache = req.getParameter(CACHE_LEVEL);
@@ -180,9 +181,9 @@ public class PortalRequestContext extends WebuiRequestContext {
   final public Writer getWriter() throws Exception { 
     if(writer_ == null) {
       if (HtmlValidator.DEBUG_MODE) {
-        writer_ = new WriterPrinter(new HtmlValidator(new OutputStreamPrinter(CharsetTextEncoder.getUTF8(), response_.getOutputStream()))) ;
+        writer_ = new WriterPrinter(new HtmlValidator(new PortalPrinter(CharsetTextEncoder.getUTF8(), response_.getOutputStream()))) ;
       } else {
-        writer_ = new OutputStreamPrinter(CharsetTextEncoder.getUTF8(), response_.getOutputStream()) ;
+        writer_ = new PortalPrinter(CharsetTextEncoder.getUTF8(), response_.getOutputStream()) ;
       }
     }
     return writer_ ; 

@@ -93,7 +93,8 @@ public class SimpleTemplateEngine extends TemplateEngine {
         printer.flush();
       }
       catch (IOException e) {
-        e.printStackTrace();
+      	//TODO: need to check again
+//      	e.printStackTrace();
       }
     }
   }
@@ -124,7 +125,11 @@ public class SimpleTemplateEngine extends TemplateEngine {
           ExoScript script = (ExoScript)InvokerHelper.createScript(scriptClass, context);
           script.printer = (Printer)writer;
           script.setProperty("out", script.printer);
-          script.run();
+          try {
+          	script.run();
+					} catch (Exception e) {
+						System.out.println("tran teh trong");
+					}
           script.flush();
           return writer;
         }
