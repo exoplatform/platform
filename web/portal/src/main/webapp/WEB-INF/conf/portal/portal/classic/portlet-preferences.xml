@@ -14,17 +14,6 @@
   <portlet-preferences>
     <owner-type>portal</owner-type>
     <owner-id>classic</owner-id>
-    <window-id>portal#classic:/web/NavigationPortlet/toolbar</window-id>
-    <preference>
-      <name>useAJAX</name>
-      <value>true</value>
-      <read-only>false</read-only>
-    </preference>
-  </portlet-preferences>
-
-  <portlet-preferences>
-    <owner-type>portal</owner-type>
-    <owner-id>classic</owner-id>
     <window-id>portal#classic:/web/FooterPortlet/footer</window-id>
     <preference>
       <name>template</name>
@@ -32,7 +21,6 @@
       <read-only>false</read-only>
     </preference>
   </portlet-preferences>
-  
   
   <portlet-preferences>
     <owner-type>portal</owner-type>
