@@ -16,14 +16,13 @@
  */
 package org.exoplatform.portal.config.jcr;
 
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import javax.jcr.PathNotFoundException;
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
+import javax.jcr.PathNotFoundException;
 import javax.jcr.Session;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
@@ -388,12 +387,12 @@ public class DataStorageImpl implements DataStorage, Startable {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
     String registryNodePath = regService_.getRegistry(sessionProvider).getNode().getPath() ;
-    generateScript(builder, "jcr:path", registryNodePath + "/%") ;
-    generateScript(builder, DataMapper.EXO_DATA_TYPE, q.getClassType().getSimpleName()) ;
-    generateScript(builder, DataMapper.EXO_NAME, q.getName()) ;
-    generateScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType()) ;
-    generateScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId()) ;
-    generateScript(builder, DataMapper.EXO_TITLE, q.getTitle()) ;
+    generateLikeScript(builder, "jcr:path", registryNodePath + "/%") ;
+    generateLikeScript(builder, DataMapper.EXO_DATA_TYPE, q.getClassType().getSimpleName()) ;
+    generateContainScript(builder, DataMapper.EXO_NAME, q.getName()) ;
+    generateContainScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType()) ;
+    generateContainScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId()) ;
+    generateContainScript(builder, DataMapper.EXO_TITLE, q.getTitle());
     Session session = regService_.getRegistry(sessionProvider).getNode().getSession() ;
     try {
       QueryManager queryManager = session.getWorkspace().getQueryManager() ;
@@ -419,13 +418,20 @@ public class DataStorageImpl implements DataStorage, Startable {
 
   public void stop() {}
 
-  private void generateScript(StringBuilder sql, String name, String value){
+  private void generateLikeScript(StringBuilder sql, String name, String value){
     if(value == null || value.length() < 1) return ;
-    if(sql.indexOf(" where") < 0) sql.append(" where "); else sql.append(" and "); 
+    if(sql.indexOf(" where") < 0) sql.append(" where "); else sql.append(" and ");
     value = value.replace('*', '%') ;
+    value = value.replace('?', '_');
     sql.append(name).append(" like '").append(value).append("'");
   }
   
+  private void generateContainScript(StringBuilder sql, String name, String value){
+    if(value == null || value.length() < 1) return ;
+    if(sql.indexOf(" where") < 0) sql.append(" where "); else sql.append(" and ");
+    sql.append("contains(").append(name).append(", '").append(value).append("')");
+  }
+
   private String getApplicationRegistryPath(String ownerType, String ownerId) {
     String path = "" ;
     if(PortalConfig.PORTAL_TYPE.equals(ownerType)) {

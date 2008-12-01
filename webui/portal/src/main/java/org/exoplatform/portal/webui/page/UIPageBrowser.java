@@ -155,17 +155,10 @@ public class UIPageBrowser extends UISearch {
 		UIFormSelectBox select = (UIFormSelectBox) quickSearchInput.getChild(1);
 		String value = input.getValue();
 		String selectBoxValue = select.getValue();
-		if (value != null && value.trim().length() > 0) {
-			if (value.indexOf("*") < 0) {
-				if (value.charAt(0) != '*')	value = "*" + value;
-				if (value.charAt(value.length() - 1) != '*') value += "*";
-			}
-			value = value.replace('?', '_');
-		}
 		Query<Page> query = new Query<Page>(null, null, null, null, Page.class);
-		if (selectBoxValue.equals("ownerType"))	query.setOwnerType(value);
-		if (selectBoxValue.equals("ownerId"))	query.setOwnerId(value);
 		if (selectBoxValue.equals("title")) query.setTitle(value) ;
+		else if (selectBoxValue.equals("ownerType"))	query.setOwnerType(value);
+		else if (selectBoxValue.equals("ownerId"))	query.setOwnerId(value);
 		query.setName(null);
 		lastQuery_ = query;
 		defaultValue(lastQuery_);
