@@ -68,8 +68,8 @@
   	    <div class="ContentLabel URL">
   	    	<table>
   	    		<tr>
-  	    			<td style="width: 30px;"><div class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.url")%></div></td>
-  	    			<td><div class="RightLabel" title="<%= uicomponent.getGadgetUrl() %>"><%= uicomponent.getGadgetUrl() %></div></td>
+  	    			<td style="width: 30px;"><div class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.reference")%></div></td>
+  	    			<td><div class="RightLabel" title="<%= uicomponent.getGadgetUrl() %>"><%= uicomponent.getReferenceUrl() %></div></td>
   	    		</tr>
   	    	</table>
   	    	<!--

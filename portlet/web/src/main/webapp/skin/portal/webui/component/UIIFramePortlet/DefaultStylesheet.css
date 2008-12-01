@@ -6,6 +6,12 @@
 	width: 97.5%;
 }
 
+.UIIFramePortlet iframe {
+	border: none;
+	width: 100%; height: 100%;
+	padding: 0px; margin: 0px;
+}
+
 .UIWindow .UIIFramePortlet {
 	border: none;
 	margin: 0px auto;

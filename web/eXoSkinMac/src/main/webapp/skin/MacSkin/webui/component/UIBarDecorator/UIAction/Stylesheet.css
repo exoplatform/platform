@@ -22,6 +22,10 @@
   color: white;
 }
 
+.UIAction .ActionContainer .SimpleStyle a:hover {
+	color: #058ee6;
+}
+
 .UIAction .ActionContainer .Icon {
 	padding-left: 20px;
 	height: auto;

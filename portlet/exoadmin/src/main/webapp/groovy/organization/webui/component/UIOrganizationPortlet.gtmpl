@@ -2,7 +2,7 @@
     String style = "SelectButtonLabel";
 %>
 <div class="UIOrganizationPortlet" id="$uicomponent.id">
-	<div><div style="width: 730px;" ><span style="display: none;"></span></div></div>
+	<div style="height: 0px;"><div style="width: 730px;" ><span style="display: none;"></span></div></div>
 	<div class="OrganizationPortletContainer" 
 		style="!width: expression(this.previousSibling.offsetWidth - 22 + 'px'); !border: 1px solid white; min-width: 730px;">
 	  <%/*Begin UIToolbar*/%>

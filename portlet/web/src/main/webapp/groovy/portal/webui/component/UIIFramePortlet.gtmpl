@@ -4,7 +4,7 @@
 
 <div class="UIIFramePortlet" id="$uicomponent.id">
 	<%if( _ctx.getRequestContext().getApplicationMode() == PortletMode.VIEW ) {%>
-	    <iframe src="<%=uicomponent.getURL()%>" style="height: 100%; width: 100%" frameborder="0" border="0" hspace="0" vspace="0"></iframe>
+	    <iframe src="<%=uicomponent.getURL()%>"></iframe>
   <%} else {
         uicomponent.renderChildren();
     }
