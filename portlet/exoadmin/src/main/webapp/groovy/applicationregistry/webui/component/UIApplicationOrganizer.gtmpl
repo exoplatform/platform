@@ -63,7 +63,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 							  %>
 									<div class="ItemContent $cssClass">
 										<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel"><%= application.getDisplayName() %></a>
-										<a class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveApplication", appName) %>"><span></span></a>
+										<a class="ControlIcon DeletePortalIcon" title="<%=_ctx.appRes("UIOrganizer.title.deleteApplication")%>" onclick="<%= uicomponent.event("RemoveApplication", appName) %>"><span></span></a>
 					          <div style="clear: both"><span></span></div>
 									</div>
 								<% } %>	
