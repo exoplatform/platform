@@ -36,6 +36,7 @@
   	<owner-type>group</owner-type>
     <owner-id>platform/guests</owner-id>
     <name>link</name>
+    <title>Link</title>
     <access-permissions>*:/platform/guests</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
     <application>

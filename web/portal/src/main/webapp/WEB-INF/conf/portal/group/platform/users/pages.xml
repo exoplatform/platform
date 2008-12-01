@@ -5,6 +5,7 @@
   	<owner-type>group</owner-type>
     <owner-id>platform/users</owner-id>
     <name>webexplorer</name>
+    <title>Web Explorer</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
     <application>
@@ -19,6 +20,7 @@
   	<owner-type>group</owner-type>
     <owner-id>platform/users</owner-id>
     <name>mylink-blog</name>
+    <title>Blog</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
     <application>
@@ -35,6 +37,7 @@
   	<owner-type>group</owner-type>
     <owner-id>platform/users</owner-id>
     <name>mylink-google</name>
+    <title>Google</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
     <application>
@@ -51,6 +54,7 @@
   	<owner-type>group</owner-type>
     <owner-id>platform/users</owner-id>
     <name>mylink-facebook</name>
+    <title>FaceBook</title>
     <access-permissions>*:/platform/users</access-permissions>
     <edit-permission>*:/platform/administrators</edit-permission>
     <application>
