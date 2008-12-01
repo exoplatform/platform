@@ -108,7 +108,7 @@ public class SourceStorageImpl implements SourceStorage {
 
   public String getSourceURI(String sourcePath) {
     StringBuilder path = new StringBuilder(30);
-    path.append("rest/jcr/").append(repo).append("/")
+    path.append("jcr/").append(repo).append("/")
         .append(wsName).append(homePath).append(sourcePath);
     return path.toString() ;
   }

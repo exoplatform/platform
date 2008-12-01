@@ -128,9 +128,17 @@ public class GadgetUtil {
   
   static final public String reproduceUrl(String path, boolean isLocal) {
     if(isLocal) {
-      return getHostName() + "/" + path;
+      return  getViewPath(path);
     }
-    return path ;    
+    return path;    
+  }
+  
+  static final public String getViewPath(String uri) {
+    return getHostName() + "/rest/" + uri;
+  }
+  
+  static final public String getEditPath(String uri) {
+    return getHostName() + "/rest/private/" + uri;
   }
 
   static final private String getHostName() {
