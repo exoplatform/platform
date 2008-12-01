@@ -59,6 +59,20 @@
       <title>Application Registry</title>
       <show-info-bar>false</show-info-bar>
     </application>   
+  </page>
+  
+  <page>
+  	<page-id>group::platform/administrators::dashboard</page-id>
+  	<owner-type>group</owner-type>
+    <owner-id>platform/administrators</owner-id>
+    <name>dashboard</name>
+    <access-permissions>manager:/platform/administrators</access-permissions>
+    <edit-permission>manager:/platform/administrators</edit-permission>
+    <application>
+      <instance-id>group#platform/administrators:/dashboard/DashboardPortlet/Dashboard</instance-id>
+      <title>Dashboard</title>
+      <show-info-bar>false</show-info-bar>
+    </application>   
   </page>           
         
 </page-set>

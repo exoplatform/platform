@@ -16,7 +16,6 @@ eXo.webui.UIDashboard = {
 			
 			var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
 			var gadgetContainer = DOMUtil.findFirstDescendantByClass(portletFragment, "div", "GadgetContainer");
-			var portletApp = DOMUtil.findAncestorByClass(gadgetContainer, "UIApplication");
 
 			var ggwidth = dragObj.offsetWidth;
 			var ggheight = dragObj.offsetHeight;
@@ -58,14 +57,13 @@ eXo.webui.UIDashboard = {
 
 			//increase speed of mouse when over iframe by create div layer above it
 			var uiGadgets = DOMUtil.findDescendantsByClass(gadgetContainer, "div", "UIGadget");
-			
 			for(var i=0; i<uiGadgets.length; i++) {
 				var uiMask = DOMUtil.findFirstDescendantByClass(uiGadgets[i], "div", "UIMask");
 				if(uiMask!=null) {
-					var gadgetContent = DOMUtil.findFirstDescendantByClass(uiGadgets[i], "div", "gadgets-gadget-content");
-					uiMask.style.marginTop = - gadgetContent.offsetHeight + "px";
-					uiMask.style.height = gadgetContent.offsetHeight + "px";
-					uiMask.style.width = gadgetContent.offsetWidth + "px";
+					var gadgetApp = DOMUtil.findFirstDescendantByClass(uiGadgets[i], "div", "GadgetApplication");
+					uiMask.style.marginTop = - gadgetApp.offsetHeight + "px";
+					uiMask.style.height = gadgetApp.offsetHeight + "px";
+					uiMask.style.width = gadgetApp.offsetWidth + "px";
 					uiMask.style.display = "block";
 					uiMask.style.backgroundColor = "white";
 					eXo.core.Browser.setOpacity(uiMask, 3);

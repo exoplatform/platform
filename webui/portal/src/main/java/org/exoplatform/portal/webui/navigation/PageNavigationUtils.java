@@ -103,6 +103,7 @@ public class PageNavigationUtils {
   public static PageNavigation filter(PageNavigation nav, String userName) throws Exception {
     PageNavigation filter = nav.clone();
     filter.setNodes(new ArrayList<PageNode>());
+//    if(nav.getNodes() == null || nav.getNodes().size() < 1) return null;
     for(PageNode node: nav.getNodes()){
       PageNode newNode = filter(node, userName);
       if(newNode != null ) filter.addNode(newNode);
@@ -119,7 +120,7 @@ public class PageNavigationUtils {
     PageNode copyNode = node.clone();
     copyNode.setChildren(new ArrayList<PageNode>());
     List<PageNode> children = node.getChildren();
-    if(children == null) return copyNode;
+    if(children == null || children.size() == 0) return copyNode;
     for(PageNode child: children){
       PageNode newNode = filter(child, userName);
       if(newNode != null ) copyNode.getChildren().add(newNode);
