@@ -43,7 +43,8 @@ import org.exoplatform.webui.event.EventListener;
     template = "app:/groovy/applicationregistry/webui/component/UIGadgetManagement.gtmpl",
     events = {
         @EventConfig(listeners = UIGadgetManagement.AddRemoteGadgetActionListener.class),
-        @EventConfig(listeners = UIGadgetManagement.RemoveGadgetActionListener.class),
+        @EventConfig(listeners = UIGadgetManagement.RemoveGadgetActionListener.class,
+                     confirm   = "UIGadgetManagement.msg.deleteGadget"),
         @EventConfig(listeners = UIGadgetManagement.AddLocalGadgetActionListener.class),
         @EventConfig(listeners = UIGadgetManagement.SelectGadgetActionListener.class)
     }
