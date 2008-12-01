@@ -90,7 +90,7 @@
 				padding-top: 13px;
 				cursor: pointer;
 			}
-		
+			
 			.Day {
 				padding-top: 5px;
 				text-align: center;
@@ -181,9 +181,9 @@
 				  var clazz = null;
 				  var today = new Date(); 
 					var tempCalendar = '<div class="Month">';
-					tempCalendar += '<a class="LeftButtonCalendarMonth" onclick="changeYear(-1);"></a>';
+					tempCalendar += '<a class="LeftButtonCalendarMonth" onclick="changeYear(-1);" title="Previous Year"></a>';
 					tempCalendar += '<div class="text" onclick="goToday();">' + months[cDate.getMonth()] + '-' + cDate.getFullYear() + '</div>';
-					tempCalendar += '<a class="RightButtonCalendarMonth" onclick="changeYear(1);"></a>';
+					tempCalendar += '<a class="RightButtonCalendarMonth" onclick="changeYear(1);" title="Next Year"></a>';
 					tempCalendar += '</div>';
 					tempCalendar += '<div class="Day">';
 					tempCalendar += '<div class="RowDay">';
@@ -216,7 +216,7 @@
 						tempCalendar += '<div class="clear"></div>';
 						tempCalendar += '</div>';
 					}
-					tempCalendar += '<div><a class="Prev" onclick="changeMonth(-1);"></a><a class="Next" onclick="changeMonth(1);"></a></div>';
+					tempCalendar += '<div><a class="Prev" onclick="changeMonth(-1);" title="Previous Month"></a><a class="Next" onclick="changeMonth(1);" title="Next Month"></a></div>';
 					tempCalendar += '</div>';
 					currentDate = cDate;
 					document.getElementById("Calendar").innerHTML = tempCalendar;
