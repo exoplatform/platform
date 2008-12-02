@@ -78,11 +78,23 @@
 	              </tr>
 	            </thead>
 	            <tbody>
+	            	<% if(uicomponent.getData().size() < 1)  {%>
+	            	<tr>
+						      <td style="font-style:italic; color: #FF5604; text-align: center;" colspan="5">
+						        <%=_ctx.appRes("UIUserSelector.msg.empty")%>
+						      </td>
+					    	</tr>  
+	            	<% } %>
 	              <%
+	              	def rowClass = null;
+	              	boolean even = true;
 	                for (User data : uicomponent.getData()) {
+	                	if(even) rowClass = "EvenRow";
+	                	else rowClass = "OddRow";
+	                	even = !even;
 	                  checkboxField = uicomponent.getChildById(data.getUserName());
 	              %>
-	                <tr>
+	                <tr class="$rowClass">
 	                	<% if(isMulti) { %>
 	                  <td>
 	                  	<div class="ActionContainer">
@@ -119,7 +131,7 @@
   <div class="UIAction"> 
     <table class="ActionContainer" align="center">
       <tr>
-        <td align="center"> 
+        <td align="center">
       	<%for(String action : uicomponent.getActions()){%>
          <a href="<%=uicomponent.event(action)%>" class="ActionButton LightBlueStyle">
             <div class="ButtonLeft">

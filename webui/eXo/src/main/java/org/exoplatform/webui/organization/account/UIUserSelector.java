@@ -106,7 +106,7 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
           addUIFormInput(new UIFormCheckBoxInput<Boolean>(user.getUserName(),user.getUserName(), false)) ;
       }
     }
-    return  new ArrayList<User>(uiIterator_.getCurrentPageData());
+    return new ArrayList<User>(uiIterator_.getCurrentPageData());
   }
   
   public String getSelectedUsers() { return selectedUsers ; }
