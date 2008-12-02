@@ -66,6 +66,7 @@
   	<owner-type>group</owner-type>
     <owner-id>platform/administrators</owner-id>
     <name>dashboard</name>
+    <title>Dashboard</title>
     <access-permissions>manager:/platform/administrators</access-permissions>
     <edit-permission>manager:/platform/administrators</edit-permission>
     <application>
