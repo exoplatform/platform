@@ -118,12 +118,13 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
       writer.append("<div class=\"MultiValueContainer\">") ;
       uiInput.processRender(context) ;
 
+      if(size >= 2){
+        writer.append("<img onclick=\""); 
+        writer.append(uiForm.event("Remove", uiInput.getId())).append("\" title=\"Remove Item\" alt=\"\"");
+        writer.append(" class=\"MultiFieldAction Remove16x16Icon\" src=\"/eXoResources/skin/sharedImages/Blank.gif\" />");
+      }
       if(i == size - 1) {
-        if(size >= 2){
-          writer.append("<img onclick=\""); 
-          writer.append(uiForm.event("Remove", getId()+String.valueOf(i))).append("\" title=\"Remove Item\" alt=\"\"");
-          writer.append(" class=\"MultiFieldAction Remove16x16Icon\" src=\"/eXoResources/skin/sharedImages/Blank.gif\" />");
-        }
+        
         writer.append("<img onclick=\"");
         writer.append(uiForm.event("Add", getId())).append("\" title=\"Add Item\" alt=\"\"");
         writer.append(" class=\"MultiFieldAction AddNewNodeIcon\" src=\"/eXoResources/skin/sharedImages/Blank.gif\" />");
@@ -146,7 +147,11 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
       UIFormMultiValueInputSet uiSet = event.getSource();
       String id = event.getRequestContext().getRequestParameter(OBJECTID);  
       if(uiSet.getId().equals(id)){
-        uiSet.createUIFormInput(uiSet.getChildren().size());
+        // get max id 
+        UIFormInputBase uiInput = (UIFormInputBase)uiSet.getChildren().get(uiSet.getChildren().size() - 1);
+        String index = uiInput.getId();
+        int maxIndex = Integer.parseInt(index.replaceAll(id, ""));
+        uiSet.createUIFormInput(maxIndex + 1);
       }
     }
   }
