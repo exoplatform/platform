@@ -150,7 +150,7 @@ public class UIWizardPageSetInfo extends UIForm {
   
   public void setPageNode(PageNode pageNode) throws Exception {
     if(pageNode.getName() != null) getUIStringInput(PAGE_NAME).setValue(pageNode.getName()) ;
-    if(pageNode.getLabel() != null) getUIStringInput(PAGE_DISPLAY_NAME).setValue(pageNode.getResolvedLabel()) ;
+    if(pageNode.getLabel() != null) getUIStringInput(PAGE_DISPLAY_NAME).setValue(pageNode.getLabel()) ;
     getUIFormCheckBoxInput(VISIBLE).setChecked(pageNode.isVisible()) ;
     setShowPublicationDate(pageNode.isShowPublicationDate()) ;
     Calendar cal = Calendar.getInstance() ;
