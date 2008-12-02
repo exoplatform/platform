@@ -85,6 +85,10 @@ public class UIPageBody extends UIComponentDecorator {
   }
   
   public void renderChildren() throws Exception {
+    uicomponent_.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
+  }
+
+  public void processRender(WebuiRequestContext context) throws Exception {
     if(maximizedUIComponent != null) {
       maximizedUIComponent.processRender((WebuiRequestContext) WebuiRequestContext.getCurrentInstance()) ;
       return;
@@ -92,9 +96,7 @@ public class UIPageBody extends UIComponentDecorator {
     if(uicomponent_ == null) {
       setPageBody(Util.getUIPortal().getSelectedNode(), Util.getUIPortal());
     }
-    if(uicomponent_ != null) {
-      uicomponent_.processRender((WebuiRequestContext)WebuiRequestContext.getCurrentInstance()) ;
-    }
+    super.processRender(context) ;
   }
 
   public UIPortalComponent getMaximizedUIComponent() { return maximizedUIComponent; }
