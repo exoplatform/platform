@@ -5,6 +5,7 @@
 	<portlet>
 		<description xml:lang="EN">Dashboard Portlet</description>
 		<portlet-name>DashboardPortlet</portlet-name>
+		<display-name>Dashboard Portlet</display-name>
 		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
 		<init-param>
 			<name>webui.configuration</name>
@@ -42,8 +43,9 @@
 		</security-role-ref>
 	</portlet>
 	<portlet>
-		<description xml:lang="EN">Gadget Portlet</description>
+		<description xml:lang="EN">Gadget Wrapper Portlet</description>
 		<portlet-name>GadgetPortlet</portlet-name>
+		<display-name>Gadget Wrapper Portlet</display-name>
 		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
 		<init-param>
 			<name>webui.configuration</name>

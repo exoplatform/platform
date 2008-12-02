@@ -165,9 +165,9 @@
 	          <name>dashboard</name>
 	          <description>description</description>
 	          <object type="org.exoplatform.application.registry.ApplicationCategory">
-	            <field  name="name"><string>Dashboard</string></field>
-	            <field  name="displayName"><string>Dashboard</string></field> 
-	            <field  name="description"><string>Dashboard</string></field>
+	            <field name="name"><string>dashboard</string></field>
+	            <field name="displayName"><string>Dashboard</string></field> 
+	            <field name="description"><string>Dashboard</string></field>
               <field name="accessPermissions">
 				        <collection type="java.util.ArrayList" item-type="java.lang.String">													
 									<value><string>*:/platform/users</string></value>													
@@ -177,10 +177,25 @@
 		            <collection type="java.util.ArrayList">
 	                <value>                 
 		                <object type="org.exoplatform.application.registry.Application">                     
-		                  <field  name="categoryName"><string>Dashboard</string></field>
+		                  <field name="categoryName"><string>dashboard</string></field>
 		                  <field name="applicationName"><string>DashboardPortlet</string></field>
-						          <field name="displayName"><string>Dashboard</string></field>
+						          <field name="displayName"><string>Dashboard Portlet</string></field>
 						          <field name="description"><string>Dashboard Portlet</string></field>
+		                  <field name="applicationType"><string>portlet</string></field>
+		                  <field name="applicationGroup"><string>dashboard</string></field>
+		                  <field name="accessPermissions">
+								        <collection type="java.util.ArrayList" item-type="java.lang.String">													
+													<value><string>*:/platform/users</string></value>													
+								        </collection>
+						          </field>                 
+		                </object>
+	                </value>
+	                <value>                 
+		                <object type="org.exoplatform.application.registry.Application">                     
+		                  <field name="categoryName"><string>dashboard</string></field>
+		                  <field name="applicationName"><string>GadgetPortlet</string></field>
+						          <field name="displayName"><string>Gadget Wrapper Portlet</string></field>
+						          <field name="description"><string>Gadget Wrapper Portlet</string></field>
 		                  <field name="applicationType"><string>portlet</string></field>
 		                  <field name="applicationGroup"><string>dashboard</string></field>
 		                  <field name="accessPermissions">
