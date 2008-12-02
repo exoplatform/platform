@@ -18,11 +18,10 @@ package org.exoplatform.organization.webui.component;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.Membership;
+import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
@@ -41,6 +40,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.organization.account.UIUserSelector;
 /**
@@ -67,17 +67,20 @@ import org.exoplatform.webui.organization.account.UIUserSelector;
      template =  "system:/groovy/webui/core/UIPopupWindow.gtmpl",
      events = {
        @EventConfig(listeners = UIPopupWindow.CloseActionListener.class, name = "ClosePopup")  ,
-       @EventConfig(listeners = UIGroupMembershipForm.AddUserActionListener.class, name = "AddUser", phase = Phase.DECODE)
+       @EventConfig(listeners = UIGroupMembershipForm.CloseActionListener.class, name = "Close", phase = Phase.DECODE)  ,
+       @EventConfig(listeners = UIGroupMembershipForm.AddActionListener.class, name = "Add", phase = Phase.DECODE)
      }
   )
 })
 public class UIGroupMembershipForm extends UIForm {  
     
   private List<SelectItemOption<String>> listOption = new ArrayList<SelectItemOption<String>>();
+  final static String USER_NAME = "username"; 
   
   public UIGroupMembershipForm() throws Exception {
-    addUIFormInput(new UIFormStringInput("username", "username", null).
-                   addValidator(MandatoryValidator.class));
+    addUIFormInput(new UIFormStringInput(USER_NAME, USER_NAME, null).
+                   addValidator(MandatoryValidator.class).
+                   addValidator(ExpressionValidator.class, "^[a-zA-Z0-9,]+$", "UIGroupMembershipForm.msg.Invalid-char"));
     addUIFormInput(new UIFormSelectBox("membership","membership", listOption).setSize(1));
     UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, "SearchUser", "SearchUser");
     searchUserPopup.setWindowSize(640, 0); 
@@ -92,7 +95,7 @@ public class UIGroupMembershipForm extends UIForm {
     loadData();
   } 
   
-  public String getUserName() { return getUIStringInput("username").getValue(); }
+  public String getUserName() { return getUIStringInput(USER_NAME).getValue(); }
   public String getMembership() { return getUIStringInput("membership").getValue(); }
   
   private void loadData() throws Exception  {
@@ -103,9 +106,10 @@ public class UIGroupMembershipForm extends UIForm {
       MembershipType mt = (MembershipType) ele;
       listOption.add(new SelectItemOption<String>(mt.getName(), mt.getName(), mt.getDescription()));
     }
-  } 
- public void setUserName(String userName) {
-   getUIStringInput("username").setValue(userName); 
+  }
+  
+  public void setUserName(String userName) {
+   getUIStringInput(USER_NAME).setValue(userName); 
   }
 
   @SuppressWarnings("unchecked")
@@ -130,11 +134,22 @@ public class UIGroupMembershipForm extends UIForm {
     listOption.add(option) ;
   }
   
-  static  public class AddUserActionListener extends EventListener<UIUserSelector> {
+  static  public class AddActionListener extends EventListener<UIUserSelector> {
     public void execute(Event<UIUserSelector> event) throws Exception {
       UIUserSelector uiForm = event.getSource();
       UIGroupMembershipForm uiParent = uiForm.getAncestorOfType(UIGroupMembershipForm.class);
       uiParent.setUserName(uiForm.getSelectedUsers());
+      UIPopupWindow uiPopup = uiParent.getChild(UIPopupWindow.class);
+      uiPopup.setUIComponent(null);
+      uiPopup.setShow(false);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiParent);
+    }  
+  }
+  
+  static  public class CloseActionListener extends EventListener<UIUserSelector> {
+    public void execute(Event<UIUserSelector> event) throws Exception {
+      UIUserSelector uiForm = event.getSource();
+      UIGroupMembershipForm uiParent = uiForm.getAncestorOfType(UIGroupMembershipForm.class);
       UIPopupWindow uiPopup = uiParent.getChild(UIPopupWindow.class);
       uiPopup.setUIComponent(null);
       uiPopup.setShow(false);
@@ -147,38 +162,41 @@ public class UIGroupMembershipForm extends UIForm {
       UIGroupMembershipForm uiForm = event.getSource() ;
       UIUserInGroup userInGroup = uiForm.getParent() ;
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
+      MembershipHandler memberShipHandler = service.getMembershipHandler();
       UIApplication uiApp = event.getRequestContext().getUIApplication() ;
-      String username = uiForm.getUserName();
-      // don't accept special character
-      if(!username.matches("^[\\p{L}_][\\p{L}._\\d]+$")) {
-        Object[]  args = {"UserName", username } ;
-        uiForm.reset();
-        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-doesn't-exist", args)) ;
-        return ;
-      }
-      User user = service.getUserHandler().findUserByName(username) ;
-      if(user==null) {
-        Object[]  args = {"UserName", username } ;
-        uiForm.reset();
-        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-doesn't-exist", args)) ;
-        return ;
-      }
+      String[] userNames = uiForm.getUserName().split(",");
       Group group = userInGroup.getSelectedGroup() ;
+      MembershipType membershipType = 
+        service.getMembershipTypeHandler().findMembershipType(uiForm.getMembership());
       if(group == null) {
         uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.group-doesn't-select", null)) ;
         return ;
       }
-      MembershipType membershipType = 
-        service.getMembershipTypeHandler().findMembershipType(uiForm.getMembership());
-      //TODO: Tung.Pham added
-      //-----------------------------------------
-      Membership membership = service.getMembershipHandler().findMembershipByUserGroupAndType(username, group.getId(), membershipType.getName());
-      if(membership != null){
-        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.membership-exist", new String[]{group.getGroupName()})) ;
-        return ;
+      // add new
+      for(int i0=0; i0 < userNames.length - 1; i0 ++) {
+        String user0 = userNames[i0];
+        for(int i1=i0+1; i1<userNames.length; i1++)
+          if(user0.equals(userNames[i1])) {
+            uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.duplicate-user", new String[]{user0})) ;
+            return ;
+          }
       }
-      //-----------------------------------------
-      service.getMembershipHandler().linkMembership(user,group,membershipType,true);               
+      for(String username : userNames) {
+        User user = service.getUserHandler().findUserByName(username) ;
+        if(user==null) {
+          uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-doesn't-exist", new String[]{username})) ;
+          return ;
+        }
+        Membership membership = memberShipHandler.findMembershipByUserGroupAndType(username, group.getId(), membershipType.getName());
+        if(membership != null){
+          uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.membership-exist", new String[]{username,group.getGroupName()})) ;
+          return ;
+        }
+      }
+      for(String username : userNames) {
+        User user = service.getUserHandler().findUserByName(username) ;
+        memberShipHandler.linkMembership(user,group,membershipType,true);               
+      }
       userInGroup.refresh(); 
       uiForm.reset();
     }
@@ -189,7 +207,6 @@ public class UIGroupMembershipForm extends UIForm {
       UIGroupMembershipForm uiGroupForm = event.getSource() ;
       UIPopupWindow searchUserPopup = uiGroupForm.getChild(UIPopupWindow.class);
       UIUserSelector userSelector = uiGroupForm.createUIComponent(UIUserSelector.class, null, null);
-      userSelector.setMulti(false);
       userSelector.setShowSearchGroup(false);
       searchUserPopup.setUIComponent(userSelector);
       searchUserPopup.setShow(true);

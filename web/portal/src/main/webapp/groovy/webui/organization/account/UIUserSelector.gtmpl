@@ -30,9 +30,11 @@
                   	<a class="SearchIcon" href="<%=uicomponent.event('SearchGroup')%>" title="<%=uiform.getLabel(uiform.FIELD_GROUP)%>"><span></span></a>
                   	<% } %>
                   	<% if(uicomponent.isShowSearchUser()) { %>
-                    <div class="AddressLabel">
-											<%=uiform.getLabel('user')%>
-                  	</div>
+                  		<% if(!uicomponent.isShowSearchGroup()) {%>
+                  		<div class="AddressLabel">
+                  			<%=uiform.getLabel(uiform.getLabel('searchUser'))%>
+                  		</div>
+                  		<% } %>
                     <%uiform.renderField(uiform.FIELD_KEYWORD)%>
                   	<div class="FilterSelect">
                   		<%uiform.renderField(uiform.FIELD_FILTER)%>

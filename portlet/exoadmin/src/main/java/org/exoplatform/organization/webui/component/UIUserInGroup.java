@@ -36,6 +36,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIGrid;
 import org.exoplatform.webui.core.UIPageIterator;
+import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 /**
@@ -46,7 +47,12 @@ import org.exoplatform.webui.event.EventListener;
  * 10:07:15 AM
  */
 @ComponentConfigs({
-  @ComponentConfig(events = @EventConfig(listeners = UIUserInGroup.DeleteUserActionListener.class, confirm = "UIUserInGroup.confirm.deleteUser")),
+  @ComponentConfig(
+     events = {
+       @EventConfig(listeners = UIUserInGroup.DeleteUserActionListener.class, confirm = "UIUserInGroup.confirm.deleteUser"),
+       @EventConfig(listeners = UIUserInGroup.EditActionListener.class)
+     }
+  ),
   @ComponentConfig(
      type = org.exoplatform.organization.webui.component.UIUserInGroup.UIGridUser.class,
      id = "UIGridUser",
@@ -57,13 +63,15 @@ public class UIUserInGroup extends UIContainer {
 
   private static String[] USER_BEAN_FIELD = {"userName", "firstName", "lastName", "membershipType", "email"};
 
-  private static String[] USER_ACTION = {"DeleteUser"} ;
+  private static String[] USER_ACTION = {"Edit", "DeleteUser"} ;
   
   public UIUserInGroup() throws Exception {
     UIGrid uiGrid = addChild(UIGridUser.class, "UIGridUser", null) ;
     uiGrid.configure("id", USER_BEAN_FIELD, USER_ACTION) ;
     uiGrid.getUIPageIterator().setId("UIUserInGroupIterator") ;
     addChild(UIGroupMembershipForm.class, null, null);
+    UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, null, "EditMembership");
+    searchUserPopup.setWindowSize(400, 0);
   }  
   
   @Override
@@ -137,6 +145,22 @@ public class UIUserInGroup extends UIContainer {
       while(currentPage > pageIterator.getAvailablePage()) currentPage--;
       pageIterator.setCurrentPage(currentPage);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiUserInGroup.getChild(UIGridUser.class));
+    }
+  }
+  
+  static  public class EditActionListener extends EventListener<UIUserInGroup> {
+    public void execute(Event<UIUserInGroup> event) throws Exception {
+      UIUserInGroup uiUserInGroup = event.getSource() ;
+      String id = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      OrganizationService service = uiUserInGroup.getApplicationComponent(OrganizationService.class);
+      MembershipHandler handler = service.getMembershipHandler();
+      UIPopupWindow uiPopup = uiUserInGroup.getChild(UIPopupWindow.class);
+      UIGroupEditMembershipForm uiEditMemberShip = 
+        uiUserInGroup.createUIComponent(UIGroupEditMembershipForm.class, null, null);
+      uiEditMemberShip.setValue(handler.findMembership(id), uiUserInGroup.getSelectedGroup());
+      uiPopup.setUIComponent(uiEditMemberShip);
+      uiPopup.setShow(true);
+      //event.getRequestContext().addUIComponentToUpdateByAjax(groupMemberShip);
     }
   }
 
