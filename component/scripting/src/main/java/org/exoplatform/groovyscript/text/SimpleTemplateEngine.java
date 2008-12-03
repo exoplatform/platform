@@ -125,11 +125,7 @@ public class SimpleTemplateEngine extends TemplateEngine {
           ExoScript script = (ExoScript)InvokerHelper.createScript(scriptClass, context);
           script.printer = (Printer)writer;
           script.setProperty("out", script.printer);
-          try {
-          	script.run();
-					} catch (Exception e) {
-						System.out.println("tran teh trong");
-					}
+         	script.run();
           script.flush();
           return writer;
         }

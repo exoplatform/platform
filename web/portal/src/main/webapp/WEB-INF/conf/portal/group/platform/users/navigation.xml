@@ -5,7 +5,14 @@
 	<priority>8</priority>
   <description>description for node navigation </description>
     
-  <page-nodes>	  	  
+  <page-nodes>
+    <node>
+	    <uri>dashboard</uri>
+	    <name>dashboard</name>
+	    <label>#{platform.users.dashboard}</label>
+	    <page-reference>group::platform/users::dashboard</page-reference>
+    </node>	    	   
+
 	  <node>
 	    <uri>mylink</uri>
 	    <name>mylink</name>

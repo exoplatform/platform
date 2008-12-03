@@ -44,14 +44,6 @@
 		    <label>#{administration.console}</label>
 		    <page-reference>group::platform/administrators::console</page-reference>
 	    </node>
-	    
-	    <node>
-		    <uri>administration/dashboard</uri>
-		    <name>dashboard</name>
-		    <label>#{administration.dashboard}</label>
-		    <page-reference>group::platform/administrators::dashboard</page-reference>
-	    </node>	    	   
-	    	   	    
     </node>                        
   </page-nodes>
 </node-navigation>

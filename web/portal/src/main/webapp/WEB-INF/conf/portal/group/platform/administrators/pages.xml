@@ -29,7 +29,7 @@
       <title>Community Management</title>
       <show-info-bar>false</show-info-bar>      
     </application>     
-  </page>     
+  </page>
   
   <page>
   	<page-id>group::platform/administrators::i18n</page-id>
@@ -60,20 +60,4 @@
       <show-info-bar>false</show-info-bar>
     </application>   
   </page>
-  
-  <page>
-  	<page-id>group::platform/administrators::dashboard</page-id>
-  	<owner-type>group</owner-type>
-    <owner-id>platform/administrators</owner-id>
-    <name>dashboard</name>
-    <title>Dashboard</title>
-    <access-permissions>manager:/platform/administrators</access-permissions>
-    <edit-permission>manager:/platform/administrators</edit-permission>
-    <application>
-      <instance-id>group#platform/administrators:/dashboard/DashboardPortlet/Dashboard</instance-id>
-      <title>Dashboard</title>
-      <show-info-bar>false</show-info-bar>
-    </application>   
-  </page>           
-        
 </page-set>
