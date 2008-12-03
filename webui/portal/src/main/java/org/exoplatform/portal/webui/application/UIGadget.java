@@ -56,7 +56,7 @@ public class UIGadget extends UIComponent {
   private String applicationInstanceUniqueId_ ;
   private String applicationId_ ;
   private Properties properties_;
-  private String metadata_;
+  private JSONObject metadata_;
   private String url_;
   public static final String PREF_KEY = "_pref_gadget_";
 
@@ -166,19 +166,18 @@ public class UIGadget extends UIComponent {
   public void setProperties(Properties properties) { this.properties_ = properties; }
   
   public String getMetadata() {
-    if(metadata_ == null) {
-      metadata_ = GadgetUtil.fetchGagdetMetadata(getUrl());
-      try {
-        JSONObject jsonObj = new JSONObject(metadata_);
-        JSONObject obj = jsonObj.getJSONArray("gadgets").getJSONObject(0);
-        String token = GadgetUtil.createToken(this.getUrl(), new Long(this.getApplicationInstanceId().hashCode()));
-        obj.put("secureToken", token);
-        metadata_ = jsonObj.toString();
-      } catch (JSONException e) {
-        e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+    try {
+      if(metadata_ == null) {
+        String strMetadata = GadgetUtil.fetchGagdetMetadata(getUrl());
+        metadata_ = new JSONObject(strMetadata);
       }
+      JSONObject obj = metadata_.getJSONArray("gadgets").getJSONObject(0);
+      String token = GadgetUtil.createToken(this.getUrl(), new Long(this.getApplicationInstanceId().hashCode()));
+      obj.put("secureToken", token);
+      return metadata_.toString();
+    } catch (JSONException e) {
+      return null;
     }
-    return metadata_;
   }
 
   /**
