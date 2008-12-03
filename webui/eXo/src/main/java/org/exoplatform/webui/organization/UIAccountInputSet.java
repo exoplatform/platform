@@ -48,8 +48,8 @@ public class UIAccountInputSet extends UIFormInputWithActions {
     addUIFormInput(new UIFormStringInput(USERNAME, "userName", null).
                    addValidator(MandatoryValidator.class).
                    addValidator(StringLengthValidator.class, 3, 30).
-                   addValidator(ExpressionValidator.class, "^[\\p{L}_][\\p{L}._\\d]+$", "ResourceValidator.msg.Invalid-char").
-                   addValidator(ResourceValidator.class));
+                   addValidator(ResourceValidator.class).
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\d]+$", "ResourceValidator.msg.Invalid-char"));
     addUIFormInput(new UIFormStringInput(PASSWORD1X, "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(MandatoryValidator.class).
@@ -58,10 +58,16 @@ public class UIAccountInputSet extends UIFormInputWithActions {
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(MandatoryValidator.class).
                    addValidator(StringLengthValidator.class, 6, 30));
-    addUIFormInput(new UIFormStringInput("firstName", "firstName", null).setMaxLength(45).
-                   addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
-    addUIFormInput(new UIFormStringInput("lastName", "lastName", null).setMaxLength(45).
-                   addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
+    addUIFormInput(new UIFormStringInput("firstName", "firstName", null).
+    							 addValidator(StringLengthValidator.class, 3, 30).
+                   addValidator(MandatoryValidator.class).
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{ASCII}]+$", "FirstCharacterNameValidator.msg").
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._ \\d]+$", "ResourceValidator.msg.Invalid-char")) ;
+    addUIFormInput(new UIFormStringInput("lastName", "lastName", null).
+    							 addValidator(StringLengthValidator.class, 3, 30).
+                   addValidator(MandatoryValidator.class).
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{ASCII}]+$", "FirstCharacterNameValidator.msg").
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._ \\d]+$", "ResourceValidator.msg.Invalid-char")) ;
     addUIFormInput(new UIFormStringInput("email", "email", null). 
                    addValidator(MandatoryValidator.class).
                    addValidator(EmailAddressValidator.class));    
