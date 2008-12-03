@@ -181,18 +181,37 @@ public class UIGroupMembershipForm extends UIForm {
             return ;
           }
       }
+      // check user
+      boolean check = false;
+      String listNotExist = null;
       for(String username : userNames) {
-        User user = service.getUserHandler().findUserByName(username) ;
-        if(user==null) {
-          uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-not-exist", new String[]{username})) ;
-          return ;
-        }
-        Membership membership = memberShipHandler.findMembershipByUserGroupAndType(username, group.getId(), membershipType.getName());
-        if(membership != null){
-          uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.membership-exist", new String[]{username,group.getGroupName()})) ;
-          return ;
+        User user = service.getUserHandler().findUserByName(username);
+        if(user == null) {
+          check = true;
+          if(listNotExist == null) listNotExist = username;
+          else listNotExist += ", " + username;
         }
       }
+      if(check) {
+        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-not-exist", new String[]{listNotExist})) ;
+        return ;
+      }
+      
+      // check membership
+      String listUserMembership = null;
+      for(String username : userNames) {
+        Membership membership = memberShipHandler.findMembershipByUserGroupAndType(username, group.getId(), membershipType.getName());
+        if(membership != null) {
+          check = true;
+          if(listUserMembership == null) listUserMembership = username;
+          else listUserMembership += ", " + username;
+        }
+      }
+      if(check) {
+        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.membership-exist", new String[]{listUserMembership,group.getGroupName()})) ;
+        return ;
+      }
+      
       for(String username : userNames) {
         User user = service.getUserHandler().findUserByName(username) ;
         memberShipHandler.linkMembership(user,group,membershipType,true);               
