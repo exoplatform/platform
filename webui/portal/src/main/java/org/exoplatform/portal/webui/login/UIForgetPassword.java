@@ -57,8 +57,8 @@ import org.exoplatform.webui.form.validator.MandatoryValidator;
   }
 )
 public class UIForgetPassword extends UIForm {
-  static final String Username = "Username";
-  static final String Email = "Email";
+  static final String Username = "username";
+  static final String Email = "email";
   public UIForgetPassword() throws Exception{
     addUIFormInput(new UIFormStringInput(Username,null).addValidator(MandatoryValidator.class)).
     addUIFormInput(new UIFormStringInput(Email,null).addValidator(MandatoryValidator.class).addValidator(EmailAddressValidator.class));

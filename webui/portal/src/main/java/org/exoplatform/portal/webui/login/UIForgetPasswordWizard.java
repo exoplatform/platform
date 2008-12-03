@@ -45,8 +45,8 @@ import org.exoplatform.webui.form.UIFormStringInput;
   }
 )
 public class UIForgetPasswordWizard extends UIForm {
-  final static String Password_Radio = "Forgot my password";
-  final static String Username_Radio = "Forgot my username";
+  final static String Password_Radio = "forgotpassword";
+  final static String Username_Radio = "forgotusername";
   final static String Forgot = "UIForgetPasswordWizard";
   public UIForgetPasswordWizard() throws Exception{
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>(2);

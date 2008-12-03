@@ -19,6 +19,8 @@ package org.exoplatform.webui.form;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.model.SelectItemOption;
@@ -79,6 +81,7 @@ public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
   
   public void processRender(WebuiRequestContext context) throws Exception {
     if(options_ == null) return ;
+    ResourceBundle res = context.getApplicationResourceBundle();
     Writer w =  context.getWriter() ;    
     if(value_ == null) {
       SelectItemOption<String> si = options_.get(0) ;
@@ -98,7 +101,14 @@ public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
       w.write(checked); w.write(" name='"); w.write(getName()); w.write("'") ;
       w.write(" value='"); w.write(si.getValue());
       w.write("'/>");
-      w.write(si.getLabel());
+      String label = getId() + ".label." + si.getLabel();
+      try {
+        label = res.getString(label);      
+      } catch (MissingResourceException e) {
+        label = si.getLabel();
+        e.printStackTrace();
+      }
+      w.write(label);
       if(align_ == VERTICAL_ALIGN) w.write("<br />");
 //      if(align_ == VERTICAL_ALIGN) w.write("</div>");
       
@@ -110,5 +120,5 @@ public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
     }
     
   }
-  
+    
 }
