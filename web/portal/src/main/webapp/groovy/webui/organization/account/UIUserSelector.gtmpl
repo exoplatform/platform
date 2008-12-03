@@ -104,10 +104,15 @@
 	                    </div>
 	                  </td>
 	                  <% } %>
-	                  <td><div class="Text"><%=data.getUserName() != null ? data.getUserName() : ""%></div></td>
-	                  <td><div class="Text"><%=data.getFirstName() != null ? data.getFirstName() : "" %></div></td>
-	                  <td><div class="Text"><%=data.getLastName() != null ? data.getLastName() : ""%></div></td>
-	                  <td><div class="Text"><%=data.getEmail() != null ? data.getEmail() : ""%></div></td>
+	                  <% String userName = data.getUserName() != null ? data.getUserName() : "" ;
+	                  	 String firstName = data.getFirstName() != null ? data.getFirstName() : "";
+	                  	 String lastName = data.getLastName() != null ? data.getLastName() : "";
+	                  	 String userEmail = data.getEmail() != null ? data.getEmail() : ""; 
+	                  %>
+	                  <td><div class="Text" title='$userName'><%= userName %></div></td>
+	                  <td><div class="Text" title="$firstName"><%= firstName %></div></td>
+	                  <td><div class="Text" title="$lastName"><%= lastName %></div></td>
+	                  <td><div class="Text" title="$userEmail"><%= userEmail %></div></td>
 	                  <% if(!isMulti) {
 	                  	 String addAction = uicomponent.event("AddUser", data.getUserName()) + "; return false;";
 	                  %>
