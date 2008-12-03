@@ -83,19 +83,26 @@ public class UIGroupEditMembershipForm extends UIForm {
     public void execute(Event<UIGroupEditMembershipForm> event) throws Exception {
       UIGroupEditMembershipForm uiForm = event.getSource();
       UIApplication uiApp = event.getRequestContext().getUIApplication() ;
+      UIPopupWindow uiPopup = uiForm.getParent();
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class);
-      User user = service.getUserHandler().findUserByName(uiForm.membership.getUserName()) ;
+      String userName = uiForm.membership.getUserName();
+      Group group = uiForm.group;
+      User user = service.getUserHandler().findUserByName(userName) ;
       MembershipHandler memberShipHandler = service.getMembershipHandler();
       String memberShipType = uiForm.getUIFormSelectBox(MEMBER_SHIP).getValue();
       MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(memberShipType);
+      Membership membership = memberShipHandler.findMembershipByUserGroupAndType(userName, group.getId(), membershipType.getName());
+      if(membership != null){
+        uiApp.addMessage(new ApplicationMessage("UIGroupEditMembershipForm.msg.membership-exist", null)) ;
+        return ;
+      }
       try {
         memberShipHandler.removeMembership(uiForm.membership.getId(), true);
-        memberShipHandler.linkMembership(user,uiForm.group,membershipType,true);
+        memberShipHandler.linkMembership(user,group,membershipType,true);
       } catch (Exception e) {
         // membership removed
         uiApp.addMessage(new ApplicationMessage("UIGroupEditMembershipForm.msg.membership-delete", null)) ;
       }
-      UIPopupWindow uiPopup = uiForm.getParent();
       uiPopup.setUIComponent(null);
       uiPopup.setShow(false);
     }
