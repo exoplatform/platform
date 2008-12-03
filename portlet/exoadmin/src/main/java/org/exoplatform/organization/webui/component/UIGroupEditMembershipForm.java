@@ -25,8 +25,10 @@ import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.User;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
@@ -80,14 +82,19 @@ public class UIGroupEditMembershipForm extends UIForm {
   static public class SaveActionListener extends EventListener<UIGroupEditMembershipForm> {
     public void execute(Event<UIGroupEditMembershipForm> event) throws Exception {
       UIGroupEditMembershipForm uiForm = event.getSource();
+      UIApplication uiApp = event.getRequestContext().getUIApplication() ;
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class);
       User user = service.getUserHandler().findUserByName(uiForm.membership.getUserName()) ;
       MembershipHandler memberShipHandler = service.getMembershipHandler();
-      String memberShip = uiForm.getUIFormSelectBox(MEMBER_SHIP).getValue();
-      MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(memberShip);
-      memberShipHandler.linkMembership(user,uiForm.group,membershipType,true);
-      memberShipHandler.removeMembership(uiForm.membership.getId(), true);
-            
+      String memberShipType = uiForm.getUIFormSelectBox(MEMBER_SHIP).getValue();
+      MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(memberShipType);
+      try {
+        memberShipHandler.removeMembership(uiForm.membership.getId(), true);
+        memberShipHandler.linkMembership(user,uiForm.group,membershipType,true);
+      } catch (Exception e) {
+        // membership removed
+        uiApp.addMessage(new ApplicationMessage("UIGroupEditMembershipForm.msg.membership-delete", null)) ;
+      }
       UIPopupWindow uiPopup = uiForm.getParent();
       uiPopup.setUIComponent(null);
       uiPopup.setShow(false);

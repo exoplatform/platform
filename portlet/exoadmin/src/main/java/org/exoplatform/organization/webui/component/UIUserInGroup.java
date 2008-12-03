@@ -70,8 +70,8 @@ public class UIUserInGroup extends UIContainer {
     uiGrid.configure("id", USER_BEAN_FIELD, USER_ACTION) ;
     uiGrid.getUIPageIterator().setId("UIUserInGroupIterator") ;
     addChild(UIGroupMembershipForm.class, null, null);
-    UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, null, "EditMembership");
-    searchUserPopup.setWindowSize(400, 0);
+    UIPopupWindow editMemberPopup = addChild(UIPopupWindow.class, null, "EditMembership");
+    editMemberPopup.setWindowSize(400, 0);
   }  
   
   @Override
@@ -160,7 +160,6 @@ public class UIUserInGroup extends UIContainer {
       uiEditMemberShip.setValue(handler.findMembership(id), uiUserInGroup.getSelectedGroup());
       uiPopup.setUIComponent(uiEditMemberShip);
       uiPopup.setShow(true);
-      //event.getRequestContext().addUIComponentToUpdateByAjax(groupMemberShip);
     }
   }
 
