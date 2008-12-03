@@ -169,7 +169,7 @@ public class UIGroupMembershipForm extends UIForm {
       MembershipType membershipType = 
         service.getMembershipTypeHandler().findMembershipType(uiForm.getMembership());
       if(group == null) {
-        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.group-doesn't-select", null)) ;
+        uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.group-not-select", null)) ;
         return ;
       }
       // add new
@@ -184,7 +184,7 @@ public class UIGroupMembershipForm extends UIForm {
       for(String username : userNames) {
         User user = service.getUserHandler().findUserByName(username) ;
         if(user==null) {
-          uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-doesn't-exist", new String[]{username})) ;
+          uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-not-exist", new String[]{username})) ;
           return ;
         }
         Membership membership = memberShipHandler.findMembershipByUserGroupAndType(username, group.getId(), membershipType.getName());
