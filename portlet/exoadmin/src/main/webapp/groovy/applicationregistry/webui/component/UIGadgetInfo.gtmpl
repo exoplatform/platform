@@ -1,5 +1,6 @@
 <%
 	def gadget = uicomponent.getGadget() ;
+	String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 %>
 <div class="UIGadgetInfo" id="$uicomponent.id">
 	<div class="UIBreadcumb">
@@ -14,7 +15,7 @@
 	</div>
  	<div class="Application">
  		<div class="PortletIcons">
-  			<img src="<%= gadget.getThumbnail() %>" alt=""/>
+  			<img src="<%= gadget.getThumbnail() %>" onError="src='$srcBGError'" alt=""/>
   	</div>
   	<div class="ApplicationContent">
 		  <div class="TitleBarApplication">
