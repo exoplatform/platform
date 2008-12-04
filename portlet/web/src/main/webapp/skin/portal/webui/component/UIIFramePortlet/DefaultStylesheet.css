@@ -4,6 +4,11 @@
 	margin: 7px;
 	height: auto;
 	width: 97.5%;
+	min-height: 400px;
+}
+
+*html .UIIFramePortlet {
+	height: 400px;
 }
 
 .UIIFramePortlet iframe {
