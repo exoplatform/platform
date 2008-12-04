@@ -39,7 +39,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 					        <div class="TabLeft">
 					          <div class="TabRight">
 					            <div class="TabRepeat">
-									      <a class="TabLabel" onclick="<%= uicomponent.event("ShowCategory", cName) %>">
+									      <a class="TabLabel" onclick="<%= uicomponent.event("ShowCategory", cName) %>" title="<%= displayName %>">
 									      	<%= displayName %>
 									      </a>
 									      <% if(isSelected) { %>
@@ -62,7 +62,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 							  	String appName= application.getApplicationName() ;
 							  %>
 									<div class="ItemContent $cssClass">
-										<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel"><%= application.getDisplayName() %><span></span></a>
+										<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel" title="<%= application.getDisplayName() %>"><%= application.getDisplayName() %><span></span></a>
 										<a class="ControlIcon DeletePortalIcon" title="<%=_ctx.appRes("UIOrganizer.title.deleteApplication")%>" onclick="<%= uicomponent.event("RemoveApplication", appName) %>"><span></span></a>
 					          <div style="clear: both"><span></span></div>
 									</div>
