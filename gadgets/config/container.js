@@ -85,8 +85,8 @@
 "exclude-urls": "",
 "include-tags": ["link", "script", "embed", "img", "style"],
 "expires": "86400",
-"proxy-url": "http://localhost:8080/eXoGadgetServer/gadgets/proxy?url=",
-"concat-url": "http://localhost:8080/eXoGadgetServer/gadgets/concat?"
+"proxy-url": "/eXoGadgetServer/gadgets/proxy?url=",
+"concat-url": "/eXoGadgetServer/gadgets/concat?"
 },
 
 // This config data will be passed down to javascript. Please
