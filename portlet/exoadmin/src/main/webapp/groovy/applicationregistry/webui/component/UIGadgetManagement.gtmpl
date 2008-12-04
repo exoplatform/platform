@@ -24,7 +24,8 @@
 	   	    	} else cssItem = "Item";
 	   	    %>
 				    <div class="$cssItem ItemContent">
-		        	<a onclick="<%= uicomponent.event("SelectGadget", gadget.getName()) %>" class="TabLabel $gadgetType" title="<%= gadget.getTitle() %>"><%= gadget.getTitle() %></a>
+				    <% def gadgetLabel = gadget.getTitle() %>
+		        	<a onclick="<%= uicomponent.event("SelectGadget", gadget.getName()) %>" class="TabLabel $gadgetType" title="<%= gadget.getTitle() %>"><%= (gadgetLabel.length() <= 31) ? gadgetLabel : gadgetLabel.substring(0, 28)+"..." %></a>
 		          <a title="<%=_ctx.appRes("UIGadgetManagement.title.deleteGadget")%>" class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveGadget", gadget.getName()) %>"><span></span></a>
 		      		<div style="clear: both;"><span></span></div>
 					  </div>
