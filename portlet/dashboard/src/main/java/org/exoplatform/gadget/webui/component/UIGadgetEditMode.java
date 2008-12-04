@@ -40,6 +40,8 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormSelectBox;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
+import org.exoplatform.webui.form.validator.URLValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -77,10 +79,12 @@ public class UIGadgetEditMode extends UIForm {
     typeSelector.setOnChange("SelectType") ;
     addUIFormInput(typeSelector) ;
     addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, pref.getValue("url",
-        "http://www.google.com/ig/modules/horoscope.xml")));
+        "http://www.google.com/ig/modules/horoscope.xml")).
+        addValidator(MandatoryValidator.class).addValidator(URLValidator.class));
     UIFormSelectBox gadgetSelector = new UIFormSelectBox(GADGET_SELECTOR, null, 
         new ArrayList<SelectItemOption<String>>()) ;
     gadgetSelector.setRendered(false) ;
+    gadgetSelector.addValidator(MandatoryValidator.class) ;
     addUIFormInput(gadgetSelector) ;
     setActions(new String[]{"Save"}) ;
   }
@@ -96,8 +100,6 @@ public class UIGadgetEditMode extends UIForm {
       
       if(typeSelector.getValue().equals(REMOTE_TYPE)) {
         if (url == null || url.length() == 0) {
-  //        Object args[] = {uiGadgetEditMode.getLabel(uiGadgetEditMode.getUIStringInput(FIELD_URL).getId())};
-  //        uiPortlet.addMessage(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", args));
           uiGadgetEditMode.getUIStringInput(FIELD_URL).setValue(uiPortlet.getUrl());
           return;
         }
@@ -110,9 +112,6 @@ public class UIGadgetEditMode extends UIForm {
           pcontext.setApplicationMode(PortletMode.VIEW);
         } catch (Exception e) {
           uiGadgetEditMode.getUIStringInput(FIELD_URL).setValue(uiPortlet.getUrl());
-  //          Object[] args = { FIELD_URL, "Url"};
-  //          throw new MessageException(new ApplicationMessage("ExpressionValidator.msg.value-invalid",
-  //              args));
         }
       } else {
         UIFormSelectBox gadgetSelector = uiGadgetEditMode.getUIFormSelectBox(GADGET_SELECTOR) ;

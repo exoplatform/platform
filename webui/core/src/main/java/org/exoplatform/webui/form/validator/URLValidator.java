@@ -57,6 +57,7 @@ public class URLValidator implements Validator {
     } catch(Exception e) {
       label = uiInput.getName();
     }
+    if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
     Object[]  args = { label } ;
     throw new MessageException(new ApplicationMessage(key_, args, ApplicationMessage.WARNING)) ;
   }
