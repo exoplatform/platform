@@ -23,7 +23,9 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.applicationregistry.webui.Util;
+import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -148,6 +150,8 @@ public class UIGadgetManagement extends UIContainer {
         }
       }
       service.removeGadget(name) ;
+      WebAppController webController = uiManagement.getApplicationComponent(WebAppController.class);
+      webController.removeApplication(GadgetApplication.EXO_GADGET_GROUP + "/" + name);
       Gadget gadget = uiManagement.getGadget(name);
       if(gadget.isLocal()) {
         SourceStorage sourceStorage = uiManagement.getApplicationComponent(SourceStorage.class);

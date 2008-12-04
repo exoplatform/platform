@@ -27,7 +27,9 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.gadget.Source;
 import org.exoplatform.application.gadget.SourceStorage;
 import org.exoplatform.portal.webui.application.GadgetUtil;
+import org.exoplatform.web.WebAppController;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -116,6 +118,8 @@ public class UIGadgetInfo extends UIComponent {
       source.setLastModified(Calendar.getInstance());
       sourceStorage.saveSource(null, source) ;
       service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(fileName), true)) ;
+      WebAppController webController = uiManagement.getApplicationComponent(WebAppController.class);
+      webController.removeApplication(GadgetApplication.EXO_GADGET_GROUP + "/" + name);
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;      
