@@ -72,8 +72,7 @@ public class UIDashboardSelectContainer extends UIContainer {
 
     for (int i = 0; i < listCategories.size(); i++) {
       ApplicationCategory cate = listCategories.get(i);
-      List<Application> listGadgets = service.getApplications(cate,
-          org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
+      List<Application> listGadgets = cate.getApplications();
       if (listGadgets == null || listGadgets.size() == 0) {
         listCategories.remove(i);
         i--;
