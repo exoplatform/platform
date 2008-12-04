@@ -379,7 +379,6 @@ gadgets.Gadget = function(params) {
   if (params) {
     for (var name in params)  if (params.hasOwnProperty(name)) {
       this[name] = params[name];
-      if (window.console && console.log) console.log(this, name);
     }
   }
   if (!this.secureToken) {
