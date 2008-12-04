@@ -42,7 +42,7 @@
   	    	</table>
   			</div>
   	    <div class="ContentLabel">
-  	    	<table>
+  	    	<table style="width: 98%">
   	    		<tr>
   	    			<td style="width: 60px;"><div class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.reference")%></div></td>
   	    			<td><div class="RightLabel"><%= gadget.getReferenceUrl() %></div></td>

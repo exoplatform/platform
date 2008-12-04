@@ -317,6 +317,22 @@ e/**
 
 /**************************** UIOrganizerManagement ***************************/
 
+.UIApplicationRegistryPortlet .UIAddApplicationForm .UIFormGrid {
+	width: 99%;
+}
+
+.UIOrganizerManagement .UIFormInputSet .UIFormGrid {
+	width: 100%;
+}
+
+.UIOrganizerManagement .UIFormInputSet .PublicCheck .UIFormGrid {
+	width: auto;
+}
+
+.UIOrganizerManagement .UIAddApplicationForm .UIFormGrid td.text {
+	white-space: normal;
+}
+
 
 /***************************** UIPortletManagement ***************************/
 

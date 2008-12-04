@@ -114,12 +114,33 @@
 	text-transform: uppercase;
 }
 
+.UIApplicationRegistryPortlet .CategoryContent .ListContent {
+	border:1px solid #D7D7D7;
+	margin:5px;
+}
+
 .UIApplicationRegistryPortlet .CategoryContent .ItemContent {
 	line-height: 26px;
 	height: 26px;
 	background: url('DefaultSkin/background/AppRegistryControl.gif') no-repeat -453px bottom;
 	padding: 2px 5px 0px;
 	cursor: pointer;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent a.TabLabel {
+	display: block;
+	float: left;
+	background: url('DefaultSkin/background/ControlIcon.gif') repeat-y left -92px;
+	padding: 0px 0px 0px 20px;
+	cursor: pointer;
+	width: 160px; overflow: hidden;
+	white-space: nowrap;
+}
+
+.UIApplicationRegistryPortlet .CategoryContent .ControlIcon {
+	display: block;
+	float: right;
+	margin: 3px;
 }
 
 .UIApplicationRegistryPortlet .CategoryContent .ItemContent:hover {
@@ -141,12 +162,16 @@
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab .TabLabel {
 	width: 100px;
 	overflow: hidden;
+	background: none;
+	padding: 0px;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .TabLabel {
 	width: 160px;
 	overflow: hidden;
 	white-space: nowrap;
+	background: none;
+	padding: 0px;
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab .ControlIcon {
@@ -278,6 +303,22 @@
 
 /**************************** UIOrganizerManagement ***************************/
 
+.UIApplicationRegistryPortlet .UIAddApplicationForm .UIFormGrid {
+	width: 99%;
+}
+
+.UIOrganizerManagement .UIFormInputSet .UIFormGrid {
+	width: 100%;
+}
+
+.UIOrganizerManagement .UIFormInputSet .PublicCheck .UIFormGrid {
+	width: auto;
+}
+
+.UIOrganizerManagement .UIAddApplicationForm .UIFormGrid td.text {
+	white-space: normal;
+}
+
 /***************************** UIPortletManagement ***************************/
 
 .UIPortletManagement .ListCategory .CategoryLable {
@@ -311,6 +352,8 @@
 
 .UIPortletManagement .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
 	background: none;
+	border: none;
+	margin: 0px;
 }
 
 .UIPortletManagement .BoxContent {

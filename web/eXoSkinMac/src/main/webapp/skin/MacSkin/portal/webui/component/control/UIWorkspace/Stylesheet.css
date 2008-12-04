@@ -89,6 +89,7 @@
 	background: green ;
 	text-align: center ;
 	position: absolute ;
+	overflow: hidden; /* Fix for FF2 */
 }
 
 .WarningLayer {
