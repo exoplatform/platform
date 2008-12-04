@@ -72,20 +72,17 @@ public class UIDashboardPortlet extends UIPortletApplication implements Dashboar
   }
 
   public boolean canEdit() {
-
+    PortletRequestContext context = (PortletRequestContext) WebuiRequestContext
+	    .getCurrentInstance();
+    String accessUser = context.getRemoteUser() ;
+    if(accessUser == null || accessUser.equals("")) return false ;
     if ("__CURRENT_USER__".equals(owner)) {
       return true;
     }
-
-    PortletRequestContext context = (PortletRequestContext) WebuiRequestContext
-	    .getCurrentInstance();
-    context.getRemoteUser();
     if (isPrivate) {
-      if (context.getRemoteUser().equals(owner))
-        return true;
-      return false;
+      if (accessUser.equals(owner)) return true;
     }
-    return true;
+    return false;
   }
 
   public String getDashboardOwner() {

@@ -218,9 +218,11 @@ public class UIGadget extends UIComponent {
    * @throws Exception when can't convert object to string
    */
   public String getUserPref() throws Exception {
-    String prefs;
+    String prefs = null;
     UserGadgetStorage userGadgetStorage = (UserGadgetStorage) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(UserGadgetStorage.class);
-    prefs = userGadgetStorage.get(Util.getPortalRequestContext().getRemoteUser(), getApplicationName(), getApplicationInstanceUniqueId(), PREF_KEY);
+    if(Util.getPortalRequestContext().getRemoteUser() != null) {
+      prefs = userGadgetStorage.get(Util.getPortalRequestContext().getRemoteUser(), getApplicationName(), getApplicationInstanceUniqueId(), PREF_KEY);
+    }
     return prefs;
   }
   

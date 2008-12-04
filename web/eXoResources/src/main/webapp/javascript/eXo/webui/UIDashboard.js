@@ -229,7 +229,7 @@ eXo.webui.UIDashboard = {
 		}	
 	},
 	
-	onLoad : function(windowId) { 
+	onLoad : function(windowId, canEdit) { 
 		var portletWindow = document.getElementById(windowId);
 		if(!portletWindow) return;
 		
@@ -261,7 +261,21 @@ eXo.webui.UIDashboard = {
 		colsContainer.style.width = colsSize*320 + 20 + "px";
 
 		eXo.webui.UIDashboard.initHeight(windowId) ;
-		setTimeout("eXo.webui.UIDashboard.initDragDrop('" + windowId + "');", 300) ;
+		if(canEdit) {
+			setTimeout("eXo.webui.UIDashboard.initDragDrop('" + windowId + "');", 300) ;
+			var minimizeButtons = DOMUtil.findDescendantsByClass(portletWindow, "div", "MinimizeAction");
+			for(var i = 0; i < minimizeButtons.length; i++) minimizeButtons[i].style.display = "block" ;
+		} else {
+			var gadgetControls = DOMUtil.findDescendantsByClass(portletWindow, "div", "GadgetControl");
+			for(var i=0; i<gadgetControls.length; i++) {
+				var closeButton = DOMUtil.findFirstDescendantByClass(gadgetControls[i], "div", "CloseGadget") ;
+				var editButton = DOMUtil.findFirstDescendantByClass(gadgetControls[i], "div", "EditGadget") ;
+				var minimizeButton = DOMUtil.findFirstDescendantByClass(gadgetControls[i], "div", "MinimizeAction") ;
+				if(closeButton) closeButton.style.display = "none" ;
+				if(editButton) editButton.style.display = "none" ;
+				if(minimizeButton) minimizeButton.style.display = "none" ;
+			}
+		}
 	},
 	
 	initDragDrop : function(windowId) {

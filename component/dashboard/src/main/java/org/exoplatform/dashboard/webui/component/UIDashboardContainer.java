@@ -32,6 +32,7 @@ import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
@@ -43,6 +44,7 @@ import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.exception.MessageException;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IUnmarshallingContext;
@@ -129,7 +131,6 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
 
 
   public void processRender(WebuiRequestContext context) throws Exception {
-    //----
     initData();
     PortalLayoutService service = getApplicationComponent(PortalLayoutService.class);
     DashboardParent parent = (DashboardParent)((UIComponent)getParent()).getParent();
@@ -137,11 +138,9 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     Container container = service.getContainer(ROOT_CONTAINER  + "-" + windowId, parent.getDashboardOwner());
     UIContainer uiRoot = getChild(UIContainer.class);
 
-    //remove the existing children, mybe it should be done in PortalDataMapper.toUIContainer
     toUIContainer(uiRoot, container);
     JavascriptManager jsmanager = context.getJavascriptManager() ;
-    jsmanager.addCustomizedOnLoadScript("eXo.webui.UIDashboard.onLoad('" + windowId + "');") ;
-    //----
+    jsmanager.addCustomizedOnLoadScript("eXo.webui.UIDashboard.onLoad('" + windowId + "'," + parent.canEdit() + ");") ;
     super.processRender(context);
   }
 
@@ -481,8 +480,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
       WebuiRequestContext context = event.getRequestContext();
       org.exoplatform.webui.core.UIContainer uiDashboard = event.getSource();
-      if (!((UIDashboard)uiDashboard).canEdit())
-        return;
+      if (!((UIDashboard)uiDashboard).canEdit()) return;
       int col = Integer.parseInt(context.getRequestParameter(COLINDEX));
       int row = Integer.parseInt(context.getRequestParameter(ROWINDEX));
       String objectId = context.getRequestParameter(UIComponent.OBJECTID);
@@ -512,8 +510,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
       WebuiRequestContext context = event.getRequestContext();
       org.exoplatform.webui.core.UIContainer uiDashboard = event.getSource();
-      if (!((UIDashboard)uiDashboard).canEdit())
-        return;
+      if (!((UIDashboard)uiDashboard).canEdit()) return;
       UIDashboardContainer uiDashboardContainer = uiDashboard.getChild(UIDashboardContainer.class);
       int col = Integer.parseInt(context.getRequestParameter(COLINDEX));
       int row = Integer.parseInt(context.getRequestParameter(ROWINDEX));
@@ -529,10 +526,9 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     public final void execute(final Event<org.exoplatform.webui.core.UIContainer> event) throws Exception {
       WebuiRequestContext context = event.getRequestContext();
       org.exoplatform.webui.core.UIContainer uiDashboard = event.getSource();
-      if (!((UIDashboard)uiDashboard).canEdit())
-        return;
+      if (!((UIDashboard)uiDashboard).canEdit()) return ;
+      
       String objectId = context.getRequestParameter(OBJECTID);
-
       UIDashboardContainer uiDashboardContainer = uiDashboard.getChild(UIDashboardContainer.class);
       uiDashboardContainer.removeUIGadget(objectId);
       uiDashboardContainer.save();

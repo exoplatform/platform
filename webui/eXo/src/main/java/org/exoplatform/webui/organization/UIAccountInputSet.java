@@ -27,7 +27,6 @@ import org.exoplatform.webui.form.validator.EmailAddressValidator;
 import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.ResourceValidator;
-import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
