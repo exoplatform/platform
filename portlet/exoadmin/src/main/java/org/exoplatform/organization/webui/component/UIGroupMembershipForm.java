@@ -80,7 +80,7 @@ public class UIGroupMembershipForm extends UIForm {
   public UIGroupMembershipForm() throws Exception {
     addUIFormInput(new UIFormStringInput(USER_NAME, USER_NAME, null).
                    addValidator(MandatoryValidator.class).
-                   addValidator(ExpressionValidator.class, "^\\p{L}[a-zA-Z0-9,]+\\p{L}$", "UIGroupMembershipForm.msg.Invalid-char"));
+                   addValidator(ExpressionValidator.class, "^\\p{L}[\\p{L}\\d._,]+\\p{L}$", "UIGroupMembershipForm.msg.Invalid-char"));
     addUIFormInput(new UIFormSelectBox("membership","membership", listOption).setSize(1));
     UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, "SearchUser", "SearchUser");
     searchUserPopup.setWindowSize(640, 0); 
@@ -185,6 +185,10 @@ public class UIGroupMembershipForm extends UIForm {
       boolean check = false;
       String listNotExist = null;
       for(String username : userNames) {
+        if(username == null || username.trim().length() == 0) {
+          uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-not-empty", null)) ;
+          return ;
+        }
         User user = service.getUserHandler().findUserByName(username);
         if(user == null) {
           check = true;

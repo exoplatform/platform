@@ -106,7 +106,6 @@ public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
         label = res.getString(label);      
       } catch (MissingResourceException e) {
         label = si.getLabel();
-        e.printStackTrace();
       }
       w.write(label);
       if(align_ == VERTICAL_ALIGN) w.write("<br />");

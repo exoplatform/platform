@@ -90,13 +90,13 @@ public class UIGroupEditMembershipForm extends UIForm {
       User user = service.getUserHandler().findUserByName(userName) ;
       MembershipHandler memberShipHandler = service.getMembershipHandler();
       String memberShipType = uiForm.getUIFormSelectBox(MEMBER_SHIP).getValue();
-      MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(memberShipType);
-      Membership membership = memberShipHandler.findMembershipByUserGroupAndType(userName, group.getId(), membershipType.getName());
-      if(membership != null){
-        uiApp.addMessage(new ApplicationMessage("UIGroupEditMembershipForm.msg.membership-exist", null)) ;
-        return ;
-      }
       try {
+        MembershipType membershipType = service.getMembershipTypeHandler().findMembershipType(memberShipType);
+        Membership membership = memberShipHandler.findMembershipByUserGroupAndType(userName, group.getId(), membershipType.getName());
+        if(membership != null){
+          uiApp.addMessage(new ApplicationMessage("UIGroupEditMembershipForm.msg.membership-exist", null)) ;
+          return ;
+        }
         memberShipHandler.removeMembership(uiForm.membership.getId(), true);
         memberShipHandler.linkMembership(user,group,membershipType,true);
       } catch (Exception e) {
