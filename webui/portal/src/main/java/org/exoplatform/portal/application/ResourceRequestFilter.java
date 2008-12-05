@@ -125,7 +125,8 @@ public class ResourceRequestFilter implements Filter  {
           throw new UnsupportedOperationException("Should no be called");
         }
         public Appendable append(char c) throws IOException {
-          throw new UnsupportedOperationException("Should no be called");
+          encoder.encode(c, out);
+          return this;
         }
       };
 
