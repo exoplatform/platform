@@ -544,7 +544,12 @@
 
 .UIItemSelector .DesktopLayout {
   width: 250px; height: 170px; margin: auto;
-  background: url('background/TemplateContainer.jpg') no-repeat left top;
+  background: url('background/TemplateContainer.jpg') no-repeat center;
+}
+
+.UIItemSelector .DashboardLayout {
+  width: 250px; height: 170px; margin: auto;
+  background: url('background/DashboardLayout.jpg') no-repeat left top;
 }
 
 .UIItemSelector .TwoColumnsLayout {

@@ -599,6 +599,11 @@
   background: url('background/ItemSelector.jpg') no-repeat left top;
 }
 
+.UIItemSelector .DashboardLayout {
+  width: 270px; height: 170px; margin: auto;
+  background: url('background/DashboardLayout.jpg') no-repeat center;
+}
+
 .UIItemSelector .TwoColumnsLayout {
   width: 270px; height: 170px; margin: auto;
   background: url('background/ItemSelector.jpg') no-repeat left -170px;
