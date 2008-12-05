@@ -13,12 +13,13 @@ soon as we switch to Derby (very soon, hopefully :-) ).
 1) How to run Tomcat
  * On the Windows platform
 
-   Open a DOS prompt command, go to exo-tomcat/bin and type the command .\eXo.bat run
+   Open a DOS prompt command, go to exo-tomcat/bin and type the command eXo.bat run
 
  * On Unix/linux/cygwin
 
    Open a terminal, go to exo-tomcat/bin and type the command ./eXo.sh run
-   You may need to change the permission of all *.sh files in the exo-tomcat/bin dir
+   You may need to change the permission of all *.sh files in the exo-tomcat/bin dir by using:
+     chmod +x *.sh
 
  For both OS environments, you need to set the JAVA_HOME variable.
 
@@ -28,7 +29,6 @@ soon as we switch to Derby (very soon, hopefully :-) ).
    
     http://localhost:8080/portal
     http://localhost:8080/portal/public/classic
-    http://localhost:8080/portal/public/webos
 
 
  You can log into the portal with the following accounts: root, john, marry, demo. 
