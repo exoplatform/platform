@@ -18,7 +18,6 @@ package org.exoplatform.dashboard.webui.component;
 
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Hashtable;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
@@ -41,8 +40,6 @@ public class UIDashboardSelectContainer extends UIContainer {
   private List<ApplicationCategory> categories ;
   
   private ApplicationCategory selectedCategory ;
-
-  private Hashtable<ApplicationCategory, List<Application>> gadgets ;
 
   private boolean isShow = false ;
   
@@ -68,17 +65,14 @@ public class UIDashboardSelectContainer extends UIContainer {
     List<ApplicationCategory> listCategories = service.getApplicationCategories(remoteUser,
         org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
 
-    gadgets = new Hashtable<ApplicationCategory, List<Application>>();
-
     for (int i = 0; i < listCategories.size(); i++) {
       ApplicationCategory cate = listCategories.get(i);
       List<Application> listGadgets = cate.getApplications();
       if (listGadgets == null || listGadgets.size() == 0) {
         listCategories.remove(i);
         i--;
-      } else {
-        gadgets.put(cate, listGadgets);
       }
+      cate.setApplications(listGadgets) ;
     }
     Collections.sort(listCategories, new Comparator<ApplicationCategory>() {
         public int compare(ApplicationCategory cate1, ApplicationCategory cate2) {
@@ -95,10 +89,7 @@ public class UIDashboardSelectContainer extends UIContainer {
 
   public List<Application> getGadgetsOfCategory(final ApplicationCategory appCategory)
     throws Exception {
-    List<Application> listGadgets = gadgets.get(appCategory);
-    if (listGadgets == null || listGadgets.size() == 0) {
-      return null;
-    }
+    List<Application> listGadgets = appCategory.getApplications();
     Collections.sort(listGadgets, new Comparator<Application>() {
         public int compare(Application app1, Application app2) {
             return app1.getDisplayName().compareToIgnoreCase(app2.getDisplayName());
