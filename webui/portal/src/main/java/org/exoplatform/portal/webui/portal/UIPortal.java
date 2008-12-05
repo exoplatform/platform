@@ -109,8 +109,20 @@ public class UIPortal extends UIContainer {
     navigations = navs;
     selectedPaths_ = new ArrayList<PageNode>();
     if(navigations == null || navigations.size() < 1) return;
-    PageNavigation pNav = navigations.get(0);
-    if(pNav.getNodes() == null || pNav.getNodes().size() < 1) return;
+//    PageNavigation pNav = navigations.get(0);
+//    if(pNav.getNodes() == null || pNav.getNodes().size() < 1) return;
+    
+    //TODO dang.tung: get suitable navigation
+    //----------------------------------------------------------
+    PageNavigation pNav = null;
+    for(PageNavigation nav : navs) {
+      if(nav.getNodes() != null && nav.getNodes().size() > 0) {
+        pNav = nav;
+        break;
+      }
+    }
+    if(pNav == null) return;
+    //----------------------------------------------------------
     selectedNode_ = pNav.getNodes().get(0);
     selectedPaths_.add(selectedNode_);
     UIPageBody uiPageBody = findFirstComponentOfType(UIPageBody.class);    
@@ -133,10 +145,24 @@ public class UIPortal extends UIContainer {
   public void setSelectedPaths(List<PageNode> nodes){  selectedPaths_ = nodes; }
   
   public PageNavigation getSelectedNavigation() {
-    if(selectedNavigation_ != null) return selectedNavigation_;
+    if(selectedNavigation_ != null && selectedNavigation_.getNodes() != null
+        && selectedNavigation_.getNodes().size() > 0) {
+      return selectedNavigation_;
+    }
     if(getNavigations().size() < 1) return null;
-    setSelectedNavigation(getNavigations().get(0));
-    return getNavigations().get(0);
+    //TODO dang.tung: get right selectedNavigation
+    //-------------------------------------------
+    List<PageNavigation> navs = getNavigations();
+    PageNavigation pNav = navs.get(0);
+    for(PageNavigation nav : navs) {
+      if(nav.getNodes() != null && nav.getNodes().size() > 0) {
+        pNav = nav;
+        break;
+      }
+    }
+    //-------------------------------------------  
+    setSelectedNavigation(pNav);
+    return pNav;
   }
   
   public PageNavigation getPageNavigation(int id){
