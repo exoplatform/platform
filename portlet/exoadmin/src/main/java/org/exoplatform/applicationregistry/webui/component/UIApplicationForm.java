@@ -84,8 +84,6 @@ public class UIApplicationForm extends UIForm {
       UIApplicationOrganizer uiOrganizer = uiForm.getParent();
       ApplicationRegistryService service = uiForm.getApplicationComponent(ApplicationRegistryService.class) ;
       Application application = uiForm.getApplication() ;
-      uiForm.invokeSetBindingBean(application);
-      application.setModifiedDate(Calendar.getInstance().getTime());
       if(service.getApplication(application.getId()) == null) {
         UIApplication uiApp = ctx.getUIApplication();
         uiApp.addMessage(new ApplicationMessage("application.msg.changeNotExist", null));
@@ -93,6 +91,12 @@ public class UIApplicationForm extends UIForm {
         ctx.addUIComponentToUpdateByAjax(uiOrganizer);
         ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
         return;
+      }
+      uiForm.invokeSetBindingBean(application);
+      application.setModifiedDate(Calendar.getInstance().getTime());
+      String displayName = application.getDisplayName();
+      if(displayName == null || displayName.trim().length() < 1 ) {
+        application.setDisplayName(application.getApplicationName());
       }
       service.update(application) ;
       uiOrganizer.setSelectedApplication(uiOrganizer.getSelectedApplication());
