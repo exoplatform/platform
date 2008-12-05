@@ -57,7 +57,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 )
 
 public class UIUserSelector extends UIForm implements UIPopupComponent { 
-  final public static String FIELD_KEYWORD = "keyWord".intern() ;
+  final public static String FIELD_KEYWORD = "Quick Search".intern() ;
   final public static String FIELD_FILTER = "filter".intern() ;
   final public static String FIELD_GROUP = "group".intern() ;
   public static String USER_NAME = "userName";
