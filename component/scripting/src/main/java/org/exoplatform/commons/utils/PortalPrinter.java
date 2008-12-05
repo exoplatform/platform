@@ -37,7 +37,9 @@ public class PortalPrinter extends OutputStreamPrinter {
   
   public void print(Object o) {
     try {
-      if (o instanceof Text) {
+      if (o == null) {
+        write("null");
+      } else if (o instanceof Text) {
         ((Text)o).writeTo(this);
       } else {
         write(String.valueOf(o));
