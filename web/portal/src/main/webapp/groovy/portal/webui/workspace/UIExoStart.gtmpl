@@ -24,9 +24,9 @@
           	<div class="LabelText">
 		""";
 						if(node.pageReference != null) {
-				        print """<a href="#" onclick="$href">$node.resolvedLabel</a>""";
+				        print """<a href="#" onclick="javascript=(document.title='$node.resolvedLabel');$href">$node.resolvedLabel</a>""";
 						} else {
-								print """<a href="#" >$node.resolvedLabel</a>""";
+								print """<a href="#" onclick="javascript=(document.title='$node.resolvedLabel');" >$node.resolvedLabel</a>""";
 						}
 		print """
 						</div>
