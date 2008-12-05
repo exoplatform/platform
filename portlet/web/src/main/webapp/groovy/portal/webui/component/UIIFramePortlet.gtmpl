@@ -19,6 +19,8 @@
 				var portletFrag = eXo.core.DOMUtil.findAncestorByClass(iFrames[i], "PORTLET-FRAGMENT");
 				if(!portletFrag.style.height) {
 					iFrames[i].style.height = "100%";
+					var iframe = eXo.core.DOMUtil.getChildrenByTagName(iFrames[i], "iframe")[0] ;
+					if(iframe.offsetHeight < iFrames[i].offsetHeight) iframe.style.height = iFrames[i].offsetHeight + "px" ;
 				} else {
 					var uiWindow = eXo.core.DOMUtil.findAncestorByClass(portletFrag, "UIWindow");
 					if(!uiWindow) {

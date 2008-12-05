@@ -7,8 +7,16 @@
 	min-height: 400px;
 }
 
+.UIPageDesktop .UIIFramePortlet {
+	min-height: 0;
+}
+
 *html .UIIFramePortlet {
 	height: 400px;
+}
+
+*html .UIPageDesktop .UIIFramePortlet {
+	height: auto;
 }
 
 .UIIFramePortlet iframe {
