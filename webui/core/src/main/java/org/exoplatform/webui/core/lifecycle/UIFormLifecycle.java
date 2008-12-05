@@ -19,6 +19,8 @@ package org.exoplatform.webui.core.lifecycle;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.component.UIInput;
+
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIApplication;
@@ -26,9 +28,11 @@ import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormInputBase;
 import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormInputSet;
+import org.exoplatform.webui.form.UIFormMultiValueInputSet;
 import org.exoplatform.webui.form.validator.Validator;
 /**
  * Author : Nhu Dinh Thuan
@@ -40,7 +44,7 @@ public class UIFormLifecycle  extends Lifecycle {
   public void processDecode(UIComponent uicomponent, WebuiRequestContext context) throws Exception {
     UIForm uiForm = (UIForm) uicomponent ;
 //    HttpServletRequest httpRequest = (HttpServletRequest)context.getRequest() ;
-    uiForm.setSubmitAction(null) ;
+    uiForm.setSubmitAction(null) ;  
 //    if(ServletFileUpload.isMultipartContent(new ServletRequestContext(httpRequest))) {
 //      processMultipartRequest(uiForm, context) ;
 //    } else {
@@ -159,6 +163,27 @@ public class UIFormLifecycle  extends Lifecycle {
       } else if(uiChild instanceof UIFormInputSet){
         UIFormInputSet uiInputSet = (UIFormInputSet)uiChild;
         validateChildren(uiInputSet.getChildren(), uiApp, context);
+      } else if(uiChild instanceof UIFormMultiValueInputSet){
+        UIFormMultiValueInputSet uiInput =  (UIFormMultiValueInputSet) uiChild ;
+        List<Validator> validators = uiInput.getValidators() ;
+        if(validators == null) continue;
+        try {
+          for(Validator validator : validators) {
+            List<UIComponent> uiInputChild = uiInput.getChildren();
+            for(int i = 0; i < uiInputChild.size(); i++) {
+              try {
+                validator.validate((UIFormInput)uiInputChild.get(i)) ;
+              } catch (MessageException ex) {
+                uiApp.addMessage(ex.getDetailMessage()) ;
+                context.setProcessRender(true) ;
+              }  
+            } 
+          }
+        } catch(Exception ex) {
+          //TODO:  This is a  critical exception and should be handle  in the UIApplication
+          uiApp.addMessage(new ApplicationMessage(ex.getMessage(), null)) ;
+          context.setProcessRender(true) ;
+        }
       } else if(uiChild instanceof UIFormInputContainer) {
         UIFormInputContainer uiInput =  (UIFormInputContainer) uiChild ;
         List<Validator> validators = uiInput.getValidators() ;
