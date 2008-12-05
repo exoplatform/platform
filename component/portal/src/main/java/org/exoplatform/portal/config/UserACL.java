@@ -35,8 +35,6 @@ public class UserACL {
   public final static String EVERYONE = "Everyone" ;
   protected static Log log = ExoLogger.getLogger("organization:UserACL");
 
-//private OrganizationService orgService_ ;
-
   private String superUser_;
   private String guestGroup_ ;
   private List<String> portalCreatorGroups_;
@@ -45,8 +43,6 @@ public class UserACL {
   private PortalACLPlugin portalACLPlugin;
 
   public UserACL(InitParams params) throws Exception {
-//  this.orgService_ = orgService;
-
     ValueParam superUserParam = params.getValueParam("super.user");
     if(superUserParam != null) superUser_ = superUserParam.getValue();
     if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "root";
@@ -84,9 +80,9 @@ public class UserACL {
     return result;
   }
 
+  //TODO: unnecessary to keep potalACLPlugin
   public void addPortalACLPlugin(PortalACLPlugin plugin) {
     this.portalACLPlugin = plugin;
-    //Overridden some roles that defined as init param of the service
     String superUser = portalACLPlugin.getSuperUser();
     if(superUser != null) {
       log.info("Overidden SuperUser by PortalACLPlugin");

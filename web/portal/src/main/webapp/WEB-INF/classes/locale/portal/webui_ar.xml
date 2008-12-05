@@ -105,6 +105,15 @@
       <signout>تسجيل الخروج</signout>
     </action>
   </UILogged>
-
-
+  
+	<!-- 
+	############################################################################
+	#		           org.exoplatform.portal.component.control.UIExoStart         #
+	############################################################################
+	 -->
+	<UIExoStart>
+		<item>
+			<ChangeLanguage>تغيير اللغة</ChangeLanguage>
+		</item>
+	</UIExoStart>
 </bundle>
