@@ -251,7 +251,6 @@ eXo.webui.UIDashboard = {
 			uiContainer.style.marginLeft = "211px" ;	
 		}
 		
-		var gadgetContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "GadgetContainer");
 		var colsContainer = DOMUtil.findFirstChildByClass(gadgetContainer, "div", "UIColumns");
 		var columns = DOMUtil.findChildrenByClass(colsContainer, "div", "UIColumn");
 		var colsSize = 0;
@@ -261,36 +260,36 @@ eXo.webui.UIDashboard = {
 		colsContainer.style.width = colsSize*320 + 20 + "px";
 
 		eXo.webui.UIDashboard.initHeight(windowId) ;
-		if(canEdit) {
-			setTimeout("eXo.webui.UIDashboard.initDragDrop('" + windowId + "');", 300) ;
-			var minimizeButtons = DOMUtil.findDescendantsByClass(portletWindow, "div", "MinimizeAction");
-			for(var i = 0; i < minimizeButtons.length; i++) minimizeButtons[i].style.display = "block" ;
-		} else {
-			var gadgetControls = DOMUtil.findDescendantsByClass(portletWindow, "div", "GadgetControl");
-			for(var i=0; i<gadgetControls.length; i++) {
-				var closeButton = DOMUtil.findFirstDescendantByClass(gadgetControls[i], "div", "CloseGadget") ;
-				var editButton = DOMUtil.findFirstDescendantByClass(gadgetControls[i], "div", "EditGadget") ;
-				var minimizeButton = DOMUtil.findFirstDescendantByClass(gadgetControls[i], "div", "MinimizeAction") ;
-				if(closeButton) closeButton.style.display = "none" ;
-				if(editButton) editButton.style.display = "none" ;
-				if(minimizeButton) minimizeButton.style.display = "none" ;
-			}
-		}
+		setTimeout("eXo.webui.UIDashboard.initDragDrop('" + windowId + "'," + canEdit + ");", 300) ;
 	},
 	
-	initDragDrop : function(windowId) {
+	initDragDrop : function(windowId, canEdit) {
 		var DOMUtil = eXo.core.DOMUtil ;
 		var portletWindow = document.getElementById(windowId) ;
 		var gadgetControls = DOMUtil.findDescendantsByClass(portletWindow, "div", "GadgetControl");
 		for(var j=0; j<gadgetControls.length; j++) {
 			var uiGadget = DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget");
-			eXo.webui.UIDashboard.init(gadgetControls[j], uiGadget);
 			var iframe = DOMUtil.findFirstDescendantByClass(uiGadget, "iframe", "gadgets-gadget") ;
 			if (iframe) {
 				iframe.onResizeCallback = eXo.webui.UIDashboard.initHeight ;
 				iframe.style.width = "auto" ;
 			}
-			uiGadget.minimizeCallback = eXo.webui.UIDashboard.initHeight ;
+			var minimizeButton = DOMUtil.findFirstDescendantByClass(gadgetControls[j], "div", "MinimizeAction") ;
+			if(canEdit) {
+				eXo.webui.UIDashboard.init(gadgetControls[j], uiGadget);
+				
+				if(minimizeButton) minimizeButton.style.display = "block" ;
+				uiGadget.minimizeCallback = eXo.webui.UIDashboard.initHeight ;
+			} else{
+				if(minimizeButton) {
+					minimizeButton.style.display = "none" ;
+					var controlBar = minimizeButton.parentNode ;
+					var closeButton = DOMUtil.findFirstChildByClass(controlBar, "div", "CloseGadget") ;
+					var editButton = DOMUtil.findFirstChildByClass(controlBar, "div", "EditGadget") ;
+					closeButton.style.display = "none" ;
+					editButton.style.display = "none" ;
+				}
+			}
 		}
 	},
 	

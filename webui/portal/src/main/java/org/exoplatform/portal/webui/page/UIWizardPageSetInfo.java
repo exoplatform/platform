@@ -84,7 +84,7 @@ public class UIWizardPageSetInfo extends UIForm {
     				   addValidator(StringLengthValidator.class, 3, 30).
     				   addValidator(IdentifierValidator.class));
     addUIFormInput(new UIFormStringInput(PAGE_DISPLAY_NAME, "label", null).setMaxLength(255).
-               addValidator(StringLengthValidator.class, 3, 30));
+               addValidator(StringLengthValidator.class, 3, 120));
     addUIFormInput(new UIFormCheckBoxInput<Boolean>(VISIBLE, VISIBLE, false).setChecked(true));
     UIFormCheckBoxInput<Boolean> uiDateInputCheck = new UIFormCheckBoxInput<Boolean>(SHOW_PUBLICATION_DATE, SHOW_PUBLICATION_DATE, false) ;
     uiDateInputCheck.setOnChange("SwitchPublicationDate") ;
