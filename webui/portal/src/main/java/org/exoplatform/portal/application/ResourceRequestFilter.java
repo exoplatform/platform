@@ -47,7 +47,14 @@ import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.webui.skin.SkinService;
 import org.exoplatform.portal.webui.skin.ResourceRenderer;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.cache.ExoCache;
+import org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache;
 import org.exoplatform.commons.utils.PropertyManager;
+import org.exoplatform.commons.utils.TextEncoder;
+import org.exoplatform.commons.utils.CharsetTextEncoder;
+import org.exoplatform.commons.utils.TableCharEncoder;
+import org.exoplatform.commons.utils.CharsetCharEncoder;
+import org.exoplatform.commons.utils.PortalPrinter;
 
 public class ResourceRequestFilter implements Filter  {
   
@@ -59,10 +66,15 @@ public class ResourceRequestFilter implements Filter  {
 
   private ConcurrentMap<String, FutureTask<Image>> mirroredImageCache = new ConcurrentHashMap<String, FutureTask<Image>>();
 
+  private ExoCache cssCache = new ConcurrentFIFOExoCache(50);
+
   public void init(FilterConfig filterConfig) {
     cfg = filterConfig;
     log.info("Cache eXo Resource at client: " + !PropertyManager.isDevelopping());
   }
+
+  /** The optimized encoder. */
+  private static final TextEncoder encoder = new CharsetTextEncoder(new TableCharEncoder(CharsetCharEncoder.getUTF8()));
 
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpRequest = (HttpServletRequest) request ;
@@ -73,10 +85,54 @@ public class ResourceRequestFilter implements Filter  {
 
     //
     if(uri.endsWith(".css")) {
-      final Writer writer = response.getWriter();
+      final OutputStream out = response.getOutputStream();
+      final Appendable app = new Appendable() {
+        public Appendable append(CharSequence csq) throws IOException {
+          // julien : yeah there is a nasty cast but for now it is ok as we know it is a string
+          // need to work on an optimized appender for
+          String s = (String)csq;
+
+          // Get existing bytes
+          byte[] bytes = null;
+          try {
+            bytes = (byte[])cssCache.get(s);
+          }
+          catch (Exception e) {
+            e.printStackTrace();
+          }
+
+          // Get bytes if needed
+          if (bytes == null) {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream(s.length() * 2);
+            encoder.encode(s, 0, s.length(), baos);
+            baos.flush();
+            bytes = baos.toByteArray();
+            try {
+              cssCache.put(s, bytes);
+            }
+            catch (Exception e) {
+              e.printStackTrace();
+            }
+          }
+
+          //
+          out.write(bytes);
+
+          //
+          return this;
+        }
+        public Appendable append(CharSequence csq, int start, int end) throws IOException {
+          throw new UnsupportedOperationException("Should no be called");
+        }
+        public Appendable append(char c) throws IOException {
+          throw new UnsupportedOperationException("Should no be called");
+        }
+      };
+
       ResourceRenderer renderer = new ResourceRenderer() {
         public Appendable getAppendable() {
-          return writer;
+          //
+          return app;
         }
         public void setExpiration(long seconds) {
           if (seconds > 0) {
