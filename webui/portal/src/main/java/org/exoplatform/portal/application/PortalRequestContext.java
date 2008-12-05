@@ -33,6 +33,9 @@ import org.exoplatform.Constants;
 import org.exoplatform.commons.utils.WriterPrinter;
 import org.exoplatform.commons.utils.PortalPrinter;
 import org.exoplatform.commons.utils.CharsetTextEncoder;
+import org.exoplatform.commons.utils.TextEncoder;
+import org.exoplatform.commons.utils.CharsetCharEncoder;
+import org.exoplatform.commons.utils.TableCharEncoder;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -178,12 +181,20 @@ public class PortalRequestContext extends WebuiRequestContext {
   final public String getRemoteUser() { return request_.getRemoteUser() ; }
   final public boolean isUserInRole(String roleUser){ return request_.isUserInRole(roleUser); }
 
+  /** The optimized encoder. */
+  private static final TextEncoder encoder = new CharsetTextEncoder(new TableCharEncoder(CharsetCharEncoder.getUTF8()));
+
   final public Writer getWriter() throws Exception { 
     if(writer_ == null) {
+
+      //
+      PortalPrinter printer = new PortalPrinter(encoder, response_.getOutputStream());
+
+      //
       if (HtmlValidator.DEBUG_MODE) {
-        writer_ = new WriterPrinter(new HtmlValidator(new PortalPrinter(CharsetTextEncoder.getUTF8(), response_.getOutputStream()))) ;
+        writer_ = new WriterPrinter(new HtmlValidator(printer)) ;
       } else {
-        writer_ = new PortalPrinter(CharsetTextEncoder.getUTF8(), response_.getOutputStream()) ;
+        writer_ = printer;
       }
     }
     return writer_ ; 
