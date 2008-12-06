@@ -117,8 +117,8 @@ public class ResourceRequestFilter implements Filter  {
           }
 
           //
-          response.setContentType("text/css");
-          response.setCharacterEncoding("UTF8");
+          response.setContentType("text/css; charset=UTF-8");
+          //response.setCharacterEncoding("UTF8");
           response.setContentLength(bytes.length);
 
           //

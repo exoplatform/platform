@@ -43,6 +43,7 @@ import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.services.resources.Query;
 import org.exoplatform.services.resources.ResourceBundleData;
 import org.exoplatform.services.resources.impl.BaseResourceBundleService;
+import org.picocontainer.Startable;
 
 /**
  * Created by The eXo Platform SARL
@@ -50,11 +51,12 @@ import org.exoplatform.services.resources.impl.BaseResourceBundleService;
  *          thanhtungty@gmail.com
  * Dec 1, 2007  
  */
-public class ResourceBundleServiceImpl extends BaseResourceBundleService {
+public class ResourceBundleServiceImpl extends BaseResourceBundleService implements Startable {
   
   RegistryService regService_ ;
   DataMapper mapper_ = new DataMapper() ;
   static final private String SERVICE_NAME = "ResourceBundles" ;
+  private InitParams params_ ;
 
   public ResourceBundleServiceImpl(InitParams params, 
       CacheService cService, 
@@ -64,9 +66,19 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
     localeService_ = localeService;
     cache_ = cService.getCacheInstance(ResourceBundleData.class.getName());
     regService_ = service ;
-    initParams(params);
+    params_ = params;
   }
 
+	public void start() {
+		try {
+			initParams(params_);
+		} catch (Exception e) {
+			throw new RuntimeException(e) ;
+		}
+	}
+
+	public void stop() {}
+	
   public ResourceBundleData getResourceBundleData(String id) throws Exception {
     String resourceDataPath = getServiceRegistryPath() + "/" + id ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
@@ -171,5 +183,4 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService {
   private String getServiceRegistryPath() {
     return RegistryService.EXO_SERVICES + "/" + SERVICE_NAME ;
   }
-
 }
