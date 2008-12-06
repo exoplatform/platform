@@ -130,10 +130,10 @@ public class UIPortletLifecycle extends Lifecycle {
     UIPortlet uiPortlet = (UIPortlet) uicomponent;
     PortalRequestContext prcontext = (PortalRequestContext) context;
     ExoContainer container = prcontext.getApplication().getApplicationServiceContainer();
-    UIPortal uiPortal = Util.getUIPortal();
+//    UIPortal uiPortal = Util.getUIPortal();
     PortletContainerService portletContainer = (PortletContainerService) container
         .getComponentInstanceOfType(PortletContainerService.class);
-    OrganizationService service = uiPortlet.getApplicationComponent(OrganizationService.class);
+//    OrganizationService service = uiPortlet.getApplicationComponent(OrganizationService.class);
     // UserProfile userProfile = service.getUserProfileHandler().findUserProfileByName(uiPortal.getOwner());
     RenderInput input = new RenderInput();
     String baseUrl = new StringBuilder(prcontext.getRequestURI()).append(

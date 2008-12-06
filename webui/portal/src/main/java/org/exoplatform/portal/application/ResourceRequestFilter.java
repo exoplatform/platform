@@ -116,7 +116,10 @@ public class ResourceRequestFilter implements Filter  {
           }
 
           //
-          out.write(bytes);
+          try {
+          	out.write(bytes);
+					} catch (IOException ignore) {
+					}
 
           //
           return this;
