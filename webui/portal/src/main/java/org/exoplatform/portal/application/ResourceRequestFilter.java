@@ -55,6 +55,7 @@ import org.exoplatform.commons.utils.CharsetTextEncoder;
 import org.exoplatform.commons.utils.TableCharEncoder;
 import org.exoplatform.commons.utils.CharsetCharEncoder;
 import org.exoplatform.commons.utils.PortalPrinter;
+import org.exoplatform.commons.utils.Safe;
 
 public class ResourceRequestFilter implements Filter  {
   
@@ -125,6 +126,9 @@ public class ResourceRequestFilter implements Filter  {
             out.write(bytes);
           }
           catch (IOException ignore) {
+          }
+          finally {
+            Safe.close(out);
           }
 
           //
