@@ -76,7 +76,7 @@ public class ResourceRequestFilter implements Filter  {
   /** The optimized encoder. */
   private static final TextEncoder encoder = new CharsetTextEncoder(new TableCharEncoder(CharsetCharEncoder.getUTF8()));
 
-  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+  public void doFilter(ServletRequest request, final ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpRequest = (HttpServletRequest) request ;
     String uri = URLDecoder.decode(httpRequest.getRequestURI(),"UTF-8");
     final HttpServletResponse httpResponse = (HttpServletResponse)  response ;
@@ -85,8 +85,6 @@ public class ResourceRequestFilter implements Filter  {
 
     //
     if(uri.endsWith(".css")) {
-      response.setContentType("text/css");
-      response.setCharacterEncoding("UTF8");
       final OutputStream out = response.getOutputStream();
       final Appendable app = new Appendable() {
         public Appendable append(CharSequence csq) throws IOException {
@@ -116,6 +114,11 @@ public class ResourceRequestFilter implements Filter  {
               e.printStackTrace();
             }
           }
+
+          //
+          response.setContentType("text/css");
+          response.setCharacterEncoding("UTF8");
+          response.setContentLength(bytes.length);
 
           //
           try {
