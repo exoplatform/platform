@@ -55,7 +55,6 @@ import org.exoplatform.commons.utils.CharsetTextEncoder;
 import org.exoplatform.commons.utils.TableCharEncoder;
 import org.exoplatform.commons.utils.CharsetCharEncoder;
 import org.exoplatform.commons.utils.PortalPrinter;
-import org.exoplatform.commons.utils.Safe;
 
 public class ResourceRequestFilter implements Filter  {
   
@@ -77,7 +76,7 @@ public class ResourceRequestFilter implements Filter  {
   /** The optimized encoder. */
   private static final TextEncoder encoder = new CharsetTextEncoder(new TableCharEncoder(CharsetCharEncoder.getUTF8()));
 
-  public void doFilter(ServletRequest request, final ServletResponse response, FilterChain chain) throws IOException, ServletException {
+  public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpRequest = (HttpServletRequest) request ;
     String uri = URLDecoder.decode(httpRequest.getRequestURI(),"UTF-8");
     final HttpServletResponse httpResponse = (HttpServletResponse)  response ;
@@ -117,19 +116,7 @@ public class ResourceRequestFilter implements Filter  {
           }
 
           //
-          response.setContentType("text/css; charset=UTF-8");
-          //response.setCharacterEncoding("UTF8");
-          response.setContentLength(bytes.length);
-
-          //
-          try {
-            out.write(bytes);
-          }
-          catch (IOException ignore) {
-          }
-          finally {
-            Safe.close(out);
-          }
+          out.write(bytes);
 
           //
           return this;
