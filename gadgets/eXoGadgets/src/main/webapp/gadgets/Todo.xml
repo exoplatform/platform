@@ -55,9 +55,10 @@
 			}
 
 			.write {
-				width: 155px;
-				height: 165px;
-				overflow: auto;
+				width: 160px;
+				height: 150px;
+				overflow-y: auto;
+        overflow-x: hidden;
 			}
 
 			.write input {
@@ -69,7 +70,55 @@
 				line-height: auto;
 				font-style: italic;
 				margin-bottom: 2px;
-				height: 18px;
+				height: 15px;
+			}
+			
+			.UIAction .ActionContainer {
+				width: auto;
+				margin: auto;
+			}	
+			
+			.UIAction .ActionButton {
+				display: block;
+				float: left; /* orientation=lt */
+				float: right; /* orientation=rt */
+				margin: 0px 3px;
+				cursor: pointer;
+			}
+			
+			.UIAction .SimpleStyle {}
+			
+			.UIAction .SimpleStyle .ButtonLeft {
+			  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/SimpleStyle.gif') no-repeat left top;
+			  padding: 0px 0px 0px 10px;
+			  height: 21px;
+			}
+			
+			.UIAction .SimpleStyle .ButtonRight {
+			  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/SimpleStyle.gif') no-repeat right top;
+			  padding: 0px 10px 0px 0px ;
+			  height: 21px;
+			}
+			
+			.UIAction .SimpleStyle .ButtonMiddle {
+			  line-height: 21px;
+				background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/SimpleStyle.gif') repeat-x bottom;
+				text-align: center;	
+				padding: 0px 12px;
+			  height: 21px;
+			}
+			
+			.UIAction .SimpleStyle a {
+			  color: #353535;
+			  margin: 0px 6px;
+			  white-space: nowrap;
+			  font-size: 11px;
+			  text-decoration: none;
+			  display: block;
+			}
+			
+			.UIAction .SimpleStyle a:hover {
+			  color: #1273df;
 			}
 
 		</style>
@@ -152,6 +201,7 @@
 							var lists = lists.replace(oldStr,element.value);
 						}
 						//prefs.setArray("todoList",[lists]);
+
 						//gadget.setUserPrefs(lists);
 						nextInput.focus();
 					}
@@ -167,8 +217,26 @@
 					<input type="text" id="5" name="5" onkeydown="finish(this,event);"/>
 					<input type="text" id="6" name="6" onkeydown="finish(this,event);"/>
 					<input type="text" id="7" name="7" onkeydown="finish(this,event);"/>
-					<a onclick="save();">Save</a>
+					
 	      </div>
+
+<div class="UIAction"> 
+    <table class="ActionContainer">
+	    <tbody><tr>
+	    	<td>
+		      <div class="ActionButton SimpleStyle" onclick="save();">
+		        <div class="ButtonLeft">
+		          <div class="ButtonRight">
+		            <div class="ButtonMiddle">
+		            	<a href="javascript:void(0);">Save</a>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </td>
+      </tr>
+ 	  </tbody></table>
+	</div>
 		   </div>
 	]]>
 	</Content>
