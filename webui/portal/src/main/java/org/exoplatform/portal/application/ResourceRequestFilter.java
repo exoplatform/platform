@@ -85,6 +85,8 @@ public class ResourceRequestFilter implements Filter  {
 
     //
     if(uri.endsWith(".css")) {
+      response.setContentType("text/css");
+      response.setCharacterEncoding("UTF8");
       final OutputStream out = response.getOutputStream();
       final Appendable app = new Appendable() {
         public Appendable append(CharSequence csq) throws IOException {
@@ -116,7 +118,11 @@ public class ResourceRequestFilter implements Filter  {
           }
 
           //
-          out.write(bytes);
+          try {
+            out.write(bytes);
+          }
+          catch (IOException ignore) {
+          }
 
           //
           return this;
