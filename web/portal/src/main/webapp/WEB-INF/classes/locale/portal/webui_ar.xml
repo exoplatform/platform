@@ -104,6 +104,9 @@
     <action>
       <signout>تسجيل الخروج</signout>
     </action>
+    <note>
+      <loggedUser>مرحبا</loggedUser>
+    </note>
   </UILogged>
   
 	<!-- 
@@ -116,4 +119,26 @@
 			<ChangeLanguage>تغيير اللغة</ChangeLanguage>
 		</item>
 	</UIExoStart>
+
+############################################################################
+	#		           org.exoplatform.webui.portal.UIForgetPassword         #
+	############################################################################
+	 -->
+	<UIForgetPassword>
+		<title>نسيت اسم المستخدم / كلمة السر</title>
+		احفظ
+	</UIForgetPassword>
+	
+	############################################################################
+	#		           org.exoplatform.webui.portal.UIForgetPassword         #
+	############################################################################
+	 -->
+	<UIResetPassword>
+		<action>
+			<Save>احفظ</Save>
+		</action>
+		<label>
+			<username>احفظ</username>
+		</label>
+	</UIResetPassword>
 </bundle>
