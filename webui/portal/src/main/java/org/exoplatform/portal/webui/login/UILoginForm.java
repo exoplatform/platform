@@ -25,7 +25,6 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
-import org.exoplatform.services.jcr.ext.organization.OrganizationServiceException;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -37,6 +36,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.validator.MandatoryValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -57,9 +57,9 @@ public class UILoginForm extends UIForm {
   final static String USER_NAME = "username";
   final static String PASSWORD = "password";
   public UILoginForm() throws Exception{    
-    addUIFormInput(new UIFormStringInput(USER_NAME, USER_NAME, null)).
+    addUIFormInput(new UIFormStringInput(USER_NAME, USER_NAME, null).addValidator(MandatoryValidator.class)).
     addUIFormInput(new UIFormStringInput(PASSWORD, PASSWORD, null).
-                   setType(UIFormStringInput.PASSWORD_TYPE)) ;
+                   setType(UIFormStringInput.PASSWORD_TYPE).addValidator(MandatoryValidator.class)) ;
   }
 
   static public class SigninActionListener  extends EventListener<UILoginForm> {
