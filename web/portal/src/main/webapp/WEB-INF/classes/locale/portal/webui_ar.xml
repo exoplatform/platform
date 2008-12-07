@@ -54,7 +54,17 @@
       <password>كلمة السر</password>
       <forgot>نسيت اسم المستخدم / كلمة السر؟</forgot>
     </label>
+    <msg>
+    	<Invalid-account>اسم المستخدم أو كلمة السر خطأ أو فارغ. الرجاء المحاولة مرة أخرى</Invalid-account>
+    </msg>
   </UILoginForm>
+  
+  <UIPortalComponentLogin>
+  	<label>
+      <username>اسم المستخدم</username>
+      <password>كلمة السر</password>
+    </label>
+  </UIPortalComponentLogin>
 
   <!--
   ############################################################################
@@ -120,7 +130,8 @@
 		</item>
 	</UIExoStart>
 
-############################################################################
+	<!--
+	############################################################################
 	#		           org.exoplatform.webui.portal.UIForgetPassword         #
 	############################################################################
 	 -->
@@ -129,6 +140,7 @@
 		احفظ
 	</UIForgetPassword>
 	
+	<!--
 	############################################################################
 	#		           org.exoplatform.webui.portal.UIForgetPassword         #
 	############################################################################
@@ -141,4 +153,27 @@
 			<username>احفظ</username>
 		</label>
 	</UIResetPassword>
+	
+	<!-- 
+	################################################################################
+	#		 org.exoplatform.dashboard.webui.component.UIDashboard
+	################################################################################
+	 -->
+	<UIDashboardSelectContainer>
+		<label>
+			<workspace>فضاء لوحة القيادة</workspace>
+		</label>
+		<tooltip>
+			<close>إغلاق فضاء لوحة القيادة</close>
+		</tooltip>
+		<action>
+			<addGadget>إضافة أداة</addGadget>
+		</action>
+	</UIDashboardSelectContainer>
+	
+	<UIDashboardContainer>
+		<label>
+			<openWorkspace>إضافة أدوات</openWorkspace>
+		</label>
+	</UIDashboardContainer>
 </bundle>
