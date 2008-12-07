@@ -78,7 +78,7 @@ public class ResourceRequestFilter implements Filter  {
 
   public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
     HttpServletRequest httpRequest = (HttpServletRequest) request ;
-    String uri = URLDecoder.decode(httpRequest.getRequestURI(),"UTF-8");
+    final String uri = URLDecoder.decode(httpRequest.getRequestURI(),"UTF-8");
     final HttpServletResponse httpResponse = (HttpServletResponse)  response ;
     ExoContainer portalContainer = ExoContainerContext.getCurrentContainer();
     SkinService skinService = (SkinService) portalContainer.getComponentInstanceOfType(SkinService.class);
@@ -179,10 +179,12 @@ public class ResourceRequestFilter implements Filter  {
 
                   //
                   BufferedImage img = ImageIO.read(in);
+                  log.debug("Read image " + uri + " (" + img.getWidth() + "," + img.getHeight() + ")");
                   AffineTransform tx = AffineTransform.getScaleInstance(-1, 1);
                   tx.translate(-img.getWidth(null), 0);
                   AffineTransformOp op = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR);
                   img = op.filter(img, null);
+                  log.debug("Mirrored image " + uri + " (" + img.getWidth() + "," + img.getHeight() + ")");
                   ByteArrayOutputStream baos = new ByteArrayOutputStream(1000);
                   ImageIO.write(img, imageType.getFormat(), baos);
                   baos.close();
