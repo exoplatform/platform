@@ -3,6 +3,19 @@
                  "http://java.sun.com/dtd/web-app_2_3.dtd"> 
 <web-app>
   <display-name>portal</display-name> 
+  
+  <context-param>
+    <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsWorkspace</param-name>
+    <param-value>collaboration</param-value>
+    <description>Binary assets workspace name</description>
+  </context-param>
+
+  <context-param>
+    <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsPath</param-name>
+    <param-value>/</param-value>
+    <description>Binary assets path</description>
+  </context-param>
+  
   <!-- ================================================================== -->
   <!--   RESOURCE FILTER TO CACHE MERGED JAVASCRIPT AND CSS               -->
   <!-- ================================================================== -->
@@ -119,6 +132,12 @@
 	  <servlet-name>javascript</servlet-name> 
 	  <servlet-class>org.exoplatform.portal.webui.javascript.JavascriptServlet</servlet-class> 
 	</servlet>
+	
+  <servlet>
+    <servlet-name>Controller</servlet-name>
+    <servlet-class>org.exoplatform.frameworks.jcr.web.CommandControllerServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
 
 	<!--  =================================================================  --> 
 	<servlet-mapping>
@@ -148,7 +167,13 @@
   <servlet-mapping>
     <servlet-name>RestServer</servlet-name>
     <url-pattern>/rest/*</url-pattern>
-  </servlet-mapping>	
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>Controller</servlet-name>
+    <url-pattern>/connector</url-pattern>
+  </servlet-mapping>  
+  	
 	<session-config>
 	  <session-timeout>30</session-timeout> 
 	</session-config>
