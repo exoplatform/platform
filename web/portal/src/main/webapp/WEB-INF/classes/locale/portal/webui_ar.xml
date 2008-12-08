@@ -65,6 +65,15 @@
       <password>كلمة السر</password>
     </label>
   </UIPortalComponentLogin>
+  
+  <UIForgetPasswordWizard>
+  	<title>ما منع من الحصول على  إكزو؟</title>
+  	<info><![CDATA[نعتذر عن الإزعاج  من جراء عدم قدرتهم على الحصول على إكزو.<br/>لحل هذه المسألة بأسرع ما يمكن ، يرجى اتباع الخطوات التالية لاستكشاف الأخطاء وإصلاحها<br/>اتبع التعليمات بالضبط للحصول على أفضل النتائج :<br/><br/>1. استعادة كلمة السر :أدخل اسم المستخدم الخاص بك ثم انقر فوق إرسال<br/>2. استعادة اسم المستخدم : أدخل عنوان البريد الإلكتروني الخاص بك ثم انقر فوق إرسال]]></info>
+  	<label>
+  		<forgotpassword>نسيت كلمة السر</forgotpassword>
+  		<forgotusername>نسيت اسم المستخدم</forgotusername>
+  	</label>
+  </UIForgetPasswordWizard>
 
   <!--
   ############################################################################
@@ -129,20 +138,39 @@
 			<ChangeLanguage>تغيير اللغة</ChangeLanguage>
 		</item>
 	</UIExoStart>
-
-	<!--
+	
+	<!-- 
 	############################################################################
-	#		           org.exoplatform.webui.portal.UIForgetPassword         #
+	#   			org.exoplatform.webui.portal.UIForgetPassword                    #
 	############################################################################
 	 -->
 	<UIForgetPassword>
-		<title>نسيت اسم المستخدم / كلمة السر</title>
-		احفظ
+		<title>نسيت اسم المستخدم / كلمة السر؟</title>
+		<action>
+			<Send>إرسل</Send>
+			<Back>رجوع</Back>
+		</action>
+		<label>
+			<username>اسم المستخدم</username>
+			<email>البريد الالكتروني</email>
+		</label>
+		<msg>
+			<user-delete>اسم المستخدم تم حذفه من قبل مخطط النظام</user-delete>
+			<user-not-exist>اسم مستخدمك لا وجود له في إكزو</user-not-exist>
+			<expration>Your link is expired, you have to get another email active</expration>
+		</msg>
+		<mail>
+			<header>شكرا على اتصالك مركزالمساعدة لبوابة إكزو. لقد قدمت طلبا لاسم المستخدم وكلمة السر</header>
+			<footer>شكرا لك, مركزالمساعدة لبوابة إكزو</footer>
+			<user>اسم المستخدم لحسابك هو</user>
+			<password>كلمة السر لحسابك هو</password>
+			<link>يمكنك بعد ذلك طلب كلمة سر جديدة لاسم المستخدم الرجاء الضغط على هذه الوصلة</link>
+		</mail>
 	</UIForgetPassword>
-	
+
 	<!--
 	############################################################################
-	#		           org.exoplatform.webui.portal.UIForgetPassword         #
+	#		           org.exoplatform.webui.portal.UIResetPassword         #
 	############################################################################
 	 -->
 	<UIResetPassword>
@@ -176,4 +204,47 @@
 			<openWorkspace>إضافة أدوات</openWorkspace>
 		</label>
 	</UIDashboardContainer>
+	
+	<UIDashboard>
+		<msg>
+			<required>النص مطلوب هنا</required>
+			<notUrl>عنوان غير صالح ! الرجاء إدخال عنوان صحيح للالأداة </notUrl>
+		</msg>
+	</UIDashboard>
+	
+	<!-- 
+	############################################################################
+	#   			   org.exoplatform.webui.core.UIPopupMessages               #
+	############################################################################
+	 -->
+	<UIPopupMessages>
+		<title>
+			<exoMessages>رسائل إكزو</exoMessages>
+		</title>
+		<button>
+			<ok>OK</ok>
+		</button>
+	</UIPopupMessages>
+	
+	<!-- 
+	#############################################################################
+	#              Empty String Validator                                      #
+	#############################################################################
+	 -->
+	<EmptyFieldValidator>
+		<msg>
+			<empty-input>الفضاء "{0}" مطلوب</empty-input>
+		</msg> 	
+	</EmptyFieldValidator>
+	
+	<!-- 
+	#############################################################################
+	#              Email Address Validator                                      #
+	#############################################################################
+	 -->
+	<EmailAddressValidator>
+		<msg>
+			<Invalid-input>البريد الإلكتروني غير صالح. الرجاء إدخال قيمة أخرى</Invalid-input>
+		</msg>
+	</EmailAddressValidator>
 </bundle>
