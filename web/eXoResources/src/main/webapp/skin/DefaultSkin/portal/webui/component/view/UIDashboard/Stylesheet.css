@@ -20,12 +20,14 @@
 }
 
 .UIDashboard .GadgetTitle {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	padding: 0px 5px;
 	color: #5b5b5b;
 	font-weight: bold;
 	cursor: move;
 	overflow: hidden;
+	white-space: nowrap;
 }
 
 .UIDashboard .UIDashboardEditForm {
@@ -50,12 +52,15 @@
 	color: black;
 	font-weight: bold;
 	line-height: 23px;
-	float: left;
-	padding-left: 20px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
 }
 
 .UIDashboardSelectContainer .CloseIcon {
-	float: right;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	background: url('background/Dashboard.gif') no-repeat left -180px;
 	height: 20px;
 	width: 20px;
@@ -138,21 +143,23 @@
 }
 
 .UIDashboardSelectContainer .GadgetCategory .GadgetTab .MiddleCategoryTitleBar {
-	padding-right: 8px;
 	background: url('background/Catalogue.gif') repeat-x center -26px;
 	height: 26px;
 }
 
 .UIDashboardSelectContainer .GadgetCategory .GadgetTab .ArrowIcon {
-	background: url('background/Catalogue.gif') no-repeat left -102px;
+	background: url('background/Catalogue.gif') no-repeat left -102px; /* orientation=lt */
+	background: url('background/Catalogue.gif') no-repeat right -102px; /* orientation=rt */
 	line-height: 26px;
 	overflow: hidden;
-	padding-left: 18px;
+	padding-left: 18px; /* orientation=lt */
+	padding-right: 18px; /* orientation=rt */
 	color: #286f9b;
 }
 
 .UIDashboardSelectContainer .GadgetCategory .SelectedTab .ArrowIcon {
-	background: url('background/Catalogue.gif') no-repeat left -76px;
+	background: url('background/Catalogue.gif') no-repeat left -76px; /* orientation=lt */
+	background: url('background/Catalogue.gif') no-repeat right -76px; /* orientation=rt */
 }
 
 .UIDashboardSelectContainer .GadgetCategory .ItemsContainer {
@@ -247,8 +254,10 @@
 }
 
 .UIDashboardContainer .ContainerControlBarL .AddIcon {
-	background: url('background/Dashboard.gif') no-repeat left -200px;
-	padding-left: 30px;
+	background: url('background/Dashboard.gif') no-repeat left -200px; /* orientation=lt */
+	background: url('background/Dashboard.gif') no-repeat right -200px; /* orientation=rt */
+	padding-left: 30px; /* orientation=lt */
+	padding-right: 30px; /* orientation=rt */
 	font-weight: bold; font-size: 12px;
 	display: block;
 	line-height: 22px;
