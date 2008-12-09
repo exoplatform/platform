@@ -231,6 +231,14 @@ function LoadToolbar()
 		oToolbarSet.OnLoad = StartEditor ;
 		oToolbarSet.Load( FCKURLParams['Toolbar'] || 'Default' ) ;
 	}
+	
+	var toolbar = document.getElementById("xToolbarSpace") ;
+	if(toolbar && toolbar.childNodes) {
+	  for(var i = 0; i < toolbar.childNodes.length; i++) {
+	    var child = toolbar.childNodes[i] ;
+	    if(child.nodeName == "TABLE") child.setAttribute("dir", window.document.dir) ;
+	  }
+	}
 }
 
 function StartEditor()
