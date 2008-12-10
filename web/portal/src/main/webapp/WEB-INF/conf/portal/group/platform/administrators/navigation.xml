@@ -8,7 +8,7 @@
     <node>
       <uri>administration</uri>
       <name>administration</name>
-      <label>#{administration}</label>     
+      <label>#{administration.title}</label>     
           
 			<node>
 				<uri>administration/registry</uri>

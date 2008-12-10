@@ -8,7 +8,7 @@
     <node>
       <uri>organization</uri>
       <name>organization</name>
-      <label>#{organization}</label>
+      <label>#{organization.title}</label>
       
       <node>
 	      <uri>organization/newStaff</uri>
