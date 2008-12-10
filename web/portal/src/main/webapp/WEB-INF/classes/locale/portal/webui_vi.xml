@@ -1,0 +1,2057 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <EmptyStringValidator>
+    <msg>
+      <empty-input>Bạn vui lòng nhập dữ liệu vào trường "{0}"</empty-input>
+    </msg>
+  </EmptyStringValidator>
+  <!--
+  #############################################################################
+  #              Email Address Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.component.core.Validator.EmailAddressValidator
+  #{0}=input field name, {1} user input email address
+  -->
+  <EmailAddressValidator>
+    <msg>
+      <invalid-email>Địa chỉ email "{1}" trong trường {0} là không chính xác</invalid-email>
+      <Invalid-input>Địa chỉ thư của bạn không đúng. Hãy nhập địa chỉ khác!</Invalid-input>
+    </msg>
+  </EmailAddressValidator>
+  <!--
+  #############################################################################
+  #              Number Format Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.component.core.Validator.NumberFormatValidator
+  #{0}=input field name
+  -->
+  <NumberFormatValidator>
+    <msg>
+      <Invalid-input>Giá trị bạn nhập trong trường {0} không phải là kiểu số</Invalid-input>
+      <Invalid-number>Định dạng số trong mục {0} không đúng.</Invalid-number>
+    </msg>
+  </NumberFormatValidator>
+  <!--
+  #############################################################################
+  #              Identifier String Validator                                  #
+  #############################################################################
+  #class org.exoplatform.webui.component.core.Validator.IdentifierValidator
+  #{0}=input field name
+  -->
+  <IdentifierValidator>
+    <msg>
+      <invalid-char>Dữ liệu trong trường {0} chỉ cho phép là kiểu chữ,số hoặc ký tự gạch dưới</invalid-char>
+      <Invalid-char>Bạn chỉ được nhập dữ liệu là các ký tự ABC, chữ số và dấu gạch chân trong mục {0}</Invalid-char>
+    </msg>
+  </IdentifierValidator>
+  <!--
+  #############################################################################
+  #              Name String Validator		                            #
+  #############################################################################
+  #class org.exoplatform.webui.component.core.Validator.NameValidator
+  #{0}=input field name
+  -->
+  <NameValidator>
+    <msg>
+      <invalid-char>Dữ liệu trong trường {0} chỉ cho phép là chữ, số hoặc các ký tự đặc biệt -, _ , . , *</invalid-char>
+      <Invalid-char>Bạn chỉ được nhập dữ liệu là các ký tự ABC, chữ số, dấu gach ngang và dấu gạch chân trong mục {0}</Invalid-char>
+    </msg>
+  </NameValidator>
+  <PageNodeNameValidator>
+    <msg>
+      <invalid-digit>Tên không được bắt đầu bằng số</invalid-digit>
+    </msg>
+  </PageNodeNameValidator>
+  <!--
+  #############################################################################
+  -->
+  <UIContentNavigation>
+    <msg>
+      <EditNode>Trước tiên bạn phải chọn một nốt!</EditNode>
+    </msg>
+  </UIContentNavigation>
+  <UIPortletRegistryCategory>
+    <msg>
+      <editPortlet>Bạn phải chọn một portlet!</editPortlet>
+    </msg>
+  </UIPortletRegistryCategory>
+  <PopupPermissionSelector>
+    <title>
+      <null>Trống</null>
+      <UIGroupMembershipSelector>Chọn phân quyền</UIGroupMembershipSelector>
+      <PermissionSelector>Lựa chọn phân quyền</PermissionSelector>
+    </title>
+  </PopupPermissionSelector>
+  <UIPermissionForm>
+    <label>
+      <null>Phân quyền</null>
+    </label>
+  </UIPermissionForm>
+  <ApplicationRegistryWorkingArea>
+    <msg>
+      <nullCategory>Bạn phải chọn một mục trước khi thêm Portlet!</nullCategory>
+      <selectCategory>Bạn phải chọn một mục trước khi thêm Portlet!</selectCategory>
+    </msg>
+  </ApplicationRegistryWorkingArea>
+  <UICategoryForm>
+    <action>
+      <Close>Đóng</Close>
+    </action>
+  </UICategoryForm>
+  <AddCategory>
+    <title>
+      <UICategoryForm>Thêm danh mục</UICategoryForm>
+    </title>
+  </AddCategory>
+  <WorkingPopup>
+    <title>
+      <WorkingPopup>Cửa sổ làm việc</WorkingPopup>
+      <UIInfoPortletForm>Sửa Ứng dụng</UIInfoPortletForm>
+    </title>
+  </WorkingPopup>
+  <DeleteUser>
+    <title>
+      <UIPopupDialog>Bạn có muốn xóa người dùng này không?</UIPopupDialog>
+    </title>
+  </DeleteUser>
+  <!--
+  #############################################################################
+  #              Empty String Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.form.validator.Validator.EmptyFieldValidator
+  #{0}=input field name
+  -->
+  <EmptyFieldValidator>
+    <msg>
+      <empty-input>Bạn phải nhập dữ liệu vào ô ở mục "{0}".</empty-input>
+      <empty>Dữ liệu trong mục "{0}" phải được nhập.</empty>
+    </msg>
+  </EmptyFieldValidator>
+  <ExpressionValidator>
+    <msg>
+      <value-invalid>Dữ liệu nhập ở mục "{0}" phải đúng định dạng "{1}".</value-invalid>
+    </msg>
+  </ExpressionValidator>
+  <UITestForm>
+    <label>
+      <UIAddApplication>Thêm Ứng dụng</UIAddApplication>
+    </label>
+  </UITestForm>
+  <StringLengthValidator>
+    <msg>
+      <length-invalid>Dữ liệu bạn nhập vào ô "{0}" phải từ "{1}" đến "{2}" ký tự.</length-invalid>
+    </msg>
+  </StringLengthValidator>
+  <!--
+  #############################################################################
+  #              Email Address Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.form.validator.Validator.EmailAddressValidator
+  #{0}=input field name, {1} user input email address
+  -->
+  <!--
+  #############################################################################
+  #              Number Format Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.form.validator.Validator.NumberFormatValidator
+  #{0}=input field name
+  -->
+  <!--
+  #class org.exoplatform.webui.form.validator.Validator.PositiveNumberFormatValidator
+  #{0}=input field name
+  -->
+  <PositiveNumberFormatValidator>
+    <msg>
+      <Invalid-number>Định dạng trong mục {0} phải là số nguyên dương.</Invalid-number>
+    </msg>
+  </PositiveNumberFormatValidator>
+  <!--
+  #############################################################################
+  #              Empty Iterator Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIteratorValidator
+  #{0}=input field name
+  -->
+  <EmptyIteratorValidator>
+    <msg>
+      <empty>Mục "{0}" trong bảng danh sách không thể trống.</empty>
+    </msg>
+  </EmptyIteratorValidator>
+  <!--
+  #############################################################################
+  #              Empty Field Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.organization.UIPermissionSelector.EmptyFieldValidator
+  #{0}=input field name
+  -->
+  <!--
+  #############################################################################
+  #              Label for UIFormMultiValueInputSet                                #
+  #############################################################################
+  -->
+  <UIFormMultiValueInputSet>
+    <label>
+      <remove>Xóa mục này</remove>
+      <add>Thêm mục</add>
+    </label>
+  </UIFormMultiValueInputSet>
+  <!--
+  #############################################################################
+  #       org.exoplatform.portal.component.customization.UIPageNavigationControlBar      #
+  #############################################################################
+  -->
+  <UIPageNavigationControlBar>
+    <tooltip>
+      <Finish>Lưu lại và hoàn thành</Finish>
+      <Rollback>Trở lại trạng thái lần sửa trước</Rollback>
+      <SaveNavigation>Lưu lại thay đổi của Navigation</SaveNavigation>
+      <EditNavigation>Chỉnh sửa Navigation</EditNavigation>
+      <CreateNavigation>Tạo Navigation cho các trang của bạn</CreateNavigation>
+      <Abort>Loại bỏ</Abort>
+      <Back>Quay lại</Back>
+    </tooltip>
+    <msg>
+      <noEditablePageNavigation>Không có Navigation cho phép bạn sửa.</noEditablePageNavigation>
+    </msg>
+  </UIPageNavigationControlBar>
+  <!--
+  #############################################################################
+  #org.exoplatform.portal.component.customization.UIPortalManagementControlBar#
+  #############################################################################
+  -->
+  <UIPortalManagementControlBar>
+    <tooltip>
+      <Finish>Lưu lại và hoàn thành</Finish>
+      <RollBack>Trở lại trạng thái lần sửa trước</RollBack>
+      <Save>Lưu lại</Save>
+      <Abort>Từ bỏ</Abort>
+      <ViewMode>Chế độ xem</ViewMode>
+      <EditMode>Chế độ sửa cách trình bày</EditMode>
+      <BrowserPortal>Browser Portal</BrowserPortal>
+      <Rollback>Trở lại</Rollback>
+    </tooltip>
+  </UIPortalManagementControlBar>
+  <!--
+  #############################################################################
+  #              Identifier String Validator                                  #
+  #############################################################################
+  #class org.exoplatform.webui.form.validator.Validator.IdentifierValidator
+  #{0}=input field name
+  -->
+  <!--
+  #############################################################################
+  #                             UIChangeLanguage				                      #
+  #############################################################################
+  -->
+  <Euro>
+    <label>Châu Âu</label>
+  </Euro>
+  <Asia>
+    <label>Châu Á</label>
+  </Asia>
+  <Language>
+    <left>
+      <title>Chọn ngôn ngữ</title>
+    </left>
+  </Language>
+  <UIChangeLanguage>
+    <action>
+      <save>Áp dụng</save>
+      <close>Từ bỏ</close>
+    </action>
+    <title>
+      <LanguageSetting>Tùy chọn ngôn ngữ</LanguageSetting>
+    </title>
+  </UIChangeLanguage>
+  <!--
+  #############################################################################
+  #                              Change Skin                                  #
+  #############################################################################
+  -->
+  <UIChangeSkin>
+    <action>
+      <save>Áp dụng</save>
+      <close>Đóng lại</close>
+    </action>
+    <title>
+      <SkinSetting>Tùy chọn giao diện</SkinSetting>
+    </title>
+    <Default>
+      <label>Giao diện mặc định</label>
+    </Default>
+    <Mac>
+      <label>Giao diện Mac</label>
+    </Mac>
+    <Vista>
+      <label>Giao diện Vista</label>
+    </Vista>
+  </UIChangeSkin>
+  <Skin>
+    <title>Danh sách giao diện</title>
+    <left>
+      <title>Tham khảo và chọn giao diện</title>
+    </left>
+  </Skin>
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.component.customization.UIChangePortal				  #
+  #############################################################################
+  -->
+  <UIChangePortal>
+    <header>
+      <creator>Người khởi tạo</creator>
+      <name>Tên</name>
+      <skin>Kiểu giao diện</skin>
+      <action>Hành động</action>
+      <factoryId>Factory Id</factoryId>
+    </header>
+    <lable>
+      <TitleBar>Chọn Portal</TitleBar>
+    </lable>
+    <action>
+      <close>Đóng lại</close>
+      <title>
+        <SelectPortal>Chọn Portal</SelectPortal>
+      </title>
+    </action>
+    <msg>
+      <Invalid-viewPermission>Portal này không cho phép bạn truy cập</Invalid-viewPermission>
+    </msg>
+  </UIChangePortal>
+  <!--
+  #############################################################################
+  #                              Selector                                  #
+  #############################################################################
+  -->
+  <Template>
+    <title>Danh sách giao diện</title>
+    <left>
+      <title>Tham khảo và chọn giao diện</title>
+    </left>
+  </Template>
+  <Desktop>
+    <label>Kiểu giao diện Desktop</label>
+  </Desktop>
+  <AccountTemplate>
+    <left>
+      <title>Mẫu tài khoản tham khảo</title>
+    </left>
+    <title>Mẫu tài khoản</title>
+  </AccountTemplate>
+  <DefaultAccount>
+    <label>Tài khoản mặc định</label>
+  </DefaultAccount>
+  <CommunityAccount>
+    <label>Tài khoản cộng đồng</label>
+  </CommunityAccount>
+  <CompanyAccount>
+    <label>Tài khoản công ty</label>
+  </CompanyAccount>
+  <AdminAccount>
+    <label>Tài khoản quản trị</label>
+  </AdminAccount>
+  <!--
+  #############################################################################
+  #              Name String Validator		                            #
+  #############################################################################
+  #class org.exoplatform.webui.form.validator.Validator.NameValidator
+  #{0}=input field name
+  -->
+  <!--
+  #############################################################################
+  #                                 Message Info                              #
+  #############################################################################
+  -->
+  <UIAccountForm>
+    <msg>
+      <password-is-not-match>Mật khẩu và Mật khẩu xác nhận phải giống nhau!</password-is-not-match>
+    </msg>
+  </UIAccountForm>
+  <UIAccountInputSet>
+    <msg>
+      <user-exist>Tên người dùng này đang tồn tại, xin hãy chọn tên khác!</user-exist>
+      <successful>
+        <create>
+          <user>Bạn đã đăng ký tài khoản mới thành công!</user>
+        </create>
+        <update>
+          <user>Update người truy nhập thành công</user>
+        </update>
+      </successful>
+    </msg>
+  </UIAccountInputSet>
+  <UIUserProfileInputSet>
+    <msg>
+      <sucsesful>
+        <update>
+          <userprofile>Update tên truy nhập thành công!</userprofile>
+        </update>
+      </sucsesful>
+    </msg>
+    <title>Thông tin cá nhân</title>
+    <label>
+      <Profile>Tiểu sử</Profile>
+      <HomeInfo>Thông tin về nơi ở</HomeInfo>
+      <BusinessInfo>Thông tin nơi làm việc</BusinessInfo>
+    </label>
+  </UIUserProfileInputSet>
+  <UIGroupMembershipForm>
+    <msg>
+      <user-not-exist>Tên truy nhập này không tồn tại</user-not-exist>
+      <group-not-select>Xin hãy chọn một nhóm!</group-not-select>
+      <membership-exist>Kiểu thành viên của người dùng này đã có trong nhóm {0}, xin hãy chọn kiểu khác!</membership-exist>
+    </msg>
+  </UIGroupMembershipForm>
+  <UILoginForm>
+    <msg>
+      <Invalid-account>Bạn nhập tên đăng nhập hay mật khẩu sai hoặc đang để trống. Hãy thử nhập thông tin của bạn lại một lần nữa!</Invalid-account>
+    </msg>
+    <label>
+      <welcome>Chào mừng đến với eXo Portal!</welcome>
+      <login>Đăng nhập</login>
+      <Discard>Loại bỏ</Discard>
+      <user>Tên đăng nhập</user>
+      <forgot>Quên tên đăng nhập/mật khẩu?</forgot>
+      <password>Mật khẩu</password>
+      <UserName>Tên đăng nhập</UserName>
+      <RememberOnComputer>Nhớ đăng nhập của tôi</RememberOnComputer>
+      <Signin>Đăng nhập</Signin>
+    </label>
+  </UILoginForm>
+  <!--
+  #############################################################################
+  #                              Message Error                                #
+  #############################################################################
+  -->
+  <UIApplication>
+    <msg>
+      <unknown-error>Lỗi không xác định</unknown-error>
+    </msg>
+  </UIApplication>
+  <!--
+  #############################################################################
+  #             org.exoplatform.portal.component.customization.UIContainerForm#
+  #############################################################################
+  -->
+  <UIContainerForm>
+    <title>Sửa Container</title>
+    <action>
+      <Save>Lưu lại</Save>
+      <Close>Đóng lại</Close>
+    </action>
+    <label>
+      <id>Container Id</id>
+      <title>Tiêu đề Container</title>
+      <decorator>#{word.decorator}</decorator>
+      <template>Mẫu</template>
+      <width>Rộng</width>
+      <height>Cao</height>
+      <style>Kiểu</style>
+      <ContainerSetting>Cấu hình Container</ContainerSetting>
+    </label>
+    <tab>
+      <label>
+        <ContainerSetting>Cấu hình Container</ContainerSetting>
+        <Template>Các Container mẫu có sẵn</Template>
+        <Icon>Tùy chọn Biểu tượng</Icon>
+      </label>
+    </tab>
+    <msg>
+      <InvalidWidthHeight>The field "{0}" must use pixel or percentage value!</InvalidWidthHeight>
+    </msg>
+  </UIContainerForm>
+  <!--
+  #############################################################################
+  #              org.exoplatform.portal.component.customization.UIPortletForm#
+  #############################################################################
+  -->
+  <UIPortletForm>
+    <title>Xem và Sửa Portlet</title>
+    <label>
+      <title>Tiêu đề Portlet :</title>
+      <width>Rộng:</width>
+      <height>Cao:</height>
+      <showInfoBar>Hiện thanh thông tin :</showInfoBar>
+      <windowId>Window Id :</windowId>
+      <showPortletMode>Hiện chế độ của Portlet :</showPortletMode>
+      <showWindowState>Hiện cửa sổ :</showWindowState>
+      <id>Portlet Id :</id>
+      <description>Mô tả :</description>
+    </label>
+    <action>
+      <Close>Từ bỏ</Close>
+      <Save>Lưu lại</Save>
+    </action>
+    <tab>
+      <label>
+        <PortletPref>Preferences</PortletPref>
+        <PortletSetting>Cấu hình Portlet</PortletSetting>
+        <Renderer>Biểu hiện</Renderer>
+        <Template>Portlet mẫu</Template>
+        <Decorator>Trang trí cho Portlet</Decorator>
+        <Icon>Chọn biểu tượng</Icon>
+        <theme>Decoration Themes</theme>
+      </label>
+    </tab>
+    <msg>
+      <InvalidWidthHeight>The field "{0}" must use pixel value!</InvalidWidthHeight>
+    </msg>
+  </UIPortletForm>
+  <!--
+  #############################################################################
+  #       org.exoplatform.portal.component.customization.UIDescription        #
+  #############################################################################
+  -->
+  <UIDescription>
+    <title>
+      <pageManagement>Quản lý các trang</pageManagement>
+      <portalManagement>Quản lý các Portal</portalManagement>
+      <pageWizard>Khởi tạo trang bằng Wizard</pageWizard>
+      <pageEditWizard>Chỉnh sửa trang bằng Wizard</pageEditWizard>
+    </title>
+    <content>
+      <pageManagement>Mô tả về quản lý trang ở đây</pageManagement>
+      <portalManagement>Mô tả về quản lý Portal ở đây</portalManagement>
+      <pageWizard><![CDATA[Mô tả về quản lý trang<br/>và hướng dẫn ở đây.]]></pageWizard>
+      <pageEditWizard><![CDATA[Mô tả về chỉnh sửa trang<br/>và hướng dẫn ở đây.]]></pageEditWizard>
+    </content>
+  </UIDescription>
+  <!--
+  #############################################################################
+  #              org.exoplatform.portal.component.customization.UIPortalForm#
+  #############################################################################
+  -->
+  <UIPortalForm>
+    <title>Chỉnh sửa Portal</title>
+    <action>
+      <Save>Lưu lại</Save>
+      <Close>Loại bỏ</Close>
+    </action>
+    <msg>
+      <sameName>Tên của portal này đang tồn tại trong hệ thống!</sameName>
+    </msg>
+    <label>
+      <name>Tên Portal:</name>
+      <locale>#{word.locale} :</locale>
+      <date>Ngày :</date>
+      <factoryId>Các kiểu Portal</factoryId>
+      <skin>Kiểu giao diện :</skin>
+    </label>
+    <tab>
+      <label>
+        <PortalSetting>Cấu hình Portal</PortalSetting>
+        <PortalTemplate>Các Portal mẫu</PortalTemplate>
+        <PermissionSetting>Tùy chọn phân quyền sử dụng</PermissionSetting>
+        <FactoryId>Factory Id</FactoryId>
+      </label>
+    </tab>
+  </UIPortalForm>
+  <PortalTemplate>
+    <title>Các Portal mẫu</title>
+    <left>
+      <title>Xem tham khảo các Portal mẫu</title>
+    </left>
+  </PortalTemplate>
+  <!--
+  #####################################################################################
+  #              org.exoplatform.webui.organization.UIListPermissionSelector#
+  #              org.exoplatform.webui.organization.UIPermissionSelector#
+  #              org.exoplatform.webui.organization.UIGroupSelector#
+  ###############################################################################3#####
+  -->
+  <UITabPane>
+    <title>
+      <UIPermissionSelector>Chỉnh sửa Cấu hình Phân quyền sử dụng</UIPermissionSelector>
+      <UIListPermissionSelector>Cấu hình Phân quyền truy cập</UIListPermissionSelector>
+      <UIAccountProfiles>Tài khoản</UIAccountProfiles>
+      <UIAccountChangePass>Thay mật khẩu</UIAccountChangePass>
+    </title>
+  </UITabPane>
+  <UIListPermissionSelector>
+    <header>
+      <groupId>Id của nhóm</groupId>
+      <membership>Kiểu thành viên</membership>
+      <action>Hành động</action>
+    </header>
+    <action>
+      <addPermission>Thêm phân quyền sử dụng</addPermission>
+      <title>
+        <Delete>Xóa</Delete>
+      </title>
+    </action>
+    <label>
+      <publicMode>Không đặt phân quyền(Tất cả mọi người dùng có thể truy cập):</publicMode>
+    </label>
+  </UIListPermissionSelector>
+  <UIGroupMembershipSelector>
+    <msg>
+      <selectGroup>Trước tiên bạn phải chọn một nhóm sau đó mới chọn kiểu thành viên!</selectGroup>
+    </msg>
+    <title>
+      Tùy chọn thành viên nhóm
+      <ListPermissionSelector>Chọn phân quyền</ListPermissionSelector>
+    </title>
+    <label>
+      <selectPermission>Chọn phân quyền</selectPermission>
+      <selectMembership>Chọn thành viên</selectMembership>
+      <selectGroup>Browse and select a group</selectGroup>
+    </label>
+    <tooltip>
+      <selectMembership>Nhấp ở đây để chọn thành viên</selectMembership>
+    </tooltip>
+  </UIGroupMembershipSelector>
+  <UIGroupSelector>
+    <title>
+      <UIGroupMembershipSelector>Tùy chọn kiểu thành viên</UIGroupMembershipSelector>
+    </title>
+    <lable>
+      <name>Name:</name>
+      <groupId>Group Id:</groupId>
+      <description>Description:</description>
+    </lable>
+    <action>
+      <done>Done</done>
+    </action>
+  </UIGroupSelector>
+  <!--
+  #############################################################################
+  #              org.exoplatform.portal.component.customization.UIPageSelector#
+  #############################################################################
+  -->
+  <UIPageSelector>
+    <header>
+      <name>Tên trang</name>
+      <id>Id của trang</id>
+      <accessGroups>Các nhóm truy nhập</accessGroups>
+      <title>Tiêu đề</title>
+      <action>Hành động</action>
+    </header>
+    <label>
+      <searchandSelectPage>Tìm kiếm và chọn trang</searchandSelectPage>
+      <currentSelectedPage>Thông tin về trang bạn vừa chọn</currentSelectedPage>
+      <title>Tiêu đề trang</title>
+      <name>Tên</name>
+      <accessGroups>Các nhóm truy nhập</accessGroups>
+    </label>
+  </UIPageSelector>
+  <UIPageBrowser>
+    <msg>
+      <NoPermission>Trang này không tồn tại hoặc bạn không được phân quyền để truy cập!</NoPermission>
+      <InvalidQueryException>Sai dữ liệu!</InvalidQueryException>
+      <Invalid-viewPermission>{0} Trang này không được phân quyền để truy cập</Invalid-viewPermission>
+      <Invalid-editPermission>{0} Trang này không được phân quyền để chỉnh sửa</Invalid-editPermission>
+      <Invalid-deletePermission>{0} Trang này không được phân quyền để xóa</Invalid-deletePermission>
+      <Invalid-Preview>Trang này có kiểu trình bày dạng Desktop. Bạn không thể xem mẫu sau khi chỉnh sửa!</Invalid-Preview>
+      <null>Không tìm thấy trang này hoặc bạn không được phân quyền để truy cập.</null>
+      <edit>
+        <null>Không tìm thấy trang này hoặc bạn không được phân quyền để chỉnh sửa.</null>
+      </edit>
+      <delete>
+        <null>Không tìm thấy trang này hoặc bạn không được phân quyền để xóa.</null>
+      </delete>
+    </msg>
+    <action>
+      <title>
+        <Delete>Xóa trang này</Delete>
+        <Preview>Xem trang mặc định</Preview>
+        <EditInfo>Chỉnh sửa trang</EditInfo>
+        <SelectPage>Chọn trang</SelectPage>
+      </title>
+      <addNewPage>Tạo trang mới</addNewPage>
+    </action>
+    <header>
+      <name>Tên trang</name>
+      <ownerType>Kiểu chủ sở hữu</ownerType>
+      <ownerId>Id của chủ sở hữu</ownerId>
+      <title>Tiêu đề trang</title>
+      <accessGroups>Các nhóm truy nhập</accessGroups>
+      <action>Hành động</action>
+      <accessPermissions>Phân quyền truy nhập</accessPermissions>
+      <editPermission>Chỉnh sửa phân quyền</editPermission>
+    </header>
+    <label>
+      <option>
+        <owner>#{word.owner}</owner>
+      </option>
+    </label>
+    <selectItem>
+      <name>Tên</name>
+      <ownerType>Kiểu chủ sở hữu</ownerType>
+      <ownerId>Id của chủ sở hữu</ownerId>
+    </selectItem>
+  </UIPageBrowser>
+  <!--
+  #############################################################################
+  #          org.exoplatform.portal.component.customization.UIPageNodeSelector#
+  #############################################################################
+  -->
+  <UIPageNodeSelector>
+    <UIDropDown>
+      <title>Chọn các Navigation</title>
+    </UIDropDown>
+    <msg>
+      <notAvailable>Trang của nốt này không được dùng.</notAvailable>
+      <Invalid-editPermission>Bạn không có quyền để chỉnh sửa trang này.</Invalid-editPermission>
+      <deleteNav>Bạn không thể xóa navigation của trang này!</deleteNav>
+      <NoPageNavigation>Bạn phải khởi tạo Navigation trước khi dùng chức năng này!</NoPageNavigation>
+      <curentPage>Bạn không thể xóa trang này: Trang này đang được dùng bởi ứng dụng khác!</curentPage>
+      <paste>
+        <sameName>Tên của nốt không tồn tại!</sameName>
+      </paste>
+    </msg>
+    <deleteNode>Bạn có chắc chắn muốn xóa Navigation này không?</deleteNode>
+    <deleteNavigation>Bạn có chắc chắn muốn xóa nốt này không?</deleteNavigation>
+    <tooltip>
+      <newPageNavigation>Create new Page Navigation</newPageNavigation>
+    </tooltip>
+    <label>
+      <selectNavigation>
+        <tooltip>Nhấp chuột ở đây để chọn Navigation</tooltip>
+      </selectNavigation>
+    </label>
+  </UIPageNodeSelector>
+  <UIPageNodeSelectorPopupMenu>
+    <event>
+      <AddUserNavigation>Thêm Navigation mới</AddUserNavigation>
+      <AddNode>Tạo một nốt mới</AddNode>
+      <PasteNode>Dán nốt</PasteNode>
+      <CreateNavigation>Khởi tạo Navigation</CreateNavigation>
+      <DeleteNavigation>Xóa Navigation</DeleteNavigation>
+      <EditNavigation>Chỉnh sửa Navigation</EditNavigation>
+      <SaveNavigation>Lưu Navigation</SaveNavigation>
+    </event>
+  </UIPageNodeSelectorPopupMenu>
+  <!--
+  #############################################################################
+  #              org.exoplatform.portal.component.customization.UIPageForm    #
+  #############################################################################
+  -->
+  <UIPageForm>
+    <title>Xem/Chỉnh sửa trang</title>
+    <label>
+      <pageId>Id của trang:</pageId>
+      <ownerType>Kiểu chủ sở hữu của trang:</ownerType>
+      <ownerId>Id của chủ sở hữu:</ownerId>
+      <name>Tên trang:</name>
+      <title>Tiêu đề trang :</title>
+      <showMaxWindow>Hiện cửa sổ rộng nhất:</showMaxWindow>
+    </label>
+    <action>
+      <Close>Từ bỏ</Close>
+      <Save>Lưu lại</Save>
+      <Back>Trở lại</Back>
+    </action>
+    <tab>
+      <label>
+        <PageSetting>Cấu hình trang</PageSetting>
+        <Template>Các trang mẫu</Template>
+        <PermissionSetting>Cấu hình phân quyền sử dụng</PermissionSetting>
+        <UIPageTemplateOptions>Trình bày trang</UIPageTemplateOptions>
+      </label>
+    </tab>
+    <msg>
+      <sameName>Tên của trang này đang tồn tại!</sameName>
+    </msg>
+  </UIPageForm>
+  <UIOwnerIdSelector>
+    <title>
+      <OwnerIdSelector>Tùy chọn Id của chủ sở hữu</OwnerIdSelector>
+    </title>
+  </UIOwnerIdSelector>
+  <UIPopupGroupSelector>
+    <title>
+      <UIGroupSelector>Tùy chọn nhóm</UIGroupSelector>
+    </title>
+  </UIPopupGroupSelector>
+  <!--
+  #############################################################################
+  #              org.exoplatform.portal.component.customization.UIPageNodeForm#
+  #############################################################################
+  -->
+  <UIPageNodeForm>
+    <title>Thêm và chỉnh sửa nốt của trang</title>
+    <msg>
+      <SameName>Tên của nốt mà bạn nhập đang tồn tại, hãy thử với tên khác!</SameName>
+      <selectPage>Bạn phải chọn một trang!</selectPage>
+    </msg>
+    <action>
+      <Save>Lưu lại</Save>
+      <Back>Trở lại</Back>
+      <Close>Đóng lại</Close>
+    </action>
+    <label>
+      <name>Tên nốt :</name>
+      <uri>#{word.uri}:</uri>
+      <pageReference>Trang liên quan</pageReference>
+      <description>#{word.description}</description>
+      <type>Kiểu trang</type>
+      <creator>Người khởi tạo trang</creator>
+      <modifier>Người chỉnh sửa trang</modifier>
+      <label>Nhãn:</label>
+      <showPublicationDate><![CDATA[Publication date & time]]></showPublicationDate>
+      <startPublicationDate>Start Publication Date</startPublicationDate>
+      <endPublicationDate>End Publication Date</endPublicationDate>
+    </label>
+    <tab>
+      <label>
+        <PageNodeSetting>Cấu hình nốt</PageNodeSetting>
+        <Icon>#{word.icon}</Icon>
+        <UIPageSelector>Tùy chọn trang</UIPageSelector>
+      </label>
+    </tab>
+  </UIPageNodeForm>
+  <!--
+  #############################################################################
+  #              org.exoplatform.portal.component.customization.UIPageBrowser #
+  #############################################################################
+  -->
+  <UIPageBrowseControlBar>
+    <tooltip>
+      <Back>Trở về Quản lý trang</Back>
+      <Finish>Ghi lại và hoàn thành</Finish>
+    </tooltip>
+  </UIPageBrowseControlBar>
+  <UIPageBrowse>
+    <deletePage>Bạn có muốn xóa trang này không?</deletePage>
+  </UIPageBrowse>
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.component.customization.UIPageNavigationForm    #
+  #############################################################################
+  -->
+  <UIPageNavigationForm>
+    <title>Khảo sát trang và Navigation</title>
+    <label>
+      <priority>Mức ưu tiên :</priority>
+      <creator>Người khởi tạo :</creator>
+      <modifier>Người chỉnh sửa :</modifier>
+      <ownerType>Kiểu chủ sở hữu :</ownerType>
+      <ownerId>Id của chủ sở hữu :</ownerId>
+      <description>#{word.description}:</description>
+      <uri>#{word.uri}:</uri>
+      <name>Tên:</name>
+    </label>
+    <tab>
+      <label>
+        <AccessGroup>Nhóm truy cập</AccessGroup>
+        <PageNavigationSetting>Cấu hình Navigation của trang</PageNavigationSetting>
+        <Icon>Biểu tượng</Icon>
+        <PermissionSetting>Phân quyền</PermissionSetting>
+      </label>
+    </tab>
+    <action>
+      <Save>Lưu lại</Save>
+      <Close>Từ bỏ</Close>
+    </action>
+    <msg>
+      <selectGroup>Bạn phải chọn một nhóm trước!</selectGroup>
+      <existPageNavigation>Bạn không thể khởi tạo một Navigation mới khi Navigation cho {0} đang tồn tại!</existPageNavigation>
+    </msg>
+  </UIPageNavigationForm>
+  <UIPageNavigation>
+    <msg>
+      <noMakablePageNavigation>Bạn không có quyền khởi tạo Navigation cho bất cứ nhóm nào.</noMakablePageNavigation>
+    </msg>
+    <tooltip>
+      <upLevel>Up Level</upLevel>
+    </tooltip>
+    <navvalue>
+      <endstring>'s Nav</endstring>
+    </navvalue>
+    <label>
+      <titleBar>{0}'s pages</titleBar>
+    </label>
+  </UIPageNavigation>
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.webui.component.UIPortalApplication             #
+  #############################################################################
+  -->
+  <UIPortalApplication>
+    <label>
+      <Loading>Đang tải...</Loading>
+      <Abort>Loại bỏ</Abort>
+    </label>
+  </UIPortalApplication>
+  <!--
+  #############################################################################
+  #    org.exoplatform.organization.webui.component.UIPermissionSelector    #
+  #############################################################################
+  -->
+  <UIPermissionSelector>
+    <label>
+      <AccessPermission>#{word.accessPermission}</AccessPermission>
+      <EditPermission>#{word.editPermission}</EditPermission>
+      <ViewPermission>#{word.viewPermission}</ViewPermission>
+      <PermissionInfo>Thông tin Phân quyền</PermissionInfo>
+      <membershipMember>Thành viên</membershipMember>
+      <groupId>#{word.groupId}</groupId>
+      <addEditPermission>Cấu hình phân quyền</addEditPermission>
+      <currentSelectedPermissionInfo>Thông tin phân quyền vừa chọn</currentSelectedPermissionInfo>
+      <permissionType>Kiểu phân quyền</permissionType>
+    </label>
+    <action>
+      <SelectPermission>Chọn phân quyền</SelectPermission>
+      <DeletePermission>Xóa phân quyền</DeletePermission>
+    </action>
+  </UIPermissionSelector>
+  <!--
+  #############################################################################
+  #    org.exoplatform.organization.webui.component.UIGroupMembershipSelector #
+  #############################################################################
+  -->
+  <!--
+  #############################################################################
+  #    org.exoplatform.organization.webui.component.UIUserMembershipSelector #
+  #############################################################################
+  -->
+  <UIUserMembershipSelector>
+    <header>
+      <userName>Tên truy nhập</userName>
+      <membershipType>Kiểu thành viên</membershipType>
+      <action>Hành động</action>
+      <groupId>Id nhóm</groupId>
+    </header>
+    <action>
+      <SelectPermission>Chọn phân quyền</SelectPermission>
+      <title>
+        <DeleteMembership>Xóa thành viên</DeleteMembership>
+      </title>
+    </action>
+  </UIUserMembershipSelector>
+  <UserPermissionSelector>
+    <title>
+      <UIGroupMembershipSelector>Tùy chọn thành viên nhóm</UIGroupMembershipSelector>
+    </title>
+  </UserPermissionSelector>
+  <!--
+  #############################################################################
+  #    org.exoplatform.webui.form.UIFormInputItemSelector                #
+  #############################################################################
+  -->
+  <UIFormInputItemSelector>
+    <selectType>
+      <page>Chọn một trang mẫu</page>
+      <portal>Chọn một Portal mẫu</portal>
+    </selectType>
+  </UIFormInputItemSelector>
+  <UIFormInputSet>
+    <tooltip>
+      <selectgroup>Select other group</selectgroup>
+    </tooltip>
+  </UIFormInputSet>
+  <!--
+  #############################################################################
+  #    org.exoplatform.webui.form.UIFormInputIconSelector                #
+  #############################################################################
+  -->
+  <UIFormInputIconSelector>
+    <label>
+      <selectIconSet>Chọn bộ biểu tượng</selectIconSet>
+      <iconPreview>Xem và chọn một biểu tượng</iconPreview>
+      <iconName>Tên biểu tượng vừa chọn</iconName>
+      <iconCatergory>Danh mục biểu tượng</iconCatergory>
+      <miscIcons>Biểu tượng tổng hợp</miscIcons>
+      <officeIcons>Biểu tượng Văn phòng</officeIcons>
+      <Icon16x16>Biểu tượng 16x16</Icon16x16>
+      <Icon24x24>Biểu tượng 24x24</Icon24x24>
+      <Icon48x48>Biểu tượng 48x48</Icon48x48>
+      <Icon32x32>Biểu tượng 32x32</Icon32x32>
+      <Icon64x64>Biểu tượng 64x64</Icon64x64>
+      <Icon72x72>Biểu tượng 72x72</Icon72x72>
+      <misc>Biểu tượng tổng hợp</misc>
+      <offices>Biểu tượng văn phòng</offices>
+      <navigation>Biểu tượng Navigation</navigation>
+      <tool>Biểu tượng dụng cụ</tool>
+      <user>Biểu tượng người dùng</user>
+    </label>
+    <option>
+      <IconSet16x16>16x16</IconSet16x16>
+      <IconSet24x24>24x24</IconSet24x24>
+      <IconSet32x32>32x32</IconSet32x32>
+    </option>
+  </UIFormInputIconSelector>
+  <Icon>
+    <UIDropDown>
+      <label>
+        <IconSet16x16>Bộ Biểu tượng 16x16</IconSet16x16>
+        <IconSet24x24>Bộ Biểu tượng 24x24</IconSet24x24>
+        <IconSet32x32>Bộ Biểu tượng 32x32</IconSet32x32>
+      </label>
+      <title>Bộ biểu tượng 16x16</title>
+    </UIDropDown>
+  </Icon>
+  <!--
+  #############################################################################
+  #    org.exoplatform.webui.core.UIWizard				          #
+  #############################################################################
+  -->
+  <UIPageWizardHelp>
+    <title>
+      <UIPageWizardHelp>Trợ giúp tạo trang bằng Wizard</UIPageWizardHelp>
+    </title>
+  </UIPageWizardHelp>
+  <UIPageCreationWizard>
+    <label>
+      <pageCreateWizard>Khởi tạo trang bằng Wizard</pageCreateWizard>
+      <step>Các Bước Wizard</step>
+      <wizardSteps>Các bước tạo trang</wizardSteps>
+      <step1>
+        <title>Chào mừng bạn đến với khởi tạo trang bằng Wizard.</title>
+      </step1>
+      <step2>
+        <title>Chọn một nốt của trang và tạo tên trang</title>
+      </step2>
+      <step3>
+        <title>Lựa chọn cách trình bày trang theo mẫu</title>
+      </step3>
+      <step4>
+        <title>Sắp xếp lại cách trình bày trang và thêm Portlet vào trang</title>
+      </step4>
+      <abort>Loại bỏ</abort>
+      <back>Trở lại</back>
+      <next>Tiếp theo</next>
+      <done>Lưu lại</done>
+      <previousStep>Bước trước</previousStep>
+      <nextStep>Bước tiếp theo</nextStep>
+    </label>
+    <msg>
+      <NameNotSame>Tên này đang tồn tại, hãy nhập một tên khác !</NameNotSame>
+      <notSelectedPageNavigation>Bạn phải chọn Navigation trước!</notSelectedPageNavigation>
+      <StepByStep>Trước tiên, bạn phải đi qua từng bước một để khởi tạo trang.</StepByStep>
+    </msg>
+  </UIPageCreationWizard>
+  <UIPageNodeWizardPreview>
+    <action>
+      <Finish>Lưu lại và Hoàn thành</Finish>
+    </action>
+    <label>
+      <nodeName>Tên nốt</nodeName>
+      <nodeLabel>Nhãn nốt</nodeLabel>
+      <icon>#{word.icon}</icon>
+      <creator>Người khởi tạo</creator>
+      <accessPermission>Phân quyền truy cập</accessPermission>
+      <editPermission>Phân quyền Chỉnh sửa</editPermission>
+      <pageReference>Trang liên quan</pageReference>
+    </label>
+  </UIPageNodeWizardPreview>
+  <UIPageEditWizard>
+    <label>
+      <step1>
+        <title>Chọn lại một nốt của trang và chỉnh sửa tên trang</title>
+      </step1>
+      <step2>
+        <title>Lựa chọn lại cách trình bày trang theo mẫu</title>
+      </step2>
+      <step3>
+        <title>Sắp xếp lại cách trình bày trang và thêm Portlet vào trang</title>
+      </step3>
+      <pageCreateWizard>Chỉnh sửa trang bằng Wizard</pageCreateWizard>
+      <wizardSteps>Các bước tạo trang</wizardSteps>
+      <step>Các bước Wizard</step>
+      <back>Trở lại</back>
+      <next>Tiếp theo</next>
+      <done>Lưu lại</done>
+      <abort>Loại bỏ</abort>
+    </label>
+    <msg>
+      <selectStep2>Trước tiên, bạn phải đi qua bước hai(2) để tiếp tục khởi tạo trang.</selectStep2>
+      <notSelectedPageNavigation>Chưa chọn Navigation của trang!</notSelectedPageNavigation>
+      <notSelectedPage>Not selected page!</notSelectedPage>
+      <Invalid-editPermission>Trang này không tồn tại hoặc bạn không được phân quyền để chỉnh sửa.</Invalid-editPermission>
+    </msg>
+  </UIPageEditWizard>
+  <UIPageTemplateOptions>
+    <UIDropDown>
+      <title>Định hình trang</title>
+      <label>
+        <normalPageConfigs>Định hình trang</normalPageConfigs>
+        <columnPageConfigs>Định hình trang dạng cột</columnPageConfigs>
+        <mixPageConfigs>Định hình trang dạng phức hợp</mixPageConfigs>
+        <rowPageConfigs>Định hình trang dạng hàng</rowPageConfigs>
+        <tabsPageConfigs>Định hình trang dạng thẻ</tabsPageConfigs>
+      </label>
+    </UIDropDown>
+  </UIPageTemplateOptions>
+  <UIWizardPageSelectLayoutForm>
+    <tab>
+      <label>
+        <UIPageTemplateOptions>Tùy chọn trang mẫu</UIPageTemplateOptions>
+      </label>
+    </tab>
+    <label>
+      <UIPageTemplateOptions>Trống</UIPageTemplateOptions>
+    </label>
+  </UIWizardPageSelectLayoutForm>
+  <!--
+  ############################################################################
+  #  org.exoplatform.portal.component.customization.UIWizardPageCreationForm   #
+  ############################################################################
+  -->
+  <UIWizardPageSetInfo>
+    <title>Thêm một trang mới</title>
+    <label>
+      <curentSelectedNodeInfo>Nốt vừa chọn</curentSelectedNodeInfo>
+      <pageName>Tên trang</pageName>
+      <pageDisplayName>Tên thể hiện</pageDisplayName>
+      <showPublicationDate><![CDATA[Publication date & time]]></showPublicationDate>
+      <startPublicationDate>Start Publication Date</startPublicationDate>
+      <endPublicationDate>End Publication Date</endPublicationDate>
+    </label>
+    <action>
+      <Save>Lưu lại</Save>
+    </action>
+    <msg>
+      <null>Không tìm thấy trang</null>
+    </msg>
+  </UIWizardPageSetInfo>
+  <!--
+  #############################################################################
+  #  org.exoplatform.portal.component.customization.UIPageNodeWizardPreview   #
+  #############################################################################
+  -->
+  <EditWizard>
+    <label>
+      <curentSelectedNodeInfo>Nốt vừa chọn</curentSelectedNodeInfo>
+      <pageName>Tên trang</pageName>
+      <pageDisplayName>Tên thể hiện</pageDisplayName>
+      <startPublicationDate>Start Publication Date</startPublicationDate>
+      <endPublicationDate>End Publication Date</endPublicationDate>
+    </label>
+    <title>Chỉnh sửa trang</title>
+    <action>
+      <Save>Lưu lại</Save>
+    </action>
+  </EditWizard>
+  <UIPageCreationWizardStepForm>
+    <label>
+      <pageName>Tên trang</pageName>
+    </label>
+  </UIPageCreationWizardStepForm>
+  <!--
+  ############################################################################
+  #  org.exoplatform.portal.component.customization.UIWizardPageCreationBar   #
+  ############################################################################
+  -->
+  <WizardPageEditBar>
+    <tooltip>
+      <PagePreview>Xem qua trang</PagePreview>
+      <EditPortlet>Hiện Portlet</EditPortlet>
+      <EditContainer>Hiện Container</EditContainer>
+    </tooltip>
+  </WizardPageEditBar>
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.component.customization.UIAdvancedCustomization #
+  #############################################################################
+  -->
+  <UIAdvancedCustomization>
+    <icon>
+      <UIPortalManagement>Portal</UIPortalManagement>
+      <UIPageManagement>Trang</UIPageManagement>
+    </icon>
+    <label>
+      <UIPortalManagement>Quản lý Portal</UIPortalManagement>
+      <UIPageManagement>Quản lý trang</UIPageManagement>
+    </label>
+  </UIAdvancedCustomization>
+  <UIPortalManagement>
+    <msg>
+      <Invalid-editPermission>Bạn không được phân quyền để chỉnh sửa Portal này!</Invalid-editPermission>
+    </msg>
+    <title>
+      <EDIT>Chỉnh sửa Portal hiện tại</EDIT>
+      <BROWSE>Khảo sát các Portal</BROWSE>
+    </title>
+  </UIPortalManagement>
+  <!--
+  #############################################################################
+  # org.exoplatform.portal.component.customization.UIContainerConfigOptions #
+  #############################################################################
+  -->
+  <UIContainerConfigOptions>
+    <label>
+      <ContainerConfigTitle>Danh mục Container</ContainerConfigTitle>
+      <selectContainerCategory>Nhấp chuột ở đây để chọn một danh mục Container !</selectContainerCategory>
+    </label>
+    <tab>
+      <row>Container dạng hàng</row>
+      <column>Container dạng cột</column>
+      <tabs>Container dạng thẻ</tabs>
+      <mixed>Container dạng phức hợp</mixed>
+    </tab>
+    <UIDropDown>
+      <title>Container dạng hàng</title>
+      <label>
+        <ContainerCategory>Danh mục Container</ContainerCategory>
+        <row>Container dạng hàng</row>
+        <column>Container dạng cột</column>
+        <tabs>Container dạng thẻ</tabs>
+        <mixed>Container dạng phức hợp</mixed>
+      </label>
+    </UIDropDown>
+    <template>
+      <oneRow>Container một hàng</oneRow>
+      <twoRows>Container hai hàng</twoRows>
+      <threeRows>Container 3 hàng</threeRows>
+      <oneColumns>Container 1 cột</oneColumns>
+      <twoColumns>Container 2 cột</twoColumns>
+      <threeColumns>Container 3 cột</threeColumns>
+      <twoTabs>Container 2 thẻ</twoTabs>
+      <threeTabs>Container 3 thẻ</threeTabs>
+      <twoColumnsOneRow>Container 2 cột, 1 hàng</twoColumnsOneRow>
+      <oneRowTwoColumns>Container 1 hàng, 2 cột</oneRowTwoColumns>
+      <oneRow2Column1Row>Container 1 hàng, 2 cột, 1 hàng</oneRow2Column1Row>
+    </template>
+  </UIContainerConfigOptions>
+  <!--
+  #############################################################################
+  # org.exoplatform.portal.component.customization.UIPageTemplatesForm #
+  #############################################################################
+  -->
+  <UIPageTemplatesForm>
+    <title>
+      <addNewPage>Tạo trang mới</addNewPage>
+    </title>
+    <label>
+      <pageName>Tên trang</pageName>
+      <detail>Chọn một trang trình bày mẫu</detail>
+    </label>
+  </UIPageTemplatesForm>
+  <!--
+  #############################################################################
+  #  org.exoplatform.portal.component.customization.UIPortletOptions  #
+  #############################################################################
+  -->
+  <UIPortletOptions>
+    <label>
+      <selectPortletCategory>Các Danh mục Portlet</selectPortletCategory>
+      <description>Mô tả Portlet</description>
+    </label>
+    <tab>
+      <content>Content</content>
+      <site>Site</site>
+      <exoadmin>ExoAdmin</exoadmin>
+      <web>Web</web>
+      <test>Test</test>
+    </tab>
+    <UIDropDown>
+      <title>Các Danh mục Portlet</title>
+      <label>
+        <PortletCategory>Các Danh mục Portlet</PortletCategory>
+        <content>Content</content>
+        <exoadmin>Exoadmin</exoadmin>
+        <site>Site</site>
+        <web>Web</web>
+        <test>Test</test>
+        <ecm>ECM</ecm>
+        <workflow>Workflow</workflow>
+      </label>
+    </UIDropDown>
+  </UIPortletOptions>
+  <!--
+  #############################################################################
+  #  org.exoplatform.webui.form.UIFormInputIconSelector 					        #
+  #############################################################################
+  -->
+  <!--
+  #############################################################################
+  # org.exoplatform.portal.component.customization.UIDecoratorConfigOptions #
+  #############################################################################
+  -->
+  <!--
+  #############################################################################
+  -->
+  <!--
+  #############################################################################
+  -->
+  <UIPortlet>
+    <label>
+      <portlet>Portlet</portlet>
+      <title>Portlet</title>
+      <description>eXo Platform Portlet</description>
+      <portletContent>Mô tả Portlet</portletContent>
+      <View>Xem</View>
+    </label>
+    <lable>
+      <information>Done</information>
+    </lable>
+    <deletePortlet>Bạn có chắc chắn muốn xóa Portlet này?</deletePortlet>
+    <tooltip>
+      <PortletMode>Chế độ Portlet</PortletMode>
+      <Minimize>Thu nhỏ cửa sổ</Minimize>
+      <MinimizeRestore>Restore</MinimizeRestore>
+      <Maximize>Phóng lớn cửa sổ</Maximize>
+      <MaximizeRestore>Restore Down</MaximizeRestore>
+      <editPortlet>Edit Portlet</editPortlet>
+      <deletePortlet>Delete Portlet</deletePortlet>
+      <ResizeWindow>Thay đổi kích cỡ cửa sổ</ResizeWindow>
+      <DragControl>Hold this area to drag this portlet</DragControl>
+    </tooltip>
+  </UIPortlet>
+  <!--
+  #############################################################################
+  -->
+  <UIPagePreview>
+    <action>
+      <Back>Trở lại</Back>
+    </action>
+    <msg>
+      <empty>Trang này chưa có nội dung. Bạn có thể nhấp chuột lên Chỉnh Sửa Trang để thêm nội dung</empty>
+    </msg>
+  </UIPagePreview>
+  <!--
+  #############################################################################
+  -->
+  <UIVTabInputSet>
+    <label>
+      <personalInfo>Thông tin cá nhân</personalInfo>
+    </label>
+  </UIVTabInputSet>
+  <!--
+  #############################################################################
+  #  org.exoplatform.portletregistry.webui.component.UIFormAvailablePortlet   #
+  #############################################################################
+  -->
+  <UIFormAvailablePortlet>
+    <label>
+      <UIFormTableInputSet>Portlet</UIFormTableInputSet>
+    </label>
+  </UIFormAvailablePortlet>
+  <!--
+  #############################################################################
+  #  org.exoplatform.organization.webui.component.UIUserProfileInputSet   #
+  #############################################################################
+  -->
+  <!--
+  #############################################################################
+  #  org.exoplatform.portal.component.control.UIControlWorkspace              #
+  #############################################################################
+  -->
+  <UIWorkspaceContainer>
+    <tooltip>
+      <CloseControlWorkspace>Đóng vùng làm việc này</CloseControlWorkspace>
+      <OpenControlWorkspace>Click to open Control Workspace</OpenControlWorkspace>
+    </tooltip>
+    <lable>
+      <UserWorkspaceTitle>Vùng Quản trị</UserWorkspaceTitle>
+    </lable>
+  </UIWorkspaceContainer>
+  <!--
+  #############################################################################
+  #      org.exoplatform.portal.component.control.UIQuickBar                  #
+  #############################################################################
+  -->
+  <UIQuickBar>
+    <tooltip>
+      <BasicCustomization>Quản trị cơ bản</BasicCustomization>
+      <AdvanceCustomization>Quản trị nâng cao</AdvanceCustomization>
+    </tooltip>
+  </UIQuickBar>
+  <!--
+  #############################################################################
+  #       org.exoplatform.portal.component.customization.UIPageEditBar        #
+  #############################################################################
+  -->
+  <UIPageEditBar>
+    <tooltip>
+      <PagePreview>Xem trang</PagePreview>
+      <EditPage>Chỉnh sửa thuộc tính trang</EditPage>
+      <SharedNavigation>Định hình Navigation Community</SharedNavigation>
+      <EditContainer>Hiện thanh điều khiển Container</EditContainer>
+      <EditPortlet>Hiện thanh điều khiển Portlet</EditPortlet>
+      <Decorator>Trang trí</Decorator>
+      <SavePage>Lưu lại</SavePage>
+    </tooltip>
+  </UIPageEditBar>
+  <UIPageManagement>
+    <title>
+      <BROWSE>Khảo sát các trang</BROWSE>
+      <EDIT>Khảo sát trang và Navigation</EDIT>
+    </title>
+    <msg>
+      <Invalid-editPermission>Trang này không cho phép bạn chỉnh sửa</Invalid-editPermission>
+    </msg>
+  </UIPageManagement>
+  <!--
+  #############################################################################
+  # org.exoplatform.portal.component.customization.UIPortalManagement         #
+  #############################################################################
+  -->
+  <!--
+  #############################################################################
+  #  org.exoplatform.portal.component.customization.UIPageManagementEditBar   #
+  #############################################################################
+  -->
+  <UIPageManagementEditBar>
+    <tooltip>
+      <AddNode>Tạo nốt mới</AddNode>
+      <EditPageNode>Sửa trang của nốt đã chọn</EditPageNode>
+      <EditSelectedNode>Sửa nốt đã chọn</EditSelectedNode>
+      <EditNavigation>Sửa Navigation</EditNavigation>
+      <CopyNode>Copy nốt đã chọn</CopyNode>
+      <PasteNode>Dán nốt đã copy</PasteNode>
+      <SaveNavigation>Lưu Navigation</SaveNavigation>
+      <DeleteNode>Xóa nốt đã chọn</DeleteNode>
+    </tooltip>
+  </UIPageManagementEditBar>
+  <!--
+  #############################################################################
+  #org.exoplatform.portal.component.customization.UIPortalManagementControlBar#
+  #############################################################################
+  -->
+  <!--
+  #############################################################################
+  #org.exoplatform.webui.core.UIPageIterator															#
+  #############################################################################
+  -->
+  <UIPageIterator>
+    <label>
+      <totalPage>Tổng số trang</totalPage>
+      <backTenPages>10 trang trước</backTenPages>
+      <previous>Trang trước</previous>
+      <next>Trang sau</next>
+      <nextTenPages>10 trang sau</nextTenPages>
+    </label>
+  </UIPageIterator>
+  <!--
+  #############################################################################
+  # org.exoplatform.portal.component.customization.UIPortalManagementEditBar  #
+  #############################################################################
+  -->
+  <UIPortalManagementEditBar>
+    <tooltip>
+      <Preview>Xem duyệt trước Portal</Preview>
+      <EditPortal>Chỉnh sửa thuộc tính Portal</EditPortal>
+      <EditContainer>Điều khiển Container</EditContainer>
+      <EditPortlet>Điều khiển Portlet</EditPortlet>
+      <SavePortal>Chỉnh sửa thuộc tính Portal</SavePortal>
+    </tooltip>
+  </UIPortalManagementEditBar>
+  <!--
+  #############################################################################
+  #      org.exoplatform.portal.component.customization.UIPortalBrowser       #
+  #############################################################################
+  -->
+  <UIPortalBrowser>
+    <header>
+      <creator>Người khởi tạo</creator>
+      <editPermission>Phân quyền chỉnh sửa</editPermission>
+      <accessPermissions>Phân quyền truy cập</accessPermissions>
+      <name>Tên</name>
+      <skin>Giao diện</skin>
+      <action>Hành động</action>
+      <factoryId>Factory Id</factoryId>
+    </header>
+    <action>
+      <addNewPortal>Tạo Portal mới</addNewPortal>
+      <title>
+        <DeletePortal>Xóa Portal</DeletePortal>
+      </title>
+    </action>
+    <msg>
+      <Invalid-viewPermission>Portal này không cho phép bạn truy cập</Invalid-viewPermission>
+      <Invalid-deletePermission>Bạn không có quyền xóa {0} .</Invalid-deletePermission>
+      <Invalid-createPermission>Bạn không có quyền khởi tạo Portal mới. Hãy liên hệ với người quản trị!</Invalid-createPermission>
+    </msg>
+    <deletePortal>Bạn có chắc chắn muốn xóa Portal này không?</deletePortal>
+  </UIPortalBrowser>
+  <SitePortal>
+    <label>Site Portal</label>
+  </SitePortal>
+  <WebOSPortal>
+    <label>WebOS Portal</label>
+  </WebOSPortal>
+  <!--
+  ############################################################################
+  -->
+  <UIPageEditor>
+    <tooltip>
+      <PagePreview>Xem trước trang</PagePreview>
+      <EditPage>Chỉnh sửa trang</EditPage>
+      <EditContainer>Chỉnh sửa Container</EditContainer>
+      <EditPortlet>Chỉnh sửa Portlet</EditPortlet>
+      <Decorator>Trang trí Portlet</Decorator>
+      <SavePage>Lưu lại</SavePage>
+    </tooltip>
+  </UIPageEditor>
+  <!--
+  ############################################################################
+  #   			org.exoplatform.webui.form.UIPopupWindow                    #
+  ############################################################################
+  -->
+  <PopupPageSelector>
+    <title>
+      <UIPageBrowser>Tìm và chọn trang</UIPageBrowser>
+      <SelectPage>Chọn trang</SelectPage>
+    </title>
+  </PopupPageSelector>
+  <UIControWSPopupWindow>
+    <title>
+      <UIApplicationTree>Cây Ứng dụng</UIApplicationTree>
+    </title>
+  </UIControWSPopupWindow>
+  <!--
+  ############################################################################
+  #   			org.exoplatform.portal.component.widget.UILogged                 #
+  ############################################################################
+  -->
+  <UILogged>
+    <note>
+      <loggedUser>Chào mừng</loggedUser>
+      <ItemContainer>This component is under contruction.</ItemContainer>
+    </note>
+    <action>
+      <logout>Đăng xuất</logout>
+      <signout>Đăng xuất</signout>
+      <Youhave>Bạn có:</Youhave>
+    </action>
+    <title>
+      <widgetNews>eXo Widgets</widgetNews>
+      <widgetCategory>Danh mục Widget</widgetCategory>
+      <widgetItem>Widget</widgetItem>
+      <BrowsersSupport>Browsers Support</BrowsersSupport>
+    </title>
+    <label>
+      <Workbeston>Hoạt động tốt nhất trên</Workbeston>
+      <Workableon>Hoạt động được trên</Workableon>
+      <DownloadNow>Tải về</DownloadNow>
+      <RollBack>Trở lại</RollBack>
+      <Save>Lưu lại</Save>
+      <Finish>Hoàn thành</Finish>
+      <Abort>Loại bỏ</Abort>
+    </label>
+  </UILogged>
+  <!--
+  ############################################################################
+  #   			org.exoplatform.portal.component.widget.UILoginForm              #
+  ############################################################################
+  -->
+  <!--
+  ############################################################################
+  #   			org.exoplatform.portal.component.widget.UIForgetPassword         #
+  ############################################################################
+  -->
+  <UIForgetPassword>
+    <title>Quên tên đăng nhâp/mật khẩu</title>
+    <action>
+      <SendEmail>Gửi email</SendEmail>
+      <Cancel>Loại bỏ</Cancel>
+    </action>
+  </UIForgetPassword>
+  <!--
+  ############################################################################
+  #   			   org.exoplatform.webui.core.UIPopupMessages               #
+  ############################################################################
+  -->
+  <UIPopupMessages>
+    <title>
+      <exoMessages>eXo Messages</exoMessages>
+    </title>
+    <button>
+      <ok>Đồng ý</ok>
+    </button>
+  </UIPopupMessages>
+  <!--
+  ############################################################################
+  #   			 org.exoplatform.portal.webui.component.UISitemapPortlet         #
+  ############################################################################
+  -->
+  <UISitemap>
+    <label>
+      <message>Không có trang nào trong vùng này</message>
+    </label>
+  </UISitemap>
+  <!--
+  ############################################################################
+  #		  org.exoplatform.portal.component.customization.UIPortalToolPanel     #
+  ############################################################################
+  -->
+  <UIPortalToolPanel>
+    <label>
+      <copyrightText><![CDATA[Copyright &copy 2000-2008. Bản quyền thuộc về công ty ]]></copyrightText>
+      <companyTitleText>eXo Platform SAS.</companyTitleText>
+    </label>
+  </UIPortalToolPanel>
+  <!--
+  ############################################################################
+  #		            org.exoplatform.portal.component.view.UIContainer          #
+  ############################################################################
+  -->
+  <UIContainer>
+    <title>
+      <Container>Container</Container>
+      <DragControlArea>Giữ vùng này để kéo Container</DragControlArea>
+    </title>
+    <label>
+      <Thecontainer>Container</Thecontainer>
+    </label>
+    <deleteContainer>Bạn có chắc chắn muốn xóa Container này không?</deleteContainer>
+    <tooltip>
+      <closeContainer>Close Container</closeContainer>
+      <editContainer>Edit Container</editContainer>
+    </tooltip>
+  </UIContainer>
+  <!--
+  ############################################################################
+  #		            org.exoplatform.portal.component.view.UIPage               #
+  ############################################################################
+  -->
+  <UIPage>
+    <label>
+      <description>Phần thân của trang Portal</description>
+      <pageContent>Nội dung của trang ở đây.</pageContent>
+    </label>
+    <msg>
+      <EditPermission>
+        <null>Bạn không được quyền chỉnh sửa trang này!</null>
+      </EditPermission>
+    </msg>
+  </UIPage>
+  <!--
+  ############################################################################
+  #		            org.exoplatform.portal.component.view.UIPageDesktop        #
+  ############################################################################
+  -->
+  <UIPageDesktop>
+    <Default>
+      <img>
+        <location>/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80</location>
+      </img>
+    </Default>
+    <Mac>
+      <img>
+        <location>/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80</location>
+      </img>
+    </Mac>
+    <Vista>
+      <img>
+        <location>/eXoResources/skin/DefaultSkin/portal/webui/component/view/UIPageDesktop/icons/80x80</location>
+      </img>
+    </Vista>
+    <label>
+      <pagebody>Phần thân của trang Portal</pagebody>
+      <PageContent>Nội dung của trang ở đây.</PageContent>
+      <View>Xem</View>
+      <Edit>Chỉnh sửa</Edit>
+      <Done>Thực hiện xong</Done>
+    </label>
+    <title>
+      <PortalPage>Trang Portal</PortalPage>
+      <SaveToDatabase>Lưu vào cơ sở dữ liệu</SaveToDatabase>
+      <AddApplication>Thêm ứng dụng</AddApplication>
+      <eXoBrowser>Trình duyệt eXo!</eXoBrowser>
+      <ShowPortletDesktop>Hiện/Ẩn các Portlet</ShowPortletDesktop>
+      <ShowWidgetDesktop>Hiện/Ẩn các Widget</ShowWidgetDesktop>
+      <SignIn>Đăng nhập</SignIn>
+      <pageNavigation>Page Navigations</pageNavigation>
+    </title>
+    <msg>
+      <hasNotPermission>Bạn không được quyền chỉnh sửa trang này!</hasNotPermission>
+    </msg>
+    <action>
+      <Close>Loại bỏ khỏi Dockbar</Close>
+      <action>
+        <Open>Mở</Open>
+      </action>
+    </action>
+  </UIPageDesktop>
+  <!--
+  ############################################################################
+  #		          org.exoplatform.portal.component.view.UIPageBody             #
+  ############################################################################
+  -->
+  <UIPageBody>
+    <label>
+      <title>Phần thân của trang Portal</title>
+      <description>Phần thân của trang Portal</description>
+    </label>
+    <msg>
+      <pageNotFoundLine1>Không tìm thấy trang nào!</pageNotFoundLine1>
+      <pageNotFoundLine2>Bạn không được quyền được xem trang này!</pageNotFoundLine2>
+      <pageNotFoundLine3>Trang này có thể được xóa!</pageNotFoundLine3>
+    </msg>
+  </UIPageBody>
+  <!--
+  ############################################################################
+  #		           org.exoplatform.portal.component.view.UIPortal              #
+  ############################################################################
+  -->
+  <UIPortal>
+    <label>
+      <title>UIPortal Container</title>
+      <description>The UIPortal Container</description>
+    </label>
+  </UIPortal>
+  <!--
+  ############################################################################
+  #		           org.exoplatform.portal.component.view.UIPortlet             #
+  ############################################################################
+  -->
+  <!--
+  ############################################################################
+  #		           org.exoplatform.portal.component.view.UITableColumnContainer#
+  ############################################################################
+  -->
+  <UITableColumnContainer>
+    <label>
+      <title>Navigation Container</title>
+      <description>Navigation Container</description>
+    </label>
+  </UITableColumnContainer>
+  <!--
+  ############################################################################
+  #		           org.exoplatform.portal.component.control.UIExoStart         #
+  ############################################################################
+  -->
+  <UIExoStart>
+    <item>
+      <ChangeLanguage>Thay đổi ngôn ngữ</ChangeLanguage>
+      <Administration>Quản trị</Administration>
+      <Basic>Quản trị cơ bản</Basic>
+      <Advanced>Quản trị nâng cao</Advanced>
+      <PageCreationWizard>Tạo trang bằng Wizard</PageCreationWizard>
+      <EditCurrentPage>Chỉnh sửa trang bằng Wizard</EditCurrentPage>
+      <EditCurrentPortal>Chỉnh sửa Portal hiện tại</EditCurrentPortal>
+      <BrowseExistingPortals>Browse Existing Portals</BrowseExistingPortals>
+      <Navigation>Navigation</Navigation>
+      <EditNavigation>Chỉnh sửa Navigation</EditNavigation>
+      <BrowseExistingPages>Quản lý các trang</BrowseExistingPages>
+      <EditPortal>Chỉnh sửa Portal hiện tại</EditPortal>
+      <EditPage>Chỉnh sửa Trang và Navigation</EditPage>
+      <BrowsePortal>Quản lý Portal</BrowsePortal>
+      <BrowsePage>Quản lý trang</BrowsePage>
+      <InterfaceSettings>Tùy chọn ngôn ngữ</InterfaceSettings>
+      <SkinSettings>Tùy chọn giao diện</SkinSettings>
+      <LanguageSettings>Tùy chọn ngôn ngữ</LanguageSettings>
+      <AccountSettings>Tài khoản của tôi</AccountSettings>
+      <ChangePortal>Thay Portal</ChangePortal>
+      <Login>Đăng nhập</Login>
+      <Logout>Đăng xuất</Logout>
+      <PageNavigation>Các trang hiện thời</PageNavigation>
+    </item>
+    <tooltip>
+      <scrollUp>Click and hold to scroll up</scrollUp>
+      <scrollDown>Click and hold to scroll down</scrollDown>
+      <begin>Click here to begin</begin>
+    </tooltip>
+  </UIExoStart>
+  <!--
+  ###############################################################################
+  #                    org.exoplatform.portal.webui.component.UISearchForm  		#
+  ###############################################################################
+  -->
+  <UISearch>
+    <label>
+      <AdvancedSearch>Tìm kiếm nâng cao</AdvancedSearch>
+      <UISavedQuery>Saved Query</UISavedQuery>
+      <UISearchResult>Kết qủa tìm kiếm nâng cao</UISearchResult>
+      <UIMetadataSearch>Metadata Search</UIMetadataSearch>
+      <Search>Tìm kiếm</Search>
+      <QuickSearch>Tìm kiếm nhanh</QuickSearch>
+    </label>
+  </UISearch>
+  <UISearchForm>
+    <msg>
+      <empty>Không tìm thấy kết quả nào!</empty>
+    </msg>
+  </UISearchForm>
+  <!--
+  ###############################################################################
+  #                    org.exoplatform.portal.webui.component.UIFormUploadInput #
+  ###############################################################################
+  -->
+  <UIFormUploadInput>
+    <label>
+      <Uploaded>Tải tệp tin</Uploaded>
+      <remove>Xóa tệp tin đã tải</remove>
+      <Cancel>Loại bỏ</Cancel>
+    </label>
+  </UIFormUploadInput>
+  <!--
+  ###############################################################################
+  #                    org.exoplatform.portal.webui.component.UIWizardWelcome   #
+  ###############################################################################
+  -->
+  <UIWizardWelcome>
+    <WelcomeLabel>Chào mừng bạn đến với eXo Page Creation Wizard !</WelcomeLabel>
+    <WelcomeText>Wizard này sẽ giúp bạn tạo một trang mới qua những bước đơn giản, bạn chỉ cần nhập những thông tin cần thiết cho trang của bạn rồi tự sắp xếp trang theo ý muốn của bạn. Khi bạn hoàn thành việc đó chỉ cần nhấp chuột để lưu lại những gì bạn đã tạo. Và, nó thực sự dễ dàng để chuyển hướng các bước bằng việc nhấp lên nút "Trở lại" and "Tiếp theo" hay nhấp chuột lên số của các bước của Wizard.</WelcomeText>
+  </UIWizardWelcome>
+  <!--
+  ###############################################################################
+  #  org.exoplatform.portal.webui.component.customization.UIPageNodeSelector    #
+  ###############################################################################
+  -->
+  <PageNodePopupMenu>
+    <event>
+      <AddNode>Thêm nốt mới</AddNode>
+      <EditPageNode>Chỉnh sửa trang của nốt</EditPageNode>
+      <EditSelectedNode>Chỉnh sửa nốt</EditSelectedNode>
+      <EditNavigation>Chỉnh sửa Navigation</EditNavigation>
+      <CopyNode>Copy nốt</CopyNode>
+      <CutNode>Cắt nốt</CutNode>
+      <MoveUp>Chuyển lên trên</MoveUp>
+      <MoveDown>Chuyển xuống dưới</MoveDown>
+      <PasteNode>Dán nốt</PasteNode>
+      <SaveNavigation>Lưu Navigation</SaveNavigation>
+      <DeleteNode>Xóa nốt</DeleteNode>
+    </event>
+  </PageNodePopupMenu>
+  <UIGroupManagement>
+    <msg>
+      <Edit>Bạn phải chọn một nhóm trước!</Edit>
+      <Delete>Bạn không thể xóa nhóm này vì nó đang được dùng bởi chương trình khác!</Delete>
+    </msg>
+  </UIGroupManagement>
+  <!--
+  ###############################################################################
+  #  org.exoplatform.portal.webui.component.customization.UIEditCurentPage      #
+  ###############################################################################
+  -->
+  <UIEditCurentPage>
+    <label>
+      <pageCreateWizard>Chỉnh sửa trang hiện thời bằng Wizard</pageCreateWizard>
+      <step1>
+        <title>Chào mừng bạn đến với Wizad để chỉnh sửa trang hiện thời</title>
+      </step1>
+      <wizardSteps>Các bước Wizard</wizardSteps>
+      <next>Tiếp theo</next>
+      <done>Lưu lại</done>
+      <back>Trở lại</back>
+      <abort>Loại bỏ</abort>
+      <step2>
+        <title>Chọn một nốt và đặt tên cho trang</title>
+      </step2>
+      <step3>
+        <title>Chọn một trang mẫu</title>
+      </step3>
+      <step4>
+        <title>Kéo thả sắp xếp trình bày trang</title>
+      </step4>
+    </label>
+  </UIEditCurentPage>
+  <UIWizardCurentPageInfo>
+    <title>Tạo trang mới</title>
+    <label>
+      <curentSelectedNodeInfo>Thông tin nốt vừa chọn</curentSelectedNodeInfo>
+      <pageName>Tên trang</pageName>
+      <description>Mô tả</description>
+    </label>
+    <action>
+      <Save>Lưu lại</Save>
+    </action>
+  </UIWizardCurentPageInfo>
+  <!--
+  ###############################################################################
+  #  org.exoplatform.portal.webui.Icon                                          #
+  ###############################################################################
+  -->
+  <!--
+  ###############################################################################
+  #               org.exoplatform.portal.webui.UIAccessGroup                    #
+  ###############################################################################
+  -->
+  <UIAccessGroup>
+    <deleteAccessGroup>Bạn có chắc chắn muốn xóa Nhóm truy nhập này?</deleteAccessGroup>
+  </UIAccessGroup>
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.organization.component.UISharedPortalResources#
+  #############################################################################
+  -->
+  <UISharedPortalResources>
+    <msg>
+      <notSelected>Bạn phải chọn một nhóm trước tiên</notSelected>
+    </msg>
+  </UISharedPortalResources>
+  <UISharedNavigation>
+    <msg>
+      <notSelected>Bạn phải chọn một nhóm trước tiên!</notSelected>
+    </msg>
+  </UISharedNavigation>
+  <Office>
+    <label>Office</label>
+  </Office>
+  <Default>
+    <label>Kiểu truyền thống</label>
+  </Default>
+  <FactoryId>
+    <left>
+      <title>Factory Id</title>
+    </left>
+    <title>Factory Id</title>
+  </FactoryId>
+  <!--
+  ################################################################################
+  -->
+  <!--
+  ################################################################################
+  #		org.exoplatform.portal.webui.application.UIWidgets
+  ################################################################################
+  -->
+  <UIWidgets>
+    <UIDropDown>
+      <label>
+        <SelectContainer>Chọn Container</SelectContainer>
+        <Information>Thông tin</Information>
+        <Calendar>Lịch</Calendar>
+        <Calculator>Máy tính</Calculator>
+      </label>
+    </UIDropDown>
+    <tooltip>
+      <widgetManagent>Widget Containers Management</widgetManagent>
+    </tooltip>
+  </UIWidgets>
+  <!--
+  ################################################################################
+  #		org.exoplatform.webui.core.UIGrid
+  ################################################################################
+  -->
+  <UIGrid>
+    <msg>
+      <empty>Dữ liệu trống</empty>
+    </msg>
+  </UIGrid>
+  <!--
+  ################################################################################
+  #		
+  ################################################################################
+  -->
+  <UIItemSelector>
+    <lable>
+      <ItemDetailTitle>Xem tham khảo tranh trình bày mẫu.</ItemDetailTitle>
+    </lable>
+  </UIItemSelector>
+  <!--
+  ################################################################################
+  #		 UITree
+  ################################################################################
+  -->
+  <UITree>
+    <tooltip>
+      <UpLevel>Lên mức trên</UpLevel>
+    </tooltip>
+  </UITree>
+  <!--
+  ################################################################################
+  #		 UIAccountSettings # tungnd
+  ################################################################################
+  -->
+   <UIAccountSetting>
+    <tab>
+      <label>
+        <UIAccountProfiles>Account Profiles</UIAccountProfiles>
+        <UIAccountChangePass>Thay đổi mật khẩu</UIAccountChangePass>
+      </label>
+    </tab>
+    <action>
+      <Close>Đóng lại</Close>
+    </action>
+  </UIAccountSetting>
+  <UIAccountProfiles>
+    <action>
+      <Save>Lưu lại</Save>
+      <Reset>Làm lại</Reset>
+      <Close>Đóng lại</Close>
+    </action>
+    <label>
+      <userName>Tên truy cập :</userName>
+      <firstName>Tên gọi :</firstName>
+      <lastName>Tên họ :</lastName>
+      <email>Email :</email>
+    </label>
+    <msg>
+      <update>
+        <success>Update thông tin tài khoản thành công</success>
+      </update>
+    </msg>
+  </UIAccountProfiles>
+  <UIAccountChangePass>
+    <action>
+      <Save>Lưu lại</Save>
+      <Reset>Làm lại</Reset>
+    </action>
+    <label>
+      <currentpass>Mật khẩu hiện thời :</currentpass>
+      <newpass>Mật khẩu mới :</newpass>
+      <confirmnewpass>Xác nhận lại mật khẩu :</confirmnewpass>
+    </label>
+    <msg>
+      <change>
+        <pass>
+          <success>Bạn đã thay đổi mật khẩu thành công</success>
+        </pass>
+      </change>
+      <password-is-not-match>Mật khẩu mới và mật khẩu xác nhận không thực hiện được</password-is-not-match>
+      <currentpassword-is-not-match>Mật khẩu hiện thời không đúng</currentpassword-is-not-match>
+    </msg>
+  </UIAccountChangePass>
+  <!--
+  ################################################################################
+  #		 org.exoplatform.portal.webui.application.UIWidgetContainerManagement
+  ################################################################################
+  -->
+  <UIWidgetContainerManagement>
+    <action>
+      <close>Loại bỏ</close>
+      <save>Lưu lại</save>
+    </action>
+    <confirm>
+      <DeleteContainer>Bạn có muốn xóa Container này không?</DeleteContainer>
+    </confirm>
+    <title>
+      <manager>Quản lý các Widget Container</manager>
+      <containers>Các Container</containers>
+      <selectedContainer>Thông tin Widget Container đã chọn:</selectedContainer>
+    </title>
+    <msg>
+      <emptyList>Không có Container nào trong danh mục này</emptyList>
+      <noSelected>Bạn chưa chọn Container nào, hãy chọn lại!</noSelected>
+    </msg>
+    <label>
+      <label>Nhãn của Container :</label>
+      <description>Mô tả Container:</description>
+    </label>
+    <tooltip>
+      <remove>Remove selected widget container</remove>
+      <edit>Edit selected widget container</edit>
+      <addnew>Add new widget container</addnew>
+    </tooltip>
+  </UIWidgetContainerManagement>
+  <!--
+  ################################################################################
+  #		 org.exoplatform.portal.webui.application.UIWidgetContainerForm
+  ################################################################################
+  -->
+  <WidgetContainerPopup>
+    <title>
+      <UIWidgetContainerForm>Widget Container Form</UIWidgetContainerForm>
+    </title>
+  </WidgetContainerPopup>
+  <UIWidgetContainerForm>
+    <label>
+      <name>Nhãn:</name>
+      <description>Mô tả:</description>
+    </label>
+    <action>
+      <Save>Lưu lại</Save>
+      <Close>Loại bỏ</Close>
+    </action>
+    <msg>
+      <exist>Container này đang tồn tại, hãy chọn tên khác!</exist>
+    </msg>
+  </UIWidgetContainerForm>
+  <!--
+  ################################################################################
+  #		 org.exoplatform.portal.webui.container.UIWidgetContainer
+  ################################################################################
+  -->
+  <UIWidgetContainer>
+    <tooltip>
+      <addWidget>Add Widget</addWidget>
+      <scrollDown>Scroll down</scrollDown>
+      <scrollUp>Scroll up</scrollUp>
+    </tooltip>
+  </UIWidgetContainer>
+</bundle>
+
