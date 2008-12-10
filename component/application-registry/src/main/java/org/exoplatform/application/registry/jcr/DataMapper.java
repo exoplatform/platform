@@ -43,9 +43,7 @@ public class DataMapper {
   static final String APPLICATION_MIN_WITH_RESOLUTION = "exo:minWidthResolution" ;
   static final String APPLICATION_ACCESS_PERMISSTION = "exo:accessPermissions" ;
   
-  static final private String DATE_TIME_FORMAT = "EEE MMM d HH:mm:ss Z yyyy" ;
-  
-  
+  private DateFormat dateFormat = new SimpleDateFormat("yyyy MM dd'T'HH:mm:ss.SSS Z");
   
   public void map(Document doc, ApplicationCategory category) throws Exception {
     Element root = doc.getDocumentElement() ;
@@ -57,10 +55,10 @@ public class DataMapper {
     root.setAttribute(DESCRIPTION, category.getDescription()) ;
     Date dateTime = category.getCreatedDate() ;
     if(dateTime == null) dateTime = new Date() ;
-    root.setAttribute(CREATED_DATE, toDateString(dateTime)) ;
+    root.setAttribute(CREATED_DATE, dateFormat.format(dateTime)) ;
     dateTime = category.getModifiedDate() ;
     if(dateTime == null) dateTime = new Date() ;
-    root.setAttribute(MODIFIED_DATE, toDateString(dateTime)) ;
+    root.setAttribute(MODIFIED_DATE, dateFormat.format(dateTime)) ;
     root.setAttribute(CATEGORY_ACCESS_PERMISSTION, toMultiValue(category.getAccessPermissions())) ;
   }
   
@@ -70,8 +68,8 @@ public class DataMapper {
     category.setName(root.getAttribute(CATEGORY_NAME)) ;
     category.setDisplayName(root.getAttribute(DISPLAY_NAME)) ;
     category.setDescription(root.getAttribute(DESCRIPTION)) ;
-    category.setCreatedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(CREATED_DATE))) ;
-    category.setCreatedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(MODIFIED_DATE))) ;
+    category.setCreatedDate(dateFormat.parse(root.getAttribute(CREATED_DATE))) ;
+    category.setModifiedDate(dateFormat.parse(root.getAttribute(MODIFIED_DATE))) ;
     category.setAccessPermissions(fromMultiValue(root.getAttribute(CATEGORY_ACCESS_PERMISSTION))) ;
     return category ;
   }
@@ -90,10 +88,10 @@ public class DataMapper {
     root.setAttribute(APPLICATION_MIN_WITH_RESOLUTION, String.valueOf(application.getMinWidthResolution())) ;
     Date dateTime = application.getCreatedDate() ;
     if(dateTime == null) dateTime = new Date() ;
-    root.setAttribute(CREATED_DATE, toDateString(dateTime)) ;
+    root.setAttribute(CREATED_DATE, dateFormat.format(dateTime)) ;
     dateTime = application.getModifiedDate() ;
     if(dateTime == null) dateTime = new Date() ;
-    root.setAttribute(MODIFIED_DATE, toDateString(dateTime)) ;
+    root.setAttribute(MODIFIED_DATE, dateFormat.format(dateTime)) ;
     root.setAttribute(APPLICATION_ACCESS_PERMISSTION, toMultiValue(application.getAccessPermissions())) ;
   }
   
@@ -107,8 +105,8 @@ public class DataMapper {
     application.setDescription(root.getAttribute(DESCRIPTION)) ;
     application.setCategoryName(root.getAttribute(APPLICATION_CATEGORY_NAME)) ;
     application.setMinWidthResolution(Integer.parseInt(root.getAttribute(APPLICATION_MIN_WITH_RESOLUTION))) ;
-    application.setCreatedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(CREATED_DATE))) ;
-    application.setModifiedDate((new SimpleDateFormat(DATE_TIME_FORMAT)).parse(root.getAttribute(MODIFIED_DATE))) ;
+    application.setCreatedDate(dateFormat.parse(root.getAttribute(CREATED_DATE))) ;
+    application.setModifiedDate(dateFormat.parse(root.getAttribute(MODIFIED_DATE))) ;
     application.setAccessPermissions(fromMultiValue(root.getAttribute(APPLICATION_ACCESS_PERMISSTION))) ;
     
     return application ;
@@ -133,11 +131,6 @@ public class DataMapper {
     return list ;
   }
   
-  private String toDateString(Date date) {
-    DateFormat dateFormat = new SimpleDateFormat(DATE_TIME_FORMAT) ;
-    return dateFormat.format(date) ;    
-  }
-
   private void prepareXmlNamespace(Element element) {
     setXmlNameSpace(element, "xmlns:exo", "http://www.exoplatform.com/jcr/exo/1.0") ;
     setXmlNameSpace(element, "xmlns:jcr", "http://www.jcp.org/jcr/1.0") ;
