@@ -121,11 +121,12 @@ public class UIWizardPageSetInfo extends UIForm {
   public PageNode getPageNode() throws Exception {
     if(isEditMode) {
       PageNode pageNode = getSelectedPageNode() ;
-      invokeSetBindingBean(pageNode);
-      if(pageNode.getLabel() == null || pageNode.getLabel().trim().length() == 0) {
-        pageNode.setLabel(pageNode.getName());
+      PageNode clonedNode = (pageNode != null) ? pageNode.clone() : null ;
+      invokeSetBindingBean(clonedNode);
+      if(clonedNode.getLabel() == null || clonedNode.getLabel().trim().length() == 0) {
+        clonedNode.setLabel(clonedNode.getName());
       }
-      return pageNode;
+      return clonedNode;
     }
 
     PageNode pageNode  = new PageNode();

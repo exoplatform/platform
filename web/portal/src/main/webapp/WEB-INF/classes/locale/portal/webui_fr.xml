@@ -127,15 +127,6 @@
     </msg>
   </PositiveNumberFormatValidator>
   <!--
-  #class org.exoplatform.webui.form.validator.Validator.NumberInRangeValidator
-  #{0}=input field name
-  -->
-  <NumberInRangeValidator>
-    <msg>
-      <Invalid-number>Le champ {0} est un nombre compris entre {1} et {2}.</Invalid-number>
-    </msg>
-  </NumberInRangeValidator>
-  <!--
   #############################################################################
   #              Empty Iterator Validator                                      #
   #############################################################################
@@ -263,7 +254,6 @@
   -->
   <UIChangeLanguage>
     <title>
-      Langues
       <LanguageSetting>Configuration des langues</LanguageSetting>
     </title>
     <action>
@@ -750,12 +740,6 @@
         <sameSrcAndDes>La source et la destination sont identiques !</sameSrcAndDes>
       </paste>
     </msg>
-    <label>
-      <selectNavigation>
-        Sélection de la navigation
-        <tooltip>Cliquer ici pour sélectionner la navigation</tooltip>
-      </selectNavigation>
-    </label>
     <deleteNode>Confirmez-vous la suppression de cette navigation ?</deleteNode>
     <deleteNavigation>Confirmez-vous la suppression de ce noeud ?</deleteNavigation>
     <tooltip>

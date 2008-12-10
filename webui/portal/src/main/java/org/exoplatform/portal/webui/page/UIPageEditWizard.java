@@ -26,19 +26,23 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIExoStart;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.model.SelectItemCategory;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -82,11 +86,14 @@ public class UIPageEditWizard extends UIPageWizard {
     UIPagePreview uiPagePreview = getChild(UIPagePreview.class);
     UIPage uiPage = (UIPage)uiPagePreview.getUIComponent();
     Page page = PortalDataMapper.toPageModel(uiPage);
-    service.update(page); 
+    service.update(page);
     
-    UIPageNodeSelector uiNodeSelector = findFirstComponentOfType(UIPageNodeSelector.class) ;      
+    UIWizardPageSetInfo uiPageInfo = findFirstComponentOfType(UIWizardPageSetInfo.class) ;
+    PageNode selectedPageNode = uiPageInfo.getSelectedPageNode() ;
+    uiPageInfo.invokeSetBindingBean(selectedPageNode) ;
+    
+    UIPageNodeSelector uiNodeSelector = uiPageInfo.findFirstComponentOfType(UIPageNodeSelector.class) ;
     PageNavigation pageNav =  uiNodeSelector.getSelectedNavigation();
-    pageNav.setModifier(RequestContext.<WebuiRequestContext>getCurrentInstance().getRemoteUser());
     service.update(pageNav);
     
     UIPortal uiPortal = Util.getUIPortal();
@@ -287,5 +294,5 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       uiWizard.updateUIPortal(uiPortalApp, event);
     }
-  }  
+  }
 }
