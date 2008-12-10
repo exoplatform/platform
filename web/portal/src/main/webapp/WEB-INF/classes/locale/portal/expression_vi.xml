@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'A'                     #
+  ###################################################################
+  -->
+  <word>
+    <accessPermission>Quyền truy cập</accessPermission>
+    <abort>Abort</abort>
+    <action>Action</action>
+    <back>Back</back>
+    <birthday>Sinh nhật</birthday>
+    <cancel>Cancel</cancel>
+    <category>Category</category>
+    <change>Change</change>
+    <city>Thành phố</city>
+    <close>Close</close>
+    <comment>Comment</comment>
+    <content>Content</content>
+    <country>Quốc gia</country>
+    <date>Date</date>
+    <decorator>Decorator</decorator>
+    <department>Bộ phận</department>
+    <description>Description</description>
+    <editPermission>Edit Permission</editPermission>
+    <email>Email</email>
+    <employer>Nhà tuyển dụng</employer>
+    <familyName>Họ</familyName>
+    <finish>Hoàn tất</finish>
+    <firstName>Tên</firstName>
+    <format>Định dạng</format>
+    <groupId>Id Nhóm</groupId>
+    <gender>Giới tính</gender>
+    <givenName>Tên khai sinh</givenName>
+    <height>Chiều cao</height>
+    <icon>Icon</icon>
+    <jobTitle>Tên việc làm</jobTitle>
+    <locale>Địa phương</locale>
+    <label>Label</label>
+    <language>Ngôn ngữ</language>
+    <lastName>Họ</lastName>
+    <mobile>Số di động</mobile>
+    <name>Tên</name>
+    <nickName>Bí danh</nickName>
+    <next>Next</next>
+    <owner>Chủ</owner>
+    <postalCode>Mã vùng</postalCode>
+    <refresh>Refresh</refresh>
+    <restore>Restore</restore>
+    <save>Save</save>
+    <stateProv>State/Prov</stateProv>
+    <street>Phố</street>
+    <style>Style</style>
+    <subject>Subject</subject>
+    <summary>Summary</summary>
+    <skin>Skin</skin>
+    <template>Template</template>
+    <tel>Tel</tel>
+    <title>Title</title>
+    <uri>Uri</uri>
+    <userName>Tên đăng nhập</userName>
+    <update>Update</update>
+    <viewPermission>View Permission</viewPermission>
+    <width>Width</width>
+    <website>Website</website>
+  </word>
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'B'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'c'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'd'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'e'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'f'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'g'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'h'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'i'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'i'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'l'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'm'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'n'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'o'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'p'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'r'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 's'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 't'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'u'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'v'                     #
+  ###################################################################
+  -->
+  <!--
+  ###################################################################
+  #                  EXPRESSION START  WITH 'w'                     #
+  ###################################################################
+  -->
+</bundle>
+
