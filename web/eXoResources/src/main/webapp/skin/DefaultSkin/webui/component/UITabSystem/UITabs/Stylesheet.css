@@ -309,12 +309,14 @@
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
   line-height: 27px;
   cursor: pointer;
-  padding: 0px 8px 0px 4px;
+  padding: 0px 8px 0px 4px; /* orientation=lt */
+  padding: 0px 4px 0px 8px; /* orientation=rt */
   color: gray;  font-weight: normal;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .TabIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   width: 32px; height: 21px;
   margin-top: 4px;
 }
@@ -353,7 +355,8 @@
   line-height: 27px;
   background: url('background/MessageTabDialog.gif') repeat-x center -155px;
   cursor: pointer;
-  padding: 0px 8px 0px 4px;
+  padding: 0px 8px 0px 4px; /* orientation=lt */
+  padding: 0px 4px 0px 8px; /* orientation=rt */
   color: #058ee6;  font-weight: normal;
 }
 
@@ -362,7 +365,8 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .TabIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   width: 32px; height: 21px;
   margin-top: 4px;
 }
