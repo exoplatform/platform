@@ -91,7 +91,7 @@
   -->
   <EmailAddressValidator>
     <msg>
-      <Invalid-input><![CDATA[L'adresse mail <"{1}"> est incorrecte ({0})]]></Invalid-input>
+      <Invalid-input>L'adresse mail est incorrecte</Invalid-input>
     </msg>
   </EmailAddressValidator>
   <!--
