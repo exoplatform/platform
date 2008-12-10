@@ -170,20 +170,25 @@
 /*##############################- LargeToolbar style -#########################*/
 
 .UIToolbar .LargeToolbar {
-  height: 74px ; line-height: 74px ;
+  height: 74px ; 
+  line-height: 74px ;
   margin-bottom: 2px ;
 }
 
 .UIToolbar .LargeToolbar .LeftToolbar {
   height: 74px ;
-  background: url('background/LargeToolbar.png') no-repeat left -74px;
-  padding-left: 10px; 
+  background: url('background/LargeToolbar.png') no-repeat left -74px; 			/* orientation=lt */
+  background: url('background/LargeToolbar-rt.png') no-repeat left top; 		/* orientation=rt */
+  padding-left: 10px;  		/* orientation=lt */
+  padding-left: 86px; 		/* orientation=rt */
 }
 
 .UIToolbar .LargeToolbar .RightToolbar {
   height: 74px;
-  background: url('background/LargeToolbar.png') no-repeat right top;
-  padding-right: 86px;
+  background: url('background/LargeToolbar.png') no-repeat right top; 				/* orientation=lt */
+  background: url('background/LargeToolbar-rt.png') no-repeat right -74px; 		/* orientation=rt */
+  padding-right: 86px; 		/* orientation=lt */
+  padding-right: 10px; 		/* orientation=rt */
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
@@ -217,30 +222,37 @@
 }
 
 .UIToolbar .LargeToolbar .HorizontalSeparator {
-  float: left ;
+  float: left ;			/* orientation=lt */
+  float: right ;		/* orientation=rt */
   margin: 13px 0px 0px 0px ;
   width: 2px; height: 40px ;
 }
 
 .UIToolbar .LargeToolbar .UserButton {
-  float: left;
-  margin-top: 10px; margin-left: 0px;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  margin-top: 10px; 
+  margin-left: 0px;
   width: 120px;
   cursor: pointer;
   text-align: center;
 }
 
 .UIToolbar .LargeToolbar .GroupButton {
-  float: left;
-  margin-top: 10px; margin-left: 0px;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  margin-top: 10px; 
+  margin-left: 0px;
   width: 130px;
   cursor: pointer;
   text-align: center;
 }
 
 .UIToolbar .LargeToolbar .MembershipButton {
-  float: left;
-  margin-top: 10px;  margin-left: 0px;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
+  margin-top: 10px;  
+  margin-left: 0px;
   width: 170px;
   cursor: pointer;
   text-align: center;

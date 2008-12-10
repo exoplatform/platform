@@ -18,23 +18,29 @@
 /*##############################- LargeToolbar style -#########################*/
 
 .UIToolbar .LargeToolbar {
-  height: 63px; line-height: 63px;
+  height: 63px; 
+  line-height: 63px;
 }
 
 .UIToolbar .LargeToolbar .LeftToolbar {
   line-height: 63px;
-  background: url('background/LargeToolbar.gif') no-repeat left top;
-  padding-left: 10px;
+  background: url('background/LargeToolbar.gif') no-repeat left top; 			/* orientation=lt */
+  background: url('background/LargeToolbar-rt.gif') no-repeat left top; 	/* orientation=rt */
+  padding-left: 10px; 		/* orientation=lt */
+  padding-left: 84px; 		/* orientation=rt */
 }
 
 .UIToolbar .LargeToolbar .RightToolbar {
   line-height: 63px;
-  background: url('background/LargeToolbar.gif') no-repeat right top;
-  padding-right: 84px;
+  background: url('background/LargeToolbar.gif') no-repeat right top; 			/* orientation=lt */
+  background: url('background/LargeToolbar-rt.gif') no-repeat right top; 		/* orientation=rt */
+  padding-right: 84px; 		/* orientation=lt */
+  padding-right: 10px; 		/* orientation=rt */
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
-  height: 63px; line-height: 63px;
+  height: 63px; 
+  line-height: 63px;
   background: url('background/LargeToolbar.gif') repeat-x left -63px;
 }
 
@@ -101,21 +107,24 @@
 }
 
 .UIToolbar .LargeToolbar .UserManagementIcon {
-  width: 44px ; height: 30px ;
+  width: 44px ; 
+  height: 30px ;
   background: url('background/LargeToolbar.gif') no-repeat -44px -126px;
   margin: auto;
   margin-top: 4px;
 }
 
 .UIToolbar .LargeToolbar .GroupManagementIcon {
-  width: 44px ; height: 30px ;
+  width: 44px ; 
+  height: 30px ;
   background: url('background/LargeToolbar.gif') no-repeat left -157px;
   margin: auto;
   margin-top: 4px;
 }
 
 .UIToolbar .LargeToolbar .MembershipManagementIcon {
-  width: 44px ; height: 30px ;
+  width: 44px ; 
+  height: 30px ;
   background: url('background/LargeToolbar.gif') no-repeat left -126px;
   margin: auto;
   margin-top: 4px;

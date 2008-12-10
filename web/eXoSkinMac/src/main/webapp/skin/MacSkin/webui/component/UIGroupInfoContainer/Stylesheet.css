@@ -13,5 +13,6 @@
 
 .UIGroupInfoContainer .TitleBar {
 	font-weight: bold;
-	padding: 0px 0px 0px 15px;
+	padding: 0px 0px 0px 15px; 		/* orientation=lt */
+	padding: 0px 15px 0px 0px; 		/* orientation=rt */
 }

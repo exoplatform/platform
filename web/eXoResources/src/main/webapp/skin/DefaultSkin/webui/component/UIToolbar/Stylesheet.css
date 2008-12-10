@@ -27,15 +27,21 @@
 }
 
 .UIToolbar .LargeToolbar .LeftToolbar {
-  height: 64px; line-height: 64px;
-  background: url('background/LargeToolbar.gif') no-repeat left top;
-  padding-left: 8px;
+  height: 64px; 
+  line-height: 64px;
+  background: url('background/LargeToolbar.gif') no-repeat left top;	 		/* orientation=lt */
+  background: url('background/LargeToolbar-rt.gif') no-repeat left top;	 	/* orientation=rt */
+  padding-left: 8px;	 	/* orientation=lt */
+  padding-left: 94px;	 	/* orientation=rt */
 }
 
 .UIToolbar .LargeToolbar .RightToolbar {
-  height: 64px; line-height: 64px;
-  background: url('background/LargeToolbar.gif') no-repeat right top;
-  padding-right: 94px;
+  height: 64px; 
+  line-height: 64px;
+  background: url('background/LargeToolbar.gif') no-repeat right top;	 			/* orientation=lt */
+  background: url('background/LargeToolbar-rt.gif') no-repeat right top;	 	/* orientation=rt */
+  padding-right: 94px;	 	/* orientation=lt */
+  padding-right: 8px;	 		/* orientation=rt */
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
@@ -66,28 +72,32 @@
 }
 
 .UIToolbar .LargeToolbar .UserButton {
-  float: left;
+  float: left;	 	/* orientation=lt */
+  float: right;	 	/* orientation=rt */
   padding-top: 3px;
   cursor: pointer;
 	width: 120px;
 }
 
 .UIToolbar .LargeToolbar .GroupButton {
-  float: left;
+  float: left;	 	/* orientation=lt */
+  float: right;	 	/* orientation=rt */
   padding-top: 3px;
   cursor: pointer;
 	width: 130px;
 }
 
 .UIToolbar .LargeToolbar .MembershipButton {
-  float: left;
+  float: left;	 	/* orientation=lt */
+  float: right;	 	/* orientation=rt */
   padding-top: 3px;
   cursor: pointer;
 	width: 170px;
 }
 
 .UIToolbar .LargeToolbar .ButtonLabel {
-  height: 18px; line-height: 18px;
+  height: 18px; 
+  line-height: 18px;
   padding-left: 10px;
 }
 

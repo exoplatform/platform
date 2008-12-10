@@ -48,7 +48,7 @@
 }
 
 .UIBannerPortlet .MiddleLoginContainer .Name {
-	text-align: left;
+	text-align: left;	 
 	color: #0d62af;
 	font-size: 10px;
 	margin-bottom: 6px;
@@ -58,9 +58,9 @@
 .UIBannerPortlet .MiddleLoginContainer .Logout {
   background: url('DefaultSkin/background/Container.gif') no-repeat left -144px;
   margin-right: 12px;
-  padding-left: 20px;
+  padding-left: 20px;	 	
   cursor: pointer;
-  float: left;
+  float: left;	
   font-weight: bold;
   font-size: 10px;
   display: block;
@@ -68,11 +68,11 @@
 }
 
 .UIBannerPortlet .MiddleLoginContainer .Login {
-  background: url('DefaultSkin/background/Container.gif') no-repeat left -124px;
-  margin-right: 12px;
+  background: url('DefaultSkin/background/Container.gif') no-repeat left -124px;	
+  margin-right: 12px;	
   padding-left: 20px;
   cursor: pointer;
-  float: left;
+  float: left;	 	
   font-weight: bold;
   font-size: 10px;
   display: block;

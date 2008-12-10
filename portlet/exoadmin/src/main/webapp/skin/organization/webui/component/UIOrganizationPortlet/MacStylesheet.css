@@ -33,9 +33,12 @@
 } 
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
-  float: left ;
-  margin: 5px 2px 0px 1px ;
-  width: 2px; height: 50px ;
+  float: left ;			/* orientation=lt */
+  float: right ;		/* orientation=rt */
+  margin: 5px 2px 0px 1px ;		/* orientation=lt */
+  margin: 5px 1px 0px 2px ;		/* orientation=rt */
+  width: 2px; 
+  height: 50px ;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
@@ -54,14 +57,16 @@
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .UserButton {
-  float: left;
+  float: left;		/* orientation=lt */
+  float: right;		/* orientation=rt */
   width: 130px;
   cursor: pointer;
 	text-align: center;
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
-  float: left;
+  float: left;		/* orientation=lt */
+  float: right;		/* orientation=rt */
   width: 140px;
   cursor: pointer;
   text-align: center;
@@ -77,7 +82,8 @@
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
-  float: left;
+  float: left;		/* orientation=lt */
+  float: right;		/* orientation=rt */
   width: 178px;
   cursor: pointer;
 	text-align: center;
@@ -215,7 +221,8 @@
 	color:#1c1c1c;
 	font-weight:bold;
 	line-height: 24px;
-	padding-left: 7px;
+	padding-left: 7px;		/* orientation=lt */
+	padding-right: 7px;		/* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar {
@@ -223,7 +230,8 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar .Title {
-	float: left;
+	float: left;		/* orientation=lt */
+	float: right;		/* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
@@ -233,7 +241,8 @@
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
   width: 220px ;
-  float: left ;
+  float: left ; 		/* orientation=lt */
+  float: right ; 		/* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
@@ -241,8 +250,10 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TreeActionIcon  {
-	float: right ;
-	margin: 4px 8px 0px 0px ;
+	float: right ;		/* orientation=lt */
+	float: left ;			/* orientation=rt */
+	margin: 4px 8px 0px 0px ;		/* orientation=lt */
+	margin: 4px 0px 0px 8px ;		/* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon  {
@@ -264,7 +275,8 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
-  margin-left: 227px ;
+  margin-left: 227px ; 		/* orientation=lt */
+  margin-right: 227px ; 	/* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITabContentContainer {
@@ -306,15 +318,18 @@
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .UIForm select {
-	float: left;
+	float: left;		/* orientation=lt */
+	float: right;		/* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm a.Icon { 
 	background-position: left top;
 	background-repeat: no-repeat;
-	float: left;
+	float: left;		/* orientation=lt */
+	float: right;		/* orientation=rt */
 	width: 24px;
-	margin-left: 4px;
+	margin-left: 4px;		/* orientation=lt */
+	margin-right: 4px;	/* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupInfo .UIGroupMembershipForm .SearchIcon { 

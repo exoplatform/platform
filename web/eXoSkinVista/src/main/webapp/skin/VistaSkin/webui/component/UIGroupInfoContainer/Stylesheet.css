@@ -12,7 +12,8 @@
 
 .UIGroupInfoContainer .TitleBar {
 	font-weight: bold;
-	padding: 0px 0px 0px 15px;
+	padding: 0px 0px 0px 15px;		/* orientation=lt */
+	padding: 0px 15px 0px 0px;		/* orientation=rt */
 	border-right: 1px solid #b7b7b7;
 	border-left: 1px solid #b7b7b7;
 	background: url(background/Style2BarM1x29.gif) repeat-x;
