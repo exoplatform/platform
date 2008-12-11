@@ -6,6 +6,7 @@
 <Require feature="dynamic-height" />
 <Require feature="setprefs"/>
 <Require feature="settitle"/>
+<Locale lang="ar" language_direction="rtl"/>
 </ModulePrefs>
     <UserPref name="mtitle" display_name="Title name" default_value="RSS Reader"/>
 	<UserPref name="rssurl" display_name="FEED URL" default_value="http://blog.exoplatform.org/feed/" required="true" />

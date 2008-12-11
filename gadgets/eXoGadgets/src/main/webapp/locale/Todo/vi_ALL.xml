@@ -1,0 +1,8 @@
+<messagebundle>  
+  <msg name="save">
+  	Lưu trữ
+  </msg>
+  <msg name="type_here">
+  	Đánh nhiệm vụ mới ở đây
+  </msg>
+</messagebundle>

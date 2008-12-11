@@ -15,6 +15,7 @@
 		description="This simple and useful calculator lets you perform most of the basic arithmetic operations."
 		thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/Calculator.png"
 		height="227">
+		<Locale lang="ar" language_direction="rtl"/>
 	</ModulePrefs>
 	<Content type="html">
 	<![CDATA[
@@ -68,7 +69,7 @@
 				background: url(/eXoGadgets/skin/image/Display.png) no-repeat top left;
 				width: 164px;
 				height: 23px;
-				text-align: right;
+				text-align: __BIDI_END_EDGE__;
 				margin: 0 auto;
 				font-size: 15px;
 				line-height: auto;
@@ -78,11 +79,12 @@
 			}
 			
 			.Number {
-				padding: 8px 0 0 9px;
+                                padding-top: 8px;
+				padding-__BIDI_START_EDGE__: 9px;
 			}
 		
 			.Row a {
-				background: url(/eXoGadgets/skin/image/Button.gif) no-repeat top left;
+				background: url(/eXoGadgets/skin/image/Button.gif) no-repeat top center;
 				color: #000000;
 				font-weight: bold;
 				text-align: center;
@@ -90,8 +92,9 @@
 				width: 37px;
 				height: 24px;
 				display: block;
-				float: left;
-				margin: 4px 0px 0 3px;
+				float: __BIDI_START_EDGE__;
+				margin-top: 4px;
+                                margin-__BIDI_START_EDGE__: 3px;
 				cursor: pointer;
 				padding-top: 3px;
 			}

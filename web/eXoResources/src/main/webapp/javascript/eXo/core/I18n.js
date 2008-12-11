@@ -13,7 +13,7 @@ I18n.prototype.init = function() {
 }
 
 I18n.prototype.getLanguage = function() {
-  return this.language;
+  return this.lang;
 }
 
 I18n.prototype.getOrientation = function() {

@@ -1,0 +1,8 @@
+<messagebundle>  
+  <msg name="save">
+  	Save
+  </msg>
+  <msg name="type_here">
+  	Type new task here
+  </msg>
+</messagebundle>

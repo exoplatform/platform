@@ -15,6 +15,11 @@ eXo.gadget.UIGadget = {
             eXo.core.Using("eXo.gadgets.ExoBasedUserPrefStore");
 
         }
+        //TODO: dang.tung - set language for gadget
+        //-----------------------------------------
+				var language = eXo.core.I18n.getLanguage();
+				gadgets.container.setLanguage(language);
+				//-----------------------------------------
         var gadget;
         if (metadata != null) {
             gadget = gadgets.container.createGadget({specUrl: url,height: metadata.gadgets[0].height, secureToken: metadata.gadgets[0].secureToken, view: view});

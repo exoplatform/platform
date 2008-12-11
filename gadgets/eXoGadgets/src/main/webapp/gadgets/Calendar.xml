@@ -15,6 +15,7 @@
 		description="What date is it? Use this cool calendar to keep track of the date in style. You can switch easily between daily, monthly or yearly view."
 		thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/Calendar.png"
 		height="205">
+		<Locale lang="ar" language_direction="rtl"/>
 	</ModulePrefs>
 	<Content type="html">
 	<![CDATA[
@@ -67,17 +68,17 @@
 		
 			.LeftButtonCalendarMonth,
 			.RightButtonCalendarMonth {
-				background: url(/eXoGadgets/skin/image/ButtonCalendar.gif) top left no-repeat;
+				background: url(/eXoGadgets/skin/image/ButtonCalendar__BIDI_START_EDGE__.gif) top __BIDI_START_EDGE__ no-repeat;
 				width: 17px;
 				height: 16px;
 				display: block;
-				float: left;
+				float: __BIDI_START_EDGE__;
 				margin-top: 17px;
 				cursor: pointer;
 			}
 		
 			.RightButtonCalendarMonth {
-				background: url(/eXoGadgets/skin/image/ButtonCalendar.gif) left -25px no-repeat;
+				background: url(/eXoGadgets/skin/image/ButtonCalendar__BIDI_START_EDGE__.gif) __BIDI_START_EDGE__ -25px no-repeat;
 			}
 		
 			.Month .text {
@@ -85,7 +86,7 @@
 				font-size: 17px;
 				color: #fff;
 				line-height: auto;
-				float: left;
+				float: __BIDI_START_EDGE__;
 				text-align: center;
 				padding-top: 13px;
 				cursor: pointer;
@@ -111,7 +112,7 @@
 				text-align: center;
 				font-size: 11px;
 				line-height: auto;
-				float: left;
+				float: __BIDI_START_EDGE__;
 				color: #5f5f5f;
 				margin: 3px 4px 0 0;
 			}
@@ -148,18 +149,18 @@
 		
 			.Prev,
 			.Next {
-				background: url(/eXoGadgets/skin/image/ButtonCalendar.gif) left -50px no-repeat;
+				background: url(/eXoGadgets/skin/image/ButtonCalendar__BIDI_START_EDGE__.gif) center -50px no-repeat;
 				width: 15px;
 				height: 13px;
 				display: block;
-				float:left;
+				float:__BIDI_START_EDGE__;
 				margin-top: 5px;
 				cursor: pointer;
 			}
 		
 			.Next {
-				background: url(/eXoGadgets/skin/image/ButtonCalendar.gif) right -70px no-repeat;
-				float: right;
+				background: url(/eXoGadgets/skin/image/ButtonCalendar__BIDI_START_EDGE__.gif) center -70px no-repeat;
+				float: __BIDI_END_EDGE__;
 			}
 			
 		</style>

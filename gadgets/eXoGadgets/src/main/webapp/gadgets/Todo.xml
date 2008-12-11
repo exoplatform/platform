@@ -15,6 +15,10 @@
 		description="ToDo Gadget, easily manage and track your daily to-do list."
 		thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/Todo.png"
 		height="235">
+		<Locale messages="http://localhost:8080/eXoGadgets/locale/Todo/ALL_ALL.xml" />
+		<Locale lang="ar" messages="http://localhost:8080/eXoGadgets/locale/Todo/ar_ALL.xml" language_direction="rtl"/>
+		<Locale lang="fr" messages="http://localhost:8080/eXoGadgets/locale/Todo/fr_ALL.xml" />
+		<Locale lang="vi" messages="http://localhost:8080/eXoGadgets/locale/Todo/vi_ALL.xml" />
 		<Require feature="setprefs"/>
 	</ModulePrefs>
 	<UserPref name="todoList" datatype="list"/>
@@ -47,7 +51,7 @@
 			}
 
 			.Note {
-				background: url(/eXoGadgets/skin/image/Note.jpg) top left no-repeat;
+				background: url(/eXoGadgets/skin/image/Note__BIDI_START_EDGE__.jpg) top __BIDI_START_EDGE__ no-repeat;
 				width: 160px;
 				height: 235px;
 				margin: 0 auto;
@@ -80,8 +84,7 @@
 			
 			.UIAction .ActionButton {
 				display: block;
-				float: left; /* orientation=lt */
-				float: right; /* orientation=rt */
+				float: __BIDI_START_EDGE__; 
 				margin: 0px 3px;
 				cursor: pointer;
 			}
@@ -210,7 +213,7 @@
 		</script>
 			<div class="Note">
 	    	<div class="write" id="write">
-	        <input type="text" id="1" onfocus="javascript: if(this.value == '1. Type new task here') this.value='1.'" value="1. Type new task here" name="1" onkeydown="finish(this,event);"/>
+	        <input type="text" id="1" onfocus="javascript: if(this.value == '1. __MSG_type_here__') this.value='1.'" value="1. __MSG_type_here__" name="1" onkeydown="finish(this,event);"/>
 	        <input type="text" id="2" name="2" onkeydown="finish(this,event);"/>
 	        <input type="text" id="3" name="3" onkeydown="finish(this,event);"/>
 					<input type="text" id="4" name="4" onkeydown="finish(this,event);"/>
@@ -228,7 +231,7 @@
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
-		            	<a href="javascript:void(0);">Save</a>
+		            	<a href="javascript:void(0);">__MSG_save__</a>
 		            </div>
 		          </div>
 		        </div>

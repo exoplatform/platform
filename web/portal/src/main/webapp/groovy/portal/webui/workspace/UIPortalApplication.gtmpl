@@ -11,11 +11,12 @@
   def portalSkins = uicomponent.getPortalSkins() ;
   def portletSkins = uicomponent.getPortletSkins() ;
   def scriptsPaths = uicomponent.getJavascriptURLs();
+  def lang = uicomponent.getLocale().getLanguage();
   def title = rcontext.getTitle();
   def metaInformation = rcontext.getMetaInformation();
 %>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="$dir">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="$lang" lang="$lang" dir="$dir">
   <head id="head">
     <title><%=title%></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>

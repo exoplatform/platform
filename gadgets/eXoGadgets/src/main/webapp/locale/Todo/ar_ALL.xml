@@ -1,0 +1,8 @@
+<messagebundle>  
+  <msg name="save">
+  	حفظ
+  </msg>
+  <msg name="type_here">
+  	نوع المهمة الجديدة هنا
+  </msg>
+</messagebundle>
