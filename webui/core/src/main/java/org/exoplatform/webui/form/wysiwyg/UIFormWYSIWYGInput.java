@@ -123,7 +123,7 @@ public class UIFormWYSIWYGInput extends UIFormInputBase<String> {
 		  editor.setHeight(height);
 		}
 		if(width != null && width.length()>0) {
-      editor.setHeight(width);
+		  editor.setWidth(width);
     }		
 		editor.setValue(value_);
 		Writer w =  context.getWriter();            

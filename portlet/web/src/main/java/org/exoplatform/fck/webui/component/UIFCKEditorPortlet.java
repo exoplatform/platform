@@ -46,7 +46,9 @@ public class UIFCKEditorPortlet extends UIPortletApplication{
     
     static final public String TEXT_FIELD = "text";
     public UIEditor() throws Exception {
-      addUIFormInput(new UIFormWYSIWYGInput(TEXT_FIELD, null, null));
+      UIFormWYSIWYGInput uiInputFCKEditor = new UIFormWYSIWYGInput(TEXT_FIELD, null, null);
+      uiInputFCKEditor.setWidth("99%");
+      addUIFormInput(uiInputFCKEditor);
     }
   }
 
