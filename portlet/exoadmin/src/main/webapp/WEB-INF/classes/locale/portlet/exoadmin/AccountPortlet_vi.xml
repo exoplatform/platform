@@ -36,7 +36,7 @@
         <employer>#{word.employer}:</employer>
         <department>#{word.department}:</department>
         <jobtitle>#{word.jobTitle}:</jobtitle>
-        <language>Language</language>
+        <language>Ngôn ngữ</language>
         <home-info>
           <postal>
             <name>#:</name>
@@ -86,7 +86,7 @@
     </label>
     <title>Thêm / Chỉnh sửa tài khoản</title>
     <action>
-      <Reset>Reset</Reset>
+      <Reset>Làm lại</Reset>
       <Back>#{word.back}</Back>
       <Save>#{word.save}</Save>
     </action>

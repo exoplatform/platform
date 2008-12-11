@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIOrganizationPortlet
+  -->
+  <UIOrganizationPortlet>
+    <label>
+      <userManagement>Quản lí User</userManagement>
+      <groupManagement>Quản lí Group</groupManagement>
+      <membershipManagement>Quản lí Membership</membershipManagement>
+    </label>
+  </UIOrganizationPortlet>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIMembershipTypeForm
+  -->
+  <UIMembershipTypeForm>
+    <title>Thêm/Sửa Membership</title>
+    <label>
+      <name>Tên Membership</name>
+      <description>Diễn tả</description>
+    </label>
+    <action>
+      <Save>#{word.save}</Save>
+      <Back>#{word.back}</Back>
+      <Reset>Làm lại</Reset>
+    </action>
+    <msg>
+      <SameName>membership này đã tồn tại, xin vui lòng chọn cái khác!</SameName>
+    </msg>
+  </UIMembershipTypeForm>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIGroupMembershipForm
+  -->
+  <UIGroupEditMembershipForm>
+    <label>
+      <username>Tên người dùng</username>
+      <membership>Membership</membership>
+    </label>
+    <action>
+      <Save>Save</Save>
+      <Cancel>Cancel</Cancel>
+    </action>
+    <msg>
+      <membership-delete>Không thể save membership đã xóa!.</membership-delete>
+      <membership-exist>membership này đã tồn tại, xin vui lòng chọn cái khác!</membership-exist>
+    </msg>
+  </UIGroupEditMembershipForm>
+  <EditMembership>
+    <title>
+      <UIGroupEditMembershipForm>Sửa Membership</UIGroupEditMembershipForm>
+      <EditMembership>Sửa Membership</EditMembership>
+    </title>
+  </EditMembership>
+  <UIGroupMembershipForm>
+    <label>
+      <title>Group Membership</title>
+      <username>Username</username>
+      <membership>Membership</membership>
+      <SearchUser>Tìm kiếm User</SearchUser>
+      <Refresh>Refresh</Refresh>
+    </label>
+    <action>
+      <Save>#{word.save}</Save>
+    </action>
+    <title>Thêm thành viên</title>
+  </UIGroupMembershipForm>
+  <SearchUserForm>
+    <label>
+      <option>
+        <userName>#{word.userName}</userName>
+        <firstName>#{word.firstName}</firstName>
+        <lastName>#{word.lastName}</lastName>
+        <email>#{word.email}</email>
+      </option>
+    </label>
+  </SearchUserForm>
+  <SearchUser>
+    <title>
+      <UIUserSelector>Chọn User</UIUserSelector>
+      <SearchUser>Chọn User</SearchUser>
+      <ListUserForSearch>Tìm kiếm User</ListUserForSearch>
+    </title>
+  </SearchUser>
+  <!--
+  #{0} is the member that the remote memeber enter
+  -->
+  <UIMemberShipForm>
+    <msg>
+      <membershipType-exist>The membership type '{0}' is taken</membershipType-exist>
+    </msg>
+  </UIMemberShipForm>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIMembershipForm
+  -->
+  <UIMembershipForm>
+    <label>
+      <username>User Name</username>
+      <membership>Membership</membership>
+      <name>Membership Name</name>
+      <description>#{word.description}</description>
+    </label>
+    <action>
+      <Save>#{word.save}</Save>
+      <Back>#{word.back}</Back>
+    </action>
+  </UIMembershipForm>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIListUser
+  -->
+  <UIListUsers>
+    <header>
+      <userName>#{word.userName}</userName>
+      <lastName>#{word.lastName}</lastName>
+      <firstName>#{word.firstName}</firstName>
+      <email>#{word.email}</email>
+      <action>#{word.action}</action>
+    </header>
+    <action>
+      <title>
+        <DeleteUser>Delete User</DeleteUser>
+        <SelectUser>Select User</SelectUser>
+        <ViewUserInfo>Edit User Info</ViewUserInfo>
+      </title>
+    </action>
+    <label>
+      <option>
+        <userName>#{word.userName}</userName>
+        <firstName>#{word.firstName}</firstName>
+        <lastName>#{word.lastName}</lastName>
+        <email>#{word.email}</email>
+      </option>
+    </label>
+    <msg>
+      <DeleteSuperUser>{0} is Super User, it can not be deleted</DeleteSuperUser>
+    </msg>
+    <deleteUser>Bạn có chắc chắn muốn xóa user {0}?</deleteUser>
+  </UIListUsers>
+  <UIListMembershipType>
+    <deleteMemberShip>Bạn có chắc chắn muốn xóa membership này?</deleteMemberShip>
+  </UIListMembershipType>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIUserInfo
+  -->
+  <UIUserInfo>
+    <title>Thông tin về User</title>
+    <tab>
+      <label>
+        <AccountInputSet>Account Info</AccountInputSet>
+        <UIUserProfileInputSet>User Profile</UIUserProfileInputSet>
+        <UIUserMembershipSelector>User Membership</UIUserMembershipSelector>
+        <UIAccountEditInputSet>Account Info</UIAccountEditInputSet>
+      </label>
+    </tab>
+    <label>
+      <changePassword>Thay đổi mật khẩu:</changePassword>
+      <newPassword>Mật khẩu mới:</newPassword>
+      <confirmPassword>Xác nhận mật khẩu:</confirmPassword>
+      <Profile>User Profile</Profile>
+      <userName>#{word.userName}:</userName>
+      <password>Password :</password>
+      <Confirmpassword>Confirm Password :</Confirmpassword>
+      <firstName>#{word.firstName}:</firstName>
+      <lastName>#{word.lastName}:</lastName>
+      <email>Email Address:</email>
+      <HomeInfo>Home Informations</HomeInfo>
+      <user>
+        <name>
+          <given>#{word.givenName}:</given>
+          <family>#{word.familyName}:</family>
+          <nickName>#{word.nickName}:</nickName>
+        </name>
+        <bdate>#{word.birthday}:</bdate>
+        <gender>#{word.gender}:</gender>
+        <employer>#{word.employer}:</employer>
+        <department>#{word.department}:</department>
+        <jobtitle>#{word.jobTitle}:</jobtitle>
+        <home-info>
+          <postal>
+            <name>#:</name>
+            <street>#{word.street}:</street>
+            <city>#{word.city}:</city>
+            <stateprov>#{word.stateProv}:</stateprov>
+            <postalcode>#{word.postalCode}:</postalcode>
+            <country>#{word.country}:</country>
+          </postal>
+          <telecom>
+            <mobile>
+              <number>#{word.mobile}:</number>
+            </mobile>
+            <telephone>
+              <number>#{word.tel}:</number>
+            </telephone>
+          </telecom>
+          <online>
+            <email>#{word.email}:</email>
+            <uri>Website:</uri>
+          </online>
+        </home-info>
+        <business-info>
+          <postal>
+            <name>#:</name>
+            <city>#{word.city}:</city>
+            <stateprov>State/Prov:</stateprov>
+            <postalcode>Postal Code:</postalcode>
+            <country>#{word.country}:</country>
+          </postal>
+          <telecom>
+            <mobile>
+              <number>#{word.mobile}:</number>
+            </mobile>
+            <telephone>
+              <number>#{word.tel}:</number>
+            </telephone>
+          </telecom>
+          <online>
+            <email>#{word.email}:</email>
+            <uri>#{word.website}:</uri>
+          </online>
+        </business-info>
+      </user>
+      <BusinessInfo>Business Informations</BusinessInfo>
+    </label>
+    <action>
+      <Back>#{word.cancel}</Back>
+      <Save>#{word.save}</Save>
+    </action>
+  </UIUserInfo>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIUserInGroup
+  -->
+  <UIUserInGroup>
+    <confirm>
+      <deleteUser>Are you sure you want to delete user {0} from group {1}?</deleteUser>
+    </confirm>
+    <header>
+      <userName>#{word.userName}</userName>
+      <lastName>#{word.lastName}</lastName>
+      <firstName>#{word.firstName}</firstName>
+      <email>#{word.email}</email>
+      <action>#{word.action}</action>
+      <membershipType>Membership Type</membershipType>
+      <lastLoginTime>Last Login</lastLoginTime>
+    </header>
+    <label>
+      <username>#{word.userName}</username>
+      <membership>Membership name</membership>
+    </label>
+    <action>
+      <title>
+        <DeleteUser>Xóa thành viên</DeleteUser>
+        <Edit>Sửa thành viên</Edit>
+      </title>
+    </action>
+  </UIUserInGroup>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIGroupInfo 
+  -->
+  <UIGroupInfo>
+    <tab>
+      <label>
+        <UIUserInGroup>User In Group</UIUserInGroup>
+      </label>
+    </tab>
+    <label>
+      <UIUserInGroup />
+    </label>
+    <title>Group Info</title>
+  </UIGroupInfo>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIMembershipList
+  -->
+  <UIMembershipList>
+    <header>
+      <name>Membership name</name>
+      <createdDate>Created date</createdDate>
+      <modifiedDate>Modified date</modifiedDate>
+      <action>#{word.action}</action>
+      <description>#{word.description}</description>
+    </header>
+    <action>
+      <title>
+        <EditMembership>Sửa Membership</EditMembership>
+        <DeleteMembership>Xóa Membership</DeleteMembership>
+      </title>
+    </action>
+    <msg>
+      <InUse>Bạn không thể xóa membership này vì nó đang sử dụng</InUse>
+    </msg>
+  </UIMembershipList>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIGroupMembershipForm
+  -->
+  <UIUserMembershipSelector>
+    <deleteMembership>Bạn có chắc chắn muốn xóa membership này?</deleteMembership>
+  </UIUserMembershipSelector>
+  <!--
+  ##org.exoplatform.organization.webui.component.UIGroupForm
+  -->
+  <AddGroup>
+    <title>Add New Group</title>
+    <action>
+      <Save>#{word.save}</Save>
+      <Back>#{word.cancel}</Back>
+    </action>
+  </AddGroup>
+  <EditGroup>
+    <title>Edit Current Group</title>
+    <action>
+      <Save>#{word.save}</Save>
+      <Back>#{word.cancel}</Back>
+    </action>
+  </EditGroup>
+  <UIGroupForm>
+    <label>
+      <groupName>Group Name</groupName>
+      <description>Description</description>
+      <label>Label</label>
+    </label>
+    <msg>
+      <group-exist>Tên nhóm này đã tồn tại, xin vui lòng chọn nhóm khác!</group-exist>
+    </msg>
+  </UIGroupForm>
+  <!--
+  ############################################################################
+  #   org.exoplatform.portal.component.customization.UIShareNavigationForm   #
+  ############################################################################
+  -->
+  <UITabPane>
+    <title>
+      <UISharedNavigationForm>Shared Navigation</UISharedNavigationForm>
+      <UISharedPortalForm>Shared Portal</UISharedPortalForm>
+      <UIUserInGroup>Group Info</UIUserInGroup>
+      <UISharedNavigation>Group Page Navigation</UISharedNavigation>
+    </title>
+  </UITabPane>
+  <UISharedNavigationForm>
+    <action>
+      <Save>#{word.save}</Save>
+      <Back>#{word.back}</Back>
+      <Remove>Xóa</Remove>
+    </action>
+    <label>
+      <navigation>Navigation</navigation>
+      <description>Description</description>
+      <membership>Membership</membership>
+      <priority>Priority</priority>
+    </label>
+    <tab>
+      <label>
+        <SharedNavigation>Shared Navigation Setting</SharedNavigation>
+        <Permission>Permission Selector</Permission>
+      </label>
+    </tab>
+    <msg>
+      <user-nonexist>User "{0}" is not exist</user-nonexist>
+    </msg>
+  </UISharedNavigationForm>
+  <UISharedNavigation>
+    <msg>
+      <notSelected>Bạn cần phải chọn một nhóm!</notSelected>
+    </msg>
+    <label>
+      <userNavigation>User Page Navigation Name</userNavigation>
+      <priority>Priority</priority>
+    </label>
+    <action>
+      <Save>Save</Save>
+    </action>
+  </UISharedNavigation>
+  <!--
+  #############################################################################
+  #              org.exoplatform.portal.component.customization.UISharePortalForm#
+  #############################################################################
+  -->
+  <UISharedPortalForm>
+    <action>
+      <Save>#{word.save}</Save>
+      <Back>#{word.back}</Back>
+      <Remove>Xóa</Remove>
+    </action>
+    <label>
+      <portal>Portal</portal>
+      <description>Description</description>
+      <membership>Membership</membership>
+      <priority>Priority</priority>
+    </label>
+    <tab>
+      <label>
+        <SharedPortal>Cấu hình Portal</SharedPortal>
+        <Permission>Permission Selector</Permission>
+      </label>
+    </tab>
+    <msg>
+      <user-nonexist>User "{0}" is not exist</user-nonexist>
+    </msg>
+  </UISharedPortalForm>
+  <UIGroupSharedInfo>
+    <title>Share Info</title>
+  </UIGroupSharedInfo>
+  <!--
+  #############################################################################
+  #           org.exoplatform.portal.organization.component.UIGroupManagement#
+  #############################################################################
+  -->
+  <UIGroupManagement>
+    <label>
+      <Groups>Groups</Groups>
+      <AddGroup>Add New Group</AddGroup>
+      <EditGroup>Edit Selected Group</EditGroup>
+      <DeleteGroup>Delete Selected Group</DeleteGroup>
+    </label>
+    <deleteGroup>Bạn có chắc chắn muốn xóa group này?</deleteGroup>
+  </UIGroupManagement>
+  <!--
+  #############################################################################
+  #           org.exoplatform.portal.organization.component.UISharedNavigation#
+  #############################################################################
+  -->
+</bundle>
+

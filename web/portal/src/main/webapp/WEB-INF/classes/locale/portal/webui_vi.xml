@@ -681,7 +681,7 @@
       <Invalid-Preview>Trang này có kiểu giao diện Desktop. Bạn không thể xem mẫu !</Invalid-Preview>
       <NotViewPage>Bạn không có quyền truy cập trang này.</NotViewPage>
       <edit>
-        <NotEditPage>Bạn không có quyền chỉnh sửa trang n.</NotEditPage>
+        <NotEditPage>Bạn không có quyền chỉnh sửa trang này.</NotEditPage>
       </edit>
       <delete>
         <NotDelete>Bạn không có quyền xóa trang này.</NotDelete>
