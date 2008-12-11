@@ -8,7 +8,7 @@
 	  -->
     <accessPermission>Quyền truy cập</accessPermission>
     <abort>Thoát</abort>
-    <action>Action</action>
+    <action>Thực hiện</action>
     <!--
 		###################################################################
 		#                  EXPRESSION START  WITH 'B'                     #
@@ -22,7 +22,7 @@
 	  ###################################################################
 	  -->
     <cancel>Hủy</cancel>
-    <category>Category</category>
+    <category>Danh mục</category>
     <change>Thay đổi</change>
     <city>Thành phố</city>
     <close>Đóng</close>
@@ -34,8 +34,8 @@
 		#                  EXPRESSION START  WITH 'd'                     #
 		###################################################################
 		-->
-    <date>Date</date>
-    <decorator>Decorator</decorator>
+    <date>Ngày</date>
+    <decorator>Trang trí</decorator>
     <department>Bộ phận</department>
     <description>Mô tả</description>
     <!--
@@ -43,7 +43,7 @@
 	  #                  EXPRESSION START  WITH 'e'                     #
 	  ###################################################################
 	  -->
-    <editPermission>Edit Permission</editPermission>
+    <editPermission>Sửa quyền</editPermission>
     <email>Email</email>
     <employer>Nhà tuyển dụng</employer>
     <!--
@@ -86,8 +86,8 @@
 		#                  EXPRESSION START  WITH 'l'                     #
 		###################################################################
 		-->
-    <locale>Địa phương</locale>
-    <label>Label</label>
+    <locale>Ngôn ngữ</locale>
+    <label>Nhãn</label>
     <language>Ngôn ngữ</language>
     <lastName>Họ</lastName>
     <!--
@@ -122,27 +122,27 @@
 	  ###################################################################
 	  -->
     <refresh>Refresh</refresh>
-    <restore>Restore</restore>
+    <restore>Khôi phục</restore>
 	  <!--
 	  ###################################################################
 	  #                  EXPRESSION START  WITH 's'                     #
 	  ###################################################################
 	  -->
     <save>Lưu</save>
-    <stateProv>State/Prov</stateProv>
+    <stateProv>Tỉnh/Thành phố</stateProv>
     <street>Phố</street>
     <style>Style</style>
     <subject>Subject</subject>
-    <summary>Summary</summary>
-    <skin>Skin</skin>
+    <summary>Tóm tắt</summary>
+    <skin>Giao diện</skin>
 	  <!--
 	  ###################################################################
 	  #                  EXPRESSION START  WITH 't'                     #
 	  ###################################################################
 	  -->
-    <template>Template</template>
+    <template>Khuôn mẫu</template>
     <tel>Điện thoại</tel>
-    <title>Title</title>
+    <title>Tiêu đề</title>
 	  <!--
 	  ###################################################################
 	  #                  EXPRESSION START  WITH 'u'                     #
@@ -156,7 +156,7 @@
 	  #                  EXPRESSION START  WITH 'v'                     #
 	  ###################################################################
 	  -->
-    <viewPermission>View Permission</viewPermission>
+    <viewPermission>Xem quyền</viewPermission>
     <!--
 	  ###################################################################
 	  #                  EXPRESSION START  WITH 'w'                     #
