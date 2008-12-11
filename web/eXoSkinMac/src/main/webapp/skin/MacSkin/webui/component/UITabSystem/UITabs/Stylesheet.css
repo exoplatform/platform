@@ -10,8 +10,8 @@
 }
 
 .UIHorizontalTabs .UITab {
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
   text-align: center;
 }
 
@@ -300,8 +300,10 @@
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .RightTab {
   line-height: 32px;
-  padding-right: 7px;
-  background: url('background/SeparatorLine1x2.gif') repeat-y right;
+  padding-right: 7px; 	/* orientation=lt */
+  padding-left: 7px; 		/* orientation=rt */
+  background: url('background/SeparatorLine1x2.gif') repeat-y right; 			/* orientation=lt */
+  background: url('background/SeparatorLine1x2-rt.gif') repeat-y left; 		/* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
@@ -316,7 +318,8 @@
   float: left; /* orientation=lt */
   float: right; /* orientation=rt */
   width: 30px; height: 25px;
-  margin: 4px 4px 0px 2px;
+  margin: 4px 4px 0px 2px; 	/* orientation=lt */
+  margin: 4px 2px 0px 4px; 	/* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .InfoIcon {
@@ -345,8 +348,10 @@
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .RightTab {
   line-height: 32px;
-  padding-right: 7px;
-  background: #e6e6e6 url('background/SeparatorLine2x2.gif') repeat-y right;
+  padding-right: 7px; 	/* orientation=lt */
+  padding-left: 7px; 		/* orientation=rt */
+  background: #e6e6e6 url('background/SeparatorLine2x2.gif') repeat-y right; 			/* orientation=lt */
+  background: #e6e6e6 url('background/SeparatorLine2x2-rt.gif') repeat-y left; 		/* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {

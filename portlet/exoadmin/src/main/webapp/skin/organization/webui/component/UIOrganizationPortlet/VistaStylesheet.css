@@ -26,7 +26,8 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupInfoContainer .UIGrid td {
 	height: auto;
-	padding: 4px 0px 7px 7px;
+	padding: 4px 0px 7px 7px; /* orientation=lt */
+	padding: 4px 7px 7px 0px; /* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
@@ -95,20 +96,23 @@
 
 .UIOrganizationPortlet .PersonalInfoIcon {
   width: 32px ;  height: 32px ;
-  float: left ;
+  float: left ;			/* orientation=lt */
+  float: right ;		/* orientation=rt */
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/PersonalInfo.gif') ;
 }
 
 .UIOrganizationPortlet .HomeInfoIcon {
   width: 32px ;  height: 32px ;
-  float: left ;
+  float: left ;			/* orientation=lt */
+  float: right ;		/* orientation=rt */
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/HomeInfo.gif') ;
 
 }
 
 .UIOrganizationPortlet .BusinessInfoIcon {
   width: 32px ;  height: 32px ;
-  float: left ;
+  float: left ;			/* orientation=lt */
+  float: right ;		/* orientation=rt */
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/32x32/icons/BusinessInfo.gif') ;
 }
 
@@ -116,7 +120,8 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/NormalGroup.png') no-repeat;
-  height: 24px; width: 24px;
+  height: 24px; 
+  width: 24px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
@@ -204,7 +209,8 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail .WorkingArea {
-  padding-left: 2px ;
+  padding-left: 2px ; /* orientation=lt */
+  padding-right: 2px ; /* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TopDecorator {

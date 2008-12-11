@@ -64,7 +64,8 @@
 }
 
 .UIToolbar .LargeToolbar .HorizontalSeparator {
-  float: left ;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
   margin: 5px 2px 0px 1px ;
   width: 2px; height: 50px ;
 }
@@ -80,14 +81,16 @@
 }
 
 .UIToolbar .LargeToolbar .UserButton {
-  float: left;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
   width: 130px;
   cursor: pointer;
 	text-align: center;
 }
 
 .UIToolbar .LargeToolbar .GroupButton {
-  float: left;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
   width: 140px;
   cursor: pointer;
 	text-align: center;
@@ -100,7 +103,8 @@
 
 
 .UIToolbar .LargeToolbar .MembershipButton {
-  float: left;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
   width: 178px;
   cursor: pointer;
 	text-align: center;
@@ -175,8 +179,10 @@
 }
 
 .UIToolbar .BlueLargeToolbar .HorizontalSeparator {
-  float: left;
-  margin: 0px 8px 0px 10px;
+	float: left;	 	/* orientation=lt */
+	float: right;	 	/* orientation=rt */
+  margin: 0px 8px 0px 10px;	 	/* orientation=lt */
+  margin: 0px 10px 0px 8px;	 	/* orientation=rt */
   width: 2px; height: 48px;
   background: url('background/BlueLargeToolbar.gif') no-repeat -6px top;
 }
@@ -191,7 +197,8 @@
 }
 
 .UIToolbar .BlueLargeToolbar .ItemButton {
-	float: left;
+	float: left;	 	/* orientation=lt */
+	float: right;	 	/* orientation=rt */
 	text-align: center;
 	padding: 5px;
 	width: 150px;

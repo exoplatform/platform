@@ -270,7 +270,8 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .TabIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   width: 32px; height: 21px;
   margin-top: 4px;
 }
@@ -302,8 +303,10 @@
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .RightTab {
   line-height: 27px;
-  padding-right: 7px;
-  background: url('background/MessageTabDialog.gif') repeat-y right -182px;
+  padding-right: 7px;		/* orientation=lt */
+  padding-left: 7px;		/* orientation=rt */
+  background: url('background/MessageTabDialog.gif') repeat-y right -182px;			/* orientation=lt */
+  background: url('background/MessageTabDialog-rt.gif') repeat-y left -182px;		/* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
@@ -317,7 +320,8 @@
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .TabIcon {
   float: left; /* orientation=lt */
   float: right; /* orientation=rt */
-  width: 32px; height: 21px;
+  width: 32px; 
+  height: 21px;
   margin-top: 4px;
 }
 
@@ -341,14 +345,18 @@
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {
   line-height: 27px;
-  padding-left: 2px;
-  background: url('background/MessageTabDialog.gif') no-repeat left -126px;
+  padding-left: 2px; /* orientation=lt */
+  padding-left: 7px; /* orientation=rt */
+  background: url('background/MessageTabDialog.gif') no-repeat left -126px; /* orientation=lt */
+  background: url('background/MessageTabDialog-rt.gif') no-repeat left -126px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .RightTab {
   line-height: 27px;
-  padding-right: 7px;
-  background: url('background/MessageTabDialog.gif') no-repeat right -126px;
+  padding-right: 7px; 	/* orientation=lt */
+  padding-right: 2px; 		/* orientation=rt */
+  background: url('background/MessageTabDialog.gif') no-repeat right -126px; 		/* orientation=lt */
+  background: url('background/MessageTabDialog-rt.gif') no-repeat right -126px; 	/* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {

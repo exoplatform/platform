@@ -31,17 +31,23 @@
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
-  padding: 0px 0px 0px 5px ;
-  background: url('background/Breadcumbs.png') no-repeat left top;
+  padding: 0px 0px 0px 5px ; /* orientation=lt */
+  padding: 0px 0px 0px 7px ; /* orientation=rt */
+  background: url('background/Breadcumbs.png') no-repeat left top; /* orientation=lt */
+  background: url('background/Breadcumbs-rt.png') no-repeat left -33px; /* orientation=rt */
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
-  padding: 0px 7px 0px 0px;
-  background: url('background/Breadcumbs.png') no-repeat right -33px;
+  padding: 0px 7px 0px 0px; /* orientation=lt */
+  padding: 0px 5px 0px 0px; /* orientation=rt */
+  background: url('background/Breadcumbs.png') no-repeat right -33px; /* orientation=lt */
+  background: url('background/Breadcumbs-rt.png') no-repeat right top; /* orientation=rt */
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
-  height: 33px; line-height: 33px; vertical-align: middle;
+  height: 33px; 
+  line-height: 33px; 
+  vertical-align: middle;
   background: url('background/Breadcumbs.png') repeat-x bottom;
 }
 
@@ -50,5 +56,6 @@
   float: right; /* orientation=rt */
   width: 16px; height: 16px;
   margin: 10px 5px 0px 5px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow.gif') no-repeat;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow.gif') no-repeat left; /* orientation=lt */
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow-rt.gif') no-repeatright; /* orientation=rt */
 }

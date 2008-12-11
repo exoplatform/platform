@@ -48,8 +48,10 @@
 }
 
 .UITrees .Node .NodeIcon {
-	background-position: left top;
-	padding-left: 20px;
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
 	width: auto;
 	height: auto;
 	font-weight: bold;

@@ -26,18 +26,24 @@
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
-  padding-left: 8px ;
-  background: url('background/Breadcumbs.png') no-repeat left top;
+  padding-left: 8px ; /* orientation=lt */
+  padding-left: 9px ; /* orientation=rt */
+  background: url('background/Breadcumbs.png') no-repeat left top; /* orientation=lt */
+  background: url('background/Breadcumbs-rt.png') no-repeat left -33px; /* orientation=rt */
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
-  padding-right: 9px;
-  background: url('background/Breadcumbs.png') no-repeat right -33px;
+  padding-right: 9px; /* orientation=lt */
+  padding-right: 8px; /* orientation=rt */
+  background: url('background/Breadcumbs.png') no-repeat right -33px; /* orientation=lt */
+	background: url('background/Breadcumbs-rt.png') no-repeat right top; /* orientation=rt */
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
   background: url('background/Breadcumbs.png') repeat-x bottom;
-  height: 33px; line-height: 26px; vertical-align: middle;
+  height: 33px; 
+  line-height: 26px; 
+  vertical-align: middle;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {

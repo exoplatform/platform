@@ -18,9 +18,13 @@
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLabel {
-  float: left ;
-  height: 25px ; line-height: 25px ;  
-  color: #5c5c5c; font-weight: bold; text-transform: capitalize;
+  float: left ;			/* orientation=lt */
+  float: right ;		/* orientation=rt */
+  height: 25px ; 
+  line-height: 25px ;  
+  color: #5c5c5c; 
+  font-weight: bold; 
+  text-transform: capitalize;
 }
 
 /****-SelectedTab VerticalSlideTabs-****/
@@ -40,24 +44,28 @@
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
-  float: left;
+  float: left;	 	/* orientation=lt */
+  float: right;	 	/* orientation=rt */
   height: 25px ; line-height: 25px ; 
   color: #1e5bfb; font-weight: bold; text-transform: capitalize;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .ControlContainer {
-  float: right;
+	float: right;	 	/* orientation=lt */
+	float: left; 		/* orientation=rt */
   padding-right: 2px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .ControlIcon {
-  float: left;
+  float: left;	 	/* orientation=lt */
+  float: right;	 	/* orientation=rt */
   margin: 4px 2px 0px 2px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .EditIcon{
   width: 16px;  height: 17px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat left top;				/* orientation=lt */
+  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon-rt.png') no-repeat right top;		/* orientation=rt */
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .DeleteIcon{

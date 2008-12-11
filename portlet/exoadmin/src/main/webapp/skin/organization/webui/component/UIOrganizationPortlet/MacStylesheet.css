@@ -25,7 +25,8 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupInfo .UIGrid td {
 	height: auto;
-	padding: 4px 0px 7px 7px;
+	padding: 4px 0px 7px 7px; /* orientation=lt */
+	padding: 4px 7px 7px 0px; /* orientation=rt */
 }
 
 .UIOrganizationPortlet .OrganizationPortletContainer {
@@ -33,10 +34,10 @@
 } 
 
 .UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
-  float: left ;			/* orientation=lt */
-  float: right ;		/* orientation=rt */
-  margin: 5px 2px 0px 1px ;		/* orientation=lt */
-  margin: 5px 1px 0px 2px ;		/* orientation=rt */
+  float: left ; /* orientation=lt */
+  float: right ; /* orientation=rt */
+  margin: 5px 2px 0px 1px ; /* orientation=lt */
+  margin: 5px 1px 0px 2px ; /* orientation=rt */
   width: 2px; 
   height: 50px ;
 }

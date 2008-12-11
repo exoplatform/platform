@@ -88,12 +88,12 @@
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
-  padding-right: 7px; /* orientation=lt */
-  padding-left: 7px; /* orientation=rt */
-  margin-right: 7px; /* orientation=lt */
-  margin-left: 7px; /* orientation=rt */
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlackRightArrow.gif') no-repeat right; /* orientation=lt */
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlackRightArrow-rt.gif') no-repeat left; /* orientation=rt */
+  padding-right: 7px; 	/* orientation=lt */
+  padding-left: 7px; 		/* orientation=rt */
+  margin-right: 7px; 		/* orientation=lt */
+  margin-left: 7px; 		/* orientation=rt */
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlackRightArrow.gif') no-repeat right; 		/* orientation=lt */
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlackRightArrow-rt.gif') no-repeat left; 	/* orientation=rt */
   cursor: pointer;
 }
 /*###############-Hightlight Navigation Tab-################*/
@@ -343,8 +343,10 @@
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .RightTab {
   line-height: 27px;
-  padding-right: 7px;
-  background: url('background/SeparatorLine2x2.png') repeat-y right;
+  padding-right: 7px;		/* orientation=lt */
+  padding-left: 7px;		/* orientation=rt */
+  background: url('background/SeparatorLine2x2.png') repeat-y right; 			/* orientation=lt */
+  background: url('background/SeparatorLine2x2-rt.png') repeat-y left; 		/* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
@@ -383,14 +385,18 @@
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {
   line-height: 31px;
-  padding-left: 6px;
-  background: url('background/MessageTabDialog.png') no-repeat left top;
+  padding-left: 6px; /* orientation=lt */
+  padding-left: 11px; /* orientation=rt */
+  background: url('background/MessageTabDialog.png') no-repeat left top; /* orientation=lt */
+  background: url('background/MessageTabDialog-rt.png') no-repeat left -31px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .RightTab {
   line-height: 31px;
-  padding-right: 11px;
-  background: url('background/MessageTabDialog.png') no-repeat right -31px;
+  padding-right: 11px; 	/* orientation=lt */
+  padding-right: 6px; 	/* orientation=rt */
+  background: url('background/MessageTabDialog.png') no-repeat right -31px; 	/* orientation=lt */
+  background: url('background/MessageTabDialog-rt.png') no-repeat right top; 		/* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {

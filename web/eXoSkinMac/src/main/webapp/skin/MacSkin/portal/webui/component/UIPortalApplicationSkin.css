@@ -55,11 +55,13 @@ a {
 }
 
 .LeftBlock {
-	float: left;
+	float: left;		/* orientation=lt */
+	float: right;		/* orientation=rt */
 }
 
 .RightBlock {
-	float: right;
+	float: right;		/* orientation=lt */
+	float: left;		/* orientation=rt */
 }
 
 .InlineContainer {

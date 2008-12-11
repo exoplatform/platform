@@ -28,7 +28,8 @@
 }
 
 .UIUserSelector .UIAddressSearchForm input,.UIUserSelector .UIAddressSearchForm .GroupInput {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 .UIUserSelector .UIAddressSearchForm input{
@@ -42,22 +43,26 @@
 }
 
 .UIUserSelector .UIAddressSearchForm .SearchIcon {
-  float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   height: 20px; width: 24px;
   margin: 3px 10px;
 }
 
 .UIUserSelector .UIAddressSearchForm .AddressLabel {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	padding: 0px 4px;
 	line-height: 21px;	
 }
 
 .UIUserSelector .UIAddressSearchForm select {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	height: 21px;
 	font-size: 11px;
-	margin-left: 4px;
+	margin-left: 4px; /* orientation=lt */
+	margin-right: 4px; /* orientation=rt */
 	width: auto;
 }
 

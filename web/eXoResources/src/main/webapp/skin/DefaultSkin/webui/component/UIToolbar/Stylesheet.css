@@ -166,14 +166,18 @@
 }
 
 .UIToolbar .BlueLargeToolbar .HorizontalSeparator {
-  float: left;
+	float: left;	 	/* orientation=lt */
+	float: right;	 	/* orientation=rt */
   margin: 0px 8px 0px 10px;
-  width: 2px; height: 48px;
+  margin: 0px 10px 0px 8px;
+  width: 2px; 
+  height: 48px;
   background: url('background/BlueLargeToolbar.gif') no-repeat -6px top;
 }
 
 .UIToolbar .BlueLargeToolbar .ButtonLabel {
-  height: 20px; line-height: 20px;
+  height: 20px; 
+  line-height: 20px;
 }
 
 .UIToolbar .BlueLargeToolbar .ManagementIconContainer {
@@ -182,7 +186,8 @@
 }
 
 .UIToolbar .BlueLargeToolbar .ItemButton {
-	float: left;
+	float: left;	 	/* orientation=lt */
+	float: right;	 	/* orientation=rt */
 	text-align: center;
 	padding: 5px;
 	width: 150px;

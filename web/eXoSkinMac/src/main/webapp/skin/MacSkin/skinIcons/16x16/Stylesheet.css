@@ -21,8 +21,10 @@
 }
 
 .SearchIcon {
-  width: 16px;  height: 16px;
-  background: url('icons/SearchIcon.png') no-repeat;
+  width: 16px;  
+  height: 16px;
+  background: url('icons/SearchIcon.png') no-repeat left; /* orientation=lt */
+  background: url('icons/SearchIcon-rt.png') no-repeat right; /* orientation=rt *
 }
 
 .SelectPage16x16Icon {
@@ -116,7 +118,8 @@
 
 .EditIcon {
 	width: 16px;	height: 16px;
-  background: url('icons/EditIcon.png') no-repeat;
+  background: url('icons/EditIcon.png') no-repeat;				/* orientation=lt */
+  background: url('icons/EditIcon-rt.png') no-repeat;			/* orientation=rt */
 }
 
 .DeleteIcon {
@@ -170,8 +173,8 @@
 }
 
 .BlueInfoBox16x16Icon {
-  background: url('icons/BlueInfoBox.gif') no-repeat; /* orientation=lt */
-  background: url('icons/BlueInfoBox.gif') no-repeat right center; /* orientation=rt */
+  background: url('icons/BlueInfoBox.gif') no-repeat left center; 		/* orientation=lt */
+  background: url('icons/BlueInfoBox.gif') no-repeat right center; 		/* orientation=rt */
   width: 16px;  height: 16px;
 }
 

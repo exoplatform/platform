@@ -15,7 +15,8 @@
 
 .RightBlackGridArrow16x16Icon {
   width: 16px; height: 16px;
-  background: url('icons/RightBlackGridArrow.gif') no-repeat;
+  background: url('icons/RightBlackGridArrow.gif') no-repeat;				/* orientation=lt */
+  background: url('icons/RightBlackGridArrow-rt.gif') no-repeat;		/* orientation=rt */
 }
 
 .DefaultPortlet16x16Icon {
@@ -34,8 +35,10 @@
 }
 
 .SearchIcon {
-  width: 16px;  height: 16px;
-  background: url('icons/SearchIcon.png') no-repeat;
+  width: 16px;  
+  height: 16px;
+  background: url('icons/SearchIcon.png') no-repeat left; /* orientation=lt */
+  background: url('icons/SearchIcon-rt.png') no-repeat right; /* orientation=rt */
 }
 
 .SelectPage16x16Icon {
@@ -88,7 +91,8 @@
 
 .EditIcon {
 	width: 16px;	height: 16px;
-  background: url('icons/Pencil.png') no-repeat;
+  background: url('icons/Pencil.png') no-repeat;				/* orientation=lt */
+  background: url('icons/Pencil-rt.png') no-repeat;			/* orientation=rt */
 }
 
 .DeleteIcon {
