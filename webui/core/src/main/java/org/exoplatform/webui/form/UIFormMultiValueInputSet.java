@@ -53,7 +53,14 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
    */
   private Class<? extends UIFormInput> clazz_;  
   private Constructor constructor_ = null;
-
+  /**
+   * Whether this field is enabled
+   */
+  protected boolean enable_ = true;
+  /**
+   * Whether this field is in read only mode
+   */
+  protected boolean readonly_ = false;
   public UIFormMultiValueInputSet() throws Exception {
     super(null, null);
   }
@@ -95,6 +102,18 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
     return this;
   } 
 
+  public boolean isEnable() { return enable_; }  
+  public UIFormMultiValueInputSet setEnable(boolean enable) {
+    enable_ = enable;
+    return this;
+  }
+  
+  public boolean isEditable() { return !readonly_; }
+  public UIFormMultiValueInputSet setEditable(boolean editable) { 
+    readonly_ = !editable;
+    return this;
+  }
+  
   public void processDecode(WebuiRequestContext context) throws Exception {   
     super.processDecode(context);
     UIForm uiForm  = getAncestorOfType(UIForm.class);
@@ -116,6 +135,10 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
     for(int i = 0; i < size; i++) {
       UIFormInputBase uiInput = getChild(i) ;
       writer.append("<div class=\"MultiValueContainer\">") ;
+      
+      uiInput.setEditable(!readonly_);
+      uiInput.setEnable(enable_);
+      
       uiInput.processRender(context) ;
 
       if(size >= 2){
@@ -148,7 +171,9 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
       String id = event.getRequestContext().getRequestParameter(OBJECTID);  
       if(uiSet.getId().equals(id)){
         // get max id 
-        UIFormInputBase uiInput = (UIFormInputBase)uiSet.getChildren().get(uiSet.getChildren().size() - 1);
+        int size = uiSet.getChildren().size();
+        if (size <=0) return;
+        UIFormInputBase uiInput = (UIFormInputBase)uiSet.getChildren().get(size - 1);
         String index = uiInput.getId();
         int maxIndex = Integer.parseInt(index.replaceAll(id, ""));
         uiSet.createUIFormInput(maxIndex + 1);
