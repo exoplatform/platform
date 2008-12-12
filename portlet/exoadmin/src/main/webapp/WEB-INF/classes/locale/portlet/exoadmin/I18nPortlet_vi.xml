@@ -34,9 +34,9 @@
       <language>Ngôn ngữ</language>
     </label>
     <action>
-      <Save>Save</Save>
+      <Save>Lưu</Save>
       <Cancel>Cancel</Cancel>
-      <Edit>Sủa</Edit>
+      <Edit>Sửa</Edit>
     </action>
     <add>
       <exist>resource này đã tồn tại, xin vui lòng chọn cái khác!</exist>

@@ -376,7 +376,7 @@
   </UIAccountForm>
   <UIAccountInputSet>
     <msg>
-      <user-exist>Tên người dùng này đang tồn tại, xin hãy chọn tên khác!</user-exist>
+      <user-exist>Tên Người dùng này đã tồn tại, xin hãy chọn tên khác!</user-exist>
       <user-not-exist>Tên người dùng này không tồn tại!</user-not-exist>
       <empty-input>Tên người dùng này không được để trống!</empty-input>
       <successful>
@@ -1176,17 +1176,17 @@
     </tab>
     <label>
       <normalPage>
-        <EmptyLayout>Trống không</EmptyLayout>
+        <EmptyLayout>Mặc định</EmptyLayout>
         <DesktopImage>Bố trí kiểu Desktop</DesktopImage>
         <DashboardLayout>Bố trí kiểu Dashboard</DashboardLayout>
       </normalPage>
       <columnPage>
-        <TwoColumnsLayout>Kiểu bố trí gồm 2 cột</TwoColumnsLayout>
-        <ThreeColumnsLayout>Kiểu bố trí gồm 3 cột</ThreeColumnsLayout>
+        <TwoColumnsLayout>2 cột</TwoColumnsLayout>
+        <ThreeColumnsLayout>3 cột</ThreeColumnsLayout>
       </columnPage>
       <rowPage>
-        <TwoRowsLayout>Kiểu bố trí gồm 2 dòng</TwoRowsLayout>
-        <ThreeRowsLayout>Kiểu bố trí gồm 3 dòng</ThreeRowsLayout>
+        <TwoRowsLayout>2 dòng</TwoRowsLayout>
+        <ThreeRowsLayout>3 dòng</ThreeRowsLayout>
       </rowPage>
       <tabsPage>
         <TwoTabsLayout>2 Tab</TwoTabsLayout>
@@ -1637,19 +1637,19 @@
   <UIPortalComponentLogin>
     <label>
       <password>Mật khẩu:</password>
-      <username>Tên người dùng:</username>
+      <username>Tên đăng nhập:</username>
     </label>
   </UIPortalComponentLogin>
   <UIForgetPasswordWizard>
-    <title>có gì ngăn cản bạn truy nhập eXo?</title>
+    <title>Có gì ngăn cản bạn truy nhập eXo?</title>
     <action>
       <Next>Tiếp tục</Next>
       <Back>Quay lại</Back>
     </action>
-    <info><![CDATA[Chúng tôi xin lỗi vì bất tiện mà bạn đang gặp do không thể truy cập Exo được.<br /> Để giải quyết vấn đề này nhanh nhất có thể, hãy thực hiện từng bước theo hướng dẫn dưới.<br />Việc thực hiện chính xác các hướng dẫn này sẽ đảm bảo rằng nhận được những kết quả tốt nhất.<br /><br />1. Khôi phục mật khẩu của bạn: Nhập <strong>tên người dùng</strong> Sau đó click Gửi.<br/>2. Khôi phục tên người dùng: Nhập <strong>địa chỉ email của bạn</strong> sau đó click Gửi.<br/>]]></info>
+    <info><![CDATA[Chúng tôi xin lỗi vì bất tiện mà bạn đang gặp do không thể truy cập Exo được.<br /> Để giải quyết vấn đề này nhanh nhất có thể, hãy thực hiện từng bước theo hướng dẫn dưới.<br />Việc thực hiện chính xác các hướng dẫn này sẽ đảm bảo rằng nhận được những kết quả tốt nhất.<br /><br />1. Khôi phục mật khẩu của bạn: Nhập <strong>tên đăng nhập</strong> Sau đó click Gửi email.<br/>2. Khôi phục tên đăng nhập: Nhập <strong>địa chỉ email của bạn</strong> sau đó click Gửi email.<br/>]]></info>
     <label>
       <forgotpassword>Quên mật khẩu</forgotpassword>
-      <forgotusername>Quên tên người dùng</forgotusername>
+      <forgotusername>Quên tên đăng nhập</forgotusername>
     </label>
   </UIForgetPasswordWizard>
   <!--
@@ -1664,7 +1664,7 @@
       <Back>Loại bỏ</Back>
     </action>
     <label>
-      <username>Tên người dùng:</username>
+      <username>Tên đăng nhập:</username>
       <email>E-mail :</email>
     </label>
     <msg>
@@ -1675,9 +1675,9 @@
     <mail>
       <header>Cảm ơn bạn đã liên lạc với nhóm hỗ trợ Portal của eXo. Bạn đã gửi đi một yêu cầu về tên và mật khẩu người dùng của bạn.</header>
       <footer>Cảm ơn, Nhớm hỗ trợ portal của eXo.</footer>
-      <user>Tên người dùng cho tài khoản của bạn là: </user>
+      <user>Tên đăng nhập cho tài khoản của bạn là: </user>
       <password>Mật khẩu truy nhập của bạn là: </password>
-      <link>Sau đó bạn có thể yêu cầu một mật khẩu mới cho tên người dùng vui lòng bấm vào liên kết này:</link>
+      <link>Sau đó bạn có thể yêu cầu một mật khẩu mới cho tên đăng nhập vui lòng bấm vào liên kết này:</link>
     </mail>
   </UIForgetPassword>
   <UIResetPassword>
@@ -1690,7 +1690,7 @@
       <username>Tên người dùng:</username>
       <password>Mật khẩu:</password>
       <changepass>Thay đổi mật khẩu:</changepass>
-      <newpassword>Mật khẩu mới:</newpassword>
+      <newpassword>Mật khẩu:</newpassword>
       <confirmnewpassword>Xác nhận mật khẩu mới:</confirmnewpassword>
     </label>
     <msg>
@@ -2065,7 +2065,7 @@
       </label>
     </UIDropDown>
     <tooltip>
-      <widgetManagent>Việc Quảnn lý các container Gadget</widgetManagent>
+      <widgetManagent>Việc quản lý các container Gadget</widgetManagent>
     </tooltip>
   </UIWidgets>
   <!--
@@ -2139,7 +2139,7 @@
     </action>
     <label>
       <currentpass>Mật khẩu hiện thời :</currentpass>
-      <newpass>Mật khẩu mới :</newpass>
+      <newpass>Mật khẩu :</newpass>
       <confirmnewpass>Xác nhận lại mật khẩu :</confirmnewpass>
     </label>
     <msg>
@@ -2355,7 +2355,7 @@
         <userName>Tên người dùng</userName>
         <lastName>Họ</lastName>
         <firstName>Tên</firstName>
-        <email>Email</email>
+        <email>Hộp thư</email>
       </option>
       <group>Nhóm :</group>
       <searchUser>Tìm kiếm :</searchUser>
@@ -2383,9 +2383,9 @@
       <Categories>Danh mục</Categories>
       <Select>Chọn ứng dụng</Select>
       <NoneApp>Không có ứng dụng nào ở đây. Vào portlet Quản lý ứng dụng để thêm ứng dụng.</NoneApp>
-      <Type>Type:</Type>
+      <Type>Kiểu:</Type>
       <Created>Người tạo:</Created>
-      <Description>Diễn tả:</Description>
+      <Description>Mô tả:</Description>
       <Close>Đóng</Close>
     </label>
   </UIAddNewApplication>

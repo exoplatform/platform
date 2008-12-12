@@ -36,7 +36,7 @@
 		-->
     <date>Ngày</date>
     <decorator>Trang trí</decorator>
-    <department>Bộ phận</department>
+    <department>Phòng/Ban</department>
     <description>Mô tả</description>
     <!--
 	  ###################################################################
@@ -44,7 +44,7 @@
 	  ###################################################################
 	  -->
     <editPermission>Sửa quyền</editPermission>
-    <email>Email</email>
+    <email>Hộp thư</email>
     <employer>Nhà tuyển dụng</employer>
     <!--
 	  ###################################################################
@@ -129,9 +129,9 @@
 	  ###################################################################
 	  -->
     <save>Lưu</save>
-    <stateProv>Tỉnh/Thành phố</stateProv>
+    <stateProv>Quận/Huyện</stateProv>
     <street>Đường Phố</street>
-    <style>Style</style>
+    <style>Giao diện</style>
     <subject>Chủ đề</subject>
     <summary>Tóm tắt</summary>
     <skin>Giao diện</skin>
@@ -162,8 +162,8 @@
 	  #                  EXPRESSION START  WITH 'w'                     #
 	  ###################################################################
 	  -->
-    <width>Chiểu rộng</width>
-    <website>Website</website>
+    <width>Chiều rộng</width>
+    <website>Trang web</website>
   </word>
 </bundle>
 

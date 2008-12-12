@@ -14,7 +14,7 @@
       <Confirmpassword>Xác nhận mật khẩu:</Confirmpassword>
       <firstName>#{word.firstName}:</firstName>
       <lastName>#{word.lastName}:</lastName>
-      <email>Email:</email>
+      <email>Hộp thư:</email>
       <note><![CDATA[Các trường có đánh dấu<span style="color: red">*</span> là trường bắt buộc]]></note>
       <action>
         <SearchUser>Tìm kiếm người dùng</SearchUser>

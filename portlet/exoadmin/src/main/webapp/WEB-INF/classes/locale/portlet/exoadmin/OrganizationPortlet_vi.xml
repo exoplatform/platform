@@ -5,19 +5,19 @@
   -->
   <UIOrganizationPortlet>
     <label>
-      <userManagement>Quản lí User</userManagement>
-      <groupManagement>Quản lí Group</groupManagement>
-      <membershipManagement>Quản lí Membership</membershipManagement>
+      <userManagement>Quản lí người dùng</userManagement>
+      <groupManagement>Quản lí nhóm</groupManagement>
+      <membershipManagement>Quản lí thành viên</membershipManagement>
     </label>
   </UIOrganizationPortlet>
   <!--
   ##org.exoplatform.organization.webui.component.UIMembershipTypeForm
   -->
   <UIMembershipTypeForm>
-    <title>Thêm/Sửa Membership</title>
+    <title>Thêm/Sửa Thành viên</title>
     <label>
-      <name>Tên Membership</name>
-      <description>Diễn tả</description>
+      <name>Tên thành viên</name>
+      <description>Mô tả</description>
     </label>
     <action>
       <Save>#{word.save}</Save>
@@ -25,7 +25,7 @@
       <Reset>Làm lại</Reset>
     </action>
     <msg>
-      <SameName>membership này đã tồn tại, xin vui lòng chọn cái khác!</SameName>
+      <SameName>Tên thành viên này đã tồn tại, xin vui lòng chọn cái khác!</SameName>
     </msg>
   </UIMembershipTypeForm>
   <!--
@@ -34,29 +34,29 @@
   <UIGroupEditMembershipForm>
     <label>
       <username>Tên người dùng</username>
-      <membership>Membership</membership>
+      <membership>Thành viên</membership>
     </label>
     <action>
-      <Save>Save</Save>
-      <Cancel>Cancel</Cancel>
+      <Save>Lưu</Save>
+      <Cancel>Hủy</Cancel>
     </action>
     <msg>
-      <membership-delete>Không thể save membership đã xóa!.</membership-delete>
-      <membership-exist>membership này đã tồn tại, xin vui lòng chọn cái khác!</membership-exist>
+      <membership-delete>Không thể lưu thành viên này, nó đã bị xóa!.</membership-delete>
+      <membership-exist>Thành viên này đã tồn tại, xin vui lòng chọn cái khác!</membership-exist>
     </msg>
   </UIGroupEditMembershipForm>
   <EditMembership>
     <title>
-      <UIGroupEditMembershipForm>Sửa Membership</UIGroupEditMembershipForm>
-      <EditMembership>Sửa Membership</EditMembership>
+      <UIGroupEditMembershipForm>Sửa thành viên</UIGroupEditMembershipForm>
+      <EditMembership>Sửa Thành viên</EditMembership>
     </title>
   </EditMembership>
   <UIGroupMembershipForm>
     <label>
-      <title>Group Membership</title>
-      <username>Username</username>
-      <membership>Membership</membership>
-      <SearchUser>Tìm kiếm User</SearchUser>
+      <title>Thành viên nhóm</title>
+      <username>Tên người dùng</username>
+      <membership>Thành viên</membership>
+      <SearchUser>Tìm kiếm người dùng</SearchUser>
       <Refresh>Refresh</Refresh>
     </label>
     <action>
@@ -76,9 +76,9 @@
   </SearchUserForm>
   <SearchUser>
     <title>
-      <UIUserSelector>Chọn User</UIUserSelector>
-      <SearchUser>Chọn User</SearchUser>
-      <ListUserForSearch>Tìm kiếm User</ListUserForSearch>
+      <UIUserSelector>Chọn người dùng</UIUserSelector>
+      <SearchUser>Chọn người dùng</SearchUser>
+      <ListUserForSearch>Tìm kiếm người dùng</ListUserForSearch>
     </title>
   </SearchUser>
   <!--
@@ -86,7 +86,7 @@
   -->
   <UIMemberShipForm>
     <msg>
-      <membershipType-exist>The membership type '{0}' is taken</membershipType-exist>
+      <membershipType-exist>Loại thành viên {0} đã  tồn tại</membershipType-exist>
     </msg>
   </UIMemberShipForm>
   <!--
@@ -94,9 +94,9 @@
   -->
   <UIMembershipForm>
     <label>
-      <username>User Name</username>
-      <membership>Membership</membership>
-      <name>Membership Name</name>
+      <username>Tên người dùng</username>
+      <membership>Thành viên</membership>
+      <name>Tên thành viên</name>
       <description>#{word.description}</description>
     </label>
     <action>
@@ -117,9 +117,9 @@
     </header>
     <action>
       <title>
-        <DeleteUser>Delete User</DeleteUser>
-        <SelectUser>Select User</SelectUser>
-        <ViewUserInfo>Edit User Info</ViewUserInfo>
+        <DeleteUser>Xóa người dùng</DeleteUser>
+        <SelectUser>Chọn người dùng</SelectUser>
+        <ViewUserInfo>Chỉnh sửa thông tin người dùng</ViewUserInfo>
       </title>
     </action>
     <label>
@@ -131,38 +131,38 @@
       </option>
     </label>
     <msg>
-      <DeleteSuperUser>{0} is Super User, it can not be deleted</DeleteSuperUser>
+      <DeleteSuperUser>{0} là người quản trị cấp cao, nên không thể xóa được</DeleteSuperUser>
     </msg>
-    <deleteUser>Bạn có chắc chắn muốn xóa user {0}?</deleteUser>
+    <deleteUser>Bạn có chắc chắn muốn xóa người dùng {0} không?</deleteUser>
   </UIListUsers>
   <UIListMembershipType>
-    <deleteMemberShip>Bạn có chắc chắn muốn xóa membership này?</deleteMemberShip>
+    <deleteMemberShip>Bạn có chắc chắn muốn xóa kiểu thành viên này không?</deleteMemberShip>
   </UIListMembershipType>
   <!--
   ##org.exoplatform.organization.webui.component.UIUserInfo
   -->
   <UIUserInfo>
-    <title>Thông tin về User</title>
+    <title>Thông tin về người dùng</title>
     <tab>
       <label>
-        <AccountInputSet>Account Info</AccountInputSet>
-        <UIUserProfileInputSet>User Profile</UIUserProfileInputSet>
-        <UIUserMembershipSelector>User Membership</UIUserMembershipSelector>
-        <UIAccountEditInputSet>Account Info</UIAccountEditInputSet>
+        <AccountInputSet>Thông tin tài khoản</AccountInputSet>
+        <UIUserProfileInputSet>Tiểu sử người dùng</UIUserProfileInputSet>
+        <UIUserMembershipSelector>Thành viên</UIUserMembershipSelector>
+        <UIAccountEditInputSet>Thông tin tài khoản</UIAccountEditInputSet>
       </label>
     </tab>
     <label>
       <changePassword>Thay đổi mật khẩu:</changePassword>
-      <newPassword>Mật khẩu mới:</newPassword>
+      <newPassword>Mật khẩu:</newPassword>
       <confirmPassword>Xác nhận mật khẩu:</confirmPassword>
-      <Profile>User Profile</Profile>
+      <Profile>Tiểu sử người dùng</Profile>
       <userName>#{word.userName}:</userName>
-      <password>Password :</password>
-      <Confirmpassword>Confirm Password :</Confirmpassword>
+      <password>Mật khẩu :</password>
+      <Confirmpassword>Xác nhận mật khẩu:</Confirmpassword>
       <firstName>#{word.firstName}:</firstName>
       <lastName>#{word.lastName}:</lastName>
-      <email>Email Address:</email>
-      <HomeInfo>Home Informations</HomeInfo>
+      <email>Địa chỉ hộp thư:</email>
+      <HomeInfo>Thông tin về nhà ở:</HomeInfo>
       <user>
         <name>
           <given>#{word.givenName}:</given>
@@ -193,15 +193,15 @@
           </telecom>
           <online>
             <email>#{word.email}:</email>
-            <uri>Website:</uri>
+            <uri>Trang web:</uri>
           </online>
         </home-info>
         <business-info>
           <postal>
             <name>#:</name>
             <city>#{word.city}:</city>
-            <stateprov>State/Prov:</stateprov>
-            <postalcode>Postal Code:</postalcode>
+            <stateprov> Bang/Tỉnh:</stateprov>
+            <postalcode>Mã bưu điện:</postalcode>
             <country>#{word.country}:</country>
           </postal>
           <telecom>
@@ -218,7 +218,7 @@
           </online>
         </business-info>
       </user>
-      <BusinessInfo>Business Informations</BusinessInfo>
+      <BusinessInfo>Thông tin doanh nghiệp</BusinessInfo>
     </label>
     <action>
       <Back>#{word.cancel}</Back>
@@ -230,7 +230,7 @@
   -->
   <UIUserInGroup>
     <confirm>
-      <deleteUser>Are you sure you want to delete user {0} from group {1}?</deleteUser>
+      <deleteUser>Bạn có chắc chắn muốn xóa người dùng {0} trong nhóm {1} không?</deleteUser>
     </confirm>
     <header>
       <userName>#{word.userName}</userName>
@@ -238,12 +238,12 @@
       <firstName>#{word.firstName}</firstName>
       <email>#{word.email}</email>
       <action>#{word.action}</action>
-      <membershipType>Membership Type</membershipType>
-      <lastLoginTime>Last Login</lastLoginTime>
+      <membershipType>Loại thành viên</membershipType>
+      <lastLoginTime>Lần cuối cùng đăng nhập</lastLoginTime>
     </header>
     <label>
       <username>#{word.userName}</username>
-      <membership>Membership name</membership>
+      <membership>Tên thành viên</membership>
     </label>
     <action>
       <title>
@@ -258,53 +258,53 @@
   <UIGroupInfo>
     <tab>
       <label>
-        <UIUserInGroup>User In Group</UIUserInGroup>
+        <UIUserInGroup>Người dùng trong nhóm</UIUserInGroup>
       </label>
     </tab>
     <label>
       <UIUserInGroup />
     </label>
-    <title>Group Info</title>
+    <title>Thông tin Group</title>
   </UIGroupInfo>
   <!--
   ##org.exoplatform.organization.webui.component.UIMembershipList
   -->
   <UIMembershipList>
     <header>
-      <name>Membership name</name>
-      <createdDate>Created date</createdDate>
-      <modifiedDate>Modified date</modifiedDate>
+      <name>Tên thành viên</name>
+      <createdDate>Ngày tạo</createdDate>
+      <modifiedDate>Ngày sửa</modifiedDate>
       <action>#{word.action}</action>
       <description>#{word.description}</description>
     </header>
     <action>
       <title>
-        <EditMembership>Sửa Membership</EditMembership>
-        <DeleteMembership>Xóa Membership</DeleteMembership>
+        <EditMembership>Sửa thành viên</EditMembership>
+        <DeleteMembership>Xóa thành viên</DeleteMembership>
       </title>
     </action>
     <msg>
-      <InUse>Bạn không thể xóa membership này vì nó đang sử dụng</InUse>
+      <InUse>Bạn không thể xóa thành viên này vì nó đang sử dụng</InUse>
     </msg>
   </UIMembershipList>
   <!--
   ##org.exoplatform.organization.webui.component.UIGroupMembershipForm
   -->
   <UIUserMembershipSelector>
-    <deleteMembership>Bạn có chắc chắn muốn xóa membership này?</deleteMembership>
+    <deleteMembership>Bạn có chắc chắn muốn xóa thành viên này không?</deleteMembership>
   </UIUserMembershipSelector>
   <!--
   ##org.exoplatform.organization.webui.component.UIGroupForm
   -->
   <AddGroup>
-    <title>Add New Group</title>
+    <title>Thêm một nhóm mới</title>
     <action>
       <Save>#{word.save}</Save>
       <Back>#{word.cancel}</Back>
     </action>
   </AddGroup>
   <EditGroup>
-    <title>Edit Current Group</title>
+    <title>Chỉnh sửa nhóm hiện tại</title>
     <action>
       <Save>#{word.save}</Save>
       <Back>#{word.cancel}</Back>
@@ -312,8 +312,8 @@
   </EditGroup>
   <UIGroupForm>
     <label>
-      <groupName>Group Name</groupName>
-      <description>Description</description>
+      <groupName>Tên nhớm</groupName>
+      <description>Mô tả</description>
       <label>Label</label>
     </label>
     <msg>
@@ -327,10 +327,10 @@
   -->
   <UITabPane>
     <title>
-      <UISharedNavigationForm>Shared Navigation</UISharedNavigationForm>
-      <UISharedPortalForm>Shared Portal</UISharedPortalForm>
-      <UIUserInGroup>Group Info</UIUserInGroup>
-      <UISharedNavigation>Group Page Navigation</UISharedNavigation>
+      <UISharedNavigationForm>Chia xẻ Navigation</UISharedNavigationForm>
+      <UISharedPortalForm>Chia xẻ Portal</UISharedPortalForm>
+      <UIUserInGroup>Thông tin nhóm</UIUserInGroup>
+      <UISharedNavigation>Trang Navigation nhóm</UISharedNavigation>
     </title>
   </UITabPane>
   <UISharedNavigationForm>
@@ -341,18 +341,18 @@
     </action>
     <label>
       <navigation>Navigation</navigation>
-      <description>Description</description>
-      <membership>Membership</membership>
-      <priority>Priority</priority>
+      <description>Mô tả</description>
+      <membership>Thành viên</membership>
+      <priority>Độ ưu tiên</priority>
     </label>
     <tab>
       <label>
-        <SharedNavigation>Shared Navigation Setting</SharedNavigation>
-        <Permission>Permission Selector</Permission>
+        <SharedNavigation>Thiết định chia sẻ Navigation</SharedNavigation>
+        <Permission>Chọn quyền</Permission>
       </label>
     </tab>
     <msg>
-      <user-nonexist>User "{0}" is not exist</user-nonexist>
+      <user-nonexist>Người dùng "{0}" không tồn tại</user-nonexist>
     </msg>
   </UISharedNavigationForm>
   <UISharedNavigation>
@@ -360,11 +360,11 @@
       <notSelected>Bạn cần phải chọn một nhóm!</notSelected>
     </msg>
     <label>
-      <userNavigation>User Page Navigation Name</userNavigation>
-      <priority>Priority</priority>
+      <userNavigation>Tên trang Navigation người dùng</userNavigation>
+      <priority>Độ ưu tiên</priority>
     </label>
     <action>
-      <Save>Save</Save>
+      <Save>Lưu</Save>
     </action>
   </UISharedNavigation>
   <!--
@@ -380,22 +380,22 @@
     </action>
     <label>
       <portal>Portal</portal>
-      <description>Description</description>
-      <membership>Membership</membership>
-      <priority>Priority</priority>
+      <description>Mô tả</description>
+      <membership>Thành viên</membership>
+      <priority>Độ ưu tiên</priority>
     </label>
     <tab>
       <label>
         <SharedPortal>Cấu hình Portal</SharedPortal>
-        <Permission>Permission Selector</Permission>
+        <Permission>Chọn quyền</Permission>
       </label>
     </tab>
     <msg>
-      <user-nonexist>User "{0}" is not exist</user-nonexist>
+      <user-nonexist>Người dùng "{0}" không tồn tại</user-nonexist>
     </msg>
   </UISharedPortalForm>
   <UIGroupSharedInfo>
-    <title>Share Info</title>
+    <title>Chia xẻ thông tin</title>
   </UIGroupSharedInfo>
   <!--
   #############################################################################
@@ -404,12 +404,12 @@
   -->
   <UIGroupManagement>
     <label>
-      <Groups>Groups</Groups>
-      <AddGroup>Add New Group</AddGroup>
-      <EditGroup>Edit Selected Group</EditGroup>
-      <DeleteGroup>Delete Selected Group</DeleteGroup>
+      <Groups>Nhóm</Groups>
+      <AddGroup>Thêm nhóm</AddGroup>
+      <EditGroup>Sửa nhóm</EditGroup>
+      <DeleteGroup>Xóa nhóm</DeleteGroup>
     </label>
-    <deleteGroup>Bạn có chắc chắn muốn xóa group này?</deleteGroup>
+    <deleteGroup>Bạn có chắc chắn muốn xóa nhóm này?</deleteGroup>
   </UIGroupManagement>
   <!--
   #############################################################################

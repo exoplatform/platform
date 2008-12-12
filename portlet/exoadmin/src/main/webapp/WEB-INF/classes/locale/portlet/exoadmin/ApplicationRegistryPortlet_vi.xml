@@ -4,7 +4,7 @@
   ##expression
   -->
   <word>
-    <cancel>Cancel</cancel>
+    <cancel>Hủy</cancel>
   </word>
   <label>
     <displayName>Tên hiển thị:</displayName>
@@ -12,18 +12,18 @@
   </label>
   <category>
     <msg>
-      <changeNotExist>Can not save changes to the category that no longer in database.</changeNotExist>
+      <changeNotExist>Danh mục này không còn tồn tại trong cơ sở dữ liệu, vì vậy không thể lưu lại những thay đổi.</changeNotExist>
     </msg>
   </category>
   <application>
     <msg>
-      <changeNotExist>Can not save changes to the application that no longer in database.</changeNotExist>
+      <changeNotExist>Ứng dụng này không còn tồn tại trong cơ sở dữ liệu, vì vậy không thể lưu lại những thay đổi.</changeNotExist>
     </msg>
     <label />
   </application>
   <gadget>
     <msg>
-      <changeNotExist>Can not save changes to the gadget that no longer in database.</changeNotExist>
+      <changeNotExist>Gadget này không còn tồn tại trong cơ sở dữ liệu, vì vậy không thể lưu lại những thay đổi.</changeNotExist>
     </msg>
   </gadget>
   <!--
@@ -31,7 +31,7 @@
   -->
   <UIToolbar>
     <label>
-      <organize>Organize</organize>
+      <organize>Tổ chức</organize>
       <portlet>Portlet</portlet>
       <gadget>Gadget</gadget>
     </label>
@@ -41,25 +41,25 @@
   -->
   <UIOrganizer>
     <label>
-      <addCategory>Thêm Category</addCategory>
+      <addCategory>Thêm danh mục</addCategory>
       <autoImport>Tự động Import</autoImport>
-      <categories>Categories</categories>
+      <categories>Danh mục</categories>
     </label>
     <title>
-      <editCategory>Sủa Category</editCategory>
-      <addApplication>Thêm ứng dụng vào catagory</addApplication>
-      <deleteCategory>Xóa Catagories</deleteCategory>
+      <editCategory>Chỉnh sửa danh mục</editCategory>
+      <addApplication>Thêm ứng dụng vào danh mục</addApplication>
+      <deleteCategory>Xóa danh mục</deleteCategory>
       <deleteApplication>Xóa ứng dụng</deleteApplication>
     </title>
     <msg>
-      <importAll>Việc làm này sẽ tự động tạo ra các category và nhập tất cả các Gadget và portlet vào trong các Catagory.</importAll>
-      <deleteCategory>Bạn có chắc chắn là muốn xóa category này và tất cả các ứng dụng trong nó?</deleteCategory>
+      <importAll>Việc làm này sẽ tự động tạo ra các danh mục và nhập tất cả các Gadget và portlet vào trong các danh mục.</importAll>
+      <deleteCategory>Bạn có chắc chắn là muốn xóa danh mục này và tất cả các ứng dụng trong nó?</deleteCategory>
       <deleteApplication>Bạn có chắc chắn là muốn xóa ứng dụng này?</deleteApplication>
-      <emptyCategory>Category này không chứa bất kỳ ứng dụng nào, click vào nút (+) để thêm ứng dụng.</emptyCategory>
-      <noCategory>Không có category. Bạn có thể click vào nút "Thêm category" hoặc "tự động Import" để thêm category.</noCategory>
-      <deleteCategoryInUse>Không thể xóa category này, nó đang được sử dụng.</deleteCategoryInUse>
+      <emptyCategory>Danh mục này không chứa bất kỳ ứng dụng nào, click vào nút (+) để thêm ứng dụng.</emptyCategory>
+      <noCategory>Không có danh mục. Bạn có thể click vào nút "Thêm danh mục" hoặc "tự động Import" để thêm danh mục.</noCategory>
+      <deleteCategoryInUse>Không thể xóa danh mục này, nó đang được sử dụng.</deleteCategoryInUse>
       <deleteApplicationInUse>Không thể xóa ứng dụng này, nó đang được sử dụng.</deleteApplicationInUse>
-      <categoryNoExist>Category này không còn tồn tại trong cơ sở dữ liệu.</categoryNoExist>
+      <categoryNoExist>Danh mục này không còn tồn tại trong cơ sở dữ liệu.</categoryNoExist>
       <applicationNoExist>Ứng dụng này không còn tồn tại trong cơ sở dữ liệu.</applicationNoExist>
     </msg>
   </UIOrganizer>
@@ -86,9 +86,9 @@
   ##org.exoplatform.applicationregistry.webui.component.UIApplicationForm
   -->
   <UIApplicationForm>
-    <title>Sủa thông tin ứng dụng</title>
+    <title>Sửa thông tin ứng dụng</title>
     <label>
-      <applicationName>Tên Application:</applicationName>
+      <applicationName>Tên ứng dụng:</applicationName>
       <displayName>#{label.displayName}</displayName>
       <description>#{label.description}</description>
     </label>
@@ -104,14 +104,14 @@
     <header>
       <input>Chọn</input>
       <label>Tên hiển thị</label>
-      <description>Diễn tả</description>
+      <description>Mô tả</description>
     </header>
     <action>
       <Add>Thêm</Add>
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <PortletExist>Ứng dụng này đã tồn tại trong category, hãy chọn một ứng dụng khác!</PortletExist>
+      <PortletExist>Ứng dụng này đã tồn tại trong danh mục này, hãy chọn một ứng dụng khác!</PortletExist>
     </msg>
     <label>
       <displayName>#{label.displayName}</displayName>
@@ -123,7 +123,7 @@
   -->
   <UICategoryForm>
     <label>
-      <name>Tên Category:</name>
+      <name>Tên danh mục:</name>
       <displayName>#{label.displayName}</displayName>
       <description>#{label.description}</description>
       <UIListPermissionSelector />
@@ -133,12 +133,12 @@
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <SameName>Category này đã tồn tại, hãy nhập một tên khác!</SameName>
+      <SameName>Danh mục này đã tồn tại, hãy nhập một tên khác!</SameName>
     </msg>
     <tab>
       <label>
         <categoryPermission>Thiết định phân quyền</categoryPermission>
-        <categorySetting>Thiết định cho Category</categorySetting>
+        <categorySetting>Thiết định cho danh mục</categorySetting>
       </label>
     </tab>
   </UICategoryForm>
@@ -151,7 +151,7 @@
       <remote>TỪ XA</remote>
     </title>
     <msg>
-      <noPortlet>Không có Portlets nào.</noPortlet>
+      <noPortlet>Không có Portlet nào.</noPortlet>
     </msg>
   </UIPortletManagement>
   <!--
@@ -196,8 +196,8 @@
       <name>Tên Gadget:</name>
       <displayName>#{label.displayName}</displayName>
       <description>#{label.description}</description>
-      <viewUrl>URL để xem:</viewUrl>
-      <editUrl>URL để edit:</editUrl>
+      <viewUrl>Xem mã nguồn tại:</viewUrl>
+      <editUrl>Chỉnh sửa mã nguồn tại:</editUrl>
       <reference>Tham khảo:</reference>
     </label>
     <title>
@@ -228,14 +228,14 @@
   -->
   <UIGadgetEditor>
     <label>
-      <source>Source:</source>
+      <source>Mã nguồn:</source>
     </label>
     <action>
       <Save>#{word.save}</Save>
       <Cancel>#{word.cancel}</Cancel>
     </action>
     <msg>
-      <invalidSpec>This source is invalid gadget specification.</invalidSpec>
+      <invalidSpec>Mã nguồn này không hợp lệ.</invalidSpec>
     </msg>
   </UIGadgetEditor>
   <!--
@@ -243,8 +243,8 @@
   -->
   <UIListPermissionSelector>
     <header>
-      <groupId>Group</groupId>
-      <membership>Membership</membership>
+      <groupId>Nhóm</groupId>
+      <membership>Thành viên</membership>
     </header>
   </UIListPermissionSelector>
 </bundle>
