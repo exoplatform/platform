@@ -1,93 +1,99 @@
 .UISearch {
-  height: 37px;
-  line-height: 37px ;
-  margin-bottom: 2px;
+	height: 37px;
+	line-height: 37px;
+	margin-bottom: 2px;
 }
 
 .UISearch .UISearchForm {
-  height: 34px;
-  line-height: 34px;  
+	height: 34px;
+	line-height: 34px;	
 }
 
 .UISearch .UISearchForm .QuickSet {
-  overflow: hidden ;
-  width: 100% ;
+	overflow: hidden;
+	width: 100%;
 }
 
 .UISearch .UISearchForm .QuickSet .SearchTitle {
-  float: left; 			/* orientation=lt */
-  float: right; 		/* orientation=rt */
-  height: 20px; 
-  line-height: 20px; 
-  padding-left: 10px;  		/* orientation=lt */
-  padding-right: 10px; 		/* orientation=rt */ 
-  margin-top: 10px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 20px; 
+	line-height: 20px; 
+	padding-left: 10px;			/* orientation=lt */
+	padding-right: 10px; 		/* orientation=rt */ 
+	margin-top: 10px;
 }
-
+	
 .UISearch .UISearchForm .QuickSet .AdvancedSearchIcon {
-  margin: 7px 2px 0px 0px ;
-  width: 24px ;  
-  height: 24px ;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/AdvancedSearch.gif') no-repeat ;
-  float: left ;
+	margin: 7px 2px 0px 0px; /* orientation=lt */
+	margin: 7px 0px 0px 2px; /* orientation=rt */
+	width: 24px;	
+	height: 24px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/AdvancedSearch.gif') no-repeat;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 .UISearch .UISearchForm .QuickSet .AdvancedSearch {
-  float: right ;
-  margin-right: 10px;
-  font-weight: normal; 
-  color: black;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin-right: 10px;
+	font-weight: normal; 
+	color: black;
 }
 
 .UISearch .UISearchForm .QuickSet .SimpleSearchIcon {
-  margin: 9px 0px 0px 5px; 		/* orientation=lt */
-  margin: 9px 5px 0px 0px;		/* orientation=rt */
-  width: 24px ;  
-  height: 22px ;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SimpleSearch.gif') no-repeat ;			/* orientation=lt */
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SimpleSearch-rt.gif') no-repeat ;		/* orientation=rt */
-  float: left ;			/* orientation=lt */
-  float: right ;		/* orientation=rt */
+	margin: 9px 0px 0px 5px; 		/* orientation=lt */
+	margin: 9px 5px 0px 0px;		/* orientation=rt */
+	width: 24px;	
+	height: 22px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SimpleSearch.gif') no-repeat;			/* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SimpleSearch-rt.gif') no-repeat;		/* orientation=rt */
+	float: left;			/* orientation=lt */
+	float: right;		/* orientation=rt */
 }
 
 .UISearch .UISearchForm .QuickSet a:hover {
-  color: blue;
+	color: blue;
 }
 
 .UISearch .UISearchForm .QuickSet .UIForm {
-	background-color: transparent ;
-	border: none ;
+	background-color: transparent;
+	border: none;
 }
 
 .UISearch .UISearchForm .QuickSet select {
-  float: left ; 		/* orientation=lt */
-  float: right ; 		/* orientation=rt */
-  margin-top: 8px ;
-  width: 115px ; 
-  height: 20px;
-  border: 1px solid gray;
-  padding: 1px;
-  font-size: 11px;
+	float: left; 		/* orientation=lt */
+	float: right; 		/* orientation=rt */
+	margin-top: 8px;
+	width: 115px; 
+	height: 20px;
+	border: 1px solid gray;
+	padding: 1px;
+	font-size: 11px;
 }
 
 .UISearch .UISearchForm .QuickSet input {
-  float: left ;	 		/* orientation=lt */
-  float: right ;	 	/* orientation=rt */
-  margin: 8px 5px 0px 10px ;	 	/* orientation=lt */
-  margin: 8px 10px 0px 5px ;	 	/* orientation=rt */
-  width: 180px ; 
-  height: 18px;
-  border: 1px solid gray;
+	float: left;	 		/* orientation=lt */
+	float: right;	 	/* orientation=rt */
+	margin: 8px 5px 0px 10px;	 	/* orientation=lt */
+	margin: 8px 10px 0px 5px;	 	/* orientation=rt */
+	width: 180px; 
+	height: 18px;
+	border: 1px solid gray;
 }
 
 .UIFormTabPane .UISearch .UISearchForm .QuickSet select {
-  float: left ;
-  margin-top: 8px ;
-  width: 120px ;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin-top: 8px;
+	width: 120px;
 }
 
 .UIFormTabPane .UISearch .UISearchForm .QuickSet input {
-  float: left ;
-  margin: 3px 5px 0px 0px ;
-  width: 185px ;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 3px 5px 0px 0px; /* orientation=lt */
+	margin: 3px 0px 0px 5px; /* orientation=rt */
+	width: 185px;
 }

@@ -6,43 +6,48 @@
 }	
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 175px;
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList {
-	margin: 0px 0px 0px 180px;
+	margin: 0px 0px 0px 180px; /* orientation=lt */
+	margin: 0px 180px 0px 0px; /* orientation=rt */
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
-  background: #fafafa;
+	background: #fafafa;
 }
 
 .UIChangeSkinForm .UIItemSelector .ItemDetail .TemplateContainer {
 	padding-top: 25px;
 }
-
+		
 .UIChangeSkinForm .UIItemSelector .ItemListContainer .ItemList {
-  background: #fafafa url('background/ItemListBg157x103.gif') no-repeat bottom;
+	background: #fafafa url('background/ItemListBg157x103.gif') no-repeat bottom;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .DefaultImage {
 	margin: auto;
-	width: 329px; height:204px;
+	width: 329px; 
+	height:204px;
 	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background/ChangeSkinForm.jpg') no-repeat top;
-	cursor: pointer ;
+	cursor: pointer;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .MacImage {
 	margin: auto;
-	width: 329px; height: 204px;
+	width: 329px; 
+	height: 204px;
 	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background/ChangeSkinForm.jpg') no-repeat center -206px;
-	cursor: pointer ;
+	cursor: pointer;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .VistaImage {
 	margin: auto;
-	width: 329px; height: 204px;
+	width: 329px; 
+	height: 204px;
 	background: url('/eXoResources/skin/DefaultSkin/portal/webui/component/customization/UIChangeSkinForm/background/ChangeSkinForm.jpg') no-repeat center -412px;
-	cursor: pointer ;
+	cursor: pointer;
 }

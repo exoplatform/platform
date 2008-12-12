@@ -1,108 +1,110 @@
 .UIPopupWindow {
-  position: absolute;
+	position: absolute;
 }
 
 .UIPopupWindow .PopupTitleIcon {
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */
-  margin-top: 10px;
-  width: 16px; height: 16px;
-  background: url('background/PopupWindowIcon.gif') no-repeat left top;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin-top: 10px;
+	width: 16px; height: 16px;
+	background: url('background/PopupWindowIcon.gif') no-repeat left top;
 }
 
 .UIPopupWindow .PopupTitleIconRight {
-  float: right;
-  margin: 10px 0px 0px 0px;
-  width: 16px; height: 16px;
-  background: url('background/PopupWindowIcon.gif') no-repeat left top;
+	float: right;
+	margin: 10px 0px 0px 0px;
+	width: 16px; 
+	height: 16px;
+	background: url('background/PopupWindowIcon.gif') no-repeat left top;
 }
 
 .UIPopupWindow .PopupTitle {
-  text-align: center;
-  font-weight: bold; 
-  height: 29px; line-height: 29px; 
-  cursor: move;
+	text-align: center;
+	font-weight: bold; 
+	height: 29px; line-height: 29px; 
+	cursor: move;
 }
 
 .UIPopupWindow .CloseButton {
-  float: right; /* orientation=lt */
-  float: left; /* orientation=rt */
-  margin-top: 10px;
-  cursor: pointer;
-  width: 16px; height: 16px;
-  background: url('background/PopupWindowIcon.gif') no-repeat left -16px;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin-top: 10px;
+	cursor: pointer;
+	width: 16px; height: 16px;
+	background: url('background/PopupWindowIcon.gif') no-repeat left -16px;
 }
 
 .UIPopupWindow .TopLeftCornerDecorator {
-  background: url('background/PopupWindow.png') no-repeat top left;
-  padding-left: 15px;
+	background: url('background/PopupWindow.png') no-repeat top left;
+	padding-left: 15px;
 }
 
 .UIPopupWindow .TopCenterDecorator {
-  background: url('background/PopupWindow.png') repeat-x left -58px;
-  height: 29px; 
+	background: url('background/PopupWindow.png') repeat-x left -58px;
+	height: 29px; 
 }
 
 .UIPopupWindow .TopRightCornerDecorator {
-  background: url('background/PopupWindow.png') no-repeat right -29px ;
-  padding-right: 15px;
+	background: url('background/PopupWindow.png') no-repeat right -29px;
+	padding-right: 15px;
 }
 
 .UIPopupWindow .MiddleLeftSideDecorator {
-  background: url('background/MiddlePopupWindow.png') repeat-y left;
-  padding-left: 8px ;  
+	background: url('background/MiddlePopupWindow.png') repeat-y left;
+	padding-left: 8px;	
 }
 
 .UIPopupWindow .MiddleCenterDecorator {
-  background: url('background/PopupWindowMC1x16.png');
+	background: url('background/PopupWindowMC1x16.png');
 }
 
 .UIPopupWindow .MiddleRightSideDecorator {
-  background: url('background/MiddlePopupWindow.png') repeat-y right;
-  padding-right: 8px ;  
+	background: url('background/MiddlePopupWindow.png') repeat-y right;
+	padding-right: 8px;	
 }
 
 .UIPopupWindow .UIWindowContent {
-  padding: 0px 5px 1px 5px;
+	padding: 0px 5px 1px 5px;
 }
 
 .UIPopupWindow .PopupContent {
-  width: 100%;
-  background: white;
-  overflow: auto;
+	width: 100%;
+	background: white;
+	overflow: auto;
 }
 
 .UIPopupWindow .BottomBar {
-  height:11px;
-  padding:1px;
-  width: auto;
+	height:11px;
+	padding:1px;
+	width: auto;
 }
 
 .UIPopupWindow .ResizeButton{
-  width: 10px; height:10px; 
-  float: right;
-  background: url('background/PopupWindowIcon.gif') no-repeat left -32px ;
-  cursor: nw-resize;
-  display: none;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	background: url('background/PopupWindowIcon.gif') no-repeat left -32px;
+	cursor: nw-resize;
+	display: none;
 }
 
 .UIPopupWindow .BottomLeftCornerDecorator {
-  background: url('background/PopupWindow.png') no-repeat left -111px;
-  padding-left: 10px;
+	background: url('background/PopupWindow.png') no-repeat left -111px;
+	padding-left: 10px;
 }
 
 .UIPopupWindow .BottomCenterDecorator {
-  background: url('background/PopupWindow.png') repeat-x left -135px;
-  height: 24px;
+	background: url('background/PopupWindow.png') repeat-x left -135px;
+	height: 24px;
 }
 
 .UIPopupWindow .BottomRightCornerDecorator {
-  background: url('background/PopupWindow.png') no-repeat right -87px ;
-  padding-right: 11px ;  
+	background: url('background/PopupWindow.png') no-repeat right -87px;
+	padding-right: 11px;	
 }
 
 .UIPopupWindow .Content .UIPageBrowser {
-  padding: 7px 2px 0px 8px;
+	padding: 7px 2px 0px 8px; /* orientation=lt */
+	padding: 7px 8px 0px 2px; /* orientation=rt */
 }
 
 /***************************Begin PoupWindow ExoMessage**********************************/
@@ -120,12 +122,12 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator .TopCenterDecorator {
-	background: url('background/PopupWindow.png') repeat-x left -223px ; 
+	background: url('background/PopupWindow.png') repeat-x left -223px; 
 	line-height: 31px;
 	height: 32px;
 
 }
-
+	
 .UIPopupWindow .ExoMessageDecorator .PopupTitle {
 	background: none;
 	text-align: left; /* orientation=lt */
@@ -163,7 +165,8 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator  .UIWindowContent {
-	padding: 0px; margin:0px;
+	padding: 0px; 
+	margin: 0px;
 	background: url('null') no-repeat;
 }
 
@@ -190,7 +193,8 @@
 
 .UIPopupWindow .ExoMessageDecorator .UITabContentContainer .UITabContent {
 	height: auto;
-	padding: 0px 1px 0px 0px;
+	padding: 0px 1px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 1px; /* orientation=rt */
 }
 
 .UIPopupWindow .ExoMessageDecorator .UIPopupMessages .UITabContentContainer {

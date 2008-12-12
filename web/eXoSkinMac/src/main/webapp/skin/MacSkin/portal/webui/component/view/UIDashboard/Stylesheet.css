@@ -36,7 +36,8 @@
 
 /*----------------------UIGadgetsSelectorForm-------------------*/
 .UIDashboardSelectContainer {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 209px;
 	height: 100%;
 }
@@ -74,7 +75,8 @@
 }
 
 .UIDashboardSelectContainer .DashboardItemContainer .InputContainer input {
-	margin: 0 3px 0 0;
+	margin: 0 3px 0 0; /* orientation=lt */
+	margin: 0 0 0 3px; /* orientation=rt */
 	font-size: 11px; width: 170px;
 }
 
@@ -271,12 +273,13 @@
 .UIDashboardContainer .GadgetContainer .AddIcon a:hover {
 	text-decoration: none;
 }
-
+	
 .GadgetContainer .UIColumns {
 }
 
 .GadgetContainer .UIColumn {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 325px;
 	padding: 2px 0px;
 }

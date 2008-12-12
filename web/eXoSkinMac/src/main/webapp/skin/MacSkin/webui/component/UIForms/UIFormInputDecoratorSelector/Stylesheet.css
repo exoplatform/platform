@@ -5,12 +5,14 @@
 }
 
  .UIFormInputDecoratorSelector .UIItemSelector .ItemDetailList {
-  margin-right: 220px;
+  margin-right: 220px; /* orientation=lt */
+  margin-left: 220px; /* orientation=rt */
   height: 380px;
 }
 
  .UIFormInputDecoratorSelector .UIItemSelector .Template {
-	padding: 15px ; margin-bottom: 3px; 
+	padding: 15px ; 
+	margin-bottom: 3px; 
 	background: url('background/LinedBG1x4.gif'); 
 	height: 200px;
 	border: 1px #c7c7c7 solid ;
@@ -73,6 +75,6 @@
 
  .UIFormInputDecoratorSelector .UIPortletDecorator .DefaultDecorator .BottomLeftCorner {
 	background: none ;
-	padding-left: 10px;	
+	padding-left: 10px;
 	height: 10px;
 }

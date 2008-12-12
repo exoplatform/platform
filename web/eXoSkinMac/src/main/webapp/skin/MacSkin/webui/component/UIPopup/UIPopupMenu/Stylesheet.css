@@ -1,7 +1,8 @@
  .UIPopupMenu {
   display: none;
   background: url('background/PopupMenuBG1x4.gif') repeat ;
-  text-align: left ;
+  text-align: left ; /* orientation=lt */
+  text-align: right ; /* orientation=rt */
   border: 1px solid gray ;
   cursor: default ;
 }
@@ -30,17 +31,20 @@
 }
 
  .UIPopupMenu .MenuItem .MenuItemLeftIcon {
-  float: left ;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   width: 16px ;  height: 16px ;
   padding: 5px;
 }
 
  .UIPopupMenu .MenuItem .MenuItemText {
-  float: left ;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
  .UIPopupMenu .MenuItem .MenuItemRightIcon {
-  float: right ;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
   width: 16px ;  height: 16px ;
   padding: 5px 0px;
 }
@@ -52,7 +56,8 @@
 /*Use  float: left to align the popup block with this block*/
  .UIPopupMenu .MenuItem .MenuItemEntry {
   overflow: hidden ;  width: 100% ;
-  float: left ;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
  .UIPopupMenu .BottomBar {
@@ -67,19 +72,24 @@
 }
 
  .UIPopupMenu .MenuItemSelected .MenuItemLeftIcon {
-  float: left ;
-  width: 16px ;  height: 16px ;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+  width: 16px ;  
+  height: 16px ;
   padding: 5px;
 }
 
  .UIPopupMenu .MenuItemSelected .MenuItemText {
-  float: left ;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   color: white;
 }
 
  .UIPopupMenu .MenuItemSelected .MenuItemRightIcon {
-  float: right ;
-  width: 16px ;  height: 16px ;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+  width: 16px ;  
+  height: 16px ;
   padding: 5px 0px;
 }
 
@@ -89,8 +99,10 @@
 
 /*Use  float: left to align the popup block with this block*/
  .UIPopupMenu .MenuItemSelected .MenuItemEntry {
-  overflow: hidden ;  width: 100% ;
-  float: left ;
+  overflow: hidden ;  
+  width: 100% ;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   cursor: pointer;  
 }
 

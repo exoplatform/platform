@@ -26,7 +26,7 @@
 .UIUserSelector .UIAddressSearchForm {
 	padding-top: 7px;
 }
-
+	
 .UIUserSelector .UIAddressSearchForm input,.UIUserSelector .UIAddressSearchForm .GroupInput {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
@@ -45,8 +45,8 @@
 .UIUserSelector .UIAddressSearchForm .SearchIcon {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-  height: 20px; width: 24px;
-  margin: 3px 10px;
+	height: 20px; width: 24px;
+	margin: 3px 10px;
 }
 
 .UIUserSelector .UIAddressSearchForm .AddressLabel {

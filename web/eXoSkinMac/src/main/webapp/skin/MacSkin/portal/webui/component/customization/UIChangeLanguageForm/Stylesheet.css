@@ -1,12 +1,13 @@
 .UIChangeLanguageForm {
 }
-
+	
 .UIChangeLanguageForm .UIFormTabPane .TabPaneContent {
 	padding: 0px;
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemListContainer {
-	float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
 	width: 175px;
 }
 
@@ -15,11 +16,13 @@
 }
 
 .UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemList {
-  background: white url('background/ItemListBg157x69.gif') no-repeat right bottom;
+	background: white url('background/ItemListBg157x69.gif') no-repeat right bottom; /* orientation=lt */
+	background: white url('background/ItemListBg157x69-rt.gif') no-repeat left bottom; /* orientation=rt */
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList {
-	margin: 0px 0px 0px 180px;
+	margin: 0px 0px 0px 180px; /* orientation=lt */
+	margin: 0px 180px 0px 0px; /* orientation=rt */
 	padding: 0px;
 }
 
@@ -36,7 +39,7 @@
 .UIChangeLanguageForm .ItemDetail .NormalItem {
 	height: 24px;
 	border-bottom: solid 1px #e9e7e7;
-	cursor: pointer ;
+	cursor: pointer;
 	color: black;
 }
 
@@ -56,24 +59,31 @@
 }
 
 .UIChangeLanguageForm .ItemDetail .NormalItem .Icon {
-	float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
 	height: 24px; width: 24px;
 }
 
 .UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
-	float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
 	height: 24px; width: 24px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/CheckerIcon.gif') no-repeat center;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/CheckerIcon.gif') no-repeat center;
 }
 
 .UIChangeLanguageForm .ItemDetail .NodeLabel {
-	float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
 	line-height: 24px;
-	text-align: left;
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
 }
 
 .UIChangeLanguageForm .ItemDetail .PercentLabel {
 	line-height: 24px;
-	text-align: right;
-	padding-right: 20px;
+	text-align: right; /* orientation=lt */
+	text-align: left; /* orientation=rt */
+	padding-right: 20px; /* orientation=lt */
+	padding-left: 20px; /* orientation=rlt */
 }
+

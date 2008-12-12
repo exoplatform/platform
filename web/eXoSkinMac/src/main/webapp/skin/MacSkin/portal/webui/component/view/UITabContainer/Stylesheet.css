@@ -13,16 +13,19 @@
 }
 
 .UITabContainer a.TabLabel {
-	padding: 0px 10px 0px 2px;
-	line-height: 24px; height: 24px;
+	padding: 0px 10px 0px 2px; /* orientation=lt */
+	padding: 0px 2px 0px 10px; /* orientation=rt */
+	line-height: 24px; 
+	height: 24px;
 }
-
-.UITabContainer .UIHorizontalTabs .UITab  {
+	
+.UITabContainer .UIHorizontalTabs .UITab	{
 	height: 24px;
 }
 
 .UITabContainer .EditIcon {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	_float: none;
 }
 
@@ -31,9 +34,11 @@
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat center;
 }
 
-.UITabContainer .NormalTab .EditIcon  {
-  margin: 0px 6px 0px 0px;
-	height: 24px;	width: 16px;
+.UITabContainer .NormalTab .EditIcon	{
+	margin: 0px 6px 0px 0px; /* orientation=lt */
+	margin: 0px 0px 0px 6px; /* orientation=rt */
+	height: 24px;	
+	width: 16px;
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DisableEditIcon.gif') no-repeat center;
 }
 

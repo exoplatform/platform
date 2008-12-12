@@ -1,5 +1,5 @@
 
-/***************************************  UIGadget   **************************************/
+/***************************************	UIGadget 	**************************************/
 
 .UIGadget {
 	margin: 3px 0px;
@@ -10,28 +10,34 @@
 }
 
 .UIGadget .GadgetControl {
-  float: right;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 100px; height: 20px;
 	padding-right: 6px;
 }
 
 .UIGadget .GadgetControl .LeftControlBar {
-	background: url('background/Gadget.png') no-repeat left top;	
-	padding-left: 23px;
+	background: url('background/Gadget.png') no-repeat left top;	 /* orientation=lt */
+	background: url('background/Gadget-rt.png') no-repeat left top; /* orientation=rt */
+	padding-left: 23px; /* orientation=lt */
+	padding-left: 4px; /* orientation=rt */
 }
 
 .UIGadget .GadgetControl .RightControlBar{
-	background: url('background/Gadget.png') no-repeat right top;	
-	padding-right: 4px;
+	background: url('background/Gadget.png') no-repeat right top; /* orientation=lt */	
+	background: url('background/Gadget-rt.png') no-repeat right top; /* orientation=rt */	
+	padding-right: 4px; /* orientation=lt */
+	padding-right: 23px; /* orientation=rt */
 }
 
 .UIGadget .GadgetControl .CenterControlBar{
 	height: 19px;
 	background: url('background/Gadget.png') repeat-x center -19px;	
 }
-
+	
 .UIGadget .GadgetControl .GadgetDragHandleArea {
-	float: right;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 13px; height: 13px;
 	cursor: move;
 	margin: 3px 3px 0px 3px;

@@ -2,11 +2,12 @@
 .UIBreadcumbsPortlet {
 	height: 34px;
 }
-
+	
 .UIBreadcumbs {
-  height:33px ;  line-height: 29px ;
-  vertical-align: middle ; 
-  padding: 0px 4px 0px 6px;
+	height:33px;	line-height: 29px;
+	vertical-align: middle; 
+	padding: 0px 4px 0px 6px; /* orientation=lt */
+	padding: 0px 6px 0px 4px; /* orientation=rt */
 }
 
 .UIBreadcumbs a {
@@ -15,47 +16,47 @@
 }
 
 .UIBreadcumbs a.Selected {
-	color: #0574db  ; 
+	color: #0574db	; 
 }
 
 .UIBreadcumbs .HomeIcon {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
 	width: 24px; height: 24px;
-  margin: 3px 3px 0px 3px ;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/BreadcumbsHomeIcon.gif') no-repeat;
+	margin: 3px 3px 0px 3px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/BreadcumbsHomeIcon.gif') no-repeat;
 }
 
 .UIBreadcumbs .Home16x16Icon {
-  display: none;
+	display: none;
 }
 
 .UIBreadcumbs .LeftBreadcumbsBar {
-  padding: 0px 0px 0px 5px ; /* orientation=lt */
-  padding: 0px 0px 0px 7px ; /* orientation=rt */
-  background: url('background/Breadcumbs.png') no-repeat left top; /* orientation=lt */
-  background: url('background/Breadcumbs-rt.png') no-repeat left -33px; /* orientation=rt */
+	padding: 0px 0px 0px 5px; /* orientation=lt */
+	padding: 0px 0px 0px 7px; /* orientation=rt */
+	background: url('background/Breadcumbs.png') no-repeat left top; /* orientation=lt */
+	background: url('background/Breadcumbs-rt.png') no-repeat left -33px; /* orientation=rt */
 }
 
 .UIBreadcumbs .RightBreadcumbsBar {
-  padding: 0px 7px 0px 0px; /* orientation=lt */
-  padding: 0px 5px 0px 0px; /* orientation=rt */
-  background: url('background/Breadcumbs.png') no-repeat right -33px; /* orientation=lt */
-  background: url('background/Breadcumbs-rt.png') no-repeat right top; /* orientation=rt */
+	padding: 0px 7px 0px 0px; /* orientation=lt */
+	padding: 0px 5px 0px 0px; /* orientation=rt */
+	background: url('background/Breadcumbs.png') no-repeat right -33px; /* orientation=lt */
+	background: url('background/Breadcumbs-rt.png') no-repeat right top; /* orientation=rt */
 }
 
 .UIBreadcumbs .BreadcumbsInfoBar {
-  height: 33px; 
-  line-height: 33px; 
-  vertical-align: middle;
-  background: url('background/Breadcumbs.png') repeat-x bottom;
+	height: 33px; 
+	line-height: 33px; 
+	vertical-align: middle;
+	background: url('background/Breadcumbs.png') repeat-x bottom;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */
-  width: 16px; height: 16px;
-  margin: 10px 5px 0px 5px;
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow.gif') no-repeat left; /* orientation=lt */
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow-rt.gif') no-repeatright; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 16px; height: 16px;
+	margin: 10px 5px 0px 5px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow.gif') no-repeat left; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow-rt.gif') no-repeatright; /* orientation=rt */
 }

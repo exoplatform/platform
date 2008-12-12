@@ -5,7 +5,8 @@
 }
 
 .UIPortalManagement .TopTitleBar {
-  padding: 15px 85px 15px 0px;
+	padding: 15px 85px 15px 0px; /* orientation=lt */
+	padding: 15px 0px 15px 85px; /* orientation=rt */
 }
 
 .UIPortalManagement .UIPortalManagementEditBar {
@@ -13,5 +14,7 @@
 }
 
 .UIPortalManagement .UIToolbar .EditToolbar .Icon {
-  margin: 4px 11px 0px 13px;
+	margin: 4px 11px 0px 13px; /* orientation=lt */
+	margin: 4px 13px 0px 11px; /* orientation=rt */
 }
+  	

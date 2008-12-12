@@ -3,15 +3,19 @@
 
 .UIToolbar .Button {
   cursor: pointer;
-  float: left;
-  padding: 0px 15px 0px 15px; margin: 1px 2px 0px 2px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+  padding: 0px 15px;
+   margin: 1px 2px;
   height: 64px; line-height: 64px; vertical-align: middle;
 }
 
 .UIToolbar .HorizontalSeparator {
-  float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   margin: 6px 2px 0px 0px;
-  width: 2px; height: 54px;
+  width: 2px; 
+  height: 54px;
   background: url('background/SeparateLineBg2x3.gif') repeat-y;
 }
 
@@ -193,7 +197,8 @@
 
 .UIToolbar .BlueLargeToolbar .ManagementIconContainer {
   padding-top: 4px;
-  margin-left: 5px;
+  margin-left: 5px; /* orientation=lt */
+  margin-right: 5px; /* orientation=rt */
 }
 
 .UIToolbar .BlueLargeToolbar .ItemButton {
@@ -205,7 +210,8 @@
 }
 
 .UIToolbar .BlueLargeToolbar .LablelIcon {
-  width: 32px; height: 26px; 
+  width: 32px; 
+  height: 26px; 
 	margin: auto;
   background-image: url('background/BlueLargeToolbar.gif');
   background-repeat: no-repeat;
@@ -252,8 +258,10 @@
 }
 
 .UIToolbar .EditToolbar .Icon {
-  float: left;
-  margin: 4px 5px 0px 10px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+  margin: 4px 5px 0px 10px; /* orientation=lt */
+  margin: 4px 10px 0px 5px; /* orientation=rt */
   cursor: pointer;
 }
 
@@ -289,7 +297,8 @@
 }
 
 .UIToolbar .EditToolbar .LayoutModeIcon {
-  float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   margin: 4px 7px;
   cursor : pointer;
   width: 31px;  height: 28px;
@@ -302,37 +311,45 @@
 }
 
 .UIToolbar .EditToolbar .EditPortalIcon { 
-   width: 31px;  height: 28px;
+  width: 31px;  
+  height: 28px;
   background: url('background/EditToolbar.png') no-repeat left -257px;
 }
 
 .UIToolbar .EditToolbar .SavePortalIcon {
-  float: left;
-  margin: 4px 0px 0px 7px;
-  width: 29px;  height: 28px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+  margin: 4px 0px 0px 7px; /* orientation=lt */
+  margin: 4px 7px 0px 0px; /* orientation=rt */
+  width: 29px;  
+  height: 28px;
   background: url('background/EditToolbar.png') no-repeat left -369px;
 }
 
 .UIToolbar .EditToolbar .EditPageIcon{
-   width: 27px;  height: 28px;
+  width: 27px;  
+  height: 28px;
   background: url('background/EditToolbar.png') no-repeat left -145px;
 }
 
 .UIToolbar .EditToolbar .PageLayoutModeIcon {
-  float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   margin: 4px 7px 0px 7px;
-  width: 24px;  height: 28px;
+  width: 24px;  
+  height: 28px;
   background: url('background/EditToolbar.png') no-repeat left -173px;
   cursor: pointer ;
 }
 
 .UIToolbar .EditToolbar .PagePreviewIcon {
-   width: 25px;  height: 27px;
+  width: 25px;  height: 27px;
   background: url('background/EditToolbar.png') no-repeat left -117px;
 }
 
 .UIToolbar .EditToolbar .SavePageIcon {
-  width: 27px;  height: 28px;
+  width: 27px;  
+  height: 28px;
   background: url('background/EditToolbar.png') no-repeat left -201px;
 }
 
@@ -340,7 +357,8 @@
 /*#################################- ControlToolbar -##############################*/
 
 .UIToolbar .ControlToolbar {
-  margin: 15px 2px 0px 70px;
+  margin: 15px 2px 0px 70px; /* orientation=lt */
+  margin: 15px 70px 0px 2px; /* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .LeftBar {
@@ -360,13 +378,15 @@
 
 .UIToolbar .ControlToolbar .SeparateLine{
   width: 2px; height: 24px;
-  float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   margin: 7px 0px 0px 0px;
   background: url('background/SeparateLine2x2.gif') repeat-y;
 }
 
 .UIToolbar .ControlToolbar .Icon {
-  float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   margin: 4px 5px 0px 5px;
   width: 32px;
   height: 29px;

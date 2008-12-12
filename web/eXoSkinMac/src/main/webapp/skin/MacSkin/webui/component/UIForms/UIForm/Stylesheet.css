@@ -43,23 +43,28 @@
 }
 
 .HorizontalLayout .UIForm .UIFormInputSet {
-	padding: 10px; margin: auto;
+	padding: 10px; 
+	margin: auto;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .Title {
-  margin: 10px 0px 0px 10px;
+  margin: 10px 0px 0px 10px; /* orientation=lt */
+  margin: 10px 10px 0px 0px; /* orientation=rt */
   color: #5f7fd6;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .ItemLabel {
-  float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   font-weight: bold;
   width: 130px;
 }
 
 .UIForm .HorizontalLayout .UIFormInputSet .ItemValue {
-  margin-left: 5px;
-  float: left;
+  margin-left: 5px; /* orientation=lt */
+  margin-right: 5px; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   color: #2f76e2;
 }
 
@@ -75,13 +80,16 @@
 }
 
 .UIForm .HorizontalLayout .FieldContainer .MultiValueContainer input {
-  float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   margin-right: 5px;
 }
 
 .UIForm .HorizontalLayout .FieldContainer .UIFormMultiValueInputSet  {
-	float: left;
-	margin: 0px 10px 0px 5px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 0px 10px 0px 5px; /* orientation=lt */
+	margin: 0px 5px 0px 10px; /* orientation=rt */
 }
 
 .UIForm .HorizontalLayout input {
@@ -139,7 +147,8 @@
 }
 
 .UIForm .VerticalLayout  label {
-	text-align: left;
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
   font-weight: bold;
   margin-bottom: 15px;
 }
@@ -150,7 +159,8 @@
 }
 
 .UIForm .VerticalLayout input.checkbox {
-  width: 17px; height: 17px;
+  width: 17px; 
+  height: 17px;
   margin: 0px;
 }
 

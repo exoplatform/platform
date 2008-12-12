@@ -2,11 +2,12 @@
 }
 
 .UIWelcomeComponent .DecoratorBox {
-  margin: 6px 2px 6px 2px;
+  margin: 6px 2px;
 }
 
 .UIWelcomeComponent .WelcomeMessage {
-  float: left ;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
 }
 
 .UIWelcomeComponent .OrangeMessage {

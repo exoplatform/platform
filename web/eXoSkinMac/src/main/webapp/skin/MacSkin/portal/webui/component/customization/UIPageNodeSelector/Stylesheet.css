@@ -23,10 +23,15 @@
 
 /***********************/
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/AddNavigationButton.png') no-repeat left top;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/AddNavigationButton.png') no-repeat left top; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/AddNavigationButton-rt.png') no-repeat right top; /* orientation=rt */
 	cursor: pointer;
-	float: left; margin-left: -2px;
-	height: 24px; width: 24px;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */ 
+	margin-left: -2px; /* orientation=lt */
+	margin-right: -2px; /* orientation=rt */
+	height: 24px; 
+	width: 24px;
 	display: block;
 }
 
@@ -35,6 +40,7 @@
 }
 
 .UIControlWorkspace .UIPageNodeSelector .UIDropDownControl {
-  float: left; 
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   width: 200px;
 }

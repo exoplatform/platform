@@ -14,13 +14,17 @@
 
 .UIDropDownControl .LeftMiddelItem {
 	display: block ;
-	background: url('background/DropDownControlRepeatY.png') repeat-y left;
-	padding-left:3px;
+	background: url('background/DropDownControlRepeatY.png') repeat-y left; /* orientation=lt */
+	background: url('background/DropDownControlRepeatY-rt.png') repeat-y right; /* orientation=rt */
+	padding-left: 3px; /* orientation=lt */
+	padding-right: 3px; /* orientation=rt */
 }
 
 .UIDropDownControl .RightMiddelItem {
-	background: url('background/DropDownControlRepeatY.png') repeat-y right;
-	padding-right:3px;
+	background: url('background/DropDownControlRepeatY.png') repeat-y right; /* orientation=lt */
+	background: url('background/DropDownControlRepeatY-rt.png') repeat-y left; /* orientation=rt */
+	padding-right: 3px; /* orientation=lt */
+	padding-rleft: 3px; /* orientation=rt */
 }
 
 .UIDropDownControl .RightMiddelItem .ItemListContent {
@@ -65,14 +69,18 @@
 
 
 .UIDropDownControl .UIDropDownLeftTitle {
-	background: url('background/DropDownControl.png') no-repeat left top;
-	padding-left: 4px;
+	background: url('background/DropDownControl.png') no-repeat left top; /* orientation=lt */
+	background: url('background/DropDownControl-rt.png') no-repeat right top; /* orientation=rt */
+	padding-left: 4px; /* orientation=lt */
+	padding-right: 4px; /* orientation=rt */
 	height: 24px;
 }
 
 .UIDropDownControl .UIDropDownRightTitle {
-	background: url('background/DropDownControl.png') no-repeat right top;
-	padding-right: 3px;
+	background: url('background/DropDownControl.png') no-repeat right top; /* orientation=lt */
+	background: url('background/DropDownControl-rt.png') no-repeat left top; /* orientation=rt */
+	padding-right: 3px; /* orientation=lt */
+	padding-left: 3px; /* orientation=rt */
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle {
@@ -86,10 +94,12 @@
 }
 
 .UIDropDownControl .DropDownSelectIcon {
-	background: url('background/DropDownButton.gif') no-repeat right center;
+	background: url('background/DropDownButton.gif') no-repeat right center; /* orientation=lt */
+	background: url('background/DropDownButton-rt.gif') no-repeat left center; /* orientation=rt */
 	cursor: pointer;
 	height: 22px;
-	padding-right: 20px;	
+	padding-right: 20px; /* orientation=lt */
+	padding-left: 20px; /* orientation=rt */
 }
 
 .UIDropDownControl .DropDownSelectLabel {
@@ -97,7 +107,8 @@
 	font-weight: bold;
 	line-height: 22px;
 	height: 22px;
-	margin-left: 5px;
+	margin-left: 5px; /* orientation=lt */
+	margin-right: 5px; /* orientation=rt */
 	overflow: hidden;
 	color: #3F7FBF;
 	width: 97%;
@@ -106,22 +117,26 @@
 
 
 .UIDropDownControl .OptionItem {
-	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center; /* orientation=lt */
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif) no-repeat right center; /* orientation=rt */
 	display: block ;
-	padding: 0px 4px 0px 17px ;
+	padding: 0px 4px 0px 17px ; /* orientation=lt */
+	padding: 0px 17px 0px 4px ; /* orientation=rt */
 	border-bottom: 1px solid #e0e0e0 ;
 	border-top: 1px solid #ffffff ;
 	line-height: 20px;
 }
 
 .UIDropDownControl .OptionItem:hover {
-	background: #7aafe5 url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center;
+	background: #7aafe5 url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left center; /* orientation=lt */
+	background: #7aafe5 url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif) no-repeat right center; /* orientation=rt */
 	color: white;
 }
 
 .UIDropDownControl .UIPopupControl {
 	position: absolute;
-	right: -93px ;
+	right: -93px ; /* orientation=lt */
+	left: -93px ; /* orientation=rt */
 	width: 120px ;
 	top: 20px ;
 }
@@ -141,21 +156,28 @@
 }
 
 .UIPopupControl .MenuItem .ItemLabel {
-	padding-left: 18px;
+	padding-left: 18px; /* orientation=lt */
+	padding-right: 18px; /* orientation=rt */
   height: 22px;
   line-height: 22px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center; /* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif') no-repeat right center; /* orientation=rt */
 }
 /* -- end menuItem --*/
 
 
 .UIPageNodeSelector .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
 	height: 24px;
-	padding-left: 16px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat left center;
+	padding-left: 16px; /* orientation=lt */
+	padding-right: 16px; /* orientation=rt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat left center; /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon-rt.gif') no-repeat right center; /* orientation=rt */
 }
 
 .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
-  padding-left: 16px; height: 20px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat left center;
+  padding-left: 16px; /* orientation=lt */
+	padding-right: 16px; /* orientation=rt */
+  height: 20px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat left center; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultContainerIcon-rt.gif') no-repeat right center; /* orientation=rt */
 }

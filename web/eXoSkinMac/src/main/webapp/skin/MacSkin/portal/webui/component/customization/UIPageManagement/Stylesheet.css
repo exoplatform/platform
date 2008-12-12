@@ -2,7 +2,8 @@
 }
 
 .UIPageManagement .TopTitleBar {
-  padding: 15px 60px 15px 0px;
+  padding: 15px 60px 15px 0px; /* orientation=lt */
+  padding: 15px 0px 15px 60px; /* orientation=rt */
 }
 
 .UIPageManagement .UIPageEditBar{
