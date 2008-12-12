@@ -24,7 +24,7 @@
   width: 16px;  
   height: 16px;
   background: url('icons/SearchIcon.png') no-repeat left; /* orientation=lt */
-  background: url('icons/SearchIcon-rt.png') no-repeat right; /* orientation=rt *
+  background: url('icons/SearchIcon-rt.png') no-repeat right; /* orientation=rt */
 }
 
 .SelectPage16x16Icon {
