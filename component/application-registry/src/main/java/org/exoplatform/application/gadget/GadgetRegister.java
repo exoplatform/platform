@@ -74,59 +74,63 @@ public class GadgetRegister implements ServletContextListener {
         Element gadgetElement = (Element) nodeList.item(i);
         gadgetName = gadgetElement.getAttribute("name");
         if(gadgetService.getGadget(gadgetName) != null) continue;
-        NodeList nodeChild = gadgetElement.getChildNodes() ;
-        for(int j=0; j<nodeChild.getLength(); j++) {
-          Node node = nodeChild.item(j) ;
-          address = node.getTextContent() ;
-          if (node.getNodeName().equals("path")) {
-            InputStream sourceIs = event.getServletContext().getResourceAsStream(address) ;
-            int idx = address.lastIndexOf('/');
-            String fileName = address.substring(idx + 1);
-            //Saves source of gadget
-            Source source = new Source(fileName, getMimeType(event.getServletContext(), fileName), "UTF-8");
-            source.setStreamContent(sourceIs);
-            source.setLastModified(Calendar.getInstance());
-            sourceStorage.saveSource(null, source);
-            //Saves gadget
-            ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse("http://www.exoplatform.org"), source.getTextContent());
-            Gadget gadget = new Gadget();
-            gadget.setName(gadgetName);
-            gadget.setUrl(sourceStorage.getSourceURI(fileName));
-            gadget.setTitle(getGadgetTitle(prefs, gadget.getName()));
-            gadget.setDescription(prefs.getDescription());
-            gadget.setThumbnail(prefs.getThumbnail().toString());
-            gadget.setReferenceUrl(prefs.getTitleUrl().toString());
-            gadget.setLocal(true);            
-            gadgetService.saveGadget(gadget);
-            //Saves source's included
-            int dotIdx = address.lastIndexOf('.'); 
-            if(dotIdx < 0) continue;
-            String dirPath = address.substring(0, dotIdx);
-            String realPath =  event.getServletContext().getRealPath(dirPath);
-            File dir = new File(realPath);
-            if(dir.exists() && dir.isDirectory()) {
-              File [] files = dir.listFiles();
-              for(int k = 0; k < files.length; k++) {
-                saveTree(files[k], gadgetName, event.getServletContext(), sourceStorage);
+        try {
+          NodeList nodeChild = gadgetElement.getChildNodes() ;
+          for(int j=0; j<nodeChild.getLength(); j++) {
+            Node node = nodeChild.item(j) ;
+            address = node.getTextContent() ;
+            if (node.getNodeName().equals("path")) {
+              InputStream sourceIs = event.getServletContext().getResourceAsStream(address) ;
+              int idx = address.lastIndexOf('/');
+              String fileName = address.substring(idx + 1);
+              //Saves source of gadget
+              Source source = new Source(fileName, getMimeType(event.getServletContext(), fileName), "UTF-8");
+              source.setStreamContent(sourceIs);
+              source.setLastModified(Calendar.getInstance());
+              sourceStorage.saveSource(null, source);
+              //Saves gadget
+              ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse("http://www.exoplatform.org"), source.getTextContent());
+              Gadget gadget = new Gadget();
+              gadget.setName(gadgetName);
+              gadget.setUrl(sourceStorage.getSourceURI(fileName));
+              gadget.setTitle(getGadgetTitle(prefs, gadget.getName()));
+              gadget.setDescription(prefs.getDescription());
+              gadget.setThumbnail(prefs.getThumbnail().toString());
+              gadget.setReferenceUrl(prefs.getTitleUrl().toString());
+              gadget.setLocal(true);            
+              gadgetService.saveGadget(gadget);
+              //Saves source's included
+              int dotIdx = address.lastIndexOf('.'); 
+              if(dotIdx < 0) continue;
+              String dirPath = address.substring(0, dotIdx);
+              String realPath =  event.getServletContext().getRealPath(dirPath);
+              File dir = new File(realPath);
+              if(dir.exists() && dir.isDirectory()) {
+                File [] files = dir.listFiles();
+                for(int k = 0; k < files.length; k++) {
+                  saveTree(files[k], gadgetName, event.getServletContext(), sourceStorage);
+                }
               }
             }
+            else if (node.getNodeName().equals("url")) {
+              URL urlObj = new URL(address) ;
+              URLConnection conn = urlObj.openConnection() ;
+              InputStream is = conn.getInputStream() ;
+              String source = IOUtils.toString(is, "UTF-8") ;            
+              ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse(address), source);
+              Gadget gadget = new Gadget();
+              gadget.setName(gadgetName);
+              gadget.setUrl(address);
+              gadget.setTitle(getGadgetTitle(prefs, gadget.getName()));
+              gadget.setDescription(prefs.getDescription());
+              gadget.setThumbnail(prefs.getThumbnail().toString());
+              gadget.setReferenceUrl(prefs.getTitleUrl().toString());
+              gadget.setLocal(false);            
+              gadgetService.saveGadget(gadget);            
+            }
           }
-          else if (node.getNodeName().equals("url")) {
-            URL urlObj = new URL(address) ;
-            URLConnection conn = urlObj.openConnection() ;
-            InputStream is = conn.getInputStream() ;
-            String source = IOUtils.toString(is, "UTF-8") ;            
-            ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse(address), source);
-            Gadget gadget = new Gadget();
-            gadget.setName(gadgetName);
-            gadget.setUrl(address);
-            gadget.setTitle(getGadgetTitle(prefs, gadget.getName()));
-            gadget.setDescription(prefs.getDescription());
-            gadget.setThumbnail(prefs.getThumbnail().toString());
-            gadget.setReferenceUrl(prefs.getTitleUrl().toString());
-            gadget.setLocal(false);            
-            gadgetService.saveGadget(gadget);            
-          }
+        } catch (Exception ex) {
+          log.warn("Can not register the gadget: '" + gadgetName + "' ");
         }
       }
     } catch(Exception ex) {
