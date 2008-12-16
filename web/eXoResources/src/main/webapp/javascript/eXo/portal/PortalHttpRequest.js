@@ -63,6 +63,7 @@ function PortletResponse(responseDiv) {
       obj.blockId = div[0].innerHTML ;
       obj.data = div[1] ;
       this.blocksToUpdate[i] = obj ;
+      this.blocksToUpdate[i].scripts = eXo.core.DOMUtil.findDescendantsByTagName(div[1], "script") ;
     }
   } else {
     /*
