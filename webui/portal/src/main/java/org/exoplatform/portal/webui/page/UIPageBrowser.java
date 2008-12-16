@@ -21,8 +21,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javax.jcr.query.InvalidQueryException;
+import javax.jcr.RepositoryException;
 
+import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
@@ -121,9 +122,12 @@ public class UIPageBrowser extends UISearch {
 
 	public void defaultValue(Query<Page> query) throws Exception {
 		lastQuery_ = query;
+		UIGrid uiGrid = findFirstComponentOfType(UIGrid.class);
+		UIPageIterator pageIterator = uiGrid.getUIPageIterator();
 		DataStorage service = getApplicationComponent(DataStorage.class);
-		if (lastQuery_ == null)
+		if (lastQuery_ == null){
 			lastQuery_ = new Query<Page>(null, null, null, null, Page.class);
+		}
 		PageList pagelist = null;
 		try {
 			pagelist = service.find(lastQuery_, new Comparator<Object>() {
@@ -133,17 +137,15 @@ public class UIPageBrowser extends UISearch {
 					return page1.getName().compareTo(page2.getName());
 				}
 			});
-		} catch (InvalidQueryException e) {
+			pagelist.setPageSize(10);
+			pageIterator.setPageList(pagelist);
+		} catch (RepositoryException e) {
+		  pageIterator.setPageList(new ObjectPageList(new ArrayList<String>(), 0));
 			UIApplication uiApp = Util.getPortalRequestContext().getUIApplication();
 			uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty",	null));
 			Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
 			return;
 		}
-		pagelist.setPageSize(10);
-		UIGrid uiGrid = findFirstComponentOfType(UIGrid.class);
-		uiGrid.getUIPageIterator().setPageList(pagelist);
-		UIPageIterator pageIterator = uiGrid.getUIPageIterator();
-
 		if (pageIterator.getAvailable() > 0) return;
 		UIApplication uiApp = Util.getPortalRequestContext().getUIApplication();
 		uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null));
@@ -191,7 +193,6 @@ public class UIPageBrowser extends UISearch {
 		if (event != null) event.broadcast();
 	}
 
-	@SuppressWarnings("unused")
 	public void advancedSearch(UIFormInputSet advancedSearchInput)
 			throws Exception {
 	}
@@ -356,7 +357,6 @@ public class UIPageBrowser extends UISearch {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	static public class SavePageActionListener extends UIPageForm.SaveActionListener {
 		public void execute(Event<UIPageForm> event) throws Exception {
 			UIPageForm uiPageForm = event.getSource();
