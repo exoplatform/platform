@@ -36,7 +36,7 @@
         <employer>#{word.employer}:</employer>
         <department>#{word.department}:</department>
         <jobtitle>#{word.jobTitle}:</jobtitle>
-        <language>Ngôn ngữ</language>
+        <language>Ngôn ngữ:</language>
         <home-info>
           <postal>
             <name>#:</name>

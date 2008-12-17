@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <UIForm>
-    <title>Tìm kiếm Resource</title>
+    <title>Tìm kiếm mã nguồn</title>
     <action>
       <Search>Tìm kiếm</Search>
-      <NewResource>Tạo mới Resource</NewResource>
+      <NewResource>Tạo mã nguồn mới mới</NewResource>
     </action>
   </UIForm>
   <UISearchI18n>
@@ -27,23 +27,23 @@
     </action>
   </UII18nPortlet>
   <UIEditResource>
-    <title>Resource Data</title>
+    <title>Dữ liệu mã nguồn</title>
     <label>
-      <resource>Resource</resource>
+      <resource>Mã nguồn</resource>
       <name>Tên</name>
       <language>Ngôn ngữ</language>
     </label>
     <action>
       <Save>Lưu</Save>
-      <Cancel>Cancel</Cancel>
+      <Cancel>Hủy</Cancel>
       <Edit>Sửa</Edit>
     </action>
     <add>
-      <exist>resource này đã tồn tại, xin vui lòng chọn cái khác!</exist>
+      <exist>Mã nguồn này đã tồn tại, xin vui lòng chọn cái khác!</exist>
     </add>
   </UIEditResource>
   <UII18n>
-    <deleteResource>Bạn có chắc chắn muốn xóa resource?</deleteResource>
+    <deleteResource>Bạn có chắc chắn muốn xóa mã nguồn này?</deleteResource>
   </UII18n>
 </bundle>
 

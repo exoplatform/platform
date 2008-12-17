@@ -25,7 +25,7 @@
       <Reset>Làm lại</Reset>
     </action>
     <msg>
-      <SameName>Tên thành viên này đã tồn tại, xin vui lòng chọn cái khác!</SameName>
+      <SameName>Tên thành viên này đã tồn tại, xin vui lòng chọn một tên khác!</SameName>
     </msg>
   </UIMembershipTypeForm>
   <!--
@@ -42,7 +42,7 @@
     </action>
     <msg>
       <membership-delete>Không thể lưu thành viên này, nó đã bị xóa!.</membership-delete>
-      <membership-exist>Thành viên này đã tồn tại, xin vui lòng chọn cái khác!</membership-exist>
+      <membership-exist>Thành viên này đã tồn tại, xin vui lòng chọn thành viên khác!</membership-exist>
     </msg>
   </UIGroupEditMembershipForm>
   <EditMembership>
@@ -193,14 +193,14 @@
           </telecom>
           <online>
             <email>#{word.email}:</email>
-            <uri>Trang web:</uri>
+            <uri>Đại chỉ trang web:</uri>
           </online>
         </home-info>
         <business-info>
           <postal>
             <name>#:</name>
             <city>#{word.city}:</city>
-            <stateprov> Bang/Tỉnh:</stateprov>
+            <stateprov> Bang/hạt:</stateprov>
             <postalcode>Mã bưu điện:</postalcode>
             <country>#{word.country}:</country>
           </postal>
@@ -312,9 +312,9 @@
   </EditGroup>
   <UIGroupForm>
     <label>
-      <groupName>Tên nhớm</groupName>
+      <groupName>Tên nhóm</groupName>
       <description>Mô tả</description>
-      <label>Label</label>
+      <label>Tên hiển thị</label>
     </label>
     <msg>
       <group-exist>Tên nhóm này đã tồn tại, xin vui lòng chọn nhóm khác!</group-exist>

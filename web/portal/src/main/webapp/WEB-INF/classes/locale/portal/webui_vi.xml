@@ -131,7 +131,7 @@
   -->
   <EmptyIteratorValidator>
     <msg>
-      <empty>Mục "{0}" trong bảng danh sách không thể trống.</empty>
+      <empty>Mục "{0}" không thể trống.</empty>
     </msg>
   </EmptyIteratorValidator>
   <!--
@@ -174,7 +174,7 @@
   -->
   <URLValidator>
     <msg>
-      <invalid-url>Giá trị trường "{0}" là một URL không hợp lệ! </invalid-url>
+      <invalid-url>Giá trị trường "{0}" không hợp lệ! </invalid-url>
     </msg>
   </URLValidator>
   <!--
@@ -302,7 +302,7 @@
       <name>Tên</name>
       <skin>Kiểu giao diện</skin>
       <action>Hành động</action>
-      <factoryId>Factory Id</factoryId>
+      <factoryId>Mã Factory</factoryId>
     </header>
     <lable>
       <TitleBar>Chọn Portal</TitleBar>
@@ -314,7 +314,7 @@
       </title>
     </action>
     <msg>
-      <Invalid-viewPermission>Portal này không cho phép bạn truy cập</Invalid-viewPermission>
+      <Invalid-viewPermission>Bạn không có quyền truy cập Portal này.</Invalid-viewPermission>
     </msg>
   </UIChangePortal>
   <!--
@@ -358,7 +358,7 @@
   -->
   <NameValidator>
     <msg>
-      <Invalid-char>Bạn chỉ được nhập dữ liệu là các chữ cái, chữ số, dấu gach ngang và dấu gạch chân trong mục {0}</Invalid-char>
+      <Invalid-char>Bạn chỉ được nhập dữ liệu là các chữ cái, chữ số, dấu gach ngang và dấu gạch chân trong mục {0}.</Invalid-char>
     </msg>
   </NameValidator>
   <FirstCharacterNameValidator>
@@ -384,7 +384,7 @@
           <user>Bạn đã đăng ký tài khoản mới thành công!</user>
         </create>
         <update>
-          <user>Update người truy nhập thành công</user>
+          <user>Update người truy nhập thành công!</user>
         </update>
       </successful>
     </msg>
@@ -406,10 +406,10 @@
   </UIUserProfileInputSet>
   <UIGroupMembershipForm>
     <msg>
-      <user-not-exist>Tên truy nhập này không tồn tại</user-not-exist>
+      <user-not-exist>Tên truy nhập này không tồn tại.</user-not-exist>
       <user-not-empty>Tên truy nhập này không được để trống!</user-not-empty>
       <Invalid-char>Giá trị trường {0} chỉ chấp nhận ký tự  là chữ cái, chữ số, dấu phẩy (,) và phải bắt đầu và kết thúc bằng một chữ cái. </Invalid-char>
-      <duplicate-user>Người dùng {0} bị trùng</duplicate-user>
+      <duplicate-user>Người dùng {0} bị trùng.</duplicate-user>
       <group-not-select>Xin hãy chọn một nhóm!</group-not-select>
       <membership-exist>Kiểu thành viên của người dùng này đã có trong nhóm {0}, xin hãy chọn kiểu khác!</membership-exist>
     </msg>
@@ -426,7 +426,7 @@
       <forgot>Quên tên đăng nhập/mật khẩu?</forgot>
       <password>Mật khẩu</password>
       <UserName>Tên đăng nhập</UserName>
-      <RememberOnComputer>Nhớ đăng nhập của tôi</RememberOnComputer>
+      <RememberOnComputer>Nhớ đăng nhập của tôi.</RememberOnComputer>
       <NotMember>Không là thành viên?</NotMember>
       <Signup>Đăng nhập</Signup>
       <Signin>Đăng nhập</Signin>
@@ -455,7 +455,7 @@
       <Close>Đóng lại</Close>
     </action>
     <label>
-      <id>Container Id</id>
+      <id>Mã Container</id>
       <title>Tiêu đề Container</title>
       <decorator>#{word.decorator}</decorator>
       <template>#{word.template}</template>
@@ -487,10 +487,10 @@
       <width>#{word.width}:</width>
       <height>#{word.height}:</height>
       <showInfoBar>Hiện thanh thông tin :</showInfoBar>
-      <windowId>Window Id :</windowId>
+      <windowId>Mã cửa sổ :</windowId>
       <showPortletMode>Hiện chế độ của Portlet :</showPortletMode>
       <showWindowState>Hiện cửa sổ :</showWindowState>
-      <id>Portlet Id :</id>
+      <id>Mã Portlet :</id>
       <description>Mô tả :</description>
     </label>
     <action>
@@ -537,8 +537,8 @@
       <pageEditWizard>Chỉnh sửa trang bằng Wizard</pageEditWizard>
     </title>
     <content>
-      <pageManagement>Mô tả về quản lý trang ở đây</pageManagement>
-      <portalManagement>Mô tả về quản lý Portal ở đây</portalManagement>
+      <pageManagement>Mô tả về quản lý trang ở đây.</pageManagement>
+      <portalManagement>Mô tả về quản lý Portal ở đây.</portalManagement>
       <pageWizard><![CDATA[Mô tả về quản lý trang<br/>và hướng dẫn ở đây.]]></pageWizard>
       <pageWizard2><![CDATA[<strong>Bước 1: Sự bố trí của trang bao gồm: đường dẫn của trang, tên Node, tên hiển thị.</strong><br/> Được thực hiện như sau: <br/>- Lựa chọn navigation từ danh sách <br/>- Lựa chọn một trang để thêm trang con <br/>- Nhập <em>Tên Node </em><br/>- Nhập <em>Tên hiển thị</em> (tùy chọn)<br/>- Lựa chọn mục <em>Hiển thị</em> (tùy chọn)<br/>- Lựa chọn <em>Thời gian hiển thị</em> (tùy chọn)<br/>&nbsp;&nbsp;Nếu <em>Thời gian hiển thị</em> được chọn:<br/>&nbsp;&nbsp;- Nhập <em>Thời điểm bắt đầu</em><br/>&nbsp;&nbsp;- Nhập <em>Thời điểm kết thúc</em><br/>- Nhấn "Tiếp tục" để tời bước tiếp theo]]></pageWizard2>
       <pageWizard3><![CDATA[<strong>Bước 2: Lựa chọn kiểu giao diện của trang.</strong><br/> Được thực hiện như sau:<br/>- Lựa chọn một kiểu giao diện có sẵn<br/>- Nhấn "Tiếp tục" để tới bước tiếp theo hoặc "Trở lại" để trở lại bước liền trước]]></pageWizard3>
@@ -574,7 +574,7 @@
         <PortalSetting>Cấu hình Portal</PortalSetting>
         <PortalTemplate>Các Portal mẫu</PortalTemplate>
         <PermissionSetting>Tùy chọn phân quyền sử dụng</PermissionSetting>
-        <FactoryId>Factory Id</FactoryId>
+        <FactoryId>Mã Factory</FactoryId>
       </label>
     </tab>
   </UIPortalForm>
@@ -601,7 +601,7 @@
   </UITabPane>
   <UIListPermissionSelector>
     <header>
-      <groupId>Id của nhóm</groupId>
+      <groupId>Mã nhóm</groupId>
       <membership>Kiểu thành viên</membership>
       <action>Hành động</action>
     </header>
@@ -612,7 +612,7 @@
       </title>
     </action>
     <label>
-      <publicMode>Không phân quyền (Tất cả mọi người dùng có thể truy cập):</publicMode>
+      <publicMode>Mặc định tất cả người dùng đều có thể truy cập:</publicMode>
     </label>
   </UIListPermissionSelector>
   <UIGroupMembershipSelector>
@@ -629,7 +629,7 @@
       <selectGroup>Xem và lựa chọn nhóm</selectGroup>
     </label>
     <tooltip>
-      <selectMembership>Nhấp ở đây để chọn thành viên</selectMembership>
+      <selectMembership>Nhấp chuột ở đây để chọn thành viên</selectMembership>
     </tooltip>
   </UIGroupMembershipSelector>
   <UIGroupSelector>
@@ -640,7 +640,7 @@
     </title>
     <lable>
       <name>Tên:</name>
-      <groupId>Nhóm Id:</groupId>
+      <groupId>Mã nhóm:</groupId>
       <description>Mô tả:</description>
     </lable>
     <action>
@@ -655,7 +655,7 @@
   <UIPageSelector>
     <header>
       <name>Tên trang</name>
-      <id>Id của trang</id>
+      <id>Mã trang</id>
       <accessGroups>Các nhóm truy nhập</accessGroups>
       <title>#{word.title}</title>
       <action>#{word.action}</action>
@@ -675,9 +675,9 @@
       <PageNotExist>Trang này không tồn tại!</PageNotExist>
       <UserNotPermission>Bạn không được phép truy cập vào trang này!</UserNotPermission>
       <InvalidQueryException>Sai dữ liệu!</InvalidQueryException>
-      <Invalid-viewPermission>Bạn không có quyền truy cập trang {0}</Invalid-viewPermission>
-      <Invalid-editPermission>Bạn không có quyền chỉnh sửa trang {0}</Invalid-editPermission>
-      <Invalid-deletePermission>Bạn không có quyền xóa trang {0}</Invalid-deletePermission>
+      <Invalid-viewPermission>Bạn không có quyền truy cập trang {0}!</Invalid-viewPermission>
+      <Invalid-editPermission>Bạn không có quyền chỉnh sửa trang {0}!</Invalid-editPermission>
+      <Invalid-deletePermission>Bạn không có quyền xóa trang {0}!</Invalid-deletePermission>
       <Invalid-Preview>Trang này có kiểu giao diện Desktop. Bạn không thể xem mẫu !</Invalid-Preview>
       <NotViewPage>Bạn không có quyền truy cập trang này.</NotViewPage>
       <edit>
@@ -689,7 +689,7 @@
     </msg>
     <selectItem>
       <ownerType>Kiểu chủ sở hữu</ownerType>
-      <ownerId>Id của chủ sở hữu</ownerId>
+      <ownerId>Mã chủ sở hữu</ownerId>
       <name>Tên</name>
     </selectItem>
     <action>
@@ -704,8 +704,8 @@
     <header>
       <name>Tên trang</name>
       <ownerType>Kiểu chủ sở hữu</ownerType>
-      <ownerId>Id của chủ sở hữu</ownerId>
-      <pageId>Trang Id</pageId>
+      <ownerId>Mã chủ sở hữu</ownerId>
+      <pageId>Mã trang</pageId>
       <title>Tiêu đề trang</title>
       <accessGroups>Các nhóm truy nhập</accessGroups>
       <action>#{word.action}</action>
@@ -736,7 +736,7 @@
       <curentPage>Bạn không thể xóa trang này: Trang này đang được dùng bởi ứng dụng khác!</curentPage>
       <paste>
         <sameName>Tên của node không tồn tại!</sameName>
-	<sameSrcAndDes>Destination is the same as the source!</sameSrcAndDes>
+	<sameSrcAndDes>Node đích và node nguồn trùng nhau!</sameSrcAndDes>
       </paste>
     </msg>
     <deleteNode>Bạn có chắc chắn muốn xóa Navigation này không?</deleteNode>
@@ -765,9 +765,9 @@
   <UIPageForm>
     <title>Xem/Chỉnh sửa trang</title>
     <label>
-      <pageId>Id của trang:</pageId>
+      <pageId> Mã trang:</pageId>
       <ownerType>Kiểu chủ sở hữu của trang:</ownerType>
-      <ownerId>Id của chủ sở hữu:</ownerId>
+      <ownerId>Mã chủ sở hữu:</ownerId>
       <name>Tên trang:</name>
       <title>Tiêu đề trang :</title>
       <showMaxWindow>Hiện cửa sổ rộng nhất:</showMaxWindow>
@@ -791,7 +791,7 @@
   </UIPageForm>
   <UIOwnerIdSelector>
     <title>
-      <OwnerIdSelector>Tùy chọn Id của chủ sở hữu</OwnerIdSelector>
+      <OwnerIdSelector>Tùy chọn mã chủ sở hữu</OwnerIdSelector>
     </title>
   </UIOwnerIdSelector>
   <UIPopupGroupSelector>
@@ -806,11 +806,11 @@
   #############################################################################
   -->
   <UIPageNodeForm>
-    <title>Thêm và chỉnh sửa node của trang</title>
+    <title>Thêm và chỉnh sửa node của trang.</title>
     <msg>
       <SameName>Tên của node mà bạn nhập đang tồn tại, hãy thử với tên khác!</SameName>
       <selectPage>Bạn phải chọn một trang!</selectPage>
-      <startDateBeforeEndDate>The end date must be greater than or equal the start date</startDateBeforeEndDate>
+      <startDateBeforeEndDate>Thời gian kết thúc phải lớn hơn hoặc bằng thời gian hiện tại.</startDateBeforeEndDate>
     </msg>
     <action>
       <Save>#{word.save}</Save>
@@ -862,7 +862,7 @@
     <label>
       <option>
         <ownerType>Kiểu người sở hữu</ownerType>
-        <ownerId>ID người sở hữu</ownerId>
+        <ownerId>Mã người sở hữu</ownerId>
         <name>Tên</name>
         <title>#{word.title}</title>
       </option>
@@ -880,7 +880,7 @@
       <creator>Người khởi tạo :</creator>
       <modifier>Người chỉnh sửa :</modifier>
       <ownerType>Kiểu chủ sở hữu :</ownerType>
-      <ownerId>Id của chủ sở hữu :</ownerId>
+      <ownerId>Mã chủ sở hữu :</ownerId>
       <description>#{word.description}:</description>
       <uri>#{word.uri}:</uri>
       <name>#{word.name}:</name>
@@ -907,7 +907,7 @@
       <noMakablePageNavigation>Bạn không có quyền khởi tạo Navigation cho bất cứ nhóm nào.</noMakablePageNavigation>
     </msg>
     <tooltip>
-      <upLevel>Mức độ trên - Up Level</upLevel>
+      <upLevel>Mức độ trên</upLevel>
     </tooltip>
     
     <label>
@@ -1051,16 +1051,16 @@
   -->
   <UIFormInputDecoratorSelector>
     <label>
-      <selectDecorator>Decorator Category</selectDecorator>
+      <selectDecorator>Danh mục kiểu trang trí</selectDecorator>
       <SimpleStyle>Kiểu đơn giản</SimpleStyle>
       <ThickStyle>Kiểu đường biên dày</ThickStyle>
-      <TextureStyle>Kiểu nền kết cấu - Texture Background Style</TextureStyle>
+      <TextureStyle>Kiểu nền kết cấu</TextureStyle>
       <ColorStyle>Kiểu nền màu</ColorStyle>
       <RoundedStyle>Kiểu đường biên tròn</RoundedStyle>
       <StylizedStyle>Kiểu đường biên chuẩn</StylizedStyle>
-      <Currentdecoratorinfo>Thông tin kiểu trang tri hiện tại- Current selected decorator info</Currentdecoratorinfo>
-      <Decoratorname>Tên kiểu trang trí-Decorator name</Decoratorname>
-      <Selectedname>Tên của kiểu trang trí đã chọn-Selected decorator's name</Selectedname>
+      <Currentdecoratorinfo>Thông tin kiểu trang trí hiện tại</Currentdecoratorinfo>
+      <Decoratorname>Tên kiểu trang trí</Decoratorname>
+      <Selectedname>Tên của kiểu trang trí được chọn</Selectedname>
       <DecoratorStyle>Kiểu Trang trí</DecoratorStyle>
       <Namedecoratorstyle>Tên của kiểu trang trí</Namedecoratorstyle>
     </label>
@@ -1084,13 +1084,13 @@
         <title>Chào mừng bạn đến với khởi tạo trang bằng Wizard.</title>
       </step1>
       <step2>
-        <title>Chọn một node của trang và tạo tên trang</title>
+        <title>Chọn một node của trang và tạo tên trang.</title>
       </step2>
       <step3>
-        <title>Lựa chọn cách trình bày trang theo mẫu</title>
+        <title>Lựa chọn cách trình bày trang theo mẫu.</title>
       </step3>
       <step4>
-        <title>Sắp xếp lại cách trình bày trang và thêm Portlet vào trang</title>
+        <title>Sắp xếp lại cách trình bày trang và thêm Portlet vào trang.</title>
       </step4>
       <abort>#{word.abort}</abort>
       <back>#{word.back}</back>
@@ -1128,13 +1128,13 @@
   <UIPageEditWizard>
     <label>
       <step1>
-        <title>Chọn lại một node của trang và chỉnh sửa tên trang</title>
+        <title>Chọn lại một node của trang và chỉnh sửa tên trang.</title>
       </step1>
       <step2>
-        <title>Lựa chọn lại cách trình bày trang theo mẫu</title>
+        <title>Lựa chọn lại cách trình bày trang theo mẫu.</title>
       </step2>
       <step3>
-        <title>Sắp xếp lại cách trình bày trang và thêm Portlet vào trang</title>
+        <title>Sắp xếp lại cách trình bày trang và thêm Portlet vào trang.</title>
       </step3>
       <pageCreateWizard>Chỉnh sửa trang bằng Wizard</pageCreateWizard>
       <wizardSteps>Các bước tạo trang</wizardSteps>
@@ -1208,9 +1208,9 @@
   <UIWizardPageSetInfo>
     <title>Thêm một trang mới</title>
     <label>
-      <curentSelectedNodeInfo>node vừa chọn</curentSelectedNodeInfo>
+      <curentSelectedNodeInfo>Node vừa chọn</curentSelectedNodeInfo>
       <pageName>Tên Node </pageName>
-      <pageDisplayName>Tên hiển thị </pageDisplayName>
+      <pageDisplayName>Tên node hiển thị </pageDisplayName>
 	  <Visible>Hiển thị</Visible>
       <showPublicationDate>Thời gian hiển thị </showPublicationDate>
       <startPublicationDate>Thời gian bắt đầu </startPublicationDate>
@@ -1230,7 +1230,7 @@
   -->
   <EditWizard>
     <label>
-      <curentSelectedNodeInfo>node vừa chọn</curentSelectedNodeInfo>
+      <curentSelectedNodeInfo>Node vừa chọn</curentSelectedNodeInfo>
       <pageName>Tên Node </pageName>
       <pageDisplayName>Tên hiển thị </pageDisplayName>
       <visible>Hiển thị </visible>
@@ -1345,7 +1345,7 @@
   -->
   <UIPortletOptions>
     <label>
-      <selectPortletCategory>Các Danh mục Portlet</selectPortletCategory>
+      <selectPortletCategory>Danh mục Portlet</selectPortletCategory>
       <description>Mô tả Portlet</description>
     </label>
     <tab>
@@ -1405,7 +1405,7 @@
       <editPortlet>Sửa Portlet</editPortlet>
       <deletePortlet>Xóa Portlet</deletePortlet>
       <ResizeWindow>Thay đổi kích cỡ cửa sổ</ResizeWindow>
-      <DragControl>Giữ vùng này để kéo portlet đó</DragControl>
+      <DragControl>Giữ vùng này để kéo portlet đó.</DragControl>
     </tooltip>
   </UIPortlet>
   <!--
@@ -1416,7 +1416,7 @@
       <Back>#{word.back}</Back>
     </action>
     <msg>
-      <empty>Trang này chưa có nội dung. Bạn có thể chọn Chỉnh Sửa Trang để thêm nội dung</empty>
+      <empty>Trang này chưa có nội dung, bạn có thể chọn Chỉnh Sửa Trang để thêm nội dung.</empty>
     </msg>
   </UIPagePreview>
   <!--
@@ -1445,7 +1445,7 @@
   <UIWorkspaceContainer>
     <tooltip>
       <CloseControlWorkspace>Đóng vùng làm việc này</CloseControlWorkspace>
-      <OpenControlWorkspace>Click để mở vùng điều khiển làm việc</OpenControlWorkspace>
+      <OpenControlWorkspace>Click để mở vùng điều khiển làm việc.</OpenControlWorkspace>
     </tooltip>
     <lable>
       <UserWorkspaceTitle>Vùng Quản trị</UserWorkspaceTitle>
@@ -1484,7 +1484,7 @@
       <EDIT>Khảo sát trang và Navigation</EDIT>
     </title>
     <msg>
-      <Invalid-editPermission>Trang này không cho phép bạn chỉnh sửa</Invalid-editPermission>
+      <Invalid-editPermission>Trang này không cho phép bạn chỉnh sửa!</Invalid-editPermission>
     </msg>
   </UIPageManagement>
   <!--
@@ -1495,7 +1495,7 @@
   <UIPageManagementEditBar>
     <tooltip>
       <AddNode>Tạo node mới</AddNode>
-      <EditPageNode>Sửa trang của node đã chọn</EditPageNode>
+      <EditPageNode>Sửa trang của node đã chọn.</EditPageNode>
       <EditSelectedNode>Sửa node đã chọn</EditSelectedNode>
       <EditNavigation>Sửa Navigation</EditNavigation>
       <CopyNode>Copy node đã chọn</CopyNode>
@@ -1525,11 +1525,11 @@
   -->
   <UIPortalManagementEditBar>
     <tooltip>
-      <Preview>Xem duyệt trước Portal</Preview>
+      <Preview>Xem trước Portal</Preview>
       <EditPortal>Chỉnh sửa thuộc tính Portal</EditPortal>
-      <EditContainer>Điều khiển Container</EditContainer>
-      <EditPortlet>Điều khiển Portlet</EditPortlet>
-      <SavePortal>Chỉnh sửa thuộc tính Portal</SavePortal>
+      <EditContainer>Chỉnh sửa Container</EditContainer>
+      <EditPortlet>Chỉnh sửa Portlet</EditPortlet>
+      <SavePortal>Lưu</SavePortal>
     </tooltip>
   </UIPortalManagementEditBar>
   <!--
@@ -1545,7 +1545,7 @@
       <name>#{word.name}</name>
       <skin>#{word.skin}</skin>
       <action>#{word.action}</action>
-      <factoryId>Factory Id</factoryId>
+      <factoryId>Mã Factory </factoryId>
     </header>
     <action>
       <addNewPortal>Tạo Portal mới</addNewPortal>
@@ -1554,8 +1554,8 @@
       </title>
     </action>
     <msg>
-      <Invalid-viewPermission>Portal này không cho phép bạn truy cập</Invalid-viewPermission>
-      <Invalid-deletePermission>Bạn không có quyền xóa {0} .</Invalid-deletePermission>
+      <Invalid-viewPermission>Portal này không cho phép bạn truy cập!</Invalid-viewPermission>
+      <Invalid-deletePermission>Bạn không có quyền xóa {0}.</Invalid-deletePermission>
       <Invalid-createPermission>Bạn không có quyền khởi tạo Portal mới. Hãy liên hệ với người quản trị!</Invalid-createPermission>
     </msg>
     <deletePortal>Bạn có chắc chắn muốn xóa Portal này không?</deletePortal>
@@ -1606,7 +1606,7 @@
   <UILogged>
     <note>
       <loggedUser>Chào mừng</loggedUser>
-      <ItemContainer>Thành phần (trang) này đang được xây dựng.</ItemContainer>
+      <ItemContainer>Trang này đang được xây dựng.</ItemContainer>
     </note>
     <action>
       <logout>Đăng xuất</logout>
@@ -1617,7 +1617,7 @@
       <widgetNews>eXo Widgets</widgetNews>
       <widgetCategory>Danh mục Widget</widgetCategory>
       <widgetItem>Widget</widgetItem>
-      <BrowsersSupport>Browsers Support</BrowsersSupport>
+      <BrowsersSupport>Trình duyệt hỗ trợ</BrowsersSupport>
     </title>
     <label>
       <Workbeston>Hoạt động tốt nhất trên</Workbeston>
@@ -1668,9 +1668,9 @@
       <email>E-mail :</email>
     </label>
     <msg>
-      <user-delete>Tên người dùng đã bị xóa bởi Người quản trị</user-delete>
-      <user-not-exist>Tên người dùng không tồn tại</user-not-exist>
-      <expration>Email của bạn đã hết hạn, bạn phải đưa ra một email khác còn hoạt động</expration>
+      <user-delete>Tên người dùng đã bị xóa bởi Người quản trị.</user-delete>
+      <user-not-exist>Tên người dùng không tồn tại.</user-not-exist>
+      <expration>Email của bạn đã hết hạn, bạn phải đưa ra một email khác còn hoạt động.</expration>
     </msg>
     <mail>
       <header>Cảm ơn bạn đã liên lạc với nhóm hỗ trợ Portal của eXo. Bạn đã gửi đi một yêu cầu về tên và mật khẩu người dùng của bạn.</header>
@@ -1694,7 +1694,7 @@
       <confirmnewpassword>Xác nhận mật khẩu mới:</confirmnewpassword>
     </label>
     <msg>
-      <password-is-not-match>Mật khẩu mới và xác nhận mật khâu mới phải giống nhau</password-is-not-match>
+      <password-is-not-match>Mật khẩu mới và xác nhận mật khâu mới phải giống nhau.</password-is-not-match>
       <Invalid-account>Tên người dùng hoặc mật khẩu không đúng hoặc rỗng. Hãy thử lại!</Invalid-account>
     </msg>
   </UIResetPassword>
@@ -1705,8 +1705,13 @@
   -->
   <UIPopupMessages>
     <title>
-      <exoMessages>eXo Messages</exoMessages>
+      <exoMessages>Thông báo từ eXo</exoMessages>
     </title>
+    <label>
+    	<Error>Lỗi</Error>
+    	<Warning>Cảnh báo</Warning>    	
+    	<Info>Thông tin</Info>
+    </label>
     <button>
       <ok>Đồng ý</ok>
     </button>
@@ -1718,7 +1723,7 @@
   -->
   <UISitemap>
     <label>
-      <message>Không có trang nào</message>
+      <message>Không có trang nào!</message>
     </label>
   </UISitemap>
   <!--
@@ -1740,7 +1745,7 @@
   <UIContainer>
     <title>
       <Container>Container</Container>
-      <DragControlArea>Giữ vùng này để kéo Container</DragControlArea>
+      <DragControlArea>Giữ vùng này để kéo Container.</DragControlArea>
     </title>
     <label>
       <Thecontainer>Container</Thecontainer>
@@ -1749,7 +1754,7 @@
     <tooltip>
       <closeContainer>Đóng Container</closeContainer>
       <editContainer>Sửa Container</editContainer>
-      <drag>Drag Container here</drag>
+      <drag>Vùng kéo Container.</drag>
     </tooltip>
   </UIContainer>
   <!--
@@ -1760,8 +1765,8 @@
   <UIPage>
     <label>
       <title>Portal Page</title>
-      <description>Phần thân của trang Portal</description>
-      <pageContent>Nội dung của trang ở đây.</pageContent>
+      <description>Phần thân của trang Portal.</description>
+      <pageContent>Vùng chứa nội dung của trang.</pageContent>
     </label>
     <msg>
       <EditPermission>
@@ -1791,8 +1796,8 @@
       </img>
     </Vista>
     <label>
-      <pagebody>Phần thân của trang Portal</pagebody>
-      <PageContent>Nội dung của trang ở đây.</PageContent>
+      <pagebody>Phần thân của trang Portal.</pagebody>
+      <PageContent>Vùng chứa nội dung của trang.</PageContent>
       <View>Xem</View>
       <Edit>Chỉnh sửa</Edit>
       <Done>Thực hiện xong</Done>
@@ -1801,18 +1806,18 @@
       <PortalPage>Trang Portal</PortalPage>
       <SaveToDatabase>Lưu vào cơ sở dữ liệu</SaveToDatabase>
       <AddApplication>Thêm ứng dụng</AddApplication>
-      <PageNavigation>Page Navigation</PageNavigation>
+      <PageNavigation>Navigation trang</PageNavigation>
       <eXoBrowser>Trình duyệt eXo!</eXoBrowser>
       <ShowPortletDesktop>Hiện/Ẩn các Portlet</ShowPortletDesktop>
       <ShowWidgetDesktop>Hiện/Ẩn các Widget</ShowWidgetDesktop>
       <SignIn>Đăng nhập</SignIn>
-      <pageNavigation>Page Navigations</pageNavigation>
+      <pageNavigation>Navigation trang</pageNavigation>
     </title>
     <msg>
       <hasNotPermission>Bạn không được quyền chỉnh sửa trang này!</hasNotPermission>
     </msg>
     <action>
-      <Close>Loại bỏ khỏi Dockbar</Close>
+      <Close>Loại bỏ khỏi Dockbar!</Close>
       <action>
         <Open>Mở</Open>
       </action>
@@ -1843,7 +1848,7 @@
   <UIPortal>
     <label>
       <title>UIPortal Container</title>
-      <description>The UIPortal Container</description>
+      <description>UIPortal Container</description>
     </label>
   </UIPortal>
   <!--
@@ -1871,8 +1876,8 @@
       <Refresh>Refresh</Refresh>
       <Basic>Quản trị cơ bản</Basic>
       <Advanced>Quản trị nâng cao</Advanced>
-      <ChangeSkin>Change Skin</ChangeSkin>
-      <ChangeLanguage>Change Language</ChangeLanguage>
+      <ChangeSkin>Thay đổi giao diện</ChangeSkin>
+      <ChangeLanguage>Thay đổi ngôn ngữ</ChangeLanguage>
       <PageCreationWizard>Tạo trang bằng Wizard</PageCreationWizard>
       <EditCurrentPage>Chỉnh sửa trang bằng Wizard</EditCurrentPage>
       <EditCurrentPortal>Chỉnh sửa Portal hiện tại</EditCurrentPortal>
@@ -1883,9 +1888,9 @@
       <Default>Mặc định</Default>
       <Mac>Mac</Mac>
       <Vista>Vista</Vista>
-      <English>English</English>
-      <Vietnamese>Vietnamese</Vietnamese>
-      <French>French</French>
+      <English>Tiếng Anh</English>
+      <Vietnamese>Tiếng Việt</Vietnamese>
+      <French>Tiếng Pháp</French>
       <EditPortal>Chỉnh sửa Portal hiện tại</EditPortal>
       <EditPage>Chỉnh sửa Trang và Navigation</EditPage>
       <BrowsePortal>Quản lý Portal</BrowsePortal>
@@ -1915,7 +1920,7 @@
       <AdvancedSearch>Tìm kiếm nâng cao</AdvancedSearch>
       <UISavedQuery>Câu truy vấn có sẵn</UISavedQuery>
       <UISearchResult>Kết qủa tìm kiếm nâng cao</UISearchResult>
-      <UIMetadataSearch>Tìm kiếm siêu dư liệu</UIMetadataSearch>
+      <UIMetadataSearch>Tìm kiếm siêu dữ liệu</UIMetadataSearch>
       <Search>Tìm kiếm</Search>
       <QuickSearch>Tìm kiếm nhanh</QuickSearch>
     </label>
@@ -1979,9 +1984,9 @@
   -->
   <UIEditCurentPage>
     <label>
-      <pageCreateWizard>Chỉnh sửa trang hiện thời bằng Wizard</pageCreateWizard>
+      <pageCreateWizard>Chỉnh sửa trang hiện thời bằng Wizard.</pageCreateWizard>
       <step1>
-        <title>Chào mừng bạn đến với Wizad để chỉnh sửa trang hiện thời</title>
+        <title>Chào mừng bạn đến với Wizad để chỉnh sửa trang hiện thời!</title>
       </step1>
       <wizardSteps>Các bước Wizard</wizardSteps>
       <next>Tiếp theo</next>
@@ -1989,7 +1994,7 @@
       <back>Trở lại</back>
       <abort>Loại bỏ</abort>
       <step2>
-        <title>Chọn một node và đặt tên cho trang</title>
+        <title>Chọn một node và đặt tên cho trang.</title>
       </step2>
       <step3>
         <title>Chọn một trang mẫu</title>
@@ -2030,7 +2035,7 @@
   -->
   <UISharedPortalResources>
     <msg>
-      <notSelected>Bạn phải chọn một nhóm trước tiên</notSelected>
+      <notSelected>Bạn phải chọn một nhóm trước tiên!</notSelected>
     </msg>
   </UISharedPortalResources>
   <UISharedNavigation>
@@ -2046,9 +2051,9 @@
   </Default>
   <FactoryId>
     <left>
-      <title>Factory Id</title>
+      <title>Mã Factory</title>
     </left>
-    <title>Factory Id</title>
+    <title>Mã Factory</title>
   </FactoryId>
   <!--
   ################################################################################
@@ -2065,7 +2070,7 @@
       </label>
     </UIDropDown>
     <tooltip>
-      <widgetManagent>Việc quản lý các container Gadget</widgetManagent>
+      <widgetManagent>Việc quản lý các container Gadget.</widgetManagent>
     </tooltip>
   </UIWidgets>
   <!--
@@ -2124,11 +2129,11 @@
       <userName>Tên truy cập :</userName>
       <firstName>Tên:</firstName>
       <lastName>Họ:</lastName>
-      <email>Email:</email>
+      <email>Hộp thư:</email>
     </label>
     <msg>
       <update>
-        <success>Update thông tin tài khoản thành công</success>
+        <success>Update thông tin tài khoản thành công!</success>
       </update>
     </msg>
   </UIAccountProfiles>
@@ -2145,11 +2150,11 @@
     <msg>
       <change>
         <pass>
-          <success>Bạn đã thay đổi mật khẩu thành công</success>
+          <success>Bạn đã thay đổi mật khẩu thành công!</success>
         </pass>
       </change>
-      <password-is-not-match>Mật khẩu mới và mật khẩu xác nhận không thực hiện được</password-is-not-match>
-      <currentpassword-is-not-match>Mật khẩu hiện thời không đúng</currentpassword-is-not-match>
+      <password-is-not-match>Mật khẩu mới và mật khẩu xác nhận không giống nhau.</password-is-not-match>
+      <currentpassword-is-not-match>Mật khẩu hiện thời không đúng!</currentpassword-is-not-match>
     </msg>
   </UIAccountChangePass>
   <!--
@@ -2190,7 +2195,7 @@
       <selectedContainer>Thông tin Widget Container đã chọn:</selectedContainer>
     </title>
     <msg>
-      <emptyList>Không có Container nào trong danh mục này</emptyList>
+      <emptyList>Không có Container nào trong danh mục này.</emptyList>
       <noSelected>Bạn chưa chọn Container nào, hãy chọn lại!</noSelected>
     </msg>
     <label>
@@ -2198,9 +2203,9 @@
       <description>Mô tả Container:</description>
     </label>
     <tooltip>
-      <remove>Xóa container Widget đã chọn</remove>
-      <edit>Chỉnh sửa container Widget đã chọn</edit>
-      <addnew>Thêm container Widget mới</addnew>
+      <remove>Xóa container Widget đã chọn.</remove>
+      <edit>Chỉnh sửa container Widget đã chọn.</edit>
+      <addnew>Thêm container Widget mới.</addnew>
     </tooltip>
   </UIWidgetContainerManagement>
   <!--
@@ -2219,7 +2224,7 @@
     <title>
       <manager>Việc Quản Lý Container Gadget</manager>
       <containers>Containers</containers>
-      <selectedContainer>Selected Gadget Container Info:</selectedContainer>
+      <selectedContainer>Thông tin Gadget Container được chọn:</selectedContainer>
     </title>
     <msg>
       <emptyList>Không có conatainer nào trong danh mục này.</emptyList>
@@ -2299,7 +2304,7 @@
         <MacGreenSteel>Mac Green Steel</MacGreenSteel>
         <MacTheme>Mac Theme</MacTheme>
         <MacGray>Mac Gray</MacGray>
-        <DefaultTheme>Default Theme</DefaultTheme>
+        <DefaultTheme>Mặc định</DefaultTheme>
       </item>
     </UIItemThemeSelector>
   </Theme>

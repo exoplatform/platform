@@ -15,7 +15,7 @@
 		###################################################################
 		-->
     <back>Trở lại</back>
-    <birthday>Sinh nhật</birthday>
+    <birthday>Ngày sinh</birthday>
     <!--
 	  ###################################################################
 	  #                  EXPRESSION START  WITH 'c'                     #
@@ -60,7 +60,7 @@
 	  #                  EXPRESSION START  WITH 'g'                     #
 	  ###################################################################
 	  -->
-    <groupId>Id Nhóm</groupId>
+    <groupId>Mã Nhóm</groupId>
     <gender>Giới tính</gender>
     <givenName>Tên khai sinh</givenName>
     <!--
@@ -129,7 +129,7 @@
 	  ###################################################################
 	  -->
     <save>Lưu</save>
-    <stateProv>Quận/Huyện</stateProv>
+    <stateProv>Bang/Hạt</stateProv>
     <street>Đường Phố</street>
     <style>Giao diện</style>
     <subject>Chủ đề</subject>
