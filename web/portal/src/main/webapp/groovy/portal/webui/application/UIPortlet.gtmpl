@@ -22,6 +22,7 @@
 		    <div class="id"><%=uicomponent.getId();%></div>
 		    <div class="title"><%=_ctx.appRes("UIPortlet.label.title");%></div>
 		    <div class="description">
+		    
 		      <%if(uicomponent.getDescription() != null) {%>
   		      <%=uicomponent.getDescription();%>
 		      <%} else {%>
@@ -79,7 +80,7 @@
 		      <div class="MiddleLeft">
 		        <div class="MiddleRight">
 		          <div class="CenterBackground">
-		            <div class="GardientBackground">
+		            <div class="GardientBackground">		            
 		            <%if(uicomponent.getDescription() != null) {	
 		            		String description = ""; int count = 1;
 		            		for(c in uicomponent.getDescription()){
@@ -92,12 +93,8 @@
 		            		}
 		            %>
 		            	<%=description;%>
-		            <%} else {
-		               String des = _ctx.appRes("UIPortlet.label.portletContent");
-			            if(uicomponent.getId() !=null) des = uicomponent.getId() + " portlet";
-			            if(uicomponent.getName() !=null) des = uicomponent.getTitle() + " portlet";
-		            %>
-		              <%=des%>
+		            <%} else {%>
+		                 <%= _ctx.appRes("UIPortlet.label.portletContent"); %>		               
       		      <%}%>
       		      </div>
 		          </div>
