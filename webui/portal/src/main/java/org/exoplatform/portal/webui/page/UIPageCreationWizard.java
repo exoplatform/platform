@@ -183,7 +183,6 @@ public class UIPageCreationWizard extends UIPageWizard {
 
       if(uiWizard.getSelectedStep() < 3){
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.StepByStep",null)) ;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.setDescriptionWizard(2);
         uiWizard.viewStep(2);
         uiWizard.updateWizardComponent();
@@ -192,7 +191,6 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       if(uiWizard.isSelectedNodeExist()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.viewStep(2) ;
         uiWizard.updateWizardComponent() ;
         return;
@@ -205,7 +203,6 @@ public class UIPageCreationWizard extends UIPageWizard {
       PageNavigation navigation = uiNodeSelector.getSelectedNavigation();
       if(navigation == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.notSelectedPageNavigation", new String[]{})) ;;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         uiWizard.viewStep(2);
         return ;
       }
@@ -217,7 +214,6 @@ public class UIPageCreationWizard extends UIPageWizard {
         Date endDate = endCalendar.getTime();
         if(startDate.after(endDate)) {
           uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.startDateBeforeEndDate", null)) ;
-          context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
           uiWizard.viewStep(2);
           return;
         }
@@ -234,7 +230,6 @@ public class UIPageCreationWizard extends UIPageWizard {
       
       if(uiWizard.isSelectedNodeExist()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.setDescriptionWizard(2) ;
         uiWizard.viewStep(2) ;
         uiWizard.updateWizardComponent() ;
@@ -246,7 +241,6 @@ public class UIPageCreationWizard extends UIPageWizard {
         uiWizard.setDescriptionWizard(uiWizard.getSelectedStep());
         uiWizard.updateWizardComponent();
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.StepByStep",null)) ;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         return ;
       }
 
@@ -266,7 +260,6 @@ public class UIPageCreationWizard extends UIPageWizard {
       DataStorage storage = uiWizard.getApplicationComponent(DataStorage.class);
       if(storage.getPage(pageId) != null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.setDescriptionWizard(2) ;
         uiWizard.viewStep(2) ;
         uiWizard.updateWizardComponent() ;
@@ -314,7 +307,6 @@ public class UIPageCreationWizard extends UIPageWizard {
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
       if(uiWizard.isSelectedNodeExist()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageCreationWizard.msg.NameNotSame", null)) ;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.setDescriptionWizard(2) ;
         uiWizard.viewStep(2) ;
         uiWizard.updateWizardComponent() ;

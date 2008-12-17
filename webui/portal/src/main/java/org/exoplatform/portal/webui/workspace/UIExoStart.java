@@ -222,7 +222,6 @@ public class UIExoStart extends UIComponent {
       if(!uiPortal.isModifiable()) {
         UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
         uiPortalApp.addMessage(new ApplicationMessage("UIPortalManagement.msg.Invalid-editPermission", new String[]{uiPortal.getName()})) ;;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return ;
       }
       uiComp.setUIControlWSWorkingComponent(UIPortalManagement.class) ;

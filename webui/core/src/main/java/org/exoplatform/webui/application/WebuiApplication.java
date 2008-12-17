@@ -17,8 +17,9 @@
 package org.exoplatform.webui.application;
 
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.exoplatform.web.application.Application;
 import org.exoplatform.web.application.ApplicationLifecycle;
@@ -93,8 +94,8 @@ abstract public class WebuiApplication extends Application {
     return type.cast(uicomponent) ;
   }
   
-  public List<UIComponent> getDefaultUIComponentToUpdateByAjax(WebuiRequestContext context) {
-    List<UIComponent> list = new ArrayList<UIComponent>(3) ;
+  public Set<UIComponent> getDefaultUIComponentToUpdateByAjax(WebuiRequestContext context) {
+    Set<UIComponent> list = new HashSet<UIComponent>(3) ;
     list.add(context.getUIApplication()) ;
     return list ;
   }  

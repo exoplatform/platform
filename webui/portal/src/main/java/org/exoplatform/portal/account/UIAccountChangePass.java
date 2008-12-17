@@ -90,7 +90,6 @@ public class UIAccountChangePass extends UIForm {
           uiApp.addMessage(new ApplicationMessage("UIAccountChangePass.msg.currentpassword-is-not-match", null,1)) ;
           uiForm.reset();
           event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
-          context.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
           return ;
         }
         
@@ -98,7 +97,6 @@ public class UIAccountChangePass extends UIForm {
           uiApp.addMessage(new ApplicationMessage("UIAccountChangePass.msg.password-is-not-match", null,1)) ;
           uiForm.reset();
           event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
-          context.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
           return ;
         }
         user.setPassword(newPass) ;
@@ -106,7 +104,6 @@ public class UIAccountChangePass extends UIForm {
         service.getUserHandler().saveUser(user, true) ;
         uiForm.reset() ;
         event.getRequestContext().addUIComponentToUpdateByAjax(uiForm) ;
-        context.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
         UIAccountSetting ui = uiForm.getParent() ;
         ui.getChild(UIAccountProfiles.class).setRendered(true) ;
         ui.getChild(UIAccountChangePass.class).setRendered(false) ;

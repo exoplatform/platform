@@ -232,8 +232,6 @@ public class UIWizardPageSetInfo extends UIForm {
       Page page = null ;
       if(pageNode.getPageReference() != null) page = configService.getPage(pageNode.getPageReference(), accessUser) ;
       if(page == null){
-        uiPortalApp.addMessage(new ApplicationMessage("UIWizardPageSetInfo.msg.null", null)) ;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiForm.reset() ;
         uiForm.setShowPublicationDate(false) ;
         return ;

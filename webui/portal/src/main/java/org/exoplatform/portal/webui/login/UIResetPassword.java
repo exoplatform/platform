@@ -81,12 +81,10 @@ public class UIResetPassword extends UIForm {
       OrganizationService orgService = uiForm.getApplicationComponent(OrganizationService.class);
       if(!password.equals(user_.getPassword())) {
         uiApp.addMessage(new ApplicationMessage("UIResetPassword.msg.Invalid-account", null));
-        request.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
         return;
       }
       if(!newpassword.equals(confirmnewpassword)) {
         uiApp.addMessage(new ApplicationMessage("UIResetPassword.msg.password-is-not-match", null));
-        request.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
         return;
       }
       user_.setPassword(newpassword);

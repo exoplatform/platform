@@ -50,7 +50,6 @@ public class UIPageNavigationActionListener {
       UserPortalConfigService service = uiPortal.getApplicationComponent(UserPortalConfigService.class);
       if(service.getMakableNavigations(event.getRequestContext().getRemoteUser()).size() < 1) {
         uiApp.addMessage(new ApplicationMessage("UIPageNavigation.msg.noMakablePageNavigation", new String[]{})) ;;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
         return ;
       }
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;     
@@ -74,8 +73,7 @@ public class UIPageNavigationActionListener {
       UIPageNodeSelector uiNavigationSelector = uiManagement.findFirstComponentOfType(UIPageNodeSelector.class);
       PageNavigation nav = uiNavigationSelector.getSelectedNavigation();
       if(nav == null) {
-        uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;;
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());  
+        uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;; 
         return ;
       }
       uiNavigationForm.setValues(nav);
@@ -95,7 +93,7 @@ public class UIPageNavigationActionListener {
       if(!selectedNavigation.getOwnerType().equals(PortalConfig.GROUP_TYPE)){
         UIApplication uiApp = pcontext.getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.deleteNav", null ,ApplicationMessage.ERROR)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
+
         return;
       }
       uiPageNodeSelector.deletePageNavigation(selectedNavigation) ;
@@ -121,8 +119,7 @@ public class UIPageNavigationActionListener {
       List<PageNavigation> navs = uiNodeSelector.getPageNavigations();
       if(navs == null || navs.size() < 1) {
         UIPortalApplication uiApp = uiManagement.getAncestorOfType(UIPortalApplication.class);
-        uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;;
-        rcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());  
+        uiApp.addMessage(new ApplicationMessage("UIPageNavigationControlBar.msg.noEditablePageNavigation", new String[]{})) ;; 
         return ;
       }
       

@@ -321,9 +321,11 @@ public class UIPortalApplication extends UIApplication {
 
       UIMaskWorkspace uiMaskWS = getChildById(UIPortalApplication.UI_MASK_WS_ID);
       if(uiMaskWS.isUpdated()) pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
+      if(getUIPopupMessages().hasMessage()) {
+        pcontext.addUIComponentToUpdateByAjax(getUIPopupMessages()) ;
+      }
 
-
-      List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
+      Set<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
       List<UIPortlet> uiPortlets = new ArrayList<UIPortlet>(3);
       List<UIComponent> uiDataComponents = new ArrayList<UIComponent>(5);
 
@@ -380,7 +382,7 @@ public class UIPortalApplication extends UIApplication {
     }
   }
 
-  private String getAddSkinScript(List<UIComponent> updateComponents) {
+  private String getAddSkinScript(Set<UIComponent> updateComponents) {
     if(updateComponents == null) return null;
     List<UIPortlet> uiportlets = new ArrayList<UIPortlet>() ;
     for(UIComponent uicomponent : updateComponents) {

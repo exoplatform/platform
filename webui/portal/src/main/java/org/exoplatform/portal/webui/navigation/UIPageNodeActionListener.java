@@ -62,7 +62,6 @@ public class UIPageNodeActionListener {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.NoPageNavigation", null)) ;
         
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent());
         return;
       }
@@ -123,7 +122,6 @@ public class UIPageNodeActionListener {
         } else {
           uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{})) ;
         }
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
         return;
       }
       UIPageEditBar uiPageEditBar = uiManagement.getChild(UIPageEditBar.class);
@@ -136,7 +134,6 @@ public class UIPageNodeActionListener {
         Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
         uiManagement.setRenderedChildrenOfTypes(childrenToRender);        
         uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission", null)) ;        
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
         return;
       }
       
@@ -185,7 +182,6 @@ public class UIPageNodeActionListener {
         UserACL userACL = parent.getApplicationComponent(UserACL.class) ;
         if(!userACL.hasPermission(node, pcontext.getRemoteUser())) {
           uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.UserNotPermission", new String[]{pageId}, 1)) ;;
-          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
           return;
         }
       } 
@@ -285,14 +281,12 @@ public class UIPageNodeActionListener {
       if(targetNode != null && newNode.getUri().equals(targetNode.getUri())) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameSrcAndDes", null)) ;
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
       
       if(isExistChild(targetNode, newNode) || (targetNode == null && isExitChild(targetNav, newNode))) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.paste.sameName", null)) ;
-        Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
       if(selectedNode.isDeleteNode()) {

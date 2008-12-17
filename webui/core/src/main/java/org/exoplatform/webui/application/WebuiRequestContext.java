@@ -16,11 +16,11 @@
  */
 package org.exoplatform.webui.application;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.lang.reflect.UndeclaredThrowableException;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.lang.reflect.UndeclaredThrowableException;
+import java.util.Set;
 
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.ResourceResolver;
@@ -51,7 +51,7 @@ abstract public class WebuiRequestContext extends RequestContext {
   private boolean  responseComplete_ = false ;
   private boolean  processRender_ =  false ;
   private Throwable executionError_ ;
-  private ArrayList<UIComponent>  uicomponentToUpdateByAjax ;
+  private Set<UIComponent>  uicomponentToUpdateByAjax ;
   
   public WebuiRequestContext(Application app) {
     super(app) ;
@@ -100,11 +100,11 @@ abstract public class WebuiRequestContext extends RequestContext {
   
   public void    setProcessRender(boolean b) { processRender_ = b; }
 
-  public List<UIComponent>  getUIComponentToUpdateByAjax() {  return uicomponentToUpdateByAjax ; }
+  public Set<UIComponent>  getUIComponentToUpdateByAjax() {  return uicomponentToUpdateByAjax ; }
   
   public void addUIComponentToUpdateByAjax(UIComponent uicomponent) {   
     if(uicomponentToUpdateByAjax == null) {
-      uicomponentToUpdateByAjax =  new ArrayList<UIComponent>() ;
+      uicomponentToUpdateByAjax =  new HashSet<UIComponent>() ;
     }
     uicomponentToUpdateByAjax.add(uicomponent) ;
   }

@@ -112,14 +112,12 @@ public class UIPortalBrowser extends UIContainer {
       if(config != null && config.getPortalConfig().isModifiable()) {
         service.removeUserPortalConfig(portalName);
       } else if(config != null){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-deletePermission", new String[]{config.getPortalConfig().getName()})) ;;
-        prContext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
+        uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-deletePermission", new String[]{config.getPortalConfig().getName()})) ;; 
         return;
       }
       
       if(config == null && !Util.getUIPortal().getName().equals(portalName)) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-deletePermission", new String[] {portalName}));
-        prContext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
       
@@ -143,8 +141,7 @@ public class UIPortalBrowser extends UIContainer {
       UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);  
       UserACL userACL = uiApp.getApplicationComponent(UserACL.class) ;
       if(!userACL.hasCreatePortalPermission(prContext.getRemoteUser())){
-        uiApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-createPermission", null)) ;;
-        prContext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());  
+        uiApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-createPermission", null)) ;;  
         return;
       }
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;

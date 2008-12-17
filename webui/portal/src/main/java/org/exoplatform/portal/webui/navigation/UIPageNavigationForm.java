@@ -125,7 +125,6 @@ public class UIPageNavigationForm extends UIForm {
       PageNavigation existingNavi = uiPageNodeSelector.getPageNavigation(pageNav.getId()) ; 
       if( existingNavi != null || checkExiting(pageNav)) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageNavigationForm.msg.existPageNavigation", new String[]{pageNav.getOwnerId()})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());  
         return ;        
       }
       

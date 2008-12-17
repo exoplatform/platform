@@ -17,7 +17,7 @@
 package org.exoplatform.webui.core;
 
 import java.io.Writer;
-import java.util.List;
+import java.util.Set;
 
 import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -58,8 +58,12 @@ abstract public class UIPortletApplication extends  UIApplication {
     WebuiRequestContext pContext = (WebuiRequestContext)context.getParentAppRequestContext();
     if(context.useAjax() && !pContext.getFullRender()) {
       Writer w =  context.getWriter() ;
-      List<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
-      if(list == null) list = app.getDefaultUIComponentToUpdateByAjax(context) ;      
+      
+      Set<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
+      if(list == null) list = app.getDefaultUIComponentToUpdateByAjax(context) ;
+      else if(getUIPopupMessages().hasMessage()) {
+        context.addUIComponentToUpdateByAjax(getUIPopupMessages()) ;
+      }
       for(UIComponent uicomponent : list) {
         renderBlockToUpdate(uicomponent, context, w) ;
       }

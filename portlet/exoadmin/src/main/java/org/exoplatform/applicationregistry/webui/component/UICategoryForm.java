@@ -140,7 +140,6 @@ public class UICategoryForm extends UIFormTabPane {
           UIApplication uiApp = ctx.getUIApplication() ;
           uiApp.addMessage(new ApplicationMessage("category.msg.changeNotExist", null)) ;
           ctx.addUIComponentToUpdateByAjax(uiOrganizer) ;
-          ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages()) ;
           return ;
         }
         category.setModifiedDate(new Date()) ;

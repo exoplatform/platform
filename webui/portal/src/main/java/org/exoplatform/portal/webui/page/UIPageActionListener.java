@@ -265,8 +265,6 @@ public class UIPageActionListener {
       } else{
         org.exoplatform.webui.core.UIApplication uiApp = pcontext.getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPage.msg.EditPermission.null", null)) ;
-
-        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
       }
     }
   }

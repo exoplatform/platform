@@ -220,7 +220,6 @@ public class UIPortalForm extends UIFormTabPane {
       if(config != null) {
         UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
         uiApp.addMessage(new ApplicationMessage("UIPortalForm.msg.sameName", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
         return;
       }
       

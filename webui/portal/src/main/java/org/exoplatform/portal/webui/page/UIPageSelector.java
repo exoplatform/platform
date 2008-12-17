@@ -115,8 +115,7 @@ public class UIPageSelector extends UIFormInputContainer<String> {
       UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
       UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
       if(!userACL.hasPermission(service.getPage(id), pcontext.getRemoteUser())) {
-        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{id})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()); 
+        uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{id})) ;; 
       }
       uiPageSelector.setValue(id);
       //TODO: Tung.Pham added

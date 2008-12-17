@@ -80,7 +80,6 @@ public class UIPermissionForm extends UIForm {
     if(service.getApplication(application_.getId()) == null) {
       UIApplication uiApp = ctx.getUIApplication();
       uiApp.addMessage(new ApplicationMessage("application.msg.changeNotExist", null));
-      ctx.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
       return;
     }
     service.update(application_) ;    

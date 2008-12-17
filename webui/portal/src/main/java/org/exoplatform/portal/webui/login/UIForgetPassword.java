@@ -79,7 +79,6 @@ public class UIForgetPassword extends UIForm {
       if(userName != null) {
         if (orgSrc.getUserHandler().findUserByName(userName)==null) {
           requestContext.getUIApplication().addMessage(new ApplicationMessage("UIForgetPassword.msg.user-not-exist", null));
-          requestContext.addUIComponentToUpdateByAjax(requestContext.getUIApplication().getUIPopupMessages());
           return;
         }
         email = orgSrc.getUserHandler().findUserByName(userName).getEmail();
@@ -97,7 +96,6 @@ public class UIForgetPassword extends UIForm {
       }
       if(user==null) {
         requestContext.getUIApplication().addMessage(new ApplicationMessage("UIForgetPassword.msg.email-not-exist", null));
-        requestContext.addUIComponentToUpdateByAjax(requestContext.getUIApplication().getUIPopupMessages());
         return;
       }
       String portalName = URLEncoder.encode(Util.getUIPortal().getName(), "UTF-8");

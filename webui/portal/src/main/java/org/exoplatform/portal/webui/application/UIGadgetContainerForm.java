@@ -95,7 +95,6 @@ public class UIGadgetContainerForm extends UIForm {
             if(ele.getId().equals(container.getId())) {
               UIPortalApplication uiPortalApp = uiManagement.getAncestorOfType(UIPortalApplication.class) ;
               uiPortalApp.addMessage(new ApplicationMessage("UIGadgetContainerForm.msg.exist", null)) ;
-              rcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
               return ;
             }
           }          

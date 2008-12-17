@@ -99,7 +99,6 @@ public class UIAccountProfiles extends UIForm {
       user.setEmail(uiForm.getUIStringInput("email").getValue()) ;
       uiApp.addMessage(new ApplicationMessage("UIAccountProfiles.msg.update.success", null)) ;
       service.getUserHandler().saveUser(user, true) ;
-      context.addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
       return;
     }
   }

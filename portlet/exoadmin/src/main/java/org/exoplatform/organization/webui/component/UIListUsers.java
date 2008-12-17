@@ -100,7 +100,6 @@ public class UIListUsers extends UISearch {
     if(pageIterator.getAvailable() == 0 ) {
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
       uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
-      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages() );
     }
 	}
   
