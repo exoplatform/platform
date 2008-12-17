@@ -1476,6 +1476,7 @@
       <EditPortlet>Hiện thanh điều khiển Portlet</EditPortlet>
       <Decorator>Trang trí</Decorator>
       <SavePage>Lưu lại</SavePage>
+      <TurnOffPreview>Click để tắt chế độ xem thử</TurnOffPreview>
     </tooltip>
   </UIPageEditBar>
   <UIPageManagement>

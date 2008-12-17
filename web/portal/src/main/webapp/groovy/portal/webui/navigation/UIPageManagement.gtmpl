@@ -7,7 +7,8 @@
   import  org.exoplatform.portal.webui.page.UIPageBrowser;
   import org.exoplatform.portal.webui.page.UIPageBrowseControlBar;
   import org.exoplatform.webui.core.UIDescription;
-  
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.previewTitle = '" + _ctx.appRes("UIPageEditBar.tooltip.TurnOffPreview") + "';") ;
 %>
 <div class="UIPageManagement" id="$uicomponent.id">
 	<div class="TopTitleBar">

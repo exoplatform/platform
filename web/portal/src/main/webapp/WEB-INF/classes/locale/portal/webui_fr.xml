@@ -1466,6 +1466,7 @@
       <EditPortlet>Afficher les contrôles des portlets</EditPortlet>
       <Decorator>Décorateur</Decorator>
       <SavePage>Sauver la page</SavePage>
+      <TurnOffPreview>Click here to turn off preview mode</TurnOffPreview>
     </tooltip>
   </UIPageEditBar>
   <UIPageManagement>
