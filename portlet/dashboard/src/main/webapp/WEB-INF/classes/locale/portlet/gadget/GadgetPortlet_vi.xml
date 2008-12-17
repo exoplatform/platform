@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bundle>
   <UIGadgetEditMode>
-    <title>Set gadget's url</title>
+    <title>Thiết định URL cho gadget</title>
     <label>
       <gadgetUrl>Url:</gadgetUrl>
       <typeSelector>Kiểu:</typeSelector>

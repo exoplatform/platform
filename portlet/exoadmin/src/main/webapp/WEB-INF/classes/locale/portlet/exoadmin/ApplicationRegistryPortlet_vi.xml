@@ -56,7 +56,7 @@
       <deleteCategory>Bạn có chắc chắn là muốn xóa danh mục này và tất cả các ứng dụng trong nó?</deleteCategory>
       <deleteApplication>Bạn có chắc chắn là muốn xóa ứng dụng này?</deleteApplication>
       <emptyCategory>Danh mục này không chứa bất kỳ ứng dụng nào, click vào nút (+) để thêm ứng dụng.</emptyCategory>
-      <noCategory>Không có danh mục. Bạn có thể click vào nút "Thêm danh mục" hoặc "tự động Import" để thêm danh mục.</noCategory>
+      <noCategory>Không có danh mục. Bạn có thể bấm vào nút "Thêm danh mục" hoặc "tự động Import" để thêm danh mục.</noCategory>
       <deleteCategoryInUse>Không thể xóa danh mục này, nó đang được sử dụng.</deleteCategoryInUse>
       <deleteApplicationInUse>Không thể xóa ứng dụng này, nó đang được sử dụng.</deleteApplicationInUse>
       <categoryNoExist>Danh mục này không còn tồn tại trong cơ sở dữ liệu.</categoryNoExist>
@@ -220,7 +220,7 @@
     <label>
       <url>URL</url>
       <urlExist>Gadget này đã tồn tại hãy chọn một Gadget khác!</urlExist>
-      <urlError>Dữ liệu trong url: '{0}' không hợp lệ</urlError>
+      <urlError>Dữ liệu của url: '{0}' không hợp lệ</urlError>
     </label>
   </UIAddGadget>
   <!--

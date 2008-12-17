@@ -1445,7 +1445,7 @@
   <UIWorkspaceContainer>
     <tooltip>
       <CloseControlWorkspace>Đóng vùng làm việc này</CloseControlWorkspace>
-      <OpenControlWorkspace>Click để mở vùng điều khiển làm việc.</OpenControlWorkspace>
+      <OpenControlWorkspace>Bấm vào để mở vùng điều khiển làm việc.</OpenControlWorkspace>
     </tooltip>
     <lable>
       <UserWorkspaceTitle>Vùng Quản trị</UserWorkspaceTitle>
@@ -1646,7 +1646,7 @@
       <Next>Tiếp tục</Next>
       <Back>Quay lại</Back>
     </action>
-    <info><![CDATA[Chúng tôi xin lỗi vì bất tiện mà bạn đang gặp do không thể truy cập Exo được.<br /> Để giải quyết vấn đề này nhanh nhất có thể, hãy thực hiện từng bước theo hướng dẫn dưới.<br />Việc thực hiện chính xác các hướng dẫn này sẽ đảm bảo rằng nhận được những kết quả tốt nhất.<br /><br />1. Khôi phục mật khẩu của bạn: Nhập <strong>tên đăng nhập</strong> Sau đó click Gửi email.<br/>2. Khôi phục tên đăng nhập: Nhập <strong>địa chỉ email của bạn</strong> sau đó click Gửi email.<br/>]]></info>
+    <info><![CDATA[Chúng tôi xin lỗi vì bất tiện mà bạn đang gặp do không thể truy cập Exo được.<br /> Để giải quyết vấn đề này nhanh nhất có thể, hãy thực hiện từng bước theo hướng dẫn dưới.<br />Việc thực hiện chính xác các hướng dẫn này sẽ đảm bảo rằng nhận được những kết quả tốt nhất.<br /><br />1. Khôi phục mật khẩu của bạn: Nhập <strong>tên đăng nhập</strong> Sau đó bấm vào Gửi email.<br/>2. Khôi phục tên đăng nhập: Nhập <strong>địa chỉ email của bạn</strong> sau đó bấm vào Gửi email.<br/>]]></info>
     <label>
       <forgotpassword>Quên mật khẩu</forgotpassword>
       <forgotusername>Quên tên đăng nhập</forgotusername>

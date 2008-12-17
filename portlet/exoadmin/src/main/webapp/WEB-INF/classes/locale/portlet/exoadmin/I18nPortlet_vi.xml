@@ -9,8 +9,8 @@
   </UIForm>
   <UISearchI18n>
     <label>
-      <name>Tên</name>
-      <language>Ngôn ngữ</language>
+      <name>Tên:</name>
+      <language>Ngôn ngữ:</language>
     </label>
   </UISearchI18n>
   <UII18nPortlet>
@@ -29,9 +29,9 @@
   <UIEditResource>
     <title>Dữ liệu mã nguồn</title>
     <label>
-      <resource>Mã nguồn</resource>
-      <name>Tên</name>
-      <language>Ngôn ngữ</language>
+      <resource>Mã nguồn:</resource>
+      <name>Tên:</name>
+      <language>Ngôn ngữ:</language>
     </label>
     <action>
       <Save>Lưu</Save>

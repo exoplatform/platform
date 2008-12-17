@@ -16,8 +16,8 @@
   <UIMembershipTypeForm>
     <title>Thêm/Sửa Thành viên</title>
     <label>
-      <name>Tên thành viên</name>
-      <description>Mô tả</description>
+      <name>Tên thành viên:</name>
+      <description>Mô tả:</description>
     </label>
     <action>
       <Save>#{word.save}</Save>
@@ -33,8 +33,8 @@
   -->
   <UIGroupEditMembershipForm>
     <label>
-      <username>Tên người dùng</username>
-      <membership>Thành viên</membership>
+      <username>Tên người dùng:</username>
+      <membership>Thành viên:</membership>
     </label>
     <action>
       <Save>Lưu</Save>
@@ -54,8 +54,8 @@
   <UIGroupMembershipForm>
     <label>
       <title>Thành viên nhóm</title>
-      <username>Tên người dùng</username>
-      <membership>Thành viên</membership>
+      <username>Tên người dùng:</username>
+      <membership>Thành viên:</membership>
       <SearchUser>Tìm kiếm người dùng</SearchUser>
       <Refresh>Refresh</Refresh>
     </label>
@@ -264,7 +264,7 @@
     <label>
       <UIUserInGroup />
     </label>
-    <title>Thông tin Group</title>
+    <title>Thông tin nhóm</title>
   </UIGroupInfo>
   <!--
   ##org.exoplatform.organization.webui.component.UIMembershipList
@@ -312,9 +312,9 @@
   </EditGroup>
   <UIGroupForm>
     <label>
-      <groupName>Tên nhóm</groupName>
-      <description>Mô tả</description>
-      <label>Tên hiển thị</label>
+      <groupName>Tên nhóm:</groupName>
+      <description>Mô tả:</description>
+      <label>Tên hiển thị:</label>
     </label>
     <msg>
       <group-exist>Tên nhóm này đã tồn tại, xin vui lòng chọn nhóm khác!</group-exist>
