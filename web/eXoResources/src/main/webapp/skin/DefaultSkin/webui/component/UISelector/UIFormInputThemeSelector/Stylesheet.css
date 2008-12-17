@@ -7,7 +7,8 @@
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList {
-	margin-left: 230px;
+	margin-left: 230px;/* orientation=lt */
+	margin-right: 230px;/* orientation=rt */
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemList .Item {
@@ -38,7 +39,8 @@
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .SetDefault {
-	float: right;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .SetDefault a {

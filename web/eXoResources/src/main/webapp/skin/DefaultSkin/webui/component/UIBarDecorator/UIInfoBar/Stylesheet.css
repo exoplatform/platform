@@ -4,31 +4,34 @@
 /*######################-Rounded Style-######################*/
 .UIInfoBar .RoundedStyle .LeftBar {
   background: url('background/RoundedStyle.gif') no-repeat left top;
-  padding: 0px 0px 0px 6px ;
+  padding: 0px 0px 0px 6px;
 }
 
 .UIInfoBar .RoundedStyle .RightBar {
   background: url('background/RoundedStyle.gif') no-repeat right top;
-  padding: 0px 6px 0px 0px ;
+  padding: 0px 6px 0px 0px;
 }
 
 .UIInfoBar .RoundedStyle .MiddleBar {
-  height: 25px ;
+  height: 25px;
   background: url('background/RoundedStyle.gif') repeat-x center bottom;
 }
 
 .UIInfoBar .RoundedStyle .MiddleBar .Icon {
-  float: left;
+  float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
   margin: 5px 4px 0px 6px;
 }
 
 .UIInfoBar .RoundedStyle .Title {
-  float: left ;
+  float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
   height: 24px; 
   line-height: 24px;
-  font-weight: bold ;
-  overflow: visible ;
-  margin: 0px 0px 0px 5px;
+  font-weight: bold;
+  overflow: visible;
+  margin: 0px 0px 0px 5px;/* orientation=lt */
+  margin: 0px 5px 0px 0px;/* orientation=rt */
 }
 
 /*######################-Blue Rounded Style-######################*/
@@ -38,12 +41,12 @@
 
 .UIInfoBar .BlueRoundedStyle .LeftBar {
   background: url('background/BlueRoundedStyle.gif') no-repeat left top;
-  padding: 0px 0px 0px 3px ;
+  padding: 0px 0px 0px 3px;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {
   background: url('background/BlueRoundedStyle.gif') no-repeat right top;
-  padding: 0px 3px 0px 0px ;
+  padding: 0px 3px 0px 0px;
 }
 
 .UIInfoBar .BlueRoundedStyle .MiddleBar {
@@ -55,50 +58,56 @@
 }
 
 .UIInfoBar .BlueRoundedStyle .Title {
-  float: left ; 
-  text-align: left ;
-  font-weight: bold ; color: black;
+  float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
+  text-align: left;
+  font-weight: bold; color: black;
   line-height: 15px;
-  margin: 4px 0px 0px 4px ;
+  margin: 4px 0px 0px 4px;
 }
 
 .UIInfoBar .BlueRoundedStyle .Icon {
-  float: left ;
+  float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
   width: 18px; height: 16px;
   margin: 4px 0px 0px 5px;  
 }
 
 /*######################-Simple Style-######################*/
 .UIInfoBar .SimpleStyle {
-  background: url('background/MRoundedStyle1x21.gif') repeat-x ;
-  border-right: solid 1px #5f90ba ; border-left: solid 1px #5f90ba ;
-  overflow: hidden ; 
+  background: url('background/MRoundedStyle1x21.gif') repeat-x;
+  border-right: solid 1px #5f90ba; border-left: solid 1px #5f90ba;
+  overflow: hidden; 
 }
 
 .UIInfoBar .SimpleStyle .LeftBar {
-  float: left ;
-  height: 21px ;
-  background: none ;
-  border-left: solid 1px #4e7180 ;
+  float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
+  height: 21px;
+  background: none;
+  border-left: solid 1px #4e7180;
 }
 
 .UIInfoBar .SimpleStyle .RightBar {
-  float: right ;
-  height: 21px ;
-  background: none ;
-  border-right: solid 1px #4e7180 ;
+  float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
+  height: 21px;
+  background: none;
+  border-right: solid 1px #4e7180;
 }
 
 .UIInfoBar .SimpleStyle .MiddleBar {
-  height: 21px ;
-  text-align: left ;
-  padding: 0px 0px 0px 10px ;
+  height: 21px;
+  text-align: left;/* orientation=lt */
+  text-align: right;/* orientation=rt */
+  padding: 0px 0px 0px 10px;
 }
 
 .UIInfoBar .SimpleStyle .Title {
-  float: left ;
-  height: 21px ; line-height: 21px ;  
-  text-align: left ;
+  float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
+  height: 21px; line-height: 21px;  
+  text-align: left;
   margin: 0px 0px 0px 5px;
 }
 
@@ -114,7 +123,7 @@
 
 .UIInfoBar .PolygonNavyBlueStyle .RightBar {
 	background: url('background/PolygonNavyBlueStyle.gif') no-repeat right top;
-	padding: 0px 3px 0px 0px ;
+	padding: 0px 3px 0px 0px;
 }
 
 .UIInfoBar .PolygonNavyBlueStyle .MiddleBar {
@@ -147,7 +156,7 @@
 
 .UIInfoBar .SmoothStyle26 .RightBar {
 	background: url('background/SmoothStyle26.gif') no-repeat right top;
-	padding: 0px 1px 0px 0px ;
+	padding: 0px 1px 0px 0px;
 }
 
 .UIInfoBar .SmoothStyle26 .MiddleBar {

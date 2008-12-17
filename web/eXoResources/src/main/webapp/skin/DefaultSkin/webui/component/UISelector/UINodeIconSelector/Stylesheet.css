@@ -12,7 +12,7 @@
 
 .UINodeIconSelector .SelectedIconInfo {
   background: white;
-  border: solid 1px #b7b7b7 ;
+  border: solid 1px #b7b7b7;
   margin-top: 6px;
 }
 
@@ -23,7 +23,8 @@
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel {
   font-size: 12px; font-weight: normal;
   margin: 0px 10px 0px 10px;
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   width: auto;
 }
 
@@ -34,23 +35,25 @@
 }
 
 .UINodeIconSelector .IconSelector {
-  background: white ;
-  border: 1px solid  #b7b7b7 ;
+  background: white;
+  border: 1px solid  #b7b7b7;
   height: 197px; 
   overflow: auto;
 }
 
 .UINodeIconSelector .IconSelector .Icon {
-  float: left;
-  margin: 2px ;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
+  margin: 2px;
   width: 16px; height: 16px;
 }
 
 .UINodeIconSelector .IconSelector a {
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   border: 1px white solid;
   margin: 2px;
-  cursor: pointer ;
+  cursor: pointer;
 }
 
 .UINodeIconSelector .IconSelector a:hover {
@@ -58,10 +61,11 @@
 }
 
 .UINodeIconSelector .IconSelector .SelectedBackground {
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   border: 1px red solid;
   margin: 2px;
-  cursor: pointer ;
+  cursor: pointer;
 }
 
 .UINodeIconSelector .LeftColumnStyle .SetDefault a {

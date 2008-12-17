@@ -3,9 +3,12 @@
 }
 
 .SelectFileLabel {
-	float: left;
-	text-align: right ;
-	margin-right: 15px;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
+	text-align: right;/* orientation=lt */
+	text-align: left;/* orientation=rt */
+	margin-right: 15px;/* orientation=lt */
+	margin-left: 15px;/* orientation=rt */
 }
 
 .UploadButton {
@@ -19,12 +22,13 @@
 }
 
 .ProgressBar {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	width: 230px;
 }
 
 .ProgressBarLeft {
-	padding: 1px ;
+	padding: 1px;
 	border: solid 1px gray;
 }
 
@@ -45,11 +49,14 @@
 }
 
 .DeleteFileFrame {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	background: url('background/Round18x18.gif') no-repeat;
 	cursor: pointer;
-	padding-left: 23px;
-	margin-left: 5px;
+	padding-left: 23px;/* orientation=lt */
+	padding-right: 23px;/* orientation=rt */
+	margin-left: 5px;/* orientation=lt */
+	margin-right: 5px;/* orientation=rt */
 }
 
 .DeleteFileLable {
@@ -58,7 +65,8 @@
 }
 
 .FileName {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 }
 
 .FileNameLabel {
@@ -68,10 +76,12 @@
 }
 
 .RemoveFile {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	height: 18px; line-height: 18px;
 	background: url('background/Delete18x18.gif') no-repeat;
 	cursor: pointer;
-	margin-left: 10px;
+	margin-left: 10px;/* orientation=lt */
+	margin-right: 10px;/* orientation=rt */
 	width: 18px;
 }

@@ -22,7 +22,8 @@
 }
 
 .UICreatePage .UIToolbar .EditToolbar .Icon{
-	margin: 3px 12px 0px 27px;
+	margin: 3px 12px 0px 27px;/* orientation=lt */
+	margin: 3px 27px 0px 12px;/* orientation=rt */
 }
 
 .UICreatePage .CreatePageContainer .CreatePageLabel {
@@ -41,13 +42,15 @@
 }
 
 .BackNavigationContent {
-	padding: 5px 0px 0px 15px;
+	padding: 5px 0px 0px 15px;/* orientation=lt */
+	padding: 5px 15px 0px 0px;/* orientation=rt */
 }
 
 .BackNavigationContent .BackNavigationIcon {
 	height: 16px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BackIcon.gif') no-repeat;
-	padding-left: 22px;
+	padding-left: 22px;/* orientation=lt */
+	padding-right: 22px;/* orientation=rt */
 	cursor: pointer ;
 }
 

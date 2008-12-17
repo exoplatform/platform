@@ -10,33 +10,40 @@
 }
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
-  float: left ;
+  float: left ;/* orientation=lt */
+  float: right ;/* orientation=rt */
   width: 24px ; height: 15px ;
-  margin: 4px 0px 0px 5px ;
+  margin: 4px 0px 0px 5px ;/* orientation=lt */
+  margin: 4px 5px 0px 0px ;/* orientation=rt */
   background: url('background/DragBg2x2.gif');
   cursor: move ;
 }
 
 .UIPortlet .ViewPortletIcon {
-  float: left;
+  float: left ;/* orientation=lt */
+  float: right ;/* orientation=rt */
   width: 16px; height: 16px; 
-  margin: 3px 5px 0px 0px;
+  margin: 3px 5px 0px 0px;/* orientation=lt */
+  margin: 3px 0px 0px 5px;/* orientation=rt */
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueBoxLight.gif') no-repeat;
   cursor: pointer;
 }
 
 .UIPortlet .EditPortletPropertiesIcon {
-	float: right;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
 	width: 22px; height: 16px;
 	background: url('background/ContainerIcon.gif') no-repeat top;
   margin: 4px 3px 2px 0px;
 }
 
 .UIPortlet .DeletePortletIcon {
-	float: right;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
 	width: 22px; height:16px; 
   background: url('background/ContainerIcon.gif') no-repeat bottom;
-  margin: 4px 4px 2px 0px;
+  margin: 4px 4px 2px 0px;/* orientation=lt */
+  margin: 4px 0px 2px 4px;/* orientation=rt */
 }
 
 /*##############################- PortletLayoutDecorator  -################################*/
@@ -130,11 +137,13 @@
 }
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
-  float: left ; 
+  float: left ; /* orientation=lt */
+  float: right ; /* orientation=rt */
   width: 24px ; height: 15px ; 
   background: url('background/DragBg2x2.gif');
   cursor: move ;
-  margin: 4px 0px 0px 5px ;
+  margin: 4px 0px 0px 5px ;/* orientation=lt */
+  margin: 4px 5px 0px 0px ;/* orientation=rt */
 }
 
 .UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
@@ -144,23 +153,29 @@
 }
 
 .UIContainer .EditContainerIcon {
-	float: right;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
 	width: 22px; height: 16px;
 	background: url('background/ContainerIcon.gif') no-repeat top;
-  margin: 4px 2px 2px 0px;
+  margin: 4px 2px 2px 0px;/* orientation=lt */
+  margin: 4px 0px 2px 2px;/* orientation=rt */
 }
 
 .UIContainer .DeleteContainerIcon {
-	float: right;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
 	width: 22px; height:16px; 
   background: url('background/ContainerIcon.gif') no-repeat bottom;
-  margin: 4px 4px 2px 0px;
+  margin: 4px 4px 2px 0px;/* orientation=lt */
+  margin: 4px 0px 2px 4px;/* orientation=rt */
 }
 
 .UIContainer .ContainerIcon {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
   width: 18px; height: 16px;
-  margin: 4px 0px 0px 5px;
+  margin: 4px 0px 0px 5px;/* orientation=lt */
+  margin: 4px 5px 0px 0px;/* orientation=rt */
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat ;
 }
 

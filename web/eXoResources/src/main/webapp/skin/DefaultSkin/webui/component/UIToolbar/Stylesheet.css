@@ -2,16 +2,19 @@
 }
 
 .UIToolbar .Button {
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   cursor: pointer;
 }
 
 .UIToolbar .Button .ButtonLabel {
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
 }
 
 .UIToolbar .HorizontalSeparator {
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   width: 2px; height: 30px;
   background: url('background/GrayLine2x2.gif') repeat-y;
   margin: 7px 10px 0px 10px;
@@ -66,7 +69,8 @@
 }
 
 .UIToolbar .LargeToolbar .HorizontalSeparator {
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   margin: 3px 8px 0px 10px;
   width: 2px; height: 50px;
 }
@@ -321,59 +325,72 @@
 /*#################################- ControlToolbar -##############################*/
 
 .UIToolbar .ControlToolbar {
-	margin: 10px 2px 0px 95px; 
+	margin: 10px 2px 0px 95px; /* orientation=lt */
+	margin: 10px 95px 0px 2px; /* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .LeftBar {
-  padding-left: 12px;
-  background: url('background/ControlToolbar.gif') no-repeat left top;
+  padding-left: 12px;/* orientation=lt */
+  padding-right: 12px;/* orientation=rt */
+  background: url('background/ControlToolbar.gif') no-repeat left top;/* orientation=lt */
+  background: url('background/ControlToolbar-rt.gif') no-repeat right top;/* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .RightBar {
-  padding-right: 1px;
-  background: url('background/ControlToolbar.gif') no-repeat right -27px;
+  padding-right: 1px;/* orientation=lt */
+  padding-left: 1px;/* orientation=rt */
+  background: url('background/ControlToolbar.gif') no-repeat right -27px;/* orientation=lt */
+  background: url('background/ControlToolbar-rt.gif') no-repeat left -27px;/* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .MiddleBar {
   height: 27px; line-height: 27px;
-  background: url('background/ControlToolbar.gif') repeat-x left -27px;
+  background: url('background/ControlToolbar.gif') repeat-x left -27px;/* orientation=lt */
+  background: url('background/ControlToolbar-rt.gif') repeat-x right -27px;/* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .SeparateLine{
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   width: 2px; height: 20px;
   background: url('background/SeparateLine2x1.gif') repeat-y;
   margin: 2px 2px 0px 3px;
 }
 
 .UIToolbar .ControlToolbar .Icon {
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   margin: 3px 4px 0px 4px; 
 }
 
 .UIToolbar .ControlToolbar .RollbackIcon {
 	width: 24px; height: 20px;
-	background: url('background/ControlToolbar.gif') no-repeat left -55px;
+	background: url('background/ControlToolbar.gif') no-repeat left -55px;/* orientation=lt */
+	background: url('background/ControlToolbar-rt.gif') no-repeat left -55px;/* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .BackIcon {
 	width: 24px; height: 20px;
-	background: url('background/ControlToolbar.gif') no-repeat left -178px;
+	background: url('background/ControlToolbar.gif') no-repeat left -178px;/* orientation=lt */
+	background: url('background/ControlToolbar-rt.gif') no-repeat left -178px;/* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .FinishIcon {
 	width: 24px; height: 20px;
-	background: url('background/ControlToolbar.gif') no-repeat left -76px;
+	background: url('background/ControlToolbar.gif') no-repeat left -76px;/* orientation=lt */
+	background: url('background/ControlToolbar-rt.gif') no-repeat left -76px;/* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .SaveIcon {
 	width: 24px; height: 19px;
-	background: url('background/ControlToolbar.gif') no-repeat left -96px;
+	background: url('background/ControlToolbar.gif') no-repeat left -96px;/* orientation=lt */
+	background: url('background/ControlToolbar-rt.gif') no-repeat left -96px;/* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .AbortIcon {
 	width: 24px; height: 20px;
-	background: url('background/ControlToolbar.gif') no-repeat left -116px;
+	background: url('background/ControlToolbar.gif') no-repeat left -116px;/* orientation=lt */
+	background: url('background/ControlToolbar-rt.gif') no-repeat left -116px;/* orientation=rt */
 }
 
 

@@ -27,7 +27,8 @@
 .UINotification .UIPopupNotification  .TitleNotification {
   background: url('images/Popup.gif') repeat-x left -50px ;
   height: 16px;
-  padding-left:10px;
+  padding-left:10px;/* orientation=lt */
+  padding-right:10px;/* orientation=rt */
 }
 
 .UINotification .UIPopupNotification  .MLPopupNotification {
@@ -64,14 +65,16 @@
   display: block;
   font-size: 12px;
   font-weight: bold;
-  float: left;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
 }
 
 .UINotification .UIPopupNotification  .Close {
   background: url('images/Popup.gif') left -66px no-repeat;
   display: block;
   height: 7px; width: 7px;
-  float: right;
+  float: right;/* orientation=lt */
+  float: left;/* orientation=rt */
   margin: 3px 5px;
   cursor: pointer;
 }
@@ -80,7 +83,8 @@
 	overflow:hidden;
   border-bottom: 1px dotted #b7b7b7;
   margin: 0px 5px;
-	padding: 5px 0px 0px 11px;
+	padding: 5px 0px 0px 11px;/* orientation=lt */
+	padding: 5px 11px 0px 0px;/* orientation=rt */
   display: block;
 	line-height: 22px;
   color: red;

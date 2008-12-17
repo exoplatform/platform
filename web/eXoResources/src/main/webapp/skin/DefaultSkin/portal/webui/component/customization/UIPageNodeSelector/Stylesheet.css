@@ -1,4 +1,4 @@
-/*########################- UIPageNodeSelector -######################*/
+  /*########################- UIPageNodeSelector -######################*/
 
 .UIPageNodeSelector .PageNodeSelectorContainer {
   background: #f3f3f3 ;
@@ -30,7 +30,8 @@
 }
 
 .UIPageNodeSelector .TabLabel {
-  margin-left: 10px;
+  margin-left: 10px;/* orientation=lt */
+  margin-right: 10px;/* orientation=rt */
 }
 
 .UIPageNodeSelector .OrganizationIcon {
@@ -47,9 +48,12 @@
 
 /*Created by Vu Duy Tu*/
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/EditNavigation.gif') no-repeat left top;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/EditNavigation.gif') no-repeat left top;/* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/EditNavigation-rt.gif') no-repeat right top;/* orientation=rt */
 	cursor: pointer;
-	float: left; margin: 0px 0px 2px 0px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 0px 0px 2px 0px;
 	height: 21px; width: 21px;
 	display: block;
 }
@@ -60,6 +64,7 @@
 
 /*Created Dang.Tung*/
 .UIControlWorkspace .UIPageNodeSelector .UIDropDownControl {
-  float: left; 
+  float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   width: 195px;
 }

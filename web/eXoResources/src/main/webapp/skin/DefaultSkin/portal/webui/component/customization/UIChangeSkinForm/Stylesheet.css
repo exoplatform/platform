@@ -2,12 +2,14 @@
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	width: 175px;
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList {
-	margin: 0px 0px 0px 180px;
+	margin: 0px 0px 0px 180px;/* orientation=lt */
+	margin: 0px 180px 0px 0px;/* orientation=rt */
 	padding: 0px;
 }
 

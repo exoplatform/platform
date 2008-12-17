@@ -1,6 +1,7 @@
 .UIPortalSettingForm {
   margin: auto;
-  padding: 30px 17px 30px 10px ;
+  padding: 30px 17px 30px 10px ;/* orientation=lt */
+  padding: 30px 10px 30px 17px ;/* orientation=rt */
 }
 
 /*##############################- LoginBox Style-################################*/
@@ -17,7 +18,7 @@
 .UIPortalSettingForm .PortalSettingContent .TopLeftDecorator {
   background: url('background/RoundedBoxLeftTop24x35.gif') no-repeat left ;
   padding: 0px 0px 0px 24px ;
-    border: 1px solid red;
+  border: 1px solid red;
   
 }
 
@@ -63,7 +64,8 @@
 .UIPortalSettingForm .PortalSettingContent .VerticalLayout {
 	background: white;
 	height: 110px;
-	padding: 20px 0px 0px 20px;
+	padding: 20px 0px 0px 20px;/* orientation=lt */
+	padding: 20px 20px 0px 0px;/* orientation=rt */
 }
 
 .UIPortalSettingForm .VerticalLayout .LanguageField {
@@ -71,24 +73,29 @@
 }
 
 .UIPortalSettingForm .VerticalLayout .SkinField {
-	padding-: 10px;
+	padding: 10px;
 	height: 35px;
 }
 
 .UIPortalSettingForm .VerticalLayout label {
 	padding: 0px 0px 5px 0px;
   width: 100px;
-  text-align: right;
-	float: left;
+  text-align: right;/* orientation=lt */
+  text-align: left;/* orientation=rt */
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 }
 
 .UIPortalSettingForm .VerticalLayout .selectbox {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
   width: 205px; height: 20px;
   line-height: 18px;
-  padding: 0px 0px 0px 5px;
+  padding: 0px 0px 0px 5px;/* orientation=lt */
+  padding: 0px 5px 0px 0px;/* orientation=rt */
 	font-size: 11px;
-	margin-left: 5px;
+	margin-left: 5px;/* orientation=lt */
+	margin-right: 5px;/* orientation=rt */
 }
 
 .UIPortalSettingForm .VerticalLayout .UIAction {

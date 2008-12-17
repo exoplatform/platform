@@ -100,11 +100,11 @@
 /* End */
 
 .UIPageIterator .Number {
-  float: left ;			/* orientation=lt */
-  float: right ;		/* orientation=rt */
+  float: left ;	/* orientation=lt */
+  float: right ; /* orientation=rt */
   padding: 0px 4px ;
-  margin: 0px 6px 0px 3px;		/* orientation=lt */
-  margin: 0px 3px 0px 6px;		/* orientation=rt */
+  margin: 0px 6px 0px 3px; /* orientation=lt */
+  margin: 0px 3px 0px 6px; /* orientation=rt */
 }
 
 .UIPageIterator .Number a.PageSelected {

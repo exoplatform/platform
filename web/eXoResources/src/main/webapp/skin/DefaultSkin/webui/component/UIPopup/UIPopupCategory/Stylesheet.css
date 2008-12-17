@@ -5,8 +5,8 @@
 	opacity: 0.5; For Mozilla FireFox
 	khtml-opacity: 0.5;
 */
-	position: absolute ;
-	width: 120px ;
+	position: absolute;
+	width: 120px;
 	top: 15px;
 	left: -85px;
 }
@@ -61,8 +61,10 @@
 .UIPopupCategory .CategoryItem .Icon {
   width: 16px;
   height: 16px;
-  float: left;
-  margin: 3px 3px 0px 7px;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
+  margin: 3px 3px 0px 7px;/* orientation=lt */
+  margin: 3px 7px 0px 3px;/* orientation=rt */
   background: transparent url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
 }
 
@@ -84,8 +86,10 @@
 }
 
 .UIPopupCategory .CategoryItem .CategoryItemLabel {
-  padding-left: 18px;
+  padding-left: 18px;/* orientation=lt */
+  padding-right: 18px;/* orientation=rt */
   height: 22px;
   line-height: 22px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;/* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat right center;/* orientation=rt */
 }

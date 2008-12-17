@@ -1,4 +1,4 @@
-.UIWidgetContainerManagement {
+  .UIWidgetContainerManagement {
 	padding: 15px 15px 5px 15px;
 }
 
@@ -18,18 +18,22 @@
 	height: 25px;
 	background: url('background/BgCategoryTitle1x25.gif') repeat-x;
 	border-bottom: 1px #b7b7b7 solid;
-	padding: 0px 5px 0px 0px;
+	padding: 0px 5px 0px 0px;/* orientation=lt */
+	padding: 0px 0px 0px 5px;/* orientation=rt */
 }
 
 .UIWidgetContainerManagement .CategoryTitleBar .Title {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	line-height: 25px;
-	padding-left: 10px;
+	padding-left: 10px;/* orientation=lt */
+	padding-right: 10px;/* orientation=rt */
 	color: #424242; font-weight: bold;
 }
 
 .UIWidgetContainerManagement .Icon {
-	float: right;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
 	width: 16px; height: 16px;
 	margin: 4px 4px;;
 }
@@ -47,8 +51,10 @@
 }
 
 .UIWidgetContainerManagement .CategoryTitle {
-	background: url('background/HLineSeparator193x1.gif') no-repeat left bottom ;
-	padding: 8px 0px 4px 10px;
+	background: url('background/HLineSeparator193x1.gif') no-repeat left bottom ;/* orientation=lt */
+	background: url('background/HLineSeparator193x1.gif') no-repeat right bottom ;/* orientation=rt */
+	padding: 8px 0px 4px 10px;/* orientation=lt */
+	padding: 8px 10px 4px 0px;/* orientation=rt */
 }
 
 .UIWidgetContainerManagement .ContainerList {
@@ -65,7 +71,8 @@
 	color: #000000;
 	text-decoration: none;
 	line-height: 21px;
-	padding-left: 24px;
+	padding-left: 24px;/* orientation=lt */
+	padding-right: 24px;/* orientation=rt */
 }
 
 .UIWidgetContainerManagement .ContainerList .SelectedItem {
@@ -73,8 +80,10 @@
 	color: #058ee6;
 	text-decoration: none;
 	line-height: 21px;
-	background: #dbdef5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif') no-repeat 5px 3px;
-	padding-left: 24px;
+	background: #dbdef5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif') no-repeat 5px 3px;/* orientation=lt */
+	background: #dbdef5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon-rt.gif') no-repeat right 3px;/* orientation=rt */
+	padding-left: 24px;/* orientation=lt */
+	padding-right: 24px;/* orientation=rt */
 }
 
 .UIWidgetContainerManagement .ContainerList a:hover {
@@ -84,7 +93,8 @@
 /*===================== Begin the Widget Container Category ==========================*/
 
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerCategory {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	width: 252px; height: 275px;
 	background: white; 
 	overflow-x: hidden;
@@ -94,7 +104,8 @@
 
 /*===================== Begin the Widget Container View ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
-	margin-left: 260px;
+	margin-left: 260px;/* orientation=lt */
+	margin-right: 260px;/* orientation=rt */
 	border: 1px #b7b7b7 solid;
 }
 
@@ -106,7 +117,8 @@
 }
 
 .UIWidgetContainerManagement .ContainerManagementDetail .ContainerDetail {
-	padding: 10px 10px 0px 0px;
+	padding: 10px 10px 0px 0px;/* orientation=lt */
+	padding: 10px 0px 0px 10px;/* orientation=rt */
 	width: 90%;
 }
 
@@ -121,15 +133,19 @@
 .UIWidgetContainerManagement .ContainerManagementDetail .HeadTitle {
 	color: #4b4b4b;
 	font-weight: bold;
-	padding: 5px 0px 0px 8px;
+	padding: 5px 0px 0px 8px;/* orientation=lt */
+	padding: 5px 8px 0px 0px;/* orientation=rt */
 	text-align: center;
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .RemoveContainerAction{
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat left center;
-	padding:0px 55px 0px 23px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat left center;/* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat right center;/* orientation=rt */
+	padding:0px 55px 0px 23px;/* orientation=lt */
+	padding:0px 23px 0px 55px;/* orientation=rt */
 	height: 22px; line-height: 22px;
-	float: right;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
 	color: #000000;
 	display: block; cursor: pointer;
 }
@@ -142,13 +158,16 @@
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent .Label {
 	width: 150px;
-	text-align: right;
+	text-align: right;/* orientation=lt */
+	text-align: left;/* orientation=rt */
 	line-height: 20px;
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent .FieldComponent {
-	margin-left: 155px;	
+	margin-left: 155px;	/* orientation=lt */
+	margin-right: 155px;	/* orientation=rt */
 	line-height: 20px;
 	color: #058ee6;
 	font-size: 12px;

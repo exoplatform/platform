@@ -1,4 +1,4 @@
-.UIRightClickPopupMenu {
+  .UIRightClickPopupMenu {
   display: none;
   position: absolute;
 }
@@ -31,7 +31,8 @@
 	
 .UIRightClickPopupMenu .ItemIcon {
   margin: 0px 7px;
-  padding: 5px 0px 5px 26px;
+  padding: 5px 0px 5px 26px;/* orientation=lt */
+  padding: 5px 26px 5px 0px;/* orientation=rt */
   line-height: 16px;
   width: auto;
 }

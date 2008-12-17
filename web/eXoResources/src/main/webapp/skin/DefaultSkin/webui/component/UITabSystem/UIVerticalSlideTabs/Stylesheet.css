@@ -8,16 +8,17 @@
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .LeftIcon {
-  float: left ;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   width: 16px;  height: 16px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
   margin: 6px 0px 0px 3px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLabel {
-  float: left ;			/* orientation=lt */
-  float: right ;		/* orientation=rt */
-  height: 26px ; line-height: 26px ;  
+  float: left;			/* orientation=lt */
+  float: right;		/* orientation=rt */
+  height: 26px; line-height: 26px;  
   color: #606060; font-weight: bold;
   text-transform: capitalize;
 }
@@ -31,7 +32,8 @@
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .LeftIcon {
-  float: left ;
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   width: 16px;  height: 16px;
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat;
   margin: 4px 0px 0px 3px;
@@ -40,20 +42,22 @@
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
   float: left;			/* orientation=lt */
   float: right;			/* orientation=rt */
-  height: 26px ; 
-  line-height: 26px ;  
+  height: 26px; 
+  line-height: 26px;  
   color: #058ee6; 
   font-weight: bold; 
   text-transform: capitalize;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .ControlContainer {
-  float: right;
+  float: right;/* orientation=lt */
+  float: left;/* orientation=rt */
   padding-right: 2px;
 }
 
 .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .ControlIcon {
-  float: left;
+  float: left;			/* orientation=lt */
+  float: right;			/* orientation=rt */
   margin: 4px 2px 0px 2px;
 }
 
@@ -70,7 +74,7 @@
 
 .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent {
   background: #ffffff url(background/BottomVTabSimpleStyle224x1.gif) no-repeat bottom right;
-  padding: 10px ;
+  padding: 10px;
   margin: 1px 0px 1px 1px;
   text-transform: capitalize;
 }
@@ -83,45 +87,50 @@
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
-  padding-left: 4px ;
-  background: url('background/VTabStyle3.gif') no-repeat left top ;
+  padding-left: 4px;
+  background: url('background/VTabStyle3.gif') no-repeat left top;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight {
-  padding-right: 4px ;
+  padding-right: 4px;
   background: url('background/VTabStyle3.gif') no-repeat right top;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat {
-  height: 26px ;
-  background: url('background/VTabStyle3.gif') repeat-x left -26px ;
+  height: 26px;
+  background: url('background/VTabStyle3.gif') repeat-x left -26px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
-  float: left ;
+  float: left;			/* orientation=lt */
+  float: right;			/* orientation=rt */
   width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat;/* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow-rt.gif') no-repeat;/* orientation=rt */
   margin: 6px 5px 0px 5px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLabel {
-  float: left ;
-  height: 26px ; line-height: 26px ;
+  float: left;			/* orientation=lt */
+  float: right;			/* orientation=rt */
+  height: 26px; line-height: 26px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .SwitchButton {
-  float: right;
-  width: 16px;  height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat ;
-  margin: 6px 3px 0px 0px ;
-  cursor: pointer ;
+  float: right;/* orientation=lt */
+  float: left;/* orientation=rt */
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat;
+  margin: 6px 3px 0px 0px;/* orientation=lt */
+  margin: 6px 0px 0px 3px;/* orientation=rt */
+  cursor: pointer;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .UIVTabContent {
-  background: #ffffff ;
-  border: solid 1px #b2b1b1 ;
-  padding: 5px ;
-  margin: 1px 0px ;
+  background: #ffffff;
+  border: solid 1px #b2b1b1;
+  padding: 5px;
+  margin: 1px 0px;
 }
 
 /***-SeltectedTab VerticalSlideTabs-***/
@@ -130,43 +139,47 @@
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLeft {
-  padding-left: 3px ;
-  background: url('background/VTabStyle3.gif') no-repeat left -52px ;
+  padding-left: 3px;
+  background: url('background/VTabStyle3.gif') no-repeat left -52px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRight {
-  padding-right: 3px ;
+  padding-right: 3px;
   background: url('background/VTabStyle3.gif') no-repeat right -52px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabRepeat {
-  height: 26px ;
+  height: 26px;
   background: url('background/VTabStyle3.gif') repeat-x bottom;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .LeftIcon {
-  float: left ;
+  float: left;			/* orientation=lt */
+  float: right;			/* orientation=rt */
   width: 16px; height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat;
   margin: 6px 5px 0px 5px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLabel {
-  float: left ;
-  height: 26px ; line-height: 26px ;  
+  float: left;			/* orientation=lt */
+  float: right;			/* orientation=rt */
+  height: 26px; line-height: 26px;  
   color: blue;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .SwitchButton {
-  float: right;
-  width: 16px;  height: 16px ;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat ;
-  margin: 6px 3px 0px 0px ;
+  float: right;/* orientation=lt */
+  float: left;/* orientation=rt */
+  width: 16px;  height: 16px;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat;
+  margin: 6px 3px 0px 0px;/* orientation=lt */
+  margin: 6px 0px 0px 3px;/* orientation=rt */
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .UIVTabContent {
-  background: #ffffff ;
-  border: solid 1px #b2b1b1 ;
-  margin: 1px 0px ;
-  padding: 5px ;
+  background: #ffffff;
+  border: solid 1px #b2b1b1;
+  margin: 1px 0px;
+  padding: 5px;
 }

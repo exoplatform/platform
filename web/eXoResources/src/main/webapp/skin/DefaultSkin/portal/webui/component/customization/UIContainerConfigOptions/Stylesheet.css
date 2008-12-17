@@ -28,23 +28,29 @@
 
 .UIContainerConfigOptions .Title .TitleContainer {
 	height: 21px;
-	padding: 0px 2px 0px 0px;
+	padding: 0px 2px 0px 0px;/* orientation=lt */
+	padding: 0px 0px 0px 2px;/* orientation=rt */
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .Icon {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	width: 18px; height: 16px;
-	margin: 3px 5px 0px 7px;
+	margin: 3px 5px 0px 7px;/* orientation=lt */
+	margin: 3px 7px 0px 5px;/* orientation=rt */
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .LabelText {
-	padding-left: 12px;
+	padding-left: 12px;/* orientation=lt */
+	padding-left: 12px;/* orientation=rt */
 	height: 21px; line-height: 21px; 
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
-	float: right;
-	border-left: solid 1px #bcbcbc;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
+	border-left: solid 1px #bcbcbc;/* orientation=lt */
+	border-right: solid 1px #bcbcbc;/* orientation=rt */
 	height: 21px;
 	cursor: pointer ;
 }
@@ -111,6 +117,7 @@
   margin:auto; margin-top: 12px;
   cursor: move;
   background:url('background/ContainerConfigOptions.gif') no-repeat left -456px;
+  
 }
 
 .UIContainerConfigOptions .OneRow2Column1RowContainerLayout {

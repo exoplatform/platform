@@ -6,7 +6,8 @@
 }
 
 .UIControlWorkspace .TopTitleBar {
-  padding: 12px 0px 6px 0px ;
+  padding: 12px 0px 6px 0px ;/* orientation=lt */
+  padding: 6px 0px 12px 0px ;/* orientation=rt */
   text-align: center;
   width: 180px;
 }
@@ -25,14 +26,19 @@
   color: #434343;
   font-weight: bold;
   line-height: 22px; 
-  padding-left: 13px; margin-right: 2px;
+  padding-left: 13px;/* orientation=lt */
+  padding-right: 13px;/* orientation=rt */
+  margin-right: 2px;
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
-	float: right;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
 	width: 21px;	height: 15px;
-	margin: 3px 5px 0px 0px;
-	background: url('background/No-Repeat.gif') no-repeat right top;
+	margin: 3px 5px 0px 0px;/* orientation=lt */
+	margin: 3px 0px 0px 5px;/* orientation=rt */
+	background: url('background/No-Repeat.gif') no-repeat right top;/* orientation=lt */
+	background: url('background/No-Repeat.gif') no-repeat -6px top;/* orientation=rt */
 	cursor: pointer;
 }
 
@@ -65,15 +71,18 @@
 /*########################### End Tab ###########################*/
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {
-	float: right;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
   width: 6px; height: 100%;
-  background: url('background/Repeat-y.gif') repeat-y right;
+  background: url('background/Repeat-y.gif') repeat-y right;/* orientation=lt */
+  background: url('background/Repeat-y.gif') repeat-y left;/* orientation=rt */
   cursor: pointer;
 }
 
 .UIControlWorkspace .SlidebarButton {
 	height: 100%;	width: 6px;
-	background: url('background/No-Repeat.gif') no-repeat left center;
+	background: url('background/No-Repeat.gif') no-repeat left center;/* orientation=lt */
+	background: url('background/No-Repeat.gif') no-repeat right center;/* orientation=rt */
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
@@ -109,7 +118,8 @@
 
 .PreviewMode {
 	width: 160px;	height: 160px;
-	background: url("background/PreviewModeImage146x156.png") no-repeat top right;
+	background: url("background/PreviewModeImage146x156.png") no-repeat top right;/* orientation=lt */
+	background: url("background/PreviewModeImage146x156.png") no-repeat top left;/* orientation=rt */
 	position: absolute;
 	cursor: pointer;
 	right: 0px;

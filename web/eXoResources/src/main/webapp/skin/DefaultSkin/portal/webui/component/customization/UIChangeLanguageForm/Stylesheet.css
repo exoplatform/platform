@@ -5,17 +5,20 @@
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemListContainer {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	width: 175px;
 }
 
 .UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemList {
-  background: white url('background/ItemListBg157x99.gif') no-repeat right bottom;
+  background: white url('background/ItemListBg157x99.gif') no-repeat right bottom;/* orientation=lt */
+  background: white url('background/ItemListBg157x99.gif') no-repeat left bottom;/* orientation=rt */
   border: 1px solid red;
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList {
-	margin: 0px 0px 0px 180px;
+	margin: 0px 0px 0px 180px;/* orientation=lt */
+	margin: 0px 180px 0px 0px;/* orientation=rt */
 }
 
 .UIChangeLanguageForm .UIItemSelector .ItemDetail .TemplateContainer {
@@ -56,26 +59,33 @@
 }
 
 .UIChangeLanguageForm .ItemDetail .NormalItem .Icon {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	height: 24px; width: 24px;
 }
 
 .UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	height: 24px; width: 24px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif') no-repeat center;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif') no-repeat center;/* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon-rt.gif') no-repeat center;/* orientation=rt */
 }
 
 .UIChangeLanguageForm .ItemDetail .NodeLabel {
-	float: left;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
 	line-height: 24px;
-	text-align: left;
+	text-align: left;/* orientation=lt */
+	text-align: right;/* orientation=rt */
 }
 
 .UIChangeLanguageForm .ItemDetail .PercentLabel {
 	line-height: 24px;
-	text-align: right;
-	padding-right: 20px;
+	text-align: right;/* orientation=lt */
+	text-align: left;/* orientation=rt */
+	padding-right: 20px;/* orientation=lt */
+	padding-left: 20px;/* orientation=rt */
 }
 
 .UIChangeLanguageForm .UITabPane .TabPaneContent {

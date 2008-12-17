@@ -61,7 +61,8 @@
 	float: right; /* orientation=rt */
 	height: 21px;
 	font-size: 11px;
-	margin-left: 4px;
+	margin-left: 4px; /* orientation=lt */
+	margin-right: 4px; /* orientation=rt */
 	width: auto;
 }
 

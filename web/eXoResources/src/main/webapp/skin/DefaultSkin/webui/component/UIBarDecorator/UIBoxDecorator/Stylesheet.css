@@ -71,8 +71,10 @@
 /*##############################- Bar Decorator-################################*/
 
 .DecoratorBox .BarDecorator .TopRightBar {
-  background: url('background/BarDecorator.gif') no-repeat right -3px;
-  padding-right: 3px;
+  background: url('background/BarDecorator.gif') no-repeat right -3px;/* orientation=lt */
+  background: url('background/BarDecorator-rt.gif') no-repeat left -3px;/* orientation=rt */
+  padding-right: 3px;/* orientation=lt */
+  padding-left: 3px;/* orientation=rt */
   height: 3px;
 }
 
@@ -82,7 +84,8 @@
 }
 
 .DecoratorBox .BarDecorator .MiddleCenterBar {
-  background: #a0bbdf url('background/MRBarDecorator.gif') repeat-y right; 
+  background: #a0bbdf url('background/MRBarDecorator.gif') repeat-y right; /* orientation=lt */
+  background: #a0bbdf url('background/MRBarDecorator-rt.gif') repeat-y left; /* orientation=rt */
   padding: 2px 5px 2px 5px;
   color: #fff;
   font-weight: bold;
@@ -94,8 +97,10 @@
 }
 
 .DecoratorBox .BarDecorator .BottomRightBar {
-  background: url('background/BarDecorator.gif') no-repeat right bottom;
-  padding-right: 3px;
+  background: url('background/BarDecorator.gif') no-repeat right bottom;/* orientation=lt */
+  background: url('background/BarDecorator-rt.gif') no-repeat left bottom;/* orientation=rt */
+  padding-right: 3px;/* orientation=lt */
+  padding-left: 3px;/* orientation=rt */
   height: 3px;
 }
 

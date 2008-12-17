@@ -27,11 +27,11 @@
 					<div class="Icon AddWidgetButton" onclick="$addGadgetAction" title="<%=_ctx.appRes("UIWidgetContainer.tooltip.addWidget")%>"><span></span></div>
 					<div class="Icon DisableScrollDownButton" onclick="$scrollDownAction" title="<%=_ctx.appRes("UIWidgetContainer.tooltip.scrollDown")%>"><span></span></div>
   				<div class="Icon DisableScrollUpButton" onclick="$scrollUpAction" title="<%=_ctx.appRes("UIWidgetContainer.tooltip.scrollUp")%>"><span></span></div>
-   				<div style="clear: left"><span></span></div> 									
+   				<div class="ClearLeft"><span></span></div> 									
   			</div>
   		</div>
   	</div>
   </div>
-  <div style="clear: right"><span></span></div> 									
+  <div class="ClearRight"><span></span></div> 									
 </div>
   

@@ -120,8 +120,10 @@
 	background: url('background/StartMenuContainer.gif') no-repeat right -91px; /* orientation=rt */
 	padding: 0px 0px 0px 34px; /* orientation=lt */
 	padding: 0px 34px 0px 0px; /* orientation=rt */
-	float: right;
-	margin-right: 10px;
+	float: right;/* orientation=lt */
+  float: left;/* orientation=rt */
+	margin-right: 10px;/* orientation=lt */
+	margin-left: 10px;/* orientation=rt */
 }
 
 .UIExoStart .StartMenuContainer .LogoutIcon a {
