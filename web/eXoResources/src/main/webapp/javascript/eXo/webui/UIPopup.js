@@ -79,14 +79,15 @@ UIPopup.prototype.hide = function(popup) {
  *  . top and left to y and x respectively
  * if the popup has a container, set its position: relative too
  */
-UIPopup.prototype.setPosition = function(popup, x, y) {
+UIPopup.prototype.setPosition = function(popup, x, y, isRTL) {
 	if(popup.containerId) {
 		var container = document.getElementById(popup.containerId) ;
 		container.style.position = "relative" ;
 	}	
 	popup.style.position = "absolute" ;
 	popup.style.top = y + "px" ;
-	popup.style.left = x + "px" ;
+	if(isRTL) popup.style.right = x + "px" ;
+	else popup.style.left = x + "px" ;
 } ;
 /**
  * Aligns the popup according to the following values :

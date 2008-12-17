@@ -14,8 +14,8 @@ UIPopupMenu.prototype.init = function(popupMenu, container, x, y) {
 	this.superClass.init(popupMenu, container.id) ;
 } ;
 
-UIPopupMenu.prototype.setPosition = function(popupMenu, x, y) {
-	this.superClass.setPosition(popupMenu, x, y) ;
+UIPopupMenu.prototype.setPosition = function(popupMenu, x, y, isRTL) {
+	this.superClass.setPosition(popupMenu, x, y, isRTL) ;
 };
 
 UIPopupMenu.prototype.setSize = function(popup, w, h) {

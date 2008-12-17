@@ -271,7 +271,6 @@ eXo.webui.UIDashboard = {
 			var uiGadget = DOMUtil.findAncestorByClass(gadgetControls[j],"UIGadget");
 			var iframe = DOMUtil.findFirstDescendantByClass(uiGadget, "iframe", "gadgets-gadget") ;
 			if (iframe) {
-				iframe.onResizeCallback = eXo.webui.UIDashboard.initHeight ;
 				iframe.style.width = "auto" ;
 			}
 			var minimizeButton = DOMUtil.findFirstDescendantByClass(gadgetControls[j], "div", "MinimizeAction") ;

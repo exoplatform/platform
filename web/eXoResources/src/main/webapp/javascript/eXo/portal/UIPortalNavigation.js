@@ -179,7 +179,12 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e, tab, menuItemContainer)
       eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(menuItemContainer.id);
       var y = item.offsetHeight + item.offsetTop;
       var x = item.offsetLeft + 2;
-      eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y);
+      if(eXo.core.I18n.isRT()) {
+      	var uiWorking = document.getElementById("UIWorkingWorkspace") ;
+      	x = uiWorking.offsetWidth - eXo.core.Browser.findPosXInContainer(item, uiWorking) - item.offsetWidth;
+      	if(eXo.core.Browser.isIE6()) x += parseInt(uiWorking.style.marginRight) ;
+      }
+      eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y, eXo.core.I18n.isRT());
       eXo.portal.UIPortalNavigation.superClass.show(menuItemContainer);
       
       menuItemContainer.style.width = menuItemContainer.offsetWidth + 2 + "px";
@@ -268,7 +273,7 @@ UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 UIPortalNavigation.prototype.showMenuItemContainer = function(menuItem, menuItemContainer) {
   var x = menuItem.offsetWidth;
   var y = menuItem.offsetTop;
-  this.superClass.setPosition(menuItemContainer, x, y);
+  this.superClass.setPosition(menuItemContainer, x, y, eXo.core.I18n.isRT());
   this.superClass.show(menuItemContainer);
 };
 /**

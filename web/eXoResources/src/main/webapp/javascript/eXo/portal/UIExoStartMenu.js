@@ -83,88 +83,93 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 	this.className = eXo.portal.UIExoStartMenu.itemOverStyleClass ;
 	this.style.position = "relative" ;
 	if (this.menuItemContainer) {
-		
 		var menuItemContainer = this.menuItemContainer ;
-		var x = this.offsetWidth + this.offsetLeft ;
-	  var rootX = eXo.core.Browser.findPosX(this) ;
-		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
-	    	x -= (menuItemContainer.offsetWidth + this.offsetWidth) ;
-	  }
+//		this.offsetRight = eXo.core.Browser.getBrowserWidth() - this.offsetLeft - this.offsetWidth;
+		var x = this.offsetWidth ;
+//	  var rootX = (eXo.core.I18n.isLT() ? eXo.core.Browser.findPosX(this) : eXo.core.Browser.findPosXY(this)) ;
+//		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
+//	    	x -= (menuItemContainer.offsetWidth + this.offsetWidth) ;
+//	  }
 	  if (eXo.core.Browser.isIE6()) x -= 10;
-	 	menuItemContainer.style.left = x + "px" ;
+	 	if(eXo.core.I18n.isLT()) menuItemContainer.style.left = x + "px" ;
+	 	else menuItemContainer.style.right =  x + "px" ;
 		eXo.portal.UIExoStartMenu.createSlide(this);
     eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(this.menuItemContainer.id) ;
-	
 	}
 };
 
 UIExoStartMenu.prototype.createSlide = function(menuItem) {
+	var menuItemContainer = menuItem.menuItemContainer ;
+	var icon = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", "Icon") ;
+	if(eXo.core.Browser.getBrowserType() == "ie" && eXo.core.I18n.isRT()) { 
+		var labelItem = eXo.core.DOMUtil.findFirstChildByClass(menuItem, "div", "LabelItem") ;
+		var icon = eXo.core.DOMUtil.findFirstChildByClass(labelItem, "div", "Icon") ;
+		if(icon) icon.style.position = "relative" ;
+	}
+	menuItemContainer.style.display = "block" ;
+	// fix width for menuContainer, only IE.
+	if (!menuItemContainer.resized) eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
+	
+ 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
+	var parentMenu = blockMenu.parentNode;
+	var topElement = eXo.core.DOMUtil.findFirstChildByClass(parentMenu, "div", "TopNavigator") ;
+ 	var bottomElement = eXo.core.DOMUtil.findFirstChildByClass(parentMenu, "div", "BottomNavigator") ;
 
-		var menuItemContainer = menuItem.menuItemContainer ;
-		menuItemContainer.style.display = "block" ;
-		// fix width for menuContainer, only IE.
-		if (!menuItemContainer.resized) eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
-		
-	 	var blockMenu = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "BlockMenu") ;
-		var parentMenu = blockMenu.parentNode;
-		var topElement = eXo.core.DOMUtil.findFirstChildByClass(parentMenu, "div", "TopNavigator") ;
-	 	var bottomElement = eXo.core.DOMUtil.findFirstChildByClass(parentMenu, "div", "BottomNavigator") ;
+	var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(blockMenu, "div", "MenuContainer") ;
+	
+	if (!menuContainer.id) menuContainer.id = "eXo" + new Date().getTime() + Math.random().toString().substring(2) ;
+	
+	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
+	if (menuContainer.offsetHeight + 64 > browserHeight) {
+		var curentHeight = browserHeight - 64;
+		blockMenu.style.height = curentHeight + "px" ;
+		topElement.style.display = "block" ;
+		bottomElement.style.display = "block" ;
 
-		var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(blockMenu, "div", "MenuContainer") ;
+		if(!menuContainer.curentHeight || (menuContainer.curentHeight != curentHeight)) {
+			eXo.portal.UIExoStartMenu.initSlide(menuContainer, curentHeight) ;
+		}
+		topElement.onmousedown = function() {
+			eXo.portal.UIExoStartMenu.scrollDown(menuContainer.id, curentHeight) ;
+		};
+		topElement.onmouseoup = function() {
+			if (menuContainer.repeat) {
+				clearTimeout(menuContainer.repeat) ;
+				menuContainer.repeat = null ;
+			}
+		};
+		topElement.onclick = function(event) {
+			clearTimeout(menuContainer.repeat) ;
+			menuContainer.repeat = null ;
+			event = event || window.event ;
+			event.cancelBubble = true ;
+		};
 		
-		if (!menuContainer.id) menuContainer.id = "eXo" + new Date().getTime() + Math.random().toString().substring(2) ;
-		
-		var browserHeight = eXo.core.Browser.getBrowserHeight() ;
-		if (menuContainer.offsetHeight + 64 > browserHeight) {
-				var curentHeight = browserHeight - 64;
-				blockMenu.style.height = curentHeight + "px" ;
-				topElement.style.display = "block" ;
-				bottomElement.style.display = "block" ;
-
-				if(!menuContainer.curentHeight || (menuContainer.curentHeight != curentHeight)) {
-					eXo.portal.UIExoStartMenu.initSlide(menuContainer, curentHeight) ;
-				}
-				topElement.onmousedown = function() {
-					eXo.portal.UIExoStartMenu.scrollDown(menuContainer.id, curentHeight) ;
-				};
-				topElement.onmouseoup = function() {
-					if (menuContainer.repeat) {
-						clearTimeout(menuContainer.repeat) ;
-						menuContainer.repeat = null ;
-					}
-				};
-				topElement.onclick = function(event) {
-					clearTimeout(menuContainer.repeat) ;
-					menuContainer.repeat = null ;
-					event = event || window.event ;
-					event.cancelBubble = true ;
-				};
-				
-				bottomElement.onmousedown = function() {
-					eXo.portal.UIExoStartMenu.scrollUp(menuContainer.id, curentHeight) ;
-				};
-				bottomElement.onmouseoup = function() {
-					if (menuContainer.repeat) {
-						clearTimeout(menuContainer.repeat) ;
-						menuContainer.repeat = null ;
-					}
-				};			
-				bottomElement.onclick = function(event) {
-					clearTimeout(menuContainer.repeat) ;
-					menuContainer.repeat = null ;
-					event = event || window.event ;
-					event.cancelBubble = true ;
-				};
-	  } else {
-			blockMenu.style.height = menuContainer.offsetHeight + "px" ;
-			menuContainer.style.clip = "rect(0px 1280px auto auto)" ;
-			menuContainer.curentHeight = null;
-			menuContainer.style.position = "static";
-			topElement.style.display = "none" ;
-			bottomElement.style.display = "none" ;
-	  }
-		var Y = eXo.portal.UIExoStartMenu.getDimension(menuItem) ;
-		if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
+		bottomElement.onmousedown = function() {
+			eXo.portal.UIExoStartMenu.scrollUp(menuContainer.id, curentHeight) ;
+		};
+		bottomElement.onmouseoup = function() {
+			if (menuContainer.repeat) {
+				clearTimeout(menuContainer.repeat) ;
+				menuContainer.repeat = null ;
+			}
+		};			
+		bottomElement.onclick = function(event) {
+			clearTimeout(menuContainer.repeat) ;
+			menuContainer.repeat = null ;
+			event = event || window.event ;
+			event.cancelBubble = true ;
+		};
+  } else {
+		blockMenu.style.height = menuContainer.offsetHeight + "px" ;
+		menuContainer.style.clip = "rect(0px, 1280px, auto, -1280px)" ;
+		menuContainer.curentHeight = null;
+		menuContainer.style.position = "static";
+		topElement.style.display = "none" ;
+		bottomElement.style.display = "none" ;
+  }
+	var Y = eXo.portal.UIExoStartMenu.getDimension(menuItem) ;
+	if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
 };
 
 /**
@@ -175,6 +180,11 @@ UIExoStartMenu.prototype.createSlide = function(menuItem) {
  */
 UIExoStartMenu.prototype.onMenuItemOut = function(event) {
 	this.className = eXo.portal.UIExoStartMenu.itemStyleClass ;
+	if(eXo.core.Browser.isIE7() && eXo.core.I18n.isRT()) { 
+		var labelItem = eXo.core.DOMUtil.findFirstChildByClass(this, "div", "LabelItem") ;
+		var icon = eXo.core.DOMUtil.findFirstChildByClass(labelItem, "div", "Icon") ;
+		if(icon) icon.style.position = "relative" ;
+	}
 	if (this.menuItemContainer) {
     eXo.portal.UIExoStartMenu.superClass.pushHiddenContainer(this.menuItemContainer.id) ;
     eXo.portal.UIExoStartMenu.superClass.popVisibleContainer() ;
@@ -245,7 +255,7 @@ UIExoStartMenu.prototype.initSlide = function(menuContainer, clipBottom) {
 	menuContainer.curentHeight = clipBottom ;
 	menuContainer.style.position = "absolute" ;
 	menuContainer.style.top = 0 + "px" ;
-	menuContainer.style.clip = 'rect(0px, 1280px,' + clipBottom + 'px, 0px)' ;
+	menuContainer.style.clip = 'rect(0px, 1280px,' + clipBottom + 'px, -1280px)' ;
 };
 
 UIExoStartMenu.prototype.scrollUp = function(id, height) {
@@ -257,7 +267,7 @@ UIExoStartMenu.prototype.scrollUp = function(id, height) {
 		var clipTop = eXo.portal.UIExoStartMenu.clipTop;
 		var	clipBottom = eXo.portal.UIExoStartMenu.clipBottom + height ;
 
-		scrollObject.style.clip = 'rect(' + clipTop + 'px, 1280px,' + clipBottom + 'px, 0px)' ;		
+		scrollObject.style.clip = 'rect(' + clipTop + 'px, 1280px,' + clipBottom + 'px, -1280px)' ;		
 		scrollObject.style.top = -clipTop + "px" ;
 		if (scrollObject.repeat) {
 			clearTimeout(scrollObject.repeat) ;
@@ -275,7 +285,7 @@ UIExoStartMenu.prototype.scrollDown = function(id, height) {
 		var clipTop = eXo.portal.UIExoStartMenu.clipTop ;
 		var	clipBottom = eXo.portal.UIExoStartMenu.clipBottom + height ;
 
-		scrollObject.style.clip = 'rect(' + clipTop + 'px, 1280px,' + clipBottom + 'px, 0px)' ;		
+		scrollObject.style.clip = 'rect(' + clipTop + 'px, 1280px,' + clipBottom + 'px, -1280px)' ;		
 		scrollObject.style.top = -clipTop + "px" ;
 		if (scrollObject.repeat) {
 			clearTimeout(scrollObject.repeat) ;
@@ -290,13 +300,15 @@ UIExoStartMenu.prototype.scrollDown = function(id, height) {
  * Sets the width of the decorator parts to the width of the content part.
  */
 UIExoStartMenu.prototype.setContainerSize = function(menuItemContainer) {
-
   var menuCenter = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuML") ;
   var menuTop = eXo.core.DOMUtil.findFirstDescendantByClass(menuItemContainer, "div", "StartMenuTL") ;
   var decorator = eXo.core.DOMUtil.findFirstDescendantByClass(menuTop, "div", "StartMenuTR") ;
   var menuBottom = menuTop.nextSibling ;
   while (menuBottom.className != "StartMenuBL") menuBottom = menuBottom.nextSibling ;
   var w = menuCenter.offsetWidth - decorator.offsetLeft ;
+  if(eXo.core.Browser.isIE7() && eXo.core.I18n.isRT()) {
+  	w = menuCenter.offsetWidth ;
+  }
   menuTop.style.width = w + "px" ;
   menuBottom.style.width = w + "px" ;
   menuCenter.style.width = w + "px" ;

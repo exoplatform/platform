@@ -22,13 +22,13 @@
   }
 %>
 
-<div id="UIControlWorkspace" class="UIControlWorkspace UIWorkspace" style="float:left; position: relative; z-index: 1; display: inline">
+<div id="UIControlWorkspace" class="UIControlWorkspace UIWorkspace" style="float:<%= isLT ? "left" : "right" %>; position: relative; z-index: 1; display: inline">
   <div class="UIWorkspaceContainer" id="UIWorkspaceContainer" style="display: none;">
     <%/*User Workspace Title  */%>
     <div class="UserWorkspaceTitle">
       <div class="CloseControlWorkspace" title="<%=_ctx.appRes("UIWorkspaceContainer.tooltip.CloseControlWorkspace");%>" onclick="eXo.portal.UIControlWorkspace.showWorkspace();"><span></span></div>
       <div><%=_ctx.appRes("UIWorkspaceContainer.lable.UserWorkspaceTitle");%></div>
-      <div style="clear: right"><span></span></div>
+      <div style="clear: <%= isLT ? "right" : "left" %>"><span></span></div>
     </div>
    
     <%/*Begin UIControlWorkspacePanel*/%>
