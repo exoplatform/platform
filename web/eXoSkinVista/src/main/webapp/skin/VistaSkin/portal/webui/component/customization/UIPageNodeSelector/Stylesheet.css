@@ -43,10 +43,15 @@
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/MiniOrangeBoxPage.png') no-repeat;
 }
 .UIPageManagement .UIPageNodeSelector .AddNavigationIcon {
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/EditNavigation.png') no-repeat left top;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/EditNavigation.png') no-repeat left top;  	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/EditNavigation-rt.png') no-repeat right top;  	/* orientation=rt */
 	cursor: pointer;
-	float: left; margin-left: -3px;
-	height: 22px; width: 19px;
+	float: left;  	/* orientation=lt */
+	float: right;  	/* orientation=rt */
+	margin-left: -3px;  	/* orientation=lt */
+	margin-right: -3px;  	/* orientation=rt */
+	height: 22px; 
+	width: 19px;
 	display: block;
 }
 

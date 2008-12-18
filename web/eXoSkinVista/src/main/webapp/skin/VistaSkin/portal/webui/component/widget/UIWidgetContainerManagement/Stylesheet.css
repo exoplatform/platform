@@ -22,7 +22,8 @@
 }
 
 .UIWidgetContainerManagement .CategoryTitleBar .Title {
-	float: left;
+	float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
 	font-weight: bold;
 	line-height: 20px;
 	padding-left: 8px;
@@ -59,16 +60,18 @@
 	color: #0e3fa8;
 	text-decoration: none;
 	line-height: 21px;
-	background: #e0e8fa url(/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueCheckerIcon.png) no-repeat 10px 4px;
-	padding-left: 27px;
+	background: #e0e8fa url(/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueCheckerIcon.png) no-repeat 10px 4px; /* orientation=lt */
+	background: #e0e8fa url(/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueCheckerIcon-rt.png) no-repeat right 4px; /* orientation=rt */
+	padding-left: 27px;  /* orientation=lt */
+	padding-right: 27px;  /* orientation=rt */
 }
 
 .UIWidgetContainerManagement .ContainerList a:hover{
 	color: #058ee6;
 }
-
 .UIWidgetContainerManagement .Icon {
-	float: right;
+	float: right; /* orienttion=lt */
+  float: left; /* orienttion=rt */
 	width: 18px; height: 18px;
 	margin: 2px 3px 0px 3px;
 }
@@ -92,7 +95,8 @@
 
 /*===================== Begin the Widget Container Category ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerCategory {
-	float: left;
+  float: left;	/* orientation=lt */
+  float: right;		/* orientation=rt */
 	width: 255px;
 	background: #ffffff;
 	border: 1px #b7b7b7 solid;
@@ -103,7 +107,8 @@
 
 /*===================== Begin the Widget Container View ==========================*/
 .UIWidgetContainerManagement .ContainerManagementDetail .WidgetContainerView {
-	margin-left: 260px;
+  margin-left: 260px;	/* orientation=lt */
+  margin-right: 260px;		/* orientation=rt */
 	height: 275px;
 	background: #ffffff;
 	border: 1px #b7b7b7 solid;
@@ -151,13 +156,17 @@
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent .Label {
 	width: 140px;
-	text-align: right;
+	text-align: right;	/* orientation=lt */
+	text-align: left;		/* orientation=rt */
 	line-height: 20px;
-	float: left;
+  float: left;	/* orientation=lt */
+  float: right;		/* orientation=rt */
 }
 
 .UIWidgetContainerManagement .WidgetContainerView .InfoContent .FieldComponent {
-	margin-left: 143px;	
+
+	margin-left: 143px;		/* orientation=lt */
+	margin-right: 143px;			/* orientation=rt */
 	line-height: 20px;
 	color: #058ee6;
 	font-size: 12px;

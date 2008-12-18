@@ -2,7 +2,8 @@
   width: 3px ; height: 100% ;
   padding: 0px ;
   top: 0px ;
-  background: url("background/SlidebarBackground6x1.png") repeat-y right;
+  background: url("background/SlidebarBackground6x1.png") repeat-y right;	/* orientation=lt */
+	background: url("background/SlidebarBackground6x1-rt.png") repeat-y left;	/* orientation=rt */
 }
 
 .UIControlWorkspace .TopTitleBar{
@@ -20,14 +21,19 @@
   background: url('background/UserWorkspaceTitleBG1x23.png') repeat-x ;
   font-weight: bold ;
   line-height: 22px ; 
-  margin-right: 2px ; text-align: center;
+  margin-right: 2px;	/* orientation=lt */
+	margin-left: 2px;	/* orientation=rt */
+	text-align: center;
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
-	float: right ;
-	width: 28px ;	height: 22px ;
+	float: right ;/* orientation=lt */
+	float: left ;/* orientation=rt */
+	width: 28px ;	
+	height: 22px ;
 	margin: 0px 0px 0px 0px ;
-	background: url('background/CloseControlWorkspace.png') no-repeat ;
+	background: url('background/CloseControlWorkspace.png') no-repeat ;	/* orientation=lt */
+	background: url('background/CloseControlWorkspace-rt.png') no-repeat ;	/* orientation=rt */
 	cursor: pointer ;
 }
 
@@ -130,9 +136,12 @@
 }
 
 .PreviewMode {
-	width: 172px ;	height: 38px ;
-	background: url("background/PreviewModeImage172x38.png") no-repeat ;
+	width: 172px ;	
+	height: 38px ;
+	background: url('background/PreviewModeImage172x38.png') no-repeat;
 	position: absolute ;
 	cursor: pointer ;
-	top: 0px; right: 0px;
+	top: 0px; 
+	right: 0px; /* orientation=lt */
+	left: 0px; /* orientation=rt */
 }

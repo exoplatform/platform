@@ -43,10 +43,13 @@
 }
 
 .UIPageSelector .UIFormInfo .PropertyName {
-  float: left;
-  padding: 6px 10px 6px 23px;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  padding: 6px 10px 6px 23px;		/* orientation=lt */
+	padding: 6px 23px 6px 10px;		/* orientation=rt */
   width: 80px;
-	text-align: right;
+	text-align: right;  /* orientation=lt */
+	text-align: left;  /* orientation=rt */
 }
 
 .UIPageSelector .UIFormInfo .PropertyValue {

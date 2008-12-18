@@ -15,13 +15,13 @@
 }
 
 .UISearch .UISearchForm .QuickSet .SearchTitle {
-  float: left;		/* orientation=lt */
-  float: right;		/* orientation=rt */
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   font-weight: bold;
   height: 20px;
   line-height: 20px;
-  padding-left: 10px;			/* orientation=lt */
-  padding-right: 10px;		/* orientation=rt */
+  padding-left: 10px;	/* orientation=lt */
+  padding-right: 10px; /* orientation=rt */
 }
 
 .UISearch .UISearchForm .QuickSet .AdvancedSearchIcon {

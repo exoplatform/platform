@@ -49,25 +49,32 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Icon {
-  margin: 0px 5px 0px 15px ;
-  float: left;
+  margin: 0px 5px 0px 15px ; /* orientation=lt */
+	margin: 0px 15px 0px 0px ; /* orientation=rt */
+  float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .PermissionInfoTitle {
-  margin-left: 5px ;
-  float: left;
+  margin-left: 5px ; /* orientation=lt */
+	margin-right: 5px ; /* orientation=rt */
+  float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   font-weight: bold;
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Label {
   margin: 8px 0px 5px 0px ;
-  float: left ;
-  width: 150px ;
-  text-align: right;
+  float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+  width: 150px;
+  text-align: right; /* orientation=lt */
+	text-align: left; /* orientation=rt */
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
-  padding: 8px 0px 5px 15px ;
+  padding: 8px 0px 5px 15px; /* orientation=lt */
+	padding: 8px 15px 5px 0px; /* orientation=rt */
   color: #0749c4 ;
   background: none;
   overflow: hidden;
@@ -89,13 +96,21 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .DeletePermissionIcon  {
-	line-height: 24px; height: auto; width: auto;
-	padding-left: 25px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat left center;
+	line-height: 24px; 
+	height: auto; 
+	width: auto;
+	padding-left: 25px; /* orientation=lt */
+	padding-right: 25px; /* orientation=rt */
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin.png') no-repeat left center; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DustBin-rt.png') no-repeat right center; /* orientation=rt */
 } 
 
 .UIPermissionSelector .PermissionInfoContainer .SelectPermissionIcon  {
-	line-height: 24px; height: auto; width: auto;
-	padding-left: 25px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center;
-} 
+	line-height: 24px; 
+	height: auto; 
+	width: auto;
+	padding-left: 25px; /* orientation=lt */
+	padding-right: 25px; /* orientation=rt */
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon.png') no-repeat left center; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/SelectPermissionIcon-rt.png') no-repeat right center; /* orientation=rt */
+}

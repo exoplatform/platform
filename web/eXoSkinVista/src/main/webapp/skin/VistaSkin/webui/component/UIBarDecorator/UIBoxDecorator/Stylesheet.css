@@ -149,36 +149,45 @@ border: 1px solid red;
 /*##############################- Bar Decorator-################################*/
 
 .DecoratorBox .BarDecorator .TopRightBar {
-  background: url('background/BarDecorator.png') no-repeat right top;
-  padding-right: 7px;
+  background: url('background/BarDecorator.png') no-repeat right top; 	/* orientation=lt */
+  background: url('background/BarDecorator-rt.png') no-repeat left top; 	/* orientation=rt */
+  padding-right: 7px; 	/* orientation=lt */
+  padding-left: 7px; 	/* orientation=rt */
   height: 5px;
 }
 
 .DecoratorBox .BarDecorator .TopCenterBar {
-  background: url('background/BarDecorator.png') repeat-x left -5px ;
+  background: url('background/BarDecorator.png') repeat-x left -5px ; 	/* orientation=lt */
+  background: url('background/BarDecorator-rt.png') repeat-x right -5px ; 	/* orientation=rt */
   height: 5px;
 }
 
 .DecoratorBox .BarDecorator .MiddleRightBar {
-  background: url('background/MRBarDecorator4x1.png') repeat-y right; 
-  padding-right: 4px;
+  background: url('background/MRBarDecorator4x1.png') repeat-y right; 	/* orientation=lt */
+  background: url('background/MRBarDecorator4x1-rt.png') repeat-y left; 	/* orientation=rt */
+  padding-right: 4px; 	/* orientation=lt */
+  padding-left: 4px; 	/* orientation=rt */
 }
 
 .DecoratorBox .BarDecorator .MiddleCenterBar {
-  background: url('background/MCBarDecorator1x8.png') repeat-x top; 
+  background: url('background/MCBarDecorator1x8.png') repeat-x top;  	/* orientation=lt */
+  background: url('background/MCBarDecorator1x8-rt.png') repeat-x top;  	/* orientation=rt */
   padding: 1px 4px 2px 5px;
   color: #151209;
   font-weight: bold;
 }
 
 .DecoratorBox .BarDecorator .BottomCenterBar {
-  background: url('background/BarDecorator.png') repeat-x left -18px;
+  background: url('background/BarDecorator.png') repeat-x left -18px;  	/* orientation=lt */
+  background: url('background/BarDecorator.png') repeat-x right -18px;  	/* orientation=rt */
   height: 8px;
 }
 
 .DecoratorBox .BarDecorator .BottomRightBar {
-  background: url('background/BarDecorator.png') no-repeat right bottom;
-  padding-right: 7px;
+  background: url('background/BarDecorator.png') no-repeat right bottom;  	/* orientation=lt */
+  background: url('background/BarDecorator-rt.png') no-repeat left bottom;  	/* orientation=rt */
+  padding-right: 7px;  	/* orientation=lt */
+  padding-left: 7px;  	/* orientation=rt */
   height: 8px;
 }
 

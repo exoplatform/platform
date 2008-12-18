@@ -90,14 +90,17 @@
 	border: 1px solid #959595 ;
 	border-top: none;
 	cursor: pointer;
-	padding-left: 8px;
+	padding-left: 8px; 	/* orientation=lt */
+	padding-right: 8px; 	/* orientation=rt */
 	height: 20px;
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle .ComponentIcon {
   height: 20px;
-	padding-left: 16px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ImagesList.gif') no-repeat center left;
+	padding-left: 16px; 	/* orientation=lt */
+	padding-right: 23px; 	/* orientation=rt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ImagesList.gif') no-repeat center left;	/* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/ImagesList.gif') no-repeat center right;	/* orientation=rt */
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {
@@ -105,10 +108,12 @@
 }
 
 .UIDropDownControl .DropDownSelectIcon {
-	background: url('background/SelectedIcon.png') no-repeat right center;
+	background: url('background/SelectedIcon.png') no-repeat right center;		/* orientation=lt */
+	background: url('background/SelectedIcon-rt.png') no-repeat left center;		/* orientation=rt */
 	cursor: pointer;
 	height: 20px;
-	padding-right: 20px;
+	padding-right: 20px; 	/* orientation=lt */
+	padding-left: 20px; 	/* orientation=rt */	
 }
 
 .UIDropDownControl .DropDownSelectLabel {
@@ -123,8 +128,10 @@
 }
 
 .UIDropDownControl .OptionItem {
-	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left 3px;
-	padding: 0px 4px 0px 17px ;
+	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left 3px; 	/* orientation=lt */
+	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif) no-repeat right 3px; 	/* orientation=rt */	
+	padding: 0px 4px 0px 17px;	/* orientation=lt */
+	padding: 0px 17px 0px 4px; /* orientation=rt */	
 	diplay: block;
 }
 

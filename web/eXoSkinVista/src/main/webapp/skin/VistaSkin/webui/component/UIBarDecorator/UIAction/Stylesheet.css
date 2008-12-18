@@ -36,18 +36,22 @@
 }
 
 .UIAction .NormalStyle .ButtonLeft {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') no-repeat left top;
-  padding: 0px 0px 0px 3px;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') no-repeat left top; 	 		/* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle-rt.gif') no-repeat right top; 	 		/* orientation=rt */
+  padding: 0px 0px 0px 3px; 	 		/* orientation=lt */
+	padding: 0px 3px 0px 0px; 	 		/* orientation=rt */
 }
 
 .UIAction .NormalStyle .ButtonRight {
-  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') no-repeat right top;
-  padding: 0px 3px 0px 0px ;
+  background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') no-repeat right top; 	 		/* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle-rt.gif') no-repeat left top; 	 		/* orientation=rt */
+  padding: 0px 3px 0px 0px ; 	 		/* orientation=lt */
+	padding: 0px 0px 0px 3px ; 	 		/* orientation=rt */
 }
 
 .UIAction .NormalStyle .ButtonMiddle {
   line-height: 22px;
-	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') repeat-x bottom;
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/NormalStyle.gif') repeat-x bottom; 		/* orientation=lt */
 	padding: 0px 12px;	
 	display: table-cell;
 	white-space: nowrap;

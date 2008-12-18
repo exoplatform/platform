@@ -131,14 +131,17 @@
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
-  float: left ;
+  float: left;	/* orientation=lt */
+  float: right;		/* orientation=rt */
   width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow.gif') no-repeat ;	/* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueNextArrow-rt.gif') no-repeat ;	/* orientation=rt */ 
   margin: 6px 5px 0px 5px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLabel {
-  float: left ;
+  float: left;	/* orientation=lt */
+  float: right;		/* orientation=rt */
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
 }
 
@@ -180,14 +183,17 @@
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .LeftIcon {
-  float: left ;
+  float: left;	/* orientation=lt */
+  float: right;		/* orientation=rt */
   width: 16px; height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat ;
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow.gif') no-repeat ;	/* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueDownArrow-rt.gif') no-repeat ;	/* orientation=rt */ 
   margin: 6px 5px 0px 5px;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .SelectedTab .TabLabel {
-  float: left ;
+  float: left;	/* orientation=lt */
+  float: right;		/* orientation=rt */
   height: 26px ; line-height: 26px ;  vertical-align: middle ;
   color: blue;
 }

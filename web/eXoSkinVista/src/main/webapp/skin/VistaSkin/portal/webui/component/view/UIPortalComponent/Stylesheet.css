@@ -7,7 +7,8 @@
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
   cursor: move ;
   height: 20px ; width: 30px;
-  float: left ; 
+  float: left ; 	/* orientation=lt */
+	float: right ; 	/* orientation=rt */
   margin-top: 2px;
   background: url('background/DragBG30x20.gif');
 }
@@ -63,10 +64,12 @@
 }
 
 .UIPortlet .EditPortletPropertiesIcon {
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18.png') no-repeat ;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18.png') no-repeat;	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18-rt.png') no-repeat;	/* orientation=rt */
 	height: 18px;	width:31px;
 	margin: 1px 0px 0px 0px;
-	float:right;
+	float:right;	/* orientation=lt */
+	float:left;	/* orientation=rt */
 }
 
 .UIPortlet .NormalPortletIcon {
@@ -78,10 +81,12 @@
 }
 
 .UIPortlet .DeletePortletIcon {
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18.png') ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18.png');	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18-rt.png');	/* orientation=rt */
 	height:18px;	width:29px;
   margin: 1px 0px 0px 0px;
-	float:right;
+	float:right;	/* orientation=lt */
+	float:left;	/* orientation=rt */
 }
 
 .UIPortlet .OnShow {
@@ -190,10 +195,13 @@
 }
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
-  cursor: move ;
-  height: 20px ;width: 30px;
-  float: left ; 
-  background: url('background/DragBG30x20.gif');
+  cursor: move;
+  height: 20px;
+	width: 30px;
+  float: left;  /* orientation=lt */
+	float: right;  /* orientation=rt */
+  background: url('background/DragBG30x20.gif');  /* orientation=lt */
+	background: url('background/DragBG30x20-rt.gif');  /* orientation=rt */
   margin-top: 1px;
 }
 
@@ -204,23 +212,29 @@
 }
 
 .UIContainer .EditContainerIcon {
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18.png') no-repeat ;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18.png') no-repeat ; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18-rt.png') no-repeat ; /* orientation=rt */
 	height: 18px;	width:31px;
 	margin: 1px 0px 0px 0px;
-	float: right;
+	float: right;  /* orientation=lt */
+	float: left;  /* orientation=rt */
 }
 
 .UIContainer .DeleteContainerIcon {
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18.png') ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18.png') ; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18-rt.png') ; /* orientation=rt */
 	height:18px;	width:29px;
   margin: 1px 0px 0px 0px;
-	float: right;
+	float: right;  /* orientation=lt */
+	float: left;  /* orientation=rt */
 }
 
 .UIContainer .ContainerIcon {
-  float: left;
+  float: left;  /* orientation=lt */
+	float: right;  /* orientation=rt */
   width: 16px; height: 16px; margin: 2px 6px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat ;
+  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat ;  /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat;  /* orientation=rt */
 }
 
 .UIPortal .LAYOUT-PORTAL {
