@@ -6,7 +6,9 @@
  * version: $Id$
  */
 
-.UIPortalToolPanel {}
+.UIPortalToolPanel {
+	_height: 100%; /* orientation=rt */
+}
 
 .UIPortalToolPanel .Body {
 	padding: 7px;
@@ -44,7 +46,7 @@
 	height: 100%;
 	width: 247px;
 }
-		
+
 .UIPortalToolPanel .UIItemSelector .NormalStyle .ItemListContainer .ItemList {
 	border: 1px #b7b7b7 solid;
 	height: 264px;	

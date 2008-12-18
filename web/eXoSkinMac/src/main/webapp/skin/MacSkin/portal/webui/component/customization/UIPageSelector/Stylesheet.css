@@ -46,8 +46,8 @@
 
 .UIPageSelector .FormInfoBG {
 	background: url('background/FormInfoBG360x1.gif') repeat-y right;
-	padding-right: 30px; /* orientation=lt */
-	padding-left: 30px; /* orientation=rt */
+	padding-left: 30px; /* orientation=lt */
+	padding-right: 30px; /* orientation=rt */
 	height: 100%;
 }
 

@@ -90,7 +90,7 @@
   height: 18px; line-height: 18px;
   color: orange;
   background: #f8f8f8;
-  border: solid 1px #fdb913 ;
+  border: solid 1px #fdb913;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a.SelectedStep {
@@ -146,9 +146,10 @@
 /*========================== Start UIWizard Welcome ==============================*/
 .UIWizard .UIWizardWelcome {
   height: 233px;
-  background: #ffffff url('background/WelcomeImage197x233.png') no-repeat left;
-  padding: 0px 0px 0px 210px ;/* orientation=lt */
-  padding: 0px 210px 0px 0px ;/* orientation=rt */
+  background: #ffffff url('background/WelcomeImage197x233.png') no-repeat left; /* orientation=lt */
+  background: #ffffff url('background/WelcomeImage197x233-rt.png') no-repeat right; /* orientation=rt */
+  padding: 0px 0px 0px 210px;/* orientation=lt */
+  padding: 0px 210px 0px 0px;/* orientation=rt */
   margin: 0px;
 }
 
@@ -230,7 +231,7 @@
   width: 220px; height: 80px;
   background: white;
   font-family: verdana;
-  border: solid 1px gray ;
+  border: solid 1px gray;
   padding-left: 5px;/* orientation=lt */
   padding-right: 5px;/* orientation=rt */
 }

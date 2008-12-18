@@ -174,7 +174,7 @@
 
 .BlueInfoBox16x16Icon {
   background: url('icons/BlueInfoBox.gif') no-repeat left center; 		/* orientation=lt */
-  background: url('icons/BlueInfoBox.gif') no-repeat right center; 		/* orientation=rt */
+  background: url('icons/BlueInfoBox-rt.gif') no-repeat right center; 		/* orientation=rt */
   width: 16px;  height: 16px;
 }
 

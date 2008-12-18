@@ -25,7 +25,8 @@
 
 .UIWidgets .WidgetDecorator {
 	width: 230px;
-	margin-left: 2px;
+	margin-left: 2px; /* orientation=lt */
+	margin-right: 2px; /* orientation=rt */
 	border: 1px white solid;
 }
 	
