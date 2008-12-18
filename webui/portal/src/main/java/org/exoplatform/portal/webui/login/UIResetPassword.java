@@ -32,6 +32,7 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 
 /**
  * Created by The eXo Platform SARL
@@ -56,17 +57,29 @@ public class UIResetPassword extends UIForm {
 
   public UIResetPassword() throws Exception{
     addUIFormInput(new UIFormStringInput(USER_NAME,USER_NAME,null).setEditable(false));
-    addUIFormInput(new UIFormStringInput(PASSWORD,PASSWORD,null).setType(UIFormStringInput.PASSWORD_TYPE)
+    addUIFormInput(new UIFormStringInput(PASSWORD,PASSWORD,null).setType(UIFormStringInput.PASSWORD_TYPE)    					
                         .addValidator(MandatoryValidator.class));
-    addUIFormInput(((UIFormStringInput)new UIFormStringInput(NEW_PASSWORD,NEW_PASSWORD,null)).setType(UIFormStringInput.PASSWORD_TYPE)
-                        .addValidator(MandatoryValidator.class));
+    addUIFormInput(((UIFormStringInput)new UIFormStringInput(NEW_PASSWORD,NEW_PASSWORD,null)).setType(UIFormStringInput.PASSWORD_TYPE)    					
+                        .addValidator(MandatoryValidator.class)
+                        .addValidator(StringLengthValidator.class, 3, 30));
     addUIFormInput(((UIFormStringInput)new UIFormStringInput(CONFIRM_NEW_PASSWORD,CONFIRM_NEW_PASSWORD,null)).setType(UIFormStringInput.PASSWORD_TYPE)
-                        .addValidator(MandatoryValidator.class));
+    					.addValidator(MandatoryValidator.class)
+    					.addValidator(StringLengthValidator.class, 3, 30));                        
   }
   
   public void setData(User user) {
     user_ = user;
     getUIStringInput(USER_NAME).setValue(user.getUserName());
+  }
+  
+  @Override
+  public void reset() {
+	UIFormStringInput passwordForm = getUIStringInput(PASSWORD);
+    passwordForm.reset();
+    UIFormStringInput newPasswordForm = getUIStringInput(NEW_PASSWORD);
+    newPasswordForm.reset();
+    UIFormStringInput confirmPasswordForm = getUIStringInput(CONFIRM_NEW_PASSWORD);
+    confirmPasswordForm.reset();
   }
   
   static public class SaveActionListener  extends EventListener<UIResetPassword> {
@@ -79,18 +92,23 @@ public class UIResetPassword extends UIForm {
       UIApplication uiApp = request.getUIApplication();
       UIMaskWorkspace uiMaskWorkspace = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
       OrganizationService orgService = uiForm.getApplicationComponent(OrganizationService.class);
+      uiForm.reset();
+      boolean isNew = true;
       if(!password.equals(user_.getPassword())) {
         uiApp.addMessage(new ApplicationMessage("UIResetPassword.msg.Invalid-account", null));
-        return;
+        isNew = false;
       }
       if(!newpassword.equals(confirmnewpassword)) {
         uiApp.addMessage(new ApplicationMessage("UIResetPassword.msg.password-is-not-match", null));
-        return;
+        isNew = false;
       }
-      user_.setPassword(newpassword);
-      orgService.getUserHandler().saveUser(user_,true);
-      uiMaskWorkspace.setUIComponent(null);
-      uiMaskWorkspace.setWindowSize(-1, -1);
+      if(isNew){
+		user_.setPassword(newpassword);
+		orgService.getUserHandler().saveUser(user_,true);
+		uiMaskWorkspace.setUIComponent(null);
+		uiMaskWorkspace.setWindowSize(-1, -1);
+		uiApp.addMessage(new ApplicationMessage("UIResetPassword.msg.change-password-successfully", null));
+      }
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
    }
   }

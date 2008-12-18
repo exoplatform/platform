@@ -1,5 +1,5 @@
 <% String fieldName; %>
-<div class="UIFormWithTitle $uicomponent.id">
+<div class="UIFormWithTitle $uicomponent.id" onkeypress="javascript:SendAction.call(this, event);">
   <div class="TitleBar"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
   <% uiform.begin() %>
   <div class="HorizontalLayout">
@@ -36,7 +36,6 @@
 	          <% for(action in uicomponent.getActions()) { 
 			           String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action) 
 			           String link = uicomponent.event(action) ;
-	          
 	          %>
 							<div onclick="$link" class="ActionButton LightBlueStyle">
                 <div class="ButtonLeft">
@@ -57,3 +56,15 @@
   </div>
   <%uiform.end()%>
 </div>
+<script language="javascript">
+	function SendAction(event) {
+		var event = window.event || event;
+		var code;
+		if(event.keyCode) code = event.keyCode;
+		else if (event.which) code = event.which;
+		if(code ==13) {
+			this.onsubmit = function(){ return false; }				
+			window.location.href = "<%= uicomponent.event("Send");%>";
+		}
+	}	
+</script>
