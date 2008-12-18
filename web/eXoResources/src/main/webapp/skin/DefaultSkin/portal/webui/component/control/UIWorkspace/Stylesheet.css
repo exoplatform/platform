@@ -28,7 +28,8 @@
   line-height: 22px; 
   padding-left: 13px;/* orientation=lt */
   padding-right: 13px;/* orientation=rt */
-  margin-right: 2px;
+  margin-right: 2px;/* orientation=lt */
+  margin-left: 2px;/* orientation=rt */
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
@@ -43,7 +44,8 @@
 }
 
 .UIControlWorkspace .UIWorkspaceControl { 
-  margin-right: 2px;
+  margin-right: 2px; /* orientation=lt */
+  margin-left: 2px; /* orientation=rt */
 }
 
 /*########################### Tab ###########################*/
@@ -71,22 +73,23 @@
 /*########################### End Tab ###########################*/
 /*########################### Slidebar ###########################*/
 .UIControlWorkspace .Slidebar {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
   width: 6px; height: 100%;
-  background: url('background/Repeat-y.gif') repeat-y right;/* orientation=lt */
-  background: url('background/Repeat-y.gif') repeat-y left;/* orientation=rt */
+  background: url('background/Repeat-y.gif') repeat-y right; /* orientation=lt */
+  background: url('background/Repeat-y-rt.gif') repeat-y left; /* orientation=rt */
   cursor: pointer;
 }
 
 .UIControlWorkspace .SlidebarButton {
 	height: 100%;	width: 6px;
-	background: url('background/No-Repeat.gif') no-repeat left center;/* orientation=lt */
-	background: url('background/No-Repeat.gif') no-repeat right center;/* orientation=rt */
+	background: url('background/No-Repeat.gif') no-repeat left center; /* orientation=lt */
+	background: url('background/No-Repeat-rt.gif') no-repeat right center; /* orientation=rt */
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
-  background: url("background/Repeat-y.gif") repeat-y 244px top;
+  background: url("background/Repeat-y.gif") repeat-y 244px top; /* orientation=lt */
+  background: url("background/Repeat-y-rt.gif") repeat-y -5px top; /* orientation=rt */
 	height: 100%;
 }
 
