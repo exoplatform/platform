@@ -98,7 +98,7 @@
 			}
 		
 			.Row {
-				width: 154px;
+				width: 160px;
 				margin: 0 auto;
 			}
 		
@@ -127,7 +127,7 @@
 			}
 		
 			.RowDay {
-				width: 154px;
+				width: 160px;
 				margin: 0 auto;
 				margin-bottom: 3px;
 			}
