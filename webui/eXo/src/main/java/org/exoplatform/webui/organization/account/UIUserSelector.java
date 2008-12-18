@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.exoplatform.commons.utils.ObjectPageList;
+import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.services.organization.MembershipHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
@@ -206,6 +207,16 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
     }  
   }
   
+  //TODO maybe check duplicate user in method:
+  //OrganizationService.getUserHandler().findUsersByGroup(groupId)
+  public PageList removeDuplicate(PageList users) throws Exception {
+    List after = new ArrayList();
+    for(Object u : users.getAll()) {
+      if(after.contains(u)) continue;
+      after.add(u);
+    }
+    return new ObjectPageList(after, 10);
+  }
   
   static  public class AddUserActionListener extends EventListener<UIUserSelector> {
     public void execute(Event<UIUserSelector> event) throws Exception {
@@ -230,7 +241,8 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
       String groupId = event.getRequestContext().getRequestParameter(OBJECTID);
       uiSelectUserForm.setSelectedGroup(groupId);
       OrganizationService service = uiSelectGroupForm.getApplicationComponent(OrganizationService.class);
-      uiSelectUserForm.uiIterator_.setPageList(service.getUserHandler().findUsersByGroup(groupId));
+      PageList users = uiSelectUserForm.removeDuplicate(service.getUserHandler().findUsersByGroup(groupId));
+      uiSelectUserForm.uiIterator_.setPageList(users);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiSelectUserForm) ;
     }
   }
@@ -241,8 +253,10 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
       String groupId = uiSelectUserForm.getSelectedGroup();
       uiSelectUserForm.setSelectedGroup(groupId);
       OrganizationService service = uiSelectUserForm.getApplicationComponent(OrganizationService.class);
-      if(groupId != null && groupId.trim().length() != 0)
-        uiSelectUserForm.uiIterator_.setPageList(service.getUserHandler().findUsersByGroup(groupId));
+      if(groupId != null && groupId.trim().length() != 0){
+        PageList users = uiSelectUserForm.removeDuplicate(service.getUserHandler().findUsersByGroup(groupId));
+        uiSelectUserForm.uiIterator_.setPageList(users);
+      }
       else {
         uiSelectUserForm.uiIterator_.setPageList(service.getUserHandler().findUsers(new Query()));
       }
