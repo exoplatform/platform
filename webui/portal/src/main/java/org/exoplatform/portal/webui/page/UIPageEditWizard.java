@@ -162,7 +162,6 @@ public class UIPageEditWizard extends UIPageWizard {
         Date endDate = endCalendar.getTime();
         if(startDate.after(endDate)) {
           uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.startDateBeforeEndDate", null)) ;
-          event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
           uiWizard.viewStep(1);
           return;
         }
