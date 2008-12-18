@@ -135,18 +135,15 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageNodeSelector uiPageNodeSelector = uiPageInfo.getChild(UIPageNodeSelector.class);
       if(uiPageNodeSelector.getSelectedNavigation() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPageNavigation", new String[]{})) ;;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         uiWizard.viewStep(1);
         return ;
       }
       if(uiPageInfo.getSelectedPageNode() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPage", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         return ;
       }
       if(uiPageInfo.getSelectedPageNode().getPageReference() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIWizardPageSetInfo.msg.null", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.viewStep(1);
         return ;
       }
@@ -154,7 +151,6 @@ public class UIPageEditWizard extends UIPageWizard {
       PageNode pageNode = uiPageNodeSelector.getSelectedPageNode() ;
       if(pageNode == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPage", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.viewStep(1);
         return ;
       }
@@ -184,7 +180,6 @@ public class UIPageEditWizard extends UIPageWizard {
 
       if(!page.isModifiable()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.Invalid-editPermission", null)) ;
-        pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.viewStep(1);
         return ;
       }
@@ -204,12 +199,10 @@ public class UIPageEditWizard extends UIPageWizard {
       UserPortalConfigService userService = uiWizard.getApplicationComponent(UserPortalConfigService.class) ;
       if(uiPageInfo.getSelectedPageNode() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.notSelectedPage", null)) ;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         return ;
       }
       if(uiPageInfo.getSelectedPageNode().getPageReference() == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIWizardPageSetInfo.msg.null", null)) ;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         return ;
       }
       PageNode selectedPageNode = uiPageInfo.getPageNode() ;
@@ -220,7 +213,6 @@ public class UIPageEditWizard extends UIPageWizard {
 
       if(selectPage == null|| !selectPage.isModifiable()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.Invalid-editPermission", null)) ;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
         uiWizard.viewStep(1);
         return ;
       }
@@ -229,7 +221,6 @@ public class UIPageEditWizard extends UIPageWizard {
         uiWizard.setDescriptionWizard(2);
         uiWizard.updateWizardComponent();
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.selectStep2", null)) ;
-        context.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages() );
         return;
       }
       
