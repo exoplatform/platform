@@ -378,6 +378,7 @@
     <msg>
       <user-exist>Tên Người dùng này đã tồn tại, xin hãy chọn tên khác!</user-exist>
       <user-not-exist>Tên người dùng này không tồn tại!</user-not-exist>
+      <email-exist>Email đã tồn tại, xin hãy chọn email khác!</email-exist>
       <empty-input>Tên người dùng này không được để trống!</empty-input>
       <successful>
         <create>

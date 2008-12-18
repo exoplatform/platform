@@ -17,6 +17,7 @@
 package org.exoplatform.webui.organization;
 
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -100,7 +101,15 @@ public class UIAccountInputSet extends UIFormInputWithActions {
         Object[] args = {user.getUserName()} ;
         uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.user-exist", args)) ;
         return false;
-      }      
+      }     
+      
+      Query query = new Query();
+      query.setEmail(getUIStringInput("email").getValue() ) ;
+      if(service.getUserHandler().findUsers(query).getAll().size() > 0) {
+        Object[] args = {user.getUserName()} ;
+        uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.email-exist", args)) ;
+        return false;
+      }     
       
       service.getUserHandler().createUser(user, true);
       reset();

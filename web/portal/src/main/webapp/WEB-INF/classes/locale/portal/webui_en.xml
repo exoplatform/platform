@@ -375,6 +375,7 @@
     <msg>
       <user-exist>This user is existing, please select another one!</user-exist>
       <user-not-exist>This user doesn't exist!</user-not-exist>
+      <email-exist>This email is existing, please select another one!</email-exist>
       <empty-input>The user's name cannot be empty!</empty-input>
       <successful>
         <create>
