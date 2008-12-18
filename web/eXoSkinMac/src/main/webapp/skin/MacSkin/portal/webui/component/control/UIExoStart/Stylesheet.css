@@ -110,7 +110,7 @@
 
 .UIExoStart .StartMenuContainer .EditNavigationIcon {
 	background: url('background/ExoStart.png') no-repeat left -401px; /* orientation=lt */
-	background: url('background/ExoStart-rt.png') no-repeat right -401px;
+	background: url('background/ExoStart-rt.png') no-repeat right -401px; /* orientation=rt */
 }
 
 .UIExoStart .StartMenuContainer .BrowsePagesIcon {
@@ -131,9 +131,12 @@
 
 .UIExoStart .StartMenuContainer .LogoutIcon {
 	height: 35px;	line-height: 35px;	
-	background: url('background/ExoStart.png') no-repeat left -552px;
-	padding: 0px 0px 0px 35px;
-	margin: 0px 10px 0px 0px;
+	background: url('background/ExoStart.png') no-repeat left -552px; /* orientation=lt */
+	background: url('background/ExoStart-rt.png') no-repeat right -552px; /* orientation=rt */
+	padding: 0px 0px 0px 35px; /* orientation=lt */
+	padding: 0px 35px 0px 0px; /* orientation=rt */
+	margin: 0px 10px 0px 0px; /* orientation=lt */
+	margin: 0px 0px 0px 10px; /* orientation=rt */
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 }
@@ -199,7 +202,7 @@
 	background: url('background/ExoStart.png') no-repeat right -588px; /* orientation=lt */
 	background: url('background/ExoStart-rt.png') no-repeat left -588px; /* orientation=rt */
 	padding: 0px 35px 0px 0px; /* orientation=lt */
-	padding: 0px 0px 0px 35px; /* orientation=lrt */
+	padding: 0px 0px 0px 35px; /* orientation=rt */
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer {

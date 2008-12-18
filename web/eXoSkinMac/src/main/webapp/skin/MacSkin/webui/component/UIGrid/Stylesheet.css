@@ -81,7 +81,8 @@
 
  .UIGrid .EditInfoIcon {
 	width: 16px;	height: 16px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon-rt.png') no-repeat right; /* orientation=rt */
 }
 
  .UIGrid .AddNewIcon {
@@ -91,7 +92,8 @@
 
  .UIGrid .PreviewIcon {
 	width: 16px;	height: 16px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/LightBulbOn.gif') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/LightBulbOn.gif') no-repeat; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/LightBulbOn-rt.gif') no-repeat right; /* orientation=rt */
 }
 
 /*###################### UIListUsers Icon ######################*/

@@ -55,7 +55,7 @@
 		<div class="AppWorkingArea">
 		<% uicomponent.renderChildren() %>
 		</div>
-		<div style="clear: left"><span></span></div>
+		<div class="ClearBoth"><span></span></div>
 	</div>  
 	
 </div>

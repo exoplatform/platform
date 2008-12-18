@@ -33,7 +33,7 @@
 	width: 16px; height: 16px;
 	background: url('background/ContainerIcon.gif') no-repeat top;
 	margin: 4px 5px 2px 0px; /* orientation=lt */
-	margin: 4px px 2px 5px; /* orientation=rt */
+	margin: 4px 0px 2px 5px; /* orientation=rt */
 }
 
 .UIPortlet .DeletePortletIcon {

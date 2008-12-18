@@ -68,10 +68,16 @@
 .DecoratorBox .BarDecorator {
 }
 
+.DecoratorBox .BarDecorator .TopLeftBar {
+	background: url('background/BarDecorator-rt.png') no-repeat left top; /* orientation=rt */
+	padding-left: 7px; /* orientation=rt */
+	height: 4px; /* orientation=rt */
+}
+
 .DecoratorBox .BarDecorator .TopRightBar {
-	background: url('background/BarDecorator.png') no-repeat right top;
-	padding-right: 7px;
-	height: 4px;
+	background: url('background/BarDecorator.png') no-repeat right top; /* orientation=lt */
+	padding-right: 7px; /* orientation=lt */
+	height: 4px; /* orientation=lt */
 }
 
 .DecoratorBox .BarDecorator .TopCenterBar {
@@ -79,9 +85,14 @@
 	height: 4px;
 }
 
+.DecoratorBox .BarDecorator .MiddleLeftBar {
+	background: url('background/MRBarDecorator-rt.png') repeat-y left; /* orientation=rt */
+	padding-left: 4px; /* orientation=rt */
+}
+
 .DecoratorBox .BarDecorator .MiddleRightBar {
-	background: url('background/MRBarDecorator.png') repeat-y right; 
-	padding-right: 4px;
+	background: url('background/MRBarDecorator.png') repeat-y right; /* orientation=lt */
+	padding-right: 4px; /* orientation=lt */
 }
 
 .DecoratorBox .BarDecorator .MiddleCenterBar {
@@ -96,10 +107,16 @@
 	height: 8px;
 }
 
+.DecoratorBox .BarDecorator .BottomLeftBar {
+	background: url('background/BarDecorator-rt.png') no-repeat left bottom; /* orientation=rt */
+	padding-left: 7px; /* orientation=rt */
+	height: 8px; /* orientation=rt */
+}
+
 .DecoratorBox .BarDecorator .BottomRightBar {
-	background: url('background/BarDecorator.png') no-repeat right bottom;
-	padding-right: 7px;
-	height: 8px;
+	background: url('background/BarDecorator.png') no-repeat right bottom; /* orientation=lt */
+	padding-right: 7px; /* orientation=lt */
+	height: 8px; /* orientation=lt */
 }
 
 /*##############################- View box style-################################*/

@@ -2,7 +2,8 @@
   width: 18px ; height: 100%;
   padding: 0px;
   top: 0px;
-  background: url('background/ControlWorkspaceBG.gif') repeat-y center right;
+  background: url('background/ControlWorkspaceBG.gif') repeat-y center right; /* orientation=lt */
+  background: url('background/ControlWorkspaceBG-rt.gif') repeat-y center left; /* orientation=rt */
 }
 	
 .UIControlWorkspace .TopTitleBar{
@@ -22,7 +23,8 @@
 	line-height: 22px;
 	padding: 0px 0px 0px 13px; /* orientation=lt */
 	padding: 0px 13px 0px 0px; /* orientation=rt */
-	margin-right: 2px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
@@ -37,7 +39,8 @@
 }
 
 .UIControlWorkspace .UIWorkspaceControl { 
-	margin-right: 2px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 }
 
 .UIControlWorkspace .UIDropDownControl { 

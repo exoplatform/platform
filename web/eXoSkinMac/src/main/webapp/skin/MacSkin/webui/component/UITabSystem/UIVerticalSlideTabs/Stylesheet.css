@@ -116,8 +116,10 @@
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
 	width: 16px;	height: 16px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/BlackNextArrow.gif') no-repeat;
-	margin: 6px 2px 0px 3px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/BlackNextArrow.gif') no-repeat; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/BlackNextArrow-rt.gif') no-repeat right; /* orientation=rt */
+	margin: 6px 2px 0px 3px; /* orientation=lt */
+	margin: 6px 3px 0px 2px; /* orientation=rt */
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLabel {

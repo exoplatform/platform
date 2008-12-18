@@ -8,7 +8,7 @@
 			  _ctx.renderUIComponent(uicomponent.getUIDropDownControl()) ;
 	 		%>
 	 	<a class="EditIcon" href="<%=uicomponent.event("ManageContainer")%>" title="<%=_ctx.appRes("UIWidgets.tooltip.widgetManagent")%>"><span></span></a>
-		<div style="clear: left"><span></span></div>
+		<div class="ClearBoth"><span></span></div>
 	</div>
 	
 	<div class="WidgetDecorator">

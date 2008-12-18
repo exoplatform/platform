@@ -288,12 +288,14 @@
 
 .UIToolbar .EditToolbar .EditContainerIcon {
   width: 31px;  height: 28px;
-  background: url('background/EditToolbar.png') no-repeat left -285px;
+  background: url('background/EditToolbar.png') no-repeat left -285px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -285px; /* orientation=rt */
 }
 
 .UIToolbar .EditToolbar .EditPortletIcon {
    width: 31px;  height: 28px;
-  background: url('background/EditToolbar.png') no-repeat left -313px;
+  background: url('background/EditToolbar.png') no-repeat left -313px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -313px; /* orientation=rt */
 }
 
 .UIToolbar .EditToolbar .LayoutModeIcon {
@@ -302,18 +304,21 @@
   margin: 4px 7px;
   cursor : pointer;
   width: 31px;  height: 28px;
-  background: url('background/EditToolbar.png') no-repeat left -341px;
+  background: url('background/EditToolbar.png') no-repeat left -341px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -341px; /* orientation=rt */
 }
 
 .UIToolbar .EditToolbar .PreviewIcon {
-   width: 31px;  height: 28px;
-  background: url('background/EditToolbar.png') no-repeat left -229px;
+  width: 31px;  height: 28px;
+  background: url('background/EditToolbar.png') no-repeat left -229px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -229px; /* orientation=rt */
 }
 
 .UIToolbar .EditToolbar .EditPortalIcon { 
   width: 31px;  
   height: 28px;
-  background: url('background/EditToolbar.png') no-repeat left -257px;
+  background: url('background/EditToolbar.png') no-repeat left -257px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -257px; /* orientation=rt */
 }
 
 .UIToolbar .EditToolbar .SavePortalIcon {
@@ -323,13 +328,15 @@
   margin: 4px 7px 0px 0px; /* orientation=rt */
   width: 29px;  
   height: 28px;
-  background: url('background/EditToolbar.png') no-repeat left -369px;
+  background: url('background/EditToolbar.png') no-repeat left -369px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -369px; /* orientation=rt */
 }
 
 .UIToolbar .EditToolbar .EditPageIcon{
   width: 27px;  
   height: 28px;
-  background: url('background/EditToolbar.png') no-repeat left -145px;
+  background: url('background/EditToolbar.png') no-repeat left -145px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -145px; /* orientation=rt */
 }
 
 .UIToolbar .EditToolbar .PageLayoutModeIcon {
@@ -338,19 +345,22 @@
   margin: 4px 7px 0px 7px;
   width: 24px;  
   height: 28px;
-  background: url('background/EditToolbar.png') no-repeat left -173px;
+  background: url('background/EditToolbar.png') no-repeat left -173px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -173px; /* orientation=rt */
   cursor: pointer ;
 }
 
 .UIToolbar .EditToolbar .PagePreviewIcon {
   width: 25px;  height: 27px;
-  background: url('background/EditToolbar.png') no-repeat left -117px;
+  background: url('background/EditToolbar.png') no-repeat left -117px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -117px; /* orientation=rt */
 }
 
 .UIToolbar .EditToolbar .SavePageIcon {
   width: 27px;  
   height: 28px;
-  background: url('background/EditToolbar.png') no-repeat left -201px;
+  background: url('background/EditToolbar.png') no-repeat left -201px; /* orientation=lt */
+  background: url('background/EditToolbar-rt.png') no-repeat right -201px; /* orientation=rt */
 }
 
 
@@ -362,12 +372,13 @@
 }
 
 .UIToolbar .ControlToolbar .LeftBar {
-  padding-left: 8px;
-  background: url('background/ControlToolbar.png') no-repeat left top;
+  padding-left: 8px; /* orientation=lt */
+  background: url('background/ControlToolbar.png') no-repeat left top; /* orientation=lt */
 }
 
 .UIToolbar .ControlToolbar .RightBar {
- 
+  padding-right: 8px; /* orientation=rt */
+  background: url('background/ControlToolbar-rt.png') no-repeat right top; /* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .MiddleBar {
@@ -393,21 +404,26 @@
 }
 
 .UIToolbar .ControlToolbar .BackIcon {
-  background: url('background/ControlToolbar.png') no-repeat left -80px;
+  background: url('background/ControlToolbar.png') no-repeat left -80px; /* orientation=lt */
+  background: url('background/ControlToolbar-rt.png') no-repeat right -80px; /* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .RollbackIcon {
-  background: url('background/ControlToolbar.png') no-repeat left -109px;
+  background: url('background/ControlToolbar.png') no-repeat left -109px; /* orientation=lt */
+  background: url('background/ControlToolbar-rt.png') no-repeat right -109px; /* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .FinishIcon {
-  background: url('background/ControlToolbar.png') no-repeat left -138px;
+  background: url('background/ControlToolbar.png') no-repeat left -138px; /* orientation=lt */
+  background: url('background/ControlToolbar-rt.png') no-repeat right -138px; /* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .SaveIcon {
-  background: url('background/ControlToolbar.png') no-repeat left -167px;
+  background: url('background/ControlToolbar.png') no-repeat left -167px; /* orientation=lt */
+  background: url('background/ControlToolbar-rt.png') no-repeat right -167px; /* orientation=rt */
 }
 
 .UIToolbar .ControlToolbar .AbortIcon {
-  background: url('background/ControlToolbar.png') no-repeat left -196px;
+  background: url('background/ControlToolbar.png') no-repeat left -196px; /* orientation=lt */
+  background: url('background/ControlToolbar-rt.png') no-repeat right -196px; /* orientation=rt */
 }

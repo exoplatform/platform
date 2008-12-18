@@ -306,8 +306,8 @@
   line-height: 32px;
   padding-right: 7px; 	/* orientation=lt */
   padding-left: 7px; 		/* orientation=rt */
-  background: url('background/SeparatorLine1x2.gif') repeat-y right; 			/* orientation=lt */
-  background: url('background/SeparatorLine1x2-rt.gif') repeat-y left; 		/* orientation=rt */
+  background: url('background/SeparatorLine1x2.gif') repeat-y right; /* orientation=lt */
+  background: url('background/SeparatorLine1x2-rt.gif') repeat-y left; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {

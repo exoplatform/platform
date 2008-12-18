@@ -14,17 +14,13 @@
 
 .UIDropDownControl .LeftMiddelItem {
 	display: block ;
-	background: url('background/DropDownControlRepeatY.png') repeat-y left; /* orientation=lt */
-	background: url('background/DropDownControlRepeatY-rt.png') repeat-y right; /* orientation=rt */
-	padding-left: 3px; /* orientation=lt */
-	padding-right: 3px; /* orientation=rt */
+	background: url('background/DropDownControlRepeatY.png') repeat-y left;
+	padding-left: 3px;
 }
 
 .UIDropDownControl .RightMiddelItem {
-	background: url('background/DropDownControlRepeatY.png') repeat-y right; /* orientation=lt */
-	background: url('background/DropDownControlRepeatY-rt.png') repeat-y left; /* orientation=rt */
-	padding-right: 3px; /* orientation=lt */
-	padding-rleft: 3px; /* orientation=rt */
+	background: url('background/DropDownControlRepeatY.png') repeat-y right;
+	padding-right: 3px;
 }
 
 .UIDropDownControl .RightMiddelItem .ItemListContent {

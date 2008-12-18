@@ -48,13 +48,13 @@
 	    <% } else {%>
 	    	   <a class="Icon DisableNextTopPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.nextTenPages")%>"><span></span></a>
 	    <% }%>
-	    <div classe="ClearLeft"><span></span></div>
+	    <div class="ClearBoth"><span></span></div>
 	  </div>
 	  <div class="LeftPageIteratorBlock">
 	  	<div class="TotalPages"><%=_ctx.appRes("UIPageIterator.label.totalPage")%>:</div>
 	  	<div class="PagesTotalNumber"><%=totalPage%></div>
-	  	<div classe="ClearLeft"><span></span></div>
+	  	<div class="ClearBoth"><span></span></div>
 	  </div>
   </div>
-  <div classe="ClearRight"><span></span></div>
+  <div class="ClearBoth"><span></span></div>
 </div>

@@ -559,11 +559,13 @@
 }
 
 .MoveUp16x16Icon {
-	background: url('icons/MoveUp.gif') no-repeat left center;
+	background: url('icons/MoveUp.gif') no-repeat left center; /* orientation=lt */
+	background: url('icons/MoveUp-rt.gif') no-repeat right center; /* orientation=rt */
 }
 
 .MoveDown16x16Icon {
-	background: url('icons/MoveDown.gif') no-repeat left center;
+	background: url('icons/MoveDown.gif') no-repeat left center; /* orientation=lt */
+	background: url('icons/MoveDown-rt.gif') no-repeat right center; /* orientation=rt */
 }
 
 /*/////////////////////////////////////Icon Stylesheet for IconSelector///////////////////////////*/
@@ -1659,10 +1661,3 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/UserIcons/YellowComment.gif') no-repeat center left;
 }
 
-.MoveUp16x16Icon {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MoveUp.gif') no-repeat left center;
-}
-
-.MoveDown16x16Icon {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MoveDown.gif') no-repeat left center;
-}

@@ -107,3 +107,17 @@ a {
 .AjaxLoadingMask .UIAction .ActionButton{
   float: none;
 }
+
+.ClearLeft {
+  clear: left; /* orientation=lt */
+  clear: right; /* orientation=rt */
+}
+
+.ClearRight {
+  clear: right; /* orientation=lt */
+  clear: left; /* orientation=rt */
+}
+
+.ClearBoth {
+  clear: both;
+}

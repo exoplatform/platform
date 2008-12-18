@@ -13,7 +13,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 100px; height: 20px;
-	padding-right: 6px;
+	padding-right: 6px; /* orientation=lt */
+	padding-left: 6px; /* orientation=rt */
 }
 
 .UIGadget .GadgetControl .LeftControlBar {

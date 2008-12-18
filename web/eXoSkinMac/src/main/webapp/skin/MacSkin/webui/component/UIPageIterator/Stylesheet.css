@@ -18,21 +18,22 @@
   margin-left: 15px; /* orientation=rt */
 }
 
-.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock{    
+.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock {    
   float: right ; 		/* orientation=lt */
   float: left ; 		/* orientation=rt */
 }
 
 .UIPageIterator .Icon {
-  float: right ; 		/* orientation=lt */
-  float: left ; 		/* orientation=rt */
+  float: left ; 		/* orientation=lt */
+  float: right ; 		/* orientation=rt */
   margin: 4px 2px 0px 2px ;
-  width: 18px ;  height: 17px ;
+  width: 18px ;  
+  height: 17px ;
 }
 
 .UIPageIterator .TotalPages {
-  float: right ; 		/* orientation=lt */
-  float: left ; 		/* orientation=rt */
+  float: left ; 		/* orientation=lt */
+  float: right ; 		/* orientation=rt */
   line-height: 22px ; vertical-align: middle;
 }
 

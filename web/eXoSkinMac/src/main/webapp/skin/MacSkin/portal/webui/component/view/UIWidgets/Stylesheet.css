@@ -6,7 +6,8 @@
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
 	width: 28px; height: 25px;
-	background: url('background/EditWidgetCategoryButton.png') no-repeat right;
+	background: url('background/EditWidgetCategoryButton.png') no-repeat right; /* orientation=lt */
+	background: url('background/EditWidgetCategoryButton-rt.png') no-repeat left; /* orientation=rt */
 	cursor: pointer;
 }
 
@@ -18,7 +19,8 @@
 
 .UIWidgets .ItemSelectorContainer .UIDropDownControl .UIDropDownRightTitle {
 	background: none;
-	padding-right: 0px;
+	padding-right: 0px; /* orientation=lt */
+	padding-left: 0px; /* orientation=rt */
 }
 
 .UIWidgets .WidgetDecorator {
