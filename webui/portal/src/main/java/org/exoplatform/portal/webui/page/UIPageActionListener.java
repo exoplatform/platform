@@ -148,6 +148,7 @@ public class UIPageActionListener {
             uiPageBody.setMaximizedUIComponent(null);
           }
         } 
+        
         uiPageBody.setPageBody(uiPortal.getSelectedNode(), uiPortal);
         return;
       }
@@ -174,6 +175,7 @@ public class UIPageActionListener {
         uiPortal.setSelectedNode(selecttedNode) ;
         uiPortal.setSelectedNavigation(nav);
       }
+      pcontext.getJavascriptManager().addCustomizedOnLoadScript("document.title='" + uiPortal.getSelectedNode().getResolvedLabel() + "';") ;
       uiPortal.setSelectedPaths(selectedPaths_);
       if(!currentUri.equals(uiPortal.getSelectedNode().getUri())) {
         if(uiPageBody.getMaximizedUIComponent() != null) {
