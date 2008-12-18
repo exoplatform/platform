@@ -1802,6 +1802,7 @@
       <ShowPortletDesktop>Show/Hide Portlets</ShowPortletDesktop>
       <ShowWidgetDesktop>Show/Hide Gadgets</ShowWidgetDesktop>
       <SignIn>Sign In</SignIn>
+      <SignOut>Sign Out</SignOut>
       <pageNavigation>Page Navigations</pageNavigation>
     </title>
     <msg>

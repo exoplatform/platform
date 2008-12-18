@@ -1799,6 +1799,7 @@
       <ShowPortletDesktop>Afficher/Cacher les portlets</ShowPortletDesktop>
       <ShowWidgetDesktop>Afficher/Cacher les gadgets</ShowWidgetDesktop>
       <SignIn>Connexion</SignIn>
+      <SignOut>Déconnexion</SignOut>
       <pageNavigation>Navigations</pageNavigation>
     </title>
     <msg>

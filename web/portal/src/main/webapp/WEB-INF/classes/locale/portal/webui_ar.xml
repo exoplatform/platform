@@ -9,6 +9,7 @@
   <UIPageDesktop>
     <title>
       <SignIn>تسجيل الدخول</SignIn>
+      <SignOut>تسجيل الخروج</SignOut>
     </title>
   </UIPageDesktop>
 
@@ -27,7 +28,18 @@
       <LanguageSetting>ضبط لغة الواجهة</LanguageSetting>
     </title>
   </UIChangeLanguage>
-
+  
+  <!--
+  #############################################################################
+  #                             UIChangeSkin    				                      #
+  #############################################################################
+  -->
+  <UIChangeSkin>
+    <action>
+      <save>طبق</save>
+      <close>#{word.cancel}</close>
+    </action>
+  </UIChangeSkin>
 
   <!--
   #############################################################################

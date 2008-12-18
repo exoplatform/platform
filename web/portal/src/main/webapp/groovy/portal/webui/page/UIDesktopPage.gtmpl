@@ -242,7 +242,7 @@
 		                  <img id="SignInIcon" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/Signin.png" alt="" altText="/eXoResources/skin/sharedImages/Blank.gif" title=""
 		                         onclick="<%=uicomponent.event("ShowLoginForm", null);%>" /><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignIn")%></span>
                   <%} else {%>
-											<img id="SignOutIcon" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/Signin.png" alt="" altText="/eXoResources/skin/sharedImages/Blank.gif" title=""
+											<img id="SignOutIcon" class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/Signout.png" alt="" altText="/eXoResources/skin/sharedImages/Blank.gif" title=""
 		                         onclick="eXo.portal.logout()" /><span class="Tooltip" style="display: none;"><%=_ctx.appRes("UIPageDesktop.title.SignOut")%></span>	                  		
 									<%} %>
               		    <img class="Separator" alt="" src="/webosResources/skin/Defaultskin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>

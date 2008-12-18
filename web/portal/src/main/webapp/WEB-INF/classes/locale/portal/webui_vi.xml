@@ -1813,6 +1813,7 @@
       <ShowPortletDesktop>Hiện/Ẩn các Portlet</ShowPortletDesktop>
       <ShowWidgetDesktop>Hiện/Ẩn các Widget</ShowWidgetDesktop>
       <SignIn>Đăng nhập</SignIn>
+      <SignOut>Đăng xuất</SignOut>
       <pageNavigation>Navigation trang</pageNavigation>
     </title>
     <msg>

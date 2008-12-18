@@ -2,27 +2,44 @@
 <bundle>
 
   <word>
-    <userName>اسم المستخدم</userName>
-    <firstName>الاسم</firstName>
-    <lastName>اسم العائلة</lastName>
-    <givenName>الاسم</givenName>
-    <familyName>اسم العائلة</familyName>
-    <nickName>الكنية</nickName>
+  	<back>رجوع</back>
     <birthday>تاريخ الولادة</birthday>
-    <gender>الجنس</gender>
-    <employer>الشركة</employer>
-    <department>الادارة</department>
-    <jobTitle>الوظيفة</jobTitle>
-    <save>احفظ</save>
-    <postalCode> الرقم البريدي</postalCode>
+    
+    <cancel>الغاء</cancel>
     <city>المدينة</city>
-    <stateProv> الولاية </stateProv>
     <country> البلد  </country>
-    <mobile> الجوال  </mobile>
-    <tel> الهاتف  </tel>
+    
+    <department>الادارة</department>
+    
     <email>البريد الالكتروني</email>
-    <website> موقع الواب  </website>
-    <street>الشارع</street>
+    <employer>الشركة</employer>
+    
+    <familyName>اسم العائلة</familyName>
+    <firstName>الاسم</firstName>
+    
+    <gender>الجنس</gender>
+    <givenName>الاسم</givenName>
+    
+    <jobTitle>الوظيفة</jobTitle>
+    
     <language>اللغة</language>
+    <lastName>اسم العائلة</lastName>
+    
+    <mobile> الجوال  </mobile>
+    
+    <next>الموالي</next>
+    <nickName>الكنية</nickName>
+    
+    <postalCode> الرقم البريدي</postalCode>
+    
+    <save>احفظ</save>
+    <stateProv> الولاية </stateProv>
+    <street>الشارع</street>
+    
+    <tel> الهاتف  </tel>
+    
+    <userName>اسم المستخدم</userName>
+    
+    <website> موقع الواب  </website>
   </word>
 </bundle>
