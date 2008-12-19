@@ -1,12 +1,12 @@
 eXo.gadget.UIGadget = {
-    createGadget : function(url, id, metadata, userPref, view) {
+    createGadget : function(url, id, metadata, userPref, view, isdev, debug, nocache) {
         //eXo = eXo || {};
         window.gadgets = window.gadgets || {};
         eXo.gadgets = window.gadgets;
         //window.gadgets = eXo.gadget.Gadgets;
 
         if (!eXo.gadgets || !eXo.gadgets.rpc) {
-            eXo.core.Using.register('rpc', '/eXoGadgetServer/gadgets/js/rpc.js?c=1&debug=1&p=1');
+            eXo.core.Using.register('rpc', '/eXoGadgetServer/gadgets/js/rpc.js?c=1');
             eXo.core.Using.register('eXo.gadgets.Gadgets', '/eXoGadgets/javascript/eXo/gadgets/Gadgets.js');
             eXo.core.Using.register('eXo.gadgets.ExoBasedUserPrefStore', '/eXoGadgets/javascript/eXo/gadgets/ExoBasedUserPrefStore.js');
 
@@ -17,9 +17,9 @@ eXo.gadget.UIGadget = {
         }
         //TODO: dang.tung - set language for gadget
         //-----------------------------------------
-				var language = eXo.core.I18n.getLanguage();
-				gadgets.container.setLanguage(language);
-				//-----------------------------------------
+        var language = eXo.core.I18n.getLanguage();
+        gadgets.container.setLanguage(language);
+        //-----------------------------------------
         var gadget;
         if (metadata != null) {
             gadget = gadgets.container.createGadget({specUrl: url,height: metadata.gadgets[0].height, secureToken: metadata.gadgets[0].secureToken, view: view});
@@ -28,6 +28,10 @@ eXo.gadget.UIGadget = {
             gadget = gadgets.container.createGadget({specUrl: url});
         }
         gadget.parentId = id;
+        gadget.debug = debug;
+        gadget.nocache = nocache;
+        gadget.isdev = isdev;
+        
         gadgets.container.addGadget(gadget);
         // i use the internal var "gadget.userPrefs_" to not call the save on the server side
         if (userPref != null) gadget.userPrefs_ = userPref;

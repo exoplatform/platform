@@ -16,10 +16,7 @@
  */
 package org.exoplatform.application.gadget.jcr;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -30,6 +27,13 @@ import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.MembershipHandler;
+import org.exoplatform.services.organization.Membership;
+import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.container.xml.PropertiesParam;
 
 /**
  * Created by The eXo Platform SAS
@@ -40,12 +44,25 @@ import org.exoplatform.services.jcr.ext.registry.RegistryService;
 public class GadgetRegistryServiceImpl implements GadgetRegistryService {
   
   private static final String PATH = RegistryService.EXO_SERVICES + "/Gadgets" ;
-  
+  private static final String DEFAULT_DEVELOPER_GROUP = "/platform/administrators";
+
+
   private RegistryService regService_ ;
   private DataMapper mapper_ = new DataMapper() ;
+  private OrganizationService orgService;
+  private String gadgetDeveloperGroup = null;
   
-  public GadgetRegistryServiceImpl(RegistryService service) throws Exception {
+  public GadgetRegistryServiceImpl(InitParams params, RegistryService service) throws Exception {
     regService_ = service ;
+
+    if(params != null) {
+      PropertiesParam properties = params.getPropertiesParam("developerInfo");
+      if(properties != null) {
+        gadgetDeveloperGroup = properties.getProperty("developer.group");
+      }
+    }
+    if(gadgetDeveloperGroup == null)
+      gadgetDeveloperGroup = DEFAULT_DEVELOPER_GROUP;
   }
 
   public Gadget getGadget(String name) throws Exception {
@@ -113,6 +130,33 @@ public class GadgetRegistryServiceImpl implements GadgetRegistryService {
     finally {
       sessionProvider.close() ;
     }
+  }
+
+  private OrganizationService getOrgService() {
+    if (orgService == null) {
+      ExoContainer container = ExoContainerContext.getCurrentContainer();
+      orgService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class);
+    }
+    return orgService;
+  }
+
+  /**
+   * return true is the user is defined as a gadget developer
+   * @param username
+   */
+  public boolean isGadgetDeveloper(String username) {
+    try {
+      OrganizationService orgService = getOrgService();
+
+      MembershipHandler memberShipHandler = orgService.getMembershipHandler();
+      Collection<Membership> memberships = memberShipHandler.findMembershipsByUserAndGroup(username, gadgetDeveloperGroup);
+      if(memberships.size() > 0)
+        return true;
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return false;
+
   }
 
 }

@@ -8,10 +8,15 @@
   def posX = uicomponent.getProperties().getIntValue("locationX") + "px";
   def posY = uicomponent.getProperties().getIntValue("locationY") + "px";
   def zIndex = uicomponent.getProperties().getIntValue("zIndex") ;
-  def id = uicomponent.getId() ;
+  def id = uicomponent.getId();
+  def isDev = uicomponent.isGadgetDeveloper();
+  def noCache = uicomponent.isNoCache();
+  def isDebug = uicomponent.isDebug();
+  def view = uicomponent.getView();
   def userPref = uicomponent.getUserPref() ;
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
-	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id', $metadata, $userPref);") ;
+	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id', $metadata, $userPref, '$view', " + (isDev ? 1 : 0)
+                                                                            + ", " + (isDebug ? 1 : 0) + ", " + (noCache ? 1 : 0) + ");")
 %>
 <div class="UIGadget" id="<%= uicomponent.getApplicationInstanceUniqueId() %>" style="left: $posX; top: $posY; z-Index: $zIndex; width: 320px" >
 	<div class="GadgetControl" style="visibility: visible;">

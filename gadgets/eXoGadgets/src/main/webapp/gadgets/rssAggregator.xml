@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-<ModulePrefs title="__UP_mtitle__" title_url="__UP_titlelink__" directory_title="RSS Reader" 
+<ModulePrefs title="RSS Reader" title_url="http://www.exoplatform.com" directory_title="RSS Reader" 
 	description="RSS Reader"
-	thumbnail="http://localhost:8080/eXoGadgets/skin/DefaultSkin/portletIcons/rssAggregator.png">
+	thumbnail="/eXoGadgets/skin/DefaultSkin/portletIcons/rssAggregator.png">
 <Require feature="dynamic-height" />
 <Require feature="setprefs"/>
 <Require feature="settitle"/>
 <Locale lang="ar" language_direction="rtl"/>
 </ModulePrefs>
-    <UserPref name="mtitle" display_name="Title name" default_value="RSS Reader"/>
 	<UserPref name="rssurl" display_name="FEED URL" default_value="http://blog.exoplatform.org/feed/" required="true" />
-	<UserPref name="title" display_name="Custom Gadget Title" default_value="CustomRSS" />
 	<UserPref name="num_entries" display_name="# of Items (1-100)" default_value="10"/>
-    <!-- design var -->
-	<UserPref name="dborder" display_name="Open Border Color" default_value="DFCE6F"/>
-	<UserPref name="tcolor" display_name="Open Title Color" default_value="1C57A9"/>
-	<UserPref name="thighlight" display_name="Open Title Bgrnd" default_value="FFF19D"/>
 <Content type="html"><![CDATA[
 <link rel="stylesheet" type="text/css" href="rssAggregator/style.css"></link>
 

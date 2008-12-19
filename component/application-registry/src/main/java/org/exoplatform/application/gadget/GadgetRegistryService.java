@@ -66,5 +66,7 @@ public interface GadgetRegistryService {
    * @throws Exception
    */
   public void removeGadget(String name) throws Exception ;
+
+  public boolean isGadgetDeveloper(String username);
   
 }

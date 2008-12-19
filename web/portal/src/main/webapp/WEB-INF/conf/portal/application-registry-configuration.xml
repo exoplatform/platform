@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
+
   <component>
     <key>org.exoplatform.application.gadget.GadgetRegistryService</key>
     <type>org.exoplatform.application.gadget.jcr.GadgetRegistryServiceImpl</type>
+    <init-params>
+  		<properties-param>
+  		<name>developerInfo</name>
+  		<description>The group that is allowed to develop gadgets</description>
+  		<property name="developer.group" value="/platform/administrators"></property>
+  		</properties-param>
+  	</init-params>
   </component>
 
   <component>

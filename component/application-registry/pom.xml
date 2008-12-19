@@ -20,6 +20,12 @@
     </dependency>
 
     <dependency>
+      <groupId>org.exoplatform.core</groupId>
+      <artifactId>exo.core.component.organization.api</artifactId>
+      <version>${org.exoplatform.core.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.exoplatform.portletcontainer</groupId>
       <artifactId>exo.pc.component.core</artifactId>
       <version>${org.exoplatform.pc.version}</version>

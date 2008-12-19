@@ -40,7 +40,11 @@ import org.json.JSONException;
  */
 @ComponentConfig(
     template = "system:/groovy/portal/webui/application/UIGadget.gtmpl",
-    events = {@EventConfig(listeners = UIGadget.SaveUserPrefActionListener.class)}
+    events = {
+        @EventConfig(listeners = UIGadget.SaveUserPrefActionListener.class),
+        @EventConfig(listeners = UIGadget.SetNoCacheActionListener.class),
+        @EventConfig(listeners = UIGadget.SetDebugActionListener.class)
+    }
 )
 /**
  * This class represents user interface gadgets, it using UIGadget.gtmpl for rendering
@@ -58,7 +62,12 @@ public class UIGadget extends UIComponent {
   private Properties properties_;
   private JSONObject metadata_;
   private String url_;
+  private UserGadgetStorage userGadgetStorage = null;
+  private GadgetRegistryService gadgetRegistryService  = null;
   public static final String PREF_KEY = "_pref_gadget_";
+  public static final String PREF_NO_CACHE = "_pref_no_cache_";
+  public static final String PREF_DEBUG = "_pref_debug_";
+  public String view = null;
 
   /**
    * Initializes a newly created <code>UIGadget</code> object
@@ -210,7 +219,77 @@ public class UIGadget extends UIComponent {
     }
     return url_;
   }
-  
+
+  private UserGadgetStorage getGadgetStorage() {
+    if(userGadgetStorage == null)
+      userGadgetStorage = (UserGadgetStorage) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(UserGadgetStorage.class);
+    return userGadgetStorage;
+  }
+
+  private GadgetRegistryService getGadgetRegistryService() {
+    if(gadgetRegistryService == null)
+      gadgetRegistryService = (GadgetRegistryService) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(GadgetRegistryService.class);
+    return gadgetRegistryService;
+  }
+
+  public boolean isNoCache() {
+    try {
+      UserGadgetStorage userGadgetStorage = getGadgetStorage();
+      String username = Util.getPortalRequestContext().getRemoteUser();
+      if(username != null) {
+        String prefs = userGadgetStorage.get(username, getApplicationName(), getApplicationInstanceUniqueId(), PREF_NO_CACHE);
+        return prefs.equals("1");
+      }
+    } catch (Exception e) {}
+    return false;
+  }
+
+  public void setNoCache(boolean value) {
+   try {
+      UserGadgetStorage userGadgetStorage = getGadgetStorage();
+      String username = Util.getPortalRequestContext().getRemoteUser();
+      if(username != null && getGadgetRegistryService().isGadgetDeveloper(username)) {
+        userGadgetStorage.save(username, getApplicationName(), getApplicationInstanceUniqueId(), PREF_NO_CACHE, value ? "1" : "0");
+      }
+    } catch (Exception e) {}
+  }
+
+  public boolean isDebug() {
+    try {
+      UserGadgetStorage userGadgetStorage = getGadgetStorage();
+      String username = Util.getPortalRequestContext().getRemoteUser();
+      if(username != null) {
+        String prefs = userGadgetStorage.get(username, getApplicationName(), getApplicationInstanceUniqueId(), PREF_DEBUG);
+        return prefs.equals("1");
+      }
+    } catch (Exception e) {}
+    return false;
+  }
+
+  public void setDebug(boolean value) {
+   try {
+      UserGadgetStorage userGadgetStorage = getGadgetStorage();
+      String username = Util.getPortalRequestContext().getRemoteUser();
+      if(username != null && getGadgetRegistryService().isGadgetDeveloper(username)) {
+        userGadgetStorage.save(username, getApplicationName(), getApplicationInstanceUniqueId(), PREF_DEBUG, value ? "1" : "0");
+      }
+    } catch (Exception e) {}
+  }
+
+  public boolean isGadgetDeveloper() {
+    return getGadgetRegistryService().isGadgetDeveloper(Util.getPortalRequestContext().getRemoteUser());
+  }
+
+  public String getView() {
+    if (view != null)
+      return view;
+    return "home";
+  }
+
+  public void setView(String view) {
+    this.view = view;
+  }
+
   /**
    * Gets user preference of gadget application
    * @return the string represents user preference of gadget application
@@ -219,13 +298,13 @@ public class UIGadget extends UIComponent {
    */
   public String getUserPref() throws Exception {
     String prefs = null;
-    UserGadgetStorage userGadgetStorage = (UserGadgetStorage) ExoContainerContext.getCurrentContainer().getComponentInstanceOfType(UserGadgetStorage.class);
+    UserGadgetStorage userGadgetStorage = getGadgetStorage();
     if(Util.getPortalRequestContext().getRemoteUser() != null) {
       prefs = userGadgetStorage.get(Util.getPortalRequestContext().getRemoteUser(), getApplicationName(), getApplicationInstanceUniqueId(), PREF_KEY);
     }
     return prefs;
   }
-  
+
   /**
    * Initializes a newly created <code>SaveUserPrefActionListener</code> object
    * @throws Exception if can't initialize object
@@ -239,6 +318,22 @@ public class UIGadget extends UIComponent {
       if(userName != null && userName.trim().length()>0) {
         userGadgetStorage.save(userName, uiGadget.getApplicationName(), uiGadget.getApplicationInstanceUniqueId(), PREF_KEY, userPref);
       }
+    }
+  }
+
+  static public class SetNoCacheActionListener extends EventListener<UIGadget> {
+    public void execute(Event<UIGadget> event) throws Exception {
+      String noCache = event.getRequestContext().getRequestParameter("nocache") ;
+      UIGadget uiGadget = event.getSource() ;
+      uiGadget.setNoCache(noCache.equals("1"));
+    }
+  }
+
+  static public class SetDebugActionListener extends EventListener<UIGadget> {
+    public void execute(Event<UIGadget> event) throws Exception {
+      String debug = event.getRequestContext().getRequestParameter("debug") ;
+      UIGadget uiGadget = event.getSource() ;
+      uiGadget.setDebug(debug.equals("1"));
     }
   }
 }

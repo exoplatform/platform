@@ -530,7 +530,7 @@ gadgets.IfrGadget.prototype.getIframeUrl = function() {
   return this.serverBase_ + 'ifr?' +
       'container=' + this.CONTAINER +
       '&mid=' +  this.id +
-      '&nocache=' + gadgets.container.nocache_ +
+      '&nocache=' + this.nocache +
       '&country=' + gadgets.container.country_ +
       '&lang=' + gadgets.container.language_ +
       '&view=' + (this.view || gadgets.container.view_) +
@@ -642,7 +642,7 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
     }
 
 		//TODO: dang.tung remove save and cancel button when doesn't have any pref
-    if(formEl.innerHTML == "") return;
+    //if(formEl.innerHTML == "") return;
     // end
     
     var numFieldsEl = document.createElement("input");
@@ -650,7 +650,6 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
     numFieldsEl.value = j;
     numFieldsEl.id = "m_" + gadgetId + "_numfields";
     formEl.appendChild(numFieldsEl);
-
 
     parentEl.appendChild(formEl);
 
@@ -660,6 +659,22 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
       this.id +').handleSaveUserPrefs()"> <input type="button" value="Cancel" onclick="gadgets.container.getGadget(' +
       this.id +').handleCancelUserPrefs()">';
     parentEl.appendChild(saveEl);
+    if(gadget.isdev) {
+      //Are we in a portlet ? if not, we don't had  this code because we can't save the value
+      var gadgetEl = document.getElementById("gadget_" + gadget.id) ;
+      var portletFragment = eXo.core.DOMUtil.findAncestorByClass(gadgetEl, "PORTLET-FRAGMENT");
+
+      if (portletFragment) {
+        var devEl = document.createElement("div");
+        devEl.className = "devToolbar";
+        devEl.innerHTML = '<table>' +
+                          '<tr><td>No Cache</td><td><input type="checkbox"' + (gadget.nocache ? ' checked=""' : "") + ' onclick="gadgets.container.getGadget(' + this.id + ').setNoCache(checked)"/></td></tr>' +
+                          '<tr><td>Debug</td><td><input type="checkbox"' + (gadget.debug ? ' checked=""' : "") + ' onclick="gadgets.container.getGadget(' + this.id + ').setDebug(checked)"/></td></tr>' +
+                          '</table>';
+        parentEl.appendChild(devEl);
+      }
+    }
+
 
 };
 
@@ -709,6 +724,34 @@ gadgets.IfrGadget.prototype.handleCancelUserPrefs = function() {
 gadgets.IfrGadget.prototype.refresh = function() {
   var iframeId = this.getIframeId();
   document.getElementById(iframeId).src = this.getIframeUrl();
+};
+
+
+gadgets.IfrGadget.prototype.sendServerRequest = function(op, key, value) {
+  var DOMUtil = eXo.core.DOMUtil;
+  var gadget = document.getElementById("gadget_" + this.id) ;
+  if(gadget != null ) {                    
+    var portletFragment = DOMUtil.findAncestorByClass(gadget, "PORTLET-FRAGMENT");
+    var uiGadget = gadget.parentNode;
+    if (portletFragment != null) {
+      var compId = portletFragment.parentNode.id;
+      var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
+      href += "&portal:type=action&uicomponent=" + uiGadget.id;
+      href += "&op=" + op;
+      href += "&" + key + "=" + value;
+      ajaxAsyncGetRequest(href,true);
+    } else {
+      alert("not managed yet");
+    }
+  }
+}
+
+gadgets.IfrGadget.prototype.setDebug = function(value) {
+  this.sendServerRequest("SetDebug", "debug", (value ? "1" : "0"));
+};
+
+gadgets.IfrGadget.prototype.setNoCache = function(value) {
+  this.sendServerRequest("SetNoCache", "nocache", (value ? "1" : "0"));
 };
 
 
