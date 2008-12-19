@@ -58,12 +58,10 @@ UICalendar.prototype.show = function() {
 	this.currentDate = new Date(this.selectedDate.valueOf()) ;
   var clndr = document.getElementById(this.calendarId) ;
   clndr.firstChild.lastChild.innerHTML = this.renderCalendar() ;
-  var x = 0 ;
   var y = this.dateField.offsetHeight ;
   var beforeShow = eXo.core.Browser.getBrowserHeight();
   with (clndr.firstChild.style) {
   	display = 'block' ;
-	  left = x + "px" ;
 	  top = y + "px" ;
   }
   var posCal = eXo.core.Browser.findPosY(this.dateField) - y;
