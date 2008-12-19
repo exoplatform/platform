@@ -282,6 +282,14 @@ Browser.prototype.isFF = function() {
   return this.gecko;
 } ;
 
+Browser.prototype.isFF2 = function() {
+  return (navigator.userAgent.indexOf("Firefox/2") >= 0);
+} ;
+
+Browser.prototype.isFF3 = function() {
+  return (navigator.userAgent.indexOf("Firefox/3") >= 0);
+} ;
+
 Browser.prototype.findMouseXInClient = function(e) {
   if (!e) e = window.event ;
   return e.clientX ;

@@ -81,32 +81,54 @@ UIExoStartMenu.prototype.buildMenu = function(popupMenu) {
  */
 UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 	this.className = eXo.portal.UIExoStartMenu.itemOverStyleClass ;
-	this.style.position = "relative" ;
+//	this.style.position = "relative" ;
 	if (this.menuItemContainer) {
 		var menuItemContainer = this.menuItemContainer ;
 //		this.offsetRight = eXo.core.Browser.getBrowserWidth() - this.offsetLeft - this.offsetWidth;
+		menuItemContainer.style.display = "block" ;
 		var x = this.offsetWidth ;
 //	  var rootX = (eXo.core.I18n.isLT() ? eXo.core.Browser.findPosX(this) : eXo.core.Browser.findPosXY(this)) ;
 //		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
 //	    	x -= (menuItemContainer.offsetWidth + this.offsetWidth) ;
 //	  }
-	  if (eXo.core.Browser.isIE6()) x -= 10;
-	 	if(eXo.core.I18n.isLT()) menuItemContainer.style.left = x + "px" ;
-	 	else menuItemContainer.style.right =  x + "px" ;
+	 	if(eXo.core.I18n.isLT()) {
+	 		if(eXo.core.Browser.isIE6()) x -= 10 ;
+	 		menuItemContainer.style.left = x + "px" ;
+	 	}	else menuItemContainer.style.right =  x + "px" ;
 		eXo.portal.UIExoStartMenu.createSlide(this);
     eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(this.menuItemContainer.id) ;
+    
+    //find PosY to put menuItemContainer ;
+	 	var posParent = eXo.portal.UIExoStartMenu.findPositionParent(this) ;
+	 	var objTop = eXo.core.Browser.findPosY(this)
+	 	var y = objTop - eXo.core.Browser.findPosY(posParent) ;
+	 	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
+	 	//fix for case: bottom pos of menuItemContainer is larger than browserHeight;
+	 	if(objTop + menuItemContainer.offsetHeight >= browserHeight) {
+			y = y + this.offsetHeight - menuItemContainer.offsetHeight ;
+	 	}
+	 	//fix for case: top pos of menuItemContainer is small than 0;
+	 	var objBottom = objTop + this.offsetHeight ;
+	 	if(objBottom - menuItemContainer.offsetHeight < 0) {
+	 		y += (browserHeight - objBottom - 10) ;
+	 	}
+	 	menuItemContainer.style.top = y + "px" ;
 	}
 };
+
+UIExoStartMenu.prototype.findPositionParent = function(comp) {
+	var pr = comp.parentNode ;
+	while(pr) {
+		if((pr.style.position != "") && (pr.style.position != "static")) return pr ;
+		pr = pr.parentNode ;
+	}
+	return null ;
+}
+
 
 UIExoStartMenu.prototype.createSlide = function(menuItem) {
 	var menuItemContainer = menuItem.menuItemContainer ;
 	var icon = eXo.core.DOMUtil.findFirstDescendantByClass(menuItem, "div", "Icon") ;
-	if(eXo.core.Browser.getBrowserType() == "ie" && eXo.core.I18n.isRT()) { 
-		var labelItem = eXo.core.DOMUtil.findFirstChildByClass(menuItem, "div", "LabelItem") ;
-		var icon = eXo.core.DOMUtil.findFirstChildByClass(labelItem, "div", "Icon") ;
-		if(icon) icon.style.position = "relative" ;
-	}
-	menuItemContainer.style.display = "block" ;
 	// fix width for menuContainer, only IE.
 	if (!menuItemContainer.resized) eXo.portal.UIExoStartMenu.setContainerSize(menuItemContainer);
 	
@@ -168,8 +190,8 @@ UIExoStartMenu.prototype.createSlide = function(menuItem) {
 		topElement.style.display = "none" ;
 		bottomElement.style.display = "none" ;
   }
-	var Y = eXo.portal.UIExoStartMenu.getDimension(menuItem) ;
-	if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
+//	var Y = eXo.portal.UIExoStartMenu.getDimension(menuItem) ;
+//	if (Y != undefined)	menuItemContainer.style.top = Y + "px" ;
 };
 
 /**
@@ -180,11 +202,6 @@ UIExoStartMenu.prototype.createSlide = function(menuItem) {
  */
 UIExoStartMenu.prototype.onMenuItemOut = function(event) {
 	this.className = eXo.portal.UIExoStartMenu.itemStyleClass ;
-	if(eXo.core.Browser.isIE7() && eXo.core.I18n.isRT()) { 
-		var labelItem = eXo.core.DOMUtil.findFirstChildByClass(this, "div", "LabelItem") ;
-		var icon = eXo.core.DOMUtil.findFirstChildByClass(labelItem, "div", "Icon") ;
-		if(icon) icon.style.position = "relative" ;
-	}
 	if (this.menuItemContainer) {
     eXo.portal.UIExoStartMenu.superClass.pushHiddenContainer(this.menuItemContainer.id) ;
     eXo.portal.UIExoStartMenu.superClass.popVisibleContainer() ;
@@ -313,14 +330,6 @@ UIExoStartMenu.prototype.setContainerSize = function(menuItemContainer) {
   menuBottom.style.width = w + "px" ;
   menuCenter.style.width = w + "px" ;
   menuItemContainer.resized = true ;
-  
-  if (eXo.core.Browser.isIE7()) {
-	  var pageOwnerContainer = eXo.core.DOMUtil.findDescendantsByClass(menuItemContainer, "div", "PageOwnerContainer") ;
-	  for (var i = 0; i < pageOwnerContainer.length; i ++) {
-	  	pageOwnerContainer[i].style.width = "auto";
-	  	pageOwnerContainer[i].style.width = pageOwnerContainer[i].offsetWidth + "px";
-	  }
-  }
 };
 
 eXo.portal.UIExoStartMenu = new UIExoStartMenu() ;

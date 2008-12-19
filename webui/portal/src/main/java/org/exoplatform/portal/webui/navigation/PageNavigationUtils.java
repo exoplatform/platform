@@ -125,7 +125,7 @@ public class PageNavigationUtils {
       PageNode newNode = filter(child, userName);
       if(newNode != null ) copyNode.getChildren().add(newNode);
     }
-    if(copyNode.getChildren().size() == 0) return null;
+    if((copyNode.getChildren().size() == 0) && (copyNode.getPageReference() == null)) return null;
     return copyNode;
   }
 }
