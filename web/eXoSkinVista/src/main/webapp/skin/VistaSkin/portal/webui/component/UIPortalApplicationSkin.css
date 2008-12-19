@@ -101,3 +101,16 @@ a {
   margin: auto;
   padding: 1px 0px;
 }
+.ClearLeft {
+  clear: left; /* orientation=lt */
+  clear: right; /* orientation=rt */
+}
+
+.ClearRight {
+  clear: right; /* orientation=lt */
+  clear: left; /* orientation=rt */
+}
+
+.ClearBoth {
+  clear: both;
+}
