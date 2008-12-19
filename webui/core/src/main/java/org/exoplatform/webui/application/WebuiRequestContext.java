@@ -17,7 +17,7 @@
 package org.exoplatform.webui.application;
 
 import java.lang.reflect.UndeclaredThrowableException;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Set;
@@ -104,7 +104,7 @@ abstract public class WebuiRequestContext extends RequestContext {
   
   public void addUIComponentToUpdateByAjax(UIComponent uicomponent) {   
     if(uicomponentToUpdateByAjax == null) {
-      uicomponentToUpdateByAjax =  new HashSet<UIComponent>() ;
+      uicomponentToUpdateByAjax =  new LinkedHashSet<UIComponent>() ;
     }
     uicomponentToUpdateByAjax.add(uicomponent) ;
   }

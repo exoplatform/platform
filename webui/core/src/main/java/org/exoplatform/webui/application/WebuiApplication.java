@@ -17,7 +17,7 @@
 package org.exoplatform.webui.application;
 
 import java.io.InputStream;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -95,7 +95,7 @@ abstract public class WebuiApplication extends Application {
   }
   
   public Set<UIComponent> getDefaultUIComponentToUpdateByAjax(WebuiRequestContext context) {
-    Set<UIComponent> list = new HashSet<UIComponent>(3) ;
+    Set<UIComponent> list = new LinkedHashSet<UIComponent>(3) ;
     list.add(context.getUIApplication()) ;
     return list ;
   }  
