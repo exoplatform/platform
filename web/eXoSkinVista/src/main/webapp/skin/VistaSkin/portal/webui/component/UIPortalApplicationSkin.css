@@ -101,6 +101,15 @@ a {
   margin: auto;
   padding: 1px 0px;
 }
+.FloatLeft {
+ float: left; /* orientation=lt */
+ float: right; /* orientation=rt */
+}
+
+.FloatRight {
+ float: right; /* orientation=lt */
+ float: left; /* orientation=rt */
+}
 .ClearLeft {
   clear: left; /* orientation=lt */
   clear: right; /* orientation=rt */
