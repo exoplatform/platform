@@ -172,6 +172,7 @@
 	float: left;/* orientation=rt */
 	height: 23px;
 	padding-left: 0px;
+	width: 75px;
 }
 
 .UIPageDesktop .MacTheme .WindowPortletInfo {
@@ -344,6 +345,7 @@
 	float: left;/* orientation=rt */
 	height: 23px;
 	padding-left: 0px;
+	width: 75px;
 }
 
 .UIPageDesktop .MacGray .WindowPortletInfo {
@@ -487,16 +489,14 @@
 }
 
 .MacGray .WindowBarLeft {
-	padding: 0px 0px 0px 9px;/* orientation=lt */
-	padding: 0px 9px 0px 0px;/* orientation=rt */
+	padding: 0px 0px 0px 9px;
 	background-image: url('background/MacGray.png');
 	background-repeat: no-repeat;
 	background-position: left -118px;
 }
 
 .MacGray .WindowBarRight {
-	padding: 0px 9px 0px 0px;/* orientation=lt */
-	padding: 0px 0px 0px 9px;/* orientation=rt */
+	padding: 0px 9px 0px 0px;
 	background-image: url('background/MacGray.png');
 	background-repeat: no-repeat;
 	background-position: right -95px;
@@ -519,6 +519,7 @@
 	float: left;/* orientation=rt */
 	height: 23px;
 	padding-left: 0px;
+	width: 75px;
 }
 
 .UIPageDesktop .MacBlack .WindowPortletInfo {
@@ -692,6 +693,7 @@
 	float: left;/* orientation=rt */
 	height: 23px;
 	padding-left: 0px;
+	width: 75px;
 }
 
 .UIPageDesktop .MacGreenSteel .WindowPortletInfo {
@@ -866,6 +868,7 @@
 	height: 24px;
 	padding: 4px 0px 0px 6px;/* orientation=lt */
 	padding: 4px 6px 0px 0px;/* orientation=rt */
+	width: 90px;
 }
 
 .UIPageDesktop .VistaTheme .WindowPortletControl {
@@ -1039,6 +1042,7 @@
 	height: 24px;
 	padding: 8px 0px 0px 6px;/* orientation=lt */
 	padding: 8px 6px 0px 0px;/* orientation=rt */
+	width: 90px;
 }
 
 .UIPageDesktop .VistaBlue .WindowPortletInfo {
@@ -1207,6 +1211,7 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 10px 0px 3px;/* orientation=rt */
+	width: 68px;
 }
 
 .RoundConerBlue .WindowPortletControl .ControlIcon {
@@ -1359,9 +1364,11 @@
 /*------------------ RoundConerViolet -----------------*/
 
 .RoundConerViolet .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	padding: 0px 3px 0px 10px; /* orientation=lt */
+	padding: 0px 10px 0px 3px; /* orientation=rt */
+	width: 68px;
 }
 
 .RoundConerViolet .WindowPortletControl .ControlIcon {
@@ -1520,6 +1527,7 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 10px 0px 3px;/* orientation=rt */
+	width: 68px;
 }
 
 .RoundConerOrange .WindowPortletControl .ControlIcon {
@@ -1678,7 +1686,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 10px 3px 0px 3px;/* orientation=rt */
+	padding: 0px 10px 0px 3px;/* orientation=rt */
+	width: 68px;
 }
 
 .RoundConerPink .WindowPortletControl .ControlIcon {
@@ -1839,6 +1848,7 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 10px 0px 3px;/* orientation=rt */
+	width: 68px;
 }
 
 .RoundConerGreen .WindowPortletControl .ControlIcon {
@@ -1998,7 +2008,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 0px 0px 3px;/* orientation=rt */
+	width: 68px;
 }
 
 .ShadowBlue .WindowPortletControl .ControlIcon {
@@ -2156,7 +2167,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 0px 0px 3px;/* orientation=rt */
+	width: 68px;
 }
 
 .ShadowViolet .WindowPortletControl .ControlIcon {
@@ -2315,7 +2327,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 0px 0px 3px;/* orientation=rt */
+	width: 68px;
 }
 
 .ShadowOrange .WindowPortletControl .ControlIcon {
@@ -2474,7 +2487,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 0px 0px 3px;/* orientation=rt */
+	width: 68px;
 }
 
 .ShadowPink .WindowPortletControl .ControlIcon {
@@ -2633,7 +2647,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 0px 0px 3px;/* orientation=rt */
+	width: 68px;
 }
 
 .ShadowGreen .WindowPortletControl .ControlIcon {
@@ -2791,7 +2806,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 0px 0px 3px;/* orientation=rt */
+	width: 55px;
 }
 
 .SimpleBlue .WindowPortletControl .ControlIcon {
@@ -2940,7 +2956,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 0px 0px 3px;/* orientation=rt */
+	width: 55px;
 }
 
 .SimpleViolet .WindowPortletControl .ControlIcon {
@@ -3091,7 +3108,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 0px 0px 3px;/* orientation=rt */
+	width: 55px;
 }
 
 .SimpleOrange .WindowPortletControl .ControlIcon {
@@ -3242,7 +3260,8 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 10px 0px 3px;/* orientation=rt */
+	width: 55px;
 }
 
 .SimplePink .WindowPortletControl .ControlIcon {
@@ -3393,14 +3412,16 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=lt */
+	padding: 0px 10px 0px 3px;/* orientation=rt */
+	width: 55px;
 }
 
 .SimpleGreen .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 16px; height: 16px;
-	margin: 1px 2px 0px 0px;
+	margin: 1px 2px 0px 0px; /* orientation=lt */
+	margin: 1px 0px 0px 2px; /* orientation=rt */
 	cursor: pointer;
 	background-position: center;
 }
@@ -3416,10 +3437,11 @@
 }
 
 .SimpleGreen .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 16px; height: 16px;
-	margin: 0px 0px 0px 2px;
+	margin: 0px 0px 0px 2px; /* orientation=lt */
+	margin: 0px 2px 0px 0px; /* orientation=rt */
 }
 
 .UIPageDesktop .SimpleGreen .ResizeArea {

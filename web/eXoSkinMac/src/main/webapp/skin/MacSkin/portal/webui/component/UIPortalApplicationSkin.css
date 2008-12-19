@@ -121,3 +121,13 @@ a {
 .ClearBoth {
   clear: both;
 }
+
+.FloatLeft {
+ float: left; /* orientation=lt */
+ float: right; /* orientation=rt */
+}
+
+.FloatRight {
+ float: right; /* orientation=lt */
+ float: left; /* orientation=rt */
+}

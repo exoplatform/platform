@@ -58,6 +58,7 @@
 	margin: 2px;
 	border: 1px white solid;
 	cursor: pointer;
+	width: 20px;
 }
 
 .UINodeIconSelector .IconSelector a:hover {
@@ -70,6 +71,7 @@
 	margin: 2px;
 	border: 1px red solid;
 	cursor: pointer;
+	width: 20px;
 }
 
 .UINodeIconSelector .LeftColumnStyle .SetDefault a {
