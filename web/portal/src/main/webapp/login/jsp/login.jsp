@@ -85,7 +85,7 @@
 		              </div>
 		            </div>
 		          </div>
-		          <div style="clear: left"><span></span></div>
+		          <div class="ClearLeft"><span></span></div>
 		          <script type='text/javascript'>			            
               function login() {
                 document.loginForm.submit();                   

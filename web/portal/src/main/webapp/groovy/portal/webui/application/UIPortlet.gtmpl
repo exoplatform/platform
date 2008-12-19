@@ -52,7 +52,7 @@
 			              <div class="Title">$title</div>
 				            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.deletePortlet");%>"><span></span></a>
 				            <a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.editPortlet");%>"><span></span></a>
-				            <div style="clear: both"><span></span></div>
+				            <div class="ClearBoth"><span></span></div>
 				          </div>
 				        </div>
 		          </div>
@@ -243,7 +243,7 @@
 		                <div class="ControlIcon ${maximizedMode}Icon" title="$renderMaxi" normalTitle="$maxiTooltip" modeTitle="$restoreDown"
 		                		onclick="$maximizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
 	              <%}%>    
-	              <div style="clear: left"><span></span></div>  
+	              <div class="ClearLeft"><span></span></div>  
 	            </div>
 	            <div class="WindowPortletInfo">
 	            	<%
@@ -253,9 +253,9 @@
 	            	%>
 	              <div class="Icon $portletIcon WindowPortletIcon NovaPortletIcon"><span></span></div>
 	              <div class="PortletName">$title</div>
-	              <div style="clear: left"><span></span></div>
+	              <div class="ClearLeft"><span></span></div>
 	            </div>
-	            <div style="clear: right"><span></span></div>
+	            <div class="ClearRight"><span></span></div>
 	          </div>
           </div>
         </div>
@@ -281,7 +281,7 @@
           	<div class="FixHeight">
 	            <div class="ResizeArea" title="<%=_ctx.appRes("UIPortlet.tooltip.ResizeWindow");%>"><span></span></div>
 	            <div class="Information"><%=_ctx.appRes("UIPortlet.lable.information");%></div>
-	            <div style="clear: right"><span></span></div>
+	            <div class="ClearRight"><span></span></div>
 						</div>
           </div>
         </div>

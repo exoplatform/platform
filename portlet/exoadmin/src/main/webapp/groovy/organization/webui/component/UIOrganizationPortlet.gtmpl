@@ -41,7 +41,7 @@
 	                  <div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.membershipManagement")%></div>
 	                </a>
 	                <div class="HorizontalSeparator"><span></span></div>
-	                <div style="clear: both"><span></span></div>
+	                <div class="ClearBoth"><span></span></div>
 	              </div>
 	         
 	            </div>

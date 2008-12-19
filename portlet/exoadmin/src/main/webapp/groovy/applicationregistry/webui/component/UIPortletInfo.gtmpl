@@ -15,7 +15,7 @@
       <div class="Selected"><%=portlet.getPortletGroup()%></div>
       <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
 	    <div class="Selected"><%=portlet.getDisplayName() %></div> 		          		              
-			<div style="clear: left;"><span></span></div>
+			<div class="ClearLeft"><span></span></div>
 		</div>
 		
 

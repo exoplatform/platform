@@ -28,7 +28,7 @@
     <div class="UserWorkspaceTitle">
       <div class="CloseControlWorkspace" title="<%=_ctx.appRes("UIWorkspaceContainer.tooltip.CloseControlWorkspace");%>" onclick="eXo.portal.UIControlWorkspace.showWorkspace();"><span></span></div>
       <div><%=_ctx.appRes("UIWorkspaceContainer.lable.UserWorkspaceTitle");%></div>
-      <div style="clear: <%= isLT ? "right" : "left" %>"><span></span></div>
+      <div class="ClearRight"><span></span></div>
     </div>
    
     <%/*Begin UIControlWorkspacePanel*/%>

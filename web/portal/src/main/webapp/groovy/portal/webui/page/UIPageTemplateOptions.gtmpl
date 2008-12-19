@@ -74,7 +74,7 @@
     			<div class="ItemDetailTitle">
     			  <div class="TitleIcon ViewListIcon"><span></span></div>
 						<div class="Title"><%=_ctx.appRes("UIItemSelector.lable.ItemDetailTitle")%></div>
-						<div style="clear: left;"><span></span></div>
+						<div class="ClearLeft"><span></span></div>
     			</div>
 			    <%
 			    	//int i = 0;    			     

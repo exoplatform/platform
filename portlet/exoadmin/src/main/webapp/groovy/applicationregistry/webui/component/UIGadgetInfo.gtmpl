@@ -11,7 +11,7 @@
 		<div class="DownLoadIcon ControlIcon" title="<%=_ctx.appRes("UIGadgetInfo.title.copy")%>" onclick="<%= uicomponent.event("Copy") %>"><span></span></div>
 		<% } %>
 		<div class="Refresh16x16Icon ControlIcon" title="<%=_ctx.appRes("UIGadgetInfo.title.refresh")%>" onclick="<%= uicomponent.event("Refresh") %>"><span></span></div>
-		<div style="clear: both"><span></span></div>
+		<div class="ClearBoth"><span></span></div>
 	</div>
  	<div class="Application">
  		<div class="PortletIcons">

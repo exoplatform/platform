@@ -27,7 +27,7 @@
 					<a class="RemoveContainer Icon" href="<%=uicomponent.event("DeleteContainer")%>" title="<%=_ctx.appRes("UIGadgetContainerManagement.tooltip.remove")%>"><span></span></a>
 					<a class="EditContainer Icon" href="<%=uicomponent.event("EditContainer")%>" title="<%=_ctx.appRes("UIGadgetContainerManagement.tooltip.edit")%>"><span></span></a>
 					<a class="AddContainer Icon" href="<%=uicomponent.event("AddContainer")%>" title="<%=_ctx.appRes("UIGadgetContainerManagement.tooltip.addnew")%>"><span></span></a>
-					<div style="clear: both"><span></span></div>
+					<div class="ClearBoth"><span></span></div>
 				</div>
 				<div class="UserWidgetContainer">
 					<div class="ContainerList">
@@ -76,7 +76,7 @@
 					</div>
 				</div>
 			</div>
-			<div style="clear: left"><span></span></div>
+			<div class="ClearLeft"><span></span></div>
 		</div>
 	</div>
 	

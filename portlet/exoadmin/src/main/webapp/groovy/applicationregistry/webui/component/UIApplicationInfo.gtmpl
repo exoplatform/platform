@@ -11,12 +11,13 @@ String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.pn
 	  <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
 	  <div class="Selected"><%= application.getDisplayName() %></div> 
 	  <div class="ControlIcon EditIcon" title="<%=_ctx.appRes("UIApplicationInfo.title.editApplication")%>" onclick="<%= uicomponent.event("EditApplication") %>"><span></span></div>
-		<div style="clear: left;"><span></span></div>
+		<div class="ClassLeft"><span></span></div>
 	</div>
   <div class="Application">
   		<div class="PortletIcons">
   				<img src="$srcBG" onError="src='$srcBGError'" alt=""/>
   		</div>
+  		<!--
   		<div class="ApplicationContent">
   		  <div class="TitleBarApplication">
 		      <span class="LeftLabel"><%=_ctx.appRes("UIApplicationInfo.label.displayName")%></span>
@@ -33,7 +34,28 @@ String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.pn
 		      </div>
   		  </div>
   		</div>
-
+			-->
+			<div class="ApplicationContent">
+				<table class="TitleBarApplication">
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIApplicationInfo.label.displayName")%></td>
+						<td class="RightLabel">akjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghas</td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIApplicationInfo.label.name")%></td>
+						<td class="RightLabel"><%= name %></td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIApplicationInfo.label.description")%></td>
+						<td class="RightLabel"><%= application.getDescription() %></td>
+					</tr>
+				</table>
+			</div>
+			
 	</div>
 	<div class="UIAcessPermissions UIFormWithTitle">
 	  <div class="TitleBar"><%=_ctx.appRes("UIApplicationInfo.label.accessPermissions")%></div>

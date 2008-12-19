@@ -8,7 +8,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
   <div class="UIControlbar">
   	<div class="IconControl AddCategoryIcon" onclick="<%= uicomponent.event("AddCategory") %>"><%=_ctx.appRes("UIOrganizer.label.addCategory")%></div>
   	<div class="IconControl ImportIcon" onclick="<%= uicomponent.event("ImportAllApplications") %>"><%=_ctx.appRes("UIOrganizer.label.autoImport")%></div>
-  	<div style="clear: both"><span></span></div>
+  	<div class="ClearBoth"><span></span></div>
   </div>
   
 	<div class="AppRegistryContainer">
@@ -47,7 +47,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 						            <a class="ControlIcon CreateNewIcon" title="<%=_ctx.appRes("UIOrganizer.title.addApplication")%>" onclick="<%= uicomponent.event("AddApplication") %>"><span></span></a>
 						            <a class="ControlIcon EditIcon" title="<%=_ctx.appRes("UIOrganizer.title.editCategory")%>" onclick="<%= uicomponent.event("EditCategory", "$cName") %>"><span></span></a>
 						            <% } %>
-							          <div style="clear: both"><span></span></div>
+							          <div class="ClearBoth"><span></span></div>
 							         </div>
 					          </div>
 					        </div>
@@ -65,7 +65,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 									<% def applicationLabel = application.getDisplayName() %>
 										<a onclick="<%= uicomponent.event("SelectApplication", "$appName") %>" class="ItemLabel" title="<%= application.getDisplayName() %>"><%= (applicationLabel.length() <= 30) ? applicationLabel : applicationLabel.substring(0, 27)+"..." %><span></span></a>
 										<a class="ControlIcon DeletePortalIcon" title="<%=_ctx.appRes("UIOrganizer.title.deleteApplication")%>" onclick="<%= uicomponent.event("RemoveApplication", appName) %>"><span></span></a>
-					          <div style="clear: both"><span></span></div>
+					          <div class="ClearBoth"><span></span></div>
 									</div>
 								<% } %>	
 								</div>
@@ -81,7 +81,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 		<div class="AppWorkingArea">
 		<% uicomponent.renderChildren() %>
 		</div>
-		<div style="clear: left"><span></span></div>
+		<div class="ClearLeft"><span></span></div>
 	</div>  
 	
 </div>

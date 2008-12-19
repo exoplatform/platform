@@ -35,7 +35,7 @@
 	              
 	              <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"></a>
 	              <a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"></a>
-	              <div style="clear: both"><span></span></div>
+	              <div class="ClearBoth"><span></span></div>
 	            </div>
             </div>
           </div>

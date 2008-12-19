@@ -272,21 +272,23 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .TabIcon {
-  float: left;
-  width: 30px; height: 25px;
-  margin: 4px 4px 0px 2px;
+  padding-left: 35px; /* orientation=lt */
+  padding-right: 35px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .InfoIcon {
-  background: url('background/MessageTabIcon.png') no-repeat top;
+  background: url('background/MessageTabIcon.png') no-repeat left top; /* orientation=lt */
+  background: url('background/MessageTabIcon.png') no-repeat right top; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .ErrorIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -25px;
+  background: url('background/MessageTabIcon.png') no-repeat left -25px; /* orientation=lt */
+  background: url('background/MessageTabIcon.png') no-repeat right -25px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .WarningIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -50px;
+  background: url('background/MessageTabIcon.png') no-repeat left -50px; /* orientation=lt */
+  background: url('background/MessageTabIcon.png') no-repeat right -50px; /* orientation=rt */
 }
 
 /*==============================Disable Tab for MessageTab=====================*/
@@ -319,23 +321,23 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .TabIcon {
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */
-  width: 30px; height: 25px;
-  margin: 4px 4px 0px 2px; 	/* orientation=lt */
-  margin: 4px 2px 0px 4px; 	/* orientation=rt */
+  padding-left: 35px; /* orientation=lt */
+  padding-right: 35px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .InfoIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -75px;
+  background: url('background/MessageTabIcon.png') no-repeat left -75px; /* orientation=lt */
+  background: url('background/MessageTabIcon.png') no-repeat right -75px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .ErrorIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -100px;
+  background: url('background/MessageTabIcon.png') no-repeat left -100px; /* orientation=lt */
+  background: url('background/MessageTabIcon.png') no-repeat right -100px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .WarningIcon {
-  background: url('background/MessageTabIcon.png') no-repeat bottom;
+  background: url('background/MessageTabIcon.png') no-repeat left bottom; /* orientation=lt */
+  background: url('background/MessageTabIcon.png') no-repeat right bottom; /* orientation=rt */
 }
 /*==============================Selected Tab for MessageTab=====================*/
 
@@ -372,20 +374,21 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .TabIcon {
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */
-  width: 30px; height: 25px;
-  margin: 4px 4px 0px 2px;
+  padding-left: 35px; /* orientation=lt */
+  padding-right: 35px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .InfoIcon {
-  background: url('background/MessageTabIcon.png') no-repeat top;
+  background: url('background/MessageTabIcon.png') no-repeat top left; /* orientation=lt */
+  background: url('background/MessageTabIcon.png') no-repeat top right; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .ErrorIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -25px;
+  background: url('background/MessageTabIcon.png') no-repeat left -25px; /* orientation=lt */
+  background: url('background/MessageTabIcon.png') no-repeat right -25px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -50px;
+  background: url('background/MessageTabIcon.png') no-repeat left -50px; /* orientation=lt */
+  background: url('background/MessageTabIcon.png') no-repeat right -50px; /* orientation=rt */
 }

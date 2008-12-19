@@ -99,6 +99,10 @@
 				padding-top: 3px;
 			}
 			
+			.ClearLeft {
+				clear: __BIDI_START_EDGE__
+			}
+			
 			.Row a sup {
 				font-size: 8px;
 			}
@@ -265,7 +269,7 @@
 								<a onClick="ClearCalc(); return false;">C</a>
 								<a style="font-size:15px" onClick="EqualButton(); return false;">=</a>
 							</div>
-							<div style="clear: left"><span></span></div>
+							<div class="ClearLeft"><span></span></div>
 						</div>
 					</div>
 				</div>

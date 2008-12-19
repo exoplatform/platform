@@ -41,7 +41,7 @@
                   	</div>  
                   	<a class="SearchIcon" href="<%=uicomponent.event('Search')%>" title="<%=uiform.getLabel(uiform.FIELD_KEYWORD)%>"><span></span></a>
                   	<% } %>
-                  	<div style="clear: left"><span></span></div>
+                  	<div class="ClearLeft"><span></span></div>
 	                </div>
 	                
 	              </div>
@@ -50,7 +50,7 @@
 	        </div>
 	      </div>        
 	    </div>
-	    <div style="clear: both"><span></span></div>
+	    <div class="ClearBoth"><span></span></div>
 	    <%}%>
 	    <div class="AddressContainer">
 	      <div class="ListAddress">

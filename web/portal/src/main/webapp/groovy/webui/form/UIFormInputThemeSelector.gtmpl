@@ -20,7 +20,7 @@
   	    <div class="SetDefault" onclick="eXo.webui.UIFormInputThemeSelector.setDefaultTheme(this,'DefaultTheme')">
   	    	<a href="#"><%= _ctx.appRes(uiParentComponent.getId() + "." + uicomponent.getId() + ".title.SetDefault") %></a>
   	    </div>
-  	    <div style="clear: both;"><span/></div>
+  	    <div class="ClearBoth"><span/></div>
     	</div>
 			<div class="DetailView">					
 					<%
@@ -37,14 +37,14 @@
 						          <div class="ControlIcon MinimizedIcon"><span></span></div>
 						          <div class="ControlIcon RestoreIcon"><span></span></div>
 						          <div class="ControlIcon MaximizedIcon"><span></span></div>
-						          <div style="clear: left"><span></span></div>
+						          <div class="ClearLeft"><span></span></div>
 						        </div>
 						        <div class="WindowPortletInfo">
 						          <div class="PortletIcon Icon"><span></span></div>
 						          <div class="PortletName">Title</div>
-						          <div style="clear: left"><span></span></div>
+						          <div class="ClearLeft"><span></span></div>
 						        </div>
-						        <div style="clear: right"><span></span></div>
+						        <div class="ClearRight"><span></span></div>
 									</div>
 					      </div>
 					    </div>
@@ -64,7 +64,7 @@
 					      	<div class="FixHeight">
 										<div class="ResizeArea" title="<%=_ctx.appRes("UIPortlet.tooltip.ResizeWindow");%>"><span></span></div>
 						        <div class="Information">Done</div>
-						        <div style="clear: right"><span></span></div>
+						        <div class="ClearRight"><span></span></div>
 									</div>
 								</div>
 					    </div>
@@ -75,6 +75,6 @@
 			
 			</div>
 		</div>
-		<div style="clear: left;"></div>
+		<div class="ClearLeft"></div>
 	</div>
 </div>

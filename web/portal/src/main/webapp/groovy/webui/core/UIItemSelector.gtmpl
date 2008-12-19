@@ -13,7 +13,7 @@
         <div class="ItemListTitle">
   	    	<div class="TitleIcon ItemListIcon"><span></span></div>
   	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
-  	    	<div style="clear: left;"><span></span></div>
+  	    	<div class="ClearLeft"><span></span></div>
   	    </div>
         <div class="ItemList">
           <%          	
@@ -40,7 +40,7 @@
         <div class="ItemDetailTitle">
           <div class="TitleIcon ViewListIcon"><span></span></div>
   	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".left.title")%></div>
-  	    	<div style="clear: left;"><span></span></div>
+  	    	<div class="ClearLeft"><span></span></div>
         </div>
         <div class="ItemDetailContainer">
         <%          

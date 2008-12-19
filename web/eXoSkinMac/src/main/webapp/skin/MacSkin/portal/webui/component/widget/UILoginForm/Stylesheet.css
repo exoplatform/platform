@@ -87,7 +87,7 @@
 							
 .UILoginForm .LoginDetailBox .UserNameField {
 	padding: 12px 0px 5px 0px;
-	width: 300px;
+	width: 305px;
 	margin: auto;
 	text-align: right; /* orientation=lt */
 	text-align: left; /* orientation=rt */
@@ -95,7 +95,7 @@
 
 .UILoginForm .LoginDetailBox .PasswordField {
 	padding: 5px;
-	width: 300px;
+	width: 305px;
 	margin: auto;
 	text-align: right; /* orientation=lt */
 	text-align: left; /* orientation=rt */

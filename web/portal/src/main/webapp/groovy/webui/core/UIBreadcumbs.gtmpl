@@ -27,7 +27,7 @@
 	    	    }
 	    	  }
 	    	%>
-		    <div style="clear:left"><span></span></div>
+		    <div class="ClearLeft"><span></span></div>
       </div>
     </div>
   </div>

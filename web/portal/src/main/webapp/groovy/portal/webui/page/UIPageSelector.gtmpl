@@ -28,7 +28,7 @@
 	<div class="PageSelectorTitle">
 	  <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
 	  <div class="Title"><%=_ctx.appRes(uicomponent.getId()+".label.currentSelectedPage")%></div>
-	  <div style="clear: left"><span></span></div>
+	  <div class="ClearLeft"><span></span></div>
   </div>
 	<div class="UIFormInfo">
 	  <div class="FormInfoBG">

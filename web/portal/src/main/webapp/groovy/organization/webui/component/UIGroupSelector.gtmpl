@@ -30,7 +30,7 @@
 			  <div><span><%=_ctx.appRes("UIGroupSelector.lable.description")%></span> $des </div>
 			</div>
 		</div>
-	  <div style="clear: left"><span></span></div>
+	  <div class="ClearLeft"><span></span></div>
   </div>
   
   <div class="UIAction"> 

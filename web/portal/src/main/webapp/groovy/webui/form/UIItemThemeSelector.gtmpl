@@ -28,14 +28,14 @@
 							          <div class="ControlIcon MinimizedIcon"><span></span></div>
 							          <div class="ControlIcon RestoreIcon"><span></span></div>
 							          <div class="ControlIcon MaximizedIcon"><span></span></div>
-							          <div style="clear: left"><span></span></div>
+							          <div class="ClearLeft"><span></span></div>
 							        </div>
 							        <div class="WindowPortletInfo">
 							          <div class="PortletIcon Icon"><span></span></div>
 							          <div class="PortletName">Title</div>
-							          <div style="clear: left"><span></span></div>
+							          <div class="ClearLeft"><span></span></div>
 							        </div>
-							        <div style="clear: right"><span></span></div>
+							        <div class="ClearRight"><span></span></div>
 										</div>
 						      </div>
 						    </div>
@@ -55,7 +55,7 @@
 						      	<div class="FixHeight">
 											<div class="ResizeArea" title="<%=_ctx.appRes("UIPortlet.tooltip.ResizeWindow");%>"><span></span></div>
 							        <div class="Information">Done</div>
-							        <div style="clear: right"><span></span></div>
+							        <div class="ClearRight"><span></span></div>
 										</div>
 									</div>
 						    </div>

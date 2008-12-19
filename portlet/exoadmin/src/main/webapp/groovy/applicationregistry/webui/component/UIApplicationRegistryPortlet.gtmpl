@@ -39,7 +39,7 @@
 	                  <div class="LablelIcon GadgetIcon"><span></span></div>
 	                  <a href="javascript:void(0)" class="ButtonLabel"><%=_ctx.appRes("UIToolbar.label.gadget")%></a>
 	                </div>
-	                <div style="clear: left;"><span></span></div>
+	                <div class="ClearLeft"><span></span></div>
 	              </div>
 	         
 	            </div>

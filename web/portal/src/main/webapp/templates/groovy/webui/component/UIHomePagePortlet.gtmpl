@@ -22,11 +22,11 @@
 									<div class="AccountTitle">Administrator</div>
 									<div class="Username">
 										<div class="Lable">Username:</div><span>root</span>
-										<div style="clear:both"><span></span></div>
+										<div class="ClearBoth"><span></span></div>
 									</div>
 									<div class="Passwords">
 										<div class="Lable">Password:</div><span>exo</span>
-										<div style="clear:both"><span></span></div>
+										<div class="ClearBoth"><span></span></div>
 									</div>
 								</div>
 							</div>	
@@ -36,11 +36,11 @@
 									<div class="AccountTitle">Manager</div>
 									<div class="Username">
 										<div class="Lable">Username:</div><span>john</span>
-										<div style="clear:both"><span></span></div>
+										<div class="ClearBoth"><span></span></div>
 									</div>
 									<div class="Passwords">
 										<div class="Lable">Password:</div><span>exo</span>
-										<div style="clear:both"><span></span></div>
+										<div class="ClearBoth"><span></span></div>
 									</div>
 								</div>
 							</div>
@@ -50,11 +50,11 @@
 									<div class="AccountTitle">User</div>
 									<div class="Username">
 										<div class="Lable">Username:</div><span>marry</span>
-										<div style="clear:both"><span></span></div>
+										<div class="ClearBoth"><span></span></div>
 									</div>
 									<div class="Passwords">
 										<div class="Lable">Password:</div><span>exo</span>
-										<div style="clear:both"><span></span></div>
+										<div class="ClearBoth"><span></span></div>
 									</div>
 								</div>
 							</div>
@@ -64,15 +64,15 @@
 									<div class="AccountTitle">Demo</div>
 									<div class="Username">
 										<div class="Lable">Username:</div><span>demo</span>
-										<div style="clear:both"><span></span></div>
+										<div class="ClearBoth"><span></span></div>
 									</div>
 									<div class="Passwords">
 										<div class="Lable">Password:</div><span>exo</span>
-										<div style="clear:both"><span></span></div>
+										<div class="ClearBoth"><span></span></div>
 									</div>
 								</div>
 							</div>
-							<div style="clear: both"><span></span></div>
+							<div class="ClearBoth"><span></span></div>
 						</div>
 					</div>
 				</div>

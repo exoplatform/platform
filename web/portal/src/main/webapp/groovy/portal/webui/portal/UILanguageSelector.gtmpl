@@ -55,7 +55,7 @@
 									        	  <div class="Icon"><span></span></div>
 									        	  <a class="NodeLabel"><%=opt.getLabel()%></a>
 									        	  <div class="PercentLabel"><%=opt.getDescription()%></div>
-									        	  <div style="clear: left;"><span></span></div>
+									        	  <div class="ClearLeft"><span></span></div>
 									        	</div>
 									        <%}%>	
 									        </div>

@@ -26,7 +26,7 @@
                   <div class="ItemListTitle">
                     <div class="TitleIcon ItemListIcon"><span></span></div>
                     <div class="Title"><%=_ctx.appRes("UIAddNewApplication.label.Categories")%></div>
-                    <div style="clear: left;"><span></span></div>
+                    <div class="ClearLeft"><span></span></div>
                   </div>
                   <div class="ItemList">
 	                <%
@@ -50,7 +50,7 @@
                     <div class="ItemDetailTitle">
                       <div class="TitleIcon ViewListIcon"><span></span></div>
                       <div class="Title"><%=_ctx.appRes("UIAddNewApplication.label.Select")%></div>
-                      <div style="clear: left;"><span></span></div>
+                      <div class="ClearLeft"><span></span></div>
                     </div>
                     <div class="ApplicationListContainer">
                     <% if(appCategories==null || appCategories.isEmpty()){ %>
@@ -104,7 +104,7 @@
 	                            </div>
                             </div>
 	                        </div>
-	                        <div style="clear: right;"><span ></span></div>
+	                        <div class="ClearRight"><span ></span></div>
                         </div>
                         <% 
                            }
@@ -117,7 +117,7 @@
 	                  %>
                     </div>
                 </div>
-                 <div style="clear: left"><span></span></div>
+                 <div class="ClearLeft"><span></span></div>
               </div>
             </div>
           </div>

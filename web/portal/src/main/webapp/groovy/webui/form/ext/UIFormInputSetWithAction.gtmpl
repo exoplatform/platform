@@ -78,7 +78,7 @@
 								                  </a> ]
 								                </div>
   									              <img onclick="if(confirm('<%=confirm%>')) eXo.webui.UIForm.submitEvent('<%=formName%>', '<%=actionInfo[1]%>', '&objectId=<%=arrInfor[i]%>');" alt="" class="DeleteIconInfo" src="/eXoResources/skin/DefaultSkin/background/Blank.gif"/>                
-									              <div style="clear:left"><span></span></div>
+									              <div class="ClearLeft"><span></span></div>
 							              <%
 							                }
 						                } else {
@@ -95,7 +95,7 @@
 						              }
 						            }
 						           println "</div>" ;
-						           println "<div style=\"clear:left\"><span></span></div>" ;
+						           println "<div class=\"ClearLeft\"><span></span></div>" ;
 						          }
 						        } else if(infor != null && uicomponent.isShowOnly()) {
 						        	def arrInfor = infor.split(",") ;
@@ -104,12 +104,12 @@
 							            for(i in 0..arrInfor.length -1) { 
 							              if(arrInfor[i].length() > 0) { %>
 							              	<div class="ActionField">[ <%=arrInfor[i]%> ]</div>  
-							              	<div style="clear:left"><span></span></div>
+							              	<div class="ClearLeft"><span></span></div>
 							              <%
 							              }    	          
 							            }
 							         	println "</div>" ;
-							         	println "<div style=\"clear:left\"><span></span></div>" ;
+							         	println "<div class=\"ClearLeft\"><span></span></div>" ;
 						          }
 						        } 
 						        if(infor == null && listInfor == null) {
