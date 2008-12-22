@@ -142,6 +142,7 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService impleme
       generateScript(builder, DataMapper.TYPE, DataMapper.LOCALE) ;
       generateScript(builder, DataMapper.NAME, q.getName()) ;
       generateScript(builder, DataMapper.LANGUAGE, q.getLanguage()) ;
+      builder.append("order by ").append(DataMapper.NAME).append(",").append(DataMapper.LANGUAGE);
       Session session = regNode.getSession() ;
       QueryManager queryManager = session.getWorkspace().getQueryManager() ;
       javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql") ;
