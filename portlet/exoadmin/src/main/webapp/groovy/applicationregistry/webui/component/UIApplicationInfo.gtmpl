@@ -39,7 +39,7 @@ String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.pn
 				<table class="TitleBarApplication">
 					<tr>
 						<td class="LeftLabel"><%=_ctx.appRes("UIApplicationInfo.label.displayName")%></td>
-						<td class="RightLabel">akjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghasakjghas</td>
+						<td class="RightLabel"><%= application.getDisplayName() %></td>
 					</tr>
 				</table>
 				<table>
