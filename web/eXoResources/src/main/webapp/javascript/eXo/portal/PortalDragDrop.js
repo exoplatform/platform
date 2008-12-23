@@ -31,7 +31,7 @@ PortalDragDrop.prototype.init = function(e) {
   	var PortalDragDrop = eXo.portal.PortalDragDrop ;
     this.origDragObjectStyle = new eXo.core.HashMap() ;
     var dragObject = dndEvent.dragObject ;
-    var properties = ["top", "left", "zIndex", "opacity", "filter", "position"] ;
+    var properties = ["top", eXo.core.I18n.isLT() ? "left" : "right", "zIndex", "opacity", "filter", "position"] ;
     this.origDragObjectStyle.copyProperties(properties, dragObject.style) ;
    	
     PortalDragDrop.originalDragObjectTop = Browser.findPosY(dragObject) ;
@@ -57,15 +57,22 @@ PortalDragDrop.prototype.init = function(e) {
       dndEvent.dragObject = cloneObject ;
       
       cloneObject.style.position = "absolute" ;
-      cloneObject.style.left = (Browser.findMouseXInPage(e) - 
-                               PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
+      if(eXo.core.I18n.isLT()) cloneObject.style.left = originalDragObjectLeft + "px" ;
+      else cloneObject.style.right = (Browser.getBrowserWidth() - originalDragObjectLeft - dragObject.offsetWidth) + "px" ;
             
-      cloneObject.style.top = (Browser.findMouseYInPage(e) - 
-                              PortalDragDrop.deltaYDragObjectAndMouse - document.documentElement.scrollTop) + "px" ;
+      cloneObject.style.top = (PortalDragDrop.originalDragObjectTop - document.documentElement.scrollTop) + "px" ;
       cloneObject.style.opacity = 0.5 ;
       cloneObject.style.filter = "alpha(opacity=50)" ;
       cloneObject.style.width = PortalDragDrop.backupDragObjectWidth + "px" ;
     }
+    
+    	alert("dsjfls") ;
+    //fix bug ie in RTL 
+    if(eXo.core.I18n.isRT() && Browser.isIE6() && DOMUtil.findFirstChildByClass(dragObject, "div", "CONTROL-BLOCK")) {
+    	dragObject.style.right = parseInt(dragObject.style.right) 
+    			+ document.getElementById("UIControlWorkspace").offsetWidth + "px" ;
+    }
+    
   }
   
   DragDrop.dragCallback = function(dndEvent) {
@@ -351,13 +358,13 @@ PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComp
   if(eXo.core.DOMUtil.findFirstChildByClass(dragObject, "div", "CONTROL-BLOCK") == null) {
     dragObject.style.top = (eXo.core.Browser.findMouseYInPage(e) - 
                             eXo.portal.PortalDragDrop.deltaYDragObjectAndMouse - document.documentElement.scrollTop) + "px" ;
-    dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) -
+    if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) -
                               eXo.portal.PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
   } else {
     dragObject.style.top = (eXo.core.Browser.findMouseYInPage(e) - 
                             eXo.portal.PortalDragDrop.deltaYDragObjectAndMouse) + "px" ;
-    dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) - csWidth -
-                             eXo.portal.PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
+    if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) - csWidth -
+	                              eXo.portal.PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
   }
    dragObject.style.width = "300px" ;
 };

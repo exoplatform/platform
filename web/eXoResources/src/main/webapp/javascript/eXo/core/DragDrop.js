@@ -9,7 +9,8 @@ function DragDropEvent(clickObject, dragObject) {
   this.lastFoundTargetObject = null ;
   this.junkMove = false ;
   
- 	if(isNaN(parseInt(this.dragObject.style.left))) this.dragObject.style.left = "0px" ;
+ 	if(eXo.core.I18n.isLT() && isNaN(parseInt(this.dragObject.style.left))) this.dragObject.style.left = "0px" ;
+ 	if(eXo.core.I18n.isRT() && isNaN(parseInt(this.dragObject.style.right))) this.dragObject.style.right = "0px" ;
 	if(isNaN(parseInt(this.dragObject.style.top))) this.dragObject.style.top = "0px" ;
 } ;
 
@@ -62,9 +63,10 @@ DragDrop.prototype.onMouseMove = function(evt) {
 	var dragObject =  dndEvent.dragObject ;
 
 	var y = parseInt(dragObject.style.top) ;
-	var x = parseInt(dragObject.style.left) ;
+	var x = eXo.core.I18n.isRT() ? parseInt(dragObject.style.right) : parseInt(dragObject.style.left) ;
 
-	dragObject.style["left"] =  x + eXo.core.Mouse.deltax + "px" ;
+	if(eXo.core.I18n.isLT()) dragObject.style["left"] =  x + eXo.core.Mouse.deltax + "px" ;
+	else dragObject.style["right"] =  x - eXo.core.Mouse.deltax + "px" ;
 	dragObject.style["top"]  =  y + eXo.core.Mouse.deltay + "px" ;
 	
   if(eXo.core.DragDrop.dragCallback != null) {
@@ -123,7 +125,7 @@ DragDrop.prototype.findDropableTarget = function(dndEvent, dropableTargets, mous
   var len = dropableTargets.length ;
   for(var i = 0 ; i < len ; i++) {
     var ele =  dropableTargets[i] ;
-    
+
     if(dragObject != ele && this.isIn(mousexInPage, mouseyInPage, ele)) {
       if(foundTarget == null) {
         foundTarget = ele ;
@@ -157,14 +159,15 @@ DragDrop.prototype.isIn = function(x, y, component) {
   var componentBottom = componentTop + component.offsetHeight ;
   var isOver = false ;
 
-		var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
-		if ((uiWorkspaceContainer && uiWorkspaceContainer.style.display != "none") && eXo.core.Browser.isIE7()) {
-			componentRight = componentRight - uiWorkspaceContainer.clientWidth ;
-		}
+	var uiWorkspaceContainer = document.getElementById("UIWorkspaceContainer") ;
+	if ((uiWorkspaceContainer && uiWorkspaceContainer.style.display != "none") && eXo.core.Browser.isIE7()) {
+		if(eXo.core.I18n.isLT()) componentRight = componentRight - uiWorkspaceContainer.clientWidth ;
+	}
 	
   if(eXo.core.Browser.getBrowserType() == "ie") {
   	componentLeft = componentLeft / 2 ;
   }
+  document.title = componentLeft + ": " + x + " :" + componentRight ;
 
   if((componentLeft < x) && (x < componentRight)) {
     if((componentTop < y) && (y < componentBottom)) {

@@ -81,16 +81,15 @@ UIExoStartMenu.prototype.buildMenu = function(popupMenu) {
  */
 UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 	this.className = eXo.portal.UIExoStartMenu.itemOverStyleClass ;
-//	this.style.position = "relative" ;
 	if (this.menuItemContainer) {
 		var menuItemContainer = this.menuItemContainer ;
-//		this.offsetRight = eXo.core.Browser.getBrowserWidth() - this.offsetLeft - this.offsetWidth;
 		menuItemContainer.style.display = "block" ;
 		var x = this.offsetWidth ;
-//	  var rootX = (eXo.core.I18n.isLT() ? eXo.core.Browser.findPosX(this) : eXo.core.Browser.findPosXY(this)) ;
-//		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
-//	    	x -= (menuItemContainer.offsetWidth + this.offsetWidth) ;
-//	  }
+		var posRight = eXo.core.Browser.getBrowserWidth() - eXo.core.Browser.findPosX(this) - this.offsetWidth ; 
+	  var rootX = (eXo.core.I18n.isLT() ? eXo.core.Browser.findPosX(this) : posRight) ;
+		if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
+    	x -= (menuItemContainer.offsetWidth + this.offsetWidth) ;
+	  }
 	 	if(eXo.core.I18n.isLT()) {
 	 		if(eXo.core.Browser.isIE6()) x -= 10 ;
 	 		menuItemContainer.style.left = x + "px" ;
