@@ -65,6 +65,7 @@
   margin: 1px 4px 0px 0px; /* orientation=lt */
   margin: 1px 0px 0px 4px; /* orientation=rt */
   width: auto;
+  height: auto;
   padding-left: 25px; /* orientation=lt */
   padding-right: 25px; /* orientation=rt */
 }

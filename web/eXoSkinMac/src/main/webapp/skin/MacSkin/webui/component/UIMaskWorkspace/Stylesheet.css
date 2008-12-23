@@ -21,7 +21,7 @@
 }
 
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
-	height: 273px; 
+	height: 273px;  
 	overflow-y: auto;
 	overflow-x: hidden;
 }

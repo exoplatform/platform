@@ -55,8 +55,9 @@
 .UIBreadcumbs .RightBlackGridArrowIcon {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-	width: 16px; height: 16px;
+	width: 16px; 
+	height: 16px;
 	margin: 10px 5px 0px 5px;
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow.gif') no-repeat left; /* orientation=lt */
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow-rt.gif') no-repeatright; /* orientation=rt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow-rt.gif') no-repeat right; /* orientation=rt */
 }

@@ -55,7 +55,6 @@
 
 .UIGrid .Text {
 	overflow: hidden;
-	white-space: nowrap;
 }
 
 .UIGrid .Number {
