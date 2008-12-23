@@ -1172,6 +1172,7 @@
     <label>
       <normalPage>
         <EmptyLayout>Empty Layout</EmptyLayout>
+        <CurrentLayout>Current Layout</CurrentLayout>
         <DesktopImage>Desktop Layout</DesktopImage>
         <DashboardLayout>Dashboard Layout</DashboardLayout>
       </normalPage>

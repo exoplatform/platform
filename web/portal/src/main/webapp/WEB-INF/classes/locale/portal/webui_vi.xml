@@ -1179,6 +1179,7 @@
     <label>
       <normalPage>
         <EmptyLayout>Mặc định</EmptyLayout>
+        <CurrentLayout>Giữ nguyên</CurrentLayout>
         <DesktopImage>Bố trí kiểu Desktop</DesktopImage>
         <DashboardLayout>Bố trí kiểu Dashboard</DashboardLayout>
       </normalPage>
@@ -2420,8 +2421,8 @@
   <UIHomePagePortlet>
     <Label>
       <Title><![CDATA[Hãy thử <strong> Exo Portal 2.0 </strong> với các tài khoản người dùng có sẵn sau:]]></Title>
-      <Intro><![CDATA[New version comes with a revolutionary user interface<br/>Classic and WebOS Desktop Layouts<br/> Drag and Drop Layouts. Create Pages Wizard<br/>And many more...]]></Intro>
-      <Slogan>Virtualize Your Desktop</Slogan>
+      <Intro><![CDATA[Phiên bản mới cùng với một cuộc cách mạng về  giao diện người dùng theo cách bố trí<br/>Classic và WebOS Desktop<br/> kéo-thả giao diện. Tạo trang kiểu Wizard<br/> Và thêm nhiều tính năng khác...]]></Intro>
+      <Slogan>Trực quan hóa desktop của bạn</Slogan>
       <Username>Username:</Username>
       <Password>Password:</Password>
     </Label>

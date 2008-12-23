@@ -37,7 +37,7 @@
 						         onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;">
 							  	<div class="LeftItem">
 							  	  <div class="RightItem">  
-								  	  <div class="ItemTitle"><%=template.getLabel();%></div>
+								  	  <div class="ItemTitle"><%=_ctx.appRes("UIWizardPageSelectLayoutForm.label."+template.getLabel())%></div>
 			              </div>
 			            </div>
 			            <div id="SetValue" style="display: none">$setHiddenValue;</div>
@@ -65,7 +65,7 @@
       	    <%/*--Begin Layout Style--*/%>
       	    <div class="ItemDetail"  style="display: $displayImage;">
   					  <div class="LayoutHolder">
-  					    <div class="LayoutLabel"><%=template.getLabel();%></div>
+  					    <div class="LayoutLabel"><%=_ctx.appRes("UIWizardPageSelectLayoutForm.label."+template.getLabel())%></div>
     					  <div class="<%=template.getIcon();%>" title="<%=template.getLabel();%>"><span></span></div>
 	  				  </div> 
 		  	    </div> 

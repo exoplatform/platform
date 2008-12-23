@@ -21,6 +21,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
@@ -159,7 +160,8 @@ public class UIPortletForm extends UIFormTabPane {
     if (icon == null || icon.length() < 0) { icon = "PortletIcon"; }
     getChild(UIFormInputIconSelector.class).setSelectedIcon(icon);
     getChild(UIFormInputThemeSelector.class).getChild(UIItemThemeSelector.class).setSelectedTheme(uiPortlet.getSuitedTheme(null));
-    
+    WebuiRequestContext contextres = WebuiRequestContext.getCurrentInstance();
+    ResourceBundle res = contextres.getApplicationResourceBundle();
     if (hasEditMode()) {
       uiPortlet.setCurrentPortletMode(PortletMode.EDIT);
     } else {
@@ -176,7 +178,7 @@ public class UIPortletForm extends UIFormTabPane {
         while (prefNames.hasMoreElements()) {
           String name = prefNames.nextElement();
           if (!preferences.isReadOnly(name)) {
-            uiPortletPrefSet.addUIFormInput(new UIFormStringInput(name, null, preferences.getValue(name, "value")));
+            uiPortletPrefSet.addUIFormInput(new UIFormStringInput(res.getString("UIPortletForm.tab.label.Template"), null, preferences.getValue(name, "value")));
           }
         }
         if (uiPortletPrefSet.getChildren().size() > 0) {
