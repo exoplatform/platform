@@ -246,9 +246,11 @@ eXo.webui.UIDashboard = {
 		
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
 		if(!uiSelect || uiSelect.style.display == "none") {
-			uiContainer.style.marginLeft = "0px" ;
+			if(eXo.core.I18n.isLT()) uiContainer.style.marginLeft = "0px" ;
+			else uiContainer.style.marginRight = "0px" ;
 		} else {
-			uiContainer.style.marginLeft = "211px" ;	
+			if(eXo.core.I18n.isLT()) uiContainer.style.marginLeft = "211px" ;
+			else uiContainer.style.marginRight = "211px" ;
 		}
 		
 		var colsContainer = DOMUtil.findFirstChildByClass(gadgetContainer, "div", "UIColumns");
@@ -378,12 +380,14 @@ eXo.webui.UIDashboard = {
 			uiSelectContainer.style.display = "none";
 			url += '&isShow=false';
 			addButton.style.visibility = "visible";
-			uiContainer.style.marginLeft = "0px" ;
+			if(eXo.core.I18n.isLT()) uiContainer.style.marginLeft = "0px" ;
+			else uiContainer.style.marginRight = "0px" ;
 		} else {
 			uiSelectContainer.style.display = "block";
 			url += '&isShow=true';
 			addButton.style.visibility = "hidden";
-			uiContainer.style.marginLeft = "211px" ;
+			if(eXo.core.I18n.isLT()) uiContainer.style.marginLeft = "211px" ;
+			else uiContainer.style.marginRight = "211px" ;
 		}
 		ajaxAsyncGetRequest(url, false);
 	}, 

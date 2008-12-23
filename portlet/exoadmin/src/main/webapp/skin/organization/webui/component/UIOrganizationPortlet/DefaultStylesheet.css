@@ -160,6 +160,7 @@
 
 .UIOrganizationPortlet .UISearch .UISearchForm .QuickSet {
 	width: auto;
+	_width: 450px; /* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIUserManagement a.Refresh16x16Icon { 

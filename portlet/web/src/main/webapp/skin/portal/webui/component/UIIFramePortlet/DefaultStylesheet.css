@@ -4,7 +4,6 @@
 	margin: 7px;
 	height: auto;
 	width: 97.5%;
-	min-height: 400px;
 }
 
 .UIPageDesktop .UIIFramePortlet {
@@ -47,6 +46,6 @@
 }
 
 .UIIFramePortlet .UIFormWithTitle {
-	padding: 75px 0px;
+	padding: 70px 0px;
 	margin: auto;
 }

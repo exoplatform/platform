@@ -3,7 +3,7 @@
 }
 
 .UIAction .ActionContainer {
-	width: 200px;
+	width: auto;
 	margin: auto;
 }	
 
@@ -110,7 +110,7 @@
 	background: url('background/LightBlueStyle.png') repeat-x left -50px;
 	display: table-cell;
 	padding: 0px 12px;
-	white-space: nowap;
+	white-space: nowrap;
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/

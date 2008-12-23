@@ -119,11 +119,13 @@
 	text-align: center;	
 	padding: 0px 12px;
 	display: table-cell;	
+	white-space: nowrap;
 }
 
 .UIAction a.SimpleStyle {
   color: #313131;
-  margin: 0px 6px; white-space: nowrap;
+  margin: 0px 6px; 
+  white-space: nowrap;
 }
 
 .UIAction a:hover.SimpleStyle {

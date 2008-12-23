@@ -26,9 +26,9 @@
 }
 
 .UITabSelector .UIHorizontalTabs .TabsContainer {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
   overflow: hidden;
+  line-height: 29px;
+  height: 29px;
 }
 
 .UITabSelector .UIHorizontalTabs .UITab {
@@ -40,7 +40,9 @@
   float: left;/* orientation=lt */
   float: right;/* orientation=rt */
   background: url('background/TabSelector.gif') no-repeat left -91px;
-  height: 29px;  width: 2px;
+  height: 29px;  
+  width: 2px;
+  line-height: 29px;
   margin-top: 2px;
 }
 
@@ -60,14 +62,26 @@
 }
 
 .UITabSelector .FlatTabStyle .TabIcon {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  margin: 1px 4px 0px 0px;
+  margin: 1px 4px 0px 0px; /* orientation=lt */
+  margin: 1px 0px 0px 4px; /* orientation=rt */
+  width: auto;
+  padding-left: 25px; /* orientation=lt */
+  padding-right: 25px; /* orientation=rt */
+}
+
+.UITabSelector .FlatTabStyle .UIPermissionSelector24x24Icon {
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconEditPermission.gif) no-repeat left; /* orientation=lt */
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconEditPermission-rt.gif) no-repeat right; /* orientation=rt */
+}
+
+.UITabSelector .FlatTabStyle .UIListPermissionSelector24x24Icon {
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconAccessPermission.gif) no-repeat left; /* orientation=lt */
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconAccessPermission-rt.gif) no-repeat right; /* orientation=rt */
 }
 
 .UITabSelector .FlatTabStyle  a.Title {
-  margin-left: 30px;/* orientation=lt */
-  margin-right: 30px;/* orientation=rt */
+  margin-left: 30px; /* orientation=lt */
+  margin-right: 30px; /* orientation=rt */
   line-height: 28px;
   margin: 0px;
   font-weight: bold;
