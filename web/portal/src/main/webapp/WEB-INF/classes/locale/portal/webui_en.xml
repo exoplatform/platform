@@ -504,6 +504,7 @@
         <Decorator>Decorator</Decorator>
         <Icon>Select Icon</Icon>
         <Theme>Decoration Themes</Theme>
+        <EditMode>Edit Mode</EditMode>
       </label>
     </tab>
     <Theme>
@@ -1957,6 +1958,7 @@
       <EditSelectedNode>Edit this Node</EditSelectedNode>
       <EditNavigation>Edit Navigation</EditNavigation>
       <CopyNode>Copy Node</CopyNode>
+      <CloneNode>Clone Node</CloneNode>
       <CutNode>Cut Node</CutNode>
       <MoveUp>Move Up</MoveUp>
       <MoveDown>Move Down</MoveDown>
@@ -2388,5 +2390,31 @@
       <Close>Close</Close>
     </label>
   </UIAddNewApplication>
+  <!--
+  #############################################################################
+  #org.exoplatform.portal.webui.component.UIPortalNavigation															#
+  #############################################################################
+  -->
+  <UIPortalNavigation>
+    <Label>
+      <Next>Next</Next>
+      <Previous>Previous</Previous>
+    </Label>
+  </UIPortalNavigation>
+  
+  <!--
+  #############################################################################
+  #org.exoplatform.portal.webui.component.UIHomePagePortlet															#
+  #############################################################################
+  -->
+  <UIHomePagePortlet>
+    <Label>
+      <Title><![CDATA[<strong>Try eXo Portal 2.0</strong> with following available user accounts:]]></Title>
+      <Intro><![CDATA[New version comes with a revolutionary user interface<br/>Classic and WebOS Desktop Layouts<br/> Drag and Drop Layouts. Create Pages Wizard<br/>And many more...]]></Intro>
+      <Slogan>Virtualize Your Desktop</Slogan>
+      <Username>Username:</Username>
+      <Password>Password:</Password>
+    </Label>
+  </UIHomePagePortlet>
 </bundle>
 

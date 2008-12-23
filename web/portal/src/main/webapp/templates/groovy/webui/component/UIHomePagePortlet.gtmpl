@@ -5,8 +5,8 @@
 			<div class="AdImageLeft">
 				<div class="AdImageRight">
 					<div class="EmptyBlock"><span></span></div>
-					<div class="ProductSlogan">Virtualize Your Desktop</div>
-					<div class="ProductIntro">New version comes with a revolutionary user interface<br/>Classic and WebOS Desktop Layouts<br/> Drag and Drop Layouts. Create Pages Wizard<br/>And many more...</div>
+					<div class="ProductSlogan"><%=_ctx.appRes("UIHomePagePortlet.Label.Slogan")%></div>
+					<div class="ProductIntro"><%=_ctx.appRes("UIHomePagePortlet.Label.Intro")%></div>
 				</div>
 			</div>
 		</div>
@@ -15,17 +15,17 @@
 			<div class="LeftAccountsContainer">
 				<div class="RightAccountsContainer">
 					<div class="MiddleAccountsContainer">
-						<div class="InstructionTitle"><strong>Try eXo Portal 2.0</strong> with following available user accounts:</div>
+						<div class="InstructionTitle"><%=_ctx.appRes("UIHomePagePortlet.Label.Title")%></div>
 						<div class="AccountsContainerDeco">
 							<div class="AccountBlock AdministratorUser">
 								<div class="AccountInfos">
 									<div class="AccountTitle">Administrator</div>
 									<div class="Username">
-										<div class="Lable">Username:</div><span>root</span>
+										<div class="Lable"><%=_ctx.appRes("UIHomePagePortlet.Label.Username")%></div><span>root</span>
 										<div class="ClearBoth"><span></span></div>
 									</div>
 									<div class="Passwords">
-										<div class="Lable">Password:</div><span>exo</span>
+										<div class="Lable"><%=_ctx.appRes("UIHomePagePortlet.Label.Password")%></div><span>exo</span>
 										<div class="ClearBoth"><span></span></div>
 									</div>
 								</div>
@@ -35,11 +35,11 @@
 								<div class="AccountInfos">
 									<div class="AccountTitle">Manager</div>
 									<div class="Username">
-										<div class="Lable">Username:</div><span>john</span>
+										<div class="Lable"><%=_ctx.appRes("UIHomePagePortlet.Label.Username")%></div><span>john</span>
 										<div class="ClearBoth"><span></span></div>
 									</div>
 									<div class="Passwords">
-										<div class="Lable">Password:</div><span>exo</span>
+										<div class="Lable"><%=_ctx.appRes("UIHomePagePortlet.Label.Password")%></div><span>exo</span>
 										<div class="ClearBoth"><span></span></div>
 									</div>
 								</div>
@@ -49,11 +49,11 @@
 								<div class="AccountInfos">
 									<div class="AccountTitle">User</div>
 									<div class="Username">
-										<div class="Lable">Username:</div><span>marry</span>
+										<div class="Lable"><%=_ctx.appRes("UIHomePagePortlet.Label.Username")%></div><span>marry</span>
 										<div class="ClearBoth"><span></span></div>
 									</div>
 									<div class="Passwords">
-										<div class="Lable">Password:</div><span>exo</span>
+										<div class="Lable"><%=_ctx.appRes("UIHomePagePortlet.Label.Password")%></div><span>exo</span>
 										<div class="ClearBoth"><span></span></div>
 									</div>
 								</div>
@@ -63,11 +63,11 @@
 								<div class="AccountInfos">
 									<div class="AccountTitle">Demo</div>
 									<div class="Username">
-										<div class="Lable">Username:</div><span>demo</span>
+										<div class="Lable"><%=_ctx.appRes("UIHomePagePortlet.Label.Username")%></div><span>demo</span>
 										<div class="ClearBoth"><span></span></div>
 									</div>
 									<div class="Passwords">
-										<div class="Lable">Password:</div><span>exo</span>
+										<div class="Lable"><%=_ctx.appRes("UIHomePagePortlet.Label.Password")%></div><span>exo</span>
 										<div class="ClearBoth"><span></span></div>
 									</div>
 								</div>

@@ -189,8 +189,8 @@
               }
 	          %>
 		      	<div class="ScrollButtons">
-		      		<div class="ScrollLeftButton" title="Previous">
-		      			<div class="ScrollRightButton" title="Next"><span></span></div>
+		      		<div class="ScrollLeftButton" title="<%= _ctx.appRes("UIPortalNavigation.Label.Previous") %>">
+		      			<div class="ScrollRightButton" title="<%= _ctx.appRes("UIPortalNavigation.Label.Next") %>"><span></span></div>
 		      		</div>
 		      	</div>
 		      </div>

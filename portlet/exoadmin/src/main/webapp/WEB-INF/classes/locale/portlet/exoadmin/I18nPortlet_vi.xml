@@ -4,7 +4,7 @@
     <title>Tìm kiếm mã nguồn</title>
     <action>
       <Search>Tìm kiếm</Search>
-      <NewResource>Tạo mã nguồn mới mới</NewResource>
+      <NewResource>Tạo mã nguồn mới</NewResource>
     </action>
   </UIForm>
   <UISearchI18n>

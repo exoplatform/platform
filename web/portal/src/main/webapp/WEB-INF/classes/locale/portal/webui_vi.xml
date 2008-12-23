@@ -233,7 +233,7 @@
   -->
   <IdentifierValidator>
     <msg>
-      <invalid-char>Giá trị trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, hoặc dấu gạch dưới</invalid-char>
+      <Invalid-char>Giá trị trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, hoặc dấu gạch dưới</Invalid-char>
     </msg>
   </IdentifierValidator>
   <!--
@@ -500,13 +500,14 @@
     </action>
     <tab>
       <label>
-        <PortletPref>Preferences</PortletPref>
+        <PortletPref>Tùy chỉnh</PortletPref>
         <PortletSetting>Cấu hình Portlet</PortletSetting>
         <Renderer>Biểu hiện</Renderer>
         <Template>Portlet mẫu</Template>
         <Decorator>Trang trí cho Portlet</Decorator>
         <Icon>Chọn biểu tượng</Icon>
-        <theme>Kiểu trang trí</theme>
+        <Theme>Kiểu trang trí</Theme>
+        <EditMode>Chế độ chỉnh sửa</EditMode>
       </label>
     </tab>
     <Theme>
@@ -662,7 +663,7 @@
       <action>#{word.action}</action>
     </header>
     <label>
-      <clearPage>Clear Page</clearPage>
+      <clearPage>Xóa trang</clearPage>
       <searchandSelectPage>Tìm kiếm và chọn trang</searchandSelectPage>
       <currentSelectedPage>Thông tin về trang bạn vừa chọn</currentSelectedPage>
       <title>Tiêu đề trang</title>
@@ -1139,14 +1140,14 @@
       </step3>
       <pageCreateWizard>Chỉnh sửa trang bằng Wizard</pageCreateWizard>
       <wizardSteps>Các bước tạo trang</wizardSteps>
-      <step>Các bước Wizard</step>
+      <step>Bước </step>
       <back>#{word.back}</back>
       <next>#{word.next}</next>
       <done>#{word.save}</done>
       <abort>#{word.abort}</abort>
     </label>
     <msg>
-      <selectStep2>Trước tiên, bạn phải đi qua bước hai(2) để tiếp tục khởi tạo trang.</selectStep2>
+      <selectStep2>Trước tiên, bạn phải đi qua bước hai(2) để tiếp tục chỉnh sửa trang.</selectStep2>
       <notSelectedPageNavigation>Chưa chọn Navigation của trang!</notSelectedPageNavigation>
       <notSelectedPage>Chưa chọn trang!</notSelectedPage>
       <Invalid-editPermission>Trang này không tồn tại hoặc bạn không được phân quyền để chỉnh sửa.</Invalid-editPermission>
@@ -1672,6 +1673,7 @@
     <msg>
       <user-delete>Tên người dùng đã bị xóa bởi Người quản trị.</user-delete>
       <user-not-exist>Tên người dùng không tồn tại.</user-not-exist>
+      <email-not-exist>Email của bạn không tồn tại trong Exo</email-not-exist>
       <expration>Email của bạn đã hết hạn, bạn phải đưa ra một email khác còn hoạt động.</expration>
     </msg>
     <mail>
@@ -1965,7 +1967,8 @@
       <EditPageNode>Chỉnh sửa trang của node</EditPageNode>
       <EditSelectedNode>Chỉnh sửa node</EditSelectedNode>
       <EditNavigation>Chỉnh sửa Navigation</EditNavigation>
-      <CopyNode>Copy node</CopyNode>
+      <CopyNode>Sao chép node</CopyNode>
+      <CloneNode>Nhân bản node</CloneNode>
       <CutNode>Cắt node</CutNode>
       <MoveUp>Chuyển lên trên</MoveUp>
       <MoveDown>Chuyển xuống dưới</MoveDown>
@@ -1991,7 +1994,7 @@
       <step1>
         <title>Chào mừng bạn đến với Wizad để chỉnh sửa trang hiện thời!</title>
       </step1>
-      <wizardSteps>Các bước Wizard</wizardSteps>
+      <wizardSteps>Bước </wizardSteps>
       <next>Tiếp theo</next>
       <done>Lưu</done>
       <back>Trở lại</back>
@@ -2397,5 +2400,31 @@
       <Close>Đóng</Close>
     </label>
   </UIAddNewApplication>
+  <!--
+  #############################################################################
+  #org.exoplatform.portal.webui.component.UIPortalNavigation															#
+  #############################################################################
+  -->
+  <UIPortalNavigation>
+    <Label>
+      <Next>Tiếp</Next>
+      <Previous>Trước</Previous>
+    </Label>
+  </UIPortalNavigation>
+  
+  <!--
+  #############################################################################
+  #org.exoplatform.portal.webui.component.UIHomePagePortlet															#
+  #############################################################################
+  -->
+  <UIHomePagePortlet>
+    <Label>
+      <Title><![CDATA[Hãy thử <strong> Exo Portal 2.0 </strong> với các tài khoản người dùng có sẵn sau:]]></Title>
+      <Intro><![CDATA[New version comes with a revolutionary user interface<br/>Classic and WebOS Desktop Layouts<br/> Drag and Drop Layouts. Create Pages Wizard<br/>And many more...]]></Intro>
+      <Slogan>Virtualize Your Desktop</Slogan>
+      <Username>Username:</Username>
+      <Password>Password:</Password>
+    </Label>
+  </UIHomePagePortlet>
 </bundle>
 

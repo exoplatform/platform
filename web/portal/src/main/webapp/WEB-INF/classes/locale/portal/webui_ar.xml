@@ -169,6 +169,7 @@
 		<msg>
 			<user-delete>اسم المستخدم تم حذفه من قبل مخطط النظام</user-delete>
 			<user-not-exist>اسم مستخدمك لا وجود له في إكزو</user-not-exist>
+			<email-not-exist>Your email doesn't exist in eXo</email-not-exist>
 			<expration>Your link is expired, you have to get another email active</expration>
 		</msg>
 		<mail>
@@ -259,4 +260,19 @@
 			<Invalid-input>البريد الإلكتروني غير صالح. الرجاء إدخال قيمة أخرى</Invalid-input>
 		</msg>
 	</EmailAddressValidator>
+	
+	<!--
+  #############################################################################
+  #org.exoplatform.portal.webui.component.UIHomePagePortlet															#
+  #############################################################################
+  -->
+  <UIHomePagePortlet>
+    <Label>
+      <Title><![CDATA[<strong>Try eXo Portal 2.0</strong> with following available user accounts:]]></Title>
+      <Intro><![CDATA[New version comes with a revolutionary user interface<br/>Classic and WebOS Desktop Layouts<br/> Drag and Drop Layouts. Create Pages Wizard<br/>And many more...]]></Intro>
+      <Slogan>Virtualize Your Desktop</Slogan>
+      <Username>Username:</Username>
+      <Password>Password:</Password>
+    </Label>
+  </UIHomePagePortlet>
 </bundle>

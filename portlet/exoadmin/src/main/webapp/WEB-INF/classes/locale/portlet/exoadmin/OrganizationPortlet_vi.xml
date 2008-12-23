@@ -169,6 +169,7 @@
           <family>#{word.familyName}:</family>
           <nickName>#{word.nickName}:</nickName>
         </name>
+        <language>Ngôn ngữ:</language>
         <bdate>#{word.birthday}:</bdate>
         <gender>#{word.gender}:</gender>
         <employer>#{word.employer}:</employer>
