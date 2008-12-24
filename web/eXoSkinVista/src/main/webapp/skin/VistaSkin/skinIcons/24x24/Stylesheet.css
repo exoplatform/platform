@@ -249,9 +249,11 @@
 }
 .UIListPermissionSelector24x24Icon {
   width: 24px ; height: 24px ;
-  background: url('icons/IconAccessPermission.png') no-repeat ;
+  background: url('icons/IconAccessPermission.png') no-repeat 0 3px;	/* orientation=lt */
+	background: url('icons/IconAccessPermission.png') no-repeat right 3px;	/* orientation=rt */
 }
 .UIPermissionSelector24x24Icon {
   width: 24px ; height: 24px ;
-  background: url('icons/IconEditPermission.png') no-repeat ;
+  background: url('icons/IconEditPermission.png') no-repeat 0 3px;	/* orientation=lt */
+	background: url('icons/IconEditPermission.png') no-repeat right 3px;	/* orientation=rt */
 }

@@ -57,6 +57,7 @@
 
 /*created: Tung.Dang*/
 .UIControlWorkspace .UIPageNodeSelector .UIDropDownControl {
-  float: left; 
+  float: left;  	/* orientation=lt */
+	float: right;  	/* orientation=rt */
   width: 202px;
 }

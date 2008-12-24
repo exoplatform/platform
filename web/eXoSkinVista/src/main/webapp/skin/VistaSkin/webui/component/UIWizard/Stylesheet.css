@@ -2,6 +2,7 @@
 .UIWizard {
 	width: 98.5%;	
 	margin: auto;
+	overflow: hidden;
 }
 
 /*========================== Wizard Content ==============================*/

@@ -15,7 +15,8 @@
 }
 
 .UIAction .ActionContainer  a {
-  font-weight: normal ;
+  font-weight: normal;
+	white-space: nowrap;
 }
 
 .UIAction .ActionContainer  a:hover {
@@ -106,6 +107,7 @@
 	background: url('background/LightButton.png') repeat-x bottom;
 	display: table-cell;
 	padding: 0px 12px;
+	white-space: nowrap;
 }
 
 /*##############################-SimpleStyle ActionButton-################################*/

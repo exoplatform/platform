@@ -15,6 +15,7 @@
 	padding: 3px 5px 3px 0px; /* orientation=rt */
 	background: url("DefaultSkin/background/UIBrowserPortlet.gif") repeat-x ;
 	width: 99%;
+	height:25px;
 	margin: auto;
 }
 
@@ -164,6 +165,7 @@
 .UIBrowserPortlet .BrowserContent {
   width: 99.5%;
   margin: auto;
+	overflow: hidden;
 }
 
 .UIBrowserPortlet .TabBackground {

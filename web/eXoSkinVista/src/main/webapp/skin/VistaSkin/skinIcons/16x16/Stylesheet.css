@@ -1915,10 +1915,12 @@
 }
 
 .MoveUp16x16Icon {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MoveUp.gif') no-repeat left center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MoveUp.gif') no-repeat left center;  	/* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MoveUp.gif') no-repeat right center;  	/* orientation=rt */
 }
 
 .MoveDown16x16Icon {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MoveDown.gif') no-repeat left center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MoveDown.gif') no-repeat left center;  	/* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MoveDown.gif') no-repeat right center;  	/* orientation=rt */
 }
 /*===========================End User Icons Stylesheet=======================*/

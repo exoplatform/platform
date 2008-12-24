@@ -1,6 +1,5 @@
 /* --- DropDown Control Format --- */
 .UIDropDownControl {
-	position: relative ;
 	margin-bottom: 2px;
 }
 
@@ -11,7 +10,8 @@
 .UIDropDownControl .UIDropDownTitle {
 	cursor: pointer;
 	height: 100% ;
-	border-right: medium none;
+	border-right: medium none;	/* orientation=lt */
+	border-left: medium none;	/* orientation=rt */
 	border-top: 1px solid #959595;
 	height: 20px;
 }
@@ -129,10 +129,10 @@
 
 .UIDropDownControl .OptionItem {
 	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif) no-repeat left 3px; 	/* orientation=lt */
-	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif) no-repeat right 3px; 	/* orientation=rt */	
+	background: transparent url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif) no-repeat right; 	/* orientation=rt */	
 	padding: 0px 4px 0px 17px;	/* orientation=lt */
 	padding: 0px 17px 0px 4px; /* orientation=rt */	
-	diplay: block;
+	display: block;
 }
 
 .UIDropDownControl .OptionItem:hover {

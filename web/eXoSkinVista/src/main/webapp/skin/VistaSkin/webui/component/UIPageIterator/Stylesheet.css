@@ -86,7 +86,7 @@
 
 .UIPageIterator .DisableNextTopPageIcon {
   background: url('background/ArrowPageIterator.gif') no-repeat left -100px;				/* orientation=lt */
-  background: url('background/ArrowPageIterato-rt.gif') no-repeat right -100px;			/* orientation=rt */
+  background: url('background/ArrowPageIterator-rt.gif') no-repeat right -100px;			/* orientation=rt */
   cursor: pointer ;
 }
 

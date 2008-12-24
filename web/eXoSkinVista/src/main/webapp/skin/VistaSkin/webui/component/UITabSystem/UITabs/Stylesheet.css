@@ -362,18 +362,23 @@
   float: right; /* orientation=rt */
   width: 32px; height: 23px;
   margin-top: 3px;
+	padding-left:26px; /* orientation=lt */
+	padding-right:26px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .InfoIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center top;
+  background: url('background/MessageTabIcon.png') no-repeat left top; /* orientation=lt */
+	background: url('background/MessageTabIcon.png') no-repeat right top; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .ErrorIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -23px;
+  background: url('background/MessageTabIcon.png') no-repeat left -23px; /* orientation=lt */
+	background: url('background/MessageTabIcon.png') no-repeat right -23px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .WarningIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -46px;
+  background: url('background/MessageTabIcon.png') no-repeat left -46px; /* orientation=lt */
+	background: url('background/MessageTabIcon.png') no-repeat right -46px; /* orientation=rt */
 }
 
 /*==============================Selected Tab for MessageTab=====================*/
@@ -417,16 +422,21 @@
   float: right; /* orientation=rt */
   width: 32px; height: 23px;
   margin-top: 3px;
+	padding-left:26px; /* orientation=lt */
+	padding-right:26px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .InfoIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -69px;
+  background: url('background/MessageTabIcon.png') no-repeat left -69px; 	/* orientation=lt */
+	background: url('background/MessageTabIcon.png') no-repeat right -69px; 	/* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .ErrorIcon {
-  background: url('background/MessageTabIcon.png') no-repeat center -92px;
+  background: url('background/MessageTabIcon.png') no-repeat left -92px; 	/* orientation=lt */
+	background: url('background/MessageTabIcon.png') no-repeat right -92px; 	/* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .WarningIcon {
-  background: url('background/MessageTabIcon.png') no-repeat bottom;
+  background: url('background/MessageTabIcon.png') no-repeat left bottom; 	/* orientation=lt */
+	background: url('background/MessageTabIcon.png') no-repeat right bottom; 	/* orientation=rt */
 }

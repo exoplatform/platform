@@ -223,9 +223,9 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .RightItem {
   background: url('background/SelectedItem.png') no-repeat right -192px; 	/* orientation=lt */
-  background: url('background/SelectedItem-rt.png') no-repeat left -192px; 	/* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat left -192px; 	/* orientation=rt */
   padding-right: 2px; 	/* orientation=lt */
-  padding-left: 2px; 	/* orientation=lt */
+  padding-left: 2px; 	/* orientation=rt */
   height: 24px;
 }
 
@@ -455,7 +455,8 @@
   margin-left: 220px; /* orientation=lt */
 	margin-right: 220px; /* orientation=rt */
   background: #f6f6f6;
-  margin-right: 0px;
+  margin-right: 0px; /* orientation=lt */
+	margin-left: 0px; /* orientation=rt */
   height: auto;
 }
 

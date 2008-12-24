@@ -128,4 +128,5 @@
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/GrayBorderRightArrow-rt.gif') no-repeat right;		/* orientation=rt */ 
   padding-left: 20px;			/* orientation=lt */
   padding-right: 20px;		/* orientation=rt */
+	display: block;
 }

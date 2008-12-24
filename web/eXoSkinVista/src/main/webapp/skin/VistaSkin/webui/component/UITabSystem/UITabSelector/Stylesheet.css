@@ -70,6 +70,10 @@
 	float: right; /* orientation=rt */
   margin: 1px 4px 0px 0px; /* orientation=lt */
 	margin: 1px 0px 0px 4px; /* orientation=rt */
+	height: auto;
+	width: auto;
+	padding-left: 25px;  /* orientation=lt */
+	padding-right: 25px;  /* orientation=rt */
 }
 
 .UITabSelector .FlatTabStyle .NormalTab .MiddleTab .Title {
@@ -99,7 +103,7 @@
   line-height: 28px;
   background: url('background/TabSelector.gif') repeat-x left -61px;
   cursor: pointer;
-  padding: 0px 6px;
+  padding: 0px 6px 3px;
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .TabIcon {
@@ -107,6 +111,10 @@
 	float: right; /* orientation=rt */
   margin: 1px 4px 0px 0px; /* orientation=lt */
 	margin: 1px 0px 0px 4px; /* orientation=rt */
+	height: auto;
+	width: auto;
+	padding-left: 25px;  /* orientation=lt */
+	padding-right: 25px;  /* orientation=rt */
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .Title {
