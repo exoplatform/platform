@@ -106,6 +106,12 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
 		if (middleBrowser || !middleWindow) {
 			popup.style.top = Math.ceil((eXo.core.Browser.getBrowserHeight() - popup.offsetHeight ) / 2) + scrollY + "px";
 		}
+		//Todo: set popup of UIPopup always display in the center browsers in case UIMaskWorkspace
+		if(eXo.core.DOMUtil.hasClass(offsetParent, "UIMaskWorkspace")) {
+			//if(eXo.core.Browser.browserType=='ie') offsetParent.style.position = "relative";
+			popup.style.top = Math.ceil((offsetParent.offsetHeight - popup.offsetHeight) / 2) + "px" ;
+		}
+		
 		// hack for position popup alway top in IE6.
 		var checkHeight = popup.offsetHeight > 300; 
 
