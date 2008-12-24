@@ -303,9 +303,16 @@ e/**
   padding: 15px;
 }
 
+.UIApplicationRegistryPortlet .ApplicationContent table {
+	table-layout: fixed;
+	width: 99%;
+}
+
 .UIApplicationRegistryPortlet .TitleBarApplication {
 	background: none;
-  font-weight: bold ; font-size: 12px; color: #1553B9;
+  font-weight: bold ; 
+  font-size: 12px; 
+  color: #1553B9;
 }
 
 .UIApplicationRegistryPortlet .ApplicationContentLabel {

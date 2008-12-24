@@ -24,8 +24,6 @@
 }
 	
 .UITabSelector .UIHorizontalTabs .TabsContainer {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	overflow: hidden;
 	margin: 0px;
 }
@@ -68,10 +66,12 @@
 }
 
 .UITabSelector .FlatTabStyle .NormalTab .MiddleTab .TabIcon {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
+  padding-left: 25px; /* orientation=lt */
+  padding-right: 25px; /* orientation=rt */
 	margin: 1px 4px 0px 0px; /* orientation=lt */
 	margin: 1px 0px 0px 4px; /* orientation=rt */
+	width: auto;
+  height: auto;
 }
 
 .UITabSelector .FlatTabStyle .NormalTab .MiddleTab .Title {
@@ -105,10 +105,23 @@
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .TabIcon {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
+  padding-left: 25px; /* orientation=lt */
+  padding-right: 25px; /* orientation=rt */
 	margin: 1px 4px 0px 0px; /* orientation=lt */
 	margin: 1px 0px 0px 4px; /* orientation=rt */
+  width: auto;
+  height: auto;
+}
+
+
+.UITabSelector .FlatTabStyle .UIPermissionSelector24x24Icon {
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconEditPermission.gif) no-repeat left; /* orientation=lt */
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconEditPermission-rt.gif) no-repeat right; /* orientation=rt */
+}
+
+.UITabSelector .FlatTabStyle .UIListPermissionSelector24x24Icon {
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconAccessPermission.gif) no-repeat left; /* orientation=lt */
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/IconAccessPermission-rt.gif) no-repeat right; /* orientation=rt */
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .Title {
