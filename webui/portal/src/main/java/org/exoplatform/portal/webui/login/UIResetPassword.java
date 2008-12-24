@@ -58,13 +58,13 @@ public class UIResetPassword extends UIForm {
   public UIResetPassword() throws Exception{
     addUIFormInput(new UIFormStringInput(USER_NAME,USER_NAME,null).setEditable(false));
     addUIFormInput(new UIFormStringInput(PASSWORD,PASSWORD,null).setType(UIFormStringInput.PASSWORD_TYPE)    					
-                        .addValidator(MandatoryValidator.class));
+                        .addValidator(MandatoryValidator.class));                        
     addUIFormInput(((UIFormStringInput)new UIFormStringInput(NEW_PASSWORD,NEW_PASSWORD,null)).setType(UIFormStringInput.PASSWORD_TYPE)    					
                         .addValidator(MandatoryValidator.class)
-                        .addValidator(StringLengthValidator.class, 3, 30));
+                        .addValidator(StringLengthValidator.class, 6, 30));
     addUIFormInput(((UIFormStringInput)new UIFormStringInput(CONFIRM_NEW_PASSWORD,CONFIRM_NEW_PASSWORD,null)).setType(UIFormStringInput.PASSWORD_TYPE)
-    					.addValidator(MandatoryValidator.class)
-    					.addValidator(StringLengthValidator.class, 3, 30));                        
+                        .addValidator(MandatoryValidator.class)
+                        .addValidator(StringLengthValidator.class, 6, 30));                        
   }
   
   public void setData(User user) {
@@ -74,7 +74,7 @@ public class UIResetPassword extends UIForm {
   
   @Override
   public void reset() {
-	UIFormStringInput passwordForm = getUIStringInput(PASSWORD);
+    UIFormStringInput passwordForm = getUIStringInput(PASSWORD);
     passwordForm.reset();
     UIFormStringInput newPasswordForm = getUIStringInput(NEW_PASSWORD);
     newPasswordForm.reset();
@@ -103,11 +103,11 @@ public class UIResetPassword extends UIForm {
         isNew = false;
       }
       if(isNew){
-		user_.setPassword(newpassword);
-		orgService.getUserHandler().saveUser(user_,true);
-		uiMaskWorkspace.setUIComponent(null);
-		uiMaskWorkspace.setWindowSize(-1, -1);
-		uiApp.addMessage(new ApplicationMessage("UIResetPassword.msg.change-password-successfully", null));
+        user_.setPassword(newpassword);
+        orgService.getUserHandler().saveUser(user_,true);
+        uiMaskWorkspace.setUIComponent(null);
+        uiMaskWorkspace.setWindowSize(-1, -1);
+        uiApp.addMessage(new ApplicationMessage("UIResetPassword.msg.change-password-successfully", null));
       }
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWorkspace) ;
    }
