@@ -13,7 +13,8 @@
 
 /*Created Dang.Tung*/
 .UIPageNodeSelector .UIDropDownControl {
-  padding-left: 1px;
+  padding-left: 1px; /* orientation=lt */
+  padding-right: 1px; /* orientation=rt */
 }
 
 .UIPageNodeSelector .UIDropDownControl .UIDropDownAnchor {
