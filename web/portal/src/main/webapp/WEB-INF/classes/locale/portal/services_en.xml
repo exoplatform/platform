@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <!--
+  #############################################################################
+  #              Empty String Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.form.Validator.EmptyFieldValidator
+  #{0}=input field name
+  -->
+  <EmptyStringValidator>
+    <msg>
+      <empty-input>The field "{0}" is required</empty-input>
+    </msg>
+  </EmptyStringValidator>
+  <!--
+  #############################################################################
+  #              Email Address Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.form.validator.Validator.EmailAddressValidator
+  #{1}=input field name, {0} user input email address
+  -->
+  <EmailAddressValidator>
+    <msg>
+      <invalid-email>You have entered "{0}" in field {1}, it is an invalid</invalid-email>
+    </msg>
+  </EmailAddressValidator>
+  <!--
+  #############################################################################
+  #              Number Format Validator                                      #
+  #############################################################################
+  #class org.exoplatform.webui.form.validator.Validator.NumberFormatValidator
+  #{0}=input field name, {1} user input limit access
+  -->
+  <NumberFormatValidator>
+    <msg>
+      <invalid-limitAccess>You have entered "{0}" in field {1}, it is an invalid \ limit access</invalid-limitAccess>
+      <Invalid-input>The value entered in field {0}, it is not a number format</Invalid-input>
+    </msg>
+  </NumberFormatValidator>
+  <!--
+  #{0}=input field name
+  -->
+  <!--
+  #############################################################################
+  #              Identifier String Validator                                  #
+  #############################################################################
+  #class org.exoplatform.webui.form.validator.Validator.IdentifierValidator
+  #{0}=input field name
+  -->
+  <IdentifierValidator>
+    <msg>
+      <empty-input>The field "{0}" cannot be empty</empty-input>
+      <invalid-char>Only alpha, digit and underscore characters allowed for the field {0}</invalid-char>
+    </msg>
+  </IdentifierValidator>
+  <!--
+  #{0}=input field name
+  -->
+  <!--
+  #############################################################################
+  #              Name String Validator		                            #
+  #############################################################################
+  #class org.exoplatform.webui.form.validator.Validator.NameValidator
+  #{0}=input field name
+  -->
+  <NameValidator>
+    <msg>
+      <empty-input>The field "{0}" cannot be empty</empty-input>
+      <invalid-char>Only alpha, digit, dot, dash and underscore characters allowed for the field {0}</invalid-char>
+    </msg>
+  </NameValidator>
+  <!--
+  #{0}=input field name
+  -->
+  <!--
+  #############################################################################
+  #              Valid User Validator                                         #
+  #############################################################################
+  #class org.exoplatform.faces.user.validator.ValidUserValidator
+  #{0}=input field name, {1} input user name
+  -->
+  <ValidUserValidator>
+    <msg>
+      <empty-input>Please enter a value in the field {0}</empty-input>
+      <invalid-username>The system does not find the user {0}</invalid-username>
+    </msg>
+  </ValidUserValidator>
+  <!--
+  #{0}=input field name, {1} input user name
+  -->
+  <!--
+  #############################################################################
+  #              Valid User Validator                                         #
+  #############################################################################
+  #class org.exoplatform.faces.user.validator.ValidGroupValidator
+  #{0}=input field name, {1} input group id
+  -->
+  <ValidGroupValidator>
+    <msg>
+      <empty-input>Please enter a value in the field {0}</empty-input>
+      <invalid-group-id>The system does not find the group {0}</invalid-group-id>
+    </msg>
+  </ValidGroupValidator>
+  <!--
+  #{0}=input field name, {1} input group id
+  -->
+  <!--
+  #############################################################################
+  #              Valid Permission Validator                                   #
+  #############################################################################
+  -->
+  <PermissionValidator>
+    <msg>
+      <invalid-permission-input>Invalid permission, permission style should be membership:/groupId.</invalid-permission-input>
+      <membership-group-not-found>Membership type or Group name not found.</membership-group-not-found>
+    </msg>
+  </PermissionValidator>
+  <!--
+  #############################################################################
+  #              CheckAdminOrOwnerRoleInterceptor                             #
+  #############################################################################
+  #class org.exoplatform.faces.core.event.CheckAdminOrOwnerRoleInterceptor
+  #{0}=action name
+  -->
+  <CheckAdminOrOwnerRoleInterceptor>
+    <msg>
+      <owner-or-admin-require>You need to login or  have the admin role to execute the action '{0}'</owner-or-admin-require>
+    </msg>
+  </CheckAdminOrOwnerRoleInterceptor>
+  <!--
+  #############################################################################
+  #              CheckOwnerInterceptor                                        #
+  #############################################################################
+  #class org.exoplatform.faces.core.event.CheckOwnerInterceptor
+  #{0}=action name
+  -->
+  <CheckOwnerInterceptor>
+    <msg>
+      <owner-require>You need to login to execute the action '{0}'</owner-require>
+    </msg>
+  </CheckOwnerInterceptor>
+  <!--
+  #############################################################################
+  #              ExoPermissionException                                        #
+  #############################################################################
+  #class org.exoplatform.commons.exception.ExoPermissionException
+  #{0}=require role, {1} action name
+  -->
+  <ExoPermissionException>
+    <msg>
+      <message>You need to have the role {0} to execute the action {1}</message>
+    </msg>
+  </ExoPermissionException>
+  <!--
+  #############################################################################
+  #           Message Service properties                                      #
+  #############################################################################
+  #this exception is throw in GroupQueryHandler class
+  -->
+  <OrganizationService>
+    <unique-group-exception>The group name {0} is already existed</unique-group-exception>
+  </OrganizationService>
+  <!--
+  #Throw in org.exoplatform.commons.utils.PageList, {0}=request page parameter, {1}=available pages parameter
+  -->
+  <PageList>
+    <page-out-of-range>You try to get the page {0}, but there is only {1} pages available</page-out-of-range>
+  </PageList>
+  <!--
+  #Throw in exo.services.communication.message.impl.MessageServiceImpl. 
+  #{0}=account name, {1}=user name
+  -->
+  <MessageService>
+    <account-not-found>Cannot find the account {0} for the user {1}</account-not-found>
+    <invalid-standalone-message-address>You are using the standalone account type and \ the address {0} is not valid.  The system expect an address with the following format: \ receiver#accountName</invalid-standalone-message-address>
+    <send-message-fail>Cannot send the message.Check your email address \n\ Error: {0}</send-message-fail>
+  </MessageService>
+  <!--
+  #Throw in exo.services.communication.message.impl.StandaloneProtocolPlugin. 
+  #{0}=to address
+  -->
+  <!--
+  #Throw in exo.services.communication.message.impl.MailServiceImpl 
+  #{0}=The orginal error message throw by java mail library
+  -->
+  <!--
+  #############################################################################
+  #           Forum Service properties                                        #
+  #############################################################################
+  #Throw in org.exoplatform.services.communication.forum.impl.ForumServiceImpl
+  #Throw in org.exoplatform.services.indexing.Searcher
+  #{0}=The orginal error message throw by lucence
+  -->
+  <Searcher>
+    <msg>
+      <search-expression-error><![CDATA[You have an error in the input expression.<br />{0}]]></search-expression-error>
+    </msg>
+  </Searcher>
+</bundle>
+

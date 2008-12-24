@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <UIGadgetEditMode>
+    <title>تحديد عنوان الأداة</title>
+    <label>
+      <gadgetUrl>:العنوان</gadgetUrl>
+      <typeSelector>:النوع</typeSelector>
+      <gadgetSelector>:الأداة</gadgetSelector>
+      <option>
+        <remote>أداة خارجية</remote>
+        <local>أداة محلية</local>
+      </option>
+    </label>
+    <action>
+      <Save>احفظ</Save>
+    </action>
+  </UIGadgetEditMode>
+</bundle>

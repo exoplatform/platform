@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <UIForm>
+    <title>Search Resource</title>
+    <action>
+      <Search>Search</Search>
+      <NewResource>New Resource</NewResource>
+    </action>
+  </UIForm>
+  <UISearchI18n>
+    <label>
+      <name>Name</name>
+      <language>Language</language>
+    </label>
+  </UISearchI18n>
+  <UII18nPortlet>
+    <header>
+      <name>Name</name>
+      <language>Language</language>
+      <action>Action</action>
+    </header>
+    <action>
+      <title>
+        <View>View</View>
+        <Delete>Delete</Delete>
+      </title>
+    </action>
+  </UII18nPortlet>
+  <UIEditResource>
+    <title>Resource Data</title>
+    <label>
+      <resource>Resource</resource>
+      <name>Name</name>
+      <language>Language</language>
+    </label>
+    <action>
+      <Save>Save</Save>
+      <Cancel>Cancel</Cancel>
+      <Edit>Edit</Edit>
+    </action>
+    <add>
+      <exist>This resource is existing, please enter another one!</exist>
+    </add>
+  </UIEditResource>
+  <UII18n>
+    <deleteResource>Are you sure you want to delete this resource?</deleteResource>
+  </UII18n>
+</bundle>
+

@@ -1,178 +1,170 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bundle> 
-  <word>
-   <!--
+<bundle>
+  <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'A'                     #
   ###################################################################
   -->
-    <accessPermission>تصاريح الدخول</accessPermission>
-    
-    <abort>إلغاء</abort>
-    <action>حركة</action>
+  <word>
+    <accessPermission>Access Permission</accessPermission>
+    <abort>Abort</abort>
+    <action>Action</action>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'B'                     #
   ###################################################################
   -->
-    <back>رجوع</back>
-    <birthday>تاريخ الولادة</birthday>
+    <back>Back</back>
+    <birthday>Birthday</birthday>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'c'                     #
   ###################################################################
   -->
-    <cancel>إلغاء</cancel>
-    <category>فئة</category>
-    <change>تغيير</change>
-    <city>المدينة</city>
-    <close>إغلاق</close>
-    <comment>تعليق</comment>
-    <content>محتوى</content>
-    <country> البلد  </country>
+    <cancel>Cancel</cancel>
+    <category>Category</category>
+    <change>Change</change>
+    <city>City</city>
+    <close>Close</close>
+    <comment>Comment</comment>
+    <content>Content</content>
+    <country>Country</country>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'd'                     #
   ###################################################################
   -->
-    <date>تاريخ</date>
-    <decorator>تجميل</decorator>
-    <department>الادارة</department>
-    <description>تفاصيل</description>
+    <date>Date</date>
+    <decorator>Decorator</decorator>
+    <department>Department</department>
+    <description>Description</description>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'e'                     #
   ###################################################################
   -->
-    <editPermission>تحريرالتصاريح</editPermission>
-    <email>البريد الالكتروني</email>
-    <employer>الشركة</employer>
+    <editPermission>Edit Permission</editPermission>
+    <email>Email</email>
+    <employer>Employer</employer>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'f'                     #
   ###################################################################
   -->
-    <familyName>اسم العائلة</familyName>
-    <finish>نهاية</finish>
-    <firstName>الاسم</firstName>
-    <format>شكل</format>
+    <familyName>Family Name</familyName>
+    <finish>Finish</finish>
+    <firstName>First Name</firstName>
+    <format>Format</format>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'g'                     #
   ###################################################################
   -->
-    <groupId>تعريفة المجموعة</groupId>
-    <gender>الجنس</gender>
-    <givenName>الاسم</givenName>
+    <groupId>Group Id</groupId>
+    <gender>Gender</gender>
+    <givenName>Given Name</givenName>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'h'                     #
   ###################################################################
   -->
-    <height>ارتفاع</height>
+    <height>Height</height>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'i'                     #
   ###################################################################
   -->
-    <icon>أيقونة</icon>
+    <icon>Icon</icon>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'j'                     #
   ###################################################################
   -->
-    <jobTitle>الوظيفة</jobTitle>
+    <jobTitle>Job Title</jobTitle>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'l'                     #
   ###################################################################
   -->
-    <locale>المحلي</locale>
-    <label>علامة</label>
-    <language>اللغة</language>
-    <lastName>اسم العائلة</lastName>
+    <locale>Locale</locale>
+    <label>Label</label>
+    <language>language</language>
+    <lastName>Last Name</lastName>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'm'                     #
   ###################################################################
   -->
-    <mobile>الجوال</mobile>
+    <mobile>Mobile</mobile>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'n'                     #
   ###################################################################
   -->
-    <name>اسم</name>
-    <nickName>الكنية</nickName>
-    <next>الموالي</next>
+    <name>Name</name>
+    <nickName>Nick Name</nickName>
+    <next>Next</next>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'o'                     #
   ###################################################################
   -->
-    <owner>المالك</owner>
+    <owner>Owner</owner>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'p'                     #
   ###################################################################
   -->
-    <postalCode> الرقم البريدي</postalCode>
+    <postalCode>Postal Code</postalCode>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'r'                     #
   ###################################################################
   -->
-    <refresh>تحديث الصفحة</refresh>
-    <restore>استعادة</restore>
-   
-    
-    
-    
-   <!--
+    <refresh>Refresh</refresh>
+    <restore>Restore</restore>
+  <!--
   ###################################################################
   #                  EXPRESSION START  WITH 's'                     #
   ###################################################################
   -->
-    <save>احفظ</save>
-    
-    
-    <stateProv> الولاية </stateProv>
-    <street>الشارع</street>
-    
-    <style>أسلوب</style>
-    <subject>موضوع</subject>
-    <summary>موجز</summary>
-    <skin>مظهر</skin>
+    <save>Save</save>
+    <stateProv>State/Prov</stateProv>
+    <street>Street</street>
+    <style>Style</style>
+    <subject>Subject</subject>
+    <summary>Summary</summary>
+    <skin>Skin</skin>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 't'                     #
   ###################################################################
   -->
-    <template>قالب</template>
-    <tel> الهاتف  </tel>
-    <title>عنوان</title>
+    <template>Template</template>
+    <tel>Tel</tel>
+    <title>Title</title>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'u'                     #
   ###################################################################
   -->
     <uri>Uri</uri>
-    <userName>اسم المستخدم</userName>
-    <update>تحديث</update>
+    <userName>User Name</userName>
+    <update>Update</update>
   <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'v'                     #
   ###################################################################
   -->
-    <viewPermission>اعرض التصاريح</viewPermission>
+    <viewPermission>View Permission</viewPermission>
    <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'w'                     #
   ###################################################################
   -->
-    <width>عرض</width>
-    <website> موقع الواب  </website>
-    
-    
+    <width>Width</width>
+    <website>Website</website>
   </word>
+           
 </bundle>
+

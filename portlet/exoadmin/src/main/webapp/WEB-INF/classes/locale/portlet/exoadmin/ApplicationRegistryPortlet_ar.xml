@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <!--
+  ##expression
+  -->
+  <word>
+    <cancel>الغاء</cancel>
+  </word>
+  <label>
+    <displayName>: اسم العرض</displayName>
+    <description>: الوصف</description>
+  </label>
+  <category>
+    <msg>
+      <changeNotExist>.لا يمكن حفظ التغييرات إلى الفئة التي لم تعد في قاعدة البيانات</changeNotExist>
+    </msg>
+  </category>
+  <application>
+    <msg>
+      <changeNotExist>.لا يمكن حفظ التغييرات إلى الخدمة التي لم تعد في قاعدة البيانات </changeNotExist>
+    </msg>
+    <label />
+  </application>
+  <gadget>
+    <msg>
+      <changeNotExist>.لا يمكن حفظ التغييرات إلى الأداة التي لم تعد في قاعدة البيانات</changeNotExist>
+    </msg>
+  </gadget>
+  <!--
+  ##	org.exoplatform.applicationregistry.webui.component.UIApplicationRegistryPortlet
+  -->
+  <UIToolbar>
+    <label>
+      <organize>تنظيم</organize>
+      <portlet>مدخل</portlet>
+      <gadget>أداة</gadget>
+    </label>
+  </UIToolbar>
+  <!--
+  ##	org.exoplatform.applicationregistry.webui.component.UIApplicationOrganizer
+  -->
+  <UIOrganizer>
+    <label>
+      <addCategory>أضف فئة</addCategory>
+      <autoImport>استيراد</autoImport>
+      <categories>الفئات</categories>
+    </label>
+    <title>
+      <editCategory>تحرير الفئة</editCategory>
+      <addApplication>أضف خدمة إلى الفئة</addApplication>
+      <deleteCategory>حذف فئة</deleteCategory>
+      <deleteApplication>حذف خدمة</deleteApplication>
+    </title>
+    <msg>
+      <importAll>.هذه الحركة سوف تخلق تلقائيا فئات واستيراد جميع الأدوات والمداخل فيها</importAll>
+      <deleteCategory>هل أنت متأكد من حذف هذه الفئة و جميع خدماتها ؟</deleteCategory>
+      <deleteApplication>هل أنت متأكد من حذف هذه الخدمة؟</deleteApplication>
+      <emptyCategory>.هذه الفئة ليس لديها أي خدمة ، انقر فوق (+)  لإضافة خدمة</emptyCategory>
+      <noCategory>.لا توجد أي فئة. يمكنك النقر على "أضف الفئة" أو "استيراد" لإضافة فئة</noCategory>
+      <deleteCategoryInUse>.لا يمكن حذف هذه الفئة ،إنها في الاستخدام </deleteCategoryInUse>
+      <deleteApplicationInUse>.لا يمكن حذف هذه الخدمة ، إنها في الاستخدام</deleteApplicationInUse>
+      <categoryNoExist>.هذه الفئة لم تعد في قاعدة البيانات</categoryNoExist>
+      <applicationNoExist>.هذه الخدمة لم تعد في قاعدة البيانات</applicationNoExist>
+    </msg>
+  </UIOrganizer>
+  <!--
+  ##org.exoplatform.applicationregistry.webui.component.UIApplicationInfo
+  -->
+  <UIPermissionForm>
+    <label>
+      <UIListPermissionSelector />
+    </label>
+  </UIPermissionForm>
+  <UIApplicationInfo>
+    <label>
+      <name>:الاسم</name>
+      <displayName>#{label.displayName}</displayName>
+      <description>#{label.description}</description>
+      <accessPermissions>تصاريح الدخول</accessPermissions>
+    </label>
+    <title>
+      <editApplication>تحرير الخدمة</editApplication>
+    </title>
+  </UIApplicationInfo>
+  <!--
+  ##org.exoplatform.applicationregistry.webui.component.UIApplicationForm
+  -->
+  <UIApplicationForm>
+    <title>تحرير معلومات الخدمة</title>
+    <label>
+      <applicationName>:اسم الخدمة</applicationName>
+      <displayName>#{label.displayName}</displayName>
+      <description>#{label.description}</description>
+    </label>
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+  </UIApplicationForm>
+  <!--
+  ##	org.exoplatform.applicationregistry.webui.component.UIAddApplicationForm
+  -->
+  <UIAddApplicationForm>
+    <header>
+      <input>اختار</input>
+      <label>اسم العرض</label>
+      <description>الوصف</description>
+    </header>
+    <action>
+      <Add>أضف</Add>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <PortletExist>!إن هذه الخدمة في الفئة ، يرجى اختيار واحدة أخرى</PortletExist>
+    </msg>
+    <label>
+      <displayName>#{label.displayName}</displayName>
+      <type>نوع الخدمة</type>
+    </label>
+  </UIAddApplicationForm>
+  <!--
+  ##org.exoplatform.applicationregistry.webui.component.UICategoryForm
+  -->
+  <UICategoryForm>
+    <label>
+      <name>:اسم الفئة</name>
+      <displayName>#{label.displayName}</displayName>
+      <description>#{label.description}</description>
+      <UIListPermissionSelector />
+    </label>
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <SameName>!هذه الفئة في القائمة ، من فضلك ادخل واحدة أخرى</SameName>
+    </msg>
+    <tab>
+      <label>
+        <categoryPermission>إعداد التصاريح</categoryPermission>
+        <categorySetting>إعداد الفئة</categorySetting>
+      </label>
+    </tab>
+  </UICategoryForm>
+  <!--
+  ##	org.exoplatform.applicationregistry.webui.component.UIPortletManagement
+  -->
+  <UIPortletManagement>
+    <title>
+      <local>LOCAL</local>
+      <remote>REMOTE</remote>
+    </title>
+    <msg>
+      <noPortlet>.لا توجد مداخل متاحة</noPortlet>
+    </msg>
+  </UIPortletManagement>
+  <!--
+  ##	org.exoplatform.applicationregistry.webui.component.UIPortletInfo
+  -->
+  <UIPortletInfo>
+    <label>
+      <name>:اسم المدخل</name>
+      <display>#{label.displayName}</display>
+      <description>#{label.description}</description>
+    </label>
+    <title>
+      <portletPreferences>تفضيلات المداخل</portletPreferences>
+    </title>
+    <msg>
+      <noPortletPreferences>لا توجد تفضيلات للمدخل</noPortletPreferences>
+    </msg>
+  </UIPortletInfo>
+  <!--
+  ##	org.exoplatform.portletregistry.webui.component.UIGadgetManagement
+  -->
+  <UIGadgetManagement>
+    <label>
+      <addRemote>أضف أداة خارجية</addRemote>
+      <createNew>إنشاء أداة جديدة</createNew>
+    </label>
+    <title>
+      <deleteGadget>حذف الأداة</deleteGadget>
+    </title>
+    <msg>
+      <noGadget>.لا توجد أدوات متاحة</noGadget>
+      <deleteGadgetInUse>.لا يمكن حذف هذه الأداة ، إنها في الاستخدام</deleteGadgetInUse>
+      <deleteGadget>هل أنت متأكد من حذف هذه الأداة؟</deleteGadget>
+    </msg>
+  </UIGadgetManagement>
+  <!--
+  ##	org.exoplatform.applicationregistry.webui.component.UIGadgetInfo
+  -->
+  <UIGadgetInfo>
+    <label>
+      <gadgetDetails>تفاصيل الأداة</gadgetDetails>
+      <name>:اسم الأداة</name>
+      <displayName>#{label.displayName}</displayName>
+      <description>#{label.description}</description>
+      <viewUrl>:انظر العنوان</viewUrl>
+      <editUrl>:تحرير العنوان</editUrl>
+      <reference>:إشارة</reference>
+    </label>
+    <title>
+      <refresh>تحديث المعلومات</refresh>
+      <editGadget>تحرير الأداة</editGadget>
+      <copy>نسخ هذه الأداة في الموقع المحلي</copy>
+    </title>
+    <msg>
+      <gadgetNotExist>.لا يمكن تغيير الأداة لأنها لم تعد في قاعدة البيانات</gadgetNotExist>
+    </msg>
+  </UIGadgetInfo>
+  <!--
+  ##	org.exoplatform.applicationregistry.webui.component.UIAddGadget
+  -->
+  <UIAddGadget>
+    <action>
+      <Add> أضف </Add>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <label>
+      <url>URL</url>
+      <urlExist>!هذا العنوان موجود ، يرجى الاختيار واحد آخر</urlExist>
+      <urlError>البيانات في العنوان : '(0)' غير صالح</urlError>
+    </label>
+  </UIAddGadget>
+  <!--
+  ##	org.exoplatform.applicationregistry.webui.component.UIGadgetEditor
+  -->
+  <UIGadgetEditor>
+    <label>
+      <source>المصدر</source>
+    </label>
+    <action>
+      <Save>#{word.save}</Save>
+      <Cancel>#{word.cancel}</Cancel>
+    </action>
+    <msg>
+      <invalidSpec>.إن مصدر مواصفات الأداة خطأ</invalidSpec>
+    </msg>
+  </UIGadgetEditor>
+  <!--
+  ##package org.exoplatform.organization.webui.component.UIListPermissionSelector
+  -->
+  <UIListPermissionSelector>
+    <header>
+      <groupId>مجموعة</groupId>
+      <membership>العضوية</membership>
+    </header>
+  </UIListPermissionSelector>
+</bundle>
+
