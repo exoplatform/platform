@@ -2423,8 +2423,8 @@
       <Title><![CDATA[Hãy thử <strong> Exo Portal 2.0 </strong> với các tài khoản người dùng có sẵn sau:]]></Title>
       <Intro><![CDATA[Phiên bản mới cùng với một cuộc cách mạng về  giao diện người dùng theo cách bố trí<br/>Classic và WebOS Desktop<br/> kéo-thả giao diện. Tạo trang kiểu Wizard<br/> Và thêm nhiều tính năng khác...]]></Intro>
       <Slogan>Trực quan hóa desktop của bạn</Slogan>
-      <Username>Username:</Username>
-      <Password>Password:</Password>
+      <Username>Tên đăng nhập:</Username>
+      <Password>Mật khẩu:</Password>
     </Label>
   </UIHomePagePortlet>
 </bundle>
