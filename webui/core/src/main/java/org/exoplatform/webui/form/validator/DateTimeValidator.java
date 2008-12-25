@@ -16,13 +16,17 @@
  */
 package org.exoplatform.webui.form.validator;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.exception.MessageException;
 import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormDateTimeInput;
 import org.exoplatform.webui.form.UIFormInput;
 
 /**
@@ -42,7 +46,9 @@ public class DateTimeValidator implements Validator {
   public void validate(UIFormInput uiInput) throws Exception {
 	  if (uiInput.getValue()==null || ((String)uiInput.getValue()).trim().length()==0) return;
     String s = (String)uiInput.getValue() ;
-    if(s.matches(DATETIME_REGEX) && isValidDateTime(s)) return ;
+    DateFormat stFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+    UIFormDateTimeInput uiDateInput = (UIFormDateTimeInput)uiInput;
+    SimpleDateFormat sdf = new SimpleDateFormat(uiDateInput.getDatePattern_().trim());
     
     UIForm uiForm = ((UIComponent) uiInput).getAncestorOfType(UIForm.class);
     String label;
@@ -52,6 +58,15 @@ public class DateTimeValidator implements Validator {
       label = uiInput.getName();
     }
     Object[]  args = { label, s } ;
+    
+    try {
+      Date stDate = sdf.parse(s);
+      s = stFormat.format(stDate);
+    } catch (Exception e) {
+      throw new MessageException(new ApplicationMessage("DateTimeValidator.msg.Invalid-input", args)) ;
+    }
+    if(s.matches(DATETIME_REGEX) && isValidDateTime(s)) return ;
+    
     throw new MessageException(new ApplicationMessage("DateTimeValidator.msg.Invalid-input", args)) ;
   }
   
