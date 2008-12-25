@@ -1666,6 +1666,7 @@
       <user-delete>Your username have been deleted by administrator</user-delete>
       <user-not-exist>Your username doesn't exist in eXo</user-not-exist>
       <email-not-exist>Your email doesn't exist in eXo</email-not-exist>
+      <send-mail-success>Please check your email!</send-mail-success>
       <expration>Your link is expired, you have to get another email active</expration>
     </msg>
     <mail>

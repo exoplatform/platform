@@ -503,7 +503,7 @@
         <PortletPref>Tùy chỉnh</PortletPref>
         <PortletSetting>Cấu hình Portlet</PortletSetting>
         <Renderer>Biểu hiện</Renderer>
-        <Template>Portlet mẫu</Template>
+        <Template>Portlet mẫu:</Template>
         <Decorator>Trang trí cho Portlet</Decorator>
         <Icon>Chọn biểu tượng</Icon>
         <Theme>Kiểu trang trí</Theme>
@@ -1675,6 +1675,7 @@
       <user-delete>Tên người dùng đã bị xóa bởi Người quản trị.</user-delete>
       <user-not-exist>Tên người dùng không tồn tại.</user-not-exist>
       <email-not-exist>Email của bạn không tồn tại trong Exo</email-not-exist>
+      <send-mail-success>Xin vui lòng kiểm tra email của bạn!</send-mail-success>
       <expration>Email của bạn đã hết hạn, bạn phải đưa ra một email khác còn hoạt động.</expration>
     </msg>
     <mail>
@@ -2427,5 +2428,19 @@
       <Password>Mật khẩu:</Password>
     </Label>
   </UIHomePagePortlet>
+  
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.component.customization.UIDropDownConfigs #
+  #############################################################################
+  -->
+  <UIDropDownConfigs>
+    <item>
+      <row>Trong dòng</row>
+      <column>Trong cột</column>
+      <tabs>Trong tabs</tabs>
+      <mix>Hỗn hợp</mix>
+    </item>
+  </UIDropDownConfigs>
 </bundle>
 

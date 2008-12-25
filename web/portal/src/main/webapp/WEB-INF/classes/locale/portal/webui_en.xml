@@ -2417,5 +2417,19 @@
       <Password>Password:</Password>
     </Label>
   </UIHomePagePortlet>
+  
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.component.customization.UIDropDownConfigs #
+  #############################################################################
+  -->
+  <UIDropDownConfigs>
+    <item>
+      <row>In lines</row>
+      <column>In columns</column>
+      <tabs>In tabs</tabs>
+      <mix>Mixed</mix>
+    </item>
+  </UIDropDownConfigs>
 </bundle>
 

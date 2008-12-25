@@ -214,7 +214,7 @@ eXo.gadget.UIGadget = {
             }
             else
                 uicomp = DOMUtil.getChildrenByTagName(portletFragment, "div")[0].className;
-            if (confirm("Are you sure you want to delete this gadget ?")) {
+            if (confirm(this.confirmDeleteGadget)) {
                 var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
                 href += "&portal:type=action&uicomponent=" + uicomp;
                 href += "&op=DeleteGadget";
