@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bundle>
+  <!--
+  #####################################################################################
+  #                           EXCEPTION MAPPINGS                                      #
+  #####################################################################################
+  -->
+  <key>Test Vietnamese</key>
+  <UIGroovyPortlet>
+    <note>
+      <Text>This is Groovy Portlet (Sample Portlet) it can be developed as a web application in the future.</Text>
+    </note>
+  </UIGroovyPortlet>
+  <UIIFrameEditMode>
+    <title>Thay đổi URL</title>
+    <label>
+      <iframeUrl>URL</iframeUrl>
+      <editmode>Chế độ chỉnh sửa</editmode>
+    </label>
+    <action>
+      <Save>Save</Save>
+    </action>
+  </UIIFrameEditMode>
+</bundle>
+
