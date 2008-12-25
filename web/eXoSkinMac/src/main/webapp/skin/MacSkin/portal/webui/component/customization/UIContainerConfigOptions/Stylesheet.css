@@ -7,6 +7,7 @@
 	background: url('background/PortletBG.gif');	
 	border: solid 1px #afaeae;
 	padding: 5px;
+	overflow: hidden;
 }
 
 .UIContainerConfigOptions .ScrollArea {

@@ -167,7 +167,6 @@ DragDrop.prototype.isIn = function(x, y, component) {
   if(eXo.core.Browser.getBrowserType() == "ie") {
   	componentLeft = componentLeft / 2 ;
   }
-  document.title = componentLeft + ": " + x + " :" + componentRight ;
 
   if((componentLeft < x) && (x < componentRight)) {
     if((componentTop < y) && (y < componentBottom)) {

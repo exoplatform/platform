@@ -86,8 +86,14 @@ UIPopup.prototype.setPosition = function(popup, x, y, isRTL) {
 	}	
 	popup.style.position = "absolute" ;
 	popup.style.top = y + "px" ;
-	if(isRTL) popup.style.right = x + "px" ;
-	else popup.style.left = x + "px" ;
+	if(isRTL) {
+		popup.style.right = x + "px" ;
+		popup.style.left = "" ;
+	}
+	else {
+		popup.style.left = x + "px" ;
+		popup.style.right = "" ;
+	}
 } ;
 /**
  * Aligns the popup according to the following values :

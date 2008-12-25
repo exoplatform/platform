@@ -102,14 +102,15 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 	 	var objTop = eXo.core.Browser.findPosY(this)
 	 	var y = objTop - eXo.core.Browser.findPosY(posParent) ;
 	 	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
+	 	
 	 	//fix for case: bottom pos of menuItemContainer is larger than browserHeight;
 	 	if(objTop + menuItemContainer.offsetHeight >= browserHeight) {
 			y = y + this.offsetHeight - menuItemContainer.offsetHeight ;
 	 	}
 	 	//fix for case: top pos of menuItemContainer is small than 0;
 	 	var objBottom = objTop + this.offsetHeight ;
-	 	if(objBottom - menuItemContainer.offsetHeight < 0) {
-	 		y += (browserHeight - objBottom - 10) ;
+	 	if(y + eXo.core.Browser.findPosY(posParent) < 0) {
+	 		y += (browserHeight + document.documentElement.scrollTop - objBottom - 10) ;
 	 	}
 	 	menuItemContainer.style.top = y + "px" ;
 	}

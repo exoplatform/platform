@@ -66,7 +66,6 @@ PortalDragDrop.prototype.init = function(e) {
       cloneObject.style.width = PortalDragDrop.backupDragObjectWidth + "px" ;
     }
     
-    	alert("dsjfls") ;
     //fix bug ie in RTL 
     if(eXo.core.I18n.isRT() && Browser.isIE6() && DOMUtil.findFirstChildByClass(dragObject, "div", "CONTROL-BLOCK")) {
     	dragObject.style.right = parseInt(dragObject.style.right) 

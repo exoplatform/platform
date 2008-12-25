@@ -511,6 +511,11 @@ Browser.prototype.getCookie = function(name) {
 	}
 	return "" ;
 } ;
+
+Browser.prototype.isDesktop = function() {
+	if(document.getElementById("UIPageDesktop")) return true ;
+	return false ;
+}
 /************************************************************************************/
 eXo.core.Browser = new Browser() ;
 eXo.core.Mouse = new MouseObject() ;

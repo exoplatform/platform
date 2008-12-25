@@ -88,10 +88,21 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 	
 	eXo.core.Mouse.update(event);
 	eXo.webui.UIPopup.show(contextMenu);
-	var intTop = eXo.core.Mouse.mouseyInPage - (eXo.core.Browser.findPosY(contextMenu) - contextMenu.offsetTop) ;
-	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft) + fixWidthForIE7 ;
 	
 	var ctxMenuContainer = eXo.core.DOMUtil.findFirstChildByClass(contextMenu, "div", "UIContextMenuContainer") ;
+	var intTop = eXo.core.Mouse.mouseyInPage - (eXo.core.Browser.findPosY(contextMenu) - contextMenu.offsetTop) ;
+	var intLeft = eXo.core.Mouse.mousexInPage - (eXo.core.Browser.findPosX(contextMenu) - contextMenu.offsetLeft) + fixWidthForIE7 ;
+	if(eXo.core.I18n.isRT()) {
+		//scrollWidth is width of browser scrollbar
+		var scrollWidth = 16 ;
+		if(eXo.core.Browser.getBrowserType() == "mozilla") scrollWidth = 0 ;
+		intLeft = contextMenu.offsetParent.offsetWidth - intLeft + fixWidthForIE7 + scrollWidth ;
+		var clickCenter = eXo.core.DOMUtil.findFirstDescendantByClass(contextMenu, "div", "ClickCenterBottom") ;
+		if(clickCenter) {
+			var clickCenterWidth = clickCenter ? parseInt(eXo.core.DOMUtil.getStyle(clickCenter, "marginRight")) : 0 ;
+			intLeft += (ctxMenuContainer.offsetWidth - 2*clickCenterWidth) ;
+		}
+	}
 
 	switch (opt) {
 		case 1:
@@ -111,8 +122,8 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 	}
 
 	contextMenu.style.top = intTop + "px";
-	contextMenu.style.left = intLeft + "px";
-	
+	if(eXo.core.I18n.isLT()) contextMenu.style.left = intLeft + "px";
+	else contextMenu.style.right = intLeft + "px" ;
 };
 
 eXo.webui.UIRightClickPopupMenu = new UIRightClickPopupMenu() ;

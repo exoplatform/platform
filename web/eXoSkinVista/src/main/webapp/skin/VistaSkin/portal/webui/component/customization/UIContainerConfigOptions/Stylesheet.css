@@ -3,6 +3,10 @@
   padding: 5px ;
 }
 
+.UIContainerConfigOptions .ContainerConfigOptions {
+	overflow: hidden;
+}
+
 .UIContainerConfigOptions .ScrollArea {
   border: solid 1px #929292;
   border-bottom: solid 1px #c3c3c3; border-right: solid 1px #c3c3c3;
