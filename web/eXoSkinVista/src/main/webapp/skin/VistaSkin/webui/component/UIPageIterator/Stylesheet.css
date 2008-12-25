@@ -1,52 +1,53 @@
 .UIPageIterator {    
-  margin-top: 3px ;
-  width: 100%;  
+  margin: 5px auto 0px auto ;
+  width: 99%;
 }
 
-.UIPageIterator .PageIteratorContainer {    
-  float: right ; 		/* orientation=lt */
-  float: left ; 		/* orientation=rt */
-  line-height: 22px ;  vertical-align: middle ;
-  padding: 0px 0px 0px 15px ; /* orientation=lt */
-  padding: 0px 15px 0px 0px ; /* orientation=rt */
-  overflow: hidden;
+.UIPageIterator a {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	color: #333333;
+	display: block;
 }
 
-.UIPageIterator .PageIteratorContainer .LeftPageIteratorBlock{    
-  float: right ; 		/* orientation=lt */
-  float: left ; 		/* orientation=rt */
-  margin-right: 15px; 	/* orientation=lt */
-  margin-left: 15px; 		/* orientation=rt */
+.UIPageIterator .Number {
+  border: 1px solid #dfdfdf;
+  background: white;
+	padding: 0 5px;
+	margin-left: 3px; /* orientation=lt */
+	margin-right: 3px; /* orientation=rt */
+	cursor: pointer;
+	line-height: 18px;
 }
 
-.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock{    
-  float: right ; 		/* orientation=lt */
-  float: left ; 		/* orientation=rt */
+.UIPageIterator .Number:hover {
+	color: #0183F1;
+	border: 1px solid #B6B6B6;
+}
+.UIPageIterator .PageSelected {
+	color: #F16701;
+	font-weight: bold;
 }
 
 .UIPageIterator .Icon {
-  float: left ;			/* orientation=lt */
-  float: right ;		/* orientation=rt */
-  width: 20px ;  
-  height: 20px ;
-  margin: 2px 3px 0px 0px ;			/* orientation=lt */
-  margin: 2px 0px 0px 3px ;			/* orientation=rt */
-}
-
-.UIPageIterator .TotalPages {
-  float: left ;			/* orientation=lt */
-  float: right ;		/* orientation=rt */
-  line-height: 20px ; vertical-align: middle;
+	margin-left: 3px; /* orientation=lt */
+	margin-right: 3px; /* orientation=rt */
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
 }
 
 .UIPageIterator .PagesTotalNumber {
-  float: left ;			/* orientation=lt */
-  float: right ;		/* orientation=rt */
-  line-height: 20px ; 
-  vertical-align: middle;
-  color: #0183f1;
-  margin-left: 5px;			/* orientation=lt */
-  margin-right: 5px;		/* orientation=rt */
+	color: #0183F1;
+	margin: 0 10px 0 5px; /* orientation=lt */
+	margin: 0 5px 0 10px; /* orientation=rt */
+	line-height: 22px;	
+	font-size: 12px;
+}
+
+.UIPageIterator .TotalPages {
+	font-size: 12px;
+	line-height: 22px;
 }
 
 /*
@@ -103,31 +104,3 @@
 }
 /* End */
 
-
-.UIPageIterator .Number {
-  float: left ;			/* orientation=lt */
-  float: right ;		/* orientation=rt */
-  padding: 0px 4px 0px 4px ;
-  margin: 0px 6px 0px 3px;		/* orientation=lt */
-  margin: 0px 3px 0px 6px;		/* orientation=rt */
-}
-
-.UIPageIterator .Number a.PageSelected {
-  color: #f16701;
-  font-weight: bold;
-  border: none;
-  border: 1px solid #dfdfdf;
-  padding: 0px 4px 3px 4px;
-}
-
-.UIPageIterator .Number a {
-  padding: 0px 4px 3px 4px;
-  color: #333333 ;
-  border: 1px solid #dfdfdf;
-  background: white;
-}
-
-.UIPageIterator .Number a:hover {
-  color: #058ee6 ;
-  border: 1px solid #b6b6b6;
-}

@@ -1,131 +1,95 @@
 .UIPageIterator {    
-  margin: 3px auto 0px auto ;
+  margin: 5px auto 0px auto ;
   width: 99%;
 }
 
-.UIPageIterator .PageIteratorContainer {    
-  float: right ; 		/* orientation=lt */
-  float: left ; 		/* orientation=rt */
-  line-height: 24px ;  
-  vertical-align: middle ;
-  overflow: hidden; 
+.UIPageIterator a {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	color: #333333;
+	display: block;
 }
 
-.UIPageIterator .PageIteratorContainer .LeftPageIteratorBlock{    
-  float: right ; 		/* orientation=lt */
-  float: left ; 		/* orientation=rt */
-  margin-right: 15px; /* orientation=lt */
-  margin-left: 15px; /* orientation=rt */
+.UIPageIterator .Number {
+  background: url('background/ArrowPageIterator.gif') repeat-x bottom;
+	border: 1px solid #DFDFDF;
+	padding: 0 5px;
+	margin-left: 3px; /* orientation=lt */
+	margin-right: 3px; /* orientation=rt */
+	cursor: pointer;
+	line-height: 15px;
 }
 
-.UIPageIterator .PageIteratorContainer .RightPageIteratorBlock {    
-  float: right ; 		/* orientation=lt */
-  float: left ; 		/* orientation=rt */
+.UIPageIterator .Number:hover {
+	color: #0183F1;
+	border: 1px solid #B6B6B6;
+}
+.UIPageIterator .PageSelected {
+	color: #F16701;
+	font-weight: bold;
 }
 
 .UIPageIterator .Icon {
-  float: left ; 		/* orientation=lt */
-  float: right ; 		/* orientation=rt */
-  margin: 4px 2px 0px 2px ;
-  width: 18px ;  
-  height: 17px ;
-}
-
-.UIPageIterator .TotalPages {
-  float: left ; 		/* orientation=lt */
-  float: right ; 		/* orientation=rt */
-  line-height: 22px ; vertical-align: middle;
+	margin-left: 3px; /* orientation=lt */
+	margin-right: 3px; /* orientation=rt */
+	width: 18px;
+	height: 17px;
+	cursor: pointer;
 }
 
 .UIPageIterator .PagesTotalNumber {
-  float: right ; 		/* orientation=lt */
-  float: left ; 		/* orientation=rt */
-  line-height: 22px ; vertical-align: middle;
-  color: #058ee6; font-weight: bold;
-  margin-left: 5px; /* orientation=lt */
-  margin-right: 5px; /* orientation=rt */
+	color: #0183F1;
+	margin: 0 10px 0 5px; /* orientation=lt */
+	margin: 0 5px 0 10px; /* orientation=rt */
+	line-height: 19px;	
+	font-size: 12px;
+}
+
+.UIPageIterator .TotalPages {
+	font-size: 12px;
+	line-height: 19px;
 }
 
 /*
 * Repair by Duy Tu 09/07/07
 */
 .UIPageIterator .LastTopPageIcon {
-  vertical-align: middle ;
   background: url('background/ArrowPageIterator.gif') no-repeat left top; /* orientation=lt */
   background: url('background/ArrowPageIterator-rt.gif') no-repeat right top; /* orientation=rt */
-  cursor: pointer ;
 }
 
 .UIPageIterator .NextTopPageIcon {
   background: url('background/ArrowPageIterator.gif') no-repeat left -17px ; /* orientation=lt */
   background: url('background/ArrowPageIterator-rt.gif') no-repeat right -17px ; /* orientation=rt */
-  cursor: pointer ;
 }
 
  .UIPageIterator .LastPageIcon {
   background: url('background/ArrowPageIterator.gif') no-repeat left -34px ; /* orientation=lt */
-  background: url('background/ArrowPageIterator-rt.gif') no-repeat right -34px ; /* orientation=rt */
-  cursor: pointer ; 
+  background: url('background/ArrowPageIterator-rt.gif') no-repeat right -34px ; /* orientation=rt */ 
 }
 
 .UIPageIterator .NextPageIcon {
   background: url('background/ArrowPageIterator.gif') no-repeat left -51px ; /* orientation=lt */
   background: url('background/ArrowPageIterator-rt.gif') no-repeat right -51px ; /* orientation=rt */
-  cursor: pointer ;
 }
 
 .UIPageIterator .DisableLastTopPageIcon {
-  vertical-align: middle ;
   background: url('background/ArrowPageIterator.gif') no-repeat left -68px ; /* orientation=lt */
   background: url('background/ArrowPageIterator-rt.gif') no-repeat right -68px ; /* orientation=rt */
-  cursor: pointer ;
 }
 
 .UIPageIterator .DisableNextTopPageIcon {
   background: url('background/ArrowPageIterator.gif') no-repeat left -85px ; /* orientation=lt */
   background: url('background/ArrowPageIterator-rt.gif') no-repeat right -85px ; /* orientation=rt */
-  cursor: pointer ;
 }
 
  .UIPageIterator .DisableLastPageIcon {
   background: url('background/ArrowPageIterator.gif') no-repeat left -102px ; /* orientation=lt */
   background: url('background/ArrowPageIterator-rt.gif') no-repeat right -102px ; /* orientation=rt */
-  cursor: pointer ; 
 }
 
 .UIPageIterator .DisableNextPageIcon {
   background: url('background/ArrowPageIterator.gif') no-repeat left -119px ; /* orientation=lt */
   background: url('background/ArrowPageIterator-rt.gif') no-repeat right -119px ; /* orientation=rt */
-  cursor: pointer ;
 }
 /* End */
-
-.UIPageIterator .Number {
-  float: left ; /* orientation=lt */
-  float: right ; /* orientation=rt */
-  padding: 0px 4px 0px 4px ;
-  margin: 0px 5px ;
-}
-
-.UIPageIterator .Number a.PageSelected {
-  color: #e73c14;
-  font-weight: bold;
-  border: 1px solid #b5b5b5;
-  margin: 0px 2px ;
-  padding: 0px 5px 1px 5px ;
-}
-
-.UIPageIterator .Number a {
-	height: 17px; 
-  margin: 3px 2px ;
-  padding: 0px 5px 1px 5px ;
-  color: #333333 ;
-  border: 1px solid #dfdfdf;
-  background: url('background/ArrowPageIterator.gif') repeat-x bottom;
-}
-
-.UIPageIterator .Number a:hover {
-  color: #0585D7 ;
-  border: 1px solid #0585D7;
-  background:white;
-}
