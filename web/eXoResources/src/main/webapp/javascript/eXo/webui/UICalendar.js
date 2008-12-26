@@ -99,6 +99,8 @@ UICalendar.prototype.show = function() {
   	display = 'block' ;
 //	  left = x + "px" ;
 	  top = y + "px" ;
+	  if(eXo.core.I18n.isLT()) left = "0px";
+	  else right = "0px";
   }
   var posCal = eXo.core.Browser.findPosY(this.dateField) - y;
   var heightCal = document.getElementById('BlockCaledar');

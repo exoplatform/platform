@@ -27,7 +27,7 @@
 	    		String metaName = keys.next();
 	    		String metaContent = metaInformation.get(metaName);
 	  %>
-	   	<meta name="<%=metaName%>" content = "<%=metaContent%>">
+	   	<meta name="<%=metaName%>" content="<%=metaContent%>" />
 	  <% } } %>
 	  
     <link rel="shortcut icon" type="image/x-icon"  href="/portal/favicon.ico" />

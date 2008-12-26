@@ -29,23 +29,13 @@
     min = 1;
     max = 6;
   }
-  if(isLT) {
-	  for( i in min..max) { %>
+	for( i = max ; i >= min; i--) { %>
 	  <%  if( i == currentPage) { %>
 	  <a href="<%=uicomponent.event("ShowPage","$i")%>" class="Number PageSelected"><%=i%></a>
 	  <%  } else { %>
 	  <a href="<%=uicomponent.event("ShowPage","$i")%>" class="Number"><%=i%></a>
 	  <%  } %> 
-	  <%}
-  } else {
-    for( i = max ; i >= min; i--) { %>
-	  <%  if( i == currentPage) { %>
-	  <a href="<%=uicomponent.event("ShowPage","$i")%>" class="Number PageSelected"><%=i%></a>
-	  <%  } else { %>
-	  <a href="<%=uicomponent.event("ShowPage","$i")%>" class="Number"><%=i%></a>
-	  <%  } %> 
-	  <%}%>
-  <%}%>
+	<%}%>
 
 	<%if( currentPage - 1 > 0 ){%>        
 	<a href="<%=uicomponent.event("ShowPage","${currentPage - 1}")%>" class="Icon LastPageIcon" title="<%=_ctx.appRes("UIPageIterator.label.previous")%>"></a>
