@@ -49,8 +49,7 @@ public class DateTimeValidator implements Validator {
     DateFormat stFormat = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
     UIFormDateTimeInput uiDateInput = (UIFormDateTimeInput)uiInput;
     SimpleDateFormat sdf = new SimpleDateFormat(uiDateInput.getDatePattern_().trim());
-    // Specify whether or not date/time parsing is to be lenient. 
-    sdf.setLenient(false);
+    
     UIForm uiForm = ((UIComponent) uiInput).getAncestorOfType(UIForm.class);
     String label;
     try{
@@ -61,6 +60,8 @@ public class DateTimeValidator implements Validator {
     Object[]  args = { label, s } ;
     
     try {
+      // Specify whether or not date/time parsing is to be lenient. 
+      sdf.setLenient(false);
       Date stDate = sdf.parse(s);
       s = stFormat.format(stDate);
     } catch (Exception e) {

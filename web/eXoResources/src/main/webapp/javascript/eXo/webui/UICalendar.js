@@ -80,7 +80,7 @@ UICalendar.prototype.show = function() {
 		var yearIndex = this.datePattern.indexOf("yyyy");
 		this.selectedDate.setFullYear(parseInt(dateFieldValue.substring(yearIndex,yearIndex+4),10)) ;
 		
-		var hourIndex = this.datePattern.indexOf("hh");
+		var hourIndex = this.datePattern.indexOf("HH");
 		this.selectedDate.setHours(parseInt(dateFieldValue.substring(hourIndex,hourIndex+2),10)) ;
 		
 		var minuteIndex = this.datePattern.indexOf("mm");
@@ -247,7 +247,7 @@ UICalendar.prototype.setDate = function(year, month, day) {
 			while(minute.length < 2) { minute = "0" + minute ; }
 			while(second.length < 2) { second = "0" + second ; }
 	
-    	dateString = dateString.replace("hh",hour);
+    	dateString = dateString.replace("HH",hour);
     	dateString = dateString.replace("mm",minute);
     	dateString = dateString.replace("ss",second);
     	//dateString += " " + this.makeTimeString(this.currentHours, this.currentMinutes, this.currentSeconds );
