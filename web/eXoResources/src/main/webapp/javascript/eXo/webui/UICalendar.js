@@ -68,6 +68,27 @@ UICalendar.prototype.show = function() {
 //	  	this.selectedDate.setSeconds(arr[2], 10) ;
 //	  }
 //	}
+	if (this.dateField.value != '') {
+		// TODO: tamnd - set selected date to calendar
+		var dateFieldValue = this.dateField.value;
+		var dateIndex = this.datePattern.indexOf("dd");
+		this.selectedDate.setDate(parseInt(dateFieldValue.substring(dateIndex,dateIndex+2),10)) ; 
+		
+		var monthIndex = this.datePattern.indexOf("MM");
+		this.selectedDate.setMonth(parseInt(dateFieldValue.substring(monthIndex,monthIndex+2) - 1,10)) ;
+		
+		var yearIndex = this.datePattern.indexOf("yyyy");
+		this.selectedDate.setFullYear(parseInt(dateFieldValue.substring(yearIndex,yearIndex+4),10)) ;
+		
+		var hourIndex = this.datePattern.indexOf("hh");
+		this.selectedDate.setHours(parseInt(dateFieldValue.substring(hourIndex,hourIndex+2),10)) ;
+		
+		var minuteIndex = this.datePattern.indexOf("mm");
+		this.selectedDate.setMinutes(parseInt(dateFieldValue.substring(minuteIndex,minuteIndex+2),10)) ;
+		
+		var secondIndex = this.datePattern.indexOf("ss");
+		this.selectedDate.setSeconds(parseInt(dateFieldValue.substring(secondIndex,secondIndex+2),10)) ;
+	}
 	this.currentDate = new Date(this.selectedDate.valueOf()) ;
   var clndr = document.getElementById(this.calendarId) ;
   clndr.firstChild.lastChild.innerHTML = this.renderCalendar() ;
