@@ -113,28 +113,30 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
 
   private void formatPattern(Locale locale) {
     if(isDisplayTime_) {
-      dateFormat_ = SimpleDateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM, locale);
+      dateFormat_ = SimpleDateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM, locale);
     } else {
-      dateFormat_ = SimpleDateFormat.getDateInstance(DateFormat.MEDIUM, locale);
+      dateFormat_ = SimpleDateFormat.getDateInstance(DateFormat.SHORT, locale);
     }
     // convert to unique pattern
     
     setDatePattern_(((SimpleDateFormat)dateFormat_).toPattern());
-    setDatePattern_(getDatePattern_().replaceAll("MMM", "MM"));
     
+    if (!getDatePattern_().contains("yy")) {
+      setDatePattern_(getDatePattern_().replaceAll("y", "yy"));
+    }
+    if (!getDatePattern_().contains("yyyy")) {
+      setDatePattern_(getDatePattern_().replaceAll("yy", "yyyy"));
+    }
     if (!getDatePattern_().contains("dd")) {
       setDatePattern_(getDatePattern_().replaceAll("d", "dd"));
     }
-    
     if (!getDatePattern_().contains("MM")) {
       setDatePattern_(getDatePattern_().replaceAll("M", "MM"));
     }
-    
     setDatePattern_(getDatePattern_().replaceAll("H", "h"));
     if (!getDatePattern_().contains("hh")) {
       setDatePattern_(getDatePattern_().replaceAll("h", "hh"));
     }
-    
     if (getDatePattern_().contains("a")) {
       setDatePattern_(getDatePattern_().replaceAll("a", ""));
     }
