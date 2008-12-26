@@ -144,6 +144,11 @@
 	cursor: pointer;
 }
 
+.UIApplicationRegistryPortlet .CategoryContent .UIVerticalSlideTabs a.TabLabel {
+	background: none;
+	padding: 0px;
+}
+
 .UIApplicationRegistryPortlet .CategoryContent a.TabLabel {
 	display: block;
 	float: left;		/* orientation=lt */

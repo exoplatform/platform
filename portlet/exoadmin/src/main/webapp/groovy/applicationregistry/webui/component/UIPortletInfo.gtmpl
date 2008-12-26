@@ -59,7 +59,7 @@
 	  			<td width="30%"><%= entry.getKey() %></td>
 	  			<td>
 	  			<% for(value in entry.getValue()) { %>
-	  				<div>$value</div>
+	  				<div class="Text">$value</div>
 	  			<% } %>
 	  			</td>
 	  		</tr>
