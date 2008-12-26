@@ -2213,6 +2213,7 @@
     </action>
     <confirm>
       <DeleteContainer>Voulez vous vraiment supprimer ce conteneur ?</DeleteContainer>
+      <DeleteGadget>Are you sure to delete this gadget?</DeleteGadget>
     </confirm>
     <title>
       <manager>Gestion des conteneurs de Gadget</manager>

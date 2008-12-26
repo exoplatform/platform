@@ -2228,6 +2228,7 @@
     </action>
     <confirm>
       <DeleteContainer>Bạn có chắc là muốn xóa container này?</DeleteContainer>
+      <DeleteGadget>Bạn có chắc chắn sẽ xóa Gadget này?</DeleteGadget>
     </confirm>
     <title>
       <manager>Việc Quản Lý Container Gadget</manager>

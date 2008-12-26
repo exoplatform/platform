@@ -2217,6 +2217,7 @@
     </action>
     <confirm>
       <DeleteContainer>Are you sure to delete this container?</DeleteContainer>
+      <DeleteGadget>Are you sure to delete this gadget?</DeleteGadget>
     </confirm>
     <title>
       <manager>Gadget Containers Management</manager>
