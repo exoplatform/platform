@@ -19,7 +19,6 @@
 }
 
 .UITrees .LevelUpArrowIcon {
-  width: 100%;
   height: 20px;
   background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow.gif) no-repeat left center;				/* orientation=lt */
   background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/BlueUpLevelArrow-rt.gif) no-repeat right center;		/* orientation=rt */

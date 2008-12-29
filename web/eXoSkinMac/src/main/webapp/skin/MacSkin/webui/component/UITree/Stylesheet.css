@@ -19,8 +19,7 @@
 }
 
 .UITrees .LevelUpArrowIcon {
-  width: 100%;
-  height: 22px;
+  height: 21px;
   background: url('background/AquaBlueUpLevel.gif') repeat-y left; /* orientation=lt */
   background: url('background/AquaBlueUpLevel-rt.gif') repeat-y right; /* orientation=rt */
   margin-left: 10px; /* orientation=lt */

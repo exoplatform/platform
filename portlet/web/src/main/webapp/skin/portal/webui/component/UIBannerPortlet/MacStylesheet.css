@@ -1,23 +1,23 @@
 .UIBannerPortlet {
-  height: 74px;
   overflow: auto;
+  background: url('MacSkin/background/Banner.gif') repeat-x right -150px;
 }
 
 .UIBannerPortlet .LeftBanner {
-  height: 74px;
   padding: 0px 0px 0px 157px; /* orientation=lt */
-  padding: 0px 157px 0px 0px; /* orientation=rt */
   background: url('MacSkin/background/Banner.gif') no-repeat left top; /* orientation=lt */
   background: url('MacSkin/background/Banner.gif') no-repeat right top; /* orientation=rt */
 }
 
 .UIBannerPortlet .MiddleBanner {
   height: 74px;
-  background: url('MacSkin/background/Banner.gif') repeat-x right -219px;
+}
+
+.UIBannerPortlet .MiddleBannerSignin {
+	_width: 50%; /* orientation=rt */
 }
 
 .UIBannerPortlet .RightBanner {
-  height: 74px;
   padding: 0px 84px 0px 0px ; /* orientation=lt */
   padding: 0px 0px 0px 84px ; /* orientation=rt */
   background: url('MacSkin/background/Banner.gif') no-repeat right -75px; /* orientation=lt */
@@ -26,8 +26,6 @@
 
 .UIBannerPortlet .BannerTitle {
   height: 35px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -150px; /* orientation=lt */
-  background: url('MacSkin/background/Banner.gif') no-repeat right -150px; /* orientation=rt */
   padding: 8px 0px 0px 3px; /* orientation=lt */
   padding: 8px 3px 0px 0px; /* orientation=rt */
 }
@@ -55,7 +53,7 @@
 .UIBannerPortlet .RightLoginContainer .Logout {
   float: left;
   height: 24px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -340px;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -271px;
   margin-right : 15px;
   cursor: pointer;
   padding-left: 28px;
@@ -65,7 +63,7 @@
 .UIBannerPortlet .RightLoginContainer .Login {
   float: left;
   height: 24px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -316px;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -247px;
   margin-right : 15px;
   cursor: pointer;
   padding-left: 28px;
@@ -74,7 +72,7 @@
 
 .UIBannerPortlet .RightLoginContainer .Language {
   height: 22px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -293px;
+  background: url('MacSkin/background/Banner.gif') no-repeat left -224px;
   padding: 0px 7px 0px 26px;
   cursor: pointer;
   float: left;
