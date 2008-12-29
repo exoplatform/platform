@@ -12,7 +12,11 @@
 }
 
 .UIBannerPortlet .MiddleBanner {
-  height: 74px ;
+	height: 74px;
+}
+
+.UIBannerPortlet .MiddleBannerSignin {
+	_width: 50%; /* orientation=rt */
 }
 
 .UIBannerPortlet .LeftLoginContainer {
