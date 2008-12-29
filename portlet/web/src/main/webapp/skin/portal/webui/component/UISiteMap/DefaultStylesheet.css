@@ -38,13 +38,16 @@
 .UISitemap .TitleBar a.Icon {
   margin-left: 5px;  /* orientation=lt */
   margin-right: 5px;  /* orientation=rt */
-  width: auto; height: 22px;
+  width: auto; 
+  height: 22px;
   line-height: 22px;
   overflow: hidden;
   padding-left: 20px; /* orientation=lt */
   padding-right: 20px; /* orientation=rt */
   display: block;
 	color: #1248ac;
+	background-position: left; /* orientation=lt */
+	background-position: right; /* orientation=rt */
 }
 
 .UISitemap .TitleBar .Title {
@@ -91,6 +94,7 @@
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox .BorderBox {
 	padding: 8px 10px 10px 10px;
+	line-height: 16px;
 }
 
 .UISitemap .SitemapItemBox .Item a {

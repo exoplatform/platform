@@ -125,7 +125,8 @@
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .Title {
-	margin-left: 30px;
+  margin-left: 30px;  /* orientation=lt */
+  margin-right: 30px;  /* orientation=rt */
 	line-height: 28px;
 	margin: 0px;
 	font-weight: bold;

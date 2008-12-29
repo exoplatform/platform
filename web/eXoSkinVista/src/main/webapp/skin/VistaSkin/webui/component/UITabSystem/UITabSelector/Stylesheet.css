@@ -8,25 +8,21 @@
 }
 
 .UITabSelector .UIHorizontalTabs .LeftHorizontalTabs{
-  height: 30px;
   background: url('background/TabSelector.gif') no-repeat left top;
   padding-left: 2px;
 }
 
 .UITabSelector .UIHorizontalTabs .RightHorizontalTabs{
-  height: 30px;
   background: url('background/TabSelector.gif') no-repeat right top;
   padding-right: 2px;
 }
 
 .UITabSelector .UIHorizontalTabs .CenterHorizontalTabs {
-  height: 30px;
+  height: 31px;
   background: url('background/TabSelector.gif') repeat-x left -31px;
 }
 
 .UITabSelector .UIHorizontalTabs .TabsContainer {
-  float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
   overflow: hidden;
   padding: 0px;
 }
@@ -66,8 +62,6 @@
 }
 
 .UITabSelector .FlatTabStyle .NormalTab .MiddleTab .TabIcon {
-  float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
   margin: 1px 4px 0px 0px; /* orientation=lt */
 	margin: 1px 0px 0px 4px; /* orientation=rt */
 	height: auto;
@@ -107,8 +101,6 @@
 }
 
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .TabIcon {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
   margin: 1px 4px 0px 0px; /* orientation=lt */
 	margin: 1px 0px 0px 4px; /* orientation=rt */
 	height: auto;
@@ -117,8 +109,19 @@
 	padding-right: 25px;  /* orientation=rt */
 }
 
+.UITabSelector .FlatTabStyle .UIPermissionSelector24x24Icon {
+  background: url(/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/IconEditPermission.png) no-repeat left; /* orientation=lt */
+  background: url(/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/IconEditPermission-rt.png) no-repeat right; /* orientation=rt */
+}
+
+.UITabSelector .FlatTabStyle .UIListPermissionSelector24x24Icon {
+  background: url(/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/IconAccessPermission.png) no-repeat left; /* orientation=lt */
+  background: url(/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/IconAccessPermission-rt.png) no-repeat right; /* orientation=rt */
+}
+
 .UITabSelector .FlatTabStyle .SelectedTab .MiddleTab .Title {
-  margin-left: 30px;
+  margin-left: 30px;  /* orientation=lt */
+  margin-right: 30px;  /* orientation=rt */
   line-height: 28px;
   margin: 0px;
   font-weight: bold;

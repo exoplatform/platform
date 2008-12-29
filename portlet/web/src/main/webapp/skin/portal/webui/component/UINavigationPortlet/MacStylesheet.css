@@ -18,6 +18,8 @@
 .UINavigationPortlet .MiddleTab .TabLabel {
   padding: 0px 0px 0px 20px ; /* orientation=lt */
   padding: 0px 20px 0px 0px ; /* orientation=rt */
+  background-position: left; /* orientation=lt */
+  background-position: right; /* orientation=rt */
   display: block;
 }
 

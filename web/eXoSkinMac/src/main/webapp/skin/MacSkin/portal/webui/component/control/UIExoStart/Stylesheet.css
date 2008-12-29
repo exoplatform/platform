@@ -69,11 +69,13 @@
 	cursor: pointer;
 }
 
-.UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
+.UIExoStart .StartMenuContainer .Icon {
 	padding: 0px 0px 0px 33px; /* orientation=lt */
 	padding: 0px 33px 0px 0px; /* orientation=rt */
 	margin: 0px 0px 0px 5px; /* orientation=lt */
 	margin: 0px 5px 0px 0px; /* orientation=rt */
+  background-position: left; /* orientation=lt */
+  background-position: right; /* orientation=rt */
 	height: 38px;
 	width: auto;
 }

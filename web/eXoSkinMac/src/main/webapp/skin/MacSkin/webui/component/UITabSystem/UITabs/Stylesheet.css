@@ -47,7 +47,8 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
   color: #2d2d2d;
-  margin-right: 2px;
+  margin-right: 2px; /* orientation=lt */
+  margin-left: 2px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
@@ -63,7 +64,8 @@
 .UIHorizontalTabs .UITab .HighlightNavigationTab {
   line-height: 24px; 
   margin-top: 8px; 
-  margin-left: 1px;
+  margin-left: 1px; /* orientation=lt */
+  margin-right: 1px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
@@ -90,7 +92,8 @@
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
   color: #0f33c6;
-  margin-right: 2px;
+  margin-right: 2px; /* orientation=lt */
+  margin-left: 2px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {

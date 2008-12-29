@@ -62,6 +62,17 @@
 	cursor: pointer;
 }
 
+.UIExoStart .StartMenuContainer .Icon {
+	padding: 0px 0px 0px 30px; /* orientation=lt */
+	padding: 0px 30px 0px 0px; /* orientation=rt */
+	margin: 0px 0px 0px 5px; /* orientation=lt */
+	margin: 0px 5px 0px 0px; /* orientation=rt */
+  background-position: left; /* orientation=lt */
+  background-position: right; /* orientation=rt */
+	height: 32px; 
+	width: auto;
+}
+
 .UIExoStart .StartMenuContainer .AdministrationIcon {
 	background: url('background/StartMenuContainer.gif') no-repeat left -152px; /* orientation=lt */
 	background: url('background/StartMenuContainer.gif') no-repeat right -152px; /* orientation=rt */
@@ -169,14 +180,6 @@
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItem {
 	background: transparent;
 	color: #1b1b1b;
-}
-
-.UIExoStart .StartMenuContainer .MenuItemContainer .Icon {
-	padding: 0px 0px 0px 30px; /* orientation=lt */
-	padding: 0px 30px 0px 0px; /* orientation=rt */
-	margin: 0px 0px 0px 5px; /* orientation=lt */
-	margin: 0px 5px 0px 0px; /* orientation=rt */
-	height: 32px; width: auto;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItemOver {
