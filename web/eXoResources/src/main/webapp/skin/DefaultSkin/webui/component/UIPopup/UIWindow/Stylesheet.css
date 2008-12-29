@@ -19,7 +19,7 @@
 .UIPageBody .UIWindow .ResizeArea {
 	float: right;
 	width: 0px; height: 0px;
-	background: url('null') repeat bottom right;
+	background: none;
 }
 
 .UIPageBody .Empty {
