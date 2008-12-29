@@ -75,9 +75,9 @@
 }
 
 .UIExoStart .StartMenuContainer .Icon {
-  padding: 0px 0px 0px 35px;  /* orientation=lt */
-  margin: 0px 0px 0px 6px;  /* orientation=lt */
+  padding: 0px 0px 0px 35px;  /* orientation=lt */  
   padding: 0px 35px 0px 0;  /* orientation=rt */
+	margin: 0px 0px 0px 6px;  /* orientation=lt */
   margin: 0px 6px 0px 0;  /* orientation=rt */
   background-position: left; /* orientation=lt */
   background-position: right; /* orientation=rt */
@@ -100,8 +100,8 @@
   background: url('background/ExoStart.png') no-repeat left -480px; 	/* orientation=lt */
   background: url('background/ExoStart-rt.png') no-repeat right -480px; 	/* orientation=rt */
   padding: 0px 0px 0px 42px ; 	/* orientation=lt */
-  margin: 0px 0px 0px 5px ; 	/* orientation=rt */
-  padding: 0px 42px 0px 0px ; 	/* orientation=lt */
+ 	padding: 0px 42px 0px 0px ; 	/* orientation=rt */
+  margin: 0px 0px 0px 5px ; 	/* orientation=lt */  
   margin: 0px 5px 0px 0px ; 	/* orientation=rt */
 }
 
@@ -109,9 +109,9 @@
   height: 35px ;
   background: url('background/ExoStart.png') no-repeat left -515px; 	/* orientation=lt */
   background: url('background/ExoStart-rt.png') no-repeat right -515px; 	/* orientation=rt */
-  padding: 0px 0px 0px 42px ; 	/* orientation=lt */
-  margin: 0px 0px 0px 5px ; 	/* orientation=rt */
-  padding: 0px 42px 0px 0px ; 	/* orientation=lt */
+  padding: 0px 0px 0px 42px ; 	/* orientation=lt */ 
+  padding: 0px 42px 0px 0px ; 	/* orientation=rt */
+  margin: 0px 0px 0px 5px ; 	/* orientation=lt */
   margin: 0px 5px 0px 0px ; 	/* orientation=rt */
 }
 
@@ -119,9 +119,9 @@
   height: 35px ;
   background: url('background/ExoStart.png') no-repeat left -550px; 	/* orientation=lt */
   background: url('background/ExoStart-rt.png') no-repeat right -550px; 	/* orientation=rt */
-  padding: 0px 0px 0px 42px ; 	/* orientation=lt */
-  margin: 0px 0px 0px 5px ; 	/* orientation=rt */
-  padding: 0px 42px 0px 0px ; 	/* orientation=lt */
+  padding: 0px 0px 0px 42px ; 	/* orientation=lt */  
+  padding: 0px 42px 0px 0px ; 	/* orientation=rt */
+ 	margin: 0px 0px 0px 5px ; 		/* orientation=lt */
   margin: 0px 5px 0px 0px ; 	/* orientation=rt */
 }
 
@@ -129,9 +129,9 @@
   height: 35px ;
   background: url('background/ExoStart.png') no-repeat left -584px; 	/* orientation=lt */
   background: url('background/ExoStart-rt.png') no-repeat right -584px; 	/* orientation=rt */
-  padding: 0px 0px 0px 42px ; 	/* orientation=lt */
-  margin: 0px 0px 0px 5px ; 	/* orientation=rt */
-  padding: 0px 42px 0px 0px ; 	/* orientation=lt */
+  padding: 0px 0px 0px 42px ; 	/* orientation=lt */ 
+  padding: 0px 42px 0px 0px ; 	/* orientation=rt */
+  margin: 0px 0px 0px 5px ; 	/* orientation=lt */
   margin: 0px 5px 0px 0px ; 	/* orientation=rt */
 }
 
@@ -139,9 +139,9 @@
   height: 35px ;
   background: url('background/ExoStart.png') no-repeat left -515px; 	/* orientation=lt */
   background: url('background/ExoStart-rt.png') no-repeat right -515px; 	/* orientation=rt */
-  padding: 0px 0px 0px 42px ; 	/* orientation=lt */
-  margin: 0px 0px 0px 5px ; 	/* orientation=rt */
-  padding: 0px 42px 0px 0px ; 	/* orientation=lt */
+  padding: 0px 0px 0px 42px ; 	/* orientation=lt */  
+  padding: 0px 42px 0px 0px ; 	/* orientation=rt */
+ 	margin: 0px 0px 0px 5px ; 		/* orientation=lt */
   margin: 0px 5px 0px 0px ; 	/* orientation=rt */
 }
 
@@ -149,9 +149,9 @@
   height: 35px ;
   background: url('background/ExoStart.png') no-repeat left -620px; 	/* orientation=lt */
   background: url('background/ExoStart-rt.png') no-repeat right -620px; 	/* orientation=rt */
-  padding: 0px 0px 0px 32px ; 	/* orientation=lt */
-  margin: 0px 0px 0px 5px ; 	/* orientation=rt */
-  padding: 0px 32px 0px 0px ; 	/* orientation=lt */
+  padding: 0px 0px 0px 42px ; 	/* orientation=lt */  
+  padding: 0px 42px 0px 0px ; 	/* orientation=rt */
+  margin: 0px 0px 0px 5px ; 	/* orientation=lt */
   margin: 0px 5px 0px 0px ; 	/* orientation=rt */
 }
 
@@ -159,9 +159,9 @@
   height: 35px ;
   background: url('background/ExoStart.png') no-repeat left -655px; 	/* orientation=lt */
   background: url('background/ExoStart-rt.png') no-repeat right -655px; 	/* orientation=rt */
-  padding: 0px 0px 0px 28px ; 	/* orientation=lt */
-  margin: 0px 0px 0px 5px ; 	/* orientation=rt */
-  padding: 0px 28px 0px 0px ; 	/* orientation=lt */
+  padding: 0px 0px 0px 28px ; 	/* orientation=lt */  
+  padding: 0px 28px 0px 0px ; 	/* orientation=rt */
+	margin: 0px 0px 0px 5px ; 	/* orientation=lt */
   margin: 0px 5px 0px 0px ; 	/* orientation=rt */
 }
 
@@ -356,9 +356,9 @@
 
 .UIExoStart .StartMenuContainer .LanguageSettingIcon {
   background: url(background/ExoStart.png) no-repeat left -339px;	/* orientation=lt */
-  padding: 0px 0px 0px 42px ;	/* orientation=lt */
+  padding: 0px 0px 0px 32px ;	/* orientation=lt */
   background: url(background/ExoStart-rt.png) no-repeat right -339px;	/* orientation=rt */
-  padding: 0px 42px 0px 0px ;	/* orientation=rt */
+  padding: 0px 32px 0px 0px ;	/* orientation=rt */
   height: 35px;
 }
 
