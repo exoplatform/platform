@@ -41,6 +41,8 @@
   line-height: 25px;
   padding-left: 10px;  /* orientation=lt */
   padding-right: 10px; /* orientation=rt */
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {

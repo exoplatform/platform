@@ -44,6 +44,8 @@
   height: 33px; 
   line-height: 26px; 
   vertical-align: middle;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {

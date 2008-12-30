@@ -315,10 +315,11 @@
 .UIApplicationRegistryPortlet .ApplicationContent table {
 	table-layout: fixed;
 	width: 99%;
+	line-height: 18px;
 }
 
 .UIApplicationRegistryPortlet .ApplicationContent .RightLabel {
-	width: 80%;
+	width: 78%;
 	overflow: hidden;
 	padding: 0px 4px;
 }
@@ -337,7 +338,8 @@
 	font-weight: bold;
 	font-size: 11px;
 	color: black;
-	text-align: right;
+	text-align: right; /* orientation=lt */
+	text-align: left;	/* orientation=rt */
 	white-space: nowrap;
 }
 

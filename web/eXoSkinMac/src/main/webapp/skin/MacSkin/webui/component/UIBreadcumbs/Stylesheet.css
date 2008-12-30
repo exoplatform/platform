@@ -50,6 +50,8 @@
 	line-height: 33px; 
 	vertical-align: middle;
 	background: url('background/Breadcumbs.png') repeat-x bottom;
+	overflow: hidden;
+  white-space: nowrap;
 }
 
 .UIBreadcumbs .RightBlackGridArrowIcon {

@@ -23,6 +23,7 @@
   		<div title="Portlet 1" class="PortletIcons">
   				<img src="$srcBG" onError="src='$srcBGError'" alt=""/>
   		</div>
+  		<!--
   		<div class="ApplicationContent">
   		  <div class="TitleBarApplication">
   		  	<span class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.display")%></span>
@@ -38,6 +39,27 @@
 						<span class="RightLabel"><%= portlet.getDescription() %></span>
           </div>
   		  </div>
+  		</div>
+  		-->
+  		<div class="ApplicationContent">
+  		  <table class="TitleBarApplication">
+  		  	<tr>
+  		  		<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.display")%></td>
+  		    	<td class="RightLabel"><%= portlet.getDisplayName() %></td>
+  		    </tr>
+  		  </table>
+  		  <table>
+  		  	<tr>
+  		  		<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.name")%></td>
+  		    	<td class="RightLabel"><%= portlet.getName() %></td>
+  		    </tr>
+  		  </table>
+  		  <table>
+  		  	<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.description")%></td>
+						<td class="RightLabel"><%= portlet.getDescription() %></td>
+					</tr>
+      	</table>
   		</div>
 
 		</div>
