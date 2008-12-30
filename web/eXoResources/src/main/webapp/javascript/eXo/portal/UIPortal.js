@@ -357,7 +357,7 @@ UIPortal.prototype.changeSkin = function(url) {
  }
  if(skin == undefined) skin = '';
   ajaxAsyncGetRequest(url + '&skin='+skin, false);
-  window.location.reload() ;
+  window.location = eXo.env.server.portalBaseURL;
 } ;
 
 UIPortal.prototype.changeLanguage = function(url) {
@@ -367,7 +367,7 @@ UIPortal.prototype.changeLanguage = function(url) {
 	}
 	if(language == undefined) language = '';  
   ajaxAsyncGetRequest(url + '&language='+language, false);
-  window.location.reload() ;
+  window.location = eXo.env.server.portalBaseURL;
 } ;
 
 UIPortal.prototype.changePortal = function(accessPath, portal) {
