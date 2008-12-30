@@ -550,10 +550,11 @@
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .LeftItem {
   background: url('background/SelectedItem.png') no-repeat left -72px;
   padding-left: 30px;
-   margin: auto;
+  margin: auto;
   overflow: hidden;
   white-space: nowrap;
   width: 84%;
+	border: 1px solid red;
 }
 
 
@@ -563,13 +564,14 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
-  height: 24px; line-height: 23px; 
+  height: 24px; 
+	line-height: 23px; 
   background: url('background/SelectedItem.png') repeat-x left -96px ;
   color: #059ce2;
   padding-left: 3px;
   white-space: nowrap;
   overflow: hidden;
-  width: 138px;
+  width: 135px;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .CenterItemTitle {
