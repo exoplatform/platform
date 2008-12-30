@@ -31,11 +31,11 @@ UIPortalNavigation.prototype.onLoad = function() {
   var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace");
   var uiNavPortlets = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWorkspace, "div", "UINavigationPortlet");
   if (uiNavPortlets.length) {
-  		var mainContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiNavPortlets[0], "div", "TabsContainer");
-	 		eXo.portal.UIPortalNavigation.init(uiNavPortlets[0], mainContainer, 0, 0);
-  		for (var i = 1; i < uiNavPortlets.length; ++i) {
-					uiNavPortlets[i].style.display = "none";
-  		}
+		var mainContainer = eXo.core.DOMUtil.findFirstDescendantByClass(uiNavPortlets[0], "div", "TabsContainer");
+ 		eXo.portal.UIPortalNavigation.init(uiNavPortlets[0], mainContainer, 0, 0);
+		for (var i = 1; i < uiNavPortlets.length; ++i) {
+				uiNavPortlets[i].style.display = "none";
+		}
   }
 };
 /**
@@ -273,8 +273,13 @@ UIPortalNavigation.prototype.onMenuItemOver = function(e) {
 UIPortalNavigation.prototype.showMenuItemContainer = function(menuItem, menuItemContainer) {
   var x = menuItem.offsetWidth;
   var y = menuItem.offsetTop;
-  this.superClass.setPosition(menuItemContainer, x, y, eXo.core.I18n.isRT());
   this.superClass.show(menuItemContainer);
+  var posRight = eXo.core.Browser.getBrowserWidth() - eXo.core.Browser.findPosX(menuItem) - menuItem.offsetWidth ; 
+  var rootX = (eXo.core.I18n.isLT() ? eXo.core.Browser.findPosX(menuItem) : posRight) ;
+	if (x + menuItemContainer.offsetWidth + rootX > eXo.core.Browser.getBrowserWidth()) {
+  	x -= (menuItemContainer.offsetWidth + menuItem.offsetWidth) ;
+  }
+  this.superClass.setPosition(menuItemContainer, x, y, eXo.core.I18n.isRT());
 };
 /**
  * When the mouse goes out a menu item from the main nav menu
