@@ -17,6 +17,7 @@
     String  href = uicomponent.event("ChangePage",  nav.getId() + "::" + node.getUri()) ;
     String icon = node.getIcon();
     if(icon == null) icon = "DefaultPageIcon";
+    String label = (node.resolvedLabel.length() > 60 ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel); 
     print """
       <div class="MenuItem">
         <div class="LabelItem">
@@ -24,9 +25,9 @@
           	<div class="LabelText">
 		""";
 						if(node.pageReference != null) {
-				        print """<a href="#" onclick="$href">$node.resolvedLabel</a>""";
+				        print """<a href="#" onclick="$href" title="$node.resolvedLabel">$label</a>""";
 						} else {
-								print """<a href="#" >$node.resolvedLabel</a>""";
+								print """<a href="#" title="$node.resolvedLabel">$label</a>""";
 						}
 		print """
 						</div>
@@ -42,6 +43,8 @@
     String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;
   	String scrollDownTitle = _ctx.appRes("UIExoStart.tooltip.scrollDown") ;
     if(icon == null) icon = "DefaultPageIcon";
+    String label = node.resolvedLabel;
+    if(label.length() > 60) label = label.substring(0, 57) + "..." ;
     print """
       <div class="MenuItem">
         <div class="LabelItem">
@@ -50,9 +53,9 @@
               <div class="LabelText ">
 		""";
 					if(node.pageReference != null ){
-            	print """<a href="#" onclick="$href">$node.resolvedLabel</a>""";
+            	print """<a href="#" onclick="$href" title="$node.resolvedLabel">$label</a>""";
           }else {
-          		print """<a href="#" >$node.resolvedLabel</a>""";
+          		print """<a href="#" title="$node.resolvedLabel">$label</a>""";
           }
     print """
     					</div>
@@ -124,7 +127,8 @@
   }
   
   void renderNavigations() {
-    String label = _ctx.appRes(uicomponent.getId() + ".item.PageNavigation") ;
+    String title = _ctx.appRes(uicomponent.getId() + ".item.PageNavigation") ;
+    String label = title.length() > 60 ? title.substring(0, 57) : title ;
     String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;
   	String scrollDownTitle = _ctx.appRes("UIExoStart.tooltip.scrollDown") ;
     print """
@@ -132,7 +136,7 @@
         <div class="LabelItem">
           <div class="NavigationBackground">
             <div class="NavigationArrowIcon">
-              <div class="LabelText">${label}</div>
+              <div class="LabelText" title="$title">${label}</div>
             </div>
           </div>
         </div>
@@ -184,7 +188,8 @@
   }
   
   void renderMenuItemContainer(UIExoStart.MenuItemContainer item) {
-    String label = _ctx.appRes(uicomponent.getId() + ".item."+item.name) ;
+    String title = _ctx.appRes(uicomponent.getId() + ".item."+item.name) ;
+    String label = (title.length() > 60) ? title.substring(0, 57) + "..." : title ;
     String scrollUpTitle = _ctx.appRes("UIExoStart.tooltip.scrollUp") ;
   	String scrollDownTitle = _ctx.appRes("UIExoStart.tooltip.scrollDown") ;
     print """
@@ -192,7 +197,7 @@
         <div class="LabelItem">
           <div class="Icon $item.icon">
             <div class="BlackArrowIcon">
-              <div class="LabelText">${label}</div>
+              <div class="LabelText" title="$title">${label}</div>
             </div>
           </div>
         </div>
@@ -239,7 +244,8 @@
 
   void renderMenuItemAction(UIExoStart.MenuItemAction item) {  	
     String name = item.getName() ;
-    String label = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
+    String title = _ctx.appRes(uicomponent.getId() + ".item."+name) ;
+    String label = title.length() > 60 ? title.substring(0, 57) + "..." : title ;
     String  href ;
     if(item.useAjax()) href = uicomponent.event(item.getAction(), name) ;
     else href = uicomponent.url(item.getAction(), name) ;
@@ -247,7 +253,7 @@
       <div class="MenuItem">
         <div class="LabelItem">
           <div class="Icon $item.icon">
-            <div class="LabelText"><a href="#" onclick="$href">${label}</a></div>
+            <div class="LabelText"><a href="#" onclick="$href" title="$title">${label}</a></div>
           </div>
         </div>
       </div>
