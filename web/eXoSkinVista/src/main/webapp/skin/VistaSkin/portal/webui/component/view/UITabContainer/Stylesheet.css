@@ -21,34 +21,41 @@
 
 .UITabContainer .TabLabel {
 	padding: 0px 10px 0px 2px;
-	height: 26px; line-height: 26px;
+	height: 26px; 
+	line-height: 26px;
 }
 
 .UITabContainer .SelectedTab .CloseIcon {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 16px; height: 20px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedCloseTab.gif') no-repeat bottom;
 }
 
 .UITabContainer .NormalTab .CloseIcon {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 16px; height: 20px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalCloseTab.gif') no-repeat bottom;
 }
 
 .UITabContainer .EditIcon {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	_float: none;
 }
 
 .UITabContainer .SelectedTab .EditIcon {
 	height: 26px;	width: 16px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedEditTab.gif') no-repeat center ;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat center ; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil-rt.png') no-repeat center ; /* orientation=rt */
 }
 
 .UITabContainer .NormalTab .EditIcon  {
-	height: 26px;	width: 16px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center ;
+	height: 26px;	
+	width: 16px;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat center ; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil-rt.png') no-repeat center ; /* orientation=rt */
 }
 
 .UITabContainer .UIApplicationRegistryPortlet .UIAvailablePortletForm .HorizontalLayout {

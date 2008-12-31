@@ -13,13 +13,14 @@
 }
 
 .UITabContainer a.TabLabel {
-	padding: 0px 10px 0px 2px;
+	padding: 0px 10px 0px 2px; /* orientation=lt */
+	padding: 0px 2px 0px 10px; /* orientation=rt */
 	line-height: 22px; 
 }
 
 .UITabContainer .EditIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	_float: none;
 }
 
@@ -29,12 +30,14 @@
 
 .UITabContainer .SelectedTab .EditIcon {
 	width: 16px; height: 24px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedEditTab.gif') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedEditTab.gif') no-repeat center; /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectedEditTab-rt.gif') no-repeat center; /* orientation=rt */
 }
 
 .UITabContainer .NormalTab .EditIcon {
-	margin: 0px 8px 0px 2px;/* orientation=lt */
-	margin: 0px 2px 0px 8px;/* orientation=rt */
+	margin: 0px 8px 0px 2px; /* orientation=lt */
+	margin: 0px 2px 0px 8px; /* orientation=rt */
 	width: 16px; height: 24px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab.gif') no-repeat center; /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NormalEditTab-rt.gif') no-repeat center; /* orientation=rt */
 }

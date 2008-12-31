@@ -182,6 +182,7 @@
   background: url('background/NavigationTab.png') repeat-x left -48px;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
+  _width: 70px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab {
@@ -237,6 +238,7 @@
   background: url('background/NavigationTab.png') repeat-x bottom;
   cursor: pointer;
   padding: 0px 4px;
+  _width: 70px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab a{

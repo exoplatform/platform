@@ -214,6 +214,7 @@
   padding-left: 5px;
   line-height: 26px; 
   background: url('background/NormalTabStyle.gif') no-repeat left top;
+  _width: 70px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
@@ -226,7 +227,7 @@
   line-height: 26px;
   background: url('background/NormalTabStyle.gif') repeat-x left -26px;
   cursor: pointer;
-  padding: 0px 4px 0px 4px;
+  padding: 0px 4px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab {
@@ -254,18 +255,19 @@
   line-height: 26px;
   background: url('background/NormalTabStyle.gif') repeat-x left -78px;
   cursor: pointer;
-  padding: 0px 5px 0px 5px;
+  padding: 0px 5px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab {
   color: #307dcc;
   margin-right: 1px;
-   line-height: 27px;
+  line-height: 27px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
   padding-left: 4px;
   background: url('background/NormalTabStyle.gif') no-repeat left -104px;
+  _width: 70px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
@@ -277,7 +279,7 @@
   line-height: 27px;
   background: url('background/NormalTabStyle.gif') repeat-x center -131px;
   cursor: pointer;
-  padding: 0px 4px 0px 4px;
+  padding: 0px 4px;
 }
 
 /*==============================NormalTab for MessageTab=====================*/

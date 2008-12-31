@@ -176,6 +176,7 @@
   background: url('background/NormalTabStyle.gif') repeat-x center -48px;
   cursor: pointer;
   padding: 0px 4px 0px 4px;
+  _width: 60px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab {
@@ -205,7 +206,7 @@
   line-height: 24px;
   background: url('background/NormalTabStyle.gif') repeat-x center -96px;
   cursor: pointer;
-  padding: 0px 4px 0px 4px;
+  padding: 0px 4px;
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab {
@@ -235,7 +236,8 @@
   background: url('background/NormalTabStyle.gif') repeat-x center -144px;
   cursor: pointer;
   font-weight: normal;
-  padding: 0px 4px 0px 4px;
+  padding: 0px 4px;
+  _width: 60px; /* orientation=rt */
 }
 
 /*###########################-- MessageTabDialog --############################*/
