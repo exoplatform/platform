@@ -9,16 +9,14 @@
 	background: url('background/WidgetControlIcon.gif') no-repeat top;/* orientation=lt */
 	background: url('background/WidgetControlIcon-rt.gif') no-repeat top;/* orientation=rt */
 	cursor: pointer;
-	margin: 2px 0px;/* orientation=lt */
-	margin: 1px 0px;/* orientation=t */
+	margin: 2px 0px;
 }
 
 .UIWidgets .ItemSelectorContainer .UIDropDownControl {
 	width: 215px ;
 	float: left;/* orientation=lt */
 	float: right;/* orientation=rt */
-	margin-top: 2px;/* orientation=lt */
-	margin-top: 1px;/* orientation=rt */
+	margin-top: 2px;
 }
 
 .UIWidgets .WidgetDecorator {
