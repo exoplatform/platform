@@ -142,7 +142,7 @@
 	background: url("DefaultSkin/background/UIBrowserPortlet-rt.gif") white no-repeat right -265px; /* orientation=rt */
 	padding: 0px 2px 0px 22px; /* orientation=lt */
 	padding: 0px 22px 0px 2px; /* orientation=rt */
-	margin: 1px 5px 0px 0px; /* orientation=lt */
+	margin: 1px 100px 0px 9px; /* orientation=lt */
 	margin: 1px 9px 0px 100px; /* orientation=rt */
 	border: inset 1px gray;
 }
