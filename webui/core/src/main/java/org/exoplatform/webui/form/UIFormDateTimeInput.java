@@ -166,7 +166,7 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
     
     if(date != null) {
       value_ = dateFormat_.format(date) ;
-    } else {
+    } else if (value_ == null) {
       value_ = "";
     }
     
