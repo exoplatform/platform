@@ -152,7 +152,7 @@
   <SpecialCharacterValidator>
     <msg>
       <invalid-digit>الميدان"(0)" يجب أن يبتدأ بحرف</invalid-digit>
-      <Invalid-char>Only alpha, digit, underscore and space characters allowed for the field {0}</Invalid-char>
+      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </SpecialCharacterValidator>
   <!--
@@ -194,7 +194,7 @@
   <UIPageNavigationControlBar>
     <tooltip>
       <Finish>إنقاذ واقفال</Finish>
-      <Rollback>Roll Back</Rollback>
+      <Rollback>رجوع</Rollback>
       <SaveNavigation>احفظ التصفح</SaveNavigation>
       <EditNavigation>تحريرالتصفح</EditNavigation>
       <CreateNavigation>إنشاء تصفح صفحة جديدة </CreateNavigation>
@@ -213,13 +213,13 @@
   <UIPortalManagementControlBar>
     <tooltip>
       <Finish>إنقاذ واقفال</Finish>
-      <RollBack>RollBack</RollBack>
+      <RollBack>رجوع</RollBack>
       <Save>احفظ</Save>
       <Abort>الغاء</Abort>
       <ViewMode>اعرض الأسلوب</ViewMode>
       <EditMode>تحرير طريقة التنسيق</EditMode>
       <BrowserPortal>تصفح البوابة</BrowserPortal>
-      <Rollback>Rollback</Rollback>
+      <Rollback>رجوع</Rollback>
     </tooltip>
   </UIPortalManagementControlBar>
   <!--
@@ -231,7 +231,7 @@
   -->
   <IdentifierValidator>
     <msg>
-      <Invalid-char>Only alpha, digit and underscore characters allowed for the field {0}</Invalid-char>
+      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </IdentifierValidator>
   <!--
@@ -355,7 +355,7 @@
   -->
   <NameValidator>
     <msg>
-      <Invalid-char>Only alpha, digit, dot, dash and underscore characters are allowed for the field {0}</Invalid-char>
+      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </NameValidator>
   <FirstCharacterNameValidator>
@@ -403,12 +403,12 @@
   </UIUserProfileInputSet>
   <UIGroupMembershipForm>
     <msg>
-      <user-not-exist>User {0} doesn't exist</user-not-exist>
-      <user-not-empty>User name can not be empty!</user-not-empty>
-      <Invalid-char>The field {0} only has alpha, digit, comma characters and has to start and end with letter characters</Invalid-char>
-      <duplicate-user>User {0} duplicate</duplicate-user>
-      <group-not-select>Please select a group!</group-not-select>
-      <membership-exist>The membership type of user {0} is already in {1} group, please select another one!</membership-exist>
+      <user-not-exist>المستخدم "(0)" لا وجود له</user-not-exist>
+      <user-not-empty>اسم المستخدم لا يمكن أن يكون فارغا</user-not-empty>
+      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <duplicate-user>المستخدم "(0)" متكرر</duplicate-user>
+      <group-not-select>!الرجاء اختيار مجموعة</group-not-select>
+      <membership-exist>!نوع العضوية للمستخدم "(0)"  موجود في المجموعة "(1)"، يرجى اختيار واحد آخر</membership-exist>
     </msg>
   </UIGroupMembershipForm>
   <UILoginForm>
@@ -650,63 +650,63 @@
   -->
   <UIPageSelector>
     <header>
-      <name>Name</name>
-      <id>Page Id</id>
-      <accessGroups>Access groups</accessGroups>
+      <name>اسم</name>
+      <id>تعريفة الصفحة</id>
+      <accessGroups>الدخول للمجموعة</accessGroups>
       <title>#{word.title}</title>
       <action>#{word.action}</action>
     </header>
     <label>
-      <clearPage>Clear Page</clearPage>
-      <searchandSelectPage>Search and Select Page</searchandSelectPage>
-      <currentSelectedPage>Current Selected Page Info</currentSelectedPage>
-      <title>Title</title>
+      <clearPage>حذف محتويات الصفحة</clearPage>
+      <searchandSelectPage>بحث واختيار الصفحة</searchandSelectPage>
+      <currentSelectedPage>معلومات الصفحة المختارة الحالية</currentSelectedPage>
+      <title>العنوان</title>
       <name>#{word.name}</name>
-      <accessGroups>Access groups</accessGroups>
+      <accessGroups>الدخول للمجموعة</accessGroups>
     </label>
   </UIPageSelector>
   <UIPageBrowser>
     <msg>
-      <NoPermission>You have no permission to access this page!</NoPermission>
-      <PageNotExist>Page doesn't exits!</PageNotExist>
-      <UserNotPermission>You have no permission to access the node's page!</UserNotPermission>
-      <InvalidQueryException>Invalid Query!</InvalidQueryException>
-      <Invalid-viewPermission>{0} page doesn't allow to access</Invalid-viewPermission>
-      <Invalid-editPermission>{0} page doesn't allow to edit</Invalid-editPermission>
-      <Invalid-deletePermission>{0} page doesn't allow to delete</Invalid-deletePermission>
-      <Invalid-Preview>This page is Desktop type. It doesn't allow to preview!</Invalid-Preview>
-      <NotViewPage>You do not have right to view this page.</NotViewPage>
+      <NoPermission>!ليس لديك تصريح للحصول على هذه الصفحة</NoPermission>
+      <PageNotExist>!الصفحة لا توجد</PageNotExist>
+      <UserNotPermission>!ليس لديك تصريح للوصول إلى عقدة الصفحة</UserNotPermission>
+      <InvalidQueryException>!الاستعلام غير صالح </InvalidQueryException>
+      <Invalid-viewPermission>الصفحة  "(0)" لا تسمح الدخول</Invalid-viewPermission>
+      <Invalid-editPermission>الصفحة "(0)" لا تسمح التحرير</Invalid-editPermission>
+      <Invalid-deletePermission>الصفحة "(0)" لا تسمح الحذف</Invalid-deletePermission>
+      <Invalid-Preview>!هذه الصفحة من نوع مكتب. انها لا تسمح المعاينة</Invalid-Preview>
+      <NotViewPage>ليس لديك الحق لمشاهدة هذه الصفحة</NotViewPage>
       <edit>
-        <NotEditPage>You do not have right to edit this page.</NotEditPage>
+        <NotEditPage>ليس لديك الحق في تحرير هذه الصفحة</NotEditPage>
       </edit>
       <delete>
-        <NotDelete>You do not have right to delete this page.</NotDelete>
+        <NotDelete>ليس لديك الحق في حذف هذه الصفحة</NotDelete>
       </delete>
     </msg>
     <selectItem>
-      <ownerType>Owner Type</ownerType>
-      <ownerId>Owner Id</ownerId>
-      <name>Name</name>
+      <ownerType>نوع المالك</ownerType>
+      <ownerId>تعريفة المالك</ownerId>
+      <name>اسم</name>
     </selectItem>
     <action>
       <title>
-        <Delete>Delete Page</Delete>
-        <Preview>Preview Default Page</Preview>
-        <EditInfo>Edit Page</EditInfo>
-        <SelectPage>Select Page</SelectPage>
+        <Delete>حذف الصفحة</Delete>
+        <Preview>معاينة الصفحة الافتراضية</Preview>
+        <EditInfo>تحرير الصفحة</EditInfo>
+        <SelectPage>اختر الصفحة</SelectPage>
       </title>
-      <addNewPage>Add New Page</addNewPage>
+      <addNewPage>أضف صفحة جديدة</addNewPage>
     </action>
     <header>
-      <name>Page Name</name>
-      <ownerType>Owner Type</ownerType>
-      <ownerId>Owner Id</ownerId>
-      <pageId>Page Id</pageId>
-      <title>Title</title>
-      <accessGroups>Access Groups</accessGroups>
+      <name>اسم الصفحة</name>
+      <ownerType>نوع المالك</ownerType>
+      <ownerId>تعريفة المالك</ownerId>
+      <pageId>تعريفة الصفحة</pageId>
+      <title>العنوان</title>
+      <accessGroups>الدخول للمجموعات </accessGroups>
       <action>#{word.action}</action>
-      <accessPermissions>Access Permission</accessPermissions>
-      <editPermission>Edit Permission</editPermission>
+      <accessPermissions>تصاريح الدخول</accessPermissions>
+      <editPermission>تحريرالتصاريح</editPermission>
     </header>
     <label>
       <option>
@@ -721,34 +721,34 @@
   -->
   <UIPageNodeSelector>
     <UIDropDown>
-      <title>Select Navigations</title>
+      <title>اختر التصفح</title>
     </UIDropDown>
     <msg>
-      <notAvailable>Node's page is not available.</notAvailable>
-      <Invalid-editPermission>You do not have right to edit this page</Invalid-editPermission>
-      <deleteNav>You can not delete this page navigation!</deleteNav>
-      <NoPageNavigation>You must create Navigation before use this function!</NoPageNavigation>
-      <curentPage>Cannot delete this page: It is in use by other program!</curentPage>
+      <notAvailable>عقدة الصفحة غير متاحة.</notAvailable>
+      <Invalid-editPermission>ليس لديك الحق في تحرير هذه الصفحة</Invalid-editPermission>
+      <deleteNav>!لا يمكنك حذف تصفح هذه الصفحة</deleteNav>
+      <NoPageNavigation>!يجب عليك إنشاء تصفح قبل استخدام هذه الوظيفة</NoPageNavigation>
+      <curentPage>لا يمكن حذف هذه الصفحة : هي في استخدام البرنامج آخر</curentPage>
       <paste>
-        <sameName>Node name existed!</sameName>
-        <sameSrcAndDes>Destination is the same as the source!</sameSrcAndDes>
+        <sameName>!اسم العقدة موجود</sameName>
+        <sameSrcAndDes>!المقصد هو نفس المصدر</sameSrcAndDes>
       </paste>
     </msg>
-    <deleteNode>Are you sure you want to delete this navigation?</deleteNode>
-    <deleteNavigation>Are you sure you want to delete this node?</deleteNavigation>
+    <deleteNode>هل أنت متأكد من حذف هذاالتصفح؟</deleteNode>
+    <deleteNavigation>هل أنت متأكد من حذف هذه العقدة؟</deleteNavigation>
     <tooltip>
-      <newPageNavigation>Create new Page Navigation</newPageNavigation>
+      <newPageNavigation>إنشاء صفحة تصفح جديدة</newPageNavigation>
     </tooltip>
   </UIPageNodeSelector>
   <UIPageNodeSelectorPopupMenu>
     <event>
-      <AddUserNavigation>Add Navigation</AddUserNavigation>
-      <AddNode>Add New Node</AddNode>
-      <PasteNode>Paste Node</PasteNode>
-      <CreateNavigation>Create Navigation</CreateNavigation>
-      <DeleteNavigation>Delete Navigation</DeleteNavigation>
-      <EditNavigation>Edit Navigation</EditNavigation>
-      <SaveNavigation>Save Navigation</SaveNavigation>
+      <AddUserNavigation>أضف تصفح</AddUserNavigation>
+      <AddNode>أضف عقدة جديدة</AddNode>
+      <PasteNode>إلصق عقدة</PasteNode>
+      <CreateNavigation>اختر التصفح</CreateNavigation>
+      <DeleteNavigation>حذف التصفح</DeleteNavigation>
+      <EditNavigation>تحرير التصفح</EditNavigation>
+      <SaveNavigation>إنقاذ التصفح</SaveNavigation>
     </event>
   </UIPageNodeSelectorPopupMenu>
   <!--
@@ -757,41 +757,41 @@
   #############################################################################
   -->
   <UIPageForm>
-    <title>View/Edit Page</title>
+    <title>عرض / تحرير صفحة</title>
     <label>
-      <pageId>Page Id :</pageId>
-      <ownerType>Owner type:</ownerType>
-      <ownerId>Owner Id:</ownerId>
-      <name>Page name:</name>
-      <title>Page title :</title>
-      <showMaxWindow>Show Max Window :</showMaxWindow>
+      <pageId>:تعريفة الصفحة</pageId>
+      <ownerType>:نوع المالك</ownerType>
+      <ownerId>:تعريفة المالك</ownerId>
+      <name>:اسم الصفحة</name>
+      <title>:عنوان الصفحة</title>
+      <showMaxWindow>:أظهر النافذة الكبيرة</showMaxWindow>
     </label>
     <action>
-      <Close>Cancel</Close>
+      <Close>الغاء</Close>
       <Save>#{word.save}</Save>
-      <Back>Back</Back>
+      <Back>خلف</Back>
     </action>
     <tab>
       <label>
-        <PageSetting>Page Setting</PageSetting>
-        <Template>Page Templates</Template>
-        <PermissionSetting>Permission Setting</PermissionSetting>
-        <UIPageTemplateOptions>Page Layout</UIPageTemplateOptions>
+        <PageSetting>وضع الصفحة</PageSetting>
+        <Template>قوالب الصفحة</Template>
+        <PermissionSetting> اعرض التصاريح</PermissionSetting>
+        <UIPageTemplateOptions>تصميم الصفحات</UIPageTemplateOptions>
       </label>
     </tab>
     <msg>
-      <sameName>This page's name has already exist!</sameName>
+      <sameName>!اسم هذه الصفحة موجود</sameName>
     </msg>
   </UIPageForm>
   <UIOwnerIdSelector>
     <title>
-      <OwnerIdSelector>Owner Id Selector</OwnerIdSelector>
+      <OwnerIdSelector>تعريفة المالك المختار</OwnerIdSelector>
     </title>
   </UIOwnerIdSelector>
   <UIPopupGroupSelector>
     <title>
-      <UIGroupSelector>Group Selector</UIGroupSelector>
-      <GroupSelector>Select Group</GroupSelector>
+      <UIGroupSelector>اختيارالمجموعة</UIGroupSelector>
+      <GroupSelector>اختيارالمجموعة</GroupSelector>
     </title>
   </UIPopupGroupSelector>
   <!--
@@ -800,11 +800,11 @@
   #############################################################################
   -->
   <UIPageNodeForm>
-    <title>ADD/EDIT PAGE NODE</title>
+    <title>إضافة / تحرير عقدة الصفحة</title>
     <msg>
-      <SameName>This node name is existing, please enter another one!</SameName>
-      <selectPage>You have to select page!</selectPage>
-      <startDateBeforeEndDate>The end date must be greater than or equal the start date</startDateBeforeEndDate>
+      <SameName>!هذه العقدة في القائمة ، من فضلك ادخل واحدة آخرى</SameName>
+      <selectPage>!عليك اختيار صفحة</selectPage>
+      <startDateBeforeEndDate>نهاية التاريخ يجب أن يكون أكبر من أو يساوي تاريخ بداية</startDateBeforeEndDate>
     </msg>
     <action>
       <Save>#{word.save}</Save>
@@ -812,29 +812,29 @@
       <Close>#{word.cancel}</Close>
     </action>
     <label>
-      <name>Node Name:</name>
+      <name>:اسم العقدة</name>
       <uri>#{word.uri}:</uri>
-      <pageReference>Page Reference</pageReference>
+      <pageReference>مراجع الصفحة</pageReference>
       <description>#{word.description}</description>
-      <type>Page Type</type>
-      <creator>Page Creator</creator>
-      <modifier>Page Modifier</modifier>
+      <type>نوع الصفحة</type>
+      <creator>خالق الصفحة </creator>
+      <modifier>معدل الصفحة</modifier>
       <label>#{word.label}:</label>
       <visible>Visible:</visible>
-      <showPublicationDate><![CDATA[Publication date & time:]]></showPublicationDate>
-      <startPublicationDate>Start Publication Date:</startPublicationDate>
-      <endPublicationDate>End Publication Date:</endPublicationDate>
+      <showPublicationDate><![CDATA[:تاريخ النشر & الوقت]]></showPublicationDate>
+      <startPublicationDate>:بداية تاريخ النشر</startPublicationDate>
+      <endPublicationDate>نهاية تاريخ النشر</endPublicationDate>
     </label>
     <tab>
       <label>
-        <PageNodeSetting>Page Node Setting</PageNodeSetting>
+        <PageNodeSetting>وضع عقدة الصفحة</PageNodeSetting>
         <Icon>#{word.icon}</Icon>
-        <UIPageSelector>Page Selector</UIPageSelector>
+        <UIPageSelector>اختيار الصفحة</UIPageSelector>
       </label>
     </tab>
     <Icon>
       <title>
-        <SetDefault>Get Default</SetDefault>
+        <SetDefault>احصل على الافتراضي</SetDefault>
       </title>
     </Icon>
   </UIPageNodeForm>
@@ -845,19 +845,19 @@
   -->
   <UIPageBrowseControlBar>
     <tooltip>
-      <Back>Back to Page Browse</Back>
-      <Finish>Save and Finish</Finish>
+      <Back>العودة إلى الصفحة الأولى</Back>
+      <Finish>إنقاذ واقفال</Finish>
     </tooltip>
   </UIPageBrowseControlBar>
   <UIPageBrowse>
-    <deletePage>Do you want delete this page?</deletePage>
+    <deletePage>هل تريد حذف هذه الصفحة؟</deletePage>
   </UIPageBrowse>
   <UIPageSearch>
     <label>
       <option>
-        <ownerType>Owner type</ownerType>
-        <ownerId>Owner id</ownerId>
-        <name>Name</name>
+        <ownerType>نوع المالك</ownerType>
+        <ownerId>هوية المالك</ownerId>
+        <name>اسم</name>
         <title>#{word.title}</title>
       </option>
     </label>
@@ -870,42 +870,42 @@
   <UIPageNavigationForm>
     <title><![CDATA[Page &amp; Navigation Explorer]]></title>
     <label>
-      <priority>Priority :</priority>
-      <creator>Creator :</creator>
-      <modifier>Modifier :</modifier>
-      <ownerType>Owner Type :</ownerType>
-      <ownerId>Owner Id :</ownerId>
+      <priority>:الأولوية</priority>
+      <creator>:الخالق</creator>
+      <modifier>:المعدل</modifier>
+      <ownerType>:نوع المالك</ownerType>
+      <ownerId>تعريفة المالك :</ownerId>
       <description>#{word.description}:</description>
       <uri>#{word.uri}:</uri>
       <name>#{word.name}:</name>
     </label>
     <tab>
       <label>
-        <AccessGroup>Access Group</AccessGroup>
-        <PageNavigationSetting>Page Navigation Setting</PageNavigationSetting>
+        <AccessGroup>الدخول للمجموعات</AccessGroup>
+        <PageNavigationSetting>تحديد تصفح الصفحات</PageNavigationSetting>
         <Icon>#{word.icon}</Icon>
-        <PermissionSetting>Permission Setting</PermissionSetting>
+        <PermissionSetting>إعداد تصاريح</PermissionSetting>
       </label>
     </tab>
     <action>
       <Save>#{word.save}</Save>
-      <Close>Cancel</Close>
+      <Close>إلغاء</Close>
     </action>
     <msg>
-      <selectGroup>You must select a group!</selectGroup>
-      <existPageNavigation>You can not create a Page Navigation while Page Navigation for {0} is existing!</existPageNavigation>
+      <selectGroup>!يجب ان تختار مجموعة</selectGroup>
+      <existPageNavigation>لا يمكنك إنشاء تصفح صفحة في حين  تصفح الصفحة "(0)"  موجودة في القائمة</existPageNavigation>
     </msg>
   </UIPageNavigationForm>
   <UIPageNavigation>
     <msg>
-      <noMakablePageNavigation>You have not right create Page Navigation for any group.</noMakablePageNavigation>
+      <noMakablePageNavigation>ليس لديك الحق في تكوين تصفح صفحة لأي مجموعة.</noMakablePageNavigation>
     </msg>
     <tooltip>
-      <upLevel>Up Level</upLevel>
+      <upLevel>المستوى الأعلى</upLevel>
     </tooltip>
     <label>
-      <navigation>{0}'s navigation</navigation>
-      <titleBar>{0}'s pages</titleBar>
+      <navigation>"(تصفح الصفحة "(0</navigation>
+      <titleBar>"(صفحة "(0</titleBar>
     </label>
   </UIPageNavigation>
   <!--
@@ -916,7 +916,7 @@
   <UIPortalApplication>
     <label>
       <Loading>Loading...</Loading>
-      <Abort>Abort</Abort>
+      <Abort>الغاء</Abort>
     </label>
   </UIPortalApplication>
   <!--
@@ -929,16 +929,16 @@
       <AccessPermission>#{word.accessPermission}</AccessPermission>
       <EditPermission>#{word.editPermission}</EditPermission>
       <ViewPermission>#{word.viewPermission}</ViewPermission>
-      <PermissionInfo>Permission Info</PermissionInfo>
-      <membershipMember>Membership</membershipMember>
+      <PermissionInfo>معلومات التصاريح</PermissionInfo>
+      <membershipMember>العضوية</membershipMember>
       <groupId>#{word.groupId}</groupId>
-      <addEditPermission>Permission Setting</addEditPermission>
-      <currentSelectedPermissionInfo>Current Selected Permission Info</currentSelectedPermissionInfo>
-      <permissionType>Permission Type</permissionType>
+      <addEditPermission>إعداد التصاريح</addEditPermission>
+      <currentSelectedPermissionInfo>معلومات التصريح المختار حاليا</currentSelectedPermissionInfo>
+      <permissionType>نوع التصريح</permissionType>
     </label>
     <action>
-      <SelectPermission>Select Permission</SelectPermission>
-      <DeletePermission>Delete Permission</DeletePermission>
+      <SelectPermission>اختيار التصريح</SelectPermission>
+      <DeletePermission>حذف التصريح</DeletePermission>
     </action>
   </UIPermissionSelector>
   <!--
@@ -948,12 +948,12 @@
   -->
   <UIPopupGroupMembershipSelector>
     <title>
-      <ListPermissionSelector>List Permissions</ListPermissionSelector>
+      <ListPermissionSelector>قائمة التصاريح </ListPermissionSelector>
     </title>
   </UIPopupGroupMembershipSelector>
   <UIPageFormPopupGroupMembershipSelector>
     <title>
-      <ListPermissionSelector>List Permissions</ListPermissionSelector>
+      <ListPermissionSelector>قائمة التصاريح</ListPermissionSelector>
     </title>
   </UIPageFormPopupGroupMembershipSelector>
   <!--
@@ -963,21 +963,21 @@
   -->
   <UIUserMembershipSelector>
     <header>
-      <userName>User Name</userName>
-      <membershipType>Membership Type</membershipType>
+      <userName>اسم المستخدم</userName>
+      <membershipType>نوع العضوية</membershipType>
       <action>#{word.action}</action>
       <groupId>#{word.groupId}</groupId>
     </header>
     <action>
-      <SelectPermission>Select Permission</SelectPermission>
+      <SelectPermission>اختيارالعضوية</SelectPermission>
       <title>
-        <DeleteMembership>Delete Membership</DeleteMembership>
+        <DeleteMembership>اختيار العضوية</DeleteMembership>
       </title>
     </action>
   </UIUserMembershipSelector>
   <UserPermissionSelector>
     <title>
-      <UIGroupMembershipSelector>Group membership selector</UIGroupMembershipSelector>
+      <UIGroupMembershipSelector>اختيارالعضوية للمجموعة</UIGroupMembershipSelector>
     </title>
   </UserPermissionSelector>
   <!--
@@ -987,13 +987,13 @@
   -->
   <UIFormInputItemSelector>
     <selectType>
-      <page>Select a Page Template</page>
-      <portal>Select a Portal Template</portal>
+      <page>اختيار قالب الصفحة</page>
+      <portal>اختيار قالب البوابة</portal>
     </selectType>
   </UIFormInputItemSelector>
   <UIFormInputSet>
     <tooltip>
-      <selectgroup>Select other group</selectgroup>
+      <selectgroup>اختيارمجموعة آخرى</selectgroup>
     </tooltip>
   </UIFormInputSet>
   <!--
@@ -1003,23 +1003,23 @@
   -->
   <UIFormInputIconSelector>
     <label>
-      <selectIconSet>Select an Icon Set</selectIconSet>
-      <iconPreview>Preview and select an icon</iconPreview>
-      <iconName>Current selected icon name</iconName>
-      <iconCatergory>Icon Catergory</iconCatergory>
-      <miscIcons>Misc Icons</miscIcons>
-      <officeIcons>Office Icons</officeIcons>
-      <Icon16x16>Icon 16x16</Icon16x16>
-      <Icon24x24>Icon 24x24</Icon24x24>
-      <Icon48x48>Icon 48x48</Icon48x48>
-      <Icon32x32>Icon 32x32</Icon32x32>
-      <Icon64x64>Icon 64x64</Icon64x64>
-      <Icon72x72>Icon 72x72</Icon72x72>
-      <misc>Misc Icons</misc>
-      <offices>Offices Icons</offices>
-      <navigation>Navigation Icons</navigation>
-      <tool>Tool Icons</tool>
-      <user>User Icons</user>
+      <selectIconSet>اختيار مجموعة أيقونات</selectIconSet>
+      <iconPreview>معاينة واختيار أيقونة</iconPreview>
+      <iconName>اختيار اسم الأيقونة الحالية</iconName>
+      <iconCatergory>صنف الأيقونة</iconCatergory>
+      <miscIcons>متفرقات أيقونات</miscIcons>
+      <officeIcons>مكتب أيقونات</officeIcons>
+      <Icon16x16>16x16 أيقونة</Icon16x16>
+      <Icon24x24>24x24 أيقونة</Icon24x24>
+      <Icon48x48>48x48 أيقونة</Icon48x48>
+      <Icon32x32>32x32 أيقونة</Icon32x32>
+      <Icon64x64>64x64 أيقونة</Icon64x64>
+      <Icon72x72>72x72 أيقونة</Icon72x72>
+      <misc>متفرقات أيقونات</misc>
+      <offices>مكتب أيقونات</offices>
+      <navigation>أيقونات التصفح</navigation>
+      <tool>أداة أيقونات</tool>
+      <user>أيقونات المستخدم</user>
     </label>
     <option>
       <IconSet16x16>16x16</IconSet16x16>
@@ -1030,11 +1030,11 @@
   <Icon>
     <UIDropDown>
       <label>
-        <IconSet16x16>IconSet16x16</IconSet16x16>
-        <IconSet24x24>IconSet24x24</IconSet24x24>
-        <IconSet32x32>IconSet32x32</IconSet32x32>
+        <IconSet16x16>16x16أيقونات</IconSet16x16>
+        <IconSet24x24>24x24أيقونات</IconSet24x24>
+        <IconSet32x32>32x32أيقونات</IconSet32x32>
       </label>
-      <title>IconSet 16x16</title>
+      <title>16x16 أيقونات</title>
     </UIDropDown>
   </Icon>
   <!--
@@ -1044,18 +1044,18 @@
   -->
   <UIFormInputDecoratorSelector>
     <label>
-      <selectDecorator>Decorator Category</selectDecorator>
-      <SimpleStyle>Simple Style</SimpleStyle>
-      <ThickStyle>Thick Border Style</ThickStyle>
-      <TextureStyle>Texture Background Style</TextureStyle>
-      <ColorStyle>Color Background Style</ColorStyle>
-      <RoundedStyle>Rounded Border Style</RoundedStyle>
-      <StylizedStyle>Stylized Border Style</StylizedStyle>
-      <Currentdecoratorinfo>Current selected decorator info</Currentdecoratorinfo>
-      <Decoratorname>Decorator name</Decoratorname>
-      <Selectedname>Selected decorator's name</Selectedname>
-      <DecoratorStyle>Decorator Style</DecoratorStyle>
-      <Namedecoratorstyle>Name of decorator style</Namedecoratorstyle>
+      <selectDecorator>قسم الديكور</selectDecorator>
+      <SimpleStyle>النمط البسيط</SimpleStyle>
+      <ThickStyle>نمط سميك الحدود </ThickStyle>
+      <TextureStyle>نمط نص الخلف</TextureStyle>
+      <ColorStyle>نمط لون الخلف</ColorStyle>
+      <RoundedStyle>نمط مقربة الحدود</RoundedStyle>
+      <StylizedStyle>نمط  حدود المجدد</StylizedStyle>
+      <Currentdecoratorinfo>اختيار ديكور المعلومات الحالية</Currentdecoratorinfo>
+      <Decoratorname>اسم الديكور</Decoratorname>
+      <Selectedname>اختيار اسم ديكور</Selectedname>
+      <DecoratorStyle>نمط الديكور</DecoratorStyle>
+      <Namedecoratorstyle>اسم نمط الديكور</Namedecoratorstyle>
     </label>
   </UIFormInputDecoratorSelector>
   <!--
@@ -1065,94 +1065,94 @@
   -->
   <UIPageWizardHelp>
     <title>
-      <UIPageWizardHelp>Page wizard help</UIPageWizardHelp>
+      <UIPageWizardHelp>مساعدة معالج الصحف</UIPageWizardHelp>
     </title>
   </UIPageWizardHelp>
   <UIPageCreationWizard>
     <label>
-      <pageCreateWizard>Page Creation Wizard</pageCreateWizard>
-      <step>Step</step>
-      <wizardSteps>Wizard Steps</wizardSteps>
+      <pageCreateWizard>معالج إنشاء الصحف</pageCreateWizard>
+      <step>خطوة</step>
+      <wizardSteps>خطوات المعالج</wizardSteps>
       <step1>
-        <title>Welcome to Page Creation Wizard</title>
+        <title>مرحبا بكم في معالج إنشاء الصحف</title>
       </step1>
       <step2>
-        <title>Select a Page Node and Create Page's Name</title>
+        <title>اختر عقدة صفحة  و اسم صفحة</title>
       </step2>
       <step3>
-        <title>Select a Page Layout Template</title>
+        <title>اختيار نسق قالب الصفحة</title>
       </step3>
       <step4>
-        <title>Re-arrange Page Layout and add Portlets into Page</title>
+        <title>إعادة ترتيب نسق الصفحة، واضف مداخل للصفحة</title>
       </step4>
       <abort>#{word.abort}</abort>
       <back>#{word.back}</back>
       <next>#{word.next}</next>
       <done>#{word.save}</done>
-      <previousStep>Previous Step</previousStep>
-      <nextStep>Next Step</nextStep>
+      <previousStep>الخطوة السابقة</previousStep>
+      <nextStep>الخطوة التالية</nextStep>
     </label>
     <msg>
-      <NameNotSame>This name is existing, please enter another one!</NameNotSame>
-      <notSelectedPageNavigation>You have to select a navigation!</notSelectedPageNavigation>
-      <StepByStep>In the first time, you must go through step by step</StepByStep>
+      <NameNotSame>هذا الاسم موجود في القائمة ، الرجاء إدخال واحد آخر</NameNotSame>
+      <notSelectedPageNavigation>!عليك اختيار التصفح</notSelectedPageNavigation>
+      <StepByStep>في المرة الأولى ، عليك أن تذهب خطوة بخطوة</StepByStep>
     </msg>
   </UIPageCreationWizard>
   <UIPageNodeWizardPreview>
     <action>
-      <Finish>Save and Finish</Finish>
+      <Finish>إنقاذ وإنهاء</Finish>
     </action>
     <label>
-      <nodeName>Node Name</nodeName>
-      <nodeLabel>Node Label</nodeLabel>
+      <nodeName>اسم العقدة</nodeName>
+      <nodeLabel>علامة العقدة</nodeLabel>
       <icon>#{word.icon}</icon>
       <creator>Creator</creator>
-      <accessPermission>Access Permission</accessPermission>
-      <editPermission>Edit Permission</editPermission>
-      <pageReference>Page Reference</pageReference>
+      <accessPermission>تصاريح الدخول</accessPermission>
+      <editPermission>تحريرالتصاريح </editPermission>
+      <pageReference>مراجع الصفحة</pageReference>
     </label>
   </UIPageNodeWizardPreview>
   <UIPageCreateDescription>
     <title>
-      <create>Page Creation Wizard</create>
-      <edit>Page Edit Wizard</edit>
+      <create>معالج إنشاء الصحف</create>
+      <edit>معالج تحرير الصحف</edit>
     </title>
   </UIPageCreateDescription>
   <UIPageEditWizard>
     <label>
       <step1>
-        <title>Reselect a Page Node and Edit Page's Name</title>
+        <title>إختار من جديد عقدة الصفحة  وحرر اسم الصفحة</title>
       </step1>
       <step2>
-        <title>Reselect a Page Layout Template</title>
+        <title>إختار من جديد تصميم قالب الصفحة</title>
       </step2>
       <step3>
-        <title>Re-arrange Page Layout and add Portlets into Page</title>
+        <title>إعادة ترتيب وتصميم صفحة  واضف مداخل للصفحة</title>
       </step3>
-      <pageCreateWizard>Current Page Edit Wizard</pageCreateWizard>
-      <wizardSteps>Wizard Steps</wizardSteps>
-      <step>Step</step>
+      <pageCreateWizard>معالج تحرير الصفحة الحالية</pageCreateWizard>
+      <wizardSteps>خطوات المعالج</wizardSteps>
+      <step>خطوة</step>
       <back>#{word.back}</back>
       <next>#{word.next}</next>
       <done>#{word.save}</done>
       <abort>#{word.abort}</abort>
     </label>
     <msg>
-      <selectStep2>In the first time, you must go through step 2!</selectStep2>
-      <notSelectedPageNavigation>Not selected page navigation!</notSelectedPageNavigation>
-      <notSelectedPage>Not selected page!</notSelectedPage>
-      <Invalid-editPermission>This page not found or you do not have right to edit</Invalid-editPermission>
+      <selectStep2>	في المرة الأولى ، يجب أن تمر بالخطوة 2</selectStep2>
+      <notSelectedPageNavigation>عدم اختيار التصفح الصفحة</notSelectedPageNavigation>
+      <notSelectedPage>!عدم اختيار الصفحة</notSelectedPage>
+      <Invalid-editPermission>لم يتم العثور على هذه الصفحة أو لم يكن لديك الحق في تعديل</Invalid-editPermission>
     </msg>
   </UIPageEditWizard>
   <UIPageTemplateOptions>
     <UIDropDown>
-      <title>Page Configs</title>
+      <title>تشكيلات الصفحة</title>
       <label>
-        <normalPageConfigs>Page Configs</normalPageConfigs>
-        <columnPageConfigs>Column Page Configs</columnPageConfigs>
-        <mixPageConfigs>Mix Page Configs</mixPageConfigs>
-        <rowPageConfigs>Row Page Configs</rowPageConfigs>
-        <tabsPageConfigs>Tabs Page Configs</tabsPageConfigs>
+        <normalPageConfigs>تشكيلات الصفحة </normalPageConfigs>
+        <columnPageConfigs>تشكيلات صفحة بالأعمدة</columnPageConfigs>
+        <mixPageConfigs>تشكيلات صفحة مختلطة</mixPageConfigs>
+        <rowPageConfigs> تشكيلات صفحة بالصفوف</rowPageConfigs>
+        <tabsPageConfigs> تشكيلات صفحة بعلامات التبويب</tabsPageConfigs>
       </label>
     </UIDropDown>
   </UIPageTemplateOptions>
@@ -1164,33 +1164,33 @@
   <UIWizardPageSelectLayoutForm>
     <tab>
       <label>
-        <UIPageTemplateOptions>Page template options</UIPageTemplateOptions>
+        <UIPageTemplateOptions>خيارات قالب الصفحة</UIPageTemplateOptions>
       </label>
     </tab>
     <label>
       <normalPage>
-        <EmptyLayout>Empty Layout</EmptyLayout>
-        <DesktopImage>Desktop Layout</DesktopImage>
-        <DashboardLayout>Dashboard Layout</DashboardLayout>
+        <EmptyLayout>تصميم فارغ</EmptyLayout>
+        <DesktopImage>تصميم مكتبي</DesktopImage>
+        <DashboardLayout>تصميم لوحة القيادة</DashboardLayout>
       </normalPage>
       <columnPage>
-        <TwoColumnsLayout>Two Columns Layout</TwoColumnsLayout>
-        <ThreeColumnsLayout>Three Columns Layout</ThreeColumnsLayout>
+        <TwoColumnsLayout>تصميم بعمودين</TwoColumnsLayout>
+        <ThreeColumnsLayout>تصميم بثلاثة أعمدة</ThreeColumnsLayout>
       </columnPage>
       <rowPage>
-        <TwoRowsLayout>Two Rows Layout</TwoRowsLayout>
-        <ThreeRowsLayout>Three Rows Layout</ThreeRowsLayout>
+        <TwoRowsLayout>تصميم بصفين</TwoRowsLayout>
+        <ThreeRowsLayout>تصميم بثلاثة صفوف</ThreeRowsLayout>
       </rowPage>
       <tabsPage>
-        <TwoTabsLayout>Two Tabs</TwoTabsLayout>
-        <ThreeTabsLayout>Three Tabs</ThreeTabsLayout>
+        <TwoTabsLayout>علامتي تبويب</TwoTabsLayout>
+        <ThreeTabsLayout>ثلاث علامات تبويب</ThreeTabsLayout>
       </tabsPage>
       <mixPage>
-        <TwoColumnsOneRowLayout>Two Columns One Row Layout</TwoColumnsOneRowLayout>
-        <OneRowTwoColumnsLayout>One Row Two Columns Layout</OneRowTwoColumnsLayout>
-        <ThreeRowsTwoColumnsLayout>Three Rows Two Columns Layout</ThreeRowsTwoColumnsLayout>
+        <TwoColumnsOneRowLayout>تصميم بعمودين و صف واحد</TwoColumnsOneRowLayout>
+        <OneRowTwoColumnsLayout>تصميم بصف واحد و عمودين</OneRowTwoColumnsLayout>
+        <ThreeRowsTwoColumnsLayout>تصميم بثلاثة صفوف و عمودين</ThreeRowsTwoColumnsLayout>
       </mixPage>
-      <UIPageTemplateOptions>null</UIPageTemplateOptions>
+      <UIPageTemplateOptions>فارغ</UIPageTemplateOptions>
     </label>
   </UIWizardPageSelectLayoutForm>
   <!--
@@ -1199,21 +1199,21 @@
   ############################################################################
   -->
   <UIWizardPageSetInfo>
-    <title>Add a new Page</title>
+    <title>أضف صفحة جديدة</title>
     <label>
-      <curentSelectedNodeInfo>Current Selected Page Node</curentSelectedNodeInfo>
-      <pageName>Node Name</pageName>
-      <pageDisplayName>Display Name</pageDisplayName>
-      <visible>Visible</visible>
-      <showPublicationDate><![CDATA[Publication date & time]]></showPublicationDate>
-      <startPublicationDate>Start Publication Date</startPublicationDate>
-      <endPublicationDate>End Publication Date</endPublicationDate>
+      <curentSelectedNodeInfo>عقدة الصفحة المختارة الحالية</curentSelectedNodeInfo>
+      <pageName>اسم العقدة</pageName>
+      <pageDisplayName>عرض الاسم</pageDisplayName>
+      <visible>مرئية</visible>
+      <showPublicationDate><![CDATA[تاريخ و وقت النشر]]></showPublicationDate>
+      <startPublicationDate>ابدأ تاريخ النشر</startPublicationDate>
+      <endPublicationDate>نهاية تاريخ النشر</endPublicationDate>
     </label>
     <action>
       <Save>#{word.save}</Save>
     </action>
     <msg>
-      <null>Page not found</null>
+      <null>لم يتم العثور على الصفحة</null>
     </msg>
   </UIWizardPageSetInfo>
   <!--
@@ -1223,22 +1223,22 @@
   -->
   <EditWizard>
     <label>
-      <curentSelectedNodeInfo>Current Selected Page Node</curentSelectedNodeInfo>
-      <pageName>Node Name</pageName>
-      <pageDisplayName>Display Name</pageDisplayName>
-      <visible>Visible</visible>
-      <showPublicationDate><![CDATA[Publication date & time]]></showPublicationDate>
-      <startPublicationDate>Start Publication Date</startPublicationDate>
-      <endPublicationDate>End Publication Date</endPublicationDate>
+      <curentSelectedNodeInfo>عقدة الصفحة المختارة الحالية</curentSelectedNodeInfo>
+      <pageName>اسم العقدة</pageName>
+      <pageDisplayName>عرض الاسم</pageDisplayName>
+      <visible>مرئية</visible>
+      <showPublicationDate><![CDATA[تاريخ و وقت النشر]]></showPublicationDate>
+      <startPublicationDate>ابدأ تاريخ النشر</startPublicationDate>
+      <endPublicationDate>نهاية تاريخ النشر</endPublicationDate>
     </label>
-    <title>Edit Page</title>
+    <title>تحرير الصفحة</title>
     <action>
       <Save>#{word.save}</Save>
     </action>
   </EditWizard>
   <UIPageCreationWizardStepForm>
     <label>
-      <pageName>Page Name</pageName>
+      <pageName>اسم الصفحة</pageName>
     </label>
   </UIPageCreationWizardStepForm>
   <!--
@@ -1248,9 +1248,9 @@
   -->
   <WizardPageEditBar>
     <tooltip>
-      <PagePreview>Preview page</PagePreview>
-      <EditPortlet>Show portlet</EditPortlet>
-      <EditContainer>Show Container</EditContainer>
+      <PagePreview>معاينة الصفحة</PagePreview>
+      <EditPortlet>اظهر المدخل</EditPortlet>
+      <EditContainer>اظهر الحاوية</EditContainer>
     </tooltip>
   </WizardPageEditBar>
   <!--
@@ -1260,21 +1260,21 @@
   -->
   <UIAdvancedCustomization>
     <icon>
-      <UIPortalManagement>Portal</UIPortalManagement>
-      <UIPageManagement>Page</UIPageManagement>
+      <UIPortalManagement>البوابة</UIPortalManagement>
+      <UIPageManagement>الصفحة</UIPageManagement>
     </icon>
     <label>
-      <UIPortalManagement>Portal Management</UIPortalManagement>
-      <UIPageManagement>Page Management</UIPageManagement>
+      <UIPortalManagement>إدارة البوابة</UIPortalManagement>
+      <UIPageManagement>إدارة الصفحة</UIPageManagement>
     </label>
   </UIAdvancedCustomization>
   <UIPortalManagement>
     <msg>
-      <Invalid-editPermission>You don't have permission to edit portal!</Invalid-editPermission>
+      <Invalid-editPermission>!ليس لديك الحق في تحرير البوابة </Invalid-editPermission>
     </msg>
     <title>
-      <EDIT>Edit current Portal</EDIT>
-      <BROWSE>Manage Portals</BROWSE>
+      <EDIT>تعديل البوابة الحالية</EDIT>
+      <BROWSE>إدارة البوابات</BROWSE>
     </title>
   </UIPortalManagement>
   <!--
@@ -1284,37 +1284,37 @@
   -->
   <UIContainerConfigOptions>
     <label>
-      <ContainerConfigTitle>Container Category</ContainerConfigTitle>
-      <selectContainerCategory>Click here to select a Container category</selectContainerCategory>
+      <ContainerConfigTitle>فئة الحاويات</ContainerConfigTitle>
+      <selectContainerCategory>اضغط هنا لاختيار فئة الحاويات</selectContainerCategory>
     </label>
     <tab>
-      <row>Rows Container Layout</row>
-      <column>Columns Container Layout</column>
-      <tabs>Tabs Container Layout</tabs>
-      <mixed>Mix Container Layout</mixed>
+      <row>تشكيلات الحاويات بالصفوف</row>
+      <column>تشكيلات الحاويات بالأعمدة</column>
+      <tabs>تشكيلات الحاويات بعلامات التبويب</tabs>
+      <mixed>تشكيلات الحاويات مختلطة</mixed>
     </tab>
     <UIDropDown>
-      <title>Rows Layout</title>
+      <title>تصميم بالصفوف</title>
       <label>
-        <ContainerCategory>Container Category</ContainerCategory>
-        <row>Rows Layout</row>
-        <column>Columns Layout</column>
-        <tabs>Tabs Layout</tabs>
-        <mixed>Mix Layout</mixed>
+        <ContainerCategory>فئة الحاويات</ContainerCategory>
+        <row>تصميم بالصفوف</row>
+        <column>تصميم بالأعمدة</column>
+        <tabs>تصميم بعلامات التبويب </tabs>
+        <mixed>تصميم مختلط</mixed>
       </label>
     </UIDropDown>
     <template>
-      <oneRow>One Row Container</oneRow>
-      <twoRows>Two Rows Container</twoRows>
-      <threeRows>Three Rows Container</threeRows>
-      <oneColumns>One Column Container</oneColumns>
-      <twoColumns>Two Columns Container</twoColumns>
-      <threeColumns>Three Columns Container</threeColumns>
-      <twoTabs>Two Tabs Container</twoTabs>
-      <threeTabs>Three Tabs Container</threeTabs>
-      <twoColumnsOneRow>Two Columns, One Row Container</twoColumnsOneRow>
-      <oneRowTwoColumns>One Row, Two Columns Container</oneRowTwoColumns>
-      <oneRow2Column1Row>One Row, Two Columns, One Row Container</oneRow2Column1Row>
+      <oneRow>حاويات صف واحد</oneRow>
+      <twoRows>حاويات بصفين</twoRows>
+      <threeRows>حاويات بثلاثة صفوف</threeRows>
+      <oneColumns>حاويات  بعمود واحد</oneColumns>
+      <twoColumns>حاويات بعمودين</twoColumns>
+      <threeColumns>حاويات بثلاثة أعمدة</threeColumns>
+      <twoTabs>حاويات باثنين علامات تبويب</twoTabs>
+      <threeTabs>حاويات بثلاث علامات التبويب</threeTabs>
+      <twoColumnsOneRow>حاويات بعمودين و صف واحد</twoColumnsOneRow>
+      <oneRowTwoColumns>حاويات بصف واحد و عمودين</oneRowTwoColumns>
+      <oneRow2Column1Row>حاويات بصف واحد و عمودين و صف واحد</oneRow2Column1Row>
     </template>
   </UIContainerConfigOptions>
   <!--
@@ -1324,11 +1324,11 @@
   -->
   <UIPageTemplatesForm>
     <title>
-      <addNewPage>Add New Page</addNewPage>
+      <addNewPage>أضف صفحة جديدة</addNewPage>
     </title>
     <label>
-      <pageName>Page Name</pageName>
-      <detail>Select a Page Layout Template</detail>
+      <pageName>اسم الصفحة</pageName>
+      <detail>اختيار تشكيل قالب الصفحة</detail>
     </label>
   </UIPageTemplatesForm>
   <!--
@@ -1338,25 +1338,25 @@
   -->
   <UIPortletOptions>
     <label>
-      <selectPortletCategory>Portlet Category</selectPortletCategory>
-      <description>Portlet Description</description>
+      <selectPortletCategory>فئة المدخل</selectPortletCategory>
+      <description>وصف المدخل</description>
     </label>
     <tab>
-      <content>Content</content>
-      <site>Site</site>
-      <exoadmin>ExoAdmin</exoadmin>
-      <web>Web</web>
-      <test>Test</test>
+      <content>محتوى</content>
+      <site>الموقع</site>
+      <exoadmin>إدارة إكزو</exoadmin>
+      <web>الويب</web>
+      <test>اختبار</test>
     </tab>
     <UIDropDown>
-      <title>Portlet Category</title>
+      <title>فئة المدخل</title>
       <label>
-        <PortletCategory>Portlet Category</PortletCategory>
-        <content>Content</content>
-        <exoadmin>Exoadmin</exoadmin>
-        <site>Site</site>
-        <web>Web</web>
-        <test>Test</test>
+        <PortletCategory>فئة المدخل</PortletCategory>
+        <content>محتوى</content>
+        <exoadmin>إدارة إكزو</exoadmin>
+        <site>الموقع</site>
+        <web>الويب</web>
+        <test>اختبار</test>
         <ecm>ECM</ecm>
         <workflow>Workflow</workflow>
       </label>
@@ -1369,7 +1369,7 @@
   -->
   <UIDecoratorConfigOptions>
     <label>
-      <selectDecorator>Select Decorator</selectDecorator>
+      <selectDecorator>اختيار ديكور</selectDecorator>
     </label>
   </UIDecoratorConfigOptions>
   <!--
@@ -1379,26 +1379,26 @@
   -->
   <UIPortlet>
     <label>
-      <portlet>Portlet</portlet>
-      <title>Portlet</title>
-      <description>eXo Platform portlet</description>
-      <portletContent>Portlet Description</portletContent>
-      <View>View</View>
+      <portlet>مدخل</portlet>
+      <title>مدخل</title>
+      <description>مدخل إكزو</description>
+      <portletContent>وصف المدخل</portletContent>
+      <View>عرض</View>
     </label>
     <lable>
-      <information>Done</information>
+      <information>فعل</information>
     </lable>
-    <deletePortlet>Are you sure you want to delete this portlet?</deletePortlet>
+    <deletePortlet>هل أنت متأكد من حذف هذا المدخل؟</deletePortlet>
     <tooltip>
-      <PortletMode>Portlet Mode</PortletMode>
-      <Minimize>Minimize</Minimize>
-      <MinimizeRestore>Restore</MinimizeRestore>
-      <Maximize>Maximize</Maximize>
-      <MaximizeRestore>Restore Down</MaximizeRestore>
-      <editPortlet>Edit Portlet</editPortlet>
-      <deletePortlet>Delete Portlet</deletePortlet>
-      <ResizeWindow>Resize Window</ResizeWindow>
-      <DragControl>Hold this area to drag this portlet</DragControl>
+      <PortletMode>أسلوب المدخل</PortletMode>
+      <Minimize>تصغير</Minimize>
+      <MinimizeRestore>استعادة</MinimizeRestore>
+      <Maximize>تكبير</Maximize>
+      <MaximizeRestore>استعادة بانخفاض</MaximizeRestore>
+      <editPortlet>تحرير المدخل</editPortlet>
+      <deletePortlet>حذف مدخل</deletePortlet>
+      <ResizeWindow>تغيير حجم النافذة</ResizeWindow>
+      <DragControl>هذا المجال لجر هذا المدخل</DragControl>
     </tooltip>
   </UIPortlet>
   <!--
@@ -1409,7 +1409,7 @@
       <Back>#{word.back}</Back>
     </action>
     <msg>
-      <empty>This page content is empty. You can click on Edit Page to add content</empty>
+      <empty>هذه الصفحة فارغة المحتوى. تستطيع الضغط على تحرير صفحة لإضافة محتوى</empty>
     </msg>
   </UIPagePreview>
   <!--
@@ -1417,7 +1417,7 @@
   -->
   <UIVTabInputSet>
     <label>
-      <personalInfo>Personal Info</personalInfo>
+      <personalInfo>المعلومات الشخصية</personalInfo>
     </label>
   </UIVTabInputSet>
   <!--
@@ -1427,7 +1427,7 @@
   -->
   <UIFormAvailablePortlet>
     <label>
-      <UIFormTableInputSet>Portlet</UIFormTableInputSet>
+      <UIFormTableInputSet>مدخل</UIFormTableInputSet>
     </label>
   </UIFormAvailablePortlet>
   <!--
@@ -1437,11 +1437,11 @@
   -->
   <UIWorkspaceContainer>
     <tooltip>
-      <CloseControlWorkspace>Close this workspace</CloseControlWorkspace>
-      <OpenControlWorkspace>Click to open Control Workspace</OpenControlWorkspace>
+      <CloseControlWorkspace>إغلاق فضاء عمل</CloseControlWorkspace>
+      <OpenControlWorkspace>انقر لفتح مراقبة فضاء العمل</OpenControlWorkspace>
     </tooltip>
     <lable>
-      <UserWorkspaceTitle>User Workspace</UserWorkspaceTitle>
+      <UserWorkspaceTitle>فضاء العمل</UserWorkspaceTitle>
     </lable>
   </UIWorkspaceContainer>
   <!--
@@ -1451,8 +1451,8 @@
   -->
   <UIQuickBar>
     <tooltip>
-      <BasicCustomization>Basic customization</BasicCustomization>
-      <AdvanceCustomization>Advanced customization</AdvanceCustomization>
+      <BasicCustomization>التخصيص الأساسي</BasicCustomization>
+      <AdvanceCustomization>التخصيص المتقدم</AdvanceCustomization>
     </tooltip>
   </UIQuickBar>
   <!--
@@ -1462,22 +1462,22 @@
   -->
   <UIPageEditBar>
     <tooltip>
-      <PagePreview>Preview Page</PagePreview>
-      <EditPage>Edit Page Properties</EditPage>
-      <SharedNavigation>Navigation Community Config</SharedNavigation>
-      <EditContainer>Show Container Control</EditContainer>
-      <EditPortlet>Show Portlet Control</EditPortlet>
-      <Decorator>Decorator</Decorator>
-      <SavePage>Save Page</SavePage>
+      <PagePreview>معاينة الصفحة</PagePreview>
+      <EditPage>تحرير خصائص الصفحة</EditPage>
+      <SharedNavigation>تهيئة تصفح الجماعات</SharedNavigation>
+      <EditContainer>عرض مراقبة الحاويات</EditContainer>
+      <EditPortlet>عرض مراقبة المدخل</EditPortlet>
+      <Decorator>الديكور</Decorator>
+      <SavePage>حفظ الصفحة</SavePage>
     </tooltip>
   </UIPageEditBar>
   <UIPageManagement>
     <title>
-      <BROWSE>Manage Pages</BROWSE>
+      <BROWSE>إدارة الصفحات</BROWSE>
       <EDIT><![CDATA[Page &amp; Navigation Explorer]]></EDIT>
     </title>
     <msg>
-      <Invalid-editPermission>This page doesn't allow to edit</Invalid-editPermission>
+      <Invalid-editPermission>هذه الصفحة لا تسمح التحرير</Invalid-editPermission>
     </msg>
   </UIPageManagement>
   <!--
@@ -1487,14 +1487,14 @@
   -->
   <UIPageManagementEditBar>
     <tooltip>
-      <AddNode>Add a new Node</AddNode>
-      <EditPageNode>Edit Selected Node's Page</EditPageNode>
-      <EditSelectedNode>Edit Selected Node</EditSelectedNode>
-      <EditNavigation>Edit Navigation</EditNavigation>
-      <CopyNode>Copy the selected node</CopyNode>
-      <PasteNode>Pasted Current Copied Node</PasteNode>
-      <SaveNavigation>Save Navigation</SaveNavigation>
-      <DeleteNode>Delete Selected Node</DeleteNode>
+      <AddNode>اضف عقدة جديدة</AddNode>
+      <EditPageNode>تحرير عقدة الصفحة المختارة</EditPageNode>
+      <EditSelectedNode>تحرير العقدة المختارة</EditSelectedNode>
+      <EditNavigation>تحريرالتصفح</EditNavigation>
+      <CopyNode>نسخ العقدة المختارة</CopyNode>
+      <PasteNode>لصق العقدة المختارة الحالية</PasteNode>
+      <SaveNavigation>إنقاذ التصفح</SaveNavigation>
+      <DeleteNode>حذف العقدة المختارة</DeleteNode>
     </tooltip>
   </UIPageManagementEditBar>
   <!--
@@ -1504,11 +1504,11 @@
   -->
   <UIPageIterator>
     <label>
-      <totalPage>Total pages</totalPage>
-      <backTenPages>Back 10 pages</backTenPages>
-      <previous>Previous Page</previous>
-      <next>Next Page</next>
-      <nextTenPages>Next 10 pages</nextTenPages>
+      <totalPage>مجموع الصفحات</totalPage>
+      <backTenPages>رجوع 10 صفحات</backTenPages>
+      <previous>الصفحة السابقة</previous>
+      <next>الصفحة التالية</next>
+      <nextTenPages>صفحات المقبلة10</nextTenPages>
     </label>
   </UIPageIterator>
   <!--
@@ -1518,11 +1518,11 @@
   -->
   <UIPortalManagementEditBar>
     <tooltip>
-      <Preview>Preview Portal</Preview>
-      <EditPortal>Edit Portal Properties</EditPortal>
-      <EditContainer>Show Container Control</EditContainer>
-      <EditPortlet>Show Portlet Control</EditPortlet>
-      <SavePortal>Edit Portal Properties</SavePortal>
+      <Preview>معاينة موقع البوابة</Preview>
+      <EditPortal>تعديل البوابة</EditPortal>
+      <EditContainer>عرض مراقبة الحاويات</EditContainer>
+      <EditPortlet>عرض مراقبة المدخل</EditPortlet>
+      <SavePortal>تعديل البوابة</SavePortal>
     </tooltip>
   </UIPortalManagementEditBar>
   <!--
@@ -1532,48 +1532,48 @@
   -->
   <UIPortalBrowser>
     <header>
-      <creator>Creator</creator>
-      <editPermission>Edit Permission</editPermission>
-      <accessPermissions>Access Permissions</accessPermissions>
+      <creator>خلق</creator>
+      <editPermission>تحريرالتصاريح</editPermission>
+      <accessPermissions>تصاريح الدخول</accessPermissions>
       <name>#{word.name}</name>
       <skin>#{word.skin}</skin>
       <action>#{word.action}</action>
-      <factoryId>Factory Id</factoryId>
+      <factoryId> رقم تعريفة المصنع</factoryId>
     </header>
     <action>
-      <addNewPortal>Create New Portal</addNewPortal>
+      <addNewPortal>إنشاء بوابة جديدة</addNewPortal>
       <title>
-        <DeletePortal>Delete Portal</DeletePortal>
+        <DeletePortal>حذف بوابة</DeletePortal>
       </title>
     </action>
     <msg>
-      <Invalid-viewPermission>Portal does not allow access</Invalid-viewPermission>
-      <PortalInUse>{0} portal is being used.</PortalInUse>
-      <Invalid-deletePermission>You do not have right to delete {0} portal.</Invalid-deletePermission>
-      <Invalid-createPermission>You do not have right to create new portal. Please, contact with administrator</Invalid-createPermission>
+      <Invalid-viewPermission>	البوابة لا تسمح الدخول</Invalid-viewPermission>
+      <PortalInUse>.البوابة (0) مستخدمة</PortalInUse>
+      <Invalid-deletePermission>.(ليس لديك الحق في حذف البوابة (0</Invalid-deletePermission>
+      <Invalid-createPermission>.ليس لديك الحق في إنشاء بوابة جديدة. الرجاء الاتصال بمخطط النظام</Invalid-createPermission>
     </msg>
-    <deletePortal>Are you sure you want to delete this portal?</deletePortal>
+    <deletePortal>هل أنت متأكد من حذف هذه البوابة؟</deletePortal>
   </UIPortalBrowser>
   <SitePortal>
-    <label>Site Portal</label>
+    <label>موقع البوابة</label>
   </SitePortal>
   <ClassicPortal>
-    <label>Classic Portal</label>
+    <label>بوابة الكلاسيكية</label>
   </ClassicPortal>
   <WebOSPortal>
-    <label>WebOS Portal</label>
+    <label>WebOS بوابة</label>
   </WebOSPortal>
   <!--
   ############################################################################
   -->
   <UIPageEditor>
     <tooltip>
-      <PagePreview>Page Preview</PagePreview>
-      <EditPage>Edit Page</EditPage>
-      <EditContainer>Edit Container</EditContainer>
-      <EditPortlet>Edit Portlet</EditPortlet>
-      <Decorator>Decorator</Decorator>
-      <SavePage>Save Page</SavePage>
+      <PagePreview>معاينة الصفحة</PagePreview>
+      <EditPage>تحرير صفحة</EditPage>
+      <EditContainer>تحرير الحاويات</EditContainer>
+      <EditPortlet>تحرير المدخل</EditPortlet>
+      <Decorator>الديكور</Decorator>
+      <SavePage>حفظ الصفحة</SavePage>
     </tooltip>
   </UIPageEditor>
   <!--
@@ -1583,13 +1583,13 @@
   -->
   <PopupPageSelector>
     <title>
-      <UIPageBrowser>Search and Select Page</UIPageBrowser>
-      <SelectPage>Select a page</SelectPage>
+      <UIPageBrowser>ابحث واختر صفحة</UIPageBrowser>
+      <SelectPage>اختر صفحة</SelectPage>
     </title>
   </PopupPageSelector>
   <UIControWSPopupWindow>
     <title>
-      <UIApplicationTree>Application Tree</UIApplicationTree>
+      <UIApplicationTree>شجرة الخدمات</UIApplicationTree>
     </title>
   </UIControWSPopupWindow>
   <!--
@@ -1600,27 +1600,27 @@
   <UILogged>
     <note>
       <loggedUser>مرحبا</loggedUser>
-      <ItemContainer>This component is under contruction.</ItemContainer>
+      <ItemContainer>.هذا العنصر في صدر البناء</ItemContainer>
     </note>
     <action>
-      <logout>Logout</logout>
+      <logout>خروج</logout>
       <signout>تسجيل الخروج</signout>
-      <Youhave>You have:</Youhave>
+      <Youhave>:لديك</Youhave>
     </action>
     <title>
-      <widgetNews>eXo Gadgets</widgetNews>
-      <widgetCategory>Gadget Category</widgetCategory>
-      <widgetItem>Gadgets</widgetItem>
-      <BrowsersSupport>Browsers Support</BrowsersSupport>
+      <widgetNews>أدوات إكزو</widgetNews>
+      <widgetCategory>فئة الأداة</widgetCategory>
+      <widgetItem>الأدوات</widgetItem>
+      <BrowsersSupport>دعم المتصفحات</BrowsersSupport>
     </title>
     <label>
-      <Workbeston>Work best on</Workbeston>
-      <Workableon>Work able on</Workableon>
-      <DownloadNow>Download Now</DownloadNow>
-      <RollBack>Roll Back</RollBack>
-      <Save>Save</Save>
-      <Finish>Finish</Finish>
-      <Abort>Abort</Abort>
+      <Workbeston>العمل على أفضل وجه</Workbeston>
+      <Workableon>قادرة على العمل</Workableon>
+      <DownloadNow>تنزيل الآن</DownloadNow>
+      <RollBack>رجوع</RollBack>
+      <Save>احفظ</Save>
+      <Finish>الانتهاء</Finish>
+      <Abort>الغاء</Abort>
     </label>
   </UILogged>
   <!--
@@ -1637,8 +1637,8 @@
   <UIForgetPasswordWizard>
     <title>ما منع من الحصول على  إكزو؟</title>
     <action>
-      <Next>Next</Next>
-      <Back>Back</Back>
+      <Next>الموالي</Next>
+      <Back>رجوع</Back>
     </action>
     <info><![CDATA[نعتذر عن الإزعاج  من جراء عدم قدرتهم على الحصول على إكزو.<br/>لحل هذه المسألة بأسرع ما يمكن ، يرجى اتباع الخطوات التالية لاستكشاف الأخطاء وإصلاحها<br/>اتبع التعليمات بالضبط للحصول على أفضل النتائج :<br/><br/>1. استعادة كلمة السر :أدخل اسم المستخدم الخاص بك ثم انقر فوق إرسال<br/>2. استعادة اسم المستخدم : أدخل عنوان البريد الإلكتروني الخاص بك ثم انقر فوق إرسال]]></info>
     <label>
@@ -1664,7 +1664,7 @@
 	<msg>
 		<user-delete>اسم المستخدم تم حذفه من قبل مخطط النظام</user-delete>
 		<user-not-exist>اسم مستخدمك لا وجود له في إكزو</user-not-exist>
-		<expration>Your link is expired, you have to get another email active</expration>
+		<expration>وصلتك انتهت, عليك الحصول على رسالة بريد إلكتروني		أخرى لتجديدها</expration>
 	</msg>
 	<mail>
 		<header>شكرا على اتصالك مركزالمساعدة لبوابة إكزو. لقد قدمت طلبا لاسم المستخدم وكلمة السر</header>
@@ -1675,21 +1675,21 @@
 	</mail>
   </UIForgetPassword>
   <UIResetPassword>
-    <title>Change password</title>
+    <title>تغيير كلمة السر</title>
     <action>
       <Save>احفظ</Save>
-      <Close>Close</Close>
+      <Close>إغلاق</Close>
     </action>
     <label>
       <username>احفظ</username>
-      <password>Password:</password>
-      <changepass>Change password:</changepass>
-      <newpassword>New password:</newpassword>
-      <confirmnewpassword>Confirm new password:</confirmnewpassword>
+      <password>:كلمة السر</password>
+      <changepass>:تغيير كلمة السر</changepass>
+      <newpassword>:كلمة سر جديدة</newpassword>
+      <confirmnewpassword>:تأكيد كلمة السر الجديدة</confirmnewpassword>
     </label>
     <msg>
-      <password-is-not-match>New password and Confirm new password must be the same</password-is-not-match>
-      <Invalid-account>User Name or Password is wrong or empty. Please try again!</Invalid-account>
+      <password-is-not-match>كلمة السر الجديدة وتأكيد كلمة السر الجديدة يجب أن تكون واحدة</password-is-not-match>
+      <Invalid-account>اسم المستخدم أو كلمة السر خطأ أو فارغ. الرجاء المحاولة مرة أخرى</Invalid-account>
     </msg>
   </UIResetPassword>
   <!--
@@ -1699,10 +1699,10 @@
   -->
   <UIPopupMessages>
     <title>
-      <exoMessages>eXo Messages</exoMessages>
+      <exoMessages> رسائل إكزو</exoMessages>
     </title>
     <button>
-      <ok>OK</ok>
+      <ok>نعم</ok>
     </button>
   </UIPopupMessages>
   <!--
@@ -1733,17 +1733,17 @@
   -->
   <UIContainer>
     <title>
-      <Container>Container</Container>
-      <DragControlArea>Hold this area to drag this container</DragControlArea>
+      <Container>الحاويات</Container>
+      <DragControlArea>هذا المجال لجر هذه الحاوية</DragControlArea>
     </title>
     <label>
-      <Thecontainer>The container</Thecontainer>
+      <Thecontainer>الحاوية</Thecontainer>
     </label>
-    <deleteContainer>Are you sure you want to delete this Container?</deleteContainer>
+    <deleteContainer>هل أنت متأكد من حذف هذه الحاوية؟</deleteContainer>
     <tooltip>
-      <closeContainer>Close Container</closeContainer>
-      <editContainer>Edit Container</editContainer>
-      <drag>Drag Container here</drag>
+      <closeContainer>إغلاق الحاوية</closeContainer>
+      <editContainer>تحرير الحاوية</editContainer>
+      <drag>جر الحاوية هنا</drag>
     </tooltip>
   </UIContainer>
   <!--
@@ -1753,13 +1753,13 @@
   -->
   <UIPage>
     <label>
-      <title>Portal Page</title>
-      <description>The page body of the portal</description>
-      <pageContent>Page Description</pageContent>
+      <title>صفحة البوابة</title>
+      <description>صفحة البوابة </description>
+      <pageContent>وصف الصفحة</pageContent>
     </label>
     <msg>
       <EditPermission>
-        <null>You do not have right to edit this page!</null>
+        <null>!ليس لديك الحق في تعديل هذه الصفحة</null>
       </EditPermission>
     </msg>
   </UIPage>
@@ -1785,30 +1785,30 @@
       </img>
     </Vista>
     <label>
-      <pagebody>The page body of the portal</pagebody>
-      <PageContent>Page Content</PageContent>
-      <View>View</View>
-      <Edit>Edit</Edit>
-      <Done>Done</Done>
+      <pagebody>صفحة البوابة</pagebody>
+      <PageContent>محتوى الصفحة</PageContent>
+      <View>عرض</View>
+      <Edit>تحرير</Edit>
+      <Done>فعل</Done>
     </label>
     <title>
-      <PortalPage>Portal Page</PortalPage>
-      <SaveToDatabase>Save to database</SaveToDatabase>
-      <AddApplication>Add Applications</AddApplication>
-      <PageNavigation>Page Navigation</PageNavigation>
-      <eXoBrowser>eXo Browser!</eXoBrowser>
-      <ShowPortletDesktop>Show/Hide Portlets</ShowPortletDesktop>
-      <ShowWidgetDesktop>Show/Hide Gadgets</ShowWidgetDesktop>
+      <PortalPage>صفحة البوابة</PortalPage>
+      <SaveToDatabase>إنقاذ في قاعدة البيانات</SaveToDatabase>
+      <AddApplication>إضافة خدمات</AddApplication>
+      <PageNavigation>تصفح الموقع</PageNavigation>
+      <eXoBrowser>تصفح إكزو</eXoBrowser>
+      <ShowPortletDesktop>إظهار / إخفاء المداخل</ShowPortletDesktop>
+      <ShowWidgetDesktop>إظهار / إخفاء الأدوات</ShowWidgetDesktop>
       <SignIn>تسجيل الدخول</SignIn>
-      <pageNavigation>Page Navigations</pageNavigation>
+      <pageNavigation>تصفح الموقع</pageNavigation>
     </title>
     <msg>
-      <hasNotPermission>You have no edit permission on this page!</hasNotPermission>
+      <hasNotPermission>!ليس لديك الحق في تحرير هذه الصفحة</hasNotPermission>
     </msg>
     <action>
-      <Close>Remove this application from dockbar</Close>
+      <Close>إزالة هذه الخدمة من العارضة</Close>
       <action>
-        <Open>Open</Open>
+        <Open>إفتح</Open>
       </action>
     </action>
   </UIPageDesktop>
@@ -1819,14 +1819,14 @@
   -->
   <UIPageBody>
     <label>
-      <title>Portal Page Body</title>
-      <description>The page body of the portal</description>
+      <title>صفحة البوابة</title>
+      <description>صفحة البوابة</description>
     </label>
     <msg>
-      <pageNotFoundLine1>Page not found!</pageNotFoundLine1>
-      <pageNotFoundLine2>You do not have permission to view this page.</pageNotFoundLine2>
-      <pageNotFoundLine3>Page can be deleted!</pageNotFoundLine3>
-      <pageNotFoundLine4>This node does not have any pages.</pageNotFoundLine4>
+      <pageNotFoundLine1>!لم يتم العثور على الصفحة</pageNotFoundLine1>
+      <pageNotFoundLine2>ليس لديك الحق في مشاهدة هذه الصفحة</pageNotFoundLine2>
+      <pageNotFoundLine3>!هذه الصفحة يمكن حذفها</pageNotFoundLine3>
+      <pageNotFoundLine4>.هذه العقدة ليست لديها أي صفحة</pageNotFoundLine4>
     </msg>
   </UIPageBody>
   <!--
@@ -1836,8 +1836,8 @@
   -->
   <UIPortal>
     <label>
-      <title>UIPortal Container</title>
-      <description>The UIPortal Container</description>
+      <title>حاوية واجهة مستخدم البوابة </title>
+      <description>حاوية واجهة مستخدم البوابة</description>
     </label>
   </UIPortal>
   <!--
@@ -1847,8 +1847,8 @@
   -->
   <UITableColumnContainer>
     <label>
-      <title>Navigation Container</title>
-      <description>The navigation container</description>
+      <title>حاوية التصفح</title>
+      <description>حاوية التصفح</description>
     </label>
   </UITableColumnContainer>
   <!--
@@ -1858,44 +1858,44 @@
   -->
   <UIExoStart>
     <item>
-      <Administration>Administration</Administration>
-      <System>System</System>
-      <Support>Support</Support>
-      <Refresh>Refresh</Refresh>
-      <Basic>Basic</Basic>
-      <Advanced>Advanced</Advanced>
-      <ChangeSkin>Change Skin</ChangeSkin>
+      <Administration>إدارة</Administration>
+      <System>نظام</System>
+      <Support>مساعدة</Support>
+      <Refresh>تجديد</Refresh>
+      <Basic>الأساسية</Basic>
+      <Advanced>متقدم</Advanced>
+      <ChangeSkin>تغيير المظهر</ChangeSkin>
       <ChangeLanguage>تغيير اللغة</ChangeLanguage>
-      <PageCreationWizard>Create Page Wizard</PageCreationWizard>
-      <EditCurrentPage>Edit Page Wizard</EditCurrentPage>
-      <EditCurrentPortal>Edit Current Portal</EditCurrentPortal>
-      <BrowseExistingPortals>Browse Existing Portals</BrowseExistingPortals>
-      <Navigation>Navigation</Navigation>
-      <EditNavigation>Edit Navigation</EditNavigation>
-      <BrowseExistingPages>Browse Existing Pages</BrowseExistingPages>
-      <Default>Default</Default>
-      <Mac>Mac</Mac>
-      <Vista>Vista</Vista>
-      <English>English</English>
-      <Vietnamese>Vietnamese</Vietnamese>
-      <French>French</French>
-      <EditPortal>Edit Current Portal</EditPortal>
-      <EditPage>Edit Page and Navigation</EditPage>
-      <BrowsePortal>Manage Portals</BrowsePortal>
-      <BrowsePage>Manage Pages</BrowsePage>
-      <InterfaceSettings>Interface Settings</InterfaceSettings>
-      <SkinSettings>Skin Settings</SkinSettings>
-      <LanguageSettings>Language Settings</LanguageSettings>
-      <AccountSettings>Account Settings</AccountSettings>
-      <ChangePortal>Change Portal</ChangePortal>
-      <Login>Sign in</Login>
-      <Logout>Sign out</Logout>
-      <PageNavigation>Page Navigations</PageNavigation>
+      <PageCreationWizard>معالج تكوين صفحة</PageCreationWizard>
+      <EditCurrentPage>معالج تحرير صفحة </EditCurrentPage>
+      <EditCurrentPortal>تعديل البوابة الحالية</EditCurrentPortal>
+      <BrowseExistingPortals>تصفح قائمة البوابات</BrowseExistingPortals>
+      <Navigation>تصفح</Navigation>
+      <EditNavigation>تحرير التصفح</EditNavigation>
+      <BrowseExistingPages>تصفح الصفحات الموجودة</BrowseExistingPages>
+      <Default>افتراضي</Default>
+      <Mac>ماك</Mac>
+      <Vista>فيستا</Vista>
+      <English>انقليزية</English>
+      <Vietnamese>فيتنامية</Vietnamese>
+      <French>فرنسية</French>
+      <EditPortal>تعديل البوابة الحالية</EditPortal>
+      <EditPage>تحرير الصفحة والتصفح</EditPage>
+      <BrowsePortal>إدارة البوابات</BrowsePortal>
+      <BrowsePage>إدارة الصفحات</BrowsePage>
+      <InterfaceSettings>تعديل الواجهة</InterfaceSettings>
+      <SkinSettings>تعديل المظهر</SkinSettings>
+      <LanguageSettings>ضبط اللغة</LanguageSettings>
+      <AccountSettings>ضبط الحساب</AccountSettings>
+      <ChangePortal>تغيير البوابة</ChangePortal>
+      <Login>تسجيل الدخول</Login>
+      <Logout>تسجيل الخروج</Logout>
+      <PageNavigation>تصفح الموقع</PageNavigation>
     </item>
     <tooltip>
-      <scrollUp>Click and hold to scroll up</scrollUp>
-      <scrollDown>Click and hold to scroll down</scrollDown>
-      <begin>Click here to begin</begin>
+      <scrollUp>اضغط باستمرار للتمرير للأعلى</scrollUp>
+      <scrollDown>اضغط باستمرار للانتقال للأسفل</scrollDown>
+      <begin>اضغط هنا لتبدأ</begin>
     </tooltip>
   </UIExoStart>
   <!--
@@ -1905,17 +1905,17 @@
   -->
   <UISearch>
     <label>
-      <AdvancedSearch>Advanced Search</AdvancedSearch>
-      <UISavedQuery>Saved Query</UISavedQuery>
-      <UISearchResult>Advanced Search Results</UISearchResult>
-      <UIMetadataSearch>Metadata Search</UIMetadataSearch>
-      <Search>Search</Search>
-      <QuickSearch>Quick Search</QuickSearch>
+      <AdvancedSearch>بحث متقدم</AdvancedSearch>
+      <UISavedQuery>أنقذ الاستعلام</UISavedQuery>
+      <UISearchResult>نتائج البحث المتقدم</UISearchResult>
+      <UIMetadataSearch>بحث الفوقية</UIMetadataSearch>
+      <Search>ابحث</Search>
+      <QuickSearch>بحث سريع</QuickSearch>
     </label>
   </UISearch>
   <UISearchForm>
     <msg>
-      <empty>No result found!</empty>
+      <empty>!لا نتيجة </empty>
     </msg>
   </UISearchForm>
   <!--
@@ -1925,9 +1925,9 @@
   -->
   <UIFormUploadInput>
     <label>
-      <Uploaded>Uploaded</Uploaded>
-      <remove>Remove Uploaded</remove>
-      <Cancel>Cancel</Cancel>
+      <Uploaded>تم تحميل</Uploaded>
+      <remove>ازالة تحميل</remove>
+      <Cancel>الغاء</Cancel>
     </label>
   </UIFormUploadInput>
   <!--
@@ -1936,8 +1936,9 @@
   ###############################################################################
   -->
   <UIWizardWelcome>
-    <WelcomeLabel>Welcome you to eXo Page Creation Wizard !</WelcomeLabel>
-    <WelcomeText>This Wizard will walk you through the creation of a new page. It guides you through entering the information necessary for creating a new page. When you are done entering the required information, you will be prompted to save your new page. And, it is the easy way by click on the "Back" and "Next" buttons or select the step number to navigate the steps.</WelcomeText>
+    <WelcomeLabel>!مرحبا بكم في معالج إنشاء الصفحات</WelcomeLabel>
+    <WelcomeText>هذا المعالج سوف يسمح لكم من إنشاء صفحة جديدة. وهي توجه لكم من خلال دخول المعلومات اللازمة لإنشاء صفحة جديدة. عند الانتهاء من دخول المعلومات المطلوبة ، سيطلب منك حفظ صفحة جديدة. طريقة سهلة عن طريق النقر على "العودة" و "التالي" أو أزرار اختيار عدد خطوة
+</WelcomeText>
   </UIWizardWelcome>
   <!--
   ###############################################################################
@@ -1946,23 +1947,23 @@
   -->
   <PageNodePopupMenu>
     <event>
-      <AddNode>Add new Node</AddNode>
-      <EditPageNode>Edit Node's Page</EditPageNode>
-      <EditSelectedNode>Edit this Node</EditSelectedNode>
-      <EditNavigation>Edit Navigation</EditNavigation>
-      <CopyNode>Copy Node</CopyNode>
-      <CutNode>Cut Node</CutNode>
-      <MoveUp>Move Up</MoveUp>
-      <MoveDown>Move Down</MoveDown>
-      <PasteNode>Paste Node</PasteNode>
-      <SaveNavigation>Save Navigation</SaveNavigation>
-      <DeleteNode>Delete Node</DeleteNode>
+      <AddNode>أضف عقدة جديدة</AddNode>
+      <EditPageNode>تحرير عقدة الصفحة</EditPageNode>
+      <EditSelectedNode>تحرير العقدة المختارة</EditSelectedNode>
+      <EditNavigation>تحرير التصفح</EditNavigation>
+      <CopyNode>نسخ العقدة</CopyNode>
+      <CutNode>قطع العقدة</CutNode>
+      <MoveUp>اصعد</MoveUp>
+      <MoveDown>تحرك لأسفل</MoveDown>
+      <PasteNode>إلصق عقدة</PasteNode>
+      <SaveNavigation>إنقاذ التصفح</SaveNavigation>
+      <DeleteNode>حذف العقدة</DeleteNode>
     </event>
   </PageNodePopupMenu>
   <UIGroupManagement>
     <msg>
-      <Edit>You must select a group!</Edit>
-      <Delete>You can't delete this group because it is being used by other program!</Delete>
+      <Edit>!يجب ان تختار مجموعة</Edit>
+      <Delete>!لا يمكنك حذف هذه المجموعة لأنها تستخدم من قبل برنامج آخر</Delete>
     </msg>
   </UIGroupManagement>
   <!--
@@ -1972,32 +1973,32 @@
   -->
   <UIEditCurentPage>
     <label>
-      <pageCreateWizard>Edit Curent Page Wizard</pageCreateWizard>
+      <pageCreateWizard>معالج تحرير الصفحة الحالية</pageCreateWizard>
       <step1>
-        <title>Welcome to Edit Curent Page</title>
+        <title>مرحبا بكم في تحرير الصفحة الحالية</title>
       </step1>
-      <wizardSteps>Steps</wizardSteps>
-      <next>Next</next>
-      <done>Save</done>
-      <back>Back</back>
-      <abort>Abort</abort>
+      <wizardSteps>خطوات</wizardSteps>
+      <next>الموالي</next>
+      <done>احفظ</done>
+      <back>رجوع</back>
+      <abort>الغاء</abort>
       <step2>
-        <title>Select a Page Node and Create Page's Name</title>
+        <title>إختار عقدة الصفحة  وحرر اسم الصفحة</title>
       </step2>
       <step3>
-        <title>Select a Page Layout Template</title>
+        <title>اختيار نسق قالب الصفحة</title>
       </step3>
       <step4>
-        <title>Drag and Drop</title>
+        <title>سحب و إسقاط</title>
       </step4>
     </label>
   </UIEditCurentPage>
   <UIWizardCurentPageInfo>
-    <title>Add a new Page</title>
+    <title>أضف صفحة جديدة</title>
     <label>
-      <curentSelectedNodeInfo>Current Selected Page Node</curentSelectedNodeInfo>
-      <pageName>Page Name</pageName>
-      <description>Description</description>
+      <curentSelectedNodeInfo>عقدة الصفحة المختارة الحالية</curentSelectedNodeInfo>
+      <pageName>اسم الصفحة</pageName>
+      <description>وصف</description>
     </label>
     <action>
       <Save>#{word.save}</Save>
@@ -2009,7 +2010,7 @@
   ###############################################################################
   -->
   <UIAccessGroup>
-    <deleteAccessGroup>Are you sure you want to delete this Access Group?</deleteAccessGroup>
+    <deleteAccessGroup>هل أنت متأكد من أنك تريد حذف الدخول للمجموعة ؟</deleteAccessGroup>
   </UIAccessGroup>
   <!--
   #############################################################################
@@ -2018,25 +2019,25 @@
   -->
   <UISharedPortalResources>
     <msg>
-      <notSelected>You have to select a group</notSelected>
+      <notSelected>عليك اختيار مجموعة</notSelected>
     </msg>
   </UISharedPortalResources>
   <UISharedNavigation>
     <msg>
-      <notSelected>You must select a group!</notSelected>
+      <notSelected>!عليك اختيار مجموعة</notSelected>
     </msg>
   </UISharedNavigation>
   <Office>
-    <label>Office</label>
+    <label>مكتب</label>
   </Office>
   <Default>
-    <label>Default</label>
+    <label>افتراضي</label>
   </Default>
   <FactoryId>
     <left>
-      <title>Factory Id</title>
+      <title>رقم تعريفة المصنع</title>
     </left>
-    <title>Factory Id</title>
+    <title>رقم تعريفة المصنع</title>
   </FactoryId>
   <!--
   ################################################################################
@@ -2046,14 +2047,14 @@
   <UIWidgets>
     <UIDropDown>
       <label>
-        <SelectContainer>Select Container</SelectContainer>
-        <Information>Information</Information>
-        <Calendar>Calendar</Calendar>
-        <Calculator>Calculator</Calculator>
+        <SelectContainer>اختيار الحاويات</SelectContainer>
+        <Information>معلومات</Information>
+        <Calendar>التقويم</Calendar>
+        <Calculator>حاسبة</Calculator>
       </label>
     </UIDropDown>
     <tooltip>
-      <widgetManagent>Gadget Containers Management</widgetManagent>
+      <widgetManagent>إدارة حاويات الأدوات</widgetManagent>
     </tooltip>
   </UIWidgets>
   <!--
@@ -2063,7 +2064,7 @@
   -->
   <UIGrid>
     <msg>
-      <empty>Empty data</empty>
+      <empty>بيانات فارغة</empty>
     </msg>
   </UIGrid>
   <!--
@@ -2073,7 +2074,7 @@
   -->
   <UIItemSelector>
     <lable>
-      <ItemDetailTitle>Sample Page Layout Templates preview</ItemDetailTitle>
+      <ItemDetailTitle>	معاينة عينة تصفيف القوالب</ItemDetailTitle>
     </lable>
   </UIItemSelector>
   <!--
@@ -2083,7 +2084,7 @@
   -->
   <UITree>
     <tooltip>
-      <UpLevel>Up Level</UpLevel>
+      <UpLevel>المستوى الأعلى</UpLevel>
     </tooltip>
   </UITree>
   <!--
@@ -2094,12 +2095,12 @@
   <UIAccountSetting>
     <tab>
       <label>
-        <UIAccountProfiles>Account Profiles</UIAccountProfiles>
-        <UIAccountChangePass>Change Password</UIAccountChangePass>
+        <UIAccountProfiles>تعريفة الحساب</UIAccountProfiles>
+        <UIAccountChangePass>تغيير كلمة السر</UIAccountChangePass>
       </label>
     </tab>
     <action>
-      <Close>Close</Close>
+      <Close>إغلاق</Close>
     </action>
   </UIAccountSetting>
   <!--
@@ -2110,39 +2111,39 @@
   -->
   <UIAccountProfiles>
     <action>
-      <Save>Save</Save>
-      <Reset>Reset</Reset>
+      <Save>حفظ</Save>
+      <Reset>إعادة</Reset>
     </action>
     <label>
-      <userName>User Name :</userName>
-      <firstName>First Name :</firstName>
-      <lastName>Last Name :</lastName>
-      <email>Email :</email>
+      <userName>:اسم المستخدم</userName>
+      <firstName>:الاسم</firstName>
+      <lastName>:اسم العائلة</lastName>
+      <email>:البريد الالكتروني</email>
     </label>
     <msg>
       <update>
-        <success>Update Account Information successful</success>
+        <success>تحديث معلومات الحساب بنجاح</success>
       </update>
     </msg>
   </UIAccountProfiles>
   <UIAccountChangePass>
     <action>
-      <Save>Save</Save>
-      <Reset>Reset</Reset>
+      <Save>حفظ</Save>
+      <Reset>إعادة</Reset>
     </action>
     <label>
-      <currentpass>Current Password :</currentpass>
-      <newpass>New Password :</newpass>
-      <confirmnewpass>Confirm New Password :</confirmnewpass>
+      <currentpass>:كلمة السر الحالية</currentpass>
+      <newpass>:كلمة السر جديدة</newpass>
+      <confirmnewpass>:تأكيد كلمة السر</confirmnewpass>
     </label>
     <msg>
       <change>
         <pass>
-          <success>Change Account Password successful</success>
+          <success>تغيير كلمة السر للحساب ناجحة</success>
         </pass>
       </change>
-      <password-is-not-match>New Password and Confirm New Password is not match</password-is-not-match>
-      <currentpassword-is-not-match>Current Password is invalid</currentpassword-is-not-match>
+      <password-is-not-match>كلمة السر الجديدة وتأكيد كلمة السر الجديدة مختلفة</password-is-not-match>
+      <currentpassword-is-not-match>كلمة السر الحالية غير صالحة</currentpassword-is-not-match>
     </msg>
   </UIAccountChangePass>
   <!--
@@ -2152,16 +2153,16 @@
   -->
   <UIDropDownControl>
     <title>
-      <Empty>Drop Down Control</Empty>
+      <Empty>وقف المراقبة</Empty>
     </title>
   </UIDropDownControl>
   <UIDropDownPageTemp>
     <item>
-      <normalPageConfigs>Page Configs</normalPageConfigs>
-      <columnPageConfigs>Column Page Configs</columnPageConfigs>
-      <mixPageConfigs>Mix Page Configs</mixPageConfigs>
-      <rowPageConfigs>Row Page Configs</rowPageConfigs>
-      <tabsPageConfigs>Tabs Page Config</tabsPageConfigs>
+      <normalPageConfigs>تشكيلات الصفحة</normalPageConfigs>
+      <columnPageConfigs>تشكيلات صفحة بالأعمدة</columnPageConfigs>
+      <mixPageConfigs>تشكيلات صفحة مختلطة</mixPageConfigs>
+      <rowPageConfigs>تشكيلات صفحة بالصفوف</rowPageConfigs>
+      <tabsPageConfigs> تشكيلات صفحة بعلامات التبويب</tabsPageConfigs>
     </item>
   </UIDropDownPageTemp>
   <!--
@@ -2171,29 +2172,29 @@
   -->
   <UIWidgetContainerManagement>
     <action>
-      <close>Cancel</close>
+      <close>الغاء</close>
       <save>#{word.save}</save>
     </action>
     <confirm>
-      <DeleteContainer>Are you sure to delete this container?</DeleteContainer>
+      <DeleteContainer>هل أنت متأكد من حذف هذه الحاوية؟</DeleteContainer>
     </confirm>
     <title>
-      <manager>Gadget Containers Management</manager>
-      <containers>Containers</containers>
-      <selectedContainer>Selected Gadget Container Info:</selectedContainer>
+      <manager>إدارة حاويات الأدوات</manager>
+      <containers>الحاويات</containers>
+      <selectedContainer>معلومات حاوية الأداة المختارة</selectedContainer>
     </title>
     <msg>
-      <emptyList>There is no container in this category.</emptyList>
-      <noSelected>No selected container</noSelected>
+      <emptyList>لا يوجد حاويات في هذه الفئة</emptyList>
+      <noSelected>لا حاوية مختارة</noSelected>
     </msg>
     <label>
-      <label>Container label:</label>
-      <description>Container Description:</description>
+      <label>:علامة الحاوية</label>
+      <description>:وصف الحاوية</description>
     </label>
     <tooltip>
-      <remove>Remove selected gadget container</remove>
-      <edit>Edit selected gadget container</edit>
-      <addnew>Add new gadget container</addnew>
+      <remove>إزالة حاوية الأداة المختارة</remove>
+      <edit>تحرير حاوية الأداة المختارة</edit>
+      <addnew>إضافة حاوية أداة جديدة</addnew>
     </tooltip>
   </UIWidgetContainerManagement>
   <!--
@@ -2203,29 +2204,29 @@
   -->
   <UIGadgetContainerManagement>
     <action>
-      <close>Cancel</close>
+      <close>الغاء</close>
       <save>#{word.save}</save>
     </action>
     <confirm>
-      <DeleteContainer>Are you sure to delete this container?</DeleteContainer>
+      <DeleteContainer>هل أنت متأكد من حذف هذه الحاوية؟</DeleteContainer>
     </confirm>
     <title>
-      <manager>Gadget Containers Management</manager>
-      <containers>Containers</containers>
-      <selectedContainer>Selected Gadget Container Info:</selectedContainer>
+      <manager>إدارة حاويات الأدوات  </manager>
+      <containers>حاويات</containers>
+      <selectedContainer>:معلومات حاوية الأداة المختارة</selectedContainer>
     </title>
     <msg>
-      <emptyList>There is no container in this category.</emptyList>
-      <noSelected>No selected container</noSelected>
+      <emptyList>.لا يوجد حاويات في هذه الفئة</emptyList>
+      <noSelected>لا حاوية مختارة</noSelected>
     </msg>
     <label>
-      <label>Container label:</label>
-      <description>Container Description:</description>
+      <label>:علامة الحاوية</label>
+      <description>:وصف الحاوية</description>
     </label>
     <tooltip>
-      <remove>Remove selected gadget container</remove>
-      <edit>Edit selected gadget container</edit>
-      <addnew>Add new gadget container</addnew>
+      <remove>إزالة حاوية الأداة المختارة</remove>
+      <edit>تحرير حاوية الأداة المختارة</edit>
+      <addnew>إضافة حاوية أداة جديدة</addnew>
     </tooltip>
   </UIGadgetContainerManagement>
   <!--
@@ -2235,20 +2236,20 @@
   -->
   <GadgetContainerPopup>
     <title>
-      <UIGadgetContainerForm>Gadget Container Form</UIGadgetContainerForm>
+      <UIGadgetContainerForm>نموذج حاوية الأداة</UIGadgetContainerForm>
     </title>
   </GadgetContainerPopup>
   <UIGadgetContainerForm>
     <label>
-      <name>Label:</name>
-      <description>Description:</description>
+      <name>:علامة</name>
+      <description>:وصف</description>
     </label>
     <action>
       <Save>#{word.save}</Save>
-      <Close>Cancel</Close>
+      <Close>الغاء</Close>
     </action>
     <msg>
-      <exist>This container id is existing. Please enter another one!</exist>
+      <exist>هذه الحاوية في القائمة ، من فضلك ادخل واحدة أخرى</exist>
     </msg>
   </UIGadgetContainerForm>
   <!--
@@ -2258,9 +2259,9 @@
   -->
   <UIWidgetContainer>
     <tooltip>
-      <addWidget>Add Gadget</addWidget>
-      <scrollDown>Scroll down</scrollDown>
-      <scrollUp>Scroll up</scrollUp>
+      <addWidget>إضافة أداة</addWidget>
+      <scrollDown>انتقل لأسفل</scrollDown>
+      <scrollUp>انتقل لأعلى</scrollUp>
     </tooltip>
   </UIWidgetContainer>
   <!--
@@ -2271,38 +2272,38 @@
   <Theme>
     <UIItemThemeSelector>
       <item>
-        <SimpleBlue>Blue Simple</SimpleBlue>
-        <SimpleGreen>Green Simple</SimpleGreen>
-        <SimplePink>Pink Simple</SimplePink>
-        <SimpleViolet>Violet Simple</SimpleViolet>
-        <SimpleOrange>Orange Simple</SimpleOrange>
-        <RoundConerPink>Pink Round Corner</RoundConerPink>
-        <RoundConerOrange>Orange Round Corner</RoundConerOrange>
-        <RoundConerGreen>Green Round Corner</RoundConerGreen>
-        <RoundConerViolet>Violet Round Corner</RoundConerViolet>
-        <RoundConerBlue>Blue Round Corner</RoundConerBlue>
-        <ShadowPink>Pink Shadow</ShadowPink>
-        <ShadowOrange>Orange Shadow</ShadowOrange>
-        <ShadowBlue>Blue Shadow</ShadowBlue>
-        <ShadowViolet>Violet Shadow</ShadowViolet>
-        <ShadowGreen>Green Shadow</ShadowGreen>
-        <VistaBlue>Vista Blue</VistaBlue>
-        <VistaTheme>Vista Theme</VistaTheme>
-        <MacBlack>Mac Black</MacBlack>
-        <MacGreenSteel>Mac Green Steel</MacGreenSteel>
-        <MacTheme>Mac Theme</MacTheme>
-        <MacGray>Mac Gray</MacGray>
-        <DefaultTheme>Default Theme</DefaultTheme>
+        <SimpleBlue>زرقاء بسيط</SimpleBlue>
+        <SimpleGreen>أخضر بسيط </SimpleGreen>
+        <SimplePink>وردي بسيط </SimplePink>
+        <SimpleViolet>بنفسجي بسيط </SimpleViolet>
+        <SimpleOrange>أورانج بسيط</SimpleOrange>
+        <RoundConerPink>الركن الوردي</RoundConerPink>
+        <RoundConerOrange>الركن أورانج</RoundConerOrange>
+        <RoundConerGreen>الركن أخضر </RoundConerGreen>
+        <RoundConerViolet>الركن بنفسجي</RoundConerViolet>
+        <RoundConerBlue>الركن زرقاء</RoundConerBlue>
+        <ShadowPink>الظل الوردي</ShadowPink>
+        <ShadowOrange>الظل أورانج</ShadowOrange>
+        <ShadowBlue>الظل الأزرق</ShadowBlue>
+        <ShadowViolet>الظل البنفسجي</ShadowViolet>
+        <ShadowGreen>الظل الأخضر</ShadowGreen>
+        <VistaBlue>فيستا الأزرق</VistaBlue>
+        <VistaTheme>موضوع فيستا</VistaTheme>
+        <MacBlack>ماك الأسود</MacBlack>
+        <MacGreenSteel>ماك الأخضر</MacGreenSteel>
+        <MacTheme>موضوع ماك</MacTheme>
+        <MacGray>ماك جراي</MacGray>
+        <DefaultTheme>الموضوع الافتراضي</DefaultTheme>
       </item>
     </UIItemThemeSelector>
   </Theme>
   <ThemeDropDown>
     <item>
-      <Shadow>Shadow Style</Shadow>
-      <Simple>Simple Style</Simple>
-      <VistaStyle>Vista Style</VistaStyle>
-      <MacStyle>Mac Style</MacStyle>
-      <RoundConer>Round Corner Style</RoundConer>
+      <Shadow>نمط الظل</Shadow>
+      <Simple>النمط البسيط</Simple>
+      <VistaStyle>نمط فيستا</VistaStyle>
+      <MacStyle>نمط ماك </MacStyle>
+      <RoundConer>نمط ركن</RoundConer>
     </item>
   </ThemeDropDown>
   <!--
@@ -2328,7 +2329,7 @@
   </UIDashboardContainer>
   <UIDashboardEditForm>
     <label>
-      <totalColumns>Number of columns</totalColumns>
+      <totalColumns>عدد الأعمدة</totalColumns>
     </label>
   </UIDashboardEditForm>
   <UIDashboard>
@@ -2345,24 +2346,24 @@
   <UIUserSelector>
     <label>
       <option>
-        <userName>User Name</userName>
-        <lastName>Last Name</lastName>
-        <firstName>First Name</firstName>
-        <email>Email Name</email>
+        <userName>اسم المستخدم</userName>
+        <lastName>اسم العائلة</lastName>
+        <firstName>الاسم</firstName>
+        <email>البريد الالكتروني</email>
       </option>
-      <group>Group :</group>
-      <searchUser>Search :</searchUser>
-      <userName>User Name</userName>
-      <lastName>Last Name</lastName>
-      <firstName>First Name</firstName>
-      <email>Email</email>
-      <action>Action</action>
-      <Add>Add</Add>
-      <Close>Close</Close>
+      <group>:المجموعة</group>
+      <searchUser>:ابحث</searchUser>
+      <userName>اسم المستخدم</userName>
+      <lastName>اسم العائلة</lastName>
+      <firstName>الاسم</firstName>
+      <email>البريد الالكتروني</email>
+      <action>حركة</action>
+      <Add>إضافة</Add>
+      <Close>إغلاق</Close>
     </label>
     <msg>
-      <empty>Empty data</empty>
-      <user-required>Please check at least one user.</user-required>
+      <empty>بيانات فارغة</empty>
+      <user-required>.يرجى التحقق من مستخدم على الأقل</user-required>
     </msg>
   </UIUserSelector>
   <!--
@@ -2372,14 +2373,14 @@
   -->
   <UIAddNewApplication>
     <label>
-      <AddApplication>Add Application</AddApplication>
-      <Categories>Categories</Categories>
-      <Select>Select Applications</Select>
-      <NoneApp>There is no application in this location. Go to Application Registry portlet to import applications.</NoneApp>
-      <Type>Type:</Type>
-      <Created>Created by:</Created>
-      <Description>Description:</Description>
-      <Close>Close</Close>
+      <AddApplication>أضف خدمة</AddApplication>
+      <Categories>فئات</Categories>
+      <Select>اختر التطبيقات</Select>
+      <NoneApp>لا يوجد تطبيق في هذا الموقع. اذهب إلى مدخل تطبيق  لطلبات الاستيراد</NoneApp>
+      <Type>:نوع</Type>
+      <Created>:أنشأت من</Created>
+      <Description>:الوصف</Description>
+      <Close>إغلاق</Close>
     </label>
   </UIAddNewApplication>
   
