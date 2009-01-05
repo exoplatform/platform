@@ -16,6 +16,7 @@
  */
 package org.exoplatform.portal.application;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.net.URLDecoder;
@@ -212,6 +213,10 @@ public class PortalRequestContext extends WebuiRequestContext {
 
   final public void setFullRender(boolean forceFullUpdate) { this.forceFullUpdate = forceFullUpdate; }
 
+  final public void sendRedirect(String url) throws IOException {
+  	setResponseComplete(true);
+  	response_.sendRedirect(url);
+  }
 
   public void setHeaders(Map<String, String> headers) {
     Set<String> keys = headers.keySet();

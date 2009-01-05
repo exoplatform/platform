@@ -96,6 +96,8 @@ abstract public class WebuiRequestContext extends RequestContext {
   
   public void    setResponseComplete(boolean b) { responseComplete_ = b ; }
   
+  abstract public void sendRedirect(String url) throws Exception ;
+  
   public boolean getProcessRender() { return processRender_ ;}
   
   public void    setProcessRender(boolean b) { processRender_ = b; }

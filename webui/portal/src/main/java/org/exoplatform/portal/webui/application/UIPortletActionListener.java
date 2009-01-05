@@ -50,6 +50,7 @@ import org.exoplatform.services.portletcontainer.pci.ActionInput;
 import org.exoplatform.services.portletcontainer.pci.ActionOutput;
 import org.exoplatform.services.portletcontainer.pci.EventInput;
 import org.exoplatform.services.portletcontainer.pci.EventOutput;
+import org.exoplatform.services.portletcontainer.pci.Output;
 import org.exoplatform.services.portletcontainer.pci.ResourceInput;
 import org.exoplatform.services.portletcontainer.pci.ResourceOutput;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -83,12 +84,9 @@ public class UIPortletActionListener {
       EventListener<UIPortlet> {
     public void execute(Event<UIPortlet> event) throws Exception {
       UIPortlet uiPortlet = event.getSource();
-      PortalRequestContext prcontext = (PortalRequestContext) event
-          .getRequestContext();
-      ExoContainer container = event.getRequestContext().getApplication()
-          .getApplicationServiceContainer();
-      UIPortalApplication uiPortalApp = uiPortlet
-          .getAncestorOfType(UIPortalApplication.class);
+      PortalRequestContext prcontext = (PortalRequestContext) event.getRequestContext();
+      ExoContainer container = prcontext.getApplication().getApplicationServiceContainer();
+      UIPortalApplication uiPortalApp = uiPortlet.getAncestorOfType(UIPortalApplication.class);
       PortletContainerService portletContainer = (PortletContainerService) container
           .getComponentInstanceOfType(PortletContainerService.class);
       ActionInput actionInput = new ActionInput();
@@ -110,7 +108,11 @@ public class UIPortletActionListener {
       actionInput.setStateChangeAuthorized(true);
       ActionOutput output = portletContainer.processAction(prcontext
           .getRequest(), prcontext.getResponse(), actionInput);
-
+      String redirectUrl = (String) output.getProperties().get(Output.SEND_REDIRECT) ;
+      if(redirectUrl != null) {
+      	prcontext.sendRedirect(redirectUrl);
+      	return;
+      }
       /*
        * Update the portlet window state according to the action output
        * information
@@ -124,7 +126,7 @@ public class UIPortletActionListener {
       setNextMode(uiPortlet, output.getNextMode());
 
       // set the public params
-      HttpServletRequest request = event.getRequestContext().getRequest();
+      HttpServletRequest request = prcontext.getRequest();
       setupPublicRenderParams(uiPortlet, request.getParameterMap());
 
       /*

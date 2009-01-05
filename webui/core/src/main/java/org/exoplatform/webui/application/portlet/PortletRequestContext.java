@@ -18,6 +18,7 @@ package org.exoplatform.webui.application.portlet;
 
 import java.io.Writer;
 
+import javax.portlet.ActionResponse;
 import javax.portlet.PortletMode;
 import javax.portlet.PortletModeException;
 import javax.portlet.PortletRequest;
@@ -114,6 +115,11 @@ public class PortletRequestContext extends WebuiRequestContext {
   public Writer getWriter() throws Exception {  return writer_ ; }
 
   final public boolean useAjax() { return getParentAppRequestContext().useAjax(); } 
+  
+  public void sendRedirect(String url) throws Exception {
+  	setResponseComplete(true);
+  	if(response_ instanceof ActionResponse) ((ActionResponse) response_).sendRedirect(url) ;
+  }
   
   public  boolean hasProcessAction() { return hasProcessAction_ ;}
   
