@@ -39,7 +39,7 @@
 				        <div class="ButtonLeft">
 				          <div class="ButtonRight">
 				            <div class="ButtonMiddle">
-				              <a href="javascript:void(0);"><%=_ctx.appRes("UIChangeSkin.action.save");%></a>
+				              <a href="#"><%=_ctx.appRes("UIChangeSkin.action.save");%></a>
 				            </div>
 				          </div>
 				        </div>

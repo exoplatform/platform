@@ -356,8 +356,8 @@ UIPortal.prototype.changeSkin = function(url) {
    skin = eXo.webui.UIItemSelector.SelectedItem.option;
  }
  if(skin == undefined) skin = '';
-  ajaxAsyncGetRequest(url + '&skin='+skin, false);
-  window.location = eXo.env.server.portalBaseURL;
+  //ajaxAsyncGetRequest(url + '&skin='+skin, false);
+  window.location = url + '&skin='+skin;
 } ;
 
 UIPortal.prototype.changeLanguage = function(url) {
@@ -366,8 +366,8 @@ UIPortal.prototype.changeLanguage = function(url) {
   	language = eXo.webui.UIItemSelector.SelectedItem.option;
 	}
 	if(language == undefined) language = '';  
-  ajaxAsyncGetRequest(url + '&language='+language, false);
-  window.location = eXo.env.server.portalBaseURL;
+  //ajaxAsyncGetRequest(url + '&language='+language, false);
+  window.location = url + '&language='+language;
 } ;
 
 UIPortal.prototype.changePortal = function(accessPath, portal) {
