@@ -12,10 +12,6 @@
 		<path>/gadgets/Calculator.xml</path>
 	</gadget>
 	
-	<gadget name="Weather">
-		<url>http://www.labpixies.com/campaigns/weather/weather.xml</url>
-	</gadget>
-	
 	<gadget name="rssAggregator">
 		<path>/gadgets/rssAggregator.xml</path>
 	</gadget>
