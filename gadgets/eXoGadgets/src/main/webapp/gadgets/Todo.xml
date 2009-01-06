@@ -127,99 +127,108 @@
 		</style>
 		<script type="text/javascript">
 				var prefs = new _IG_Prefs(__MODULE_ID__);
-				var keynum;
-				//var parentGadgets = window.top.gadgets;
-				//var gadget = parentGadgets.container.getGadget(prefs.getModuleId());
-
 				function onLoad() {
-				var listsTodo = prefs.getArray("todoList");
-				var appendParrent = document.getElementById("write");
-
+					var listsTodo = prefs.getArray("todoList");
+					var appendParrent = document.getElementById("write");
 					for(var i=0; i<listsTodo.length; i++) {
 						if(i>6) {
-							var input = document.createElement("input");
-							input.setAttribute("type","text");
-							input.setAttribute("name",i+1);
-							input.setAttribute("onkeydown","finish(this,event);");
-							input.setAttribute("id",i+1);
-							appendParrent.insertBefore(input,null);
+              createTaskInput(i+1);
 						}
 						var tmp = document.getElementById(parseInt(i)+1);
 						tmp.value = listsTodo[i];
 					}
+					reArrange();
+				}
+				
+				function focusFirstTask(firstInput) {
+					if(firstInput.value == '1. __MSG_type_here__') {
+						firstInput.focus();
+						firstInput.value = "1.";
+					}
 				}
 
+        function reArrange() {
+          var nodeParent = document.getElementById("write");
+          var inputList = nodeParent.getElementsByTagName("input");
+          for(var i=0; i < inputList.length; i++)  {
+            if(inputList[i].value != null && inputList[i].value != "") {
+              var tmp = inputList[i].value;
+	            var numTask = tmp.substring(0, tmp.indexOf('.'));
+						  var contentTask = tmp.substring(tmp.indexOf('.'), tmp.length);
+              if(parseInt(numTask) != parseInt(inputList[i].id)) {
+							  numTask = inputList[i].id;
+					  	}
+						  inputList[i].value = numTask+contentTask;
+            }
+          }
+        }   
 
 				function save() {
 					values = [];
-					for (var i = 1; i < 8; i++) {
-						values.push(document.getElementById(i).value || "");
-					}
-
-					prefs.setArray("todoList", values);
-				}
-
-				function finish(element,e) {
-					//var lists = window.top.JSON.stringify(gadget.getUserPrefs());
-					/* if(lists.length == 0 || lists == "{}") lists = null;
-					else {
-						lists = lists.substring(1,lists.length-1);
-						var listTodo = lists.split("|");
-					}*/
-					var appendParrent = document.getElementById("write");
-					var nameElement = parseInt(element.name) + 1;
-					if(window.event) {
-						keynum = e.keyCode;
-					}else if(e.which) {
-						keynum = e.which;
-					}
-					if(keynum == 13) {
-						if(nameElement == 8 && element.nextSibling.nextSibling!=null) {
-							element.nextSibling.nextSibling.focus();
-							return;
-						}
-						if(nameElement > 8 && element.nextSibling!=null) {
-							element.nextSibling.focus();
-							return;
-						}
-						if(nameElement > 7) {
-							var input = document.createElement("input");
-							input.setAttribute("type","text");
-							input.setAttribute("name",nameElement);
-							input.setAttribute("onkeydown","finish(this,event);");
-							input.setAttribute("id",nameElement);
-							appendParrent.insertBefore(input,null);
-						}
-						var nextInput = element.nextSibling.nextSibling;
-						if(nameElement > 8) nextInput = element.nextSibling;
-						if(nextInput.value == null || nextInput.value==""){
-							nextInput.value = nameElement + ".";
-							if(lists == null) lists = element.value;
-							else {
-								lists = lists + "|" + element.value;
+          var nodeParent = document.getElementById("write");
+          var inputList = nodeParent.getElementsByTagName("input");
+					for (var i = 0; i < inputList.length; i++) {
+							if(inputList[i].value != null && inputList[i].value != "") {
+              	values.push(inputList[i].value);
 							}
-						} else
-						{
-							var oldStr = listTodo[parseInt(nameElement-2)];
-							var lists = lists.replace(oldStr,element.value);
-						}
-						//prefs.setArray("todoList",[lists]);
-
-						//gadget.setUserPrefs(lists);
-						nextInput.focus();
-					}
+					}          
+          prefs.setArray("todoList", values);
 				}
-			    gadgets.util.registerOnLoadHandler(onLoad);
+
+        function setEnterKey(event) {
+					var e = event || window.event;
+					var elementInput = e.srcElement || e.target;
+          var keynum = e.keyCode || e.which;         
+					if(keynum == 13) {
+						var nextInputElement = findNextElementByTagName(elementInput, "input");
+            if(nextInputElement) {
+              if(nextInputElement.value != null && nextInputElement.value != "") {
+                nextInputElement.focus();                  
+              } else {
+							  nextInputElement.focus();
+                nextInputElement.value = (parseInt(elementInput.id)+1)+".";
+              }
+						} else {
+							createTaskInput(parseInt(elementInput.id)+1);
+						}
+					}						
+				}
+
+        function createTaskInput(index) {
+          var parentNode = document.getElementById("write");
+          var input = document.createElement("input");
+					parentNode.insertBefore(input,null);
+          input.focus();
+					input.setAttribute("type","text");
+					input.setAttribute("name",index);
+					input.onkeydown = setEnterKey;          
+          input.value = index+".";
+          input.setAttribute("id",index);
+        }
+
+
+        function findNextElementByTagName(element, tagName) {
+					var nextElement = element.nextSibling ;
+					while (nextElement != null) {
+						var nodeName = nextElement.nodeName ;
+				    if (nodeName != null) nodeName = nodeName.toLowerCase() ;
+						if (nodeName == tagName) return nextElement ;
+						nextElement = nextElement.nextSibling ;
+					}
+					return null ;
+				}       
+  
+			  gadgets.util.registerOnLoadHandler(onLoad);
 		</script>
 			<div class="Note">
 	    	<div class="write" id="write">
-	        <input type="text" id="1" onfocus="javascript: if(this.value == '1. __MSG_type_here__') this.value='1.'" value="1. __MSG_type_here__" name="1" onkeydown="finish(this,event);"/>
-	        <input type="text" id="2" name="2" onkeydown="finish(this,event);"/>
-	        <input type="text" id="3" name="3" onkeydown="finish(this,event);"/>
-					<input type="text" id="4" name="4" onkeydown="finish(this,event);"/>
-					<input type="text" id="5" name="5" onkeydown="finish(this,event);"/>
-					<input type="text" id="6" name="6" onkeydown="finish(this,event);"/>
-					<input type="text" id="7" name="7" onkeydown="finish(this,event);"/>
+	        <input type="text" id="1" onfocus="focusFirstTask(this);" value="1. __MSG_type_here__" name="1" onkeydown="setEnterKey(event);"/>
+	        <input type="text" id="2" name="2" onkeydown="setEnterKey(event);"/>
+	        <input type="text" id="3" name="3" onkeydown="setEnterKey(event);"/>
+					<input type="text" id="4" name="4" onkeydown="setEnterKey(event);"/>
+					<input type="text" id="5" name="5" onkeydown="setEnterKey(event);"/>
+					<input type="text" id="6" name="6" onkeydown="setEnterKey(event);"/>
+					<input type="text" id="7" name="7" onkeydown="setEnterKey(event);"/>
 					
 	      </div>
 
