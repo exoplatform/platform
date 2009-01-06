@@ -62,7 +62,7 @@ eXo.gadget.UIGadget = {
             gadgetControl.style.display = "block";
             var gadgetTitle = eXo.core.DOMUtil.findFirstDescendantByClass(gadgetControl, "div", "GadgetTitle") ;
             gadgetTitle.style.display = "block";
-            if (metadata && metadata.title.length > 0) gadgetTitle.innerHTML = metadata.title;
+            if (metadata && metadata.title != null && metadata.title.length > 0) gadgetTitle.innerHTML = metadata.title;
         }
 
         if (inDesktop) {
