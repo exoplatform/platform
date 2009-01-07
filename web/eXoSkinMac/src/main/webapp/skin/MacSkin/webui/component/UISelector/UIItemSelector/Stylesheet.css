@@ -572,7 +572,7 @@
 /*###########################- Layout Template -#########################*/
 
 .UIItemSelector .DefaultTemplate {
-	width: 250px; height: 170px; margin: auto;
+	width: 270px; height: 170px; margin: auto;
 	background: url('background/TemplateContainer.jpg') no-repeat left top;
 }	
 
@@ -582,12 +582,12 @@
 }
 
 .UIItemSelector .DesktopLayout {
-	width: 250px; height: 170px; margin: auto;
+	width: 270px; height: 170px; margin: auto;
 	background: url('background/TemplateContainer.jpg') no-repeat center;
 }
 
 .UIItemSelector .DashboardLayout {
-	width: 250px; height: 170px; margin: auto;
+	width: 270px; height: 170px; margin: auto;
 	background: url('background/DashboardLayout.jpg') no-repeat left top;
 }
 

@@ -70,10 +70,12 @@
   float: left; 	/* orientation=lt */
 	float: right; 	/* orientation=rt */
   height: 34px; line-height: 34px; vertical-align: middle;
+  width: 49%;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a {
-  float: left;
+  float: left; 	/* orientation=lt */
+	float: right; 	/* orientation=rt */
   width: 18px; height: 18px; 
   line-height: 18px;
   font-weight: bold; text-align: center;
@@ -97,7 +99,8 @@
   float: right;		/* orientation=rt */
   height: 33px; line-height: 33px; 
   font-weight: bold;
-  margin: 0px 10px 0px 15px;
+  margin: 0px 10px 0px 15px;	/* orientation=lt */
+  margin: 0px 15px 0px 10px;	/* orientation=rt */
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl {
