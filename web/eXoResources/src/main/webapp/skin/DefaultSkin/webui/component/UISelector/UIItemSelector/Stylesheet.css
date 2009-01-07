@@ -518,7 +518,8 @@
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
   height: 26px; line-height: 24px;
   color: #f67a02;
-  padding-left: 5px;
+  padding-left: 5px; /* orientation=lt */
+  padding-right: 5px; /* orientation=rt */
   white-space: nowrap;
   overflow: hidden;
   width: 95%;
@@ -552,9 +553,11 @@
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem .ItemTitle {
-  height: 26px; line-height: 24px;
+  height: 26px; 
+  line-height: 24px;
   color: #0575CA; 
-  padding-left: 5px;
+  padding-left: 5px; /* orientation=lt */
+  padding-right: 5px; /* orientation=rt */
   white-space: nowrap;
   overflow: hidden;
   width: 95%;

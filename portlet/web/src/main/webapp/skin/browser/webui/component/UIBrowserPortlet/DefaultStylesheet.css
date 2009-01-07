@@ -5,7 +5,7 @@
 
 .UIBrowserPortlet {
 	border: solid 1px #C6C6C6;
-  margin: 7px 10px 10px;
+  margin: 7px 10px 0px 10px;
   background: white;
 }
 
@@ -91,7 +91,8 @@
 	height: 24px;
 	background: url("DefaultSkin/background/UIBrowserPortlet.gif") no-repeat left -372px;	/* orientation=lt */
 	background: url("DefaultSkin/background/UIBrowserPortlet-rt.gif") no-repeat right -372px;	/* orientation=rt */
-	margin-left: 5px;
+	margin-left: 5px; /* orientation=lt */
+	margin-right: 5px; /* orientation=rt */
 }
 
 .UIBrowserPortlet .StopButton {
@@ -145,6 +146,7 @@
 	margin: 1px 100px 0px 9px; /* orientation=lt */
 	margin: 1px 9px 0px 100px; /* orientation=rt */
 	border: inset 1px gray;
+	_padding-right: 32px; /* orientation=rt */
 }
 
 .UIBrowserPortlet .ArrowDownButton {

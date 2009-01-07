@@ -183,6 +183,7 @@
   cursor: pointer;
   padding: 0px 4px 0px 4px;
   _width: 70px; /* orientation=rt */
+  _white-space: nowrap; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab {
@@ -239,6 +240,7 @@
   cursor: pointer;
   padding: 0px 4px;
   _width: 70px; /* orientation=rt */
+  _white-space: nowrap; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab a{

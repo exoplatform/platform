@@ -10,7 +10,8 @@
 .UIDashboard {
 	border: 1px solid #b7b7b7;
 	margin: 5px;
-	background: url('background/BgRepeat.gif') repeat-y top left;
+	background: url('background/BgRepeat.gif') repeat-y top left; /* orientation=lt */
+	background: url('background/BgRepeat-rt.gif') repeat-y top right; /* orientation=rt */
 	height: 100%;
 }
 
@@ -36,7 +37,8 @@
 
 /*----------------------UIGadgetsSelectorForm-------------------*/
 .UIDashboardSelectContainer {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 209px;
 	height: 100%;
 }

@@ -177,6 +177,7 @@
   cursor: pointer;
   padding: 0px 4px 0px 4px;
   _width: 60px; /* orientation=rt */
+  _white-space: nowrap; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab {
@@ -238,6 +239,7 @@
   font-weight: normal;
   padding: 0px 4px;
   _width: 60px; /* orientation=rt */
+  _white-space: nowrap; /* orientation=rt */
 }
 
 /*###########################-- MessageTabDialog --############################*/
