@@ -91,7 +91,7 @@
       <Save>#{word.save}</Save>
     </action>
     <msg>
-      <user-exist>Tên người dùng '(0)' đã được sử dụng</user-exist>
+      <user-exist>Tên người dùng '{0}' đã được sử dụng</user-exist>
       <incorrect-password>Hãy nhập lại mật khẩu</incorrect-password>
       <sucsesful>
         <create>

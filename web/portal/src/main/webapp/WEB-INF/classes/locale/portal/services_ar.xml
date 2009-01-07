@@ -9,7 +9,7 @@
   -->
   <EmptyStringValidator>
     <msg>
-      <empty-input>	الميدان "(0)" المطلوب</empty-input>
+      <empty-input>	الميدان "{0}" المطلوب</empty-input>
     </msg>
   </EmptyStringValidator>
   <!--
@@ -21,7 +21,7 @@
   -->
   <EmailAddressValidator>
     <msg>
-      <invalid-email>لقد أدخلت "(0)" في الميدان "(1)" ، حركة غير صالحة</invalid-email>
+      <invalid-email>لقد أدخلت "{0}" في الميدان "{1}" ، حركة غير صالحة</invalid-email>
     </msg>
   </EmailAddressValidator>
   <!--
@@ -33,8 +33,8 @@
   -->
   <NumberFormatValidator>
     <msg>
-      <invalid-limitAccess>لقد أدخلت "(0)" في الميدان "(1)"، حركة غير صالحة \الدخول محدود</invalid-limitAccess>
-      <Invalid-input>القيمة في الميدان "(0)" ليست من شكل عدد</Invalid-input>
+      <invalid-limitAccess>لقد أدخلت "{0}" في الميدان "{1}"، حركة غير صالحة \الدخول محدود</invalid-limitAccess>
+      <Invalid-input>القيمة في الميدان "{0}" ليست من شكل عدد</Invalid-input>
     </msg>
   </NumberFormatValidator>
   <!--
@@ -49,8 +49,8 @@
   -->
   <IdentifierValidator>
     <msg>
-      <empty-input>الميدان "(0)" لا يمكن أن يكون فارغا</empty-input>
-      <invalid-char>الميدان"(0)" يسمح: حروف، أرقام فقط والتأكيد على اندفاعة</invalid-char>
+      <empty-input>الميدان "{0}" لا يمكن أن يكون فارغا</empty-input>
+      <invalid-char>الميدان"{0}" يسمح: حروف، أرقام فقط والتأكيد على اندفاعة</invalid-char>
     </msg>
   </IdentifierValidator>
   <!--
@@ -65,8 +65,8 @@
   -->
   <NameValidator>
     <msg>
-      <empty-input>لميدان "(0)" لا يمكن أن يكون فارغا</empty-input>
-      <invalid-char>الميدان"(0)" يسمح: حروف، أرقام ، نقطة فقط والتأكيد على اندفاعة</invalid-char>
+      <empty-input>لميدان "{0}" لا يمكن أن يكون فارغا</empty-input>
+      <invalid-char>الميدان"{0}" يسمح: حروف، أرقام ، نقطة فقط والتأكيد على اندفاعة</invalid-char>
     </msg>
   </NameValidator>
   <!--
@@ -81,8 +81,8 @@
   -->
   <ValidUserValidator>
     <msg>
-      <empty-input>"(الرجاء إدخال قيمة في ميدان "(0</empty-input>
-      <invalid-username>"(النظام لا يجد المستخدم "(0</invalid-username>
+      <empty-input>الرجاء إدخال قيمة في ميدان "{0}"</empty-input>
+      <invalid-username>النظام لا يجد المستخدم "{0}"</invalid-username>
     </msg>
   </ValidUserValidator>
   <!--
@@ -97,8 +97,8 @@
   -->
   <ValidGroupValidator>
     <msg>
-      <empty-input>ميدان "(0)": الرجاء إدخال قيمة</empty-input>
-      <invalid-group-id>المجموعة "(0)" لا توجد</invalid-group-id>
+      <empty-input>ميدان "{0}": الرجاء إدخال قيمة</empty-input>
+      <invalid-group-id>المجموعة "{0}" لا توجد</invalid-group-id>
     </msg>
   </ValidGroupValidator>
   <!--
@@ -124,7 +124,7 @@
   -->
   <CheckAdminOrOwnerRoleInterceptor>
     <msg>
-      <owner-or-admin-require>تنفيذ الحركة "(0)": حاجة لتسجيل الدخول أو لدور مخطط النظام</owner-or-admin-require>
+      <owner-or-admin-require>تنفيذ الحركة "{0}": حاجة لتسجيل الدخول أو لدور مخطط النظام</owner-or-admin-require>
     </msg>
   </CheckAdminOrOwnerRoleInterceptor>
   <!--
@@ -136,7 +136,7 @@
   -->
   <CheckOwnerInterceptor>
     <msg>
-      <owner-require>تنفيذ الحركة "(0)": حاجة لتسجيل الدخول</owner-require>
+      <owner-require>تنفيذ الحركة "{0}": حاجة لتسجيل الدخول</owner-require>
     </msg>
   </CheckOwnerInterceptor>
   <!--
@@ -148,7 +148,7 @@
   -->
   <ExoPermissionException>
     <msg>
-      <message>"(أنت في حاجة الى الدور "(0)" لتنفيذ الحركة "(1</message>
+      <message>أنت في حاجة الى الدور "{0}" لتنفيذ الحركة "{1}"</message>
     </msg>
   </ExoPermissionException>
   <!--
@@ -158,21 +158,21 @@
   #this exception is throw in GroupQueryHandler class
   -->
   <OrganizationService>
-    <unique-group-exception>اسم المجموعة "(0)"  موجود</unique-group-exception>
+    <unique-group-exception>اسم المجموعة "{0}"  موجود</unique-group-exception>
   </OrganizationService>
   <!--
   #Throw in org.exoplatform.commons.utils.PageList, {0}=request page parameter, {1}=available pages parameter
   -->
   <PageList>
-    <page-out-of-range>أنت في محاولة للحصول على الصفحة "(0)"، ولكن سوى الصفحات "(1)" متاحة</page-out-of-range>
+    <page-out-of-range>أنت في محاولة للحصول على الصفحة "{0}"، ولكن سوى الصفحات "{1}" متاحة</page-out-of-range>
   </PageList>
   <!--
   #Throw in exo.services.communication.message.impl.MessageServiceImpl. 
   #{0}=account name, {1}=user name
   -->
   <MessageService>
-    <account-not-found>"(لا يمكن العثور على الحساب "(0)" للمستخدم "(1</account-not-found>
-    <invalid-standalone-message-address> \ receiver#accountName:انت باستخدام نوع الحساب بذاته و عنوان "(0)" غير صالح. النظام ينتظرعنوان مع الشكل التالي</invalid-standalone-message-address>
+    <account-not-found>لا يمكن العثور على الحساب "{0}" للمستخدم "{1}"</account-not-found>
+    <invalid-standalone-message-address> \ receiver#accountName:انت باستخدام نوع الحساب بذاته و عنوان "{0}" غير صالح. النظام ينتظرعنوان مع الشكل التالي</invalid-standalone-message-address>
     <send-message-fail>{0} : \n\ Error لا يمكن إرسال الرسالة. تحقق من عنوان البريد الإلكتروني الخاص بك</send-message-fail>
   </MessageService>
   <!--
