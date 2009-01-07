@@ -97,22 +97,32 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 		eXo.portal.UIExoStartMenu.createSlide(this);
     eXo.portal.UIExoStartMenu.superClass.pushVisibleContainer(this.menuItemContainer.id) ;
     
-    //find PosY to put menuItemContainer ;
-	 	var posParent = eXo.portal.UIExoStartMenu.findPositionParent(this) ;
-	 	var objTop = eXo.core.Browser.findPosY(this)
-	 	var y = objTop - eXo.core.Browser.findPosY(posParent) ;
+    var y ;
 	 	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
+	 	var hline = eXo.core.DOMUtil.findFirstChildByClass(this.parentNode, "div", "HLineSeparator") ;
 	 	
-	 	//fix for case: bottom pos of menuItemContainer is larger than browserHeight;
-	 	if(objTop + menuItemContainer.offsetHeight >= browserHeight) {
-			y = y + this.offsetHeight - menuItemContainer.offsetHeight ;
+    if(hline) {
+		 	var posParent = eXo.portal.UIExoStartMenu.findPositionParent(this) ;
+		 	var objTop = eXo.core.Browser.findPosY(this) ;
+		 	y = objTop - eXo.core.Browser.findPosY(posParent) ;
+		 	if(objTop + menuItemContainer.offsetHeight >= browserHeight) {
+				y += (this.offsetHeight - menuItemContainer.offsetHeight) ;
+			 	if(y + (eXo.core.Browser.findPosY(posParent) - document.documentElement.scrollTop) < 0) {
+				 	var objBottom = objTop + this.offsetHeight ;
+			 		y += (browserHeight - objBottom) + document.documentElement.scrollTop ;
+			 	}
+		 	}
+	 	} else {
+			var parentMenu = eXo.core.DOMUtil.findAncestorByClass(this, "MenuItemContainer") ;
+			var blockMenu = eXo.core.DOMUtil.findAncestorByClass(this, "BlockMenu") ;
+	 		var objTop = eXo.core.Browser.findPosY(this) ;
+	 		y = objTop - eXo.core.Browser.findPosY(parentMenu) - blockMenu.scrollTop ;
+	 		if(y + menuItemContainer.offsetHeight + 15 > browserHeight) {
+	 			y += (this.offsetHeight - menuItemContainer.offsetHeight) ;
+	 			if(y <= 0) y = 1 ;
+	 		}
 	 	}
-	 	//fix for case: top pos of menuItemContainer is small than 0;
-	 	var objBottom = objTop + this.offsetHeight ;
-	 	if(y + eXo.core.Browser.findPosY(posParent) < 0) {
-	 		y += (browserHeight + document.documentElement.scrollTop - objBottom - 10) ;
-	 	}
-	 	menuItemContainer.style.top = y + "px" ;
+		menuItemContainer.style.top = y + "px" ;
 	}
 };
 
@@ -139,12 +149,13 @@ UIExoStartMenu.prototype.createSlide = function(menuItem) {
 
 	var menuContainer = eXo.core.DOMUtil.findFirstDescendantByClass(blockMenu, "div", "MenuContainer") ;
 	
-	if (!menuContainer.id) menuContainer.id = "eXo" + new Date().getTime() + Math.random().toString().substring(2) ;
+	if (!blockMenu.id) blockMenu.id = "eXo" + new Date().getTime() + Math.random().toString().substring(2) ;
 	
 	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
 	if (menuContainer.offsetHeight + 64 > browserHeight) {
 		var curentHeight = browserHeight - 64;
 		blockMenu.style.height = curentHeight + "px" ;
+		blockMenu.style.overflowY = "hidden" ;
 		topElement.style.display = "block" ;
 		bottomElement.style.display = "block" ;
 
@@ -152,14 +163,14 @@ UIExoStartMenu.prototype.createSlide = function(menuItem) {
 			eXo.portal.UIExoStartMenu.initSlide(menuContainer, curentHeight) ;
 		}
 		topElement.onmousedown = function() {
-			eXo.portal.UIExoStartMenu.scrollDown(menuContainer.id, curentHeight) ;
+			eXo.portal.VerticalScrollManager.scrollComponent(blockMenu.id, true, 15) ;
 		};
-		topElement.onmouseoup = function() {
-			if (menuContainer.repeat) {
-				clearTimeout(menuContainer.repeat) ;
-				menuContainer.repeat = null ;
-			}
-		};
+//		topElement.onmouseoup = function() {
+//			if (menuContainer.repeat) {
+//				clearTimeout(menuContainer.repeat) ;
+//				menuContainer.repeat = null ;
+//			}
+//		};
 		topElement.onclick = function(event) {
 			clearTimeout(menuContainer.repeat) ;
 			menuContainer.repeat = null ;
@@ -168,14 +179,14 @@ UIExoStartMenu.prototype.createSlide = function(menuItem) {
 		};
 		
 		bottomElement.onmousedown = function() {
-			eXo.portal.UIExoStartMenu.scrollUp(menuContainer.id, curentHeight) ;
+			eXo.portal.VerticalScrollManager.scrollComponent(blockMenu.id, false, 15) ;
 		};
-		bottomElement.onmouseoup = function() {
-			if (menuContainer.repeat) {
-				clearTimeout(menuContainer.repeat) ;
-				menuContainer.repeat = null ;
-			}
-		};			
+//		bottomElement.onmouseoup = function() {
+//			if (menuContainer.repeat) {
+//				clearTimeout(menuContainer.repeat) ;
+//				menuContainer.repeat = null ;
+//			}
+//		};			
 		bottomElement.onclick = function(event) {
 			clearTimeout(menuContainer.repeat) ;
 			menuContainer.repeat = null ;
@@ -183,8 +194,10 @@ UIExoStartMenu.prototype.createSlide = function(menuItem) {
 			event.cancelBubble = true ;
 		};
   } else {
+  	blockMenu.scrollTop = 0 ;
 		blockMenu.style.height = menuContainer.offsetHeight + "px" ;
-		menuContainer.style.clip = "rect(0px, 1280px, auto, -1280px)" ;
+		blockMenu.style.overflowY = "" ;
+//		menuContainer.style.clip = "rect(0px, 1280px, auto, -1280px)" ;
 		menuContainer.curentHeight = null;
 		menuContainer.style.position = "static";
 		topElement.style.display = "none" ;
@@ -254,63 +267,63 @@ UIExoStartMenu.prototype.clearStartMenu = function() {
   eXo.webui.UIPopupMenu.setCloseTimeout() ;
 };
 
-UIExoStartMenu.prototype.getDimension = function(menuItem) {
-	if(document.documentElement.scrollTop != undefined)  var topPage = document.documentElement.scrollTop ;
-	else if(document.body) var topPage = document.body.scrollTop ;
-	var PosY = eXo.core.Browser.findPosY(menuItem) - topPage ;
-	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
-	var menuItemContainer = menuItem.menuItemContainer ;
-	var offsetHeight = menuItemContainer.offsetHeight ;
-	var deltaDown = browserHeight - PosY ;
-	if(offsetHeight < deltaDown )	var  y = 0;
-	else if(offsetHeight < PosY ) var  y = (- offsetHeight + menuItem.offsetHeight) ;
-	else if(offsetHeight < browserHeight) var y = (- offsetHeight + deltaDown - 6) ;
-	return y;
-};
+//UIExoStartMenu.prototype.getDimension = function(menuItem) {
+//	if(document.documentElement.scrollTop != undefined)  var topPage = document.documentElement.scrollTop ;
+//	else if(document.body) var topPage = document.body.scrollTop ;
+//	var PosY = eXo.core.Browser.findPosY(menuItem) - topPage ;
+//	var browserHeight = eXo.core.Browser.getBrowserHeight() ;
+//	var menuItemContainer = menuItem.menuItemContainer ;
+//	var offsetHeight = menuItemContainer.offsetHeight ;
+//	var deltaDown = browserHeight - PosY ;
+//	if(offsetHeight < deltaDown )	var  y = 0;
+//	else if(offsetHeight < PosY ) var  y = (- offsetHeight + menuItem.offsetHeight) ;
+//	else if(offsetHeight < browserHeight) var y = (- offsetHeight + deltaDown - 6) ;
+//	return y;
+//};
 
 UIExoStartMenu.prototype.initSlide = function(menuContainer, clipBottom) {
 	menuContainer.curentHeight = clipBottom ;
-	menuContainer.style.position = "absolute" ;
+//	menuContainer.style.position = "absolute" ;
 	menuContainer.style.top = 0 + "px" ;
-	menuContainer.style.clip = 'rect(0px, 1280px,' + clipBottom + 'px, -1280px)' ;
+//	menuContainer.style.clip = 'rect(0px, 1280px,' + clipBottom + 'px, -1280px)' ;
 };
 
-UIExoStartMenu.prototype.scrollUp = function(id, height) {
-	var scrollObject = document.getElementById(id) ;
-	var menuHeight = scrollObject.offsetHeight - height - this.stepScroll ;
-	if (eXo.portal.UIExoStartMenu.clipBottom < menuHeight) {
-		eXo.portal.UIExoStartMenu.clipTop += this.stepScroll ;
-		eXo.portal.UIExoStartMenu.clipBottom += this.stepScroll ;
-		var clipTop = eXo.portal.UIExoStartMenu.clipTop;
-		var	clipBottom = eXo.portal.UIExoStartMenu.clipBottom + height ;
+//UIExoStartMenu.prototype.scrollUp = function(id, height) {
+//	var scrollObject = document.getElementById(id) ;
+//	var menuHeight = scrollObject.offsetHeight - height - this.stepScroll ;
+//	if (eXo.portal.UIExoStartMenu.clipBottom < menuHeight) {
+//		eXo.portal.UIExoStartMenu.clipTop += this.stepScroll ;
+//		eXo.portal.UIExoStartMenu.clipBottom += this.stepScroll ;
+//		var clipTop = eXo.portal.UIExoStartMenu.clipTop;
+//		var	clipBottom = eXo.portal.UIExoStartMenu.clipBottom + height ;
+//
+//		scrollObject.style.clip = 'rect(' + clipTop + 'px, 1280px,' + clipBottom + 'px, -1280px)' ;		
+//		scrollObject.style.top = -clipTop + "px" ;
+//		if (scrollObject.repeat) {
+//			clearTimeout(scrollObject.repeat) ;
+//			scrollObject.repeat = null ;
+//		}
+//		scrollObject.repeat = setTimeout("eXo.portal.UIExoStartMenu.scrollUp('" + id + "', " + height + ")", 1)	;
+//	}	
+//};
 
-		scrollObject.style.clip = 'rect(' + clipTop + 'px, 1280px,' + clipBottom + 'px, -1280px)' ;		
-		scrollObject.style.top = -clipTop + "px" ;
-		if (scrollObject.repeat) {
-			clearTimeout(scrollObject.repeat) ;
-			scrollObject.repeat = null ;
-		}
-		scrollObject.repeat = setTimeout("eXo.portal.UIExoStartMenu.scrollUp('" + id + "', " + height + ")", 1)	;
-	}	
-};
-
-UIExoStartMenu.prototype.scrollDown = function(id, height) {
-	var scrollObject = document.getElementById(id) ;
-	if (eXo.portal.UIExoStartMenu.clipTop > this.stepScroll) {
-		eXo.portal.UIExoStartMenu.clipTop -= this.stepScroll ;
-		eXo.portal.UIExoStartMenu.clipBottom -= this.stepScroll ;
-		var clipTop = eXo.portal.UIExoStartMenu.clipTop ;
-		var	clipBottom = eXo.portal.UIExoStartMenu.clipBottom + height ;
-
-		scrollObject.style.clip = 'rect(' + clipTop + 'px, 1280px,' + clipBottom + 'px, -1280px)' ;		
-		scrollObject.style.top = -clipTop + "px" ;
-		if (scrollObject.repeat) {
-			clearTimeout(scrollObject.repeat) ;
-			scrollObject.repeat = null ;
-		}
-		scrollObject.repeat = setTimeout("eXo.portal.UIExoStartMenu.scrollDown('" + id + "', " + height + ")", 1)	;
-	}
-};
+//UIExoStartMenu.prototype.scrollDown = function(id, height) {
+//	var scrollObject = document.getElementById(id) ;
+//	if (eXo.portal.UIExoStartMenu.clipTop > this.stepScroll) {
+//		eXo.portal.UIExoStartMenu.clipTop -= this.stepScroll ;
+//		eXo.portal.UIExoStartMenu.clipBottom -= this.stepScroll ;
+//		var clipTop = eXo.portal.UIExoStartMenu.clipTop ;
+//		var	clipBottom = eXo.portal.UIExoStartMenu.clipBottom + height ;
+//
+//		scrollObject.style.clip = 'rect(' + clipTop + 'px, 1280px,' + clipBottom + 'px, -1280px)' ;		
+//		scrollObject.style.top = -clipTop + "px" ;
+//		if (scrollObject.repeat) {
+//			clearTimeout(scrollObject.repeat) ;
+//			scrollObject.repeat = null ;
+//		}
+//		scrollObject.repeat = setTimeout("eXo.portal.UIExoStartMenu.scrollDown('" + id + "', " + height + ")", 1)	;
+//	}
+//};
 	
 /**
  * Called only once for each submenu (thanks to the boolean resized)
@@ -330,6 +343,13 @@ UIExoStartMenu.prototype.setContainerSize = function(menuItemContainer) {
   menuBottom.style.width = w + "px" ;
   menuCenter.style.width = w + "px" ;
   menuItemContainer.resized = true ;
+  if (eXo.core.Browser.isIE7()) {
+ 		var pageOwnerContainer = eXo.core.DOMUtil.findDescendantsByClass(menuItemContainer, "div", "PageOwnerContainer") ;
+ 		for (var i = 0; i < pageOwnerContainer.length; i ++) {
+ 		pageOwnerContainer[i].style.width = "auto";
+ 		pageOwnerContainer[i].style.width = pageOwnerContainer[i].offsetWidth + "px";
+ 		}
+ 	}
 };
 
 eXo.portal.UIExoStartMenu = new UIExoStartMenu() ;

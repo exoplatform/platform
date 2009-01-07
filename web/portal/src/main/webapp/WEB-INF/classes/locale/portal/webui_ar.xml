@@ -58,12 +58,12 @@
   <EmptyFieldValidator>
     <msg>
       <empty-input>الفضاء "{0}" مطلوب</empty-input>
-      <empty>.المعلومات "(0)" لا يمكن أن تكون فارغة</empty>
+      <empty>.المعلومات "{0}" لا يمكن أن تكون فارغة</empty>
     </msg>
   </EmptyFieldValidator>
   <ExpressionValidator>
     <msg>
-      <value-invalid>"(الميدان "(0)" له الحق في الشكل"(1</value-invalid>
+      <value-invalid>الميدان "{0}" له الحق في الشكل"{1}"</value-invalid>
     </msg>
   </ExpressionValidator>
   <UITestForm>
@@ -73,7 +73,7 @@
   </UITestForm>
   <StringLengthValidator>
     <msg>
-      <length-invalid>.الميدان "(0)" يجب أن يكون طوله من "(1)" إلى "(2)" حرفا</length-invalid>
+      <length-invalid>.الميدان "{0}" يجب أن يكون طوله من "{1}" إلى "{2}" حرفا</length-invalid>
     </msg>
   </StringLengthValidator>
   <!--
@@ -96,7 +96,7 @@
   -->
   <MandatoryValidatorIterator>
     <msg>
-      <empty>القائمة "(0)" لا يمكن أن تكون فارغة</empty>
+      <empty>القائمة "{0}" لا يمكن أن تكون فارغة</empty>
     </msg>
   </MandatoryValidatorIterator>
   <!--
@@ -108,7 +108,7 @@
   -->
   <NumberFormatValidator>
     <msg>
-      <Invalid-number>"(شكل العدد غير صالح في الميدان"(0</Invalid-number>
+      <Invalid-number>شكل العدد غير صالح في الميدان "{0}"</Invalid-number>
     </msg>
   </NumberFormatValidator>
   <!--
@@ -117,7 +117,7 @@
   -->
   <PositiveNumberFormatValidator>
     <msg>
-      <Invalid-number>.الميدان "(0)" يجب أن يكون عددا إيجابيا</Invalid-number>
+      <Invalid-number>.الميدان "{0}" يجب أن يكون عددا إيجابيا</Invalid-number>
     </msg>
   </PositiveNumberFormatValidator>
   <!--
@@ -129,7 +129,7 @@
   -->
   <EmptyIteratorValidator>
     <msg>
-      <empty>القائمة "(0)" لا يمكن أن تكون فارغة</empty>
+      <empty>القائمة "{0}" لا يمكن أن تكون فارغة</empty>
     </msg>
   </EmptyIteratorValidator>
   <!--
@@ -139,7 +139,7 @@
   -->
   <ResourceValidator>
     <msg>
-      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </ResourceValidator>
   <!--
@@ -151,8 +151,8 @@
   -->
   <SpecialCharacterValidator>
     <msg>
-      <invalid-digit>الميدان"(0)" يجب أن يبتدأ بحرف</invalid-digit>
-      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <invalid-digit>الميدان"{0}" يجب أن يبتدأ بحرف</invalid-digit>
+      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </SpecialCharacterValidator>
   <!--
@@ -162,7 +162,7 @@
   -->
   <DateTimeValidator>
     <msg>
-      <Invalid-input>!الميدان "(0)" غير صالح</Invalid-input>
+      <Invalid-input>!الميدان "{0}" غير صالح</Invalid-input>
     </msg>
   </DateTimeValidator>
   <!--
@@ -172,7 +172,7 @@
   -->
   <URLValidator>
     <msg>
-      <invalid-url>!الميدان "(0)" ليس بعنوان صالح</invalid-url>
+      <invalid-url>!الميدان "{0}" ليس بعنوان صالح</invalid-url>
     </msg>
   </URLValidator>
   <!--
@@ -231,7 +231,7 @@
   -->
   <IdentifierValidator>
     <msg>
-      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </IdentifierValidator>
   <!--
@@ -355,11 +355,11 @@
   -->
   <NameValidator>
     <msg>
-      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </NameValidator>
   <FirstCharacterNameValidator>
-    <msg>الميدان"(0)" يجب أن يبتدأ بحرف</msg>
+    <msg>الميدان"{0}" يجب أن يبتدأ بحرف</msg>
   </FirstCharacterNameValidator>
   <!--
   #############################################################################
@@ -403,12 +403,12 @@
   </UIUserProfileInputSet>
   <UIGroupMembershipForm>
     <msg>
-      <user-not-exist>المستخدم "(0)" لا وجود له</user-not-exist>
+      <user-not-exist>المستخدم "{0}" لا وجود له</user-not-exist>
       <user-not-empty>اسم المستخدم لا يمكن أن يكون فارغا</user-not-empty>
-      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
-      <duplicate-user>المستخدم "(0)" متكرر</duplicate-user>
+      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <duplicate-user>المستخدم "{0}" متكرر</duplicate-user>
       <group-not-select>!الرجاء اختيار مجموعة</group-not-select>
-      <membership-exist>!نوع العضوية للمستخدم "(0)"  موجود في المجموعة "(1)"، يرجى اختيار واحد آخر</membership-exist>
+      <membership-exist>!نوع العضوية للمستخدم "{0}"  موجود في المجموعة "{0}"، يرجى اختيار واحد آخر</membership-exist>
     </msg>
   </UIGroupMembershipForm>
   <UILoginForm>
@@ -469,7 +469,7 @@
       </label>
     </tab>
     <msg>
-      <InvalidWidthHeight>	ميدان "(0)" يجب أن يكون بكسل أو نسبة قيمة</InvalidWidthHeight>
+      <InvalidWidthHeight>	ميدان "{0}" يجب أن يكون بكسل أو نسبة قيمة</InvalidWidthHeight>
     </msg>
   </UIContainerForm>
   <!--
@@ -517,7 +517,7 @@
       </title>
     </Icon>
     <msg>
-      <InvalidWidthHeight>!الميدان "(0)" : يجب استخدام قيمة بكسل</InvalidWidthHeight>
+      <InvalidWidthHeight>!الميدان "{0}" : يجب استخدام قيمة بكسل</InvalidWidthHeight>
     </msg>
   </UIPortletForm>
   <!--
@@ -671,9 +671,9 @@
       <PageNotExist>!الصفحة لا توجد</PageNotExist>
       <UserNotPermission>!ليس لديك تصريح للوصول إلى عقدة الصفحة</UserNotPermission>
       <InvalidQueryException>!الاستعلام غير صالح </InvalidQueryException>
-      <Invalid-viewPermission>الصفحة  "(0)" لا تسمح الدخول</Invalid-viewPermission>
-      <Invalid-editPermission>الصفحة "(0)" لا تسمح التحرير</Invalid-editPermission>
-      <Invalid-deletePermission>الصفحة "(0)" لا تسمح الحذف</Invalid-deletePermission>
+      <Invalid-viewPermission>الصفحة  "{0}" لا تسمح الدخول</Invalid-viewPermission>
+      <Invalid-editPermission>الصفحة "{0}" لا تسمح التحرير</Invalid-editPermission>
+      <Invalid-deletePermission>الصفحة "{0}" لا تسمح الحذف</Invalid-deletePermission>
       <Invalid-Preview>!هذه الصفحة من نوع مكتب. انها لا تسمح المعاينة</Invalid-Preview>
       <NotViewPage>ليس لديك الحق لمشاهدة هذه الصفحة</NotViewPage>
       <edit>
@@ -893,7 +893,7 @@
     </action>
     <msg>
       <selectGroup>!يجب ان تختار مجموعة</selectGroup>
-      <existPageNavigation>لا يمكنك إنشاء تصفح صفحة في حين  تصفح الصفحة "(0)"  موجودة في القائمة</existPageNavigation>
+      <existPageNavigation>لا يمكنك إنشاء تصفح صفحة في حين  تصفح الصفحة "{0}"  موجودة في القائمة</existPageNavigation>
     </msg>
   </UIPageNavigationForm>
   <UIPageNavigation>
@@ -904,8 +904,8 @@
       <upLevel>المستوى الأعلى</upLevel>
     </tooltip>
     <label>
-      <navigation>"(تصفح الصفحة "(0</navigation>
-      <titleBar>"(صفحة "(0</titleBar>
+      <navigation>تصفح الصفحة {0}</navigation>
+      <titleBar>صفحة {0}</titleBar>
     </label>
   </UIPageNavigation>
   <!--
@@ -1548,8 +1548,8 @@
     </action>
     <msg>
       <Invalid-viewPermission>	البوابة لا تسمح الدخول</Invalid-viewPermission>
-      <PortalInUse>.البوابة (0) مستخدمة</PortalInUse>
-      <Invalid-deletePermission>.(ليس لديك الحق في حذف البوابة (0</Invalid-deletePermission>
+      <PortalInUse>.البوابة {0} مستخدمة</PortalInUse>
+      <Invalid-deletePermission>.ليس لديك الحق في حذف البوابة {0}</Invalid-deletePermission>
       <Invalid-createPermission>.ليس لديك الحق في إنشاء بوابة جديدة. الرجاء الاتصال بمخطط النظام</Invalid-createPermission>
     </msg>
     <deletePortal>هل أنت متأكد من حذف هذه البوابة؟</deletePortal>
