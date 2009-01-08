@@ -86,7 +86,7 @@
 
 .UIHomePagePortlet .HomePortletContent .AccountBlock {
 	height: 105px; 
-	width: 110px;
+	width: 120px;
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
 	padding: 0px 90px 0px 0px; /* orientation=lt */

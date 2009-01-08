@@ -8,15 +8,18 @@
 	position: absolute;
 	width: 120px;
 	top: 15px;
-	left: -85px;
+	left: -85px; /* orientation=lt */
+	right: -85px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator {
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
-  background: url('background/PopupCategory.gif') no-repeat left top;
-  padding-left: 6px;
+  background: url('background/PopupCategory.gif') no-repeat left top; /* orientation=lt */
+  background: url('background/PopupCategory-rt.gif') no-repeat right top; /* orientation=rt */
+  padding-left: 6px; /* orientation=lt */
+  padding-right: 6px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
@@ -25,13 +28,17 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
-  background: url('background/PopupCategory.gif') no-repeat right -16px;
-  padding-right: 35px;
+  background: url('background/PopupCategory.gif') no-repeat right -16px; /* orientation=lt */
+  background: url('background/PopupCategory-rt.gif') no-repeat left -16px; /* orientation=rt */
+  padding-right: 35px; /* orientation=lt */
+  padding-left: 35px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
-  background: url('background/MidlePopupCategory.gif') repeat-y left;
-  padding-left: 6px;
+  background: url('background/MidlePopupCategory.gif') repeat-y left; /* orientation=lt */
+  background: url('background/MidlePopupCategory-rt.gif') repeat-y right; /* orientation=rt */
+  padding-left: 6px; /* orientation=lt */
+  padding-right: 6px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryMC {
@@ -39,13 +46,17 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
-  background: url('background/MidlePopupCategory.gif') repeat-y right;
-  padding-right: 8px;
+  background: url('background/MidlePopupCategory.gif') repeat-y right; /* orientation=lt */
+  background: url('background/MidlePopupCategory-rt.gif') repeat-y left; /* orientation=rt */
+  padding-right: 8px; /* orientation=lt */
+  padding-left: 8px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
-  background: url('background/PopupCategory.gif') no-repeat left -32px;
-  padding-left: 6px;
+  background: url('background/PopupCategory.gif') no-repeat left -32px; /* orientation=lt */
+  background: url('background/PopupCategory-rt.gif') no-repeat right -32px; /* orientation=rt */
+  padding-left: 6px; /* orientation=lt */
+  padding-right: 6px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
@@ -54,15 +65,17 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  background: url('background/PopupCategory.gif') no-repeat right -32px;
-  padding-right: 8px;
+  background: url('background/PopupCategory.gif') no-repeat right -32px; /* orientation=lt */
+  background: url('background/PopupCategory-rt.gif') no-repeat left -32px; /* orientation=rt */
+  padding-right: 8px; /* orientation=lt */
+  padding-left: 8px; /* orientation=rt */
 }
 
 .UIPopupCategory .CategoryItem .Icon {
   width: 16px;
   height: 16px;
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   margin: 3px 3px 0px 7px;/* orientation=lt */
   margin: 3px 7px 0px 3px;/* orientation=rt */
   background: transparent url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
@@ -86,10 +99,10 @@
 }
 
 .UIPopupCategory .CategoryItem .CategoryItemLabel {
-  padding-left: 18px;/* orientation=lt */
-  padding-right: 18px;/* orientation=rt */
+  padding-left: 18px; /* orientation=lt */
+  padding-right: 18px; /* orientation=rt */
   height: 22px;
   line-height: 22px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;/* orientation=lt */
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat right center;/* orientation=rt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center; /* orientation=lt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif') no-repeat right center; /* orientation=rt */
 }

@@ -139,59 +139,62 @@
 
 .UINavigationPortlet .ScrollLeftButton {
 	cursor: pointer;
-  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -36px;
+  background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -36px; /* orientation=lt */
+  background: url('VistaSkin/background/NavigationPortlet-rt.png') no-repeat right -36px; /* orientation=rt */
   width: 14px;
   height: 13px;
-  padding-left: 14px;
+  padding-left: 14px; /* orientation=lt */
+  padding-right: 14px; /* orientation=rt */
   margin: 0px 5px;
-  float: left;
 }
 
 .UINavigationPortlet .ScrollRightButton {
 	cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -48px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -48px; /* orientation=lt */
+	background: url('VistaSkin/background/NavigationPortlet-rt.png') no-repeat right -48px; /* orientation=rt */
   width: 14px;
   height: 13px;
   margin: 0px 5px;
-  float: left;
 }
 
 .UINavigationPortlet .DisableScrollLeftButton {
   cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -61px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -61px; /* orientation=lt */
+	background: url('VistaSkin/background/NavigationPortlet-rt.png') no-repeat right -61px; /* orientation=rt */
   width: 14px;
-  height: 14px;
-  padding-left: 14px;
+  height: 13px;
+  padding-left: 14px; /* orientation=lt */
+  padding-right: 14px; /* orientation=rt */
   margin: 0px 5px;
-  float: left;
 }
 
 .UINavigationPortlet .DisableScrollRightButton { 
 	cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -75px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -75px; /* orientation=lt */
+	background: url('VistaSkin/background/NavigationPortlet-rt.png') no-repeat right -75px; /* orientation=rt */
   width: 14px;
-  height: 14px;
+  height: 13px;
   margin: 0px 5px;
-  float: left;
 }
 
 .UINavigationPortlet .HighlightScrollLeftButton {
   cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -88px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -88px; /* orientation=lt */
+	background: url('VistaSkin/background/NavigationPortlet-rt.png') no-repeat right -88px; /* orientation=rt */
   width: 14px;
   height: 13px;
-  padding-left: 14px;
+  padding-left: 14px; /* orientation=lt */
+  padding-right: 14px; /* orientation=rt */
   margin: 0px 5px;
-  float: left;
 }
 
 .UINavigationPortlet .HighlightScrollRightButton {
 	cursor: pointer;
-	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -100px;
+	background: url('VistaSkin/background/NavigationPortlet.png') no-repeat left -100px; /* orientation=lt */
+	background: url('VistaSkin/background/NavigationPortlet-rt.png') no-repeat right -100px; /* orientation=rt */
   width: 14px;
   height: 13px;
   margin: 0px 5px;
-  float: left;
 }
 
 

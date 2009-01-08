@@ -168,12 +168,13 @@
 }
 
 .UIAddApplication .ApplicationContent {
-  padding: 0px 0px 0px 12px;
-  overflow: hidden;
+  padding: 0px 0px 0px 85px; /* orientation=lt */
+  padding: 0px 85px 0px 0px; /* orientation=rt */
 }
 
 .UIAddApplication .ApplicationButton {
-  float: right;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */ 
   width: 25px;
 }
 
@@ -187,7 +188,8 @@
 
 .UIAddApplication .PortletIcon {
   cursor: pointer;
-  float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   height: 80px;
   width: 80px;
 }
@@ -246,7 +248,8 @@
 }
 
 .UIAddApplication .SelectButton {
-	float: right ; 
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px ; height: 20px ;
 	background: url('background/AddApplicationButton.png') no-repeat top;
 	margin: 0px 3px ;
@@ -254,7 +257,8 @@
 }
 
 .UIAddApplication .AddButton {
-	float: right ; 
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px ; height: 20px ;
 	background: url('background/AddApplicationButton.png') no-repeat bottom;
 	margin: 0px 3px ;
@@ -264,7 +268,8 @@
 .UIAddApplication .ApplicationItemIcon {
 	width: 16px; height: 16px;
 	background: url('/eXoResources/icons/16x16/DefaultSkin/DarkBlueNextArrow.gif') no-repeat ;
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	margin: 3px 5px 0px 5px;
 }
 

@@ -300,7 +300,8 @@ e/**
 .UIApplicationRegistryPortlet .ApplicationContent {
   margin-left: 90px; /* orientation=lt */
   margin-right: 90px; /* orientation=rt */
-  padding: 15px;
+  padding: 15px 15px 15px 0px; /* orientation=lt */
+  padding: 15px 0px 15px 15px; /* orientation=rt */
 }
 
 .UIApplicationRegistryPortlet .ApplicationContent table {

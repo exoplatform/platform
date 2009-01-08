@@ -21,7 +21,8 @@
 }
 
 .DefaultTheme .WindowPortletControl .ControlIcon {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 24px; height: 17px;
 	margin: 8px 0px 0px 0px;
 	cursor: pointer;

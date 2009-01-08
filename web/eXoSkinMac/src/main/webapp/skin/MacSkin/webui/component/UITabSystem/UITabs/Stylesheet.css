@@ -219,7 +219,8 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab{
   line-height: 24px;
   color: black;
-  margin-right: 1px;
+  margin-right: 1px; /* orientation=lt */
+  margin-left: 1px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {

@@ -163,6 +163,10 @@
 	margin: 0px 0px 0px 17px;		/* orientation=rt */
 }
 
+.UIBrowserPortlet .TextBox input {
+  padding: 0px;
+}
+
 .UIBrowserPortlet .BrowserContent {
   width: 99.5%;
   margin: auto;

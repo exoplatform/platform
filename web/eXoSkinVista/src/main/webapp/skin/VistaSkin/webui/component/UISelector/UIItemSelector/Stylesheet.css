@@ -541,26 +541,29 @@
 /*###########################- Item Over -############################*/
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem {
-  margin: 4px 4px ;
+  margin: 4px;
   line-height: 24px;
   height: 24px ;
   cursor: pointer ;
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .LeftItem {
-  background: url('background/SelectedItem.png') no-repeat left -72px;
-  padding-left: 30px;
+  background: url('background/SelectedItem.png') no-repeat left -72px;	/* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat right -72px;	/* orientation=rt */
+  padding-left: 30px;	/* orientation=lt */
+  padding-right: 30px;	/* orientation=rt */
   margin: auto;
   overflow: hidden;
   white-space: nowrap;
   width: 84%;
-	border: 1px solid red;
 }
 
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .RightItem {
-  background: url('background/SelectedItem.png') no-repeat right -120px;
-  padding-right: 30px;
+  background: url('background/SelectedItem.png') no-repeat right -120px;	/* orientation=lt */
+  background: url('background/SelectedItem-rt.png') no-repeat left -120px;	/* orientation=rt */
+  padding-right: 30px;	/* orientation=lt */
+  padding-left: 30px;	/* orientation=rt */
 }
 
 .UIItemSelector .LeftColumnStyle .ItemList .OverItem .ItemTitle {
@@ -582,7 +585,7 @@
 /*##########################- Item Selected -#########################*/
 
 .UIItemSelector .LeftColumnStyle .ItemList .SelectedItem {
-  margin: 4px 4px ;
+  margin: 4px;
   height: 24px ;
   line-height: 24px;
   cursor: pointer ;
