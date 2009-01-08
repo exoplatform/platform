@@ -19,13 +19,14 @@
 					        		String className="NormalTab" ;
 					        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
 				              //String tabName = inputSet.getName() ; 
-				                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
+			                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
+			                String actionLink = "" + uicomponent.event("SelectTab",inputSet.getId()) + "" ;
                   %>
 					              <div class="UITab NormalTabStyle">
 					                <div class="$className">
 					                  <div class="LeftTab">
 					                    <div class="RightTab">
-							                  <div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
+							                  <div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id');$actionLink">$tabName</div>
 							                </div>
 					                  </div>
 					                </div>

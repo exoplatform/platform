@@ -18,6 +18,8 @@ package org.exoplatform.webui.form;
 
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 /**
  * Represents a tabbed pane
  * 
@@ -62,5 +64,14 @@ abstract public class UIFormTabPane extends UIForm {
   
   public boolean hasRenderResourceTabName() { return withRenderTabName ; }
   public void setRenderResourceTabName(boolean bool) { withRenderTabName = bool ; }
+  
+  static public class SelectTabActionListener extends EventListener<UIFormTabPane> {
+    public void execute(Event<UIFormTabPane> event) throws Exception {
+      WebuiRequestContext context = event.getRequestContext() ;
+      String renderTab = context.getRequestParameter(UIComponent.OBJECTID) ;
+      if(renderTab == null) return;
+      event.getSource().setSelectedTab(renderTab) ;
+    }
+  }
 
 }

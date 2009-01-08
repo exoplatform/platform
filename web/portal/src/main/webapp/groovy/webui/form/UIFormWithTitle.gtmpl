@@ -1,5 +1,5 @@
 <% String fieldName; %>
-<div class="UIFormWithTitle $uicomponent.id" onkeypress="javascript:SendAction.call(this, event);">
+<div class="UIFormWithTitle $uicomponent.id" onkeypress="javascript:SubmitAction.call(this, event);">
   <div class="TitleBar"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
   <% uiform.begin() %>
   <div class="HorizontalLayout">
@@ -57,14 +57,13 @@
   <%uiform.end()%>
 </div>
 <script language="javascript">
-	function SendAction(event) {
+	function SubmitAction(event) {
 		var event = window.event || event;
 		var code;
 		if(event.keyCode) code = event.keyCode;
 		else if (event.which) code = event.which;
 		if(code ==13) {
 			this.onsubmit = function(){ return false; }				
-			window.location.href = "<%= uicomponent.event("Send");%>";
 		}
 	}	
 </script>
