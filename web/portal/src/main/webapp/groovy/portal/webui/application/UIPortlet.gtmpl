@@ -178,20 +178,20 @@
 									                  for(String mode in supportModes) {
 										                  if(mode.equals("edit") && rcontext.getRemoteUser()==null) continue;
 										                    String actionLink = uicomponent.event("ChangePortletMode", mode);
+										                    String modeLabel = _ctx.appRes("PortletMode.label." + mode) ;
 										                    String upper = mode.charAt(0).toString();
 										                    mode = mode.replaceFirst(upper, upper.toUpperCase());
 										                %>
-												                  <a class="CategoryItem" href="$actionLink" >
-											                    	<div class="CategoryItemLabel" >$mode</div>
+												                  <a class="CategoryItem" href="$actionLink" title="$modeLabel">
+											                    	<div class="CategoryItemLabel" >$modeLabel</div>
 											                    </a>
 										                <%        
 									                  }
 									                  if(supportModes != null && supportModes.size() > 0 && !supportModes.contains("view")) {
+									                  	String modeLabel = _ctx.appRes("PortletMode.label.view") ;
 									                %> 
-																				<a class="CategoryItem" href="<%=uicomponent.event("ChangePortletMode", "view")%>" >
-										                    	<div class="CategoryItemLabel">
-										                    		<%=_ctx.appRes("UIPageDesktop.label.View")%>
-										                    	</div>
+																				<a class="CategoryItem" href="<%=uicomponent.event("ChangePortletMode", "view")%>" title="$modeLabel">
+										                    	<div class="CategoryItemLabel">$modeLabel</div>
 										                    </a>                        
 									                 <%}%> 	
 									              </div>

@@ -1404,6 +1404,16 @@
   <!--
   #############################################################################
   -->
+  <PortletMode>
+  	<label>
+  		<help>Aide</help>
+  		<view>Visualiser</view>
+      <edit>Editer</edit>
+  	</label>
+  </PortletMode>
+  <!--
+  #############################################################################
+  -->
   <UIPagePreview>
     <action>
       <Back>#{word.back}</Back>
