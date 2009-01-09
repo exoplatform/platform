@@ -2432,5 +2432,14 @@
       <mix>Mixed</mix>
     </item>
   </UIDropDownConfigs>
+  
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.webui.container.UITabContainer #
+  #############################################################################
+  -->
+  <UITabContainer>
+    <tab>Tab </tab>
+  </UITabContainer>
 </bundle>
 

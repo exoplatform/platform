@@ -41,7 +41,7 @@
 				  		  if(uiChild.isRendered()) status = "SelectedTab";
 				  			String title = uiChild.getTitle();
 				  			String tabId = uiChild.getId();
-				  			if(title == null || title.trim().length() < 1 ) title = "Tab" +String.valueOf(counter);
+				  			if(title == null || title.trim().length() < 1 ) title = _ctx.appRes("UITabContainer.tab") +String.valueOf(counter);
 				  			String selectTab = uicomponent.event("SelectTab", tabId);
 				  	%>
 				  		 	<div class="UITab NormalTabStyle">

@@ -378,7 +378,7 @@
     <msg>
       <user-exist>Tên Người dùng này đã tồn tại, xin hãy chọn tên khác!</user-exist>
       <user-not-exist>Tên người dùng này không tồn tại!</user-not-exist>
-      <email-exist>Email đã tồn tại, xin hãy chọn email khác!</email-exist>
+      <email-exist>Hộp thư đã tồn tại, xin hãy chọn hộp thư khác!</email-exist>
       <empty-input>Tên người dùng này không được để trống!</empty-input>
       <successful>
         <create>
@@ -1198,7 +1198,7 @@
       <mixPage>
         <TwoColumnsOneRowLayout>2 cột - 1 dòng </TwoColumnsOneRowLayout>
         <OneRowTwoColumnsLayout>1 dòng - 2 cột</OneRowTwoColumnsLayout>
-        <ThreeRowsTwoColumnsLayout>3 dòng - 2 cột</ThreeRowsTwoColumnsLayout>
+        <ThreeRowsTwoColumnsLayout>2 cột- 3 dòng</ThreeRowsTwoColumnsLayout>
       </mixPage>
       <UIPageTemplateOptions>Null</UIPageTemplateOptions>
     </label>
@@ -1214,7 +1214,7 @@
       <curentSelectedNodeInfo>Node vừa chọn</curentSelectedNodeInfo>
       <pageName>Tên Node </pageName>
       <pageDisplayName>Tên node hiển thị </pageDisplayName>
-	  <Visible>Hiển thị</Visible>
+	    <visible>Hiển thị</visible>
       <showPublicationDate>Thời gian hiển thị </showPublicationDate>
       <startPublicationDate>Thời gian bắt đầu </startPublicationDate>
       <endPublicationDate>Thời gian kết thúc </endPublicationDate>
@@ -1674,13 +1674,13 @@
     <msg>
       <user-delete>Tên người dùng đã bị xóa bởi Người quản trị.</user-delete>
       <user-not-exist>Tên người dùng không tồn tại.</user-not-exist>
-      <email-not-exist>Email của bạn không tồn tại trong Exo</email-not-exist>
-      <send-mail-success>Xin vui lòng kiểm tra email của bạn!</send-mail-success>
+      <email-not-exist>Địa chỉ thư của bạn không tồn tại trong Exo</email-not-exist>
+      <send-mail-success>Xin vui lòng kiểm tra hòm thư của bạn!</send-mail-success>
       <expration>Email của bạn đã hết hạn, bạn phải đưa ra một email khác còn hoạt động.</expration>
     </msg>
     <mail>
       <header>Cảm ơn bạn đã liên lạc với nhóm hỗ trợ Portal của eXo. Bạn đã gửi đi một yêu cầu về tên và mật khẩu người dùng của bạn.</header>
-      <footer>Cảm ơn, Nhớm hỗ trợ portal của eXo.</footer>
+      <footer>Cảm ơn, Nhóm hỗ trợ portal của eXo.</footer>
       <user>Tên đăng nhập cho tài khoản của bạn là: </user>
       <password>Mật khẩu truy nhập của bạn là: </password>
       <link>Sau đó bạn có thể yêu cầu một mật khẩu mới cho tên đăng nhập vui lòng bấm vào liên kết này:</link>
@@ -2443,5 +2443,14 @@
       <mix>Hỗn hợp</mix>
     </item>
   </UIDropDownConfigs>
+  
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.webui.container.UITabContainer #
+  #############################################################################
+  -->
+  <UITabContainer>
+    <tab>Thẻ tab </tab>
+  </UITabContainer>
 </bundle>
 

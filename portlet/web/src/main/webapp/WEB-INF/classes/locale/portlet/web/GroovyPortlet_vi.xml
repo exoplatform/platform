@@ -18,7 +18,7 @@
       <editmode>Chế độ chỉnh sửa</editmode>
     </label>
     <action>
-      <Save>Save</Save>
+      <Save>Lưu</Save>
     </action>
   </UIIFrameEditMode>
 </bundle>

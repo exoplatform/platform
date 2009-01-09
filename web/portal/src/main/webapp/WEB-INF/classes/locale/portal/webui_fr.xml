@@ -2414,5 +2414,14 @@
       <Password>Password:</Password>
     </Label>
   </UIHomePagePortlet>
+  
+  <!--
+  #############################################################################
+  #    org.exoplatform.portal.webui.container.UITabContainer #
+  #############################################################################
+  -->
+  <UITabContainer>
+    <tab>Tab </tab>
+  </UITabContainer>
 </bundle>
 

@@ -16,7 +16,7 @@
   <UIMembershipTypeForm>
     <title>Thêm/Sửa Thành viên</title>
     <label>
-      <name>Tên thành viên:</name>
+      <name>Kiểu thành viên:</name>
       <description>Mô tả:</description>
     </label>
     <action>
@@ -25,7 +25,7 @@
       <Reset>Làm lại</Reset>
     </action>
     <msg>
-      <SameName>Tên thành viên này đã tồn tại, xin vui lòng chọn một tên khác!</SameName>
+      <SameName>Kiểu thành viên này đã tồn tại, xin vui lòng chọn một kiểu khác!</SameName>
     </msg>
   </UIMembershipTypeForm>
   <!--
@@ -55,7 +55,7 @@
     <label>
       <title>Thành viên nhóm</title>
       <username>Tên người dùng:</username>
-      <membership>Thành viên:</membership>
+      <membership>Kiểu thành viên:</membership>
       <SearchUser>Tìm kiếm người dùng</SearchUser>
       <Refresh>Refresh</Refresh>
     </label>
@@ -96,7 +96,7 @@
     <label>
       <username>Tên người dùng</username>
       <membership>Thành viên</membership>
-      <name>Tên thành viên</name>
+      <name>Kiểu thành viên</name>
       <description>#{word.description}</description>
     </label>
     <action>
@@ -161,7 +161,7 @@
       <Confirmpassword>Xác nhận mật khẩu:</Confirmpassword>
       <firstName>#{word.firstName}:</firstName>
       <lastName>#{word.lastName}:</lastName>
-      <email>Địa chỉ hộp thư:</email>
+      <email>Hộp thư:</email>
       <HomeInfo>Thông tin về nhà ở:</HomeInfo>
       <user>
         <name>
@@ -239,12 +239,12 @@
       <firstName>#{word.firstName}</firstName>
       <email>#{word.email}</email>
       <action>#{word.action}</action>
-      <membershipType>Loại thành viên</membershipType>
+      <membershipType>Kiểu thành viên</membershipType>
       <lastLoginTime>Lần cuối cùng đăng nhập</lastLoginTime>
     </header>
     <label>
       <username>#{word.userName}</username>
-      <membership>Tên thành viên</membership>
+      <membership>Kiểu thành viên</membership>
     </label>
     <action>
       <title>
@@ -272,7 +272,7 @@
   -->
   <UIMembershipList>
     <header>
-      <name>Tên thành viên</name>
+      <name>Kiểu thành viên</name>
       <createdDate>Ngày tạo</createdDate>
       <modifiedDate>Ngày sửa</modifiedDate>
       <action>#{word.action}</action>
@@ -328,8 +328,8 @@
   -->
   <UITabPane>
     <title>
-      <UISharedNavigationForm>Chia xẻ Navigation</UISharedNavigationForm>
-      <UISharedPortalForm>Chia xẻ Portal</UISharedPortalForm>
+      <UISharedNavigationForm>Chia sẻ Navigation</UISharedNavigationForm>
+      <UISharedPortalForm>Chia sẻ Portal</UISharedPortalForm>
       <UIUserInGroup>Thông tin nhóm</UIUserInGroup>
       <UISharedNavigation>Trang Navigation nhóm</UISharedNavigation>
     </title>
