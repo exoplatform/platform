@@ -72,10 +72,10 @@
 }
 
 .UIPermissionSelector .PermissionInfoContainer .SelectedPermissionInfo .Info {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  margin: 8px 0px 5px 15px;
-  margin: 8px 15px 5px 0px;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  margin: 8px 0px 5px 10px; /* orientation=lt */
+  margin: 8px 10px 5px 0px; /* orientation=rt */
   color: #058ee6;
   background: none;
   width: 320px;

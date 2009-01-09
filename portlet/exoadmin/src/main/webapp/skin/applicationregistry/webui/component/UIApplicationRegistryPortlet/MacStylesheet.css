@@ -314,6 +314,7 @@ e/**
 	width: 78%;
 	overflow: hidden;
 	padding: 0px 4px;
+	vertical-align: bottom;
 }
 
 .UIApplicationRegistryPortlet .TitleBarApplication {

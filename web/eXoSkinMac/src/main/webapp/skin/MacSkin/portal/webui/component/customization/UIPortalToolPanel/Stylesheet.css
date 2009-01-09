@@ -11,7 +11,8 @@
 }
 
 .UIPortalToolPanel .Body {
-	padding: 7px;
+	padding: 1px;
+  _height: 100%;
 }
 
 .UIPortalToolPanel .Body .UIPage {

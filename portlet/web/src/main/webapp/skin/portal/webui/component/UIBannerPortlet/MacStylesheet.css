@@ -5,8 +5,9 @@
 
 .UIBannerPortlet .LeftBanner {
   padding: 0px 0px 0px 157px; /* orientation=lt */
+  padding: 0px 157px 0px 0px; /* orientation=rt */
   background: url('MacSkin/background/Banner.gif') no-repeat left top; /* orientation=lt */
-  background: url('MacSkin/background/Banner.gif') no-repeat right top; /* orientation=rt */
+  background: url('MacSkin/background/BannerRTLie6.gif') no-repeat right top; /* orientation=rt */
 }
 
 .UIBannerPortlet .MiddleBanner {

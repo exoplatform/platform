@@ -109,7 +109,8 @@
 .UIHorizontalTabs .UITab .SelectedNavigationTab {
   line-height: 24px; 
   margin-top: 8px; 
-  margin-left: 1px;
+  margin-left: 1px; /* orientation=lt */
+  margin-right: 1px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {

@@ -88,6 +88,7 @@
 .DecoratorBox .BarDecorator .MiddleLeftBar {
 	background: url('background/MRBarDecorator-rt.png') repeat-y left; /* orientation=rt */
 	padding-left: 4px; /* orientation=rt */
+	width: 186px; /* orientation=rt */
 }
 
 .DecoratorBox .BarDecorator .MiddleRightBar {

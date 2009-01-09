@@ -15,12 +15,16 @@
 }
 
 .UIHomePagePortlet .HomePortletAdBackround {	
-	background: #fff url('DefaultSkin/background/BgRepeat.jpg') repeat-x top;
+	background: #fff url('DefaultSkin/background/BgRepeat.jpg') repeat-x left -2px;
 }
 
 .UIHomePagePortlet .AdImageLeft {
 	background: url('DefaultSkin/background/LeftHome.jpg') no-repeat left; /* orientation=lt */
 	background: url('DefaultSkin/background/LeftHome-rt.jpg') no-repeat right; /* orientation=rt */
+}
+
+*html .UIHomePagePortlet .AdImageLeft {
+	background: url('DefaultSkin/background/LeftHomeRTLie6.jpg') no-repeat right; /* orientation=rt */
 }
 
 .UIHomePagePortlet .AdImageRight {

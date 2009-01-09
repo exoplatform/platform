@@ -40,7 +40,7 @@
 				  <div class="ContainerConfigOptions">
 						<%uicomponent.renderChild(UIDropDownControl.class);%>
 						<a class="AddNavigationIcon" href ="<%=uicomponent.event("CreateNavigation"); %>" title="<%=_ctx.appRes("UIPageNodeSelector.tooltip.newPageNavigation")%>"><span></span></a>
-		        <div class="ClearLeft"><span></span></div>	
+		        <div class="ClearLeft" style="height: 0px"><span></span></div>	
 						<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
 							<%
 							  if(navigations != null) {

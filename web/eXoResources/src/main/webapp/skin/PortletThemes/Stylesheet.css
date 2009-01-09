@@ -3,7 +3,8 @@
 
 .UIPageDesktop .DefaultTheme .WindowPortletInfo {
 	height: 22px;
-	margin-right: 110px;
+	margin-right: 110px; /* orientation=lt */
+	margin-left: 110px; /* orientation=rt */
 	cursor: move;
 }
 	
@@ -11,8 +12,7 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	height: 22px;
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 10px 0px 3px;/* orientation=rt */
+	width: 75px;
 }
 
 .UIPageDesktop .DefaultTheme .WindowPortletControl {
@@ -168,19 +168,19 @@
 
 /*-------------------------- MacTheme ---------------------------*/
 
+.UIPageDesktop .MacTheme .WindowPortletInfo {
+	height: 22px;
+	margin: 0px 100px 0px 0px;/* orientation=lt */
+	margin: 0px 0px 0px 100px;/* orientation=rt */
+	cursor: move;
+}
+
 .MacTheme .WindowPortletControl {
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	height: 23px;
 	padding-left: 0px;
 	width: 75px;
-}
-
-.UIPageDesktop .MacTheme .WindowPortletInfo {
-	height: 22px;
-	margin: 0px 100px 0px 0px;/* orientation=lt */
-	margin: 0px 0px 0px 100px;/* orientation=rt */
-	cursor: move;
 }
 
 .MacTheme .WindowPortletInfo .Icon {
@@ -892,15 +892,17 @@
 }
 
 .VistaTheme .WindowPortletInfo .PortletIcon {
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat; /* orientation=rt */
 }
 
 .VistaTheme .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 30px; height:20px;
 	cursor: pointer;	
-	background-image: url('background/VistaTheme.png');
+	background-image: url('background/VistaTheme.png'); /* orientation=lt */
+	background-image: url('background/VistaTheme-rt.png'); /* orientation=rt */
 }
 
 .VistaTheme .WindowPortletControl .ArrowDownIcon {
