@@ -11,6 +11,9 @@
     <label>
       <name>Tên:</name>
       <language>Ngôn ngữ:</language>
+      <option>
+      	<All>Tất cả</All>
+      </option>
     </label>
   </UISearchI18n>
   <UII18nPortlet>

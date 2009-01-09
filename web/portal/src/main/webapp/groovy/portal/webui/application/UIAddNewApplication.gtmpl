@@ -85,7 +85,7 @@
 	                            <div class="TitleBarApplication">
 	                               <div class="Title"><%= application.getDisplayName() %></div>
 	                               <div class="ApplicationButton">
-		                                <div title="Add and keep this application in page" class="AddButton" onclick="$addApplicationURL" ><span></span></div>
+		                                <div title="<%=_ctx.appRes("UIAddNewApplication.label.Add")%>" class="AddButton" onclick="$addApplicationURL" ><span></span></div>
 		                             </div>
 	                            </div>
 	                            <div class="ApplicationContentLabel">

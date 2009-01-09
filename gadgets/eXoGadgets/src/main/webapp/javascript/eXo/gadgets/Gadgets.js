@@ -655,8 +655,8 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
 
     var saveEl = document.createElement("div");
     saveEl.className = this.cssClassGadgetUserPrefsDialogActionBar;
-    saveEl.innerHTML = '<input type="button" value="Save" onclick="gadgets.container.getGadget(' +
-      this.id +').handleSaveUserPrefs()"> <input type="button" value="Cancel" onclick="gadgets.container.getGadget(' +
+    saveEl.innerHTML = '<input type="button" value="'+eXo.gadget.UIGadget.SaveTitle+'" onclick="gadgets.container.getGadget(' +
+      this.id +').handleSaveUserPrefs()"> <input type="button" value="'+eXo.gadget.UIGadget.CancelTitle+'" onclick="gadgets.container.getGadget(' +
       this.id +').handleCancelUserPrefs()">';
     parentEl.appendChild(saveEl);
     if(gadget.isdev) {
@@ -668,8 +668,8 @@ gadgets.IfrGadget.prototype.generateForm = function(gadget) {
         var devEl = document.createElement("div");
         devEl.className = "devToolbar";
         devEl.innerHTML = '<table>' +
-                          '<tr><td>No Cache</td><td><input type="checkbox"' + (gadget.nocache ? ' checked=""' : "") + ' onclick="gadgets.container.getGadget(' + this.id + ').setNoCache(checked)"/></td></tr>' +
-                          '<tr><td>Debug</td><td><input type="checkbox"' + (gadget.debug ? ' checked=""' : "") + ' onclick="gadgets.container.getGadget(' + this.id + ').setDebug(checked)"/></td></tr>' +
+                          '<tr><td>'+eXo.gadget.UIGadget.Cache+'</td><td><input type="checkbox"' + (gadget.nocache ? ' checked=""' : "") + ' onclick="gadgets.container.getGadget(' + this.id + ').setNoCache(checked)"/></td></tr>' +
+                          '<tr><td>'+eXo.gadget.UIGadget.Debug+'</td><td><input type="checkbox"' + (gadget.debug ? ' checked=""' : "") + ' onclick="gadgets.container.getGadget(' + this.id + ').setDebug(checked)"/></td></tr>' +
                           '</table>';
         parentEl.appendChild(devEl);
       }

@@ -473,7 +473,7 @@
       </label>
     </tab>
     <msg>
-      <InvalidWidthHeight>Trường {0} phải sử dựng giá trị là pixel hoặc phần trăm!</InvalidWidthHeight>
+      <InvalidWidthHeight>Trường "{0}" phải sử dựng giá trị là pixel hoặc phần trăm!</InvalidWidthHeight>
     </msg>
   </UIContainerForm>
   <!--
@@ -542,7 +542,7 @@
       <pageManagement>Mô tả về quản lý trang ở đây.</pageManagement>
       <portalManagement>Mô tả về quản lý Portal ở đây.</portalManagement>
       <pageWizard><![CDATA[Mô tả về quản lý trang<br/>và hướng dẫn ở đây.]]></pageWizard>
-      <pageWizard2><![CDATA[<strong>Bước 1: Sự bố trí của trang bao gồm: đường dẫn của trang, tên Node, tên hiển thị.</strong><br/> Được thực hiện như sau: <br/>- Lựa chọn navigation từ danh sách <br/>- Lựa chọn một trang để thêm trang con <br/>- Nhập <em>Tên Node </em><br/>- Nhập <em>Tên hiển thị</em> (tùy chọn)<br/>- Lựa chọn mục <em>Hiển thị</em> (tùy chọn)<br/>- Lựa chọn <em>Thời gian hiển thị</em> (tùy chọn)<br/>&nbsp;&nbsp;Nếu <em>Thời gian hiển thị</em> được chọn:<br/>&nbsp;&nbsp;- Nhập <em>Thời điểm bắt đầu</em><br/>&nbsp;&nbsp;- Nhập <em>Thời điểm kết thúc</em><br/>- Nhấn "Tiếp tục" để tời bước tiếp theo]]></pageWizard2>
+      <pageWizard2><![CDATA[<strong>Bước 1: Sự bố trí của trang bao gồm: đường dẫn của trang, tên Node, tên hiển thị.</strong><br/> Được thực hiện như sau: <br/>- Lựa chọn navigation từ danh sách <br/>- Lựa chọn một trang để thêm trang con <br/>- Nhập <em>Tên Node </em><br/>- Nhập <em>Tên hiển thị</em> (tùy chọn)<br/>- Lựa chọn mục <em>Hiển thị</em> (tùy chọn)<br/>- Lựa chọn <em>Thời gian hiển thị</em> (tùy chọn)<br/>&nbsp;&nbsp;Nếu <em>Thời gian hiển thị</em> được chọn:<br/>&nbsp;&nbsp;- Nhập <em>Thời điểm bắt đầu</em><br/>&nbsp;&nbsp;- Nhập <em>Thời điểm kết thúc</em><br/>- Nhấn "Tiếp tục" để tới bước tiếp theo]]></pageWizard2>
       <pageWizard3><![CDATA[<strong>Bước 2: Lựa chọn kiểu giao diện của trang.</strong><br/> Được thực hiện như sau:<br/>- Lựa chọn một kiểu giao diện có sẵn<br/>- Nhấn "Tiếp tục" để tới bước tiếp theo hoặc "Trở lại" để trở lại bước liền trước]]></pageWizard3>
       <pageEditWizard><![CDATA[Mô tả về chỉnh sửa trang<br/>và hướng dẫn ở đây.]]></pageEditWizard>
       <pageEditWizard1><![CDATA[<strong>Bước 1: Cho phép thay đổi tên hiển thị của trang</strong><br/> Được thực hiện như sau<br/>- Lựa chọn navigation từ danh sách<br/>- Lựa chọn trang muốn sửa<br/>- Thay đổi <em>Tên hiển thị</em> nếu muốn<br/>- Sửa đổi lựa chọn <em>Hiển thị</em> nếu muốn<br/>- Sửa đổi lựa chọn <em>Thời gian hiển thị</em> nếu muốn<br/>&nbsp;&nbsp;Nếu <em>Thời gian hiển thị</em> được chọn:<br/>&nbsp;&nbsp;&nbsp;&nbsp;- Thay đổi <em>Thời điểm bắt đầu</em> nếu muốn<br/>&nbsp;&nbsp;&nbsp;&nbsp;- Thay đổi <em>Thời điểm kết thúc</em> nếu muốn<br/>- Nhấn "Tiếp tục" để tới bước tiếp theo]]></pageEditWizard1>
@@ -2302,38 +2302,38 @@
   <Theme>
     <UIItemThemeSelector>
       <item>
-        <SimpleBlue>Blue Simple</SimpleBlue>
-        <SimpleGreen>Green Simple</SimpleGreen>
-        <SimplePink>Pink Simple</SimplePink>
-        <SimpleViolet>Violet Simple</SimpleViolet>
-        <SimpleOrange>Orange Simple</SimpleOrange>
-        <RoundConerPink>Pink Round Corner</RoundConerPink>
-        <RoundConerOrange>Orange Round Corner</RoundConerOrange>
-        <RoundConerGreen>Green Round Corner</RoundConerGreen>
-        <RoundConerViolet>Violet Round Corner</RoundConerViolet>
-        <RoundConerBlue>Blue Round Corner</RoundConerBlue>
-        <ShadowPink>Pink Shadow</ShadowPink>
-        <ShadowOrange>Orange Shadow</ShadowOrange>
-        <ShadowBlue>Blue Shadow</ShadowBlue>
-        <ShadowViolet>Violet Shadow</ShadowViolet>
-        <ShadowGreen>Green Shadow</ShadowGreen>
-        <VistaBlue>Vista Blue</VistaBlue>
-        <VistaTheme>Vista Theme</VistaTheme>
-        <MacBlack>Mac Black</MacBlack>
-        <MacGreenSteel>Mac Green Steel</MacGreenSteel>
-        <MacTheme>Mac Theme</MacTheme>
-        <MacGray>Mac Gray</MacGray>
+        <SimpleBlue>Màu xanh đơn giản</SimpleBlue>
+        <SimpleGreen>Màu xanh lá cây đơn giản</SimpleGreen>
+        <SimplePink>Màu hồng đơn giản</SimplePink>
+        <SimpleViolet>Màu tím đơn giản</SimpleViolet>
+        <SimpleOrange>Màu da cam đơn giản</SimpleOrange>
+        <RoundConerPink>Màu hồng vòng góc</RoundConerPink>
+        <RoundConerOrange>Màu cam vòng góc</RoundConerOrange>
+        <RoundConerGreen>Màu xanh lá cây vòng góc</RoundConerGreen>
+        <RoundConerViolet>Màu tím vòng góc</RoundConerViolet>
+        <RoundConerBlue>Màu xanh vòng góc</RoundConerBlue>
+        <ShadowPink>Màu hồng sẫm</ShadowPink>
+        <ShadowOrange>Màu da cam sẫm</ShadowOrange>
+        <ShadowBlue>Màu xanh sẫm</ShadowBlue>
+        <ShadowViolet>Màu tím sẫm</ShadowViolet>
+        <ShadowGreen>Màu xanh lá cây sẫm</ShadowGreen>
+        <VistaBlue>Màu xanh Vista</VistaBlue>
+        <VistaTheme>Giao diện Vista</VistaTheme>
+        <MacBlack>Màu đen Mac</MacBlack>
+        <MacGreenSteel>Màu Mac xanh thép</MacGreenSteel>
+        <MacTheme>Giao diện Mac</MacTheme>
+        <MacGray>Màu xám Mac</MacGray>
         <DefaultTheme>Mặc định</DefaultTheme>
       </item>
     </UIItemThemeSelector>
   </Theme>
   <ThemeDropDown>
     <item>
-      <Shadow>Shadow Style</Shadow>
-      <Simple>Simple Style</Simple>
-      <VistaStyle>Vista Style</VistaStyle>
-      <MacStyle>Mac Style</MacStyle>
-      <RoundConer>Round Corner Style</RoundConer>
+      <Shadow>Phong cách bóng</Shadow>
+      <Simple>Phong cách đơn giản</Simple>
+      <VistaStyle>Phong cách Vista</VistaStyle>
+      <MacStyle>Phong cách Mac</MacStyle>
+      <RoundConer>Phong cách vòng góc</RoundConer>
     </item>
   </ThemeDropDown>
   <!--
@@ -2355,6 +2355,10 @@
   <UIDashboardContainer>
     <label>
       <openWorkspace>Thêm Gadgets</openWorkspace>
+      <SaveTitle>Lưu</SaveTitle>
+      <CancelTitle>Hủy</CancelTitle>
+      <Debug>Debug</Debug>
+      <Cache>Không lưu Cache</Cache>
     </label>
   </UIDashboardContainer>
   <UIDashboardEditForm>
@@ -2411,6 +2415,7 @@
       <Created>Người tạo:</Created>
       <Description>Mô tả:</Description>
       <Close>Đóng</Close>
+      <Add>Thêm và giữ cho ứng dụng này tại trang</Add>
     </label>
   </UIAddNewApplication>
   <!--
@@ -2462,5 +2467,21 @@
   <UITabContainer>
     <tab>Thẻ tab </tab>
   </UITabContainer>
+  
+  <!--
+  ############################################################################
+  #		           org.exoplatform.portal.webui.container.UIBrowserPortlet         #
+  ############################################################################
+	-->
+	<UIBrowserPortlet>
+    <Back>Quay lại</Back>
+    <Forward>Chuyển tiếp</Forward>
+    <Refresh>Tải lại trang này</Refresh>
+    <Stop>Dừng tải trang này</Stop>
+    <Goto>Chuyển tiếp địa chỉ trong thanh địa chỉ</Goto>
+    <Go>Chuyển</Go>
+    <Untitled>(Untitled)</Untitled>
+    <Tab>Tab mới</Tab>
+  </UIBrowserPortlet>
 </bundle>
 

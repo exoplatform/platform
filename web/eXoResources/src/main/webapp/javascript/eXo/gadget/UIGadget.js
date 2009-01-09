@@ -4,7 +4,6 @@ eXo.gadget.UIGadget = {
         window.gadgets = window.gadgets || {};
         eXo.gadgets = window.gadgets;
         //window.gadgets = eXo.gadget.Gadgets;
-
         if (!eXo.gadgets || !eXo.gadgets.rpc) {
             eXo.core.Using.register('rpc', '/eXoGadgetServer/gadgets/js/rpc.js?c=1');
             eXo.core.Using.register('eXo.gadgets.Gadgets', '/eXoGadgets/javascript/eXo/gadgets/Gadgets.js');

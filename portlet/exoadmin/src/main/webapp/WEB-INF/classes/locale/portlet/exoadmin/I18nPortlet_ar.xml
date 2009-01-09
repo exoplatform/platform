@@ -11,6 +11,9 @@
     <label>
       <name>اسم</name>
       <language>اللغة</language>
+      <option>
+      	<All>All</All>
+      </option>
     </label>
   </UISearchI18n>
   <UII18nPortlet>

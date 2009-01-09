@@ -92,7 +92,7 @@ public class UII18nPortlet extends UIPortletApplication {
     Iterator i = service.getLocalConfigs().iterator() ;
     
     List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>() ;
-    options.add(new SelectItemOption<String>("All", ""));
+    options.add(new SelectItemOption<String>("All", "All"));
 
     while (i.hasNext()) {
       LocaleConfig config = (LocaleConfig) i.next() ;
@@ -143,7 +143,7 @@ public class UII18nPortlet extends UIPortletApplication {
       UIForm uiSearch = event.getSource() ;
       UII18nPortlet uiI18n = uiSearch.getParent() ;
       String language = uiSearch.getChild(UIFormSelectBox.class).getValue() ;
-      if ("".equals(language)) language = null ;
+      if ("All".equals(language)) language = null ;
       uiI18n.update(uiSearch.getChild(UIFormStringInput.class).getValue(), language);
     }
   }

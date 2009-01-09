@@ -2340,6 +2340,10 @@
   <UIDashboardContainer>
     <label>
       <openWorkspace>Add Gadgets</openWorkspace>
+      <SaveTitle>Save</SaveTitle>
+      <CancelTitle>Cancel</CancelTitle>
+      <Debug>Debug</Debug>
+      <Cache>No Cache</Cache>
     </label>
   </UIDashboardContainer>
   <UIDashboardEditForm>
@@ -2396,6 +2400,7 @@
       <Created>Created by:</Created>
       <Description>Description:</Description>
       <Close>Close</Close>
+      <Add>Add and keep this application in page</Add>
     </label>
   </UIAddNewApplication>
   <!--
@@ -2433,5 +2438,21 @@
   <UITabContainer>
     <tab>Tab </tab>
   </UITabContainer>
+  
+  <!--
+  ############################################################################
+  #		           org.exoplatform.portal.webui.container.UIBrowserPortlet         #
+  ############################################################################
+	-->
+	<UIBrowserPortlet>
+    <Back>Back</Back>
+    <Forward>Forward</Forward>
+    <Refresh>Refresh</Refresh>
+    <Stop>Stop</Stop>
+    <Goto>Go to the address in the Address Bar</Goto>
+    <Go>Go</Go>
+    <Untitled>(Untitled)</Untitled>
+    <Tab>New tab</Tab>
+  </UIBrowserPortlet>
 </bundle>
 

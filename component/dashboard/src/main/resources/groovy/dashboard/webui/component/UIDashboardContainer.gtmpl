@@ -3,6 +3,11 @@
   
   def uiDashboard = uicomponent.getParent();
   def uiSelectForm = uiDashboard.getChild(UIDashboardSelectContainer.class);
+  def rcontext = _ctx.getRequestContext() ;
+  rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.SaveTitle='" + _ctx.appRes("UIDashboardContainer.label.SaveTitle") + "';");
+  rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.CancelTitle='" + _ctx.appRes("UIDashboardContainer.label.CancelTitle") + "';");
+  rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.Cache='" + _ctx.appRes("UIDashboardContainer.label.Cache") + "';");
+  rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.Debug='" + _ctx.appRes("UIDashboardContainer.label.Debug") + "';");
 %>
 <div id="$uicomponent.id" class="UIDashboardContainer">
 	<div class="GadgetContainer UIResizableBlock" id="GadgetContainer">
