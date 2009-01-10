@@ -1416,7 +1416,7 @@
   -->
   <PortletMode>
   	<label>
-  		<help>Giúp đỡ</help>
+  		<help>Trợ giúp</help>
   		<view>Xem</view>
       <edit>Chỉnh sửa</edit>
   	</label>

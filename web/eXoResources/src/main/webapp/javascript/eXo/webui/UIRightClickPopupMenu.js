@@ -120,10 +120,24 @@ UIRightClickPopupMenu.prototype.clickRightMouse = function(event, elemt, menuId,
 			}
 			break;
 	}
-
+	
+	if(eXo.core.I18n.isLT()) {
+		//move context menu to center of screen to fix width
+		contextMenu.style.left = eXo.core.Browser.getBrowserWidth() * 0.5 + "px" ;
+		ctxMenuContainer.style.width = "auto" ;
+		ctxMenuContainer.style.width = ctxMenuContainer.offsetWidth + 2 + "px" ;
+		//end fix width
+		contextMenu.style.left = intLeft + "px";
+	}	else {
+		//move context menu to center of screen to fix width
+		contextMenu.style.right = eXo.core.Browser.getBrowserWidth() * 0.5 + "px" ;
+		ctxMenuContainer.style.width = "auto" ;
+		ctxMenuContainer.style.width = ctxMenuContainer.offsetWidth + 2 + "px" ;
+		//end fix width
+		contextMenu.style.right = intLeft + "px" ;
+	}
+	ctxMenuContainer.style.width = ctxMenuContainer.offsetWidth + "px" ;
 	contextMenu.style.top = intTop + "px";
-	if(eXo.core.I18n.isLT()) contextMenu.style.left = intLeft + "px";
-	else contextMenu.style.right = intLeft + "px" ;
 };
 
 eXo.webui.UIRightClickPopupMenu = new UIRightClickPopupMenu() ;

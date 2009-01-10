@@ -4,15 +4,13 @@
 }
 
 .UIContextMenuContainer {
-  width: 190px;
 } 
 
 .UIRightClickPopupMenu .UIRightPopupMenuContainer {
   padding: 5px 0px;
   background: #ffffff;
-	width: 100%;
+  border: 1px solid white;
 }
-
 .UIRightClickPopupMenu .MenuItem {
   clear: both;
   cursor: pointer;
@@ -47,7 +45,7 @@
 .UIRightClickPopupMenu .AddNode16x16Icon{
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueCirclePlus.png') no-repeat left 4px; 	/* orientation=lt */
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlueCirclePlus-rt.png') no-repeat right 4px; 	/* orientation=rt */
-  width: auto;
+	width: auto ;
 }
 
 .UIRightClickPopupMenu .EditPageNode16x16Icon{
