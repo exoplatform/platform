@@ -163,7 +163,7 @@
 	              %>
 	              		<div class="ControlIcon ArrowDownIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.PortletMode");%>" onclick="$showCategory" onmouseover="$onControlOver" onmouseout="$onControlOut">
 							        <% /*Begin Popup Menu*/ %>
-								      <div style="position: relative;">
+								      <div style="position: relative; width: 100%">
 									      <div class="UIPopupCategory" style="display: none;">
 									        <div class="PopupCategoryDecorator">
 									          <div class="PopupCategoryTL">

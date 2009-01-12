@@ -7,8 +7,8 @@
 }
 	
 .UIControlWorkspace .TopTitleBar{
-	padding: 15px 55px 15px 0px; /* orientation=lt */
-	padding: 15px 0px 15px 55px; /* orientation=rt */
+	padding: 15px 60px 15px 0px; /* orientation=lt */
+	padding: 15px 0px 15px 60px; /* orientation=rt */
 }
 
 .UIControlWorkspace .UIVerticalSlideTabs {

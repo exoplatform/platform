@@ -99,11 +99,11 @@
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft {
 	padding: 0px 0px 0px 4px;
-	background: url('background/VTabStyle3.gif') no-repeat left top;
+	background: transparent url('background/VTabStyle3.gif') no-repeat left top;
 }
 
 .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight {
-	background: url('background/VTabStyle3.gif') no-repeat right top;
+	background: transparent url('background/VTabStyle3.gif') no-repeat right top;
 	padding: 0px 4px 0px 0px;
 }
 

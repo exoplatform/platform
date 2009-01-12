@@ -20,7 +20,8 @@
 }
 
 .UITabContainer .TabLabel {
-	padding: 0px 10px 0px 2px;
+	padding: 0px 10px 0px 2px; /* orientation=lt */
+	padding: 0px 2px 0px 10px; /* orientation=rt */
 	height: 26px; 
 	line-height: 26px;
 }

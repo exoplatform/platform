@@ -214,7 +214,6 @@
   padding-left: 5px;
   line-height: 26px; 
   background: url('background/NormalTabStyle.gif') no-repeat left top;
-  _width: 70px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
@@ -228,7 +227,8 @@
   background: url('background/NormalTabStyle.gif') repeat-x left -26px;
   cursor: pointer;
   padding: 0px 4px;
-  _white-space: nowrap; /* orientation=rt */
+  width: 65px; /* orientation=rt */
+  white-space: nowrap; /* orientation=rt */
 }
 
 .UIHorizontalTabs .NormalTabStyle .HighlightTab {
@@ -268,7 +268,7 @@
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
   padding-left: 4px;
   background: url('background/NormalTabStyle.gif') no-repeat left -104px;
-  _width: 70px; /* orientation=rt */
+  
 }
 
 .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
@@ -281,7 +281,8 @@
   background: url('background/NormalTabStyle.gif') repeat-x center -131px;
   cursor: pointer;
   padding: 0px 4px;
-  _white-space: nowrap; /* orientation=rt */
+  width: 65px; /* orientation=rt */
+  white-space: nowrap; /* orientation=rt */
 }
 
 /*==============================NormalTab for MessageTab=====================*/

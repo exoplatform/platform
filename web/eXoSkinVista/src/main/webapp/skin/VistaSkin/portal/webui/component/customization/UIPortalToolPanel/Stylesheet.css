@@ -1,5 +1,6 @@
 .UIPortalToolPanel {
   background: none; 
+  _height: 100%; /* orientation=rt */
 }
 
 .UIPortalToolPanel .WizardDecorator {
@@ -63,6 +64,7 @@
 
 .UIPortalToolPanel .Body {
   padding: 5px;
+  _height: 100%;
 }
 
 /**################################ ItemDetailList ######################*/
