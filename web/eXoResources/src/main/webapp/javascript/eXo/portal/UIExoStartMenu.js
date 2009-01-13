@@ -199,7 +199,7 @@ UIExoStartMenu.prototype.createSlide = function(menuItem) {
 		blockMenu.style.overflowY = "" ;
 //		menuContainer.style.clip = "rect(0px, 1280px, auto, -1280px)" ;
 		menuContainer.curentHeight = null;
-		menuContainer.style.position = "static";
+//		menuContainer.style.position = "static";
 		topElement.style.display = "none" ;
 		bottomElement.style.display = "none" ;
   }

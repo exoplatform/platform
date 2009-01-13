@@ -106,9 +106,10 @@ UIMaskLayer.prototype.createMask = function(blockContainerId, object, opacity, p
 			blockContainer.appendChild(object) ;
 		
 			eXo.core.UIMaskLayer.setPosition() ;
-			
-			if((blockContainer.offsetWidth > object.offsetLeft + object.offsetWidth) && (position == "TOP-RIGHT") || (position == "BOTTOM-RIGHT")) {
-		    object.style.left = blockContainer.offsetWidth - object.offsetWidth + "px" ;
+			if(eXo.core.I18n.isLT()) {
+				if((blockContainer.offsetWidth > object.offsetLeft + object.offsetWidth) && (position == "TOP-RIGHT") || (position == "BOTTOM-RIGHT")) {
+			    object.style.left = blockContainer.offsetWidth - object.offsetWidth + "px" ;
+				}
 			}
 			eXo.core.UIMaskLayer.doScroll() ;
 	  }
