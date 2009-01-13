@@ -20,7 +20,7 @@
 .UIForm .UIFormGrid td.FieldComponent {
 	padding: 4px;
 	*padding: 2px 0px 4px 4px;
-	white-space: nowrap;
+	width: 277px;
 }
 
 .UIForm .HorizontalLayout .MultiValueContainer {
