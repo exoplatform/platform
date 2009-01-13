@@ -109,7 +109,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 				y += (this.offsetHeight - menuItemContainer.offsetHeight) ;
 			 	if(y + (eXo.core.Browser.findPosY(posParent) - document.documentElement.scrollTop) < 0) {
 				 	var objBottom = objTop + this.offsetHeight ;
-			 		y += (browserHeight - objBottom) + document.documentElement.scrollTop ;
+			 		y += (browserHeight - objBottom) - (browserHeight - menuItemContainer.offsetHeight)/2 + document.documentElement.scrollTop ;
 			 	}
 		 	}
 	 	} else {
@@ -343,13 +343,15 @@ UIExoStartMenu.prototype.setContainerSize = function(menuItemContainer) {
   menuBottom.style.width = w + "px" ;
   menuCenter.style.width = w + "px" ;
   menuItemContainer.resized = true ;
-  if (eXo.core.Browser.isIE7()) {
- 		var pageOwnerContainer = eXo.core.DOMUtil.findDescendantsByClass(menuItemContainer, "div", "PageOwnerContainer") ;
- 		for (var i = 0; i < pageOwnerContainer.length; i ++) {
- 		pageOwnerContainer[i].style.width = "auto";
- 		pageOwnerContainer[i].style.width = pageOwnerContainer[i].offsetWidth + "px";
- 		}
- 	}
+  
+  //TODO: remove this block to fix bug PageNavigation in DesktopPage
+//  if (eXo.core.Browser.isIE7()) {
+// 		var pageOwnerContainer = eXo.core.DOMUtil.findDescendantsByClass(menuItemContainer, "div", "PageOwnerContainer") ;
+// 		for (var i = 0; i < pageOwnerContainer.length; i ++) {
+// 		pageOwnerContainer[i].style.width = "auto";
+// 		pageOwnerContainer[i].style.width = pageOwnerContainer[i].offsetWidth + "px";
+// 		}
+// 	}
 };
 
 eXo.portal.UIExoStartMenu = new UIExoStartMenu() ;
