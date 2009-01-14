@@ -46,8 +46,11 @@
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/EditNavigation.png') no-repeat left top;  	/* orientation=lt */
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/24x24/icons/EditNavigation-rt.png') no-repeat right top;  	/* orientation=rt */
 	cursor: pointer;
-	float: left;  	/* orientation=lt */
-	float: right;  	/* orientation=rt */
+	/*Lam comment to fix bug PORTAL-2604*/
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */ 
+  /*float: left; /* orientation=lt */
+  /*float: right; /* orientation=rt */
 	margin-left: -3px;  	/* orientation=lt */
 	margin-right: -3px;  	/* orientation=rt */
 	height: 22px; 
@@ -59,5 +62,5 @@
 .UIControlWorkspace .UIPageNodeSelector .UIDropDownControl {
   float: left;  	/* orientation=lt */
 	float: right;  	/* orientation=rt */
-  width: 202px;
+  width: 199px;
 }

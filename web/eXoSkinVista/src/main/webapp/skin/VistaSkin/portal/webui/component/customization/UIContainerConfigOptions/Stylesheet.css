@@ -4,7 +4,8 @@
 }
 
 .UIContainerConfigOptions .ContainerConfigOptions {
-	overflow: hidden;
+	 /*Lamjs comment to show DropdownControl above*/
+  /*overflow: hidden;*/
 }
 
 .UIContainerConfigOptions .ScrollArea {

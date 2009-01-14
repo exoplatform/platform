@@ -1,6 +1,8 @@
 /* --- DropDown Control Format --- */
 .UIDropDownControl {
 	margin-bottom: 2px;
+	position:relative;
+	_position:static;/* orientation=rt */
 }
 
 .UIDropDownControl .UIDropDownAnchor {

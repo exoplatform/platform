@@ -26,8 +26,11 @@
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/AddNavigationButton.png') no-repeat left top; /* orientation=lt */
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/AddNavigationButton-rt.png') no-repeat right top; /* orientation=rt */
 	cursor: pointer;
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */ 
+	/*Lam comment to fix bug PORTAL-2604*/
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */ 
+  /*float: left; /* orientation=lt */
+  /*float: right; /* orientation=rt */
 	margin-left: -2px; /* orientation=lt */
 	margin-right: -2px; /* orientation=rt */
 	height: 24px; 

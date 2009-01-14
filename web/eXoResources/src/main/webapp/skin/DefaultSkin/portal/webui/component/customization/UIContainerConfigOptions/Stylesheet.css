@@ -6,7 +6,8 @@
   border: solid 1px #bcbcbc;
   background: #f2f2f2;
   padding: 5px;
-  overflow: hidden;
+  /*Lamjs comment to show DropdownControl above*/
+  /*overflow: hidden;*/
 }
 
 .UIContainerConfigOptions .ScrollArea {
