@@ -2454,5 +2454,14 @@
     <Untitled>(Untitled)</Untitled>
     <Tab>New tab</Tab>
   </UIBrowserPortlet>
+  
+  <!--
+	############################################################################
+  #		           org.exoplatform.portal.webui.container.UIPopupWindow         #
+  ############################################################################
+	-->
+	<UIPopupWindow>
+    <Close>Close Window</Close>
+  </UIPopupWindow>
 </bundle>
 

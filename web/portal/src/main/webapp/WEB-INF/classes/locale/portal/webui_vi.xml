@@ -1822,13 +1822,13 @@
       <PortalPage>Trang Portal</PortalPage>
       <SaveToDatabase>Lưu vào cơ sở dữ liệu</SaveToDatabase>
       <AddApplication>Thêm ứng dụng</AddApplication>
-      <PageNavigation>Navigation trang</PageNavigation>
+      <PageNavigation>Trang danh mục chính</PageNavigation>
       <eXoBrowser>Trình duyệt eXo!</eXoBrowser>
       <ShowPortletDesktop>Hiện/Ẩn các Portlet</ShowPortletDesktop>
-      <ShowWidgetDesktop>Hiện/Ẩn các Widget</ShowWidgetDesktop>
+      <ShowWidgetDesktop>Hiện/Ẩn các Gadget</ShowWidgetDesktop>
       <SignIn>Đăng nhập</SignIn>
       <SignOut>Đăng xuất</SignOut>
-      <pageNavigation>Navigation trang</pageNavigation>
+      <pageNavigation>Trang danh mục chính</pageNavigation>
     </title>
     <msg>
       <hasNotPermission>Bạn không được quyền chỉnh sửa trang này!</hasNotPermission>
@@ -2483,5 +2483,14 @@
     <Untitled>(Untitled)</Untitled>
     <Tab>Tab mới</Tab>
   </UIBrowserPortlet>
+  
+  <!--
+	############################################################################
+  #		           org.exoplatform.portal.webui.container.UIPopupWindow         #
+  ############################################################################
+	-->
+	<UIPopupWindow>
+    <Close>Đóng cửa sổ</Close>
+  </UIPopupWindow>
 </bundle>
 

@@ -37,7 +37,7 @@
 		        <div class="PopupTitleIcon"><span></span></div>
 		        <%if( true) {%>
 		          <!-- <div class="CloseButton" title="Close Window" onclick="<%=uicomponent.event("ClosePopup")%>"><span></span></div> -->
-		          <div class="CloseButton" title="Close Window" onclick="<%=uicomponent.event(uicomponent.getCloseEvent())%>"><span></span></div>
+		          <div class="CloseButton" title="<%=_ctx.appRes("UIPopupWindow.Close")%>" onclick="<%=uicomponent.event(uicomponent.getCloseEvent())%>"><span></span></div>
 		        <% } else { %>
 		          <div class="PopupTitleIconRight"><span></span></div>
 		        <% } %>

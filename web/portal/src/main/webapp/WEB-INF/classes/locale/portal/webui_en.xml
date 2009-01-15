@@ -1191,7 +1191,7 @@
       <mixPage>
         <TwoColumnsOneRowLayout>Two Columns One Row Layout</TwoColumnsOneRowLayout>
         <OneRowTwoColumnsLayout>One Row Two Columns Layout</OneRowTwoColumnsLayout>
-        <ThreeRowsTwoColumnsLayout>Three Rows Two Columns Layout</ThreeRowsTwoColumnsLayout>
+        <ThreeRowsTwoColumnsLayout>Two Columns Three Rows Layout</ThreeRowsTwoColumnsLayout>
       </mixPage>
       <UIPageTemplateOptions>null</UIPageTemplateOptions>
     </label>
@@ -2473,5 +2473,13 @@
     <Tab>New tab</Tab>
   </UIBrowserPortlet>
 
+	<!--
+	############################################################################
+  #		           org.exoplatform.portal.webui.container.UIPopupWindow         #
+  ############################################################################
+	-->
+	<UIPopupWindow>
+    <Close>Close Window</Close>
+  </UIPopupWindow>
 </bundle>
 
