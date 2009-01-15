@@ -5,3 +5,7 @@
 .UIPageBrowser .UISearch {
   width: 99.5%;
 }
+
+.UIPageBrowser .UIGrid .Text {  
+	white-space: nowrap;
+}

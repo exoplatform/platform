@@ -10,3 +10,7 @@
 	width: 99.5%;
 	margin: auto;
 }
+
+.UIPageBrowser .UIGrid .Text {  
+	white-space: nowrap;
+}
