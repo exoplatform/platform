@@ -7,65 +7,58 @@
 	margin-left: 110px; /* orientation=rt */
 	cursor: move;
 }
-	
-.DefaultTheme .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	height: 22px;
-	width: 75px;
-}
 
 .UIPageDesktop .DefaultTheme .WindowPortletControl {
 	padding: 0px 3px 0px 14px;/* orientation=lt */
 	padding: 0px 14px 0px 3px;/* orientation=lt */
 }
 
-.DefaultTheme .WindowPortletControl .ControlIcon {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
+.DefaultTheme .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 24px; height: 17px;
 	margin: 8px 0px 0px 0px;
 	cursor: pointer;
 	background-image: url('background/DefaultTheme.png');
 }
 
-.DefaultTheme .WindowPortletControl .ArrowDownIcon {
+.DefaultTheme .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.DefaultTheme .WindowPortletControl .OverArrowDownIcon {
+.DefaultTheme .OverArrowDownIcon {
 	background-position: center 116px;
 }
 
-.DefaultTheme .WindowPortletControl .MinimizedIcon {
+.DefaultTheme .MinimizedIcon {
 	background-position: center 44px;
 }
 
-.DefaultTheme .WindowPortletControl .OverMinimizedIcon {
+.DefaultTheme .OverMinimizedIcon {
 	background-position: center 140px;
 }
 
-.DefaultTheme .WindowPortletControl .MaximizedIcon {
+.DefaultTheme .MaximizedIcon {
 	background-position: center 68px;
 }
 
-.DefaultTheme .WindowPortletControl .OverMaximizedIcon {
+.DefaultTheme .OverMaximizedIcon {
 	background-position: center 164px;
 }
 
-.DefaultTheme .WindowPortletControl .RestoreIcon {
+.DefaultTheme .RestoreIcon {
 	background-position: center 92px;
 }
 
-.DefaultTheme .WindowPortletControl .OverRestoreIcon {
+.DefaultTheme .OverRestoreIcon {
 	background-position: center 188px;
 }
 
-.DefaultTheme .WindowPortletControl .NormalIcon {
+.DefaultTheme .NormalIcon {
 	background-position: center 92px;
 }
 
-.DefaultTheme .WindowPortletControl .OverNormalIcon {
+.DefaultTheme .OverNormalIcon {
 	background-position: center 188px;
 }
 
@@ -87,19 +80,18 @@
 	margin-left: 18px;/* orientation=rt */
 }
 
-.DefaultTheme .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
-	margin: 9px 0px 0px 5px;/* orientation=lt */
-	margin: 9px 5px 0px 0px;/* orientation=rt */
+.DefaultTheme .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
+	margin-top: 9px;
 }
 
-.DefaultTheme .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 10px 0px 0px 5px;/* orientation=lt */
-	padding: 10px 5px 0px 0px;/* orientation=rt */
+.DefaultTheme .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 }
@@ -180,78 +172,79 @@
 	float: left;/* orientation=rt */
 	height: 23px;
 	padding-left: 0px;
-	width: 75px;
 }
 
-.MacTheme .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.MacTheme .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 3px 5px 0px 3px;
 }
 
-.MacTheme .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 7px 0px 0px 0px;
+.MacTheme .WindowBarCenter .PortletName {
 	font-weight: bold;
-	line-height: 12px;
+	line-height: 17px;
 }
 
-.MacTheme .WindowPortletInfo .PortletIcon {
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
+.MacTheme .WindowBarCenter .PortletIcon {
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat left top; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat right top; /* orientation=rt */
 }
 
-.MacTheme .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.MacTheme .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 21px; height: 16px;
 	margin: 3px 1px 0px 2px;
 	cursor: pointer;	
 	background-image: url('background/MacTheme.png');
 }
 
-.MacTheme .WindowPortletControl .ArrowDownIcon {
+.MacTheme .ArrowDownIcon {
 	background-position: center 18px;
 }
 
-.MacTheme .WindowPortletControl .OverArrowDownIcon {
+.MacTheme .OverArrowDownIcon {
 	background-position: center 98px;
 }
 
-.MacTheme .WindowPortletControl .MinimizedIcon {
+.MacTheme .MinimizedIcon {
 	background-position: center 38px;
 }
 
-.MacTheme .WindowPortletControl .OverMinimizedIcon {
+.MacTheme .OverMinimizedIcon {
 	background-position: center 118px;
 }
 
-.MacTheme .WindowPortletControl .MaximizedIcon {
+.MacTheme .MaximizedIcon {
 	background-position: center 58px;
 }
 
-.MacTheme .WindowPortletControl .OverMaximizedIcon {
+.MacTheme .OverMaximizedIcon {
 	background-position: center 138px;
 }
 
-.MacTheme .WindowPortletControl .NormalIcon {
+.MacTheme .NormalIcon {
 	background-position: center 78px;
 }
 
-.MacTheme .WindowPortletControl .OverNormalIcon {
+.MacTheme .OverNormalIcon {
 	background-position: center 158px;
 }
 
-.MacTheme .WindowPortletControl .RestoreIcon {
+.MacTheme .RestoreIcon {
 	background-position: center 78px;
 }
 
-.MacTheme .WindowPortletControl .OverRestoreIcon {
+.MacTheme .OverRestoreIcon {
 	background-position: center 158px;
 }
 
-.MacTheme .WindowPortletControl .BackgroundIcon {
+.MacTheme .BackgroundIcon {
 	float: left;/* orientation=lt */
 	float: right;/* orientation=rt */
 	margin: 4px 2px 0px 2px;
@@ -346,7 +339,6 @@
 	float: left;/* orientation=rt */
 	height: 23px;
 	padding-left: 0px;
-	width: 75px;
 }
 
 .UIPageDesktop .MacGray .WindowPortletInfo {
@@ -356,75 +348,77 @@
 	cursor: move;
 }
 
-.MacGray .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.MacGray .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 3px 3px 0px 3px;
 }
 
-.MacGray .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 5px 0px 0px 0px;
+.MacGray .WindowBarCenter .PortletName {
 	font-weight: bold;
-	line-height: 12px;
+	line-height: 17px;
 }
 
-.MacGray .WindowPortletInfo .PortletIcon {
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
+.MacGray .WindowBarCenter .PortletIcon {
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat left top; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat right top; /* orientation=rt */
 }
 
-.MacGray .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.MacGray .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 21px; height: 16px;
 	margin: 3px 1px 0px 2px;
 	cursor: pointer;	
 	background-image: url('background/MacGray.png');
 }
 
-.MacGray .WindowPortletControl .ArrowDownIcon {
+.MacGray .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.MacGray .WindowPortletControl .OverArrowDownIcon {
+.MacGray .OverArrowDownIcon {
 	background-position: center 100px;
 }
 
-.MacGray .WindowPortletControl .MinimizedIcon {
+.MacGray .MinimizedIcon {
 	background-position: center 40px;
 }
 
-.MacGray .WindowPortletControl .OverMinimizedIcon {
+.MacGray .OverMinimizedIcon {
 	background-position: center 120px;
 }
 
-.MacGray .WindowPortletControl .MaximizedIcon {
+.MacGray .MaximizedIcon {
 	background-position: center 60px;
 }
 
-.MacGray .WindowPortletControl .OverMaximizedIcon {
+.MacGray .OverMaximizedIcon {
 	background-position: center 140px;
 }
 
-.MacGray .WindowPortletControl .NormalIcon {
+.MacGray .NormalIcon {
 	background-position: center 80px;
 }
 
-.MacGray .WindowPortletControl .OverNormalIcon {
+.MacGray .OverNormalIcon {
 	background-position: center 160px;
 }
 
-.MacGray .WindowPortletControl .RestoreIcon {
+.MacGray .RestoreIcon {
 	background-position: center 80px;
 }
 
-.MacGray .WindowPortletControl .OverRestoreIcon {
+.MacGray .OverRestoreIcon {
 	background-position: center 160px;
 }
 
-.MacGray .WindowPortletControl .BackgroundIcon {
+.MacGray .BackgroundIcon {
 	float: left;/* orientation=lt */
 	float: right;/* orientation=rt */
 	margin: 4px 2px 0px 2px;
@@ -520,7 +514,6 @@
 	float: left;/* orientation=rt */
 	height: 23px;
 	padding-left: 0px;
-	width: 75px;
 }
 
 .UIPageDesktop .MacBlack .WindowPortletInfo {
@@ -530,75 +523,77 @@
 	cursor: move;
 }
 
-.MacBlack .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.MacBlack .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 3px 3px 0px 3px;
 }
 
-.MacBlack .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 5px 0px 0px 0px;
+.MacBlack .WindowBarCenter .PortletName {
 	font-weight: bold;
-	line-height: 12px;
+	line-height: 17px;
 }
 
-.MacBlack .WindowPortletInfo .PortletIcon {
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
+.MacBlack .WindowBarCenter .PortletIcon {
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat left top; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat right top; /* orientation=rt */
 }
 
-.MacBlack .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.MacBlack .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 21px; height: 16px;
 	margin: 3px 1px 0px 2px;
 	cursor: pointer;	
 	background-image: url('background/MacBlack.png');
 }
 
-.MacBlack .WindowPortletControl .ArrowDownIcon {
+.MacBlack .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.MacBlack .WindowPortletControl .OverArrowDownIcon {
+.MacBlack .OverArrowDownIcon {
 	background-position: center 100px;
 }
 
-.MacBlack .WindowPortletControl .MinimizedIcon {
+.MacBlack .MinimizedIcon {
 	background-position: center 40px;
 }
 
-.MacBlack .WindowPortletControl .OverMinimizedIcon {
+.MacBlack .OverMinimizedIcon {
 	background-position: center 120px;
 }
 
-.MacBlack .WindowPortletControl .MaximizedIcon {
+.MacBlack .MaximizedIcon {
 	background-position: center 60px;
 }
 
-.MacBlack .WindowPortletControl .OverMaximizedIcon {
+.MacBlack .OverMaximizedIcon {
 	background-position: center 140px;
 }
 
-.MacBlack .WindowPortletControl .NormalIcon {
+.MacBlack .NormalIcon {
 	background-position: center 80px;
 }
 
-.MacBlack .WindowPortletControl .OverNormalIcon {
+.MacBlack .OverNormalIcon {
 	background-position: center 160px;
 }
 
-.MacBlack .WindowPortletControl .RestoreIcon {
+.MacBlack .RestoreIcon {
 	background-position: center 80px;
 }
 
-.MacBlack .WindowPortletControl .OverRestoreIcon {
+.MacBlack .OverRestoreIcon {
 	background-position: center 160px;
 }
 
-.MacBlack .WindowPortletControl .BackgroundIcon {
+.MacBlack .BackgroundIcon {
 	float: left;/* orientation=lt */
 	float: right;/* orientation=rt */
 	margin: 4px 2px 0px 2px;
@@ -694,7 +689,6 @@
 	float: left;/* orientation=rt */
 	height: 23px;
 	padding-left: 0px;
-	width: 75px;
 }
 
 .UIPageDesktop .MacGreenSteel .WindowPortletInfo {
@@ -704,75 +698,77 @@
 	cursor: move;
 }
 
-.MacGreenSteel .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.MacGreenSteel .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 3px 3px 0px 3px;
 }
 
-.MacGreenSteel .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 5px 0px 0px 0px;
+.MacGreenSteel .WindowBarCenter .PortletName {
 	font-weight: bold;
-	line-height: 12px;
+	line-height: 17px;
 }
 
-.MacGreenSteel .WindowPortletInfo .PortletIcon {
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat;
+.MacGreenSteel .WindowBarCenter .PortletIcon {
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat left top; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPortletIcon.png') no-repeat right top; /* orientation=rt */
 }
 
-.MacGreenSteel .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.MacGreenSteel .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 21px; height: 16px;
 	margin: 3px 1px 0px 2px;
 	cursor: pointer;	
 	background-image: url('background/MacGreen.png');
 }
 
-.MacGreenSteel .WindowPortletControl .ArrowDownIcon {
+.MacGreenSteel .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.MacGreenSteel .WindowPortletControl .OverArrowDownIcon {
+.MacGreenSteel .OverArrowDownIcon {
 	background-position: center 100px;
 }
 
-.MacGreenSteel .WindowPortletControl .MinimizedIcon {
+.MacGreenSteel .MinimizedIcon {
 	background-position: center 40px;
 }
 
-.MacGreenSteel .WindowPortletControl .OverMinimizedIcon {
+.MacGreenSteel .OverMinimizedIcon {
 	background-position: center 120px;
 }
 
-.MacGreenSteel .WindowPortletControl .MaximizedIcon {
+.MacGreenSteel .MaximizedIcon {
 	background-position: center 60px;
 }
 
-.MacGreenSteel .WindowPortletControl .OverMaximizedIcon {
+.MacGreenSteel .OverMaximizedIcon {
 	background-position: center 140px;
 }
 
-.MacGreenSteel .WindowPortletControl .NormalIcon {
+.MacGreenSteel .NormalIcon {
 	background-position: center 80px;
 }
 
-.MacGreenSteel .WindowPortletControl .OverNormalIcon {
+.MacGreenSteel .OverNormalIcon {
 	background-position: center 160px;
 }
 
-.MacGreenSteel .WindowPortletControl .RestoreIcon {
+.MacGreenSteel .RestoreIcon {
 	background-position: center 80px;
 }
 
-.MacGreenSteel .WindowPortletControl .OverRestoreIcon {
+.MacGreenSteel .OverRestoreIcon {
 	background-position: center 160px;
 }
 
-.MacGreenSteel .WindowPortletControl .BackgroundIcon {
+.MacGreenSteel .BackgroundIcon {
 	float: left;/* orientation=lt */
 	float: right;/* orientation=rt */
 	margin: 4px 2px 0px 2px;
@@ -869,10 +865,9 @@
 	height: 24px;
 	padding: 4px 0px 0px 6px;/* orientation=lt */
 	padding: 4px 6px 0px 0px;/* orientation=rt */
-	width: 90px;
 }
 
-.UIPageDesktop .VistaTheme .WindowPortletControl {
+.UIPageDesktop .VistaTheme {
 	padding:4px 0px 0px 12px;/* orientation=lt */
 	padding:4px 12px 0px 0px;/* orientation=rt */
 }
@@ -884,64 +879,69 @@
 	cursor: move;
 }
 
-.VistaTheme .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 19px; height: 19px;
+.VistaTheme .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 8px 0px 0px 0px;
 }
 
-.VistaTheme .WindowPortletInfo .PortletIcon {
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat; /* orientation=lt */
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat; /* orientation=rt */
+.VistaTheme .WindowBarCenter .PortletIcon {
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat left top; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat right top; /* orientation=rt */
 }
 
-.VistaTheme .WindowPortletControl .ControlIcon {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
+.VistaTheme .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 30px; height:20px;
 	cursor: pointer;	
 	background-image: url('background/VistaTheme.png'); /* orientation=lt */
 	background-image: url('background/VistaTheme-rt.png'); /* orientation=rt */
+	margin-top: 5px;
 }
 
-.VistaTheme .WindowPortletControl .ArrowDownIcon {
+.VistaTheme .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.VistaTheme .WindowPortletControl .OverArrowDownIcon {
+.VistaTheme .OverArrowDownIcon {
 	background-position: center 100px;
 }
 
-.VistaTheme .WindowPortletControl .MinimizedIcon {
+.VistaTheme .MinimizedIcon {
 	background-position: center 40px;
 }
 
-.VistaTheme .WindowPortletControl .OverMinimizedIcon {
+.VistaTheme .OverMinimizedIcon {
 	background-position: center 120px;
 }
 
-.VistaTheme .WindowPortletControl .MaximizedIcon {
+.VistaTheme .MaximizedIcon {
 	background-position: center 60px;
 }
 
-.VistaTheme .WindowPortletControl .OverMaximizedIcon {
+.VistaTheme .OverMaximizedIcon {
 	background-position: center 140px;
 }
 
-.VistaTheme .WindowPortletControl .NormalIcon {
+.VistaTheme .NormalIcon {
 	background-position: center 80px;
 }
 
-.VistaTheme .WindowPortletControl .OverNormalIcon {
+.VistaTheme .OverNormalIcon {
 	background-position: center 160px;
 }
 
-.VistaTheme .WindowPortletControl .RestoreIcon {
+.VistaTheme .RestoreIcon {
 	background-position: center 80px;
 }
 
-.VistaTheme .WindowPortletControl .OverRestoreIcon {
+.VistaTheme .OverRestoreIcon {
 	background-position: center 160px;
 }
 
@@ -1005,12 +1005,9 @@
 	height: 24px;
 }
 
-.VistaTheme .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 1px 0px 0px 3px;
+.VistaTheme .WindowBarCenter .PortletName {
 	font-weight: bold;
-	line-height: 28px;
+	line-height: 19px;
 }
 
 .VistaTheme .WindowBarLeft {
@@ -1045,78 +1042,79 @@
 	height: 24px;
 	padding: 8px 0px 0px 6px;/* orientation=lt */
 	padding: 8px 6px 0px 0px;/* orientation=rt */
-	width: 90px;
 }
 
 .UIPageDesktop .VistaBlue .WindowPortletInfo {
 	cursor: move;
 }
 
-.VistaBlue .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 19px; height: 19px;
+.VistaBlue .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 11px 0px 0px 0px;
 }
 
-.VistaBlue .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.VistaBlue .WindowBarCenter .PortletName {
 	font-weight: bold;
-	line-height: 28px;
-	margin: 5px 0px 0px 3px;/* orientation=lt */
-	margin: 5px 3px 0px 0px;/* orientation=rt */
+	line-height: 19px;
 }
 
-.VistaBlue .WindowPortletInfo .PortletIcon {
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat;
+.VistaBlue .WindowBarCenter .PortletIcon {
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat left top; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat right top; /* orientation=rt */
 }
 
-.VistaBlue .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.VistaBlue .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 30px; height: 19px;
 	cursor: pointer;	
 	background-image: url('background/VistaBlue.png');
+	margin-top: 8px;
 }
 
-.VistaBlue .WindowPortletControl .ArrowDownIcon {
+.VistaBlue .ArrowDownIcon {
 	background-position: center 19px;
 }
 
-.VistaBlue .WindowPortletControl .OverArrowDownIcon {
+.VistaBlue .OverArrowDownIcon {
 	background-position: center 99px;
 }
 
-.VistaBlue .WindowPortletControl .MinimizedIcon {
+.VistaBlue .MinimizedIcon {
 	background-position: center 39px;
 }
 
-.VistaBlue .WindowPortletControl .OverMinimizedIcon {
+.VistaBlue .OverMinimizedIcon {
 	background-position: center 119px;
 }
 
-.VistaBlue .WindowPortletControl .MaximizedIcon {
+.VistaBlue .MaximizedIcon {
 	background-position: center 59px;
 }
 
-.VistaBlue .WindowPortletControl .OverMaximizedIcon {
+.VistaBlue .OverMaximizedIcon {
 	background-position: center 139px;
 }
 
-.VistaBlue .WindowPortletControl .NormalIcon {
+.VistaBlue .NormalIcon {
 	background-position: center 79px;
 }
 
-.VistaBlue .WindowPortletControl .OverNormalIcon {
+.VistaBlue .OverNormalIcon {
 	background-position: center 159px;
 }
 
-.VistaBlue .WindowPortletControl .RestoreIcon {
+.VistaBlue .RestoreIcon {
 	background-position: center 79px;
 }
 
-.VistaBlue .WindowPortletControl .OverRestoreIcon {
+.VistaBlue .OverRestoreIcon {
 	background-position: center 159px;
 }
 
@@ -1214,12 +1212,11 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 10px 0px 3px;/* orientation=rt */
-	width: 68px;
 }
 
-.RoundConerBlue .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.RoundConerBlue .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 10px 2px 0px 0px;
 	cursor: pointer;
@@ -1235,10 +1232,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.RoundConerBlue .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.RoundConerBlue .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 10px 0px 0px 0px;
 }
 
@@ -1250,53 +1251,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.RoundConerBlue .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 7px 0px 0px 5px;/* orientation=lt */
-	margin: 7px 5px 0px 0px;/* orientation=rt */
+.RoundConerBlue .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
-	line-height: 24px;
+	line-height: 19px;
 }
 
-.RoundConerBlue .WindowPortletControl .ArrowDownIcon {
+.RoundConerBlue .ArrowDownIcon {
 	background-position: center 21px;
 }
 
-.RoundConerBlue .WindowPortletControl .OverArrowDownIcon {
+.RoundConerBlue .OverArrowDownIcon {
 	background-position: center 117px;
 }
 
-.RoundConerBlue .WindowPortletControl .MinimizedIcon {
+.RoundConerBlue .MinimizedIcon {
 	background-position: center 45px;
 }
 
-.RoundConerBlue .WindowPortletControl .OverMinimizedIcon {
+.RoundConerBlue .OverMinimizedIcon {
 	background-position: center 141px;
 }
 
-.RoundConerBlue .WindowPortletControl .MaximizedIcon {
+.RoundConerBlue .MaximizedIcon {
 	background-position: center 69px;
 }
 
-.RoundConerBlue .WindowPortletControl .OverMaximizedIcon {
+.RoundConerBlue .OverMaximizedIcon {
 	background-position: center 165px;
 }
 
-.RoundConerBlue .WindowPortletControl .RestoreIcon {
+.RoundConerBlue .RestoreIcon {
 	background-position: center 93px;
 }
 
-.RoundConerBlue .WindowPortletControl .OverRestoreIcon {
+.RoundConerBlue .OverRestoreIcon {
 	background-position: center 189px;
 }
 
-.RoundConerBlue .WindowPortletControl .NormalIcon {
+.RoundConerBlue .NormalIcon {
 	background-position: center 93px;
 }
 
-.RoundConerBlue .WindowPortletControl .OverNormalIcon {
+.RoundConerBlue .OverNormalIcon {
 	background-position: center 189px;
 }
 
@@ -1371,12 +1368,11 @@
 	float: left; /* orientation=rt */
 	padding: 0px 3px 0px 10px; /* orientation=lt */
 	padding: 0px 10px 0px 3px; /* orientation=rt */
-	width: 68px;
 }
 
-.RoundConerViolet .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.RoundConerViolet .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 10px 2px 0px 0px;
 	cursor: pointer;
@@ -1390,10 +1386,14 @@
 	margin-right: 18px;
 }
 
-.RoundConerViolet .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.RoundConerViolet .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 10px 0px 0px 0px;
 }
 
@@ -1405,53 +1405,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.RoundConerViolet .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 7px 0px 0px 5px;
-	margin: 7px 5px 0px 0px;
+.RoundConerViolet .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
-	line-height: 24px;
+	line-height: 19px;
 }
 
-.RoundConerViolet .WindowPortletControl .ArrowDownIcon {
+.RoundConerViolet .ArrowDownIcon {
 	background-position: center 21px;
 }
 
-.RoundConerViolet .WindowPortletControl .OverArrowDownIcon {
+.RoundConerViolet .OverArrowDownIcon {
 	background-position: center 117px;
 }
 
-.RoundConerViolet .WindowPortletControl .MinimizedIcon {
+.RoundConerViolet .MinimizedIcon {
 	background-position: center 45px;
 }
 
-.RoundConerViolet .WindowPortletControl .OverMinimizedIcon {
+.RoundConerViolet .OverMinimizedIcon {
 	background-position: center 141px;
 }
 
-.RoundConerViolet .WindowPortletControl .MaximizedIcon {
+.RoundConerViolet .MaximizedIcon {
 	background-position: center 69px;
 }
 
-.RoundConerViolet .WindowPortletControl .OverMaximizedIcon {
+.RoundConerViolet .OverMaximizedIcon {
 	background-position: center 165px;
 }
 
-.RoundConerViolet .WindowPortletControl .RestoreIcon {
+.RoundConerViolet .RestoreIcon {
 	background-position: center 93px;
 }
 
-.RoundConerViolet .WindowPortletControl .OverRestoreIcon {
+.RoundConerViolet .OverRestoreIcon {
 	background-position: center 189px;
 }
 
-.RoundConerViolet .WindowPortletControl .NormalIcon {
+.RoundConerViolet .NormalIcon {
 	background-position: center 93px;
 }
 
-.RoundConerViolet .WindowPortletControl .OverNormalIcon {
+.RoundConerViolet .OverNormalIcon {
 	background-position: center 189px;
 }
 
@@ -1530,12 +1526,11 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 10px 0px 3px;/* orientation=rt */
-	width: 68px;
 }
 
-.RoundConerOrange .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.RoundConerOrange .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 10px 2px 0px 0px;
 	cursor: pointer;
@@ -1551,10 +1546,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.RoundConerOrange .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.RoundConerOrange .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 10px 0px 0px 0px;
 }
 
@@ -1566,52 +1565,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.RoundConerOrange .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 7px 0px 0px 5px;
+.RoundConerOrange .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
-	line-height: 24px;
+	line-height: 19px;
 }
 
-.RoundConerOrange .WindowPortletControl .ArrowDownIcon {
+.RoundConerOrange .ArrowDownIcon {
 	background-position: center 21px;
 }
 
-.RoundConerOrange .WindowPortletControl .OverArrowDownIcon {
+.RoundConerOrange .OverArrowDownIcon {
 	background-position: center 117px;
 }
 
-.RoundConerOrange .WindowPortletControl .MinimizedIcon {
+.RoundConerOrange .MinimizedIcon {
 	background-position: center 45px;
 }
 
-.RoundConerOrange .WindowPortletControl .OverMinimizedIcon {
+.RoundConerOrange .OverMinimizedIcon {
 	background-position: center 141px;
 }
 
-.RoundConerOrange .WindowPortletControl .MaximizedIcon {
+.RoundConerOrange .MaximizedIcon {
 	background-position: center 69px;
 }
 
-.RoundConerOrange .WindowPortletControl .OverMaximizedIcon {
+.RoundConerOrange .OverMaximizedIcon {
 	background-position: center 165px;
 }
 
-.RoundConerOrange .WindowPortletControl .RestoreIcon {
+.RoundConerOrange .RestoreIcon {
 	background-position: center 93px;
 }
 
-.RoundConerOrange .WindowPortletControl .OverRestoreIcon {
+.RoundConerOrange .OverRestoreIcon {
 	background-position: center 189px;
 }
 
-.RoundConerOrange .WindowPortletControl .NormalIcon {
+.RoundConerOrange .NormalIcon {
 	background-position: center 93px;
 }
 
-.RoundConerOrange .WindowPortletControl .OverNormalIcon {
+.RoundConerOrange .OverNormalIcon {
 	background-position: center 189px;
 }
 
@@ -1690,12 +1686,11 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 10px 0px 3px;/* orientation=rt */
-	width: 68px;
 }
 
-.RoundConerPink .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.RoundConerPink .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 10px 2px 0px 0px;
 	cursor: pointer;
@@ -1711,10 +1706,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.RoundConerPink .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.RoundConerPink .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 10px 0px 0px 0px;
 }
 
@@ -1726,53 +1725,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.RoundConerPink .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 7px 0px 0px 5px;
-	margin: 7px 5px 0px 0px;
+.RoundConerPink .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
-	line-height: 24px;
+	line-height: 19px;
 }
 
-.RoundConerPink .WindowPortletControl .ArrowDownIcon {
+.RoundConerPink .ArrowDownIcon {
 	background-position: center 21px;
 }
 
-.RoundConerPink .WindowPortletControl .OverArrowDownIcon {
+.RoundConerPink .OverArrowDownIcon {
 	background-position: center 117px;
 }
 
-.RoundConerPink .WindowPortletControl .MinimizedIcon {
+.RoundConerPink .MinimizedIcon {
 	background-position: center 45px;
 }
 
-.RoundConerPink .WindowPortletControl .OverMinimizedIcon {
+.RoundConerPink .OverMinimizedIcon {
 	background-position: center 141px;
 }
 
-.RoundConerPink .WindowPortletControl .MaximizedIcon {
+.RoundConerPink .MaximizedIcon {
 	background-position: center 69px;
 }
 
-.RoundConerPink .WindowPortletControl .OverMaximizedIcon {
+.RoundConerPink .OverMaximizedIcon {
 	background-position: center 165px;
 }
 
-.RoundConerPink .WindowPortletControl .RestoreIcon {
+.RoundConerPink .RestoreIcon {
 	background-position: center 93px;
 }
 
-.RoundConerPink .WindowPortletControl .OverRestoreIcon {
+.RoundConerPink .OverRestoreIcon {
 	background-position: center 189px;
 }
 
-.RoundConerPink .WindowPortletControl .NormalIcon {
+.RoundConerPink .NormalIcon {
 	background-position: center 93px;
 }
 
-.RoundConerPink .WindowPortletControl .OverNormalIcon {
+.RoundConerPink .OverNormalIcon {
 	background-position: center 189px;
 }
 
@@ -1851,12 +1846,11 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 10px 0px 3px;/* orientation=rt */
-	width: 68px;
 }
 
-.RoundConerGreen .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.RoundConerGreen .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 10px 2px 0px 0px;
 	cursor: pointer;
@@ -1872,10 +1866,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.RoundConerGreen .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.RoundConerGreen .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 10px 0px 0px 0px;
 }
 
@@ -1887,53 +1885,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.RoundConerGreen .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 7px 0px 0px 5px;/* orientation=lt */
-	margin: 7px 5px 0px 0px;/* orientation=rt */
+.RoundConerGreen .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
-	line-height: 24px;
+	line-height: 19px;
 }
 
-.RoundConerGreen .WindowPortletControl .ArrowDownIcon {
+.RoundConerGreen .ArrowDownIcon {
 	background-position: center 21px;
 }
 
-.RoundConerGreen .WindowPortletControl .OverArrowDownIcon {
+.RoundConerGreen .OverArrowDownIcon {
 	background-position: center 117px;
 }
 
-.RoundConerGreen .WindowPortletControl .MinimizedIcon {
+.RoundConerGreen .MinimizedIcon {
 	background-position: center 45px;
 }
 
-.RoundConerGreen .WindowPortletControl .OverMinimizedIcon {
+.RoundConerGreen .OverMinimizedIcon {
 	background-position: center 141px;
 }
 
-.RoundConerGreen .WindowPortletControl .MaximizedIcon {
+.RoundConerGreen .MaximizedIcon {
 	background-position: center 69px;
 }
 
-.RoundConerGreen .WindowPortletControl .OverMaximizedIcon {
+.RoundConerGreen .OverMaximizedIcon {
 	background-position: center 165px;
 }
 
-.RoundConerGreen .WindowPortletControl .RestoreIcon {
+.RoundConerGreen .RestoreIcon {
 	background-position: center 93px;
 }
 
-.RoundConerGreen .WindowPortletControl .OverRestoreIcon {
+.RoundConerGreen .OverRestoreIcon {
 	background-position: center 189px;
 }
 
-.RoundConerGreen .WindowPortletControl .NormalIcon {
+.RoundConerGreen .NormalIcon {
 	background-position: center 93px;
 }
 
-.RoundConerGreen .WindowPortletControl .OverNormalIcon {
+.RoundConerGreen .OverNormalIcon {
 	background-position: center 189px;
 }
 
@@ -2012,12 +2006,11 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 0px 0px 3px;/* orientation=rt */
-	width: 68px;
 }
 
-.ShadowBlue .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.ShadowBlue .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 9px 2px 0px 0px;
 	cursor: pointer;
@@ -2033,10 +2026,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowBlue .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.ShadowBlue .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 8px 0px 0px 0px;
 }
 
@@ -2048,53 +2045,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.ShadowBlue .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 10px 0px 0px 5px;/* orientation=lt */
-	padding: 10px 5px 0px 0px;/* orientation=rt */
+.ShadowBlue .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
 }
 
-.ShadowBlue .WindowPortletControl .ArrowDownIcon {
+.ShadowBlue .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.ShadowBlue .WindowPortletControl .OverArrowDownIcon {
+.ShadowBlue .OverArrowDownIcon {
 	background-position: center 116px;
 }
 
-.ShadowBlue .WindowPortletControl .MinimizedIcon {
+.ShadowBlue .MinimizedIcon {
 	background-position: center 44px;
 }
 
-.ShadowBlue .WindowPortletControl .OverMinimizedIcon {
+.ShadowBlue .OverMinimizedIcon {
 	background-position: center 140px;
 }
 
-.ShadowBlue .WindowPortletControl .MaximizedIcon {
+.ShadowBlue .MaximizedIcon {
 	background-position: center 68px;
 }
 
-.ShadowBlue .WindowPortletControl .OverMaximizedIcon {
+.ShadowBlue .OverMaximizedIcon {
 	background-position: center 164px;
 }
 
-.ShadowBlue .WindowPortletControl .RestoreIcon {
+.ShadowBlue .RestoreIcon {
 	background-position: center 92px;
 }
 
-.ShadowBlue .WindowPortletControl .OverRestoreIcon {
+.ShadowBlue .OverRestoreIcon {
 	background-position: center 188px;
 }
 
-.ShadowBlue .WindowPortletControl .NormalIcon {
+.ShadowBlue .NormalIcon {
 	background-position: center 92px;
 }
 
-.ShadowBlue .WindowPortletControl .OverNormalIcon {
+.ShadowBlue .OverNormalIcon {
 	background-position: center 188px;
 }
 
@@ -2171,12 +2164,11 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 0px 0px 3px;/* orientation=rt */
-	width: 68px;
 }
 
-.ShadowViolet .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.ShadowViolet .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 9px 2px 0px 0px;
 	cursor: pointer;
@@ -2192,10 +2184,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowViolet .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.ShadowViolet .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 8px 0px 0px 0px;
 }
 
@@ -2207,53 +2203,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.ShadowViolet .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 10px 0px 0px 5px;/* orientation=lt */
-	padding: 10px 5px 0px 0px;/* orientation=rt */
+.ShadowViolet .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
 }
 
-.ShadowViolet .WindowPortletControl .ArrowDownIcon {
+.ShadowViolet .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.ShadowViolet .WindowPortletControl .OverArrowDownIcon {
+.ShadowViolet .OverArrowDownIcon {
 	background-position: center 116px;
 }
 
-.ShadowViolet .WindowPortletControl .MinimizedIcon {
+.ShadowViolet .MinimizedIcon {
 	background-position: center 44px;
 }
 
-.ShadowViolet .WindowPortletControl .OverMinimizedIcon {
+.ShadowViolet .OverMinimizedIcon {
 	background-position: center 140px;
 }
 
-.ShadowViolet .WindowPortletControl .MaximizedIcon {
+.ShadowViolet .MaximizedIcon {
 	background-position: center 68px;
 }
 
-.ShadowViolet .WindowPortletControl .OverMaximizedIcon {
+.ShadowViolet .OverMaximizedIcon {
 	background-position: center 164px;
 }
 
-.ShadowViolet .WindowPortletControl .RestoreIcon {
+.ShadowViolet .RestoreIcon {
 	background-position: center 92px;
 }
 
-.ShadowViolet .WindowPortletControl .OverRestoreIcon {
+.ShadowViolet .OverRestoreIcon {
 	background-position: center 188px;
 }
 
-.ShadowViolet .WindowPortletControl .NormalIcon {
+.ShadowViolet .NormalIcon {
 	background-position: center 92px;
 }
 
-.ShadowViolet .WindowPortletControl .OverNormalIcon {
+.ShadowViolet .OverNormalIcon {
 	background-position: center 188px;
 }
 
@@ -2331,12 +2323,11 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 0px 0px 3px;/* orientation=rt */
-	width: 68px;
 }
 
-.ShadowOrange .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.ShadowOrange .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 9px 2px 0px 0px;
 	cursor: pointer;
@@ -2352,10 +2343,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowOrange .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.ShadowOrange .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 8px 0px 0px 0px;
 }
 
@@ -2367,53 +2362,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.ShadowOrange .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 10px 0px 0px 5px;/* orientation=lt */
-	padding: 10px 5px 0px 0px;/* orientation=rt */
+.ShadowOrange .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
 }
 
-.ShadowOrange .WindowPortletControl .ArrowDownIcon {
+.ShadowOrange .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.ShadowOrange .WindowPortletControl .OverArrowDownIcon {
+.ShadowOrange .OverArrowDownIcon {
 	background-position: center 116px;
 }
 
-.ShadowOrange .WindowPortletControl .MinimizedIcon {
+.ShadowOrange .MinimizedIcon {
 	background-position: center 44px;
 }
 
-.ShadowOrange .WindowPortletControl .OverMinimizedIcon {
+.ShadowOrange .OverMinimizedIcon {
 	background-position: center 140px;
 }
 
-.ShadowOrange .WindowPortletControl .MaximizedIcon {
+.ShadowOrange .MaximizedIcon {
 	background-position: center 68px;
 }
 
-.ShadowOrange .WindowPortletControl .OverMaximizedIcon {
+.ShadowOrange .OverMaximizedIcon {
 	background-position: center 164px;
 }
 
-.ShadowOrange .WindowPortletControl .RestoreIcon {
+.ShadowOrange .RestoreIcon {
 	background-position: center 92px;
 }
 
-.ShadowOrange .WindowPortletControl .OverRestoreIcon {
+.ShadowOrange .OverRestoreIcon {
 	background-position: center 188px;
 }
 
-.ShadowOrange .WindowPortletControl .NormalIcon {
+.ShadowOrange .NormalIcon {
 	background-position: center 92px;
 }
 
-.ShadowOrange .WindowPortletControl .OverNormalIcon {
+.ShadowOrange .OverNormalIcon {
 	background-position: center 188px;
 }
 
@@ -2491,12 +2482,11 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 0px 0px 3px;/* orientation=rt */
-	width: 68px;
 }
 
-.ShadowPink .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.ShadowPink .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 9px 2px 0px 0px;
 	cursor: pointer;
@@ -2512,10 +2502,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowPink .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.ShadowPink .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 8px 0px 0px 0px;
 }
 
@@ -2527,53 +2521,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.ShadowPink .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 10px 0px 0px 5px;/* orientation=lt */
-	padding: 10px 5px 0px 0px;/* orientation=rt */
+.ShadowPink .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
 }
 
-.ShadowPink .WindowPortletControl .ArrowDownIcon {
+.ShadowPink .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.ShadowPink .WindowPortletControl .OverArrowDownIcon {
+.ShadowPink .OverArrowDownIcon {
 	background-position: center 116px;
 }
 
-.ShadowPink .WindowPortletControl .MinimizedIcon {
+.ShadowPink .MinimizedIcon {
 	background-position: center 44px;
 }
 
-.ShadowPink .WindowPortletControl .OverMinimizedIcon {
+.ShadowPink .OverMinimizedIcon {
 	background-position: center 140px;
 }
 
-.ShadowPink .WindowPortletControl .MaximizedIcon {
+.ShadowPink .MaximizedIcon {
 	background-position: center 68px;
 }
 
-.ShadowPink .WindowPortletControl .OverMaximizedIcon {
+.ShadowPink .OverMaximizedIcon {
 	background-position: center 164px;
 }
 
-.ShadowPink .WindowPortletControl .RestoreIcon {
+.ShadowPink .RestoreIcon {
 	background-position: center 92px;
 }
 
-.ShadowPink .WindowPortletControl .OverRestoreIcon {
+.ShadowPink .OverRestoreIcon {
 	background-position: center 188px;
 }
 
-.ShadowPink .WindowPortletControl .NormalIcon {
+.ShadowPink .NormalIcon {
 	background-position: center 92px;
 }
 
-.ShadowPink .WindowPortletControl .OverNormalIcon {
+.ShadowPink .OverNormalIcon {
 	background-position: center 188px;
 }
 
@@ -2651,12 +2641,11 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 0px 0px 3px;/* orientation=rt */
-	width: 68px;
 }
 
-.ShadowGreen .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.ShadowGreen .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
 	margin: 9px 2px 0px 0px;
 	cursor: pointer;
@@ -2672,10 +2661,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowGreen .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.ShadowGreen .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 8px 0px 0px 0px;
 }
 
@@ -2687,53 +2680,49 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.ShadowGreen .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 10px 0px 0px 5px;/* orientation=lt */
-	padding: 10px 5px 0px 0px;/* orientation=rt */
+.ShadowGreen .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
 }
 
-.ShadowGreen .WindowPortletControl .ArrowDownIcon {
+.ShadowGreen .ArrowDownIcon {
 	background-position: center 20px;
 }
 
-.ShadowGreen .WindowPortletControl .OverArrowDownIcon {
+.ShadowGreen .OverArrowDownIcon {
 	background-position: center 116px;
 }
 
-.ShadowGreen .WindowPortletControl .MinimizedIcon {
+.ShadowGreen .MinimizedIcon {
 	background-position: center 44px;
 }
 
-.ShadowGreen .WindowPortletControl .OverMinimizedIcon {
+.ShadowGreen .OverMinimizedIcon {
 	background-position: center 140px;
 }
 
-.ShadowGreen .WindowPortletControl .MaximizedIcon {
+.ShadowGreen .MaximizedIcon {
 	background-position: center 68px;
 }
 
-.ShadowGreen .WindowPortletControl .OverMaximizedIcon {
+.ShadowGreen .OverMaximizedIcon {
 	background-position: center 164px;
 }
 
-.ShadowGreen .WindowPortletControl .RestoreIcon {
+.ShadowGreen .RestoreIcon {
 	background-position: center 92px;
 }
 
-.ShadowGreen .WindowPortletControl .OverRestoreIcon {
+.ShadowGreen .OverRestoreIcon {
 	background-position: center 188px;
 }
 
-.ShadowGreen .WindowPortletControl .NormalIcon {
+.ShadowGreen .NormalIcon {
 	background-position: center 92px;
 }
 
-.ShadowGreen .WindowPortletControl .OverNormalIcon {
+.ShadowGreen .OverNormalIcon {
 	background-position: center 188px;
 }
 
@@ -2810,16 +2799,14 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 0px 0px 3px;/* orientation=rt */
-	width: 55px;
 }
 
-.SimpleBlue .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.SimpleBlue .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
 	margin: 1px 2px 0px 0px;
 	cursor: pointer;
-	background-position: center;
 }
 
 .SimpleBlue .Information {
@@ -2831,10 +2818,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimpleBlue .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.SimpleBlue .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 0px 0px 0px 2px;
 }
 
@@ -2846,52 +2837,48 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.SimpleBlue .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 0px 0px 0px 5px;/* orientation=lt */
-	padding: 0px 5px 0px 0px;/* orientation=rt */
+.SimpleBlue .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 }
 
-.SimpleBlue .WindowPortletControl .ArrowDownIcon {
+.SimpleBlue .ArrowDownIcon {
 	background: url('background/SimpleStyle.gif') left 16px;
 }
 
-.SimpleBlue .WindowPortletControl .OverArrowDownIcon {
+.SimpleBlue .OverArrowDownIcon {
 	background: url('background/SimpleStyle.gif') right 16px;
 }
 
-.SimpleBlue .WindowPortletControl .MinimizedIcon {
+.SimpleBlue .MinimizedIcon {
 	background: url('background/SimpleStyle.gif') left 32px;
 }
 
-.SimpleBlue .WindowPortletControl .OverMinimizedIcon {
+.SimpleBlue .OverMinimizedIcon {
 	background: url('background/SimpleStyle.gif') right 32px;
 }
 
-.SimpleBlue .WindowPortletControl .MaximizedIcon {
+.SimpleBlue .MaximizedIcon {
 	background: url('background/SimpleStyle.gif') left 48px;
 }
 
-.SimpleBlue .WindowPortletControl .OverMaximizedIcon {
+.SimpleBlue .OverMaximizedIcon {
 	background: url('background/SimpleStyle.gif') right 48px;
 }
 
-.SimpleBlue .WindowPortletControl .RestoreIcon {
+.SimpleBlue .RestoreIcon {
 	background: url('background/SimpleStyle.gif') left 64px;
 }
 
-.SimpleBlue .WindowPortletControl .OverRestoreIcon {
+.SimpleBlue .OverRestoreIcon {
 	background: url('background/SimpleStyle.gif') right 64px;
 }
 
-.SimpleBlue .WindowPortletControl .NormalIcon {
+.SimpleBlue .NormalIcon {
 	background: url('background/SimpleStyle.gif') left 64px;
 }
 
-.SimpleBlue .WindowPortletControl .OverNormalIcon {
+.SimpleBlue .OverNormalIcon {
 	background: url('background/SimpleStyle.gif') right 64px;
 }
 
@@ -2960,16 +2947,14 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 0px 0px 3px;/* orientation=rt */
-	width: 55px;
 }
 
-.SimpleViolet .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.SimpleViolet .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
 	margin: 1px 2px 0px 0px;
 	cursor: pointer;
-	background-position: center;
 }
 
 .SimpleViolet .Information {
@@ -2981,10 +2966,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimpleViolet .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.SimpleViolet .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 0px 0px 0px 2px;
 }
 
@@ -2996,52 +2985,48 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.SimpleViolet .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 0px 0px 0px 5px;/* orientation=lt */
-	padding: 0px 5px 0px 0px;/* orientation=rt */
+.SimpleViolet .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 }
 
-.SimpleViolet .WindowPortletControl .ArrowDownIcon {
+.SimpleViolet .ArrowDownIcon {
 	background: url('background/SimpleStyle.gif') left 80px;
 }
 
-.SimpleViolet .WindowPortletControl .OverArrowDownIcon {
+.SimpleViolet .OverArrowDownIcon {
 	background: url('background/SimpleStyle.gif') right 80px;
 }
 
-.SimpleViolet .WindowPortletControl .MinimizedIcon {
+.SimpleViolet .MinimizedIcon {
 	background: url('background/SimpleStyle.gif') left 96px;
 }
 
-.SimpleViolet .WindowPortletControl .OverMinimizedIcon {
+.SimpleViolet .OverMinimizedIcon {
 	background: url('background/SimpleStyle.gif') right 96px;
 }
 
-.SimpleViolet .WindowPortletControl .MaximizedIcon {
+.SimpleViolet .MaximizedIcon {
 	background: url('background/SimpleStyle.gif') left 112px;
 }
 
-.SimpleViolet .WindowPortletControl .OverMaximizedIcon {
+.SimpleViolet .OverMaximizedIcon {
 	background: url('background/SimpleStyle.gif') right 112px;
 }
 
-.SimpleViolet .WindowPortletControl .RestoreIcon {
+.SimpleViolet .RestoreIcon {
 	background: url('background/SimpleStyle.gif') left 128px;
 }
 
-.SimpleViolet .WindowPortletControl .OverRestoreIcon {
+.SimpleViolet .OverRestoreIcon {
 	background: url('background/SimpleStyle.gif') right 128px;
 }
 
-.SimpleViolet .WindowPortletControl .NormalIcon {
+.SimpleViolet .NormalIcon {
 	background: url('background/SimpleStyle.gif') left 128px;
 }
 
-.SimpleViolet .WindowPortletControl .OverNormalIcon {
+.SimpleViolet .OverNormalIcon {
 	background: url('background/SimpleStyle.gif') right 128px;
 }
 
@@ -3112,16 +3097,14 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 0px 0px 3px;/* orientation=rt */
-	width: 55px;
 }
 
-.SimpleOrange .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.SimpleOrange .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
 	margin: 1px 2px 0px 0px;
 	cursor: pointer;
-	background-position: center;
 }
 
 .SimpleOrange .Information {
@@ -3133,10 +3116,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimpleOrange .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.SimpleOrange .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 0px 0px 0px 2px;
 }
 
@@ -3148,52 +3135,48 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.SimpleOrange .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 0px 0px 0px 5px;/* orientation=lt */
-	padding: 0px 5px 0px 0px;/* orientation=rt */
+.SimpleOrange .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 }
 
-.SimpleOrange .WindowPortletControl .ArrowDownIcon {
+.SimpleOrange .ArrowDownIcon {
 	background: url('background/SimpleStyle.gif') left 144px;
 }
 
-.SimpleOrange .WindowPortletControl .OverArrowDownIcon {
+.SimpleOrange .OverArrowDownIcon {
 	background: url('background/SimpleStyle.gif') right 144px;
 }
 
-.SimpleOrange .WindowPortletControl .MinimizedIcon {
+.SimpleOrange .MinimizedIcon {
 	background: url('background/SimpleStyle.gif') left 160px;
 }
 
-.SimpleOrange .WindowPortletControl .OverMinimizedIcon {
+.SimpleOrange .OverMinimizedIcon {
 	background: url('background/SimpleStyle.gif') right 160px;
 }
 
-.SimpleOrange .WindowPortletControl .MaximizedIcon {
+.SimpleOrange .MaximizedIcon {
 	background: url('background/SimpleStyle.gif') left 192px;
 }
 
-.SimpleOrange .WindowPortletControl .OverMaximizedIcon {
+.SimpleOrange .OverMaximizedIcon {
 	background: url('background/SimpleStyle.gif') right 192px;
 }
 
-.SimpleOrange .WindowPortletControl .RestoreIcon {
+.SimpleOrange .RestoreIcon {
 	background: url('background/SimpleStyle.gif') left 176px;
 }
 
-.SimpleOrange .WindowPortletControl .OverRestoreIcon {
+.SimpleOrange .OverRestoreIcon {
 	background: url('background/SimpleStyle.gif') right 176px;
 }
 
-.SimpleOrange .WindowPortletControl .NormalIcon {
+.SimpleOrange .NormalIcon {
 	background: url('background/SimpleStyle.gif') left 176px;
 }
 
-.SimpleOrange .WindowPortletControl .OverNormalIcon {
+.SimpleOrange .OverNormalIcon {
 	background: url('background/SimpleStyle.gif') right 176px;
 }
 
@@ -3264,16 +3247,14 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 10px 0px 3px;/* orientation=rt */
-	width: 55px;
 }
 
-.SimplePink .WindowPortletControl .ControlIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+.SimplePink .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
 	margin: 1px 2px 0px 0px;
 	cursor: pointer;
-	background-position: center;
 }
 
 .SimplePink .Information {
@@ -3285,10 +3266,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimplePink .WindowPortletInfo .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 16px; height: 16px;
+.SimplePink .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 0px 0px 0px 2px;
 }
 
@@ -3300,52 +3285,48 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.SimplePink .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 0px 0px 0px 5px;/* orientation=lt */
-	padding: 0px 5px 0px 0px;/* orientation=rt */
+.SimplePink .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 }
 
-.SimplePink .WindowPortletControl .ArrowDownIcon {
+.SimplePink .ArrowDownIcon {
 	background: url('background/SimpleStyle.gif') left 208px;
 }
 
-.SimplePink .WindowPortletControl .OverArrowDownIcon {
+.SimplePink .OverArrowDownIcon {
 	background: url('background/SimpleStyle.gif') right 208px;
 }
 
-.SimplePink .WindowPortletControl .MinimizedIcon {
+.SimplePink .MinimizedIcon {
 	background: url('background/SimpleStyle.gif') left 224px;
 }
 
-.SimplePink .WindowPortletControl .OverMinimizedIcon {
+.SimplePink .OverMinimizedIcon {
 	background: url('background/SimpleStyle.gif') right 224px;
 }
 
-.SimplePink .WindowPortletControl .MaximizedIcon {
+.SimplePink .MaximizedIcon {
 	background: url('background/SimpleStyle.gif') left 240px;
 }
 
-.SimplePink .WindowPortletControl .OverMaximizedIcon {
+.SimplePink .OverMaximizedIcon {
 	background: url('background/SimpleStyle.gif') right 240px;
 }
 
-.SimplePink .WindowPortletControl .RestoreIcon {
+.SimplePink .RestoreIcon {
 	background: url('background/SimpleStyle.gif') left 256px;
 }
 
-.SimplePink .WindowPortletControl .OverRestoreIcon {
+.SimplePink .OverRestoreIcon {
 	background: url('background/SimpleStyle.gif') right 256px;
 }
 
-.SimplePink .WindowPortletControl .NormalIcon {
+.SimplePink .NormalIcon {
 	background: url('background/SimpleStyle.gif') left 256px;
 }
 
-.SimplePink .WindowPortletControl .OverNormalIcon {
+.SimplePink .OverNormalIcon {
 	background: url('background/SimpleStyle.gif') right 256px;
 }
 
@@ -3416,17 +3397,15 @@
 	float: left;/* orientation=rt */
 	padding: 0px 3px 0px 10px;/* orientation=lt */
 	padding: 0px 10px 0px 3px;/* orientation=rt */
-	width: 55px;
 }
 
-.SimpleGreen .WindowPortletControl .ControlIcon {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
+.SimpleGreen .WindowBarCenter .ControlIcon {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
 	margin: 1px 2px 0px 0px; /* orientation=lt */
 	margin: 1px 0px 0px 2px; /* orientation=rt */
 	cursor: pointer;
-	background-position: center;
 }
 
 .SimpleGreen .Information {
@@ -3439,10 +3418,14 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimpleGreen .WindowPortletInfo .Icon {
+.SimpleGreen .WindowBarCenter .Icon {
+  background-position: left top; /* orientation=lt */
+  background-position: right top; /* orientation=rt */
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-	width: 16px; height: 16px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	height: 16px;
 	margin: 0px 0px 0px 2px; /* orientation=lt */
 	margin: 0px 2px 0px 0px; /* orientation=rt */
 }
@@ -3455,52 +3438,48 @@
 	background: url('background/Resize17x19.png') no-repeat;
 }
 
-.SimpleGreen .WindowPortletInfo .PortletName {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	padding: 0px 0px 0px 5px;/* orientation=lt */
-	padding: 0px 5px 0px 0px;/* orientation=rt */
+.SimpleGreen .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
 }
 
-.SimpleGreen .WindowPortletControl .ArrowDownIcon {
+.SimpleGreen .ArrowDownIcon {
 	background: url('background/SimpleStyle.gif') left 272px;
 }
 
-.SimpleGreen .WindowPortletControl .OverArrowDownIcon {
+.SimpleGreen .OverArrowDownIcon {
 	background: url('background/SimpleStyle.gif') right 272px;
 }
 
-.SimpleGreen .WindowPortletControl .MinimizedIcon {
+.SimpleGreen .MinimizedIcon {
 	background: url('background/SimpleStyle.gif') left 288px;
 }
 
-.SimpleGreen .WindowPortletControl .OverMinimizedIcon {
+.SimpleGreen .OverMinimizedIcon {
 	background: url('background/SimpleStyle.gif') right 288px;
 }
 
-.SimpleGreen .WindowPortletControl .MaximizedIcon {
+.SimpleGreen .MaximizedIcon {
 	background: url('background/SimpleStyle.gif') left 304px;
 }
 
-.SimpleGreen .WindowPortletControl .OverMaximizedIcon {
+.SimpleGreen .OverMaximizedIcon {
 	background: url('background/SimpleStyle.gif') right 304px;
 }
 
-.SimpleGreen .WindowPortletControl .RestoreIcon {
+.SimpleGreen .RestoreIcon {
 	background: url('background/SimpleStyle.gif') left 320px;
 }
 
-.SimpleGreen .WindowPortletControl .OverRestoreIcon {
+.SimpleGreen .OverRestoreIcon {
 	background: url('background/SimpleStyle.gif') right 320px;
 }
 
-.SimpleGreen .WindowPortletControl .NormalIcon {
+.SimpleGreen .NormalIcon {
 	background: url('background/SimpleStyle.gif') left 320px;
 }
 
-.SimpleGreen .WindowPortletControl .OverNormalIcon {
+.SimpleGreen .OverNormalIcon {
 	background: url('background/SimpleStyle.gif') right 320px;
 }
 

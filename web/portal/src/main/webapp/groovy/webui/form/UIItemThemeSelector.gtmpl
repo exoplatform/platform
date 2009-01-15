@@ -24,18 +24,13 @@
 						    <div class="WindowBarRight">
 						      <div class="WindowBarCenter">
 						      	<div class="FixHeight">
-							        <div class="WindowPortletControl">
-							          <div class="ControlIcon MinimizedIcon"><span></span></div>
-							          <div class="ControlIcon RestoreIcon"><span></span></div>
-							          <div class="ControlIcon MaximizedIcon"><span></span></div>
-							          <div class="ClearLeft"><span></span></div>
-							        </div>
-							        <div class="WindowPortletInfo">
-							          <div class="PortletIcon Icon"><span></span></div>
-							          <div class="PortletName">Title</div>
-							          <div class="ClearLeft"><span></span></div>
-							        </div>
-							        <div class="ClearRight"><span></span></div>
+						          <div class="ControlIcon MaximizedIcon"><span></span></div>
+						          <div class="ControlIcon RestoreIcon"><span></span></div>
+						          <div class="ControlIcon MinimizedIcon"><span></span></div>
+						          <div class="PortletIcon Icon">
+						            <div class="PortletName">Title</div>
+						          </div>
+						          <div class="ClearBoth"><span></span></div>
 										</div>
 						      </div>
 						    </div>

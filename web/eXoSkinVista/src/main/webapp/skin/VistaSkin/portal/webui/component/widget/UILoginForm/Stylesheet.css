@@ -169,3 +169,7 @@
   padding: 13px 0px 10px 0px;
   width: 390px;
 }
+
+.UILoginForm .UIForm .VerticalLayout .UIAction .ActionContainer  td {
+   width: 195px; /* orientation=rt */
+}

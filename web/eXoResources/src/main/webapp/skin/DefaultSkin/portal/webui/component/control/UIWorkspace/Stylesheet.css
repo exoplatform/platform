@@ -121,10 +121,11 @@
 
 .PreviewMode {
 	width: 160px;	height: 160px;
-	background: url("background/PreviewModeImage146x156.png") no-repeat top right;/* orientation=lt */
-	background: url("background/PreviewModeImage146x156.png") no-repeat top left;/* orientation=rt */
+	background: url("background/PreviewModeImage146x156.png") no-repeat top right; /* orientation=lt */
+	background: url("background/PreviewModeImageRTL146x156.png") no-repeat top left; /* orientation=rt */
 	position: absolute;
 	cursor: pointer;
-	right: 0px;
+	right: 0px; /* orientation=lt */
+	left: 0px; /* orientation=rt */
 	top: 0px;
 }

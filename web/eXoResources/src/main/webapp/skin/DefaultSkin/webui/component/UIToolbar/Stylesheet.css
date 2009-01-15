@@ -250,7 +250,8 @@
 }
 
 .UIToolbar .EditToolbar .Icon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   cursor: pointer;
 }
 

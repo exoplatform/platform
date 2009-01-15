@@ -70,8 +70,8 @@
 	color: #058ee6;
 }
 .UIWidgetContainerManagement .Icon {
-	float: right; /* orienttion=lt */
-  float: left; /* orienttion=rt */
+	float: right;  /* orientation=lt */
+  float: left;  /* orientation=rt */
 	width: 18px; height: 18px;
 	margin: 2px 3px 0px 3px;
 }
