@@ -138,17 +138,18 @@ public class UIPageActionListener {
           	break;
           }
         }
-//      TODO tam.nguyen: filter navigation, select navigation up to user
-        filter:
-        for(PageNavigation nav: navigations){
-          for(PageNode child: nav.getNodes()){
-            if(PageNavigationUtils.filter(child, pcontext.getRemoteUser()) != null) {
-              selecttedNode = child;
-              break filter;
+        // TODO tam.nguyen: filter navigation, select navigation up to user
+        if (selecttedNode == null) {
+          filter:
+          for(PageNavigation nav: navigations){
+            for(PageNode child: nav.getNodes()){
+              if(PageNavigationUtils.filter(child, pcontext.getRemoteUser()) != null) {
+                selecttedNode = child;
+                break filter;
+              }
             }
           }
         }
-
         uiPortal.setSelectedNode(selecttedNode);
 				if(selecttedNode == null) selectedPaths_.add(uiPortal.getSelectedNode()) ;
 				uiPortal.setSelectedPaths(selectedPaths_);
