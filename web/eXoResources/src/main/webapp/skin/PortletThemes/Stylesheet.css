@@ -87,6 +87,8 @@
 	font-weight: bold;
 	color: #333333;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .DefaultTheme .WindowBarLeft {
@@ -154,9 +156,9 @@
 
 /*-------------------------- MacTheme ---------------------------*/
 
-.UIPageDesktop .MacTheme .WindowPortletInfo {
-	margin: 0px 100px 0px 0px;/* orientation=lt */
-	margin: 0px 0px 0px 100px;/* orientation=rt */
+.MacTheme .WindowBarCenter .WindowPortletInfo {
+	margin: 0px 70px 0px 0px;/* orientation=lt */
+	margin: 0px 0px 0px 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -166,13 +168,14 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 3px 5px 0px 3px;
 }
 
 .MacTheme .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 17px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .MacTheme .WindowBarCenter .PortletIcon {
@@ -184,7 +187,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 21px; height: 16px;
-	margin: 3px 1px 0px 2px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;	
 	background-image: url('background/MacTheme.png');
 }
@@ -198,7 +202,7 @@
 }
 
 .MacTheme .MinimizedIcon {
-	background-position: center 38px;
+	background-position: center 37px;
 }
 
 .MacTheme .OverMinimizedIcon {
@@ -206,7 +210,7 @@
 }
 
 .MacTheme .MaximizedIcon {
-	background-position: center 58px;
+	background-position: center 57px;
 }
 
 .MacTheme .OverMaximizedIcon {
@@ -314,14 +318,15 @@
 }
 
 .MacTheme .WindowBarCenter .FixHeight {
-	height: 23px;
+	height: 19px;
+	padding-top: 4px;
 }
 
 /*-------------------------- MacGray ---------------------------*/
 
-.UIPageDesktop .MacGray .WindowPortletInfo {
-	margin: 0px 100px 0px 0px;/* orientation=lt */
-	margin: 0px 0px 0px 100px;/* orientation=rt */
+.MacGray .WindowBarCenter .WindowPortletInfo {
+	margin: 0px 70px 0px 0px;/* orientation=lt */
+	margin: 0px 0px 0px 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -331,13 +336,14 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 3px 3px 0px 3px;
 }
 
 .MacGray .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 17px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .MacGray .WindowBarCenter .PortletIcon {
@@ -349,7 +355,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 21px; height: 16px;
-	margin: 3px 1px 0px 2px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;	
 	background-image: url('background/MacGray.png');
 }
@@ -363,7 +370,7 @@
 }
 
 .MacGray .MinimizedIcon {
-	background-position: center 40px;
+	background-position: center 37px;
 }
 
 .MacGray .OverMinimizedIcon {
@@ -371,7 +378,7 @@
 }
 
 .MacGray .MaximizedIcon {
-	background-position: center 60px;
+	background-position: center 57px;
 }
 
 .MacGray .OverMaximizedIcon {
@@ -379,7 +386,7 @@
 }
 
 .MacGray .NormalIcon {
-	background-position: center 80px;
+	background-position: center 78px;
 }
 
 .MacGray .OverNormalIcon {
@@ -387,7 +394,7 @@
 }
 
 .MacGray .RestoreIcon {
-	background-position: center 80px;
+	background-position: center 78px;
 }
 
 .MacGray .OverRestoreIcon {
@@ -480,14 +487,15 @@
 }
 
 .MacGray .WindowBarCenter .FixHeight {
-	height: 23px;
+	height: 19px;
+	padding-top: 4px;
 }
 
 /*-------------------------- MacBlack ---------------------------*/
 
-.UIPageDesktop .MacBlack .WindowPortletInfo {
-	margin: 0px 100px 0px 0px;/* orientation=lt */
-	margin: 0px 0px 0px 100px;/* orientation=rt */
+.MacBlack .WindowBarCenter .WindowPortletInfo {
+	margin: 0px 70px 0px 0px;/* orientation=lt */
+	margin: 0px 0px 0px 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -497,13 +505,14 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 3px 3px 0px 3px;
 }
 
 .MacBlack .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 17px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .MacBlack .WindowBarCenter .PortletIcon {
@@ -515,7 +524,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 21px; height: 16px;
-	margin: 3px 1px 0px 2px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;	
 	background-image: url('background/MacBlack.png');
 }
@@ -529,7 +539,7 @@
 }
 
 .MacBlack .MinimizedIcon {
-	background-position: center 40px;
+	background-position: center 37px;
 }
 
 .MacBlack .OverMinimizedIcon {
@@ -537,7 +547,7 @@
 }
 
 .MacBlack .MaximizedIcon {
-	background-position: center 60px;
+	background-position: center 57px;
 }
 
 .MacBlack .OverMaximizedIcon {
@@ -545,7 +555,7 @@
 }
 
 .MacBlack .NormalIcon {
-	background-position: center 80px;
+	background-position: center 78px;
 }
 
 .MacBlack .OverNormalIcon {
@@ -553,7 +563,7 @@
 }
 
 .MacBlack .RestoreIcon {
-	background-position: center 80px;
+	background-position: center 78px;
 }
 
 .MacBlack .OverRestoreIcon {
@@ -646,15 +656,16 @@
 }
 
 .MacBlack .WindowBarCenter .FixHeight {
-	height: 23px;
+	height: 19px;
+	padding-top: 4px;
 }
 
 /*-------------------------- MacGreenSteel ---------------------------*/
 
 
-.UIPageDesktop .MacGreenSteel .WindowPortletInfo {
-	margin: 0px 100px 0px 0px;/* orientation=lt */
-	margin: 0px 0px 0px 100px;/* orientation=rt */
+.MacGreenSteel .WindowBarCenter .WindowPortletInfo {
+	margin: 0px 70px 0px 0px;/* orientation=lt */
+	margin: 0px 0px 0px 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -664,13 +675,14 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 3px 3px 0px 3px;
 }
 
 .MacGreenSteel .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 17px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .MacGreenSteel .WindowBarCenter .PortletIcon {
@@ -682,7 +694,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 21px; height: 16px;
-	margin: 3px 1px 0px 2px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;	
 	background-image: url('background/MacGreen.png');
 }
@@ -696,7 +709,7 @@
 }
 
 .MacGreenSteel .MinimizedIcon {
-	background-position: center 40px;
+	background-position: center 37px;
 }
 
 .MacGreenSteel .OverMinimizedIcon {
@@ -704,7 +717,7 @@
 }
 
 .MacGreenSteel .MaximizedIcon {
-	background-position: center 60px;
+	background-position: center 57px;
 }
 
 .MacGreenSteel .OverMaximizedIcon {
@@ -712,7 +725,7 @@
 }
 
 .MacGreenSteel .NormalIcon {
-	background-position: center 80px;
+	background-position: center 78px;
 }
 
 .MacGreenSteel .OverNormalIcon {
@@ -720,7 +733,7 @@
 }
 
 .MacGreenSteel .RestoreIcon {
-	background-position: center 80px;
+	background-position: center 78px;
 }
 
 .MacGreenSteel .OverRestoreIcon {
@@ -813,7 +826,8 @@
 }
 
 .MacGreenSteel .WindowBarCenter .FixHeight {
-	height: 23px;
+	height: 19px;
+	padding-top: 4px;
 }
 
 /*-------------------------------- VistaTheme -----------------------------*/
@@ -823,9 +837,9 @@
 	padding:4px 12px 0px 0px;/* orientation=rt */
 }
 
-.UIPageDesktop .VistaTheme .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.VistaTheme .WindowBarCenter .WindowPortletInfo {
+	margin-right: 95px;/* orientation=lt */
+	margin-left: 95px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -834,23 +848,22 @@
   background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
-	height: 16px;
-	margin: 8px 0px 0px 0px;
+	height: 22px;
 }
 
 .VistaTheme .WindowBarCenter .PortletIcon {
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat left top; /* orientation=lt */
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat right top; /* orientation=rt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat left 3px; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat right 3px; /* orientation=rt */
 }
 
 .VistaTheme .WindowBarCenter .ControlIcon {
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
-	width: 30px; height:20px;
+	width: 30px; 
+	height: 20px;
 	cursor: pointer;	
 	background-image: url('background/VistaTheme.png'); /* orientation=lt */
 	background-image: url('background/VistaTheme-rt.png'); /* orientation=rt */
-	margin-top: 5px;
 }
 
 .VistaTheme .ArrowDownIcon {
@@ -955,8 +968,10 @@
 
 .VistaTheme .WindowBarCenter .PortletName {
 	font-weight: bold;
-	line-height: 19px;
+	line-height: 22px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .VistaTheme .WindowBarLeft {
@@ -980,14 +995,15 @@
 }
 
 .VistaTheme .WindowBarCenter .FixHeight {
-	height: 29px;
+	height: 24px;
+	padding-top: 5px;
 }
 
 /*-------------------------------- VistaBlue -----------------------------*/
 
-.UIPageDesktop .VistaBlue .WindowPortletInfo {
-	margin-right: 110px; /* orientation=lt */
-	margin-left: 110px; /* orientation=rt */
+.VistaBlue .WindowBarCenter .WindowPortletInfo {
+	margin-right: 95px; /* orientation=lt */
+	margin-left: 95px; /* orientation=rt */
 	cursor: move;
 }
 
@@ -996,19 +1012,20 @@
   background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
-	height: 16px;
-	margin: 11px 0px 0px 0px;
+	height: 20px;
 }
 
 .VistaBlue .WindowBarCenter .PortletName {
 	font-weight: bold;
-	line-height: 19px;
+	line-height: 22px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .VistaBlue .WindowBarCenter .PortletIcon {
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat left top; /* orientation=lt */
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat right top; /* orientation=rt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat left 3px; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat right 3px; /* orientation=rt */
 }
 
 .VistaBlue .WindowBarCenter .ControlIcon {
@@ -1017,7 +1034,6 @@
 	width: 30px; height: 19px;
 	cursor: pointer;	
 	background-image: url('background/VistaBlue.png');
-	margin-top: 8px;
 }
 
 .VistaBlue .ArrowDownIcon {
@@ -1144,14 +1160,15 @@
 }
 
 .VistaBlue .WindowBarCenter .FixHeight {
-	height: 35px;
+	height: 27px;
+	padding-top: 8px;
 }
 
 /*-------------------------- RoundConerBlue ---------------------------*/
 
-.UIPageDesktop .RoundConerBlue .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.RoundConerBlue .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -1159,7 +1176,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 10px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/RoundCornerBlue.png');
 }
@@ -1179,7 +1197,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerBlue .ResizeArea {
@@ -1195,6 +1212,8 @@
 	color: #333333;
 	line-height: 19px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .RoundConerBlue .ArrowDownIcon {
@@ -1257,7 +1276,8 @@
 }
 
 .RoundConerBlue .WindowBarCenter .FixHeight {
-	height: 32px;
+	height: 22px;
+	padding-top: 10px;
 }
 
 .RoundConerBlue .MiddleDecoratorLeft {
@@ -1303,9 +1323,9 @@
 
 /*------------------ RoundConerViolet -----------------*/
 
-.UIPageDesktop .RoundConerViolet .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.RoundConerViolet .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -1313,7 +1333,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 10px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/RoundConerViolet.png');
 }
@@ -1331,7 +1352,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerViolet .ResizeArea {
@@ -1347,6 +1367,8 @@
 	color: #333333;
 	line-height: 19px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .RoundConerViolet .ArrowDownIcon {
@@ -1409,7 +1431,8 @@
 }
 
 .RoundConerViolet .WindowBarCenter .FixHeight {
-	height: 32px;
+	height: 22px;
+	padding-top: 10px;
 }
 
 .UIPortlet .RoundConerViolet .WindowBarCenter {
@@ -1459,9 +1482,9 @@
 
 /*------------------------------- RoundConerOrange ----------------------------------*/
 
-.UIPageDesktop .RoundConerOrange .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.RoundConerOrange .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -1469,7 +1492,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 10px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/RoundConerOrange.png');
 }
@@ -1489,7 +1513,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerOrange .ResizeArea {
@@ -1505,6 +1528,8 @@
 	color: #333333;
 	line-height: 19px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .RoundConerOrange .ArrowDownIcon {
@@ -1567,7 +1592,8 @@
 }
 
 .RoundConerOrange .WindowBarCenter .FixHeight {
-	height: 32px;
+	height: 22px;
+	padding-top: 10px;
 }
 
 .UIPortlet .RoundConerOrange .WindowBarCenter {
@@ -1617,9 +1643,9 @@
 
 /*------------------------------- RoundConerPink ----------------------------------*/
 
-.UIPageDesktop .RoundConerPink .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.RoundConerPink .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -1627,7 +1653,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 10px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/RoundConerPink.png');
 }
@@ -1647,7 +1674,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerPink .ResizeArea {
@@ -1663,6 +1689,8 @@
 	color: #333333;
 	line-height: 19px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .RoundConerPink .ArrowDownIcon {
@@ -1725,7 +1753,8 @@
 }
 
 .RoundConerPink .WindowBarCenter .FixHeight {
-	height: 32px;
+	height: 22px;
+	padding-top: 10px;
 }
 
 .UIPortlet .RoundConerPink .WindowBarCenter {
@@ -1775,9 +1804,9 @@
 
 /*------------------------------- RoundConerGreen ----------------------------------*/
 
-.UIPageDesktop .RoundConerGreen .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.RoundConerGreen .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -1785,7 +1814,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 10px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/RoundConerGreen.png');
 }
@@ -1805,7 +1835,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 10px 0px 0px 0px;
 }
 
 .UIPageDesktop .RoundConerGreen .ResizeArea {
@@ -1821,6 +1850,8 @@
 	color: #333333;
 	line-height: 19px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .RoundConerGreen .ArrowDownIcon {
@@ -1883,7 +1914,8 @@
 }
 
 .RoundConerGreen .WindowBarCenter .FixHeight {
-	height: 32px;
+	height: 22px;
+	padding-top: 10px;
 }
 
 .UIPortlet .RoundConerGreen .WindowBarCenter {
@@ -1933,9 +1965,9 @@
 
 /*-------------------------- ShadowBlue ---------------------------*/
 
-.UIPageDesktop .ShadowBlue .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.ShadowBlue .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -1943,7 +1975,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 9px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/ShadowBlue.png');
 }
@@ -1963,7 +1996,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowBlue .ResizeArea {
@@ -1979,6 +2011,8 @@
 	color: #333333;
 	line-height: 16px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .ShadowBlue .ArrowDownIcon {
@@ -2042,7 +2076,8 @@
 }
 
 .ShadowBlue .WindowBarCenter .FixHeight {
-	height: 29px;
+	height: 20px;
+	padding-top: 9px;
 }
 
 .ShadowBlue .MiddleDecoratorLeft {
@@ -2089,9 +2124,9 @@
 
 /*------------------------------ ShadowViolet -----------------------------------*/
 
-.UIPageDesktop .ShadowViolet .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.ShadowViolet .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -2099,7 +2134,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 9px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/ShadowViolet.png');
 }
@@ -2119,7 +2155,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowViolet .ResizeArea {
@@ -2135,6 +2170,8 @@
 	color: #333333;
 	line-height: 16px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .ShadowViolet .ArrowDownIcon {
@@ -2198,7 +2235,8 @@
 }
 
 .ShadowViolet .WindowBarCenter .FixHeight {
-	height: 29px;
+	height: 20px;
+	padding-top: 9px;
 }
 
 .ShadowViolet .MiddleDecoratorLeft {
@@ -2246,9 +2284,9 @@
 /*------------------------------ ShadowOrange -----------------------------------*/
 
 
-.UIPageDesktop .ShadowOrange .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.ShadowOrange .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -2256,7 +2294,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 9px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/ShadowOrange.png');
 }
@@ -2276,7 +2315,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowOrange .ResizeArea {
@@ -2292,6 +2330,8 @@
 	color: #333333;
 	line-height: 16px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .ShadowOrange .ArrowDownIcon {
@@ -2355,7 +2395,8 @@
 }
 
 .ShadowOrange .WindowBarCenter .FixHeight {
-	height: 29px;
+	height: 19px;
+	padding-top: 10px;
 }
 
 .ShadowOrange .MiddleDecoratorLeft {
@@ -2403,9 +2444,9 @@
 /*------------------------------ ShadowPink -----------------------------------*/
 
 
-.UIPageDesktop .ShadowPink .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.ShadowPink .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -2413,7 +2454,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 9px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/ShadowPink.png');
 }
@@ -2433,7 +2475,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowPink .ResizeArea {
@@ -2449,6 +2490,8 @@
 	color: #333333;
 	line-height: 16px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .ShadowPink .ArrowDownIcon {
@@ -2512,7 +2555,8 @@
 }
 
 .ShadowPink .WindowBarCenter .FixHeight {
-	height: 29px;
+	height: 19px;
+	padding-top: 10px;
 }
 
 .ShadowPink .MiddleDecoratorLeft {
@@ -2560,9 +2604,9 @@
 /*------------------------------ ShadowGreen -----------------------------------*/
 
 
-.UIPageDesktop .ShadowGreen .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.ShadowGreen .WindowBarCenter .WindowPortletInfo {
+	margin-right: 70px;/* orientation=lt */
+	margin-left: 70px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -2570,7 +2614,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px; height: 16px;
-	margin: 9px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 	background-image: url('background/ShadowGreen.png');
 }
@@ -2590,7 +2635,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 8px 0px 0px 0px;
 }
 
 .UIPageDesktop .ShadowGreen .ResizeArea {
@@ -2606,6 +2650,8 @@
 	color: #333333;
 	line-height: 16px;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .ShadowGreen .ArrowDownIcon {
@@ -2669,7 +2715,8 @@
 }
 
 .ShadowGreen .WindowBarCenter .FixHeight {
-	height: 29px;
+	height: 20px;
+	padding-top: 9px;
 }
 
 .ShadowGreen .MiddleDecoratorLeft {
@@ -2716,9 +2763,9 @@
 
 /*------------------------------ SimpleBlue -----------------------------------*/
 
-.UIPageDesktop .SimpleBlue .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.SimpleBlue .WindowBarCenter .WindowPortletInfo {
+	margin-right: 60px;/* orientation=lt */
+	margin-left: 60px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -2726,7 +2773,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
-	margin: 1px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 }
 
@@ -2745,7 +2793,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 0px 0px 0px 2px;
 }
 
 .UIPageDesktop .SimpleBlue .ResizeArea {
@@ -2760,6 +2807,8 @@
 	font-weight: bold;
 	color: #333333;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .SimpleBlue .ArrowDownIcon {
@@ -2862,9 +2911,9 @@
 
 /*------------------------------ SimpleViolet -----------------------------------*/
 
-.UIPageDesktop .SimpleViolet .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.SimpleViolet .WindowBarCenter .WindowPortletInfo {
+	margin-right: 60px;/* orientation=lt */
+	margin-left: 60px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -2872,7 +2921,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
-	margin: 1px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 }
 
@@ -2891,7 +2941,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 0px 0px 0px 2px;
 }
 
 .UIPageDesktop .SimpleViolet .ResizeArea {
@@ -2906,6 +2955,8 @@
 	font-weight: bold;
 	color: #333333;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .SimpleViolet .ArrowDownIcon {
@@ -3010,9 +3061,9 @@
 
 /*------------------------------ SimpleOrange -----------------------------------*/
 
-.UIPageDesktop .SimpleOrange .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.SimpleOrange .WindowBarCenter .WindowPortletInfo {
+	margin-right: 60px;/* orientation=lt */
+	margin-left: 60px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -3020,7 +3071,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
-	margin: 1px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 }
 
@@ -3039,7 +3091,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 0px 0px 0px 2px;
 }
 
 .UIPageDesktop .SimpleOrange .ResizeArea {
@@ -3054,6 +3105,8 @@
 	font-weight: bold;
 	color: #333333;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .SimpleOrange .ArrowDownIcon {
@@ -3158,9 +3211,9 @@
 
 /*------------------------------ SimplePink -----------------------------------*/
 
-.UIPageDesktop .SimplePink .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.SimplePink .WindowBarCenter .WindowPortletInfo {
+	margin-right: 60px;/* orientation=lt */
+	margin-left: 60px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -3168,7 +3221,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
-	margin: 1px 2px 0px 0px;
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 }
 
@@ -3187,7 +3241,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 0px 0px 0px 2px;
 }
 
 .UIPageDesktop .SimplePink .ResizeArea {
@@ -3202,6 +3255,8 @@
 	font-weight: bold;
 	color: #333333;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .SimplePink .ArrowDownIcon {
@@ -3306,9 +3361,9 @@
 
 /*------------------------------ SimpleGreen -----------------------------------*/
 
-.UIPageDesktop .SimpleGreen .WindowPortletInfo {
-	margin-right: 100px;/* orientation=lt */
-	margin-left: 100px;/* orientation=rt */
+.SimpleGreen .WindowBarCenter .WindowPortletInfo {
+	margin-right: 60px;/* orientation=lt */
+	margin-left: 60px;/* orientation=rt */
 	cursor: move;
 }
 
@@ -3316,8 +3371,8 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 16px; height: 16px;
-	margin: 1px 2px 0px 0px; /* orientation=lt */
-	margin: 1px 0px 0px 2px; /* orientation=rt */
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 	cursor: pointer;
 }
 
@@ -3337,8 +3392,6 @@
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin: 0px 0px 0px 2px; /* orientation=lt */
-	margin: 0px 2px 0px 0px; /* orientation=rt */
 }
 
 .UIPageDesktop .SimpleGreen .ResizeArea {
@@ -3353,6 +3406,8 @@
 	font-weight: bold;
 	color: #333333;
 	overflow: hidden;
+	white-space: nowrap;
+	width: 100%;
 }
 
 .SimpleGreen .ArrowDownIcon {
