@@ -247,8 +247,8 @@
 									<%} %>
               		    <img class="Separator" alt="" src="/webosResources/skin/Defaultskin/portal/webui/component/view/UIPageDesktop/background/Separator2x1.png"/>
 
-  	                  <img class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/NavigationIcon.png" alt="" altText="/eXoResources/skin/sharedImages/Blank.gif" title=""
-	                       id="UIAddApplicationIcon"
+  	                  <img class="Icon" src="/eXoResources/skin/sharedImages/Icon80x80/NavigationIcon.png" alt="cucuc" title=""
+	                       id="Navigation"
 	                       onclick="eXo.desktop.UIDockbar.showNavigation(event)"/><span class="Tooltip" style="display: none"><%=_ctx.appRes("UIPageDesktop.title.pageNavigation")%></span>
 		                  
                   <%if(modifiable) {%>
@@ -290,5 +290,4 @@
 
 <%
   jsmanager.addOnLoadJavascript('eXo.desktop.UIDesktop.init');
-  jsmanager.addOnResizeJavascript('eXo.desktop.UIDesktop.fixDesktop');
 %>
