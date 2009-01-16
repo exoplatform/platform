@@ -36,7 +36,7 @@
 					          <div class="ControlIcon MaximizedIcon"><span></span></div>
 					          <div class="ControlIcon RestoreIcon"><span></span></div>
 					          <div class="ControlIcon MinimizedIcon"><span></span></div>
-					          <div class="PortletIcon Icon">
+					          <div class="PortletIcon WindowPortletIcon WindowPortletInfo">
 					            <div class="PortletName">Title</div>
 					          </div>
 						        <div class="ClearBoth"><span></span></div>

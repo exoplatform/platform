@@ -250,7 +250,7 @@
 	            		String portletIcon = uicomponent.getIcon();
 			            if(portletIcon == null) portletIcon = "PortletIcon";
 	            	%>
-	              <div class="Icon $portletIcon WindowPortletIcon NovaPortletIcon"><div class="PortletName">$title</div></div>
+	              <div class="$portletIcon WindowPortletIcon NovaPortletIcon WindowPortletInfo"><div class="PortletName">$title</div></div>
 	             
 	            <div class="ClearBoth"><span></span></div>
 	          </div>

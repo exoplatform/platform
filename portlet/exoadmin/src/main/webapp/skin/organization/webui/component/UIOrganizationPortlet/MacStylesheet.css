@@ -351,6 +351,10 @@
 	width: 16px; height: 16px;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm td.FieldComponent {
+	width: 273px;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMembershipManagement {

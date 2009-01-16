@@ -296,6 +296,10 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SelectIcon.gif') center ;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm td.FieldComponent {
+	width: 278px;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMembershipTypeForm {
@@ -311,3 +315,4 @@
 .UIOrganizationPortlet .UIMembershipManagement .UIGrid {
 	margin: auto;
 }
+

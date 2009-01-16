@@ -1,23 +1,17 @@
 
 /*-------------------------- DefaultTheme ---------------------------*/
 
-.UIPageDesktop .DefaultTheme .WindowPortletInfo {
-	height: 22px;
-	margin-right: 110px; /* orientation=lt */
-	margin-left: 110px; /* orientation=rt */
+.DefaultTheme .WindowBarCenter .WindowPortletInfo {
+	margin-right: 80px; /* orientation=lt */
+	margin-left: 80px; /* orientation=rt */
 	cursor: move;
 }
 
-.UIPageDesktop .DefaultTheme .WindowPortletControl {
-	padding: 0px 3px 0px 14px;/* orientation=lt */
-	padding: 0px 14px 0px 3px;/* orientation=lt */
-}
-
 .DefaultTheme .WindowBarCenter .ControlIcon {
-	float: right; /* orientation=lt */
-	float: left; /* orientation=rt */
-	width: 24px; height: 17px;
-	margin: 8px 0px 0px 0px;
+	float: right;/* orientation=lt */
+	float: left;/* orientation=rt */
+	width: 24px; 
+	height: 17px;
 	cursor: pointer;
 	background-image: url('background/DefaultTheme.png');
 }
@@ -80,20 +74,19 @@
 	margin-left: 18px;/* orientation=rt */
 }
 
-.DefaultTheme .WindowBarCenter .Icon {
+.DefaultTheme .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
-	margin-top: 9px;
+	line-height: 16px;
 }
 
 .DefaultTheme .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
+	overflow: hidden;
 }
 
 .DefaultTheme .WindowBarLeft {
@@ -117,7 +110,8 @@
 }
 
 .DefaultTheme .WindowBarCenter .FixHeight {
-	height: 29px;
+	height: 21px;
+	padding-top: 8px;
 }
 
 .DefaultTheme .MiddleDecoratorLeft {
@@ -161,24 +155,14 @@
 /*-------------------------- MacTheme ---------------------------*/
 
 .UIPageDesktop .MacTheme .WindowPortletInfo {
-	height: 22px;
 	margin: 0px 100px 0px 0px;/* orientation=lt */
 	margin: 0px 0px 0px 100px;/* orientation=rt */
 	cursor: move;
 }
 
-.MacTheme .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	height: 23px;
-	padding-left: 0px;
-}
-
-.MacTheme .WindowBarCenter .Icon {
+.MacTheme .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -188,6 +172,7 @@
 .MacTheme .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 17px;
+	overflow: hidden;
 }
 
 .MacTheme .WindowBarCenter .PortletIcon {
@@ -334,25 +319,15 @@
 
 /*-------------------------- MacGray ---------------------------*/
 
-.MacGray .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	height: 23px;
-	padding-left: 0px;
-}
-
 .UIPageDesktop .MacGray .WindowPortletInfo {
-	height: 24px;
 	margin: 0px 100px 0px 0px;/* orientation=lt */
 	margin: 0px 0px 0px 100px;/* orientation=rt */
 	cursor: move;
 }
 
-.MacGray .WindowBarCenter .Icon {
+.MacGray .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -362,6 +337,7 @@
 .MacGray .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 17px;
+	overflow: hidden;
 }
 
 .MacGray .WindowBarCenter .PortletIcon {
@@ -509,25 +485,15 @@
 
 /*-------------------------- MacBlack ---------------------------*/
 
-.MacBlack .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	height: 23px;
-	padding-left: 0px;
-}
-
 .UIPageDesktop .MacBlack .WindowPortletInfo {
-	height: 24px;
 	margin: 0px 100px 0px 0px;/* orientation=lt */
 	margin: 0px 0px 0px 100px;/* orientation=rt */
 	cursor: move;
 }
 
-.MacBlack .WindowBarCenter .Icon {
+.MacBlack .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -537,6 +503,7 @@
 .MacBlack .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 17px;
+	overflow: hidden;
 }
 
 .MacBlack .WindowBarCenter .PortletIcon {
@@ -684,25 +651,16 @@
 
 /*-------------------------- MacGreenSteel ---------------------------*/
 
-.MacGreenSteel .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	height: 23px;
-	padding-left: 0px;
-}
 
 .UIPageDesktop .MacGreenSteel .WindowPortletInfo {
-	height: 24px;
 	margin: 0px 100px 0px 0px;/* orientation=lt */
 	margin: 0px 0px 0px 100px;/* orientation=rt */
 	cursor: move;
 }
 
-.MacGreenSteel .WindowBarCenter .Icon {
+.MacGreenSteel .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -712,6 +670,7 @@
 .MacGreenSteel .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 17px;
+	overflow: hidden;
 }
 
 .MacGreenSteel .WindowBarCenter .PortletIcon {
@@ -859,31 +818,20 @@
 
 /*-------------------------------- VistaTheme -----------------------------*/
 
-.VistaTheme .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	height: 24px;
-	padding: 4px 0px 0px 6px;/* orientation=lt */
-	padding: 4px 6px 0px 0px;/* orientation=rt */
-}
-
 .UIPageDesktop .VistaTheme {
 	padding:4px 0px 0px 12px;/* orientation=lt */
 	padding:4px 12px 0px 0px;/* orientation=rt */
 }
 
 .UIPageDesktop .VistaTheme .WindowPortletInfo {
-	height: 24px;
 	margin-right: 100px;/* orientation=lt */
 	margin-left: 100px;/* orientation=rt */
 	cursor: move;
 }
 
-.VistaTheme .WindowBarCenter .Icon {
+.VistaTheme .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -1008,6 +956,7 @@
 .VistaTheme .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 19px;
+	overflow: hidden;
 }
 
 .VistaTheme .WindowBarLeft {
@@ -1036,23 +985,15 @@
 
 /*-------------------------------- VistaBlue -----------------------------*/
 
-.VistaBlue .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	height: 24px;
-	padding: 8px 0px 0px 6px;/* orientation=lt */
-	padding: 8px 6px 0px 0px;/* orientation=rt */
-}
-
 .UIPageDesktop .VistaBlue .WindowPortletInfo {
+	margin-right: 110px; /* orientation=lt */
+	margin-left: 110px; /* orientation=rt */
 	cursor: move;
 }
 
-.VistaBlue .WindowBarCenter .Icon {
+.VistaBlue .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -1062,6 +1003,7 @@
 .VistaBlue .WindowBarCenter .PortletName {
 	font-weight: bold;
 	line-height: 19px;
+	overflow: hidden;
 }
 
 .VistaBlue .WindowBarCenter .PortletIcon {
@@ -1207,11 +1149,10 @@
 
 /*-------------------------- RoundConerBlue ---------------------------*/
 
-.RoundConerBlue .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 10px 0px 3px;/* orientation=rt */
+.UIPageDesktop .RoundConerBlue .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .RoundConerBlue .WindowBarCenter .ControlIcon {
@@ -1232,11 +1173,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.RoundConerBlue .WindowBarCenter .Icon {
+.RoundConerBlue .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -1255,6 +1194,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 19px;
+	overflow: hidden;
 }
 
 .RoundConerBlue .ArrowDownIcon {
@@ -1363,11 +1303,10 @@
 
 /*------------------ RoundConerViolet -----------------*/
 
-.RoundConerViolet .WindowPortletControl {
-	float: right; /* orientation=lt */
-	float: left; /* orientation=rt */
-	padding: 0px 3px 0px 10px; /* orientation=lt */
-	padding: 0px 10px 0px 3px; /* orientation=rt */
+.UIPageDesktop .RoundConerViolet .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .RoundConerViolet .WindowBarCenter .ControlIcon {
@@ -1386,11 +1325,9 @@
 	margin-right: 18px;
 }
 
-.RoundConerViolet .WindowBarCenter .Icon {
+.RoundConerViolet .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -1409,6 +1346,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 19px;
+	overflow: hidden;
 }
 
 .RoundConerViolet .ArrowDownIcon {
@@ -1521,11 +1459,10 @@
 
 /*------------------------------- RoundConerOrange ----------------------------------*/
 
-.RoundConerOrange .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 10px 0px 3px;/* orientation=rt */
+.UIPageDesktop .RoundConerOrange .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .RoundConerOrange .WindowBarCenter .ControlIcon {
@@ -1546,11 +1483,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.RoundConerOrange .WindowBarCenter .Icon {
+.RoundConerOrange .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -1569,6 +1504,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 19px;
+	overflow: hidden;
 }
 
 .RoundConerOrange .ArrowDownIcon {
@@ -1681,11 +1617,10 @@
 
 /*------------------------------- RoundConerPink ----------------------------------*/
 
-.RoundConerPink .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 10px 0px 3px;/* orientation=rt */
+.UIPageDesktop .RoundConerPink .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .RoundConerPink .WindowBarCenter .ControlIcon {
@@ -1706,11 +1641,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.RoundConerPink .WindowBarCenter .Icon {
+.RoundConerPink .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -1729,6 +1662,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 19px;
+	overflow: hidden;
 }
 
 .RoundConerPink .ArrowDownIcon {
@@ -1841,11 +1775,10 @@
 
 /*------------------------------- RoundConerGreen ----------------------------------*/
 
-.RoundConerGreen .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 10px 0px 3px;/* orientation=rt */
+.UIPageDesktop .RoundConerGreen .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .RoundConerGreen .WindowBarCenter .ControlIcon {
@@ -1866,11 +1799,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.RoundConerGreen .WindowBarCenter .Icon {
+.RoundConerGreen .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -1889,6 +1820,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 19px;
+	overflow: hidden;
 }
 
 .RoundConerGreen .ArrowDownIcon {
@@ -2001,11 +1933,10 @@
 
 /*-------------------------- ShadowBlue ---------------------------*/
 
-.ShadowBlue .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=rt */
+.UIPageDesktop .ShadowBlue .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .ShadowBlue .WindowBarCenter .ControlIcon {
@@ -2026,11 +1957,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowBlue .WindowBarCenter .Icon {
+.ShadowBlue .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -2049,6 +1978,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
+	overflow: hidden;
 }
 
 .ShadowBlue .ArrowDownIcon {
@@ -2159,11 +2089,10 @@
 
 /*------------------------------ ShadowViolet -----------------------------------*/
 
-.ShadowViolet .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=rt */
+.UIPageDesktop .ShadowViolet .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .ShadowViolet .WindowBarCenter .ControlIcon {
@@ -2184,11 +2113,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowViolet .WindowBarCenter .Icon {
+.ShadowViolet .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -2207,6 +2134,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
+	overflow: hidden;
 }
 
 .ShadowViolet .ArrowDownIcon {
@@ -2318,11 +2246,10 @@
 /*------------------------------ ShadowOrange -----------------------------------*/
 
 
-.ShadowOrange .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=rt */
+.UIPageDesktop .ShadowOrange .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .ShadowOrange .WindowBarCenter .ControlIcon {
@@ -2343,11 +2270,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowOrange .WindowBarCenter .Icon {
+.ShadowOrange .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -2366,6 +2291,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
+	overflow: hidden;
 }
 
 .ShadowOrange .ArrowDownIcon {
@@ -2477,11 +2403,10 @@
 /*------------------------------ ShadowPink -----------------------------------*/
 
 
-.ShadowPink .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=rt */
+.UIPageDesktop .ShadowPink .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .ShadowPink .WindowBarCenter .ControlIcon {
@@ -2502,11 +2427,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowPink .WindowBarCenter .Icon {
+.ShadowPink .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -2525,6 +2448,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
+	overflow: hidden;
 }
 
 .ShadowPink .ArrowDownIcon {
@@ -2636,11 +2560,10 @@
 /*------------------------------ ShadowGreen -----------------------------------*/
 
 
-.ShadowGreen .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=rt */
+.UIPageDesktop .ShadowGreen .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .ShadowGreen .WindowBarCenter .ControlIcon {
@@ -2661,11 +2584,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.ShadowGreen .WindowBarCenter .Icon {
+.ShadowGreen .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -2684,6 +2605,7 @@
 	font-weight: bold;
 	color: #333333;
 	line-height: 16px;
+	overflow: hidden;
 }
 
 .ShadowGreen .ArrowDownIcon {
@@ -2794,11 +2716,10 @@
 
 /*------------------------------ SimpleBlue -----------------------------------*/
 
-.SimpleBlue .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=rt */
+.UIPageDesktop .SimpleBlue .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .SimpleBlue .WindowBarCenter .ControlIcon {
@@ -2818,11 +2739,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimpleBlue .WindowBarCenter .Icon {
+.SimpleBlue .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -2840,6 +2759,7 @@
 .SimpleBlue .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
+	overflow: hidden;
 }
 
 .SimpleBlue .ArrowDownIcon {
@@ -2942,11 +2862,10 @@
 
 /*------------------------------ SimpleViolet -----------------------------------*/
 
-.SimpleViolet .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=rt */
+.UIPageDesktop .SimpleViolet .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .SimpleViolet .WindowBarCenter .ControlIcon {
@@ -2966,11 +2885,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimpleViolet .WindowBarCenter .Icon {
+.SimpleViolet .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -2988,6 +2905,7 @@
 .SimpleViolet .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
+	overflow: hidden;
 }
 
 .SimpleViolet .ArrowDownIcon {
@@ -3092,11 +3010,10 @@
 
 /*------------------------------ SimpleOrange -----------------------------------*/
 
-.SimpleOrange .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 0px 0px 3px;/* orientation=rt */
+.UIPageDesktop .SimpleOrange .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .SimpleOrange .WindowBarCenter .ControlIcon {
@@ -3116,11 +3033,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimpleOrange .WindowBarCenter .Icon {
+.SimpleOrange .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -3138,6 +3053,7 @@
 .SimpleOrange .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
+	overflow: hidden;
 }
 
 .SimpleOrange .ArrowDownIcon {
@@ -3242,11 +3158,10 @@
 
 /*------------------------------ SimplePink -----------------------------------*/
 
-.SimplePink .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 10px 0px 3px;/* orientation=rt */
+.UIPageDesktop .SimplePink .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .SimplePink .WindowBarCenter .ControlIcon {
@@ -3266,11 +3181,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimplePink .WindowBarCenter .Icon {
+.SimplePink .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -3288,6 +3201,7 @@
 .SimplePink .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
+	overflow: hidden;
 }
 
 .SimplePink .ArrowDownIcon {
@@ -3392,11 +3306,10 @@
 
 /*------------------------------ SimpleGreen -----------------------------------*/
 
-.SimpleGreen .WindowPortletControl {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding: 0px 3px 0px 10px;/* orientation=lt */
-	padding: 0px 10px 0px 3px;/* orientation=rt */
+.UIPageDesktop .SimpleGreen .WindowPortletInfo {
+	margin-right: 100px;/* orientation=lt */
+	margin-left: 100px;/* orientation=rt */
+	cursor: move;
 }
 
 .SimpleGreen .WindowBarCenter .ControlIcon {
@@ -3418,11 +3331,9 @@
 	padding-right: 5px;/* orientation=rt */
 }
 
-.SimpleGreen .WindowBarCenter .Icon {
+.SimpleGreen .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -3441,6 +3352,7 @@
 .SimpleGreen .WindowBarCenter .PortletName {
 	font-weight: bold;
 	color: #333333;
+	overflow: hidden;
 }
 
 .SimpleGreen .ArrowDownIcon {

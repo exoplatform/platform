@@ -303,6 +303,10 @@
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/SelectIcon.gif') center ;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm td.FieldComponent {
+	width: 255px;
+}
+
 /*#######################  UIMemberShipManagement #################################*/
 
 .UIOrganizationPortlet .UIMemberShipManagement {
