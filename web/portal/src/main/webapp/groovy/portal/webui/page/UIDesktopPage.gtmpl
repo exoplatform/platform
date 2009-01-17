@@ -10,7 +10,10 @@
   jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
   jsmanager.importJavascript('eXo.desktop.UIWindow') ;
   jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu') ;
-  
+  jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.SaveTitle='" + _ctx.appRes("UIDashboardContainer.label.SaveTitle") + "';");
+  jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.CancelTitle='" + _ctx.appRes("UIDashboardContainer.label.CancelTitle") + "';");
+  jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.Cache='" + _ctx.appRes("UIDashboardContainer.label.Cache") + "';");
+  jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.Debug='" + _ctx.appRes("UIDashboardContainer.label.Debug") + "';");
   jsmanager.addCustomizedOnLoadScript('eXo.desktop.UIDockbar.initNav();') ;
   
   String docBase =  rcontext.getRequestContextPath() ;
