@@ -81,13 +81,13 @@ public class UIFormDateTimeInput extends UIFormInputBase<String> {
   }
   
   public void setCalendar(Calendar date) { 
-
     WebuiRequestContext requestContext = WebuiRequestContext.getCurrentInstance();
     formatPattern(requestContext.getLocale()) ;
-    this.date = date.getTime();
 	  if(date != null){
+      this.date = date.getTime();
 		  value_ = dateFormat_.format(date.getTime()) ;
 	  } else {
+      this.date = null;
 		  value_ = null;
 	  }
 	   
