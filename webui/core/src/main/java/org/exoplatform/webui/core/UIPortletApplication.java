@@ -60,16 +60,15 @@ abstract public class UIPortletApplication extends  UIApplication {
       Writer w =  context.getWriter() ;
       
       Set<UIComponent> list = context.getUIComponentToUpdateByAjax() ;
-      if(list == null) list = app.getDefaultUIComponentToUpdateByAjax(context) ;
-      else if(getUIPopupMessages().hasMessage()) {
-        context.addUIComponentToUpdateByAjax(getUIPopupMessages()) ;
+//      if(list == null) list = app.getDefaultUIComponentToUpdateByAjax(context) ;
+      if(list != null) {
+        if(getUIPopupMessages().hasMessage()) context.addUIComponentToUpdateByAjax(getUIPopupMessages()) ;
+        for(UIComponent uicomponent : list) {
+          renderBlockToUpdate(uicomponent, context, w) ;
+        }
+        return ;
       }
-      for(UIComponent uicomponent : list) {
-        renderBlockToUpdate(uicomponent, context, w) ;
-      }
-    } else {
-      super.processRender(context) ;
     }
-    
+    super.processRender(context) ;    
   }
 }

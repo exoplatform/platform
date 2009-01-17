@@ -290,4 +290,5 @@
 
 <%
   jsmanager.addOnLoadJavascript('eXo.desktop.UIDesktop.init');
+  jsmanager.addOnResizeJavascript('eXo.desktop.UIDesktop.fixDesktop');
 %>

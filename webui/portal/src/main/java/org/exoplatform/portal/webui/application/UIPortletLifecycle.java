@@ -16,9 +16,9 @@
  */
 package org.exoplatform.portal.webui.application;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Collections;
 
 import javax.portlet.WindowState;
 
@@ -28,11 +28,8 @@ import org.exoplatform.commons.utils.ExceptionUtil;
 import org.exoplatform.commons.utils.Text;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.webui.portal.UIPortal;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.RenderInput;
 import org.exoplatform.services.portletcontainer.pci.RenderOutput;
@@ -158,8 +155,12 @@ public class UIPortletLifecycle extends Lifecycle {
     String portletTitle = null;
     try {
       if (uiPortlet.getCurrentWindowState() != WindowState.MINIMIZED) {
-        output = portletContainer.render(prcontext.getRequest(), prcontext.getResponse(), input);
-        markup = output.getMarkup();
+        if("Window".equals(uiPortlet.getPortletStyle()) && !"SHOW".equals(uiPortlet.getProperties().get("appStatus"))) {
+          markup = Text.create("<span></span>") ;
+        } else {
+          output = portletContainer.render(prcontext.getRequest(), prcontext.getResponse(), input);
+          markup = output.getMarkup();
+        }
       }
     } catch (Throwable ex) {
       markup = Text.create("This portlet encountered an error and could not be displayed.");

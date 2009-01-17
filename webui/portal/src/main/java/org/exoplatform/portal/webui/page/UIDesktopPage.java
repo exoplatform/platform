@@ -58,7 +58,8 @@ import org.exoplatform.webui.event.EventListener;
 		@EventConfig(listeners = UIDesktopPage.SaveGadgetPropertiesActionListener.class),
 		@EventConfig(listeners = UIDesktopPage.SaveWindowPropertiesActionListener.class),
 		@EventConfig(listeners = UIDesktopPage.ShowAddNewApplicationActionListener.class),
-		@EventConfig(listeners = UIDesktopPage.ChangePageActionListener.class)
+		@EventConfig(listeners = UIDesktopPage.ChangePageActionListener.class),
+		@EventConfig(listeners = UIDesktopPage.ShowPortletActionListener.class)
 	}
 )
 public class UIDesktopPage extends UIPage {
@@ -191,6 +192,16 @@ public class UIDesktopPage extends UIPage {
       PageNodeEvent<UIPortal> pnevent = 
         new PageNodeEvent<UIPortal>(uiPortal, PageNodeEvent.CHANGE_PAGE_NODE, uri) ;      
       uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      
+    }
+  }
+  
+  static public class ShowPortletActionListener extends EventListener<UIPage> {
+    public void execute(Event<UIPage> event) throws Exception {
+      UIPage uiPage = event.getSource() ;
+      String portletId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID) ;
+      UIPortlet uiPortlet = uiPage.getChildById(portletId) ;
+      uiPortlet.getProperties().setProperty("appStatus", "SHOW") ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiPortlet) ;
     }
   }
   
