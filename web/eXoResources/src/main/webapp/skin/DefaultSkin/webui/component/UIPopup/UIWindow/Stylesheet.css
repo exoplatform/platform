@@ -1,4 +1,11 @@
+
+
+.UIPageDesktop .UIWindow .WindowBarCenter .WindowPortletInfo {
+  cursor: pointer;
+}
+
 /*##########################################################*/
+
 .UIWindow .InactiveWindowPortletControl {
 	display: none;
 }
@@ -6,6 +13,7 @@
 .UIWindow .UIApplication {
 	overflow: auto;
 }
+
 /*======================== UIPageBody ================================*/
 .UIWindow {
 	width: 98.5%; height: auto;

@@ -4,7 +4,6 @@
 .DefaultTheme .WindowBarCenter .WindowPortletInfo {
 	margin-right: 80px; /* orientation=lt */
 	margin-left: 80px; /* orientation=rt */
-	cursor: move;
 }
 
 .DefaultTheme .WindowBarCenter .ControlIcon {
@@ -159,7 +158,6 @@
 .MacTheme .WindowBarCenter .WindowPortletInfo {
 	margin: 0px 70px 0px 0px;/* orientation=lt */
 	margin: 0px 0px 0px 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .MacTheme .WindowBarCenter .WindowPortletIcon {
@@ -327,7 +325,6 @@
 .MacGray .WindowBarCenter .WindowPortletInfo {
 	margin: 0px 70px 0px 0px;/* orientation=lt */
 	margin: 0px 0px 0px 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .MacGray .WindowBarCenter .WindowPortletIcon {
@@ -496,7 +493,6 @@
 .MacBlack .WindowBarCenter .WindowPortletInfo {
 	margin: 0px 70px 0px 0px;/* orientation=lt */
 	margin: 0px 0px 0px 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .MacBlack .WindowBarCenter .WindowPortletIcon {
@@ -666,10 +662,7 @@
 .MacGreenSteel .WindowBarCenter .WindowPortletInfo {
 	margin: 0px 70px 0px 0px;/* orientation=lt */
 	margin: 0px 0px 0px 70px;/* orientation=rt */
-	cursor: move;
-}
-
-.MacGreenSteel .WindowBarCenter .WindowPortletIcon {
+}Steel .WindowBarCenter .WindowPortletIcon {
   background-position: left top; /* orientation=lt */
   background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
@@ -840,7 +833,7 @@
 .VistaTheme .WindowBarCenter .WindowPortletInfo {
 	margin-right: 95px;/* orientation=lt */
 	margin-left: 95px;/* orientation=rt */
-	cursor: move;
+	
 }
 
 .VistaTheme .WindowBarCenter .WindowPortletIcon {
@@ -1004,7 +997,7 @@
 .VistaBlue .WindowBarCenter .WindowPortletInfo {
 	margin-right: 95px; /* orientation=lt */
 	margin-left: 95px; /* orientation=rt */
-	cursor: move;
+	
 }
 
 .VistaBlue .WindowBarCenter .WindowPortletIcon {
@@ -1169,7 +1162,7 @@
 .RoundConerBlue .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
+	
 }
 
 .RoundConerBlue .WindowBarCenter .ControlIcon {
@@ -1326,7 +1319,7 @@
 .RoundConerViolet .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
+	
 }
 
 .RoundConerViolet .WindowBarCenter .ControlIcon {
@@ -1485,7 +1478,6 @@
 .RoundConerOrange .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .RoundConerOrange .WindowBarCenter .ControlIcon {
@@ -1646,7 +1638,6 @@
 .RoundConerPink .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .RoundConerPink .WindowBarCenter .ControlIcon {
@@ -1807,7 +1798,6 @@
 .RoundConerGreen .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .RoundConerGreen .WindowBarCenter .ControlIcon {
@@ -1968,7 +1958,6 @@
 .ShadowBlue .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .ShadowBlue .WindowBarCenter .ControlIcon {
@@ -2127,7 +2116,6 @@
 .ShadowViolet .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .ShadowViolet .WindowBarCenter .ControlIcon {
@@ -2287,7 +2275,6 @@
 .ShadowOrange .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .ShadowOrange .WindowBarCenter .ControlIcon {
@@ -2447,7 +2434,6 @@
 .ShadowPink .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .ShadowPink .WindowBarCenter .ControlIcon {
@@ -2607,7 +2593,6 @@
 .ShadowGreen .WindowBarCenter .WindowPortletInfo {
 	margin-right: 70px;/* orientation=lt */
 	margin-left: 70px;/* orientation=rt */
-	cursor: move;
 }
 
 .ShadowGreen .WindowBarCenter .ControlIcon {
@@ -2766,7 +2751,6 @@
 .SimpleBlue .WindowBarCenter .WindowPortletInfo {
 	margin-right: 60px;/* orientation=lt */
 	margin-left: 60px;/* orientation=rt */
-	cursor: move;
 }
 
 .SimpleBlue .WindowBarCenter .ControlIcon {
@@ -2914,7 +2898,6 @@
 .SimpleViolet .WindowBarCenter .WindowPortletInfo {
 	margin-right: 60px;/* orientation=lt */
 	margin-left: 60px;/* orientation=rt */
-	cursor: move;
 }
 
 .SimpleViolet .WindowBarCenter .ControlIcon {
@@ -3064,7 +3047,6 @@
 .SimpleOrange .WindowBarCenter .WindowPortletInfo {
 	margin-right: 60px;/* orientation=lt */
 	margin-left: 60px;/* orientation=rt */
-	cursor: move;
 }
 
 .SimpleOrange .WindowBarCenter .ControlIcon {
@@ -3214,7 +3196,6 @@
 .SimplePink .WindowBarCenter .WindowPortletInfo {
 	margin-right: 60px;/* orientation=lt */
 	margin-left: 60px;/* orientation=rt */
-	cursor: move;
 }
 
 .SimplePink .WindowBarCenter .ControlIcon {
@@ -3364,7 +3345,6 @@
 .SimpleGreen .WindowBarCenter .WindowPortletInfo {
 	margin-right: 60px;/* orientation=lt */
 	margin-left: 60px;/* orientation=rt */
-	cursor: move;
 }
 
 .SimpleGreen .WindowBarCenter .ControlIcon {
