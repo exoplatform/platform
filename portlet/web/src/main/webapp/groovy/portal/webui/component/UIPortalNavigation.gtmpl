@@ -120,10 +120,11 @@
 		    <div class="UIHorizontalTabs">
 	        <div class="TabsContainer">
 		        <%
+			        PageNavigation selectedNav = uicomponent.getSelectedNavigation() ;
+	  		      PageNode selectedNode = uicomponent.getSelectedPageNode() ;
 		          if(navigations != null) {
 		            for(nav in navigations) {
-  		            PageNavigation selectedNav = uicomponent.getSelectedNavigation() ;
-  		            PageNode selectedNode = uicomponent.getSelectedPageNode() ;
+  		            
 		              def pageNodes = nav.getNodes() ;
 		              for(PageNode node in pageNodes) {
 		                String tabStyleNavigation = "NormalNavigationTab" ;
