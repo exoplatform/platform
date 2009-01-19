@@ -65,7 +65,7 @@
     </script>
   </head>
 
-  <body style="!height: 100%;">
+  <body style="">
     <% 
       /*Hide All Popup Menu when click on document*/
       rcontext.getJavascriptManager().addOnLoadJavascript('eXo.core.DOMUtil.hideElements');
