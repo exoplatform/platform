@@ -7,3 +7,7 @@
 	width: 99.5%;
 	margin: auto;
 }
+
+.UIPortalBrowser .UIGrid .Text {  
+	white-space: nowrap;
+}

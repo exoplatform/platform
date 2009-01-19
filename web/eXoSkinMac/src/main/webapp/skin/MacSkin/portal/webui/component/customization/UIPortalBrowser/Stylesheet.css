@@ -10,3 +10,7 @@
 .UIPortalBrowser .UIPageIterator  {  
   width: 99.5%;
 }
+
+.UIPortalBrowser .UIGrid .Text {  
+	white-space: nowrap;
+}
