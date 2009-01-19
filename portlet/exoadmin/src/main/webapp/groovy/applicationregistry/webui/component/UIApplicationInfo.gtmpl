@@ -7,11 +7,12 @@ String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.pn
 %>
 <div class="$uicomponent.id" id="$uicomponent.id">
 	<div class="UIBreadcumb">
-	  <div class="LeftBlock"><%= category.getDisplayName() %></div> 		          		              
-	  <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
-	  <div class="Selected"><%= application.getDisplayName() %></div> 
 	  <div class="ControlIcon EditIcon" title="<%=_ctx.appRes("UIApplicationInfo.title.editApplication")%>" onclick="<%= uicomponent.event("EditApplication") %>"><span></span></div>
-		<div class="ClassLeft"><span></span></div>
+		<div class="BreadcumbInfo">
+		  <div class="LeftBlock" title="<%= category.getDisplayName() %>"><%= category.getDisplayName() %></div> 		          		              
+		  <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
+		  <div class="Selected" title="<%= application.getDisplayName() %> "><%= application.getDisplayName() %></div> 
+		</div>
 	</div>
   <div class="Application">
   		<div class="PortletIcons">

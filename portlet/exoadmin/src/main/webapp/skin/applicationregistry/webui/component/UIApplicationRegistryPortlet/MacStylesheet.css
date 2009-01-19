@@ -267,6 +267,13 @@ e/**
 	font-weight: bold;
 }
 
+.UIApplicationRegistryPortlet .UIBreadcumb .BreadcumbInfo {
+	width: 90%;
+	overflow: hidden;
+	height: 16px;
+	line-height: 16px;
+}
+
 .UIApplicationRegistryPortlet .UIBreadcumb .RightBlackGridArrow16x16Icon {
 	background: url(/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow.gif) no-repeat center;	 /* orientation=lt */
 	background: url(/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/OrangeRightArrow-rt.gif) no-repeat center; /* orientation=rt */

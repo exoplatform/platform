@@ -255,6 +255,13 @@
 	font-weight: bold;
 }
 
+.UIApplicationRegistryPortlet .UIBreadcumb .BreadcumbInfo {
+	width: 90%;
+	overflow: hidden;
+	height: 16px;
+	line-height: 16px;
+}
+
 .UIApplicationRegistryPortlet .UIBreadcumb .RightBlackGridArrow16x16Icon {
 	background-position: center;
 	float: left;		/* orientation=lt */
