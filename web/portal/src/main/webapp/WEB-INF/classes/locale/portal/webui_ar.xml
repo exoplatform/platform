@@ -1817,6 +1817,7 @@
     </msg>
     <action>
       <Close>إزالة هذه الخدمة من العارضة</Close>
+      <Quit>استقال</Quit>
       <action>
         <Open>إفتح</Open>
       </action>

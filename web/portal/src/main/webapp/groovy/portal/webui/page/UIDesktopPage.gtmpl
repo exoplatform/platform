@@ -221,6 +221,9 @@
 						   	<a class="MenuItem" href="javascript:eXo.desktop.UIDesktop.removeApp('<%=uicomponent.url("RemoveChild", "_objectid_")%>')" onclick="return eXo.webui.UIRightClickPopupMenu.prepareObjectId(event, this);" > 	
 									<div class="ItemIcon CloseDockBarIcon"><%=_ctx.appRes("UIPageDesktop.action.Close")%></div>
 							 	</a>
+							 	<a class="MenuItem" href="javascript:eXo.desktop.UIDesktop.removeWindowContent('_objectid_')" onclick="return eXo.webui.UIRightClickPopupMenu.prepareObjectId(event, this);" > 	
+									<div class="ItemIcon QuitDockBarIcon"><%=_ctx.appRes("UIPageDesktop.action.Quit")%></div>
+							 	</a>
 							  <div class="RightClickCustomItem"><%=_ctx.appRes("UIPageDesktop.action.action.Open")%></div>
 							</div>
 						</div>

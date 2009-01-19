@@ -40,6 +40,7 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 				middleCont.scrollTop = 0;
 				middleCont.style.height = "auto";
 			}
+			DOMUtil.listHideElements(dropDownAnchor) ;
 		}
 		else dropDownAnchor.style.display = "none" ;
 	}
@@ -51,7 +52,7 @@ UIDropDownControl.prototype.hide = function(obj) {
 	obj.style.display = "none" ;		
 } ;
 
-UIDropDownControl.prototype.onclickEvt = function(obj) {
+UIDropDownControl.prototype.onclickEvt = function(obj, evt) {
 	var DOMUtil = eXo.core.DOMUtil ;
 	var uiDropDownAnchor = DOMUtil.findAncestorByClass(obj, 'UIDropDownAnchor') ;
 	var uiDropDownTitle = DOMUtil.findPreviousElementByTagName(uiDropDownAnchor, 'div') ;

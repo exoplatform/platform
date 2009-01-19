@@ -1821,6 +1821,7 @@
     </msg>
     <action>
       <Close>Supprimer l'application de la barre</Close>
+      <Quit>Quitter</Quit>
       <action>
         <Open>Ouvrir</Open>
       </action>

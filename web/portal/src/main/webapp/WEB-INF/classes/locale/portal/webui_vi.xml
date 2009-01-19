@@ -1835,6 +1835,7 @@
     </msg>
     <action>
       <Close>Loại bỏ khỏi Dockbar!</Close>
+      <Quit>Thoát</Quit>
       <action>
         <Open>Mở</Open>
       </action>
