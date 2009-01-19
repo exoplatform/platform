@@ -228,7 +228,8 @@
 /********************* Icon PortletIcon************************************/
 
 .PortletIcon {
-  background: url('icons/Earth.gif') no-repeat center;
+  background: url('icons/Earth.gif') no-repeat left center; /* orientation=lt */
+  background: url('icons/Earth.gif') no-repeat right center; /* orientation=rt */
 }
 
 .Organization {
