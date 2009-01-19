@@ -189,7 +189,7 @@
   margin-right: 7px; /* orientation=lt */
   margin-left: 7px; /* orientation=rt */
   background: transparent url(/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlackRightArrow.gif) no-repeat scroll right center; /* orientation=lt */
-  background: transparent url(/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlackRightArrow-rt.gif) no-repeat scroll right center; /* orientation=rt */
+  background: transparent url(/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/BlackRightArrow-rt.gif) no-repeat scroll left center; /* orientation=rt */
   cursor: pointer;
 }
 

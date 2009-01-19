@@ -13,6 +13,7 @@
 
 .UINavigationPortlet .UIHorizontalTabs .TabsContainer {
   float: none;
+  _position: relative; /* orientation=rt */
 }
  
 .UINavigationPortlet .MiddleTab .TabLabel {

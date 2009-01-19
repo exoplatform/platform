@@ -177,12 +177,12 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e, tab, menuItemContainer)
       if (eXo.portal.UIPortalNavigation.currentOpenedMenu) eXo.portal.UIPortalNavigation.hideMenu();
       
       eXo.portal.UIPortalNavigation.superClass.pushVisibleContainer(menuItemContainer.id);
+      var offParent = item.offsetParent ;
       var y = item.offsetHeight + item.offsetTop;
       var x = item.offsetLeft + 2;
       if(eXo.core.I18n.isRT()) {
-      	var uiWorking = document.getElementById("UIWorkingWorkspace") ;
-      	x = uiWorking.offsetWidth - eXo.core.Browser.findPosXInContainer(item, uiWorking) - item.offsetWidth;
-      	if(eXo.core.Browser.isIE6()) x += parseInt(uiWorking.style.marginRight) ;
+      	x = eXo.core.Browser.findPosX(offParent) + offParent.offsetWidth - eXo.core.Browser.findPosX(item) - item.offsetWidth;
+//      	if(eXo.core.Browser.isIE6()) x += parseInt(document.getElementById("UIWorkingWorkspace").style.marginRight) ;
       }
       eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y, eXo.core.I18n.isRT());
       eXo.portal.UIPortalNavigation.superClass.show(menuItemContainer);

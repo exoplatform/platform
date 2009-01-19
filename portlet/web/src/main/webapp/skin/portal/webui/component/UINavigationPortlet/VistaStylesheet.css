@@ -13,6 +13,7 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
   float: none;
+  _position: relative; /* orientation=rt */
 } 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
   line-height: 36px;

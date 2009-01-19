@@ -20,6 +20,7 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
   float: none;
+  _position: relative; /* orientation=rt */
 }
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
