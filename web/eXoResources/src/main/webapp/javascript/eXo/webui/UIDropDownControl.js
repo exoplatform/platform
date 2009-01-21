@@ -34,14 +34,6 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 				topCont.style.display = "block" ;
 				bottomCont.style.display = "block" ;
 				middleCont.style.height = visibleHeight - topCont.offsetHeight - bottomCont.offsetHeight + "px" ;
-				topCont.onclick = function(evt) { 
-					evt = evt || window.event;
-					evt.cancelBubble = true; 
-				};
-		        bottomCont.onclick = function(evt) { 
-		        	evt = evt || window.event;
-		        	evt.cancelBubble = true; 
-		        };
 			} else {
 				topCont.style.display = "none" ;
 				bottomCont.style.display = "none" ;
@@ -52,6 +44,7 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 		}
 		else dropDownAnchor.style.display = "none" ;
 	}
+	
 } ;
 
 UIDropDownControl.prototype.hide = function(obj) {
