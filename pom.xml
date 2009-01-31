@@ -86,11 +86,12 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <skip>${exo.test.skip}</skip>
-          <useFile>false</useFile>
+          <useFile>${exo.test.use.file}</useFile>
           <forkMode>pertest</forkMode><!--once , pertest -->
-          <testFailureIgnore>false</testFailureIgnore>
+          <testFailureIgnore>>${exo.test.failure.ignore}</testFailureIgnore>
+          <classesDirectory>${exo.test.classesdirectory}</classesDirectory>
           <includes>
-            <include implementation="java.lang.String">**/${test.classes}*.java</include>
+            <include>**/${exo.test.includes}.java</include>
           </includes>
           <systemProperties>
             <property>
