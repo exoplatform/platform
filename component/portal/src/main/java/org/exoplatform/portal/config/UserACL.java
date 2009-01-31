@@ -18,6 +18,8 @@ package org.exoplatform.portal.config;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
+import java.util.Collection;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.xml.InitParams;
@@ -28,12 +30,18 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.services.security.Identity;
+import org.exoplatform.services.security.MembershipEntry;
+
 /**
  * Jun 27, 2006
  */
 public class UserACL {
   public final static String EVERYONE = "Everyone" ;
   protected static Log log = ExoLogger.getLogger("organization:UserACL");
+
+  private final Collection<MembershipEntry> NO_MEMBERSHIP = Collections.emptyList();
+  private final Collection<String> NO_ROLES = Collections.emptyList();
+  private final Identity guest = new Identity(null, NO_MEMBERSHIP, NO_ROLES);
 
   private String superUser_;
   private String guestGroup_ ;
@@ -42,28 +50,45 @@ public class UserACL {
   private String navigationCreatorMembershipType_;
   private PortalACLPlugin portalACLPlugin;
 
-  public UserACL(InitParams params) throws Exception {
+  public UserACL(InitParams params) {
+    UserACLMetaData md = new UserACLMetaData();
     ValueParam superUserParam = params.getValueParam("super.user");
-    if(superUserParam != null) superUser_ = superUserParam.getValue();
+    if(superUserParam != null) md.setSuperUser(superUserParam.getValue());
+    ValueParam accessControlWorkspaceParam = params.getValueParam("access.control.workspace");
+    if(accessControlWorkspaceParam != null) md.setAccessControlWorkspace(accessControlWorkspaceParam.getValue());
+    ValueParam guestGroupParam = params.getValueParam("guests.group") ;
+    if(guestGroupParam != null) md.setGuestsGroups(guestGroupParam.getValue());
+    ValueParam navCretorParam = params.getValueParam("navigation.creator.membership.type");
+    if(navCretorParam != null) md.setNavigationCreatorMembershipType(navCretorParam.getValue());
+    ValueParam portalCretorGroupsParam = params.getValueParam("portal.creator.groups");
+    if(portalCretorGroupsParam != null) md.setPortalCreateGroups(portalCretorGroupsParam.getValue());
+    init(md);
+  }
+
+  public UserACL(UserACLMetaData md) {
+    if (md == null) {
+      throw new NullPointerException("No meta data provided");
+    }
+    init(md);
+  }
+
+  private void init(UserACLMetaData md) {
+    if(md.getSuperUser() != null) superUser_ = md.getSuperUser();
     if(superUser_ == null || superUser_.trim().length() == 0) superUser_= "root";
 
     String accessControlWorkspace = "";
-    ValueParam accessControlWorkspaceParam = params.getValueParam("access.control.workspace");
-    if(accessControlWorkspaceParam != null) accessControlWorkspace = accessControlWorkspaceParam.getValue();
-    accessControlWorkspaceGroups_ = defragmentPermission(accessControlWorkspace);    
+    if(md.getAccessControlWorkspace() != null) accessControlWorkspace = md.getAccessControlWorkspace();
+    accessControlWorkspaceGroups_ = defragmentPermission(accessControlWorkspace);
 
-    ValueParam guestGroupParam = params.getValueParam("guests.group") ;
-    if(guestGroupParam != null) guestGroup_ = guestGroupParam.getValue() ;
-    if(guestGroup_ == null || guestGroup_.trim().length() < 1) guestGroup_ = "/platform/guests" ; 
+    if(md.getGuestsGroups() != null) guestGroup_ = md.getGuestsGroups();
+    if(guestGroup_ == null || guestGroup_.trim().length() < 1) guestGroup_ = "/platform/guests" ;
 
-    ValueParam navCretorParam = params.getValueParam("navigation.creator.membership.type");
-    if(navCretorParam != null) navigationCreatorMembershipType_ = navCretorParam.getValue();
-    if(navigationCreatorMembershipType_ == null || 
+    if(md.getNavigationCreatorMembershipType() != null) navigationCreatorMembershipType_ = md.getNavigationCreatorMembershipType();
+    if(navigationCreatorMembershipType_ == null ||
         navigationCreatorMembershipType_.trim().length() == 0) navigationCreatorMembershipType_= "owner";
 
     String allGroups = "";
-    ValueParam portalCretorGroupsParam = params.getValueParam("portal.creator.groups");
-    if(portalCretorGroupsParam != null) allGroups = portalCretorGroupsParam.getValue();
+    if(md.getPortalCreateGroups() != null) allGroups = md.getPortalCreateGroups();
     portalCreatorGroups_ = defragmentPermission(allGroups);
   }
 
@@ -97,84 +122,117 @@ public class UserACL {
     if(portalCreationRoles != null) {
       log.info("Overidden PortalCreatorGroup by PortalACLPlugin");
       portalCreatorGroups_ = portalCreationRoles;
-    }    
+    }
   }
 
   public String getMakableMT() { return navigationCreatorMembershipType_; }
   public List<String> getPortalCreatorGroups() { return portalCreatorGroups_;  }
   public List<String> getAccessControlWorkspaceGroups() { return accessControlWorkspaceGroups_;  }
+
   public String getSuperUser() { return superUser_ ; }
+
   public String getGuestsGroup() { return guestGroup_ ; }
-  public boolean hasPermission(PortalConfig pconfig, String remoteUser) throws Exception {
-    if( hasPermission(pconfig.getEditPermission()) == true) {
+
+  public boolean hasPermission(PortalConfig pconfig, String remoteUser) {
+    return hasPermission(getIdentity(remoteUser), pconfig);
+  }
+
+  /**
+   * @param pconfig the portal config
+   * @param remoteUser the remote user
+   * @return true or false
+   * @deprecated use hasPermission(String expPerm) instead
+   */
+  public boolean hasEditPermission(PortalConfig pconfig, String remoteUser) {
+    return hasEditPermission(getIdentity(remoteUser), pconfig);
+  }
+
+  public boolean hasCreatePortalPermission(String remoteUser) {
+    return hasCreatePortalPermission(getIdentity(remoteUser));
+  }
+
+  public boolean hasEditPermission(PageNavigation pageNav, String remoteUser) {
+    return hasEditPermission(getIdentity(remoteUser), pageNav);
+  }
+
+  public boolean hasAccessControlWorkspacePermission(String remoteUser) {
+    return hasAccessControlWorkspacePermission(getIdentity(remoteUser));
+  }
+
+  public boolean hasEditPermission(Page page, String remoteUser) {
+    return hasEditPermission(getIdentity(remoteUser), page);
+  }
+
+  public boolean hasPermission(Page page, String remoteUser) {
+    return hasPermission(getIdentity(remoteUser), page);
+  }
+
+  public boolean hasPermission(String expPerm, String remoteUser) {
+    return hasPermission(getIdentity(remoteUser), expPerm);
+  }
+
+  private boolean hasPermission(Identity identity, PortalConfig pconfig) {
+    if( hasPermission(identity, pconfig.getEditPermission())) {
       pconfig.setModifiable(true);
       return true;
     }
     pconfig.setModifiable(false);
     String[] accessPerms = (pconfig.getAccessPermissions());
     for(String per: accessPerms){
-      if(hasPermission(per)) return true;
+      if(hasPermission(identity, per)) return true;
     }
     return false;
   }
 
-  public boolean hasPermission(Page page, String remoteUser) throws Exception {
+  private boolean hasPermission(Identity identity, Page page) {
     if(PortalConfig.USER_TYPE.equals(page.getOwnerType())){
-      if( remoteUser.equals(page.getOwnerId())){
+      if(page.getOwnerId().equals(identity.getUserId())){
         page.setModifiable(true);
         return true;
-      } 
+      }
       return false;
     }
-    if(superUser_.equals(remoteUser)){
+    if(superUser_.equals(identity.getUserId())){
       page.setModifiable(true);
       return true;
     }
-    if(hasEditPermission(page, remoteUser)){
+    if(hasEditPermission(identity, page)){
       page.setModifiable(true);
       return true;
     }
     page.setModifiable(false);
-    String[] accessPerms = page.getAccessPermissions();    
+    String[] accessPerms = page.getAccessPermissions();
     for(String per: accessPerms){
-      if(hasPermission(per)) return true;
+      if(hasPermission(identity, per)) return true;
     }
     return false;
   }
 
-  /**
-   * @param remoteUser
-   * @param expPerm
-   * @return
-   * @throws Exception
-   * 
-   * @deprecated use hasPermission(String expPerm) instead
-   */
-  public boolean hasPermission(String remoteUser, String expPerm) throws Exception {
-    if(log.isDebugEnabled())
-      log.debug("------CheckPermission of User "  + remoteUser + " with membership " + expPerm);
-    if(superUser_.equals(remoteUser)) return true;
-    if(expPerm == null) return false ;
-    if(EVERYONE.equals(expPerm)) return true ;
-    Permission permission = new Permission();
-    permission.setPermissionExpression(expPerm);
-    String groupId = permission.getGroupId();
-    if(remoteUser == null && groupId.equals(guestGroup_)) return true;
-
-    String membership = permission.getMembership() ;
-
-    return findMembershipByUserAndGroupAndType(groupId, membership);
-  }
-
-  public boolean hasPermission(String expPerm) {
+  private Identity getIdentity(String remoteUser) {
     ConversationState conv = ConversationState.getCurrent();
-    String currentUser = null;
-    Identity id = null;
-    if (conv != null) {
-      id = conv.getIdentity();
-      currentUser = id.getUserId();
+    if (conv == null) {
+      return guest;
     }
 
+    //
+    Identity id = conv.getIdentity();
+    if (id == null) {
+      if (remoteUser != null) {
+        throw new AssertionError("There should be no on going remote user (" + remoteUser + ")");
+      }
+      return guest;
+    }
+
+    //
+    if (remoteUser.endsWith(id.getUserId())) {
+      return id;
+    } else {
+      throw new AssertionError("The remote user value " + remoteUser + " is not equals to the on going identity " + id.getUserId());
+    }
+  }
+
+  private boolean hasPermission(Identity identity, String expPerm) {
+    String currentUser = identity.getUserId();
     if(superUser_.equals(currentUser)) return true;
     if(expPerm == null) return false ;
     if(EVERYONE.equals(expPerm)) return true ;
@@ -182,58 +240,49 @@ public class UserACL {
     permission.setPermissionExpression(expPerm);
     String groupId = permission.getGroupId();
     if(currentUser == null && groupId.equals(guestGroup_)) return true;
-
-    if (id == null) { return false; }
+    if (identity == null) { return false; }
     String membership = permission.getMembership() ;
-    return id.isMemberOf(groupId, membership) ;
+    return identity.isMemberOf(groupId, membership) ;
   }
 
-  public boolean hasCreatePortalPermission(String remoteUser) throws Exception {
-    if(superUser_.equals(remoteUser)) return true;
+  private boolean hasCreatePortalPermission(Identity identity) {
+    if(superUser_.equals(identity.getUserId())) return true;
     if( portalCreatorGroups_ == null || portalCreatorGroups_.size() < 1) return false;
     for(String ele: portalCreatorGroups_){
-      if(hasPermission(ele)) return true;
+      if(hasPermission(identity, ele)) return true;
     }
     return false;
   }
 
-  /**
-   * @param pconfig
-   * @param remoteUser
-   * @return
-   * @throws Exception
-   * 
-   * @deprecated use hasPermission(String expPerm) instead
-   */
-  public boolean hasEditPermission(PortalConfig pconfig, String remoteUser) throws Exception {
-    if(superUser_.equals(remoteUser)) return true;
-    return hasPermission(pconfig.getEditPermission());
+  private boolean hasEditPermission(Identity identity, PortalConfig pconfig) {
+    if(superUser_.equals(identity.getUserId())) return true;
+    return hasPermission(identity, pconfig.getEditPermission());
   }
 
-  public boolean hasEditPermission(PageNavigation pageNav, String remoteUser) throws Exception {
-    if(superUser_.equals(remoteUser)) {
+  private boolean hasEditPermission(Identity identity, PageNavigation pageNav) {
+    if(superUser_.equals(identity.getUserId())) {
       pageNav.setModifiable(true);
       return true;
     }
     String ownerType= pageNav.getOwnerType();
     if( PortalConfig.GROUP_TYPE.equals(ownerType)) {
       String expPerm = navigationCreatorMembershipType_+ ":/" + pageNav.getOwnerId();
-      return hasPermission(expPerm);
+      return hasPermission(identity, expPerm);
     } else if ( PortalConfig.USER_TYPE.equals(ownerType)){
-      return remoteUser.equals(pageNav.getOwnerId());
+      return pageNav.getOwnerId().equals(identity.getUserId());
     }
     return false;
   }
 
-  public boolean hasEditPermission(Page page, String remoteUser)  throws Exception {
+  private boolean hasEditPermission(Identity identity, Page page) {
     if(PortalConfig.USER_TYPE.equals(page.getOwnerType())){
-      if( remoteUser.equals(page.getOwnerId())){
+      if(page.getOwnerId().equals(identity.getUserId())){
         page.setModifiable(true);
         return true;
-      } 
+      }
       return false;
     }
-    if(hasPermission(page.getEditPermission())) {
+    if(hasPermission(identity, page.getEditPermission())) {
       page.setModifiable(true);
       return true;
     }
@@ -241,11 +290,11 @@ public class UserACL {
     return false;
   }
 
-  public boolean hasAccessControlWorkspacePermission(String remoteUser) throws Exception {
-    if(superUser_.equals(remoteUser)) return true;       
+  private boolean hasAccessControlWorkspacePermission(Identity identity) {
+    if(superUser_.equals(identity.getUserId())) return true;
     if( accessControlWorkspaceGroups_ == null || accessControlWorkspaceGroups_.size() < 1) return false;
     for(String ele: accessControlWorkspaceGroups_){
-      if(hasPermission(ele)) return true;
+      if(hasPermission(identity, ele)) return true;
     }
     return false;
   }
@@ -264,7 +313,7 @@ public class UserACL {
 
     private String name_ ;
 
-    private String groupId_ = ""  ;  
+    private String groupId_ = ""  ;
     private String membership_ = "" ;
     private String expression;
 

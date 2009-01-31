@@ -28,6 +28,7 @@ import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIGadget;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -160,10 +161,11 @@ public class UIGadgetEditMode extends UIForm {
         ApplicationRegistryService service = uiGadgetEdit.getApplicationComponent(ApplicationRegistryService.class) ;
         UserACL acl = uiGadgetEdit.getApplicationComponent(UserACL.class) ;
         List<Application> appList = service.getAllApplications() ;
+        String accessUser = Util.getPortalRequestContext().getRemoteUser() ;
         for (Application app : appList) {
           if(app.getApplicationType().equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
             for (String per : app.getAccessPermissions()) {
-              if(acl.hasPermission(per)) {
+              if(acl.hasPermission(per, accessUser)) {
                 gadgetItems.add(new SelectItemOption<String>(app.getDisplayName(), app.getId())) ;
                 break ;
               }

@@ -111,7 +111,7 @@ public class UserPortalConfigService {
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
     PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE, portalName) ;
     if (navigation != null) { 
-      navigation.setModifiable(userACL_.hasPermission(portal.getEditPermission()));
+      navigation.setModifiable(userACL_.hasPermission(portal.getEditPermission(), accessUser));
       navigations.add(navigation) ;
     }
     
