@@ -59,6 +59,7 @@ public class UIGroupExplorer extends UIContainer {
     tree.setBeanIdField("id");
     //tree.setBeanLabelField("groupName");
     tree.setBeanLabelField("label");
+    tree.setMaxTitleCharacter(25);
 	}
 	
 	@SuppressWarnings("unchecked")

@@ -3,38 +3,31 @@
   position: absolute;
 }
 
-.UIContextMenuContainer {
-} 
-
 .UIRightClickPopupMenu .UIRightPopupMenuContainer {
   padding: 5px 0px;
   background: #ffffff;
   border: 1px solid white;
-}
-.UIRightClickPopupMenu .MenuItem {
-  clear: both;
-  cursor: pointer;
-  line-height: 24px;
-  white-space: nowrap;
 }
 
 .UIRightClickPopupMenu .RightClickCustomItem {
 	display: none;
 }
 	
-.UIRightClickPopupMenu .SelectedMenuItem {
-  clear: both;
+.UIRightClickPopupMenu .MenuItem .ItemIcon {
+  padding: 4px 0px 4px 30px; /* orientation=lt */
+	padding: 4px 30px 4px 0px; /* orientation=rt */
+  width: auto;
   cursor: pointer;
-  line-height: 24px;
-  background: #dee4f2;
+  line-height: 16px;
+  white-space: nowrap;
+  display: block;
+  background-position: 6px center; /* orientation=lt */
+  background-position: 95% center; /* orientation=rt */
 }
 
-.UIRightClickPopupMenu .ItemIcon {
-  margin: 0px 7px;
-  padding: 2px 0px 2px 26px;  	/* orientation=lt */
-	padding: 2px 26px 2px 0px;  	/* orientation=rt */
-  line-height: 20px;
-  width: auto;
+.UIRightClickPopupMenu a:hover {
+  color: orange;
+  background-color: #dee4f2;
 }
 
 .UIRightClickPopupMenu .Rename16x16Icon{
@@ -101,11 +94,6 @@
 .UIRightClickPopupMenu .SaveNavigation16x16Icon {
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/FloppyDisk.gif') no-repeat left 4px;	/* orientation=lt */
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/FloppyDisk-rt.gif') no-repeat right 4px;	/* orientation=rt */
-}
-
-.UIRightClickPopupMenu a:hover {
-  color: orange;
-  background: #dee4f2;
 }
 
 .UIRightClickPopupMenu .TopLeftRightClickPopupMenu {

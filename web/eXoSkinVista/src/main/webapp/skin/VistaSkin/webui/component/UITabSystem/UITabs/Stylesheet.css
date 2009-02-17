@@ -227,7 +227,7 @@
   background: url('background/NormalTabStyle.gif') repeat-x left -26px;
   cursor: pointer;
   padding: 0px 4px;
-  width: 65px; /* orientation=rt */
+  _width: 80px; /* orientation=rt */
   white-space: nowrap; /* orientation=rt */
 }
 
@@ -281,7 +281,7 @@
   background: url('background/NormalTabStyle.gif') repeat-x center -131px;
   cursor: pointer;
   padding: 0px 4px;
-  width: 65px; /* orientation=rt */
+  _width: 80px; /* orientation=rt */
   white-space: nowrap; /* orientation=rt */
 }
 
@@ -291,6 +291,7 @@
   margin-right: 1px; /* orientation=lt */
   margin-left: 1px; /* orientation=rt */
   color: #202020;
+  overflow: hidden; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .LeftTab {
@@ -347,6 +348,7 @@
   margin-right: 1px; /* orientation=lt */
   margin-left: 1px; /* orientation=rt */
   color: #202020; font-weight: normal;
+  overflow: hidden; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .LeftTab {
@@ -396,6 +398,7 @@
 .UIHorizontalTabs .MessageTabDialog .SelectedTab {
   line-height: 27px;
   color: #058ee6;
+  overflow: hidden; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {

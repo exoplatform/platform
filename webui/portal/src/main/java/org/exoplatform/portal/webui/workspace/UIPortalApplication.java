@@ -172,8 +172,10 @@ public class UIPortalApplication extends UIApplication {
 
     //
     Set<SkinConfig> portletConfigs = getPortalPortletSkins();
-    skins.add(skinService.merge(portletConfigs));
-
+    // don't merge portlet if portlet not available 
+    if (!portletConfigs.isEmpty()) {
+      skins.add(skinService.merge(portletConfigs));
+    }
     //
     return skins;
   }

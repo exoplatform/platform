@@ -4,6 +4,7 @@
 @import url(widget/Stylesheet.css) ;
 div {
 	padding:	0px ; margin: 0px ;
+	outline: none;
 }
 
 table {

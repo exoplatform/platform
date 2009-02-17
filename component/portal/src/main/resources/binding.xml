@@ -76,7 +76,7 @@
     <collection field="children" usage="optional" item-type="org.exoplatform.portal.config.model.PageNode"/>
   </mapping>
   
-  <mapping name="portal-config" class="org.exoplatform.portal.config.model.PortalConfig">
+  <mapping name="portal-config" class="org.exoplatform.portal.config.model.PortalConfig" ordered="false">
     <value name="portal-name" field="name"/>
     <value name="locale" field="locale"/>    
     <!--<value name="factory-id" field="factoryId" usage="optional"/>-->

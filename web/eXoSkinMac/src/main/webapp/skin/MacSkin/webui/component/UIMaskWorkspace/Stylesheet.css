@@ -127,6 +127,7 @@
 }
 
 .UIAddApplication .PortletIcon {
+	background: none;
 	cursor: pointer;
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
@@ -162,7 +163,16 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 24px; height: 24px;
-	background: url('background/AddApplicationButton.png') no-repeat top;
+	background: url('background/AddApplicationButton.gif') no-repeat top;
+	margin: 2px auto;
+	cursor: pointer;
+}
+
+.UIAddApplication .AddToStartUp {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	width: 24px; height: 24px;
+	background: url('background/AddToStartup.gif') no-repeat top;
 	margin: 2px auto;
 	cursor: pointer;
 }

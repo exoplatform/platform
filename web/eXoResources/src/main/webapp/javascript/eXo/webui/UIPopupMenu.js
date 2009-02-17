@@ -100,13 +100,13 @@ UIPopupMenu.prototype.showMenuItemContainer = function(menuItemContainer, x, y) 
 UIPopupMenu.prototype.hide = function(object) {
 	if(typeof(object) == "string") object = document.getElementById(object);
 	object.style.display = "none" ;
-//	object.style.visibility = "hidden";
+	object.style.visibility = "hidden";
 } ;
 
 UIPopupMenu.prototype.show = function(object) {
 	if(typeof(object) == "string") object = document.getElementById(object);
 	object.style.display = "block" ;
-//	object.style.visibility = "visible";
+	object.style.visibility = "";
 } ;
 
 eXo.webui.UIPopupMenu = new UIPopupMenu() ;

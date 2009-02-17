@@ -218,6 +218,10 @@ PortalDragDrop.prototype.init = function(e) {
 			}
 //      dndEvent.foundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
 //      eXo.portal.PortalDragDrop.doDropCallback(dndEvent) ;
+			// fix bug WEBOS-196
+			var srcElement = dndEvent.dragObject ; 
+			srcElement.style.width = "auto" ;
+  		
 			eXo.portal.PortalDragDrop.removeNullPreview();
     }
   }

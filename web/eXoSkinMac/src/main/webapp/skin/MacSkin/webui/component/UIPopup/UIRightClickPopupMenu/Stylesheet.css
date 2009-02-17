@@ -14,40 +14,25 @@
 	background: white url('background/BgItemSelector1x4.png') repeat;
 }
 
-.UIRightClickPopupMenu .MenuItem {
-	clear: both;
-	cursor: pointer;
-	line-height: 16px;
-	white-space: nowrap;
-	display: block;
-}
-
 .UIRightClickPopupMenu .RightClickCustomItem {
 	display: none;
 }
 	
-.UIRightClickPopupMenu .SelectedMenuItem {
-	clear: both;
-	cursor: pointer;
-	line-height: 16px;
-	background: #dee4f2;
-}
-	
-.UIRightClickPopupMenu .ItemIcon {
-	margin: 0px 7px;
+.UIRightClickPopupMenu .MenuItem .ItemIcon {
 	padding: 5px 0px 5px 26px; /* orientation=lt */
 	padding: 5px 26px 5px 0px; /* orientation=rt */
 	line-height: 16px;
 	width: auto;
-}
-
-.UIRightClickPopupMenu a {
-	text-decoration: none;
+	cursor: pointer;
+	white-space: nowrap;
+	display: block;
+	background-position: 6px center; /* orientation=lt */
+  background-position: 95% center; /* orientation=rt */
 }
 
 .UIRightClickPopupMenu a:hover {
 	color: orange;
-	background: #dee4f2;
+	background-color: #dee4f2;
 }
 
 .UIRightClickPopupMenu .AddNode16x16Icon {

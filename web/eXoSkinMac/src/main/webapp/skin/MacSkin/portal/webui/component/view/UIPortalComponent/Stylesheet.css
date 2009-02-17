@@ -1,3 +1,7 @@
+.UIPortlet {
+
+}
+
 .UIPortlet .LAYOUT-PORTLET {
 }
 
@@ -190,6 +194,8 @@
 	background: url('background/PortalBackground1x1.png');
 	border: solid 1px white;
 	padding: 6px;
+	_padding: 6px 0px; /* orientation=rt */
+  _width: 99%; /* orientation=rt */
 }
 
 .DragAndDropPreview {

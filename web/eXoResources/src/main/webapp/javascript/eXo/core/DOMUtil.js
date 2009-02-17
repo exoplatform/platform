@@ -28,7 +28,8 @@ DOMUtil.prototype.removeClass = function(elemt, className) {
  * Replaces oldClazz by newClazz in elemt
  */
 DOMUtil.prototype.replaceClass = function(elemt, oldClazz, newClazz) {
-	elemt['className'] = elemt['className'].replace(oldClazz, newClazz) ; 
+	var reg = new RegExp('(^|\\s+)' + oldClazz) ;
+	elemt['className'] = elemt['className'].replace(reg, newClazz) ; 
 } ;
 
 /**

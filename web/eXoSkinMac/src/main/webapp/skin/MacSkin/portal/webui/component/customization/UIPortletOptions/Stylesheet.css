@@ -38,6 +38,7 @@
 .UIPortletOptions .CategoryContainer {
 	background: white;
 	padding: 5px 7px 9px 7px;
+	_width: 205px; /* orientation=rt */
 }
 
 .UIPortletOptions .Title {

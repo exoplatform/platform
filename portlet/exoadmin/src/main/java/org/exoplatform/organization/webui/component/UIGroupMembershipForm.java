@@ -80,7 +80,7 @@ public class UIGroupMembershipForm extends UIForm {
   public UIGroupMembershipForm() throws Exception {
     addUIFormInput(new UIFormStringInput(USER_NAME, USER_NAME, null).
                    addValidator(MandatoryValidator.class).
-                   addValidator(ExpressionValidator.class, "^\\p{L}[\\p{L}\\d._,]+\\p{L}$", "UIGroupMembershipForm.msg.Invalid-char"));
+                   addValidator(ExpressionValidator.class, "^\\p{L}[\\p{L}\\d._\\-,]+$", "UIGroupMembershipForm.msg.Invalid-char"));
     addUIFormInput(new UIFormSelectBox("membership","membership", listOption).setSize(1));
     UIPopupWindow searchUserPopup = addChild(UIPopupWindow.class, "SearchUser", "SearchUser");
     searchUserPopup.setWindowSize(640, 0); 

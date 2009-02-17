@@ -84,6 +84,7 @@ UIExoStartMenu.prototype.onMenuItemOver = function(event) {
 	if (this.menuItemContainer) {
 		var menuItemContainer = this.menuItemContainer ;
 		menuItemContainer.style.display = "block" ;
+		menuItemContainer.style.visibility = "" ;
 		var x = this.offsetWidth ;
 		var posRight = eXo.core.Browser.getBrowserWidth() - eXo.core.Browser.findPosX(this) - this.offsetWidth ; 
 	  var rootX = (eXo.core.I18n.isLT() ? eXo.core.Browser.findPosX(this) : posRight) ;

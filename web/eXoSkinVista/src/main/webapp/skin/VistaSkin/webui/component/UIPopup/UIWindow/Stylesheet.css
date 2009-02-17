@@ -1,3 +1,9 @@
+
+
+.UIPageDesktop .UIWindow .WindowBarCenter .WindowPortletInfo {
+  cursor: move;
+}
+
 /*##########################################################*/
 .UIPageDesktop .UIWindow {
   width: 780px ;	
@@ -26,12 +32,13 @@
 .UIPageBody .UIWindow .ResizeArea {
   float: right ;
   width: 0px ; height: 0px ;
-  background: url('null') repeat bottom right;
+  background: none;
 }
 
 .UIPageBody .Empty {
   width: 500px;
-  margin: 30px auto 30px auto;
+  margin: 0px auto;
+	padding: 30px 0px;
 }
 
 .UIPageBody .UIPortalWarning {

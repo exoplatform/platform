@@ -77,7 +77,7 @@ public class UIPageActionListener {
       uiPortal.setRenderSibbling(UIPortal.class);
       pcontext.setFullRender(true);
       
-      String currentUri = uiPortal.getSelectedNode().getUri() ;
+      String currentUri = (uiPortal.getSelectedNode() == null) ? null: uiPortal.getSelectedNode().getUri() ;
 
       UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
       if(uiControl != null) {
@@ -104,7 +104,8 @@ public class UIPageActionListener {
               selectedPaths_.add(child);
               uiPortal.setSelectedNode(child);
               uiPortal.setSelectedPaths(selectedPaths_);
-              if(!currentUri.equals(uiPortal.getSelectedNode().getUri())) {
+              String selectedUri = (uiPortal.getSelectedNode() == null)?null:uiPortal.getSelectedNode().getUri();
+              if(!currentUri.equals(selectedUri)) {
                 if(uiPageBody.getMaximizedUIComponent() != null) {
                   UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
                   currentPortlet.setCurrentWindowState(WindowState.NORMAL);
@@ -153,7 +154,8 @@ public class UIPageActionListener {
         uiPortal.setSelectedNode(selecttedNode);
 				if(selecttedNode == null) selectedPaths_.add(uiPortal.getSelectedNode()) ;
 				uiPortal.setSelectedPaths(selectedPaths_);
-				if(!currentUri.equals(uiPortal.getSelectedNode().getUri())) {
+        String selectedUri = (uiPortal.getSelectedNode() == null)?null:uiPortal.getSelectedNode().getUri();
+				if(currentUri != null && !currentUri.equals(selectedUri)) {
           if(uiPageBody.getMaximizedUIComponent() != null) {
             UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
             currentPortlet.setCurrentWindowState(WindowState.NORMAL);
@@ -187,9 +189,10 @@ public class UIPageActionListener {
         uiPortal.setSelectedNode(selecttedNode) ;
         uiPortal.setSelectedNavigation(nav);
       }
-      pcontext.getJavascriptManager().addCustomizedOnLoadScript("document.title='" + uiPortal.getSelectedNode().getResolvedLabel() + "';") ;
+      pcontext.getJavascriptManager().addCustomizedOnLoadScript("document.title='" + uiPortal.getSelectedNode().getResolvedLabel().replaceAll("'", "\\\\'") + "';") ;
       uiPortal.setSelectedPaths(selectedPaths_);
-      if(!currentUri.equals(uiPortal.getSelectedNode().getUri())) {
+      String selectedUri = (uiPortal.getSelectedNode() == null)?null:uiPortal.getSelectedNode().getUri();
+      if(!currentUri.equals(selectedUri)) {
         if(uiPageBody.getMaximizedUIComponent() != null) {
           UIPortlet currentPortlet =  (UIPortlet) uiPageBody.getMaximizedUIComponent();
           currentPortlet.setCurrentWindowState(WindowState.NORMAL);

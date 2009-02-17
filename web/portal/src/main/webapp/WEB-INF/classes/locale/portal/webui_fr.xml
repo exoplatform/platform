@@ -495,6 +495,7 @@
       <showWindowState>Afficher l'état :</showWindowState>
       <id>Id de la portlet :</id>
       <description>Description :</description>
+      <template>#{word.template}</template>
     </label>
     <action>
       <Close>Annuler</Close>
@@ -1717,6 +1718,7 @@
     <button>
       <ok>OK</ok>
     </button>
+    <Close>Close Window</Close>
   </UIPopupMessages>
   <!--
   ############################################################################
@@ -1735,7 +1737,7 @@
   -->
   <UIPortalToolPanel>
     <label>
-      <copyrightText><![CDATA[Droit d'auteur &copy; 2000-2008. Tous droits réservés,]]></copyrightText>
+      <copyrightText><![CDATA[Droit d'auteur &copy; 2000-2009. Tous droits réservés,]]></copyrightText>
       <companyTitleText>eXo Platform SAS.</companyTitleText>
     </label>
   </UIPortalToolPanel>
@@ -2402,6 +2404,7 @@
       <Description>Description:</Description>
       <Close>Close</Close>
       <Add>Add and keep this application in page</Add>
+      <AddToStartup>Ajouter et exécuter l'application immédiatement</AddToStartup>
     </label>
   </UIAddNewApplication>
   <!--

@@ -15,6 +15,7 @@
 }
 
 .UIPortalManagement .UIToolbar .EditToolbar .Icon {
-  margin: 4px 0px 0px 23px;
+  margin: 4px 0px 0px 23px; /* orientation=lt */
+  margin: 4px 23px 0px 0px; /* orientation=rt */
 
 }

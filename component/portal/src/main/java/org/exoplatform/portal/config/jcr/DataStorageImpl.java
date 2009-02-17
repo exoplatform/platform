@@ -389,9 +389,9 @@ public class DataStorageImpl implements DataStorage, Startable {
     String registryNodePath = regService_.getRegistry(sessionProvider).getNode().getPath() ;
     generateLikeScript(builder, "jcr:path", registryNodePath + "/%") ;
     generateLikeScript(builder, DataMapper.EXO_DATA_TYPE, q.getClassType().getSimpleName()) ;
+    generateLikeScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType()) ;
+    generateLikeScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId()) ;
     generateContainScript(builder, DataMapper.EXO_NAME, q.getName()) ;
-    generateContainScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType()) ;
-    generateContainScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId()) ;
     generateContainScript(builder, DataMapper.EXO_TITLE, q.getTitle());
     Session session = regService_.getRegistry(sessionProvider).getNode().getSession() ;
     try {

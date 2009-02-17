@@ -29,6 +29,7 @@ import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -80,8 +81,7 @@ public class UIGadgetEditMode extends UIForm {
     typeSelector.setOnChange("SelectType") ;
     addUIFormInput(typeSelector) ;
     addUIFormInput(new UIFormStringInput(FIELD_URL, FIELD_URL, pref.getValue("url",
-        "http://www.google.com/ig/modules/horoscope.xml")).
-        addValidator(MandatoryValidator.class).addValidator(URLValidator.class));
+        "http://www.google.com/ig/modules/horoscope.xml")));
     UIFormSelectBox gadgetSelector = new UIFormSelectBox(GADGET_SELECTOR, null, 
         new ArrayList<SelectItemOption<String>>()) ;
     gadgetSelector.setRendered(false) ;
@@ -98,11 +98,26 @@ public class UIGadgetEditMode extends UIForm {
       String url = uiGadgetEditMode.getUIStringInput(FIELD_URL).getValue();
       UIGadgetPortlet uiPortlet = uiGadgetEditMode.getParent();
       UIFormSelectBox typeSelector = uiGadgetEditMode.getUIFormSelectBox(TYPE_SELECTOR) ;
+      org.exoplatform.webui.core.UIApplication uiApplication = pcontext.getUIApplication() ;
+      
       
       if(typeSelector.getValue().equals(REMOTE_TYPE)) {
+        String label = uiGadgetEditMode.getLabel(FIELD_URL);
+        if(label.charAt(label.length() - 1) == ':') label = label.substring(0, label.length() - 1);
+        Object[]  args = { label } ;
+        
         if (url == null || url.length() == 0) {
           uiGadgetEditMode.getUIStringInput(FIELD_URL).setValue(uiPortlet.getUrl());
+          uiApplication.addMessage(new ApplicationMessage("EmptyFieldValidator.msg.empty-input", 
+                                                          args, ApplicationMessage.WARNING)) ;
           return;
+        }
+        url = url.trim() ;
+        if(!url.matches(URLValidator.URL_REGEX)) {
+          uiGadgetEditMode.getUIStringInput(FIELD_URL).setValue(uiPortlet.getUrl());
+          uiApplication.addMessage(new ApplicationMessage("URLValidator.msg.invalid-url", 
+                                                          args, ApplicationMessage.WARNING)) ;
+          return ;
         }
         try {
           PortletPreferences pref = pcontext.getRequest().getPreferences();

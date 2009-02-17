@@ -10,18 +10,18 @@
 }
 
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
-  float: left ;/* orientation=lt */
-  float: right ;/* orientation=rt */
-  width: 24px ; height: 15px ;
-  margin: 4px 0px 0px 5px ;/* orientation=lt */
-  margin: 4px 5px 0px 0px ;/* orientation=rt */
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
+  width: 24px; height: 15px;
+  margin: 4px 0px 0px 5px;/* orientation=lt */
+  margin: 4px 5px 0px 0px;/* orientation=rt */
   background: url('background/DragBg2x2.gif');
-  cursor: move ;
+  cursor: move;
 }
 
 .UIPortlet .ViewPortletIcon {
-  float: left ;/* orientation=lt */
-  float: right ;/* orientation=rt */
+  float: left;/* orientation=lt */
+  float: right;/* orientation=rt */
   width: 16px; height: 16px; 
   margin: 3px 5px 0px 0px;/* orientation=lt */
   margin: 3px 0px 0px 5px;/* orientation=rt */
@@ -52,7 +52,7 @@
 
 .PortletLayoutDecorator .TopLeft {
   background: url('background/PortletLayoutDecorator.gif') no-repeat left top;
-  padding-left: 7px ;
+  padding-left: 7px;
 }
 
 .PortletLayoutDecorator .TopMiddle {
@@ -61,7 +61,7 @@
 
 .PortletLayoutDecorator .TopRight {
   background: url('background/PortletLayoutDecorator.gif') no-repeat right top;
-  padding-right: 7px ;
+  padding-right: 7px;
 }
 
 .PortletLayoutDecorator .TopLeft .FixHeight {
@@ -70,12 +70,12 @@
 
 .PortletLayoutDecorator .MiddleLeft {
   background: url('background/MiddlePortletLayout.gif') repeat-y left -22px;
-  padding: 0px 0px 0px 7px ;
+  padding: 0px 0px 0px 7px;
 }
 
 .PortletLayoutDecorator .MiddleRight {
   background: url('background/MiddlePortletLayout.gif') repeat-y right -22px;
-  padding-right: 7px ;
+  padding-right: 7px;
 }
 
 .PortletLayoutDecorator .CenterBackground {
@@ -90,7 +90,7 @@
 
 .PortletLayoutDecorator .BottomLeft {
   background: url('background/PortletLayoutDecorator.gif') no-repeat left -12px;
-  padding-left:7px ;
+  padding-left:7px;
 }
 
 .PortletLayoutDecorator .BottomMiddle {
@@ -128,7 +128,7 @@
 }
 
 * html .UIContainer .LAYOUT-CONTAINER {
-	height: 60px ;
+	height: 60px;
 }
 
 .UIContainer .UIInfoBar .BlueRoundedStyle {
@@ -137,18 +137,18 @@
 }
 
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
-  float: left ; /* orientation=lt */
-  float: right ; /* orientation=rt */
-  width: 24px ; height: 15px ; 
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
+  width: 24px; height: 15px; 
   background: url('background/DragBg2x2.gif');
-  cursor: move ;
-  margin: 4px 0px 0px 5px ;/* orientation=lt */
-  margin: 4px 5px 0px 0px ;/* orientation=rt */
+  cursor: move;
+  margin: 4px 0px 0px 5px;/* orientation=lt */
+  margin: 4px 5px 0px 0px;/* orientation=rt */
 }
 
 .UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
-  background: none ;
-  border: none ;
+  background: none;
+  border: none;
   margin: auto;
 }
 
@@ -162,31 +162,34 @@
 }
 
 .UIContainer .DeleteContainerIcon {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 22px; height:16px; 
   background: url('background/ContainerIcon.gif') no-repeat bottom;
-  margin: 4px 4px 2px 0px;/* orientation=lt */
-  margin: 4px 0px 2px 4px;/* orientation=rt */
+  margin: 4px 4px 2px 0px; /* orientation=lt */
+  margin: 4px 0px 2px 4px; /* orientation=rt */
 }
 
 .UIContainer .ContainerIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
   width: 18px; height: 16px;
-  margin: 4px 0px 0px 5px;/* orientation=lt */
-  margin: 4px 5px 0px 0px;/* orientation=rt */
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat ;
+  margin: 4px 0px 0px 5px; /* orientation=lt */
+  margin: 4px 5px 0px 0px; /* orientation=rt */
+  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat;
 }
 
 .UIPortal .LAYOUT-PORTAL {
   background: url('background/PortalBackground4x4.gif');
   padding: 8px;
+  _padding: 8px 0px; /* orientation=rt */
   margin: auto;
+  _margin: 0px; /* orientation=rt */
+  _width: 99%; /* orientation=rt */
 }
 
 .DragAndDropPreview {
-  width: auto ; height: 80px ;
+  width: auto; height: 80px;
 	background: url('background/DragAndDropPreview4x4.gif');
   border: 1px solid #c4c4c4;
   margin: 0px 12px 10px 12px;

@@ -17,7 +17,6 @@
   
   def rcontext = _ctx.getRequestContext() ;
     JavascriptManager jsmanager = rcontext.getJavascriptManager();
-    jsmanager.importJavascript('eXo.application.ApplicationDescriptor');
     jsmanager.importJavascript('eXo.core.OS');
     jsmanager.importJavascript('eXo.core.HTMLUtil');
     jsmanager.importJavascript('eXo.core.DefaultKeyboardListener');

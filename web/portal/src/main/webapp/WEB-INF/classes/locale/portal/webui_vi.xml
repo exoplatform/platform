@@ -141,7 +141,7 @@
   -->
   <ResourceValidator>
     <msg>
-      <Invalid-char> Trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, dấu gạch dưới và dấu chấm.</Invalid-char>
+      <Invalid-char> Trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, dấu gạch dưới, dấu gạch ngang và dấu chấm.</Invalid-char>
     </msg>
   </ResourceValidator>
   <!--
@@ -154,7 +154,7 @@
   <SpecialCharacterValidator>
     <msg>
       <invalid-digit>Trường "{0}" phải bắt đầu với một ký tự.</invalid-digit>
-      <Invalid-char> Trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, dấu gạch dưới và khoảng trống.</Invalid-char>
+      <Invalid-char> Trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, dấu gạch dưới, dấu gạch ngang và khoảng trống.</Invalid-char>
     </msg>
   </SpecialCharacterValidator>
   <!--
@@ -233,7 +233,7 @@
   -->
   <IdentifierValidator>
     <msg>
-      <Invalid-char>Giá trị trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, hoặc dấu gạch dưới</Invalid-char>
+      <Invalid-char>Giá trị trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, hoặc dấu gạch dưới, dấu gạch ngang</Invalid-char>
     </msg>
   </IdentifierValidator>
   <!--
@@ -358,7 +358,7 @@
   -->
   <NameValidator>
     <msg>
-      <Invalid-char>Bạn chỉ được nhập dữ liệu là các chữ cái, chữ số, dấu gach ngang và dấu gạch chân trong mục {0}.</Invalid-char>
+      <Invalid-char>Bạn chỉ được nhập dữ liệu là các chữ cái, chữ số, dấu gạch ngang và dấu gạch chân trong mục {0}.</Invalid-char>
     </msg>
   </NameValidator>
   <FirstCharacterNameValidator>
@@ -409,7 +409,7 @@
     <msg>
       <user-not-exist>Tên truy nhập này không tồn tại.</user-not-exist>
       <user-not-empty>Tên truy nhập này không được để trống!</user-not-empty>
-      <Invalid-char>Giá trị trường {0} chỉ chấp nhận ký tự  là chữ cái, chữ số, dấu phẩy (,) và phải bắt đầu và kết thúc bằng một chữ cái. </Invalid-char>
+      <Invalid-char>Giá trị trường {0} chỉ chấp nhận ký tự  là chữ cái, chữ số, dấu phẩy (,), dấu gạch ngang (-) và phải bắt đầu và kết thúc bằng một chữ cái. </Invalid-char>
       <duplicate-user>Người dùng {0} bị trùng.</duplicate-user>
       <group-not-select>Xin hãy chọn một nhóm!</group-not-select>
       <membership-exist>Kiểu thành viên của người dùng này đã có trong nhóm {0}, xin hãy chọn kiểu khác!</membership-exist>
@@ -493,6 +493,7 @@
       <showWindowState>Hiện cửa sổ :</showWindowState>
       <id>Mã Portlet :</id>
       <description>Mô tả :</description>
+      <template>Portlet mẫu:</template>
     </label>
     <action>
       <Close>Từ bỏ</Close>
@@ -737,7 +738,7 @@
       <NoPageNavigation>Bạn phải khởi tạo Navigation trước khi dùng chức năng này!</NoPageNavigation>
       <curentPage>Bạn không thể xóa trang này: Trang này đang được dùng bởi ứng dụng khác!</curentPage>
       <paste>
-        <sameName>Tên của node không tồn tại!</sameName>
+        <sameName>Tên của node đã tồn tại!</sameName>
 	<sameSrcAndDes>Node đích và node nguồn trùng nhau!</sameSrcAndDes>
       </paste>
     </msg>
@@ -1402,9 +1403,9 @@
     <tooltip>
       <PortletMode>Chế độ Portlet</PortletMode>
       <Minimize>Thu nhỏ cửa sổ</Minimize>
-      <MinimizeRestore>Restore</MinimizeRestore>
+      <MinimizeRestore>Khôi phục</MinimizeRestore>
       <Maximize>Phóng lớn cửa sổ</Maximize>
-      <MaximizeRestore>Restore Down</MaximizeRestore>
+      <MaximizeRestore>Thu nhỏ cửa sổ</MaximizeRestore>
       <editPortlet>Sửa Portlet</editPortlet>
       <deletePortlet>Xóa Portlet</deletePortlet>
       <ResizeWindow>Thay đổi kích cỡ cửa sổ</ResizeWindow>
@@ -1731,6 +1732,7 @@
     <button>
       <ok>Đồng ý</ok>
     </button>
+    <Close>Đóng cửa sổ</Close>
   </UIPopupMessages>
   <!--
   ############################################################################
@@ -1750,7 +1752,7 @@
   <UIPortalToolPanel>
     <label>
       <copyrightText><![CDATA[ Bản quyền thuộc về công ty ]]></copyrightText>
-      <companyTitleText>eXo Platform SAS, © 2000-2008</companyTitleText>
+      <companyTitleText>eXo Platform SAS, © 2000-2009</companyTitleText>
     </label>
   </UIPortalToolPanel>
   <!--
@@ -1834,7 +1836,7 @@
       <hasNotPermission>Bạn không được quyền chỉnh sửa trang này!</hasNotPermission>
     </msg>
     <action>
-      <Close>Loại bỏ khỏi Dockbar!</Close>
+      <Close>Loại bỏ ứng dụng khỏi Dockbar!</Close>
       <Quit>Thoát</Quit>
       <action>
         <Open>Mở</Open>
@@ -2290,7 +2292,7 @@
   -->
   <UIWidgetContainer>
     <tooltip>
-      <addWidget>Thêm Widget</addWidget>
+      <addWidget>Thêm Gadget</addWidget>
       <scrollDown>Cuốn xuống</scrollDown>
       <scrollUp>Cuộn lên</scrollUp>
     </tooltip>
@@ -2417,6 +2419,7 @@
       <Description>Mô tả:</Description>
       <Close>Đóng</Close>
       <Add>Thêm và giữ cho ứng dụng này tại trang</Add>
+      <AddToStartup>Thêm và chạy ứng dụng</AddToStartup>
     </label>
   </UIAddNewApplication>
   <!--

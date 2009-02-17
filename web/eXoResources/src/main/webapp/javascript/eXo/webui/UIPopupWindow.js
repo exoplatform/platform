@@ -225,7 +225,6 @@ UIPopupWindow.prototype.initDND = function(evt) {
 			}
 		}
   	
-  	var DOMUtil = eXo.core.DOMUtil ;
   	var offsetParent = dragObject.offsetParent ;
   	if (offsetParent) {
   		if (eXo.core.Browser.findPosY(dragObject) < 0)  dragObject.style.top = (0 - offsetParent.offsetTop) + "px" ;

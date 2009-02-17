@@ -1,7 +1,6 @@
 eXo.webui.UIDashboard = {
 	
-	currCol : null,
-	
+	currCol : null,	
 	targetObj : null,
 	
 	init : function (dragItem, dragObj) {
@@ -229,6 +228,10 @@ eXo.webui.UIDashboard = {
 		}	
 	},
 	
+	test: function() {
+		document.title = new Date().getTime() ;
+	},
+	
 	onLoad : function(windowId, canEdit) { 
 		var portletWindow = document.getElementById(windowId);
 		if(!portletWindow) return;
@@ -238,6 +241,12 @@ eXo.webui.UIDashboard = {
 		var portletFragment = DOMUtil.findAncestorByClass(uiDashboard, "PORTLET-FRAGMENT") ;
 		var uiContainer = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardContainer");
 		if(!uiContainer) return;
+		
+		var uiWindow = DOMUtil.findAncestorByClass(portletWindow, "UIWindow") ;
+		if(uiWindow) {
+			if(!uiWindow.resizeCallback) uiWindow.resizeCallback = new eXo.core.HashMap() ;
+			uiWindow.resizeCallback.put(DOMUtil.generateId(windowId), eXo.webui.UIDashboard.initHeight) ;
+		}
 		
 		var gadgetContainer = DOMUtil.findFirstChildByClass(uiContainer, "div", "GadgetContainer");
 		uiDashboard.style.overflow = "hidden";
@@ -296,10 +305,15 @@ eXo.webui.UIDashboard = {
 	
 	initHeight : function(windowId) {
 		var DOMUtil = eXo.core.DOMUtil;
-		var portletWindow = document.getElementById(windowId);
+		var portletWindow, uiWindow ;
+		if(typeof(windowId) != "string") {
+			uiWindow = eXo.desktop.UIWindow.portletWindow ;
+			portletWindow = document.getElementById(uiWindow.id.replace(/^UIWindow-/, "")) ;
+		} else {
+			portletWindow = document.getElementById(windowId) ;
+			uiWindow = DOMUtil.findAncestorByClass("UIWindow") ;
+		}
 		var uiDashboard = DOMUtil.findFirstDescendantByClass(portletWindow, "div", "UIDashboard") ;
-		var portletFragment = DOMUtil.findAncestorByClass(uiDashboard, "PORTLET-FRAGMENT") ;
-		
 		var uiSelect = DOMUtil.findFirstDescendantByClass(uiDashboard, "div", "UIDashboardSelectContainer");
 		
 		if(uiSelect && document.getElementById("UIPageDesktop")) {
@@ -323,22 +337,30 @@ eXo.webui.UIDashboard = {
 			}
 			minusHeightEle = null;
 			var windowHeight = portletWindow.offsetHeight ; 
-			var uiWindow = DOMUtil.findAncestorByClass(portletWindow, "UIWindow") ;
 			if(uiWindow && uiWindow.style.display == "none") {
 				windowHeight = parseInt(DOMUtil.getStyle(portletFragment, "height")) ;
 			}
-			middleItemCont.style.height = windowHeight - minusHeight
-						- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
-						- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
-						- 5 + "px";
-			//dbContainer.style.height = windowHeight + "px";
-			if(middleItemCont.scrollHeight > middleItemCont.offsetHeight) {
-				topItemCont.style.display = "block";
-				bottomItemCont.style.display = "block";
-				middleItemCont.style.height = middleItemCont.offsetHeight - topItemCont.offsetHeight - bottomItemCont.offsetHeight + "px";
-			} else {
-				topItemCont.style.display = "none";
-				bottomItemCont.style.display = "none";
+			var middleItemContHeight = windowHeight - minusHeight
+																- parseInt(DOMUtil.getStyle(itemCont,"paddingTop"))
+																- parseInt(DOMUtil.getStyle(itemCont,"paddingBottom"))
+																- 5 ;
+	    // fix bug IE 6
+		  if (middleItemContHeight < 0) {
+		  	middleItemContHeight = 0;
+		  }
+			middleItemCont.style.height = middleItemContHeight + "px";
+			
+			//TODO: tan.pham: fix bug WEBOS-272: Ie7 can get positive scrollHeight value althrought portlet doesn't display
+			if(middleItemCont.offsetHeight > 0) {
+				if(middleItemCont.scrollHeight > middleItemCont.offsetHeight) {
+					topItemCont.style.display = "block";
+					bottomItemCont.style.display = "block";
+					middleItemCont.style.height = middleItemCont.offsetHeight - topItemCont.offsetHeight - bottomItemCont.offsetHeight + "px";
+				} else {
+					topItemCont.style.display = "none";
+					bottomItemCont.style.display = "none";
+					middleItemCont.scrollTop = 0 ;
+				}
 			}
 		}
 	},

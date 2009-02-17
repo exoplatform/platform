@@ -173,9 +173,7 @@
 }
 
 .UIAddApplication .ApplicationButton {
-	float: right; /* orientation=lt */
-	float: left; /* orientation=rt */ 
-  width: 25px;
+
 }
 
 .UIAddApplication .ApplicationContentLabel {
@@ -187,6 +185,7 @@
 }
 
 .UIAddApplication .PortletIcon {
+	background: none;
   cursor: pointer;
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
@@ -247,11 +246,20 @@
 	vertical-align: middle ;
 }
 
+.UIAddApplication .AddToStartUp {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	width: 20px ; height: 20px ;
+	background: url('background/AddToStartup.gif') no-repeat bottom;
+	margin: 0px 3px ;
+	cursor: pointer ;
+}
+
 .UIAddApplication .SelectButton {
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px ; height: 20px ;
-	background: url('background/AddApplicationButton.png') no-repeat top;
+	background: url('background/AddApplicationButton.gif') no-repeat top;
 	margin: 0px 3px ;
 	cursor: pointer ;
 }
@@ -260,7 +268,7 @@
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 20px ; height: 20px ;
-	background: url('background/AddApplicationButton.png') no-repeat bottom;
+	background: url('background/AddApplicationButton.gif') no-repeat bottom;
 	margin: 0px 3px ;
 	cursor: pointer ;
 }

@@ -169,10 +169,12 @@
   	                renderMini = restore;
 	                }
 	              	if(isDesktop) {%>
-		            		<div class="ControlIcon MaximizedIcon" title="$renderMaxi" normalTitle="$maxiTooltip" modeTitle="$restoreDown"
-		            				onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
-		            		<div class="ControlIcon MinimizedIcon" title="$renderMini" normalTitle="$miniTooltip" modeTitle="$restore"
-		            				onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+		            		<div class="ControlIcon MaximizedIcon" title="$renderMaxi" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
+		            				<div style="display:none">{"normalTitle":"$maxiTooltip","modeTitle":"$restoreDown"}</div>
+		            		</div> 
+		            		<div class="ControlIcon MinimizedIcon" title="$renderMini" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
+		            				<div style="display:none">{"normalTitle":"$miniTooltip","modeTitle":"$restore"}</div>
+		            		</div>
 		            <%
 		              } else if(uicomponent.getShowWindowState()) {	                    
 		                String maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'maximized');";
@@ -187,10 +189,12 @@
 	  	                minimizedMode = "Normal";
 		                }
 	              %>
-		                <div class="ControlIcon ${maximizedMode}Icon" title="$renderMaxi" normalTitle="$maxiTooltip" modeTitle="$restoreDown"
-		                		onclick="$maximizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div> 
-		                <div class="ControlIcon ${minimizedMode}Icon" title="$renderMini" normalTitle="$miniTooltip" modeTitle="$restore"
-		                		onclick="$minimizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span></div>
+		                <div class="ControlIcon ${maximizedMode}Icon" title="$renderMaxi"	onclick="$maximizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
+		                		<div style="display:none">{"normalTitle":"$maxiTooltip","modeTitle":"$restoreDown"}</div>
+		                </div> 
+		                <div class="ControlIcon ${minimizedMode}Icon" title="$renderMini"	onclick="$minimizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
+		                		<div style="display:none">{"normalTitle":"$miniTooltip","modeTitle":"$restore"}</div>
+		                </div>
 	              <%}    
 	              
 	              List supportModes = uicomponent.getSupportModes();

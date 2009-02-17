@@ -61,7 +61,8 @@
 	float: left;/* orientation=rt */
 	width: 18px; height: 18px;
 	cursor: nw-resize;
-	background: url('background/ResizeArea18x18.gif') no-repeat;
+	background: url('background/ResizeArea18x18.gif') no-repeat left top; /* orientation=lt */
+	background: url('background/ResizeArea18x18-rt.gif') no-repeat right top; /* orientation=rt */
 }
 
 .DefaultTheme .Information {
@@ -161,8 +162,6 @@
 }
 
 .MacTheme .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -238,11 +237,12 @@
 }
 
 .UIPageDesktop .MacTheme .ResizeArea {
-	float: left;/* orientation=rt */
-	float: right;/* orientation=lt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 15px;
 	cursor: nw-resize;
-	background: url('background/ResizeArea17x15.png') no-repeat;
+	background: url('background/ResizeArea17x15.png') no-repeat right top; /* orientation=lt */
+	background: url('background/ResizeArea17x15-rt.png') no-repeat left top; /* orientation=rt */
 }
 
 .MacTheme .Information {
@@ -328,8 +328,6 @@
 }
 
 .MacGray .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -496,8 +494,6 @@
 }
 
 .MacBlack .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -662,9 +658,9 @@
 .MacGreenSteel .WindowBarCenter .WindowPortletInfo {
 	margin: 0px 70px 0px 0px;/* orientation=lt */
 	margin: 0px 0px 0px 70px;/* orientation=rt */
-}Steel .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+}
+
+.MacGreenSteel .WindowBarCenter .WindowPortletIcon {
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -825,11 +821,6 @@
 
 /*-------------------------------- VistaTheme -----------------------------*/
 
-.UIPageDesktop .VistaTheme {
-	padding:4px 0px 0px 12px;/* orientation=lt */
-	padding:4px 12px 0px 0px;/* orientation=rt */
-}
-
 .VistaTheme .WindowBarCenter .WindowPortletInfo {
 	margin-right: 95px;/* orientation=lt */
 	margin-left: 95px;/* orientation=rt */
@@ -918,7 +909,8 @@
 	float: left;/* orientation=rt */
 	width: 9px; height: 12px;
 	cursor: nw-resize;
-	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right; /* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG-rt.gif') no-repeat bottom left; /* orientation=rt */
 }
 
 .VistaTheme .MiddleDecoratorLeft {

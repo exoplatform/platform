@@ -14,7 +14,7 @@
 <link rel="stylesheet" type="text/css" href="rssAggregator/style.css"></link>
 
 <script type="text/javascript" src="rssAggregator/script.js"></script>
-<div id="feedContainer"></div>
+<div id="feedContainer" style="height:229px;overflow:auto;"></div>
 
 <script type="text/javascript">
 // Get userprefs

@@ -1,5 +1,7 @@
 .UITabContainer {
 	padding: 7px;
+	_padding: 0px; /* orientation=rt */
+	_width: 99%; /* orientation=rt */
 }
 
 .UITabContainer .UIHorizontalTabs {

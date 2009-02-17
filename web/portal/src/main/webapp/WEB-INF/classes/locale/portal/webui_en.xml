@@ -73,7 +73,7 @@
   </UITestForm>
   <StringLengthValidator>
     <msg>
-      <length-invalid>The field "{0}" must have length from "{1}" to "{2}" characters.</length-invalid>
+      <length-invalid>The field "{0}" must have a length between "{1}" and "{2}" characters.</length-invalid>
     </msg>
   </StringLengthValidator>
   <!--
@@ -139,7 +139,7 @@
   -->
   <ResourceValidator>
     <msg>
-      <Invalid-char>Only alpha, digit, underscore and dot characters allowed for the field {0}</Invalid-char>
+      <Invalid-char>Only alpha, digit, underscore, dash and dot characters allowed for the field {0}</Invalid-char>
     </msg>
   </ResourceValidator>
   <!--
@@ -152,7 +152,7 @@
   <SpecialCharacterValidator>
     <msg>
       <invalid-digit>The "{0}" field must start with a character.</invalid-digit>
-      <Invalid-char>Only alpha, digit, underscore and space characters allowed for the field {0}</Invalid-char>
+      <Invalid-char>Only alpha, digit, underscore, dash and space characters allowed for the field {0}</Invalid-char>
     </msg>
   </SpecialCharacterValidator>
   <!--
@@ -231,7 +231,7 @@
   -->
   <IdentifierValidator>
     <msg>
-      <Invalid-char>Only alpha, digit and underscore characters allowed for the field {0}</Invalid-char>
+      <Invalid-char>Only alpha, digit, dash and underscore characters allowed for the field {0}</Invalid-char>
     </msg>
   </IdentifierValidator>
   <!--
@@ -406,7 +406,7 @@
     <msg>
       <user-not-exist>User {0} doesn't exist</user-not-exist>
       <user-not-empty>User name can not be empty!</user-not-empty>
-      <Invalid-char>The field {0} only has alpha, digit, comma characters and has to start and end with letter characters</Invalid-char>
+      <Invalid-char>The field {0} only has alpha, digit, comma, dash characters and has to start and end with letter characters</Invalid-char>
       <duplicate-user>User {0} duplicate</duplicate-user>
       <group-not-select>Please select a group!</group-not-select>
       <membership-exist>The membership type of user {0} is already in {1} group, please select another one!</membership-exist>
@@ -490,6 +490,7 @@
       <showWindowState>Show Window State :</showWindowState>
       <id>Portlet Id :</id>
       <description>Description :</description>
+      <template>Template</template>
     </label>
     <action>
       <Close>Cancel</Close>
@@ -1721,6 +1722,7 @@
     <button>
       <ok>OK</ok>
     </button>
+    <Close>Close Window</Close>
   </UIPopupMessages>
   <!--
   ############################################################################
@@ -1739,7 +1741,7 @@
   -->
   <UIPortalToolPanel>
     <label>
-      <copyrightText><![CDATA[Copyright &copy; 2000-2008. All rights Reserved,]]></copyrightText>
+      <copyrightText><![CDATA[Copyright &copy; 2000-2009. All rights Reserved,]]></copyrightText>
       <companyTitleText>eXo Platform SAS.</companyTitleText>
     </label>
   </UIPortalToolPanel>
@@ -2406,6 +2408,7 @@
       <Description>Description:</Description>
       <Close>Close</Close>
       <Add>Add and keep this application in page</Add>
+      <AddToStartup>Add and Run application immediately</AddToStartup>
     </label>
   </UIAddNewApplication>
   <!--

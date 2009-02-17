@@ -118,7 +118,7 @@
 	      }
 	      if(!even){
 	    %>
-	    <div class="ClearLeft"><span></span></div> 
+	    <div class="ClearBoth"><span></span></div> 
 	    <% } %>
 		</div>       
   </div>

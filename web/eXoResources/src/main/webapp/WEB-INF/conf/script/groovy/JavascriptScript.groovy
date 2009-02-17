@@ -1,8 +1,5 @@
 JavascriptService.addJavascript("eXo", "/javascript/eXo.js", ServletContext);
 
-/* Application descriptor */
-JavascriptService.addJavascript("eXo.application.ApplicationDescriptor", "/javascript/eXo/application/ApplicationDescriptor.js", ServletContext);
-
 /* CORE Javascripts */
 JavascriptService.addJavascript("eXo.core.Utils", "/javascript/eXo/core/Util.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.DOMUtil", "/javascript/eXo/core/DOMUtil.js", ServletContext);

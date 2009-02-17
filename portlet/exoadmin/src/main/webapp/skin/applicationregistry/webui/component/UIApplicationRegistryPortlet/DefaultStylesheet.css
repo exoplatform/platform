@@ -364,6 +364,9 @@
 	margin-top: 2px;
 }
 
+.UIApplicationRegistryPortlet .UIFormWithTitle {
+	width: 480px;
+}
 /*******************************UIAcessPermissions******************************/
 
 .UIApplicationRegistryPortlet .UIAcessPermissions {
@@ -491,7 +494,7 @@
 .UIGadgetManagement .UIGadgetEditor .HorizontalLayout textarea {
 	height: 250px; 
 	padding: 0px;
-	width: 99%; 
+	width: 97%; 
 	overflow: auto;
 }
 

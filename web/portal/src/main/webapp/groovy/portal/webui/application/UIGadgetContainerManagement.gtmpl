@@ -24,8 +24,12 @@
 			<div class="WidgetContainerCategory">
 				<div class="CategoryTitleBar">
 					<div class="Title"><%=_ctx.appRes("UIGadgetContainerManagement.title.containers")%></div>
+					<%
+						if(containers.size() >= 1) {
+					%>
 					<a class="RemoveContainer Icon" href="<%=uicomponent.event("DeleteContainer")%>" title="<%=_ctx.appRes("UIGadgetContainerManagement.tooltip.remove")%>"><span></span></a>
 					<a class="EditContainer Icon" href="<%=uicomponent.event("EditContainer")%>" title="<%=_ctx.appRes("UIGadgetContainerManagement.tooltip.edit")%>"><span></span></a>
+					<%}%>
 					<a class="AddContainer Icon" href="<%=uicomponent.event("AddContainer")%>" title="<%=_ctx.appRes("UIGadgetContainerManagement.tooltip.addnew")%>"><span></span></a>
 					<div class="ClearBoth"><span></span></div>
 				</div>

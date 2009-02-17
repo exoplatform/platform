@@ -1,5 +1,10 @@
 <%
   //import org.exoplatform.webui.core.UIDropDownItemSelector;
+  def rcontext = _ctx.getRequestContext() ;
+  rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.SaveTitle='" + _ctx.appRes("UIDashboardContainer.label.SaveTitle") + "';");
+  rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.CancelTitle='" + _ctx.appRes("UIDashboardContainer.label.CancelTitle") + "';");
+  rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.Cache='" + _ctx.appRes("UIDashboardContainer.label.Cache") + "';");
+  rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.Debug='" + _ctx.appRes("UIDashboardContainer.label.Debug") + "';");
 %>
 
 <div class="UIWidgets" id="UIWidgets" style="margin: 0px 7px;">

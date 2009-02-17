@@ -356,6 +356,9 @@ e/**
 	margin-top: 2px;
 }
 
+.UIApplicationRegistryPortlet .UIFormWithTitle {
+	width: 480px;
+}
 /*******************************UIAcessPermissions******************************/
 
 .UIApplicationRegistryPortlet .UIAcessPermissions {

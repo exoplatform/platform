@@ -75,6 +75,7 @@
                                //Create add Application Ajax request URL
                                String callingAction = "AddApplication";
                                String addApplicationURL = uicomponent.event(callingAction, application.getId());
+                               String addToStartup = uicomponent.event("AddToStartup", application.getId());
                         %>
                         <div class="Application">
 	                        <div class="ApplicationDescription">
@@ -85,6 +86,9 @@
 	                            <div class="TitleBarApplication">
 	                               <div class="Title"><%= application.getDisplayName() %></div>
 	                               <div class="ApplicationButton">
+		                                <% if (org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(application.getApplicationType())) { %>
+  		                                <div title="<%=_ctx.appRes("UIAddNewApplication.label.AddToStartup")%>" class="AddToStartUp" onclick="$addToStartup" ><span></span></div>
+                                    <%}%>
 		                                <div title="<%=_ctx.appRes("UIAddNewApplication.label.Add")%>" class="AddButton" onclick="$addApplicationURL" ><span></span></div>
 		                             </div>
 	                            </div>

@@ -2,7 +2,7 @@
 .UIDropDownControl {
 	margin-bottom: 2px;
 	position: relative ;
-	_position:static;/* orientation=rt */
+	width: 100%;
 }
 
 .UIDropDownControl .UIDropDownAnchor {

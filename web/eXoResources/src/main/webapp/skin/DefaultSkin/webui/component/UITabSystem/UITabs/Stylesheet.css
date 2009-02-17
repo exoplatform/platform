@@ -250,6 +250,7 @@
   margin-right: 1px; /* orientation=lt */
   margin-left: 1px; /* orientation=rt */
   color: #202020; font-weight: normal;
+  overflow: hidden; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .NormalTab .LeftTab {
@@ -306,6 +307,7 @@
   margin-right: 2px; /* orientation=lt */
   margin-left: 2px; /* orientation=rt */
   color: #202020; font-weight: normal;
+  overflow: hidden; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .LeftTab {
@@ -359,6 +361,7 @@
   color: #058ee6;
   margin-right: 2px; /* orientation=lt */
   margin-left: 2px; /* orientation=rt */
+  overflow: hidden; /* orientation=rt */
  }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {

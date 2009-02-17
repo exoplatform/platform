@@ -30,6 +30,7 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -56,7 +57,8 @@ import org.exoplatform.webui.event.EventListener;
     template = "system:/groovy/portal/webui/application/UIAddNewApplication.gtmpl",
     events = { 
         @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class),
-        @EventConfig(listeners = UIAddNewApplication.AddApplicationActionListener.class)
+        @EventConfig(listeners = UIAddNewApplication.AddApplicationActionListener.class),
+        @EventConfig(listeners = UIAddNewApplication.AddToStartupActionListener.class)
     }
 )
     
@@ -74,7 +76,7 @@ public class UIAddNewApplication extends UIContainer {
      * @param event
      * @throws Exception
      */
-    private void addApplicationToPage(Event<UIAddNewApplication> event) throws Exception{
+    public void addApplicationToPage(Event<UIAddNewApplication> event) throws Exception{
       UIPortal uiPortal = Util.getUIPortal();
       
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
@@ -169,7 +171,7 @@ public class UIAddNewApplication extends UIContainer {
      * @param event
      * @throws Exception
      */
-    private void addApplicationToContainer(Event<UIAddNewApplication> event) throws Exception{
+    public void addApplicationToContainer(Event<UIAddNewApplication> event) throws Exception{
       UIContainer uiWidgetContainer = (UIContainer)event.getSource().getUiComponentParent() ;
       String applicationId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
 //      if(applicationId.contains("eXoGadgets")) {
@@ -222,6 +224,73 @@ public class UIAddNewApplication extends UIContainer {
 //      }
     }
     
+  }
+  
+  static public class AddToStartupActionListener extends EventListener<UIAddNewApplication> {
+    public void execute(Event<UIAddNewApplication> event) throws Exception {
+      if(event.getSource().isInPage()) addApplicationToPage(event);        
+    }
+    
+    /***
+     * Add Application to UiPage
+     * @param event
+     * @throws Exception
+     */
+    public void addApplicationToPage(Event<UIAddNewApplication> event) throws Exception{
+      UIPortal uiPortal = Util.getUIPortal();
+      
+      UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+      UIPage uiPage = null;
+      if (uiPortal.isRendered()) {
+        uiPage = uiPortal.findFirstComponentOfType(UIPage.class);
+      } else {
+        UIPortalToolPanel uiPortalToolPanel = uiPortalApp
+            .findFirstComponentOfType(UIPortalToolPanel.class);
+        uiPage = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
+      }
+
+      String applicationId = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+
+      Application application = event.getSource().getApplication(applicationId);
+      //TODO review windowId for eXoWidget and eXoApplication
+      if (org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(application.getApplicationType())) {
+        UIPortlet uiPortlet = uiPage.createUIComponent(UIPortlet.class, null, null);
+
+        StringBuilder windowId = new StringBuilder(uiPage.getOwnerType());
+        windowId.append('#').append(uiPage.getOwnerId());
+        windowId.append(":/").append(application.getApplicationGroup() + "/" + application.getApplicationName()).append('/')
+          .append(uiPortlet.hashCode());
+        uiPortlet.setWindowId(windowId.toString());
+        uiPortlet.setPortletInPortal(false);
+        uiPortlet.getProperties().setProperty("appStatus", "HIDE");
+
+        if (application != null) {
+          if (application.getDisplayName() != null) {
+            uiPortlet.setTitle(application.getDisplayName());
+          } else if (application.getApplicationName() != null) {
+            uiPortlet.setTitle(application.getApplicationName());
+          }
+          uiPortlet.setDescription(application.getDescription());
+        }
+        uiPage.addChild(uiPortlet);
+      }
+
+      //Save all changes
+      if (uiPage.isModifiable()) {
+        Page page = PortalDataMapper.toPageModel(uiPage);
+        UserPortalConfigService configService = uiPortalApp
+            .getApplicationComponent(UserPortalConfigService.class);
+        if (page.getChildren() == null)
+          page.setChildren(new ArrayList<Object>());
+        configService.update(page);
+      }
+
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+      pcontext.setFullRender(true);
+      
+    }
   }
   
   private Application getApplication(String id) throws Exception {

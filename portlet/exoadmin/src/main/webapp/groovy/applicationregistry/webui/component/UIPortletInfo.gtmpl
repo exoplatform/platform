@@ -45,19 +45,19 @@
   		  <table class="TitleBarApplication">
   		  	<tr>
   		  		<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.display")%></td>
-  		    	<td class="RightLabel"><%= portlet.getDisplayName() %></td>
+  		    	<td class="RightLabel" title="<%= portlet.getDisplayName() %>"><%= portlet.getDisplayName() %></td>
   		    </tr>
   		  </table>
   		  <table>
   		  	<tr>
   		  		<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.name")%></td>
-  		    	<td class="RightLabel"><%= portlet.getName() %></td>
+  		    	<td class="RightLabel" title="<%= portlet.getDisplayName() %>"><%= portlet.getName() %></td>
   		    </tr>
   		  </table>
   		  <table>
   		  	<tr>
 						<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.description")%></td>
-						<td class="RightLabel"><%= portlet.getDescription() %></td>
+						<td class="RightLabel" title="<%= portlet.getDisplayName() %>"><%= portlet.getDescription() %></td>
 					</tr>
       	</table>
   		</div>

@@ -79,9 +79,22 @@
 	line-height: 24px;
 	width: auto; 
 	background: url('DefaultSkin/background/HoverItem.gif') repeat-x bottom;
+	color: #3e8df0;
 }
 
 .UINavigationPortlet .MenuItemContainer .SelectedItem a {
+	color: #3e8df0;
+}
+
+.UINavigationPortlet .MenuItemContainer  .SelectedItem .NormalItem a {
+	color: #000;
+}
+
+.UINavigationPortlet .MenuItemContainer  .SelectedItem .NormalItem a:hover {
+	color: #3e8df0;
+}
+
+.UINavigationPortlet .MenuItemContainer  .NormalItem .SelectedItem a {
 	color: #3e8df0;
 }
 

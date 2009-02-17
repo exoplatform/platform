@@ -178,7 +178,9 @@ public class UIPortletForm extends UIFormTabPane {
         while (prefNames.hasMoreElements()) {
           String name = prefNames.nextElement();
           if (!preferences.isReadOnly(name)) {
-            uiPortletPrefSet.addUIFormInput(new UIFormStringInput(res.getString("UIPortletForm.tab.label.Template"), null, preferences.getValue(name, "value")));
+            UIFormStringInput templateStringInput = new UIFormStringInput(name, null, preferences.getValue(name, "value"));
+            templateStringInput.setLabel(res.getString("UIPortletForm.tab.label.Template"));
+            uiPortletPrefSet.addUIFormInput(templateStringInput);
           }
         }
         if (uiPortletPrefSet.getChildren().size() > 0) {

@@ -32,7 +32,6 @@ import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.InitParams;
@@ -137,8 +136,6 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     UIContainer uiRoot = getChild(UIContainer.class);
 
     toUIContainer(uiRoot, container);
-    JavascriptManager jsmanager = context.getJavascriptManager() ;
-    jsmanager.addCustomizedOnLoadScript("eXo.webui.UIDashboard.onLoad('" + windowId + "'," + parent.canEdit() + ");") ;
     super.processRender(context);
   }
 
@@ -364,6 +361,15 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     IBindingFactory bfact = BindingDirectory.getFactory(Container.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
     return (Container) uctx.unmarshalDocument(is, null);
+  }
+  
+  /**
+   * Get windowId of <code>UIPortlet</code>
+   * @return a String represents windowId of portlet
+   * @see UIPortlet
+   */
+  public String getWindowId() {
+    return this.windowId ;
   }
   
   /**

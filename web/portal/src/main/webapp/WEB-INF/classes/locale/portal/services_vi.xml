@@ -50,7 +50,7 @@
   <IdentifierValidator>
     <msg>
       <empty-input>Giá trị trường "{0}" không thể rỗng.</empty-input>
-      <invalid-char>Trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, và dấu gạch dưới.</invalid-char>
+      <invalid-char>Trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, và dấu gạch dưới, dấu gạch ngang.</invalid-char>
     </msg>
   </IdentifierValidator>
   <!--

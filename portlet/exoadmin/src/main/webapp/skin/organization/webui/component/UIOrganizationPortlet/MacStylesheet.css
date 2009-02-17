@@ -304,7 +304,8 @@
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIGroupMembershipForm {
-	margin: 8px auto 0px;
+	margin: 0px auto;
+	padding-top: 8px;
 	width: 99%;
 }
 

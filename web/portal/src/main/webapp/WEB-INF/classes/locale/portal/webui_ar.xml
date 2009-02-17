@@ -489,6 +489,7 @@
       <showWindowState>:أظهر حالة النافذة</showWindowState>
       <id>:رقم تعريف المدخل</id>
       <description>:الوصف</description>
+      <template>قالب</template>
     </label>
     <action>
       <Close>الغاء</Close>
@@ -1714,6 +1715,7 @@
     <button>
       <ok>نعم</ok>
     </button>
+    <Close>Close Window</Close>
   </UIPopupMessages>
   <!--
   ############################################################################
@@ -1732,7 +1734,7 @@
   -->
   <UIPortalToolPanel>
     <label>
-      <copyrightText>جميع الحقوق محفوظة Copyright © 2000-2008</copyrightText>
+      <copyrightText>جميع الحقوق محفوظة Copyright © 2000-2009</copyrightText>
       <companyTitleText>eXo Platform SAS.</companyTitleText>
     </label>
   </UIPortalToolPanel>
@@ -2397,6 +2399,7 @@
       <Description>:الوصف</Description>
       <Close>إغلاق</Close>
       <Add>Add and keep this application in page</Add>
+      <AddToStartup>Add and Run application immediately</AddToStartup>
     </label>
   </UIAddNewApplication>
   

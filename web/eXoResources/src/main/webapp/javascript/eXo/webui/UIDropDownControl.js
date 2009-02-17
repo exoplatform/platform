@@ -34,6 +34,14 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 				topCont.style.display = "block" ;
 				bottomCont.style.display = "block" ;
 				middleCont.style.height = visibleHeight - topCont.offsetHeight - bottomCont.offsetHeight + "px" ;
+				topCont.onclick = function(event) {
+					event = event || window.event;
+					event.cancelBubble = true;
+				};
+				bottomCont.onclick = function(event){
+					event = event || window.event;
+					event.cancelBubble = true;
+				}
 			} else {
 				topCont.style.display = "none" ;
 				bottomCont.style.display = "none" ;

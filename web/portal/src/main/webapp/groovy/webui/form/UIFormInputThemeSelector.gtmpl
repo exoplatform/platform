@@ -20,7 +20,7 @@
   	    <div class="SetDefault" onclick="eXo.webui.UIFormInputThemeSelector.setDefaultTheme(this,'DefaultTheme')">
   	    	<a href="#"><%= _ctx.appRes(uiParentComponent.getId() + "." + uicomponent.getId() + ".title.SetDefault") %></a>
   	    </div>
-  	    <div class="ClearBoth"><span/></div>
+  	    <div class="ClearBoth"><span></span></div>
     	</div>
 			<div class="DetailView">					
 					<%

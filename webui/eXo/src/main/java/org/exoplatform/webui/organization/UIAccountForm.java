@@ -122,14 +122,14 @@ public class UIAccountForm extends UIFormTabPane {
       OrganizationService service =  uiForm.getApplicationComponent(OrganizationService.class);
       String userName = uiForm.getChild(UIAccountInputSet.class).getUserName() ;
       if(userName==null) {
-        uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.empty-input", null,0)) ;
+        uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.empty-input", null, ApplicationMessage.WARNING)) ;
         return;
       }
       if(service.getUserHandler().findUserByName(userName) != null) {
-        uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.user-exist", null,0)) ;
+        uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.user-exist", null, ApplicationMessage.WARNING)) ;
         return;
       }
-      uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.user-not-exist", null)) ;
+      uiApp.addMessage(new ApplicationMessage("UIAccountInputSet.msg.user-not-exist", null, ApplicationMessage.WARNING)) ;
     }
   }
 }

@@ -5,6 +5,10 @@
   margin: 6px 2px;
 }
 
+.UIWelcomeComponent .ItemSelectorContainer .UIDropDownControl {
+	_position: static; /* orientation=rt */
+}
+
 .UIWelcomeComponent .WelcomeMessage {
   float: left; /* orientation=lt */
   float: right; /* orientation=rt */

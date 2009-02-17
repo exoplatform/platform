@@ -75,21 +75,21 @@ public class UIPortalComponentActionListener {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
-  
-  static public class RemoveJSApplicationToDesktopActionListener  extends EventListener<UIPortalComponent> {    
-    public void execute(Event<UIPortalComponent> event) throws Exception {
-     UIPortal uiPortal = Util.getUIPortal();
-     UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-     UIPage uiPage = uiApp.findFirstComponentOfType(UIPage.class);
-     String id  = event.getRequestContext().getRequestParameter("jsInstanceId"); 
-     uiPage.removeChildById(id);
-     
-     Page page = PortalDataMapper.toPageModel(uiPage); 
-     UserPortalConfigService configService = uiPortal.getApplicationComponent(UserPortalConfigService.class);     
-     if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
-     configService.update(page);
-    }
-  }
+//  
+//  static public class RemoveJSApplicationToDesktopActionListener  extends EventListener<UIPortalComponent> {    
+//    public void execute(Event<UIPortalComponent> event) throws Exception {
+//     UIPortal uiPortal = Util.getUIPortal();
+//     UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
+//     UIPage uiPage = uiApp.findFirstComponentOfType(UIPage.class);
+//     String id  = event.getRequestContext().getRequestParameter("jsInstanceId"); 
+//     uiPage.removeChildById(id);
+//     
+//     Page page = PortalDataMapper.toPageModel(uiPage); 
+//     UserPortalConfigService configService = uiPortal.getApplicationComponent(UserPortalConfigService.class);     
+//     if(page.getChildren() == null) page.setChildren(new ArrayList<Object>());
+//     configService.update(page);
+//    }
+//  }
   
   static public class DeleteComponentActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {

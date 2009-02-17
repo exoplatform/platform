@@ -35,7 +35,8 @@
 
 
 .UIToolbar .EditToolbar .SavePortalIcon {
-  float: left;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
   width: 24px;  height: 24px;
   margin: 4px 7px;
   background: url('background/EditToolbar.png') no-repeat left -93px;
@@ -67,7 +68,8 @@
 }
 
 .UIToolbar .EditToolbar .LayoutModeIcon {
-  float: left;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
   margin: 4px 11px 0px 11px;
   width: 26px;  height: 24px;
   cursor : pointer;
@@ -119,7 +121,8 @@
 
 .UIToolbar .ControlToolbar .SeparateLine{
   width: 2px; height: 19px;
-  float: left;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
   margin: 4px 2px 0px 3px;
   background: url('background/SeparateLine2x19.png') repeat-y ;
 }
@@ -163,15 +166,18 @@
 
 .UIToolbar .Button {
   cursor: pointer ;
-  float: left ;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
 }
 
 .UIToolbar .Button .ButtonLabel {
-  float: left ;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
 }
 
 .UIToolbar .HorizontalSeparator {
-  float: left ;
+  float: left; 		/* orientation=lt */
+  float: right; 	/* orientation=rt */
   margin-top: 16px ;
   width: 2px; height: 20px ;
   background: url('background/GrayLine2x4.png') repeat-y ;

@@ -10,8 +10,8 @@
 .UIDashboard {
 	border: 1px solid #b7b7b7;
 	margin: 5px;
-	background: url('background/BgRepeat.gif') repeat-y top left; /* orientation=lt */
-	background: url('background/BgRepeat-rt.gif') repeat-y top right; /* orientation=rt */
+	background: white url('background/BgRepeat.gif') repeat-y top left; /* orientation=lt */
+	background: white url('background/BgRepeat-rt.gif') repeat-y top right; /* orientation=rt */
 	height: 100%;
 }
 
@@ -194,12 +194,12 @@
 
 .UIDashboard .UIGadget .GadgetControl .LeftControlBar {
 	background: url('background/Dashboard.gif') no-repeat left -51px;
-	padding-left: 3px;
+	padding: 0px 0px 0px 3px;
 }
 
 .UIDashboard .UIGadget .GadgetControl .RightControlBar {
 	background: url('background/Dashboard.gif') no-repeat right -51px;
-	padding-right: 3px;
+	padding: 0px 3px 0px 0px;
 }
 
 .UIDashboard .UIGadget .GadgetControl .CenterControlBar {

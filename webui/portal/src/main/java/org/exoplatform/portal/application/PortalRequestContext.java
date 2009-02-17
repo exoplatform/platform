@@ -126,7 +126,8 @@ public class PortalRequestContext extends WebuiRequestContext {
     String title = (String)request_.getAttribute(REQUEST_TITLE);
     if(title != null) return title;
     UIPortal uiportal = Util.getUIPortal();
-    return uiportal.getSelectedNode().getResolvedLabel();    
+    String resolvedLabel = (uiportal.getSelectedNode() == null) ? null : uiportal.getSelectedNode().getResolvedLabel();
+    return resolvedLabel;    
   }
 
   public Orientation getOrientation() {

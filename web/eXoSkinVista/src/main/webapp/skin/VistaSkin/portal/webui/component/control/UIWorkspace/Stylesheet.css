@@ -58,6 +58,10 @@
 	width: 220px;
 }
 
+.UIControlWorkspace .UIWelcomeComponent .ItemSelectorContainer { 
+	
+}
+
 /*########################### Tab ###########################*/
 .UIControlWorkspace .UIWorkspacePanel .TabPortalIcon {
   float: left;  
@@ -102,7 +106,8 @@
 
 .UIControlWorkspace .SlidebarButton {
 	height: 100% ;	width: 6px ;
-	background: url("background/SlidebarButton6x160.gif") no-repeat center center ;
+	background: url("background/SlidebarButton6x160.gif") no-repeat center center ; /* orientation=lt */
+	background: url("background/SlidebarButton6x160-rt.gif") no-repeat center center ; /* orientation=rt */
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {

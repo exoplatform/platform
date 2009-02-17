@@ -7,8 +7,14 @@ UIPortlet.prototype.onControlOver = function(element, isOver) {
   if(isOver) {
     var overElementName = "ControlIcon Over" + originalElementName.substr(originalElementName.indexOf(" ") + 1, 30) ;
     element.className   = overElementName;
-   	if(element.className == "ControlIcon OverRestoreIcon"){ element.title = element.getAttribute("modeTitle") ;}
-    if(element.className == "ControlIcon OverMaximizedIcon"){ element.title = element.getAttribute("normalTitle") ;}
+   	if(element.className == "ControlIcon OverRestoreIcon"){ 
+   		var hiddenAttribute = eval('(' + eXo.core.DOMUtil.findFirstChildByClass(element, "div", "").innerHTML + ')');
+   		element.title = hiddenAttribute.modeTitle ;
+   	}
+    if(element.className == "ControlIcon OverMaximizedIcon"){ 
+    	var hiddenAttribute = eval('(' + eXo.core.DOMUtil.findFirstChildByClass(element, "div", "").innerHTML + ')');
+    	element.title = hiddenAttribute.normalTitle ;
+    }
   } else {
     var over = originalElementName.indexOf("Over") ;
     if(over >= 0) {

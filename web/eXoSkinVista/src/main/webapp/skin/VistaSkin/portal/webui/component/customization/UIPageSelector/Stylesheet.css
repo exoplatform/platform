@@ -1,6 +1,6 @@
 .UIPageSelector {
-	padding: 10px ;
-	width: 500px ;
+	padding: 10px;
+	width: 500px;
 	margin: auto;
 }
 
@@ -22,18 +22,19 @@
 }
 
 .UIPageSelector .UIFormInfo {
-  background:url(background/UIFormInfoBG1x21.png) repeat-x scroll center top ;
+  background:url(background/UIFormInfoBG1x21.png) repeat-x scroll center top;
   border: 1px solid #b7b7b7;
   margin-top: 1px;
 }
 
 .UIPageSelector .FormInfoBG {
-
-  padding-right: 30px;
+  padding-right: 30px; /* orientation=lt */
+  padding-left: 30px; /* orientation=rt */
 }
 
 .UIPageSelector .FormInfoIcon {
-  background: url('background/FormInfoIcon80x80.gif') no-repeat center right ;
+  background: url('background/FormInfoIcon80x80.gif') no-repeat center right; /* orientation=lt */
+  background: url('background/FormInfoIcon80x80-rt.gif') no-repeat center left; /* orientation=rt */
   padding: 15px 15px 20px 15px;
 }
 
@@ -58,6 +59,6 @@
 }
 
 .UIPageSelector .FloatBlockHidden {
-	filter:alpha(opacity=30);-moz-opacity:.30;opacity:.30 ;
+	filter:alpha(opacity=30);-moz-opacity:.30;opacity:.30;
 	cursor: default;
 }

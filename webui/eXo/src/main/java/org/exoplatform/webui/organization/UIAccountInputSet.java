@@ -49,7 +49,7 @@ public class UIAccountInputSet extends UIFormInputWithActions {
                    addValidator(MandatoryValidator.class).
                    addValidator(StringLengthValidator.class, 3, 30).
                    addValidator(ResourceValidator.class).
-                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\d]+$", "ResourceValidator.msg.Invalid-char"));
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\-\\d]+$", "ResourceValidator.msg.Invalid-char"));
     addUIFormInput(new UIFormStringInput(PASSWORD1X, "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(MandatoryValidator.class).
@@ -62,12 +62,12 @@ public class UIAccountInputSet extends UIFormInputWithActions {
     							 addValidator(StringLengthValidator.class, 3, 30).
                    addValidator(MandatoryValidator.class).
                    addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{ASCII}]+$", "FirstCharacterNameValidator.msg").
-                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._ \\d]+$", "ResourceValidator.msg.Invalid-char")) ;
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\- \\d]+$", "ResourceValidator.msg.Invalid-char")) ;
     addUIFormInput(new UIFormStringInput("lastName", "lastName", null).
     							 addValidator(StringLengthValidator.class, 3, 30).
                    addValidator(MandatoryValidator.class).
                    addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{ASCII}]+$", "FirstCharacterNameValidator.msg").
-                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._ \\d]+$", "ResourceValidator.msg.Invalid-char")) ;
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\- \\d]+$", "ResourceValidator.msg.Invalid-char")) ;
     addUIFormInput(new UIFormStringInput("email", "email", null). 
                    addValidator(MandatoryValidator.class).
                    addValidator(EmailAddressValidator.class));    

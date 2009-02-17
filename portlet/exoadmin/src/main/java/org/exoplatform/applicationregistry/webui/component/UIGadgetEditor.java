@@ -100,7 +100,7 @@ public class UIGadgetEditor extends UIForm {
   
   public void processRender(WebuiRequestContext context) throws Exception {
     UIFormTextAreaInput uiInputSource = getUIFormTextAreaInput(FIELD_SOURCE);
-    String encoded = StringEscapeUtils.escapeHtml(uiInputSource.getValue());
+    String encoded = StringEscapeUtils.escapeHtml(StringEscapeUtils.unescapeHtml(uiInputSource.getValue()));
     uiInputSource.setValue(encoded);
     super.processRender(context);
   }

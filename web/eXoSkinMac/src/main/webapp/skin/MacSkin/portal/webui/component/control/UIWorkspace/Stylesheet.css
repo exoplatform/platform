@@ -71,14 +71,16 @@
 	float: left; /* orientation=rt */
 	width: 8px;
 	height: 100%;
-	background: url('background/SlidebarBackground8x1.gif') repeat-y right;
+	background: url('background/SlidebarBackground8x1.gif') repeat-y right; /* orientation=lt */
+	background: url('background/SlidebarBackground8x1-rt.gif') repeat-y left; /* orientation=rt */
 	cursor: pointer;
 }
 
 .UIControlWorkspace .SlidebarButton {
 	height: 100%;
 	width: 8px;
-	background: url('background/SlidebarButton8x137.gif') no-repeat center center;
+	background: url('background/SlidebarButton8x137.gif') no-repeat center center; /* orientation=lt */
+	background: url('background/SlidebarButton8x137-rt.gif') no-repeat center center; /* orientation=rt */
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
@@ -114,8 +116,11 @@
 
 .PreviewMode {
 	width: 146px;	height: 156px;
-	background: url('background/PreviewModeImage146x156.png') no-repeat top right;
+	background: url("background/PreviewModeImage146x156.png") no-repeat top right; /* orientation=lt */
+	background: url("background/PreviewModeImageRTL146x156.png") no-repeat top left; /* orientation=rt */
 	position: absolute;
 	cursor: pointer;
-	top: 0px; right: 0px;
+	top: 0px; 
+	right: 0px; /* orientation=lt */
+	left: 0px; /* orientation=rt */
 }

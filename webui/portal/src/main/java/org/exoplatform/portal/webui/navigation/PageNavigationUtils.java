@@ -120,12 +120,14 @@ public class PageNavigationUtils {
     PageNode copyNode = node.clone();
     copyNode.setChildren(new ArrayList<PageNode>());
     List<PageNode> children = node.getChildren();
-    if(children == null || children.size() == 0) return copyNode;
-    for(PageNode child: children){
-      PageNode newNode = filter(child, userName);
-      if(newNode != null ) copyNode.getChildren().add(newNode);
+    if(children != null) {
+      for(PageNode child: children){
+        PageNode newNode = filter(child, userName);
+        if(newNode != null ) copyNode.getChildren().add(newNode);
+      }
     }
-    if((copyNode.getChildren().size() == 0) && (copyNode.getPageReference() == null)) return null;
+    if((copyNode.getChildren() == null || copyNode.getChildren().size() == 0) 
+        && (copyNode.getPageReference() == null)) return null;
     return copyNode;
   }
 }

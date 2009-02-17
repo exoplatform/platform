@@ -78,6 +78,22 @@
   line-height: 24px;  
 }
 
+.UINavigationPortlet .MenuItemContainer .SelectedItem a {
+  color: #3e8df0; 
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem .NormalItem a {
+	color: #4F4F4F;
+}
+
+.UINavigationPortlet .MenuItemContainer .SelectedItem .NormalItem a:hover {
+	color: #3E8DF0;
+}
+
+.UINavigationPortlet .MenuItemContainer .NormalItem .SelectedItem a {
+	color:  #3E8DF0;
+}
+
 /*================ Menu Item Decorator =====================*/
 .UINavigationPortlet .MenuItemContainer .MenuItemDecorator {
   padding: 0px;

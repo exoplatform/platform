@@ -393,13 +393,13 @@ UIPortal.prototype.popupButton = function(url, action) {
 *  Once loaded the initApplication() method is called; in other words, the application is lazy instantiated and initialized
 *  on the client browser
 */
-UIPortal.prototype.createJSApplication = function(application, applicationId, instanceId, appLocation) {
-	if(application) {
-	  eXo.require(application, appLocation);
-	  var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
-	  eval(createApplication);
-	}
-} ;
+//UIPortal.prototype.createJSApplication = function(application, applicationId, instanceId, appLocation) {
+//	if(application) {
+//	  eXo.require(application, appLocation);
+//	  var createApplication = application + '.initApplication(\''+applicationId+'\',\''+instanceId+'\');' ;
+//	  eval(createApplication);
+//	}
+//} ;
 
 eXo.portal.UIPortalComponent = UIComponent.prototype.constructor ;
 eXo.portal.UIPortal = new UIPortal() ;

@@ -41,13 +41,15 @@
 
 .UIPageSelector .FormInfoIcon {
 	padding: 15px 15px 20px 15px;
-	background: url('background/FormInfoIcon80x80.gif') no-repeat center right;
+	background: url('background/FormInfoIcon80x80.gif') no-repeat center right; /* orientation=lt */
+	background: url('background/FormInfoIcon80x80-rt.gif') no-repeat center left; /* orientation=rt */
 }
 
 .UIPageSelector .FormInfoBG {
-	background: url('background/FormInfoBG360x1.gif') repeat-y right;
-	padding-left: 30px; /* orientation=lt */
-	padding-right: 30px; /* orientation=rt */
+	background: url('background/FormInfoBG360x1.gif') repeat-y right; /* orientation=lt */
+	background: url('background/FormInfoBG360x1-rt.gif') repeat-y left; /* orientation=rt */
+	padding-right: 30px; /* orientation=lt */
+	padding-left: 30px; /* orientation=rt */
 	height: 100%;
 }
 

@@ -155,7 +155,8 @@ public class UIPortletLifecycle extends Lifecycle {
     String portletTitle = null;
     try {
       if (uiPortlet.getCurrentWindowState() != WindowState.MINIMIZED) {
-        if("Window".equals(uiPortlet.getPortletStyle()) && !"SHOW".equals(uiPortlet.getProperties().get("appStatus"))) {
+        String appStatus = uiPortlet.getProperties().get("appStatus") ;
+        if("Window".equals(uiPortlet.getPortletStyle()) && !("SHOW".equals(appStatus) || "HIDE".equals(appStatus))) {
           markup = Text.create("<span></span>") ;
         } else {
           output = portletContainer.render(prcontext.getRequest(), prcontext.getResponse(), input);

@@ -66,6 +66,10 @@ public class UITree extends UIComponent {
    */
   private String beanIconField_ = "";
   /**
+   * The field that holds max character's title of node
+   */
+  private Integer maxTitleCharacter_ = 0;
+  /**
    * A list of sibling nodes
    */
   private List<?> sibbling;
@@ -165,7 +169,13 @@ public class UITree extends UIComponent {
     }
     String objId = String.valueOf(getId(obj)) ;
     String actionLink = event("ChangeNode", objId);
+    String fieldValue = (String)getFieldValue(obj, beanLabelField_);
     StringBuilder builder = new StringBuilder();
+    
+    // if field's length > max field's length then cut field value
+    if ((fieldValue.length() > getMaxTitleCharacter()) && (getMaxTitleCharacter() != 0)) {
+      fieldValue = fieldValue.substring(0, getMaxTitleCharacter() - 3) + "...";
+    }
     if(nodeIcon.equals(expandIcon)) {
       builder.append(" <div class=\"").append(nodeIcon).append("\" onclick=\"").append(actionLink).append("\">") ;
     }
@@ -173,11 +183,11 @@ public class UITree extends UIComponent {
       builder.append(" <div class=\"").append(nodeIcon).append("\" onclick=\"eXo.portal.UIPortalControl.collapseTree(this)").append("\">") ;
     }
     if(uiPopupMenu_ == null) {
-      builder.append(" <a href=\"javascript:void(0);\" class=\"NodeIcon ").append(iconGroup).append(note).append("\"").append(" title=\"").append(getFieldValue(obj, beanLabelField_)).append("\"").append(">").append(getFieldValue(obj, beanLabelField_)).append("</a>") ;
+      builder.append(" <a href=\"javascript:void(0);\" class=\"NodeIcon ").append(iconGroup).append(note).append("\"").append(" title=\"").append(getFieldValue(obj, beanLabelField_)).append("\"").append(">").append(fieldValue).append("</a>") ;
     }
     else {
       builder.append("<a href=\"javascript:void(0);\" class=\"NodeIcon ").append(iconGroup).append(note).append("\" ").append(uiPopupMenu_.getJSOnclickShowPopup(objId, null)).append(" title=\"").append(getFieldValue(obj, beanLabelField_)).append("\"").append(">")
-              .append(getFieldValue(obj, beanLabelField_)).append("</a>") ;
+              .append(fieldValue).append("</a>") ;
     }
     builder.append(" </div>") ;
     return builder.toString();
@@ -222,6 +232,14 @@ public class UITree extends UIComponent {
 
   public String getBeanIconField() { return beanIconField_; }  
   
+  public void setMaxTitleCharacter(Integer maxTitleCharacter_) {
+    this.maxTitleCharacter_ = maxTitleCharacter_;
+  }
+
+  public Integer getMaxTitleCharacter() {
+    return maxTitleCharacter_;
+  }
+
   public UIRightClickPopupMenu getUiPopupMenu() { return uiPopupMenu_; }
 
   public void setUiPopupMenu(UIRightClickPopupMenu uiPopupMenu) { this.uiPopupMenu_ = uiPopupMenu; }

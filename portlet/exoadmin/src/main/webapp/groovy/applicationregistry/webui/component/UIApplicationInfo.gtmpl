@@ -40,19 +40,19 @@ String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.pn
 				<table class="TitleBarApplication">
 					<tr>
 						<td class="LeftLabel"><%=_ctx.appRes("UIApplicationInfo.label.displayName")%></td>
-						<td class="RightLabel"><%= application.getDisplayName() %></td>
+						<td class="RightLabel" title=" <%= application.getDisplayName() %> "><%= application.getDisplayName() %></td>
 					</tr>
 				</table>
 				<table>
 					<tr>
 						<td class="LeftLabel"><%=_ctx.appRes("UIApplicationInfo.label.name")%></td>
-						<td class="RightLabel"><%= name %></td>
+						<td class="RightLabel" title=" <%= name %> "><%= name %></td>
 					</tr>
 				</table>
 				<table>
 					<tr>
 						<td class="LeftLabel"><%=_ctx.appRes("UIApplicationInfo.label.description")%></td>
-						<td class="RightLabel"><%= application.getDescription() %></td>
+						<td class="RightLabel" title=" <%= application.getDescription() %> "><%= application.getDescription() %></td>
 					</tr>
 				</table>
 			</div>

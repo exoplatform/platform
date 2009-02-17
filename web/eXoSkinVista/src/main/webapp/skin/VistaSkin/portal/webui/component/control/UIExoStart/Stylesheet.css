@@ -226,7 +226,6 @@
 
 .UIExoStart .StartMenuContainer .MenuContainer {
 	padding: 3px 0px 6px 0px;
-  visibility: visible;
 }
 
 .UIExoStart .StartMenuContainer .MenuItemContainer .MenuItem {
@@ -242,12 +241,16 @@
   padding: 2px 4px;
 }
 
+.UIExoStart .StartMenuContainer .DecoratorBlock {
+  border: solid 1px #b7b7b7 ;
+}
+
 .UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer {
   background: white url('background/AddApplicationrBG1x20.gif') repeat-x top;
   background-position: 0px 23px;
-  border: solid 1px #b7b7b7 ;
   width: 100%;
-  width: 99%;
+  *border-right: 1px solid #D0D0D0; /* orientation=lt */
+	_border-right: 1px solid none; /* orientation=lt */
 }
 
 .UIExoStart .StartMenuContainer .StartMenuContent {
@@ -324,7 +327,8 @@
 .UIExoStart .StartMenuContainer .DecoratorBlock .TitleBar {
   line-height: 23px ;
   background: url('background/ExoStart.png') repeat-x center -212px;
-  padding: 0px 0px 0px 10px ;
+  padding: 0px 0px 0px 10px ;	/* orientation=lt */
+  padding: 0px 10px 0px 0px ;	/* orientation=rt */
   white-space: nowrap;
   color: #000111;
 }

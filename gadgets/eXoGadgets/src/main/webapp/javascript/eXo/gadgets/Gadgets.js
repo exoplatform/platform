@@ -189,10 +189,10 @@ gadgets.IfrGadgetService.prototype.setHeight = function(height) {
   if (height > gadgets.container.maxheight_) {
     height = gadgets.container.maxheight_;
   }
-
   var element = document.getElementById(this.f);
   if (element) {
-    element.style.height = height + 'px';
+	  if(height <= 0) element.style.height = "auto" ;
+  	else element.style.height = height + 'px';
   }
 };
 
@@ -509,12 +509,18 @@ gadgets.IfrGadget.prototype.getMainContent = function(continuation) {
   var iframeId = this.getIframeId();
   gadgets.rpc.setRelayUrl(iframeId, this.serverBase_ + this.rpcRelay);
   gadgets.rpc.setAuthToken(iframeId, this.rpcToken);
+  
+  /*
+   * TODO: tan.pham: Fix bug WEBOS-273, width of iframe to large
+   * When width of gadget didn't specify, set width of iframe to auto.
+   * In control workspace, we set width of iframe by css.
+   */
   continuation('<div class="' + this.cssClassGadgetContent + '"><iframe id="' +
       iframeId + '" name="' + iframeId + '" class="' + this.cssClassGadget +
       '" src="' + this.getIframeUrl() +
       '" frameborder="no" scrolling="no"' +
       (this.height ? ' height="' + this.height + '"' : '') +
-      (this.width ? ' width="' + this.width + '"' : 'width="100%"') +
+      (this.width ? ' width="' + this.width + '"' : '') +
       '></iframe></div>');
 };
 

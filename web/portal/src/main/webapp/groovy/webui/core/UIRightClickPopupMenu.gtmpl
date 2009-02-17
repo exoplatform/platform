@@ -17,11 +17,11 @@
 				  <div class="UIRightPopupMenuContainer">
 					  <%for(action in uicomponent.getActions()) {%>
 					  
-					   	<a exo:attr="$action" class="MenuItem" href="<%=uicomponent.event(action,"_objectid_");%>" onclick="return eXo.webui.UIRightClickPopupMenu.prepareObjectId(event, this);" > 	
-								<div class="ItemIcon ${action}16x16Icon" >
+					   	<div class="MenuItem"> 	
+								<a exo:attr="$action" href="<%=uicomponent.event(action,"_objectid_");%>" onclick="return eXo.webui.UIRightClickPopupMenu.prepareObjectId(event, this);" class="ItemIcon ${action}16x16Icon" >
 									<%=_ctx.appRes(uicomponent.getId() + ".event." + action) %>
-								</div>
-						 	</a>
+								</a>
+						 	</div>
 							
 					  <%}%>
 					  <div class="RightClickCustomItem"></div>

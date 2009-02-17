@@ -38,7 +38,7 @@ import org.exoplatform.portal.webui.page.UIPageActionListener.ChangePageNodeActi
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ChangeLanguageActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.MoveChildActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RecoveryPasswordAndUsernameActionListener;
-import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RemoveJSApplicationToDesktopActionListener;
+//import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.RemoveJSApplicationToDesktopActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ShowLoginFormActionListener;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -58,7 +58,7 @@ import org.exoplatform.webui.event.EventListener;
     events = {
       @EventConfig(listeners = ChangePageNodeActionListener.class),
       @EventConfig(listeners = MoveChildActionListener.class),
-      @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class),
+//      @EventConfig(listeners = RemoveJSApplicationToDesktopActionListener.class),
       @EventConfig(listeners = UIPortal.ChangeWindowStateActionListener.class),
       @EventConfig(listeners = UIPortal.LogoutActionListener.class),
       @EventConfig(listeners = ShowLoginFormActionListener.class),
