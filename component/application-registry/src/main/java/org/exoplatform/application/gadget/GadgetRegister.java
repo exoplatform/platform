@@ -61,9 +61,15 @@ public class GadgetRegister implements ServletContextListener {
    */
   public void contextInitialized(ServletContextEvent event) {
     try {
-      ExoContainer pcontainer =  ExoContainerContext.getContainerByName("portal") ;
+      ServletContext servletContext = event.getServletContext() ;
+      String containerName = servletContext.getInitParameter("portalContainerName") ;
+      ExoContainer pcontainer ;
+      if(containerName != null) pcontainer = ExoContainerContext.getContainerByName(containerName) ;
+      else pcontainer = ExoContainerContext.getCurrentContainer() ;
+      if(pcontainer == null) pcontainer = ExoContainerContext.getTopContainer() ;
       SourceStorage sourceStorage = (SourceStorage) pcontainer.getComponentInstanceOfType(SourceStorage.class);
       GadgetRegistryService gadgetService = (GadgetRegistryService) pcontainer.getComponentInstanceOfType(GadgetRegistryService.class);
+      System.out.println();
       String confLocation = "/WEB-INF/gadget.xml" ;
       DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder() ;
       InputStream in = event.getServletContext().getResourceAsStream(confLocation) ;
