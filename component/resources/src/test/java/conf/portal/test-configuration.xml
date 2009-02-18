@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <configuration>
-  <import>classpath:/conf/portal/testjcr/test-jcr-configuration.xml</import> 
+  <component>
+    <key>org.exoplatform.services.resources.LocaleConfigService</key>
+    <type>org.exoplatform.services.resources.impl.LocaleConfigServiceImpl</type>
+      <init-params>
+        <value-param>
+          <name>locale.config.file</name>
+          <value>classpath:/conf/portal/locales-config.xml</value>
+        </value-param>
+      </init-params>
+  </component> 
+  <import>classpath:/conf/portal/testjcr/test-jcr-configuration.xml</import>
 </configuration>

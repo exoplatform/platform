@@ -60,89 +60,107 @@ public class TestResourceBundleService extends BasicTestCase {
     LogUtil.setLevel("org.exoplatform.services.database", LogService.DEBUG, true) ;
   }
   
-  public void testResourceBundleService() throws Exception {        
+  public void testResourceBundleServiceUpdate() throws Exception {    
     //-------getResourceBundle have loaded from property file to database--------
-  	ResourceBundle res =  service_.getResourceBundle(fileRes, Locale.ENGLISH) ;
-  	assertTrue("Expect to find the ResourceBundle", res != null);
-    assertTrue("Expect language is: English ", res.getString("language").equals("English")) ;
+    ResourceBundle res =  service_.getResourceBundle(fileRes, Locale.ENGLISH) ;    
     
-  	res = service_.getResourceBundle(fileRes, Locale.FRANCE) ;
-  	assertTrue("Expect to find the ResourceBundle", res != null);
-  	assertEquals("Expect the french resource bundle", "French", res.getString("language"));    
-  	
-    Locale vnLocale = lservice_.getLocaleConfig("vi").getLocale() ;
-    res = service_.getResourceBundle(fileRes, vnLocale) ;
+//    //------------create ressource bundle in database------------------
+    createResourceBundle(databaseRes,PROPERTIES,Locale.ENGLISH.getLanguage()) ;
+    createResourceBundle(databaseRes,PROPERTIES_FR,Locale.FRANCE.getLanguage()) ;        
+    
+    res = service_.getResourceBundle(databaseRes, Locale.ENGLISH) ;    
     assertTrue("Expect to find the ResourceBundle", res != null);
-    assertTrue("Expect language is: TiengViet ", "TiengViet".equals(res.getString("language").trim())) ;
+    
+    res = service_.getResourceBundle(databaseRes, Locale.FRANCE) ;
+    assertTrue("Expect to find the ResourceBundle", res != null);
+    assertEquals("Expect French locale bundle", "fr", res.getString("language"));
+    assertEquals("Expect French locale bundle", "property", res.getString("property"));
+    //--------- Update a databseRes resource bundle in database ----------------
+    createResourceBundle(databaseRes,PROPERTIES_FR_UPDATE, Locale.FRANCE.getLanguage()) ;                
+    res = service_.getResourceBundle(databaseRes, Locale.FRANCE) ;
+    assertEquals("Expect French locale bundle", "fr-property", res.getString("property"));    
+      
+    //--------Update fileRes resource bundle in databse--------------
+    String datas = "key1=fileSystem\nlanguage=french" ;
+    createResourceBundle(fileRes, datas, Locale.FRANCE.getLanguage()) ;
+    res = service_.getResourceBundle(fileRes, Locale.FRANCE) ; 
+    assertTrue("Expect to find the ResourceBundle", res != null);
+    assertTrue("Expect 'fileRes' is updated",res.getString("key1").equals("fileSystem")) ;    
+    assertEquals("Expect languge property is:","french", res.getString("language")) ;
+
+    //--------Update fileRes resource bundle in databse--------------
+    datas = "key1=fileSystemUpdate\nlanguage=french" ;
+    createResourceBundle(fileRes, datas, Locale.FRANCE.getLanguage()) ;
+    res = service_.getResourceBundle(fileRes, Locale.FRANCE) ; 
+    assertTrue("Expect to find the ResourceBundle", res != null);
+    assertTrue("Expect 'fileRes' is updated",res.getString("key1").equals("fileSystemUpdate")) ;    
+    assertEquals("Expect languge property is:","french", res.getString("language")) ;
+    
+    tearDown();
+  }
+  
+  public void testResourceBundleServiceRemove() throws Exception {   
+    //-------getResourceBundle have loaded from property file to database--------
+    ResourceBundle res =  service_.getResourceBundle(fileRes, Locale.ENGLISH) ;     
     
     //------------create ressource bundle in database------------------
     createResourceBundle(databaseRes,PROPERTIES,Locale.ENGLISH.getLanguage()) ;
     createResourceBundle(databaseRes,PROPERTIES_FR,Locale.FRANCE.getLanguage()) ;        
     
-  	res = service_.getResourceBundle(databaseRes, Locale.ENGLISH) ;    
-  	assertTrue("Expect to find the ResourceBundle", res != null);
-    
-  	res = service_.getResourceBundle(databaseRes, Locale.FRANCE) ;
-  	assertTrue("Expect to find the ResourceBundle", res != null);
-  	assertEquals("Expect French locale bundle", "fr", res.getString("language"));
-  	assertEquals("Expect French locale bundle", "property", res.getString("property"));
-    //--------- Update a databseRes resource bundle in database ----------------
-    createResourceBundle(databaseRes,PROPERTIES_FR_UPDATE, Locale.FRANCE.getLanguage()) ;                
-  	res = service_.getResourceBundle(databaseRes, Locale.FRANCE) ;
-  	assertEquals("Expect French locale bundle", "fr-property", res.getString("property"));    
-  	
-    //--------Update fileRes resource bundle in databse--------------
-    String datas = "key1=fileSystem\nlanguage=french" ;
-    createResourceBundle(fileRes, datas, Locale.FRANCE.getLanguage()) ;
-    res = service_.getResourceBundle(fileRes, Locale.FRANCE) ;    
-    assertTrue("Expect 'fileRes' is updated",res.getString("key1").equals("fileSystem")) ;    
-    assertEquals("Expect languge property is:","french", res.getString("language")) ;
-    
-    //------get resource bundle with both resource bundle: fileRes and databaseRes
-    res = service_.getResourceBundle(mergeRes,Locale.FRANCE) ;
+    res = service_.getResourceBundle(databaseRes, Locale.ENGLISH) ;    
     assertTrue("Expect to find the ResourceBundle", res != null);
-    assertEquals("Expect French locale bundle", "fr-property", res.getString("property"));
-        
-    assertTrue("expect 'fr'(in databseRes) is found",res.getString("language").equals("fr")) ;        
-    assertTrue("Expect 'fileRes' is updated",res.getString("key1").equals("fileSystem")) ;
     
-    //------Get resource bundle with concrete class loader (isn't current class loader)
-    ClassLoader cl = TestResourceBundleService.class.getClassLoader().getParent() ;
-    
-    res = service_.getResourceBundle(fileRes,vnLocale,cl) ;
+    res = service_.getResourceBundle(databaseRes, Locale.FRANCE) ;
     assertTrue("Expect to find the ResourceBundle", res != null);
-    assertTrue("Expect language is: TiengViet ", "TiengViet".equals(res.getString("language").trim())) ;
+    assertEquals("Expect French locale bundle", "fr", res.getString("language"));
+    assertEquals("Expect French locale bundle", "property", res.getString("property"));  
     
-    res =  service_.getResourceBundle(fileRes, Locale.ENGLISH, cl) ;
-    assertTrue("Expect to find the ResourceBundle", res != null);
-    assertTrue("Expect language is: English ",res.getString("language").equals("English")) ;
-
-    res = service_.getResourceBundle(fileRes,Locale.FRANCE,cl) ;
-    assertTrue("Expect to find the ResourceBundle", res != null);
-    assertTrue("Expect 'fileRes' is updated",res.getString("key1").equals("fileSystem")) ;
-    
-    //------get resource bundle with both resource bundle: fileRes and databaseRes with class loader 
-    res = service_.getResourceBundle(mergeRes,Locale.FRANCE,cl) ;
-    assertTrue("Expect to find the ResourceBundle", res != null);
-    assertEquals("Expect French locale bundle", "fr-property", res.getString("property"));
-        
-    assertTrue("expect 'fr'(in databseRes) is found",res.getString("language").equals("fr")) ;        
-    assertTrue("Expect 'fileRes' is updated",res.getString("key1").equals("fileSystem")) ;
-    
-    //-----------get all resource bundle-----------    
+//    //-----------get all resource bundle-----------    
     Query q = new Query(null, null) ;
-    List l = service_.findResourceDescriptions(q).getAll() ;    
-  	assertTrue("Expect at least 5 locale properties resources",  l.size() >= 5);
-  	
-    //----------remove a resource bundle data with Id: fileRes_en------
+    List l = service_.findResourceDescriptions(q).getAll() ;  
+    
+    //----------remove a resource bundle data with Id: databaseRes_en------
     int sizeBeforeRemove = l.size() ;
-    ResourceBundleData data = service_.getResourceBundleData(fileRes+"_en") ;
+    ResourceBundleData data = service_.getResourceBundleData(databaseRes+"_en") ;
     service_.removeResourceBundleData(data.getId());
     l = service_.findResourceDescriptions(q).getAll() ;
-  	assertEquals("Expect resources bundle in in database decrease", sizeBeforeRemove - 1 , l.size());
-    assertTrue("expect resource bundle is removed",service_.getResourceBundleData(fileRes+"_en")==null) ;    
+    
+    assertEquals("Expect resources bundle in in database decrease", sizeBeforeRemove - 1 , l.size());
+    assertTrue("expect resource bundle is removed",service_.getResourceBundleData(databaseRes+"_en")==null) ; 
+    
+    tearDown();
   }
   
+  public void testResourceBundleServiceList() throws Exception {   
+    
+    Query q = new Query(null, null) ;
+    List l = service_.findResourceDescriptions(q).getAll() ;  
+    
+    assertTrue("Expect none locale properties resources",  l.size() == 0);
+    
+    //-------getResourceBundle have loaded from property file to database--------
+    ResourceBundle res =  service_.getResourceBundle(fileRes, Locale.ENGLISH) ;     
+    
+    //------------create ressource bundle in database------------------
+    createResourceBundle(databaseRes,PROPERTIES,Locale.ENGLISH.getLanguage()) ;
+    createResourceBundle(databaseRes,PROPERTIES_FR,Locale.FRANCE.getLanguage()) ;        
+    
+    res = service_.getResourceBundle(databaseRes, Locale.ENGLISH) ;    
+    assertTrue("Expect to find the ResourceBundle", res != null);
+    
+    res = service_.getResourceBundle(databaseRes, Locale.FRANCE) ;
+    assertTrue("Expect to find the ResourceBundle", res != null);
+    assertEquals("Expect French locale bundle", "fr", res.getString("language"));
+    assertEquals("Expect French locale bundle", "property", res.getString("property"));  
+    
+//    //-----------get all resource bundle-----------    
+    q = new Query(null, null) ;
+    l = service_.findResourceDescriptions(q).getAll() ;  
+    
+    assertTrue("Expect at least 2 locale properties resources",  l.size() == 2); 
+    
+    tearDown();
+  }
   private void createResourceBundle(String name, String datas,String language) throws Exception {
     ResourceBundleData data = service_.createResourceBundleDataInstance();
     data.setName(name);  
@@ -153,5 +171,10 @@ public class TestResourceBundleService extends BasicTestCase {
   
   protected String getDescription() {
     return "Test Resource Bundle Service" ;
+  }
+  
+  public void tearDown() throws Exception {
+    // remove all data test
+    service_.removeResourceBundleData("");
   }
 }
