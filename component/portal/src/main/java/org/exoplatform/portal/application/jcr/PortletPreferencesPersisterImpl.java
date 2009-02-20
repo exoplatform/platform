@@ -16,10 +16,8 @@
  */
 package org.exoplatform.portal.application.jcr;
 
-import org.apache.commons.logging.Log;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.DataStorage;
-import org.exoplatform.services.log.LogService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.WindowID;
 import org.exoplatform.services.portletcontainer.pci.model.ExoPortletPreferences;
@@ -32,14 +30,9 @@ import org.exoplatform.services.portletcontainer.persistence.PortletPreferencesP
  */
 public class PortletPreferencesPersisterImpl implements PortletPreferencesPersister {
   
-  
-  @SuppressWarnings("unused")
-  private transient Log log_;
-  
   private DataStorage dataStorage_;
   
-  public PortletPreferencesPersisterImpl(DataStorage dataStorage, LogService lservice) {
-    log_ = lservice.getLog(getClass()); 
+  public PortletPreferencesPersisterImpl(DataStorage dataStorage) {
     dataStorage_ = dataStorage;
   }
 
@@ -48,7 +41,6 @@ public class PortletPreferencesPersisterImpl implements PortletPreferencesPersis
     return portletPreferences == null ? null : portletPreferences.toExoPortletPreferences();
   }
   
-  @SuppressWarnings("unused")
   public void savePortletPreferences(WindowID windowID, ExoPortletPreferences exoPref) throws Exception {
     PortletPreferences portletPreferences = new PortletPreferences(exoPref);
     ExoWindowID exoWindowID = (ExoWindowID) windowID;

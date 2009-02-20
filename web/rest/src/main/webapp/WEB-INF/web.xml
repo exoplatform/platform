@@ -17,7 +17,7 @@
   </filter>
   <filter>
     <filter-name>PortalContainerInitializedFilter</filter-name>
-    <filter-class>org.exoplatform.frameworks.jcr.web.PortalContainerInitializedFilter</filter-class>
+    <filter-class>org.exoplatform.ws.frameworks.servlet.PortalContainerInitializedFilter</filter-class>
   </filter>
     
    <filter>
