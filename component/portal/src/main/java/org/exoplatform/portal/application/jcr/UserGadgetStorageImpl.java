@@ -79,7 +79,9 @@ public class UserGadgetStorageImpl implements UserGadgetStorage {
       sessionProvider.close() ;
       return null;
     }
-    String value = gadgetNode.getProperty(key).getString();
+     
+    String value = null;
+    if(gadgetNode.hasProperty(key)) value = gadgetNode.getProperty(key).getString();
     sessionProvider.close() ;
     return value;
   }
