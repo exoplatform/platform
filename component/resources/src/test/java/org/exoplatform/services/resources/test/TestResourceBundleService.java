@@ -21,8 +21,6 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.exoplatform.container.PortalContainer;
-import org.exoplatform.services.log.LogService;
-import org.exoplatform.services.log.LogUtil;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.services.resources.Query;
 import org.exoplatform.services.resources.ResourceBundleData;
@@ -56,8 +54,6 @@ public class TestResourceBundleService extends BasicTestCase {
     PortalContainer manager  = PortalContainer.getInstance();
     service_ = (ResourceBundleService) manager.getComponentInstanceOfType(ResourceBundleService.class) ;
     lservice_ = (LocaleConfigService)manager.getComponentInstanceOfType(LocaleConfigService.class) ;
-    LogUtil.setLevel("org.exoplatform.services.resources", LogService.DEBUG, true) ;
-    LogUtil.setLevel("org.exoplatform.services.database", LogService.DEBUG, true) ;
   }
   
   public void testResourceBundleServiceUpdate() throws Exception {    
