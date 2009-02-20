@@ -18,6 +18,15 @@
   <component>
   	<key>org.exoplatform.application.gadget.SourceStorage</key>
   	<type>org.exoplatform.application.gadget.jcr.SourceStorageImpl</type>
+  	<init-params>
+  		<properties-param>
+  		<name>location</name>
+  		<description>The location store source of gadgets</description>
+  		<property name="repository" value="repository"></property>
+  		<property name="workspace" value="collaboration"></property>
+  		<property name="store.path" value="/"></property>
+  		</properties-param>
+  	</init-params>
   </component>  
 
   <external-component-plugins>

@@ -60,7 +60,8 @@ public class Source {
   public long getLength() { return length; }
 
   public void setTextContent(String text) throws Exception {
-    content = text.getBytes(encoding);
+    String textContent = (text == null) ? "" : text;
+    content = textContent.getBytes(encoding);
     length = content.length;
   }
   public String getTextContent() throws Exception { return new String(content, encoding); }

@@ -23,13 +23,32 @@ package org.exoplatform.application.gadget;
  * Aug 6, 2008  
  */
 public interface SourceStorage {
-
+  /**
+   * This method will get source from a specify source's path in database
+   * @param sourcePath
+   * @return
+   * @throws Exception
+   */
   public Source getSource(String sourcePath) throws Exception ;
-  
+  /**
+   * This method will save source to database to a specify path
+   * @param dirPath
+   * @param source
+   * @throws Exception
+   */
   public void saveSource(String dirPath, Source source) throws Exception ;
-  
+  /**
+   * This method will remove source from database base on source path
+   * @param sourcePath
+   * @throws Exception
+   */
   public void removeSource(String sourcePath) throws Exception ;
-  
+  /**
+   * This method will get source URI from database. 
+   * For example: jcr/repository/collaboration/source/Todo.xml
+   * @param sourcePath
+   * @return
+   */
   public String getSourceURI(String sourcePath) ;
 
 }
