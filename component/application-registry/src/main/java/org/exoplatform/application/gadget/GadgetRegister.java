@@ -69,7 +69,6 @@ public class GadgetRegister implements ServletContextListener {
       if(pcontainer == null) pcontainer = ExoContainerContext.getTopContainer() ;
       SourceStorage sourceStorage = (SourceStorage) pcontainer.getComponentInstanceOfType(SourceStorage.class);
       GadgetRegistryService gadgetService = (GadgetRegistryService) pcontainer.getComponentInstanceOfType(GadgetRegistryService.class);
-      System.out.println();
       String confLocation = "/WEB-INF/gadget.xml" ;
       DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder() ;
       InputStream in = event.getServletContext().getResourceAsStream(confLocation) ;
@@ -87,18 +86,21 @@ public class GadgetRegister implements ServletContextListener {
             address = node.getTextContent() ;
             if (node.getNodeName().equals("path")) {
               InputStream sourceIs = event.getServletContext().getResourceAsStream(address) ;
-              int idx = address.lastIndexOf('/');
-              String fileName = address.substring(idx + 1);
+              String realPath =  event.getServletContext().getRealPath(address);
+              File sourceFile = new File(realPath);
+              File homeDir = sourceFile.getParentFile();              
+              String fileName = sourceFile.getName();
               //Saves source of gadget
               Source source = new Source(fileName, getMimeType(event.getServletContext(), fileName), "UTF-8");
               source.setStreamContent(sourceIs);
               source.setLastModified(Calendar.getInstance());
-              sourceStorage.saveSource(null, source);
+              String homeName = homeDir.getName();
+              sourceStorage.saveSource(homeName, source);
               //Saves gadget
               ModulePrefs prefs = GadgetApplication.getModulePreferences(Uri.parse("http://www.exoplatform.org"), source.getTextContent());
               Gadget gadget = new Gadget();
               gadget.setName(gadgetName);
-              gadget.setUrl(sourceStorage.getSourceURI(fileName));
+              gadget.setUrl(sourceStorage.getSourceURI(homeName + "/" + fileName));
               gadget.setTitle(getGadgetTitle(prefs, gadget.getName()));
               gadget.setDescription(prefs.getDescription());
               gadget.setThumbnail(prefs.getThumbnail().toString());
@@ -106,15 +108,13 @@ public class GadgetRegister implements ServletContextListener {
               gadget.setLocal(true);            
               gadgetService.saveGadget(gadget);
               //Saves source's included
-              int dotIdx = address.lastIndexOf('.'); 
-              if(dotIdx < 0) continue;
-              String dirPath = address.substring(0, dotIdx);
-              String realPath =  event.getServletContext().getRealPath(dirPath);
-              File dir = new File(realPath);
-              if(dir.exists() && dir.isDirectory()) {
-                File [] files = dir.listFiles();
+//              int dotIdx = address.lastIndexOf('.'); 
+//              if(dotIdx < 0) continue;
+//              String dirPath = address.substring(0, dotIdx);
+              if(homeDir.exists() && homeDir.isDirectory()) {
+                File [] files = homeDir.listFiles();
                 for(int k = 0; k < files.length; k++) {
-                  saveTree(files[k], gadgetName, event.getServletContext(), sourceStorage);
+                  saveTree(files[k], homeName, event.getServletContext(), sourceStorage);
                 }
               }
             }

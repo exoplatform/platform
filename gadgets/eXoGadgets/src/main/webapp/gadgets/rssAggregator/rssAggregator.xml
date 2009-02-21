@@ -11,9 +11,9 @@
 	<UserPref name="rssurl" display_name="FEED URL" default_value="http://blog.exoplatform.org/feed/" required="true" />
 	<UserPref name="num_entries" display_name="# of Items (1-100)" default_value="10"/>
 <Content type="html"><![CDATA[
-<link rel="stylesheet" type="text/css" href="rssAggregator/style.css"></link>
+<link rel="stylesheet" type="text/css" href="style.css"></link>
 
-<script type="text/javascript" src="rssAggregator/script.js"></script>
+<script type="text/javascript" src="script.js"></script>
 <div id="feedContainer" style="height:229px;overflow:auto;"></div>
 
 <script type="text/javascript">

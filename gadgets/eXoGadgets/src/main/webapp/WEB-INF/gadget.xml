@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <gadgets>
 	<gadget name="Todo">
-		<path>/gadgets/Todo.xml</path>
+		<path>/gadgets/Todo/Todo.xml</path>
 	</gadget>
 	
 	<gadget name="Calendar">
-		<path>/gadgets/Calendar.xml</path>
+		<path>/gadgets/Calendar/Calendar.xml</path>
 	</gadget>
 	
 	<gadget name="Calculator">
-		<path>/gadgets/Calculator.xml</path>
+		<path>/gadgets/Calculator/Calculator.xml</path>
 	</gadget>
 	
 	<gadget name="rssAggregator">
-		<path>/gadgets/rssAggregator.xml</path>
+		<path>/gadgets/rssAggregator/rssAggregator.xml</path>
 	</gadget>
 </gadgets>
