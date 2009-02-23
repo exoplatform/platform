@@ -18,6 +18,13 @@
   <component>
     <key>org.exoplatform.portal.layout.PortalLayoutService</key>
     <type>org.exoplatform.portal.layout.jcr.PortalLayoutServiceImpl</type>
+    <init-params>
+        <value-param>
+            <name>template.location</name>
+            <description>Location of container templates</description>
+            <value>jar:/conf/portal</value>
+        </value-param>
+    </init-params>    
   </component>    
   
   <component>
