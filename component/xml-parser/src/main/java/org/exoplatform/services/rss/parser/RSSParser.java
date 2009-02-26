@@ -19,6 +19,7 @@ package org.exoplatform.services.rss.parser;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 import java.util.ArrayList;
@@ -183,7 +184,8 @@ public class RSSParser {
     return createDocument(new FileInputStream(file), charset, channelClazz, itemClazz);
   }  
   
-  public synchronized RSSDocument<DefaultRSSChannel, DefaultRSSItem> createDocument(File file, String charset) throws Exception {    
+  public synchronized RSSDocument<DefaultRSSChannel, DefaultRSSItem> createDocument(File file, String charset) throws Exception {
+    if(!file.exists()) return null ;
     return createDocument(new FileInputStream(file), charset, DefaultRSSChannel.class, DefaultRSSItem.class);
   }    
   
@@ -196,7 +198,7 @@ public class RSSParser {
       get.setFollowRedirects(true);
       int statusCode = httpClientService.getHttpClient().executeMethod(get);
       if (statusCode != HttpStatus.SC_OK){
-        throw new Exception("Server response code "+statusCode);
+        throw new MalformedURLException("Server response code "+statusCode);
       }
       InputStream input = get.getResponseBodyAsStream();
       DataBuffer buffer = new DataBuffer();
@@ -209,8 +211,10 @@ public class RSSParser {
   
   public synchronized <T extends IRSSChannel, E extends IRSSItem> RSSDocument<T, E> createDocument(
       URI uri, String charset, Class<T> channelClazz, Class<E> itemClazz) throws Exception {
-    try { 
+    try {
       return createDocument(uri.toURL(), charset, channelClazz, itemClazz);
+    }catch (MalformedURLException e) {
+      return null;
     }catch(Exception exp){
       File file  = new File(uri);
       return createDocument(file, charset, channelClazz, itemClazz);

@@ -39,7 +39,8 @@ public class TestExceptionParser extends BasicTestCase {
   private File file_;
   
   public void setUp()throws Exception{
-    this.file_= new File("src"+File.separatorChar+"resources"+File.separatorChar+"normal.html");
+//    this.file_= new File("src"+File.separatorChar+"resources"+File.separatorChar+"normal.html");
+    this.file_ = new File(ClassLoader.getSystemResource("normal.html").getFile()) ;
     //assertNotNull(this.file_);
     System.out.println("\n\nFILE PATH: " + this.file_.getCanonicalPath());
   }
@@ -47,21 +48,22 @@ public class TestExceptionParser extends BasicTestCase {
     assertNotNull(this.file_);
     //assertNull(this.file_.getParentFile());
     assertNotNull(this.file_.getParentFile());
-    assertEquals(this.file_.canRead(),true);
-    assertEquals(this.file_.canWrite(),true);
-    assertEquals(this.file_.exists(),true);
+    assertEquals(true, this.file_.canRead());
+    assertEquals(true, this.file_.canWrite());
+    assertEquals(true, this.file_.exists());
     
-    assertEquals(this.file_.isAbsolute(),false);
+//    assertEquals(false, this.file_.isAbsolute());
     
-    assertEquals(this.file_.isDirectory(),false);
-    assertEquals(this.file_.isFile(),true);
-    assertEquals(this.file_.isHidden(),false);
+    assertEquals(false, this.file_.isDirectory());
+    assertEquals(true, this.file_.isFile());
+    assertEquals(false, this.file_.isHidden());
     
     System.out.println("FILE-NAME: " + this.file_.getName());
     System.out.println("FILE-PARENT: " + this.file_.getParent());
     System.out.println("FILE-PATH: " + this.file_.getPath());
     System.out.println("FILE-CLASS: " + this.file_.getClass().getName());
   }
+  
   public void testHTMLDocument() throws Exception{
     String text = "<html>" +
                    "<head>" +
@@ -150,7 +152,7 @@ public class TestExceptionParser extends BasicTestCase {
     assertEquals(tableNode.getName(),Name.TABLE);
     assertEquals(tableNode.getName().toString(),"TABLE");
     assertEquals(tableNode.getChildren().size(),1);
-    assertEquals(tableNode.isNode(Name.TABLE),true);
+    assertEquals(true, tableNode.isNode(Name.TABLE));
     //assertNotSame(tableNode.isNode(Name.TABLE),tableNode.isNode(tableNode.getName().toString()));
     assertEquals(tableNode.isNode(Name.TABLE),tableNode.isNode(tableNode.getName().name()));
     assertEquals(tableNode.isNode(Name.TABLE),tableNode.isNode(tableNode.getName().toString()));

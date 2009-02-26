@@ -21,7 +21,6 @@ import java.io.File;
 import org.exoplatform.services.html.HTMLDocument;
 import org.exoplatform.services.html.HTMLNode;
 import org.exoplatform.services.html.Name;
-import org.exoplatform.services.html.parser.HTML;
 import org.exoplatform.services.html.parser.HTMLParser;
 import org.exoplatform.services.html.parser.NodeImpl;
 import org.exoplatform.services.html.path.NodePath;
@@ -40,7 +39,7 @@ public class TestNodeParser extends BasicTestCase {
   private File file_;
   
   public void setUp() throws Exception {
-    this.file_ = new File("src"+File.separatorChar+"resources"+File.separatorChar+"normal.html");
+    this.file_ = new File(ClassLoader.getSystemResource("normal.html").getFile());
     //assertNotNull(this.file_ );
     System.out.println("FILE PATH: " + this.file_.getAbsolutePath());
   }
@@ -87,20 +86,20 @@ public class TestNodeParser extends BasicTestCase {
     System.out.println("\n\nRemove:");
     HTMLNode contentNode = NodePathUtil.lookFor(document.getRoot(),NodePathParser.toPath("html.head.title.content"));
     assertNotNull(contentNode);
-    assertEquals(contentNode.getName(),Name.CONTENT);
-    assertEquals(contentNode.getName().toString(),"CONTENT");
+    assertEquals(Name.CONTENT, contentNode.getName());
+    assertEquals("CONTENT", contentNode.getName().toString());
     assertEquals(new String(contentNode.getValue()),contentNode.getTextValue());
     
     System.out.println("NODE-VALUE: " + new String(contentNode.getValue()));
     System.out.println("NODE-TEXTVALUE: " + contentNode.getTextValue());
     
-    assertEquals(node.getChildren().remove(contentNode),true);
+    assertEquals(true, node.getChildren().remove(contentNode));
     
     //Pass the Node which has removed from HTMLDocument into the <h2> TAG.
     HTMLNode h2Node = NodePathUtil.lookFor(document.getRoot(),NodePathParser.toPath("html.head.title.h2"));
     assertNotNull(h2Node);
-    assertEquals(h2Node.getName(),Name.H2);
-    assertEquals(h2Node.getName().toString(),"H2");
+    assertEquals(Name.H2, h2Node.getName());
+    assertEquals("H2", h2Node.getName().toString());
     h2Node.addChild(contentNode);
     
     //Show all.

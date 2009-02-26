@@ -54,24 +54,28 @@ public class TestRSSParser extends BasicTestCase {
   public void testAtom30() throws Exception{
     RSSDocument<DefaultRSSChannel, DefaultRSSItem> document = createRSSDocument("atom03.xml");   
     
-    List<DefaultRSSItem> items = document.getItems();   
-    assertEquals(2, items.size());   
-    assertEquals(items.get(0).getTitle(),"Wanted: Used Acme Bio Truck");
-    assertEquals(items.get(0).getLink(),"http://provider-website.com/item1-info-page.html");
-    assertEquals(items.get(0).getTime(),"2003-12-13T08:29:29-04:00");    
+    if(document != null) {
+      List<DefaultRSSItem> items = document.getItems();   
+      assertEquals(2, items.size());   
+      assertEquals(items.get(0).getTitle(),"Wanted: Used Acme Bio Truck");
+      assertEquals(items.get(0).getLink(),"http://provider-website.com/item1-info-page.html");
+      assertEquals(items.get(0).getTime(),"2003-12-13T08:29:29-04:00");
+    }
   }  
   
   public void testURLRss() throws Exception {
     URL url = new URL("http://itredux.com/blog/feed/atom/");
     RSSDocument<DefaultRSSChannel, DefaultRSSItem> document =  parser_.createDocument(url.toURI(), "utf-8");
-    List<DefaultRSSItem> items = document.getItems();   
-    for(DefaultRSSItem item  : items){
-      System.out.println(item.getTitle());
+    if(document != null) {
+      List<DefaultRSSItem> items = document.getItems();
+      for(DefaultRSSItem item  : items){
+        System.out.println(item.getTitle());
+      }
     }
   }
 
   public RSSDocument<DefaultRSSChannel, DefaultRSSItem> createRSSDocument(String path) throws Exception {      
-    File uri = new File("src"+File.separatorChar+"resources"+File.separatorChar+path); 
+    File uri = new File(ClassLoader.getSystemResource(path).getFile());
     return parser_.createDocument(uri, "utf-8");    
   }
   

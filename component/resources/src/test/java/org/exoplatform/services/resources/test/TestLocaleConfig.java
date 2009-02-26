@@ -62,10 +62,10 @@ public class TestLocaleConfig extends BasicTestCase {
     assertTrue("expect locale config is found", locale!=null) ;
     assertEquals("expect Viet Nam locale is found", "vi", locale.getLocale().toString()) ;
     /*-------------------get all locale config-------------------
-     * expect 3 locale config is found: English, France/Simplified_Chinese
+     * 4 preconfig locales: English, France, Arabic, Vietnamese
     **/
     Collection <LocaleConfig> locales = service_.getLocalConfigs() ;
-    assertTrue("expect 3 locale config are found", locales.size() == 5) ;    
+    assertTrue(locales.size() == 4) ;    
     
     Locale vnlocale = service_.getLocaleConfig("vi").getLocale() ;    
     hasObjectInCollection(vnlocale,locales, new LocaleComparator()) ;

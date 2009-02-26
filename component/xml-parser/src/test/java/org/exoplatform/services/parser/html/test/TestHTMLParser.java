@@ -44,7 +44,7 @@ public class TestHTMLParser extends BasicTestCase {
   
   public void setUp() throws Exception {
     //initializes the File object.
-    file_ = new File("src"+File.separatorChar+"resources"+File.separatorChar+"normal.html");
+    file_ = new File(ClassLoader.getSystemResource("normal.html").getFile());
     System.out.println(file_.getAbsolutePath());
   }
   
@@ -194,7 +194,7 @@ public class TestHTMLParser extends BasicTestCase {
     
     //Clear (remove) an Attribute in the attribute collection of the Node.
     System.out.println("\n\nRemove:");
-    assertEquals(attrs.contains(new Attribute("bgcolor","red")),true);
+    assertEquals(true, attrs.contains(new Attribute("bgcolor","red")));
     attrs.remove(new Attribute("bgcolor","red"));
     assertNull(attrs.get("bgcolor"));
     for(Attribute attr : attrs){      
@@ -202,7 +202,7 @@ public class TestHTMLParser extends BasicTestCase {
     }
     //Clear all the attributes of the Node.
     attrs.clear();
-    assertEquals(attrs.isEmpty(),true);
+    assertEquals(true, attrs.isEmpty());
     //assertEquals(attrs,null);
     
     //Add a new Atribute collection to the Node.
@@ -211,7 +211,7 @@ public class TestHTMLParser extends BasicTestCase {
     attrList.add(new Attribute("caption","New Table"));
     attrList.add(1,new Attribute("border","2"));
     attrList.add(2,new Attribute("bgcolor","blue"));
-    assertEquals(attrs.addAll(0,attrList),true);
+    assertEquals(true, attrs.addAll(0,attrList));
     for(Attribute attr : attrs){      
       System.out.println("NAME: " + attr.getName() + " & " + "VALUE: " + attr.getValue());
     }

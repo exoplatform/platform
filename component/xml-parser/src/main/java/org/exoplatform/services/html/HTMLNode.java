@@ -16,6 +16,7 @@
  */
 package org.exoplatform.services.html;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -59,7 +60,8 @@ public abstract class HTMLNode implements Node<Name> {
 
   public void addChild(HTMLNode ele){
     NodeConfig config = getConfig();
-    if(config.end() == Tag.FORBIDDEN) return;    
+    if(config.end() == Tag.FORBIDDEN) return;
+    if(children == null) children = new ArrayList<HTMLNode>(5) ;
     children.add(ele);
   }
 
