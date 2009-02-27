@@ -86,7 +86,7 @@
   -->
   <UIMemberShipForm>
     <msg>
-      <membershipType-exist>نوع العضوية'{0}' مأخوذ</membershipType-exist>
+      <membershipType-exist>نوع العضوية'(0)' مأخوذ</membershipType-exist>
     </msg>
   </UIMemberShipForm>
   <!--
@@ -230,7 +230,7 @@
   -->
   <UIUserInGroup>
     <confirm>
-      <deleteUser>هل أنت متأكد من أنك تريد حذف مستخدم {0} من المجموعة {1}؟</deleteUser>
+      <deleteUser>هل أنت متأكد من أنك تريد حذف مستخدم (0) من المجموعة (1)؟</deleteUser>
     </confirm>
     <header>
       <userName>#{word.userName}</userName>
@@ -352,7 +352,7 @@
       </label>
     </tab>
     <msg>
-      <user-nonexist>المستخدم "{0}" لا يوجد</user-nonexist>
+      <user-nonexist>المستخدم "(0)" لا يوجد</user-nonexist>
     </msg>
   </UISharedNavigationForm>
   <UISharedNavigation>
@@ -391,7 +391,7 @@
       </label>
     </tab>
     <msg>
-      <user-nonexist>المستخدم "{0}" لا يوجد</user-nonexist>
+      <user-nonexist>المستخدم "(0)" لا يوجد</user-nonexist>
     </msg>
   </UISharedPortalForm>
   <UIGroupSharedInfo>

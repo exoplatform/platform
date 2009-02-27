@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bundle> 
-  <word>
-   <!--
+<bundle>
+  <!--
   ###################################################################
   #                  EXPRESSION START  WITH 'A'                     #
   ###################################################################
   -->
+  <word>
     <accessPermission>تصاريح الدخول</accessPermission>
     
     <abort>إلغاء</abort>

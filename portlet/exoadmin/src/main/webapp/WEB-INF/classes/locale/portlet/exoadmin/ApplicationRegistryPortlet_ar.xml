@@ -220,7 +220,7 @@
     <label>
       <url>URL</url>
       <urlExist>!هذا العنوان موجود ، يرجى الاختيار واحد آخر</urlExist>
-      <urlError>البيانات في العنوان : '{0}' غير صالح</urlError>
+      <urlError>البيانات في العنوان : '(0)' غير صالح</urlError>
     </label>
   </UIAddGadget>
   <!--
