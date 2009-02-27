@@ -10,7 +10,7 @@
   <import>war:/conf/common/portlet-container-configuration.xml</import>  
     
   <!--if organization service is database, import hibernate-organization-configuration.xml-->
-  <import>war:/conf/organization/hibernate-configuration.xml</import>    
+  <import>war:/conf/organization/jcr-configuration.xml</import>    
         
   <!-- <import>war:/conf/jdbc-configuration.xml</import> -->
   <!--for organization service used active directory which is user lookup server -->
