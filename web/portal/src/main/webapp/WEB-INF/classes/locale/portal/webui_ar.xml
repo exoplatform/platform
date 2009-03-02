@@ -58,12 +58,12 @@
   <EmptyFieldValidator>
     <msg>
       <empty-input>الفضاء "{0}" مطلوب</empty-input>
-      <empty>.المعلومات "{0}" لا يمكن أن تكون فارغة</empty>
+      <empty>.المعلومات "(0)" لا يمكن أن تكون فارغة</empty>
     </msg>
   </EmptyFieldValidator>
   <ExpressionValidator>
     <msg>
-      <value-invalid>الميدان "{0}" له الحق في الشكل"{1}"</value-invalid>
+      <value-invalid>"(الميدان "(0)" له الحق في الشكل"(1</value-invalid>
     </msg>
   </ExpressionValidator>
   <UITestForm>
@@ -73,7 +73,7 @@
   </UITestForm>
   <StringLengthValidator>
     <msg>
-      <length-invalid>.الميدان "{0}" يجب أن يكون طوله من "{1}" إلى "{2}" حرفا</length-invalid>
+      <length-invalid>.الميدان "(0)" يجب أن يكون طوله من "(1)" إلى "(2)" حرفا</length-invalid>
     </msg>
   </StringLengthValidator>
   <!--
@@ -96,7 +96,7 @@
   -->
   <MandatoryValidatorIterator>
     <msg>
-      <empty>القائمة "{0}" لا يمكن أن تكون فارغة</empty>
+      <empty>القائمة "(0)" لا يمكن أن تكون فارغة</empty>
     </msg>
   </MandatoryValidatorIterator>
   <!--
@@ -108,7 +108,7 @@
   -->
   <NumberFormatValidator>
     <msg>
-      <Invalid-number>شكل العدد غير صالح في الميدان "{0}"</Invalid-number>
+      <Invalid-number>"(شكل العدد غير صالح في الميدان"(0</Invalid-number>
     </msg>
   </NumberFormatValidator>
   <!--
@@ -117,7 +117,7 @@
   -->
   <PositiveNumberFormatValidator>
     <msg>
-      <Invalid-number>.الميدان "{0}" يجب أن يكون عددا إيجابيا</Invalid-number>
+      <Invalid-number>.الميدان "(0)" يجب أن يكون عددا إيجابيا</Invalid-number>
     </msg>
   </PositiveNumberFormatValidator>
   <!--
@@ -129,7 +129,7 @@
   -->
   <EmptyIteratorValidator>
     <msg>
-      <empty>القائمة "{0}" لا يمكن أن تكون فارغة</empty>
+      <empty>القائمة "(0)" لا يمكن أن تكون فارغة</empty>
     </msg>
   </EmptyIteratorValidator>
   <!--
@@ -139,7 +139,7 @@
   -->
   <ResourceValidator>
     <msg>
-      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </ResourceValidator>
   <!--
@@ -151,8 +151,8 @@
   -->
   <SpecialCharacterValidator>
     <msg>
-      <invalid-digit>الميدان"{0}" يجب أن يبتدأ بحرف</invalid-digit>
-      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <invalid-digit>الميدان"(0)" يجب أن يبتدأ بحرف</invalid-digit>
+      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </SpecialCharacterValidator>
   <!--
@@ -162,7 +162,7 @@
   -->
   <DateTimeValidator>
     <msg>
-      <Invalid-input>!الميدان "{0}" غير صالح</Invalid-input>
+      <Invalid-input>!الميدان "(0)" غير صالح</Invalid-input>
     </msg>
   </DateTimeValidator>
   <!--
@@ -172,7 +172,7 @@
   -->
   <URLValidator>
     <msg>
-      <invalid-url>!الميدان "{0}" ليس بعنوان صالح</invalid-url>
+      <invalid-url>!الميدان "(0)" ليس بعنوان صالح</invalid-url>
     </msg>
   </URLValidator>
   <!--
@@ -231,7 +231,7 @@
   -->
   <IdentifierValidator>
     <msg>
-      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </IdentifierValidator>
   <!--
@@ -355,11 +355,11 @@
   -->
   <NameValidator>
     <msg>
-      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
     </msg>
   </NameValidator>
   <FirstCharacterNameValidator>
-    <msg>الميدان"{0}" يجب أن يبتدأ بحرف</msg>
+    <msg>الميدان"(0)" يجب أن يبتدأ بحرف</msg>
   </FirstCharacterNameValidator>
   <!--
   #############################################################################
@@ -403,12 +403,12 @@
   </UIUserProfileInputSet>
   <UIGroupMembershipForm>
     <msg>
-      <user-not-exist>المستخدم "{0}" لا وجود له</user-not-exist>
+      <user-not-exist>المستخدم "(0)" لا وجود له</user-not-exist>
       <user-not-empty>اسم المستخدم لا يمكن أن يكون فارغا</user-not-empty>
-      <Invalid-char>الميدان"{0}" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
-      <duplicate-user>المستخدم "{0}" متكرر</duplicate-user>
+      <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
+      <duplicate-user>المستخدم "(0)" متكرر</duplicate-user>
       <group-not-select>!الرجاء اختيار مجموعة</group-not-select>
-      <membership-exist>!نوع العضوية للمستخدم "{0}"  موجود في المجموعة "{0}"، يرجى اختيار واحد آخر</membership-exist>
+      <membership-exist>!نوع العضوية للمستخدم "(0)"  موجود في المجموعة "(1)"، يرجى اختيار واحد آخر</membership-exist>
     </msg>
   </UIGroupMembershipForm>
   <UILoginForm>
@@ -469,7 +469,7 @@
       </label>
     </tab>
     <msg>
-      <InvalidWidthHeight>	ميدان "{0}" يجب أن يكون بكسل أو نسبة قيمة</InvalidWidthHeight>
+      <InvalidWidthHeight>ميدان "(0)" يجب أن يكون بكسل أو نسبة قيمة</InvalidWidthHeight>
     </msg>
   </UIContainerForm>
   <!--
@@ -518,7 +518,7 @@
       </title>
     </Icon>
     <msg>
-      <InvalidWidthHeight>!الميدان "{0}" : يجب استخدام قيمة بكسل</InvalidWidthHeight>
+      <InvalidWidthHeight>!الميدان "(0)" : يجب استخدام قيمة بكسل</InvalidWidthHeight>
     </msg>
   </UIPortletForm>
   <!--
@@ -534,15 +534,26 @@
       <pageEditWizard>معالج تحرير الصفحة</pageEditWizard>
     </title>
     <content>
-      <pageManagement><![CDATA[<strong>Manage pages:</strong><br/>All existing pages are organized in list with basic information.<br/>User can preview (with normal page only),</br/> edit or delete page if you have right.<br/>User can search page by <em>Owner type</em> (portal/group/user), by <em>Owner id</em> (name of owner type), or by <em>Page name.</em><br/>To create new page, click "Add new page" button and input required fields.]]></pageManagement>
-      <portalManagement><![CDATA[<strong>Manage Portals: </strong><br/>This is the list of all existing portals. To create new,click "Create new Portal" button and input required fields.<br/>User only can create or delete a portal from list if he has right.]]></portalManagement>
-      <pageWizard>have to delele</pageWizard>
-      <pageWizard2><![CDATA[<strong>Step 1: Setting page's information includes Page's path, Node name, Displayed name.</strong><br/> Do as the followings: <br/>- Select navigation from list <br/>- Select page to create page as sub-page of selected page <br/>- Input <em>Node Name </em><br/>- Input <em>Display Name</em> (option)<br/>- Check <em>Visible</em> check box (option)<br/>- Check <em>Publication date &amp; time</em> check box (option)<br/>&nbsp;&nbsp;If <em>Publication date &amp; time</em> check box is checked:<br/>&nbsp;&nbsp;- Input <em>Start Publication Date</em><br/>&nbsp;&nbsp;- Input <em>End Publication Date</em><br/>- Click "Next" to move to next step]]></pageWizard2>
-      <pageWizard3><![CDATA[<strong>Step 2: Setting page's layout.</strong><br/> Do as the followings:<br/>- Select one of available layouts from list <br/>- Click "Next" to move to next step or "Back" to return to previous step]]></pageWizard3>
-      <pageEditWizard><![CDATA[Page Edit Wizard description <br/> and guide goes here.]]></pageEditWizard>
-      <pageEditWizard1><![CDATA[<strong>Step1: Allows to change Display name of page.</strong><br/> Do as the followings:<br/>- Select navigation from list<br/>- Select page that you want to edit<br/>- Change <em>Display name</em> if needed<br/>- Set or ignore <em>Visible</em> by check or uncheck its check box<br/>- Set or ignore <em>Publication date &amp; time</em> by check or uncheck its check box<br/>&nbsp;&nbsp;If set <em>Publication date &amp; time</em>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;- Change <em>Start Publication Date</em> if needed<br/>&nbsp;&nbsp;&nbsp;&nbsp;- Change <em>End Publication Date</em> if needed<br/>- Click "Next" to move to next step]]></pageEditWizard1>
-      <pageEditWizard2><![CDATA[<strong>Step 2: Re-setting page's layout.</strong><br/> Do as the followings:<br/>- Select new page layout or keep current layout<br/>- Click "Next" to move to next step or "Back" to return to previous step]]></pageEditWizard2>
-      <pageEditWizard3><![CDATA[<strong>Step 2: Re-setting page's layout.</strong><br/> Do as the followings:<br/>- Select new page layout or keep current layout<br/>- Click "Next" to move to next step or "Back" to return to previous step]]></pageEditWizard3>
+      <pageManagement><![CDATA[<strong>:إدارة الصفحات</strong><br/>.كل الصفحات الموجودة منظمة في القائمة مع معلومات أساسية<br/>يمكن للمستخدم المعاينة صفحة العادية فقط
+,</br/>.تعديل أو حذف الصفحة إذا لديك الحق <br/>	يمكن للمستخدم البحث عن الصفحة ب<em>نوع المالك</em> (portal/group/user), ب <em>تعريف المالك</em>  (اسم نوع المالك) 
+<em>اسم الصفحة </em><br/>.لإنشاء صفحة جديدة ، انقر على زر "أضف صفحة جديدة" وادخل المجالات اللازمة ]]></pageManagement>
+      <portalManagement><![CDATA[<strong>:إدارة بوابات</strong><br/>هذه قائمة جميع البوابات. لخلق جديد ، انقر على زر "إنشاء بوابة جديدة"  وادخل المجالات اللازمة 
+<br/>يمكن للمستخدم حذف من القائمة أو إنشاء بوابة  إذا كان لديه الحق.]]></portalManagement>
+      <pageWizard>حذف</pageWizard>
+      <pageWizard2><![CDATA[<strong>.الخطوة 1 : تحديد صفحة, يتضمن معلومات مسار الصفحة ، اسم العقدة ، اسم المشاهدة</strong><br/>:افعل ما يلي<br/>اختر التصفح من القائمة- <br/>اختر صفحة لإنشاء صفحة فرعية من صفحة مختارة-<br/>مدخلات-<em>اسم العقدة</em><br/>مدخلات-<em>اسم العرض</em> (الخيار)<br/>فحص-<em>مرئية</em> فحص المربع  خيار<br/>فحص- <em>تاريخ ووقت النشر</em> فحص المربع  خيار<br/>&nbsp;&nbsp;إذا<em>تاريخ ووقت النشر</em>:تأكد من اختيار المربع<br/>&nbsp;&nbsp;مدخلات-<em>بدأ تاريخ النشر
+	</em><br/>&nbsp;&nbsp;مدخلات-<em>تاريخ  نهاية النشر</em><br/>انقر فوق "التالي" للانتقال الى الخطوة التالية]]></pageWizard2>
+      <pageWizard3><![CDATA[<strong>.الخطوة 2 : وضع تصميم الصفحة</strong><br/>:افعل ما يلي<br/>اختر واحدة من التصاميم المتوفرة من القائمة-<br/>
+- انقر فوق "التالي" للانتقال الى الخطوة التالية ، أو "رجوع" للعودة الى الخطوة السابقة
+]]></pageWizard3>
+      <pageEditWizard><![CDATA[وصف معالج تحرير صفحة <br/>.الدليل هنا]]></pageEditWizard>
+      <pageEditWizard1><![CDATA[<strong>:الخطوة 1 : يسمح لتغيير اسم عرض الصفحة</strong><br/>:افعل ما يلي<br/>اختر التصفح من القائمة-
+<br/>حدد الصفحة التي تريد تحريرها-<br/>تغيير-<em>اسم العرض</em> إذا لزم الأمر<br/>تحديد أو تجاهل-<em>مرئية</em>بواسطة فحص أو إلغاء فحص المربع<br/>تحديد أو تجاهل- <em>تاريخ ووقت النشر</em> بواسطة فحص أو إلغاء فحص المربع<br/>&nbsp;&nbsp;إذا <em>تاريخ ووقت النشر</em>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;تغيير- <em>	تاريخ بدأ النشر</em> إذا <br/>&nbsp;&nbsp;&nbsp;&nbsp;تغيير-<em>	 تاريخ نهاية النشر</em>إذا<br/>انقر فوق "التالي" للانتقال الى الخطوة التالية-]]></pageEditWizard1>
+      <pageEditWizard2><![CDATA[<strong>.الخطوة 2 : إعادة تحديد نسق الصفحة</strong><br/>:افعل ما يلي<br/>اختر صفحة جديدة أو الإبقاء على الشكل الحالي-<br/>
+- انقر فوق "التالي" للانتقال الى الخطوة التالية ، أو "رجوع" للعودة الى الخطوة السابقة
+]]></pageEditWizard2>
+      <pageEditWizard3><![CDATA[<strong>.الخطوة 2 : إعادة تحديد نسق الصفحة</strong><br/>:افعل ما يلي<br/>اختر صفحة جديدة أو الإبقاء على الشكل الحالي-<br/>
+- انقر فوق "التالي" للانتقال الى الخطوة التالية ، أو "رجوع" للعودة الى الخطوة السابقة
+]]></pageEditWizard3>
     </content>
   </UIDescription>
   <!--
@@ -672,9 +683,9 @@
       <PageNotExist>!الصفحة لا توجد</PageNotExist>
       <UserNotPermission>!ليس لديك تصريح للوصول إلى عقدة الصفحة</UserNotPermission>
       <InvalidQueryException>!الاستعلام غير صالح </InvalidQueryException>
-      <Invalid-viewPermission>الصفحة  "{0}" لا تسمح الدخول</Invalid-viewPermission>
-      <Invalid-editPermission>الصفحة "{0}" لا تسمح التحرير</Invalid-editPermission>
-      <Invalid-deletePermission>الصفحة "{0}" لا تسمح الحذف</Invalid-deletePermission>
+      <Invalid-viewPermission>الصفحة  "(0)" لا تسمح الدخول</Invalid-viewPermission>
+      <Invalid-editPermission>الصفحة "(0)" لا تسمح التحرير</Invalid-editPermission>
+      <Invalid-deletePermission>الصفحة "(0)" لا تسمح الحذف</Invalid-deletePermission>
       <Invalid-Preview>!هذه الصفحة من نوع مكتب. انها لا تسمح المعاينة</Invalid-Preview>
       <NotViewPage>ليس لديك الحق لمشاهدة هذه الصفحة</NotViewPage>
       <edit>
@@ -869,7 +880,7 @@
   #############################################################################
   -->
   <UIPageNavigationForm>
-    <title><![CDATA[Page &amp; Navigation Explorer]]></title>
+    <title><![CDATA[ مستكشف الصفحة و التصفح ]]></title>
     <label>
       <priority>:الأولوية</priority>
       <creator>:الخالق</creator>
@@ -894,7 +905,7 @@
     </action>
     <msg>
       <selectGroup>!يجب ان تختار مجموعة</selectGroup>
-      <existPageNavigation>لا يمكنك إنشاء تصفح صفحة في حين  تصفح الصفحة "{0}"  موجودة في القائمة</existPageNavigation>
+      <existPageNavigation>لا يمكنك إنشاء تصفح صفحة في حين  تصفح الصفحة "(0)"  موجودة في القائمة</existPageNavigation>
     </msg>
   </UIPageNavigationForm>
   <UIPageNavigation>
@@ -905,8 +916,8 @@
       <upLevel>المستوى الأعلى</upLevel>
     </tooltip>
     <label>
-      <navigation>تصفح الصفحة {0}</navigation>
-      <titleBar>صفحة {0}</titleBar>
+      <navigation>"(تصفح الصفحة "(0</navigation>
+      <titleBar>"(صفحة "(0</titleBar>
     </label>
   </UIPageNavigation>
   <!--
@@ -916,7 +927,7 @@
   -->
   <UIPortalApplication>
     <label>
-      <Loading>Loading...</Loading>
+      <Loading>...تحميل</Loading>
       <Abort>الغاء</Abort>
     </label>
   </UIPortalApplication>
@@ -1485,7 +1496,7 @@
   <UIPageManagement>
     <title>
       <BROWSE>إدارة الصفحات</BROWSE>
-      <EDIT><![CDATA[Page &amp; Navigation Explorer]]></EDIT>
+      <EDIT><![CDATA[مستكشف الصفحة و التصفح]]></EDIT>
     </title>
     <msg>
       <Invalid-editPermission>هذه الصفحة لا تسمح التحرير</Invalid-editPermission>
@@ -1559,8 +1570,8 @@
     </action>
     <msg>
       <Invalid-viewPermission>	البوابة لا تسمح الدخول</Invalid-viewPermission>
-      <PortalInUse>.البوابة {0} مستخدمة</PortalInUse>
-      <Invalid-deletePermission>.ليس لديك الحق في حذف البوابة {0}</Invalid-deletePermission>
+      <PortalInUse>.البوابة (0) مستخدمة</PortalInUse>
+      <Invalid-deletePermission>.(ليس لديك الحق في حذف البوابة (0</Invalid-deletePermission>
       <Invalid-createPermission>.ليس لديك الحق في إنشاء بوابة جديدة. الرجاء الاتصال بمخطط النظام</Invalid-createPermission>
     </msg>
     <deletePortal>هل أنت متأكد من حذف هذه البوابة؟</deletePortal>
@@ -1734,7 +1745,7 @@
   -->
   <UIPortalToolPanel>
     <label>
-      <copyrightText>جميع الحقوق محفوظة Copyright © 2000-2009</copyrightText>
+      <copyrightText>جميع الحقوق محفوظة Copyright © 2000-2008</copyrightText>
       <companyTitleText>eXo Platform SAS.</companyTitleText>
     </label>
   </UIPortalToolPanel>
@@ -2402,7 +2413,6 @@
       <AddToStartup>Add and Run application immediately</AddToStartup>
     </label>
   </UIAddNewApplication>
-  
   <!--
   ############################################################################
   #		           org.exoplatform.portal.webui.container.UIBrowserPortlet         #
