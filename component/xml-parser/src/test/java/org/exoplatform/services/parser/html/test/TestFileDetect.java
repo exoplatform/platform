@@ -63,15 +63,14 @@ public class TestFileDetect extends BasicTestCase {
     HTMLDocument document = HTMLParser.createDocument(url_.openConnection().getInputStream(), null);
     document = HTMLParser.createDocument(url_.openStream(), null);
     assertNotNull(document);
-    assertEquals("windows-1252", HTMLParser.getCharset());
+    assertEquals("ASCII", HTMLParser.getCharset());
     System.out.println("\n\nCHARSET: " + HTMLParser.getCharset());
 
-    // assertNull(document.getDoctype());
-
-    assertNotNull(document.getDoctype());
-    System.out.println("DOCUMENT-DOCTYPE-NAME: " + document.getDoctype().getName().toString());
-    System.out.println("DOCUMENT-DOCTYPE-VALUE: " + document.getDoctype().getValue().toString());
-    System.out.println("DOCUMENT-DOCTYPE-TEXTVALUE: " + document.getDoctype().getTextValue());
+     assertNull(document.getDoctype());
+//    assertNotNull(document.getDoctype());
+//    System.out.println("DOCUMENT-DOCTYPE-NAME: " + document.getDoctype().getName().toString());
+//    System.out.println("DOCUMENT-DOCTYPE-VALUE: " + document.getDoctype().getValue().toString());
+//    System.out.println("DOCUMENT-DOCTYPE-TEXTVALUE: " + document.getDoctype().getTextValue());
 
     // assertNull(document.getRoot());
     assertNotNull(document.getRoot());
