@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+  <owner-type>portal</owner-type>
+  <owner-id>@owner@</owner-id>
+  <priority>1</priority>
+
+  <page-nodes>
+    <node>
+      <uri>home</uri>
+      <name>home</name>
+      <label>Home</label>
+      <page-reference>portal::@owner@::sitemap</page-reference>
+    </node> 
+  </page-nodes>
+</node-navigation>

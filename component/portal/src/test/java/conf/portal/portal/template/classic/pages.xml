@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>  
+
+  <page>
+  	<page-id>portal::@owner@::sitemap</page-id>
+    <owner-type>portal</owner-type>
+    <owner-id>@owner@</owner-id>
+    <name>sitemap</name>
+    <title>Site Map</title>
+	  <access-permissions>Everyone</access-permissions>
+	  <edit-permission>*:/platform/administrators</edit-permission>
+    <application>
+      <instance-id>portal#@owner@:/web/SiteMapPortlet/sitemapportlet</instance-id>
+      <title>Site Map portlet</title>
+      <show-info-bar>true</show-info-bar>
+      <show-application-state>true</show-application-state>
+      <show-application-mode>true</show-application-mode>
+    </application>
+  </page>
+  
+</page-set>

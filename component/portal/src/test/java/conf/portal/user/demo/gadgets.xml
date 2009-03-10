@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<gadgets>
+	<owner-type>user</owner-type>
+	<owner-id>demo</owner-id>
+	
+	<container id="Sample">
+		<name>Sample</name>
+		<description>Sample's Description</description>
+  	<application>
+  		<instance-id>user#demo:/eXoGadgets/Todo/Todo1</instance-id>
+      <application-type>eXoGadget</application-type>
+    </application>
+  </container>	
+	
+</gadgets>

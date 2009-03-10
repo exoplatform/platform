@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page-set>
+    
+  <page>
+  	<page-id>group::organization/management/executive-board::newStaff</page-id>
+ 		<owner-type>group</owner-type>
+    <owner-id>organization/management/executive-board</owner-id>
+    <name>newStaff</name>
+    <title>New Staff</title>
+    <access-permissions>*:/organization/management/executive-board</access-permissions>
+    <edit-permission>manager:/organization/management/executive-board</edit-permission>
+    
+    <application>
+    	<instance-id>group#organization/managerment/executive-board:/exoadmin/AccountPortlet/Account</instance-id>        
+      <title>New Staff</title>
+	  	<show-info-bar>true</show-info-bar>
+	  	<show-application-state>true</show-application-state>
+		</application>	
+  </page>
+  
+  <page>
+  	<page-id>group::organization/management/executive-board::management</page-id>
+ 		<owner-type>group</owner-type>
+    <owner-id>organization/management/executive-board</owner-id>
+    <name>management</name>
+    <title>Organization Management</title>
+    <access-permissions>*:/organization/management/executive-board</access-permissions>
+    <edit-permission>manager:/organization/management/executive-board</edit-permission>
+    
+    <application>
+      <instance-id>group#organization/managerment/executive-board:/exoadmin/OrganizationPortlet/Organization</instance-id>
+      <title>Organization Management</title>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+  </page> 
+</page-set>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node-navigation>
+  <owner-type>portal</owner-type>
+  <owner-id>classic</owner-id>
+  <priority>1</priority>
+
+  <page-nodes>
+	  <node>
+	    <uri>home</uri>
+	    <name>home</name>
+	    <label>#{portal.classic.home}</label>
+	    <page-reference>portal::classic::homepage</page-reference>	    
+	  </node>    
+	  <node>
+	    <uri>webexplorer</uri>
+	    <name>webexplorer</name>
+	    <label>#{portal.classic.webexplorer}</label>
+	    <page-reference>portal::classic::webexplorer</page-reference>	    
+	  </node>
+  </page-nodes>
+</node-navigation>

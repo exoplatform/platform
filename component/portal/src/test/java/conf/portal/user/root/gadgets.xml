@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<gadgets>
+	<owner-type>user</owner-type>
+	<owner-id>root</owner-id>
+	<container id="Calendar">
+		<name>Calendar</name>
+		<description>Calendar's Description</description>
+		<application>
+      <instance-id>user#root:/eXoGadgets/Calendar/calendar1</instance-id>
+      <application-type>eXoGadget</application-type>
+    </application>
+	</container>
+	<container id="Calculator">
+		<name>Calculator</name>
+		<description>Calculator's Description</description>
+		<application>
+      <instance-id>user#root:/eXoGadgets/Calculator/calculator1</instance-id>
+      <application-type>eXoGadget</application-type>
+    </application>
+	</container>
+	<container id="Todo">
+		<name>Todo</name>
+		<description>Todo's Description</description>
+		<application>
+      <instance-id>user#root:/eXoGadgets/Todo/todo1</instance-id>
+      <application-type>eXoGadget</application-type>
+    </application>
+	</container>
+</gadgets>

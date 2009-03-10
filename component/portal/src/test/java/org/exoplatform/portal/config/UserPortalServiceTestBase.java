@@ -70,11 +70,11 @@ abstract class UserPortalServiceTestBase extends BasicTestCase {
     
     if(user1 ==null) {
       user1 =  createUser(username1);
-      createDataUser(user1);            
+      //createDataUser(user1);            
     }    
     if(user2 ==null) {
       user2= createUser(username2) ;    
-      createDataUser(user2) ;            
+      //createDataUser(user2) ;            
     }
     
     userDefault = orgService_.getUserHandler().findUserByName(demo) ;

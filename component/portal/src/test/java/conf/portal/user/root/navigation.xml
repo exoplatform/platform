@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<node-navigation>
+  <owner-type>user</owner-type>  
+	<owner-id>root</owner-id>
+	<priority>3</priority>
+  <description>description for node navigation </description>
+  
+  <page-nodes />
+</node-navigation>
