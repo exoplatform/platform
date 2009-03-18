@@ -213,11 +213,13 @@ public class RSSParser {
       URI uri, String charset, Class<T> channelClazz, Class<E> itemClazz) throws Exception {
     try {
       return createDocument(uri.toURL(), charset, channelClazz, itemClazz);
-    }catch (MalformedURLException e) {
-      return null;
-    }catch(Exception exp){
-      File file  = new File(uri);
-      return createDocument(file, charset, channelClazz, itemClazz);
+    }catch (Exception e) {
+      try{
+        File file  = new File(uri);
+        return createDocument(file, charset, channelClazz, itemClazz);
+      }catch(Exception exp){
+        return null;
+      }
     }
   }
   
