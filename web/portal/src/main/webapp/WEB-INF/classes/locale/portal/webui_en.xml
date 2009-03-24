@@ -406,7 +406,7 @@
     <msg>
       <user-not-exist>User {0} doesn't exist</user-not-exist>
       <user-not-empty>User name can not be empty!</user-not-empty>
-      <Invalid-char>Only alpha, digit, underscore, dash and dot characters allowed for the field {0}</Invalid-char>
+      <Invalid-char>Only alpha, digit, underscore, dash, comma and dot characters allowed for the field {0}</Invalid-char>
       <duplicate-user>User {0} duplicate</duplicate-user>
       <group-not-select>Please select a group!</group-not-select>
       <membership-exist>The membership type of user {0} is already in {1} group, please select another one!</membership-exist>

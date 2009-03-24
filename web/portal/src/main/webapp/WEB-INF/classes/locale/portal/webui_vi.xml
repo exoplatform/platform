@@ -409,7 +409,7 @@
     <msg>
       <user-not-exist>Tên truy nhập này không tồn tại.</user-not-exist>
       <user-not-empty>Tên truy nhập này không được để trống!</user-not-empty>
-      <Invalid-char>Trường {0} chỉ chấp nhận các ký tự là chữ cái, chữ số, dấu gạch dưới, dấu gạch ngang và dấu chấm.</Invalid-char>
+      <Invalid-char>Giá trị trường {0} chỉ chấp nhận ký tự  là chữ cái, chữ số, dấu phẩy (,), dấu gạch ngang (-) </Invalid-char>
       <duplicate-user>Người dùng {0} bị trùng.</duplicate-user>
       <group-not-select>Xin hãy chọn một nhóm!</group-not-select>
       <membership-exist>Kiểu thành viên của người dùng này đã có trong nhóm {0}, xin hãy chọn kiểu khác!</membership-exist>
