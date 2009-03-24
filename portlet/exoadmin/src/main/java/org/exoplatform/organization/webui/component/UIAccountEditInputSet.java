@@ -53,12 +53,12 @@ public class UIAccountEditInputSet extends UIFormInputSet {
                    addValidator(ResourceValidator.class).
                    addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\-\\d]+$", "ResourceValidator.msg.Invalid-char"));
     addUIFormInput(new UIFormStringInput("firstName", "firstName", null).setMaxLength(45).
-						    	 addValidator(StringLengthValidator.class, 3, 30).
+						    	 addValidator(StringLengthValidator.class, 3, 45).
 						       addValidator(MandatoryValidator.class).
 						       addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{ASCII}]+$", "FirstCharacterNameValidator.msg").
 						       addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\- \\d]+$", "ResourceValidator.msg.Invalid-char")) ;
     addUIFormInput(new UIFormStringInput("lastName", "lastName", null).setMaxLength(45).
-    							 addValidator(StringLengthValidator.class, 3, 30).
+    							 addValidator(StringLengthValidator.class, 3, 45).
     							 addValidator(MandatoryValidator.class).
     							 addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{ASCII}]+$", "FirstCharacterNameValidator.msg").
     							 addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\- \\d]+$", "ResourceValidator.msg.Invalid-char")) ;

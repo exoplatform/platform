@@ -31,9 +31,12 @@ import org.exoplatform.webui.event.Event.Phase;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
+import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
+import org.exoplatform.webui.form.validator.ResourceValidator;
 import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
+import org.exoplatform.webui.form.validator.StringLengthValidator;
 /**
  * Created by The eXo Platform SARL
  * Author : dang.tung
@@ -61,12 +64,20 @@ public class UIAccountProfiles extends UIForm {
     UIFormStringInput userName  = new UIFormStringInput("userName","userName", username) ;
     userName.setEditable(false) ;
     addUIFormInput(userName.
-        addValidator(MandatoryValidator.class).
-        addValidator(IdentifierValidator.class)) ;
-    addUIFormInput(new UIFormStringInput("firstName", "firstName", useraccount.getFirstName()).setMaxLength(45).
-            addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
-    addUIFormInput(new UIFormStringInput("lastName", "lastName", useraccount.getLastName()).setMaxLength(45).
-            addValidator(MandatoryValidator.class).addValidator(SpecialCharacterValidator.class)) ;
+                   addValidator(MandatoryValidator.class).
+                   addValidator(StringLengthValidator.class, 3, 30).
+                   addValidator(ResourceValidator.class).
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\-\\d]+$", "ResourceValidator.msg.Invalid-char"));
+    addUIFormInput(new UIFormStringInput("firstName", "firstName", useraccount.getFirstName()).
+                   addValidator(StringLengthValidator.class, 3, 45).
+                   addValidator(MandatoryValidator.class).
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{ASCII}]+$", "FirstCharacterNameValidator.msg").
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\- \\d]+$", "ResourceValidator.msg.Invalid-char")) ;
+    addUIFormInput(new UIFormStringInput("lastName", "lastName", useraccount.getLastName()).
+                   addValidator(StringLengthValidator.class, 3, 45).
+                   addValidator(MandatoryValidator.class).
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{ASCII}]+$", "FirstCharacterNameValidator.msg").
+                   addValidator(ExpressionValidator.class, "^[\\p{L}][\\p{L}._\\- \\d]+$", "ResourceValidator.msg.Invalid-char")) ;
     addUIFormInput(new UIFormStringInput("email", "email", useraccount.getEmail()). 
             addValidator(MandatoryValidator.class).
             addValidator(EmailAddressValidator.class)) ;
