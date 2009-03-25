@@ -4,7 +4,7 @@
 <%@ page import="org.exoplatform.services.resources.ResourceBundleService"%>
 <%@ page import="java.util.ResourceBundle"%>
 <%@ page language="java" %>
-<%@ page contentType="text/html" %>
+<%@ page contentType="text/html; charset=utf-8" %>
 <%
   String userName = (String) session.getAttribute("authentication.username") ;
   request.getSession().removeAttribute("authentication.username");
