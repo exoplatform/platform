@@ -1760,7 +1760,7 @@
     </label>
     <deleteContainer>Are you sure you want to delete this Container?</deleteContainer>
     <tooltip>
-      <closeContainer>Close Container</closeContainer>
+      <closeContainer>Delete Container</closeContainer>
       <editContainer>Edit Container</editContainer>
       <drag>Drag Container here</drag>
     </tooltip>
