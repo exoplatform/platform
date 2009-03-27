@@ -16,13 +16,15 @@
 			            	String selTabId = uicomponent.getSelectedTabId() ;
 		                if(uicomponent.hasEditMode()) {
 		                	String className="NormalTab" ;
-					        		if(selTabId.equals("")) className="SelectedTab" ;
+					        		if(selTabId.equals("") || selTabId.equals("EditMode")) className="SelectedTab" ;
+					        		String actionLink = "" + uicomponent.event("SelectTab","EditMode") + "" ;
 		              %>
+		              
 				              <div class="UITab NormalTabStyle">
 				                <div class="$className">
 				                  <div class="LeftTab">
 				                    <div class="RightTab">
-						                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.hideSaveButton(this)" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', 'EditMode')"><%= _ctx.appRes("UIPortletForm.tab.label.EditMode") %></div>
+						                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.hideSaveButton(this)" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', 'EditMode');$actionLink"><%= _ctx.appRes("UIPortletForm.tab.label.EditMode") %></div>
 						                </div>
 				                  </div>
 				                </div>
@@ -35,12 +37,13 @@
 					        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
 				              String tabName = inputSet.getName() ; 
 				              tabName = _ctx.appRes(uicomponent.getId() + ".tab.label." + inputSet.getName()) ; 
+				              String actionLink = "" + uicomponent.event("SelectTab",inputSet.getId()) + "" ;
                   %>
 					              <div class="UITab NormalTabStyle">
 					                <div class="$className">
 					                  <div class="LeftTab">
 					                    <div class="RightTab">
-							                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.showSaveButton(this)" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id')">$tabName</div>
+							                  <div class="MiddleTab" onmousedown="eXo.UIPortletForm.showSaveButton(this)" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id');$actionLink">$tabName</div>
 							                </div>
 					                  </div>
 					                </div>
@@ -56,7 +59,7 @@
 	          <%
 	            if(uicomponent.hasEditMode()) {
 		            String display = "none" ;
-					      if(selTabId.equals("")) display="block" ;
+					      if(selTabId.equals("") || selTabId.equals("EditMode")) display="block" ;
 	          %>
 			          <div class="UITabContent" style="display: $display;">
 			            <div id="<%=uicomponent.getUIPortlet().getId()%>">
@@ -91,7 +94,7 @@
 		          		<%for(action in uicomponent.getActions()) { 
 								      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
 								      String link = uicomponent.event(action) ;
-								      if(uicomponent.hasEditMode() && selTabId.equals("") && action.contains("Save")) {
+								      if(uicomponent.hasEditMode() && (selTabId.equals("") || selTabId.equals("EditMode")) && action.contains("Save")) {
 					        %>
 									<div onclick="$link" class="ActionButton LightBlueStyle" style="display : none;">
 										<%} else {%>
@@ -103,7 +106,7 @@
 										  		String closeLabel = _ctx.appRes("word.close");
 										  	%>
 										    <div class="ButtonMiddle" id="$action" closeLabel="$closeLabel" cancelLabel="$actionLabel">
-									        <a href="javascript:void(0);"><%=(uicomponent.hasEditMode() && selTabId.equals("")) ? closeLabel : actionLabel%></a>
+									        <a href="javascript:void(0);"><%=(uicomponent.hasEditMode() && (selTabId.equals("") || selTabId.equals("EditMode"))) ? closeLabel : actionLabel%></a>
 										    </div>
 										    <%} else {%>
 										    <div class="ButtonMiddle" id="$action" >
