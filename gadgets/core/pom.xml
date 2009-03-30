@@ -77,7 +77,7 @@
             <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.web</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
 		<dependency>

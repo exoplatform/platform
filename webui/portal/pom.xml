@@ -8,7 +8,6 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>exo.portal.webui.portal</artifactId>
   <packaging>jar</packaging>
-  <version>${org.exoplatform.portal.version}</version>
   <name>eXo portal webui core</name>
   <url>http://www.exoplatform.org</url>
   <description>eXo portal webui core</description>
@@ -23,13 +22,13 @@
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.core</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
     </dependency>
     
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.eXo</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
     </dependency>
     
     <dependency>
@@ -41,13 +40,13 @@
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.portal</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
     </dependency>
 
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.application-registry</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
     </dependency>
     
     <dependency>
@@ -64,7 +63,7 @@
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.gadgets-core</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
     </dependency>
   </dependencies>
 </project>

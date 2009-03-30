@@ -8,7 +8,6 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>exo.portal.webui.eXo</artifactId>
   <packaging>jar</packaging>
-  <version>${org.exoplatform.portal.version}</version>
   <name>eXo portal webui eXo</name>
   <url>http://www.exoplatform.org</url>
   <description>eXo portal webui eXo</description>
@@ -17,13 +16,13 @@
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.core</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
     </dependency> 
     
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.application-registry</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
     </dependency> 
   </dependencies>
 </project>

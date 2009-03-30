@@ -8,7 +8,6 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>exo.portal.component.scripting</artifactId>
   <packaging>jar</packaging>
-  <version>${org.exoplatform.portal.version}</version>
   <name>exo.portal.component.scripting</name>
   <url>http://www.exoplatform.org</url>
   <description>Scripting Component</description>
@@ -23,7 +22,7 @@
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.xml-parser</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
     </dependency>
 
     <dependency>

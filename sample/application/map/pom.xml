@@ -17,7 +17,7 @@
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     

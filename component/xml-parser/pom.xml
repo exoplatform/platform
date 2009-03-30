@@ -8,7 +8,6 @@
   <modelVersion>4.0.0</modelVersion>
   <artifactId>exo.portal.component.xml-parser</artifactId>
   <packaging>jar</packaging>
-  <version>${org.exoplatform.portal.version}</version>
   <name>XML Parser</name>
   <description>Services  to parse  different xml format  such html ,  rss...</description>
 

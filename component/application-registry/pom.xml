@@ -9,7 +9,6 @@
   <artifactId>exo.portal.component.application-registry</artifactId>
   <name>eXo Application Registery Service</name>
   <packaging>jar</packaging> 
-  <version>${org.exoplatform.portal.version}</version>
   <description>eXo Application Registery Service</description>
 
   <dependencies>
@@ -34,7 +33,7 @@
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.portal</artifactId>
-      <version>${org.exoplatform.portal.version}</version>
+      <version>2.6-SNAPSHOT</version>
     </dependency>    
   </dependencies>
 </project>

@@ -7,7 +7,6 @@
 
   <modelVersion>4.0.0</modelVersion>
   <artifactId>exo.portal.server.jonas.patch</artifactId>
-  <version>${org.exoplatform.portal.version}</version>
   <packaging>jar</packaging>
   <name>eXo JOnAS Server</name>
   <url>http://www.exoplatform.org</url>
