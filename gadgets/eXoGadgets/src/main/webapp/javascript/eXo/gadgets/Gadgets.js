@@ -190,9 +190,12 @@ gadgets.IfrGadgetService.prototype.setHeight = function(height) {
     height = gadgets.container.maxheight_;
   }
   var element = document.getElementById(this.f);
-  if (element) {
-	  if(height <= 0) element.style.height = "auto" ;
-  	else element.style.height = height + 'px';
+  if(element.tagName.toLowerCase() == "iframe") {
+	  if(height <= 0) element.height = "auto" ;
+    else element.height = height ;
+  } else {
+  	if(height <= 0) element.style.height = "auto" ;
+    else element.style.height = height + 'px';
   }
 };
 

@@ -99,7 +99,7 @@
 			     </persister>
 			   </lock-manager>
        </workspace>
-       <workspace name="gadgets">
+				<workspace name="gadgets">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="source-name" value="jdbcexo"/>
@@ -126,26 +126,26 @@
 						  <property name="root-permissions" value="any read;*:/platform/administrators read;*:/platform/administrators add_node;*:/platform/administrators set_property;*:/platform/administrators remove"/>
 						</properties>
 					</initializer>
-					<cache enabled="true">
-					 <properties>
-					   <property name="max-size" value="20000"/>
-					   <property name="live-time" value="30000"/>
-					 </properties>
-					</cache>
-					<query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
-						<properties>
-							<property name="index-dir" value="../temp/jcrlucenedb/gadgets"/>
-						</properties>
-					</query-handler>
-					<lock-manager>
-						<time-out>15m</time-out><!-- 15min -->
-						<persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
-							<properties>
-								<property name="path" value="../temp/lock/gadgets"/>
-							</properties>
-						</persister>
-					</lock-manager>
-				</workspace>
+         <cache enabled="true">
+          <properties>
+            <property name="max-size" value="20000"/>
+            <property name="live-time" value="30000"/>
+          </properties>
+         </cache>
+         <query-handler class="org.exoplatform.services.jcr.impl.core.query.lucene.SearchIndex">
+          <properties>
+            <property name="index-dir" value="../temp/jcrlucenedb/gadgets"/>
+          </properties>
+         </query-handler>
+         <lock-manager>
+			    <time-out>15m</time-out><!-- 15min -->
+			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
+			       <properties>
+			         <property name="path" value="../temp/lock/gadgets"/>
+			       </properties>
+			     </persister>
+			   </lock-manager>
+       </workspace>       
 			</workspaces>
     </repository>
   </repositories>

@@ -1,6 +1,7 @@
 function UIUpload() {
   this.listUpload = new Array();
   this.isAutoUpload = false;
+  //this.listLimitMB = new Array();
 };
 
 UIUpload.prototype.initUploadEntry = function(uploadId, isAutoUpload) {
@@ -16,11 +17,13 @@ UIUpload.prototype.initUploadEntry = function(uploadId, isAutoUpload) {
   }
   UIUpload.isAutoUpload = isAutoUpload;
 	if(response.upload[uploadId] == undefined || response.upload[uploadId].percent == undefined) {
+		//eXo.webui.UIUpload.listLimitMB.push();
 		this.createUploadEntry(uploadId, isAutoUpload);
 	} else if(response.upload[uploadId].percent == 100)  {
 		this.showUploaded(uploadId, decodeURIComponent(response.upload[uploadId].fileName));
 	} 
 };
+
 
 UIUpload.prototype.createUploadEntry = function(uploadId, isAutoUpload) {
   var iframe = document.getElementById(uploadId+'uploadFrame');
@@ -64,7 +67,6 @@ UIUpload.prototype.refeshProgress = function(elementId) {
   }
 
   var responseText = ajaxAsyncGetRequest(url, false);
-  
   if(list.length > 0) {
     setTimeout("eXo.webui.UIUpload.refeshProgress('" + elementId + "');", 1000); 
   }
@@ -77,6 +79,11 @@ UIUpload.prototype.refeshProgress = function(elementId) {
   }
   
   for(id in response.upload) {
+  	if (response.upload[id].status == "failed") {
+  		this.abortUpload(id);
+  		alert(response.upload[id].message);
+  		continue;
+  	}
     var element = document.getElementById(id+"ProgressIframe");
     var percent  =   response.upload[id].percent;
     var container = parent.document.getElementById(elementId);

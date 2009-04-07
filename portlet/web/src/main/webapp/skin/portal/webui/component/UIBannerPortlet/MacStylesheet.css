@@ -43,6 +43,7 @@
 
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
   color: #cd0101;
+  outline: none;
 }
 
 .UIBannerPortlet .RightLoginContainer .Name {

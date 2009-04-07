@@ -95,12 +95,14 @@ public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
       if (si.getValue().equals(value_)) checked = " checked='checked'" ;
 //      if(align_ == VERTICAL_ALIGN) w.write("<div style='overflow:hidden; width: 100%'>");
       //if(align_ == VERTICAL_ALIGN) w.write("<div style='clear:both;'><span></span></div>") ;
+      if(align_ == VERTICAL_ALIGN) w.write("<div>");
       w.write("<input class='radio' type='radio'");
       if (readonly_) w.write(" readonly ");
       if (!enable_) w.write(" disabled ");
       w.write(checked); w.write(" name='"); w.write(getName()); w.write("'") ;
       w.write(" value='"); w.write(si.getValue());
       w.write("'/>");
+      w.write(" <span>");
       String label = getId() + ".label." + si.getLabel();
       try {
         label = res.getString(label);      
@@ -108,7 +110,8 @@ public class UIFormRadioBoxInput extends UIFormInputBase<String>  {
         label = si.getLabel();
       }
       w.write(label);
-      if(align_ == VERTICAL_ALIGN) w.write("<br />");
+      w.write("</span>");
+      if(align_ == VERTICAL_ALIGN) w.write("</div>");
 //      if(align_ == VERTICAL_ALIGN) w.write("</div>");
       
       if(topRender_ == 1) {

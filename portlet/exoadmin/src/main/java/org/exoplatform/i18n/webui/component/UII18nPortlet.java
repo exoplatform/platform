@@ -169,13 +169,17 @@ public class UII18nPortlet extends UIPortletApplication {
       if(name.charAt(0)!='*') name = "*"+name ;
       if(name.charAt(name.length()-1)!='*') name += "*" ;
     }
-    ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
-    lastQuery_ = new Query(name, lang) ;
-    PageList pageList = resBundleServ.findResourceDescriptions(lastQuery_) ;
-    pageList.setPageSize(10) ;
-    getChild(UIGrid.class).getUIPageIterator().setPageList(pageList) ;
-    UIPageIterator pageIterator = getChild(UIGrid.class).getUIPageIterator();
-    if(pageIterator.getAvailable() == 0 ) {
+    try{
+      ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
+      lastQuery_ = new Query(name, lang) ;
+      PageList pageList = resBundleServ.findResourceDescriptions(lastQuery_) ;
+      pageList.setPageSize(10) ;
+      getChild(UIGrid.class).getUIPageIterator().setPageList(pageList) ;
+      UIPageIterator pageIterator = getChild(UIGrid.class).getUIPageIterator();
+      if(pageIterator.getAvailable() == 0 ) {
+        throw new Exception("No results") ;
+      }
+    } catch (Exception e) {
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
       uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
     }

@@ -389,8 +389,8 @@ public class DataStorageImpl implements DataStorage, Startable {
     String registryNodePath = regService_.getRegistry(sessionProvider).getNode().getPath() ;
     generateLikeScript(builder, "jcr:path", registryNodePath + "/%") ;
     generateLikeScript(builder, DataMapper.EXO_DATA_TYPE, q.getClassType().getSimpleName()) ;
-    generateLikeScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType()) ;
-    generateLikeScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId()) ;
+    generateContainScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType()) ;
+    generateContainScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId()) ;
     generateContainScript(builder, DataMapper.EXO_NAME, q.getName()) ;
     generateContainScript(builder, DataMapper.EXO_TITLE, q.getTitle());
     Session session = regService_.getRegistry(sessionProvider).getNode().getSession() ;
@@ -427,7 +427,15 @@ public class DataStorageImpl implements DataStorage, Startable {
   }
   
   private void generateContainScript(StringBuilder sql, String name, String value){
+    
     if(value == null || value.length() < 1) return ;
+    
+    if(value.indexOf("*")<0){
+      if(value.charAt(0)!='*') value = "*"+value ;
+      if(value.charAt(value.length()-1)!='*') value += "*" ;
+    }
+    value = value.replace('?', '_') ;
+    
     if(sql.indexOf(" where") < 0) sql.append(" where "); else sql.append(" and ");
     sql.append("contains(").append(name).append(", '").append(value).append("')");
   }

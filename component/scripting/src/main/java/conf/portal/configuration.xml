@@ -4,6 +4,15 @@
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
   <component>
+    <type>org.exoplatform.groovyscript.text.TemplateStatisticService</type>
+    <init-params>
+      <value-param>
+        <name>name</name>
+        <value>false</value>
+      </value-param>
+    </init-params>
+  </component>
+  <component>
     <type>org.exoplatform.groovyscript.text.TemplateService</type>
     <init-params>
       <value-param>

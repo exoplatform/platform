@@ -49,9 +49,24 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
    */
   private boolean isAutoUpload = false;
   
+  /**
+   * The maximum size of the file to upload, in MB
+   */
+  //private int limitMB_;
+  
   public UIFormUploadInput(String name, String bindingExpression) {
     super(name, bindingExpression, String.class);
     uploadId_ = Integer.toString(Math.abs(hashCode())) ;
+    UploadService service = getApplicationComponent(UploadService.class) ;
+    service.addUploadLimit(uploadId_, null); // Use the limit set by the service. Warning, the service can allow no size limit (value to 0)
+    setComponentConfig(UIFormUploadInput.class, null) ;
+  }
+  
+  public UIFormUploadInput(String name, String bindingExpression, int limit) {
+    super(name, bindingExpression, String.class);
+    uploadId_ = Integer.toString(Math.abs(hashCode())) ;
+    UploadService service = getApplicationComponent(UploadService.class) ;
+    service.addUploadLimit(uploadId_, Integer.valueOf(limit)); // Use the limit set by constructor.
     setComponentConfig(UIFormUploadInput.class, null) ;
   }
   
@@ -105,5 +120,9 @@ public class UIFormUploadInput extends UIFormInputBase<String> {
   public boolean isAutoUpload() {return isAutoUpload; }
 
   public void setAutoUpload(boolean isAutoUpload) {this.isAutoUpload = isAutoUpload;}
+  
+//  public void setLimit(int size) { limitMB_ = size; }
+//  
+//  public int getLimit() { return limitMB_; }
 
 }

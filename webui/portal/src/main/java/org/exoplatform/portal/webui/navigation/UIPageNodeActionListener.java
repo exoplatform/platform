@@ -220,6 +220,10 @@ public class UIPageNodeActionListener {
       }
       pageNodes[0].getChildren().remove(pageNodes[1]);
       uiPageNodeSelector.selectPageNodeByUri(pageNodes[0].getUri());
+      if(pageNodes[0].getPageReference() != null) {
+        UIPage uiPage = Util.toUIPage(pageNodes[0], uiToolPanel) ;
+        uiToolPanel.setUIComponent(uiPage) ;
+      }
     }
     
   }

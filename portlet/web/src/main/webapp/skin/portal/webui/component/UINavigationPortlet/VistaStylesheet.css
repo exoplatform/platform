@@ -3,7 +3,6 @@
 }
 
 .UINavigationPortlet .UINavigationBar {
-  height: 36px;
   white-space: nowrap;
 }
 
@@ -18,6 +17,8 @@
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
   line-height: 36px;
   background: url('VistaSkin/background/NavigationPortlet.png') repeat-x top;
+  border-top: 1px solid white;
+	!background-position: center 1px;
 }
 
 .UINavigationPortlet .MiddleTab .TabLabel {

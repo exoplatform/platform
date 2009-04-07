@@ -56,7 +56,13 @@
         <name>access.control.workspace</name>
         <description>groups with memberships that have the right to access the User Control Workspace</description>
         <value>*:/platform/administrators,*:/organization/management/executive-board</value>	    
-      </value-param>           
+      </value-param>
+			<values-param>
+				<name>mandatory.groups</name>
+				<description>Groups that can not be deleted.</description>
+				<value>/platform/users</value>
+				<value>/platform/guests</value>
+			</values-param>                 
 	  </init-params>   
   </component>
   

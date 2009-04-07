@@ -50,28 +50,30 @@ import org.jibx.runtime.IUnmarshallingContext;
  */
 
 public class NewPortalConfigListener extends BaseComponentPlugin {
-  
+
   private ConfigurationManager cmanager_ ;
   private DataStorage pdcService_;  
   private List<?> configs;
   private PageTemplateConfig pageTemplateConfig_ ;
   private String defaultPortal ;
-  
+
   public NewPortalConfigListener(DataStorage pdcService,
                                  ConfigurationManager cmanager,                                        
                                  InitParams params) throws Exception {
     cmanager_ = cmanager ;
     pdcService_ = pdcService;
-    
+
     ObjectParameter objectParam = params.getObjectParam("page.templates");
     if(objectParam != null) pageTemplateConfig_ = (PageTemplateConfig) objectParam.getObject() ; 
-    
+
     defaultPortal = "classic";
     ValueParam valueParam = params.getValueParam("default.portal");
     if(valueParam != null) defaultPortal = valueParam.getValue();
     if(defaultPortal == null  || defaultPortal.trim().length() == 0) defaultPortal = "classic";       
     configs = params.getObjectParamValues(NewPortalConfig.class);
+  }
 
+  public void run() throws Exception {
     if(isInitedDB(defaultPortal)) return;
     for (Object ele : configs) {
       NewPortalConfig portalConfig  = (NewPortalConfig)ele;
@@ -85,7 +87,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       portalConfig.getPredefinedOwner().clear();
     }
   }
-  
+
   NewPortalConfig getPortalConfig(String ownerType) {
     for(Object object : configs) {
       NewPortalConfig portalConfig  = (NewPortalConfig) object;
@@ -93,12 +95,12 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     }
     return null;
   }
-  
+
   private boolean isInitedDB(String user) throws Exception {
     PortalConfig pconfig = pdcService_.getPortalConfig(user);
     return pconfig != null;
   }
-  
+
   public void initUserTypeDB(NewPortalConfig config) throws Exception {
     HashSet<String> owners = config.getPredefinedOwner();
     Iterator<String> iter  = owners.iterator();
@@ -109,7 +111,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       createGadgets(config, owner) ;
     }
   }
-  
+
   public void initGroupTypeDB(NewPortalConfig config) throws Exception {
     HashSet<String> owners = config.getPredefinedOwner();
     Iterator<String> iter  = owners.iterator();
@@ -120,7 +122,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       createPortletPreferences(config, owner);
     }
   }
-  
+
   public void initPortalTypeDB(NewPortalConfig config) throws Exception {
     HashSet<String> owners = config.getPredefinedOwner();
     Iterator<String> iter  = owners.iterator();
@@ -132,7 +134,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       createPortletPreferences(config, owner);
     }
   }
-  
+
   private void createPortalConfig(NewPortalConfig config, String owner) throws Exception {
     String xml = null;
     if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
@@ -143,7 +145,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     PortalConfig pconfig = fromXML(xml, PortalConfig.class);
     pdcService_.create(pconfig);
   }
-  
+
   private void createPage(NewPortalConfig config, String owner) throws Exception {
     String xml = null;
     if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
@@ -157,7 +159,7 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       pdcService_.create(page);
     }
   }
-  
+
   private void createPageNavigation(NewPortalConfig config, String owner) throws Exception {    
     String xml = null;
     if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
@@ -166,9 +168,14 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       xml = getTemplateConfig(config, owner, "navigation");
     }
     PageNavigation navigation = fromXML(xml, PageNavigation.class);
-    pdcService_.create(navigation);
+    if(pdcService_.getPageNavigation(navigation.getOwner()) == null) {
+      pdcService_.create(navigation);
+    }
+    else {
+      pdcService_.save(navigation);
+    }
   }
-  
+
   private void createGadgets(NewPortalConfig config, String owner) throws Exception {
     String xml = null;
     if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
@@ -181,13 +188,17 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     } else {
       xml = getTemplateConfig(config, owner, "gadgets");
     }
-    if(xml!=null) {
-      Gadgets gadgets = fromXML(xml, Gadgets.class);
+    if(xml == null) return;
+    Gadgets gadgets = fromXML(xml, Gadgets.class);
+    if(pdcService_.getGadgets(gadgets.getId()) == null) {
       pdcService_.create(gadgets);
+    }
+    else {
+      pdcService_.save(gadgets);
     }
   }
   //-------------------------------------------------------------------------------------
-  
+
   private void createPortletPreferences(NewPortalConfig config, String owner) throws Exception {
     String xml = null;
     if(config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
@@ -201,14 +212,14 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
       pdcService_.save(portlet);
     }
   } 
-  
+
   private String getDefaultConfig(NewPortalConfig portalConfig, String owner, String dataType) throws Exception {
     String ownerType = portalConfig.getOwnerType();
     String path = "/" + ownerType + "/" + owner +"/"+dataType+".xml";
     String location = portalConfig.getTemplateLocation() ;
     return IOUtil.getStreamContentAsString(cmanager_.getInputStream(location + path));
   }
-  
+
   private String getTemplateConfig(NewPortalConfig portalConfig, String owner, String dataType) throws Exception {
     String ownerType = portalConfig.getOwnerType();
     String templateLoc = portalConfig.getTemplateLocation() ;
@@ -217,28 +228,28 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
     String template = IOUtil.getStreamContentAsString(is);
     return StringUtils.replace(template, "@owner@", owner);
   }
-  
+
   public Page createPageFromTemplate(String temp) throws Exception {
     return fromXML(getTemplateConfig(temp, "page"), Page.class) ;
   }
-  
+
   public PortletPreferencesSet createPortletPreferencesFromTemplate(String temp) throws Exception {
     return fromXML(getTemplateConfig(temp, "portlet-preferences"), PortletPreferencesSet.class) ;
   }
-  
+
   private String getTemplateConfig(String name, String dataType) throws Exception {
     String path = pageTemplateConfig_.getLocation() + "/" + name + "/" + dataType + ".xml" ;
     InputStream is = cmanager_.getInputStream(path) ;
     return IOUtil.getStreamContentAsString(is) ;
   }
-  
+
   private <T> T fromXML(String xml, Class<T> clazz) throws Exception {
     ByteArrayInputStream is = new ByteArrayInputStream(xml.getBytes("UTF-8")) ;
     IBindingFactory bfact = BindingDirectory.getFactory(clazz) ;
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext() ;
     return clazz.cast(uctx.unmarshalDocument(is, "UTF-8"));
   }
-  
+
   String getDefaultPortal() { return defaultPortal; }
-  
+
 }

@@ -76,7 +76,7 @@ public class UIPortalNavigation extends UIComponent {
   
   public void processRender(WebuiRequestContext context) throws Exception {
     UIPortal uiPortal = Util.getUIPortal(); 
-    if(uiPortal.getSelectedNode() != selectedNode_){
+    if((uiPortal.getSelectedNode() != null ) && (uiPortal.getSelectedNode() != selectedNode_)){
       setSelectedPageNode(uiPortal.getSelectedNode()) ;      
     }
     super.processRender(context);

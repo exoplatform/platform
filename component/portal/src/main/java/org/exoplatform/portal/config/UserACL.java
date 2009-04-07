@@ -17,13 +17,14 @@
 package org.exoplatform.portal.config;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Collections;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.container.xml.ValueParam;
+import org.exoplatform.container.xml.ValuesParam;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -31,7 +32,6 @@ import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.services.security.Identity;
 import org.exoplatform.services.security.MembershipEntry;
-
 /**
  * Jun 27, 2006
  */
@@ -48,8 +48,10 @@ public class UserACL {
   private List<String> portalCreatorGroups_;
   private List<String> accessControlWorkspaceGroups_;
   private String navigationCreatorMembershipType_;
+  private List<String> mandatoryGroups_;
   private PortalACLPlugin portalACLPlugin;
 
+  @SuppressWarnings("unchecked")
   public UserACL(InitParams params) {
     UserACLMetaData md = new UserACLMetaData();
     ValueParam superUserParam = params.getValueParam("super.user");
@@ -62,6 +64,9 @@ public class UserACL {
     if(navCretorParam != null) md.setNavigationCreatorMembershipType(navCretorParam.getValue());
     ValueParam portalCretorGroupsParam = params.getValueParam("portal.creator.groups");
     if(portalCretorGroupsParam != null) md.setPortalCreateGroups(portalCretorGroupsParam.getValue());
+    ValuesParam mandatoryGroupsParam = params.getValuesParam("mandatory.groups");
+    if(mandatoryGroupsParam != null) mandatoryGroups_ = mandatoryGroupsParam.getValues();
+    else mandatoryGroups_ = new ArrayList<String>();
     init(md);
   }
 
@@ -297,6 +302,10 @@ public class UserACL {
       if(hasPermission(identity, ele)) return true;
     }
     return false;
+  }
+  
+  public List<String> getMandatoryGroups() {
+    return mandatoryGroups_;
   }
 
   protected boolean findMembershipByUserAndGroupAndType(String groupId, String membership) throws Exception {

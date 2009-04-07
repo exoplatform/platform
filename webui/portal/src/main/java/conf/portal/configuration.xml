@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+  <component>
+		<type>org.exoplatform.portal.application.ApplicationStatisticService</type>
+  </component>  
+
+  <component>
+		<type>org.exoplatform.portal.application.PortalStatisticService</type>
+  </component>  
+</configuration>

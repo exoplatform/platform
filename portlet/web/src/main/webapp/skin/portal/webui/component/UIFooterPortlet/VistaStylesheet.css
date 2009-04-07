@@ -1,27 +1,27 @@
 .UIFooterPortlet {
-  height: 32px ; line-height: 32px; 
+  line-height: 32px; 
   margin-top: 3px; padding-top: 3px;
 }
 
 .UIFooterPortlet .LeftFooter {
   background: url('VistaSkin/background/Footer.png') no-repeat left -32px;
   padding-left: 28px;
-  height: 32px;
+  height: 32px; /* orientation=rt */
 }
 
 .UIFooterPortlet .RightFooter {
   background: url('VistaSkin/background/Footer.png') no-repeat right -66px;
   padding-right: 28px;
-  height: 32px;
+  height: 32px; /* orientation=rt */
 }
 
 .UIFooterPortlet .RepeatFooter {
   background: url('VistaSkin/background/Footer.png') repeat-x top;
-  height: 32px;
+  height: 32px; /* orientation=rt */
 }
 
 .UIFooterPortlet .FooterInfoContainer {
-  height: 25px ;
+  height: 32px ;
 }
 
 .UIFooterPortlet .CopyrightInfo {

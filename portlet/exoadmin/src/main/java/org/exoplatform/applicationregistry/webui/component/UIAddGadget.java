@@ -35,8 +35,6 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.URLValidator;
 
-import com.mysql.jdbc.Util;
-
 /**
  * Created by The eXo Platform SAS
  * Author : Pham Thanh Tung

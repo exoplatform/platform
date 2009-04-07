@@ -5,6 +5,7 @@
 package org.exoplatform.application.registry.jcr;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -68,8 +69,8 @@ public class DataMapper {
     category.setName(root.getAttribute(CATEGORY_NAME)) ;
     category.setDisplayName(root.getAttribute(DISPLAY_NAME)) ;
     category.setDescription(root.getAttribute(DESCRIPTION)) ;
-    category.setCreatedDate(dateFormat.parse(root.getAttribute(CREATED_DATE))) ;
-    category.setModifiedDate(dateFormat.parse(root.getAttribute(MODIFIED_DATE))) ;
+    category.setCreatedDate(parse(root.getAttribute(CREATED_DATE))) ;
+    category.setModifiedDate(parse(root.getAttribute(MODIFIED_DATE))) ;
     category.setAccessPermissions(fromMultiValue(root.getAttribute(CATEGORY_ACCESS_PERMISSTION))) ;
     return category ;
   }
@@ -105,11 +106,15 @@ public class DataMapper {
     application.setDescription(root.getAttribute(DESCRIPTION)) ;
     application.setCategoryName(root.getAttribute(APPLICATION_CATEGORY_NAME)) ;
     application.setMinWidthResolution(Integer.parseInt(root.getAttribute(APPLICATION_MIN_WITH_RESOLUTION))) ;
-    application.setCreatedDate(dateFormat.parse(root.getAttribute(CREATED_DATE))) ;
-    application.setModifiedDate(dateFormat.parse(root.getAttribute(MODIFIED_DATE))) ;
+    application.setCreatedDate(parse(root.getAttribute(CREATED_DATE))) ;
+    application.setModifiedDate(parse(root.getAttribute(MODIFIED_DATE))) ;
     application.setAccessPermissions(fromMultiValue(root.getAttribute(APPLICATION_ACCESS_PERMISSTION))) ;
     
     return application ;
+  }
+  
+  private synchronized Date parse(String dateString) throws ParseException {
+    return dateFormat.parse(dateString) ;
   }
   
   private String toMultiValue(List<String> list) {

@@ -6,7 +6,6 @@
 				<div class="AdImageRight">
 					<div class="EmptyBlock"><span></span></div>
 					<div class="ProductSlogan"><%=_ctx.appRes("UIHomePagePortlet.Label.Slogan")%></div>
-					<div class="ProductIntro"><%=_ctx.appRes("UIHomePagePortlet.Label.Intro")%></div>
 				</div>
 			</div>
 		</div>

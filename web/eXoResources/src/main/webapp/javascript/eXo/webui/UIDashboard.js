@@ -185,9 +185,7 @@ eXo.webui.UIDashboard = {
 				uiTarget = null; 
 			}
 			dragObj.style.position = "static";
-			if(eXo.core.DOMUtil.hasClass(dragObj, "Dragging")) {
-				eXo.core.DOMUtil.replaceClass(dragObj," Dragging","");
-			}
+			eXo.core.DOMUtil.removeClass(dragObj,"Dragging");
 
 			var dragCopyObj = eXo.core.DOMUtil.findFirstDescendantByClass(portletFragment, "div", "CopyObj");
 			if(dragCopyObj) {

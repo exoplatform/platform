@@ -10,7 +10,6 @@
 }
 
 .UINavigationPortlet .UINavigationBar {
-  height: 33px;
   white-space: nowrap;
 }
 
@@ -28,6 +27,8 @@
   background: url('DefaultSkin/background/Navigation.gif') repeat-x top center;
   padding-left: 3px; /* orientation=lt */
   padding-right: 3px; /* orientation=rt */
+  border-top: 1px solid white;
+	!background-position: center 1px;
 }
 
 .UINavigationPortlet .UITab a.TabLabel {

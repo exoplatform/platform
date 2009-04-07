@@ -182,8 +182,8 @@
   line-height: 24px;
   background: url('background/NavigationTab.png') repeat-x left -48px;
   cursor: pointer;
-  padding: 0px 4px 0px 4px;
-  _width: 80px; /* orientation=rt */
+  padding: 0px 8px;
+  text-align: right; /* orientation=rt */
   white-space: nowrap; /* orientation=rt */
 }
 
@@ -240,8 +240,8 @@
   line-height: 24px;
   background: url('background/NavigationTab.png') repeat-x bottom;
   cursor: pointer;
-  padding: 0px 4px;
-  _width: 80px; /* orientation=rt */
+  padding: 0px 8px;
+  text-align: right; /* orientation=rt */
   white-space: nowrap; /* orientation=rt */
 }
 

@@ -23,6 +23,7 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 	if (dropDownAnchor) {
 		if (dropDownAnchor.style.display == "none") {
 			dropDownAnchor.style.display = "block" ;
+			dropDownAnchor.style.visibility = "visible" ;
 			var middleCont = DOMUtil.findFirstDescendantByClass(dropDownAnchor, "div", "MiddleItemContainer") ;
 			var topCont = DOMUtil.findPreviousElementByTagName(middleCont, "div") ;
 			var bottomCont = DOMUtil.findNextElementByTagName(middleCont, "div") ;
@@ -50,7 +51,10 @@ UIDropDownControl.prototype.show = function(obj, evt) {
 			}
 			DOMUtil.listHideElements(dropDownAnchor) ;
 		}
-		else dropDownAnchor.style.display = "none" ;
+		else {
+			dropDownAnchor.style.display = "none" ;
+			dropDownAnchor.style.visibility = "hidden" ;
+		}
 	}
 	
 } ;

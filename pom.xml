@@ -160,11 +160,11 @@
       </activation>
       <properties>
         <exo.platform.version>2.6</exo.platform.version>
-        <org.exoplatform.kernel.version>2.1</org.exoplatform.kernel.version>
-        <org.exoplatform.core.version>2.2</org.exoplatform.core.version>
-    	<org.exoplatform.ws.version>2.0</org.exoplatform.ws.version>
-        <org.exoplatform.jcr.version>1.11</org.exoplatform.jcr.version>
-        <org.exoplatform.pc.version>2.1</org.exoplatform.pc.version>
+        <org.exoplatform.kernel.version>2.1.1-SNAPSHOT</org.exoplatform.kernel.version>
+        <org.exoplatform.core.version>2.2.1-SNAPSHOT</org.exoplatform.core.version>
+    	<org.exoplatform.ws.version>2.0.1-SNAPSHOT</org.exoplatform.ws.version>
+        <org.exoplatform.jcr.version>1.11.1-SNAPSHOT</org.exoplatform.jcr.version>
+        <org.exoplatform.pc.version>2.1.1-SNAPSHOT</org.exoplatform.pc.version>
         <org.exoplatform.portal.version>2.6-SNAPSHOT</org.exoplatform.portal.version>
     	<org.shindig.version>0.8.1-1-r719456</org.shindig.version>
       </properties>

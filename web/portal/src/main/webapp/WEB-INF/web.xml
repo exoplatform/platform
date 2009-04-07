@@ -6,7 +6,7 @@
   
   <context-param>
     <param-name>org.exoplatform.frameworks.jcr.command.web.fckeditor.digitalAssetsWorkspace</param-name>
-    <param-value>collaboration</param-value>
+    <param-value>portal</param-value>
     <description>Binary assets workspace name</description>
   </context-param>
 

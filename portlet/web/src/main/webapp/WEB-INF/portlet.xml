@@ -287,33 +287,6 @@
     </portlet-preferences>
     
   </portlet>
-  
-  <portlet>
-    <description xml:lang="EN">FCK Editor Sample Portlet</description>
-    <portlet-name>FCKEditorPortlet</portlet-name>
-    <display-name xml:lang="EN">FCK Editor Portlet</display-name>
-    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>    
-    
-    <init-param>
-      <name>webui.configuration</name>
-      <value>/WEB-INF/conf/portlet/web/FCKEditorPortlet/webui/configuration.xml</value>
-    </init-param>    
-
-    <expiration-cache>0</expiration-cache>
-    <supports>
-      <mime-type>text/html</mime-type>
-      <portlet-mode>help</portlet-mode>
-    </supports>
-    <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.web.GroovyPortlet</resource-bundle>
-    
-    <portlet-info>
-      <title>FCK Editor Portlet</title>
-      <short-title>FCK Editor Portlet</short-title>
-      <keywords>fck editor</keywords>
-    </portlet-info>     
-
-  </portlet>
 
   <!--event-definition>
     <name>MyEventPub</name>

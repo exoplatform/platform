@@ -14,7 +14,7 @@
 }
 
 .UIBannerPortlet .MiddleBanner{
-  height: 74px;
+  height: 73px;
 }
 
 .UIBannerPortlet .MiddleBannerSignin {
@@ -46,6 +46,7 @@
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
   font-weight: bold;
   color: #5098EB;
+  outline: none;
 }
 
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer a:hover {

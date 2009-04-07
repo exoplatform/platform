@@ -104,12 +104,11 @@ public class Lifecycle {
     }    
     
     try {
-      Template groovyTemplate = service.getTemplate(template, resolver) ;
       if(bcontext.getWriter() instanceof HtmlValidator) {
         HtmlValidator validator = (HtmlValidator) bcontext.getWriter();
         validator.startComponent();
       }
-      service.merge(groovyTemplate, bcontext) ;     
+      service.merge(template, bcontext) ;     
       if(bcontext.getWriter() instanceof HtmlValidator) {
         HtmlValidator validator = (HtmlValidator) bcontext.getWriter();
         validator.endComponent();

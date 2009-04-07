@@ -47,6 +47,7 @@
 					            String title = portletTitle;
 					            if(uicomponent.getId() !=null) title = uicomponent.getId() ;
 					            if(uicomponent.getTitle() !=null) title = uicomponent.getTitle() ;
+					            if(title.length() > 30) title = title.substring(0,27) + "..." ;
 					          %>
 					          <div class="Icon $portletIcon WindowPortletIcon NovaPortletIcon"><span></span></div>
 			              <div class="Title">$title</div>

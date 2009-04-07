@@ -172,12 +172,8 @@ public class UIPageEditWizard extends UIPageWizard {
       if(pageNode.getPageReference() != null) {
         page = configService.getPage(pageNode.getPageReference(), pcontext.getRemoteUser()) ;
       }
-      if(page == null) {
-        uiWizard.viewStep(1) ;
-        return ;
-      }
-
-      if(!page.isModifiable()) {
+      
+      if(page == null || !page.isModifiable()) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageEditWizard.msg.Invalid-editPermission", null)) ;
         uiWizard.viewStep(1);
         return ;

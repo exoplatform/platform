@@ -18,6 +18,7 @@ package org.exoplatform.dashboard.webui.component;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.application.registry.Application;
@@ -64,15 +65,15 @@ public class UIDashboardSelectContainer extends UIContainer {
         .getRemoteUser();
     List<ApplicationCategory> listCategories = service.getApplicationCategories(remoteUser,
         org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
-
-    for (int i = 0; i < listCategories.size(); i++) {
-      ApplicationCategory cate = listCategories.get(i);
+    
+    Iterator<ApplicationCategory> appCateIte = listCategories.iterator() ;
+    while(appCateIte.hasNext()) {
+      ApplicationCategory cate = appCateIte.next() ;
       List<Application> listGadgets = cate.getApplications();
-      if (listGadgets == null || listGadgets.size() == 0) {
-        listCategories.remove(i);
-        i--;
+      if(listGadgets == null || listGadgets.size() == 0) {
+        appCateIte.remove() ;
+        continue;
       }
-      cate.setApplications(listGadgets) ;
     }
     Collections.sort(listCategories, new Comparator<ApplicationCategory>() {
         public int compare(ApplicationCategory cate1, ApplicationCategory cate2) {

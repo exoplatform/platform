@@ -96,7 +96,15 @@ public class UIPortalComponentActionListener {
       String id  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);      
       UIComponent uiComponent = event.getSource();
       UIPortalComponent uiParent = (UIPortalComponent)uiComponent.getParent();
-      UIComponent uiRemoveComponent = uiParent.removeChildById(id);
+      UIComponent uiRemoveComponent = uiParent.findComponentById(id) ;
+      if(uiRemoveComponent.findFirstComponentOfType(UIPageBody.class) != null) {
+        Util.getUIPortalApplication().addMessage(new ApplicationMessage("UIPortalApplication.msg.deletePageBody", 
+                           new Object[]{}, ApplicationMessage.WARNING)) ;
+        event.getRequestContext().addUIComponentToUpdateByAjax(Util.getUIPortalApplication().getUIPopupMessages()) ;
+        return;
+      }
+      
+      uiParent.removeChildById(id);
       UIPage uiPage = uiParent.getAncestorOfType(UIPage.class);
       if(uiPage != null && uiPage.getMaximizedUIPortlet() != null) {
         if(id.equals(uiPage.getMaximizedUIPortlet().getId())) {

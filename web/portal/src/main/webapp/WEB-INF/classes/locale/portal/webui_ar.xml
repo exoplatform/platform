@@ -236,7 +236,7 @@
   </IdentifierValidator>
   <!--
   #############################################################################
-  #                             UIChangeLanguage				                      #
+  #                             UIChangeLanguage                              #
   #############################################################################
   -->
   <UIChangeLanguage>
@@ -290,7 +290,7 @@
   </Skin>
   <!--
   #############################################################################
-  #    org.exoplatform.portal.component.customization.UIChangePortal				  #
+  #    org.exoplatform.portal.component.customization.UIChangePortal          #
   #############################################################################
   -->
   <UIChangePortal>
@@ -348,7 +348,7 @@
   </AdminAccount>
   <!--
   #############################################################################
-  #              Name String Validator		                            #
+  #              Name String Validator                                #
   #############################################################################
   #class org.exoplatform.webui.form.validator.Validator.NameValidator
   #{0}=input field name
@@ -406,7 +406,7 @@
       <user-not-exist>المستخدم "(0)" لا وجود له</user-not-exist>
       <user-not-empty>اسم المستخدم لا يمكن أن يكون فارغا</user-not-empty>
       <Invalid-char>الميدان"(0)" يسمح: حروف، أرقام، التشديد على نقطة فقط والتأكيد على اندفاعة</Invalid-char>
-      <duplicate-user>المستخدم "(0)" متكرر</duplicate-user>
+      <duplicate-user>Some users is duplicated. Please re-check it!</duplicate-user>
       <group-not-select>!الرجاء اختيار مجموعة</group-not-select>
       <membership-exist>!نوع العضوية للمستخدم "(0)"  موجود في المجموعة "(1)"، يرجى اختيار واحد آخر</membership-exist>
     </msg>
@@ -534,26 +534,15 @@
       <pageEditWizard>معالج تحرير الصفحة</pageEditWizard>
     </title>
     <content>
-      <pageManagement><![CDATA[<strong>:إدارة الصفحات</strong><br/>.كل الصفحات الموجودة منظمة في القائمة مع معلومات أساسية<br/>يمكن للمستخدم المعاينة صفحة العادية فقط
-,</br/>.تعديل أو حذف الصفحة إذا لديك الحق <br/>	يمكن للمستخدم البحث عن الصفحة ب<em>نوع المالك</em> (portal/group/user), ب <em>تعريف المالك</em>  (اسم نوع المالك) 
-<em>اسم الصفحة </em><br/>.لإنشاء صفحة جديدة ، انقر على زر "أضف صفحة جديدة" وادخل المجالات اللازمة ]]></pageManagement>
-      <portalManagement><![CDATA[<strong>:إدارة بوابات</strong><br/>هذه قائمة جميع البوابات. لخلق جديد ، انقر على زر "إنشاء بوابة جديدة"  وادخل المجالات اللازمة 
-<br/>يمكن للمستخدم حذف من القائمة أو إنشاء بوابة  إذا كان لديه الحق.]]></portalManagement>
+      <pageManagement><![CDATA[<strong>:إدارة الصفحات</strong><br/>.كل الصفحات الموجودة منظمة في القائمة مع معلومات أساسية<br/>يمكن للمستخدم المعاينة صفحة العادية فقط,</br/>.تعديل أو حذف الصفحة إذا لديك الحق <br/>يمكن للمستخدم البحث عن الصفحة ب<em>نوع المالك</em> (portal/group/user), ب <em>تعريف المالك</em>  (اسم نوع المالك)<em>اسم الصفحة </em><br/>.لإنشاء صفحة جديدة ، انقر على زر "أضف صفحة جديدة" وادخل المجالات اللازمة ]]></pageManagement>
+      <portalManagement><![CDATA[<strong>:إدارة بوابات</strong><br/>هذه قائمة جميع البوابات. لخلق جديد ، انقر على زر "إنشاء بوابة جديدة"  وادخل المجالات اللازمة <br/>يمكن للمستخدم حذف من القائمة أو إنشاء بوابة  إذا كان لديه الحق.]]></portalManagement>
       <pageWizard>حذف</pageWizard>
-      <pageWizard2><![CDATA[<strong>.الخطوة 1 : تحديد صفحة, يتضمن معلومات مسار الصفحة ، اسم العقدة ، اسم المشاهدة</strong><br/>:افعل ما يلي<br/>اختر التصفح من القائمة- <br/>اختر صفحة لإنشاء صفحة فرعية من صفحة مختارة-<br/>مدخلات-<em>اسم العقدة</em><br/>مدخلات-<em>اسم العرض</em> (الخيار)<br/>فحص-<em>مرئية</em> فحص المربع  خيار<br/>فحص- <em>تاريخ ووقت النشر</em> فحص المربع  خيار<br/>&nbsp;&nbsp;إذا<em>تاريخ ووقت النشر</em>:تأكد من اختيار المربع<br/>&nbsp;&nbsp;مدخلات-<em>بدأ تاريخ النشر
-	</em><br/>&nbsp;&nbsp;مدخلات-<em>تاريخ  نهاية النشر</em><br/>انقر فوق "التالي" للانتقال الى الخطوة التالية]]></pageWizard2>
-      <pageWizard3><![CDATA[<strong>.الخطوة 2 : وضع تصميم الصفحة</strong><br/>:افعل ما يلي<br/>اختر واحدة من التصاميم المتوفرة من القائمة-<br/>
-- انقر فوق "التالي" للانتقال الى الخطوة التالية ، أو "رجوع" للعودة الى الخطوة السابقة
-]]></pageWizard3>
+      <pageWizard2><![CDATA[<strong>.الخطوة 1 : تحديد صفحة, يتضمن معلومات مسار الصفحة ، اسم العقدة ، اسم المشاهدة</strong><br/>:افعل ما يلي<br/>اختر التصفح من القائمة- <br/>اختر صفحة لإنشاء صفحة فرعية من صفحة مختارة-<br/>مدخلات-<em>اسم العقدة</em><br/>مدخلات-<em>اسم العرض</em> (الخيار)<br/>فحص-<em>مرئية</em> فحص المربع  خيار<br/>فحص- <em>تاريخ ووقت النشر</em> فحص المربع  خيار<br/>&nbsp;&nbsp;إذا<em>تاريخ ووقت النشر</em>:تأكد من اختيار المربع<br/>&nbsp;&nbsp;مدخلات-<em>بدأ تاريخ النشر</em><br/>&nbsp;&nbsp;مدخلات-<em>تاريخ  نهاية النشر</em><br/>انقر فوق "التالي" للانتقال الى الخطوة التالية]]></pageWizard2>
+      <pageWizard3><![CDATA[<strong>.الخطوة 2 : وضع تصميم الصفحة</strong><br/>:افعل ما يلي<br/>اختر واحدة من التصاميم المتوفرة من القائمة-<br/>- انقر فوق "التالي" للانتقال الى الخطوة التالية ، أو "رجوع" للعودة الى الخطوة السابقة]]></pageWizard3>
       <pageEditWizard><![CDATA[وصف معالج تحرير صفحة <br/>.الدليل هنا]]></pageEditWizard>
-      <pageEditWizard1><![CDATA[<strong>:الخطوة 1 : يسمح لتغيير اسم عرض الصفحة</strong><br/>:افعل ما يلي<br/>اختر التصفح من القائمة-
-<br/>حدد الصفحة التي تريد تحريرها-<br/>تغيير-<em>اسم العرض</em> إذا لزم الأمر<br/>تحديد أو تجاهل-<em>مرئية</em>بواسطة فحص أو إلغاء فحص المربع<br/>تحديد أو تجاهل- <em>تاريخ ووقت النشر</em> بواسطة فحص أو إلغاء فحص المربع<br/>&nbsp;&nbsp;إذا <em>تاريخ ووقت النشر</em>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;تغيير- <em>	تاريخ بدأ النشر</em> إذا <br/>&nbsp;&nbsp;&nbsp;&nbsp;تغيير-<em>	 تاريخ نهاية النشر</em>إذا<br/>انقر فوق "التالي" للانتقال الى الخطوة التالية-]]></pageEditWizard1>
-      <pageEditWizard2><![CDATA[<strong>.الخطوة 2 : إعادة تحديد نسق الصفحة</strong><br/>:افعل ما يلي<br/>اختر صفحة جديدة أو الإبقاء على الشكل الحالي-<br/>
-- انقر فوق "التالي" للانتقال الى الخطوة التالية ، أو "رجوع" للعودة الى الخطوة السابقة
-]]></pageEditWizard2>
-      <pageEditWizard3><![CDATA[<strong>.الخطوة 2 : إعادة تحديد نسق الصفحة</strong><br/>:افعل ما يلي<br/>اختر صفحة جديدة أو الإبقاء على الشكل الحالي-<br/>
-- انقر فوق "التالي" للانتقال الى الخطوة التالية ، أو "رجوع" للعودة الى الخطوة السابقة
-]]></pageEditWizard3>
+      <pageEditWizard1><![CDATA[<strong>:الخطوة 1 : يسمح لتغيير اسم عرض الصفحة</strong><br/>:افعل ما يلي<br/>اختر التصفح من القائمة-<br/>حدد الصفحة التي تريد تحريرها-<br/>تغيير-<em>اسم العرض</em> إذا لزم الأمر<br/>تحديد أو تجاهل-<em>مرئية</em>بواسطة فحص أو إلغاء فحص المربع<br/>تحديد أو تجاهل- <em>تاريخ ووقت النشر</em> بواسطة فحص أو إلغاء فحص المربع<br/>&nbsp;&nbsp;إذا <em>تاريخ ووقت النشر</em>:<br/>&nbsp;&nbsp;&nbsp;&nbsp;تغيير- <em> تاريخ بدأ النشر</em> إذا <br/>&nbsp;&nbsp;&nbsp;&nbsp;تغيير-<em>   تاريخ نهاية النشر</em>إذا<br/>انقر فوق "التالي" للانتقال الى الخطوة التالية-]]></pageEditWizard1>
+      <pageEditWizard2><![CDATA[<strong>.الخطوة 2 : إعادة تحديد نسق الصفحة</strong><br/>:افعل ما يلي<br/>اختر صفحة جديدة أو الإبقاء على الشكل الحالي-<br/>- انقر فوق "التالي" للانتقال الى الخطوة التالية ، أو "رجوع" للعودة الى الخطوة السابقة]]></pageEditWizard2>
+      <pageEditWizard3><![CDATA[<strong>.الخطوة 2 : إعادة تحديد نسق الصفحة</strong><br/>:افعل ما يلي<br/>اختر صفحة جديدة أو الإبقاء على الشكل الحالي-<br/>- انقر فوق "التالي" للانتقال الى الخطوة التالية ، أو "رجوع" للعودة الى الخطوة السابقة]]></pageEditWizard3>
     </content>
   </UIDescription>
   <!--
@@ -930,6 +919,9 @@
       <Loading>...تحميل</Loading>
       <Abort>الغاء</Abort>
     </label>
+    <msg>
+      <deletePageBody>This component contains PageBody. Can not delete !</deletePageBody>
+    </msg>
   </UIPortalApplication>
   <!--
   #############################################################################
@@ -1072,7 +1064,7 @@
   </UIFormInputDecoratorSelector>
   <!--
   #############################################################################
-  #    org.exoplatform.webui.core.UIWizard				          #
+  #    org.exoplatform.webui.core.UIWizard                  #
   #############################################################################
   -->
   <UIPageWizardHelp>
@@ -1150,7 +1142,7 @@
       <abort>#{word.abort}</abort>
     </label>
     <msg>
-      <selectStep2>	في المرة الأولى ، يجب أن تمر بالخطوة 2</selectStep2>
+      <selectStep2> في المرة الأولى ، يجب أن تمر بالخطوة 2</selectStep2>
       <notSelectedPageNavigation>عدم اختيار التصفح الصفحة</notSelectedPageNavigation>
       <notSelectedPage>!عدم اختيار الصفحة</notSelectedPage>
       <Invalid-editPermission>لم يتم العثور على هذه الصفحة أو لم يكن لديك الحق في تعديل</Invalid-editPermission>
@@ -1417,11 +1409,11 @@
   #############################################################################
   -->
   <PortletMode>
-  	<label>
-  		<help>Help</help>
-  		<view>عرض</view>
-  		<edit>تحرير</edit>
-  	</label>
+    <label>
+      <help>Help</help>
+      <view>عرض</view>
+      <edit>تحرير</edit>
+    </label>
   </PortletMode>
   <!--
   #############################################################################
@@ -1521,7 +1513,7 @@
   </UIPageManagementEditBar>
   <!--
   #############################################################################
-  #org.exoplatform.webui.core.UIPageIterator															#
+  #org.exoplatform.webui.core.UIPageIterator                              #
   #############################################################################
   -->
   <UIPageIterator>
@@ -1569,7 +1561,7 @@
       </title>
     </action>
     <msg>
-      <Invalid-viewPermission>	البوابة لا تسمح الدخول</Invalid-viewPermission>
+      <Invalid-viewPermission>  البوابة لا تسمح الدخول</Invalid-viewPermission>
       <PortalInUse>.البوابة (0) مستخدمة</PortalInUse>
       <Invalid-deletePermission>.(ليس لديك الحق في حذف البوابة (0</Invalid-deletePermission>
       <Invalid-createPermission>.ليس لديك الحق في إنشاء بوابة جديدة. الرجاء الاتصال بمخطط النظام</Invalid-createPermission>
@@ -1600,7 +1592,7 @@
   </UIPageEditor>
   <!--
   ############################################################################
-  #   			org.exoplatform.webui.form.UIPopupWindow                    #
+  #         org.exoplatform.webui.form.UIPopupWindow                    #
   ############################################################################
   -->
   <PopupPageSelector>
@@ -1616,7 +1608,7 @@
   </UIControWSPopupWindow>
   <!--
   ############################################################################
-  #   			org.exoplatform.portal.component.widget.UILogged                 #
+  #         org.exoplatform.portal.component.widget.UILogged                 #
   ############################################################################
   -->
   <UILogged>
@@ -1647,7 +1639,7 @@
   </UILogged>
   <!--
   ############################################################################
-  #   			org.exoplatform.portal.component.widget.UILoginForm              #
+  #         org.exoplatform.portal.component.widget.UILoginForm              #
   ############################################################################
   -->
   <UIPortalComponentLogin>
@@ -1665,36 +1657,36 @@
     <info><![CDATA[نعتذر عن الإزعاج  من جراء عدم قدرتهم على الحصول على إكزو.<br/>لحل هذه المسألة بأسرع ما يمكن ، يرجى اتباع الخطوات التالية لاستكشاف الأخطاء وإصلاحها<br/>اتبع التعليمات بالضبط للحصول على أفضل النتائج :<br/><br/>1. استعادة كلمة السر :أدخل اسم المستخدم الخاص بك ثم انقر فوق إرسال<br/>2. استعادة اسم المستخدم : أدخل عنوان البريد الإلكتروني الخاص بك ثم انقر فوق إرسال]]></info>
     <label>
       <forgotpassword>نسيت كلمة السر</forgotpassword>
-  	  <forgotusername>نسيت اسم المستخدم</forgotusername>
+      <forgotusername>نسيت اسم المستخدم</forgotusername>
     </label>
   </UIForgetPasswordWizard>
   <!--
   ############################################################################
-  #   			org.exoplatform.webui.portal.UIForgetPassword & UIResetPassword  #
+  #         org.exoplatform.webui.portal.UIForgetPassword & UIResetPassword  #
   ############################################################################
   -->
   <UIForgetPassword>
     <title>نسيت اسم المستخدم / كلمة السر؟</title>
-	<action>
-		<Send>إرسل</Send>
-		<Back>رجوع</Back>
-	</action>
-	<label>
-		<username>اسم المستخدم</username>
-		<email>البريد الالكتروني</email>
-	</label>
-	<msg>
-		<user-delete>اسم المستخدم تم حذفه من قبل مخطط النظام</user-delete>
-		<user-not-exist>اسم مستخدمك لا وجود له في إكزو</user-not-exist>
-		<expration>وصلتك انتهت, عليك الحصول على رسالة بريد إلكتروني		أخرى لتجديدها</expration>
-	</msg>
-	<mail>
-		<header>شكرا على اتصالك مركزالمساعدة لبوابة إكزو. لقد قدمت طلبا لاسم المستخدم وكلمة السر</header>
-		<footer>شكرا لك, مركزالمساعدة لبوابة إكزو</footer>
-		<user>اسم المستخدم لحسابك هو</user>
-		<password>كلمة السر لحسابك هو</password>
-		<link>يمكنك بعد ذلك طلب كلمة سر جديدة لاسم المستخدم الرجاء الضغط على هذه الوصلة</link>
-	</mail>
+  <action>
+    <Send>إرسل</Send>
+    <Back>رجوع</Back>
+  </action>
+  <label>
+    <username>اسم المستخدم</username>
+    <email>البريد الالكتروني</email>
+  </label>
+  <msg>
+    <user-delete>اسم المستخدم تم حذفه من قبل مخطط النظام</user-delete>
+    <user-not-exist>اسم مستخدمك لا وجود له في إكزو</user-not-exist>
+    <expration>وصلتك انتهت, عليك الحصول على رسالة بريد إلكتروني   أخرى لتجديدها</expration>
+  </msg>
+  <mail>
+    <header>شكرا على اتصالك مركزالمساعدة لبوابة إكزو. لقد قدمت طلبا لاسم المستخدم وكلمة السر</header>
+    <footer>شكرا لك, مركزالمساعدة لبوابة إكزو</footer>
+    <user>اسم المستخدم لحسابك هو</user>
+    <password>كلمة السر لحسابك هو</password>
+    <link>يمكنك بعد ذلك طلب كلمة سر جديدة لاسم المستخدم الرجاء الضغط على هذه الوصلة</link>
+  </mail>
   </UIForgetPassword>
   <UIResetPassword>
     <title>تغيير كلمة السر</title>
@@ -1716,7 +1708,7 @@
   </UIResetPassword>
   <!--
   ############################################################################
-  #   			   org.exoplatform.webui.core.UIPopupMessages               #
+  #            org.exoplatform.webui.core.UIPopupMessages               #
   ############################################################################
   -->
   <UIPopupMessages>
@@ -1727,10 +1719,15 @@
       <ok>نعم</ok>
     </button>
     <Close>Close Window</Close>
+    <label>
+      <Info>Information</Info>
+      <Warning>Warning</Warning>
+      <Error>Error</Error>
+    </label>
   </UIPopupMessages>
   <!--
   ############################################################################
-  #   			 org.exoplatform.portal.webui.component.UISitemapPortlet         #
+  #          org.exoplatform.portal.webui.component.UISitemapPortlet         #
   ############################################################################
   -->
   <UISitemap>
@@ -1740,7 +1737,7 @@
   </UISitemap>
   <!--
   ############################################################################
-  #		  org.exoplatform.portal.component.customization.UIPortalToolPanel     #
+  #     org.exoplatform.portal.component.customization.UIPortalToolPanel     #
   ############################################################################
   -->
   <UIPortalToolPanel>
@@ -1751,7 +1748,7 @@
   </UIPortalToolPanel>
   <!--
   ############################################################################
-  #		            org.exoplatform.portal.component.view.UIContainer          #
+  #               org.exoplatform.portal.component.view.UIContainer          #
   ############################################################################
   -->
   <UIContainer>
@@ -1771,7 +1768,7 @@
   </UIContainer>
   <!--
   ############################################################################
-  #		            org.exoplatform.portal.component.view.UIPage               #
+  #               org.exoplatform.portal.component.view.UIPage               #
   ############################################################################
   -->
   <UIPage>
@@ -1788,7 +1785,7 @@
   </UIPage>
   <!--
   ############################################################################
-  #		            org.exoplatform.portal.component.view.UIPageDesktop        #
+  #               org.exoplatform.portal.component.view.UIPageDesktop        #
   ############################################################################
   -->
   <UIPageDesktop>
@@ -1838,7 +1835,7 @@
   </UIPageDesktop>
   <!--
   ############################################################################
-  #		          org.exoplatform.portal.component.view.UIPageBody             #
+  #             org.exoplatform.portal.component.view.UIPageBody             #
   ############################################################################
   -->
   <UIPageBody>
@@ -1855,7 +1852,7 @@
   </UIPageBody>
   <!--
   ############################################################################
-  #		           org.exoplatform.portal.component.view.UIPortal              #
+  #              org.exoplatform.portal.component.view.UIPortal              #
   ############################################################################
   -->
   <UIPortal>
@@ -1866,7 +1863,7 @@
   </UIPortal>
   <!--
   ############################################################################
-  #		           org.exoplatform.portal.component.view.UITableColumnContainer#
+  #              org.exoplatform.portal.component.view.UITableColumnContainer#
   ############################################################################
   -->
   <UITableColumnContainer>
@@ -1877,7 +1874,7 @@
   </UITableColumnContainer>
   <!--
   ############################################################################
-  #		           org.exoplatform.portal.component.control.UIExoStart         #
+  #              org.exoplatform.portal.component.control.UIExoStart         #
   ############################################################################
   -->
   <UIExoStart>
@@ -1924,7 +1921,7 @@
   </UIExoStart>
   <!--
   ###############################################################################
-  #                    org.exoplatform.portal.webui.component.UISearchForm  		#
+  #                    org.exoplatform.portal.webui.component.UISearchForm      #
   ###############################################################################
   -->
   <UISearch>
@@ -1988,6 +1985,7 @@
     <msg>
       <Edit>!يجب ان تختار مجموعة</Edit>
       <Delete>!لا يمكنك حذف هذه المجموعة لأنها تستخدم من قبل برنامج آخر</Delete>
+      <DeleteMandatory>You can't delete this group because it (or its child) is mandatory!</DeleteMandatory>
     </msg>
   </UIGroupManagement>
   <!--
@@ -2065,7 +2063,7 @@
   </FactoryId>
   <!--
   ################################################################################
-  #		org.exoplatform.portal.webui.application.UIWidgets
+  #   org.exoplatform.portal.webui.application.UIWidgets
   ################################################################################
   -->
   <UIWidgets>
@@ -2083,7 +2081,7 @@
   </UIWidgets>
   <!--
   ################################################################################
-  #		org.exoplatform.webui.core.UIGrid
+  #   org.exoplatform.webui.core.UIGrid
   ################################################################################
   -->
   <UIGrid>
@@ -2093,17 +2091,17 @@
   </UIGrid>
   <!--
   ################################################################################
-  #		
+  #   
   ################################################################################
   -->
   <UIItemSelector>
     <lable>
-      <ItemDetailTitle>	معاينة عينة تصفيف القوالب</ItemDetailTitle>
+      <ItemDetailTitle> معاينة عينة تصفيف القوالب</ItemDetailTitle>
     </lable>
   </UIItemSelector>
   <!--
   ################################################################################
-  #		 UITree
+  #    UITree
   ################################################################################
   -->
   <UITree>
@@ -2113,7 +2111,7 @@
   </UITree>
   <!--
   ################################################################################
-  #		 UIAccountSettings # tungnd
+  #    UIAccountSettings # tungnd
   ################################################################################
   -->
   <UIAccountSetting>
@@ -2172,7 +2170,7 @@
   </UIAccountChangePass>
   <!--
   ################################################################################
-  #		 UIDropDownControl # tungnd
+  #    UIDropDownControl # tungnd
   ################################################################################
   -->
   <UIDropDownControl>
@@ -2191,7 +2189,7 @@
   </UIDropDownPageTemp>
   <!--
   ################################################################################
-  #		 org.exoplatform.portal.webui.application.UIWidgetContainerManagement
+  #    org.exoplatform.portal.webui.application.UIWidgetContainerManagement
   ################################################################################
   -->
   <UIWidgetContainerManagement>
@@ -2223,7 +2221,7 @@
   </UIWidgetContainerManagement>
   <!--
   ################################################################################
-  #		 org.exoplatform.portal.webui.application.UIGadgetContainerManagement
+  #    org.exoplatform.portal.webui.application.UIGadgetContainerManagement
   ################################################################################
   -->
   <UIGadgetContainerManagement>
@@ -2255,7 +2253,7 @@
   </UIGadgetContainerManagement>
   <!--
   ################################################################################
-  #		 org.exoplatform.portal.webui.application.UIGadgetContainerForm
+  #    org.exoplatform.portal.webui.application.UIGadgetContainerForm
   ################################################################################
   -->
   <GadgetContainerPopup>
@@ -2278,7 +2276,7 @@
   </UIGadgetContainerForm>
   <!--
   ################################################################################
-  #		 org.exoplatform.portal.webui.container.UIWidgetContainer
+  #    org.exoplatform.portal.webui.container.UIWidgetContainer
   ################################################################################
   -->
   <UIWidgetContainer>
@@ -2290,7 +2288,7 @@
   </UIWidgetContainer>
   <!--
   ################################################################################
-  #		 org.exoplatform.web.portal.UIItemThemeSelector
+  #    org.exoplatform.web.portal.UIItemThemeSelector
   ################################################################################
   -->
   <Theme>
@@ -2332,19 +2330,19 @@
   </ThemeDropDown>
   <!--
   ################################################################################
-  #		 org.exoplatform.dashboard.webui.component.UIDashboard
+  #    org.exoplatform.dashboard.webui.component.UIDashboard
   ################################################################################
   -->
   <UIDashboardSelectContainer>
     <label>
-		<workspace>فضاء لوحة القيادة</workspace>
-	</label>
-	<tooltip>
-		<close>إغلاق فضاء لوحة القيادة</close>
-	</tooltip>
-	<action>
-		<addGadget>إضافة أداة</addGadget>
-	</action>
+    <workspace>فضاء لوحة القيادة</workspace>
+  </label>
+  <tooltip>
+    <close>إغلاق فضاء لوحة القيادة</close>
+  </tooltip>
+  <action>
+    <addGadget>إضافة أداة</addGadget>
+  </action>
   </UIDashboardSelectContainer>
   <UIDashboardContainer>
     <label>
@@ -2363,12 +2361,12 @@
   <UIDashboard>
     <msg>
       <required>النص مطلوب هنا</required>
-	  <notUrl>عنوان غير صالح ! الرجاء إدخال عنوان صحيح للالأداة </notUrl>
+    <notUrl>عنوان غير صالح ! الرجاء إدخال عنوان صحيح للالأداة </notUrl>
     </msg>
   </UIDashboard>
   <!--
   ################################################################################
-  #		 org.exoplatform.webui.organization.account.UIUserSelector
+  #    org.exoplatform.webui.organization.account.UIUserSelector
   ################################################################################
   -->
   <UIUserSelector>
@@ -2396,7 +2394,7 @@
   </UIUserSelector>
   <!--
   ################################################################################
-  #		 org.exoplatform.portal.webui.application.UIAddNewApplication
+  #    org.exoplatform.portal.webui.application.UIAddNewApplication
   ################################################################################
   -->
   <UIAddNewApplication>
@@ -2415,10 +2413,10 @@
   </UIAddNewApplication>
   <!--
   ############################################################################
-  #		           org.exoplatform.portal.webui.container.UIBrowserPortlet         #
+  #              org.exoplatform.portal.webui.container.UIBrowserPortlet         #
   ############################################################################
-	-->
-	<UIBrowserPortlet>
+  -->
+  <UIBrowserPortlet>
     <Back>Back</Back>
     <Forward>Forward</Forward>
     <Refresh>Refresh</Refresh>
@@ -2430,11 +2428,11 @@
   </UIBrowserPortlet>
   
   <!--
-	############################################################################
-  #		           org.exoplatform.portal.webui.container.UIPopupWindow         #
   ############################################################################
-	-->
-	<UIPopupWindow>
+  #              org.exoplatform.portal.webui.container.UIPopupWindow         #
+  ############################################################################
+  -->
+  <UIPopupWindow>
     <Close>Close Window</Close>
   </UIPopupWindow>
 </bundle>

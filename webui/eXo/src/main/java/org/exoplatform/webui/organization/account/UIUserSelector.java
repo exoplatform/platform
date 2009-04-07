@@ -274,7 +274,11 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
       if(filter == null || filter.trim().length() == 0) return;
       Query q = new Query() ;
       if(keyword != null && keyword.trim().length() != 0) {
-        keyword = "*" + keyword + "*" ;
+        if(keyword.indexOf("*")<0){
+          if(keyword.charAt(0)!='*') keyword = "*"+keyword ;
+          if(keyword.charAt(keyword.length()-1)!='*') keyword += "*" ;
+        }
+        keyword = keyword.replace('?', '_') ;
         if(USER_NAME.equals(filter)) {
           q.setUserName(keyword) ;
         } 

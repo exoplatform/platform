@@ -16,9 +16,12 @@
  */
 package org.exoplatform.organization.webui.component;
 
+import java.util.Collection;
 import java.util.List;
 
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.services.organization.Group;
+import org.exoplatform.services.organization.GroupHandler;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -127,11 +130,26 @@ public class UIGroupManagement extends UIContainer {
         uiApp.addMessage(new ApplicationMessage("UIGroupManagement.msg.Delete", null)) ;
         return;
       }
-      String parentId = currentGroup.getParentId();
       OrganizationService service = uiGroupManagement.getApplicationComponent(OrganizationService.class) ;
+      UserACL acl = uiGroupManagement.getApplicationComponent(UserACL.class);
+      List<String> mandatories = acl.getMandatoryGroups();
+      if(!mandatories.isEmpty() && isMandatory(service.getGroupHandler(), currentGroup, mandatories)) {
+        uiApp.addMessage(new ApplicationMessage("UIGroupManagement.msg.DeleteMandatory", null)) ;
+        return;
+      }
+      String parentId = currentGroup.getParentId();
       service.getGroupHandler().removeGroup(currentGroup, true);
       uiGroupExplorer.changeGroup(parentId);
     }    
+    
+    private boolean isMandatory(GroupHandler dao, Group group, List<String> mandatories) throws Exception {
+      if(mandatories.contains(group.getId())) return true;
+      Collection<Group> children = dao.findGroups(group);
+      for(Group g : children){
+        if(isMandatory(dao, g, mandatories)) return true;
+      }
+      return false;
+    }
   }
   
   static  public class SelectPathActionListener extends EventListener<UIBreadcumbs> {

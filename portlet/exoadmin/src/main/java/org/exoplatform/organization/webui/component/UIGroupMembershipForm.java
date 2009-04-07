@@ -17,6 +17,9 @@
 package org.exoplatform.organization.webui.component;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.services.organization.Group;
@@ -164,7 +167,7 @@ public class UIGroupMembershipForm extends UIForm {
       OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
       MembershipHandler memberShipHandler = service.getMembershipHandler();
       UIApplication uiApp = event.getRequestContext().getUIApplication() ;
-      String[] userNames = uiForm.getUserName().split(",");
+      List<String> userNames = Arrays.asList(uiForm.getUserName().split(",")) ;
       Group group = userInGroup.getSelectedGroup() ;
       MembershipType membershipType = 
         service.getMembershipTypeHandler().findMembershipType(uiForm.getMembership());
@@ -172,11 +175,13 @@ public class UIGroupMembershipForm extends UIForm {
         uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.group-not-select", null)) ;
         return ;
       }
+      
       // add new
-      for(int i0=0; i0 < userNames.length - 1; i0 ++) {
-        String user0 = userNames[i0];
-        for(int i1=i0+1; i1<userNames.length; i1++)
-          if(user0.equals(userNames[i1])) {
+      for(int i0=0; i0 < userNames.size() - 1; i0 ++) {
+        String user0 = userNames.get(i0);
+        if(user0 == null || user0.trim().length() == 0) continue ;
+        for(int i1=i0+1; i1<userNames.size(); i1++)
+          if(user0.equals(userNames.get(i1))) {
             uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.duplicate-user", new String[]{user0})) ;
             return ;
           }
@@ -185,10 +190,7 @@ public class UIGroupMembershipForm extends UIForm {
       boolean check = false;
       String listNotExist = null;
       for(String username : userNames) {
-        if(username == null || username.trim().length() == 0) {
-          uiApp.addMessage(new ApplicationMessage("UIGroupMembershipForm.msg.user-not-empty", null)) ;
-          return ;
-        }
+        if(username == null || username.trim().length() == 0) continue ;
         User user = service.getUserHandler().findUserByName(username);
         if(user == null) {
           check = true;
@@ -204,6 +206,7 @@ public class UIGroupMembershipForm extends UIForm {
       // check membership
       String listUserMembership = null;
       for(String username : userNames) {
+        if(username == null || username.trim().length() == 0) continue ;
         Membership membership = memberShipHandler.findMembershipByUserGroupAndType(username, group.getId(), membershipType.getName());
         if(membership != null) {
           check = true;
@@ -217,6 +220,7 @@ public class UIGroupMembershipForm extends UIForm {
       }
       
       for(String username : userNames) {
+        if(username == null || username.trim().length() == 0) continue ;
         User user = service.getUserHandler().findUserByName(username) ;
         memberShipHandler.linkMembership(user,group,membershipType,true);               
       }

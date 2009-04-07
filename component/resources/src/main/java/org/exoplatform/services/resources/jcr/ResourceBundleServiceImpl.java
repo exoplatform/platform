@@ -69,24 +69,16 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService impleme
     params_ = params;
   }
 
-	public void start() {
-		try {
-			initParams(params_);
-		} catch (Exception e) {
-			throw new RuntimeException(e) ;
-		}
-	}
+  public void start() {
+    try {
+      initParams(params_);
+    } catch (Exception e) {
+      throw new RuntimeException(e) ;
+    }
+  }
 
-	public void stop() {}
-	
-  /**
-   * Overridden method.
-   * 
-   * @param id 
-   * @return resourceData
-   * @throws Exception exception
-   * @see org.exoplatform.services.resources.ResourceBundleService#getResourceBundleData(java.lang.String)
-   */
+  public void stop() {}
+  
   public ResourceBundleData getResourceBundleData(String id) throws Exception {
     String resourceDataPath = getServiceRegistryPath() + "/" + id ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
@@ -105,14 +97,6 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService impleme
     }
   }
   
-  /**
-   * Overridden method.
-   * 
-   * @param id id
-   * @return resource
-   * @throws Exception exception
-   * @see org.exoplatform.services.resources.ResourceBundleService#removeResourceBundleData(java.lang.String)
-   */
   public ResourceBundleData removeResourceBundleData(String id) throws Exception {
     ResourceBundleData resource = getResourceBundleData(id) ;
     if(resource == null) return null ;
@@ -128,13 +112,6 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService impleme
     }
   }
   
-  /**
-   * Overridden method.
-   * 
-   * @param data resourceData
-   * @throws Exception exception
-   * @see org.exoplatform.services.resources.ResourceBundleService#saveResourceBundle(org.exoplatform.services.resources.ResourceBundleData)
-   */
   public void saveResourceBundle(ResourceBundleData resourceData) throws Exception {
     String id = resourceData.getId() ;
     String servicePath = getServiceRegistryPath() ;
@@ -156,23 +133,15 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService impleme
     }
   }
   
-  /**
-   * Overridden method.
-   * 
-   * @param q query
-   * @return page list
-   * @throws Exception exception
-   * @see org.exoplatform.services.resources.ResourceBundleService#findResourceDescriptions(org.exoplatform.services.resources.Query)
-   */
   public PageList findResourceDescriptions(Query q) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     try {
       Node regNode = regService_.getRegistry(sessionProvider).getNode() ;
       StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
       generateScript(builder, "jcr:path", regNode.getPath() + "/" + getServiceRegistryPath() + "/%") ;
-      generateScript(builder, DataMapper.TYPE, DataMapper.LOCALE) ;
-      generateScript(builder, DataMapper.NAME, q.getName()) ;
-      generateScript(builder, DataMapper.LANGUAGE, q.getLanguage()) ;
+      generateContainScript(builder, DataMapper.TYPE, DataMapper.LOCALE) ;
+      generateContainScript(builder, DataMapper.NAME, q.getName()) ;
+      generateContainScript(builder, DataMapper.LANGUAGE, q.getLanguage()) ;
       builder.append("order by ").append(DataMapper.NAME).append(",").append(DataMapper.LANGUAGE);
       Session session = regNode.getSession() ;
       QueryManager queryManager = session.getWorkspace().getQueryManager() ;
@@ -193,17 +162,6 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService impleme
     }
   }
   
-  /**
-   * Overridden method.
-   * 
-   * @param id String
-   * @param parent ResourceBundle
-   * @param locale Locale
-   * @return resource bundle
-   * @throws Exception exception
-   * @see org.exoplatform.services.resources.impl.BaseResourceBundleService#getResourceBundleFromDb(java.lang.String,
-   *      java.util.ResourceBundle, java.util.Locale)
-   */
   @Override
   protected ResourceBundle getResourceBundleFromDb(String id, ResourceBundle parent, Locale locale) throws Exception {
     ResourceBundleData data = getResourceBundleData(id) ;
@@ -212,12 +170,7 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService impleme
     MapResourceBundle mres = new MapResourceBundle(res, locale) ;
     return mres;
   }
-  /**
-   * This method will generate condition for sql statement
-   * @param sql
-   * @param name
-   * @param value
-   */
+  
   //-----------------------------------------------------------------------------------//
   private void generateScript(StringBuilder sql, String name, String value){
     if(value == null || value.length() < 1) return ;
@@ -228,10 +181,20 @@ public class ResourceBundleServiceImpl extends BaseResourceBundleService impleme
     sql.append(name).append(" like '").append(value).append("'");
   }
   
-  /**
-   * 
-   * @return
-   */
+private void generateContainScript(StringBuilder sql, String name, String value){
+    
+    if(value == null || value.length() < 1) return ;
+    
+    if(value.indexOf("*")<0){
+      if(value.charAt(0)!='*') value = "*"+value ;
+      if(value.charAt(value.length()-1)!='*') value += "*" ;
+    }
+    value = value.replace('?', '_') ;
+    
+    if(sql.indexOf(" where") < 0) sql.append(" where "); else sql.append(" and ");
+    sql.append("contains(").append(name).append(", '").append(value).append("')");
+  }
+
   private String getServiceRegistryPath() {
     return RegistryService.EXO_SERVICES + "/" + SERVICE_NAME ;
   }

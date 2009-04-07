@@ -95,7 +95,7 @@ UIPopupWindow.prototype.show = function(popup, isShowMask, middleBrowser) {
  	var offsetParent = popup.offsetParent ;
  	var scrollY = 0;
 	if (window.pageYOffset != undefined) scrollY = window.pageYOffset;
-	else if (document.documentElement != undefined) scrollY = document.documentElement.scrollTop;
+	else if (document.documentElement && document.documentElement.scrollTop) scrollY = document.documentElement.scrollTop;
 	else	scrollY = document.body.scrollTop;
 	//reference
 	if(offsetParent) {

@@ -40,6 +40,7 @@
 	white-space: nowrap;
   background: url('background/Dotted.gif') repeat-y left; /* orientation=lt */
   background: url('background/Dotted-rt.gif') repeat-y right; /* orientation=rt */
+  width: 100%;
 }
 
 .UITrees .LastNode {
@@ -52,7 +53,7 @@
 	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
-	width: auto;
+	width: 100%;
 	height: auto;
 	font-weight: bold;
 }
@@ -62,15 +63,15 @@
 	padding-right: 18px; /* orientation=rt */
   background: url('background/SmallGrayMinus.gif') no-repeat left top; /* orientation=lt */
   background: url('background/SmallGrayMinus-rt.gif') no-repeat right top; /* orientation=rt */
-  width: auto; height: auto;
+  width: 100%; height: auto;
 }
-  
+
 .UITrees .Node .CollapseIcon {
 	padding-left: 18px; /* orientation=lt */
 	padding-right: 18px; /* orientation=rt */
   background: url('background/SmallGrayPlus.gif') no-repeat left top; /* orientation=lt */
   background: url('background/SmallGrayPlus-rt.gif') no-repeat right top; /* orientation=rt */
-  width: auto; 
+  width: 100%; 
   height: auto;
 }
 

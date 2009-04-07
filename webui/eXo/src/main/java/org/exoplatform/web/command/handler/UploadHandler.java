@@ -19,6 +19,7 @@ package org.exoplatform.web.command.handler;
 import java.io.Writer;
 import java.net.URLEncoder;
 
+import javax.naming.LimitExceededException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -65,6 +66,14 @@ public class UploadHandler extends Command {
       for(int i=0; i<uploadId.length; i++){
         UploadResource upResource = service.getUploadResource(uploadId[i]);
         if(upResource == null) continue;
+        if (upResource.getStatus() == UploadResource.FAILED_STATUS) {
+        	int limitMB = service.getUploadLimitsMB().get(uploadId[i]).intValue();
+        	value.append("\n    \"").append(uploadId[i]).append("\": {");
+        	value.append("\n      \"status\":").append('\"').append("failed").append("\",");
+        	value.append("\n      \"message\":").append('\"').append("The file must be less than ").append(limitMB).append(" MB.").append("\"");
+        	value.append("\n    }");
+        	continue;
+        }
         double percent =  100;
         if(upResource.getStatus() == UploadResource.UPLOADING_STATUS){
           percent = (upResource.getUploadedSize()*100)/upResource.getEstimatedSize();

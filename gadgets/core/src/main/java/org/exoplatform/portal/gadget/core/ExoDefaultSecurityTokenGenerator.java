@@ -14,20 +14,17 @@ import java.io.IOException;
 
 
 public class ExoDefaultSecurityTokenGenerator implements SecurityTokenGenerator{
-    private String containerKey;
     private final TimeSource timeSource;
 
 
   public ExoDefaultSecurityTokenGenerator() {
-    //TODO should be moved to config
-    this.containerKey = "key.txt";
-    this.timeSource = new TimeSource(); 
+    this.timeSource = new TimeSource();
   }
 
   protected String createToken(String gadgetURL, String owner, String viewer, Long moduleId, String container) {
       try {
         BlobCrypterSecurityToken t = new BlobCrypterSecurityToken(
-          getBlobCrypter(this.containerKey), container, null);
+          getBlobCrypter(ExoContainerConfig.getKeyPath()), container, null);
 
         t.setAppUrl(gadgetURL);
         t.setModuleId(moduleId);

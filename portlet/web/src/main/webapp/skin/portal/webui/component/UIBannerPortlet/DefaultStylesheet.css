@@ -45,6 +45,7 @@
 
 .UIBannerPortlet .MiddleLoginContainer a {
   color: #0d62af;
+	outline: none;
 }
 
 .UIBannerPortlet .MiddleLoginContainer a:hover {

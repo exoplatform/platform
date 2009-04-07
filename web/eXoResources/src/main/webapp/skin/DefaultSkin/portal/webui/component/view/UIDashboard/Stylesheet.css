@@ -260,6 +260,7 @@
 	background: url('background/Dashboard.gif') no-repeat right -200px; /* orientation=rt */
 	padding-left: 30px; /* orientation=lt */
 	padding-right: 30px; /* orientation=rt */
+	width: 200px; /* orientation=rt */
 	font-weight: bold; font-size: 12px;
 	display: block;
 	line-height: 22px;
@@ -279,7 +280,8 @@
 }
 
 .GadgetContainer .UIColumn {
-	float: left;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 325px;
 	padding: 2px 0px;
 }
@@ -289,7 +291,8 @@
 	width: 320px;
 }
 .UIDashboardContainer .UIGadget .GadgetMenuBar{
-	text-align:left;
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
 }
 
 .UIDashboardContainer .UITarget {
@@ -298,6 +301,7 @@
 }
 
 .UIDashboard .Dragging {
-	margin: 3px 0px 0px 3px;
+	margin: 3px 0px 0px 3px; /* orientation=lt */
+	margin: 3px 3px 0px 0px; /* orientation=rt */
 }
 

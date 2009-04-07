@@ -31,9 +31,17 @@ import org.exoplatform.webui.form.UIFormInput;
 public class URLValidator implements Validator {
   
   static private final String IP_REGEX = "(((25[0-5])|(2[0-4][0-9])|([01]?[0-9]?[0-9]))\\.){3}((25[0-5])|(2[0-4][0-9])|([01]?[0-9]?[0-9]))" ;
+//  static public final String URL_REGEX = 
+//    "^(ht|f)tp(s?)://(\\w+:\\w+@)?(("+ IP_REGEX +")|((www.)?(\\S+\\.){1,2}(\\w{2,5}))|([a-zA-Z][-a-zA-Z0-9]+))" +
+//    "(:\\d{1,5})?($|((/[-+%.\\w\\d ]+)*/?((\\.\\w+)?($|\\?([-.:+\\w\\d%/]+=[-.:+\\w\\d%/]+)(&[-.:+\\w\\d%/]+=[-.:+\\w\\d%/]+)*))?))" ;
   static public final String URL_REGEX = 
-    "^(ht|f)tp(s?)://(\\w+:\\w+@)?(("+ IP_REGEX +")|((www.)?(\\S+\\.){1,2}(\\w{2,5}))|([a-zA-Z][-a-zA-Z0-9]+))" +
-    "(:\\d{1,5})?($|((/[-+%.\\w\\d ]+)*/?((\\.\\w+)?($|\\?([-.:+\\w\\d%/]+=[-.:+\\w\\d%/]+)(&[-.:+\\w\\d%/]+=[-.:+\\w\\d%/]+)*))?))" ;
+    "^((ht|f)tp(s?)://)?"   //protocol 
+    + "(\\w+:\\w+@)?"      //username:password@
+    + "(" + IP_REGEX       //ip 
+    + "|([0-9a-z_!~*'()-]+\\.)*([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\\.[a-z]{2,6}"  //domain like www.exoplatform.org 
+    + "|([a-zA-Z][-a-zA-Z0-9]+))" // domain like localhost
+    + "(:[0-9]{1,5})?"            // port number :8080
+    + "((/?)|(/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+/?)$"; //uri
   
   private String key_ ;
   

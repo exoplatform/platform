@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<portlet-app version="1.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd"> 
+	<portlet>
+		<description xml:lang="EN">Sample FCK Editor Portlet</description>
+		<portlet-name>SampleFCKPortlet</portlet-name>
+		<display-name>Sample FCK Portlet</display-name>
+		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+		<init-param>
+			<name>webui.configuration</name>
+			<value>/WEB-INF/conf/portlet/sample/fck/FCKPortlet/webui/configuration.xml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>locale.portal.webui</resource-bundle>
+		<portlet-info>
+			<title>Sample FCK Editor Portlet</title>
+			<short-title>FCK Editor Portlet</short-title>
+			<keywords>portlet,sample,fck</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>admin</role-name>
+			<role-link>admin</role-link>
+		</security-role-ref>
+	</portlet>
+</portlet-app>

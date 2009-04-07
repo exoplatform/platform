@@ -171,7 +171,11 @@ UIMaskLayer.prototype.createMaskForFrame = function(blockContainerId, object, op
 UIMaskLayer.prototype.doScroll = function() {
 	if(document.getElementById("MaskLayer")) {
 		var maskLayer = document.getElementById("MaskLayer") ;
-		maskLayer.style.top = document.documentElement.scrollTop + "px" ;
+		if(document.documentElement && document.documentElement.scrollTop) {
+		  maskLayer.style.top = document.documentElement.scrollTop + "px" ;
+		} else {
+			maskLayer.style.top = document.body.scrollTop + "px" ;
+		}
 		setTimeout("eXo.core.UIMaskLayer.doScroll()", 1) ;
 	} else if (document.getElementById("subMaskLayer")) {
 		var subMaskLayer = document.getElementById("subMaskLayer") ;
@@ -194,6 +198,12 @@ UIMaskLayer.prototype.setPosition = function() {
 	
 	var left ;
 	var top ;
+	var topPos ;
+	if (document.documentElement && document.documentElement.scrollTop) { 
+		topPos = document.documentElement.scrollTop ;
+	} else {
+		topPos = document.body.scrollTop ;
+	}
 	if (position == "TOP-LEFT") {
 	  left = 0 ;
 	  top = 0 ;
@@ -201,13 +211,13 @@ UIMaskLayer.prototype.setPosition = function() {
 		return ;
 	} else if (position == "BOTTOM-LEFT") {
 	  left = 0 ;
-	  top = Browser.getBrowserHeight() - object.offsetHeight + document.documentElement.scrollTop ;
+	  top = Browser.getBrowserHeight() - object.offsetHeight + topPos ;
 	} else if (position == "BOTTOM-RIGHT") {
 	  left = blockContainer.offsetWidth - object.offsetWidth ;
-	  top = Browser.getBrowserHeight() - object.offsetHeight + document.documentElement.scrollTop ;
+	  top = Browser.getBrowserHeight() - object.offsetHeight + topPos ;
 	} else {
 	  left = (blockContainer.offsetWidth - object.offsetWidth) / 2 ;
-	  top = (Browser.getBrowserHeight() - object.offsetHeight) / 2 +  document.documentElement.scrollTop ;
+	  top = (Browser.getBrowserHeight() - object.offsetHeight) / 2 +  topPos ;
 	}
 	
 	object.style.left = left + "px" ;

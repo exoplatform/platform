@@ -512,6 +512,7 @@ VerticalScrollManager.prototype.initScroll = function (clickedEle, isUp, step) {
 	var middleCont = DOMUtil.findFirstDescendantByClass(container, "div", "MiddleItemContainer");
 	if(!middleCont.id) middleCont.id = "IC" + new Date().getTime() + Math.random().toString().substring(2);
 	verticalScroll.scrollComponent(middleCont.id, isUp, step);
+	document.onmouseup = verticalScroll.cancelScroll;
 };
 	
 VerticalScrollManager.prototype.scrollComponent = function (id, isUp, step) {
@@ -525,7 +526,6 @@ VerticalScrollManager.prototype.scrollComponent = function (id, isUp, step) {
 	if(verticalScroll.repeat) {
 		verticalScroll.cancelScroll();
 	}
-	document.onmouseup = verticalScroll.cancelScroll;
 	verticalScroll.repeat = setTimeout("eXo.portal.VerticalScrollManager.scrollComponent('" + id + "'," + isUp + "," + step + ")", 100);
 };
 

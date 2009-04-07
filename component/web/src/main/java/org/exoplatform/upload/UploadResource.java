@@ -26,6 +26,7 @@ public class UploadResource {
   
   final static public int UPLOADING_STATUS = 0 ; 
   final static public int UPLOADED_STATUS = 1 ; 
+  final static public int FAILED_STATUS = 2 ;
   
   private String uploadId_ ;
   private String fileName_ ;
@@ -33,6 +34,7 @@ public class UploadResource {
   private String storeLocation_ ;
   private double uploadedSize_ = 0 ;
   private double estimatedSize_ = 0 ;
+  //private int limitMB_ = UploadService.uploadLimitMB_;
   private int status_ = UPLOADING_STATUS ;
   
   public UploadResource(String uploadId){
@@ -63,5 +65,9 @@ public class UploadResource {
   
   public int getStatus() { return status_ ; }
   public void setStatus(int status) { status_ = status ; }
+
+	//public int getLimitMB() { return limitMB_; }
+	//
+	//public void setLimitMB(int limitMB_) { this.limitMB_ = limitMB_; }
 
 }

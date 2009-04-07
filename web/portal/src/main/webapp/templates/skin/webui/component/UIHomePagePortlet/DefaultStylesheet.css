@@ -15,37 +15,36 @@
 }
 
 .UIHomePagePortlet .HomePortletAdBackround {	
-	background: #fff url('DefaultSkin/background/BgRepeat.jpg') repeat-x left -2px;
+	background: #fff url('DefaultSkin/background/BgRepeat.jpg') repeat-x left top;
 }
 
 .UIHomePagePortlet .AdImageLeft {
-	background: url('DefaultSkin/background/LeftHome.jpg') no-repeat left; /* orientation=lt */
-	background: url('DefaultSkin/background/LeftHome-rt.jpg') no-repeat right; /* orientation=rt */
 }
 
 *html .UIHomePagePortlet .AdImageLeft {
-	background: url('DefaultSkin/background/LeftHomeRTLie6.jpg') no-repeat right; /* orientation=rt */
 }
 
 .UIHomePagePortlet .AdImageRight {
-	background: url('DefaultSkin/background/RightHome.gif') no-repeat right; /* orientation=lt */
-	background: url('DefaultSkin/background/RightHome-rt.gif') no-repeat left; /* orientation=rt */
+	background: url('DefaultSkin/background/RightHome.jpg') no-repeat right; /* orientation=lt */
+	background: url('DefaultSkin/background/RightHome-rt.jpg') no-repeat left; /* orientation=rt */
 	text-align: right; /* orientation=lt */
 	text-align: left; /* orientation=rt */
-	height: 240px; oveflow: hidden;
-	padding: 0px 22% 0px 0px; /* orientation=lt */
-	padding: 0px 0px 0px 22%; /* orientation=rt */
+	height: 289px; 
+	oveflow: hidden;
+	padding: 0px 30px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 30px; /* orientation=rt */
 	letter-spacing: 1px;
 }
 
 .UIHomePagePortlet .AdImageLeft .EmptyBlock {
-	height: 100px;
+	height: 190px;
 }
 
 .UIHomePagePortlet .AdImageLeft .ProductSlogan {
-	font-size: 22px; font-weight: bold;
-	height: 45px;
-	color: #689a00;
+	font-size: 36px; 
+	font-weight: bold;
+	font-family: arial;
+	color: #fff;
 }
 
 .UIHomePagePortlet .AdImageLeft .ProductIntro {

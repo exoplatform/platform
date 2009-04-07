@@ -14,6 +14,8 @@ JPDA_ADDRESS=8000
 
 REMOTE_DEBUG="-Xdebug -Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n"
 
+JMX_AGENT="-Dcom.sun.management.jmxremote"
+
 # For profiling
 #LD_LIBRARY_PATH="/cygdrive/d/tools/YourKit/bin/win32/"
 #PATH="$PATH:$LD_LIBRARY_PATH"

@@ -11,11 +11,11 @@
 }
 
 .UITrees a {
-	display: block;
+    display: block;
 } 
 
 .UITrees a:hover {
-	color: #058ee6;
+    color: #058ee6;
 }
 
 .UITrees .LevelUpArrowIcon {
@@ -27,18 +27,19 @@
 }
 
 .UITrees a.LevelUpArrowIcon:hover {
-  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat left center; /* orientation=lt */	
+  background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow.gif) no-repeat left center; /* orientation=lt */    
   background: url(/eXoResources/skin/DefaultSkin/skinIcons/24x24/icons/OverBlueUpLevelArrow-rt.gif) no-repeat right center; /* orientation=rt */
 }
 
 .UITrees .Node {
-	line-height: 18px;
-	padding-top: 7px;
-	margin: 0 0 0 15px; /* orientation=lt */
-	margin: 0 15px 0 0; /* orientation=rt */
-	white-space: nowrap;
+    line-height: 24px;
+    padding-top: 7px;
+    margin: 0 0 0 15px; /* orientation=lt */
+    margin: 0 15px 0 0; /* orientation=rt */
+    white-space: nowrap;
   background: url('background/Dotted.gif') repeat-y left; /* orientation=lt */
   background: url('background/Dotted-rt.gif') repeat-y right; /* orientation=rt */
+  width: 100%;
 }
 
 .UITrees .LastNode {
@@ -47,30 +48,30 @@
 }
 
 .UITrees .Node .NodeIcon {
-	background-position: left top; /* orientation=lt */
-	background-position: right top; /* orientation=rt */
-	font-weight: bold;
-	width: auto;
-	height: auto;
-	padding: 0 0 0 24px; /* orientation=lt */ 
-	padding: 0 24px 0 0; /* orientation=rt */
+    background-position: left top; /* orientation=lt */
+    background-position: right top; /* orientation=rt */
+    font-weight: bold;
+    width: 100%;
+    height: auto;
+    padding: 0 0 0 24px; /* orientation=lt */ 
+    padding: 0 24px 0 0; /* orientation=rt */
 }
 
 .UITrees .Node .ExpandIcon {
-	padding: 0 0 0 18px; /* orientation=lt */
-	padding: 0 18px 0 0; /* orientation=rt */
+    padding: 0 0 0 18px; /* orientation=lt */
+    padding: 0 18px 0 0; /* orientation=rt */
   background: url('background/SmallGrayMinus.gif') no-repeat left top; /* orientation=lt */
   background: url('background/SmallGrayMinus-rt.gif') no-repeat right top; /* orientation=rt */
-  width: auto; 
+  width: 100%;
   height: auto;
 }
   
 .UITrees .Node .CollapseIcon {
-	padding: 0 0 0 18px; /* orientation=lt */
-	padding: 0 18px 0 0; /* orientation=rt */
+    padding: 0 0 0 18px; /* orientation=lt */
+    padding: 0 18px 0 0; /* orientation=rt */
   background: url('background/SmallGrayPlus.gif') no-repeat left top; /* orientation=lt */
   background: url('background/SmallGrayPlus-rt.gif') no-repeat right top; /* orientation=rt */
-  width: auto; 
+  width: 100%; 
   height: auto;
 }
 

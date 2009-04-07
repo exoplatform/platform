@@ -2,6 +2,8 @@
 UIVerticalScroller = function () {} ;
 
 UIVerticalScroller.prototype.init = function() {
+	eXo.webui.UIVerticalScroller.loopCount = 0 ;
+	eXo.webui.UIVerticalScroller.maxLoopTime = 10 ;
 	eXo.gadget.UIGadget.resizeContainer() ;
 	eXo.webui.UIVerticalScroller.refreshScroll(0) ;
 } ;
@@ -9,7 +11,7 @@ UIVerticalScroller.prototype.init = function() {
 UIVerticalScroller.prototype.refreshScroll = function(id) {
   var DOMUtil =  eXo.core.DOMUtil ;
 	var container = document.getElementById("UIWorkspaceContainer") ;
-	if((container.style.display != "block") || !container) return ;
+	if(!container || (container.style.display != "block")) return ;
 	var itemContainer = document.getElementById("UIWidgets") ;
 	if(itemContainer == null) return;
 	var items = DOMUtil.findDescendantsByClass(itemContainer, "div", "UIGadget") ;
@@ -20,13 +22,23 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 	var downButton = iconButton[1] ;
 	var upButton = iconButton[2] ;
 	var itemSize = items.length ;
-	var index = 0 ;
+	var index = null ;
+	
+	eXo.webui.UIVerticalScroller.loopCount++ ;
+	if(eXo.webui.UIVerticalScroller.loopStream) clearTimeout(this.loopStream) ;
+	
 	for(var i = 0 ; i < itemSize ; ++i) {
-		if(items[i].style.display == "block") {
-			index = i ;
-			break;
-		}
-	}
+		if((items[i].style.display == "block") && (index == null)) index = i ;
+
+    var iframe = DOMUtil.findFirstDescendantByClass(items[i], "iframe", "gadgets-gadget") ;
+  	if((!iframe || !iframe.height) && (eXo.webui.UIVerticalScroller.loopCount < eXo.webui.UIVerticalScroller.maxLoopTime)) {
+  		eXo.webui.UIVerticalScroller.loopStream = setTimeout("eXo.webui.UIVerticalScroller.refreshScroll("+ id+ ");", 200) ;
+      return ;
+    }
+  }
+  this.loopCount = 0 ;
+  
+  if(index == null) index = 0 ;
 	if(index-id > itemSize-1 || index == itemSize-1) downButton.className = "Icon DisableScrollDownButton" ;
 	if(index == 0) {
 		upButton.className = "Icon DisableScrollUpButton" ;
@@ -49,12 +61,9 @@ UIVerticalScroller.prototype.refreshScroll = function(id) {
 	if(index < 0) index = 0 ;
 	for(var i = index - id ; i < itemSize ; ++i) {
 		tmp = items[i].offsetHeight ;
-		/* TODO: fix Height for Widgets when onload
-		 * */
-		 if(tmp > 0 && tmp < 209) {tmp = 229;}
-		 if(DOMUtil.findFirstDescendantByClass(items[i], "div", "UIWelcomeWidget")) {
-				tmp = 146;
-		 }
+//		/* TODO: fix Height for Widgets when onload
+//		 * */
+//		 if(tmp > 0 && tmp < 209) {tmp = 229;}
 		itemsHeight += tmp ;
 		if(itemsHeight > maxHeight) {
 			items[i].style.display = "none" ;

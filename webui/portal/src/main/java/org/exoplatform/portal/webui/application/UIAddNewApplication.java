@@ -187,13 +187,13 @@ public class UIAddNewApplication extends UIContainer {
         uiGadget.setId("_" + uiGadget.hashCode()) ;
         uiWidgetContainer.addChild(uiGadget);
   
-        UIGadgets uiWidgets = uiWidgetContainer.getAncestorOfType(UIGadgets.class);
-        Gadgets widgets = PortalDataMapper.toGadgets(uiWidgets);
+        UIGadgets uiGadgets = uiWidgetContainer.getAncestorOfType(UIGadgets.class);
+        Gadgets gadgets = PortalDataMapper.toGadgets(uiGadgets);
         UserPortalConfigService configService = uiWidgetContainer.getApplicationComponent(UserPortalConfigService.class);
-        configService.update(widgets);
+        configService.update(gadgets);
         
         UIPortalApplication uiPortalApp = (UIPortalApplication)event.getRequestContext().getUIApplication() ;
-        uiPortalApp.getUserPortalConfig().setGadgets(widgets) ;
+        uiPortalApp.getUserPortalConfig().setGadgets(gadgets) ;
         
         UIWelcomeComponent uiWelcomeComponent = uiWidgetContainer.getAncestorOfType(UIWelcomeComponent.class);
         event.getRequestContext().addUIComponentToUpdateByAjax(uiWelcomeComponent);

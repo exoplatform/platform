@@ -48,76 +48,108 @@
   <component>
     <key>org.exoplatform.portal.config.UserPortalConfigService</key>
     <type>org.exoplatform.portal.config.UserPortalConfigService</type>
-    <component-plugins>           
-	    <component-plugin>
-	      <name>new.portal.config.user.listener</name>
-	      <set-method>initListener</set-method>
-	      <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
-	      <description>this listener init the portal configuration</description>
-	      <init-params>
-	        <value-param>
-	          <name>default.portal</name>
-	          <description>The default portal for checking db is empty or not</description>
-	          <value>classic</value>
-	        </value-param> 
-	        <object-param>
-	          <name>portal.configuration</name>
-	          <description>description</description>
-	          <object type="org.exoplatform.portal.config.NewPortalConfig">
-	            <field  name="predefinedOwner">
-	              <collection type="java.util.HashSet">                
-	                <value><string>classic</string></value>	               
-	              </collection>
-	            </field>
-	            <field  name="ownerType"><string>portal</string></field>
-	            <field  name="templateLocation"><string>classpath:/conf/portal</string></field> 
-	          </object>
-	        </object-param> 
-	        <object-param>
-	          <name>group.configuration</name>
-	          <description>description</description>
-	          <object type="org.exoplatform.portal.config.NewPortalConfig">
-	            <field  name="predefinedOwner">
-	              <collection type="java.util.HashSet">            
-	              	<value><string>platform/administrators</string></value>    
-	              	<value><string>platform/users</string></value>
-	              	<value><string>platform/guests</string></value>
-	              	<value><string>organization/management/executive-board</string></value>	              
-	              </collection>
-	            </field>
-	            <field  name="ownerType"><string>group</string></field>
-	            <field  name="templateLocation"><string>classpath:/conf/portal</string></field> 
-	          </object>
-	        </object-param>       
-	        <object-param>
-	          <name>user.configuration</name>
-	          <description>description</description>
-	          <object type="org.exoplatform.portal.config.NewPortalConfig">
-	            <field  name="predefinedOwner">
-	              <collection type="java.util.HashSet">                
-	                <value><string>root</string></value>
-	                <value><string>john</string></value>
-	                <value><string>marry</string></value>
-	                <value><string>demo</string></value>
-	              </collection>
-	            </field>
-	            <field  name="ownerType"><string>user</string></field>
-	            <field  name="templateLocation"><string>classpath:/conf/portal</string></field> 
-	          </object>
-	        </object-param>
-	        <object-param>
-	        	<name>page.templates</name>
-	        	<description>List of page templates</description>
-	        	<object type="org.exoplatform.portal.config.PageTemplateConfig">
-	        		<field name="templates">
-	        			<collection type="java.util.ArrayList"></collection>
-	        		</field>
-	        		<field name="location"><string>classpath:/conf/portal/template/pages</string></field>
-	        	</object>
-	        </object-param>
-	      </init-params>
-	    </component-plugin>
-  	</component-plugins>  
+    <component-plugins>
+      <component-plugin>
+        <name>new.portal.config.user.listener</name>
+        <set-method>initListener</set-method>
+        <type>org.exoplatform.portal.config.NewPortalConfigListener</type>
+        <description>this listener init the portal configuration</description>
+        <init-params>
+          <value-param>
+            <name>default.portal</name>
+            <description>The default portal for checking db is empty or not</description>
+            <value>classic</value>
+          </value-param>
+          <object-param>
+            <name>portal.configuration</name>
+            <description>description</description>
+            <object type="org.exoplatform.portal.config.NewPortalConfig">
+              <field name="predefinedOwner">
+                <collection type="java.util.HashSet">
+                  <value>
+                    <string>classic</string>
+                  </value>
+                </collection>
+              </field>
+              <field name="ownerType">
+                <string>portal</string>
+              </field>
+              <field name="templateLocation">
+                <string>classpath:/conf/portal</string>
+              </field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>group.configuration</name>
+            <description>description</description>
+            <object type="org.exoplatform.portal.config.NewPortalConfig">
+              <field name="predefinedOwner">
+                <collection type="java.util.HashSet">
+                  <value>
+                    <string>platform/administrators</string>
+                  </value>
+                  <value>
+                    <string>platform/users</string>
+                  </value>
+                  <value>
+                    <string>platform/guests</string>
+                  </value>
+                  <value>
+                    <string>organization/management/executive-board</string>
+                  </value>
+                </collection>
+              </field>
+              <field name="ownerType">
+                <string>group</string>
+              </field>
+              <field name="templateLocation">
+                <string>classpath:/conf/portal</string>
+              </field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>user.configuration</name>
+            <description>description</description>
+            <object type="org.exoplatform.portal.config.NewPortalConfig">
+              <field name="predefinedOwner">
+                <collection type="java.util.HashSet">
+                  <value>
+                    <string>root</string>
+                  </value>
+                  <value>
+                    <string>john</string>
+                  </value>
+                  <value>
+                    <string>marry</string>
+                  </value>
+                  <value>
+                    <string>demo</string>
+                  </value>
+                </collection>
+              </field>
+              <field name="ownerType">
+                <string>user</string>
+              </field>
+              <field name="templateLocation">
+                <string>classpath:/conf/portal</string>
+              </field>
+            </object>
+          </object-param>
+          <object-param>
+            <name>page.templates</name>
+            <description>List of page templates</description>
+            <object type="org.exoplatform.portal.config.PageTemplateConfig">
+              <field name="templates">
+                <collection type="java.util.ArrayList"></collection>
+              </field>
+              <field name="location">
+                <string>classpath:/conf/portal/template/pages</string>
+              </field>
+            </object>
+          </object-param>
+        </init-params>
+      </component-plugin>
+    </component-plugins>
   </component>
   <component>
     <key>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</key>
@@ -125,20 +157,6 @@
   </component>
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
-    <component-plugin>
-      <name>add.nodeType</name>
-      <set-method>addPlugin</set-method>
-      <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
-      <init-params>
-        <values-param>
-          <name>autoCreatedInNewRepository</name>
-          <value>jar:/conf/portal/model-nodetypes.xml</value>
-        </values-param>
-      </init-params>
-    </component-plugin>
-  </external-component-plugins>
-  <external-component-plugins>
-    <target-component>org.exoplatform.services.naming.InitialContextInitializer</target-component>
     <component-plugin>
       <name>bind.datasource</name>
       <set-method>addPlugin</set-method>
@@ -167,9 +185,9 @@
       </init-params>
     </component-plugin>
   </external-component-plugins>
+  `
   <external-component-plugins>
     <target-component>org.exoplatform.services.organization.OrganizationService</target-component>
-    
     <component-plugin>
       <name>ecm.new.user.event.listener</name>
       <set-method>addListenerPlugin</set-method>
@@ -239,7 +257,6 @@
         </object-param>
       </init-params>
     </component-plugin>
-    
   </external-component-plugins>
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</target-component>

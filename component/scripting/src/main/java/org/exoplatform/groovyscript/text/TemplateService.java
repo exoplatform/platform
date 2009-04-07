@@ -23,28 +23,62 @@ import java.io.InputStream;
 
 import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.management.annotations.ManagedBy;
+import org.exoplatform.management.annotations.Managed;
+import org.exoplatform.management.annotations.ManagedDescription;
+import org.exoplatform.management.annotations.ManagedName;
+import org.exoplatform.management.jmx.annotations.NameTemplate;
+import org.exoplatform.management.jmx.annotations.Property;
 import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
+import org.picocontainer.Startable;
+
 /**
  * Created by The eXo Platform SAS
  * Dec 26, 2005
  */
-public class TemplateService  {
+@Managed
+@NameTemplate({
+  @Property(key = "view", value = "portal"),
+  @Property(key = "service", value = "management"),
+  @Property(key = "type", value = "template")
+})
+@ManagedDescription("Template management service")
+public class TemplateService implements Startable {
   
   private SimpleTemplateEngine engine_  ;
   private ExoCache templatesCache_ ;
-  
+  private TemplateStatisticService statisticService;
   private boolean cacheTemplate_  =  true ;
 
   @SuppressWarnings("unused")
-  public TemplateService(InitParams params, 
+  public TemplateService(InitParams params,
+                         TemplateStatisticService statisticService,
                          CacheService cservice) throws Exception {
     engine_ = new SimpleTemplateEngine() ;
-    templatesCache_ = cservice.getCacheInstance(TemplateService.class.getName()) ;
-    templatesCache_.setLiveTime(10000) ;
+    this.statisticService = statisticService;
+    setTemplatesCache(cservice.getCacheInstance(TemplateService.class.getName()));
+    getTemplatesCache().setLiveTime(10000) ;
   }
   
+  public void merge(String name, BindingContext context) throws Exception {
+  	long startTime = System.currentTimeMillis();
+  	
+    Template template = getTemplate(name, context.getResourceResolver());
+		context.put("_ctx", context) ;
+		context.setGroovyTemplateService(this) ;
+		Writable writable = template.make(context) ;
+		writable.writeTo(context.getWriter());
+		
+		long endTime = System.currentTimeMillis();
+    
+    TemplateStatistic templateStatistic = statisticService.getTemplateStatistic(name);
+    templateStatistic.setTime(endTime - startTime);
+    templateStatistic.setResolver(context.getResourceResolver());
+  }
+  
+  @Deprecated
   public void merge(Template template, BindingContext context) throws  Exception {
     context.put("_ctx", context) ;
     context.setGroovyTemplateService(this) ;
@@ -52,12 +86,13 @@ public class TemplateService  {
     writable.writeTo(context.getWriter());
   }
   
-  public void include(String name, BindingContext context) throws  Exception  {
+  public void include(String name, BindingContext context) throws  Exception  {  
     if(context == null)  throw new Exception("Binding cannot be null") ;
     context.put("_ctx", context) ;
     Template template = getTemplate(name, context.getResourceResolver()) ;
     Writable writable = template.make(context) ;
     writable.writeTo(context.getWriter()) ;
+    
   }
   
   final public Template getTemplate(String name, ResourceResolver resolver) throws Exception {
@@ -68,7 +103,7 @@ public class TemplateService  {
     Template template = null ;
     if(cacheable)  {
       String resourceId =  resolver.createResourceId(url) ;
-      template = (Template)templatesCache_.get(resourceId) ;
+      template = (Template)getTemplatesCache().get(resourceId) ;
     }
     if(template != null)  return template ;   
     InputStream is = resolver.getInputStream(url);
@@ -85,14 +120,56 @@ public class TemplateService  {
     
     if(cacheable) {
       String resourceId =  resolver.createResourceId(url) ;
-      templatesCache_.put(resourceId, template) ;
+      getTemplatesCache().put(resourceId, template) ;
     }
+    
     return template ;
   }
   
   final public void invalidateTemplate(String name, ResourceResolver resolver)throws Exception {
     String resourceId =  resolver.createResourceId(name) ;
-    templatesCache_.remove(resourceId) ;
+    getTemplatesCache().remove(resourceId) ;
   }
-  
+
+  public void setTemplatesCache(ExoCache templatesCache_) {
+	  this.templatesCache_ = templatesCache_;
+  }
+	
+  public ExoCache getTemplatesCache() {
+	  return templatesCache_;
+  }
+
+  /*
+   * Clear the templates cache
+   */
+  @Managed
+  @ManagedDescription("Clear the template cache")
+  public void reloadTemplates() {
+    try {
+      templatesCache_.clearCache();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  /*
+   * Clear the template cache by name
+   */
+  @Managed
+  @ManagedDescription("Clear the template cache for a specified template identifier")
+  public void reloadTemplate(@ManagedDescription("The template id") @ManagedName("templateId") String name) {
+    try {
+      TemplateStatistic app = statisticService.apps.get(name);
+      ResourceResolver resolver = app.getResolver();
+      templatesCache_.remove(resolver.createResourceId(name));
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void start() {
+  }
+
+  public void stop() {
+  }
 }

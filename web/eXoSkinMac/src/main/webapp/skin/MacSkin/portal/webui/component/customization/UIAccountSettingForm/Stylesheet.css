@@ -80,7 +80,8 @@
 .UIAccountSettingForm .UIHorizontalTabs .LineSeparator {
   float: left; /* orientation=lt */
   float: right; /* orientation=rt */
-  background: url('background/SeparatorLine.gif') repeat-y left;
+  background: url('background/SeparatorLine.gif') repeat-y left; /* orientation=lt */
+  background: url('background/SeparatorLine-rt.gif') repeat-y right; /* orientation=rt */
   height: 27px;  width: 2px;
   margin-top: 2px;
 }

@@ -24,6 +24,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.apache.commons.logging.Log;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
@@ -40,11 +41,13 @@ import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.listener.ListenerService;
+import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.Input;
+import org.picocontainer.Startable;
 /**
  * Created by The eXo Platform SAS
  * Apr 19, 2007
@@ -52,7 +55,7 @@ import org.exoplatform.services.portletcontainer.pci.Input;
  * This service is used to load the PortalConfig, Page config  and  Navigation config for a given 
  * user.
  */
-public class UserPortalConfigService {
+public class UserPortalConfigService implements Startable{
   
   public final static String CREATE_PAGE_EVENT = "UserPortalConfigService.page.onCreate".intern();
   public final static String REMOVE_PAGE_EVENT = "UserPortalConfigService.page.onRemove".intern();  
@@ -73,6 +76,7 @@ public class UserPortalConfigService {
   protected ExoCache gadgetsCache_ ;
   
   private NewPortalConfigListener newPortalConfigListener_ ;
+  private Log log = ExoLogger.getLogger("Portal:UserPortalConfigService");
   /**
    *The constructor should create the DataStorage object and broadcast "the UserPortalConfigService.onInit"
    *event
@@ -499,6 +503,19 @@ public class UserPortalConfigService {
       newPortalConfigListener_ = (NewPortalConfigListener)listener;
     }
   }
+
+  public void start() {
+    try {
+      if(newPortalConfigListener_ == null) return;
+      newPortalConfigListener_.run();
+    } catch (Exception e) {
+      log.error(e);
+    }
+  }
+
+  public void stop() {
+  }
   
   public String getDefaultPortal() { return newPortalConfigListener_.getDefaultPortal(); }
+  
 }

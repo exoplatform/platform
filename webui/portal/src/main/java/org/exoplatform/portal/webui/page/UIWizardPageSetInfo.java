@@ -219,7 +219,9 @@ public class UIWizardPageSetInfo extends UIForm {
         uiForm.setFirstTime(false) ;
         UIPortal uiPortal = Util.getUIPortal() ;
         uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId()) ;
-        uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri()) ;
+        if(uiPortal.getSelectedNode() != null) {
+          uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri()) ;
+        }
         pageNode = uiPageNodeSelector.getSelectedPageNode() ;
       }
 

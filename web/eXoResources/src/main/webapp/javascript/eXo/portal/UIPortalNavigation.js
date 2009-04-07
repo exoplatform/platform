@@ -69,10 +69,10 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
      */
     var container = DOMUtil.findFirstDescendantByClass(item, "div", this.containerStyleClass);
     if (container) {
-      if (eXo.core.Browser.browserType == "mozilla" || eXo.core.Browser.isIE7()) {
-        container.style.minWidth = item.offsetWidth + "px";
-      } else {
+      if (eXo.core.Browser.isIE6()) {
         container.style.width = item.offsetWidth + "px";
+      } else {
+        container.style.minWidth = item.offsetWidth + "px";
       }
     }
   }
@@ -187,7 +187,8 @@ UIPortalNavigation.prototype.toggleSubMenu = function(e, tab, menuItemContainer)
       eXo.portal.UIPortalNavigation.superClass.setPosition(menuItemContainer, x, y, eXo.core.I18n.isRT());
       eXo.portal.UIPortalNavigation.superClass.show(menuItemContainer);
       
-      menuItemContainer.style.width = menuItemContainer.offsetWidth + 2 + "px";
+//      menuItemContainer.style.width = menuItemContainer.offsetWidth - parseInt(DOMUtil.getStyle(menuItemContainer, "borderLeftWidth")) 
+//          - parseInt(DOMUtil.getStyle(menuItemContainer, "borderRightWidth")) + "px";
       eXo.portal.UIPortalNavigation.currentOpenedMenu = menuItemContainer.id;
       
       /*Hide eXoStartMenu whenever click on the UIApplication*/

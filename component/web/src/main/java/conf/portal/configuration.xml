@@ -8,7 +8,14 @@
   </component>
 
   <component>
-    <type>org.exoplatform.upload.UploadService</type>    
+    <type>org.exoplatform.upload.UploadService</type>
+    <init-params>
+      <value-param>
+        <name>upload.limit.size</name>
+        <description>Maximum size of the file to upload in MB</description>
+        <value>10</value>
+      </value-param>
+    </init-params>  
   </component>
   
   <component>

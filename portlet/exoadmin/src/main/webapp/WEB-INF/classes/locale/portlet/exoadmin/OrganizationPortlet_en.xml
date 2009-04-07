@@ -56,7 +56,7 @@
       <title>Group Membership</title>
       <username>Username</username>
       <membership>Membership</membership>
-      <SearchUser>Search User</SearchUser>
+      <SearchUser>Select User</SearchUser>
       <Refresh>Refresh</Refresh>
     </label>
     <action>

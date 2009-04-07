@@ -10,8 +10,7 @@ if(!eXo.portal.UIControlWorkspace) {
   eXo.portal.UIControlWorkspace = new UIWorkspace("UIControlWorkspace") ;
 };
 
-eXo.portal.UIControlWorkspace.onResize = function(width, height) {
-	
+eXo.portal.UIControlWorkspace.onResize = function(width, height) {	
 	this.width = width ;
 	this.height = height ;
 	var uiWorkspace = document.getElementById(this.id) ;
@@ -34,7 +33,11 @@ eXo.portal.UIControlWorkspace.onResize = function(width, height) {
 	/*Fix Bug on IE*/
 	eXo.portal.UIControlWorkspace.slidebar.style.height = height + "px" ;
 	eXo.portal.UIControlWorkspace.slidebar.style.overflow = "hidden";
-	uiWorkspace.style.top = document.documentElement.scrollTop + "px" ;
+	if(document.documentElement && document.documentElement.scrollTop) {
+		uiWorkspace.style.top = document.documentElement.scrollTop + "px" ;
+	} else {
+		uiWorkspace.style.top = document.body.scrollTop + "px" ;
+	}
 	if(eXo.core.Browser.getBrowserType() == "ie" && eXo.core.I18n.isRT()) {
 		uiWorkspace.style.width = width + 1 + "px" ; 
 	}
@@ -164,6 +167,7 @@ eXo.portal.UIControlWorkspace.showWorkspace = function() {
 	for(var i = 0; i < dropDownAnchors.length; i++) {
 		if(dropDownAnchors[i].style.display != "none") {
 			dropDownAnchors[i].style.display = "none";
+			dropDownAnchors[i].style.visibility = "hidden";
 		}
 	}
 	

@@ -1,4 +1,4 @@
-<div id="UIPortalToolPanel">
+<div id="UIPortalToolPanel" style="position: relative;">
   <div class="UIPortalToolPanel" style="position: relative; z-index: 0;">	
 		<div class="Body">
 		  <div class="PageDecoratorContainer">

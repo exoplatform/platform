@@ -9,9 +9,9 @@
       <init-params>
         <value-param>
           <name>locale.config.file</name>
-          <value>classpath:/conf/portal/locales-config.xml</value>
+          <value>jar:/conf/portal/locales-config.xml</value>
         </value-param>
       </init-params>
   </component> 
-  <import>classpath:/conf/portal/testjcr/test-jcr-configuration.xml</import>
+  <import>jar:/conf/portal/testjcr/test-jcr-configuration.xml</import>
 </configuration>

@@ -3,12 +3,19 @@
 }
 
 .UINavigationPortlet .UINavigationBar {
-	height: 42px;
 	white-space: nowrap;
 }
 
+.UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
+	background: url('MacSkin/background/UINavigationPortlet.png') repeat-x top;
+	border-top: 1px solid white;
+	padding-left: 8px; /* orientation=lt */
+	padding-right: 8px; /* orientation=rt */
+	!background-position: center 1px;
+}
+
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs	{
-	height: 41px;
+	height: 42px;
 }
 
 .UINavigationPortlet .UIHorizontalTabs .TabsContainer {
@@ -22,13 +29,6 @@
 	background-position: left; /* orientation=lt */
 	background-position: right; /* orientation=rt */
 	display: block;
-}
-
-.UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
-	background: url('MacSkin/background/UINavigationPortlet.png') repeat-x top;
-	height: 41px;
-	padding-left: 8px; /* orientation=lt */
-	padding-right: 8px; /* orientation=rt */
 }
 
 /* Portal Navigation sub menus */

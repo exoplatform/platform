@@ -56,7 +56,7 @@
       <title>Thành viên nhóm</title>
       <username>Tên người dùng:</username>
       <membership>Kiểu thành viên:</membership>
-      <SearchUser>Tìm kiếm người dùng</SearchUser>
+      <SearchUser>Chọn người dùng</SearchUser>
       <Refresh>Refresh</Refresh>
     </label>
     <action>

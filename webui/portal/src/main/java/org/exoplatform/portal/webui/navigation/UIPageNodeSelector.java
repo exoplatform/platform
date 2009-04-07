@@ -159,7 +159,7 @@ public class UIPageNodeSelector extends UIContainer {
     if(getPageNavigation(portalSelectedNav.getId()) != null) {
       selectNavigation(portalSelectedNav.getId()) ;
       PageNode portalSelectedNode = Util.getUIPortal().getSelectedNode() ;
-      selectPageNodeByUri(portalSelectedNode.getUri()) ;  
+      if(portalSelectedNode != null) selectPageNodeByUri(portalSelectedNode.getUri()) ;  
       return;
     } 
     selectNavigation();
@@ -332,7 +332,7 @@ public class UIPageNodeSelector extends UIContainer {
       UserPortalConfigService configService = uiParent.getApplicationComponent(UserPortalConfigService.class);
       Page page = null;
       if(node.getPageReference() != null) {
-       page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
+        page = configService.getPage(node.getPageReference(), event.getRequestContext().getRemoteUser());
       } 
       
       if(page == null){
