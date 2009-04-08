@@ -54,6 +54,12 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   }
   
   public void tearDown() throws Exception { 
+    String newName = "newportal" ;
+    UserPortalConfig portal = service_.getUserPortalConfig(newName, "root") ;
+    if(portal != null) {
+	    service_.removeUserPortalConfig(newName) ;
+	    assertNull(service_.getUserPortalConfig(newName, "none")) ;
+    }
   }
   
   
@@ -84,15 +90,6 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     assertEquals(2, userPortalConfig.getNavigations().size());
     
   }
-  
-  public void testRemoveUserPortalConfig() throws Exception {
-    String newName = "newportal" ;
-    service_.createUserPortalConfig(newName, "classic") ;
-    UserPortalConfig portal = service_.getUserPortalConfig(newName, "none") ;
-    assertNotNull(portal) ;
-    service_.removeUserPortalConfig(newName) ;
-    assertNull(service_.getUserPortalConfig(newName, "none")) ;
-  } 
   
   public void testPortalConfigUpdate() throws Exception {
     String portalName = "newportal" ;
