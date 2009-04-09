@@ -200,8 +200,12 @@ public class UIGadget extends UIComponent {
     if(application == null) {
       GadgetRegistryService gadgetService = getApplicationComponent(GadgetRegistryService.class);
       Gadget model;
-      try{ model = gadgetService.getGadget(applicationName_); }
-      catch(Exception ex) { return null; }
+      try{
+        model = gadgetService.getGadget(applicationName_); 
+      }
+      catch(Exception ex) {
+        return null; 
+      }
       application = GadgetUtil.toGadgetApplication(model);
       webController.addApplication(application);
     }

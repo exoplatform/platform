@@ -79,6 +79,12 @@
 "gadgets.securityTokenType" : "secure",
 "gadgets.securityTokenKeyFile" : "key.txt",
 
+"gadgets.signingKeyFile" : "oauthkey.pem",
+"gadgets.signingKeyName" : "mytestkey",
+
+"gadgets.signedFetchDomain" : "eXo",
+
+
 
 "gadgets.content-rewrite" : {
 "include-urls": ".*",

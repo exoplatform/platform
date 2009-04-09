@@ -27,7 +27,7 @@
   <context-param>
     <param-name>guice-modules</param-name>
     <param-value>
-      org.apache.shindig.common.PropertiesModule:org.exoplatform.portal.gadget.core.ExoModule:org.apache.shindig.social.core.config.SocialApiGuiceModule:org.apache.shindig.gadgets.oauth.OAuthModule
+      org.apache.shindig.common.PropertiesModule:org.apache.shindig.gadgets.DefaultGuiceModule:org.apache.shindig.social.core.config.SocialApiGuiceModule:org.exoplatform.portal.gadget.core.ExoOAuthModule
     </param-value>
   </context-param>
 

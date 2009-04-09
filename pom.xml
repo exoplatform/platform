@@ -164,7 +164,7 @@
     	<org.exoplatform.ws.version>2.0.1-SNAPSHOT</org.exoplatform.ws.version>
         <org.exoplatform.jcr.version>1.11.1-SNAPSHOT</org.exoplatform.jcr.version>
         <org.exoplatform.pc.version>2.1.1-SNAPSHOT</org.exoplatform.pc.version>
-    	<org.shindig.version>0.8.1-1-r719456</org.shindig.version>
+    	<org.shindig.version>1.0.0-incubating-r749233</org.shindig.version>
       </properties>
     </profile>
   </profiles>

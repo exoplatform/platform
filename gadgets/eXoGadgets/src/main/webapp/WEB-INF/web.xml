@@ -5,7 +5,7 @@
   "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-  <display-name>eXoGadges</display-name>
+  <display-name>eXoGadgets</display-name>
   <context-param>
     <param-name>portalContainerName</param-name>
     <param-value>portal</param-value>
