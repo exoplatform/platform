@@ -29,7 +29,7 @@ import javax.portlet.PortletPreferences;
 import org.apache.commons.logging.Log;
 import org.exoplatform.commons.utils.ExceptionUtil;
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.webui.skin.SkinService;
+import org.exoplatform.portal.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;

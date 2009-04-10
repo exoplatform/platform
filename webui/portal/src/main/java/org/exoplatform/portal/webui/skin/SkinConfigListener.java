@@ -54,8 +54,8 @@ public class SkinConfigListener extends BaseComponentPlugin
       
       Binding binding = new Binding();
       ExoContainer rootContainer = ExoContainerContext.getTopContainer();
-      SkinService skinService = 
-        (SkinService)rootContainer.getComponentInstanceOfType(SkinService.class);
+      org.exoplatform.portal.skin.SkinService skinService = 
+        (org.exoplatform.portal.skin.SkinService)rootContainer.getComponentInstanceOfType(org.exoplatform.portal.skin.SkinService.class);
       binding.setVariable("SkinService", skinService) ;
       binding.setVariable("ServletContext", scontext) ;      
       GroovyShell shell = new GroovyShell(binding);

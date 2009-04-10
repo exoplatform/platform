@@ -26,7 +26,11 @@ import javax.servlet.ServletContext;
 
 /**
  * The skin service.
+ * 
+ * @deprecated Since 2.6, this class has been moved to the component.portal module.
+ * that helps it will be available in large scope in Portal
  */
+@Deprecated
 public interface SkinService {
 
   /**

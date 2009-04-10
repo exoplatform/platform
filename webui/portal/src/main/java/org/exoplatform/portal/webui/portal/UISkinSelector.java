@@ -17,10 +17,9 @@
 package org.exoplatform.portal.webui.portal;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.portal.webui.skin.SkinService;
+import org.exoplatform.portal.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;

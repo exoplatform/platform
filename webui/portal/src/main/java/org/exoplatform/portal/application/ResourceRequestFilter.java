@@ -16,21 +16,21 @@
  */
 package org.exoplatform.portal.application;
 
+import java.awt.geom.AffineTransform;
+import java.awt.image.AffineTransformOp;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.Writer;
 import java.net.URLDecoder;
-import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.FutureTask;
 import java.util.concurrent.Callable;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ExecutionException;
-import java.awt.image.BufferedImage;
-import java.awt.image.AffineTransformOp;
-import java.awt.geom.AffineTransform;
+import java.util.concurrent.FutureTask;
 
+import javax.imageio.ImageIO;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -39,22 +39,20 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.imageio.ImageIO;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.commons.utils.CharsetCharEncoder;
+import org.exoplatform.commons.utils.CharsetTextEncoder;
+import org.exoplatform.commons.utils.PropertyManager;
+import org.exoplatform.commons.utils.TableCharEncoder;
+import org.exoplatform.commons.utils.TextEncoder;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.portal.webui.skin.SkinService;
-import org.exoplatform.portal.webui.skin.ResourceRenderer;
-import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.portal.skin.ResourceRenderer;
+import org.exoplatform.portal.skin.SkinService;
 import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache;
-import org.exoplatform.commons.utils.PropertyManager;
-import org.exoplatform.commons.utils.TextEncoder;
-import org.exoplatform.commons.utils.CharsetTextEncoder;
-import org.exoplatform.commons.utils.TableCharEncoder;
-import org.exoplatform.commons.utils.CharsetCharEncoder;
-import org.exoplatform.commons.utils.PortalPrinter;
+import org.exoplatform.services.log.ExoLogger;
 
 public class ResourceRequestFilter implements Filter  {
   
