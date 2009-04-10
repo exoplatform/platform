@@ -132,6 +132,7 @@ public class UIGadgetInfo extends UIComponent {
     public void execute(Event<UIGadgetInfo> event) throws Exception {
       UIGadgetInfo uiInfo = event.getSource();
       Gadget gadget = uiInfo.getGadget();
+      
       UIGadgetManagement uiManagement = uiInfo.getParent();
       GadgetRegistryService service = uiInfo.getApplicationComponent(GadgetRegistryService.class) ;
       if(service.getGadget(gadget.getName()) == null) {
@@ -143,8 +144,14 @@ public class UIGadgetInfo extends UIComponent {
       SourceStorage sourceStorage = uiManagement.getApplicationComponent(SourceStorage.class);
       UIGadgetEditor uiEditor = uiManagement.createUIComponent(UIGadgetEditor.class, null, null);
       String fileName = gadget.getName() + ".xml";
-      Source source = sourceStorage.getSource(fileName);
+      // get dir path of gadget 
+      String gadgetUrl = gadget.getUrl();
+      String[] gaggetUrlPart = gadgetUrl.split("/");
+      String dirPath = gaggetUrlPart[gaggetUrlPart.length - 2];
+      // get gadget's source: path = dir path + file name
+      Source source = sourceStorage.getSource(dirPath + "/" + fileName);
       uiEditor.setSource(source);
+      uiEditor.setDirPath(dirPath);
       uiManagement.getChildren().clear();
       uiManagement.addChild(uiEditor);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);

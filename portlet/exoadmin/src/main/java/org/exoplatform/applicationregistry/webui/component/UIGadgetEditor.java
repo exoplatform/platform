@@ -71,6 +71,7 @@ public class UIGadgetEditor extends UIForm {
   
   private Source source_;
   private String fullName_;
+  private String dirPath;
   
   public UIGadgetEditor(InitParams initParams) throws Exception {
     Param param = initParams.getParam("SampleGadget");
@@ -116,7 +117,15 @@ public class UIGadgetEditor extends UIForm {
     return (idx > 0) ? name : name + ".xml";
   }
   
-  public static class SaveActionListener extends EventListener<UIGadgetEditor> {
+  public void setDirPath(String dirPath) {
+	this.dirPath = dirPath;
+}
+
+public String getDirPath() {
+	return dirPath;
+}
+
+public static class SaveActionListener extends EventListener<UIGadgetEditor> {
 
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
@@ -145,8 +154,8 @@ public class UIGadgetEditor extends UIForm {
       Source source = new Source(fileName, "application/xml", "UTF-8");
       source.setTextContent(text);
       source.setLastModified(Calendar.getInstance());
-      sourceStorage.saveSource(null, source) ;
-      service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(fileName), true)) ;
+      sourceStorage.saveSource(uiForm.getDirPath(), source) ;
+      service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(uiForm.getDirPath() + "/" + fileName), true)) ;
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;
