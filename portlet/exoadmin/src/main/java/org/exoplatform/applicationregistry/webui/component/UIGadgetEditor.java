@@ -130,7 +130,7 @@ public static class SaveActionListener extends EventListener<UIGadgetEditor> {
     public void execute(Event<UIGadgetEditor> event) throws Exception {
       UIGadgetEditor uiForm = event.getSource() ;
       UIGadgetManagement uiManagement = uiForm.getParent() ;
-      String name, fileName;
+      String name, fileName, dirPath;
       String text = uiForm.getUIFormTextAreaInput(UIGadgetEditor.FIELD_SOURCE).getValue() ;
       GadgetRegistryService service = uiForm.getApplicationComponent(GadgetRegistryService.class) ;
       SourceStorage sourceStorage = uiForm.getApplicationComponent(SourceStorage.class) ;
@@ -138,10 +138,12 @@ public static class SaveActionListener extends EventListener<UIGadgetEditor> {
       if(isEdit) {
         fileName = uiForm.getSourceFullName();
         name = uiForm.getSourceName();
+        dirPath = uiForm.getDirPath();
       }
       else {
         name = "gadget" + Calendar.getInstance().hashCode();
         fileName = name + ".xml";
+        dirPath = name;
       }
       if(isEdit) {
         if(service.getGadget(name) == null) {
@@ -154,8 +156,8 @@ public static class SaveActionListener extends EventListener<UIGadgetEditor> {
       Source source = new Source(fileName, "application/xml", "UTF-8");
       source.setTextContent(text);
       source.setLastModified(Calendar.getInstance());
-      sourceStorage.saveSource(uiForm.getDirPath(), source) ;
-      service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(uiForm.getDirPath() + "/" + fileName), true)) ;
+      sourceStorage.saveSource(dirPath, source) ;
+      service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(dirPath + "/" + fileName), true)) ;
       uiManagement.initData() ;
       uiManagement.setSelectedGadget(name);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement) ;

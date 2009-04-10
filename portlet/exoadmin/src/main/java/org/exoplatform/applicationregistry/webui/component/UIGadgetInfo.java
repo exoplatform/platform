@@ -116,8 +116,8 @@ public class UIGadgetInfo extends UIComponent {
       Source source = new Source(fileName, "application/xml", "UTF-8");
       source.setTextContent(IOUtils.toString(is, "UTF-8"));
       source.setLastModified(Calendar.getInstance());
-      sourceStorage.saveSource(null, source) ;
-      service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(fileName), true)) ;
+      sourceStorage.saveSource(name, source) ;
+      service.saveGadget(GadgetUtil.toGadget(name, sourceStorage.getSourceURI(name + "/" + fileName), true)) ;
       WebAppController webController = uiManagement.getApplicationComponent(WebAppController.class);
       webController.removeApplication(GadgetApplication.EXO_GADGET_GROUP + "/" + name);
       uiManagement.initData() ;

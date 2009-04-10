@@ -154,8 +154,12 @@ public class UIGadgetManagement extends UIContainer {
       webController.removeApplication(GadgetApplication.EXO_GADGET_GROUP + "/" + name);
       Gadget gadget = uiManagement.getGadget(name);
       if(gadget.isLocal()) {
+		// get dir path of gadget 
+	    String gadgetUrl = gadget.getUrl();
+	    String[] gaggetUrlPart = gadgetUrl.split("/");
+	    String dirPath = gaggetUrlPart[gaggetUrlPart.length - 2];  
         SourceStorage sourceStorage = uiManagement.getApplicationComponent(SourceStorage.class);
-        sourceStorage.removeSource(name + ".xml");
+        sourceStorage.removeSource(dirPath + "/" + name + ".xml");
       }
       uiManagement.reload();
       ctx.addUIComponentToUpdateByAjax(uiManagement) ;
