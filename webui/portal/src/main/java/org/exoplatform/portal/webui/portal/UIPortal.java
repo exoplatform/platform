@@ -64,7 +64,8 @@ import org.exoplatform.webui.event.EventListener;
       @EventConfig(listeners = ShowLoginFormActionListener.class),
       @EventConfig(listeners = ChangeLanguageActionListener.class),
       @EventConfig(listeners = RecoveryPasswordAndUsernameActionListener.class),
-      @EventConfig(listeners = UIPortal.AccountSettingsActionListener.class)
+      @EventConfig(listeners = UIPortal.AccountSettingsActionListener.class),
+      @EventConfig(listeners = UIPortalActionListener.PingActionListener.class)
     }
 )
 public class UIPortal extends UIContainer { 
@@ -213,6 +214,12 @@ public class UIPortal extends UIContainer {
     }
   }
   
+  public String createURL() {
+    String url = "" ;
+    url += Util.getPortalRequestContext().getURLBuilder().createURL(this, null, null) ;
+    return url ;
+  }
+  
   static  public class LogoutActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {
       PortalRequestContext prContext = Util.getPortalRequestContext();
@@ -236,15 +243,15 @@ public class UIPortal extends UIContainer {
   }  
   
   public static class AccountSettingsActionListener extends EventListener<UIPortal> {
-	    public void execute(Event<UIPortal> event) throws Exception {
-	      UIPortal uiPortal = Util.getUIPortal() ;
-	      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class) ;
-	      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-	     
-	      UIAccountSetting uiAccountForm = uiMaskWS.createUIComponent(UIAccountSetting.class, null, null) ;
-	      uiMaskWS.setUIComponent(uiAccountForm) ;
-	      uiMaskWS.setShow(true) ;
-	      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
-	    }
-	  }	  
+    public void execute(Event<UIPortal> event) throws Exception {
+      UIPortal uiPortal = Util.getUIPortal() ;
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class) ;
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+     
+      UIAccountSetting uiAccountForm = uiMaskWS.createUIComponent(UIAccountSetting.class, null, null) ;
+      uiMaskWS.setUIComponent(uiAccountForm) ;
+      uiMaskWS.setShow(true) ;
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS) ;
+    }
+  }	  
 }

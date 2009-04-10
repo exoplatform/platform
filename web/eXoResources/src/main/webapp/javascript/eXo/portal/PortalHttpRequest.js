@@ -575,6 +575,10 @@ function doRequest(method, url, queryString, callback) {
   request.callBack = callback ;
   eXo.portal.CurrentRequest = request ;
   request.process() ;
+  eXo.session.itvDestroy() ;
+  if(eXo.session.isOpen) {
+	  eXo.session.itvInit() ;
+  }
 }	;
 
 function ajaxAbort() {	
@@ -592,6 +596,10 @@ function ajaxAsyncGetRequest(url, async) {
   request.open('GET', url, async) ;
   request.setRequestHeader("Cache-Control", "max-age=86400") ;
   request.send(null) ;
+  eXo.session.itvDestroy() ;
+  if(eXo.session.isOpen) {
+    eXo.session.itvInit() ;
+  }
 	if(!async) return request.responseText ;
 }
 
