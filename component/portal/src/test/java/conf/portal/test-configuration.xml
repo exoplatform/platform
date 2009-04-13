@@ -15,6 +15,10 @@
     <type>org.exoplatform.portal.application.jcr.UserGadgetStorageImpl</type>
   </component>
   <component>
+    <key>org.exoplatform.portal.session.SessionManagementService</key>
+    <type>org.exoplatform.portal.session.SessionManagementService</type>
+  </component>
+  <component>
     <key>org.exoplatform.portal.layout.PortalLayoutService</key>
     <type>org.exoplatform.portal.layout.jcr.PortalLayoutServiceImpl</type>
     <init-params>
