@@ -21,7 +21,12 @@
       </properties-param>
     </init-params>
   </component>
-
+  
+  <component>
+    <key>org.exoplatform.services.jcr.RepositoryService</key>
+    <type>org.exoplatform.services.jcr.impl.RepositoryServiceImpl</type>
+  </component>
+  
   <component>
     <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
     <init-params>

@@ -3,6 +3,36 @@
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+
+  <component>
+  	<key>org.exoplatform.services.cache.CacheService</key>
+    <jmx-name>cache:type=CacheService</jmx-name>
+  	<type>org.exoplatform.services.cache.impl.CacheServiceImpl</type>
+  	<init-params>
+      <object-param>
+        <name>cache.config.default</name>
+        <description>The default cache configuration</description>
+        <object type="org.exoplatform.services.cache.ExoCacheConfig">
+          <field name="name"><string>default</string></field>
+          <field name="maxSize"><int>300</int></field>
+          <field name="liveTime"><long>60</long></field>
+          <field name="distributed"><boolean>false</boolean></field>
+          <field name="implementation"><string>org.exoplatform.services.cache.concurrent.ConcurrentFIFOExoCache</string></field> 
+        </object>
+      </object-param>
+    </init-params>	
+  </component> 
+  
+  <component>
+    <type>org.exoplatform.services.jcr.ext.registry.RegistryService</type>
+    <init-params>
+      <properties-param>
+      	<name>locations</name>
+      	<property name="repository" value="system"/>
+      </properties-param>
+    </init-params>
+  </component>
+  
   <component>
     <key>org.exoplatform.services.resources.LocaleConfigService</key>
     <type>org.exoplatform.services.resources.impl.LocaleConfigServiceImpl</type>
