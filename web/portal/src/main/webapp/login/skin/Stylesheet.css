@@ -100,12 +100,12 @@
 }
 
 .UILogin .LoginContent .LoginButtonContainer {
-  width: 70px;
+  width: 100px;
   margin: auto; 
 }
 
 .UILogin .LoginContent .Button {
-  width: 70px; height: 22px ;
+  width: 100px; height: 22px ;
   margin: auto; 
 }
 
