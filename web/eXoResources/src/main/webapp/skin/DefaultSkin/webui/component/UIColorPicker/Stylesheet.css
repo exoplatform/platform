@@ -1,0 +1,142 @@
+.UIFormColorPicker {
+ 
+}
+.UIFormColorPicker .UIColorPickerItem {
+	display: block ;
+	padding: 3px 5px ;
+	text-decoration: none ;
+	color: black ;
+}
+.UIFormColorPicker .UIColorPickerInput {
+	border: solid 1px gray ;
+	width: 235px;
+	height: 18px;
+	*height: 18px;
+	line-height: 18px;
+}
+.UIFormColorPicker  .DisplayValue {
+	display:block ;
+ 	margin: 1px;
+ 	height: 15px;
+	*height: 15px;
+	line-height: 15px;
+  border: solid 1px #cccccc ;
+}
+
+.UIFormColorPicker  .UIColorLine {
+	margin: 5px 0px ;
+}
+
+.UIFormColorPicker a:hover{
+	color: white ;
+}
+
+.UIFormColorPicker a:visit{
+	color: black ;
+}
+
+.UIFormColorPicker .UIColorPickerLabel {
+	font-family: tahoma ;
+	font-size: 11px ;
+	margin-left: 16px ;
+}
+.UIFormColorPicker .CalendarTableColor {
+	display: none;
+ 	position: absolute;
+ 	background: #e4eaf5;
+	padding: 2px;
+  border: solid 1px #cccccc ;
+}
+ 
+
+.CalendarTableColor .ColorCell {
+ width: 12px; height: 12px;
+ margin: 2px;
+ border: 1px solid #ffffff;
+}
+
+
+.CalendarTableColor .ColorCell img {
+ width: 12px; height: 12px;
+}
+
+.UIFormColorPicker .SelectedColorCell {
+	background: url('../skinIcons/icons/CalendarIcons.gif') no-repeat left -342px;
+	width: 12px; height: 12px;
+	border: 1px solid red;
+}
+
+.CalendarTableColor a:hover {
+	border: 2px solid red;
+  margin: 1px ;
+}
+
+/* Colors*/
+.Olive {background-color: #808000; }
+.OliveDrab {background-color: #6B8E23;} 	
+.Orange {background-color: #FFA500;}		
+.OrangeRed {background-color: #FF4500;}		
+.Orchid {background-color: #DA70D6;}		
+.PaleGoldenRod {background-color: #EEE8AA;}		
+.PaleGreen {background-color: #98FB98;}		
+.PaleTurquoise {background-color: #AFEEEE;}		
+.PaleVioletRed {background-color: #D87093;}		
+.PapayaWhip	{background-color: #FFEFD5;}		
+.PeachPuff {background-color: #FFDAB9;}		
+.Peru {background-color: #CD853F;}		
+.Pink {background-color: #FFC0CB;} 	
+.Plum {background-color: #DDA0DD;} 	
+.PowderBlue {background-color: #B0E0E6;}		
+.Purple {background-color: #800080;}		
+.Red {background-color: #FF0000;}		
+.RosyBrown {background-color: #BC8F8F;}		
+.RoyalBlue {background-color: #4169E1;}		
+.SaddleBrown {background-color: #8B4513;}		
+.Salmon {background-color: #FA8072;}		
+.SandyBrown {background-color: #F4A460;}		
+.SeaGreen {background-color: #2E8B57;}		
+.SeaShell {background-color: #FFF5EE;}		
+.Sienna {background-color: #A0522D;}		
+.Silver {background-color: #C0C0C0;}		
+.SkyBlue {background-color: #87CEEB;}
+.Thistle {background-color: #D8BFD8;}		
+.Tomato {background-color: #FF6347;}		
+.Turquoise {background-color: #40E0D0;}		
+.Violet {background-color: #EE82EE;}		
+.Wheat {background-color: #F5DEB3;}		
+.Yellow {background-color: #FFFF00;}		
+
+/* Colors*/
+.CalendarTableColor .Olive {background-color: #808000; }
+.CalendarTableColor .OliveDrab {background-color: #6B8E23;}   
+.CalendarTableColor .Orange {background-color: #FFA500;}    
+.CalendarTableColor .OrangeRed {background-color: #FF4500;}    
+.CalendarTableColor .Orchid {background-color: #DA70D6;}    
+.CalendarTableColor .PaleGoldenRod {background-color: #EEE8AA;}    
+.CalendarTableColor .PaleGreen {background-color: #98FB98;}    
+.CalendarTableColor .PaleTurquoise {background-color: #AFEEEE;}    
+.CalendarTableColor .PaleVioletRed {background-color: #D87093;}    
+.CalendarTableColor .PapayaWhip  {background-color: #FFEFD5;}    
+.CalendarTableColor .PeachPuff {background-color: #FFDAB9;}    
+.CalendarTableColor .Peru {background-color: #CD853F;}    
+.CalendarTableColor .Pink {background-color: #FFC0CB ;}   
+.CalendarTableColor .Plum {background-color: #DDA0DD ;}   
+.CalendarTableColor .PowderBlue {background-color: #B0E0E6;}    
+.CalendarTableColor .Purple {background-color: #800080;}    
+.CalendarTableColor .Red {background-color: #FF0000;}    
+.CalendarTableColor .RosyBrown {background-color: #BC8F8F;}    
+.CalendarTableColor .RoyalBlue {background-color: #4169E1;}    
+.CalendarTableColor .SaddleBrown {background-color: #8B4513;}    
+.CalendarTableColor .Salmon {background-color: #FA8072;}    
+.CalendarTableColor .SandyBrown {background-color: #F4A460;}    
+.CalendarTableColor .SeaGreen {background-color: #2E8B57;}    
+.CalendarTableColor .SeaShell {background-color: #FFF5EE;}    
+.CalendarTableColor .Sienna {background-color: #A0522D;}    
+.CalendarTableColor .Silver {background-color: #C0C0C0;}    
+.CalendarTableColor .SkyBlue {background-color: #87CEEB;}
+.CalendarTableColor .Thistle {background-color: #D8BFD8;}    
+.CalendarTableColor .Tomato {background-color: #FF6347;}    
+.CalendarTableColor .Turquoise {background-color: #40E0D0;}    
+.CalendarTableColor .Violet {background-color: #EE82EE;}    
+.CalendarTableColor .Wheat {background-color: #F5DEB3;}    
+.CalendarTableColor .Yellow {background-color: #FFFF00;}    

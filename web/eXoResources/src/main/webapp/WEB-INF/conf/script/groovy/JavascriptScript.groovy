@@ -37,7 +37,8 @@ JavascriptService.addJavascript("eXo.webui.UIDashboard", "/javascript/eXo/webui/
 JavascriptService.addJavascript("eXo.webui.UIDashboardUtil", "/javascript/eXo/webui/UIDashboardUtil.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UINotification", "/javascript/eXo/webui/UINotification.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIUserSelector", "/javascript/eXo/webui/UIUserSelector.js", ServletContext);
-
+JavascriptService.addJavascript("eXo.webui.UICombobox", "/javascript/eXo/webui/UICombobox.js", ServletContext);
+JavascriptService.addJavascript("eXo.webui.UIColorPicker", "/javascript/eXo/webui/UIColorPicker.js", ServletContext);
 /* Portal Javascripts */ 
 JavascriptService.addJavascript("eXo.portal.PortalHttpRequest", "/javascript/eXo/portal/PortalHttpRequest.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIPortal", "/javascript/eXo/portal/UIPortal.js", ServletContext);
