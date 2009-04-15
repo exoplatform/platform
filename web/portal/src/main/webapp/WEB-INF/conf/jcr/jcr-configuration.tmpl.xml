@@ -37,4 +37,69 @@
     </init-params>
   </component>  
    
+  <component>
+    <key>org.exoplatform.services.jcr.ext.hierarchy.NodeHierarchyCreator</key>
+    <type>org.exoplatform.services.jcr.ext.hierarchy.impl.NodeHierarchyCreatorImpl</type>
+  </component>  
+	
+  <component>
+    <key>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</key>
+    <type>org.exoplatform.services.jcr.webdav.WebDavServiceImpl</type>
+    <init-params>
+      
+      <value-param>
+        <name>auto-mix-lockable</name>
+        <value>false</value>
+      </value-param>
+      
+      <value-param>
+        <name>def-folder-node-type</name>
+        <value>nt:folder</value>
+      </value-param>
+      
+      <value-param>
+        <name>def-file-node-type</name>
+        <value>nt:file</value>
+      </value-param>
+      
+      <value-param>
+        <name>def-file-mimetype</name>
+        <value>text/plain</value>
+      </value-param>
+      
+      <value-param>
+        <name>update-policy</name>
+        <value>create-version</value>
+      </value-param>
+    </init-params>
+  </component>
+	
+  <external-component-plugins>
+ 		<target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
+ 		<component-plugin>
+ 		  <name>add.namespaces</name>
+ 		  <set-method>addPlugin</set-method>
+ 		  <type>org.exoplatform.services.jcr.impl.AddNamespacesPlugin</type>
+ 		  <init-params>
+ 		    <properties-param>
+ 		      <name>namespaces</name>
+ 		      <property name="dc" value="http://purl.org/dc/elements/1.1/"/>
+ 		      </properties-param>
+ 		  </init-params>
+ 		</component-plugin>
+ 		<component-plugin>
+ 		  <name>add.nodeType</name>
+ 		  <set-method>addPlugin</set-method>
+ 		  <type>org.exoplatform.services.jcr.impl.AddNodeTypePlugin</type>
+ 		  <init-params>
+ 		    <values-param>
+ 		      <name>autoCreatedInNewRepository</name>
+ 		      <description>Node types configuration file</description>
+ 		      <value>jar:/conf/ext-nodetypes-config.xml</value>
+ 		      <value>jar:/conf/organization-nodetypes.xml</value>
+ 		    </values-param>
+ 		  </init-params>
+ 		</component-plugin>
+  </external-component-plugins>
+	
 </configuration>
