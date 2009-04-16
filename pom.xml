@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.exoplatform</groupId>
     <artifactId>parent</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.1</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
@@ -12,6 +12,18 @@
   <name>eXo Portal Config</name>
   <version>2.6-SNAPSHOT</version>
   <packaging>pom</packaging>
+
+
+  <properties>
+     <exo.product.name>exo-portal</exo.product.name>
+     <exo.product.specification>2.6</exo.product.specification>
+  </properties>
+
+  <scm>
+    <connection>scm:svn:http://svn.exoplatform.org/projects/portal/trunk</connection>
+    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/portal/trunk</developerConnection>
+    <url>http://fisheye.exoplatform.org/browse/projects/portal/trunk</url>
+  </scm> 
 
   <modules>
     <module>component/xml-parser</module>
@@ -73,14 +85,6 @@
       </testResource>
     </testResources>
     <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <configuration>
-          <source>1.5</source>
-          <target>1.5</target>
-        </configuration>
-      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
