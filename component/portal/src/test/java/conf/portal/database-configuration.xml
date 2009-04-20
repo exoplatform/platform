@@ -13,7 +13,7 @@
         <description>Default Hibernate Service</description>
         <property name="hibernate.show_sql" value="false"/>
         <property name="hibernate.cglib.use_reflection_optimizer" value="true"/>
-        <property name="hibernate.connection.url" value="jdbc:hsqldb:file:../temp/data/exodb"/>
+        <property name="hibernate.connection.url" value="jdbc:hsqldb:file:target/temp/data/exodb"/>
         <property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
         <property name="hibernate.connection.autocommit" value="true"/>
         <property name="hibernate.connection.username" value="sa"/>

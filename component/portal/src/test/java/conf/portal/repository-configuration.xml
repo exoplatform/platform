@@ -13,7 +13,7 @@
               <property name="multi-db" value="false"/>
               <property name="update-storage" value="true"/>
               <property name="max-buffer-size" value="204800"/>
-              <property name="swap-directory" value="../temp/swap/system"/>
+              <property name="swap-directory" value="target/temp/swap/system"/>
             </properties>
             <value-storages>
               <value-storage id="system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
