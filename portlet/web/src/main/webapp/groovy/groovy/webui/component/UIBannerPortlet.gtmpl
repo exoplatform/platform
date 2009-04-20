@@ -1,6 +1,9 @@
 <%
 	import org.exoplatform.portal.application.PortalRequestContext;
 	import org.exoplatform.portal.webui.util.Util;
+	import org.exoplatform.services.organization.User;
+ 	import org.exoplatform.services.security.ConversationState;
+ 	import org.exoplatform.web.CacheUserProfileFilter;
 	
 	def prContext = _ctx.getRequestContext().getParentAppRequestContext();
 	
@@ -23,7 +26,12 @@
 									<div class="Name">
 										<%=_ctx.appRes("UILogged.note.loggedUser")%>
 										<a style="padding: 0px 10px 0px 2px; color: red; font-weight:bold; cursor:pointer;" href="$accountSetting">
-											<%=prContext.getRemoteUser();%>
+											<% if(prContext.getRemoteUser() != null) {
+											 ConversationState state = ConversationState.getCurrent();
+											 User user = state.getAttribute(CacheUserProfileFilter.USER_PROFILE);
+											 print user.getFirstName() + " " + user.getLastName();
+											 }
+											%>
 										</a>
 									</div>
 									<a class="Logout" onclick="eXo.portal.logout();"><%=_ctx.appRes("UILogged.action.signout")%></a>
