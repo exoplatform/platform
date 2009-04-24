@@ -53,6 +53,10 @@ public class UIGroupExplorer extends UIContainer {
     OrganizationService service = getApplicationComponent(OrganizationService.class) ;
     sibblingsGroup_ = service.getGroupHandler().findGroups(null);
     
+    //  if not administrator
+	if (!GroupManagement.isAdministrator(null))
+		sibblingsGroup_ = GroupManagement.getRelatedGroups(null, sibblingsGroup_);
+	
     tree.setSibbling((List)sibblingsGroup_);
     tree.setIcon("GroupAdminIcon");
     tree.setSelectedIcon("PortalIcon");
@@ -76,6 +80,9 @@ public class UIGroupExplorer extends UIContainer {
     
     if(groupId == null){
       sibblingsGroup_ = service.getGroupHandler().findGroups(null);
+      //    if not administrator
+	  if (!GroupManagement.isAdministrator(null))
+		sibblingsGroup_ = GroupManagement.getRelatedGroups(null,sibblingsGroup_);
       uiTree.setSibbling((List)sibblingsGroup_);
       uiTree.setSelected(null) ;
       uiTree.setChildren(null) ;
@@ -97,6 +104,13 @@ public class UIGroupExplorer extends UIContainer {
 	  if(parentGroupId != null)	parentGroup = service.getGroupHandler().findGroupById(parentGroupId);
     childrenGroup_ = service.getGroupHandler().findGroups(selectedGroup_); 
     sibblingsGroup_ = service.getGroupHandler().findGroups(parentGroup);  
+    
+    // if not administrator
+	if (!GroupManagement.isAdministrator(null)) {
+	  childrenGroup_ = GroupManagement.getRelatedGroups(null, childrenGroup_);
+	  sibblingsGroup_ = GroupManagement.getRelatedGroups(null, sibblingsGroup_);
+	}
+	
     for(Object group: sibblingsGroup_) {
       if(selectedGroup_ != null && ((Group)group).getId().equals(selectedGroup_.getId())){
         selectedGroup_ = (Group) group;

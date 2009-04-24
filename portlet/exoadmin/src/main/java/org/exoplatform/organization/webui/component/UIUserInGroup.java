@@ -118,6 +118,29 @@ public class UIUserInGroup extends UIContainer {
     UIGridUser uiGrid = getChild(UIGridUser.class) ;
     pageList.setPageSize(5) ;
     uiGrid.getUIPageIterator().setPageList(pageList);
+    
+    if (group != null) {
+      String groupId = group.getId();
+      // show action if is administrator
+      boolean showAction = GroupManagement.isAdministrator(null);
+      
+      if (!showAction) {
+        pageList.setPageSize(10) ;
+        if (getChild(UIGroupMembershipForm.class) != null)
+          removeChild(UIGroupMembershipForm.class);
+        uiGrid.configure("id", USER_BEAN_FIELD, null);
+      } else {
+        pageList.setPageSize(5) ;
+        uiGrid.configure("id", USER_BEAN_FIELD, USER_ACTION) ;
+        if (getChild(UIGroupMembershipForm.class) == null)
+          addChild(UIGroupMembershipForm.class, null, null);
+      }
+    } else {
+      pageList.setPageSize(10) ;
+      if (getChild(UIGroupMembershipForm.class) != null)
+        removeChild(UIGroupMembershipForm.class);
+    }
+    
   }
 
 

@@ -34,6 +34,8 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.IdentifierValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
+import org.exoplatform.services.organization.User;
+import org.exoplatform.services.organization.MembershipType;
 
 /**
  * Created by The eXo Platform SARL
@@ -130,14 +132,26 @@ public class UIGroupForm extends UIForm {
       if(newGroup.getLabel() == null || newGroup.getLabel().trim().length() == 0) {
         newGroup.setLabel(newGroup.getGroupName()) ;
       }
+      String changeGroupId;
       if(currentGroupId == null) {
         groupHandler.addChild(null, newGroup, true) ;
-        uiGroupExplorer.changeGroup(groupName) ;
+        //uiGroupExplorer.changeGroup(groupName) ;
+        changeGroupId = groupName;
       } else {
         Group parrentGroup = groupHandler.findGroupById(currentGroupId) ;
         groupHandler.addChild(parrentGroup, newGroup, true) ;
-        uiGroupExplorer.changeGroup(currentGroupId) ;
-      }      
+        //uiGroupExplorer.changeGroup(currentGroupId) ;
+        changeGroupId = currentGroupId;
+      }     
+      
+      // change group
+      String username = org.exoplatform.portal.webui.util.Util.getPortalRequestContext().getRemoteUser() ;
+      User user = service.getUserHandler().findUserByName(username) ;
+      MembershipType membershipType = 
+        service.getMembershipTypeHandler().findMembershipType(GroupManagement.getUserACL().getAdminMSType());
+      service.getMembershipHandler().linkMembership(user, newGroup, membershipType, true);
+      
+      uiGroupExplorer.changeGroup(changeGroupId);   
       uiGroupForm.reset();
       uiGroupForm.setGroup(null);
       uiGroupForm.setRenderSibbling(UIGroupInfo.class) ;
