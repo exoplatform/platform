@@ -10,6 +10,6 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 ) 
 public class UIAdminToolbarPortlet extends UIPortletApplication {
   public UIAdminToolbarPortlet() throws Exception{    
-    
+	  
   }
 }
