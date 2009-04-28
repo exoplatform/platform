@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.ResourceBundle;
 import java.util.Map.Entry;
 
 import org.exoplatform.application.gadget.Gadget;
@@ -80,11 +81,17 @@ public class UIAddApplicationForm extends UIForm {
   private List<Application> applications_ = new ArrayList<Application>() ;
   
   public UIAddApplicationForm() throws Exception {
+	  
+	WebuiRequestContext contextres = WebuiRequestContext.getCurrentInstance();
+	ResourceBundle res = contextres.getApplicationResourceBundle();  
+	
     addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null).
                    addValidator(StringLengthValidator.class, 3, 30) ) ;
     List<SelectItemOption<String>> types = new ArrayList<SelectItemOption<String>>(2) ;
-    types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) ;
-    types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) ;
+    String portletType = "UIAddApplicationForm." + org.exoplatform.web.application.Application.EXO_PORTLET_TYPE + ".label";
+    String gadgetType = "UIAddApplicationForm." + org.exoplatform.web.application.Application.EXO_GAGGET_TYPE + ".label";
+    types.add(new SelectItemOption<String>(res.getString(portletType))) ;
+    types.add(new SelectItemOption<String>(res.getString(gadgetType))) ;
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_TYPE, null, types) ;
     uiSelectBox.setOnChange("ChangeType") ;
     addUIFormInput(uiSelectBox) ;
