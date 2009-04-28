@@ -132,7 +132,7 @@
       <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
-    <resource-bundle>locale.portlet.exoadmin.AccountPortlet</resource-bundle>
+    <resource-bundle>locale.portlet.exoadmin.AdminToolbarPortlet</resource-bundle>
     <portlet-info>
       <title>Administration Toolbar Portlet</title>
       <short-title>Administration Toolbar</short-title>
