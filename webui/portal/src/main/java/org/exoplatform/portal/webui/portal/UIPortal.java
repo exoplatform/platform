@@ -24,6 +24,7 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.exoplatform.portal.account.UIAccountSetting;
@@ -45,6 +46,7 @@ import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.web.login.InitiateLoginServlet;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -223,10 +225,14 @@ public class UIPortal extends UIContainer {
   static  public class LogoutActionListener extends EventListener<UIComponent> {
     public void execute(Event<UIComponent> event) throws Exception {
       PortalRequestContext prContext = Util.getPortalRequestContext();
-      prContext.getRequest().getSession().invalidate() ;
-      HttpServletRequest request = prContext.getRequest() ;
+      HttpServletRequest req = prContext.getRequest();
+      req.getSession().invalidate() ;
+      Cookie cookie = new Cookie(InitiateLoginServlet.COOKIE_NAME, "");
+			cookie.setPath(req.getContextPath());
+			cookie.setMaxAge(0);
+			prContext.getResponse().addCookie(cookie);
       String portalName = URLEncoder.encode(Util.getUIPortal().getName(), "UTF-8") ;
-      String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
+      String redirect = req.getContextPath() + "/public/" + portalName + "/" ;
       prContext.getResponse().sendRedirect(redirect) ;
       prContext.setResponseComplete(true) ;
     }
