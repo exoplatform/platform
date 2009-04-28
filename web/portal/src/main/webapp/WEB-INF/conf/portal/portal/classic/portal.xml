@@ -7,8 +7,13 @@
   <edit-permission>*:/platform/administrators</edit-permission>
   <creator>root</creator>    
     
- 	<portal-layout> 		
-		<application>
+ 	<portal-layout>
+ 	   <application>
+	    	<instance-id>portal#classic:/exoadmin/AdminToolbarPortlet/adminToolbar</instance-id>
+	    	<show-info-bar>false</show-info-bar>
+	  </application>
+ 		
+	  <application>
 	    <instance-id>portal#classic:/web/BannerPortlet/banner</instance-id>
 	    <show-info-bar>false</show-info-bar>
 	  </application>
