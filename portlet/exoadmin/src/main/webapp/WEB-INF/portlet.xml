@@ -113,5 +113,30 @@
       <role-name>admin</role-name>
       <role-link>admin</role-link>
     </security-role-ref>
-  </portlet>      
+  </portlet>
+  
+  <portlet>
+    <description xml:lang="EN">Administration Toolbar Portlet</description>
+    <portlet-name>AdminToolbarPortlet</portlet-name>
+    <display-name xml:lang="EN">Administration Toolbar Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/AdminToolbarPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    <resource-bundle>locale.portlet.exoadmin.AccountPortlet</resource-bundle>
+    <portlet-info>
+      <title>Administration Toolbar Portlet</title>
+      <short-title>Administration Toolbar</short-title>
+      <keywords>Toolbar</keywords>
+    </portlet-info>
+  </portlet>   
 </portlet-app>
