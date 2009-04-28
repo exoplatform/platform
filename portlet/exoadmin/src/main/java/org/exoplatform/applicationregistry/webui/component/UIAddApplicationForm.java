@@ -88,10 +88,8 @@ public class UIAddApplicationForm extends UIForm {
     addUIFormInput(new UIFormStringInput(FIELD_NAME, null, null).
                    addValidator(StringLengthValidator.class, 3, 30) ) ;
     List<SelectItemOption<String>> types = new ArrayList<SelectItemOption<String>>(2) ;
-    String portletType = "UIAddApplicationForm." + org.exoplatform.web.application.Application.EXO_PORTLET_TYPE + ".label";
-    String gadgetType = "UIAddApplicationForm." + org.exoplatform.web.application.Application.EXO_GAGGET_TYPE + ".label";
-    types.add(new SelectItemOption<String>(res.getString(portletType))) ;
-    types.add(new SelectItemOption<String>(res.getString(gadgetType))) ;
+    types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) ;
+    types.add(new SelectItemOption<String>(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) ;
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_TYPE, null, types) ;
     uiSelectBox.setOnChange("ChangeType") ;
     addUIFormInput(uiSelectBox) ;
