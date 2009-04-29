@@ -1,0 +1,297 @@
+
+	<% 
+		import org.exoplatform.portal.webui.util.ToolbarUtils;
+	    import org.exoplatform.portal.config.model.PageNavigation;
+		import org.exoplatform.portal.config.model.PageNode;
+		import org.exoplatform.toolbar.webui.component.UIAdminToolbar;
+		import org.exoplatform.web.application.JavascriptManager;
+	  
+		def rcontext = _ctx.getRequestContext();
+		
+		int currentRole = uicomponent.getRole();
+		boolean showable  = uicomponent.isShowWorkspaceArea();
+		
+		String addPageLink = uicomponent.event("AddPage");
+		String editPageLink = uicomponent.event("EditPage");
+		String createPortalLink = uicomponent.event("CreatePortal");
+		String editPortalLink = uicomponent.event("EditPortal");
+		String changePortalLink = uicomponent.event("ChangePortal");
+		String skinSettingsLink = uicomponent.event("SkinSettings");
+		String languageSettingsLink = uicomponent.event("LanguageSettings");
+		String accountSettingsLink = uicomponent.event("AccountSettings");
+		
+		String browsePortalLink = uicomponent.event("BrowsePortal");
+		String browsePageLink = uicomponent.event("BrowsePage");
+		String editPageAndNavLink = uicomponent.event("EditPageAndNavigation");
+		String turnOnQuickEditLink = uicomponent.event("TurnOnQuickEdit");
+		String turnOffQuickEditLink = uicomponent.event("TurnOffQuickEdit");		
+		
+		String addPageLabel = _ctx.appRes("UIAdminToolbar.action.AddPage");	
+		String editPageLabel = _ctx.appRes("UIAdminToolbar.action.EditPage");
+		String createPortalLabel = _ctx.appRes("UIAdminToolbar.action.CreatePortal");
+		String editPortalLabel = _ctx.appRes("UIAdminToolbar.action.EditPortal");
+		String changePortalLabel = _ctx.appRes("UIAdminToolbar.action.ChangePortal");	
+		String skinSettingsLabel = _ctx.appRes("UIAdminToolbar.action.SkinSettings");
+		String languageSettingsLabel = _ctx.appRes("UIAdminToolbar.action.LanguageSettings");
+		String accountSettingsLabel = _ctx.appRes("UIAdminToolbar.action.AccountSettings");	
+		String addContentLabel = _ctx.appRes("UIAdminToolbar.action.AddContent");
+		String browsePortalLabel = _ctx.appRes("UIAdminToolbar.action.BrowsePortal");
+		String browsePageLabel = _ctx.appRes("UIAdminToolbar.action.BrowsePage");	
+		String editPageAndNaviLabel = _ctx.appRes("UIAdminToolbar.action.EditPageAndNavigation");
+		String logoutLabel = _ctx.appRes("UIAdminToolbar.action.Logout");	
+		String dashboardLabel = _ctx.appRes("UIAdminToolbar.action.Dashboard");		
+		String sitesLabel = _ctx.appRes("UIAdminToolbar.action.Sites");		
+		String groupsLabel = _ctx.appRes("UIAdminToolbar.action.Groups");		
+		String editorLabel = _ctx.appRes("UIAdminToolbar.action.Editor");		
+		String administratorLabel = _ctx.appRes("UIAdminToolbar.action.Administrator");							
+		String turnOnQuickEditLabel = _ctx.appRes("UIAdminToolbar.action.TurnOnQuickEdit");
+		String turnOffQuickEditLabel = _ctx.appRes("UIAdminToolbar.action.TurnOffQuickEdit");			
+		
+		String liveModeTitle = _ctx.appRes("UIAdminToolbar.label.LiveModeTitle");
+		String editModeTitle = _ctx.appRes("UIAdminToolbar.label.EditModeTitle");	
+	%>
+	
+	<% 
+	  void renderSinglePageNode(PageNavigation nav, PageNode node, int index) {
+	    String  href = uicomponent.getCurrentPortalURI() + "/" + node.getUri(); 
+	    String label = node.resolvedLabel;    
+	    String itemClazz;
+			if (index % 2 == 0) itemClazz	= "EvenItem";
+			else itemClazz	= "OddItem";
+	    if(label.length() > 60) label = label.substring(0, 57) + "..." ;    
+	    print """
+	      <div class="MenuItem $itemClazz">
+	      	<div>
+			""";
+					if (node.pageReference != null) {
+			        print """<a href="$href" class="ItemIcon DefaultPageIcon" title="$node.resolvedLabel">$label</a>""";	        
+					} else {
+							print """<a href="#" class="ItemIcon DefaultPageIcon" title="$node.resolvedLabel">$label</a>""";
+					}
+			print """
+					</div>
+	      </div>
+	    """ ;
+	  }
+	  
+		void renderPageNode(PageNavigation nav, PageNode node, boolean topLevel, int index) {
+	    String  href = uicomponent.getCurrentPortalURI() + "/" + node.getUri(); 
+	    String label = node.resolvedLabel;    
+	    if(label.length() > 60) label = label.substring(0, 57) + "..." ;        
+	    if (topLevel) {
+	    	int topLevelNodeIndex = 1;
+		    print """
+					<div class="TitleBar">$label</div>
+	  	    <div class="SubBlock">
+				""";    	
+			      for (child in node.getChildren()) {
+			        if (child.getChildren() != null && child.getChildren().size() > 0) {
+			        	renderPageNode(nav, child, false, topLevelNodeIndex);
+		        	} else {
+		        		renderSinglePageNode(nav, child, topLevelNodeIndex);
+	        		}
+	        		topLevelNodeIndex++ ;
+			      }		
+				print """
+					</div>
+				""";			 
+	    } else {
+				String itemClazz;
+				if (index % 2 == 0) itemClazz	= "EvenItem";
+				else itemClazz	= "OddItem";    			
+		    print """
+		      <div class="MenuItem $itemClazz">
+		      	<div class="ArrowIcon">
+				""";
+						if (node.pageReference != null) {
+				        print """<a href="$href" class="ItemIcon DefaultPageIcon" title="$node.resolvedLabel" onmouseover="showPopupSubMenu(this)">$label</a>""";
+						} else {
+								print """<a href="#" class="ItemIcon DefaultPageIcon" title="$node.resolvedLabel">$label</a>""";
+						}
+				print """				
+							</div>
+						<div class="MenuItemContainer" style="display: none;">		
+				""";		
+							int subNodeIndex = 1;
+				      for (child in node.getChildren()) {
+				        if (child.getChildren() != null && child.getChildren().size() > 0) {
+				        	renderPageNode(nav, child, false, subNodeIndex);
+			          } else {
+			          	renderSinglePageNode(nav, child, subNodeIndex) ;
+		          	}
+			        	subNodeIndex++ ;	          	
+				      }				
+				print """
+			      </div>
+		    """ ;    		
+				print """
+		      </div>
+		    """ ;   			
+	    }
+		}
+		
+		void renderGroupNavigations() {
+	    navigations = uicomponent.getGroupNavigations();	    
+	   	if (navigations != null && navigations.size() > 0) {
+		   	for(navigation in navigations) {
+			  	nodes = navigation.getNodes();
+			  	if (nodes.size() < 1) return;			  	
+			  	int index = 1;
+			    for(node in nodes) {    			
+			      if(node.getChildren() != null && node.getChildren().size() > 0) {
+			      	renderPageNode(navigation, node, true, index);
+		      	} else {
+		      		renderSinglePageNode(navigation, node, index);
+	      		}
+	      		index++ ;
+			    }			  	
+	  		}
+	   	}
+		}
+		
+		void renderCurrentSiteNavigations() {
+	    navigations = uicomponent.getCurrentSiteNavigations();	    
+	   	if (navigations != null && navigations.size() > 0) {
+		   	for(navigation in navigations) {
+			  	nodes = navigation.getNodes();
+			  	if (nodes.size() < 1) return;			  	
+			  	int index = 1;
+			    for(node in nodes) {    			
+			      if(node.getChildren() != null && node.getChildren().size() > 0) {
+			      	renderPageNode(navigation, node, false, index);
+		      	} else {
+		      		renderSinglePageNode(navigation, node, index);
+	      		}
+	      		index++ ;
+			    }			  	
+	  		}
+	   	}
+		}	
+		
+	%>
+	
+	<%
+		int subMenuIndex = 1;
+	%>
+	<div class="UIAdminToolbar">
+		<!-- Exo Logo -->
+		<div class="TBItem TBExoLogo">
+			<a class="ExoLogo" onmouseover="showPopupMenu(this)"></a>
+			<div class="MenuItemContainer" style="display: none;">			  
+		      <div class="MenuItem <%= (subMenuIndex % 2 == 0) ? 'EvenItem' : 'OddItem' %>"><% subMenuIndex ++ %>
+		        <a href="$accountSettingsLink" title="" class="ItemIcon AccountSettingsIcon">$accountSettingsLabel</a>
+		      </div>		      
+		      <div class="MenuItem <%= (subMenuIndex % 2 == 0) ? 'EvenItem' : 'OddItem' %>"><% subMenuIndex ++ %>
+		        <a href="$languageSettingsLink" title="" class="ItemIcon LanguageSettingsIcon">$languageSettingsLabel</a>
+		      </div>
+		      <div class="MenuItem <%= (subMenuIndex % 2 == 0) ? 'EvenItem' : 'OddItem' %>"><% subMenuIndex ++ %>
+		        <a href="$skinSettingsLink" title="" class="ItemIcon SkinSettingsIcon">$skinSettingsLabel</a>
+		      </div>
+		      <div class="MenuItem <%= (subMenuIndex % 2 == 0) ? 'EvenItem' : 'OddItem' %>"><% subMenuIndex ++ %>
+		        <a onclick="eXo.portal.logout();"  title="" class="ItemIcon LogoutIcon">$logoutLabel</a>
+		      </div>
+			</div>
+		</div>
+		
+		<!-- Sites -->
+		<% 
+		List<String> portals = uicomponent.getAllPortals(); 
+		int portalNum = 1;
+		String portalClazz;	
+		String currentPortalURI = uicomponent.getCurrentPortalURI();						
+		int index = currentPortalURI.lastIndexOf("/");
+		String currentPortal = currentPortalURI.substring(index + 1);
+		String baseURI = currentPortalURI.substring(0, index);
+		%>	
+		<div class="TBItem">
+			<a href="#" class="SitesIcon TBIcon" onmouseover="showPopupMenu(this)">$sitesLabel</a>
+			<div class="MenuItemContainer" style="display: none;">		
+			<% for (String portal : portals) { 
+						if (portalNum % 2 == 0)  portalClazz = "EvenItem";
+						else portalClazz = "OddItem";
+						String portalLink = baseURI + "/" + portal;
+			%>
+	      <div class="MenuItem $portalClazz">      
+	    		<% if (portal.equals(currentPortal)) { %>
+		    		<div class="ArrowIcon">
+			        <a href="$portalLink" title="" class="ItemIcon SiteIcon" onmouseover="showPopupSubMenu(this);">$portal</a>
+		        </div>
+						<div class="MenuItemContainer" style="display: none;">
+							<% renderCurrentSiteNavigations(); %>
+						</div>
+	    		<% } else { %>
+		    		<div>
+			    		<a href="$portalLink" title="" class="ItemIcon SiteIcon">$portal</a>
+		    		</div>
+	    		<% } %>
+	      </div>      
+	    <% 
+	    	portalNum++ ;
+	    } %>  
+			</div>
+		</div>
+		
+		<!-- Editor -->		
+		<% if (currentRole >= UIAdminToolbar.EDITOR) { %>		
+		<div class="TBItem">
+			<a href="#" class="EditorIcon TBIcon" onmouseover="showPopupMenu(this)">$editorLabel</a>
+			<div class="MenuItemContainer" style="display: none;">		      
+		      <div class="MenuItem OddItem">
+						<a href="$editPageAndNavLink" title="" class="ItemIcon AccountSettingsIcon" onclick="showWorkspaceArea($showable);">$editPageAndNaviLabel</a>       
+		      </div>         
+		      <div class="MenuItem EvenItem">
+		        <a href="$editPageLink" title="" class="ItemIcon EditPageIcon" onclick="showWorkspaceArea($showable);">$editPageLabel</a>
+		      </div>
+		      <div class="MenuItem OddItem">  
+						<a href="$addPageLink" title="" class="ItemIcon AddPageIcon" onclick="showWorkspaceArea($showable);">$addPageLabel</a>
+		      </div>  
+					<div class="MenuItem EvenItem">
+						<a href="$editPortalLink" title="" class="ItemIcon EditPortalIcon" onclick="showWorkspaceArea($showable);">$editPortalLabel</a>        
+		      </div>		
+			</div>		
+		</div>
+		<% } %>
+			
+		<!-- Administrator -->			
+		<% if (currentRole == UIAdminToolbar.ADMIN) { %>	
+		<div class="TBItem">
+			<a href="#" class="AdministratorIcon TBIcon" onmouseover="showPopupMenu(this)">$administratorLabel</a>
+			<div class="MenuItemContainer" style="display: none;">
+	      <div class="MenuItem OddItem">
+					<a href="$createPortalLink" title="" class="ItemIcon CreatePortalIcon">$createPortalLabel</a>
+	      </div>
+	      <div class="MenuItem EvenItem">  
+					<a href="$browsePortalLink" title="" class="ItemIcon BrowsePageIcon" onclick="showWorkspaceArea($showable);">$browsePortalLabel</a>       
+	      </div>
+	      <div class="MenuItem OddItem">         
+					<a href="$browsePageLink" title="" class="ItemIcon BrowsePageIcon" onclick="showWorkspaceArea($showable);">$browsePageLabel</a>
+	      </div>		
+			</div>				
+		</div>
+		<% } %>
+		
+		<% if (currentRole >= UIAdminToolbar.REDACTOR) { %>		
+	
+			<!-- on/off -->				
+			<% if (ToolbarUtils.turnOnQuickEditable(rcontext, true)) { %> 
+				<div class="BoxOnOff SelectOff">
+					<div class="LeftSelect">
+			    	<div class="RightSelect">
+				    	<div class="CenterSelect" onclick="$turnOffQuickEditLink" title="$liveModeTitle">$turnOffQuickEditLabel</div>
+				    </div>
+			    </div>
+				</div>		
+			<% } else { %>
+				<div class="BoxOnOff SelectOn">
+					<div class="LeftSelect">
+			    	<div class="RightSelect">
+			    		<div class="CenterSelect" onclick="$turnOnQuickEditLink" title="$editModeTitle">$turnOnQuickEditLabel</div>
+			    	</div>
+			    </div>
+				</div>		    
+			<% } %>
+		
+		<% } %>		
+		
+		<div style="clear:both"><span></span></div>
+	</div>

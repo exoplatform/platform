@@ -83,3 +83,24 @@ SkinService.addSkin(
     "/exoadmin/skin/applicationregistry/webui/component/UIApplicationRegistryPortlet/VistaStylesheet.css",
     ServletContext
 ) ;
+
+SkinService.addSkin(
+    "exoadmin/AdminToolbarPortlet",
+    "Default",
+    "/exoadmin/skin/admintoolbar/webui/component/UIAdminToolbarPortlet/DefaultStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
+    "exoadmin/AdminToolbarPortlet",
+    "Mac",
+    "/exoadmin/skin/admintoolbar/webui/component/UIAdminToolbarPortlet/DefaultStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
+    "exoadmin/AdminToolbarPortlet",
+    "Vista",
+    "/exoadmin/skin/admintoolbar/webui/component/UIAdminToolbarPortlet/DefaultStylesheet.css",
+    ServletContext
+) ;
