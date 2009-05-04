@@ -72,6 +72,17 @@
 	  </init-params>       
   </component>   
 
+  <component>
+	<type>org.exoplatform.portal.portlet.PortletExceptionHandleService</type>  	  	
+  	<component-plugins>
+	    <component-plugin>
+	      <name>init.service.listener</name>
+	      <set-method>initListener</set-method>
+	      <type>org.exoplatform.portal.portlet.LogPortletExceptionListener</type>
+	    </component-plugin>  
+    </component-plugins> 
+  </component>
+  
   <external-component-plugins>
     <target-component>org.exoplatform.services.jcr.RepositoryService</target-component>
     <component-plugin> 
