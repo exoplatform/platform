@@ -46,6 +46,7 @@ JavascriptService.addJavascript("eXo.portal.UIWorkspace", "/javascript/eXo/porta
 JavascriptService.addJavascript("eXo.portal.UIPortalControl", "/javascript/eXo/portal/UIPortalControl.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.PortalDragDrop", "/javascript/eXo/portal/PortalDragDrop.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIPortalNavigation", "/javascript/eXo/portal/UIPortalNavigation.js", ServletContext);
+JavascriptService.addJavascript("eXo.portal.UIPortalNavigation2", "/javascript/eXo/portal/UIPortalNavigation2.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIMaskWorkspace", "/javascript/eXo/portal/UIMaskWorkspace.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIExoStartMenu", "/javascript/eXo/portal/UIExoStartMenu.js", ServletContext);
 JavascriptService.addJavascript("eXo.portal.UIBrowseContent", "/javascript/eXo/portal/UIBrowseContent.js", ServletContext);
