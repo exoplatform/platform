@@ -64,6 +64,27 @@ SkinService.addSkin(
 ) ;
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 SkinService.addSkin(
+    "web/PortalNavigationPortlet",
+    "Default",
+    "/web/skin/portal/webui/component/UIPortalNavigationPortlet/DefaultStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
+    "web/PortalNavigationPortlet",
+    "Vista",
+    "/web/skin/portal/webui/component/UIPortalNavigationPortlet/VistaStylesheet.css",
+    ServletContext
+) ;
+ 
+SkinService.addSkin(
+    "web/PortalNavigationPortlet",
+    "Mac",
+    "/web/skin/portal/webui/component/UIPortalNavigationPortlet/MacStylesheet.css",
+    ServletContext
+) ;
+////////////////////////////////////////////////////////////////////////////////////////////////////
+SkinService.addSkin(
     "web/SiteMapPortlet",
     "Default",
     "/web/skin/portal/webui/component/UISiteMap/DefaultStylesheet.css",
