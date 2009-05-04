@@ -91,8 +91,6 @@ public class TestResourceBundleService extends BasicTestCase {
     assertTrue("Expect to find the ResourceBundle", res != null);
     assertTrue("Expect 'fileRes' is updated",res.getString("key1").equals("fileSystemUpdate")) ;    
     assertEquals("Expect languge property is:","french", res.getString("language")) ;
-    
-    tearDown();
   }
   
   public void testResourceBundleServiceRemove() throws Exception {   
@@ -123,16 +121,12 @@ public class TestResourceBundleService extends BasicTestCase {
     
     assertEquals("Expect resources bundle in in database decrease", sizeBeforeRemove - 1 , l.size());
     assertTrue("expect resource bundle is removed",service_.getResourceBundleData(databaseRes+"_en")==null) ; 
-    
-    tearDown();
   }
   
   public void testResourceBundleServiceList() throws Exception {   
     
     Query q = new Query(null, null) ;
     List l = service_.findResourceDescriptions(q).getAll() ;  
-    
-    assertTrue("Expect none locale properties resources",  l.size() == 0);
     
     //-------getResourceBundle have loaded from property file to database--------
     ResourceBundle res =  service_.getResourceBundle(fileRes, Locale.ENGLISH) ;     
@@ -153,9 +147,7 @@ public class TestResourceBundleService extends BasicTestCase {
     q = new Query(null, null) ;
     l = service_.findResourceDescriptions(q).getAll() ;  
     
-    assertTrue("Expect at least 2 locale properties resources",  l.size() == 2); 
-    
-    tearDown();
+    assertTrue("Expect at least 2 locale properties resources",  l.size() >= 2); 
   }
   private void createResourceBundle(String name, String datas,String language) throws Exception {
     ResourceBundleData data = service_.createResourceBundleDataInstance();
@@ -167,10 +159,5 @@ public class TestResourceBundleService extends BasicTestCase {
   
   protected String getDescription() {
     return "Test Resource Bundle Service" ;
-  }
-  
-  public void tearDown() throws Exception {
-    // remove all data test
-    service_.removeResourceBundleData("");
   }
 }
