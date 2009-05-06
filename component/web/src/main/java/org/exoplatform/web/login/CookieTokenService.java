@@ -23,7 +23,7 @@ import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.web.security.Credentials;
-import org.exoplatform.web.security.TransientTokenStore.Token;
+import org.exoplatform.web.security.Token;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -45,9 +45,9 @@ public class CookieTokenService {
     regService_ = rService ;
   }
   
-  public void saveToken(String tokenId, Token token) throws Exception {
+  public void saveToken(String tokenId, Token token) {
     if(tokenId == null || tokenId.length() == 0 || token == null) {
-      throw new NullPointerException() ;
+      return ;
     }
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     String servicePath = getServiceRegistryPath() ;

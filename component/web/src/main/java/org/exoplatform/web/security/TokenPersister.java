@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003-2007 eXo Platform SAS.
+ * Copyright (C) 2003-2009 eXo Platform SAS.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License
@@ -17,24 +17,27 @@
 package org.exoplatform.web.security;
 
 import java.util.Random;
-import java.util.concurrent.ConcurrentHashMap;
 
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.web.login.CookieTokenService;
 import org.exoplatform.web.login.InitiateLoginServlet;
 
 /**
- * A trivial in memory implementation of the token store. Tokens are evicted during their access which means that
- * there is not background task to evict the invalid tokens.
- *
- * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
- * @version $Revision$
+ * Created by The eXo Platform SAS
+ * Author : Tan Pham Dinh
+ *          tan.pham@exoplatform.com
+ * May 6, 2009  
  */
-public class TransientTokenStore implements TokenStore {
-  
-  /** . */
-  private final ConcurrentHashMap<String, Token> tokens = new ConcurrentHashMap<String, Token>();
+public class TokenPersister implements TokenStore {
 
-  /** . */
+  private CookieTokenService service ;
+  
   private final Random random = new Random();
+  
+  public TokenPersister() {
+    PortalContainer container = PortalContainer.getInstance() ;
+    service = (CookieTokenService) container.getComponentInstanceOfType(CookieTokenService.class) ;
+  }
   
   public String createToken(long validityMillis, Credentials credentials) {
     if (validityMillis < 0) {
@@ -45,7 +48,7 @@ public class TransientTokenStore implements TokenStore {
     }
     String tokenId = InitiateLoginServlet.COOKIE_NAME + random.nextInt();
     long expirationTimeMillis = System.currentTimeMillis() + validityMillis;
-    tokens.put(tokenId, new Token(expirationTimeMillis, credentials)) ;
+    service.saveToken(tokenId, new Token(expirationTimeMillis, credentials)) ;
     return tokenId;
   }
 
@@ -58,9 +61,9 @@ public class TransientTokenStore implements TokenStore {
     Token token;
     try {
       if (remove) {
-        token = tokens.remove(tokenKey) ;
+        token = service.deleteToken(tokenKey) ;
       } else {
-        token = tokens.get(tokenKey) ;
+        token = service.getToken(tokenKey) ;
       }
 
       if (token != null) {
@@ -68,7 +71,7 @@ public class TransientTokenStore implements TokenStore {
         if (valid) {
           return token.getPayload();
         } else if (!remove) {
-          tokens.remove(tokenKey) ;
+          service.deleteToken(tokenKey) ;
         }
       }
     } catch (Exception e) {}
@@ -77,4 +80,3 @@ public class TransientTokenStore implements TokenStore {
   }
   
 }
-

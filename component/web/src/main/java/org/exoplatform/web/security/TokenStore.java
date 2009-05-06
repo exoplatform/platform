@@ -32,7 +32,7 @@ public interface TokenStore {
   /**
    * That should not be here, it's only here for the sake of simplicity.
    */
-  public static TokenStore COOKIE_STORE = new TransientTokenStore();
+  public static TokenStore COOKIE_STORE = new TokenPersister();
 
   /**
    * Create a token and returns it. The store state is modified as it retains the token until

@@ -69,7 +69,7 @@ public class PortalLoginModule implements LoginModule {
 
       //
       Object o = TokenStore.REQUEST_STORE.validateToken(password, true);
-
+      if(o == null) o = TokenStore.COOKIE_STORE.validateToken(password, false) ;
       //
       if (o instanceof Credentials) {
         Credentials wc = (Credentials)o;
