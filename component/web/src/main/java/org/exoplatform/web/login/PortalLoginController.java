@@ -50,7 +50,7 @@ public class PortalLoginController extends HttpServlet {
     if ("true".equals(rememberme)) {
 			boolean isRememeber = "true".equals(req.getParameter(InitiateLoginServlet.COOKIE_NAME));
 			if (isRememeber) {
-				int SECONDS_ONE_DAY = 60 * 60 * 24;
+				int SECONDS_ONE_DAY = 60 * 60 * 24; 
 
 				//Create token
 				String cookieToken = TokenStore.COOKIE_STORE.createToken(1000 * SECONDS_ONE_DAY, credentials);

@@ -1,9 +1,13 @@
 <%
   import org.exoplatform.web.application.JavascriptManager;
+  import javax.servlet.http.HttpSession;
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   jsmanager.importJavascript('eXo.portal.UIPortalControl'); 
   jsmanager.addCustomizedOnLoadScript('document.getElementById("UIPortalComponentLogin").username.focus();') ;
+  HttpSession session = rcontext.getRequest().getSession() ;
+  String requestPath = rcontext.getRequestContextPath() + "/private/" + rcontext.getPortalOwner() ;
+  session.setAttribute("initialURI", requestPath) ;
 %>
 <div class="UILoginForm">
   <div class="LoginDecorator">
@@ -18,8 +22,11 @@
 	    <div class="MiddleRightLoginDecorator">
 	      <div class="LoginDecoratorBackground">
 	        <div class="LoginDetailBox">
-	          <% uiform.begin() %>
-	          	<div class="VerticalLayout">
+	          <% uiform.begin(); %>
+	          <!--<form class="UIForm" id="$uicomponent.id" name="loginForm" action="<%= rcontext.getRequestContextPath() + "/login"%>" method="post" style="margin: 0px;">
+	            <input type="hidden" name="<%= uiform.ACTION %>" value=""/>-->
+	            <input type="hidden" name="uri" value="<%=session.getAttribute("initialURI") ; %>"/>
+    	          	<div class="VerticalLayout">
 		            <div class="UserNameField">
 		              <label><%=_ctx.appRes("UILoginForm.label.UserName")%></label>
 		              <% uiform.renderChild(0)%>
@@ -28,12 +35,16 @@
 		              <label><%=_ctx.appRes("UILoginForm.label.password")%></label>
 		              <% uiform.renderChild(1)%>
 		            </div> 				        
+		            <div class="RememberField" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event)">
+                  <label><%=_ctx.appRes("UILoginForm.label.rememberme")%></label>
+                  <% uiform.renderChild(2)%>
+                </div>
 							<div class="ForgetPass"><a href="<%= uicomponent.event("ForgetPassword") %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
 			        <div class="UIAction"> 
 								<table class="ActionContainer">
 									<tr>
 										<td>
-											<div onclick="<%=uicomponent.url("Signin");%>" id="UIPortalLoginFormAction" class="ActionButton SimpleStyle">
+											<div onclick="login(this);" id="UIPortalLoginFormAction" class="ActionButton SimpleStyle">
 												<div class="ButtonLeft">
 													<div class="ButtonRight">
 														<div class="ButtonMiddle">
@@ -68,3 +79,12 @@
 	  </div>
 	</div>
 </div>
+<script>
+ function login(ele) {
+    var formEle = eXo.core.DOMUtil.findAncestorByTagName(ele,'form');
+    var originalAction = formEle.action ;
+    formEle.action = eXo.env.portal.context + "/login" ;
+    formEle.submit() ;
+    formEle.action = originalAction ;
+ }
+</script>

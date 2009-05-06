@@ -16,8 +16,12 @@
  */
 package org.exoplatform.web.security;
 
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.Random;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.exoplatform.container.PortalContainer;
+import org.exoplatform.web.login.CookieTokenService;
+import org.exoplatform.web.login.InitiateLoginServlet;
 
 /**
  * A trivial in memory implementation of the token store. Tokens are evicted during their access which means that
@@ -27,12 +31,19 @@ import java.util.Random;
  * @version $Revision$
  */
 public class TransientTokenStore implements TokenStore {
-
+  
+  CookieTokenService service ;
+  
   /** . */
   private final ConcurrentHashMap<String, Token> tokens = new ConcurrentHashMap<String, Token>();
 
   /** . */
   private final Random random = new Random();
+  
+  public TransientTokenStore() {
+    PortalContainer container = PortalContainer.getInstance() ;
+    service = (CookieTokenService) container.getComponentInstanceOfType(CookieTokenService.class) ;
+  }
 
   public String createToken(long validityMillis, Credentials credentials) {
     if (validityMillis < 0) {
@@ -41,10 +52,12 @@ public class TransientTokenStore implements TokenStore {
     if (credentials == null) {
       throw new NullPointerException();
     }
-    String token = "" + random.nextInt();
+    String tokenId = InitiateLoginServlet.COOKIE_NAME + random.nextInt();
     long expirationTimeMillis = System.currentTimeMillis() + validityMillis;
-    tokens.put(token, new Token(expirationTimeMillis, credentials));
-    return token;
+    try {
+      service.saveToken(tokenId, new Token(expirationTimeMillis, credentials)) ;
+    } catch (Exception e) {}
+    return tokenId;
   }
 
   public Credentials validateToken(String tokenKey, boolean remove) {
@@ -54,37 +67,49 @@ public class TransientTokenStore implements TokenStore {
 
     //
     Token token;
-    if (remove) {
-      token = tokens.remove(tokenKey);
-    } else {
-      token = tokens.get(tokenKey);
-    }
-
-    //
-    if (token != null) {
-      boolean valid = token.expirationTimeMillis > System.currentTimeMillis();
-      if (valid) {
-        return token.payload;
-      } else if (!remove) {
-        tokens.remove(tokenKey);
+    try {
+      if (remove) {
+        token = service.deleteToken(tokenKey) ;
+      } else {
+        token = service.getToken(tokenKey) ;
       }
-    }
 
-    //
+      if (token != null) {
+        boolean valid = token.getExpirationTimeMillis() > System.currentTimeMillis();
+        if (valid) {
+          return token.getPayload();
+        } else if (!remove) {
+          service.deleteToken(tokenKey) ;
+        }
+      }
+    } catch (Exception e) {}
+
     return null;
   }
-
-  private static class Token {
-
+  
+  static public class Token {
+    
+    public static String EXPIRE_MILI = "expirationMilis" ;
+    public static String USERNAME = "userName" ;
+    public static String PASSWORD = "password" ;
     /** . */
     private final long expirationTimeMillis;
-
+    
     /** . */
     private final Credentials payload;
-
-    private Token(long expirationTimeMillis, Credentials payload) {
+    
+    public Token(long expirationTimeMillis, Credentials payload) {
       this.expirationTimeMillis = expirationTimeMillis;
       this.payload = payload;
     }
+    
+    public long getExpirationTimeMillis() {
+      return expirationTimeMillis;
+    }
+    
+    public Credentials getPayload() {
+      return payload;
+    }
   }
 }
+

@@ -66,7 +66,14 @@ public class InitiateLoginServlet extends HttpServlet {
 		} else {
 			req.getSession().removeAttribute(InitiateLoginServlet.CREDENTIALS);
 		}
-		String token = TokenStore.REQUEST_STORE.createToken(5000, credentials);
+		String token = null ;
+		for (Cookie cookie : req.getCookies()) {
+      if(InitiateLoginServlet.COOKIE_NAME.equals(cookie.getName())) {
+        token = cookie.getValue() ;
+        break;
+      }
+    }
+		if(token == null) token = TokenStore.REQUEST_STORE.createToken(5000, credentials);
 		
 		sendAuth(resp, credentials.getUsername(), token);
 

@@ -16,6 +16,11 @@
       </properties-param>
     </init-params>
   </component>
+  
+  <component>
+    <key>org.exoplatform.web.login.CookieTokenService</key>
+    <type>org.exoplatform.web.login.CookieTokenService</type>
+  </component>
     
   <component>
     <key>org.exoplatform.services.resources.LocaleConfigService</key>
