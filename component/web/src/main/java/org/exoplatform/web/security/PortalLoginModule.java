@@ -77,13 +77,8 @@ public class PortalLoginModule implements LoginModule {
         // Set shared state
         ((Map)sharedState).put("javax.security.auth.login.name", wc.getUsername());
         ((Map)sharedState).put("javax.security.auth.login.password", wc.getPassword());
-
-        // We vote yes
-        return true;
-      } else {
-        // Continue normal process and vote yes
-        return true;
       }
+      return true;
     }
     catch (Exception e) {
       LoginException le = new LoginException();

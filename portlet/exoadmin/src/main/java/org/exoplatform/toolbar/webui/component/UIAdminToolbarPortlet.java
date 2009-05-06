@@ -1,61 +1,90 @@
 package org.exoplatform.toolbar.webui.component;
 
+import java.util.List;
 import java.util.Locale;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.services.security.Identity;
+import org.exoplatform.services.security.IdentityRegistry;
+import org.exoplatform.services.security.MembershipEntry;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 
-@ComponentConfig(lifecycle = UIApplicationLifecycle.class)
+@ComponentConfig(
+		lifecycle = UIApplicationLifecycle.class,
+		template = "app:/groovy/admintoolbar/webui/component/UIAdminToolbarPortlet.gtmpl"
+)
 public class UIAdminToolbarPortlet extends UIPortletApplication {
-	
-	private String lastPortalURI = null;
+	public static final int ADMIN              = 2;
 
-	private Locale lastLocale = null;
+	public static final int EDITOR             = 1;
+
+	public static final int REDACTOR           = 0;
+
+	public static final int VISITOR           = -1;
+
+	/** The role of the current user. it can be VISITOR, REDACTOR, EDITOR or ADMINISTRATOR */
+	private int role = VISITOR;  
 
 	public UIAdminToolbarPortlet() throws Exception {
-		PortalRequestContext portalRequestContext = Util
-				.getPortalRequestContext();
-		String userId = portalRequestContext.getRemoteUser();
-		if (userId != null) {
-			lastPortalURI = portalRequestContext.getPortalURI();
-			lastLocale = portalRequestContext.getLocale();
-			addChild(UIAdminToolbar.class, null, UIPortletApplication.VIEW_MODE);
+		ConversationState currentState = ConversationState.getCurrent();
+		if(currentState == null) return;
+		Identity identity = currentState.getIdentity();
+		UserACL userACL = getApplicationComponent(UserACL.class);
+		String editorMembershipType = userACL.getMakableMT();
+		List<String> accessControlWorkspaceGroups = userACL.getAccessControlWorkspaceGroups();
+		String editSitePermission = Util.getUIPortal().getEditPermission();
+
+		String userId = Util.getPortalRequestContext().getRemoteUser();
+		if (userACL.getSuperUser().equals(userId)) {
+			role = UIAdminToolbarPortlet.ADMIN;
+			return;
 		}
+		if (userACL.hasAccessControlWorkspacePermission(userId)
+				&& userACL.hasCreatePortalPermission(userId)) {
+			role = UIAdminToolbarPortlet.ADMIN;
+			return;
+		}
+
+		// editor
+		MembershipEntry editorEntry = null;
+		for (String membership : accessControlWorkspaceGroups) {
+			editorEntry = MembershipEntry.parse(membership);
+			if (editorEntry.getMembershipType().equals(editorMembershipType)
+					|| editorEntry.getMembershipType().equals(MembershipEntry.ANY_TYPE)) {
+				if (identity.isMemberOf(editorEntry)) {
+
+					MembershipEntry editEntry = MembershipEntry.parse(editSitePermission);
+					if (MembershipEntry.ANY_TYPE.equals(editEntry.getMembershipType())) {
+						editEntry = MembershipEntry.parse(editorMembershipType+":"+editEntry.getGroup());
+					}
+					if (identity.isMemberOf(editEntry)) {
+						role = UIAdminToolbarPortlet.EDITOR;
+						return;
+					}
+				}
+			}
+		}
+
+		role = UIAdminToolbarPortlet.VISITOR;		
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.exoplatform.webui.core.UIPortletApplication#processRender(org.exoplatform.webui.application.WebuiApplication,
-	 *      org.exoplatform.webui.application.WebuiRequestContext)
-	 */
-	public void processRender(WebuiApplication app, WebuiRequestContext context)
-			throws Exception {
-		UIAdminToolbar adminToolbar = getChild(UIAdminToolbar.class);
-		PortalRequestContext portalRequestContext = Util
-				.getPortalRequestContext();
-		if (adminToolbar != null) {
-			if (portalRequestContext.getFullRender()) {
-				adminToolbar.refresh();
-			}
-			String currentPortalURI = portalRequestContext.getPortalURI();
-			if (!currentPortalURI.equalsIgnoreCase(lastPortalURI)) {
-				adminToolbar.refresh();
-				lastPortalURI = currentPortalURI;
-			}
-			Locale currentLocale = portalRequestContext.getLocale();
-			if (!currentLocale.getLanguage().equalsIgnoreCase(
-					lastLocale.getLanguage())) {
-				adminToolbar.changeNavigationsLanguage(currentLocale
-						.getLanguage());
-				lastLocale = currentLocale;
-			}
-		}
-		super.processRender(app, context);
+	public int getRole() throws Exception {    
+		return role;
+	}
+
+	public boolean isShowWorkspaceArea() throws Exception {
+		UserACL userACL = getApplicationComponent(UserACL.class);
+		PortletRequestContext context = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
+		String userId = context.getRemoteUser();
+		if (userACL.hasAccessControlWorkspacePermission(userId))
+			return true;
+		return false;
 	}
 }
