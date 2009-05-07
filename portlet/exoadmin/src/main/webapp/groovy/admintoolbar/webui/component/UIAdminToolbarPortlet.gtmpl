@@ -45,16 +45,16 @@
 			<a href="#" class="EditorIcon TBIcon" onmouseover="showPopupMenu(this)">$editorLabel</a>
 			<div class="MenuItemContainer" style="display: none;">		      
 		      <div class="MenuItem OddItem">
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true))" title="" class="ItemIcon AccountSettingsIcon" onclick="showWorkspaceArea($showable);">$editPageAndNaviLabel</a>       
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPage', true))" title="" class="ItemIcon AccountSettingsIcon" onclick="showWorkspaceArea($showable);">$editPageAndNaviLabel</a>       
 		      </div>         
 		      <div class="MenuItem EvenItem">
-		        <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIExoStart', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon" onclick="showWorkspaceArea($showable);">$editPageLabel</a>
+		        <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon" onclick="showWorkspaceArea($showable);">$editPageLabel</a>
 		      </div>
 		      <div class="MenuItem OddItem">  
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIExoStart', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon" onclick="showWorkspaceArea($showable);">$addPageLabel</a>
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon" onclick="showWorkspaceArea($showable);">$addPageLabel</a>
 		      </div>  
 					<div class="MenuItem EvenItem">
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIExoStart', 'EditPortal', true))" title="" class="ItemIcon EditPortalIcon" onclick="showWorkspaceArea($showable);">$editPortalLabel</a>        
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPortal', true))" title="" class="ItemIcon EditPortalIcon" onclick="showWorkspaceArea($showable);">$editPortalLabel</a>        
 		      </div>		
 			</div>		
 		</div>
@@ -66,13 +66,13 @@
 			<a href="#" class="AdministratorIcon TBIcon" onmouseover="showPopupMenu(this)">$administratorLabel</a>
 			<div class="MenuItemContainer" style="display: none;">
 	      <div class="MenuItem OddItem">
-					<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIExoStart', 'EditPortal', true))" title="" class="ItemIcon CreatePortalIcon">$createPortalLabel</a>
+					<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))" title="" class="ItemIcon CreatePortalIcon">$createPortalLabel</a>
 	      </div>
 	      <div class="MenuItem EvenItem">  
-					<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIExoStart', 'BrowsePortal', true))" title="" class="ItemIcon BrowsePageIcon" onclick="showWorkspaceArea($showable);">$browsePortalLabel</a>       
+					<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePortal', true))" title="" class="ItemIcon BrowsePageIcon" onclick="showWorkspaceArea($showable);">$browsePortalLabel</a>       
 	      </div>
 	      <div class="MenuItem OddItem">         
-					<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIExoStart', 'BrowsePage', true))" title="" class="ItemIcon BrowsePageIcon" onclick="showWorkspaceArea($showable);">$browsePageLabel</a>
+					<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePage', true))" title="" class="ItemIcon BrowsePageIcon" onclick="showWorkspaceArea($showable);">$browsePageLabel</a>
 	      </div>		
 			</div>				
 		</div>
@@ -85,7 +85,7 @@
 				<div class="BoxOnOff SelectOff">
 					<div class="LeftSelect">
 			    	<div class="RightSelect">
-				    	<div class="CenterSelect" onclick="ajaxGet(eXo.env.server.createPortalURL('UIExoStart', 'EditPortal', true))" title="$liveModeTitle">$turnOffQuickEditLabel</div>
+				    	<div class="CenterSelect" onclick="ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPortal', true))" title="$liveModeTitle">$turnOffQuickEditLabel</div>
 				    </div>
 			    </div>
 				</div>		
@@ -93,7 +93,7 @@
 				<div class="BoxOnOff SelectOn">
 					<div class="LeftSelect">
 			    	<div class="RightSelect">
-			    		<div class="CenterSelect" onclick="ajaxGet(eXo.env.server.createPortalURL('UIExoStart', 'EditPortal', true))" title="$editModeTitle">$turnOnQuickEditLabel</div>
+			    		<div class="CenterSelect" onclick="ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPortal', true))" title="$editModeTitle">$turnOnQuickEditLabel</div>
 			    	</div>
 			    </div>
 				</div>		    
