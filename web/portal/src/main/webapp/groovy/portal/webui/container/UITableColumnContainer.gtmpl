@@ -1,9 +1,11 @@
 <%
- import org.exoplatform.web.application.JavascriptManager;
-
-  def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  import org.exoplatform.web.application.JavascriptManager;
   
+  def rcontext = _ctx.getRequestContext() ;
+
+  if(!rcontext.getUIApplication().isEditting() && !uicomponent.isVisible()) return ;
+  
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
   jsmanager.importJavascript('eXo.portal.PortalDragDrop');
 %>
 <div class="UIContainer" id="UIContainer-${uicomponent.id}">

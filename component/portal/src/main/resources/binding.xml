@@ -39,6 +39,8 @@
     <value name="description" field="description" usage="optional"/>
     <value name="width" usage="optional" field="width" style="attribute" />
     <value name="height" usage="optional" field="height" style="attribute"/>
+    <value name="access-permissions" field="accessPermissions" usage="optional"/>
+    <value name="edit-permission" field="editPermission" usage="optional"/>
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>

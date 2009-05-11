@@ -4,8 +4,10 @@
   import org.exoplatform.web.application.JavascriptManager;
   
   def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
   
+  if(!rcontext.getUIApplication().isEditting() && !uicomponent.isVisible()) return ; 
+  
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
   jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
   jsmanager.importJavascript('eXo.portal.UIPortalControl');
 

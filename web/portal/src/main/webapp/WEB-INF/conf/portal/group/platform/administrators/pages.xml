@@ -13,6 +13,8 @@
       <instance-id>group#platform/administrators:/exoadmin/AccountPortlet/Account</instance-id>
       <title>New Account</title>
       <show-info-bar>false</show-info-bar>
+      <access-permissions>manager:/platform/administrators</access-permissions>
+      <edit-permission>manager:/platform/administrators</edit-permission>
     </application>  
   </page>           
   
@@ -28,6 +30,8 @@
       <instance-id>group#platform/administrators:/exoadmin/OrganizationPortlet/Organization</instance-id>
       <title>Community Management</title>
       <show-info-bar>false</show-info-bar>      
+      <access-permissions>manager:/platform/administrators</access-permissions>
+      <edit-permission>manager:/platform/administrators</edit-permission>
     </application>     
   </page>
   
@@ -43,6 +47,8 @@
       <instance-id>group#platform/administrators:/exoadmin/I18nPortlet/i18n</instance-id>
       <title>Internationalization</title>
       <show-info-bar>false</show-info-bar>
+      <access-permissions>manager:/platform/administrators</access-permissions>
+      <edit-permission>manager:/platform/administrators</edit-permission>
     </application>  
   </page>           
 
@@ -58,6 +64,8 @@
       <instance-id>group#platform/administrators:/exoadmin/ApplicationRegistryPortlet/ApplicationRegistry</instance-id>
       <title>Application Registry</title>
       <show-info-bar>false</show-info-bar>
+      <access-permissions>manager:/platform/administrators</access-permissions>
+      <edit-permission>manager:/platform/administrators</edit-permission>
     </application>   
   </page>
 </page-set>

@@ -40,6 +40,9 @@ public class Container {
   protected String width;
   protected String height;
   
+  private String[] accessPermissions ;
+  private String editPermission ;
+  
   protected ArrayList<Object> children ;
   
   public Container() {
@@ -78,5 +81,15 @@ public class Container {
 
   public String getTemplate() { return template; }
   public void setTemplate(String template) { this.template = template; }
+  
+  public String[] getAccessPermissions() { return accessPermissions; }
+  public void setAccessPermissions(String[] accessPermissions) {
+    this.accessPermissions = accessPermissions;
+  }
+
+  public String getEditPermission() { return editPermission; }
+  public void setEditPermission(String editPermission) {
+    this.editPermission = editPermission;
+  }
   
 }

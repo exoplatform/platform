@@ -105,8 +105,7 @@ public class UIContainer extends  UIPortalComponent {
     ExoContainer exoContainer = ExoContainerContext.getCurrentContainer() ;
     UserACL acl = (UserACL) exoContainer.getComponentInstanceOfType(UserACL.class) ;
     String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
-    if(remoteUser == null) return true ;
-    boolean isVisible = false ; ;
+    boolean isVisible = false ;
     if(editPermission != null && acl.hasPermission(editPermission, remoteUser)) {
       isVisible = true ;
     } else if(accessPermissions != null) {

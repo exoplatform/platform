@@ -1,5 +1,7 @@
 <%
   def rcontext = _ctx.getRequestContext() ;
+  
+  if(!rcontext.getUIApplication().isEditting() && !uicomponent.isVisible()) return ;
 
 	String cssStyle = "";
 	String uiComponentWidth = uicomponent.getWidth();
