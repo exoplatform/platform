@@ -170,7 +170,7 @@ public class UIGroupMembershipSelector extends UIContainer {
       UIGroupMembershipSelector uiSelector = uiComp.getParent();    
       uiSelector.changeGroup(groupId);
       UIComponent uiPermission = uiSelector.<UIComponent>getParent().getParent();
-      uiPermission.setRenderSibbling(uiPermission.getClass());
+      //uiPermission.setRenderSibbling(uiPermission.getClass());
       uiPermission.broadcast(event, Event.Phase.PROCESS);
       UIPopupWindow uiPopup = uiSelector.getParent();
       uiPopup.setShow(true); 
@@ -188,7 +188,7 @@ public class UIGroupMembershipSelector extends UIContainer {
     public void execute(Event<UIGroupMembershipSelector> event) throws Exception {
       UIGroupMembershipSelector uiSelector = event.getSource();
       UIComponent uiPermission = uiSelector.<UIComponent>getParent().getParent();
-      uiPermission.setRenderSibbling(uiPermission.getClass());
+      //uiPermission.setRenderSibbling(uiPermission.getClass());
       WebuiRequestContext pcontext = event.getRequestContext();
       
       UIPopupWindow uiPopup = uiSelector.getParent();

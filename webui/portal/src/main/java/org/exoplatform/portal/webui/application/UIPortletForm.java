@@ -57,6 +57,8 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
 import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
+import org.exoplatform.webui.organization.UIListPermissionSelector;
+import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIteratorValidator;
 /**
  * Author : Nhu Dinh Thuan
  *          nhudinhthuan@yahoo.com
@@ -109,6 +111,11 @@ public class UIPortletForm extends UIFormTabPane {
     SkinService skinService = getApplicationComponent(SkinService.class);
     uiThemeSelector.getChild(UIItemThemeSelector.class).setValues(skinService.getPortletThemes());
     addUIFormInput(uiThemeSelector);
+    
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIPortletPermission", "accessPermissions");
+    uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
+    addUIFormInput(uiListPermissionSelector);
   }
   
   public UIComponent getBackComponent() { return backComponent_; }
