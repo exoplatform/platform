@@ -20,6 +20,8 @@
     <value name="icon" field="icon" usage="optional"/>
     <value name="width" usage="optional" field="width"  />
     <value name="height" usage="optional" field="height" />
+    <value name="access-permissions" field="accessPermissions" usage="optional"/>
+    <value name="edit-permission" field="editPermission" usage="optional"/>
     <structure field="properties" usage="optional"/>
   </mapping>
   

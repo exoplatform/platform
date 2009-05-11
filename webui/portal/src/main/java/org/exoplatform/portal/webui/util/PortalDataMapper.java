@@ -21,6 +21,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.exoplatform.Constants;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
@@ -121,6 +122,9 @@ public class PortalDataMapper {
     model.setIcon(uiPortlet.getIcon());
     model.setProperties(uiPortlet.getProperties());
     model.setTheme(uiPortlet.getTheme());
+    model.setAccessPermissions(uiPortlet.getAccessPermissions()) ;
+    model.setEditPermission(uiPortlet.getEditPermission()) ;
+    model.setModifiable(uiPortlet.isModifiable()) ;
     return model;
   }
   
@@ -245,6 +249,9 @@ public class PortalDataMapper {
     uiPortlet.setShowPortletMode(model.getShowApplicationMode());
     uiPortlet.setProperties(model.getProperties());
     uiPortlet.setTheme(model.getTheme());
+    uiPortlet.setAccessPermissions(model.getAccessPermissions()) ;
+    uiPortlet.setEditPermission(model.getEditPermission()) ;
+    uiPortlet.setModifiable(model.isModifiable()) ;
     PortletContainerService portletContainer =  uiPortlet.getApplicationComponent(PortletContainerService.class);
     ExoWindowID windowId = uiPortlet.getExoWindowID();    
     String  portletId = windowId.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + windowId.getPortletName();   

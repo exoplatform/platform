@@ -88,6 +88,9 @@ public class UIPortlet extends UIApplication {
   private List<String> supportedPublicParams_;
   private boolean portletInPortal_ = true;  
   
+  private String[] accessPermissions ;
+  private String editPermission ;
+  
   public String getId()  { return exoWindowId_.getUniqueID() ; }
   
   public String getWindowId() { return windowId ; }
@@ -107,6 +110,15 @@ public class UIPortlet extends UIApplication {
   }
   public boolean isPortletInPortal() { return portletInPortal_; }  
   
+  public String[] getAccessPermissions() { return accessPermissions; }
+  public void setAccessPermissions(String[] accessPermissions) {
+    this.accessPermissions = accessPermissions;
+  }
+
+  public String getEditPermission() { return editPermission; }
+  public void setEditPermission(String editPermission) {
+    this.editPermission = editPermission;
+  }
   
   public String getTheme() {
     if(theme_ == null || theme_.trim().length() < 1) return DEFAULT_THEME ;
