@@ -30,6 +30,9 @@ import javax.xml.namespace.QName;
 
 import org.apache.commons.logging.Log;
 import org.exoplatform.Constants;
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangePortletModeActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangeWindowStateActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.EditPortletActionListener;
@@ -46,6 +49,7 @@ import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.services.portletcontainer.pci.model.Supports;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event.Phase;
@@ -118,6 +122,24 @@ public class UIPortlet extends UIApplication {
   public String getEditPermission() { return editPermission; }
   public void setEditPermission(String editPermission) {
     this.editPermission = editPermission;
+  }
+  
+  public boolean isVisible() {
+    ExoContainer exoContainer = ExoContainerContext.getCurrentContainer() ;
+    UserACL acl = (UserACL) exoContainer.getComponentInstanceOfType(UserACL.class) ;
+    String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
+    if(remoteUser == null) return true ;
+    boolean isVisible = false ; ;
+    if(editPermission != null && acl.hasPermission(editPermission, remoteUser)) {
+      isVisible = true ;
+    } else if(accessPermissions != null) {
+      for(String per : accessPermissions) {
+        if(acl.hasPermission(per, remoteUser)) {
+          isVisible = true ;
+        }
+      }
+    }
+    return isVisible ;
   }
   
   public String getTheme() {
