@@ -30,7 +30,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -110,6 +109,10 @@ public class UIAddNewApplication extends UIContainer {
             uiPortlet.setTitle(application.getApplicationName());
           }
           uiPortlet.setDescription(application.getDescription());
+          List<String> accessPers = application.getAccessPermissions() ;
+          String[] accessPermissions = accessPers.toArray(new String[accessPers.size()]) ;
+          uiPortlet.setAccessPermissions(accessPermissions) ;
+          uiPortlet.setEditPermission(uiPage.getEditPermission()) ;
         }
         uiPage.addChild(uiPortlet);
         
@@ -271,6 +274,10 @@ public class UIAddNewApplication extends UIContainer {
             uiPortlet.setTitle(application.getApplicationName());
           }
           uiPortlet.setDescription(application.getDescription());
+          List<String> accessPers = application.getAccessPermissions() ;
+          String[] accessPermissions = accessPers.toArray(new String[accessPers.size()]) ;
+          uiPortlet.setAccessPermissions(accessPermissions) ;
+          uiPortlet.setEditPermission(uiPage.getEditPermission()) ;
         }
         uiPage.addChild(uiPortlet);
       }

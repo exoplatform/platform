@@ -16,15 +16,12 @@
  */
 package org.exoplatform.portal.webui.portal;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
@@ -165,6 +162,12 @@ public class UIPortalComponentActionListener {
       UIComponent uiSource = uiWorking.findComponentById(sourceId);  
       
       UIContainer uiTarget = uiWorking.findComponentById(pcontext.getRequestParameter("targetID"));
+      String editPer = null ;
+      if (uiTarget instanceof UIPage) {
+        editPer = ((UIPage) uiTarget).getEditPermission() ;
+      } else if(uiTarget instanceof UIPortal) {
+        editPer = ((UIPortal) uiTarget).getEditPermission() ;
+      }
       if(position < 0 && uiTarget.getChildren().size() > 0) {
         position = uiTarget.getChildren().size() ;
       } else if(position < 0) {
@@ -179,6 +182,7 @@ public class UIPortalComponentActionListener {
           Container container = uiContainerConfig.getContainer(sourceId); 
           container.setId(String.valueOf(container.hashCode()));
           PortalDataMapper.toUIContainer(uiContainer, container);      
+          uiContainer.setEditPermission(editPer) ;
           uiSource = uiContainer;   
         } else {
           UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
@@ -190,6 +194,8 @@ public class UIPortalComponentActionListener {
             uiPortlet.setTitle(portlet.getApplicationName());
           }
           uiPortlet.setDescription(portlet.getDescription());
+          String[] accessPermissions = portlet.getAccessPermissions().toArray(new String[portlet.getAccessPermissions().size()]) ;
+          uiPortlet.setAccessPermissions(accessPermissions) ;
           StringBuilder windowId = new StringBuilder();
           UIPage uiPage  = uiTarget.getAncestorOfType(UIPage.class);
           if(uiPage != null) windowId.append(uiPage.getOwnerType()); 
@@ -200,6 +206,7 @@ public class UIPortalComponentActionListener {
           windowId.append(uiPortlet.hashCode());
           uiPortlet.setWindowId(windowId.toString());
           uiPortlet.setShowEditControl(true);
+          uiPortlet.setEditPermission(editPer) ;
           uiSource = uiPortlet;
         }
         List<UIComponent> children = uiTarget.getChildren();
