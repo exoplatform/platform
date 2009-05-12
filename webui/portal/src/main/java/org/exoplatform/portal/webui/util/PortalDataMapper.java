@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.exoplatform.Constants;
-import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
@@ -251,7 +250,7 @@ public class PortalDataMapper {
     uiPortlet.setShowPortletMode(model.getShowApplicationMode());
     uiPortlet.setProperties(model.getProperties());
     uiPortlet.setTheme(model.getTheme());
-    uiPortlet.setAccessPermissions(model.getAccessPermissions()) ;
+    if(model.getAccessPermissions() != null) uiPortlet.setAccessPermissions(model.getAccessPermissions()) ;
     uiPortlet.setEditPermission(model.getEditPermission()) ;
     uiPortlet.setModifiable(model.isModifiable()) ;
     PortletContainerService portletContainer =  uiPortlet.getApplicationComponent(PortletContainerService.class);
@@ -299,7 +298,7 @@ public class PortalDataMapper {
     uiContainer.setFactoryId(model.getFactoryId());
     uiContainer.setName(model.getName());
     uiContainer.setTemplate(model.getTemplate());
-    uiContainer.setAccessPermissions(model.getAccessPermissions()) ;
+    if(model.getAccessPermissions() != null) uiContainer.setAccessPermissions(model.getAccessPermissions()) ;
     uiContainer.setEditPermission(model.getEditPermission()) ;
     
     List<Object> children  = model.getChildren();
