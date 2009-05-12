@@ -76,9 +76,6 @@ public class UIContainer extends  UIPortalComponent {
   protected String    creator ;
   protected String    modifier ;
   
-  private String[] accessPermissions ;
-  private String editPermission ;
-  
   public String getCreator()  {  return creator ; }
   public void   setCreator(String s) { creator = s ; }
   
@@ -91,25 +88,17 @@ public class UIContainer extends  UIPortalComponent {
   public String getDescription() { return description; }
   public void setDescription(String desc) {this.description = desc; }
   
-  public String[] getAccessPermissions() { return accessPermissions; }
-  public void setAccessPermissions(String[] accessPermissions) {
-    this.accessPermissions = accessPermissions;
-  }
-
-  public String getEditPermission() { return editPermission; }
-  public void setEditPermission(String editPermission) {
-    this.editPermission = editPermission;
-  }
-  
   public boolean isVisible() {
     ExoContainer exoContainer = ExoContainerContext.getCurrentContainer() ;
     UserACL acl = (UserACL) exoContainer.getComponentInstanceOfType(UserACL.class) ;
     String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
+    String[] accessPers = getAccessPermissions() ;
+    String editPer = getEditPermission() ;
     boolean isVisible = false ;
-    if(editPermission != null && acl.hasPermission(editPermission, remoteUser)) {
+    if(editPer != null && acl.hasPermission(editPer, remoteUser)) {
       isVisible = true ;
-    } else if(accessPermissions != null) {
-      for(String per : accessPermissions) {
+    } else if(accessPers != null) {
+      for(String per : accessPers) {
         if(acl.hasPermission(per, remoteUser)) {
           isVisible = true ;
         }

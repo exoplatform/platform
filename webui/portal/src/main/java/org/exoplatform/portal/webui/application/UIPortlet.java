@@ -49,7 +49,6 @@ import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.services.portletcontainer.pci.model.Supports;
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.event.Event.Phase;
@@ -92,9 +91,6 @@ public class UIPortlet extends UIApplication {
   private List<String> supportedPublicParams_;
   private boolean portletInPortal_ = true;  
   
-  private String[] accessPermissions ;
-  private String editPermission ;
-  
   public String getId()  { return exoWindowId_.getUniqueID() ; }
   
   public String getWindowId() { return windowId ; }
@@ -114,25 +110,17 @@ public class UIPortlet extends UIApplication {
   }
   public boolean isPortletInPortal() { return portletInPortal_; }  
   
-  public String[] getAccessPermissions() { return accessPermissions; }
-  public void setAccessPermissions(String[] accessPermissions) {
-    this.accessPermissions = accessPermissions;
-  }
-
-  public String getEditPermission() { return editPermission; }
-  public void setEditPermission(String editPermission) {
-    this.editPermission = editPermission;
-  }
-  
   public boolean isVisible() {
     ExoContainer exoContainer = ExoContainerContext.getCurrentContainer() ;
     UserACL acl = (UserACL) exoContainer.getComponentInstanceOfType(UserACL.class) ;
     String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
+    String[] accessPers = getAccessPermissions() ;
+    String editPer = getEditPermission() ;
     boolean isVisible = false ;
-    if(editPermission != null && acl.hasPermission(editPermission, remoteUser)) {
+    if(editPer != null && acl.hasPermission(editPer, remoteUser)) {
       isVisible = true ;
-    } else if(accessPermissions != null) {
-      for(String per : accessPermissions) {
+    } else if(accessPers != null) {
+      for(String per : accessPers) {
         if(acl.hasPermission(per, remoteUser)) {
           isVisible = true ;
         }

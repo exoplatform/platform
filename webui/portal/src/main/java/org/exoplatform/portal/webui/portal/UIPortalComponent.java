@@ -16,6 +16,7 @@
  */
 package org.exoplatform.portal.webui.portal;
 
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.webui.core.UIContainer;
 /**
  * May 19, 2006
@@ -32,6 +33,9 @@ public class UIPortalComponent extends UIContainer {
   
   private transient boolean modifiable_ ;
   
+  private String[] accessPermissions = { UserACL.EVERYONE } ;
+  private String editPermission = UserACL.EVERYONE ;
+  
   private boolean showEditControl_ = false;
   protected int mode_   = COMPONENT_VIEW_MODE  ;
   
@@ -46,6 +50,16 @@ public class UIPortalComponent extends UIContainer {
     return template_ ; 
   }
   public void   setTemplate(String s) {  template_ = s ; }
+  
+  public String[] getAccessPermissions() { return accessPermissions; }
+  public void setAccessPermissions(String[] accessPermissions) {
+    this.accessPermissions = accessPermissions;
+  }
+
+  public String getEditPermission() { return editPermission; }
+  public void setEditPermission(String editPermission) {
+    this.editPermission = editPermission;
+  }
   
   public String getWidth() { return width_ ; }
   public void   setWidth(String s) { width_ = s ;}
