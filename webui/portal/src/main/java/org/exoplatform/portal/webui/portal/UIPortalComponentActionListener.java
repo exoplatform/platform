@@ -162,12 +162,6 @@ public class UIPortalComponentActionListener {
       UIComponent uiSource = uiWorking.findComponentById(sourceId);  
       
       UIContainer uiTarget = uiWorking.findComponentById(pcontext.getRequestParameter("targetID"));
-      String editPer = null ;
-      if (uiTarget instanceof UIPage) {
-        editPer = ((UIPage) uiTarget).getEditPermission() ;
-      } else if(uiTarget instanceof UIPortal) {
-        editPer = ((UIPortal) uiTarget).getEditPermission() ;
-      }
       if(position < 0 && uiTarget.getChildren().size() > 0) {
         position = uiTarget.getChildren().size() ;
       } else if(position < 0) {
@@ -182,7 +176,6 @@ public class UIPortalComponentActionListener {
           Container container = uiContainerConfig.getContainer(sourceId); 
           container.setId(String.valueOf(container.hashCode()));
           PortalDataMapper.toUIContainer(uiContainer, container);      
-          uiContainer.setEditPermission(editPer) ;
           uiSource = uiContainer;   
         } else {
           UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
@@ -206,7 +199,6 @@ public class UIPortalComponentActionListener {
           windowId.append(uiPortlet.hashCode());
           uiPortlet.setWindowId(windowId.toString());
           uiPortlet.setShowEditControl(true);
-          uiPortlet.setEditPermission(editPer) ;
           uiSource = uiPortlet;
         }
         List<UIComponent> children = uiTarget.getChildren();

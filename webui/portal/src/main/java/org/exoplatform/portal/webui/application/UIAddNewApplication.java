@@ -112,7 +112,6 @@ public class UIAddNewApplication extends UIContainer {
           List<String> accessPers = application.getAccessPermissions() ;
           String[] accessPermissions = accessPers.toArray(new String[accessPers.size()]) ;
           uiPortlet.setAccessPermissions(accessPermissions) ;
-          uiPortlet.setEditPermission(uiPage.getEditPermission()) ;
         }
         uiPage.addChild(uiPortlet);
         
@@ -277,7 +276,6 @@ public class UIAddNewApplication extends UIContainer {
           List<String> accessPers = application.getAccessPermissions() ;
           String[] accessPermissions = accessPers.toArray(new String[accessPers.size()]) ;
           uiPortlet.setAccessPermissions(accessPermissions) ;
-          uiPortlet.setEditPermission(uiPage.getEditPermission()) ;
         }
         uiPage.addChild(uiPortlet);
       }

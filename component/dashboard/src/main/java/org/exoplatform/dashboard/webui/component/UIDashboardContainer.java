@@ -427,7 +427,6 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
     uiContainer.setName(model.getName());
     uiContainer.setTemplate(model.getTemplate());
     if(model.getAccessPermissions() != null) uiContainer.setAccessPermissions(model.getAccessPermissions()) ;
-    uiContainer.setEditPermission(model.getEditPermission()) ;
     
     List<Object> children  = model.getChildren();
     if(children == null)  return;

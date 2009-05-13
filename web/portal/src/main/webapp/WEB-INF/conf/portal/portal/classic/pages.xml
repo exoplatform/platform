@@ -12,11 +12,10 @@
     <application>
       <instance-id>portal#classic:/web/HomePagePortlet/homepageportlet</instance-id>
       <title>Home Page portlet</title>
+      <access-permissions>Everyone</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
-      <access-permissions>Everyone</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
     </application>
   </page>    
     
@@ -31,9 +30,8 @@
     <application>
       <instance-id>group#platform/users:/web/BrowserPortlet/WebExplorer</instance-id>
       <title>Web Explorer</title>
-      <show-info-bar>false</show-info-bar>
       <access-permissions>*:/platform/users</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
+      <show-info-bar>false</show-info-bar>
     </application>  
   </page>  
 

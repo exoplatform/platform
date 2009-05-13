@@ -96,7 +96,6 @@ public class PortalDataMapper {
     model.setTemplate(uiContainer.getTemplate());
     model.setFactoryId(uiContainer.getFactoryId());
     model.setAccessPermissions(uiContainer.getAccessPermissions()) ;
-    model.setEditPermission(uiContainer.getEditPermission()) ;
     
     List<UIComponent> uiChildren = uiContainer.getChildren();
     if(uiChildren == null)  return ;
@@ -124,7 +123,6 @@ public class PortalDataMapper {
     model.setProperties(uiPortlet.getProperties());
     model.setTheme(uiPortlet.getTheme());
     model.setAccessPermissions(uiPortlet.getAccessPermissions()) ;
-    model.setEditPermission(uiPortlet.getEditPermission()) ;
     model.setModifiable(uiPortlet.isModifiable()) ;
     return model;
   }
@@ -251,7 +249,6 @@ public class PortalDataMapper {
     uiPortlet.setProperties(model.getProperties());
     uiPortlet.setTheme(model.getTheme());
     if(model.getAccessPermissions() != null) uiPortlet.setAccessPermissions(model.getAccessPermissions()) ;
-    uiPortlet.setEditPermission(model.getEditPermission()) ;
     uiPortlet.setModifiable(model.isModifiable()) ;
     PortletContainerService portletContainer =  uiPortlet.getApplicationComponent(PortletContainerService.class);
     ExoWindowID windowId = uiPortlet.getExoWindowID();    
@@ -299,7 +296,6 @@ public class PortalDataMapper {
     uiContainer.setName(model.getName());
     uiContainer.setTemplate(model.getTemplate());
     if(model.getAccessPermissions() != null) uiContainer.setAccessPermissions(model.getAccessPermissions()) ;
-    uiContainer.setEditPermission(model.getEditPermission()) ;
     
     List<Object> children  = model.getChildren();
     if(children == null)  return;

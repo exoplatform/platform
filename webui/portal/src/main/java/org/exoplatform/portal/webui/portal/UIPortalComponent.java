@@ -16,7 +16,10 @@
  */
 package org.exoplatform.portal.webui.portal;
 
+import org.exoplatform.container.ExoContainer;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.core.UIContainer;
 /**
  * May 19, 2006
@@ -34,7 +37,6 @@ public class UIPortalComponent extends UIContainer {
   private transient boolean modifiable_ ;
   
   private String[] accessPermissions = { UserACL.EVERYONE } ;
-  private String editPermission = UserACL.EVERYONE ;
   
   private boolean showEditControl_ = false;
   protected int mode_   = COMPONENT_VIEW_MODE  ;
@@ -56,9 +58,16 @@ public class UIPortalComponent extends UIContainer {
     this.accessPermissions = accessPermissions;
   }
 
-  public String getEditPermission() { return editPermission; }
-  public void setEditPermission(String editPermission) {
-    this.editPermission = editPermission;
+  public boolean hasPermission() {
+    ExoContainer exoContainer = ExoContainerContext.getCurrentContainer() ;
+    UserACL acl = (UserACL) exoContainer.getComponentInstanceOfType(UserACL.class) ;
+    String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
+    for(String per : accessPermissions) {
+      if(acl.hasPermission(per, remoteUser)) {
+        return true ;
+      }
+    }
+    return false ;
   }
   
   public String getWidth() { return width_ ; }

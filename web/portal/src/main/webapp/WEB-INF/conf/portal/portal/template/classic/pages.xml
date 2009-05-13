@@ -12,11 +12,10 @@
     <application>
       <instance-id>portal#@owner@:/web/SiteMapPortlet/sitemapportlet</instance-id>
       <title>Site Map portlet</title>
+      <access-permissions>Everyone</access-permissions>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
-      <access-permissions>Everyone</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
     </application>
   </page>
   

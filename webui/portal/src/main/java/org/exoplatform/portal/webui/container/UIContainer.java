@@ -18,15 +18,11 @@ package org.exoplatform.portal.webui.container;
 
 import java.util.List;
 
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.DeleteGadgetActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.EditContainerActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.ShowAddNewApplicationActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
@@ -88,25 +84,6 @@ public class UIContainer extends  UIPortalComponent {
   public String getDescription() { return description; }
   public void setDescription(String desc) {this.description = desc; }
   
-  public boolean isVisible() {
-    ExoContainer exoContainer = ExoContainerContext.getCurrentContainer() ;
-    UserACL acl = (UserACL) exoContainer.getComponentInstanceOfType(UserACL.class) ;
-    String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
-    String[] accessPers = getAccessPermissions() ;
-    String editPer = getEditPermission() ;
-    boolean isVisible = false ;
-    if(editPer != null && acl.hasPermission(editPer, remoteUser)) {
-      isVisible = true ;
-    } else if(accessPers != null) {
-      for(String per : accessPers) {
-        if(acl.hasPermission(per, remoteUser)) {
-          isVisible = true ;
-        }
-      }
-    }
-    return isVisible ;
-  }
-
   static  public class SelectTabActionListener extends EventListener<UIContainer> {    
     public void execute(Event<UIContainer> event) throws Exception {
       String objectId = event.getRequestContext().getRequestParameter(OBJECTID);

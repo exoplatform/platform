@@ -42,7 +42,7 @@ public class Application {
   private Properties properties;
   
   private String[] accessPermissions ;
-  private String editPermission ;
+  
   private transient boolean isModifiable ;
   
   public Application(){
@@ -60,11 +60,6 @@ public class Application {
   public String[] getAccessPermissions() { return accessPermissions; }
   public void setAccessPermissions(String[] accessPermissions) {
     this.accessPermissions = accessPermissions;
-  }
-
-  public String getEditPermission() { return editPermission; }
-  public void setEditPermission(String editPermission) {
-    this.editPermission = editPermission;
   }
   
   public boolean isModifiable() { return isModifiable ; }

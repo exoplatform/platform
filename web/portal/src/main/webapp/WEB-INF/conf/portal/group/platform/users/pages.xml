@@ -12,9 +12,8 @@
     <application>
       <instance-id>group#platform/users:/dashboard/DashboardPortlet/Dashboard</instance-id>
       <title>Dashboard</title>
-      <show-info-bar>false</show-info-bar>
       <access-permissions>*:/platform/users</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
+      <show-info-bar>false</show-info-bar>
     </application>   
   </page>
   
@@ -29,9 +28,8 @@
     <application>
       <instance-id>group#platform/users:/web/BrowserPortlet/WebExplorer</instance-id>
       <title>Web Explorer</title>
-      <show-info-bar>false</show-info-bar>
       <access-permissions>*:/platform/users</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
+      <show-info-bar>false</show-info-bar>
     </application>  
   </page>               
        
@@ -46,11 +44,10 @@
     <application>
       <instance-id>group#platform/users:/web/IFramePortlet/blog</instance-id>
       <title>Blog</title>
+      <access-permissions>*:/platform/users</access-permissions>
       <show-info-bar>true</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
-      <access-permissions>*:/platform/users</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
     </application>  
   </page>
   
@@ -65,11 +62,10 @@
     <application>
       <instance-id>group#platform/users:/web/IFramePortlet/google</instance-id>
       <title>Google</title>
+      <access-permissions>*:/platform/users</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
-      <access-permissions>*:/platform/users</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
     </application>  
   </page>
   
@@ -84,11 +80,10 @@
     <application>
       <instance-id>group#platform/users:/web/IFramePortlet/facebook</instance-id>
       <title>FaceBook</title>
+      <access-permissions>*:/platform/users</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>true</show-application-state>
       <show-application-mode>true</show-application-mode>
-      <access-permissions>*:/platform/users</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
     </application>  
   </page>
   
@@ -103,9 +98,8 @@
 	  <application>
       <instance-id>group#platform/users:/web/SiteMapPortlet/sitemapportlet</instance-id>
       <title>SiteMap</title>
-      <show-info-bar>false</show-info-bar>      
       <access-permissions>*:/platform/users</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
+      <show-info-bar>false</show-info-bar>      
     </application>          
   </page>
 </page-set>

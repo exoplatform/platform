@@ -10,39 +10,34 @@
  	<portal-layout>
  	  <application>
     	<instance-id>portal#classic:/exoadmin/AdminToolbarPortlet/adminToolbar</instance-id>
-    	<show-info-bar>false</show-info-bar>
       <access-permissions>Everyone</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
+    	<show-info-bar>false</show-info-bar>
 	  </application>
  		
 	  <application>
 	    <instance-id>portal#classic:/web/BannerPortlet/banner</instance-id>
-	    <show-info-bar>false</show-info-bar>
       <access-permissions>Everyone</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
+	    <show-info-bar>false</show-info-bar>
 	  </application>
 
 	  <application>
 	  	<instance-id>portal#classic:/web/NavigationPortlet/toolbar</instance-id>
-	    <show-info-bar>false</show-info-bar>
       <access-permissions>Everyone</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
+	    <show-info-bar>false</show-info-bar>
 	  </application>
 		
 	  <application>
 	    <instance-id>portal#classic:/web/BreadcumbsPortlet/breadcumbs</instance-id>
-	    <show-info-bar>false</show-info-bar>
       <access-permissions>Everyone</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
+	    <show-info-bar>false</show-info-bar>
 	  </application>
 	  
 	  <page-body> </page-body>
 	  
 	  <application>
 	    <instance-id>portal#classic:/web/FooterPortlet/footer</instance-id>
-	    <show-info-bar>false</show-info-bar>
       <access-permissions>Everyone</access-permissions>
-      <edit-permission>*:/platform/administrators</edit-permission>
+	    <show-info-bar>false</show-info-bar>
 	  </application>
   </portal-layout>
   

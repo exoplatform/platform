@@ -13,6 +13,7 @@
     <value name="application-type" field="applicationType" usage="optional"/>
     <value name="theme" usage="optional" field="theme"/>
     <value name="title" usage="optional" field="title"/>
+    <value name="access-permissions" field="accessPermissions" usage="optional"/>
     <value name="show-info-bar" field="showInfoBar" usage="optional" />
     <value name="show-application-state" field="showApplicationState" usage="optional" />
     <value name="show-application-mode" field="showApplicationMode" usage="optional" />
@@ -20,8 +21,6 @@
     <value name="icon" field="icon" usage="optional"/>
     <value name="width" usage="optional" field="width"  />
     <value name="height" usage="optional" field="height" />
-    <value name="access-permissions" field="accessPermissions" usage="optional"/>
-    <value name="edit-permission" field="editPermission" usage="optional"/>
     <structure field="properties" usage="optional"/>
   </mapping>
   
@@ -34,13 +33,12 @@
     <value name="title" field="title" usage="optional"/>
     <value name="icon" field="icon" usage="optional"/>
     <value name="template" field="template" usage="optional" style="attribute"/>
+    <value name="access-permissions" field="accessPermissions" usage="optional"/>
     <value name="factory-id" field="factoryId" usage="optional"/>
     <value name="decorator" field="decorator" usage="optional" style="attribute"/>
     <value name="description" field="description" usage="optional"/>
     <value name="width" usage="optional" field="width" style="attribute" />
     <value name="height" usage="optional" field="height" style="attribute"/>
-    <value name="access-permissions" field="accessPermissions" usage="optional"/>
-    <value name="edit-permission" field="editPermission" usage="optional"/>
     <collection field="children" ordered="false">
       <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
       <structure map-as="org.exoplatform.portal.config.model.Application" usage="optional"/>

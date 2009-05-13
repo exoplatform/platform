@@ -41,7 +41,6 @@ public class Container {
   protected String height;
   
   private String[] accessPermissions ;
-  private String editPermission ;
   
   protected ArrayList<Object> children ;
   
@@ -87,9 +86,4 @@ public class Container {
     this.accessPermissions = accessPermissions;
   }
 
-  public String getEditPermission() { return editPermission; }
-  public void setEditPermission(String editPermission) {
-    this.editPermission = editPermission;
-  }
-  
 }
