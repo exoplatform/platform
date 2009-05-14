@@ -3,7 +3,7 @@
   
   def rcontext = _ctx.getRequestContext() ;
 
-  if(!rcontext.getUIApplication().isEditting() && !uicomponent.isVisible()) return ;
+  if(!rcontext.getUIApplication().isEditting() && !uicomponent.hasPermission()) return ;
   
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   jsmanager.importJavascript('eXo.portal.PortalDragDrop');

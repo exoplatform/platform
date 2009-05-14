@@ -25,6 +25,8 @@ import org.exoplatform.webui.bean.BeanDataMapping;
 import org.exoplatform.webui.bean.ReflectionDataMapping;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 
 /**
  * Created by The eXo Platform SARL
@@ -37,6 +39,8 @@ import org.exoplatform.webui.core.UIContainer;
 public class UIFormInputSet extends  UIContainer {
   
   private BeanDataMapping  beanMapping = null;
+  
+  private static String selectedCompId = "";
   
   public UIFormInputSet() {}
   
@@ -64,6 +68,10 @@ public class UIFormInputSet extends  UIContainer {
   public UIFormStringInput getUIStringInput(String name) {
     return (UIFormStringInput) findComponentById(name) ;
   }
+  
+  public String getSelectedComponentId() { return selectedCompId; }
+  public void setSelectedComponent(String renderCompId) { selectedCompId = renderCompId; }
+  public void setSelectedComponent(int index) { selectedCompId = ((UIComponent)getChild(index-1)).getId();} 
   
   public UIFormCheckBoxInput getUIFormCheckBoxInput(String name) {
     return (UIFormCheckBoxInput) findComponentById(name);
@@ -133,6 +141,16 @@ public class UIFormInputSet extends  UIContainer {
     }
     w.write("</table>") ;
     w.write("</div>") ;
+  }
+  
+  static public class SelectComponentActionListener extends EventListener<UIFormInputSet> {
+    public void execute(Event<UIFormInputSet> event) throws Exception {
+      WebuiRequestContext context = event.getRequestContext();
+      String renderTab = context.getRequestParameter(UIComponent.OBJECTID) ;
+      if(renderTab == null) return;
+      selectedCompId = renderTab ;
+      context.setResponseComplete(true);
+    }
   }
   
 }

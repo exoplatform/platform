@@ -463,6 +463,7 @@
     </label>
     <tab>
       <label>
+        <UIContainerPermission>تصاريح الدخول</UIContainerPermission>
         <ContainerSetting>تعيين الحاوية</ContainerSetting>
         <Template>قالب</Template>
         <Icon>أيقونة</Icon>

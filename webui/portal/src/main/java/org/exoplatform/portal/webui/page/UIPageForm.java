@@ -84,7 +84,8 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
   @ComponentConfig(
       type = UIFormInputSet.class,
       id = "PermissionSetting",
-      template = "system:/groovy/webui/core/UITabSelector.gtmpl"
+      template = "system:/groovy/webui/core/UITabSelector.gtmpl",
+      events = {@EventConfig(listeners = UIFormInputSet.SelectComponentActionListener.class)}
   )
 })
 public class UIPageForm extends UIFormTabPane {
@@ -140,6 +141,7 @@ public class UIPageForm extends UIFormTabPane {
     uiListPermissionSelector.configure("UIListPermissionSelector", "accessPermissions");
     uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
     uiPermissionSetting.addChild(uiListPermissionSelector);
+    uiPermissionSetting.setSelectedComponent(uiListPermissionSelector.getId()) ;
     UIPermissionSelector uiEditPermission = createUIComponent(UIPermissionSelector.class, null, null);
     uiEditPermission.setRendered(false) ;
     uiEditPermission.addValidator(org.exoplatform.webui.organization.UIPermissionSelector.MandatoryValidator.class);

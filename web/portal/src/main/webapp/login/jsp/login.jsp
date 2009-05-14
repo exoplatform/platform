@@ -55,7 +55,7 @@
 	              <label><%=res.getString("UILoginForm.label.password")%></label><input class="Password" type="password" name="password" value=""/>
 	            </div>
 	            <div class="FieldContainer">
-	              <label>Remember Me : </label><input type="checkbox" name="rememberme" value="true"/>
+	              <label><%=res.getString("UILoginForm.label.RememberOnComputer")%></label><input type="checkbox" name="rememberme" value="true"/>
 	            </div>
 		          <div id="UIPortalLoginFormAction" class="LoginButton" onclick="login();">
 		            <div class="LoginButtonContainer">

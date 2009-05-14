@@ -65,15 +65,15 @@ public class UIListPermissionSelector extends UISelector<String[]> {
 
   public UIListPermissionSelector() throws Exception {
     UIFormCheckBoxInput<Boolean> uiPublicMode = new UIFormCheckBoxInput<Boolean>("publicMode", null, false) ;
+    uiPublicMode.setOnChange("ChangePublicMode", "UIListPermissionSelector") ;
     addChild(uiPublicMode) ;
     UIFormGrid uiGrid = addChild(UIFormGrid.class, null, "PermissionGrid") ;
-    uiGrid.setLabel("UIListPermissionSelector");
     uiGrid.configure("expression", new String[]{"groupId", "membership"}, new String[]{"Delete"});
     UIFormPageIterator uiIterator = (UIFormPageIterator)uiGrid.getUIPageIterator() ;
     uiIterator.setPageList(new ObjectPageList(new ArrayList<Permission>(), 10));
     addChild(uiIterator) ;
     uiIterator.setRendered(false) ;
-    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, null);
+    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UIPopupGroupMembershipSelector");
     uiPopup.setWindowSize(540, 0);
     
     UIGroupMembershipSelector uiMembershipSelector = createUIComponent(UIGroupMembershipSelector.class, null, null) ;
@@ -83,15 +83,9 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     uiPopup.setUIComponent(uiMembershipSelector);
   }
   
-  @SuppressWarnings("unchecked")
   public void configure(String iname, String bfield) {
     setName(iname) ;
-    setId(iname);
-    setBindingField(bfield) ;
-    UIFormCheckBoxInput uiPublicMode = getChild(UIFormCheckBoxInput.class);
-    uiPublicMode.setOnChange("ChangePublicMode", iname) ;
-    UIFormPopupWindow uiPopup = getChild(UIFormPopupWindow.class);
-    uiPopup.setId(iname + "Popup");
+    setBindingField(bfield) ; 
   }
   
   @SuppressWarnings("unchecked")
@@ -179,7 +173,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     String label = null ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
     ResourceBundle res = context.getApplicationResourceBundle() ;
-    String key = "UIListPermissionSelector.label." + id ;
+    String key = getId() + ".label." + id ;
     try{
       label = res.getString(key) ; 
     } catch(MissingResourceException e) {

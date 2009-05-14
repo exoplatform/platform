@@ -30,12 +30,15 @@ import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
-import org.exoplatform.webui.form.UIForm;
+import org.exoplatform.webui.form.UIFormInputSet;
 import org.exoplatform.webui.form.UIFormStringInput;
+import org.exoplatform.webui.form.UIFormTabPane;
 import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
 import org.exoplatform.webui.form.validator.NameValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
+import org.exoplatform.webui.organization.UIListPermissionSelector;
+import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIteratorValidator;
 
 /**
  * Author : Dang Van Minh
@@ -44,7 +47,7 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
  */
 @ComponentConfig(
     lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/form/UIFormWithTitle.gtmpl",
+    template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl",
     events = {
       @EventConfig(listeners = UIContainerForm.SaveActionListener.class),
       @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
@@ -56,15 +59,15 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
 //            value = "app:/WEB-INF/conf/uiconf/portal/webui/component/customization/ContainerTemplateOption.groovy"
 //        )
 //      },
-public class UIContainerForm extends UIForm { 
+public class UIContainerForm extends UIFormTabPane { 
 
   private UIContainer uiContainer_;
   private UIComponent backComponent_;
 
-  @SuppressWarnings("unchecked")
   public UIContainerForm() throws Exception { //InitParams initParams
-//    super("UIContainerForm");
-    this.addUIFormInput(new UIFormStringInput("id", "id", null).
+    super("UIContainerForm");
+    UIFormInputSet infoInputSet = new UIFormInputSet("ContainerSetting") ;
+    infoInputSet.addUIFormInput(new UIFormStringInput("id", "id", null).
                                 addValidator(MandatoryValidator.class).
                                 addValidator(StringLengthValidator.class, 3, 30).
                                 addValidator(NameValidator.class)).                     
@@ -76,7 +79,13 @@ public class UIContainerForm extends UIForm {
                  addUIFormInput(new UIFormStringInput("height", "height", null).
                                 addValidator(ExpressionValidator.class, "(^([1-9]\\d*)(px|%)$)?", 
                                     "UIContainerForm.msg.InvalidWidthHeight"));
+    addChild(infoInputSet) ;
+    setSelectedTab(infoInputSet.getId()) ;
     
+    UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
+    uiListPermissionSelector.configure("UIContainerPermission", "accessPermissions");
+    uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
+    addChild(uiListPermissionSelector);
 //    addChild(uiSettingSet);
 //    UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");
 //    uiTemplate.setTypeValue(String.class);

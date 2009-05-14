@@ -1,6 +1,7 @@
 <%
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
+	System.out.println("" +uicomponent.getClass() + " : " + uicomponent + " : " + uicomponent.id) ;
 %>
 
 <div class="UIFormTabPane">

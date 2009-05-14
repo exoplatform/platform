@@ -26,7 +26,7 @@
 	          <!--<form class="UIForm" id="$uicomponent.id" name="loginForm" action="<%= rcontext.getRequestContextPath() + "/login"%>" method="post" style="margin: 0px;">
 	            <input type="hidden" name="<%= uiform.ACTION %>" value=""/>-->
 	            <input type="hidden" name="uri" value="<%=session.getAttribute("initialURI") ; %>"/>
-    	          	<div class="VerticalLayout">
+    	        <div class="VerticalLayout">
 		            <div class="UserNameField">
 		              <label><%=_ctx.appRes("UILoginForm.label.UserName")%></label>
 		              <% uiform.renderChild(0)%>
@@ -36,7 +36,7 @@
 		              <% uiform.renderChild(1)%>
 		            </div> 				        
 		            <div class="RememberField" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event)">
-                  <label><%=_ctx.appRes("UILoginForm.label.rememberme")%></label>
+                  <label><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></label>
                   <% uiform.renderChild(2)%>
                 </div>
 							<div class="ForgetPass"><a href="<%= uicomponent.event("ForgetPassword") %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
@@ -66,7 +66,7 @@
 									</tr>
 								</table>
 							</div> 
-			    </div>
+			      </div>
 	          <%uiform.end()%>	          
 	        </div>
 	      </div>
