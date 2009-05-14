@@ -23,7 +23,6 @@ import java.io.InputStream;
 
 import org.exoplatform.commons.utils.IOUtil;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.management.annotations.ManagedBy;
 import org.exoplatform.management.annotations.Managed;
 import org.exoplatform.management.annotations.ManagedDescription;
 import org.exoplatform.management.annotations.ManagedName;
@@ -32,7 +31,6 @@ import org.exoplatform.management.jmx.annotations.Property;
 import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
-import org.picocontainer.Startable;
 
 /**
  * Created by The eXo Platform SAS
@@ -45,20 +43,19 @@ import org.picocontainer.Startable;
   @Property(key = "type", value = "template")
 })
 @ManagedDescription("Template management service")
-public class TemplateService implements Startable {
+public class TemplateService {
   
   private SimpleTemplateEngine engine_  ;
-  private ExoCache templatesCache_ ;
+  private ExoCache<String, Template> templatesCache_ ;
   private TemplateStatisticService statisticService;
   private boolean cacheTemplate_  =  true ;
 
-  @SuppressWarnings("unused")
   public TemplateService(InitParams params,
                          TemplateStatisticService statisticService,
                          CacheService cservice) throws Exception {
     engine_ = new SimpleTemplateEngine() ;
     this.statisticService = statisticService;
-    setTemplatesCache(cservice.getCacheInstance(TemplateService.class.getName()));
+    templatesCache_ = cservice.getCacheInstance(TemplateService.class.getName());
     getTemplatesCache().setLiveTime(10000) ;
   }
   
@@ -131,11 +128,11 @@ public class TemplateService implements Startable {
     getTemplatesCache().remove(resourceId) ;
   }
 
-  public void setTemplatesCache(ExoCache templatesCache_) {
+  public void setTemplatesCache(ExoCache<String, Template> templatesCache_) {
 	  this.templatesCache_ = templatesCache_;
   }
 	
-  public ExoCache getTemplatesCache() {
+  public ExoCache<String, Template> getTemplatesCache() {
 	  return templatesCache_;
   }
 
@@ -165,11 +162,5 @@ public class TemplateService implements Startable {
     } catch (Exception e) {
       e.printStackTrace();
     }
-  }
-
-  public void start() {
-  }
-
-  public void stop() {
   }
 }

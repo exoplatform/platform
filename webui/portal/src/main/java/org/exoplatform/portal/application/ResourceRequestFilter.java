@@ -64,7 +64,7 @@ public class ResourceRequestFilter implements Filter  {
 
   private ConcurrentMap<String, FutureTask<Image>> mirroredImageCache = new ConcurrentHashMap<String, FutureTask<Image>>();
 
-  private ExoCache cssCache = new ConcurrentFIFOExoCache(50);
+  private ExoCache<String, byte[]> cssCache = new ConcurrentFIFOExoCache<String, byte[]>(50);
 
   public void init(FilterConfig filterConfig) {
     cfg = filterConfig;
@@ -93,7 +93,7 @@ public class ResourceRequestFilter implements Filter  {
           // Get existing bytes
           byte[] bytes = null;
           try {
-            bytes = (byte[])cssCache.get(s);
+            bytes = cssCache.get(s);
           }
           catch (Exception e) {
             e.printStackTrace();

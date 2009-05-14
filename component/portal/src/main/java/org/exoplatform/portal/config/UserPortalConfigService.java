@@ -70,10 +70,10 @@ public class UserPortalConfigService implements Startable{
   private OrganizationService orgService_;
   private ListenerService listenerService;
   
-  protected ExoCache portalConfigCache_ ;
-  protected ExoCache pageConfigCache_ ;
-  protected ExoCache pageNavigationCache_ ;
-  protected ExoCache gadgetsCache_ ;
+  protected ExoCache<String, PortalConfig> portalConfigCache_ ;
+  protected ExoCache<String, Page> pageConfigCache_ ;
+  protected ExoCache<String, PageNavigation> pageNavigationCache_ ;
+  protected ExoCache<String, Gadgets> gadgetsCache_ ;
   
   private NewPortalConfigListener newPortalConfigListener_ ;
   private Log log = ExoLogger.getLogger("Portal:UserPortalConfigService");
@@ -105,7 +105,7 @@ public class UserPortalConfigService implements Startable{
    * @return a UserPortalConfig object that contain the PortalConfig  and a list of the PageNavigation objects
    */
   public UserPortalConfig  getUserPortalConfig(String portalName, String accessUser) throws Exception {
-    PortalConfig portal = (PortalConfig) portalConfigCache_.get(portalName) ;
+    PortalConfig portal = portalConfigCache_.get(portalName) ;
     if(portal == null) {
       portal = storage_.getPortalConfig(portalName) ;
       if(portal != null) portalConfigCache_.put(portalName, portal);
@@ -241,7 +241,7 @@ public class UserPortalConfigService implements Startable{
    */
   public void update(PortalConfig portal) throws Exception { 
     storage_.save(portal) ; 
-    portalConfigCache_.select(new ExpireKeyStartWithSelector(portal.getName())) ;
+    portalConfigCache_.select(new ExpireKeyStartWithSelector<String, PortalConfig>(portal.getName())) ;
   }
 
 //**************************************************************************************************
@@ -302,7 +302,7 @@ public class UserPortalConfigService implements Startable{
    */
   public void update(Page page) throws Exception {
     storage_.save(page) ;    
-    pageConfigCache_.select(new ExpireKeyStartWithSelector(page.getPageId())) ;
+    pageConfigCache_.select(new ExpireKeyStartWithSelector<String, Page>(page.getPageId())) ;
     listenerService.broadcast(UPDATE_PAGE_EVENT,this,page);
   }
 
@@ -321,7 +321,7 @@ public class UserPortalConfigService implements Startable{
    */
   public void update(PageNavigation navigation) throws Exception {
     storage_.save(navigation) ;
-    pageNavigationCache_.select(new ExpireKeyStartWithSelector(navigation.getOwner())) ;
+    pageNavigationCache_.select(new ExpireKeyStartWithSelector<String, PageNavigation>(navigation.getOwner())) ;
     listenerService.broadcast(UPDATE_NAVIGATION_EVENT,this,navigation);
   }
 
@@ -337,7 +337,7 @@ public class UserPortalConfigService implements Startable{
   }
   
   public PageNavigation getPageNavigation(String ownerType, String id) throws Exception{
-    PageNavigation navigation = (PageNavigation) pageNavigationCache_.get(ownerType+"::"+id);
+    PageNavigation navigation = pageNavigationCache_.get(ownerType+"::"+id);
     if(navigation == null) navigation  = storage_.getPageNavigation(ownerType, id) ;
     return navigation;
   }
@@ -349,7 +349,7 @@ public class UserPortalConfigService implements Startable{
   
   public void update(Gadgets gadgets) throws Exception {
     storage_.save(gadgets) ;
-    gadgetsCache_.select(new ExpireKeyStartWithSelector(gadgets.getId())) ;
+    gadgetsCache_.select(new ExpireKeyStartWithSelector<String, Gadgets>(gadgets.getId())) ;
   }
   
   public void remove(Gadgets gadgets) throws Exception {
@@ -358,7 +358,7 @@ public class UserPortalConfigService implements Startable{
   }
   
   public Gadgets getGadgets(String id) throws Exception {
-    Gadgets gadgets = (Gadgets) pageConfigCache_.get(id) ;
+    Gadgets gadgets = gadgetsCache_.get(id) ;
     if(gadgets != null) return gadgets;
     gadgets = storage_.getGadgets(id) ;
     gadgetsCache_.put(id, gadgets) ;
