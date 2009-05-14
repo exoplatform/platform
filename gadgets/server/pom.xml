@@ -116,9 +116,13 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-						<groupId>com.google.collections</groupId>
-						<artifactId>google-collections</artifactId>
-						<version>0.8</version>
+		<!--<groupId>com.google.collections</groupId>
+		<artifactId>google-collections</artifactId>
+		<version>0.8</version> -->
+		<groupId>com.google.code.google-collections</groupId>
+ 		<artifactId>google-collect</artifactId>
+ 		<version>snapshot-20080321</version>
+		<scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.code.guice</groupId>
