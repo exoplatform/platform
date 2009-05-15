@@ -34,8 +34,9 @@
 .UILogin .LoginContent .FieldContainer {
   width: 320px ;
   overflow: hidden ;
-  padding-top: 12px ;
+  padding-top: 9px ;
   margin: auto ;
+  text-align: left;
 }
 
 .UILogin .LoginContent .FieldContainer label {
@@ -96,7 +97,7 @@
 
 .UILogin .LoginContent .LoginButton {
   height: 22px ;
-  padding: 15px 0px 5px 10px;
+  padding: 5px 0px 5px 10px;
 }
 
 .UILogin .LoginContent .LoginButtonContainer {
