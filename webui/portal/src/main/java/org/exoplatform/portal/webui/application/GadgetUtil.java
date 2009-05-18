@@ -26,6 +26,7 @@ import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 import org.exoplatform.application.gadget.Gadget;
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -36,56 +37,63 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by The eXo Platform SAS
- * Author : Pham Thanh Tung
- *          thanhtungty@gmail.com
- * Oct 2, 2008  
+ * Created by The eXo Platform SAS Author : Pham Thanh Tung
+ * thanhtungty@gmail.com Oct 2, 2008
  */
 public class GadgetUtil {
   private static SecurityTokenGenerator securityTokenGenerator = null;
-  
+
   static final public GadgetApplication toGadgetApplication(Gadget model) {
     return new GadgetApplication(model.getName(), model.getUrl(), model.isLocal());
   }
-  
-  static final public Gadget toGadget(String name, String path, boolean isLocal) throws Exception{
+
+  static final public Gadget toGadget(String name, String path, boolean isLocal) throws Exception {
     Gadget gadget = new Gadget();
     gadget.setName(name);
-    gadget.setUrl(path) ;
+    gadget.setUrl(path);
     gadget.setLocal(isLocal);
     Map<String, String> metaData = getMapMetadata(reproduceUrl(path, isLocal));
-    if(metaData.containsKey("errors"))
+    if (metaData.containsKey("errors"))
       throw new Exception("error on the server: " + metaData.get("errors"));
-    String title = metaData.get("directoryTitle") ;
-    if(title == null || title.trim().length() < 1) title = metaData.get("title") ;
-    if(title == null || title.trim().length() < 1) title = gadget.getName() ;
-    gadget.setTitle(title) ;
-    gadget.setDescription(metaData.get("description")) ;
-    gadget.setReferenceUrl(metaData.get("titleUrl")) ;
-    gadget.setThumbnail(metaData.get("thumbnail")) ;
+    String title = metaData.get("directoryTitle");
+    if (title == null || title.trim().length() < 1)
+      title = metaData.get("title");
+    if (title == null || title.trim().length() < 1)
+      title = gadget.getName();
+    gadget.setTitle(title);
+    gadget.setDescription(metaData.get("description"));
+    gadget.setReferenceUrl(metaData.get("titleUrl"));
+    gadget.setThumbnail(metaData.get("thumbnail"));
     return gadget;
   }
 
   private static SecurityTokenGenerator getSecurityTokenGenerator() {
     if (securityTokenGenerator == null) {
-      ExoContainer container = ExoContainerContext.getCurrentContainer() ;
-      //OrganizationService orgService = (OrganizationService) container.getComponentInstanceOfType(OrganizationService.class) ;
+      ExoContainer container = ExoContainerContext.getCurrentContainer();
+      // OrganizationService orgService = (OrganizationService)
+      // container.getComponentInstanceOfType(OrganizationService.class) ;
       securityTokenGenerator = (SecurityTokenGenerator) container.getComponentInstanceOfType(SecurityTokenGenerator.class);
     }
     return securityTokenGenerator;
   }
 
-
   /**
-   * Fetchs Metatada of gadget application, create the connection to shindig server to get the metadata
-   * TODO cache the informations for better performance
+   * Fetchs Metatada of gadget application, create the connection to shindig
+   * server to get the metadata TODO cache the informations for better
+   * performance
+   * 
    * @return the string represents metadata of gadget application
    */
   static final public String fetchGagdetMetadata(String urlStr) {
     String result = null;
+
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    GadgetRegistryService gadgetService = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class);
     try {
-      String data = "{\"context\":{\"country\":\"US\",\"language\":\"en\"},\"gadgets\":[" +
-      "{\"moduleId\":0,\"url\":\"" + urlStr + "\",\"prefs\":[]}]}";
+      String data = "{\"context\":{\"country\":\"" + gadgetService.getCountry()
+          + "\",\"language\":\"" + gadgetService.getLanguage() + "\"},\"gadgets\":["
+          + "{\"moduleId\":" + gadgetService.getModuleId() + ",\"url\":\"" + urlStr
+          + "\",\"prefs\":[]}]}";
       // Send data
       URL url = new URL(getHostName() + "/eXoGadgetServer/gadgets/metadata");
       URLConnection conn = url.openConnection();
@@ -106,17 +114,18 @@ public class GadgetUtil {
     return getSecurityTokenGenerator().createToken(gadgetURL, moduleId);
   }
 
-    /**
+  /**
    * Gets map metadata of gadget application
-   * @return  map metadata of gadget application so can get value of metadata by it's key
-   *          such as title, url
+   * 
+   * @return map metadata of gadget application so can get value of metadata by
+   *         it's key such as title, url
    * @throws JSONException if can't create jsonObject from metadata
    */
   @SuppressWarnings("unchecked")
   static final public Map<String, String> getMapMetadata(String url) throws JSONException {
     Map<String, String> mapMetaData = new HashMap<String, String>();
     String metadata = fetchGagdetMetadata(url);
-    metadata = metadata.substring(metadata.indexOf("[")+1,metadata.lastIndexOf("]"));
+    metadata = metadata.substring(metadata.indexOf("[") + 1, metadata.lastIndexOf("]"));
     JSONObject jsonObj = new JSONObject(metadata);
     Iterator<String> iter = jsonObj.keys();
     while (iter.hasNext()) {
@@ -125,28 +134,25 @@ public class GadgetUtil {
     }
     return mapMetaData;
   }
-  
+
   static final public String reproduceUrl(String path, boolean isLocal) {
-    if(isLocal) {
-      return  getViewPath(path);
+    if (isLocal) {
+      return getViewPath(path);
     }
-    return path;    
+    return path;
   }
-  
+
   static final public String getViewPath(String uri) {
     return getHostName() + "/rest/" + uri;
   }
-  
+
   static final public String getEditPath(String uri) {
     return getHostName() + "/rest/private/" + uri;
   }
 
   static final private String getHostName() {
-    // TODO we should check first if it's in the configuration since the gadget server can be on another
-    //server
-    PortalRequestContext pContext = Util.getPortalRequestContext() ;
-    StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
-    int index = requestUrl.indexOf(pContext.getRequestContextPath()) ;
-    return requestUrl.substring(0, index);    
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    GadgetRegistryService gadgetService = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class);
+    return gadgetService.getHostName();
   }
 }
