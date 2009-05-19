@@ -171,6 +171,44 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
     this.isShowSearchUser = isShowSearchUser;
   }
   
+  public void search (String keyword, String filter, String groupId) throws Exception{
+    OrganizationService service = getApplicationComponent(OrganizationService.class) ;
+    Query q = new Query() ;
+    if(keyword != null && keyword.trim().length() != 0) {
+      if(keyword.indexOf("*")<0){
+        if(keyword.charAt(0)!='*') keyword = "*"+keyword ;
+        if(keyword.charAt(keyword.length()-1)!='*') keyword += "*" ;
+      }
+      keyword = keyword.replace('?', '_') ;
+      if(USER_NAME.equals(filter)) {
+        q.setUserName(keyword) ;
+      } 
+      if(LAST_NAME.equals(filter)) {
+        q.setLastName(keyword) ;
+      }
+      if(FIRST_NAME.equals(filter)) {
+        q.setFirstName(keyword) ;
+      }
+      if(EMAIL.equals(filter)) {
+        q.setEmail(keyword) ;
+      }
+    }
+    List results = new CopyOnWriteArrayList() ;
+    results.addAll(service.getUserHandler().findUsers(q).getAll()) ;
+    // remove if user doesn't exist in selected group
+    MembershipHandler memberShipHandler = service.getMembershipHandler();
+    
+    if(groupId != null && groupId.trim().length() != 0) {
+      for(Object user : results) {
+        if(memberShipHandler.findMembershipsByUserAndGroup(((User)user).getUserName(), groupId).size() == 0) {
+          results.remove(user);
+        }
+      }
+    }
+    ObjectPageList objPageList = new ObjectPageList(results, 10) ;
+    uiIterator_.setPageList(objPageList);
+  }
+
   public boolean isShowSearchUser() {
     return isShowSearchUser;
   }
@@ -268,48 +306,20 @@ public class UIUserSelector extends UIForm implements UIPopupComponent {
   static  public class SearchActionListener extends EventListener<UIUserSelector> {
     public void execute(Event<UIUserSelector> event) throws Exception {
       UIUserSelector uiForm = event.getSource() ;
-      OrganizationService service = uiForm.getApplicationComponent(OrganizationService.class) ;
+      
       String keyword = uiForm.getUIStringInput(FIELD_KEYWORD).getValue();
       String filter = uiForm.getUIFormSelectBox(FIELD_FILTER).getValue();
-      if(filter == null || filter.trim().length() == 0) return;
-      Query q = new Query() ;
-      if(keyword != null && keyword.trim().length() != 0) {
-        if(keyword.indexOf("*")<0){
-          if(keyword.charAt(0)!='*') keyword = "*"+keyword ;
-          if(keyword.charAt(keyword.length()-1)!='*') keyword += "*" ;
-        }
-        keyword = keyword.replace('?', '_') ;
-        if(USER_NAME.equals(filter)) {
-          q.setUserName(keyword) ;
-        } 
-        if(LAST_NAME.equals(filter)) {
-          q.setLastName(keyword) ;
-        }
-        if(FIRST_NAME.equals(filter)) {
-          q.setFirstName(keyword) ;
-        }
-        if(EMAIL.equals(filter)) {
-          q.setEmail(keyword) ;
-        }
-      }
-      List results = new CopyOnWriteArrayList() ;
-      results.addAll(service.getUserHandler().findUsers(q).getAll()) ;
-      // remove if user doesn't exist in selected group
-      MembershipHandler memberShipHandler = service.getMembershipHandler();
       String groupId = uiForm.getSelectedGroup();
-      if(groupId != null && groupId.trim().length() != 0) {
-        for(Object user : results) {
-          if(memberShipHandler.findMembershipsByUserAndGroup(((User)user).getUserName(), groupId).size() == 0) {
-            results.remove(user);
-          }
-        }
-      }
-      ObjectPageList objPageList = new ObjectPageList(results, 10) ;
-      uiForm.uiIterator_.setPageList(objPageList);
+      uiForm.search(keyword, filter, groupId);
+      if(filter == null || filter.trim().length() == 0) return;
+      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm) ;
     }
   }
 
+  
+ 
+  
   static  public class CloseActionListener extends EventListener<UIUserSelector> {
     public void execute(Event<UIUserSelector> event) throws Exception {
       UIUserSelector uiForm = event.getSource();

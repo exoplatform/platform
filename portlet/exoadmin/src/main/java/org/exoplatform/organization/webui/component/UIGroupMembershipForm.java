@@ -18,8 +18,6 @@ package org.exoplatform.organization.webui.component;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.services.organization.Group;
@@ -235,8 +233,16 @@ public class UIGroupMembershipForm extends UIForm {
       UIPopupWindow searchUserPopup = uiGroupForm.getChild(UIPopupWindow.class);
       UIUserSelector userSelector = uiGroupForm.createUIComponent(UIUserSelector.class, null, null);
       userSelector.setShowSearchGroup(false);
+      String userName = uiGroupForm.getUIStringInput(USER_NAME).getValue();
+      userSelector.getUIStringInput(UIUserSelector.FIELD_KEYWORD).setValue(userName);
       searchUserPopup.setUIComponent(userSelector);
       searchUserPopup.setShow(true);
+      
+      // TODO tamnd PORTAL-3010 searching a user in the add member form does not work. 
+      String filter = userSelector.getUIFormSelectBox(UIUserSelector.FIELD_FILTER).getValue();
+      String groupId = userSelector.getSelectedGroup();
+      
+      userSelector.search(userName, filter, groupId);
       //modified by Pham Dinh Tan
       //UIListUsers form = (UIListUsers) searchUserPopup.getUIComponent();
 //      String name = uiGroupForm.getUIStringInput("username").getValue();
