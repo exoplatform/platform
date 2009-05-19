@@ -189,7 +189,20 @@ function AjaxRequest(method, url, queryString) {
 	instance.onSuccess = null ;
 	instance.callBack = null ;
 
-	instance.onError = null ;
+	instance.onError = null;
+	
+	instance.isAsynchronize = function() {		
+		var isASync = false;
+		var name = "ajax_async";
+		name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]"); 
+		var regexS = "[\\?&]"+name+"=([^&#]*)"; 
+		var regex = new RegExp( regexS );		
+		var results = regex.exec( instance.url );		
+		if( results != null ) {			
+			isASync = (results[1] == "true") ? true : false;			
+		}
+		return isASync;
+	};	
 	
 	instance.onLoadingInternalHandled = false ;
 	instance.onLoadedInternalHandled = false ;
@@ -325,8 +338,10 @@ function AjaxRequest(method, url, queryString) {
 	* It also sets up the time out and its call back to the method of the current instance onTimeoutInternal()
 	*/
 	instance.process = function() {
-		if (instance.request == null) return ;
-		instance.request.open(instance.method, instance.url, true) ;		
+		if (instance.request == null) return;
+		instance.request.open(instance.method, instance.url, true);		
+		//instance.request.open(instance.method, instance.url, instance.isAsynchronize());		
+		
 		if (instance.method == "POST") {
 			instance.request.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8") ;
 		} else {
@@ -335,7 +350,7 @@ function AjaxRequest(method, url, queryString) {
 		
 		if (instance.timeout > 0) setTimeout(instance.onTimeoutInternal, instance.timeout) ;
 		
-		instance.request.send(instance.queryString) ;
+		instance.request.send(instance.queryString);
 	} ;
 	
 	return instance ;
@@ -392,7 +407,7 @@ function HttpResponseHandler(){
 	* Each block in the array contains the exact id to update, hence a loop is executed 
 	* for each block and the HTML is then dynamically replaced by the new one
 	*/
-	instance.updateBlocks = function(blocksToUpdate, parentId) {
+	instance.updateBlocks = function(blocksToUpdate, parentId) {	  
 	  if(blocksToUpdate == null) return ;
 	  var parentBlock = null ;
 	  if(parentId != null && parentId != "") parentBlock =  document.getElementById(parentId) ;
@@ -510,7 +525,8 @@ function HttpResponseHandler(){
 	  * This method is called when doing an AJAX call, it will put the "Loading" image in the
 	  * middle of the page for the entire call of the request
 	  */
-	instance.ajaxLoading = function(request){
+	instance.ajaxLoading = function(request) {
+		if (request.isAsynchronize()) return;
 		/**
 		 * Waits 2 seconds (2000 ms) to display the loading popup
 		 * if the response comes before this timeout, the loading popup won't appear at all
