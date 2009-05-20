@@ -505,6 +505,7 @@
         <Decorator>تجميل</Decorator>
         <Icon>اختر رمز</Icon>
         <Theme>تجميل المواضيع</Theme>
+        <PortletPermission>Access Permission</PortletPermission>
       </label>
     </tab>
     <Theme>

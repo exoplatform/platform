@@ -42,8 +42,10 @@ import org.exoplatform.services.portletcontainer.pci.RenderInput;
 import org.exoplatform.services.portletcontainer.pci.RenderOutput;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -64,14 +66,21 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
  *          nhudinhthuan@yahoo.com
  * Jun 8, 2006
  */
-@ComponentConfig(
-    lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/portal/webui/portal/UIPortletForm.gtmpl",
-    events = {
-      @EventConfig(listeners = UIPortletForm.SaveActionListener.class),
-      @EventConfig(listeners = UIPortletForm.CloseActionListener.class, phase = Phase.DECODE)
-    }
-)   
+@ComponentConfigs({
+  @ComponentConfig(
+                   lifecycle = UIFormLifecycle.class,
+                   template = "system:/groovy/portal/webui/portal/UIPortletForm.gtmpl",
+                   events = {
+                     @EventConfig(listeners = UIPortletForm.SaveActionListener.class),
+                     @EventConfig(listeners = UIPortletForm.CloseActionListener.class, phase = Phase.DECODE)
+                   }
+  ),
+  @ComponentConfig(
+                   id = "PortletPermission",
+                   type = UIFormInputSet.class,
+                   lifecycle = UIContainerLifecycle.class
+  )
+})
 public class UIPortletForm extends UIFormTabPane {	
 	private static Log log = ExoLogger.getLogger("portal:UIPortletForm");
 	
@@ -113,9 +122,11 @@ public class UIPortletForm extends UIFormTabPane {
     addUIFormInput(uiThemeSelector);
     
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-    uiListPermissionSelector.configure("UIPortletPermission", "accessPermissions");
+    uiListPermissionSelector.configure("UIAccessPermission", "accessPermissions");
     uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
-    addUIFormInput(uiListPermissionSelector);
+    UIFormInputSet uiPermissionSet = createUIComponent(UIFormInputSet.class, "PortletPermission", null);
+    uiPermissionSet.addChild(uiListPermissionSelector);
+    addUIFormInput(uiPermissionSet);
   }
   
   public UIComponent getBackComponent() { return backComponent_; }
@@ -287,4 +298,5 @@ public class UIPortletForm extends UIFormTabPane {
       Util.showComponentLayoutMode(UIPortlet.class);  
     }
   }
+  
 }
