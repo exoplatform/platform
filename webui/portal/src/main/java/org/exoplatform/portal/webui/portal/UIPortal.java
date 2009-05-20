@@ -32,6 +32,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.page.UIPageBody;
@@ -77,6 +78,7 @@ public class UIPortal extends UIContainer {
   private String [] accessPermissions;
   private String editPermission;
   private String skin;
+  private Properties properties ;
   
   private List<PageNavigation> navigations ;  
   private List<PageNode> selectedPaths_;
@@ -184,6 +186,38 @@ public class UIPortal extends UIContainer {
     this.maximizedUIComponent = maximizedReferenceComponent;
   }
   
+  public Properties getProperties() { return properties; }
+  public void setProperties(Properties props) {
+    if(props == null) throw new NullPointerException() ;
+    properties = props ;
+  }
+  
+  public String getProperty(String name) {
+    if(properties == null || name == null) throw new NullPointerException() ;
+    return properties.get(name) ;
+  }  
+  public String getProperty(String name, String defaultValue) {
+    String value = getProperty(name) ;
+    if(value == null) value = defaultValue ;
+    return value ;
+  }
+  public void setProperty(String name, String value) {
+    if(name == null || properties == null) throw new NullPointerException() ;
+    if(value == null) properties.remove(name) ;
+    else properties.setProperty(name, value) ;
+  }
+  public void removeProperty(String name) {
+    if(name == null || properties == null) throw new NullPointerException() ;
+    properties.remove(name) ;
+  }
+  
+  public String getSessionAlive() { 
+    return getProperty(PortalConfig.SESSION_ALIVE, PortalConfig.SESSION_ON_DEMAND) ;
+  }
+  public void setSessionAlive(String type) {
+    setProperty(PortalConfig.SESSION_ALIVE, type) ;
+  }
+  
   @Deprecated
   public void refreshNavigation() {
     LocaleConfig localeConfig = getApplicationComponent(LocaleConfigService.class).
@@ -214,12 +248,6 @@ public class UIPortal extends UIContainer {
     for(PageNode childNode : node.getChildren()) {
       resolveLabel(res, childNode) ;
     }
-  }
-  
-  public String createURL() {
-    String url = "" ;
-    url += Util.getPortalRequestContext().getURLBuilder().createURL(this, null, null) ;
-    return url ;
   }
   
   static  public class LogoutActionListener extends EventListener<UIComponent> {

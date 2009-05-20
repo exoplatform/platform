@@ -67,7 +67,7 @@ eXo.loadJS = function(path) {
 
   request.send(null) ;
   eXo.session.itvDestroy() ;
-  if(eXo.session.isOpen) {
+  if(eXo.session.canKeepState && eXo.session.isOpen && eXo.env.portal.accessMode == 'private') {
     eXo.session.itvInit() ;
   }
   try {
@@ -105,7 +105,8 @@ eXo.session.itvInit = function() {
 } ;
 
 eXo.session.itvOpen = function() {
-	eXo.session.itvTime = parseInt(ajaxAsyncGetRequest(eXo.session.openUrl, false)) ;
+	var result = ajaxAsyncGetRequest(eXo.session.openUrl, false) ;
+	if(!isNaN(result)) eXo.session.itvTime = parseInt(result) ;
 } ;
 
 eXo.session.itvDestroy = function() {

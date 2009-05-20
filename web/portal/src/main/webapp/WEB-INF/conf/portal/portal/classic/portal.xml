@@ -5,7 +5,10 @@
   <!--<factory-id>office</factory-id>-->
   <access-permissions>Everyone</access-permissions>
   <edit-permission>*:/platform/administrators</edit-permission>
-  <creator>root</creator>    
+  <creator>root</creator>
+  <properties>
+    <entry key="sessionAlive">always</entry>
+  </properties>
     
  	<portal-layout>
  	  <application>

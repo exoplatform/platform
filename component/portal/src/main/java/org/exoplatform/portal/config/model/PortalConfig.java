@@ -29,6 +29,10 @@ public class PortalConfig {
   final public static String USER_TYPE = "user";
   final public static String GROUP_TYPE = "group";
   final public static String PORTAL_TYPE = "portal";
+  final public static String SESSION_ALIVE = "sessionAlive" ;
+  final public static String SESSION_ON_DEMAND = "onDemand" ;
+  final public static String SESSION_ALWAYS = "always" ;
+  final public static String SESSION_NEVER = "never" ;
   
 	private String    name ;
 //	private String    factoryId;
@@ -37,10 +41,11 @@ public class PortalConfig {
   private String[]  accessPermissions ;
   private String editPermission;
   
+  private Properties properties ;
+  
   private String    skin;
   private String    title;
   
-  private Container widgetLayout;
   private Container portalLayout;
   
   private String    creator ;
@@ -89,6 +94,33 @@ public class PortalConfig {
   
   public String getTitle() { return title ; }
   public void   setTitle(String value) { title = value ; }
+  
+  public Properties getProperties() { return properties ; }
+  public void setProperties(Properties props) { properties = props; }
+  
+  public String getProperty(String name) {
+    if(name == null || properties == null || !properties.containsKey(name)) {
+      throw new NullPointerException() ;
+    }
+    return properties.get(name) ;
+  }
+  
+  public String getProperty(String name, String defaultValue) {
+    String value = getProperty(name) ;
+    if(value != null) return value ;
+    return defaultValue ;
+  }
+  
+  public void setProperty(String name, String value) {
+    if(name == null || properties == null) throw new NullPointerException() ;
+    if(value == null) properties.remove(name) ;
+    else properties.setProperty(name, value) ;
+  }
+  
+  public void removeProperty(String name) {
+    if(name == null || properties == null) throw new NullPointerException() ;
+    properties.remove(name) ;
+  }
   
   static public class PortalConfigSet {
     private ArrayList<PortalConfig> portalConfigs ;

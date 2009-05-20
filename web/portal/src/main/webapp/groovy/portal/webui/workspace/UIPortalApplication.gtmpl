@@ -5,6 +5,8 @@
   import org.exoplatform.portal.application.PortalRequestContext ;
 	import org.exoplatform.webui.core.UIComponent;
 	import java.util.Iterator;
+	import org.exoplatform.portal.webui.portal.UIPortal ;
+	import org.exoplatform.portal.config.model.PortalConfig ;
 		
   def rcontext = _ctx.getRequestContext() ;
   String docBase =  rcontext.getRequestContextPath() ;  
@@ -63,6 +65,12 @@
       eXo.env.server.context = '<%=docBase%>' ;
       eXo.env.server.portalBaseURL = '<%=rcontext.getURLBuilder().getBaseURL()%>' ;
       eXo.env.client.skin = '$skin' ;
+      <% 
+        UIPortal portal = uicomponent.findFirstComponentOfType(UIPortal.class);
+        String sessionAliveLevel = (portal == null ? null : portal.sessionAlive) ;
+      %>
+      eXo.session.level = '$sessionAliveLevel';
+      eXo.session.canKeepState = <%=sessionAliveLevel == null ? false : !sessionAliveLevel.equals(PortalConfig.SESSION_NEVER)%>;
       eXo.session.isOpen = $uicomponent.isSessionOpen ;
       eXo.session.itvTime = ${((PortalRequestContext)rcontext).getRequest().getSession().getMaxInactiveInterval()} ;
     </script>
@@ -114,7 +122,7 @@
       <%=rcontext.getJavascriptManager().getJavascript()%>
         eXo.core.Browser.onLoad();
       <%=rcontext.getJavascriptManager().getCustomizedOnLoadScript();%>
-      if(eXo.session.isOpen) eXo.session.itvInit() ;
+      if(eXo.session.canKeepState && eXo.session.isOpen && eXo.env.portal.accessMode == 'private') eXo.session.itvInit() ;
     </script>
   </body>
 </html>

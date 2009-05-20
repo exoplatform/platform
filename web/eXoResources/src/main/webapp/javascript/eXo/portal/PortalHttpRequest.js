@@ -592,7 +592,7 @@ function doRequest(method, url, queryString, callback) {
   eXo.portal.CurrentRequest = request ;
   request.process() ;
   eXo.session.itvDestroy() ;
-  if(eXo.session.isOpen) {
+  if(eXo.session.canKeepState && eXo.session.isOpen  && eXo.env.portal.accessMode == 'private') {
 	  eXo.session.itvInit() ;
   }
 }	;
@@ -613,7 +613,7 @@ function ajaxAsyncGetRequest(url, async) {
   request.setRequestHeader("Cache-Control", "max-age=86400") ;
   request.send(null) ;
   eXo.session.itvDestroy() ;
-  if(eXo.session.isOpen) {
+  if(eXo.session.canKeepState && eXo.session.isOpen && eXo.env.portal.accessMode == 'private') {
     eXo.session.itvInit() ;
   }
 	if(!async) return request.responseText ;

@@ -6,6 +6,9 @@
   <access-permissions>Everyone</access-permissions>
   <edit-permission>*:/platform/administrators</edit-permission>
   <creator>root</creator>
+  <properties>
+    <entry key="sessionAlive">onDemand</entry>
+  </properties>
   
  	<portal-layout> 		
 		<application>

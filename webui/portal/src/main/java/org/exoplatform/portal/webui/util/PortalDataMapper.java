@@ -163,6 +163,7 @@ public class PortalDataMapper {
     model.setSkin(uiPortal.getSkin());
     model.setTitle(uiPortal.getTitle());
     model.setModifiable(uiPortal.isModifiable());
+    model.setProperties(uiPortal.getProperties()) ;
    
     List<UIComponent> children  = uiPortal.getChildren();
     if(children == null)  return  model;
@@ -343,6 +344,7 @@ public class PortalDataMapper {
     uiPortal.setSkin(model.getSkin());
     uiPortal.setAccessPermissions(model.getAccessPermissions());
     uiPortal.setEditPermission(model.getEditPermission());
+    uiPortal.setProperties(model.getProperties()) ;
     
     List<Object> children  = model.getPortalLayout().getChildren();
     if(children != null) { 

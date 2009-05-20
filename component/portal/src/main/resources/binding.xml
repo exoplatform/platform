@@ -87,7 +87,8 @@
     <value name="skin" field="skin" usage="optional"/>
     <value name="title" field="title" usage="optional"/>
     <value name="creator" field="creator" usage="optional"/>
-    <value name="modifier" field="modifier" usage="optional"/> 
+    <value name="modifier" field="modifier" usage="optional"/>
+    <structure field="properties" usage="optional"/>
     <structure name="portal-layout" using="container" field="portalLayout" usage="optional"/>
   </mapping>
 

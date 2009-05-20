@@ -99,6 +99,7 @@ public class UIPortalForm extends UIFormTabPane {
   private static final String FIELD_NAME = "name";
   private static final String FIELD_SKIN = "skin";
   private static final String FIELD_LOCALE = "locale";
+  private static final String FIELD_SESSION_ALIVE = "sessionAlive" ;
   
   private List<SelectItemOption<String>> languages = new ArrayList<SelectItemOption<String>>() ;
   
@@ -179,6 +180,14 @@ public class UIPortalForm extends UIFormTabPane {
     }
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SKIN, FIELD_SKIN, listSkin) ;
     uiSettingSet.addUIFormInput(uiSelectBox);
+
+    List<SelectItemOption<String>> listSessionAlive = new ArrayList<SelectItemOption<String>>() ;
+    listSessionAlive.add(new SelectItemOption<String>(PortalConfig.SESSION_ALWAYS, PortalConfig.SESSION_ALWAYS)) ;
+    listSessionAlive.add(new SelectItemOption<String>(PortalConfig.SESSION_ON_DEMAND, PortalConfig.SESSION_ON_DEMAND)) ;
+    listSessionAlive.add(new SelectItemOption<String>(PortalConfig.SESSION_NEVER, PortalConfig.SESSION_NEVER)) ;
+    UIFormSelectBox uiSessionAliveBox = new UIFormSelectBox(FIELD_SESSION_ALIVE, FIELD_SESSION_ALIVE, listSessionAlive) ;
+    uiSessionAliveBox.setDefaultValue(PortalConfig.SESSION_ON_DEMAND) ;
+    uiSettingSet.addUIFormInput(uiSessionAliveBox) ;
     addUIFormInput(uiSettingSet);
     
     
