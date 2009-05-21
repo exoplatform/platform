@@ -1,4 +1,4 @@
-<div class="UIColumns">
+<div class="UIColumns" id="$uicomponent.id">
 <%
 	for(uichild in uicomponent.getChildren()){ 
 %>
