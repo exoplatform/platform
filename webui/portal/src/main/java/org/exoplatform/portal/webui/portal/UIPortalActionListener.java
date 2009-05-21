@@ -60,7 +60,6 @@ public class UIPortalActionListener {
   
   static public class PingActionListener extends EventListener<UIPortal> {
     public void execute(Event<UIPortal> event) throws Exception {
-      System.out.println("\n\n\n =====> Test");
       PortalRequestContext pContext = (PortalRequestContext) event.getRequestContext() ;
       HttpServletRequest request = pContext.getRequest() ;
       pContext.setFullRender(false) ;
