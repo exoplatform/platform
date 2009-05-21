@@ -201,6 +201,37 @@
   <component>
     <key>org.exoplatform.application.gadget.GadgetRegistryService</key>
     <type>org.exoplatform.application.gadget.jcr.GadgetRegistryServiceImpl</type>
+    <init-params>
+      <value-param>
+        <name>gadgets.country</name>
+        <description>US</description>
+        <value>US</value>     
+      </value-param>
+      
+      <value-param>
+        <name>gadgets.language</name>
+        <description>en</description>
+        <value>en</value>     
+      </value-param>
+      
+      <value-param>
+        <name>gadgets.moduleId</name>
+        <description>0</description>
+        <value>0</value>      
+      </value-param>
+      
+      <value-param>
+        <name>gadgets.hostName</name>
+        <description>Gadget server url</description>
+        <value>http://localhost:8080</value>      
+      </value-param>
+      
+      <properties-param>
+      <name>developerInfo</name>
+      <description>The group that is allowed to develop gadgets</description>
+      <property name="developer.group" value="/platform/administrators"></property>
+      </properties-param>
+    </init-params>
   </component>
   
   <component>
