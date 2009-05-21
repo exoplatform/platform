@@ -187,10 +187,7 @@ public class UIPortal extends UIContainer {
   }
   
   public Properties getProperties() { return properties; }
-  public void setProperties(Properties props) {
-    if(props == null) throw new NullPointerException() ;
-    properties = props ;
-  }
+  public void setProperties(Properties props) { properties = props ; }
   
   public String getProperty(String name) {
     if(properties == null || name == null) throw new NullPointerException() ;
