@@ -16,6 +16,8 @@
  */
 package org.exoplatform.web.security;
 
+import java.util.Date;
+
 /**
  * Created by The eXo Platform SAS
  * Author : Tan Pham Dinh
@@ -47,5 +49,9 @@ public class Token {
 
   public Credentials getPayload() {
     return payload;
+  }
+  
+  public boolean isExpired() {
+    return System.currentTimeMillis() > expirationTimeMillis;
   }
 }

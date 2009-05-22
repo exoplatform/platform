@@ -16,9 +16,16 @@
  */
 package org.exoplatform.web.login;
 
+import java.util.ArrayList;
+
+import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
 
 import org.exoplatform.container.xml.InitParams;
+import org.exoplatform.management.annotations.Managed;
+import org.exoplatform.management.annotations.ManagedDescription;
+import org.exoplatform.management.jmx.annotations.NameTemplate;
+import org.exoplatform.management.jmx.annotations.Property;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
@@ -36,6 +43,14 @@ import org.w3c.dom.NodeList;
  *          trong.tran@exoplatform.com
  * Apr 21, 2009  
  */
+
+@Managed
+@NameTemplate({
+  @Property(key = "view", value = "cookie"),
+  @Property(key = "service", value = "management"),
+  @Property(key="type", value="token")
+})
+@ManagedDescription("Skin service")
 public class CookieTokenService {
   private RegistryService regService_ ;
   
@@ -85,6 +100,8 @@ public class CookieTokenService {
     }
   }
   
+  @Managed
+  @ManagedDescription ("Delete a token by id")
   public Token deleteToken(String id) throws Exception {
     Token data = getToken(id) ;
     if(data == null) return null ; 
@@ -110,6 +127,46 @@ public class CookieTokenService {
     }
     regService_.recreateEntry(sessionProvider, RegistryService.EXO_SERVICES, entry) ;
   }
+  
+  @Managed
+  @ManagedDescription ("The list of all tokens")
+  public String [] getAllTokens() throws Exception {
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    javax.jcr.Node regNode = regService_.getRegistry(sessionProvider).getNode();
+    NodeIterator itr = regNode.getNode(getServiceRegistryPath()).getNodes();
+    ArrayList<String> list = new ArrayList<String>();
+    while (itr.hasNext()) {
+      javax.jcr.Node node = itr.nextNode();
+      list.add(node.getName());
+    }
+    sessionProvider.close();
+    return list.toArray(new String [] {});
+  }
+  
+  @Managed
+  @ManagedDescription ("The number of tokens")
+  public long getNumberTokens() throws Exception {
+    long number;
+    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+    javax.jcr.Node regNode = regService_.getRegistry(sessionProvider).getNode();
+    NodeIterator itr = regNode.getNode(getServiceRegistryPath()).getNodes();
+    number = itr.getSize();
+    sessionProvider.close();
+    return number;
+  }
+  
+  @Managed
+  @ManagedDescription ("Clean all tokens are expired")
+  public void cleanExpiredTokens() throws Exception {
+    String [] ids = getAllTokens();
+    for(String s : ids) {
+      Token token = getToken(s);
+      if(token.isExpired()) {
+        deleteToken(s);
+      }
+    }
+  }
+
   
   private String getServiceRegistryPath() {
     return RegistryService.EXO_SERVICES + "/" + SERVICE_NAME ;
