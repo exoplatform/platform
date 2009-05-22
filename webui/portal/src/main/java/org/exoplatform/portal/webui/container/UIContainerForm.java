@@ -24,8 +24,10 @@ import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.lifecycle.UIContainerLifecycle;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
@@ -45,14 +47,21 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
  *          minhdv81@yahoo.com
  * Jun 8, 2006
  */
-@ComponentConfig(
-    lifecycle = UIFormLifecycle.class,
-    template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl",
-    events = {
-      @EventConfig(listeners = UIContainerForm.SaveActionListener.class),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
-    }
-)
+@ComponentConfigs({
+  @ComponentConfig(
+                   lifecycle = UIFormLifecycle.class,
+                   template =  "system:/groovy/webui/form/UIFormTabPane.gtmpl",
+                   events = {
+                     @EventConfig(listeners = UIContainerForm.SaveActionListener.class),
+                     @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
+                   }
+  ),
+  @ComponentConfig(
+                   id = "UIContainerPermission",
+                   type = UIFormInputSet.class,
+                   lifecycle = UIContainerLifecycle.class
+  )                  
+})
 //    initParams = {    
 //        @ParamConfig(
 //            name = "ContainerTemplateOption",
@@ -83,9 +92,11 @@ public class UIContainerForm extends UIFormTabPane {
     setSelectedTab(infoInputSet.getId()) ;
     
     UIListPermissionSelector uiListPermissionSelector = createUIComponent(UIListPermissionSelector.class, null, null);
-    uiListPermissionSelector.configure("UIContainerPermission", "accessPermissions");
+    uiListPermissionSelector.configure("UIAccessPermission", "accessPermissions");
     uiListPermissionSelector.addValidator(EmptyIteratorValidator.class) ;
-    addChild(uiListPermissionSelector);
+    UIFormInputSet uiPermissionSet = createUIComponent(UIFormInputSet.class, "UIContainerPermission", null);
+    uiPermissionSet.addChild(uiListPermissionSelector);
+    addUIFormInput(uiPermissionSet);
 //    addChild(uiSettingSet);
 //    UIFormInputItemSelector uiTemplate = new UIFormInputItemSelector("Template", "template");
 //    uiTemplate.setTypeValue(String.class);
