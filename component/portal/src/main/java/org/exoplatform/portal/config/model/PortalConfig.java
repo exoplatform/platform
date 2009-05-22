@@ -99,9 +99,8 @@ public class PortalConfig {
   public void setProperties(Properties props) { properties = props; }
   
   public String getProperty(String name) {
-    if(name == null || properties == null || !properties.containsKey(name)) {
-      throw new NullPointerException() ;
-    }
+    if(name == null) throw new NullPointerException() ;
+    if(properties == null || !properties.containsKey(name)) return null;
     return properties.get(name) ;
   }
   
@@ -120,6 +119,13 @@ public class PortalConfig {
   public void removeProperty(String name) {
     if(name == null || properties == null) throw new NullPointerException() ;
     properties.remove(name) ;
+  }
+  
+  public String getSessionAlive() { 
+    return getProperty(PortalConfig.SESSION_ALIVE, PortalConfig.SESSION_ON_DEMAND) ;
+  }
+  public void setSessionAlive(String type) {
+    setProperty(PortalConfig.SESSION_ALIVE, type) ;
   }
   
   static public class PortalConfigSet {
