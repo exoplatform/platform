@@ -11,12 +11,6 @@
   </properties>
     
  	<portal-layout>
- 	  <application>
-    	<instance-id>portal#classic:/exoadmin/AdminToolbarPortlet/adminToolbar</instance-id>
-      <access-permissions>Everyone</access-permissions>
-    	<show-info-bar>false</show-info-bar>
-	  </application>
- 		
 	  <application>
 	    <instance-id>portal#classic:/web/BannerPortlet/banner</instance-id>
       <access-permissions>Everyone</access-permissions>

@@ -41,6 +41,13 @@ import org.exoplatform.webui.core.model.SelectItemOption ;
         "  <container template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
         "</container>",
         "ThreeColumnContainerLayout")) ;
+    column.addSelectItemOption(new SelectItemOption("threeToolbarColumns",
+        "<container template=\"system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl\">" +
+        "  <container id=\"StarToolBarPortelt\" template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
+        "  <container id=\"UserToolBarPortelt\" template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
+        "  <container id=\"AdminToolBarPortelt\" template=\"system:/groovy/portal/webui/container/UIContainer.gtmpl\"></container>" +
+        "</container>",
+        "ThreeColumnContainerLayout")) ;
   templates.add(column);  
   
   SelectItemCategory tabs = new SelectItemCategory("tabs") ;

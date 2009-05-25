@@ -1,0 +1,65 @@
+<div class="UIUserToolbarPortlet">
+	<div class="UIHorizontalTabs">
+		<div class="TabsContainer" style="position: relative">
+		
+			<div class="UITab NormalToolbarTab">
+				<a class="DashboardIcon TBIcon" href="#">Dashboard</a>
+			</div>
+			
+			<div class="UITab">
+				<a class="SitesIcon TBIcon" href="#">Site</a>
+				<div style="position: absolute;" class="MenuItemContainer" id="PortalNavigationContainer-40.9137690564672972">
+	  			<div class="MenuItem OddItem">
+						<a href="#" class="ItemIcon SiteIcon">New Staff</a>
+					</div>
+	  			<div class="MenuItem EvenItem">
+						<a href="#" class="ItemIcon SiteIcon">Management</a>
+					</div>
+  			</div>
+			</div>
+			
+			<div class="UITab NormalToolbarTab">
+				<a class="GroupsIcon TBIcon" href="#">Groups</a>
+				<div style="position: absolute;" class="MenuItemContainer">
+					<div class="TitleBar">Administration</div>
+  	    		<div class="SubBlock">
+				      <div class="MenuItem OddItem">
+				      	<div class="ArrowIcon">
+									<a title="Application Registry" class="ItemIcon DefaultPageIcon" href="#">Application Registry</a>
+								</div>
+				      </div>
+				      <div class="MenuItem EvenItem">
+				      	<div class="ArrowIcon">
+									<a title="New Account" class="ItemIcon DefaultPageIcon" href="#">New Account</a>
+								</div>
+				      </div>
+				      <div class="MenuItem OddItem">
+				      	<div class="ArrowIcon">
+									<a title="Community Management" class="ItemIcon DefaultPageIcon" href="#">Community Management</a>
+								</div>
+				      </div>
+				      <div class="MenuItem EvenItem">
+				      	<div>
+									<a title="Internationalization" class="ItemIcon DefaultPageIcon" href="#">Internationalization</a>
+								</div>
+				      </div>
+						</div>
+						<div class="TitleBar">Sites Management</div>
+		  	    	<div class="SubBlock">
+					      <div class="MenuItem OddItem">
+					      	<div>
+										<a title="Sites Explorer" class="ItemIcon DefaultPageIcon" href="#">Sites Explorer</a>
+									</div>
+					      </div>
+    
+					      <div class="MenuItem EvenItem">
+					      	<div>
+										<a title="Sites Administration" class="ItemIcon DefaultPageIcon" href="#">Sites Administration</a>
+									</div>
+					      </div>
+							</div>
+						</div>
+					</div>
+		</div>
+	</div>
+</div>
