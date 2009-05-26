@@ -11,6 +11,30 @@
   </properties>
     
  	<portal-layout>
+		<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
+			<container id="StarToolBarPortelt" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			  <application>
+			    <instance-id>portal#classic:/web/HomePagePortlet/siteportlet</instance-id>
+		      <access-permissions>Everyone</access-permissions>
+			    <show-info-bar>false</show-info-bar>
+			  </application>			
+			</container>
+			<container id="UserToolBarPortelt" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			  <application>
+			    <instance-id>portal#classic:/web/HomePagePortlet/userportlet</instance-id>
+		      <access-permissions>Everyone</access-permissions>
+			    <show-info-bar>false</show-info-bar>
+			  </application>			
+			</container>
+			<container id="AdminToolBarPortelt" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			  <application>
+			    <instance-id>portal#classic:/web/HomePagePortlet/adminportlet</instance-id>
+		      <access-permissions>Everyone</access-permissions>
+			    <show-info-bar>false</show-info-bar>
+			  </application>
+			</container>
+		</container>"
+        
 	  <application>
 	    <instance-id>portal#classic:/web/BannerPortlet/banner</instance-id>
       <access-permissions>Everyone</access-permissions>
