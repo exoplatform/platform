@@ -86,7 +86,7 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
 
     // Set an id to each container for future reference
     var cont = DOMUtil.findAncestorByClass(menuItem, this.containerStyleClass) ;
-    if (!cont.id) cont.id = "PortalNavigationContainer-" + i + Math.random();
+    if (!cont.id) cont.id = DOMUtil.generateId("PortalNavigationContainer");
     cont.resized = false;
   }
 };
@@ -113,7 +113,7 @@ UIPortalNavigation.prototype.setTabStyleOnMouseOver = function(e) {
   if (eXo.portal.UIPortalNavigation.previousMenuItem != tab) {
     eXo.portal.UIPortalNavigation.hideMenu() ;
   }
-	eXo.portal.UIPortalNavigation.setTabStyleOnMouseOut(e, tab) ;
+//	eXo.portal.UIPortalNavigation.setTabStyleOnMouseOut(e, tab) ;
   eXo.portal.UIPortalNavigation.previousMenuItem = tab ;
   if (!eXo.portal.UIPortalNavigation.menuVisible) {
     var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(tab, "div", eXo.portal.UIPortalNavigation.containerStyleClass);

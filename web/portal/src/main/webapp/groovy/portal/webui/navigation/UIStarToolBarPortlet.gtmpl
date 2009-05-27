@@ -1,8 +1,25 @@
-<div class="UIStarToolBarPortlet">
-	<div class="UITab">
-		<div class="NormalToolbar"><span></span></div>
-		<div class="">
-				
+<%
+  import org.exoplatform.web.application.JavascriptManager;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
+  jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
+  jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + 'UIStarToolBarPortlet' + '");');
+%>
+<div class="UIStarToolBarPortlet" id="UIStarToolBarPortlet">
+  <div class="UIHorizontalTabs">
+    <div class="TabsContainer" style="position: relative">
+	    <div class="UITab" style="height: 30px; width: 30px; border: 1px soild red;">
+		    <div style="position: absolute; display:none;" class="MenuItemContainer">
+          <div class="MenuItem OddItem">
+            <a href="#" class="ItemIcon SiteIcon">New Staff</a>
+          </div>
+          <div class="MenuItem EvenItem">
+            <a href="#" class="ItemIcon SiteIcon">Management</a>
+          </div>
+        </div>
+		  </div>
 		</div>
 	</div>
 </div>

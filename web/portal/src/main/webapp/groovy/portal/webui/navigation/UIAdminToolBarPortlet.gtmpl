@@ -1,4 +1,13 @@
-<div class="UIUserToolbarPortlet">
+<%
+  import org.exoplatform.web.application.JavascriptManager;
+  
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
+  jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
+  jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + 'UIAdminToolbarPortlet' + '");');
+%>
+<div class="UIUserToolbarPortlet" id="UIAdminToolbarPortlet">
 	<div class="UIHorizontalTabs">
 		<div class="TabsContainer" style="position: relative">
 		
@@ -8,7 +17,7 @@
 			
 			<div class="UITab">
 				<a class="SitesIcon TBIcon" href="#">Site</a>
-				<div style="position: absolute;" class="MenuItemContainer" id="PortalNavigationContainer-40.9137690564672972">
+				<div style="position: absolute; display:none;" class="MenuItemContainer">
 	  			<div class="MenuItem OddItem">
 						<a href="#" class="ItemIcon SiteIcon">New Staff</a>
 					</div>
@@ -20,7 +29,7 @@
 			
 			<div class="UITab NormalToolbarTab">
 				<a class="GroupsIcon TBIcon" href="#">Groups</a>
-				<div style="position: absolute;" class="MenuItemContainer">
+				<div style="position: absolute;display:none;" class="MenuItemContainer">
 					<div class="TitleBar">Administration</div>
   	    		<div class="SubBlock">
 				      <div class="MenuItem OddItem">
