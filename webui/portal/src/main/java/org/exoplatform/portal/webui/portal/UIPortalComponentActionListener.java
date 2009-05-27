@@ -282,4 +282,18 @@ public class UIPortalComponentActionListener {
     }
   }
   
+  static public class ChangeSkinActionListener extends EventListener<UIPortal> {
+    public void execute(Event<UIPortal> event) throws Exception {
+      UIPortal uiPortal = event.getSource();
+      UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ; 
+
+      UISkinSelector uiChangeSkin = uiMaskWS.createUIComponent(UISkinSelector.class, null, null);
+      uiMaskWS.setUIComponent(uiChangeSkin);
+      uiMaskWS.setWindowSize(640, 400);
+      uiMaskWS.setShow(true);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+    }
+  }
+  
 }

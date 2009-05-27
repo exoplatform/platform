@@ -33,6 +33,10 @@
 	color: white;
 }
 
+.UIToolbarContainer .UIHorizontalTabs .TabsContainer {
+    height: 30px;
+}
+
 .UIToolbarContainer .UIHorizontalTabs .UITab {
 	line-height: 30px;	
 	float: left;
@@ -280,4 +284,8 @@
 	background: url('background/Logo.gif') left center;
 	width: 66px;
 	height: 30px;
+}
+
+.UIStarToolBarPortlet .UITab {
+    height: 30px;
 }

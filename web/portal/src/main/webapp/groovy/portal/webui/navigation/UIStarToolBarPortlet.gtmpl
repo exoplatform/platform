@@ -5,18 +5,23 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
   jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
-  jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + 'UIStarToolBarPortlet' + '");');
+  jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+  String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));" ;
+  String changeSkinAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeSkin', true));" ;
 %>
-<div class="UIStarToolBarPortlet" id="UIStarToolBarPortlet">
+<div class="UIStarToolBarPortlet" id="$uicomponent.id">
   <div class="UIHorizontalTabs">
     <div class="TabsContainer" style="position: relative">
-	    <div class="UITab" style="height: 30px; width: 30px; border: 1px soild red;">
+	    <div class="UITab" style="width: 62px">
 		    <div style="position: absolute; display:none;" class="MenuItemContainer">
-          <div class="MenuItem OddItem">
-            <a href="#" class="ItemIcon SiteIcon">New Staff</a>
+          <div class="MenuItem OddItem" onclick="$changeLanguageAction">
+            <a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIExoStart.item.ChangeLanguage")%></a>
           </div>
-          <div class="MenuItem EvenItem">
-            <a href="#" class="ItemIcon SiteIcon">Management</a>
+          <div class="MenuItem EvenItem" onclick="$changeSkinAction">
+            <a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIExoStart.item.ChangeSkin")%></a>
+          </div>
+          <div class="MenuItem OddItem" onclick="eXo.portal.logout();">
+            <a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIExoStart.item.Logout")%></a>
           </div>
         </div>
 		  </div>
