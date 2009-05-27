@@ -13,6 +13,7 @@
   <div class="UIHorizontalTabs">
     <div class="TabsContainer" style="position: relative">
 	    <div class="UITab" style="width: 62px">
+	      <div class="NormalNavigationTab"></div>
 		    <div style="position: absolute; display:none;" class="MenuItemContainer">
           <div class="MenuItem OddItem" onclick="$changeLanguageAction">
             <a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIExoStart.item.ChangeLanguage")%></a>

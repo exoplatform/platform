@@ -113,7 +113,7 @@ UIPortalNavigation.prototype.setTabStyleOnMouseOver = function(e) {
   if (eXo.portal.UIPortalNavigation.previousMenuItem != tab) {
     eXo.portal.UIPortalNavigation.hideMenu() ;
   }
-//	eXo.portal.UIPortalNavigation.setTabStyleOnMouseOut(e, tab) ;
+	eXo.portal.UIPortalNavigation.setTabStyleOnMouseOut(e, tab) ;
   eXo.portal.UIPortalNavigation.previousMenuItem = tab ;
   if (!eXo.portal.UIPortalNavigation.menuVisible) {
     var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(tab, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
