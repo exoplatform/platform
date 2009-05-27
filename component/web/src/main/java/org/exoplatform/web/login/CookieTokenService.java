@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
+import javax.jcr.RepositoryException;
 
 import org.exoplatform.container.xml.InitParams;
 import org.exoplatform.management.annotations.Managed;
@@ -84,25 +85,20 @@ public class CookieTokenService {
     }
   }
   
-  public Token getToken(String id) throws Exception {
+  public Token getToken(String id) throws PathNotFoundException, RepositoryException {
     String entryPath = getServiceRegistryPath() + "/" + id ;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     try {
-      RegistryEntry entry ;
-      try {
-        entry = regService_.getEntry(sessionProvider, entryPath) ;
-      } catch (Exception e) {
-        return null ;
-      }
+      RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
       return toToken(entry.getDocument()) ;
-    } finally {
+		} finally {
       sessionProvider.close() ;
     }
   }
   
   @Managed
   @ManagedDescription ("Delete a token by id")
-  public Token deleteToken(String id) throws Exception {
+  public Token deleteToken(String id) throws PathNotFoundException, RepositoryException {
     Token data = getToken(id) ;
     if(data == null) return null ; 
     String entryPath = getServiceRegistryPath() + "/" + id ;
@@ -115,49 +111,65 @@ public class CookieTokenService {
     }
   }
   
-  public void clearAll() throws Exception {
+  public void clearAll() {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     String entryPath = getServiceRegistryPath() ;
-    RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
-    Element docEle = entry.getDocument().getDocumentElement() ;
-    NodeList childNodes = docEle.getChildNodes() ;
-    while(childNodes.getLength() > 0) {
-      Node node = childNodes.item(0) ;
-      docEle.removeChild(node) ;
-    }
-    regService_.recreateEntry(sessionProvider, RegistryService.EXO_SERVICES, entry) ;
+    RegistryEntry entry;
+		try {
+			entry = regService_.getEntry(sessionProvider, entryPath);
+			Element docEle = entry.getDocument().getDocumentElement() ;
+			NodeList childNodes = docEle.getChildNodes() ;
+			while(childNodes.getLength() > 0) {
+				Node node = childNodes.item(0) ;
+				docEle.removeChild(node) ;
+			}
+			regService_.recreateEntry(sessionProvider, RegistryService.EXO_SERVICES, entry) ;
+		} catch (Exception e) {
+		} finally {
+			sessionProvider.close();
+		}
   }
   
   @Managed
   @ManagedDescription ("The list of all tokens")
-  public String [] getAllTokens() throws Exception {
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    javax.jcr.Node regNode = regService_.getRegistry(sessionProvider).getNode();
-    NodeIterator itr = regNode.getNode(getServiceRegistryPath()).getNodes();
-    ArrayList<String> list = new ArrayList<String>();
-    while (itr.hasNext()) {
-      javax.jcr.Node node = itr.nextNode();
-      list.add(node.getName());
-    }
-    sessionProvider.close();
-    return list.toArray(new String [] {});
+  public String [] getAllTokens() {
+  	SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
+  	try {
+      javax.jcr.Node regNode = regService_.getRegistry(sessionProvider).getNode();
+      NodeIterator itr = regNode.getNode(getServiceRegistryPath()).getNodes();
+      ArrayList<String> list = new ArrayList<String>();
+      while (itr.hasNext()) {
+        javax.jcr.Node node = itr.nextNode();
+        list.add(node.getName());
+      }
+      return list.toArray(new String [] {});
+  	} catch (RepositoryException e) {
+  		return null;
+		} 
+  	finally {
+  		sessionProvider.close();
+  	}
+    
   }
   
   @Managed
   @ManagedDescription ("The number of tokens")
   public long getNumberTokens() throws Exception {
-    long number;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    javax.jcr.Node regNode = regService_.getRegistry(sessionProvider).getNode();
-    NodeIterator itr = regNode.getNode(getServiceRegistryPath()).getNodes();
-    number = itr.getSize();
-    sessionProvider.close();
-    return number;
+    try {
+      javax.jcr.Node regNode = regService_.getRegistry(sessionProvider).getNode();
+      NodeIterator itr = regNode.getNode(getServiceRegistryPath()).getNodes();
+      return itr.getSize();
+    } catch (Exception ex) {
+    	return 0;
+    } finally {
+    	sessionProvider.close();
+    }
   }
   
   @Managed
   @ManagedDescription ("Clean all tokens are expired")
-  public void cleanExpiredTokens() throws Exception {
+  public void cleanExpiredTokens() throws PathNotFoundException, RepositoryException {
     String [] ids = getAllTokens();
     for(String s : ids) {
       Token token = getToken(s);
@@ -172,7 +184,7 @@ public class CookieTokenService {
     return RegistryService.EXO_SERVICES + "/" + SERVICE_NAME ;
   }
   
-  public Token toToken(Document document) throws Exception {
+  public Token toToken(Document document) {
     Element root = document.getDocumentElement() ;
     String userName = root.getAttribute(Token.USERNAME) ;
     String password = root.getAttribute(Token.PASSWORD) ;
