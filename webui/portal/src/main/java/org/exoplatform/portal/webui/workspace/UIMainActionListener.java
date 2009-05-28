@@ -28,6 +28,8 @@ import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalForm;
 import org.exoplatform.portal.webui.portal.UIPortalManagement;
+import org.exoplatform.portal.webui.portal.UIPortalManagement2;
+import org.exoplatform.portal.webui.portal.UISiteManagement;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -141,6 +143,18 @@ public class UIMainActionListener {
       UIMainActionListener.setUIControlWSWorkingComponent(UIPortalManagement.class) ;
       UIPortalManagement uiManagement = UIMainActionListener.getUIControlWSWorkingComponent();      
       uiManagement.setMode(ManagementMode.BROWSE, event);
+    }
+  }
+  
+  static public class ManagePortalsActionListener extends EventListener<UIWorkingWorkspace> {
+    public void execute(Event<UIWorkingWorkspace> event) throws Exception {      
+      UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
+      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
+      uiToolPanel.setShowMaskLayer(false);
+      UISiteManagement siteManager = uiToolPanel.createUIComponent(UISiteManagement.class, null, null);      
+      uiToolPanel.setUIComponent(siteManager);
+      siteManager.loadPortalConfigs();
+      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
     }
   }
 
