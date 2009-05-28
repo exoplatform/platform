@@ -53,7 +53,7 @@ public class UIPermissionForm extends UIForm {
   
   public UIPermissionForm() throws Exception{
     UIListPermissionSelector selector = addChild(UIListPermissionSelector.class, null, "UIListPermissionSelector") ;
-    selector.setName("UIListPermissionSelector") ;
+    selector.configure("UIListPermissionSelector", "accessPermissions") ;
     setActions(new String [] {}) ;
   }
   
