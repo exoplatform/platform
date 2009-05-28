@@ -119,7 +119,7 @@ public class UIPortalForm extends UIFormTabPane {
     setActions(new String[]{"Save", "Close"});
     
     if(initParams == null) return;
-    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;
+    WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
     Param param = initParams.getParam("PortalTemplateConfigOption");
     List<SelectItemCategory> portalTemplates = (List<SelectItemCategory>)param.getMapGroovyObject(context);
     for(SelectItemCategory itemCategory: portalTemplates){
@@ -140,7 +140,6 @@ public class UIPortalForm extends UIFormTabPane {
   
   @SuppressWarnings("unchecked")
   private class LanguagesComparator implements Comparator<SelectItemOption> {
-
     public int compare(SelectItemOption o1, SelectItemOption o2) {
       return o1.getLabel().compareToIgnoreCase(o2.getLabel()) ;
     }
@@ -255,7 +254,14 @@ public class UIPortalForm extends UIFormTabPane {
       if(uiPortalBrowser != null) {
         uiPortalBrowser.loadPortalConfigs();
         pcontext.addUIComponentToUpdateByAjax(uiPortalBrowser); 
-      }      
+      }
+      
+      UISiteManagement uiSiteManagement = uiPortalApp.findFirstComponentOfType(UISiteManagement.class);
+      //liem.nguyen: in some case, the create portal action is call out side portal browser
+      if(uiSiteManagement != null) {
+        uiSiteManagement.loadPortalConfigs();
+        pcontext.addUIComponentToUpdateByAjax(uiSiteManagement); 
+      }
     }
   }
   
