@@ -1,0 +1,105 @@
+<%
+  import org.exoplatform.portal.config.model.PageNavigation;
+	import org.exoplatform.portal.config.model.PageNode;
+	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.portal.webui.util.Util ;
+	
+  def rcontext = _ctx.getRequestContext() ;
+  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
+  jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
+  jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+
+  void renderPageNavigation(PageNavigation navigation) {
+  	nodes = navigation.getNodes() ;
+  	if(nodes.size() < 1) return ;
+  	String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
+		navTitle = navTitle.replace("{0}", navigation.ownerId);
+    print """
+					<div class="TitleBar">$navTitle</div>
+  	    		<div class="SubBlock">
+				    """ ;
+				    for(node in nodes) {
+				      renderPageNode(node, true) ;
+				    }
+				    print """
+    			</div>
+    """ ;    
+  }
+  
+  void renderPageNode(PageNode node, boolean flag) {
+    boolean hasChild = (node.getChildren() != null && node.getChildren().size() > 0);
+    String clazz = "";
+    if(hasChild) clazz = "ArrowIcon";
+    String  href = Util.getPortalRequestContext().getPortalURI() + node.getUri();
+    String icon = node.getIcon();
+    if(icon == null) icon = "DefaultPageIcon";
+    String label = (node.resolvedLabel.length() > 60 ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
+    String itemClass;
+    if(flag) itemClass =  "OddItem";
+    else itemClass =  "EvenItem";
+    print """
+      <div class="MenuItem $itemClass">
+      	<div class="$clazz">
+		""";
+						if(node.pageReference != null) {
+				        print """<a class="ItemIcon $icon" href="$href" title="$node.resolvedLabel">$label</a>""";
+						} else {
+								print """<a class="ItemIcon $icon" href="#" title="$node.resolvedLabel">$label</a>""";
+						}
+		print """
+				</div>
+    """ ;
+    if(hasChild) {
+    	print """
+				<div class="MenuItemContainer" style="position: absolute; display:none">    	
+    			<div class="SubBlock">
+    	""" ;
+    		for(child in node.getChildren()) {
+    			renderPageNode(child, true);
+    		}
+    	print """
+    			</div>
+    		</div>
+    	""" ;
+    	
+    }
+		print """
+      </div>
+		""" ;      
+  }	
+%> 
+<div class="UIUserToolbarPortlet" id="$uicomponent.id">
+	<div class="UIHorizontalTabs">
+		<div class="TabsContainer" style="position: relative">
+		<% if (uicomponent.hasGroupNavigations()) { %>
+					<div class="UITab NormalToolbarTab">
+						<div class="NormalNavigationTab">
+							<a class="GroupsIcon TBIcon" href="#">Groups</a>
+						</div>
+						<div style="position: absolute; display:none" class="MenuItemContainer">
+						<% for(navigation in uicomponent.getGroupNavigations()) {
+								renderPageNavigation(navigation);
+						} %>
+						</div>
+					</div>
+		<% } %>
+			<div class="UITab NormalToolbarTab">
+				<a class="DashboardIcon TBIcon" href="#">Dashboard</a>
+			</div>
+			
+			<div class="UITab">
+				<a class="SitesIcon TBIcon" href="#">Site</a>
+				<div style="position: absolute; display:none" class="MenuItemContainer" id="PortalNavigationContainer-40.9137690564672972">
+	  			<div class="MenuItem OddItem">
+						<a href="#" class="ItemIcon SiteIcon">New Staff</a>
+					</div>
+	  			<div class="MenuItem EvenItem">
+						<a href="#" class="ItemIcon SiteIcon">Management</a>
+					</div>
+  			</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

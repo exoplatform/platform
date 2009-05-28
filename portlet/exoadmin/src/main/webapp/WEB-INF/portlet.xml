@@ -139,7 +139,38 @@
       <keywords>Toolbar</keywords>
     </portlet-info>
   </portlet>
-  
+
+  <portlet>
+    <description xml:lang="EN">User Toolbar Portlet</description>
+    <portlet-name>UserToolbarPortlet</portlet-name>
+    <display-name xml:lang="EN">User Toolbar Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/UserToolbarPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    
+    <resource-bundle>locale.portlet.exoadmin.UserToolbarPortlet</resource-bundle>
+    <portlet-info>
+      <title>User Toolbar Portlet</title>
+      <short-title>UserToolbar</short-title>
+      <keywords>toolbar</keywords>
+    </portlet-info>
+    
+    <security-role-ref>
+      <role-name>admin</role-name>
+      <role-link>admin</role-link>
+    </security-role-ref>
+  </portlet>
+     
    <portlet>
     <description xml:lang="EN">Star Toolbar Portlet</description>
     <portlet-name>StarToolbarPortlet</portlet-name>
@@ -163,4 +194,5 @@
       <keywords>star,toolbar</keywords>
     </portlet-info>
   </portlet>   
+     
 </portlet-app>
