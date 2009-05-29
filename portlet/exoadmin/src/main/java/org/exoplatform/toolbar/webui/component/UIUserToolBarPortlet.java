@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserACL;
@@ -45,15 +46,17 @@ public class UIUserToolBarPortlet extends UIPortletApplication {
 
   public UIUserToolBarPortlet() throws Exception {
   }
+  
+  public List<String> getAllDashboards() throws Exception {
+    List<String> list = new ArrayList<String>();
+    list.add("Sales BI Reports");
+    list.add("Development Reports");
+    list.add("Scrum Reports");
+    list.add("Marketing Results");
+    
+    return list;
+  }
 
-  public String getCurrentPortal() {
-    return Util.getUIPortal().getName();
-  }
-  
-  public PageNavigation getCurrentPortalNavigation() throws Exception {
-    return getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + Util.getUIPortal().getName());
-  }
-  
   @SuppressWarnings({ "unchecked", "deprecation" })
   public List<String> getAllPortalNames() throws Exception {
     List<String> list = new ArrayList<String>();
@@ -70,7 +73,7 @@ public class UIUserToolBarPortlet extends UIPortletApplication {
     }         
     return list;
   }
-  
+
   public List<PageNavigation> getGroupNavigations() throws Exception {    
     String remoteUser = Util.getPortalRequestContext().getRemoteUser();
     List<PageNavigation> allNavigations = Util.getUIPortal().getNavigations();
@@ -81,6 +84,18 @@ public class UIUserToolBarPortlet extends UIPortletApplication {
       }
     }
     return navigations;
+  }
+
+  public String getCurrentPortal() {
+    return Util.getUIPortal().getName();
+  }
+  
+  public PageNavigation getCurrentPortalNavigation() throws Exception {
+    return getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + Util.getUIPortal().getName());
+  }
+  
+  public String getPortalURI(String portalName) {
+    return Util.getPortalRequestContext().getPortalURI().replace(getCurrentPortal(), portalName);
   }
   
   private PageNavigation getPageNavigation(String owner){

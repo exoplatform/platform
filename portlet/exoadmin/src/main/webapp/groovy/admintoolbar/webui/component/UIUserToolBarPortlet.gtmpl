@@ -11,7 +11,7 @@
   jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
   
   def groupNavigations = uicomponent.getGroupNavigations();
-
+ 
   void renderGroupPageNavigation(PageNavigation navigation) {
   	nodes = navigation.getNodes() ;
   	if(nodes.size() < 1) return ;
@@ -79,16 +79,18 @@
 			""";
 			boolean isCurrent = false;
 		  String clazz = "";
+		  String href = "#";
 			for(portal in uicomponent.getAllPortalNames()) {
  				if(portal.equals(uicomponent.getCurrentPortal())) {
 					isCurrent = true;
 			 	} else isCurrent = false;
 				if(isCurrent) clazz = "class='ArrowIcon'";
 				else clazz = "";
+				href = uicomponent.getPortalURI(portal);
 				print """
 	  			<div class="MenuItem OddItem">
 						<div $clazz>		  			
-							<a href="#" class="ItemIcon SiteIcon">$portal</a>
+							<a href="$href" class="ItemIcon SiteIcon">$portal</a>
 						</div>
 				""";
 						if(isCurrent) {
