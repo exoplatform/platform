@@ -131,7 +131,7 @@
       <mime-type>text/html</mime-type>
       <portlet-mode>help</portlet-mode>
     </supports>
-    <supported-locale>en</supported-locale>
+    <supported-locale>en,fr,vi,ar</supported-locale>
     <resource-bundle>locale.portlet.exoadmin.AdminToolbarPortlet</resource-bundle>
     <portlet-info>
       <title>Administration Toolbar Portlet</title>
@@ -157,7 +157,6 @@
       <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
-    
     <resource-bundle>locale.portlet.exoadmin.UserToolbarPortlet</resource-bundle>
     <portlet-info>
       <title>User Toolbar Portlet</title>
@@ -188,6 +187,7 @@
       <portlet-mode>help</portlet-mode>
     </supports>
     <supported-locale>en</supported-locale>
+    <resource-bundle>locale.portlet.exoadmin.StarToolbarPortlet</resource-bundle>
     <portlet-info>
       <title>Star Toolbar Portlet</title>
       <short-title>Star Toolbar</short-title>

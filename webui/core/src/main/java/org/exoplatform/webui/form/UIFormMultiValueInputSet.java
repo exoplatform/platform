@@ -170,11 +170,14 @@ public class UIFormMultiValueInputSet extends UIFormInputContainer<List> {
       UIFormMultiValueInputSet uiSet = event.getSource();
       String id = event.getRequestContext().getRequestParameter(OBJECTID);  
       if(uiSet.getId().equals(id)){
-        // get max id 
-        UIFormInputBase uiInput = (UIFormInputBase)uiSet.getChildren().get(uiSet.getChildren().size() - 1);
-        String index = uiInput.getId();
-        int maxIndex = Integer.parseInt(index.replaceAll(id, ""));
-        uiSet.createUIFormInput(maxIndex + 1);
+        // get max id
+        List<UIComponent> children = uiSet.getChildren() ;
+        if(children.size() > 0) {
+          UIFormInputBase uiInput = (UIFormInputBase)children.get(children.size() - 1);
+          String index = uiInput.getId();
+          int maxIndex = Integer.parseInt(index.replaceAll(id, ""));
+          uiSet.createUIFormInput(maxIndex + 1);
+        }
       }
     }
   }

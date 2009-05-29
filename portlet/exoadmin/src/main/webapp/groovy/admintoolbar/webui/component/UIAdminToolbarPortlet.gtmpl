@@ -1,105 +1,77 @@
 <% 
-		import org.exoplatform.portal.webui.util.ToolbarUtils;
-	  import org.exoplatform.portal.config.model.PageNavigation;
-		import org.exoplatform.portal.config.model.PageNode;
 		import org.exoplatform.toolbar.webui.component.UIAdminToolbarPortlet;
 		import org.exoplatform.web.application.JavascriptManager;
 	  
 		def rcontext = _ctx.getRequestContext();
 		
+    JavascriptManager jsmanager = rcontext.getJavascriptManager();
+    jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
+    jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
+    jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+		
 		int currentRole = uicomponent.getRole();
 		
 		if (currentRole == UIAdminToolbarPortlet.VISITOR) return; 
 			
-		boolean showable  = uicomponent.isShowWorkspaceArea();
-		
 		String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
 		String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPage");
 		String createPortalLabel = _ctx.appRes("UIAdminToolbarPortlet.action.CreatePortal");
 		String editPortalLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPortal");
-		String changePortalLabel = _ctx.appRes("UIAdminToolbarPortlet.action.ChangePortal");	
-		String skinSettingsLabel = _ctx.appRes("UIAdminToolbarPortlet.action.SkinSettings");
-		String languageSettingsLabel = _ctx.appRes("UIAdminToolbarPortlet.action.LanguageSettings");
-		String accountSettingsLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AccountSettings");	
-		String addContentLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddContent");
 		String browsePortalLabel = _ctx.appRes("UIAdminToolbarPortlet.action.BrowsePortal");
 		String browsePageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.BrowsePage");	
 		String editPageAndNaviLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPageAndNavigation");
-		String logoutLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Logout");	
-		String dashboardLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Dashboard");		
-		String sitesLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Sites");		
-		String groupsLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Groups");		
 		String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");		
 		String administratorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Administrator");							
-		String turnOnQuickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.TurnOnQuickEdit");
-		String turnOffQuickEditLabel = _ctx.appRes("UIAdminToolbarPortlet.action.TurnOffQuickEdit");			
-		
-		String liveModeTitle = _ctx.appRes("UIAdminToolbarPortlet.label.LiveModeTitle");
-		String editModeTitle = _ctx.appRes("UIAdminToolbarPortlet.label.EditModeTitle");	
 %>
-	<div class="UIAdminToolbarPortlet" id="$uicomponent.id">
+<div class="UIAdminToolbarPortlet" id="$uicomponent.id">
+  <div class="UIHorizontalTabs">
+    <div class="TabsContainer" style="position: relative">
 
 		<!-- Editor -->		
-		<% if (currentRole >= UIAdminToolbarPortlet.EDITOR) { %>		
-		<div class="TBItem">
-			<a href="#" class="EditorIcon TBIcon" onmouseover="showPopupMenu(this)">$editorLabel</a>
-			<div class="MenuItemContainer" style="display: none;">		      
-		      <div class="MenuItem OddItem">
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPage', true))" title="" class="ItemIcon AccountSettingsIcon" onclick="showWorkspaceArea($showable);">$editPageAndNaviLabel</a>       
-		      </div>         
-		      <div class="MenuItem EvenItem">
-		        <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon" onclick="showWorkspaceArea($showable);">$editPageLabel</a>
+			<% if (currentRole >= UIAdminToolbarPortlet.EDITOR) { %>
+			<div class="UITab NormalToolbarTab">
+			  <div class="NormalNavigationTab">
+	        <a class="EditorIcon TBIcon" href="#">$editorLabel</a>
+	      </div>
+	      <div class="MenuItemContainer" style="position: absolute; display:none;">
+	        <div class="SubBlock">
+		        <div class="MenuItem OddItem">
+		          <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPage', true))" title="" class="ItemIcon AccountSettingsIcon">$editPageAndNaviLabel</a>       
+			      </div>         
+			      <div class="MenuItem EvenItem">
+			        <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
+			      </div>
+			      <div class="MenuItem OddItem">  
+		          <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
+			      </div>  
+		        <div class="MenuItem EvenItem">
+		          <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPortal', true))" title="" class="ItemIcon EditPortalIcon">$editPortalLabel</a>        
+			      </div>
 		      </div>
-		      <div class="MenuItem OddItem">  
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon" onclick="showWorkspaceArea($showable);">$addPageLabel</a>
-		      </div>  
-					<div class="MenuItem EvenItem">
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPortal', true))" title="" class="ItemIcon EditPortalIcon" onclick="showWorkspaceArea($showable);">$editPortalLabel</a>        
-		      </div>		
-			</div>		
-		</div>
-		<% } %>
-			
-		<!-- Administrator -->			
-		<% if (currentRole == UIAdminToolbarPortlet.ADMIN) { %>	
-		<div class="TBItem">
-			<a href="#" class="AdministratorIcon TBIcon" onmouseover="showPopupMenu(this)">$administratorLabel</a>
-			<div class="MenuItemContainer" style="display: none;">
-	      <div class="MenuItem OddItem">
-					<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))" title="" class="ItemIcon CreatePortalIcon">$createPortalLabel</a>
 	      </div>
-	      <div class="MenuItem EvenItem">  
-					<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePortal', true))" title="" class="ItemIcon BrowsePageIcon" onclick="showWorkspaceArea($showable);">$browsePortalLabel</a>       
-	      </div>
-	      <div class="MenuItem OddItem">         
-					<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePage', true))" title="" class="ItemIcon BrowsePageIcon" onclick="showWorkspaceArea($showable);">$browsePageLabel</a>
-	      </div>		
-			</div>				
-		</div>
-		<% } %>
-		
-		<% if (currentRole >= UIAdminToolbarPortlet.REDACTOR) { %>		
-	
-			<!-- on/off -->				
-			<% if (ToolbarUtils.turnOnQuickEditable(rcontext, true)) { %> 
-				<div class="BoxOnOff SelectOff">
-					<div class="LeftSelect">
-			    	<div class="RightSelect">
-				    	<div class="CenterSelect" onclick="ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPortal', true))" title="$liveModeTitle">$turnOffQuickEditLabel</div>
-				    </div>
-			    </div>
-				</div>		
-			<% } else { %>
-				<div class="BoxOnOff SelectOn">
-					<div class="LeftSelect">
-			    	<div class="RightSelect">
-			    		<div class="CenterSelect" onclick="ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPortal', true))" title="$editModeTitle">$turnOnQuickEditLabel</div>
-			    	</div>
-			    </div>
-				</div>		    
+	    </div>
 			<% } %>
 		
-		<% } %>		
-		
-		<div style="clear:both"><span></span></div>
-	</div>
+	  <!-- Administrator -->			
+	    <% if (currentRole == UIAdminToolbarPortlet.ADMIN) { %>	
+	    <div class="UITab NormalToolbarTab">
+        <div class="NormalNavigationTab">
+          <a class="AdministratorIcon TBIcon" href="#">$administratorLabel</a>
+        </div>
+        <div class="MenuItemContainer" style="position: absolute; display:none;">
+          <div class="MenuItem OddItem">
+            <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))" title="" class="ItemIcon CreatePortalIcon">$createPortalLabel</a>
+				  </div>
+				  <div class="MenuItem EvenItem">  
+            <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePortal', true))" title="" class="ItemIcon BrowsePageIcon">$browsePortalLabel</a>       
+				  </div>
+				  <div class="MenuItem OddItem">         
+            <a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePage', true))" title="" class="ItemIcon BrowsePageIcon">$browsePageLabel</a>
+				  </div>
+        </div>
+      </div>
+	    <% } %>
+	    
+    </div>
+  </div>
+</div>

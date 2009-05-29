@@ -28,7 +28,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
  */
 @ComponentConfig (
   lifecycle = UIApplicationLifecycle.class,
-  template = "system:/groovy/portal/webui/navigation/UIStarToolBarPortlet.gtmpl"
+  template = "app:/groovy/admintoolbar/webui/component/UIStarToolBarPortlet.gtmpl"
 )
 public class UIStarToolbarPortlet extends UIPortletApplication {
 

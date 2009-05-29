@@ -19,21 +19,21 @@
 			    <show-info-bar>false</show-info-bar>
 			  </application>			
 			</container>
-			<container id="UserToolBarPortelt" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			<container id="UserToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 			  <application>
 			    <instance-id>portal#classic:/exoadmin/UserToolbarPortlet/userportlet</instance-id>
 		      <access-permissions>Everyone</access-permissions>
 			    <show-info-bar>false</show-info-bar>
 			  </application>			
 			</container>
-			<container id="AdminToolBarPortelt" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			<container id="AdminToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 			  <application>
-			    <instance-id>portal#classic:/web/HomePagePortlet/adminportlet</instance-id>
+			    <instance-id>portal#classic:/exoadmin/AdminToolbarPortlet/adminportlet</instance-id>
 		      <access-permissions>Everyone</access-permissions>
 			    <show-info-bar>false</show-info-bar>
 			  </application>
 			</container>
-		</container>"
+		</container>
         
 	  <application>
 	    <instance-id>portal#classic:/web/BannerPortlet/banner</instance-id>

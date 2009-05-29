@@ -44,37 +44,4 @@
     </preference>
   </portlet-preferences>
   
-  <portlet-preferences>
-    <owner-type>portal</owner-type>
-    <owner-id>classic</owner-id>
-    <window-id>portal#classic:/web/HomePagePortlet/adminportlet</window-id>
-    <preference>
-      <name>template</name>
-      <value>system:/groovy/portal/webui/navigation/UIAdminToolBarPortlet.gtmpl</value>
-      <read-only>false</read-only>
-    </preference>
-  </portlet-preferences>
-  
-  <portlet-preferences>
-    <owner-type>portal</owner-type>
-    <owner-id>classic</owner-id>
-    <window-id>portal#classic:/web/HomePagePortlet/userportlet</window-id>
-    <preference>
-      <name>template</name>
-      <value>system:/groovy/portal/webui/navigation/UIUserToolBarPortlet.gtmpl</value>
-      <read-only>false</read-only>
-    </preference>
-  </portlet-preferences>
-  
-  <portlet-preferences>
-    <owner-type>portal</owner-type>
-    <owner-id>classic</owner-id>
-    <window-id>portal#classic:/web/HomePagePortlet/siteportlet</window-id>
-    <preference>
-      <name>template</name>
-      <value>system:/groovy/portal/webui/navigation/UIStarToolBarPortlet.gtmpl</value>
-      <read-only>false</read-only>
-    </preference>
-  </portlet-preferences>
-  
 </portlet-preferences-set>
