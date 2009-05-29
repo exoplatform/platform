@@ -9,8 +9,10 @@
   jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
   jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
   jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+  
+  def groupNavigations = uicomponent.getGroupNavigations();
 
-  void renderPageNavigation(PageNavigation navigation) {
+  void renderGroupPageNavigation(PageNavigation navigation) {
   	nodes = navigation.getNodes() ;
   	if(nodes.size() < 1) return ;
   	String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
@@ -68,36 +70,82 @@
       </div>
 		""" ;      
   }	
+  
+  void renderPortalNavigations() {
+  		 
+  		print """
+  				<div style="position: absolute; display:none" class="MenuItemContainer">
+						<div class="SubBlock">
+			""";
+			boolean isCurrent = false;
+		  String clazz = "";
+			for(portal in uicomponent.getAllPortalNames()) {
+ 				if(portal.equals(uicomponent.getCurrentPortal())) {
+					isCurrent = true;
+			 	} else isCurrent = false;
+				if(isCurrent) clazz = "class='ArrowIcon'";
+				else clazz = "";
+				print """
+	  			<div class="MenuItem OddItem">
+						<div $clazz>		  			
+							<a href="#" class="ItemIcon SiteIcon">$portal</a>
+						</div>
+				""";
+						if(isCurrent) {
+							renderCurrentPortal();
+						}
+				print """
+					</div>
+				""";
+			}
+		  print """
+					</div>
+  			</div>
+  		""";
+  }
+  
+  void renderCurrentPortal() {
+  	navigation = uicomponent.getCurrentPortalNavigation();
+		nodes = navigation.getNodes() ;
+  	print """
+  		<div style="position: absolute; display:none" class="MenuItemContainer">
+				<div class="SubBlock">
+		""";
+	  for(node in nodes) {
+		   renderPageNode(node, true) ;
+		}
+		print """
+				</div>
+  		</div>
+  	""";
+  }
 %> 
 <div class="UIUserToolbarPortlet" id="$uicomponent.id">
 	<div class="UIHorizontalTabs">
 		<div class="TabsContainer" style="position: relative">
-		<% if (uicomponent.hasGroupNavigations()) { %>
 					<div class="UITab NormalToolbarTab">
 						<div class="NormalNavigationTab">
 							<a class="GroupsIcon TBIcon" href="#">Groups</a>
 						</div>
+						<% if (!groupNavigations.isEmpty()) { %>
 						<div style="position: absolute; display:none" class="MenuItemContainer">
-						<% for(navigation in uicomponent.getGroupNavigations()) {
-								renderPageNavigation(navigation);
+						<% for(navigation in groupNavigations) {
+								renderGroupPageNavigation(navigation);
 						} %>
 						</div>
+						<% } %>
 					</div>
-		<% } %>
 			<div class="UITab NormalToolbarTab">
-				<a class="DashboardIcon TBIcon" href="#">Dashboard</a>
+				<div class="NormalNavigationTab">
+					<a class="DashboardIcon TBIcon" href="#">Dashboard</a>
+				</div>
 			</div>
 			
-			<div class="UITab">
-				<a class="SitesIcon TBIcon" href="#">Site</a>
-				<div style="position: absolute; display:none" class="MenuItemContainer" id="PortalNavigationContainer-40.9137690564672972">
-	  			<div class="MenuItem OddItem">
-						<a href="#" class="ItemIcon SiteIcon">New Staff</a>
-					</div>
-	  			<div class="MenuItem EvenItem">
-						<a href="#" class="ItemIcon SiteIcon">Management</a>
-					</div>
-  			</div>
+			<div class="UITab NormalToolbarTab">
+				<div class="NormalNavigationTab">
+					<a class="SitesIcon TBIcon" href="#">Site</a>
+				</div>
+				<% renderPortalNavigations() %>
 			</div>
 			
 		</div>

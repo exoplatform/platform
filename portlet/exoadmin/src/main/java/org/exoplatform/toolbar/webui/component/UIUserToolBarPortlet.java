@@ -19,6 +19,10 @@ package org.exoplatform.toolbar.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.Query;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
@@ -39,33 +43,52 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 )
 public class UIUserToolBarPortlet extends UIPortletApplication {
 
-  private List<PageNavigation> groupNavigations = null;
-  private boolean hasGroupNavigations = false;
-  
   public UIUserToolBarPortlet() throws Exception {
-    buildNavigations();
+  }
+
+  public String getCurrentPortal() {
+    return Util.getUIPortal().getName();
+  }
+  
+  public PageNavigation getCurrentPortalNavigation() throws Exception {
+    return getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + Util.getUIPortal().getName());
+  }
+  
+  @SuppressWarnings({ "unchecked", "deprecation" })
+  public List<String> getAllPortalNames() throws Exception {
+    List<String> list = new ArrayList<String>();
+    DataStorage dataStorage = getApplicationComponent(DataStorage.class);
+    Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, null, PortalConfig.class) ;
+    PageList pageList = dataStorage.find(query) ;
+    String userId = Util.getPortalRequestContext().getRemoteUser();
+    UserACL userACL = getApplicationComponent(UserACL.class) ;
+    List<PortalConfig> configs = pageList.getAll();    
+    for(PortalConfig ele : configs) {
+      if(userACL.hasPermission(ele, userId)) {
+        list.add(ele.getName());                
+      }
+    }         
+    return list;
   }
   
   public List<PageNavigation> getGroupNavigations() throws Exception {    
-    return groupNavigations;
-  }
-  
-  public boolean hasGroupNavigations() {
-    return hasGroupNavigations;
-  }
-
-  private void buildNavigations() throws Exception {
     String remoteUser = Util.getPortalRequestContext().getRemoteUser();
     List<PageNavigation> allNavigations = Util.getUIPortal().getNavigations();
-    groupNavigations = new ArrayList<PageNavigation>();
+    List<PageNavigation> navigations = new ArrayList<PageNavigation>();
     for (PageNavigation navigation : allNavigations) {      
       if (navigation.getOwnerType().equals(PortalConfig.GROUP_TYPE)) {
-        groupNavigations.add(PageNavigationUtils.filter(navigation, remoteUser));
+        navigations.add(PageNavigationUtils.filter(navigation, remoteUser));
       }
     }
-    if(!groupNavigations.isEmpty()) {
-      hasGroupNavigations = true;
-    } else hasGroupNavigations = false;
+    return navigations;
   }
-
+  
+  private PageNavigation getPageNavigation(String owner){
+    List<PageNavigation> allNavigations = Util.getUIPortal().getNavigations();
+    for(PageNavigation nav: allNavigations){
+      if(nav.getOwner().equals(owner)) return nav;
+    }
+    return null;
+  }
+  
 }
