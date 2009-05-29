@@ -20,13 +20,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.page.UIPageBody;
-import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
@@ -89,10 +88,10 @@ public class UINavigationControlBar extends UIToolbar {
       selectedPaths.add(oldSelectedNode) ;
       oldUIPortal.setSelectedPaths(selectedPaths) ;
       UINavigationNodeSelector uiNodeSelector = uiPageNav.<UIContainer>getParent().findFirstComponentOfType(UINavigationNodeSelector.class);
-      String portalName = uiNodeSelector.getNavigations().get(0).getOwnerId();
-      uiNodeSelector.loadNavigations(portalName, PortalConfig.PORTAL_TYPE);
-      
+      String portalName = uiNodeSelector.getNavigations().get(0).getOwnerId();      
       UINavigationManagement uiManagement = uiPageNav.getParent();
+      uiManagement.loadNavigation(new Query<PageNavigation>(PortalConfig.PORTAL_TYPE, portalName, PageNavigation.class));
+      
       Class<?> [] classes = new Class<?>[]{UINavigationNodeSelector.class, UINavigationControlBar.class};      
       uiManagement.setRenderedChildrenOfTypes(classes);
       uiManagement.loadView(event);

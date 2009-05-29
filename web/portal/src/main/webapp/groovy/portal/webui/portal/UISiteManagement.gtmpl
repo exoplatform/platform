@@ -3,35 +3,33 @@
   import org.exoplatform.webui.form.UIForm;
   import java.text.DateFormat;
   import java.text.SimpleDateFormat;
-
-  String[] beanFields =  uicomponent.getBeanFields() ;  
-  String[] beanActions =  uicomponent.getBeanActions();
+   
+  String[] actions =  uicomponent.getActions();
 %>
 <div class="UISiteManagement" id="<%=uicomponent.getId();%>">
 	<table class="DataList" cellspacing="0">	  
 	  <tbody>
 	  <%
-		    for (bean in uicomponent.getBeans())  {		      
+		    for (portalConfig in uicomponent.getPortalConfigs())  {		      
 	  %>
 		      <tr>
 		      	<td><img src="#" border="1 solid" width="100" height="100" /></td>
-		      	<td><input type="text" width="100" value="<%=uicomponent.getFieldValue(bean, beanFields[1]) %>" readonly /></td>
+		      	<td><input type="text" width="100" value="<%=uicomponent.getFieldValue(portalConfig, 'name') %>" readonly /></td>
 			  <%			    
-			        if(beanActions != null && beanActions.length > 0) { 
+			        if(actions != null && actions.length > 0) { 
 			  %>
 					   <td>
 				        <div class="ActionContainer">
-				          <%
-				            def beanIdField = uicomponent.getBeanIdField() ;           
-				            for(action in beanActions) { 		              
-				              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
+				          <%				                    
+				            for(action in actions) { 		              
+				              def portalName = uicomponent.getFieldValue(portalConfig, "name")  ;
 					            if(action == null) continue;
 				              String title = _ctx.appRes(uicomponent.getId() + ".action.title." + action);
-				              String actionLink = uicomponent.event(action, beanId, null);
+				              String actionLink = uicomponent.event(action, portalName, null);
 					        %>	           
 					        	<a href="$actionLink" alt="">$title</a>
 				          <%
-				          		if (action != beanActions[beanActions.length - 1]) { %>
+				          		if (action != actions[actions.length - 1]) { %>
 				          			&nbsp;&nbsp;|&nbsp;&nbsp;
 				          <%	} 
 				          	}
@@ -42,7 +40,7 @@
 			        }
 			  %>  
 			    </tr>
-			    <tr><td colspan="<%=beanFields.length+1%>"><hr /></td></tr>
+			    <tr><td colspan="3"><hr /></td></tr>
 		<%		    
 		  }
 		%> 

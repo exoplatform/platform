@@ -17,11 +17,9 @@
 package org.exoplatform.portal.webui.navigation;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -95,16 +93,9 @@ public class UINavigationNodeSelector extends UIContainer {
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
   }
 
-  public void loadNavigations(String ownerId, String ownerType) throws Exception {
-    navigations = new ArrayList<PageNavigation>();
-    List<PageNavigation> pnavigations = getExistedNavigation(ownerId, ownerType);
-    for (PageNavigation nav : pnavigations) {
-      if (nav.isModifiable())
-        navigations.add(nav);
-    }
-
+  public void initNavigations(List<PageNavigation> navis) throws Exception {
+    navigations = navis;
     updateUI();
-
     selectNavigation();
   }
 
@@ -242,25 +233,7 @@ public class UINavigationNodeSelector extends UIContainer {
 
   public void setCopyNode(SelectedNode copyNode) {
     this.copyNode = copyNode;
-  }
-
-  private List<PageNavigation> getExistedNavigation(String portalName, String ownerType) throws Exception {
-    PortalRequestContext prContext = Util.getPortalRequestContext();
-    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);
-    UserPortalConfig config = configService.getUserPortalConfig(portalName,
-                                                                prContext.getRemoteUser());    
-    List<PageNavigation> navis = config.getNavigations();
-    if (ownerType != null) {
-      Iterator<PageNavigation> itr = navis.iterator();
-      while (itr.hasNext()) {
-        PageNavigation nav = itr.next();
-        if (!nav.getOwnerType().equals(ownerType))
-          itr.remove();
-      }
-    }
-    
-    return navis;
-  }
+  }  
 
   static public class ChangeNodeActionListener extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {

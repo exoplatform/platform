@@ -17,8 +17,8 @@
 package org.exoplatform.portal.webui.portal;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,6 +30,7 @@ import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.UINavigationManagement;
 import org.exoplatform.portal.webui.navigation.UINavigationNodeSelector;
@@ -57,9 +58,8 @@ import org.exoplatform.webui.event.EventListener;
 )
 public class UISiteManagement extends UIContainer {
   
-  public static String[] BEAN_FIELD = {"creator", "name"} ;
   //public static String[] SELECT_ACTIONS = {"EditPortalLayout", "EditNavigation", "DeletePortal"} ;
-  public static String[] SELECT_ACTIONS = {"EditNavigation", "DeletePortal"} ;
+  public static String[] ACTIONS = {"EditNavigation", "DeletePortal"} ;
   
   private PageList pageList;
   
@@ -68,13 +68,11 @@ public class UISiteManagement extends UIContainer {
     //loadPortalConfigs();
   }
   
-  public List<?> getBeans() throws Exception { 
+  public List<PortalConfig> getPortalConfigs() throws Exception { 
     return pageList.currentPage();
   }
   
-  public String getBeanIdField()  { return "name" ; }
-  public String[]  getBeanFields() { return BEAN_FIELD ; }
-  public String[]  getBeanActions() { return SELECT_ACTIONS ; }
+  public String[] getActions() { return ACTIONS ; }
   
   public Object getFieldValue(Object bean, String field) throws Exception {
     Method method = ReflectionUtil.getGetBindingMethod(bean, field);
@@ -95,20 +93,13 @@ public class UISiteManagement extends UIContainer {
     UIPortalApplication uiPortalApp = this.getAncestorOfType(UIPortalApplication.class);
     UserACL userACL = uiPortalApp.getApplicationComponent(UserACL.class);
     PortalRequestContext prContext = Util.getPortalRequestContext();
-    
-    ArrayList<PortalConfig> restrictedPortals = new ArrayList<PortalConfig>(); // Un-Editable    
-    for (Object config : this.pageList.currentPage()) {
-        if (config instanceof PortalConfig) {
-          PortalConfig portalConfig = (PortalConfig) config;
-          if(!userACL.hasEditPermission(portalConfig ,prContext.getRemoteUser())){
-            restrictedPortals.add(portalConfig);
-          }        
+    Iterator<PortalConfig> iterPortals  = this.pageList.currentPage().iterator();
+    PortalConfig portalConfig;
+    while (iterPortals.hasNext()) {
+        portalConfig = iterPortals.next();
+        if (!userACL.hasEditPermission(portalConfig, prContext.getRemoteUser())) {
+            iterPortals.remove();
         }
-    }
-    
-    // Remove un-editable portal
-    for (PortalConfig portalConfig : restrictedPortals) {
-      this.pageList.currentPage().remove(portalConfig);
     }    
   } 
 
@@ -206,10 +197,9 @@ public class UISiteManagement extends UIContainer {
       }
       popUp = workingWS.addChild(UIPopupWindow.class, null, null);      
       
-      UINavigationManagement pageManager = popUp.createUIComponent(UINavigationManagement.class, null, null, popUp);
-      UINavigationNodeSelector selector = pageManager.getChild(UINavigationNodeSelector.class);      
-      selector.loadNavigations(portalName, PortalConfig.PORTAL_TYPE);
-      popUp.setUIComponent(pageManager);
+      UINavigationManagement naviManager = popUp.createUIComponent(UINavigationManagement.class, null, null, popUp);
+      naviManager.loadNavigation(new Query<PageNavigation>(PortalConfig.PORTAL_TYPE, portalName, PageNavigation.class));
+      popUp.setUIComponent(naviManager);
       popUp.setShow(true);
       popUp.setRendered(true);
       popUp.setWindowSize(400, 400);

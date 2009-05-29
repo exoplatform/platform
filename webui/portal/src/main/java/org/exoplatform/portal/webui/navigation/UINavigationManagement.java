@@ -16,6 +16,10 @@
  */
 package org.exoplatform.portal.webui.navigation;
 
+import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.Query;
+import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
@@ -26,11 +30,18 @@ import org.exoplatform.webui.event.Event;
   template = "app:/groovy/portal/webui/navigation/UINavigationManagement.gtmpl"
 )
 public class UINavigationManagement extends UIContainer {
-
+  
   @SuppressWarnings("unused")
   public UINavigationManagement() throws Exception {    
     addChild(UINavigationNodeSelector.class, null, null);
     addChild(UINavigationControlBar.class, null, null);    
+  }
+  
+  public void loadNavigation(Query<PageNavigation> query) throws Exception {
+    DataStorage service = getApplicationComponent(DataStorage.class);
+    PageList navis = service.find(query);
+    UINavigationNodeSelector nodeSelector = getChild(UINavigationNodeSelector.class);
+    nodeSelector.initNavigations(navis.currentPage());
   }
   
   public <T extends UIComponent> T setRendered(boolean b) {
