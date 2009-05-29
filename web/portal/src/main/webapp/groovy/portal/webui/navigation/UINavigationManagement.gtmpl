@@ -20,7 +20,7 @@
 	      <div class="MiddleLeftBar">
 	        <div class="MiddleRightBar">
 	          <div class="MiddleCenterBar">
-	          	<%=_ctx.appRes(uicomponent.getId() + ".title");%>
+	          	<%= uicomponent.getOwner();%>
 	          </div>
 	        </div>
 	      </div>
@@ -39,5 +39,23 @@
 		<div class="ControlArea" >
 	  	<%uicomponent.renderChild(UINavigationControlBar.class);%>
 		</div> 
-  <%}%>	
+  <%}%>
+  
+  <div class="UIAction"> 
+    <table class="ActionContainer">
+	    <tr>
+	    	<td>
+		      <div onclick="<%=uicomponent.event("AddNode")%>" class="ActionButton LightBlueStyle">
+		        <div class="ButtonLeft">
+		          <div class="ButtonRight">
+		            <div class="ButtonMiddle">
+		              <a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.addNode")%></a>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </td>
+      </tr>
+ 	  </table>
+	</div>
 </div>

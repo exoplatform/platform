@@ -198,6 +198,7 @@ public class UISiteManagement extends UIContainer {
       popUp = workingWS.addChild(UIPopupWindow.class, null, null);      
       
       UINavigationManagement naviManager = popUp.createUIComponent(UINavigationManagement.class, null, null, popUp);
+      naviManager.setOwner(portalName);
       naviManager.loadNavigation(new Query<PageNavigation>(PortalConfig.PORTAL_TYPE, portalName, PageNavigation.class));
       popUp.setUIComponent(naviManager);
       popUp.setShow(true);

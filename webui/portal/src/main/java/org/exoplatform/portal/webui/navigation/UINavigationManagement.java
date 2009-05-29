@@ -31,10 +31,12 @@ import org.exoplatform.webui.event.Event;
 )
 public class UINavigationManagement extends UIContainer {
   
+  private String owner;  
+
   @SuppressWarnings("unused")
   public UINavigationManagement() throws Exception {    
     addChild(UINavigationNodeSelector.class, null, null);
-    addChild(UINavigationControlBar.class, null, null);    
+    addChild(UINavigationControlBar.class, null, null);
   }
   
   public void loadNavigation(Query<PageNavigation> query) throws Exception {
@@ -42,6 +44,14 @@ public class UINavigationManagement extends UIContainer {
     PageList navis = service.find(query);
     UINavigationNodeSelector nodeSelector = getChild(UINavigationNodeSelector.class);
     nodeSelector.initNavigations(navis.currentPage());
+  }
+  
+  public void setOwner(String owner) {
+    this.owner = owner;
+  }
+  
+  public String getOwner() { 
+    return this.owner; 
   }
   
   public <T extends UIComponent> T setRendered(boolean b) {

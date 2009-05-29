@@ -61,7 +61,9 @@ public class UINavigationControlBar extends UIToolbar {
   public UINavigationControlBar() throws Exception {
     setToolbarStyle("ControlToolbar") ;
     setJavascript("Preview","onclick='eXo.portal.UIPortal.switchMode(this);'") ;
-  }
+  }  
+
+  public boolean isRendered() { return false; }
   
   static public class RollbackActionListener extends EventListener<UINavigationControlBar> {
     public void execute(Event<UINavigationControlBar> event) throws Exception {

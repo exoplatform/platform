@@ -24,7 +24,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.CreateNavigationActionListener;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
@@ -47,8 +46,7 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfigs( {
     @ComponentConfig(template = "app:/groovy/portal/webui/navigation/UINavigationNodeSelector.gtmpl", events = {
-        @EventConfig(listeners = UINavigationNodeSelector.ChangeNodeActionListener.class),
-        @EventConfig(listeners = CreateNavigationActionListener.class) }),
+        @EventConfig(listeners = UINavigationNodeSelector.ChangeNodeActionListener.class) }),
     @ComponentConfig(id = "NavigationNodePopupMenu", type = UIRightClickPopupMenu.class, template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl", events = {
         @EventConfig(listeners = UINavigationNodeSelector.AddNodeActionListener.class),
         @EventConfig(listeners = UINavigationNodeSelector.EditPageNodeActionListener.class),
@@ -287,8 +285,8 @@ public class UINavigationNodeSelector extends UIContainer {
       if (parent == null)
         parent = uiNodeSelector.getSelectedNavigation();
       uiNodeForm.setSelectedParent(parent);
-      */
-    }    
+      */      
+    }
   }
 
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
