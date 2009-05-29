@@ -2,7 +2,6 @@
 <portal-config>
   <portal-name>classic</portal-name>
   <locale>en</locale>
-  <!--<factory-id>office</factory-id>-->
   <access-permissions>Everyone</access-permissions>
   <edit-permission>*:/platform/administrators</edit-permission>
   <creator>root</creator>
@@ -12,6 +11,7 @@
     
  	<portal-layout>
 		<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
+		  <access-permissions>*:/platform/user</access-permissions>
 			<container id="StarToolBarPortelt" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 			  <application>
 			    <instance-id>portal#classic:/exoadmin/StarToolbarPortlet/starportlet</instance-id>
