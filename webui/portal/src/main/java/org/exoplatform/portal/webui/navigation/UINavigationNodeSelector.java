@@ -291,7 +291,7 @@ public class UINavigationNodeSelector extends UIContainer {
       if (parent == null)
         parent = uiNodeSelector.getSelectedNavigation();
       uiNodeForm.setSelectedParent(parent);
-      */      
+      */
     }
   }
 

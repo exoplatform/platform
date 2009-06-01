@@ -33,7 +33,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.UINavigationManagement;
-import org.exoplatform.portal.webui.navigation.UINavigationNodeSelector;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -93,7 +92,7 @@ public class UISiteManagement extends UIContainer {
     UIPortalApplication uiPortalApp = this.getAncestorOfType(UIPortalApplication.class);
     UserACL userACL = uiPortalApp.getApplicationComponent(UserACL.class);
     PortalRequestContext prContext = Util.getPortalRequestContext();
-    Iterator<PortalConfig> iterPortals  = this.pageList.currentPage().iterator();
+    Iterator<PortalConfig> iterPortals  = this.pageList.getAll().iterator();
     PortalConfig portalConfig;
     while (iterPortals.hasNext()) {
         portalConfig = iterPortals.next();

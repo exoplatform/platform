@@ -43,7 +43,7 @@ public class UINavigationManagement extends UIContainer {
     DataStorage service = getApplicationComponent(DataStorage.class);
     PageList navis = service.find(query);
     UINavigationNodeSelector nodeSelector = getChild(UINavigationNodeSelector.class);
-    nodeSelector.initNavigations(navis.currentPage());
+    nodeSelector.initNavigations(navis.getAll());
   }
   
   public void setOwner(String owner) {
