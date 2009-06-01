@@ -39,6 +39,7 @@ import org.exoplatform.webui.core.UIContainer;
       @EventConfig(listeners = UIMainActionListener.CreatePortalActionListener.class),
       @EventConfig(listeners = UIMainActionListener.BrowsePortalActionListener.class),
       @EventConfig(listeners = UIMainActionListener.ManagePortalsActionListener.class),
+      @EventConfig(listeners = UIMainActionListener.ManageGroupsActionListener.class),
       @EventConfig(listeners = UIMainActionListener.BrowsePageActionListener.class)
   }
 )

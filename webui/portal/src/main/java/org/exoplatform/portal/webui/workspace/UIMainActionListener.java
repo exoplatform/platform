@@ -25,6 +25,7 @@ import org.exoplatform.portal.webui.page.UIPageCreationWizard;
 import org.exoplatform.portal.webui.page.UIPageEditWizard;
 import org.exoplatform.portal.webui.page.UIWizardPageCreationBar;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
+import org.exoplatform.portal.webui.portal.NewUIGroupManagement;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalForm;
 import org.exoplatform.portal.webui.portal.UIPortalManagement;
@@ -154,6 +155,17 @@ public class UIMainActionListener {
       UISiteManagement siteManager = uiToolPanel.createUIComponent(UISiteManagement.class, null, null);      
       uiToolPanel.setUIComponent(siteManager);
       siteManager.loadPortalConfigs();
+      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+    }
+  }
+  
+  static public class ManageGroupsActionListener extends EventListener<UIWorkingWorkspace> {
+    public void execute(Event<UIWorkingWorkspace> event) throws Exception {      
+      UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
+      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
+      uiToolPanel.setShowMaskLayer(false);
+      NewUIGroupManagement groupsManager = uiToolPanel.createUIComponent(NewUIGroupManagement.class, null, null);      
+      uiToolPanel.setUIComponent(groupsManager);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
     }
   }
