@@ -1,4 +1,3 @@
-
 package org.exoplatform.portal.webui.portal;
 
 import java.util.ArrayList;
@@ -6,16 +5,31 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.DataStorage;
+import org.exoplatform.portal.config.Query;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.webui.navigation.UINavigationManagement;
+import org.exoplatform.portal.webui.navigation.UINavigationNodeSelector;
+import org.exoplatform.portal.webui.navigation.UIPageManagement2;
+import org.exoplatform.portal.webui.navigation.UIPortalNodeSelector;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import com.sun.mail.util.QEncoderStream;
 
 /*
  * Copyright (C) 2003-2009 eXo Platform SAS.
@@ -46,80 +60,146 @@ import org.exoplatform.webui.event.EventListener;
     @EventConfig(listeners = NewUIGroupManagement.DeleteNavigationActionListener.class) })
 public class NewUIGroupManagement extends UIContainer {
 
-  private Collection           sibblingsGroup_;
-
   private List<PageNavigation> navigations;
 
   public NewUIGroupManagement() throws Exception {
-
-    String username = org.exoplatform.portal.webui.util.Util.getPortalRequestContext().getRemoteUser();
-
-    OrganizationService service = getApplicationComponent(OrganizationService.class);
-    sibblingsGroup_ = service.getGroupHandler().findGroupsOfUser(username);
-
-    // get all navigation
-    navigations = new ArrayList<PageNavigation>();
-    List<PageNavigation> pnavigations = getExistedNavigation(Util.getUIPortal().getNavigations());
-    // loop throught all navigation
-    for (PageNavigation nav : pnavigations) {
-      // select only navigations that user has edit permission and type is group
-      if (nav.isModifiable() && (nav.getOwnerType().equals(PortalConfig.GROUP_TYPE))) {
-        navigations.add(nav);
-      }
-    }
-
+    loadNavigations();
   }
 
-  public Collection getSibblingsGroup_() {
-    return sibblingsGroup_;
+  public void loadNavigations() throws Exception {
+    navigations = new ArrayList<PageNavigation>();
+
+    String username = org.exoplatform.portal.webui.util.Util.getPortalRequestContext()
+                                                            .getRemoteUser();
+
+    UserACL userACL = getApplicationComponent(UserACL.class);
+
+    DataStorage dataStorage = getApplicationComponent(DataStorage.class);
+    Query<PageNavigation> query = new Query<PageNavigation>(PortalConfig.GROUP_TYPE,
+                                                            null,
+                                                            PageNavigation.class);
+    List<PageNavigation> navis = dataStorage.find(query).getAll();
+    for (PageNavigation ele : navis) {
+      if (userACL.hasEditPermission(ele, username)) {
+        navigations.add(ele);
+      }
+    }
   }
 
   public List<PageNavigation> getNavigations() {
     return navigations;
   }
 
-  private List<PageNavigation> getExistedNavigation(List<PageNavigation> navis) throws Exception {
-    Iterator<PageNavigation> itr = navis.iterator();
-    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);
-    while (itr.hasNext()) {
-      PageNavigation nav = itr.next();
-      if (configService.getPageNavigation(nav.getOwnerType(), nav.getOwnerId()) == null)
-        itr.remove();
+  public PageNavigation getNavigationById(Integer navId) {
+    PageNavigation navigation = new PageNavigation();
+    for (PageNavigation nav : navigations) {
+      if (nav.getId() == navId) {
+        navigation = nav;
+        break;
+      }
     }
-    return navis;
+    return navigation;
   }
-
-  
 
   static public class EditNavigationActionListener extends EventListener<NewUIGroupManagement> {
     public void execute(Event<NewUIGroupManagement> event) throws Exception {
 
+      NewUIGroupManagement uicomp = event.getSource();
+
+      // get navigation id
+      String id = event.getRequestContext().getRequestParameter(OBJECTID);
+      Integer navId = Integer.parseInt(id);
+      // get PageNavigation by navigation id
+      PageNavigation navigation = uicomp.getNavigationById(navId);
+
+      String username = org.exoplatform.portal.webui.util.Util.getPortalRequestContext()
+                                                              .getRemoteUser();
+
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      WebuiRequestContext context = event.getRequestContext();
+      UIApplication uiApplication = context.getUIApplication();
+      UIPortalApplication uiPortalApp = event.getSource()
+                                             .getAncestorOfType(UIPortalApplication.class);
+
+      // check edit permission, ensure that user has edit permission on that navigation
+      UserACL userACL = uicomp.getApplicationComponent(UserACL.class);
+
+      if (!userACL.hasEditPermission(navigation, username)) {
+        uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.notUrl", null));
+        return;
+      }
+
+      // ensure this navigation is exist
+      DataStorage service = uicomp.getApplicationComponent(DataStorage.class);
+      if (service.getPageNavigation(navigation.getOwnerType(), navigation.getOwnerId()) == null) {
+        uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.notUrl", null));
+        return;
+      }
+
+      UIWorkingWorkspace workingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      UIPopupWindow popUp = workingWS.getChild(UIPopupWindow.class);
+      if (popUp != null) {
+        workingWS.removeChild(UIPopupWindow.class);
+      }
+      popUp = workingWS.addChild(UIPopupWindow.class, null, null);
+
+      UINavigationManagement pageManager = popUp.createUIComponent(UINavigationManagement.class,
+                                                                   null,
+                                                                   null,
+                                                                   popUp);
+      pageManager.setOwner(navigation.getOwnerId());
+      UINavigationNodeSelector selector = pageManager.getChild(UINavigationNodeSelector.class);
+      selector.loadNavigationByNavId(navId, uicomp.navigations);
+      popUp.setUIComponent(pageManager);
+      popUp.setShow(true);
+      popUp.setRendered(true);
+      popUp.setWindowSize(400, 400);
+      prContext.addUIComponentToUpdateByAjax(workingWS);
     }
   }
 
   static public class DeleteNavigationActionListener extends EventListener<NewUIGroupManagement> {
     public void execute(Event<NewUIGroupManagement> event) throws Exception {
-      NewUIGroupManagement uiGroupManagement = event.getSource();
+      NewUIGroupManagement uicomp = event.getSource();
+      
+      WebuiRequestContext context = event.getRequestContext();
+      UIApplication uiApplication = context.getUIApplication();
+      
+      // get current user name
+      String username = org.exoplatform.portal.webui.util.Util.getPortalRequestContext()
+      .getRemoteUser();
+      
       // get navigation id
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       Integer navId = Integer.parseInt(id);
+
       // get PageNavigation by navigation id
-      PageNavigation navigation = new PageNavigation();
-      for (PageNavigation nav : uiGroupManagement.navigations) {
-        if (nav.getId() == navId) {
-          navigation = nav;
-          break;
-        }
+      PageNavigation navigation = uicomp.getNavigationById(navId);
+
+      // check edit permission, ensure that user has edit permission on that
+      // navigation
+      UserACL userACL = uicomp.getApplicationComponent(UserACL.class);
+
+      if (!userACL.hasEditPermission(navigation, username)) {
+        uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.notUrl", null));
+        return;
+      }
+
+      // TODO ensure this navigation is exist
+      DataStorage service = uicomp.getApplicationComponent(DataStorage.class);
+      if (service.getPageNavigation(navigation.getOwnerType(), navigation.getOwnerId()) == null) {
+        uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.notUrl", null));
+        return;
       }
 
       // remove selected navigation
-      if (uiGroupManagement.navigations == null || uiGroupManagement.navigations.size() < 1)
+      if (uicomp.navigations == null || uicomp.navigations.size() < 1)
         return;
-      uiGroupManagement.navigations.remove(navigation);
+      uicomp.navigations.remove(navigation);
 
-      UserPortalConfigService dataService = uiGroupManagement.getApplicationComponent(UserPortalConfigService.class);
+      UserPortalConfigService dataService = uicomp.getApplicationComponent(UserPortalConfigService.class);
       dataService.remove(navigation);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiGroupManagement);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uicomp);
     }
   }
 }

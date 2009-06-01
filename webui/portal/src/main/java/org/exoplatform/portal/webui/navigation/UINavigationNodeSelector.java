@@ -97,6 +97,12 @@ public class UINavigationNodeSelector extends UIContainer {
     selectNavigation();
   }
 
+  public void loadNavigationByNavId(Integer navId, List<PageNavigation> navigations) throws Exception {
+    this.navigations = navigations;
+
+    selectNavigation(navId);
+  }
+  
   private void updateUI() {
     if (navigations == null || navigations.size() < 1) {      
       getChild(UITree.class).setSibbling(null);

@@ -15,7 +15,7 @@
 	       	<%= navigation.getOwnerId() %> 
 	       </div>	
 	       <div style="float:right;width:29%">
-	       	<a href="<%=uicomponent.event("EditNavigation");%>">Edit Navigation</a> | <a href="<%=deleteLink%>">Delete Navigation</a>
+	       	<a href="<%=editLink%>">Edit Navigation</a> | <a href="<%=deleteLink%>">Delete Navigation</a>
 		   </div>	
 		   <div style="clear:both"></div>
           </div>
