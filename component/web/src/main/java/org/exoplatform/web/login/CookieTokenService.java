@@ -17,6 +17,9 @@
 package org.exoplatform.web.login;
 
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
@@ -32,6 +35,7 @@ import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.web.security.Credentials;
 import org.exoplatform.web.security.Token;
+import org.picocontainer.Startable;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -52,10 +56,12 @@ import org.w3c.dom.NodeList;
   @Property(key="type", value="token")
 })
 @ManagedDescription("Skin service")
-public class CookieTokenService {
+public class CookieTokenService implements Startable {
   private RegistryService regService_ ;
   
   public static final String SERVICE_NAME = "cookieToken" ;
+  
+  public static final long DELAY_TIME = 600 ;
   
   public CookieTokenService(InitParams initParams, RegistryService rService) {
     regService_ = rService ;
@@ -211,5 +217,17 @@ public class CookieTokenService {
     if(xmlns == null || xmlns.trim().length() < 1) {
       element.setAttribute(key, value) ;
     }    
+  }
+
+  public void start() {
+    
+    // start a thread, garbage expired cookie token every [DELAY_TIME]
+    ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+    executor.scheduleWithFixedDelay(new ExpireCookieToken(), 0, DELAY_TIME, TimeUnit.SECONDS);
+  }
+
+  public void stop() {
+    // TODO Auto-generated method stub
+    
   }
 }
