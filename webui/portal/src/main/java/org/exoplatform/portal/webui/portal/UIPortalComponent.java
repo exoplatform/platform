@@ -19,7 +19,6 @@ package org.exoplatform.portal.webui.portal;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.core.UIContainer;
 /**
  * May 19, 2006
@@ -61,9 +60,8 @@ public class UIPortalComponent extends UIContainer {
   public boolean hasPermission() {
     ExoContainer exoContainer = ExoContainerContext.getCurrentContainer() ;
     UserACL acl = (UserACL) exoContainer.getComponentInstanceOfType(UserACL.class) ;
-    String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
     for(String per : accessPermissions) {
-      if(acl.hasPermission(per, remoteUser)) {
+      if(acl.hasPermission(per)) {
         return true ;
       }
     }

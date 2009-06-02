@@ -7,8 +7,6 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.security.ConversationState;
 import org.exoplatform.services.security.Identity;
 import org.exoplatform.services.security.MembershipEntry;
-import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.application.portlet.PortletRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -43,8 +41,8 @@ public class UIAdminToolbarPortlet extends UIPortletApplication {
 			role = UIAdminToolbarPortlet.ADMIN;
 			return;
 		}
-		if (userACL.hasAccessControlWorkspacePermission(userId)
-				&& userACL.hasCreatePortalPermission(userId)) {
+		if (userACL.hasAccessControlWorkspacePermission()
+				&& userACL.hasCreatePortalPermission()) {
 			role = UIAdminToolbarPortlet.ADMIN;
 			return;
 		}
@@ -78,9 +76,7 @@ public class UIAdminToolbarPortlet extends UIPortletApplication {
 
 	public boolean isShowWorkspaceArea() throws Exception {
 		UserACL userACL = getApplicationComponent(UserACL.class);
-		PortletRequestContext context = (PortletRequestContext) WebuiRequestContext.getCurrentInstance();
-		String userId = context.getRemoteUser();
-		if (userACL.hasAccessControlWorkspacePermission(userId))
+		if (userACL.hasAccessControlWorkspacePermission())
 			return true;
 		return false;
 	}

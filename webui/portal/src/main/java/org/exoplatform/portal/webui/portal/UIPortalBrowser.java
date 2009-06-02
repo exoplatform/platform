@@ -140,7 +140,7 @@ public class UIPortalBrowser extends UIContainer {
       PortalRequestContext prContext = Util.getPortalRequestContext();
       UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);  
       UserACL userACL = uiApp.getApplicationComponent(UserACL.class) ;
-      if(!userACL.hasCreatePortalPermission(prContext.getRemoteUser())){
+      if(!userACL.hasCreatePortalPermission()){
         uiApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-createPermission", null)) ;;  
         return;
       }

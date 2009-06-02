@@ -67,7 +67,7 @@ public class UIUserToolBarPortlet extends UIPortletApplication {
     UserACL userACL = getApplicationComponent(UserACL.class) ;
     List<PortalConfig> configs = pageList.getAll();    
     for(PortalConfig ele : configs) {
-      if(userACL.hasPermission(ele, userId)) {
+      if(userACL.hasPermission(ele)) {
         list.add(ele.getName());                
       }
     }         

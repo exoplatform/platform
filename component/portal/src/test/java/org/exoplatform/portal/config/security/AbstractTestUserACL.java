@@ -120,7 +120,7 @@ public class AbstractTestUserACL extends BasicTestCase {
     public boolean hasEditPermission(PageNavigation nav) {
       ConversationState.setCurrent(new ConversationState(identity));
       try {
-        return ua.hasEditPermission(nav, getId());
+        return ua.hasEditPermission(nav);
       } finally {
         ConversationState.setCurrent(null);
       }
@@ -129,7 +129,7 @@ public class AbstractTestUserACL extends BasicTestCase {
     public boolean hasPermission(Page page) {
       ConversationState.setCurrent(new ConversationState(identity));
       try {
-        return ua.hasPermission(page, getId());
+        return ua.hasPermission(page);
       } finally {
         ConversationState.setCurrent(null);
       }
@@ -138,7 +138,7 @@ public class AbstractTestUserACL extends BasicTestCase {
     public boolean hasEditPermission(Page page) {
       ConversationState.setCurrent(new ConversationState(identity));
       try {
-        return ua.hasEditPermission(page, getId());
+        return ua.hasEditPermission(page);
       } finally {
         ConversationState.setCurrent(null);
       }
@@ -147,7 +147,7 @@ public class AbstractTestUserACL extends BasicTestCase {
     public boolean hasPermission(PortalConfig portal) {
       ConversationState.setCurrent(new ConversationState(identity));
       try {
-        return ua.hasPermission(portal, getId());
+        return ua.hasPermission(portal);
       } finally {
         ConversationState.setCurrent(null);
       }
@@ -156,7 +156,7 @@ public class AbstractTestUserACL extends BasicTestCase {
     public boolean hasEditPermission(PortalConfig portal) {
       ConversationState.setCurrent(new ConversationState(identity));
       try {
-        return ua.hasEditPermission(portal, getId());
+        return ua.hasEditPermission(portal);
       } finally {
         ConversationState.setCurrent(null);
       }
@@ -165,7 +165,7 @@ public class AbstractTestUserACL extends BasicTestCase {
     public boolean hasAccessControlWorkspacePermission() {
       ConversationState.setCurrent(new ConversationState(identity));
       try {
-        return ua.hasAccessControlWorkspacePermission(getId());
+        return ua.hasAccessControlWorkspacePermission();
       } finally {
         ConversationState.setCurrent(null);
       }
@@ -174,7 +174,7 @@ public class AbstractTestUserACL extends BasicTestCase {
     public boolean hasCreatePortalPermission() {
       ConversationState.setCurrent(new ConversationState(identity));
       try {
-        return ua.hasCreatePortalPermission(getId());
+        return ua.hasCreatePortalPermission();
       } finally {
         ConversationState.setCurrent(null);
       }

@@ -91,12 +91,11 @@ public class UISiteManagement extends UIContainer {
     // Get portals without edit permission
     UIPortalApplication uiPortalApp = this.getAncestorOfType(UIPortalApplication.class);
     UserACL userACL = uiPortalApp.getApplicationComponent(UserACL.class);
-    PortalRequestContext prContext = Util.getPortalRequestContext();
     Iterator<PortalConfig> iterPortals  = this.pageList.getAll().iterator();
     PortalConfig portalConfig;
     while (iterPortals.hasNext()) {
         portalConfig = iterPortals.next();
-        if (!userACL.hasEditPermission(portalConfig, prContext.getRemoteUser())) {
+        if (!userACL.hasEditPermission(portalConfig)) {
             iterPortals.remove();
         }
     }    
@@ -184,7 +183,7 @@ public class UISiteManagement extends UIContainer {
       PortalConfig portalConfig = userConfig.getPortalConfig();
       
       UserACL userACL = uiPortalApp.getApplicationComponent(UserACL.class) ;
-      if(!userACL.hasEditPermission(portalConfig ,prContext.getRemoteUser())){
+      if(!userACL.hasEditPermission(portalConfig)){
         uiPortalApp.addMessage(new ApplicationMessage("UISiteManagement.msg.Invalid-editPermission", null)) ;;  
         return;
       }
@@ -212,7 +211,7 @@ public class UISiteManagement extends UIContainer {
       PortalRequestContext prContext = Util.getPortalRequestContext();
       UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);  
       UserACL userACL = uiApp.getApplicationComponent(UserACL.class) ;
-      if(!userACL.hasCreatePortalPermission(prContext.getRemoteUser())){
+      if(!userACL.hasCreatePortalPermission()){
         uiApp.addMessage(new ApplicationMessage("UISiteManagement.msg.Invalid-createPermission", null)) ;;  
         return;
       }

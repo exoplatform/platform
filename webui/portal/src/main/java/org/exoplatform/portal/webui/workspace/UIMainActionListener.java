@@ -29,7 +29,6 @@ import org.exoplatform.portal.webui.portal.NewUIGroupManagement;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalForm;
 import org.exoplatform.portal.webui.portal.UIPortalManagement;
-import org.exoplatform.portal.webui.portal.UIPortalManagement2;
 import org.exoplatform.portal.webui.portal.UISiteManagement;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
@@ -127,7 +126,7 @@ public class UIMainActionListener {
       PortalRequestContext prContext = Util.getPortalRequestContext();
       UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);  
       UserACL userACL = uiApp.getApplicationComponent(UserACL.class) ;
-      if(!userACL.hasCreatePortalPermission(prContext.getRemoteUser())){
+      if(!userACL.hasCreatePortalPermission()){
         uiApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-createPermission", null)) ;;  
         return;
       }

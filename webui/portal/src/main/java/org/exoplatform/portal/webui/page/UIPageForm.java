@@ -217,8 +217,7 @@ public class UIPageForm extends UIFormTabPane {
       page.setEditPermission(uiPermissionSetting.getChild(UIPermissionSelector.class).getValue());
     }
     UserACL userACL = getApplicationComponent(UserACL.class) ;
-    String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
-    userACL.hasPermission(page, remoteUser) ;
+    userACL.hasPermission(page) ;
 
     UIFormInputItemSelector uiTemplate = getChildById("Template");
     if(uiTemplate != null) {

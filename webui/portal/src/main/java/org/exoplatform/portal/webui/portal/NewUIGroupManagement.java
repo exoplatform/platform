@@ -62,19 +62,14 @@ public class NewUIGroupManagement extends UIContainer {
 
   public void loadNavigations() throws Exception {
     navigations = new ArrayList<PageNavigation>();
-
-    String username = org.exoplatform.portal.webui.util.Util.getPortalRequestContext()
-                                                            .getRemoteUser();
-
     UserACL userACL = getApplicationComponent(UserACL.class);
-
     DataStorage dataStorage = getApplicationComponent(DataStorage.class);
     Query<PageNavigation> query = new Query<PageNavigation>(PortalConfig.GROUP_TYPE,
                                                             null,
                                                             PageNavigation.class);
     List<PageNavigation> navis = dataStorage.find(query).getAll();
     for (PageNavigation ele : navis) {
-      if (userACL.hasEditPermission(ele, username)) {
+      if (userACL.hasEditPermission(ele)) {
         navigations.add(ele);
       }
     }
@@ -105,10 +100,6 @@ public class NewUIGroupManagement extends UIContainer {
       Integer navId = Integer.parseInt(id);
       // get PageNavigation by navigation id
       PageNavigation navigation = uicomp.getNavigationById(navId);
-
-      String username = org.exoplatform.portal.webui.util.Util.getPortalRequestContext()
-                                                              .getRemoteUser();
-
       PortalRequestContext prContext = Util.getPortalRequestContext();
       WebuiRequestContext context = event.getRequestContext();
       UIApplication uiApplication = context.getUIApplication();
@@ -118,7 +109,7 @@ public class NewUIGroupManagement extends UIContainer {
       // check edit permission, ensure that user has edit permission on that navigation
       UserACL userACL = uicomp.getApplicationComponent(UserACL.class);
 
-      if (!userACL.hasEditPermission(navigation, username)) {
+      if (!userACL.hasEditPermission(navigation)) {
         uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.notUrl", null));
         return;
       }
@@ -159,10 +150,6 @@ public class NewUIGroupManagement extends UIContainer {
       WebuiRequestContext context = event.getRequestContext();
       UIApplication uiApplication = context.getUIApplication();
       
-      // get current user name
-      String username = org.exoplatform.portal.webui.util.Util.getPortalRequestContext()
-      .getRemoteUser();
-      
       // get navigation id
       String id = event.getRequestContext().getRequestParameter(OBJECTID);
       Integer navId = Integer.parseInt(id);
@@ -174,7 +161,7 @@ public class NewUIGroupManagement extends UIContainer {
       // navigation
       UserACL userACL = uicomp.getApplicationComponent(UserACL.class);
 
-      if (!userACL.hasEditPermission(navigation, username)) {
+      if (!userACL.hasEditPermission(navigation)) {
         uiApplication.addMessage(new ApplicationMessage("UIDashboard.msg.notUrl", null));
         return;
       }

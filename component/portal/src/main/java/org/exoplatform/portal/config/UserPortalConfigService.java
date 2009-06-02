@@ -110,12 +110,12 @@ public class UserPortalConfigService implements Startable{
       portal = storage_.getPortalConfig(portalName) ;
       if(portal != null) portalConfigCache_.put(portalName, portal);
     }
-    if(portal == null || !userACL_.hasPermission(portal, accessUser)) return null ;
+    if(portal == null || !userACL_.hasPermission(portal)) return null ;
     
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
     PageNavigation navigation = getPageNavigation(PortalConfig.PORTAL_TYPE, portalName) ;
     if (navigation != null) { 
-      navigation.setModifiable(userACL_.hasPermission(portal.getEditPermission(), accessUser));
+      navigation.setModifiable(userACL_.hasPermission(portal.getEditPermission()));
       navigations.add(navigation) ;
     }
     
@@ -138,7 +138,7 @@ public class UserPortalConfigService implements Startable{
         String groupId = m.getId().trim();
         navigation = getPageNavigation(PortalConfig.GROUP_TYPE, groupId) ;
         if(navigation == null) continue;
-        navigation.setModifiable(userACL_.hasEditPermission(navigation, accessUser));
+        navigation.setModifiable(userACL_.hasEditPermission(navigation));
         navigations.add(navigation) ;
       }
     }
@@ -269,7 +269,7 @@ public class UserPortalConfigService implements Startable{
   public Page getPage(String pageId, String accessUser) throws Exception {
     Page page = getPage(pageId) ;
     pageConfigCache_.put(pageId, page);
-    if(page == null || !userACL_.hasPermission(page, accessUser)) return null;
+    if(page == null || !userACL_.hasPermission(page)) return null;
     return page ;
   }
 

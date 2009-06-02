@@ -132,7 +132,7 @@ public class UIPortalApplication extends UIApplication {
     //-------------------------------------------------------------------------------
     context.setUIApplication(this);
     UserACL acl = getApplicationComponent(UserACL.class);
-    if(acl.hasAccessControlWorkspacePermission(context.getRemoteUser()))
+    if(acl.hasAccessControlWorkspacePermission())
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
     addWorkingWorkspace() ;
 
