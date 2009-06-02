@@ -16,3 +16,7 @@
 .UIGadgetPortlet .UIGadgetContent {
 	height: 100%;
 }
+
+.UIGadgetPortlet .gadgets-gadget {
+	width: 100%;
+}
