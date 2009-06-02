@@ -78,7 +78,6 @@
 	float: left;
 }
 
-
 .UIToolbarContainer .OnOffAction div {
 	float: left;
 }
@@ -156,7 +155,9 @@
 	height: 28px;
 	line-height: 28px;
 	border: 1px solid white;
+	width: 98.5%;
 }
+
 
 .UIToolbarContainer .MenuItem .MenuItemHover {
 	background-color: #a4a4a4;

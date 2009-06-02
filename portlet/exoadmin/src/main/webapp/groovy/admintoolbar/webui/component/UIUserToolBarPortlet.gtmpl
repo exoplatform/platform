@@ -18,7 +18,7 @@
   	String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
 		navTitle = navTitle.replace("{0}", navigation.ownerId);
     print """
-					<div class="TitleBar">$navTitle</div>
+					<div class="TitleBar"><div style="width: 99%">$navTitle</div></div>
   	    		<div class="SubBlock">
 				    """ ;
 				    for(node in nodes) {
