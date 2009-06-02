@@ -29,9 +29,7 @@ import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.gadget.core.SecurityTokenGenerator;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,8 +39,6 @@ import org.json.JSONObject;
  * thanhtungty@gmail.com Oct 2, 2008
  */
 public class GadgetUtil {
-  private static SecurityTokenGenerator securityTokenGenerator = null;
-
   static final public GadgetApplication toGadgetApplication(Gadget model) {
     return new GadgetApplication(model.getName(), model.getUrl(), model.isLocal());
   }
@@ -65,16 +61,6 @@ public class GadgetUtil {
     gadget.setReferenceUrl(metaData.get("titleUrl"));
     gadget.setThumbnail(metaData.get("thumbnail"));
     return gadget;
-  }
-
-  private static SecurityTokenGenerator getSecurityTokenGenerator() {
-    if (securityTokenGenerator == null) {
-      ExoContainer container = ExoContainerContext.getCurrentContainer();
-      // OrganizationService orgService = (OrganizationService)
-      // container.getComponentInstanceOfType(OrganizationService.class) ;
-      securityTokenGenerator = (SecurityTokenGenerator) container.getComponentInstanceOfType(SecurityTokenGenerator.class);
-    }
-    return securityTokenGenerator;
   }
 
   /**
@@ -111,7 +97,9 @@ public class GadgetUtil {
   }
 
   public static String createToken(String gadgetURL, Long moduleId) {
-    return getSecurityTokenGenerator().createToken(gadgetURL, moduleId);
+  	SecurityTokenGenerator tokenGenerator = (SecurityTokenGenerator) ExoContainerContext.getCurrentContainer().
+  	getComponentInstanceOfType(SecurityTokenGenerator.class);
+    return tokenGenerator.createToken(gadgetURL, moduleId);
   }
 
   /**

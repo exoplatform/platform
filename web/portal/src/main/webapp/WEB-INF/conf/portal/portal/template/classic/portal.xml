@@ -2,7 +2,6 @@
 <portal-config>
   <portal-name>@owner@</portal-name>
   <locale>en</locale>
-  <!--<factory-id>office</factory-id>-->
   <access-permissions>Everyone</access-permissions>
   <edit-permission>*:/platform/administrators</edit-permission>
   <creator>root</creator>
@@ -10,7 +9,29 @@
     <entry key="sessionAlive">onDemand</entry>
   </properties>
   
- 	<portal-layout> 		
+ 	<portal-layout>
+		<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
+		  <access-permissions>*:/platform/users</access-permissions>
+			<container id="StarToolBarPortelt" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			  <application>
+			    <instance-id>portal#@owner@:/exoadmin/StarToolbarPortlet/starportlet</instance-id>
+			    <show-info-bar>false</show-info-bar>
+			  </application>			
+			</container>
+			<container id="UserToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			  <application>
+			    <instance-id>portal#@owner@:/exoadmin/UserToolbarPortlet/userportlet</instance-id>
+			    <show-info-bar>false</show-info-bar>
+			  </application>			
+			</container>
+			<container id="AdminToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			  <application>
+			    <instance-id>portal#@owner@:/exoadmin/AdminToolbarPortlet/adminportlet</instance-id>
+			    <show-info-bar>false</show-info-bar>
+			  </application>
+			</container>
+		</container>
+		
 		<application>
 	    <instance-id>portal#@owner@:/web/BannerPortlet/banner</instance-id>
 	    <show-info-bar>false</show-info-bar>
