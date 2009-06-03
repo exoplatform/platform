@@ -184,6 +184,12 @@ public class CookieTokenService implements Startable {
       }
     }
   }
+  
+  @Managed
+  @ManagedDescription ("Get period time of expired token")
+  public long getExpiredPeriodTime () {
+    return DELAY_TIME;
+  }
 
   
   private String getServiceRegistryPath() {
