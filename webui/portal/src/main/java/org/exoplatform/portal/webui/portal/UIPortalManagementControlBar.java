@@ -38,6 +38,7 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIToolbar;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.form.UIFormSelectBox;
 
 /**
  * Created by The eXo Platform SARL
@@ -173,7 +174,10 @@ public class UIPortalManagementControlBar extends UIToolbar {
       }
       
       UIPortal uiPortal = Util.getUIPortal();
-      Util.getUIPortalApplication().setEditting(false) ;
+      UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
+      if(PortalConfig.SESSION_ALWAYS.equals(uiPortal.getSessionAlive())) uiPortalApp.setSessionOpen(true) ;
+      else uiPortalApp.setSessionOpen(false) ;
+      uiPortalApp.setEditting(false) ;
       PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
            PageNodeEvent.CHANGE_PAGE_NODE, 
            (uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode().getUri() : null)) ;

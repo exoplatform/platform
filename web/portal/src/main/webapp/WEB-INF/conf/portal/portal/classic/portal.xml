@@ -11,7 +11,7 @@
     
  	<portal-layout>
 		<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
-		  <access-permissions>*:/platform/users</access-permissions>
+		  <access-permissions>*:/platform/administrators; *:/organization/management/executive-board</access-permissions>
 			<container id="StarToolBarPortelt" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 			  <application>
 			    <instance-id>portal#classic:/exoadmin/StarToolbarPortlet/starportlet</instance-id>

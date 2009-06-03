@@ -70,8 +70,7 @@ import org.exoplatform.webui.organization.UIListPermissionSelector.EmptyIterator
     template = "system:/groovy/webui/form/UIFormTabPane.gtmpl",     
     events = {
       @EventConfig(listeners = UIPortalForm.SaveActionListener.class),
-      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UIPortalForm.SelectSessionAliveActionListener.class, phase = Phase.DECODE)
+      @EventConfig(listeners = UIMaskWorkspace.CloseActionListener.class, phase = Phase.DECODE)
     }
   ),
   @ComponentConfig(
@@ -187,7 +186,6 @@ public class UIPortalForm extends UIFormTabPane {
     listSessionAlive.add(new SelectItemOption<String>(PortalConfig.SESSION_ON_DEMAND, PortalConfig.SESSION_ON_DEMAND)) ;
     listSessionAlive.add(new SelectItemOption<String>(PortalConfig.SESSION_NEVER, PortalConfig.SESSION_NEVER)) ;
     UIFormSelectBox uiSessionAliveBox = new UIFormSelectBox(FIELD_SESSION_ALIVE, FIELD_SESSION_ALIVE, listSessionAlive) ;
-    uiSessionAliveBox.setOnChange("SelectSessionAlive") ;
     uiSettingSet.addUIFormInput(uiSessionAliveBox) ;
     addUIFormInput(uiSettingSet);
     
@@ -279,17 +277,6 @@ public class UIPortalForm extends UIFormTabPane {
         groups[i] = service.getGroupHandler().findGroupById(groupIds.get(i));
       }
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm);
-    }
-  }
-  
-  static public class SelectSessionAliveActionListener extends EventListener<UIPortalForm> {
-    public void execute(Event<UIPortalForm> event) throws Exception {
-      UIPortalForm uiForm = event.getSource() ;
-      UIFormSelectBox uiSessionAliveBox = uiForm.findComponentById(FIELD_SESSION_ALIVE) ;
-      String sessionAliveLevel = uiSessionAliveBox.getValue() ;
-      UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
-      if(PortalConfig.SESSION_ALWAYS.equals(sessionAliveLevel)) uiPortalApp.setSessionOpen(true) ;
-      else uiPortalApp.setSessionOpen(false) ; 
     }
   }
 
