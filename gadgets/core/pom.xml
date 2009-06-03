@@ -41,31 +41,16 @@
 			 </plugin>
 
 		</plugins>
-				
-	    <resources>
-	      <resource>
-	        <targetPath>containers/default</targetPath>
-	        <directory>${basedir}/../config</directory>
-	        <includes>
-	          <include>container.js</include>
-	        </includes>
-	      </resource>
-	      <resource>
-	        <targetPath>config</targetPath>
-	        <directory>${basedir}/../config</directory>
-	        <includes>
-	          <include>oauth.json</include>
-              <include>key.txt</include>
-	        </includes>
-	      </resource>
-          <resource>
-	        <targetPath>conf/portal</targetPath>
-	        <directory>${basedir}/src/main/java/conf/portal</directory>
-	        <includes>
-	          <include>configuration.xml</include>
-	        </includes>
-	      </resource>
-	    </resources>		
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+        	<include>**/container.js</include>
+          <include>**/oauth.json</include>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
 	</build>
 	<dependencies>
 		<!--dependency>
