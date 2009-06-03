@@ -55,7 +55,7 @@ import org.w3c.dom.NodeList;
   @Property(key = "service", value = "management"),
   @Property(key="type", value="token")
 })
-@ManagedDescription("Skin service")
+@ManagedDescription("Cookie token service")
 public class CookieTokenService implements Startable {
   private RegistryService regService_ ;
   
