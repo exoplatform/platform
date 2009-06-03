@@ -119,6 +119,16 @@ UIPortalNavigation.prototype.setTabStyleOnMouseOver = function(e) {
     var menuItemContainer = eXo.core.DOMUtil.findFirstDescendantByClass(tab, "div", eXo.portal.UIPortalNavigation.containerStyleClass);
     var hideSubmenu = tab.getAttribute('hideSubmenu') ;
     if (menuItemContainer && !hideSubmenu) {
+      var DOMUtil = eXo.core.DOMUtil ;
+		  if(eXo.core.Browser.isIE7()) {
+		    var navAncestor = DOMUtil.findAncestorByClass(tab, "UINavigationPortlet") ;
+		    var pageBody = document.getElementById("UIPageBody") 
+		    var uicomponents = DOMUtil.getChildrenByTagName(pageBody.parentNode, "div") ;
+		    for(var i = 0; i < uicomponents.length; i ++) {
+		      var navPortlet = DOMUtil.findFirstDescendantByClass(uicomponents[i], "div", "UINavigationPortlet") ;
+		      if(navPortlet && (navAncestor != navPortlet)) navPortlet.style.position = "static" ;
+		    }
+		  }
       eXo.portal.UIPortalNavigation.toggleSubMenu(e, tab, menuItemContainer) ;
     }
   }
@@ -140,7 +150,7 @@ UIPortalNavigation.prototype.setTabStyleOnMouseOut = function(e, src) {
       eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, false);
     }
   }
-  eXo.portal.UIPortalNavigation.hideMenuTimeout(500) ;
+  eXo.portal.UIPortalNavigation.hideMenuTimeout(300) ;
 }
 
 UIPortalNavigation.prototype.tabOnMouseMove = function() {
@@ -248,6 +258,15 @@ UIPortalNavigation.prototype.hideMenu = function() {
     eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, false);
   }
   eXo.portal.UIPortalNavigation.hideMenuContainer();
+  var DOMUtil = eXo.core.DOMUtil ;
+  if(eXo.core.Browser.isIE7()) {
+    var pageBody = document.getElementById("UIPageBody") ;
+    var uicomponents = DOMUtil.getChildrenByTagName(pageBody.parentNode, "div") ;
+    for(var i = 0; i < uicomponents.length; i ++) {
+      var navPortlet = DOMUtil.findFirstDescendantByClass(uicomponents[i], "div", "UINavigationPortlet") ;
+      if(navPortlet) navPortlet.style.position = "relative" ;
+    }
+  }
 };
 /**
  * When the mouse goes over a menu item (in the main nav menu)
