@@ -99,13 +99,14 @@ public class PortalStateManager extends StateManager {
       if(config == null) {
         pcontext.getRequest().getSession().invalidate() ;
         HttpServletResponse response = pcontext.getResponse();
-        if(pcontext.getRemoteUser() == null) {
-          String portalName = pcontext.getPortalOwner() ;
-          portalName = URLEncoder.encode(portalName, "UTF-8") ;
-          String redirect = pcontext.getRequest().getContextPath() + "/private/" + portalName + "/";
-          response.sendRedirect(redirect);
-        }
-        else response.sendRedirect("/portal/portal-unavailable.jsp");
+//        if(pcontext.getRemoteUser() == null) {
+//          String portalName = pcontext.getPortalOwner() ;
+//          portalName = URLEncoder.encode(portalName, "UTF-8") ;
+//          String redirect = pcontext.getRequest().getContextPath() + "/private/" + portalName + "/";
+//          response.sendRedirect(redirect);
+//        }
+//        else response.sendRedirect("/portal/portal-unavailable.jsp");
+        response.sendRedirect("/portal/portal-unavailable.jsp");
         pcontext.setResponseComplete(true);
         return null;
       }

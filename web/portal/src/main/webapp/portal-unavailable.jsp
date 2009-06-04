@@ -80,7 +80,7 @@
 	  <div class="LeftTopWarning">
 		<div class="RightTopWarning">
 		  <div class="CenterTopWaring">
-			<div class="TitleWaring">You do not have permission to view this portal</div>
+			<div class="TitleWaring">Can not connect to this portal</div>
 		  </div>
 		</div>
 	  </div>
