@@ -16,9 +16,9 @@
   	nodes = navigation.getNodes() ;
   	if(nodes.size() < 1) return ;
   	String navTitle = _ctx.appRes("UIPageNavigation.label.titleBar") ;
-		navTitle = navTitle.replace("{0}", navigation.ownerId);
+		navTitle = navTitle.replace("{0}", extractGroupName(navigation.ownerId));
     print """
-					<div class="TitleBar"><div style="width: 99%">$navTitle</div></div>
+					<div class="TitleBar"><div style="width: 99%" title="$navigation.ownerId">$navTitle</div></div>
   	    		<div class="SubBlock">
 				    """ ;
 				    for(node in nodes) {
@@ -36,18 +36,22 @@
     String  href = Util.getPortalRequestContext().getPortalURI() + node.getUri();
     String icon = node.getIcon();
     if(icon == null) icon = "DefaultPageIcon";
-    String label = (node.resolvedLabel.length() > 60 ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
+    boolean toolong = (node.resolvedLabel.length() > 60);
+    String label = ( toolong ? node.resolvedLabel.substring(0, 57) + "..." : node.resolvedLabel);
     String itemClass;
     if(flag) itemClass =  "OddItem";
     else itemClass =  "EvenItem";
+    String title = "";
+    if(toolong) title = "title='$node.resolvedLabel'";
+    else title = "";
     print """
       <div class="MenuItem $itemClass">
       	<div class="$clazz">
 		""";
 						if(node.pageReference != null) {
-				        print """<a class="ItemIcon $icon" href="$href" title="$node.resolvedLabel">$label</a>""";
+				        print """<a class="ItemIcon $icon" href="$href" $title>$label</a>""";
 						} else {
-								print """<a class="ItemIcon $icon" href="#" title="$node.resolvedLabel">$label</a>""";
+								print """<a class="ItemIcon $icon" href="#" $title>$label</a>""";
 						}
 		print """
 				</div>
@@ -140,6 +144,10 @@
 					</div>
   			</div>
   		""";  	
+  }
+  
+  String extractGroupName(String groupId) {
+  	return groupId.substring(groupId.lastIndexOf('/')+1);
   }
 %> 
 <div class="UIUserToolbarPortlet" id="$uicomponent.id">
