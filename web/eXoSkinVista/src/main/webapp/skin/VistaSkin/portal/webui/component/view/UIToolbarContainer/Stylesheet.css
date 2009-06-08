@@ -33,6 +33,10 @@
 	color: white;
 }
 
+.UIToolbarContainer .UIHorizontalTabs .TabsContainer {
+    height: 30px;
+}
+
 .UIToolbarContainer .UIHorizontalTabs .UITab {
 	line-height: 30px;	
 	float: left;
@@ -73,7 +77,6 @@
 .UIToolbarContainer .OnOffAction a {
 	float: left;
 }
-
 
 .UIToolbarContainer .OnOffAction div {
 	float: left;
@@ -152,7 +155,9 @@
 	height: 28px;
 	line-height: 28px;
 	border: 1px solid white;
+	width: 98.5%;
 }
+
 
 .UIToolbarContainer .MenuItem .MenuItemHover {
 	background-color: #a4a4a4;
@@ -282,5 +287,6 @@
 	height: 30px;
 }
 
-
-
+.UIStarToolBarPortlet .UITab {
+    height: 30px;
+}
