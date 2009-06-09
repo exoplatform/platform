@@ -163,7 +163,7 @@
 
 			<div class="UITab NormalToolbarTab">
 				<div class="NormalNavigationTab">
-					<a class="SitesIcon TBIcon" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'ManagePortals', true))">
+					<a class="SitesIcon TBIcon" href="<% print Util.getPortalRequestContext().getPortalURI() + "portalnavigation" %>">
 						Site
 					</a>
 				</div>
@@ -172,7 +172,7 @@
 
 			<div class="UITab NormalToolbarTab">
 				<div class="NormalNavigationTab">
-					<a class="GroupsIcon TBIcon" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'ManageGroups', true))">Group</a>
+					<a class="SitesIcon TBIcon" href="<% print Util.getPortalRequestContext().getPortalURI() + "groupnavigation" %>">Group</a>
 				</div>
 				<% if (!groupNavigations.isEmpty()) { %>
 				<div style="position: absolute; display:none" class="MenuItemContainer">

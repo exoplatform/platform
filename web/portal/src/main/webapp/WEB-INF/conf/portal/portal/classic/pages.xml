@@ -34,5 +34,37 @@
       <show-info-bar>false</show-info-bar>
     </application>  
   </page>  
+  
+  <page>
+  	<page-id>portal::classic::groupnavigation</page-id>
+    <owner-type>portal</owner-type>
+    <owner-id>classic</owner-id>
+    <name>groupnavigation</name>
+    <title>Group Navigation</title>
+	  <access-permissions>*:/platform/users</access-permissions>
+	  <edit-permission>*:/platform/administrators</edit-permission>    
+    <application>
+      <instance-id>group#organization/managerment/executive-board:/exoadmin/GroupNavigationPortlet/GroupNavigation</instance-id>
+      <title>Group Navigation</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+  </page>
+  
+  <page>
+  	<page-id>portal::classic::portalnavigation</page-id>
+    <owner-type>portal</owner-type>
+    <owner-id>classic</owner-id>
+    <name>portalnavigation</name>
+    <title>Portal Navigation</title>
+	  <access-permissions>*:/platform/users</access-permissions>
+	  <edit-permission>*:/platform/administrators</edit-permission>    
+    <application>
+      <instance-id>group#organization/managerment/executive-board:/exoadmin/PortalNavigationPortlet/PortalNavigation</instance-id>
+      <title>Portal Navigation</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+  </page>
 
 </page-set>

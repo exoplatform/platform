@@ -17,5 +17,19 @@
 	    <label>#{portal.classic.webexplorer}</label>
 	    <page-reference>portal::classic::webexplorer</page-reference>	    
 	  </node>
+	  <node>
+	    <uri>groupnavigation</uri>
+	    <name>groupnavigation</name>
+	    <label>#{portal.classic.groupnavigation}</label>
+	    <visible>false</visible>
+	    <page-reference>portal::classic::groupnavigation</page-reference>	    
+	  </node>
+	  <node>
+	    <uri>portalnavigation</uri>
+	    <name>portalnavigation</name>
+	    <label>#{portal.classic.portalnavigation}</label>
+	    <visible>false</visible>
+	    <page-reference>portal::classic::portalnavigation</page-reference>	    
+	  </node>
   </page-nodes>
 </node-navigation>

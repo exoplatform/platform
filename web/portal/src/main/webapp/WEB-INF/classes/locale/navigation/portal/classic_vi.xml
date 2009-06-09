@@ -5,6 +5,8 @@
     <classic>
       <home>Trang chủ</home>
       <webexplorer>Trình duyệt</webexplorer>
+      <groupnavigation>Group Navigation</groupnavigation>
+	  <portalnavigation>Portal Navigation</portalnavigation>
     </classic>
   </portal>
 

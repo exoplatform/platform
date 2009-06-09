@@ -5,6 +5,8 @@
     <classic>
       <home>استقبال</home>
       <webexplorer>مستكشف الإنترنت</webexplorer>
+      <groupnavigation>Group Navigation</groupnavigation>
+	  <portalnavigation>Portal Navigation</portalnavigation>
     </classic>
   </portal>
 
