@@ -163,8 +163,8 @@ public class UIMainActionListener {
       UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
       uiToolPanel.setShowMaskLayer(false);
-      NewUIGroupManagement groupsManager = uiToolPanel.createUIComponent(NewUIGroupManagement.class, null, null);      
-      uiToolPanel.setUIComponent(groupsManager);
+      //NewUIGroupManagement groupsManager = uiToolPanel.createUIComponent(NewUIGroupManagement.class, null, null);      
+      //uiToolPanel.setUIComponent(groupsManager);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
     }
   }
