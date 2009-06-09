@@ -34,7 +34,6 @@ import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UILanguageSelector;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalManagement;
-import org.exoplatform.portal.webui.portal.UIPortalManagement2;
 import org.exoplatform.portal.webui.portal.UIPortalSelector;
 import org.exoplatform.portal.webui.portal.UISkinSelector;
 import org.exoplatform.portal.webui.util.Util;
@@ -250,11 +249,11 @@ public class UIExoStart extends UIComponent {
   static public class ManagePortalsActionListener extends EventListener<UIExoStart> {
     public void execute(Event<UIExoStart> event) throws Exception {
       UIExoStart uiComp = event.getSource();
-      uiComp.setUIControlWSWorkingComponent(UIPortalManagement2.class);
+      //uiComp.setUIControlWSWorkingComponent(UIPortalManagement2.class);
 
-      UIPortalManagement2 uiManagement = uiComp.getUIControlWSWorkingComponent();
-      uiManagement.setId("UIPortalManagement");
-      uiManagement.setMode(ManagementMode.BROWSE, event);
+      //UIPortalManagement2 uiManagement = uiComp.getUIControlWSWorkingComponent();
+//      uiManagement.setId("UIPortalManagement");
+//      uiManagement.setMode(ManagementMode.BROWSE, event);
     }
   }
 

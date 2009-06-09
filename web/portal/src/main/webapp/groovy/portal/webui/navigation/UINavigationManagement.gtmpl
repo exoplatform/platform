@@ -1,0 +1,53 @@
+<%  
+  import  org.exoplatform.portal.webui.page.UIPageEditBar;
+  import  org.exoplatform.portal.webui.container.UIContainerConfigOptions;
+  import  org.exoplatform.portal.webui.application.UIPortletOptions;
+  import  org.exoplatform.portal.webui.page.UIPageBrowser;
+  import org.exoplatform.webui.core.UIDescription;  
+  import org.exoplatform.navigation.webui.component.UINavigationNodeSelector;
+%>
+<div class="UINavigationManagement" id="$uicomponent.id">
+	<div class="TopTitleBar">
+	  <div class="DecoratorBox">
+	    <div class="BarDecorator">
+	      <div class="TopLeftBar">
+	        <div class="TopRightBar">
+	          <div class="TopCenterBar"><span></span></div>
+	        </div>
+	      </div>
+	      <div class="MiddleLeftBar">
+	        <div class="MiddleRightBar">
+	          <div class="MiddleCenterBar">
+	          	<%= uicomponent.getOwner();%>
+	          </div>
+	        </div>
+	      </div>
+	      <div class="BottomLeftBar">
+	        <div class="BottomRightBar">
+	          <div class="BottomCenterBar"><span></span></div>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>	
+  <%
+  	uicomponent.renderChild(UINavigationNodeSelector.class);
+  %>
+  <div class="UIAction"> 
+    <table class="ActionContainer">
+	    <tr>
+	    	<td>
+		      <div onclick="<%=uicomponent.event("AddNode")%>" class="ActionButton LightBlueStyle">
+		        <div class="ButtonLeft">
+		          <div class="ButtonRight">
+		            <div class="ButtonMiddle">
+		              <a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.addNode")%></a>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </td>
+      </tr>
+ 	  </table>
+	</div>
+</div>
