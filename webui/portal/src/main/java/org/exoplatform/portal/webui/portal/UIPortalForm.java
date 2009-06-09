@@ -253,13 +253,6 @@ public class UIPortalForm extends UIFormTabPane {
         uiPortalBrowser.loadPortalConfigs();
         pcontext.addUIComponentToUpdateByAjax(uiPortalBrowser); 
       }
-      
-      UISiteManagement uiSiteManagement = uiPortalApp.findFirstComponentOfType(UISiteManagement.class);
-      //liem.nguyen: in some case, the create portal action is call out side portal browser
-      if(uiSiteManagement != null) {
-        uiSiteManagement.loadPortalConfigs();
-        pcontext.addUIComponentToUpdateByAjax(uiSiteManagement); 
-      }
     }
   }
   
