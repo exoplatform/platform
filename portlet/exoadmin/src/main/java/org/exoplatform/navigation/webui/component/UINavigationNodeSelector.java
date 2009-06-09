@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.portal.webui.navigation;
+package org.exoplatform.navigation.webui.component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,6 +24,7 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
@@ -45,7 +46,7 @@ import org.exoplatform.webui.event.EventListener;
  * May 28, 2009 3:07:15 PM
  */
 @ComponentConfigs( {
-    @ComponentConfig(template = "app:/groovy/portal/webui/navigation/UINavigationNodeSelector.gtmpl", events = {
+    @ComponentConfig(template = "app:/groovy/navigation/webui/component/UINavigationNodeSelector.gtmpl", events = {
         @EventConfig(listeners = UINavigationNodeSelector.ChangeNodeActionListener.class) }),
     @ComponentConfig(id = "NavigationNodePopupMenu", type = UIRightClickPopupMenu.class, template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl", events = {
         @EventConfig(listeners = UINavigationNodeSelector.AddNodeActionListener.class),
@@ -250,8 +251,7 @@ public class UINavigationNodeSelector extends UIContainer {
       pcontext.addUIComponentToUpdateByAjax(nodeManager);
 
       UIContainer uiParent = uiNodeSelector.getParent();
-      Class<?>[] childrenToRender = { UINavigationNodeSelector.class,
-          UINavigationControlBar.class };
+      Class<?>[] childrenToRender = { UINavigationNodeSelector.class};
       uiParent.setRenderedChildrenOfTypes(childrenToRender);
     }
   }  
@@ -391,7 +391,7 @@ public class UINavigationNodeSelector extends UIContainer {
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UINavigationNodeSelector uiNodeSelector = event.getSource().getAncestorOfType(UINavigationNodeSelector.class);
       UINavigationManagement uiManagement = uiNodeSelector.getParent();
-      Class<?> [] childrenToRender = new Class<?>[]{UINavigationNodeSelector.class, UINavigationControlBar.class };
+      Class<?> [] childrenToRender = new Class<?>[]{UINavigationNodeSelector.class};
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
       
@@ -430,7 +430,7 @@ public class UINavigationNodeSelector extends UIContainer {
       UIRightClickPopupMenu uiPopupMenu = event.getSource();
       UINavigationNodeSelector uiNodeSelector =  uiPopupMenu.getAncestorOfType(UINavigationNodeSelector.class);
       UINavigationManagement uiManagement = uiNodeSelector.getParent();
-      Class<?> [] childrenToRender = new Class<?>[]{UINavigationNodeSelector.class, UINavigationControlBar.class };
+      Class<?> [] childrenToRender = new Class<?>[]{UINavigationNodeSelector.class};
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagement);
       SelectedNode selectedNode = uiNodeSelector.getCopyNode();
@@ -569,7 +569,7 @@ public class UINavigationNodeSelector extends UIContainer {
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext() ;
       UINavigationNodeSelector uiNodeSelector = event.getSource().getAncestorOfType(UINavigationNodeSelector.class);
       UINavigationManagement uiManagement = uiNodeSelector.getParent();
-      Class<?> [] childrenToRender = new Class<?>[]{UINavigationNodeSelector.class, UINavigationControlBar.class };
+      Class<?> [] childrenToRender = new Class<?>[]{UINavigationNodeSelector.class};
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);      
       pcontext.addUIComponentToUpdateByAjax(uiManagement);
       

@@ -60,6 +60,58 @@
   </portlet>  
 
   <portlet>
+    <description xml:lang="EN">Group Navigation Portlet</description>
+    <portlet-name>GroupNavigationPortlet</portlet-name>
+    <display-name xml:lang="EN">Group Navigation Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/GroupNavigationPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    
+    <resource-bundle>locale.portlet.exoadmin.AccountPortlet</resource-bundle>
+    <portlet-info>
+      <title>Group Navigation Portlet</title>
+      <short-title>Group Navigation Portlet</short-title>
+      <keywords>Group Navigation</keywords>
+    </portlet-info>
+  </portlet>
+  
+  <portlet>
+    <description xml:lang="EN">Portal Navigation Portlet</description>
+    <portlet-name>PortalNavigationPortlet</portlet-name>
+    <display-name xml:lang="EN">Portal Navigation Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/PortalNavigationPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    
+    <resource-bundle>locale.portlet.exoadmin.AccountPortlet</resource-bundle>
+    <portlet-info>
+      <title>Portal Navigation Portlet</title>
+      <short-title>Portal Navigation Portlet</short-title>
+      <keywords>Portal Navigation</keywords>
+    </portlet-info>
+  </portlet>
+  
+  <portlet>
     <description xml:lang="EN">Internationalization Portlet</description>
     <portlet-name>I18nPortlet</portlet-name>
     <display-name xml:lang="EN">Internationalization Portlet</display-name>

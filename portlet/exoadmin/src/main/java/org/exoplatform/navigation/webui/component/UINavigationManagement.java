@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.portal.webui.navigation;
+package org.exoplatform.navigation.webui.component;
 
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.config.DataStorage;
@@ -27,7 +27,7 @@ import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 
 @ComponentConfig(
-  template = "app:/groovy/portal/webui/navigation/UINavigationManagement.gtmpl"
+  template = "app:/groovy/navigation/webui/component/UINavigationManagement.gtmpl"
 )
 public class UINavigationManagement extends UIContainer {
   
@@ -36,7 +36,6 @@ public class UINavigationManagement extends UIContainer {
   @SuppressWarnings("unused")
   public UINavigationManagement() throws Exception {    
     addChild(UINavigationNodeSelector.class, null, null);
-    addChild(UINavigationControlBar.class, null, null);
   }
   
   public void loadNavigation(Query<PageNavigation> query) throws Exception {

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.portal.webui.portal;
+package org.exoplatform.navigation.webui.component;
 
 import java.lang.reflect.Method;
 import java.util.Comparator;
@@ -32,22 +32,24 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.navigation.UINavigationManagement;
+import org.exoplatform.portal.webui.portal.UIPortalForm;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.util.ReflectionUtil;
 import org.exoplatform.web.application.ApplicationMessage;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
-  template = "app:/groovy/portal/webui/portal/UISiteManagement.gtmpl",
+  template = "app:/groovy/navigation/webui/component/UISiteManagement.gtmpl",
   events = {
       @EventConfig(listeners = UISiteManagement.EditPortalLayoutActionListener.class),
       @EventConfig(listeners = UISiteManagement.EditNavigationActionListener.class),
@@ -62,13 +64,14 @@ public class UISiteManagement extends UIContainer {
   
   private PageList pageList;
   
-  public UISiteManagement() throws Exception {
-    setId("UISiteManagement");    
-    //loadPortalConfigs();
+  public UISiteManagement() throws Exception {  
+    UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, "EditPortalNavigation");
+    editNavigation.setWindowSize(400, 400);
+    loadPortalConfigs();
   }
   
   public List<PortalConfig> getPortalConfigs() throws Exception { 
-    return pageList.currentPage();
+    return pageList.getAll();
   }
   
   public String[] getActions() { return ACTIONS ; }
@@ -89,8 +92,7 @@ public class UISiteManagement extends UIContainer {
     });
     
     // Get portals without edit permission
-    UIPortalApplication uiPortalApp = this.getAncestorOfType(UIPortalApplication.class);
-    UserACL userACL = uiPortalApp.getApplicationComponent(UserACL.class);
+    UserACL userACL = getApplicationComponent(UserACL.class);
     Iterator<PortalConfig> iterPortals  = this.pageList.getAll().iterator();
     PortalConfig portalConfig;
     while (iterPortals.hasNext()) {
@@ -177,32 +179,28 @@ public class UISiteManagement extends UIContainer {
       String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UserPortalConfigService service = uicomp.getApplicationComponent(UserPortalConfigService.class);
       PortalRequestContext prContext = Util.getPortalRequestContext();
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      WebuiRequestContext context = event.getRequestContext();
+      UIApplication uiApplication = context.getUIApplication();
       
       UserPortalConfig userConfig = service.getUserPortalConfig(portalName, prContext.getRemoteUser());
       PortalConfig portalConfig = userConfig.getPortalConfig();
       
-      UserACL userACL = uiPortalApp.getApplicationComponent(UserACL.class) ;
+      UserACL userACL = uicomp.getApplicationComponent(UserACL.class) ;
       if(!userACL.hasEditPermission(portalConfig)){
-        uiPortalApp.addMessage(new ApplicationMessage("UISiteManagement.msg.Invalid-editPermission", null)) ;;  
+        uiApplication.addMessage(new ApplicationMessage("UISiteManagement.msg.Invalid-editPermission", null)) ;;  
         return;
       }
       
-      UIWorkingWorkspace workingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);      
-      UIPopupWindow popUp = workingWS.getChild(UIPopupWindow.class);
-      if (popUp != null) {        
-        workingWS.removeChild(UIPopupWindow.class);
-      }
-      popUp = workingWS.addChild(UIPopupWindow.class, null, null);      
+          
+      UIPopupWindow popUp = uicomp.getChild(UIPopupWindow.class);
       
       UINavigationManagement naviManager = popUp.createUIComponent(UINavigationManagement.class, null, null, popUp);
       naviManager.setOwner(portalName);
       naviManager.loadNavigation(new Query<PageNavigation>(PortalConfig.PORTAL_TYPE, portalName, PageNavigation.class));
       popUp.setUIComponent(naviManager);
       popUp.setShow(true);
-      popUp.setRendered(true);
-      popUp.setWindowSize(400, 400);
-      prContext.addUIComponentToUpdateByAjax(workingWS);          
+      
+      
     }
   }
   

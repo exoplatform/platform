@@ -1,4 +1,4 @@
-package org.exoplatform.portal.webui.portal;
+package org.exoplatform.navigation.webui.component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,11 +10,8 @@ import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.navigation.UINavigationManagement;
-import org.exoplatform.portal.webui.navigation.UINavigationNodeSelector;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -49,14 +46,16 @@ import org.exoplatform.webui.event.EventListener;
  * May 28, 2009  
  */
 
-@ComponentConfig(template = "app:/groovy/portal/webui/portal/NewUIGroupManagement.gtmpl", events = {
+@ComponentConfig(template = "app:/groovy/navigation/webui/component/NewUIGroupManagement.gtmpl", events = {
     @EventConfig(listeners = NewUIGroupManagement.EditNavigationActionListener.class),
-    @EventConfig(listeners = NewUIGroupManagement.DeleteNavigationActionListener.class) })
+    @EventConfig(listeners = NewUIGroupManagement.DeleteNavigationActionListener.class, confirm = "them sau") })
 public class NewUIGroupManagement extends UIContainer {
 
   private List<PageNavigation> navigations;
 
   public NewUIGroupManagement() throws Exception {
+    UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, "EditGroupNavigation");
+    editNavigation.setWindowSize(400, 400);
     loadNavigations();
   }
 
@@ -100,11 +99,8 @@ public class NewUIGroupManagement extends UIContainer {
       Integer navId = Integer.parseInt(id);
       // get PageNavigation by navigation id
       PageNavigation navigation = uicomp.getNavigationById(navId);
-      PortalRequestContext prContext = Util.getPortalRequestContext();
       WebuiRequestContext context = event.getRequestContext();
       UIApplication uiApplication = context.getUIApplication();
-      UIPortalApplication uiPortalApp = event.getSource()
-                                             .getAncestorOfType(UIPortalApplication.class);
 
       // check edit permission, ensure that user has edit permission on that navigation
       UserACL userACL = uicomp.getApplicationComponent(UserACL.class);
@@ -121,12 +117,11 @@ public class NewUIGroupManagement extends UIContainer {
         return;
       }
 
-      UIWorkingWorkspace workingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      UIPopupWindow popUp = workingWS.getChild(UIPopupWindow.class);
-      if (popUp != null) {
-        workingWS.removeChild(UIPopupWindow.class);
-      }
-      popUp = workingWS.addChild(UIPopupWindow.class, null, null);
+      //UIWorkingWorkspace workingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      //UIPopupWindow popUp = workingWS.getChild(UIPopupWindow.class);
+      
+      UIPopupWindow popUp = uicomp.getChild(UIPopupWindow.class);
+      //popUp = workingWS.addChild(UIPopupWindow.class, null, null);
 
       UINavigationManagement pageManager = popUp.createUIComponent(UINavigationManagement.class,
                                                                    null,
@@ -137,9 +132,7 @@ public class NewUIGroupManagement extends UIContainer {
       selector.loadNavigationByNavId(navId, uicomp.navigations);
       popUp.setUIComponent(pageManager);
       popUp.setShow(true);
-      popUp.setRendered(true);
-      popUp.setWindowSize(400, 400);
-      prContext.addUIComponentToUpdateByAjax(workingWS);
+      //prContext.addUIComponentToUpdateByAjax(workingWS);
     }
   }
 
