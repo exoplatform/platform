@@ -226,10 +226,6 @@ eXo.webui.UIDashboard = {
 		}	
 	},
 	
-	test: function() {
-		document.title = new Date().getTime() ;
-	},
-	
 	onLoad : function(windowId, canEdit) { 
 		var portletWindow = document.getElementById(windowId);
 		if(!portletWindow) return;

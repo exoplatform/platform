@@ -94,19 +94,20 @@ UIPortalNavigation.prototype.buildMenu = function(popupMenu) {
  * Sets the tab style on mouse over and mouse out
  * If the mouse goes out of the item but stays on its sub menu, the item remains highlighted
  */
-UIPortalNavigation.prototype.setTabStyle = function() {
-  var tab = this;
-  var tabChildren = eXo.core.DOMUtil.getChildrenByTagName(tab, "div") ;
-  if (tabChildren[0].className != "HighlightNavigationTab") {
-    // highlights the tab
-    eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, true);
-  } else {
-    if(tabChildren.length <= 1 || tabChildren[1].id != eXo.portal.UIPortalNavigation.currentOpenedMenu) {
-      // de-highlights the tab if it doesn't have a submenu (cond 1) or its submenu isn't visible (cond 2)
-      eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, false);
-    }
-  }
-}
+// TODO: there's no caller for this method, prepare to remove it
+//UIPortalNavigation.prototype.setTabStyle = function() {
+//  var tab = this;
+//  var tabChildren = eXo.core.DOMUtil.getChildrenByTagName(tab, "div") ;
+//  if (tabChildren[0].className != "HighlightNavigationTab") {
+//    // highlights the tab
+//    eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, true);
+//  } else {
+//    if(tabChildren.length <= 1 || tabChildren[1].id != eXo.portal.UIPortalNavigation.currentOpenedMenu) {
+//      // de-highlights the tab if it doesn't have a submenu (cond 1) or its submenu isn't visible (cond 2)
+//      eXo.webui.UIHorizontalTabs.changeTabNavigationStyle(tab, false);
+//    }
+//  }
+//}
 
 UIPortalNavigation.prototype.setTabStyleOnMouseOver = function(e) {
   var tab = this ;

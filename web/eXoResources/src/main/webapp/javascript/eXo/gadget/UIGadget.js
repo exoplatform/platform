@@ -9,9 +9,9 @@ eXo.gadget.UIGadget = {
             eXo.core.Using.register('eXo.gadgets.Gadgets', '/eXoResources/javascript/eXo/gadget/Gadgets.js');
             eXo.core.Using.register('eXo.gadgets.ExoBasedUserPrefStore', '/eXoResources/javascript/eXo/gadget/ExoBasedUserPrefStore.js');
 
-            eXo.core.Using("rpc");
-            eXo.core.Using("eXo.gadgets.Gadgets");
-            eXo.core.Using("eXo.gadgets.ExoBasedUserPrefStore");
+            eXo.core.Using.init("rpc");
+            eXo.core.Using.init("eXo.gadgets.Gadgets");
+            eXo.core.Using.init("eXo.gadgets.ExoBasedUserPrefStore");
 
         }
         //TODO: dang.tung - set language for gadget
