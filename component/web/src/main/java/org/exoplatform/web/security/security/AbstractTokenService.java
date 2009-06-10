@@ -47,7 +47,7 @@ import org.picocontainer.Startable;
 @ManagedDescription("Token Service")
 public abstract class AbstractTokenService implements Startable, TokenStore {
 
-  protected final String     TOKEN_TIMEOUT = "tokenTimeout";
+  protected final String     SERVICE_CONFIG = "SERVICE_CONFIG";
 
   protected static final int DELAY_TIME    = 600;
 
@@ -59,7 +59,7 @@ public abstract class AbstractTokenService implements Startable, TokenStore {
 
   @SuppressWarnings("unchecked")
   public AbstractTokenService(InitParams initParams) {
-    List<String> params = initParams.getValuesParam(TOKEN_TIMEOUT).getValues();
+    List<String> params = initParams.getValuesParam(SERVICE_CONFIG).getValues();
     this.name = params.get(0);
     long configValue = new Long(params.get(1));
     this.validityMillis = TimeoutEnum.valueOf(params.get(2)).toMilisecond(configValue);
