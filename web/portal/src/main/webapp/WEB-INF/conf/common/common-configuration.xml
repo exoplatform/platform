@@ -17,10 +17,33 @@
     </init-params>
   </component>
   
+  <!-- ********************* CONFIGURE TOKEN SERVICE ************************* -->  
   <component>
-    <key>org.exoplatform.web.login.CookieTokenService</key>
-    <type>org.exoplatform.web.login.CookieTokenService</type>
+    <key>org.exoplatform.web.security.security.CookieTokenService</key>
+    <type>org.exoplatform.web.security.security.CookieTokenService</type>
+    <init-params>
+    		<values-param>
+          <name>tokenTimeout</name>          
+          <value>jcr-token</value>
+          <value>7</value>
+        	<value>DAY</value>
+        </values-param>    	
+    </init-params>
   </component>
+  
+  <component>
+    <key>org.exoplatform.web.security.security.TransientTokenService</key>
+    <type>org.exoplatform.web.security.security.TransientTokenService</type>
+    <init-params>
+    		<values-param>
+          <name>tokenTimeout</name>          
+          <value>memory-token</value>
+          <value>1</value>
+        	<value>MINUTE</value>
+        </values-param>    	
+    </init-params>
+  </component>
+  <!-- ********************* END CONFIGURE TOKEN SERVICE ************************* -->  
     
   <component>
     <key>org.exoplatform.services.resources.LocaleConfigService</key>

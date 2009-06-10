@@ -26,31 +26,41 @@ import javax.security.auth.callback.PasswordCallback;
 import javax.security.auth.login.LoginException;
 import javax.security.auth.spi.LoginModule;
 
+import org.exoplatform.web.security.security.AbstractTokenService;
+import org.exoplatform.web.security.security.CookieTokenService;
+import org.exoplatform.web.security.security.TransientTokenService;
+
 /**
- * A login module implementation that relies on the token store to check the password validity. If the token store
- * provides a valid {@link Credentials} value then password stacking is used
- * and the two entries are added in the shared state map. The first entry is keyed by <code>javax.security.auth.login.name</code>
- * and contains the {@link Credentials#getUsername()} value, the second entry is keyed by <code>javax.security.auth.login.password</code>
- * and contains the {@link Credentials#getPassword()} ()} value.
- *
+ * A login module implementation that relies on the token store to check the
+ * password validity. If the token store provides a valid {@link Credentials}
+ * value then password stacking is used and the two entries are added in the
+ * shared state map. The first entry is keyed by
+ * <code>javax.security.auth.login.name</code> and contains the
+ * {@link Credentials#getUsername()} value, the second entry is keyed by
+ * <code>javax.security.auth.login.password</code> and contains the
+ * {@link Credentials#getPassword()} ()} value.
+ * 
  * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
  * @version $Revision$
  */
 public class PortalLoginModule implements LoginModule {
 
   /** . */
-  protected Subject subject;
+  protected Subject         subject;
 
   /** . */
   protected CallbackHandler callbackHandler;
 
   /** . */
-  protected Map<String, ?> sharedState;
+  protected Map<String, ?>  sharedState;
 
   /** . */
-  protected Map<String, ?> options;
+  protected Map<String, ?>  options;
 
-  public void initialize(Subject subject, CallbackHandler callbackHandler, Map<String, ?> sharedState, Map<String, ?> options) {
+  public void initialize(Subject subject,
+                         CallbackHandler callbackHandler,
+                         Map<String, ?> sharedState,
+                         Map<String, ?> options) {
     this.subject = subject;
     this.callbackHandler = callbackHandler;
     this.sharedState = sharedState;
@@ -59,28 +69,27 @@ public class PortalLoginModule implements LoginModule {
 
   public boolean login() throws LoginException {
 
-  	Callback[] callbacks = new Callback[2];
+    Callback[] callbacks = new Callback[2];
     callbacks[0] = new NameCallback("Username");
     callbacks[1] = new PasswordCallback("Password", false);
 
     try {
       callbackHandler.handle(callbacks);
       String password = new String(((PasswordCallback) callbacks[1]).getPassword());
-
-      //
-      Object o = TokenStore.REQUEST_STORE.validateToken(password, true);
-      if(o == null) o = TokenStore.COOKIE_STORE.validateToken(password, false) ;
+      
+      Object o = AbstractTokenService.getInstance(TransientTokenService.class).validateToken(password, true);
+      if (o == null)
+        o = AbstractTokenService.getInstance(CookieTokenService.class).validateToken(password, false);
       //
       if (o instanceof Credentials) {
-        Credentials wc = (Credentials)o;
+        Credentials wc = (Credentials) o;
 
         // Set shared state
-        ((Map)sharedState).put("javax.security.auth.login.name", wc.getUsername());
-        ((Map)sharedState).put("javax.security.auth.login.password", wc.getPassword());
+        ((Map) sharedState).put("javax.security.auth.login.name", wc.getUsername());
+        ((Map) sharedState).put("javax.security.auth.login.password", wc.getPassword());
       }
       return true;
-    }
-    catch (Exception e) {
+    } catch (Exception e) {
       LoginException le = new LoginException();
       le.initCause(e);
       throw le;

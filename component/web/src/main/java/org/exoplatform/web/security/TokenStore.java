@@ -23,28 +23,16 @@ package org.exoplatform.web.security;
  * @version $Revision$
  */
 public interface TokenStore {
-
-  /**
-   * That should not be here, it's only here for the sake of simplicity.
-   */
-  public static TokenStore REQUEST_STORE = new TransientTokenStore();
-
-  /**
-   * That should not be here, it's only here for the sake of simplicity.
-   */
-  public static TokenStore COOKIE_STORE = new TokenPersister();
-
   /**
    * Create a token and returns it. The store state is modified as it retains the token until
    * it is removed either explicitely or because the token validity is expired.
-   *
-   * @param validityMillis the validity of the token in milliseconds.
+   * 
    * @param credentials the credentials
    * @return the token key
    * @throws IllegalArgumentException if the validity is not greater than zero
    * @throws NullPointerException if the payload is null
    */
-  String createToken(long validityMillis, Credentials credentials) throws IllegalArgumentException, NullPointerException;
+  String createToken(Credentials credentials) throws IllegalArgumentException, NullPointerException;
 
   /**
    * Validates a token. If the token is valid it returns the attached credentials. The store state may be modified

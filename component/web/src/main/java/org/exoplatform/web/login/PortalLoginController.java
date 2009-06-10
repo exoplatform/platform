@@ -23,9 +23,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.exoplatform.web.security.Credentials;
-import org.exoplatform.web.security.TokenStore;
+import org.exoplatform.web.security.security.AbstractTokenService;
+import org.exoplatform.web.security.security.CookieTokenService;
 
 /**
  * @author <a href="mailto:trong.tran@exoplatform.com">Tran The Trong</a>
@@ -50,13 +50,12 @@ public class PortalLoginController extends HttpServlet {
     if ("true".equals(rememberme)) {
 			boolean isRememeber = "true".equals(req.getParameter(InitiateLoginServlet.COOKIE_NAME));
 			if (isRememeber) {
-				int SECONDS_ONE_DAY = 60 * 60 * 24; 
-
 				//Create token
-				String cookieToken = TokenStore.COOKIE_STORE.createToken(1000 * SECONDS_ONE_DAY, credentials);
+			  AbstractTokenService tokenService = AbstractTokenService.getInstance(CookieTokenService.class);			  
+				String cookieToken = tokenService.createToken(credentials);
 				Cookie cookie = new Cookie(InitiateLoginServlet.COOKIE_NAME, cookieToken);
 				cookie.setPath(req.getContextPath());
-				cookie.setMaxAge(SECONDS_ONE_DAY);
+				cookie.setMaxAge((int)tokenService.getExpiredPeriodTime() / 1000);
 				resp.addCookie(cookie);
 			}
     }
