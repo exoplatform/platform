@@ -47,7 +47,7 @@ import org.picocontainer.Startable;
 @ManagedDescription("Token Service")
 public abstract class AbstractTokenService implements Startable, TokenStore {
 
-  protected final String     SERVICE_CONFIG = "SERVICE_CONFIG";
+  protected final String     SERVICE_CONFIG = "service.configuration";
 
   protected static final int DELAY_TIME    = 600;
 

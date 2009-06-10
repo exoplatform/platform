@@ -23,7 +23,7 @@
     <type>org.exoplatform.web.security.security.CookieTokenService</type>
     <init-params>
     		<values-param>
-          <name>SERVICE_CONFIG</name>          
+          <name>service.configuration</name>          
           <value>jcr-token</value>
           <value>7</value>
         	<value>DAY</value>
@@ -36,7 +36,7 @@
     <type>org.exoplatform.web.security.security.TransientTokenService</type>
     <init-params>
     		<values-param>
-          <name>SERVICE_CONFIG</name>          
+          <name>service.configuration</name>          
           <value>memory-token</value>
           <value>1</value>
         	<value>MINUTE</value>
