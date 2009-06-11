@@ -4,7 +4,7 @@ function Using() {
 };
 
 Using.prototype.init = function(scriptName, callback, context) {
-	var a = -1;
+  var a = -1;
   var scriptNames = new Array();
   if (typeof(scriptName) != "string" && scriptName.length) {
     var _scriptNames = scriptName;
@@ -97,7 +97,7 @@ Using.prototype.Registration = function(_name, _version, _remote, _asyncWait, _u
   var v = true;
   if (typeof(arg) == "string") {
     for (var c = 0; c < arg.length; c++) {
-      if ("1234567890.".indexOf(arg.substring(c)) == -1) {
+      if ("1234567890.".indexOf(c) == -1) {
         v = false;
         break;
       }
@@ -180,9 +180,9 @@ Using.prototype.load = function(scriptName, scriptUrl, remote, asyncWait, cb) {
 
   var callbackQueue = this.getCallbackQueue(scriptUrl);
   callbackQueue.push(new this.CallbackItem(function() {
-	    eXo.core.Using.loadedScripts.push(eXo.core.Using.registered[scriptName]);
-	    eXo.core.Using.registered[scriptName] = false;
-	  },  null));
+      eXo.core.Using.loadedScripts.push(eXo.core.Using.registered[scriptName]);
+      eXo.core.Using.registered[scriptName] = false;
+    },  null));
   if (cb) {
     callbackQueue.push(cb);
     if (callbackQueue.length > 2) return;
