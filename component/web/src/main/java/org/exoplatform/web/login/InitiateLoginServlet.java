@@ -78,8 +78,7 @@ public class InitiateLoginServlet extends HttpServlet {
       }
     }
     if (token == null) {
-      TransientTokenService tokenService = (TransientTokenService) ExoContainerContext.getCurrentContainer()
-                                                                                      .getComponentInstanceOfType(TransientTokenService.class);
+      TransientTokenService tokenService = AbstractTokenService.getInstance(TransientTokenService.class);
       token = tokenService.createToken(credentials);
     }
 
