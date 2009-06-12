@@ -28,7 +28,9 @@ import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.upload.UploadResource;
 import org.exoplatform.upload.UploadService;
 import org.exoplatform.web.WebAppController;
+import org.exoplatform.web.application.RequestContext;
 import org.exoplatform.web.command.Command;
+import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
  * Created by The eXo Platform SARL
@@ -70,7 +72,7 @@ public class UploadHandler extends Command {
         	int limitMB = service.getUploadLimitsMB().get(uploadId[i]).intValue();
         	value.append("\n    \"").append(uploadId[i]).append("\": {");
         	value.append("\n      \"status\":").append('\"').append("failed").append("\",");
-        	value.append("\n      \"message\":").append('\"').append("The file must be less than ").append(limitMB).append(" MB.").append("\"");
+        	value.append("\n      \"size\":").append('\"').append(limitMB).append("\"");
         	value.append("\n    }");
         	continue;
         }

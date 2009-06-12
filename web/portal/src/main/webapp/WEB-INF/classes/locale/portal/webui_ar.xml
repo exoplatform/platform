@@ -567,6 +567,12 @@
       <date>#{word.date} :</date>
       <factoryId>أنواع البوابة</factoryId>
       <skin>:المظهر</skin>
+      <sessionAlive>Keep session alive :</sessionAlive>
+      <option>
+        <always>Always</always>
+        <onDemand>On Demand</onDemand>
+        <never>Never</never>
+      </option>
     </label>
     <tab>
       <label>
@@ -1952,6 +1958,9 @@
       <remove>ازالة تحميل</remove>
       <Cancel>الغاء</Cancel>
     </label>
+    <msg>
+      <limit>The file must be less than {0} MB.</limit>
+    </msg>
   </UIFormUploadInput>
   <!--
   ###############################################################################

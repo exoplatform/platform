@@ -33,7 +33,7 @@ UIUpload.prototype.createUploadEntry = function(uploadId, isAutoUpload) {
   uploadAction += "&uploadId=" + uploadId+"&action=upload" ;
   idoc.open();
 	idoc.write("<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>");
-  idoc.write("<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>");
+  idoc.write("<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='" +eXo.core.I18n.lang+ "' dir='" +eXo.core.I18n.dir+ "'>");
   idoc.write("<head>");
   idoc.write("<style type='text/css'>");
   idoc.write(".UploadButton {width: 20px; height: 20px; cursor: pointer; vertical-align: bottom;");
@@ -79,14 +79,16 @@ UIUpload.prototype.refeshProgress = function(elementId) {
   }
   
   for(id in response.upload) {
+    var container = parent.document.getElementById(elementId);
   	if (response.upload[id].status == "failed") {
   		this.abortUpload(id);
-  		alert(response.upload[id].message);
+  		var message = eXo.core.DOMUtil.findFirstChildByClass(container, "div", "LimitMessage").innerHTML ;
+  		alert(message.replace("{0}", response.upload[id].size)) ;
+//  		alert(response.upload[id].message);
   		continue;
   	}
     var element = document.getElementById(id+"ProgressIframe");
     var percent  =   response.upload[id].percent;
-    var container = parent.document.getElementById(elementId);
     var progressBarMiddle = eXo.core.DOMUtil.findFirstDescendantByClass(container, "div", "ProgressBarMiddle") ;
     var blueProgressBar = eXo.core.DOMUtil.findFirstChildByClass(progressBarMiddle, "div", "BlueProgressBar") ;
     var progressBarLabel = eXo.core.DOMUtil.findFirstChildByClass(blueProgressBar, "div", "ProgressBarLabel") ;

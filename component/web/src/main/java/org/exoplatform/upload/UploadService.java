@@ -66,7 +66,7 @@ public class UploadService {
     if (limitMB > 0 && estimatedSizeMB > limitMB) { // a limit set to 0 means unlimited
     	upResource.setStatus(UploadResource.FAILED_STATUS) ;
     	//upResource.setLimitMB(limitMB);
-    	uploadResources.put(upResource.getUploadId(), upResource) ;
+    	uploadResources.put(uploadId, upResource) ;
     	System.out.println("Upload cancelled because file bigger than size limit : "+estimatedSizeMB+" MB > "+limitMB+" MB");
 //    	WebuiRequestContext ctx = WebuiRequestContext.getCurrentInstance();
 //        UIApplication uiApp = ctx.getUIApplication();
@@ -105,7 +105,15 @@ public class UploadService {
   
   public void createUploadResource(String uploadId, String encoding, String contentType,double contentLength, InputStream inputStream) throws Exception {    
     UploadResource upResource = new UploadResource(uploadId) ;    
-    RequestStreamReader reader = new RequestStreamReader(upResource);    
+    RequestStreamReader reader = new RequestStreamReader(upResource);
+    int limitMB = uploadLimitsMB_.get(uploadId).intValue();
+    int estimatedSizeMB = (int) contentLength/1024/1024;
+    if (limitMB > 0 && estimatedSizeMB > limitMB) { // a limit set to 0 means unlimited
+      upResource.setStatus(UploadResource.FAILED_STATUS) ;
+      uploadResources.put(uploadId, upResource) ;
+      System.out.println("Upload cancelled because file bigger than size limit : "+estimatedSizeMB+" MB > "+limitMB+" MB");
+      return;
+    }
     Map<String, String> headers = reader.parseHeaders(inputStream,encoding);
    
     String fileName = reader.getFileName(headers);
@@ -140,6 +148,7 @@ public class UploadService {
     if(uploadId == null) return;
     UploadResource upResource = uploadResources.get(uploadId);
     if(upResource == null) return;
+    if(upResource.getStoreLocation() == null) return ;
     File file  = new File(upResource.getStoreLocation());
     file.delete();
     uploadResources.remove(uploadId) ;
