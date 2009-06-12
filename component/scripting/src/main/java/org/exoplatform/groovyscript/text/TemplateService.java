@@ -33,107 +33,105 @@ import org.exoplatform.services.cache.CacheService;
 import org.exoplatform.services.cache.ExoCache;
 
 /**
- * Created by The eXo Platform SAS
- * Dec 26, 2005
+ * Created by The eXo Platform SAS Dec 26, 2005
  */
 @Managed
-@NameTemplate({
-  @Property(key = "view", value = "portal"),
-  @Property(key = "service", value = "management"),
-  @Property(key = "type", value = "template")
-})
+@NameTemplate( { @Property(key = "view", value = "portal"),
+    @Property(key = "service", value = "management"), @Property(key = "type", value = "template") })
 @ManagedDescription("Template management service")
 public class TemplateService {
-  
-  private SimpleTemplateEngine engine_  ;
-  private ExoCache<String, Template> templatesCache_ ;
-  private TemplateStatisticService statisticService;
-  private boolean cacheTemplate_  =  true ;
+
+  private SimpleTemplateEngine       engine_;
+
+  private ExoCache<String, Template> templatesCache_;
+
+  private TemplateStatisticService   statisticService;
+
+  private boolean                    cacheTemplate_ = true;
 
   public TemplateService(InitParams params,
                          TemplateStatisticService statisticService,
                          CacheService cservice) throws Exception {
-    engine_ = new SimpleTemplateEngine() ;
+    engine_ = new SimpleTemplateEngine();
     this.statisticService = statisticService;
     templatesCache_ = cservice.getCacheInstance(TemplateService.class.getName());
-    getTemplatesCache().setLiveTime(10000) ;
+    getTemplatesCache().setLiveTime(10000);
   }
-  
+
   public void merge(String name, BindingContext context) throws Exception {
-  	long startTime = System.currentTimeMillis();
-  	
+    long startTime = System.currentTimeMillis();
+
     Template template = getTemplate(name, context.getResourceResolver());
-		context.put("_ctx", context) ;
-		context.setGroovyTemplateService(this) ;
-		Writable writable = template.make(context) ;
-		writable.writeTo(context.getWriter());
-		
-		long endTime = System.currentTimeMillis();
-    
+    context.put("_ctx", context);
+    context.setGroovyTemplateService(this);
+    Writable writable = template.make(context);
+    writable.writeTo(context.getWriter());
+
+    long endTime = System.currentTimeMillis();
+
     TemplateStatistic templateStatistic = statisticService.getTemplateStatistic(name);
     templateStatistic.setTime(endTime - startTime);
     templateStatistic.setResolver(context.getResourceResolver());
   }
-  
+
   @Deprecated
-  public void merge(Template template, BindingContext context) throws  Exception {
-    context.put("_ctx", context) ;
-    context.setGroovyTemplateService(this) ;
-    Writable writable = template.make(context) ;
+  public void merge(Template template, BindingContext context) throws Exception {
+    context.put("_ctx", context);
+    context.setGroovyTemplateService(this);
+    Writable writable = template.make(context);
     writable.writeTo(context.getWriter());
   }
-  
-  public void include(String name, BindingContext context) throws  Exception  {  
-    if(context == null)  throw new Exception("Binding cannot be null") ;
-    context.put("_ctx", context) ;
-    Template template = getTemplate(name, context.getResourceResolver()) ;
-    Writable writable = template.make(context) ;
-    writable.writeTo(context.getWriter()) ;
-    
+
+  public void include(String name, BindingContext context) throws Exception {
+    if (context == null)
+      throw new Exception("Binding cannot be null");
+    context.put("_ctx", context);
+    Template template = getTemplate(name, context.getResourceResolver());
+    Writable writable = template.make(context);
+    writable.writeTo(context.getWriter());
+
   }
-  
+
   final public Template getTemplate(String name, ResourceResolver resolver) throws Exception {
-    return getTemplate(name, resolver, cacheTemplate_) ;
+    return getTemplate(name, resolver, cacheTemplate_);
   }
-  
+
   final public Template getTemplate(String url, ResourceResolver resolver, boolean cacheable) throws Exception {
-    Template template = null ;
-    if(cacheable)  {
-      String resourceId =  resolver.createResourceId(url) ;
-      template = (Template)getTemplatesCache().get(resourceId) ;
+    Template template = null;
+    if (cacheable) {
+      String resourceId = resolver.createResourceId(url);
+      template = (Template) getTemplatesCache().get(resourceId);
     }
-    if(template != null)  return template ;   
-    InputStream is = resolver.getInputStream(url);
-    byte[]  bytes = null;
-    try{
-      bytes = IOUtil.getStreamContentAsBytes(is)  ;
-    }catch(Exception exp){
-      throw new NullPointerException("Cann't load groovy template in "+url);
+    if (template != null)
+      return template;
+    InputStream is;
+    byte[] bytes = null;
+    is = resolver.getInputStream(url);
+    bytes = IOUtil.getStreamContentAsBytes(is);
+    is.close();
+
+    String text = new String(bytes);
+    template = engine_.createTemplate(text);
+
+    if (cacheable) {
+      String resourceId = resolver.createResourceId(url);
+      getTemplatesCache().put(resourceId, template);
     }
-    is.close();    
-    
-    String text =  new String(bytes) ;
-    template = engine_.createTemplate(text) ;
-    
-    if(cacheable) {
-      String resourceId =  resolver.createResourceId(url) ;
-      getTemplatesCache().put(resourceId, template) ;
-    }
-    
-    return template ;
+
+    return template;
   }
-  
-  final public void invalidateTemplate(String name, ResourceResolver resolver)throws Exception {
-    String resourceId =  resolver.createResourceId(name) ;
-    getTemplatesCache().remove(resourceId) ;
+
+  final public void invalidateTemplate(String name, ResourceResolver resolver) throws Exception {
+    String resourceId = resolver.createResourceId(name);
+    getTemplatesCache().remove(resourceId);
   }
 
   public void setTemplatesCache(ExoCache<String, Template> templatesCache_) {
-	  this.templatesCache_ = templatesCache_;
+    this.templatesCache_ = templatesCache_;
   }
-	
+
   public ExoCache<String, Template> getTemplatesCache() {
-	  return templatesCache_;
+    return templatesCache_;
   }
 
   /*
