@@ -2446,4 +2446,35 @@
   <UIPopupWindow>
     <Close>Close Window</Close>
   </UIPopupWindow>
+  
+  <!--
+  #############################################################################
+  #           org.exoplatform.portal.organization.component.UIGroupNavigationManagement#
+  #############################################################################
+  -->
+  <UIGroupNavigationManagement>
+    <Action>
+    	<Add>
+    		Add Navigation
+    	</Add>
+    </Action>
+    <Delete>
+    	<Confirm>
+    		Are you sure to delete this navigation?
+    	</Confirm>
+    </Delete>
+  </UIGroupNavigationManagement>
+  
+  <!--
+  #############################################################################
+  #           org.exoplatform.portal.organization.component.UIAddGroupNavigation#
+  #############################################################################
+  -->
+  <UIAddGroupNavigation>
+    <Action>
+    	<Cancel>
+    		Cancel
+    	</Cancel>
+    </Action>
+  </UIAddGroupNavigation>
 </bundle>
