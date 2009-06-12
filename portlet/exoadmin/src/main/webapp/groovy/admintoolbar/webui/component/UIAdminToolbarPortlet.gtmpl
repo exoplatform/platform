@@ -72,6 +72,12 @@
       </div>
 	    <% } %>
 	    
+			<div class="UITab NormalToolbarTab">
+			  <div class="NormalNavigationTab">
+	        <a class="EditPortalIcon TBIcon" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))">Edit Inline</a>
+	      </div>
+	    </div>
+	    
     </div>
   </div>
 </div>

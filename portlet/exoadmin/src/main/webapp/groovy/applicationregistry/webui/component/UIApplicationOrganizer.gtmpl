@@ -20,7 +20,7 @@ def selectedApp = uicomponent.getSelectedApplication() ;
 	   	    	
 	   	    	<div class="UIVerticalSlideTabs">
 		   	    <% 
-			 			  String cTab, cName, description, displayName, clickEvt;
+			 			  String cTab, cName, description, displayName;
 			 			  boolean isSelected = false;
 						  for(category in categories) { 			     
 						    cName  = category.getName();

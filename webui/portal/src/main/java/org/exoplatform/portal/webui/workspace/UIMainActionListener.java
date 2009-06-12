@@ -26,12 +26,14 @@ import org.exoplatform.portal.webui.page.UIPageEditWizard;
 import org.exoplatform.portal.webui.page.UIWizardPageCreationBar;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.portal.UIPortalComposer;
 import org.exoplatform.portal.webui.portal.UIPortalForm;
 import org.exoplatform.portal.webui.portal.UIPortalManagement;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIComponent;
+import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -57,7 +59,7 @@ public class UIMainActionListener {
     UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID) ;
     return (T)uiWorking.getUIComponent();
   }
-    
+
   static public class EditPageActionListener extends EventListener<UIWorkingWorkspace> {    
     public void execute(Event<UIWorkingWorkspace> event) throws Exception {
       UIMainActionListener.setUIControlWSWorkingComponent(UIPageManagement.class) ;
@@ -142,6 +144,28 @@ public class UIMainActionListener {
       UIPortalManagement uiManagement = UIMainActionListener.getUIControlWSWorkingComponent();      
       uiManagement.setMode(ManagementMode.BROWSE, event);
     }
+  }
+  
+  static public class EditInlineActionListener extends EventListener<UIWorkingWorkspace> {
+    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+      UIPortal uiPortal = Util.getUIPortal() ;
+      UIPortalApplication uiApp = Util.getUIPortalApplication();
+      if(!uiPortal.isModifiable()) {
+        uiApp.addMessage(new ApplicationMessage("UIPortalManagement.msg.Invalid-editPermission", new String[]{uiPortal.getName()})) ;
+        return ;
+      }
+      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
+      UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
+      uiApp.setEditting(true);
+      UIPortalComposer uiComposer = uiWorkingWS.createUIComponent(UIPortalComposer.class, null, null);
+      UIPopupWindow uiPopup =uiWorkingWS.addChild(UIPopupWindow.class, null, "PortalComposer");
+      uiPopup.setUIComponent(uiComposer);
+      uiPopup.setWindowSize(300, 500);
+      uiPopup.setShow(true);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
+      pcontext.setFullRender(true);
+    }
+    
   }
   
   static public class ManagePortalsActionListener extends EventListener<UIWorkingWorkspace> {

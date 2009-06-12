@@ -1,0 +1,80 @@
+<%
+def categories = uicomponent.getCategories();
+def selectedCategory = uicomponent.getSelectedCategory() ;
+%>
+<div class="UIOrganizerManagement" id="$uicomponent.id">
+	<div class="AppRegistryContainer">
+		<div class="AppRegistryControl">
+			<div class="ControlArea">
+				<div class="CategoryContent">
+
+	   	    <div class="ListContent">	
+	   	    	<div class="UIVerticalSlideTabs">
+		   	    <% 
+			 			  String cTab, cName, description, displayName;
+			 			  boolean isSelected = false;
+						  for(category in categories) { 			     
+						    cName  = category.getName();
+						    displayName =category.getDisplayName();
+						    if(displayName == null || displayName.length() < 1 ) displayName = cName;
+						    if(selectedCategory != null && cName == selectedCategory.getName()) {
+						    	isSelected = true;
+						      cTab = "SelectedTab" ;
+						    }else {
+						    	isSelected = false;
+						    	cTab = "NormalTab" ;
+						    }
+						%>			   	    	
+	   	    		<div class="UIVTab VTabSimpleStyle">
+					      <div class="$cTab" onclick="<%= uicomponent.event("SelectCategory", cName) %>">
+					        <div class="TabLeft">
+					          <div class="TabRight">
+					            <div class="TabRepeat">
+									      <a class="TabLabel" title="<%= displayName %>">
+									      	<%= displayName %>
+									      </a>
+							          <div class="ClearBoth"><span></span></div>
+							         </div>
+					          </div>
+					        </div>
+							  </div>
+							<% if(isSelected) { %>
+							  <div class="UIVTabContent" style="display: block">
+							  <%
+							  for(application in category.getApplications()) {
+							  	String appName= application.getApplicationName() ;
+							  	String applicationLabel = application.getDisplayName();
+							  	if(applicationLabel.length() > 30) applicationLabel = applicationLabel.substring(0, 27) + "...";
+							  %>
+						      <div class="UIVTab DragObjectPortlet VTabStyle3" id="<%=application.getId();%>">
+							      <div class="NormalTab">
+							        <div class="TabLeft">
+							          <div class="TabRight">
+							            <div class="TabRepeat">
+							              <div class="OverflowContainer">
+												      <div class="LeftIcon"><span></span></div>
+										          <div class="TabLabel" title="<%= application.getDisplayName() %>" style="cursor:move;">
+										          	$applicationLabel
+										          </div>
+									          </div>
+							            </div>
+							          </div>
+							        </div>
+									  </div>
+									</div>
+								<% } %>	
+								</div>
+							<% } %>
+							</div>
+						<% } %>									
+	   	    	</div>	
+	   	    	        	
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<div class="ClearLeft"><span></span></div>
+	</div>  
+	
+</div>

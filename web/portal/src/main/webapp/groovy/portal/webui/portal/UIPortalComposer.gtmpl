@@ -1,0 +1,37 @@
+<%
+%>
+<div class="UIPortalComposer" id="$uicomponent.id">
+	<div class="Component">
+	<% uicomponent.renderChildren() %>
+	</div>
+  <div class="UIAction"> 
+    <table class="ActionContainer">
+    	<tr>
+    		<td>
+					
+      		<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+            <div class="ButtonLeft">
+              <div class="ButtonRight">
+                <div class="ButtonMiddle">
+                  <a href="javascript:void(0);">View Properties</a>
+                </div>
+              </div>
+            </div>
+       		</div>
+
+      		<div onclick="eXo.portal.UIPortal.switchPortalMode(this);" class="ActionButton LightBlueStyle LayoutMode" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+            <div class="ButtonLeft">
+              <div class="ButtonRight">
+                <div class="ButtonMiddle">
+                  <a href="javascript:void(0);">Swich View</a>
+                </div>
+              </div>
+            </div>
+       		</div>
+
+      	</td>
+      </tr>  
+    </table>
+  </div>	
+</div>
+ 

@@ -141,6 +141,16 @@ UIPortal.prototype.switchMode = function(elemtClicked) {
 	//eXo.portal.PortalDragDrop.fixCss();
 } ;
 
+UIPortal.prototype.switchPortalMode = function(elemtClicked) {
+	if(elemtClicked.className == "ActionButton LightBlueStyle LayoutMode") {
+		elemtClicked.className = "ActionButton LightBlueStyle ViewMode" ;
+		this.showViewMode() ;
+	} else {
+		elemtClicked.className = "ActionButton LightBlueStyle LayoutMode" ;
+		this.showLayoutModeForPortal() ;
+	}
+};
+
 UIPortal.prototype.switchModeForPage = function(elemtClicked) {
 	var layoutMode  = this.showViewLayoutModeForPage();
 	if(layoutMode == 1) {
