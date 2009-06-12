@@ -26,6 +26,7 @@ import org.exoplatform.webui.organization.UIAccountForm;
 ) 
 public class UIGroupNavigationPortlet extends UIPortletApplication {
   public UIGroupNavigationPortlet() throws Exception{    
-    addChild(NewUIGroupManagement.class, null, null);
+    addChild(UIGroupNavigationManagement.class, null, null);
+    addChild(UIAddGroupNavigation.class, null, null).setRendered(false);
   }
 }
