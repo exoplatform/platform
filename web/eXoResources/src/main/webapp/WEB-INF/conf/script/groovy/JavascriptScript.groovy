@@ -14,7 +14,7 @@ JavascriptService.addJavascript("eXo.core.JSON","/javascript/eXo/core/JSON.js", 
 JavascriptService.addJavascript("eXo.core.Cometd","/javascript/eXo/core/Cometd.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.Spliter","/javascript/eXo/core/Spliter.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.Notification","/javascript/eXo/core/Notification.js", ServletContext);
-JavascriptService.addJavascript("eXo.core.Using","/javascript/eXo/core/Using.js", ServletContext);
+JavascriptService.addJavascript("eXo.core.Loader","/javascript/eXo/core/Loader.js", ServletContext);
 JavascriptService.addJavascript("eXo.core.I18n","/javascript/eXo/core/I18n.js", ServletContext);
 
 /* Gadget Javascripts */

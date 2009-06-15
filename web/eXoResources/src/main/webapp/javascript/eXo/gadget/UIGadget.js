@@ -5,13 +5,13 @@ eXo.gadget.UIGadget = {
         eXo.gadgets = window.gadgets;
         //window.gadgets = eXo.gadget.Gadgets;
         if (!eXo.gadgets || !eXo.gadgets.rpc) {
-            eXo.core.Using.register('rpc', '/eXoGadgetServer/gadgets/js/rpc.js?c=1');
-            eXo.core.Using.register('eXo.gadgets.Gadgets', '/eXoResources/javascript/eXo/gadget/Gadgets.js');
-            eXo.core.Using.register('eXo.gadgets.ExoBasedUserPrefStore', '/eXoResources/javascript/eXo/gadget/ExoBasedUserPrefStore.js');
+            eXo.core.Loader.register('rpc', '/eXoGadgetServer/gadgets/js/rpc.js?c=1');
+            eXo.core.Loader.register('eXo.gadgets.Gadgets', '/eXoResources/javascript/eXo/gadget/Gadgets.js');
+            eXo.core.Loader.register('eXo.gadgets.ExoBasedUserPrefStore', '/eXoResources/javascript/eXo/gadget/ExoBasedUserPrefStore.js');
 
-            eXo.core.Using.init("rpc");
-            eXo.core.Using.init("eXo.gadgets.Gadgets");
-            eXo.core.Using.init("eXo.gadgets.ExoBasedUserPrefStore");
+            eXo.core.Loader.init("rpc");
+            eXo.core.Loader.init("eXo.gadgets.Gadgets");
+            eXo.core.Loader.init("eXo.gadgets.ExoBasedUserPrefStore");
 
         }
         //TODO: dang.tung - set language for gadget

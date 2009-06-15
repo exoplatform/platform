@@ -1,9 +1,9 @@
-function Using() {
+function Loader() {
   this.wait = 1;
   this.defaultAsyncWait = 250;
 };
 
-Using.prototype.init = function(scriptName, callback, context) {
+Loader.prototype.init = function(scriptName, callback, context) {
   var a = -1;
   var scriptNames = new Array();
   if (typeof(scriptName) != "string" && scriptName.length) {
@@ -29,7 +29,7 @@ Using.prototype.init = function(scriptName, callback, context) {
   if (scriptNames.length > 1) {
     var cb = callback;
     callback = function() {
-      eXo.core.Using.init(scriptNames, cb, context);
+      eXo.core.Loader.init(scriptNames, cb, context);
     }
   }
 
@@ -43,7 +43,7 @@ Using.prototype.init = function(scriptName, callback, context) {
       reg = this.registered[scriptName];
       var callbackQueue = this.getCallbackQueue(scriptName);
       var cbitem = new this.CallbackItem(function() {
-        eXo.core.Using.__durls[scriptName] = true;
+        eXo.core.Loader.__durls[scriptName] = true;
       });
       callbackQueue.push(cbitem);
       callbackQueue.push(new this.CallbackItem(callback, context));
@@ -55,7 +55,7 @@ Using.prototype.init = function(scriptName, callback, context) {
     // load dependencies first
     for (var r = reg.requirements.length - 1; r >= 0; r--) {
       if (this.registered[reg.requirements[r].name]) {
-        eXo.core.Using.init(reg.requirements[r].name, function() {eXo.core.Using.init(scriptName, callback, context);},context);
+        eXo.core.Loader.init(reg.requirements[r].name, function() {eXo.core.Loader.init(scriptName, callback, context);},context);
         return;
       }
     }
@@ -81,16 +81,16 @@ Using.prototype.init = function(scriptName, callback, context) {
   }
 };
 
-Using.prototype.CallbackItem = function(_callback, _context) {
+Loader.prototype.CallbackItem = function(_callback, _context) {
   this.callback = _callback;
   this.context = _context;
   this.invoke = function() {
-    if (eXo.core.Using.context) this.call(eXo.core.Using.context);
+    if (eXo.core.Loader.context) this.call(eXo.core.Loader.context);
     else this.callback();
   };
 };
 
-Using.prototype.Registration = function(_name, _version, _remote, _asyncWait, _urls) {
+Loader.prototype.Registration = function(_name, _version, _remote, _asyncWait, _urls) {
   this.name = _name;
   var a = 0;
   var arg = arguments[++a];
@@ -133,19 +133,19 @@ Using.prototype.Registration = function(_name, _version, _remote, _asyncWait, _u
   this.requirements = new Array();
   this.requires = function(resourceName, minimumVersion) {
     if (!minimumVersion) minimumVersion = "1.0.0"; // not currently used
-    eXo.core.Using.requirements.push({
+    eXo.core.Loader.requirements.push({
       name: resourceName,
       minVersion: minimumVersion // not currently used
     });
     return this;
   }
   this.register = function(name, version, remote, asyncWait, urls) {
-    return eXo.core.Using.register(name, version, remote, asyncWait, urls);
+    return eXo.core.Loader.register(name, version, remote, asyncWait, urls);
   }
   return this;
 };
 
-Using.prototype.register = function(name, version, remote, asyncWait, urls) {
+Loader.prototype.register = function(name, version, remote, asyncWait, urls) {
   var reg;
   if (typeof(name) == "object") {
     reg = name;
@@ -161,7 +161,7 @@ Using.prototype.register = function(name, version, remote, asyncWait, urls) {
   return reg;
 };
 
-Using.prototype.getCallbackQueue = function(scriptUrl) {
+Loader.prototype.getCallbackQueue = function(scriptUrl) {
   if (!this.__callbackQueue) {
     this.__callbackQueue = {};
   }
@@ -172,7 +172,7 @@ Using.prototype.getCallbackQueue = function(scriptUrl) {
   return callbackQueue;
 };
 
-Using.prototype.load = function(scriptName, scriptUrl, remote, asyncWait, cb) {
+Loader.prototype.load = function(scriptName, scriptUrl, remote, asyncWait, cb) {
   if (asyncWait == undefined) asyncWait = this.wait;
   if (remote && asyncWait == 0) asyncWait = this.defaultAsyncWait;
 
@@ -180,8 +180,8 @@ Using.prototype.load = function(scriptName, scriptUrl, remote, asyncWait, cb) {
 
   var callbackQueue = this.getCallbackQueue(scriptUrl);
   callbackQueue.push(new this.CallbackItem(function() {
-      eXo.core.Using.loadedScripts.push(eXo.core.Using.registered[scriptName]);
-      eXo.core.Using.registered[scriptName] = false;
+      eXo.core.Loader.loadedScripts.push(eXo.core.Loader.registered[scriptName]);
+      eXo.core.Loader.registered[scriptName] = false;
     },  null));
   if (cb) {
     callbackQueue.push(cb);
@@ -204,19 +204,19 @@ Using.prototype.load = function(scriptName, scriptUrl, remote, asyncWait, cb) {
   }
 };
 
-Using.prototype.genScriptNode = function() {
+Loader.prototype.genScriptNode = function() {
   var scriptNode = document.createElement("script");
   scriptNode.setAttribute("type", "text/javascript");
   scriptNode.setAttribute("language", "JavaScript");
   return scriptNode;
 };
 
-Using.prototype.srcScript = function(scriptUrl, asyncWait, callbackQueue) {
+Loader.prototype.srcScript = function(scriptUrl, asyncWait, callbackQueue) {
   var scriptNode = this.genScriptNode();
   scriptNode.setAttribute("src", scriptUrl);
   if (callbackQueue) {
     var execQueue = function() {
-      eXo.core.Using.__callbackQueue[scriptUrl] = undefined;
+      eXo.core.Loader.__callbackQueue[scriptUrl] = undefined;
       for (var q = 0; q < callbackQueue.length; q++) {
         callbackQueue[q].invoke();
       }
@@ -237,7 +237,7 @@ Using.prototype.srcScript = function(scriptUrl, asyncWait, callbackQueue) {
   headNode.appendChild(scriptNode);
 };
 
-Using.prototype.injectScript = function(scriptText, scriptName) {
+Loader.prototype.injectScript = function(scriptText, scriptName) {
   var scriptNode = this.genScriptNode();
   try {
     scriptNode.setAttribute("name", scriptName);
@@ -253,9 +253,9 @@ function durl(sc) {
     su = sc.substring(4, sc.length - 1);
   }
   //console.log("this.registered", this.registered);
-  var r = eXo.core.Using.registered[su];
+  var r = eXo.core.Loader.registered[su];
   return (!r && (!this.__durls || !this.__durls[su]) && sc && sc.length > 4 && sc.substring(0, 4) == "url(");
 };
 
-eXo.core.Using = new Using();
-window.using = eXo.core.Using.init ;
+eXo.core.Loader = new Loader();
+//window.using = eXo.core.Using.init ;
