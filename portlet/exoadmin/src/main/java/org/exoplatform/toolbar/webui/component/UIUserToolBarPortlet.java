@@ -104,7 +104,8 @@ public class UIUserToolBarPortlet extends UIPortletApplication {
   
   public String getGroupLabel(String groupId) throws Exception {
     Group group = orgService.getGroupHandler().findGroupById(groupId);
-    return group.getLabel();
+    String label = group.getLabel();
+    return (label != null && label.trim().length() > 0) ? label : group.getGroupName(); 
   }
   
   private PageNavigation getPageNavigation(String owner){
