@@ -28,6 +28,7 @@
   <modules>
     <module>component/xml-parser</module>
     <module>component/resources</module>
+    <module>component/gifbackport</module>
     <module>component/application-registry</module>
     <module>component/portal</module>
     <module>component/web</module>
