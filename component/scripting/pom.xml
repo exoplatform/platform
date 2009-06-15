@@ -20,6 +20,12 @@
     </dependency>
     
     <dependency>
+      <groupId>org.exoplatform.portletcontainer</groupId>
+      <artifactId>exo.pc.component.common</artifactId>
+      <version>${org.exoplatform.pc.version}</version>
+    </dependency>
+
+    <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.xml-parser</artifactId>
       <version>2.6-SNAPSHOT</version>
