@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserACL;
@@ -28,6 +27,8 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.services.organization.Group;
+import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -43,8 +44,11 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
                  template = "app:/groovy/admintoolbar/webui/component/UIUserToolBarPortlet.gtmpl"
 )
 public class UIUserToolBarPortlet extends UIPortletApplication {
+  
+  OrganizationService orgService;
 
   public UIUserToolBarPortlet() throws Exception {
+    orgService = getApplicationComponent(OrganizationService.class);
   }
   
   public List<String> getAllDashboards() throws Exception {
@@ -96,6 +100,11 @@ public class UIUserToolBarPortlet extends UIPortletApplication {
   
   public String getPortalURI(String portalName) {
     return Util.getPortalRequestContext().getPortalURI().replace(getCurrentPortal(), portalName);
+  }
+  
+  public String getGroupLabel(String groupId) throws Exception {
+    Group group = orgService.getGroupHandler().findGroupById(groupId);
+    return group.getLabel();
   }
   
   private PageNavigation getPageNavigation(String owner){
