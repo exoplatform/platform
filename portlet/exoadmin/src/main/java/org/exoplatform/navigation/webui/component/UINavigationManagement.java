@@ -16,7 +16,7 @@
  */
 package org.exoplatform.navigation.webui.component;
 
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -40,7 +40,7 @@ public class UINavigationManagement extends UIContainer {
   
   public void loadNavigation(Query<PageNavigation> query) throws Exception {
     DataStorage service = getApplicationComponent(DataStorage.class);
-    PageList navis = service.find(query);
+    LazyPageList navis = service.find(query);
     UINavigationNodeSelector nodeSelector = getChild(UINavigationNodeSelector.class);
     nodeSelector.initNavigations(navis.getAll());
   }

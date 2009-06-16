@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.exoplatform.commons.utils.ObjectPageList;
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserACL.Permission;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -70,7 +70,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     uiGrid.setLabel("UIListPermissionSelector");
     uiGrid.configure("expression", new String[]{"groupId", "membership"}, new String[]{"Delete"});
     UIFormPageIterator uiIterator = (UIFormPageIterator)uiGrid.getUIPageIterator() ;
-    uiIterator.setPageList(new ObjectPageList(new ArrayList<Permission>(), 10));
+    uiIterator.setPageList(new LazyPageList(new PermissionListAccess(null), 10));
     addChild(uiIterator) ;
     uiIterator.setRendered(false) ;
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, null);
@@ -106,7 +106,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
   public void clearGroups() throws Exception {
     List<Object> list = new ArrayList<Object>();
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
-    uiIterator.setPageList(new ObjectPageList(list, 10));
+    uiIterator.setPageList(new LazyPageList(new AccessGroupListAccess(list), 10));
   }
   
   @SuppressWarnings("unchecked")
@@ -139,7 +139,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
       list.add(permission);
     }
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
-    uiIterator.setPageList(new ObjectPageList(list, 10));
+    uiIterator.setPageList(new LazyPageList(new AccessGroupListAccess(list), 10));
     return this;
   }
   
@@ -155,7 +155,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
         break;
       }
     }
-    uiIterator.setPageList(new ObjectPageList(list, 10));
+    uiIterator.setPageList(new LazyPageList(new AccessGroupListAccess(list), 10));
   }
   
   @SuppressWarnings("unchecked")
@@ -170,7 +170,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     list.addAll(uiIterator.getPageList().getAll());
     if(existsPermission(list, permission))  return;
     list.add(permission);
-    uiIterator.setPageList(new ObjectPageList(list, 10));
+    uiIterator.setPageList(new LazyPageList(new AccessGroupListAccess(list), 10));
   }
   
   public Class<String[]> getTypeValue() { return String[].class; }
@@ -195,7 +195,7 @@ public class UIListPermissionSelector extends UISelector<String[]> {
     uiPublicMode.setChecked(publicMode_) ;
     UIFormGrid uiGrid = getChild(UIFormGrid.class) ;
     uiGrid.setRendered(!publicMode_) ;
-    if(publicMode_) uiGrid.getUIPageIterator().setPageList(new ObjectPageList(new ArrayList<Object>(), 10)) ;
+    if(publicMode_) uiGrid.getUIPageIterator().setPageList(new LazyPageList(new AccessGroupListAccess(null), 10)) ;
   }
       
   static  public class DeleteActionListener extends EventListener<UIListPermissionSelector> {   

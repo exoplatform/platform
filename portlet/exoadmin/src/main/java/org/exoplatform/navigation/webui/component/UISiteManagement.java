@@ -23,7 +23,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
@@ -62,7 +62,7 @@ public class UISiteManagement extends UIContainer {
   //public static String[] SELECT_ACTIONS = {"EditPortalLayout", "EditNavigation", "DeletePortal"} ;
   public static String[] ACTIONS = {"EditNavigation", "DeletePortal"} ;
   
-  private PageList pageList;
+  private LazyPageList pageList;
   
   public UISiteManagement() throws Exception {  
     UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, "EditPortalNavigation");

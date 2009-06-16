@@ -27,8 +27,7 @@ import javax.jcr.Session;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 
-import org.exoplatform.commons.utils.ObjectPageList;
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
@@ -378,12 +377,12 @@ public class DataStorageImpl implements DataStorage, Startable {
   }
   
   @SuppressWarnings("unchecked")
-  public PageList find(Query q) throws Exception {
+  public LazyPageList find(Query q) throws Exception {
     return find(q, null);
   }
 
   @SuppressWarnings("unchecked")
-  public PageList find(Query q, Comparator sortComparator) throws Exception {
+  public LazyPageList find(Query q, Comparator sortComparator) throws Exception {
     SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
     StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
     String registryNodePath = regService_.getRegistry(sessionProvider).getNode().getPath() ;
@@ -407,7 +406,7 @@ public class DataStorageImpl implements DataStorage, Startable {
         list.add(mapper_.fromDocument(entry.getDocument(), q.getClassType())) ;
       }
       if(sortComparator != null) Collections.sort(list, sortComparator) ;
-      return new ObjectPageList(list, 10);
+      return new LazyPageList(new DataStorageListAccess(list), 10);
     }
     finally {
       sessionProvider.close() ;

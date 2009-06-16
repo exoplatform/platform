@@ -19,7 +19,9 @@ package org.exoplatform.webui.organization;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.commons.utils.ObjectPageList;
+import org.exoplatform.portal.config.jcr.DataStorageListAccess;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -53,7 +55,7 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     UIGrid uiGrid = addChild(UIGrid.class, null, "TableGroup") ;
     uiGrid.configure("id", new String[]{"id", "label", "description"}, new String[]{"Delete"});
     
-    uiGrid.getUIPageIterator().setPageList(new ObjectPageList(new ArrayList<Group>(), 10));
+    uiGrid.getUIPageIterator().setPageList(new LazyPageList(new AccessGroupListAccess(null), 10));
     
     UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "UIGroupSelector");
     uiPopup.setWindowSize(540, 0);
@@ -74,7 +76,7 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     for(Group group : groups) {
       if(checkAvailable(group)) list.add(group);
     }
-    uiIterator.setPageList(new ObjectPageList(list, 10));
+    uiIterator.setPageList(new LazyPageList(new AccessGroupListAccess(list), 10));
   }
   
   @SuppressWarnings("unchecked")
@@ -91,7 +93,7 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
   public void clearGroups() throws Exception {
     List<Object> list = new ArrayList<Object>();
     UIPageIterator uiIterator = getChild(UIGrid.class).getUIPageIterator();
-    uiIterator.setPageList(new ObjectPageList(list, 10));
+    uiIterator.setPageList(new LazyPageList(new AccessGroupListAccess(list), 10));
   }
   
   @SuppressWarnings("unchecked")
@@ -114,7 +116,7 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
       Group group = service.getGroupHandler().findGroupById(id);
       list.add(group);
     }
-    uiIterator.setPageList(new ObjectPageList(list, 10));
+    uiIterator.setPageList(new LazyPageList(new AccessGroupListAccess(list), 10));
   }
   
   public Class<String> getTypeValue() { return String.class; }
@@ -133,11 +135,6 @@ public class UIAccessGroup extends UIFormInputContainer<String> {
     
   static  public class DeleteActionListener extends EventListener<UIAccessGroup> {   
     public void execute(Event<UIAccessGroup> event) throws Exception {
-//      String groupId = event.getRequestContext().getRequestParameter(OBJECTID) ;
-//      UIAccessGroup uiAccessGroup = event.getSource() ;
-      
-      
-//      System.out.println("\n\n\n\n\n\n\n  REMOVE OBJECT: "+uiAccessGroup+"  \n\n\n\n\n\n\n");
     }
   }
 

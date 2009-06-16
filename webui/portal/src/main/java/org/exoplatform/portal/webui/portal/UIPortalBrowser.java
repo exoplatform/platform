@@ -20,7 +20,7 @@ import java.util.Comparator;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
@@ -78,7 +78,7 @@ public class UIPortalBrowser extends UIContainer {
     UIGrid uiGrid = findFirstComponentOfType(UIGrid.class) ;
     int currentPage = uiGrid.getUIPageIterator().getCurrentPage() ;
     Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, null, PortalConfig.class) ;
-    PageList pageList = service.find(query, new Comparator<PortalConfig>(){
+    LazyPageList pageList = service.find(query, new Comparator<PortalConfig>(){
       public int compare(PortalConfig pconfig1, PortalConfig pconfig2) {
         return pconfig1.getName().compareTo(pconfig2.getName());
       }

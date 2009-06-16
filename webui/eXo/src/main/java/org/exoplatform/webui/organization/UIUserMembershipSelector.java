@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.exoplatform.commons.utils.ObjectPageList;
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.LazyPageList;
+import org.exoplatform.portal.config.jcr.DataStorageListAccess;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.GroupHandler;
 import org.exoplatform.services.organization.MembershipType;
@@ -94,7 +94,7 @@ public class UIUserMembershipSelector extends UISelector<String> {
     }
     
     UIGrid uiGrid = getChild(UIGrid.class) ;
-    PageList pageList = new ObjectPageList(getMembership(), 10) ;
+    LazyPageList pageList = new LazyPageList(new MembershipListAccess(getMembership()), 10) ;
     uiGrid.getUIPageIterator().setPageList(pageList) ;
   }
   

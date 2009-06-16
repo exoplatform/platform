@@ -29,8 +29,7 @@ import org.exoplatform.application.registry.Application;
 import org.exoplatform.application.registry.ApplicationCategory;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.applicationregistry.webui.Util;
-import org.exoplatform.commons.utils.ObjectPageList;
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
@@ -134,7 +133,7 @@ public class UIAddApplicationForm extends UIForm {
       i++ ;
     }
     UIFormPageIterator uiIterator = uiTableInputSet.getChild(UIFormPageIterator.class) ;
-    PageList pageList = new ObjectPageList(uiInputSetList, 10) ;
+    LazyPageList<UIFormInputSet> pageList = new LazyPageList<UIFormInputSet>(new FormInputSetListAccess(uiInputSetList), 10);
     uiIterator.setPageList(pageList) ;    
   }
   

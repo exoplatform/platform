@@ -19,7 +19,7 @@ package org.exoplatform.portal.config;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortletPreferences;
@@ -48,7 +48,7 @@ public class RemoveGroupPortalConfigListener extends Listener<GroupDAOImpl, Grou
     DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
     String groupId = group.getId().substring(1) ;
     Query<Page> pageQuery = new Query<Page>(PortalConfig.GROUP_TYPE, groupId,  Page.class) ;
-    PageList pageList = dataStorage.find(pageQuery) ;
+    LazyPageList pageList = dataStorage.find(pageQuery) ;
     int i = 1 ;
     while(i <= pageList.getAvailablePage()) {
       List<?> list = pageList.getPage(i) ;

@@ -19,7 +19,7 @@ package org.exoplatform.portal.config;
 import java.util.Iterator;
 import java.util.List;
 
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortletPreferences;
@@ -50,7 +50,7 @@ public class RemoveUserPortalConfigListener extends Listener<UserDAOImpl, User> 
     String userName = user.getUserName() ;
     
     Query<Page> query = new Query<Page>(PortalConfig.USER_TYPE, userName, Page.class) ;
-    PageList pageList = dataStorage.find(query) ;
+    LazyPageList pageList = dataStorage.find(query) ;
     pageList.setPageSize(10) ;
     int i =  1;
     while(i <= pageList.getAvailablePage()) {

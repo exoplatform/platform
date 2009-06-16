@@ -147,7 +147,8 @@ public class UIGadgetInfo extends UIComponent {
       // get dir path of gadget 
       String gadgetUrl = gadget.getUrl();
       String[] gaggetUrlPart = gadgetUrl.split("/");
-      String dirPath = gaggetUrlPart[gaggetUrlPart.length - 2];
+      //String dirPath = gaggetUrlPart[gaggetUrlPart.length - 2];
+      String dirPath = gaggetUrlPart[gaggetUrlPart.length - 9];
       // get gadget's source: path = dir path + file name
       Source source = sourceStorage.getSource(dirPath + "/" + fileName);
       uiEditor.setSource(source);

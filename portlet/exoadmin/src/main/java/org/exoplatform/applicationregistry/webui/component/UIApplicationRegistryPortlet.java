@@ -17,6 +17,8 @@
 package org.exoplatform.applicationregistry.webui.component;
 
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.ViewChildActionListener;
+import org.exoplatform.webui.application.WebuiApplication;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
@@ -37,4 +39,10 @@ public class UIApplicationRegistryPortlet extends UIPortletApplication {
     addChild(UIPortletManagement.class, null, null).setRendered(false) ;
     addChild(UIGadgetManagement.class, null, null).setRendered(false) ;
   }
+  
+  @Override
+public void processRender(WebuiApplication app, WebuiRequestContext context) throws Exception {
+	// TODO Auto-generated method stub
+	super.processRender(app, context);
+}
 }

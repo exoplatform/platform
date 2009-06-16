@@ -23,6 +23,7 @@ import java.util.ResourceBundle;
 
 import javax.jcr.RepositoryException;
 
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -128,7 +129,7 @@ public class UIPageBrowser extends UISearch {
 		if (lastQuery_ == null){
 			lastQuery_ = new Query<Page>(null, null, null, null, Page.class);
 		}
-		PageList pagelist = null;
+		LazyPageList pagelist = null;
 		try {
 			pagelist = service.find(lastQuery_, new Comparator<Object>() {
 				public int compare(Object obj1, Object obj2) {
