@@ -1,62 +1,3 @@
-
-
-<div class="UISiteManagement UIManagement">
-		<div class="UIManagementBlock SiteManagement">
-			<div class="Image FloatLeft"><img src="/exoadmin/skin/navigation/webui/component/background/PlImg.gif"></div>
-			<div class="Label FloatLeft">Administrator</div>
-			<div class="EditLayoutBox FloatLeft"><a href="#" class="EditLayout">Edit Layout</a></div>
-			<div class="EditIcoBox FloatLeft"><a href="#" class="EditIco">Edit Navigation</a></div>
-			<div class="DeleteIcoBox FloatLeft"><a href="#" class="DeleteIco">Delete</a></div>
-			<div class="ClearLeft"><span></span></div>
-		</div>
-		<div class="UIManagementBlock SiteManagement">
-			<div class="Image FloatLeft"><img src="/exoadmin/skin/navigation/webui/component/background/PlImg.gif"></div>
-			<div class="Label FloatLeft">Administrator</div>
-			<div class="EditLayoutBox FloatLeft"><a href="#" class="EditLayout">Edit Layout</a></div>
-			<div class="EditIcoBox FloatLeft"><a href="#" class="EditIco">Edit Navigation</a></div>
-			<div class="DeleteIcoBox FloatLeft"><a href="#" class="DeleteIco">Delete</a></div>
-			<div class="ClearLeft"><span></span></div>
-		</div>
-		<div class="UIManagementBlock SiteManagement">
-			<div class="Image FloatLeft"><img src="/exoadmin/skin/navigation/webui/component/background/PlImg.gif"></div>
-			<div class="Label FloatLeft">Administrator</div>
-			<div class="EditLayoutBox FloatLeft"><a href="#" class="EditLayout">Edit Layout</a></div>
-			<div class="EditIcoBox FloatLeft"><a href="#" class="EditIco">Edit Navigation</a></div>
-			<div class="DeleteIcoBox FloatLeft"><a href="#" class="DeleteIco">Delete</a></div>
-			<div class="ClearLeft"><span></span></div>
-		</div>
-		
-				<div class="UIAction ManagerButton"> 
-		    <table class="ActionContainer">
-			    <tr>
-			    	<td>
-				      <div class="ActionButton AddBtn">
-				        <div class="ButtonLeft">
-				          <div class="ButtonRight">
-				            <div class="ButtonMiddle">
-				              <a href="#">Add Site</a>
-				            </div>
-				          </div>
-				        </div>
-				      </div>
-							<div class="ActionButton CancelBtn">
-				        <div class="ButtonLeft">
-				          <div class="ButtonRight">
-				            <div class="ButtonMiddle">
-				              <a href="#">Cancel</a>
-				            </div>
-				          </div>
-				        </div>
-				      </div>
-				    </td>
-		      </tr>
-		 	  </table>
-				</div>
-	
-</div>
-
-
-
 <%
   import org.exoplatform.webui.core.UIComponent ;
   import org.exoplatform.webui.form.UIForm;
@@ -65,58 +6,43 @@
    
   String[] actions =  uicomponent.getActions();
 %>
-
-<!--
-<div class="UISiteManagement" id="<%=uicomponent.getId();%>">
-	<table class="DataList" cellspacing="0">	  
-	  <tbody>
+<div class="UISiteManagement UIManagement" id="<%=uicomponent.getId();%>">
 	  <%
 		    for (portalConfig in uicomponent.getPortalConfigs())  {		      
 	  %>
-		      <tr>
-		      	<td><img src="#" border="1 solid" width="100" height="100" /></td>
-		      	<td><input type="text" width="100" value="<%=uicomponent.getFieldValue(portalConfig, 'name') %>" readonly /></td>
-			  <%			    
-			        if(actions != null && actions.length > 0) { 
-			  %>
-					   <td>
-				        <div class="ActionContainer">
-				          <%				                    
-				            for(action in actions) { 		              
-				              def portalName = uicomponent.getFieldValue(portalConfig, "name")  ;
-					            if(action == null) continue;
-				              String title = _ctx.appRes(uicomponent.getId() + ".action.title." + action);
-				              String actionLink = uicomponent.event(action, portalName, null);
-					        %>	           
-					        	<a href="$actionLink" alt="">$title</a>
-				          <%
-				          		if (action != actions[actions.length - 1]) { %>
-				          			&nbsp;&nbsp;|&nbsp;&nbsp;
-				          <%	} 
-				          	}
-				          %>		          
-				        </div>
-				      </td>
-			  <%
-			        }
-			  %>  
-			    </tr>
-			    <tr><td colspan="3"><hr /></td></tr>
+		      	<table class="ManagementBlock" style="table-layout: fixed">
+		      		<tr>
+				      	<td class="Image"><img src="/exoadmin/skin/navigation/webui/component/background/PlImg.gif" alt=""/></td>
+				      	<td class="Label"><%=uicomponent.getFieldValue(portalConfig, 'name') %></td>
+				        <td class="ActionBlock">
+					        	<a href="<%=uicomponent.event("EditLayout", portalConfig.getName());%>" class="EditLayoutIcon">Edit Layout</a>
+					        	<a href="<%=uicomponent.event("EditNavigation", portalConfig.getName());%>" class="EditNavIcon">Edit Navigation</a>
+					        	<a href="<%=uicomponent.event("DeletePortal", portalConfig.getName());%>" class="DeleteIcon">Delete</a>
+				        </td>
+				      </tr>
+				    </table>    
 		<%		    
 		  }
 		%> 
-	  </tbody>
-	</table>
 	
 	<div class="UIAction"> 
     <table class="ActionContainer">
 	    <tr>
 	    	<td>
-		      <div onclick="<%=uicomponent.event("AddNewPortal")%>" class="ActionButton LightBlueStyle">
+		      <div onclick="<%=uicomponent.event("AddNewPortal")%>" class="ActionButton ManagerButton">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
 		              <a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.addNewPortal")%></a>
+		            </div>
+		          </div>
+		        </div>
+		       </div>
+		       <div class="ActionButton CancelBtn">
+		        <div class="ButtonLeft">
+		          <div class="ButtonRight">
+		            <div class="ButtonMiddle">
+		              <a href="javascript:void(0);">Cancel</a>
 		            </div>
 		          </div>
 		        </div>
@@ -126,8 +52,7 @@
  	  </table>
 	</div>
 	
-	%uicomponent.renderChildren();%>
+	<%uicomponent.renderChildren();%>
 </div>
--->
 
 

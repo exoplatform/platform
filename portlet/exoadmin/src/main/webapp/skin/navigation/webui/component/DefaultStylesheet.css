@@ -1,94 +1,74 @@
 
-.ClearLeft{
-		clear: left;
+.UIWindow .UIManagement {
+	margin: 0px;
 }
 
-.UIManagement 	{
-		padding: 10px;
+.UIManagement {
+	padding: 10px;
+	margin: 7px;
+	border: 1px solid #ccc;
+	background: white;
 }
 
-.UIManagement .UIManagementBlock {
-		height: 100px;
-		border-top: 1px solid #ccc;
-		border-right: 1px solid #ccc;
-		border-left: 1px solid #ccc;
-		background: #fcfcfc url('background/ContentBg.gif') repeat-x;
-		}
-.UIManagement .UIManagementBlock .Image {
-		width: 103px;
-		line-height: 100px;
-		padding: 0px 10px 0px 20px ;
+.UIManagement .ManagementBlock {
+	height: 101px;
+	background: #fcfcfc url('background/ContentBg.gif') repeat-x bottom;
 }
 
-.UIManagement  .UIManagementBlock .Label {
-		line-height: 100px;
-		color: #0077d4;
-		font-size: 14px;
-		font-weight: bold;
-		padding: 0px 15px 0px 15px ;
-		width: 175px;
-		background: url('background/LineBg.gif') no-repeat right center;
+.UIManagement table.ManagementBlock td {
+	vertical-align: middle;
+	white-space: nowrap;
 }
 
-.UIManagement .UIManagementBlock .EditLayoutBox{
-		padding-top: 45px;
-		margin-left: 70px;
+.UIManagement .ManagementBlock .Image {
+	width: 103px;
+	line-height: 100px;
+	padding: 0px 10px 0px 20px ;
 }
 
-
-.UIManagement .UIManagementBlock .EditLayout{
-		background: url('background/MiniIcon.gif') no-repeat left 0px;
-		line-height: 16px;
-		padding-left: 25px;
-		padding-right: 70px;
-		display: block;
+.UIManagement .ManagementBlock .Label {
+	color: #0077d4;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 0px 15px 0px 15px ;
+	background: url('background/LineBg.gif') no-repeat right center;
 }
 
-.UIManagement .UIManagementBlock  .EditIcoBox{
-		padding-top: 45px;
+.UIManagement .ManagementBlock .ActionBlock {
+	padding-left: 50px;
+	width: 70%;
 }
 
-.UIManagement .UIManagementBlock  .EditIco{
-		background: url('background/MiniIcon.gif') no-repeat left -17px;
-		padding-left: 25px;
-		padding-right: 70px;
-		line-height: 16px;
-		display: block;
+.UIManagement .ManagementBlock .ActionBlock a {
+	line-height: 16px;
+	width: auto;
+	padding: 1px 0px 2px 25px;
+	margin: 0px 70px 0px 0px;
 }
 
-.UIManagement .UIManagementBlock  .DeleteIcoBox{
-		padding-top: 45px;
+.UIManagement .ManagementBlock .EditLayoutIcon {
+	background: url('background/MiniIcon.gif') no-repeat left 0px;
 }
 
-.UIManagement .UIManagementBlock  .DeleteIco{
-		background: url('background/MiniIcon.gif') no-repeat left -34px;
-		padding-left: 25px;
-		padding-right: 70px;
-		line-height: 16px;
-		display: block;
+.UIManagement .ManagementBlock .EditNavIcon {
+	background: url('background/MiniIcon.gif') no-repeat left -17px;
 }
 
-.UIManagement .ManagerButton{
-		background: #fcfcfc;
-		border: 1px solid #ccc;
-
+.UIManagement .ManagementBlock .DeleteIcon {
+	background: url('background/MiniIcon.gif') no-repeat left -34px;
 }
 
-.UIManagement .UIManagementBlock  .AddBtn{
-	margin: 0px 7px 0px 7px;
-}
-
-.UIManagement .ManagerButton .AddBtn .ButtonLeft{
+.UIManagement .ManagerButton .ButtonLeft {
 	background: url('background/BtnBg.gif') no-repeat left top;
 	padding-left: 8px;
 }
 
-.UIManagement .ManagerButton .AddBtn .ButtonRight{
+.UIManagement .ManagerButton .ButtonRight {
 	background: url('background/BtnBg.gif') no-repeat right top;
 	padding-right: 9px;
 }
 
-.UIManagement .ManagerButton .AddBtn .ButtonMiddle{
+.UIManagement .ManagerButton .ButtonMiddle {
 	background: url('background/BtnBg.gif') repeat-x left -32px;
 	line-height: 32px;
 	font-size: 12px;
@@ -96,21 +76,17 @@
 	padding: 0px 15px 0px 15px;
 }
 
-.UIManagement .CancelBtn{
-	margin: 0px 7px 0px 7px;
-}
-
-.UIManagement .ManagerButton .CancelBtn .ButtonLeft{
+.UIManagement .CancelBtn .ButtonLeft {
 	background: url('background/BtnBg.gif') no-repeat left -64px;
 	padding-left: 7px;
 }
 
-.UIManagement .ManagerButton .CancelBtn .ButtonRight{
+.UIManagement .CancelBtn .ButtonRight{
 	background: url('background/BtnBg.gif') no-repeat right -64px;
 	padding-right: 6px;
 }
 
-.UIManagement .ManagerButton .CancelBtn .ButtonMiddle{
+.UIManagement .CancelBtn .ButtonMiddle{
 	background: url('background/BtnBg.gif') repeat-x left -96px;
 	line-height: 32px;
 	padding: 0px 15px 0px 15px;
