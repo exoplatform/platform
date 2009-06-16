@@ -1,3 +1,62 @@
+
+
+<div class="UISiteManagement UIManagement">
+		<div class="UIManagementBlock SiteManagement">
+			<div class="Image FloatLeft"><img src="/exoadmin/skin/navigation/webui/component/background/PlImg.gif"></div>
+			<div class="Label FloatLeft">Administrator</div>
+			<div class="EditLayoutBox FloatLeft"><a href="#" class="EditLayout">Edit Layout</a></div>
+			<div class="EditIcoBox FloatLeft"><a href="#" class="EditIco">Edit Navigation</a></div>
+			<div class="DeleteIcoBox FloatLeft"><a href="#" class="DeleteIco">Delete</a></div>
+			<div class="ClearLeft"><span></span></div>
+		</div>
+		<div class="UIManagementBlock SiteManagement">
+			<div class="Image FloatLeft"><img src="/exoadmin/skin/navigation/webui/component/background/PlImg.gif"></div>
+			<div class="Label FloatLeft">Administrator</div>
+			<div class="EditLayoutBox FloatLeft"><a href="#" class="EditLayout">Edit Layout</a></div>
+			<div class="EditIcoBox FloatLeft"><a href="#" class="EditIco">Edit Navigation</a></div>
+			<div class="DeleteIcoBox FloatLeft"><a href="#" class="DeleteIco">Delete</a></div>
+			<div class="ClearLeft"><span></span></div>
+		</div>
+		<div class="UIManagementBlock SiteManagement">
+			<div class="Image FloatLeft"><img src="/exoadmin/skin/navigation/webui/component/background/PlImg.gif"></div>
+			<div class="Label FloatLeft">Administrator</div>
+			<div class="EditLayoutBox FloatLeft"><a href="#" class="EditLayout">Edit Layout</a></div>
+			<div class="EditIcoBox FloatLeft"><a href="#" class="EditIco">Edit Navigation</a></div>
+			<div class="DeleteIcoBox FloatLeft"><a href="#" class="DeleteIco">Delete</a></div>
+			<div class="ClearLeft"><span></span></div>
+		</div>
+		
+				<div class="UIAction ManagerButton"> 
+		    <table class="ActionContainer">
+			    <tr>
+			    	<td>
+				      <div class="ActionButton AddBtn">
+				        <div class="ButtonLeft">
+				          <div class="ButtonRight">
+				            <div class="ButtonMiddle">
+				              <a href="#">Add Site</a>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+							<div class="ActionButton CancelBtn">
+				        <div class="ButtonLeft">
+				          <div class="ButtonRight">
+				            <div class="ButtonMiddle">
+				              <a href="#">Cancel</a>
+				            </div>
+				          </div>
+				        </div>
+				      </div>
+				    </td>
+		      </tr>
+		 	  </table>
+				</div>
+	
+</div>
+
+
+
 <%
   import org.exoplatform.webui.core.UIComponent ;
   import org.exoplatform.webui.form.UIForm;
@@ -6,6 +65,8 @@
    
   String[] actions =  uicomponent.getActions();
 %>
+
+<!--
 <div class="UISiteManagement" id="<%=uicomponent.getId();%>">
 	<table class="DataList" cellspacing="0">	  
 	  <tbody>
@@ -64,5 +125,9 @@
       </tr>
  	  </table>
 	</div>
-	<%uicomponent.renderChildren();%>			    
+	
+	%uicomponent.renderChildren();%>
 </div>
+-->
+
+

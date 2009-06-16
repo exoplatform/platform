@@ -1,0 +1,120 @@
+
+.ClearLeft{
+		clear: left;
+}
+
+.UIManagement 	{
+		padding: 10px;
+}
+
+.UIManagement .UIManagementBlock {
+		height: 100px;
+		border-top: 1px solid #ccc;
+		border-right: 1px solid #ccc;
+		border-left: 1px solid #ccc;
+		background: #fcfcfc url('background/ContentBg.gif') repeat-x;
+		}
+.UIManagement .UIManagementBlock .Image {
+		width: 103px;
+		line-height: 100px;
+		padding: 0px 10px 0px 20px ;
+}
+
+.UIManagement  .UIManagementBlock .Label {
+		line-height: 100px;
+		color: #0077d4;
+		font-size: 14px;
+		font-weight: bold;
+		padding: 0px 15px 0px 15px ;
+		width: 175px;
+		background: url('background/LineBg.gif') no-repeat right center;
+}
+
+.UIManagement .UIManagementBlock .EditLayoutBox{
+		padding-top: 45px;
+		margin-left: 70px;
+}
+
+
+.UIManagement .UIManagementBlock .EditLayout{
+		background: url('background/MiniIcon.gif') no-repeat left 0px;
+		line-height: 16px;
+		padding-left: 25px;
+		padding-right: 70px;
+		display: block;
+}
+
+.UIManagement .UIManagementBlock  .EditIcoBox{
+		padding-top: 45px;
+}
+
+.UIManagement .UIManagementBlock  .EditIco{
+		background: url('background/MiniIcon.gif') no-repeat left -17px;
+		padding-left: 25px;
+		padding-right: 70px;
+		line-height: 16px;
+		display: block;
+}
+
+.UIManagement .UIManagementBlock  .DeleteIcoBox{
+		padding-top: 45px;
+}
+
+.UIManagement .UIManagementBlock  .DeleteIco{
+		background: url('background/MiniIcon.gif') no-repeat left -34px;
+		padding-left: 25px;
+		padding-right: 70px;
+		line-height: 16px;
+		display: block;
+}
+
+.UIManagement .ManagerButton{
+		background: #fcfcfc;
+		border: 1px solid #ccc;
+
+}
+
+.UIManagement .UIManagementBlock  .AddBtn{
+	margin: 0px 7px 0px 7px;
+}
+
+.UIManagement .ManagerButton .AddBtn .ButtonLeft{
+	background: url('background/BtnBg.gif') no-repeat left top;
+	padding-left: 8px;
+}
+
+.UIManagement .ManagerButton .AddBtn .ButtonRight{
+	background: url('background/BtnBg.gif') no-repeat right top;
+	padding-right: 9px;
+}
+
+.UIManagement .ManagerButton .AddBtn .ButtonMiddle{
+	background: url('background/BtnBg.gif') repeat-x left -32px;
+	line-height: 32px;
+	font-size: 12px;
+	display: block;
+	padding: 0px 15px 0px 15px;
+}
+
+.UIManagement .CancelBtn{
+	margin: 0px 7px 0px 7px;
+}
+
+.UIManagement .ManagerButton .CancelBtn .ButtonLeft{
+	background: url('background/BtnBg.gif') no-repeat left -64px;
+	padding-left: 7px;
+}
+
+.UIManagement .ManagerButton .CancelBtn .ButtonRight{
+	background: url('background/BtnBg.gif') no-repeat right -64px;
+	padding-right: 6px;
+}
+
+.UIManagement .ManagerButton .CancelBtn .ButtonMiddle{
+	background: url('background/BtnBg.gif') repeat-x left -96px;
+	line-height: 32px;
+	padding: 0px 15px 0px 15px;
+	font-size: 12px;
+	display: block;
+
+}

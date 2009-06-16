@@ -104,3 +104,17 @@ SkinService.addSkin(
     "/exoadmin/skin/admintoolbar/webui/component/UIAdminToolbarPortlet/DefaultStylesheet.css",
     ServletContext
 ) ;
+
+SkinService.addSkin(
+    "exoadmin/PortalNavigationPortlet",
+    "Default",
+    "/exoadmin/skin/navigation/webui/component/DefaultStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
+    "exoadmin/GroupNavigationPortlet",
+    "Default",
+    "/exoadmin/skin/navigation/webui/component/DefaultStylesheet.css",
+    ServletContext
+) ;
