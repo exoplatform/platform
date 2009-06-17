@@ -8,12 +8,12 @@ eXo.gadget.UIGadget = {
             eXo.core.Loader.register('rpc', '/eXoGadgetServer/gadgets/js/rpc.js?c=1');
             eXo.core.Loader.register('eXo.gadgets.Gadgets', '/eXoResources/javascript/eXo/gadget/Gadgets.js');
             eXo.core.Loader.register('eXo.gadgets.ExoBasedUserPrefStore', '/eXoResources/javascript/eXo/gadget/ExoBasedUserPrefStore.js');
-
-            eXo.core.Loader.init("rpc");
-            eXo.core.Loader.init("eXo.gadgets.Gadgets");
-            eXo.core.Loader.init("eXo.gadgets.ExoBasedUserPrefStore");
-
         }
+        eXo.core.Loader.init("rpc","eXo.gadgets.Gadgets","eXo.gadgets.ExoBasedUserPrefStore", 
+            eXo.gadget.UIGadget.createCallback, null, arguments);
+    },
+    
+    createCallback : function(url, id, metadata, userPref, view, isdev, debug, nocache) {
         //TODO: dang.tung - set language for gadget
         //-----------------------------------------
         var language = eXo.core.I18n.getLanguage();
