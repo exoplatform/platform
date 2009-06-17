@@ -443,10 +443,7 @@ public class UserPortalConfigService implements Startable {
                         String ownerType,
                         String ownerId,
                         javax.portlet.PortletPreferences portletPreferences) throws Exception {
-
-    PortalContainer portalContainer = PortalContainer.getInstance();
-    PortletPreferencesPersister persister = (PortletPreferencesPersister) portalContainer.getComponentInstanceOfType(PortletPreferencesPersister.class);
-
+    
     Page page = storage_.getPage(pageId);
     page.setName(pageName);
     page.setPageId(ownerType + "::" + ownerId + "::" + pageName);
@@ -455,10 +452,7 @@ public class UserPortalConfigService implements Startable {
     for (Application ele : apps) {
       String appType = ele.getApplicationType();
       if (appType == null
-          || org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(appType)) {
-        if (portletPreferences == null) {
-          portletPreferences = persister.getPortletPreferences(new ExoWindowID(ele.getInstanceId()));
-        }
+          || org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(appType)) {        
         javax.portlet.PortletPreferences mergedPreferences = getPreferences(ele);
         if (portletPreferences != null) {
           addPreferrences(mergedPreferences, portletPreferences);
@@ -506,23 +500,11 @@ public class UserPortalConfigService implements Startable {
   private void setPreferences(Application portlet,
                               javax.portlet.PortletPreferences portletPreferences) throws Exception {
     ExoWindowID windowID = new ExoWindowID(portlet.getInstanceId());    
-    if (portletPreferences instanceof PortletPreferencesImp) {
-      ExoPortletPreferences exoPortletPreferences = ((PortletPreferencesImp) portletPreferences).getCurrentPreferences();
-      
-      if (exoPortletPreferences.entrySet().isEmpty()) {
-        return;
-      }
-      PortalContainer portalContainer = PortalContainer.getInstance();
-      PortletPreferencesPersister persister = (PortletPreferencesPersister) portalContainer.getComponentInstanceOfType(PortletPreferencesPersister.class);
-      persister.savePortletPreferences(windowID, exoPortletPreferences);
-    } else {
-      Input input = new Input();
-      input.setInternalWindowID(windowID);
-      ExoContainer container = ExoContainerContext.getCurrentContainer();
-      PortletContainerService pcServ = (PortletContainerService) container.getComponentInstanceOfType(PortletContainerService.class);
-      pcServ.setPortletPreferences(input, portletPreferences);
-    }
-
+    Input input = new Input();
+    input.setInternalWindowID(windowID);
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    PortletContainerService pcServ = (PortletContainerService) container.getComponentInstanceOfType(PortletContainerService.class);
+    pcServ.setPortletPreferences(input, portletPreferences);
   }
 
   private void renewInstanceId(Application app, String ownerType, String ownerId) {

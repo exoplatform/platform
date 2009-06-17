@@ -19,6 +19,7 @@ package org.exoplatform.portal.config.jcr;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -344,6 +345,10 @@ public class DataStorageImpl implements DataStorage, Startable {
   }
   
   public void save(PortletPreferences portletPreferences) throws Exception {
+    List<?> preferences = portletPreferences.getPreferences();
+    if (preferences == null || preferences.isEmpty()) {
+      return;
+    }
     String name = portletPreferences.getWindowId().replace('/', '_').replace(':', '_').replace('#', '_') ;
     String portletPreferencesSet = getApplicationRegistryPath(portletPreferences.getOwnerType(), portletPreferences.getOwnerId())
                                     + "/" + PORTLET_PREFERENCES_SET_NODE ;
