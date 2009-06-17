@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.apache.commons.logging.Log;
-import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
@@ -225,7 +225,7 @@ public class UserPortalConfigService implements Startable {
     Query<Page> query = new Query<Page>(null, null, null, null, Page.class);
     query.setOwnerType(PortalConfig.PORTAL_TYPE);
     query.setOwnerId(portalName);
-    PageList pageList = storage_.find(query);
+    LazyPageList pageList = storage_.find(query);
     pageList.setPageSize(10);
     int i = 1;
     while (i <= pageList.getAvailablePage()) {
