@@ -333,9 +333,9 @@
                 //}
               %>
               <div class="LoginContainer">
-				        <div class="LabelItem">
+				        <div class="LabelItem" onclick="javascript:eXo.portal.logout();">
 				          <div class="LogoutIcon">
-				            <div class="LabelText"><a href="javascript:eXo.portal.logout();"><%=_ctx.appRes(uicomponent.getId() + ".item.Logout")%></a></div>
+				            <div class="LabelText"><a href="#"><%=_ctx.appRes(uicomponent.getId() + ".item.Logout")%></a></div>
 				          </div>
 				        </div>
 				      </div>
