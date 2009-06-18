@@ -1,8 +1,11 @@
 <%
 	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.application.gadget.GadgetRegistryService;
 	
   def rcontext = _ctx.getRequestContext() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
+  GadgetRegistryService grService = uicomponent.getApplicationComponent(GadgetRegistryService.class);
+  def hostName = grService.getHostName();
   def url = uicomponent.getUrl();
   def metadata = uicomponent.getMetadata();
   def posX = uicomponent.getProperties().getIntValue("locationX") + "px";
@@ -17,7 +20,7 @@
 	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
 	rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.confirmDeleteGadget = '" + _ctx.appRes("UIGadgetContainerManagement.confirm.DeleteGadget") + "';") ;
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id', $metadata, $userPref, '$view', " + (isDev ? 1 : 0)
-                                                                            + ", " + (isDebug ? 1 : 0) + ", " + (noCache ? 1 : 0) + ");")
+                                                                            + ", " + (isDebug ? 1 : 0) + ", " + (noCache ? 1 : 0) + ", '$hostName');")
 %>
 <div class="UIGadget" id="<%= uicomponent.getApplicationInstanceUniqueId() %>" style="left: $posX; top: $posY; z-Index: $zIndex; width: 320px" >
 	<div class="GadgetControl" style="visibility: visible;">

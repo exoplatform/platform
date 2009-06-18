@@ -29,7 +29,7 @@
 	    <value-param>
 	      <name>gadgets.hostName</name>
 	      <description>Gadget server url</description>
-	      <value>http://localhost:8080</value>	    
+	      <value>http://localhost:8080/eXoGadgetServer/gadgets/</value>	    
 	    </value-param>
 	    
   		<properties-param>

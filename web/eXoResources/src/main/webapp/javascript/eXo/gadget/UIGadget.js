@@ -1,11 +1,12 @@
+
 eXo.gadget.UIGadget = {
-    createGadget : function(url, id, metadata, userPref, view, isdev, debug, nocache) {
+    createGadget : function(url, id, metadata, userPref, view, isdev, debug, nocache, hostName) {
         //eXo = eXo || {};
         window.gadgets = window.gadgets || {};
         eXo.gadgets = window.gadgets;
         //window.gadgets = eXo.gadget.Gadgets;
         if (!eXo.gadgets || !eXo.gadgets.rpc) {
-            eXo.core.Loader.register('rpc', '/eXoGadgetServer/gadgets/js/rpc.js?c=1');
+            eXo.core.Loader.register('rpc', '1.0.0',true, 0, hostName + '/js/rpc.js?c=1');
             eXo.core.Loader.register('eXo.gadgets.Gadgets', '/eXoResources/javascript/eXo/gadget/Gadgets.js');
             eXo.core.Loader.register('eXo.gadgets.ExoBasedUserPrefStore', '/eXoResources/javascript/eXo/gadget/ExoBasedUserPrefStore.js');
         }
@@ -13,7 +14,7 @@ eXo.gadget.UIGadget = {
             eXo.gadget.UIGadget.createCallback, null, arguments);
     },
     
-    createCallback : function(url, id, metadata, userPref, view, isdev, debug, nocache) {
+    createCallback : function(url, id, metadata, userPref, view, isdev, debug, nocache, hostName) {
         //TODO: dang.tung - set language for gadget
         //-----------------------------------------
         var language = eXo.core.I18n.getLanguage();
@@ -30,6 +31,7 @@ eXo.gadget.UIGadget = {
         gadget.debug = debug;
         gadget.nocache = nocache;
         gadget.isdev = isdev;
+        gadget.serverBase_ = hostName;
         
         gadgets.container.addGadget(gadget);
         // i use the internal var "gadget.userPrefs_" to not call the save on the server side

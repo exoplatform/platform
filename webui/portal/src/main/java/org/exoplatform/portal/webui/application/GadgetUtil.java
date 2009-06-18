@@ -81,7 +81,7 @@ public class GadgetUtil {
           + "{\"moduleId\":" + gadgetService.getModuleId() + ",\"url\":\"" + urlStr
           + "\",\"prefs\":[]}]}";
       // Send data
-      URL url = new URL(getHostName() + "/eXoGadgetServer/gadgets/metadata");
+      URL url = new URL(getHostBase() + "/eXoGadgetServer/gadgets/metadata");
       URLConnection conn = url.openConnection();
       conn.setDoOutput(true);
       OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
@@ -131,11 +131,23 @@ public class GadgetUtil {
   }
 
   static final public String getViewPath(String uri) {
-    return getHostName() + "/rest/" + uri;
+    return getHostBase() + "/rest/" + uri;
   }
 
   static final public String getEditPath(String uri) {
-    return getHostName() + "/rest/private/" + uri;
+    return getHostBase() + "/rest/private/" + uri;
+  }
+  
+  static private String getHostBase() {
+    String hostName = getHostName();
+    URL url = null;
+    try {
+       url = new URL(hostName);
+    } catch (Exception e) {}
+    if(url == null) return hostName ;
+    int index = hostName.indexOf(url.getPath()) ;
+    if(index < 1) return hostName ;
+    return hostName.substring(0, index) ;
   }
 
   static final private String getHostName() {
