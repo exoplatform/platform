@@ -6,7 +6,7 @@
 	import org.exoplatform.webui.core.UIComponent;
 	import java.util.Iterator;
 	import org.exoplatform.portal.webui.portal.UIPortal ;
-	import org.exoplatform.portal.config.model.PortalConfig ;
+	import org.exoplatform.portal.config.model.PortalProperties ;
 		
   def rcontext = _ctx.getRequestContext() ;
   String docBase =  rcontext.getRequestContextPath() ;  
@@ -68,7 +68,7 @@
       <% 
         UIPortal portal = uicomponent.findFirstComponentOfType(UIPortal.class);
         String sessionAliveLevel = (portal == null ? null : portal.sessionAlive) ;
-        boolean canKeepState = sessionAliveLevel == null ? false : !sessionAliveLevel.equals(PortalConfig.SESSION_NEVER) ;
+        boolean canKeepState = sessionAliveLevel == null ? false : !sessionAliveLevel.equals(PortalProperties.SESSION_NEVER) ;
       %>
       eXo.session.level = '$sessionAliveLevel';
       eXo.session.canKeepState = $canKeepState;
