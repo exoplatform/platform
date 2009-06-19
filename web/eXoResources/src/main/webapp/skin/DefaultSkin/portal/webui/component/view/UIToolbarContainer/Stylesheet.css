@@ -35,6 +35,7 @@
 
 .UIToolbarContainer .UIHorizontalTabs .TabsContainer {
     height: 30px;
+    float: left;
 }
 
 .UIToolbarContainer .UIHorizontalTabs .UITab {
