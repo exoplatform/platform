@@ -67,7 +67,6 @@ public class UIUserToolBarPortlet extends UIPortletApplication {
     DataStorage dataStorage = getApplicationComponent(DataStorage.class);
     Query<PortalConfig> query = new Query<PortalConfig>(null, null, null, null, PortalConfig.class) ;
     PageList pageList = dataStorage.find(query) ;
-    String userId = Util.getPortalRequestContext().getRemoteUser();
     UserACL userACL = getApplicationComponent(UserACL.class) ;
     List<PortalConfig> configs = pageList.getAll();    
     for(PortalConfig ele : configs) {
@@ -95,7 +94,9 @@ public class UIUserToolBarPortlet extends UIPortletApplication {
   }
   
   public PageNavigation getCurrentPortalNavigation() throws Exception {
-    return getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + Util.getUIPortal().getName());
+    PageNavigation navi = getPageNavigation(PortalConfig.PORTAL_TYPE + "::" + Util.getUIPortal().getName());
+    String remoteUser = Util.getPortalRequestContext().getRemoteUser();
+    return PageNavigationUtils.filter(navi, remoteUser); 
   }
   
   public String getPortalURI(String portalName) {
