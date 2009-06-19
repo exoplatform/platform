@@ -1,37 +1,70 @@
 <%
+  String popupId = uicomponent.getId() ;
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
+  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', true, false, true, false);") ;
 %>
-<div class="UIPortalComposer" id="$uicomponent.id">
-	<div class="Component">
-	<% uicomponent.renderChildren() %>
+<div class="UIPopupWindow UIDragObject UIPortalComposer" exo:minWidth="200" exo:minHeight="200" id="$uicomponent.id" style="width: 300px display: block;">
+	<div class="NormalStyle">
+	  <div class="TopLeftCornerDecorator">
+	    <div class="TopRightCornerDecorator">
+	      <div class="TopCenterDecorator">
+	        <div class="OverflowContainer">
+		        <div class="PopupTitleIcon"><span></span></div>
+		          <div class="CloseButton" title="<%=_ctx.appRes("UIPopupWindow.Close")%>" onclick="<%=uicomponent.event("Close")%>"><span></span></div>
+		        <div class="PopupTitle"><%=_ctx.appRes(popupId + ".title."+ popupId)%></div>
+		      </div>
+	      </div>
+	    </div>
+	  </div>
+	  <div class="MiddleLeftSideDecorator">
+		  <div class="MiddleRightSideDecorator">
+		    <div class="MiddleCenterDecorator">
+	        <div class="UIWindowContent">
+	          <div style="width: 100%;">
+	          	<div class="PopupContent" style="height: 500px">
+	          		<div class="Component"><% uicomponent.renderChildren(); %></div>
+							  <div class="UIAction"> 
+							    <table class="ActionContainer">
+							    	<tr>
+							    		<td>
+												
+							      		<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+							            <div class="ButtonLeft">
+							              <div class="ButtonRight">
+							                <div class="ButtonMiddle">
+							                  <a href="javascript:void(0);">View Properties</a>
+							                </div>
+							              </div>
+							            </div>
+							       		</div>
+							
+							      		<div onclick="eXo.portal.UIPortal.switchPortalMode(this);" class="ActionButton LightBlueStyle LayoutMode" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+							            <div class="ButtonLeft">
+							              <div class="ButtonRight">
+							                <div class="ButtonMiddle">
+							                  <a href="javascript:void(0);">Swich View</a>
+							                </div>
+							              </div>
+							            </div>
+							       		</div>
+							
+							      	</td>
+							      </tr>  
+							    </table>
+							  </div>
+	          	</div>
+	          </div>
+	        </div>
+		    </div>
+		  </div>
+	  </div>
+	  <div class="BottomLeftCornerDecorator">
+		  <div class="BottomRightCornerDecorator">
+		    <div class="BottomCenterDecorator">
+					<div class="ResizeButton"><span></span></div>
+				</div>
+		  </div>
+	  </div>	
 	</div>
-  <div class="UIAction"> 
-    <table class="ActionContainer">
-    	<tr>
-    		<td>
-					
-      		<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
-            <div class="ButtonLeft">
-              <div class="ButtonRight">
-                <div class="ButtonMiddle">
-                  <a href="javascript:void(0);">View Properties</a>
-                </div>
-              </div>
-            </div>
-       		</div>
-
-      		<div onclick="eXo.portal.UIPortal.switchPortalMode(this);" class="ActionButton LightBlueStyle LayoutMode" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
-            <div class="ButtonLeft">
-              <div class="ButtonRight">
-                <div class="ButtonMiddle">
-                  <a href="javascript:void(0);">Swich View</a>
-                </div>
-              </div>
-            </div>
-       		</div>
-
-      	</td>
-      </tr>  
-    </table>
-  </div>	
-</div>
- 
+</div> 

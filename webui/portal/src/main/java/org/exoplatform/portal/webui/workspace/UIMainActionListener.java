@@ -157,11 +157,7 @@ public class UIMainActionListener {
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
       UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
       uiApp.setEditting(true);
-      UIPortalComposer uiComposer = uiWorkingWS.createUIComponent(UIPortalComposer.class, null, null);
-      UIPopupWindow uiPopup =uiWorkingWS.addChild(UIPopupWindow.class, null, "PortalComposer");
-      uiPopup.setUIComponent(uiComposer);
-      uiPopup.setWindowSize(300, 500);
-      uiPopup.setShow(true);
+      uiWorkingWS.addChild(UIPortalComposer.class, null, null);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
       pcontext.setFullRender(true);
     }
