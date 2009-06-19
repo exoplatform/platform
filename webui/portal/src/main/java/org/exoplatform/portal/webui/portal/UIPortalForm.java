@@ -30,6 +30,7 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.PortalProperties;
 import org.exoplatform.portal.skin.SkinService;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -163,6 +164,7 @@ public class UIPortalForm extends UIFormTabPane {
     Collections.sort(languages, new LanguagesComparator()) ;
     
     UIFormInputSet uiSettingSet = new UIFormInputSet("PortalSetting") ;
+    UIFormInputSet uiPropertiesSet = new UIFormInputSet("Properties");
     uiSettingSet.addUIFormInput(new UIFormStringInput(FIELD_NAME, FIELD_NAME, null).
                                 addValidator(MandatoryValidator.class).
                                 addValidator(StringLengthValidator.class, 3, 30).
@@ -181,14 +183,16 @@ public class UIPortalForm extends UIFormTabPane {
     UIFormSelectBox uiSelectBox = new UIFormSelectBox(FIELD_SKIN, FIELD_SKIN, listSkin) ;
     uiSettingSet.addUIFormInput(uiSelectBox);
 
-    List<SelectItemOption<String>> listSessionAlive = new ArrayList<SelectItemOption<String>>() ;
-    listSessionAlive.add(new SelectItemOption<String>(PortalConfig.SESSION_ALWAYS, PortalConfig.SESSION_ALWAYS)) ;
-    listSessionAlive.add(new SelectItemOption<String>(PortalConfig.SESSION_ON_DEMAND, PortalConfig.SESSION_ON_DEMAND)) ;
-    listSessionAlive.add(new SelectItemOption<String>(PortalConfig.SESSION_NEVER, PortalConfig.SESSION_NEVER)) ;
-    UIFormSelectBox uiSessionAliveBox = new UIFormSelectBox(FIELD_SESSION_ALIVE, FIELD_SESSION_ALIVE, listSessionAlive) ;
-    uiSettingSet.addUIFormInput(uiSessionAliveBox) ;
     addUIFormInput(uiSettingSet);
     
+    // add to properties tab 
+    List<SelectItemOption<String>> listSessionAlive = new ArrayList<SelectItemOption<String>>() ;
+    listSessionAlive.add(new SelectItemOption<String>(PortalProperties.SESSION_ALWAYS, PortalProperties.SESSION_ALWAYS)) ;
+    listSessionAlive.add(new SelectItemOption<String>(PortalProperties.SESSION_ON_DEMAND, PortalProperties.SESSION_ON_DEMAND)) ;
+    listSessionAlive.add(new SelectItemOption<String>(PortalProperties.SESSION_NEVER, PortalProperties.SESSION_NEVER)) ;
+    UIFormSelectBox uiSessionAliveBox = new UIFormSelectBox(FIELD_SESSION_ALIVE, FIELD_SESSION_ALIVE, listSessionAlive) ;
+    uiPropertiesSet.addUIFormInput(uiSessionAliveBox) ;
+    addUIFormInput(uiPropertiesSet);
     
     UIFormInputSet uiPermissionSetting = createUIComponent(UIFormInputSet.class, "PermissionSetting", null);
     addUIComponentInput(uiPermissionSetting);

@@ -32,6 +32,7 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.PortalProperties;
 import org.exoplatform.portal.config.model.Properties;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
@@ -211,10 +212,10 @@ public class UIPortal extends UIContainer {
   }
   
   public String getSessionAlive() { 
-    return getProperty(PortalConfig.SESSION_ALIVE, PortalConfig.SESSION_ON_DEMAND) ;
+    return getProperty(PortalProperties.SESSION_ALIVE, PortalProperties.SESSION_ON_DEMAND) ;
   }
   public void setSessionAlive(String type) {
-    setProperty(PortalConfig.SESSION_ALIVE, type) ;
+    setProperty(PortalProperties.SESSION_ALIVE, type) ;
   }
   
   @Deprecated

@@ -29,10 +29,6 @@ public class PortalConfig {
   final public static String USER_TYPE = "user";
   final public static String GROUP_TYPE = "group";
   final public static String PORTAL_TYPE = "portal";
-  final public static String SESSION_ALIVE = "sessionAlive" ;
-  final public static String SESSION_ON_DEMAND = "onDemand" ;
-  final public static String SESSION_ALWAYS = "always" ;
-  final public static String SESSION_NEVER = "never" ;
   
 	private String    name ;
 //	private String    factoryId;
@@ -119,13 +115,6 @@ public class PortalConfig {
   public void removeProperty(String name) {
     if(name == null || properties == null) throw new NullPointerException() ;
     properties.remove(name) ;
-  }
-  
-  public String getSessionAlive() { 
-    return getProperty(PortalConfig.SESSION_ALIVE, PortalConfig.SESSION_ON_DEMAND) ;
-  }
-  public void setSessionAlive(String type) {
-    setProperty(PortalConfig.SESSION_ALIVE, type) ;
   }
   
   static public class PortalConfigSet {
