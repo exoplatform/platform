@@ -47,20 +47,16 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 							  	if(applicationLabel.length() > 30) applicationLabel = applicationLabel.substring(0, 27) + "...";
 							  %>
 						      <div class="UIVTab DragObjectPortlet VTabStyle3" id="<%=application.getId();%>">
-							      <div class="NormalTab">
-							        <div class="TabLeft">
-							          <div class="TabRight">
-							            <div class="TabRepeat">
+							     <div class="VTabContentBG">
 							              <div class="OverflowContainer">
-												      <div class="LeftIcon"><span></span></div>
-										          <div class="TabLabel" title="<%= application.getDisplayName() %>" style="cursor:move;">
-										          	$applicationLabel
+										          <div class="H1" title="<%= application.getDisplayName() %>" style="cursor:move;">
+										          	<div class="LabelTab">My Aplication</div>
+										          	<div class="LableText">
+										           		$applicationLabel
+										          	</div>
 										          </div>
 									          </div>
 							            </div>
-							          </div>
-							        </div>
-									  </div>
 									</div>
 								<% } %>	
 								</div>
