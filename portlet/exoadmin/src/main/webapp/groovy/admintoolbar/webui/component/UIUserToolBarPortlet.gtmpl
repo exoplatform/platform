@@ -19,10 +19,10 @@
 		navTitle = navTitle.replace("{0}", uicomponent.getGroupLabel("/" + navigation.ownerId));
     print """
 					<div class="TitleBar"><div style="width: 99%" title="$navigation.ownerId">$navTitle</div></div>
-  	    		<div class="SubBlock">
+  	    	<div class="SubBlock">
 				    """ ;
-				    for(node in nodes) {
-				      renderPageNode(node, true) ;
+				    for(int i = 0; i < nodes.size(); i++) {
+				      renderPageNode(nodes.get(i), i%2 == 0 ) ;
 				    }
 				    print """
     			</div>
@@ -61,8 +61,8 @@
 				<div class="MenuItemContainer" style="position: absolute; display:none">    	
     			<div class="SubBlock">
     	""" ;
-    		for(child in node.getChildren()) {
-    			renderPageNode(child, true);
+    		for(int j = 0; j < node.getChildren().size(); j++) {
+    			renderPageNode(node.getChildren().get(j), j%2 == 0);
     		}
     	print """
     			</div>
@@ -117,8 +117,8 @@
   		<div style="position: absolute; display:none" class="MenuItemContainer">
 				<div class="SubBlock">
 		""";
-	  for(node in nodes) {
-		   renderPageNode(node, true) ;
+	  for(int i = 0; i < nodes.size(); i++) {
+		  renderPageNode(nodes.get(i), i%2 == 0) ;
 		}
 		print """
 				</div>
@@ -131,11 +131,12 @@
   				<div style="position: absolute; display:none" class="MenuItemContainer">
 						<div class="SubBlock">
 			""";
-			for(dashboard in uicomponent.getAllDashboards()) {
+			for(int i = 0; i < uicomponent.getAllDashboards().size(); i++) {
+			  String itemType = (i%2 != 0 ? "EvenItem" : "OddItem");
 				print """
-	  			<div class="MenuItem OddItem">
+	  			<div class="MenuItem $itemType">
 						<div>		  			
-							<a href="#" class="ItemIcon SiteIcon">$dashboard</a>
+							<a href="#" class="ItemIcon SiteIcon">${uicomponent.getAllDashboards().get(i)}</a>
 						</div>
 					</div>
 				""";

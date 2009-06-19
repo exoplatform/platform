@@ -121,7 +121,7 @@ UIPortalNavigation.prototype.setTabStyleOnMouseOver = function(e) {
     var hideSubmenu = tab.getAttribute('hideSubmenu') ;
     if (menuItemContainer && !hideSubmenu) {
       var DOMUtil = eXo.core.DOMUtil ;
-		  if(eXo.core.Browser.isIE7()) {
+		  if(eXo.core.Browser.browserType == "ie") {
 		    var navAncestor = DOMUtil.findAncestorByClass(tab, "UINavigationPortlet") ;
 		    var pageBody = document.getElementById("UIPageBody") 
 		    var uicomponents = DOMUtil.getChildrenByTagName(pageBody.parentNode, "div") ;
@@ -260,7 +260,7 @@ UIPortalNavigation.prototype.hideMenu = function() {
   }
   eXo.portal.UIPortalNavigation.hideMenuContainer();
   var DOMUtil = eXo.core.DOMUtil ;
-  if(eXo.core.Browser.isIE7()) {
+  if(eXo.core.Browser.browserType == "ie") {
     var pageBody = document.getElementById("UIPageBody") ;
     var uicomponents = DOMUtil.getChildrenByTagName(pageBody.parentNode, "div") ;
     for(var i = 0; i < uicomponents.length; i ++) {
