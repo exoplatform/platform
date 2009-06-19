@@ -12,16 +12,16 @@
 .UIPortlet .CONTROL-PORTLET .DragControlArea {
   float: left;/* orientation=lt */
   float: right;/* orientation=rt */
-  width: 24px; height: 15px;
-  margin: 4px 0px 0px 5px;/* orientation=lt */
-  margin: 4px 5px 0px 0px;/* orientation=rt */
+  width: 10px; height: 10px;
+  margin: 7px 0px 0px 5px;/* orientation=lt */
+  margin: 7px 5px 0px 0px;/* orientation=rt */
   background: url('background/DragBg2x2.gif');
   cursor: move;
 }
 
 .UIPortlet .ViewPortletIcon {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
+  float: right;/* orientation=lt */
+  float: left;/* orientation=rt */
   width: 16px; height: 16px; 
   margin: 3px 5px 0px 0px;/* orientation=lt */
   margin: 3px 0px 0px 5px;/* orientation=rt */
@@ -30,22 +30,52 @@
 }
 
 .UIPortlet .EditPortletPropertiesIcon {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	width: 22px; height: 16px;
-	background: url('background/ContainerIcon.gif') no-repeat top;
-  margin: 4px 3px 2px 0px;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
+	width: 20px; height: 20px;
+	background: url('background/Pen.png') no-repeat top;
+  margin: 4px 3px 2px 5px;
 }
 
 .UIPortlet .DeletePortletIcon {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	width: 22px; height:16px; 
-  background: url('background/ContainerIcon.gif') no-repeat bottom;
+	float: left;/* orientation=lt */
+	float: right;/* orientation=rt */
+	width: 20px; height:20px; 
+  background: url('background/close.png') no-repeat bottom;
   margin: 4px 4px 2px 0px;/* orientation=lt */
   margin: 4px 0px 2px 4px;/* orientation=rt */
 }
 
+.UIPortlet .NormalContainerBlock {
+	background: white;
+	border: 1px dashed #a2a2a2;
+}
+
+.UIPortlet .NormalContainerBlock .RightContainerBlock {
+	padding: 4px;
+}
+
+.UIPortlet .SelectedContainerBlock {
+	background: white;
+	border-top: 1px solid #91bcdd;
+}
+
+.UIPortlet .SelectedContainerBlock .LeftContainerBlock {
+	background: url('background/BgContainerBlock.gif') no-repeat left top;
+	padding-left: 1px;
+}
+
+.UIPortlet .SelectedContainerBlock .RightContainerBlock {
+	background: url('background/BgContainerBlock.gif') no-repeat right top;
+	padding: 4px;
+}
+
+.UIPortlet .NewLayer {
+	background: #93c0e2; 
+	filter: alpha(opacity=40);
+  opacity: 0.4;
+	width: 100%; height: 100%;
+}
 /*##############################- PortletLayoutDecorator  -################################*/
 .PortletLayoutDecorator {
 }
@@ -195,3 +225,6 @@
   margin: 0px 12px 10px 12px;
 }
 
+.PortletBlockDecorator {
+
+}

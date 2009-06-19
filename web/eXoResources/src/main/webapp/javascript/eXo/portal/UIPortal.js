@@ -1,13 +1,19 @@
 function UIComponent(node) {
   this.node = node ;
   if(node) this.type = node.className ;
-  var children =  eXo.core.DOMUtil.getChildrenByTagName(node, "div") ;
-  if(children.length > 0) {
-	  this.metaData =  children[0] ;
-	  this.control = children[1] ; 
-	  this.layout = children[2] ; 
-	  this.view = children[3] ;
-  } 
+//  var children =  eXo.core.DOMUtil.getChildrenByTagName(node, "div") ;
+//  if(children.length > 0) {
+//	  this.metaData =  children[0] ;
+//	  this.control = children[1] ; 
+//	  this.layout = children[2] ; 
+//	  this.view = children[3] ;
+//  } 
+	
+	this.metaData = eXo.core.DOMUtil.findFirstDescendantByClass(node, "META-DATA-BLOCK", "div");
+	this.control = eXo.core.DOMUtil.findFirstDescendantByClass(node, "CONTROL-PORTLET", "div");
+	this.layout = eXo.core.DOMUtil.findFirstDescendantByClass(node, "LAYOUT-PORTLET", "div");
+	this.view = eXo.core.DOMUtil.findFirstDescendantByClass(node, "VIEW-PORTLET", "div");
+	
   this.component = "";
   
   var div = eXo.core.DOMUtil.getChildrenByTagName(this.metaData, "div");

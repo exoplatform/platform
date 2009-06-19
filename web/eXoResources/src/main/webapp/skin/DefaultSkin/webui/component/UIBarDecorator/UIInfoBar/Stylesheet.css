@@ -40,42 +40,32 @@
 }
 
 .UIInfoBar .BlueRoundedStyle .LeftBar {
-	background: url('background/BlueRoundedStyle.gif') no-repeat left top;
+	background: url('background/ViewBlockBar.png') no-repeat left top;
 	padding: 0px 0px 0px 3px;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {
-	background: url('background/BlueRoundedStyle.gif') no-repeat right top;
+	background: url('background/ViewBlockBar.png') no-repeat right top;
 	padding: 0px 3px 0px 0px;
 }
 
 .UIInfoBar .BlueRoundedStyle .MiddleBar {
-	background: url('background/BlueRoundedStyle.gif') repeat-x center bottom;
+	background: url('background/ViewBlockBar.png') repeat-x center bottom;
 }
 	
 .UIInfoBar .BlueRoundedStyle .FixHeight {
-	height: 22px;
-	overflow: hidden;
+	height: 26px;
+	_width: 195px;
 }
 
-.UIInfoBar .BlueRoundedStyle .Title {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
-	text-align: left; /* orientation=lt */
-	text-align: right; /* orientation=rt */
-	font-weight: bold; color: black;
-	line-height: 15px;
-	margin: 4px 0px 0px 4px; /* orientation=lt */
-	margin: 4px 4px 0px 0px; /* orientation=rt */
-	text-overflow: ellipsis;
-	overflow: hidden;
-}
-
-.UIInfoBar .BlueRoundedStyle .Icon {
+.UIInfoBar .BlueRoundedStyle .PortletIcon {
 	float: left;/* orientation=lt */
 	float: right;/* orientation=rt */
-	width: 18px; height: 16px;
-	margin: 4px 0px 0px 5px;	
+	text-overflow: ellipsis;
+	width: auto; height: 16px;
+	padding-left: 25px;
+	margin: 4px 0px 0px 5px;
+	color: white;
 }
 
 /*######################-Simple Style-######################*/
