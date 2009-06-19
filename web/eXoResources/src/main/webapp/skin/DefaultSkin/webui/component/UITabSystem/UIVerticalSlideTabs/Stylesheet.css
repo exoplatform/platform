@@ -185,7 +185,7 @@
 }
 
 
-.UIPortalComposer.TopLeftCornerDecorator {
+.UIPortalComposer .TopLeftCornerDecorator {
 	background:transparent url(background/LeftPopupWindow.gif) no-repeat left;
 	padding-left:3px;
 }
