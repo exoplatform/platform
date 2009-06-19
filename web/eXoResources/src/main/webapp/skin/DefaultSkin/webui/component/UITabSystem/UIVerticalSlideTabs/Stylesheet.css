@@ -185,208 +185,208 @@
 }
 
 
-#PortalComposer .TopLeftCornerDecorator {
+.UIPortalComposer.TopLeftCornerDecorator {
 	background:transparent url(background/LeftPopupWindow.gif) no-repeat left;
 	padding-left:3px;
 }
 
-#PortalComposer .TopRightCornerDecorator {
+.UIPortalComposer .TopRightCornerDecorator {
 	background:transparent url(background/RightPopupWindow.gif) no-repeat right;
 	padding-right:3px;
 }
 
-#PortalComposer .TopCenterDecorator {
+.UIPortalComposer .TopCenterDecorator {
 	background:transparent url(background/CenterPopupWindow.gif) repeat-x ;
 	height:29px;
 }
 
-#PortalComposer .PopupTitleIcon {
+.UIPortalComposer .PopupTitleIcon {
 	background:none ;
 }
 
-#PortalComposer .CloseButton {
+.UIPortalComposer .CloseButton {
 	background:transparent url(background/PopupWindow.gif) no-repeat scroll right bottom;
 }
 
-#PortalComposer .PopupTitle {
+.UIPortalComposer .PopupTitle {
 	background:none ;
 }
 
-#PortalComposer .MiddleLeftSideDecorator {
+.UIPortalComposer .MiddleLeftSideDecorator {
 	background:transparent url(background/LeftMiddleWindow.gif) repeat-y left;
 	padding-left:2px;
 }
 
-#PortalComposer .MiddleRightSideDecorator {
+.UIPortalComposer .MiddleRightSideDecorator {
 	background:transparent url(background/RightMiddleWindow.gif) repeat-y right;
 	padding-right:2px;
 }
 
-#PortalComposer .MiddleCenterDecorator {
+.UIPortalComposer .MiddleCenterDecorator {
 	background:transparent url(background/CenterMiddleWindow.gif) repeat ;
 	padding:3px;
 }
 
-#PortalComposer .BottomLeftCornerDecorator {
+.UIPortalComposer .BottomLeftCornerDecorator {
 	background:transparent url(background/BottomLeftCornerDecorator.gif) no-repeat left;
 	padding-left:2px;
 }
 
-#PortalComposer .BottomRightCornerDecorator {
+.UIPortalComposer .BottomRightCornerDecorator {
 	background:transparent url(background/BottomRightCornerDecorator.gif) no-repeat right;
 	padding-right:2px;
 }
 
-#PortalComposer .BottomCenterDecorator {
+.UIPortalComposer .BottomCenterDecorator {
 	background:transparent url(background/BottomCenterDecorator.gif) repeat-x ;
 	height:2px;
 }
 
-#PortalComposer .UIWindowContent  {
+.UIPortalComposer .UIWindowContent  {
 	border:none ;
 }
 
-#PortalComposer .PopupContent {
+.UIPortalComposer .PopupContent {
 	background:none ;
 	overflow: hidden;
 }
 
-#PortalComposer .UITabPane {
+.UIPortalComposer .UITabPane {
 	height: auto;
 }
 
-#PortalComposer .UITabPane .TabPaneContent {
+.UIPortalComposer .UITabPane .TabPaneContent {
 	padding: 0px;
 }
 
-#PortalComposer .UIHorizontalTabs .CenterHorizontalTabs {
+.UIPortalComposer .UIHorizontalTabs .CenterHorizontalTabs {
 	background:transparent url(background/CenterHorizontalTabs.gif) repeat-x ;
 	height: 26px;
 	padding: 0px 2px;
 }
 
-#PortalComposer .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
+.UIPortalComposer .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
 	background:transparent url(background/LeftTab.gif) no-repeat left;
 	padding-left: 6px;
 	margin-top: 1px;
 }
 
-#PortalComposer .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
+.UIPortalComposer .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
 	background:transparent url(background/RightTab.gif) no-repeat right;
 	padding-right: 6px;
 }
 
-#PortalComposer .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
+.UIPortalComposer .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
 	background:transparent url(background/CenterTab.gif) repeat-x;
 	line-height: 24px;
 }
 
-#PortalComposer .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
+.UIPortalComposer .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
 	background:transparent url(background/LeftSelectTab.gif) no-repeat left;
 	padding-left: 6px;
 }
 
-#PortalComposer .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
+.UIPortalComposer .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
 	background:transparent url(background/RightSelectTab.gif) no-repeat right;
 	padding-right: 6px;
 }
 
-#PortalComposer .UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
+.UIPortalComposer .UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
 	background:transparent url(background/MiddleSelectTab.gif) repeat-x;
 	line-height: 26px;
 }
 
-#PortalComposer .UIContainerConfigOptions {
+.UIPortalComposer .UIContainerConfigOptions {
 	margin: 0px;
 }
 
 
-#PortalComposer .UIContainerConfigOptions .VTabSimpleStyle {
+.UIPortalComposer .UIContainerConfigOptions .VTabSimpleStyle {
 	border: 1px solid #c6cacb; padding: 1px;
 	margin: 2px;
 }
 
-#PortalComposer .UIContainerConfigOptions .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
+.UIPortalComposer .UIContainerConfigOptions .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
 	background:transparent url(background/SelectedTab.gif) repeat-x;
 	height: 23px;
 	padding: 0px 0px 0px 8px;
 }
 
-#PortalComposer .UIContainerConfigOptions .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab  {
+.UIPortalComposer .UIContainerConfigOptions .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab  {
 	background:transparent url(background/NormalTab.gif) repeat-x;
 	height: 22px;
 	padding: 0px 0px 0px 8px;
 }
 
-#PortalComposer .UIContainerConfigOptions .OneRowContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .OneRowContainerLayout  {
 	background:transparent url(background/OneRowContainerLayout.gif) no-repeat left top;
 	height: 40px;
 }
 
-#PortalComposer .UIContainerConfigOptions .TwoRowContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .TwoRowContainerLayout  {
 	background:transparent url(background/TwoRowContainerLayout.gif) no-repeat;
 	height: 48px;
 }
 
-#PortalComposer .UIContainerConfigOptions .ThreeRowContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .ThreeRowContainerLayout  {
 	background:transparent url(background/ThreeRowContainerLayout.gif) no-repeat;
 	height: 48px;
 }
 
-#PortalComposer .UIContainerConfigOptions .TwoColumnContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .TwoColumnContainerLayout  {
 	background:transparent url(background/TwoColumnContainerLayout.gif) no-repeat;
 	height: 48px;
 }
 
-#PortalComposer .UIContainerConfigOptions .ThreeColumnContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .ThreeColumnContainerLayout  {
 	background:transparent url(background/ThreeColumnContainerLayout.gif) no-repeat;
 	height: 48px;
 }
 
-#PortalComposer .UIContainerConfigOptions .TwoTabContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .TwoTabContainerLayout  {
 	background:transparent url(background/TwoTabContainerLayout.gif) no-repeat;
 	height: 48px;
 }
 
-#PortalComposer .UIContainerConfigOptions .ThreeTabContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .ThreeTabContainerLayout  {
 	background:transparent url(background/ThreeTabContainerLayout.gif) no-repeat;
 	height: 48px;
 }
 
-#PortalComposer .UIContainerConfigOptions .TwoColumnOneRowContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .TwoColumnOneRowContainerLayout  {
 	background:transparent url(background/TwoColumnOneRowContainerLayout.gif) no-repeat;
 	height: 48px;
 }
 
-#PortalComposer .UIContainerConfigOptions .OneRowTwoColumnContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .OneRowTwoColumnContainerLayout  {
 	background:transparent url(background/OneRowTwoColumnContainerLayout.gif) no-repeat;
 	height: 48px;
 }
 
-#PortalComposer .UIContainerConfigOptions .OneRow2Column1RowContainerLayout  {
+.UIPortalComposer .UIContainerConfigOptions .OneRow2Column1RowContainerLayout  {
 	background:transparent url(background/OneRow2Column1RowContainerLayout.gif) no-repeat;
 	height: 48px;
 }
 
 
-#PortalComposer .UIOrganizerManagement .VTabSimpleStyle {
+.UIPortalComposer .UIOrganizerManagement .VTabSimpleStyle {
 	border: 1px solid #c6cacb; padding: 1px;
 	margin: 2px;
 }
 
-#PortalComposer .UIOrganizerManagement .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
+.UIPortalComposer .UIOrganizerManagement .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab {
 	background:transparent url(background/SelectedTab.gif) repeat-x;
 	height: 23px;
 	padding: 0px 0px 0px 8px;
 }
 
-#PortalComposer .UIOrganizerManagement .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab  {
+.UIPortalComposer .UIOrganizerManagement .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab  {
 	background:transparent url(background/NormalTab.gif) repeat-x;
 	height: 22px;
 	padding: 0px 0px 0px 8px;
 }
 
-#PortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
+.UIPortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .LeftIcon {
 	background:transparent url(background/AplicationIcon.gif) no-repeat scroll 0 0;
 	float:left;
 	height:53px;
@@ -394,96 +394,96 @@
 	width:59px;
 }
 
-#PortalComposer .UITabPane .UITabContentContainer {
+.UIPortalComposer .UITabPane .UITabContentContainer {
 	background: #efefef;
 	height:360px;
 	overflow:auto;
 }
 
-#PortalComposer .UITabPane .UITabContent {
+.UIPortalComposer .UITabPane .UITabContent {
 	background: none;
 	border: none;
 }
 
-#PortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent  {
+.UIPortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent  {
 	background: white;
 	padding: 0px;
 }
 
-#PortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent .NormalTab  {
+.UIPortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent .NormalTab  {
 	background: none;
 	height: auto;
 }
 
-#PortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft  {
+.UIPortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLeft  {
 	background: none;
 	height: auto;
 }
 
-#PortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight  {
+.UIPortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRight  {
 	background: none;
 	height: auto;
 }
 
-#PortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat  {
+.UIPortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabRepeat  {
 	background: none;
 	height: auto;
 }
 
-#PortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLabel {
+.UIPortalComposer .UIVerticalSlideTabs .VTabStyle3 .NormalTab .TabLabel {
 	overflow: hidden;
 	width: 110px;
 }
 
-#PortalComposer .UIAction .LightBlueStyle .ButtonLeft  {
+.UIPortalComposer .UIAction .LightBlueStyle .ButtonLeft  {
 	background:transparent url(background/ButtonLeft.gif) no-repeat left top;
 	padding-left: 3px;
 }
 
-#PortalComposer .UIAction .LightBlueStyle .ButtonRight  {
+.UIPortalComposer .UIAction .LightBlueStyle .ButtonRight  {
 	background:transparent url(background/ButtonRight.gif) no-repeat right top;
 	padding-right: 3px;
 }
 
-#PortalComposer .UIAction .LightBlueStyle .ButtonMiddle  {
+.UIPortalComposer .UIAction .LightBlueStyle .ButtonMiddle  {
 	background:transparent url(background/ButtonCenter.gif) repeat-x ;
 	line-height: 21px;
 }
 
-#PortalComposer .OverflowContainer {
+.UIPortalComposer .OverflowContainer {
 		
 }
 
-#PortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
+.UIPortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
 	line-height: 22px;
 	height: 22px;
 }
 
-#PortalComposer .OverflowContainer .LabelTab {
+.UIPortalComposer .OverflowContainer .LabelTab {
 	font-size: 12px;
 	font-weight: bold;
 	color: #5a93be;	
 	line-height: 26px;
 }
 
-#PortalComposer .OverflowContainer .LableText {
+.UIPortalComposer .OverflowContainer .LableText {
 	font-size: 11px;
 }
 
-#PortalComposer .OverflowContainer .H1{
+.UIPortalComposer .OverflowContainer .H1{
 	background:transparent url(background/H1.gif) no-repeat left;
 	padding-left: 65px;
 	height: 53px;
 	margin: 6px;
 }
 
-#PortalComposer .VTabContentBG{
+.UIPortalComposer .VTabContentBG{
 	background:transparent url(background/VTabContentBG.gif) repeat-x ;
 	margin:6px 0 0;
 	padding:2px 0 0;
 }
 
-#PortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent .LableContent{
+.UIPortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent .LableContent{
 	padding: 0px 0px 10px 100px;
 	line-height: 40px;
 	font-size: 12px;
