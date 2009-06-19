@@ -51,9 +51,9 @@
     <%/*End InfoBar*/ %>
   </div>
   
-  <div class="LAYOUT-CONTAINER" style="display: none"></div>
+  <div class="LAYOUT-CONTAINER LAYOUT-BLOCK" style="display: none"></div>
 <%}%>
-  <div class="VIEW-CONTAINER">
+  <div class="VIEW-CONTAINER VIEW-BLOCK">
     <div id="$uicomponent.id">
       <div class="UIRowContainer"><%uicomponent.renderChildren()%></div>
 	  </div>

@@ -83,9 +83,11 @@ PortalDragDrop.prototype.init = function(e) {
       /*Check and asign UIPage to uiComponentLayout when DND on UIPage*/
       var uiComponentLayout ;
       if(dndEvent.foundTargetObject.className == "UIPage") {
-        uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "VIEW-PAGE") ;
+//        uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "VIEW-PAGE") ;
+      		uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "VIEW-BLOCK") ;
       } else if(dndEvent.foundTargetObject.className == "UIPortal") {
-        uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "LAYOUT-PORTAL") ;
+//        uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "LAYOUT-PORTAL") ;
+        uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "LAYOUT-BLOCK") ;
       } else {
         var foundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.foundTargetObject) ;
         uiComponentLayout = foundUIComponent.getLayoutBlock() ;
@@ -290,7 +292,8 @@ PortalDragDrop.prototype.findDropableTargets = function() {
   var dropableTargets = new Array() ;
   var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
   var uiPortal = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkingWorkspace, "div", "UIPortal") ;
-  var viewPagebody = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkingWorkspace, "div", "VIEW-PAGEBODY") ;
+//  var viewPagebody = eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkingWorkspace, "div", "VIEW-PAGEBODY") ;
+  var viewPagebody = document.getElementById("PAGEBODY-VIEW-BLOCK")
   var uiContainers = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWorkspace, "div", "UIContainer") ;
   if(viewPagebody && viewPagebody.style.display == "none") {
     dropableTargets.push(uiPortal) ;
@@ -417,9 +420,11 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
   var uiComponentLayout ;
   try{
 	  if(dndEvent.lastFoundTargetObject.className == "UIPage") {
-	    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PAGE") ;
+//	    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PAGE") ;
+	    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-BLOCK") ;
 	  } else if(dndEvent.lastFoundTargetObject.className == "UIPortal") {
-	    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "LAYOUT-PORTAL") ;
+//	    uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "LAYOUT-PORTAL") ;
+	  		uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "LAYOUT-BLOCK") ;
 	  } else {
 	    var foundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.lastFoundTargetObject) ;
 	    uiComponentLayout = foundUIComponent.getLayoutBlock() ;
@@ -504,8 +509,9 @@ PortalDragDrop.prototype.fixCss =  function() {
  	if(uiPortal) {
 	  parentByClass = DOMUtil.findAncestorByClass(uiPortal, "Vista") ;
 	  if(parentByClass) {
-	  	layoutPortal = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "LAYOUT-PORTAL") ;
-	  	viewPortal = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "VIEW-PORTAL") ;
+//	  	layoutPortal = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "LAYOUT-PORTAL") ;
+				layoutPortal = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "LAYOUT-BLOCK") ;
+	  	viewPortal = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "VIEW-BLOCK") ;
 	  	uiRowContainer = DOMUtil.findFirstDescendantByClass(uiPortal, "div", "UIRowContainer") ;
 	  	if(uiRowContainer != null) { 
 	  		if(layoutPortal.style.display == "block" || viewPortal.style.display == "none") {

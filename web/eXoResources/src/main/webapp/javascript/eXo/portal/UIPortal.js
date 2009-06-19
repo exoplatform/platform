@@ -9,10 +9,10 @@ function UIComponent(node) {
 //	  this.view = children[3] ;
 //  } 
 	
-	this.metaData = eXo.core.DOMUtil.findFirstDescendantByClass(node, "META-DATA-BLOCK", "div");
-	this.control = eXo.core.DOMUtil.findFirstDescendantByClass(node, "CONTROL-PORTLET", "div");
-	this.layout = eXo.core.DOMUtil.findFirstDescendantByClass(node, "LAYOUT-PORTLET", "div");
-	this.view = eXo.core.DOMUtil.findFirstDescendantByClass(node, "VIEW-PORTLET", "div");
+	this.metaData = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "META-DATA-BLOCK");
+	this.control = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "EDITION-BLOCK");
+	this.layout = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "LAYOUT-BLOCK");
+	this.view = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "VIEW-BLOCK");
 	
   this.component = "";
   
@@ -42,6 +42,12 @@ UIComponent.prototype.getViewBlock = function() { return this.view ; };
 function UIPortal() {
   this.portalUIComponentDragDrop = false;
 };
+
+UIPortal.prototype.blockOnMouseOver = function(portlet, isOver) {
+	var test = eXo.core.DOMUtil.findFirstDescendantByClass(portlet, "div", "EDITION-BLOCK");
+	if(isOver) test.style.display = "block";
+	else test.style.display = "none";
+}
 
 UIPortal.prototype.getUIPortlets = function() {
   var uiWorkingWorkspace = document.getElementById("UIWorkingWorkspace") ;
@@ -174,10 +180,10 @@ UIPortal.prototype.showUIComponentControl = function(uicomponent, flag) {
   var clickObject = eXo.core.DOMUtil.findFirstDescendantByClass(controlBlock, "div", "DragControlArea") ;
   if(flag) {
     clickObject.onmousedown = eXo.portal.PortalDragDrop.init ;
-    controlBlock.style.display = 'block' ;
+//    controlBlock.style.display = 'block' ;
   } else {
     controlBlock.onmousedown = null ;
-    controlBlock.style.display = 'none' ;
+//    controlBlock.style.display = 'none' ;
   }
 };
 

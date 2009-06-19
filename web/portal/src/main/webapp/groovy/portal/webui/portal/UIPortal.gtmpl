@@ -10,8 +10,8 @@
     <div class="description"><%=_ctx.appRes("UIPortal.label.description")%></div>
   </div>	
 	<div class="CONTROL-PORTAL CONTROL-BLOCK" style="display: none;"><span></span></div>
-	<div class="LAYOUT-PORTAL" style="display: none;"></div>
-  <div class="VIEW-PORTAL">
+	<div class="LAYOUT-PORTAL LAYOUT-BLOCK" style="display: none;"></div>
+  <div class="VIEW-PORTAL VIEW-BLOCK">
     <div id="$uicomponent.id">
 	    <div class="UIRowContainer">
       	<%uicomponent.renderChildren();%>
