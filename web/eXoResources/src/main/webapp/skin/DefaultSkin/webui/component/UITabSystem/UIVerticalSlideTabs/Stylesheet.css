@@ -18,7 +18,7 @@
 .UIVerticalSlideTabs .VTabSimpleStyle .NormalTab .TabLabel {
   float: left;			/* orientation=lt */
   float: right;		/* orientation=rt */
-  height: 26px; line-height: 26px;  
+  height: 22px; line-height: 22px;  
   color: #606060; font-weight: bold;
   text-transform: capitalize;
 }
@@ -184,19 +184,18 @@
   padding: 5px;
 }
 
-
 .UIPortalComposer .TopLeftCornerDecorator {
-	background:transparent url(background/LeftPopupWindow.gif) no-repeat left;
+	background:transparent url(background/TopPopupWindow.gif) no-repeat left top;
 	padding-left:3px;
 }
 
 .UIPortalComposer .TopRightCornerDecorator {
-	background:transparent url(background/RightPopupWindow.gif) no-repeat right;
+	background:transparent url(background/TopPopupWindow.gif) no-repeat right top;
 	padding-right:3px;
 }
 
 .UIPortalComposer .TopCenterDecorator {
-	background:transparent url(background/CenterPopupWindow.gif) repeat-x ;
+	background:transparent url(background/TopPopupWindow.gif) repeat-x left -29px;
 	height:29px;
 }
 
@@ -213,12 +212,12 @@
 }
 
 .UIPortalComposer .MiddleLeftSideDecorator {
-	background:transparent url(background/LeftMiddleWindow.gif) repeat-y left;
+	background:transparent url(background/LeftMiddleWindow.gif) repeat-y left top;
 	padding-left:2px;
 }
 
 .UIPortalComposer .MiddleRightSideDecorator {
-	background:transparent url(background/RightMiddleWindow.gif) repeat-y right;
+	background:transparent url(background/RightMiddleWindow.gif) repeat-y right top;
 	padding-right:2px;
 }
 
@@ -228,17 +227,17 @@
 }
 
 .UIPortalComposer .BottomLeftCornerDecorator {
-	background:transparent url(background/BottomLeftCornerDecorator.gif) no-repeat left;
+	background:transparent url(background/BottomCornerDecorator.gif) no-repeat left top;
 	padding-left:2px;
 }
 
 .UIPortalComposer .BottomRightCornerDecorator {
-	background:transparent url(background/BottomRightCornerDecorator.gif) no-repeat right;
+	background:transparent url(background/BottomCornerDecorator.gif) no-repeat right top;
 	padding-right:2px;
 }
 
 .UIPortalComposer .BottomCenterDecorator {
-	background:transparent url(background/BottomCenterDecorator.gif) repeat-x ;
+	background:transparent url(background/BottomCornerDecorator.gif) repeat-x left -2px ;
 	height:2px;
 }
 
@@ -266,33 +265,33 @@
 }
 
 .UIPortalComposer .UIHorizontalTabs .NormalTabStyle .NormalTab .LeftTab {
-	background:transparent url(background/LeftTab.gif) no-repeat left;
+	background:transparent url(background/Tab.gif) no-repeat left top;
 	padding-left: 6px;
 	margin-top: 1px;
 }
 
 .UIPortalComposer .UIHorizontalTabs .NormalTabStyle .NormalTab .RightTab {
-	background:transparent url(background/RightTab.gif) no-repeat right;
+	background:transparent url(background/Tab.gif) no-repeat right top;
 	padding-right: 6px;
 }
 
 .UIPortalComposer .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
-	background:transparent url(background/CenterTab.gif) repeat-x;
+	background:transparent url(background/Tab.gif) repeat-x left -24px;
 	line-height: 24px;
 }
 
 .UIPortalComposer .UIHorizontalTabs .NormalTabStyle .SelectedTab .LeftTab {
-	background:transparent url(background/LeftSelectTab.gif) no-repeat left;
+	background:transparent url(background/SelectTab.gif) no-repeat left top;
 	padding-left: 6px;
 }
 
 .UIPortalComposer .UIHorizontalTabs .NormalTabStyle .SelectedTab .RightTab {
-	background:transparent url(background/RightSelectTab.gif) no-repeat right;
+	background:transparent url(background/SelectTab.gif) no-repeat right top;
 	padding-right: 6px;
 }
 
 .UIPortalComposer .UIHorizontalTabs .NormalTabStyle .SelectedTab .MiddleTab {
-	background:transparent url(background/MiddleSelectTab.gif) repeat-x;
+	background:transparent url(background/SelectTab.gif) repeat-x left -26px;
 	line-height: 26px;
 }
 
@@ -436,17 +435,17 @@
 }
 
 .UIPortalComposer .UIAction .LightBlueStyle .ButtonLeft  {
-	background:transparent url(background/ButtonLeft.gif) no-repeat left top;
+	background:transparent url(background/Button.gif) no-repeat left top;
 	padding-left: 3px;
 }
 
 .UIPortalComposer .UIAction .LightBlueStyle .ButtonRight  {
-	background:transparent url(background/ButtonRight.gif) no-repeat right top;
+	background:transparent url(background/Button.gif) no-repeat right top;
 	padding-right: 3px;
 }
 
 .UIPortalComposer .UIAction .LightBlueStyle .ButtonMiddle  {
-	background:transparent url(background/ButtonCenter.gif) repeat-x ;
+	background:transparent url(background/Button.gif) repeat-x left -21px;
 	line-height: 21px;
 }
 
