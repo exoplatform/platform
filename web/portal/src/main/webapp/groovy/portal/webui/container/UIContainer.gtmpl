@@ -13,70 +13,53 @@
 %>
 
 <div class="UIContainer" id="UIContainer-${uicomponent.id}" ${cssStyle}>
-	<div class="NormalContainerBlock">
-		<div class="LeftContainerBlock">
-			<div class="RightContainerBlock">
-				
-			<%if(rcontext.getUIApplication().isEditting()){%>
-			  <div class="META-DATA-BLOCK" style="display: none">
-			    <div class="id">$uicomponent.id</div>
-			    <div class="title"><%=_ctx.appRes("UIContainer.title.Container")%></div>
-			    <div class="description"><%=_ctx.appRes("UIContainer.label.Thecontainer")%></div>
-			  </div>
-			  
-			  
-			  
-			  <div class="LAYOUT-CONTAINER LAYOUT-BLOCK" style="display: none"></div>
-			<%}%>
-			  <div class="VIEW-CONTAINER VIEW-BLOCK">
-			    <div id="$uicomponent.id">
-			      <div class="UIRowContainer"><%uicomponent.renderChildren()%></div>
-				  </div>
-				</div> 
-				
-				<div class="EDITION-BLOCK EDITION-PORTLET" style="display: none;">
-		    	<div style="position: relative;">
-		    		<div style="position: absolute; width: 993px; height: 86px; top: -86px; border:">
-		    			
-		    			<div class="NewLayer" style="position: absolute; width: 993px; height: 86px;"><span></span></div>
-		    			
-		    			<div class="CONTROL-CONTAINER CONTROL-BLOCK" style="position: absolute; top: -6px;">
-						    <%/*Begin InfoBar*/%>
-						   	<div class="UIInfoBar">
-						      <div class="BlueRoundedStyle">
-						        <div class="LeftBar">
-						          <div class="RightBar">
-								        <div class="MiddleBar">
-								        	<div class="FixHeight">
-									          <div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.title.DragControlArea")%>"><span></span></div>
-									          <div class="ContainerIcon"><span></span></div>             
-							              <div class="Title">
-								              <% 
-								                if(uicomponent.getTitle() != null) {
-								                  println(uicomponent.getTitle()) ;
-								                } else {
-								              %>
-								              <%=_ctx.appRes("UIContainer.title.Container")%>
-								              <%}%>
-							              </div>            
-								            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"><span></span></a>
-														<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"><span></span></a>
-							              <div class="ClearBoth"><span></span></div>
-							            </div>
-								        </div>
-						          </div>
-						        </div>
-						      </div>
-						    </div>
-						    <%/*End InfoBar*/ %>
-						  </div>
-		    			
-		    		</div>
-		    	</div>
-		    </div>	
-				
-			</div>
-		</div>
-	</div> 
+
+<%if(rcontext.getUIApplication().isEditting()){%>
+  <div class="META-DATA-BLOCK" style="display: none">
+    <div class="id">$uicomponent.id</div>
+    <div class="title"><%=_ctx.appRes("UIContainer.title.Container")%></div>
+    <div class="description"><%=_ctx.appRes("UIContainer.label.Thecontainer")%></div>
+  </div>
+  
+  
+  <div class="CONTROL-CONTAINER CONTROL-BLOCK" style="display: none">
+    <%/*Begin InfoBar*/%>
+   	<div class="UIInfoBar">
+      <div class="BlueRoundedStyle">
+        <div class="LeftBar">
+          <div class="RightBar">
+		        <div class="MiddleBar">
+		        	<div class="FixHeight">
+			          <div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.title.DragControlArea")%>"><span></span></div>
+			          <div class="ContainerIcon"><span></span></div>             
+	              <div class="Title">
+		              <% 
+		                if(uicomponent.getTitle() != null) {
+		                  println(uicomponent.getTitle()) ;
+		                } else {
+		              %>
+		              <%=_ctx.appRes("UIContainer.title.Container")%>
+		              <%}%>
+	              </div>            
+		            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"><span></span></a>
+								<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"><span></span></a>
+	              <div class="ClearBoth"><span></span></div>
+	            </div>
+		        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%/*End InfoBar*/ %>
+  </div>
+  
+  <div class="LAYOUT-CONTAINER LAYOUT-BLOCK" style="display: none"></div>
+<%}%>
+  <div class="VIEW-CONTAINER VIEW-BLOCK">
+    <div id="$uicomponent.id">
+      <div class="UIRowContainer"><%uicomponent.renderChildren()%></div>
+	  </div>
+	</div>  
+
 </div>
 
