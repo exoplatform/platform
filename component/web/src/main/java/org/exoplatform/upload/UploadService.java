@@ -152,7 +152,7 @@ public class UploadService {
     File file  = new File(upResource.getStoreLocation());
     file.delete();
     uploadResources.remove(uploadId) ;
-    uploadLimitsMB_.remove(uploadId);
+    //uploadLimitsMB_.remove(uploadId);
   }
 
   public void addUploadLimit(String uploadId, Integer limitMB) {
