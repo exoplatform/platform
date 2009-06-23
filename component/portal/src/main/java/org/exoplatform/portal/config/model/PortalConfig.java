@@ -117,6 +117,12 @@ public class PortalConfig {
     properties.remove(name) ;
   }
   
+  public String getSessionAlive() { 
+    return getProperty(PortalProperties.SESSION_ALIVE, PortalProperties.SESSION_ON_DEMAND) ;
+  }
+  public void setSessionAlive(String type) {
+    setProperty(PortalProperties.SESSION_ALIVE, type) ;
+  }
   static public class PortalConfigSet {
     private ArrayList<PortalConfig> portalConfigs ;
     
