@@ -10,7 +10,7 @@ function UIComponent(node) {
 //  } 
 	
 	this.metaData = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "META-DATA-BLOCK");
-	this.control = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "EDITION-BLOCK");
+	this.control = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "CONTROL-BLOCK");
 	this.layout = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "LAYOUT-BLOCK");
 	this.view = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "VIEW-BLOCK");
 	
@@ -45,7 +45,15 @@ function UIPortal() {
 
 UIPortal.prototype.blockOnMouseOver = function(portlet, isOver) {
 	var test = eXo.core.DOMUtil.findFirstDescendantByClass(portlet, "div", "EDITION-BLOCK");
-	if(isOver) test.style.display = "block";
+	if(isOver) {
+		var newLayer = eXo.core.DOMUtil.findFirstDescendantByClass(test, "div", "NewLayer");
+		if(newLayer) {
+			var layoutBlock = eXo.core.DOMUtil.findFirstDescendantByClass(portlet, "div", "LAYOUT-BLOCK");
+			newLayer.style.width = layoutBlock.offsetWidth + "px";
+			newLayer.style.height = layoutBlock.offsetHeight + "px";
+		}
+		test.style.display = "block";
+	}
 	else test.style.display = "none";
 }
 

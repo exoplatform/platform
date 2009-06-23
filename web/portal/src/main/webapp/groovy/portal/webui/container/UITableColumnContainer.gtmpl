@@ -47,7 +47,7 @@
     <%/*End InfoBar*/ %>
   </div>
   
-  <div class="LAYOUT-CONTAINER" style="display: none;"><span></span></div>
+  <div class="LAYOUT-CONTAINER LAYOUT-BLOCK" style="display: none;"><span></span></div>
   <% 
      String style = "";
      String width  = uicomponent.getWidth();
@@ -55,7 +55,7 @@
      if(width != null) style += "width:"+width+";";
      if(height != null) style += "height:"+height+";";
   %>
-  <div class="VIEW-CONTAINER" >
+  <div class="VIEW-CONTAINER VIEW-BLOCK">
     <div id="$uicomponent.id">    
       <table class="UITableColumnContainer" style="table-layout: fixed; margin: 0px auto; width: 99%; $style">
         <tr class="TRContainer">

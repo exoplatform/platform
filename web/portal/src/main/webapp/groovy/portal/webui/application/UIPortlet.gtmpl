@@ -56,7 +56,7 @@
 				      <div class="MiddleLeft">
 				        <div class="MiddleRight">
 				          <div class="CenterBackground">
-				            <div class="GardientBackground">		            
+				            <div class="GardientBackground">	$portletId	            
 				            <%if(uicomponent.getDescription() != null) {	
 				            		String description = ""; int count = 1;
 				            		for(c in uicomponent.getDescription()){

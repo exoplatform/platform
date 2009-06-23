@@ -141,10 +141,8 @@ DragDrop.prototype.findDropableTarget = function(dndEvent, dropableTargets, mous
 } ;
   
 DragDrop.prototype.isAncestor = function(ancestor , child) {
-	var path = child.id ;
   var parent = child.parentNode ;
   while(parent != null) {
-  	path = parent.className +   "/" + path ;
     if(parent == ancestor) 	return true ;
     var tmp = parent.parentNode ;
     parent = tmp ;
