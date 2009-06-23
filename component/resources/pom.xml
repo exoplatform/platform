@@ -59,5 +59,10 @@
       <artifactId>exo.jcr.component.ext</artifactId>
       <version>${org.exoplatform.jcr.version}</version>
     </dependency>
+    <dependency>
+	<groupId>org.exoplatform.portletcontainer</groupId>
+	<artifactId>exo.pc.component.common</artifactId>
+	<version>${org.exoplatform.pc.version}</version>
+    </dependency>
   </dependencies>
 </project>
