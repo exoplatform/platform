@@ -12,7 +12,7 @@
 	        <div class="OverflowContainer">
 		        <div class="PopupTitleIcon"><span></span></div>
 	          	<a class="CloseButton" title="<%=_ctx.appRes("UIPortalComposer.Abort")%>" href="<%=uicomponent.url("Abort")%>"><span></span></a>
-	          	<a class="CloseButton" title="<%=_ctx.appRes("UIPortalComposer.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
+	          	<a class="SaveButton" title="<%=_ctx.appRes("UIPortalComposer.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
 		        <div class="PopupTitle"><%=_ctx.appRes(popupId + ".title."+ popupId)%></div>
 		      </div>
 	      </div>
@@ -25,36 +25,40 @@
 	          <div style="width: 100%;">
 	          	<div class="PopupContent" style="height: 500px">
 	          		<div class="Component"><% uicomponent.renderChildren(); %></div>
-							  <div class="UIAction"> 
-							    <table class="ActionContainer">
-							    	<tr>
-							    		<td>
-												
-							      		<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
-							            <div class="ButtonLeft">
-							              <div class="ButtonRight">
-							                <div class="ButtonMiddle">
-							                  <a href="javascript:void(0);">View Properties</a>
-							                </div>
-							              </div>
-							            </div>
-							       		</div>
-							
-							      		<div onclick="eXo.portal.UIPortal.switchPortalMode(this);" class="ActionButton LightBlueStyle LayoutMode" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
-							            <div class="ButtonLeft">
-							              <div class="ButtonRight">
-							                <div class="ButtonMiddle">
-							                  <a href="javascript:void(0);">Swich View</a>
-							                </div>
-							              </div>
-							            </div>
-							       		</div>
-							
-							      	</td>
-							      </tr>  
-							    </table>
-							  </div>
-	          	</div>
+					  <div class="UIAction"> 
+					    <table class="ActionContainer">
+					    	<tr>
+					    		<td>
+										
+					      		<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+					            <div class="ButtonLeft">
+					              <div class="ButtonRight">
+					                <div class="ButtonMiddle">
+					                  <div class="PageProfileIcon">
+					                  	<a href="javascript:void(0);">View Properties</a>
+					                  </div>
+					                </div>
+					              </div>
+					            </div>
+					       		</div>
+					
+					      		<div onclick="eXo.portal.UIPortal.switchPortalMode(this);" class="ActionButton LightBlueStyle LayoutMode" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+					            <div class="ButtonLeft">
+					              <div class="ButtonRight">
+					                <div class="ButtonMiddle">
+					                  <div class="ViewAsBlockIcon">
+					                  	<a href="javascript:void(0);">Swich View</a>
+					                  </div>
+					                </div>
+					              </div>
+					            </div>
+					       		</div>
+					
+					      	</td>
+					      </tr>  
+					    </table>
+					  </div>
+		          	</div>
 	          </div>
 	        </div>
 		    </div>

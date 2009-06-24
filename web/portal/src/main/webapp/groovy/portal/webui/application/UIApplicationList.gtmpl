@@ -50,9 +50,6 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 						      <div class="UIVTab DragObjectPortlet VTabStyle3" id="<%=application.getId();%>">
 							     <div class="VTabContentBG">
 							              <div class="OverflowContainer">
-							              	<div class="PortletIcons">
-  															<img src="$srcBG" onError="src='$srcBGError'" alt=""/>
-  														</div>
 										          <div class="H1" title="<%= application.getDisplayName() %>" style="cursor:move;">
 										          	<div class="LabelTab">$applicationLabel</div>
 										          	<div class="LableText"><%= application.getDescription() %></div>

@@ -47,7 +47,9 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 										String title = _ctx.appRes("UIContainerConfigOptions.template." + setLabel) ;
 							  %>
 							  	<div class="VTabContentBG">
-							  		<div class="$setIcon LableContent" title="$title" id="$setLabel">$setLabel</div>
+							  		<div class="$setIcon LableContent" title="$title" id="$setLabel">
+							  			<div class="Lable"> $setLabel </div>
+							  		</div>
 							  	</div>
 								<% } %>	
 								</div>
