@@ -16,15 +16,33 @@
  */
 package org.exoplatform.portal.webui.portal;
 
+import java.net.URLEncoder;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.UserPortalConfigService;
+import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.config.model.PortalProperties;
+import org.exoplatform.portal.skin.SkinService;
 import org.exoplatform.portal.webui.application.UIApplicationList;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainerList;
+import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
+import org.exoplatform.services.organization.OrganizationService;
+import org.exoplatform.services.organization.UserProfile;
+import org.exoplatform.services.resources.LocaleConfig;
+import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UITabPane;
 import org.exoplatform.webui.event.Event;
@@ -33,39 +51,169 @@ import org.exoplatform.webui.event.EventListener;
 /**
  * Created by The eXo Platform SAS
  * Author : Pham Thanh Tung
- *          thanhtungty@gmail.com
- * Jun 10, 2009  
+ * thanhtungty@gmail.com Jun 10, 2009
  */
-@ComponentConfig(
-                 template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
-                 events = {
-                     @EventConfig(listeners = UIPortalComposer.ViewPropertiesActionListener.class)
-                 }
-)
+@ComponentConfigs({
+  @ComponentConfig(
+                   template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
+                   events = { 
+                       @EventConfig(listeners = UIPortalComposer.ViewPropertiesActionListener.class),
+                       @EventConfig(listeners = UIPortalComposer.AbortActionListener.class),
+                       @EventConfig(listeners = UIPortalComposer.FinishActionListener.class)
+                   }
+  ),
+  @ComponentConfig(
+                   id = "UIPortalComposerTab",
+                   type = UITabPane.class,
+                   template =  "system:/groovy/webui/core/UITabPane_New.gtmpl",
+                   events = {@EventConfig(listeners = UIPortalComposer.SelectTabActionListener.class)}
+  )
+})
 public class UIPortalComposer extends UIContainer {
 
   public UIPortalComposer() throws Exception {
-    UITabPane uiTabPane = addChild(UITabPane.class, null, null);
+    UITabPane uiTabPane = addChild(UITabPane.class, "UIPortalComposerTab", null);
     uiTabPane.addChild(UIApplicationList.class, null, null).setRendered(true);
     uiTabPane.addChild(UIContainerList.class, null, null);
     uiTabPane.setSelectedTab(1);
   }
-
+  
+  public void save() throws Exception {
+    UIPortal uiPortal = Util.getUIPortal();     
+    UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);    
+    
+    PortalConfig portalConfig  = PortalDataMapper.toPortal(uiPortal);    
+    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);     
+    configService.update(portalConfig);
+    uiPortalApp.getUserPortalConfig().setPortal(portalConfig) ;
+    PortalRequestContext prContext = Util.getPortalRequestContext();
+    String remoteUser = prContext.getRemoteUser();
+    String ownerUser = prContext.getPortalOwner();   
+    UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);
+    if(userPortalConfig != null) {
+      uiPortal.setModifiable(userPortalConfig.getPortalConfig().isModifiable());        
+    } else {
+      uiPortal.setModifiable(false);
+    }
+    LocaleConfigService localeConfigService  = uiPortalApp.getApplicationComponent(LocaleConfigService.class) ;
+    LocaleConfig localeConfig = localeConfigService.getLocaleConfig(portalConfig.getLocale());
+    if(localeConfig == null) localeConfig = localeConfigService.getDefaultLocaleConfig();
+    //TODO dang.tung - change layout when portal get language from UIPortal (user and browser not support)
+    //----------------------------------------------------------------------------------------------------
+    String portalAppLanguage = uiPortalApp.getLocale().getLanguage();
+    OrganizationService orgService = getApplicationComponent(OrganizationService.class) ;
+    UserProfile userProfile = orgService.getUserProfileHandler().findUserProfileByName(remoteUser) ;
+    String userLanguage = userProfile.getUserInfoMap().get("user.language");
+    String browserLanguage = prContext.getRequest().getLocale().getLanguage();
+    if(!portalAppLanguage.equals(userLanguage) && !portalAppLanguage.equals(browserLanguage)) {  
+      uiPortalApp.setLocale(localeConfig.getLocale());
+      uiPortal.refreshNavigation(localeConfig.getLocale());
+    }
+    //----------------------------------------------------------------------------------------------------
+    uiPortalApp.setSkin(uiPortal.getSkin());
+    prContext.refreshResourceBundle();
+    SkinService skinService = getApplicationComponent(SkinService.class);
+    skinService.invalidatePortalSkinCache(uiPortal.getName(), uiPortal.getSkin());
+  }
+  
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
     Util.showComponentLayoutMode(UIPortlet.class);
   }
 
   static public class ViewPropertiesActionListener extends EventListener<UIPortalComposer> {
+
     public void execute(Event<UIPortalComposer> event) throws Exception {
       UIPortal uiPortal = Util.getUIPortal();
       UIPortalApplication uiApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
 
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);
       uiMaskWS.createUIComponent(UIPortalForm.class, null, "UIPortalForm");
       uiMaskWS.setWindowSize(700, -1);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
 
     }
+
+  }
+
+  static public class AbortActionListener extends EventListener<UIPortalComposer> {
+    
+    public void execute(Event<UIPortalComposer> event) throws Exception {
+      UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      
+      PortalRequestContext prContext = Util.getPortalRequestContext();  
+      UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
+      configService.update(uiPortalApp.getUserPortalConfig().getPortalConfig());
+      uiPortalApp.setEditting(false) ;
+      
+      String remoteUser = prContext.getRemoteUser();
+      String ownerUser = prContext.getPortalOwner();   
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(ownerUser, remoteUser);
+      
+      if(userPortalConfig == null){
+        HttpServletRequest request = prContext.getRequest() ;        
+        String portalName = URLEncoder.encode(Util.getUIPortal().getName(),"UTF-8") ;        
+        String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
+        prContext.getResponse().sendRedirect(redirect) ;      
+      }
+      
+      UIPortal uiPortal = uiWorkingWS.createUIComponent(prContext, UIPortal.class, null, null) ;
+      PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
+      
+      UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);
+      uiWorkingWS.setBackupUIPortal(oldUIPortal);
+      uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
+      uiWorkingWS.setRenderedChild(UIPortal.class) ;  
+      PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
+           PageNodeEvent.CHANGE_PAGE_NODE, 
+           (uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode().getUri() : null)) ;
+      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;  
+    }
+
+  }
+  
+  static public class FinishActionListener extends EventListener<UIPortalComposer> {
+
+    public void execute(Event<UIPortalComposer> event) throws Exception {
+      UIPortalComposer uiComposer = event.getSource();   
+      uiComposer.save();
+
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      UserPortalConfigService configService = uiComposer.getApplicationComponent(UserPortalConfigService.class);
+      UserPortalConfig userPortalConfig = configService.getUserPortalConfig(prContext.getPortalOwner(), prContext.getRemoteUser());
+      if(userPortalConfig == null){
+        HttpServletRequest request = prContext.getRequest() ;        
+        String portalName = URLEncoder.encode(Util.getUIPortal().getName(),"UTF-8") ;        
+        String redirect = request.getContextPath() + "/public/" + portalName + "/" ;
+        prContext.getResponse().sendRedirect(redirect) ;        
+      }
+      
+      UIPortal uiPortal = Util.getUIPortal();
+      UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
+      if(PortalProperties.SESSION_ALWAYS.equals(uiPortal.getSessionAlive())) uiPortalApp.setSessionOpen(true) ;
+      else uiPortalApp.setSessionOpen(false) ;
+      uiPortalApp.setEditting(false) ;
+      PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
+           PageNodeEvent.CHANGE_PAGE_NODE, 
+           (uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode().getUri() : null)) ;
+      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;      
+    }
+    
+  }
+  
+  static public class SelectTabActionListener extends UITabPane.SelectTabActionListener {
+
+    public void execute(Event<UITabPane> event) throws Exception {
+      super.execute(event);
+      UITabPane uiTabPane = event.getSource();
+      UIComponent uiComponent = uiTabPane.getChildById(uiTabPane.getSelectedTabId());
+      if(uiComponent instanceof UIPortlet) {
+        Util.showComponentLayoutMode(UIPortlet.class);
+      } else if(uiComponent instanceof org.exoplatform.portal.webui.container.UIContainer) {
+        Util.showComponentLayoutMode(org.exoplatform.portal.webui.container.UIContainer.class);
+      }
+    }
+    
   }
 }

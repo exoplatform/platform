@@ -11,7 +11,8 @@
 	      <div class="TopCenterDecorator">
 	        <div class="OverflowContainer">
 		        <div class="PopupTitleIcon"><span></span></div>
-		          <div class="CloseButton" title="<%=_ctx.appRes("UIPopupWindow.Close")%>" onclick="<%=uicomponent.event("Close")%>"><span></span></div>
+	          	<a class="CloseButton" title="<%=_ctx.appRes("UIPortalComposer.Abort")%>" href="<%=uicomponent.url("Abort")%>"><span></span></a>
+	          	<a class="CloseButton" title="<%=_ctx.appRes("UIPortalComposer.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
 		        <div class="PopupTitle"><%=_ctx.appRes(popupId + ".title."+ popupId)%></div>
 		      </div>
 	      </div>

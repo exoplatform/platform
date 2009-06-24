@@ -42,18 +42,20 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 							  <div class="UIVTabContent" style="display: block">
 							  <%
 							  for(application in category.getApplications()) {
-							  	String appName= application.getApplicationName() ;
 							  	String applicationLabel = application.getDisplayName();
 							  	if(applicationLabel.length() > 30) applicationLabel = applicationLabel.substring(0, 27) + "...";
+									String srcBG = "/" + application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + application.getApplicationName() + ".png";
+									String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 							  %>
 						      <div class="UIVTab DragObjectPortlet VTabStyle3" id="<%=application.getId();%>">
 							     <div class="VTabContentBG">
 							              <div class="OverflowContainer">
+							              	<div class="PortletIcons">
+  															<img src="$srcBG" onError="src='$srcBGError'" alt=""/>
+  														</div>
 										          <div class="H1" title="<%= application.getDisplayName() %>" style="cursor:move;">
-										          	<div class="LabelTab">My Aplication</div>
-										          	<div class="LableText">
-										           		$applicationLabel
-										          	</div>
+										          	<div class="LabelTab">$applicationLabel</div>
+										          	<div class="LableText"><%= application.getDescription() %></div>
 										          </div>
 									          </div>
 							            </div>
