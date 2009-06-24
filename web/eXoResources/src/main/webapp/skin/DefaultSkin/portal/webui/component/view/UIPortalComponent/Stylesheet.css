@@ -46,15 +46,6 @@
   margin: 4px 0px 2px 4px;/* orientation=rt */
 }
 
-.UIPortlet .NormalContainerBlock {
-	background: white;
-	border: 1px dashed #a2a2a2;
-}
-
-.UIPortlet .NormalContainerBlock .RightContainerBlock {
-	padding: 4px;
-}
-
 .UIPortlet .SelectedContainerBlock {
 	background: white;
 	border-top: 1px solid #91bcdd;
@@ -143,9 +134,20 @@
 
 .LAYOUT-CONTAINER .UIContainer {
   height: 100%;
+  padding: 0px;
 	/*
 	 fix bug dragdrop in IE6
 	*/
+}
+
+.LAYOUT-CONTAINER .TDContainer {
+	padding: 0px 2px;
+}
+
+
+.UIContainer .LAYOUT-BLOCK .UIRowContainer {
+	min-height: 86px;
+	_height: 86px;
 }
 
 .UIContainer .EditPortletPropertiesIcon {
@@ -224,11 +226,11 @@
 .UIContainer .CONTROL-CONTAINER .DragControlArea {
   float: left; /* orientation=lt */
   float: right; /* orientation=rt */
-  width: 24px; height: 15px; 
+  width: 10px; height: 10px;
   background: url('background/DragBg2x2.gif');
   cursor: move;
-  margin: 4px 0px 0px 5px;/* orientation=lt */
-  margin: 4px 5px 0px 0px;/* orientation=rt */
+  margin: 6px 0px 0px 5px;/* orientation=lt */
+  margin: 6px 5px 0px 0px;/* orientation=rt */
 }
 
 .UIContainer .LAYOUT-CONTAINER  .UITableColumnContainer {
@@ -241,16 +243,16 @@
 	float: right;/* orientation=lt */
 	float: left;/* orientation=rt */
 	width: 22px; height: 16px;
-	background: url('background/ContainerIcon.gif') no-repeat top;
-  margin: 4px 2px 2px 0px;/* orientation=lt */
-  margin: 4px 0px 2px 2px;/* orientation=rt */
+	background: url('background/Pen.png') no-repeat top;
+  margin: 1px 2px 2px 0px;/* orientation=lt */
+  margin: 1px 0px 2px 2px;/* orientation=rt */
 }
 
 .UIContainer .DeleteContainerIcon {
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 	width: 22px; height:16px; 
-  background: url('background/ContainerIcon.gif') no-repeat bottom;
+  background: url('background/close.png') no-repeat bottom;
   margin: 4px 4px 2px 0px; /* orientation=lt */
   margin: 4px 0px 2px 4px; /* orientation=rt */
 }
@@ -258,9 +260,11 @@
 .UIContainer .ContainerIcon {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-  width: 18px; height: 16px;
-  margin: 4px 0px 0px 5px; /* orientation=lt */
-  margin: 4px 5px 0px 0px; /* orientation=rt */
+  height: 16px; line-height: 16px;
+  padding-left: 24px; /* orientation=lt */
+  padding-right: 24px; /* orientation=rt */
+  margin: 3px 0px 0px 5px; /* orientation=lt */
+  margin: 3px 5px 0px 0px; /* orientation=rt */
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat;
 }
 

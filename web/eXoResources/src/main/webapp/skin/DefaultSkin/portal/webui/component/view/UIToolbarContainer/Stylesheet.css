@@ -1,9 +1,26 @@
 .UIToolbarContainer {
 	padding: 0px;
+	height: auto;
 }
 
 .UIToolbarContainer .LAYOUT-CONTAINER {
 	overflow: hidden;
+}
+
+.UIToolbarContainer .LAYOUT-BLOCK .UIRowContainer {
+	height: auto;
+	min-height: inherit;
+	border: none;
+	background: none;
+}
+
+.UIToolbarContainer .NormalContainerBlock {
+	background: none;
+	border: none;
+}
+
+.UIToolbarContainer .NormalContainerBlock .RightContainerBlock {
+	padding: 0px;
 }
 
 .UIToolbarContainer .ToolbarContainer .TRContainer {
@@ -18,7 +35,7 @@
 	position: relative;
 }
 
-.ToolbarContainer {	
+.UIToolbarContainer .NormalContainerBlock .ToolbarContainer {	
 	background: url('icons/IconToolBar.gif') repeat-x scroll 0 0;	
 	height: 32px;
 }
