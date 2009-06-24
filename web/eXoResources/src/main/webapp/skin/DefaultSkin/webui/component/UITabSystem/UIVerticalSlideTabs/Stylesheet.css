@@ -200,15 +200,26 @@
 }
 
 .UIPortalComposer .PopupTitleIcon {
-	background:none ;
+	background:transparent url(background/GrayDownIcon.gif) no-repeat left;
 }
 
 .UIPortalComposer .CloseButton {
-	background:transparent url(background/PopupWindow.gif) no-repeat scroll right bottom;
+	background:transparent url(background/CloseIcon.gif) no-repeat scroll right bottom;
+}
+
+.UIPortalComposer .SaveButton {
+	background:transparent url(background/SaveIcon.gif) no-repeat scroll right bottom;
+	cursor:pointer;
+	float:right;
+	height:15px;
+	margin:5px 3px 0 0;
+	width:19px;
 }
 
 .UIPortalComposer .PopupTitle {
 	background:none ;
+	margin:4px 42px 0px 26px;
+	text-align: left;
 }
 
 .UIPortalComposer .MiddleLeftSideDecorator {
@@ -449,6 +460,18 @@
 	line-height: 21px;
 }
 
+.UIPortalComposer .UIAction .LightBlueStyle .ButtonMiddle .PageProfileIcon {
+	background:transparent url(background/PageProfileIcon.gif) no-repeat left;
+	line-height: 21px;
+	padding-left: 26px;
+}
+
+.UIPortalComposer .UIAction .LightBlueStyle .ButtonMiddle .ViewAsBlockIcon {
+	background:transparent url(background/ViewAsBlockIcon.gif) no-repeat left;
+	line-height: 21px;
+	padding-left: 26px;
+}
+
 .UIPortalComposer .OverflowContainer {
 		
 }
@@ -476,6 +499,14 @@
 	margin: 6px;
 }
 
+.UIPortalComposer .OverflowContainer .H2{
+	background:transparent url(background/H1.gif) no-repeat left;
+	padding-left: 65px;
+	height: 53px;
+	margin: 6px;
+}
+
+
 .UIPortalComposer .VTabContentBG{
 	background:transparent url(background/VTabContentBG.gif) repeat-x ;
 	margin:6px 0 0;
@@ -489,7 +520,9 @@
 	font-weight: bold;
 	color: #5a93be;	
 	margin-left: 6px;
-	width: auto;
-	width: 90px;
+}
+
+.UIPortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent .LableContent .Lable{
 	overflow: hidden;
+	width: 70%;
 }
