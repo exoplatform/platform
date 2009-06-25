@@ -1,9 +1,11 @@
 
 package org.exoplatform.portal.config.jcr;
 
-import java.util.List;
+import javax.jcr.Session;
 
 import org.exoplatform.commons.utils.ListAccess;
+import org.exoplatform.services.jcr.ext.common.SessionProvider;
+import org.exoplatform.services.jcr.ext.registry.RegistryService;
 
 /*
  * Copyright (C) 2003-2009 eXo Platform SAS.
@@ -26,34 +28,39 @@ import org.exoplatform.commons.utils.ListAccess;
  * Created by The eXo Platform SAS
  * Author : tam.nguyen
  *          tamndrok@gmail.com
- * May 16, 2009  
+ * May 28, 2009  
  */
-public class DataStorageListAccess implements ListAccess<Object> {
+public abstract class DataStorageListAccess implements ListAccess<Object> {
 
-  private final List<Object> list;
+  /**
+   * The RegistryService.
+   */
+  protected RegistryService service;
 
-  DataStorageListAccess(List<Object> list) {
-    this.list = list;
+  /**
+   * RegistryService constructor.
+   * 
+   * @param service
+   *          The RegistryService
+   */
+  public DataStorageListAccess(RegistryService service) {
+    this.service = service;
   }
 
-  public Object[] load(int index, int length) throws Exception, IllegalArgumentException {
-    if (index < 0)
-      throw new IllegalArgumentException("Illegal index: index must be a positive number");
+  /**
+   * {@inheritDoc}
+   */
+  public abstract Object[] load(int index, int length) throws Exception ;
 
-    if (length < 0)
-      throw new IllegalArgumentException("Illegal length: length must be a positive number");
+  /**
+   * Determine the count of available users.
+   * 
+   * @param session
+   *          The current session
+   * @return list size
+   * @throws Exception
+   *           if any error occurs
+   */
+  public abstract int getSize() throws Exception;
 
-    if (index + length > list.size())
-      throw new IllegalArgumentException("Illegal index or length: sum of the index and the length cannot be greater than the list size");
-
-    Object result[] = new Object[length];
-    for (int i = 0; i < length; i++)
-      result[i] = list.get(i + index);
-
-    return result;
-  }
-
-  public int getSize() throws Exception {
-    return list.size();
-  }
 }

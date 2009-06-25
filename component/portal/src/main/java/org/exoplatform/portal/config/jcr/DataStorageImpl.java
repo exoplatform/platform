@@ -37,6 +37,7 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
+import org.exoplatform.services.jcr.ext.organization.UserByQueryJCRUserListAccess;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.services.listener.ListenerService;
@@ -388,34 +389,7 @@ public class DataStorageImpl implements DataStorage, Startable {
 
   @SuppressWarnings("unchecked")
   public LazyPageList find(Query q, Comparator sortComparator) throws Exception {
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT) ;
-    String registryNodePath = regService_.getRegistry(sessionProvider).getNode().getPath() ;
-    generateLikeScript(builder, "jcr:path", registryNodePath + "/%") ;
-    generateLikeScript(builder, DataMapper.EXO_DATA_TYPE, q.getClassType().getSimpleName()) ;
-    generateContainScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType()) ;
-    generateContainScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId()) ;
-    generateContainScript(builder, DataMapper.EXO_NAME, q.getName()) ;
-    generateContainScript(builder, DataMapper.EXO_TITLE, q.getTitle());
-    Session session = regService_.getRegistry(sessionProvider).getNode().getSession() ;
-    try {
-      QueryManager queryManager = session.getWorkspace().getQueryManager() ;
-      javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql") ;
-      QueryResult result = query.execute() ;
-      ArrayList<Object> list = new ArrayList<Object>() ;
-      NodeIterator itr = result.getNodes() ;
-      while(itr.hasNext()) {
-        Node node = itr.nextNode() ;
-        String entryPath = node.getPath().substring(registryNodePath.length() + 1) ;
-        RegistryEntry entry = regService_.getEntry(sessionProvider, entryPath) ;
-        list.add(mapper_.fromDocument(entry.getDocument(), q.getClassType())) ;
-      }
-      if(sortComparator != null) Collections.sort(list, sortComparator) ;
-      return new LazyPageList(new DataStorageListAccess(list), 10);
-    }
-    finally {
-      sessionProvider.close() ;
-    }
+      return new LazyPageList(new JCRDataStorageListAccess(regService_, q, sortComparator), 10);
   }
   
   public void start() {}
