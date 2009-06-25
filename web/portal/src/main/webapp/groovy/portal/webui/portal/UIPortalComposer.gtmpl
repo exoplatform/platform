@@ -2,7 +2,7 @@
   String popupId = uicomponent.getId() ;
   def rcontext = _ctx.getRequestContext() ;
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
-  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', true, false, true, false);") ;
+  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', true, true, true, false);") ;
 %>
 <div class="UIPopupWindow UIDragObject UIPortalComposer" exo:minWidth="200" exo:minHeight="200" id="$uicomponent.id" style="width: 300px display: block;">
 	<div class="NormalStyle">
@@ -11,8 +11,8 @@
 	      <div class="TopCenterDecorator">
 	        <div class="OverflowContainer">
 		        <div class="PopupTitleIcon"><span></span></div>
-	          	<a class="CloseButton" title="<%=_ctx.appRes("UIPortalComposer.Abort")%>" href="<%=uicomponent.url("Abort")%>"><span></span></a>
-	          	<a class="SaveButton" title="<%=_ctx.appRes("UIPortalComposer.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
+	          	<a class="CloseButton" title="<%=_ctx.appRes("UIPortalComposer.action.Abort")%>" href="<%=uicomponent.url("Abort")%>"><span></span></a>
+	          	<a class="SaveButton" title="<%=_ctx.appRes("UIPortalComposer.action.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
 		        <div class="PopupTitle"><%=_ctx.appRes(popupId + ".title."+ popupId)%></div>
 		      </div>
 	      </div>
@@ -35,7 +35,7 @@
 					              <div class="ButtonRight">
 					                <div class="ButtonMiddle">
 					                  <div class="PageProfileIcon">
-					                  	<a href="javascript:void(0);">View Properties</a>
+					                  	<a href="javascript:void(0);"><%=_ctx.appRes("UIPortalComposer.action.ViewProperties")%></a>
 					                  </div>
 					                </div>
 					              </div>
@@ -47,7 +47,7 @@
 					              <div class="ButtonRight">
 					                <div class="ButtonMiddle">
 					                  <div class="ViewAsBlockIcon">
-					                  	<a href="javascript:void(0);">Swich View</a>
+					                  	<a href="javascript:void(0);"><%=_ctx.appRes("UIPortalComposer.action.SwitchMode")%></a>
 					                  </div>
 					                </div>
 					              </div>

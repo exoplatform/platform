@@ -197,7 +197,7 @@
       <Rollback>رجوع</Rollback>
       <SaveNavigation>احفظ التصفح</SaveNavigation>
       <EditNavigation>تحريرالتصفح</EditNavigation>
-      <CreateNavigation>إنشاء تصفح صفحة جديدة </CreateNavigation>
+      <CreateNavigation>إنشاء تصفح صفحة جديدة</CreateNavigation>
       <Abort>الغاء</Abort>
       <Back>رجوع</Back>
     </tooltip>
@@ -205,6 +205,59 @@
       <noEditablePageNavigation>لا تصفح صفحة تسمح لك  التحرير</noEditablePageNavigation>
     </msg>
   </UIPageNavigationControlBar>
+  <!--
+  #############################################################################
+  #org.exoplatform.portal.webui.portal.UIPortalComposer												#
+  #############################################################################
+  -->
+  <UIPortalComposer>
+    <title>
+      <UIPortalComposer>Edit Inline Composer</UIPortalComposer>
+    </title>
+    <action>
+      <Abort>Abort</Abort>
+      <Finish>Finish</Finish>
+      <ViewProperties>Portal Properties</ViewProperties>
+      <SwitchMode>Switch View Mode</SwitchMode>
+    </action>
+  </UIPortalComposer>
+  <UITabPane>
+    <title>
+      <UIApplicationList>Applications</UIApplicationList>
+      <UIContainerList>Containers</UIContainerList>
+      <UIPermissionSelector>تحرير إعداد التصاريح</UIPermissionSelector>
+      <UIListPermissionSelector>إعداد تصاريح الدخول</UIListPermissionSelector>
+      <UIAccountProfiles>تعريفة الحساب</UIAccountProfiles>
+      <UIAccountChangePass>تغيير كلمة السر</UIAccountChangePass>
+    </title>
+  </UITabPane>
+  <!--
+  #############################################################################
+  #Container config options												#
+  #############################################################################
+  -->
+  <ContainerOptions>
+    <Category>
+      <row>Rows Layout</row>
+      <column>Columns Layout</column>
+      <tabs>Tabs Layout</tabs>
+      <mix>Mixed Layout</mix>
+    </Category>
+    <Item>
+      <oneRow>One Row</oneRow>
+      <twoRows>Two Rows</twoRows>
+      <threeRows>Three Rows</threeRows>
+      <oneColumns>One Column</oneColumns>
+      <twoColumns>Two Columns</twoColumns>
+      <threeColumns>Three Columns</threeColumns>
+      <threeToolbarColumns>Three Toolbar Columns</threeToolbarColumns>
+      <twoTabs>Two Tabs</twoTabs>
+      <threeTabs>Three Tabs</threeTabs>
+      <twoColumnsOneRow>Two Columns, One Row</twoColumnsOneRow>
+      <oneRowTwoColumns>One Row, Two Columns</oneRowTwoColumns>
+      <oneRow2Column1Row>One Row, Two Columns, One Row</oneRow2Column1Row>
+    </Item>
+  </ContainerOptions>
   <!--
   #############################################################################
   #org.exoplatform.portal.component.customization.UIPortalManagementControlBar#
@@ -244,8 +297,8 @@
       <LanguageSetting>ضبط لغة الواجهة</LanguageSetting>
     </title>
     <action>
-      <close> الغاء</close>
-      <save> طبق</save>
+      <close>الغاء</close>
+      <save>طبق</save>
     </action>
   </UIChangeLanguage>
   <Euro>
@@ -330,9 +383,9 @@
   </Desktop>
   <AccountTemplate>
     <left>
-      <title>معاينة قالب عينة حساب </title>
+      <title>معاينة قالب عينة حساب</title>
     </left>
-    <title>قوالب حساب </title>
+    <title>قوالب حساب</title>
   </AccountTemplate>
   <DefaultAccount>
     <label>الحساب الافتراضي</label>
@@ -510,7 +563,7 @@
     </tab>
     <Theme>
       <title>
-        <Preview>معاينة المواضيع </Preview>
+        <Preview>معاينة المواضيع</Preview>
         <SetDefault>الحصول على الافتراضي</SetDefault>
       </title>
     </Theme>
@@ -530,13 +583,13 @@
   -->
   <UIDescription>
     <title>
-      <pageManagement>تصفح الصفحة </pageManagement>
+      <pageManagement>تصفح الصفحة</pageManagement>
       <portalManagement>تصفح البوابة</portalManagement>
       <pageWizard>معالج إنشاء الصفحات</pageWizard>
       <pageEditWizard>معالج تحرير الصفحة</pageEditWizard>
     </title>
     <content>
-      <pageManagement><![CDATA[<strong>:إدارة الصفحات</strong><br/>.كل الصفحات الموجودة منظمة في القائمة مع معلومات أساسية<br/>يمكن للمستخدم المعاينة صفحة العادية فقط,</br/>.تعديل أو حذف الصفحة إذا لديك الحق <br/>يمكن للمستخدم البحث عن الصفحة ب<em>نوع المالك</em> (portal/group/user), ب <em>تعريف المالك</em>  (اسم نوع المالك)<em>اسم الصفحة </em><br/>.لإنشاء صفحة جديدة ، انقر على زر "أضف صفحة جديدة" وادخل المجالات اللازمة ]]></pageManagement>
+      <pageManagement><![CDATA[<strong>:إدارة الصفحات</strong><br/>.كل الصفحات الموجودة منظمة في القائمة مع معلومات أساسية<br/>يمكن للمستخدم المعاينة صفحة العادية فقط,</br/>.تعديل أو حذف الصفحة إذا لديك الحق <br/>يمكن للمستخدم البحث عن الصفحة ب<em>نوع المالك</em> (portal/group/user), ب <em>تعريف المالك</em>  (اسم نوع المالك)<em>اسم الصفحة </em><br/>.لإنشاء صفحة جديدة ، انقر على زر "أضف صفحة جديدة" وادخل المجالات اللازمة]]></pageManagement>
       <portalManagement><![CDATA[<strong>:إدارة بوابات</strong><br/>هذه قائمة جميع البوابات. لخلق جديد ، انقر على زر "إنشاء بوابة جديدة"  وادخل المجالات اللازمة <br/>يمكن للمستخدم حذف من القائمة أو إنشاء بوابة  إذا كان لديه الحق.]]></portalManagement>
       <pageWizard>حذف</pageWizard>
       <pageWizard2><![CDATA[<strong>.الخطوة 1 : تحديد صفحة, يتضمن معلومات مسار الصفحة ، اسم العقدة ، اسم المشاهدة</strong><br/>:افعل ما يلي<br/>اختر التصفح من القائمة- <br/>اختر صفحة لإنشاء صفحة فرعية من صفحة مختارة-<br/>مدخلات-<em>اسم العقدة</em><br/>مدخلات-<em>اسم العرض</em> (الخيار)<br/>فحص-<em>مرئية</em> فحص المربع  خيار<br/>فحص- <em>تاريخ ووقت النشر</em> فحص المربع  خيار<br/>&nbsp;&nbsp;إذا<em>تاريخ ووقت النشر</em>:تأكد من اختيار المربع<br/>&nbsp;&nbsp;مدخلات-<em>بدأ تاريخ النشر</em><br/>&nbsp;&nbsp;مدخلات-<em>تاريخ  نهاية النشر</em><br/>انقر فوق "التالي" للانتقال الى الخطوة التالية]]></pageWizard2>
@@ -579,7 +632,7 @@
         <PortalSetting>وضع البوابة</PortalSetting>
         <PortalTemplate>قوالب البوابة</PortalTemplate>
         <PermissionSetting>اختيار التصريح</PermissionSetting>
-        <FactoryId> رقم تعريفة المصنع</FactoryId>
+        <FactoryId>رقم تعريفة المصنع</FactoryId>
       </label>
     </tab>
   </UIPortalForm>
@@ -596,14 +649,6 @@
   #              org.exoplatform.webui.organization.UIGroupSelector#
   ###############################################################################3#####
   -->
-  <UITabPane>
-    <title>
-      <UIPermissionSelector>تحرير إعداد التصاريح</UIPermissionSelector>
-      <UIListPermissionSelector>إعداد تصاريح الدخول</UIListPermissionSelector>
-      <UIAccountProfiles>تعريفة الحساب</UIAccountProfiles>
-      <UIAccountChangePass>تغيير كلمة السر</UIAccountChangePass>
-    </title>
-  </UITabPane>
   <UIListPermissionSelector>
     <header>
       <groupId>رقم تعريفة المجموعة</groupId>
@@ -679,7 +724,7 @@
       <NoPermission>!ليس لديك تصريح للحصول على هذه الصفحة</NoPermission>
       <PageNotExist>!الصفحة لا توجد</PageNotExist>
       <UserNotPermission>!ليس لديك تصريح للوصول إلى عقدة الصفحة</UserNotPermission>
-      <InvalidQueryException>!الاستعلام غير صالح </InvalidQueryException>
+      <InvalidQueryException>!الاستعلام غير صالح</InvalidQueryException>
       <Invalid-viewPermission>الصفحة  "(0)" لا تسمح الدخول</Invalid-viewPermission>
       <Invalid-editPermission>الصفحة "(0)" لا تسمح التحرير</Invalid-editPermission>
       <Invalid-deletePermission>الصفحة "(0)" لا تسمح الحذف</Invalid-deletePermission>
@@ -712,7 +757,7 @@
       <ownerId>تعريفة المالك</ownerId>
       <pageId>تعريفة الصفحة</pageId>
       <title>العنوان</title>
-      <accessGroups>الدخول للمجموعات </accessGroups>
+      <accessGroups>الدخول للمجموعات</accessGroups>
       <action>#{word.action}</action>
       <accessPermissions>تصاريح الدخول</accessPermissions>
       <editPermission>تحريرالتصاريح</editPermission>
@@ -784,7 +829,7 @@
       <label>
         <PageSetting>وضع الصفحة</PageSetting>
         <Template>قوالب الصفحة</Template>
-        <PermissionSetting> اعرض التصاريح</PermissionSetting>
+        <PermissionSetting>اعرض التصاريح</PermissionSetting>
         <UIPageTemplateOptions>تصميم الصفحات</UIPageTemplateOptions>
       </label>
     </tab>
@@ -826,7 +871,7 @@
       <pageReference>مراجع الصفحة</pageReference>
       <description>#{word.description}</description>
       <type>نوع الصفحة</type>
-      <creator>خالق الصفحة </creator>
+      <creator>خالق الصفحة</creator>
       <modifier>معدل الصفحة</modifier>
       <label>#{word.label}:</label>
       <visible>Visible:</visible>
@@ -877,7 +922,7 @@
   #############################################################################
   -->
   <UIPageNavigationForm>
-    <title><![CDATA[ مستكشف الصفحة و التصفح ]]></title>
+    <title>مستكشف الصفحة و التصفح</title>
     <label>
       <priority>:الأولوية</priority>
       <creator>:الخالق</creator>
@@ -960,7 +1005,7 @@
   -->
   <UIPopupGroupMembershipSelector>
     <title>
-      <ListPermissionSelector>قائمة التصاريح </ListPermissionSelector>
+      <ListPermissionSelector>قائمة التصاريح</ListPermissionSelector>
     </title>
   </UIPopupGroupMembershipSelector>
   <UIPageFormPopupGroupMembershipSelector>
@@ -1058,7 +1103,7 @@
     <label>
       <selectDecorator>قسم الديكور</selectDecorator>
       <SimpleStyle>النمط البسيط</SimpleStyle>
-      <ThickStyle>نمط سميك الحدود </ThickStyle>
+      <ThickStyle>نمط سميك الحدود</ThickStyle>
       <TextureStyle>نمط نص الخلف</TextureStyle>
       <ColorStyle>نمط لون الخلف</ColorStyle>
       <RoundedStyle>نمط مقربة الحدود</RoundedStyle>
@@ -1120,7 +1165,7 @@
       <icon>#{word.icon}</icon>
       <creator>Creator</creator>
       <accessPermission>تصاريح الدخول</accessPermission>
-      <editPermission>تحريرالتصاريح </editPermission>
+      <editPermission>تحريرالتصاريح</editPermission>
       <pageReference>مراجع الصفحة</pageReference>
     </label>
   </UIPageNodeWizardPreview>
@@ -1150,7 +1195,7 @@
       <abort>#{word.abort}</abort>
     </label>
     <msg>
-      <selectStep2> في المرة الأولى ، يجب أن تمر بالخطوة 2</selectStep2>
+      <selectStep2>في المرة الأولى ، يجب أن تمر بالخطوة 2</selectStep2>
       <notSelectedPageNavigation>عدم اختيار التصفح الصفحة</notSelectedPageNavigation>
       <notSelectedPage>!عدم اختيار الصفحة</notSelectedPage>
       <Invalid-editPermission>لم يتم العثور على هذه الصفحة أو لم يكن لديك الحق في تعديل</Invalid-editPermission>
@@ -1160,11 +1205,11 @@
     <UIDropDown>
       <title>تشكيلات الصفحة</title>
       <label>
-        <normalPageConfigs>تشكيلات الصفحة </normalPageConfigs>
+        <normalPageConfigs>تشكيلات الصفحة</normalPageConfigs>
         <columnPageConfigs>تشكيلات صفحة بالأعمدة</columnPageConfigs>
         <mixPageConfigs>تشكيلات صفحة مختلطة</mixPageConfigs>
-        <rowPageConfigs> تشكيلات صفحة بالصفوف</rowPageConfigs>
-        <tabsPageConfigs> تشكيلات صفحة بعلامات التبويب</tabsPageConfigs>
+        <rowPageConfigs>تشكيلات صفحة بالصفوف</rowPageConfigs>
+        <tabsPageConfigs>تشكيلات صفحة بعلامات التبويب</tabsPageConfigs>
       </label>
     </UIDropDown>
   </UIPageTemplateOptions>
@@ -1217,7 +1262,7 @@
       <pageName>اسم العقدة</pageName>
       <pageDisplayName>عرض الاسم</pageDisplayName>
       <visible>مرئية</visible>
-      <showPublicationDate><![CDATA[تاريخ و وقت النشر]]></showPublicationDate>
+      <showPublicationDate>تاريخ و وقت النشر</showPublicationDate>
       <startPublicationDate>ابدأ تاريخ النشر</startPublicationDate>
       <endPublicationDate>نهاية تاريخ النشر</endPublicationDate>
     </label>
@@ -1239,7 +1284,7 @@
       <pageName>اسم العقدة</pageName>
       <pageDisplayName>عرض الاسم</pageDisplayName>
       <visible>مرئية</visible>
-      <showPublicationDate><![CDATA[تاريخ و وقت النشر]]></showPublicationDate>
+      <showPublicationDate>تاريخ و وقت النشر</showPublicationDate>
       <startPublicationDate>ابدأ تاريخ النشر</startPublicationDate>
       <endPublicationDate>نهاية تاريخ النشر</endPublicationDate>
     </label>
@@ -1282,7 +1327,7 @@
   </UIAdvancedCustomization>
   <UIPortalManagement>
     <msg>
-      <Invalid-editPermission>!ليس لديك الحق في تحرير البوابة </Invalid-editPermission>
+      <Invalid-editPermission>!ليس لديك الحق في تحرير البوابة</Invalid-editPermission>
     </msg>
     <title>
       <EDIT>تعديل البوابة الحالية</EDIT>
@@ -1311,7 +1356,7 @@
         <ContainerCategory>فئة الحاويات</ContainerCategory>
         <row>تصميم بالصفوف</row>
         <column>تصميم بالأعمدة</column>
-        <tabs>تصميم بعلامات التبويب </tabs>
+        <tabs>تصميم بعلامات التبويب</tabs>
         <mixed>تصميم مختلط</mixed>
       </label>
     </UIDropDown>
@@ -1496,7 +1541,7 @@
   <UIPageManagement>
     <title>
       <BROWSE>إدارة الصفحات</BROWSE>
-      <EDIT><![CDATA[مستكشف الصفحة و التصفح]]></EDIT>
+      <EDIT>مستكشف الصفحة و التصفح</EDIT>
     </title>
     <msg>
       <Invalid-editPermission>هذه الصفحة لا تسمح التحرير</Invalid-editPermission>
@@ -1560,7 +1605,7 @@
       <name>#{word.name}</name>
       <skin>#{word.skin}</skin>
       <action>#{word.action}</action>
-      <factoryId> رقم تعريفة المصنع</factoryId>
+      <factoryId>رقم تعريفة المصنع</factoryId>
     </header>
     <action>
       <addNewPortal>إنشاء بوابة جديدة</addNewPortal>
@@ -1569,7 +1614,7 @@
       </title>
     </action>
     <msg>
-      <Invalid-viewPermission>  البوابة لا تسمح الدخول</Invalid-viewPermission>
+      <Invalid-viewPermission>البوابة لا تسمح الدخول</Invalid-viewPermission>
       <PortalInUse>.البوابة (0) مستخدمة</PortalInUse>
       <Invalid-deletePermission>.(ليس لديك الحق في حذف البوابة (0</Invalid-deletePermission>
       <Invalid-createPermission>.ليس لديك الحق في إنشاء بوابة جديدة. الرجاء الاتصال بمخطط النظام</Invalid-createPermission>
@@ -1675,26 +1720,26 @@
   -->
   <UIForgetPassword>
     <title>نسيت اسم المستخدم / كلمة السر؟</title>
-  <action>
-    <Send>إرسل</Send>
-    <Back>رجوع</Back>
-  </action>
-  <label>
-    <username>اسم المستخدم</username>
-    <email>البريد الالكتروني</email>
-  </label>
-  <msg>
-    <user-delete>اسم المستخدم تم حذفه من قبل مخطط النظام</user-delete>
-    <user-not-exist>اسم مستخدمك لا وجود له في إكزو</user-not-exist>
-    <expration>وصلتك انتهت, عليك الحصول على رسالة بريد إلكتروني   أخرى لتجديدها</expration>
-  </msg>
-  <mail>
-    <header>شكرا على اتصالك مركزالمساعدة لبوابة إكزو. لقد قدمت طلبا لاسم المستخدم وكلمة السر</header>
-    <footer>شكرا لك, مركزالمساعدة لبوابة إكزو</footer>
-    <user>اسم المستخدم لحسابك هو</user>
-    <password>كلمة السر لحسابك هو</password>
-    <link>يمكنك بعد ذلك طلب كلمة سر جديدة لاسم المستخدم الرجاء الضغط على هذه الوصلة</link>
-  </mail>
+    <action>
+      <Send>إرسل</Send>
+      <Back>رجوع</Back>
+    </action>
+    <label>
+      <username>اسم المستخدم</username>
+      <email>البريد الالكتروني</email>
+    </label>
+    <msg>
+      <user-delete>اسم المستخدم تم حذفه من قبل مخطط النظام</user-delete>
+      <user-not-exist>اسم مستخدمك لا وجود له في إكزو</user-not-exist>
+      <expration>وصلتك انتهت, عليك الحصول على رسالة بريد إلكتروني   أخرى لتجديدها</expration>
+    </msg>
+    <mail>
+      <header>شكرا على اتصالك مركزالمساعدة لبوابة إكزو. لقد قدمت طلبا لاسم المستخدم وكلمة السر</header>
+      <footer>شكرا لك, مركزالمساعدة لبوابة إكزو</footer>
+      <user>اسم المستخدم لحسابك هو</user>
+      <password>كلمة السر لحسابك هو</password>
+      <link>يمكنك بعد ذلك طلب كلمة سر جديدة لاسم المستخدم الرجاء الضغط على هذه الوصلة</link>
+    </mail>
   </UIForgetPassword>
   <UIResetPassword>
     <title>تغيير كلمة السر</title>
@@ -1721,7 +1766,7 @@
   -->
   <UIPopupMessages>
     <title>
-      <exoMessages> رسائل إكزو</exoMessages>
+      <exoMessages>رسائل إكزو</exoMessages>
     </title>
     <button>
       <ok>نعم</ok>
@@ -1782,7 +1827,7 @@
   <UIPage>
     <label>
       <title>صفحة البوابة</title>
-      <description>صفحة البوابة </description>
+      <description>صفحة البوابة</description>
       <pageContent>وصف الصفحة</pageContent>
     </label>
     <msg>
@@ -1865,7 +1910,7 @@
   -->
   <UIPortal>
     <label>
-      <title>حاوية واجهة مستخدم البوابة </title>
+      <title>حاوية واجهة مستخدم البوابة</title>
       <description>حاوية واجهة مستخدم البوابة</description>
     </label>
   </UIPortal>
@@ -1896,7 +1941,7 @@
       <ChangeSkin>تغيير المظهر</ChangeSkin>
       <ChangeLanguage>تغيير اللغة</ChangeLanguage>
       <PageCreationWizard>معالج تكوين صفحة</PageCreationWizard>
-      <EditCurrentPage>معالج تحرير صفحة </EditCurrentPage>
+      <EditCurrentPage>معالج تحرير صفحة</EditCurrentPage>
       <EditCurrentPortal>تعديل البوابة الحالية</EditCurrentPortal>
       <BrowseExistingPortals>تصفح قائمة البوابات</BrowseExistingPortals>
       <Navigation>تصفح</Navigation>
@@ -1944,7 +1989,7 @@
   </UISearch>
   <UISearchForm>
     <msg>
-      <empty>!لا نتيجة </empty>
+      <empty>!لا نتيجة</empty>
     </msg>
   </UISearchForm>
   <!--
@@ -1969,8 +2014,7 @@
   -->
   <UIWizardWelcome>
     <WelcomeLabel>!مرحبا بكم في معالج إنشاء الصفحات</WelcomeLabel>
-    <WelcomeText>هذا المعالج سوف يسمح لكم من إنشاء صفحة جديدة. وهي توجه لكم من خلال دخول المعلومات اللازمة لإنشاء صفحة جديدة. عند الانتهاء من دخول المعلومات المطلوبة ، سيطلب منك حفظ صفحة جديدة. طريقة سهلة عن طريق النقر على "العودة" و "التالي" أو أزرار اختيار عدد خطوة
-</WelcomeText>
+    <WelcomeText>هذا المعالج سوف يسمح لكم من إنشاء صفحة جديدة. وهي توجه لكم من خلال دخول المعلومات اللازمة لإنشاء صفحة جديدة. عند الانتهاء من دخول المعلومات المطلوبة ، سيطلب منك حفظ صفحة جديدة. طريقة سهلة عن طريق النقر على "العودة" و "التالي" أو أزرار اختيار عدد خطوة</WelcomeText>
   </UIWizardWelcome>
   <!--
   ###############################################################################
@@ -2102,12 +2146,12 @@
   </UIGrid>
   <!--
   ################################################################################
-  #   
+  #
   ################################################################################
   -->
   <UIItemSelector>
     <lable>
-      <ItemDetailTitle> معاينة عينة تصفيف القوالب</ItemDetailTitle>
+      <ItemDetailTitle>معاينة عينة تصفيف القوالب</ItemDetailTitle>
     </lable>
   </UIItemSelector>
   <!--
@@ -2138,8 +2182,6 @@
   </UIAccountSetting>
   <!--
   #se xoa##
-  -->
-  <!--
   #se xoa#
   -->
   <UIAccountProfiles>
@@ -2195,7 +2237,7 @@
       <columnPageConfigs>تشكيلات صفحة بالأعمدة</columnPageConfigs>
       <mixPageConfigs>تشكيلات صفحة مختلطة</mixPageConfigs>
       <rowPageConfigs>تشكيلات صفحة بالصفوف</rowPageConfigs>
-      <tabsPageConfigs> تشكيلات صفحة بعلامات التبويب</tabsPageConfigs>
+      <tabsPageConfigs>تشكيلات صفحة بعلامات التبويب</tabsPageConfigs>
     </item>
   </UIDropDownPageTemp>
   <!--
@@ -2244,7 +2286,7 @@
       <DeleteContainer>هل أنت متأكد من حذف هذه الحاوية؟</DeleteContainer>
     </confirm>
     <title>
-      <manager>إدارة حاويات الأدوات  </manager>
+      <manager>إدارة حاويات الأدوات</manager>
       <containers>حاويات</containers>
       <selectedContainer>:معلومات حاوية الأداة المختارة</selectedContainer>
     </title>
@@ -2306,13 +2348,13 @@
     <UIItemThemeSelector>
       <item>
         <SimpleBlue>زرقاء بسيط</SimpleBlue>
-        <SimpleGreen>أخضر بسيط </SimpleGreen>
-        <SimplePink>وردي بسيط </SimplePink>
-        <SimpleViolet>بنفسجي بسيط </SimpleViolet>
+        <SimpleGreen>أخضر بسيط</SimpleGreen>
+        <SimplePink>وردي بسيط</SimplePink>
+        <SimpleViolet>بنفسجي بسيط</SimpleViolet>
         <SimpleOrange>أورانج بسيط</SimpleOrange>
         <RoundConerPink>الركن الوردي</RoundConerPink>
         <RoundConerOrange>الركن أورانج</RoundConerOrange>
-        <RoundConerGreen>الركن أخضر </RoundConerGreen>
+        <RoundConerGreen>الركن أخضر</RoundConerGreen>
         <RoundConerViolet>الركن بنفسجي</RoundConerViolet>
         <RoundConerBlue>الركن زرقاء</RoundConerBlue>
         <ShadowPink>الظل الوردي</ShadowPink>
@@ -2335,7 +2377,7 @@
       <Shadow>نمط الظل</Shadow>
       <Simple>النمط البسيط</Simple>
       <VistaStyle>نمط فيستا</VistaStyle>
-      <MacStyle>نمط ماك </MacStyle>
+      <MacStyle>نمط ماك</MacStyle>
       <RoundConer>نمط ركن</RoundConer>
     </item>
   </ThemeDropDown>
@@ -2346,14 +2388,14 @@
   -->
   <UIDashboardSelectContainer>
     <label>
-    <workspace>فضاء لوحة القيادة</workspace>
-  </label>
-  <tooltip>
-    <close>إغلاق فضاء لوحة القيادة</close>
-  </tooltip>
-  <action>
-    <addGadget>إضافة أداة</addGadget>
-  </action>
+      <workspace>فضاء لوحة القيادة</workspace>
+    </label>
+    <tooltip>
+      <close>إغلاق فضاء لوحة القيادة</close>
+    </tooltip>
+    <action>
+      <addGadget>إضافة أداة</addGadget>
+    </action>
   </UIDashboardSelectContainer>
   <UIDashboardContainer>
     <label>
@@ -2372,7 +2414,7 @@
   <UIDashboard>
     <msg>
       <required>النص مطلوب هنا</required>
-    <notUrl>عنوان غير صالح ! الرجاء إدخال عنوان صحيح للالأداة </notUrl>
+      <notUrl>عنوان غير صالح ! الرجاء إدخال عنوان صحيح للالأداة</notUrl>
     </msg>
   </UIDashboard>
   <!--
@@ -2437,7 +2479,6 @@
     <Untitled>(Untitled)</Untitled>
     <Tab>New tab</Tab>
   </UIBrowserPortlet>
-  
   <!--
   ############################################################################
   #              org.exoplatform.portal.webui.container.UIPopupWindow         #
@@ -2446,7 +2487,6 @@
   <UIPopupWindow>
     <Close>Close Window</Close>
   </UIPopupWindow>
-  
   <!--
   #############################################################################
   #           org.exoplatform.portal.organization.component.UIGroupNavigationManagement#
@@ -2454,17 +2494,12 @@
   -->
   <UIGroupNavigationManagement>
     <Action>
-    	<Add>
-    		Add Navigation
-    	</Add>
+      <Add>Add Navigation</Add>
     </Action>
     <Delete>
-    	<Confirm>
-    		Are you sure to delete this navigation?
-    	</Confirm>
+      <Confirm>Are you sure to delete this navigation?</Confirm>
     </Delete>
   </UIGroupNavigationManagement>
-  
   <!--
   #############################################################################
   #           org.exoplatform.portal.organization.component.UIAddGroupNavigation#
@@ -2472,9 +2507,8 @@
   -->
   <UIAddGroupNavigation>
     <Action>
-    	<Cancel>
-    		Cancel
-    	</Cancel>
+      <Cancel>Cancel</Cancel>
     </Action>
   </UIAddGroupNavigation>
 </bundle>
+

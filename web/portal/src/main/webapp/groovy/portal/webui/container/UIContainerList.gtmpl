@@ -31,7 +31,7 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 					          <div class="TabRight">
 					            <div class="TabRepeat">
 									      <a class="TabLabel" title="<%= displayName %>">
-									      	<%= displayName %>
+									      	<%= _ctx.appRes("ContainerOptions.Category." + displayName) %>
 									      </a>
 							          <div class="ClearBoth"><span></span></div>
 							         </div>
@@ -44,11 +44,11 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 							  for(container in category.getSelectItemOptions()) {
 										String setIcon = container.getIcon();
 										String setLabel = container.getLabel();
-										String title = _ctx.appRes("UIContainerConfigOptions.template." + setLabel) ;
+										String title = _ctx.appRes("ContainerOptions.Item." + setLabel) ;
 							  %>
 							  	<div class="VTabContentBG">
 							  		<div class="$setIcon LableContent" title="$title" id="$setLabel">
-							  			<div class="Lable"> $setLabel </div>
+							  			<div class="Lable">$title</div>
 							  		</div>
 							  	</div>
 								<% } %>	
