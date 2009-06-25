@@ -200,3 +200,110 @@
 	border: none;
 	padding: 0px;
 }
+
+/************************** UIPortalComposer **************************/
+
+.UIPortalComposer {
+}
+
+.UIPortalComposer .TLPortalComposer {
+	background:transparent url(background/PortalComposer.gif) no-repeat left top;
+	padding-left:3px;
+}
+
+.UIPortalComposer .TRPortalComposer {
+	background:transparent url(background/PortalComposer.gif) no-repeat right top;
+	padding-right:3px;
+}
+
+.UIPortalComposer .TCPortalComposer {
+	background:transparent url(background/PortalComposer.gif) repeat-x left -29px;
+	height:29px;
+}
+
+.UIPortalComposer .PopupTitleIcon {
+	background:transparent url(background/GrayDownIcon.gif) no-repeat left;
+}
+
+.UIPortalComposer .CloseButton {
+	background:transparent url(background/CloseIcon.gif) no-repeat scroll right bottom;
+}
+
+.UIPortalComposer .SaveButton {
+	background:transparent url(background/SaveIcon.gif) no-repeat scroll right bottom;
+	cursor:pointer;
+	float:right;
+	height:15px;
+	margin:5px 3px 0 0;
+	width:19px;
+}
+
+.UIPortalComposer .PopupTitle {
+	background:none ;
+	margin:4px 42px 0px 26px;
+	text-align: left;
+}
+
+.UIPortalComposer .MLPortalComposer {
+	background: url(background/MiddlePortalComposer.gif) repeat-y left top;
+	padding-left: 2px;
+}
+
+.UIPortalComposer .MRPortalComposer {
+	background: url(background/MiddlePortalComposer.gif) repeat-y right top;
+	padding-right: 2px;
+}
+
+.UIPortalComposer .MCPortalComposer {
+	background: url(background/CenterMiddleWindow.gif) repeat ;
+	padding: 3px;
+}
+
+.UIPortalComposer .BLPortalComposer {
+	background: url(background/PortalComposer.gif) no-repeat left -58px;
+	padding-left: 2px;
+}
+
+.UIPortalComposer .BRPortalComposer {
+	background: url(background/PortalComposer.gif) no-repeat right -58px;
+	padding-right: 2px;
+}
+
+.UIPortalComposer .BCPortalComposer {
+	background: url(background/PortalComposer.gif) repeat-x left -60px;
+	height: 2px;
+}
+
+.UIPortalComposer .UIWindowContent  {
+	border: none ;
+}
+
+.UIPortalComposer .PopupContent {
+	background: none ;
+	overflow: hidden;
+}
+
+.UIPortalComposer .UITabPane {
+	height: auto;
+}
+
+.UIPortalComposer .UITabPane .TabPaneContent {
+	padding: 0px;
+}
+
+.UIPortalComposer .UIHorizontalTabs .TabsContainer {
+	background: url(background/CenterHorizontalTabs.gif) repeat-x ;
+	height: 26px;
+	padding: 0px 2px;
+}
+
+.UIPortalComposer .UITabPane .UITabContentContainer {
+	background: #efefef;
+	height:360px;
+	overflow:auto;
+}
+
+.UIPortalComposer .UITabPane .UITabContent {
+	background: none;
+	border: none;
+}

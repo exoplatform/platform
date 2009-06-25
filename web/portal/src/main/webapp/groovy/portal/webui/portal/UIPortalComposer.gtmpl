@@ -5,10 +5,9 @@
   rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', true, true, true, false);") ;
 %>
 <div class="UIPopupWindow UIDragObject UIPortalComposer" exo:minWidth="200" exo:minHeight="200" id="$uicomponent.id" style="width: 300px display: block;">
-	<div class="NormalStyle">
-	  <div class="TopLeftCornerDecorator">
-	    <div class="TopRightCornerDecorator">
-	      <div class="TopCenterDecorator">
+	  <div class="TLPortalComposer">
+	    <div class="TRPortalComposer">
+	      <div class="TCPortalComposer">
 	        <div class="OverflowContainer">
 		        <div class="PopupTitleIcon"><span></span></div>
 	          	<a class="CloseButton" title="<%=_ctx.appRes("UIPortalComposer.action.Abort")%>" href="<%=uicomponent.url("Abort")%>"><span></span></a>
@@ -18,9 +17,10 @@
 	      </div>
 	    </div>
 	  </div>
-	  <div class="MiddleLeftSideDecorator">
-		  <div class="MiddleRightSideDecorator">
-		    <div class="MiddleCenterDecorator">
+
+	  <div class="MLPortalComposer">
+		  <div class="MRPortalComposer">
+		    <div class="MCPortalComposer">
 	        <div class="UIWindowContent">
 	          <div style="width: 100%;">
 	          	<div class="PopupContent" style="height: 500px">
@@ -30,7 +30,7 @@
 							    	<tr>
 							    		<td>
 												
-							      		<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton LightBlueStyle" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+							      		<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton SimpleStyle1">
 							            <div class="ButtonLeft">
 							              <div class="ButtonRight">
 							                <div class="ButtonMiddle">
@@ -42,7 +42,7 @@
 							            </div>
 							       		</div>
 							
-							      		<div onclick="eXo.portal.UIPortal.switchPortalMode(this);" class="ActionButton LightBlueStyle LayoutMode" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+							      		<div onclick="eXo.portal.UIPortal.switchPortalMode(this);" class="ActionButton SimpleStyle1" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
 							            <div class="ButtonLeft">
 							              <div class="ButtonRight">
 							                <div class="ButtonMiddle">
@@ -64,9 +64,9 @@
 		    </div>
 		  </div>
 	  </div>
-	  <div class="BottomLeftCornerDecorator">
-		  <div class="BottomRightCornerDecorator">
-		    <div class="BottomCenterDecorator">
+	  <div class="BLPortalComposer">
+		  <div class="BRPortalComposer">
+		    <div class="BCPortalComposer">
 					<div class="ResizeButton"><span></span></div>
 				</div>
 		  </div>

@@ -413,3 +413,42 @@
   background: url('background/MessageTabDialog.gif') no-repeat left -63px; /* orientation=lt */
   background: url('background/MessageTabDialog.gif') no-repeat right -63px; /* orientation=rt */
 }
+
+/***************************** GrayTabStyle ************************/
+
+.UIHorizontalTabs .GrayTabStyle .NormalTab .LeftTab {
+	background: url(background/GrayTabStyle.gif) no-repeat left top;
+	padding-left: 6px;
+	margin-top: 1px;
+	cursor: pointer;
+}
+
+.UIHorizontalTabs .GrayTabStyle .NormalTab .RightTab {
+	background: url(background/GrayTabStyle.gif) no-repeat right top;
+	padding-right: 6px;
+}
+
+.UIHorizontalTabs .GrayTabStyle .NormalTab .MiddleTab {
+	background: url(background/GrayTabStyle.gif) repeat-x left -24px;
+	line-height: 24px;
+	color: #7d7d7d; 
+	padding: 0px 8px;
+}
+
+.UIHorizontalTabs .GrayTabStyle .SelectedTab .LeftTab {
+	background: url(background/SelectTab.gif) no-repeat left top;
+	padding-left: 6px;
+	cursor: pointer;
+}
+
+.UIHorizontalTabs .GrayTabStyle .SelectedTab .RightTab {
+	background: url(background/SelectTab.gif) no-repeat right top;
+	padding-right: 6px;
+}
+
+.UIHorizontalTabs .GrayTabStyle .SelectedTab .MiddleTab {
+	background: url(background/SelectTab.gif) repeat-x left -26px;
+	line-height: 26px;
+	color: #010101; 
+	padding: 0px 8px;
+}

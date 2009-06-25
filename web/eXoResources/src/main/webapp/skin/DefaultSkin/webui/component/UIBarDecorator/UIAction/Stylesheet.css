@@ -131,3 +131,32 @@
 .UIAction a:hover.SimpleStyle {
   color: #1273df;
 }
+
+/*************************SimpleStyle1********************/
+.UIAction .SimpleStyle1 .ButtonLeft  {
+	background:transparent url(background/SimpleStyle1.gif) no-repeat left top;
+	padding-left: 3px;
+}
+
+.UIAction .SimpleStyle1 .ButtonRight  {
+	background:transparent url(background/SimpleStyle1.gif) no-repeat right top;
+	padding-right: 3px;
+}
+
+.UIAction .SimpleStyle1 .ButtonMiddle  {
+	background:transparent url(background/SimpleStyle1.gif) repeat-x left -21px;
+	line-height: 21px;
+	padding: 0px 4px;
+}
+
+.UIAction .SimpleStyle1 .ButtonMiddle .PageProfileIcon {
+	background:transparent url(background/PageProfileIcon.gif) no-repeat left;
+	line-height: 21px;
+	padding-left: 22px;
+}
+
+.UIAction .SimpleStyle1 .ButtonMiddle .ViewAsBlockIcon {
+	background:transparent url(background/ViewAsBlockIcon.gif) no-repeat left;
+	line-height: 21px;
+	padding-left: 22px;
+}

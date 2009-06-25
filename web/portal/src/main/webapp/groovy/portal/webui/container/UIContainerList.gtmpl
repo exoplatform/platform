@@ -25,18 +25,11 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 						    	cTab = "NormalTab" ;
 						    }
 						%>			   	    	
-	   	    		<div class="UIVTab VTabSimpleStyle">
+	   	    		<div class="UIVTab VTabStyle4">
 					      <div class="$cTab" onclick="<%= uicomponent.event("SelectCategory", cName) %>">
-					        <div class="TabLeft">
-					          <div class="TabRight">
-					            <div class="TabRepeat">
-									      <a class="TabLabel" title="<%= displayName %>">
-									      	<%= _ctx.appRes("ContainerOptions.Category." + displayName) %>
-									      </a>
-							          <div class="ClearBoth"><span></span></div>
-							         </div>
-					          </div>
-					        </div>
+						      <a class="TabLabel" title="<%= displayName %>">
+						      	<%= _ctx.appRes("ContainerOptions.Category." + displayName) %>
+						      </a>
 							  </div>
 							<% if(isSelected) { %>
 							  <div class="UIVTabContent" style="display: block">
