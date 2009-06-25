@@ -310,7 +310,6 @@
 	margin: 0px;
 }
 
-
 .UIPortalComposer .UIContainerConfigOptions .VTabSimpleStyle {
 	border: 1px solid #c6cacb; padding: 1px;
 	margin: 2px;
@@ -472,54 +471,41 @@
 	padding-left: 26px;
 }
 
-.UIPortalComposer .OverflowContainer {
-		
-}
-
 .UIPortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .SelectedTab .TabLabel {
 	line-height: 22px;
 	height: 22px;
 }
 
-.UIPortalComposer .OverflowContainer .LabelTab {
+.UIPortalComposer .VTabContentBG .LabelTab {
 	font-size: 12px;
 	font-weight: bold;
 	color: #5a93be;	
 	line-height: 26px;
 }
 
-.UIPortalComposer .OverflowContainer .LableText {
-	font-size: 11px;
+.UIPortalComposer .VTabContentBG img {
+	float: left;
+	margin: 0px 4px 0px 0px;
 }
 
-.UIPortalComposer .OverflowContainer .H1{
-	background:transparent url(background/H1.gif) no-repeat left;
-	padding-left: 65px;
+.UIPortalComposer .VTabContentBG .ContentInfo {
 	height: 53px;
 	margin: 6px;
 }
 
-.UIPortalComposer .OverflowContainer .H2{
-	background:transparent url(background/H1.gif) no-repeat left;
-	padding-left: 65px;
-	height: 53px;
-	margin: 6px;
-}
-
-
-.UIPortalComposer .VTabContentBG{
+.UIPortalComposer .VTabContentBG {
 	background:transparent url(background/VTabContentBG.gif) repeat-x ;
 	margin:6px 0 0;
 	padding:2px 0 0;
 }
 
-.UIPortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent .LableContent{
+.UIPortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent .LableContent {
 	padding: 0px 0px 10px 100px;
-	line-height: 40px;
 	font-size: 12px;
 	font-weight: bold;
 	color: #5a93be;	
 	margin-left: 6px;
+	width: auto;
 }
 
 .UIPortalComposer .UIVerticalSlideTabs .VTabSimpleStyle .UIVTabContent .LableContent .Lable{

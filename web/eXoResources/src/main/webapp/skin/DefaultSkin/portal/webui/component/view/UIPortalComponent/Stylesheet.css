@@ -128,7 +128,7 @@
 }
 /*############### End Decorator ###################################################*/
 
-.UIContainer {
+.UIContainer .LAYOUT-CONTAINER {
 	padding: 3px;
 }
 
@@ -167,7 +167,7 @@
   margin: 4px 0px 2px 4px;/* orientation=rt */
 }
 
-.UIContainer .NormalContainerBlock, .UIContainer .VIEW-CONTAINER {
+.UIContainer .NormalContainerBlock {
 	background: white;
 	border: 1px dashed #a2a2a2;
 }

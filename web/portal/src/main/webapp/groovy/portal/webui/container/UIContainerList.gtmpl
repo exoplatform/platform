@@ -48,7 +48,7 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 							  %>
 							  	<div class="VTabContentBG">
 							  		<div class="$setIcon LableContent" title="$title" id="$setLabel">
-							  			<div class="Lable">$title</div>
+							  			$title
 							  		</div>
 							  	</div>
 								<% } %>	

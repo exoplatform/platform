@@ -48,14 +48,15 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 									String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 							  %>
 						      <div class="UIVTab DragObjectPortlet VTabStyle3" id="<%=application.getId();%>">
-							     <div class="VTabContentBG">
-							              <div class="OverflowContainer">
-										          <div class="H1" title="<%= application.getDisplayName() %>" style="cursor:move;">
-										          	<div class="LabelTab">$applicationLabel</div>
-										          	<div class="LableText"><%= application.getDescription() %></div>
-										          </div>
-									          </div>
-							            </div>
+							    	<div class="VTabContentBG">
+				              <div class="OverflowContainer">
+				              	<img src="$srcBG" onError="src='$srcBGError'" alt=""/>
+							          <div class="ContentInfo" title="<%= application.getDisplayName() %>" style="cursor:move;">
+							          	<div class="LabelTab">$applicationLabel</div>
+							          	<div class="LableText"><%= application.getDescription() %></div>
+							          </div>
+						          </div>
+				            </div>
 									</div>
 								<% } %>	
 								</div>
