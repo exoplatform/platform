@@ -13,7 +13,7 @@
   <table class="ManagementBlock" style="table-layout: fixed">
 	  <tr>
 		  <td class="Image"><img src="/exoadmin/skin/navigation/webui/component/background/GroupImage.gif" alt="" /></td>
-   		<td  class="Label">
+   		<td  class="Label" title="$navigation.ownerId">
    			<%= OrganizationUtils.getGroupLabel("/" + navigation.ownerId) %> 
    		</td>	
      	<td class="ActionBlock">
