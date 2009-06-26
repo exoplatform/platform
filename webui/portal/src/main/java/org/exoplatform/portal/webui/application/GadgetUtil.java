@@ -29,10 +29,13 @@ import org.exoplatform.application.gadget.Gadget;
 import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.gadget.core.SecurityTokenGenerator;
 import org.exoplatform.web.application.gadget.GadgetApplication;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.exoplatform.portal.webui.util.Util;
+
 
 /**
  * Created by The eXo Platform SAS Author : Pham Thanh Tung
@@ -81,7 +84,7 @@ public class GadgetUtil {
           + "{\"moduleId\":" + gadgetService.getModuleId() + ",\"url\":\"" + urlStr
           + "\",\"prefs\":[]}]}";
       // Send data
-      URL url = new URL(getHostBase() + "/eXoGadgetServer/gadgets/metadata");
+      URL url = new URL(getHostBase() +  "/eXoGadgetServer/gadgets/metadata");
       URLConnection conn = url.openConnection();
       conn.setDoOutput(true);
       OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
@@ -131,11 +134,11 @@ public class GadgetUtil {
   }
 
   static final public String getViewPath(String uri) {
-    return getHostBase() + "/rest/" + uri;
+    return getLocalHostBase() + "/rest/" + uri;
   }
 
   static final public String getEditPath(String uri) {
-    return getHostBase() + "/rest/private/" + uri;
+    return getLocalHostBase() + "/rest/private/" + uri;
   }
   
   static private String getHostBase() {
@@ -150,9 +153,29 @@ public class GadgetUtil {
     return hostName.substring(0, index) ;
   }
 
+  static private String getLocalHostBase() {
+    String hostName = getLocalHostName();
+    URL url = null;
+    try {
+       url = new URL(hostName);
+    } catch (Exception e) {}
+    if(url == null) return hostName ;
+    int index = hostName.indexOf(url.getPath()) ;
+    if(index < 1) return hostName ;
+    return hostName.substring(0, index) ;
+  }
+  
   static final private String getHostName() {
     ExoContainer container = ExoContainerContext.getCurrentContainer();
     GadgetRegistryService gadgetService = (GadgetRegistryService) container.getComponentInstanceOfType(GadgetRegistryService.class);
     return gadgetService.getHostName();
   }
+  
+  static final private String getLocalHostName() {
+    PortalRequestContext pContext = Util.getPortalRequestContext() ;
+    StringBuffer requestUrl = pContext.getRequest().getRequestURL() ;
+    int index = requestUrl.indexOf(pContext.getRequestContextPath()) ;
+    return requestUrl.substring(0, index);    
+  }
+
 }
