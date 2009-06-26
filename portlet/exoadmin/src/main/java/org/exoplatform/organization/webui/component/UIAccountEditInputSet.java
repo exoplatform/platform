@@ -28,6 +28,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
 import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
+import org.exoplatform.webui.form.validator.PasswordStringLengthValidator;
 import org.exoplatform.webui.form.validator.ResourceValidator;
 import org.exoplatform.webui.form.validator.SpecialCharacterValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
@@ -70,14 +71,14 @@ public class UIAccountEditInputSet extends UIFormInputSet {
     addUIFormInput(uiCheckbox) ;
     UIFormInputBase<String> uiInput = new UIFormStringInput(PASSWORD1X, null, null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
-                   addValidator(StringLengthValidator.class, 6,30).
+                   addValidator(PasswordStringLengthValidator.class, 6,30).
                    addValidator(MandatoryValidator.class) ;
                    uiInput.setRendered(false) ;
     addUIFormInput(uiInput) ;
     uiInput = new UIFormStringInput(PASSWORD2X, null, null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(MandatoryValidator.class).
-                   addValidator(StringLengthValidator.class, 6, 30);
+                   addValidator(PasswordStringLengthValidator.class, 6, 30);
                    uiInput.setRendered(false) ;
     addUIFormInput(uiInput) ;
   }

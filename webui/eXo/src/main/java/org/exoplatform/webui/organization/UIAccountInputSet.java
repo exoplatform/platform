@@ -27,6 +27,7 @@ import org.exoplatform.webui.form.UIFormStringInput;
 import org.exoplatform.webui.form.validator.EmailAddressValidator;
 import org.exoplatform.webui.form.validator.ExpressionValidator;
 import org.exoplatform.webui.form.validator.MandatoryValidator;
+import org.exoplatform.webui.form.validator.PasswordStringLengthValidator;
 import org.exoplatform.webui.form.validator.ResourceValidator;
 import org.exoplatform.webui.form.validator.StringLengthValidator;
 
@@ -53,11 +54,11 @@ public class UIAccountInputSet extends UIFormInputWithActions {
     addUIFormInput(new UIFormStringInput(PASSWORD1X, "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(MandatoryValidator.class).
-                   addValidator(StringLengthValidator.class, 6, 30)) ;
+                   addValidator(PasswordStringLengthValidator.class, 6, 30)) ;
     addUIFormInput(new UIFormStringInput(PASSWORD2X, "password", null).
                    setType(UIFormStringInput.PASSWORD_TYPE).
                    addValidator(MandatoryValidator.class).
-                   addValidator(StringLengthValidator.class, 6, 30));
+                   addValidator(PasswordStringLengthValidator.class, 6, 30));
     addUIFormInput(new UIFormStringInput("firstName", "firstName", null).
     							 addValidator(StringLengthValidator.class, 3, 45).
                    addValidator(MandatoryValidator.class).
