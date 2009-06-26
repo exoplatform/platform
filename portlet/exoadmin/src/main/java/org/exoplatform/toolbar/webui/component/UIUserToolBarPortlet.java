@@ -45,11 +45,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 )
 public class UIUserToolBarPortlet extends UIPortletApplication {
   
-  OrganizationService orgService;
-
-  public UIUserToolBarPortlet() throws Exception {
-    orgService = getApplicationComponent(OrganizationService.class);
-  }
+  public UIUserToolBarPortlet() throws Exception {  }
   
   public List<String> getAllDashboards() throws Exception {
     List<String> list = new ArrayList<String>();
@@ -101,12 +97,6 @@ public class UIUserToolBarPortlet extends UIPortletApplication {
   
   public String getPortalURI(String portalName) {
     return Util.getPortalRequestContext().getPortalURI().replace(getCurrentPortal(), portalName);
-  }
-  
-  public String getGroupLabel(String groupId) throws Exception {
-    Group group = orgService.getGroupHandler().findGroupById(groupId);
-    String label = group.getLabel();
-    return (label != null && label.trim().length() > 0) ? label : group.getGroupName(); 
   }
   
   private PageNavigation getPageNavigation(String owner){
