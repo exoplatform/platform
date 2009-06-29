@@ -1,0 +1,70 @@
+<%
+  import org.exoplatform.webui.core.UIComponent ;
+  import org.exoplatform.webui.form.UIForm;
+  import java.text.DateFormat;
+  import java.text.SimpleDateFormat;
+
+  String[] beanFields =  uicomponent.getBeanFields() ;  
+  String[] beanActions =  uicomponent.getBeanActions() ;
+  UIComponent uiParent = uicomponent.getParent() ;
+  String name = uicomponent.getLabel() ;
+  
+  DateFormat dateFormat = null;
+%>
+<div id="$uicomponent.id">
+	<table id="DataFeed" class="UIGrid" cellspacing="0">	  
+	  <%if(uicomponent.getUIPageIterator().getAvailable() < 1) {%>
+	    <tr>
+	      <td style="font-style:italic; color: #FF5604; text-align: center;" colspan="<%=beanFields.length+1%>">
+	        <%=_ctx.appRes("UIGrid.msg.empty")%>
+	      </td>
+	    </tr>  
+	  <%} else { 
+		    for (bean in uicomponent.getBeans())  {		      
+	  %>
+		      <tr>
+	  <%
+			    for(field in beanFields) { 
+			      def fieldValue = uicomponent.getFieldValue(bean, field) ;
+			      def cssClass = "" ;
+			      if(fieldValue != null) {
+			        def fieldClass = fieldValue.getClass() ;
+			        if(fieldClass == Integer.class)  cssClass = "number" ;
+			        else if(java.util.Date.class.isAssignableFrom(fieldClass)) {
+			          if(dateFormat == null) dateFormat = new SimpleDateFormat("HH:mm:ss yyyy-MM-dd");
+			          cssClass = "Datetime" ;
+			          fieldValue = dateFormat.format(fieldValue);
+			        } 
+			        else cssClass = "Text" ;
+			      } else {
+			      	fieldValue = "";
+			      }
+			      String value = fieldValue.toString();
+			      println "<td><div class=\""+cssClass+"\" title='$fieldValue'>"+fieldValue+"</div></td>";
+		      }  
+	        if(beanActions != null && beanActions.length > 0) { 
+	  %>
+				  <td>
+		        <div class="ActionContainer">
+		          <%
+		            def beanIdField = uicomponent.getBeanIdField() ;           
+		            for(action in beanActions) { 
+		              def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
+			            if(action == null) continue;
+		              String title = _ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action);
+		              String actionLink = uiParent.event(action, beanId);
+			        %>	           
+			            <img onclick="$actionLink" alt="" title="$title" src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon" />
+		          <%}%>                 
+		        </div>
+		      </td>
+	  <%
+	        }
+	  %>  
+			    </tr>
+		<%
+		    }
+		  }
+		%>
+	</table>
+</div>

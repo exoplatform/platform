@@ -1,0 +1,28 @@
+<%
+  import org.exoplatform.webui.core.UIComponent;
+  import org.exoplatform.webui.bean.DataFeed;
+  
+  String listId = uicomponent.getId();
+  boolean hasNext = uicomponent.getDataFeed().hasNext();
+  int height = uicomponent.getHeight();
+  int scrollHeight = height + 50;
+  String heightInPixel = height + "px";
+  def rcontext = _ctx.getRequestContext(); 
+  rcontext.getJavascriptManager().importJavascript('eXo.core.DOMUtil');  
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIVirtualList');  
+%>
+<style>
+	.container {width:100%; overflow:auto;border:1px solid black;}
+</style>
+
+<div id="$listId" class="container" style="height:$heightInPixel" onscroll="eXo.webui.UIVirtualList.scrollMove();">	
+	<div id="scroller"></div>
+	<div id="tmpScroller">
+		<%= uicomponent.renderChildren();%>
+	</div>
+	<% rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.init('$listId');");
+		if (!hasNext) {
+			rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.loadFinished();");
+		}	
+	%>
+</div>
