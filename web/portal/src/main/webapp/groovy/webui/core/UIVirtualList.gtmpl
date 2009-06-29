@@ -18,7 +18,7 @@
 <div id="$listId" class="container" style="height:$heightInPixel" onscroll="eXo.webui.UIVirtualList.scrollMove();">	
 	<div id="scroller"></div>
 	<div id="tmpScroller">
-		<%= uicomponent.renderChildren();%>
+		<% uicomponent.renderChildren();%>
 	</div>
 	<% rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.init('$listId');");
 		if (!hasNext) {
