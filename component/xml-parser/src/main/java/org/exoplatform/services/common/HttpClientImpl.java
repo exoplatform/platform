@@ -27,7 +27,7 @@ import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpStatus;
 import org.apache.commons.httpclient.HttpVersion;
 import org.apache.commons.httpclient.MultiThreadedHttpConnectionManager;
-import org.apache.commons.httpclient.NTCredentials;
+import org.apache.commons.httpclient.UsernamePasswordCredentials;
 import org.apache.commons.httpclient.auth.AuthScope;
 import org.apache.commons.httpclient.cookie.CookiePolicy;
 import org.apache.commons.httpclient.methods.GetMethod;
@@ -85,7 +85,7 @@ public class HttpClientImpl  {
     
     String username = System.getProperty("httpclient.proxy.username");
     String password = System.getProperty("httpclient.proxy.password");
-    NTCredentials ntCredentials = new NTCredentials("userid","password", username, password);
+    UsernamePasswordCredentials ntCredentials = new UsernamePasswordCredentials(username, password);
     http.getState().setProxyCredentials(AuthScope.ANY, ntCredentials);
   } 
   

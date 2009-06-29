@@ -47,12 +47,9 @@ public class TestRSSParser extends BasicTestCase {
     parser_ = (RSSParser) manager.getComponentInstanceOfType(RSSParser.class) ;
   }
   
-  public void tearDown() throws Exception{
-    
-  }
-  
   public void testAtom30() throws Exception{
-    RSSDocument<DefaultRSSChannel, DefaultRSSItem> document = createRSSDocument("atom03.xml");   
+  	File uri = new File(ClassLoader.getSystemResource("atom03.xml").getFile());
+  	RSSDocument<DefaultRSSChannel, DefaultRSSItem> document = parser_.createDocument(uri, "utf-8");    
     
     if(document != null) {
       List<DefaultRSSItem> items = document.getItems();   
@@ -74,9 +71,20 @@ public class TestRSSParser extends BasicTestCase {
     }
   }
 
-  public RSSDocument<DefaultRSSChannel, DefaultRSSItem> createRSSDocument(String path) throws Exception {      
-    File uri = new File(ClassLoader.getSystemResource(path).getFile());
-    return parser_.createDocument(uri, "utf-8");    
+  public void testProxyServer() throws Exception {
+  	System.setProperty("httpclient.proxy.username", "john");
+    System.setProperty("httpclient.proxy.password", "exo");
+    
+    System.setProperty("httpclient.proxy.host", "192.168.1.59");
+    System.setProperty("httpclient.proxy.port", "3128");
+    
+    URL url = new URL("http://itredux.com/blog/feed/atom/");
+    RSSDocument<DefaultRSSChannel, DefaultRSSItem> document =  parser_.createDocument(url.toURI(), "utf-8");
+    if(document != null) {
+      List<DefaultRSSItem> items = document.getItems();
+      for(DefaultRSSItem item  : items){
+        System.out.println(item.getTitle());
+      }
+    }
   }
-  
 }
