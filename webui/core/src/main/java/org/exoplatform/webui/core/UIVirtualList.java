@@ -17,7 +17,6 @@
 package org.exoplatform.webui.core;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.bean.DataFeed;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
