@@ -49,7 +49,7 @@ public class UIVirtualList extends UIContainer {
   }
   
   public String event(String name, String beanId) throws Exception {
-    return this.getParent().event(name, beanId);
+    return ((UIComponent)this.getParent()).event(name, beanId);
   }
   
   public void setDataFeed(DataFeed dataFeed) {
