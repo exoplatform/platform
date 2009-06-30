@@ -2509,6 +2509,9 @@
     <Action>
       <Add>Add Navigation</Add>
     </Action>
+    <header>
+    	<Group>Group</Group>
+    </header>
   </UIAddGroupNavigation>
 </bundle>
 

@@ -6,12 +6,19 @@
 	<%/*Begin ItemDetailList:*/%>
       <table class="UIGrid" cellspacing="0">
       	<tr>
-      		<th>Groups</th>
-      		<th>Action</th>
+      		<th><%=_ctx.appRes("UIAddGroupNavigation.header.Group")%></th>
+      		<th><%=_ctx.appRes("word.action")%></th>
       	</tr>
-        <% for(groupName in listGroupNames) { 
-						addLink = uicomponent.event("AddNavigation",java.net.URLEncoder.encode(groupName));%>
-	      	<tr class="EvenRow">								      								        								        
+        <%
+        	boolean even = true ;
+        	String rowClass = "EvenRow" ; 
+        	for(groupName in listGroupNames) { 
+						addLink = uicomponent.event("AddNavigation",java.net.URLEncoder.encode(groupName));
+						if(even) rowClass = "EvenRow" ;  
+		      	else rowClass =  "OddRow" ; 
+		      	even = !even ;
+				%>
+	      	<tr class="$rowClass">								      								        								        
 						<td>
 		       		<div class="Text"><%= groupName %> </div>
 						</td>	
