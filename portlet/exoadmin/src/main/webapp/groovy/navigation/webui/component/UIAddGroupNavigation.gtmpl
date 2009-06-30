@@ -4,23 +4,25 @@
 	%>
     
 	<%/*Begin ItemDetailList:*/%>
-      <div style="margin:0px 0px 0px 0px">								      								        								        
-        <div class="ItemDetailContainer" style="border:1px solid #C7C7C7">
-         <% for(groupName in listGroupNames) { 
-							addLink = uicomponent.event("AddNavigation",java.net.URLEncoder.encode(groupName));%>
-          <div class="ItemDetail" style="width:100%;border-bottom:1px solid #E9E7E7;height:20px;padding-top:5px">
-	       <div style="float:left;width:70%;padding-left:10px">
-	       	<%= groupName %> 
-	       </div>	
-	       <div style="float:right;width:29%">
-	       	<a href="<%=addLink%>"><%=_ctx.appRes("UIAddGroupNavigation.Action.Add")%></a>
-		   </div>	
-		   <div style="clear:both"></div>
-          </div>
+      <table class="UIGrid" cellspacing="0">
+      	<tr>
+      		<th>Groups</th>
+      		<th>Action</th>
+      	</tr>
+        <% for(groupName in listGroupNames) { 
+						addLink = uicomponent.event("AddNavigation",java.net.URLEncoder.encode(groupName));%>
+	      	<tr class="EvenRow">								      								        								        
+						<td>
+		       		<div class="Text"><%= groupName %> </div>
+						</td>	
+		        <td>
+		        	<div class="Text">
+		        		<a href="$addLink"><%=_ctx.appRes("UIAddGroupNavigation.Action.Add")%></a>
+		       		</div>
+			   		</td>	
+	        </tr>
         <% } %>	
-       	  	
-        </div>								
-      </div>  
+      </table>  
       <%/*End ItemDetailList*/%>   
 	<div class="UIAction"> 
     <table class="ActionContainer">

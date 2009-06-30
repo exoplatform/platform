@@ -303,7 +303,7 @@
 	overflow:auto;
 }
 
-.UIPortalComposer .UITabPane .UITabContent {
+.UIPortalComposer .UITabPane .UITabContentContainer .UITabContent {
 	background: none;
 	border: none;
 }
