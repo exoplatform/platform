@@ -7,13 +7,13 @@
       <div style="margin:0px 0px 0px 0px">								      								        								        
         <div class="ItemDetailContainer" style="border:1px solid #C7C7C7">
          <% for(groupName in listGroupNames) { 
-			addLink = uicomponent.event("AddNavigation",java.net.URLEncoder.encode(groupName));%>
+							addLink = uicomponent.event("AddNavigation",java.net.URLEncoder.encode(groupName));%>
           <div class="ItemDetail" style="width:100%;border-bottom:1px solid #E9E7E7;height:20px;padding-top:5px">
 	       <div style="float:left;width:70%;padding-left:10px">
 	       	<%= groupName %> 
 	       </div>	
 	       <div style="float:right;width:29%">
-	       	<a href="<%=addLink%>">Add Navigation</a>
+	       	<a href="<%=addLink%>"><%=_ctx.appRes("UIAddGroupNavigation.Action.Add")%></a>
 		   </div>	
 		   <div style="clear:both"></div>
           </div>
@@ -30,7 +30,7 @@
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
-		              <a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".Action.Cancel")%></a>
+		              <a href="javascript:void(0);"><%=_ctx.appRes("word.cancel")%></a>
 		            </div>
 		          </div>
 		        </div>
