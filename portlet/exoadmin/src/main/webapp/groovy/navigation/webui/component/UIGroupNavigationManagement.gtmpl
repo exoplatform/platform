@@ -29,7 +29,7 @@
     <table class="ActionContainer">
 	    <tr>
 	    	<td>
-		      <div onclick="<%=uicomponent.event("AddNavigation")%>" class="ActionButton ManagerButton">
+		      <div onclick="<%=uicomponent.event("AddNavigation")%>" class="ActionButton BlueButton">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
@@ -38,7 +38,7 @@
 		          </div>
 		        </div>
 		      </div>
-		      <div onclick="<%=uicomponent.event("AddNavigation")%>" class="ActionButton CancelBtn">
+		      <div onclick="<%=uicomponent.event("AddNavigation")%>" class="ActionButton DarkGrayButton">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">

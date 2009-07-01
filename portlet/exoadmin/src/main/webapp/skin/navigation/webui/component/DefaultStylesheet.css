@@ -58,39 +58,22 @@
 	background: url('background/MiniIcon.gif') no-repeat left -34px;
 }
 
-.UIManagement .ManagerButton .ButtonLeft {
-	background: url('background/BtnBg.gif') no-repeat left top;
-	padding-left: 8px;
+/***********************UIAddGroupNavigation************************/
+
+.UIAddGroupNavigation {
+	background: white; 
+	border: 1px solid #b7b7b7; 
+	padding: 10px; 
+	margin: 5px;
 }
 
-.UIManagement .ManagerButton .ButtonRight {
-	background: url('background/BtnBg.gif') no-repeat right top;
-	padding-right: 9px;
+.UIWindown .UIAddGroupNavigation {
+	margin: 0px;
 }
 
-.UIManagement .ManagerButton .ButtonMiddle {
-	background: url('background/BtnBg.gif') repeat-x left -32px;
-	line-height: 32px;
-	font-size: 12px;
-	display: block;
-	padding: 0px 15px 0px 15px;
-}
-
-.UIManagement .CancelBtn .ButtonLeft {
-	background: url('background/BtnBg.gif') no-repeat left -64px;
-	padding-left: 7px;
-}
-
-.UIManagement .CancelBtn .ButtonRight{
-	background: url('background/BtnBg.gif') no-repeat right -64px;
-	padding-right: 6px;
-}
-
-.UIManagement .CancelBtn .ButtonMiddle{
-	background: url('background/BtnBg.gif') repeat-x left -96px;
-	line-height: 32px;
-	padding: 0px 15px 0px 15px;
-	font-size: 12px;
-	display: block;
-
+.UIAddGroupNavigation .AddGroupIcon {
+	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif) no-repeat left center;
+	height: 20px; line-height: 20px;
+	padding: 3px 0px 3px 20px;
+	color: #1d1d1d;
 }

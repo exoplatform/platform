@@ -6,8 +6,13 @@
 	<%/*Begin ItemDetailList:*/%>
       <table class="UIGrid" cellspacing="0">
       	<tr>
+<<<<<<< .mine
+      		<th>Groups</th>
+      		<th style="width: 30%;">Action</th>
+=======
       		<th><%=_ctx.appRes("UIAddGroupNavigation.header.Group")%></th>
       		<th><%=_ctx.appRes("word.action")%></th>
+>>>>>>> .r33247
       	</tr>
         <%
         	boolean even = true ;
@@ -23,8 +28,8 @@
 		       		<div class="Text"><%= groupName %> </div>
 						</td>	
 		        <td>
-		        	<div class="Text">
-		        		<a href="$addLink"><%=_ctx.appRes("UIAddGroupNavigation.Action.Add")%></a>
+		        	<div class="Text" style="text-align: center">
+		        		<a href="$addLink" class="AddGroupIcon"><%=_ctx.appRes("UIAddGroupNavigation.Action.Add")%></a>
 		       		</div>
 			   		</td>	
 	        </tr>
@@ -35,7 +40,7 @@
     <table class="ActionContainer">
 	    <tr>
 	    	<td>
-		      <div onclick="<%=uicomponent.event("Cancel")%>" class="ActionButton LightBlueStyle">
+		      <div onclick="<%=uicomponent.event("Cancel")%>" class="ActionButton DarkGrayButton">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">

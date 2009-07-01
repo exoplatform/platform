@@ -140,3 +140,59 @@
 .UIAction .SimpleStyle a:hover {
   color: #2169d4; 
 }
+/***************************** BlueButton ***************************/
+.UIAction .BlueButton .ButtonLeft {
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/BtnBg.gif') no-repeat left top;
+	padding-left: 8px;
+}
+
+.UIAction .BlueButton .ButtonRight {
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/BtnBg.gif') no-repeat right top;
+	padding-right: 9px;
+}
+
+.UIAction .BlueButton .ButtonMiddle {
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/BtnBg.gif') repeat-x left -32px;
+	line-height: 32px;
+	font-size: 12px;
+	display: block;
+	padding: 0px 15px 0px 15px;
+}
+
+.UIAction .BlueButton .ButtonMiddle a {
+	font-weight: bold;
+	color: #1d1d1d;
+}
+
+.UIAction .BlueButton .ButtonMiddle a:hover {
+	color: white;
+}
+
+/**********************DarkGrayButton***********************/
+
+.UIAction .DarkGrayButton .ButtonLeft {
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/BtnBg.gif') no-repeat left -64px;
+	padding-left: 7px;
+}
+
+.UIAction .DarkGrayButton .ButtonRight{
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/BtnBg.gif') no-repeat right -64px;
+	padding-right: 6px;
+}
+
+.UIAction .DarkGrayButton .ButtonMiddle {
+	background: url('/eXoResources/skin/DefaultSkin/webui/component/UIBarDecorator/UIAction/background/BtnBg.gif') repeat-x left -96px;
+	line-height: 32px;
+	padding: 0px 15px 0px 15px;
+	font-size: 12px;
+	display: block;
+}
+
+.UIAction .DarkGrayButton .ButtonMiddle a {
+	font-weight: bold;
+	color: #1d1d1d;
+}
+
+.UIAction .DarkGrayButton .ButtonMiddle a:hover {
+	color: white;
+}

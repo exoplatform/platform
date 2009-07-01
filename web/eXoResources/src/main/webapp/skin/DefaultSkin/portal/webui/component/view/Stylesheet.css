@@ -5,20 +5,3 @@
 @import url(UIGadget/Stylesheet.css) ;
 @import url(UIDashboard/Stylesheet.css) ;
 @import url(UIToolbarContainer/Stylesheet.css) ;
-
-.UIAddGroupNavigation {
-	background: white; 
-	border: 1px solid #b7b7b7; 
-	padding: 10px; 
-	margin: 5px;
-}
-
-.UIWindown .UIAddGroupNavigation {
-	margin: 0px;
-}
-
-.UIAddGroupNavigation .AddGroupIcon {
-	background: url(/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif) no-repeat;
-	width: 16px;
-	height: 16px;
-}
