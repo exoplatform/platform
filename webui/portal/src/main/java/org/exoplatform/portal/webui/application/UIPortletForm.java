@@ -26,7 +26,7 @@ import java.util.ResourceBundle;
 import javax.portlet.PortletMode;
 import javax.portlet.PortletPreferences;
 
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.commons.utils.ExceptionUtil;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.skin.SkinService;

@@ -19,7 +19,7 @@ package org.exoplatform.portal.gadget.core;
 import org.apache.shindig.common.JsonContainerConfig;
 import org.apache.shindig.common.ContainerConfigException;
 import org.apache.shindig.auth.BlobCrypterSecurityTokenDecoder;
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.container.monitor.jvm.J2EEServerInfo;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.commons.utils.Safe;

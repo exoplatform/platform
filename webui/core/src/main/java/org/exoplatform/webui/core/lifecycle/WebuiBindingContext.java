@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
 
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.groovyscript.text.BindingContext;
 import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.services.log.ExoLogger;

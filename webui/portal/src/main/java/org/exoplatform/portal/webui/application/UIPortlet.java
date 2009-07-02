@@ -28,7 +28,7 @@ import javax.portlet.PortletMode;
 import javax.portlet.WindowState;
 import javax.xml.namespace.QName;
 
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.Constants;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangePortletModeActionListener;
 import org.exoplatform.portal.webui.application.UIPortletActionListener.ChangeWindowStateActionListener;

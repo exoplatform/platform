@@ -18,7 +18,7 @@ package org.exoplatform.webui.event;
 
 import java.util.Date;
 
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.log.ExoLogger;
 
 /**

@@ -22,7 +22,7 @@ import java.util.Map;
 
 import javax.portlet.WindowState;
 
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.Constants;
 import org.exoplatform.commons.utils.Text;
 import org.exoplatform.container.ExoContainer;

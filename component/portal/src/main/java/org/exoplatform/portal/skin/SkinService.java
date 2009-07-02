@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
 
 import javax.servlet.ServletContext;
 
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.commons.utils.Safe;
 import org.exoplatform.management.annotations.Managed;

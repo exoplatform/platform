@@ -21,7 +21,7 @@ import java.util.ResourceBundle;
 
 import javax.servlet.ServletConfig;
 
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.resolver.ServletResourceResolver;

@@ -35,7 +35,7 @@ import javax.portlet.ResourceResponse;
 import javax.portlet.ResourceURL;
 
 import java.util.*;
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.ws.frameworks.cometd.ContinuationService;
 import org.exoplatform.container.RootContainer;

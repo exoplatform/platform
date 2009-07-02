@@ -19,7 +19,7 @@ package org.exoplatform.webui.core;
 import java.io.Writer;
 import java.util.Locale;
 
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;

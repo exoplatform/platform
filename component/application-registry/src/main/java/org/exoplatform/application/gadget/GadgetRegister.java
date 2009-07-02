@@ -30,7 +30,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.logging.Log;
+import org.exoplatform.services.log.Log;
 import org.apache.shindig.common.uri.Uri;
 import org.apache.shindig.gadgets.spec.ModulePrefs;
 import org.exoplatform.container.ExoContainer;
