@@ -82,6 +82,9 @@ public class UIPortalApplication extends UIApplication {
   private UserPortalConfig userPortalConfig_;
   
   private boolean isSessionOpen = false ;
+  
+  public boolean isViewMode = false;
+  public boolean isPortletMode = true;
 
   /**
    * The constructor of this class is used to build the tree of UI components that will be aggregated

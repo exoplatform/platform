@@ -1,10 +1,10 @@
-<div class="UIPageBody UIComponent" id="${uicomponent.id}">
+<div class="UIPageBody" id="${uicomponent.id}">
+<div class="UIComponent UIComponentBlock">
   <div class="META-DATA-BLOCK" style="display: none">
     <div class="id">$uicomponent.id</div>
     <div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>
     <div class="description"><%=_ctx.appRes("UIPage.label.description")%></div>
   </div>
-  <div class="CONTROL-PAGEBODY CONTROL-BLOCK" style="display: none"><span></span></div>
 
   <div class="LAYOUT-BLOCK LAYOUT-PAGEBODY DragControlArea" style="display: none;" onmousedown="eXo.portal.PortalDragDrop.init.call(eXo.core.DOMUtil.findAncestorByClass(this, 'UIPageBody'), event);">
   	<div class="PageLayoutDecorator">
@@ -66,4 +66,9 @@
 		</div>
 		<% } else { uicomponent.renderChildren() ; } %>
 	</div>
+	<div class="EDITION-BLOCK EDITION-PAGEBODY">
+	  <div class="CONTROL-PAGEBODY CONTROL-BLOCK" style="display: none"><span></span></div>
+	</div>
+	<div class="UIPageBodyMask" style="position:absolute; display:none;"><span></span></div>
+</div>
 </div>

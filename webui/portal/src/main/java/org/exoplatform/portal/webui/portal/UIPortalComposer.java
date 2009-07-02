@@ -65,7 +65,7 @@ import org.exoplatform.webui.event.EventListener;
   @ComponentConfig(
                    id = "UIPortalComposerTab",
                    type = UITabPane.class,
-                   template =  "system:/groovy/webui/core/UITabPane_New.gtmpl",
+                   template = "app:/groovy/portal/webui/portal/UIPortalComposerContent.gtmpl",
                    events = {@EventConfig(listeners = UIPortalComposer.SelectTabActionListener.class)}
   )
 })
@@ -208,11 +208,15 @@ public class UIPortalComposer extends UIContainer {
       super.execute(event);
       UITabPane uiTabPane = event.getSource();
       UIComponent uiComponent = uiTabPane.getChildById(uiTabPane.getSelectedTabId());
-      if(uiComponent instanceof UIPortlet) {
+      if(uiComponent instanceof UIApplicationList) {
+        Util.getUIPortalApplication().isPortletMode = true;
         Util.showComponentLayoutMode(UIPortlet.class);
-      } else if(uiComponent instanceof org.exoplatform.portal.webui.container.UIContainer) {
+      } else if(uiComponent instanceof UIContainerList) {
+        Util.getUIPortalApplication().isPortletMode = false;
         Util.showComponentLayoutMode(org.exoplatform.portal.webui.container.UIContainer.class);
       }
+      event.getRequestContext().addUIComponentToUpdateByAjax(
+             Util.getUIPortalApplication().getChildById(UIPortalApplication.UI_WORKING_WS_ID));
     }
     
   }

@@ -4,7 +4,7 @@
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
   rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', true, true, true, false);") ;
 %>
-<div class="UIPopupWindow UIDragObject UIPortalComposer" exo:minWidth="200" exo:minHeight="200" id="$uicomponent.id" style="width: 300px display: block;">
+<div class="UIPopupWindow UIDragObject UIPortalComposer" exo:minWidth="200" exo:minHeight="200" id="$uicomponent.id" style="width: 300px; display: block;">
 	  <div class="TLPortalComposer">
 	    <div class="TRPortalComposer">
 	      <div class="TCPortalComposer">

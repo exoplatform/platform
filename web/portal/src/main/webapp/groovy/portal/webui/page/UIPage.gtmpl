@@ -4,6 +4,7 @@
 %>
 
 <div class="UIPage" id="UIPage-${uicomponent.id}">
+<div class="UIComponent">
 	<div class="META-DATA-BLOCK" style="display: none">
     <div class="id">$uicomponent.id</div>
     <div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>
@@ -16,4 +17,5 @@
 	    </div>
 		</div>
   </div>
+</div>
 </div>

@@ -1,18 +1,19 @@
 function UIComponent(node) {
   this.node = node ;
   if(node) this.type = node.className ;
-//  var children =  eXo.core.DOMUtil.getChildrenByTagName(node, "div") ;
-//  if(children.length > 0) {
-//	  this.metaData =  children[0] ;
-//	  this.control = children[1] ; 
-//	  this.layout = children[2] ; 
-//	  this.view = children[3] ;
-//  } 
+  componentBlock = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "UIComponentBlock");
+  var children =  eXo.core.DOMUtil.getChildrenByTagName(componentBlock, "div") ;
+  if(children.length > 0) {
+	  this.metaData =  children[0] ;
+	  this.control = children[3] ; 
+	  this.layout = children[1] ; 
+	  this.view = children[2] ;
+  } 
 	
-	this.metaData = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "META-DATA-BLOCK");
-	this.control = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "CONTROL-BLOCK");
-	this.layout = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "LAYOUT-BLOCK");
-	this.view = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "VIEW-BLOCK");
+//	this.metaData = eXo.core.DOMUtil.findFirstChildByClass(componentBlock, "div", "META-DATA-BLOCK");
+//	this.control = eXo.core.DOMUtil.findFirstChildByClass(componentBlock, "div", "CONTROL-BLOCK");
+//	this.layout = eXo.core.DOMUtil.findFirstChildByClass(componentBlock, "div", "LAYOUT-BLOCK");
+//	this.view = eXo.core.DOMUtil.findFirstChildByClass(componentBlock, "div", "VIEW-BLOCK");
 	
   this.component = "";
   
@@ -43,18 +44,37 @@ function UIPortal() {
   this.portalUIComponentDragDrop = false;
 };
 
-UIPortal.prototype.blockOnMouseOver = function(portlet, isOver) {
-	var test = eXo.core.DOMUtil.findFirstDescendantByClass(portlet, "div", "EDITION-BLOCK");
+UIPortal.prototype.blockOnMouseOver = function(event, portlet, isOver) {
+  var DOMUtil = eXo.core.DOMUtil;
+	if(eXo.env.editType && DOMUtil.hasClass(portlet, "UIContainer")) return;
+	else if(!eXo.env.editType && DOMUtil.hasClass(portlet, "UIPortlet")) return;
+	
+	if(!event) event = window.event;
+	event.cancelBubble = true;
+	
+  var component = new UIComponent(portlet);
+  var editBlock = component.getControlBlock();
+  var layoutBlock = component.getLayoutBlock();
+  var viewBlock = component.getViewBlock();
+  if(!editBlock) return;
 	if(isOver) {
-		var newLayer = eXo.core.DOMUtil.findFirstDescendantByClass(test, "div", "NewLayer");
+		var newLayer = DOMUtil.findFirstDescendantByClass(editBlock, "div", "NewLayer");
 		if(newLayer) {
-			var layoutBlock = eXo.core.DOMUtil.findFirstDescendantByClass(portlet, "div", "LAYOUT-BLOCK");
-			newLayer.style.width = layoutBlock.offsetWidth + "px";
-			newLayer.style.height = layoutBlock.offsetHeight + "px";
+			var height = 0; var width = 0;
+			if(layoutBlock && layoutBlock.style.display != "none") {
+				height = layoutBlock.offsetHeight;
+				width = layoutBlock.offsetWidth;
+			} else if(viewBlock && viewBlock.style.display != "none") {
+				height = viewBlock.offsetHeight;
+        width = viewBlock.offsetWidth;
+			}
+			newLayer.style.width = width + "px";
+			newLayer.style.height = height + "px";
+			newLayer.parentNode.style.top = -height + "px";
 		}
-		test.style.display = "block";
+		editBlock.style.display = "block";
 	}
-	else test.style.display = "none";
+	else editBlock.style.display = "none";
 }
 
 UIPortal.prototype.getUIPortlets = function() {
@@ -136,6 +156,7 @@ UIPortal.prototype.switchLayoutModeToViewMode = function(uicomponent, swapConten
   if(swapContent) {
     var contentNode = eXo.core.DOMUtil.findDescendantById(layoutBlock, uicomponent.getId()) ;
     if(contentNode != null) {
+    	viewBlock.innerHTML = "";
       viewBlock.appendChild(contentNode) ;
     }
   }
@@ -162,13 +183,12 @@ UIPortal.prototype.switchMode = function(elemtClicked) {
 } ;
 
 UIPortal.prototype.switchPortalMode = function(elemtClicked) {
-	if(elemtClicked.className == "ActionButton LightBlueStyle LayoutMode") {
-		elemtClicked.className = "ActionButton LightBlueStyle ViewMode" ;
+	if(!eXo.env.editMode) {
 		this.showViewMode() ;
 	} else {
-		elemtClicked.className = "ActionButton LightBlueStyle LayoutMode" ;
 		this.showLayoutModeForPortal() ;
 	}
+	eXo.env.editMode = !eXo.env.editMode;
 };
 
 UIPortal.prototype.switchModeForPage = function(elemtClicked) {
@@ -239,7 +259,7 @@ UIPortal.prototype.showViewLayoutModeForPage = function() {
 UIPortal.prototype.showLayoutModeForPage = function(control) {
 	var uiPage = eXo.core.DOMUtil.findFirstDescendantByClass(document.body, "div", "UIPage") ;
 	if(uiPage == null) return;
-	var viewPage = eXo.core.DOMUtil.findFirstChildByClass(uiPage, "div", "VIEW-PAGE") ;
+	var viewPage = eXo.core.DOMUtil.findFirstDescendantByClass(uiPage, "div", "VIEW-PAGE") ;
 	var uiPageDesktop = document.getElementById("UIPageDesktop") ;
 	var uiPortalApplication = document.getElementById("UIPortalApplication");
 	if(uiPortalApplication.className != "Vista") {
@@ -298,13 +318,40 @@ UIPortal.prototype.showViewMode = function() {
   var container = this.getUIContainers() ;
   for(var i = 0; i < container.length; i++) {
     this.switchLayoutModeToViewMode(container[i], true) ;
-    this.showUIComponentControl(container[i], false) ;
+    this.showUIComponentControl(container[i], !eXo.env.editType) ;
   }
 
   var portlet  = this.getUIPortletsInUIPortal() ;
   for(var i = 0; i < portlet.length; i++) {
     this.switchLayoutModeToViewMode(portlet[i], false) ;
-    this.showUIComponentControl(portlet[i], false) ;
+    this.showUIComponentControl(portlet[i], true) ;
+//    var component = portlet[i].getUIComponentBlock();
+//    var mask = eXo.core.DOMUtil.findFirstDescendantByClass(component, "div", "UIPortletMask");
+//    if(eXo.env.isEditting && mask) {
+//      mask.style.display = "block";
+//      mask.style.height = component.offsetHeight + "px";
+//      mask.style.width  = component.offsetWidth + "px";
+//      mask.style.top = eXo.core.Browser.findPosY(component) + "px";
+//      mask.style.left = eXo.core.Browser.findPosX(component) + "px";
+//      mask.style.border = "1px solid red";
+//    } else if(mask) {
+//    	mask.style.display = "none";
+//    }
+  }
+  
+  //mask for pagebody
+  if(!uiPageDesktop) {
+  	var pageBodyBlock = pageBody.getUIComponentBlock();
+  	var mask = eXo.core.DOMUtil.findFirstDescendantByClass(pageBodyBlock, "div", "UIPageBodyMask");
+  	if(!eXo.env.editMode) {
+  		mask.style.height = pageBodyBlock.offsetHeight + "px";
+  		mask.style.width = pageBodyBlock.offsetWidth + "px";
+  		mask.style.top = eXo.core.Browser.findPosY(pageBodyBlock) + "px";
+      mask.style.left = eXo.core.Browser.findPosX(pageBodyBlock) + "px";
+  		mask.style.display = "block";
+  	} else {
+  		mask.style.display = "none";
+  	}
   }
 };
 
@@ -313,10 +360,13 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
   var portal = this.getUIPortal() ;
   this.switchViewModeToLayoutMode(portal, true) ;
   this.showUIComponentControl(portal, this.component == 'UIPortal') ;
-
+  
   var pageBody = this.getUIPageBody() ;
   this.switchViewModeToLayoutMode(pageBody, false) ;
   this.showUIComponentControl(pageBody, this.component == 'UIPageBody') ;
+  var pageBodyBlock = pageBody.getUIComponentBlock();
+  var mask = eXo.core.DOMUtil.findFirstDescendantByClass(pageBodyBlock, "div", "UIPageBodyMask");
+  mask.style.display = "none";
 
   var container = this.getUIContainers() ;
   for(var i = 0; i < container.length; i++) {
@@ -328,6 +378,18 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
   for(var i = 0; i < portlet.length; i++) {
     this.switchViewModeToLayoutMode(portlet[i], false) ;
     this.showUIComponentControl(portlet[i], this.component == 'UIPortlet') ;
+//    var component = portlet[i].getUIComponentBlock();
+//    var mask = eXo.core.DOMUtil.findFirstDescendantByClass(component, "div", "UIPortletMask");
+//    if(eXo.env.isEditting && mask) {
+//    	mask.style.display = "block";
+//    	mask.style.height = component.offsetHeight + "px";
+//    	mask.style.width  = component.offsetWidth + "px";
+//      mask.style.top = eXo.core.Browser.findPosY(component) + "px";
+//      mask.style.left = eXo.core.Browser.findPosX(component) + "px";
+//      mask.style.border = "1px solid red";
+//    } else {
+//    	mask.style.display = "none";
+//    }
   }  
 } ;
 

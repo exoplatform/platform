@@ -8,10 +8,10 @@
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
   jsmanager.importJavascript('eXo.portal.PortalDragDrop');
 %>
-<div class="UIContainer UIToolbarContainer" id="UIContainer-${uicomponent.id}" onmouseover="eXo.portal.UIPortal.blockOnMouseOver(this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(this, false);">
+<div class="UIContainer UIToolbarContainer" id="UIContainer-${uicomponent.id}" onmouseover="eXo.portal.UIPortal.blockOnMouseOver(event, this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(event, this, false);">
 	<div class="NormalContainerBlock">
 		<div class="LeftContainerBlock">
-			<div class="RightContainerBlock">
+			<div class="RightContainerBlock UIComponentBlock">
 			
 			  <div class="META-DATA-BLOCK" style="display: none">
 			    <div class="id">$uicomponent.id</div>
@@ -43,11 +43,11 @@
 			  </div>
 			  <%/*Debug On IE  -----For DND */%>
 			  
-			  <div class="EDITION-BLOCK EDITION-PORTLET" style="display: none;">
+			  <div class="EDITION-BLOCK EDITION-CONTAINER" style="display: none;">
 					<div style="position: relative;">
-						<div style="position: absolute; width: 300px; height: 86px; top: -86px; border:">
+						<div style="position: absolute; width: 300px; height: 86px; top: -86px;">
 							
-							<div class="NewLayer" style="position: absolute; border: 1px solid yellow; width:300px; height: 86px;"><span></span></div>
+							<div class="NewLayer"><span></span></div>
 							
 							<div class="CONTROL-CONTAINER CONTROL-BLOCK" style="position: absolute; top: -6px;">
 						    <%/*Begin InfoBar*/%>

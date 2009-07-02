@@ -121,8 +121,6 @@ PortalDragDrop.prototype.init = function(e) {
       var layoutTypeElement = DOMUtil.getChildrenByTagName(componentIdElement, "div")[0] ;
       eXo.portal.PortalDragDrop.layoutTypeElementNode = layoutTypeElement ;
       
-      console.log(uiComponentLayout) ;
-      
       if(layoutTypeElement != null) {
         /* ===============================CASE ROW LAYOUT================================ */
         var rowContainer = DOMUtil.findFirstDescendantByClass(uiComponentLayout, "div", "UIRowContainer") ;
