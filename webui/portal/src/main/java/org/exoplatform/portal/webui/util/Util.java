@@ -228,6 +228,28 @@ public class Util {
     }
   }
   
+  static public void showComponentEditInViewMode(Class clazz) throws Exception  {
+    if(clazz == null) return;
+    UIPortal uiPortal = getUIPortal();
+    UIContainer uiParent  = null;
+    if(uiPortal.isRendered()){
+      uiPortal.setMaximizedUIComponent(null);
+      uiParent = uiPortal;
+    } else{
+      UIPortalToolPanel uiPortalToolPanel = getUIPortalToolPanel();
+      UIPage uiPage  = uiPortalToolPanel.findFirstComponentOfType(UIPage.class);
+      uiParent = uiPage;
+    }
+    if(uiParent == null) return;
+    String layoutMode = clazz.getSimpleName();
+    setShowEditControl(uiParent, clazz);
+    
+    PortalRequestContext context = Util.getPortalRequestContext() ;
+    if(uiParent instanceof UIPortal){
+      context.getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.showViewMode('"+layoutMode+"');") ;
+    }
+  }
+  
   static public UIWorkingWorkspace updateUIApplication(Event<? extends UIComponent> event){
     PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
     UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);

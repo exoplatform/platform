@@ -118,7 +118,9 @@ public class UIPortalComposer extends UIContainer {
   
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
-    Util.showComponentLayoutMode(UIPortlet.class);
+    UIPortalApplication uiPortalApp = (UIPortalApplication) context.getUIApplication();
+    if(uiPortalApp.isBlockEditMode()) Util.showComponentLayoutMode(UIPortlet.class);
+    else Util.showComponentEditInViewMode(UIPortlet.class);
   }
 
   static public class ViewPropertiesActionListener extends EventListener<UIPortalComposer> {
@@ -146,6 +148,8 @@ public class UIPortalComposer extends UIContainer {
       UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
       configService.update(uiPortalApp.getUserPortalConfig().getPortalConfig());
       uiPortalApp.setEditting(false) ;
+      uiPortalApp.setBlockEditMode(true);
+      uiPortalApp.setPortletEditType(true);
       
       String remoteUser = prContext.getRemoteUser();
       String ownerUser = prContext.getPortalOwner();   
@@ -209,10 +213,10 @@ public class UIPortalComposer extends UIContainer {
       UITabPane uiTabPane = event.getSource();
       UIComponent uiComponent = uiTabPane.getChildById(uiTabPane.getSelectedTabId());
       if(uiComponent instanceof UIApplicationList) {
-        Util.getUIPortalApplication().isPortletMode = true;
+        Util.getUIPortalApplication().setPortletEditType(true);
         Util.showComponentLayoutMode(UIPortlet.class);
       } else if(uiComponent instanceof UIContainerList) {
-        Util.getUIPortalApplication().isPortletMode = false;
+        Util.getUIPortalApplication().setPortletEditType(false);
         Util.showComponentLayoutMode(org.exoplatform.portal.webui.container.UIContainer.class);
       }
       event.getRequestContext().addUIComponentToUpdateByAjax(

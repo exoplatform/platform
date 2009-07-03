@@ -46,16 +46,19 @@ function UIPortal() {
 
 UIPortal.prototype.blockOnMouseOver = function(event, portlet, isOver) {
   var DOMUtil = eXo.core.DOMUtil;
+  if(!eXo.env.isEditting) return;
 	if(eXo.env.editType && DOMUtil.hasClass(portlet, "UIContainer")) return;
 	else if(!eXo.env.editType && DOMUtil.hasClass(portlet, "UIPortlet")) return;
 	
 	if(!event) event = window.event;
 	event.cancelBubble = true;
 	
-  var component = new UIComponent(portlet);
-  var editBlock = component.getControlBlock();
-  var layoutBlock = component.getLayoutBlock();
-  var viewBlock = component.getViewBlock();
+  var component = DOMUtil.findFirstDescendantByClass(portlet, "div", "UIComponentBlock");
+  var children = DOMUtil.getChildrenByTagName(component, "div");
+  var layoutBlock = children[1];
+  var viewBlock = children[2];
+  var editBlock = children[3];
+  
   if(!editBlock) return;
 	if(isOver) {
 		var newLayer = DOMUtil.findFirstDescendantByClass(editBlock, "div", "NewLayer");
@@ -183,12 +186,14 @@ UIPortal.prototype.switchMode = function(elemtClicked) {
 } ;
 
 UIPortal.prototype.switchPortalMode = function(elemtClicked) {
-	if(!eXo.env.editMode) {
+	eXo.env.isBlockEditMode = !eXo.env.isBlockEditMode;
+	if(!eXo.env.isBlockEditMode) {
 		this.showViewMode() ;
 	} else {
 		this.showLayoutModeForPortal() ;
 	}
-	eXo.env.editMode = !eXo.env.editMode;
+	var url = eXo.env.server.createPortalURL(this.getUIPortal().id, "ChangePortalEditMode", true, [{name :"isBlockMode",value: eXo.env.isBlockEditMode}]);
+	ajaxAsyncGetRequest(url);
 };
 
 UIPortal.prototype.switchModeForPage = function(elemtClicked) {
@@ -343,7 +348,7 @@ UIPortal.prototype.showViewMode = function() {
   if(!uiPageDesktop) {
   	var pageBodyBlock = pageBody.getUIComponentBlock();
   	var mask = eXo.core.DOMUtil.findFirstDescendantByClass(pageBodyBlock, "div", "UIPageBodyMask");
-  	if(!eXo.env.editMode) {
+  	if(!eXo.env.isBlockEditMode) {
   		mask.style.height = pageBodyBlock.offsetHeight + "px";
   		mask.style.width = pageBodyBlock.offsetWidth + "px";
   		mask.style.top = eXo.core.Browser.findPosY(pageBodyBlock) + "px";
