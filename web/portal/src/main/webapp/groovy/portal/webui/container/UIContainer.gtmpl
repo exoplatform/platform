@@ -1,5 +1,8 @@
 <%
+  import org.exoplatform.commons.utils.ExpressionUtil;
+  
   def rcontext = _ctx.getRequestContext() ;
+  ResourceBundle res = rcontext.getApplicationResourceBundle() ;
   
   if(!rcontext.getUIApplication().isEditting() && !uicomponent.hasPermission()) return ;
 
@@ -52,7 +55,7 @@
 									          <div class="ContainerIcon">             
 								              <% 
 								                if(uicomponent.getTitle() != null) {
-								                  println(uicomponent.getTitle()) ;
+								                  println(ExpressionUtil.getExpressionValue(res, uicomponent.getTitle())) ;
 								                } else {
 								              %>
 								              <%=_ctx.appRes("UIContainer.title.Container")%>

@@ -1,7 +1,9 @@
 <% 
 	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.commons.utils.ExpressionUtil;	
 	
   def rcontext = _ctx.getRequestContext() ;
+  ResourceBundle res = rcontext.getApplicationResourceBundle() ;
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	ArrayList children = uicomponent.getChildren();
 	
@@ -25,7 +27,6 @@
 	}
 	
 	String id = uicomponent.getId();
-	
 %>
 <% if(children != null && children.size > 0) { %>
 <div class="UITabContainer">
@@ -42,6 +43,7 @@
 				  			String title = uiChild.getTitle();
 				  			String tabId = uiChild.getId();
 				  			if(title == null || title.trim().length() < 1 ) title = _ctx.appRes("UITabContainer.tab") +String.valueOf(counter);
+				  			else title = ExpressionUtil.getExpressionValue(res, title);
 				  			String selectTab = uicomponent.event("SelectTab", tabId);
 				  	%>
 				  		 	<div class="UITab NormalTabStyle">
