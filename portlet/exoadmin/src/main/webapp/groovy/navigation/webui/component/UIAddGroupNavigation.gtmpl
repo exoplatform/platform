@@ -7,7 +7,7 @@
       <table class="UIGrid" cellspacing="0">
       	<tr>
       		<th><%=_ctx.appRes("UIAddGroupNavigation.header.Group")%></th>
-      		<th><%=_ctx.appRes("word.action")%></th>
+      		<th style="width: 30%;"><%=_ctx.appRes("word.action")%></th>
       	</tr>
         <%
         	boolean even = true ;
