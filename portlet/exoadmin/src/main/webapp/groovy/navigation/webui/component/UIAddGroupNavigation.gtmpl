@@ -6,13 +6,8 @@
 	<%/*Begin ItemDetailList:*/%>
       <table class="UIGrid" cellspacing="0">
       	<tr>
-<<<<<<< .mine
-      		<th>Groups</th>
-      		<th style="width: 30%;">Action</th>
-=======
       		<th><%=_ctx.appRes("UIAddGroupNavigation.header.Group")%></th>
       		<th><%=_ctx.appRes("word.action")%></th>
->>>>>>> .r33247
       	</tr>
         <%
         	boolean even = true ;
