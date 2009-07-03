@@ -1,8 +1,10 @@
 <%
   import org.exoplatform.web.application.JavascriptManager;
+  import org.exoplatform.commons.utils.ExpressionUtil;
   
   def rcontext = _ctx.getRequestContext() ;
-
+	ResourceBundle res = rcontext.getApplicationResourceBundle() ;
+	
   if(!rcontext.getUIApplication().isEditting() && !uicomponent.hasPermission()) return ;
   
   JavascriptManager jsmanager = rcontext.getJavascriptManager();
@@ -60,7 +62,7 @@
 							              <div class="ContainerIcon DefaultContainer16x16Icon">
 							                <% 
 							                  if(uicomponent.getTitle() != null) {
-							                    println(uicomponent.getTitle()) ; 
+							                    println(ExpressionUtil.getExpressionValue(res, uicomponent.getTitle())) ;
 							                  } else {
 							                %>
 							                    <%=_ctx.appRes("UIContainer.title.Container")%>
