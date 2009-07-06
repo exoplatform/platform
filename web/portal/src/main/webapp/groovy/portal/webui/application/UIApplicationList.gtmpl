@@ -40,7 +40,7 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 									String srcBG = "/" + application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + application.getApplicationName() + ".png";
 									String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 							  %>
-						      <div class="UIVTab DragObjectPortlet VTabStyle3" id="<%=application.getId();%>">
+						      <div class="UIVTab DragObject VTabStyle3" id="<%=application.getId();%>">
 							    	<div class="VTabContentBG">
 				              <div class="OverflowContainer">
 				              	<img src="$srcBG" onError="src='$srcBGError'" alt=""/>

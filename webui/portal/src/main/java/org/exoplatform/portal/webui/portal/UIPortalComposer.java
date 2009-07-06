@@ -133,9 +133,7 @@ public class UIPortalComposer extends UIContainer {
       uiMaskWS.createUIComponent(UIPortalForm.class, null, "UIPortalForm");
       uiMaskWS.setWindowSize(700, -1);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-
     }
-
   }
 
   static public class AbortActionListener extends EventListener<UIPortalComposer> {

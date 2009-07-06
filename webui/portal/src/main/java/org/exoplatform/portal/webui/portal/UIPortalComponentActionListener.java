@@ -23,9 +23,11 @@ import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.PortalConfig;
+import org.exoplatform.portal.webui.application.UIApplicationList;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
+import org.exoplatform.portal.webui.container.UIContainerList;
 import org.exoplatform.portal.webui.login.UILogin;
 import org.exoplatform.portal.webui.login.UIResetPassword;
 import org.exoplatform.portal.webui.page.UIPage;
@@ -42,6 +44,7 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UITabPane;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.exception.MessageException;
@@ -169,8 +172,10 @@ public class UIPortalComponentActionListener {
       }
 
       if(uiSource == null) {        
-        UIContainerConfigOptions uiContainerConfig = uiApp.findFirstComponentOfType(UIContainerConfigOptions.class);
-        if(uiContainerConfig != null && uiContainerConfig.isRendered()){
+        UIPortalComposer portalComposer = uiApp.findFirstComponentOfType(UIPortalComposer.class);
+        UITabPane subTabPane = portalComposer.getChild(UITabPane.class);
+        UIContainerList uiContainerConfig = subTabPane.getChild(UIContainerList.class);
+        if(uiContainerConfig != null && subTabPane.getSelectedTabId().equals(uiContainerConfig.getId())){
           org.exoplatform.portal.webui.container.UIContainer uiContainer =  
             uiTarget.createUIComponent(org.exoplatform.portal.webui.container.UIContainer.class, null, null);
           Container container = uiContainerConfig.getContainer(sourceId); 
@@ -179,7 +184,9 @@ public class UIPortalComponentActionListener {
           uiSource = uiContainer;   
         } else {
           UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
-          org.exoplatform.application.registry.Application portlet = uiPortletOptions.getPortlet(sourceId);
+          org.exoplatform.application.registry.Application portlet = null;
+          if(uiPortletOptions != null) { portlet = uiPortletOptions.getPortlet(sourceId);}
+          else {portlet = uiApp.findFirstComponentOfType(UIApplicationList.class).getPortlet(sourceId);}
           UIPortlet uiPortlet =  uiTarget.createUIComponent(UIPortlet.class, null, null);
           if(portlet.getDisplayName() != null) {
             uiPortlet.setTitle(portlet.getDisplayName());
@@ -204,7 +211,8 @@ public class UIPortalComponentActionListener {
         List<UIComponent> children = uiTarget.getChildren();
         uiSource.setParent(uiTarget);
         children.add(position, uiSource);
-        Util.showComponentLayoutMode(uiSource.getClass());   
+        if(uiApp.isBlockEditMode()) Util.showComponentLayoutMode(uiSource.getClass());
+        else Util.showComponentEditInViewMode(uiSource.getClass());
         return;
       }
 
@@ -227,6 +235,8 @@ public class UIPortalComponentActionListener {
       uiParent.getChildren().remove(uiSource);
       uiTarget.getChildren().add(position, uiSource);
       uiSource.setParent(uiTarget);
+      if(uiApp.isBlockEditMode()) Util.showComponentLayoutMode(uiSource.getClass());
+      else Util.showComponentEditInViewMode(uiSource.getClass());
     }
    
   }

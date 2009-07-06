@@ -46,9 +46,9 @@ function UIPortal() {
 
 UIPortal.prototype.blockOnMouseOver = function(event, portlet, isOver) {
   var DOMUtil = eXo.core.DOMUtil;
-  if(!eXo.env.isEditting) return;
+  if(!eXo.env.isEditting || eXo.portal.isInDragging) return;
 	if(eXo.env.editType && DOMUtil.hasClass(portlet, "UIContainer")) return;
-	else if(!eXo.env.editType && DOMUtil.hasClass(portlet, "UIPortlet")) return;
+	if(!eXo.env.editType && DOMUtil.hasClass(portlet, "UIPortlet")) return;
 	
 	if(!event) event = window.event;
 	event.cancelBubble = true;
@@ -61,23 +61,27 @@ UIPortal.prototype.blockOnMouseOver = function(event, portlet, isOver) {
   
   if(!editBlock) return;
 	if(isOver) {
-		var newLayer = DOMUtil.findFirstDescendantByClass(editBlock, "div", "NewLayer");
-		if(newLayer) {
-			var height = 0; var width = 0;
-			if(layoutBlock && layoutBlock.style.display != "none") {
-				height = layoutBlock.offsetHeight;
-				width = layoutBlock.offsetWidth;
-			} else if(viewBlock && viewBlock.style.display != "none") {
-				height = viewBlock.offsetHeight;
-        width = viewBlock.offsetWidth;
+		if(DOMUtil.hasClass(portlet, "UIPortlet")) {
+			var newLayer = DOMUtil.findFirstDescendantByClass(editBlock, "div", "NewLayer");
+			if(newLayer) {
+				var height = 0; var width = 0;
+				if(layoutBlock && layoutBlock.style.display != "none") {
+					height = layoutBlock.offsetHeight;
+					width = layoutBlock.offsetWidth;
+				} else if(viewBlock && viewBlock.style.display != "none") {
+					height = viewBlock.offsetHeight;
+	        width = viewBlock.offsetWidth;
+				}
+				newLayer.style.width = width + "px";
+				newLayer.style.height = height + "px";
+				newLayer.parentNode.style.top = -height + "px";
 			}
-			newLayer.style.width = width + "px";
-			newLayer.style.height = height + "px";
-			newLayer.parentNode.style.top = -height + "px";
-		}
+		} else DOMUtil.addClass(portlet, "OverContainer");
 		editBlock.style.display = "block";
+	}	else {
+		editBlock.style.display = "none";
+		if(!DOMUtil.hasClass(portlet, "UIPortlet")) DOMUtil.removeClass(portlet, "OverContainer");
 	}
-	else editBlock.style.display = "none";
 }
 
 UIPortal.prototype.getUIPortlets = function() {
@@ -376,7 +380,7 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
   var container = this.getUIContainers() ;
   for(var i = 0; i < container.length; i++) {
     this.switchViewModeToLayoutMode(container[i], true) ;
-    this.showUIComponentControl(container[i], this.component == 'UIContainer') ;
+    this.showUIComponentControl(container[i], true) ;
   }
     
 	var portlet  = this.getUIPortletsInUIPortal() ;

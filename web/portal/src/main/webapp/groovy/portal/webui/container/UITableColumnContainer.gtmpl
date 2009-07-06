@@ -48,8 +48,6 @@
 					<div style="position: relative;">
 						<div style="position: absolute; width: 300px; height: 86px; top: -86px;">
 							
-							<div class="NewLayer"><span></span></div>
-							
 							<div class="CONTROL-CONTAINER CONTROL-BLOCK" style="position: absolute; top: -6px;">
 						    <%/*Begin InfoBar*/%>
 						     <div class="UIInfoBar">

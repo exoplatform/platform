@@ -135,8 +135,11 @@ public class UIPortalApplication extends UIApplication {
     //-------------------------------------------------------------------------------
     context.setUIApplication(this);
     UserACL acl = getApplicationComponent(UserACL.class);
-    if(acl.hasAccessControlWorkspacePermission())
+    if(acl.hasAccessControlWorkspacePermission()) {
       addChild(UIControlWorkspace.class, UIPortalApplication.UI_CONTROL_WS_ID, null) ;
+      this.getChild(UIControlWorkspace.class).setRendered(false);
+    }
+    
     addWorkingWorkspace() ;
 
     String currentSkin = userPortalConfig_.getPortalConfig().getSkin();

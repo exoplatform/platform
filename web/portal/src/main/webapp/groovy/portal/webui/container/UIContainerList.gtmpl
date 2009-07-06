@@ -39,9 +39,9 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 										String setLabel = container.getLabel();
 										String title = _ctx.appRes("ContainerOptions.Item." + setLabel) ;
 							  %>
-							  	<div class="VTabContentBG">
-							  		<div class="$setIcon LableContent" title="$title" id="$setLabel">
-							  			$title
+							    <div class="DragObject" id="$setLabel">
+							  	  <div class="VTabContentBG">
+							  		  <div class="$setIcon LableContent" title="$title">$title</div>
 							  		</div>
 							  	</div>
 								<% } %>	

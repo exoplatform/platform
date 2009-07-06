@@ -315,3 +315,7 @@
 	background:transparent url(background/OneRow2Column1RowContainerLayout.gif) no-repeat;
 	height: 48px;
 }
+
+.UIPortal .OverContainer {
+  border: 1px solid red;
+}

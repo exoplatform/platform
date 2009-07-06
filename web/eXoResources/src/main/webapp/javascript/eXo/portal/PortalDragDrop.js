@@ -34,8 +34,10 @@ PortalDragDrop.prototype.init = function(e) {
     var properties = ["top", eXo.core.I18n.isLT() ? "left" : "right", "zIndex", "opacity", "filter", "position"] ;
     this.origDragObjectStyle.copyProperties(properties, dragObject.style) ;
    	
-    PortalDragDrop.originalDragObjectTop = Browser.findPosY(dragObject) ;
-    var originalDragObjectLeft = Browser.findPosX(dragObject) ;
+    PortalDragDrop.originalDragObjectTop = Browser.findPosY(dragObject)
+        - Browser.findPosYInContainer(dragObject.offsetParent, document.getElementById("UIWorkingWorkspace")) ;
+    var originalDragObjectLeft = Browser.findPosX(dragObject) - 
+        Browser.findPosXInContainer(dragObject.offsetParent, document.getElementById("UIWorkingWorkspace")) ;
     var originalMousePositionY = Browser.findMouseYInPage(e) ;
     var originalMousePositionX = Browser.findMouseXInPage(e) ;
     PortalDragDrop.deltaYDragObjectAndMouse = originalMousePositionY - PortalDragDrop.originalDragObjectTop ;
@@ -67,11 +69,12 @@ PortalDragDrop.prototype.init = function(e) {
     }
     
     //fix bug ie in RTL 
-    if(eXo.core.I18n.isRT() && Browser.isIE6() && DOMUtil.findFirstDescendantByClass(dragObject, "div", "CONTROL-BLOCK")) {
-    	dragObject.style.right = parseInt(dragObject.style.right) 
-    			+ document.getElementById("UIControlWorkspace").offsetWidth + "px" ;
-    }
+//    if(eXo.core.I18n.isRT() && Browser.isIE6() && DOMUtil.findFirstDescendantByClass(dragObject, "div", "CONTROL-BLOCK")) {
+//    	dragObject.style.right = parseInt(dragObject.style.right) 
+//    			+ document.getElementById("UIControlWorkspace").offsetWidth + "px" ;
+//    }
     
+    eXo.portal.isInDragging = true;
   }
   
   DragDrop.dragCallback = function(dndEvent) {
@@ -227,6 +230,8 @@ PortalDragDrop.prototype.init = function(e) {
   		
 			eXo.portal.PortalDragDrop.removeNullPreview();
     }
+    
+    eXo.portal.isInDragging = false;
   }
   
   var clickObject = this ;
@@ -351,16 +356,16 @@ PortalDragDrop.prototype.findInsertPosition = function(components, dragObject, l
 };
 
 PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComponent, layout, e) {
-  var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
+//  var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
   var uiPage = eXo.core.DOMUtil.findAncestorByClass(dragObject, "UIPage");
-  var csWidth = uiControlWorkspace.offsetWidth ;
+//  var csWidth = uiControlWorkspace.offsetWidth ;
   
   /* IE's Bug: It always double when set position, margin-left for 
    * UIWorkingWorkspace is problem.
    * If WorkingWorkspace is setted a width, that bug disappear
    * but the layout on IE has breakdown!!!
    * */
-  if(eXo.core.Browser.isIE7() || (eXo.core.Browser.isIE6() && (uiPage == null))) csWidth = csWidth * 2 ;
+//  if(eXo.core.Browser.isIE7() || (eXo.core.Browser.isIE6() && (uiPage == null))) csWidth = csWidth * 2 ;
   dragObject.style.position = "absolute" ;
   if(eXo.core.DOMUtil.findFirstDescendantByClass(dragObject, "div", "CONTROL-BLOCK") == null) {
     dragObject.style.top = (eXo.core.Browser.findMouseYInPage(e) - 
@@ -370,8 +375,10 @@ PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComp
   } else {
     dragObject.style.top = (eXo.core.Browser.findMouseYInPage(e) - 
                             eXo.portal.PortalDragDrop.deltaYDragObjectAndMouse) + "px" ;
-    if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) - csWidth -
-	                              eXo.portal.PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
+//    if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) - csWidth -
+//	                              eXo.portal.PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
+    if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) - 
+                                eXo.portal.PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
   }
    dragObject.style.width = "300px" ;
 };
