@@ -113,6 +113,27 @@ SkinService.addSkin(
 ) ;
 
 SkinService.addSkin(
+    "exoadmin/PortalNavigationPortlet",
+    "Mac",
+    "/exoadmin/skin/navigation/webui/component/DefaultStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
+    "exoadmin/PortalNavigationPortlet",
+    "Vista",
+    "/exoadmin/skin/navigation/webui/component/DefaultStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
+    "exoadmin/GroupNavigationPortlet",
+    "Default",
+    "/exoadmin/skin/navigation/webui/component/DefaultStylesheet.css",
+    ServletContext
+) ;
+
+SkinService.addSkin(
     "exoadmin/GroupNavigationPortlet",
     "Mac",
     "/exoadmin/skin/navigation/webui/component/DefaultStylesheet.css",
