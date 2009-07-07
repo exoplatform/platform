@@ -171,10 +171,10 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <properties>
-        <org.exoplatform.kernel.version>2.1.2-SNAPSHOT</org.exoplatform.kernel.version>
-        <org.exoplatform.core.version>2.2.2-SNAPSHOT</org.exoplatform.core.version>
-    	<org.exoplatform.ws.version>2.0.2-SNAPSHOT</org.exoplatform.ws.version>
-        <org.exoplatform.jcr.version>1.11.2-SNAPSHOT</org.exoplatform.jcr.version>
+        <org.exoplatform.kernel.version>2.1.2</org.exoplatform.kernel.version>
+        <org.exoplatform.core.version>2.2.2</org.exoplatform.core.version>
+    	<org.exoplatform.ws.version>2.0.2</org.exoplatform.ws.version>
+        <org.exoplatform.jcr.version>1.11.2</org.exoplatform.jcr.version>
         <org.exoplatform.pc.version>2.1.2-SNAPSHOT</org.exoplatform.pc.version>
 	<org.shindig.version>0.8.1-1-r719456</org.shindig.version>
       </properties>
