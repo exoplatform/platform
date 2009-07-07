@@ -126,7 +126,7 @@ DragDrop.prototype.findDropableTarget = function(dndEvent, dropableTargets, mous
   for(var i = 0 ; i < len ; i++) {
     var ele =  dropableTargets[i] ;
 
-    if(dragObject != ele && this.isIn(mousexInPage, mouseyInPage, ele)) {
+      if(dragObject != ele && this.isIn(mousexInPage, mouseyInPage, ele)) {
       if(foundTarget == null) {
         foundTarget = ele ;
       } else {
