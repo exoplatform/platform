@@ -20,7 +20,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
 import org.exoplatform.portal.application.PortletPreferences;
-import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -104,23 +103,6 @@ public class DataMapper {
     return fromXML(data, PageNavigation.class) ;
   }
 
-  public void map(Document doc, Gadgets gadgets) throws Exception {
-    Element root = doc.getDocumentElement() ;
-    prepareXmlNamespace(root) ;
-    root.setAttribute(TYPE, EXO_REGISTRYENTRY_NT) ;
-    root.setAttribute(EXO_ID, gadgets.getId()) ;
-    root.setAttribute(EXO_NAME, gadgets.getId()) ;    
-    root.setAttribute(EXO_OWNER_TYPE, gadgets.getOwnerType());
-    root.setAttribute(EXO_OWNER_ID, gadgets.getOwnerId());
-    root.setAttribute(EXO_DATA_TYPE, gadgets.getClass().getSimpleName()) ;    
-    setDataValue(doc, DATA_ELEMENT, toXML(gadgets)) ;
-  }
-  
-  public Gadgets toGadgets(Document doc) throws Exception {
-    String data = getDataValue(doc, DATA_ELEMENT) ;
-    return fromXML(data, Gadgets.class) ;
-  }
-  
   public void map(Document doc, PortletPreferences portletPreferences) throws Exception {
     Element root = doc.getDocumentElement() ;
     prepareXmlNamespace(root) ;

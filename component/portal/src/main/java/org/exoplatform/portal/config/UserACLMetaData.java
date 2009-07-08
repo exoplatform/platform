@@ -31,9 +31,6 @@ public class UserACLMetaData {
   private String guestsGroups;
 
   /** . */
-  private String accessControlWorkspace;
-
-  /** . */
   private String navigationCreatorMembershipType;
 
   /** . */
@@ -53,14 +50,6 @@ public class UserACLMetaData {
 
   public void setGuestsGroups(String guestsGroups) {
     this.guestsGroups = guestsGroups;
-  }
-
-  public String getAccessControlWorkspace() {
-    return accessControlWorkspace;
-  }
-
-  public void setAccessControlWorkspace(String accessControlWorkspace) {
-    this.accessControlWorkspace = accessControlWorkspace;
   }
 
   public String getNavigationCreatorMembershipType() {

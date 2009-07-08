@@ -16,21 +16,21 @@
  */
 package org.exoplatform.portal.config.security;
 
-import org.exoplatform.test.BasicTestCase;
-import org.exoplatform.services.security.ConversationState;
-import org.exoplatform.services.security.Identity;
-import org.exoplatform.services.security.MembershipEntry;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.config.UserACLMetaData;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.portal.config.UserACLMetaData;
-
-import java.util.Set;
-import java.util.HashSet;
-import java.util.Collections;
-import java.util.Collection;
-import java.util.Iterator;
+import org.exoplatform.services.security.ConversationState;
+import org.exoplatform.services.security.Identity;
+import org.exoplatform.services.security.MembershipEntry;
+import org.exoplatform.test.BasicTestCase;
 
 /**
  * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
@@ -47,7 +47,6 @@ public class AbstractTestUserACL extends BasicTestCase {
     md.setSuperUser("root");
     md.setGuestsGroups("/platform/guests");
     md.setPortalCreateGroups("*:/platform/administrators,*:/organization/management/executive-board");
-    md.setAccessControlWorkspace("*:/platform/administrators,*:/organization/management/executive-board");
     md.setNavigationCreatorMembershipType("manager");
     UserACL ua = new UserACL(md);
     User root = new User("root");
@@ -157,15 +156,6 @@ public class AbstractTestUserACL extends BasicTestCase {
       ConversationState.setCurrent(new ConversationState(identity));
       try {
         return ua.hasEditPermission(portal);
-      } finally {
-        ConversationState.setCurrent(null);
-      }
-    }
-
-    public boolean hasAccessControlWorkspacePermission() {
-      ConversationState.setCurrent(new ConversationState(identity));
-      try {
-        return ua.hasAccessControlWorkspacePermission();
       } finally {
         ConversationState.setCurrent(null);
       }

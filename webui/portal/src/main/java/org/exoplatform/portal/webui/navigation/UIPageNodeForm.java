@@ -29,7 +29,6 @@ import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.page.UIPageSelector;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
@@ -202,9 +201,8 @@ public class UIPageNodeForm extends UIFormTabPane {
       
       if(uiIconSelector.getSelectedIcon().equals("Default")) pageNode.setIcon(null);
       else pageNode.setIcon(uiIconSelector.getSelectedIcon());
-      
-      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-      UIPageNodeSelector uiPageNodeSelector = uiControl.findFirstComponentOfType(UIPageNodeSelector.class);   
+      //TODO: Delete UIControlWorkspace
+      UIPageNodeSelector uiPageNodeSelector = uiPortalApp.findFirstComponentOfType(UIPageNodeSelector.class);   
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
       UIPage uiPage = null;
       if(pageSelector.getPage() != null) uiPage = Util.toUIPage(pageSelector.getPage(),uiToolPanel);

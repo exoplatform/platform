@@ -18,18 +18,15 @@ package org.exoplatform.portal.webui.util;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.exoplatform.Constants;
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageBody;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIGadget;
-import org.exoplatform.portal.webui.application.UIGadgets;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
 import org.exoplatform.portal.webui.page.UIPage;
@@ -42,40 +39,41 @@ import org.exoplatform.services.portletcontainer.pci.PortletData;
 import org.exoplatform.services.portletcontainer.pci.model.Supports;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
+
 /**
- * Created by The eXo Platform SAS
- * May 4, 2007  
- * 
- * TODO: Rename this to PortalDataModelMapper
+ * Created by The eXo Platform SAS May 4, 2007 TODO: Rename this to
+ * PortalDataModelMapper
  */
 public class PortalDataMapper {
-  
+
   @SuppressWarnings("unchecked")
-  static final public <T> T buildChild(UIComponent uiComponent){
+  static final public <T> T buildChild(UIComponent uiComponent) {
     Object model = null;
-    if(uiComponent instanceof UIPageBody){
-      model =  toPageBodyModel((UIPageBody)uiComponent);
-    }/*else if(uiComponent instanceof UIWidget){
-      model = toWidget((UIWidget)uiComponent);  
-    }*/else if(uiComponent instanceof UIPortlet){
-      model = toPortletModel((UIPortlet)uiComponent);
-    } else if(uiComponent instanceof UIContainer){       
+    if (uiComponent instanceof UIPageBody) {
+      model = toPageBodyModel((UIPageBody) uiComponent);
+    }/*
+      * else if(uiComponent instanceof UIWidget){ model =
+      * toWidget((UIWidget)uiComponent); }
+      */else if (uiComponent instanceof UIPortlet) {
+      model = toPortletModel((UIPortlet) uiComponent);
+    } else if (uiComponent instanceof UIContainer) {
       model = toContainer((UIContainer) uiComponent);
-    } else if(uiComponent instanceof UIGadget) {
-      model = toGadget((UIGadget)uiComponent) ;
+    } else if (uiComponent instanceof UIGadget) {
+      model = toGadget((UIGadget) uiComponent);
     }
-    return (T)model;
+    return (T) model;
   }
-//  
-//  static final public Application toWidget(UIWidget uiWidget) {
-//    Application model = new Application();
-//    model.setApplicationType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE);
-//    model.setInstanceId(uiWidget.getApplicationInstanceId());
-//    model.setId(uiWidget.getId());
-//    model.setProperties(uiWidget.getProperties());
-//    return model;
-//  }
-//  
+
+  //  
+  // static final public Application toWidget(UIWidget uiWidget) {
+  // Application model = new Application();
+  // model.setApplicationType(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE);
+  // model.setInstanceId(uiWidget.getApplicationInstanceId());
+  // model.setId(uiWidget.getId());
+  // model.setProperties(uiWidget.getProperties());
+  // return model;
+  // }
+  //  
   static final public Application toGadget(UIGadget uiGadget) {
     Application model = new Application();
     model.setApplicationType(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE);
@@ -84,7 +82,7 @@ public class PortalDataMapper {
     model.setProperties(uiGadget.getProperties());
     return model;
   }
-  
+
   static private void toContainer(Container model, UIContainer uiContainer) {
     model.setId(uiContainer.getId());
     model.setName(uiContainer.getName());
@@ -95,47 +93,49 @@ public class PortalDataMapper {
     model.setWidth(uiContainer.getWidth());
     model.setTemplate(uiContainer.getTemplate());
     model.setFactoryId(uiContainer.getFactoryId());
-    model.setAccessPermissions(uiContainer.getAccessPermissions()) ;
-    
+    model.setAccessPermissions(uiContainer.getAccessPermissions());
+
     List<UIComponent> uiChildren = uiContainer.getChildren();
-    if(uiChildren == null)  return ;
-    ArrayList<Object>  children = new ArrayList<Object>();
-    for(UIComponent child : uiChildren){ 
+    if (uiChildren == null)
+      return;
+    ArrayList<Object> children = new ArrayList<Object>();
+    for (UIComponent child : uiChildren) {
       Object component = buildChild(child);
-      if(component != null) children.add(component);
+      if (component != null)
+        children.add(component);
     }
     model.setChildren(children);
   }
-  
-  static final public Application toPortletModel(UIPortlet uiPortlet){
+
+  static final public Application toPortletModel(UIPortlet uiPortlet) {
     Application model = new Application();
     model.setInstanceId(uiPortlet.getWindowId().toString());
     model.setApplicationType(uiPortlet.getFactoryId());
-    model.setTitle(uiPortlet.getTitle());    
+    model.setTitle(uiPortlet.getTitle());
     model.setWidth(uiPortlet.getWidth());
     model.setHeight(uiPortlet.getHeight());
     model.setDescription(uiPortlet.getDescription());
     model.setShowInfoBar(uiPortlet.getShowInfoBar());
     model.setShowApplicationState(uiPortlet.getShowWindowState());
-    model.setShowApplicationMode(uiPortlet.getShowPortletMode());    
+    model.setShowApplicationMode(uiPortlet.getShowPortletMode());
     model.setDescription(uiPortlet.getDescription());
     model.setIcon(uiPortlet.getIcon());
     model.setProperties(uiPortlet.getProperties());
     model.setTheme(uiPortlet.getTheme());
-    model.setAccessPermissions(uiPortlet.getAccessPermissions()) ;
-    model.setModifiable(uiPortlet.isModifiable()) ;
+    model.setAccessPermissions(uiPortlet.getAccessPermissions());
+    model.setModifiable(uiPortlet.isModifiable());
     return model;
   }
-  
-  static final public Container toContainer(UIContainer uiContainer){
+
+  static final public Container toContainer(UIContainer uiContainer) {
     Container model = new Container();
     toContainer(model, uiContainer);
     return model;
   }
-  
-  static final public Page toPageModel(UIPage uiPage){
+
+  static final public Page toPageModel(UIPage uiPage) {
     Page model = new Page();
-    toContainer(model , uiPage);
+    toContainer(model, uiPage);
     model.setCreator(uiPage.getCreator());
     model.setModifier(uiPage.getModifier());
     model.setOwnerId(uiPage.getOwnerId());
@@ -146,146 +146,111 @@ public class PortalDataMapper {
     model.setAccessPermissions(uiPage.getAccessPermissions());
     model.setEditPermission(uiPage.getEditPermission());
     model.setFactoryId(uiPage.getFactoryId());
-    model.setShowMaxWindow(uiPage.isShowMaxWindow());   
+    model.setShowMaxWindow(uiPage.isShowMaxWindow());
     model.setModifiable(uiPage.isModifiable());
     return model;
   }
-  
-  static final public PortalConfig toPortal(UIPortal uiPortal){
+
+  static final public PortalConfig toPortal(UIPortal uiPortal) {
     PortalConfig model = new PortalConfig();
     model.setName(uiPortal.getName());
     model.setCreator(uiPortal.getCreator());
     model.setModifier(uiPortal.getModifier());
-//    model.setFactoryId(uiPortal.getFactoryId());
+    // model.setFactoryId(uiPortal.getFactoryId());
     model.setAccessPermissions(uiPortal.getAccessPermissions());
     model.setEditPermission(uiPortal.getEditPermission());
     model.setLocale(uiPortal.getLocale());
     model.setSkin(uiPortal.getSkin());
     model.setTitle(uiPortal.getTitle());
     model.setModifiable(uiPortal.isModifiable());
-    model.setProperties(uiPortal.getProperties()) ;
-   
-    List<UIComponent> children  = uiPortal.getChildren();
-    if(children == null)  return  model;
-    ArrayList<Object>  newChildren = new ArrayList<Object>();
-    for(UIComponent child : children){ 
+    model.setProperties(uiPortal.getProperties());
+
+    List<UIComponent> children = uiPortal.getChildren();
+    if (children == null)
+      return model;
+    ArrayList<Object> newChildren = new ArrayList<Object>();
+    for (UIComponent child : children) {
       Object component = buildChild(child);
-      if(component != null) newChildren.add(component);
+      if (component != null)
+        newChildren.add(component);
     }
     model.getPortalLayout().setChildren(newChildren);
     return model;
   }
-  
+
   @SuppressWarnings("unused")
-  static final public PageBody toPageBodyModel(UIPageBody uiPageBody){
+  static final public PageBody toPageBodyModel(UIPageBody uiPageBody) {
     return new PageBody();
   }
-//  
-//  static final public Widgets toWidgets(UIWidgets uiWidgets) throws Exception {
-//    Widgets model = new Widgets();
-//    model.setAccessPermissions(uiWidgets.getAccessPermissions());
-//    model.setEditPermission(uiWidgets.getEditPermission());
-//    model.setOwnerType(uiWidgets.getOwnerType());
-//    model.setOwnerId(uiWidgets.getOwnerId());
-//    
-//    List<UIComponent> uiChildren  = uiWidgets.getChildren();
-//    if(uiChildren == null)  return model;
-//    ArrayList<Container> modelChildren = new ArrayList<Container>();
-//    for(UIComponent uiChild : uiChildren) {
-//      Container container = toContainer((UIContainer)uiChild) ;
-//      modelChildren.add(container) ;
-//    }
-//    model.setChildren(modelChildren);
-//    return model;
-//  }
-  
-  static final public Gadgets toGadgets(UIGadgets uiGadgets) throws Exception {
-    Gadgets model = new Gadgets();
-    model.setAccessPermissions(uiGadgets.getAccessPermissions());
-    model.setEditPermission(uiGadgets.getEditPermission());
-    model.setOwnerType(uiGadgets.getOwnerType());
-    model.setOwnerId(uiGadgets.getOwnerId());
-    
-    List<UIComponent> uiChildren  = uiGadgets.getChildren();
-    if(uiChildren == null)  return model;
-    ArrayList<Container> modelChildren = new ArrayList<Container>();
-    for(UIComponent uiChild : uiChildren) {
-      Container container = toContainer((UIContainer)uiChild) ;
-      modelChildren.add(container) ;
-    }
-    model.setChildren(modelChildren);
-    return model;
-  }
-//  
-//  static public void toUIWidget(UIWidget uiWidget, Application model) throws Exception {
-//    uiWidget.setApplicationInstanceId(model.getInstanceId()) ;
-//    uiWidget.setId(model.getInstanceId());
-//    uiWidget.setProperties(model.getProperties());
-//  }
-//  
+
   static public void toUIGadget(UIGadget uiGadget, Application model) throws Exception {
-    uiGadget.setApplicationInstanceId(model.getInstanceId()) ;
+    uiGadget.setApplicationInstanceId(model.getInstanceId());
     uiGadget.setId(model.getId());
     uiGadget.setProperties(model.getProperties());
   }
-  
+
   /**
-   * Fill the UI component with both information from the persistent model and some coming
-   * from the portlet.xml defined by the JSR 286 specification
+   * Fill the UI component with both information from the persistent model and
+   * some coming from the portlet.xml defined by the JSR 286 specification
    */
   static public void toUIPortlet(UIPortlet uiPortlet, Application model) throws Exception {
-	/*
-	 * Fill UI component object with info from the XML file that persist portlet information
-	 */
+    /*
+     * Fill UI component object with info from the XML file that persist portlet
+     * information
+     */
     uiPortlet.setWidth(model.getWidth());
     uiPortlet.setHeight(model.getHeight());
     uiPortlet.setWindowId(model.getInstanceId());
     uiPortlet.setTitle(model.getTitle());
     uiPortlet.setIcon(model.getIcon());
     uiPortlet.setDescription(model.getDescription());
-    uiPortlet.setFactoryId(model.getApplicationType());    
+    uiPortlet.setFactoryId(model.getApplicationType());
     uiPortlet.setShowInfoBar(model.getShowInfoBar());
     uiPortlet.setShowWindowState(model.getShowApplicationState());
     uiPortlet.setShowPortletMode(model.getShowApplicationMode());
     uiPortlet.setProperties(model.getProperties());
     uiPortlet.setTheme(model.getTheme());
-    if(model.getAccessPermissions() != null) uiPortlet.setAccessPermissions(model.getAccessPermissions()) ;
-    uiPortlet.setModifiable(model.isModifiable()) ;
-    PortletContainerService portletContainer =  uiPortlet.getApplicationComponent(PortletContainerService.class);
-    ExoWindowID windowId = uiPortlet.getExoWindowID();    
-    String  portletId = windowId.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER + windowId.getPortletName();   
+    if (model.getAccessPermissions() != null)
+      uiPortlet.setAccessPermissions(model.getAccessPermissions());
+    uiPortlet.setModifiable(model.isModifiable());
+    PortletContainerService portletContainer = uiPortlet.getApplicationComponent(PortletContainerService.class);
+    ExoWindowID windowId = uiPortlet.getExoWindowID();
+    String portletId = windowId.getPortletApplicationName() + Constants.PORTLET_META_DATA_ENCODER
+        + windowId.getPortletName();
     PortletData portletData = (PortletData) portletContainer.getAllPortletMetaData().get(portletId);
-    if(portletData == null) return;
-    
+    if (portletData == null)
+      return;
+
     /*
-     * Define which portlet modes the portlet supports and hence should be shown in the portlet
-     * info bar
+     * Define which portlet modes the portlet supports and hence should be shown
+     * in the portlet info bar
      */
-    List<?> supportsList = portletData.getSupports() ;
-    List<String> supportModes = new ArrayList<String>() ;
+    List<?> supportsList = portletData.getSupports();
+    List<String> supportModes = new ArrayList<String>();
     for (int i = 0; i < supportsList.size(); i++) {
-      Supports supports = (Supports) supportsList.get(i) ;
-      String mimeType = supports.getMimeType() ;
+      Supports supports = (Supports) supportsList.get(i);
+      String mimeType = supports.getMimeType();
       if ("text/html".equals(mimeType)) {
-        List<?> modes = supports.getPortletMode() ;
-        for (int j =0 ; j < modes.size() ; j++) {
-          String mode =(String)modes.get(j) ;
-          mode = mode.toLowerCase() ;
-          //check role admin
-          if("config".equals(mode)) { 
-            //if(adminRole) 
-            supportModes.add(mode) ;
+        List<?> modes = supports.getPortletMode();
+        for (int j = 0; j < modes.size(); j++) {
+          String mode = (String) modes.get(j);
+          mode = mode.toLowerCase();
+          // check role admin
+          if ("config".equals(mode)) {
+            // if(adminRole)
+            supportModes.add(mode);
           } else {
-            supportModes.add(mode) ;
+            supportModes.add(mode);
           }
         }
-        break ;
+        break;
       }
     }
-    if(supportModes.size() > 1) supportModes.remove("view");
-    uiPortlet.setSupportModes(supportModes);    
+    if (supportModes.size() > 1)
+      supportModes.remove("view");
+    uiPortlet.setSupportModes(supportModes);
   }
-  
+
   static public void toUIContainer(UIContainer uiContainer, Container model) throws Exception {
     uiContainer.setId(model.getId());
     uiContainer.setWidth(model.getWidth());
@@ -296,16 +261,19 @@ public class PortalDataMapper {
     uiContainer.setFactoryId(model.getFactoryId());
     uiContainer.setName(model.getName());
     uiContainer.setTemplate(model.getTemplate());
-    if(model.getAccessPermissions() != null) uiContainer.setAccessPermissions(model.getAccessPermissions()) ;
-    
-    List<Object> children  = model.getChildren();
-    if(children == null)  return;
-    for(Object child : children) {
+    if (model.getAccessPermissions() != null)
+      uiContainer.setAccessPermissions(model.getAccessPermissions());
+
+    List<Object> children = model.getChildren();
+    if (children == null)
+      return;
+    for (Object child : children) {
       UIComponent uiComp = buildChild(uiContainer, child);
-      if(uiComp != null) uiContainer.addChild(uiComp);
+      if (uiComp != null)
+        uiContainer.addChild(uiComp);
     }
   }
-  
+
   static public void toUIPage(UIPage uiPage, Page model) throws Exception {
     toUIContainer(uiPage, model);
     uiPage.setCreator(model.getCreator());
@@ -318,116 +286,80 @@ public class PortalDataMapper {
     uiPage.setFactoryId(model.getFactoryId());
     uiPage.setPageId(model.getPageId());
     uiPage.setTitle(model.getTitle());
-    uiPage.setShowMaxWindow(model.isShowMaxWindow());   
+    uiPage.setShowMaxWindow(model.isShowMaxWindow());
     uiPage.setModifiable(model.isModifiable());
-    
+
     List<UIPortlet> portlets = new ArrayList<UIPortlet>();
     uiPage.findComponentOfType(portlets, UIPortlet.class);
-    for(UIPortlet portlet : portlets){
+    for (UIPortlet portlet : portlets) {
       portlet.setPortletInPortal(false);
-    }   
+    }
   }
-  
+
   static public void toUIPortal(UIPortal uiPortal, UserPortalConfig userPortalConfig) throws Exception {
     PortalConfig model = userPortalConfig.getPortalConfig();
-    
-    uiPortal.setId("UIPortal") ; 
+
+    uiPortal.setId("UIPortal");
     uiPortal.setCreator(model.getCreator());
     uiPortal.setModifier(model.getModifier());
     uiPortal.setName(model.getName());
-//    uiPortal.setFactoryId(model.getFactoryId());
+    // uiPortal.setFactoryId(model.getFactoryId());
     uiPortal.setOwner(model.getName());
     uiPortal.setTitle(model.getTitle());
     uiPortal.setModifiable(model.isModifiable());
-    
+
     uiPortal.setLocale(model.getLocale());
     uiPortal.setSkin(model.getSkin());
     uiPortal.setAccessPermissions(model.getAccessPermissions());
     uiPortal.setEditPermission(model.getEditPermission());
-    uiPortal.setProperties(model.getProperties()) ;
-    
-    List<Object> children  = model.getPortalLayout().getChildren();
-    if(children != null) { 
-      for(Object child : children){   
+    uiPortal.setProperties(model.getProperties());
+
+    List<Object> children = model.getPortalLayout().getChildren();
+    if (children != null) {
+      for (Object child : children) {
         UIComponent uiComp = buildChild(uiPortal, child);
-        if(uiComp != null) uiPortal.addChild(uiComp);
+        if (uiComp != null)
+          uiPortal.addChild(uiComp);
       }
     }
-    uiPortal.setNavigation(userPortalConfig.getNavigations());   
+    uiPortal.setNavigation(userPortalConfig.getNavigations());
   }
-  
-//  static public void toUIWidgets(UIWidgets uiWidgets, Widgets model) throws Exception {
-//    uiWidgets.setId(model.getId());
-//    uiWidgets.setAccessPermissions(model.getAccessPermissions());
-//    uiWidgets.setEditPermission(model.getEditPermission());
-//    uiWidgets.setOwnerType(model.getOwnerType());
-//    uiWidgets.setOwnerId(model.getOwnerId());
-//    
-//    uiWidgets.getChildren().clear() ;
-//    ArrayList<Container> children  = model.getChildren();
-//    if(children == null)  return;
-//    WebuiRequestContext  context = Util.getPortalRequestContext() ;
-//    for(Container child : children) { 
-//      UIContainer uiContainer = uiWidgets.createUIComponent(context, UIContainer.class, "WidgetContainer", null);
-//      uiContainer.setRendered(false);
-//      toUIContainer(uiContainer, child);
-//      uiWidgets.addChild(uiContainer);
-//    }
-//    uiWidgets.updateDropdownList();
-//  }
-//  
-  static public void toUIGadgets(UIGadgets uiGadgets, Gadgets model) throws Exception {
-    uiGadgets.setId(model.getId());
-    uiGadgets.setAccessPermissions(model.getAccessPermissions());
-    uiGadgets.setEditPermission(model.getEditPermission());
-    uiGadgets.setOwnerType(model.getOwnerType());
-    uiGadgets.setOwnerId(model.getOwnerId());
-    
-    uiGadgets.getChildren().clear() ;
-    ArrayList<Container> children  = model.getChildren();
-    if(children == null)  return;
-    WebuiRequestContext  context = Util.getPortalRequestContext() ;
-    for(Container child : children) { 
-      UIContainer uiContainer = uiGadgets.createUIComponent(context, UIContainer.class, "GadgetContainer", null);
-      uiContainer.setChildren((List<UIComponent>) new CopyOnWriteArrayList<UIComponent>()) ;
-      uiContainer.setRendered(false);
-      toUIContainer(uiContainer, child);
-      uiGadgets.addChild(uiContainer);
-    }
-    uiGadgets.updateDropdownList();
-  }
-  
-  
+
   @SuppressWarnings("unchecked")
   static private <T extends UIComponent> T buildChild(UIPortalComponent uiParent, Object model) throws Exception {
     UIComponent uiComponent = null;
-    WebuiRequestContext  context = Util.getPortalRequestContext() ;
-    if(model instanceof PageBody){
+    WebuiRequestContext context = Util.getPortalRequestContext();
+    if (model instanceof PageBody) {
       UIPageBody uiPageBody = uiParent.createUIComponent(context, UIPageBody.class, null, null);
       uiComponent = uiPageBody;
-    }else if(model instanceof Application){
+    } else if (model instanceof Application) {
       Application application = (Application) model;
-      String factoryId = application.getApplicationType();    
-      if(factoryId == null || factoryId.equals(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)){
+      String factoryId = application.getApplicationType();
+      if (factoryId == null
+          || factoryId.equals(org.exoplatform.web.application.Application.EXO_PORTLET_TYPE)) {
         UIPortlet uiPortlet = uiParent.createUIComponent(context, UIPortlet.class, null, null);
         toUIPortlet(uiPortlet, application);
         uiComponent = uiPortlet;
-      }/*else if(factoryId.equals(org.exoplatform.web.application.Application.EXO_WIDGET_TYPE)) {
-        UIWidget uiWidget = uiParent.createUIComponent(context, UIWidget.class, null, null);
-        toUIWidget(uiWidget, application) ;
-        uiComponent = uiWidget ;
-      }*/else if(factoryId.equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
-        UIGadget uiGadget = uiParent.createUIComponent(context, UIGadget.class, null, null) ;
-        toUIGadget(uiGadget, application) ;
-        uiComponent = uiGadget ;
+      }/*
+        * elseif(factoryId.equals(org.exoplatform.web.application.Application.
+        * EXO_WIDGET_TYPE)) { UIWidget uiWidget =
+        * uiParent.createUIComponent(context, UIWidget.class, null, null);
+        * toUIWidget(uiWidget, application) ; uiComponent = uiWidget ; }
+        */else if (factoryId.equals(org.exoplatform.web.application.Application.EXO_GAGGET_TYPE)) {
+        UIGadget uiGadget = uiParent.createUIComponent(context, UIGadget.class, null, null);
+        toUIGadget(uiGadget, application);
+        uiComponent = uiGadget;
       }
-    } else if(model instanceof Container){
+    } else if (model instanceof Container) {
       Container container = (Container) model;
-      UIContainer uiContainer = uiParent.createUIComponent(context, UIContainer.class, container.getFactoryId(), null);
-      toUIContainer(uiContainer, (Container)model);
+      UIContainer uiContainer = uiParent.createUIComponent(context,
+                                                           UIContainer.class,
+                                                           container.getFactoryId(),
+                                                           null);
+      toUIContainer(uiContainer, (Container) model);
       uiComponent = uiContainer;
     }
-    return (T)uiComponent;
+    return (T) uiComponent;
   }
 
 }

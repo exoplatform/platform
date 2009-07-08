@@ -33,7 +33,6 @@ public class UIAdminToolbarPortlet extends UIPortletApplication {
 		Identity identity = currentState.getIdentity();
 		UserACL userACL = getApplicationComponent(UserACL.class);
 		String editorMembershipType = userACL.getMakableMT();
-		List<String> accessControlWorkspaceGroups = userACL.getAccessControlWorkspaceGroups();
 		String editSitePermission = Util.getUIPortal().getEditPermission();
 
 		String userId = Util.getPortalRequestContext().getRemoteUser();
@@ -41,43 +40,12 @@ public class UIAdminToolbarPortlet extends UIPortletApplication {
 			role = UIAdminToolbarPortlet.ADMIN;
 			return;
 		}
-		if (userACL.hasAccessControlWorkspacePermission()
-				&& userACL.hasCreatePortalPermission()) {
-			role = UIAdminToolbarPortlet.ADMIN;
-			return;
-		}
-
-		// editor
-		MembershipEntry editorEntry = null;
-		for (String membership : accessControlWorkspaceGroups) {
-			editorEntry = MembershipEntry.parse(membership);
-			if (editorEntry.getMembershipType().equals(editorMembershipType)
-					|| editorEntry.getMembershipType().equals(MembershipEntry.ANY_TYPE)) {
-				if (identity.isMemberOf(editorEntry)) {
-
-					MembershipEntry editEntry = MembershipEntry.parse(editSitePermission);
-					if (MembershipEntry.ANY_TYPE.equals(editEntry.getMembershipType())) {
-						editEntry = MembershipEntry.parse(editorMembershipType+":"+editEntry.getGroup());
-					}
-					if (identity.isMemberOf(editEntry)) {
-						role = UIAdminToolbarPortlet.EDITOR;
-						return;
-					}
-				}
-			}
-		}
-
+		//TODO: check admin role from XML config
+		role = UIAdminToolbarPortlet.ADMIN;
 		role = UIAdminToolbarPortlet.VISITOR;		
 	}
 
 	public int getRole() throws Exception {    
 		return role;
-	}
-
-	public boolean isShowWorkspaceArea() throws Exception {
-		UserACL userACL = getApplicationComponent(UserACL.class);
-		if (userACL.hasAccessControlWorkspacePermission())
-			return true;
-		return false;
 	}
 }

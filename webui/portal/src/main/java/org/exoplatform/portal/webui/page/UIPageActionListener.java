@@ -28,7 +28,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIGadget;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
@@ -36,11 +35,8 @@ import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
-import org.exoplatform.portal.webui.workspace.UIExoStart;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
-import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
@@ -78,17 +74,6 @@ public class UIPageActionListener {
       pcontext.setFullRender(true);
       
       String currentUri = (uiPortal.getSelectedNode() == null) ? null: uiPortal.getSelectedNode().getUri() ;
-
-      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-      if(uiControl != null) {
-        UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
-//        pcontext.addUIComponentToUpdateByAjax(uiControl);  
-//        UIExoStart exoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);
-//        pcontext.addUIComponentToUpdateByAjax(exoStart);
-        if(!UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) {
-          uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
-        }
-      }
 
       uiPortal.setSelectedNavigation(null);
       uiPortal.setSelectedNode(null);

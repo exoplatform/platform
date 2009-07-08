@@ -23,7 +23,6 @@ import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortletPreferences;
-import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -73,10 +72,6 @@ public class RemoveUserPortalConfigListener extends Listener<UserDAOImpl, User> 
    
     PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE, userName) ;
     if (navigation != null) portalConfigService.remove(navigation) ;
-
-    String id = PortalConfig.USER_TYPE + "::" + userName ;
-    Gadgets gadgets = dataStorage.getGadgets(id) ;
-    if(gadgets != null) portalConfigService.remove(gadgets) ;
   }
 
 }

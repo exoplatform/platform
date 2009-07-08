@@ -30,15 +30,10 @@ import org.exoplatform.container.xml.ValuesParam;
  * Nov 19, 2008  
  */
 public class PortalACLPlugin extends BaseComponentPlugin {
-  private List<String> accessControlWorkspaceRoles = null;
   private List<String> portalCreationRoles = null;
   private String superUser;
 
   public PortalACLPlugin(InitParams initParams) {
-    ValuesParam roles1 = initParams.getValuesParam("access.control.workspace.roles");
-    if(roles1 != null) {
-      accessControlWorkspaceRoles = roles1.getValues();
-    }
     ValuesParam roles2 = initParams.getValuesParam("portal.creation.roles");
     if(roles2 != null) {
       portalCreationRoles = roles2.getValues();
@@ -48,10 +43,6 @@ public class PortalACLPlugin extends BaseComponentPlugin {
       superUser = role3.getValue();
     }    
   }
-
-  public List<String> getAccessControlWorkspacesRoles() {
-    return accessControlWorkspaceRoles;
-  }  
 
   public List<String> getPortalCreationRoles() {
     return portalCreationRoles; 

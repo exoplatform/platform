@@ -16,28 +16,19 @@
  */
 package org.exoplatform.portal.config.jcr;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import javax.jcr.PathNotFoundException;
-import javax.jcr.Session;
-import javax.jcr.query.QueryManager;
-import javax.jcr.query.QueryResult;
 
 import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
-import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
-import org.exoplatform.services.jcr.ext.organization.UserByQueryJCRUserListAccess;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.services.listener.ListenerService;
@@ -261,64 +252,6 @@ public class DataStorageImpl implements DataStorage, Startable {
     }
     finally {
       sessionProvider.close() ;;
-    }
-  }
-  
-  public Gadgets getGadgets(String id) throws Exception {
-    String[] fragments = id.split("::") ;
-    if(fragments.length < 2) {
-      throw new Exception("Invalid Gadgets Id: " + "[" + id + "]") ;
-    }
-    String gadgetsPath = getApplicationRegistryPath(fragments[0], fragments[1])
-    + "/" + GADGETS_CONFIG_FILE_NAME ;
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    RegistryEntry gadgetsEntry ;
-    try {      
-      gadgetsEntry = regService_.getEntry(sessionProvider, gadgetsPath) ;
-    } catch (PathNotFoundException ie) {
-      return null ;
-    } finally {
-      sessionProvider.close() ;
-    }
-    Gadgets gadgets = mapper_.toGadgets(gadgetsEntry.getDocument()) ;
-    return gadgets ;
-  }
-  
-  public void create(Gadgets gadgets) throws Exception {
-    String appRegPath = getApplicationRegistryPath(gadgets.getOwnerType(), gadgets.getOwnerId()) ;
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    try {
-      RegistryEntry gadgetsEntry = new RegistryEntry(GADGETS_CONFIG_FILE_NAME) ;
-      mapper_.map(gadgetsEntry.getDocument(), gadgets) ;
-      regService_.createEntry(sessionProvider, appRegPath, gadgetsEntry) ;
-    }
-    finally {
-      sessionProvider.close() ;
-    }
-  }
-
-  public void save(Gadgets gadgets) throws Exception {
-    String appRegPath = getApplicationRegistryPath(gadgets.getOwnerType(), gadgets.getOwnerId()) ;
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    try {
-      RegistryEntry gadgetsEntry = regService_.getEntry(sessionProvider, appRegPath + "/" + GADGETS_CONFIG_FILE_NAME) ;
-      mapper_.map(gadgetsEntry.getDocument(), gadgets) ;
-      regService_.recreateEntry(sessionProvider, appRegPath, gadgetsEntry) ;
-    }
-    finally {
-      sessionProvider.close() ;
-    }
-  }
-  
-  public void remove(Gadgets gadgets) throws Exception {
-    String gadgetsPath = getApplicationRegistryPath(gadgets.getOwnerType(), gadgets.getOwnerId())
-                         + "/" + GADGETS_CONFIG_FILE_NAME ;
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider() ;
-    try {
-      regService_.removeEntry(sessionProvider, gadgetsPath) ;
-    }
-    finally {
-      sessionProvider.close() ;
     }
   }
   

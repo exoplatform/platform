@@ -18,9 +18,7 @@ package org.exoplatform.portal.webui.container;
 
 import java.util.List;
 
-import org.exoplatform.portal.webui.container.UIContainerActionListener.DeleteGadgetActionListener;
 import org.exoplatform.portal.webui.container.UIContainerActionListener.EditContainerActionListener;
-import org.exoplatform.portal.webui.container.UIContainerActionListener.ShowAddNewApplicationActionListener;
 import org.exoplatform.portal.webui.portal.UIPortalComponent;
 import org.exoplatform.portal.webui.portal.UIPortalComponentActionListener.DeleteComponentActionListener;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -36,23 +34,8 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfigs({
   @ComponentConfig(   
       events = {
-          @EventConfig(listeners = EditContainerActionListener.class),
+          @EventConfig(listeners = UIContainerActionListener.EditContainerActionListener.class),
           @EventConfig(listeners = DeleteComponentActionListener.class, confirm = "UIContainer.deleteContainer")
-      }
-  ),/*
-  @ComponentConfig( 
-      id = "WidgetContainer",
-      template = "system:/groovy/portal/webui/container/UIWidgetContainer.gtmpl",
-      events = {
-          @EventConfig(listeners = ShowAddNewApplicationActionListener.class)
-      }
-  ),*/
-  @ComponentConfig( 
-      id = "GadgetContainer",
-      template = "system:/groovy/portal/webui/container/UIGadgetContainer.gtmpl",
-      events = {
-          @EventConfig(listeners = DeleteGadgetActionListener.class),
-          @EventConfig(listeners = ShowAddNewApplicationActionListener.class)
       }
   ),
   @ComponentConfig(

@@ -15,8 +15,6 @@ var eXo  = {
   
   webui : { },
 
-  widget : { },
-  
   gadget : { },
   
   application : { 

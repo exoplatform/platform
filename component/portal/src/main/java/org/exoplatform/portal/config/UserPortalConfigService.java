@@ -24,16 +24,13 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.exoplatform.services.log.Log;
 import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -43,14 +40,12 @@ import org.exoplatform.services.cache.ExoCache;
 import org.exoplatform.services.cache.ExpireKeyStartWithSelector;
 import org.exoplatform.services.listener.ListenerService;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.portletcontainer.PortletContainerService;
 import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.exoplatform.services.portletcontainer.pci.Input;
-import org.exoplatform.services.portletcontainer.pci.model.ExoPortletPreferences;
-import org.exoplatform.services.portletcontainer.persistence.PortletPreferencesPersister;
-import org.exoplatform.services.portletcontainer.plugins.pc.portletAPIImp.PortletPreferencesImp;
 import org.picocontainer.Startable;
 
 /**
@@ -85,8 +80,6 @@ public class UserPortalConfigService implements Startable {
 
   protected ExoCache<String, PageNavigation> pageNavigationCache_;
 
-  protected ExoCache<String, Gadgets>        gadgetsCache_;
-
   private NewPortalConfigListener            newPortalConfigListener_;
 
   private Log                                log                     = ExoLogger.getLogger("Portal:UserPortalConfigService");
@@ -108,7 +101,6 @@ public class UserPortalConfigService implements Startable {
     portalConfigCache_ = cacheService.getCacheInstance(PortalConfig.class.getName());
     pageConfigCache_ = cacheService.getCacheInstance(Page.class.getName());
     pageNavigationCache_ = cacheService.getCacheInstance(PageNavigation.class.getName());
-    gadgetsCache_ = cacheService.getCacheInstance(Gadgets.class.getName());
   }
 
   /**
@@ -165,14 +157,13 @@ public class UserPortalConfigService implements Startable {
         navigations.add(navigation);
       }
     }
-    Gadgets userGadgets = getGadgets(PortalConfig.USER_TYPE + "::" + accessUser);
     Collections.sort(navigations, new Comparator<PageNavigation>() {
       public int compare(PageNavigation nav1, PageNavigation nav2) {
         return nav1.getPriority() - nav2.getPriority();
       }
     });
 
-    return new UserPortalConfig(portal, navigations, userGadgets);
+    return new UserPortalConfig(portal, navigations);
   }
 
   public List<String> getMakableNavigations(String remoteUser) throws Exception {
@@ -383,30 +374,6 @@ public class UserPortalConfigService implements Startable {
     if (navigation == null)
       navigation = storage_.getPageNavigation(ownerType, id);
     return navigation;
-  }
-
-  public void create(Gadgets gadgets) throws Exception {
-    storage_.create(gadgets);
-    gadgetsCache_.put(gadgets.getId(), gadgets);
-  }
-
-  public void update(Gadgets gadgets) throws Exception {
-    storage_.save(gadgets);
-    gadgetsCache_.select(new ExpireKeyStartWithSelector<String, Gadgets>(gadgets.getId()));
-  }
-
-  public void remove(Gadgets gadgets) throws Exception {
-    storage_.remove(gadgets);
-    gadgetsCache_.remove(gadgets.getId());
-  }
-
-  public Gadgets getGadgets(String id) throws Exception {
-    Gadgets gadgets = gadgetsCache_.get(id);
-    if (gadgets != null)
-      return gadgets;
-    gadgets = storage_.getGadgets(id);
-    gadgetsCache_.put(id, gadgets);
-    return gadgets;
   }
 
   /**

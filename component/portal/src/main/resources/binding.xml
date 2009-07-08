@@ -130,15 +130,5 @@
     <collection field="preferences" 
                 item-type="org.exoplatform.portal.application.Preference"/>    
     <value name="preferences-validator" field="preferencesValidator" usage="optional"/>
-  </mapping>
-  
-  <mapping name="gadgets" label="gadgets" class="org.exoplatform.portal.config.model.Gadgets">
-    <value name="owner-type" field="ownerType"/>
-    <value name="owner-id" field="ownerId"/>
-    <value name="access-permissions" field="accessPermissions" usage="optional"/>
-    <value name="edit-permission" field="editPermission" usage="optional"/>
-    <collection field="children" ordered="false">
-      <structure map-as="org.exoplatform.portal.config.model.Container" usage="optional"/>
-    </collection>
-  </mapping>
+  </mapping>  
 </binding>

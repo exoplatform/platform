@@ -24,8 +24,6 @@ import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.portal.application.PortletPreferences;
-import org.exoplatform.portal.config.model.Container;
-import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -35,75 +33,67 @@ import org.exoplatform.services.organization.User;
 import org.exoplatform.services.organization.UserEventListener;
 
 /**
- * Created by The eXo Platform SAS
- * May 29, 2007  
+ * Created by The eXo Platform SAS May 29, 2007
  */
 public class UserPortalConfigListener extends UserEventListener {
-  
+
   public void preDelete(User user) throws Exception {
-    ExoContainer container  = ExoContainerContext.getCurrentContainer();
-    UserPortalConfigService portalConfigService = 
-      (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
-    DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
-    String userName = user.getUserName() ;
-    
-    Query<Page> query = new Query<Page>(PortalConfig.USER_TYPE, userName, Page.class) ;
-    PageList pageList = dataStorage.find(query) ;
-    pageList.setPageSize(10) ;
-    int i =  1;
-    while(i <= pageList.getAvailablePage()) {
-      List<?> list = pageList.getPage(i) ;
-      Iterator<?> iterator = list.iterator() ;
-      while(iterator.hasNext()) portalConfigService.remove((Page) iterator.next()) ;
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    UserPortalConfigService portalConfigService = (UserPortalConfigService) container.getComponentInstanceOfType(UserPortalConfigService.class);
+    DataStorage dataStorage = (DataStorage) container.getComponentInstanceOfType(DataStorage.class);
+    String userName = user.getUserName();
+
+    Query<Page> query = new Query<Page>(PortalConfig.USER_TYPE, userName, Page.class);
+    PageList pageList = dataStorage.find(query);
+    pageList.setPageSize(10);
+    int i = 1;
+    while (i <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(i);
+      Iterator<?> iterator = list.iterator();
+      while (iterator.hasNext())
+        portalConfigService.remove((Page) iterator.next());
       i++;
     }
-    
-    Query<PortletPreferences> portletPrefQuery = 
-      new Query<PortletPreferences>(PortalConfig.USER_TYPE, userName, PortletPreferences.class) ;
-    pageList = dataStorage.find(portletPrefQuery) ;
-    i = 1 ;
-    while(i <= pageList.getAvailablePage()) {
-      List<?> list = pageList.getPage(i) ;
-      Iterator<?> iterator = list.iterator() ;
-      while(iterator.hasNext()) dataStorage.remove((PortletPreferences)iterator.next()) ;
-      i++ ;
-    }
-   
-    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE, userName) ;
-    if (navigation != null) portalConfigService.remove(navigation) ;
 
-    String id = PortalConfig.USER_TYPE + "::" + userName ;
-    Gadgets gadgets = dataStorage.getGadgets(id) ;
-    if(gadgets != null) portalConfigService.remove(gadgets) ;
+    Query<PortletPreferences> portletPrefQuery = new Query<PortletPreferences>(PortalConfig.USER_TYPE,
+                                                                               userName,
+                                                                               PortletPreferences.class);
+    pageList = dataStorage.find(portletPrefQuery);
+    i = 1;
+    while (i <= pageList.getAvailablePage()) {
+      List<?> list = pageList.getPage(i);
+      Iterator<?> iterator = list.iterator();
+      while (iterator.hasNext())
+        dataStorage.remove((PortletPreferences) iterator.next());
+      i++;
+    }
+
+    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE, userName);
+    if (navigation != null)
+      portalConfigService.remove(navigation);
   }
-  
+
   public void preSave(User user, boolean isNew) throws Exception {
-    ExoContainer container  = ExoContainerContext.getCurrentContainer();
-    /*     
-     * TODO Call start method on RegistryService to allow ecm, ultimate can run with JDK6. 
-     * This is uncommon behavior. We need find other way to fix it
-     * I hope that this issues will be fixed when we use the lastest version of PicoContainer
-     * Comment by Hoa Pham.     
-     */    
-    RegistryService registryService = (RegistryService)container.getComponentInstanceOfType(RegistryService.class);
+    ExoContainer container = ExoContainerContext.getCurrentContainer();
+    /*
+     * TODO Call start method on RegistryService to allow ecm, ultimate can run
+     * with JDK6. This is uncommon behavior. We need find other way to fix it I
+     * hope that this issues will be fixed when we use the lastest version of
+     * PicoContainer Comment by Hoa Pham.
+     */
+    RegistryService registryService = (RegistryService) container.getComponentInstanceOfType(RegistryService.class);
     registryService.start();
-    UserPortalConfigService portalConfigService = 
-      (UserPortalConfigService)container.getComponentInstanceOfType(UserPortalConfigService.class) ;
-    DataStorage dataStorage = (DataStorage)container.getComponentInstanceOfType(DataStorage.class) ;
-    String userName = user.getUserName() ;
-    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE, userName) ;
-    if (navigation != null) return;
+    UserPortalConfigService portalConfigService = (UserPortalConfigService) container.getComponentInstanceOfType(UserPortalConfigService.class);
+    DataStorage dataStorage = (DataStorage) container.getComponentInstanceOfType(DataStorage.class);
+    String userName = user.getUserName();
+    PageNavigation navigation = dataStorage.getPageNavigation(PortalConfig.USER_TYPE, userName);
+    if (navigation != null)
+      return;
     PageNavigation pageNav = new PageNavigation();
     pageNav.setOwnerType(PortalConfig.USER_TYPE);
     pageNav.setOwnerId(userName);
     pageNav.setPriority(5);
     pageNav.setNodes(new ArrayList<PageNode>());
     portalConfigService.create(pageNav);
-    
-    Gadgets gadgets = new Gadgets() ;
-    gadgets.setOwnerType(PortalConfig.USER_TYPE) ;
-    gadgets.setOwnerId(userName) ;
-    gadgets.setChildren(new ArrayList<Container>()) ;
-    portalConfigService.create(gadgets) ;
   }
 }

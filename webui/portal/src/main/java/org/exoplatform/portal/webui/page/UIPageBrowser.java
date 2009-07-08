@@ -25,7 +25,6 @@ import javax.jcr.RepositoryException;
 
 import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.commons.utils.ObjectPageList;
-import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
@@ -33,15 +32,12 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
-import org.exoplatform.portal.webui.navigation.UIPageManagement;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
-import org.exoplatform.portal.webui.workspace.UIControlWorkspace.UIControlWSWorkingArea;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -50,7 +46,6 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.UIGrid;
 import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPopupWindow;
@@ -233,7 +228,6 @@ public class UIPageBrowser extends UISearch {
 			while(currentPage > pageIterator.getAvailablePage()) currentPage-- ;
 			pageIterator.setCurrentPage(currentPage) ;
 			
-			pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID));
 			pcontext.addUIComponentToUpdateByAjax(uiPageBrowser);
 		}
 	}
@@ -274,20 +268,6 @@ public class UIPageBrowser extends UISearch {
 				return;
 			}
 
-			UIControlWorkspace uiControl = uiPortalApp.findFirstComponentOfType(UIControlWorkspace.class);
-			UIComponentDecorator uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-			UIPageManagement uiManagement = uiWorking.createUIComponent(
-					UIPageManagement.class, null, null);
-			uiWorking.setUIComponent(uiManagement);
-
-			uiManagement.setRenderedChildrenOfTypes(new Class[] { UIPageEditBar.class });
-			UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class);
-			uiEditBar.setUIPage(uiPage);
-			uiEditBar.createEvent("EditPortlet", event.getExecutionPhase(),	event.getRequestContext()).broadcast();
-
-			UIPageBrowseControlBar uiBrowseControlBar = uiManagement.getChild(UIPageBrowseControlBar.class);
-			if (uiBrowseControlBar != null)
-				uiBrowseControlBar.setBackComponent(uiPageBrowser);
 		}
 	}
 
@@ -325,14 +305,6 @@ public class UIPageBrowser extends UISearch {
 			uiToolPanel.setShowMaskLayer(true);
 			uiToolPanel.setRenderSibbling(UIPortalToolPanel.class);
 
-			UIControlWorkspace uiControl = uiPortalApp.findFirstComponentOfType(UIControlWorkspace.class);
-			UIControlWSWorkingArea uiControlWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-			UIPageManagement uiManagement = uiControlWorking.findFirstComponentOfType(UIPageManagement.class);
-			UIPageBrowseControlBar uiBrowseControlBar = uiManagement.getChild(UIPageBrowseControlBar.class);
-			uiBrowseControlBar.setComponentConfig(UIPageBrowseControlBar.class, "PagePreviewControlBar");
-			uiBrowseControlBar.setBackComponent(uiPageBrowser);
-			uiManagement.setRenderedChild(UIPageBrowseControlBar.class);
-//			pcontext.addUIComponentToUpdateByAjax(uiControl);
 			UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
 			pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
 			pcontext.setFullRender(true);

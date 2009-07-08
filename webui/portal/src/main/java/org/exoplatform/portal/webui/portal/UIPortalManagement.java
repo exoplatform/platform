@@ -20,7 +20,6 @@ package org.exoplatform.portal.webui.portal;
 import javax.portlet.WindowState;
 
 import org.exoplatform.portal.webui.UIManagement;
-import org.exoplatform.portal.webui.UIWelcomeComponent;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
@@ -46,7 +45,6 @@ public class UIPortalManagement extends UIManagement {
 	public UIPortalManagement() throws Exception {
 		addChild(UIPortalManagementEditBar.class, null, null);
     addChild(UIDescription.class, null, "portalManagement").setRendered(false);
-    addChild(UIWelcomeComponent.class,null, null);
     addChild(UIContainerConfigOptions.class, null, null).setRendered(false);
     addChild(UIPortletOptions.class, null, null).setRendered(false);
     addChild(UIPortalManagementControlBar.class, null, null);
