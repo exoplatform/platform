@@ -103,8 +103,8 @@ public class UIPageNodeActionListener {
       UIPortalToolPanel uiToolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class) ;
       UIPageManagement uiManagement = uiPageNodeSelector.getParent();
       
-      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiControl);
+//      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
+//      pcontext.addUIComponentToUpdateByAjax(uiControl);
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;   
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;

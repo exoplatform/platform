@@ -173,7 +173,7 @@ public class UIPageNavigationControlBar extends UIToolbar {
     UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
     UIControlWSWorkingArea uiWorking = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
     uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
-    prContext.addUIComponentToUpdateByAjax(uiControl);    
+//    prContext.addUIComponentToUpdateByAjax(uiControl);    
     
     UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
     UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);

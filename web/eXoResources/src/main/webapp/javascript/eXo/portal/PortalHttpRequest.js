@@ -6,9 +6,6 @@
  *      |
  *      |--->{PortletResponse}
  *      |          |-->{portletId}
- *      |          |-->{portletTitle}
- *      |          |-->{portletMode}
- *      |          |-->{portletState}
  *      |          |
  *      |          |-->{PortletResponseData}
  *      |                 |
@@ -49,12 +46,9 @@ function PortletResponse(responseDiv) {
   var  DOMUtil = eXo.core.DOMUtil ;
   var div = eXo.core.DOMUtil.getChildrenByTagName(responseDiv, "div") ;
   this.portletId =  div[0].innerHTML ;
-  this.portletTitle =  div[1].innerHTML ;
-  this.portletMode =  div[2].innerHTML ;
-  this.portletState =  div[3].innerHTML ;
-  this.portletData =  div[4].innerHTML ;
+  this.portletData =  div[1].innerHTML ;
   this.blocksToUpdate = null ;
-  var blocks = DOMUtil.findChildrenByClass(div[4], "div", "BlockToUpdate") ;
+  var blocks = DOMUtil.findChildrenByClass(div[1], "div", "BlockToUpdate") ;
   if(blocks.length > 0 ) {
     this.blocksToUpdate = new Array() ;
     for(var i = 0 ; i < blocks.length; i++) {
@@ -79,7 +73,7 @@ function PortletResponse(responseDiv) {
     * script in the head tag
     */
     
-    this.scripts = eXo.core.DOMUtil.findDescendantsByTagName(div[4], "script") ;
+    this.scripts = eXo.core.DOMUtil.findDescendantsByTagName(div[1], "script") ;
   }
 };
 

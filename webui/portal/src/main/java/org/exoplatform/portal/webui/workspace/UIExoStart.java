@@ -282,9 +282,9 @@ public class UIExoStart extends UIComponent {
       uiExoStart.setUIControlWSWorkingComponent(UIWelcomeComponent.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
       UIContainer uiParent = uiExoStart.getParent();
-      UIComponentDecorator uiWorkingControl = uiParent.getChildById(UIControlWorkspace.WORKING_AREA_ID);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingControl);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiExoStart);
+//      UIComponentDecorator uiWorkingControl = uiParent.getChildById(UIControlWorkspace.WORKING_AREA_ID);
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingControl);
+//      event.getRequestContext().addUIComponentToUpdateByAjax(uiExoStart);
     }
   }
 

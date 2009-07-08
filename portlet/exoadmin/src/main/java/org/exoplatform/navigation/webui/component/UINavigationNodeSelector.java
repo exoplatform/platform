@@ -246,9 +246,8 @@ public class UINavigationNodeSelector extends UIContainer {
       UINavigationNodeSelector uiNodeSelector = event.getSource().getParent();
       uiNodeSelector.selectPageNodeByUri(uri);
 
-      PortalRequestContext pcontext = Util.getPortalRequestContext();
       UINavigationManagement nodeManager = uiNodeSelector.getParent();
-      pcontext.addUIComponentToUpdateByAjax(nodeManager);
+      event.getRequestContext().addUIComponentToUpdateByAjax(nodeManager);
 
       UIContainer uiParent = uiNodeSelector.getParent();
       Class<?>[] childrenToRender = { UINavigationNodeSelector.class};

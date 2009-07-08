@@ -332,7 +332,7 @@ public class UIPageBrowser extends UISearch {
 			uiBrowseControlBar.setComponentConfig(UIPageBrowseControlBar.class, "PagePreviewControlBar");
 			uiBrowseControlBar.setBackComponent(uiPageBrowser);
 			uiManagement.setRenderedChild(UIPageBrowseControlBar.class);
-			pcontext.addUIComponentToUpdateByAjax(uiControl);
+//			pcontext.addUIComponentToUpdateByAjax(uiControl);
 			UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
 			pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
 			pcontext.setFullRender(true);

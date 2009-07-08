@@ -82,9 +82,9 @@ public class UIPageActionListener {
       UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
       if(uiControl != null) {
         UIControlWSWorkingArea uiWorking = uiControl.getChild(UIControlWSWorkingArea.class);
-        pcontext.addUIComponentToUpdateByAjax(uiControl);  
-        UIExoStart exoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);
-        pcontext.addUIComponentToUpdateByAjax(exoStart);
+//        pcontext.addUIComponentToUpdateByAjax(uiControl);  
+//        UIExoStart exoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);
+//        pcontext.addUIComponentToUpdateByAjax(exoStart);
         if(!UIWelcomeComponent.class.isInstance(uiWorking.getUIComponent())) {
           uiWorking.setUIComponent(uiWorking.createUIComponent(UIWelcomeComponent.class, null, null));
         }

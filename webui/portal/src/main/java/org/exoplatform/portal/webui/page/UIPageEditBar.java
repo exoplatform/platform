@@ -109,8 +109,8 @@ public class UIPageEditBar extends UIToolbar {
       
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiControl);
+//      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
+//      pcontext.addUIComponentToUpdateByAjax(uiControl);
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);   
       UIPortalToolPanel toolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
       toolPanel.setShowMaskLayer(false);
@@ -135,8 +135,8 @@ public class UIPageEditBar extends UIToolbar {
       
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext() ;
       UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-      pcontext.addUIComponentToUpdateByAjax(uiControl);
+//      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
+//      pcontext.addUIComponentToUpdateByAjax(uiControl);
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID); 
       UIPortalToolPanel toolPanel = uiPortalApp.findFirstComponentOfType(UIPortalToolPanel.class);
       toolPanel.setShowMaskLayer(false);

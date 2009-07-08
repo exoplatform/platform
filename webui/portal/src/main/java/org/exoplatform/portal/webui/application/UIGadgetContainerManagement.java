@@ -184,7 +184,7 @@ public class UIGadgetContainerManagement extends UIContainer {
       UIGadgets uiGadgets = uiControl.findFirstComponentOfType(UIGadgets.class) ;
       PortalDataMapper.toUIGadgets(uiGadgets, gadgets) ;
       
-      rcontext.addUIComponentToUpdateByAjax(uiControl) ;
+//      rcontext.addUIComponentToUpdateByAjax(uiControl) ;
       UIMaskWorkspace uiMaskWorkspace = uiManagement.getParent() ;
       uiMaskWorkspace.createEvent("Close", Phase.PROCESS, rcontext).broadcast() ;
     }

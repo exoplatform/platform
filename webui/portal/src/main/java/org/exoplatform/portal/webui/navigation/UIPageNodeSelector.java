@@ -306,8 +306,8 @@ public class UIPageNodeSelector extends UIContainer {
       
       PortalRequestContext pcontext = (PortalRequestContext)event.getRequestContext();
       UIPortalApplication uiPortalApp = uiPageNodeSelector.getAncestorOfType(UIPortalApplication.class);
-      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID) ;
-      pcontext.addUIComponentToUpdateByAjax(uiControl) ;
+//      UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID) ;
+//      pcontext.addUIComponentToUpdateByAjax(uiControl) ;
       UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel() ;
       uiToolPanel.setRenderSibbling(UIPortalToolPanel.class) ;
       uiToolPanel.setShowMaskLayer(true);

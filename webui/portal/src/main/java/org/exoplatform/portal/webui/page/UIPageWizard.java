@@ -106,9 +106,9 @@ public abstract class UIPageWizard extends UIWizard {
 				.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
 		pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
 
-		UIControlWorkspace uiControl = uiPortalApp
-				.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-		pcontext.addUIComponentToUpdateByAjax(uiControl);
+//		UIControlWorkspace uiControl = uiPortalApp
+//				.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
+//		pcontext.addUIComponentToUpdateByAjax(uiControl);
 
 		pcontext.setFullRender(true);
 	}
@@ -161,7 +161,7 @@ public abstract class UIPageWizard extends UIWizard {
 			UIControlWorkspace uiControl = uiPortalApp.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
 			UIComponentDecorator uiWorkingArea = uiControl.getChildById(UIControlWorkspace.WORKING_AREA_ID);
 			uiWorkingArea.setUIComponent(uiWorkingArea.createUIComponent(UIWelcomeComponent.class, null, null));
-			pcontext.addUIComponentToUpdateByAjax(uiControl);
+//			pcontext.addUIComponentToUpdateByAjax(uiControl);
 
 			UIPortal uiPortal = Util.getUIPortal();
 			uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
