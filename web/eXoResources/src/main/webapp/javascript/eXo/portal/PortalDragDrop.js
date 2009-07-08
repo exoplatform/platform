@@ -87,19 +87,17 @@ PortalDragDrop.prototype.init = function(e) {
       /*Check and asign UIPage to uiComponentLayout when DND on UIPage*/
       var uiComponentLayout ;
       if(dndEvent.foundTargetObject.className == "UIPage") {
-        if(!eXo.env.isBlockEditType) uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "VIEW-PAGE") ;
-        else uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "LAYOUT-PAGE");
+        if(eXo.env.isBlockEditMode) uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "LAYOUT-PAGE") ;
+        else uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "VIEW-PAGE");
       } else if(dndEvent.foundTargetObject.className == "UIPortal") {
-        if(!eXo.env.isBlockEditType) uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "VIEW-PORTAL") ;
-        else uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "LAYOUT-PORTAL");
+        if(eXo.env.isBlockEditMode) uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "LAYOUT-PORTAL") ;
+        else uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.foundTargetObject, "div", "VIEW-PORTAL");
       } else {
         var foundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.foundTargetObject) ;
-        uiComponentLayout = foundUIComponent.getLayoutBlock() ;
+        if(eXo.env.isBlockEditMode) uiComponentLayout = foundUIComponent.getLayoutBlock() ;
+        else uiComponentLayout = foundUIComponent.getViewBlock();
+        uiComponentLayout.style.height = "auto"
       }
-      
-      /*Set Height is auto for the empty container layout*/
-      
-      if(DOMUtil.hasClass(uiComponentLayout, "LAYOUT-CONTAINER")) uiComponentLayout.style.height = "auto" ;
       
       try {
 	      if(eXo.portal.PortalDragDrop.backupLastFoundTarget) {
@@ -366,8 +364,11 @@ PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComp
    * but the layout on IE has breakdown!!!
    * */
 //  if(eXo.core.Browser.isIE7() || (eXo.core.Browser.isIE6() && (uiPage == null))) csWidth = csWidth * 2 ;
+  dragObject.style.width = "300px" ;
   dragObject.style.position = "absolute" ;
-  if(eXo.core.DOMUtil.findFirstDescendantByClass(dragObject, "div", "CONTROL-BLOCK") == null) {
+  var componentBlock = eXo.core.DOMUtil.findFirstDescendantByClass(dragObject, "div", "UIComponentBlock") ;
+//  if(eXo.core.DOMUtil.findFirstDescendantByClass(dragObject, "div", "CONTROL-BLOCK") == null) {
+  if(!componentBlock) {
     dragObject.style.top = (eXo.core.Browser.findMouseYInPage(e) - 
                             eXo.portal.PortalDragDrop.deltaYDragObjectAndMouse - document.documentElement.scrollTop) + "px" ;
     if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) -
@@ -379,8 +380,12 @@ PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComp
 //	                              eXo.portal.PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
     if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) - 
                                 eXo.portal.PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
+    var editBlock = eXo.core.DOMUtil.findFirstChildByClass(componentBlock, "div", "EDITION-BLOCK");
+    if(editBlock) {
+    	var newLayer = eXo.core.DOMUtil.findFirstDescendantByClass(editBlock, "div", "NewLayer");
+    	if(newLayer) newLayer.style.width = "300px";
+    }
   }
-   dragObject.style.width = "300px" ;
 };
 
 PortalDragDrop.prototype.createPreview = function(layoutType) {
@@ -428,14 +433,15 @@ PortalDragDrop.prototype.undoPreview = function(dndEvent) {
   var uiComponentLayout ;
   try{
 	  if(dndEvent.lastFoundTargetObject.className == "UIPage") {
-	    if(!eXo.env.isBlockEditMode) uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PAGE");
-	    else uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "LAYOUT-PAGE");
+	    if(eXo.env.isBlockEditMode) uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "LAYOUT-PAGE");
+	    else uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PAGE");
 	  } else if(dndEvent.lastFoundTargetObject.className == "UIPortal") {
-	    if(!eXo.env.isBlockEditMode) uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PORTAL");
-	    else uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "LAYOUT-PORTAL");
+	    if(eXo.env.isBlockEditMode) uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "LAYOUT-PORTAL");
+	    else uiComponentLayout = DOMUtil.findFirstDescendantByClass(dndEvent.lastFoundTargetObject, "div", "VIEW-PORTAL");
 	  } else {
 	    var foundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.lastFoundTargetObject) ;
-	    uiComponentLayout = foundUIComponent.getLayoutBlock() ;
+	    if(eXo.env.isBlockEditMode) uiComponentLayout = foundUIComponent.getLayoutBlock() ;
+	    else uiComponentLayout = foundUIComponent.getViewBlock();
 	  }
   }catch(e) {}  
   var componentIdElement = DOMUtil.getChildrenByTagName(uiComponentLayout ,"div")[0] ;

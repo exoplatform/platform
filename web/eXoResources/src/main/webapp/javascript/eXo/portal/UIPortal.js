@@ -61,22 +61,28 @@ UIPortal.prototype.blockOnMouseOver = function(event, portlet, isOver) {
   
   if(!editBlock) return;
 	if(isOver) {
+		var newLayer = DOMUtil.findFirstDescendantByClass(editBlock, "div", "NewLayer");
+		var height = 0; var width = 0;
+		if(layoutBlock && layoutBlock.style.display != "none") {
+			height = layoutBlock.offsetHeight;
+			width = layoutBlock.offsetWidth;
+		} else if(viewBlock && viewBlock.style.display != "none") {
+			height = viewBlock.offsetHeight;
+      width = viewBlock.offsetWidth;
+		}
+		
 		if(DOMUtil.hasClass(portlet, "UIPortlet")) {
-			var newLayer = DOMUtil.findFirstDescendantByClass(editBlock, "div", "NewLayer");
 			if(newLayer) {
-				var height = 0; var width = 0;
-				if(layoutBlock && layoutBlock.style.display != "none") {
-					height = layoutBlock.offsetHeight;
-					width = layoutBlock.offsetWidth;
-				} else if(viewBlock && viewBlock.style.display != "none") {
-					height = viewBlock.offsetHeight;
-	        width = viewBlock.offsetWidth;
-				}
 				newLayer.style.width = width + "px";
 				newLayer.style.height = height + "px";
 				newLayer.parentNode.style.top = -height + "px";
 			}
-		} else DOMUtil.addClass(portlet, "OverContainer");
+		} else {
+			if(newLayer) {
+				newLayer.parentNode.style.width = width + "px";
+			}
+			DOMUtil.addClass(portlet, "OverContainer");
+		}
 		editBlock.style.display = "block";
 	}	else {
 		editBlock.style.display = "none";
@@ -328,24 +334,25 @@ UIPortal.prototype.showViewMode = function() {
   for(var i = 0; i < container.length; i++) {
     this.switchLayoutModeToViewMode(container[i], true) ;
     this.showUIComponentControl(container[i], !eXo.env.editType) ;
+//    var containerViewBlock = container[i].getViewBlock();
+//    if(containerViewBlock.offsetHeight < 80) containerViewBlock.style.height = "80px";
   }
 
   var portlet  = this.getUIPortletsInUIPortal() ;
   for(var i = 0; i < portlet.length; i++) {
     this.switchLayoutModeToViewMode(portlet[i], false) ;
     this.showUIComponentControl(portlet[i], true) ;
-//    var component = portlet[i].getUIComponentBlock();
-//    var mask = eXo.core.DOMUtil.findFirstDescendantByClass(component, "div", "UIPortletMask");
-//    if(eXo.env.isEditting && mask) {
-//      mask.style.display = "block";
-//      mask.style.height = component.offsetHeight + "px";
-//      mask.style.width  = component.offsetWidth + "px";
-//      mask.style.top = eXo.core.Browser.findPosY(component) + "px";
-//      mask.style.left = eXo.core.Browser.findPosX(component) + "px";
-//      mask.style.border = "1px solid red";
-//    } else if(mask) {
-//    	mask.style.display = "none";
-//    }
+    var component = portlet[i].getUIComponentBlock();
+    var mask = eXo.core.DOMUtil.findFirstDescendantByClass(component, "div", "UIPortletMask");
+    if(eXo.env.isEditting && mask) {
+      mask.style.display = "block";
+      mask.style.height = component.offsetHeight + "px";
+      mask.style.width  = component.offsetWidth + "px";
+      mask.style.top = eXo.core.Browser.findPosY(component) + "px";
+      mask.style.left = eXo.core.Browser.findPosX(component) + "px";
+    } else if(mask) {
+    	mask.style.display = "none";
+    }
   }
   
   //mask for pagebody
@@ -381,24 +388,25 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
   for(var i = 0; i < container.length; i++) {
     this.switchViewModeToLayoutMode(container[i], true) ;
     this.showUIComponentControl(container[i], true) ;
+//    var containerLayoutBlock = container[i].getLayoutBlock();
+//    if(containerLayoutBlock.offsetHeight < 80) containerLayoutBlock.style.height = "80px";
   }
     
 	var portlet  = this.getUIPortletsInUIPortal() ;
   for(var i = 0; i < portlet.length; i++) {
     this.switchViewModeToLayoutMode(portlet[i], false) ;
     this.showUIComponentControl(portlet[i], this.component == 'UIPortlet') ;
-//    var component = portlet[i].getUIComponentBlock();
-//    var mask = eXo.core.DOMUtil.findFirstDescendantByClass(component, "div", "UIPortletMask");
-//    if(eXo.env.isEditting && mask) {
-//    	mask.style.display = "block";
-//    	mask.style.height = component.offsetHeight + "px";
-//    	mask.style.width  = component.offsetWidth + "px";
-//      mask.style.top = eXo.core.Browser.findPosY(component) + "px";
-//      mask.style.left = eXo.core.Browser.findPosX(component) + "px";
-//      mask.style.border = "1px solid red";
-//    } else {
-//    	mask.style.display = "none";
-//    }
+    var component = portlet[i].getUIComponentBlock();
+    var mask = eXo.core.DOMUtil.findFirstDescendantByClass(component, "div", "UIPortletMask");
+    if(eXo.env.isEditting && mask) {
+    	mask.style.display = "block";
+    	mask.style.height = component.offsetHeight + "px";
+    	mask.style.width  = component.offsetWidth + "px";
+      mask.style.top = eXo.core.Browser.findPosY(component) + "px";
+      mask.style.left = eXo.core.Browser.findPosX(component) + "px";
+    } else {
+    	mask.style.display = "none";
+    }
   }  
 } ;
 
