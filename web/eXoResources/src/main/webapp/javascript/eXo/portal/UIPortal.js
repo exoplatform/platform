@@ -334,8 +334,6 @@ UIPortal.prototype.showViewMode = function() {
   for(var i = 0; i < container.length; i++) {
     this.switchLayoutModeToViewMode(container[i], true) ;
     this.showUIComponentControl(container[i], !eXo.env.editType) ;
-//    var containerViewBlock = container[i].getViewBlock();
-//    if(containerViewBlock.offsetHeight < 80) containerViewBlock.style.height = "80px";
   }
 
   var portlet  = this.getUIPortletsInUIPortal() ;
@@ -388,8 +386,6 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
   for(var i = 0; i < container.length; i++) {
     this.switchViewModeToLayoutMode(container[i], true) ;
     this.showUIComponentControl(container[i], true) ;
-//    var containerLayoutBlock = container[i].getLayoutBlock();
-//    if(containerLayoutBlock.offsetHeight < 80) containerLayoutBlock.style.height = "80px";
   }
     
 	var portlet  = this.getUIPortletsInUIPortal() ;
@@ -411,11 +407,11 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
 } ;
 
 UIPortal.prototype.findUIComponentOf = function(element) {
+  var DOMUtil = eXo.core.DOMUtil;
   var parent = element.parentNode ;
   while(parent != null) {
-    var className = parent.className ;
-    if(className == 'UIPortlet' || className == 'UIContainer' ||  
-       className == 'UIPageBody' ||  className == 'UIPortal')  {
+    if(DOMUtil.hasClass(parent,'UIPortlet') || DOMUtil.hasClass(parent,'UIContainer') ||  
+       DOMUtil.hasClass(parent,'UIPageBody') ||  DOMUtil.hasClass(parent,'UIPortal'))  {
       return parent ;
     }
     parent = parent.parentNode ;

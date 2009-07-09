@@ -96,7 +96,7 @@ PortalDragDrop.prototype.init = function(e) {
         var foundUIComponent = new eXo.portal.UIPortalComponent(dndEvent.foundTargetObject) ;
         if(eXo.env.isBlockEditMode) uiComponentLayout = foundUIComponent.getLayoutBlock() ;
         else uiComponentLayout = foundUIComponent.getViewBlock();
-        uiComponentLayout.style.height = "auto"
+        uiComponentLayout.style.height = "auto";
       }
       
       try {
@@ -104,7 +104,8 @@ PortalDragDrop.prototype.init = function(e) {
 	      	var lastFoundUIComponent = new eXo.portal.UIPortalComponent(eXo.portal.PortalDragDrop.backupLastFoundTarget);
 	      	
 	      	var lastFoundComponentLayout = lastFoundUIComponent.getLayoutBlock();
-		      if(DOMUtil.hasClass(lastFoundComponentLayout, "LAYOUT-CONTAINER") && (lastFoundComponentLayout.offsetHeight < 30)) {
+		      if((DOMUtil.hasClass(lastFoundComponentLayout, "LAYOUT-CONTAINER") || DOMUtil.hasClass(lastFoundComponentLayout, "VIEW-CONTAINER")) 
+		            && (lastFoundComponentLayout.offsetHeight < 30)) {
 		      	if (DOMUtil.findFirstDescendantByClass(lastFoundComponentLayout, "div", "UIContainer") == null) {
 		      		lastFoundComponentLayout.style.height = "60px" ;
 		      	}
