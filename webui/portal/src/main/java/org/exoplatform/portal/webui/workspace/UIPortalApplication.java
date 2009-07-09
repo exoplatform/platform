@@ -396,9 +396,6 @@ public class UIPortalApplication extends UIApplication {
           w.write("<div class=\"PortletResponse\" style=\"display: none\">");
           w.append("<div class=\"PortletResponsePortletId\">"
               + uiPortlet.getExoWindowID().getUniqueID() + "</div>");
-          w.append("<div class=\"PortletResponsePortletTitle\"></div>");
-          w.append("<div class=\"PortletResponsePortletMode\"></div>");
-          w.append("<div class=\"PortletResponsePortletState\"></div>");
           w.append("<div class=\"PortletResponseData\">");
 
           /*
