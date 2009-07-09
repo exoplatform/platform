@@ -26,7 +26,6 @@ JavascriptService.addJavascript("eXo.webui.UIForm", "/javascript/eXo/webui/UIFor
 JavascriptService.addJavascript("eXo.webui.UIPopup", "/javascript/eXo/webui/UIPopup.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIPopupSelectCategory", "/javascript/eXo/webui/UIPopupSelectCategory.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIPopupWindow", "/javascript/eXo/webui/UIPopupWindow.js", ServletContext);
-JavascriptService.addJavascript("eXo.webui.UIVerticalScroller", "/javascript/eXo/webui/UIVerticalScroller.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIHorizontalTabs", "/javascript/eXo/webui/UIHorizontalTabs.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIPopupMenu", "/javascript/eXo/webui/UIPopupMenu.js", ServletContext);
 JavascriptService.addJavascript("eXo.webui.UIDropDownControl", "/javascript/eXo/webui/UIDropDownControl.js", ServletContext);
