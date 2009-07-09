@@ -24,43 +24,7 @@ UIPortalControl.prototype.collapseTree = function(selectedElement ) {
   parentNode.removeChild(childrenContainer);
   parentNode.insertBefore(expandIcon, selectedElement);
   parentNode.removeChild(selectedElement);
-  eXo.portal.UIPortalControl.fixHeight();
 };
-
-/** Created: by Duy Tu - fixHeight function to UIControlWorkspace
- **/
-UIPortalControl.prototype.fixHeight = function() {
-	var objectParent = document.getElementById("UIControlWorkspace");
-	if(!objectParent) return;
-	clearTimeout(objectParent.recall);
-	var DOMUtil = eXo.core.DOMUtil;
-	var uiControlWSWorkingArea = document.getElementById("UIControlWSWorkingArea");
-	var uiWorkspacePanel = document.getElementById("UIWorkspacePanel");
-	var uiWorkspaceContainer = DOMUtil.findFirstDescendantByClass(objectParent, "div", "UIWorkspaceContainer") ;
-	if (uiWorkspaceContainer.style.display == "block") {
-  	var scrollArea = DOMUtil.findFirstDescendantByClass(objectParent, "div", "ScrollArea");
-  	if (scrollArea != null) {
-  		var baseHeight = parseInt(uiWorkspacePanel.style.height);
-  		scrollArea.style.height = "auto";
-  		var scrollAreaHeight = scrollArea.scrollHeight;
-  		var contentHeight = 0;
-  		if (uiControlWSWorkingArea) 
-  			contentHeight = uiControlWSWorkingArea.offsetHeight;
-  		var deltaResize = contentHeight - baseHeight;
-  		if (deltaResize > 0 && (scrollAreaHeight > deltaResize)) {
-  			scrollArea.style.height = scrollAreaHeight - deltaResize + "px";
-  			scrollArea.style.overflowY = "auto";
-  			scrollArea.style.overflowX = "hidden";
-				var children = DOMUtil.getChildrenByTagName(scrollArea, "div");
-				if(children.length > 0) {
-					children[0].style.borderTop = "1px solid white";
-					children[0].style.height = "auto";
-					children[0].style.height = children[0].offsetHeight + "px";
-				}
-  		}
-  	}
-  }
-} ;
 
 UIPortalControl.prototype.onEnterPress = function(e) {
 	var e = window.event || e;

@@ -202,7 +202,6 @@ eXo.gadget.UIGadget = {
         var uiPage = DOMUtil.findAncestorByClass(selectedElement, "UIPage") ;
         var uiGadget = DOMUtil.findAncestorByClass(selectedElement, "UIGadget") ;
         var containerBlockId ;
-        var isInControlWorkspace = false ;
 
         gadgetId = uiGadget.id;
         var portletFragment = DOMUtil.findAncestorByClass(uiGadget, "PORTLET-FRAGMENT");
@@ -230,7 +229,6 @@ eXo.gadget.UIGadget = {
             }
             else {
                 containerBlockId = uiGadgetContainer.id;
-                isInControlWorkspace = true;
             }
             if (confirm("Are you sure you want to delete this gadget ?")) {
                 var params = [
@@ -239,7 +237,6 @@ eXo.gadget.UIGadget = {
                 var result = ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "DeleteGadget", true, params), false) ;
                 if (result == "OK") {
                     DOMUtil.removeElement(uiGadget);
-                    if (isInControlWorkspace) eXo.webui.UIVerticalScroller.refreshScroll(0);
                 }
             }
         }
@@ -262,37 +259,5 @@ eXo.gadget.UIGadget = {
         ] ;
 
         ajaxAsyncGetRequest(eXo.env.server.createPortalURL(containerBlockId, "SaveGadgetProperties", true, params), false);
-
-    } ,
-
-    resizeContainer : function() {
-        var widgets = document.getElementById("UIWidgets") ;
-        if (widgets == null) return;
-
-        var DOMUtil = eXo.core.DOMUtil ;
-        var workspacePanel = document.getElementById("UIWorkspacePanel") ;
-        if (workspacePanel.style.display == "none") return;
-        var uiWidgetContainer = DOMUtil.findFirstDescendantByClass(widgets, "div", "UIWidgetContainer");
-        if (uiWidgetContainer == null) return;
-        var widgetNavigator = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetNavigator") ;
-        var widgetContainerScrollArea = DOMUtil.findFirstChildByClass(uiWidgetContainer, "div", "WidgetContainerScrollArea") ;
-        var itemSelectorContainer = DOMUtil.findFirstChildByClass(widgets, "div", "ItemSelectorContainer") ;
-
-        var availableHeight = workspacePanel.offsetHeight - (itemSelectorContainer.offsetHeight + widgetNavigator.offsetHeight + 40) ;
-        if (eXo.core.Browser.isIE6() || workspacePanel.offsetHeight < 1) {
-            //var html = document.getElementsByTagName("html")[0];
-            var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
-            var fixHeight = uiControlWorkspace.offsetHeight - 153;
-            fixHeight = (fixHeight < 0) ? 0 : fixHeight;
-            /* 153 is total value (UserWorkspaceTitleHeight + UIExoStartHeight + WidgetNavigatorHeight + 40)
-             * 40 is distance between UIWidgets and UIExoStart
-             * */
-            if (widgetContainerScrollArea.offsetHeight == fixHeight) return;
-            widgetContainerScrollArea.style.height = fixHeight + "px";
-        } else {
-            if (availableHeight < 0) return;
-            widgetContainerScrollArea.style.height = availableHeight + "px";
-        }
-        widgetContainerScrollArea.style.overflow = "hidden";
     }
 }

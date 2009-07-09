@@ -117,10 +117,8 @@ public class UIPortalManagementControlBar extends UIToolbar {
     UIExoStart uiExoStart = uiPortalApp.findFirstComponentOfType(UIExoStart.class);  ;
     uiExoStart.setUIControlWSWorkingComponent(UIWelcomeComponent.class) ;
     
-    UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
     UIWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);
     uiWorkingWS.setRenderedChild(UIPortal.class) ; 
-    pcontext.addUIComponentToUpdateByAjax(uiControl);
     pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;  
   }
   */

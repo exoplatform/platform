@@ -54,10 +54,9 @@ import org.exoplatform.webui.event.Event;
  * (used by any eXo Portlets as the Parent class to build the portlet component
  * tree). The UIPortalApplication is responsible to build its subtree according
  * to some configuration parameters. If all components are displayed it is
- * composed of 3 UI components: - UIControlWorkSpace : the left expandable
- * column that can contains widgets containers and the start menu -
- * UIWorkingWorkSpace: the right part that can display the normal or webos
- * portal layouts - UIPopupWindow: a popup window that display or not
+ * composed of 2 UI components: -UIWorkingWorkSpace: the right part that can 
+ * display the normal or webos portal layouts 
+ * - UIPopupWindow: a popup window that display or not
  */
 @ComponentConfig(lifecycle = UIPortalApplicationLifecycle.class, template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl")
 public class UIPortalApplication extends UIApplication {

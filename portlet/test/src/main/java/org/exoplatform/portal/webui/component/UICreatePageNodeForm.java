@@ -20,12 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.exoplatform.portal.application.PortalRequestContext;
-import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.page.PageUtils;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIControlWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -78,11 +74,7 @@ public class UICreatePageNodeForm extends UIForm {
       UIPopupWindow uiPopup = uiForm.getParent() ;
       uiPopup.setShow(false) ;
       
-      //Update UIControlWorkspace to refresh PageNavigation in eXoStart
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);      
-      UIControlWorkspace uiControl = uiPortalApp.findComponentById(UIPortalApplication.UI_CONTROL_WS_ID);
-      pContext.addUIComponentToUpdateByAjax(uiControl);
-      
       //Update UIWorkspace to refresh PageNavigation in navigation bar 
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.findComponentById(UIPortalApplication.UI_WORKING_WS_ID);    
       pContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    

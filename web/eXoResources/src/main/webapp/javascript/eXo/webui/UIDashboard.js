@@ -37,9 +37,9 @@ eXo.webui.UIDashboard = {
 				temp = temp.parentNode;
 			}
 			
-			var slideBar = document.getElementById("ControlWorkspaceSlidebar");
-			if(slideBar!=null && slideBar.style.display!="none" && eXo.core.Browser.getBrowserType()=="ie")
-				x -= slideBar.offsetWidth;
+//			var slideBar = document.getElementById("ControlWorkspaceSlidebar");
+//			if(slideBar!=null && slideBar.style.display!="none" && eXo.core.Browser.getBrowserType()=="ie")
+//				x -= slideBar.offsetWidth;
 			
 			var uiTarget = null;
 			if(!DOMUtil.hasClass(dragObj, "SelectItem")) {

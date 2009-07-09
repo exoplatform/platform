@@ -59,8 +59,6 @@ public class ToolbarUtils {
   public static void updatePortal(PortletRequestContext context) {
     UIPortalApplication portalApplication = Util.getUIPortalApplication();   
     PortalRequestContext portalRequestContext = (PortalRequestContext)context.getParentAppRequestContext();
-//    UIControlWorkspace uiControl = portalApplication.getChildById(UIPortalApplication.UI_CONTROL_WS_ID);
-//    portalRequestContext.addUIComponentToUpdateByAjax(uiControl);    
     UIWorkingWorkspace uiWorkingWS = portalApplication.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
     portalRequestContext.addUIComponentToUpdateByAjax(uiWorkingWS) ;    
     portalRequestContext.setFullRender(true);
