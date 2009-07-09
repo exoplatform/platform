@@ -47,16 +47,21 @@
           %>
             <font color="red">Sign in failed. Wrong username or password.</font><%}%>
           <form name="loginForm" action="<%= contextPath + "/login"%>" method="post" style="margin: 0px;">    
-          		<input type="hidden" name="uri" value="<%=session.getAttribute("initialURI") %>"/>    
-              <div class="FieldContainer">
-	              <label><%=res.getString("UILoginForm.label.UserName")%></label><input class="UserName" name="username" value="<%=username%>"/>
-		          </div>
-	            <div class="FieldContainer" id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);">
-	              <label><%=res.getString("UILoginForm.label.password")%></label><input class="Password" type="password" name="password" value=""/>
-	            </div>
-	            <div class="FieldContainer">
-	              <label><%=res.getString("UILoginForm.label.RememberOnComputer")%></label><input type="checkbox" name="rememberme" value="true"/>
-	            </div>
+          		<input type="hidden" name="uri" value="<%=session.getAttribute("initialURI") %>"/>   
+          		<table> 
+	              <tr class="FieldContainer">
+		              <td class="FieldLabel"><%=res.getString("UILoginForm.label.UserName")%></td>
+		              <td><input class="UserName" name="username" value="<%=username%>"/></td>
+			          </tr>
+		            <tr class="FieldContainer" id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event);">
+		              <td class="FieldLabel"><%=res.getString("UILoginForm.label.password")%></td>
+		              <td><input class="Password" type="password" name="password" value=""/></td>
+		            </tr>
+		            <tr class="FieldContainer">
+		              <td class="FieldLabel"><input type="checkbox" name="rememberme" value="true"/></td>
+		              <td><%=res.getString("UILoginForm.label.RememberOnComputer")%></td>
+		            </tr>
+		          </table>
 		          <div id="UIPortalLoginFormAction" class="LoginButton" onclick="login();">
 		            <div class="LoginButtonContainer">
 		              <div class="Button">

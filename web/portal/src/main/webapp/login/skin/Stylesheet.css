@@ -31,6 +31,16 @@
   margin-top: 10px;
 }
 
+.UILogin .LoginContent table {
+	width: 326px;
+	margin: auto;
+}
+
+.UILogin .LoginContent table .FieldLabel {
+	text-align: right;
+	font-weight: bold;
+}
+
 .UILogin .LoginContent .FieldContainer {
   width: 320px ;
   overflow: hidden ;

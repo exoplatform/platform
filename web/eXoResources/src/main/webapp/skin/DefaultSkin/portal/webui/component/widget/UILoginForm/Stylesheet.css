@@ -84,74 +84,22 @@
 .UILoginForm .LoginDetailBox .UIForm {
 	overflow: auto;
 }
-							
-.UILoginForm .LoginDetailBox .UserNameField {
-	padding: 12px 0px 5px 0px;
-	width: 305px;
-	margin: auto;
-	text-align: right; /* orientation=lt */
-	text-align: left; /* orientation=rt */
-}
-
-.UILoginForm .LoginDetailBox .PasswordField {
-	padding: 5px;
-	width: 305px;
-	margin: auto;
-	text-align: right; /* orientation=lt */
-	text-align: left; /* orientation=rt */
-}
-
-.UILoginForm .LoginDetailBox .RememberField {
-	padding: 5px;
-	width: 288px;
-	margin: auto;
-}
-
-.UILoginForm .LoginDetailBox .RememberField label {
-	text-align: right; /* orientation=lt */
-	text-align: left; /* orientation=rt */
-	padding: 0px;
-}
-
-.UILoginForm .LoginDetailBox .RememberField input {
-	border: none;
-}
-
-.UILoginForm .LoginDetailBox .CheckField {
-	height: 20px;
-	margin: 4px auto;
-	padding-left: 140px; /* orientation=lt */
-	padding-right: 140px; /* orientation=rt */
-}
-
-.UILoginForm .LoginDetailBox .CheckField input {
-	float: left;
-	width: 20px;
-	border: none;
-	font-size: 11px;
-}
-
-.UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
-	margin-left: 2px; /* orientation=lt */
-	margin-right: 2px; /* orientation=rt */
-	line-height: 20px;
-}
-
+	
 .UILoginForm .LoginDetailBox .ForgetPass {
-	padding-left: 139px; /* orientation=lt */
-	padding-right: 139px; /* orientation=rt */
+	padding-left: 127px; /* orientation=lt */
+	padding-right: 136px; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .ForgetPass a {
 	color: orange;
 }
 
-.UILoginForm .LoginDetailBox label {
+.UILoginForm .LoginDetailBox .UIFormGrid td {
+	line-height: 22px;
+}
+
+.UILoginForm .LoginDetailBox .FieldLabel {
 	font-weight: bold;
-	padding-right: 4px; /* orientation=lt */
-	padding-left: 4px; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .UserNameField input {
@@ -174,6 +122,11 @@
 	padding: 0px 0px 0px 22px; /* orientation=lt */
 	padding: 0px 22px 0px 0px; /* orientation=rt */
 	cursor: text;
+}
+
+.UILoginForm .LoginDetailBox .RememberField input {
+	border: none;
+	margin: 0px;
 }
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {

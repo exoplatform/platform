@@ -27,18 +27,20 @@
 	            <input type="hidden" name="<%= uiform.ACTION %>" value=""/>-->
 	            <input type="hidden" name="uri" value="<%=session.getAttribute("initialURI") ; %>"/>
     	        <div class="VerticalLayout">
-		            <div class="UserNameField">
-		              <label><%=_ctx.appRes("UILoginForm.label.UserName")%></label>
-		              <% uiform.renderChild(0)%>
-		            </div>
-		            <div class="PasswordField" id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event)">
-		              <label><%=_ctx.appRes("UILoginForm.label.password")%></label>
-		              <% uiform.renderChild(1)%>
-		            </div> 				        
-		            <div class="RememberField" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event)">
-                  <label><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></label>
-                  <% uiform.renderChild(2)%>
-                </div>
+	    	        <table class="UIFormGrid">
+			            <tr class="UserNameField">
+			              <td class="FieldLabel"><%=_ctx.appRes("UILoginForm.label.UserName")%></td>
+			              <td><% uiform.renderChild(0)%></td>
+			            </tr>
+			            <tr class="PasswordField" id="UIPortalLoginFormControl" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event)">
+			              <td class="FieldLabel"><%=_ctx.appRes("UILoginForm.label.password")%></td>
+			              <td><% uiform.renderChild(1)%></td>
+			            </tr> 				        
+			            <tr class="RememberField" onkeypress="eXo.portal.UIPortalControl.onEnterPress(event)">
+	                  <td class="FieldLabel"><% uiform.renderChild(2)%></td>
+	                  <td><%=_ctx.appRes("UILoginForm.label.RememberOnComputer")%></td>
+	                </tr>
+	              </table>
 							<div class="ForgetPass"><a href="<%= uicomponent.event("ForgetPassword") %>"><%=_ctx.appRes("UILoginForm.label.forgot")%></a></div>
 			        <div class="UIAction"> 
 								<table class="ActionContainer">

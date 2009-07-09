@@ -40,8 +40,8 @@
 }
 
 .UILoginForm .LoginDecorator .MiddleLeftLoginDecorator {
-  background: url('background/BoxLoginRepeat-y.png') no-repeat left top; /* orientation=lt */
-  background: url('background/BoxLoginRepeat-y-rt.png') no-repeat right top; /* orientation=rt */
+  background: url('background/BoxLoginRepeat-y.png') repeat-y left top; /* orientation=lt */
+  background: url('background/BoxLoginRepeat-y-rt.png') repeat-y right top; /* orientation=rt */
   padding: 0px 0px 0px 136px ; /* orientation=lt */
   padding: 0px 136px 0px 0px ; /* orientation=rt */
 }
@@ -78,58 +78,19 @@
 	overflow: auto;
 }
 
-.UILoginForm .LoginDetailBox .UserNameField {
-	padding: 3px 5px;
-  width: 310px;
-  text-align: right; /* orientation=lt */
-  text-align: left; /* orientation=rt */
+.UILoginForm .LoginDetailBox .UIFormGrid td {
+	padding: 4px;
 }
 
-.UILoginForm .LoginDetailBox .PasswordField {
-	padding: 3px 5px;
-  width: 310px;
-  text-align: right; /* orientation=lt */
-  text-align: left; /* orientation=rt */
-}
-
-.UILoginForm .LoginDetailBox .RememberField {
-	padding: 3px 5px;
-	width: 362px;
-	margin: auto;
-}
-
-.UILoginForm .LoginDetailBox .RememberField label {
-	text-align: right; /* orientation=lt */
-	text-align: left; /* orientation=rt */
-	padding: 0px;
+.UILoginForm .LoginDetailBox .UIFormGrid td.FieldLabel {
+	line-height: 19px;
+	font-weight: bold;
 }
 
 .UILoginForm .LoginDetailBox .RememberField input {
 	border: none;
 	width: auto;
-}
-
-.UILoginForm .LoginDetailBox .CheckField {
-  height: 20px;
-  width: 170px;
-  margin: 4px 0px 4px 110px; /* orientation=lt */
-  margin: 4px 110px 4px 0px; /* orientation=rt */
-  padding-left: 30px; /* orientation=lt */
-  padding-right: 30px; /* orientation=rt */
-}
-
-.UILoginForm .LoginDetailBox .CheckField input {
-  float: left;
-  width: 16px;
-  border: none;
-}
-
-.UILoginForm .LoginDetailBox .CheckField .RememberLoginTitle {
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */
-  margin-left: 7px; /* orientation=lt */
-  margin-right: 7px; /* orientation=rt */
-  line-height: 20px; 
+	margin: 0px;
 }
 
 .UILoginForm .LoginDetailBox .ForgetPass {
@@ -143,8 +104,6 @@
 
 .UILoginForm .LoginDetailBox label {
   font-weight: bold;
-  padding-right: 4px; /* orientation=lt */
-  padding-left: 4px; /* orientation=rt */
 }
 
 .UILoginForm .LoginDetailBox .UserNameField input {
@@ -163,23 +122,6 @@
   border: solid 1px #c4c4c4 ;
   padding: 0px 0px 0px 22px; /* orientation=lt */
   padding: 0px 22px 0px 0px; /* orientation=rt */
-}
-
-.UILoginForm .LoginDetailBox .Message {
-  width: 280px; margin: auto; 
-  height: 20px; line-height: 20px; 
-  text-align: right; /* orientation=lt */
-  text-align: left; /* orientation=rt */
-  color: #2169d4 ;
-  white-space: nowrap;
-  padding: 0px 10px 0px 0px; /* orientation=lt */
-  padding: 0px 0px 0px 10px; /* orientation=rt */
-  cursor: pointer;
-}
-
-.UILoginForm .LoginDetailBox .Message a:hover{
-  cursor: pointer;
-  color: orange;
 }
 
 .UILoginForm .UIForm .VerticalLayout .UIAction {
