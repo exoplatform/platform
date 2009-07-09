@@ -1,35 +1,29 @@
-<div class="UIAddGroupNavigation" id="$uicomponent.id">
+<div class="UIAddGroupNavigation UIManagement" id="$uicomponent.id">
 	<% 
 	listGroupNames = uicomponent.loadGroups();
 	%>
     
 	<%/*Begin ItemDetailList:*/%>
-      <table class="UIGrid" cellspacing="0">
-      	<tr>
-      		<th><%=_ctx.appRes("UIAddGroupNavigation.header.Group")%></th>
-      		<th style="width: 30%;"><%=_ctx.appRes("word.action")%></th>
-      	</tr>
-        <%
-        	boolean even = true ;
-        	String rowClass = "EvenRow" ; 
-        	for(groupName in listGroupNames) { 
-						addLink = uicomponent.event("AddNavigation",java.net.URLEncoder.encode(groupName));
-						if(even) rowClass = "EvenRow" ;  
-		      	else rowClass =  "OddRow" ; 
-		      	even = !even ;
-				%>
-	      	<tr class="$rowClass">								      								        								        
-						<td>
-		       		<div class="Text"><%= groupName %> </div>
+    <%
+    	boolean even = true ;
+    	String rowClass = "EvenRow" ; 
+    	for(groupName in listGroupNames) { 
+					addLink = uicomponent.event("AddNavigation",java.net.URLEncoder.encode(groupName));
+					if(even) rowClass = "EvenRow" ;  
+	      	else rowClass =  "OddRow" ; 
+	      	even = !even ;
+			%>
+      <table class="ManagementBlock" style="table-layout: fixed; height: 60px" cellspacing="0">
+	      <tr>								      								        								        
+						<td class="Content" style="vertical-align: middle;">
+		       		<div class="Label"><%= groupName %> </div>
 						</td>	
-		        <td>
-		        	<div class="Text" style="text-align: center">
-		        		<a href="$addLink" class="AddGroupIcon"><%=_ctx.appRes("UIAddGroupNavigation.Action.Add")%></a>
-		       		</div>
+		        <td class="ActionBlock">
+		        	<a href="$addLink" class="AddGroupIcon"><%=_ctx.appRes("UIAddGroupNavigation.Action.Add")%></a>
 			   		</td>	
-	        </tr>
-        <% } %>	
+	      </tr>
       </table>  
+        <% } %>	
       <%/*End ItemDetailList*/%>   
 	<div class="UIAction"> 
     <table class="ActionContainer">

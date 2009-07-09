@@ -12,7 +12,7 @@
 
 .UIManagement .ManagementBlock {
 	height: 101px;
-	background: #fcfcfc url('background/ContentBg.gif') repeat-x bottom;
+	background: white url('background/ContentBg.gif') repeat-x bottom;
 }
 
 .UIManagement table.ManagementBlock td {
@@ -20,18 +20,30 @@
 	white-space: nowrap;
 }
 
+.UIManagement table.ManagementBlock td.Content {
+	vertical-align: top;
+	background: url('background/LineBg.gif') no-repeat right center;
+	padding: 20px 10px 0px;
+	width: 35%;
+	overflow: hidden;
+	white-space: normal;
+}
+
+.UIManagement table.ManagementBlock td.Content strong {
+	margin-right: 7px;
+}
+
 .UIManagement .ManagementBlock .Image {
 	width: 103px;
 	line-height: 100px;
-	padding: 0px 10px 0px 20px ;
+	padding: 0px 10px 0px 20px;
 }
 
 .UIManagement .ManagementBlock .Label {
 	color: #0077d4;
 	font-size: 14px;
 	font-weight: bold;
-	padding: 0px 15px 0px 15px ;
-	background: url('background/LineBg.gif') no-repeat right center;
+	padding: 0px 0px 3px 0px;
 }
 
 .UIManagement .ManagementBlock .ActionBlock {
@@ -77,3 +89,15 @@
 	padding: 3px 0px 3px 20px;
 	color: #1d1d1d;
 }
+
+.UIPageNavigationForm {
+	margin: 20px auto;
+}
+
+/********************UINavigationManagement****************/
+.UINavigationManagement {
+	border: 1px solid #b7b7b7;
+	margin: 7px; padding: 10px;
+	background: #f7f7f7;
+}
+

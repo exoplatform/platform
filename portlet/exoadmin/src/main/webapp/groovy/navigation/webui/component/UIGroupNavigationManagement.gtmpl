@@ -12,9 +12,10 @@
 			editLink = uicomponent.event("EditNavigation",String.valueOf(navigation.getId()));%>
   <table class="ManagementBlock" style="table-layout: fixed">
 	  <tr>
-		  <td class="Image"><img src="/exoadmin/skin/navigation/webui/component/background/GroupImage.gif" alt="" /></td>
-   		<td  class="Label" title="$navigation.ownerId">
-   			<%= OrganizationUtils.getGroupLabel("/" + navigation.ownerId) %> 
+		  <td class="Image"><img src="/exoadmin/skin/navigation/webui/component/background/GroupImage.png" alt="" /></td>
+   		<td class="Content">
+   			<div class="Label" title="$navigation.ownerId"><%= OrganizationUtils.getGroupLabel("/" + navigation.ownerId) %></div>
+   			<div><strong>Description: </strong> </div>
    		</td>	
      	<td class="ActionBlock">
      		<a href="<%=editLink%>" class="EditNavIcon">Edit Navigation</a> 

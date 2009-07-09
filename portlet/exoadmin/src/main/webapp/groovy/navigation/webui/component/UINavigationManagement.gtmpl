@@ -11,21 +11,15 @@
 	  <div class="DecoratorBox">
 	    <div class="BarDecorator">
 	      <div class="TopLeftBar">
-	        <div class="TopRightBar">
 	          <div class="TopCenterBar"><span></span></div>
-	        </div>
 	      </div>
 	      <div class="MiddleLeftBar">
-	        <div class="MiddleRightBar">
-	          <div class="MiddleCenterBar">
+	          <div class="MiddleCenterBar" style="background-image: none;">
 	          	<%= uicomponent.getOwner();%>
 	          </div>
-	        </div>
 	      </div>
 	      <div class="BottomLeftBar">
-	        <div class="BottomRightBar">
 	          <div class="BottomCenterBar"><span></span></div>
-	        </div>
 	      </div>
 	    </div>
 	  </div>

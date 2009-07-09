@@ -36,9 +36,8 @@
 		<div class="MiddleRightContainerOptions">
 			<div class="UINavigationNodeSelector" id="UINavigationNodeSelector">
 			  <%/*Begin PortalNodeSelectorContainer*/%>
-			  <div class="UIContainerConfigOptions ItemSelectorAncestor"> 
+			  <div class="UIContainerConfigOptions ItemSelectorAncestor" style="margin: 0px;"> 
 				  <div class="ContainerConfigOptions">						
-		        <div class="ClearLeft" style="height: 0px"><span></span></div>	
 						<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
 							<%
 							  if(navigations != null) {
