@@ -241,9 +241,11 @@ public class UserPortalConfigService implements Startable {
     i = 1;
     while (i <= pageList.getAvailablePage()) {
       List<?> list = pageList.getPage(i);
-      while (list.size() > 0) {
-        PortletPreferences portletPreferences = (PortletPreferences) list.get(0);
+      int len = list.size()-1;
+      while (len >= 0) {
+        PortletPreferences portletPreferences = (PortletPreferences) list.get(len);
         storage_.remove(portletPreferences);
+        len--;
       }
       i++;
     }
