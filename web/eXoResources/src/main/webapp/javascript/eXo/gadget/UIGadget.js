@@ -198,7 +198,6 @@ eXo.gadget.UIGadget = {
 
     deleteGadget : function(selectedElement) {
         var DOMUtil = eXo.core.DOMUtil ;
-        var uiGadgetContainer = DOMUtil.findAncestorByClass(selectedElement, "UIWidgetContainer") ;
         var uiPage = DOMUtil.findAncestorByClass(selectedElement, "UIPage") ;
         var uiGadget = DOMUtil.findAncestorByClass(selectedElement, "UIGadget") ;
         var containerBlockId ;
@@ -215,7 +214,7 @@ eXo.gadget.UIGadget = {
             else
                 uicomp = DOMUtil.getChildrenByTagName(portletFragment, "div")[0].className;
             if (confirm(this.confirmDeleteGadget)) {
-                var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
+                var href = eXo.env.server.portalBaseURL + "?poral:componentId=" + compId;
                 href += "&portal:type=action&uicomponent=" + uicomp;
                 href += "&op=DeleteGadget";
                 href += "&objectId=" + gadgetId + "&ajaxRequest=true";
@@ -223,14 +222,9 @@ eXo.gadget.UIGadget = {
             }
 
         } else {
-            if (uiPage) {
-                var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
-                containerBlockId = uiPageIdNode.innerHTML;
-            }
-            else {
-                containerBlockId = uiGadgetContainer.id;
-            }
-            if (confirm("Are you sure you want to delete this gadget ?")) {
+            var uiPageIdNode = DOMUtil.findFirstDescendantByClass(uiPage, "div", "id");
+            containerBlockId = uiPageIdNode.innerHTML;
+            if (confirm(this.confirmDeleteGadget)) {
                 var params = [
                     {name: "objectId", value : gadgetId}
                 ] ;

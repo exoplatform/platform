@@ -33,9 +33,13 @@ PortalDragDrop.prototype.init = function(e) {
     var dragObject = dndEvent.dragObject ;
     var properties = ["top", eXo.core.I18n.isLT() ? "left" : "right", "zIndex", "opacity", "filter", "position"] ;
     this.origDragObjectStyle.copyProperties(properties, dragObject.style) ;
+    
+    var hasControlBlock = !!DOMUtil.findFirstDescendantByClass(dragObject, "div", "CONTROL-BLOCK");
    	
-    PortalDragDrop.originalDragObjectTop = Browser.findPosY(dragObject)
-        - Browser.findPosYInContainer(dragObject.offsetParent, document.getElementById("UIWorkingWorkspace")) ;
+    PortalDragDrop.originalDragObjectTop = Browser.findPosY(dragObject) ;
+    if(!hasControlBlock) 
+       PortalDragDrop.originalDragObjectTop -= Browser.findPosYInContainer(dragObject.offsetParent, 
+                                                           document.getElementById("UIWorkingWorkspace")) ; 
     var originalDragObjectLeft = Browser.findPosX(dragObject) - 
         Browser.findPosXInContainer(dragObject.offsetParent, document.getElementById("UIWorkingWorkspace")) ;
     var originalMousePositionY = Browser.findMouseYInPage(e) ;
@@ -52,7 +56,7 @@ PortalDragDrop.prototype.init = function(e) {
     PortalDragDrop.backupOffsetHeight = dragObject.offsetHeight ;
     
     /*Case: dragObject out of UIPortal*/
-    if(DOMUtil.findFirstDescendantByClass(dragObject, "div", "CONTROL-BLOCK") == null) {
+    if(!hasControlBlock) {
       var cloneObject = dragObject.cloneNode(true) ;
       dragObject.parentNode.insertBefore(cloneObject, dragObject) ;
       
@@ -205,7 +209,7 @@ PortalDragDrop.prototype.init = function(e) {
         eXo.portal.PortalDragDrop.setDragObjectProperties(dragObject, tdElementList, "column", dndEvent.backupMouseEvent) ;
       }
 			//when dragObject out of page
-			if ((Browser.findPosY(dragObject) < 2)  || (Browser.findPosX(dragObject) + 64 > eXo.core.Browser.getBrowserWidth())) {
+			if ((Browser.findPosY(dragObject) < 0)  || (Browser.findPosX(dragObject) + 64 > eXo.core.Browser.getBrowserWidth())) {
 				DragDrop.dropCallback(dndEvent);
 				document.onmousemove = null;
 			} 
@@ -233,7 +237,7 @@ PortalDragDrop.prototype.init = function(e) {
     eXo.portal.isInDragging = false;
   }
   
-  var clickObject = this ;
+  var clickObject = eXo.core.Browser.getEventSource(e) ;
   var controlBlock = DOMUtil.findAncestorByClass(clickObject, "CONTROL-BLOCK") ;
 
   if(controlBlock != null) {
@@ -375,6 +379,7 @@ PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComp
     if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) -
                               eXo.portal.PortalDragDrop.deltaXDragObjectAndMouse) + "px" ;
   } else {
+  	console.log(eXo.core.Browser.findMouseYInPage(e) + " - " + eXo.portal.PortalDragDrop.deltaYDragObjectAndMouse);
     dragObject.style.top = (eXo.core.Browser.findMouseYInPage(e) - 
                             eXo.portal.PortalDragDrop.deltaYDragObjectAndMouse) + "px" ;
 //    if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseXInPage(e) - csWidth -

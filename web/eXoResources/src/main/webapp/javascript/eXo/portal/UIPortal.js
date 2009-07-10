@@ -72,17 +72,13 @@ UIPortal.prototype.blockOnMouseOver = function(event, portlet, isOver) {
 		}
 		
 		if(DOMUtil.hasClass(portlet, "UIPortlet")) {
-			if(newLayer) {
-				newLayer.style.width = width + "px";
-				newLayer.style.height = height + "px";
-				newLayer.parentNode.style.top = -height + "px";
-			}
+			newLayer.style.width = width + "px";
+			newLayer.style.height = height + "px";
 		} else {
-			if(newLayer) {
-				newLayer.parentNode.style.width = width + "px";
-			}
+			newLayer.parentNode.style.width = width + "px";
 			DOMUtil.addClass(portlet, "OverContainer");
 		}
+		newLayer.parentNode.style.top = -height + "px";
 		editBlock.style.display = "block";
 	}	else {
 		editBlock.style.display = "none";

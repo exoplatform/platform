@@ -39,7 +39,7 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 										String setLabel = container.getLabel();
 										String title = _ctx.appRes("ContainerOptions.Item." + setLabel) ;
 							  %>
-							    <div class="DragObject" id="$setLabel">
+							    <div class="DragObjectPortlet" id="$setLabel" onmousedown="eXo.portal.PortalDragDrop.init(event)">
 							  	  <div class="VTabContentBG">
 							  		  <div class="$setIcon LableContent" title="$title">$title</div>
 							  		</div>

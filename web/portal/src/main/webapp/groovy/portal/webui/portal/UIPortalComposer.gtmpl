@@ -73,10 +73,3 @@
 	  </div>	
 	</div>
 </div>
-<script language="javascript">
-  var portalComposer = document.getElementById('$uicomponent.id');
-  var dragObjs = eXo.core.DOMUtil.findDescendantsByClass(portalComposer, "div", "DragObject");
-  for(var i = 0; i < dragObjs.length; i++) {
-    dragObjs[i].onmousedown = eXo.portal.PortalDragDrop.init;
-  } 
-</script> 
