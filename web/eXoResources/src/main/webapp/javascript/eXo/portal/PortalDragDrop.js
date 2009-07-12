@@ -237,7 +237,7 @@ PortalDragDrop.prototype.init = function(e) {
     eXo.portal.isInDragging = false;
   }
   
-  var clickObject = eXo.core.Browser.getEventSource(e) ;
+  var clickObject = this;
   var controlBlock = DOMUtil.findAncestorByClass(clickObject, "CONTROL-BLOCK") ;
 
   if(controlBlock != null) {

@@ -414,10 +414,10 @@ function HttpResponseHandler(){
 	    } else {
 	    	target = document.getElementById(blockToUpdate.blockId) ;
 	    }
-	    if(target == null) alert("target  BlockToUpdate.blockId " + blockToUpdate.blockId) ;
+	    if(target == null) alert("The target blockId to update is not found : " + blockToUpdate.blockId) ;
 	    var newData =  eXo.core.DOMUtil.findDescendantById(blockToUpdate.data, blockToUpdate.blockId) ;
 	   	//var newData =  blockToUpdate.data.getElementById(blockToUpdate.blockId) ;
-	    if(newData == null) alert("block to update Id " + blockToUpdate.blockId) ;
+	    if(newData == null) alert("The blockId to update is not found : " + blockToUpdate.blockId) ;
 	    target.innerHTML = newData.innerHTML ;
 	    
 	    //update embedded scripts
