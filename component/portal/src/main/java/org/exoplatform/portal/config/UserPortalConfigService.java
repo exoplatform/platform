@@ -188,7 +188,7 @@ public class UserPortalConfigService implements Startable {
   }
 
   /**
-   * This method should create a the portal config, pages and navigation
+   * This method should create a the portal config, pages and nRavigation
    * according to the template name
    * 
    * @param portalName
@@ -215,18 +215,16 @@ public class UserPortalConfigService implements Startable {
   public void removeUserPortalConfig(String portalName) throws Exception {
     Query<Page> query = new Query<Page>(PortalConfig.PORTAL_TYPE, portalName, null, null, Page.class);
     LazyPageList pageList = storage_.find(query);
-    pageList.setPageSize(10);
-    int i = 1;
-    while (i <= pageList.getAvailablePage()) {
-      List<?> list = pageList.getPage(i);
-      Iterator<?> itr = list.iterator();
-      while (itr.hasNext()) {
-        Page page = (Page) itr.next();
-        remove(page);
-      }
-      i++;
-    }
 
+    List<?> listPage = pageList.getAll();
+    Iterator<?> itr = listPage.iterator();
+    int lenPage = listPage.size()-1;
+    while (lenPage >= 0) {
+      Page page = (Page) listPage.get(lenPage);
+      remove(page);
+      lenPage--;
+    }
+    
     PageNavigation navigation = storage_.getPageNavigation(PortalConfig.PORTAL_TYPE, portalName);
     if (navigation != null)
       remove(navigation);
@@ -237,18 +235,25 @@ public class UserPortalConfigService implements Startable {
                                                                                null,
                                                                                PortletPreferences.class);
     pageList = storage_.find(portletPrefQuery);
-    pageList.setPageSize(10);
-    i = 1;
-    while (i <= pageList.getAvailablePage()) {
-      List<?> list = pageList.getPage(i);
-      int len = list.size()-1;
-      while (len >= 0) {
-        PortletPreferences portletPreferences = (PortletPreferences) list.get(len);
-        storage_.remove(portletPreferences);
-        len--;
-      }
-      i++;
+    List<?> list = pageList.getAll();
+    int len = list.size()-1;
+    while (len >= 0) {
+      PortletPreferences portletPreferences = (PortletPreferences) list.get(len);
+      storage_.remove(portletPreferences);
+      len--;
     }
+//    pageList.setPageSize(10);
+//    i = 1;
+//    while (i <= pageList.getAvailablePage()) {
+//      List<?> list = pageList.getPage(i);
+//      int len = list.size()-1;
+//      while (len >= 0) {
+//        PortletPreferences portletPreferences = (PortletPreferences) list.get(len);
+//        storage_.remove(portletPreferences);
+//        len--;
+//      }
+//      i++;
+//    }
 
     PortalConfig config = storage_.getPortalConfig(portalName);
     portalConfigCache_.remove(config.getName());
