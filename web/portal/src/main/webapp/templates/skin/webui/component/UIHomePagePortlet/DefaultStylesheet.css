@@ -92,6 +92,7 @@
 .TRContainer .TextOnButton {
 	color: white;
 	font-size: 15px;
+	font-family: arial;
 	font-weight: bold;
 	line-height: 40px;
 	text-align: center;
