@@ -18,16 +18,21 @@ package org.exoplatform.navigation.webui.component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
+import org.exoplatform.services.resources.LocaleConfig;
+import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
@@ -94,13 +99,19 @@ public class UINavigationNodeSelector extends UIContainer {
 
   public void initNavigations(List<PageNavigation> navis) throws Exception {
     navigations = navis;
+    // set resolved label for navigations
+    WebuiRequestContext requestContext = WebuiRequestContext.getCurrentInstance();
+    refreshNavigation(requestContext.getLocale()) ;
+    
     updateUI();
     selectNavigation();
   }
 
   public void loadNavigationByNavId(Integer navId, List<PageNavigation> navigations) throws Exception {
     this.navigations = navigations;
-
+    // set resolved label for navigations
+    WebuiRequestContext requestContext = WebuiRequestContext.getCurrentInstance();
+    refreshNavigation(requestContext.getLocale()) ;
     selectNavigation(navId);
   }
   
@@ -136,6 +147,25 @@ public class UINavigationNodeSelector extends UIContainer {
     }
   }
 
+  public void refreshNavigation(Locale locale) {
+    LocaleConfig localeConfig = getApplicationComponent(LocaleConfigService.class).getLocaleConfig(locale.getLanguage()) ;
+    for(PageNavigation nav : navigations) {
+      if(nav.getOwnerType().equals(PortalConfig.USER_TYPE)) continue ;
+      ResourceBundle res = localeConfig.getNavigationResourceBundle(nav.getOwnerType(), nav.getOwnerId()) ;
+      for(PageNode node : nav.getNodes()) {
+        resolveLabel(res, node) ;
+      }
+    }
+  }
+  
+  private void resolveLabel(ResourceBundle res, PageNode node) {
+    node.setResolvedLabel(res) ;
+    if(node.getChildren() == null) return;
+    for(PageNode childNode : node.getChildren()) {
+      resolveLabel(res, childNode) ;
+    }
+  }
+  
   public void selectPageNodeByUri(String uri) {
     if (selectedNode == null)
       return;

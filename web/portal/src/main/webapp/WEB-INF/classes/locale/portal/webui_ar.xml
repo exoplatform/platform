@@ -2021,7 +2021,7 @@
   #  org.exoplatform.portal.webui.component.customization.UIPageNodeSelector    #
   ###############################################################################
   -->
-  <PageNodePopupMenu>
+  <NavigationNodePopupMenu>
     <event>
       <AddNode>أضف عقدة جديدة</AddNode>
       <EditPageNode>تحرير عقدة الصفحة</EditPageNode>
@@ -2035,7 +2035,7 @@
       <SaveNavigation>إنقاذ التصفح</SaveNavigation>
       <DeleteNode>حذف العقدة</DeleteNode>
     </event>
-  </PageNodePopupMenu>
+  </NavigationNodePopupMenu>
   <UIGroupManagement>
     <msg>
       <Edit>!يجب ان تختار مجموعة</Edit>
