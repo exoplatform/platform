@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<container template="classpath:groovy/dashboard/webui/component/UIColumnContainer.gtmpl">
+  	<container template="classpath:groovy/dashboard/webui/component/UIContainer.gtmpl">
+			<application>
+	      <instance-id>/eXoGadgets/Calendar</instance-id>
+	      <application-type>eXoGadget</application-type>
+	    </application>  	
+  	</container>
+</container>

@@ -15,6 +15,10 @@
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>
+      <properties>
+        <entry key="locationX">23432</entry>
+        <entry key="locationY">343534</entry>
+      </properties>
     </application>
   </page>    
     

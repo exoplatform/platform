@@ -19,6 +19,9 @@ package org.exoplatform.portal.config;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
+import org.exoplatform.portal.application.PortletPreferences;
+import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesSet;
+import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Page.PageSet;
@@ -48,50 +51,52 @@ public class TestJIBXXmlMapping  extends BasicTestCase {
   public void testPageSetMapping() throws Exception {
     IBindingFactory bfact = BindingDirectory.getFactory(PageSet.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/pages.xml"), null);
-    System.out.print(" === step 1 ===== > "+obj) ;
+    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/portal/portal/classic/pages.xml"), null);
+    assertEquals(Page.PageSet.class, obj.getClass());
 
     IMarshallingContext mctx = bfact.createMarshallingContext();
     mctx.setIndent(2);
     mctx.marshalDocument(obj, "UTF-8", null,  new FileOutputStream("target/pages.xml")) ;
 
     obj = uctx.unmarshalDocument(new FileInputStream("target/pages.xml"), null);
-    System.out.print(" === step 2 ===== > "+obj) ;
+    assertEquals(Page.PageSet.class, obj.getClass());
   }
 
   public void testPortalConfigMapping() throws Exception {
     IBindingFactory bfact = BindingDirectory.getFactory(PortalConfig.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/portal.xml"), null);
-    System.out.print(obj) ;
+    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/portal/portal/classic/portal.xml"), null);
+    assertEquals(PortalConfig.class, obj.getClass());
 
     IMarshallingContext mctx = bfact.createMarshallingContext();
     mctx.setIndent(2);
     mctx.marshalDocument(obj, "UTF-8", null,  new FileOutputStream("target/portal.xml")) ;
+    assertEquals(PortalConfig.class, obj.getClass());
   }
 
   public void testNavigationMapping() throws Exception {
     IBindingFactory bfact = BindingDirectory.getFactory(PageNavigation.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/navigation.xml"), null);
-    System.out.print(obj) ;
+    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/portal/portal/classic/navigation.xml"), null);
+    assertEquals(PageNavigation.class, obj.getClass());
 
     IMarshallingContext mctx = bfact.createMarshallingContext();
     mctx.setIndent(2);
     mctx.marshalDocument(obj, "UTF-8", null,  new FileOutputStream("target/navigation.xml")) ;
 
     obj = uctx.unmarshalDocument(new FileInputStream("target/navigation.xml"), null);
-    System.out.print(obj) ;
+    assertEquals(PageNavigation.class, obj.getClass());
   }
 
   public void testPortletPreferencesMapping() throws Exception {
     IBindingFactory bfact = BindingDirectory.getFactory(PortalConfig.class);
     IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/PortalApp/portalone/portlet-preferences.xml"), null);
-    System.out.print(obj) ;
+    Object obj = uctx.unmarshalDocument(new FileInputStream("src/test/resources/portal/portal/classic/portlet-preferences.xml"), null);
+    assertEquals(PortletPreferencesSet.class, obj.getClass());
 
     IMarshallingContext mctx = bfact.createMarshallingContext();
     mctx.setIndent(2);
     mctx.marshalDocument(obj, "UTF-8", null,  new FileOutputStream("target/portlet-preferences.xml")) ;
+    assertEquals(PortletPreferencesSet.class, obj.getClass());
   }
 }

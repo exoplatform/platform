@@ -217,7 +217,6 @@ public class UserPortalConfigService implements Startable {
     LazyPageList pageList = storage_.find(query);
 
     List<?> listPage = pageList.getAll();
-    Iterator<?> itr = listPage.iterator();
     int lenPage = listPage.size()-1;
     while (lenPage >= 0) {
       Page page = (Page) listPage.get(lenPage);

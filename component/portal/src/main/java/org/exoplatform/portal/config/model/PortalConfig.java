@@ -31,8 +31,8 @@ public class PortalConfig {
   final public static String PORTAL_TYPE = "portal";
   
 	private String    name ;
-//	private String    factoryId;
-  private String    locale ;
+
+	private String    locale ;
   
   private String[]  accessPermissions ;
   private String editPermission;

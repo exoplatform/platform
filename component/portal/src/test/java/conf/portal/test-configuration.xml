@@ -75,7 +75,7 @@
                 <string>portal</string>
               </field>
               <field name="templateLocation">
-                <string>classpath:/conf/portal</string>
+                <string>classpath:/portal</string>
               </field>
             </object>
           </object-param>
@@ -103,7 +103,7 @@
                 <string>group</string>
               </field>
               <field name="templateLocation">
-                <string>classpath:/conf/portal</string>
+                <string>classpath:/portal</string>
               </field>
             </object>
           </object-param>
@@ -131,7 +131,7 @@
                 <string>user</string>
               </field>
               <field name="templateLocation">
-                <string>classpath:/conf/portal</string>
+                <string>classpath:/portal</string>
               </field>
             </object>
           </object-param>
@@ -143,7 +143,7 @@
                 <collection type="java.util.ArrayList"></collection>
               </field>
               <field name="location">
-                <string>classpath:/conf/portal/template/pages</string>
+                <string>classpath:/portal/template/pages</string>
               </field>
             </object>
           </object-param>

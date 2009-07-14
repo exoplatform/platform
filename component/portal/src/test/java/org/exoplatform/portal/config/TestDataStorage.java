@@ -39,6 +39,8 @@ import org.jibx.runtime.IUnmarshallingContext;
  */
 public class TestDataStorage extends BasicTestCase {
 
+	private final String testPortal = "testPortal";
+	private final String testPage = "portal::classic::testPage";
   DataStorage storage_;
 
   public TestDataStorage(String name) {
@@ -47,72 +49,47 @@ public class TestDataStorage extends BasicTestCase {
 
   public void setUp() throws Exception {
     super.setUp();
-    if (storage_ != null)
-      return;
+    if (storage_ != null) return;
     PortalContainer container = PortalContainer.getInstance();
     storage_ = (DataStorage) container.getComponentInstanceOfType(DataStorage.class);
   }
 
-  public void tearDown() throws Exception {
-    super.tearDown();
-  }
-
   public void testPortalConfigCreate() throws Exception {
-
-    String portalName = "portalone";
-    PortalConfig returnConfig = storage_.getPortalConfig(portalName);
+  	PortalConfig portalConfig = new PortalConfig();
+  	portalConfig.setName(testPortal);
+  	portalConfig.setLocale("en");
+  	portalConfig.setAccessPermissions(new String[]{UserACL.EVERYONE});
+  	
+    PortalConfig returnConfig = storage_.getPortalConfig(portalConfig.getName());
     if (returnConfig != null)
       storage_.remove(returnConfig);
     
-    PortalConfig config = loadPortalConfig(portalName);
-    assertEquals(portalName, config.getName());
-    storage_.create(config);
-    returnConfig = storage_.getPortalConfig(portalName);
+    storage_.create(portalConfig);
+    returnConfig = storage_.getPortalConfig(portalConfig.getName());
     assertNotNull(returnConfig);
-    assertEquals(portalName, returnConfig.getName());
-    assertEquals(config.getCreator(), returnConfig.getCreator());
-
-    storage_.remove(config);
+    assertEquals(portalConfig.getName(), returnConfig.getName());
+    assertEquals(portalConfig.getCreator(), returnConfig.getCreator());
   }
 
   public void testPortalConfigSave() throws Exception {
-    String portalName = "portalone";
-    PortalConfig returnConfig = storage_.getPortalConfig(portalName);
-    if (returnConfig != null)
-      storage_.remove(returnConfig);
+    PortalConfig portalConfig = storage_.getPortalConfig(testPortal);
     
-    PortalConfig config = loadPortalConfig(portalName);
-    assertEquals(portalName, config.getName());
-    storage_.create(config);
-
+    assertNotNull(portalConfig);
+    
     String newLocale = "vietnam";
-    config.setLocale(newLocale);
-    assertEquals(newLocale, config.getLocale());
-    storage_.save(config);
-    returnConfig = storage_.getPortalConfig(portalName);
-    assertNotNull(returnConfig);
-    assertEquals(newLocale, returnConfig.getLocale());
-
-    storage_.remove(config);
+    portalConfig.setLocale(newLocale);
+    storage_.save(portalConfig);
+    portalConfig = storage_.getPortalConfig(testPortal);
+    assertNotNull(portalConfig);
+    assertEquals(newLocale, portalConfig.getLocale());
   }
 
   public void testPortalConfigRemove() throws Exception {
-    String portalName = "portalone";
-    PortalConfig returnConfig = storage_.getPortalConfig(portalName);
-    if (returnConfig != null)
-      storage_.remove(returnConfig);
+    PortalConfig portalConfig = storage_.getPortalConfig(testPortal);
+    assertNotNull(portalConfig);
     
-    PortalConfig config = loadPortalConfig(portalName);
-    assertEquals(portalName, config.getName());
-    storage_.create(config);
-
-    returnConfig = storage_.getPortalConfig(portalName);
-    assertNotNull(returnConfig);
-
-    storage_.remove(config);
-    assertNull(storage_.getPortalConfig(portalName));
-    storage_.create(config);
-    storage_.remove(config);
+    storage_.remove(portalConfig);
+    assertNull(storage_.getPortalConfig(testPortal));
   }
 
   public void testPageConfigCreate() throws Exception {
@@ -122,107 +99,56 @@ public class TestDataStorage extends BasicTestCase {
   }
 
   private void createPageConfig(String ownerType, String ownerId) throws Exception {
-    List<Page> pages = loadPages(ownerType, ownerId);
-    for (Page page : pages) {      
-      try {
-        storage_.create(page);
-      } catch (Exception e) {
-        page = storage_.getPage(page.getPageId());
-      }
-    }
+  	Page page = new Page();
+  	page.setName("testPage");
+  	page.setOwnerId("classic");
+  	page.setOwnerType("portal");
 
-    List<Page> returnPages = new ArrayList<Page>();
-    for (Page page : pages) {
-      Page returnPage = storage_.getPage(page.getPageId());
-      assertNotNull(returnPage);
-      assertEquals(page.getPageId(), returnPage.getPageId());
-      assertEquals(page.getOwnerType(), returnPage.getOwnerType());
-      assertEquals(page.getOwnerId(), returnPage.getOwnerId());
-      assertEquals(page.getChildren().size(), returnPage.getChildren().size());
-      returnPages.add(returnPage);
-    }
-    assertEquals(pages.size(), returnPages.size());
+  	try {
+  		storage_.create(page);
+  	} catch (Exception e) {
+  		page = storage_.getPage(page.getPageId());
+  	}
 
-    for (Page page : pages) {
-      storage_.remove(page);
-    }
+  	Page returnPage = storage_.getPage(page.getPageId());
+  	assertNotNull(returnPage);
+  	assertEquals(page.getPageId(), returnPage.getPageId());
+  	assertEquals(page.getOwnerType(), returnPage.getOwnerType());
+  	assertEquals(page.getOwnerId(), returnPage.getOwnerId());
+  	assertEquals(page.getChildren().size(), returnPage.getChildren().size());
   }
 
   public void testPageConfigSave() throws Exception {
-    savePageConfig(PortalConfig.PORTAL_TYPE, "portalone");
-    savePageConfig(PortalConfig.USER_TYPE, "exoadmin");
-    savePageConfig(PortalConfig.GROUP_TYPE, "portal/admin");
-  }
+  	Page page = storage_.getPage(testPage);
+  	assertNotNull(page);
+  	
+  	page.setTitle("New Page Title");
+  	page.setOwnerId("customers");
+  	storage_.save(page);
 
-  private void savePageConfig(String ownerType, String ownerId) throws Exception {
-
-    List<Page> pages = loadPages(ownerType, ownerId);
-    for (Page page : pages) {
-      storage_.create(page);
-    }
-
-    for (int i = 0; i < pages.size(); i++) {
-      Page page = pages.get(i);
-      page.setTitle("Page title " + i);
-      page.setOwnerId("customers");
-      storage_.save(page);
-    }
-    List<Page> returnPages = new ArrayList<Page>();
-    for (int i = 0; i < pages.size(); i++) {
-      Page page = pages.get(i);
-      Page returnPage = storage_.getPage(page.getPageId());
-      assertEquals("Page title " + i, returnPage.getTitle());
-      assertEquals(page.getPageId(), returnPage.getPageId());
-      assertEquals(page.getOwnerType(), returnPage.getOwnerType());
-      assertEquals(page.getOwnerId(), returnPage.getOwnerId());
-      assertEquals(page.getChildren().size(), returnPage.getChildren().size());
-      returnPages.add(returnPage);
-    }
-    assertEquals(pages.size(), returnPages.size());
-
-    for (Page page : pages) {
-      storage_.remove(page);
-    }
-
+  	Page returnPage = storage_.getPage(page.getPageId());
+  	assertEquals("New Page Title", returnPage.getTitle());
+  	assertEquals(page.getPageId(), returnPage.getPageId());
+  	assertEquals(page.getOwnerType(), returnPage.getOwnerType());
+  	assertEquals(page.getOwnerId(), returnPage.getOwnerId());
+  	assertEquals(page.getChildren().size(), returnPage.getChildren().size());
   }
 
   public void testPageConfigRemove() throws Exception {
-    removePageConfig(PortalConfig.PORTAL_TYPE, "portalone");
-    removePageConfig(PortalConfig.USER_TYPE, "exoadmin");
-    removePageConfig(PortalConfig.GROUP_TYPE, "portal/admin");
-  }
-
-  private void removePageConfig(String ownerType, String ownerId) throws Exception {
-    List<Page> pages = loadPages(ownerType, ownerId);
-    for (Page page : pages) {
-      storage_.create(page);
-    }
-
-    for (Page page : pages) {     
-      storage_.remove(page);
-    }
+  	Page page = storage_.getPage(testPage);
+  	assertNotNull(page);
+  	
+  	storage_.remove(page);
+  	
+  	page = storage_.getPage(testPage);
+  	assertNull(page);
   }
 
   public void testNavigationCreate() throws Exception {
-    createNavigation(PortalConfig.PORTAL_TYPE, "portalone");
-    createNavigation(PortalConfig.USER_TYPE, "exoadmin");
-    createNavigation(PortalConfig.GROUP_TYPE, "portal/admin");
-  }
-
-  private void createNavigation(String ownerType, String ownerId) throws Exception {
-    PageNavigation navi = loadNavigation(ownerType, ownerId);
-    assertNotNull(navi);
-    assertEquals(ownerType, navi.getOwnerType());
-    assertEquals(ownerId, navi.getOwnerId());
-
-    storage_.create(navi);
-    PageNavigation returnedNavi = storage_.getPageNavigation(navi.getOwnerType(), navi.getOwnerId());
-    assertNotNull(navi);
-    assertEquals(navi.getOwnerType(), returnedNavi.getOwnerType());
-    assertEquals(navi.getOwnerId(), returnedNavi.getOwnerId());
-    assertEquals(navi.getNodes().size(), returnedNavi.getNodes().size());
-
-    storage_.remove(navi);
+  	PageNavigation pageNavi = new PageNavigation();
+  	pageNavi.setOwnerId(testPortal);
+  	pageNavi.setOwnerType("portal");
+  	storage_.create(pageNavi);
   }
 
   public void testNavigationSave() throws Exception {
@@ -369,14 +295,6 @@ public class TestDataStorage extends BasicTestCase {
   //----------------------------------------------------------------------------
   // --------------//
 
-  private PortalConfig loadPortalConfig(String portalName) throws Exception {
-    String configFile = "PortalApp/" + portalName + "/portal.xml";
-
-    PortalConfig config = loadObject(PortalConfig.class, configFile);
-
-    return config;
-  }
-
   private PageNavigation loadNavigation(String ownerType, String ownerId) throws Exception {
     String navigationFile = "";
     if (PortalConfig.PORTAL_TYPE.equals(ownerType)) {
@@ -394,11 +312,11 @@ public class TestDataStorage extends BasicTestCase {
   private List<Page> loadPages(String ownerType, String ownerId) throws Exception {
     String pageSetFile = "";
     if (PortalConfig.PORTAL_TYPE.equals(ownerType)) {
-      pageSetFile = "PortalApp/" + ownerId + "/pages.xml";
+      pageSetFile = "portal/portal/" + ownerId + "/pages.xml";
     } else if (PortalConfig.USER_TYPE.equals(ownerType)) {
-      pageSetFile = "user/" + ownerId + "/pages.xml";
+      pageSetFile = "portal/user/" + ownerId + "/pages.xml";
     } else if (PortalConfig.GROUP_TYPE.equals(ownerType)) {
-      pageSetFile = "group/" + ownerId + "/pages.xml";
+      pageSetFile = "portal/group/" + ownerId + "/pages.xml";
     }
     PageSet pageSet = loadObject(PageSet.class, pageSetFile);
 

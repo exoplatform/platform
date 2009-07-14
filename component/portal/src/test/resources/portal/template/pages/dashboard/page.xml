@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<page>
+  <owner-type></owner-type>
+  <owner-id></owner-id>
+  <name></name>
+	<application>
+	  <instance-id>/dashboard/DashboardPortlet</instance-id>
+	  <title>Dashboard</title>
+	  <show-info-bar>false</show-info-bar>
+	  <show-application-state>true</show-application-state>      
+	</application>
+</page>
