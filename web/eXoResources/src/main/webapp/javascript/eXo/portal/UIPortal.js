@@ -76,13 +76,17 @@ UIPortal.prototype.blockOnMouseOver = function(event, portlet, isOver) {
 			newLayer.style.height = height + "px";
 		} else {
 			newLayer.parentNode.style.width = width + "px";
-			DOMUtil.addClass(portlet, "OverContainer");
+			var normalBlock = DOMUtil.findFirstChildByClass(portlet, "div", "NormalContainerBlock");
+			DOMUtil.replaceClass(normalBlock, "NormalContainerBlock", "OverContainerBlock");
 		}
 		newLayer.parentNode.style.top = -height + "px";
 		editBlock.style.display = "block";
 	}	else {
 		editBlock.style.display = "none";
-		if(!DOMUtil.hasClass(portlet, "UIPortlet")) DOMUtil.removeClass(portlet, "OverContainer");
+		if(!DOMUtil.hasClass(portlet, "UIPortlet")) {
+			var normalBlock = DOMUtil.findFirstChildByClass(portlet, "div", "OverContainerBlock");
+			DOMUtil.replaceClass(normalBlock, "OverContainerBlock", "NormalContainerBlock");
+		}
 	}
 }
 
@@ -198,8 +202,8 @@ UIPortal.prototype.switchPortalMode = function(elemtClicked) {
 	} else {
 		this.showLayoutModeForPortal() ;
 	}
-	var url = eXo.env.server.createPortalURL(this.getUIPortal().id, "ChangePortalEditMode", true, [{name :"isBlockMode",value: eXo.env.isBlockEditMode}]);
-	ajaxAsyncGetRequest(url);
+//	var url = eXo.env.server.createPortalURL(this.getUIPortal().id, "ChangePortalEditMode", true, [{name :"isBlockMode",value: eXo.env.isBlockEditMode}]);
+//	ajaxAsyncGetRequest(url);
 };
 
 UIPortal.prototype.switchModeForPage = function(elemtClicked) {
@@ -332,7 +336,7 @@ UIPortal.prototype.showViewMode = function() {
     this.showUIComponentControl(container[i], !eXo.env.editType) ;
   }
 
-  var portlet  = this.getUIPortletsInUIPortal() ;
+  var portlet  = this.getUIPortlets() ;
   for(var i = 0; i < portlet.length; i++) {
     this.switchLayoutModeToViewMode(portlet[i], false) ;
     this.showUIComponentControl(portlet[i], true) ;
@@ -351,16 +355,26 @@ UIPortal.prototype.showViewMode = function() {
   
   //mask for pagebody
   if(!uiPageDesktop) {
+  	if(container.length == 0 && portlet.length == 0) {
+  		var pageIdElemt = document.getElementById("UIPage");
+  		var viewPage = eXo.core.DOMUtil.findAncestorByClass(pageIdElemt, "VIEW-PAGE");
+  		viewPage.style.paddingTop = "50px" ;
+			viewPage.style.paddingRight = "0px";
+			viewPage.style.paddingBottom = "50px";
+			viewPage.style.paddingLeft = "0px";
+  	}
   	var pageBodyBlock = pageBody.getUIComponentBlock();
   	var mask = eXo.core.DOMUtil.findFirstDescendantByClass(pageBodyBlock, "div", "UIPageBodyMask");
-  	if(!eXo.env.isBlockEditMode) {
-  		mask.style.height = pageBodyBlock.offsetHeight + "px";
-  		mask.style.width = pageBodyBlock.offsetWidth + "px";
-  		mask.style.top = eXo.core.Browser.findPosY(pageBodyBlock) + "px";
-      mask.style.left = eXo.core.Browser.findPosX(pageBodyBlock) + "px";
-  		mask.style.display = "block";
-  	} else {
-  		mask.style.display = "none";
+  	if(mask) {
+	  	if(!eXo.env.isBlockEditMode) {
+	  		mask.style.height = pageBodyBlock.offsetHeight + "px";
+	  		mask.style.width = pageBodyBlock.offsetWidth + "px";
+	  		mask.style.top = eXo.core.Browser.findPosY(pageBodyBlock) + "px";
+	      mask.style.left = eXo.core.Browser.findPosX(pageBodyBlock) + "px";
+	  		mask.style.display = "block";
+	  	} else {
+	  		mask.style.display = "none";
+	  	}
   	}
   }
 };
@@ -376,7 +390,7 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
   this.showUIComponentControl(pageBody, this.component == 'UIPageBody') ;
   var pageBodyBlock = pageBody.getUIComponentBlock();
   var mask = eXo.core.DOMUtil.findFirstDescendantByClass(pageBodyBlock, "div", "UIPageBodyMask");
-  mask.style.display = "none";
+  if(mask) mask.style.display = "none";
 
   var container = this.getUIContainers() ;
   for(var i = 0; i < container.length; i++) {
@@ -384,7 +398,7 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
     this.showUIComponentControl(container[i], true) ;
   }
     
-	var portlet  = this.getUIPortletsInUIPortal() ;
+	var portlet  = this.getUIPortlets() ;
   for(var i = 0; i < portlet.length; i++) {
     this.switchViewModeToLayoutMode(portlet[i], false) ;
     this.showUIComponentControl(portlet[i], this.component == 'UIPortlet') ;

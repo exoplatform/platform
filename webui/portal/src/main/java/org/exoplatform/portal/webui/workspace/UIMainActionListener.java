@@ -49,6 +49,7 @@ public class UIMainActionListener {
       uiApp.setEditting(true);
       UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+      uiWorkingWS.addChild(UIPortalComposer.class, null, null).setRendered(false);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
       uiToolPanel.setShowMaskLayer(false);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
@@ -68,6 +69,7 @@ public class UIMainActionListener {
       uiApp.setEditting(true);
       UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+      uiWorkingWS.addChild(UIPortalComposer.class, null, null).setRendered(false);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
       uiToolPanel.setShowMaskLayer(false);
       uiToolPanel.setWorkingComponent(UIPageCreationWizard.class, null);

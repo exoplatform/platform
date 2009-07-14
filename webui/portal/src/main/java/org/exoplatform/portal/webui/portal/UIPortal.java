@@ -70,8 +70,7 @@ import org.exoplatform.webui.event.EventListener;
       @EventConfig(listeners = ChangeSkinActionListener.class),
       @EventConfig(listeners = RecoveryPasswordAndUsernameActionListener.class),
       @EventConfig(listeners = UIPortal.AccountSettingsActionListener.class),
-      @EventConfig(listeners = UIPortalActionListener.PingActionListener.class),
-      @EventConfig(listeners = UIPortal.ChangePortalEditModeActionListener.class)
+      @EventConfig(listeners = UIPortalActionListener.PingActionListener.class)
     }
 )
 public class UIPortal extends UIContainer { 
@@ -290,13 +289,4 @@ public class UIPortal extends UIContainer {
     }
   }
   
-  static public class ChangePortalEditModeActionListener extends EventListener<UIPortal> {
-    public void execute(Event<UIPortal> event) throws Exception {
-      boolean isBlockMode;
-      try {
-        isBlockMode = Boolean.parseBoolean(event.getRequestContext().getRequestParameter("isBlockMode")) ;
-      } catch (Exception e) { isBlockMode = true; }
-      Util.getUIPortalApplication().setBlockEditMode(isBlockMode);
-    }
-  }
 }

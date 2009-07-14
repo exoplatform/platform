@@ -244,9 +244,9 @@ public class Util {
     setShowEditControl(uiParent, clazz);
     
     PortalRequestContext context = Util.getPortalRequestContext() ;
-    if(uiParent instanceof UIPortal){
+//    if(uiParent instanceof UIPortal){
       context.getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.showViewMode('"+layoutMode+"');") ;
-    }
+//    }
   }
   
   static public UIWorkingWorkspace updateUIApplication(Event<? extends UIComponent> event){

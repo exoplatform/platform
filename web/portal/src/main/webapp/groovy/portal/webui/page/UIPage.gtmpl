@@ -4,18 +4,18 @@
 %>
 
 <div class="UIPage" id="UIPage-${uicomponent.id}">
-<div class="UIComponent">
-	<div class="META-DATA-BLOCK" style="display: none">
-    <div class="id">$uicomponent.id</div>
-    <div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>
-    <div class="description"><%=_ctx.appRes("UIPage.label.description")%></div>
+  <div class="UIComponentBlock">
+		<div class="META-DATA-BLOCK" style="display: none">
+	    <div class="id">$uicomponent.id</div>
+	    <div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>
+	    <div class="description"><%=_ctx.appRes("UIPage.label.description")%></div>
+	  </div>
+		<div class="VIEW-PAGE">
+			<div id="UIPage">
+		    <div class="UIRowContainer">
+		      <%uicomponent.renderChildren()%>
+		    </div>
+			</div>
+	  </div>
   </div>
-	<div class="VIEW-PAGE">
-		<div id="UIPage">
-	    <div class="UIRowContainer">
-	      <%uicomponent.renderChildren()%>
-	    </div>
-		</div>
-  </div>
-</div>
 </div>

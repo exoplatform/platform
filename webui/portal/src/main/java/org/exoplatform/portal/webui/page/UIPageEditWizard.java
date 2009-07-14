@@ -30,6 +30,7 @@ import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.portal.UIPortalComposer;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -115,6 +116,9 @@ public class UIPageEditWizard extends UIPageWizard {
       uiWizard.updateWizardComponent();
       uiWizard.setDescriptionWizard(1);
       uiWizard.viewStep(1);
+      
+      UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
+      uiPortalApp.findFirstComponentOfType(UIPortalComposer.class).setRendered(false);
     }
   }
 
@@ -123,6 +127,7 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageWizard uiWizard = event.getSource();
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
       PortalRequestContext pcontext = Util.getPortalRequestContext();
+      uiPortalApp.findFirstComponentOfType(UIPortalComposer.class).setRendered(false);
 
       uiWizard.updateWizardComponent();
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
@@ -190,6 +195,7 @@ public class UIPageEditWizard extends UIPageWizard {
       UIPageEditWizard uiWizard = event.getSource();
       WebuiRequestContext context = event.getRequestContext();
       UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
+      uiPortalApp.findFirstComponentOfType(UIPortalComposer.class).setRendered(true);
       UIWizardPageSetInfo uiPageInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
       UserPortalConfigService userService = uiWizard.getApplicationComponent(UserPortalConfigService.class);
       if (uiPageInfo.getSelectedPageNode() == null) {
@@ -280,8 +286,8 @@ public class UIPageEditWizard extends UIPageWizard {
     public void execute(Event<UIPageEditWizard> event) throws Exception {
       UIPageEditWizard uiWizard = event.getSource();
       uiWizard.saveData();
-      UIPortalApplication uiPortalApp = event.getSource()
-                                             .getAncestorOfType(UIPortalApplication.class);
+      UIPortalApplication uiPortalApp = uiWizard.getAncestorOfType(UIPortalApplication.class);
+      uiPortalApp.findFirstComponentOfType(UIPortalComposer.class).setRendered(false);
       uiWizard.updateUIPortal(uiPortalApp, event);
     }
   }

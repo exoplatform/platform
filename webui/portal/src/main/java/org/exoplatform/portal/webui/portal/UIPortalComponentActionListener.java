@@ -26,7 +26,6 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIApplicationList;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.application.UIPortletOptions;
-import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 import org.exoplatform.portal.webui.container.UIContainerList;
 import org.exoplatform.portal.webui.login.UILogin;
 import org.exoplatform.portal.webui.login.UIResetPassword;
@@ -211,8 +210,8 @@ public class UIPortalComponentActionListener {
         List<UIComponent> children = uiTarget.getChildren();
         uiSource.setParent(uiTarget);
         children.add(position, uiSource);
-        if(uiApp.isBlockEditMode()) Util.showComponentLayoutMode(uiSource.getClass());
-        else Util.showComponentEditInViewMode(uiSource.getClass());
+//        if(uiApp.isBlockEditMode()) Util.showComponentLayoutMode(uiSource.getClass());
+//        else Util.showComponentEditInViewMode(uiSource.getClass());
         return;
       }
 
@@ -235,8 +234,8 @@ public class UIPortalComponentActionListener {
       uiParent.getChildren().remove(uiSource);
       uiTarget.getChildren().add(position, uiSource);
       uiSource.setParent(uiTarget);
-      if(uiApp.isBlockEditMode()) Util.showComponentLayoutMode(uiSource.getClass());
-      else Util.showComponentEditInViewMode(uiSource.getClass());
+//      if(uiApp.isBlockEditMode()) Util.showComponentLayoutMode(uiSource.getClass());
+//      else Util.showComponentEditInViewMode(uiSource.getClass());
     }
    
   }

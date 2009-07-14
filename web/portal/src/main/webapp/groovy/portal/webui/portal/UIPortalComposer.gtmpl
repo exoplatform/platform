@@ -42,7 +42,8 @@
 							            </div>
 							       		</div>
 							
-							      		<div onclick="eXo.portal.UIPortal.switchPortalMode(this);" class="ActionButton SimpleStyle1" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+							          <% String changeEditMode = uicomponent.doAsync("ChangePortalEditMode", null, null); %>
+							      		<div onclick="eXo.portal.UIPortal.switchPortalMode(this);$changeEditMode" class="ActionButton SimpleStyle1" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
 							            <div class="ButtonLeft">
 							              <div class="ButtonRight">
 							                <div class="ButtonMiddle">
@@ -72,3 +73,8 @@
 		  </div>
 	  </div>	
 </div>
+<script language="javascript">
+	eXo.env.isEditting = true;
+	eXo.env.isBlockEditMode = ${uicomponent.isBlockEditMode};
+	eXo.env.editType = ${uicomponent.isPortletEditType};
+</script>

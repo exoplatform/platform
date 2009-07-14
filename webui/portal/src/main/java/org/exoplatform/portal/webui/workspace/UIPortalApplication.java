@@ -79,10 +79,6 @@ public class UIPortalApplication extends UIApplication {
 
   private boolean            isSessionOpen     = false;
 
-  private boolean            isBlockEditMode   = true;
-
-  private boolean            isPortletEditType = true;
-
   /**
    * The constructor of this class is used to build the tree of UI components
    * that will be aggregated in the portal page. 1) The component is stored in
@@ -142,22 +138,6 @@ public class UIPortalApplication extends UIApplication {
     if (currentSkin != null && currentSkin.trim().length() > 0)
       skin_ = currentSkin;
     setOwner(context.getPortalOwner());
-  }
-
-  public boolean isBlockEditMode() {
-    return this.isBlockEditMode;
-  }
-
-  public void setBlockEditMode(boolean blockEditMode) {
-    this.isBlockEditMode = blockEditMode;
-  }
-
-  public boolean isPortletEditType() {
-    return this.isPortletEditType;
-  }
-
-  public void setPortletEditType(boolean editType) {
-    this.isPortletEditType = editType;
   }
 
   public boolean isSessionOpen() {
