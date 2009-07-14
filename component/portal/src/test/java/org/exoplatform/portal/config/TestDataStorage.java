@@ -22,6 +22,7 @@ import java.util.List;
 
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.portal.application.PortletPreferences;
+import org.exoplatform.portal.application.Preference;
 import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesSet;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
@@ -41,6 +42,8 @@ public class TestDataStorage extends BasicTestCase {
 
 	private final String testPortal = "testPortal";
 	private final String testPage = "portal::classic::testPage";
+	private final String testPortletPreferences = "portal#classic:/web/BannerPortlet/testPortletPreferences";
+	
   DataStorage storage_;
 
   public TestDataStorage(String name) {
@@ -152,195 +155,73 @@ public class TestDataStorage extends BasicTestCase {
   }
 
   public void testNavigationSave() throws Exception {
-    saveNavigation(PortalConfig.PORTAL_TYPE, "portalone");
-    saveNavigation(PortalConfig.USER_TYPE, "exoadmin");
-    saveNavigation(PortalConfig.GROUP_TYPE, "portal/admin");
-  }
-
-  private void saveNavigation(String ownerType, String ownerId) throws Exception {
-    PageNavigation navi = loadNavigation(ownerType, ownerId);
-    String modifier = "exoadmin";
-    navi.setModifier(modifier);
-    assertEquals(modifier, navi.getModifier());
-    storage_.create(navi);
-
-    String newModifier = "Tung.Pham";
-    navi.setModifier(newModifier);
-    storage_.save(navi);
-    PageNavigation afterSaveNavi = storage_.getPageNavigation(navi.getOwnerType(),
-                                                              navi.getOwnerId());
-    assertEquals(newModifier, afterSaveNavi.getModifier());
-    assertEquals(navi.getModifier(), afterSaveNavi.getModifier());
-    assertEquals(navi.getNodes().size(), afterSaveNavi.getNodes().size());
-
-    storage_.remove(navi);
+  	PageNavigation pageNavi = storage_.getPageNavigation("portal", testPortal);
+  	assertNotNull(pageNavi);
+ 
+  	String newModifier = "trong.tran";
+  	pageNavi.setModifier(newModifier);
+  	storage_.save(pageNavi);
+  	
+  	PageNavigation newPageNavi = storage_.getPageNavigation(pageNavi.getOwnerType(), pageNavi.getOwnerId());
+  	assertEquals(newModifier, newPageNavi.getModifier());
   }
 
   public void testNavigationRemove() throws Exception {
-    removeNavigation(PortalConfig.PORTAL_TYPE, "portalone");
-    removeNavigation(PortalConfig.USER_TYPE, "exoadmin");
-    removeNavigation(PortalConfig.GROUP_TYPE, "portal/admin");
-  }
-
-  private void removeNavigation(String ownerType, String ownerId) throws Exception {
-    PageNavigation navi = loadNavigation(ownerType, ownerId);
-    storage_.create(navi);
-    storage_.remove(navi);
-    storage_.create(navi);
-    storage_.remove(navi);
+  	PageNavigation pageNavi = storage_.getPageNavigation("portal", testPortal);
+  	assertNotNull(pageNavi);
+  	
+  	storage_.remove(pageNavi);
+  	
+  	pageNavi = storage_.getPageNavigation("portal", testPortal);
+  	assertNull(pageNavi);
   }
 
   public void testPortletPreferencesCreate() throws Exception {
-    List<PortletPreferences> prefList = loadPortletPreferences(PortalConfig.PORTAL_TYPE,
-                                                               "portalone");
-    for (PortletPreferences ele : prefList) {
-      storage_.save(ele);
-    }
-
-    for (PortletPreferences ele : prefList) {
-      storage_.save(ele);
-    }
-
-    for (PortletPreferences ele : prefList) {
-      ExoWindowID exoWindowID = new ExoWindowID(ele.getWindowId());
-      PortletPreferences pref = storage_.getPortletPreferences(exoWindowID);
-      assertNotNull(pref);
-      assertEquals(ele.getOwnerId(), pref.getOwnerId());
-      assertEquals(ele.getOwnerType(), pref.getOwnerType());
-      assertEquals(ele.getOwnerId(), pref.getOwnerId());
-    }
-
-    for (PortletPreferences ele : prefList) {
-      storage_.remove(ele);
-    }
+  	ArrayList<Preference> prefs = new ArrayList<Preference>();
+  	for(int i = 0; i < 5; i++) {
+  		Preference pref = new Preference();
+  		pref.setName("name" + i);
+  		pref.addValue("value" + i);
+  		prefs.add(pref);
+  	}
+  	
+  	PortletPreferences portletPreferences = new PortletPreferences();
+  	portletPreferences.setWindowId(testPortletPreferences);
+  	portletPreferences.setOwnerId("classic");
+  	portletPreferences.setOwnerType("portal");
+  	portletPreferences.setPreferences(prefs);
+  	
+  	storage_.save(portletPreferences);
+  	
+  	PortletPreferences portletPref = storage_.getPortletPreferences(new ExoWindowID(testPortletPreferences));
+  	assertEquals(portletPref.getWindowId(), testPortletPreferences);
   }
 
   public void testPortletPreferencesSave() throws Exception {
-    List<PortletPreferences> prefList = loadPortletPreferences(PortalConfig.PORTAL_TYPE,
-                                                               "portalone");
-    for (PortletPreferences ele : prefList) {
-      storage_.save(ele);
-    }
-
-    String newValidator = "NewValidator";
-    for (int i = 0; i < prefList.size(); i++) {
-      PortletPreferences ele = prefList.get(i);
-      ele.setPreferencesValidator(newValidator + i);
-      storage_.save(ele);
-    }
-
-    for (int i = 0; i < prefList.size(); i++) {
-      PortletPreferences ele = prefList.get(i);
-      ExoWindowID exoWindowID = new ExoWindowID(ele.getWindowId());
-      PortletPreferences afterSavePref = storage_.getPortletPreferences(exoWindowID);
-      assertEquals(newValidator + i, afterSavePref.getPreferencesValidator());
-    }
-
-    for (PortletPreferences ele : prefList) {
-      storage_.remove(ele);
-    }
+  	PortletPreferences portletPref = storage_.getPortletPreferences(new ExoWindowID(testPortletPreferences));
+  	assertNotNull(portletPref);
+  	
+  	List<Preference> prefs = portletPref.getPreferences();
+  	assertNotNull(prefs);
+  	assertEquals(5, prefs.size());
   }
 
   public void testPortletPreferencesRemove() throws Exception {
-    List<PortletPreferences> prefList = loadPortletPreferences(PortalConfig.PORTAL_TYPE,
-                                                               "portalone");
-    for (PortletPreferences ele : prefList) {
-      storage_.save(ele);
-    }
+  	PortletPreferences portletPref = storage_.getPortletPreferences(new ExoWindowID(testPortletPreferences));
+  	assertNotNull(portletPref);
+  	
+  	storage_.remove(portletPref);
 
-    for (PortletPreferences ele : prefList) {
-      ExoWindowID exoWindowID = new ExoWindowID(ele.getWindowId());
-      PortletPreferences pref = storage_.getPortletPreferences(exoWindowID);
-      assertNotNull(pref);
-    }
-
-    for (PortletPreferences ele : prefList) {
-      storage_.remove(ele);
-    }
-
-    for (PortletPreferences ele : prefList) {
-      ExoWindowID exoWindowID = new ExoWindowID(ele.getWindowId());
-      assertNull(storage_.getPortletPreferences(exoWindowID));
-    }
+  	portletPref = storage_.getPortletPreferences(new ExoWindowID(testPortletPreferences));
+  	assertNull(portletPref);
   }
 
   @SuppressWarnings("unchecked")
   public void testFind() throws Exception {
     Query<Page> query = new Query<Page>(null, null, Page.class);
     List<Page> findedPages = storage_.find(query).getAll();
-    for (Page findedPage : findedPages) {
-      storage_.remove(findedPage);
-    }
-    
-    List<Page> pages = loadPages(PortalConfig.USER_TYPE, "exoadmin");
-    for (Page page : pages) {
-      storage_.create(page);
-    }
-    
+
     findedPages = storage_.find(query).getAll();
-    assertEquals(pages.size(), findedPages.size());
-
-    for (int i = 0; i < findedPages.size(); i++) {
-      Page existingPage = pages.get(i);
-      Page findedPage = findedPages.get(i);
-      assertEquals(existingPage.getName(), findedPage.getName());
-      assertEquals(existingPage.getPageId(), findedPage.getPageId());
-      assertEquals(existingPage.getOwnerType(), findedPage.getOwnerType());
-      assertEquals(existingPage.getOwnerId(), findedPage.getOwnerId());
-      assertEquals(existingPage.getChildren().size(), findedPage.getChildren().size());
-      storage_.remove(findedPage);
-    }
+    assertTrue(findedPages.size() > 0);
   }
-
-  //----------------------------------------------------------------------------
-  // --------------//
-
-  private PageNavigation loadNavigation(String ownerType, String ownerId) throws Exception {
-    String navigationFile = "";
-    if (PortalConfig.PORTAL_TYPE.equals(ownerType)) {
-      navigationFile = "PortalApp/" + ownerId + "/navigation.xml";
-    } else if (PortalConfig.USER_TYPE.equals(ownerType)) {
-      navigationFile = "user/" + ownerId + "/navigation.xml";
-    } else if (PortalConfig.GROUP_TYPE.equals(ownerType)) {
-      navigationFile = "group/" + ownerId + "/navigation.xml";
-    }
-    PageNavigation navigation = loadObject(PageNavigation.class, navigationFile);
-
-    return navigation;
-  }
-
-  private List<Page> loadPages(String ownerType, String ownerId) throws Exception {
-    String pageSetFile = "";
-    if (PortalConfig.PORTAL_TYPE.equals(ownerType)) {
-      pageSetFile = "portal/portal/" + ownerId + "/pages.xml";
-    } else if (PortalConfig.USER_TYPE.equals(ownerType)) {
-      pageSetFile = "portal/user/" + ownerId + "/pages.xml";
-    } else if (PortalConfig.GROUP_TYPE.equals(ownerType)) {
-      pageSetFile = "portal/group/" + ownerId + "/pages.xml";
-    }
-    PageSet pageSet = loadObject(PageSet.class, pageSetFile);
-
-    return pageSet.getPages();
-  }
-
-  private List<PortletPreferences> loadPortletPreferences(String ownerType, String ownerId) throws Exception {
-    String filePath = "";
-    if (PortalConfig.PORTAL_TYPE.equals(ownerType)) {
-      filePath = "PortalApp/" + ownerId + "/portlet-preferences.xml";
-    } else if (PortalConfig.GROUP_TYPE.equals(ownerType)) {
-      filePath = "group/" + ownerId + "/portlet-preferences.xml";
-    }
-    PortletPreferencesSet set = loadObject(PortletPreferencesSet.class, filePath);
-    return set.getPortlets();
-  }
-
-  @SuppressWarnings("unchecked")
-  private <T> T loadObject(Class<T> clazz, String file) throws Exception {
-    IBindingFactory bfact = BindingDirectory.getFactory(clazz);
-    IUnmarshallingContext uctx = bfact.createUnmarshallingContext();
-    FileInputStream is = new FileInputStream("src/test/resources/" + file);
-
-    return (T) uctx.unmarshalDocument(is, null);
-  }
-
 }

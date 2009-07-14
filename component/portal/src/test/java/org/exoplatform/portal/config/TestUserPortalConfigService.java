@@ -37,25 +37,25 @@ import org.jibx.runtime.IUnmarshallingContext;
  */
 public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   
-  private UserPortalConfigService service_; 
+  private UserPortalConfigService userPortalConfigSer_; 
   
   public TestUserPortalConfigService(String name){
     super(name);
   }
   
   public void setUp() throws Exception {
-    if(service_ != null) return;
+    if(userPortalConfigSer_ != null) return;
     PortalContainer manager  = PortalContainer.getInstance();      
-    service_ = (UserPortalConfigService) manager.getComponentInstanceOfType(UserPortalConfigService.class) ;
+    userPortalConfigSer_ = (UserPortalConfigService) manager.getComponentInstanceOfType(UserPortalConfigService.class) ;
     orgService_ = (OrganizationService) manager.getComponentInstanceOfType(OrganizationService.class);
   }
   
   public void tearDown() throws Exception { 
     String newName = "newportal" ;
-    UserPortalConfig portal = service_.getUserPortalConfig(newName, "root") ;
+    UserPortalConfig portal = userPortalConfigSer_.getUserPortalConfig(newName, "root") ;
     if(portal != null) {
-	    service_.removeUserPortalConfig(newName) ;
-	    assertNull(service_.getUserPortalConfig(newName, "none")) ;
+	    userPortalConfigSer_.removeUserPortalConfig(newName) ;
+	    assertNull(userPortalConfigSer_.getUserPortalConfig(newName, "none")) ;
     }
   }
   
@@ -64,8 +64,8 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     String portalTemplate = "classic" ;
     String newName = "newportal" ;
     
-    service_.createUserPortalConfig(newName, portalTemplate) ;
-    UserPortalConfig newportal = service_.getUserPortalConfig(newName, "root");
+    userPortalConfigSer_.createUserPortalConfig(newName, portalTemplate) ;
+    UserPortalConfig newportal = userPortalConfigSer_.getUserPortalConfig(newName, "root");
     
     PortalConfig newPortalConfig = newportal.getPortalConfig() ;
     assertEquals(newName, newPortalConfig.getName()) ;
@@ -73,7 +73,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   }
 
   public void testGetUserPortalConfig() throws Exception {
-    UserPortalConfig userPortalConfig = service_.getUserPortalConfig("classic" ,"root");
+    UserPortalConfig userPortalConfig = userPortalConfigSer_.getUserPortalConfig("classic" ,"root");
     PortalConfig portalConfig = userPortalConfig.getPortalConfig();
     
     assertTrue(portalConfig != null);
@@ -81,8 +81,8 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   
   public void testPortalConfigUpdate() throws Exception {
     String portalName = "newportal" ;
-    service_.createUserPortalConfig(portalName, "classic") ;
-    UserPortalConfig oldUserPortalConfig = service_.getUserPortalConfig(portalName, "root") ;
+    userPortalConfigSer_.createUserPortalConfig(portalName, "classic") ;
+    UserPortalConfig oldUserPortalConfig = userPortalConfigSer_.getUserPortalConfig(portalName, "root") ;
     PortalConfig oldPortalConfig = oldUserPortalConfig.getPortalConfig() ;
     assertEquals(portalName, oldPortalConfig.getName()) ;
     assertEquals("en", oldPortalConfig.getLocale()) ;
@@ -93,9 +93,9 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     
     String newLocate = "vi" ;
     oldPortalConfig.setLocale(newLocate) ;
-    service_.update(oldPortalConfig) ;
+    userPortalConfigSer_.update(oldPortalConfig) ;
     
-    UserPortalConfig newUserPortalConfig = service_.getUserPortalConfig(portalName, "root") ;
+    UserPortalConfig newUserPortalConfig = userPortalConfigSer_.getUserPortalConfig(portalName, "root") ;
     PortalConfig newPortalConfig = newUserPortalConfig.getPortalConfig() ;
     assertEquals(portalName, oldPortalConfig.getName()) ;
     assertEquals(newLocate, newPortalConfig.getLocale()) ;
@@ -108,7 +108,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     String portalName = "classic" ;
     String accessUser = "root" ;
     
-    UserPortalConfig oldUserPortalConfig = service_.getUserPortalConfig(portalName, accessUser) ;
+    UserPortalConfig oldUserPortalConfig = userPortalConfigSer_.getUserPortalConfig(portalName, accessUser) ;
     List<PageNavigation> oldNavigations = oldUserPortalConfig.getNavigations() ;
     assertTrue(oldNavigations.size() > 0);
 
@@ -116,45 +116,30 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     String newDescription = "This is new description.";
     for (PageNavigation navi : oldNavigations) {
       navi.setDescription(newDescription) ;
-      service_.update(navi) ;
+      userPortalConfigSer_.update(navi) ;
     }
     
-    UserPortalConfig newUserPortalConfig = service_.getUserPortalConfig(portalName, accessUser) ;
+    UserPortalConfig newUserPortalConfig = userPortalConfigSer_.getUserPortalConfig(portalName, accessUser) ;
     List<PageNavigation> newNavigations = newUserPortalConfig.getNavigations() ;
     assertTrue(newNavigations.size() > 0);
     
     PageNavigation portalNavigation = newNavigations.get(0) ;
     assertEquals(newDescription, portalNavigation.getDescription()) ;
-    
-    PageNavigation userNavigation = newNavigations.get(0) ;
-    assertEquals(newDescription, userNavigation.getDescription()) ;
-    
-    // Add new node
-    PageNode pn = new PageNode() ;
-    pn.setUri("myaccount") ;
-    pn.setName("myaccount") ;
-    pn.setPageReference("group::company::myaccount") ;
-    userNavigation.addNode(pn) ;
-    
-    service_.update(userNavigation) ;    
-    newUserPortalConfig = service_.getUserPortalConfig(portalName, accessUser) ;
-    newNavigations = newUserPortalConfig.getNavigations() ;
-    assertTrue(newNavigations.size() > 1) ;
   }
   
   public void testNavigationRemove() throws Exception {
     String portalName = "classic" ;
     String accessUser = "exoadmin" ;
     
-    UserPortalConfig oldUserPortalConfig = service_.getUserPortalConfig(portalName, accessUser) ;
+    UserPortalConfig oldUserPortalConfig = userPortalConfigSer_.getUserPortalConfig(portalName, accessUser) ;
     List<PageNavigation> oldNavigations = oldUserPortalConfig.getNavigations() ;
     assertEquals(1, oldNavigations.size()) ;
 
     // Remove navigation of the portal
     PageNavigation portalNavigation = oldNavigations.get(0) ;
-    service_.remove(portalNavigation) ;
+    userPortalConfigSer_.remove(portalNavigation) ;
     
-    UserPortalConfig newUserPortalConfig = service_.getUserPortalConfig(portalName, accessUser) ;
+    UserPortalConfig newUserPortalConfig = userPortalConfigSer_.getUserPortalConfig(portalName, accessUser) ;
     List<PageNavigation> newNavigations = newUserPortalConfig.getNavigations() ;
     assertEquals(0, newNavigations.size()) ;
 //    PageNavigation userNavigation = newNavigations.get(0) ;
@@ -202,7 +187,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
   public void testPageGet() throws Exception {
     this.prepareOrganizationData();
     String pageId = "group::platform/administrators::newAccount" ;
-    Page page = service_.getPage(pageId);
+    Page page = userPortalConfigSer_.getPage(pageId);
     assertNotNull(page);
     assertEquals(pageId, page.getPageId()) ;
   }
@@ -214,13 +199,13 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
       String sitePortalPageId = "portal::classic::" + pageName ;
       // TODO
       //Page page = service_.getPage(sitePortalPageId, accessUser) ;
-      Page page = service_.getPage(sitePortalPageId) ;
+      Page page = userPortalConfigSer_.getPage(sitePortalPageId) ;
       String newTitle = "New title of " + pageName ;
       page.setTitle(newTitle) ;
-      service_.update(page) ;
+      userPortalConfigSer_.update(page) ;
       
       //Page returnPage = service_.getPage(sitePortalPageId, accessUser) ;
-      Page returnPage = service_.getPage(sitePortalPageId) ;
+      Page returnPage = userPortalConfigSer_.getPage(sitePortalPageId) ;
       assertEquals(sitePortalPageId, returnPage.getPageId()) ;
     }
   }
@@ -233,18 +218,18 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
     for (String pageName : sitePortalPageNames) {
       String sitePortalPageId = "portal::classic::" + pageName ;
       //Page page = service_.getPage(sitePortalPageId, accessUser) ;
-      Page page = service_.getPage(sitePortalPageId, accessUser) ;
+      Page page = userPortalConfigSer_.getPage(sitePortalPageId, accessUser) ;
       if (page != null) pages.add(page) ;
     }
     assertEquals(1, pages.size()) ;
     
     //Page deletePage = service_.getPage("portal::classic::homepage", accessUser) ;
-    Page deletePage = service_.getPage("portal::classic::homepage") ;
-    service_.remove(deletePage) ;
+    Page deletePage = userPortalConfigSer_.getPage("portal::classic::homepage") ;
+    userPortalConfigSer_.remove(deletePage) ;
     pages = new ArrayList<Page>() ;
     for (String pageName : sitePortalPageNames) {
       String sitePortalPageId = "portal::classic::" + pageName ;
-      Page page = service_.getPage(sitePortalPageId, accessUser) ;
+      Page page = userPortalConfigSer_.getPage(sitePortalPageId, accessUser) ;
       if (page != null) pages.add(page) ;
     }
     assertEquals(0, pages.size()) ;

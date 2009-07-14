@@ -67,7 +67,7 @@ public class PortletPreferences  {
   public String getPreferencesValidator() { return preferencesValidator; }
   public void setPreferencesValidator(String validator) { preferencesValidator = validator; }
   
-  public List<?> getPreferences() { return preferences ; }
+  public ArrayList<Preference> getPreferences() { return preferences ; }
   public void setPreferences(ArrayList<Preference> l) { preferences = l ; }
   
   public String getOwnerId() { return ownerId; }
