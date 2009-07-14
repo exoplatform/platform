@@ -18,19 +18,16 @@ package org.exoplatform.portal.webui.workspace;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
-import org.exoplatform.portal.webui.UIManagement.ManagementMode;
-import org.exoplatform.portal.webui.navigation.UIPageManagement;
+import org.exoplatform.portal.webui.page.UIPageBrowser;
 import org.exoplatform.portal.webui.page.UIPageCreationWizard;
 import org.exoplatform.portal.webui.page.UIPageEditWizard;
-import org.exoplatform.portal.webui.page.UIWizardPageCreationBar;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.portal.UIPortalBrowser;
 import org.exoplatform.portal.webui.portal.UIPortalComposer;
 import org.exoplatform.portal.webui.portal.UIPortalForm;
-import org.exoplatform.portal.webui.portal.UIPortalManagement;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.ApplicationMessage;
-import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -119,7 +116,14 @@ public class UIMainActionListener {
 
   static public class BrowsePortalActionListener extends EventListener<UIWorkingWorkspace> {
     public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      System.out.println("\n\n\nThis action is not implemented");
+      UIPortalApplication uiApp = Util.getUIPortalApplication();
+      uiApp.setEditting(true);
+      UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
+      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
+      uiToolPanel.setShowMaskLayer(false);
+      UIPortalBrowser uiPortalBrowser = uiToolPanel.createUIComponent(UIPortalBrowser.class, null, null);
+      uiToolPanel.setUIComponent(uiPortalBrowser);
+      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
     }
   }
 
@@ -169,7 +173,15 @@ public class UIMainActionListener {
 
   static public class BrowsePageActionListener extends EventListener<UIWorkingWorkspace> {
     public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      System.out.println("\n\n\nThis action is not implemented");
+      UIPortalApplication uiApp = Util.getUIPortalApplication();
+      uiApp.setEditting(true);
+      UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
+      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
+      uiToolPanel.setShowMaskLayer(false);
+      UIPageBrowser uiPageBrowser = uiToolPanel.createUIComponent(UIPageBrowser.class, null, null) ;
+      uiToolPanel.setUIComponent(uiPageBrowser);
+      uiPageBrowser.setShowAddNewPage(true);    
+      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
     }
   }
 

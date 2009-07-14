@@ -45,7 +45,8 @@ import org.exoplatform.webui.event.EventListener;
   template = "app:/groovy/portal/webui/portal/UIPortalBrowser.gtmpl",
   events = { 
       @EventConfig(listeners = UIPortalBrowser.AddNewPortalActionListener.class),
-      @EventConfig(listeners = UIPortalBrowser.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal")
+      @EventConfig(listeners = UIPortalBrowser.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal"),
+      @EventConfig(listeners = UIPortalBrowser.BackActionListener.class)
   }
 )
 public class UIPortalBrowser extends UIContainer {
@@ -150,5 +151,20 @@ public class UIPortalBrowser extends UIContainer {
       uiMaskWS.setShow(true);
       prContext.addUIComponentToUpdateByAjax(uiMaskWS);
     }
+  }
+  
+  static public class BackActionListener extends EventListener<UIPortalBrowser> {
+
+    public void execute(Event<UIPortalBrowser> event) throws Exception {
+      UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+      uiPortalApp.setEditting(false);
+      UIPortal uiPortal = Util.getUIPortal();
+      String uri = uiPortal.getSelectedNavigation().getId() + "::" + uiPortal.getSelectedNode().getUri();
+      PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal,
+                                                                    PageNodeEvent.CHANGE_PAGE_NODE,
+                                                                    uri);
+      uiPortal.broadcast(pnevent, Event.Phase.PROCESS);
+    }
+    
   }
 }
