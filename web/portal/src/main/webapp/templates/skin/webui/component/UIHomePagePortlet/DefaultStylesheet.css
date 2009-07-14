@@ -33,15 +33,15 @@
 }
 
 .TRContainer .DownloadButtonLeft {
-	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -1633px;
-	padding-left: 8px;
+	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -1632px;
+	padding-left: 9px;
 	margin: 0 30px;
 	cursor: pointer;
 }
 
 .TRContainer .DownloadButtonRight {
 	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat right -1498px;
-	padding-right: 8px;
+	padding-right: 9px;
 }
 
 .TRContainer .DownloadButtonMiddle {
@@ -52,8 +52,8 @@
 }
 
 .TRContainer .DropdownDownloadButton {
-	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -1767px;
-	height: 22px;
+	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -1744px;
+	height: 23px;
 	width: 31px;
 	margin: 0 auto;
 }
@@ -147,8 +147,8 @@
 }
 
 .UIHomePagePortlet .HomePortletContent .LeftAccountsContainer {
-	padding-left: 2px; /* orientation=lt */
-	padding-right: 2px; /* orientation=rt */
+	padding-left: 3px; /* orientation=lt */
+	padding-right: 3px; /* orientation=rt */
 	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat left -529px; /* orientation=lt */
 	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat right -529px; /* orientation=rt */
 }
@@ -156,8 +156,9 @@
 .UIHomePagePortlet .HomePortletContent .RightAccountsContainer {
 	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -799px; /* orientation=lt */
 	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat left -799px; /* orientation=rt */
-	padding-right: 2px; /* orientation=lt */
-	padding-left: 2px; /* orientation=rt */
+	padding-right: 3px; /* orientation=lt */
+	_padding-right: 0px; /* orientation=lt */
+	padding-left: 3px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .MiddleAccountsContainer {
