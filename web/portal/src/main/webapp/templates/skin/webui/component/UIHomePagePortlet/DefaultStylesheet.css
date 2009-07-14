@@ -1,5 +1,5 @@
 .UIHomePagePortlet {	
-	margin: 3px 5px 5px; /* orientation=lt */
+	margin: 3px 5px 5px; 
 }
 
 .UIHomePagePortlet .TRContainer .PortletDecoration {	
@@ -31,15 +31,6 @@
 	width: 182px;
 	margin: 10.5px auto;
 }
-
-.TRContainer .DownloadButton {
-	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -998px;
-	height: 101px;
-	cursor: pointer;
-	width: 135px;
-	margin: 0 auto;
-}
-
 
 .TRContainer .DownloadButtonLeft {
 	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -1633px;
@@ -106,10 +97,9 @@
 	text-align: center;
 }
 
-
 .UIHomePagePortlet .TLContainer .PortletDecoration {	
 	background-color: #ffffff;
-	padding: 7px 7px 10px 7px;
+	padding: 7px 7px 12px 7px;
 	border: 1px solid #C6C6C6;
 }
 
@@ -253,6 +243,7 @@
 	color: #454e56;
 	line-height: 40px;
 }
+
 .ClearBoth {
 	clear: left; /* orientation=lt */
 }
