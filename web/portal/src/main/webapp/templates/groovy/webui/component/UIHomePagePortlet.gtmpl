@@ -1,21 +1,23 @@
 <div class="UIHomePagePortlet" id="$uicomponent.id">
-	<!-- Right Container -->
 	<div class="TRContainer">
 		<div class="PortletDecoration">					
 			<div class="GuideText">To test, you can either <a style="font-weight: bold; color: #888a8c;" href="#">register</a> or <span style="color: #888a8c; font-weight: bold;">use the Demo Account</span> <b style="color: #f95106;">Login:</b> <i>demo</i>, <b style="color: #f95106;">Password:</b> <i>exo</i></div>
-			<div class="DotLine"><span></span></div>			
+			<div class="DotLine"><span></span></div>
+			
 			<div class="DownloadButtonLeft">
 				<div class="DownloadButtonRight">
 					<div class="DownloadButtonMiddle">
 						<div class="DropdownDownloadButton"><span></span></div>
-						<a class="DownloadTextOnButton" href="#"><b style="color: #ffffff; font-size: 15px; font-weight:bold;">Download</b><span style="color: #ffffff; font-size: 11px; "> Commnity Version </span></a>	
+						<a class="DownloadTextOnButton" href="#"><b style="color: #ffffff; font-size: 18px;">Download</b><span style="color: #ffffff; font-size: 11px; "> Commnity Version </span></a>	
 					</div>
 				</div>
-			</div>			
+			</div>
+			
+			
 			<div class="GuideText">eXo PORTAL is open source and FREE for download</div>
 			<div class="DotLine"><span></span></div>
 			<div class="VersionIcon"><span></span></div>
-			<div class="GuideText">For support, check our <a style="color:#F95106; font-family:Arial; font-weight:bold;" href="#">professional version</a></div>			
+			<div class="GuideText">For support, check our <a style="color:#F95106; font-family:tahoma; font-weight:bold;" href="#">professional version</a></div>			
 			<div class="DotLine"><span></span></div>                                
 			<div class="ButtonLeft">
 				<div class="ButtonRight">
@@ -33,17 +35,19 @@
 				</div>
 			</div>							
 		</div>
-	</div>	
-	<!-- Left Container -->
+	</div>
 	<div class="TLContainer">
-		<div class="PortletDecoration">		
+		<div class="PortletDecoration">
 		
 			<div class="HomePortletAdBackround">
-				<div class="AdImageRight">
-					<div class="EmptyBlock"><span></span></div>
-					<div class="ProductSlogan"><%=_ctx.appRes("UIHomePagePortlet.Label.Slogan")%></div>
+				<div class="AdImageLeft">
+					<div class="AdImageRight">
+						<div class="EmptyBlock"><span></span></div>
+						<div class="ProductSlogan"><%=_ctx.appRes("UIHomePagePortlet.Label.Slogan")%></div>
+					</div>
 				</div>
-			</div>			
+			</div>
+			
 			<div class="HomePortletContent">
 				<div class="LeftAccountsContainer">
 					<div class="RightAccountsContainer">
@@ -110,8 +114,9 @@
 						</div>
 					</div>
 				</div>
-			</div>				
-		</div>
-		<div style="clear:right"><span></span></div>
-	</div>			
+			</div>
+			
+		</div>	
+	</div>	
+	<div class="ClearBoth"><span></span></div>
 </div>
