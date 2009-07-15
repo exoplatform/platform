@@ -238,6 +238,15 @@
 	width:19px;
 }
 
+.UIPortalComposer .UnSaveButton {
+	background:transparent url(background/UnSaveIcon.gif) no-repeat scroll right bottom;
+	cursor:pointer;
+	float:right;
+	height:15px;
+	margin:5px 3px 0 0;
+	width:19px;
+}
+
 .UIPortalComposer .PopupTitle {
 	background:none ;
 	margin:4px 42px 0px 26px;

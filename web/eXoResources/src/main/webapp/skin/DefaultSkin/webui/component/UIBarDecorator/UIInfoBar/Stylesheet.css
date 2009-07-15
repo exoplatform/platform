@@ -41,12 +41,12 @@
 
 .UIInfoBar .BlueRoundedStyle .LeftBar {
 	background: url('background/ViewBlockBar.png') no-repeat left top;
-	padding: 0px 0px 0px 3px;
+	padding: 0px 0px 0px 7px;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {
-	background: url('background/ViewBlockBar.png') no-repeat right top;
-	padding: 0px 3px 0px 0px;
+	background: url('background/ViewBlockBar.png') no-repeat right -26px;
+	padding: 0px 7px 0px 0px;
 }
 
 .UIInfoBar .BlueRoundedStyle .MiddleBar {

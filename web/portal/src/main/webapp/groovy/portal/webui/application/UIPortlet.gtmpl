@@ -20,9 +20,7 @@
   if(!isDesktop && rcontext.getUIApplication().isEditting()) {
 %>
 	<div class="UIPortlet" id="UIPortlet-$portletId" onmouseover="eXo.portal.UIPortal.blockOnMouseOver(event, this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(event, this, false);">
-		<div class="NormalContainerBlock">
-			<div class="LeftContainerBlock">
-				<div class="RightContainerBlock UIComponentBlock">
+				<div class="UIComponentBlock">
 				
 				  <div class="META-DATA-BLOCK" style="display: none">
 				    <div class="id"><%=uicomponent.getId();%></div>
@@ -329,7 +327,5 @@
 			    </div>
 			    
 				</div>
-			</div>
-		</div>
 	</div>
 <%}%>

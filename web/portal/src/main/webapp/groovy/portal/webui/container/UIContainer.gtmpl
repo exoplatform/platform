@@ -15,7 +15,7 @@
 	if(cssStyle.length() > 0) cssStyle += "\"";
 %>
 
-<div class="UIContainer" id="UIContainer-${uicomponent.id}" ${cssStyle} onmouseover="eXo.portal.UIPortal.blockOnMouseOver(event, this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(event, this, false);">
+<div class="UIContainer <%=rcontext.getUIApplication().isEditting()?"EdittingContainer":""%>" id="UIContainer-${uicomponent.id}" ${cssStyle} onmouseover="eXo.portal.UIPortal.blockOnMouseOver(event, this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(event, this, false);">
 	<div class="NormalContainerBlock">
 		<div class="LeftContainerBlock">
 			<div class="RightContainerBlock UIComponentBlock">

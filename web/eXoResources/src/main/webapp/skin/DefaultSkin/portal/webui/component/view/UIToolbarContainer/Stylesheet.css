@@ -14,15 +14,6 @@
 	background: none;
 }
 
-.UIToolbarContainer .NormalContainerBlock {
-	background: none;
-	border: none;
-}
-
-.UIToolbarContainer .NormalContainerBlock .RightContainerBlock {
-	padding: 0px;
-}
-
 .UIToolbarContainer .ToolbarContainer .TRContainer {
 	height: 30px;
 }
