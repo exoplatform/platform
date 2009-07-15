@@ -16,8 +16,9 @@
  */
 package org.exoplatform.portal.gadget.core;
 
-import org.apache.shindig.common.JsonContainerConfig;
-import org.apache.shindig.common.ContainerConfigException;
+import org.apache.shindig.config.ContainerConfigException;
+import org.apache.shindig.config.JsonContainerConfig;
+import org.apache.shindig.expressions.Expressions;
 import org.apache.shindig.auth.BlobCrypterSecurityTokenDecoder;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.container.monitor.jvm.J2EEServerInfo;
@@ -62,8 +63,8 @@ public class ExoContainerConfig extends JsonContainerConfig {
   private static volatile String _keyPath;
 
   @Inject
-  public ExoContainerConfig(@Named("shindig.containers.default") String s) throws ContainerConfigException {
-    super(s);
+  public ExoContainerConfig(@Named("shindig.containers.default") String s, Expressions expressions) throws ContainerConfigException {
+    super(s, expressions);
 
     //
     J2EEServerInfo info = new J2EEServerInfo();
@@ -127,12 +128,19 @@ public class ExoContainerConfig extends JsonContainerConfig {
 
 
   @Override
-  public Object getJson(String container, String parameter) {
-    if (parameter.equals(BlobCrypterSecurityTokenDecoder.SECURITY_TOKEN_KEY_FILE) && _keyPath != null) {
-      return _keyPath;
+  public Object getProperty(String container, String property) {
+    if (property.equals(BlobCrypterSecurityTokenDecoder.SECURITY_TOKEN_KEY_FILE) && _keyPath != null) {
+    return _keyPath;
     }
-    return super.getJson(container, parameter);
+    return super.getProperty(container, property);
   }
+//  @Override
+//  public Object getJson(String container, String parameter) {
+//    if (parameter.equals(BlobCrypterSecurityTokenDecoder.SECURITY_TOKEN_KEY_FILE) && _keyPath != null) {
+//      return _keyPath;
+//    }
+//    return super.getJson(container, parameter);
+//  }
 
   /**
    * It's not public as we don't want to expose it to the outter world. The fact that this class

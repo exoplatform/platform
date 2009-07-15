@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
   Licensed to the Apache Software Foundation (ASF) under one
   or more contributor license agreements.  See the NOTICE file
@@ -17,17 +17,22 @@
   specific language governing permissions and limitations
   under the License.
 -->
-<!DOCTYPE web-app
-    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
-    "http://java.sun.com/dtd/web-app_2_3.dtd">
-
-<web-app>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         id="Shindig"
+         version="2.5">
   <!-- configuration -->
   <!-- If you have your own Guice module(s), put them here as a colon-separated list. -->
   <context-param>
     <param-name>guice-modules</param-name>
     <param-value>
-      org.apache.shindig.common.PropertiesModule:org.apache.shindig.gadgets.DefaultGuiceModule:org.apache.shindig.social.core.config.SocialApiGuiceModule:org.exoplatform.portal.gadget.core.ExoOAuthModule
+      org.apache.shindig.common.PropertiesModule:
+      org.apache.shindig.gadgets.DefaultGuiceModule:
+      org.apache.shindig.gadgets.servlet.AuthenticationModule:
+      org.exoplatform.portal.gadget.core.ExoOAuthModule:
+      org.apache.shindig.common.cache.ehcache.EhCacheModule
     </param-value>
   </context-param>
 
@@ -35,12 +40,7 @@
     <filter-name>authFilter</filter-name>
     <filter-class>org.apache.shindig.auth.AuthenticationServletFilter</filter-class>
   </filter>
-
-  <!-- filter-mapping>
-    <filter-name>authFilter</filter-name>
-    <url-pattern>/social/*</url-pattern>
-  </filter-mapping-->
-
+  
   <filter-mapping>
     <filter-name>authFilter</filter-name>
     <url-pattern>/gadgets/ifr</url-pattern>
@@ -49,6 +49,16 @@
   <filter-mapping>
     <filter-name>authFilter</filter-name>
     <url-pattern>/gadgets/makeRequest</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>authFilter</filter-name>
+    <url-pattern>/gadgets/api/rpc/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>authFilter</filter-name>
+    <url-pattern>/gadgets/api/rpc/*</url-pattern>
   </filter-mapping>
 
   <listener>
@@ -71,15 +81,6 @@
     </servlet-class>
   </servlet>
 
-  <!-- makeRequest -->
-  <servlet>
-    <servlet-name>makeRequest</servlet-name>
-    <servlet-class>
-      org.apache.shindig.gadgets.servlet.MakeRequestServlet
-    </servlet-class>
-  </servlet>
-
-  <!-- Concat -->
   <servlet>
     <servlet-name>concat</servlet-name>
     <servlet-class>
@@ -103,27 +104,43 @@
     </servlet-class>
   </servlet>
 
+  <!-- makeRequest -->
+  <servlet>
+    <servlet-name>makeRequest</servlet-name>
+    <servlet-class>
+      org.apache.shindig.gadgets.servlet.MakeRequestServlet
+    </servlet-class>
+  </servlet>
+
+
+  <!-- Serve gadgets RPC api -->
+  <servlet>
+    <servlet-name>gadgetsJsonRpcServlet</servlet-name>
+    <servlet-class>
+      org.apache.shindig.protocol.JsonRpcServlet
+    </servlet-class>
+    <init-param>
+      <param-name>handlers</param-name>
+      <param-value>org.apache.shindig.gadgets.handlers</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>gadgetsRestapiServlet</servlet-name>
+    <servlet-class>
+      org.apache.shindig.protocol.DataServiceServlet
+    </servlet-class>
+    <init-param>
+      <param-name>handlers</param-name>
+      <param-value>org.apache.shindig.gadgets.handlers</param-value>
+    </init-param>
+  </servlet>
+
   <!-- javascript serving -->
   <servlet>
     <servlet-name>js</servlet-name>
     <servlet-class>org.apache.shindig.gadgets.servlet.JsServlet</servlet-class>
   </servlet>
-
-  <!-- Serve REST api -->
-  <!--servlet>
-    <servlet-name>restapiServlet</servlet-name>
-    <servlet-class>
-      org.apache.shindig.social.opensocial.service.DataServiceServlet
-    </servlet-class>
-  </servlet-->
-
-  <!-- Serve RPC api -->
-  <!--servlet>
-    <servlet-name>jsonRpcServlet</servlet-name>
-    <servlet-class>
-      org.apache.shindig.social.opensocial.service.JsonRpcServlet
-    </servlet-class>
-  </servlet-->
 
   <servlet-mapping>
     <servlet-name>js</servlet-name>
@@ -135,9 +152,19 @@
     <url-pattern>/gadgets/proxy/*</url-pattern>
   </servlet-mapping>
 
-  <servlet-mapping>
+   <servlet-mapping>
     <servlet-name>makeRequest</servlet-name>
     <url-pattern>/gadgets/makeRequest</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>gadgetsJsonRpcServlet</servlet-name>
+    <url-pattern>/gadgets/api/rpc/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>gadgetsRestapiServlet</servlet-name>
+    <url-pattern>/gadgets/api/rest/*</url-pattern>
   </servlet-mapping>
 
   <servlet-mapping>
@@ -160,13 +187,4 @@
     <url-pattern>/gadgets/metadata</url-pattern>
   </servlet-mapping>
 
-  <!--servlet-mapping>
-    <servlet-name>restapiServlet</servlet-name>
-    <url-pattern>/social/rest/*</url-pattern>
-  </servlet-mapping>
-
-  <servlet-mapping>
-    <servlet-name>jsonRpcServlet</servlet-name>
-    <url-pattern>/social/rpc/*</url-pattern>
-  </servlet-mapping-->
 </web-app>

@@ -17,7 +17,7 @@
 package org.exoplatform.portal.gadget.core;
 
 import org.apache.shindig.gadgets.DefaultGuiceModule;
-import org.apache.shindig.common.ContainerConfig;
+import org.apache.shindig.config.ContainerConfig;
 
 /**
  * The goal of the module is to bind the {@link org.apache.shindig.common.ContainerConfig} interface to the
