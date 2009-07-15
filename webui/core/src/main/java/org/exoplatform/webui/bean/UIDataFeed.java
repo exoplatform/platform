@@ -18,40 +18,16 @@ package org.exoplatform.webui.bean;
 
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIPageIterator;
 
 /**
  * Created by The eXo Platform SAS Author : liem.nguyen ncliam@gmail.com Jun 26,
  * 2009
  */
-public abstract class DataFeed extends UIComponent {
-
-  protected UIPageIterator uiIterator_;
-
-  public DataFeed() throws Exception {
-    uiIterator_ = createUIComponent(UIPageIterator.class, null, null);
-    uiIterator_.setParent(this);
-    uiIterator_.setRendered(false);
-  }
-
-  public void feedNext() throws Exception {
-    int page = uiIterator_.getCurrentPage();    
-    page++;
-    if (page <= uiIterator_.getAvailablePage()) {
-      uiIterator_.setCurrentPage(page);      
-    }
-  }
+public abstract class UIDataFeed extends UIComponent {
   
-  public boolean hasNext() {
-    int page = uiIterator_.getCurrentPage();
-    if (page>=uiIterator_.getAvailablePage()) {
-      return false;
-    }
-    return true;
-  }
-
-  public void setDataSource(PageList datasource) throws Exception {
-    uiIterator_.setPageList(datasource);
-    uiIterator_.setCurrentPage(1);
-  }
+  public abstract void setDataSource(PageList datasource) throws Exception;
+  
+  public abstract void feedNext() throws Exception;
+  
+  public abstract boolean hasNext();  
 }

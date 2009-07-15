@@ -23,7 +23,6 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
-import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.UIRepeater;
 import org.exoplatform.webui.core.UIVirtualList;
@@ -36,47 +35,41 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 public class UIVirtualListPortlet extends UIPortletApplication {
 
   public UIVirtualListPortlet() throws Exception {
-    addChild(UISampleResourcesBrowser.class, null, "UISampleResourcesBrowser");
+    addChild(UISampleResourcesBrowser.class, null, null);
   }
 
   @ComponentConfig(template = "app:/groovy/webui/component/UISampleResourcesBrowser.gtmpl")
-  static public class UISampleResourcesBrowser extends UIContainer {   
-    
-    private static String[] RESOURCE_LIST = {"name", "language"} ;
-    private static String[] RESOURCE_ACTION = {"View", "Delete"} ;
+  static public class UISampleResourcesBrowser extends UIContainer {
 
-    public UISampleResourcesBrowser() throws Exception {      
-      UIRepeater uiRepeater = createUIComponent(UIRepeater.class, null, "ScrollableResourceList");
-      uiRepeater.configure("name", RESOURCE_LIST, RESOURCE_ACTION);
-      uiRepeater.setRendered(true);
-      
-      UIVirtualList virtualList = addChild(UIVirtualList.class, null, "UIVirtualList1");
-      virtualList.setRendered(true);
-      virtualList.setHeight(200);
+    private static String[] RESOURCE_LIST   = { "name", "language" };
+
+    public UISampleResourcesBrowser() throws Exception {
+      UIRepeater uiRepeater = createUIComponent(UIRepeater.class, null, null);
+      uiRepeater.configure(RESOURCE_LIST);
+
+      UIVirtualList virtualList = addChild(UIVirtualList.class, null, null);      
       virtualList.setPageSize(10);
-      virtualList.setDataFeed(uiRepeater);
+      virtualList.setUIComponent(uiRepeater);
     }
-    
+
     public String event(String name, String beanId) throws Exception {
-      if(Util.getUIPortal().getName().equals(beanId)) return super.url(name, beanId); 
+      if (Util.getUIPortal().getName().equals(beanId))
+        return super.url(name, beanId);
       return super.event(name, beanId);
     }
 
-    public void loadPortalConfigs() throws Exception {      
-      try{
+    public void loadResources() throws Exception {
+      try {
         ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
-        org.exoplatform.services.resources.Query lastQuery_ = new org.exoplatform.services.resources.Query(null, null) ;
-        PageList pageList = resBundleServ.findResourceDescriptions(lastQuery_) ;
+        org.exoplatform.services.resources.Query lastQuery_ = new org.exoplatform.services.resources.Query(null,
+                                                                                                           null);
+        PageList pageList = resBundleServ.findResourceDescriptions(lastQuery_);
         UIVirtualList virtualList = getChild(UIVirtualList.class);
-        virtualList.attachDataSource(pageList);
-        UIPageIterator pageIterator = virtualList.getChild(UIRepeater.class).getUIPageIterator();
-        if(pageIterator.getAvailable() == 0 ) {
-          throw new Exception("No results") ;
-        }
+        virtualList.dataBind(pageList);
       } catch (Exception e) {
-        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
-        uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;
+        UIApplication uiApp = Util.getPortalRequestContext().getUIApplication();
+        uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null));
       }
     }
-  } 
+  }
 }

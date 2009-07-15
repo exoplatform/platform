@@ -1,41 +1,64 @@
-function UIVirtualList() {};
-
-UIVirtualList.prototype.init = function(componentId) {
-	var DOMUtil = eXo.core.DOMUtil;
-	this.container = document.getElementById(componentId);
-	this.scroller = DOMUtil.findDescendantById(this.container, "scroller");
-	this.tmpScroller = DOMUtil.findDescendantById(this.container, "tmpScroller");
-	this.scrollPosition = 0;
-	this.containerHeight = this.container.offsetHeight;
-	this.scrollerHeight = this.container.scrollHeight;
-	this.finished = false;	
+function UIVirtualList() {
+	this.componentMark = "rel";
+	this.finishLoadMark = "finish";
 }
 
-UIVirtualList.prototype.scrollMove = function() {
-	if (this.finished) return;
-	this.scrollPosition = this.container.scrollTop;
-	this.scrollerHeight = this.container.scrollHeight;	
-	var scrollable_gap = this.scrollerHeight - this.containerHeight;
+UIVirtualList.prototype.init = function(generateId) {
+  var uicomponent = this.getUIComponent(generateId);
+  if (uicomponent == null) return;
+  var children = eXo.core.DOMUtil.getChildrenByTagName(uicomponent,"div");
+  var appendFragment = children[1];
+  var initHeight = appendFragment.offsetHeight - 100;
+  uicomponent.style.height = initHeight + "px";  
+}
+
+UIVirtualList.prototype.scrollMove = function(uicomponent, url) {
+	var DOMUtil = eXo.core.DOMUtil;	
+	var finished = uicomponent.getAttribute(this.finishLoadMark);	
+	if (finished == "true") return;
+	
+	var children = DOMUtil.getChildrenByTagName(uicomponent,"div");
+	var storeFragment = children[0]; // store fragment
+  var appendFragment = children[1]; // append fragment
+  
+	var componentHeight = uicomponent.offsetHeight;
+	var dataFeedId = uicomponent.getAttribute(this.componentMark);
+	
+	var scrollPosition = uicomponent.scrollTop;
+	var scrollerHeight = uicomponent.scrollHeight;	
+	var scrollable_gap = scrollerHeight - componentHeight;
 	// if scrollbar reaches bottom
-	if (scrollable_gap <= this.scrollPosition) {
-		var DOMUtil = eXo.core.DOMUtil;
-		var dataFeed = DOMUtil.findDescendantById(this.tmpScroller, "DataFeed");
-		
+	if (scrollable_gap <= scrollPosition) {	
+		var dataFeed = DOMUtil.findDescendantById(appendFragment, dataFeedId);		
 		var appendHTML = dataFeed.innerHTML;
-		var appendObj = DOMUtil.findDescendantById(this.scroller, "DataFeed");
+		var appendObj = DOMUtil.findDescendantById(storeFragment, dataFeedId);
 		if (appendObj == null || appendObj == "undefined") {
-			appendObj = this.scroller;
+			appendObj = storeFragment;
 			appendHTML = dataFeed.parentNode.innerHTML;
 		}		
 		appendObj.innerHTML += appendHTML;
-				
-		ajaxGet(eXo.env.server.portalBaseURL + '?portal:componentId=' 
-						+ this.container.id +'&portal:action=LoadNext&ajaxRequest=true');
+		dataFeed.innerHTML = "";
+		
+		ajaxGet(url);
 	}
 }
 
-UIVirtualList.prototype.loadFinished = function() {
-	this.finished = true;
+UIVirtualList.prototype.getUIComponent = function(generateId) {
+  var dataFeed = document.getElementById(generateId);
+  if (dataFeed == null || dataFeed == "undefined") return null;
+  var parent = dataFeed.parentNode ;
+  while (parent != null) {
+    var relValue = parent.getAttribute(this.componentMark);
+    if (generateId == relValue) return parent;    
+    parent = parent.parentNode ;
+  }
+  return null;
+}
+
+UIVirtualList.prototype.loadFinished = function(generateId) {
+  var uicomponent = this.getUIComponent(generateId);
+  if (uicomponent == null) return;
+  uicomponent.setAttribute(this.finishLoadMark, "true");
 }
 
 eXo.webui.UIVirtualList = new UIVirtualList();

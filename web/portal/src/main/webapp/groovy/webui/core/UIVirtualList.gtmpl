@@ -1,28 +1,28 @@
 <%
   import org.exoplatform.webui.core.UIComponent;
-  import org.exoplatform.webui.bean.DataFeed;
+  import org.exoplatform.webui.bean.UIDataFeed;
   
-  String listId = uicomponent.getId();
   boolean hasNext = uicomponent.getDataFeed().hasNext();
-  int height = uicomponent.getHeight();
-  int scrollHeight = height + 50;
-  String heightInPixel = height + "px";
-  def rcontext = _ctx.getRequestContext(); 
-  rcontext.getJavascriptManager().importJavascript('eXo.core.DOMUtil');  
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIVirtualList');  
+  def rcontext = _ctx.getRequestContext();
+  
+  rcontext.getJavascriptManager().importJavascript('eXo.core.DOMUtil');
+  rcontext.getJavascriptManager().importJavascript('eXo.core.Browser');
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIVirtualList');
+  
+  String url = uicomponent.url("LoadNext") + "&ajaxRequest=true&component_generate_id=" + uicomponent.generateId; 
 %>
 <style>
-	.container {width:100%; overflow:auto;border:1px solid black;}
+	.vcontainer {width:100%; overflow:auto;}
 </style>
 
-<div id="$listId" class="container" style="height:$heightInPixel" onscroll="eXo.webui.UIVirtualList.scrollMove();">	
-	<div id="scroller"></div>
-	<div id="tmpScroller">
-		<% uicomponent.renderChildren();%>
-	</div>
-	<% rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.init('$listId');");
+<div id="$uicomponent.id" rel="$uicomponent.generateId" height="100px"
+			class="vcontainer" onscroll="eXo.webui.UIVirtualList.scrollMove(this,'$url');">	
+	<div></div>
+	<div height="150px"><% uicomponent.renderChildren();%></div>
+	<% 
+	  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.init('$uicomponent.generateId')");
 		if (!hasNext) {
-			rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.loadFinished();");
+			rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.loadFinished('$uicomponent.generateId')");
 		}	
 	%>
 </div>

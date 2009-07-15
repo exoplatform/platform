@@ -1,6 +1,4 @@
 <div id="<%=uicomponent.getId();%>">
-	<%
-		uicomponent.loadPortalConfigs();
-		uicomponent.renderChildren();
-	 %>					    
+	<% uicomponent.loadResources();
+	   uicomponent.renderChildren(); %>					    
 </div>
