@@ -1,18 +1,18 @@
 <%
-  import javax.portlet.PortletMode ;
+	import javax.portlet.PortletMode ;
 %>
 
 <div class="UIIFramePortlet" id="$uicomponent.id" name="test">
 	<%if( _ctx.getRequestContext().getApplicationMode() == PortletMode.VIEW ) {%>
-	    <iframe src="<%=uicomponent.getURL()%>"></iframe>
-  <%} else {
-        uicomponent.renderChildren();
-    }
-  %>
+		<iframe src="<%=uicomponent.getURL()%>"></iframe>
+	<%} else {
+			uicomponent.renderChildren();
+		}
+	%>
 </div>
 <script type="text/javascript">
 	var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
-	if (uiWorkingWS){
+	if (uiWorkingWS) {
 		var iFrames = eXo.core.DOMUtil.findDescendantsByClass(uiWorkingWS, "div", "UIIFramePortlet");
 		if (iFrames.length) {
 			for (var i = 0; i < iFrames.length; i ++) {
@@ -20,7 +20,7 @@
 				portletFrag.style.overflow = "hidden" ;
 				iFrames[i].style.height = "98%";
 				if(!portletFrag.style.height) {
-				  portletFrag.style.height = "400px" ;
+					portletFrag.style.height = "400px" ;
 					var iframe = eXo.core.DOMUtil.getChildrenByTagName(iFrames[i], "iframe")[0] ;
 					if(iframe.offsetHeight < iFrames[i].offsetHeight) iframe.style.height = iFrames[i].offsetHeight + "px" ;
 				} /*else {

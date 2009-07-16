@@ -1,11 +1,11 @@
 /**
  * Cated by The eXo Platform SAS
  * Modifile : Vu Duy Tu
- *           duytucntt@gmail.com
+ *					 duytucntt@gmail.com
  * January 10, 2007
  * version: $Id$
  */
-
+	
 .UIWindow .UISitemapPortlet {
 	border: none;
 	margin: 0px;
@@ -13,65 +13,65 @@
 
 .UISitemapPortlet {
 	margin: 10px;
-  background: white;
-  border: 1px solid #b7b7b7;
-  overflow: auto;
+	background: white;
+	border: 1px solid #b7b7b7;
+	overflow: auto;
 }
 
 .UISitemap {
-  padding: 10px;
+	padding: 10px;
 }
 
 .UISitemap .TitleBar {
 	background: url('VistaSkin/background/TopSitemapp295x22.png') no-repeat top;
-  height: 22px; 
-  overflow: hidden;
-  padding: 0px 15px;
+	height: 22px; 
+	overflow: hidden;
+	padding: 0px 15px;
 }
 
 .UISitemap .SitemapItemBox .TitleBar a.Icon {
-  line-height: 22px;
-  width: auto;
-  padding-left: 20px; /* orientation=lt */
-  padding-right: 20px; /* orientation=rt */
-  overflow: hidden;
-  display: block;
+	line-height: 22px;
+	width: auto;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	overflow: hidden;
+	display: block;
 }
 
 .UISitemap .SitemapItemBox .TitleBar a:hover {
-  color: blue;
+	color: blue;
 }
 
 .UISitemap .TitleBar .Title {
-  margin-left: 6px;
-  overflow: hidden;
-  height: 22px;
-  float: left;
+	margin-left: 6px;
+	overflow: hidden;
+	height: 22px;
+	float: left;
 }
 
 .UISitemap .SitemapContainer {
-  width: 625px;
-  margin: auto;
+	width: 625px;
+	margin: auto;
 }
 
 .UISitemap .SitemapItemBox .ItemContainer {
-  border: solid 1px #929292;
-  padding: 10px;
-  background: #ffffff;
+	border: solid 1px #929292;
+	padding: 10px;
+	background: #ffffff;
 }
 
 .UISitemap .SitemapContainer .SitemapBackground{
-  width: auto;
-  overflow: auto;
-  padding-top: 10px;
+	width: auto;
+	overflow: auto;
+	padding-top: 10px;
 }
 
 .UISitemap .SitemapItemBox {
-  width: 295px ;
-  float: left;
-  background: url('VistaSkin/background/BottomSitemap295x16.png') no-repeat bottom;
-  padding-bottom: 16px;
-  margin: 0px 15px 15px 0px;
+	width: 295px;
+	float: left;
+	background: url('VistaSkin/background/BottomSitemap295x16.png') no-repeat bottom;
+	padding-bottom: 16px;
+	margin: 0px 15px 15px 0px;
 	overflow: hidden;
 }
 
@@ -79,13 +79,13 @@
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox {
-  background: url('VistaSkin/background/LeftSitemap9x61.png') repeat-y top left;
-  padding-left: 9px ;
+	background: url('VistaSkin/background/LeftSitemap9x61.png') repeat-y top left;
+	padding-left: 9px;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox .SitemapItemBoxSelector {
-  background: url('VistaSkin/background/RightSitemap13x61.png') repeat-y top right;
-  padding-right: 13px;
+	background: url('VistaSkin/background/RightSitemap13x61.png') repeat-y top right;
+	padding-right: 13px;
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox .BorderBox {
@@ -97,37 +97,37 @@
 }
 
 .UISitemap .SitemapItemBox .Item .SubItem {
-  border: solid 1px #474747;
-  padding: 10px;
-  background: #ffffff;
+	border: solid 1px #474747;
+	padding: 10px;
+	background: #ffffff;
 } 
 
 .UISitemap .SitemapItemBox .Item a {
-  display: block;
+	display: block;
 }
 
 .UISitemap .SitemapItemBox .Item a:hover {
-  color: #265fb5; 
+	color: #265fb5; 
 }
 
 .UISitemap .SitemapItemBox .Item .Label {
-  float: left;
-  line-height: 22px;
+	float: left;
+	line-height: 22px;
 }
 
 .UISitemap .SitemapItemBox .ItemContainer .Item {
-  border: 1px #c1c1c1 solid;
-  margin: 1px 0px;
+	border: 1px #c1c1c1 solid;
+	margin: 1px 0px;
 }
 
 .UISitemap .SitemapItemBox .Item .Icon {
-  height: auto;
+	height: auto;
 	width: 200px;
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
-  text-align: center;	
-  margin: auto;
-  line-height: 22px;
+	text-align: center;	
+	margin: auto;
+	line-height: 22px;
 }
 
 .UISitemap .SitemapItemBox .Item .IconItem {
@@ -139,21 +139,21 @@
 }
 
 .UISitemap .SitemapItemBox .Level1 {
-  background: url('VistaSkin/background/SitemapItemBoxBG1x22.png') repeat-x bottom;
-  padding-left:5px;
+	background: url('VistaSkin/background/SitemapItemBoxBG1x22.png') repeat-x bottom;
+	padding-left:5px;
 }
 
 .UISitemap .SitemapItemBox .Level2 {
-  background: url('VistaSkin/background/SitemapItemBoxBG1x22.gif') repeat-x bottom;
-  padding-left: 28px;
+	background: url('VistaSkin/background/SitemapItemBoxBG1x22.gif') repeat-x bottom;
+	padding-left: 28px;
 }
 
 .UISitemap .SitemapItemBox .Level3 {
-  background: url('VistaSkin/background/SitemapItemBoxBG1x22.gif') repeat-x bottom;
-  padding-left: 60px;
+	background: url('VistaSkin/background/SitemapItemBoxBG1x22.gif') repeat-x bottom;
+	padding-left: 60px;
 }
 
 .UISitemap .SitemapItemBox .Level4 {
-  background: url('VistaSkin/background/SitemapItemBoxBG1x22.gif') repeat-x bottom;
-  padding-left: 92px;
+	background: url('VistaSkin/background/SitemapItemBoxBG1x22.gif') repeat-x bottom;
+	padding-left: 92px;
 }

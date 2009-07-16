@@ -1,9 +1,9 @@
 .UIBrowserPortlet {
 	border: solid 0px gray;
-  width: 100% ;
-  height: 99% ;
+  width: 100%;
+  height: 99%;
   overflow: auto;
-}
+}	
 
 .UIBrowserPortlet .UIToolbar {
 	border-bottom: solid 1px gray;
@@ -73,14 +73,14 @@
 }
 
 .UIBrowserPortlet .StatusButton {
-  float: right;
+	float: right;
 	width: 32px; height: 31px;
 	background: url("DefaultSkin/icons/24x24/Status.gif") no-repeat center;
 }
 
 .UIBrowserPortlet .GoButton {
-  float: right;
-  height: 30px;
+	float: right;
+	height: 30px;
 	background: url("DefaultSkin/icons/16x16/Go.gif") no-repeat left;
 	cursor: pointer;
 	line-height: 30px;
@@ -92,28 +92,28 @@
 }
 
 .UIBrowserPortlet .AddressBarContainer {
-  height: 18px;
+	height: 18px;
 	background: url("DefaultSkin/icons/16x16/ActiveGlobal.gif") white no-repeat left;
 	padding: 0px 2px 0px 17px;
 	margin: 5px 5px 0px 0px;
 	border: inset 1px gray;
-	overflow-y:hidden ;
+	overflow-y: hidden;
 }
 
 .UIBrowserPortlet .ArrowDownButton {
-  float: right;
+	float: right;
 	width: 16px; height: 16px;
 	background: url("DefaultSkin/icons/16x16/ArrowDownButton.gif") no-repeat center;
 }
 
 .UIBrowserPortlet .TextBox {
-  border: 0px ;
+	border: 0px;
 	margin: 0px 17px 0px 0px;
 }
 
 .UIBrowserPortlet .BrowserContent {
 	width: 100%;
-  height: 89% ;
+	height: 89%;
 }
 
 .UIBrowserPortlet .TabBackground {
@@ -128,38 +128,38 @@
 }
 
 .UIBrowserPortlet .ActiveTabDetailBackground {
-  float: left;
-  width: 150px; height: 20px;
+	float: left;
+	width: 150px; height: 20px;
 	background: url("DefaultSkin/background/ActiveTabDetail1x20.jpg") repeat-x;
 }
 
 .UIBrowserPortlet .TabDetailBackground {
-  float: left;
-  width: 150px; height: 20px;
+	float: left;
+	width: 150px; height: 20px;
 	background: none;
 }
 
 .UIBrowserPortlet .TabDetail {
-  width: 150px; height: 20px;
+	width: 150px; height: 20px;
 	background: url("DefaultSkin/icons/16x16/InactiveGlobal.gif") no-repeat left;
 	padding: 2px 5px 0px 21px;
 }
 
 .UIBrowserPortlet .ActiveTabDetail {
-  height: 20px;
+	height: 20px;
 	background: url("DefaultSkin/icons/16x16/ActiveGlobal.gif") no-repeat left;
 	padding: 0px 5px 0px 21px;
 }
 
 .UIBrowserPortlet .TabSeparator {
-  float: left;
+	float: left;
 	width: 2px; height: 20px;
 	background: url("DefaultSkin/icons/16x16/TabSeparator2x20.jpg") no-repeat;
 }
 
 .UIBrowserPortlet .TabContent {
 	width: 100%;
-  height: 92% ;
+	height: 92%;
 }
 
 .UIBrowserPortlet .TabLabel {
@@ -171,51 +171,51 @@
 }
 
 .UIBrowserPortlet .CloseButton {
-  float: right;
+	float: right;
 	width: 18px; height: 20px;
 	background: url("DefaultSkin/icons/16x16/InactiveClose.gif") no-repeat center;
 	cursor: pointer;
 }
 
 .UIBrowserPortlet .ActiveCloseButton {
-  float: right;
+	float: right;
 	width: 18px; height: 20px;
 	cursor: pointer;
 	background: url("DefaultSkin/icons/16x16/ActiveClose.gif") no-repeat center;
 }
 
 .UIBrowserPortlet .NewTabButtonOver {
-  float: left;
+	float: left;
 	width: 30px; height: 20px;
 	cursor: pointer;
 	background: url("DefaultSkin/background/ActiveTabDetail1x20.jpg") repeat-x;
 }
 
 .UIBrowserPortlet .NewTabButton {
-  float: left;
+	float: left;
 	width: 30px; height: 20px;
 	background: url("DefaultSkin/background/NewTabBG1x20.jpg") repeat-x;
 	cursor: pointer;
 }
 
 .UIBrowserPortlet .RightNewTab {
-  height: 20px;
+	height: 20px;
 	background: url("DefaultSkin/background/RightNewTab2x20.jpg") no-repeat right;
 }
 
 .UIBrowserPortlet .MiddleNewTab {
 	height: 20px;
-	background: url("DefaultSkin/icons/16x16/NewTab.gif") no-repeat center ;
+	background: url("DefaultSkin/icons/16x16/NewTab.gif") no-repeat center;
 }
 
 .UIBrowserPortlet .ClipTabIcon {
-	float: right ;
-	width: 20px ; height: 20px ;	
-	background: url("DefaultSkin/icons/16x16/ClipTab.gif") no-repeat center ;
-	cursor: pointer ;
+	float: right;
+	width: 20px; height: 20px;	
+	background: url("DefaultSkin/icons/16x16/ClipTab.gif") no-repeat center;
+	cursor: pointer;
 }
 
 .UIBrowserPortlet .IFrame {
-	width: 100% ;	height: 100% ;
-	border: solid 0px gray ;
+	width: 100%;	height: 100%;
+	border: solid 0px gray;
 }

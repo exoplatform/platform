@@ -73,7 +73,7 @@
 }
 
 .UISitemap .SitemapItemBox {
-  width: 270px ;
+  width: 270px;
   margin: 5px 0px;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .UISitemap .SitemapItemBox .NestedSitemapItemBox {
-  border: solid 1px #d6d6d6 ; background: white ;
+  border: solid 1px #d6d6d6; background: white;
   padding: 8px 10px 10px 10px;
   margin: 2px 1px 1px 1px;
 }
@@ -107,13 +107,13 @@
 }
 
 .UISitemap .SitemapItemBox .Item .Label {
-  float: left ;
-  line-height: 22px ;
+  float: left;
+  line-height: 22px;
 }
 
 .UISitemap .SitemapItemBox .Item .Icon {
   width: auto; height: auto;
-  margin: 4px 5px 0px 5px ;
+  margin: 4px 5px 0px 5px;
   background-repeat: no-repeat;
   padding-left: 20px; /* orientation=lt */
   padding-right: 20px; /* orientation=rt */
@@ -131,29 +131,29 @@
 }
 
 .UISitemap .SitemapItemBox .Level1 {
-  border: solid 1px #d9d9d9 ; 
-  background: #f3f3f3 ;
+  border: solid 1px #d9d9d9; 
+  background: #f3f3f3;
   margin-top: 3px;
   padding: 0px 4px;
 }
 
 .UISitemap .SitemapItemBox .Level2 {
   background: #fafafa;
-  padding: 2px 0px 1px 20px ;
+  padding: 2px 0px 1px 20px;
   border: 1px solid #d9d9d9;
   border-top: none;
 }
 
 .UISitemap .SitemapItemBox .Level3 {
-  background: white ;
-  padding: 0px 0px 3px 40px ;
+  background: white;
+  padding: 0px 0px 3px 40px;
   border: 1px solid #d9d9d9;
   border-top: none;
 }
 
 .UISitemap .SitemapItemBox .Level4 {
-  background: white ;
-  padding: 0px 0px 3px 60px ;
+  background: white;
+  padding: 0px 0px 3px 60px;
   border: 1px solid #d9d9d9;
   border-top: none;
 }

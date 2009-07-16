@@ -5,13 +5,13 @@
 	height: auto;
 	width: 97.5%;
 }
-
+	
 .UIPageDesktop .UIIFramePortlet {
 	min-height: 0;
 }
 
 *html .UIFormTabPane .UIIFramePortlet {
-  height: auto;
+	height: auto;
 }
 
 *html .UIIFramePortlet {

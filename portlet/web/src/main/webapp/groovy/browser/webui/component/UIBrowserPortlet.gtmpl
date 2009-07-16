@@ -48,7 +48,7 @@
 					</div>
 				</div>
 				<div class="Separator"><span></span></div>
-				<div class="NewTabButton" onclick="eXo.application.browser.BrowserApplication.createNewTab(this);"
+				<div class="NewTabButton" onclick="eXo.application.browser.BrowserApplication.createNewTab(this);" 
 						 onmouseover="eXo.application.browser.BrowserApplication.onMouseOver(this, 'NewTabButton', 'NewTabButtonOver', true);"
 						 onmouseout="eXo.application.browser.BrowserApplication.onMouseOver(this, 'NewTabButton', 'NewTabButtonOver', false);" title="<%=_ctx.appRes("UIBrowserPortlet.Tab")%>">
 					<div class="RightNewTab">

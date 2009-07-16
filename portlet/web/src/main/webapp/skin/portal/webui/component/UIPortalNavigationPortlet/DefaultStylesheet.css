@@ -1,37 +1,35 @@
-
-
 .UIPortalNavigationPortlet {
   !position: relative;
 }
-
+	
 .UIPortalNavigationPortlet .UINavigationBar {
-  white-space: nowrap;
+	white-space: nowrap;
 }
 
 .UIPortalNavigationPortlet .UINavigationBar .UIHorizontalTabs {
-  height: 33px;
+	height: 33px;
 }
 
 .UIPortalNavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
-  float: none;
-  _position: relative; /* orientation=rt */
+	float: none;
+	_position: relative; /* orientation=rt */
 }
 
 .UIPortalNavigationPortlet .UINavigationBar .LeftNavigationBar {
-  line-height: 33px;
-  background: url('DefaultSkin/background/Navigation.gif') repeat-x top center;
-  padding-left: 3px; /* orientation=lt */
-  padding-right: 3px; /* orientation=rt */
-  border-top: 1px solid white;
+	line-height: 33px;
+	background: url('DefaultSkin/background/Navigation.gif') repeat-x top center;
+	padding-left: 3px; /* orientation=lt */
+	padding-right: 3px; /* orientation=rt */
+	border-top: 1px solid white;
 	!background-position: center 1px;
 }
 
 .UIPortalNavigationPortlet .UITab a.TabLabel {
 	display: block;
 	padding: 0px 0px 0px 20px; /* orientation=lt */
-  padding: 0px 20px 0px 0px; /* orientation=rt */
-  background-position: left; /* orientation=lt */
-  background-position: right; /* orientation=rt */
+	padding: 0px 20px 0px 0px; /* orientation=rt */
+	background-position: left; /* orientation=lt */
+	background-position: right; /* orientation=rt */
 }
 
 .UIPortalNavigationPortlet .MenuItemContainer {
@@ -43,13 +41,13 @@
 }
 
 .UIPortalNavigationPortlet .MenuItemContainer .MenuItemDecorator {
-  border: 1px solid #fcfcfc;
-  background: #f3f3f3;
-  padding-bottom: 6px;
+	border: 1px solid #fcfcfc;
+	background: #f3f3f3;
+	padding-bottom: 6px;
 }
 
 .UIPortalNavigationPortlet .MenuItemContainer .MenuItem {
-  border-bottom: 1px solid #fff;
+	border-bottom: 1px solid #fff;
 	cursor: pointer;
 	line-height: 24px;
 	height: 24px; width: auto;
@@ -82,27 +80,27 @@
 	color: #3e8df0;
 }
 
-.UIPortalNavigationPortlet .MenuItemContainer  .SelectedItem .NormalItem a {
+.UIPortalNavigationPortlet .MenuItemContainer	.SelectedItem .NormalItem a {
 	color: #000;
 }
 
-.UIPortalNavigationPortlet .MenuItemContainer  .SelectedItem .NormalItem a:hover {
+.UIPortalNavigationPortlet .MenuItemContainer	.SelectedItem .NormalItem a:hover {
 	color: #3e8df0;
 }
 
-.UIPortalNavigationPortlet .MenuItemContainer  .NormalItem .SelectedItem a {
+.UIPortalNavigationPortlet .MenuItemContainer	.NormalItem .SelectedItem a {
 	color: #3e8df0;
 }
 
 .UIPortalNavigationPortlet .MenuItemContainer .ItemIcon {
-  height: 24px; width: auto;
+	height: 24px; width: auto;
 }
 
 .UIPortalNavigationPortlet .MenuItemContainer .MenuItem .ArrowIcon {
-  height: 24px; 
-  width: auto;
-  background: url('DefaultSkin/background/Button.gif') no-repeat right -48px; /* orientation=lt */ 
-  background: url('DefaultSkin/background/Button-rt.gif') no-repeat left -48px; /* orientation=rt */ 
+	height: 24px; 
+	width: auto;
+	background: url('DefaultSkin/background/Button.gif') no-repeat right -48px; /* orientation=lt */ 
+	background: url('DefaultSkin/background/Button-rt.gif') no-repeat left -48px; /* orientation=rt */ 
 }	
 
 /*============ Scroll Buttons =====================*/
@@ -115,58 +113,58 @@
 }
 
 .UIPortalNavigationPortlet .ScrollLeftButton {
-  cursor: pointer;
-  background: url('DefaultSkin/background/Button.gif') no-repeat left -15px; /* orientation=lt */
-  background: url('DefaultSkin/background/Button-rt.gif') no-repeat right -15px; /* orientation=rt */
-  width: 17px;
-  height: 15px;
-  padding-left: 18px; /* orientation=lt */
-  padding-right: 18px; /* orientation=rt */
-  margin: 0px 5px;
+	cursor: pointer;
+	background: url('DefaultSkin/background/Button.gif') no-repeat left -15px; /* orientation=lt */
+	background: url('DefaultSkin/background/Button-rt.gif') no-repeat right -15px; /* orientation=rt */
+	width: 17px;
+	height: 15px;
+	padding-left: 18px; /* orientation=lt */
+	padding-right: 18px; /* orientation=rt */
+	margin: 0px 5px;
 }
 
 .UIPortalNavigationPortlet .ScrollRightButton {
-  cursor: pointer;
-  background: url('DefaultSkin/background/Button.gif') no-repeat right -15px; /* orientation=lt */
-  background: url('DefaultSkin/background/Button-rt.gif') no-repeat left -15px; /* orientation=rt */
-  width: 15px;
-  height: 15px;
+	cursor: pointer;
+	background: url('DefaultSkin/background/Button.gif') no-repeat right -15px; /* orientation=lt */
+	background: url('DefaultSkin/background/Button-rt.gif') no-repeat left -15px; /* orientation=rt */
+	width: 15px;
+	height: 15px;
 }
 
 .UIPortalNavigationPortlet .DisableScrollLeftButton {
-  cursor: pointer;
-  background: url('DefaultSkin/background/Button.gif') no-repeat left -30px; /* orientation=lt */
-  background: url('DefaultSkin/background/Button-rt.gif') no-repeat right -30px; /* orientation=rt */
-  width: 17px;
-  height: 15px;
-  padding-left: 18px; /* orientation=lt */
-  padding-right: 18px; /* orientation=rt */
-  margin: 0px 5px;
+	cursor: pointer;
+	background: url('DefaultSkin/background/Button.gif') no-repeat left -30px; /* orientation=lt */
+	background: url('DefaultSkin/background/Button-rt.gif') no-repeat right -30px; /* orientation=rt */
+	width: 17px;
+	height: 15px;
+	padding-left: 18px; /* orientation=lt */
+	padding-right: 18px; /* orientation=rt */
+	margin: 0px 5px;
 }
 
 .UIPortalNavigationPortlet .DisableScrollRightButton { 
-  cursor: pointer;
-  background: url('DefaultSkin/background/Button.gif') no-repeat right -30px; /* orientation=lt */
-  background: url('DefaultSkin/background/Button-rt.gif') no-repeat left -30px; /* orientation=rt */
-  width: 15px;
-  height: 15px;
+	cursor: pointer;
+	background: url('DefaultSkin/background/Button.gif') no-repeat right -30px; /* orientation=lt */
+	background: url('DefaultSkin/background/Button-rt.gif') no-repeat left -30px; /* orientation=rt */
+	width: 15px;
+	height: 15px;
 }
 
 .UIPortalNavigationPortlet .HighlightScrollLeftButton {
-  cursor: pointer;
-  background: url('DefaultSkin/background/Button.gif') no-repeat left top; /* orientation=lt */
-  background: url('DefaultSkin/background/Button-rt.gif') no-repeat right top; /* orientation=rt */
-  width: 17px;
-  height: 15px;
-  padding-left: 18px; /* orientation=lt */
-  padding-right: 18px; /* orientation=rt */
-  margin: 0px 5px;
+	cursor: pointer;
+	background: url('DefaultSkin/background/Button.gif') no-repeat left top; /* orientation=lt */
+	background: url('DefaultSkin/background/Button-rt.gif') no-repeat right top; /* orientation=rt */
+	width: 17px;
+	height: 15px;
+	padding-left: 18px; /* orientation=lt */
+	padding-right: 18px; /* orientation=rt */
+	margin: 0px 5px;
 }
 
 .UIPortalNavigationPortlet .HighlightScrollRightButton {
-  cursor: pointer;
-  background: url('DefaultSkin/background/Button.gif') no-repeat right top; /* orientation=lt */
-  background: url('DefaultSkin/background/Button-rt.gif') no-repeat left top; /* orientation=rt */
-  width: 15px;
-  height: 15px;
+	cursor: pointer;
+	background: url('DefaultSkin/background/Button.gif') no-repeat right top; /* orientation=lt */
+	background: url('DefaultSkin/background/Button-rt.gif') no-repeat left top; /* orientation=rt */
+	width: 15px;
+	height: 15px;
 }

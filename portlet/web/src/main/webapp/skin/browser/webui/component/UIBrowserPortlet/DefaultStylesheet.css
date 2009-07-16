@@ -1,8 +1,8 @@
 .UIWindow .UIBrowserPortlet {
 	margin: 0px;
-	border: none;
+	border: none;	
 }
-
+	
 .UIBrowserPortlet {
 	border: solid 1px #C6C6C6;
 	margin: 7px 10px 0px 10px;
@@ -15,8 +15,8 @@
 	padding: 3px 5px 3px 0px; /* orientation=rt */
 	background: url("DefaultSkin/background/UIBrowserPortlet.gif") repeat-x;
 	width: 99%;
-	height:25px;
-	margin: auto;
+	height: 25px;
+	margin: auto;	
 }
 
 .UIBrowserPortlet .ButtonContainer {

@@ -1,7 +1,7 @@
 .UINavigationPortlet {
 	!position: relative;
 }
-
+	
 .UINavigationPortlet .UINavigationBar {
 	white-space: nowrap;
 }
@@ -69,8 +69,6 @@
 	background: url('DefaultSkin/background/HoverItem.gif') repeat-x bottom;
 }
 
-
-
 .UINavigationPortlet .MenuItemContainer .SelectedItem .DefaultPageIcon {
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat scroll left center; /* orientation=lt */
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DefaultPageIcon.png') no-repeat scroll right center; /* orientation=rt */
@@ -96,7 +94,7 @@
 }
 
 .UINavigationPortlet .MenuItemContainer .NormalItem .SelectedItem a {
-	color:  #0F33C6;
+	color: #0F33C6;
 }
 
 .UINavigationPortlet .MenuItemContainer .ItemIcon {

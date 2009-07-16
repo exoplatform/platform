@@ -1,12 +1,12 @@
 <div class="UILoginForm" id="ChildTest">
 	<%uiform.begin()%>
 	<div class="FieldContainer">
-	  <label for="userName"><%=_ctx.appRes("UILoginForm.label.login")%></label>
-	  <% uiform.renderChild(0); %>
+		<label for="userName"><%=_ctx.appRes("UILoginForm.label.login")%></label>
+		<% uiform.renderChild(0); %>
 	</div>
 	<div class="FieldContainer">
-	  <label for="password"><%=_ctx.appRes("UILoginForm.label.password")%></label>
-	  <% uiform.renderChild(1); %>
+		<label for="password"><%=_ctx.appRes("UILoginForm.label.password")%></label>
+		<% uiform.renderChild(1); %>
 	</div>
 	<a class="Button" href="<%=uicomponent.url("Login");%>"><span></span></a>
 	<%uiform.end()%>

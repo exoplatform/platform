@@ -1,32 +1,32 @@
 <div class="UIConsoleApplication" id="$uicomponent.id">
-    <div class="UIInnerMaskLayer" >
-        <div class="UIMaskWindowConsole">
-            <div class="ConsoleQuickHelp"></div>
-        </div>
-      <div class="ConsoleResult">
-        eXo javascript console version 1.0
-      </div>
-    </div>  
-    <div class="CommandType" editcontainer="1" handler="eXo.application.console.ConsoleInputManager">
-        <span class="CommandNameSpace"> exo-console\$ </span>
-        <span editable="1">...</span>
-    </div>
+	<div class="UIInnerMaskLayer" >
+		<div class="UIMaskWindowConsole">
+			<div class="ConsoleQuickHelp"></div>
+		</div>
+		<div class="ConsoleResult">
+	  	eXo javascript console version 1.0
+		</div>
+	</div>  
+	<div class="CommandType" editcontainer="1" handler="eXo.application.console.ConsoleInputManager">
+		<span class="CommandNameSpace"> exo-console\$ </span>
+		<span editable="1">...</span>
+	</div>	
 </div>
 <% 
-  import org.exoplatform.web.application.JavascriptManager;
-  
-  def rcontext = _ctx.getRequestContext() ;
-    JavascriptManager jsmanager = rcontext.getJavascriptManager();
-    jsmanager.importJavascript('eXo.core.OS');
-    jsmanager.importJavascript('eXo.core.HTMLUtil');
-    jsmanager.importJavascript('eXo.core.DefaultKeyboardListener');
-    jsmanager.importJavascript('eXo.core.Keyboard');
-    jsmanager.importJavascript('eXo.core.CoreEditor');
-    jsmanager.importJavascript('eXo.application.console.ConsoleScreen', '/web/javascript/');
-    jsmanager.importJavascript('eXo.application.console.Command', '/web/javascript/');
-    jsmanager.importJavascript('eXo.application.console.EnvManager', '/web/javascript/');
-    jsmanager.importJavascript('eXo.application.console.CommandHistory', '/web/javascript/');
-    jsmanager.importJavascript('eXo.application.console.CommandManager', '/web/javascript/');
-    jsmanager.importJavascript('eXo.application.console.ConsoleInputManager', '/web/javascript/');
-    jsmanager.addOnLoadJavascript('eXo.core.CoreEditor.registerCoreEditors("UIConsoleApplication")');
-%>
+	import org.exoplatform.web.application.JavascriptManager;
+		  
+	def rcontext = _ctx.getRequestContext();	
+		JavascriptManager jsmanager = rcontext.getJavascriptManager();
+		jsmanager.importJavascript('eXo.core.OS');
+		jsmanager.importJavascript('eXo.core.HTMLUtil');
+		jsmanager.importJavascript('eXo.core.DefaultKeyboardListener');
+		jsmanager.importJavascript('eXo.core.Keyboard');
+		jsmanager.importJavascript('eXo.core.CoreEditor');
+		jsmanager.importJavascript('eXo.application.console.ConsoleScreen', '/web/javascript/');
+		jsmanager.importJavascript('eXo.application.console.Command', '/web/javascript/');
+		jsmanager.importJavascript('eXo.application.console.EnvManager', '/web/javascript/');
+		jsmanager.importJavascript('eXo.application.console.CommandHistory', '/web/javascript/');
+		jsmanager.importJavascript('eXo.application.console.CommandManager', '/web/javascript/');
+		jsmanager.importJavascript('eXo.application.console.ConsoleInputManager', '/web/javascript/');
+		jsmanager.addOnLoadJavascript('eXo.core.CoreEditor.registerCoreEditors("UIConsoleApplication")');
+%>	

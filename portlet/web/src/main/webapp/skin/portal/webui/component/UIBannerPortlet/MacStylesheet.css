@@ -3,80 +3,80 @@
 }	
 
 .UIBannerPortlet {
-  overflow: auto;
-  background: url('MacSkin/background/Banner.gif') repeat-x right -150px;
+	overflow: auto;
+	background: url('MacSkin/background/Banner.gif') repeat-x right -150px;
 }
 
 .UIBannerPortlet .LeftBanner {
-  padding: 0px 0px 0px 157px; /* orientation=lt */
-  padding: 0px 157px 0px 0px; /* orientation=rt */
-  background: url('MacSkin/background/Banner.gif') no-repeat left top; /* orientation=lt */
-  background: url('MacSkin/background/BannerRTLie6.gif') no-repeat right top; /* orientation=rt */
+	padding: 0px 0px 0px 157px; /* orientation=lt */
+	padding: 0px 157px 0px 0px; /* orientation=rt */
+	background: url('MacSkin/background/Banner.gif') no-repeat left top; /* orientation=lt */
+	background: url('MacSkin/background/BannerRTLie6.gif') no-repeat right top; /* orientation=rt */
 }
 
 .UIBannerPortlet .MiddleBanner {
-  height: 74px;
+	height: 74px;
 }
 
 .UIBannerPortlet .RightBanner {
-  padding: 0px 84px 0px 0px ; /* orientation=lt */
-  padding: 0px 0px 0px 84px ; /* orientation=rt */
-  background: url('MacSkin/background/Banner.gif') no-repeat right -75px; /* orientation=lt */
-  background: url('MacSkin/background/Banner-rt.gif') no-repeat left -75px; /* orientation=rt */
+	padding: 0px 84px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 84px; /* orientation=rt */
+	background: url('MacSkin/background/Banner.gif') no-repeat right -75px; /* orientation=lt */
+	background: url('MacSkin/background/Banner-rt.gif') no-repeat left -75px; /* orientation=rt */
 }
 
 .UIBannerPortlet .BannerTitle {
-  height: 35px;
-  padding: 8px 0px 0px 3px; /* orientation=lt */
-  padding: 8px 3px 0px 0px; /* orientation=rt */
+	height: 35px;
+	padding: 8px 0px 0px 3px; /* orientation=lt */
+	padding: 8px 3px 0px 0px; /* orientation=rt */
 }
 
 .UIBannerPortlet .LeftLoginContainer {
 }
 
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer {
-  padding: 2px 0px 0px 0px;
-  line-height: 20px;
-  float: right; /* orientation=lt */
-  float: left; /* orientation=rt */
+	padding: 2px 0px 0px 0px;
+	line-height: 20px;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 }
 
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
-  color: #cd0101;
-  outline: none;
+	color: #cd0101;
+	outline: none;
 }
 
 .UIBannerPortlet .RightLoginContainer .Name {
-  color: #0d62af;
-  float: left;
-  margin-right: 10px;
+	color: #0d62af;
+	float: left;
+	margin-right: 10px;
 }
 
 .UIBannerPortlet .RightLoginContainer .Logout {
-  float: left;
-  height: 24px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -271px;
-  margin-right : 15px;
-  cursor: pointer;
-  padding-left: 28px;
-  display: block;
+	float: left;
+	height: 24px;
+	background: url('MacSkin/background/Banner.gif') no-repeat left -271px;
+	margin-right : 15px;
+	cursor: pointer;
+	padding-left: 28px;
+	display: block;
 }
 
 .UIBannerPortlet .RightLoginContainer .Login {
-  float: left;
-  height: 24px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -247px;
-  margin-right : 15px;
-  cursor: pointer;
-  padding-left: 28px;
-  display: block;
+	float: left;
+	height: 24px;
+	background: url('MacSkin/background/Banner.gif') no-repeat left -247px;
+	margin-right : 15px;
+	cursor: pointer;
+	padding-left: 28px;
+	display: block;
 }
 
 .UIBannerPortlet .RightLoginContainer .Language {
-  height: 22px;
-  background: url('MacSkin/background/Banner.gif') no-repeat left -224px;
-  padding: 0px 7px 0px 26px;
-  cursor: pointer;
-  float: left;
-  display: block;
+	height: 22px;
+	background: url('MacSkin/background/Banner.gif') no-repeat left -224px;
+	padding: 0px 7px 0px 26px;
+	cursor: pointer;
+	float: left;
+	display: block;
 }
