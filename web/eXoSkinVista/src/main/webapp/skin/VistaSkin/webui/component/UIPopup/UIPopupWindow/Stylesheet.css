@@ -152,13 +152,11 @@
 
 .UIPopupWindow .CaledarStyle .UIWindowContent {
 	padding: 0px; margin: 0px;
-	background: url('null') no-repeat;
 }
 
 .UIPopupWindow .CaledarStyle .UIWindowContent .Content {
 	padding: 0px; margin: 0px;
 	border: none;
-	background: url('null') no-repeat;
 }
 
 .UIPopupWindow .CaledarStyle .CloseButton {
@@ -172,7 +170,6 @@
 }
 
 .UIPopupWindow .CaledarStyle .BottomBar .ResizeButton {
-	background: url('null') no-repeat;
 	height: 0px;
 }
 
@@ -252,13 +249,11 @@
 
 .UIPopupWindow .ExoMessageDecorator  .UIWindowContent {
 	padding: 0px; margin: 0px;
-	background: url('null') no-repeat;
 }
 
 .UIPopupWindow .ExoMessageDecorator  .UIWindowContent .Content {
 	padding: 0px; margin: 0px;
 	border: none;
-	background: url('null') no-repeat;
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomLeftCornerDecorator {

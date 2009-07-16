@@ -171,13 +171,11 @@
 
 .UIPopupWindow .ExoMessageDecorator	.UIWindowContent {
 	padding: 0px; margin:0px;
-	background: url('null') no-repeat;
 }
 
 .UIPopupWindow .ExoMessageDecorator	.UIWindowContent .Content {
 	padding: 0px; margin:0px;
 	border: none;
-	background: url('null') no-repeat;
 }
 
 .UIPopupWindow .ExoMessageDecorator .BottomRightCornerDecorator {
