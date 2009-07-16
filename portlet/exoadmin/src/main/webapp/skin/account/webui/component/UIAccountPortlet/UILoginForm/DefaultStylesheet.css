@@ -4,38 +4,38 @@
   margin: 0px 0px 5px 0px;
   padding: 6px 5px 4px 5px;
 }
-
+	
 .UIAccountPortlet .UILoginForm .SignIn {
-  float: left;
+	float: left;
 	color: #fb9f00; 
 	font-weight: bold; 	font-size: 16px;
 }
 .UIAccountPortlet .UILoginForm .UserName {
-  float: left;
-  padding-right: 15px;
-  font-weight: bold;
+	float: left;
+	padding-right: 15px;
+	font-weight: bold;
 } 
 
 .UIAccountPortlet .ButtonLogin {
-  float: left;
-  width: 24px ; height: 24px ;
-  background: url('DefaultSkin/background/BlueLoginIcon.gif') no-repeat center ;
-  margin: 0px 20px 0px 5px;
-  cursor: pointer ;
+	float: left;
+	width: 24px ; height: 24px;
+	background: url('DefaultSkin/background/BlueLoginIcon.gif') no-repeat center;
+	margin: 0px 20px 0px 5px;
+	cursor: pointer;
 }
 
 .UIAccountPortlet .UILoginForm .PasswordLogin {
-  float: left ;
-  font-weight: bold;
-  padding-right: 5px ;
+	float: left;
+	font-weight: bold;
+	padding-right: 5px;
 }
 
 .UIAccountPortlet .UILoginForm .label {
-  color: white ;
-  margin-left: 2px ;
-  width: auto ;
+	color: white;
+	margin-left: 2px;
+	width: auto;
 }
-  
+	
 .UIAccountPortlet .UILoginForm .UIForm input {
-  width: 100px;
+	width: 100px;
 }

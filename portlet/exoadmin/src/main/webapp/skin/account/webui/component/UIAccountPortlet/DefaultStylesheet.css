@@ -1,23 +1,23 @@
-@import url(UILoginForm/DefaultStylesheet.css) ;
-
+@import url(UILoginForm/DefaultStylesheet.css);
+	
 .UIWindow .UIAccountPortlet {
-  margin: 0px;
-  border: none;
-  overflow: visible;
+	margin: 0px;
+	border: none;
+	overflow: visible;
 }
 
 .UIAccountPortlet {
-  background: white;
-  border: 1px solid #b7b7b7;
-  margin: 5px;
-  padding: 10px 30px;
-  overflow: auto;
+	background: white;
+	border: 1px solid #b7b7b7;
+	margin: 5px;
+	padding: 10px 30px;
+	overflow: auto;
 }
 
 .UIAccountPortlet .UIFormTabPane {
-  margin: auto;
-  padding: 0px;
-  width: 700px;
+	margin: auto;
+	padding: 0px;
+	width: 700px;
 }
 
 .UIAccountPortlet .UIFormTabPane .UITabPane {
@@ -32,46 +32,46 @@
 /*########################-UIPersonalInfo-###########################*/
 
 .UIAccountPortlet .UIItemSelector .ItemDetail .FieldContainer {
-  padding:0px;
+	padding: 0px;
 }
 
 /*########################-Template Selector-###########################*/
 
 .UIAccountPortlet .UIFormTabPane .UIItemSelector .RightColumnBigItemStyle .ItemList {
-  height: 290px;
+	height: 290px;
 }
 
 .UIAccountPortlet .UIItemSelector .RightColumnBigItemStyle .ItemDetailList {
-  height: 308px;
-  padding-top: 5px;
+	height: 308px;
+	padding-top: 5px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .DefaultAccountImage {
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('DefaultSkin/background/DefaultAccountImage.jpg') no-repeat;
+	width: 330px;
+	height: 195px;
+	margin: auto;
+	background: url('DefaultSkin/background/DefaultAccountImage.jpg') no-repeat;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .AdminAccountImage {
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('DefaultSkin/background/AdminAccountImage.jpg') no-repeat;
+	width: 330px;
+	height: 195px;
+	margin: auto;
+	background: url('DefaultSkin/background/AdminAccountImage.jpg') no-repeat;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .CommunityAccountImage {
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('DefaultSkin/background/CommunityAccountImage.jpg') no-repeat;
+	width: 330px;
+	height: 195px;
+	margin: auto;
+	background: url('DefaultSkin/background/CommunityAccountImage.jpg') no-repeat;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .CompanyAccountImage {
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('DefaultSkin/background/CompanyAccountImage.jpg') no-repeat;
+	width: 330px;
+	height: 195px;
+	margin: auto;
+	background: url('DefaultSkin/background/CompanyAccountImage.jpg') no-repeat;
 }
 
 .UIAccountPortlet .AccountInputSet .SearchIcon {

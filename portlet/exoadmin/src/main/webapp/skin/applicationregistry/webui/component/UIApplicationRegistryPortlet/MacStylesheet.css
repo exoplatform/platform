@@ -3,7 +3,7 @@ e/**
  * Modifile : Nguyen Ngoc Thuy
  * May 8, 2007
  * version: $Id$
- */
+ */	
  
 .UIWindow .UIApplicationRegistryPortlet {
 	border: none;
@@ -18,7 +18,7 @@ e/**
 	overflow: auto;
 }
 
-.UIApplicationRegistryPortlet .CategoryContainer .EditIcon  {
+.UIApplicationRegistryPortlet .CategoryContainer .EditIcon	{
 	float: none;
 }
 
@@ -31,28 +31,28 @@ e/**
 }
 
 .UIApplicationRegistryPortlet .UIControlbar .IconControl {
-	float: left;			/* orientation=lt */
-	float: right;			/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	cursor: pointer;
-	background-image: url('DefaultSkin/background/ControlIcon.gif');			/* orientation=lt */
-	background-image: url('DefaultSkin/background/ControlIcon-rt.gif');		/* orientation=rt */
+	background-image: url('DefaultSkin/background/ControlIcon.gif'); /* orientation=lt */
+	background-image: url('DefaultSkin/background/ControlIcon-rt.gif'); /* orientation=rt */
 	background-repeat: no-repeat;
-	padding-left: 25px;			/* orientation=lt */
-	padding-right: 25px;		/* orientation=rt */
+	padding-left: 25px; /* orientation=lt */
+	padding-right: 25px; /* orientation=rt */
 	line-height: 23px;
-	margin: 0px 15px 0px 7px;		/* orientation=lt */
-	margin: 0px 7px 0px 15px;		/* orientation=rt */
+	margin: 0px 15px 0px 7px; /* orientation=lt */
+	margin: 0px 7px 0px 15px; /* orientation=rt */
 	width: auto; height: auto;
 }
 
 .UIApplicationRegistryPortlet .UIControlbar .AddNewIcon {
-	background-position: left top;		/* orientation=lt */
-	background-position: right top;		/* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 }
 
 .UIApplicationRegistryPortlet .AddIcon {
-	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -247px;				/* orientation=lt */
-	background: url('DefaultSkin/background/ControlIcon-rt.gif') no-repeat right -247px;		/* orientation=rt */
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -247px; /* orientation=lt */
+	background: url('DefaultSkin/background/ControlIcon-rt.gif') no-repeat right -247px; /* orientation=rt */
 	width: 19px;
 	height: 20px;
 }
@@ -196,7 +196,7 @@ e/**
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .NormalTab a.TabLabel {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;		 /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center; /* orientation=lt */
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif') no-repeat right center; /* orientation=rt */
 	padding: 0px 0px 0px 18px; /* orientation=lt */
 	padding: 0px 18px 0px 0px; /* orientation=rt */
@@ -204,7 +204,7 @@ e/**
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .SelectedTab a.TabLabel {
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat left center;		 /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow.gif') no-repeat left center; /* orientation=lt */
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayDownArrow-rt.gif') no-repeat right center; /* orientation=rt */
 	padding: 0px 0px 0px 18px; /* orientation=lt */
 	padding: 0px 18px 0px 0px; /* orientation=rt */
@@ -223,7 +223,7 @@ e/**
 }
 
 .UIApplicationRegistryPortlet .UIVerticalSlideTabs .UIVTabContent .ItemLabel {
-	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -170px;		 /* orientation=lt */
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -170px; /* orientation=lt */
 	background: url('DefaultSkin/background/ControlIcon-rt.gif') no-repeat right -170px; /* orientation=rt */
 	padding-left: 10px;	 /* orientation=lt */
 	padding-right: 10px; /* orientation=rt */
@@ -240,7 +240,7 @@ e/**
 }
 
 .UIApplicationRegistryPortlet .UIVTabContent .SelectedItem .ItemLabel {
-	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -196px;		 /* orientation=lt */
+	background: url('DefaultSkin/background/ControlIcon.gif') no-repeat left -196px; /* orientation=lt */
 	background: url('DefaultSkin/background/ControlIcon-rt.gif') no-repeat right -196px; /* orientation=rt */
 	display: block;
 	color: #058ee6;
@@ -301,14 +301,14 @@ e/**
 }
 
 .UIApplicationRegistryPortlet .ApplicationContainer {
-  padding: 10px 0px;
+	padding: 10px 0px;
 }
 
 .UIApplicationRegistryPortlet .ApplicationContent {
-  margin-left: 90px; /* orientation=lt */
-  margin-right: 90px; /* orientation=rt */
-  padding: 15px 15px 15px 0px; /* orientation=lt */
-  padding: 15px 0px 15px 15px; /* orientation=rt */
+	margin-left: 90px; /* orientation=lt */
+	margin-right: 90px; /* orientation=rt */
+	padding: 15px 15px 15px 0px; /* orientation=lt */
+	padding: 15px 0px 15px 15px; /* orientation=rt */
 }
 
 .UIApplicationRegistryPortlet .ApplicationContent table {
@@ -326,14 +326,14 @@ e/**
 
 .UIApplicationRegistryPortlet .TitleBarApplication {
 	background: none;
-  font-weight: bold ; 
-  font-size: 12px; 
-  color: #1553B9;
+	font-weight: bold; 
+	font-size: 12px; 
+	color: #1553B9;
 }
 
 .UIApplicationRegistryPortlet .ApplicationContentLabel {
-  line-height: 16px;
-  margin: auto;
+	line-height: 16px;
+	margin: auto;
 }
 
 .UIApplicationRegistryPortlet .ApplicationContent .LeftLabel {
@@ -352,7 +352,7 @@ e/**
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
 	width: 80px; height: 80px;
-	cursor: pointer ;
+	cursor: pointer;
 	margin-top: 2px;
 }
 
@@ -403,17 +403,17 @@ e/**
 /***************************** UIPortletManagement ***************************/
 
 .UIPortletManagement .ListCategory .CategoryLable {
-	background: url(DefaultSkin/background/ControlIcon.gif) no-repeat scroll 5px -170px;	 /* orientation=lt */
+	background: url(DefaultSkin/background/ControlIcon.gif) no-repeat scroll 5px -170px; /* orientation=lt */
 	background: url(DefaultSkin/background/ControlIcon-rt.gif) no-repeat scroll right -170px; /* orientation=rt */
-	padding: 0px 0px 0px 15px;	 /* orientation=lt */
-	padding: 0px 15px 0px 0px;	 /* orientation=rt */
+	padding: 0px 0px 0px 15px; /* orientation=lt */
+	padding: 0px 15px 0px 0px; /* orientation=rt */
 	display: block;
 	line-height: 25px;
 	border-bottom: 1px solid #dddddd;
 }
 
 .UIPortletManagement .SelectedCategory .CategoryLable {
-	background: #b7b7b7 url(DefaultSkin/background/ControlIcon.gif) no-repeat scroll 5px -196px;	 /* orientation=lt */
+	background: #b7b7b7 url(DefaultSkin/background/ControlIcon.gif) no-repeat scroll 5px -196px; /* orientation=lt */
 	background: #b7b7b7 url(DefaultSkin/background/ControlIcon-rt.gif) no-repeat scroll right -196px; /* orientation=rt */
 	color: white;
 	font-weight: bold;

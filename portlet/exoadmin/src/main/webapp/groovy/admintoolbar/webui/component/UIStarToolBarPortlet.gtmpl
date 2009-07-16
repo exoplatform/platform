@@ -1,31 +1,31 @@
 <%
   import org.exoplatform.web.application.JavascriptManager;
-  
-  def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
-  jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
-  jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
-  String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));" ;
-  String changeSkinAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeSkin', true));" ;
+  	
+	def rcontext = _ctx.getRequestContext();
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript('eXo.portal.UIPortalNavigation');
+	jsmanager.importJavascript('eXo.portal.UIAdminToolbar');
+	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+	String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));";
+	String changeSkinAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeSkin', true));";
 %>
 <div class="UIStarToolBarPortlet" id="$uicomponent.id">
-  <div class="UIHorizontalTabs">
-    <div class="TabsContainer" style="position: relative">
-	    <div class="UITab" style="width: 62px">
-	      <div class="NormalNavigationTab"></div>
-		    <div class="MenuItemContainer" style="position: absolute; display:none;">
-          <div class="MenuItem OddItem" onclick="$changeLanguageAction">
-            <a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIStarToolbarPortlet.item.ChangeLanguage")%></a>
-          </div>
-          <div class="MenuItem EvenItem" onclick="$changeSkinAction">
-            <a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIStarToolbarPortlet.item.ChangeSkin")%></a>
-          </div>
-          <div class="MenuItem OddItem" onclick="eXo.portal.logout();">
-            <a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIStarToolbarPortlet.item.Logout")%></a>
-          </div>
-        </div>
-		  </div>
+	<div class="UIHorizontalTabs">
+		<div class="TabsContainer" style="position: relative">
+			<div class="UITab" style="width: 62px">
+				<div class="NormalNavigationTab"></div>
+				<div class="MenuItemContainer" style="position: absolute; display:none;">
+					<div class="MenuItem OddItem" onclick="$changeLanguageAction">
+						<a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIStarToolbarPortlet.item.ChangeLanguage")%></a>
+					</div>
+					<div class="MenuItem EvenItem" onclick="$changeSkinAction">
+						<a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIStarToolbarPortlet.item.ChangeSkin")%></a>
+					</div>
+					<div class="MenuItem OddItem" onclick="eXo.portal.logout();">
+						<a href="#" class="ItemIcon SiteIcon"><%=_ctx.appRes("UIStarToolbarPortlet.item.Logout")%></a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

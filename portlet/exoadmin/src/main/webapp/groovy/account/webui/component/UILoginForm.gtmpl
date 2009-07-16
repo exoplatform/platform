@@ -1,21 +1,21 @@
-<div class="UILoginForm" id="ChildTest">  
-  <%uiform.begin()%>
-  <div class="SignIn">Sign In</div>
+<div class="UILoginForm" id="ChildTest">	
+	<%uiform.begin()%>
+	<div class="SignIn">Sign In</div>
 	<div class="FloatRight">
-	  <div class="FloatLeft">
-	    <div class="UserName" >
-	      <label for="userName"><%=_ctx.appRes("UILoginForm.label.login")%></label>
-	      <% uiform.renderChild(0); %>
-	    </div>
-	    <div class="PasswordLogin">
-	      <label for="PasswordLogin"><%=_ctx.appRes("UILoginForm.label.password")%></label>
-	      <%uiform.renderChild(1); %>
-	    </div>
-    </div>
-    <div>
-      <a class="ButtonLogin" href="<%=uicomponent.url("Login");%>"><span></span></a>
-    </div>
-    <div class="ClearLeft"><span></span></div>
+		<div class="FloatLeft">	
+			<div class="UserName" >
+				<label for="userName"><%=_ctx.appRes("UILoginForm.label.login")%></label>
+				<% uiform.renderChild(0); %>
+			</div>
+			<div class="PasswordLogin">
+				<label for="PasswordLogin"><%=_ctx.appRes("UILoginForm.label.password")%></label>
+				<%uiform.renderChild(1); %>
+			</div>
+		</div>
+		<div>
+			<a class="ButtonLogin" href="<%=uicomponent.url("Login");%>"><span></span></a>
+		</div>
+		<div class="ClearLeft"><span></span></div>
 	</div>
 	<div class="ClearRight"><span></span></div>
 	<%uiform.end()%>

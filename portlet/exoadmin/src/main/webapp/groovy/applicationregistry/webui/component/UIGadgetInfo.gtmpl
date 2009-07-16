@@ -1,5 +1,5 @@
 <%
-	def gadget = uicomponent.getGadget() ;
+	def gadget = uicomponent.getGadget();
 	String srcBGError = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 %>
 <div class="UIGadgetInfo" id="$uicomponent.id">
@@ -15,40 +15,40 @@
 	</div>
  	<div class="Application">
  		<div class="PortletIcons">
-  			<img src="<%= gadget.getThumbnail() %>" onError="src='$srcBGError'" alt=""/>
-  	</div>
-  	<div class="ApplicationContent">
-			  <table class="TitleBarApplication">
-			  	<tr>
-  	    		<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.name")%></td>
-  	    		<td class="RightLabel" title=" <%= gadget.getTitle() %> "><%= gadget.getTitle() %></td>
-  	    	</tr>
-			  </table>
-  	    <table>
-  	    	<tr>
-  	    		<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.description")%></td>
-  	    		<td class="RightLabel" title=" <%= gadget.getDescription() %> "><%= gadget.getDescription() %></td>
-  	    	</tr>
-  			</table>
-  	    <table>
-  	    	<tr>
-  	    		<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.viewUrl")%></td>
-  	    		<td class="RightLabel" title=" <%= uicomponent.getViewUrl() %> "><%= uicomponent.getViewUrl() %></td>
-  	    	</tr>  	    		
-  	    	<% if(gadget.isLocal()) {%>
-  	    	<tr>
-  	    		<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.editUrl")%></td>
-  	    		<td class="RightLabel"><%= uicomponent.getEditUrl() %></td>
-  	    	</tr>  	    		
-  	    	<% } %>
-  	    </table>
-  	    <table>
-  	    	<tr>
-  	    		<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.reference")%></td>
-  	    		<td class="RightLabel"><%= gadget.getReferenceUrl() %></td>
-  	    	</tr>
-  	    </table>
-  	</div>
-  	
+				<img src="<%= gadget.getThumbnail() %>" onError="src='$srcBGError'" alt=""/>
+		</div>
+		<div class="ApplicationContent">
+				<table class="TitleBarApplication">
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.name")%></td>
+						<td class="RightLabel" title=" <%= gadget.getTitle() %> "><%= gadget.getTitle() %></td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.description")%></td>
+						<td class="RightLabel" title=" <%= gadget.getDescription() %> "><%= gadget.getDescription() %></td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.viewUrl")%></td>
+						<td class="RightLabel" title=" <%= uicomponent.getViewUrl() %> "><%= uicomponent.getViewUrl() %></td>
+					</tr>						
+					<% if(gadget.isLocal()) {%>
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.editUrl")%></td>
+						<td class="RightLabel"><%= uicomponent.getEditUrl() %></td>
+					</tr>						
+					<% } %>
+				</table>
+				<table>
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIGadgetInfo.label.reference")%></td>
+						<td class="RightLabel"><%= gadget.getReferenceUrl() %></td>
+					</tr>
+				</table>
+		</div>
+		
 	</div>
 </div>

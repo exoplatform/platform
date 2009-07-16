@@ -1,58 +1,58 @@
-<% 
-    String style = "SelectButtonLabel";
+<%	
+		String style = "SelectButtonLabel";
 %>
 <div class="UIOrganizationPortlet" id="$uicomponent.id">
 	<div style="height: 0px;"><div style="width: 730px;" ><span style="display: none;"></span></div></div>
 	<div class="OrganizationPortletContainer" 
 		style="!width: expression(this.previousSibling.offsetWidth - 22 + 'px'); !border: 1px solid white; min-width: 730px;">
-	  <%/*Begin UIToolbar*/%>
-	  <div class="UIToolbar">
-	    <div class="LargeToolbar">
-	      <div class="ToolbarContainer">
-	        <div class="LeftToolbar">
-	          <div class="RightToolbar">
-	            <div class="MiddleToolbar">
-	             
-	              <div class="ManagementIconContainer">
-	               <%
-	                 style = "ButtonLabel"; 
-	                 if(uicomponent.getChild(0).isRendered()){ style = "SelectButtonLabel"; }
-	               %>
-	                <a class="UserButton" href="<%=uicomponent.event("ViewChild", "UIUserManagement")%>">
-	                  <div class="UserManagementIcon"><span></span></div>
-	                  <div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.userManagement")%></div>
-	                </a>
-	                <div class="HorizontalSeparator"><span></span></div>
-	                <%
-	                  style = "ButtonLabel"; 
-	                  if(uicomponent.getChild(1).isRendered()){ style = "SelectButtonLabel"; }
-	                %>
-	                <a class="GroupButton" href="<%=uicomponent.event("ViewChild", "UIGroupManagement")%>">
-	                  <div class="GroupManagementIcon"><span></span></div>
-	                  <div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.groupManagement")%></div>
-	                </a>
-	                <div class="HorizontalSeparator"><span></span></div>
-	                <%
-	                 style = "ButtonLabel"; 
-	                 if(uicomponent.getChild(2).isRendered()){ style = "SelectButtonLabel"; }
-	                %>
-	                <a class="MembershipButton" href="<%=uicomponent.event("ViewChild", "UIMembershipManagement")%>">
-	                  <div class="MembershipManagementIcon"><span></span></div>
-	                  <div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.membershipManagement")%></div>
-	                </a>
-	                <div class="HorizontalSeparator"><span></span></div>
-	                <div class="ClearBoth"><span></span></div>
-	              </div>
-	         
-	            </div>
-	          </div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	  <%/*End UIToolbar*/%>
-	    
-	  <div class="ManagementTabContent">
-	  	<% uicomponent.renderChildren() %>
-	  </div>
+		<%/*Begin UIToolbar*/%>
+		<div class="UIToolbar">
+			<div class="LargeToolbar">
+				<div class="ToolbarContainer">
+					<div class="LeftToolbar">
+						<div class="RightToolbar">
+							<div class="MiddleToolbar">
+							 
+								<div class="ManagementIconContainer">
+								 <%
+									 style = "ButtonLabel"; 
+									 if(uicomponent.getChild(0).isRendered()){ style = "SelectButtonLabel"; }
+								 %>
+									<a class="UserButton" href="<%=uicomponent.event("ViewChild", "UIUserManagement")%>">
+										<div class="UserManagementIcon"><span></span></div>
+										<div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.userManagement")%></div>
+									</a>
+									<div class="HorizontalSeparator"><span></span></div>
+									<%
+										style = "ButtonLabel"; 
+										if(uicomponent.getChild(1).isRendered()){ style = "SelectButtonLabel"; }
+									%>
+									<a class="GroupButton" href="<%=uicomponent.event("ViewChild", "UIGroupManagement")%>">
+										<div class="GroupManagementIcon"><span></span></div>
+										<div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.groupManagement")%></div>
+									</a>
+									<div class="HorizontalSeparator"><span></span></div>
+									<%
+									 style = "ButtonLabel"; 
+									 if(uicomponent.getChild(2).isRendered()){ style = "SelectButtonLabel"; }
+									%>
+									<a class="MembershipButton" href="<%=uicomponent.event("ViewChild", "UIMembershipManagement")%>">
+										<div class="MembershipManagementIcon"><span></span></div>
+										<div class="$style"><%=_ctx.appRes("UIOrganizationPortlet.label.membershipManagement")%></div>
+									</a>
+									<div class="HorizontalSeparator"><span></span></div>
+									<div class="ClearBoth"><span></span></div>
+								</div>
+					 
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%/*End UIToolbar*/%>
+			
+		<div class="ManagementTabContent">
+			<% uicomponent.renderChildren() %>
+		</div>
 	</div></div>

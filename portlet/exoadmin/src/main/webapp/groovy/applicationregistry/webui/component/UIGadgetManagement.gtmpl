@@ -1,34 +1,34 @@
-<%
+<%	
 	def selectedGadget = uicomponent.getSelectedGadget();
-  boolean isSelected = false;
-  String cssItem;
+	boolean isSelected = false;
+	String cssItem;
 %>
 <div class="UIGadgetManagement" id="$uicomponent.id">
-  <div class="UIControlbar">
-  	<div class="IconControl AddNewIcon" onclick="<%= uicomponent.event("AddRemoteGadget") %>"><%=_ctx.appRes("UIGadgetManagement.label.addRemote")%></div>
-  	<div class="IconControl CreateNewIcon" onclick="<%= uicomponent.event("AddLocalGadget") %>"><%=_ctx.appRes("UIGadgetManagement.label.createNew")%></div>
-  	<div class="ClearBoth"><span></span></div>
-  </div>
-  
+	<div class="UIControlbar">
+		<div class="IconControl AddNewIcon" onclick="<%= uicomponent.event("AddRemoteGadget") %>"><%=_ctx.appRes("UIGadgetManagement.label.addRemote")%></div>
+		<div class="IconControl CreateNewIcon" onclick="<%= uicomponent.event("AddLocalGadget") %>"><%=_ctx.appRes("UIGadgetManagement.label.createNew")%></div>
+		<div class="ClearBoth"><span></span></div>
+	</div>
+	
 	<div class="AppRegistryContainer">
 		<div class="AppRegistryControl">
 			<div class="ControlArea">
 				<div class="CategoryContent">
-	   	    <div class="ListContent">	
-	   	    <% 
-	   	    for(gadget in uicomponent.getGadgets()) {
-	   	    	String gadgetType = (gadget.isLocal() ? "LocalGadget" : "RemoteGadget");
-	   	    	if(!isSelected && gadget.getName().equals(selectedGadget.getName())) {
-	   	    		cssItem = "SelectedItem";
-	   	    		isSelected = true;
-	   	    	} else cssItem = "Item";
-	   	    %>
-				    <div class="$cssItem ItemContent">
-				    <% def gadgetLabel = gadget.getTitle() %>
-		        	<a onclick="<%= uicomponent.event("SelectGadget", gadget.getName()) %>" class="TabLabel $gadgetType" title="<%= gadget.getTitle() %>"><%= (gadgetLabel.length() <= 31) ? gadgetLabel : gadgetLabel.substring(0, 28)+"..." %></a>
-		          <a title="<%=_ctx.appRes("UIGadgetManagement.title.deleteGadget")%>" class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveGadget", gadget.getName()) %>"><span></span></a>
-		      		<div class="ClearBoth"><span></span></div>
-					  </div>
+		 			<div class="ListContent">	
+		 			<% 
+		 			for(gadget in uicomponent.getGadgets()) {
+		 				String gadgetType = (gadget.isLocal() ? "LocalGadget" : "RemoteGadget");
+		 				if(!isSelected && gadget.getName().equals(selectedGadget.getName())) {
+		 					cssItem = "SelectedItem";
+		 					isSelected = true;
+		 				} else cssItem = "Item";
+		 			%>
+						<div class="$cssItem ItemContent">
+						<% def gadgetLabel = gadget.getTitle() %>
+							<a onclick="<%= uicomponent.event("SelectGadget", gadget.getName()) %>" class="TabLabel $gadgetType" title="<%= gadget.getTitle() %>"><%= (gadgetLabel.length() <= 31) ? gadgetLabel : gadgetLabel.substring(0, 28)+"..." %></a>
+							<a title="<%=_ctx.appRes("UIGadgetManagement.title.deleteGadget")%>" class="ControlIcon DeletePortalIcon" onclick="<%= uicomponent.event("RemoveGadget", gadget.getName()) %>"><span></span></a>
+							<div class="ClearBoth"><span></span></div>
+						</div>
 					<% } %>
 					</div>
 				</div>
@@ -40,5 +40,5 @@
 			<% uicomponent.renderChildren() %>
 		</div>
 		<div class="ClearLeft"><span></span></div>
-	</div>  
+	</div>	
 </div>

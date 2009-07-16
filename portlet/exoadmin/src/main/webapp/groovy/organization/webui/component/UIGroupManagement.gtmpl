@@ -1,44 +1,44 @@
-<%
-  import  org.exoplatform.organization.webui.component.UIGroupExplorer;
-  import  org.exoplatform.organization.webui.component.UIGroupDetail;
-  import org.exoplatform.webui.core.UIPopupWindow;
-  import  org.exoplatform.webui.core.UIBreadcumbs;
-  import  org.exoplatform.organization.webui.component.GroupManagement;
-  import  org.exoplatform.services.organization.Group;
-  def rcontext = _ctx.getRequestContext() ;
-  
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
-  
+<%	
+	import	org.exoplatform.organization.webui.component.UIGroupExplorer;
+	import	org.exoplatform.organization.webui.component.UIGroupDetail;
+	import org.exoplatform.webui.core.UIPopupWindow;
+	import	org.exoplatform.webui.core.UIBreadcumbs;
+	import	org.exoplatform.organization.webui.component.GroupManagement;
+	import	org.exoplatform.services.organization.Group;
+	def rcontext = _ctx.getRequestContext();
+	
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
+	
 %>
 <div class="UIGroupManagement">
-  <%uicomponent.renderChild(UIBreadcumbs.class); %>
-  <div class="GroupPanel">
-    <div class="GroupNavigation">
-      <div class="TitleBar">
-        <div class="Title"><%=_ctx.appRes("UIGroupManagement.label.Groups")%></div>
-        <% String actionLink = "#";
-        	 Group group = uicomponent.getChild(UIGroupExplorer.class).getCurrentGroup();
-        	 String groupId = null;
-        	 if (group != null)
-        	 		groupId = group.getId();
-           if (GroupManagement.isAdministrator(null) ||
-           		((groupId != null) && GroupManagement.isSuperUserOfGroup(null, groupId))) {
-        %>
-            <% actionLink = uicomponent.event("DeleteGroup","delete"); %>
-		      	<a class="TreeActionIcon RemoveGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.DeleteGroup")%>"><span></span></a>
-		      	<% actionLink = uicomponent.event("EditGroup","Edit"); %>
-		      	<a class="TreeActionIcon EditGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.EditGroup")%>"><span></span></a>
-		      	<% actionLink = uicomponent.event("AddGroup","add"); %>
-		      	<a class="TreeActionIcon AddGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.AddGroup")%>"><span></span></a>
-		     <%}%>
-      </div> 
-      <div class="GroupNavigationContainer"><% uicomponent.renderChild(UIGroupExplorer.class) %></div>
-  	</div>
-    <div class="GroupDetail">
-      <div >
-        <% uicomponent.renderChild(UIGroupDetail.class) %>
-      </div>
-    </div>
-    <div class="ClearLeft"><span></span></div>
-  </div>
+	<%uicomponent.renderChild(UIBreadcumbs.class); %>
+	<div class="GroupPanel">
+		<div class="GroupNavigation">
+			<div class="TitleBar">
+				<div class="Title"><%=_ctx.appRes("UIGroupManagement.label.Groups")%></div>
+				<% String actionLink = "#";
+					 Group group = uicomponent.getChild(UIGroupExplorer.class).getCurrentGroup();
+					 String groupId = null;
+					 if (group != null)
+					 		groupId = group.getId();
+					 if (GroupManagement.isAdministrator(null) ||
+					 		((groupId != null) && GroupManagement.isSuperUserOfGroup(null, groupId))) {
+				%>
+						<% actionLink = uicomponent.event("DeleteGroup","delete"); %>
+						<a class="TreeActionIcon RemoveGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.DeleteGroup")%>"><span></span></a>
+						<% actionLink = uicomponent.event("EditGroup","Edit"); %>
+						<a class="TreeActionIcon EditGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.EditGroup")%>"><span></span></a>
+						<% actionLink = uicomponent.event("AddGroup","add"); %>
+						<a class="TreeActionIcon AddGroupIcon" href="$actionLink" title="<%=_ctx.appRes("UIGroupManagement.label.AddGroup")%>"><span></span></a>
+				 <%}%>
+			</div> 
+			<div class="GroupNavigationContainer"><% uicomponent.renderChild(UIGroupExplorer.class) %></div>
+		</div>
+		<div class="GroupDetail">
+			<div >
+				<% uicomponent.renderChild(UIGroupDetail.class) %>
+			</div>
+		</div>
+		<div class="ClearLeft"><span></span></div>
+	</div>
 </div>

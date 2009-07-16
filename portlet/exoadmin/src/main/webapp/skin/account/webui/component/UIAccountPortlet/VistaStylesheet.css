@@ -1,14 +1,14 @@
-.UIWindow .UIAccountPortlet {
-  border: none;
-  overflow: visible;
-  margin: 0px;
+.UIWindow .UIAccountPortlet {	
+	border: none;
+	overflow: visible;
+	margin: 0px;
 }
 
 .UIAccountPortlet { 
-  background: #ffffff;
-  margin: 5px 6px 5px 6px;
-  border: 1px solid #b7b7b7;
-  overflow: auto; /*Fix when Restore Down for IE*/
+	background: #ffffff;
+	margin: 5px 6px 5px 6px;
+	border: 1px solid #b7b7b7;
+	overflow: auto; /*Fix when Restore Down for IE*/
 }
 
 .UIAccountPortlet .UIFormTabPane {
@@ -20,7 +20,7 @@
 /*########################-UIPersonalInfo-###########################*/
 
 .UIAccountPortlet .UIItemSelector .UIFormInputSet {
-  padding-top: 10px;
+	padding-top: 10px;
 }
 
 /*########################-Template Selector-###########################*/
@@ -30,49 +30,49 @@
 }
 
 .UIAccountPortlet .UIItemSelector .NormalStyle .ItemList {
-  height: 220px;
+	height: 220px;
 }
 
 .UIAccountPortlet .UIItemSelector .NormalStyle .ItemList .Item {
-  margin-top: 15px; margin-bottom: 10px;
+	margin-top: 15px; margin-bottom: 10px;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .Template {
-  height: 215px;
-  margin: auto;
+	height: 215px;
+	margin: auto;
 }
 
 .UIAccountPortlet .UIItemSelector .NormalStyle .TemplateImage {
-  height: 350px;
-  background: url('VistaSkin/background/TemplateImage.gif') no-repeat bottom;
+	height: 350px;
+	background: url('VistaSkin/background/TemplateImage.gif') no-repeat bottom;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .Template .DefaultAccountImage{
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('VistaSkin/background/DefaultAccountImage.jpg') no-repeat;
+	width: 330px;
+	height: 195px;
+	margin: auto;
+	background: url('VistaSkin/background/DefaultAccountImage.jpg') no-repeat;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .Template .AdminAccountImage{
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('VistaSkin/background/AdminAccountImage.jpg') no-repeat;
+	width: 330px;
+	height: 195px;
+	margin: auto;
+	background: url('VistaSkin/background/AdminAccountImage.jpg') no-repeat;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .Template .CommunityAccountImage{
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('VistaSkin/background/CommunityAccountImage.jpg') no-repeat;
+	width: 330px;
+	height: 195px;
+	margin: auto;
+	background: url('VistaSkin/background/CommunityAccountImage.jpg') no-repeat;
 }
 
 .UIAccountPortlet .UIItemSelector .ItemDetailList .Template .CompanyAccountImage{
-  width: 330px;
-  height: 195px;
-  margin: auto;
-  background: url('VistaSkin/background/CompanyAccountImage.jpg') no-repeat;
+	width: 330px;
+	height: 195px;
+	margin: auto;
+	background: url('VistaSkin/background/CompanyAccountImage.jpg') no-repeat;
 }
 
 .UIAccountPortlet .AccountInputSet .SearchIcon {

@@ -1,4 +1,4 @@
-<%
+<%	
 	def webApps = uicomponent.getWebApps();
 	def portletTypes = uicomponent.getPortletTypes();
 	String selectedType = uicomponent.getSelectedType();
@@ -14,16 +14,16 @@
 					<div class="BoxContent">
 						<div class="TitleCategory" onclick="<%= uicomponent.event("SelectPortletType", type) %>"><%=_ctx.appRes("UIPortletManagement.title." + type)%></div>
 						<% if(type.equals(selectedType)) {%>	
-		   	    <div class="ListContent">	
-		   	    	
-		   	    	<div class="UIVerticalSlideTabs">
-		   	    		<div class="UIVTab VTabSimpleStyle">
-								  <div class="UIVTabContent" style="display: block">
-								  <%
-								   	boolean isSelected = false;
-								   	String cssClass;
-								  %>
-								  <% for(app in webApps) {%>
+			 			<div class="ListContent">	
+			 				
+			 				<div class="UIVerticalSlideTabs">
+			 					<div class="UIVTab VTabSimpleStyle">
+									<div class="UIVTabContent" style="display: block">
+									<%
+									 	boolean isSelected = false;
+									 	String cssClass;
+									%>
+									<% for(app in webApps) {%>
 										<div class="ListCategory SelectedCategory">
 											<div class="CategoryLable"><%= app.getName() %></div>
 											
@@ -42,8 +42,8 @@
 									<% } %>	
 									</div>
 								</div>
-		   	    	</div>	
-		   	    	        	
+			 				</div>	
+			 									
 						</div>
 						<% } %>
 					</div>
@@ -56,6 +56,6 @@
 		<% uicomponent.renderChildren() %>
 		</div>
 		<div class="ClearBoth"><span></span></div>
-	</div>  
+	</div>	
 	
 </div>

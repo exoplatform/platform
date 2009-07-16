@@ -1,4 +1,4 @@
-<%
+<%		
 	import java.util.Iterator;
 	import java.util.Map.Entry 
 
@@ -10,82 +10,82 @@
 <div class="UIPortletInfo" id="$uicomponent.id">	
 		
 		<div class="UIBreadcumb">
-	    <div class="LeftBlock"><%=_ctx.appRes("UIPortletManagement.title." + portlet.getType())%></div>    
-      <div class="RightBlackGridArrow16x16Icon"><span></span></div>
-      <div class="Selected"><%=portlet.getPortletGroup()%></div>
-      <div class="RightBlackGridArrow16x16Icon"><span></span></div>	                
-	    <div class="Selected"><%=portlet.getDisplayName() %></div> 		          		              
+			<div class="LeftBlock"><%=_ctx.appRes("UIPortletManagement.title." + portlet.getType())%></div>		
+			<div class="RightBlackGridArrow16x16Icon"><span></span></div>
+			<div class="Selected"><%=portlet.getPortletGroup()%></div>
+			<div class="RightBlackGridArrow16x16Icon"><span></span></div>									
+			<div class="Selected"><%=portlet.getDisplayName() %></div> 																
 			<div class="ClearLeft"><span></span></div>
 		</div>
 		
 
-	  <div class="Application">
-  		<div title="Portlet 1" class="PortletIcons">
-  				<img src="$srcBG" onError="src='$srcBGError'" alt=""/>
-  		</div>
-  		<!--
-  		<div class="ApplicationContent">
-  		  <div class="TitleBarApplication">
-  		  	<span class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.display")%></span>
-  		    <span><%= portlet.getDisplayName() %></span>
-  		  </div>
-  		  <div class="ApplicationContentLabel">
-  		    <div class="ContentLabel">
-  		      <span class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.name")%></span>
-  		      <span class="RightLabel"><%= portlet.getName() %></span>
-  		    </div>
-  		    <div class="ContentLabel">
+		<div class="Application">
+			<div title="Portlet 1" class="PortletIcons">
+					<img src="$srcBG" onError="src='$srcBGError'" alt=""/>
+			</div>
+			<!--
+			<div class="ApplicationContent">
+				<div class="TitleBarApplication">
+					<span class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.display")%></span>
+					<span><%= portlet.getDisplayName() %></span>
+				</div>
+				<div class="ApplicationContentLabel">
+					<div class="ContentLabel">
+						<span class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.name")%></span>
+						<span class="RightLabel"><%= portlet.getName() %></span>
+					</div>
+					<div class="ContentLabel">
 						<span class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.description")%></span>
 						<span class="RightLabel"><%= portlet.getDescription() %></span>
-          </div>
-  		  </div>
-  		</div>
-  		-->
-  		<div class="ApplicationContent">
-  		  <table class="TitleBarApplication">
-  		  	<tr>
-  		  		<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.display")%></td>
-  		    	<td class="RightLabel" title="<%= portlet.getDisplayName() %>"><%= portlet.getDisplayName() %></td>
-  		    </tr>
-  		  </table>
-  		  <table>
-  		  	<tr>
-  		  		<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.name")%></td>
-  		    	<td class="RightLabel" title="<%= portlet.getDisplayName() %>"><%= portlet.getName() %></td>
-  		    </tr>
-  		  </table>
-  		  <table>
-  		  	<tr>
+					</div>
+				</div>
+			</div>
+			-->
+			<div class="ApplicationContent">
+				<table class="TitleBarApplication">
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.display")%></td>
+						<td class="RightLabel" title="<%= portlet.getDisplayName() %>"><%= portlet.getDisplayName() %></td>
+					</tr>
+				</table>
+				<table>
+					<tr>
+						<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.name")%></td>
+						<td class="RightLabel" title="<%= portlet.getDisplayName() %>"><%= portlet.getName() %></td>
+					</tr>
+				</table>
+				<table>
+					<tr>
 						<td class="LeftLabel"><%=_ctx.appRes("UIPortletInfo.label.description")%></td>
 						<td class="RightLabel" title="<%= portlet.getDisplayName() %>"><%= portlet.getDescription() %></td>
 					</tr>
-      	</table>
-  		</div>
+				</table>
+			</div>
 
 		</div>
 		<div class="Preferences" style="border: 1px solid #b7b7b7; padding: 10px; margin: 10px; background: #f7f7f7">
-	  	<table class="UIGrid" style="width: 99%">
-	  		<tr>
-	  			<th colspan="2"><%=_ctx.appRes("UIPortletInfo.title.portletPreferences")%></th>
-	  		</tr>
-	  		<% if(portletPreferences == null || portletPreferences.isEmpty()) {%>
-	  		<tr>
-	  			<td colspan="2" style="text-align: center; font-weight: bold;"><%=_ctx.appRes("UIPortletInfo.msg.noPortletPreferences")%></td>
-	  		</tr>
-	  		<% } else {
-		  		Iterator<Entry<String, String[]>> itr = portletPreferences.getMap().entrySet().iterator();
-		  		while(itr.hasNext()) {
-	        Entry<String, String[]> entry = itr.next(); 
-		  	%>
-	  		<tr>
-	  			<td width="30%"><%= entry.getKey() %></td>
-	  			<td>
-	  			<% for(value in entry.getValue()) { %>
-	  				<div class="Text">$value</div>
-	  			<% } %>
-	  			</td>
-	  		</tr>
-	  		<% } }%>
-	  	</table>
-	  </div>
+			<table class="UIGrid" style="width: 99%">
+				<tr>
+					<th colspan="2"><%=_ctx.appRes("UIPortletInfo.title.portletPreferences")%></th>
+				</tr>
+				<% if(portletPreferences == null || portletPreferences.isEmpty()) {%>
+				<tr>
+					<td colspan="2" style="text-align: center; font-weight: bold;"><%=_ctx.appRes("UIPortletInfo.msg.noPortletPreferences")%></td>
+				</tr>
+				<% } else {
+					Iterator<Entry<String, String[]>> itr = portletPreferences.getMap().entrySet().iterator();
+					while(itr.hasNext()) {
+					Entry<String, String[]> entry = itr.next(); 
+				%>
+				<tr>
+					<td width="30%"><%= entry.getKey() %></td>
+					<td>
+					<% for(value in entry.getValue()) { %>
+						<div class="Text">$value</div>
+					<% } %>
+					</td>
+				</tr>
+				<% } }%>
+			</table>
+		</div>
 </div>	

@@ -221,7 +221,7 @@
 
 .UIAdminToolbarPortlet .AddPageIcon {
 	background: url('DefaultSkin/icons/IconToolBar.gif') no-repeat left -128px; /* orientation=lt */
-	background: url('DefaultSkin/icons/IconToolBar.gif') no-repeat right -128px; /* orientation=rt */  
+	background: url('DefaultSkin/icons/IconToolBar.gif') no-repeat right -128px; /* orientation=rt */	
 }
 
 .UIAdminToolbarPortlet .EditPageIcon {
