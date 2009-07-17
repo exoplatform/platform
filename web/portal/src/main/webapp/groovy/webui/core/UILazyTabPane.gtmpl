@@ -39,7 +39,7 @@
         if(uiChild.getId().equals(selTabId)) {
         	uicomponent.renderUIComponent(uiChild) ;
         } else {
-        	println "<div id=\"$uiChildId\"></div>"
+        	println "<div id=\"$uiChildId\"><img src=\"/eXoResources/skin/DefaultSkin/background/LoadingProgressBar.gif\" /></div>"
         }
         println "</div>" ;
       }
