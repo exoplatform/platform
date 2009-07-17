@@ -21,3 +21,4 @@
             rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.loadFinished('$uicomponent.generateId');");
         }   
     %>
+</div>
