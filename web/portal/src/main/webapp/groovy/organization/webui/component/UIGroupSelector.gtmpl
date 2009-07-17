@@ -1,54 +1,54 @@
-<% 
-  import  org.exoplatform.webui.core.UIBreadcumbs; 
-  import  org.exoplatform.webui.core.UITree; 
-  import  org.exoplatform.services.organization.Group;
+<%	 
+	import	org.exoplatform.webui.core.UIBreadcumbs; 
+	import	org.exoplatform.webui.core.UITree; 
+	import	org.exoplatform.services.organization.Group;
 %>
 
 <div class="UIGroupSelector" id="$uicomponent.id">
-  <div class="GroupSelector">
+	<div class="GroupSelector">
 		<div class="SelectedGroupPath"><% uicomponent.renderChild(UIBreadcumbs.class); %></div>
-	  <div class="LeftGroupSelector">
-	    <div class="TitleGroupSelector"><%=_ctx.appRes("UIGroupSelector.title.selectGroup")%></div>
-	    <%uicomponent.renderChild(UITree.class);%>
-	  </div>
-	  <%
-	    Group group = uicomponent.getSelectedGroup();
-	    String name = "";
-	    String id = "";
-	    String des =  "";
-	    if(group != null) {
-	       name = group.getGroupName();
-	       des = group.getDescription();
-	       id = group.getId();
-	    }
-	  %>
-	  <div class="RightGroupSelector">
-	    <div class="TitleGroupSelector" ><%=_ctx.appRes("UIGroupSelector.title.selectGroupInfo")%></div>
-		  <div class="Content" >
-			  <div><span><%=_ctx.appRes("UIGroupSelector.lable.name")%></span> $name </div>
-			  <div><span><%=_ctx.appRes("UIGroupSelector.lable.groupId")%></span> $id </div>
-			  <div><span><%=_ctx.appRes("UIGroupSelector.lable.description")%></span> $des </div>
+		<div class="LeftGroupSelector">
+			<div class="TitleGroupSelector"><%=_ctx.appRes("UIGroupSelector.title.selectGroup")%></div>
+			<%uicomponent.renderChild(UITree.class);%>
+		</div>
+		<%
+			Group group = uicomponent.getSelectedGroup();
+			String name = "";
+			String id = "";
+			String des =	"";
+			if(group != null) {
+				 name = group.getGroupName();
+				 des = group.getDescription();
+				 id = group.getId();
+			}
+		%>
+		<div class="RightGroupSelector">
+			<div class="TitleGroupSelector" ><%=_ctx.appRes("UIGroupSelector.title.selectGroupInfo")%></div>
+			<div class="Content" >
+				<div><span><%=_ctx.appRes("UIGroupSelector.lable.name")%></span> $name </div>
+				<div><span><%=_ctx.appRes("UIGroupSelector.lable.groupId")%></span> $id </div>
+				<div><span><%=_ctx.appRes("UIGroupSelector.lable.description")%></span> $des </div>
 			</div>
 		</div>
-	  <div class="ClearLeft"><span></span></div>
-  </div>
-  
-  <div class="UIAction"> 
-    <table class="ActionContainer">
-	    <tr>
-	    	<td>
-		      <div onclick="<%=uicomponent.event("SelectGroup");%>" class="ActionButton LightBlueStyle">
-		        <div class="ButtonLeft">
-		          <div class="ButtonRight">
-		            <div class="ButtonMiddle">
-		            	<a href="javascript:void(0);"><%=_ctx.appRes("UIGroupSelector.action.done")%></a>
-		            </div>
-		          </div>
-		        </div>
-		      </div>
-		    </td>
-      </tr>
- 	  </table>
+		<div class="ClearLeft"><span></span></div>
+	</div>
+	
+	<div class="UIAction"> 
+		<table class="ActionContainer">
+			<tr>
+				<td>
+					<div onclick="<%=uicomponent.event("SelectGroup");%>" class="ActionButton LightBlueStyle">
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle">
+									<a href="javascript:void(0);"><%=_ctx.appRes("UIGroupSelector.action.done")%></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+ 		</table>
 	</div>
 
 </div> 		

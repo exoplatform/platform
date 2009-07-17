@@ -1,5 +1,5 @@
-<div class="UIWizardWelcome">
+<div class="UIWizardWelcome">	
 	<div class="WelcomeText"><b><%=_ctx.appRes("UIWizardWelcome.WelcomeLabel")%></b>
-	  <br/><%=_ctx.appRes("UIWizardWelcome.WelcomeText")%>
+		<br/><%=_ctx.appRes("UIWizardWelcome.WelcomeText")%>
 	</div>
 </div>

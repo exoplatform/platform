@@ -1,68 +1,68 @@
-<%import  org.exoplatform.webui.core.UIContainer;%>
+<%import  org.exoplatform.webui.core.UIContainer;%>	
 <%
-  String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
-  String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
-    
-  categories = uicomponent.getItemCategories();
-  UIContainer uicontainer = uicomponent.getAncestorOfType(UIContainer.class);  
+	String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
+	String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
+		
+	categories = uicomponent.getItemCategories();
+	UIContainer uicontainer = uicomponent.getAncestorOfType(UIContainer.class);	
 %>
-<div class="UIItemSelector">  
-  <div class="RightColumnStyle" style="width: 99.5%;">
-      <%/*Begin ItemList*/%>
-      <div class="ItemListContainer">
-        <div class="ItemListTitle">
-  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
-  	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
-  	    	<div class="ClearLeft"><span></span></div>
-  	    </div>
-        <div class="ItemList">
-          <%          	
-            for(category in categories) {            	
-              String itemSelected = "Item" ;
-              String onClick = "eXo.webui.UIItemSelector.onClickCategory(this, '$uicontainer.name', '$uicomponent.name', '$category.name')";
-                                          
-              if (category.isSelected()) itemSelected = "SelectedItem Item" ;              
-           %>
-              <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick">
-                <div class="LeftItem">
-                  <div class="RightItem">  
-                    <div class="ItemTitle"><%=_ctx.appRes(uicontainer.getName() + "." + category.getName() + ".label")%></div>
-                  </div>
-                </div>
-              </div>
-          <%}%>
-        </div>
-      </div>
-      <%/*End ItemList*/%>
-            
-      <%/*Begin ItemDetailList*/%>
-      <div class="ItemDetailList">
-        <div class="ItemDetailTitle">
-          <div class="TitleIcon ViewListIcon"><span></span></div>
-  	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".left.title")%></div>
-  	    	<div class="ClearLeft"><span></span></div>
-        </div>
-        <div class="ItemDetailContainer">
-        <%          
-          for(category in categories) {
-            String display = "none";
-            options = category.getSelectItemOptions();
-            if(category.isSelected()) display = "block";                 
-        %>
-            <div class="ItemDetail" style="display: $display;">
-	            <%               
-	              for(opt in options){
-	            %>
-	              <div class="TemplateContainer">
-	                <div class="Template">
-	                  <div class="<%=opt.getIcon();%>Image"><span></span></div>
-	                </div>
-	              </div>
-	            <%}%>
-            </div> 
-        <%}%>
-        </div>
-      </div>  
-      <%/*End ItemDetailList*/%>      
-  </div>
+<div class="UIItemSelector">	
+	<div class="RightColumnStyle" style="width: 99.5%;">
+		<%/*Begin ItemList*/%>
+		<div class="ItemListContainer">
+			<div class="ItemListTitle">
+				<div class="TitleIcon ItemListIcon"><span></span></div>
+				<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
+				<div class="ClearLeft"><span></span></div>
+			</div>
+			<div class="ItemList">
+				<%						
+					for(category in categories) {							
+						String itemSelected = "Item";
+						String onClick = "eXo.webui.UIItemSelector.onClickCategory(this, '$uicontainer.name', '$uicomponent.name', '$category.name')";
+																				
+						if (category.isSelected()) itemSelected = "SelectedItem Item";							
+				 %>
+						<div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick">
+							<div class="LeftItem">
+								<div class="RightItem">	
+									<div class="ItemTitle"><%=_ctx.appRes(uicontainer.getName() + "." + category.getName() + ".label")%></div>
+								</div>
+							</div>
+						</div>
+				<%}%>
+			</div>
+		</div>
+		<%/*End ItemList*/%>
+						
+		<%/*Begin ItemDetailList*/%>
+		<div class="ItemDetailList">
+			<div class="ItemDetailTitle">
+				<div class="TitleIcon ViewListIcon"><span></span></div>
+				<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".left.title")%></div>
+				<div class="ClearLeft"><span></span></div>
+			</div>
+			<div class="ItemDetailContainer">
+			<%					
+				for(category in categories) {
+					String display = "none";
+					options = category.getSelectItemOptions();
+					if(category.isSelected()) display = "block";								 
+			%>
+					<div class="ItemDetail" style="display: $display;">
+						<%							 
+							for(opt in options){
+						%>
+							<div class="TemplateContainer">
+								<div class="Template">
+									<div class="<%=opt.getIcon();%>Image"><span></span></div>
+								</div>
+							</div>
+						<%}%>
+					</div> 
+			<%}%>
+			</div>
+		</div>	
+		<%/*End ItemDetailList*/%>			
+	</div>
 </div>

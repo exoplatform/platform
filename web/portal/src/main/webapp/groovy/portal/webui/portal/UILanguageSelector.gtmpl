@@ -1,16 +1,16 @@
 <%
-  def rcontext = _ctx.getRequestContext() ;
-	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
-	rcontext.getJavascriptManager().importJavascript('eXo.portal.UIPortal') ;
+	def rcontext = _ctx.getRequestContext(); 
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs'); 
+	rcontext.getJavascriptManager().importJavascript('eXo.portal.UIPortal'); 
 	
-  String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
-  String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
+	String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
+	String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
 %>
 <div class="UIChangeLanguageForm">
 	<div class="UIFormTabPane">
-	  <div class="UITabPane">
-	  
-		  <div class="UIBarStyle">
+		<div class="UITabPane">
+		
+			<div class="UIBarStyle">
 				<div class="TitleBar">
 					<div class="LeftBar">
 						<div class="RightBar">
@@ -23,83 +23,83 @@
 			</div>
 		
 			<div class="TabPaneContent">
-		    <div class="WorkingArea">	
-		    	<div class="HorizontalLayout">
-		        <div class="UITabContentContainer">
-	            <%
-	              for(selector in uicomponent.getChildren()) { 
-	                String selectorDisplay = "none" ;
-	                if(selector.isRendered()) selectorDisplay="block" ;
-	                categories = selector.getItemCategories();
-	            %>
-	            <div class="UITabContent" id="UITabContent" style="display: $selectorDisplay;">	                
-								<div class="UIItemSelector">  
-								  <div class="RightColumnStyle">								            
-								      <%/*Begin ItemDetailList:*/%>
-								      <div class="ItemDetailList" style="margin:0px 0px 0px 0px">								      								        								        
-								        <div class="ItemDetailContainer" style="border:none">
-								        <% 
-								        	for(category in categories) {
-								        		String itemDetailDisplay = "none";
-								        		if(category.isSelected()) itemDetailDisplay = "block";
-								        		options = category.getSelectItemOptions();
-								        %>
-								          <div class="ItemDetail" style="display: $itemDetailDisplay">
-								          <% 
-								          	for(opt in options) {
-								          		String itemSelected = "NormalItem";
-								        			if (opt.isSelected()) itemSelected = "SelectedItem"; 
-								        			String onclickOption = "eXo.webui.UIItemSelector.onClickOption(this, '$uicomponent.name', '$selector.name', '$opt.value')";
-								          %>
-									        	<div class="$itemSelected" onclick="$onclickOption">
-									        	  <div class="Icon"><span></span></div>
-									        	  <a class="NodeLabel"><%=opt.getLabel()%></a>
-									        	  <div class="PercentLabel"><%=opt.getDescription()%></div>
-									        	  <div class="ClearLeft"><span></span></div>
-									        	</div>
-									        <%}%>	
-									        </div>
-								       <%}%>
-								        </div>								
-								      </div>  
-								      <%/*End ItemDetailList*/%>      
-								  </div>
+				<div class="WorkingArea">	
+					<div class="HorizontalLayout">
+						<div class="UITabContentContainer">
+							<%
+								for(selector in uicomponent.getChildren()) { 
+									String selectorDisplay = "none"; 
+									if(selector.isRendered()) selectorDisplay="block"; 
+									categories = selector.getItemCategories();
+							%>
+							<div class="UITabContent" id="UITabContent" style="display: $selectorDisplay;">									
+								<div class="UIItemSelector">	
+									<div class="RightColumnStyle">														
+										<%/*Begin ItemDetailList:*/%>
+										<div class="ItemDetailList" style="margin:0px 0px 0px 0px">																																			
+											<div class="ItemDetailContainer" style="border:none">
+											<% 
+												for(category in categories) {
+													String itemDetailDisplay = "none";
+													if(category.isSelected()) itemDetailDisplay = "block";
+													options = category.getSelectItemOptions();
+											%>
+												<div class="ItemDetail" style="display: $itemDetailDisplay">
+												<% 
+													for(opt in options) {
+														String itemSelected = "NormalItem";
+														if (opt.isSelected()) itemSelected = "SelectedItem"; 
+														String onclickOption = "eXo.webui.UIItemSelector.onClickOption(this, '$uicomponent.name', '$selector.name', '$opt.value')";
+												%>
+													<div class="$itemSelected" onclick="$onclickOption">
+														<div class="Icon"><span></span></div>
+														<a class="NodeLabel"><%=opt.getLabel()%></a>
+														<div class="PercentLabel"><%=opt.getDescription()%></div>
+														<div class="ClearLeft"><span></span></div>
+													</div>
+												<%}%>	
+												</div>
+										 <%}%>
+											</div>								
+										</div>	
+										<%/*End ItemDetailList*/%>			
+									</div>
 								</div>
-	                  
-	            </div>
-	            <%}%>
-	          </div>
-	          
-		 	      <div class="UIAction"> 
-					    <table class="ActionContainer">
-						    <tr>
-						    	<td>
-							      <div onclick="javascript:eXo.portal.UIPortal.changeLanguage('<%=uicomponent.url("Save");%>');" class="ActionButton LightBlueStyle">
-							        <div class="ButtonLeft">
-							          <div class="ButtonRight">
-							            <div class="ButtonMiddle">
-							              <a href="#"><%=_ctx.appRes("UIChangeLanguage.action.save");%></a>
-							            </div>
-							          </div>
-							        </div>
-							      </div>
-							      <div onclick="<%=uicomponent.event("Close");%>" class="ActionButton LightBlueStyle">
-							        <div class="ButtonLeft">
-							          <div class="ButtonRight">
-							            <div class="ButtonMiddle">
-							              <a href="javascript:void(0);"><%=_ctx.appRes("UIChangeLanguage.action.close");%></a>
-							            </div>
-							          </div>
-							        </div>
-							      </div>
-							    </td>
-					      </tr>
-					 	  </table>
+										
+							</div>
+							<%}%>
 						</div>
-  
-			    </div>
-			  </div>
-			</div>  
-	  </div>  
+						
+		 				<div class="UIAction"> 
+							<table class="ActionContainer">
+								<tr>
+									<td>
+										<div onclick="javascript:eXo.portal.UIPortal.changeLanguage('<%=uicomponent.url("Save");%>');" class="ActionButton LightBlueStyle">
+											<div class="ButtonLeft">
+												<div class="ButtonRight">
+													<div class="ButtonMiddle">
+														<a href="#"><%=_ctx.appRes("UIChangeLanguage.action.save");%></a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div onclick="<%=uicomponent.event("Close");%>" class="ActionButton LightBlueStyle">
+											<div class="ButtonLeft">
+												<div class="ButtonRight">
+													<div class="ButtonMiddle">
+														<a href="javascript:void(0);"><%=_ctx.appRes("UIChangeLanguage.action.close");%></a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+					 		</table>
+						</div>
+	
+					</div>
+				</div>
+			</div>	
+		</div>	
 	</div>
 </div>

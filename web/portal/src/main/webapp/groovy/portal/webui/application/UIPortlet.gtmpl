@@ -1,331 +1,331 @@
-<%
-  import org.exoplatform.portal.webui.page.UIPage;
-  import javax.portlet.WindowState;
-  import org.exoplatform.web.application.JavascriptManager;
-  
-  def rcontext = _ctx.getRequestContext() ;
-  
-  if(!rcontext.getUIApplication().isEditting() && !uicomponent.hasPermission()) return ; 
-  
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory') ;
-  jsmanager.importJavascript('eXo.portal.UIPortalControl');
+<%	
+	import org.exoplatform.portal.webui.page.UIPage;
+	import javax.portlet.WindowState;
+	import org.exoplatform.web.application.JavascriptManager;
+	
+	def rcontext = _ctx.getRequestContext();
+	
+	if(!rcontext.getUIApplication().isEditting() && !uicomponent.hasPermission()) return; 
+	
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory');
+	jsmanager.importJavascript('eXo.portal.UIPortalControl');
 
-  String onControlOver  = "eXo.webui.UIPortlet.onControlOver(this, true);" ;
-  String onControlOut    = "eXo.webui.UIPortlet.onControlOver(this, false);" ;
+	String onControlOver	= "eXo.webui.UIPortlet.onControlOver(this, true);";
+	String onControlOut		= "eXo.webui.UIPortlet.onControlOver(this, false);";
 
-  WindowState windowState = uicomponent.getCurrentWindowState();  
-  boolean isDesktop = "Window".equals(uicomponent.getPortletStyle());
-  String portletId = uicomponent.getId() ;
-  if(!isDesktop && rcontext.getUIApplication().isEditting()) {
+	WindowState windowState = uicomponent.getCurrentWindowState();	
+	boolean isDesktop = "Window".equals(uicomponent.getPortletStyle());
+	String portletId = uicomponent.getId();
+	if(!isDesktop && rcontext.getUIApplication().isEditting()) {
 %>
 	<div class="UIPortlet" id="UIPortlet-$portletId" onmouseover="eXo.portal.UIPortal.blockOnMouseOver(event, this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(event, this, false);">
 				<div class="UIComponentBlock">
 				
-				  <div class="META-DATA-BLOCK" style="display: none">
-				    <div class="id"><%=uicomponent.getId();%></div>
-				    <div class="title"><%=_ctx.appRes("UIPortlet.label.title");%></div>
-				    <div class="description">
-				    
-				      <%if(uicomponent.getDescription() != null) {%>
-		  		      <%=uicomponent.getDescription();%>
-				      <%} else {%>
-				        <%=_ctx.appRes("UIPortlet.label.description");%>
-				      <%}%>
-				    </div>
-				  </div>
-				  
+					<div class="META-DATA-BLOCK" style="display: none">
+						<div class="id"><%=uicomponent.getId();%></div>
+						<div class="title"><%=_ctx.appRes("UIPortlet.label.title");%></div>
+						<div class="description">
+						
+							<%if(uicomponent.getDescription() != null) {%>
+								<%=uicomponent.getDescription();%>
+							<%} else {%>
+								<%=_ctx.appRes("UIPortlet.label.description");%>
+							<%}%>
+						</div>
+					</div>
 					
-				  <div class="LAYOUT-BLOCK LAYOUT-PORTLET" style="display: none;">
-				    <div class="PortletLayoutDecorator">
-				    
-				      <%/*Begin Top Portlet Layout Decorator*/%>
-				      <div class="TopLeft">
-				        <div class="TopRight">
-				          <div class="TopMiddle">
-				            <div class="TopMiddleCenter">
-				            	<div class="FixHeight"><span></span></div>
-				            </div>
-				          </div>
-				        </div>
-				      </div>
-				      
-				      <%/*Begin Middle Portlet Layout Decorator*/%>
-				      <div class="MiddleLeft">
-				        <div class="MiddleRight">
-				          <div class="CenterBackground">
-				            <div class="GardientBackground">	            
-				            <%if(uicomponent.getDescription() != null) {	
-				            		String description = ""; int count = 1;
-				            		for(c in uicomponent.getDescription()){
-				            			if(c=="\n"){
-				            				c="<br/>";
-				            				count++;
-				            			}
-				            			description+=c;
-				            			if(count>5) break;
-				            		}
-				            %>
-				            	<%=description;%>
-				            <%} else {%>
-				                 <%= _ctx.appRes("UIPortlet.label.portletContent"); %>		               
-		      		      <%}%>
-		      		      </div>
-				          </div>
-				        </div>
-				      </div>
-				      
-				      <%/*Begin Bottom Portlet Layout Decorator*/%>
-				      <div class="BottomLeft">
-				        <div class="BottomRight">
-				          <div class="BottomMiddle">
-				          	<div class="FixHeight"><span></span></div>
-				          </div>
-				        </div>
-				      </div>
-				      
-				    </div>
-				  </div>
-					  
-				  <div class="VIEW-BLOCK VIEW-PORTLET" id="VIEW-${portletId}">
-		<%
-		  }
-			if(uicomponent.getShowInfoBar()) {
-		  	String title = uicomponent.getTitle() ;
-		    if(title == null || title.trim().length() < 1) title = portletId;
-		    /*Begin Window Portlet Bar*/
-			  String visibility = "visible" ;
-			  String appDisplay = "block";
-			  String appZIndex = "" ;
-			  String windowWidth = uicomponent.getWidth() ;
-			  if(windowWidth!= null && !windowWidth.contains("%") && !windowWidth.contains("px")) windowWidth += "px";
-			  String windowHeight = uicomponent.getHeight() ;
-			  if(windowHeight != null && !windowHeight.contains("%") && !windowHeight.contains("px")) windowHeight += "px";
-		    if(isDesktop) {
-			  	appDisplay = "";
-			  	visibility = "hidden" ;
-			  	
-			  	/*###################################################################*/
-			  	String appStatus = uicomponent.getProperties().get("appStatus") ;
-					if("SHOW".equals(appStatus)) {
-						appDisplay = "block" ;
-						appZIndex = uicomponent.getProperties().get("zIndex");
-						windowWidth = (String)uicomponent.getProperties().getIntValue("windowWidth") + "px" ;
-						windowHeight = (String)uicomponent.getProperties().getIntValue("windowHeight") + "px" ;
-					}
-				  /*###################################################################*/
-		  	}
-		  	String cssStyle = "style=\"";
-		  	cssStyle += "visibility: "+ visibility +";" ;
-		  	cssStyle += "display: "+ appDisplay +";" ;
-		  	cssStyle += "z-index: "+ appZIndex +";" ;
-		  	cssStyle += "width: "+ windowWidth +";" ;
-		  	//cssStyle += "height: "+ windowHeight +";" ;
-		  	cssStyle += "\"";
-		  	String theme = uicomponent.getSuitedTheme(null) ;
-		%>
-						<div class="UIWindow $theme UIDragObject UIResizeObject" id="UIWindow-${portletId}"  ${cssStyle} >
-				      <div class="WindowBarLeft">
-				        <div class="WindowBarRight">
-				          <div class="WindowBarCenter">
-				            <div class="FixHeight">
-					              <%
-					                
-					                String restoreDown = _ctx.appRes("UIPortlet.tooltip.MaximizeRestore");
-				                  String restore = _ctx.appRes("UIPortlet.tooltip.MinimizeRestore");
-				                  String miniTooltip = _ctx.appRes("UIPortlet.tooltip.Minimize");
-				                  String maxiTooltip = _ctx.appRes("UIPortlet.tooltip.Maximize");
-				                  String renderMaxi = maxiTooltip;
-				                  String renderMini = miniTooltip;
-				              		if(windowState == WindowState.MAXIMIZED) {
-				  	                renderMaxi = restoreDown;
-					                } else if(windowState == WindowState.MINIMIZED) {
-				  	                renderMini = restore;
-					                }
-					              	if(isDesktop) {%>
-						            		<div class="ControlIcon MaximizedIcon" title="$renderMaxi" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
-						            				<div style="display:none">{"normalTitle":"$maxiTooltip","modeTitle":"$restoreDown"}</div>
-						            		</div> 
-						            		<div class="ControlIcon MinimizedIcon" title="$renderMini" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
-						            				<div style="display:none">{"normalTitle":"$miniTooltip","modeTitle":"$restore"}</div>
-						            		</div>
-						            <%
-						              } else if(uicomponent.getShowWindowState()) {	                    
-						                String maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'maximized');";
-						                String minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'minimized');";
-						                String maximizedMode = "Maximized";
-						                String minimizedMode = "Minimized";
-						                if(windowState == WindowState.MAXIMIZED) {
-					  	                maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'normal');" ;
-					  	                maximizedMode = "Normal";
-						                } else if(windowState == WindowState.MINIMIZED) {
-						                  minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'normal');" ;
-					  	                minimizedMode = "Normal";
-						                }
-					              %>
-						                <div class="ControlIcon ${maximizedMode}Icon" title="$renderMaxi"	onclick="$maximizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
-						                		<div style="display:none">{"normalTitle":"$maxiTooltip","modeTitle":"$restoreDown"}</div>
-						                </div> 
-						                <div class="ControlIcon ${minimizedMode}Icon" title="$renderMini"	onclick="$minimizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
-						                		<div style="display:none">{"normalTitle":"$miniTooltip","modeTitle":"$restore"}</div>
-						                </div>
-					              <%}    
-					              
-					              List supportModes = uicomponent.getSupportModes();
-					                if(uicomponent.getShowPortletMode() && supportModes.size() > 0) {
-					                  String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, event);"
-					              %>
-					              		<div class="ControlIcon ArrowDownIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.PortletMode");%>" onclick="$showCategory" onmouseover="$onControlOver" onmouseout="$onControlOut">
-											        <% /*Begin Popup Menu*/ %>
-												      <div style="position: relative; width: 100%">
-													      <div class="UIPopupCategory" style="display: none;">
-													        <div class="PopupCategoryDecorator">
-													          <div class="PopupCategoryTL">
-													            <div class="PopupCategoryTR">
-													              <div class="PopupCategoryTC"><span></span></div>
-													            </div>
-													          </div>
-													          <div class="PopupCategoryML">
-													            <div class="PopupCategoryMR">
-													              <div class="PopupCategoryMC">
-													                <% 
-													                  for(String mode in supportModes) {
-														                  if(mode.equals("edit") && rcontext.getRemoteUser()==null) continue;
-														                    String actionLink = uicomponent.event("ChangePortletMode", mode);
-														                    String modeLabel = _ctx.appRes("PortletMode.label." + mode) ;
-														                    String upper = mode.charAt(0).toString();
-														                    mode = mode.replaceFirst(upper, upper.toUpperCase());
-														                %>
-																                  <a class="CategoryItem" href="$actionLink" title="$modeLabel">
-															                    	<div class="CategoryItemLabel" >$modeLabel</div>
-															                    </a>
-														                <%        
-													                  }
-													                  if(supportModes != null && supportModes.size() > 0 && !supportModes.contains("view")) {
-													                  	String modeLabel = _ctx.appRes("PortletMode.label.view") ;
-													                %> 
-																								<a class="CategoryItem" href="<%=uicomponent.event("ChangePortletMode", "view")%>" title="$modeLabel">
-														                    	<div class="CategoryItemLabel">$modeLabel</div>
-														                    </a>                        
-													                 <%}%> 	
-													              </div>
-													            </div>
-													          </div>
-													          <div class="PopupCategoryBL">
-													            <div class="PopupCategoryBR">
-													              <div class="PopupCategoryBC"><span></span></div>
-													            </div>
-													          </div>
-													        </div>
-													      </div>
-													    </div>
-												      <% /*End Popup Menu*/ %>
-					              		</div>
-					              <%}%>
-				
-					            	<%
-					            		/*TODO: modify: dang.tung - fixed icon themes*/
-					            		String portletIcon = uicomponent.getIcon();
-							            if(portletIcon == null) portletIcon = "PortletIcon";
-					            	%>
-					              <div class="$portletIcon WindowPortletIcon NovaPortletIcon WindowPortletInfo"><div class="PortletName">$title</div></div>
-					             
-					            <div class="ClearBoth"><span></span></div>
-					          </div>
-				          </div>
-				        </div>
-				      </div>
-				      <%/*End Window Portlet Bar*/ %>
-				      
-				      <div class="MiddleDecoratorLeft">
-				        <div class="MiddleDecoratorRight">
-				          <div class="MiddleDecoratorCenter">
-				            <div id="${portletId}" style="width: 100%">
-				              <div class="PORTLET-FRAGMENT UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight;">
-					              <% if(windowState != WindowState.MINIMIZED) out.println(portletContent) %>
-						          </div>    
-				            </div>
-				          </div>
-				        </div>
-				      </div>
-				      
-				      <%//Begin Bottom Decorator %>
-				      <div class="BottomDecoratorLeft">
-				        <div class="BottomDecoratorRight">
-				          <div class="BottomDecoratorCenter">
-				          	<div class="FixHeight">
-					            <div class="ResizeArea" title="<%=_ctx.appRes("UIPortlet.tooltip.ResizeWindow");%>"><span></span></div>
-					            <div class="Information"><%=_ctx.appRes("UIPortlet.lable.information");%></div>
-					            <div class="ClearRight"><span></span></div>
+					
+					<div class="LAYOUT-BLOCK LAYOUT-PORTLET" style="display: none;">
+						<div class="PortletLayoutDecorator">
+						
+							<%/*Begin Top Portlet Layout Decorator*/%>
+							<div class="TopLeft">
+								<div class="TopRight">
+									<div class="TopMiddle">
+										<div class="TopMiddleCenter">
+											<div class="FixHeight"><span></span></div>
 										</div>
-				          </div>
-				        </div>
-				      </div>
-				    </div>
+									</div>
+								</div>
+							</div>
+							
+							<%/*Begin Middle Portlet Layout Decorator*/%>
+							<div class="MiddleLeft">
+								<div class="MiddleRight">
+									<div class="CenterBackground">
+										<div class="GardientBackground">							
+										<%if(uicomponent.getDescription() != null) {	
+												String description = ""; int count = 1;
+												for(c in uicomponent.getDescription()){
+													if(c=="\n"){
+														c="<br/>";
+														count++;
+													}
+													description+=c;
+													if(count>5) break;
+												}
+										%>
+											<%=description;%>
+										<%} else {%>
+												 <%= _ctx.appRes("UIPortlet.label.portletContent"); %>									 
+										<%}%>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<%/*Begin Bottom Portlet Layout Decorator*/%>
+							<div class="BottomLeft">
+								<div class="BottomRight">
+									<div class="BottomMiddle">
+										<div class="FixHeight"><span></span></div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+						
+					<div class="VIEW-BLOCK VIEW-PORTLET" id="VIEW-${portletId}">
+		<%
+			}
+			if(uicomponent.getShowInfoBar()) {
+				String title = uicomponent.getTitle();
+				if(title == null || title.trim().length() < 1) title = portletId;
+				/*Begin Window Portlet Bar*/
+				String visibility = "visible";
+				String appDisplay = "block";
+				String appZIndex = "";
+				String windowWidth = uicomponent.getWidth();
+				if(windowWidth!= null && !windowWidth.contains("%") && !windowWidth.contains("px")) windowWidth += "px";
+				String windowHeight = uicomponent.getHeight();
+				if(windowHeight != null && !windowHeight.contains("%") && !windowHeight.contains("px")) windowHeight += "px";
+				if(isDesktop) {
+					appDisplay = "";
+					visibility = "hidden";
+					
+					/*###################################################################*/
+					String appStatus = uicomponent.getProperties().get("appStatus");
+					if("SHOW".equals(appStatus)) {
+						appDisplay = "block";
+						appZIndex = uicomponent.getProperties().get("zIndex");
+						windowWidth = (String)uicomponent.getProperties().getIntValue("windowWidth") + "px";
+						windowHeight = (String)uicomponent.getProperties().getIntValue("windowHeight") + "px";
+					}
+					/*###################################################################*/
+				}
+				String cssStyle = "style=\"";
+				cssStyle += "visibility: "+ visibility +";";
+				cssStyle += "display: "+ appDisplay +";";
+				cssStyle += "z-index: "+ appZIndex +";";
+				cssStyle += "width: "+ windowWidth +";";
+				//cssStyle += "height: "+ windowHeight +";";
+				cssStyle += "\"";
+				String theme = uicomponent.getSuitedTheme(null);
+		%>
+						<div class="UIWindow $theme UIDragObject UIResizeObject" id="UIWindow-${portletId}"	${cssStyle} >
+							<div class="WindowBarLeft">
+								<div class="WindowBarRight">
+									<div class="WindowBarCenter">
+										<div class="FixHeight">
+												<%
+													
+													String restoreDown = _ctx.appRes("UIPortlet.tooltip.MaximizeRestore");
+													String restore = _ctx.appRes("UIPortlet.tooltip.MinimizeRestore");
+													String miniTooltip = _ctx.appRes("UIPortlet.tooltip.Minimize");
+													String maxiTooltip = _ctx.appRes("UIPortlet.tooltip.Maximize");
+													String renderMaxi = maxiTooltip;
+													String renderMini = miniTooltip;
+													if(windowState == WindowState.MAXIMIZED) {
+														renderMaxi = restoreDown;
+													} else if(windowState == WindowState.MINIMIZED) {
+														renderMini = restore;
+													}
+													if(isDesktop) {%>
+														<div class="ControlIcon MaximizedIcon" title="$renderMaxi" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
+																<div style="display:none">{"normalTitle":"$maxiTooltip","modeTitle":"$restoreDown"}</div>
+														</div> 
+														<div class="ControlIcon MinimizedIcon" title="$renderMini" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
+																<div style="display:none">{"normalTitle":"$miniTooltip","modeTitle":"$restore"}</div>
+														</div>
+												<%
+													} else if(uicomponent.getShowWindowState()) {											
+														String maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'maximized');";
+														String minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'minimized');";
+														String maximizedMode = "Maximized";
+														String minimizedMode = "Minimized";
+														if(windowState == WindowState.MAXIMIZED) {
+															maximizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'normal');";
+															maximizedMode = "Normal";
+														} else if(windowState == WindowState.MINIMIZED) {
+															minimizedAction = "eXo.portal.UIPortalControl.changeWindowState('"+portletId+"', 'normal');";
+															minimizedMode = "Normal";
+														}
+												%>
+														<div class="ControlIcon ${maximizedMode}Icon" title="$renderMaxi"	onclick="$maximizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
+																<div style="display:none">{"normalTitle":"$maxiTooltip","modeTitle":"$restoreDown"}</div>
+														</div> 
+														<div class="ControlIcon ${minimizedMode}Icon" title="$renderMini"	onclick="$minimizedAction" onmouseover="$onControlOver" onmouseout="$onControlOut"><span></span>
+																<div style="display:none">{"normalTitle":"$miniTooltip","modeTitle":"$restore"}</div>
+														</div>
+												<%}		
+												
+												List supportModes = uicomponent.getSupportModes();
+													if(uicomponent.getShowPortletMode() && supportModes.size() > 0) {
+														String showCategory = "eXo.webui.UIPopupSelectCategory.show(this, event);"
+												%>
+														<div class="ControlIcon ArrowDownIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.PortletMode");%>" onclick="$showCategory" onmouseover="$onControlOver" onmouseout="$onControlOut">
+															<% /*Begin Popup Menu*/ %>
+															<div style="position: relative; width: 100%">
+																<div class="UIPopupCategory" style="display: none;">
+																	<div class="PopupCategoryDecorator">
+																		<div class="PopupCategoryTL">
+																			<div class="PopupCategoryTR">
+																				<div class="PopupCategoryTC"><span></span></div>
+																			</div>
+																		</div>
+																		<div class="PopupCategoryML">
+																			<div class="PopupCategoryMR">
+																				<div class="PopupCategoryMC">
+																					<% 
+																						for(String mode in supportModes) {
+																							if(mode.equals("edit") && rcontext.getRemoteUser()==null) continue;
+																								String actionLink = uicomponent.event("ChangePortletMode", mode);
+																								String modeLabel = _ctx.appRes("PortletMode.label." + mode);
+																								String upper = mode.charAt(0).toString();
+																								mode = mode.replaceFirst(upper, upper.toUpperCase());
+																						%>
+																									<a class="CategoryItem" href="$actionLink" title="$modeLabel">
+																										<div class="CategoryItemLabel" >$modeLabel</div>
+																									</a>
+																						<%				
+																						}
+																						if(supportModes != null && supportModes.size() > 0 && !supportModes.contains("view")) {
+																							String modeLabel = _ctx.appRes("PortletMode.label.view");
+																					%> 
+																								<a class="CategoryItem" href="<%=uicomponent.event("ChangePortletMode", "view")%>" title="$modeLabel">
+																									<div class="CategoryItemLabel">$modeLabel</div>
+																								</a>												
+																					 <%}%> 	
+																				</div>
+																			</div>
+																		</div>
+																		<div class="PopupCategoryBL">
+																			<div class="PopupCategoryBR">
+																				<div class="PopupCategoryBC"><span></span></div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<% /*End Popup Menu*/ %>
+														</div>
+												<%}%>
+				
+												<%
+													/*TODO: modify: dang.tung - fixed icon themes*/
+													String portletIcon = uicomponent.getIcon();
+													if(portletIcon == null) portletIcon = "PortletIcon";
+												%>
+												<div class="$portletIcon WindowPortletIcon NovaPortletIcon WindowPortletInfo"><div class="PortletName">$title</div></div>
+											 
+											<div class="ClearBoth"><span></span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<%/*End Window Portlet Bar*/ %>
+							
+							<div class="MiddleDecoratorLeft">
+								<div class="MiddleDecoratorRight">
+									<div class="MiddleDecoratorCenter">
+										<div id="${portletId}" style="width: 100%">
+											<div class="PORTLET-FRAGMENT UIResizableBlock UIApplication" style="width: 100%; height: $windowHeight;">
+												<% if(windowState != WindowState.MINIMIZED) out.println(portletContent) %>
+											</div>		
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<%//Begin Bottom Decorator %>
+							<div class="BottomDecoratorLeft">
+								<div class="BottomDecoratorRight">
+									<div class="BottomDecoratorCenter">
+										<div class="FixHeight">
+											<div class="ResizeArea" title="<%=_ctx.appRes("UIPortlet.tooltip.ResizeWindow");%>"><span></span></div>
+											<div class="Information"><%=_ctx.appRes("UIPortlet.lable.information");%></div>
+											<div class="ClearRight"><span></span></div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
 		<%//End Bottom Decorator %>
 		<%
 			} else {
-			  if(windowState != WindowState.MINIMIZED) {
-			    String windowWidth = uicomponent.getWidth() ;
-				  if(windowWidth!= null && !windowWidth.contains("%") && !windowWidth.contains("px")) windowWidth += "px";
-				  String windowHeight = uicomponent.getHeight() ;
-				  if(windowHeight != null && !windowHeight.contains("%") && !windowHeight.contains("px")) windowHeight += "px";
-				  String cssStyle = "style=\"";
-			    cssStyle += "width: "+ windowWidth +";" ;
-			    cssStyle += "height: "+ windowHeight +";" ;
-			    cssStyle += "\"";
+				if(windowState != WindowState.MINIMIZED) {
+					String windowWidth = uicomponent.getWidth();
+					if(windowWidth!= null && !windowWidth.contains("%") && !windowWidth.contains("px")) windowWidth += "px";
+					String windowHeight = uicomponent.getHeight();
+					if(windowHeight != null && !windowHeight.contains("%") && !windowHeight.contains("px")) windowHeight += "px";
+					String cssStyle = "style=\"";
+					cssStyle += "width: "+ windowWidth +";";
+					cssStyle += "height: "+ windowHeight +";";
+					cssStyle += "\"";
 		%>
-				    <div id="${portletId}">
-				      <div class="PORTLET-FRAGMENT"  ${cssStyle}>
-				      	<% out.println(portletContent); %>
-				      </div>
-				    </div>  
+						<div id="${portletId}">
+							<div class="PORTLET-FRAGMENT"	${cssStyle}>
+								<% out.println(portletContent); %>
+							</div>
+						</div>	
 		<%
-		    } 
-		  }
-		  if(!isDesktop && rcontext.getUIApplication().isEditting()) {
+				} 
+			}
+			if(!isDesktop && rcontext.getUIApplication().isEditting()) {
 		%>
-		        <div class="UIPortlet-$portletId UIPortletMask" style="position: absolute; display:none;"><span></span></div>
-			  	</div>
-			    
-			    <div class="EDITION-BLOCK EDITION-PORTLET" style="display: none;">
-			    	<div style="position: relative;">
-			    		<div style="position: absolute; height: 86px; top: -86px;">
-			    			<div class="NewLayer"><span></span></div>
-			    			<div class="CONTROL-PORTLET CONTROL-BLOCK" style="position: absolute; top: -6px;">
-							   	<%/*Begin InfoBar*/%>
-							   	<div class="UIInfoBar">
-							      <div class="BlueRoundedStyle">
-							        <div class="LeftBar">
-							          <div class="RightBar">
-									        <div class="MiddleBar">
-									        	<div class="FixHeight">
-										          <div class="DragControlArea" title="<%=_ctx.appRes("UIPortlet.tooltip.DragControl");%>"><span></span></div>
-										          <% 
-										            String portletIcon = uicomponent.getIcon();
-										            if(portletIcon == null) portletIcon = "PortletIcon";
-										            
-										            String title = portletTitle;
-										            if(uicomponent.getId() !=null) title = uicomponent.getId() ;
-										            if(uicomponent.getTitle() !=null) title = uicomponent.getTitle() ;
-										            if(title.length() > 30) title = title.substring(0,27) + "..." ;
-										          %>
-										          <div class="PortletIcon $portletIcon">$title</div>
-									            <a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.editPortlet");%>"></a>
-									            <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.deletePortlet");%>"></a>
-									          </div>
-									          <div class="ClearLeft"><span></span></div>
-									        </div>
-							          </div>
-							        </div>
-							      </div>
-							    </div>
-							    <%/*End InfoBar*/ %>
-							  </div>
-			    		</div>
-			    	</div>
-			    </div>
-			    
+						<div class="UIPortlet-$portletId UIPortletMask" style="position: absolute; display:none;"><span></span></div>
+					</div>
+					
+					<div class="EDITION-BLOCK EDITION-PORTLET" style="display: none;">
+						<div style="position: relative;">
+							<div style="position: absolute; height: 86px; top: -86px;">
+								<div class="NewLayer"><span></span></div>
+								<div class="CONTROL-PORTLET CONTROL-BLOCK" style="position: absolute; top: -6px;">
+								 	<%/*Begin InfoBar*/%>
+								 	<div class="UIInfoBar">
+										<div class="BlueRoundedStyle">
+											<div class="LeftBar">
+												<div class="RightBar">
+													<div class="MiddleBar">
+														<div class="FixHeight">
+															<div class="DragControlArea" title="<%=_ctx.appRes("UIPortlet.tooltip.DragControl");%>"><span></span></div>
+															<% 
+																String portletIcon = uicomponent.getIcon();
+																if(portletIcon == null) portletIcon = "PortletIcon";
+																
+																String title = portletTitle;
+																if(uicomponent.getId() !=null) title = uicomponent.getId();
+																if(uicomponent.getTitle() !=null) title = uicomponent.getTitle();
+																if(title.length() > 30) title = title.substring(0,27) + "...";
+															%>
+															<div class="PortletIcon $portletIcon">$title</div>
+															<a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.editPortlet");%>"></a>
+															<a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.deletePortlet");%>"></a>
+														</div>
+														<div class="ClearLeft"><span></span></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<%/*End InfoBar*/ %>
+								</div>
+							</div>
+						</div>
+					</div>
+					
 				</div>
 	</div>
 <%}%>

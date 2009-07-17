@@ -1,26 +1,26 @@
-<%
+<%	
 	import org.exoplatform.web.application.JavascriptManager;
 	import org.exoplatform.application.gadget.GadgetRegistryService;
 	
-  def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  GadgetRegistryService grService = uicomponent.getApplicationComponent(GadgetRegistryService.class);
-  def hostName = grService.getHostName();
-  def url = uicomponent.getUrl();
-  def metadata = uicomponent.getMetadata();
-  def posX = uicomponent.getProperties().getIntValue("locationX") + "px";
-  def posY = uicomponent.getProperties().getIntValue("locationY") + "px";
-  def zIndex = uicomponent.getProperties().getIntValue("zIndex") ;
-  def id = uicomponent.getId();
-  def isDev = uicomponent.isGadgetDeveloper();
-  def noCache = uicomponent.isNoCache();
-  def isDebug = uicomponent.isDebug();
-  def view = uicomponent.getView();
-  def userPref = uicomponent.getUserPref() ;
-	jsmanager.importJavascript("eXo.gadget.UIGadget") ;
-	rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.confirmDeleteGadget = '" + _ctx.appRes("UIGadgetContainerManagement.confirm.DeleteGadget") + "';") ;
+	def rcontext = _ctx.getRequestContext();
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	GadgetRegistryService grService = uicomponent.getApplicationComponent(GadgetRegistryService.class);
+	def hostName = grService.getHostName();
+	def url = uicomponent.getUrl();
+	def metadata = uicomponent.getMetadata();
+	def posX = uicomponent.getProperties().getIntValue("locationX") + "px";
+	def posY = uicomponent.getProperties().getIntValue("locationY") + "px";
+	def zIndex = uicomponent.getProperties().getIntValue("zIndex");
+	def id = uicomponent.getId();
+	def isDev = uicomponent.isGadgetDeveloper();
+	def noCache = uicomponent.isNoCache();
+	def isDebug = uicomponent.isDebug();
+	def view = uicomponent.getView();
+	def userPref = uicomponent.getUserPref();
+	jsmanager.importJavascript("eXo.gadget.UIGadget");
+	rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.gadget.UIGadget.confirmDeleteGadget = '" + _ctx.appRes("UIGadgetContainerManagement.confirm.DeleteGadget") + "';");
 	jsmanager.addCustomizedOnLoadScript("eXo.gadget.UIGadget.createGadget('$url','$id', $metadata, $userPref, '$view', " + (isDev ? 1 : 0)
-                                                                            + ", " + (isDebug ? 1 : 0) + ", " + (noCache ? 1 : 0) + ", '$hostName');")
+																																						+ ", " + (isDebug ? 1 : 0) + ", " + (noCache ? 1 : 0) + ", '$hostName');")
 %>
 <div class="UIGadget" id="<%= uicomponent.getApplicationInstanceUniqueId() %>" style="left: $posX; top: $posY; z-Index: $zIndex; width: 320px" >
 	<div class="GadgetControl" style="visibility: visible;">
@@ -28,16 +28,16 @@
 			<div class="RightControlBar">
 				<div class="CenterControlBar">
 					<div class="GadgetTitle" style="display: none"><%= uicomponent.getApplicationName() %></div>
-			  	<div class="CloseGadget IconControl" onclick="eXo.gadget.UIGadget.deleteGadget(this)" onmousedown="event.cancelBubble=true;"><span></span></div>
+					<div class="CloseGadget IconControl" onclick="eXo.gadget.UIGadget.deleteGadget(this)" onmousedown="event.cancelBubble=true;"><span></span></div>
 					<div class="<%=Boolean.parseBoolean(uicomponent.getProperties().get("minimized")) ? "RestoreGadget": "MinimizeGadget";%> MinimizeAction IconControl" 
 									onclick="eXo.gadget.UIGadget.minimizeGadget(this)" onmousedown="event.cancelBubble=true;" style="display:none;"><span></span></div>
-			    <div class="EditGadget IconControl" onclick="eXo.gadget.UIGadget.editGadget('$id')" onmousedown="event.cancelBubble=true;"><span></span></div>
-			  	<div class="GadgetDragHandleArea"><span></span></div>
+					<div class="EditGadget IconControl" onclick="eXo.gadget.UIGadget.editGadget('$id')" onmousedown="event.cancelBubble=true;"><span></span></div>
+					<div class="GadgetDragHandleArea"><span></span></div>
 				 	<div style="clear: both;"><span></span></div>
 				</div>
 			</div>
 		</div>
-  </div>
+	</div>
  	<div class="ClearBoth"><span></span></div>
 	<div class="GadgetApplication" style="display:<%= Boolean.parseBoolean(uicomponent.getProperties().get("minimized")) ? "none": "block"; %>">
 		<div class="TLGadget">

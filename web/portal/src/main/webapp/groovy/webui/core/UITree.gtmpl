@@ -1,87 +1,87 @@
 <%
-  import org.exoplatform.webui.core.UIRightClickPopupMenu ;
-  
-  def selected = uicomponent.getSelected();
-  def sibling = uicomponent.getSibbling();
-  def children = uicomponent.getChildren();  
-  UIRightClickPopupMenu uiPopupMenu = uicomponent.getUIRightClickPopupMenu();
+	import org.exoplatform.webui.core.UIRightClickPopupMenu;
+	
+	def selected = uicomponent.getSelected();
+	def sibling = uicomponent.getSibbling();
+	def children = uicomponent.getChildren();	
+	UIRightClickPopupMenu uiPopupMenu = uicomponent.getUIRightClickPopupMenu();
 
-  if(uiPopupMenu != null){
-	  def rcontext = _ctx.getRequestContext() ;
-    String id = uicomponent.getParent().getId();
-  
-  	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIRightClickPopupMenu') ;
-  	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"') ;");
-  	rcontext.getJavascriptManager().addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
-    uicomponent.renderUIComponent(uiPopupMenu) ; 
-  }
+	if(uiPopupMenu != null){
+		def rcontext = _ctx.getRequestContext();
+		String id = uicomponent.getParent().getId();
+	
+		rcontext.getJavascriptManager().importJavascript('eXo.webui.UIRightClickPopupMenu');
+		rcontext.getJavascriptManager().addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"');");
+		rcontext.getJavascriptManager().addOnLoadJavascript('eXo.portal.UIPortalControl.fixHeight');
+		uicomponent.renderUIComponent(uiPopupMenu); 
+	}
 %>
 <div class="UITrees ScrollArea">
-  <div class="TreeContainer JSContainer">
-  	<div style="padding-bottom: 12px">
-	    <div class="HomeNode">
-		    <a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" onmousedown="event.cancelBubble=true;" title="<%=_ctx.appRes("UITree.tooltip.UpLevel")%>" style="display: block;"><span></span></a>
-	  	</div>
-	    <%
+	<div class="TreeContainer JSContainer">
+		<div style="padding-bottom: 12px">
+			<div class="HomeNode">
+				<a class="LevelUpArrowIcon" href="<%=uicomponent.getActionLink();%>" onmousedown="event.cancelBubble=true;" title="<%=_ctx.appRes("UITree.tooltip.UpLevel")%>" style="display: block;"><span></span></a>
+			</div>
+			<%
 			int count=0;
-	    for(object in sibling) {
-	    	if(count==sibling.size()-1) {
-	    %>
-	    	<div class="LastNode Node">
-			    <% 
-			    String objId = String.valueOf(uicomponent.getId(object)) ;
-	        String actionLink = uicomponent.event("ChangeNode", objId);
-			    %>
-			    <%=uicomponent.renderNode(object);%>		      	      		
-			    <%  
-					  if(uicomponent.isSelected(object)){%>
-					    <div class = "ChildrenContainer" actionLink="$actionLink" display = "block">
-					  <%  
-					  int countChild=0;
-					  for(child in children) {
-					  if(countChild==children.size()-1) {
-					  %>
-					   		<div class="LastNode Node">
-						      <%=uicomponent.renderNode(child);%>
-						    </div>
-					   <% } else { %>								      		 
-						    <div class="Node">
-						      <%=uicomponent.renderNode(child);%>
-						    </div>
-						  <% } %>  
-				      <%countChild++ ;}	%>			    			
-				      </div>				  	
-				  <%}%>						   
-				  </div>
-	    <% } else { %>		
-			    <div class="Node">
-			    <% 
-			    String objId = String.valueOf(uicomponent.getId(object)) ;
-	        String actionLink = uicomponent.event("ChangeNode", objId);
-			    %>
-			    <%=uicomponent.renderNode(object);%>		      	      		
-			    <%  
-					  if(uicomponent.isSelected(object)){%>
-					  <div class = "ChildrenContainer" actionLink="$actionLink" display = "block">
-					  <%  
-					  int countChild=0;
-					  for(child in children) {
-					  			if(countChild==children.size()-1) {
-					   %>
-					   		<div class="LastNode Node">
-						      <%=uicomponent.renderNode(child);%>
-						    </div>
-					   <% } else { %>								      		 
-						    <div class="Node">
-						      <%=uicomponent.renderNode(child);%>
-						    </div>
-						  <% } %>  
-				      <%countChild++ ;}	%>			    			
-				      </div>			  	
-				  <%}%>						   
-				  </div>
+			for(object in sibling) {
+				if(count==sibling.size()-1) {
+			%>
+				<div class="LastNode Node">
+					<% 
+					String objId = String.valueOf(uicomponent.getId(object));
+					String actionLink = uicomponent.event("ChangeNode", objId);
+					%>
+					<%=uicomponent.renderNode(object);%>											
+					<%	
+						if(uicomponent.isSelected(object)){%>
+							<div class = "ChildrenContainer" actionLink="$actionLink" display = "block">
+						<%	
+						int countChild=0;
+						for(child in children) {
+						if(countChild==children.size()-1) {
+						%>
+						 		<div class="LastNode Node">
+									<%=uicomponent.renderNode(child);%>
+								</div>
+						 <% } else { %>													 
+								<div class="Node">
+									<%=uicomponent.renderNode(child);%>
+								</div>
+							<% } %>	
+							<%countChild++;}	%>								
+							</div>						
+					<%}%>							 
+					</div>
+			<% } else { %>		
+					<div class="Node">
+					<% 
+					String objId = String.valueOf(uicomponent.getId(object));
+					String actionLink = uicomponent.event("ChangeNode", objId);
+					%>
+					<%=uicomponent.renderNode(object);%>											
+					<%	
+						if(uicomponent.isSelected(object)){%>
+						<div class = "ChildrenContainer" actionLink="$actionLink" display = "block">
+						<%	
+						int countChild=0;
+						for(child in children) {
+									if(countChild==children.size()-1) {
+						 %>
+						 		<div class="LastNode Node">
+									<%=uicomponent.renderNode(child);%>
+								</div>
+						 <% } else { %>													 
+								<div class="Node">
+									<%=uicomponent.renderNode(child);%>
+								</div>
+							<% } %>	
+							<%countChild++;}	%>								
+							</div>					
+					<%}%>							 
+					</div>
 				<% } %>
-			<%count++ ;}%>
+			<%count++;}%>
 		</div>
-  </div>  
+	</div>	
 </div>

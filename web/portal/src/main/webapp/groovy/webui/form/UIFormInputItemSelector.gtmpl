@@ -1,73 +1,73 @@
-<%  import  org.exoplatform.webui.form.UIForm; %>
+<%  import  org.exoplatform.webui.form.UIForm; %>	
 <%
-  String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
-  String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
-  String onClick = "eXo.webui.UIItemSelector.onClick(this)";
-  
-  options = uicomponent.getItemCategories();
-  UIForm form = uicomponent.getAncestorOfType(UIForm.class);  
+	String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true)";
+	String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false)";
+	String onClick = "eXo.webui.UIItemSelector.onClick(this)";
+	
+	options = uicomponent.getItemCategories();
+	UIForm form = uicomponent.getAncestorOfType(UIForm.class);	
 %>
-<div class="UIItemSelector">  
-  <div class="RightColumnStyle" style="width: 99.5%;">
-    <input type="hidden" name="$uicomponent.name" value ="">
-	  <%/*Begin ItemList*/%>
-	  <div class="ItemListContainer">
-	    <div class="ItemListTitle">
-	  	    	<div class="TitleIcon ItemListIcon"><span></span></div>
-	  	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
-	  	    	<div class="ClearLeft"><span></span></div>
-	  	    </div>
-	    <div class="ItemList">
-	      <%
-	        for(opt in options) { 
-	          String itemSelected = "Item" ;
-	          String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')"
-	          String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
-	          if (opt.isSelected()) itemSelected = "SelectedItem Item" ;
-	       %>
-	          <div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;$submitEvent">
-	            <div class="LeftItem">
-	              <div class="RightItem">  
-	                <div class="ItemTitle"><%=_ctx.appRes(opt.getName() + ".label")%></div>
-	              </div>
-	            </div>
-	          </div>
-	      <%}%>
-	    </div>
-	  </div>
-	  <%/*End ItemList*/%>
-	        
-	  <%/*Begin ItemDetailList*/%>
-	  <div class="ItemDetailList">
-	    <div class="ItemDetailTitle">
-	      <div class="TitleIcon ViewListIcon"><span></span></div>
-	  	    	<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".left.title")%></div>
-	  	    	<div class="ClearLeft"><span></span></div>
-	    </div>
-	    <%     
-	      for(opt in options) {
-	      	boolean Selected = true;
-	        String display = "none";
-	        temps = opt.getSelectItemOptions();
-	        if(opt.isSelected()) display = "block";
-	    %>
-	        <div class="ItemDetail" style="display: $display;">
-	        <%               
-	          for(temp in temps){               
-	           String label = "" ;
-	           if(temp != null) {
-	             label = temp.getLabel();
-	           }
-	        %>
-	          <div class="TemplateContainer">
-	            <div class="Template">
-	              <div title="$label" class="<%=temp.getIcon();%>Image"><span></span></div>
-	            </div>
-	          </div>
-	        <%}%>
-	        </div> 
-	    <%}%>
-	  </div>  
-	  <%/*End ItemDetailList*/%>      
-  </div>
+<div class="UIItemSelector">	
+	<div class="RightColumnStyle" style="width: 99.5%;">
+		<input type="hidden" name="$uicomponent.name" value ="">
+		<%/*Begin ItemList*/%>
+		<div class="ItemListContainer">
+			<div class="ItemListTitle">
+				<div class="TitleIcon ItemListIcon"><span></span></div>
+				<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".title")%></div>
+				<div class="ClearLeft"><span></span></div>
+			</div>
+			<div class="ItemList">
+				<%
+					for(opt in options) { 
+						String itemSelected = "Item" ;
+						String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$opt.name')"
+						String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
+						if (opt.isSelected()) itemSelected = "SelectedItem Item" ;
+				 %>
+						<div class="$itemSelected" onmouseover="$onMouseOver" onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;$submitEvent">
+							<div class="LeftItem">
+								<div class="RightItem">	
+									<div class="ItemTitle"><%=_ctx.appRes(opt.getName() + ".label")%></div>
+								</div>
+							</div>
+						</div>
+				<%}%>
+			</div>
+		</div>
+		<%/*End ItemList*/%>
+					
+		<%/*Begin ItemDetailList*/%>
+		<div class="ItemDetailList">
+			<div class="ItemDetailTitle">
+				<div class="TitleIcon ViewListIcon"><span></span></div>
+				<div class="Title"><%=_ctx.appRes(uicomponent.getName() + ".left.title")%></div>
+				<div class="ClearLeft"><span></span></div>
+			</div>
+			<%		 
+				for(opt in options) {
+					boolean Selected = true;
+					String display = "none";
+					temps = opt.getSelectItemOptions();
+					if(opt.isSelected()) display = "block";
+			%>
+					<div class="ItemDetail" style="display: $display;">
+					<%							 
+						for(temp in temps){							 
+						 String label = "";
+						 if(temp != null) {
+							 label = temp.getLabel();
+						 }
+					%>
+						<div class="TemplateContainer">
+							<div class="Template">
+								<div title="$label" class="<%=temp.getIcon();%>Image"><span></span></div>
+							</div>
+						</div>
+					<%}%>
+					</div> 
+			<%}%>
+		</div>	
+		<%/*End ItemDetailList*/%>			
+	</div>
 </div>

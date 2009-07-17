@@ -1,6 +1,6 @@
 <%
 def categories = uicomponent.getCategories();
-def selectedCategory = uicomponent.getSelectedCategory() ;
+def selectedCategory = uicomponent.getSelectedCategory();
 %>
 <div class="UIContainerConfigOptions" id="$uicomponent.id">
 	<div class="AppRegistryContainer">
@@ -8,55 +8,55 @@ def selectedCategory = uicomponent.getSelectedCategory() ;
 			<div class="ControlArea">
 				<div class="CategoryContent">
 
-	   	    <div class="ListContent">	
-	   	    	<div class="UIVerticalSlideTabs">
-		   	    <% 
-			 			  String cTab, cName, description, displayName;
-			 			  boolean isSelected = false;
-						  for(category in categories) { 			     
-						    cName  = category.getName();
-						    displayName =category.getLabel();
-						    if(displayName == null || displayName.length() < 1 ) displayName = cName;
-						    if(cName == selectedCategory.getName()) {
-						    	isSelected = true;
-						      cTab = "SelectedTab" ;
-						    }else {
-						    	isSelected = false;
-						    	cTab = "NormalTab" ;
-						    }
-						%>			   	    	
-	   	    		<div class="UIVTab VTabStyle4">
-					      <div class="$cTab" onclick="<%= uicomponent.event("SelectCategory", cName) %>">
-						      <a class="TabLabel" title="<%= displayName %>">
-						      	<%= _ctx.appRes("ContainerOptions.Category." + displayName) %>
-						      </a>
-							  </div>
+		 			<div class="ListContent">	
+		 				<div class="UIVerticalSlideTabs">
+			 			<% 
+			 				String cTab, cName, description, displayName;
+			 				boolean isSelected = false;
+							for(category in categories) { 					 
+								cName	= category.getName();
+								displayName =category.getLabel();
+								if(displayName == null || displayName.length() < 1 ) displayName = cName;
+								if(cName == selectedCategory.getName()) {
+									isSelected = true;
+									cTab = "SelectedTab";
+								}else {
+									isSelected = false;
+									cTab = "NormalTab";
+								}
+						%>				 				
+		 					<div class="UIVTab VTabStyle4">
+								<div class="$cTab" onclick="<%= uicomponent.event("SelectCategory", cName) %>">
+									<a class="TabLabel" title="<%= displayName %>">
+										<%= _ctx.appRes("ContainerOptions.Category." + displayName) %>
+									</a>
+								</div>
 							<% if(isSelected) { %>
-							  <div class="UIVTabContent" style="display: block">
-							  <%
-							  for(container in category.getSelectItemOptions()) {
+								<div class="UIVTabContent" style="display: block">
+								<%
+								for(container in category.getSelectItemOptions()) {
 										String setIcon = container.getIcon();
 										String setLabel = container.getLabel();
-										String title = _ctx.appRes("ContainerOptions.Item." + setLabel) ;
-							  %>
-							    <div class="DragObjectPortlet" id="$setLabel" onmousedown="eXo.portal.PortalDragDrop.init.call(this,event)">
-							  	  <div class="VTabContentBG">
-							  		  <div class="$setIcon LableContent" title="$title">$title</div>
-							  		</div>
-							  	</div>
+										String title = _ctx.appRes("ContainerOptions.Item." + setLabel);
+								%>
+									<div class="DragObjectPortlet" id="$setLabel" onmousedown="eXo.portal.PortalDragDrop.init.call(this,event)">
+										<div class="VTabContentBG">
+											<div class="$setIcon LableContent" title="$title">$title</div>
+										</div>
+									</div>
 								<% } %>	
 								</div>
 							<% } %>
 							</div>
 						<% } %>									
-	   	    	</div>	
-	   	    	        	
+		 				</div>	
+		 									
 					</div>
 
 				</div>
 			</div>
 		</div>
 		<div class="ClearLeft"><span></span></div>
-	</div>  
+	</div>	
 	
 </div>

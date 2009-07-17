@@ -1,84 +1,84 @@
-<%
-  def rcontext = _ctx.getRequestContext() ;
-	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs') ;
+<%		
+	def rcontext = _ctx.getRequestContext();
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
 %>
 
 <div class="UIFormTabPane">
-  <div class="UITabPane">
+	<div class="UITabPane">
 		<div class="TabPaneContent">
-	    <div class="WorkingArea">
-	     	<div class="UIHorizontalTabs" >
-	     	  <div class="LeftHorizontalTabs">
-	     	    <div class="RightHorizontalTabs">
-	     	      <div class="CenterHorizontalTabs">
-				        <div class="TabsContainer">
-			            <%
-			            	String selTabId = uicomponent.getSelectedTabId() ;
-			              for(inputSet in uicomponent.getChildren()) {
-			                if(!inputSet.isRendered()) continue ;
-					        		String className="NormalTab" ;
-					        		if(inputSet.getId().equals(selTabId)) className="SelectedTab" ;
-				              //String tabName = inputSet.getName() ; 
-			                tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name) ;
-			                String actionLink = "" + uicomponent.event("SelectTab",inputSet.getId()) + "" ;
-                  %>
-					              <div class="UITab NormalTabStyle">
-					                <div class="$className">
-					                  <div class="LeftTab">
-					                    <div class="RightTab">
-							                  <div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id');$actionLink">$tabName</div>
-							                </div>
-					                  </div>
-					                </div>
-					              </div>
-			            <% }%>
-				        </div>
-				      </div>
-				    </div>
-				  </div>
-	      </div>
-        <%uiform.begin()%>
-        <div><input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.selectedTabId"/></div>
-	    	<div class="HorizontalLayout">
-	        <div class="UITabContentContainer">
-            <%
-              for(formInput in uicomponent.getChildren()) {
-                if(!formInput.isRendered()) continue ;
-                String display = "none" ;
-                if(formInput.getId().equals(selTabId)) display="block" ;
-            %>
-                <div class="UITabContent" style="display: $display;">
-                  <%
-                  	uicomponent.renderUIComponent(formInput) ;
-                  %>
-                </div>
-            <%}%>
-          </div>
-			    <div class="UIAction">
-			      <table class="ActionContainer">
-			      	<tr>
-			     	 		<td>
-		          		<%for(action in uicomponent.getActions()) { 
-							      String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
-							      String link = uicomponent.event(action) ;
-					        %>
-									<div onclick="$link" class="ActionButton LightBlueStyle">
-									  <div class="ButtonLeft">
-										  <div class="ButtonRight">
-										    <div class="ButtonMiddle">
-									      	<a href="javascript:void(0);">$actionLabel</a>
-										    </div>
-									    </div>
+			<div class="WorkingArea">
+			 	<div class="UIHorizontalTabs" >
+			 		<div class="LeftHorizontalTabs">
+			 			<div class="RightHorizontalTabs">
+			 				<div class="CenterHorizontalTabs">
+								<div class="TabsContainer">
+									<%
+										String selTabId = uicomponent.getSelectedTabId();
+										for(inputSet in uicomponent.getChildren()) {
+											if(!inputSet.isRendered()) continue;
+											String className="NormalTab";
+											if(inputSet.getId().equals(selTabId)) className="SelectedTab";
+											//String tabName = inputSet.getName(); 
+											tabName = _ctx.appRes(uicomponent.getName() + ".tab.label." + inputSet.name);
+											String actionLink = "" + uicomponent.event("SelectTab",inputSet.getId()) + "";
+									%>
+									<div class="UITab NormalTabStyle">
+										<div class="$className">
+											<div class="LeftTab">
+												<div class="RightTab">
+													<div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUIFormTabpane(this, '$uiform.id', '$inputSet.id');$actionLink">$tabName</div>
+												</div>
+											</div>
 										</div>
 									</div>
-	            		<%}%>
-           			</td>
-	          	</tr>
-	          </table>
- 	        </div>
-		    </div>
-        <%uiform.end()%>
-		  </div>
-		</div>  
-  </div>
+									<% }%>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<%uiform.begin()%>
+				<div><input type="hidden" id="<%=uicomponent.RENDER_TAB%>" name="<%=uicomponent.RENDER_TAB%>" value="$uicomponent.selectedTabId"/></div>
+				<div class="HorizontalLayout">
+					<div class="UITabContentContainer">
+						<%
+							for(formInput in uicomponent.getChildren()) {
+								if(!formInput.isRendered()) continue;
+								String display = "none";
+								if(formInput.getId().equals(selTabId)) display="block";
+						%>
+						<div class="UITabContent" style="display: $display;">
+							<%
+								uicomponent.renderUIComponent(formInput);
+							%>
+						</div>
+						<%}%>
+					</div>
+					<div class="UIAction">
+						<table class="ActionContainer">
+							<tr>
+					 	 		<td>
+									<%for(action in uicomponent.getActions()) { 
+										String actionLabel = _ctx.appRes(uicomponent.getName() + ".action." + action);
+										String link = uicomponent.event(action);
+									%>
+									<div onclick="$link" class="ActionButton LightBlueStyle">
+										<div class="ButtonLeft">
+											<div class="ButtonRight">
+												<div class="ButtonMiddle">
+													<a href="javascript:void(0);">$actionLabel</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									<%}%>
+					 			</td>
+							</tr>
+						</table>
+ 					</div>
+				</div>
+				<%uiform.end()%>
+			</div>
+		</div>	
+	</div>
 </div>

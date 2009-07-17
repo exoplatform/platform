@@ -1,125 +1,125 @@
-<%import org.exoplatform.portal.config.model.PageNode;%>
+<%import org.exoplatform.portal.config.model.PageNode;%>	
 <%
-	def navigations = uicomponent.getNavigations() ;
-  public void renderNextLevelNode(nav, children, int intLevel) {
-  	if(intLevel > 4) return ;
-  	
-  	for(PageNode node in children) {
-	    String actionLink = uicomponent.event("SelectNode", nav.getId() + "::" + node.getUri()) ;
-	    String iconType = node.getIcon();
+	def navigations = uicomponent.getNavigations();
+	public void renderNextLevelNode(nav, children, int intLevel) {
+		if(intLevel > 4) return;
+		
+		for(PageNode node in children) {
+			String actionLink = uicomponent.event("SelectNode", nav.getId() + "::" + node.getUri());
+			String iconType = node.getIcon();
 			if(iconType == null) {
 				iconType = "DefaultPageIcon";
 			}
 			
 			if(intLevel == 4) {
-	  		println """
-		  	  <div class="Item">
-			      <div class="Level$intLevel">
-			        <div class="OverflowContainer">
-				          <a class="IconItem ${iconType}" href="javascript: void(0);">...</a>
-			        </div>
-			      </div>
-			    </div>
-			  """ ;
-			 	break ;
-  		}
+				println """
+					<div class="Item">
+						<div class="Level$intLevel">
+							<div class="OverflowContainer">
+									<a class="IconItem ${iconType}" href="javascript: void(0);">...</a>
+							</div>
+						</div>
+					</div>
+				""";
+			 	break;
+			}
 			
 			String label = node.resolvedLabel;
-	    String title = label;
-	    if(label.length() > 38) {
-	    	label = label.substring(0,35) + "...";	            	
-	    }
-	            
-	    println """
-	  	  <div class="Item">
-		      <div class="Level$intLevel">
-		        <div class="OverflowContainer">
+			String title = label;
+			if(label.length() > 38) {
+				label = label.substring(0,35) + "...";								
+			}
+							
+			println """
+				<div class="Item">
+					<div class="Level$intLevel">
+						<div class="OverflowContainer">
 		 	""";
 			 				if(node.pageReference != null) {
-			          print """<a class="IconItem ${iconType}" href="$actionLink" title="$title">$label</a>""";
-			        } else {
-			        	print """<a class="IconItem ${iconType}" title="$title">$label</a>""";
-			        }
+								print """<a class="IconItem ${iconType}" href="$actionLink" title="$title">$label</a>""";
+							} else {
+								print """<a class="IconItem ${iconType}" title="$title">$label</a>""";
+							}
 		 	println """
-		        </div>
-		      </div>
-		    </div>
-		  """ ;
-	    if (node.getChildren() != null) {
-	  	  renderNextLevelNode(nav, node.getChildren(), intLevel + 1) ;
-	  	}
-	  }
-  }
+						</div>
+					</div>
+				</div>
+			""";
+			if (node.getChildren() != null) {
+				renderNextLevelNode(nav, node.getChildren(), intLevel + 1);
+			}
+		}
+	}
 %>
 <div class="UISitemap">
-  <div class="SitemapContainer">
-  	<div class="SitemapBackground">
-	    <%
-	        boolean even = true ;
-	        String cssfloat = "left";
-	        for(nav in navigations) { 
-	          for(node in nav.getNodes()) { 
-	            String iconType = node.getIcon();
+	<div class="SitemapContainer">
+		<div class="SitemapBackground">
+			<%
+					boolean even = true;
+					String cssfloat = "left";
+					for(nav in navigations) { 
+						for(node in nav.getNodes()) { 
+							String iconType = node.getIcon();
 							if(iconType == null) {
 								iconType = "DefaultPageIcon";
 							}
 							if(even)cssfloat = "left";
 							else cssfloat = "right";
-	            String blockFloat = "LeftBlock" ;
-	            actionLink = uicomponent.event("SelectNode", nav.getId() + "::" + node.getUri()) ;
-	            
-	            String label = node.resolvedLabel;
-	            String title = "";
-	            if(label.length() > 35) {
-	            	title = label;
-	            	label = label.substring(0,32) + "...";	            	
-	            }
-	    %>
-	      <div class="SitemapItemBox" style="float:${cssfloat};">
-	      	<div class="SitemapItemContainer">
-				    <div class="TitleBar">
-				    	<%if(node.pageReference != null) {%>
-		          	<a href="<%=actionLink%>" class="Icon ${iconType}" title="$title">$label</a>
-		          <%} else {%>
-		          	<a class="Icon ${iconType}" title="$title">$label</a>
-		          <%}%>
-		        </div>
-		        <%if(node.getChildren() == null || node.getChildren().size() < 1) { %>
-		            <div class="NestedSitemapItemBox">
-						      <div class="SitemapItemBoxSelector BorderBox">											
-							      <div class="Item">
-								      <div class="SubItem">
-						            <div class="Icon BlueInfoBox16x16Icon">
-						            	<%=_ctx.appRes("UISitemap.label.message")%>
-						            </div>
-						          </div>
-						        </div>
-						      </div>
-						    </div> 
-	  			  <%} else { %>
-	  			      <div class="NestedSitemapItemBox">
-	                <div class="SitemapItemBoxSelector">
-	                	<div class="ItemContainer">
-				  			     <% renderNextLevelNode(nav, node.getChildren(), 1); %>
-				  			    </div>
-				  			  </div>
-						    </div> 						  			      
-	  	        <%}%>
-	  	  	</div>
-	      </div>
-	    <% 
-		        if(!even) {
-		  %>
-				    <div class="ClearBoth"><span></span></div>        
-		  <%
-		        }
-		        even = !even ;
-		      }
-	      }
-	      if(!even){
-	    %>
-	    <div class="ClearBoth"><span></span></div> 
-	    <% } %>
-		</div>       
-  </div>
+							String blockFloat = "LeftBlock";
+							actionLink = uicomponent.event("SelectNode", nav.getId() + "::" + node.getUri());
+							
+							String label = node.resolvedLabel;
+							String title = "";
+							if(label.length() > 35) {
+								title = label;
+								label = label.substring(0,32) + "...";								
+							}
+			%>
+			<div class="SitemapItemBox" style="float:${cssfloat};">
+				<div class="SitemapItemContainer">
+					<div class="TitleBar">
+						<%if(node.pageReference != null) {%>
+							<a href="<%=actionLink%>" class="Icon ${iconType}" title="$title">$label</a>
+						<%} else {%>
+							<a class="Icon ${iconType}" title="$title">$label</a>
+						<%}%>
+					</div>
+					<%if(node.getChildren() == null || node.getChildren().size() < 1) { %>
+							<div class="NestedSitemapItemBox">
+								<div class="SitemapItemBoxSelector BorderBox">											
+									<div class="Item">
+										<div class="SubItem">
+											<div class="Icon BlueInfoBox16x16Icon">
+												<%=_ctx.appRes("UISitemap.label.message")%>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div> 
+					<%} else { %>
+							<div class="NestedSitemapItemBox">
+								<div class="SitemapItemBoxSelector">
+									<div class="ItemContainer">
+									 <% renderNextLevelNode(nav, node.getChildren(), 1); %>
+									</div>
+								</div>
+							</div> 													
+						<%}%>
+				</div>
+			</div>
+			<% 
+						if(!even) {
+			%>
+						<div class="ClearBoth"><span></span></div>				
+			<%
+						}
+						even = !even;
+					}
+				}
+				if(!even){
+			%>
+			<div class="ClearBoth"><span></span></div> 
+			<% } %>
+		</div>			 
+	</div>
 </div>

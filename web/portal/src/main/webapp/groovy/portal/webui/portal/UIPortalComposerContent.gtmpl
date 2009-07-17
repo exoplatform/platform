@@ -1,49 +1,49 @@
-<%
-  import org.exoplatform.portal.webui.application.UIApplicationList;
-  import org.exoplatform.portal.webui.container.UIContainerList;
-  
-  def rcontext = _ctx.getRequestContext() ;
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
+<%	
+	import org.exoplatform.portal.webui.application.UIApplicationList;
+	import org.exoplatform.portal.webui.container.UIContainerList;
+	
+	def rcontext = _ctx.getRequestContext(); 
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
 %>
 
 <div class="UITabPane" id="$uicomponent.id">
-  <div class="UIHorizontalTabs">
-    <div class="TabsContainer">
-      <%
-        String url = uicomponent.url("SelectTab") ;
-        String selTabId = uicomponent.getSelectedTabId() ;
-        
-        UIApplicationList appList = uicomponent.getChild(UIApplicationList.class);
-        UIContainerList contList = uicomponent.getChild(UIContainerList.class);
-      %>
-        <div class="UITab GrayTabStyle">
-          <div class="<%= appList.getId().equals(selTabId) ? "SelectedTab" : "NormalTab" %>">
-            <div class="LeftTab">
-              <div class="RightTab">
-                <% String appLink = "ajaxAsyncGetRequest('" + uicomponent.url("SelectTab",appList.getId()) + "', true)" %>                
-                <div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '${appList.getId()}', '$url');$appLink;javascript:eXo.env.editType=true;">
-                  <%=_ctx.appRes("UITabPane.title." + appList.getId());%>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="UITab GrayTabStyle">
-          <div class="<%= contList.getId().equals(selTabId) ? "SelectedTab" : "NormalTab" %>">
-            <div class="LeftTab">
-              <div class="RightTab">
-                <% String contLink = "ajaxAsyncGetRequest('" + uicomponent.url("SelectTab",contList.getId()) + "', true)" %>                
-                <div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '${contList.getId()}', '$url');$contLink;javascript:eXo.env.editType=false;">
-                  <%=_ctx.appRes("UITabPane.title." + contList.getId());%>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>              
-    </div>
-  </div>
-  <div class="UITabContentContainer GrayTabContainer">
-    <div class="UITabContent" style="display: <%=appList.getId().equals(selTabId) ? "block": "none"%>;overflow:auto;"><% uicomponent.renderUIComponent(appList) ; %></div>
-    <div class="UITabContent" style="display: <%=contList.getId().equals(selTabId) ? "block": "none"%>;overflow:auto;"><% uicomponent.renderUIComponent(contList) ; %></div>
-  </div>  
-</div>  
+	<div class="UIHorizontalTabs">
+		<div class="TabsContainer">
+			<%
+				String url = uicomponent.url("SelectTab"); 
+				String selTabId = uicomponent.getSelectedTabId(); 
+				
+				UIApplicationList appList = uicomponent.getChild(UIApplicationList.class);
+				UIContainerList contList = uicomponent.getChild(UIContainerList.class);
+			%>
+			<div class="UITab GrayTabStyle">
+				<div class="<%= appList.getId().equals(selTabId) ? "SelectedTab" : "NormalTab" %>">
+					<div class="LeftTab">
+						<div class="RightTab">
+							<% String appLink = "ajaxAsyncGetRequest('" + uicomponent.url("SelectTab",appList.getId()) + "', true)" %>								
+							<div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '${appList.getId()}', '$url');$appLink;javascript:eXo.env.editType=true;">
+								<%=_ctx.appRes("UITabPane.title." + appList.getId());%>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="UITab GrayTabStyle">			
+				<div class="<%= contList.getId().equals(selTabId) ? "SelectedTab" : "NormalTab" %>">
+					<div class="LeftTab">
+						<div class="RightTab">
+							<% String contLink = "ajaxAsyncGetRequest('" + uicomponent.url("SelectTab",contList.getId()) + "', true)" %>								
+							<div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '${contList.getId()}', '$url');$contLink;javascript:eXo.env.editType=false;">
+								<%=_ctx.appRes("UITabPane.title." + contList.getId());%>
+							</div>
+						</div>
+					</div>
+				</div>				
+			</div>							
+		</div>
+	</div>
+	<div class="UITabContentContainer GrayTabContainer">
+		<div class="UITabContent" style="display: <%=appList.getId().equals(selTabId) ? "block": "none"%>;overflow:auto;"><% uicomponent.renderUIComponent(appList);  %></div>
+		<div class="UITabContent" style="display: <%=contList.getId().equals(selTabId) ? "block": "none"%>;overflow:auto;"><% uicomponent.renderUIComponent(contList);  %></div>
+	</div>	
+</div>	

@@ -1,100 +1,100 @@
-<%  
-  import org.exoplatform.webui.form.UIForm; 
-  import org.exoplatform.webui.core.UIDropDownControl; 
-  import org.exoplatform.webui.core.model.SelectItemOption;
+<%		
+	import org.exoplatform.webui.form.UIForm; 
+	import org.exoplatform.webui.core.UIDropDownControl; 
+	import org.exoplatform.webui.core.model.SelectItemOption;
 
-	def rcontext = _ctx.getRequestContext() ;
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory') ;
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIItemSelector') ;
+	def rcontext = _ctx.getRequestContext(); 
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupSelectCategory'); 
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIItemSelector'); 
 
-  def categories = uicomponent.getItemCategories() ;
-  UIForm form = uicomponent.getParent() ;
-  
-  String selectCategory = "eXo.webui.UIItemSelector.selectCategory(this); " ;
-  SelectItemOption selectedItem = uicomponent.getSelectedItemOption(); 
-  String selectedValue = "";
-  if(selectedItem != null) selectedValue = selectedItem.getLabel();
+	def categories = uicomponent.getItemCategories(); 
+	UIForm form = uicomponent.getParent(); 
+	
+	String selectCategory = "eXo.webui.UIItemSelector.selectCategory(this); "; 
+	SelectItemOption selectedItem = uicomponent.getSelectedItemOption(); 
+	String selectedValue = "";
+	if(selectedItem != null) selectedValue = selectedItem.getLabel();
 %>
 <div class="UIItemSelector">
-  <div class="RightColumnStyle" style="width: 99.5%;">
-    <input type="hidden" name="<%=uicomponent.getName();%>" value="$selectedValue">
-    <%/*Begin ItemList*/ %>
-    <div class="ItemListContainer ItemSelectorAncestor">
-    	<div class="PageConfigOptionList">
-	    <% 
-        uicomponent.renderChild(UIDropDownControl.class)  ;
-      %>
-     </div>
-	    <% 
-	      for(category in categories) {
-	        templates = category.getSelectItemOptions();
-	        String display = "none";  
-	        if(category.isSelected()) display = "block" ; 
-	        else {
-	        	for(template in templates)
-	        		template.setSelected(false); 
-	        	templates.get(0).setSelected(true) ;
-	        }
-	    %>
-			    <div class="ItemList ItemListBackground"  style="display: $display; height: 240px">
+	<div class="RightColumnStyle" style="width: 99.5%;">
+		<input type="hidden" name="<%=uicomponent.getName();%>" value="$selectedValue">
+		<%/*Begin ItemList*/ %>
+		<div class="ItemListContainer ItemSelectorAncestor">
+			<div class="PageConfigOptionList">
+			<% 
+				uicomponent.renderChild(UIDropDownControl.class)	;
+			%>
+		 </div>
+			<% 
+				for(category in categories) {
+					templates = category.getSelectItemOptions();
+					String display = "none";	
+					if(category.isSelected()) display = "block";  
+					else {
+						for(template in templates)
+							template.setSelected(false); 
+						templates.get(0).setSelected(true); 
+					}
+			%>
+					<div class="ItemList ItemListBackground"	style="display: $display; height: 240px">
 						<%
-						  for(template in templates){
-						    String itemSelected = "Item" ;
-					      String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$template.label' )";
-		            String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
-		            String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true, '$template.icon')";
-		            String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false, '$template.icon')";
-		            String onClick = "eXo.webui.UIItemSelector.onClick(this, '$template.icon')";
-		            if (template.isSelected()) itemSelected = "SelectedItem Item" ;
-					  %>
-						    <div class="$itemSelected" onmouseover="$onMouseOver" 
-						         onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;" >
-							  	<div class="LeftItem">
-                    <div class="RightItem">  
-								  	  <div class="ItemTitle"><%=_ctx.appRes("UIWizardPageSelectLayoutForm.label."+template.label)%></div>
-			              </div>
-			            </div>
-			            <div id="SetValue" style="display: none">$setHiddenValue;</div>
-			  	      </div>
-	          <%}%>
-	          
-		      </div>
-		  <%}%>
+							for(template in templates){
+								String itemSelected = "Item"; 
+								String setHiddenValue = "eXo.webui.UIForm.setHiddenValue('$form.name', '$uicomponent.name','$template.label' )";
+								String submitEvent = "eXo.webui.UIForm.submitEvent('$form.id','SelectItemOption', '')";
+								String onMouseOver = "eXo.webui.UIItemSelector.onOver(this, true, '$template.icon')";
+								String onMouseOut = "eXo.webui.UIItemSelector.onOver(this, false, '$template.icon')";
+								String onClick = "eXo.webui.UIItemSelector.onClick(this, '$template.icon')";
+								if (template.isSelected()) itemSelected = "SelectedItem Item"; 
+						%>
+								<div class="$itemSelected" onmouseover="$onMouseOver" 
+										 onmouseout="$onMouseOut" onclick="$onClick;$setHiddenValue;" >
+									<div class="LeftItem">
+										<div class="RightItem">	
+											<div class="ItemTitle"><%=_ctx.appRes("UIWizardPageSelectLayoutForm.label."+template.label)%></div>
+										</div>
+									</div>
+									<div id="SetValue" style="display: none">$setHiddenValue;</div>
+								</div>
+						<%}%>
+						
+					</div>
+			<%}%>
 		</div>
-	  <%/*End ItemList*/%>
-    	    
-	  <%/*Begin ItemDetailList*/%>	    
-    <%        
-		  for(category in categories) {
-		    String display = "none";
-		    if(category.isSelected()) display = "block" ; //else display = "none";
-        templates = category.getSelectItemOptions();
+		<%/*End ItemList*/%>
+					
+		<%/*Begin ItemDetailList*/%>			
+		<%				
+			for(category in categories) {
+				String display = "none";
+				if(category.isSelected()) display = "block";  //else display = "none";
+				templates = category.getSelectItemOptions();
 		%>
-		    <div class="ItemDetailList" style="display: $display;">
-    			<div class="ItemDetailTitle">
-    			  <div class="TitleIcon ViewListIcon"><span></span></div>
+				<div class="ItemDetailList" style="display: $display;">
+					<div class="ItemDetailTitle">
+						<div class="TitleIcon ViewListIcon"><span></span></div>
 						<div class="Title"><%=_ctx.appRes("UIItemSelector.lable.ItemDetailTitle")%></div>
 						<div class="ClearLeft"><span></span></div>
-    			</div>
-			    <%
-			    	//int i = 0;    			     
-	          for(template in templates) {
-	          	//i = i + 1;
-	            String label = template.getLabel();
-	            String description = template.getDescription();
-     			    display = "none";
-     			    if(template.isSelected()) display = "block";
-     			    //if(i==2) display = "none"; else if(i==4) i=3;
-		      %>
-	      	    <div class="ItemDetail"  style="display: $display;">
-  					    <div class="LayoutHolder" >
-  					    	<div class="LayoutLabel" style="text-align: center; margin: 10px 0px 5px 0px;"><%=_ctx.appRes("UIWizardPageSelectLayoutForm.label."+template.label)%></div>
-	    					  <div class="$template.icon" title="$template.label" style="margin: auto" ><span></span></div>
-		  				  </div> 
-			  	    </div> 
-			    <%}%>
-	      </div>	
-	  <%}%>
-		<%/*End ItemDetailList*/%> 	      	
-  </div>
+					</div>
+					<%
+						//int i = 0;							 
+						for(template in templates) {
+							//i = i + 1;
+							String label = template.getLabel();
+							String description = template.getDescription();
+		 					display = "none";
+		 					if(template.isSelected()) display = "block";
+		 					//if(i==2) display = "none"; else if(i==4) i=3;
+					%>
+							<div class="ItemDetail"	style="display: $display;">
+								<div class="LayoutHolder" >
+									<div class="LayoutLabel" style="text-align: center; margin: 10px 0px 5px 0px;"><%=_ctx.appRes("UIWizardPageSelectLayoutForm.label."+template.label)%></div>
+									<div class="$template.icon" title="$template.label" style="margin: auto" ><span></span></div>
+								</div> 
+							</div> 
+					<%}%>
+				</div>	
+		<%}%>
+		<%/*End ItemDetailList*/%> 					
+	</div>
 </div>

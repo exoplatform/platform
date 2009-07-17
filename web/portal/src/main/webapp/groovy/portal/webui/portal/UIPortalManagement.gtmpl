@@ -1,4 +1,4 @@
-<%
+<%	
 	import org.exoplatform.portal.webui.portal.UIPortalManagementEditBar;	
 	import org.exoplatform.portal.webui.container.UIContainerConfigOptions;
 	import org.exoplatform.portal.webui.portal.UIPortalManagementControlBar;
@@ -7,37 +7,37 @@
 %>
 <div class="UIPortalManagement" id="$uicomponent.id">
 	<div class="TopTitleBar">
-	  <div class="DecoratorBox">
-	    <div class="BarDecorator">
-	      <div class="TopLeftBar">
-	        <div class="TopRightBar">
-	          <div class="TopCenterBar"><span></span></div>
-	        </div>
-	      </div>
-	      <div class="MiddleLeftBar">
-	        <div class="MiddleRightBar">
-	          <div class="MiddleCenterBar">
-	          	<%= _ctx.appRes(uicomponent.getId() + ".title."+ uicomponent.getMode())%>
-	          </div>
-	        </div>
-	      </div>
-	      <div class="BottomLeftBar">
-	        <div class="BottomRightBar">
-	          <div class="BottomCenterBar"><span></span></div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
+		<div class="DecoratorBox">
+			<div class="BarDecorator">
+				<div class="TopLeftBar">
+					<div class="TopRightBar">
+						<div class="TopCenterBar"><span></span></div>
+					</div>
+				</div>
+				<div class="MiddleLeftBar">
+					<div class="MiddleRightBar">
+						<div class="MiddleCenterBar">
+							<%= _ctx.appRes(uicomponent.getId() + ".title."+ uicomponent.getMode())%>
+						</div>
+					</div>
+				</div>
+				<div class="BottomLeftBar">
+					<div class="BottomRightBar">
+						<div class="BottomCenterBar"><span></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-  <div class="ControlArea"><%uicomponent.renderChild(UIPortalManagementEditBar.class)%></div> 
-  <%
-  	uicomponent.renderChild(UIContainerConfigOptions.class)
-  	uicomponent.renderChild(UIPortletOptions.class);
-  	uicomponent.renderChild(UIDescription.class);
+	<div class="ControlArea"><%uicomponent.renderChild(UIPortalManagementEditBar.class)%></div> 
+	<%
+		uicomponent.renderChild(UIContainerConfigOptions.class)
+		uicomponent.renderChild(UIPortletOptions.class);
+		uicomponent.renderChild(UIDescription.class);
 
-  	if(uicomponent.getChild(UIPortalManagementControlBar.class).isRendered()) {
-  %>
-			<div class="ControlArea"><%uicomponent.renderChild(UIPortalManagementControlBar.class);%></div> 
-  <%}%>
+		if(uicomponent.getChild(UIPortalManagementControlBar.class).isRendered()) {
+	%>
+	<div class="ControlArea"><%uicomponent.renderChild(UIPortalManagementControlBar.class);%></div> 
+	<%}%>
 </div>
  

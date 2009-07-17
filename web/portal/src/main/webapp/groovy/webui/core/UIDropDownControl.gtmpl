@@ -1,78 +1,78 @@
 <%
 	import org.exoplatform.web.application.JavascriptManager;
 	
-  def rcontext = _ctx.getRequestContext() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-	jsmanager.importJavascript("eXo.webui.UIDropDownControl") ;
-	jsmanager.addJavascript("eXo.webui.UIDropDownControl.init('$uicomponent.id');") ;
-  def options = uicomponent.getOptions() ;
+	def rcontext = _ctx.getRequestContext();
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript("eXo.webui.UIDropDownControl");
+	jsmanager.addJavascript("eXo.webui.UIDropDownControl.init('$uicomponent.id');");
+	def options = uicomponent.getOptions();
 %>
-	<div class="UIDropDownControl" id="$uicomponent.id">
-		<div class="UIDropDownTitle" onclick="eXo.webui.UIDropDownControl.show(this, event);">
-			<div class="UIDropDownLeftTitle">
-				<div class="UIDropDownRightTitle">
-					<div class="UIDropDownMiddleTitle">
-						<div class="Icon ComponentIcon">
-							<div class="DropDownSelectIcon">
-			  				<div class="DropDownSelectLabel">
-				  				<% 
-										if (options.size() > 0) { 
-										String label = _ctx.appRes(uicomponent.getId() + ".item." + uicomponent.getLabel());
-										if(label.length() > 25) {
-									%>
-				  					<span title="<%=label%>"><%=label.substring(0,22)%>...</span>
-									<% }else {%>
-										<%=label%>
-									<% }}else {%>
-										<%=_ctx.appRes(uicomponent.getId() + ".title.Empty")%>
-									<% } %>
-								</div>
+<div class="UIDropDownControl" id="$uicomponent.id">
+	<div class="UIDropDownTitle" onclick="eXo.webui.UIDropDownControl.show(this, event);">
+		<div class="UIDropDownLeftTitle">
+			<div class="UIDropDownRightTitle">
+				<div class="UIDropDownMiddleTitle">
+					<div class="Icon ComponentIcon">
+						<div class="DropDownSelectIcon">
+							<div class="DropDownSelectLabel">
+								<% 
+									if (options.size() > 0) { 
+									String label = _ctx.appRes(uicomponent.getId() + ".item." + uicomponent.getLabel());
+									if(label.length() > 25) {
+								%>
+									<span title="<%=label%>"><%=label.substring(0,22)%>...</span>
+								<% }else {%>
+									<%=label%>
+								<% }}else {%>
+									<%=_ctx.appRes(uicomponent.getId() + ".title.Empty")%>
+								<% } %>
 							</div>
-						</div>
-		  		</div>
-				</div>
-			</div>
-		</div>
-		<div class="UIDropDownAnchor" style="position: absolute ; display: none ;">
-			<div class="LeftTopItem">
-				<div class="RightTopItem">
-					<div class="CenterTopItem"><span></span></div>
-				</div>
-			</div>
-			<div class="LeftMiddelItem">
-				<div class="RightMiddelItem">
-				
-					<div class="ItemListContent ItemContainer">
-						<div class="TopItemContainer" onmousedown="eXo.portal.VerticalScrollManager.initScroll(this, true, 10)">
-							<div class="Arrow UpArrowIcon"><span></span></div>
-						</div>
-						<div class="MiddleItemContainer">
-					  <%
-					    int selectedIndex = 0 ;
-					    for(option in options) {
-					   %>
-					 	 	<div class="ItemListOption Item">
-					  		<% 
-					  			String label = _ctx.appRes(uicomponent.getId() + ".item." + option.label);
-					  			if(label.length() > 30) {
-					  		%>
-						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)" title="<%=label%>"><%=label.substring(0,25)%>...</a>
-						    <% } else { %>
-						    <a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)"><%=label%></a>
-						    <% } %>
-							</div>
-						<% selectedIndex++ ;}%>
-						</div>
-						<div class="BottomItemContainer" onmousedown="eXo.portal.VerticalScrollManager.initScroll(this, false, 10)">
-							<div class="Arrow DownArrowIcon"><span></span></div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="LeftBottomItem"> 
-				<div class="RightBottomItem">
-					<div class="CenterBottomItem"><span></span></div>
+		</div>
+	</div>
+	<div class="UIDropDownAnchor" style="position: absolute; display: none;">
+		<div class="LeftTopItem">
+			<div class="RightTopItem">
+				<div class="CenterTopItem"><span></span></div>
+			</div>
+		</div>
+		<div class="LeftMiddelItem">
+			<div class="RightMiddelItem">
+			
+				<div class="ItemListContent ItemContainer">
+					<div class="TopItemContainer" onmousedown="eXo.portal.VerticalScrollManager.initScroll(this, true, 10)">
+						<div class="Arrow UpArrowIcon"><span></span></div>
+					</div>
+					<div class="MiddleItemContainer">
+					<%
+						int selectedIndex = 0;
+						for(option in options) {
+					 %>
+				 	 	<div class="ItemListOption Item">
+							<% 
+								String label = _ctx.appRes(uicomponent.getId() + ".item." + option.label);
+								if(label.length() > 30) {
+							%>
+							<a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)" title="<%=label%>"><%=label.substring(0,25)%>...</a>
+							<% } else { %>
+							<a class="OptionItem" href="<%=uicomponent.event(selectedIndex)%>" onclick="eXo.webui.UIDropDownControl.onclickEvt(this)"><%=label%></a>
+							<% } %>
+						</div>
+					<% selectedIndex++;}%>
+					</div>
+					<div class="BottomItemContainer" onmousedown="eXo.portal.VerticalScrollManager.initScroll(this, false, 10)">
+						<div class="Arrow DownArrowIcon"><span></span></div>
+					</div>
 				</div>
 			</div>
 		</div>
+		<div class="LeftBottomItem"> 
+			<div class="RightBottomItem">
+				<div class="CenterBottomItem"><span></span></div>
+			</div>
+		</div>
 	</div>
+</div>

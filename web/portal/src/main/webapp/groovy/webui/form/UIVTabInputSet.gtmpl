@@ -1,48 +1,48 @@
 <%
-  String onClickRightColumnBigItemStyle = "eXo.webui.UIItemSelector.onClick(this)";
+	String onClickRightColumnBigItemStyle = "eXo.webui.UIItemSelector.onClick(this)";
 %>
 <div class="UIPersonalInfo">
-  <div class="UIItemSelector">
-    <div class="RightColumnBigItemStyle">
-	    <div class="OverflowContainer">
-	      <%//Begin Item List%>
-	      <div class="ItemListContainer">
-	        <div class="LeftItemListTitle" >
-      			<div class="RightItemListTitle">
-	        		<div class="ItemListTitle"><%= _ctx.appRes(uicomponent.getId() + ".title")%></div>
-		      	</div>
-		      </div>
-		      <div class="ItemList">
-		        <div class="ImageDecorator">
-			        <%for(child in uicomponent.getChildren()) {
-			          def String type = "Item" ;
-			          if(child.isRendered()) type = "SelectedItem Item";
-			        %>
-			          <div class="$type" onclick="$onClickRightColumnBigItemStyle">
-			            <div class="User${child.id}Icon">
-			              <div class="ItemName">
-			                <div class="ItemTitle"><%= _ctx.appRes(uicomponent.getId() + ".label." + child.id)%></div>
-			              </div>
-			            </div>	
-			          </div>
-			        <%}%>
-		        </div>
-		      </div>
-		    </div>  
-	      <%//End Item List%>
-	      <div class="ItemDetailList" style="display: block;">
-	        <%
-	          for(child in uicomponent.getChildren()) {
-		          def String display = "none" ;
-						  if(child.isRendered()) display = "block" ;
-	            println "<div class=\"ItemDetail\" style=\"display: $display;\">" ;
-	            uicomponent.renderUIComponent(child) ;
-	            println "</div>" ;
-	          }
-	        %>
-	      </div>  
-      </div>
-		</div>  
-  </div>
+	<div class="UIItemSelector">
+		<div class="RightColumnBigItemStyle">
+			<div class="OverflowContainer">
+				<%//Begin Item List%>
+				<div class="ItemListContainer">
+					<div class="LeftItemListTitle" >
+						<div class="RightItemListTitle">
+							<div class="ItemListTitle"><%= _ctx.appRes(uicomponent.getId() + ".title")%></div>
+						</div>
+					</div>
+					<div class="ItemList">
+						<div class="ImageDecorator">
+							<%for(child in uicomponent.getChildren()) {
+								def String type = "Item"; 
+								if(child.isRendered()) type = "SelectedItem Item";
+							%>
+								<div class="$type" onclick="$onClickRightColumnBigItemStyle">
+									<div class="User${child.id}Icon">
+										<div class="ItemName">
+											<div class="ItemTitle"><%= _ctx.appRes(uicomponent.getId() + ".label." + child.id)%></div>
+										</div>
+									</div>	
+								</div>
+							<%}%>
+						</div>
+					</div>
+				</div>	
+				<%//End Item List%>
+				<div class="ItemDetailList" style="display: block;">
+					<%
+						for(child in uicomponent.getChildren()) {
+							def String display = "none"; 
+							if(child.isRendered()) display = "block"; 
+							println "<div class=\"ItemDetail\" style=\"display: $display;\">"; 
+							uicomponent.renderUIComponent(child); 
+							println "</div>"; 
+						}
+					%>
+				</div>	
+			</div>
+		</div>	
+	</div>
 </div>
-  
+	

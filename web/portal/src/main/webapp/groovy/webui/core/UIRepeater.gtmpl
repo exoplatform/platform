@@ -1,23 +1,23 @@
 <%
-  import org.exoplatform.webui.core.UIComponent;
+	import org.exoplatform.webui.core.UIComponent;
 
-  String[] beanFields =  uicomponent.getBeanFields();  
-  UIComponent uiParent = uicomponent.getParent();
-  String uniqueId = uiParent.generateId;
+	String[] beanFields =	uicomponent.getBeanFields();	
+	UIComponent uiParent = uicomponent.getParent();
+	String uniqueId = uiParent.generateId;
 %>
 <div id="$uicomponent.id">
-	<table id="$uniqueId" class="UIGrid" cellspacing="0">	  
-	  <% for (bean in uicomponent.getBeans())  {  %>
-		      <tr>
-	        <%
-			    for(field in beanFields) { 
-			      def fieldValue = uicomponent.getFieldValue(bean, field) ;
-			      def cssClass = "Text";			      
-			      String value = fieldValue.toString();
-			      println "<td><div class=\""+cssClass+"\" title='$fieldValue'>"+fieldValue+"</div></td>";
-		      }
-	        %>  
-			    </tr>
+	<table id="$uniqueId" class="UIGrid" cellspacing="0">		
+		<% for (bean in uicomponent.getBeans())	{	%>
+			<tr>
+			<%
+			for(field in beanFields) { 
+				def fieldValue = uicomponent.getFieldValue(bean, field);
+				def cssClass = "Text";						
+				String value = fieldValue.toString();
+				println "<td><div class=\""+cssClass+"\" title='$fieldValue'>"+fieldValue+"</div></td>";
+			}
+			%>	
+			</tr>
 		<%}%>
 	</table>
 </div>

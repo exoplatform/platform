@@ -1,82 +1,82 @@
-<%
-  import org.exoplatform.web.application.JavascriptManager;
-  
-  def rcontext = _ctx.getRequestContext() ;
+<%	
+	import org.exoplatform.web.application.JavascriptManager;
+	
+	def rcontext = _ctx.getRequestContext();
 
-  if(!rcontext.getUIApplication().isEditting() && !uicomponent.hasPermission()) return ;
-  
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
-  jsmanager.importJavascript('eXo.portal.PortalDragDrop');
+	if(!rcontext.getUIApplication().isEditting() && !uicomponent.hasPermission()) return;
+	
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript('eXo.portal.PortalDragDrop');
 %>
 <div class="UIContainer UIToolbarContainer <%=rcontext.getUIApplication().isEditting()?"EdittingContainer":""%>" id="UIContainer-${uicomponent.id}" onmouseover="eXo.portal.UIPortal.blockOnMouseOver(event, this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(event, this, false);">
 	<div class="NormalContainerBlock">
 		<div class="LeftContainerBlock">
 			<div class="RightContainerBlock UIComponentBlock">
 			
-			  <div class="META-DATA-BLOCK" style="display: none">
-			    <div class="id">$uicomponent.id</div>
-			    <div class="title"><%=_ctx.appRes("UITableColumnContainer.label.title")%></div>
-			    <div class="description"><%=_ctx.appRes("UITableColumnContainer.label.description")%></div>
-			  </div>
-			  
-			  
-			  
-			  <div class="LAYOUT-CONTAINER LAYOUT-BLOCK" style="display: none;"><span></span></div>
-			  <% 
-			     String style = "";
-			     String width  = uicomponent.getWidth();
-			     String height  = uicomponent.getHeight();
-			     if(width != null) style += "width:"+width+";";
-			     if(height != null) style += "height:"+height+";";
-			  %>
-			  <div class="VIEW-CONTAINER ToolbarContainer VIEW-BLOCK">
-			    <div id="$uicomponent.id">    
-			      <div class="UITableColumnContainer" style="margin: 0px auto; $style">
-			        <div class="TRContainer" style="zoom: 100%;">
-			          <% for(uiChild in uicomponent.getChildren()) { %>
-			            <div class="${uiChild.id}TDContainer FloatLeft"><% uicomponent.renderUIComponent(uiChild) %></div>
-			          <% } %>
-			          <div class="ClearLeft" style="width: 0px; height: 0px;"><span></span></div>
-			       </div>
-			      </div>
-			    </div>    
-			  </div>
-			  <%/*Debug On IE  -----For DND */%>
-			  
-			  <div class="EDITION-BLOCK EDITION-CONTAINER" style="display: none;">
+				<div class="META-DATA-BLOCK" style="display: none">
+					<div class="id">$uicomponent.id</div>
+					<div class="title"><%=_ctx.appRes("UITableColumnContainer.label.title")%></div>
+					<div class="description"><%=_ctx.appRes("UITableColumnContainer.label.description")%></div>
+				</div>
+				
+				
+				
+				<div class="LAYOUT-CONTAINER LAYOUT-BLOCK" style="display: none;"><span></span></div>
+				<% 
+					 String style = "";
+					 String width	= uicomponent.getWidth();
+					 String height	= uicomponent.getHeight();
+					 if(width != null) style += "width:"+width+";";
+					 if(height != null) style += "height:"+height+";";
+				%>
+				<div class="VIEW-CONTAINER ToolbarContainer VIEW-BLOCK">
+					<div id="$uicomponent.id">		
+						<div class="UITableColumnContainer" style="margin: 0px auto; $style">
+							<div class="TRContainer" style="zoom: 100%;">
+								<% for(uiChild in uicomponent.getChildren()) { %>
+									<div class="${uiChild.id}TDContainer FloatLeft"><% uicomponent.renderUIComponent(uiChild) %></div>
+								<% } %>
+								<div class="ClearLeft" style="width: 0px; height: 0px;"><span></span></div>
+						 </div>
+						</div>
+					</div>		
+				</div>
+				<%/*Debug On IE	-----For DND */%>
+				
+				<div class="EDITION-BLOCK EDITION-CONTAINER" style="display: none;">
 					<div style="position: relative;">
 						<div style="position: absolute; height: 86px; top: -86px;">
 							<div class="NewLayer" style="display: none; visibility: hidden;"><span></span></div>
 							<div class="CONTROL-CONTAINER CONTROL-BLOCK" style="position: absolute; top: -6px;">
-						    <%/*Begin InfoBar*/%>
-						     <div class="UIInfoBar">
-						      <div class="BlueRoundedStyle">
-						        <div class="LeftBar">
-						          <div class="RightBar">
-						            <div class="MiddleBar">
-						            	<div class="FixHeight">
-							              <div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.tooltip.drag")%>"><span></span></div>
-							              <div class="ContainerIcon DefaultContainer16x16Icon">
-							                <% 
-							                  if(uicomponent.getTitle() != null) {
-							                    println(uicomponent.getTitle()) ; 
-							                  } else {
-							                %>
-							                    <%=_ctx.appRes("UIContainer.title.Container")%>
-							                <%}%>
-							              </div>
-							              
-							              <a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"></a>
-							              <a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"></a>
-							              <div class="ClearBoth"><span></span></div>
-							            </div>
-						            </div>
-						          </div>
-						        </div>
-						      </div>
-						    </div>
-						    <%/*End InfoBar*/ %>
-						  </div>
+								<%/*Begin InfoBar*/%>
+								 <div class="UIInfoBar">
+									<div class="BlueRoundedStyle">
+										<div class="LeftBar">
+											<div class="RightBar">
+												<div class="MiddleBar">
+													<div class="FixHeight">
+														<div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.tooltip.drag")%>"><span></span></div>
+														<div class="ContainerIcon DefaultContainer16x16Icon">
+															<% 
+																if(uicomponent.getTitle() != null) {
+																	println(uicomponent.getTitle()); 
+																} else {
+															%>
+																	<%=_ctx.appRes("UIContainer.title.Container")%>
+															<%}%>
+														</div>
+														
+														<a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeleteContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.closeContainer")%>"></a>
+														<a href="<%=uicomponent.event("EditContainer","$uicomponent.id")%>" class="EditContainerIcon" title="<%=_ctx.appRes("UIContainer.tooltip.editContainer")%>"></a>
+														<div class="ClearBoth"><span></span></div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<%/*End InfoBar*/ %>
+							</div>
 							
 						</div>
 					</div>
@@ -85,7 +85,7 @@
 			</div>
 		</div>
 	</div>	
-  
+	
 </div>
 
 

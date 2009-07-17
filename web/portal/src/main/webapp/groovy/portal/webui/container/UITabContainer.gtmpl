@@ -1,28 +1,28 @@
-<% 
+<%	
 	import org.exoplatform.web.application.JavascriptManager;
 	import org.exoplatform.commons.utils.ExpressionUtil;	
 	
-  def rcontext = _ctx.getRequestContext() ;
-  ResourceBundle res = rcontext.getApplicationResourceBundle() ;
-  JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	def rcontext = _ctx.getRequestContext(); 
+	ResourceBundle res = rcontext.getApplicationResourceBundle(); 
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	ArrayList children = uicomponent.getChildren();
 	
 	if(children != null && children.size > 0){
-	  boolean hasRenderedChild = false; 
+		boolean hasRenderedChild = false; 
 		for(uiChild in children) {
-		  if(uiChild.isRendered()) {
-	      if(hasRenderedChild == true){
-			    hasRenderedChild = false;
-			    break;
-		    }
-		    hasRenderedChild = true;
-		  }
+			if(uiChild.isRendered()) {
+				if(hasRenderedChild == true){
+					hasRenderedChild = false;
+					break;
+				}
+				hasRenderedChild = true;
+			}
 		}
 		if(hasRenderedChild == false) {
-		  for(uiChild in children) {
-		      uiChild.setRendered(false);
-		  }
-		  uicomponent.getChild(0).setRendered(true);
+			for(uiChild in children) {
+					uiChild.setRendered(false);
+			}
+			uicomponent.getChild(0).setRendered(true);
 		}
 	}
 	
@@ -31,74 +31,74 @@
 <% if(children != null && children.size > 0) { %>
 <div class="UITabContainer">
 	<div class="UIHorizontalTabs">
-	  <div class="LeftHorizontalTabs">
-	    <div class="RightHorizontalTabs">
-	      <div class="CenterHorizontalTabs">
-			  	<div class="TabsContainer">	
-				  	<%
-				  	  int counter = 1;
-				  		for(uiChild in uicomponent.getChildren()) {
-				  		  String status = "NormalTab";  
-				  		  if(uiChild.isRendered()) status = "SelectedTab";
-				  			String title = uiChild.getTitle();
-				  			String tabId = uiChild.getId();
-				  			if(title == null || title.trim().length() < 1 ) title = _ctx.appRes("UITabContainer.tab") +String.valueOf(counter);
-				  			else title = ExpressionUtil.getExpressionValue(res, title);
-				  			String selectTab = uicomponent.event("SelectTab", tabId);
-				  	%>
-				  		 	<div class="UITab NormalTabStyle">
-				        	<div class="<%=status%>">
-				          	<div class="LeftTab">
-				            	<div class="RightTab">
-				              	<div class="MiddleTab"> 
-				           				<%
-				              		  if(uiChild.isShowEditControl()){
-				              		  	String actionLink = uicomponent.event("EditContainer", "$uiChild.id") - "javascript:";
-				              		%>
-						           				<div class="TabLabel FloatLeft" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></div>
-					              	    <div class="EditIcon" onclick="<%=actionLink%>"></div>
-					              	    <div class="ClearLeft"><span></span></div>
-					              	<%} else {%>
-						           				<a class="TabLabel" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></a>
-						           		<%} %>
-					              </div>
-				            	</div>
-				          	</div>
-				        	</div>
-				      	</div>       
-				    <%
-				    		counter++;
-				      }
-				    %>     
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-  </div>
+		<div class="LeftHorizontalTabs">
+			<div class="RightHorizontalTabs">
+				<div class="CenterHorizontalTabs">
+					<div class="TabsContainer">	
+						<%
+							int counter = 1;
+							for(uiChild in uicomponent.getChildren()) {
+								String status = "NormalTab";	
+								if(uiChild.isRendered()) status = "SelectedTab";
+								String title = uiChild.getTitle();
+								String tabId = uiChild.getId();
+								if(title == null || title.trim().length() < 1 ) title = _ctx.appRes("UITabContainer.tab") +String.valueOf(counter);
+								else title = ExpressionUtil.getExpressionValue(res, title);
+								String selectTab = uicomponent.event("SelectTab", tabId);
+						%>
+							 	<div class="UITab NormalTabStyle">
+									<div class="<%=status%>">
+										<div class="LeftTab">
+											<div class="RightTab">
+												<div class="MiddleTab"> 
+									 				<%
+														if(uiChild.isShowEditControl()){
+															String actionLink = uicomponent.event("EditContainer", "$uiChild.id") - "javascript:";
+													%>
+											 				<div class="TabLabel FloatLeft" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></div>
+															<div class="EditIcon" onclick="<%=actionLink%>"></div>
+															<div class="ClearLeft"><span></span></div>
+													<%} else {%>
+											 				<a class="TabLabel" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this,'$id', '$tabId' );<%= selectTab %>"><%=title%></a>
+											 		<%} %>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>			 
+						<%
+								counter++;
+							}
+						%>		 
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-  <div class="HorizontalLayout TabContent">	
-	  <% 
-	     String style = "";
-	     String width  = uicomponent.getWidth();
-	     String height  = uicomponent.getHeight();
-	     if(width != null || height != null) style="style=\"";
-	     if(width != null) style += "width: "+width+"px;"
-	     if(height != null) style += "height: "+height+"px;"
-	     if(style.length() > 0) style += "\"";
-	  %>	          
+	<div class="HorizontalLayout TabContent">	
+		<% 
+			 String style = "";
+			 String width	= uicomponent.getWidth();
+			 String height	= uicomponent.getHeight();
+			 if(width != null || height != null) style="style=\"";
+			 if(width != null) style += "width: "+width+"px;"
+			 if(height != null) style += "height: "+height+"px;"
+			 if(style.length() > 0) style += "\"";
+		%>						
 		<div class="UITabContentContainer" $style>
 
 		<%
-		  
-		  for(uiChild in uicomponent.getChildren()) {
-			  String status2 = "none";
-			  if(uiChild.isRendered()) status2 = "block";
+			
+			for(uiChild in uicomponent.getChildren()) {
+				String status2 = "none";
+				if(uiChild.isRendered()) status2 = "block";
 		%>
 				<div class="UITabContent" style="display: <%=status2%>;">
-						<% uicomponent.renderUIComponent(uiChild);%>		  	
+						<% uicomponent.renderUIComponent(uiChild);%>				
 				</div>
 		<%
-		  }
+			}
 		%>
 		</div>
 	</div>

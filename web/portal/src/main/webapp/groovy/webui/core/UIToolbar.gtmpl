@@ -1,33 +1,33 @@
 <%
-	def rcontext = _ctx.getRequestContext() ;
-	rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.previewTitle = '" + _ctx.appRes("UIPageEditBar.tooltip.TurnOffPreview") + "';") ;
+	def rcontext = _ctx.getRequestContext();
+	rcontext.getJavascriptManager().addCustomizedOnLoadScript("eXo.portal.UIPortal.previewTitle = '" + _ctx.appRes("UIPageEditBar.tooltip.TurnOffPreview") + "';");
 %>
 <div class="$uicomponent.id" id="$uicomponent.id">
-  <div class="UIToolbar">
-    <div class="<%=uicomponent.getToolbarStyle();%>">
-      <div class="LeftBar">
-        <div class="RightBar">
-          <div class="MiddleBar">
-            <%
-              def events = uicomponent.getEvents() ;
-              for(event in events) {
-                if(event.getName().equals("SeparateLine")) { %>
-                  <div class="SeparateLine"><span></span></div>
-              <%
-                  continue;
-                }
-                if(event.getName().equals(uicomponent.getEventName())) {
-                
-            %>
-                  <a class="Icon <%=event.getName();%>Icon" <%=uicomponent.getJavascript();%> title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
-            <%  } else {  %>
-                  <a class="Icon <%=event.getName();%>Icon" href="<%=uicomponent.event(event.getName())%>" title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
-            <%  } %>
-            <%}%>
-            <div style="clear: both"><span></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="UIToolbar">
+		<div class="<%=uicomponent.getToolbarStyle();%>">
+			<div class="LeftBar">
+				<div class="RightBar">
+					<div class="MiddleBar">
+						<%
+							def events = uicomponent.getEvents();
+							for(event in events) {
+								if(event.getName().equals("SeparateLine")) { %>
+									<div class="SeparateLine"><span></span></div>
+							<%
+									continue;
+								}
+								if(event.getName().equals(uicomponent.getEventName())) {
+								
+						%>
+									<a class="Icon <%=event.getName();%>Icon" <%=uicomponent.getJavascript();%> title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
+						<%	} else {	%>
+									<a class="Icon <%=event.getName();%>Icon" href="<%=uicomponent.event(event.getName())%>" title="<%=_ctx.appRes(uicomponent.id + ".tooltip." + event.getName())%>"><span></span></a>
+						<%	} %>
+						<%}%>
+						<div style="clear: both"><span></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

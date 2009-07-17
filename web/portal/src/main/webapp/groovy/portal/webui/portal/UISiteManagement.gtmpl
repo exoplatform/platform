@@ -1,68 +1,68 @@
 <%
-  import org.exoplatform.webui.core.UIComponent ;
-  import org.exoplatform.webui.form.UIForm;
-  import java.text.DateFormat;
-  import java.text.SimpleDateFormat;
-   
-  String[] actions =  uicomponent.getActions();
+	import org.exoplatform.webui.core.UIComponent; 
+	import org.exoplatform.webui.form.UIForm;
+	import java.text.DateFormat;
+	import java.text.SimpleDateFormat;
+	 
+	String[] actions =	uicomponent.getActions();
 %>
 <div class="UISiteManagement" id="<%=uicomponent.getId();%>">
-	<table class="DataList" cellspacing="0">	  
-	  <tbody>
-	  <%
-		    for (portalConfig in uicomponent.getPortalConfigs())  {		      
-	  %>
-		      <tr>
-		      	<td><img src="#" border="1 solid" width="100" height="100" /></td>
-		      	<td><input type="text" width="100" value="<%=uicomponent.getFieldValue(portalConfig, 'name') %>" readonly /></td>
-			  <%			    
-			        if(actions != null && actions.length > 0) { 
-			  %>
-					   <td>
-				        <div class="ActionContainer">
-				          <%				                    
-				            for(action in actions) { 		              
-				              def portalName = uicomponent.getFieldValue(portalConfig, "name")  ;
-					            if(action == null) continue;
-				              String title = _ctx.appRes(uicomponent.getId() + ".action.title." + action);
-				              String actionLink = uicomponent.event(action, portalName, null);
-					        %>	           
-					        	<a href="$actionLink" alt="">$title</a>
-				          <%
-				          		if (action != actions[actions.length - 1]) { %>
-				          			&nbsp;&nbsp;|&nbsp;&nbsp;
-				          <%	} 
-				          	}
-				          %>		          
-				        </div>
-				      </td>
-			  <%
-			        }
-			  %>  
-			    </tr>
-			    <tr><td colspan="3"><hr /></td></tr>
-		<%		    
-		  }
+	<table class="DataList" cellspacing="0">		
+		<tbody>
+		<%
+				for (portalConfig in uicomponent.getPortalConfigs())	{					
+		%>
+			<tr>
+				<td><img src="#" border="1 solid" width="100" height="100" /></td>
+				<td><input type="text" width="100" value="<%=uicomponent.getFieldValue(portalConfig, 'name') %>" readonly /></td>
+		<%					
+					if(actions != null && actions.length > 0) { 
+		%>
+				 <td>
+						<div class="ActionContainer">
+							<%														
+								for(action in actions) { 									
+									def portalName = uicomponent.getFieldValue(portalConfig, "name")	;
+									if(action == null) continue;
+									String title = _ctx.appRes(uicomponent.getId() + ".action.title." + action);
+									String actionLink = uicomponent.event(action, portalName, null);
+							%>						 
+								<a href="$actionLink" alt="">$title</a>
+							<%
+									if (action != actions[actions.length - 1]) { %>
+										&nbsp;&nbsp;|&nbsp;&nbsp;
+							<%	} 
+								}
+							%>							
+						</div>
+					</td>
+		<%
+					}
+		%>	
+			</tr>
+			<tr><td colspan="3"><hr /></td></tr>
+		<%				
+			}
 		%> 
-	  </tbody>
+		</tbody>
 	</table>
 	
 	<div class="UIAction"> 
-    <table class="ActionContainer">
-	    <tr>
-	    	<td>
-		      <div onclick="<%=uicomponent.event("AddNewPortal")%>" class="ActionButton LightBlueStyle">
-		        <div class="ButtonLeft">
-		          <div class="ButtonRight">
-		            <div class="ButtonMiddle">
-		              <a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.addNewPortal")%></a>
-		            </div>
-		          </div>
-		        </div>
-		      </div>
-		    </td>
-      </tr>
- 	  </table>
+		<table class="ActionContainer">
+			<tr>
+				<td>
+					<div onclick="<%=uicomponent.event("AddNewPortal")%>" class="ActionButton LightBlueStyle">
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle">
+									<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.addNewPortal")%></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+ 		</table>
 	</div>
-				    
+
 </div>

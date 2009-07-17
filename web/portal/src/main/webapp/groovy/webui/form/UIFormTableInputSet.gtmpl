@@ -1,35 +1,35 @@
 <%import org.exoplatform.webui.core.UIComponent ;%>
 <div class="UIFormTableInputSet">
 	<table class="UIGrid" cellspacing="0" borderspacing="0">
-	  <thead>
-	    <tr>
-	      <%
-	        String name = uicomponent.getName();
-	        String [] columns = uicomponent.getColumns();
-	        for(col in columns){
-	      %>
-		        <th><%=_ctx.appRes(name + ".header."+col)%></th>
-		    <%}%>
-	    </tr>
-	  </thead>
-	  <tbody>
-	  <%
-	    String rowClass = null ;
-	    boolean even = true ;
-	    List children = uicomponent.getChildren();
-	    for (child in children)  {
-	      if(even) rowClass = "EvenRow" ;  
-	      else rowClass =  "OddRow" ; 
-	      even = !even ;
-	      int size = child.getChildren().size();
-	      if (size == 0) continue;
-	  %>
+		<thead>
+			<tr>
+				<%
+					String name = uicomponent.getName();
+					String [] columns = uicomponent.getColumns();
+					for(col in columns){
+				%>
+						<th><%=_ctx.appRes(name + ".header."+col)%></th>
+				<%}%>
+			</tr>
+		</thead>
+		<tbody>
+		<%
+			String rowClass = null;
+			boolean even = true;
+			List children = uicomponent.getChildren();
+			for (child in children)	{
+				if(even) rowClass = "EvenRow";	
+				else rowClass =	"OddRow"; 
+				even = !even;
+				int size = child.getChildren().size();
+				if (size == 0) continue;
+		%>
 				<tr class="$rowClass">
-				  <%for(i in 0..size-1){%>			  
-	  			  <td class="text"><%child.renderChild(i);%></td>  
-				  <%}%>
+					<%for(i in 0..size-1){%>				
+						<td class="text"><%child.renderChild(i);%></td>	
+					<%}%>
 				</tr>
-	  <%}%>
-	  </tbody>
+		<%}%>
+		</tbody>
 	</table> 
 </div>

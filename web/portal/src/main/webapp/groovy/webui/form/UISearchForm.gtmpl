@@ -1,31 +1,31 @@
-<div class="UISearch">
-  <div class="UIBarStyle">
-	  <div class="BarStyle2">
-	    <div class="LeftBar">
-	      <div class="RightBar">
-	        <div class="MiddleBar">
-					  <div class="UISearchForm">
-					    <%uiform.begin()%>
-				      <div class="QuickSet">
-				        <div class="SearchTitle"><%=_ctx.appRes("UISearch.label.Search")%>:</div>
-				        <% 
-				          QuickSearchInputSet = uiform.getQuickSearchInputSet();
-				          for(field in QuickSearchInputSet.getChildren()) {
-				            uiform.renderField(field) 
-				          }   
-				          String quickSearchlink = uicomponent.event("QuickSearch") ;
-		            %>
-		            <a class="SimpleSearchIcon" href="$quickSearchlink" title="<%= _ctx.appRes("UISearch.label.QuickSearch") %>">
-		            	<span></span>
-		            </a>
-				         
-				      </div>  
-					    <%uiform.end()%>   
-					  </div>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-  </div>        
+<div class="UISearch">	
+	<div class="UIBarStyle">
+		<div class="BarStyle2">
+			<div class="LeftBar">
+				<div class="RightBar">
+					<div class="MiddleBar">
+						<div class="UISearchForm">
+							<%uiform.begin()%>
+							<div class="QuickSet">
+								<div class="SearchTitle"><%=_ctx.appRes("UISearch.label.Search")%>:</div>
+								<% 
+									QuickSearchInputSet = uiform.getQuickSearchInputSet();
+									for(field in QuickSearchInputSet.getChildren()) {
+										uiform.renderField(field) 
+									}	 
+									String quickSearchlink = uicomponent.event("QuickSearch"); 
+								%>
+								<a class="SimpleSearchIcon" href="$quickSearchlink" title="<%= _ctx.appRes("UISearch.label.QuickSearch") %>">
+									<span></span>
+								</a>
+								 
+							</div>	
+							<%uiform.end()%>	 
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>				
 </div>
 

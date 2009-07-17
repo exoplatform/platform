@@ -1,15 +1,15 @@
-<%
-  import org.exoplatform.webui.core.UIComponent;
-  import org.exoplatform.webui.bean.UIDataFeed;
-  
-  boolean hasNext = uicomponent.getDataFeed().hasNext();
-  def rcontext = _ctx.getRequestContext();
-  
-  rcontext.getJavascriptManager().importJavascript('eXo.core.DOMUtil');
-  rcontext.getJavascriptManager().importJavascript('eXo.core.Browser');
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIVirtualList');
-  
-  String url = uicomponent.url("LoadNext") + "&ajaxRequest=true&component_generate_id=" + uicomponent.generateId; 
+<%	
+	import org.exoplatform.webui.core.UIComponent;
+	import org.exoplatform.webui.bean.UIDataFeed;
+	
+	boolean hasNext = uicomponent.getDataFeed().hasNext();
+	def rcontext = _ctx.getRequestContext();
+	
+	rcontext.getJavascriptManager().importJavascript('eXo.core.DOMUtil');
+	rcontext.getJavascriptManager().importJavascript('eXo.core.Browser');
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIVirtualList');
+	
+	String url = uicomponent.url("LoadNext") + "&ajaxRequest=true&component_generate_id=" + uicomponent.generateId; 
 %>
 <style>
 	.vcontainer {width:100%; overflow:auto;}
@@ -20,7 +20,7 @@
 	<div></div>
 	<div height="150px"><% uicomponent.renderChildren();%></div>
 	<% 
-	  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.init('$uicomponent.generateId')");
+		rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.init('$uicomponent.generateId')");
 		if (!hasNext) {
 			rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.loadFinished('$uicomponent.generateId')");
 		}	

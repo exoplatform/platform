@@ -1,84 +1,84 @@
-<% 
+<%	 
 	import org.exoplatform.portal.config.model.Page; 
 	import org.exoplatform.webui.core.UIPopupWindow;
 	import org.exoplatform.webui.form.UIForm; 
 
 
-	Page page  = uicomponent.getPage();    
+	Page page	= uicomponent.getPage();		
 	String name = "";
 	String title = "";
-	String pageId = "" ;
+	String pageId = ""; 
 	if(page != null) {
-	  name = page.getName();
-	  pageId = page.getPageId();
-	  title = page.getTitle();
-	  if (pageId == null) pageId = "" ;
-	  if (name == null) name = "" ;
-	  if (title == null) title = "" ;
-	  if(title.length() > 30) title = title.substring(0,29) + "..." ;
+		name = page.getName();
+		pageId = page.getPageId();
+		title = page.getTitle();
+		if (pageId == null) pageId = ""; 
+		if (name == null) name = ""; 
+		if (title == null) title = ""; 
+		if(title.length() > 30) title = title.substring(0,29) + "..."; 
 	}
 	
-   
-  UIPopupWindow uipopup = uicomponent.getChild(UIPopupWindow.class) ;
-  
-  def rcontext = _ctx.getRequestContext() ;
+	 
+	UIPopupWindow uipopup = uicomponent.getChild(UIPopupWindow.class); 
+	
+	def rcontext = _ctx.getRequestContext(); 
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
 %>
 <div class="UIPageSelector" id="<%=uicomponent.getId();%>" >
 	<div class="PageSelectorTitle">
-	  <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
-	  <div class="Title"><%=_ctx.appRes(uicomponent.getId()+".label.currentSelectedPage")%></div>
-	  <div class="ClearLeft"><span></span></div>
-  </div>
+		<div class="Icon BlueInfoBox16x16Icon"><span></span></div>
+		<div class="Title"><%=_ctx.appRes(uicomponent.getId()+".label.currentSelectedPage")%></div>
+		<div class="ClearLeft"><span></span></div>
+	</div>
 	<div class="UIFormInfo">
-	  <div class="FormInfoBG">
-		  <div class="FormInfoIcon">
-		    <div class="UIPropertyInfo">
-			    <div class="OverflowContainer">
-			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".header.id")%>:</div>
-			      <div class="PropertyValue">$pageId</div>
-			    </div>
-			    <div class="OverflowContainer">
-			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".label.name")%>:</div>
-			      <div class="PropertyValue">$name</div>
-			    </div>
-			    <div class="OverflowContainer">
-			      <div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".label.title")%>:</div>
-			      <div class="PropertyValue">$title</div>
-			    </div>
-			  </div>
-		  </div>
+		<div class="FormInfoBG">
+			<div class="FormInfoIcon">
+				<div class="UIPropertyInfo">
+					<div class="OverflowContainer">
+						<div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".header.id")%>:</div>
+						<div class="PropertyValue">$pageId</div>
+					</div>
+					<div class="OverflowContainer">
+						<div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".label.name")%>:</div>
+						<div class="PropertyValue">$name</div>
+					</div>
+					<div class="OverflowContainer">
+						<div class="PropertyName"><%=_ctx.appRes(uicomponent.getId()+".label.title")%>:</div>
+						<div class="PropertyValue">$title</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="UIAction">
-	  <table class="ActionContainer">
-	  	<tr>
-	  		<td>
-  			 <%
-		      String clearPageEvent = "#" ;
-		      String css = "FloatBlockHidden ActionButton SimpleStyle" ;
-	      	def uiForm = uicomponent.getAncestorOfType(UIForm.class) ;
-		      if(page != null) {
-		      	clearPageEvent = uiForm.event("ClearPage") ;
-		      	css = "ActionButton SimpleStyle" ;
-		      } 
-		      %>
-	  			<div onclick="<%=clearPageEvent%>" class="<%=css%>">
-			      <div class="ButtonLeft">
-			        <div class="ButtonRight">
-			          <div class="ButtonMiddle">
-			          	<div class="DustBin16x16Icon Icon" title="<%=_ctx.appRes(uicomponent.getId()+".label.clearPage")%>">
-					        	<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".label.clearPage")%></a>
-					        </div>
-			      	 	</div>
-					    </div>
-			    	</div>			    
-			  	</div> 
-	  			<div class="ActionButton SimpleStyle" onclick="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
-				    <div class="ButtonLeft">
-				      <div class="ButtonRight">
-				        <div class="ButtonMiddle">
-								  <div class="Icon SelectPageIcon" title="<%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>">
+		<table class="ActionContainer">
+			<tr>
+				<td>
+				 <%
+					String clearPageEvent = "#"; 
+					String css = "FloatBlockHidden ActionButton SimpleStyle"; 
+					def uiForm = uicomponent.getAncestorOfType(UIForm.class); 
+					if(page != null) {
+						clearPageEvent = uiForm.event("ClearPage"); 
+						css = "ActionButton SimpleStyle"; 
+					} 
+					%>
+					<div onclick="<%=clearPageEvent%>" class="<%=css%>">
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle">
+									<div class="DustBin16x16Icon Icon" title="<%=_ctx.appRes(uicomponent.getId()+".label.clearPage")%>">
+										<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".label.clearPage")%></a>
+									</div>
+							 	</div>
+							</div>
+						</div>					
+					</div> 
+					<div class="ActionButton SimpleStyle" onclick="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>');">
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle">
+									<div class="Icon SelectPageIcon" title="<%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%>">
 										<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId()+".label.searchandSelectPage")%></a>
 									</div>
 								</div>
@@ -87,6 +87,6 @@
 					</div>
 				</td>
 			</tr>
-	  </table>
+		</table>
 	</div>
 </div>

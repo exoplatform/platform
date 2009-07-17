@@ -5,35 +5,35 @@
 	<%/*End UIPageBrowser Content */%>
 	
 	<%if(uicomponent.isShowAddNewPage()) {%>
-	   
-	    <div class="UIAction"> 
-		    <table class="ActionContainer">
-			    <tr>
-			    	<td>
-				      <div onclick="<%=uicomponent.event("AddNew")%>" class="ActionButton LightBlueStyle">
-				        <div class="ButtonLeft">
-				          <div class="ButtonRight">
-				            <div class="ButtonMiddle">
-				            	<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.addNewPage")%></a>
-				            </div>
-				          </div>
-				        </div>
-				      </div>
-				    </td>
-			    	<td>
-				      <div onclick="<%=uicomponent.event("Back")%>" class="ActionButton LightBlueStyle">
-				        <div class="ButtonLeft">
-				          <div class="ButtonRight">
-				            <div class="ButtonMiddle">
-				            	<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.Back")%></a>
-				            </div>
-				          </div>
-				        </div>
-				      </div>
-				    </td>
-		      </tr>
-		 	  </table>
+		 
+			<div class="UIAction"> 
+				<table class="ActionContainer">
+					<tr>
+						<td>
+							<div onclick="<%=uicomponent.event("AddNew")%>" class="ActionButton LightBlueStyle">
+								<div class="ButtonLeft">
+									<div class="ButtonRight">
+										<div class="ButtonMiddle">
+											<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.addNewPage")%></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+						<td>
+							<div onclick="<%=uicomponent.event("Back")%>" class="ActionButton LightBlueStyle">
+								<div class="ButtonLeft">
+									<div class="ButtonRight">
+										<div class="ButtonMiddle">
+											<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.Back")%></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</td>
+					</tr>
+		 		</table>
 			</div>
-	    
+			
 	<%}%>
 </div>

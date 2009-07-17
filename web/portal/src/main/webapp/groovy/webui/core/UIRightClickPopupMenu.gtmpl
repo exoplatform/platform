@@ -1,11 +1,11 @@
-<%
-  import org.exoplatform.webui.core.UIComponent ;
+<%	
+	import org.exoplatform.webui.core.UIComponent;
 
-  def rcontext = _ctx.getRequestContext() ;  
-  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIRightClickPopupMenu.init('" + uicomponent.getId() + "') ;");
+	def rcontext = _ctx.getRequestContext();	
+	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIRightClickPopupMenu.init('" + uicomponent.getId() + "');");
 %>
 <div class="UIRightClickPopupMenu" id="$uicomponent.id">
-  <div class="UIContextMenuContainer">
+	<div class="UIContextMenuContainer">
 		<div class="TopLeftRightClickPopupMenu">
 			<div class="TopRightRightClickPopupMenu">
 				<div class="TopCenterRightClickPopupMenu"><span></span></div>
@@ -14,18 +14,17 @@
 		<div class="MiddleLeftRightClickPopupMenu">
 			<div class="MiddleRightRightClickPopupMenu">
 		
-				  <div class="UIRightPopupMenuContainer">
-					  <%for(action in uicomponent.getActions()) {%>
-					  
-					   	<div class="MenuItem"> 	
-								<a exo:attr="$action" href="<%=uicomponent.event(action,"_objectid_");%>" onclick="return eXo.webui.UIRightClickPopupMenu.prepareObjectId(event, this);" class="ItemIcon ${action}16x16Icon" >
-									<%=_ctx.appRes(uicomponent.getId() + ".event." + action) %>
-								</a>
-						 	</div>
-							
-					  <%}%>
-					  <div class="RightClickCustomItem"></div>
-					</div>
+				<div class="UIRightPopupMenuContainer">
+					<%for(action in uicomponent.getActions()) {%>
+					
+					 	<div class="MenuItem"> 	
+							<a exo:attr="$action" href="<%=uicomponent.event(action,"_objectid_");%>" onclick="return eXo.webui.UIRightClickPopupMenu.prepareObjectId(event, this);" class="ItemIcon ${action}16x16Icon" >
+								<%=_ctx.appRes(uicomponent.getId() + ".event." + action) %>
+							</a>
+					 	</div>						
+					<%}%>
+				<div class="RightClickCustomItem"><span></span></div>
+				</div>
 		
 			</div>
 		</div>

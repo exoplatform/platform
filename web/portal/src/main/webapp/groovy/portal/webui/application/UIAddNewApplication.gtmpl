@@ -1,152 +1,152 @@
-<%  
-    import org.exoplatform.web.application.Parameter;
-    List appCategories = uicomponent.getApplicationCategories();
+<%
+		import org.exoplatform.web.application.Parameter;
+		List appCategories = uicomponent.getApplicationCategories();
 %>
 <div class="UIAddApplication" id="UIAddNewApplication">
-  <div class="UIBarStyle">
-    <div class="TitleBar">
-      <div class="LeftBar">
-        <div class="RightBar">
-          <div class="MiddleBar"><%=_ctx.appRes("UIAddNewApplication.label.AddApplication")%></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="ContentContainerDetail">
-    <div class="CategoryContainer">
-      
-      <div class="UITabContentContainer">
-        <div class="UITabContent" style="display: block">
-          <div class="UIAddPortlet">
-            <div class="UIItemSelector">
-              <div class="LeftColumnStyle">
-                <div class="ItemListContainer">
-                
-                  <div class="ItemListTitle">
-                    <div class="TitleIcon ItemListIcon"><span></span></div>
-                    <div class="Title"><%=_ctx.appRes("UIAddNewApplication.label.Categories")%></div>
-                    <div class="ClearLeft"><span></span></div>
-                  </div>
-                  <div class="ItemList">
-	                <%
-	                boolean selected = true;
-	                for(category in appCategories){
-	                %>
-                    <div onmouseout="eXo.webui.UIItemSelector.onOver(this, false);" onmouseover="eXo.webui.UIItemSelector.onOver(this, true);" onclick="eXo.webui.UIItemSelector.onClick(this);" class="<%= selected ? "SelectedItem" : "" %> Item" title="<%=category.getDisplayName()%>">
-                        <div class="LeftItem">
-                            <div class="RightItem"><div id="<%=category.getName()%>" class="ItemTitle"><div class="CenterItemTitle"><%=category.getDisplayName()%></div></div></div>
-                        </div>
-                    </div>
-                  <% 
-                    selected = false;
-                  }
-                  %>
-                  </div>
-                
-                </div>
-                
-                <div class="ItemDetailList">
-                    <div class="ItemDetailTitle">
-                      <div class="TitleIcon ViewListIcon"><span></span></div>
-                      <div class="Title"><%=_ctx.appRes("UIAddNewApplication.label.Select")%></div>
-                      <div class="ClearLeft"><span></span></div>
-                    </div>
-                    <div class="ApplicationListContainer">
-                    <% if(appCategories==null || appCategories.isEmpty()){ %>
-	                    <div class="ItemDetail" style="display:block">                    
-	                          <div class="NoneAppsMessage" style="display:block">
-	                            <%=_ctx.appRes("UIAddNewApplication.label.NoneApp")%>
-	                          </div>
-	                    </div>
-                    <% } %>
+	<div class="UIBarStyle">
+		<div class="TitleBar">
+			<div class="LeftBar">
+				<div class="RightBar">
+					<div class="MiddleBar"><%=_ctx.appRes("UIAddNewApplication.label.AddApplication")%></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="ContentContainerDetail">
+		<div class="CategoryContainer">
+			
+			<div class="UITabContentContainer">
+				<div class="UITabContent" style="display: block">
+					<div class="UIAddPortlet">
+						<div class="UIItemSelector">
+							<div class="LeftColumnStyle">
+								<div class="ItemListContainer">
+								
+									<div class="ItemListTitle">
+										<div class="TitleIcon ItemListIcon"><span></span></div>
+										<div class="Title"><%=_ctx.appRes("UIAddNewApplication.label.Categories")%></div>
+										<div class="ClearLeft"><span></span></div>
+									</div>
+									<div class="ItemList">
+									<%
+									boolean selected = true;
+									for(category in appCategories){
+									%>
+										<div onmouseout="eXo.webui.UIItemSelector.onOver(this, false);" onmouseover="eXo.webui.UIItemSelector.onOver(this, true);" onclick="eXo.webui.UIItemSelector.onClick(this);" class="<%= selected ? "SelectedItem" : "" %> Item" title="<%=category.getDisplayName()%>">
+												<div class="LeftItem">
+														<div class="RightItem"><div id="<%=category.getName()%>" class="ItemTitle"><div class="CenterItemTitle"><%=category.getDisplayName()%></div></div></div>
+												</div>
+										</div>
+									<% 
+										selected = false;
+									}
+									%>
+									</div>
+								
+								</div>
+								
+								<div class="ItemDetailList">
+										<div class="ItemDetailTitle">
+											<div class="TitleIcon ViewListIcon"><span></span></div>
+											<div class="Title"><%=_ctx.appRes("UIAddNewApplication.label.Select")%></div>
+											<div class="ClearLeft"><span></span></div>
+										</div>
+										<div class="ApplicationListContainer">
+										<% if(appCategories==null || appCategories.isEmpty()){ %>
+											<div class="ItemDetail" style="display:block">										
+														<div class="NoneAppsMessage" style="display:block">
+															<%=_ctx.appRes("UIAddNewApplication.label.NoneApp")%>
+														</div>
+											</div>
+										<% } %>
 										<%
-										    selected = true;
-                        for(category in appCategories) {
-										       List listApplication = category.getApplications();
+												selected = true;
+												for(category in appCategories) {
+													 List listApplication = category.getApplications();
 										%>
-	                    <div class="ItemDetail" style="display: <%= selected ? "block" : "none" %>">                    
-                    
-	                      <%
-                           for(application in listApplication) {
-                           		 String srcBG = application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + application.getApplicationName()+ ".png";
-                               String srcNormalBG = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
+											<div class="ItemDetail" style="display: <%= selected ? "block" : "none" %>">										
+										
+												<%
+													 for(application in listApplication) {
+													 		 String srcBG = application.getApplicationGroup() + "/skin/DefaultSkin/portletIcons/" + application.getApplicationName()+ ".png";
+															 String srcNormalBG = "/eXoResources/skin/sharedImages/Icon80x80/DefaultPortlet.png";
 
-                               //Create add Application Ajax request URL
-                               String callingAction = "AddApplication";
-                               String addApplicationURL = uicomponent.event(callingAction, application.getId());
-                               String addToStartup = uicomponent.event("AddToStartup", application.getId());
-                        %>
-                        <div class="Application">
-	                        <div class="ApplicationDescription">
-		                        <div onclick="$addApplicationURL" title="<%= application.getDisplayName() %>" class="PortletIcon">
-		                            <span><img src="/$srcBG" alt="" onError="src='$srcNormalBG'" /></span>
-		                        </div>
-		                        <div class="ApplicationContent">
-	                            <div class="TitleBarApplication">
-	                               <div class="Title"><%= application.getDisplayName() %></div>
-	                               <div class="ApplicationButton">
-		                                <% if (org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(application.getApplicationType())) { %>
-  		                                <div title="<%=_ctx.appRes("UIAddNewApplication.label.AddToStartup")%>" class="AddToStartUp" onclick="$addToStartup" ><span></span></div>
-                                    <%}%>
-		                                <div title="<%=_ctx.appRes("UIAddNewApplication.label.Add")%>" class="AddButton" onclick="$addApplicationURL" ><span></span></div>
-		                             </div>
-	                            </div>
-	                            <div class="ApplicationContentLabel">
-	                              <div class="ContentLabel">
-                                    <span class="LeftLabel"><%=_ctx.appRes("UIAddNewApplication.label.Type")%></span>
-                                    <span class="RightLabel"><%=application.getApplicationType()%></span>
-                                </div>
-                                <div class="ContentLabel">
-                                    <span class="LeftLabel"><%=_ctx.appRes("UIAddNewApplication.label.Created")%></span>
-                                    <span class="RightLabel">eXo Platform SAS.</span>
-                                </div>
-                                <div class="ContentLabel">
-                                    <span class="LeftLabel"><%=_ctx.appRes("UIAddNewApplication.label.Description")%></span>
-                                    <span class="RightLabel"><%= application.getDescription() %></span>
-                                </div>
-	                            </div>
-                            </div>
-	                        </div>
-	                        <div class="ClearRight"><span ></span></div>
-                        </div>
-                        <% 
-                           }
-                        %>
-                        
-	                    </div>
-	                  <% 
-	                      selected = false;
-	                  }
-	                  %>
-                    </div>
-                </div>
-                 <div class="ClearLeft"><span></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-  
-  <div class="UIAction">
-    <table class="ActionContainer">
-	    <tr>
-        <td>
-          <div class="ActionButton LightBlueStyle" onclick="<%= uicomponent.event("Close") %>" >
-          <div class="ButtonLeft">
-            <div class="ButtonRight">
-              <div class="ButtonMiddle">
-                <a href="javascript:void(0);"><%=_ctx.appRes("UIAddNewApplication.label.Close")%></a>
-              </div>
-            </div>
-          </div>
-          </div>
-        </td>
-	    </tr>
-    </table>
-  </div>
-  
+															 //Create add Application Ajax request URL
+															 String callingAction = "AddApplication";
+															 String addApplicationURL = uicomponent.event(callingAction, application.getId());
+															 String addToStartup = uicomponent.event("AddToStartup", application.getId());
+												%>
+												<div class="Application">
+													<div class="ApplicationDescription">
+														<div onclick="$addApplicationURL" title="<%= application.getDisplayName() %>" class="PortletIcon">
+																<span><img src="/$srcBG" alt="" onError="src='$srcNormalBG'" /></span>
+														</div>
+														<div class="ApplicationContent">
+															<div class="TitleBarApplication">
+																 <div class="Title"><%= application.getDisplayName() %></div>
+																 <div class="ApplicationButton">
+																		<% if (org.exoplatform.web.application.Application.EXO_PORTLET_TYPE.equals(application.getApplicationType())) { %>
+																			<div title="<%=_ctx.appRes("UIAddNewApplication.label.AddToStartup")%>" class="AddToStartUp" onclick="$addToStartup" ><span></span></div>
+																		<%}%>
+																		<div title="<%=_ctx.appRes("UIAddNewApplication.label.Add")%>" class="AddButton" onclick="$addApplicationURL" ><span></span></div>
+																 </div>
+															</div>
+															<div class="ApplicationContentLabel">
+																<div class="ContentLabel">
+																		<span class="LeftLabel"><%=_ctx.appRes("UIAddNewApplication.label.Type")%></span>
+																		<span class="RightLabel"><%=application.getApplicationType()%></span>
+																</div>
+																<div class="ContentLabel">
+																		<span class="LeftLabel"><%=_ctx.appRes("UIAddNewApplication.label.Created")%></span>
+																		<span class="RightLabel">eXo Platform SAS.</span>
+																</div>
+																<div class="ContentLabel">
+																		<span class="LeftLabel"><%=_ctx.appRes("UIAddNewApplication.label.Description")%></span>
+																		<span class="RightLabel"><%= application.getDescription() %></span>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="ClearRight"><span ></span></div>
+												</div>
+												<% 
+													 }
+												%>
+												
+											</div>
+										<% 
+												selected = false;
+										}
+										%>
+										</div>
+								</div>
+								 <div class="ClearLeft"><span></span></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<div class="UIAction">
+		<table class="ActionContainer">
+			<tr>
+				<td>
+					<div class="ActionButton LightBlueStyle" onclick="<%= uicomponent.event("Close") %>" >
+					<div class="ButtonLeft">
+						<div class="ButtonRight">
+							<div class="ButtonMiddle">
+								<a href="javascript:void(0);"><%=_ctx.appRes("UIAddNewApplication.label.Close")%></a>
+							</div>
+						</div>
+					</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
 </div>

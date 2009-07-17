@@ -1,59 +1,59 @@
-<%  
-  import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
-  import org.exoplatform.portal.config.model.PageNode;
-  import org.exoplatform.webui.core.UIComponent;
+<%	
+	import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
+	import org.exoplatform.portal.config.model.PageNode;
+	import org.exoplatform.webui.core.UIComponent;
 %>
-<%  
-  PageNode pageNode = uicomponent.getSelectedPageNode();
-  String nodeName = "" ;  
-  if(pageNode!=null ) nodeName = "/"+pageNode.getResolvedLabel();
+<%	
+	PageNode pageNode = uicomponent.getSelectedPageNode();
+	String nodeName = ""; 	
+	if(pageNode!=null ) nodeName = "/"+pageNode.getResolvedLabel();
 %>
 <div class="UIWizardPageSetInfo">
-  <%uiform.begin()%>
-  <div class="OverflowContainer">
-    <div class="PageNodeContainer">
-      <% uicomponent.renderChild(UIPageNodeSelector.class); %>
-    </div>
-    <div class="SelectedPageInfo">
-    	<div class="PageInfoContainer">
-	      <div class="PageNodeInfo">
-		      <div class="OverflowContainer">
-		        <div class="Icon"><span></span></div>
-			      <div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.curentSelectedNodeInfo")%>:</div>
-			      <% if(nodeName.length() > 40) { %>
-			      <div class="Info"><%= nodeName.substring(0,39) %>...</div>
-			      <% } else { %>
-			      <div class="Info"><%= nodeName%></div>
-			      <% } %>
-			    </div>
-			  </div>
-		  
-			  <div class="UIFormWithTitle">
-			  	<div class="TitleBar"><%=_ctx.appRes(uicomponent.getId() + ".title")%></div>			  
-				  <div class="HorizontalLayout">
-				  	<div class="FormContainer">
-  				  	<table class="UIFormGrid">
-							  <%  
-							    List children = uiform.getChildren();		
-							    int bound = children.size() - 1;
-							    for(i in 1..bound) { 
-							      if(children.get(i).isRendered()) {			    		   
-							  %>
-							        <tr>
-									      <td class="FieldLabel"><%=uicomponent.getLabel(children.get(i).getName())+": " %></td>
-									      <td class="FieldComponent"><% uiform.renderField(children.get(i)) %></td>
-									    </tr>
-							  <%
-							      }
-							    }	    
-							  %>
-						  </table>
+	<%uiform.begin()%>
+	<div class="OverflowContainer">
+		<div class="PageNodeContainer">
+			<% uicomponent.renderChild(UIPageNodeSelector.class); %>
+		</div>
+		<div class="SelectedPageInfo">
+			<div class="PageInfoContainer">
+				<div class="PageNodeInfo">
+					<div class="OverflowContainer">
+						<div class="Icon"><span></span></div>
+						<div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.curentSelectedNodeInfo")%>:</div>
+						<% if(nodeName.length() > 40) { %>
+						<div class="Info"><%= nodeName.substring(0,39) %>...</div>
+						<% } else { %>
+						<div class="Info"><%= nodeName%></div>
+						<% } %>
+					</div>
+				</div>
+			
+				<div class="UIFormWithTitle">
+					<div class="TitleBar"><%=_ctx.appRes(uicomponent.getId() + ".title")%></div>				
+					<div class="HorizontalLayout">
+						<div class="FormContainer">
+							<table class="UIFormGrid">
+								<%	
+									List children = uiform.getChildren();		
+									int bound = children.size() - 1;
+									for(i in 1..bound) { 
+										if(children.get(i).isRendered()) {								 
+								%>
+											<tr>
+												<td class="FieldLabel"><%=uicomponent.getLabel(children.get(i).getName())+": " %></td>
+												<td class="FieldComponent"><% uiform.renderField(children.get(i)) %></td>
+											</tr>
+								<%
+										}
+									}			
+								%>
+							</table>
 						</div>
 					</div> 
 					
-			  </div>
+				</div>
 			</div>
-	  </div>
-  </div>
-  <%uiform.end()%>
+		</div>
+	</div>
+	<%uiform.end()%>
 </div>

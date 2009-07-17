@@ -1,18 +1,18 @@
-<%  
-  String uploadId = uicomponent.getUploadId() ;
-  boolean isAutoUpload = uicomponent.isAutoUpload();
-  def rcontext = _ctx.getRequestContext() ;
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIUpload') ;
-  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIUpload.initUploadEntry('"+uploadId+"',"+isAutoUpload+");") ;
+<%
+	String uploadId = uicomponent.getUploadId();
+	boolean isAutoUpload = uicomponent.isAutoUpload();
+	def rcontext = _ctx.getRequestContext();
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIUpload');
+	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIUpload.initUploadEntry('"+uploadId+"',"+isAutoUpload+");");
 %>
 <div class="UIFormUploadInput" id="$uploadId">
-  <div class="LimitMessage" style="display: none;"><%= _ctx.appRes("UIFormUploadInput.msg.limit"); %></div>
-  <input type="hidden" id="input$uploadId" name="<%=uicomponent.getName();%>" value="false"/>
-  <div id="<%=uploadId;%>UploadIframe" class="UploadIframe">
-    <iframe height="23px" allowTransparency="true" scrolling="no" frameborder="0" framespacing="0" id="<%=uploadId;%>uploadFrame"></iframe>
-  </div>
-  <div id="<%=uploadId;%>ProgressIframe" class="ProgressIframe" style="display: none;"></div>      
-  <div class="ProgressBarFrame" style="display: none;">
+	<div class="LimitMessage" style="display: none;"><%= _ctx.appRes("UIFormUploadInput.msg.limit"); %></div>
+	<input type="hidden" id="input$uploadId" name="<%=uicomponent.getName();%>" value="false"/>
+	<div id="<%=uploadId;%>UploadIframe" class="UploadIframe">
+		<iframe height="23px" allowTransparency="true" scrolling="no" frameborder="0" framespacing="0" id="<%=uploadId;%>uploadFrame"></iframe>
+	</div>
+	<div id="<%=uploadId;%>ProgressIframe" class="ProgressIframe" style="display: none;"></div>			
+	<div class="ProgressBarFrame" style="display: none;">
 		<div class="ProgressBar">
 			<div class="ProgressBarLeft">
 				<div class="ProgressBarMiddle">
@@ -28,7 +28,7 @@
 	</div>
 	<div class="SelectFileFrame" style="display: none;">
 		<div class="FileName">
-			<div class="FileNameLabel"></div>
+			<div class="FileNameLabel"><span></span></div>
 		</div>
 		<div class="RemoveFile" title="Remove Uploaded" onclick="eXo.webui.UIUpload.deleteUpload($uploadId);"></div>
 	</div>

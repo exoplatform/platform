@@ -1,18 +1,18 @@
-<div class="UIPageBody" id="${uicomponent.id}">
+<div class="UIPageBody" id="${uicomponent.id}">		
 <div class="UIComponent UIComponentBlock">
-  <div class="META-DATA-BLOCK" style="display: none">
-    <div class="id">$uicomponent.id</div>
-    <div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>
-    <div class="description"><%=_ctx.appRes("UIPage.label.description")%></div>
-  </div>
+	<div class="META-DATA-BLOCK" style="display: none">
+		<div class="id">$uicomponent.id</div>
+		<div class="title"><%=_ctx.appRes("UIPage.label.title")%></div>
+		<div class="description"><%=_ctx.appRes("UIPage.label.description")%></div>
+	</div>
 
-  <div class="LAYOUT-BLOCK LAYOUT-PAGEBODY DragControlArea" style="display: none;" onmousedown="eXo.portal.PortalDragDrop.init.call(eXo.core.DOMUtil.findAncestorByClass(this, 'UIPageBody'), event);">
-  	<div class="PageLayoutDecorator">
+	<div class="LAYOUT-BLOCK LAYOUT-PAGEBODY DragControlArea" style="display: none;" onmousedown="eXo.portal.PortalDragDrop.init.call(eXo.core.DOMUtil.findAncestorByClass(this, 'UIPageBody'), event);">
+		<div class="PageLayoutDecorator">
 			<%/*Begin Top Decorator*/%>
 			<div class="TopLeftPage">
 				<div class="TopRightPage">
 					<div class="TopCenterPage">
-					  <%=_ctx.appRes("UIPage.label.pageContent")%>
+						<%=_ctx.appRes("UIPage.label.pageContent")%>
 					</div>												
 				</div>
 			</div>
@@ -20,9 +20,9 @@
 			<%/*Begin Middle Decorator*/%>
 			<div class="MiddleLeftPage">
 				<div class="MiddleRightPage">
-				  <div class="MiddlePageBG">
-				    <div class="FixBug"><span></span></div>
-				  </div>
+					<div class="MiddlePageBG">
+						<div class="FixBug"><span></span></div>
+					</div>
 				</div>
 			</div>
 			
@@ -30,14 +30,14 @@
 			<div class="BottomLeftPage">
 				<div class="BottomRightPage">
 					<div class="BottomCenterPage">
-            <div class="FixBug"><span></span></div>
-          </div>												
+						<div class="FixBug"><span></span></div>
+					</div>												
 				</div>
 			</div>
 				
-		</div>  	
-  </div>
-  <div class="VIEW-PAGEBODY VIEW-BLOCK" id="PAGEBODY-VIEW-BLOCK">
+		</div>		
+	</div>
+	<div class="VIEW-PAGEBODY VIEW-BLOCK" id="PAGEBODY-VIEW-BLOCK">
 		<% if(uicomponent.getUIComponent() == null){ %>
 		<div class="Empty">
 			<div class="UIPortalWarning">
@@ -64,10 +64,10 @@
 				</div>
 			</div>
 		</div>
-		<% } else { uicomponent.renderChildren() ; } %>
+		<% } else { uicomponent.renderChildren(); } %>
 	</div>
 	<div class="EDITION-BLOCK EDITION-PAGEBODY">
-	  <div class="CONTROL-PAGEBODY CONTROL-BLOCK" style="display: none"><span></span></div>
+		<div class="CONTROL-PAGEBODY CONTROL-BLOCK" style="display: none"><span></span></div>
 	</div>
 	<div class="UIPageBodyMask" style="position:absolute; display:none;"><span></span></div>
 </div>

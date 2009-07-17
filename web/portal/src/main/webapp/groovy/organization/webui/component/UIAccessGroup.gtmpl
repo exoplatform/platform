@@ -1,33 +1,33 @@
 <%
-  import org.exoplatform.webui.form.UIFormPopupWindow;
-  import org.exoplatform.webui.core.UIGrid;
-  
-  def rcontext = _ctx.getRequestContext() ;
+	import org.exoplatform.webui.form.UIFormPopupWindow;
+	import org.exoplatform.webui.core.UIGrid;
+	
+	def rcontext = _ctx.getRequestContext();
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
 %>
 <div class="UIAccessGroup">
-  <% 
-    uicomponent.renderChildren();
-  %>
-  
-  <div class="UIAction"> 
-    <table class="ActionContainer">
-	    <tr>
-	    	<td>
-		      <div onclick="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIFormPopupWindow.class).getId();%>');" class="ActionButton SimpleStyle">
-		        <div class="ButtonLeft">
-		          <div class="ButtonRight">
-		            <div class="ButtonMiddle">
-		            	<div class="Icon SmallGroup16x16Icon">
-		            		<a href="javascript:void(0);">Select Access Group</a>
-		            	</div>	
-		            </div>
-		          </div>
-		        </div>
-		      </div>
-		    </td>
-      </tr>
- 	  </table>
+	<% 
+		uicomponent.renderChildren();
+	%>
+	
+	<div class="UIAction"> 
+		<table class="ActionContainer">
+			<tr>
+				<td>
+					<div onclick="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIFormPopupWindow.class).getId();%>');" class="ActionButton SimpleStyle">
+						<div class="ButtonLeft">
+							<div class="ButtonRight">
+								<div class="ButtonMiddle">
+									<div class="Icon SmallGroup16x16Icon">
+										<a href="javascript:void(0);">Select Access Group</a>
+									</div>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+ 		</table>
 	</div>
-  
+	
 </div>

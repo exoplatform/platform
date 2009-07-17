@@ -1,87 +1,87 @@
-<% 
-  //Fixed by Phuong 12/08/2006  
-  import org.exoplatform.webui.organization.UIGroupMembershipSelector;
-  import org.exoplatform.webui.core.UIPopupWindow; 
+<%
+	//Fixed by Phuong 12/08/2006	
+	import org.exoplatform.webui.organization.UIGroupMembershipSelector;
+	import org.exoplatform.webui.core.UIPopupWindow; 
 	import org.exoplatform.webui.form.UIForm;
 	
-	def uiForm = uicomponent.getAncestorOfType(UIForm.class) ;
-	def permission =  uicomponent.getPermission();
-	def rcontext = _ctx.getRequestContext() ;
+	def uiForm = uicomponent.getAncestorOfType(UIForm.class);
+	def permission =	uicomponent.getPermission();
+	def rcontext = _ctx.getRequestContext();
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
-  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPermissionSelectorTab');
 %>
 <div class="UIPermissionSelector" id="UIPermissionSelector">
 	<div class="PermissionInfoContainer">
-  	<%uicomponent.renderChildren();%>
+		<%uicomponent.renderChildren();%>
 	 
-	  <%/*Begin UIToolbarContentContainer*/%>
-	  <div class="InfoContentContainer"  >
-  	  
-      <div class="SelectedPermissionInfo" style="display:block;">
-        <div class="OverflowContainer">
-        <div class="Icon BlueInfoBox16x16Icon"><span></span></div>
-        <div class="PermissionInfoTitle"><%=_ctx.appRes(uicomponent.getId() + ".label.currentSelectedPermissionInfo")%></div>
-        </div>
-	      <div class="OverflowContainer">
-	        <div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.groupId")%> :</div>
-	        <% 
-        	def groupId = permission.getGroupId();
-        	if(groupId.length() < 60) {
-	        %>
-			        <div class="Info"><%=permission.getGroupId() %></div>
-		      <% } else { %>
-		      		<div class="Info" title="$groupId"><%=groupId.substring(0,57) + "..." %></div>
-		      <% } %>
-	      </div>         
-	      <div class="OverflowContainer">
-	        <div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.membershipMember")%> :</div>
-	        <div class="Info"><%=permission.getMembership()%></div>
-	      </div>
-	      
-	    </div>	  
-	    
-	    <% if(uicomponent.isEditable()) { %>  
-		    <div class="UIAction">
-		    	<table class="ActionContainer">
-		    		<tr>
-		    			<td>
-						    <%/*Click on this action button will pop up the permission selector*/%>
-					      <%
-					      String deletePermissionEvent = "#" ;
-					      String css = "FloatBlockHidden ActionButton SimpleStyle" ;
-					      if(permission.getExpression() != null && permission.getExpression().length() > 0) {
-					      	deletePermissionEvent = uiForm.event("DeletePermission", uicomponent.getId(), "") ;
-					      	css = "ActionButton SimpleStyle" ;
-					      } 
-					      %>
-						   	<div onclick="<%=deletePermissionEvent%>" class="<%=css%>">
-						      <div class="ButtonLeft">
-						        <div class="ButtonRight">
-						          <div class="ButtonMiddle">
-						          	<div class="DeletePermissionIcon">
-							        		<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.DeletePermission")%></a>
-								        </div>
-						      	 	</div>
-								    </div>
-						    	</div>			    
-						  	</div> 
-						    <div onclick="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>', true);" class="ActionButton SimpleStyle">
-						      <div class="ButtonLeft">
-						        <div class="ButtonRight">
-						          <div class="ButtonMiddle">
-								        <div class="SelectPermissionIcon">
-									        <a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%></a>
-									      </div>
-								      </div>
-								    </div>
-					        </div>			    
-							  </div> 
-				  		</td>
-				  	</tr>
-				  </table>   	      
-		    </div>
-	    <% } %>
-	  </div>
-	  <%/*End UIToolbarContentContainer*/%>
+		<%/*Begin UIToolbarContentContainer*/%>
+		<div class="InfoContentContainer"	>
+			
+			<div class="SelectedPermissionInfo" style="display:block;">
+				<div class="OverflowContainer">
+				<div class="Icon BlueInfoBox16x16Icon"><span></span></div>
+				<div class="PermissionInfoTitle"><%=_ctx.appRes(uicomponent.getId() + ".label.currentSelectedPermissionInfo")%></div>
+				</div>
+				<div class="OverflowContainer">
+					<div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.groupId")%> :</div>
+					<% 
+					def groupId = permission.getGroupId();
+					if(groupId.length() < 60) {
+					%>
+							<div class="Info"><%=permission.getGroupId() %></div>
+					<% } else { %>
+							<div class="Info" title="$groupId"><%=groupId.substring(0,57) + "..." %></div>
+					<% } %>
+				</div>				 
+				<div class="OverflowContainer">
+					<div class="Label"><%=_ctx.appRes(uicomponent.getId() + ".label.membershipMember")%> :</div>
+					<div class="Info"><%=permission.getMembership()%></div>
+				</div>
+				
+			</div>		
+			
+			<% if(uicomponent.isEditable()) { %>	
+				<div class="UIAction">
+					<table class="ActionContainer">
+						<tr>
+							<td>
+								<%/*Click on this action button will pop up the permission selector*/%>
+								<%
+								String deletePermissionEvent = "#";
+								String css = "FloatBlockHidden ActionButton SimpleStyle";
+								if(permission.getExpression() != null && permission.getExpression().length() > 0) {
+									deletePermissionEvent = uiForm.event("DeletePermission", uicomponent.getId(), "");
+									css = "ActionButton SimpleStyle";
+								} 
+								%>
+							 	<div onclick="<%=deletePermissionEvent%>" class="<%=css%>">
+									<div class="ButtonLeft">
+										<div class="ButtonRight">
+											<div class="ButtonMiddle">
+												<div class="DeletePermissionIcon">
+													<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.DeletePermission")%></a>
+												</div>
+										 	</div>
+										</div>
+									</div>					
+								</div> 
+								<div onclick="javascript: eXo.webui.UIPopupWindow.show('<%=uicomponent.getChild(UIPopupWindow.class).getId();%>', true);" class="ActionButton SimpleStyle">
+									<div class="ButtonLeft">
+										<div class="ButtonRight">
+											<div class="ButtonMiddle">
+												<div class="SelectPermissionIcon">
+													<a href="javascript:void(0);"><%=_ctx.appRes(uicomponent.getId() + ".action.SelectPermission")%></a>
+												</div>
+											</div>
+										</div>
+									</div>					
+								</div> 
+							</td>
+						</tr>
+					</table>	 				
+				</div>
+			<% } %>
+		</div>
+		<%/*End UIToolbarContentContainer*/%>
 	</div>
 </div>
