@@ -17,7 +17,28 @@
 %>
 <div id="$uicomponent.id">
 
-    <table id="$uniqueId" class="UIGrid" cellspacing="0">
+    <table class="UIGrid" cellspacing="0">
+        <thead>
+            <tr>
+                <%if(name != null) {%>
+                    <%for(field in beanFields) { %>
+                            <th><%=_ctx.appRes(name+".header."+field)%></th>
+                    <%}%>
+                    <%if(beanActions != null) { %>
+                            <th><%=_ctx.appRes(name+".header.action")%></th>
+                    <%}%>
+                <%}%>
+                <%if(name == null) {%>
+                    <%for(field in beanFields) { %>
+                            <th><%=_ctx.appRes(uiParent.getName()+".header."+field)%></th>
+                    <%}%>
+                    <%if(beanActions != null && beanActions.length > 0) { %>
+                            <th><%=_ctx.appRes(uiParent.getName()+".header.action")%></th>
+                    <%}%>
+                <%}%>
+            </tr>
+        </thead>
+        <tbody id="$uniqueId">
        <% for (bean in uicomponent.getBeans())  { %>   
 	        <tr>
 			      <%
@@ -62,5 +83,6 @@
         <%
             }
         %>
+        </tbody>
     </table>
 </div>
