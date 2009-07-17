@@ -43,11 +43,13 @@ public class UIVirtualListPortlet extends UIPortletApplication {
 
     private static String[] RESOURCE_LIST   = { "name", "language" };
 
+    private static String[] RESOURCE_ACTION = { "View", "Delete" };
+
     public UISampleResourcesBrowser() throws Exception {
       UIRepeater uiRepeater = createUIComponent(UIRepeater.class, null, null);
-      uiRepeater.configure(RESOURCE_LIST);
+      uiRepeater.configure("id", RESOURCE_LIST, RESOURCE_ACTION);
 
-      UIVirtualList virtualList = addChild(UIVirtualList.class, null, null);      
+      UIVirtualList virtualList = addChild(UIVirtualList.class, null, null);
       virtualList.setPageSize(10);
       virtualList.setUIComponent(uiRepeater);
     }

@@ -17,17 +17,16 @@
 package org.exoplatform.webui.bean;
 
 import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.webui.core.UIComponent;
 
 /**
  * Created by The eXo Platform SAS Author : liem.nguyen ncliam@gmail.com Jun 26,
  * 2009
  */
-public abstract class UIDataFeed extends UIComponent {
+public interface UIDataFeed {
   
-  public abstract void setDataSource(PageList datasource) throws Exception;
+  public void setDataSource(PageList datasource) throws Exception;
   
-  public abstract void feedNext() throws Exception;
+  public void feedNext() throws Exception;
   
-  public abstract boolean hasNext();  
+  public boolean hasNext();  
 }

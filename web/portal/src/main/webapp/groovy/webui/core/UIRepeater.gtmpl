@@ -1,23 +1,66 @@
 <%
-	import org.exoplatform.webui.core.UIComponent;
 
-	String[] beanFields =	uicomponent.getBeanFields();	
-	UIComponent uiParent = uicomponent.getParent();
-	String uniqueId = uiParent.generateId;
+  import org.exoplatform.webui.core.UIComponent ;
+  import org.exoplatform.webui.form.UIForm;
+  import java.text.DateFormat;
+  import java.text.SimpleDateFormat;
+
+  String[] beanFields =  uicomponent.getBeanFields() ;  
+  String[] beanActions =  uicomponent.getBeanActions() ;  
+  def uiParent = uicomponent.getParent() ;
+  String uniqueId = uiParent.generateId;
+
+  String name = uicomponent.getLabel() ;
+  UIForm uiForm = uicomponent.getAncestorOfType(UIForm.class); 
+  
+  DateFormat dateFormat = null;
 %>
 <div id="$uicomponent.id">
-	<table id="$uniqueId" class="UIGrid" cellspacing="0">		
-		<% for (bean in uicomponent.getBeans())	{	%>
-			<tr>
-			<%
-			for(field in beanFields) { 
-				def fieldValue = uicomponent.getFieldValue(bean, field);
-				def cssClass = "Text";						
-				String value = fieldValue.toString();
-				println "<td><div class=\""+cssClass+"\" title='$fieldValue'>"+fieldValue+"</div></td>";
-			}
-			%>	
-			</tr>
-		<%}%>
-	</table>
+
+    <table id="$uniqueId" class="UIGrid" cellspacing="0">
+       <% for (bean in uicomponent.getBeans())  { %>   
+	        <tr>
+			      <%
+		        for(field in beanFields) { 
+		          def fieldValue = uicomponent.getFieldValue(bean, field) ;
+		          def cssClass = "" ;
+		          if(fieldValue != null) {
+		            def fieldClass = fieldValue.getClass() ;
+		            if(fieldClass == Integer.class)  cssClass = "number" ;
+		            else if(java.util.Date.class.isAssignableFrom(fieldClass)) {
+		              if(dateFormat == null) dateFormat = new SimpleDateFormat("HH:mm:ss yyyy-MM-dd");
+		              cssClass = "Datetime" ;
+		              fieldValue = dateFormat.format(fieldValue);
+		            } 
+		            else cssClass = "Text" ;
+		          } else {
+		            fieldValue = "";
+		          }
+		          String value = fieldValue.toString();
+		          println "<td><div class=\""+cssClass+"\" title='$fieldValue'>"+fieldValue+"</div></td>";
+		        }  
+			      if(beanActions != null && beanActions.length > 0) { 
+			      %>
+	           <td>
+	                <div class="ActionContainer">
+	                  <%
+	                    def beanIdField = uicomponent.getBeanIdField() ;           
+	                    for(action in beanActions) { 
+	                      def beanId = uicomponent.getFieldValue(bean, beanIdField)  ;
+	                        if(action == null) continue;
+	                      String title = _ctx.appRes(uicomponent.getParent().getName() + ".action.title." + action);
+	                      String actionLink = uiParent.event(action, beanId);
+	                    %>             
+	                        <img onclick="$actionLink" alt="" title="$title" src="/eXoResources/skin/sharedImages/Blank.gif" class="${action}Icon" />
+	                  <%}%>                 
+	                </div>
+	            </td>
+	      <%
+	            }
+	      %>  
+            </tr>
+        <%
+            }
+        %>
+    </table>
 </div>

@@ -30,8 +30,10 @@ import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
-import org.exoplatform.webui.core.UIGrid;
-import org.exoplatform.webui.core.UIPageIterator;
+import org.exoplatform.webui.core.UIRepeater;
+import org.exoplatform.webui.core.UIVirtualList;
+//import org.exoplatform.webui.core.UIGrid;
+//import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -93,8 +95,12 @@ public class UIEditResource extends UIForm {
       String language = uiEditResource.getChild(UIFormSelectBox.class).getValue() ;
       
       // get current page
-      UIPageIterator pageIterator = uiI18n.getChild(UIGrid.class).getUIPageIterator();
-      int currentPage = pageIterator.getCurrentPage();
+      //UIPageIterator pageIterator = uiI18n.getChild(UIGrid.class).getUIPageIterator();
+      //int currentPage = pageIterator.getCurrentPage();
+      
+      UIVirtualList virtualList = uiI18n.getChild(UIVirtualList.class);
+      UIRepeater uiRepeater = (UIRepeater)virtualList.getDataFeed();
+      int currentPage = uiRepeater.getDataSource().getCurrentPage();
       
       PageList pageList = serv.findResourceDescriptions(new Query(name,language)) ;
       if((pageList.getAvailable() > 0)&& uiEditResource.isSave()) {
@@ -112,8 +118,11 @@ public class UIEditResource extends UIForm {
       // update when create new resource
       if(uiEditResource.isSave()) uiI18n.update(null, null) ;
       else uiI18n.update(uiI18n.getLastQuery().getName(), uiI18n.getLastQuery().getLanguage()) ;
-      pageIterator.setCurrentPage(currentPage);
-      uiI18n.getChild(UIGrid.class).setRendered(true) ;
+      //pageIterator.setCurrentPage(currentPage);
+      uiRepeater.getDataSource().getPage(currentPage);
+      
+      //uiI18n.getChild(UIGrid.class).setRendered(true) ;
+      uiI18n.getChild(UIVirtualList.class).setRendered(true) ;
       UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
       uiSearch.setRendered(true) ;
       uiI18n.getChild(UIEditResource.class).setRendered(false) ;
@@ -128,7 +137,8 @@ public class UIEditResource extends UIForm {
       UIEditResource uiEditResource = event.getSource() ;
       UII18nPortlet uiI18n = uiEditResource.getParent() ;
       uiI18n.getChild(UIEditResource.class).setRendered(false) ;
-      uiI18n.getChild(UIGrid.class).setRendered(true) ;
+      //uiI18n.getChild(UIGrid.class).setRendered(true) ;
+      uiI18n.getChild(UIVirtualList.class).setRendered(true) ;
       UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
       uiSearch.setRendered(true) ;
     }

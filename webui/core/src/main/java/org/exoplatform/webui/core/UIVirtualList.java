@@ -72,17 +72,19 @@ public class UIVirtualList extends UIComponentDecorator {
   }
 
   static public class LoadNextActionListener extends EventListener<UIVirtualList> {
-    public void execute(Event<UIVirtualList> event) throws Exception {
+    public void execute(Event<UIVirtualList> event) throws Exception {      
       UIVirtualList virtualList = event.getSource();
       UIDataFeed dataFeed = virtualList.getDataFeed();
       WebuiRequestContext rContext = event.getRequestContext();
+      String generateId = rContext.getRequestParameter(COMPONENT_GENERATE_ID);
       dataFeed.feedNext();
-      if (!dataFeed.hasNext()) {
-        String generateId = rContext.getRequestParameter(COMPONENT_GENERATE_ID);
+      if (!dataFeed.hasNext()) {        
         rContext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.loadFinished('"
             + generateId + "');");
       }
-      rContext.addUIComponentToUpdateByAjax(dataFeed);
+      rContext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.updateList('"
+                                                    + generateId + "');");
+      rContext.addUIComponentToUpdateByAjax((UIComponent)dataFeed);
     }
   }
 }

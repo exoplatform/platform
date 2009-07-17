@@ -31,9 +31,9 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
-import org.exoplatform.webui.core.UIGrid;
-import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPortletApplication;
+import org.exoplatform.webui.core.UIRepeater;
+import org.exoplatform.webui.core.UIVirtualList;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
@@ -53,6 +53,7 @@ import org.exoplatform.webui.form.UIFormTextAreaInput;
 
 @ComponentConfigs ( {
   @ComponentConfig(
+      template = "system:/groovy/webui/organization/i18n/UII18N.gtmpl",
       lifecycle = UIApplicationLifecycle.class,
       events = {
         @EventConfig (listeners = UII18nPortlet.ViewActionListener.class),
@@ -79,9 +80,16 @@ public class UII18nPortlet extends UIPortletApplication {
 
   public UII18nPortlet() throws Exception {
     
-    UIGrid grid_ = addChild(UIGrid.class, null, "ResourceList") ;
-    grid_.configure("id", RESOURCE_LIST, RESOURCE_ACTION) ;
-    grid_.setRendered(true) ;
+//    UIGrid grid_ = addChild(UIGrid.class, null, "ResourceList") ;
+//    grid_.configure("id", RESOURCE_LIST, RESOURCE_ACTION) ;
+//    grid_.setRendered(true) ;
+    
+    UIRepeater uiRepeater = createUIComponent(UIRepeater.class, null, "ResourceList");
+    uiRepeater.configure("id",RESOURCE_LIST, RESOURCE_ACTION);
+    
+    UIVirtualList virtualList = addChild(UIVirtualList.class, null, null);      
+    virtualList.setPageSize(10);
+    virtualList.setUIComponent(uiRepeater);
     
     addChild(UIEditResource.class,null,null).setRendered(false) ;
     
@@ -102,22 +110,33 @@ public class UII18nPortlet extends UIPortletApplication {
     uiSearchResource.addUIFormInput(new UIFormSelectBox("language","language",options));
     uiSearchResource.setRendered(true) ;
     // update grid
-    update(null,null);
-  } 
+    update(null,null);       
+  }
   
   public Query getLastQuery() { return lastQuery_; }
   
   static public class DeleteActionListener extends EventListener<UII18nPortlet> {
     public void execute(Event<UII18nPortlet> event) throws Exception {
       UII18nPortlet uiI18n = event.getSource() ;
-      UIPageIterator pageIterator = uiI18n.getChild(UIGrid.class).getUIPageIterator() ;
-      int currentPage = pageIterator.getCurrentPage() ;
+//      UIPageIterator pageIterator = uiI18n.getChild(UIGrid.class).getUIPageIterator() ;
+//      int currentPage = pageIterator.getCurrentPage() ;
+//      ResourceBundleService serv = uiI18n.getApplicationComponent(ResourceBundleService.class);
+//      serv.removeResourceBundleData(event.getRequestContext().getRequestParameter(OBJECTID)) ;
+//      Query lastQuery = uiI18n.getLastQuery() ;
+//      uiI18n.update(lastQuery.getName(), lastQuery.getLanguage()) ;
+//      while(currentPage > pageIterator.getAvailablePage()) currentPage-- ;
+//      pageIterator.setCurrentPage(currentPage) ;
+      
+      UIVirtualList virtualList = uiI18n.getChild(UIVirtualList.class);
+      UIRepeater repeater = (UIRepeater)virtualList.getDataFeed();
+      PageList datasource = repeater.getDataSource();
+      int currentPage = datasource.getCurrentPage();
       ResourceBundleService serv = uiI18n.getApplicationComponent(ResourceBundleService.class);
       serv.removeResourceBundleData(event.getRequestContext().getRequestParameter(OBJECTID)) ;
       Query lastQuery = uiI18n.getLastQuery() ;
       uiI18n.update(lastQuery.getName(), lastQuery.getLanguage()) ;
-      while(currentPage > pageIterator.getAvailablePage()) currentPage-- ;
-      pageIterator.setCurrentPage(currentPage) ;
+      while(currentPage > datasource.getAvailablePage()) currentPage-- ;
+        datasource.getPage(currentPage);
     }
   }
   
@@ -132,7 +151,8 @@ public class UII18nPortlet extends UIPortletApplication {
       String paramID = event.getRequestContext().getRequestParameter(OBJECTID) ;
       uiEditResource.setResource(paramID) ;
       
-      uiI18n.getChild(UIGrid.class).setRendered(false) ;
+      //uiI18n.getChild(UIGrid.class).setRendered(false) ;
+      uiI18n.getChild(UIVirtualList .class).setRendered(false) ;
       UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
       uiSearch.setRendered(false) ;
     }
@@ -156,7 +176,8 @@ public class UII18nPortlet extends UIPortletApplication {
       uiEditResource.setResource(null) ;
       uiEditResource.setActions(new String[]{"Save", "Cancel"});
       
-      uiI18n.getChild(UIGrid.class).setRendered(false) ;
+      //uiI18n.getChild(UIGrid.class).setRendered(false) ;
+      uiI18n.getChild(UIVirtualList.class).setRendered(false) ;
       UIForm uiSearch = uiI18n.getChildById("UISearchI18n") ;
       uiSearch.setRendered(false) ;
       
@@ -173,12 +194,14 @@ public class UII18nPortlet extends UIPortletApplication {
       ResourceBundleService resBundleServ = getApplicationComponent(ResourceBundleService.class);
       lastQuery_ = new Query(name, lang) ;
       PageList pageList = resBundleServ.findResourceDescriptions(lastQuery_) ;
-      pageList.setPageSize(10) ;
-      getChild(UIGrid.class).getUIPageIterator().setPageList(pageList) ;
-      UIPageIterator pageIterator = getChild(UIGrid.class).getUIPageIterator();
-      if(pageIterator.getAvailable() == 0 ) {
-        throw new Exception("No results") ;
-      }
+//      pageList.setPageSize(10) ;
+//      getChild(UIGrid.class).getUIPageIterator().setPageList(pageList) ;
+//      UIPageIterator pageIterator = getChild(UIGrid.class).getUIPageIterator();
+//      if(pageIterator.getAvailable() == 0 ) {
+//        throw new Exception("No results") ;
+//      }
+      UIVirtualList virtualList = getChild(UIVirtualList.class);
+      virtualList.dataBind(pageList);
     } catch (Exception e) {
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication() ;
       uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null)) ;

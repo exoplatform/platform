@@ -31,7 +31,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
  * @see UIPageIterator
  */
 @ComponentConfig(template = "system:/groovy/webui/core/UIRepeater.gtmpl")
-public class UIRepeater extends UIDataFeed {
+public class UIRepeater extends UIComponent implements UIDataFeed {
 
   private PageList datasource = PageList.EMPTY_LIST;
 
@@ -40,30 +40,48 @@ public class UIRepeater extends UIDataFeed {
   }
   
   /**
+   * The bean field that holds the id of this bean
+   */
+  protected  String beanIdField_ ;
+  
+  /**
    * An array of String representing the fields in each bean
    */
   protected String[] beanField_;
+  /**
+   * An array of String representing the actions on each bean
+   */
+  protected  String[] action_ ;
+  
+  protected  String label_ ;
 
-  public UIRepeater configure(String[] beanField) {    
-    this.beanField_ = beanField;
-    return this;
+  public UIRepeater configure(String beanIdField, String[] beanField, String[] action) {
+    this.beanIdField_ =  beanIdField ;
+    this.beanField_ =  beanField ;
+    this.action_ = action ;
+    return this ;
   }
+  
+  public String getBeanIdField()  { return beanIdField_ ; }
 
   public String[] getBeanFields() {
     return beanField_;
   }
+  
+  public String[]  getBeanActions() { return action_ ; }
 
   public List<?> getBeans() throws Exception {
     return datasource.currentPage() ;
   }
 
+  public String getLabel() { return label_ ; }
+  public void setLabel(String label) { label_ = label ; }
 
   public Object getFieldValue(Object bean, String field) throws Exception {
     Method method = ReflectionUtil.getGetBindingMethod(bean, field);
     return method.invoke(bean, ReflectionUtil.EMPTY_ARGS);
   }
-
-  @Override
+  
   public void feedNext() throws Exception {
     int page = datasource.getCurrentPage();
     page++;
@@ -71,8 +89,7 @@ public class UIRepeater extends UIDataFeed {
       datasource.getPage(page);
     }
   }
-
-  @Override
+  
   public boolean hasNext() {
     int page = datasource.getCurrentPage();
     if (page >= datasource.getAvailablePage()) {
@@ -80,10 +97,13 @@ public class UIRepeater extends UIDataFeed {
     }
     return true;
   }
-
-  @Override
+  
   public void setDataSource(PageList datasource) throws Exception {
     this.datasource = datasource;
     datasource.getPage(1);
+  }
+  
+  public PageList getDataSource() {
+    return this.datasource;  
   }
 }
