@@ -78,7 +78,7 @@ public class UIWizardPageSetInfo extends UIForm {
   private boolean firstTime = true;
 
   public UIWizardPageSetInfo() throws Exception {
-    UIPageNodeSelector  uiPageNodeSelector = addChild(UIPageNodeSelector.class, null, null);    
+  	addChild(UIPageNodeSelector.class, null, null);
     addUIFormInput(new UIFormStringInput(PAGE_NAME, "name", null).
     				   addValidator(MandatoryValidator.class).
     				   addValidator(StringLengthValidator.class, 3, 30).
@@ -93,9 +93,6 @@ public class UIWizardPageSetInfo extends UIForm {
               addValidator(DateTimeValidator.class).addValidator(MandatoryValidator.class)) ;
     addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null).
               addValidator(DateTimeValidator.class).addValidator(MandatoryValidator.class)) ;
-    UITree uiTree = uiPageNodeSelector.getChild(UITree.class);
-    uiTree.setUIRightClickPopupMenu(null);
-    uiPageNodeSelector.removeChild(UIRightClickPopupMenu.class);    
   } 
 
   public void setEditMode() throws Exception {

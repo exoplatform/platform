@@ -26,7 +26,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -227,13 +226,6 @@ public class UIPageEditWizard extends UIPageWizard {
         return;
       }
 
-      UIWizardPageCreationBar uiCreationBar = uiWizard.createUIComponent(UIWizardPageCreationBar.class,
-                                                                         null,
-                                                                         null);
-
-      UIPageEditBar uiPageEditBar = uiCreationBar.getChild(UIPageEditBar.class);
-      UIWizardPageCreationBar uiParent = uiPageEditBar.getParent();
-
       UIPageTemplateOptions uiPageTemplateOptions = uiWizard.findFirstComponentOfType(UIPageTemplateOptions.class);
 
       Page templatePage = uiPageTemplateOptions.createPageFromSelectedOption(selectPage.getOwnerType(),
@@ -273,10 +265,6 @@ public class UIPageEditWizard extends UIPageWizard {
         return;
       }
 
-      Class<?>[] childrenToRender = { UIPageEditBar.class, UIPortletOptions.class };
-      uiParent.setRenderedChildrenOfTypes(childrenToRender);
-
-      uiPageEditBar.setUIPage(uiPage);
       uiPageTemplateOptions.setSelectedOption(null);
       uiWizard.updateWizardComponent();
     }

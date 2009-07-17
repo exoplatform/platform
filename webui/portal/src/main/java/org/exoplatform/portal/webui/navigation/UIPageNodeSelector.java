@@ -25,23 +25,8 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.CreateNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.DeleteNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.EditNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.SaveNavigationActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.AddNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CloneNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CopyNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.CutNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.DeleteNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditPageNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.EditSelectedNodeActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.MoveDownActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.MoveUpActionListener;
-import org.exoplatform.portal.webui.navigation.UIPageNodeActionListener.PasteNodeActionListener;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.page.UIPageBody;
-import org.exoplatform.portal.webui.page.UIPageEditBar;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
@@ -72,37 +57,7 @@ import org.exoplatform.webui.event.Event.Phase;
       template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
       events = {
         @EventConfig(listeners = UIPageNodeSelector.ChangeNodeActionListener.class),
-        @EventConfig(listeners = CreateNavigationActionListener.class),
         @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class, phase=Phase.DECODE) 
-      }
-  ),
-  @ComponentConfig(
-      id = "PageNodePopupMenu",
-      type = UIRightClickPopupMenu.class,
-      template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
-      events = {
-        @EventConfig(listeners = AddNodeActionListener.class),
-        @EventConfig(listeners = EditPageNodeActionListener.class),
-        @EventConfig(listeners = EditSelectedNodeActionListener.class),
-        @EventConfig(listeners = CopyNodeActionListener.class),
-        @EventConfig(listeners = CutNodeActionListener.class),
-        @EventConfig(listeners = CloneNodeActionListener.class),
-        @EventConfig(listeners = PasteNodeActionListener.class),
-        @EventConfig(listeners = MoveUpActionListener.class),
-        @EventConfig(listeners = MoveDownActionListener.class),
-        @EventConfig(listeners = DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation")
-      }
-  ),
-  @ComponentConfig(
-      id = "UIPageNodeSelectorPopupMenu",
-      type = UIRightClickPopupMenu.class,
-      template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
-      events = {
-        @EventConfig(listeners = AddNodeActionListener.class),
-        @EventConfig(listeners = PasteNodeActionListener.class),
-        @EventConfig(listeners = SaveNavigationActionListener.class),
-        @EventConfig(listeners = EditNavigationActionListener.class),
-        @EventConfig(listeners = DeleteNavigationActionListener.class, confirm = "UIPageNodeSelector.deleteNode")
       }
   ),
   @ComponentConfig (
@@ -126,8 +81,6 @@ public class UIPageNodeSelector extends UIContainer {
   private List<PageNavigation> deleteNavigations = new ArrayList<PageNavigation>();
   
 	public UIPageNodeSelector() throws Exception {    
-    addChild(UIRightClickPopupMenu.class, "UIPageNodeSelectorPopupMenu", null).setRendered(false);  
-    
     UIDropDownControl uiDopDownControl = addChild(UIDropDownControl.class, "UIDropDown", "UIDropDown");
     uiDopDownControl.setParent(this);
     
@@ -137,10 +90,9 @@ public class UIPageNodeSelector extends UIContainer {
     uiTree.setBeanIdField("uri");
     uiTree.setBeanLabelField("resolvedLabel");   
     uiTree.setBeanIconField("icon");
-    
-    UIRightClickPopupMenu uiPopupMenu = createUIComponent(UIRightClickPopupMenu.class, "PageNodePopupMenu", null) ;
-    uiPopupMenu.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", "CloneNode" ,"CutNode", "DeleteNode", "MoveUp", "MoveDown"});
-    uiTree.setUIRightClickPopupMenu(uiPopupMenu);
+//    UIRightClickPopupMenu uiPopupMenu = createUIComponent(UIRightClickPopupMenu.class, "PageNodePopupMenu", null) ;
+//    uiPopupMenu.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", "CloneNode" ,"CutNode", "DeleteNode", "MoveUp", "MoveDown"});
+//    uiTree.setUIRightClickPopupMenu(uiPopupMenu);
     
     loadNavigations();
 	}
@@ -313,7 +265,6 @@ public class UIPageNodeSelector extends UIContainer {
       pcontext.setFullRender(true);
       
       UIContainer uiParent = uiPageNodeSelector.getParent();
-      UIPageEditBar uiEditBar = uiParent.getChild(UIPageEditBar.class);   
       PageNode node = null;
       if(uiPageNodeSelector.getSelectedNode() == null) {
         node = Util.getUIPortal().getSelectedNode();
@@ -333,34 +284,14 @@ public class UIPageNodeSelector extends UIContainer {
       } 
       
       if(page == null){
-        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
-        uiParent.setRenderedChildrenOfTypes(childrenToRender);
         uiToolPanel.setUIComponent(null) ;
         return;
       }
-      UIPage uiPage = uiEditBar.getUIPage() ;
-      if(uiPage == null || !uiPage.getPageId().equals(page.getPageId())) uiPage = Util.toUIPage(node, uiToolPanel); 
+      
+      UIPage uiPage = Util.toUIPage(node, uiToolPanel); 
       UIPageBody uiPageBody = uiPortalApp.findFirstComponentOfType(UIPageBody.class) ; 
       if(uiPageBody.getUIComponent() != null) uiPageBody.setUIComponent(null);
       uiToolPanel.setUIComponent(uiPage);
-
-      if(!page.isModifiable()) {
-        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
-        uiParent.setRenderedChildrenOfTypes(childrenToRender);
-        return;
-      }
-      
-      uiEditBar.setRendered(true);
-      if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId())) {
-        Class<?> [] childrenToRender = {UIPageNodeSelector.class, UIPageNavigationControlBar.class };      
-        uiParent.setRenderedChildrenOfTypes(childrenToRender);
-        return;
-      }
-      
-      uiEditBar.setUIPage(uiPage);
-      Class<?> [] childrenToRender = {UIPageEditBar.class, 
-                                      UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-      uiParent.setRenderedChildrenOfTypes(childrenToRender);
     }
   }
   

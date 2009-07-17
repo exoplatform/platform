@@ -26,7 +26,6 @@ import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationActionListener.CreateNavigationActionListener;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -48,8 +47,7 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfigs( {
     @ComponentConfig(template = "app:/groovy/portal/webui/navigation/UIPortalNodeSelector.gtmpl", events = {
-        @EventConfig(listeners = UIPortalNodeSelector.ChangeNodeActionListener.class),
-        @EventConfig(listeners = CreateNavigationActionListener.class) }),
+        @EventConfig(listeners = UIPortalNodeSelector.ChangeNodeActionListener.class)}),
     @ComponentConfig(id = "PortalNodePopupMenu", type = UIRightClickPopupMenu.class, template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl", events = {
         @EventConfig(listeners = UIPortalNodeSelector.AddNodeActionListener.class),
         @EventConfig(listeners = UIPortalNodeSelector.EditPageNodeActionListener.class),
@@ -277,15 +275,6 @@ public class UIPortalNodeSelector extends UIContainer {
       String uri = event.getRequestContext().getRequestParameter(OBJECTID);
       UIPortalNodeSelector uiPortalNodeSelector = event.getSource().getParent();
       uiPortalNodeSelector.selectPageNodeByUri(uri);
-
-      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
-      //UIPageManagement2 nodeManager = uiPortalNodeSelector.getParent();
-      //pcontext.addUIComponentToUpdateByAjax(nodeManager);
-
-      UIContainer uiParent = uiPortalNodeSelector.getParent();
-//      Class<?>[] childrenToRender = { UIPortalNodeSelector.class,
-//          UIPortalNavigationControlBar.class };
-//      uiParent.setRenderedChildrenOfTypes(childrenToRender);
     }
   }  
 

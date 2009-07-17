@@ -28,7 +28,6 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
@@ -296,16 +295,6 @@ public class UIPageCreationWizard extends UIPageWizard {
       }
 
       uiWizard.updateWizardComponent();
-      Class<?>[] childrenToRender = { UIPageEditBar.class, UIPortletOptions.class };
-      // TODO: Reviwe below line after delete UIExoStart
-      UIWizardPageCreationBar uiCreationBar = uiWizard.createUIComponent(UIWizardPageCreationBar.class,
-                                                                         null,
-                                                                         null);
-
-      UIPageEditBar uiPageEditBar = uiCreationBar.getChild(UIPageEditBar.class);
-      UIWizardPageCreationBar uiParent = uiPageEditBar.getParent();
-      uiParent.setRenderedChildrenOfTypes(childrenToRender);
-      uiPageEditBar.setUIPage(uiPage);
       uiPageTemplateOptions.setSelectedOption(null);
     }
   }

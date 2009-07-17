@@ -1,9 +1,5 @@
 <%  
-  import  org.exoplatform.portal.webui.page.UIPageEditBar;
-  import  org.exoplatform.portal.webui.container.UIContainerConfigOptions;
-  import  org.exoplatform.portal.webui.application.UIPortletOptions;
   import  org.exoplatform.portal.webui.page.UIPageBrowser;
-  import org.exoplatform.webui.core.UIDescription;  
   import org.exoplatform.navigation.webui.component.UINavigationNodeSelector;
 %>
 <div class="UINavigationManagement" id="$uicomponent.id">

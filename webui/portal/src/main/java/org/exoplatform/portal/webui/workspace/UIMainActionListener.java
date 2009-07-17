@@ -37,12 +37,6 @@ import org.exoplatform.webui.event.EventListener;
  */
 public class UIMainActionListener {
 
-  static public class EditPageActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      System.out.println("\n\n\nThis action is not implemented");
-    }
-  }
-
   static public class EditCurrentPageActionListener extends EventListener<UIWorkingWorkspace> {
     public void execute(Event<UIWorkingWorkspace> event) throws Exception {
       UIPortalApplication uiApp = Util.getUIPortalApplication();
@@ -77,21 +71,6 @@ public class UIMainActionListener {
       UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
       uiPageSetInfo.setShowPublicationDate(false);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
-    }
-  }
-
-  static public class EditPortalActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      UIPortal uiPortal = Util.getUIPortal();
-      if (!uiPortal.isModifiable()) {
-        UIPortalApplication uiPortalApp = event.getSource()
-                                               .getAncestorOfType(UIPortalApplication.class);
-        uiPortalApp.addMessage(new ApplicationMessage("UIPortalManagement.msg.Invalid-editPermission",
-                                                      new String[] { uiPortal.getName() }));
-        ;
-        return;
-      }
-      System.out.println("\n\n\nThis action is not implemented");
     }
   }
 

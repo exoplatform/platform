@@ -37,29 +37,35 @@ import org.exoplatform.test.BasicTestCase;
  * Nov 30, 2006  
  */
 public class TestURL extends BasicTestCase {
-  //test ContentBuilder.java
-  private URL url_;
-  
-  public void setUp()throws Exception{
-    this.url_ = new URL("http://htmlparser.sourceforge.net/");
-    
-    System.out.println("URL: " + this.url_.toString());
-    System.out.println("URL-CONTENT: " + this.url_.getContent().toString());
-    System.out.println("URL-AUTHORITY: " + this.url_.getAuthority());    
-    System.out.println("URL-FILE: " + this.url_.getFile());
-    System.out.println("URL-HOST: " + this.url_.getHost());
-    System.out.println("URL-PATH: " + this.url_.getPath());
-    System.out.println("URL-DefaultPort: " + this.url_.getDefaultPort());
-    System.out.println("URL-Port: " + this.url_.getPort());
-    System.out.println("URL-Protocol: " + this.url_.getProtocol());
-    System.out.println("URL-Query: " + this.url_.getQuery());
-    System.out.println("URL-Reference: " + this.url_.getRef());
-    System.out.println("URL-UserInfo: " + this.url_.getUserInfo());
-    System.out.println("URL-ExternalForm: " + this.url_.toExternalForm());
-    System.out.println("URL-URI: " + this.url_.toURI().toASCIIString());
-    System.out.println("URL-URI: " + this.url_.toURI().toString());
-  }
-  /*
+	//test ContentBuilder.java
+	private URL url_;
+
+	public void setUp() throws Exception {
+		this.url_ = new URL("http://htmlparser.sourceforge.net/");
+		try{
+
+			System.out.println("URL: " + this.url_.toString());
+			System.out.println("URL-CONTENT: " + this.url_.getContent().toString());
+			System.out.println("URL-AUTHORITY: " + this.url_.getAuthority());    
+			System.out.println("URL-FILE: " + this.url_.getFile());
+			System.out.println("URL-HOST: " + this.url_.getHost());
+			System.out.println("URL-PATH: " + this.url_.getPath());
+			System.out.println("URL-DefaultPort: " + this.url_.getDefaultPort());
+			System.out.println("URL-Port: " + this.url_.getPort());
+			System.out.println("URL-Protocol: " + this.url_.getProtocol());
+			System.out.println("URL-Query: " + this.url_.getQuery());
+			System.out.println("URL-Reference: " + this.url_.getRef());
+			System.out.println("URL-UserInfo: " + this.url_.getUserInfo());
+			System.out.println("URL-ExternalForm: " + this.url_.toExternalForm());
+			System.out.println("URL-URI: " + this.url_.toURI().toASCIIString());
+			System.out.println("URL-URI: " + this.url_.toURI().toString());
+		} catch (java.net.UnknownHostException e) {
+			return;
+		} catch (java.io.IOException e) {
+			return;
+		}
+	}
+	/*
   public void testContentBuilder()throws Exception {
     assertNotNull(this.url_);
     HTMLDocument document = HTMLParser.createDocument(this.url_.openStream(),null);

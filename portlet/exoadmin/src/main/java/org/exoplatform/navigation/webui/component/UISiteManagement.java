@@ -53,7 +53,6 @@ import org.exoplatform.webui.event.EventListener;
   events = {
       @EventConfig(listeners = UISiteManagement.EditPortalLayoutActionListener.class),
       @EventConfig(listeners = UISiteManagement.EditNavigationActionListener.class),
-      @EventConfig(listeners = UISiteManagement.AddNewPortalActionListener.class),
       @EventConfig(listeners = UISiteManagement.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal")
   }
 )
@@ -201,23 +200,6 @@ public class UISiteManagement extends UIContainer {
       popUp.setShow(true);
       
       
-    }
-  }
-  
-  static public class AddNewPortalActionListener extends EventListener<UISiteManagement> {
-    public void execute(Event<UISiteManagement> event) throws Exception {        
-      PortalRequestContext prContext = Util.getPortalRequestContext();
-      UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);  
-      UserACL userACL = uiApp.getApplicationComponent(UserACL.class) ;
-      if(!userACL.hasCreatePortalPermission()){
-        uiApp.addMessage(new ApplicationMessage("UISiteManagement.msg.Invalid-createPermission", null)) ;;  
-        return;
-      }
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      UIPortalForm uiNewPortal = uiMaskWS.createUIComponent(UIPortalForm.class, "CreatePortal", "UIPortalForm");      
-      uiMaskWS.setUIComponent(uiNewPortal);
-      uiMaskWS.setShow(true);
-      prContext.addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
 }

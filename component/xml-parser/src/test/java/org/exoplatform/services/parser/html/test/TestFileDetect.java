@@ -17,6 +17,7 @@
 package org.exoplatform.services.parser.html.test;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 
 import org.exoplatform.services.html.HTMLDocument;
@@ -60,7 +61,13 @@ public class TestFileDetect extends BasicTestCase {
   public void testCharsetWithURL() throws Exception {
     URL url_ = new URL("http://www.24h.com.vn");
     assertNotNull(url_);
-    HTMLDocument document = HTMLParser.createDocument(url_.openConnection().getInputStream(), null);
+    HTMLDocument document;
+		try {
+			document = HTMLParser.createDocument(url_.openConnection().getInputStream(), null);
+		} catch (java.net.UnknownHostException e) {
+			return;
+		}
+		
     document = HTMLParser.createDocument(url_.openStream(), null);
     assertNotNull(document);
     assertEquals("ASCII", HTMLParser.getCharset());

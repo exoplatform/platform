@@ -26,8 +26,6 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.container.UIContainer;
-import org.exoplatform.portal.webui.navigation.UIPageManagement;
-import org.exoplatform.portal.webui.navigation.UIPageNavigationControlBar;
 import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
@@ -260,8 +258,6 @@ public class UIPageForm extends UIFormTabPane {
         applications.add(PortalDataMapper.toPortletModel(uiPortlet));
       }
       
-      UIPageManagement uiManagement = uiPortalApp.findFirstComponentOfType(UIPageManagement.class);
-      UIPageEditBar uiEditBar = uiManagement.getChild(UIPageEditBar.class); 
       if(Page.DESKTOP_PAGE.equals(uiPage.getFactoryId()) && !Page.DESKTOP_PAGE.equals(page.getFactoryId())) {
         page.setShowMaxWindow(false);
         uiPage.getChildren().clear();
@@ -272,10 +268,10 @@ public class UIPageForm extends UIFormTabPane {
 //        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
-        uiEditBar.setUIPage(uiPage);
-        Class<?> [] childrenToRender = {UIPageEditBar.class,
-            UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
-        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
+//        uiEditBar.setUIPage(uiPage);
+//        Class<?> [] childrenToRender = {UIPageEditBar.class,
+//            UIPageNodeSelector.class, UIPageNavigationControlBar.class};      
+//        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
         
         pcontext.setFullRender(true);
         UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
@@ -293,21 +289,12 @@ public class UIPageForm extends UIFormTabPane {
 //        if(page.getTemplate() == null) page.setTemplate(uiPage.getTemplate()) ;
         if(page.getChildren() == null) page.setChildren(new ArrayList<Object>()); 
 
-        uiEditBar.setUIPage(uiPage);
-        Class<?> [] childrenToRender = null;
-        if(uiManagement.getChild(UIPageBrowseControlBar.class).isRendered()) {
-          childrenToRender = new Class<?>[]{UIPageBrowseControlBar.class};
-        } else {
-          childrenToRender = new Class<?>[]{UIPageNodeSelector.class, UIPageNavigationControlBar.class};
-        }
-        uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-        pcontext.addUIComponentToUpdateByAjax(uiManagement);
         UIPortalToolPanel toolPanel = Util.getUIPortalToolPanel();
         toolPanel.setShowMaskLayer(true);
         pcontext.setFullRender(true);
         UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
         pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-        UserPortalConfigService service = uiEditBar.getApplicationComponent(UserPortalConfigService.class);
+        UserPortalConfigService service = uiPageForm.getApplicationComponent(UserPortalConfigService.class);
         service.update(page);
         return;
       } 

@@ -57,7 +57,7 @@ public class UIContainerList extends UIContainer {
   private SelectItemCategory selectedCategory_ ;
 
   public UIContainerList(InitParams initParams) throws Exception{
-    setComponentConfig(UIContainerConfigOptions.class, null);    
+//    setComponentConfig(UIContainerConfigOptions.class, null);    
     selectedCategory_ = null;
     if(initParams == null) return ;
     WebuiRequestContext context = WebuiRequestContext.getCurrentInstance() ;

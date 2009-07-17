@@ -25,7 +25,6 @@ import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIApplicationList;
 import org.exoplatform.portal.webui.application.UIPortlet;
-import org.exoplatform.portal.webui.application.UIPortletOptions;
 import org.exoplatform.portal.webui.container.UIContainerList;
 import org.exoplatform.portal.webui.login.UILogin;
 import org.exoplatform.portal.webui.login.UIResetPassword;
@@ -182,10 +181,12 @@ public class UIPortalComponentActionListener {
           PortalDataMapper.toUIContainer(uiContainer, container);      
           uiSource = uiContainer;   
         } else {
-          UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
+//          UIPortletOptions uiPortletOptions = uiApp.findFirstComponentOfType(UIPortletOptions.class);
           org.exoplatform.application.registry.Application portlet = null;
-          if(uiPortletOptions != null) { portlet = uiPortletOptions.getPortlet(sourceId);}
-          else {portlet = uiApp.findFirstComponentOfType(UIApplicationList.class).getPortlet(sourceId);}
+//          if(uiPortletOptions != null) { portlet = uiPortletOptions.getPortlet(sourceId);}
+//          else {
+          	portlet = uiApp.findFirstComponentOfType(UIApplicationList.class).getPortlet(sourceId);
+//          }
           UIPortlet uiPortlet =  uiTarget.createUIComponent(UIPortlet.class, null, null);
           if(portlet.getDisplayName() != null) {
             uiPortlet.setTitle(portlet.getDisplayName());
