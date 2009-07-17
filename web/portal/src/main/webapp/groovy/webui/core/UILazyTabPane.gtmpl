@@ -1,0 +1,48 @@
+<%
+  def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIHorizontalTabs');
+	
+%>
+
+<div class="UITabPane" id="$uicomponent.id">
+  <div class="UIHorizontalTabs">
+    <div class="TabsContainer">
+      <%
+      	String url = uicomponent.url("SelectTab") ;
+      	String selTabId = uicomponent.getSelectedTabId() ;
+        for(uiChild in uicomponent.getChildren()) {
+          if(!uiChild.isRendered()) continue ; 
+          String style = "NormalTab" ;
+          String tabId = uiChild.getId();
+          if(tabId.equals(selTabId)) style="SelectedTab" ;
+      %>
+        <div class="UITab GrayTabStyle">
+          <div class="$style">
+            <div class="LeftTab">
+              <div class="RightTab">          
+                <div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '$tabId', '$url');if (!eXo.webui.UIHorizontalTabs.checkContentAvailable('<%=uiChild.getId()%>')){<%=uicomponent.event("SelectTab",uiChild.getId())%>};">
+                <%=_ctx.appRes("UITabPane.title." + uiChild.getId());%></div>
+              </div>
+            </div>
+          </div>
+        </div>              
+      <%}%>
+    </div>
+  </div>
+  <div class="UITabContentContainer GrayTabContainer">
+    <%
+      for(uiChild in uicomponent.getChildren()) {
+      	uiChildId = uiChild.getId();
+        String display = "none" ;
+        if(uiChild.getId().equals(selTabId)) display="block" ;
+        println "<div class=\"UITabContent\" style=\"display: $display;overflow:auto;\">" ;
+        if(uiChild.getId().equals(selTabId)) {
+        	uicomponent.renderUIComponent(uiChild) ;
+        } else {
+        	println "<div id=\"$uiChildId\"></div>"
+        }
+        println "</div>" ;
+      }
+    %>
+  </div>  
+</div>  

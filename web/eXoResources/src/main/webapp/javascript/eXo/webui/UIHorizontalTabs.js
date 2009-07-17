@@ -98,6 +98,16 @@ UIHorizontalTabs.prototype.changeTabForUITabPane = function(clickedEle, tabId, u
 
 };
 
+UIHorizontalTabs.prototype.checkContentAvailable = function(id) {
+	var tabContent = document.getElementById(id);
+	var textTrimmed = tabContent.innerHTML.replace(/\n/g, '')
+	if (textTrimmed == '') {
+		return false;
+	}
+	tabContent.style.display = 'block';
+	return true;
+};
+	
 /**
  * 
  */
