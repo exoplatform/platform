@@ -28,11 +28,11 @@ import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.page.UIPageSelector;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
@@ -54,14 +54,14 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
  * Jun 14, 2006
  */
 @ComponentConfig(  
-    lifecycle = UIFormLifecycle.class,
-    template = "system:/groovy/webui/form/UIFormTabPane.gtmpl" ,    
-    events = {
-      @EventConfig(listeners = UIPageNodeForm2.SaveActionListener.class ),
-      @EventConfig(listeners = UIPageNodeForm2.BackActionListener.class, phase = Phase.DECODE),
-      @EventConfig(listeners = UIPageNodeForm2.SwitchPublicationDateActionListener.class, phase = Phase.DECODE ),
-      @EventConfig(listeners = UIPageNodeForm2.ClearPageActionListener.class, phase = Phase.DECODE)
-    }
+                 lifecycle = UIFormLifecycle.class,
+                 template = "system:/groovy/webui/form/UIFormTabPane.gtmpl" ,    
+                 events = {
+                   @EventConfig(listeners = UIPageNodeForm2.SaveActionListener.class ),
+                   @EventConfig(listeners = UIPageNodeForm2.BackActionListener.class, phase = Phase.DECODE),
+                   @EventConfig(listeners = UIPageNodeForm2.SwitchPublicationDateActionListener.class, phase = Phase.DECODE ),
+                   @EventConfig(listeners = UIPageNodeForm2.ClearPageActionListener.class, phase = Phase.DECODE)
+                 }
 )
 public class UIPageNodeForm2 extends UIFormTabPane {
 
@@ -73,7 +73,7 @@ public class UIPageNodeForm2 extends UIFormTabPane {
 
   public UIPageNodeForm2() throws Exception {
     super("UIPageNodeForm") ;
-    
+
     UIFormInputSet uiSettingSet = new UIFormInputSet("PageNodeSetting") ;
     UIFormCheckBoxInput<Boolean> uiDateInputCheck = new UIFormCheckBoxInput<Boolean>(SHOW_PUBLICATION_DATE, SHOW_PUBLICATION_DATE, false) ;
     uiDateInputCheck.setOnChange("SwitchPublicationDate") ;
@@ -82,14 +82,14 @@ public class UIPageNodeForm2 extends UIFormTabPane {
                    addValidator(MandatoryValidator.class).
                    addValidator(StringLengthValidator.class, 3, 30).
                    addValidator(IdentifierValidator.class)).
-    addUIFormInput(new UIFormStringInput("label", "label", null).
-                   addValidator(StringLengthValidator.class, 3, 120)).
-    addUIFormInput(new UIFormCheckBoxInput<Boolean>("visible", "visible", true).setChecked(true)).
-    addUIFormInput(uiDateInputCheck).
-    addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null).
-        addValidator(MandatoryValidator.class).addValidator(DateTimeValidator.class)).
-    addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null).
-        addValidator(MandatoryValidator.class).addValidator(DateTimeValidator.class)) ;
+                   addUIFormInput(new UIFormStringInput("label", "label", null).
+                                  addValidator(StringLengthValidator.class, 3, 120)).
+                                  addUIFormInput(new UIFormCheckBoxInput<Boolean>("visible", "visible", true).setChecked(true)).
+                                  addUIFormInput(uiDateInputCheck).
+                                  addUIFormInput(new UIFormDateTimeInput(START_PUBLICATION_DATE, null, null).
+                                                 addValidator(MandatoryValidator.class).addValidator(DateTimeValidator.class)).
+                                                 addUIFormInput(new UIFormDateTimeInput(END_PUBLICATION_DATE, null, null).
+                                                                addValidator(MandatoryValidator.class).addValidator(DateTimeValidator.class)) ;
     addUIFormInput(uiSettingSet);
     setSelectedTab(uiSettingSet.getId()) ;
 
@@ -115,7 +115,7 @@ public class UIPageNodeForm2 extends UIFormTabPane {
     getUIStringInput("name").setEditable(UIFormStringInput.DISABLE);    
     invokeGetBindingBean(pageNode_) ;
   }
-  
+
   public void invokeGetBindingBean(Object bean) throws Exception {
     super.invokeGetBindingBean(bean) ;
     PageNode pageNode = (PageNode)bean ;
@@ -135,7 +135,7 @@ public class UIPageNodeForm2 extends UIFormTabPane {
       getUIFormDateTimeInput(END_PUBLICATION_DATE).setCalendar(cal) ;
     } else getUIFormDateTimeInput(END_PUBLICATION_DATE).setValue(null) ;    
   }
-  
+
   public void invokeSetBindingBean(Object bean) throws Exception {
     super.invokeSetBindingBean(bean) ;
     PageNode node = (PageNode)bean ;
@@ -146,7 +146,7 @@ public class UIPageNodeForm2 extends UIFormTabPane {
     date = (cal != null) ? cal.getTime() : null ;
     node.setEndPublicationDate(date) ;
   }
-  
+
   public void setShowPublicationDate(boolean show) {
     getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).setChecked(show) ;
     getUIFormDateTimeInput(START_PUBLICATION_DATE).setRendered(show) ;
@@ -155,31 +155,30 @@ public class UIPageNodeForm2 extends UIFormTabPane {
 
   public Object getSelectedParent(){ return selectedParent; }  
   public void setSelectedParent(Object obj) { this.selectedParent = obj; }
-  
+
   public void processRender(WebuiRequestContext context) throws Exception {
     super.processRender(context);
-    
+
     UIPageSelector uiPageSelector = getChild(UIPageSelector.class);    
     if(uiPageSelector == null ) return ;  
     UIPopupWindow uiPopupWindowPage = uiPageSelector.getChild(UIPopupWindow.class);
     if(uiPopupWindowPage == null ) return;
     uiPopupWindowPage.processRender(context);
   }
-  
+
   static public class SaveActionListener extends BackActionListener {
     public void execute(Event<UIPageNodeForm2> event) throws Exception {
+      WebuiRequestContext ctx = event.getRequestContext();
       UIPageNodeForm2 uiPageNodeForm = event.getSource();
       PortalRequestContext pcontext = Util.getPortalRequestContext();
-     
+      UIApplication uiApp = ctx.getUIApplication();
       if(uiPageNodeForm.getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).isChecked()) {
         Calendar startCalendar = uiPageNodeForm.getUIFormDateTimeInput(UIWizardPageSetInfo.START_PUBLICATION_DATE).getCalendar();
         Date startDate = startCalendar.getTime();
         Calendar endCalendar = uiPageNodeForm.getUIFormDateTimeInput(UIWizardPageSetInfo.END_PUBLICATION_DATE).getCalendar();
         Date endDate = endCalendar.getTime();
         if(startDate.after(endDate)) {
-          UIPortalApplication uiPortalApp = uiPageNodeForm.getAncestorOfType(UIPortalApplication.class);
-          uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.startDateBeforeEndDate", null)) ;
-          pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
+          uiApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.startDateBeforeEndDate", null)) ;
           return;
         }
       }
@@ -197,16 +196,14 @@ public class UIPageNodeForm2 extends UIFormTabPane {
       String remoteUser = pcontext.getRemoteUser();
       Object selectedParent = uiPageNodeForm.getSelectedParent();
       PageNavigation pageNav = null;
-      
+
       if(selectedParent instanceof PageNavigation){
         pageNav = (PageNavigation)selectedParent;
         pageNav.setModifier(remoteUser);
         pageNode.setUri(pageNode.getName());
         if(!pageNav.getNodes().contains(pageNode)) {
           if(PageNavigationUtils.searchPageNodeByUri(pageNav, pageNode.getUri()) != null) {
-            UIPortalApplication uiPortalApp = uiPageNodeForm.getAncestorOfType(UIPortalApplication.class);
-            uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.SameName", null)) ;
-            pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+            uiApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.SameName", null)) ;
             return ;
           }
           pageNav.addNode(pageNode);
@@ -221,9 +218,7 @@ public class UIPageNodeForm2 extends UIFormTabPane {
         pageNode.setUri(parentNode.getUri()+"/"+pageNode.getName());
         if(!children.contains(pageNode)) {
           if(PageNavigationUtils.searchPageNodeByUri(parentNode, pageNode.getUri()) != null) {
-            UIPortalApplication uiPortalApp = uiPageNodeForm.getAncestorOfType(UIPortalApplication.class);
-            uiPortalApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.SameName", null)) ;
-            pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages()) ;
+            uiApp.addMessage(new ApplicationMessage("UIPageNodeForm.msg.SameName", null)) ;
             return ;
           }          
           children.add(pageNode);
@@ -232,7 +227,7 @@ public class UIPageNodeForm2 extends UIFormTabPane {
       super.execute(event);
     }
   }
-  
+
   static public class BackActionListener extends EventListener<UIPageNodeForm2> {
 
     public void execute(Event<UIPageNodeForm2> event) throws Exception {
@@ -252,9 +247,9 @@ public class UIPageNodeForm2 extends UIFormTabPane {
       uiNavigationPopup.setWindowSize(400, 400);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiNavigationPopup);
     }
-    
+
   }
-  
+
   static public class SwitchPublicationDateActionListener extends EventListener<UIPageNodeForm2> {
     public void execute(Event<UIPageNodeForm2> event) throws Exception {
       UIPageNodeForm2 uiForm = event.getSource() ;      
@@ -264,7 +259,7 @@ public class UIPageNodeForm2 extends UIFormTabPane {
       event.getRequestContext().addUIComponentToUpdateByAjax(uiForm) ;
     } 
   }  
-  
+
   static public class ClearPageActionListener extends EventListener<UIPageNodeForm2> {
     public void execute(Event<UIPageNodeForm2> event) throws Exception {
       UIPageNodeForm2 uiForm = event.getSource() ;

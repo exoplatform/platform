@@ -29,11 +29,7 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
-import org.exoplatform.portal.webui.navigation.UIPageManagement;
-import org.exoplatform.portal.webui.navigation.UIPageNodeForm;
-import org.exoplatform.portal.webui.navigation.UIPageNodeSelector;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.services.resources.LocaleConfig;
@@ -56,20 +52,20 @@ import org.exoplatform.webui.event.EventListener;
  * Copied by The eXo Platform SARL Author May 28, 2009 3:07:15 PM
  */
 @ComponentConfigs( {
-    @ComponentConfig(template = "app:/groovy/navigation/webui/component/UINavigationNodeSelector.gtmpl", events = { @EventConfig(listeners = UINavigationNodeSelector.ChangeNodeActionListener.class) }),
-    @ComponentConfig(id = "NavigationNodePopupMenu", type = UIRightClickPopupMenu.class, template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl", events = {
-        @EventConfig(listeners = UINavigationNodeSelector.AddNodeActionListener.class),
-        @EventConfig(listeners = UINavigationNodeSelector.EditPageNodeActionListener.class),
-        @EventConfig(listeners = UINavigationNodeSelector.EditSelectedNodeActionListener.class),
-        @EventConfig(listeners = UINavigationNodeSelector.CopyNodeActionListener.class),
-        @EventConfig(listeners = UINavigationNodeSelector.CutNodeActionListener.class),
-        @EventConfig(listeners = UINavigationNodeSelector.CloneNodeActionListener.class),
-        @EventConfig(listeners = UINavigationNodeSelector.PasteNodeActionListener.class),
-        @EventConfig(listeners = UINavigationNodeSelector.MoveUpActionListener.class),
-        @EventConfig(listeners = UINavigationNodeSelector.MoveDownActionListener.class),
-        @EventConfig(listeners = UINavigationNodeSelector.DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation") }),
+  @ComponentConfig(template = "app:/groovy/navigation/webui/component/UINavigationNodeSelector.gtmpl", events = { @EventConfig(listeners = UINavigationNodeSelector.ChangeNodeActionListener.class) }),
+  @ComponentConfig(id = "NavigationNodePopupMenu", type = UIRightClickPopupMenu.class, template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl", events = {
+    @EventConfig(listeners = UINavigationNodeSelector.AddNodeActionListener.class),
+    @EventConfig(listeners = UINavigationNodeSelector.EditPageNodeActionListener.class),
+    @EventConfig(listeners = UINavigationNodeSelector.EditSelectedNodeActionListener.class),
+    @EventConfig(listeners = UINavigationNodeSelector.CopyNodeActionListener.class),
+    @EventConfig(listeners = UINavigationNodeSelector.CutNodeActionListener.class),
+    @EventConfig(listeners = UINavigationNodeSelector.CloneNodeActionListener.class),
+    @EventConfig(listeners = UINavigationNodeSelector.PasteNodeActionListener.class),
+    @EventConfig(listeners = UINavigationNodeSelector.MoveUpActionListener.class),
+    @EventConfig(listeners = UINavigationNodeSelector.MoveDownActionListener.class),
+    @EventConfig(listeners = UINavigationNodeSelector.DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation") }),
     @ComponentConfig(id = "UINavigationNodeSelectorPopupMenu", type = UIRightClickPopupMenu.class, template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl", events = {}) })
-public class UINavigationNodeSelector extends UIContainer {
+    public class UINavigationNodeSelector extends UIContainer {
 
   private List<PageNavigation> navigations;
 
@@ -375,33 +371,33 @@ public class UINavigationNodeSelector extends UIContainer {
 
   static public class EditSelectedNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
+      WebuiRequestContext ctx = event.getRequestContext();
       UIRightClickPopupMenu popupMenu = event.getSource();
       UIGroupNavigationManagement uiGroupNavigation =
         popupMenu.getAncestorOfType(UIGroupNavigationManagement.class);
-      UIPortalApplication uiPortalApp = Util.getUIPortalApplication();      
-
+      UIApplication uiApp = ctx.getUIApplication();
       String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       PageNavigation selectedNav = uiGroupNavigation.getSelectedNavigation();
       Object obj = PageNavigationUtils.searchParentNode(selectedNav, uri);
       PageNode selectedNode = PageNavigationUtils.searchPageNodeByUri(selectedNav, uri);
       String pageId = selectedNode.getPageReference();
 
-      UserPortalConfigService service = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
+      UserPortalConfigService service = uiApp.getApplicationComponent(UserPortalConfigService.class);
       Page node = (pageId != null) ? service.getPage(pageId) : null ;
       if(node != null) {
-        UserACL userACL = uiPortalApp.getApplicationComponent(UserACL.class) ;
+        UserACL userACL = uiApp.getApplicationComponent(UserACL.class) ;
         if(!userACL.hasPermission(node)) {
-          uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.UserNotPermission", new String[]{pageId}, 1)) ;;
+          uiApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.UserNotPermission", new String[]{pageId}, 1)) ;;
           return;
         }
       } 
       UIPopupWindow uiManagementPopup = uiGroupNavigation.getChild(UIPopupWindow.class);
-      UIPageNodeForm2 uiNodeForm = uiPortalApp.createUIComponent(UIPageNodeForm2.class, null, null);
+      UIPageNodeForm2 uiNodeForm = uiApp.createUIComponent(UIPageNodeForm2.class, null, null);
       uiManagementPopup.setUIComponent(uiNodeForm);
       uiNodeForm.setValues(selectedNode);
       uiNodeForm.setSelectedParent(obj);
       uiManagementPopup.setWindowSize(800, 500);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagementPopup);
+      ctx.addUIComponentToUpdateByAjax(uiManagementPopup);
     }
   }
 
@@ -409,7 +405,7 @@ public class UINavigationNodeSelector extends UIContainer {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
       String uri = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UINavigationNodeSelector uiNodeSelector = event.getSource()
-                                                     .getAncestorOfType(UINavigationNodeSelector.class);
+      .getAncestorOfType(UINavigationNodeSelector.class);
       UINavigationManagement uiManagement = uiNodeSelector.getParent();
       Class<?>[] childrenToRender = new Class<?>[] { UINavigationNodeSelector.class };
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);
@@ -433,7 +429,7 @@ public class UINavigationNodeSelector extends UIContainer {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
       super.execute(event);
       UINavigationNodeSelector uiNodeSelector = event.getSource()
-                                                     .getAncestorOfType(UINavigationNodeSelector.class);
+      .getAncestorOfType(UINavigationNodeSelector.class);
       if (uiNodeSelector.getCopyNode() == null)
         return;
       uiNodeSelector.getCopyNode().setDeleteNode(true);
@@ -441,11 +437,11 @@ public class UINavigationNodeSelector extends UIContainer {
   }
 
   static public class CloneNodeActionListener extends
-                                             UINavigationNodeSelector.CopyNodeActionListener {
+  UINavigationNodeSelector.CopyNodeActionListener {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
       super.execute(event);
       UINavigationNodeSelector uiNodeSelector = event.getSource()
-                                                     .getAncestorOfType(UINavigationNodeSelector.class);
+      .getAncestorOfType(UINavigationNodeSelector.class);
       uiNodeSelector.getCopyNode().setCloneNode(true);
     }
   }
@@ -575,7 +571,7 @@ public class UINavigationNodeSelector extends UIContainer {
     protected void moveNode(Event<UIRightClickPopupMenu> event, int i) {
       String uri = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       UINavigationNodeSelector uiNodeSelector = event.getSource()
-                                                     .getAncestorOfType(UINavigationNodeSelector.class);
+      .getAncestorOfType(UINavigationNodeSelector.class);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiNodeSelector.getParent());
       PageNavigation nav = uiNodeSelector.getSelectedNavigation();
       PageNode targetNode = PageNavigationUtils.searchPageNodeByUri(nav, uri);
@@ -609,7 +605,7 @@ public class UINavigationNodeSelector extends UIContainer {
       String uri = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
       UINavigationNodeSelector uiNodeSelector = event.getSource()
-                                                     .getAncestorOfType(UINavigationNodeSelector.class);
+      .getAncestorOfType(UINavigationNodeSelector.class);
       UINavigationManagement uiManagement = uiNodeSelector.getParent();
       Class<?>[] childrenToRender = new Class<?>[] { UINavigationNodeSelector.class };
       uiManagement.setRenderedChildrenOfTypes(childrenToRender);
@@ -624,7 +620,7 @@ public class UINavigationNodeSelector extends UIContainer {
         return;
 
       UIPortalApplication uiPortalApp = event.getSource()
-                                             .getAncestorOfType(UIPortalApplication.class);
+      .getAncestorOfType(UIPortalApplication.class);
       UIWorkingWorkspace uiWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       pcontext.setFullRender(true);
       pcontext.addUIComponentToUpdateByAjax(uiWorkspace);
