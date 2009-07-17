@@ -50,6 +50,7 @@ import org.exoplatform.webui.event.EventListener;
 public class UIGroupNavigationManagement extends UIContainer {
 
   private List<PageNavigation> navigations;
+  private PageNavigation selectedNavigation;
 
   public UIGroupNavigationManagement() throws Exception {
     UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, "EditGroupNavigation");
@@ -113,6 +114,14 @@ public class UIGroupNavigationManagement extends UIContainer {
     return navigation;
   }
 
+  public PageNavigation getSelectedNavigation() {
+    return selectedNavigation;
+  }
+
+  public void setSelectedNavigation(PageNavigation navigation) {
+    selectedNavigation = navigation;
+  }
+
   static public class EditNavigationActionListener extends EventListener<UIGroupNavigationManagement> {
     public void execute(Event<UIGroupNavigationManagement> event) throws Exception {
 
@@ -123,6 +132,7 @@ public class UIGroupNavigationManagement extends UIContainer {
       Integer navId = Integer.parseInt(id);
       // get PageNavigation by navigation id
       PageNavigation navigation = uicomp.getNavigationById(navId);
+      uicomp.setSelectedNavigation(navigation);
       WebuiRequestContext context = event.getRequestContext();
       UIApplication uiApplication = context.getUIApplication();
 
