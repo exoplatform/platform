@@ -59,7 +59,19 @@ UIVirtualList.prototype.updateList = function(generateId) {
   var appendFragment = children[1]; // append fragment
   var dataFeedId = uicomponent.getAttribute(this.componentMark);
   var dataFeed = DOMUtil.findDescendantById(appendFragment, dataFeedId);
-  dataFeed.innerHTML = storeFragment.getAttribute(this.storeMark) + dataFeed.innerHTML;  
+  var loadedContent = storeFragment.getAttribute(this.storeMark);
+  //storeFragment.setAttribute(this.storeMark, "");
+  
+  if (eXo.core.Browser.browserType != "ie") {
+  	dataFeed.innerHTML = loadedContent + dataFeed.innerHTML; 
+  } else {  	
+  	var virtualList = this.getUIComponent(dataFeed.id);
+  	var index = virtualList.innerHTML.indexOf(dataFeed.id);
+  	index = virtualList.innerHTML.indexOf(">", index) + 1;
+  	var firstSec = virtualList.innerHTML.substring(0, index);
+  	var secondSec = virtualList.innerHTML.substring(index);  	
+  	virtualList.innerHTML = firstSec + loadedContent + secondSec;
+  }
 }
 
 UIVirtualList.prototype.loadFinished = function(generateId) {  
