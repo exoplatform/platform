@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
@@ -30,8 +29,6 @@ import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -51,27 +48,40 @@ import org.exoplatform.webui.event.EventListener;
 /**
  * Copied by The eXo Platform SARL Author May 28, 2009 3:07:15 PM
  */
-@ComponentConfigs( {
-  @ComponentConfig(template = "app:/groovy/navigation/webui/component/UINavigationNodeSelector.gtmpl", events = { @EventConfig(listeners = UINavigationNodeSelector.ChangeNodeActionListener.class) }),
-  @ComponentConfig(id = "NavigationNodePopupMenu", type = UIRightClickPopupMenu.class, template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl", events = {
-    @EventConfig(listeners = UINavigationNodeSelector.AddNodeActionListener.class),
-    @EventConfig(listeners = UINavigationNodeSelector.EditPageNodeActionListener.class),
-    @EventConfig(listeners = UINavigationNodeSelector.EditSelectedNodeActionListener.class),
-    @EventConfig(listeners = UINavigationNodeSelector.CopyNodeActionListener.class),
-    @EventConfig(listeners = UINavigationNodeSelector.CutNodeActionListener.class),
-    @EventConfig(listeners = UINavigationNodeSelector.CloneNodeActionListener.class),
-    @EventConfig(listeners = UINavigationNodeSelector.PasteNodeActionListener.class),
-    @EventConfig(listeners = UINavigationNodeSelector.MoveUpActionListener.class),
-    @EventConfig(listeners = UINavigationNodeSelector.MoveDownActionListener.class),
-    @EventConfig(listeners = UINavigationNodeSelector.DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation") }),
-    @ComponentConfig(id = "UINavigationNodeSelectorPopupMenu", type = UIRightClickPopupMenu.class, template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl", events = {}) })
-    public class UINavigationNodeSelector extends UIContainer {
+@ComponentConfigs({
+  @ComponentConfig(
+                   template = "app:/groovy/navigation/webui/component/UINavigationNodeSelector.gtmpl",
+                   events = { 
+                       @EventConfig(listeners = UINavigationNodeSelector.ChangeNodeActionListener.class)
+                   }
+  ),
+  @ComponentConfig(
+                   id = "NavigationNodePopupMenu",
+                   type = UIRightClickPopupMenu.class,
+                   template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
+                   events = {
+                     @EventConfig(listeners = UINavigationNodeSelector.AddNodeActionListener.class),
+                     @EventConfig(listeners = UINavigationNodeSelector.EditPageNodeActionListener.class),
+                     @EventConfig(listeners = UINavigationNodeSelector.EditSelectedNodeActionListener.class),
+                     @EventConfig(listeners = UINavigationNodeSelector.CopyNodeActionListener.class),
+                     @EventConfig(listeners = UINavigationNodeSelector.CutNodeActionListener.class),
+                     @EventConfig(listeners = UINavigationNodeSelector.CloneNodeActionListener.class),
+                     @EventConfig(listeners = UINavigationNodeSelector.PasteNodeActionListener.class),
+                     @EventConfig(listeners = UINavigationNodeSelector.MoveUpActionListener.class),
+                     @EventConfig(listeners = UINavigationNodeSelector.MoveDownActionListener.class),
+                     @EventConfig(listeners = UINavigationNodeSelector.DeleteNodeActionListener.class, confirm = "UIPageNodeSelector.deleteNavigation") 
+                   }
+  ),
+  @ComponentConfig(
+                   id = "UINavigationNodeSelectorPopupMenu",
+                   type = UIRightClickPopupMenu.class,
+                   template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl",
+                   events = {}
+  ) 
+})
+public class UINavigationNodeSelector extends UIContainer {
 
   private List<PageNavigation> navigations;
-
-  public List<PageNavigation> getNavigations() {
-    return navigations;
-  }
 
   private SelectedNode         selectedNode;
 
@@ -95,6 +105,10 @@ import org.exoplatform.webui.event.EventListener;
     uiPopupMenu.setActions(new String[] { "AddNode", "EditPageNode", "EditSelectedNode",
         "CopyNode", "CloneNode", "CutNode", "DeleteNode", "MoveUp", "MoveDown" });
     uiTree.setUIRightClickPopupMenu(uiPopupMenu);
+  }
+
+  public List<PageNavigation> getNavigations() {
+    return navigations;
   }
 
   public void initNavigations(List<PageNavigation> navis) throws Exception {
@@ -295,8 +309,9 @@ import org.exoplatform.webui.event.EventListener;
 
       UINavigationNodeSelector uiNodeSelector = uiPopupMenu.getAncestorOfType(UINavigationNodeSelector.class);
       UIPopupWindow uiManagementPopup = uiNodeSelector.getAncestorOfType(UIPopupWindow.class);
-      UIPageNodeForm2 uiNodeForm = 
-        uiManagementPopup.createUIComponent(UIPageNodeForm2.class, null, null);
+      UIPageNodeForm2 uiNodeForm = uiManagementPopup.createUIComponent(UIPageNodeForm2.class,
+                                                                       null,
+                                                                       null);
       uiNodeForm.setValues(null);
       uiManagementPopup.setUIComponent(uiNodeForm);
 
@@ -309,7 +324,8 @@ import org.exoplatform.webui.event.EventListener;
             break;
         }
       }
-      if (parent == null) parent = uiNodeSelector.getSelectedNavigation();
+      if (parent == null)
+        parent = uiNodeSelector.getSelectedNavigation();
       uiNodeForm.setSelectedParent(parent);
       uiManagementPopup.setWindowSize(800, 500);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiManagementPopup);
@@ -373,24 +389,26 @@ import org.exoplatform.webui.event.EventListener;
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
       WebuiRequestContext ctx = event.getRequestContext();
       UIRightClickPopupMenu popupMenu = event.getSource();
-      UIGroupNavigationManagement uiGroupNavigation =
-        popupMenu.getAncestorOfType(UIGroupNavigationManagement.class);
+      UIGroupNavigationManagement uiGroupNavigation = popupMenu.getAncestorOfType(UIGroupNavigationManagement.class);
       UIApplication uiApp = ctx.getUIApplication();
-      String uri  = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      String uri = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       PageNavigation selectedNav = uiGroupNavigation.getSelectedNavigation();
       Object obj = PageNavigationUtils.searchParentNode(selectedNav, uri);
       PageNode selectedNode = PageNavigationUtils.searchPageNodeByUri(selectedNav, uri);
       String pageId = selectedNode.getPageReference();
 
       UserPortalConfigService service = uiApp.getApplicationComponent(UserPortalConfigService.class);
-      Page node = (pageId != null) ? service.getPage(pageId) : null ;
-      if(node != null) {
-        UserACL userACL = uiApp.getApplicationComponent(UserACL.class) ;
-        if(!userACL.hasPermission(node)) {
-          uiApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.UserNotPermission", new String[]{pageId}, 1)) ;;
+      Page node = (pageId != null) ? service.getPage(pageId) : null;
+      if (node != null) {
+        UserACL userACL = uiApp.getApplicationComponent(UserACL.class);
+        if (!userACL.hasPermission(node)) {
+          uiApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.UserNotPermission",
+                                                  new String[] { pageId },
+                                                  1));
+          ;
           return;
         }
-      } 
+      }
       UIPopupWindow uiManagementPopup = uiGroupNavigation.getChild(UIPopupWindow.class);
       UIPageNodeForm2 uiNodeForm = uiApp.createUIComponent(UIPageNodeForm2.class, null, null);
       uiManagementPopup.setUIComponent(uiNodeForm);
@@ -603,13 +621,10 @@ import org.exoplatform.webui.event.EventListener;
   static public class DeleteNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
       String uri = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
+      WebuiRequestContext pcontext = event.getRequestContext();
       UINavigationNodeSelector uiNodeSelector = event.getSource()
       .getAncestorOfType(UINavigationNodeSelector.class);
-      UINavigationManagement uiManagement = uiNodeSelector.getParent();
-      Class<?>[] childrenToRender = new Class<?>[] { UINavigationNodeSelector.class };
-      uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-      pcontext.addUIComponentToUpdateByAjax(uiManagement);
+      pcontext.addUIComponentToUpdateByAjax(uiNodeSelector);
 
       PageNavigation nav = uiNodeSelector.getSelectedNavigation();
       if (nav == null)
@@ -619,11 +634,6 @@ import org.exoplatform.webui.event.EventListener;
       if (pageNodes == null)
         return;
 
-      UIPortalApplication uiPortalApp = event.getSource()
-      .getAncestorOfType(UIPortalApplication.class);
-      UIWorkingWorkspace uiWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      pcontext.setFullRender(true);
-      pcontext.addUIComponentToUpdateByAjax(uiWorkspace);
       if (pageNodes[0] == null) {
         nav.getNodes().remove(pageNodes[1]);
         return;

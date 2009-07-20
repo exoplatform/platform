@@ -16,18 +16,34 @@
  */
 package org.exoplatform.navigation.webui.component;
 
+import java.util.List;
+
 import org.exoplatform.commons.utils.LazyPageList;
+import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
+import org.exoplatform.portal.config.UserPortalConfig;
+import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
+import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
+import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
+import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
-  template = "app:/groovy/navigation/webui/component/UINavigationManagement.gtmpl"
+  template = "app:/groovy/navigation/webui/component/UINavigationManagement.gtmpl",
+  events = {
+      @EventConfig(listeners = UINavigationManagement.SaveActionListener.class)
+  }
 )
 public class UINavigationManagement extends UIContainer {
   
@@ -61,5 +77,33 @@ public class UINavigationManagement extends UIContainer {
     UINavigationNodeSelector uiNodeSelector = getChild(UINavigationNodeSelector.class);
     UITree uiTree = uiNodeSelector.getChild(UITree.class);
     uiTree.createEvent("ChangeNode", event.getExecutionPhase(), event.getRequestContext()).broadcast();
+  }
+  
+  static public class SaveActionListener extends EventListener<UINavigationManagement> {
+
+    public void execute(Event<UINavigationManagement> event) throws Exception {
+      UINavigationManagement uiManagement = event.getSource();
+      UINavigationNodeSelector uiNodeSelector = uiManagement.getChild(UINavigationNodeSelector.class);
+      UserPortalConfigService portalConfigService = uiManagement.getApplicationComponent(UserPortalConfigService.class);
+      PageNavigation navigation = uiNodeSelector.getSelectedNavigation();
+      portalConfigService.update(navigation) ;
+      UIPortal uiPortal = Util.getUIPortal();
+      setNavigation(uiPortal.getNavigations(), navigation);
+      UIPopupWindow uiPopup = uiManagement.getParent();
+      uiPopup.setShow(false);
+      UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;      
+    }
+    
+    private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
+      for (int i = 0; i < navs.size(); i++) {
+        if (navs.get(i).getId() == nav.getId()) {
+          navs.set(i, nav);
+          return;
+        }
+      }
+    }
+    
   }
 }
