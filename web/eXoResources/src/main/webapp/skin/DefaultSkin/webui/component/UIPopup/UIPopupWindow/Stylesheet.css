@@ -259,7 +259,7 @@
 
 .UIPortalComposer .MRPortalComposer {
 	background: url(background/MiddlePortalComposer.gif) repeat-y right top;
-	padding-right: 2px;
+	padding-right: 3px;
 }
 
 .UIPortalComposer .MCPortalComposer {
@@ -268,18 +268,20 @@
 }
 
 .UIPortalComposer .BLPortalComposer {
-	background: url(background/PortalComposer.gif) no-repeat left -58px;
-	padding-left: 2px;
+	padding-left: lpx;
+	border-left: 1px solid #85aece;
+	border-right: 1px solid #85aece;
+	border-bottom: 1px solid #85aece;
+	padding-bottom: 1px;
 }
 
 .UIPortalComposer .BRPortalComposer {
-	background: url(background/PortalComposer.gif) no-repeat right -58px;
 	padding-right: 2px;
 }
 
 .UIPortalComposer .BCPortalComposer {
-	background: url(background/PortalComposer.gif) repeat-x left -60px;
-	height: 2px;
+	background: #fff url(background/CenterMiddleWindow.gif) repeat;
+
 }
 
 .UIPortalComposer .UIWindowContent	{

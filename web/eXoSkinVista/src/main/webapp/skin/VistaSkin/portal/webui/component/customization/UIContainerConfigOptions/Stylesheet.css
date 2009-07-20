@@ -56,94 +56,86 @@
   overflow:auto;
   padding:1px;
   background:#ffffff;
+  border: 1px solid #96D9F9;
 }
 
 .UIContainerConfigOptions .OneRowContainerLayout {
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+  margin-top: 10px;
   cursor: move ;
-  background:url('background/ContainerConfigOptions.png') no-repeat top;
+  background:url('background/ContainerConfigOptions.png') no-repeat top left;
 }
 
 .UIContainerConfigOptions .TwoRowContainerLayout {
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+	margin: 10px 0 0 10px;
   cursor: move;
-  background:url('background/ContainerConfigOptions.png') no-repeat center -56px;
+  background:url('background/ContainerConfigOptions.png') no-repeat left -56px;
 }
 
 .UIContainerConfigOptions .ThreeRowContainerLayout {
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+	margin: 10px;
   cursor: move;
-  background:url('background/ContainerConfigOptions.png') no-repeat center -112px;
+  background:url('background/ContainerConfigOptions.png') no-repeat left -112px;
 }
 
 .UIContainerConfigOptions .TwoColumnContainerLayout {
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+	margin: 10px;
   cursor: move;
-  background:url('background/ContainerConfigOptions.png') no-repeat center -168px;
+  background:url('background/ContainerConfigOptions.png') no-repeat left -168px;
 }
 
 .UIContainerConfigOptions .ThreeColumnContainerLayout {
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+	margin: 10px;
   cursor: move;
-  background:url('background/ContainerConfigOptions.png') no-repeat center -224px;
+  background:url('background/ContainerConfigOptions.png') no-repeat left -224px;
 }
 
 .UIContainerConfigOptions .TwoTabContainerLayout {
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+	margin: 10px 0 0 10px;
   cursor: move;
-  background:url('background/ContainerConfigOptions.png') no-repeat center -280px;
+  background:url('background/ContainerConfigOptions.png') no-repeat left -280px;
 }
 
 .UIContainerConfigOptions .ThreeTabContainerLayout {
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+	margin: 10px;
   cursor: move;
-  background:url('background/ContainerConfigOptions.png') no-repeat center -336px;
+  background:url('background/ContainerConfigOptions.png') no-repeat left -336px;
 }
 
 .UIContainerConfigOptions .TwoColumnOneRowContainerLayout {
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+	margin: 10px;
   cursor: move;
-  background:url('background/ContainerConfigOptions.png') no-repeat center -392px;
+  background:url('background/ContainerConfigOptions.png') no-repeat left -392px;
 }
 
 .UIContainerConfigOptions .OneRowTwoColumnContainerLayout {
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+	margin: 10px 0 0 10px;
   cursor: move;
-  background:url('background/ContainerConfigOptions.png') no-repeat center -448px;
+  background:url('background/ContainerConfigOptions.png') no-repeat left -448px;
 }
 
 .UIContainerConfigOptions .OneRow2Column1RowContainerLayout {
+  background:url('background/ContainerConfigOptions.png') no-repeat bottom left;
   width: 105px;
 	height: 56px;
-  margin: auto;
-	margin-top: 10px;
+	margin: 10px;
   cursor: move;
-  background:url('background/ContainerConfigOptions.png') no-repeat bottom;
 }
+

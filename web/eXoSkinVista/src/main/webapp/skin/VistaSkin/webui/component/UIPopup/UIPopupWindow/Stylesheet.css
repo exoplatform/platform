@@ -1,15 +1,64 @@
 .UIPopupWindow {
   position: absolute;
   visibility: hidden;
+ 	border: 1px solid #000;
 }
 
 .UIPopupWindow .PopupTitleIcon {
   float: left; /* orientation=lt */
   float: right; /* orientation=rt */
-  margin: 9px 0px 0px 3px; /* orientation=lt */
-  margin: 9px 3px 0px 0px; /* orientation=rt */
+  margin: 2px;
+  margin: 2px;
   width: 16px; height: 16px;
   background: url('background/PopupWindowIcon.gif') no-repeat left -21px;
+}
+
+.UIPopupWindow .UIVerticalSlideTabs .VTabStyle4 .UIVTabContent .LableContent {
+	font-size: 12px;
+	padding:0 0 0px 120px;
+}
+
+.UIPopupWindow .VTabStyle4 {
+	cursor: pointer;
+}
+
+.UIPopupWindow .UIVTabContent {
+	border: 1px solid #96D9F9;
+}
+
+.UIPopupWindow .UIContainerConfigOptions {
+	background: none;
+	padding: 0px;
+}
+
+.UIPopupWindow .UIContainerConfigOptions .OneRowContainerLayout {
+	margin: 10px;
+}
+
+.UIPopupWindow .TLPortalComposer {
+  background: url('background/TopBg.gif') repeat-x;	
+  height: 31px;
+}
+
+.UIPopupWindow .BCPortalComposer {
+  background: url('background/BottomBg.gif') repeat-x;	
+  height: 54px;
+}
+
+.UIPopupWindow .ActionButton .ButtonLeft{
+	background: url('background/ActionLT.gif') no-repeat left;	
+  padding-left: 4px;
+}
+
+.UIPopupWindow .ActionButton .ButtonRight{
+	background: url('background/ActionRT.gif') no-repeat right;	
+  padding-right: 4px;
+}
+
+.UIPopupWindow .ActionButton .ButtonMiddle{
+	background: url('background/ActionCt.gif') repeat-x;	
+  line-height: 24px;
+  padding: 0px 4px;
 }
 
 .UIPopupWindow .PopupTitleIconRight {
@@ -23,19 +72,90 @@
 
 .UIPopupWindow .PopupTitle {
   margin-top: 6px; 
-  text-align: center;
+  font-family: Arial;
   font-weight: bold; 
-  line-height: 20px; vertical-align: middle;
+  font-size: 12px;
+  line-height: 10px; vertical-align: middle;
   cursor: move;
+  margin-left: 25px;
 }
 
 .UIPopupWindow .CloseButton {
   float: right; /* orientation=lt */
   float: left; /* orientation=rt */
-  margin-top: 4px;
   cursor: pointer;
   width: 35px; height: 21px;
   background: url('background/PopupWindowIcon.gif') no-repeat top;
+}
+
+.UIPopupWindow .SelectedTab .LeftTab {
+	background: url('background/SelectedLT.gif') left no-repeat;
+	padding-left: 7px;
+}
+
+.UIPopupWindow .SelectedTab .RightTab {
+	background: url('background/SelectedRT.gif') right no-repeat;
+	padding-right: 4px;
+}
+
+.UIPopupWindow .SelectedTab .MiddleTab {
+	background: url('background/SelectedCT.gif') repeat-x;
+	height: 27px;
+	line-height: 27px;
+	padding: 0px 15px;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+/*Normal Tab*/
+
+.UIPopupWindow .NormalTab .LeftTab {
+	background: url('background/NormalLT.gif') left no-repeat;
+	padding-left: 3px;
+}
+
+.UIPopupWindow .NormalTab .RightTab {
+	background: url('background/NormalRT.gif') right no-repeat;
+	padding-right: 4px;
+}
+
+.UIPopupWindow .NormalTab .MiddleTab {
+	background: url('background/NormalCT.gif') repeat-x;
+	height: 27px;
+	line-height: 27px;
+	padding: 0px 15px;
+	font-weight: bold;
+	font-family: Arial;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+.UIPopupWindow .UIAction .PageProfileIcon {
+	background: url('background/PortalProperties.gif') no-repeat left 4px;
+	padding-left: 20px;
+}
+
+.UIPopupWindow .UIAction .ViewAsBlockIcon {
+	background: url('background/ChangeViewMode.gif') no-repeat left 4px;
+	padding-left: 20px;
+}
+
+.UIPopupWindow .VTabContentBG img {
+	float: left;
+}
+
+.UIPopupWindow .SaveButton {
+	background: url('background/SaveBtn.gif') no-repeat;
+	width: 30px;
+	height: 19px;
+	float: right;
+
+}
+
+.UIPopupWindow .UIVTab .NormalTab .TabLabel {
+	font-weight: bold;
 }
 
 .UIPopupWindow .TopLeftCornerDecorator {
@@ -69,13 +189,20 @@
 }
 
 .UIPopupWindow .UIWindowContent {
-  border: solid 1px #ffffff;
-}
+ }
 
 .UIPopupWindow .PopupContent {
   width: 100%;
-  background: white;
+  background: #e3eefb;
   overflow: auto;
+}
+
+.UIPopupWindow .UIVerticalSlideTabs {
+	background: #fff;
+}
+
+.UIPopupWindow .TabsContainer {
+	background: url('background/HeaderBg.gif') repeat-x;
 }
 
 .UIPopupWindow .Content .UIPopupMessages {
@@ -83,10 +210,11 @@
 }
 
 .UIPopupWindow .ResizeButton {
-  width: 9px; height:9px; 
-  display: none;
+  width: 16px; 
+  height:16px; 
+  display: block;
   float: right;
-  margin-top: 2px;
+  margin-right: 4px;
   background: url('background/PopupWindowIcon.gif') no-repeat left -37px;
   cursor: nw-resize;
 }
@@ -276,11 +404,49 @@
 	padding: 0px;
 }
 
+.UIPopupWindow .VTabStyle4 .SelectedTab {
+	background:	 url('background/SelectedTitle.gif') repeat-x; 
+	border: 1px solid #96d9f9;
+	line-height: 22px;
+	padding-left: 5px;
+	font-weight: bold;
+}
+
+.UIPopupWindow .VTabStyle4 .NormalTab {
+	background:	 url('background/NormalTitle.gif') repeat-x; 
+	border: 1px solid #bbbbbb;
+	line-height: 22px;
+	margin: 2px 0px;
+	padding-left: 5px;
+}
+
+.UIPopupWindow .VTabStyle4 .ContentInfo {
+	padding-top: 10px;
+	padding-left: 100px;
+}
+
+.UIPopupWindow .VTabStyle4 .ContentInfo .LabelTab {
+	color: #009bec;
+	font-weight: bold;
+}
+
 .UIPopupWindow .ExoMessageDecorator .UIPopupMessages .UITabContentContainer {
 	border: none;
 	background: none;
 }
 
+.UIPopupWindow .UITabContent {
+	background: #e3eefb;
+}
+
+.UIPopupWindow .GrayTabContainer {
+	border: none;
+ }
+ 
+.UIPopupWindow .UITabContent {
+	padding: 0px 5px;
+}
+ 
 .UIPopupWindow .ExoMessageDecorator .UIPopupMessages .PopupMessageBox {
 	height: 185px;
 }
