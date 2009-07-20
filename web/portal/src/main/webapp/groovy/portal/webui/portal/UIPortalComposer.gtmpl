@@ -26,40 +26,7 @@
 					<div style="width: 100%;">
 						<div class="PopupContent" style="height: 500px">
 							<div class="Component"><% uicomponent.renderChildren(); %></div>
-							<div class="UIAction"> 
-								<table class="ActionContainer">
-									<tr>
-										<td>
-											
-											<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton SimpleStyle1">
-												<div class="ButtonLeft">
-													<div class="ButtonRight">
-														<div class="ButtonMiddle">
-															<div class="PageProfileIcon">
-																<a href="javascript:void(0);"><%=_ctx.appRes("UIPortalComposer.action.ViewProperties")%></a>
-															</div>
-														</div>
-													</div>
-												</div>
-									 		</div>
-						
-											<% String changeEditMode = uicomponent.doAsync("ChangePortalEditMode", null, null); %>
-											<div onclick="eXo.portal.UIPortal.switchPortalMode(this);$changeEditMode" class="ActionButton SimpleStyle1" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
-												<div class="ButtonLeft">
-													<div class="ButtonRight">
-														<div class="ButtonMiddle">
-															<div class="ViewAsBlockIcon">
-																<a href="javascript:void(0);"><%=_ctx.appRes("UIPortalComposer.action.SwitchMode")%></a>
-															</div>
-														</div>
-													</div>
-												</div>
-									 		</div>
-						
-										</td>
-									</tr>	
-								</table>
-							</div>
+							
 						</div>
 					</div>
 
@@ -70,6 +37,40 @@
 	<div class="BLPortalComposer">
 		<div class="BRPortalComposer">
 			<div class="BCPortalComposer">
+				<div class="UIAction"> 
+					<table class="ActionContainer">
+						<tr>
+							<td>
+								
+								<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton SimpleStyle1">
+									<div class="ButtonLeft">
+										<div class="ButtonRight">
+											<div class="ButtonMiddle">
+												<div class="PageProfileIcon">
+													<a href="javascript:void(0);"><%=_ctx.appRes("UIPortalComposer.action.ViewProperties")%></a>
+												</div>
+											</div>
+										</div>
+									</div>
+						 		</div>
+			
+								<% String changeEditMode = uicomponent.doAsync("ChangePortalEditMode", null, null); %>
+								<div onclick="eXo.portal.UIPortal.switchPortalMode(this);$changeEditMode" class="ActionButton SimpleStyle1" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+									<div class="ButtonLeft">
+										<div class="ButtonRight">
+											<div class="ButtonMiddle">
+												<div class="ViewAsBlockIcon">
+													<a href="javascript:void(0);"><%=_ctx.appRes("UIPortalComposer.action.SwitchMode")%></a>
+												</div>
+											</div>
+										</div>
+									</div>
+						 		</div>
+			
+							</td>
+						</tr>	
+					</table>
+				</div>
 				<div class="ResizeButton"><span></span></div>
 			</div>
 		</div>

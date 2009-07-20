@@ -80,10 +80,12 @@
 }
 
 .UIPopupWindow .ResizeButton {
-	display: none;
-	width: 18px; height:3px; 
-	float: right;
-	margin-right: 2px;
+  background: url('background/ResizeBtn.png') no-repeat;
+  width: 10px; 
+  height:10px; 
+  display: block;
+  float: right;
+  margin-right: 3px;
 	cursor: nw-resize;
 }
 
@@ -281,7 +283,7 @@
 
 .UIPortalComposer .BCPortalComposer {
 	background: #fff url(background/CenterMiddleWindow.gif) repeat;
-
+	height: 50px;
 }
 
 .UIPortalComposer .UIWindowContent	{
