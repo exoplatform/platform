@@ -45,7 +45,7 @@
 				
 				<div class="EDITION-BLOCK EDITION-CONTAINER" style="display: none;">
 					<div style="position: relative;">
-						<div style="position: absolute; height: 86px; top: -86px;">
+						<div style="position: absolute; top: -86px;">
 							<div class="NewLayer" style="display: none; visibility: hidden;"><span></span></div>
 							<div class="CONTROL-CONTAINER CONTROL-BLOCK" style="position: absolute; top: -6px;">
 								<%/*Begin InfoBar*/%>

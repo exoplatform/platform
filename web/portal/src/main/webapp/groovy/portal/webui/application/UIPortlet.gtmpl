@@ -290,7 +290,7 @@
 					
 					<div class="EDITION-BLOCK EDITION-PORTLET" style="display: none;">
 						<div style="position: relative;">
-							<div style="position: absolute; height: 86px; top: -86px;">
+							<div style="position: absolute; top: -86px;">
 								<div class="NewLayer"><span></span></div>
 								<div class="CONTROL-PORTLET CONTROL-BLOCK" style="position: absolute; top: -6px;">
 								 	<%/*Begin InfoBar*/%>
