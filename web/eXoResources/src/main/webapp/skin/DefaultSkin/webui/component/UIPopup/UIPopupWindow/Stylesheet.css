@@ -54,7 +54,7 @@
 
 .UIPopupWindow .MiddleLeftSideDecorator {
 	background: url('background/MiddlePopupWindow.gif') repeat-y left;
-	padding-left: 3px ;	
+	padding-left: 3px;	
 }
 
 .UIPopupWindow .MiddleCenterDecorator {
@@ -100,7 +100,7 @@
 
 .UIPopupWindow .BottomRightCornerDecorator {
 	background: url('background/PopupWindow.gif') no-repeat right -26px;
-	padding-right: 3px ;	
+	padding-right: 3px;	
 }
 
 .UIPopupWindow .Content .UIPageBrowser {
@@ -110,6 +110,7 @@
 }
 
 /***************************Begin PoupWindow ExoMessage**********************************/
+
 .UIPopupWindow .ExoMessageDecorator {
 	background: white;
 	padding: 2px;
@@ -170,11 +171,11 @@
 }
 
 .UIPopupWindow .ExoMessageDecorator	.UIWindowContent {
-	padding: 0px; margin:0px;
+	padding: 0px; margin: 0px;
 }
 
 .UIPopupWindow .ExoMessageDecorator	.UIWindowContent .Content {
-	padding: 0px; margin:0px;
+	padding: 0px; margin: 0px;
 	border: none;
 }
 
@@ -205,49 +206,49 @@
 }
 
 .UIPortalComposer .TLPortalComposer {
-	background:transparent url(background/PortalComposer.gif) no-repeat left top;
-	padding-left:3px;
+	background: transparent url(background/PortalComposer.gif) no-repeat left top;
+	padding-left: 3px;
 }
 
 .UIPortalComposer .TRPortalComposer {
-	background:transparent url(background/PortalComposer.gif) no-repeat right top;
-	padding-right:3px;
+	background: transparent url(background/PortalComposer.gif) no-repeat right top;
+	padding-right: 3px;
 }
 
 .UIPortalComposer .TCPortalComposer {
-	background:transparent url(background/PortalComposer.gif) repeat-x left -29px;
-	height:29px;
+	background: transparent url(background/PortalComposer.gif) repeat-x left -29px;
+	height: 29px;
 }
 
 .UIPortalComposer .PopupTitleIcon {
-	background:transparent url(background/GrayDownIcon.gif) no-repeat left;
+	background: transparent url(background/GrayDownIcon.gif) no-repeat left;
 }
 
 .UIPortalComposer .CloseButton {
-	background:transparent url(background/CloseIcon.gif) no-repeat scroll right bottom;
+	background: transparent url(background/CloseIcon.gif) no-repeat scroll right bottom;
 }
 
 .UIPortalComposer .SaveButton {
-	background:transparent url(background/SaveIcon.gif) no-repeat scroll right bottom;
-	cursor:pointer;
-	float:right;
-	height:15px;
-	margin:5px 3px 0 0;
-	width:19px;
+	background: transparent url(background/SaveIcon.gif) no-repeat scroll right bottom;
+	cursor: pointer;
+	float: right;
+	height: 15px;
+	margin: 5px 3px 0 0;
+	width: 19px;
 }
 
 .UIPortalComposer .UnSaveButton {
-	background:transparent url(background/UnSaveIcon.gif) no-repeat scroll right bottom;
-	cursor:pointer;
-	float:right;
-	height:15px;
-	margin:5px 3px 0 0;
-	width:19px;
+	background: transparent url(background/UnSaveIcon.gif) no-repeat scroll right bottom;
+	cursor: pointer;
+	float: right;
+	height: 15px;
+	margin: 5px 3px 0 0;
+	width: 19px;
 }
 
 .UIPortalComposer .PopupTitle {
-	background:none ;
-	margin:4px 42px 0px 26px;
+	background: none;
+	margin: 4px 42px 0px 26px;
 	text-align: left;
 }
 
@@ -262,7 +263,7 @@
 }
 
 .UIPortalComposer .MCPortalComposer {
-	background: url(background/CenterMiddleWindow.gif) repeat ;
+	background: url(background/CenterMiddleWindow.gif) repeat;
 	padding: 3px;
 }
 
@@ -281,12 +282,12 @@
 	height: 2px;
 }
 
-.UIPortalComposer .UIWindowContent  {
-	border: none ;
+.UIPortalComposer .UIWindowContent	{
+	border: none;
 }
 
 .UIPortalComposer .PopupContent {
-	background: none ;
+	background: none;
 	overflow: hidden;
 }
 
@@ -299,15 +300,15 @@
 }
 
 .UIPortalComposer .UIHorizontalTabs .TabsContainer {
-	background: url(background/CenterHorizontalTabs.gif) repeat-x ;
+	background: url(background/CenterHorizontalTabs.gif) repeat-x;
 	height: 26px;
 	padding: 0px 2px;
 }
 
 .UIPortalComposer .UITabPane .UITabContentContainer {
 	background: #efefef;
-	height:360px;
-	overflow:auto;
+	height: 360px;
+	overflow: auto;
 }
 
 .UIPortalComposer .UITabPane .UITabContentContainer .UITabContent {

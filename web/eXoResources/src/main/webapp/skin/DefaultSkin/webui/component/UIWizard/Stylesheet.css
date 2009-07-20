@@ -1,62 +1,65 @@
 /**
  * Created by The eXo Platform SAS
- * Modifile : Vu Duy Tu
+ * Modifile: Vu Duy Tu
  *           duytucntt@gmail.com
  * December 14, 2006
  * version: $Id$
  */
+ 
 /*#######################################-----UIWizard-----##################################*/
+	
 .UIWizard {
 	width: 98.9%;
 	margin: auto;
 }
 
 /*========================== Wizard Content ==============================*/
+
 .UIWizard .UIWizardContent { 
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar {
-  height: 29px;
-  background: url('background/WizardStepBar.gif') repeat-x top;
-  border: solid 1px #aeaeae; border-bottom: none;
+	height: 29px;
+	background: url('background/WizardStepBar.gif') repeat-x top;
+	border: solid 1px #aeaeae; border-bottom: none;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardIcon {
-  float:left;/* orientation=lt */
-  float:right;/* orientation=rt */
-  width: 25px; height: 28px; 
-  background: url('background/WizardIcon.gif') no-repeat left bottom;
-  margin: 0px 8px 0px 10px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 25px; height: 28px; 
+	background: url('background/WizardIcon.gif') no-repeat left bottom;
+	margin: 0px 8px 0px 10px;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .WizardTitle {
-  float:left;/* orientation=lt */
-  float:right;/* orientation=rt */
-  height: 28px; line-height: 28px;  
-  font-weight: bold;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 28px; line-height: 28px;	
+	font-weight: bold;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .HelpIcon {
-  float: right;/* orientation=lt */
-  float: left;/* orientation=rt */
-  width: 28px; height: 28px;
-  background:  url('background/WizardIcon.gif') no-repeat top;
-  margin-right: 10px;/* orientation=lt */
-  margin-left: 10px;/* orientation=rt */
-  cursor: pointer;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	width: 28px; height: 28px;
+	background:	url('background/WizardIcon.gif') no-repeat top;
+	margin-right: 10px; /* orientation=lt */
+	margin-left: 10px; /* orientation=rt */
+	cursor: pointer;
 }
 
 .UIWizard .UIWizardContent .WizardStepTitleBar .StepTitle {
-  float:left;/* orientation=lt */
-  float:right;/* orientation=rt */
-  height: 28px; line-height: 28px; 
-  padding-left: 10px;/* orientation=lt */
-  padding-right: 10px;/* orientation=rt */
-  color: #0683f7;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 28px; line-height: 28px; 
+	padding-left: 10px; /* orientation=lt */
+	padding-right: 10px; /* orientation=rt */
+	color: #0683f7;
 }
 
 .UIWizard .UIWizardContent .WizardStepContent {
-  border: solid 1px #aeaeae; border-bottom: none;
+	border: solid 1px #aeaeae; border-bottom: none;
 }
 
 .UIWizard .UIWizardContent .WizardStepContent .UIWizardPageSetInfo {
@@ -64,53 +67,53 @@
 }
 
 .UIWizard .UIWizardContent .WizardControlBar {
-  height: 34px;
-  border: solid 1px #b7b7b7;
-  background: url('background/WizardStepBar.gif') repeat-x bottom;
+	height: 34px;
+	border: solid 1px #b7b7b7;
+	background: url('background/WizardStepBar.gif') repeat-x bottom;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar {
-  float:left;/* orientation=lt */
-  float:right;/* orientation=rt */
-  height: 34px; 
-  line-height: 34px;
-  width: 49%;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 34px; 
+	line-height: 34px;
+	width: 49%;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a{
-  float:left;/* orientation=lt */
-  float:right;/* orientation=rt */
-  width: 18px; height: 18px; 
-  line-height: 18px; 
-  font-weight: bold;
-  text-align: center;
-  margin: 7px 3px 0px 3px;
-  border: solid 1px gray;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 18px; height: 18px; 
+	line-height: 18px; 
+	font-weight: bold;
+	text-align: center;
+	margin: 7px 3px 0px 3px;
+	border: solid 1px gray;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a:hover {
-  height: 18px; line-height: 18px;
-  color: orange;
-  background: #f8f8f8;
-  border: solid 1px #fdb913;
+	height: 18px; line-height: 18px;
+	color: orange;
+	background: #f8f8f8;
+	border: solid 1px #fdb913;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationBar a.SelectedStep {
-  color: red;
+	color: red;
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .StepNavigationTitle {
-  float:left;/* orientation=lt */
-  float:right;/* orientation=rt */
-  height: 33px; line-height: 33px;
-  font-weight: bold;
-  margin: 0px 10px 0px 15px;/* orientation=lt */
-  margin: 0px 15px 0px 10px;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 33px; line-height: 33px;
+	font-weight: bold;
+	margin: 0px 10px 0px 15px; /* orientation=lt */
+	margin: 0px 15px 0px 10px; /* orientation=rt */
 }
 
 .UIWizard .UIWizardContent .WizardControlBar .OverflowContainer {
-  height: 34px;
-  overflow: visible;
+	height: 34px;
+	overflow: visible;
 }
 
 .UIWizard .UIWizardContent .UIDropDownControl {
@@ -123,22 +126,22 @@
 }
 
 /*========================== End Wizard Content ==============================*/
-
 /*========================== Start ActionBar ==============================*/
+
 .UIWizard .UIWizardContent .WizardControlBar .ActionBar {
 	width: 50%;
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	padding-right: 7px;/* orientation=lt */
-	padding-left: 7px;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	padding-right: 7px; /* orientation=lt */
+	padding-left: 7px; /* orientation=rt */
 }
 .UIWizard .UIWizardContent .UIAction {
 	padding: 8px 0 0;
 }
 
 .UIWizard .WizardControlBar .UIAction .ActionButton {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 }
 
 .UIWizard .WizardControlBar .UIAction .ActionContainer {
@@ -146,129 +149,132 @@
 }
 
 /*========================== Start UIWizard Welcome ==============================*/
+
 .UIWizard .UIWizardWelcome {
-  height: 233px;
-  background: #ffffff url('background/WelcomeImage197x233.png') no-repeat left; /* orientation=lt */
-  background: #ffffff url('background/WelcomeImage197x233-rt.png') no-repeat right; /* orientation=rt */
-  padding: 0px 0px 0px 210px;/* orientation=lt */
-  padding: 0px 210px 0px 0px;/* orientation=rt */
-  margin: 0px;
+	height: 233px;
+	background: #ffffff url('background/WelcomeImage197x233.png') no-repeat left; /* orientation=lt */
+	background: #ffffff url('background/WelcomeImage197x233-rt.png') no-repeat right; /* orientation=rt */
+	padding: 0px 0px 0px 210px; /* orientation=lt */
+	padding: 0px 210px 0px 0px; /* orientation=rt */
+	margin: 0px;
 }
 
 .UIWizard .UIWizardWelcome .WelcomeText {
-  padding: 20px 40px 20px 15px;/* orientation=lt */
-  padding: 20px 15px 20px 40px;/* orientation=rt */
-  line-height: 20px;
+	padding: 20px 40px 20px 15px; /* orientation=lt */
+	padding: 20px 15px 20px 40px; /* orientation=rt */
+	line-height: 20px;
 }
 
 /*========================== Start UIWizard Step2 ==============================*/
+
 .UIWizard .UIWizardPageSetInfo .PageNodeContainer {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  width: 240px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 240px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
-  border: 1px #b7b7b7 solid;
-  margin-left: 250px;/* orientation=lt */
-  margin-right: 250px;/* orientation=rt */
-  padding: 1px;
+	border: 1px #b7b7b7 solid;
+	margin-left: 250px; /* orientation=lt */
+	margin-right: 250px; /* orientation=rt */
+	padding: 1px;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer {
-  background: #efefef;
-  padding: 22px 0px;
-  border:  solid 1px #cdcdcd;
+	background: #efefef;
+	padding: 22px 0px;
+	border:	solid 1px #cdcdcd;
  }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageNodeInfo {
-  width: 90%; height: 25px; 
-  line-height: 25px;
-  background: white;
-  margin: auto;
-  border: solid 1px #b7b7b7;
-  overflow: hidden;
+	width: 90%; height: 25px; 
+	line-height: 25px;
+	background: white;
+	margin: auto;
+	border: solid 1px #b7b7b7;
+	overflow: hidden;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Icon {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') no-repeat;
-  width: 16px; height: 16px;
-  margin: 5px 0px 0px 6px;/* orientation=lt */
-  margin: 5px 6px 0px 0px;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/MiniOrangeBoxPage.gif') no-repeat;
+	width: 16px; height: 16px;
+	margin: 5px 0px 0px 6px; /* orientation=lt */
+	margin: 5px 6px 0px 0px; /* orientation=rt */
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Label {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  padding: 0px 5px;
-  font-weight: bold;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding: 0px 5px;
+	font-weight: bold;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .Info {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  padding: 0px 5px;
-  color: #0683f7; 
-  background: none;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding: 0px 5px;
+	color: #0683f7; 
+	background: none;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle {
-  margin-top: 5px;
-  width: 90%;
-  overflow: hidden;
+	margin-top: 5px;
+	width: 90%;
+	overflow: hidden;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .UIAction {
-  display: none;
+	display: none;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle .HorizontalLayout {
-  background: white;
-  height: 175px;
+	background: white;
+	height: 175px;
 }
 
 .UIWizard .UIWizardPageSetInfo .UIFormWithTitle textarea {
-  width: 220px; height: 80px;
-  background: white;
-  font-family: verdana;
-  border: solid 1px gray;
-  padding-left: 5px;/* orientation=lt */
-  padding-right: 5px;/* orientation=rt */
+	width: 220px; height: 80px;
+	background: white;
+	font-family: verdana;
+	border: solid 1px gray;
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 /*========================== Start UIWizard Step 3 ==============================*/
+
 .UIWizard .UIItemSelector {
-  padding: 10px;
-  background: #f4f4f4;
-  margin: 0px;
+	padding: 10px;
+	background: #f4f4f4;
+	margin: 0px;
 }
 
 .UIWizard .UIItemSelector .ItemListContainer {
-  width: 250px;
-  height: auto;
+	width: 250px;
+	height: auto;
 }
 
 .UIWizard .UIItemSelector .ItemDetailList {
-  background: #ffffff;
+	background: #ffffff;
 }
 
 .UIWizard .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
-  height: 260px;
-  padding-top: 21px;
+	height: 260px;
+	padding-top: 21px;
 }
 
 .UIWizard .LayoutHolder {
-  width: 310px;
-  text-align: center;
-  margin: 0px auto; 
+	width: 310px;
+	text-align: center;
+	margin: 0px auto; 
 }
 
 .UIWizard .LayoutHolder .LayoutLabel {
-  height: 30px; line-height: 30px; 
-  margin: auto;
-  text-align: center;
+	height: 30px; line-height: 30px; 
+	margin: auto;
+	text-align: center;
 }
 
 .UIWizard .UIContainerConfigOptions {

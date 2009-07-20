@@ -1,5 +1,4 @@
-.UIFormInputThemeSelector {
-	
+.UIFormInputThemeSelector {	
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemListContainer {
@@ -7,8 +6,8 @@
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList {
-	margin-left: 230px;/* orientation=lt */
-	margin-right: 230px;/* orientation=rt */
+	margin-left: 230px; /* orientation=lt */
+	margin-right: 230px; /* orientation=rt */
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemList .Item {
@@ -39,8 +38,8 @@
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .SetDefault {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .SetDefault a {
@@ -50,7 +49,7 @@
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .SetDefault a:hover {
-  color: #058EE6;
+	color: #058EE6;
 }
 
 .UIFormInputThemeSelector .LeftColumnStyle .ItemDetailList .DetailView {

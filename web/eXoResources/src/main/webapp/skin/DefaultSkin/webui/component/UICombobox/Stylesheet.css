@@ -1,57 +1,57 @@
-.UIComboboxComponent{
+.UIComboboxComponent{	 
 	float:left;
 }
 .UIComboboxList {
 	/*
-position: absolute;
-*/
+		position: absolute;
+	*/
 }
 
 .UIComboboxComponent .UIComboboxContainer {
-	background: white ;
+	background: white;
 	position:absolute;
 	display:none;
-	border: solid 1px gray ;
+	border: solid 1px gray;
 }
 
 .UIComboboxComponent .UIComboboxItemContainer {
-	overflow-y: auto ;
-	height: 150px ;
+	overflow-y: auto;
+	height: 150px;
 }
 
 .UIComboboxComponent .UIComboboxItem {
-	display: block ;
-	padding: 3px 5px ;
-	text-decoration: none ;
-	color: black ;
+	display: block;
+	padding: 3px 5px;
+	text-decoration: none;
+	color: black;
 	outline:none;
 }
 
 .UIComboboxComponent a:hover{
-	background: blue ;
-	color: white ;
+	background: blue;
+	color: white;
 }
 
 .UIComboboxComponent a:visit{
-	background: white ;
-	color: black ;
+	background: white;
+	color: black;
 }
 
 .UIComboboxList .UIComboboxSelectedItem{
-	background: blue ;
+	background: blue;
 	color: white;
 }
 
 .UIComboboxComponent .UIComboboxLabel {
-	font-family: tahoma ;
-	font-size: 11px ;
-	margin-left: 16px ;
+	font-family: tahoma;
+	font-size: 11px;
+	margin-left: 16px;
 }
 
 .UIComboboxComponent iframe {
-	position:absolute ;
-  top : 0px ;
-  left : 0px ;
-  z-index : -1 ;
-	height: 150px ;
+	position:absolute;
+	top: 0px;
+	left: 0px;
+	z-index: -1;
+	height: 150px;
 }

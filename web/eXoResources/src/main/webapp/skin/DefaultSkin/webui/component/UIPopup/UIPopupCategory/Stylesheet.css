@@ -1,10 +1,10 @@
 .UIPopupCategory {
-/*
-	filter:alpha(opacity=50);
-	-moz-opacity: 0.5 ;
-	opacity: 0.5; For Mozilla FireFox
-	khtml-opacity: 0.5;
-*/
+	/*
+		filter:alpha(opacity=50);
+		-moz-opacity: 0.5;
+		opacity: 0.5; For Mozilla FireFox
+		khtml-opacity: 0.5;
+	*/
 	position: absolute;
 	width: 120px;
 	top: 15px;
@@ -16,69 +16,69 @@
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTL {
-  background: url('background/PopupCategory.gif') no-repeat left top; /* orientation=lt */
-  background: url('background/PopupCategory-rt.gif') no-repeat right top; /* orientation=rt */
-  padding-left: 6px; /* orientation=lt */
-  padding-right: 6px; /* orientation=rt */
+	background: url('background/PopupCategory.gif') no-repeat left top; /* orientation=lt */
+	background: url('background/PopupCategory-rt.gif') no-repeat right top; /* orientation=rt */
+	padding-left: 6px; /* orientation=lt */
+	padding-right: 6px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTC {
-  height: 16px;
-  background: url('background/PopupCategory.gif') repeat-x left -39px;
+	height: 16px;
+	background: url('background/PopupCategory.gif') repeat-x left -39px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryTR {
-  background: url('background/PopupCategory.gif') no-repeat right -16px; /* orientation=lt */
-  background: url('background/PopupCategory-rt.gif') no-repeat left -16px; /* orientation=rt */
-  padding-right: 35px; /* orientation=lt */
-  padding-left: 35px; /* orientation=rt */
+	background: url('background/PopupCategory.gif') no-repeat right -16px; /* orientation=lt */
+	background: url('background/PopupCategory-rt.gif') no-repeat left -16px; /* orientation=rt */
+	padding-right: 35px; /* orientation=lt */
+	padding-left: 35px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryML {
-  background: url('background/MidlePopupCategory.gif') repeat-y left; /* orientation=lt */
-  background: url('background/MidlePopupCategory-rt.gif') repeat-y right; /* orientation=rt */
-  padding-left: 6px; /* orientation=lt */
-  padding-right: 6px; /* orientation=rt */
+	background: url('background/MidlePopupCategory.gif') repeat-y left; /* orientation=lt */
+	background: url('background/MidlePopupCategory-rt.gif') repeat-y right; /* orientation=rt */
+	padding-left: 6px; /* orientation=lt */
+	padding-right: 6px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryMC {
-  background: #efefef;
+	background: #efefef;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryMR {
-  background: url('background/MidlePopupCategory.gif') repeat-y right; /* orientation=lt */
-  background: url('background/MidlePopupCategory-rt.gif') repeat-y left; /* orientation=rt */
-  padding-right: 8px; /* orientation=lt */
-  padding-left: 8px; /* orientation=rt */
+	background: url('background/MidlePopupCategory.gif') repeat-y right; /* orientation=lt */
+	background: url('background/MidlePopupCategory-rt.gif') repeat-y left; /* orientation=rt */
+	padding-right: 8px; /* orientation=lt */
+	padding-left: 8px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBL {
-  background: url('background/PopupCategory.gif') no-repeat left -32px; /* orientation=lt */
-  background: url('background/PopupCategory-rt.gif') no-repeat right -32px; /* orientation=rt */
-  padding-left: 6px; /* orientation=lt */
-  padding-right: 6px; /* orientation=rt */
+	background: url('background/PopupCategory.gif') no-repeat left -32px; /* orientation=lt */
+	background: url('background/PopupCategory-rt.gif') no-repeat right -32px; /* orientation=rt */
+	padding-left: 6px; /* orientation=lt */
+	padding-right: 6px; /* orientation=rt */
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBC {
-  height: 7px;
-  background: url('background/PopupCategory.gif') repeat-x left -55px;
+	height: 7px;
+	background: url('background/PopupCategory.gif') repeat-x left -55px;
 }
 
 .UIPopupCategory .PopupCategoryDecorator .PopupCategoryBR {
-  background: url('background/PopupCategory.gif') no-repeat right -32px; /* orientation=lt */
-  background: url('background/PopupCategory-rt.gif') no-repeat left -32px; /* orientation=rt */
-  padding-right: 8px; /* orientation=lt */
-  padding-left: 8px; /* orientation=rt */
+	background: url('background/PopupCategory.gif') no-repeat right -32px; /* orientation=lt */
+	background: url('background/PopupCategory-rt.gif') no-repeat left -32px; /* orientation=rt */
+	padding-right: 8px; /* orientation=lt */
+	padding-left: 8px; /* orientation=rt */
 }
 
 .UIPopupCategory .CategoryItem .Icon {
-  width: 16px;
-  height: 16px;
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */
-  margin: 3px 3px 0px 7px;/* orientation=lt */
-  margin: 3px 7px 0px 3px;/* orientation=rt */
-  background: transparent url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
+	width: 16px;
+	height: 16px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 3px 3px 0px 7px;/* orientation=lt */
+	margin: 3px 7px 0px 3px;/* orientation=rt */
+	background: transparent url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat;
 }
 
 .UIPopupCategory .CategoryItem .ModifiedIcon {
@@ -86,23 +86,23 @@
 }
 
 .UIPopupCategory .CategoryItem {
-  color: #333;
-  background: #efefef;
-  border-bottom: 1px #cdcdcd solid;
-  cursor: pointer;
-  display: block;
+	color: #333;
+	background: #efefef;
+	border-bottom: 1px #cdcdcd solid;
+	cursor: pointer;
+	display: block;
 }
 
 .UIPopupCategory .CategoryItem:hover {
 	background: #cbcff2;
-  color: #2569dc;
+	color: #2569dc;
 }
 
 .UIPopupCategory .CategoryItem .CategoryItemLabel {
-  padding-left: 18px; /* orientation=lt */
-  padding-right: 18px; /* orientation=rt */
-  height: 22px;
-  line-height: 22px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center; /* orientation=lt */
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif') no-repeat right center; /* orientation=rt */
+	padding-left: 18px; /* orientation=lt */
+	padding-right: 18px; /* orientation=rt */
+	height: 22px;
+	line-height: 22px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center; /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif') no-repeat right center; /* orientation=rt */
 }

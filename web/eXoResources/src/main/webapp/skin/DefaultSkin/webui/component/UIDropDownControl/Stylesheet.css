@@ -1,7 +1,8 @@
-/* --- DropDown Control Format --- */
+/* --- DropDown Control Format --- */	
+
 .UIDropDownControl {
 	margin-bottom: 2px;
-	position:relative;
+	position: relative;
 	width: 100%;
 }
 
@@ -10,11 +11,11 @@
 }
 
 .UIDropDownControl .UIDropDownTitle {
-	background:white url(background/DropDownItemSelectorBG1x2.gif) repeat-x scroll center top;
-	border:1px solid #929292;
-	cursor:pointer;
-	padding-left:5px;/* orientation=lt */
-	padding-right:5px;/* orientation=rt */
+	background: white url(background/DropDownItemSelectorBG1x2.gif) repeat-x scroll center top;
+	border: 1px solid #929292;
+	cursor: pointer;
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 	height: 19px;
 }
 
@@ -22,9 +23,10 @@
 	display: block;
 	background: white;
 }
+
 .UIDropDownControl .RightMiddelItem {
-	border:1px solid gray;
-	border-top:0px;
+	border: 1px solid gray;
+	border-top: 0px;
 	padding: 4px;
 }
 
@@ -62,8 +64,8 @@
 }
 
 .UIDropDownControl .DropDownSelectIcon {
-	background: url('background/DropDownControl.gif') no-repeat scroll right top;/* orientation=lt */
-	background: url('background/DropDownControl-rt.gif') no-repeat scroll left top;/* orientation=rt */
+	background: url('background/DropDownControl.gif') no-repeat scroll right top; /* orientation=lt */
+	background: url('background/DropDownControl-rt.gif') no-repeat scroll left top; /* orientation=rt */
 	cursor: pointer;
 	height: 19px;
 }
@@ -74,26 +76,25 @@
 	overflow: hidden;
 	line-height: 19px;
 	height: 19px;
-	margin-left: 5px;/* orientation=lt */
-	margin-right: 5px;/* orientation=rt */
+	margin-left: 5px; /* orientation=lt */
+	margin-right: 5px; /* orientation=rt */
 	width: 88%;
 }
 
-
 .UIDropDownControl .OptionItem {
 	display: block;
-	padding: 0px 4px 0px 17px;/* orientation=lt */
-	padding: 0px 17px 0px 4px;/* orientation=rt */
+	padding: 0px 4px 0px 17px; /* orientation=lt */
+	padding: 0px 17px 0px 4px; /* orientation=rt */
 	border-bottom: 1px solid #e0e0e0;
 	border-top: 1px solid #ffffff;
 	line-height: 20px;
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;/* orientation=lt */
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif') no-repeat right center;/* orientation=rt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center; /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif') no-repeat right center; /* orientation=rt */
 }
 
 .UIDropDownControl .OptionItem:hover {
-	background: #7aafe5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;/* orientation=lt */
-	background: #7aafe5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif') no-repeat right center;/* orientation=rt */
+	background: #7aafe5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center; /* orientation=lt */
+	background: #7aafe5 url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow-rt.gif') no-repeat right center; /* orientation=rt */
 	color: white;
 }
 
@@ -105,42 +106,43 @@
 }
 
 /* -- menu Item --*/
+
 .UIPopupControl .MenuItem {
 	color: #333;
-  background: #efefef;
-  border-bottom: 1px #cdcdcd solid;
-  cursor: pointer;
-  display: block;
+	background: #efefef;
+	border-bottom: 1px #cdcdcd solid;
+	cursor: pointer;
+	display: block;
 }
 
 .UIPopupControl .MenuItem:hover {
 	background: #cbcff2;
-  color: #2569dc;
+	color: #2569dc;
 }
 
 .UIPopupControl .MenuItem .ItemLabel {
-	padding-left: 18px;/* orientation=lt */
-	padding-right: 18px;/* orientation=rt */
-  height: 22px;
-  line-height: 22px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center;/* orientation=lt */
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat right center;/* orientation=rt */
+	padding-left: 18px; /* orientation=lt */
+	padding-right: 18px; /* orientation=rt */
+	height: 22px;
+	line-height: 22px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat left center; /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/GrayNextArrow.gif') no-repeat right center; /* orientation=rt */
 }
-/* -- end menuItem --*/
 
+/* -- end menuItem --*/
 
 .UIPageNodeSelector .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
 	height: 16px;
-	padding-left: 16px;/* orientation=lt */
-	padding-right: 16px;/* orientation=rt */
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat left center;/* orientation=lt */
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat right center;/* orientation=rt */
+	padding-left: 16px; /* orientation=lt */
+	padding-right: 16px; /* orientation=rt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat left center; /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/NavigationIcon.gif') no-repeat right center; /* orientation=rt */
 }
 
 .UIContainerConfigOptions .UIDropDownControl .ComponentIcon {
 	height: 16px;
-	padding-left: 16px;/* orientation=lt */
-	padding-right: 16px;/* orientation=rt */
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat left center;/* orientation=lt */
-	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat right center;/* orientation=rt */
+	padding-left: 16px; /* orientation=lt */
+	padding-right: 16px; /* orientation=rt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat left center; /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DefaultContainerIcon.gif') no-repeat right center; /* orientation=rt */
 }

@@ -1,77 +1,77 @@
 .NoMouseEvent64x58 {
-  width: 64px;
-  height: 58px;
-  line-height: 58px;
-  vertical-align: middle;
-  margin: auto;
+	width: 64px;
+	height: 58px;
+	line-height: 58px;
+	vertical-align: middle;
+	margin: auto;
 }
 
 .Over64x58 {
-  width: 64px;
-  height: 58px;
-  line-height: 58px;
-  vertical-align: middle;
-  margin: auto;
-  background: url('background/MouseAction.gif') no-repeat top;
+	width: 64px;
+	height: 58px;
+	line-height: 58px;
+	vertical-align: middle;
+	margin: auto;
+	background: url('background/MouseAction.gif') no-repeat top;
 }
 
 .Selected64x58 {
-  width: 64px;
-  height: 58px;
-  line-height: 58px;
-  vertical-align: middle;
-  margin: auto;
-  background: url('background/MouseAction.gif') no-repeat left -58px;
+	width: 64px;
+	height: 58px;
+	line-height: 58px;
+	vertical-align: middle;
+	margin: auto;
+	background: url('background/MouseAction.gif') no-repeat left -58px;
 }
 
 .NoMouseEvent32x32 {
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  vertical-align: middle;
-  margin: auto;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	vertical-align: middle;
+	margin: auto;
 }
 
 .Over32x32 {
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  vertical-align: middle;
-  margin: auto;
-  background: url('background/MouseAction.gif') no-repeat left -116px;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	vertical-align: middle;
+	margin: auto;
+	background: url('background/MouseAction.gif') no-repeat left -116px;
 }
 
 .Selected32x32 {
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  vertical-align: middle;
-  margin: auto;
-  background: url('background/MouseAction.gif') no-repeat right -116px;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	vertical-align: middle;
+	margin: auto;
+	background: url('background/MouseAction.gif') no-repeat right -116px;
 }
 
 .NoMouseEvent32x28 {
-  width: 32px;
-  height: 28px;
-  line-height: 22px;
-  vertical-align: middle;
-  margin: auto;
+	width: 32px;
+	height: 28px;
+	line-height: 22px;
+	vertical-align: middle;
+	margin: auto;
 }
 
 .Over32x28 {
-  width: 32px;
-  height: 28px;
-  line-height: 28px;
-  vertical-align: middle;
-  margin: auto;
-  background: url('background/MouseAction.gif') no-repeat left -148px;
+	width: 32px;
+	height: 28px;
+	line-height: 28px;
+	vertical-align: middle;
+	margin: auto;
+	background: url('background/MouseAction.gif') no-repeat left -148px;
 }
 
 .Selected32x28 {
-  width: 32px;
-  height: 28px;
-  line-height: 28px;
-  vertical-align: middle;
-  margin: auto;
-  background: url('background/MouseAction.gif') no-repeat right -148px;
+	width: 32px;
+	height: 28px;
+	line-height: 28px;
+	vertical-align: middle;
+	margin: auto;
+	background: url('background/MouseAction.gif') no-repeat right -148px;
 }

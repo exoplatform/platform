@@ -1,4 +1,4 @@
-  .UIFormInputDecoratorSelector .UIItemSelector .NormalStyle .ItemListContainer {
+.UIFormInputDecoratorSelector .UIItemSelector .NormalStyle .ItemListContainer {	
 	width: 230px;
 	overflow: auto;
 }
@@ -11,9 +11,9 @@
 
 .UIFormInputDecoratorSelector .UIItemSelector .ItemDetailList {
 	margin-right: 0px;
-  padding: 1px;
-  border: 1px #b7b7b7 solid;
-  background: white;
+	padding: 1px;
+	border: 1px #b7b7b7 solid;
+	background: white;
 }
 
 .UIFormInputDecoratorSelector .UIItemSelector .DecoratorTemplateContainer {
@@ -37,8 +37,8 @@
 .UIFormInputDecoratorSelector .UIPortletDecorator .DefaultDecorator .TopLeftCorner {
 	background: none;
 	height: 10px;
-	padding-left: 10px;/* orientation=lt */
-	padding-right: 10px;/* orientation=rt */
+	padding-left: 10px; /* orientation=lt */
+	padding-right: 10px; /* orientation=rt */
 }
 
 .UIFormInputDecoratorSelector .UIPortletDecorator .DefaultDecorator .TopCenter {
@@ -48,27 +48,27 @@
 
 .UIFormInputDecoratorSelector .UIPortletDecorator .DefaultDecorator .TopRightCorner {
 	background: none;
-	padding-right: 10px;/* orientation=lt */
-	padding-left: 10px;/* orientation=rt */
+	padding-right: 10px; /* orientation=lt */
+	padding-left: 10px; /* orientation=rt */
 	height: 10px;
 }
 
 .UIFormInputDecoratorSelector .UIPortletDecorator .DefaultDecorator .MiddleLeftSide {
 	background: none;
-	padding-left: 10px;/* orientation=lt */
-	padding-right: 10px;/* orientation=rt */
+	padding-left: 10px; /* orientation=lt */
+	padding-right: 10px; /* orientation=rt */
 }
 
 .UIFormInputDecoratorSelector .UIPortletDecorator .DefaultDecorator .MiddleRightSide {
 	background: none;
-	padding-right: 10px;/* orientation=lt */
-	padding-left: 10px;/* orientation=rt */
+	padding-right: 10px; /* orientation=lt */
+	padding-left: 10px; /* orientation=rt */
 }
 
 .UIFormInputDecoratorSelector .UIPortletDecorator .DefaultDecorator .BottomRightCorner {
 	background: none;
-	padding-right: 10px;/* orientation=lt */
-	padding-left: 10px;/* orientation=rt */
+	padding-right: 10px; /* orientation=lt */
+	padding-left: 10px; /* orientation=rt */
 	height: 10px;	
 }
 
@@ -79,56 +79,56 @@
 
 .UIFormInputDecoratorSelector .UIPortletDecorator .DefaultDecorator .BottomLeftCorner {
 	background: none;
-	padding-left: 10px;/* orientation=lt */
-	padding-right: 10px;/* orientation=rt */
+	padding-left: 10px; /* orientation=lt */
+	padding-right: 10px; /* orientation=rt */
 	height: 10px;
 }
 
 .UIFormInputDecoratorSelector .SelectedInfo {
-  padding-left: 20px;/* orientation=lt */
-	padding-right: 20px;/* orientation=rt */
-  padding-bottom: 15px;
-  width: 90%;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	padding-bottom: 15px;
+	width: 90%;
 }
 
 .UIFormInputDecoratorSelector .SelectedInfo .UIFormInputSet .Title {
-  margin-left: 20px;/* orientation=lt */
-  margin-right: 20px;/* orientation=rt */
-  font-weight: bold; 
-  color: black;
-  padding-left: 5px;/* orientation=lt */
-  padding-right: 5px;/* orientation=lt */
+	margin-left: 20px; /* orientation=lt */
+	margin-right: 20px; /* orientation=rt */
+	font-weight: bold; 
+	color: black;
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=lt */
 }
 
 .UIFormInputDecoratorSelector .SelectedInfo .UIFormInputSet {
-  margin-top: 0px;
+	margin-top: 0px;
 }
 
 .UIFormInputDecoratorSelector .SelectedInfo .UIFormInputSet .FieldContainer{
-  margin-top: 8px;
-  padding-left: 20px;/* orientation=lt */
-	padding-right: 20px;/* orientation=rt */
-  white-space: nowrap;
+	margin-top: 8px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	white-space: nowrap;
 }
 
 .UIFormInputDecoratorSelector .SelectedInfo .UIFormInputSet .Icon{
-  margin-right: 3px; /* orientation=lt */
-  margin-left: 3px; /* orientation=rt */
-  margin-top: 10px;
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
+	margin-right: 3px; /* orientation=lt */
+	margin-left: 3px; /* orientation=rt */
+	margin-top: 10px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 
 .UIFormInputDecoratorSelector .SelectedInfo .UIFormInputSet .FieldContainer .ItemLabel{
-  font-size: 12px; font-weight: normal;
-  margin-left: 5px;/* orientation=lt */
-  margin-right: 5px;/* orientation=rt */
+	font-size: 12px; font-weight: normal;
+	margin-left: 5px; /* orientation=lt */
+	margin-right: 5px; /* orientation=rt */
 }
 
 .UIFormInputDecoratorSelector .SelectedInfo .UIFormInputSet .FieldContainer .ItemValue{
-  font-size: 12px; 
-  margin-left: 10px;/* orientation=lt */
-  margin-right: 10px;/* orientation=rt */
+	font-size: 12px; 
+	margin-left: 10px; /* orientation=lt */
+	margin-right: 10px; /* orientation=rt */
 }
 

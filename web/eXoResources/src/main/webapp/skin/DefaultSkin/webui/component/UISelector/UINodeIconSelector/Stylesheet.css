@@ -1,74 +1,74 @@
-.UINodeIconSelector {
+.UINodeIconSelector {	
 }
 
 .UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemList {
-  height: 240px;
-  background: white url('background/IconsBoxBg100x65.gif') no-repeat bottom center;
+	height: 240px;
+	background: white url('background/IconsBoxBg100x65.gif') no-repeat bottom center;
 }
 
 .UINodeIconSelector .LeftColumnStyle .ItemListContainer .ItemDetailList {
-  height: 263px;
+	height: 263px;
 }
 
 .UINodeIconSelector .SelectedIconInfo {
-  background: white;
-  border: solid 1px #b7b7b7;
-  margin-top: 6px;
+	background: white;
+	border: solid 1px #b7b7b7;
+	margin-top: 6px;
 }
 
 .UINodeIconSelector .ItemDetailList .SelectedIconInfo .UIFormInputSet {
-  white-space: nowrap;
+	white-space: nowrap;
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemLabel {
-  font-size: 12px; font-weight: normal;
-  margin: 0px 10px 0px 10px;
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  width: auto;
+	font-size: 12px; font-weight: normal;
+	margin: 0px 10px 0px 10px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: auto;
 }
 
 .UINodeIconSelector .SelectedIconInfo .UIFormInputSet .FieldContainer .ItemValue {
-  margin-left: 0px;
-  float: none;
-  color: #2F76E2;
+	margin-left: 0px;
+	float: none;
+	color: #2F76E2;
 }
 
 .UINodeIconSelector .IconSelector {
-  background: white;
-  border: 1px solid  #b7b7b7;
-  height: 197px; 
-  overflow: auto;
+	background: white;
+	border: 1px solid	#b7b7b7;
+	height: 197px; 
+	overflow: auto;
 }
 
 .UINodeIconSelector .IconSelector .Icon {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  margin: 2px;
-  width: 16px; 
-  height: 16px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 2px;
+	width: 16px; 
+	height: 16px;
 }
 
 .UINodeIconSelector .IconSelector a {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  border: 1px white solid;
-  margin: 2px;
-  cursor: pointer;
-  width: 20px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	border: 1px white solid;
+	margin: 2px;
+	cursor: pointer;
+	width: 20px;
 }
 
 .UINodeIconSelector .IconSelector a:hover {
-  border: 1px #c0c0c0 solid;
+	border: 1px #c0c0c0 solid;
 }
 
 .UINodeIconSelector .IconSelector .SelectedBackground {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  border: 1px red solid;
-  margin: 2px;
-  cursor: pointer;
-  width: 20px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	border: 1px red solid;
+	margin: 2px;
+	cursor: pointer;
+	width: 20px;
 }
 
 .UINodeIconSelector .LeftColumnStyle .SetDefault a {
@@ -78,5 +78,5 @@
 }
 
 .UINodeIconSelector .LeftColumnStyle .SetDefault a:hover {
-  color: #058EE6;
+	color: #058EE6;
 }

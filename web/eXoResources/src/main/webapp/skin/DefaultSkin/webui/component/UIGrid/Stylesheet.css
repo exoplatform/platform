@@ -1,42 +1,42 @@
 .UIGrid {
-  border: 1px solid #b7b7b7;
-  border-collapse: collapse;
-  padding-left: 1px;
-  margin: auto;
-  table-layout: fixed;
+	border: 1px solid #b7b7b7;
+	border-collapse: collapse;
+	padding-left: 1px;
+	margin: auto;
+	table-layout: fixed;
 }
 
 .UIGrid thead {
-  border: 1px solid #b7b7b7;
+	border: 1px solid #b7b7b7;
 }
 
 .UIGrid th {
-  line-height: 19px;
-  border: 1px solid #b7b7b7;
-  background: #d2ddf1 url('background/ThGridRepeatBg1x19.jpg') repeat-x;
-  font-weight: normal;
-  padding: 0px 4px;
-  vertical-align: middle;
+	line-height: 19px;
+	border: 1px solid #b7b7b7;
+	background: #d2ddf1 url('background/ThGridRepeatBg1x19.jpg') repeat-x;
+	font-weight: normal;
+	padding: 0px 4px;
+	vertical-align: middle;
 }
 
 .UIGrid tbody {
-  padding-bottom: 1px;
+	padding-bottom: 1px;
 }
 
 .UIGrid td {
-  height: 20px; line-height: 20px;
-  border-right: 1px solid #cccccc;
-  border-left: 1px solid #cccccc;
-  border-top: 1px solid white;
-  padding: 4px;
+ height: 20px; line-height: 20px;
+	border-right: 1px solid #cccccc;
+	border-left: 1px solid #cccccc;
+	border-top: 1px solid white;
+	padding: 4px;
 }
 
 .UIGrid .OddRow {
-  background: #f0f0f0;
+	background: #f0f0f0;
 }
 
 .UIGrid .EvenRow {
-  background: #f5f5f5;
+	background: #f5f5f5;
 }
 
 .UIGrid .ActionContainer {
@@ -45,18 +45,18 @@
 }
 
 .UIGrid .ActionContainer a {
-  margin: 0px 4px;
-  color: #024369;
+	margin: 0px 4px;
+	color: #024369;
 }
 
 .UIGrid .ActionContainer img {
-  margin: 0px 4px;
-  width: 20px;
-  height: 20px;
-  background-position: center;
-  background-repeat: no-repeat;
-  float: none; 
-  cursor: pointer;
+	margin: 0px 4px;
+	width: 20px;
+	height: 20px;
+	background-position: center;
+	background-repeat: no-repeat;
+	float: none; 
+	cursor: pointer;
 }
 
 .UIGrid .Text {
@@ -64,68 +64,68 @@
 }
 
 .UIGrid .Number {
-  text-align: center;
+	text-align: center;
 }
 
 .UIGrid .ValueWithIcon {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  text-align: right;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	text-align: right;
 }
 
 .UIGrid .ViewIcon {
-  width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/LightBulbOn.gif') no-repeat;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/LightBulbOn.gif') no-repeat;
 }
 
 .UIGrid .DeleteIcon {
-  width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat;
 }
 
 .UIGrid .EditInfoIcon {
-  width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat;
 }
 
 .UIGrid .ExcuteIcon {
-  width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/PageYellowLight.gif') no-repeat;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/PageYellowLight.gif') no-repeat;
 }
 
-.UIGrid .AddNewIcon {
-  width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif') no-repeat;
+.UIGrid .AddNewIcon {	
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCirclePlus.gif') no-repeat;
 }
 
 /*###################### UIListUsers Icon ######################*/
 
 .UIGrid .DeleteUserIcon {
-  width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat;
-  margin: auto;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat;
+	margin: auto;
 }
 
 .UIGrid .ViewUserInfoIcon {
-  width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat;
-  margin: auto;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat;
+	margin: auto;
 }
 
 /*###################### UIListMembershipType Icon ######################*/
 
 .UIGrid .DeleteMembershipIcon {
-  width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat;
-  margin: auto;  
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DustBin.gif') no-repeat;
+	margin: auto;	
 }
 
 .UIGrid .EditMembershipIcon {
-  width: 16px;  height: 16px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat;
-  margin: auto;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/EditIcon.gif') no-repeat;
+	margin: auto;
 }
 
 .UIGrid input.checkbox {
-  width: 15px;  height: 15px;
+	width: 15px; height: 15px;
 }

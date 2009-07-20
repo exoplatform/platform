@@ -1,7 +1,8 @@
-.UIInfoBar {
+.UIInfoBar {	
 }
 
 /*######################-Rounded Style-######################*/
+
 .UIInfoBar .RoundedStyle .LeftBar {
 	background: url('background/RoundedStyle.gif') no-repeat left top;
 	padding: 0px 0px 0px 6px;
@@ -18,23 +19,24 @@
 }
 
 .UIInfoBar .RoundedStyle .MiddleBar .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	margin: 5px 4px 0px 6px;
 }
 
 .UIInfoBar .RoundedStyle .Title {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	height: 24px; 
 	line-height: 24px;
 	font-weight: bold;
 	overflow: visible;
-	margin: 0px 0px 0px 5px;/* orientation=lt */
-	margin: 0px 5px 0px 0px;/* orientation=rt */
+	margin: 0px 0px 0px 5px; /* orientation=lt */
+	margin: 0px 5px 0px 0px; /* orientation=rt */
 }
 
 /*######################-Blue Rounded Style-######################*/
+
 .UIInfoBar .BlueRoundedStyle {
 	padding: 0px; margin: 0px;
 }
@@ -59,8 +61,8 @@
 }
 
 .UIInfoBar .BlueRoundedStyle .PortletIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	text-overflow: ellipsis;
 	width: auto; height: 16px;
 	padding-left: 25px;
@@ -69,6 +71,7 @@
 }
 
 /*######################-Simple Style-######################*/
+
 .UIInfoBar .SimpleStyle {
 	background: url('background/MRoundedStyle1x21.gif') repeat-x;
 	border-right: solid 1px #5f90ba; border-left: solid 1px #5f90ba;
@@ -76,16 +79,16 @@
 }
 
 .UIInfoBar .SimpleStyle .LeftBar {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	height: 21px;
 	background: none;
 	border-left: solid 1px #4e7180;
 }
 
 .UIInfoBar .SimpleStyle .RightBar {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	height: 21px;
 	background: none;
 	border-right: solid 1px #4e7180;
@@ -93,20 +96,21 @@
 
 .UIInfoBar .SimpleStyle .MiddleBar {
 	height: 21px;
-	text-align: left;/* orientation=lt */
-	text-align: right;/* orientation=rt */
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
 	padding: 0px 0px 0px 10px;
 }
 
 .UIInfoBar .SimpleStyle .Title {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	height: 21px; line-height: 21px;	
 	text-align: left;
 	margin: 0px 0px 0px 5px;
 }
 
 /*######################-Polygon Navyblue Style-######################*/
+
 .UIInfoBar .PolygonNavyBlueStyle {
 	height: 26px;	
 }
@@ -128,6 +132,7 @@
 }
 
 /*######################-SmoothStyle-######################*/
+
 .UIInfoBar .SmoothStyle {
 	height: 22px;
 	border-left: 1px solid #7c7c7c;
@@ -140,6 +145,7 @@
 }
 
 /*######################-Smooth Style 26 -######################*/
+
 .UIInfoBar .SmoothStyle26 {
 	height: 26px;	
 }

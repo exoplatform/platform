@@ -1,13 +1,13 @@
-.UIFormTabPane  {
-  padding-top: 5px ;
+.UIFormTabPane {
+	padding-top: 5px;
 }
 
 .UIFormTabPane .FormTabPaneContainer {
-  background: white ;
-  border-left: solid 1px #638294 ; border-right: solid 1px #638294 ;
+	background: white;
+	border-left: solid 1px #638294; border-right: solid 1px #638294;
 }
 
-.UIFormTabPane .UITabPane {
-  border: none;
-  padding: 0px;
+.UIFormTabPane .UITabPane {	
+	border: none;
+	padding: 0px;
 }

@@ -12,36 +12,36 @@
 }
 
 .UIPopupMessages .PopupMessageBox {
-  padding: 5px;
-  height: 200px;
-  overflow: auto;
+	padding: 5px;
+	height: 200px;
+	overflow: auto;
 }
 
-.UIPopupMessages .WarningMessage .MessageContainer  {
-  color: orange;
-  padding: 4px 0px 4px 10px; /* orientation=lt */
-  padding: 4px 10px 4px 0px; /* orientation=rt */
-  border-bottom: 1px dotted #c3c3c3;
+.UIPopupMessages .WarningMessage .MessageContainer	{
+	color: orange;
+	padding: 4px 0px 4px 10px; /* orientation=lt */
+	padding: 4px 10px 4px 0px; /* orientation=rt */
+	border-bottom: 1px dotted #c3c3c3;
 }
 
-.UIPopupMessages .ErrorMessage .MessageContainer  {
-  color: red;
-  padding: 4px 0px 4px 10px; /* orientation=lt */
-  padding: 4px 10px 4px 0px; /* orientation=rt */
-  border-bottom: 1px dotted #c3c3c3;
+.UIPopupMessages .ErrorMessage .MessageContainer	{
+	color: red;
+	padding: 4px 0px 4px 10px; /* orientation=lt */
+	padding: 4px 10px 4px 0px; /* orientation=rt */
+	border-bottom: 1px dotted #c3c3c3;
 }
 
 .UIPopupMessages .InfoMessage .MessageContainer {
-  padding: 4px 0px 4px 10px; /* orientation=lt */
-  padding: 4px 10px 4px 0px; /* orientation=rt */
-  border-bottom: 1px dotted #c3c3c3;
+	padding: 4px 0px 4px 10px; /* orientation=lt */
+	padding: 4px 10px 4px 0px; /* orientation=rt */
+	border-bottom: 1px dotted #c3c3c3;
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupIcon {
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */
-  width: 16px; height: 16px;
-  margin-top: 5px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 16px; height: 16px;
+	margin-top: 5px;
 }
 
 .UIPopupMessages .PopupMessageContainer .InfoMessageIcon {
@@ -57,11 +57,11 @@
 }
 
 .UIPopupMessages .PopupMessageContainer .PopupMessage {
-  line-height: 16px;
-  vertical-align: middle;
-  padding: 5px 0px;
-  margin-left: 25px; /* orientation=lt */
-  margin-right: 25px; /* orientation=rt */
+	line-height: 16px;
+	vertical-align: middle;
+	padding: 5px 0px;
+	margin-left: 25px; /* orientation=lt */
+	margin-right: 25px; /* orientation=rt */
 }
 
 .UIPopupMessages .MessageActionBar {
@@ -70,5 +70,4 @@
 }
 
 .UIPopupMessages .UIAction .ActionContainer .ActionButton {
-
 }

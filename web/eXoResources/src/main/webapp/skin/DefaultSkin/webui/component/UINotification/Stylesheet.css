@@ -1,5 +1,4 @@
-
-.UINotification  {
+.UINotification {	
 	position: absolute;
 	top: 0px;
 	right: 5px;
@@ -9,89 +8,89 @@
 .UINotification .UIPopupNotification {
 }
 
-.UINotification .UIPopupNotification  .TLPopupNotification {
-  background: url('images/Popup.gif') no-repeat left top;
-  padding-left:4px;
+.UINotification .UIPopupNotification .TLPopupNotification {
+	background: url('images/Popup.gif') no-repeat left top;
+	padding-left: 4px;
 }
 
-.UINotification .UIPopupNotification  .TCPopupNotification {
-  height:13px;
-  background: url('images/Popup.gif') repeat-x left -13px;
+.UINotification .UIPopupNotification .TCPopupNotification {
+	height: 13px;
+	background: url('images/Popup.gif') repeat-x left -13px;
 }
 
-.UINotification .UIPopupNotification  .TRPopupNotification {
-  background: url('images/PopupTR.png') no-repeat right top;
-  padding-right: 45px;
+.UINotification .UIPopupNotification .TRPopupNotification {
+	background: url('images/PopupTR.png') no-repeat right top;
+	padding-right: 45px;
 }
 
-.UINotification .UIPopupNotification  .TitleNotification {
-  background: url('images/Popup.gif') repeat-x left -50px ;
-  height: 16px;
-  padding-left:10px;/* orientation=lt */
-  padding-right:10px;/* orientation=rt */
+.UINotification .UIPopupNotification .TitleNotification {
+	background: url('images/Popup.gif') repeat-x left -50px ;
+	height: 16px;
+	padding-left: 10px; /* orientation=lt */
+	padding-right: 10px; /* orientation=rt */
 }
 
-.UINotification .UIPopupNotification  .MLPopupNotification {
-  background: url('images/PopupML.gif') repeat-y left;
-  padding-left: 2px;
+.UINotification .UIPopupNotification .MLPopupNotification {
+	background: url('images/PopupML.gif') repeat-y left;
+	padding-left: 2px;
 }
 
-.UINotification .UIPopupNotification  .MCPopupNotification {
-  background: #feffcf;
+.UINotification .UIPopupNotification .MCPopupNotification {
+	background: #feffcf;
 }
 
-.UINotification .UIPopupNotification  .MRPopupNotification {
-  background: url('images/PopupMR.gif') repeat-y right;
-  padding-right: 2px;
+.UINotification .UIPopupNotification .MRPopupNotification {
+	background: url('images/PopupMR.gif') repeat-y right;
+	padding-right: 2px;
 }
 
-.UINotification .UIPopupNotification  .BLPopupNotification {
-  background: url('images/Popup.gif') no-repeat left -26px;
-  padding-left: 4px;
+.UINotification .UIPopupNotification .BLPopupNotification {
+	background: url('images/Popup.gif') no-repeat left -26px;
+	padding-left: 4px;
 }
 
-.UINotification .UIPopupNotification  .BCPopupNotification {
-  height: 4px;
-  background: url('images/Popup.gif') repeat-x left -30px;
+.UINotification .UIPopupNotification .BCPopupNotification {
+	height: 4px;
+	background: url('images/Popup.gif') repeat-x left -30px;
 }
 
-.UINotification .UIPopupNotification  .BRPopupNotification {
-  background: url('images/Popup.gif') no-repeat right -26px;
-  padding-right: 4px;
+.UINotification .UIPopupNotification .BRPopupNotification {
+	background: url('images/Popup.gif') no-repeat right -26px;
+	padding-right: 4px;
 }
 
-.UINotification .UIPopupNotification  .ItemTitle {
-  color: black;
-  display: block;
-  font-size: 12px;
-  font-weight: bold;
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
+.UINotification .UIPopupNotification .ItemTitle {
+	color: black;
+	display: block;
+	font-size: 12px;
+	font-weight: bold;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
-.UINotification .UIPopupNotification  .Close {
-  background: url('images/Popup.gif') left -66px no-repeat;
-  display: block;
-  height: 7px; width: 7px;
-  float: right;/* orientation=lt */
-  float: left;/* orientation=rt */
-  margin: 3px 5px;
-  cursor: pointer;
+.UINotification .UIPopupNotification .Close {
+	background: url('images/Popup.gif') left -66px no-repeat;
+	display: block;
+	height: 7px; width: 7px;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin: 3px 5px;
+	cursor: pointer;
 }
 
-.UINotification .UIPopupNotification  .Item {
-	overflow:hidden;
-  border-bottom: 1px dotted #b7b7b7;
-  margin: 0px 5px;
-	padding: 5px 0px 0px 11px;/* orientation=lt */
-	padding: 5px 11px 0px 0px;/* orientation=rt */
-  display: block;
+.UINotification .UIPopupNotification .Item {
+	overflow: hidden;
+	border-bottom: 1px dotted #b7b7b7;
+	margin: 0px 5px;
+	padding: 5px 0px 0px 11px; /* orientation=lt */
+	padding: 5px 11px 0px 0px; /* orientation=rt */
+	display: block;
 	line-height: 22px;
-  color: red;
-  background: url('images/Popup.gif') no-repeat 3px -74px;
+	color: red;
+	background: url('images/Popup.gif') no-repeat 3px -74px;
 }
 
-.UINotification .UIPopupNotification  .Item:hover {
-  color: black;
+.UINotification .UIPopupNotification .Item:hover {
+	color: black;
 }
 

@@ -1,7 +1,5 @@
-
-
 .UIPageDesktop .UIWindow .WindowBarCenter .WindowPortletInfo {
-  cursor: move;
+	cursor: move;
 }
 
 /*##########################################################*/
@@ -15,6 +13,7 @@
 }
 
 /*======================== UIPageBody ================================*/
+
 .UIWindow {
 	width: 98.5%; height: auto;
 	margin: 0px auto 0px auto; 
@@ -37,6 +36,7 @@
 }
 
 /*======================== UIPortalWarning ================================*/
+
 .UIPageBody .UIPortalWarning {
 	font-family: tahoma;
 	font-size: 12px;
@@ -66,10 +66,10 @@
 	font-size: 15px;
 	font-weight: bold;
 	line-height: 40px;
-	text-align: left;/* orientation=lt */
-	text-align: right;/* orientation=rt */
-	margin-left: 20px;/* orientation=lt */
-	margin-right: 20px;/* orientation=rt */
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
+	margin-left: 20px; /* orientation=lt */
+	margin-right: 20px; /* orientation=rt */
 }
 
 .UIPageBody .UIPortalWarning .LeftMiddleWarning {
@@ -84,12 +84,12 @@
 }
 
 .UIPageBody .UIPortalWarning .RightMiddleWarning .Icon {
-	background: url('/eXoResources/skin/sharedImages/BlueNextArrow.gif') no-repeat left 5px;/* orientation=lt */
+	background: url('/eXoResources/skin/sharedImages/BlueNextArrow.gif') no-repeat left 5px; /* orientation=lt */
 	background: url('/eXoResources/skin/sharedImages/BlueNextArrow.gif') no-repeat right 5px;	/* orientation=rt */
-	padding: 6px 0px 6px 20px;/* orientation=lt */
-	padding: 6px 20px 6px 0px;/* orientation=rt */
-	text-align: left;/* orientation=lt */
-	text-align: right;/* orientation=rt */
+	padding: 6px 0px 6px 20px; /* orientation=lt */
+	padding: 6px 20px 6px 0px; /* orientation=rt */
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
 }
 
 .UIPageBody .UIPortalWarning .LeftBottomWarning {

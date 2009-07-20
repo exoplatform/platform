@@ -1,152 +1,155 @@
 /**
  * Created by The eXo Platform SAS
- * Modifile : Vu Duy Tu
+ * Modifile: Vu Duy Tu
  *           duytucntt@gmail.com
  * December 15, 2006
  * version: $Id$
  */
-.DecoratrBox {}
+
+.DecoratrBox {
+}
 
 /*##############################- GrayRoundedFillBox Style -################################*/
+
 .DecoratorBox .GrayRoundedFillBoxStyle {
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopLeftCornerBoxDecorator {
-  background: url('background/GrayRounded.gif') no-repeat left top;
-  padding: 0px 0px 0px 8px;
+	background: url('background/GrayRounded.gif') no-repeat left top;
+	padding: 0px 0px 0px 8px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopRightCornerBoxDecorator {
-  background: url('background/GrayRounded.gif') no-repeat right top;
-  padding: 0px 8px 0px 0px ;
+	background: url('background/GrayRounded.gif') no-repeat right top;
+	padding: 0px 8px 0px 0px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .TopCenterBoxDecorator {
-  height: 8px;
-  background-image: url('background/GrayRounded.gif');
-  background-repeat: repeat-x;
-  background-position: center -8px;
-  margin: 0px;
+	height: 8px;
+	background-image: url('background/GrayRounded.gif');
+	background-repeat: repeat-x;
+	background-position: center -8px;
+	margin: 0px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .MiddleLeftSideBoxDecorator {
-  padding: 0px 0px 0px 8px;
-  height: auto;
-  background-color: #efefef;
-  background-image: url('background/MiddleGrayRounded.gif');
-  background-repeat: repeat-y;
-  background-position: left;
+	padding: 0px 0px 0px 8px;
+	height: auto;
+	background-color: #efefef;
+	background-image: url('background/MiddleGrayRounded.gif');
+	background-repeat: repeat-y;
+	background-position: left;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .CenterBoxDecorator {
-  background: #efefef;
-  height: auto;
+	background: #efefef;
+	height: auto;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .MiddleRightSideBoxDecorator {
-  padding: 0px 8px 0px 0px ;
-  height: auto;
-  background-image: url('background/MiddleGrayRounded.gif');
-  background-repeat: repeat-y;
-  background-position: right;
+	padding: 0px 8px 0px 0px;
+	height: auto;
+	background-image: url('background/MiddleGrayRounded.gif');
+	background-repeat: repeat-y;
+	background-position: right;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomLeftCornerBoxDecorator {
-  background: url('background/GrayRounded.gif') no-repeat left bottom ;
-  padding: 0px 0px 0px 8px;
+	background: url('background/GrayRounded.gif') no-repeat left bottom;
+	padding: 0px 0px 0px 8px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomRightCornerBoxDecorator {
-  background: url('background/GrayRounded.gif') no-repeat right bottom;
-  padding: 0px 8px 0px 0px ;
+	background: url('background/GrayRounded.gif') no-repeat right bottom;
+	padding: 0px 8px 0px 0px;
 }
 
 .DecoratorBox .GrayRoundedFillBoxStyle .BottomCenterBoxDecorator {
-  height: 8px;
-  background-image: url('background/GrayRounded.gif');
-  background-repeat: repeat-x;
-  background-position: center -16px;
+	height: 8px;
+	background-image: url('background/GrayRounded.gif');
+	background-repeat: repeat-x;
+	background-position: center -16px;
 }
 
 /*##############################- Bar Decorator-################################*/
 
 .DecoratorBox .BarDecorator .TopRightBar {
-  background: url('background/BarDecorator.gif') no-repeat right -3px;/* orientation=lt */
-  background: url('background/BarDecorator-rt.gif') no-repeat left -3px;/* orientation=rt */
-  padding-right: 3px;/* orientation=lt */
-  padding-left: 3px;/* orientation=rt */
-  height: 3px;
+	background: url('background/BarDecorator.gif') no-repeat right -3px;/* orientation=lt */
+	background: url('background/BarDecorator-rt.gif') no-repeat left -3px;/* orientation=rt */
+	padding-right: 3px;/* orientation=lt */
+	padding-left: 3px;/* orientation=rt */
+	height: 3px;
 }
 
 .DecoratorBox .BarDecorator .TopCenterBar {
-  background: url('background/BarDecorator.gif') repeat-x top;
-  height: 3px;
+	background: url('background/BarDecorator.gif') repeat-x top;
+	height: 3px;
 }
 
 .DecoratorBox .BarDecorator .MiddleCenterBar {
-  background: #a0bbdf url('background/MRBarDecorator.gif') repeat-y right; /* orientation=lt */
-  background: #a0bbdf url('background/MRBarDecorator-rt.gif') repeat-y left; /* orientation=rt */
-  padding: 2px 5px 2px 5px;
-  color: #fff;
-  font-weight: bold;
+	background: #a0bbdf url('background/MRBarDecorator.gif') repeat-y right; /* orientation=lt */
+	background: #a0bbdf url('background/MRBarDecorator-rt.gif') repeat-y left; /* orientation=rt */
+	padding: 2px 5px 2px 5px;
+	color: #fff;
+	font-weight: bold;
 }
 
 .DecoratorBox .BarDecorator .BottomCenterBar {
-  background: url('background/BarDecorator.gif') repeat-x left -6px;
-  height: 3px;
+	background: url('background/BarDecorator.gif') repeat-x left -6px;
+	height: 3px;
 }
 
 .DecoratorBox .BarDecorator .BottomRightBar {
-  background: url('background/BarDecorator.gif') no-repeat right bottom;/* orientation=lt */
-  background: url('background/BarDecorator-rt.gif') no-repeat left bottom;/* orientation=rt */
-  padding-right: 3px;/* orientation=lt */
-  padding-left: 3px;/* orientation=rt */
-  height: 3px;
+	background: url('background/BarDecorator.gif') no-repeat right bottom;/* orientation=lt */
+	background: url('background/BarDecorator-rt.gif') no-repeat left bottom;/* orientation=rt */
+	padding-right: 3px;/* orientation=lt */
+	padding-left: 3px;/* orientation=rt */
+	height: 3px;
 }
 
 /*##############################- View box style-################################*/
 
 .DecoratorBox .ViewBoxStyle .MiddleCenterViewBoxStyle {
-  background: #ffffff ;
+	background: #ffffff;
 }
 
 .DecoratorBox .ViewBoxStyle .TopLeftViewBoxStyle {
-  background: url('background/ViewBoxStyle.gif') no-repeat left top;
-  padding: 0px 0px 0px 8px;
+	background: url('background/ViewBoxStyle.gif') no-repeat left top;
+	padding: 0px 0px 0px 8px;
 }
 
 .DecoratorBox .ViewBoxStyle .TopCenterViewBoxStyle {
-  height: 8px ;
-  background: url('background/ViewBoxStyle.gif') repeat-x left -8px;
+	height: 8px;
+	background: url('background/ViewBoxStyle.gif') repeat-x left -8px;
 }
 
 .DecoratorBox .ViewBoxStyle .TopRightViewBoxStyle {
-  background: url('background/ViewBoxStyle.gif') no-repeat right top;
-  padding: 0px 8px 0px 0px ;
+	background: url('background/ViewBoxStyle.gif') no-repeat right top;
+	padding: 0px 8px 0px 0px;
 }
 
 .DecoratorBox .ViewBoxStyle .MiddleLeftViewBoxStyle {
-  background: url('background/MiddleViewBoxStyle.gif') repeat-y left;
-  padding: 0px 0px 0px 4px ;
+	background: url('background/MiddleViewBoxStyle.gif') repeat-y left;
+	padding: 0px 0px 0px 4px;
 }
 
 .DecoratorBox .ViewBoxStyle .MiddleRightViewBoxStyle {
-  background: url('background/MiddleViewBoxStyle.gif') repeat-y right;
-  padding: 0px 4px 0px 0px ;
+	background: url('background/MiddleViewBoxStyle.gif') repeat-y right;
+	padding: 0px 4px 0px 0px;
 }
 
 .DecoratorBox .ViewBoxStyle .BottomLeftViewBoxStyle {
-  width: auto; 
-  background: url('background/ViewBoxStyle.gif') no-repeat left bottom;
-  padding: 0px 0px 0px 8px ;
+	width: auto; 
+	background: url('background/ViewBoxStyle.gif') no-repeat left bottom;
+	padding: 0px 0px 0px 8px;
 }
 
 .DecoratorBox .ViewBoxStyle .BottomCenterViewBoxStyle {
-  height: 8px ;
-  background: url('background/ViewBoxStyle.gif') repeat-x left -16px;
+	height: 8px;
+	background: url('background/ViewBoxStyle.gif') repeat-x left -16px;
 }
 
 .DecoratorBox .ViewBoxStyle .BottomRightViewBoxStyle {
-  background: url('background/ViewBoxStyle.gif') no-repeat right bottom;
-  padding: 0px 8px 0px 0px ;
+	background: url('background/ViewBoxStyle.gif') no-repeat right bottom;
+	padding: 0px 8px 0px 0px;
 }

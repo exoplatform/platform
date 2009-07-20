@@ -7,14 +7,14 @@
 }
 
 .UITabPane .UITabContentContainer {
-  border: solid 1px #aeaeae; border-top: none;
-  background: white;
+	border: solid 1px #aeaeae; border-top: none;
+	background: white;
 }
 
 .UITabPane .UITabContentContainer .UITabContent {
-  background: #f7f7f7;
-  border: solid 1px white; border-top: none;
-  padding: 10px ;
+	background: #f7f7f7;
+	border: solid 1px white; border-top: none;
+	padding: 10px;
 }
 
 .UITabPane .UIForm .HorizontalLayout {

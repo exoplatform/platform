@@ -1,6 +1,6 @@
-.UIPageIterator {    
-  margin: 5px auto 0px auto;
-  width: 99%;
+.UIPageIterator {	
+	margin: 5px auto 0px auto;
+	width: 99%;
 }
 
 .UIPageIterator a {
@@ -50,43 +50,43 @@
 }
 
 .UIPageIterator .LastTopPageIcon {
-  background: url('background/ArrowPageIterator.gif') no-repeat left -17px; /* orientation=lt */
-  background: url('background/ArrowPageIterator-rt.gif') no-repeat right -17px; /* orientation=rt */
+	background: url('background/ArrowPageIterator.gif') no-repeat left -17px; /* orientation=lt */
+	background: url('background/ArrowPageIterator-rt.gif') no-repeat right -17px; /* orientation=rt */
 }
 
 .UIPageIterator .NextTopPageIcon {
-  background: url('background/ArrowPageIterator.gif') no-repeat left -51px; /* orientation=lt */
-  background: url('background/ArrowPageIterator-rt.gif') no-repeat right -51px; /* orientation=rt */
+	background: url('background/ArrowPageIterator.gif') no-repeat left -51px; /* orientation=lt */
+	background: url('background/ArrowPageIterator-rt.gif') no-repeat right -51px; /* orientation=rt */
 }
 
 .UIPageIterator .LastPageIcon {
-  background: url('background/ArrowPageIterator.gif') no-repeat left -119px; /* orientation=lt */
-    background: url('background/ArrowPageIterator-rt.gif') no-repeat right -119px; /* orientation=rt */
+	background: url('background/ArrowPageIterator.gif') no-repeat left -119px; /* orientation=lt */
+		background: url('background/ArrowPageIterator-rt.gif') no-repeat right -119px; /* orientation=rt */
 }
 
 .UIPageIterator .NextPageIcon {
-  background: url('background/ArrowPageIterator.gif') no-repeat left -85px;	/* orientation=lt */
-  background: url('background/ArrowPageIterator-rt.gif') no-repeat right -85px;	/* orientation=rt */
+	background: url('background/ArrowPageIterator.gif') no-repeat left -85px;	/* orientation=lt */
+	background: url('background/ArrowPageIterator-rt.gif') no-repeat right -85px;	/* orientation=rt */
 }
 
 .UIPageIterator .DisableLastTopPageIcon {
-  background: url('background/ArrowPageIterator.gif') no-repeat left top; /* orientation=lt */
-  background: url('background/ArrowPageIterator-rt.gif') no-repeat right top; /* orientation=rt */
+	background: url('background/ArrowPageIterator.gif') no-repeat left top; /* orientation=lt */
+	background: url('background/ArrowPageIterator-rt.gif') no-repeat right top; /* orientation=rt */
 }
 
 .UIPageIterator .DisableNextTopPageIcon {
-  background: url('background/ArrowPageIterator.gif') no-repeat left -34px; /* orientation=lt */
-  background: url('background/ArrowPageIterator-rt.gif') no-repeat right -34px; /* orientation=rt */
+	background: url('background/ArrowPageIterator.gif') no-repeat left -34px; /* orientation=lt */
+	background: url('background/ArrowPageIterator-rt.gif') no-repeat right -34px; /* orientation=rt */
 }
 
 .UIPageIterator .DisableLastPageIcon {
-  background: url('background/ArrowPageIterator.gif') no-repeat left -102px; /* orientation=lt */
-  background: url('background/ArrowPageIterator-rt.gif') no-repeat right -102px; /* orientation=rt */
+	background: url('background/ArrowPageIterator.gif') no-repeat left -102px; /* orientation=lt */
+	background: url('background/ArrowPageIterator-rt.gif') no-repeat right -102px; /* orientation=rt */
 }
 
 .UIPageIterator .DisableNextPageIcon {
-  background: url('background/ArrowPageIterator.gif') no-repeat left -68px; /* orientation=lt */
-  background: url('background/ArrowPageIterator-rt.gif') no-repeat right -68px; /* orientation=rt */
+	background: url('background/ArrowPageIterator.gif') no-repeat left -68px; /* orientation=lt */
+	background: url('background/ArrowPageIterator-rt.gif') no-repeat right -68px; /* orientation=rt */
 }
 
 

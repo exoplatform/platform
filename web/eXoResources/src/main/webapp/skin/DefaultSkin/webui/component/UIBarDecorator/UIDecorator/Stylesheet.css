@@ -4,7 +4,7 @@
 }
 
 .LineDecorator6px {
-	height: 6px ;
+	height: 6px;
 	background: url('background/LineDecorator.gif') repeat-x left -4px;
 }
 
@@ -17,5 +17,5 @@
 	height: 23px;	
 	background: url('background/LineDecorator.gif') repeat-x bottom;
 	margin: 1px 0px 0px 0px;
-  border: solid 1px #5f90ba;
+	border: solid 1px #5f90ba;
 }

@@ -1,36 +1,36 @@
-.UIDescription .DescriptionButton {
-  margin: 0px 0px 3px 0px;
-  border: solid 1px #c9c8c8;
-  background: #ffffff;
-  padding: 2px;
-  width: 140px;
+.UIDescription .DescriptionButton {	
+	margin: 0px 0px 3px 0px;
+	border: solid 1px #c9c8c8;
+	background: #ffffff;
+	padding: 2px;
+	width: 140px;
 }
 
 .UIDescription .DescriptionInnerBlock {
-  background: #d7d6d6;
-  text-align: center;
-  color: #0848c1;
-  font-weight: bold;
-  padding: 3px;
+	background: #d7d6d6;
+	text-align: center;
+	color: #0848c1;
+	font-weight: bold;
+	padding: 3px;
 }
 
 .UIDescription .DescriptionIcon {
-  float: left;/* orientation=lt */
-  float: right;/* orientation=rt */
-  margin-left: 3px;/* orientation=lt */
-  margin-right: 3px;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin-left: 3px; /* orientation=lt */
+	margin-right: 3px; /* orientation=rt */
 }
 
 .UIDescription .DescriptionText {
-  margin-left: 25px;/* orientation=lt */
-  margin-right: 25px;/* orientation=rt */
-  text-align: left;/* orientation=lt */
-  text-align: right;/* orientation=rt */
+	margin-left: 25px; /* orientation=lt */
+	margin-right: 25px; /* orientation=rt */
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
 }
 
 .UIDescription .ContentField {
-  border: solid 1px #959393;
-  background: #fefdfd;
-  padding: 10px;
-  height: 150px;
+	border: solid 1px #959393;
+	background: #fefdfd;
+	padding: 10px;
+	height: 150px;
 }
