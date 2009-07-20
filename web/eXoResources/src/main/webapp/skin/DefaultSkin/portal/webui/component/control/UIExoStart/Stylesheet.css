@@ -2,9 +2,9 @@
 }
 	
 #StartMenuContainer {
-	position: absolute;
+	position: absolute; 
 }
-		
+
 .UIExoStart .StartBarContainer {
 	height: 38px;
 	background: url('background/StartMenuContainer.gif') repeat-x center -35px;
@@ -67,8 +67,8 @@
 	padding: 0px 30px 0px 0px; /* orientation=rt */
 	margin: 0px 0px 0px 5px; /* orientation=lt */
 	margin: 0px 5px 0px 0px; /* orientation=rt */
-  background-position: left; /* orientation=lt */
-  background-position: right; /* orientation=rt */
+	background-position: left; /* orientation=lt */
+	background-position: right; /* orientation=rt */
 	height: 32px; 
 	width: auto;
 }
@@ -132,7 +132,7 @@
 	padding: 0px 0px 0px 34px; /* orientation=lt */
 	padding: 0px 34px 0px 0px; /* orientation=rt */
 	float: right;/* orientation=lt */
-  float: left;/* orientation=rt */
+	float: left;/* orientation=rt */
 	margin-right: 10px;/* orientation=lt */
 	margin-left: 10px;/* orientation=rt */
 }
@@ -270,7 +270,9 @@
 	background: url('background/StartMenuContainer.gif') no-repeat left -216px; /* orientation=lt */
 	background: url('background/StartMenuContainer.gif') no-repeat right -216px; /* orientation=rt */
 }
+
 /*========================Start Menu Decorator======================*/
+
 .UIExoStart .StartMenuDecorator {
 	width: 100%;
 }

@@ -1,13 +1,13 @@
-.UIPortalBrowser {
-  padding: 5px;
-  width: auto;
+.UIPortalBrowser {	
+	padding: 5px;
+	width: auto;
 }
 
-.UIPortalBrowser .UIGrid {  
+.UIPortalBrowser .UIGrid {	
 	width: 99.5%;
 	margin: auto;
 }
 
-.UIPortalBrowser .UIGrid .Text {  
+.UIPortalBrowser .UIGrid .Text {	
 	white-space: nowrap;
 }

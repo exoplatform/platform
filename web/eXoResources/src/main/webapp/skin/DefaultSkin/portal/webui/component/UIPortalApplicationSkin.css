@@ -1,41 +1,42 @@
-@import url(control/Stylesheet.css) ;
-@import url(customization/Stylesheet.css) ;
-@import url(view/Stylesheet.css) ;
-@import url(widget/Stylesheet.css) ;
+@import url(control/Stylesheet.css);
+@import url(customization/Stylesheet.css);
+@import url(view/Stylesheet.css);
+@import url(widget/Stylesheet.css);
+
 div {
-	padding:	0px ; margin: 0px ;
+	padding: 0px; margin: 0px;
 	outline: none;
 }
 
 table {
-  width: 100% ;
-	padding: 0px ; margin: 0px ;
-	border-spacing:	0px ;
-	border-collapse: collapse ;
+  width: 100%;
+	padding: 0px; margin: 0px;
+	border-spacing:	0px;
+	border-collapse: collapse;
 }
 
 th, td {
-	padding: 0px ; margin: 0px ;
+	padding: 0px; margin: 0px;
 	vertical-align: top;
 }
 
 img {
-	padding: 0px ; margin: 0px ; border: none ; vertical-align: middle;
+	padding: 0px; margin: 0px; border: none; vertical-align: middle;
 }
 
 form {
-	padding: 0px ; margin: 0px ;
+	padding: 0px; margin: 0px;
 }
 
 html {
-	margin: 0px ; padding: 0px;
+	margin: 0px; padding: 0px;
 	*overflow-x: hidden;
 }
 
 body {
 	background: #ebedf2;
-	margin: 0px ; padding: 0px;
-	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif ;
+	margin: 0px; padding: 0px;
+	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	overflow-x: hidden;
 }
@@ -44,20 +45,22 @@ a {
 	text-decoration: none;
 	color: black;
 }
+
 /*###############################################################################################*/
+
 .OverflowContainer {
 	overflow: hidden;
 	width: 100%;
 }
 
 .LeftBlock {
-	float: left;		/* orientation=lt */
-	float: right;		/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 .RightBlock {
-	float: right;		/* orientation=lt */
-	float: left;		/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 }
 
 .InlineContainer {
@@ -65,11 +68,11 @@ a {
 }
 
 .InlineLeft {
-	float:left;
+	float: left;
 }
 
 .InlineRight {
-	float:right;
+	float: right;
 }
 
 .AjaxLoadingMask {
@@ -91,9 +94,9 @@ a {
 }
 
 .AjaxLoadingMask .LoadingProgressBar {
-  width: 32px ; height: 40px ;
-  background: url('../../../background/LoadingProgress.gif') no-repeat center ;
-  margin: auto ;
+  width: 32px; height: 40px;
+  background: url('../../../background/LoadingProgress.gif') no-repeat center;
+  margin: auto;
 }
 
 .AjaxLoadingMask .UIAction .ActionButton{

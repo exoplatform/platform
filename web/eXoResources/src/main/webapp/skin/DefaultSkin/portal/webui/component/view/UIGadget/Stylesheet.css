@@ -1,4 +1,3 @@
-
 /***************************************  UIGadget   **************************************/
 
 .UIGadget {
@@ -10,23 +9,23 @@
 }
 
 .UIGadget .GadgetControl {
-  float: right; /* orientation=lt */
-  float: left; /* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 100px; height: 20px;
 	padding-right: 6px; /* orientation=lt */
 	padding-left: 6px; /* orientation=rt */
 }
 
 .UIGadget .GadgetControl .LeftControlBar {
-	background: url('background/Gadget.png') no-repeat left top;	 /* orientation=lt */
-	background: url('background/Gadget-rt.png') no-repeat right top;	 /* orientation=rt */
+	background: url('background/Gadget.png') no-repeat left top; /* orientation=lt */
+	background: url('background/Gadget-rt.png') no-repeat right top; /* orientation=rt */
 	padding-left: 23px; /* orientation=lt */
 	padding-right: 23px; /* orientation=rt */
 }
 
 .UIGadget .GadgetControl .RightControlBar{
-	background: url('background/Gadget.png') no-repeat right top;	 /* orientation=lt */
-	background: url('background/Gadget-rt.png') no-repeat left top;	 /* orientation=rt */
+	background: url('background/Gadget.png') no-repeat right top;	/* orientation=lt */
+	background: url('background/Gadget-rt.png') no-repeat left top; /* orientation=rt */
 	padding-right: 4px; /* orientation=lt */
 	padding-left: 4px; /* orientation=rt */
 }
@@ -37,8 +36,8 @@
 }
 
 .UIGadget .GadgetControl .GadgetDragHandleArea {
-  float: right; /* orientation=lt */
-  float: left; /* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 13px; height: 13px;
 	cursor: move;
 	margin: 3px 3px 0px 3px;
@@ -117,5 +116,5 @@
 }
 
 .UIControlWorkspace .UIGadget iframe {
-	width: 210px ;
+	width: 210px;
 }

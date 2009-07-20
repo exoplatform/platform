@@ -24,7 +24,7 @@
 }
 
 .UIGrid td {
- height: 20px; line-height: 20px;
+  height: 20px; line-height: 20px;
 	border-right: 1px solid #cccccc;
 	border-left: 1px solid #cccccc;
 	border-top: 1px solid white;

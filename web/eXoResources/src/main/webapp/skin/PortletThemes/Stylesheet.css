@@ -1,5 +1,4 @@
-
-/*-------------------------- DefaultTheme ---------------------------*/
+/*-------------------------- DefaultTheme ---------------------------*/  
 
 .DefaultTheme .WindowBarCenter .WindowPortletInfo {
 	margin-right: 80px; /* orientation=lt */
@@ -7,8 +6,8 @@
 }
 
 .DefaultTheme .WindowBarCenter .ControlIcon {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 24px; 
 	height: 17px;
 	cursor: pointer;
@@ -57,8 +56,8 @@
 
 
 .UIPageDesktop .DefaultTheme .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 18px; height: 18px;
 	cursor: nw-resize;
 	background: url('background/ResizeArea18x18.gif') no-repeat left top; /* orientation=lt */
@@ -68,15 +67,15 @@
 .DefaultTheme .Information {
 	height: 18px; line-height: 18px;
 	vertical-align: middle; font-size: 10px;
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
 }
 
 .DefaultTheme .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
@@ -157,8 +156,8 @@
 /*-------------------------- MacTheme ---------------------------*/
 
 .MacTheme .WindowBarCenter .WindowPortletInfo {
-	margin: 0px 70px 0px 0px;/* orientation=lt */
-	margin: 0px 0px 0px 70px;/* orientation=rt */
+	margin: 0px 70px 0px 0px; /* orientation=lt */
+	margin: 0px 0px 0px 70px; /* orientation=rt */
 }
 
 .MacTheme .WindowBarCenter .WindowPortletIcon {
@@ -231,8 +230,8 @@
 }
 
 .MacTheme .BackgroundIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	margin: 4px 2px 0px 2px;
 }
 
@@ -249,8 +248,8 @@
 	height: 16px; line-height: 14px; vertical-align: middle;
 	font-size: 10px;
 	margin-right: 18px;
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .MacTheme .MiddleDecoratorLeft {
@@ -323,8 +322,8 @@
 /*-------------------------- MacGray ---------------------------*/
 
 .MacGray .WindowBarCenter .WindowPortletInfo {
-	margin: 0px 70px 0px 0px;/* orientation=lt */
-	margin: 0px 0px 0px 70px;/* orientation=rt */
+	margin: 0px 70px 0px 0px; /* orientation=lt */
+	margin: 0px 0px 0px 70px; /* orientation=rt */
 }
 
 .MacGray .WindowBarCenter .WindowPortletIcon {
@@ -397,14 +396,14 @@
 }
 
 .MacGray .BackgroundIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	margin: 4px 2px 0px 2px;
 }
 
 .UIPageDesktop .MacGray .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 15px;
 	cursor: nw-resize;
 	background: url('background/ResizeArea17x15.png') no-repeat;
@@ -413,10 +412,10 @@
 .MacGray .Information {
 	height: 16px; line-height: 14px; vertical-align: middle;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .MacGray .MiddleDecoratorLeft {
@@ -489,8 +488,8 @@
 /*-------------------------- MacBlack ---------------------------*/
 
 .MacBlack .WindowBarCenter .WindowPortletInfo {
-	margin: 0px 70px 0px 0px;/* orientation=lt */
-	margin: 0px 0px 0px 70px;/* orientation=rt */
+	margin: 0px 70px 0px 0px; /* orientation=lt */
+	margin: 0px 0px 0px 70px; /* orientation=rt */
 }
 
 .MacBlack .WindowBarCenter .WindowPortletIcon {
@@ -563,14 +562,14 @@
 }
 
 .MacBlack .BackgroundIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	margin: 4px 2px 0px 2px;
 }
 
 .UIPageDesktop .MacBlack .ResizeArea {
-	float: left;/* orientation=rt */
-	float: right;/* orientation=lt */
+	float: left; /* orientation=rt */
+	float: right; /* orientation=lt */
 	width: 17px; height: 15px;
 	cursor: nw-resize;
 	background: url('background/ResizeArea17x15.png') no-repeat;
@@ -579,10 +578,10 @@
 .MacBlack .Information {
 	height: 16px; line-height: 14px; vertical-align: middle;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .MacBlack .MiddleDecoratorLeft {
@@ -656,8 +655,8 @@
 
 
 .MacGreenSteel .WindowBarCenter .WindowPortletInfo {
-	margin: 0px 70px 0px 0px;/* orientation=lt */
-	margin: 0px 0px 0px 70px;/* orientation=rt */
+	margin: 0px 70px 0px 0px; /* orientation=lt */
+	margin: 0px 0px 0px 70px; /* orientation=rt */
 }
 
 .MacGreenSteel .WindowBarCenter .WindowPortletIcon {
@@ -730,14 +729,14 @@
 }
 
 .MacGreenSteel .BackgroundIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	margin: 4px 2px 0px 2px;
 }
 
 .UIPageDesktop .MacGreenSteel .ResizeArea {
-	float: left;/* orientation=rt */
-	float: right;/* orientation=lt */
+	float: left; /* orientation=rt */
+	float: right; /* orientation=lt */
 	width: 17px; height: 15px;
 	cursor: nw-resize;
 	background: url('background/ResizeArea17x15.png') no-repeat;
@@ -746,10 +745,10 @@
 .MacGreenSteel .Information {
 	height: 16px; line-height: 14px; vertical-align: middle;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .MacGreenSteel .MiddleDecoratorLeft {
@@ -822,14 +821,14 @@
 /*-------------------------------- VistaTheme -----------------------------*/
 
 .VistaTheme .WindowBarCenter .WindowPortletInfo {
-	margin-right: 95px;/* orientation=lt */
-	margin-left: 95px;/* orientation=rt */
+	margin-right: 95px; /* orientation=lt */
+	margin-left: 95px; /* orientation=rt */
 	
 }
 
 .VistaTheme .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 22px;
@@ -891,10 +890,10 @@
 }
 
 .VistaTheme .Information {
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 	height: 18px; line-height: 18px;
 	font-size: 10px;
 }
@@ -905,8 +904,8 @@
 }
 
 .UIPageDesktop .VistaTheme .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 9px; height: 12px;
 	cursor: nw-resize;
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right; /* orientation=lt */
@@ -993,8 +992,8 @@
 }
 
 .VistaBlue .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 20px;
@@ -1062,10 +1061,10 @@
 }
 
 .VistaBlue .Information {
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 	height: 18px; line-height: 18px;
 	font-size: 10px;
 }
@@ -1079,8 +1078,8 @@
 }
 
 .UIPageDesktop .VistaBlue .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 9px; height: 12px;
 	cursor: nw-resize;
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/ResizeBG.gif') no-repeat bottom right;
@@ -1152,8 +1151,8 @@
 /*-------------------------- RoundConerBlue ---------------------------*/
 
 .RoundConerBlue .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 	
 }
 
@@ -1170,23 +1169,23 @@
 .RoundConerBlue .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .RoundConerBlue .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .RoundConerBlue .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -1309,8 +1308,8 @@
 /*------------------ RoundConerViolet -----------------*/
 
 .RoundConerViolet .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 	
 }
 
@@ -1332,16 +1331,16 @@
 }
 
 .RoundConerViolet .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .RoundConerViolet .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -1468,8 +1467,8 @@
 /*------------------------------- RoundConerOrange ----------------------------------*/
 
 .RoundConerOrange .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 }
 
 .RoundConerOrange .WindowBarCenter .ControlIcon {
@@ -1485,23 +1484,23 @@
 .RoundConerOrange .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .RoundConerOrange .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .RoundConerOrange .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -1628,8 +1627,8 @@
 /*------------------------------- RoundConerPink ----------------------------------*/
 
 .RoundConerPink .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 }
 
 .RoundConerPink .WindowBarCenter .ControlIcon {
@@ -1645,23 +1644,23 @@
 .RoundConerPink .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .RoundConerPink .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .RoundConerPink .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -1788,8 +1787,8 @@
 /*------------------------------- RoundConerGreen ----------------------------------*/
 
 .RoundConerGreen .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 }
 
 .RoundConerGreen .WindowBarCenter .ControlIcon {
@@ -1805,23 +1804,23 @@
 .RoundConerGreen .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .RoundConerGreen .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .RoundConerGreen .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -1948,8 +1947,8 @@
 /*-------------------------- ShadowBlue ---------------------------*/
 
 .ShadowBlue .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 }
 
 .ShadowBlue .WindowBarCenter .ControlIcon {
@@ -1965,23 +1964,23 @@
 .ShadowBlue .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .ShadowBlue .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .ShadowBlue .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -2106,8 +2105,8 @@
 /*------------------------------ ShadowViolet -----------------------------------*/
 
 .ShadowViolet .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 }
 
 .ShadowViolet .WindowBarCenter .ControlIcon {
@@ -2123,23 +2122,23 @@
 .ShadowViolet .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .ShadowViolet .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .ShadowViolet .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -2263,10 +2262,9 @@
 
 /*------------------------------ ShadowOrange -----------------------------------*/
 
-
 .ShadowOrange .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 }
 
 .ShadowOrange .WindowBarCenter .ControlIcon {
@@ -2282,23 +2280,23 @@
 .ShadowOrange .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .ShadowOrange .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .ShadowOrange .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -2424,8 +2422,8 @@
 
 
 .ShadowPink .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 }
 
 .ShadowPink .WindowBarCenter .ControlIcon {
@@ -2441,23 +2439,23 @@
 .ShadowPink .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .ShadowPink .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .ShadowPink .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -2583,8 +2581,8 @@
 
 
 .ShadowGreen .WindowBarCenter .WindowPortletInfo {
-	margin-right: 70px;/* orientation=lt */
-	margin-left: 70px;/* orientation=rt */
+	margin-right: 70px; /* orientation=lt */
+	margin-left: 70px; /* orientation=rt */
 }
 
 .ShadowGreen .WindowBarCenter .ControlIcon {
@@ -2600,23 +2598,23 @@
 .ShadowGreen .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .ShadowGreen .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .ShadowGreen .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -2741,8 +2739,8 @@
 /*------------------------------ SimpleBlue -----------------------------------*/
 
 .SimpleBlue .WindowBarCenter .WindowPortletInfo {
-	margin-right: 60px;/* orientation=lt */
-	margin-left: 60px;/* orientation=rt */
+	margin-right: 60px; /* orientation=lt */
+	margin-left: 60px; /* orientation=rt */
 }
 
 .SimpleBlue .WindowBarCenter .ControlIcon {
@@ -2757,23 +2755,23 @@
 .SimpleBlue .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .SimpleBlue .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .SimpleBlue .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -2888,8 +2886,8 @@
 /*------------------------------ SimpleViolet -----------------------------------*/
 
 .SimpleViolet .WindowBarCenter .WindowPortletInfo {
-	margin-right: 60px;/* orientation=lt */
-	margin-left: 60px;/* orientation=rt */
+	margin-right: 60px; /* orientation=lt */
+	margin-left: 60px; /* orientation=rt */
 }
 
 .SimpleViolet .WindowBarCenter .ControlIcon {
@@ -2904,23 +2902,23 @@
 .SimpleViolet .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .SimpleViolet .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .SimpleViolet .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -3037,8 +3035,8 @@
 /*------------------------------ SimpleOrange -----------------------------------*/
 
 .SimpleOrange .WindowBarCenter .WindowPortletInfo {
-	margin-right: 60px;/* orientation=lt */
-	margin-left: 60px;/* orientation=rt */
+	margin-right: 60px; /* orientation=lt */
+	margin-left: 60px; /* orientation=rt */
 }
 
 .SimpleOrange .WindowBarCenter .ControlIcon {
@@ -3053,23 +3051,23 @@
 .SimpleOrange .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .SimpleOrange .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .SimpleOrange .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -3186,8 +3184,8 @@
 /*------------------------------ SimplePink -----------------------------------*/
 
 .SimplePink .WindowBarCenter .WindowPortletInfo {
-	margin-right: 60px;/* orientation=lt */
-	margin-left: 60px;/* orientation=rt */
+	margin-right: 60px; /* orientation=lt */
+	margin-left: 60px; /* orientation=rt */
 }
 
 .SimplePink .WindowBarCenter .ControlIcon {
@@ -3202,23 +3200,23 @@
 .SimplePink .Information {
 	height: 18px; line-height: 18px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .SimplePink .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .SimplePink .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;
@@ -3335,8 +3333,8 @@
 /*------------------------------ SimpleGreen -----------------------------------*/
 
 .SimpleGreen .WindowBarCenter .WindowPortletInfo {
-	margin-right: 60px;/* orientation=lt */
-	margin-left: 60px;/* orientation=rt */
+	margin-right: 60px; /* orientation=lt */
+	margin-left: 60px; /* orientation=rt */
 }
 
 .SimpleGreen .WindowBarCenter .ControlIcon {
@@ -3352,23 +3350,23 @@
 	line-height: 18px;
 	width: 100px;
 	font-size: 10px;
-	margin-right: 18px;/* orientation=lt */
-	margin-left: 18px;/* orientation=rt */
-	padding-left: 5px;/* orientation=lt */
-	padding-right: 5px;/* orientation=rt */
+	margin-right: 18px; /* orientation=lt */
+	margin-left: 18px; /* orientation=rt */
+	padding-left: 5px; /* orientation=lt */
+	padding-right: 5px; /* orientation=rt */
 }
 
 .SimpleGreen .WindowBarCenter .WindowPortletIcon {
-  background-position: left top; /* orientation=lt */
-  background-position: right top; /* orientation=rt */
+	background-position: left top; /* orientation=lt */
+	background-position: right top; /* orientation=rt */
 	padding-left: 20px; /* orientation=lt */
 	padding-right: 20px; /* orientation=rt */
 	height: 16px;
 }
 
 .UIPageDesktop .SimpleGreen .ResizeArea {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 17px; height: 19px;
 	cursor: nw-resize;
 	background: url('background/Resize17x19.png') no-repeat;

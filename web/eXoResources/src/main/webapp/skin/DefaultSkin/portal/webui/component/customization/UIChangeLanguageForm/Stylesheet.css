@@ -1,98 +1,98 @@
-.UIChangeLanguageForm {
+.UIChangeLanguageForm {	
 }
 
 .UIChangeLanguageForm .UIFormTabPane .TabPaneContent .UITabContentContainer {
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemListContainer {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 175px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 175px; 
 }
 
 .UIChangeLanguageForm .UIItemSelector .ItemListContainer .ItemList {
-  background: white url('background/ItemListBg157x99.gif') no-repeat right bottom;/* orientation=lt */
-  background: white url('background/ItemListBg157x99.gif') no-repeat left bottom;/* orientation=rt */
-  border: 1px solid red;
+	background: white url('background/ItemListBg157x99.gif') no-repeat right bottom; /* orientation=lt */
+	background: white url('background/ItemListBg157x99.gif') no-repeat left bottom; /* orientation=rt */
+	border: 1px solid red; 
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList {
-	margin: 0px 0px 0px 180px;/* orientation=lt */
-	margin: 0px 180px 0px 0px;/* orientation=rt */
+	margin: 0px 0px 0px 180px; /* orientation=lt */
+	margin: 0px 180px 0px 0px; /* orientation=rt */
 }
 
 .UIChangeLanguageForm .UIItemSelector .ItemDetail .TemplateContainer {
-	padding-top: 10px;
+	padding-top: 10px; 
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList {
-	padding: 0px;
+	padding: 0px; 
 }
 
 .UIChangeLanguageForm .UIItemSelector .ItemDetailContainer {
-	background: #ffffff;
-	border: solid 1px #a4a4a4;
-	padding: 6px; 
+	background: #ffffff; 
+	border: solid 1px #a4a4a4; 
+	padding: 6px;  
 }
 
 .UIChangeLanguageForm .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
-	border: solid 1px #d2d2d2;
-	height: 227px;
-	margin: 0px;
+	border: solid 1px #d2d2d2; 
+	height: 227px; 
+	margin: 0px; 
 }
 
 .UIChangeLanguageForm .ItemDetail .NormalItem {
-	height: 24px;
-	border-bottom: solid 1px #e9e7e7;
-	cursor: pointer ;
-	color: black;
+	height: 24px; 
+	border-bottom: solid 1px #e9e7e7; 
+	cursor: pointer;  
+	color: black; 
 }
 
 .UIChangeLanguageForm .ItemDetail .NormalItem a:hover {
-	color: blue;
+	color: blue; 
 }
 
 .UIChangeLanguageForm .ItemDetail .SelectedItem {
-	height: 24px;
-	color: #f27e01;
-	border-bottom: solid 1px #e9e7e7;
+	height: 24px; 
+	color: #f27e01; 
+	border-bottom: solid 1px #e9e7e7; 
 }
 
 .UIChangeLanguageForm .ItemDetail .NormalItem .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	height: 24px; width: 24px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 24px;  width: 24px; 
 }
 
 .UIChangeLanguageForm .ItemDetail .SelectedItem .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	height: 24px; width: 24px;
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif') no-repeat center;/* orientation=lt */
-  background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon-rt.gif') no-repeat center;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	height: 24px;  width: 24px; 
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon.gif') no-repeat center; /* orientation=lt */
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlueCheckerIcon-rt.gif') no-repeat center; /* orientation=rt */
 }
 
 .UIChangeLanguageForm .ItemDetail .NodeLabel {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	line-height: 24px;
-	text-align: left;/* orientation=lt */
-	text-align: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	line-height: 24px; 
+	text-align: left; /* orientation=lt */
+	text-align: right; /* orientation=rt */
 }
 
 .UIChangeLanguageForm .ItemDetail .PercentLabel {
-	line-height: 24px;
-	text-align: right;/* orientation=lt */
-	text-align: left;/* orientation=rt */
-	padding-right: 20px;/* orientation=lt */
-	padding-left: 20px;/* orientation=rt */
+	line-height: 24px; 
+	text-align: right; /* orientation=lt */
+	text-align: left; /* orientation=rt */
+	padding-right: 20px; /* orientation=lt */
+	padding-left: 20px; /* orientation=rt */
 }
 
 .UIChangeLanguageForm .UITabPane .TabPaneContent {
-	padding: 0px;
+	padding: 0px; 
 }
 
 .UIChangeLanguageForm .UITabPane .TabPaneContent .UITabContentContainer { 
-	border: 1px solid #d4d4d4;
-	border-top: none;
+	border: 1px solid #d4d4d4; 
+	border-top: none; 
 }

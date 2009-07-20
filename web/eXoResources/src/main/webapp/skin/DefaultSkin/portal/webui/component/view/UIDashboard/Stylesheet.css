@@ -1,4 +1,4 @@
-.UIDashboardPortlet {
+.UIDashboardPortlet {	
 	height: 100%;
 }
 
@@ -37,6 +37,7 @@
 }
 
 /*----------------------UIGadgetsSelectorForm-------------------*/
+
 .UIDashboardSelectContainer {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */

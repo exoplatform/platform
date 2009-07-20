@@ -17,7 +17,7 @@
 .UIRightClickPopupMenu .RightClickCustomItem {
 	display: none;
 }
-	
+
 .UIRightClickPopupMenu .MenuItem .ItemIcon {
 	padding: 5px 0px 5px 26px; /* orientation=lt */
 	padding: 5px 26px 5px 0px; /* orientation=rt */

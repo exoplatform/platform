@@ -3,19 +3,19 @@
 }
 
 .UIWidgets .ItemSelectorContainer .EditIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 20px; height: 21px;
-	background: url('background/WidgetControlIcon.gif') no-repeat top;/* orientation=lt */
-	background: url('background/WidgetControlIcon-rt.gif') no-repeat top;/* orientation=rt */
+	background: url('background/WidgetControlIcon.gif') no-repeat top; /* orientation=lt */
+	background: url('background/WidgetControlIcon-rt.gif') no-repeat top; /* orientation=rt */
 	cursor: pointer;
 	margin: 2px 0px;
 }
 
 .UIWidgets .ItemSelectorContainer .UIDropDownControl {
-	width: 215px ;
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	width: 215px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	margin-top: 2px;
 }
 
@@ -74,19 +74,20 @@
 	height: 2px; 
 }
 
-/***************************************  UIWidgetContainer   **************************************/
+/***************************************	UIWidgetContainer	 **************************************/
+
 .UIWidgetContainer {
 }
 
 .UIWidgetContainer .WidgetContainerScrollArea {
-	overflow: hidden ;	
+	overflow: hidden;	
 }
 
 .UIWidgetContainer .WidgetNavigator {
 	height: 27px;
 	width: 75px;
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 }
 
 .UIWidgetContainer .LeftWidgetNavBar {
@@ -109,10 +110,10 @@
 .UIWidgetContainer .WidgetNavigator .Icon {
 	height: 16px;
 	width: 16px;
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	margin: 4px 0px 0px 4px;/* orientation=lt */
-	margin: 4px 4px 0px 0px;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 4px 0px 0px 4px; /* orientation=lt */
+	margin: 4px 4px 0px 0px; /* orientation=rt */
 	cursor: pointer;
 }	
 
@@ -136,14 +137,14 @@
 	background: url('background/WidgetControlIcon.gif') no-repeat left -21px;	
 }
 
-/***************************************  UIWidget   **************************************/
+/***************************************	UIWidget	 **************************************/
 
 .UIWidget .WidgetControlBar {
-  float: right;/* orientation=lt */
-  float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 76px; height: 20px;
-	padding-right: 7px;/* orientation=lt */
-	padding-left: 7px;/* orientation=rt */
+	padding-right: 7px; /* orientation=lt */
+	padding-left: 7px; /* orientation=rt */
 }
 
 .UIWidget .WidgetControl {
@@ -172,8 +173,8 @@
 }
 
 .UIWidget .WidgetControl .WidgetDragHandleArea {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 17px; height: 13px;
 	cursor: move;
 	margin: 3px 3px 0px 3px;
@@ -185,30 +186,30 @@
 }
 
 .UIWidget .WidgetControl .SeparatorLine {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 2px; height: 13px;
 	margin: 3px 3px 0px 3px;
 	background: url('background/SeparatorLine2x1.gif') repeat-y;
 }
 
 .UIWidget .WidgetControl .EditWidgetIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 16px; height: 16px;
 	cursor: pointer;
-	margin: 2px 3px 0px 0px;/* orientation=lt */
-	margin: 2px 0px 0px 3px;/* orientation=rt */
+	margin: 2px 3px 0px 0px; /* orientation=lt */
+	margin: 2px 0px 0px 3px; /* orientation=rt */
 	background: url('background/WidgetControlIcon.gif') no-repeat left -37px;	/* orientation=lt */
-	background: url('background/WidgetControlIcon.gif') no-repeat right -37px;	/* orientation=rt */
+	background: url('background/WidgetControlIcon.gif') no-repeat right -37px; /* orientation=rt */
 }
 
 .UIWidget .WidgetControl .CloseWidgetIcon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 16px; height: 16px;
 	cursor: pointer;
 	margin: 2px 0px 0px 0px;
-	background: url('background/WidgetControlIcon.gif') no-repeat left bottom;	/* orientation=lt */
+	background: url('background/WidgetControlIcon.gif') no-repeat left bottom; /* orientation=lt */
 	background: url('background/WidgetControlIcon.gif') no-repeat right bottom;	/* orientation=lt */
 }

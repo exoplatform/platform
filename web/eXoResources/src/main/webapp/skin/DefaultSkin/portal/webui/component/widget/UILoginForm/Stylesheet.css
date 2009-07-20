@@ -6,6 +6,7 @@
 }
 
 /*##############################- LoginBox Style-################################*/
+
 .UILoginForm .LoginDecorator {
 	width: 540px;
 	margin: auto;
@@ -75,12 +76,14 @@
 	padding: 0px 13px 0px 0px; /* orientation=lt */
 	padding: 0px 0px 0px 13px; /* orientation=rt */
 }
+
 /* ============================End LoginDecorator============================== */
 /*
  * minh.js.exo
  * 4h44 07/08/2007
  * fix bug : hidden cursor in form login
  */
+ 
 .UILoginForm .LoginDetailBox .UIForm {
 	overflow: auto;
 }

@@ -1,130 +1,130 @@
-.UIContainerConfigOptions {
-  margin: 0px 10px;
+.UIContainerConfigOptions {	
+	margin: 0px 10px;
 }
 
 .UIContainerConfigOptions .ContainerConfigOptions {
-  border: solid 1px #bcbcbc;
-  background: #f2f2f2;
-  padding: 5px;
-  /*Lamjs comment to show DropdownControl above*/
-  /*overflow: hidden;*/
+	border: solid 1px #bcbcbc;
+	background: #f2f2f2;
+	padding: 5px;
+	/*Lamjs comment to show DropdownControl above*/
+	/*overflow: hidden;*/
 }
 
 .UIContainerConfigOptions .ScrollArea {
-  border: solid 1px #929292;
-  border-bottom: solid 1px #c3c3c3; border-right: solid 1px #c3c3c3;
+	border: solid 1px #929292;
+	border-bottom: solid 1px #c3c3c3; border-right: solid 1px #c3c3c3;
 }
 
 .UIContainerConfigOptions .CategoryContainer {
-  padding: 10px 0px 20px 0px;
-  background: white;
+	padding: 10px 0px 20px 0px;
+	background: white;
 }
 
 .UIContainerConfigOptions .Title {
-  background: white ; 
-  border: 1px solid #bcbcbc ;
-  border-bottom: 1px solid #929292;
-  margin-bottom: 5px ;
-  height: 21px;
+	background: white ; 
+	border: 1px solid #bcbcbc ;
+	border-bottom: 1px solid #929292;
+	margin-bottom: 5px ;
+	height: 21px;
 }
 
 .UIContainerConfigOptions .Title .TitleContainer {
 	height: 21px;
-	padding: 0px 2px 0px 0px;/* orientation=lt */
-	padding: 0px 0px 0px 2px;/* orientation=rt */
+	padding: 0px 2px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 2px; /* orientation=rt */
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .Icon {
-	float: left;/* orientation=lt */
-	float: right;/* orientation=rt */
-	width: 18px; height: 16px;
-	margin: 3px 5px 0px 7px;/* orientation=lt */
-	margin: 3px 7px 0px 5px;/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 18px; height: 16px; 
+	margin: 3px 5px 0px 7px; /* orientation=lt */
+	margin: 3px 7px 0px 5px; /* orientation=rt */
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .LabelText {
-	padding-left: 12px;/* orientation=lt */
-	padding-left: 12px;/* orientation=rt */
-	height: 21px; line-height: 21px; 
+	padding-left: 12px; /* orientation=lt */
+	padding-left: 12px; /* orientation=rt */
+	height: 21px; line-height: 21px;  
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
-	border-left: solid 1px #bcbcbc;/* orientation=lt */
-	border-right: solid 1px #bcbcbc;/* orientation=rt */
-	height: 21px;
-	cursor: pointer ;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	border-left: solid 1px #bcbcbc; /* orientation=lt */
+	border-right: solid 1px #bcbcbc; /* orientation=rt */
+	height: 21px; 
+	cursor: pointer ; 
 }
 
 .UIContainerConfigOptions .OneRowContainerLayout {
-  width:105px ; height:56px ;
-  background:url('background/ContainerConfigOptions.gif') no-repeat top;
-  margin:auto ; 
-  margin-top: 12px ;
-  cursor: move ;
+	width: 105px ; height:56px ; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat top; 
+	margin: auto ;  
+	margin-top: 12px ; 
+	cursor: move ; 
 }
 
 .UIContainerConfigOptions .TwoRowContainerLayout {
-  width:105px;  height:56px;
-  margin:auto;  margin-top: 12px;
-  cursor: move;
-  background:url('background/ContainerConfigOptions.gif') no-repeat left -57px;
+	width: 105px; height: 56px; 
+	margin: auto; 	margin-top: 12px; 
+	cursor: move; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat left -57px; 
 }
 
 .UIContainerConfigOptions .ThreeRowContainerLayout {
-  width:105px;  height:56px;
-  margin:auto; margin-top: 12px;
-  cursor: move;
-  background:url('background/ContainerConfigOptions.gif') no-repeat left -114px;
+	width: 105px; height: 56px; 
+	margin: auto; margin-top: 12px; 
+	cursor: move; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat left -114px; 
 }
 
 .UIContainerConfigOptions .TwoColumnContainerLayout {
-  width:105px;  height:56px;
-  margin:auto;  margin-top: 12px;
-  cursor: move;
-  background:url('background/ContainerConfigOptions.gif') no-repeat left -171px;
+	width: 105px; height: 56px; 
+	margin: auto; 	margin-top: 12px; 
+	cursor: move; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat left -171px; 
 }
 
 .UIContainerConfigOptions .ThreeColumnContainerLayout {
-  width:105px;  height:56px;
-  margin:auto;  margin-top: 12px;
-  cursor: move;
-  background:url('background/ContainerConfigOptions.gif') no-repeat left -228px;
+	width: 105px; height: 56px; 
+	margin: auto; margin-top: 12px; 
+	cursor: move; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat left -228px; 
 }
 
 .UIContainerConfigOptions .TwoTabContainerLayout {
-  width:105px;  height:56px;
-  margin:auto;  margin-top: 12px;
-  cursor: move;
-  background:url('background/ContainerConfigOptions.gif') no-repeat left -285px;
+	width: 105px; height: 56px; 
+	margin: auto; margin-top: 12px; 
+	cursor: move; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat left -285px; 
 }
 
 .UIContainerConfigOptions .ThreeTabContainerLayout {
-  width:105px;  height:56px;
-  margin:auto; margin-top: 12px;
-  cursor: move;
-  background:url('background/ContainerConfigOptions.gif') no-repeat left -342px;
+	width: 105px; height: 56px; 
+	margin: auto; margin-top: 12px; 
+	cursor: move; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat left -342px; 
 }
 
 .UIContainerConfigOptions .TwoColumnOneRowContainerLayout {
-  width:105px;  height:56px;
-  margin:auto; margin-top: 12px;
-  cursor: move;
-  background:url('background/ContainerConfigOptions.gif') no-repeat left -399px;
+	width: 105px; height: 56px; 
+	margin: auto; margin-top: 12px; 
+	cursor: move; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat left -399px; 
 }
 
 .UIContainerConfigOptions .OneRowTwoColumnContainerLayout {
-  width: 105px; height: 56px;
-  margin:auto; margin-top: 12px;
-  cursor: move;
-  background:url('background/ContainerConfigOptions.gif') no-repeat left -456px;
-  
+	width: 105px; height: 56px; 
+	margin: auto; margin-top: 12px; 
+	cursor: move; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat left -456px; 
+	
 }
 
 .UIContainerConfigOptions .OneRow2Column1RowContainerLayout {
-  width:105px; height:56px;
-  margin:auto; margin-top: 12px;
-  cursor: move;
-  background:url('background/ContainerConfigOptions.gif') no-repeat left -513px;
+	width: 105px; height: 56px; 
+	margin: auto; margin-top: 12px; 
+	cursor: move; 
+	background: url('background/ContainerConfigOptions.gif') no-repeat left -513px; 
 }

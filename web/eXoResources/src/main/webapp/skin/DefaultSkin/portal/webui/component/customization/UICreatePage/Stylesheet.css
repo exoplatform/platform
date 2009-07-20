@@ -1,9 +1,9 @@
-.UICreatePage {
-  padding: 8px 5px 5px 5px;
+.UICreatePage {	
+	padding: 8px 5px 5px 5px;
 }
 
 .UICreatePage .UIContainerConfigOptions {
-  margin: 0px 6px;
+	margin: 0px 6px;
 }
 
 .UICreatePage .CreatePageContainer {
@@ -13,17 +13,17 @@
 }
 
 .UICreatePage .TopTitleBar {
-  margin-bottom: 10px;
-  padding: 0px 10px ;
+	margin-bottom: 10px;
+	padding: 0px 10px; 
 }
 
 .UICreatePage .UIToolbar .EditToolbar {
-  padding: 0px 6px;
+	padding: 0px 6px;
 }
 
 .UICreatePage .UIToolbar .EditToolbar .Icon{
-	margin: 3px 12px 0px 27px;/* orientation=lt */
-	margin: 3px 27px 0px 12px;/* orientation=rt */
+	margin: 3px 12px 0px 27px; /* orientation=lt */
+	margin: 3px 27px 0px 12px; /* orientation=rt */
 }
 
 .UICreatePage .CreatePageContainer .CreatePageLabel {
@@ -34,7 +34,7 @@
 }
 
 .UICreatePage .UIDropDownControl {
-  width: 212px;
+	width: 212px;
 }
 
 .UICreatePage .UIPortletOptions {
@@ -42,16 +42,16 @@
 }
 
 .BackNavigationContent {
-	padding: 5px 0px 0px 15px;/* orientation=lt */
-	padding: 5px 15px 0px 0px;/* orientation=rt */
+	padding: 5px 0px 0px 15px; /* orientation=lt */
+	padding: 5px 15px 0px 0px; /* orientation=rt */
 }
 
 .BackNavigationContent .BackNavigationIcon {
 	height: 16px;
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BackIcon.gif') no-repeat;
-	padding-left: 22px;/* orientation=lt */
-	padding-right: 22px;/* orientation=rt */
-	cursor: pointer ;
+	padding-left: 22px; /* orientation=lt */
+	padding-right: 22px; /* orientation=rt */
+	cursor: pointer; 
 }
 
 .BackNavigationContent .BackNavigationLabel {

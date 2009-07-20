@@ -1,4 +1,4 @@
-.UIToolbarContainer {
+.UIToolbarContainer {	
 	padding: 0px;
 	height: auto;
 }
@@ -42,8 +42,8 @@
 }
 
 .UIToolbarContainer .UIHorizontalTabs .TabsContainer {
-    height: 30px;
-    float: left;
+		height: 30px;
+		float: left;
 }
 
 .UIToolbarContainer .UIHorizontalTabs .UITab {
@@ -66,7 +66,7 @@
 }
 
 .UIToolbarContainer .TBExoLogo {
-	background:none;
+	background: none;
 }
 
 .UIToolbarContainer .TBIcon {
@@ -77,10 +77,10 @@
 .UIToolbarContainer .OnOffAction {
 	background: url('icons/BackgroundOnOff.gif') repeat-x scroll 0 0;	
 	float: right; 
-	line-height:32px; 
+	line-height: 32px; 
 	white-space: nowrap;
 	padding: 0px 10px;
-	font-weight:bold;
+	font-weight: bold;
 }
 
 .UIToolbarContainer .OnOffAction a {
@@ -100,6 +100,7 @@
 }
 
 /****** Select On *******/
+
 .UIToolbarContainer .SelectOn .LeftSelect {
 	background: url('icons/onoff.gif') no-repeat left top;
 	padding-left: 27px;
@@ -122,6 +123,7 @@
 }
 
 /****** Select Off *******/
+
 .UIToolbarContainer .SelectOff .LeftSelect {
 	background: url('icons/onoff.gif') no-repeat left -34px;
 	padding-left: 3px;
@@ -144,6 +146,7 @@
 }
 
 /****************************/
+
 .UIToolbarContainer .MenuItemContainer {	
 	position: absolute;
 	border: 1px solid #9d9d9d;
@@ -198,8 +201,8 @@
 	background-position: 5px center;
 }
 
-
 /**********************************/
+
 .UIToolbarContainer .DashboardIcon {
 	background: url('icons/IconToolBar.gif') no-repeat left -544px;
 }
@@ -253,7 +256,7 @@
 
 .UIToolbarContainer .AddPageIcon {
 	background: url('icons/IconToolBar.gif') no-repeat left -128px; /* orientation=lt */
-	background: url('icons/IconToolBar.gif') no-repeat right -128px; /* orientation=rt */  
+	background: url('icons/IconToolBar.gif') no-repeat right -128px; /* orientation=rt */	
 }
 
 .UIToolbarContainer .EditPageIcon {
@@ -294,6 +297,7 @@
 }
 
 /***************UIStarToolBarPortlet*****************/
+
 .UIStarToolBarPortlet {
 	background: url('background/Logo.gif') left center;
 	width: 66px;
@@ -301,5 +305,5 @@
 }
 
 .UIStarToolBarPortlet .UITab {
-    height: 30px;
+	height: 30px;
 }

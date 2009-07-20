@@ -1,8 +1,8 @@
-.UIWelcomeComponent {
+.UIWelcomeComponent {	
 }
 
 .UIWelcomeComponent .WelcomeMessage {
-  float: left ;
+	float: left;
 }
 
 .UIWelcomeComponent .ItemSelectorContainer .UIDropDownControl {
@@ -10,11 +10,11 @@
 }
 
 .UIWelcomeComponent .OrangeMessage {
-  color: #fa8006 ;
-  font-weight: bold ;
+	color: #fa8006;
+	font-weight: bold;
 }
 
 .UIWelcomeComponent .LoginDetailBox {
-  border: solid 1px #b7b7b7 ;
-  padding: 10px ; 
+	border: solid 1px #b7b7b7;
+	padding: 10px; 
 }

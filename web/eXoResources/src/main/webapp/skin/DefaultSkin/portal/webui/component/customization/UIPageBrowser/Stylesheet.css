@@ -1,16 +1,16 @@
-.UIPageBrowser {
+.UIPageBrowser {	
 }
 
-.UIPageBrowser .UISearch {  
+.UIPageBrowser .UISearch {	
 	width: 99.5%;
 	margin: auto;
 }
 
-.UIPageBrowser .UIGrid {  
+.UIPageBrowser .UIGrid {	
 	width: 99.5%;
 	margin: auto;
 }
 
-.UIPageBrowser .UIGrid .Text {  
+.UIPageBrowser .UIGrid .Text {	
 	white-space: nowrap;
 }

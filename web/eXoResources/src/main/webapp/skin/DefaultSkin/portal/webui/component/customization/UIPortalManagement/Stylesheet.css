@@ -1,4 +1,4 @@
-.UIPortalManagement {
+.UIPortalManagement {	
 }
 
 .UIPortalManagement .UIPortletOptions .UIDropDownControl {
@@ -6,8 +6,6 @@
 }
 
 .UIPortalManagement .UIToolbar .EditToolbar .Icon {
-  margin: 3px 13px 0px 15px;/* orientation=lt */
-  margin: 3px 15px 0px 13px;/* orientation=rt */
+	margin: 3px 13px 0px 15px; /* orientation=lt */
+	margin: 3px 15px 0px 13px; /* orientation=rt */
 }
-
-

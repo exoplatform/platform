@@ -1,84 +1,85 @@
-.UIControlWorkspace {
+.UIControlWorkspace {	
 	background: url('background/Repeat-y.gif') repeat-y center top;
-  width: 6px; height: 100%;
-  padding: 0px;
-  top: 0px;
+	width: 6px; height: 100%;
+	padding: 0px;
+	top: 0px;
 }
 
 .UIControlWorkspace .TopTitleBar {
-  padding: 12px 0px 6px 0px ;/* orientation=lt */
-  padding: 6px 0px 12px 0px ;/* orientation=rt */
-  text-align: center;
-  width: 180px;
+	padding: 12px 0px 6px 0px; /* orientation=lt */
+	padding: 6px 0px 12px 0px; /* orientation=rt */
+	text-align: center;
+	width: 180px;
 }
 
 .UIControlWorkspace .UIVerticalSlideTabs {
-  padding: 3px; 
+	padding: 3px; 
 }
 
 .UIControlWorkspace .ScrollArea .TreeContainer {
-  overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 .UIControlWorkspace .UserWorkspaceTitle {
-  height: 23px ;
-  background: url('background/UserWorkspaceTitleBG1x23.gif') repeat-x;
-  color: #434343;
-  font-weight: bold;
-  line-height: 22px; 
-  padding-left: 13px;/* orientation=lt */
-  padding-right: 13px;/* orientation=rt */
-  margin-right: 2px;/* orientation=lt */
-  margin-left: 2px;/* orientation=rt */
+	height: 23px;
+	background: url('background/UserWorkspaceTitleBG1x23.gif') repeat-x;
+	color: #434343;
+	font-weight: bold;
+	line-height: 22px; 
+	padding-left: 13px; /* orientation=lt */
+	padding-right: 13px; /* orientation=rt */
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 }
 
 .UIControlWorkspace .CloseControlWorkspace {
-	float: right;/* orientation=lt */
-	float: left;/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	width: 21px;	height: 15px;
-	margin: 3px 5px 0px 0px;/* orientation=lt */
-	margin: 3px 0px 0px 5px;/* orientation=rt */
-	background: url('background/No-Repeat.gif') no-repeat right top;/* orientation=lt */
-	background: url('background/No-Repeat.gif') no-repeat -6px top;/* orientation=rt */
+	margin: 3px 5px 0px 0px; /* orientation=lt */
+	margin: 3px 0px 0px 5px; /* orientation=rt */
+	background: url('background/No-Repeat.gif') no-repeat right top; /* orientation=lt */
+	background: url('background/No-Repeat.gif') no-repeat -6px top; /* orientation=rt */
 	cursor: pointer;
 }
 
 .UIControlWorkspace .UIWorkspaceControl { 
-  margin-right: 2px; /* orientation=lt */
-  margin-left: 2px; /* orientation=rt */
+	margin-right: 2px; /* orientation=lt */
+	margin-left: 2px; /* orientation=rt */
 }
 
 /*########################### Tab ###########################*/
+
 .UIControlWorkspace .UIWorkspacePanel .ControlPanelExpandContainer {
-  margin: 10px 4px;
+	margin: 10px 4px;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .HideContentVTab {
-  display: none;
-  border: solid 1px #a3abb6;
-  margin: 2px 0px;
+	display: none;
+	border: solid 1px #a3abb6;
+	margin: 2px 0px;
 }
 
 .UIControlWorkspace .UIWorkspacePanel .ShowContent {
-  display: block;
-  border: solid 1px #a3abb6;
-  margin: 2px 0px;
+	display: block;
+	border: solid 1px #a3abb6;
+	margin: 2px 0px;
 }
 
 .UIControlWorkspace .UIDropDownControl { 
 	width: 218px;
 }
 
-
 /*########################### End Tab ###########################*/
 /*########################### Slidebar ###########################*/
+
 .UIControlWorkspace .Slidebar {
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
-  width: 6px; height: 100%;
-  background: url('background/Repeat-y.gif') repeat-y right; /* orientation=lt */
-  background: url('background/Repeat-y-rt.gif') repeat-y left; /* orientation=rt */
-  cursor: pointer;
+	width: 6px; height: 100%;
+	background: url('background/Repeat-y.gif') repeat-y right; /* orientation=lt */
+	background: url('background/Repeat-y-rt.gif') repeat-y left; /* orientation=rt */
+	cursor: pointer;
 }
 
 .UIControlWorkspace .SlidebarButton {
@@ -88,8 +89,8 @@
 }
 
 .UIControlWorkspace .UIWorkspaceContainer {
-  background: url("background/Repeat-y.gif") repeat-y 244px top; /* orientation=lt */
-  background: url("background/Repeat-y-rt.gif") repeat-y -5px top; /* orientation=rt */
+	background: url("background/Repeat-y.gif") repeat-y 244px top; /* orientation=lt */
+	background: url("background/Repeat-y-rt.gif") repeat-y -5px top; /* orientation=rt */
 	height: 100%;
 }
 
@@ -97,6 +98,7 @@
 
 .UIWorkingWorkspace {
 	margin: 0px;
+	
 /*
  * minh.js.exo
  * bug : right click with IE7 in ECM
