@@ -201,7 +201,7 @@
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock {
-	 border: 1px solid #d0d0d0;
+	border: 1px solid #d0d0d0;
 }
 
 .UIExoStart .StartMenuContainer .DecoratorBlock .PageOwnerContainer {
@@ -249,7 +249,6 @@
 	background: url('background/StartMenuContainer.gif') no-repeat left -312px; /* orientation=lt */
 	background: url('background/StartMenuContainer.gif') no-repeat right -312px; /* orientation=rt */
 }
-
 
 .UIExoStart .StartMenuContainer .SkinSettingIcon {
 	background: url('background/StartMenuContainer.gif') no-repeat left -504px; /* orientation=lt */

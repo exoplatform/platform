@@ -245,7 +245,7 @@
 .UIDashboardContainer .GadgetContainer {
 	overflow: auto;
 	height: 100%;
-//	min-height: 400px;
+  min-height: 400px;
 }
 
 /**html .UIDashboardContainer .GadgetContainer {

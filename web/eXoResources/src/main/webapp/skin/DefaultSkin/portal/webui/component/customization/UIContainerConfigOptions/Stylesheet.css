@@ -1,7 +1,7 @@
 .UIContainerConfigOptions {	
 	margin: 0px 10px;
 }
-
+	
 .UIContainerConfigOptions .ContainerConfigOptions {
 	border: solid 1px #bcbcbc;
 	background: #f2f2f2;
@@ -21,10 +21,10 @@
 }
 
 .UIContainerConfigOptions .Title {
-	background: white ; 
-	border: 1px solid #bcbcbc ;
+	background: white; 
+	border: 1px solid #bcbcbc;
 	border-bottom: 1px solid #929292;
-	margin-bottom: 5px ;
+	margin-bottom: 5px;
 	height: 21px;
 }
 
@@ -45,7 +45,7 @@
 .UIContainerConfigOptions .Title .TitleContainer .LabelText {
 	padding-left: 12px; /* orientation=lt */
 	padding-left: 12px; /* orientation=rt */
-	height: 21px; line-height: 21px;  
+	height: 21px; line-height: 21px;	
 }
 
 .UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
@@ -54,15 +54,15 @@
 	border-left: solid 1px #bcbcbc; /* orientation=lt */
 	border-right: solid 1px #bcbcbc; /* orientation=rt */
 	height: 21px; 
-	cursor: pointer ; 
+	cursor: pointer; 
 }
 
 .UIContainerConfigOptions .OneRowContainerLayout {
-	width: 105px ; height:56px ; 
+	width: 105px; height:56px; 
 	background: url('background/ContainerConfigOptions.gif') no-repeat top; 
-	margin: auto ;  
-	margin-top: 12px ; 
-	cursor: move ; 
+	margin: auto;	
+	margin-top: 12px; 
+	cursor: move; 
 }
 
 .UIContainerConfigOptions .TwoRowContainerLayout {

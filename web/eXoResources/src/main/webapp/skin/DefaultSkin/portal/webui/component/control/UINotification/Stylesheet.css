@@ -5,13 +5,15 @@
 }
 
 .messageBox { 
-	/*		position: absolute; 
-				top: 10px; 
-				right: 10px; 
-				background: #000000; 
-				opacity: 1; 
-				filter: alpha(opacity=100); 
-				-moz-opacity: 1; */
+	/*	
+	position: absolute; 
+	top: 10px; 
+	right: 10px; 
+	background: #000000; 
+	opacity: 1; 
+	filter: alpha(opacity=100); 
+	-moz-opacity: 1; 
+	*/
 	margin: 5px;
 	overflow: hidden;
 	background: #F0F0F0; 
