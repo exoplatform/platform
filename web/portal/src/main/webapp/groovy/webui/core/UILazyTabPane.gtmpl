@@ -35,7 +35,7 @@
       	uiChildId = uiChild.getId();
         String display = "none" ;
         if(uiChild.getId().equals(selTabId)) display="block" ;
-        println "<div class=\"UITabContent\" style=\"display: $display;overflow:auto;\">" ;
+        println "<div class=\"UITabContent\" style=\"display: $display;\">" ;
         if(uiChild.getId().equals(selTabId)) {
         	uicomponent.renderUIComponent(uiChild) ;
         } else {
