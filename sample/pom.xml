@@ -1,0 +1,21 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.portal</groupId>
+    <artifactId>config</artifactId>
+    <version>2.6-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>exo.portal.gadgets</artifactId>
+  <name>eXo Gadgets Config</name>
+  <packaging>pom</packaging>
+
+  <modules>
+	<module>application/cometd</module>
+	<module>application/map</module>
+	<module>application/topic</module>
+	<module>framework</module>
+	<module>gadgets/gwt</module>
+	<module>portlets</module>
+  </modules>
+</project>

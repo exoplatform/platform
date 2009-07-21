@@ -60,8 +60,13 @@ import org.exoplatform.webui.event.Event;
  */
 @ComponentConfig(lifecycle = UIPortalApplicationLifecycle.class, template = "system:/groovy/portal/webui/workspace/UIPortalApplication.gtmpl")
 public class UIPortalApplication extends UIApplication {
-
-  private boolean            isEditting        = false;
+	public static final int NORMAL_MODE = 0;
+	public static final int APP_BLOCK_EDIT_MODE = 1;
+	public static final int APP_VIEW_EDIT_MODE = 2;
+	public static final int CONTINAER_BLOCK_EDIT_MODE = 3;
+	public static final int CONTAINER_BLOCK_EDIT_MODE = 4;
+	
+  private int            editMode        = NORMAL_MODE ;
 
   private String             nodePath_;
 
@@ -164,12 +169,21 @@ public class UIPortalApplication extends UIApplication {
     locale_ = locale;
   }
 
-  public void setEditting(boolean bln) {
-    this.isEditting = bln;
+  public void setEditMode(int mode) {
+    this.editMode = mode;
   }
 
+  public int getEditMode() {
+    return editMode;
+  }
+  
+  /**
+   * @deprecated
+   * 
+   * @return True if the Portal is not in the normal mode
+   */
   public boolean isEditting() {
-    return isEditting;
+  	return (editMode != NORMAL_MODE);
   }
 
   public Collection<String> getJavascriptURLs() {

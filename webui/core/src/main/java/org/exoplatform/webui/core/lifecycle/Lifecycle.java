@@ -16,17 +16,15 @@
  */
 package org.exoplatform.webui.core.lifecycle;
 
-import groovy.text.Template;
-
-import org.exoplatform.services.log.Log;
+import org.exoplatform.commons.utils.PropertyManager;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.groovyscript.text.TemplateService;
 import org.exoplatform.resolver.ResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.event.Event;
-import org.exoplatform.commons.utils.PropertyManager;
 
 /**
  * Created by The eXo Platform SAS

@@ -157,7 +157,7 @@ public class UIPortalBrowser extends UIContainer {
 
     public void execute(Event<UIPortalBrowser> event) throws Exception {
       UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-      uiPortalApp.setEditting(false);
+      uiPortalApp.setEditMode(UIPortalApplication.NORMAL_MODE);
       UIPortal uiPortal = Util.getUIPortal();
       String uri = uiPortal.getSelectedNavigation().getId() + "::" + uiPortal.getSelectedNode().getUri();
       PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal,

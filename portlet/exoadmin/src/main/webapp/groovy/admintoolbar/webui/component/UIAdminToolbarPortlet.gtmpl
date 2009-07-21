@@ -35,17 +35,11 @@
 				</div>
 				<div class="MenuItemContainer" style="position: absolute; display:none;">
 					<div class="SubBlock">
-						<div class="MenuItem OddItem">
-							<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPage', true))" title="" class="ItemIcon AccountSettingsIcon">$editPageAndNaviLabel</a>			 
-						</div>				 
 						<div class="MenuItem EvenItem">
 							<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
 						</div>
 						<div class="MenuItem OddItem">	
 							<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
-						</div>	
-						<div class="MenuItem EvenItem">
-							<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditPortal', true))" title="" class="ItemIcon EditPortalIcon">$editPortalLabel</a>				
 						</div>
 					</div>
 				</div>

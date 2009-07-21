@@ -17,7 +17,6 @@
 package org.exoplatform.services.parser.html.test;
 
 import java.io.File;
-import java.io.IOException;
 import java.net.URL;
 
 import org.exoplatform.services.html.HTMLDocument;
@@ -59,27 +58,22 @@ public class TestFileDetect extends BasicTestCase {
   }
 
   public void testCharsetWithURL() throws Exception {
-    URL url_ = new URL("http://www.24h.com.vn");
-    assertNotNull(url_);
     HTMLDocument document;
 		try {
+			URL url_ = new URL("http://www.24h.com.vn");
 			document = HTMLParser.createDocument(url_.openConnection().getInputStream(), null);
+			document = HTMLParser.createDocument(url_.openStream(), null);
 		} catch (java.net.UnknownHostException e) {
+			return;
+		} catch (java.net.ConnectException e) {
 			return;
 		}
 		
-    document = HTMLParser.createDocument(url_.openStream(), null);
     assertNotNull(document);
     assertEquals("ASCII", HTMLParser.getCharset());
     System.out.println("\n\nCHARSET: " + HTMLParser.getCharset());
 
-     assertNull(document.getDoctype());
-//    assertNotNull(document.getDoctype());
-//    System.out.println("DOCUMENT-DOCTYPE-NAME: " + document.getDoctype().getName().toString());
-//    System.out.println("DOCUMENT-DOCTYPE-VALUE: " + document.getDoctype().getValue().toString());
-//    System.out.println("DOCUMENT-DOCTYPE-TEXTVALUE: " + document.getDoctype().getTextValue());
-
-    // assertNull(document.getRoot());
+    assertNull(document.getDoctype());
     assertNotNull(document.getRoot());
   }
 

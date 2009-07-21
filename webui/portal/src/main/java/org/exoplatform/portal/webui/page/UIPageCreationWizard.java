@@ -311,7 +311,7 @@ public class UIPageCreationWizard extends UIPageWizard {
         uiWizard.updateWizardComponent();
         return;
       }
-      uiPortalApp.setEditting(false);
+      uiPortalApp.setEditMode(UIPortalApplication.NORMAL_MODE);
       uiWizard.saveData();
       uiWizard.updateUIPortal(uiPortalApp, event);
     }
