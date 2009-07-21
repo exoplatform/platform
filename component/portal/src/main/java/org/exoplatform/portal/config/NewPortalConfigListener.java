@@ -36,9 +36,12 @@ import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.config.model.Page.PageSet;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IUnmarshallingContext;
+import org.jibx.runtime.JiBXException;
 
 /**
  * Created by The eXo Platform SARL Author : Tuan Nguyen
@@ -56,6 +59,9 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
   private PageTemplateConfig   pageTemplateConfig_;
 
   private String               defaultPortal;
+  
+  private Log                                log                     = ExoLogger.getLogger("Portal:UserPortalConfigService");
+
 
   public NewPortalConfigListener(DataStorage pdcService,
                                  ConfigurationManager cmanager,
@@ -141,73 +147,132 @@ public class NewPortalConfigListener extends BaseComponentPlugin {
 
   private void createPortalConfig(NewPortalConfig config, String owner) throws Exception {
     String xml = null;
-    if (config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
-      xml = getDefaultConfig(config, owner, "portal");
-    } else {
-      xml = getTemplateConfig(config, owner, "portal");
-    }
+    
+    // get path of xml file, check if path in template folder and if path not in
+    // template folder
+    boolean notTemplate = (config.getTemplateOwner() == null || config.getTemplateOwner()
+                                                                      .trim()
+                                                                      .length() < 1);
+    String path = getPathConfig(config, owner, "portal", notTemplate);
+
+    // get xml content and parse xml content
+    try {
+      xml = getDefaultConfig(config.getTemplateLocation(), path);
+
+      if (!notTemplate) {
+        xml = StringUtils.replace(xml, "@owner@", owner);
+      }
+      
     PortalConfig pconfig = fromXML(xml, PortalConfig.class);
     pdcService_.create(pconfig);
+    } catch (JiBXException e) {
+      log.error(e.getMessage() + " file: " + path);
+    }
   }
 
   private void createPage(NewPortalConfig config, String owner) throws Exception {
+
     String xml = null;
-    if (config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
-      xml = getDefaultConfig(config, owner, "pages");
-    } else {
-      xml = getTemplateConfig(config, owner, "pages");
-    }
-    PageSet pageSet = fromXML(xml, PageSet.class);
-    ArrayList<Page> list = pageSet.getPages();
-    for (Page page : list) {
-      pdcService_.create(page);
+
+    // get path of xml file, check if path in template folder and if path not in
+    // template folder
+    boolean notTemplate = (config.getTemplateOwner() == null || config.getTemplateOwner()
+                                                                      .trim()
+                                                                      .length() < 1);
+    String path = getPathConfig(config, owner, "pages", notTemplate);
+
+    // get xml content and parse xml content
+    try {
+      xml = getDefaultConfig(config.getTemplateLocation(), path);
+
+      if (!notTemplate) {
+        xml = StringUtils.replace(xml, "@owner@", owner);
+      }
+
+      PageSet pageSet = fromXML(xml, PageSet.class);
+      ArrayList<Page> list = pageSet.getPages();
+      for (Page page : list) {
+        pdcService_.create(page);
+      }
+    } catch (JiBXException e) {
+      log.error(e.getMessage() + " file: " + path);
     }
   }
 
   private void createPageNavigation(NewPortalConfig config, String owner) throws Exception {
     String xml = null;
-    if (config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
-      xml = getDefaultConfig(config, owner, "navigation");
-    } else {
-      xml = getTemplateConfig(config, owner, "navigation");
-    }
-    PageNavigation navigation = fromXML(xml, PageNavigation.class);
-    if (pdcService_.getPageNavigation(navigation.getOwner()) == null) {
-      pdcService_.create(navigation);
-    } else {
-      pdcService_.save(navigation);
+
+    // get path of xml file, check if path in template folder and if path not in
+    // template folder
+    boolean notTemplate = (config.getTemplateOwner() == null || config.getTemplateOwner()
+                                                                      .trim()
+                                                                      .length() < 1);
+    String path = getPathConfig(config, owner, "navigation", notTemplate);
+
+    // get xml content and parse xml content
+    try {
+      xml = getDefaultConfig(config.getTemplateLocation(), path);
+
+      if (!notTemplate) {
+        xml = StringUtils.replace(xml, "@owner@", owner);
+      }
+      PageNavigation navigation = fromXML(xml, PageNavigation.class);
+      if (pdcService_.getPageNavigation(navigation.getOwner()) == null) {
+        pdcService_.create(navigation);
+      } else {
+        pdcService_.save(navigation);
+      }
+    } catch (JiBXException e) {
+      log.error(e.getMessage() + " file: " + path);
     }
   }
 
   private void createPortletPreferences(NewPortalConfig config, String owner) throws Exception {
     String xml = null;
-    if (config.getTemplateOwner() == null || config.getTemplateOwner().trim().length() < 1) {
-      xml = getDefaultConfig(config, owner, "portlet-preferences");
-    } else {
-      xml = getTemplateConfig(config, owner, "portlet-preferences");
-    }
-    PortletPreferencesSet portletSet = fromXML(xml, PortletPreferencesSet.class);
-    ArrayList<PortletPreferences> list = portletSet.getPortlets();
-    for (PortletPreferences portlet : list) {
-      pdcService_.save(portlet);
+
+    // get path of xml file, check if path in template folder and if path not in
+    // template folder
+    boolean notTemplate = (config.getTemplateOwner() == null || config.getTemplateOwner()
+                                                                      .trim()
+                                                                      .length() < 1);
+    String path = getPathConfig(config, owner, "portlet-preferences", notTemplate);
+
+    // get xml content and parse xml content
+    try {
+      xml = getDefaultConfig(config.getTemplateLocation(), path);
+
+      if (!notTemplate) {
+        xml = StringUtils.replace(xml, "@owner@", owner);
+      }
+
+      PortletPreferencesSet portletSet = fromXML(xml, PortletPreferencesSet.class);
+      ArrayList<PortletPreferences> list = portletSet.getPortlets();
+      for (PortletPreferences portlet : list) {
+        pdcService_.save(portlet);
+      }
+    } catch (JiBXException e) {
+      log.error(e.getMessage() + " file: " + path);
     }
   }
 
-  private String getDefaultConfig(NewPortalConfig portalConfig, String owner, String dataType) throws Exception {
-    String ownerType = portalConfig.getOwnerType();
-    String path = "/" + ownerType + "/" + owner + "/" + dataType + ".xml";
-    String location = portalConfig.getTemplateLocation();
+  private String getDefaultConfig(String location, String path) throws Exception {
     return IOUtil.getStreamContentAsString(cmanager_.getInputStream(location + path));
   }
 
-  private String getTemplateConfig(NewPortalConfig portalConfig, String owner, String dataType) throws Exception {
-    String ownerType = portalConfig.getOwnerType();
-    String templateLoc = portalConfig.getTemplateLocation();
-    String path = "/" + ownerType + "/template/" + portalConfig.getTemplateOwner() + "/" + dataType
-        + ".xml";
-    InputStream is = cmanager_.getInputStream(templateLoc + path);
-    String template = IOUtil.getStreamContentAsString(is);
-    return StringUtils.replace(template, "@owner@", owner);
+  private String getPathConfig(NewPortalConfig portalConfig,
+                               String owner,
+                               String dataType,
+                               boolean notTemplate) {
+    String path = "";
+    if (!notTemplate) {
+      String ownerType = portalConfig.getOwnerType();
+      path = "/" + ownerType + "/template/" + portalConfig.getTemplateOwner() + "/" + dataType
+          + ".xml";
+    } else {
+      String ownerType = portalConfig.getOwnerType();
+      path = "/" + ownerType + "/" + owner + "/" + dataType + ".xml";
+    }
+    return path;
   }
 
   public Page createPageFromTemplate(String temp) throws Exception {
