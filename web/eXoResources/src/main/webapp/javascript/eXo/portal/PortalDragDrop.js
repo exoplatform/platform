@@ -37,29 +37,22 @@ PortalDragDrop.prototype.init = function(e) {
     
     var isComponent = !!DOMUtil.findFirstDescendantByClass(dragObject, "div", "UIComponentBlock");
    	
-//    var originalDragObjectTop = Browser.findPosY(dragObject) ;
-//    var originalDragObjectLeft = Browser.findPosX(dragObject); 
-		var originalDragObjectTop = dragObject.offsetTop;
-		var originalDragObjectLeft = dragObject.offsetLeft;
+		PortalDragDrop.positionRootObj = isComponent ? dragObject.offsetParent : document.getElementById("UIPortalComposer"); 
+		
+		var originalDragObjectTop = Browser.findPosYInContainer(dragObject, PortalDragDrop.positionRootObj);
+		var originalDragObjectLeft = Browser.findPosXInContainer(dragObject, PortalDragDrop.positionRootObj);
     if(!isComponent) {
       var contentContainer = DOMUtil.findAncestorByClass(dragObject, "UITabContentContainer");
       originalDragObjectTop -= contentContainer.scrollTop;
     } 
     var originalMousePositionY = Mouse.mouseyInPage;
     var originalMousePositionX = Mouse.mousexInPage;
-//    PortalDragDrop.deltaYDragObjectAndMouse = originalMousePositionY - originalDragObjectTop ;
-//    PortalDragDrop.deltaXDragObjectAndMouse = originalMousePositionX - originalDragObjectLeft ;
 		PortalDragDrop.deltaYDragObjectAndMouse = Browser.findMouseRelativeY(dragObject, e);
 		PortalDragDrop.deltaXDragObjectAndMouse = Browser.findMouseRelativeX(dragObject, e);
     
     PortalDragDrop.parentDragObject = dragObject.parentNode ;
     PortalDragDrop.backupDragObjectWidth = dragObject.offsetWidth ;
         
-//    PortalDragDrop.backupTopPosition = originalDragObjectTop ;
-//    PortalDragDrop.backupLeftPosition = originalDragObjectLeft ;
-//    PortalDragDrop.backupOffsetWidth = dragObject.offsetWidth ;
-//    PortalDragDrop.backupOffsetHeight = dragObject.offsetHeight ;
-    
     /*Case: dragObject out of UIPortal*/
     if(!isComponent) {
       var cloneObject = dragObject.cloneNode(true) ;
@@ -69,7 +62,7 @@ PortalDragDrop.prototype.init = function(e) {
       
       cloneObject.style.position = "absolute" ;
       if(eXo.core.I18n.isLT()) cloneObject.style.left = originalDragObjectLeft + "px" ;
-      else cloneObject.style.right = (Browser.getBrowserWidth() - originalDragObjectLeft - dragObject.offsetWidth) + "px" ;
+      else cloneObject.style.right = (PortalDragDrop.positionRootObj.offsetWidth - originalDragObjectLeft - dragObject.offsetWidth) + "px" ;
             
       cloneObject.style.top = (originalDragObjectTop) + "px" ;
       cloneObject.style.opacity = 0.5 ;
@@ -228,8 +221,6 @@ PortalDragDrop.prototype.init = function(e) {
       if(DOMUtil.findFirstDescendantByClass(dndEvent.dragObject, "div", "UIComponentBlock") == null) {
 					dndEvent.dragObject.parentNode.removeChild(dndEvent.dragObject) ;
 			}
-//      dndEvent.foundTargetObject = eXo.portal.PortalDragDrop.backupLastFoundTarget ;
-//      eXo.portal.PortalDragDrop.doDropCallback(dndEvent) ;
 			// fix bug WEBOS-196
 			var srcElement = dndEvent.dragObject ; 
 			srcElement.style.width = "auto" ;
@@ -282,7 +273,7 @@ PortalDragDrop.prototype.doDropCallback = function(dndEvent) {
     dndEvent.dragObject.parentNode.removeChild(dndEvent.dragObject) ;
     newComponent = true;
   }
-
+  
   var params = [
     {name: "srcID", value: (srcElement.id.replace(/^UIPortlet-/, "")).replace(/^UIContainer-/,"")},
     {name: "targetID", value: targetElement.id.replace(/^.*-/, "")},
@@ -362,9 +353,7 @@ PortalDragDrop.prototype.findInsertPosition = function(components, dragObject, l
 };
 
 PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComponent, layout, e) {
-//  var uiControlWorkspace = document.getElementById("UIControlWorkspace") ;
   var uiPage = eXo.core.DOMUtil.findAncestorByClass(dragObject, "UIPage");
-//  var csWidth = uiControlWorkspace.offsetWidth ;
   
   /* IE's Bug: It always double when set position, margin-left for 
    * UIWorkingWorkspace is problem.
@@ -375,7 +364,7 @@ PortalDragDrop.prototype.setDragObjectProperties = function(dragObject, listComp
   dragObject.style.width = "300px" ;
   dragObject.style.position = "absolute" ;
   var componentBlock = eXo.core.DOMUtil.findFirstDescendantByClass(dragObject, "div", "UIComponentBlock") ;
-	dragObject.style.top = (eXo.core.Browser.findMouseRelativeY(dragObject.offsetParent, e) - 
+	dragObject.style.top = (eXo.core.Browser.findMouseRelativeY(eXo.portal.PortalDragDrop.positionRootObj, e) - 
 														eXo.portal.PortalDragDrop.deltaYDragObjectAndMouse) + "px";
   if(!componentBlock) {
     if(eXo.core.I18n.isLT()) dragObject.style.left = (eXo.core.Browser.findMouseRelativeX(dragObject.offsetParent, e) -
