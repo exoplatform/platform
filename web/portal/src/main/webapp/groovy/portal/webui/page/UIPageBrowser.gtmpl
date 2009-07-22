@@ -1,3 +1,4 @@
+<% uicomponent.defaultValue(null); %>
 <div class="UIPageBrowser" id="<%=uicomponent.getId();%>">
 	
 	<%/*Begin UIPageBrowser Content*/%>

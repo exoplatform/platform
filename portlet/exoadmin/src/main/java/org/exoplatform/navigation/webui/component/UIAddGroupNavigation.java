@@ -4,6 +4,8 @@ import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.commons.utils.ObjectPageList;
+import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
@@ -13,9 +15,12 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.UIRepeater;
+import org.exoplatform.webui.core.UIVirtualList;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
@@ -42,22 +47,29 @@ import org.exoplatform.webui.event.EventListener;
  *          tamndrok@gmail.com
  * May 28, 2009  
  */
-
-@ComponentConfig(template = "app:/groovy/navigation/webui/component/UIAddGroupNavigation.gtmpl", events = {
-    @EventConfig(listeners = UIAddGroupNavigation.CancelActionListener.class),
-    @EventConfig(listeners = UIAddGroupNavigation.AddNavigationActionListener.class) })
+@ComponentConfigs( {
+    @ComponentConfig(template = "app:/groovy/navigation/webui/component/UIAddGroupNavigation.gtmpl", events = {
+        @EventConfig(listeners = UIAddGroupNavigation.CancelActionListener.class),
+        @EventConfig(listeners = UIAddGroupNavigation.AddNavigationActionListener.class) }),
+    @ComponentConfig(id = "UIAddGroupNavigationGrid", type = UIRepeater.class, template = "app:/groovy/navigation/webui/component/UIGroupGrid.gtmpl") })
 public class UIAddGroupNavigation extends UIContainer {
 
   public UIAddGroupNavigation() throws Exception {
+    UIVirtualList virtualList = addChild(UIVirtualList.class, null, null);
+    virtualList.setPageSize(5);
+    UIRepeater repeater = createUIComponent(UIRepeater.class,
+                                            "UIAddGroupNavigationGrid",
+                                            virtualList.getGenerateId());
+    virtualList.setUIComponent(repeater);
     UIPopupWindow editGroup = addChild(UIPopupWindow.class, null, "EditGroup");
   }
 
-  public List<String> loadGroups() throws Exception {
+  public void loadGroups() throws Exception {
 
     PortalRequestContext pContext = Util.getPortalRequestContext();
     UserPortalConfigService dataService = getApplicationComponent(UserPortalConfigService.class);
     // get all group that user has permission
-    List<String>  listGroup = dataService.getMakableNavigations(pContext.getRemoteUser());
+    List<String> listGroup = dataService.getMakableNavigations(pContext.getRemoteUser());
 
     List<PageNavigation> navigations = new ArrayList<PageNavigation>();
     UserACL userACL = getApplicationComponent(UserACL.class);
@@ -73,10 +85,11 @@ public class UIAddGroupNavigation extends UIContainer {
         listGroup.remove(ele.getOwnerId());
       }
     }
-    
+
     if (listGroup == null)
       listGroup = new ArrayList<String>();
-    return listGroup;
+    UIVirtualList virtualList = getChild(UIVirtualList.class);
+    virtualList.dataBind(new ObjectPageList<String>(listGroup, listGroup.size()));
   }
 
   static public class AddNavigationActionListener extends EventListener<UIAddGroupNavigation> {
@@ -85,12 +98,10 @@ public class UIAddGroupNavigation extends UIContainer {
 
       // get navigation id
       String ownerId = event.getRequestContext().getRequestParameter(OBJECTID);
-
       ownerId = URLDecoder.decode(ownerId);
 
       // open a add navigation popup
       UIPopupWindow popUp = uicomp.getChild(UIPopupWindow.class);
-
       UIPageNavigationForm pageNavigation = popUp.createUIComponent(UIPageNavigationForm.class,
                                                                     null,
                                                                     null,

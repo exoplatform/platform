@@ -1,0 +1,28 @@
+    <%
+    	import java.util.List;
+    
+    	boolean even = true ;
+    	String rowClass = "EvenRow" ;
+    	def listGroupNames = (List<String>)uicomponent.getBeans();    	
+    	def parent = uicomponent.getParent();
+    %>
+<div id="$uicomponent.id">   
+	<%   	 
+	for(groupName in listGroupNames) { 
+			addLink = parent.event("AddNavigation",java.net.URLEncoder.encode(groupName));
+			if(even) rowClass = "EvenRow" ;
+    	else rowClass =  "OddRow" ; 
+    	even = !even ;
+	%>
+  <table class="ManagementBlock" style="table-layout: fixed; height: 60px" cellspacing="0">
+    <tr>								      								        								        
+				<td class="Content" style="vertical-align: middle;">
+       		<div class="Label"><%= groupName %></div>
+				</td>	
+        <td class="ActionBlock">
+        	<a href="$addLink" class="AddGroupIcon"><%=_ctx.appRes("UIAddGroupNavigation.Action.Add")%></a>
+	   		</td>	
+    </tr>
+  </table>  
+ 	<% } %>
+</div>

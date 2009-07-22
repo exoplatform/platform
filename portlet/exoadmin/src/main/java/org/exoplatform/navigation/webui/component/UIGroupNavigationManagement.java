@@ -3,6 +3,9 @@ package org.exoplatform.navigation.webui.component;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.exoplatform.commons.utils.LazyPageList;
+import org.exoplatform.commons.utils.PageList;
+import org.exoplatform.i18n.webui.component.UII18nPortlet;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserACL;
@@ -11,13 +14,21 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.bean.UIDataFeed;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.UIRepeater;
+import org.exoplatform.webui.core.UIVirtualList;
+import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.form.UIForm;
 
 /*
  * Copyright (C) 2003-2009 eXo Platform SAS.
@@ -42,17 +53,25 @@ import org.exoplatform.webui.event.EventListener;
  *          tamndrok@gmail.com
  * May 28, 2009  
  */
-
-@ComponentConfig(template = "app:/groovy/navigation/webui/component/UIGroupNavigationManagement.gtmpl", events = {
-    @EventConfig(listeners = UIGroupNavigationManagement.EditNavigationActionListener.class),
-    @EventConfig(listeners = UIGroupNavigationManagement.AddNavigationActionListener.class),
-    @EventConfig(listeners = UIGroupNavigationManagement.DeleteNavigationActionListener.class, confirm = "UIGroupNavigationManagement.Delete.Confirm") })
+@ComponentConfigs( {
+    @ComponentConfig(template = "app:/groovy/navigation/webui/component/UIGroupNavigationManagement.gtmpl", events = {
+        @EventConfig(listeners = UIGroupNavigationManagement.EditNavigationActionListener.class),
+        @EventConfig(listeners = UIGroupNavigationManagement.AddNavigationActionListener.class),
+        @EventConfig(listeners = UIGroupNavigationManagement.DeleteNavigationActionListener.class, confirm = "UIGroupNavigationManagement.Delete.Confirm") }),
+    @ComponentConfig(id = "UIGroupNavigationGrid", type = UIRepeater.class, template = "app:/groovy/navigation/webui/component/UINavigationGrid.gtmpl") })
 public class UIGroupNavigationManagement extends UIContainer {
 
   private List<PageNavigation> navigations;
-  private PageNavigation selectedNavigation;
+
+  private PageNavigation       selectedNavigation;
 
   public UIGroupNavigationManagement() throws Exception {
+    UIVirtualList virtualList = addChild(UIVirtualList.class, null, null);
+    virtualList.setPageSize(3);
+    UIRepeater repeater = createUIComponent(UIRepeater.class,
+                                              "UIGroupNavigationGrid",
+                                              virtualList.getGenerateId());
+    virtualList.setUIComponent(repeater);
     UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, "EditGroupNavigation");
   }
 
@@ -64,13 +83,16 @@ public class UIGroupNavigationManagement extends UIContainer {
     Query<PageNavigation> query = new Query<PageNavigation>(PortalConfig.GROUP_TYPE,
                                                             null,
                                                             PageNavigation.class);
-    List<PageNavigation> navis = dataStorage.find(query).getAll();
-    for (PageNavigation ele : navis) {
-      if (userACL.hasEditPermission(ele)) {
-        navigations.add(ele);
-      }
-    }
-
+    LazyPageList<PageNavigation> navis = dataStorage.find(query);    
+    /*
+     * List<PageNavigation> removeNavis = new ArrayList<PageNavigation>(); for
+     * (PageNavigation ele : navis.getAll()) { if
+     * (!userACL.hasEditPermission(ele)) { removeNavis.add(ele); } } for
+     * (PageNavigation pageNavigation : removeNavis) {
+     * navis.getAll().remove(pageNavigation); }
+     */
+    UIVirtualList virtualList = getChild(UIVirtualList.class);
+    virtualList.dataBind(navis);
   }
 
   public List<PageNavigation> getNavigations() {
@@ -122,7 +144,8 @@ public class UIGroupNavigationManagement extends UIContainer {
     selectedNavigation = navigation;
   }
 
-  static public class EditNavigationActionListener extends EventListener<UIGroupNavigationManagement> {
+  static public class EditNavigationActionListener extends
+                                                  EventListener<UIGroupNavigationManagement> {
     public void execute(Event<UIGroupNavigationManagement> event) throws Exception {
 
       UIGroupNavigationManagement uicomp = event.getSource();
@@ -168,7 +191,8 @@ public class UIGroupNavigationManagement extends UIContainer {
     }
   }
 
-  static public class DeleteNavigationActionListener extends EventListener<UIGroupNavigationManagement> {
+  static public class DeleteNavigationActionListener extends
+                                                    EventListener<UIGroupNavigationManagement> {
     public void execute(Event<UIGroupNavigationManagement> event) throws Exception {
       UIGroupNavigationManagement uicomp = event.getSource();
 
@@ -209,7 +233,8 @@ public class UIGroupNavigationManagement extends UIContainer {
     }
   }
 
-  static public class AddNavigationActionListener extends EventListener<UIGroupNavigationManagement> {
+  static public class AddNavigationActionListener extends
+                                                 EventListener<UIGroupNavigationManagement> {
     public void execute(Event<UIGroupNavigationManagement> event) throws Exception {
       UIGroupNavigationManagement uicomp = event.getSource();
       UIGroupNavigationPortlet uiPortlet = (UIGroupNavigationPortlet) uicomp.getParent();

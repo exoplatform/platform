@@ -28,5 +28,7 @@ public interface UIDataFeed {
   
   public void feedNext() throws Exception;
   
-  public boolean hasNext();  
+  public boolean hasNext();
+  
+  public String getUniqueId();
 }

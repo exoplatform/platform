@@ -1,31 +1,12 @@
 <div class="UIGroupNavigationManagement UIManagement" id="$uicomponent.id">
-	<% 
-	import org.exoplatform.portal.config.model.PageNavigation;
-	import org.exoplatform.webui.organization.OrganizationUtils;
-	uicomponent.loadNavigations();
-	navigations = uicomponent.getNavigations();
-	%>
-    
-	<%/*Begin ItemDetailList:*/%>
-	<% for(navigation in navigations) { 
-			deleteLink = uicomponent.event("DeleteNavigation",String.valueOf(navigation.getId()));
-			editLink = uicomponent.event("EditNavigation",String.valueOf(navigation.getId()));%>
-  <table class="ManagementBlock" style="table-layout: fixed">
-	  <tr>
-		  <td class="Image"><img src="/exoadmin/skin/navigation/webui/component/background/GroupImage.png" alt="" /></td>
-   		<td class="Content">
-   			<div class="Label" title="$navigation.ownerId"><%= OrganizationUtils.getGroupLabel("/" + navigation.ownerId) %></div>
-   			<div><strong>Description: </strong> </div>
-   		</td>	
-     	<td class="ActionBlock">
-     		<a href="<%=editLink%>" class="EditNavIcon">Edit Navigation</a> 
-     		<a href="<%=deleteLink%>" class="DeleteIcon">Delete Navigation</a>
-	  	</td>	
-    </tr>								
-  </table>  
-	<% } %>	
-   	  	
-  <%/*End ItemDetailList*/%>   
+	<%	
+		import org.exoplatform.webui.core.UIComponent ;
+		import org.exoplatform.webui.core.UIVirtualList;
+		import org.exoplatform.webui.core.UIPopupWindow;
+				
+		uicomponent.loadNavigations();		
+		uicomponent.renderChild(UIVirtualList.class); %> 	  	
+  
 	<div class="UIAction"> 
     <table class="ActionContainer">
 	    <tr>
@@ -53,5 +34,5 @@
  	  </table>
 	</div>
 	
-	<%uicomponent.renderChildren();%>			    
+	<% uicomponent.renderChild(UIPopupWindow.class); %>			    
 </div>

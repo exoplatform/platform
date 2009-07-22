@@ -48,10 +48,10 @@ import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.config.annotation.ParamConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIGrid;
-import org.exoplatform.webui.core.UIPageIterator;
 import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.UIRepeater;
 import org.exoplatform.webui.core.UISearch;
+import org.exoplatform.webui.core.UIVirtualList;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
@@ -106,15 +106,14 @@ public class UIPageBrowser extends UISearch {
 
   public UIPageBrowser() throws Exception {
     super(OPTIONS);
-    // getChild(UISearchForm.class).setId("UIPageSearch");
+    
     getChild(UISearchForm.class).setId("UIPageSearch");
-    UIGrid uiGrid = addChild(UIGrid.class, null, null);
-    uiGrid.configure("pageId", BEAN_FIELD, ACTIONS);
-    UIPageIterator uiIterator = uiGrid.getUIPageIterator();
-    addChild(uiIterator);
-    uiIterator.setId("UIBrowserIterator" + hashCode());
-    uiIterator.setRendered(false);
-    defaultValue(null);
+    UIRepeater uiRepeater = createUIComponent(UIRepeater.class, null, null);
+    uiRepeater.configure("pageId",BEAN_FIELD, ACTIONS);
+    
+    UIVirtualList virtualList = addChild(UIVirtualList.class, null, null);      
+    virtualList.setPageSize(10);
+    virtualList.setUIComponent(uiRepeater);
   }
 
   public Query<Page> getLastQuery() {
@@ -123,8 +122,9 @@ public class UIPageBrowser extends UISearch {
 
   public void defaultValue(Query<Page> query) throws Exception {
     lastQuery_ = query;
-    UIGrid uiGrid = findFirstComponentOfType(UIGrid.class);
-    UIPageIterator pageIterator = uiGrid.getUIPageIterator();
+    // UIGrid uiGrid = findFirstComponentOfType(UIGrid.class);
+    // UIPageIterator pageIterator = uiGrid.getUIPageIterator();
+    UIVirtualList virtualList = getChild(UIVirtualList.class);
     DataStorage service = getApplicationComponent(DataStorage.class);
     if (lastQuery_ == null) {
       lastQuery_ = new Query<Page>(null, null, null, null, Page.class);
@@ -138,16 +138,20 @@ public class UIPageBrowser extends UISearch {
           return page1.getName().compareTo(page2.getName());
         }
       });
-      pagelist.setPageSize(10);
-      pageIterator.setPageList(pagelist);
+      //pagelist.setPageSize(10);
+      //pageIterator.setPageList(pagelist);
+      virtualList.dataBind(pagelist);
     } catch (RepositoryException e) {
-      pageIterator.setPageList(new ObjectPageList(new ArrayList<String>(), 0));
+      //pageIterator.setPageList(new ObjectPageList(new ArrayList<String>(), 0));
+      virtualList.dataBind(new ObjectPageList(new ArrayList<String>(), 0));
       UIApplication uiApp = Util.getPortalRequestContext().getUIApplication();
       uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null));
       Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiApp.getUIPopupMessages());
       return;
     }
-    if (pageIterator.getAvailable() > 0)
+    UIRepeater repeater = (UIRepeater)virtualList.getDataFeed();
+    LazyPageList datasource = (LazyPageList) repeater.getDataSource();
+    if (datasource.getAvailable() > 0)
       return;
     UIApplication uiApp = Util.getPortalRequestContext().getUIApplication();
     uiApp.addMessage(new ApplicationMessage("UISearchForm.msg.empty", null));
@@ -203,13 +207,15 @@ public class UIPageBrowser extends UISearch {
   }
 
   void reset() throws Exception {
-    UIPageIterator uiPageIterator = getChild(UIPageIterator.class);
-    int currentPage = uiPageIterator.getCurrentPage();
+    UIVirtualList virtualList = getChild(UIVirtualList.class);
+    UIRepeater repeater = (UIRepeater)virtualList.getDataFeed();
+    LazyPageList datasource = (LazyPageList) repeater.getDataSource();
+    int currentPage = datasource.getCurrentPage();
     defaultValue(null);
-    while (currentPage > uiPageIterator.getAvailablePage())
+    while (currentPage > datasource.getAvailablePage())
       currentPage--;
     if (currentPage > 0)
-      uiPageIterator.setCurrentPage(currentPage);
+      datasource.getPage(currentPage);
   }
 
   static public class DeleteActionListener extends EventListener<UIPageBrowser> {
@@ -238,13 +244,15 @@ public class UIPageBrowser extends UISearch {
         return;
       }
 
-      UIPageIterator pageIterator = uiPageBrowser.getChild(UIGrid.class).getUIPageIterator();
-      int currentPage = pageIterator.getCurrentPage();
+      UIVirtualList virtualList = uiPageBrowser.getChild(UIVirtualList.class);
+      UIRepeater repeater = (UIRepeater)virtualList.getDataFeed();
+      LazyPageList datasource = (LazyPageList) repeater.getDataSource();
+      int currentPage = datasource.getCurrentPage();
       service.remove(page);
       uiPageBrowser.defaultValue(uiPageBrowser.getLastQuery());
-      while (currentPage > pageIterator.getAvailablePage())
+      while (currentPage > datasource.getAvailablePage())
         currentPage--;
-      pageIterator.setCurrentPage(currentPage);
+      datasource.getPage(currentPage);
 
       pcontext.addUIComponentToUpdateByAjax(uiPageBrowser);
     }

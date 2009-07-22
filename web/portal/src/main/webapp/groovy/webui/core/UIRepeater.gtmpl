@@ -7,8 +7,8 @@
 
   String[] beanFields =  uicomponent.getBeanFields() ;  
   String[] beanActions =  uicomponent.getBeanActions() ;  
-  def uiParent = uicomponent.getParent() ;
-  String uniqueId = uiParent.generateId;
+  def uiParent = uicomponent.getParent();
+  String uniqueId = uicomponent.getUniqueId();
 
   String name = uicomponent.getLabel() ;
   UIForm uiForm = uicomponent.getAncestorOfType(UIForm.class); 

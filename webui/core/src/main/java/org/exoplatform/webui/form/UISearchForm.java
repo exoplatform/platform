@@ -20,6 +20,7 @@ import java.util.List;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UISearch;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
@@ -77,7 +78,10 @@ public class UISearchForm extends UIForm {
       UISearchForm uiForm = event.getSource() ;
       UISearch uiSearch = uiForm.getParent() ;
       uiSearch.quickSearch(uiForm.getQuickSearchInputSet()) ;
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiSearch) ;
+      for (UIComponent child : uiSearch.getChildren()) {
+        if (child.isRendered())
+          event.getRequestContext().addUIComponentToUpdateByAjax(child);
+      }
     }
   }
 

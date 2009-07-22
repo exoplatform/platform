@@ -31,6 +31,7 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
+import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.UIRepeater;
 import org.exoplatform.webui.core.UIVirtualList;
@@ -165,6 +166,10 @@ public class UII18nPortlet extends UIPortletApplication {
       String language = uiSearch.getChild(UIFormSelectBox.class).getValue() ;
       if ("All".equals(language)) language = null ;
       uiI18n.update(uiSearch.getChild(UIFormStringInput.class).getValue(), language);
+      for (UIComponent child : uiI18n.getChildren()) {
+        if (child.isRendered())
+          event.getRequestContext().addUIComponentToUpdateByAjax(child);
+      }
     }
   }
   static public class NewResourceActionListener  extends EventListener<UIForm> {
