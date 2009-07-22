@@ -32,7 +32,7 @@
     <table class="ActionContainer">
 	    <tr>
 	    	<td>
-		      <div onclick="<%=uicomponent.event("AddNewPortal")%>" class="ActionButton BlueButton">
+		      <div onclick="ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))" class="ActionButton BlueButton">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
