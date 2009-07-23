@@ -93,7 +93,8 @@ public class UINavigationManagement extends UIContainer {
       uiPopup.setShow(false);
       UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
       UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;      
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS) ;   
+      Util.getPortalRequestContext().setFullRender(true);
     }
     
     private void setNavigation(List<PageNavigation> navs, PageNavigation nav) {
