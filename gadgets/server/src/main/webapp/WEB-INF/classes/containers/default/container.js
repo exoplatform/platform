@@ -114,9 +114,9 @@
     "jsonProxyUrl" : "http://%host%/eXoGadgetServer/gadgets/makeRequest"
   },
   "views" : {
-    "profile" : {
+    "home" : {
       "isOnlyVisible" : false,
-      "urlTemplate" : "http://%host%/eXoGadgetServer/gadgets/profile?{var}",
+      "urlTemplate" : "http://%host%/eXoGadgetServer/gadgets/home?{var}",
       "aliases": ["DASHBOARD", "default"]
     },
     "canvas" : {

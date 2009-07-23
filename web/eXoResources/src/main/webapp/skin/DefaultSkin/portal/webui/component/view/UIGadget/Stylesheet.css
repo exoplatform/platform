@@ -71,6 +71,10 @@
 	background-position: right -78px;
 }
 
+.UIGadget .GadgetControl .MaximizeGadget {
+	background-position: left -104px;
+}
+
 .UIGadget .TLGadget {
 	background: url('background/Gadget.png') no-repeat left -38px;
 	padding-left: 8px;

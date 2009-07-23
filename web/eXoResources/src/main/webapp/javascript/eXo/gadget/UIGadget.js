@@ -188,12 +188,30 @@ eXo.gadget.UIGadget = {
         var compId = portletFrag.parentNode.id;
         var uicomp = DOMUtil.getChildrenByTagName(portletFrag, "div")[0].className ;
         var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId ;
-        href += "&amp;portal:type=action&amp;uicomponent=" + uicomp;
-        href += "&amp;op=MinimizeGadget";
-        href += "&amp;minimized=" + minimized;
-        href += "&amp;objectId=" + uiGadget.id + "&amp;ajaxRequest=true";
+        href += "&portal:type=action&uicomponent=" + uicomp;
+        href += "&op=MinimizeGadget";
+        href += "&minimized=" + minimized;
+        href += "&objectId=" + uiGadget.id + "&ajaxRequest=true";
         ajaxAsyncGetRequest(href);
         if (uiGadget.minimizeCallback) uiGadget.minimizeCallback(portletFrag.parentNode.id);
+    },
+    
+    maximizeGadget: function(selectedElement) {
+        var DOMUtil = eXo.core.DOMUtil ;
+        var uiGadget = DOMUtil.findAncestorByClass(selectedElement, "UIGadget") ;
+        var portletFrag = DOMUtil.findAncestorByClass(uiGadget, "PORTLET-FRAGMENT") ;
+        if (!portletFrag) return;
+        var maximize = "maximize";
+        var compId = portletFrag.parentNode.id;
+        var uicomp = DOMUtil.getChildrenByTagName(portletFrag, "div")[0];
+        var compDisplay = DOMUtil.findFirstChildByClass(uicomp,"div","UIDashboardMask");
+        if(compDisplay != null) maximize = "unmaximize"
+        var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId ;
+        href += "&portal:type=action&uicomponent=" + uicomp.id;
+        href += "&op=MaximizeGadget";
+        href += "&maximize=" + maximize;
+        href += "&objectId=" + uiGadget.id + "&ajaxRequest=true";
+        ajaxGet(href,true);
     },
 
     deleteGadget : function(selectedElement) {

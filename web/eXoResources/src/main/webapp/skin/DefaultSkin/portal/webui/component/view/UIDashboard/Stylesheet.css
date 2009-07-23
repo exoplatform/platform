@@ -239,7 +239,7 @@
 }
 
 .UIDashboard .UIDashboardContainer .GadgetTitle {
-	width: 230px;	
+	width: 223px;	
 }
 
 .UIDashboardContainer .GadgetContainer {
@@ -305,4 +305,62 @@
 	margin: 3px 0px 0px 3px; /* orientation=lt */
 	margin: 3px 3px 0px 0px; /* orientation=rt */
 }
+/*----------------------UIDashboardMask-------------------*/
 
+.UIDashboardMask .UIGadget .GadgetControl {
+	float: none;
+	padding: 0px;
+	height: auto; width: auto;
+}
+
+.UIDashboardMask .UIGadget .GadgetControl .LeftControlBar {
+	background: url('background/Dashboard.gif') no-repeat left -51px;
+	padding: 0px 0px 0px 3px;
+}
+
+.UIDashboardMask .UIGadget .GadgetControl .RightControlBar {
+	background: url('background/Dashboard.gif') no-repeat right -51px;
+	padding: 0px 3px 0px 0px;
+}
+
+.UIDashboardMask .UIGadget .GadgetControl .CenterControlBar {
+	background: url('background/Dashboard.gif') repeat-x center -73px;
+	height: 22px;
+	line-height: 22px;
+}
+
+.UIDashboardMask .UIGadget .GadgetControl .GadgetDragHandleArea {
+	display: none;
+}	
+
+.UIDashboardMask .UIGadget .TLGadget {
+	display: none;
+}
+
+.UIDashboardMask .UIGadget .MLGadget {
+	background: none;
+	border: 1px solid #81a7c6;
+	border-top: none;
+}
+
+.UIDashboardMask .UIGadget .MRGadget {
+	background: none;
+}
+
+.UIDashboardMask .UIGadget .BLGadget {
+	display: none;
+}
+
+.UIDashboardMask .GadgetTitle {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding: 0px 5px;
+	color: #5b5b5b;
+	font-weight: bold;
+	cursor: move;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.UIDashboardMask iframe {
+	width: 100%;
+}

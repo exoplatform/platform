@@ -67,7 +67,9 @@ public class UIGadget extends UIComponent {
   public static final String PREF_KEY = "_pref_gadget_";
   public static final String PREF_NO_CACHE = "_pref_no_cache_";
   public static final String PREF_DEBUG = "_pref_debug_";
-  public String view = null;
+  public static final String HOME_VIEW = "home";
+  public static final String CANVAS_VIEW = "canvas";
+  public String view = HOME_VIEW;
 
   /**
    * Initializes a newly created <code>UIGadget</code> object
@@ -287,7 +289,7 @@ public class UIGadget extends UIComponent {
   public String getView() {
     if (view != null)
       return view;
-    return "home";
+    return HOME_VIEW;
   }
 
   public void setView(String view) {

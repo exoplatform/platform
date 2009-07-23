@@ -32,6 +32,7 @@
 					<div class="<%=Boolean.parseBoolean(uicomponent.getProperties().get("minimized")) ? "RestoreGadget": "MinimizeGadget";%> MinimizeAction IconControl" 
 									onclick="eXo.gadget.UIGadget.minimizeGadget(this)" onmousedown="event.cancelBubble=true;" style="display:none;"><span></span></div>
 					<div class="EditGadget IconControl" onclick="eXo.gadget.UIGadget.editGadget('$id')" onmousedown="event.cancelBubble=true;"><span></span></div>
+					<div class="MaximizeGadget IconControl" onclick="eXo.gadget.UIGadget.maximizeGadget(this)" onmousedown="event.cancelBubble=true;" title="Maximize"><span></span></div>
 					<div class="GadgetDragHandleArea"><span></span></div>
 				 	<div style="clear: both;"><span></span></div>
 				</div>
