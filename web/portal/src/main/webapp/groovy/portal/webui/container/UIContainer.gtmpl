@@ -1,10 +1,12 @@
 <%
 	import org.exoplatform.commons.utils.ExpressionUtil;
+	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 	
 	def rcontext = _ctx.getRequestContext();
 	ResourceBundle res = rcontext.getApplicationResourceBundle();
 	
-	if(!rcontext.getUIApplication().isEditting() && !uicomponent.hasPermission()) return;
+	UIPortalApplication uiPortalApp = rcontext.getUIApplication();
+	if(!uiPortalApp.isEditting() && !uicomponent.hasPermission()) return;
 
 	String cssStyle = "";
 	String uiComponentWidth = uicomponent.getWidth();
@@ -15,27 +17,29 @@
 	if(cssStyle.length() > 0) cssStyle += "\"";
 %>
 
-<div class="UIContainer <%=rcontext.getUIApplication().isEditting()?"EdittingContainer":""%>" id="UIContainer-${uicomponent.id}" ${cssStyle} onmouseover="eXo.portal.UIPortal.blockOnMouseOver(event, this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(event, this, false);">
+<div class="UIContainer <%=uiPortalApp.isEditting()?"EdittingContainer":""%>" id="UIContainer-${uicomponent.id}" ${cssStyle} onmouseover="eXo.portal.UIPortal.blockOnMouseOver(event, this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(event, this, false);">
 	<div class="NormalContainerBlock">
 		<div class="LeftContainerBlock">
 			<div class="RightContainerBlock UIComponentBlock">
-				
-			<%if(rcontext.getUIApplication().isEditting()){%>
+
 				<div class="META-DATA-BLOCK" style="display: none">
 					<div class="id">$uicomponent.id</div>
 					<div class="title"><%=_ctx.appRes("UIContainer.title.Container")%></div>
 					<div class="description"><%=_ctx.appRes("UIContainer.label.Thecontainer")%></div>
 				</div>
 				
-				
-				
-				<div class="LAYOUT-CONTAINER LAYOUT-BLOCK" style="display: none"><span></span></div>
-			<%}%>
+			<%
+				int portalMode = uiPortalApp.getEditMode();
+				if(portalMode == uiPortalApp.CONTAINER_BLOCK_EDIT_MODE || portalMode == uiPortalApp.APP_BLOCK_EDIT_MODE){
+			%>
+				<div class="LAYOUT-CONTAINER LAYOUT-BLOCK"><%uicomponent.renderChildren()%></div>
+			<%} else {%>
 				<div class="VIEW-CONTAINER VIEW-BLOCK">
 					<div id="$uicomponent.id">
 						<div class="UIRowContainer"><%uicomponent.renderChildren()%></div>
 					</div>
-				</div> 
+				</div>
+			<%} %> 
 				
 				<div class="EDITION-BLOCK EDITION-CONTAINER" style="display: none;">
 					<div style="position: relative;">

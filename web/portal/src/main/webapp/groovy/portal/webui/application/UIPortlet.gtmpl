@@ -2,10 +2,13 @@
 	import org.exoplatform.portal.webui.page.UIPage;
 	import javax.portlet.WindowState;
 	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 	
 	def rcontext = _ctx.getRequestContext();
 	
-	if(!rcontext.getUIApplication().isEditting() && !uicomponent.hasPermission()) return; 
+	UIPortalApplication uiPortalApp = rcontext.getUIApplication();
+	if(!uiPortalApp.isEditting() && !uicomponent.hasPermission()) return;
+	int portalMode = uiPortalApp.getEditMode(); 
 	
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory');
@@ -17,7 +20,7 @@
 	WindowState windowState = uicomponent.getCurrentWindowState();	
 	boolean isDesktop = "Window".equals(uicomponent.getPortletStyle());
 	String portletId = uicomponent.getId();
-	if(!isDesktop && rcontext.getUIApplication().isEditting()) {
+	if(!isDesktop && uiPortalApp.isEditting()) {
 %>
 	<div class="UIPortlet" id="UIPortlet-$portletId" onmouseover="eXo.portal.UIPortal.blockOnMouseOver(event, this, true);" onmouseout="eXo.portal.UIPortal.blockOnMouseOver(event, this, false);">
 				<div class="UIComponentBlock">
@@ -35,8 +38,8 @@
 						</div>
 					</div>
 					
-					
-					<div class="LAYOUT-BLOCK LAYOUT-PORTLET" style="display: none;">
+				<%if(portalMode == uiPortalApp.CONTAINER_BLOCK_EDIT_MODE || portalMode == uiPortalApp.APP_BLOCK_EDIT_MODE) { %>	
+					<div class="LAYOUT-BLOCK LAYOUT-PORTLET">
 						<div class="PortletLayoutDecorator">
 						
 							<%/*Begin Top Portlet Layout Decorator*/%>
@@ -86,10 +89,13 @@
 							
 						</div>
 					</div>
-						
+				<%} else { %>
 					<div class="VIEW-BLOCK VIEW-PORTLET" id="VIEW-${portletId}">
+				<%} %>
 		<%
 			}
+			
+		if(portalMode != uiPortalApp.CONTAINER_BLOCK_EDIT_MODE && portalMode != uiPortalApp.APP_BLOCK_EDIT_MODE) {
 			if(uicomponent.getShowInfoBar()) {
 				String title = uicomponent.getTitle();
 				if(title == null || title.trim().length() < 1) title = portletId;
@@ -283,10 +289,13 @@
 		<%
 				} 
 			}
-			if(!isDesktop && rcontext.getUIApplication().isEditting()) {
+		}
+			if(!isDesktop && uiPortalApp.isEditting()) {
+				if(portalMode != uiPortalApp.CONTAINER_BLOCK_EDIT_MODE && portalMode != uiPortalApp.APP_BLOCK_EDIT_MODE) {
 		%>
 						<div class="UIPortlet-$portletId UIPortletMask" style="position: absolute; display:none;"><span></span></div>
 					</div>
+				<%} %>
 					
 					<div class="EDITION-BLOCK EDITION-PORTLET" style="display: none;">
 						<div style="position: relative;">

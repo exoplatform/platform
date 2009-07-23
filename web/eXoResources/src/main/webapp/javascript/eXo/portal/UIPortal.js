@@ -3,17 +3,13 @@ function UIComponent(node) {
   if(node) this.type = node.className ;
   componentBlock = eXo.core.DOMUtil.findFirstDescendantByClass(node, "div", "UIComponentBlock");
   var children =  eXo.core.DOMUtil.getChildrenByTagName(componentBlock, "div") ;
-  if(children.length > 0) {
-	  this.metaData =  children[0] ;
-	  this.control = children[3] ; 
-	  this.layout = children[1] ; 
-	  this.view = children[2] ;
-  } 
-	
-//	this.metaData = eXo.core.DOMUtil.findFirstChildByClass(componentBlock, "div", "META-DATA-BLOCK");
-//	this.control = eXo.core.DOMUtil.findFirstChildByClass(componentBlock, "div", "CONTROL-BLOCK");
-//	this.layout = eXo.core.DOMUtil.findFirstChildByClass(componentBlock, "div", "LAYOUT-BLOCK");
-//	this.view = eXo.core.DOMUtil.findFirstChildByClass(componentBlock, "div", "VIEW-BLOCK");
+  
+  for(var i=0; i<children.length; i++) {
+		if(eXo.core.DOMUtil.hasClass(children[i], "META-DATA-BLOCK")) this.metaData = children[i];
+  	else if(eXo.core.DOMUtil.hasClass(children[i], "LAYOUT-BLOCK")) this.layout = children[i];
+  	else if(eXo.core.DOMUtil.hasClass(children[i], "VIEW-BLOCK")) this.view = children[i];
+  	else if(eXo.core.DOMUtil.hasClass(children[i], "EDITION-BLOCK")) this.control = children[i];
+  }
 	
   this.component = "";
   
@@ -55,9 +51,15 @@ UIPortal.prototype.blockOnMouseOver = function(event, portlet, isOver) {
 	
   var component = DOMUtil.findFirstDescendantByClass(portlet, "div", "UIComponentBlock");
   var children = DOMUtil.getChildrenByTagName(component, "div");
-  var layoutBlock = children[1];
-  var viewBlock = children[2];
-  var editBlock = children[3];
+  var layoutBlock;
+  var viewBlock;
+  var editBlock;
+  
+  for(var i=0; i<children.length; i++) {
+  	if(DOMUtil.hasClass(children[i], "LAYOUT-BLOCK")) layoutBlock = children[i];
+  	else if(DOMUtil.hasClass(children[i], "VIEW-BLOCK")) viewBlock = children[i];
+  	else if(DOMUtil.hasClass(children[i], "EDITION-BLOCK")) editBlock = children[i];
+  }
   
   if(!editBlock) return;
 	if(isOver) {
@@ -147,34 +149,34 @@ UIPortal.prototype.switchViewModeToLayoutMode = function(uicomponent, swapConten
   var layoutBlock = uicomponent.getLayoutBlock() ;
   if(!layoutBlock || layoutBlock.style.display == 'block') return ;
   var viewBlock = uicomponent.getViewBlock() ;
-  if(swapContent) {
+  if(swapContent && viewBlock) {
     var contentNode = eXo.core.DOMUtil.findDescendantById(viewBlock, uicomponent.getId()) ;
     if(contentNode != null) {
+    	layoutBlock.innerHTML = "";
       layoutBlock.appendChild(contentNode) ;
     }
   }
-  
   try {
-	  viewBlock.style.display = "none" ;
   	layoutBlock.style.display = "block" ;
-  } catch (err) {
-  	
-  }
+	  viewBlock.style.display = "none" ;
+  } catch (err) {}
 };
 
 UIPortal.prototype.switchLayoutModeToViewMode = function(uicomponent, swapContent) {
   var viewBlock =  uicomponent.getViewBlock() ;
   if(!viewBlock || viewBlock.style.display == 'block') return ;
   var layoutBlock = uicomponent.getLayoutBlock() ;
-  if(swapContent) {
+  if(swapContent && layoutBlock) {
     var contentNode = eXo.core.DOMUtil.findDescendantById(layoutBlock, uicomponent.getId()) ;
     if(contentNode != null) {
     	viewBlock.innerHTML = "";
       viewBlock.appendChild(contentNode) ;
     }
   }
-  viewBlock.style.display = "block" ;
-  layoutBlock.style.display = "none" ;
+  try{
+	  viewBlock.style.display = "block" ;
+	  layoutBlock.style.display = "none" ;
+  } catch(err) {}
 } ;
 
 UIPortal.prototype.switchMode = function(elemtClicked) {
@@ -332,7 +334,7 @@ UIPortal.prototype.showViewMode = function() {
 
   var container = this.getUIContainers() ;
   for(var i = 0; i < container.length; i++) {
-    this.switchLayoutModeToViewMode(container[i], true) ;
+    this.switchLayoutModeToViewMode(container[i], false) ;
     this.showUIComponentControl(container[i], !eXo.env.editType) ;
   }
 
@@ -372,7 +374,7 @@ UIPortal.prototype.showViewMode = function() {
 	  		mask.style.top = eXo.core.Browser.findPosY(pageBodyBlock) + "px";
 	      mask.style.left = eXo.core.Browser.findPosX(pageBodyBlock) + "px";
 	  		mask.style.display = "block";
-	  	} else {
+	  	} else if(mask) {
 	  		mask.style.display = "none";
 	  	}
   	}
@@ -394,7 +396,7 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
 
   var container = this.getUIContainers() ;
   for(var i = 0; i < container.length; i++) {
-    this.switchViewModeToLayoutMode(container[i], true) ;
+    this.switchViewModeToLayoutMode(container[i], false) ;
     this.showUIComponentControl(container[i], true) ;
   }
     
@@ -410,7 +412,7 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
     	mask.style.width  = component.offsetWidth + "px";
       mask.style.top = eXo.core.Browser.findPosY(component) + "px";
       mask.style.left = eXo.core.Browser.findPosX(component) + "px";
-    } else {
+    } else if(mask) {
     	mask.style.display = "none";
     }
   }  

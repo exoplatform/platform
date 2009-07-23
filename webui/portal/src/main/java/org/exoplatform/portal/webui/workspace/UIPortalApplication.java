@@ -63,8 +63,8 @@ public class UIPortalApplication extends UIApplication {
 	public static final int NORMAL_MODE = 0;
 	public static final int APP_BLOCK_EDIT_MODE = 1;
 	public static final int APP_VIEW_EDIT_MODE = 2;
-	public static final int CONTINAER_BLOCK_EDIT_MODE = 3;
-	public static final int CONTAINER_BLOCK_EDIT_MODE = 4;
+	public static final int CONTAINER_BLOCK_EDIT_MODE = 3;
+	public static final int CONTAINER_VIEW_EDIT_MODE = 4;
 	
   private int            editMode        = NORMAL_MODE ;
 

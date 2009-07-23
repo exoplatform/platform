@@ -54,8 +54,8 @@
 									</div>
 						 		</div>
 			
-								<% String changeEditMode = uicomponent.doAsync("ChangePortalEditMode", null, null); %>
-								<div onclick="eXo.portal.UIPortal.switchPortalMode(this);$changeEditMode" class="ActionButton SimpleStyle1" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
+								<% String changeEditMode = uicomponent.event("SwitchMode", null, null); %>
+								<div onclick="$changeEditMode" class="ActionButton SimpleStyle1" onmouseover="this.style.color = '#058ee6'" onmouseout="this.style.color='black'">
 									<div class="ButtonLeft">
 										<div class="ButtonRight">
 											<div class="ButtonMiddle">

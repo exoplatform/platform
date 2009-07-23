@@ -60,7 +60,7 @@ import org.exoplatform.webui.event.EventListener;
 					@EventConfig(listeners = UIPortalComposer.ViewPropertiesActionListener.class),
 					@EventConfig(listeners = UIPortalComposer.AbortActionListener.class),
 					@EventConfig(listeners = UIPortalComposer.FinishActionListener.class),
-					@EventConfig(listeners = UIPortalComposer.ChangePortalEditModeActionListener.class)
+					@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class)
 			}
 	),
 	@ComponentConfig(
@@ -71,7 +71,9 @@ import org.exoplatform.webui.event.EventListener;
 	)
 })
 public class UIPortalComposer extends UIContainer {
+  @Deprecated
 	private boolean isBlockEditMode;
+  @Deprecated
 	private boolean isPortletEditType;
 
 	public UIPortalComposer() throws Exception {
@@ -83,18 +85,22 @@ public class UIPortalComposer extends UIContainer {
 		setPortletEditType(true);
 	}
 
+	@Deprecated
 	public boolean isBlockEditMode() {
 		return this.isBlockEditMode;
 	}
 
+	@Deprecated
 	public void setBlockEditMode(boolean blockEditMode) {
 		this.isBlockEditMode = blockEditMode;
 	}
 
+	@Deprecated
 	public boolean isPortletEditType() {
 		return this.isPortletEditType;
 	}
 
+	@Deprecated
 	public void setPortletEditType(boolean editType) {
 		this.isPortletEditType = editType;
 	}
@@ -139,7 +145,10 @@ public class UIPortalComposer extends UIContainer {
 
 	public void processRender(WebuiRequestContext context) throws Exception {
 		super.processRender(context);
-		if(isBlockEditMode) Util.showComponentLayoutMode(UIPortlet.class);
+		UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+		int portalMode = uiPortalApp.getEditMode();
+		if(portalMode == UIPortalApplication.NORMAL_MODE) return;
+		if(portalMode % 2 != 0) Util.showComponentLayoutMode(UIPortlet.class);
 		else Util.showComponentEditInViewMode(UIPortlet.class);
 	}
 
@@ -227,12 +236,15 @@ public class UIPortalComposer extends UIContainer {
 			super.execute(event);
 			UITabPane uiTabPane = event.getSource();
 			UIComponent uiComponent = uiTabPane.getChildById(uiTabPane.getSelectedTabId());
-			UIPortalComposer uiPortalComposer = uiTabPane.getAncestorOfType(UIPortalComposer.class);
+			UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+			int portalMode = uiPortalApp.getEditMode();
+			if(portalMode == UIPortalApplication.NORMAL_MODE) return;
+			if(portalMode > 2) portalMode -= 2;
+			else portalMode += 2;
+			uiPortalApp.setEditMode(portalMode);
 			if(uiComponent instanceof UIApplicationList) {
-				uiPortalComposer.setPortletEditType(true);
 				Util.showComponentLayoutMode(UIPortlet.class);
 			} else if(uiComponent instanceof UIContainerList) {
-				uiPortalComposer.setPortletEditType(false);
 				Util.showComponentLayoutMode(org.exoplatform.portal.webui.container.UIContainer.class);
 			}
 			event.getRequestContext().addUIComponentToUpdateByAjax(
@@ -240,10 +252,16 @@ public class UIPortalComposer extends UIContainer {
 		}
 	}
 
-	static public class ChangePortalEditModeActionListener extends EventListener<UIPortalComposer> {
+	static public class SwitchModeActionListener extends EventListener<UIPortalComposer> {
 		public void execute(Event<UIPortalComposer> event) throws Exception {
-			UIPortalComposer uiPortalComposer = event.getSource();
-			uiPortalComposer.setBlockEditMode(!uiPortalComposer.isBlockEditMode());
+		  UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+		  int portalMode = uiPortalApp.getEditMode();
+		  if(portalMode == UIPortalApplication.NORMAL_MODE) return;
+		  if(portalMode%2 == 0) --portalMode;
+		  else ++portalMode;
+		  uiPortalApp.setEditMode(portalMode);
+		  event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getChild(UIWorkingWorkspace.class));
+		  Util.getPortalRequestContext().setFullRender(true);
 		}
 	}
 }
