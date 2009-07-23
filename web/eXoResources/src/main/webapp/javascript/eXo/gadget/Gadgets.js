@@ -228,36 +228,57 @@ gadgets.IfrGadgetService.prototype.setUserPref = function(editToken, name,
  * Navigates the page to a new url based on a gadgets requested view and
  * parameters.
  */
+//TODO: tung.dang - support requestNavigate function
 gadgets.IfrGadgetService.prototype.requestNavigateTo = function(view,
     opt_params) {
-  var id = this.getGadgetIdFromModuleId(this.f);
-  var url = this.getUrlForView(view);
-
+  var id = gadgets.container.gadgetService.getGadgetIdFromModuleId(this.f);
+  var gadget = gadgets.container.getGadget(id);
+  var iframe = document.getElementById(gadget.getIframeId()); 
+  var DOMUtil = eXo.core.DOMUtil;
+  var uiGadget = DOMUtil.findAncestorByClass(iframe,"UIGadget");
+  //set iframe url
+  var url = gadget.getIframeUrl();
+  var currentView = gadget.view || gadgets.container.view_;
+  if(currentView == view) return;
+  url = url.replace('view=' + currentView, 'view=' + view);
   if (opt_params) {
-    var paramStr = JSON.stringify(opt_params);
-    if (paramStr.length > 0) {
-      url += '&appParams=' + encodeURIComponent(paramStr);
-    }
+          if (url.indexOf('view-params=') == -1) {
+                  url += '&view-params=' + $.toJSON(opt_params);
+          } else {
+                  // Replace old view-params with opt_param and keep other params.
+                  url = url.replace(/([?&])view-params=.*?(&|$)/, '$1' + $.toJSON(opt_params) + '$2')
+          }
   }
-
-  if (url && document.location.href.indexOf(url) == -1) {
-    document.location.href = url;
-  }
+  iframe.src = url;
+  
+  // create portal action to maximize or unmaximize gadget
+  var portletFrag = DOMUtil.findAncestorByClass(uiGadget, "PORTLET-FRAGMENT") ;
+  if (!portletFrag) return;
+  var maximize = "maximize";
+  if(view == 'canvas') maximize = "maximize";
+  else if(view == 'home') maximize = "unmaximize";
+  var compId = portletFrag.parentNode.id;
+  var uicomp = DOMUtil.getChildrenByTagName(portletFrag, "div")[0];
+  var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId ;
+  href += "&portal:type=action&uicomponent=" + uicomp.id;
+  href += "&op=MaximizeGadget";
+  href += "&maximize=" + maximize;
+  href += "&objectId=" + uiGadget.id + "&ajaxRequest=true";
+  ajaxGet(href,true);
 };
 
 /**
  * This is a silly implementation that will need to be overriden by almost all
  * real containers.
- * TODO: Find a better default for this function
- *
+ * 
  * @param view The view name to get the url for
  */
 gadgets.IfrGadgetService.prototype.getUrlForView = function(
     view) {
   if (view === 'canvas') {
-    return '/canvas';
-  } else if (view === 'profile') {
-    return '/profile';
+    return 'canvas';
+  } else if (view === 'home') {
+    return 'home';
   } else {
     return null;
   }
