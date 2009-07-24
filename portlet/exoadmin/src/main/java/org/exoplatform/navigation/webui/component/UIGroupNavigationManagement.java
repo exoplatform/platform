@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.commons.utils.LazyPageList;
+import org.exoplatform.commons.utils.ObjectPageList;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.i18n.webui.component.UII18nPortlet;
 import org.exoplatform.portal.config.DataStorage;
@@ -69,8 +70,8 @@ public class UIGroupNavigationManagement extends UIContainer {
     UIVirtualList virtualList = addChild(UIVirtualList.class, null, "virtualNavigationList");
     virtualList.setPageSize(3);
     UIRepeater repeater = createUIComponent(UIRepeater.class,
-                                              "UIGroupNavigationGrid",
-                                              virtualList.getGenerateId());
+                                            "UIGroupNavigationGrid",
+                                            virtualList.getGenerateId());
     virtualList.setUIComponent(repeater);
     UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, "EditGroupNavigation");
   }
@@ -83,16 +84,15 @@ public class UIGroupNavigationManagement extends UIContainer {
     Query<PageNavigation> query = new Query<PageNavigation>(PortalConfig.GROUP_TYPE,
                                                             null,
                                                             PageNavigation.class);
-    LazyPageList<PageNavigation> navis = dataStorage.find(query);    
-    /*
-     * List<PageNavigation> removeNavis = new ArrayList<PageNavigation>(); for
-     * (PageNavigation ele : navis.getAll()) { if
-     * (!userACL.hasEditPermission(ele)) { removeNavis.add(ele); } } for
-     * (PageNavigation pageNavigation : removeNavis) {
-     * navis.getAll().remove(pageNavigation); }
-     */
+    List<PageNavigation> navis = dataStorage.find(query).getAll();
+    for (PageNavigation ele : navis) {
+      if (userACL.hasEditPermission(ele)) {
+        navigations.add(ele);
+      }
+    }
+
     UIVirtualList virtualList = getChild(UIVirtualList.class);
-    virtualList.dataBind(navis);
+    virtualList.dataBind(new ObjectPageList<PageNavigation>(navigations, navigations.size()));
   }
 
   public List<PageNavigation> getNavigations() {
