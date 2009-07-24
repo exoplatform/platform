@@ -71,9 +71,7 @@
         boolean canKeepState = sessionAliveLevel == null ? false : !sessionAliveLevel.equals(PortalProperties.SESSION_NEVER) ;
       %>
       
-      eXo.env.isEditting = false;
-      eXo.env.isBlockEditMode = false;
-      eXo.env.editType = false;
+      eXo.portal.portalMode = <%= uicomponent.getEditMode() %>;
       
       eXo.session.level = '$sessionAliveLevel';
       eXo.session.canKeepState = $canKeepState;

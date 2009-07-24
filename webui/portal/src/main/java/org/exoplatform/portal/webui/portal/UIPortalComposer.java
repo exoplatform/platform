@@ -71,38 +71,21 @@ import org.exoplatform.webui.event.EventListener;
 	)
 })
 public class UIPortalComposer extends UIContainer {
-  @Deprecated
-	private boolean isBlockEditMode;
-  @Deprecated
-	private boolean isPortletEditType;
 
 	public UIPortalComposer() throws Exception {
 		UITabPane uiTabPane = addChild(UITabPane.class, "UIPortalComposerTab", null);
 		uiTabPane.addChild(UIApplicationList.class, null, null).setRendered(true);
 		uiTabPane.addChild(UIContainerList.class, null, null);
 		uiTabPane.setSelectedTab(1);
-		setBlockEditMode(true);
-		setPortletEditType(true);
 	}
-
-	@Deprecated
-	public boolean isBlockEditMode() {
-		return this.isBlockEditMode;
+	
+	public void setPortalMode(int mode) {
+	  if(mode < 0 || mode > 4) return;
+	  getAncestorOfType(UIPortalApplication.class).setEditMode(mode);
 	}
-
-	@Deprecated
-	public void setBlockEditMode(boolean blockEditMode) {
-		this.isBlockEditMode = blockEditMode;
-	}
-
-	@Deprecated
-	public boolean isPortletEditType() {
-		return this.isPortletEditType;
-	}
-
-	@Deprecated
-	public void setPortletEditType(boolean editType) {
-		this.isPortletEditType = editType;
+	
+	public int getPortalMode() {
+	  return getAncestorOfType(UIPortalApplication.class).getEditMode();
 	}
 
 	public void save() throws Exception {

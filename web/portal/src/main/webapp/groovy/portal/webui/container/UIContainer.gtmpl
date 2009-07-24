@@ -32,14 +32,14 @@
 				int portalMode = uiPortalApp.getEditMode();
 				if(portalMode == uiPortalApp.CONTAINER_BLOCK_EDIT_MODE || portalMode == uiPortalApp.APP_BLOCK_EDIT_MODE){
 			%>
-				<div class="LAYOUT-CONTAINER LAYOUT-BLOCK"><%uicomponent.renderChildren()%></div>
+				<div class="LAYOUT-CONTAINER LAYOUT-BLOCK">
 			<%} else {%>
 				<div class="VIEW-CONTAINER VIEW-BLOCK">
+			<%} %> 
 					<div id="$uicomponent.id">
 						<div class="UIRowContainer"><%uicomponent.renderChildren()%></div>
 					</div>
 				</div>
-			<%} %> 
 				
 				<div class="EDITION-BLOCK EDITION-CONTAINER" style="display: none;">
 					<div style="position: relative;">

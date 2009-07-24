@@ -21,7 +21,7 @@
 					<div class="LeftTab">
 						<div class="RightTab">
 							<% String appLink = "ajaxAsyncGetRequest('" + uicomponent.url("SelectTab",appList.getId()) + "', true)" %>								
-							<div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '${appList.getId()}', '$url');$appLink;javascript:eXo.env.editType=true;">
+							<div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '${appList.getId()}', '$url');$appLink;if(eXo.portal.portalMode) eXo.portal.portalMode -= 2;">
 								<%=_ctx.appRes("UITabPane.title." + appList.getId());%>
 							</div>
 						</div>
@@ -33,7 +33,7 @@
 					<div class="LeftTab">
 						<div class="RightTab">
 							<% String contLink = "ajaxAsyncGetRequest('" + uicomponent.url("SelectTab",contList.getId()) + "', true)" %>								
-							<div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '${contList.getId()}', '$url');$contLink;javascript:eXo.env.editType=false;">
+							<div class="MiddleTab" onclick="eXo.webui.UIHorizontalTabs.changeTabForUITabPane(this, '${contList.getId()}', '$url');$contLink;if(eXo.portal.portalMode) eXo.portal.portalMode += 2;">
 								<%=_ctx.appRes("UITabPane.title." + contList.getId());%>
 							</div>
 						</div>

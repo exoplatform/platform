@@ -42,9 +42,9 @@ function UIPortal() {
 
 UIPortal.prototype.blockOnMouseOver = function(event, portlet, isOver) {
   var DOMUtil = eXo.core.DOMUtil;
-  if(!eXo.env.isEditting || eXo.portal.isInDragging) return;
-	if(eXo.env.editType && DOMUtil.hasClass(portlet, "UIContainer")) return;
-	if(!eXo.env.editType && DOMUtil.hasClass(portlet, "UIPortlet")) return;
+  if(!eXo.portal.portalMode || eXo.portal.isInDragging) return;
+	if(eXo.portal.portalMode <= 2 && DOMUtil.hasClass(portlet, "UIContainer")) return;
+	if(eXo.portal.portalMode > 2 && DOMUtil.hasClass(portlet, "UIPortlet")) return;
 	
 	if(!event) event = window.event;
 	event.cancelBubble = true;
@@ -197,16 +197,14 @@ UIPortal.prototype.switchMode = function(elemtClicked) {
 	//eXo.portal.PortalDragDrop.fixCss();
 } ;
 
-UIPortal.prototype.switchPortalMode = function(elemtClicked) {
-	eXo.env.isBlockEditMode = !eXo.env.isBlockEditMode;
-	if(!eXo.env.isBlockEditMode) {
-		this.showViewMode() ;
-	} else {
-		this.showLayoutModeForPortal() ;
-	}
-//	var url = eXo.env.server.createPortalURL(this.getUIPortal().id, "ChangePortalEditMode", true, [{name :"isBlockMode",value: eXo.env.isBlockEditMode}]);
-//	ajaxAsyncGetRequest(url);
-};
+//TODO: No longer use. Prepare to remove
+//UIPortal.prototype.switchPortalMode = function(elemtClicked) {
+//	if(eXo.portal.portalMode%2 == 0) {
+//		this.showViewMode() ;
+//	} else {
+//		this.showLayoutModeForPortal() ;
+//	}
+//};
 
 UIPortal.prototype.switchModeForPage = function(elemtClicked) {
 	var layoutMode  = this.showViewLayoutModeForPage();
@@ -335,7 +333,7 @@ UIPortal.prototype.showViewMode = function() {
   var container = this.getUIContainers() ;
   for(var i = 0; i < container.length; i++) {
     this.switchLayoutModeToViewMode(container[i], false) ;
-    this.showUIComponentControl(container[i], !eXo.env.editType) ;
+    this.showUIComponentControl(container[i], eXo.portal.portalMode > 2) ;
   }
 
   var portlet  = this.getUIPortlets() ;
@@ -344,7 +342,7 @@ UIPortal.prototype.showViewMode = function() {
     this.showUIComponentControl(portlet[i], true) ;
     var component = portlet[i].getUIComponentBlock();
     var mask = eXo.core.DOMUtil.findFirstDescendantByClass(component, "div", "UIPortletMask");
-    if(eXo.env.isEditting && mask) {
+    if(eXo.portal.portalMode && mask) {
       mask.style.display = "block";
       mask.style.height = component.offsetHeight + "px";
       mask.style.width  = component.offsetWidth + "px";
@@ -368,7 +366,7 @@ UIPortal.prototype.showViewMode = function() {
   	var pageBodyBlock = pageBody.getUIComponentBlock();
   	var mask = eXo.core.DOMUtil.findFirstDescendantByClass(pageBodyBlock, "div", "UIPageBodyMask");
   	if(mask) {
-	  	if(!eXo.env.isBlockEditMode) {
+	  	if(!(eXo.portal.portalMode%2)) {
 	  		mask.style.height = pageBodyBlock.offsetHeight + "px";
 	  		mask.style.width = pageBodyBlock.offsetWidth + "px";
 	  		mask.style.top = eXo.core.Browser.findPosY(pageBodyBlock) + "px";
@@ -406,7 +404,7 @@ UIPortal.prototype.showLayoutModeForPortal = function(control) {
     this.showUIComponentControl(portlet[i], this.component == 'UIPortlet') ;
     var component = portlet[i].getUIComponentBlock();
     var mask = eXo.core.DOMUtil.findFirstDescendantByClass(component, "div", "UIPortletMask");
-    if(eXo.env.isEditting && mask) {
+    if(eXo.portal.portalMode && mask) {
     	mask.style.display = "block";
     	mask.style.height = component.offsetHeight + "px";
     	mask.style.width  = component.offsetWidth + "px";

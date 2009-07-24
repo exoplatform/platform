@@ -24,11 +24,11 @@
 				
 			<%
 				int portalMode = uiPortalApp.getEditMode();
-				 String style = "";
-				 String width	= uicomponent.getWidth();
-				 String height	= uicomponent.getHeight();
-				 if(width != null) style += "width:"+width+";";
-				 if(height != null) style += "height:"+height+";";
+				String style = "";
+				String width	= uicomponent.getWidth();
+				String height	= uicomponent.getHeight();
+				if(width != null) style += "width:"+width+";";
+				if(height != null) style += "height:"+height+";";
 				if(portalMode == uiPortalApp.CONTAINER_BLOCK_EDIT_MODE || portalMode == uiPortalApp.APP_BLOCK_EDIT_MODE){
 			%>
 				<div class="LAYOUT-CONTAINER LAYOUT-BLOCK">

@@ -77,7 +77,5 @@
 	</div>	
 </div>
 <script language="javascript">
-	eXo.env.isEditting = true;
-	eXo.env.isBlockEditMode = ${uicomponent.isBlockEditMode};
-	eXo.env.editType = ${uicomponent.isPortletEditType};
+	eXo.portal.portalMode = <%=uicomponent.getPortalMode();%>;
 </script>
