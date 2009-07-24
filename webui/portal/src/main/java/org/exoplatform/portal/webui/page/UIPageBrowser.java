@@ -252,7 +252,6 @@ public class UIPageBrowser extends UISearch {
       uiPageBrowser.defaultValue(uiPageBrowser.getLastQuery());
       while (currentPage > datasource.getAvailablePage())
         currentPage--;
-      datasource.getPage(currentPage);
 
       pcontext.addUIComponentToUpdateByAjax(uiPageBrowser);
     }
