@@ -32,11 +32,8 @@ import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.portal.UIPortalForm;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
-import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.util.ReflectionUtil;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -66,7 +63,7 @@ public class UISiteManagement extends UIContainer {
   public UISiteManagement() throws Exception {  
     UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, "EditPortalNavigation");
     editNavigation.setWindowSize(400, 400);
-    loadPortalConfigs();
+    //loadPortalConfigs();
   }
   
   public List<PortalConfig> getPortalConfigs() throws Exception { 
@@ -103,7 +100,8 @@ public class UISiteManagement extends UIContainer {
   } 
 
   static public class DeletePortalActionListener extends EventListener<UISiteManagement> {
-    public void execute(Event<UISiteManagement> event) throws Exception {      
+    public void execute(Event<UISiteManagement> event) throws Exception {     
+      UISiteManagement uicomp = event.getSource();
       String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;
       UserPortalConfigService service = event.getSource().getApplicationComponent(UserPortalConfigService.class);
       PortalRequestContext prContext = Util.getPortalRequestContext();
@@ -130,9 +128,9 @@ public class UISiteManagement extends UIContainer {
         return;
       }
       
-      event.getSource().loadPortalConfigs();
-      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);      
+      //event.getSource().loadPortalConfigs();
+      //UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
+      event.getRequestContext().addUIComponentToUpdateByAjax(uicomp);      
     }    
   }
   

@@ -5,6 +5,7 @@
   import java.text.SimpleDateFormat;
    
   String[] actions =  uicomponent.getActions();
+  uicomponent.loadPortalConfigs();
 %>
 <div class="UISiteManagement UIManagement" id="<%=uicomponent.getId();%>">
 	  <%
