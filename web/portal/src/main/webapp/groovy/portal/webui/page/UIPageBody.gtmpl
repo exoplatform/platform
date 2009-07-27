@@ -1,7 +1,7 @@
 <%	
 	import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 	UIPortalApplication uiPortalApp = _ctx.getRequestContext().getUIApplication();
-	int portalMode = uiPortalApp.getEditMode();
+	int portalMode = uiPortalApp.getModeState();
 %>
 <div class="UIPageBody" id="${uicomponent.id}">		
 	<div class="UIComponent UIComponentBlock">

@@ -8,7 +8,7 @@
 	
 	UIPortalApplication uiPortalApp = rcontext.getUIApplication();
 	if(!uiPortalApp.isEditting() && !uicomponent.hasPermission()) return;
-	int portalMode = uiPortalApp.getEditMode(); 
+	int portalMode = uiPortalApp.getModeState(); 
 	
 	JavascriptManager jsmanager = rcontext.getJavascriptManager();
 	jsmanager.importJavascript('eXo.webui.UIPopupSelectCategory');

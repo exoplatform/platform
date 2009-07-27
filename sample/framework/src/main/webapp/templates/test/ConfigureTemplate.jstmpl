@@ -1,7 +1,0 @@
-<%
-  var homeEventUrl = EventHandler.createEventURL("org.exoplatform.sample.portlet.mvc.DefaultEventHandler") ; 
-%>
-
-This is the ConfigureTemplate.jstmpl template
-<br/>==========================================================<br/>
-Return Home <a href="<%=homeEventUrl.toString()%>">Click Me</a>

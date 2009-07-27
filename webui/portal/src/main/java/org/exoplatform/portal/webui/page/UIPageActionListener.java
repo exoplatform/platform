@@ -57,13 +57,13 @@ public class UIPageActionListener {
       UIPortal uiPortal = pnevent.getSource();
       UIPageBody uiPageBody = uiPortal.findFirstComponentOfType(UIPageBody.class); 
       UIPortalApplication uiPortalApp = uiPortal.getAncestorOfType(UIPortalApplication.class);
-      if(uiPortalApp.getEditMode() != UIPortalApplication.NORMAL_MODE) {
+      if(uiPortalApp.getModeState() != UIPortalApplication.NORMAL_MODE) {
         UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class) ;
         String remoteUser = Util.getPortalRequestContext().getRemoteUser() ;
         UserPortalConfig portalConfig = configService.getUserPortalConfig(uiPortal.getOwner(), remoteUser) ;
         uiPortal.getChildren().clear() ;
         PortalDataMapper.toUIPortal(uiPortal, portalConfig) ;
-        uiPortalApp.setEditMode(UIPortalApplication.NORMAL_MODE) ;
+        uiPortalApp.setModeState(UIPortalApplication.NORMAL_MODE) ;
         uiPortal.broadcast(event, event.getExecutionPhase()) ;
         return ;
       }

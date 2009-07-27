@@ -418,8 +418,8 @@ function HttpResponseHandler(){
 	    var newData =  eXo.core.DOMUtil.findDescendantById(blockToUpdate.data, blockToUpdate.blockId) ;
 	   	//var newData =  blockToUpdate.data.getElementById(blockToUpdate.blockId) ;
 	    if(newData == null) alert("The blockId to update is not found : " + blockToUpdate.blockId) ;
-	    target.parentNode.replaceChild(newData, target);
-//	    target.innerHTML = newData.innerHTML ;
+//	    target.parentNode.replaceChild(newData, target);
+	    target.innerHTML = newData.innerHTML ;
 	    //update embedded scripts
 	    if(blockToUpdate.scripts) {
 	      if(blockToUpdate.scripts.length > 0) {

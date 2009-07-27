@@ -23,7 +23,7 @@ import org.exoplatform.webui.form.UIFormInputSet;
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
 
-/*
+/**
  * Created by The eXo Platform SAS
  * Author : tam.nguyen
  *          tamndrok@gmail.com

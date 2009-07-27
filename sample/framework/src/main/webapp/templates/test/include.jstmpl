@@ -1,3 +1,0 @@
-Hi , this is the include template
-<br/>==========================================================<br/>
-<%TemplateContext.include("app:/templates/test/nestedinclude.jstmpl")%>

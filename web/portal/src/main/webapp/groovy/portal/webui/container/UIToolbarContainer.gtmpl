@@ -23,7 +23,7 @@
 				
 				
 			<%
-				int portalMode = uiPortalApp.getEditMode();
+				int portalMode = uiPortalApp.getModeState();
 				String style = "";
 				String width	= uicomponent.getWidth();
 				String height	= uicomponent.getHeight();

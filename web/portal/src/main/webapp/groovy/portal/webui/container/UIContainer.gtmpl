@@ -29,7 +29,7 @@
 				</div>
 				
 			<%
-				int portalMode = uiPortalApp.getEditMode();
+				int portalMode = uiPortalApp.getModeState();
 				if(portalMode == uiPortalApp.CONTAINER_BLOCK_EDIT_MODE || portalMode == uiPortalApp.APP_BLOCK_EDIT_MODE){
 			%>
 				<div class="LAYOUT-CONTAINER LAYOUT-BLOCK">

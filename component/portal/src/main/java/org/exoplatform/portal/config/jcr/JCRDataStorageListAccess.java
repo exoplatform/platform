@@ -26,6 +26,7 @@ import javax.jcr.Session;
 import javax.jcr.query.QueryManager;
 import javax.jcr.query.QueryResult;
 
+import org.exoplatform.commons.utils.ListAccess;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.services.jcr.ext.common.SessionProvider;
 import org.exoplatform.services.jcr.ext.registry.RegistryEntry;
@@ -35,17 +36,16 @@ import org.exoplatform.services.jcr.impl.core.query.QueryImpl;
 /**
  * Created by The eXo Platform SAS.
  * 
- * @author <a href="mailto:anatoliy.bazko@exoplatform.com.ua">Anatoliy Bazko</a>
- * @version $Id: UserByQueryJCRUserListAccess.java 111 2008-11-11 11:11:11Z $
+ * @author <a href="trong.tran@exoplatform">Trong Tran</a>
  */
-public class JCRDataStorageListAccess extends DataStorageListAccess {
+public class JCRDataStorageListAccess implements ListAccess<Object> {
 
   /**
    * The query.
    */
-  private Query      q;
+  private Query<?>      q;
 
-  private Comparator sortComparator;
+  private Comparator<Object> sortComparator;
 
   private DataMapper mapper_ = new DataMapper();
 
@@ -54,8 +54,13 @@ public class JCRDataStorageListAccess extends DataStorageListAccess {
    * 
    * @param service The JCROrganizationService
    */
-  public JCRDataStorageListAccess(RegistryService service, Query query, Comparator sortComparator) {
-    super(service);
+  /**
+   * The RegistryService.
+   */
+  protected RegistryService service_;
+  
+  public JCRDataStorageListAccess(RegistryService service, Query<?> query, Comparator<Object> sortComparator) {
+  	service_ = service;
     this.q = query;
     this.sortComparator = sortComparator;
   }
@@ -64,29 +69,21 @@ public class JCRDataStorageListAccess extends DataStorageListAccess {
    * {@inheritDoc}
    */
   public int getSize() throws Exception {
-    int count = 0;
     SessionProvider sessionProvider = SessionProvider.createSystemProvider();
     StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT);
-    String registryNodePath = service.getRegistry(sessionProvider).getNode().getPath();
+    String registryNodePath = service_.getRegistry(sessionProvider).getNode().getPath();
     generateLikeScript(builder, "jcr:path", registryNodePath + "/%");
     generateLikeScript(builder, DataMapper.EXO_DATA_TYPE, q.getClassType().getSimpleName());
     generateContainScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType());
     generateContainScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId());
     generateContainScript(builder, DataMapper.EXO_NAME, q.getName());
     generateContainScript(builder, DataMapper.EXO_TITLE, q.getTitle());
-    Session session = service.getRegistry(sessionProvider).getNode().getSession();
+    Session session = service_.getRegistry(sessionProvider).getNode().getSession();
     try {
       QueryManager queryManager = session.getWorkspace().getQueryManager();
       javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql");
       QueryResult result = query.execute();
-      ArrayList<Object> list = new ArrayList<Object>();
-      NodeIterator itr = result.getNodes();
-
-      while(itr.hasNext()) {
-        Node node = itr.nextNode() ;
-        count++;
-      }
-      return count;
+      return (int) result.getNodes().getSize();
     } finally {
       sessionProvider.close();
     }
@@ -104,14 +101,14 @@ public class JCRDataStorageListAccess extends DataStorageListAccess {
 
     SessionProvider sessionProvider = SessionProvider.createSystemProvider();
     StringBuilder builder = new StringBuilder("select * from " + DataMapper.EXO_REGISTRYENTRY_NT);
-    String registryNodePath = service.getRegistry(sessionProvider).getNode().getPath();
+    String registryNodePath = service_.getRegistry(sessionProvider).getNode().getPath();
     generateLikeScript(builder, "jcr:path", registryNodePath + "/%");
     generateLikeScript(builder, DataMapper.EXO_DATA_TYPE, q.getClassType().getSimpleName());
     generateContainScript(builder, DataMapper.EXO_OWNER_TYPE, q.getOwnerType());
     generateContainScript(builder, DataMapper.EXO_OWNER_ID, q.getOwnerId());
     generateContainScript(builder, DataMapper.EXO_NAME, q.getName());
     generateContainScript(builder, DataMapper.EXO_TITLE, q.getTitle());
-    Session session = service.getRegistry(sessionProvider).getNode().getSession();
+    Session session = service_.getRegistry(sessionProvider).getNode().getSession();
     try {
       QueryManager queryManager = session.getWorkspace().getQueryManager();
       javax.jcr.query.Query query = queryManager.createQuery(builder.toString(), "sql");
@@ -122,55 +119,15 @@ public class JCRDataStorageListAccess extends DataStorageListAccess {
       NodeIterator itr = result.getNodes();
 
       while(itr.hasNext()) {
-//        if (!itr.hasNext())
-//          throw new IllegalArgumentException("Illegal index or length: sum of the index and the length cannot be greater than the list size");
-
-        Node uNode = itr.nextNode();
-
-        //if (p++ >= index) {
-          String entryPath = uNode.getPath().substring(registryNodePath.length() + 1);
-          RegistryEntry entry = service.getEntry(sessionProvider, entryPath);
-          list.add(mapper_.fromDocument(entry.getDocument(), q.getClassType()));
-          //counter++;
-        //}
+      	Node uNode = itr.nextNode();
+      	String entryPath = uNode.getPath().substring(registryNodePath.length() + 1);
+      	RegistryEntry entry = service_.getEntry(sessionProvider, entryPath);
+      	list.add(mapper_.fromDocument(entry.getDocument(), q.getClassType()));
       }
-      if (sortComparator != null)
-        Collections.sort(list, sortComparator);
+      if (sortComparator != null) Collections.sort(list, sortComparator);
       return list.toArray();
     } finally {
-      sessionProvider.close();
-    }
-  }
-
-  /**
-   * isNameLike.
-   * 
-   * @param userName
-   * @param queryName
-   * @return
-   */
-  private boolean isNameLike(String userName, String queryName) {
-    boolean startWith = false;
-    boolean endWith = false;
-
-    if (queryName.startsWith("*")) {
-      startWith = true;
-      queryName = queryName.substring(1);
-    }
-
-    if (queryName.endsWith("*")) {
-      endWith = true;
-      queryName = queryName.substring(0, queryName.length() - 1);
-    }
-
-    if (startWith && endWith) {
-      return userName.indexOf(queryName) != -1;
-    } else if (startWith) {
-      return userName.startsWith(queryName);
-    } else if (endWith) {
-      return userName.endsWith(queryName);
-    } else {
-      return userName.equals(queryName);
+    	sessionProvider.close();
     }
   }
 

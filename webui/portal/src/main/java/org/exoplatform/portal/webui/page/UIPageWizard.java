@@ -133,7 +133,7 @@ public abstract class UIPageWizard extends UIWizard {
     public void execute(Event<UIPageWizard> event) throws Exception {
       UIPortalApplication uiPortalApp = event.getSource()
                                              .getAncestorOfType(UIPortalApplication.class);
-      uiPortalApp.setEditMode(UIPortalApplication.NORMAL_MODE);
+      uiPortalApp.setModeState(UIPortalApplication.NORMAL_MODE);
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
 
       UIPortal uiPortal = Util.getUIPortal();

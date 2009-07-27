@@ -262,7 +262,7 @@ public class UIPageBrowser extends UISearch {
       System.out.println("\n\n\n\nThis event is not implemented");
       UIPageBrowser uiPageBrowser = event.getSource();
       UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
-      uiPortalApp.setEditMode(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+      uiPortalApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
       String id = pcontext.getRequestParameter(OBJECTID);
       UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
@@ -382,7 +382,7 @@ public class UIPageBrowser extends UISearch {
 
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-      uiPortalApp.setEditMode(UIPortalApplication.NORMAL_MODE);
+      uiPortalApp.setModeState(UIPortalApplication.NORMAL_MODE);
       UIPortal uiPortal = Util.getUIPortal();
       String uri = uiPortal.getSelectedNavigation().getId() + "::"
           + uiPortal.getSelectedNode().getUri();

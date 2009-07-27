@@ -27,8 +27,6 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.services.organization.Group;
-import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -46,18 +44,7 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
 public class UIUserToolBarPortlet extends UIPortletApplication {
   
   public UIUserToolBarPortlet() throws Exception {  }
-  
-  public List<String> getAllDashboards() throws Exception {
-    List<String> list = new ArrayList<String>();
-    list.add("Sales BI Reports");
-    list.add("Development Reports");
-    list.add("Scrum Reports");
-    list.add("Marketing Results");
-    
-    return list;
-  }
 
-  @SuppressWarnings({ "unchecked", "deprecation" })
   public List<String> getAllPortalNames() throws Exception {
     List<String> list = new ArrayList<String>();
     DataStorage dataStorage = getApplicationComponent(DataStorage.class);

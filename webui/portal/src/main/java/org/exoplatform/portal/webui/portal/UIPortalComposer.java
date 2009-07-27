@@ -81,11 +81,11 @@ public class UIPortalComposer extends UIContainer {
 	
 	public void setPortalMode(int mode) {
 	  if(mode < 0 || mode > 4) return;
-	  getAncestorOfType(UIPortalApplication.class).setEditMode(mode);
+	  getAncestorOfType(UIPortalApplication.class).setModeState(mode);
 	}
 	
 	public int getPortalMode() {
-	  return getAncestorOfType(UIPortalApplication.class).getEditMode();
+	  return getAncestorOfType(UIPortalApplication.class).getModeState();
 	}
 
 	public void save() throws Exception {
@@ -129,7 +129,7 @@ public class UIPortalComposer extends UIContainer {
 	public void processRender(WebuiRequestContext context) throws Exception {
 		super.processRender(context);
 		UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-		int portalMode = uiPortalApp.getEditMode();
+		int portalMode = uiPortalApp.getModeState();
 		if(portalMode == UIPortalApplication.NORMAL_MODE) return;
 		if(portalMode % 2 != 0) Util.showComponentLayoutMode(UIPortlet.class);
 		else Util.showComponentEditInViewMode(UIPortlet.class);
@@ -157,7 +157,7 @@ public class UIPortalComposer extends UIContainer {
 			PortalRequestContext prContext = Util.getPortalRequestContext();  
 			UserPortalConfigService configService = uiPortalApp.getApplicationComponent(UserPortalConfigService.class);
 			configService.update(uiPortalApp.getUserPortalConfig().getPortalConfig());
-			uiPortalApp.setEditMode(UIPortalApplication.NORMAL_MODE) ;
+			uiPortalApp.setModeState(UIPortalApplication.NORMAL_MODE) ;
 
 			String remoteUser = prContext.getRemoteUser();
 			String ownerUser = prContext.getPortalOwner();   
@@ -205,7 +205,7 @@ public class UIPortalComposer extends UIContainer {
 			UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
 			if(PortalProperties.SESSION_ALWAYS.equals(uiPortal.getSessionAlive())) uiPortalApp.setSessionOpen(true) ;
 			else uiPortalApp.setSessionOpen(false) ;
-			uiPortalApp.setEditMode(UIPortalApplication.NORMAL_MODE) ;
+			uiPortalApp.setModeState(UIPortalApplication.NORMAL_MODE) ;
 			PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
 					PageNodeEvent.CHANGE_PAGE_NODE, 
 					(uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode().getUri() : null)) ;
@@ -220,11 +220,11 @@ public class UIPortalComposer extends UIContainer {
 			UITabPane uiTabPane = event.getSource();
 			UIComponent uiComponent = uiTabPane.getChildById(uiTabPane.getSelectedTabId());
 			UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-			int portalMode = uiPortalApp.getEditMode();
+			int portalMode = uiPortalApp.getModeState();
 			if(portalMode == UIPortalApplication.NORMAL_MODE) return;
 			if(portalMode > 2) portalMode -= 2;
 			else portalMode += 2;
-			uiPortalApp.setEditMode(portalMode);
+			uiPortalApp.setModeState(portalMode);
 			if(uiComponent instanceof UIApplicationList) {
 				Util.showComponentLayoutMode(UIPortlet.class);
 			} else if(uiComponent instanceof UIContainerList) {
@@ -238,11 +238,11 @@ public class UIPortalComposer extends UIContainer {
 	static public class SwitchModeActionListener extends EventListener<UIPortalComposer> {
 		public void execute(Event<UIPortalComposer> event) throws Exception {
 		  UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-		  int portalMode = uiPortalApp.getEditMode();
+		  int portalMode = uiPortalApp.getModeState();
 		  if(portalMode == UIPortalApplication.NORMAL_MODE) return;
 		  if(portalMode%2 == 0) --portalMode;
 		  else ++portalMode;
-		  uiPortalApp.setEditMode(portalMode);
+		  uiPortalApp.setModeState(portalMode);
 		  event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getChild(UIWorkingWorkspace.class));
 		  Util.getPortalRequestContext().setFullRender(true);
 		}

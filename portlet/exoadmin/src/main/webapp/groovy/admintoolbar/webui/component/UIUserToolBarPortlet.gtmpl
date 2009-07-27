@@ -126,27 +126,6 @@
 			</div>
 		""";
 	}
-	
-	void renderDashboards() {
-			print """
-					<div style="position: absolute; display:none" class="MenuItemContainer">
-						<div class="SubBlock">
-			""";
-			for(int i = 0; i < uicomponent.getAllDashboards().size(); i++) {
-				String itemType = (i%2 != 0 ? "EvenItem" : "OddItem");
-				print """
-					<div class="MenuItem $itemType">
-						<div>						
-							<a href="#" class="ItemIcon SiteIcon">${uicomponent.getAllDashboards().get(i)}</a>
-						</div>
-					</div>
-				""";
-			}
-			print """
-					</div>
-				</div>
-			""";		
-	}
 %> 
 <div class="UIUserToolbarPortlet" id="$uicomponent.id">
 	<div class="UIHorizontalTabs">
@@ -156,7 +135,6 @@
 				<div class="NormalNavigationTab">
 					<a class="DashboardIcon TBIcon" href="#">Dashboard</a>
 				</div>
-				<% renderDashboards() %>
 			</div>
 
 			<div class="UITab NormalToolbarTab">

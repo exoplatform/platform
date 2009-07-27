@@ -66,7 +66,7 @@ public class UIPortalApplication extends UIApplication {
 	public static final int CONTAINER_BLOCK_EDIT_MODE = 3;
 	public static final int CONTAINER_VIEW_EDIT_MODE = 4;
 	
-  private int            editMode        = NORMAL_MODE ;
+  private int modeState = NORMAL_MODE ;
 
   private String             nodePath_;
 
@@ -169,21 +169,21 @@ public class UIPortalApplication extends UIApplication {
     locale_ = locale;
   }
 
-  public void setEditMode(int mode) {
-    this.editMode = mode;
+  public void setModeState(int mode) {
+    this.modeState = mode;
   }
 
-  public int getEditMode() {
-    return editMode;
+  public int getModeState() {
+    return modeState;
   }
   
   /**
-   * @deprecated
+   * @deprecated use the Mode State instead
    * 
    * @return True if the Portal is not in the normal mode
    */
   public boolean isEditting() {
-  	return (editMode != NORMAL_MODE);
+  	return (modeState != NORMAL_MODE);
   }
 
   public Collection<String> getJavascriptURLs() {

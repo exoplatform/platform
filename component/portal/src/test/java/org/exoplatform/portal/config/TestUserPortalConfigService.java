@@ -55,8 +55,7 @@ public class TestUserPortalConfigService extends UserPortalServiceTestBase {
 
 	public void tearDown() throws Exception {
 		String newName = "newportal";
-		UserPortalConfig portal = userPortalConfigSer_.getUserPortalConfig(newName,
-				"root");
+		UserPortalConfig portal = userPortalConfigSer_.getUserPortalConfig(newName, "root");
 		if (portal != null) {
 			userPortalConfigSer_.removeUserPortalConfig(newName);
 			assertNull(userPortalConfigSer_.getUserPortalConfig(newName, "none"));

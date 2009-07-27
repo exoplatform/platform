@@ -40,7 +40,7 @@ public class UIMainActionListener {
   static public class EditCurrentPageActionListener extends EventListener<UIWorkingWorkspace> {
     public void execute(Event<UIWorkingWorkspace> event) throws Exception {
       UIPortalApplication uiApp = Util.getUIPortalApplication();
-      uiApp.setEditMode(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
       UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
       uiWorkingWS.addChild(UIPortalComposer.class, null, null);
@@ -56,7 +56,7 @@ public class UIMainActionListener {
   static public class PageCreationWizardActionListener extends EventListener<UIWorkingWorkspace> {
     public void execute(Event<UIWorkingWorkspace> event) throws Exception {
       UIPortalApplication uiApp = Util.getUIPortalApplication();
-      uiApp.setEditMode(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
       UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
       uiWorkingWS.addChild(UIPortalComposer.class, null, null).setRendered(false);
@@ -94,7 +94,7 @@ public class UIMainActionListener {
   static public class BrowsePortalActionListener extends EventListener<UIWorkingWorkspace> {
     public void execute(Event<UIWorkingWorkspace> event) throws Exception {
       UIPortalApplication uiApp = Util.getUIPortalApplication();
-      uiApp.setEditMode(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
       UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
       uiToolPanel.setShowMaskLayer(false);
@@ -115,7 +115,7 @@ public class UIMainActionListener {
       }
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
       UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      uiApp.setEditMode(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
       uiWorkingWS.addChild(UIPortalComposer.class, null, null);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true);
@@ -151,7 +151,7 @@ public class UIMainActionListener {
   static public class BrowsePageActionListener extends EventListener<UIWorkingWorkspace> {
     public void execute(Event<UIWorkingWorkspace> event) throws Exception {
       UIPortalApplication uiApp = Util.getUIPortalApplication();
-      uiApp.setEditMode(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
       UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
       uiToolPanel.setShowMaskLayer(false);

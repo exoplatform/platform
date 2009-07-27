@@ -21,7 +21,6 @@ import java.util.List;
 
 import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.commons.utils.ObjectPageList;
-import org.exoplatform.portal.config.jcr.DataStorageListAccess;
 import org.exoplatform.services.organization.Group;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
