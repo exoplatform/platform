@@ -28,29 +28,35 @@ import org.exoplatform.webui.form.UIFormInputContainer;
  *          nhudinhthuan@exoplatform.com
  * Jul 19, 2006  
  */
-abstract class UISelector<T> extends UIFormInputContainer<T> { 
-  
-  protected UISelector() {
-  }
-  
-  public UISelector(String name, String bindingField) {
-    super(name, bindingField) ;   
-  }
-  
-  abstract void setMembership(String groupId, String membershipType) throws Exception ;   
-  
-  static  public class SelectMembershipActionListener extends EventListener<UIGroupMembershipSelector>  {   
-    public void execute(Event<UIGroupMembershipSelector>  event) throws Exception {
-      UIGroupMembershipSelector uiMemebershipSelector = event.getSource();
-      UISelector uiSelector = uiMemebershipSelector.<UIComponent>getParent().getParent(); 
-      String membershipType = event.getRequestContext().getRequestParameter(OBJECTID)  ;
-      uiSelector.setMembership(uiMemebershipSelector.getCurrentGroup().getId(), membershipType);
-      UIForm uiForm = uiSelector.getAncestorOfType(UIForm.class) ;
-      if(uiForm != null) {
-        event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
-        uiForm.broadcast(event, event.getExecutionPhase()) ;
-      }
-    }
-  }
-  
+abstract class UISelector<T> extends UIFormInputContainer<T> {
+
+	protected UISelector() {
+	}
+
+	public UISelector(String name, String bindingField) {
+		super(name, bindingField);
+	}
+
+	abstract void setMembership(String groupId, String membershipType)
+			throws Exception;
+
+	static public class SelectMembershipActionListener extends
+			EventListener<UIGroupMembershipSelector> {
+		public void execute(Event<UIGroupMembershipSelector> event)
+				throws Exception {
+			UIGroupMembershipSelector uiMemebershipSelector = event.getSource();
+			UISelector uiSelector = uiMemebershipSelector.<UIComponent> getParent()
+					.getParent();
+			String membershipType = event.getRequestContext().getRequestParameter(
+					OBJECTID);
+			uiSelector.setMembership(uiMemebershipSelector.getCurrentGroup().getId(),
+					membershipType);
+			UIForm uiForm = uiSelector.getAncestorOfType(UIForm.class);
+			if (uiForm != null) {
+				//event.getRequestContext().addUIComponentToUpdateByAjax(uiForm.getParent()); 
+				uiForm.broadcast(event, event.getExecutionPhase());
+			}
+		}
+	}
+
 }
