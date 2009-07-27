@@ -18,9 +18,9 @@ package org.exoplatform.portal.webui.workspace;
 
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.UserACL;
+import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageBrowser;
 import org.exoplatform.portal.webui.page.UIPageCreationWizard;
-import org.exoplatform.portal.webui.page.UIPageEditWizard;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalBrowser;
@@ -43,17 +43,13 @@ public class UIMainActionListener {
       uiApp.setEditMode(UIPortalApplication.APP_BLOCK_EDIT_MODE);
       UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
-      uiWorkingWS.addChild(UIPortalComposer.class, null, null).setRendered(false);
+      uiWorkingWS.addChild(UIPortalComposer.class, null, null);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
       uiToolPanel.setShowMaskLayer(false);
+      UIPageBody pageBody = uiWorkingWS.findFirstComponentOfType(UIPageBody.class);
+      uiToolPanel.setWorkingComponent(pageBody.getUIComponent());
       event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
-      uiToolPanel.setWorkingComponent(UIPageEditWizard.class, null);
-      UIPageEditWizard uiWizard = (UIPageEditWizard) uiToolPanel.getUIComponent();
-      uiWizard.setDescriptionWizard(1);
-      UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
-      uiPageSetInfo.setEditMode();
-      uiPageSetInfo.createEvent("ChangeNode", Event.Phase.DECODE, event.getRequestContext())
-                   .broadcast();
+      Util.getPortalRequestContext().setFullRender(true);
     }
   }
 
