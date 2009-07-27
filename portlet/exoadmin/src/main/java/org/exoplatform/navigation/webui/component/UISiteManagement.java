@@ -50,6 +50,7 @@ import org.exoplatform.webui.event.EventListener;
   events = {
       @EventConfig(listeners = UISiteManagement.EditPortalLayoutActionListener.class),
       @EventConfig(listeners = UISiteManagement.EditNavigationActionListener.class),
+      @EventConfig(listeners = UISiteManagement.EditPropertiesActionListener.class),
       @EventConfig(listeners = UISiteManagement.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal")
   }
 )
@@ -198,6 +199,48 @@ public class UISiteManagement extends UIContainer {
       popUp.setShow(true);
       
       
+    }
+  }
+  
+  static public class EditPropertiesActionListener extends EventListener<UISiteManagement> {
+    public void execute(Event<UISiteManagement> event) throws Exception {      
+      UISiteManagement uicomp = event.getSource();
+      String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+      UserPortalConfigService service = uicomp.getApplicationComponent(UserPortalConfigService.class);
+      PortalRequestContext prContext = Util.getPortalRequestContext();
+      WebuiRequestContext context = event.getRequestContext();
+      UIApplication uiApplication = context.getUIApplication();
+      
+      UserPortalConfig userConfig = service.getUserPortalConfig(portalName, prContext.getRemoteUser());
+      PortalConfig portalConfig = userConfig.getPortalConfig();
+      
+      UserACL userACL = uicomp.getApplicationComponent(UserACL.class) ;
+      if(!userACL.hasEditPermission(portalConfig)){
+        uiApplication.addMessage(new ApplicationMessage("UISiteManagement.msg.Invalid-editPermission", null)) ;;  
+        return;
+      }
+      
+      DataStorage dataStorageService = uicomp.getApplicationComponent(DataStorage.class);
+      
+      PageNavigation navigation = dataStorageService.getPageNavigation(PortalConfig.PORTAL_TYPE, portalName);
+      // open a add navigation popup    
+      UIPopupWindow popUp = uicomp.getChild(UIPopupWindow.class);
+      
+
+      UIPageNavigationForm pageNavigation = popUp.createUIComponent(UIPageNavigationForm.class,
+                                                                    null,
+                                                                    null,
+                                                                    popUp);
+      
+      pageNavigation.setOwnerId(navigation.getOwnerId());
+      pageNavigation.setDescription(navigation.getDescription());
+      pageNavigation.setOwnerType(navigation.getOwnerType());
+      pageNavigation.setPriority(String.valueOf(navigation.getPriority()));
+      pageNavigation.addFormInput();
+      pageNavigation.pageNav_ = navigation;
+      popUp.setUIComponent(pageNavigation);
+      popUp.setWindowSize(600, 400);
+      popUp.setShow(true);
     }
   }
 }

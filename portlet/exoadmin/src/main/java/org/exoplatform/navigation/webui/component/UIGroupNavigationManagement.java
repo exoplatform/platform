@@ -1,5 +1,6 @@
 package org.exoplatform.navigation.webui.component;
 
+import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +58,7 @@ import org.exoplatform.webui.form.UIForm;
 @ComponentConfigs( {
     @ComponentConfig(template = "app:/groovy/navigation/webui/component/UIGroupNavigationManagement.gtmpl", events = {
         @EventConfig(listeners = UIGroupNavigationManagement.EditNavigationActionListener.class),
+        @EventConfig(listeners = UIGroupNavigationManagement.EditPropertiesActionListener.class),
         @EventConfig(listeners = UIGroupNavigationManagement.AddNavigationActionListener.class),
         @EventConfig(listeners = UIGroupNavigationManagement.DeleteNavigationActionListener.class, confirm = "UIGroupNavigationManagement.Delete.Confirm") }),
     @ComponentConfig(id = "UIGroupNavigationGrid", type = UIRepeater.class, template = "app:/groovy/navigation/webui/component/UINavigationGrid.gtmpl") })
@@ -188,6 +190,37 @@ public class UIGroupNavigationManagement extends UIContainer {
       popUp.setWindowSize(400, 400);
       popUp.setShow(true);
       // prContext.addUIComponentToUpdateByAjax(workingWS);
+    }
+  }
+
+  static public class EditPropertiesActionListener extends
+                                                  EventListener<UIGroupNavigationManagement> {
+    public void execute(Event<UIGroupNavigationManagement> event) throws Exception {
+
+      UIGroupNavigationManagement uicomp = event.getSource();
+
+      // get navigation id
+      String id = event.getRequestContext().getRequestParameter(OBJECTID);
+      Integer navId = Integer.parseInt(id);
+
+      // get PageNavigation by navigation id
+      PageNavigation navigation = uicomp.getNavigationById(navId);
+      
+      // open a add navigation popup
+      UIPopupWindow popUp = uicomp.getChild(UIPopupWindow.class);
+      UIPageNavigationForm pageNavigation = popUp.createUIComponent(UIPageNavigationForm.class,
+                                                                    null,
+                                                                    null,
+                                                                    popUp);
+      pageNavigation.setOwnerId(navigation.getOwnerId());
+      pageNavigation.setOwnerType(navigation.getOwnerType());
+      pageNavigation.setDescription(navigation.getDescription());
+      pageNavigation.setPriority(String.valueOf(navigation.getPriority()));
+      pageNavigation.addFormInput();
+      pageNavigation.pageNav_ = navigation;
+      popUp.setUIComponent(pageNavigation);
+      popUp.setWindowSize(600, 400);
+      popUp.setShow(true);
     }
   }
 

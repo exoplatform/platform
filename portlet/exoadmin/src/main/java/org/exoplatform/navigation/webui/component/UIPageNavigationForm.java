@@ -75,6 +75,12 @@ public class UIPageNavigationForm extends UIForm {
   protected PageNavigation pageNav_;
 
   private String           ownerId;
+  
+  private String description;
+  
+  private String ownerType;
+  
+  private String priority;
 
   public UIPageNavigationForm() throws Exception {
 
@@ -87,17 +93,17 @@ public class UIPageNavigationForm extends UIForm {
     for (int i = 1; i < 11; i++) {
       priorties.add(new SelectItemOption<String>(String.valueOf(i), String.valueOf(i)));
     }
-    addUIFormInput(new UIFormStringInput("ownerType", "ownerType", PortalConfig.GROUP_TYPE).setEditable(false)).addUIFormInput(new UIFormStringInput("ownerId",
+    addUIFormInput(new UIFormStringInput("ownerType", "ownerType", getOwnerType()).setEditable(false)).addUIFormInput(new UIFormStringInput("ownerId",
                                                                                                                                                      "ownerId",
                                                                                                                                                      ownerId).setEditable(false))
                                                                                                                .addUIFormInput(new UIFormTextAreaInput("description",
                                                                                                                                                        "description",
-                                                                                                                                                       null).addValidator(StringLengthValidator.class,
+                                                                                                                                                       getDescription()).addValidator(StringLengthValidator.class,
                                                                                                                                                                           0,
                                                                                                                                                                           255))
                                                                                                                .addUIFormInput(new UIFormSelectBox("priority",
                                                                                                                                                    null,
-                                                                                                                                                   priorties));
+                                                                                                                                                   priorties).setValue(getPriority()));
   }
 
   public void setValues(PageNavigation pageNavigation) throws Exception {
@@ -123,12 +129,38 @@ public class UIPageNavigationForm extends UIForm {
     return ownerId;
   }
 
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setOwnerType(String ownerType) {
+    this.ownerType = ownerType;
+  }
+
+  public String getOwnerType() {
+    return ownerType;
+  }
+
+  public void setPriority(String priority) {
+    this.priority = priority;
+  }
+
+  public String getPriority() {
+    return priority;
+  }
+
   static public class SaveActionListener extends EventListener<UIPageNavigationForm> {
     public void execute(Event<UIPageNavigationForm> event) throws Exception {
       UIPageNavigationForm uiForm = event.getSource();
       PageNavigation pageNav = uiForm.pageNav_;
       PortalRequestContext pcontext = Util.getPortalRequestContext();
 
+      UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
+      
       // if edit navigation
       if (pageNav != null) {
         uiForm.invokeSetBindingBean(pageNav);
@@ -136,9 +168,13 @@ public class UIPageNavigationForm extends UIForm {
         int priority = Integer.parseInt(uiSelectBox.getValue());
         pageNav.setPriority(priority);
         pageNav.setModifier(pcontext.getRemoteUser());
-        UIComponentDecorator uiFormParent = uiForm.getParent();
-        uiFormParent.setUIComponent(null);
-        pcontext.addUIComponentToUpdateByAjax(uiFormParent);
+        
+        // update navigation
+        service.update(pageNav);
+        
+        UIPopupWindow uiPopup = uiForm.getParent();
+        uiPopup.setShow(false);
+        pcontext.addUIComponentToUpdateByAjax(uiPopup);
         return;
       }
 
@@ -165,7 +201,6 @@ public class UIPageNavigationForm extends UIForm {
       }
 
       // create navigation for group
-      UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
 
       service.create(pageNav);
 

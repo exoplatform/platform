@@ -10,6 +10,7 @@
 <div id="$uicomponent.id">
 	<% for(navigation in navigations) { 
 			deleteLink = parent.event("DeleteNavigation",String.valueOf(navigation.getId()));
+			editProperties = parent.event("EditProperties",String.valueOf(navigation.getId()));
 			editLink = parent.event("EditNavigation",String.valueOf(navigation.getId()));%>
   <table class="ManagementBlock" style="table-layout: fixed">
 	  <tr>
@@ -20,6 +21,7 @@
    		</td>	
      	<td class="ActionBlock">
      		<a href="<%=editLink%>" class="EditNavIcon">Edit Navigation</a> 
+     		<a href="<%=editProperties%>" class="EditNavIcon">Edit Properties</a> 
      		<a href="<%=deleteLink%>" class="DeleteIcon">Delete Navigation</a>
 	  	</td>	
     </tr>								
