@@ -16,7 +16,7 @@
 				      	<td class="Image"><img src="/exoadmin/skin/navigation/webui/component/background/PlImg.gif" alt=""/></td>
 				      	<td class="Content">
 					   			<div class="Label"><%=uicomponent.getFieldValue(portalConfig, 'name') %></div>
-					   			<div><strong>Description: </strong> </div>
+					   			
 					   		</td>
 				        <td class="ActionBlock">
 					        	<a href="<%=uicomponent.event("EditLayout", portalConfig.getName());%>" class="EditLayoutIcon">Edit Layout</a>

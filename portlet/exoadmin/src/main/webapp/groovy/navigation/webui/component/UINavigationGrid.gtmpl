@@ -9,6 +9,7 @@
 
 <div id="$uicomponent.id">
 	<% for(navigation in navigations) { 
+			description = (navigation.getDescription()==null)? "" : navigation.getDescription();
 			deleteLink = parent.event("DeleteNavigation",String.valueOf(navigation.getId()));
 			editProperties = parent.event("EditProperties",String.valueOf(navigation.getId()));
 			editLink = parent.event("EditNavigation",String.valueOf(navigation.getId()));%>
@@ -17,7 +18,7 @@
 		  <td class="Image"><img src="/exoadmin/skin/navigation/webui/component/background/GroupImage.png" alt="" /></td>
    		<td class="Content">
    			<div class="Label" title="$navigation.ownerId"><%= OrganizationUtils.getGroupLabel("/" + navigation.ownerId) %></div>
-   			<div><strong>Description: </strong></div>
+   			<div><strong>Description: <%= description%></strong></div>
    		</td>	
      	<td class="ActionBlock">
      		<a href="<%=editLink%>" class="EditNavIcon">Edit Navigation</a> 
