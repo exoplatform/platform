@@ -805,6 +805,24 @@
       <SaveNavigation>إنقاذ التصفح</SaveNavigation>
     </event>
   </UIPageNodeSelectorPopupMenu>
+
+  <!-- 
+  #############################################################################
+  #     org.exoplatform.portal.webui.portal.UIComposer    #
+  #############################################################################
+	-->
+	<UIPageEditor>
+		<action>
+			<Abort>Abort</Abort>
+			<Finish>Finish</Finish>
+			<ViewProperties>View Page properties</ViewProperties>
+			<SwitchMode>Switch View mode</SwitchMode>
+		</action>
+		<title>
+			<UIPageEditor>Page Editor</UIPageEditor>
+		</title>
+	</UIPageEditor>
+
   <!--
   #############################################################################
   #     org.exoplatform.portal.component.customization.UIPageForm    #

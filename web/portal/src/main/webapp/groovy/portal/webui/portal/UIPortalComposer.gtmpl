@@ -10,8 +10,8 @@
 			<div class="TCPortalComposer">
 				<div class="OverflowContainer">
 					<div class="PopupTitleIcon"><span></span></div>
-						<a class="CloseButton" title="<%=_ctx.appRes("UIPortalComposer.action.Abort")%>" href="<%=uicomponent.url("Abort")%>"><span></span></a>
-						<a class="SaveButton" title="<%=_ctx.appRes("UIPortalComposer.action.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
+						<a class="CloseButton" title="<%=_ctx.appRes(popupId + ".action.Abort")%>" href="<%=uicomponent.url("Abort")%>"><span></span></a>
+						<a class="SaveButton" title="<%=_ctx.appRes(popupId + ".action.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
 					<div class="PopupTitle"><%=_ctx.appRes(popupId + ".title."+ popupId)%></div>
 				</div>
 			</div>
@@ -47,7 +47,7 @@
 										<div class="ButtonRight">
 											<div class="ButtonMiddle">
 												<div class="PageProfileIcon">
-													<a href="javascript:void(0);"><%=_ctx.appRes("UIPortalComposer.action.ViewProperties")%></a>
+													<a href="javascript:void(0);"><%=_ctx.appRes(popupId + ".action.ViewProperties")%></a>
 												</div>
 											</div>
 										</div>
@@ -60,7 +60,7 @@
 										<div class="ButtonRight">
 											<div class="ButtonMiddle">
 												<div class="ViewAsBlockIcon">
-													<a href="javascript:void(0);"><%=_ctx.appRes("UIPortalComposer.action.SwitchMode")%></a>
+													<a href="javascript:void(0);"><%=_ctx.appRes(popupId + ".action.SwitchMode")%></a>
 												</div>
 											</div>
 										</div>

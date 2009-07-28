@@ -43,7 +43,7 @@ public class UIMainActionListener {
       uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
       UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
-      uiWorkingWS.addChild(UIPortalComposer.class, null, null);
+      uiWorkingWS.addChild(UIPortalComposer.class, "UIPageEditor", null);
       UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
       uiToolPanel.setShowMaskLayer(false);
       UIPageBody pageBody = uiWorkingWS.findFirstComponentOfType(UIPageBody.class);
