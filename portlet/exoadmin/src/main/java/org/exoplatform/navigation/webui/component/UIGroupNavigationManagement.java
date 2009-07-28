@@ -1,13 +1,9 @@
 package org.exoplatform.navigation.webui.component;
 
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.exoplatform.commons.utils.LazyPageList;
 import org.exoplatform.commons.utils.ObjectPageList;
-import org.exoplatform.commons.utils.PageList;
-import org.exoplatform.i18n.webui.component.UII18nPortlet;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserACL;
@@ -16,21 +12,16 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.bean.UIDataFeed;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
-import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIRepeater;
 import org.exoplatform.webui.core.UIVirtualList;
-import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
-import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.form.UIForm;
 
 /*
  * Copyright (C) 2003-2009 eXo Platform SAS.

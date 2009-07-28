@@ -23,15 +23,12 @@ import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
-import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIComponentDecorator;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.core.model.SelectItemOption;
@@ -87,23 +84,14 @@ public class UIPageNavigationForm extends UIForm {
   }
 
   public void addFormInput() throws Exception {
-    PortalRequestContext pContext = Util.getPortalRequestContext();
-
     List<SelectItemOption<String>> priorties = new ArrayList<SelectItemOption<String>>();
     for (int i = 1; i < 11; i++) {
       priorties.add(new SelectItemOption<String>(String.valueOf(i), String.valueOf(i)));
     }
-    addUIFormInput(new UIFormStringInput("ownerType", "ownerType", getOwnerType()).setEditable(false)).addUIFormInput(new UIFormStringInput("ownerId",
-                                                                                                                                                     "ownerId",
-                                                                                                                                                     ownerId).setEditable(false))
-                                                                                                               .addUIFormInput(new UIFormTextAreaInput("description",
-                                                                                                                                                       "description",
-                                                                                                                                                       getDescription()).addValidator(StringLengthValidator.class,
-                                                                                                                                                                          0,
-                                                                                                                                                                          255))
-                                                                                                               .addUIFormInput(new UIFormSelectBox("priority",
-                                                                                                                                                   null,
-                                                                                                                                                   priorties).setValue(getPriority()));
+    addUIFormInput(new UIFormStringInput("ownerType", "ownerType", getOwnerType()).setEditable(false)).
+      addUIFormInput(new UIFormStringInput("ownerId","ownerId",ownerId).setEditable(false)).
+      addUIFormInput(new UIFormTextAreaInput("description","description",getDescription()).addValidator(StringLengthValidator.class,0,255)).
+      addUIFormInput(new UIFormSelectBox("priority",null,priorties).setValue(getPriority()));
   }
 
   public void setValues(PageNavigation pageNavigation) throws Exception {

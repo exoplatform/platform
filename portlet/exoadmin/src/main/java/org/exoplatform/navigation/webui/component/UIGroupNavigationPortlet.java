@@ -19,7 +19,6 @@ package org.exoplatform.navigation.webui.component;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
-import org.exoplatform.webui.organization.UIAccountForm;
 
 @ComponentConfig(  
     lifecycle = UIApplicationLifecycle.class

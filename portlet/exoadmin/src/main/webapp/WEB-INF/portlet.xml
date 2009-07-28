@@ -77,7 +77,7 @@
     </supports>
     <supported-locale>en</supported-locale>
     
-    <resource-bundle>locale.portlet.exoadmin.AccountPortlet</resource-bundle>
+    <resource-bundle>locale.portlet.exoadmin.GroupNavigationPortlet</resource-bundle>
     <portlet-info>
       <title>Group Navigation Portlet</title>
       <short-title>Group Navigation Portlet</short-title>

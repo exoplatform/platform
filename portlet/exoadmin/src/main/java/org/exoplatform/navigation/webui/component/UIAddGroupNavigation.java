@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.exoplatform.commons.utils.ObjectPageList;
-import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
