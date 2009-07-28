@@ -1,15 +1,10 @@
 @import url(UIContainerConfigOptions/Stylesheet.css) ;
-@import url(UICreatePage/Stylesheet.css) ;
 @import url(UIDescription/Stylesheet.css) ;
 @import url(UIPageBrowser/Stylesheet.css) ;
 @import url(UIPortalBrowser/Stylesheet.css) ;
-@import url(UIPageManagement/Stylesheet.css) ;
-@import url(UIPageNodeSelector/Stylesheet.css) ;
 @import url(UIPageSelector/Stylesheet.css) ;
-@import url(UIPortalManagement/Stylesheet.css) ;
 @import url(UIPortalToolPanel/Stylesheet.css) ;
 @import url(UIPortletForm/Stylesheet.css) ;
-@import url(UIPortletOptions/Stylesheet.css) ;
 @import url(UIChangeSkinForm/Stylesheet.css) ;
 @import url(UIChangeLanguageForm/Stylesheet.css) ;
 @import url(UIChangePortalForm/Stylesheet.css) ;

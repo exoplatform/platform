@@ -1,0 +1,52 @@
+.UIContainerList {
+	margin: 0px;
+}
+
+.UIContainerList .ContainerIcon {
+	padding: 5px 0px 10px 100px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #5a93be;	
+	cursor: move;
+	height: 48px; line-height: 20px;
+}
+
+.UIContainerList .OneRowContainerLayout	{
+	background: transparent url(background/OneRowContainerLayout.gif) no-repeat left 10px;
+}
+
+.UIContainerList .TwoRowContainerLayout	{
+	background: transparent url(background/TwoRowContainerLayout.gif) no-repeat left center;
+}
+
+.UIContainerList .ThreeRowContainerLayout	{
+	background: transparent url(background/ThreeRowContainerLayout.gif) no-repeat left center;
+}
+
+.UIContainerList .TwoColumnContainerLayout	{
+	background: transparent url(background/TwoColumnContainerLayout.gif) no-repeat left center;
+}
+
+.UIContainerList .ThreeColumnContainerLayout	{
+	background: transparent url(background/ThreeColumnContainerLayout.gif) no-repeat left center;
+}
+
+.UIContainerList .TwoTabContainerLayout	{
+	background: transparent url(background/TwoTabContainerLayout.gif) no-repeat left center;
+}
+
+.UIContainerList .ThreeTabContainerLayout	{
+	background: transparent url(background/ThreeTabContainerLayout.gif) no-repeat left center;
+}
+
+.UIContainerList .TwoColumnOneRowContainerLayout	{
+	background: transparent url(background/TwoColumnOneRowContainerLayout.gif) no-repeat left center;
+}
+
+.UIContainerList .OneRowTwoColumnContainerLayout	{
+	background: transparent url(background/OneRowTwoColumnContainerLayout.gif) no-repeat left center;
+}
+
+.UIContainerList .OneRow2Column1RowContainerLayout	{
+	background: transparent url(background/OneRow2Column1RowContainerLayout.gif) no-repeat left center;
+}

@@ -219,16 +219,16 @@
 	text-transform: capitalize;
 }
 
+.UIVerticalSlideTabs .VTabStyle4 .LabelTab {
+	color: #5A93BE;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 26px;
+}
+
 .UIVerticalSlideTabs .VTabStyle4 .UIVTabContent	{
 	background: white;
 	padding: 0px;
-}
-
-.UIVerticalSlideTabs .VTabStyle4 .LabelTab {
-	font-size: 12px;
-	font-weight: bold;
-	color: #5a93be;	
-	line-height: 26px;
 }
 
 .UIVerticalSlideTabs .VTabStyle4 .VTabContentBG img {
@@ -243,20 +243,10 @@
 
 .UIVerticalSlideTabs .VTabStyle4 .VTabContentBG {
 	background: transparent url(background/VTabContentBG.gif) repeat-x;
-	margin: 6px 0 0;
-	padding: 2px 0 0;
+	padding: 7px;
 }
 
-.UIVerticalSlideTabs .VTabStyle4 .UIVTabContent .LableContent {
-	padding: 0px 0px 10px 100px;
-	font-size: 12px;
-	font-weight: bold;
-	color: #5a93be;	
-	margin-left: 6px;
-	width: auto;
-}
-
-.UIVerticalSlideTabs .VTabStyle4 .UIVTabContent .LableContent .Lable {
+.UIVerticalSlideTabs .VTabStyle4 .UIVTabContent .TabLable {
 	overflow: hidden;
 	width: 70%;
 }

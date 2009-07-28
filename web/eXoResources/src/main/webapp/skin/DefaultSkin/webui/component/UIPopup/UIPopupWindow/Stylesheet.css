@@ -261,7 +261,7 @@
 
 .UIPortalComposer .MRPortalComposer {
 	background: url(background/MiddlePortalComposer.gif) repeat-y right top;
-	padding-right: 3px;
+	padding-right: 2px;
 }
 
 .UIPortalComposer .MCPortalComposer {
@@ -275,10 +275,12 @@
 	border-right: 1px solid #85aece;
 	border-bottom: 1px solid #85aece;
 	padding-bottom: 1px;
+	background: white;
 }
 
 .UIPortalComposer .BRPortalComposer {
-	padding-right: 2px;
+	padding: 0px 1px;
+	background: white;
 }
 
 .UIPortalComposer .BCPortalComposer {
