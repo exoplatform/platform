@@ -1,6 +1,6 @@
 <repository-service default-repository="repository">
 	<repositories>
-    <repository name="repository" system-workspace="system" default-workspace="collaboration">
+    <repository name="repository" system-workspace="system" default-workspace="portal-system">
 			<security-domain>exo-domain</security-domain>
 			<access-control>optional</access-control>
 			<authentication-policy>org.exoplatform.services.jcr.impl.core.access.JAASAuthenticator</authentication-policy>
@@ -52,7 +52,7 @@
 						</persister>
 			 		</lock-manager>
        </workspace>
-				<workspace name="collaboration">
+				<workspace name="portal-system">
           <container class="org.exoplatform.services.jcr.impl.storage.jdbc.JDBCWorkspaceDataContainer">
             <properties>
               <property name="source-name" value="jdbcexo"/>
@@ -138,7 +138,7 @@
           </properties>
          </query-handler>
          <lock-manager>
-			    <time-out>15m</time-out><!-- 15min -->
+			    <time-out>15m</time-out>
 			     <persister class="org.exoplatform.services.jcr.impl.core.lock.FileSystemLockPersister">
 			       <properties>
 			         <property name="path" value="../temp/lock/gadgets"/>

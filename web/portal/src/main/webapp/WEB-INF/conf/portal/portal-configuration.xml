@@ -177,7 +177,7 @@
           	<field  name="repository"><string>repository</string></field>
            	<field name="workspaces">
              	<collection type="java.util.ArrayList">
-              	<value><string>collaboration</string></value>              	              
+              	<value><string>portal-system</string></value>              	              
               </collection>              	
             </field>            
             <field  name="jcrPaths">

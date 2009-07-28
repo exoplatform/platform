@@ -32,7 +32,7 @@
     <init-params>
       <properties-param>
       	<name>locations</name>
-      	<property name="repository" value="system"/>
+      	<property name="repository" value="portal-system"/>
       </properties-param>
     </init-params>
   </component>  

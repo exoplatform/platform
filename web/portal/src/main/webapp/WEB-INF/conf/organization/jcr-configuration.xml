@@ -10,7 +10,7 @@
       <value-param>
         <name>storage-workspace</name>
         <description>Workspace in default repository where organization storage will be created</description>
-        <value>system</value>
+        <value>portal-system</value>
       </value-param>
     </init-params>
   </component>
