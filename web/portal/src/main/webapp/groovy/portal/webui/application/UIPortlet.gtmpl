@@ -16,6 +16,13 @@
 
 	String onControlOver	= "eXo.webui.UIPortlet.onControlOver(this, true);";
 	String onControlOut		= "eXo.webui.UIPortlet.onControlOver(this, false);";
+	
+	String deleteUri = uicomponent.url('DeleteComponent', uicomponent.id);
+	String keyMark = "window.location=";
+	String confirm = deleteUri.substring(0, deleteUri.indexOf(keyMark));
+	String url = deleteUri.substring(deleteUri.indexOf(keyMark) + keyMark.length());
+	url = url.substring(0, url.lastIndexOf(";"));
+	deleteUri = confirm + " eXo.portal.UIPortal.removeComponent(" + url + ",'UIPortlet-" + uicomponent.id + "')";
 
 	WindowState windowState = uicomponent.getCurrentWindowState();	
 	boolean isDesktop = "Window".equals(uicomponent.getPortletStyle());
@@ -322,7 +329,10 @@
 															%>
 															<div class="PortletIcon $portletIcon">$title</div>
 															<a href="<%=uicomponent.event("EditPortlet","$uicomponent.id")%>" class="EditPortletPropertiesIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.editPortlet");%>"></a>
+															<!--
 															<a href="<%=uicomponent.event("DeleteComponent","$uicomponent.id")%>" class="DeletePortletIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.deletePortlet");%>"></a>
+															-->
+															<a href="$deleteUri" class="DeletePortletIcon" title="<%=_ctx.appRes("UIPortlet.tooltip.deletePortlet");%>"></a>															
 														</div>
 														<div class="ClearLeft"><span></span></div>
 													</div>

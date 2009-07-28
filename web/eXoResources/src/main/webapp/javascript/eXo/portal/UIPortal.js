@@ -495,6 +495,14 @@ UIPortal.prototype.popupButton = function(url, action) {
   window.location = url + '&action='+ action ;
 } ;
 
+UIPortal.prototype.removeComponent = function(uri, componentId) {
+	var result = ajaxAsyncGetRequest(uri, false) ;
+	if(result == "OK") {
+			eXo.core.DOMUtil.removeElement(componentId);
+	}	
+}
+
+
 /*
 * This method will start the creation of a new javascript application such as a widget
 *
