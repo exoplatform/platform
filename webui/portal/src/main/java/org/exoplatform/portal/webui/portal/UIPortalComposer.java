@@ -17,6 +17,7 @@
 package org.exoplatform.portal.webui.portal;
 
 import java.net.URLEncoder;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -124,6 +125,17 @@ public class UIPortalComposer extends UIContainer {
 		prContext.refreshResourceBundle();
 		SkinService skinService = getApplicationComponent(SkinService.class);
 		skinService.invalidatePortalSkinCache(uiPortal.getName(), uiPortal.getSkin());
+	}
+	
+	public void updateWorkspaceComponent() {
+	  UIPortalApplication uiApp = Util.getUIPortalApplication();
+	  WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
+	  UIWorkingWorkspace uiWorkingWS = uiApp.findFirstComponentOfType(UIWorkingWorkspace.class);
+	  List<UIComponent> children = uiWorkingWS.getChildren();
+	  for (UIComponent child : children) {
+      if(!child.isRendered() || child.getClass().equals(UIPortalComposer.class)) continue;
+      rcontext.addUIComponentToUpdateByAjax(child);
+    }
 	}
 
 	public void processRender(WebuiRequestContext context) throws Exception {
@@ -243,7 +255,7 @@ public class UIPortalComposer extends UIContainer {
 		  if(portalMode%2 == 0) --portalMode;
 		  else ++portalMode;
 		  uiPortalApp.setModeState(portalMode);
-		  event.getRequestContext().addUIComponentToUpdateByAjax(uiPortalApp.getChild(UIWorkingWorkspace.class));
+		  event.getSource().updateWorkspaceComponent();
 		  Util.getPortalRequestContext().setFullRender(true);
 		}
 	}

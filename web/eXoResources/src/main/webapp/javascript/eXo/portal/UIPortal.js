@@ -221,13 +221,13 @@ UIPortal.prototype.showUIComponentControl = function(uicomponent, flag) {
   var controlBlock = uicomponent.getControlBlock() ;
   if(!controlBlock) return ;
   var clickObject = eXo.core.DOMUtil.findFirstDescendantByClass(controlBlock, "div", "DragControlArea") ;
-  if(flag) {
-    clickObject.onmousedown = eXo.portal.PortalDragDrop.init ;
+//  if(flag) {
+//    clickObject.onmousedown = eXo.portal.PortalDragDrop.init ;
 //    controlBlock.style.display = 'block' ;
-  } else {
-    controlBlock.onmousedown = null ;
+//  } else {
+//    controlBlock.onmousedown = null ;
 //    controlBlock.style.display = 'none' ;
-  }
+//  }
 };
 
 UIPortal.prototype.showViewLayoutModeForPage = function() {

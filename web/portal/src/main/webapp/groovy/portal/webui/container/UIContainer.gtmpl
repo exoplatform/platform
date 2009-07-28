@@ -53,7 +53,7 @@
 											<div class="RightBar">
 												<div class="MiddleBar">
 													<div class="FixHeight">
-														<div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.title.DragControlArea")%>"><span></span></div>
+														<div class="DragControlArea" title="<%=_ctx.appRes("UIContainer.title.DragControlArea")%>" onmousedown="eXo.portal.PortalDragDrop.init.call(this,event);"><span></span></div>
 														<div class="ContainerIcon">						 
 															<% 
 																if(uicomponent.getTitle() != null) {

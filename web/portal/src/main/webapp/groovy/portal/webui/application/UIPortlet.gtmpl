@@ -310,7 +310,7 @@
 												<div class="RightBar">
 													<div class="MiddleBar">
 														<div class="FixHeight">
-															<div class="DragControlArea" title="<%=_ctx.appRes("UIPortlet.tooltip.DragControl");%>"><span></span></div>
+															<div class="DragControlArea" title="<%=_ctx.appRes("UIPortlet.tooltip.DragControl");%>" onmousedown="eXo.portal.PortalDragDrop.init.call(this,event);"><span></span></div>
 															<% 
 																String portletIcon = uicomponent.getIcon();
 																if(portletIcon == null) portletIcon = "PortletIcon";

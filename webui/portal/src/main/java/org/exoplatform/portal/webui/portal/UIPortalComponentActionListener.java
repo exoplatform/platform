@@ -148,14 +148,14 @@ public class UIPortalComponentActionListener {
       String paramNewComponent = pcontext.getRequestParameter("newComponent");
       if(paramNewComponent != null) newComponent = Boolean.valueOf(paramNewComponent).booleanValue();
       
+      UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIPortalComposer portalComposer = uiApp.findFirstComponentOfType(UIPortalComposer.class);
+
       if(newComponent){
-        UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-        UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);    
-        pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;        
+        portalComposer.updateWorkspaceComponent();
         pcontext.setFullRender(true);        
       }
       
-      UIPortalApplication uiApp = (UIPortalApplication)Util.getPortalRequestContext().getUIApplication() ;
       UIComponent uiWorking = uiApp.findFirstComponentOfType(UIPortal.class);   
       if(!uiWorking.isRendered()) uiWorking = uiApp.findFirstComponentOfType(UIPortalToolPanel.class);
 
@@ -170,7 +170,6 @@ public class UIPortalComponentActionListener {
       }
 
       if(uiSource == null) {        
-        UIPortalComposer portalComposer = uiApp.findFirstComponentOfType(UIPortalComposer.class);
         UITabPane subTabPane = portalComposer.getChild(UITabPane.class);
         UIContainerList uiContainerConfig = subTabPane.getChild(UIContainerList.class);
         if(uiContainerConfig != null && subTabPane.getSelectedTabId().equals(uiContainerConfig.getId())){

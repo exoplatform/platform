@@ -51,7 +51,7 @@ public class UIContainerActionListener {
       uiMaskWS.setUIComponent(containerForm);
       uiMaskWS.setShow(true);
       event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-      Util.updateUIApplication(event);
+//      Util.updateUIApplication(event);
     }
   }
 }

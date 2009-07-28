@@ -286,14 +286,12 @@ public class UIPortletForm extends UIFormTabPane {
       UIPortlet uiPortlet = uiPortletForm.getUIPortlet();
       if (uiPortletForm.hasEditMode()) { uiPortlet.setCurrentPortletMode(PortletMode.VIEW); }
       UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-      UIWorkingWorkspace uiWorkingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
       //add by Pham Dinh Tan
       UIMaskWorkspace uiMaskWorkspace = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);
       uiMaskWorkspace.setUIComponent(null);
       uiMaskWorkspace.setWindowSize(-1, -1);
       pcontext.addUIComponentToUpdateByAjax(uiMaskWorkspace);
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true);
       Util.showComponentLayoutMode(UIPortlet.class);  
     }
