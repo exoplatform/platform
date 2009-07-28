@@ -28,6 +28,7 @@ import org.exoplatform.commons.utils.Text;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.portlet.PortletExceptionHandleService;
+import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.resolver.ApplicationResourceResolver;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.portletcontainer.PortletContainerException;
@@ -174,8 +175,11 @@ public class UIPortletLifecycle extends Lifecycle {
             && !("SHOW".equals(appStatus) || "HIDE".equals(appStatus))) {
           markup = Text.create("<span></span>");
         } else {
-          output = portletContainer.render(prcontext.getRequest(), prcontext.getResponse(), input);
-          markup = output.getMarkup();
+          int portalMode = Util.getUIPortalApplication().getModeState();
+          if(portalMode % 2 == 0) {
+            output = portletContainer.render(prcontext.getRequest(), prcontext.getResponse(), input);
+            markup = output.getMarkup();
+          }
         }
       }
     } catch (PortletContainerException ex) {
