@@ -19,103 +19,128 @@ package org.exoplatform.portal.webui.page;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.Page;
+import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.bean.UIDataFeed;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIGrid;
+import org.exoplatform.webui.core.UIRepeater;
+import org.exoplatform.webui.core.UIVirtualList;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.form.UIForm;
 import org.exoplatform.webui.form.UIFormInput;
 import org.exoplatform.webui.form.UIFormInputContainer;
 import org.exoplatform.webui.form.UIFormPopupWindow;
+
 /**
  * Author : Dang Van Minh
  *          minhdv81@yahoo.com
  * Jun 14, 2006
  */
-@ComponentConfigs({
-  @ComponentConfig(
-                   template = "system:/groovy/portal/webui/page/UIPageSelector.gtmpl"
-  ),
-  @ComponentConfig(      
-                   id = "SelectPage",
-                   type = UIPageBrowser.class,
-                   template = "system:/groovy/portal/webui/page/UIPageBrowser.gtmpl" ,      
-                   events = @EventConfig(listeners = UIPageSelector.SelectPageActionListener.class)
-  )
-})
+@ComponentConfigs( {
+		@ComponentConfig(template = "system:/groovy/portal/webui/page/UIPageSelector.gtmpl"),
+		@ComponentConfig(id = "SelectPage", type = UIPageBrowser.class, template = "system:/groovy/portal/webui/page/UIPageBrowser.gtmpl", events = @EventConfig(listeners = UIPageSelector.SelectPageActionListener.class)) })
 public class UIPageSelector extends UIFormInputContainer<String> {
 
-  private Page page_;
+	private Page page_;
 
-  public UIPageSelector() throws Exception {
-    super("UIPageSelector", null) ;
-    UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null, "PopupPageSelector");
-    uiPopup.setWindowSize(900, 400);
-    uiPopup.setRendered(false);
-    UIPageBrowser uiPageBrowser = createUIComponent(UIPageBrowser.class, "SelectPage", null) ;
-    uiPopup.setUIComponent(uiPageBrowser);    
-    UIGrid uiGrid = uiPageBrowser.getChild(UIGrid.class);
-    uiGrid.configure("pageId", UIPageBrowser.BEAN_FIELD, new String[]{"SelectPage"});
-  }
+	private static Log logger = ExoLogger.getExoLogger(UIPageSelector.class);
 
-  public void configure(String iname, String  bfield) {
-    setId(iname) ;
-    setName(iname) ;
-    setBindingField(bfield) ;    
-  }
+	public UIPageSelector() throws Exception {
+		super("UIPageSelector", null);
+		UIFormPopupWindow uiPopup = addChild(UIFormPopupWindow.class, null,
+				"PopupPageSelector");
+		uiPopup.setWindowSize(900, 400);
+		uiPopup.setRendered(false);
+		UIPageBrowser uiPageBrowser = createUIComponent(UIPageBrowser.class,
+				"SelectPage", null);
+		uiPopup.setUIComponent(uiPageBrowser);
+		//UIGrid uiGrid = uiPageBrowser.getChild(UIGrid.class);
+		//uiGrid.configure("pageId", UIPageBrowser.BEAN_FIELD, new String[]{"SelectPage"});
+		UIVirtualList uiVirtualList = uiPageBrowser.getChild(UIVirtualList.class);
+		configureVirtualList(uiVirtualList);
+	}
 
-  public UIFormInput<?> setValue(String value) throws Exception {
-    WebuiRequestContext ctx = WebuiRequestContext.getCurrentInstance();
-    UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
-    Page page = service.getPage(value, ctx.getRemoteUser()) ;
-    page_ = page;
-    super.setValue(value);    
-    return this;
-  }
+	private static void configureVirtualList(UIVirtualList vList) {
+		UIRepeater repeater;
+		try {
+			repeater = (UIRepeater) vList.getUIComponent();
+			repeater.configure("pageId", UIPageBrowser.BEAN_FIELD,
+					new String[] { "SelectPage" });
+		} catch (ClassCastException clCastEx) {
+			logger.info("Could not upcast to UIRepeater", clCastEx);
+		}
+	}
 
-  public Page getPage() { return page_; }
+	public void configure(String iname, String bfield) {
+		setId(iname);
+		setName(iname);
+		setBindingField(bfield);
+	}
 
-  public void setPage(Page page) {
-    page_ = page;
-  }
+	public UIFormInput<?> setValue(String value) throws Exception {
+		WebuiRequestContext ctx = WebuiRequestContext.getCurrentInstance();
+		UserPortalConfigService service = getApplicationComponent(UserPortalConfigService.class);
+		Page page = service.getPage(value, ctx.getRemoteUser());
+		page_ = page;
+		super.setValue(value);
+		return this;
+	}
 
-  public Class<String> getTypeValue() {  return String.class ; }
+	public Page getPage() {
+		return page_;
+	}
 
-  public void processDecode(WebuiRequestContext context) throws Exception {   
-    super.processDecode(context);
-    UIPageBrowser uiPageBrowser = findFirstComponentOfType(UIPageBrowser.class);
-    uiPageBrowser.processDecode(context);
-  }
+	public void setPage(Page page) {
+		page_ = page;
+	}
 
-  static public class SelectPageActionListener extends EventListener<UIPageBrowser> {
-    public void execute(Event<UIPageBrowser> event) throws Exception {
-      UIPageBrowser uiPageBrowser = event.getSource();
-      String id = event.getRequestContext().getRequestParameter(OBJECTID);
-      WebuiRequestContext ctx = event.getRequestContext();
-      UIApplication uiApp = ctx.getUIApplication();
-      UIPageSelector uiPageSelector = uiPageBrowser.getAncestorOfType(UIPageSelector.class) ;
-      UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
-      UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
-      if(!userACL.hasPermission(service.getPage(id))) {
-        uiApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NoPermission", new String[]{id})) ;; 
-      }
-      uiPageSelector.setValue(id);
-      uiPageBrowser.defaultValue(null) ;
+	public Class<String> getTypeValue() {
+		return String.class;
+	}
 
-      UIForm uiForm = uiPageSelector.getAncestorOfType(UIForm.class) ;
-      if(uiForm != null) {
-        ctx.addUIComponentToUpdateByAjax(uiForm.getParent()); 
-      } else {
-        ctx.addUIComponentToUpdateByAjax(uiPageSelector.getParent());
-      }
-      UIFormPopupWindow uiPopup =uiPageSelector.getChild(UIFormPopupWindow.class) ;
-      uiPopup.setShow(false) ;
-    }
-  }
+	public void processDecode(WebuiRequestContext context) throws Exception {
+		super.processDecode(context);
+		UIPageBrowser uiPageBrowser = findFirstComponentOfType(UIPageBrowser.class);
+		uiPageBrowser.processDecode(context);
+	}
+
+	static public class SelectPageActionListener extends
+			EventListener<UIPageBrowser> {
+		public void execute(Event<UIPageBrowser> event) throws Exception {
+			UIPageBrowser uiPageBrowser = event.getSource();
+			String id = event.getRequestContext().getRequestParameter(OBJECTID);
+			WebuiRequestContext ctx = event.getRequestContext();
+			UIApplication uiApp = ctx.getUIApplication();
+			UIPageSelector uiPageSelector = uiPageBrowser
+					.getAncestorOfType(UIPageSelector.class);
+			UserPortalConfigService service = uiPageBrowser
+					.getApplicationComponent(UserPortalConfigService.class);
+			UserACL userACL = uiPageBrowser.getApplicationComponent(UserACL.class);
+			if (!userACL.hasPermission(service.getPage(id))) {
+				uiApp.addMessage(new ApplicationMessage(
+						"UIPageBrowser.msg.NoPermission", new String[] { id }));
+				;
+			}
+			uiPageSelector.setValue(id);
+			uiPageBrowser.defaultValue(null);
+
+			UIForm uiForm = uiPageSelector.getAncestorOfType(UIForm.class);
+			if (uiForm != null) {
+				ctx.addUIComponentToUpdateByAjax(uiForm.getParent());
+			} else {
+				ctx.addUIComponentToUpdateByAjax(uiPageSelector.getParent());
+			}
+			UIFormPopupWindow uiPopup = uiPageSelector
+					.getChild(UIFormPopupWindow.class);
+			uiPopup.setShow(false);
+		}
+	}
 
 }
