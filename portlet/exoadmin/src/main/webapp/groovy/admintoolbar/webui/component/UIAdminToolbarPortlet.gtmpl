@@ -56,10 +56,17 @@
 					<div class="MenuItem OddItem">
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))" title="" class="ItemIcon CreatePortalIcon">$createPortalLabel</a>
 					</div>
+					<!--
 					<div class="MenuItem EvenItem">	
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePortal', true))" title="" class="ItemIcon BrowsePageIcon">$browsePortalLabel</a>			 
 					</div>
+					-->
+					<!--
 					<div class="MenuItem OddItem">				 
+						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePage', true))" title="" class="ItemIcon BrowsePageIcon">$browsePageLabel</a>
+					</div>
+					-->
+					<div class="MenuItem EvenItem">				 
 						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePage', true))" title="" class="ItemIcon BrowsePageIcon">$browsePageLabel</a>
 					</div>
 				</div>
