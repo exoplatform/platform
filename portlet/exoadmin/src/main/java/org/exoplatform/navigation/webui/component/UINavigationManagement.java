@@ -19,17 +19,14 @@ package org.exoplatform.navigation.webui.component;
 import java.util.List;
 
 import org.exoplatform.commons.utils.LazyPageList;
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
-import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
-import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
@@ -42,7 +39,8 @@ import org.exoplatform.webui.event.EventListener;
 @ComponentConfig(
   template = "app:/groovy/navigation/webui/component/UINavigationManagement.gtmpl",
   events = {
-      @EventConfig(listeners = UINavigationManagement.SaveActionListener.class)
+      @EventConfig(listeners = UINavigationManagement.SaveActionListener.class),
+      @EventConfig(listeners = UINavigationManagement.AddRootNodeActionListener.class)
   }
 )
 public class UINavigationManagement extends UIContainer {
@@ -104,6 +102,25 @@ public class UINavigationManagement extends UIContainer {
           return;
         }
       }
+    }
+    
+  }
+  
+  static public class AddRootNodeActionListener extends EventListener<UINavigationManagement> {
+
+    @Override
+    public void execute(Event<UINavigationManagement> event) throws Exception {
+      UINavigationManagement uiManagement = event.getSource();
+      UINavigationNodeSelector uiNodeSelector = uiManagement.getChild(UINavigationNodeSelector.class);
+      UIPopupWindow uiManagementPopup = uiNodeSelector.getAncestorOfType(UIPopupWindow.class);
+      UIPageNodeForm2 uiNodeForm = uiManagementPopup.createUIComponent(UIPageNodeForm2.class,
+                                                                       null,
+                                                                       null);
+      uiNodeForm.setValues(null);
+      uiManagementPopup.setUIComponent(uiNodeForm);
+      uiNodeForm.setSelectedParent(uiNodeSelector.getSelectedNavigation());
+      uiManagementPopup.setWindowSize(800, 500);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiManagementPopup);      
     }
     
   }

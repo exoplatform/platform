@@ -28,7 +28,7 @@
 	    <tr>
 
 	    	<td>
-		      <div onclick="<%=uicomponent.event("AddNode")%>" class="ActionButton LightBlueStyle">
+		      <div onclick="<%=uicomponent.event("AddRootNode")%>" class="ActionButton LightBlueStyle">
 		        <div class="ButtonLeft">
 		          <div class="ButtonRight">
 		            <div class="ButtonMiddle">
