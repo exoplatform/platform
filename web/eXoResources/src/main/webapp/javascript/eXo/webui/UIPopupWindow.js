@@ -155,6 +155,18 @@ UIPopupWindow.prototype.startResizeEvt = function(evt) {
 	portalApp.onmousemove = eXo.webui.UIPopupWindow.resize;
 	portalApp.onmouseup = eXo.webui.UIPopupWindow.endResizeEvt ;
 }
+
+/**
+ * 1. Popup window 's bottom 's height is required to set correctly 'Resize' button during resize process
+ * 
+ * 2. For unknow reasons, property 'offsetHeight' of the bottom div is not accessible during resize process
+ * It's likely that the bottom 'div' is locked during that period of time.
+ * 
+ * 3. As bottom height is unchanged across popup window (as long as it has bottom), we store its height in a
+ * global variable
+ */
+var POPUP_WINDOW_BOTTOM_HEIGHT=50;
+
 /**
  * Function called when the window is being resized
  *  . gets the position of the mouse
@@ -167,11 +179,15 @@ UIPopupWindow.prototype.resize = function(evt) {
 	var pointerX = eXo.core.Browser.findMouseRelativeX(targetPopup, evt) ;
 	var pointerY = eXo.core.Browser.findMouseRelativeY(targetPopup, evt) ;
 	var delta = eXo.core.Browser.findPosYInContainer(content,targetPopup) +
-							content.style.borderWidth + content.style.padding + content.style.margin ;
-	if((1*pointerY-delta) > 0) content.style.height = (1*pointerY-delta)+"px" ;
+							content.style.borderWidth + content.style.padding + content.style.margin;
+
+	//var bottomLevel=eXo.core.DOMUtil.findDescendantsByClass(targetPopup,"div","BCPortalComposer");
+	//TODO: Check if the bottom is not null before assign new value to 'content.style.height'
+	if((pointerY-delta) > 0) content.style.height = (pointerY-delta-POPUP_WINDOW_BOTTOM_HEIGHT)+"px" ;
 	targetPopup.style.height = "auto";
 	if(pointerX > 200) targetPopup.style.width = (pointerX+5) + "px" ;
 } ;
+
 /**
  * Called when the window stops being resized
  * cancels the mouse events on the portal app
