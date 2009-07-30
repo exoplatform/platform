@@ -39,6 +39,13 @@
 	    </node>	    	   
 	    
 	    <node>
+		    <uri>administration/pageManagement</uri>
+		    <name>i18n</name>
+		    <label>#{administration.pageManagement}</label>
+		    <page-reference>group::platform/administrators::pageManagement</page-reference>
+	    </node>
+	    
+	    <node>
 		    <uri>administration/console</uri>
 		    <name>console</name>
 		    <label>#{administration.console}</label>

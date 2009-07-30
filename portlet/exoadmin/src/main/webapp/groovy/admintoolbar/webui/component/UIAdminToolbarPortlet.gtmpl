@@ -15,13 +15,10 @@
 			
 		String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
 		String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPage");
-		String createPortalLabel = _ctx.appRes("UIAdminToolbarPortlet.action.CreatePortal");
 		String editPortalLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPortal");
-		String browsePortalLabel = _ctx.appRes("UIAdminToolbarPortlet.action.BrowsePortal");
-		String browsePageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.BrowsePage");	
 		String editPageAndNaviLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPageAndNavigation");
 		String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");		
-		String administratorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Administrator");							
+		String editSiteLayout = _ctx.appRes("UIAdminToolbarPortlet.action.EditSiteLayout")
 %>
 <div class="UIAdminToolbarPortlet" id="$uicomponent.id">
 	<div class="UIHorizontalTabs">
@@ -35,50 +32,20 @@
 				</div>
 				<div class="MenuItemContainer" style="position: absolute; display:none;">
 					<div class="SubBlock">
-						<div class="MenuItem EvenItem">
+						<div class="MenuItem EvenItem">	
+							<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
+						</div>
+						<div class="MenuItem OddItem">
 							<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditCurrentPage', true))" title="" class="ItemIcon EditPageIcon">$editPageLabel</a>
 						</div>
-						<div class="MenuItem OddItem">	
-							<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">$addPageLabel</a>
+						<div class="MenuItem EvenItem">	
+							<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))" title="" class="ItemIcon AddPageIcon">$editSiteLayout</a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<% } %>
 		
-		<!-- Administrator -->			
-			<% if (currentRole == UIAdminToolbarPortlet.ADMIN) { %>	
-			<div class="UITab NormalToolbarTab">
-				<div class="NormalNavigationTab">
-					<a class="AdministratorIcon TBIcon" href="#">$administratorLabel</a>
-				</div>
-				<div class="MenuItemContainer" style="position: absolute; display:none;">
-					<div class="MenuItem OddItem">
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'CreatePortal', true))" title="" class="ItemIcon CreatePortalIcon">$createPortalLabel</a>
-					</div>
-					<!--
-					<div class="MenuItem EvenItem">	
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePortal', true))" title="" class="ItemIcon BrowsePageIcon">$browsePortalLabel</a>			 
-					</div>
-					-->
-					<!--
-					<div class="MenuItem OddItem">				 
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePage', true))" title="" class="ItemIcon BrowsePageIcon">$browsePageLabel</a>
-					</div>
-					-->
-					<div class="MenuItem EvenItem">				 
-						<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'BrowsePage', true))" title="" class="ItemIcon BrowsePageIcon">$browsePageLabel</a>
-					</div>
-				</div>
-			</div>
-			<% } %>
-			
-			<div class="UITab NormalToolbarTab">
-				<div class="NormalNavigationTab">
-					<a class="EditPortalIcon TBIcon" href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'EditInline', true))">Edit Inline</a>
-				</div>
-			</div>
-			
 		</div>
 	</div>
 </div>

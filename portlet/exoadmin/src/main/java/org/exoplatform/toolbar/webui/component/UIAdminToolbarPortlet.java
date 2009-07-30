@@ -3,7 +3,6 @@ package org.exoplatform.toolbar.webui.component;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.services.security.ConversationState;
-import org.exoplatform.services.security.Identity;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;

@@ -6,11 +6,10 @@
       <EditPage>تحرير الصفحة</EditPage>
       <CreatePortal>إنشاء بوابة جديدة</CreatePortal>
       <EditPortal>تحرير البوابة</EditPortal>
-      <BrowsePortal>إدارة البوابات</BrowsePortal>
       <BrowsePage>إدارة الصفحات</BrowsePage>
       <EditPageAndNavigation>تحرير الصفحة والتصفح</EditPageAndNavigation>
       <Editor>Editor</Editor>
-      <Administrator>Administrator</Administrator>
+      <EditSiteLayout>Edit Site Layout</EditSiteLayout>
     </action>
   </UIAdminToolbarPortlet>
 </bundle>

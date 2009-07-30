@@ -221,16 +221,15 @@ public class UIPageBrowser extends UISearch {
   static public class DeleteActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource();
-      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
       String id = pcontext.getRequestParameter(OBJECTID);
       UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
 
-      UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
+      UIPortalApplication uiPortalApp = (UIPortalApplication) pcontext.getUIApplication();
       if (service.getPage(id) == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist",
                                                       new String[] { id },
                                                       1));
-        ;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
@@ -239,7 +238,6 @@ public class UIPageBrowser extends UISearch {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.delete.NotDelete",
                                                       new String[] { id },
                                                       1));
-        ;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
@@ -259,18 +257,16 @@ public class UIPageBrowser extends UISearch {
 
   static public class EditInfoActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
-      System.out.println("\n\n\n\nThis event is not implemented");
       UIPageBrowser uiPageBrowser = event.getSource();
-      UIPortalApplication uiPortalApp = uiPageBrowser.getAncestorOfType(UIPortalApplication.class);
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
+      UIPortalApplication uiPortalApp = (UIPortalApplication) pcontext.getUIApplication();
       uiPortalApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
-      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
       String id = pcontext.getRequestParameter(OBJECTID);
       UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
       if (service.getPage(id) == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist",
                                                       new String[] { id },
                                                       1));
-        ;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
@@ -279,7 +275,6 @@ public class UIPageBrowser extends UISearch {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.edit.NotEditPage",
                                                       new String[] { id },
                                                       1));
-        ;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
@@ -307,16 +302,14 @@ public class UIPageBrowser extends UISearch {
   static public class PreviewActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       UIPageBrowser uiPageBrowser = event.getSource();
-      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
+      PortalRequestContext pcontext = Util.getPortalRequestContext();
       String id = pcontext.getRequestParameter(OBJECTID);
       UserPortalConfigService service = uiPageBrowser.getApplicationComponent(UserPortalConfigService.class);
-      UIPortalApplication uiPortalApp = event.getSource()
-                                             .getAncestorOfType(UIPortalApplication.class);
+      UIPortalApplication uiPortalApp = (UIPortalApplication) pcontext.getUIApplication();
       if (service.getPage(id) == null) {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.PageNotExist",
                                                       new String[] { id },
                                                       1));
-        ;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
@@ -325,7 +318,6 @@ public class UIPageBrowser extends UISearch {
         uiPortalApp.addMessage(new ApplicationMessage("UIPageBrowser.msg.NotViewPage",
                                                       new String[] { id },
                                                       1));
-        ;
         pcontext.addUIComponentToUpdateByAjax(uiPortalApp.getUIPopupMessages());
         return;
       }
@@ -359,7 +351,7 @@ public class UIPageBrowser extends UISearch {
   static public class AddNewActionListener extends EventListener<UIPageBrowser> {
     public void execute(Event<UIPageBrowser> event) throws Exception {
       PortalRequestContext prContext = Util.getPortalRequestContext();
-      UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+      UIPortalApplication uiApp = (UIPortalApplication) prContext.getUIApplication();
       UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);
       UIPageForm uiPageForm = uiMaskWS.createUIComponent(UIPageForm.class,
                                                          "UIBrowserPageForm",

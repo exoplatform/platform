@@ -60,4 +60,21 @@
       <show-info-bar>false</show-info-bar>
     </application>   
   </page>
+  
+  <page>
+  	<page-id>group::platform/administrators::pageManagement</page-id>
+    <owner-type>group</owner-type>
+    <owner-id>platform/administrators</owner-id>
+    <name>pageManagement</name>
+    <title>Page Management</title>
+	  <access-permissions>manager:/platform/administrators</access-permissions>
+	  <edit-permission>manager:/platform/administrators</edit-permission>    
+    <application>
+      <instance-id>group#platform/administrators:/exoadmin/PageManagementPortlet/PageManagement</instance-id>
+      <title>Page Management</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </application>  
+  </page>
+  
 </page-set>

@@ -37,6 +37,13 @@
 		    <label>#{administration.i18n}</label>
 		    <page-reference>group::platform/administrators::i18n</page-reference>
 	    </node>	    	   
+	    
+	    <node>
+		    <uri>administration/pageManagement</uri>
+		    <name>pageManagement</name>
+		    <label>#{administration.pageManagement}</label>
+		    <page-reference>group::platform/administrators::pageManagement</page-reference>
+	    </node>
     </node>                        
   </page-nodes>
 </node-navigation>

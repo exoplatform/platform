@@ -112,6 +112,32 @@
   </portlet>
   
   <portlet>
+    <description xml:lang="EN">Page Management Portlet</description>
+    <portlet-name>PageManagementPortlet</portlet-name>
+    <display-name xml:lang="EN">Page Management Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/exoadmin/PageManagementPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    
+    <resource-bundle>locale.portlet.exoadmin.AccountPortlet</resource-bundle>
+    <portlet-info>
+      <title>Page Management Portlet</title>
+      <short-title>Page Management Portlet</short-title>
+      <keywords>Page Management</keywords>
+    </portlet-info>
+  </portlet>
+  
+  <portlet>
     <description xml:lang="EN">Internationalization Portlet</description>
     <portlet-name>I18nPortlet</portlet-name>
     <display-name xml:lang="EN">Internationalization Portlet</display-name>

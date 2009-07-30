@@ -12,7 +12,7 @@
 		</div>
 	
 	<%if(portalMode == UIPortalApplication.APP_BLOCK_EDIT_MODE || portalMode == UIPortalApplication.CONTAINER_BLOCK_EDIT_MODE) {%>
-		<div class="LAYOUT-BLOCK LAYOUT-PAGEBODY DragControlArea" style="display: none;" onmousedown="eXo.portal.PortalDragDrop.init.call(eXo.core.DOMUtil.findAncestorByClass(this, 'UIPageBody'), event);">
+		<div class="LAYOUT-BLOCK LAYOUT-PAGEBODY DragControlArea" onmousedown="eXo.portal.PortalDragDrop.init.call(eXo.core.DOMUtil.findAncestorByClass(this, 'UIPageBody'), event);">
 			<div class="PageLayoutDecorator">
 				<%/*Begin Top Decorator*/%>
 				<div class="TopLeftPage">
