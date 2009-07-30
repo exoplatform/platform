@@ -28,7 +28,20 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
+import org.exoplatform.portal.webui.page.UIDesktopPage;
+import org.exoplatform.portal.webui.page.UIPage;
+import org.exoplatform.portal.webui.page.UIPageBody;
+import org.exoplatform.portal.webui.page.UIPageEditWizard;
+import org.exoplatform.portal.webui.page.UIPagePreview;
+import org.exoplatform.portal.webui.page.UIPageTemplateOptions;
+import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
+import org.exoplatform.portal.webui.portal.UIPortalComposer;
+import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.UIMainActionListener;
+import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
 import org.exoplatform.web.application.ApplicationMessage;
@@ -332,56 +345,56 @@ public class UINavigationNodeSelector extends UIContainer {
     }
   }
 
+  
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
-      /*
-       * UIRightClickPopupMenu uiPopupMenu = event.getSource(); String uri =
-       * event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-       * PortalRequestContext pcontext =
-       * (PortalRequestContext)event.getRequestContext();
-       * UINavigationNodeSelector uiNodeSelector =
-       * uiPopupMenu.getAncestorOfType(UINavigationNodeSelector.class) ;
-       * PageNavigation currentNav = uiNodeSelector.getSelectedNavigation();
-       * PageNode selectNode =
-       * PageNavigationUtils.searchPageNodeByUri(currentNav, uri);
-       * uiNodeSelector.selectPageNodeByUri(uri); UIPortalApplication
-       * uiPortalApp = Util.getUIPortalApplication() ; UINavigationManagement
-       * uiManagement = uiNodeSelector.getParent(); UIWorkingWorkspace
-       * uiWorkingWS =
-       * uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-       * pcontext.addUIComponentToUpdateByAjax(uiWorkingWS) ;
-       * pcontext.setFullRender(true); UserPortalConfigService
-       * portalConfigService =
-       * uiPopupMenu.getApplicationComponent(UserPortalConfigService.class);
-       * Page page = null; if(selectNode.getPageReference() != null) page =
-       * portalConfigService.getPage(selectNode.getPageReference(),
-       * pcontext.getRemoteUser()); if(page == null) { Class<?> []
-       * childrenToRender = {UINavigationNodeSelector.class,
-       * UINavigationControlBar.class };
-       * uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-       * if(selectNode.getPageReference() != null &&
-       * portalConfigService.getPage(selectNode.getPageReference()) != null) {
-       * uiPortalApp.addMessage(new
-       * ApplicationMessage("UIPageBrowser.msg.edit.NotEditPage", new
-       * String[]{})) ; } else { uiPortalApp.addMessage(new
-       * ApplicationMessage("UIPageBrowser.msg.PageNotExist", new String[]{})) ;
-       * } return; } if(!page.isModifiable()){ Class<?> [] childrenToRender =
-       * {UINavigationNodeSelector.class, UINavigationControlBar.class};
-       * uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-       * uiPortalApp.addMessage(new
-       * ApplicationMessage("UIPageNodeSelector.msg.Invalid-editPermission",
-       * null)) ; return; } UIMaskWorkspace uiMaskWS =
-       * uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-       * UIPageForm2 uiPageForm = uiMaskWS.createUIComponent(UIPageForm2.class);
-       * uiPageForm.removeChild(UIPageTemplateOptions.class); UIPage uiPage =
-       * Util.toUIPage(page, uiMaskWS); uiPageForm.setValues(uiPage);
-       * uiMaskWS.setUIComponent(uiPageForm); uiMaskWS.setWindowSize(640, 400);
-       * uiMaskWS.setShow(true);
-       * pcontext.addUIComponentToUpdateByAjax(uiMaskWS); Class<?> []
-       * childrenToRender = {UINavigationNodeSelector.class,
-       * UINavigationControlBar.class};
-       * uiManagement.setRenderedChildrenOfTypes(childrenToRender);
-       */
+      // get URI 
+      String uri = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
+      
+      // get UINavigationNodeSelector  
+      UIRightClickPopupMenu uiPopupMenu = event.getSource();
+
+      UINavigationNodeSelector uiNodeSelector = uiPopupMenu.getAncestorOfType(UINavigationNodeSelector.class);
+      
+      // get Selected PageNode 
+      PageNode selectedPageNode = null;
+      List<PageNode> pageNodes = uiNodeSelector.getSelectedNavigation().getNodes();
+      if (uri != null && uri.trim().length() > 0) {
+        for (PageNode pageNode : pageNodes) {
+          selectedPageNode = PageNavigationUtils.searchPageNodeByUri(pageNode, uri);
+          if (selectedPageNode != null)
+            break;
+        }
+      }
+      
+      UIPortalApplication uiApp = Util.getUIPortalApplication();
+      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+      UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+      uiWorkingWS.addChild(UIPortalComposer.class, "UIPageEditor", null);
+      UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
+      uiToolPanel.setShowMaskLayer(false);
+      uiToolPanel.setWorkingComponent(UIPage.class, null);
+      UIPage uiPage = (UIPage) uiToolPanel.getUIComponent();
+
+      UserPortalConfigService userService = uiToolPanel.getApplicationComponent(UserPortalConfigService.class);
+      WebuiRequestContext context = WebuiRequestContext.getCurrentInstance();
+      
+      // get selected page
+      Page selectPage = null;
+      if (selectedPageNode.getPageReference() != null) {
+        selectPage = userService.getPage(selectedPageNode.getPageReference(),
+                                         context.getRemoteUser());
+      }
+
+      selectPage.setModifier(context.getRemoteUser());
+      selectPage.setTitle(selectedPageNode.getLabel());
+      
+      // convert Page to UIPage
+      PortalDataMapper.toUIPage(uiPage, selectPage);
+
+      Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
+      Util.getPortalRequestContext().setFullRender(true);
     }
   }
 
