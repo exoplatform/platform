@@ -114,8 +114,7 @@ public class UINavigationManagement extends UIContainer {
       UINavigationNodeSelector uiNodeSelector = uiManagement.getChild(UINavigationNodeSelector.class);
       UIPopupWindow uiManagementPopup = uiNodeSelector.getAncestorOfType(UIPopupWindow.class);
       UIPageNodeForm2 uiNodeForm = uiManagementPopup.createUIComponent(UIPageNodeForm2.class,
-                                                                       null,
-                                                                       null);
+                                                                       null, null);
       uiNodeForm.setValues(null);
       uiManagementPopup.setUIComponent(uiNodeForm);
       uiNodeForm.setSelectedParent(uiNodeSelector.getSelectedNavigation());

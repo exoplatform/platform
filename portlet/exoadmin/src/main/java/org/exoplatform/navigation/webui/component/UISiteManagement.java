@@ -17,6 +17,7 @@
 package org.exoplatform.navigation.webui.component;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -38,28 +39,46 @@ import org.exoplatform.util.ReflectionUtil;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
+import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 
-@ComponentConfig(
-  template = "app:/groovy/navigation/webui/component/UISiteManagement.gtmpl",
-  events = {
-      @EventConfig(listeners = UISiteManagement.EditPortalLayoutActionListener.class),
-      @EventConfig(listeners = UISiteManagement.EditNavigationActionListener.class),
-      @EventConfig(listeners = UISiteManagement.EditPropertiesActionListener.class),
-      @EventConfig(listeners = UISiteManagement.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal")
-  }
-)
+@ComponentConfigs({
+  @ComponentConfig(
+                   template = "app:/groovy/navigation/webui/component/UISiteManagement.gtmpl",
+                   events = {
+                       @EventConfig(listeners = UISiteManagement.EditPortalLayoutActionListener.class),
+                       @EventConfig(listeners = UISiteManagement.EditNavigationActionListener.class),
+                       @EventConfig(listeners = UISiteManagement.EditPropertiesActionListener.class),
+                       @EventConfig(listeners = UISiteManagement.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal")
+                   }
+  ),
+  @ComponentConfig(  
+                   type = UIPageNodeForm2.class,
+                   lifecycle = UIFormLifecycle.class,
+                   template = "system:/groovy/webui/form/UIFormTabPane.gtmpl" ,    
+                   events = {
+                     @EventConfig(listeners = UIPageNodeForm2.SaveActionListener.class ),
+                     @EventConfig(listeners = UISiteManagement.BackActionListener.class, phase = Phase.DECODE),
+                     @EventConfig(listeners = UIPageNodeForm2.SwitchPublicationDateActionListener.class, phase = Phase.DECODE ),
+                     @EventConfig(listeners = UIPageNodeForm2.ClearPageActionListener.class, phase = Phase.DECODE)
+                   }
+  )  
+})
 public class UISiteManagement extends UIContainer {
   
   //public static String[] SELECT_ACTIONS = {"EditPortalLayout", "EditNavigation", "DeletePortal"} ;
   public static String[] ACTIONS = {"EditNavigation", "DeletePortal"} ;
   
   private LazyPageList pageList;
+  
+  private PageNavigation       selectedNavigation;
   
   public UISiteManagement() throws Exception {  
     UIPopupWindow editNavigation = addChild(UIPopupWindow.class, null, "EditPortalNavigation");
@@ -98,7 +117,15 @@ public class UISiteManagement extends UIContainer {
             iterPortals.remove();
         }
     }    
-  } 
+  }
+  
+  public PageNavigation getSelectedNavigation() {
+    return selectedNavigation;
+  }
+
+  public void setSelectedNavigation(PageNavigation navigation) {
+    selectedNavigation = navigation;
+  }
 
   static public class DeletePortalActionListener extends EventListener<UISiteManagement> {
     public void execute(Event<UISiteManagement> event) throws Exception {     
@@ -194,7 +221,12 @@ public class UISiteManagement extends UIContainer {
       
       UINavigationManagement naviManager = popUp.createUIComponent(UINavigationManagement.class, null, null, popUp);
       naviManager.setOwner(portalName);
-      naviManager.loadNavigation(new Query<PageNavigation>(PortalConfig.PORTAL_TYPE, portalName, PageNavigation.class));
+      PageNavigation navi = service.getPageNavigation(PortalConfig.PORTAL_TYPE, portalName);
+      uicomp.setSelectedNavigation(navi);
+      UINavigationNodeSelector selector = naviManager.getChild(UINavigationNodeSelector.class);
+      ArrayList<PageNavigation> list = new ArrayList<PageNavigation>();
+      list.add(navi);
+      selector.initNavigations(list);
       popUp.setUIComponent(naviManager);
       popUp.setShow(true);
       
@@ -243,4 +275,27 @@ public class UISiteManagement extends UIContainer {
       popUp.setShow(true);
     }
   }
+  
+  static public class BackActionListener extends EventListener<UIPageNodeForm2> {
+
+    public void execute(Event<UIPageNodeForm2> event) throws Exception {
+      UIPageNodeForm2 uiPageNodeForm = event.getSource();
+      UISiteManagement uiSiteManagement = 
+        uiPageNodeForm.getAncestorOfType(UISiteManagement.class);
+      PageNavigation selectedNavigation = uiSiteManagement.getSelectedNavigation();
+      UIPopupWindow uiNavigationPopup = uiSiteManagement.getChild(UIPopupWindow.class);
+      UINavigationManagement pageManager =
+        uiPageNodeForm.createUIComponent(UINavigationManagement.class, null, null);
+      pageManager.setOwner(selectedNavigation.getOwnerId());
+      UINavigationNodeSelector selector = pageManager.getChild(UINavigationNodeSelector.class);
+      ArrayList<PageNavigation> navis = new ArrayList<PageNavigation>();
+      navis.add(selectedNavigation);
+      selector.initNavigations(navis);
+      uiNavigationPopup.setUIComponent(pageManager);
+      uiNavigationPopup.setWindowSize(400, 400);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiNavigationPopup);
+    }
+    
+  }
+
 }

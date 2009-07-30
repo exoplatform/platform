@@ -389,10 +389,10 @@ public class UINavigationNodeSelector extends UIContainer {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
       WebuiRequestContext ctx = event.getRequestContext();
       UIRightClickPopupMenu popupMenu = event.getSource();
-      UIGroupNavigationManagement uiGroupNavigation = popupMenu.getAncestorOfType(UIGroupNavigationManagement.class);
       UIApplication uiApp = ctx.getUIApplication();
       String uri = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
-      PageNavigation selectedNav = uiGroupNavigation.getSelectedNavigation();
+      UINavigationNodeSelector uiNodeSelector = popupMenu.getAncestorOfType(UINavigationNodeSelector.class);
+      PageNavigation selectedNav = uiNodeSelector.getSelectedNavigation();
       Object obj = PageNavigationUtils.searchParentNode(selectedNav, uri);
       PageNode selectedNode = PageNavigationUtils.searchPageNodeByUri(selectedNav, uri);
       String pageId = selectedNode.getPageReference();
@@ -409,7 +409,7 @@ public class UINavigationNodeSelector extends UIContainer {
           return;
         }
       }
-      UIPopupWindow uiManagementPopup = uiGroupNavigation.getChild(UIPopupWindow.class);
+      UIPopupWindow uiManagementPopup = uiNodeSelector.getAncestorOfType(UIPopupWindow.class);
       UIPageNodeForm2 uiNodeForm = uiApp.createUIComponent(UIPageNodeForm2.class, null, null);
       uiManagementPopup.setUIComponent(uiNodeForm);
       uiNodeForm.setValues(selectedNode);

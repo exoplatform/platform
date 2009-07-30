@@ -20,8 +20,10 @@ import org.exoplatform.webui.core.UIContainer;
 import org.exoplatform.webui.core.UIPopupWindow;
 import org.exoplatform.webui.core.UIRepeater;
 import org.exoplatform.webui.core.UIVirtualList;
+import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.webui.event.Event.Phase;
 
 /*
  * Copyright (C) 2003-2009 eXo Platform SAS.
@@ -52,7 +54,19 @@ import org.exoplatform.webui.event.EventListener;
         @EventConfig(listeners = UIGroupNavigationManagement.EditPropertiesActionListener.class),
         @EventConfig(listeners = UIGroupNavigationManagement.AddNavigationActionListener.class),
         @EventConfig(listeners = UIGroupNavigationManagement.DeleteNavigationActionListener.class, confirm = "UIGroupNavigationManagement.Delete.Confirm") }),
-    @ComponentConfig(id = "UIGroupNavigationGrid", type = UIRepeater.class, template = "app:/groovy/navigation/webui/component/UINavigationGrid.gtmpl") })
+    @ComponentConfig(id = "UIGroupNavigationGrid", type = UIRepeater.class, template = "app:/groovy/navigation/webui/component/UINavigationGrid.gtmpl"),
+    @ComponentConfig(  
+                     type = UIPageNodeForm2.class,
+                     lifecycle = UIFormLifecycle.class,
+                     template = "system:/groovy/webui/form/UIFormTabPane.gtmpl" ,    
+                     events = {
+                       @EventConfig(listeners = UIPageNodeForm2.SaveActionListener.class ),
+                       @EventConfig(listeners = UIGroupNavigationManagement.BackActionListener.class, phase = Phase.DECODE),
+                       @EventConfig(listeners = UIPageNodeForm2.SwitchPublicationDateActionListener.class, phase = Phase.DECODE ),
+                       @EventConfig(listeners = UIPageNodeForm2.ClearPageActionListener.class, phase = Phase.DECODE)
+                     }
+    )    
+})
 public class UIGroupNavigationManagement extends UIContainer {
 
   private List<PageNavigation> navigations;
@@ -196,7 +210,7 @@ public class UIGroupNavigationManagement extends UIContainer {
 
       // get PageNavigation by navigation id
       PageNavigation navigation = uicomp.getNavigationById(navId);
-      
+
       // open a add navigation popup
       UIPopupWindow popUp = uicomp.getChild(UIPopupWindow.class);
       UIPageNavigationForm pageNavigation = popUp.createUIComponent(UIPageNavigationForm.class,
@@ -269,5 +283,27 @@ public class UIGroupNavigationManagement extends UIContainer {
       uiAddGroupNav.setRendered(true);
 
     }
+  }
+  
+  static public class BackActionListener extends EventListener<UIPageNodeForm2> {
+
+    public void execute(Event<UIPageNodeForm2> event) throws Exception {
+      UIPageNodeForm2 uiPageNodeForm = event.getSource();
+      UIGroupNavigationManagement uiGroupNavigation = 
+        uiPageNodeForm.getAncestorOfType(UIGroupNavigationManagement.class);
+      PageNavigation selectedNavigation = uiGroupNavigation.getSelectedNavigation();
+      UIPopupWindow uiNavigationPopup = uiGroupNavigation.getChild(UIPopupWindow.class);
+      UINavigationManagement pageManager =
+        uiPageNodeForm.createUIComponent(UINavigationManagement.class, null, null);
+      pageManager.setOwner(selectedNavigation.getOwnerId());
+      UINavigationNodeSelector selector = pageManager.getChild(UINavigationNodeSelector.class);
+      ArrayList<PageNavigation> navis = new ArrayList<PageNavigation>();
+      navis.add(selectedNavigation);
+      selector.initNavigations(navis);
+      uiNavigationPopup.setUIComponent(pageManager);
+      uiNavigationPopup.setWindowSize(400, 400);
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiNavigationPopup);
+    }
+    
   }
 }

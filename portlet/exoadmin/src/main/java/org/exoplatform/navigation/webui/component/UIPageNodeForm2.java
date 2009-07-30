@@ -21,20 +21,15 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-import org.exoplatform.portal.application.PortalRequestContext;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.page.UIPageSelector;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
-import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
-import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIApplication;
 import org.exoplatform.webui.core.UIPopupWindow;
-import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 import org.exoplatform.webui.event.Event.Phase;
@@ -53,16 +48,6 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
  *          minhdv81@yahoo.com
  * Jun 14, 2006
  */
-@ComponentConfig(  
-                 lifecycle = UIFormLifecycle.class,
-                 template = "system:/groovy/webui/form/UIFormTabPane.gtmpl" ,    
-                 events = {
-                   @EventConfig(listeners = UIPageNodeForm2.SaveActionListener.class ),
-                   @EventConfig(listeners = UIPageNodeForm2.BackActionListener.class, phase = Phase.DECODE),
-                   @EventConfig(listeners = UIPageNodeForm2.SwitchPublicationDateActionListener.class, phase = Phase.DECODE ),
-                   @EventConfig(listeners = UIPageNodeForm2.ClearPageActionListener.class, phase = Phase.DECODE)
-                 }
-)
 public class UIPageNodeForm2 extends UIFormTabPane {
 
   private  PageNode  pageNode_ ; 
@@ -166,11 +151,10 @@ public class UIPageNodeForm2 extends UIFormTabPane {
     uiPopupWindowPage.processRender(context);
   }
 
-  static public class SaveActionListener extends BackActionListener {
+  static public class SaveActionListener extends EventListener<UIPageNodeForm2> {
     public void execute(Event<UIPageNodeForm2> event) throws Exception {
       WebuiRequestContext ctx = event.getRequestContext();
       UIPageNodeForm2 uiPageNodeForm = event.getSource();
-      PortalRequestContext pcontext = Util.getPortalRequestContext();
       UIApplication uiApp = ctx.getUIApplication();
       if(uiPageNodeForm.getUIFormCheckBoxInput(SHOW_PUBLICATION_DATE).isChecked()) {
         Calendar startCalendar = uiPageNodeForm.getUIFormDateTimeInput(UIWizardPageSetInfo.START_PUBLICATION_DATE).getCalendar();
@@ -193,7 +177,7 @@ public class UIPageNodeForm2 extends UIFormTabPane {
       else pageNode.setIcon(uiIconSelector.getSelectedIcon());
       if(pageNode.getLabel() == null) pageNode.setLabel(pageNode.getName());
 
-      String remoteUser = pcontext.getRemoteUser();
+      String remoteUser = ctx.getRemoteUser();
       Object selectedParent = uiPageNodeForm.getSelectedParent();
       PageNavigation pageNav = null;
 
@@ -224,28 +208,13 @@ public class UIPageNodeForm2 extends UIFormTabPane {
           children.add(pageNode);
         }
       }
-      super.execute(event);
+      uiPageNodeForm.createEvent("Back", Phase.DECODE, ctx).broadcast();
     }
   }
 
   static public class BackActionListener extends EventListener<UIPageNodeForm2> {
 
     public void execute(Event<UIPageNodeForm2> event) throws Exception {
-      UIPageNodeForm2 uiPageNodeForm = event.getSource();
-      UIGroupNavigationManagement uiGroupNavigation = 
-        uiPageNodeForm.getAncestorOfType(UIGroupNavigationManagement.class);
-      PageNavigation selectedNavigation = uiGroupNavigation.getSelectedNavigation();
-      UIPopupWindow uiNavigationPopup = uiGroupNavigation.getChild(UIPopupWindow.class);
-      UINavigationManagement pageManager =
-        uiPageNodeForm.createUIComponent(UINavigationManagement.class, null, null);
-      pageManager.setOwner(selectedNavigation.getOwnerId());
-      UINavigationNodeSelector selector = pageManager.getChild(UINavigationNodeSelector.class);
-      ArrayList<PageNavigation> navis = new ArrayList<PageNavigation>();
-      navis.add(selectedNavigation);
-      selector.initNavigations(navis);
-      uiNavigationPopup.setUIComponent(pageManager);
-      uiNavigationPopup.setWindowSize(400, 400);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiNavigationPopup);
     }
 
   }
