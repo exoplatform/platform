@@ -86,24 +86,16 @@ public class ExoContainerConfig extends JsonContainerConfig {
       }
     }
 
-    //
     if (keyFile == null) {
       keyFile = new File("key.txt");
     }
 
-    // Check parent folder is exist or not. If not, create new.
     String keyPath = keyFile.getAbsolutePath();
-    File parentFolder = new File(keyFile.getParent());
-    if (!parentFolder.exists()) {      
-      boolean created = parentFolder.mkdir();
-      if (!created) {
-        log.debug("Can not create folder " + keyFile.getParent());
-        throw new RuntimeException("Can not create folder " + keyFile.getParent());
-      }
-    }
     
     if (!keyFile.exists()) {
-      log.debug("No key file found at path " + keyPath + " generating a new key and saving it");
+    	log.debug("No key file found at path " + keyPath + " generating a new key and saving it");
+    	File parentFolder = keyFile.getParentFile();
+    	if(!parentFolder.exists()) parentFolder.mkdirs();
       String key = generateKey();
       Writer out = null;
       try {
