@@ -34,6 +34,7 @@ import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIPortlet;
 import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.portal.UIPortalComposer;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
@@ -295,7 +296,18 @@ public class UIPageBrowser extends UISearch {
         pcontext.addUIComponentToUpdateByAjax(uiMaskWS);
         return;
       }
-
+      
+      uiPortalApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+      UIWorkingWorkspace uiWorkingWS = uiPortalApp.findFirstComponentOfType(UIWorkingWorkspace.class);
+      UIPortalToolPanel toolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
+      toolPanel.setUIComponent(uiPage);
+      toolPanel.setShowMaskLayer(false);
+      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+      UIPortalComposer portalComposer = uiWorkingWS.findFirstComponentOfType(UIPortalComposer.class);
+      if(portalComposer == null) portalComposer = uiWorkingWS.addChild(UIPortalComposer.class, "UIPageEditor", null);
+      portalComposer.setRendered(true);
+      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+      pcontext.setFullRender(true);
     }
   }
 
