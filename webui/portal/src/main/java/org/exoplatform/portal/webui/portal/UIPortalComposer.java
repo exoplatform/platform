@@ -43,6 +43,7 @@ import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
 import org.exoplatform.services.resources.LocaleConfig;
 import org.exoplatform.services.resources.LocaleConfigService;
+import org.exoplatform.web.application.JavascriptManager;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
@@ -141,7 +142,7 @@ public class UIPortalComposer extends UIContainer {
 		skinService.invalidatePortalSkinCache(uiPortal.getName(), uiPortal.getSkin());
 	}
 	
-	public void updateWorkspaceComponent() {
+	public void updateWorkspaceComponent() throws Exception {
 	  UIPortalApplication uiApp = Util.getUIPortalApplication();
 	  WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
 	  UIWorkingWorkspace uiWorkingWS = uiApp.findFirstComponentOfType(UIWorkingWorkspace.class);
@@ -150,6 +151,13 @@ public class UIPortalComposer extends UIContainer {
       if(!child.isRendered() || child.getClass().equals(UIPortalComposer.class)) continue;
       rcontext.addUIComponentToUpdateByAjax(child);
     }
+	  int portalMode = uiApp.getModeState();
+	  if(portalMode != UIPortalApplication.NORMAL_MODE) {
+      if(portalMode % 2 != 0) Util.showComponentLayoutMode(UIPortlet.class);
+      else Util.showComponentEditInViewMode(UIPortlet.class);
+	  }
+	  JavascriptManager jsManager = Util.getPortalRequestContext().getJavascriptManager();
+    jsManager.addJavascript("eXo.portal.portalMode=" + portalMode);
 	}
 
 	public void processRender(WebuiRequestContext context) throws Exception {
