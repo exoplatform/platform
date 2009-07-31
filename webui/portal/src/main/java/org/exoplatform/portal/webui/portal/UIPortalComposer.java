@@ -69,16 +69,16 @@ import org.exoplatform.webui.event.EventListener;
 					@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class)
 			}
 	),
-  @ComponentConfig(
-                   id = "UIPageEditor",
-                   template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
-                   events = { 
-                       @EventConfig(name = "ViewProperties", listeners = UIPortalComposer.ViewProperties2ActionListener.class),
-                       @EventConfig(name = "Abort", listeners = UIPortalComposer.Abort2ActionListener.class),
-                       @EventConfig(name = "Finish", listeners = UIPortalComposer.Finish2ActionListener.class),
-                       @EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class)
-                   }
-  ),
+	@ComponentConfig(
+			id = "UIPageEditor",
+			template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
+			events = { 
+					@EventConfig(name = "ViewProperties", listeners = UIPortalComposer.ViewProperties2ActionListener.class),
+					@EventConfig(name = "Abort", listeners = UIPortalComposer.Abort2ActionListener.class),
+					@EventConfig(name = "Finish", listeners = UIPortalComposer.Finish2ActionListener.class),
+					@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class)
+			}
+	),
 	@ComponentConfig(
 			id = "UIPortalComposerTab",
 			type = UITabPane.class,
@@ -94,14 +94,14 @@ public class UIPortalComposer extends UIContainer {
 		uiTabPane.addChild(UIContainerList.class, null, null);
 		uiTabPane.setSelectedTab(1);
 	}
-	
+
 	public void setPortalMode(int mode) {
-	  if(mode < 0 || mode > 4) return;
-	  getAncestorOfType(UIPortalApplication.class).setModeState(mode);
+		if(mode < 0 || mode > 4) return;
+		getAncestorOfType(UIPortalApplication.class).setModeState(mode);
 	}
-	
+
 	public int getPortalMode() {
-	  return getAncestorOfType(UIPortalApplication.class).getModeState();
+		return getAncestorOfType(UIPortalApplication.class).getModeState();
 	}
 
 	public void save() throws Exception {
@@ -141,16 +141,16 @@ public class UIPortalComposer extends UIContainer {
 		SkinService skinService = getApplicationComponent(SkinService.class);
 		skinService.invalidatePortalSkinCache(uiPortal.getName(), uiPortal.getSkin());
 	}
-	
+
 	public void updateWorkspaceComponent() throws Exception {
-	  UIPortalApplication uiApp = Util.getUIPortalApplication();
-	  WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
-	  UIWorkingWorkspace uiWorkingWS = uiApp.findFirstComponentOfType(UIWorkingWorkspace.class);
-	  List<UIComponent> children = uiWorkingWS.getChildren();
-	  for (UIComponent child : children) {
-      if(!child.isRendered() || child.getClass().equals(UIPortalComposer.class)) continue;
-      rcontext.addUIComponentToUpdateByAjax(child);
-    }
+		UIPortalApplication uiApp = Util.getUIPortalApplication();
+		WebuiRequestContext rcontext = WebuiRequestContext.getCurrentInstance();
+		UIWorkingWorkspace uiWorkingWS = uiApp.findFirstComponentOfType(UIWorkingWorkspace.class);
+		List<UIComponent> children = uiWorkingWS.getChildren();
+		for (UIComponent child : children) {
+			if(!child.isRendered() || child.getClass().equals(UIPortalComposer.class)) continue;
+			rcontext.addUIComponentToUpdateByAjax(child);
+		}
 	  int portalMode = uiApp.getModeState();
 	  if(portalMode != UIPortalApplication.NORMAL_MODE) {
       if(portalMode % 2 != 0) Util.showComponentLayoutMode(UIPortlet.class);
@@ -271,77 +271,77 @@ public class UIPortalComposer extends UIContainer {
 
 	static public class SwitchModeActionListener extends EventListener<UIPortalComposer> {
 		public void execute(Event<UIPortalComposer> event) throws Exception {
-		  UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-		  int portalMode = uiPortalApp.getModeState();
-		  if(portalMode == UIPortalApplication.NORMAL_MODE) return;
-		  if(portalMode%2 == 0) --portalMode;
-		  else ++portalMode;
-		  uiPortalApp.setModeState(portalMode);
-		  event.getSource().updateWorkspaceComponent();
-		  Util.getPortalRequestContext().setFullRender(true);
+			UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+			int portalMode = uiPortalApp.getModeState();
+			if(portalMode == UIPortalApplication.NORMAL_MODE) return;
+			if(portalMode%2 == 0) --portalMode;
+			else ++portalMode;
+			uiPortalApp.setModeState(portalMode);
+			event.getSource().updateWorkspaceComponent();
+			Util.getPortalRequestContext().setFullRender(true);
 		}
 	}
-	
+
 	//-----------------------------Page's Listeners------------------------------------------//
-	
+
 	static public class ViewProperties2ActionListener extends EventListener<UIPortalComposer> {
 
-    public void execute(Event<UIPortalComposer> event) throws Exception {
-      UIWorkingWorkspace uiWorkingWS = event.getSource().getParent();
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
-      UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-      UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
-      UIPageForm uiPageForm = uiPortalApp.createUIComponent(UIPageForm.class, null, null);
-      uiPageForm.setValues((UIPage) uiToolPanel.getUIComponent());
-      uiMaskWS.setUIComponent(uiPageForm);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
-    }
-	  
+		public void execute(Event<UIPortalComposer> event) throws Exception {
+			UIWorkingWorkspace uiWorkingWS = event.getSource().getParent();
+			UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
+			UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+			UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID) ;
+			UIPageForm uiPageForm = uiPortalApp.createUIComponent(UIPageForm.class, null, null);
+			uiPageForm.setValues((UIPage) uiToolPanel.getUIComponent());
+			uiMaskWS.setUIComponent(uiPageForm);
+			event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
+		}
+
 	}
-	
-	
+
+
 	static public class Abort2ActionListener extends EventListener<UIPortalComposer> {
 
-    public void execute(Event<UIPortalComposer> event) throws Exception {
-      UIWorkingWorkspace uiWorkingWS = event.getSource().getParent();
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
-      uiToolPanel.setUIComponent(null);
-      UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
-      uiPortalApp.setModeState(UIPortalApplication.NORMAL_MODE);
+		public void execute(Event<UIPortalComposer> event) throws Exception {
+			UIWorkingWorkspace uiWorkingWS = event.getSource().getParent();
+			UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
+			uiToolPanel.setUIComponent(null);
+			UIPortalApplication uiPortalApp = Util.getUIPortalApplication();
+			uiPortalApp.setModeState(UIPortalApplication.NORMAL_MODE);
 
-      UIPortal uiPortal = Util.getUIPortal();
-      uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
-      uiPortal.setRenderSibbling(UIPortal.class);
+			UIPortal uiPortal = Util.getUIPortal();
+			uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
+			uiPortal.setRenderSibbling(UIPortal.class);
 
-      PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
-          PageNodeEvent.CHANGE_PAGE_NODE, 
-          (uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode().getUri() : null)) ;
-      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;            
-    }
-	  
+			PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
+					PageNodeEvent.CHANGE_PAGE_NODE, 
+					(uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode().getUri() : null)) ;
+			uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;            
+		}
+
 	}
-	
+
 	static public class Finish2ActionListener extends EventListener<UIPortalComposer> {
 
-    public void execute(Event<UIPortalComposer> event) throws Exception {
-      UIWorkingWorkspace uiWorkingWS = event.getSource().getParent();
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
-      UIPage uiPage = (UIPage) uiToolPanel.getUIComponent();
-      Page page = PortalDataMapper.toPageModel(uiPage);
-      UserPortalConfigService portalConfigService = 
-        uiWorkingWS.getApplicationComponent(UserPortalConfigService.class);
-      portalConfigService.update(page);
-      uiToolPanel.setUIComponent(null);
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
-      if(PortalProperties.SESSION_ALWAYS.equals(uiPortal.getSessionAlive())) uiPortalApp.setSessionOpen(true) ;
-      else uiPortalApp.setSessionOpen(false) ;
-      uiPortalApp.setModeState(UIPortalApplication.NORMAL_MODE) ;
-      PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
-          PageNodeEvent.CHANGE_PAGE_NODE, 
-          (uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode().getUri() : null)) ;
-      uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;            
-    }
-	  
+		public void execute(Event<UIPortalComposer> event) throws Exception {
+			UIWorkingWorkspace uiWorkingWS = event.getSource().getParent();
+			UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
+			UIPage uiPage = (UIPage) uiToolPanel.getUIComponent();
+			Page page = PortalDataMapper.toPageModel(uiPage);
+			UserPortalConfigService portalConfigService = 
+				uiWorkingWS.getApplicationComponent(UserPortalConfigService.class);
+			portalConfigService.update(page);
+			uiToolPanel.setUIComponent(null);
+			UIPortal uiPortal = Util.getUIPortal();
+			UIPortalApplication uiPortalApp = Util.getUIPortalApplication() ;
+			if(PortalProperties.SESSION_ALWAYS.equals(uiPortal.getSessionAlive())) uiPortalApp.setSessionOpen(true) ;
+			else uiPortalApp.setSessionOpen(false) ;
+			uiPortalApp.setModeState(UIPortalApplication.NORMAL_MODE) ;
+			PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
+					PageNodeEvent.CHANGE_PAGE_NODE, 
+					(uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode().getUri() : null)) ;
+			uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;            
+		}
+
 	}
 }

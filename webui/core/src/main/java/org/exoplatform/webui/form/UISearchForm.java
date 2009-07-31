@@ -85,16 +85,6 @@ public class UISearchForm extends UIForm {
     }
   }
 
-//  static  public class AdvancedSearchActionListener extends EventListener<UISearchForm> {
-//    public void execute(Event<UISearchForm> event) throws Exception {
-//      UISearchForm uiForm = event.getSource() ;
-//      UISearch uiSearch = uiForm.getParent() ;
-//      uiSearch.advancedSearch(uiForm.getAdvancedSearchInputSet()) ;
-//      event.getRequestContext().addUIComponentToUpdateByAjax(uiSearch) ;
-//    }
-//  }
-
-  @SuppressWarnings("unused")
   static  public class ShowAdvancedSearchActionListener extends EventListener<UISearchForm> {
     public void execute(Event<UISearchForm> event) throws Exception {
       UISearchForm uiForm = event.getSource() ;
@@ -103,7 +93,6 @@ public class UISearchForm extends UIForm {
     }
   }
 
-  @SuppressWarnings("unused")
   static  public class CancelAdvancedSearchActionListener extends EventListener<UISearchForm> {
     public void execute(Event<UISearchForm> event) throws Exception {
       UISearchForm uiForm = event.getSource() ;
