@@ -81,8 +81,6 @@
 
 .UIPopupWindow .ResizeButton {
   background: url('background/ResizeBtn.png') no-repeat;
-  width: 10px; 
-  height:10px; 
   display: block;
   float: right;
   margin-right: 3px;
@@ -320,4 +318,8 @@
 .UIPortalComposer .UITabPane .UITabContentContainer .UITabContent {
 	background: none;
 	border: none;
+}
+
+.UIPortalComposer .ResizeButton {
+	width: 10px; height: 10px;
 }
