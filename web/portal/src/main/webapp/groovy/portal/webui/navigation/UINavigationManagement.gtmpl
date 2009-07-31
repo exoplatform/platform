@@ -1,6 +1,6 @@
 <%  
   import  org.exoplatform.portal.webui.page.UIPageBrowser;
-  import org.exoplatform.navigation.webui.component.UINavigationNodeSelector;
+  import org.exoplatform.portal.webui.navigation.UINavigationNodeSelector;
 %>
 <div class="UINavigationManagement" id="$uicomponent.id">
 	<div class="TopTitleBar">

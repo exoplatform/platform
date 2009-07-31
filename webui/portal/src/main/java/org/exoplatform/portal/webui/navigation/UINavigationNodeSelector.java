@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.navigation.webui.component;
+package org.exoplatform.portal.webui.navigation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +28,7 @@ import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
+import org.exoplatform.portal.webui.navigation.UINavigationManagement;
 import org.exoplatform.portal.webui.page.UIPage;
 import org.exoplatform.portal.webui.portal.UIPortalComposer;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
@@ -50,13 +51,14 @@ import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
+import org.exoplatform.portal.webui.page.UIPageNodeForm2;
 
 /**
  * Copied by The eXo Platform SARL Author May 28, 2009 3:07:15 PM
  */
 @ComponentConfigs({
   @ComponentConfig(
-                   template = "app:/groovy/navigation/webui/component/UINavigationNodeSelector.gtmpl",
+                   template = "system:/groovy/portal/webui/navigation/UINavigationNodeSelector.gtmpl",
                    events = { 
                        @EventConfig(listeners = UINavigationNodeSelector.ChangeNodeActionListener.class)
                    }

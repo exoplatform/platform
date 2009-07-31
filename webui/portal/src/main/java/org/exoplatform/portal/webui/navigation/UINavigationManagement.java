@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.navigation.webui.component;
+package org.exoplatform.portal.webui.navigation;
 
 import java.util.List;
 
@@ -23,6 +23,7 @@ import org.exoplatform.portal.config.DataStorage;
 import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.portal.webui.page.UIPageNodeForm2;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
@@ -37,7 +38,7 @@ import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
 
 @ComponentConfig(
-  template = "app:/groovy/navigation/webui/component/UINavigationManagement.gtmpl",
+  template = "system:/groovy/portal/webui/navigation/UINavigationManagement.gtmpl",
   events = {
       @EventConfig(listeners = UINavigationManagement.SaveActionListener.class),
       @EventConfig(listeners = UINavigationManagement.AddRootNodeActionListener.class)

@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.navigation.webui.component;
+package org.exoplatform.portal.webui.navigation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +69,7 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
     @EventConfig(listeners = UIPageNavigationForm.CloseActionListener.class, phase = Phase.DECODE, name = "ClosePopup") })
 public class UIPageNavigationForm extends UIForm {
 
-  protected PageNavigation pageNav_;
+  private PageNavigation pageNav_;
 
   private String           ownerId;
   
@@ -95,7 +95,7 @@ public class UIPageNavigationForm extends UIForm {
   }
 
   public void setValues(PageNavigation pageNavigation) throws Exception {
-    pageNav_ = pageNavigation;
+    setPageNav(pageNavigation);
     invokeGetBindingBean(pageNavigation);
     removeChildById("ownerId");
     getUIStringInput("creator").setValue(pageNavigation.getCreator());
@@ -141,10 +141,18 @@ public class UIPageNavigationForm extends UIForm {
     return priority;
   }
 
+  public void setPageNav(PageNavigation pageNav_) {
+    this.pageNav_ = pageNav_;
+  }
+
+  public PageNavigation getPageNav() {
+    return pageNav_;
+  }
+
   static public class SaveActionListener extends EventListener<UIPageNavigationForm> {
     public void execute(Event<UIPageNavigationForm> event) throws Exception {
       UIPageNavigationForm uiForm = event.getSource();
-      PageNavigation pageNav = uiForm.pageNav_;
+      PageNavigation pageNav = uiForm.getPageNav();
       PortalRequestContext pcontext = Util.getPortalRequestContext();
 
       UserPortalConfigService service = uiForm.getApplicationComponent(UserPortalConfigService.class);
