@@ -1,0 +1,57 @@
+<%	
+	import org.exoplatform.webui.core.UITree; 
+	import org.exoplatform.webui.core.UIDropDownControl;	
+	import org.exoplatform.webui.core.UIRightClickPopupMenu;
+	import org.exoplatform.web.application.JavascriptManager;
+
+	def selectedNav =	uicomponent.getSelectedNavigation();
+	
+	UIRightClickPopupMenu uiPopupMenu = uicomponent.getChild(UIRightClickPopupMenu.class);
+	String popupMenu = "";
+%>
+<div id="UIPageNodeSelector">
+<%
+	if(uiPopupMenu != null && uiPopupMenu.isRendered()) {
+		String id = uicomponent.getParent().getId();
+		
+		JavascriptManager jsmanager = _ctx.getRequestContext().getJavascriptManager();
+		jsmanager.importJavascript('eXo.webui.UIRightClickPopupMenu');
+		if(uicomponent.getCopyNode()!= null) {
+			popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,PasteNode,EditNavigation,SaveNavigation,DeleteNavigation");
+		} else {
+			popupMenu = uiPopupMenu.getJSOnclickShowPopup("", "AddNode,EditNavigation,SaveNavigation,DeleteNavigation");
+		}
+		jsmanager.addJavascript("eXo.webui.UIRightClickPopupMenu.disableContextMenu('"+id+"');");
+		uicomponent.renderUIComponent(uiPopupMenu);
+	 
+	}
+%>
+	<div class="TopLeftContainerOptions">
+		<div class="TopRightContainerOptions">
+			<div class="TopCenterContainerOptions"><span></span></div>
+		</div>
+	</div>
+	<div class="MiddleLeftContainerOptions" $popupMenu>
+		<div class="MiddleRightContainerOptions">
+			<div class="UIPageNodeSelector" id="UIPageNodeSelector">
+				<%/*Begin PageNodeSelectorContainer*/%>
+				<div class="UIContainerConfigOptions ItemSelectorAncestor"> 
+					<div class="ContainerConfigOptions">
+						<a class="AddNavigationIcon" href ="<%=uicomponent.event("CreateNavigation"); %>" title="<%=_ctx.appRes("UIPageNodeSelector.tooltip.newPageNavigation")%>"><span></span></a>
+						<div class="ClearLeft" style="height: 0px"><span></span></div>	
+						<div class="UIVerticalSlideTabs ItemList CategoryContainer" style="padding: 1px;">
+							<% uicomponent.renderChild(UITree.class);%>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="BottomLeftContainerOptions">
+		<div class="BottomRightContainerOptions">
+			<div class="BottomCenterContainerOptions"><span></span></div>
+		</div>
+	</div> 
+</div>
+
+

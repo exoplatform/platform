@@ -16,8 +16,6 @@
  */
 package org.exoplatform.portal.webui.navigation;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.exoplatform.portal.application.PortalRequestContext;
@@ -33,17 +31,12 @@ import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
 import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.webui.application.WebuiRequestContext;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
-import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
-import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
-import org.exoplatform.webui.core.UIDropDownControl;
 import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
-import org.exoplatform.webui.core.model.SelectItemOption;
 import org.exoplatform.webui.event.Event;
 import org.exoplatform.webui.event.EventListener;
-import org.exoplatform.webui.event.Event.Phase;
 
 /**
  * Created by The eXo Platform SARL
@@ -52,63 +45,37 @@ import org.exoplatform.webui.event.Event.Phase;
  * Jun 23, 2006
  * 10:07:15 AM
  */
-@ComponentConfigs({
-  @ComponentConfig(
-      template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
-      events = {
-        @EventConfig(listeners = UIPageNodeSelector.ChangeNodeActionListener.class),
-        @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class, phase=Phase.DECODE) 
-      }
-  ),
-  @ComponentConfig (
-      type = UIDropDownControl.class ,
-      id = "UIDropDown",
-      template = "system:/groovy/portal/webui/navigation/UINavigationSelector.gtmpl",
-      events = {
-        @EventConfig(listeners = UIPageNodeSelector.SelectNavigationActionListener.class)
-      }
-    )
-})
+@ComponentConfig(
+    template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
+    events = {
+      @EventConfig(listeners = UIPageNodeSelector.ChangeNodeActionListener.class)
+    }
+)
 
 public class UIPageNodeSelector extends UIContainer {
   
-  private List<PageNavigation> navigations;
+//  private List<PageNavigation> navigations;
+  private PageNavigation selectedNavigation;
   
   private SelectedNode selectedNode;
   
   private SelectedNode copyNode;
   
-  private List<PageNavigation> deleteNavigations = new ArrayList<PageNavigation>();
-  
 	public UIPageNodeSelector() throws Exception {    
-    UIDropDownControl uiDopDownControl = addChild(UIDropDownControl.class, "UIDropDown", "UIDropDown");
-    uiDopDownControl.setParent(this);
-    
     UITree uiTree = addChild(UITree.class, null, "TreePageSelector");    
     uiTree.setIcon("DefaultPageIcon");    
     uiTree.setSelectedIcon("DefaultPageIcon");
     uiTree.setBeanIdField("uri");
     uiTree.setBeanLabelField("resolvedLabel");   
     uiTree.setBeanIconField("icon");
-//    UIRightClickPopupMenu uiPopupMenu = createUIComponent(UIRightClickPopupMenu.class, "PageNodePopupMenu", null) ;
-//    uiPopupMenu.setActions(new String[] {"AddNode", "EditPageNode", "EditSelectedNode", "CopyNode", "CloneNode" ,"CutNode", "DeleteNode", "MoveUp", "MoveDown"});
-//    uiTree.setUIRightClickPopupMenu(uiPopupMenu);
     
     loadNavigations();
 	}
 	
   public void loadNavigations() throws Exception {
-    navigations = new ArrayList<PageNavigation>();
-    List<PageNavigation> pnavigations = getExistedNavigation(Util.getUIPortal().getNavigations()) ;
-    for(PageNavigation nav  : pnavigations){      
-      if(nav.isModifiable()) navigations.add(nav);
-    }
-    
-    updateUI() ;
-    
     PageNavigation portalSelectedNav = Util.getUIPortal().getSelectedNavigation() ;
-    if(getPageNavigation(portalSelectedNav.getId()) != null) {
-      selectNavigation(portalSelectedNav.getId()) ;
+    if(portalSelectedNav != null) {
+      selectNavigation(portalSelectedNav);
       PageNode portalSelectedNode = Util.getUIPortal().getSelectedNode() ;
       if(portalSelectedNode != null) selectPageNodeByUri(portalSelectedNode.getUri()) ;  
       return;
@@ -116,47 +83,26 @@ public class UIPageNodeSelector extends UIContainer {
     selectNavigation();
   }
   
-  private void updateUI() {
-    if(navigations == null || navigations.size() < 1) {
-      getChild(UIDropDownControl.class).setOptions(null) ;
-      getChild(UITree.class).setSibbling(null) ;
-      return ;
-    }
-    
-    List<SelectItemOption<String>> options = new ArrayList<SelectItemOption<String>>();
-    for(PageNavigation navigation: navigations) { //navigation.getOwnerId()
-      options.add(new SelectItemOption<String>(navigation.getOwnerType() + ":" + navigation.getOwnerId(), String.valueOf(navigation.getId())));
-    }
-    UIDropDownControl uiNavigationSelector = getChild(UIDropDownControl.class);
-    uiNavigationSelector.setOptions(options);
-    if(options.size() > 0) uiNavigationSelector.setValue(0);
-  }
-  
   private void selectNavigation() {
-    if(navigations == null || navigations.size() < 1) return;
-    if (selectedNode == null) {
-      PageNavigation navigation = navigations.get(0);
-      selectedNode = new SelectedNode(navigation, null, null);
-      if(navigation.getNodes().size() > 0) selectedNode.setNode(navigation.getNodes().get(0));
+    if(selectedNavigation == null) return;
+    if (selectedNode == null || selectedNavigation.getId() != selectedNode.getPageNavigation().getId()) {
+      selectedNode = new SelectedNode(selectedNavigation, null, null);
+      if(selectedNavigation.getNodes().size() > 0) selectedNode.setNode(selectedNavigation.getNodes().get(0));
     }
-    selectNavigation(selectedNode.getPageNavigation().getId()) ;
+    selectNavigation(selectedNode.getPageNavigation()) ;
     if(selectedNode.getNode() != null) selectPageNodeByUri(selectedNode.getNode().getUri()) ;
   }
   
-  public void selectNavigation(int id){    
-    for(int i = 0; i < navigations.size(); i++){
-      if(navigations.get(i).getId() != id) continue ;
-      selectedNode = new SelectedNode(navigations.get(i), null, null);
-      selectPageNodeByUri(null) ;
-      UITree uiTree = getChild(UITree.class);
-      uiTree.setSibbling(navigations.get(i).getNodes());      
-      UIDropDownControl uiDropDownSelector = getChild(UIDropDownControl.class);
-      uiDropDownSelector.setValue(i);
-    }
+  public void selectNavigation(PageNavigation pageNav){  
+    selectedNavigation = pageNav;
+    selectedNode = new SelectedNode(pageNav, null, null);
+    selectPageNodeByUri(null) ;
+    UITree uiTree = getChild(UITree.class);
+    uiTree.setSibbling(pageNav.getNodes());      
   }
   
-  public void selectPageNodeByUri(String uri){   
-    if(selectedNode == null) return ;
+  public void selectPageNodeByUri(String uri){
+    if(selectedNode == null || (selectedNavigation.getId() != selectedNode.getPageNavigation().getId())) return ;
     UITree tree = getChild(UITree.class);
     List<?> sibbling = tree.getSibbling();
     tree.setSibbling(null);
@@ -200,54 +146,38 @@ public class UIPageNodeSelector extends UIContainer {
     return null;
   }
   
-  public List<PageNavigation> getPageNavigations() { 
-    if(navigations == null) navigations = new ArrayList<PageNavigation>();    
-    return navigations;  
-  }
- 
-  public void addPageNavigation(PageNavigation navigation) {
-    if(navigations == null) navigations = new ArrayList<PageNavigation>() ;
-    navigations.add(navigation) ;
-    updateUI() ;
-  }
-  
-  public void deletePageNavigation(PageNavigation navigation) {
-    if(navigations == null || navigations.size() < 1) return ;
-    navigations.remove(navigation);
-    deleteNavigations.add(navigation);
-    selectedNode = null;
-    selectNavigation();    
-    updateUI() ;
-  }
-
-  public PageNavigation getPageNavigation(int id) {
-    for(PageNavigation ele : getPageNavigations()) {
-      if(ele.getId() == id) return ele ;
-    }
-    return null ;
-  }
-  
   public void processRender(WebuiRequestContext context) throws Exception {
     UIRightClickPopupMenu uiPopupMenu = getChild(UIRightClickPopupMenu.class);
     if(uiPopupMenu != null) {
-      if(navigations == null || navigations.size() < 1) uiPopupMenu.setRendered(false) ;
-      else uiPopupMenu.setRendered(true) ;
+      uiPopupMenu.setRendered(true) ;
     }
     super.processRender(context) ;
   }
   
   public SelectedNode getCopyNode() { return copyNode; }
   public void setCopyNode(SelectedNode copyNode) { this.copyNode = copyNode; }
+
+  public SelectedNode getSelectedNode() { return selectedNode; }
   
-  private List<PageNavigation> getExistedNavigation(List<PageNavigation> navis) throws Exception {
-    Iterator<PageNavigation> itr = navis.iterator() ;
-    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);
-    while(itr.hasNext()) {
-      PageNavigation nav = itr.next() ;
-      if(configService.getPageNavigation(nav.getOwnerType(), nav.getOwnerId()) == null) itr.remove() ;
-    }
-    return navis ;
+  public PageNavigation getSelectedNavigation(){ 
+    return selectedNavigation; 
+  }  
+  
+  public PageNode getSelectedPageNode() { 
+    return selectedNode == null ? null : selectedNode.getNode() ; 
   }
+  
+  public String getUpLevelUri () { return selectedNode.getParentNode().getUri() ; }
+  
+//  private List<PageNavigation> getExistedNavigation(List<PageNavigation> navis) throws Exception {
+//    Iterator<PageNavigation> itr = navis.iterator() ;
+//    UserPortalConfigService configService = getApplicationComponent(UserPortalConfigService.class);
+//    while(itr.hasNext()) {
+//      PageNavigation nav = itr.next() ;
+//      if(configService.getPageNavigation(nav.getOwnerType(), nav.getOwnerId()) == null) itr.remove() ;
+//    }
+//    return navis ;
+//  }
   
   static public class ChangeNodeActionListener  extends EventListener<UITree> {
     public void execute(Event<UITree> event) throws Exception {      
@@ -272,7 +202,7 @@ public class UIPageNodeSelector extends UIContainer {
         node  = uiPageNodeSelector.getSelectedNode().getNode();
       }
       if(node == null) {
-        uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId());
+        uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation());
         uiToolPanel.setUIComponent(null) ;
         return ;
       }
@@ -295,16 +225,6 @@ public class UIPageNodeSelector extends UIContainer {
     }
   }
   
-  static public class SelectNavigationActionListener  extends EventListener<UIDropDownControl> {
-    public void execute(Event<UIDropDownControl> event) throws Exception {
-      String id = event.getRequestContext().getRequestParameter(OBJECTID);
-      UIDropDownControl uiDropDownControl = event.getSource();
-      UIPageNodeSelector uiPageNodeSelector = uiDropDownControl.getParent();
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiPageNodeSelector.getParent()) ;
-      if(id != null) uiPageNodeSelector.selectNavigation(Integer.parseInt(id));
-      uiPageNodeSelector.<UIComponent>getParent().broadcast(event, event.getExecutionPhase()) ;
-    }
-  }
 
   public static class SelectedNode {
     
@@ -340,18 +260,4 @@ public class UIPageNodeSelector extends UIContainer {
     public void setCloneNode(boolean b) { cloneNode = b; }
   }
 
-  public SelectedNode getSelectedNode() { return selectedNode; }
-  
-  public PageNavigation getSelectedNavigation(){ 
-    return selectedNode == null ? null : selectedNode.getPageNavigation(); 
-  }  
-  
-  public PageNode getSelectedPageNode() { 
-    return selectedNode == null ? null : selectedNode.getNode() ; 
-  }
-  
-  public String getUpLevelUri () { return selectedNode.getParentNode().getUri() ; }
-
-  public List<PageNavigation> getDeleteNavigations() { return deleteNavigations; }
-  
 }

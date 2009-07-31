@@ -32,8 +32,6 @@ import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.config.annotation.ComponentConfigs;
 import org.exoplatform.webui.config.annotation.EventConfig;
 import org.exoplatform.webui.core.UIComponent;
-import org.exoplatform.webui.core.UIDropDownControl;
-import org.exoplatform.webui.core.UIRightClickPopupMenu;
 import org.exoplatform.webui.core.UITree;
 import org.exoplatform.webui.core.UIWizard;
 import org.exoplatform.webui.core.lifecycle.UIFormLifecycle;
@@ -61,8 +59,7 @@ import org.exoplatform.webui.form.validator.StringLengthValidator;
       template = "system:/groovy/portal/webui/page/UIWizardPageSetInfo.gtmpl",
       events = {
         @EventConfig(listeners = UIWizardPageSetInfo.ChangeNodeActionListener.class, phase=Phase.DECODE),
-        @EventConfig(listeners = UIWizardPageSetInfo.SwitchPublicationDateActionListener.class, phase=Phase.DECODE),
-        @EventConfig(listeners = UIWizardPageSetInfo.SelectNavigationActionListener.class)
+        @EventConfig(listeners = UIWizardPageSetInfo.SwitchPublicationDateActionListener.class, phase=Phase.DECODE)
       }
   )
 })
@@ -196,7 +193,7 @@ public class UIWizardPageSetInfo extends UIForm {
       UITree tree = uiPageNodeSelector.getChild(UITree.class) ;
 
       if(tree.getParentSelected() == null && (uri == null || uri.length() < 1)){
-        uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation().getId()) ;
+        uiPageNodeSelector.selectNavigation(uiPageNodeSelector.getSelectedNavigation()) ;
       } else {
         uiPageNodeSelector.selectPageNodeByUri(uri) ;
       }
@@ -215,7 +212,7 @@ public class UIWizardPageSetInfo extends UIForm {
         uiForm.setShowPublicationDate(false) ;
         uiForm.setFirstTime(false) ;
         UIPortal uiPortal = Util.getUIPortal() ;
-        uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation().getId()) ;
+        uiPageNodeSelector.selectNavigation(uiPortal.getSelectedNavigation()) ;
         if(uiPortal.getSelectedNode() != null) {
           uiPageNodeSelector.selectPageNodeByUri(uiPortal.getSelectedNode().getUri()) ;
         }
@@ -252,14 +249,4 @@ public class UIWizardPageSetInfo extends UIForm {
     
   }
   
-  static public class SelectNavigationActionListener extends EventListener<UIDropDownControl> {
-    public void execute(Event<UIDropDownControl> event) throws Exception {
-      UIDropDownControl uiDropDownControl = event.getSource() ;
-      UIWizardPageSetInfo uiForm = uiDropDownControl.getAncestorOfType(UIWizardPageSetInfo.class) ;
-      if(uiForm.isEditMode()) {
-        uiForm.reset() ;
-        uiForm.setShowPublicationDate(false) ;
-      }
-    }
-  }
 }

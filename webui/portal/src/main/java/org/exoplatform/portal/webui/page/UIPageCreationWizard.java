@@ -105,9 +105,7 @@ public class UIPageCreationWizard extends UIPageWizard {
 
     service.create(page);
     service.update(pageNav);
-    for (PageNavigation editNav : uiNodeSelector.getPageNavigations()) {
-      setNavigation(uiPortal.getNavigations(), editNav);
-    }
+    setNavigation(uiPortal.getNavigations(), uiNodeSelector.getSelectedNavigation());
     String uri = pageNav.getId() + "::" + pageNode.getUri();
     PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal,
                                                                   PageNodeEvent.CHANGE_PAGE_NODE,
