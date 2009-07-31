@@ -106,6 +106,7 @@ public class UIAddGroupNavigation extends UIContainer {
                                                                     null,
                                                                     popUp);
       pageNavigation.setOwnerId(ownerId);
+      pageNavigation.setOwnerType(PortalConfig.GROUP_TYPE);
       pageNavigation.addFormInput();
       popUp.setUIComponent(pageNavigation);
       popUp.setWindowSize(600, 400);
