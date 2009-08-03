@@ -61,7 +61,7 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfigs({
 	@ComponentConfig(
-			template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
+			template = "system:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
 			events = { 
 					@EventConfig(listeners = UIPortalComposer.ViewPropertiesActionListener.class),
 					@EventConfig(listeners = UIPortalComposer.AbortActionListener.class),
@@ -71,7 +71,7 @@ import org.exoplatform.webui.event.EventListener;
 	),
 	@ComponentConfig(
 			id = "UIPageEditor",
-			template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
+			template = "system:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
 			events = { 
 					@EventConfig(name = "ViewProperties", listeners = UIPortalComposer.ViewProperties2ActionListener.class),
 					@EventConfig(name = "Abort", listeners = UIPortalComposer.Abort2ActionListener.class),

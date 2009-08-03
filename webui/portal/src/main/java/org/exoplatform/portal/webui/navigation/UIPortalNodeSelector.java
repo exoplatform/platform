@@ -46,7 +46,7 @@ import org.exoplatform.webui.event.EventListener;
  * Jun 23, 2006 10:07:15 AM
  */
 @ComponentConfigs( {
-    @ComponentConfig(template = "app:/groovy/portal/webui/navigation/UIPortalNodeSelector.gtmpl", events = {
+    @ComponentConfig(template = "system:/groovy/portal/webui/navigation/UIPortalNodeSelector.gtmpl", events = {
         @EventConfig(listeners = UIPortalNodeSelector.ChangeNodeActionListener.class)}),
     @ComponentConfig(id = "PortalNodePopupMenu", type = UIRightClickPopupMenu.class, template = "system:/groovy/webui/core/UIRightClickPopupMenu.gtmpl", events = {
         @EventConfig(listeners = UIPortalNodeSelector.AddNodeActionListener.class),
