@@ -208,12 +208,12 @@ public class UIPortalComposer extends UIContainer {
 			PortalDataMapper.toUIPortal(uiPortal, userPortalConfig);
 
 			UIPortal oldUIPortal = uiWorkingWS.getChild(UIPortal.class);
+			String uri = (oldUIPortal.getSelectedNode() != null ? oldUIPortal.getSelectedNode().getUri() : null);
 			uiWorkingWS.setBackupUIPortal(oldUIPortal);
 			uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
 			uiWorkingWS.setRenderedChild(UIPortal.class) ;  
 			PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
-					PageNodeEvent.CHANGE_PAGE_NODE, 
-					(uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode().getUri() : null)) ;
+					PageNodeEvent.CHANGE_PAGE_NODE, uri) ;
 			uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;  
 		}
 
