@@ -56,7 +56,7 @@ public class UIAddGroupNavigation extends UIContainer {
 
   public UIAddGroupNavigation() throws Exception {
     UIVirtualList virtualList = addChild(UIVirtualList.class, null, "virtualGroupList");
-    virtualList.setPageSize(5);
+    virtualList.setPageSize(6);
     UIRepeater repeater = createUIComponent(UIRepeater.class,
                                             "UIAddGroupNavigationGrid",
                                             virtualList.getGenerateId());

@@ -43,15 +43,6 @@
 		          </div>
 		        </div>
 		       </div>
-		       <div class="ActionButton DarkGrayButton">
-		        <div class="ButtonLeft">
-		          <div class="ButtonRight">
-		            <div class="ButtonMiddle">
-		              <a href="javascript:void(0);">Cancel</a>
-		            </div>
-		          </div>
-		        </div>
-		      </div>
 		    </td>
       </tr>
  	  </table>

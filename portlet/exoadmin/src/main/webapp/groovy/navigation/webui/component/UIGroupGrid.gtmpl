@@ -14,7 +14,7 @@
     	else rowClass =  "OddRow" ; 
     	even = !even ;
 	%>
-  <table class="ManagementBlock" style="table-layout: fixed; height: 60px" cellspacing="0">
+  <table class="ManagementBlock" style="table-layout: fixed; height: 67px" cellspacing="0">
     <tr>								      								        								        
 				<td class="Content" style="vertical-align: middle;">
        		<div class="Label"><%= groupName %></div>

@@ -14,7 +14,7 @@
 <div id="$uicomponent.id" rel="$uicomponent.generateId"
             style="overflow:auto;height:100px;" onscroll="eXo.webui.UIVirtualList.scrollMove(this,'$url');">    
     <div style="display:none;"></div>
-    <div height="150px"><% uicomponent.renderChildren();%></div>
+    <div><% uicomponent.renderChildren();%></div>
     <% 
       rcontext.getJavascriptManager().addJavascript("eXo.webui.UIVirtualList.init('$uicomponent.generateId');");
         if (!hasNext) {
