@@ -178,10 +178,9 @@ public class UISiteManagement extends UIContainer {
 			PortalRequestContext prContext = Util.getPortalRequestContext();
 
 			UserPortalConfig userConfig = service.getUserPortalConfig(portalName, prContext.getRemoteUser());
-			PortalConfig portalConfig = userConfig.getPortalConfig();
+			//PortalConfig portalConfig = userConfig.getPortalConfig();
 
-			UIPortalApplication portalApp=(UIPortalApplication)prContext.getUIApplication();//TODO: Add a try/catch
-			
+			UIPortalApplication portalApp=(UIPortalApplication)prContext.getUIApplication();
 			//UserACL userACL = uicomp.getApplicationComponent(UserACL.class) ;
 			//UserACL userACL = portalApp.getApplicationComponent(UserACL.class) ;
 			//if(!userACL.hasEditPermission(portalConfig)){
@@ -192,9 +191,9 @@ public class UISiteManagement extends UIContainer {
 			UIWorkingWorkspace uiWorkingWS = portalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       
       //Added by Minh Hoang TO: Update the UIPortal on UIWorkingWorkspace
-			UIPortalPool portalPool=UIPortalPool.getInstance();//TODO: Declare a global entry instead of local variable
+			UIPortalPool portalPool=portalApp.getUIPortalPool();
 	    UIPortal uiPortal=portalPool.fetchUIPortal(portalName,userConfig,uiWorkingWS);		
-			portalPool.setSelectedUIPortal(uiPortal);//TODO: Check if there is trouble as we invoke callback inside a callback
+			portalPool.setSelectedUIPortal(uiPortal);
 			
 	    //Added by Minh Hoang TO: Trigger the edit inline process
 			portalApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);

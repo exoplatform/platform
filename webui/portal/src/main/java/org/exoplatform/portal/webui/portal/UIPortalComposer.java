@@ -274,7 +274,7 @@ public class UIPortalComposer extends UIContainer {
 			PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
 					PageNodeEvent.CHANGE_PAGE_NODE, uri) ;
 			uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;  
-			UIPortalPool.getInstance().resetDefaultUIPortal();
+			uiPortalApp.getUIPortalPool().resetDefaultUIPortal();
 		}
 
 	}
@@ -315,7 +315,7 @@ public class UIPortalComposer extends UIContainer {
 					(uiPortal.getSelectedNode() != null ? uiPortal.getSelectedNode()
 							.getUri() : null));
 			uiPortal.broadcast(pnevent, Event.Phase.PROCESS);
-			UIPortalPool.getInstance().resetDefaultUIPortal();
+      uiPortalApp.getUIPortalPool().resetDefaultUIPortal();
 		}
 
 	}

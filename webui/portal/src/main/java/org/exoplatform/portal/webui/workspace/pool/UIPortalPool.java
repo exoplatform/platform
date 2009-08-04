@@ -21,24 +21,16 @@ import org.exoplatform.webui.core.UIComponent;
 public class UIPortalPool{
 
 	private static Log logger=ExoLogger.getExoLogger(UIPortalPool.class);
-	private static Map<String, UIPortal> _pooledUIPortals=new HashMap<String, UIPortal>();
+	private Map<String, UIPortal> _pooledUIPortals;
 	private UIPortalChangeEventListener _listener;
-
-	private static UIPortalPool instance;
+	
 	private UIPortal currentUIPortal;
   private UIPortal defaultUIPortal;
 
-	private UIPortalPool(){
+	public UIPortalPool(){
+		_pooledUIPortals=new HashMap<String,UIPortal>();
 	}
-
-	public static UIPortalPool getInstance(){
-		if(instance==null){
-			logger.info("Instantiate UIPortalPool");
-			instance=new UIPortalPool();
-		}
-		return instance;
-	}
-
+	
 	//TODO: Test deadlock when there are multiple administrators
 	synchronized public void setSelectedUIPortal(UIPortal _uiPortal){
 		if(currentUIPortal==_uiPortal){
@@ -72,7 +64,20 @@ public class UIPortalPool{
 		return uiPortal;
 	}
 
+	/**
+	 *  We set a default UIPortal on the pool, in the context of portal application, it is the UIPortal
+	 * object in 'classic' portal. As the method is invoked everytime a new UIPortalApplication is instantiated
+	 * (ex: when user click on links under AdminToolbar 's Site menu item), its implementation does nothing if 
+	 * a default UIPortal has been set.
+	 *  
+	 * @param _defaultUIPortal
+	 */
 	public void setDefaultUIPortal(UIPortal _defaultUIPortal){
+		if(defaultUIPortal!=null){
+			logger.info("Default UIPortal was already set");
+			return;
+		}
+		logger.info("Set new default UIPortal on uiPortalPool");
 		defaultUIPortal=_defaultUIPortal;
 	}
 	
@@ -85,7 +90,6 @@ public class UIPortalPool{
 		_pooledUIPortals.put(portalName, uiPortal);
 	}
 
-	//TODO: Re-implement this method when UIPortalPool is no longer singleton
 	public void setListener(UIPortalChangeEventListener listener){
 		if(_listener==null){
 			_listener=listener;

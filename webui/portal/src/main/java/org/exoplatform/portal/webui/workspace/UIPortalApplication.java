@@ -86,8 +86,8 @@ public class UIPortalApplication extends UIApplication {
 
   private boolean            isSessionOpen     = false;
  
-  private static UIPortalPool _uiPortalPool=UIPortalPool.getInstance();
-
+  private UIPortalPool _uiPortalPool;
+  
   /**
    * The constructor of this class is used to build the tree of UI components
    * that will be aggregated in the portal page. 1) The component is stored in
@@ -305,6 +305,7 @@ public class UIPortalApplication extends UIApplication {
     uiWorkingWorkspace.addChild(uiPortal);
     
     //Minh Hoang TO: Set listener as well as default UIPortal on the portal pool
+    _uiPortalPool = new UIPortalPool();
     _uiPortalPool.backupUIPortal(userPortalConfig_.getPortalConfig().getName(), uiPortal);
     _uiPortalPool.setDefaultUIPortal(uiPortal);
     _uiPortalPool.setListener(new UIPCListenerImpl(uiWorkingWorkspace,_uiPortalPool));
@@ -467,5 +468,9 @@ public class UIPortalApplication extends UIApplication {
 
   public void setUserPortalConfig(UserPortalConfig userPortalConfig) {
     this.userPortalConfig_ = userPortalConfig;
+  }
+  
+  public UIPortalPool getUIPortalPool(){
+  	return _uiPortalPool;
   }
 }
