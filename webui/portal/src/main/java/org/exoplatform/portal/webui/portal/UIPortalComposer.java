@@ -61,22 +61,24 @@ import org.exoplatform.webui.event.EventListener;
  */
 @ComponentConfigs({
 	@ComponentConfig(
-			template = "system:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
+			template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
 			events = { 
 					@EventConfig(listeners = UIPortalComposer.ViewPropertiesActionListener.class),
 					@EventConfig(listeners = UIPortalComposer.AbortActionListener.class),
 					@EventConfig(listeners = UIPortalComposer.FinishActionListener.class),
-					@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class)
+					@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class),
+					@EventConfig(listeners = UIPortalComposer.ToggleActionListener.class)
 			}
 	),
 	@ComponentConfig(
 			id = "UIPageEditor",
-			template = "system:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
+			template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
 			events = { 
 					@EventConfig(name = "ViewProperties", listeners = UIPortalComposer.ViewProperties2ActionListener.class),
 					@EventConfig(name = "Abort", listeners = UIPortalComposer.Abort2ActionListener.class),
 					@EventConfig(name = "Finish", listeners = UIPortalComposer.Finish2ActionListener.class),
-					@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class)
+					@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class),
+          @EventConfig(listeners = UIPortalComposer.ToggleActionListener.class)
 			}
 	),
 	@ComponentConfig(
@@ -87,6 +89,8 @@ import org.exoplatform.webui.event.EventListener;
 	)
 })
 public class UIPortalComposer extends UIContainer {
+  
+  private boolean isCollapse = false;
 
 	public UIPortalComposer() throws Exception {
 		UITabPane uiTabPane = addChild(UITabPane.class, "UIPortalComposerTab", null);
@@ -104,7 +108,11 @@ public class UIPortalComposer extends UIContainer {
 		return getAncestorOfType(UIPortalApplication.class).getModeState();
 	}
 
-	public void save() throws Exception {
+	public boolean isCollapse() { return isCollapse; }
+
+	public void setCollapse(boolean isCollapse) { this.isCollapse = isCollapse; }
+
+  public void save() throws Exception {
 		UIPortal uiPortal = Util.getUIPortal();     
 		UIPortalApplication uiPortalApp = getAncestorOfType(UIPortalApplication.class);    
 
@@ -280,6 +288,16 @@ public class UIPortalComposer extends UIContainer {
 			event.getSource().updateWorkspaceComponent();
 			Util.getPortalRequestContext().setFullRender(true);
 		}
+	}
+	
+	static public class ToggleActionListener extends EventListener<UIPortalComposer> {
+
+    public void execute(Event<UIPortalComposer> event) throws Exception {
+      UIPortalComposer uiComposer = event.getSource();
+      uiComposer.setCollapse(!uiComposer.isCollapse());
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiComposer);
+    }
+	  
 	}
 
 	//-----------------------------Page's Listeners------------------------------------------//

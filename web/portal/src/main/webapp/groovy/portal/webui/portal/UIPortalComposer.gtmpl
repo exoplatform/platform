@@ -2,14 +2,16 @@
 	String popupId = uicomponent.getId(); 
 	def rcontext = _ctx.getRequestContext(); 
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
-	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', true, true, true, false);"); 
+	boolean isCollapse = uicomponent.isCollapse(); 
+	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', true, " + !isCollapse +", true, false);");
+	String collapseIcon = (isCollapse ? "CollapseIcon" : "ExpandIcon");
 %>
 <div class="UIPopupWindow UIDragObject UIPortalComposer" exo:minWidth="200" exo:minHeight="200" id="$uicomponent.id" style="width: 300px; display: block;">
 	<div class="TLPortalComposer">
 		<div class="TRPortalComposer">
 			<div class="TCPortalComposer">
 				<div class="OverflowContainer">
-					<div class="PopupTitleIcon"><span></span></div>
+					<div class="$collapseIcon" onclick="<%= uicomponent.event("Toggle") %>"><span></span></div>
 						<a class="CloseButton" title="<%=_ctx.appRes(popupId + ".action.Abort")%>" href="<%=uicomponent.url("Abort")%>"><span></span></a>
 						<a class="SaveButton" title="<%=_ctx.appRes(popupId + ".action.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
 					<div class="PopupTitle"><%=_ctx.appRes(popupId + ".title."+ popupId)%></div>
@@ -19,6 +21,7 @@
 	</div>
 
 
+	<% if(!isCollapse) {%>
 	<div class="MLPortalComposer">
 		<div class="MRPortalComposer">
 			<div class="MCPortalComposer">
@@ -26,14 +29,13 @@
 					<div style="width: 100%;">
 						<div class="PopupContent" style="height: 500px">
 							<div class="Component"><% uicomponent.renderChildren(); %></div>
-							
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
+
 	<div class="BLPortalComposer">
 		<div class="BRPortalComposer">
 			<div class="BCPortalComposer">
@@ -75,6 +77,10 @@
 			</div>
 		</div>
 	</div>	
+	<% }  else {%>
+	<div class="Bottom"><span></span></div>
+	<% } %>
+
 </div>
 <script language="javascript">
 	eXo.portal.portalMode = <%=uicomponent.getPortalMode();%>;

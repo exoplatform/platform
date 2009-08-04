@@ -20,7 +20,7 @@ UIPopupWindow.prototype.init = function(popupId, isShow, isResizable, showCloseB
 	//TODO Lambkin: this statement create a bug in select box component in Firefox
 	//this.superClass.init(popup) ;
 	var contentBlock = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'PopupContent');
-	if((eXo.core.Browser.getBrowserHeight() - 100 ) < contentBlock.offsetHeight) {
+	if(contentBlock && (eXo.core.Browser.getBrowserHeight() - 100 < contentBlock.offsetHeight)) {
 		contentBlock.style.height = (eXo.core.Browser.getBrowserHeight() - 100) + "px";
 	}
 	var popupBar = DOMUtil.findFirstDescendantByClass(popup, 'div' ,'PopupTitle') ;
@@ -219,6 +219,7 @@ UIPopupWindow.prototype.initDND = function(evt) {
 	DragDrop.initCallback = function (dndEvent) {
 		var dragObject = dndEvent.dragObject ;
 		dragObject.uiWindowContent = DOMUtil.findFirstDescendantByClass(dragObject, "div", "PopupContent") ;
+		if(!dragObject.uiWindowContent) return;
 		if(eXo.core.Browser.browserType == "mozilla") {
 			dragObject.uiWindowContent.style.overflow = "hidden" ;
 			var elements = eXo.core.DOMUtil.findDescendantsByClass(dragObject.uiWindowContent,  "div" ,"PopupMessageBox") ;
@@ -233,8 +234,8 @@ UIPopupWindow.prototype.initDND = function(evt) {
 
   DragDrop.dropCallback = function (dndEvent) {
   	var dragObject = dndEvent.dragObject ;
-		if(eXo.core.Browser.browserType == "mozilla") {
-  		dragObject.uiWindowContent.style.overflow = "auto" ;
+		if(eXo.core.Browser.browserType == "mozilla" && dragObject.uiWindowContent) {
+			dragObject.uiWindowContent.style.overflow = "auto" ;
    		var elements = eXo.core.DOMUtil.findDescendantsByClass(dragObject.uiWindowContent,  "div" ,"PopupMessageBox") ;
   		for(var i = 0; i < elements.length; i++) {
      	  elements[i].style.overflow  = "auto" ;
