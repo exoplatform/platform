@@ -343,15 +343,15 @@ public class UINavigationNodeSelector extends UIContainer {
   
   static public class EditPageNodeActionListener extends EventListener<UIRightClickPopupMenu> {
     public void execute(Event<UIRightClickPopupMenu> event) throws Exception {
-      // get URI 
+      // get URI
       String uri = event.getRequestContext().getRequestParameter(UIComponent.OBJECTID);
       
-      // get UINavigationNodeSelector  
+      // get UINavigationNodeSelector
       UIRightClickPopupMenu uiPopupMenu = event.getSource();
 
       UINavigationNodeSelector uiNodeSelector = uiPopupMenu.getAncestorOfType(UINavigationNodeSelector.class);
       
-      // get Selected PageNode 
+      // get Selected PageNode
       PageNode selectedPageNode = null;
       List<PageNode> pageNodes = uiNodeSelector.getSelectedNavigation().getNodes();
       if (uri != null && uri.trim().length() > 0) {
@@ -363,6 +363,12 @@ public class UINavigationNodeSelector extends UIContainer {
       }
       
       UIPortalApplication uiApp = Util.getUIPortalApplication();
+      
+      if (selectedPageNode.getPageReference() == null) {
+        uiApp.addMessage(new ApplicationMessage("UIPageNodeSelector.msg.notAvailable", null));
+        return;
+      }
+      
       uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
       UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
@@ -377,19 +383,16 @@ public class UINavigationNodeSelector extends UIContainer {
       
       // get selected page
       Page selectPage = null;
-      if (selectedPageNode.getPageReference() != null) {
-        selectPage = userService.getPage(selectedPageNode.getPageReference(),
-                                         context.getRemoteUser());
-      }
-
+      selectPage = userService.getPage(selectedPageNode.getPageReference(),
+                                       context.getRemoteUser());
       selectPage.setModifier(context.getRemoteUser());
       selectPage.setTitle(selectedPageNode.getLabel());
       
       // convert Page to UIPage
       PortalDataMapper.toUIPage(uiPage, selectPage);
-
       Util.getPortalRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
       Util.getPortalRequestContext().setFullRender(true);
+      
     }
   }
 

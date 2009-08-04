@@ -46,7 +46,7 @@ import org.exoplatform.webui.event.EventListener;
  * 10:07:15 AM
  */
 @ComponentConfig(
-    template = "app:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
+    template = "system:/groovy/portal/webui/navigation/UIPageNodeSelector.gtmpl" ,
     events = {
       @EventConfig(listeners = UIPageNodeSelector.ChangeNodeActionListener.class)
     }
