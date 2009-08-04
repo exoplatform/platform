@@ -220,8 +220,18 @@
 	height: 29px;
 }
 
-.UIPortalComposer .PopupTitleIcon {
-	background: transparent url(background/GrayDownIcon.gif) no-repeat left;
+.UIPortalComposer .CollapseIcon {
+	background: url(background/ExpandIcon.gif) no-repeat left;
+	width: 16px; height: 14px;
+	float: left; margin: 6px 5px;
+	cursor: pointer;
+}
+
+.UIPortalComposer .ExpandIcon {
+	background: url(background/GrayDownIcon.gif) no-repeat left;
+	width: 16px; height: 14px;
+	float: left; margin: 6px 5px;
+	cursor: pointer;
 }
 
 .UIPortalComposer .CloseButton {
@@ -284,6 +294,10 @@
 .UIPortalComposer .BCPortalComposer {
 	background: #fff url(background/CenterMiddleWindow.gif) repeat;
 	height: 50px;
+}
+
+.UIPortalComposer .Bottom {
+	border-bottom: 1px solid #85aece;
 }
 
 .UIPortalComposer .UIWindowContent	{
