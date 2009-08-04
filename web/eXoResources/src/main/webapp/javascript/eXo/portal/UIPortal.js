@@ -500,7 +500,17 @@ UIPortal.prototype.removeComponent = function(uri, componentId) {
 	if(result == "OK") {
 			eXo.core.DOMUtil.removeElement(componentId);
 	}	
-}
+};
+
+UIPortal.prototype.changeComposerSaveButton = function() {
+	if(eXo.portal.hasEditted == false) {
+		var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
+		var portalComposer = eXo.core.DOMUtil.findFirstChildByClass(uiWorkingWS, "div", "UIPortalComposer");
+		var saveButton = eXo.core.DOMUtil.findFirstDescendantByClass(portalComposer, "a", "SaveButton");
+		if(saveButton) eXo.core.DOMUtil.replaceClass(saveButton, "SaveButton", "EdittedSaveButton");
+		ajaxAsyncGetRequest(eXo.env.server.createPortalURL(portalComposer.id, "ChangeEdittedState", true));
+  }
+};
 
 
 /*

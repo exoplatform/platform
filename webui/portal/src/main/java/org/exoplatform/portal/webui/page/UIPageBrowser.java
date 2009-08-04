@@ -303,9 +303,7 @@ public class UIPageBrowser extends UISearch {
       toolPanel.setUIComponent(uiPage);
       toolPanel.setShowMaskLayer(false);
       uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
-      UIPortalComposer portalComposer = uiWorkingWS.findFirstComponentOfType(UIPortalComposer.class);
-      if(portalComposer == null) portalComposer = uiWorkingWS.addChild(UIPortalComposer.class, "UIPageEditor", null);
-      portalComposer.setRendered(true);
+      uiWorkingWS.addChild(UIPortalComposer.class, "UIPageEditor", null);
       pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
       pcontext.setFullRender(true);
     }

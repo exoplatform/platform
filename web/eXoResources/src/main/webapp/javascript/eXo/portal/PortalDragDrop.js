@@ -229,7 +229,8 @@ PortalDragDrop.prototype.init = function(e) {
     }
     
     eXo.portal.isInDragging = false;
-  }
+  	eXo.portal.UIPortal.changeComposerSaveButton();
+ }
   
   var clickObject = this;
   var componentBlock = DOMUtil.findAncestorByClass(clickObject, "UIComponentBlock") ;

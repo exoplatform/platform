@@ -59,25 +59,43 @@ import org.exoplatform.webui.event.EventListener;
  * Created by The eXo Platform SAS Author : Pham Thanh Tung
  * thanhtungty@gmail.com Jun 10, 2009
  */
-@ComponentConfigs( {
-		@ComponentConfig(template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl", events = {
-				@EventConfig(listeners = UIPortalComposer.ViewPropertiesActionListener.class),
-				@EventConfig(listeners = UIPortalComposer.AbortActionListener.class),
-				@EventConfig(listeners = UIPortalComposer.FinishActionListener.class),
-				@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class),
-				@EventConfig(listeners = UIPortalComposer.ToggleActionListener.class) }),
-		@ComponentConfig(id = "UIPageEditor", template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl", events = {
-				@EventConfig(name = "ViewProperties", listeners = UIPortalComposer.ViewProperties2ActionListener.class),
-				@EventConfig(name = "Abort", listeners = UIPortalComposer.Abort2ActionListener.class),
-				@EventConfig(name = "Finish", listeners = UIPortalComposer.Finish2ActionListener.class),
-				@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class),
-				@EventConfig(listeners = UIPortalComposer.ToggleActionListener.class) }),
-		@ComponentConfig(id = "UIPortalComposerTab", type = UITabPane.class, template = "app:/groovy/portal/webui/portal/UIPortalComposerContent.gtmpl", events = { @EventConfig(listeners = UIPortalComposer.SelectTabActionListener.class) }) })
+@ComponentConfigs({
+	@ComponentConfig(
+			template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
+			events = { 
+					@EventConfig(listeners = UIPortalComposer.ViewPropertiesActionListener.class),
+					@EventConfig(listeners = UIPortalComposer.AbortActionListener.class),
+					@EventConfig(listeners = UIPortalComposer.FinishActionListener.class),
+					@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class),
+					@EventConfig(listeners = UIPortalComposer.ChangeEdittedStateActionListener.class),
+					@EventConfig(listeners = UIPortalComposer.ToggleActionListener.class)
+			}
+	),
+	@ComponentConfig(
+			id = "UIPageEditor",
+			template = "app:/groovy/portal/webui/portal/UIPortalComposer.gtmpl",
+			events = { 
+					@EventConfig(name = "ViewProperties", listeners = UIPortalComposer.ViewProperties2ActionListener.class),
+					@EventConfig(name = "Abort", listeners = UIPortalComposer.Abort2ActionListener.class),
+					@EventConfig(name = "Finish", listeners = UIPortalComposer.Finish2ActionListener.class),
+					@EventConfig(listeners = UIPortalComposer.SwitchModeActionListener.class),
+          @EventConfig(listeners = UIPortalComposer.ChangeEdittedStateActionListener.class),
+          @EventConfig(listeners = UIPortalComposer.ToggleActionListener.class)
+			}
+	),
+	@ComponentConfig(
+			id = "UIPortalComposerTab",
+			type = UITabPane.class,
+			template = "app:/groovy/portal/webui/portal/UIPortalComposerContent.gtmpl",
+			events = {@EventConfig(listeners = UIPortalComposer.SelectTabActionListener.class)}
+	)
+})
+
 public class UIPortalComposer extends UIContainer {
-
+  
+  private boolean isEditted = false;
+  private boolean isCollapse = false;
 	private String ownerPortalName;
-
-	private boolean isCollapse = false;
 
 	public UIPortalComposer() throws Exception {
 		UITabPane uiTabPane = addChild(UITabPane.class, "UIPortalComposerTab", null);
@@ -95,6 +113,9 @@ public class UIPortalComposer extends UIContainer {
 	public int getPortalMode() {
 		return getAncestorOfType(UIPortalApplication.class).getModeState();
 	}
+	
+	public boolean isEditted() { return isEditted; }
+	public void setEditted(boolean b) { isEditted = b; }
 
 	public boolean isCollapse() {
 		return isCollapse;
@@ -248,10 +269,11 @@ public class UIPortalComposer extends UIContainer {
 					.getSelectedNode().getUri() : null);
 			uiWorkingWS.setBackupUIPortal(oldUIPortal);
 			uiWorkingWS.replaceChild(oldUIPortal.getId(), uiPortal);
-			uiWorkingWS.setRenderedChild(UIPortal.class);
-			PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal,
-					PageNodeEvent.CHANGE_PAGE_NODE, uri);
-			uiPortal.broadcast(pnevent, Event.Phase.PROCESS);
+			uiWorkingWS.setRenderedChild(UIPortal.class) ;
+			uiWorkingWS.removeChild(UIPortalComposer.class);
+			PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal, 
+					PageNodeEvent.CHANGE_PAGE_NODE, uri) ;
+			uiPortal.broadcast(pnevent, Event.Phase.PROCESS) ;  
 			UIPortalPool.getInstance().resetDefaultUIPortal();
 		}
 
@@ -342,24 +364,26 @@ public class UIPortalComposer extends UIContainer {
 			Util.getPortalRequestContext().setFullRender(true);
 		}
 	}
-
-	static public class ToggleActionListener extends
-			EventListener<UIPortalComposer> {
-
-		public void execute(Event<UIPortalComposer> event) throws Exception {
-			UIPortalComposer uiComposer = event.getSource();
-			uiComposer.setCollapse(!uiComposer.isCollapse());
-			event.getRequestContext().addUIComponentToUpdateByAjax(uiComposer);
-		}
-
+	
+	static public class ChangeEdittedStateActionListener extends EventListener<UIPortalComposer> {
+	  public void execute(Event<UIPortalComposer> event) {
+	    UIPortalComposer uiComposer = event.getSource();
+	    uiComposer.setEditted(true);
+	  }
+	}
+	
+	static public class ToggleActionListener extends EventListener<UIPortalComposer> {
+    public void execute(Event<UIPortalComposer> event) throws Exception {
+      UIPortalComposer uiComposer = event.getSource();
+      uiComposer.setCollapse(!uiComposer.isCollapse());
+      event.getRequestContext().addUIComponentToUpdateByAjax(uiComposer);
+    }
 	}
 
 	// -----------------------------Page's
 	// Listeners------------------------------------------//
 
-	static public class ViewProperties2ActionListener extends
-			EventListener<UIPortalComposer> {
-
+	static public class ViewProperties2ActionListener extends	EventListener<UIPortalComposer> {
 		public void execute(Event<UIPortalComposer> event) throws Exception {
 			UIWorkingWorkspace uiWorkingWS = event.getSource().getParent();
 			UIPortalToolPanel uiToolPanel = uiWorkingWS
@@ -373,12 +397,9 @@ public class UIPortalComposer extends UIContainer {
 			uiMaskWS.setUIComponent(uiPageForm);
 			event.getRequestContext().addUIComponentToUpdateByAjax(uiMaskWS);
 		}
-
 	}
 
-	static public class Abort2ActionListener extends
-			EventListener<UIPortalComposer> {
-
+	static public class Abort2ActionListener extends EventListener<UIPortalComposer> {
 		public void execute(Event<UIPortalComposer> event) throws Exception {
 			UIWorkingWorkspace uiWorkingWS = event.getSource().getParent();
 			UIPortalToolPanel uiToolPanel = uiWorkingWS
@@ -390,6 +411,7 @@ public class UIPortalComposer extends UIContainer {
 			UIPortal uiPortal = Util.getUIPortal();
 			uiPortal.setMode(UIPortal.COMPONENT_VIEW_MODE);
 			uiPortal.setRenderSibbling(UIPortal.class);
+			uiWorkingWS.removeChild(UIPortalComposer.class);
 
 			PageNodeEvent<UIPortal> pnevent = new PageNodeEvent<UIPortal>(uiPortal,
 					PageNodeEvent.CHANGE_PAGE_NODE,
@@ -397,12 +419,9 @@ public class UIPortalComposer extends UIContainer {
 							.getUri() : null));
 			uiPortal.broadcast(pnevent, Event.Phase.PROCESS);
 		}
-
 	}
 
-	static public class Finish2ActionListener extends
-			EventListener<UIPortalComposer> {
-
+	static public class Finish2ActionListener extends EventListener<UIPortalComposer> {
 		public void execute(Event<UIPortalComposer> event) throws Exception {
 			UIWorkingWorkspace uiWorkingWS = event.getSource().getParent();
 			UIPortalToolPanel uiToolPanel = uiWorkingWS
@@ -426,6 +445,5 @@ public class UIPortalComposer extends UIContainer {
 							.getUri() : null));
 			uiPortal.broadcast(pnevent, Event.Phase.PROCESS);
 		}
-
 	}
 }

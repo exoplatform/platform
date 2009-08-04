@@ -247,6 +247,15 @@
 	width: 19px;
 }
 
+.UIPortalComposer .EdittedSaveButton {
+	cursor: pointer;
+	float: right;
+	height: 15px;
+	margin: 5px 3px 0 0;
+	width: 19px;
+	border: 1px solid red;
+}
+
 .UIPortalComposer .UnSaveButton {
 	background: transparent url(background/UnSaveIcon.gif) no-repeat scroll right bottom;
 	cursor: pointer;

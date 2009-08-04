@@ -2,6 +2,8 @@
 	String popupId = uicomponent.getId(); 
 	def rcontext = _ctx.getRequestContext(); 
 	rcontext.getJavascriptManager().importJavascript('eXo.webui.UIPopupWindow');
+	
+	boolean isEditted = uicomponent.isEditted; 
 	boolean isCollapse = uicomponent.isCollapse(); 
 	rcontext.getJavascriptManager().addJavascript("eXo.webui.UIPopupWindow.init('$popupId', true, " + !isCollapse +", true, false);");
 	String collapseIcon = (isCollapse ? "CollapseIcon" : "ExpandIcon");
@@ -13,7 +15,7 @@
 				<div class="OverflowContainer">
 					<div class="$collapseIcon" onclick="<%= uicomponent.event("Toggle") %>"><span></span></div>
 						<a class="CloseButton" title="<%=_ctx.appRes(popupId + ".action.Abort")%>" href="<%=uicomponent.url("Abort")%>"><span></span></a>
-						<a class="SaveButton" title="<%=_ctx.appRes(popupId + ".action.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
+						<a class="<%= isEditted ? "EdittedSaveButton" : "SaveButton" %>" title="<%=_ctx.appRes(popupId + ".action.Finish")%>" href="<%=uicomponent.url("Finish")%>"><span></span></a>
 					<div class="PopupTitle"><%=_ctx.appRes(popupId + ".title."+ popupId)%></div>
 				</div>
 			</div>
@@ -44,7 +46,7 @@
 						<tr>
 							<td>
 								
-								<div onclick="<%= uicomponent.event("ViewProperties") %>" class="ActionButton SimpleStyle1">
+								<div onclick="<%= uicomponent.event("ViewProperties") %>;eXo.portal.UIPortal.changeComposerSaveButton()" class="ActionButton SimpleStyle1">
 									<div class="ButtonLeft">
 										<div class="ButtonRight">
 											<div class="ButtonMiddle">
@@ -84,4 +86,5 @@
 </div>
 <script language="javascript">
 	eXo.portal.portalMode = <%=uicomponent.getPortalMode();%>;
+	eXo.portal.hasEditted = <%=uicomponent.isEditted;%>;
 </script>
