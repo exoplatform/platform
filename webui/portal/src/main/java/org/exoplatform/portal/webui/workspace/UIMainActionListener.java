@@ -37,129 +37,162 @@ import org.exoplatform.webui.event.EventListener;
  */
 public class UIMainActionListener {
 
-  static public class EditCurrentPageActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      UIPortalApplication uiApp = Util.getUIPortalApplication();
-      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
-      UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
-      uiWorkingWS.addChild(UIPortalComposer.class, "UIPageEditor", null);
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
-      uiToolPanel.setShowMaskLayer(false);
-      UIPageBody pageBody = uiWorkingWS.findFirstComponentOfType(UIPageBody.class);
-      uiToolPanel.setWorkingComponent(pageBody.getUIComponent());
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
-      Util.getPortalRequestContext().setFullRender(true);
-    }
-  }
+	static public class EditCurrentPageActionListener extends
+			EventListener<UIWorkingWorkspace> {
+		public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+			UIPortalApplication uiApp = Util.getUIPortalApplication();
+			uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+			UIWorkingWorkspace uiWorkingWS = uiApp
+					.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+			uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+			UIPortalComposer uiPortalComposer = uiWorkingWS.addChild(
+					UIPortalComposer.class, "UIPageEditor", null);
+			UIPortal uiPortal = uiWorkingWS.getChild(UIPortal.class);
+			uiPortalComposer.setOwnerPortalName(uiPortal.getName());
+			UIPortalToolPanel uiToolPanel = uiWorkingWS
+					.getChild(UIPortalToolPanel.class);
+			uiToolPanel.setShowMaskLayer(false);
+			UIPageBody pageBody = uiWorkingWS
+					.findFirstComponentOfType(UIPageBody.class);
+			uiToolPanel.setWorkingComponent(pageBody.getUIComponent());
+			event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
+			Util.getPortalRequestContext().setFullRender(true);
+		}
+	}
 
-  static public class PageCreationWizardActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      UIPortalApplication uiApp = Util.getUIPortalApplication();
-      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
-      UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
-      uiWorkingWS.addChild(UIPortalComposer.class, null, null).setRendered(false);
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.getChild(UIPortalToolPanel.class);
-      uiToolPanel.setShowMaskLayer(false);
-      uiToolPanel.setWorkingComponent(UIPageCreationWizard.class, null);
-      UIPageCreationWizard uiWizard = (UIPageCreationWizard) uiToolPanel.getUIComponent();
-      UIWizardPageSetInfo uiPageSetInfo = uiWizard.getChild(UIWizardPageSetInfo.class);
-      uiPageSetInfo.setShowPublicationDate(false);
-      event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
-    }
-  }
+	static public class PageCreationWizardActionListener extends
+			EventListener<UIWorkingWorkspace> {
+		public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+			UIPortalApplication uiApp = Util.getUIPortalApplication();
+			uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+			UIWorkingWorkspace uiWorkingWS = uiApp
+					.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+			uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+			UIPortalComposer uiPortalComposer = uiWorkingWS.addChild(
+					UIPortalComposer.class, null, null).setRendered(false);
+			UIPortal uiPortal = uiWorkingWS.getChild(UIPortal.class);
+			uiPortalComposer.setOwnerPortalName(uiPortal.getName());
+			UIPortalToolPanel uiToolPanel = uiWorkingWS
+					.getChild(UIPortalToolPanel.class);
+			uiToolPanel.setShowMaskLayer(false);
+			uiToolPanel.setWorkingComponent(UIPageCreationWizard.class, null);
+			UIPageCreationWizard uiWizard = (UIPageCreationWizard) uiToolPanel
+					.getUIComponent();
+			UIWizardPageSetInfo uiPageSetInfo = uiWizard
+					.getChild(UIWizardPageSetInfo.class);
+			uiPageSetInfo.setShowPublicationDate(false);
+			event.getRequestContext().addUIComponentToUpdateByAjax(uiWorkingWS);
+		}
+	}
 
-  public static class CreatePortalActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      PortalRequestContext prContext = Util.getPortalRequestContext();
-      UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
-      UserACL userACL = uiApp.getApplicationComponent(UserACL.class);
-      if (!userACL.hasCreatePortalPermission()) {
-        uiApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-createPermission",
-                                                null));
-        ;
-        return;
-      }
-      UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);
-      UIPortalForm uiNewPortal = uiMaskWS.createUIComponent(UIPortalForm.class,
-                                                            "CreatePortal",
-                                                            "UIPortalForm");
-      uiMaskWS.setUIComponent(uiNewPortal);
-      uiMaskWS.setShow(true);
-      prContext.addUIComponentToUpdateByAjax(uiMaskWS);
-    }
-  }
+	public static class CreatePortalActionListener extends
+			EventListener<UIWorkingWorkspace> {
+		public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+			PortalRequestContext prContext = Util.getPortalRequestContext();
+			UIPortalApplication uiApp = event.getSource().getAncestorOfType(
+					UIPortalApplication.class);
+			UserACL userACL = uiApp.getApplicationComponent(UserACL.class);
+			if (!userACL.hasCreatePortalPermission()) {
+				uiApp.addMessage(new ApplicationMessage(
+						"UIPortalBrowser.msg.Invalid-createPermission", null));
+				;
+				return;
+			}
+			UIMaskWorkspace uiMaskWS = uiApp
+					.getChildById(UIPortalApplication.UI_MASK_WS_ID);
+			UIPortalForm uiNewPortal = uiMaskWS.createUIComponent(UIPortalForm.class,
+					"CreatePortal", "UIPortalForm");
+			uiMaskWS.setUIComponent(uiNewPortal);
+			uiMaskWS.setShow(true);
+			prContext.addUIComponentToUpdateByAjax(uiMaskWS);
+		}
+	}
 
-  static public class BrowsePortalActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      UIPortalApplication uiApp = Util.getUIPortalApplication();
-      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
-      UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-      uiToolPanel.setShowMaskLayer(false);
-      UIPortalBrowser uiPortalBrowser = uiToolPanel.createUIComponent(UIPortalBrowser.class, null, null);
-      uiToolPanel.setUIComponent(uiPortalBrowser);
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class) ;
-    }
-  }
+	static public class BrowsePortalActionListener extends
+			EventListener<UIWorkingWorkspace> {
+		public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+			UIPortalApplication uiApp = Util.getUIPortalApplication();
+			uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+			UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
+			UIPortalToolPanel uiToolPanel = uiWorkingWS
+					.findFirstComponentOfType(UIPortalToolPanel.class);
+			uiToolPanel.setShowMaskLayer(false);
+			UIPortalBrowser uiPortalBrowser = uiToolPanel.createUIComponent(
+					UIPortalBrowser.class, null, null);
+			uiToolPanel.setUIComponent(uiPortalBrowser);
+			uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+		}
+	}
 
-  static public class EditInlineActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      UIPortal uiPortal = Util.getUIPortal();
-      UIPortalApplication uiApp = Util.getUIPortalApplication();
-      if (!uiPortal.isModifiable()) {
-        uiApp.addMessage(new ApplicationMessage("UIPortalManagement.msg.Invalid-editPermission",
-                                                new String[] { uiPortal.getName() }));
-        return;
-      }
-      PortalRequestContext pcontext = (PortalRequestContext) event.getRequestContext();
-      UIWorkingWorkspace uiWorkingWS = uiApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
-      uiWorkingWS.addChild(UIPortalComposer.class, null, null);
-      pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
-      pcontext.setFullRender(true);
-    }
+	static public class EditInlineActionListener extends
+			EventListener<UIWorkingWorkspace> {
+		public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+			UIPortal uiPortal = Util.getUIPortal();
+			UIPortalApplication uiApp = Util.getUIPortalApplication();
+			if (!uiPortal.isModifiable()) {
+				uiApp.addMessage(new ApplicationMessage(
+						"UIPortalManagement.msg.Invalid-editPermission",
+						new String[] { uiPortal.getName() }));
+				return;
+			}
+			PortalRequestContext pcontext = (PortalRequestContext) event
+					.getRequestContext();
+			UIWorkingWorkspace uiWorkingWS = uiApp
+					.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
+			uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+			UIPortalComposer uiPortalComposer = uiWorkingWS.addChild(
+					UIPortalComposer.class, null, null);
+			uiPortalComposer.setOwnerPortalName(uiPortal.getName());
+			pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
+			pcontext.setFullRender(true);
+		}
 
-  }
+	}
 
-  static public class ManagePortalsActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-      uiToolPanel.setShowMaskLayer(false);
-      // UISiteManagement siteManager =
-      // uiToolPanel.createUIComponent(UISiteManagement.class, null, null);
-      // uiToolPanel.setUIComponent(siteManager);
-      // siteManager.loadPortalConfigs();
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
-    }
-  }
+	static public class ManagePortalsActionListener extends
+			EventListener<UIWorkingWorkspace> {
+		public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+			UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
+			UIPortalToolPanel uiToolPanel = uiWorkingWS
+					.findFirstComponentOfType(UIPortalToolPanel.class);
+			uiToolPanel.setShowMaskLayer(false);
+			// UISiteManagement siteManager =
+			// uiToolPanel.createUIComponent(UISiteManagement.class, null, null);
+			// uiToolPanel.setUIComponent(siteManager);
+			// siteManager.loadPortalConfigs();
+			uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+		}
+	}
 
-  static public class ManageGroupsActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-      uiToolPanel.setShowMaskLayer(false);
-      // NewUIGroupManagement groupsManager =
-      // uiToolPanel.createUIComponent(NewUIGroupManagement.class, null, null);
-      // uiToolPanel.setUIComponent(groupsManager);
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
-    }
-  }
+	static public class ManageGroupsActionListener extends
+			EventListener<UIWorkingWorkspace> {
+		public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+			UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
+			UIPortalToolPanel uiToolPanel = uiWorkingWS
+					.findFirstComponentOfType(UIPortalToolPanel.class);
+			uiToolPanel.setShowMaskLayer(false);
+			// NewUIGroupManagement groupsManager =
+			// uiToolPanel.createUIComponent(NewUIGroupManagement.class, null, null);
+			// uiToolPanel.setUIComponent(groupsManager);
+			uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+		}
+	}
 
-  static public class BrowsePageActionListener extends EventListener<UIWorkingWorkspace> {
-    public void execute(Event<UIWorkingWorkspace> event) throws Exception {
-      UIPortalApplication uiApp = Util.getUIPortalApplication();
-      uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
-      UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
-      UIPortalToolPanel uiToolPanel = uiWorkingWS.findFirstComponentOfType(UIPortalToolPanel.class);
-      uiToolPanel.setShowMaskLayer(false);
-      UIPageBrowser uiPageBrowser = uiToolPanel.createUIComponent(UIPageBrowser.class, null, null) ;
-      uiToolPanel.setUIComponent(uiPageBrowser);
-      uiPageBrowser.setShowAddNewPage(true);    
-      uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
-    }
-  }
+	static public class BrowsePageActionListener extends
+			EventListener<UIWorkingWorkspace> {
+		public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+			UIPortalApplication uiApp = Util.getUIPortalApplication();
+			uiApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+			UIWorkingWorkspace uiWorkingWS = Util.updateUIApplication(event);
+			UIPortalToolPanel uiToolPanel = uiWorkingWS
+					.findFirstComponentOfType(UIPortalToolPanel.class);
+			uiToolPanel.setShowMaskLayer(false);
+			UIPageBrowser uiPageBrowser = uiToolPanel.createUIComponent(
+					UIPageBrowser.class, null, null);
+			uiToolPanel.setUIComponent(uiPageBrowser);
+			uiPageBrowser.setShowAddNewPage(true);
+			uiWorkingWS.setRenderedChild(UIPortalToolPanel.class);
+		}
+	}
 
 }

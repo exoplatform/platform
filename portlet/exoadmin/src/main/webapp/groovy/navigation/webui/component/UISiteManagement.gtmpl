@@ -19,7 +19,7 @@
 					   			
 					   		</td>
 				        <td class="ActionBlock">
-					        	<a href="<%=uicomponent.event("EditLayout", portalConfig.getName());%>" class="EditLayoutIcon">Edit Layout</a>
+					        	<a href="<%=uicomponent.event("EditPortalLayout", portalConfig.getName());%>" class="EditLayoutIcon">Edit Layout</a>
 					        	<a href="<%=uicomponent.event("EditNavigation", portalConfig.getName());%>" class="EditNavIcon">Edit Navigation</a>
 					        	<a href="<%=uicomponent.event("EditProperties", portalConfig.getName());%>" class="EditNavIcon">Edit Properties</a>
 					        	<a href="<%=uicomponent.event("DeletePortal", portalConfig.getName());%>" class="DeleteIcon">Delete</a>

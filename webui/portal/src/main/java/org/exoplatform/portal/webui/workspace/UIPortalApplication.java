@@ -35,6 +35,8 @@ import org.exoplatform.portal.webui.portal.PageNodeEvent;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.util.PortalDataMapper;
 import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.webui.workspace.pool.UIPCListenerImpl;
+import org.exoplatform.portal.webui.workspace.pool.UIPortalPool;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.UserProfile;
@@ -83,6 +85,8 @@ public class UIPortalApplication extends UIApplication {
   private UserPortalConfig   userPortalConfig_;
 
   private boolean            isSessionOpen     = false;
+ 
+  private static UIPortalPool _uiPortalPool=UIPortalPool.getInstance();
 
   /**
    * The constructor of this class is used to build the tree of UI components
@@ -299,10 +303,16 @@ public class UIPortalApplication extends UIApplication {
     UIPortal uiPortal = createUIComponent(UIPortal.class, null, null);
     PortalDataMapper.toUIPortal(uiPortal, userPortalConfig_);
     uiWorkingWorkspace.addChild(uiPortal);
+    
+    //Minh Hoang TO: Set listener as well as default UIPortal on the portal pool
+    _uiPortalPool.backupUIPortal(userPortalConfig_.getPortalConfig().getName(), uiPortal);
+    _uiPortalPool.setDefaultUIPortal(uiPortal);
+    _uiPortalPool.setListener(new UIPCListenerImpl(uiWorkingWorkspace,_uiPortalPool));
+    
     uiWorkingWorkspace.addChild(UIPortalToolPanel.class, null, null).setRendered(false);
     addChild(UIMaskWorkspace.class, UIPortalApplication.UI_MASK_WS_ID, null);
   }
-
+  
   /**
    * The processDecode() method is doing 3 actions: 1) if the nodePath is null
    * (case of the first request) a call to super.processDecode(context) is made

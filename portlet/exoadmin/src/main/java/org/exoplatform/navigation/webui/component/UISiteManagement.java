@@ -37,8 +37,12 @@ import org.exoplatform.portal.webui.navigation.UINavigationManagement;
 import org.exoplatform.portal.webui.navigation.UINavigationNodeSelector;
 import org.exoplatform.portal.webui.navigation.UIPageNavigationForm;
 import org.exoplatform.portal.webui.page.UIPageNodeForm2;
+import org.exoplatform.portal.webui.portal.UIPortal;
+import org.exoplatform.portal.webui.portal.UIPortalComposer;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
+import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
+import org.exoplatform.portal.webui.workspace.pool.UIPortalPool;
 import org.exoplatform.util.ReflectionUtil;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.application.WebuiRequestContext;
@@ -57,7 +61,7 @@ import org.exoplatform.webui.event.Event.Phase;
   @ComponentConfig(
                    template = "app:/groovy/navigation/webui/component/UISiteManagement.gtmpl",
                    events = {
-                       @EventConfig(listeners = UISiteManagement.EditPortalLayoutActionListener.class),
+                       @EventConfig(name="EditPortalLayout",listeners = UISiteManagement.EditPortalLayoutActionListener.class),
                        @EventConfig(listeners = UISiteManagement.EditNavigationActionListener.class),
                        @EventConfig(listeners = UISiteManagement.EditPropertiesActionListener.class),
                        @EventConfig(listeners = UISiteManagement.DeletePortalActionListener.class, confirm = "UIPortalBrowser.deletePortal")
@@ -78,7 +82,7 @@ import org.exoplatform.webui.event.Event.Phase;
 public class UISiteManagement extends UIContainer {
   
   //public static String[] SELECT_ACTIONS = {"EditPortalLayout", "EditNavigation", "DeletePortal"} ;
-  public static String[] ACTIONS = {"EditNavigation", "DeletePortal"} ;
+  public static String[] ACTIONS = {"EditNavigation", "DeletePortal", "EditPortalLayout"} ;
   
   private LazyPageList pageList;
   
@@ -168,37 +172,37 @@ public class UISiteManagement extends UIContainer {
   
   static public class EditPortalLayoutActionListener extends EventListener<UISiteManagement> {
     public void execute(Event<UISiteManagement> event) throws Exception {
-      /*
-      UISiteManagement uicomp = event.getSource();
-      String portalName = event.getRequestContext().getRequestParameter(OBJECTID);
-      UserPortalConfigService service = uicomp.getApplicationComponent(UserPortalConfigService.class);
-      PortalRequestContext prContext = Util.getPortalRequestContext();
-      UIPortalApplication uiPortalApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+    	UISiteManagement uicomp = event.getSource();
+			String portalName = event.getRequestContext().getRequestParameter(OBJECTID) ;
+			UserPortalConfigService service = uicomp.getApplicationComponent(UserPortalConfigService.class);
+			PortalRequestContext prContext = Util.getPortalRequestContext();
+
+			UserPortalConfig userConfig = service.getUserPortalConfig(portalName, prContext.getRemoteUser());
+			PortalConfig portalConfig = userConfig.getPortalConfig();
+
+			UIPortalApplication portalApp=(UIPortalApplication)prContext.getUIApplication();//TODO: Add a try/catch
+			
+			//UserACL userACL = uicomp.getApplicationComponent(UserACL.class) ;
+			//UserACL userACL = portalApp.getApplicationComponent(UserACL.class) ;
+			//if(!userACL.hasEditPermission(portalConfig)){
+			//	portalApp.addMessage(new ApplicationMessage("UISiteManagement.msg.Invalid-editPermission",new String[]{portalConfig.getName()})) ;;  
+			//	return;
+			//}		
+		  
+			UIWorkingWorkspace uiWorkingWS = portalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
       
-      UserPortalConfig userConfig = service.getUserPortalConfig(portalName, prContext.getRemoteUser());
-      PortalConfig portalConfig = userConfig.getPortalConfig();
-      UserACL userACL = uiPortalApp.getApplicationComponent(UserACL.class) ;
-      if(!userACL.hasEditPermission(portalConfig ,prContext.getRemoteUser())){
-        uiPortalApp.addMessage(new ApplicationMessage("UIPortalManager.msg.Invalid-editPermission", null)) ;;  
-        return;
-      }
+      //Added by Minh Hoang TO: Update the UIPortal on UIWorkingWorkspace
+			UIPortalPool portalPool=UIPortalPool.getInstance();//TODO: Declare a global entry instead of local variable
+	    UIPortal uiPortal=portalPool.fetchUIPortal(portalName,userConfig,uiWorkingWS);		
+			portalPool.setSelectedUIPortal(uiPortal);//TODO: Check if there is trouble as we invoke callback inside a callback
+			
+	    //Added by Minh Hoang TO: Trigger the edit inline process
+			portalApp.setModeState(UIPortalApplication.APP_BLOCK_EDIT_MODE);
+      UIPortalComposer portalComposer=uiWorkingWS.addChild(UIPortalComposer.class, null, null);
+      portalComposer.setOwnerPortalName(portalName);
       
-      uiPortalApp.setEditting(true);
-      UIWorkingWorkspace workingWS = uiPortalApp.getChildById(UIPortalApplication.UI_WORKING_WS_ID);
-      UIPopupWindow popUp = workingWS.getChild(UIPopupWindow.class);
-      if (popUp != null) {        
-        workingWS.removeChild(UIPopupWindow.class);
-      }
-      popUp = workingWS.addChild(UIPopupWindow.class, null, null);
-      UIPortalManagement2 portalManager = popUp.createUIComponent(UIPortalManagement2.class, null, null, popUp);
-      portalManager.setMode(ManagementMode.EDIT, event);
-      
-      popUp.setUIComponent(portalManager);
-      popUp.setShow(true);
-      popUp.setRendered(true);
-      popUp.setWindowSize(300, 400);
-      prContext.addUIComponentToUpdateByAjax(workingWS);
-      */     
+      prContext.addUIComponentToUpdateByAjax(uiWorkingWS);
+      prContext.setFullRender(true);
     }
   }
   
