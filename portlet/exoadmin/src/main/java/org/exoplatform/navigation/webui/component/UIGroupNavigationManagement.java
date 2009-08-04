@@ -1,6 +1,7 @@
 package org.exoplatform.navigation.webui.component;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import org.exoplatform.commons.utils.ObjectPageList;
@@ -95,7 +96,11 @@ public class UIGroupNavigationManagement extends UIContainer {
     Query<PageNavigation> query = new Query<PageNavigation>(PortalConfig.GROUP_TYPE,
                                                             null,
                                                             PageNavigation.class);
-    List<PageNavigation> navis = dataStorage.find(query).getAll();
+    List<PageNavigation> navis = dataStorage.find(query, new Comparator<PageNavigation>(){
+      public int compare(PageNavigation pconfig1, PageNavigation pconfig2) {
+        return pconfig1.getOwnerId().compareTo(pconfig2.getOwnerId());
+      }
+    }).getAll();
     for (PageNavigation ele : navis) {
       if (userACL.hasEditPermission(ele)) {
         navigations.add(ele);
