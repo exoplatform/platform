@@ -37,7 +37,9 @@ PortalDragDrop.prototype.init = function(e) {
     
     var isComponent = !!DOMUtil.findFirstDescendantByClass(dragObject, "div", "UIComponentBlock");
    	
-		PortalDragDrop.positionRootObj = isComponent ? dragObject.offsetParent : document.getElementById("UIPortalComposer"); 
+   	var uiWorkingWS = document.getElementById("UIWorkingWorkspace");
+		PortalDragDrop.positionRootObj = isComponent ? uiWorkingWS : 
+					eXo.core.DOMUtil.findFirstDescendantByClass(uiWorkingWS, "div", "UIPortalComposer"); 
 		
 		var originalDragObjectTop = Browser.findPosYInContainer(dragObject, PortalDragDrop.positionRootObj);
 		var originalDragObjectLeft = Browser.findPosXInContainer(dragObject, PortalDragDrop.positionRootObj);

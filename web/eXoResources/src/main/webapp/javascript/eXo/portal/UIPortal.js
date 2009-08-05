@@ -512,6 +512,23 @@ UIPortal.prototype.changeComposerSaveButton = function() {
   }
 };
 
+UIPortal.prototype.toggleComposer = function(clickedEle) {
+	var portalComposer = eXo.core.DOMUtil.findAncestorByClass(clickedEle, "UIPortalComposer");
+	var middleBlock = eXo.core.DOMUtil.findFirstChildByClass(portalComposer, "div", "MLPortalComposer");
+	var bottomBlock = eXo.core.DOMUtil.findFirstChildByClass(portalComposer, "div", "BLPortalComposer");
+	var fakeBottom = eXo.core.DOMUtil.findFirstChildByClass(portalComposer, "div", "Bottom");
+	if(middleBlock && middleBlock.style.display != "none") {
+		middleBlock.style.display = "none";
+		bottomBlock.style.display = "none";
+		fakeBottom.style.display = "block";
+		eXo.core.DOMUtil.replaceClass(clickedEle, "ExpandIcon", "CollapseIcon");
+	} else {
+		middleBlock.style.display = "block";
+		bottomBlock.style.display = "block";
+		fakeBottom.style.display = "none";
+		eXo.core.DOMUtil.replaceClass(clickedEle, "CollapseIcon", "ExpandIcon");
+	}
+};
 
 /*
 * This method will start the creation of a new javascript application such as a widget
