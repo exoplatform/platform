@@ -474,10 +474,6 @@ public class UIPageBrowser extends UISearch {
       UIMaskWorkspace uiMaskWS = uiPortalApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);
       uiMaskWS.setUIComponent(null);
       uiMaskWS.setShow(false);
-      UIPortalToolPanel uiToolPanel = Util.getUIPortalToolPanel();
-      UIPageBrowser uiBrowser = (UIPageBrowser) uiToolPanel.getUIComponent();
-      uiBrowser.reset();
-      context.addUIComponentToUpdateByAjax(uiBrowser);
       context.addUIComponentToUpdateByAjax(uiMaskWS);
     }
   }
