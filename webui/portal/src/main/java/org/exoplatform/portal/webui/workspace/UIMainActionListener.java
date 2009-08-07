@@ -17,11 +17,13 @@
 package org.exoplatform.portal.webui.workspace;
 
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.webui.page.UIPageBody;
 import org.exoplatform.portal.webui.page.UIPageCreationWizard;
 import org.exoplatform.portal.webui.page.UIWizardPageSetInfo;
 import org.exoplatform.portal.webui.portal.UIPortal;
 import org.exoplatform.portal.webui.portal.UIPortalComposer;
+import org.exoplatform.portal.webui.portal.UIPortalForm;
 import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.event.Event;
@@ -98,7 +100,25 @@ public class UIMainActionListener {
 			pcontext.addUIComponentToUpdateByAjax(uiWorkingWS);
 			pcontext.setFullRender(true);
 		}
-
+	}
+	
+	public static class CreatePortalActionListener extends EventListener<UIWorkingWorkspace> {
+	  public void execute(Event<UIWorkingWorkspace> event) throws Exception {
+	    PortalRequestContext prContext = Util.getPortalRequestContext();
+	    UIPortalApplication uiApp = event.getSource().getAncestorOfType(UIPortalApplication.class);
+	    UserACL userACL = uiApp.getApplicationComponent(UserACL.class);
+	    if (!userACL.hasCreatePortalPermission()) {
+	      uiApp.addMessage(new ApplicationMessage("UIPortalBrowser.msg.Invalid-createPermission",
+	                                              null));
+	      return;
+	    }
+	    UIMaskWorkspace uiMaskWS = uiApp.getChildById(UIPortalApplication.UI_MASK_WS_ID);
+	    UIPortalForm uiNewPortal = uiMaskWS.createUIComponent(UIPortalForm.class,
+	                                                          "CreatePortal","UIPortalForm");
+	    uiMaskWS.setUIComponent(uiNewPortal);
+	    uiMaskWS.setShow(true);
+	    prContext.addUIComponentToUpdateByAjax(uiMaskWS);
+	  }
 	}
 
 }

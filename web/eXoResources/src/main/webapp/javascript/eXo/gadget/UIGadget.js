@@ -232,7 +232,7 @@ eXo.gadget.UIGadget = {
             else
                 uicomp = DOMUtil.getChildrenByTagName(portletFragment, "div")[0].className;
             if (confirm(this.confirmDeleteGadget)) {
-                var href = eXo.env.server.portalBaseURL + "?poral:componentId=" + compId;
+                var href = eXo.env.server.portalBaseURL + "?portal:componentId=" + compId;
                 href += "&portal:type=action&uicomponent=" + uicomp;
                 href += "&op=DeleteGadget";
                 href += "&objectId=" + gadgetId + "&ajaxRequest=true";

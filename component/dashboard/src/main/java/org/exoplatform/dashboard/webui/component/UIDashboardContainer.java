@@ -516,7 +516,7 @@ public class UIDashboardContainer extends org.exoplatform.webui.core.UIContainer
 
       uiDashboardContainer.moveUIGadget(objectId, col, row);
       uiDashboardContainer.save();
-      context.addUIComponentToUpdateByAjax(uiDashboardContainer) ;
+      event.getRequestContext().setResponseComplete(true);
     }
   }
 

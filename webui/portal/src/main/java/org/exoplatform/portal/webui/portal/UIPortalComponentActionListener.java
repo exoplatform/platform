@@ -21,6 +21,7 @@ import java.util.List;
 
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.portal.application.PortalRequestContext;
+import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.Container;
 import org.exoplatform.portal.config.model.PortalConfig;
 import org.exoplatform.portal.webui.application.UIApplicationList;
@@ -35,11 +36,9 @@ import org.exoplatform.portal.webui.util.Util;
 import org.exoplatform.portal.webui.workspace.UIMaskWorkspace;
 import org.exoplatform.portal.webui.workspace.UIPortalApplication;
 import org.exoplatform.portal.webui.workspace.UIPortalToolPanel;
-import org.exoplatform.portal.webui.workspace.UIWorkingWorkspace;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.Query;
 import org.exoplatform.services.organization.User;
-import org.exoplatform.services.portletcontainer.PCConstants;
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIComponent;
 import org.exoplatform.webui.core.UIContainer;
@@ -193,16 +192,16 @@ public class UIPortalComponentActionListener {
           Container container = uiContainerConfig.getContainer(sourceId);
           container.setId(String.valueOf(container.hashCode()));
           PortalDataMapper.toUIContainer(uiContainer, container);
+          String[] accessPers = uiContainer.getAccessPermissions();
+          for (String accessPer : accessPers) {
+						if(accessPer.equals("")) accessPer = null;
+					}
+          if(accessPers == null || accessPers.length == 0) accessPers = new String[] {UserACL.EVERYONE};
+          uiContainer.setAccessPermissions(accessPers);
           uiSource = uiContainer;
         } else {
-          // UIPortletOptions uiPortletOptions =
-          // uiApp.findFirstComponentOfType(UIPortletOptions.class);
           org.exoplatform.application.registry.Application portlet = null;
-          // if(uiPortletOptions != null) { portlet =
-          // uiPortletOptions.getPortlet(sourceId);}
-          // else {
           portlet = uiApp.findFirstComponentOfType(UIApplicationList.class).getPortlet(sourceId);
-          // }
           UIPortlet uiPortlet = uiTarget.createUIComponent(UIPortlet.class, null, null);
           if (portlet.getDisplayName() != null) {
             uiPortlet.setTitle(portlet.getDisplayName());
@@ -210,10 +209,13 @@ public class UIPortalComponentActionListener {
             uiPortlet.setTitle(portlet.getApplicationName());
           }
           uiPortlet.setDescription(portlet.getDescription());
-          String[] accessPermissions = portlet.getAccessPermissions()
-                                              .toArray(new String[portlet.getAccessPermissions()
-                                                                         .size()]);
-          uiPortlet.setAccessPermissions(accessPermissions);
+          List<String> accessPersList = portlet.getAccessPermissions();
+          String[] accessPers = accessPersList.toArray(new String[accessPersList.size()]);
+          for (String accessPer : accessPers) {
+            if(accessPer.equals("")) accessPers = null;
+          }
+          if(accessPers == null || accessPers.length == 0) accessPers = new String[] {UserACL.EVERYONE};
+          uiPortlet.setAccessPermissions(accessPers);
           StringBuilder windowId = new StringBuilder();
           UIPage uiPage = uiTarget.getAncestorOfType(UIPage.class);
           if (uiPage != null)
@@ -232,9 +234,6 @@ public class UIPortalComponentActionListener {
         List<UIComponent> children = uiTarget.getChildren();
         uiSource.setParent(uiTarget);
         children.add(position, uiSource);
-        // if(uiApp.isBlockEditMode())
-        // Util.showComponentLayoutMode(uiSource.getClass());
-        // else Util.showComponentEditInViewMode(uiSource.getClass());
         return;
       }
 
@@ -257,9 +256,6 @@ public class UIPortalComponentActionListener {
       uiParent.getChildren().remove(uiSource);
       uiTarget.getChildren().add(position, uiSource);
       uiSource.setParent(uiTarget);
-      // if(uiApp.isBlockEditMode())
-      // Util.showComponentLayoutMode(uiSource.getClass());
-      // else Util.showComponentEditInViewMode(uiSource.getClass());
     }
 
   }
