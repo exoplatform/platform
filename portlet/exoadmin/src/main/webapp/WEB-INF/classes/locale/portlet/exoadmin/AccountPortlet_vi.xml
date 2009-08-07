@@ -116,5 +116,10 @@
       <UIGroupMembershipSelector>Chọn người dùng thành viên</UIGroupMembershipSelector>
     </title>
   </UIPopupWindow>
+  <UISiteManagement>
+  	<action>
+  		<addNewPortal>Tạo Portal</addNewPortal>
+  	</action>
+  </UISiteManagement>
 </bundle>
 
