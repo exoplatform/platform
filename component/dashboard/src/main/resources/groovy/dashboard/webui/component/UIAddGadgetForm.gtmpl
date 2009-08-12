@@ -1,6 +1,0 @@
-<div class="UIForm $uicomponent.id">
-	<% uicomponent.begin(); %>
-		<%uicomponent.renderChildren();%>
-		<img class="AddNewNodeIcon" onclick="<%=uicomponent.event("AddGadgetByUrl")%>" title="<%=_ctx.appRes("UIDashboardSelectContainer.action.addGadget")%>" alt="" src="/eXoResources/skin/sharedImages/Blank.gif"/>
-	<% uicomponent.end(); %>
-</div>

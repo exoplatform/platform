@@ -1,3 +1,0 @@
-<div class="UIGroovyPortlet UIApplication" style="padding: 15px;">	
-	<%=_ctx.appRes("UIGroovyPortlet.note.Text")%>
-</div>

@@ -1,3 +1,0 @@
-<div id="$uicomponent.id" class="UIDashboardMask">
-	<%uicomponent.renderChildren();%>
-</div>

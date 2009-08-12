@@ -1,3 +1,0 @@
-<div id="$uicomponent.id" class="UIResourcesPortlet">	
-	<% uicomponent.renderChildren(); %>
-</div>

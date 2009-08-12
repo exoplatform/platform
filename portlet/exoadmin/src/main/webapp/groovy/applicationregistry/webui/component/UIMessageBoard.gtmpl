@@ -1,6 +1,0 @@
-<%	
-	String messageKey= uicomponent.getMessage().getMessageKey();
-%>
-<div class="UIMessageBoard" id="$uicomponent.id">
-		<%=_ctx.appRes(messageKey)%>
-</div>

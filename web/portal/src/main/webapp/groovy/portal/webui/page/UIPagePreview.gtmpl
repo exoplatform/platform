@@ -1,8 +1,0 @@
-<div class="UIPagePreview">
-<%
-	uicomponent.renderChildren(); 
-	if(!uicomponent.isPageHasApplication()) {
-%>
-		<div style="font-style:italic; color: #FF5604; text-align: center; height: 30px; line-height: 30px;"><%=_ctx.appRes("UIPagePreview.msg.empty")%></div>
-<%}%>
-</div>
