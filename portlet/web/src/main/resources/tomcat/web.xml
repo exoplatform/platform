@@ -1,2 +1,2 @@
-<Context path="/web" docBase="../../../eXoProjects/portal/trunk/portlet/web/src/main/webapp" 
+<Context path="/web" docBase="../../../eXoProjects/platform/trunk/portlet/web/src/main/webapp" 
          debug="0" reloadable="true" />
