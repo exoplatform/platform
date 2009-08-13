@@ -16,13 +16,13 @@
 
   <properties>
      <exo.product.name>exo-portal</exo.product.name>
-     <exo.product.specification>2.6</exo.product.specification>
+     <exo.product.specification>3.0</exo.product.specification>
   </properties>
 
   <scm>
-    <connection>scm:svn:http://svn.exoplatform.org/projects/portal/trunk</connection>
-    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/portal/trunk</developerConnection>
-    <url>http://fisheye.exoplatform.org/browse/projects/portal/trunk</url>
+    <connection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</connection>
+    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</developerConnection>
+    <url>http://fisheye.exoplatform.org/browse/projects/platform/trunk</url>
   </scm> 
 
   <modules>
@@ -32,8 +32,6 @@
 
     <module>web/eXoSkinMac</module>
     <module>web/eXoSkinVista</module>
-
-    <module>server/jboss/plugin</module>
     <module>server/jonas/patch</module>
     <module>server/jonas/plugin</module>
     <module>server/websphere/patch</module>
