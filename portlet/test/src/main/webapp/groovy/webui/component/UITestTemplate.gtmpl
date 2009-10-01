@@ -1,0 +1,180 @@
+<%  
+  String uploadId = "28253142" ;
+  def rcontext = _ctx.getRequestContext() ;
+  rcontext.getJavascriptManager().importJavascript('eXo.webui.UIUpload') ;
+  rcontext.getJavascriptManager().addJavascript("eXo.webui.UIUpload.createUploadEntry('"+uploadId+"');") ;
+%>
+
+<div class="UIFormWithTitle UITestForm">
+  <div class="TitleBar">Test Form</div>
+  <form class="UIForm" name="UITestForm" id="UITestForm" action="/portal/private/site:/?portal:componentId=testformportlet&amp;portal:type=action&amp;portal:isSecure=false&amp;uicomponent=UITestForm" method="post"><input type="hidden" name="formOp" value=""/>
+  <div class="HorizontalLayout">
+    <div class="FormContainer"> 
+      
+            <div class="FieldContainer">
+              
+                                      
+                  <label>
+
+                     
+                      Select Box:
+                    
+                  </label>
+              
+              <select class="selectbox" name="selectBox" onchange="javascript:eXo.webui.UIForm.submitEvent('UITestForm','Onchange','&amp;objectId=null')">
+<option selected="selected" value="sql">SQL</option>
+<option value="xpath">xPath</option>
+</select>
+
+            </div>
+      
+            <div class="FieldContainer">
+              
+                                      
+                  <label>
+
+                     
+                      Hidden Input:
+                    
+                  </label>
+              
+              <input type='text' onfocus='eXo.webui.UICalendar.init(this);' onkeyup='eXo.webui.UICalendar.show();' name='hiddenInput' onmousedown='event.cancelBubble = true' />
+            </div>
+      
+            <div class="FieldContainer">
+              
+                                      
+                  <label>
+                     
+                      Date/Time:
+                    
+                  </label>
+              
+              <input type='text' onfocus='eXo.webui.UICalendar.init(this);' onkeyup='eXo.webui.UICalendar.show();' name='dateTime' value='05/26/2007 10:20:22' onmousedown='event.cancelBubble = true' />
+            </div>
+
+      
+            <div class="FieldContainer">
+              
+                                      
+                  <label>
+                     
+                      Upload:
+                    
+                  </label>
+              
+              
+<div class="UIFormUploadInput" id="28253142">
+  <input type="hidden" id="input28253142" name="upload" value="false"/>
+  <div id="28253142UploadIframe" class="UploadIframe" style="">
+    <iframe class="TestIframe" scrolling="no" id="28253142uploadFrame" style="height: 22px; border:0px;"></iframe>
+  </div>
+
+  <div id="28253142ProgressIframe" class="ProgressIframe" style=" display:none;"></div>      
+  <div class="ProgressBarFrame" style="display: none;">
+		<div class="SelectFileLabel">Upload file 
+: </div>
+		<div class="ProgressBar">
+			<div class="ProgressBarLeft">
+				<div class="ProgressBarMiddle">
+					<div class="BlueProgressBar">
+						<div class="ProgressBarLabel">0%</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="DeleteFileFrame">
+			<div class="DeleteFileLable" onclick="eXo.webui.UIUpload.abortUpload(28253142);">Cancel
+</div>
+		</div>
+	</div>
+
+	<div class="SelectFileFrame" style="display: none;">
+		<div class="SelectFileLabel">Upload file 
+ :</div>
+		<div class="FileName">
+			<div class="FileNameLabel">Uploaded
+</div>
+		</div>
+		<div class="RemoveFile" onclick="eXo.webui.UIUpload.deleteUpload(28253142);">Remove
+</div>
+	</div>
+
+</div>
+            </div>
+      
+            <div class="FieldContainer">
+              
+                                      
+                  <label>
+                     
+                      Multi Value:
+                    
+                  </label>
+              <div class="MultiValueContainer">
+                <div class="MultiValue"><input name='multiValue0' type='text' id='multiValue0'/></div>
+                <div class="MultiValue"><input name='multiValue1' type='text' id='multiValue1'/></div>
+                <div class="MultiValue"><input name='multiValue2' type='text' id='multiValue2'/></div>
+                <div class="MultiValue">
+                  <input name='multiValue5' type='text' id='multiValue5'/><a class="UIFormMultiValueInputSet DustBin16x16Icon" href="javascript:eXo.webui.UIForm.submitEvent('UITestForm','Remove','&amp;objectId=multiValue5')"><span></span></a><a class="AddNewNodeIcon  LeftBlock" href="javascript:eXo.webui.UIForm.submitEvent('UITestForm','Add','&amp;objectId=multiValue')"><span></span></a></div>
+                </div>
+              </div>
+            </div>
+      
+      
+      
+      <div class="UIAction"> 
+        <div class="ActionContainer">
+
+          
+            <div class="ActionButton">
+              <div class="LightBlueStyle">
+                <div class="ButtonLeft">
+                  <div class="ButtonRight">
+                    <div class="ButtonMiddle">
+                      
+                      <a href="javascript:eXo.webui.UIForm.submitForm('UITestForm','Save', true)">Save</a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          
+            <div class="ActionButton">
+              <div class="LightBlueStyle">
+                <div class="ButtonLeft">
+                  <div class="ButtonRight">
+                    <div class="ButtonMiddle">
+                      
+                      <a href="javascript:eXo.webui.UIForm.submitForm('UITestForm','Reset', true)">Reset</a>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="ActionButton">
+              <div class="LightBlueStyle">
+                <div class="ButtonLeft">
+                  <div class="ButtonRight">
+
+                    <div class="ButtonMiddle">
+                      
+                      <a href="javascript:eXo.webui.UIForm.submitForm('UITestForm','Cancel', true)">Cancel</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+                    
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+  </form>
+</div>

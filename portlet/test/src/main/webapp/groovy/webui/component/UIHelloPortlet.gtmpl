@@ -1,0 +1,39 @@
+<%
+  //import org.exoplatform.ws.frameworks.cometd.ContinuationService;
+  import org.exoplatform.webui.core.UIPopupContainer;
+      //ContinuationService continuation = uicomponent.getApplicationComponent(ContinuationService.class);
+%>
+
+<div id="<%=uicomponent.getId();%>" >
+	<div class="UIAction" > 
+		<div class="ActionContainer">
+	  	
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	              <a href="<%=uicomponent.event("SelectUser")%>">Select User</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	  	</div>
+
+	    <div class="ActionButton">
+	      <div class="LightBlueStyle">
+	        <div class="ButtonLeft">
+	          <div class="ButtonRight">
+	            <div class="ButtonMiddle">
+	              <a href="<%=uicomponent.event("SelectUser", "1")%>">Select User multi</a>
+	            </div>
+	          </div>
+	        </div>
+	      </div>
+	  	</div>
+	  	
+		</div>
+	</div>
+	<%uicomponent.renderChild(UIPopupContainer.class);%>
+	<%uicomponent.renderPopupMessages(); %>
+</div>	

@@ -1,0 +1,7 @@
+<div class="UIHelloSelector">
+	<ul>
+		<li><a href="<%=uicomponent.event("OpenForm", "")%>">Open Form</a></li>
+		<li><a href="<%=uicomponent.event("OpenWelcome", "")%>">Open Welcome</a></li>
+		<li>Item 3</li>
+	</ul>
+</div>
