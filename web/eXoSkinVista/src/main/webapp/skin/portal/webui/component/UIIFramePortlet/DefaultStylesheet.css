@@ -1,0 +1,55 @@
+.UIIFramePortlet {
+	border: 1px solid #b7b7b7;
+	background: white;
+	margin: 7px;
+	height: auto;
+	width: 97.5%;
+}
+	
+.UIPageDesktop .UIIFramePortlet {
+	min-height: 0;
+}
+
+*html .UIFormTabPane .UIIFramePortlet {
+	height: auto;
+}
+
+*html .UIIFramePortlet {
+	height: 400px;
+}
+
+*html .UIPageDesktop .UIIFramePortlet {
+	height: auto;
+}
+
+.UIIFramePortlet iframe {
+	border: none;
+	width: 100%; height: 100%;
+	padding: 0px; margin: 0px;
+}
+
+.UIWindow .UIIFramePortlet {
+	border: none;
+	margin: 0px auto;
+	height: 100%;
+}
+
+.UIIFramePortlet .UIFormWithTitle .UIFormGrid {
+	width: auto;
+	margin: auto;
+}
+
+.UIIFramePortlet .UIFormWithTitle .HorizontalLayout {
+	border: none;
+	padding: 0px;
+}
+
+.UIIFramePortlet .UIFormWithTitle .HorizontalLayout .FormContainer {
+	border: 1px solid #c7c7c7;
+	border-top: none;
+}
+
+.UIIFramePortlet .UIFormWithTitle {
+	padding: 70px 0px;
+	margin: auto;
+}

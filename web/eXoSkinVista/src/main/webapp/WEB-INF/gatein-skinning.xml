@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<gatein-skinning>
+
+	<portal-skin>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/Stylesheet.css</css-path>
+	</portal-skin>	
+	
+	<!-- Skins for portlets in 'exoadmin' web application -->
+	
+	<portlet-skin>
+		<application-name>exoadmin</application-name>
+		<portlet-name>OrganizationPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/organization/webui/component/UIOrganizationPortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<portlet-skin>
+		<application-name>exoadmin</application-name>
+		<portlet-name>AccountPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/account/webui/component/UIAccountPortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<portlet-skin>
+		<application-name>exoadmin</application-name>
+		<portlet-name>I18nPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/i18n/webui/component/UII18nPortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<portlet-skin>
+		<application-name>exoadmin</application-name>
+		<portlet-name>ApplicationRegistryPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/applicationregistry/webui/component/UIApplicationRegistryPortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<portlet-skin>
+		<application-name>exoadmin</application-name>
+		<portlet-name>AdminToolbarPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/admintoolbar/webui/component/UIAdminToolbarPortlet/DefaultStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<portlet-skin>
+		<application-name>exoadmin</application-name>
+		<portlet-name>PortalNavigationPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/navigation/webui/component/DefaultStylesheet.css</css-path>
+	</portlet-skin>	
+	
+	<portlet-skin>
+		<application-name>exoadmin</application-name>
+		<portlet-name>GroupNavigationPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/navigation/webui/component/DefaultStylesheet.css</css-path>
+	</portlet-skin>	
+	
+	
+	<!-- Skins for portlets in 'web' web application  -->
+	
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>BannerPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/portal/webui/component/UIBannerPortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>FooterPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/portal/webui/component/UIFooterPortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>NavigationPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/portal/webui/component/UINavigationPortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>	
+	
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>PortalNavigationPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/portal/webui/component/UIPortalNavigationPortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+		
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>SiteMapPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/portal/webui/component/UISiteMap/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>IFramePortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/portal/webui/component/UIIFramePortlet/DefaultStylesheet.css</css-path>
+	</portlet-skin>
+	
+		
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>BrowserPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/browser/webui/component/UIBrowserPortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+		
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>ConsolePortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/portal/webui/component/UIConsolePortlet/VistaStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<!-- Skins for portlets in 'dashboard' web application -->
+			
+	<portlet-skin>
+		<application-name>dashboard</application-name>
+		<portlet-name>GadgetPortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/gadget/webui/component/UIGadgetPortlet/DefaultStylesheet.css</css-path>
+	</portlet-skin>
+		
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>HomePagePortlet</portlet-name>
+		<skin-name>Vista</skin-name>
+		<css-path>/skin/webui/component/UIHomePagePortlet/DefaultStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<!-- Simple window style -->
+	<window-style>
+		<style-name>Simple</style-name>
+		<style-theme>
+			<theme-name>SimpleBlue</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>SimpleViolet</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>SimpleOrange</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>SimplePink</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>SimpleGreen</theme-name>
+		</style-theme>
+	</window-style>
+	
+	<!-- RoundConer window style -->
+	<window-style>
+		<style-name>RoundConer</style-name>
+		<style-theme>
+			<theme-name>RoundConerBlue</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>RoundConerViolet</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>RoundConerOrange</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>RoundConerPink</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>RoundConerGreen</theme-name>
+		</style-theme>
+	</window-style>
+	
+	<!-- Shadow window style -->
+	<window-style>
+		<style-name>Shadow</style-name>
+		<style-theme>
+			<theme-name>ShadowBlue</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>ShadowViolet</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>ShadowOrange</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>ShadowPink</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>ShadowGreen</theme-name>
+		</style-theme>
+	</window-style>
+	
+	<!-- MacStyle window style -->
+	<window-style>
+		<style-name>MacStyle</style-name>
+		<style-theme>
+			<theme-name>MacTheme</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>MacGray</theme-name>
+		</style-theme>
+		<style-theme>
+			<theme-name>MacGreenSteel</theme-name>
+		</style-theme>
+	</window-style>
+	
+	<!-- VistaStyle window style -->
+	<window-style>
+		<style-name>VistaStyle</style-name>
+		<style-theme>
+			<theme-name>VistaTheme</theme-name>
+		</style-theme>
+	</window-style>
+	
+</gatein-skinning>
+

@@ -1,6 +1,0 @@
-<webui-configuration>   
-  <application>     
-    <ui-component-root>org.exoplatform.portal.webui.component.UITestFormPortlet</ui-component-root>
-    <state-manager>org.exoplatform.webui.application.portlet.ParentAppStateManager</state-manager>
-  </application>
-</webui-configuration>

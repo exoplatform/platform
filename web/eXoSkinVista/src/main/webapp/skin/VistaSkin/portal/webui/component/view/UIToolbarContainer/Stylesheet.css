@@ -14,10 +14,6 @@
 	padding: 0px;
 }
 
-.UIToolbarContainer {
-	position: relative;
-}
-
 .ToolbarContainer {	
 	background: url('icons/IconToolBar.gif') repeat-x scroll 0 0;	
 	height: 32px;
@@ -289,4 +285,12 @@
 
 .UIStarToolBarPortlet .UITab {
     height: 30px;
+}
+
+.UIToolbarContainer .UITableColumnContainer .UITab .HighlightNavigationTab{
+	margin-top: 2px;
+}
+
+.UIToolbarContainer .UITableColumnContainer .UITab .NormalNavigationTab{
+	margin-top: 2px;
 }
