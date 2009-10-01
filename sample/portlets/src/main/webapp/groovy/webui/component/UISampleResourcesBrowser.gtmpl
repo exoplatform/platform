@@ -1,0 +1,4 @@
+<div id="<%=uicomponent.getId();%>">
+	<% uicomponent.loadResources();
+	   uicomponent.renderChildren(); %>					    
+</div>

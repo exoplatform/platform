@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app
+ PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+  "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+	<!--If define the Portlet Application name MUST end with .par-->
+	<display-name>samplePortlets</display-name>
+
+	<description>
+    This application is a portlet. It can not be used outside a portal.
+    This web.xml file is mandatory in each .par archive file.
+	</description>	
+	
+  
+  <filter>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+    <servlet-name>GateInServlet</servlet-name>
+    <servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GateInServlet</servlet-name>
+    <url-pattern>/gateinservlet</url-pattern>
+    <load-on-startup>0</load-on-startup>
+  </servlet-mapping>
+
+  <security-role>
+    <description>a simple user role</description>
+    <role-name>user</role-name>
+  </security-role>
+  
+  <security-role>
+    <description>the admin role</description>
+    <role-name>admin</role-name>
+  </security-role>  
+</web-app>

@@ -1,0 +1,8 @@
+<module>
+
+  <inherits name='com.google.gwt.user.User'/>
+  <inherits name="com.google.gwt.gadgets.Gadgets"/>
+
+  <entry-point class='org.exoplatform.portal.sample.gadget.gwt.client.HelloWorld'/>
+
+</module>

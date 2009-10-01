@@ -1,0 +1,5 @@
+<weblogic-web-app>
+  <container-descriptor>
+    <optimistic-serialization>true</optimistic-serialization>
+  </container-descriptor>
+</weblogic-web-app>
