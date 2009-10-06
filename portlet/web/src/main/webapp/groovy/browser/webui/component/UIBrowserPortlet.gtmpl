@@ -1,0 +1,66 @@
+<%
+	def rcontext = _ctx.getRequestContext() ;
+	rcontext.getJavascriptManager().importJavascript("eXo.application.browser.BrowserApplication", "/web/javascript/") ;
+	rcontext.getJavascriptManager().addJavascript("eXo.application.browser.BrowserApplication.init('$uicomponent.id');") ;
+%>
+<div class="UIBrowserPortlet" id="$uicomponent.id">
+	<div class="UIToolbar">
+		<div class="ButtonContainer">
+			<div class="Separators"><span></span></div>
+			<div class="ToolbarButton">
+				<div class="BackButton" title="<%=_ctx.appRes("UIBrowserPortlet.Back")%>" onclick="eXo.application.browser.BrowserApplication.goBack(this)"><span></span></div>
+			</div>
+			<div class="ToolbarButton">
+				<div class="FowardButton" title="<%=_ctx.appRes("UIBrowserPortlet.Forward")%>" onclick="eXo.application.browser.BrowserApplication.goForward(this)"><span></span></div>
+			</div>
+			<div class="Separators"><span></span></div>
+			<div class="ToolbarButton">
+				<div class="RefreshButton" title="<%=_ctx.appRes("UIBrowserPortlet.Refresh")%>" onclick="eXo.application.browser.BrowserApplication.refreshIFrame(this)"><span></span></div>
+			</div>
+			<div class="ToolbarButton">
+				<div class="StopButton" title="<%=_ctx.appRes("UIBrowserPortlet.Stop")%>" onclick="eXo.application.browser.BrowserApplication.stopLoad()"><span></span></div>
+			</div>
+			<div class="ClearLeft"><span></span></div>
+		</div>
+		<div class="RightAddressBarContainer">
+			<div class="StatusButton"><span></span></div>
+			<a class="GoButton" href="javascript:void(0);" onclick="javascript:eXo.application.browser.BrowserApplication.getUrl(this);" title="<%=_ctx.appRes("UIBrowserPortlet.Goto")%>"><%=_ctx.appRes("UIBrowserPortlet.Go")%></a>
+			<div class="AddressBarContainer">
+				<div class="ArrowDownButton"><span></span></div>
+				<div class="TextBox">
+					<input type="text" name="txtAddress" class="txtAddress" style="width: 98%; border:0px;" value="" onkeypress="eXo.application.browser.BrowserApplication.onKeyPress(event)"/>
+				</div>
+				<div class="ClearRight"><span></span></div>
+			</div>
+			<div class="ClearRight"><span></span></div>
+		</div>
+	</div>
+	<div class="BrowserContent">
+		<div class="TabBackground">
+			<div class="TabContainer">
+				<div class="Separator"><span></span></div>
+				<div class="ActiveTabDetailBackground TabMenuItem">
+					<div class="TabDetail">
+						<div class="CloseButton" style="display: none"
+								 onmouseover="eXo.application.browser.BrowserApplication.onMouseOver(this, 'CloseButton', 'ActiveCloseButton', true);" 
+								 onmouseout="eXo.application.browser.BrowserApplication.onMouseOver(this, 'CloseButton', 'ActiveCloseButton', false);"><span></span></div>
+						<div class="TabLabel"><%=_ctx.appRes("UIBrowserPortlet.Untitled")%></div>
+					</div>
+				</div>
+				<div class="Separator"><span></span></div>
+				<div class="NewTabButton" onclick="eXo.application.browser.BrowserApplication.createNewTab(this);" 
+						 onmouseover="eXo.application.browser.BrowserApplication.onMouseOver(this, 'NewTabButton', 'NewTabButtonOver', true);"
+						 onmouseout="eXo.application.browser.BrowserApplication.onMouseOver(this, 'NewTabButton', 'NewTabButtonOver', false);" title="<%=_ctx.appRes("UIBrowserPortlet.Tab")%>">
+					<div class="RightNewTab">
+						<div class="MiddleNewTab"><span></span></div>
+					</div>
+				</div>
+				<div class="ClearLeft"><span></span></div>
+			</div>
+			<div class="ClearRight"><span></span></div>
+		</div>
+		<div class="TabContent UIResizableBlock">
+			<iframe class="IFrame" name="iframe" frameBorder="0"></iframe>
+		</div>
+	</div>
+</div>

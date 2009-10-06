@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>org.exoplatform.portal</groupId>
+    <artifactId>exo.portal.portlet</artifactId>
+    <version>3.0.0-Beta02-SNAPSHOT</version>
+  </parent> 
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>exo.portal.portlet.web</artifactId>
+  <packaging>war</packaging>
+  <name>GateIn Portal Portlet Web</name>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.webui.portal</artifactId>
+      <version>3.0.0-Beta02-SNAPSHOT</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies> 
+  
+  <build>
+    <finalName>web</finalName>
+  </build>
+</project>

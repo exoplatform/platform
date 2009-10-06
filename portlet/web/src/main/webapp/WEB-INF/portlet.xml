@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+<portlet-app version="1.0" xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"> 
+ -->
+ 
+ <portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="1.0">
+
+  <portlet>
+    <description xml:lang="EN">Browser Portlet</description>
+    <portlet-name>BrowserPortlet</portlet-name>
+    <display-name xml:lang="EN">Browser Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/web/BrowserPortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    <resource-bundle>locale.portlet.web.BrowserPortlet</resource-bundle>
+    
+    <portlet-info>
+      <title>Browser Portlet</title>
+      <short-title>Browser Portlet</short-title>
+      <keywords>Sample</keywords>
+    </portlet-info>     
+  </portlet>
+   
+  <portlet>
+    <description xml:lang="EN">Console Portlet</description>
+    <portlet-name>ConsolePortlet</portlet-name>
+    <display-name xml:lang="EN">Console Portlet</display-name>
+    <portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+    
+    <init-param>
+      <name>webui.configuration</name>
+      <value>/WEB-INF/conf/portlet/web/ConsolePortlet/webui/configuration.xml</value>
+    </init-param>    
+
+    <expiration-cache>0</expiration-cache>
+    <supports>
+      <mime-type>text/html</mime-type>
+      <portlet-mode>help</portlet-mode>
+    </supports>
+    <supported-locale>en</supported-locale>
+    <resource-bundle>locale.portlet.portal.ConsolePortlet</resource-bundle>
+    
+    <portlet-info>
+      <title>Console Portlet</title>
+      <short-title>Console Portlet</short-title>
+      <keywords>Sample</keywords>
+    </portlet-info>     
+  </portlet>
+</portlet-app>

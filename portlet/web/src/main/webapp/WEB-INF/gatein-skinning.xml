@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<gatein-skinning>
+	<!-- BrowserPortlet skins -->
+	
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>BrowserPortlet</portlet-name>
+		<skin-name>Default</skin-name>
+		<css-path>/skin/browser/webui/component/UIBrowserPortlet/DefaultStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<!-- ConsolePortlet skins -->
+	
+	<portlet-skin>
+		<application-name>web</application-name>
+		<portlet-name>ConsolePortlet</portlet-name>
+		<skin-name>Default</skin-name>
+		<css-path>/skin/portal/webui/component/UIConsolePortlet/DefaultStylesheet.css</css-path>
+	</portlet-skin>
+		
+</gatein-skinning>
+
