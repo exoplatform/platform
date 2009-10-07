@@ -1,40 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <parent>
-    <groupId>org.exoplatform.portal</groupId>
-    <artifactId>config</artifactId>
-    <version>2.6-int-SNAPSHOT</version>
-  </parent> 
-
   <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.portlet</artifactId>
+    <version>3.0.0-Beta02-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.exoplatform.portal</groupId>
   <artifactId>exo.portal.portlet.test</artifactId>
   <packaging>war</packaging>
-  <name>exo-portal.portlets.test Portlet</name>
-  <url>http://www.exoplatform.org</url>
+
+  <name>eXo Platform Portlet Test</name>
   <description>Test Portlet</description>
-  
+
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
-      <version>2.6-int-SNAPSHOT</version>
+      <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
-    </dependency>   
-    
+    </dependency>
+
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.eXo</artifactId>
-      <version>2.6-int-SNAPSHOT</version>
+      <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
     </dependency>
-    
-  <dependency>
-    <groupId>org.exoplatform.ws</groupId>
-  	<artifactId>exo.ws.frameworks.cometd.service</artifactId>
-		<version>${org.exoplatform.ws.version}</version>
-		<scope>provided</scope>
-  </dependency>
-  
-  </dependencies> 
+
+    <dependency>
+      <groupId>org.exoplatform.ws</groupId>
+      <artifactId>exo.ws.frameworks.cometd.service</artifactId>
+      <version>${org.exoplatform.cometd.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
 
   <build>
     <finalName>test</finalName>

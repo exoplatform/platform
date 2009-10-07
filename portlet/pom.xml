@@ -7,13 +7,14 @@
     <version>3.0.0-Beta02-SNAPSHOT</version>
   </parent>
 
-  <artifactId>exo.platform.component</artifactId>
+  <artifactId>exo.platform.portlet</artifactId>
   <packaging>pom</packaging>
 
-  <name>eXo Platform Component</name>
+  <name>eXo Platform Portlet</name>
 
   <modules>
-    <module>gifbackport</module>
+    <module>test</module>
+    <module>web</module>
   </modules>
 
 </project>
