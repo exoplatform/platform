@@ -1,33 +1,34 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<parent>
-		<groupId>org.exoplatform.portal</groupId>
-		<artifactId>config</artifactId>
-		<version>2.6-int-SNAPSHOT</version>
-	</parent>
-	
-	<modelVersion>4.0.0</modelVersion>
-	<artifactId>exo.portal.sample.portlets</artifactId>
-	<packaging>war</packaging>
-	<name>exo-portal.sample Portlets</name>
-	<url>http://www.exoplatform.org</url>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.parent</artifactId>
+    <version>3.0.0-Beta02-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.exoplatform.portal</groupId>
+  <artifactId>exo.portal.sample.portlets</artifactId>
+  <packaging>war</packaging>
+
+  <name>eXo Platform Sample Portlets</name>
   <description>Portal Sample Portlets</description>
-  
+
   <dependencies>
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
-      <version>2.6-int-SNAPSHOT</version>
+      <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
-    </dependency>   
-    
+    </dependency>
+
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.eXo</artifactId>
-      <version>2.6-int-SNAPSHOT</version>
+      <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
     </dependency>
-  </dependencies> 
-  
+  </dependencies>
+
   <build>
     <finalName>samplePortlets</finalName>
   </build>
@@ -38,7 +39,7 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <configuration>
-			<suppressionsLocation>${basedir}/src/main/resources/suppressions.xml</suppressionsLocation>
+          <suppressionsLocation>${basedir}/src/main/resources/suppressions.xml</suppressionsLocation>
         </configuration>
       </plugin>
     </plugins>

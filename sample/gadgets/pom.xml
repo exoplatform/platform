@@ -3,19 +3,17 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.parent</artifactId>
+    <artifactId>exo.platform.sample</artifactId>
     <version>3.0.0-Beta02-SNAPSHOT</version>
   </parent>
 
-  <artifactId>exo.platform.sample</artifactId>
+  <artifactId>exo.platform.sample.gadgets</artifactId>
   <packaging>pom</packaging>
 
-  <name>eXo Platform Sample</name>
+  <name>eXo Platform Sample Gadgets</name>
 
   <modules>
-    <module>application</module>
-    <module>gadgets</module>
-    <module>portlets</module>
+    <module>gwt</module>
   </modules>
 
 </project>

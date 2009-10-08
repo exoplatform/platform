@@ -1,13 +1,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <parent>
-    <groupId>org.exoplatform.portal</groupId>
-    <artifactId>config</artifactId>
-    <version>2.6-int-SNAPSHOT</version>
-  </parent>
+
   <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.sample.application</artifactId>
+    <version>3.0.0-Beta02-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.exoplatform.portal</groupId>
   <artifactId>cometd-demo</artifactId>
   <packaging>exopc-war</packaging>
-  <name>eXo Cometd demo</name>
+
+  <name>eXo Platform Sample Application Cometd demo</name>
 
   <dependencies>
 
@@ -24,27 +29,27 @@
       <version>2.5</version>
       <scope>compile</scope>
     </dependency>
-    
+
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.web</artifactId>
-      <version>2.6-dr1</version>
+      <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.webui.portal</artifactId>
-      <version>2.6-dr1</version>
+      <version>${org.exoplatform.portal.version}</version>
       <scope>provided</scope>
     </dependency>
-  <dependency>
-    <!--groupId>org.exoplatform.ws.frameworks.cometd</groupId-->
-    <groupId>org.exoplatform.ws</groupId>
-  	<artifactId>exo.ws.frameworks.cometd.service</artifactId>
-	<version>${org.exoplatform.ws.version}</version>
-	<scope>provided</scope>
-  </dependency>
+    <dependency>
+      <!--groupId>org.exoplatform.ws.frameworks.cometd</groupId-->
+      <groupId>org.exoplatform.ws</groupId>
+      <artifactId>exo.ws.frameworks.cometd.service</artifactId>
+      <version>${org.exoplatform.cometd.version}</version>
+      <scope>provided</scope>
+    </dependency>
 
   </dependencies>
 
@@ -65,25 +70,29 @@
       </plugin>
 
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
+        <groupId>org.exoplatform.maven.plugins</groupId>
         <artifactId>maven-exopc-plugin</artifactId>
+        <version>1.0.4</version>
         <extensions>true</extensions>
         <configuration>
           <sharedDir>${basedir}/patches</sharedDir>
           <excludeProjects>
             junit, jmock, bcel, ehcache, xercesImpl, msv, servlet-api, jibx-bind, isorelax,
             relaxngDatatype, velocity-dep, saxpath, exo-platform.test.framework, xerces,
-            xmldb-api, castor, drools-smftest, jsp-api, xml-apis, xml-resolver, jaxen,
+            xmldb-api, castor,
+            drools-smftest, jsp-api, xml-apis, xml-resolver, jaxen,
             xjavadoc, xdoclet-hibernate-module, xdoclet-xdoclet-module, xdoclet,
-            commons-logging, saaj-api, exo-weblogic-authproviders, exo-weblogic-loginmodule,
+            commons-logging, saaj-api, exo-weblogic-authproviders,
+            exo-weblogic-loginmodule,
             carol, commons-fileupload, commons-io, drools-base, drools-core, drools-java,
             drools-smf, exo-platform.services.backup.api, exo-platform.services.ldap.api,
             exo-platform.services.ldap.impl, exo-platform.services.remote.api,
             exo-platform.services.remote.impl, exo-platform.services.templates.api,
-            exo-platform.services.templates.impl, groovy-all-1.0-jsr, howl-logger, janino,
+            exo-platform.services.templates.impl,
+            groovy-all-1.0-jsr, howl-logger, janino,
             jgroups-all, jotm, jotm_jrmp_stubs, jstl, log4j, soap, velocity, commons-beanutils
           </excludeProjects>
-          <includeToWarClasspath/>
+          <includeToWarClasspath />
         </configuration>
       </plugin>
 

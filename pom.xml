@@ -75,8 +75,8 @@
     <!-- ***************** -->
     <!-- Repositories URLs -->
     <!-- ***************** -->
-    <gatein.releases.repo.url>http://repository.exoplatform.org/content/repositories/exo-releases/</gatein.releases.repo.url>
-    <gatein.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-snapshots/</gatein.snapshots.repo.url>
+    <exo.releases.repo.url>http://repository.exoplatform.org/content/repositories/exo-releases/</exo.releases.repo.url>
+    <exo.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-snapshots/</exo.snapshots.repo.url>
 
     <!-- ************** -->
     <!-- Build settings -->
@@ -499,19 +499,19 @@
   <distributionManagement>
     <repository>
       <id>repository.exoplatform.org</id>
-      <url>${gatein.releases.repo.url}</url>
+      <url>${exo.releases.repo.url}</url>
     </repository>
     <snapshotRepository>
       <id>repository.exoplatform.org</id>
-      <url>${gatein.snapshots.repo.url}</url>
+      <url>${exo.snapshots.repo.url}</url>
     </snapshotRepository>
   </distributionManagement>
 
   <modules>
     <module>component</module>
      <module>portlet</module>
-    <!--
      <module>sample</module>
+    <!--
      <module>server</module>
      <module>test</module>
      <module>web</module>
