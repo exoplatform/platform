@@ -14,7 +14,7 @@
 
   <modules>
     <module>test</module>
-    <module>web</module>
+    <module>browser</module>
   </modules>
 
 </project>

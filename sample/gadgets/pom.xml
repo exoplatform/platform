@@ -13,7 +13,7 @@
   <name>eXo Platform Sample Gadgets</name>
 
   <modules>
-    <module>gwt</module>
+    <!--module>gwt</module-->
   </modules>
 
 </project>

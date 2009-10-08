@@ -8,10 +8,10 @@
   </parent>
 
   <groupId>org.exoplatform.platform</groupId>
-  <artifactId>exo.portal.portlet.web</artifactId>
+  <artifactId>exo.portal.portlet.browser</artifactId>
   <packaging>war</packaging>
 
-  <name>eXo Platform Portlet Web</name>
+  <name>eXo Platform Portlet Browser</name>
 
   <dependencies>
     <dependency>

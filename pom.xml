@@ -52,6 +52,7 @@
     <version.ear.plugin>2.3.2</version.ear.plugin>
     <version.ejb.plugin>2.2</version.ejb.plugin>
     <version.enforcer.plugin>1.0-beta-1</version.enforcer.plugin>
+    <version.exec.plugin>1.1.1</version.exec.plugin>
     <version.findbugs.plugin>2.1</version.findbugs.plugin>
     <version.idea.plugin>2.2</version.idea.plugin>
     <version.install.plugin>2.3</version.install.plugin>
@@ -97,7 +98,7 @@
     <jdk.min.version>${maven.compiler.source}</jdk.min.version>
 
     <!-- maven-idea-plugin & maven-eclipse-plugin -->
-    <downloadSources>true</downloadSources>
+    <downloadSources>false</downloadSources>
 
     <!-- maven-pmd-plugin -->
     <targetJdk>${maven.compiler.target}</targetJdk>
@@ -110,10 +111,22 @@
     <!-- **************** -->
     <!-- Plugins versions -->
     <!-- **************** -->
-    <org.exoplatform.cometd.version>2.0.2</org.exoplatform.cometd.version>
-    <org.exoplatform.ws.version>2.1.Alpha4</org.exoplatform.ws.version>
+    <org.exoplatform.cometd.version>2.0.2</org.exoplatform.cometd.version><!-- This is WS 2.0.2, expecting for a COMET version -->
     <org.exoplatform.portal.version>3.0.0-Beta02-SNAPSHOT</org.exoplatform.portal.version>
-
+    <org.exoplatform.kernel.version>2.2.0-Beta02</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.3.0-Beta02</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.1.0-Beta02</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.12.0-Beta02</org.exoplatform.jcr.version>
+    <org.jibx.version>1.2.1</org.jibx.version>
+    <org.shindig.version>SNAPSHOT-r790473</org.shindig.version>
+    <org.gatein.common.version>2.0.0-Beta02</org.gatein.common.version>
+    <org.gatein.wci.version>2.0.0-SNAPSHOT</org.gatein.wci.version>
+    <org.gatein.pc.version>2.1.0-SNAPSHOT</org.gatein.pc.version>
+    <org.jboss.identity.idm>1.0.0.Beta2</org.jboss.identity.idm>
+    <org.gatein.wsrp.version>1.0.0-SNAPSHOT</org.gatein.wsrp.version>
+    <org.gatein.mop.version>1.0.0-Beta08</org.gatein.mop.version>
+    <version.chromattic>1.0.0-beta4</version.chromattic>
+    <version.reflect>1.0.0-beta3</version.reflect>     
   </properties>
 
   <build>
@@ -187,6 +200,11 @@
           <version>${version.enforcer.plugin}</version>
         </plugin>
         <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>${version.exec.plugin}</version>
+        </plugin>
+       <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
           <version>${version.findbugs.plugin}</version>
@@ -514,5 +532,6 @@
     <module>server</module>
     <module>web</module>
     <module>test</module>
+    <module>packaging</module>
   </modules>
 </project>
