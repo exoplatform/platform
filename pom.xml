@@ -509,12 +509,10 @@
 
   <modules>
     <module>component</module>
-     <module>portlet</module>
-     <module>sample</module>
-     <module>server</module>
-     <module>web</module>
-     <!--
-     <module>test</module>
-     -->
+    <module>portlet</module>
+    <module>sample</module>
+    <module>server</module>
+    <module>web</module>
+    <module>test</module>
   </modules>
 </project>
