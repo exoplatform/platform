@@ -512,9 +512,9 @@
      <module>portlet</module>
      <module>sample</module>
      <module>server</module>
+     <module>web</module>
      <!--
      <module>test</module>
-     <module>web</module>
      -->
   </modules>
 </project>
