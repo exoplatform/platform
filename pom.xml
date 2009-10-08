@@ -511,8 +511,8 @@
     <module>component</module>
      <module>portlet</module>
      <module>sample</module>
-    <!--
      <module>server</module>
+     <!--
      <module>test</module>
      <module>web</module>
      -->

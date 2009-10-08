@@ -1,16 +1,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
   <modelVersion>4.0.0</modelVersion>
+
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.server</artifactId>
     <version>3.0.0-Beta02-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.exoplatform.portal</groupId>
-  <artifactId>exo.portal.server.websphere.plugin</artifactId>
-  <packaging>jar</packaging>
+  <artifactId>exo.platform.server.websphere</artifactId>
+  <packaging>pom</packaging>
 
-  <name>eXo Platform Server Websphere Plugin</name>
-  <description>eXo Websphere Server Plugin</description>
+  <name>eXo Platform Server WebSphere</name>
+
+  <modules>
+    <module>patch</module>
+    <module>plugin</module>
+  </modules>
 
 </project>
