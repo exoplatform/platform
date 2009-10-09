@@ -38,7 +38,7 @@
 }
 
 .UILogoPortlet a {
-	color: white;
+	color: #131313;
 	outline: none;
 	margin: 0 8px;
 	font-weight: bold;
@@ -51,7 +51,7 @@
 }
 
 .UILogoPortlet a:hover {
-	color: #e7e7e7;
+	color: #40578a;
 }
 
 .UILogoPortlet .Name {
