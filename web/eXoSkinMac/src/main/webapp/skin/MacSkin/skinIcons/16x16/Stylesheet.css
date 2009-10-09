@@ -496,8 +496,8 @@
 }
 
 .DefaultPageIcon {
-  background: url('icons/DefaultPageIcon.png') no-repeat left center; /* orientation=lt */
-  background: url('icons/DefaultPageIcon.png') no-repeat right center; /* orientation=rt */
+  background: url('icons/DefaultPageIcon.gif') no-repeat left center; /* orientation=lt */
+  background: url('icons/DefaultPageIcon.gif') no-repeat right center; /* orientation=rt */
 }
 
 /********************* Icon PortletIcon************************************/

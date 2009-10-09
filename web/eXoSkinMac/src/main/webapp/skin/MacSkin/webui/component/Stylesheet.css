@@ -21,3 +21,9 @@
 @import url(UIToolbar/Stylesheet.css) ;
 @import url(UIDropDownControl/Stylesheet.css) ;
 @import url(UIGroupInfoContainer/Stylesheet.css) ;
+
+
+
+.UISiteBody {
+  background: #f5f5f5;
+}

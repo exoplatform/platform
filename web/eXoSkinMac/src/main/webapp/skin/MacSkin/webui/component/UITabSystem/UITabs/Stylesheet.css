@@ -17,38 +17,32 @@
 
 /*###########################--NavigationTabTab--############################*/
 .UIHorizontalTabs .UITab .NormalNavigationTab {
-  line-height: 24px; 
-  margin-top: 8px; 
-  margin-left: 1px; /* orientation=lt */
-  margin-right: 1px; /* orientation=rt */
+  line-height: 34px; 
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .LeftTab {
-  line-height: 24px;
-  padding-left: 6px;
-  background: url('background/NavigationTab.png') no-repeat left top;
+  border-left: 1px solid #999999;
+  padding-left: 1px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .RightTab {
-  line-height: 24px; 
-  padding-right: 6px;
-  background: url('background/NavigationTab.png') no-repeat right -24px;
+  border-right: 1px solid #999999;
+  padding-right: 1px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .MiddleTab {
-  line-height: 24px; 
-  background: url('background/NavigationTab.png') repeat-x left -48px;
+  line-height: 34px;
+  padding: 0px 20px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .TabIcon {
-  line-height: 24px;
-  padding: 0px 0px 0px 0px;
+  line-height: 34px;
+  padding: 0px;
+  font-size: 17px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
   color: #2d2d2d;
-  margin-right: 2px; /* orientation=lt */
-  margin-left: 2px; /* orientation=rt */
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
@@ -62,38 +56,33 @@
 /*###############-Hightlight Navigation Tab  -################*/
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab {
-  line-height: 24px; 
-  margin-top: 8px; 
-  margin-left: 1px; /* orientation=lt */
-  margin-right: 1px; /* orientation=rt */
+  line-height: 34px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
-  line-height: 24px; 
-  background: url('background/NavigationTab.png') no-repeat left -72px;
-  padding-left: 6px;
+  background: url('background/NavigationTab.gif') no-repeat left top;
+  padding-left: 2px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .RightTab {
-  line-height: 24px; 
-  background: url('background/NavigationTab.png') no-repeat right -96px;
-  padding-right: 6px;
+  background: url('background/NavigationTab.gif') no-repeat right top;
+  padding-right: 2px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
-  line-height: 24px; 
-  background: url('background/NavigationTab.png') repeat-x left -120px;
+  line-height: 34px; 
+  background: url('background/NavigationTab.gif') repeat-x left -34px;
+  padding: 0px 20px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
-  padding: 0px 0px 0px 0px;
-  line-height: 24px;
+  line-height: 34px;
+  padding: 0px;
+  font-size: 17px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab a {
-  color: #0f33c6;
-  margin-right: 2px; /* orientation=lt */
-  margin-left: 2px; /* orientation=rt */
+  color: #000;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .DropDownArrowIcon {
@@ -107,38 +96,33 @@
 /*###############-Selected Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab {
-  line-height: 24px; 
-  margin-top: 8px; 
-  margin-left: 1px; /* orientation=lt */
-  margin-right: 1px; /* orientation=rt */
+  line-height: 34px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
-  line-height: 24px; 
-  background: url('background/NavigationTab.png') no-repeat left -144px;
-  padding-left: 6px;
+  background: url('background/NavigationTab.gif') no-repeat left -68px;
+  padding-left: 2px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .RightTab {
-  line-height: 24px; 
-  background: url('background/NavigationTab.png') no-repeat right -168px;
-  padding-right: 6px;
+  background: url('background/NavigationTab.gif') no-repeat right -68px;
+  padding-right: 2px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
-  line-height: 24px;
-  background: url('background/NavigationTab.png') repeat-x bottom;
+  line-height: 34px; 
+  background: url('background/NavigationTab.gif') repeat-x left -102px;
+  padding: 0px 20px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
-  color: white;
-  line-height: 24px;
+  line-height: 34px;
   padding: 0px;
+  font-size: 17px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab a {
-  margin-right: 2px; /* orientation=lt */
-  margin-left: 2px; /* orientation=rt */
+  color: #fff;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .DropDownArrowIcon {

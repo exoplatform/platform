@@ -4,23 +4,23 @@
 }
 
 .UIHomePagePortlet {	
-	background: white;
-	padding: 8px 8px 0px;
-	width: 948px;
+  padding: 0px 18px;
 }
 
 .UIHomePagePortlet .TRContainer .PortletDecoration {	
 	padding: 10px;
+	background: url('DefaultSkin/background/BottomRightColumn.gif') repeat-x bottom center;
 }
 
 .UIHomePagePortlet .TRContainer {
 	width: 222px;
-	height: 390px;
+	height: 391px;
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
-	border: 1px solid #C6C6C6;	
+	border: 1px solid #bdbcbd;
+	-moz-border-radius: 5px;
 	text-align: center;
-	background: url('DefaultSkin/background/BgRightColumn.gif') repeat-x bottom center;
+	background: #fff url('DefaultSkin/background/TopRightColumn.gif') repeat-x top center;
 }
 
 .UIHomePagePortlet .TRContainer a {
@@ -33,10 +33,7 @@
 }
 
 .UIHomePagePortlet .TRContainer .DotLine {
-	background: url("DefaultSkin/background/Line.gif") no-repeat -2px top;
-	height: 1px;
-	width: 182px;
-	margin: 7px auto;
+
 }
 
 
@@ -44,7 +41,7 @@
 	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -978px;
 	height: 65px;
 	width: 80px;
-	margin: 20px auto;
+	margin: 45px auto;
 	cursor: pointer;
 }
 
@@ -57,14 +54,12 @@
 }
 
 .UIHomePagePortlet  .TLContainer {
-	border: 1px solid #ffffff;
 	float: left; /* orientation=lt */	
 	float: right; /* orientation=rt */
 	width: 713px;
 }
 
 .UIHomePagePortlet .TLContainer .PortletDecoration {	
-	background: #fff;
 }
 
 .UIHomePagePortlet .HomePortletAdBackround {	
@@ -83,7 +78,7 @@
 	
 	text-align: right; /* orientation=lt */
 	text-align: left; /* orientation=rt */
-	height: 255px; 
+	height: 257px; 
 	padding: 0px 10px 0px 0px; /* orientation=lt */
 	padding: 0px 0px 0px 10px; /* orientation=rt */
 	letter-spacing: 1px;
@@ -109,6 +104,7 @@
 
 .UIHomePagePortlet .HomePortletContent {
 	margin-top: 8px;
+	border-bottom: 1px solid #c6c6c6;
 }
 
 .UIHomePagePortlet .HomePortletContent .LeftAccountsContainer {

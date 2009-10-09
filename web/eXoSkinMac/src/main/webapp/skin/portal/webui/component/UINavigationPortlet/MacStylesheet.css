@@ -4,30 +4,38 @@
 	
 .UINavigationPortlet .UINavigationBar {
 	white-space: nowrap;
+	padding: 0px 18px;
+}
+
+.UINavigationPortlet .UINavigationBar .LeftNavigationBar {
+	background: url('MacSkin/background/UINavigationPortlet.gif') no-repeat left top;
+	padding-left: 3px;
+}
+
+.UINavigationPortlet .UINavigationBar .RightNavigationBar {
+	background: url('MacSkin/background/UINavigationPortlet.gif') no-repeat right top;
+	padding-right: 3px;
 }
 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
-	background: url('MacSkin/background/UINavigationPortlet.png') repeat-x top;
-	border-top: 1px solid white;
-	padding-left: 8px; /* orientation=lt */
-	padding-right: 8px; /* orientation=rt */
+	background: url('MacSkin/background/UINavigationPortlet.gif') repeat-x left -34px;
 	!background-position: center 1px;
+	height: 34px;
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs	{
-	height: 42px;
+	height: 34px;
 }
 
 .UINavigationPortlet .UIHorizontalTabs .TabsContainer {
 	float: none;
+	height: 34px;
+	padding: 0px 10px;
 	_position: relative; /* orientation=rt */
 }
  
 .UINavigationPortlet .MiddleTab .TabLabel {
-	padding: 0px 0px 0px 20px; /* orientation=lt */
-	padding: 0px 20px 0px 0px; /* orientation=rt */
-	background-position: left; /* orientation=lt */
-	background-position: right; /* orientation=rt */
+	background: none;
 	display: block;
 }
 

@@ -36,8 +36,7 @@ html {
 body {
 	background: white ;
 	font-family: "Tahoma",Geneva,Arial,Verdana,sans-serif;
- font-size: 11px;
-	background: url('../../../background/MacBackground.jpg') no-repeat fixed;
+  font-size: 11px;
 	margin: 0px ; padding: 0px;
 	overflow-x: hidden;
 }
@@ -65,7 +64,7 @@ a {
 }
 
 .InlineContainer {
-
+  padding: 0px 18px;
 	overflow: hidden ;
 }
 
