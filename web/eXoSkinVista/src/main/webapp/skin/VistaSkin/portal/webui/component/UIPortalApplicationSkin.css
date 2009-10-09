@@ -34,7 +34,7 @@ html {
 }
 
 body {
- background: url('/eXoSkinVista/skin/VistaSkin/background/eXoDesktopBG1.jpg') no-repeat fixed ;
+ background: #232943 url('/eXoSkinVista/skin/VistaSkin/background/Background.jpg') no-repeat fixed center;
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif ;
 	font-size: 11px;
 	margin: 0px ; padding: 0px;

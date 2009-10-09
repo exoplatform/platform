@@ -1,90 +1,91 @@
-#banner {
-	border-top: 1px solid white;
-}	
-
 .UIBannerPortlet {
-	overflow: auto;
-	background: url('VistaSkin/background/Banner.png') repeat-x right -149px;
+	zoom: 100%;
 }
 
 .UIBannerPortlet .LeftBanner {
-	padding: 0px 0px 0px 264px;	/* orientation=lt */
-	background: url('VistaSkin/background/Banner.png') no-repeat left top; /* orientation=lt */
-	background: url('VistaSkin/background/Banner.png') no-repeat right top; /* orientation=rt */
-}
-
-.UIBannerPortlet .MiddleBanner{
-	height: 73px;
-}
-
-.UIBannerPortlet .MiddleBannerSignin {
+	padding-left: 10px; /* orientation=lt */
+	padding-right: 10px; /* orientation=rt */
 }
 
 .UIBannerPortlet .RightBanner {
-	padding: 0px 60px 0px 0px; /* orientation=lt */
-	padding: 0px 0px 0px 60px; /* orientation=rt */
-	background: url('VistaSkin/background/Banner.png') no-repeat right -75px; /* orientation=lt */
-	background: url('VistaSkin/background/Banner-rt.png') no-repeat left -75px; /* orientation=rt */
+	background: url('VistaSkin/background/Logo.png') no-repeat left 11px; /* orientation=lt */
+	background: url('VistaSkin/background/Logo.png') no-repeat right -39px; /* orientation=rt */
 }
 
-.UIBannerPortlet .BannerTitle {
-	height: 45px;
-	margin: 0px 0px 0px 5px; /* orientation=lt */
-	margin: 0px 5px 0px 0px; /* orientation=rt */
+.UIBannerPortlet .MiddleBanner {
+	height: 43px;
 }
 
 .UIBannerPortlet .LeftLoginContainer {
-}
-
-.UIBannerPortlet .LeftLoginContainer .RightLoginContainer {
-	padding: 2px 0px 0px 0px; 
-	line-height: 20px;
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 }
 
-.UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
-	font-weight: bold;
-	color: #5098EB;
+.UIBannerPortlet .RightLoginContainer {
+}
+
+.UIBannerPortlet .MiddleLoginContainer {
+	padding: 5px 15px 1px;
+}
+
+.UIBannerPortlet .Signin {
+
+}
+
+.UIBannerPortlet .MiddleLoginContainer a {
+	color: #0d62af;
 	outline: none;
 }
 
-.UIBannerPortlet .LeftLoginContainer .RightLoginContainer a:hover {
-	color: #b3e2fb;
+.UIBannerPortlet .MiddleLoginContainer a:hover {
+	color: #e7e7e7;
 }
 
-.UIBannerPortlet .RightLoginContainer .Logout {
-	margin-right: 15px;
+.UIBannerPortlet .MiddleLoginContainer .Name {
+	text-align: left;	 
+	color: #666666;
+	margin-bottom: 6px;
+	line-height: 35px;
 	float: left;
-	height: 22px;
-	background: url('VistaSkin/background/Banner.png') no-repeat left -269px;
-	cursor: pointer; 
-	padding-left: 25px;
+}
+
+.UIBannerPortlet .MiddleLoginContainer .Logout {
+	margin-right: 12px;
+	cursor: pointer;
+	float: left;	
+	font-weight: bold;
 	display: block;
+	line-height: 35px;
+	color: white;
 }
 
-.UIBannerPortlet .RightLoginContainer .Login {
-	margin-right: 15px;
-	float: left;
-	height: 22px;
-	background: url('VistaSkin/background/Banner.png') no-repeat left -247px;
-	cursor: pointer; 
-	padding-left: 25px;
+.UIBannerPortlet .MiddleLoginContainer .Login {
+	margin-right: 12px;	
+	cursor: pointer;
+	float: left;	 	
+	font-weight: bold;
 	display: block;
+	line-height: 35px;
+	color: white;
+	background: none;
 }
 
-.UIBannerPortlet .RightLoginContainer .Name {
-	color: #0d62af;
-	float: left;
-	margin-right: 15px;
+.UIBannerPortlet .MiddleLoginContainer .Register {
+	margin-right: 12px;	
+	cursor: pointer;
+	float: left;	 	
+	font-weight: bold;
+	display: block;
+	line-height: 35px;
+	color: white;
+	background: none;
 }
  
-.UIBannerPortlet .RightLoginContainer .Language {
-	height: 22px;
-	background: url('VistaSkin/background/Banner.png') no-repeat left -224px;
-	padding-left: 28px;
+.UIBannerPortlet .MiddleLoginContainer .Language {
 	cursor: pointer;
 	font-weight: bold;
 	float: left;
 	display: block;
+	line-height: 35px;
+	color: white;
 }

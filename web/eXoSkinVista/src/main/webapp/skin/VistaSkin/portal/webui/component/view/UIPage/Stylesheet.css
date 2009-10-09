@@ -72,14 +72,29 @@
     background: url('background/PageLayout.png') repeat-x bottom; 
 }
 
+.BottomDecoratorHome .BottomDecoratorLeft{
+	background: url('background/BottomDecoratorHome.png') no-repeat left;
+	padding-left: 7px;
+}
+
+.BottomDecoratorHome .BottomDecoratorRight{
+	background: url('background/BottomDecoratorHome.png') no-repeat right;
+	padding-right: 7px;
+}
+
+.BottomDecoratorHome .BottomDecoratorMiddle{
+	background: white;
+	height: 7px;
+}
+
 .UIPageBody .PageLayoutDecorator .BottomCenterPage .FixBug {
   height: 15px;
 }
 
-.UIPage .UIRowContainer {
-	padding: 1px;
-}
-
 .UIPage .VIEW-PAGE {
   padding: 0px;
+}
+
+.UIPageBody .VIEW-PAGEBODY .UIPage {
+	padding: 0 8px;
 }

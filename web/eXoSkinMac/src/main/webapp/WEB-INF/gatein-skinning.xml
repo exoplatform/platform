@@ -68,6 +68,13 @@
 	
 	<portlet-skin>
 		<application-name>web</application-name>
+		<portlet-name>LogoPortlet</portlet-name>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/portal/webui/component/UILogoPortlet/MacStylesheet.css</css-path>
+	</portlet-skin>
+	
+	<portlet-skin>
+		<application-name>web</application-name>
 		<portlet-name>NavigationPortlet</portlet-name>
 		<skin-name>Mac</skin-name>
 		<css-path>/skin/portal/webui/component/UINavigationPortlet/MacStylesheet.css</css-path>

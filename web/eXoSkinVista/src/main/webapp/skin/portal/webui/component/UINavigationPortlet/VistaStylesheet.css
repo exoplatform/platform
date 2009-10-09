@@ -4,29 +4,165 @@
 	
 .UINavigationPortlet .UINavigationBar {
 	white-space: nowrap;
+	padding: 0 2px;
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs {
-	height: 36px;
+	height: 32px;
 }
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
 	float: none;
 	_position: relative; /* orientation=rt */
 } 
-.UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
-	line-height: 36px;
-	background: url('VistaSkin/background/NavigationPortlet.png') repeat-x top;
-	border-top: 1px solid white;
-	!background-position: center 1px;
+
+.UINavigationPortlet .UINavigationBar .LeftNavigationBar {
+	background: url('VistaSkin/background/NavBg.png') no-repeat left top;
+	padding-left: 9px;
 }
 
-.UINavigationPortlet .MiddleTab .TabLabel {
-	padding: 0px 0px 0px 20px; /* orientation=lt */
-	padding: 0px 20px 0px 0px; /* orientation=rt */
-	background-position: left; /* orientation=lt */
-	background-position: right; /* orientation=rt */
-	display: block;
+.UINavigationPortlet .UINavigationBar .RightNavigationBar {
+	background: url('VistaSkin/background/NavBg.png') no-repeat right -32px;
+	padding-right: 9px;
+}
+
+.UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
+	height: 32px;
+	background: url('VistaSkin/background/NavBg.png') repeat-x center -64px;
+}
+
+.UINavigationPortlet .UITab a.DefaultPageIcon {
+	background: none;
+	padding: 0;
+}
+
+/*###########################--NavigationTabTab--############################*/
+
+.UINavigationPortlet .UITab .NormalNavigationTab {
+	line-height: 26px; 
+	margin: 5px 8px 0px 0px; 
+}
+
+.UINavigationPortlet .UITab .NormalNavigationTab .LeftTab {
+	line-height: 21px;
+	padding-left: 3px;
+}
+
+.UINavigationPortlet .UITab .NormalNavigationTab .RightTab {
+	line-height: 21px; 
+	padding-right: 3px;
+}
+
+.UINavigationPortlet .UITab .NormalNavigationTab .MiddleTab {
+	line-height: 21px;
+	text-align: center;
+	padding: 0px 10px;
+}
+
+.UINavigationPortlet .UITab .NormalNavigationTab .TabIcon {
+	color: #fff;
+	line-height: 21px;
+}
+
+.UINavigationPortlet .UITab .NormalNavigationTab a {
+	color: #fff;
+}
+
+.UINavigationPortlet .UITab .NormalNavigationTab .DropDownArrowIcon {
+	padding-right: 16px; /* orientation=lt */
+	padding-left: 16px; /* orientation=rt */
+	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat right; /* orientation=lt */
+	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat left; /* orientation=rt */
+	cursor: pointer;
+}
+
+/*###############-Hightlight Navigation Tab	-################*/
+
+.UINavigationPortlet .UITab .HighlightNavigationTab {
+	line-height: 26px;  
+	margin: 5px 8px 0px 0px; 
+}
+
+.UINavigationPortlet .UITab .HighlightNavigationTab .LeftTab {
+	line-height: 26px; 
+	padding-left: 3px;
+	background: url('VistaSkin/background/NavigationTab.gif') no-repeat left -108px;
+}
+
+.UINavigationPortlet .UITab .HighlightNavigationTab .RightTab {
+	line-height: 26px; 
+	padding-right: 3px;
+	background: url('VistaSkin/background/NavigationTab.gif') no-repeat right -130px;
+}
+
+.UINavigationPortlet .UITab .HighlightNavigationTab .MiddleTab {
+	height: 21px; 
+	text-align: center;
+	padding: 0px 10px;
+	background: #6d94c8;
+	margin-bottom: 4px;
+}
+
+.UINavigationPortlet .UITab .HighlightNavigationTab .TabIcon {
+	color: #fff;
+	line-height: 21px;
+}
+
+.UINavigationPortlet .UITab .HighlightNavigationTab a {
+	color: #fff;
+}
+
+.UINavigationPortlet .UITab .HighlightNavigationTab .DropDownArrowIcon {
+	padding-right: 16px; /* orientation=lt */
+	padding-left: 16px; /* orientation=rt */
+	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat right; /* orientation=lt */
+	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat left; /* orientation=rt */
+	cursor: pointer;
+}
+
+/*###############-Selected Navigation Tab-################*/
+
+.UINavigationPortlet .UITab .SelectedNavigationTab {
+	line-height: 26px; 
+	margin: 5px 8px 0px 0px; 
+}
+
+.UINavigationPortlet .UITab .SelectedNavigationTab .LeftTab {
+	line-height: 21px; 
+	background: url('VistaSkin/background/NavigationTab.gif') no-repeat left -28px;
+	padding-left: 3px;
+}
+
+.UINavigationPortlet .UITab .SelectedNavigationTab .RightTab {
+	line-height: 21px; 
+	background: url('VistaSkin/background/NavigationTab.gif') no-repeat right -55px;
+	padding-right: 3px;
+}
+
+.UINavigationPortlet .UITab .SelectedNavigationTab .MiddleTab {
+	line-height: 21px;
+	background: url('VistaSkin/background/NavigationTab.gif') repeat-x;
+	text-align: center;
+	padding: 0px 6px;
+}
+
+.UINavigationPortlet .UITab .SelectedNavigationTab .TabIcon {
+	color: #f57a00;
+	line-height: 21px;
+	padding-bottom: 5px;
+	background: url('VistaSkin/background/NavigationTab.gif') no-repeat center -82px;;
+}
+
+.UINavigationPortlet .UITab .SelectedNavigationTab a {
+	color: #f57a00;
+}
+
+.UINavigationPortlet .UITab .SelectedNavigationTab .DropDownArrowIcon {
+	padding-right: 16px; /* orientation=lt */
+	padding-left: 16px; /* orientation=rt */
+	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat right center;	/* orientation=lt */
+	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat left center; /* orientation=rt */
+	cursor: pointer;
 }
 
 /* Portal Navigation sub menus */
