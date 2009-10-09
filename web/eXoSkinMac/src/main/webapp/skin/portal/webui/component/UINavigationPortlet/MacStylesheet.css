@@ -45,17 +45,16 @@
 	white-space: nowrap;
 	text-align: left; /* orientation=lt */
 	text-align: right; /* orientation=rt */
-	border: 1px #333 solid;
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItemDecorator {
 	padding: 0px;
-	border: 1px #fff solid;
 }
 
 .UINavigationPortlet .MenuItemContainer .CenterMiddleMenuDecorator {
-	background: url('MacSkin/background/MenuBG.png') repeat;
-	border-top: 1px solid #b3b3b3;
+	background: #ddd;
+	border-left: 1px solid #A1A1A1;
+	padding: 0 5px;
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItem {
