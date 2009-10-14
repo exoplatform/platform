@@ -25,7 +25,7 @@
 .UILogoPortlet .Img,.UILogoPortlet .BannerTitle {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-	color: #3c3c3c;
+	color: white;
 	font-size: 17px;
 }
 

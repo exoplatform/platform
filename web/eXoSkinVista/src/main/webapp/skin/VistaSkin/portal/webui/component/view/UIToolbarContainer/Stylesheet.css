@@ -140,8 +140,8 @@
 }
 
 .UIToolbarContainer .SiteIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat left -181px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat right -181px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat left -181px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat right -181px; /* orientation=rt */
 }
 
 .UIToolbarContainer .GroupIcon {

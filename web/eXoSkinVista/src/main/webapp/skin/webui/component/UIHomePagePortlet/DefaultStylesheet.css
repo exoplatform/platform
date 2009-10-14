@@ -73,7 +73,7 @@
 
 .UIHomePagePortlet .AdImageLeft {
 	background: url('DefaultSkin/background/RightHome.jpg') no-repeat left top; /* orientation=lt */
-	background: url('DefaultSkin/background/RightHome.jpg') no-repeat right -255px; /* orientation=rt */
+	background: url('DefaultSkin/background/RightHome-rt.jpg') no-repeat right top; /* orientation=rt */
 }
 
 *html .UIHomePagePortlet .AdImageLeft {
@@ -94,7 +94,8 @@
 	text-align: center;
 	font-family: arial;
 	font-weight: bold;
-	float: right;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 	padding: 50px 0 0;
 }
 
