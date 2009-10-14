@@ -3,7 +3,7 @@
 	padding-left: 3px;
 }
 
-.UIToolbarContainer .AdminToolBarPortletTDContainer {
+.UIToolbarContainer .UserInfoPortletTDContainer {
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
 }
@@ -212,6 +212,20 @@
 	background: url('background/ToolbarContainer.gif') no-repeat left -288px; /* orientation=lt */
 	background: url('background/ToolbarContainer.gif') no-repeat right -288px; /* orientation=rt */	
 	cursor: pointer;
+}
+
+.UIToolbarContainer .Name a {
+	background: url('background/UseIcon.png') no-repeat left center; /* orientation=lt */
+	background: url('background/UseIcon.png') no-repeat right center; /* orientation=rt */
+	padding: 0px 10px 0px 25px; /* orientation=lt */
+	padding: 0px 25px 0px 10px; /* orientation=rt */
+	color: #e66a1f; font-weight:bold; cursor:pointer;
+	display: block;
+	line-height: 26px;
+}
+
+.UIToolbarContainer .Name a:hover {
+	color: #058ee6;
 }
 
 /***************UIStarToolBarPortlet*****************/
