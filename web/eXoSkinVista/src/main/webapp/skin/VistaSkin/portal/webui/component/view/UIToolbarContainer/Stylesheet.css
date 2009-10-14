@@ -140,13 +140,13 @@
 }
 
 .UIToolbarContainer .SiteIcon {
-	background: url('background/ToolbarContainer.png') no-repeat left -181px; /* orientation=lt */
-	background: url('background/ToolbarContainer.png') no-repeat right -181px; /* orientation=rt */
+	background: url('background/ToolbarContainer.gif') no-repeat left -181px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat right -181px; /* orientation=rt */
 }
 
-.UIToolbarContainer .GroupsIcon {
-	background: url('background/ToolbarContainer.png') no-repeat left -231px; /* orientation=lt */
-	background: url('background/ToolbarContainer.png') no-repeat right -231px; /* orientation=rt */
+.UIToolbarContainer .GroupIcon {
+	background: url('background/ToolbarContainer.png') no-repeat left -215px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat right -215px; /* orientation=rt */
 }
 
 .UIToolbarContainer .EditorIcon {

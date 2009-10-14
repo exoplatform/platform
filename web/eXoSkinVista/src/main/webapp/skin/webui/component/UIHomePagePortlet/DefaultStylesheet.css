@@ -3,7 +3,6 @@
 	padding: 10px;
 }
 
-
 .UIHomePagePortlet {	
 	background: white;
 	padding: 8px 8px 0px;
@@ -81,17 +80,26 @@
 }
 
 .UIHomePagePortlet .AdImageRight {
-	
 	text-align: right; /* orientation=lt */
 	text-align: left; /* orientation=rt */
 	height: 255px; 
-	padding: 0px 10px 0px 0px; /* orientation=lt */
-	padding: 0px 0px 0px 10px; /* orientation=rt */
-	letter-spacing: 1px;
+	padding: 0px 10px 0px 200px; /* orientation=lt */
+	padding: 0px 200px 0px 10px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .AdImageLeft .EmptyBlock {
-	height: 170px;
+	height: 120px;
+	font-size: 21px;
+	color: #616161;
+	text-align: center;
+	font-family: arial;
+	font-weight: bold;
+	float: right;
+	padding: 50px 0 0;
+}
+
+.UIHomePagePortlet .AdImageLeft .EmptyBlock div {
+	font-size: 19px;
 }
 
 .UIHomePagePortlet .AdImageLeft .ProductSlogan {

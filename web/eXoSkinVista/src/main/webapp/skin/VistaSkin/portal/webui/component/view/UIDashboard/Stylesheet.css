@@ -1,4 +1,11 @@
+.UIWindow .UIDashboardPortlet {
+	margin: 0px;
+}
+
 .UIDashboardPortlet {
+	background: #fff;
+	border: 1px solid #b7b7b7;
+	border-top: none;
 	height: 100%;
 }
 
@@ -8,11 +15,8 @@
 }
 
 .UIDashboard {
-	border: 1px solid #b7b7b7;
-	margin: 5px;
-	background: white url('background/BgRepeat.gif') repeat-y top left; /* orientation=lt */
-	background: white url('background/BgRepeat-rt.gif') repeat-y top right; /* orientation=rt */
 	height: 100%;
+	background: url('background/BgRepeat.gif') repeat-y left bottom;
 }
 
 .UIDashboard .DashboardContainer {
@@ -25,7 +29,7 @@
 	float: right; /* orientation=rt */
 	padding: 0px 5px;
 	color: #5b5b5b;
-	font-weight: bold;
+	font-weight: normal;
 	cursor: move;
 	overflow: hidden;
 	white-space: nowrap;
@@ -36,7 +40,90 @@
 	padding: 10px;
 }
 
+.UITabPaneDashboard {
+	padding: 0 9px;
+}
+
+.UITabPaneDashboard .LtTabDashboard {
+	background: url('background/NavUser.gif') no-repeat left top;
+	padding-left: 3px;
+	height: 32px;
+}
+
+.UITabPaneDashboard .RtTabDashboard {
+	background: url('background/NavUser.gif') no-repeat right top;
+	padding-right: 3px;
+	height: 32px;
+}
+
+.UITabPaneDashboard .CtTabDashboard {
+	height: 32px;
+	background: url('background/NavUser.gif') repeat-x center bottom;
+	padding: 0px 6px; 
+}
+
+.UITabPaneDashboard .UIHorizontalTabs {
+	padding-top: 10px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .TabsContainer {
+	height: 25px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .NormalTab .MiddleTab,
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .SelectedTab .MiddleTab {
+	padding: 0px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .UITab span {
+	margin: 3px 10px;
+	font-weight: bold;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .UITab .CloseIcon {
+	background: url('background/IconClose.gif') no-repeat center;
+	width: 16px; height: 16px;
+	cursor: pointer;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .AddDashboard {
+	background: url('background/AddDashboard.gif') no-repeat bottom;
+	width: 34px; height: 22px;
+	float: left;
+	cursor: pointer;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .NormalTab .LeftTab {
+	background: url(background/TabDashboard.gif) no-repeat left -44px;
+	padding-left: 4px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .NormalTab .RightTab {
+	background: url(background/TabDashboard.gif) no-repeat right -44px;
+	padding-right: 4px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .NormalTab .MiddleTab {
+	background: url(background/TabDashboard.gif) repeat-x left -66px;
+	line-height: 22px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .SelectedTab .LeftTab {
+	background: url(background/TabDashboard.gif) no-repeat left top;
+	padding-left: 4px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .SelectedTab .RightTab {
+	background: url(background/TabDashboard.gif) no-repeat right top;
+	padding-right: 4px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .SelectedTab .MiddleTab {
+	background: url(background/TabDashboard.gif) repeat-x left -22px;
+	line-height: 22px;
+}
 /*----------------------UIGadgetsSelectorForm-------------------*/
+
 .UIDashboardSelectContainer {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
@@ -56,8 +143,8 @@
 	line-height: 23px;
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-	padding-left: 20px; /* orientation=lt */
-	padding-right: 20px; /* orientation=rt */
+	padding-left: 10px; /* orientation=lt */
+	padding-right: 10px; /* orientation=rt */
 }
 
 .UIDashboardSelectContainer .CloseIcon {
@@ -72,13 +159,15 @@
 }
 
 .UIDashboardSelectContainer .DashboardItemContainer .InputContainer {
-	padding: 2px;
+	padding: 4px 0px 4px 10px;
 	background: #ececec;
 }
 
 .UIDashboardSelectContainer .DashboardItemContainer .InputContainer input {
-	margin: 0 3px 0 0;
-	font-size: 11px; width: 170px;
+	margin: 0 3px 0 10px;
+	border: 1px solid #b8babf;
+	font-size: 11px; 
+	width: 160px;
 }
 
 .UIDashboardSelectContainer .DashboardItemContainer .GadgetItemsContainer {
@@ -130,53 +219,55 @@
 }
 
 .UIDashboardSelectContainer .DashboardItemContainer .GadgetCategory {
-	padding: 5px 10px;
+	padding: 10px;
 	text-transform: capitalize;
 }
 
 .UIDashboardSelectContainer .GadgetCategory .GadgetTab .LeftCategoryTitleBar {
-	padding-left: 8px;
-	background: url('background/Catalogue.gif') no-repeat left top;
+	background: url('background/CategoryTitleBar.gif') repeat-x left top;
+	border: 1px solid #b8babf;
 }
 
 .UIDashboardSelectContainer .GadgetCategory .GadgetTab .RightCategoryTitleBar {
-	padding-right: 8px;
-	background: url('background/Catalogue.gif') no-repeat right top;
+
 }
 
 .UIDashboardSelectContainer .GadgetCategory .GadgetTab .MiddleCategoryTitleBar {
-	background: url('background/Catalogue.gif') repeat-x center -26px;
-	height: 26px;
+	height: 23px;
+	padding: 0px 8px;
 }
 
 .UIDashboardSelectContainer .GadgetCategory .GadgetTab .ArrowIcon {
-	background: url('background/Catalogue.gif') no-repeat left -102px; /* orientation=lt */
-	background: url('background/Catalogue.gif') no-repeat right -102px; /* orientation=rt */
-	line-height: 26px;
+	background: url('background/ArrowIcon.gif') no-repeat left -14px; /* orientation=lt */
+	background: url('background/ArrowIcon.gif') no-repeat right -14px; /* orientation=rt */
+	line-height: 23px;
 	overflow: hidden;
 	padding-left: 18px; /* orientation=lt */
 	padding-right: 18px; /* orientation=rt */
-	color: #286f9b;
+	color: #000;
+	font-weight: normal;
 }
 
 .UIDashboardSelectContainer .GadgetCategory .SelectedTab .ArrowIcon {
-	background: url('background/Catalogue.gif') no-repeat left -76px; /* orientation=lt */
-	background: url('background/Catalogue.gif') no-repeat right -76px; /* orientation=rt */
+	background: url('background/ArrowIcon.gif') no-repeat left 8px; /* orientation=lt */
+	background: url('background/ArrowIcon.gif') no-repeat right 8px; /* orientation=rt */
 }
 
 .UIDashboardSelectContainer .GadgetCategory .ItemsContainer {
-	border: 1px solid #a2c2e2;
-	padding: 0px 1px;
-	margin-top: 2px;
+	background: url('background/BGItemsContainer.gif') repeat-x left 1px;
+	border: 1px solid #b8babf;
+	border-top: none;
+	padding: 8px 8px 4px 8px;
 }
 
 .UIDashboardSelectContainer .GadgetCategory .UIGadget {
-	background: url('background/Catalogue.gif') repeat-x left -52px;
-	margin: 2px 0px;
-	height: 24px;
-	line-height: 24px;
-	color: #7d7d7d;
-	padding: 0px 5px;
+	background: url('background/GadgetControl.gif') repeat-x left top;
+	margin: 0px 0px 4px 0px;
+	height: 18px;
+	line-height: 18px;
+	color: #676767;
+	padding: 0px;
+	background: #f2f2f3;
 }
 
 .UIDashboard .UIDashboardSelectContainer .GadgetTitle {
@@ -186,6 +277,16 @@
 
 /*----------------------UIGadgetsContainer-------------------*/
 
+.UIDashboard .UIDashboardContainer .NoGadget {
+	text-align: center;
+	font-size: 12px; font-weight: bold; 
+	padding: 5px; color: #111;
+}
+
+.UIDashboard .UIGadget {
+	padding: 5px 0px;
+}
+
 .UIDashboard .UIGadget .GadgetControl {
 	float: none;
 	padding: 0px;
@@ -193,19 +294,22 @@
 }
 
 .UIDashboard .UIGadget .GadgetControl .LeftControlBar {
-	background: url('background/Dashboard.gif') no-repeat left -51px;
-	padding: 0px 0px 0px 3px;
+	background: none;
+	padding: 0px;
 }
 
 .UIDashboard .UIGadget .GadgetControl .RightControlBar {
-	background: url('background/Dashboard.gif') no-repeat right -51px;
-	padding: 0px 3px 0px 0px;
+	background: none;
+	padding: 0px;
 }
 
 .UIDashboard .UIGadget .GadgetControl .CenterControlBar {
-	background: url('background/Dashboard.gif') repeat-x center -73px;
-	height: 22px;
-	line-height: 22px;
+	background: url('background/BgTitleGadget.gif') repeat-x left top;
+	height: 23px;
+	line-height: 23px;
+	padding: 0 9px;
+	border: 1px solid #dbdbdb;
+	border-top: none;
 }
 
 .UIDashboard .UIGadget .GadgetControl .GadgetDragHandleArea {
@@ -217,13 +321,15 @@
 }
 
 .UIDashboard .UIGadget .MLGadget {
-	background: none;
-	border: 1px solid #81a7c6;
+	background: #f2f2f3;
+	border: 1px solid #c3c3c3;
 	border-top: none;
+	padding: 3px;
 }
 
 .UIDashboard .UIGadget .MRGadget {
-	background: none;
+	background: white;
+	padding: 10px 0;
 }
 
 .UIDashboard .UIGadget .BLGadget {
@@ -233,18 +339,18 @@
 /*------------------UIDashboardContainer----------------*/
 
 .UIDashboardContainer {
-	background: white;
 	height: 100%;
+	background: #fff;
 }
 
 .UIDashboard .UIDashboardContainer .GadgetTitle {
-	width: 230px;	
+	width: 197px;	
 }
 
 .UIDashboardContainer .GadgetContainer {
 	overflow: auto;
 	height: 100%;
-//	min-height: 400px;
+  min-height: 400px;
 }
 
 /**html .UIDashboardContainer .GadgetContainer {
@@ -253,6 +359,7 @@
 
 .UIDashboardContainer .GadgetContainer .ContainerControlBarL {
 	padding: 5px 10px;
+	height: 22px;
 }
 
 .UIDashboardContainer .ContainerControlBarL .AddIcon {
@@ -264,6 +371,8 @@
 	font-weight: bold; font-size: 12px;
 	display: block;
 	line-height: 22px;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 }
 
 .UIDashboardContainer .GadgetContainer .AddIcon a {
@@ -296,8 +405,8 @@
 }
 
 .UIDashboardContainer .UITarget {
-	border: 2px dashed red;
-	margin: 0px 5px 10px 5px;
+	background: #f2f2f3;
+	margin: 5px 5px 10px 5px;
 }
 
 .UIDashboard .Dragging {
@@ -305,3 +414,154 @@
 	margin: 3px 3px 0px 0px; /* orientation=rt */
 }
 
+#UIAddGadgetPopup {
+	border: none;
+}
+
+#UIAddGadgetPopup .TopLeftCornerDecorator {
+	background: url('background/PortalComposer.gif') no-repeat left top;
+	padding-left: 7px;
+}
+
+#UIAddGadgetPopup .TopCenterDecorator {
+	background: url('background/PortalComposer.gif') repeat-x left -34px;
+	height: 34px;
+	padding: 0px;
+}
+
+#UIAddGadgetPopup .TopRightCornerDecorator {
+	background: url('background/PortalComposer.gif') no-repeat right top;
+	padding-right: 7px;
+}
+
+#UIAddGadgetPopup .MiddleLeftSideDecorator {
+	background: url(background/MiddlePortalComposer.gif) repeat-y left top;
+	padding-left: 3px;	
+}
+
+#UIAddGadgetPopup .MiddleCenterDecorator {
+	background: #d8dae1 url(background/CenterMiddleWindow.gif) repeat-x left top;
+	padding: 4px;
+	padding-bottom: 0px;
+	border: none;
+}
+
+#UIAddGadgetPopup .MiddleRightSideDecorator {
+	background: url(background/MiddlePortalComposer.gif) repeat-y right top;
+	padding-right: 3px;
+}
+
+#UIAddGadgetPopup .UIWindowContent {
+	border: 1px solid #bdbcbd;
+}
+
+#UIAddGadgetPopup .PopupContent {
+	background: #fff;
+}
+
+#UIAddGadgetPopup .ResizeButton {
+  background: url('background/ResizeBtn.gif') no-repeat right top; /* orientation=lt */
+  background: url('background/ResizeBtn-rt.gif') no-repeat left top; /* orientation=rt */
+  display: block;
+  float: right; /* orientation=lt */
+  float: left; /* orientation=rt */
+  cursor: nw-resize; /* orientation=lt */
+  cursor: ne-resize; /* orientation=rt */
+}
+
+#UIAddGadgetPopup .BottomLeftCornerDecorator {
+	border: 1px solid #a2a3a9;
+	border-top: none;
+	background: #d8dae1;
+}
+
+#UIAddGadgetPopup .BottomCenterDecorator {
+	height: 0px;
+	background: none;
+}
+
+#UIAddGadgetPopup .BottomRightCornerDecorator {
+	padding: 0px 6px 6px 6px;
+	background: none;
+}
+
+#UIAddGadgetPopup .CloseButton {
+	background: url('background/TopExitBtn.gif') no-repeat left top;
+	width: 23px;
+	height: 17px;
+	margin-right: 0px;
+}
+
+#UIAddGadgetPopup .PopupTitleIcon {
+	margin-left: 0px;
+}
+
+#UIAddGadgetPopup .PopupTitle {
+	margin-left: 22px;
+}
+/*----------------------UIDashboardMask-------------------*/
+
+.UIDashboardMask .UIGadget {
+	background: white;
+	border: 1px dashed #ababab;
+	padding: 5px 0px;
+	margin: 0px;
+}
+
+.UIDashboardMask .UIGadget .GadgetControl {
+	float: none;
+	padding: 0px;
+	height: auto; width: auto;
+}
+
+.UIDashboardMask .UIGadget .GadgetControl .LeftControlBar {
+	background: none;
+	padding: 0px 0px 0px 3px;
+}
+
+.UIDashboardMask .UIGadget .GadgetControl .RightControlBar {
+	background: none;
+	padding: 0px 3px 0px 0px;
+}
+
+.UIDashboardMask .UIGadget .GadgetControl .CenterControlBar {
+	background: none;
+	height: 22px;
+	line-height: 22px;
+}
+
+.UIDashboardMask .UIGadget .GadgetControl .GadgetDragHandleArea {
+	display: none;
+}	
+
+.UIDashboardMask .GadgetTitle {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding: 0px 5px;
+	color: #5b5b5b;
+	font-weight: bold;
+	cursor: move;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.UIDashboardMask .UIGadget .TLGadget {
+	display: none;
+}
+
+.UIDashboardMask .UIGadget .MLGadget {
+	background: none;
+	border-top: none;
+}
+
+.UIDashboardMask .UIGadget .MRGadget {
+	background: none;
+}
+
+.UIDashboardMask .UIGadget .BLGadget {
+	display: none;
+}
+
+.UIDashboardMask iframe {
+	width: 100%;
+}
