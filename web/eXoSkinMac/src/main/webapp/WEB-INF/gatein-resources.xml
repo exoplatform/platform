@@ -1,146 +1,138 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
-<gatein-skinning>
+<gatein-resources
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   	xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_0.xsd"
+   	xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_0.xsd">
 
+	<!-- Skins for portlet in 'exoadmin' application -->
 	<portal-skin>
-		<skin-name>Vista</skin-name>
+		<skin-name>Mac</skin-name>
 		<css-path>/skin/Stylesheet.css</css-path>
 	</portal-skin>	
-	
-	<!-- Skins for portlets in 'exoadmin' web application -->
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
 		<portlet-name>OrganizationPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/organization/webui/component/UIOrganizationPortlet/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/organization/webui/component/UIOrganizationPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
 		<portlet-name>AccountPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/account/webui/component/UIAccountPortlet/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/account/webui/component/UIAccountPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
 		<portlet-name>I18nPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/i18n/webui/component/UII18nPortlet/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/i18n/webui/component/UII18nPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
 		<portlet-name>ApplicationRegistryPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/applicationregistry/webui/component/UIApplicationRegistryPortlet/VistaStylesheet.css</css-path>
-	</portlet-skin>
-	
-	<portlet-skin>
-		<application-name>exoadmin</application-name>
-		<portlet-name>AdminToolbarPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/admintoolbar/webui/component/UIAdminToolbarPortlet/DefaultStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/applicationregistry/webui/component/UIApplicationRegistryPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
 		<portlet-name>PortalNavigationPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
+		<skin-name>Mac</skin-name>
 		<css-path>/skin/navigation/webui/component/DefaultStylesheet.css</css-path>
-	</portlet-skin>	
+	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
 		<portlet-name>GroupNavigationPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
+		<skin-name>Mac</skin-name>
 		<css-path>/skin/navigation/webui/component/DefaultStylesheet.css</css-path>
-	</portlet-skin>	
+	</portlet-skin>
 	
 	
-	<!-- Skins for portlets in 'web' web application  -->
+	<!-- Skins for portlets in 'web' application -->
 	
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>BannerPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/portal/webui/component/UIBannerPortlet/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/portal/webui/component/UIBannerPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>FooterPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/portal/webui/component/UIFooterPortlet/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/portal/webui/component/UIFooterPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>LogoPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/portal/webui/component/UILogoPortlet/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/portal/webui/component/UILogoPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>NavigationPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/portal/webui/component/UINavigationPortlet/VistaStylesheet.css</css-path>
-	</portlet-skin>	
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/portal/webui/component/UINavigationPortlet/MacStylesheet.css</css-path>
+	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>PortalNavigationPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/portal/webui/component/UIPortalNavigationPortlet/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/portal/webui/component/UIPortalNavigationPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
-		
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>SiteMapPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/portal/webui/component/UISiteMap/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/portal/webui/component/UISiteMap/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>IFramePortlet</portlet-name>
-		<skin-name>Vista</skin-name>
+		<skin-name>Mac</skin-name>
 		<css-path>/skin/portal/webui/component/UIIFramePortlet/DefaultStylesheet.css</css-path>
 	</portlet-skin>
 	
-		
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>BrowserPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/browser/webui/component/UIBrowserPortlet/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/browser/webui/component/UIBrowserPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
-		
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>ConsolePortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/portal/webui/component/UIConsolePortlet/VistaStylesheet.css</css-path>
+		<skin-name>Mac</skin-name>
+		<css-path>/skin/portal/webui/component/UIConsolePortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
-	<!-- Skins for portlets in 'dashboard' web application -->
-			
 	<portlet-skin>
 		<application-name>dashboard</application-name>
 		<portlet-name>GadgetPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
+		<skin-name>Mac</skin-name>
 		<css-path>/skin/gadget/webui/component/UIGadgetPortlet/DefaultStylesheet.css</css-path>
 	</portlet-skin>
-		
+	
+	<!-- Skin for HomePagePortlet -->
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>HomePagePortlet</portlet-name>
-		<skin-name>Vista</skin-name>
+		<skin-name>Mac</skin-name>
 		<css-path>/skin/webui/component/UIHomePagePortlet/DefaultStylesheet.css</css-path>
 	</portlet-skin>
+	
 	
 	<!-- Simple window style -->
 	<window-style>
@@ -224,5 +216,5 @@
 		</style-theme>
 	</window-style>
 	
-</gatein-skinning>
+</gatein-resources>
 
