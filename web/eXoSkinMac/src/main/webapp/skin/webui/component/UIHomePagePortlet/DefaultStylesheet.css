@@ -68,7 +68,7 @@
 
 .UIHomePagePortlet .AdImageLeft {
 	background: url('DefaultSkin/background/RightHome.jpg') no-repeat left top; /* orientation=lt */
-	background: url('DefaultSkin/background/RightHome.jpg') no-repeat right -255px; /* orientation=rt */
+	background: url('DefaultSkin/background/RightHome-rt.jpg') no-repeat right top; /* orientation=rt */
 }
 
 *html .UIHomePagePortlet .AdImageLeft {
@@ -78,14 +78,24 @@
 	
 	text-align: right; /* orientation=lt */
 	text-align: left; /* orientation=rt */
-	height: 257px; 
+	height: 255px; 
 	padding: 0px 10px 0px 0px; /* orientation=lt */
 	padding: 0px 0px 0px 10px; /* orientation=rt */
 	letter-spacing: 1px;
 }
 
 .UIHomePagePortlet .AdImageLeft .EmptyBlock {
-	height: 170px;
+	font-size: 23px;
+	color: #616161;
+	font-family: arial;
+	padding: 50px 0 0 300px; /* orientation=lt */
+	padding: 50px 300px 0 0px; /* orientation=rt */
+	text-align: center;
+	line-height: 30px;
+}
+
+.UIHomePagePortlet .AdImageLeft .EmptyBlock div {
+	font-size: 19px;
 }
 
 .UIHomePagePortlet .AdImageLeft .ProductSlogan {
