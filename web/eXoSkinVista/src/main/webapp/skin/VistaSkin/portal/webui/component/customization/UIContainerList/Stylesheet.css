@@ -1,30 +1,30 @@
-.UIContainerConfigOptions {
+.UIContainerList {
   background:url('background/UIContainerConfigOptions.png');
   padding: 5px ;
 }
 
-.UIContainerConfigOptions .ContainerConfigOptions {
+.UIContainerList .ContainerConfigOptions {
 	 /*Lamjs comment to show DropdownControl above*/
   /*overflow: hidden;*/
 }
 
-.UIContainerConfigOptions .ScrollArea {
+.UIContainerList .ScrollArea {
   border: solid 1px #929292;
   border-bottom: solid 1px #c3c3c3; border-right: solid 1px #c3c3c3;
 }
 
-.UIContainerConfigOptions .CategoryContainer {
+.UIContainerList .CategoryContainer {
   padding: 10px 0px 20px 0px;
   background: white;
 }
 
-.UIContainerConfigOptions .TabContent {
+.UIContainerList .TabContent {
   border:solid 1px #5f90ba; 
   background: white; 
   padding-bottom: 10px;
 }
 
-.UIContainerConfigOptions .Title {
+.UIContainerList .Title {
   text-align: center; 
   font-weight: bold ;
   height: 20px ; line-height: 20px ;
@@ -32,34 +32,40 @@
   background: url('/eXoSkinVista/skin/VistaSkin/background/IconLabelContentBG1x1.png') repeat;  
  }
  
-.UIContainerConfigOptions .Title .TitleContainer {
+.UIContainerList .Title .TitleContainer {
 	height: 20px;
 }
 
-.UIContainerConfigOptions .Title .TitleContainer .Icon {
+.UIContainerList .Title .TitleContainer .Icon {
 	float: left;
 	width: 16px; height: 16px;
 	margin: 3px 5px 0px 7px;
 }
 
-.UIContainerConfigOptions .Title .TitleContainer .LabelText {
+.UIContainerList .Title .TitleContainer .LabelText {
 	padding-left: 3px;
 	height: 20px; line-height: 20px; 
 }
 
-.UIContainerConfigOptions .Title .TitleContainer .ArrowButton {
+.UIContainerList .Title .TitleContainer .ArrowButton {
 	float: right;
 	cursor: pointer ;
 }
 
-.UIContainerConfigOptions .UIVTabContent {
+.UIContainerList .UIVTabContent {
   overflow:auto;
   padding:1px;
   background:#ffffff;
   border: 1px solid #96D9F9;
 }
 
-.UIContainerConfigOptions .OneRowContainerLayout {
+.UIContainerList .ContainerIcon {
+	margin: 10px;
+	padding-left: 120px;
+	line-height: 40px;
+}
+
+.UIContainerList .OneRowContainerLayout {
   width: 105px;
 	height: 56px;
   margin-top: 10px;
@@ -67,7 +73,7 @@
   background:url('background/ContainerConfigOptions.png') no-repeat top left;
 }
 
-.UIContainerConfigOptions .TwoRowContainerLayout {
+.UIContainerList .TwoRowContainerLayout {
   width: 105px;
 	height: 56px;
 	margin: 10px 0 0 10px;
@@ -75,7 +81,7 @@
   background:url('background/ContainerConfigOptions.png') no-repeat left -56px;
 }
 
-.UIContainerConfigOptions .ThreeRowContainerLayout {
+.UIContainerList .ThreeRowContainerLayout {
   width: 105px;
 	height: 56px;
 	margin: 10px;
@@ -83,7 +89,7 @@
   background:url('background/ContainerConfigOptions.png') no-repeat left -112px;
 }
 
-.UIContainerConfigOptions .TwoColumnContainerLayout {
+.UIContainerList .TwoColumnContainerLayout {
   width: 105px;
 	height: 56px;
 	margin: 10px;
@@ -91,7 +97,7 @@
   background:url('background/ContainerConfigOptions.png') no-repeat left -168px;
 }
 
-.UIContainerConfigOptions .ThreeColumnContainerLayout {
+.UIContainerList .ThreeColumnContainerLayout {
   width: 105px;
 	height: 56px;
 	margin: 10px;
@@ -99,7 +105,7 @@
   background:url('background/ContainerConfigOptions.png') no-repeat left -224px;
 }
 
-.UIContainerConfigOptions .TwoTabContainerLayout {
+.UIContainerList .TwoTabContainerLayout {
   width: 105px;
 	height: 56px;
 	margin: 10px 0 0 10px;
@@ -107,7 +113,7 @@
   background:url('background/ContainerConfigOptions.png') no-repeat left -280px;
 }
 
-.UIContainerConfigOptions .ThreeTabContainerLayout {
+.UIContainerList .ThreeTabContainerLayout {
   width: 105px;
 	height: 56px;
 	margin: 10px;
@@ -115,7 +121,7 @@
   background:url('background/ContainerConfigOptions.png') no-repeat left -336px;
 }
 
-.UIContainerConfigOptions .TwoColumnOneRowContainerLayout {
+.UIContainerList .TwoColumnOneRowContainerLayout {
   width: 105px;
 	height: 56px;
 	margin: 10px;
@@ -123,7 +129,7 @@
   background:url('background/ContainerConfigOptions.png') no-repeat left -392px;
 }
 
-.UIContainerConfigOptions .OneRowTwoColumnContainerLayout {
+.UIContainerList .OneRowTwoColumnContainerLayout {
   width: 105px;
 	height: 56px;
 	margin: 10px 0 0 10px;
@@ -131,7 +137,7 @@
   background:url('background/ContainerConfigOptions.png') no-repeat left -448px;
 }
 
-.UIContainerConfigOptions .OneRow2Column1RowContainerLayout {
+.UIContainerList .OneRow2Column1RowContainerLayout {
   background:url('background/ContainerConfigOptions.png') no-repeat bottom left;
   width: 105px;
 	height: 56px;
