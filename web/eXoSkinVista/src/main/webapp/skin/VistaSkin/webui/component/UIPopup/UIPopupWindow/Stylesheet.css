@@ -1,7 +1,19 @@
 .UIPopupWindow {
   position: absolute;
   visibility: hidden;
+}
+
+.UIPortalComposer {
  	border: 1px solid #000;
+ 	background: white;
+}
+
+.UIPopupWindow .OverflowContainer {
+	padding-top: 4px;
+}
+
+.UIPortalComposer .OverflowContainer {
+	padding-top: 0px;
 }
 
 .UIPopupWindow .PopupTitleIcon {
@@ -45,17 +57,17 @@
   height: 54px;
 }
 
-.UIPopupWindow .ActionButton .ButtonLeft{
+.UIPortalComposer .ActionButton .ButtonLeft{
 	background: url('background/ActionLT.gif') no-repeat left;	
   padding-left: 4px;
 }
 
-.UIPopupWindow .ActionButton .ButtonRight{
+.UIPortalComposer .ActionButton .ButtonRight{
 	background: url('background/ActionRT.gif') no-repeat right;	
   padding-right: 4px;
 }
 
-.UIPopupWindow .ActionButton .ButtonMiddle{
+.UIPortalComposer .ActionButton .ButtonMiddle{
 	background: url('background/ActionCt.gif') repeat-x;	
   line-height: 24px;
   padding: 0px 4px;
@@ -201,7 +213,7 @@
 	background: #fff;
 }
 
-.UIPopupWindow .TabsContainer {
+.UIPortalComposer .TabsContainer {
 	background: url('background/HeaderBg.gif') repeat-x;
 }
 
@@ -347,7 +359,7 @@
 	background: none;
 	text-align: left; /* orientation=lt */
 	text-align: right; /* orientation=rt */
-	margin: 4px 26px 0px 26px;
+	margin: 0px 26px 0px 26px;
 	line-height: 24px;
 	height: 24px;
 }
@@ -357,7 +369,7 @@
 	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/Message.gif') no-repeat;
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-	margin: 10px 0px 0px 4px;
+	margin: 5px 0px 0px 4px;
 }
 
 .UIPopupWindow .ExoMessageDecorator .MiddleLeftSideDecorator {

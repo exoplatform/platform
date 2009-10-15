@@ -61,8 +61,7 @@
 
 .UIToolbarContainer .UIHorizontalTabs .UITab {
 	line-height: 26px;	
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
+	float: none;
 	padding-right: 2px; /* orientation=lt */
 	padding-left: 2px; /* orientation=rt */
 	text-align: left; /* orientation=lt */
