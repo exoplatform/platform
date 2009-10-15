@@ -85,6 +85,22 @@
 	cursor: pointer;
 }
 
+.UIPopupWindow .UITab .NormalTab .LeftTab{
+	background: none;
+	padding-left: 5px;
+}
+
+.UIPopupWindow .UITab .NormalTab .RightTab{
+	background: none;
+	padding-right: 6px;
+}
+
+.UIPopupWindow .UITab .NormalTab .MiddleTab{
+	background: none;
+	height: 23px;
+	padding: 0px 15px;
+}
+
 .UIPopupWindow .PopupTitleIcon {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
@@ -135,20 +151,17 @@
 .UIPopupWindow .UIVTab .SelectedTab .TabLabel {
 	line-height: 25px;
 	color: #fff;
-	font-weight: bold;
-	padding: 0px 29px;
+	padding: 0px 10px;
 }
 
 .UIPopupWindow .UIVTab .NormalTab {
 	background: url('background/UnSelectedTitle.gif')repeat-x;
 	height: 25px;
-	padding: 1px 0px 1px 0px;
 }
 
 .UIPopupWindow .UIVTab .NormalTab .TabLabel {
 	line-height: 25px;
-	font-weight: bold;
-	padding: 0px 29px;
+	padding: 0px 10px;
 }
 
 .UIPopupWindow .UIVTab .VTabStyle3 {
@@ -230,9 +243,13 @@
 }
 
 .UIPopupWindow .PopupContent {
-	width: 100%;
-	background: #f6f6f6;
+	background: #dbd9db;
 	overflow: auto;
+	border: 1px solid #cfcfcf;
+	border-top: none;
+}
+.UIPopupWindow .PopupContent .UITabContentContainer {
+	border: none;
 }
 
 .UIPopupWindow .BottomBar {
@@ -362,6 +379,7 @@
 .UITabPane .UITabContent {
   padding: 0px;
   background: #f6f6f6;
+  border: 1px solid #bababa;
 }
 
 .UIPopupWindow .ExoMessageDecorator .UIPopupMessages .UITabContentContainer {
