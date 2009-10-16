@@ -1,10 +1,15 @@
 .UIPopupMessages {
 }
 
+.UIPopupWindow .UIPopupMessages .TabsContainer {
+  background: url('/eXoSkinMac/skin/MacSkin/webui/component/UITabSystem/UITabs/background/LineDecorator1x7.gif') repeat-x bottom;
+	height: 30px;
+}
+
 .UIPopupMessages .UIHorizontalTabs {
-	height: 35px;
+	height: 30px;
 	background: url('background/PopupMessages.gif') repeat-x top;
-	padding: 0px 4px;
+	padding-top: 11px;
 }
 
 .UIPopupMessages .UITabContent {

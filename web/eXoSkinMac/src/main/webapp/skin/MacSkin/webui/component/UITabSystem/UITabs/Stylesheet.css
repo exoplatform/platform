@@ -301,27 +301,24 @@
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .LeftTab {
-  padding-left: 2px; /* orientation=lt */
-  padding-right: 2px; /* orientation=rt */
-  line-height: 31px;
+  padding-left: 6px;
+  line-height: 24px;
+  background: url('background/NavigationTab.png') no-repeat left top;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .RightTab {
-  line-height: 32px;
-  padding-right: 7px; 	/* orientation=lt */
-  padding-left: 7px; 		/* orientation=rt */
-  background: url('background/SeparatorLine1x2.gif') repeat-y right; /* orientation=lt */
-  background: url('background/SeparatorLine1x2-rt.gif') repeat-y left; /* orientation=rt */
+  padding-right: 6px;
+  line-height: 24px;
+  background: url('background/NavigationTab.png') no-repeat right -24px;
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .MiddleTab {
-  line-height: 25px;
+  line-height: 24px;
+  background: url('background/NavigationTab.png') repeat-x left -48px;
   cursor: pointer;
-  padding: 3px 8px 3px 4px; /* orientation=lt */
-  padding: 3px 4px 3px 8px; /* orientation=rt */
-  color: grey; 
-  font-size: 12px; 
-  font-weight: normal;
+  padding: 0px 8px;
+  text-align: right; /* orientation=rt */
+  white-space: nowrap; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .DisabledTab .TabIcon {
@@ -345,36 +342,34 @@
 }
 /*==============================Selected Tab for MessageTab=====================*/
 
-.UIHorizontalTabs .MessageTabDialog .SelectedTab {
-  line-height: 32px;
-  color: #058ee6;
+.UIPopupWindow .UIHorizontalTabs .MessageTabDialog .SelectedTab {
+  line-height: 24px;
+  color: black;
+  margin-right: 1px; /* orientation=lt */
+  margin-left: 1px; /* orientation=rt */
   overflow: hidden; /* orientation=rt */
 }
 
-.UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {
-  line-height: 32px;
-  padding-left: 2px; /* orientation=lt */
-  padding-right: 2px; /* orientation=rt */
-  background: #e6e6e6;
+.UIPopupWindow .UIHorizontalTabs .MessageTabDialog .SelectedTab .LeftTab {
+  line-height: 24px;
+  padding-left: 6px;
+  background: url('background/NavigationTab.png') no-repeat left -144px;
 }
 
-.UIHorizontalTabs .MessageTabDialog .SelectedTab .RightTab {
-  line-height: 32px;
-  padding-right: 7px; /* orientation=lt */
-  padding-left: 7px; /* orientation=rt */
-  background: #e6e6e6 url('background/SeparatorLine2x2.gif') repeat-y right; /* orientation=lt */
-  background: #e6e6e6 url('background/SeparatorLine2x2-rt.gif') repeat-y left; /* orientation=rt */
+.UIPopupWindow .UIHorizontalTabs .MessageTabDialog .SelectedTab .RightTab {
+  line-height: 24px;
+  padding-right: 6px;
+  background: url('background/NavigationTab.png') no-repeat right -168px;
 }
 
-.UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {
-  line-height: 25px;
-  background: #e6e6e6;
+.UIPopupWindow .UIHorizontalTabs .MessageTabDialog .SelectedTab .MiddleTab {
+  line-height: 24px;
+  height: 24px;
+  background: url('background/NavigationTab.png') repeat-x bottom;
   cursor: pointer;
-  padding: 3px 8px 3px 4px; /* orientation=lt */
-  padding: 3px 4px 3px 8px; /* orientation=rt */
-  color: #058ee6; 
-  font-weight: normal; 
-  font-size: 12px;
+  padding: 0px 8px;
+  text-align: right; /* orientation=rt */
+  white-space: nowrap; /* orientation=rt */
 }
 
 .UIHorizontalTabs .MessageTabDialog .SelectedTab  div:hover {
