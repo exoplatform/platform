@@ -51,8 +51,6 @@
 }
 /*Tabs*/
 .UIPopupWindow .TabsContainer {
-	background: url('background/NormalTabBg.gif') repeat-x;
-	height: 23px;
 	padding: 0px 10px;
 }
 
@@ -63,42 +61,33 @@
 }
 
 .UIPopupWindow .UITab .SelectedTab .LeftTab{
-	background: url('background/TabSelectedLeft.gif') no-repeat left;
-	padding-left: 5px;
+=
 }
 
 .UIPopupWindow .UITab .SelectedTab .RightTab{
-	background: url('background/TabSelectedRight.gif') no-repeat right;
-	padding-right: 6px;
+
 }
 
 .UIPopupWindow .UITab .SelectedTab .MiddleTab{
-	background: url('background/TabSelectedCenter.gif') repeat-x;
-	height: 23px;
-	padding: 0px 15px;
+
 }
 
 .UIPopupWindow .UITab .NormalTab {
 	line-height: 20px;
 	font-weight: bold;
-	padding: 0px 10px;
 	cursor: pointer;
 }
 
 .UIPopupWindow .UITab .NormalTab .LeftTab{
-	background: none;
-	padding-left: 5px;
+
 }
 
 .UIPopupWindow .UITab .NormalTab .RightTab{
-	background: none;
-	padding-right: 6px;
+
 }
 
 .UIPopupWindow .UITab .NormalTab .MiddleTab{
-	background: none;
-	height: 23px;
-	padding: 0px 15px;
+
 }
 
 .UIPopupWindow .PopupTitleIcon {
