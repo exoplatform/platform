@@ -4,8 +4,6 @@
 
 .UIDashboardPortlet {
 	background: #fff;
-	border: 1px solid #b7b7b7;
-	border-top: none;
 	height: 100%;
 }
 
@@ -41,7 +39,7 @@
 }
 
 .UITabPaneDashboard {
-	padding: 0 9px;
+	padding: 0 8px;
 }
 
 .UITabPaneDashboard .LtTabDashboard {

@@ -87,9 +87,13 @@
 }
 
 .UIPage .UIRowContainer {
-	padding: 1px;
+
 }
 
 .UIPage .VIEW-PAGE {
 	padding: 0px;
+}
+
+.UIPageBody .VIEW-PAGEBODY .UIPage {
+	padding: 0 8px;
 }

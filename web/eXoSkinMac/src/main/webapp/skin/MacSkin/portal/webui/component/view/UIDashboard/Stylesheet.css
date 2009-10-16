@@ -8,8 +8,6 @@
 }
 
 .UIDashboard {
-	border: 1px solid #b7b7b7;
-	margin: 5px;
 	background: white url('background/BgRepeat.gif') repeat-y top left; /* orientation=lt */
 	background: white url('background/BgRepeat-rt.gif') repeat-y top right; /* orientation=rt */
 	height: 100%;
@@ -34,6 +32,89 @@
 .UIDashboard .UIDashboardEditForm {
 	background: white;
 	padding: 10px;
+}
+
+.UITabPaneDashboard {
+	padding: 0 8px;
+}
+
+.UITabPaneDashboard .LtTabDashboard {
+	background: url('background/NavUser.gif') no-repeat left top;
+	padding-left: 3px;
+	height: 32px;
+}
+
+.UITabPaneDashboard .RtTabDashboard {
+	background: url('background/NavUser.gif') no-repeat right top;
+	padding-right: 3px;
+	height: 32px;
+}
+
+.UITabPaneDashboard .CtTabDashboard {
+	height: 32px;
+	background: url('background/NavUser.gif') repeat-x center bottom;
+	padding: 0px 6px; 
+}
+
+.UITabPaneDashboard .UIHorizontalTabs {
+	padding-top: 10px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .TabsContainer {
+	height: 25px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .NormalTab .MiddleTab,
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .SelectedTab .MiddleTab {
+	padding: 0px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .UITab span {
+	margin: 3px 10px;
+	font-weight: bold;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .UITab .CloseIcon {
+	background: url('background/IconClose.gif') no-repeat center;
+	width: 16px; height: 16px;
+	cursor: pointer;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .AddDashboard {
+	background: url('background/AddDashboard.gif') no-repeat bottom;
+	width: 34px; height: 22px;
+	float: left;
+	cursor: pointer;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .NormalTab .LeftTab {
+	background: url(background/TabDashboard.gif) no-repeat left -44px;
+	padding-left: 4px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .NormalTab .RightTab {
+	background: url(background/TabDashboard.gif) no-repeat right -44px;
+	padding-right: 4px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .NormalTab .MiddleTab {
+	background: url(background/TabDashboard.gif) repeat-x left -66px;
+	line-height: 22px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .SelectedTab .LeftTab {
+	background: url(background/TabDashboard.gif) no-repeat left top;
+	padding-left: 4px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .SelectedTab .RightTab {
+	background: url(background/TabDashboard.gif) no-repeat right top;
+	padding-right: 4px;
+}
+
+.UITabPaneDashboard .UIHorizontalTabs .GrayTabStyle .SelectedTab .MiddleTab {
+	background: url(background/TabDashboard.gif) repeat-x left -22px;
+	line-height: 22px;
 }
 
 /*----------------------UIGadgetsSelectorForm-------------------*/
@@ -186,6 +267,13 @@
 
 /*----------------------UIGadgetsContainer-------------------*/
 
+.UIDashboard .UIDashboardContainer .NoGadget {
+	text-align: center;
+	font-size: 12px; 
+	font-weight: bold; 
+	padding: 5px; color: #111;
+}
+
 .UIDashboard .UIGadget .GadgetControl {
 	float: none;
 	padding: 0px;
@@ -244,7 +332,7 @@
 .UIDashboardContainer .GadgetContainer {
 	overflow: auto;
 	height: 100%;
-//	min-height: 400px;
+	min-height: 400px;
 }
 
 /**html .UIDashboardContainer .GadgetContainer {
@@ -253,6 +341,7 @@
 
 .UIDashboardContainer .GadgetContainer .ContainerControlBarL {
 	padding: 5px 10px;
+	height: 22px;
 }
 
 .UIDashboardContainer .ContainerControlBarL .AddIcon {
@@ -264,6 +353,8 @@
 	font-weight: bold; font-size: 12px;
 	display: block;
 	line-height: 22px;
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
 }
 
 .UIDashboardContainer .GadgetContainer .AddIcon a {

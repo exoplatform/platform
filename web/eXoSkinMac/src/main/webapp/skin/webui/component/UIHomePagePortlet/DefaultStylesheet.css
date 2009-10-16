@@ -4,7 +4,7 @@
 }
 
 .UIHomePagePortlet {	
-  padding: 0px 18px;
+  padding: 0px 10px;
 }
 
 .UIHomePagePortlet .TRContainer .PortletDecoration {	
@@ -39,9 +39,9 @@
 
 .UIHomePagePortlet .TRContainer .VersionIcon {
 	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -978px;
-	height: 65px;
+	height: 70px;
 	width: 80px;
-	margin: 45px auto;
+	margin: 40px auto;
 	cursor: pointer;
 }
 

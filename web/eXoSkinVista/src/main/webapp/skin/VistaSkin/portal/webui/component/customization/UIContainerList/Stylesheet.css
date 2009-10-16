@@ -53,95 +53,62 @@
 }
 
 .UIContainerList .UIVTabContent {
-  overflow:auto;
-  padding:1px;
-  background:#ffffff;
+  overflow: auto;
+  padding: 1px;
+  background: #ffffff;
   border: 1px solid #96D9F9;
+}
+
+.UIContainerList .DragObjectPortlet {
+	margin: 10px;
 }
 
 .UIContainerList .ContainerIcon {
 	margin: 10px;
-	padding-left: 120px;
-	line-height: 40px;
+	padding: 16px 0px 0px 120px;
+	line-height: 16px;
+	height: 40px;
+	margin: 5px 0px;
+  cursor: move;
 }
 
 .UIContainerList .OneRowContainerLayout {
-  width: 105px;
-	height: 56px;
-  margin-top: 10px;
-  cursor: move ;
   background:url('background/ContainerConfigOptions.png') no-repeat top left;
 }
 
 .UIContainerList .TwoRowContainerLayout {
-  width: 105px;
-	height: 56px;
-	margin: 10px 0 0 10px;
-  cursor: move;
   background:url('background/ContainerConfigOptions.png') no-repeat left -56px;
 }
 
 .UIContainerList .ThreeRowContainerLayout {
-  width: 105px;
-	height: 56px;
-	margin: 10px;
-  cursor: move;
   background:url('background/ContainerConfigOptions.png') no-repeat left -112px;
 }
 
 .UIContainerList .TwoColumnContainerLayout {
-  width: 105px;
-	height: 56px;
-	margin: 10px;
-  cursor: move;
   background:url('background/ContainerConfigOptions.png') no-repeat left -168px;
 }
 
 .UIContainerList .ThreeColumnContainerLayout {
-  width: 105px;
-	height: 56px;
-	margin: 10px;
-  cursor: move;
   background:url('background/ContainerConfigOptions.png') no-repeat left -224px;
 }
 
 .UIContainerList .TwoTabContainerLayout {
-  width: 105px;
-	height: 56px;
-	margin: 10px 0 0 10px;
-  cursor: move;
   background:url('background/ContainerConfigOptions.png') no-repeat left -280px;
 }
 
 .UIContainerList .ThreeTabContainerLayout {
-  width: 105px;
-	height: 56px;
-	margin: 10px;
-  cursor: move;
   background:url('background/ContainerConfigOptions.png') no-repeat left -336px;
 }
 
 .UIContainerList .TwoColumnOneRowContainerLayout {
-  width: 105px;
-	height: 56px;
-	margin: 10px;
-  cursor: move;
   background:url('background/ContainerConfigOptions.png') no-repeat left -392px;
 }
 
 .UIContainerList .OneRowTwoColumnContainerLayout {
-  width: 105px;
-	height: 56px;
-	margin: 10px 0 0 10px;
-  cursor: move;
   background:url('background/ContainerConfigOptions.png') no-repeat left -448px;
 }
 
 .UIContainerList .OneRow2Column1RowContainerLayout {
   background:url('background/ContainerConfigOptions.png') no-repeat bottom left;
-  width: 105px;
-	height: 56px;
-	margin: 10px;
-  cursor: move;
 }
 

@@ -21,7 +21,8 @@
 }
 
 .UIPortlet .MaximizedPortletIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   height: 16px;  width: 16px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Maximize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
@@ -29,7 +30,8 @@
 }
 
 .UIPortlet .MinimizedPortletIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   height: 16px;  width: 16px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Minimize.gif') no-repeat;
   margin: 3px 10px 0px 0px;
@@ -37,14 +39,16 @@
 }
 
 .UIPortlet .ConfigPortletIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   height: 16px; width: 16px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Config.gif') no-repeat;
   margin: 3px 10px 0px 5px;
 }
 
 .UIPortlet .EditPortletIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   height: 16px;  width: 16px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Pencil.png') no-repeat;
   margin: 4px 10px 0px 5px;
@@ -52,7 +56,8 @@
 }
 
 .UIPortlet .ViewPortletIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   height: 16px;  width: 16px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletView.gif') no-repeat;
   margin: 3px 10px 0px 0px;
@@ -60,7 +65,8 @@
 }
 
 .UIPortlet .HelpPortletIcon {
-  float: left;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   height: 16px;  width: 16px;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletHelp.gif') no-repeat;
   margin: 4px 10px 0px 0px;
@@ -72,12 +78,13 @@
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18-rt.png') no-repeat;	/* orientation=rt */
 	height: 18px;	width:31px;
 	margin: 1px 0px 0px 0px;
-	float:right;	/* orientation=lt */
-	float:left;	/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 .UIPortlet .NormalPortletIcon {
-  float: left ;
+  float: left; /* orientation=lt */
+  float: right; /* orientation=rt */
   height: 16px ;  width: 16px ;
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/Restore.gif') no-repeat ;
   margin: 1px 10px 0px 0px ;
@@ -91,6 +98,17 @@
   margin: 1px 0px 0px 0px;
 	float:right;	/* orientation=lt */
 	float:left;	/* orientation=rt */
+}
+
+.UIPortlet .PortletIcon {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	line-height: 18px;
+	padding-left: 20px; /* orientation=lt */
+	padding-right: 20px; /* orientation=rt */
+	margin: 3px 5px 0px 5px;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat left top;	/* orientation=lt */
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat right top;	/* orientation=rt */
 }
 
 .UIPortlet .OnShow {
@@ -230,10 +248,12 @@
 }
 
 .UIContainer .ContainerIcon {
-  float: left;  /* orientation=lt */
+	float: left;  /* orientation=lt */
 	float: right;  /* orientation=rt */
-  width: 16px; height: 16px; margin: 2px 6px;
-  background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat ;  /* orientation=lt */
+	line-height: 16px; 
+	margin: 2px 6px;
+	padding-left: 20px;
+	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon.png') no-repeat ;  /* orientation=lt */
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/PortletIcon-rt.png') no-repeat;  /* orientation=rt */
 }
 
