@@ -349,6 +349,7 @@
 	overflow: auto;
 	height: 100%;
   min-height: 400px;
+  _min-height: 400px;
 }
 
 /**html .UIDashboardContainer .GadgetContainer {
