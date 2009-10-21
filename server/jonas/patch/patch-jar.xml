@@ -1,0 +1,20 @@
+<assembly>
+	<formats>
+		<format>jar</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<fileSets>
+	 <fileSet>
+	  <directory>src/main/jonas</directory>
+	  <outputDirectory></outputDirectory>
+	  <useDefaultExcludes>true</useDefaultExcludes>
+	 </fileSet>
+	 <fileSet>
+	  <directory>src/main/jonas</directory>
+	  <outputDirectory></outputDirectory>
+	  <includes><include>**/*.sh</include></includes>
+	  <useDefaultExcludes>true</useDefaultExcludes>
+	  <fileMode>0755</fileMode>
+	 </fileSet>
+	</fileSets>
+</assembly>

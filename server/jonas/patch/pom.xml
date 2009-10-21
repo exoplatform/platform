@@ -8,7 +8,7 @@
 
   <groupId>org.exoplatform.portal</groupId>
   <artifactId>exo.portal.server.jonas.patch</artifactId>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <name>eXo Platform Server JOnAS Patch</name>
   <description>eXo JOnAS server patch</description>
@@ -22,5 +22,41 @@
         </includes>
       </resource>
     </resources>
+    <plugins>
+        <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>package</phase>
+                    <goals><goal>assembly</goal></goals>
+                </execution>
+            </executions>
+            <configuration>
+                <descriptors><descriptor>patch-jar.xml</descriptor></descriptors>
+            </configuration>
+        </plugin>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.3</version>
+            <executions>
+              <execution>
+                <id>attach-artifacts</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>attach-artifact</goal>
+                </goals>
+                <configuration>
+                  <artifacts>
+                    <artifact>
+                      <file>target/${project.artifactId}-${project.version}.jar</file>
+                      <type>jar</type>
+                    </artifact>
+                  </artifacts>
+                </configuration>
+              </execution>
+            </executions>
+        </plugin>
+    </plugins>
   </build>
 </project>
