@@ -107,6 +107,10 @@ a {
   float: none;
 }
 
+.StarToolBarPortletTDContainer {
+	_width: 63px;
+}
+
 .ClearLeft {
   clear: left; /* orientation=lt */
   clear: right; /* orientation=rt */

@@ -10,16 +10,17 @@
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
 	background: url('MacSkin/background/UINavigationPortlet.gif') no-repeat left top;
 	padding-left: 3px;
+	height: 34px;
 }
 
 .UINavigationPortlet .UINavigationBar .RightNavigationBar {
 	background: url('MacSkin/background/UINavigationPortlet.gif') no-repeat right top;
 	padding-right: 3px;
+	height: 34px;
 }
 
 .UINavigationPortlet .UINavigationBar .MiddleNavigationBar {
 	background: url('MacSkin/background/UINavigationPortlet.gif') repeat-x left -34px;
-	!background-position: center 1px;
 	height: 34px;
 }
 
