@@ -32,18 +32,16 @@
 }
 
 .UIToolbarContainer .NormalContainerBlock .ToolbarContainer {	
-	background: url('background/ToolbarContainer.png') no-repeat left top;
+	background: url('background/BgToolbar.png') no-repeat left top;
 	height: 39px;
 	padding-left: 8px;
 }
 
 .UIToolbarContainer .NormalContainerBlock .UITableColumnContainer {
-	background: url('background/ToolbarContainer.png') no-repeat right -39px;	
 	padding-right: 10px;
 }
 
 .UIToolbarContainer .NormalContainerBlock .TRContainer {
-	background: url('background/ToolbarContainer.png') repeat-x center -81px;
 	height: 39px;
 	line-height: 32px;
 }
