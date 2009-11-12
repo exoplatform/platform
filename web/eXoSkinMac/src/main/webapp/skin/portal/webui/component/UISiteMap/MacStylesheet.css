@@ -16,9 +16,13 @@
 }
 
 .UISitemap {
-	background: white;
+	background: #ffffff;
   padding: 10px 30px;
 	color: #4e4e4e;
+	margin: 0px 10px;
+	border: 1px solid #cccccc;
+	-moz-border-radius: 6px;
+	-webkit-border-radius:6px;
 }
 
 .UISitemap a {
@@ -42,15 +46,19 @@
 .UISitemap .CollapseAll {
 	background: url('MacSkin/background/CollapseAllIcon.gif') no-repeat left center; /* orientation=lt */
 	background: url('MacSkin/background/CollapseAllIcon.gif') no-repeat right center; /* orientation=rt */
-	padding: 0px 20px;
+	padding: 0px 12px 0px 20px;
+	float: right;
 	cursor: pointer;
+	line-height: 16px;
 }
 
 .UISitemap .ExpandAll {
 	background:  url('MacSkin/background/ExpandAllIcon.gif') no-repeat left center; /* orientation=lt */
 	background:  url('MacSkin/background/ExpandAllIcon.gif') no-repeat right center; /* orientation=rt */
-	padding: 0px 20px;
+	padding: 0px 12px 0px 20px;
+	float: right;
 	cursor: pointer;
+	line-height: 16px;
 }
 
 .UISitemap .SitemapContent {
