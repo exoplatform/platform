@@ -341,10 +341,6 @@
 	background: #fff;
 }
 
-.UIDashboard .UIDashboardContainer .GadgetTitle {
-	width: 197px;	
-}
-
 .UIDashboardContainer .GadgetContainer {
 	overflow: auto;
 	height: 100%;
