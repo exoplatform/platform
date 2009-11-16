@@ -18,8 +18,8 @@
 .UIAction .ActionContainer  a {
 }
 
-.UIAction .ActionContainer  a:hover {
-  color: white;
+.UIAction .ActionContainer a:hover {
+  color: #058ee6;
 }
 
 .UIAction .ActionContainer .SimpleStyle a:hover {
@@ -96,18 +96,18 @@
 }
 .UIAction .LightBlueStyle .ButtonLeft {
   background: url('background/LightBlueStyle.png') no-repeat left top;
-  padding-left: 12px;
+  padding-left: 7px;
 }
 
 .UIAction .LightBlueStyle .ButtonRight {
-  background: url('background/LightBlueStyle.png') no-repeat right -25px;
-  padding-right: 12px;
+  background: url('background/LightBlueStyle.png') no-repeat right top;
+  padding-right: 7px;
 }
 
 .UIAction .LightBlueStyle .ButtonMiddle {
-  line-height: 25px; 
+  line-height: 20px; 
   text-align: center;
-	background: url('background/LightBlueStyle.png') repeat-x left -50px;
+	background: url('background/LightBlueStyle.png') repeat-x left -22px;
 	display: table-cell;
 	padding: 0px 12px;
 	white-space: nowrap;
