@@ -26,13 +26,6 @@
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
-		<portlet-name>I18nPortlet</portlet-name>
-		<skin-name>Mac</skin-name>
-		<css-path>/skin/i18n/webui/component/UII18nPortlet/MacStylesheet.css</css-path>
-	</portlet-skin>
-	
-	<portlet-skin>
-		<application-name>exoadmin</application-name>
 		<portlet-name>ApplicationRegistryPortlet</portlet-name>
 		<skin-name>Mac</skin-name>
 		<css-path>/skin/applicationregistry/webui/component/UIApplicationRegistryPortlet/MacStylesheet.css</css-path>
