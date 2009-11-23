@@ -143,6 +143,15 @@
 	background: url('background/SaveIcon.gif') no-repeat right;
 }
 
+.UIPopupWindow .EdittedSaveButton {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin: 10px;
+	cursor: pointer;
+	width: 15px; height: 15px;
+	background: url('background/SaveIcon.gif') no-repeat right;
+}
+
 .UIPopupWindow .UIVTab .SelectedTab {
 	background: url('background/TitleBg.gif')repeat-x;
 	height: 25px;

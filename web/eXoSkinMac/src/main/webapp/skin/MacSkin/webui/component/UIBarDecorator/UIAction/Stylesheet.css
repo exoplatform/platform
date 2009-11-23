@@ -105,8 +105,8 @@
 }
 
 .UIAction .LightBlueStyle .ButtonMiddle {
-  line-height: 20px; 
-  text-align: center;
+	line-height: 22px; 
+	text-align: center;
 	background: url('background/LightBlueStyle.png') repeat-x left -22px;
 	display: table-cell;
 	padding: 0px 12px;

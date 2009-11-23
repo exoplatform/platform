@@ -1,6 +1,7 @@
 .UITrees {
-  border: 1px solid #b7b7b7;
-  background: white;
+  border-right: 1px solid #cdcdcd; /* orientation=lt */
+  border-left: 1px solid #cdcdcd; /* orientation=rt */
+  background: #e7e7e7;
 }
 
 .UITrees .TreeContainer {

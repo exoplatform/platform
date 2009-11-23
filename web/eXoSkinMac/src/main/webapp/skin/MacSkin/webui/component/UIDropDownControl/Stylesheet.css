@@ -11,6 +11,7 @@
 
 .UIDropDownControl .UIDropDownTitle {
 	cursor:pointer;
+	padding: 5px;
 }
 
 .UIDropDownControl .LeftMiddelItem {
@@ -68,9 +69,8 @@
 .UIDropDownControl .UIDropDownLeftTitle {
 	background: url('background/DropDownControl.png') no-repeat left top; /* orientation=lt */
 	background: url('background/DropDownControl-rt.png') no-repeat right top; /* orientation=rt */
-	padding-left: 4px; /* orientation=lt */
-	padding-right: 4px; /* orientation=rt */
-	height: 24px;
+	padding-left: 3px; /* orientation=lt */
+	padding-right: 3px; /* orientation=rt */
 }
 
 .UIDropDownControl .UIDropDownRightTitle {
@@ -81,9 +81,9 @@
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle {
-	background: url('background/DropDownControl.png') repeat-x left -24px;
+	background: url('background/DropDownControl.png') repeat-x left -25px;
 	cursor: pointer;
-	height: 24px;
+	height: 25px;
 }
 
 .UIDropDownControl .UIDropDownMiddleTitle .Icon {
