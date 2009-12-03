@@ -1,5 +1,4 @@
 .UINavigationPortlet {
-  !position: relative;
 }
 	
 .UINavigationPortlet .UINavigationBar {
@@ -13,7 +12,7 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
 	float: none;
-	_position: relative; /* orientation=rt */
+	!position: relative;
 } 
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
