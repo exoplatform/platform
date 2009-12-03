@@ -8,43 +8,52 @@
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemListContainer {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-	width: 175px;
+	width: 170px;
+	background: #ffffff url('background/ItemListBg.gif') repeat-x top left;
+	-moz-border-radius-topleft: 5px; -moz-border-radius-bottomleft: 5px;
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList {
-	margin: 0px 0px 0px 180px; /* orientation=lt */
-	margin: 0px 180px 0px 0px; /* orientation=rt */
+	margin: 0px 0px 0px 178px; /* orientation=lt */
+	margin: 0px 178px 0px 0px; /* orientation=rt */
+	background: url('background/ItemListBg.gif') repeat-x;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomright: 5px;
+	border: 1px solid #cdcdcd;
 }
 
 .UIChangeSkinForm .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
-	background: #fafafa;
+	background: none;
+	border: none;
+	height: 221px;
 }
 
 .UIChangeSkinForm .UIItemSelector .ItemDetail .TemplateContainer {
-	padding-top: 14px;
+	padding-top: 5px;
 }
 		
 .UIChangeSkinForm .UIItemSelector .ItemListContainer .ItemList {
-	background: #fafafa url('background/ItemListBg157x103.gif') no-repeat bottom;
+	height:180px;
+	padding:20px 0;
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .DefaultImage {
 	margin: auto; 
-	width: 329px; height:204px; 
-	background: url('background/ChangeSkinForm.jpg') no-repeat top; 
+	width: 310px; height:186px; 
+	background: url('background/thumbnail.png') no-repeat top; 
 	cursor: pointer ; 
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .MacImage {
 	margin: auto; 
-	width: 329px; height: 204px; 
-	background: url('background/ChangeSkinForm.jpg') no-repeat center -209px; 
+	width: 310px; height: 186px; 
+	background: url('background/thumbnail.png') no-repeat center -375px; 
 	cursor: pointer ; 
 }
 
 .UIChangeSkinForm .UIItemSelector .TemplateContainer .VistaImage {
 	margin: auto; 
-	width: 329px; height: 204px; 
-	background: url('background/ChangeSkinForm.jpg') no-repeat center -406px; 
+	width: 310px; height: 186px; 
+	background: url('background/thumbnail.png') no-repeat center -186px; 
 	cursor: pointer ; 
 }

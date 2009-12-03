@@ -16,14 +16,15 @@
 }
 
 .UIAction .ActionContainer  a {
+	font-weight: bold;
 }
 
 .UIAction .ActionContainer a:hover {
-  color: #058ee6;
+  color: #000000;
 }
 
 .UIAction .ActionContainer .SimpleStyle a:hover {
-	color: #058ee6;
+	color: #000000;
 }
 
 .UIAction .ActionContainer .Icon {

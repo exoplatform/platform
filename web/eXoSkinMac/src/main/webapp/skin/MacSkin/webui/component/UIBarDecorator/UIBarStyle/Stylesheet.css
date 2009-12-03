@@ -154,23 +154,20 @@
 
 /*============================== TitleBar ========================================*/
 .UIBarStyle .TitleBar .LeftBar {
-	background: url('background/TitleBar.gif') no-repeat left top;
-	padding-left: 11px ;
-	height: 32px;
+
 }
 
 .UIBarStyle .TitleBar .RightBar {
-	padding-right: 11px ;
-	background: url('background/TitleBar.gif') no-repeat right top;
-	height: 32px;
+
 }
 
 .UIBarStyle .TitleBar .MiddleBar {
-	background: url('background/TitleBar.gif') repeat-x bottom;
-	padding-left: 6px;
+	background: #ffffff;
+	padding: 0 6px;
 	height: 32px; line-height: 32px;
-	color: #124ed7; font-weight: bold; font-family: arial;
+	color: #000000; font-weight: bold; font-family: arial;
 	font-size: 14px;
+	-moz-border-radius-topright: 5px; -moz-border-radius-topleft: 5px;
 }
 
 

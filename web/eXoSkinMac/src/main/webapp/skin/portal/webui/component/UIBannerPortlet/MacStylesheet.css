@@ -37,6 +37,7 @@
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer a {
 	color: #131313;
 	outline: none;
+	float: left;
 }
 
 .UIBannerPortlet .LeftLoginContainer .RightLoginContainer a:hover {
@@ -76,4 +77,5 @@
 	cursor: pointer;
 	float: left;
 	display: block;
+	margin-left: 15px;
 }

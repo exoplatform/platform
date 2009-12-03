@@ -49,13 +49,18 @@
 }
 
 .UIChangeLanguageForm .ItemDetail .SelectedItem {
-	height: 24px;
-	color: #f27e01;
+	background: url('background/SelectedLangBg.gif') repeat-x;
+	height: 23px;
+	color: #ffffff;
 	border-bottom: solid 1px #e9e7e7;
+	font-size: 12px;
+	font-weight: bold;
 }
 
 .UIChangeLanguageForm .ItemDetail .SelectedItem a {
-	color: #f27e01;
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
 }
 
 .UIChangeLanguageForm .ItemDetail .NormalItem .Icon {
@@ -68,7 +73,8 @@
   float: left; /* orientation=lt */
   float: right; /* orientation=rt */
 	height: 24px; width: 24px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/CheckerIcon.gif') no-repeat center;
+	background: url('background/SelectedIconArrow.gif') no-repeat center; /* orientation=lt */
+	background: url('background/SelectedIconArrow-rt.gif') no-repeat center; /* orientation=rt */
 }
 
 .UIChangeLanguageForm .ItemDetail .NodeLabel {
@@ -77,6 +83,7 @@
 	line-height: 24px;
 	text-align: left; /* orientation=lt */
 	text-align: right; /* orientation=rt */
+	font-size: 12px;
 }
 
 .UIChangeLanguageForm .ItemDetail .PercentLabel {
@@ -85,5 +92,6 @@
 	text-align: left; /* orientation=rt */
 	padding-right: 20px; /* orientation=lt */
 	padding-left: 20px; /* orientation=rlt */
+	font-size: 12px;
 }
 

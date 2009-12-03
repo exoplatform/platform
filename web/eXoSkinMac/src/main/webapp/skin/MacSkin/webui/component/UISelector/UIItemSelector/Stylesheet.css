@@ -82,7 +82,6 @@
 
 .UIItemSelector .RightColumnStyle .ItemList {
 	border: none;
-	background: #ffffff url('background/ItemList.jpg') no-repeat bottom;
 	height: 240px;
 }
 
@@ -99,17 +98,18 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetail {
-	height: 240px;
-	background: white;
-	border: 1px #e7e7e7 solid;
+	background:white none repeat scroll 0 0;
+	border: 1px solid #e7e7e7;
+	border-bottom: none;
 }
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailTitle{
-	height: 22px;
+	height: 32px;
+	margin-top: 5px;
 }
 
 .UIItemSelector .RightColumnStyle .ItemDetailList .ItemDetailContainer{
- 	background: #ffffff;
+ 	background: none;
 }
 
 .UIItemSelector .RightColumnStyle .ItemListTitle .ArrowS1Down16x16Icon {
@@ -122,7 +122,9 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemListTitle {
-	height: 23px;
+	height: 35px;
+	margin-top: 5px;
+	margin-left: 2px;
 }
 
 .UIItemSelector .RightColumnStyle .TitleIcon {
@@ -132,33 +134,33 @@
 }
 
 .UIItemSelector .RightColumnStyle .Title {
-	line-height: 22px; 
-	font-weight: bold; color: #5c5c5c; 
+	padding-left: 5px;
+	line-height: 28px; 
+	font-weight: bold; color: #000000;
+	font-size: 12px; 
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
 }
 
 .UIItemSelector .RightColumnStyle .ItemListIcon {
-	width: 16px; height: 16px;
-	background: url('background/SelectedItem.png') no-repeat left -464px;
+	width: 24px; height: 24px;
+	background: url('background/tsclient.png') no-repeat;
 }
 
 .UIItemSelector .RightColumnStyle .ViewListIcon {
-	width: 16px; height: 16px;
-	background: url('background/SelectedItem.png') no-repeat left -480px;
-	margin-top: 3px;
+	width: 24px; height: 24px;
+	background: url('background/ViewSkin.gif') no-repeat;
 }
 
 /*##########################- Default Item	-#########################*/
 
 .UIItemSelector .RightColumnStyle .ItemList .Item {
 	height: 25px; 
-	cursor: pointer;
+	cursor: pointer;	margin: 1px 0;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .LeftItem {
-	background: url('background/SelectedItem.png') no-repeat left -50px; /* orientation=lt */
-	background: url('background/SelectedItem-rt.png') no-repeat right -50px; /* orientation=rt */
+	background: #e5e5e5;
 	padding-left: 21px; /* orientation=lt */
 	padding-right: 21px; /* orientation=rt */
 	height: 25px;
@@ -166,20 +168,21 @@
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .RightItem {
 	height: 25px; line-height: 25px;
-	background: url('background/SelectedItem.png') repeat-x left -75px;
+	background: #e5e5e5;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .Item .ItemTitle {
 	height: 25px; line-height: 25px; 
 	padding-left: 8px; /* orientation=lt */
 	padding-right: 8px; /* orientation=rt */
+	font-size: 12px;
 }
 
 /*###########################- Over Item (When mouse over on this item) -############################*/
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem {
 	height: 25px;
-	cursor: pointer;
+	cursor: pointer;	margin: 1px 0;
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .LeftItem {
@@ -196,22 +199,24 @@
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .OverItem .ItemTitle {
-	height: 24px; line-height: 24px; 
-	color: #F7810F;
+	height: 25px; line-height: 25px; 
+	color: #000000;
 	padding-left: 8px; /* orientation=lt */
 	padding-right: 8px; /* orientation=rt */
+	font-size: 12px;
 }
 
 /*##########################- Selected Item	(When Item is selected)-#########################*/
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem {
 	height: 25px;
-	cursor: pointer;
+	cursor: pointer;	margin: 1px 0;
+
 }
 
 .UIItemSelector .RightColumnStyle .ItemList .SelectedItem .LeftItem {
-	background: url('background/SelectedItem.png') no-repeat left top; /* orientation=lt */
-	background: url('background/SelectedItem-rt.png') no-repeat right top; /* orientation=rt */
+	background: url('background/SelectedItem.png') no-repeat left -50px; /* orientation=lt */
+	background: url('background/SelectedItem-rt.png') no-repeat right -50px; /* orientation=rt */
 	padding-left: 21px; /* orientation=lt */
 	padding-right: 21px; /* orientation=rt */
 	height: 25px;
@@ -226,6 +231,7 @@
 	height: 25px; line-height: 25px; 
 	padding-left: 8px; /* orientation=lt */
 	padding-right: 8px; /* orientation=rt */
+	background: url('background/SelectedItem.png') repeat-x left -75px;  
 }
 
 /*#######################################-----RightColumnBigItemStyle-----####################################*/
