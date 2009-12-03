@@ -45,6 +45,7 @@
 	white-space: nowrap;
 	text-align: left; /* orientation=lt */
 	text-align: right; /* orientation=rt */
+	border: 0px; /*fix for IE*/
 }
 
 .UINavigationPortlet .MenuItemContainer .MenuItemDecorator {
