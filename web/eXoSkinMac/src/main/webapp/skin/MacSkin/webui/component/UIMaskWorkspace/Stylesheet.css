@@ -1,34 +1,80 @@
 .UIMaskWorkspace {
-	background: white;
-	border: 1px solid black;
-	padding: 2px;
+	border: none;
 	width: 650px;
 }
-	
+
+.UIMaskWorkspace .TopLeftDecorator {
+	background: url('background/MaskWorkspace.png') no-repeat left top;
+	padding: 0px 0px 0px 13px;
+}
+
+.UIMaskWorkspace .TopRightDecorator {
+	background: url('background/MaskWorkspace.png') no-repeat right -13px;
+	padding: 0px 13px 0px 0px;
+}
+
+.UIMaskWorkspace .TopLeftDecorator .TopCenterDecorator {
+	height: 13px;
+	background: url('background/MaskWorkspace.png') repeat-x center -26px;
+}
+
+.UIMaskWorkspace .MiddleLeftDecorator {
+	background: url('background/MiddleMaskWorkspace.png') repeat-y left;
+	padding: 0px 0px 0px 10px;
+}
+
+.UIMaskWorkspace .MiddleRightDecorator {
+	background: url('background/MiddleMaskWorkspace.png') repeat-y right;
+	padding: 0px 11px 0px 0px;
+}
+
 .UIMaskWorkspace .MaskContainer {
-	background: white;
-	border: 1px solid #a9a9a9;
-	height: 100%;
+	background: #f5f5f5;
 }
 
-.UIMaskWorkspace .TitleBarContainer {
-	padding: 10px 13px 0px 10px; /* orientation=lt */
-	padding: 10px 10px 0px 13px; /* orientation=rt */
+.UIMaskWorkspace .BottomLeftDecorator {
+	background: url('background/MaskWorkspace.png') no-repeat left -39px;
+	padding: 0px 0px 0px 13px;
 }
 
-.UIMaskWorkspace .ContentContainerDetail {
-	padding: 15px 15px 2px 15px;
+.UIMaskWorkspace .BottomRightDecorator {
+	padding: 0px 13px 0px 0px;
+	background: url('background/MaskWorkspace.png') no-repeat right -52px;
 }
 
-.UIMaskWorkspace .UITabContentContainer .UITabContent {
-	height: 273px;  
+.UIMaskWorkspace .BottomLeftDecorator .BottomCenterDecorator {
+	height: 13px;
+	background: url('background/MaskWorkspace.png') repeat-x center -65px;
+}
+
+.UIMaskWorkspace .UIAddApplication .UIItemSelector .ItemDetailList {
+	margin-right: 0px; /* orientation=lt */
+	margin-left: 0px; /* orientation=rt */
+	height: auto;
+}
+
+/***********************************	UITabContent	************************************/
+
+.UIMaskWorkspace .UIFormTabPane {
+	padding: 10px;
+}
+
+.UIMaskWorkspace .UITabContent {
 	overflow-y: auto;
 	overflow-x: hidden;
+	margin: auto;
+	height: 275px;
+}
+
+.UIMaskWorkspace .UIForm .HorizontalLayout .SelectedIconInfo .UIFormInputSet {
+	margin: auto;
 }
 
 .UIMaskWorkspace .UIAccessGroup .PublicCheck .UIFormGrid td.FieldComponent {
 	_padding: 0px;
 }
+
+/*********************************** End UITabContent	************************************/
 
 .UIMaskWorkspace .IconLayout {
 	float: left; /* orientation=lt */
@@ -36,103 +82,83 @@
 	margin: 3px 5px 0px 5px;
 }
 
-.UIMaskWorkspace .UIFormTabPane {
-	padding: 10px 10px 5px 10px;
-}
-
-
-.UIMaskWorkspace .UINodeIconSelector .SelectedIconInfo .UIFormInputSet {
-	padding: 0px;
-}
-
-.UIMaskWorkspace .UIForm .HorizontalLayout .SelectedIconInfo .UIFormInputSet {
+.UIMaskWorkspace .UIFormWithTitle {
+	width: 550px;
 	margin: auto;
+	padding: 50px 0px;
 }
 
 .UIMaskWorkspace .UIFormInputSet .UIFormGrid .SelectGroup {
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/NormalGroup.png') no-repeat center;
-	height: 20px; width: 20px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat center;
+	height: 22px;
+	width: 22px;
 }
 
 /**********************************UITabSelector*****************************************/
+
 .UIMaskWorkspace .UITabPane .TabPaneContent .WorkingArea .CSSContent {
 	border: 1px solid #d5d5d5;
 	padding: 0px;
 }
 
 .UIMaskWorkspace .UITabPane .TabPaneContent .CSSContent .UITabContent {
+	height: auto;
 	border: 1px solid white;
 	border-top: none;
-	margin: auto; height: auto;
-	background: white;
+	margin: auto;
+	overflow: hidden;
 }
 
 /**************************** UIAddApplication ******************************************/
+
 .UIAddApplication {
-	padding: 10px 10px 0px 10px;
-}
-
-.UIAddApplication .ApplicationListContainer {
-	background: white none repeat scroll 0%;
-	border: 1px solid #C3C3C3;
-	height: 240px;
-	overflow: auto;	
-	padding: 0px 12px;
-}
-
-.UIAddApplication .UITabContentContainer {
-	border: none;
-	background: none;
-	padding: 0px;
-}
-
-.UIAddApplication .UITabContentContainer .NoneAppsMessage{
-	padding: 40px 10px;
-	text-align: center;
-	color: gray;
-	margin: 0px auto;
-}
-
-.UIAddApplication .ContentContainerDetail {
-	border: 1px solid #c2c2c2;
-	border-top: none;
-	padding: 5px 5px 0px 5px;
-	background: #f7f7f7;	
-}
-
-.UIAddApplication .Application {
-	margin: 12px 0px 0px 0px;
-	border: solid 1px #e4e4e4;
 	padding: 10px;
 }
 
-.UIAddApplication .ApplicationDescription {
-
+.UIAddApplication .TitleBarContainer {
+	background: #f6f6f6;
 }
 
-.UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
-	height: 240px;
-	overflow: auto;
-	border: 1px solid #C3C3C3;
-	text-transform: capitalize;
-	background: white url('background/ApplicationBackground165x65.gif') no-repeat left bottom;
+.UIAddApplication .UITabContent {
+	overflow: hidden;
 }
 
-.UIAddApplication .ApplicationContentLabel {
-	line-height: 16px;
+.UIAddApplication .UITabContentContainer {
+	padding-bottom: 5px;
+	border: none;
 }
 
-.UIAddApplication .ApplicationContentLabel .RightLabel {
-	color: #058ee6;
+.UIAddApplication .UITabContentContainer .NoneAppsMessage{
+	padding: 10px;
+	text-align: center;
+	color: gray;
+	width: 300px;
+	margin: 40px auto 0px auto;
 }
 
-.UIAddApplication .PortletIcon {
-	background: none;
-	cursor: pointer;
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
-	height: 80px; width: 80px;
-	margin-top: 2px;	
+.UIAddApplication .ContentContainerDetail {
+	border: 1px solid #d4d4d4;
+	border-top: none;	
+}
+
+.UIAddApplication .ContentContainerDetail .CategoryContainer {
+	border: 1px solid white;
+	border-top: none;
+}
+
+.UIAddApplication .ApplicationListContainer {
+	height: 240px; width: 449px;
+	border: 1px solid #c3c3c3;
+	background: white;
+	overflow-y: auto;
+	overflow-x: hidden;
+	padding: 0px 10px;
+}
+
+.UIAddApplication .Application {
+	margin: 10px 0px 0px 0px;
+	border: solid 1px #e4e4e4;
+	padding: 10px;
 }
 
 .UIAddApplication .ApplicationContent {
@@ -140,11 +166,22 @@
 	margin-right: 85px; /* orientation=rt */
 }
 
+.UIAddApplication .PortletIcon {
+	background: none;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	width: 80px; height: 80px;
+	cursor: pointer;
+	margin-top: 2px;
+}
+
 .UIAddApplication .TitleBarApplication {
-	background: none; height: 24px;
-	color: #1553B9;	font-weight: bold;
-	margin: 0px auto 5px auto;
+	background: none;
+	width: 93%; height: 20px;
+	color: #1553B9; font-weight: bold;
 	border-bottom: 1px solid #dfdfdf;
+	padding: 0px 1px 3px 1px;
+	margin: 0px auto 5px auto;
 }
 
 .UIAddApplication .TitleBarApplication .Title {
@@ -154,44 +191,73 @@
 	font-weight: bold; font-size: 13px; color: #1553B9; font-family: arial;
 }
 
-.UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
-	background: none;
-	border: none;
-}
-
 .UIAddApplication .AddButton {
+	width: 20px; height: 24px;
+	background: url('background/AddApplicationButton.gif') no-repeat top;
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
-	width: 24px; height: 24px;
-	background: url('background/AddApplicationButton.gif') no-repeat top;
-	margin: 2px auto;
 	cursor: pointer;
+	margin: 0px 3px;
 }
 
 .UIAddApplication .AddToStartUp {
+	width: 20px; height: 24px;
+	background: url('background/AddToStartup.gif') no-repeat top;
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
-	width: 24px; height: 24px;
-	background: url('background/AddToStartup.gif') no-repeat top;
-	margin: 2px auto;
 	cursor: pointer;
+	margin: 0px 3px;
 }
 
 .UIAddApplication .SelectButton {
+	width: 20px; height: 24px;
+	background: url('background/AddApplicationButton.gif') no-repeat left -22px;
 	float: right; /* orientation=lt */
-	float: left; /* orientation=rt */ 
-	width: 24px; height: 24px;
-	background: url('background/AddApplicationButton.png') no-repeat left -24px;
-	margin: auto;
+	float: left; /* orientation=rt */
 	cursor: pointer;
+	margin: 0px 3px;
+}
+
+.UIAddApplication .ApplicationContentLabel {
+	line-height: 16px;
+	width: 93%; margin: auto;
+}
+
+.UIAddApplication .ApplicationContentLabel .RightLabel {
+	color: #058ee6;
+}
+
+.UIAddApplication .UIItemSelector .LeftColumnStyle {
+	width: auto;
+}
+
+.UIAddApplication .UIItemSelector .ItemListContainer .ItemList {
+	height: 240px;
+	overflow: auto;
+	background: #ffffff;
+	border: 1px solid #c3c3c3;
+	text-transform: capitalize;
+}
+
+.UIAddApplication .UIItemSelector .ItemDetailList .ItemDetail {
+	background: none;
+	border: none;
+	height: auto;
+}
+
+.UIAddApplication .UIItemSelector {
+	padding: 7px 5px 8px 7px; /* orientation=lt */
+	padding: 7px 7px 8px 5px; /* orientation=rt */
+	margin: 0px;
+	background: #f7f7f7;
 }
 
 .UIAddApplication .ApplicationItemIcon {
-	width: 10px; height: 10px;
-	background: url('background/AddApplicationButton.png') no-repeat left -48px;
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/DarkBlueNextArrow.gif') no-repeat;
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-	margin: 6px 5px 0px 5px;
+	margin: 3px 5px 0px 5px;
 }
 
 .UIAddApplication .LeftColumnStyle .ItemListIcon {
@@ -204,15 +270,19 @@
 	width: 0px;
 }
 
-/**********************************************************************************/
+/************************************ Select Permission *******************************/
 
 .UIGroupSelector {
 	padding: 10px;
 }
 
+.UIGroupSelector .SelectedGroupPath { 
+	padding: 5px 0px;
+}
+
 .UIGroupSelector .UIBreadcumbs {
-	font-weight: normal;
-	margin-bottom: 3px; padding: 0px;
+	border: 1px solid white;
+	padding: 0px;
 }
 
 .UIGroupSelector .UIBreadcumbs .LeftBreadcumbsBar {
@@ -228,52 +298,49 @@
 	background: white;
 }
 
+.UIGroupSelector .UIBreadcumbs .BCHome16x16Icon {
+	width: 16px; height: 16px;
+	background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/SmallGroup.gif') no-repeat left center;
+}
+
 .UIGroupSelector .UIBreadcumbs a.Selected {
 	color: #058ee6;
 }
 
-.UIGroupSelector .UIBreadcumbs .HomeIcon {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/NormalGroup.png') no-repeat;
-	margin: 8px 0px 0px 5px; /* orientation=lt */
-	margin: 8px 50px 0px 0px; /* orientation=rt */
-}
-
-.UIGroupSelector .TitleGroupSelector{
-	background: url('background/ThGridRepeatBg1x19.gif') repeat-x;
-	border: 1px #b7b7b7 solid; 
-	height: 20px; line-height: 20px; vertical-align: middle;
-	padding-left: 15px; /* orientation=lt */
-	padding-right: 15px; /* orientation=rt */
-}
-
 .UIGroupSelector .GroupSelector {
-	border: 1px solid white;
+	padding: 10px;
+	background: #f4f4f4;
+	border: 1px solid #e4e4e4;
+}
+
+.UIGroupSelector .TitleGroupSelector {
+	background: url('background/ThGridRepeatBg1x19.jpg') repeat-x;
+	line-height: 19px; height: 19px;
+	border: 1px solid #b7b7b7;
+	border-bottom: 1px solid #cfcfcf;
+	padding: 0px 10px;
 }
 
 .UIGroupSelector .LeftGroupSelector {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
 	width: 220px; height: 210px;
-}
-
-.UIGroupSelector .BlueLevelUpArrow24x24Icon {
-	margin-left: 7px; /* orientation=lt */
-	margin-right: 7px; /* orientation=rt */
+	border: 1px solid white;
 }
 
 .UIGroupSelector .RightGroupSelector {
 	margin-left: 225px; /* orientation=lt */
 	margin-right: 225px; /* orientation=rt */
-	height: 140px;
+	height: 210px;
+	border: 1px solid white;
 }
 
 .UIGroupSelector .RightGroupSelector .Content {
 	border: 1px solid #b7b7b7; border-top: none;
+	height: 170px; 
 	color: #058ee6;
-	height: 136px;
 	padding: 10px;
+	background: white;
 }
 
 .UIGroupSelector .RightGroupSelector .Content div {
@@ -282,4 +349,11 @@
 
 .UIGroupSelector .RightGroupSelector .Content span {
 	color: #2c2c2c;
+}
+
+/**************************************Container Form*************************************/
+/**************************************ExoMessageDecorator*************************************/
+
+.UIMaskWorkspace .UIIFramePortlet .ExoMessageDecorator .UIPopupMessages .UITabContentContainer {
+	border: none;
 }
