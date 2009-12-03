@@ -1,4 +1,5 @@
 .UINavigationPortlet {
+  !position: relative;
 }
 	
 .UINavigationPortlet .UINavigationBar {
@@ -12,12 +13,13 @@
 
 .UINavigationPortlet .UINavigationBar .UIHorizontalTabs .TabsContainer {
 	float: none;
-	!position: relative;
+	_position: relative; /* orientation=rt */
 } 
 
 .UINavigationPortlet .UINavigationBar .LeftNavigationBar {
 	background: url('VistaSkin/background/NavBg.png') no-repeat left top;
 	padding-left: 9px;
+	_height: 32px;
 }
 
 .UINavigationPortlet .UINavigationBar .RightNavigationBar {
@@ -180,7 +182,6 @@
 .UINavigationPortlet .MenuItemContainer {
 	text-align: left;	/* orientation=lt */
 	text-align: right;	/* orientation=rt */
-	border: 0px; /*fix for IE*/
 }
 
 .UINavigationPortlet .MenuItemContainer .ItemIcon {
