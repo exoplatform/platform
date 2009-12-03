@@ -35,14 +35,14 @@
 		<application-name>exoadmin</application-name>
 		<portlet-name>PortalNavigationPortlet</portlet-name>
 		<skin-name>Mac</skin-name>
-		<css-path>/skin/navigation/webui/component/DefaultStylesheet.css</css-path>
+		<css-path>/skin/navigation/webui/component/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
 		<portlet-name>GroupNavigationPortlet</portlet-name>
 		<skin-name>Mac</skin-name>
-		<css-path>/skin/navigation/webui/component/DefaultStylesheet.css</css-path>
+		<css-path>/skin/navigation/webui/component/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	
@@ -94,7 +94,7 @@
 		<application-name>web</application-name>
 		<portlet-name>IFramePortlet</portlet-name>
 		<skin-name>Mac</skin-name>
-		<css-path>/skin/portal/webui/component/UIIFramePortlet/DefaultStylesheet.css</css-path>
+		<css-path>/skin/portal/webui/component/UIIFramePortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<portlet-skin>
@@ -115,7 +115,7 @@
 		<application-name>dashboard</application-name>
 		<portlet-name>GadgetPortlet</portlet-name>
 		<skin-name>Mac</skin-name>
-		<css-path>/skin/gadget/webui/component/UIGadgetPortlet/DefaultStylesheet.css</css-path>
+		<css-path>/skin/gadget/webui/component/UIGadgetPortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<!-- Skin for HomePagePortlet -->
@@ -123,7 +123,7 @@
 		<application-name>web</application-name>
 		<portlet-name>HomePagePortlet</portlet-name>
 		<skin-name>Mac</skin-name>
-		<css-path>/skin/webui/component/UIHomePagePortlet/DefaultStylesheet.css</css-path>
+		<css-path>/skin/webui/component/UIHomePagePortlet/MacStylesheet.css</css-path>
 	</portlet-skin>
 	
 	

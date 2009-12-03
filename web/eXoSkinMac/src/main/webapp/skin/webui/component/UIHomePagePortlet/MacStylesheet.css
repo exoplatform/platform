@@ -4,23 +4,23 @@
 }
 
 .UIHomePagePortlet {	
-	background: white;
-	padding: 8px 8px 0px;
-	width: 948px;
+  padding: 0px 10px;
 }
 
 .UIHomePagePortlet .TRContainer .PortletDecoration {	
 	padding: 10px;
+	background: url('MacSkin/background/BottomRightColumn.gif') repeat-x bottom center;
 }
 
 .UIHomePagePortlet .TRContainer {
 	width: 222px;
-	height: 390px;
+	height: 391px;
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
-	border: 1px solid #C6C6C6;	
+	border: 1px solid #bdbcbd;
+	-moz-border-radius: 5px;
 	text-align: center;
-	background: url('DefaultSkin/background/BgRightColumn.gif') repeat-x bottom center;
+	background: #fff url('MacSkin/background/TopRightColumn.gif') repeat-x top center;
 }
 
 .UIHomePagePortlet .TRContainer a {
@@ -33,23 +33,20 @@
 }
 
 .UIHomePagePortlet .TRContainer .DotLine {
-	background: url("DefaultSkin/background/Line.gif") no-repeat -2px top;
-	height: 1px;
-	width: 182px;
-	margin: 7px auto;
+
 }
 
 
 .UIHomePagePortlet .TRContainer .VersionIcon {
-	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -978px;
-	height: 65px;
+	background: url("MacSkin/background/HomePagePortlet.gif") no-repeat left -978px;
+	height: 70px;
 	width: 80px;
-	margin: 20px auto;
+	margin: 40px auto;
 	cursor: pointer;
 }
 
 .UIHomePagePortlet .TRContainer .ContactIcon {
-	background: url("DefaultSkin/background/HomePagePortlet.gif") no-repeat left -1209px;
+	background: url("MacSkin/background/HomePagePortlet.gif") no-repeat left -1209px;
 	height: 70px;
 	width: 80px;
 	margin: 20px auto;
@@ -57,46 +54,44 @@
 }
 
 .UIHomePagePortlet  .TLContainer {
-	border: 1px solid #ffffff;
 	float: left; /* orientation=lt */	
 	float: right; /* orientation=rt */
 	width: 713px;
 }
 
 .UIHomePagePortlet .TLContainer .PortletDecoration {	
-	background: #fff;
 }
 
 .UIHomePagePortlet .HomePortletAdBackround {	
-	background: #fff url('DefaultSkin/background/BgRepeat.gif') repeat-x top;
+	background: #fff url('MacSkin/background/BgRepeat.gif') repeat-x top;
 }
 
 .UIHomePagePortlet .AdImageLeft {
-	background: url('DefaultSkin/background/RightHome.jpg') no-repeat left top; /* orientation=lt */
-	background: url('DefaultSkin/background/RightHome-rt.jpg') no-repeat right top; /* orientation=rt */
+	background: url('MacSkin/background/RightHome.jpg') no-repeat left top; /* orientation=lt */
+	background: url('MacSkin/background/RightHome-rt.jpg') no-repeat right top; /* orientation=rt */
 }
 
 *html .UIHomePagePortlet .AdImageLeft {
 }
 
 .UIHomePagePortlet .AdImageRight {
+	
 	text-align: right; /* orientation=lt */
 	text-align: left; /* orientation=rt */
 	height: 255px; 
-	padding: 0px 10px 0px 200px; /* orientation=lt */
-	padding: 0px 200px 0px 10px; /* orientation=rt */
+	padding: 0px 10px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 10px; /* orientation=rt */
+	letter-spacing: 1px;
 }
 
 .UIHomePagePortlet .AdImageLeft .EmptyBlock {
-	height: 120px;
-	font-size: 21px;
+	font-size: 23px;
 	color: #616161;
-	text-align: center;
 	font-family: arial;
-	font-weight: bold;
-	float: right; /* orientation=lt */
-	float: left; /* orientation=rt */
-	padding: 50px 0 0;
+	padding: 50px 0 0 300px; /* orientation=lt */
+	padding: 50px 300px 0 0px; /* orientation=rt */
+	text-align: center;
+	line-height: 30px;
 }
 
 .UIHomePagePortlet .AdImageLeft .EmptyBlock div {
@@ -119,30 +114,31 @@
 
 .UIHomePagePortlet .HomePortletContent {
 	margin-top: 8px;
+	border-bottom: 1px solid #c6c6c6;
 }
 
 .UIHomePagePortlet .HomePortletContent .LeftAccountsContainer {
 	padding-left: 3px;
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat left -529px;
+	background: url('MacSkin/background/HomePagePortlet.gif') no-repeat left -529px;
 }
 
 _html .UIHomePagePortlet .HomePortletContent .LeftAccountsContainer {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat 4px -529px;
+	background: url('MacSkin/background/HomePagePortlet.gif') no-repeat 4px -529px;
 }
 
 .UIHomePagePortlet .HomePortletContent .RightAccountsContainer {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -799px;
+	background: url('MacSkin/background/HomePagePortlet.gif') no-repeat right -799px;
 	padding-right: 3px;
 	_padding-right: 0px;
 }
 
 _html .UIHomePagePortlet .HomePortletContent .RightAccountsContainer {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat 114% -799px;/* orientation=rt */
+	background: url('MacSkin/background/HomePagePortlet.gif') no-repeat 114% -799px;/* orientation=rt */
 	padding-right: 8px;/* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .MiddleAccountsContainer {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') repeat-x center -379px;
+	background: url('MacSkin/background/HomePagePortlet.gif') repeat-x center -379px;
 	height: 127px;
 	padding: 0px 8px;
 }
@@ -170,23 +166,23 @@ _html .UIHomePagePortlet .HomePortletContent .RightAccountsContainer {
 }
 
 .UIHomePagePortlet .HomePortletContent .AdministratorUser {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right top; /* orientation=lt */
-	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat 10px top; /* orientation=rt */
+	background: url('MacSkin/background/HomePagePortlet.gif') no-repeat right top; /* orientation=lt */
+	background: url('MacSkin/background/HomePagePortlet-rt.gif') no-repeat 10px top; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .ManagerUser {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -95px; /* orientation=lt */
-	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat 10px -95px; /* orientation=rt */
+	background: url('MacSkin/background/HomePagePortlet.gif') no-repeat right -95px; /* orientation=lt */
+	background: url('MacSkin/background/HomePagePortlet-rt.gif') no-repeat 10px -95px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .NormalUser {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -185px; /* orientation=lt */
-	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat 10px -185px; /* orientation=rt */
+	background: url('MacSkin/background/HomePagePortlet.gif') no-repeat right -185px; /* orientation=lt */
+	background: url('MacSkin/background/HomePagePortlet-rt.gif') no-repeat 10px -185px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .DemoUser {
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat right -275px; /* orientation=lt */
-	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat 10px -275px; /* orientation=rt */
+	background: url('MacSkin/background/HomePagePortlet.gif') no-repeat right -275px; /* orientation=lt */
+	background: url('MacSkin/background/HomePagePortlet-rt.gif') no-repeat 10px -275px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .SeparatorLine {
@@ -195,8 +191,8 @@ _html .UIHomePagePortlet .HomePortletContent .RightAccountsContainer {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
 	padding: 0px 4px 0px;
-	background: url('DefaultSkin/background/HomePagePortlet.gif') no-repeat left -675px; /* orientation=lt */
-	background: url('DefaultSkin/background/HomePagePortlet-rt.gif') no-repeat right -675px; /* orientation=rt */
+	background: url('MacSkin/background/HomePagePortlet.gif') no-repeat left -675px; /* orientation=lt */
+	background: url('MacSkin/background/HomePagePortlet-rt.gif') no-repeat right -675px; /* orientation=rt */
 }
 
 .UIHomePagePortlet .HomePortletContent .AccountInfos {

@@ -36,14 +36,14 @@
 		<application-name>exoadmin</application-name>
 		<portlet-name>PortalNavigationPortlet</portlet-name>
 		<skin-name>Vista</skin-name>
-		<css-path>/skin/navigation/webui/component/DefaultStylesheet.css</css-path>
+		<css-path>/skin/navigation/webui/component/VistaStylesheet.css</css-path>
 	</portlet-skin>	
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
 		<portlet-name>GroupNavigationPortlet</portlet-name>
 		<skin-name>Vista</skin-name>
-		<css-path>/skin/navigation/webui/component/DefaultStylesheet.css</css-path>
+		<css-path>/skin/navigation/webui/component/VistaStylesheet.css</css-path>
 	</portlet-skin>	
 	
 	
@@ -121,14 +121,14 @@
 		<application-name>dashboard</application-name>
 		<portlet-name>GadgetPortlet</portlet-name>
 		<skin-name>Vista</skin-name>
-		<css-path>/skin/gadget/webui/component/UIGadgetPortlet/DefaultStylesheet.css</css-path>
+		<css-path>/skin/gadget/webui/component/UIGadgetPortlet/VistaStylesheet.css</css-path>
 	</portlet-skin>
 		
 	<portlet-skin>
 		<application-name>web</application-name>
 		<portlet-name>HomePagePortlet</portlet-name>
 		<skin-name>Vista</skin-name>
-		<css-path>/skin/webui/component/UIHomePagePortlet/DefaultStylesheet.css</css-path>
+		<css-path>/skin/webui/component/UIHomePagePortlet/VistaStylesheet.css</css-path>
 	</portlet-skin>
 	
 	<!-- Simple window style -->
