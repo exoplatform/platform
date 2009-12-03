@@ -275,6 +275,10 @@
 
 /*----------------------UIGadgetsContainer-------------------*/
 
+#UIAddGadgetPopup {
+	width:225px;
+}
+
 .UIDashboard .UIDashboardContainer .NoGadget {
 	text-align: center;
 	font-size: 12px; font-weight: bold; 

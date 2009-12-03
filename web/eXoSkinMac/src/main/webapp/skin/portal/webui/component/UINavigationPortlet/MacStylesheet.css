@@ -1,5 +1,4 @@
 .UINavigationPortlet {
-	!position: relative;
 }
 	
 .UINavigationPortlet .UINavigationBar {
@@ -32,7 +31,7 @@
 	float: none;
 	height: 34px;
 	padding: 0px 10px;
-	_position: relative; /* orientation=rt */
+	!position: relative;
 }
  
 .UINavigationPortlet .MiddleTab .TabLabel {

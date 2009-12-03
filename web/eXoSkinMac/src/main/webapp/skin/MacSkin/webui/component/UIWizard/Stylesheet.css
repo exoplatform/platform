@@ -228,8 +228,8 @@
 	margin: 0px;
 }
 
-
-.UIWizard .UIWizardPageSetInfo .PageNodeContainer .ContainerConfigOptions {
+.UIWizard .UIWizardPageSetInfo .NoPageSelecter .SelectedPageInfo {
+	margin: 0;
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo {

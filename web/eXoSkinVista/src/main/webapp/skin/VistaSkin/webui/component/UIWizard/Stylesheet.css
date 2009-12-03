@@ -162,12 +162,15 @@
   width: 250px;
 }
 
+.UIWizard .UIWizardPageSetInfo .NoPageSelecter .SelectedPageInfo {
+	margin: 0;
+}
+
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo {
   border: solid 1px #939393 ;
   padding: 1px;
   margin-left: 250px;	/* orientation=lt */
   margin-right: 250px;		/* orientation=rt */
-
 }
 
 .UIWizard .UIWizardPageSetInfo .SelectedPageInfo .PageInfoContainer {
