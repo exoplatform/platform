@@ -34,13 +34,6 @@
 	
 	<portlet-skin>
 		<application-name>exoadmin</application-name>
-		<portlet-name>AdminToolbarPortlet</portlet-name>
-		<skin-name>Vista</skin-name>
-		<css-path>/skin/admintoolbar/webui/component/UIAdminToolbarPortlet/DefaultStylesheet.css</css-path>
-	</portlet-skin>
-	
-	<portlet-skin>
-		<application-name>exoadmin</application-name>
 		<portlet-name>PortalNavigationPortlet</portlet-name>
 		<skin-name>Vista</skin-name>
 		<css-path>/skin/navigation/webui/component/DefaultStylesheet.css</css-path>
