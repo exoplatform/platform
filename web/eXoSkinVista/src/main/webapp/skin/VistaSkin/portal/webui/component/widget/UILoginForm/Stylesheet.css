@@ -107,8 +107,8 @@
 }
 
 .UILoginForm .LoginDetailBox .UserNameField input {
-  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -96px; /* orientation=lt */
-  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login-rt.gif') no-repeat right -96px; /* orientation=rt */
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -101px; /* orientation=lt */
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login-rt.gif') no-repeat right -101px; /* orientation=rt */
   width: 180px; height: 20px;
   border: solid 1px #c4c4c4 ;
   padding: 0px 0px 0px 22px; /* orientation=lt */
@@ -116,8 +116,8 @@
 }
 
 .UILoginForm .LoginDetailBox .PasswordField input {
-  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -114px; /* orientation=lt */
-  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login-rt.gif') no-repeat right -114px; /* orientation=rt */
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login.gif') no-repeat left -125px; /* orientation=lt */
+  background: white url('/eXoResources/skin/DefaultSkin/portal/webui/component/widget/UILoginForm/background/Login-rt.gif') no-repeat right -125px; /* orientation=rt */
   width: 180px; height: 20px;
   border: solid 1px #c4c4c4 ;
   padding: 0px 0px 0px 22px; /* orientation=lt */
