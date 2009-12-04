@@ -27,6 +27,7 @@
 .UIManagement .ManagementBlock {
 	background: #f8f8f8 url('background/BgEvenRow.gif') repeat-x left top;
 	margin-bottom: 1px;
+	_width: 97%;
 }
 
 .UIManagement .EvenRow {
