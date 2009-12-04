@@ -40,16 +40,6 @@
 	height: 100%;
 }
 
-.UIMaskWorkspace .BottomLeftDecorator {
-	background: url('background/MaskWorkspace.png') no-repeat left -39px;
-	padding: 0px 0px 0px 13px;
-}
-
-.UIMaskWorkspace .BottomRightDecorator {
-	padding: 0px 13px 0px 0px;
-	background: url('background/MaskWorkspace.png') no-repeat right -52px;
-}
-
 .UIMaskWorkspace .UITabContentContainer .UITabContent {
 	-moz-border-radius-bottomleft:5px;
 	-moz-border-radius-bottomright:5px;
