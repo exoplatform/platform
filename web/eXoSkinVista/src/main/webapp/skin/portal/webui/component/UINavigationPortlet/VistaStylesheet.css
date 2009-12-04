@@ -115,8 +115,8 @@
 .UINavigationPortlet .UITab .HighlightNavigationTab .DropDownArrowIcon {
 	padding-right: 16px; /* orientation=lt */
 	padding-left: 16px; /* orientation=rt */
-	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat right; /* orientation=lt */
-	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat left; /* orientation=rt */
+	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat right center; /* orientation=lt */
+	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat left center; /* orientation=rt */
 	cursor: pointer;
 }
 
@@ -160,8 +160,8 @@
 .UINavigationPortlet .UITab .SelectedNavigationTab .DropDownArrowIcon {
 	padding-right: 16px; /* orientation=lt */
 	padding-left: 16px; /* orientation=rt */
-	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat right center;	/* orientation=lt */
-	background: url('VistaSkin/background/NavDownArrow.gif') no-repeat left center; /* orientation=rt */
+	background: url('VistaSkin/background/DownArrow.gif') no-repeat right center;	/* orientation=lt */
+	background: url('VistaSkin/background/DownArrow.gif') no-repeat left center; /* orientation=rt */
 	cursor: pointer;
 }
 
