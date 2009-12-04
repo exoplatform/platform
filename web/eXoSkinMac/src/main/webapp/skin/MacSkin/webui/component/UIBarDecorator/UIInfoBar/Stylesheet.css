@@ -47,6 +47,7 @@
 .UIInfoBar .BlueRoundedStyle .LeftBar {
 	background: url('background/BlueRoundedStyle.png') no-repeat left top;
 	padding: 0px 0px 0px 11px;
+	_width: 210px;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {

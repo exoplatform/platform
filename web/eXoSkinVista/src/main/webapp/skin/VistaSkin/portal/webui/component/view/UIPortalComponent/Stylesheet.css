@@ -78,8 +78,8 @@
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/EditPortletIcon31x18-rt.png') no-repeat;	/* orientation=rt */
 	height: 18px;	width:31px;
 	margin: 1px 0px 0px 0px;
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
+	float: right;	/* orientation=lt */
+	float: left;	/* orientation=rt */
 }
 
 .UIPortlet .NormalPortletIcon {
@@ -94,10 +94,11 @@
 .UIPortlet .DeletePortletIcon {
   background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18.png');	/* orientation=lt */
 	background: url('/eXoSkinVista/skin/VistaSkin/skinIcons/16x16/icons/DeletePortletIcon29x18-rt.png');	/* orientation=rt */
-	height:18px;	width:29px;
-  margin: 1px 0px 0px 0px;
-	float:right;	/* orientation=lt */
-	float:left;	/* orientation=rt */
+	height: 18px;	
+	width: 29px;
+ 	margin: 1px 0px 0px 0px;
+	float: right;	/* orientation=lt */
+	float: left;	/* orientation=rt */
 }
 
 .UIPortlet .PortletIcon {

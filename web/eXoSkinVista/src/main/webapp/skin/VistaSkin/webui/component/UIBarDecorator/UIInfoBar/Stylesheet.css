@@ -41,6 +41,7 @@
 	background: url('background/BlueRoundedStyle-rt.png') no-repeat right top;	/* orientation=rt */
 	padding-left: 10px;	/* orientation=lt */
 	padding-right: 10px;	/* orientation=rt */
+	_width: 230px;
 }
 
 .UIInfoBar .BlueRoundedStyle .RightBar {

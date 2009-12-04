@@ -32,8 +32,8 @@
 }
 
 .UIPortlet .EditPortletPropertiesIcon {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
+	float: right;	/* orientation=lt */
+	float: left;	/* orientation=rt */
 	width: 16px; height: 16px;
 	background: url('background/ContainerIcon.gif') no-repeat top;
 	margin: 4px 5px 2px 0px; /* orientation=lt */
@@ -41,8 +41,8 @@
 }
 
 .UIPortlet .DeletePortletIcon {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
+	float: right;	/* orientation=lt */
+	float: left;	/* orientation=rt */
 	width: 16px; height:17px; 
 	background: url('background/ContainerIcon.gif') no-repeat center -16px;
 	margin: 3px 0px 0px 0px;
