@@ -100,8 +100,9 @@
   float: right; /* orientation=lt */
   float: left; /* orientation=rt */
   cursor: pointer;
-  width: 35px; height: 21px;
-  background: url('background/PopupWindowIcon.gif') no-repeat top;
+  margin-right: 10px;
+  width: 30px; height: 21px;
+  background: url('background/Close.gif') no-repeat top;
 }
 
 .UIPopupWindow .SelectedTab .LeftTab {
@@ -161,8 +162,15 @@
 }
 
 .UIPopupWindow .SaveButton {
-	background: url('background/SaveBtn.gif') no-repeat;
-	width: 30px;
+	background: url('background/Save.gif') no-repeat;
+	width: 28px;
+	height: 19px;
+	float: right;
+}
+
+.UIPopupWindow .EdittedSaveButton {
+	background: url('background/UnSave.gif') no-repeat;
+	width: 28px;
 	height: 19px;
 	float: right;
 
