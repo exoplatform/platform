@@ -28,17 +28,17 @@
 /*Popup Bottom Bg*/
 
 .UIPopupWindow .BLPortalComposer {
-	background: url('background/BottomLeftBg.gif') no-repeat left;
+	background: url('background/BottomLeftBg.gif') no-repeat left top;
 	padding-left: 7px;
 }
 
 .UIPopupWindow .BRPortalComposer {
-	background: url('background/BottomRight.gif') no-repeat right;
+	background: url('background/BottomRight.gif') no-repeat right top;
 	padding-right: 6px;
 	}
 
 .UIPopupWindow .BCPortalComposer {
-	background: url('background/BottomCenter.gif') repeat-x;
+	background: url('background/BottomCenter.gif') repeat-x left top;
 	height: 57px;
 }
 .UIPopupWindow .VTabStyle4 {
@@ -74,7 +74,7 @@
 
 .UIPopupWindow .UITab .SelectedTab .MiddleTab{
 	background: url('background/TabSelectedCenter.gif') repeat-x;
-	height: 23px;
+	line-height: 23px;
 	padding: 0px 15px;
 }
 
@@ -97,7 +97,7 @@
 
 .UIPopupWindow .UITab .NormalTab .MiddleTab{
 	background: none;
-	height: 23px;
+	line-height: 23px;
 	padding: 0px 15px;
 }
 
@@ -153,7 +153,7 @@
 }
 
 .UIPopupWindow .UIVTab .SelectedTab {
-	background: url('background/TitleBg.gif')repeat-x;
+	background: url('background/TitleBg.gif') repeat-x left top;
 	height: 25px;
 }
 
@@ -164,7 +164,7 @@
 }
 
 .UIPopupWindow .UIVTab .NormalTab {
-	background: url('background/UnSelectedTitle.gif')repeat-x;
+	background: url('background/UnSelectedTitle.gif') repeat-x left top;
 	height: 25px;
 }
 
@@ -177,29 +177,29 @@
 	background: #f6f6f6;
 }
 .UIPopupWindow .UIAction .SimpleStyle1 .ButtonLeft {
-	background: url('background/ButtonLeft.gif')no-repeat left;
+	background: url('background/ButtonLeft.gif') no-repeat left top;
 	padding-left: 5px;
 }
 
 .UIPopupWindow .UIAction .SimpleStyle1 .ButtonRight {
-	background: url('background/ButtonRight.gif')no-repeat right;
+	background: url('background/ButtonRight.gif') no-repeat right top;
 	padding-right: 5px;
 }
 
 .UIPopupWindow .UIAction .SimpleStyle1 .ButtonMiddle {
-	background: url('background/ButtonBg.gif')repeat-x;
-	height: 18px;
+	background: url('background/ButtonBg.gif') repeat-x left top;
+	line-height: 18px;
 }
 
 .UIPopupWindow .UIAction .SimpleStyle1 .PageProfileIcon {
 	background: url('background/PortalProperties.gif') no-repeat left 1px;
-  height: 16px;
+    line-height: 18px;
 	padding-left :20px;
 }
 
 .UIPopupWindow .UIAction .SimpleStyle1 .ViewAsBlockIcon {
 	background: url('background/ViewIcon.gif') no-repeat left 1px;
-  height: 16px;
+    line-height: 18px;
 	padding-left :20px;
 }
 

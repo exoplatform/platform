@@ -112,7 +112,6 @@
 
 .UIPopupWindow .SelectedTab .MiddleTab {
 	background: url('background/SelectedCT.gif') repeat-x;
-	height: 27px;
 	line-height: 27px;
 	padding: 0px 15px;
 	font-weight: bold;
@@ -135,7 +134,6 @@
 
 .UIPopupWindow .NormalTab .MiddleTab {
 	background: url('background/NormalCT.gif') repeat-x;
-	height: 27px;
 	line-height: 27px;
 	padding: 0px 15px;
 	font-weight: bold;
