@@ -181,6 +181,7 @@
 .UINavigationPortlet .MenuItemContainer {
 	text-align: left;	/* orientation=lt */
 	text-align: right;	/* orientation=rt */
+	border: 0px; /* Fix for IE7 */
 }
 
 .UINavigationPortlet .MenuItemContainer .ItemIcon {

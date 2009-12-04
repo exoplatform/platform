@@ -139,37 +139,34 @@
 }
 
 /*------------------- BlueLargeToolbar style ------------------------*/
-
 .UIToolbar .BlueLargeToolbar {
-  height: 61px;
+	height: 38px;
 }
 
 .UIToolbar .BlueLargeToolbar .LeftToolbar {
-  background: url('background/BlueLargeToolbar.gif') no-repeat left top;
-  padding-left: 5px;
+	background: url('background/BlueLargeToolbar.gif') no-repeat left top;
+	padding-left: 5px;
+	border-bottom: 1px solid #9a9a9a;
 }
 
 .UIToolbar .BlueLargeToolbar .RightToolbar {
-  background: url('background/BlueLargeToolbar.gif') no-repeat right top;
-  padding-right: 5px;
+	background: url('background/BlueLargeToolbar.gif') no-repeat right top;
+	padding-right: 5px;
 }
 
 .UIToolbar .BlueLargeToolbar .MiddleToolbar {
-  height: 61px;
-  background: url('background/BlueLargeToolbar.gif') repeat-x center -61px;
+	height: 38px;
+	background: url('background/BlueLargeToolbar.gif') repeat-x center -61px;
 }
 
 .UIToolbar .BlueLargeToolbar a {
-  color: #7e9bc9; font-weight: bold;
-  padding: 0px 5px 0px 5px;
-  cursor: pointer;
+	color: #7e9bc9; font-weight: bold;
+	padding: 0px 5px 0px 5px;
+	cursor: pointer;
 }
 
 .UIToolbar .BlueLargeToolbar a:hover {
-  color: #003c7f;
-}
-
-.UIToolbar .BlueLargeToolbar .ItemButton .LablelIcon {
+	color: #003c7f;
 }
 
 .UIToolbar .BlueLargeToolbar .SelectItemButton .LablelIcon {
@@ -178,55 +175,50 @@
 }
 
 .UIToolbar .BlueLargeToolbar .SelectItemButton .ButtonLabel {
-  line-height: 18px;
-  color: #003c7f;
+	line-height: 18px;
+	color: #003c7f;
 }
 
 .UIToolbar .BlueLargeToolbar .HorizontalSeparator {
-	float: left;	 	/* orientation=lt */
-	float: right;	 	/* orientation=rt */
-  margin: 0px 8px 0px 10px;	 	/* orientation=lt */
-  margin: 0px 10px 0px 8px;	 	/* orientation=rt */
-  width: 2px; height: 48px;
-  background: url('background/BlueLargeToolbar.gif') no-repeat -6px top;
-}
-
-.UIToolbar .BlueLargeToolbar .ButtonLabel {
-  height: 20px; line-height: 20px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 2px 8px 0px 10px;
+	margin: 2px 10px 0px 8px;
+	width: 2px; 
+	height: 22px;
+	background: url('background/BlueLargeToolbar.gif') no-repeat -6px top;
 }
 
 .UIToolbar .BlueLargeToolbar .ManagementIconContainer {
-  padding-top: 4px;
-  margin-left: 5px; /* orientation=lt */
-  margin-right: 5px; /* orientation=rt */
+	padding-top: 7px;
+	margin-left: 5px;
 }
 
 .UIToolbar .BlueLargeToolbar .ItemButton {
-	float: left;	 	/* orientation=lt */
-	float: right;	 	/* orientation=rt */
-	text-align: center;
-	padding: 5px;
-	width: 150px;
-}
-
-.UIToolbar .BlueLargeToolbar .LablelIcon {
-  width: 32px; 
-  height: 26px; 
-	margin: auto;
-  background-image: url('background/BlueLargeToolbar.gif');
-  background-repeat: no-repeat;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding-left: 35px; /* orientation=lt */
+	padding-right: 35px; /* orientation=rt */
+	margin: 0 10px; display: block;
+	background-image: url('background/BlueLargeToolbar.gif');
+	background-repeat: no-repeat;
+	height: 26px; line-height: 26px;
+	color: #363636;
 }
 
 .UIToolbar .BlueLargeToolbar .OrganizeIcon {
-  background-position: center -122px;
+	background-position: left -122px; /* orientation=lt */
+	background-position: right -122px; /* orientation=rt */
 }
 
 .UIToolbar .BlueLargeToolbar .PorletIcon {
-  background-position: center -148px;
+	background-position: left -148px; /* orientation=lt */
+	background-position: right -148px; /* orientation=rt */
 }
 
 .UIToolbar .BlueLargeToolbar .GadgetIcon {
-  background-position: center -174px;
+	background-position: left -174px; /* orientation=lt */
+	background-position: right -174px; /* orientation=rt */
 }
 
 /*#################################- LightToolbar -##############################*/
