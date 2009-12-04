@@ -38,6 +38,10 @@
 	border: 1px solid #96D9F9;
 }
 
+.UIPopupWindow .UIVTabContent .VTabStyle3 .OverflowContainer {
+	width: 94%;
+}
+
 .UIPopupWindow .UIContainerConfigOptions {
 	background: none;
 	padding: 0px;
@@ -446,15 +450,16 @@
 }
 
 .UIPopupWindow .UITabContent {
-	background: #e3eefb;
+	background: none;
+	padding: 0px 5px;
 }
 
 .UIPopupWindow .GrayTabContainer {
 	border: none;
  }
  
-.UIPopupWindow .UITabContent {
-	padding: 0px 5px;
+.UIPopupWindow .UITabContent .UINodeIconSelector {
+	width: 97%;
 }
  
 .UIPopupWindow .ExoMessageDecorator .UIPopupMessages .PopupMessageBox {

@@ -73,7 +73,6 @@
 
 .UIHorizontalTabs .NormalTabStyle .NormalTab .MiddleTab {
   line-height: 26px;
-  height: 26px;
   background: url('background/NormalTabStyle.gif') repeat-x left -26px;
   cursor: pointer;
   padding: 0px 8px;

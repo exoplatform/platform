@@ -9,6 +9,11 @@
 .UIPopupWindow .UITabContent {
 	border: none;
 }
+
+.UIPopupWindow .UITabContent .UIItemSelector {
+	width: 97%;
+}
+
 /*Popup Header Bg*/
 .UIPopupWindow .TLPortalComposer {
 	background: url('background/HeaderBgLeft.gif') no-repeat left;
@@ -176,6 +181,11 @@
 .UIPopupWindow .UIVTab .VTabStyle3 {
 	background: #f6f6f6;
 }
+
+.UIPopupWindow .UIVTab .VTabStyle3 .OverflowContainer {
+	_width: 94%;
+}
+
 .UIPopupWindow .UIAction .SimpleStyle1 .ButtonLeft {
 	background: url('background/ButtonLeft.gif') no-repeat left top;
 	padding-left: 5px;

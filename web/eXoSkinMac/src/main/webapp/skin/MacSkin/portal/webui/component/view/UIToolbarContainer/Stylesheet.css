@@ -1,6 +1,7 @@
 .UIToolbarContainer {	
 	background: url('background/ToolbarContainer.png') no-repeat left top;
 	padding-left: 3px;
+	_height: 26px;
 }
 
 .UIToolbarContainer .UserInfoPortletTDContainer {
