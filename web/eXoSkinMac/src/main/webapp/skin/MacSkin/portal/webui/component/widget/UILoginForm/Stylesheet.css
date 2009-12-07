@@ -67,20 +67,20 @@
 .UILoginForm .LoginDecorator .BottomLeftLoginDecorator {
 	background: url('background/Login.gif') no-repeat left -68px; /* orientation=lt */
 	background: url('background/Login-rt.gif') no-repeat right -68px; /* orientation=rt */
-	padding: 0px 0px 0px 12px; /* orientation=lt */
-	padding: 0px 12px 0px 0px; /* orientation=rt */
+	padding: 0px 0px 0px 11px; /* orientation=lt */
+	padding: 0px 11px 0px 0px; /* orientation=rt */
 }
 
 .UILoginForm .LoginDecorator .BottomCenterLoginDecorator {
-	background: url('background/Login.gif') repeat-x center -80px;
-	height: 14px;
+	background: url('background/Login.gif') repeat-x center -81px;
+	height: 7px;
 }
 
 .UILoginForm .LoginDecorator .BottomRightLoginDecorator {
 	background: url('background/Login.gif') no-repeat right -68px; /* orientation=lt */
 	background: url('background/Login-rt.gif') no-repeat left -68px; /* orientation=rt */
-	padding: 0px 12px 0px 0px; /* orientation=lt */
-	padding: 0px 0px 0px 12px; /* orientation=rt */
+	padding: 0px 11px 0px 0px; /* orientation=lt */
+	padding: 0px 0px 0px 11px; /* orientation=rt */
 }
 
 .UILoginForm .UIForm .SimpleStyle .ButtonLeft {
