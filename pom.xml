@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.exoplatform</groupId>
     <artifactId>exo.parent</artifactId>
-    <version>4-SNAPSHOT</version>
+    <version>5</version>
   </parent>
 
   <groupId>org.exoplatform.platform</groupId>
@@ -28,7 +28,7 @@
     <!-- Dependencies versions -->
     <!-- ********************* -->
     <org.exoplatform.cometd.version>2.0.2</org.exoplatform.cometd.version><!-- This is WS 2.0.2, expecting for a COMET version -->
-    <org.exoplatform.portal.version>3.0.0-Beta03-SNAPSHOT</org.exoplatform.portal.version>
+    <org.exoplatform.portal.version>3.0.0-Beta03</org.exoplatform.portal.version>
     <org.exoplatform.kernel.version>2.2.0-Beta02</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.3.0-Beta02</org.exoplatform.core.version>
     <org.exoplatform.ws.version>2.1.0-Beta02</org.exoplatform.ws.version>
