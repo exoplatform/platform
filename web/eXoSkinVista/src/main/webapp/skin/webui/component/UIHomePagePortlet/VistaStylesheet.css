@@ -227,6 +227,16 @@ _html .UIHomePagePortlet .HomePortletContent .RightAccountsContainer {
 	font-weight: bold;
 }
 
+.UIHomePagePortlet .ClearBoth:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
 .UIHomePagePortlet .ClearBoth {
-	clear: both; 
+	!display: inline-block;
+  !zoom: 1;
+  !display: block; 
 }

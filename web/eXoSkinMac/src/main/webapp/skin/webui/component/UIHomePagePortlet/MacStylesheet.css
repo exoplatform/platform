@@ -41,7 +41,7 @@
 	background: url("MacSkin/background/HomePagePortlet.gif") no-repeat left -978px;
 	height: 70px;
 	width: 80px;
-	margin: 40px auto;
+	margin: 20px auto 40px;
 	cursor: pointer;
 }
 
@@ -49,7 +49,7 @@
 	background: url("MacSkin/background/HomePagePortlet.gif") no-repeat left -1209px;
 	height: 70px;
 	width: 80px;
-	margin: 20px auto;
+	margin: 10px auto;
 	cursor: pointer;
 }
 
@@ -223,6 +223,16 @@ _html .UIHomePagePortlet .HomePortletContent .RightAccountsContainer {
 	font-weight: bold;
 }
 
+.UIHomePagePortlet .ClearBoth:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
 .UIHomePagePortlet .ClearBoth {
-	clear: both; 
+	!display: inline-block;
+  !zoom: 1;
+  !display: block; 
 }
