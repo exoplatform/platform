@@ -95,7 +95,7 @@
 .UISitemap .CollapseIcon {
 	background: url('MacSkin/background/CollapseIcon.gif') no-repeat left center; /* orientation=lt */
 	background: url('MacSkin/background/CollapseIcon-rt.gif') no-repeat right center; /* orientation=rt */
-	padding: 0px 5px 0px 25px; /* orientation=lt */
+	padding: 0px 0px 0px 25px; /* orientation=lt */
 	padding: 0px 25px 0px 5px; /* orientation=rt */
 	cursor: pointer;
 }
@@ -103,7 +103,7 @@
 .UISitemap .ExpandIcon {
 	background: url('MacSkin/background/ExpandIcon.gif') no-repeat left center; /* orientation=lt */
 	background: url('MacSkin/background/ExpandIcon-rt.gif') no-repeat right center; /* orientation=rt */
-	padding: 0px 5px 0px 25px; /* orientation=lt */
+	padding: 0px 0px 0px 25px; /* orientation=lt */
 	padding: 0px 25px 0px 5px; /* orientation=rt */
 	cursor: pointer;
 }
@@ -126,8 +126,8 @@
 .UISitemap .ChildrenContainer {
 	margin-top: 5px;
 	padding-top: 10px;
-	padding-left: 16px; /* orientation=lt */
-	padding-right: 16px; /* orientation=rt */
-	background: url('MacSkin/background/NullItem.gif') no-repeat left 0px; /* orientation=lt */
-	background: url('MacSkin/background/NullItem-rt.gif') no-repeat right 0px; /* orientation=rt */
+	padding-left: 17px; /* orientation=lt */
+	padding-right: 17px; /* orientation=rt */
+	background: url('MacSkin/background/NullItem.gif') no-repeat left 5px; /* orientation=lt */
+	background: url('MacSkin/background/NullItem-rt.gif') no-repeat right 5px; /* orientation=rt */
 }
