@@ -257,6 +257,10 @@
   padding-right: 13px ;  
 }
 
+.UIPopupWindow .PopupContent .UIPageBrowser #UIVirtualList {
+	_width: 99.5%;
+}
+
 
 /***************************Begin PoupWindow Caledar**********************************/
 .UIPopupWindow .CaledarStyle .TopLeftCornerDecorator {
@@ -337,6 +341,7 @@
 	background: url('background/PopupWindow.png') repeat-x left -293px; 
 	height: 19px;
 }
+
 /***************************End PoupWindow Caledar**********************************/
 
 .UIPopupWindow .Content .UIPageBrowser {
