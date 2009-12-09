@@ -203,14 +203,18 @@
 
 .UIPopupWindow .UIAction .SimpleStyle1 .PageProfileIcon {
 	background: url('background/PortalProperties.gif') no-repeat left 1px;
-    line-height: 18px;
-	padding-left :20px;
+  line-height: 18px;
+	padding-left: 18px;
 }
 
 .UIPopupWindow .UIAction .SimpleStyle1 .ViewAsBlockIcon {
 	background: url('background/ViewIcon.gif') no-repeat left 1px;
-    line-height: 18px;
-	padding-left :20px;
+  line-height: 18px;
+	padding-left: 18px;
+}
+
+.UIPortalComposer .UIAction .ActionContainer a {
+	font-weight: normal;
 }
 
 .UIPopupWindow .OverflowContainer .ContentInfo {

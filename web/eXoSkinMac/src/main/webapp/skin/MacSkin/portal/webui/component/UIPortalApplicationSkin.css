@@ -35,8 +35,8 @@ html {
 
 body {
 	background: white ;
-	font-family: "Tahoma",Geneva,Arial,Verdana,sans-serif;
-  font-size: 11px;
+	font-family: sans-serif,Tahoma,Geneva,Arial,Verdana;
+  font-size: 12px;
 	margin: 0px ; padding: 0px;
 	overflow-x: hidden;
 }
