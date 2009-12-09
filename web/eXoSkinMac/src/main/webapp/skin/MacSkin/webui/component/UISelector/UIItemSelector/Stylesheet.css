@@ -411,6 +411,7 @@
 
 .UIItemSelector .LeftColumnStyle {
 	width: 99.5%;
+	_width: 97%;
 	overflow: hidden;
 }
 
