@@ -43,6 +43,7 @@
 
 .UIHorizontalTabs .UITab .NormalNavigationTab a {
   color: #2d2d2d;
+  line-height: 34px;
 }
 
 .UIHorizontalTabs .UITab .NormalNavigationTab .DropDownArrowIcon {
@@ -56,7 +57,7 @@
 /*###############-Hightlight Navigation Tab  -################*/
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab {
-  line-height: 34px;
+  line-height: 30px;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .LeftTab {
@@ -70,13 +71,14 @@
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .MiddleTab {
-  line-height: 34px; 
   background: url('background/NavigationTab.gif') repeat-x left -34px;
   padding: 0px 20px;
+  border-top: 1px solid #999999;
+  border-bottom: 1px solid #858585;
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
-  line-height: 34px;
+  line-height: 30px;
   padding: 0px;
   font-size: 17px;
 }
@@ -91,12 +93,14 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat right; /* orientation=lt */
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat left; /* orientation=rt */
   cursor: pointer;
+  border-top: 1px solid #999999;
+  border-bottom: 1px solid #858585;
 }
 
 /*###############-Selected Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab {
-  line-height: 34px;
+  line-height: 30px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
@@ -110,13 +114,14 @@
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .MiddleTab {
-  line-height: 34px; 
   background: url('background/NavigationTab.gif') repeat-x left -102px;
   padding: 0px 20px;
+  border-top: 1px solid #222222;
+  border-bottom: 1px solid #656565;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
-  line-height: 34px;
+  line-height: 30px;
   padding: 0px;
   font-size: 17px;
 }
@@ -131,6 +136,8 @@
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat right; /* orientation=lt */
   background: url('/eXoResources/skin/DefaultSkin/skinIcons/16x16/icons/BlackDownArrow.gif') no-repeat left; /* orientation=rt */
   cursor: pointer;
+  border-top: 1px solid #2c2c2c;
+  border-bottom: 1px solid #656565;
 }
 
 /*###########################--NormalTab--############################*/
