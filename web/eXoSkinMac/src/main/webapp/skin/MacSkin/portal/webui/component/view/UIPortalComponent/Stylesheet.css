@@ -32,17 +32,17 @@
 }
 
 .UIPortlet .EditPortletPropertiesIcon {
-	float: right;	/* orientation=lt */
-	float: left;	/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 16px; height: 16px;
 	background: url('background/ContainerIcon.gif') no-repeat top;
-	margin: 4px 5px 2px 0px; /* orientation=lt */
-	margin: 4px 0px 2px 5px; /* orientation=rt */
+	margin: 4px 5px 0px 5px; /* orientation=lt */
+	margin: 4px 5px 0px 5px; /* orientation=rt */
 }
 
 .UIPortlet .DeletePortletIcon {
-	float: right;	/* orientation=lt */
-	float: left;	/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 	width: 16px; height:17px; 
 	background: url('background/ContainerIcon.gif') no-repeat center -16px;
 	margin: 3px 0px 0px 0px;
