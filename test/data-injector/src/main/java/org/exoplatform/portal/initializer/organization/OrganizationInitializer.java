@@ -29,6 +29,7 @@ import org.exoplatform.portal.config.Query;
 import org.exoplatform.portal.config.UserACL;
 import org.exoplatform.portal.config.model.Application;
 import org.exoplatform.portal.config.model.Container;
+import org.exoplatform.portal.config.model.ModelObject;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
@@ -40,7 +41,6 @@ import org.exoplatform.services.organization.MembershipType;
 import org.exoplatform.services.organization.OrganizationService;
 import org.exoplatform.services.organization.OrganizationConfig.Group;
 import org.exoplatform.services.organization.OrganizationConfig.User;
-import org.exoplatform.services.portletcontainer.pci.ExoWindowID;
 import org.picocontainer.Startable;
 
 /**
@@ -275,21 +275,18 @@ public class OrganizationInitializer implements Startable {
     }
   }
 
-  private void getApplications(List<Application> apps, Object component) {
+  private void getApplications(List<Application> apps, ModelObject component) {
     if(component instanceof Application) {
       apps.add((Application) component) ;
     } else if(component instanceof Container) {
       Container container = (Container) component ;
-      List<Object> children = container.getChildren() ;
-      if(children != null) for(Object ele : children) getApplications(apps, ele) ;
+      List<ModelObject> children = container.getChildren() ;
+      if(children != null) for(ModelObject ele : children) getApplications(apps, ele) ;
     }    
   }
 
   private void renewInstanceId(Application app, String ownerType, String ownerId) {
-    ExoWindowID newExoWindowID = new ExoWindowID(app.getInstanceId()) ;
-    newExoWindowID.setOwner(ownerType + "#" + ownerId) ;
-    newExoWindowID.setUniqueID(String.valueOf(newExoWindowID.hashCode())) ;
-    app.setInstanceId(newExoWindowID.generatePersistenceId()) ;
+	  //TODO: Update the instanceID
   }
 
   public void stop() {

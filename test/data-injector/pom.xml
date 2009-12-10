@@ -37,7 +37,7 @@
     <dependency>
       <groupId>org.exoplatform.portal</groupId>
       <artifactId>exo.portal.component.pc</artifactId>
-      <version>3.0.0-Beta01</version>
+      <version>${org.exoplatform.portal.version}</version>
     </dependency>
 
   </dependencies>
