@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.test</artifactId>
-    <version>3.0.0-Beta02-SNAPSHOT</version>
+    <version>3.0.0-Beta03-SNAPSHOT</version>
   </parent>
 
   <groupId>org.exoplatform.portal</groupId>
@@ -13,11 +13,13 @@
   <name>eXo Platform Test Data Initializer</name>
   <description>eXo Platform Test Data Initializer</description>
 
+  <!--
   <properties>
     <org.exoplatform.portal.version>2.5.5</org.exoplatform.portal.version>
     <maven.test.failure.ignore>true</maven.test.failure.ignore>
   </properties>
-
+  -->
+  
   <dependencies>
 
     <dependency>
