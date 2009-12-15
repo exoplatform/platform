@@ -23,11 +23,42 @@
 .UIPopupWindow .TRPortalComposer {
 	background: url('background/HeaderBgRight.gif') no-repeat right;
 	padding-right: 6px;
-	}
+}
 
 .UIPopupWindow .TCPortalComposer {
 	background: url('background/HeaderBg.gif') repeat-x;
 	height: 47px;
+}
+
+.UIPortalComposer .TLPortalComposer {
+	background: url('background/PortalComposerBarBg.png') no-repeat left top;
+	padding-left: 9px;
+}
+
+.UIPortalComposer .TRPortalComposer {
+	background: url('background/PortalComposerBarBg.png') no-repeat right -62px;
+	padding-right: 9px;
+}
+
+.UIPortalComposer .TCPortalComposer {
+	background: url('background/PortalComposerBarBg.png') repeat-x center -125px;
+	height: 58px;
+}
+
+/*Popup Middle Bg*/
+
+.UIPortalComposer .MLPortalComposer {
+	background: url('background/PortalComposerMBG.png') repeat-y left top;
+	padding-left: 9px;
+}
+
+.UIPortalComposer .MRPortalComposer {
+	background: url('background/PortalComposerMBG.png') repeat-y right top;
+	padding-right: 9px;
+}
+
+.UIPortalComposer .MCPortalComposer {
+	background: #ffffff;
 }
 
 /*Popup Bottom Bg*/
@@ -46,9 +77,39 @@
 	background: url('background/BottomCenter.gif') repeat-x left top;
 	height: 57px;
 }
+
+.UIPortalComposer .BLPortalComposer {
+	background: url('background/PortalComposerBarBg.png') no-repeat left -185px;
+	padding-left: 9px;
+}
+
+.UIPortalComposer .BRPortalComposer {
+	background: url('background/PortalComposerBarBg.png') no-repeat right -252px;
+	padding-right: 9px;
+}
+
+.UIPortalComposer .BCPortalComposer {
+	background: url('background/PortalComposerBarBg.png') repeat-x center -318px;
+	height: 62px;
+}
+
 .UIPopupWindow .VTabStyle4 {
 	cursor: pointer;
 	padding: 1px;	
+}
+
+.UIPortalComposer .UIVTabContent {
+	background: #eeeeee;
+}
+
+.UIPortalComposer .VTabContentBG {
+	background: #ffffff;
+	margin: 1px 0px;
+	padding: 5px 0;
+}
+
+.UIPortalComposer .UIContainerList .ContainerIcon {
+	margin: 0px 0 0 10px;
 }
 
 .UIPopupWindow .UIVerticalSlideTabs .VTabStyle4 .UIVTabContent .LableContent {
@@ -62,9 +123,21 @@
 	padding: 0px 10px;
 }
 
+.UIPortalComposer .TabsContainer {
+	background: #eeeeee;
+	height: 37px;
+	padding: 1px;
+}
+
 .UIPopupWindow .UITab .SelectedTab {
 	line-height: 20px;
 	font-weight: bold;
+}
+
+.UIPortalComposer .UITab .SelectedTab {
+	line-height: 20px;
+	font-weight: bold;
+	padding: 0px;
 }
 
 .UIPopupWindow .UITab .SelectedTab .LeftTab{
@@ -83,10 +156,33 @@
 	padding: 0px 15px;
 }
 
+.UIPortalComposer .UITab .SelectedTab .LeftTab{
+	background: none;
+	padding-left: 0px;
+}
+
+.UIPortalComposer .UITab .SelectedTab .RightTab{
+	background: none;
+	padding-right: 0px;
+}
+
+.UIPortalComposer .UITab .SelectedTab .MiddleTab{
+	background: url('background/PortalComposerBarBg.png') repeat-x left -380px;
+	line-height: 37px;
+	padding: 0px 15px;
+}
+
 .UIPopupWindow .UITab .NormalTab {
 	line-height: 20px;
 	font-weight: bold;
 	padding: 0px 10px;
+	cursor: pointer;
+}
+
+.UIPortalComposer .UITab .NormalTab {
+	line-height: 20px;
+	font-weight: bold;
+	padding: 0px;
 	cursor: pointer;
 }
 
@@ -95,14 +191,30 @@
 	padding-left: 5px;
 }
 
+.UIPortalComposer .UITab .NormalTab .LeftTab{
+	background: none;
+	padding-left: 0px;
+}
+
 .UIPopupWindow .UITab .NormalTab .RightTab{
 	background: none;
 	padding-right: 6px;
 }
 
+.UIPortalComposer .UITab .NormalTab .RightTab{
+	background: none;
+	padding-right: 0px;
+}
+
 .UIPopupWindow .UITab .NormalTab .MiddleTab{
 	background: none;
-	line-height: 23px;
+	line-height: 20px;
+	padding: 0px 15px;
+}
+
+.UIPortalComposer .UITab .NormalTab .MiddleTab{
+	background: none;
+	line-height: 37px;
 	padding: 0px 15px;
 }
 
@@ -130,6 +242,15 @@
 	margin: 6px 21px 0px 21px;
 }
 
+.UIPortalComposer .PopupTitle {
+	text-align: Left;
+	font-weight: bold;
+	font-size: 14px;
+	line-height: 42px; 
+	cursor: move;
+	margin: 6px 5px 0px;
+}
+
 .UIPopupWindow .CloseButton {
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
@@ -148,17 +269,40 @@
 	background: url('background/SaveIcon.gif') no-repeat right;
 }
 
+.UIPortalComposer .CloseButton {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin-top: 18px;
+	cursor: pointer;
+	width: 15px; height: 15px;
+	background: url('background/ExitIcon.png') no-repeat right;
+}
+
+.UIPortalComposer .SaveButton {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin: 18px 10px 10px;
+	cursor: pointer;
+	width: 15px; height: 15px;
+	background: url('background/SaveIcon.png') no-repeat right;
+}
+
 .UIPopupWindow .EdittedSaveButton {
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
-	margin: 10px;
+	margin: 18px 10px 10px;
 	cursor: pointer;
 	width: 15px; height: 15px;
-	background: url('background/SaveIcon.gif') no-repeat right;
+	background: url('background/SaveIcon.png') no-repeat right;
 }
 
 .UIPopupWindow .UIVTab .SelectedTab {
 	background: url('background/TitleBg.gif') repeat-x left top;
+	height: 25px;
+}
+
+.UIPortalComposer .UIVTab .SelectedTab {
+	background: url('background/PortalComposerBarBg.png') repeat-x left -416px;
 	height: 25px;
 }
 
@@ -168,9 +312,22 @@
 	padding: 0px 10px;
 }
 
+.UIPortalComposer .UIVTab .SelectedTab .TabLabel {
+	line-height: 25px;
+	color: #fff;
+	font-weight: bold;
+	padding: 0px 10px;
+}
+
 .UIPopupWindow .UIVTab .NormalTab {
 	background: url('background/UnSelectedTitle.gif') repeat-x left top;
 	height: 25px;
+}
+
+.UIPortalComposer .UIVTab .NormalTab {
+	background: url('background/PortalComposerBarBg.png') repeat-x left -440px;
+	height: 22px;
+	border: 1px solid #cfcfcf;
 }
 
 .UIPopupWindow .UIVTab .NormalTab .TabLabel {
@@ -178,8 +335,20 @@
 	padding: 0px 10px;
 }
 
+.UIPortalComposer .UIVTab .NormalTab .TabLabel {
+	line-height: 22px;
+	padding: 0px 10px;
+	color: #000000;
+}
+
 .UIPopupWindow .UIVTab .VTabStyle3 {
 	background: #f6f6f6;
+}
+
+.UIPortalComposer .UIVTab .VTabStyle3 {
+	background: #ffffff;
+	margin: 1px 0px;
+	padding: 5px 0px 5px;
 }
 
 .UIPopupWindow .UIVTab .VTabStyle3 .OverflowContainer {
@@ -201,8 +370,35 @@
 	line-height: 18px;
 }
 
+.UIPortalComposer .UIAction .SimpleStyle1 .ButtonLeft {
+	background: url('background/PortalComposerBarBg.png') no-repeat left -466px;
+	padding-left: 2px;
+}
+
+.UIPortalComposer .UIAction .SimpleStyle1 .ButtonRight {
+	background: url('background/PortalComposerBarBg.png') no-repeat right -466px;
+	padding-right: 2px;
+}
+
+.UIPortalComposer .UIAction .SimpleStyle1 .ButtonMiddle {
+	background: url('background/PortalComposerBarBg.png') repeat-x left -488px;
+	line-height: 22px;
+}
+
 .UIPopupWindow .UIAction .SimpleStyle1 .PageProfileIcon {
 	background: url('background/PortalProperties.gif') no-repeat left 1px;
+  line-height: 18px;
+	padding-left: 18px;
+}
+
+.UIPortalComposer .UIAction .SimpleStyle1 .PageProfileIcon {
+	background: url('background/PortalProperties.gif') no-repeat left 2px;
+	line-height: 22px;
+	padding-left: 18px;
+}
+
+.UIPopupWindow .UIAction .SimpleStyle1 .ViewAsBlockIcon {
+	background: url('background/ViewIcon.gif') no-repeat left 1px;
   line-height: 18px;
 	padding-left: 18px;
 }
@@ -210,6 +406,12 @@
 .UIPopupWindow .UIAction .SimpleStyle1 .ViewAsBlockIcon {
 	background: url('background/ViewIcon.gif') no-repeat left 1px;
   line-height: 18px;
+	padding-left: 18px;
+}
+
+.UIPortalComposer .UIAction .SimpleStyle1 .ViewAsBlockIcon {
+	background: url('background/ViewIcon.gif') no-repeat left 2px;
+	line-height: 22px;
 	padding-left: 18px;
 }
 
@@ -227,9 +429,15 @@
 	line-height: 18px;
 }
 
+.UIPortalComposer .OverflowContainer .ContentInfo .LabelTab {
+	font-weight: bold;
+	line-height: 18px;
+}
+
 .UIPopupWindow .VTabContentBG img {
 	float: left;
 	padding-left: 18px;
+	padding-right: 18px;
 }
 
 .UIPopupWindow .TopLeftCornerDecorator {
@@ -266,7 +474,8 @@
 }
 
 .UIPopupWindow .PopupContent {
-	background: #f4f4f4;
+	background: #eeeeee;
+	padding: 0px 6px;
 	overflow: auto;
 	width: 100%;
 }
@@ -409,6 +618,12 @@
   padding: 0px;
   background: #f6f6f6;
   border: 1px solid #bababa;
+}
+
+.UIPortalComposer .UITabPane .UITabContent {
+  padding: 0px;
+  background: #eeeeee;
+  border: none;
 }
 
 .UIPopupWindow .ExoMessageDecorator .UIPopupMessages .UITabContentContainer {
