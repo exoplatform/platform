@@ -54,7 +54,7 @@
 
 .UIPortalComposer .MRPortalComposer {
 	background: url('background/PortalComposerMBG.png') repeat-y right top;
-	padding-right: 9px;
+	padding-right: 14px;
 }
 
 .UIPortalComposer .MCPortalComposer {
@@ -479,6 +479,14 @@
 	overflow: auto;
 	width: 100%;
 }
+
+.UIPortalComposer .PopupContent {
+	background: #eeeeee;
+	padding: 0px 8px 0 2px;
+	overflow: auto;
+	width: 100%;
+}
+
 .UIPopupWindow .PopupContent .UITabContentContainer {
 	border: none;
 }
