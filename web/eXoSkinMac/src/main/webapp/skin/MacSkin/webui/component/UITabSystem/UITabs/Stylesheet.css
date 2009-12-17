@@ -78,7 +78,7 @@
 }
 
 .UIHorizontalTabs .UITab .HighlightNavigationTab .TabIcon {
-  line-height: 30px;
+  line-height: 32px;
   padding: 0px;
   font-size: 17px;
 }
@@ -100,7 +100,7 @@
 /*###############-Selected Navigation Tab-################*/
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab {
-  line-height: 30px;
+  line-height: 32px;
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .LeftTab {
@@ -121,7 +121,7 @@
 }
 
 .UIHorizontalTabs .UITab .SelectedNavigationTab .TabIcon {
-  line-height: 30px;
+  line-height: 32px;
   padding: 0px;
   font-size: 17px;
 }

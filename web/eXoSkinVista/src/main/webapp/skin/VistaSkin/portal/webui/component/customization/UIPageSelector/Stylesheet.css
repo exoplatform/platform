@@ -43,21 +43,6 @@
   margin-top: 2px;
 }
 
-.UIPageSelector .UIFormInfo .PropertyName {
-  float: left; /* orientation=lt */
-  float: right; /* orientation=rt */
-  padding: 6px 10px 6px 23px;		/* orientation=lt */
-	padding: 6px 23px 6px 10px;		/* orientation=rt */
-  width: 80px;
-	text-align: right;  /* orientation=lt */
-	text-align: left;  /* orientation=rt */
-}
-
-.UIPageSelector .UIFormInfo .PropertyValue {
-  color: #3176e3;
-  padding: 6px 0px;
-}
-
 .UIPageSelector .FloatBlockHidden {
 	filter:alpha(opacity=30);-moz-opacity:.30;opacity:.30;
 	cursor: default;
