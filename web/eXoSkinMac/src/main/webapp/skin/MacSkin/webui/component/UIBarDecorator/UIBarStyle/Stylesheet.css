@@ -47,23 +47,21 @@
 
 /*###########################-BarStyle2-###########################*/
 .UIBarStyle .BarStyle2 {
-	height: 37px;
+	height: 36px;
 }
 
 .UIBarStyle .BarStyle2 .LeftBar {
-	background: url('background/BarStyle2.gif') no-repeat left top;
-	padding: 0px 0px 0px 9px;
+	
 }
 
 .UIBarStyle .BarStyle2 .RightBar {
-	background: url('background/BarStyle2.gif') no-repeat right top;
-	padding: 0px 9px 0px 0px ;
+	
 }
 
 .UIBarStyle .BarStyle2 .MiddleBar {
-	line-height: 37px; 
-	height: 37px;
-	background: url('background/BarStyle2.gif') repeat-x bottom;
+	line-height: 36px; 
+	height: 36px;
+	background: url('background/BarStyle2.gif') repeat-x left top;
 }
 
 /*###########################-NavyBluePolygonBar32Style-###########################*/

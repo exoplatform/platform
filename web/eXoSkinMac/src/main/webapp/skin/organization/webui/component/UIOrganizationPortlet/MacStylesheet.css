@@ -7,12 +7,13 @@
 }
 
 .UIOrganizationPortlet {
-	background: white;
-	border: 1px solid #b7b7b7;
-	margin: 5px;
-	padding: 5px;
+	padding: 10px;
 	overflow: auto;
 }
+
+.UIOrganizationPortlet .OrganizationPortletContainer {
+	padding: 0px;
+} 
 
 .UIOrganizationPortlet .OrganizationPortletContainer .UIMembershipManagement .UIListMembershipType .UIGrid {
 	width: 99.2%;
@@ -27,67 +28,23 @@
 	height: auto;
 	padding: 4px 0px 7px 7px; /* orientation=lt */
 	padding: 4px 7px 7px 0px; /* orientation=rt */
+	background: #fafafa;
 }
 
-.UIOrganizationPortlet .OrganizationPortletContainer {
-	padding: 5px 8px;
-} 
 
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .HorizontalSeparator {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
-	margin: 5px 2px 0px 1px; /* orientation=lt */
-	margin: 5px 1px 0px 2px; /* orientation=rt */
-	width: 2px; 
-	height: 50px;
-}
-
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .ButtonLabel {
-	line-height: 18px;
-	font-weight: bold;
-}
-
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .SelectButtonLabel {
-	line-height: 18px;
-	font-weight: bold;
-	color: #058ee6;
-}
 
 .UIOrganizationPortlet .ManagementIconContainer {
 	padding-top: 2px;
 }
 
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .UserButton {
-	float: left;		/* orientation=lt */
-	float: right;		/* orientation=rt */
-	width: 130px;
-	cursor: pointer;
-	text-align: center;
-}
-
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .GroupButton {
-	float: left;		/* orientation=lt */
-	float: right;		/* orientation=rt */
-	width: 140px;
-	cursor: pointer;
-	text-align: center;
-}
-
 .UIOrganizationPortlet .ManagementTabContent {
-	width: 99.4%;
-	margin: 4px auto 2px auto;
+	border: 1px solid #a4a4a4;
+	border-top: none;
+	padding: 0px 1px;
 }
 
 .UIOrganizationPortlet .UIBarStyle .BarStyle2 .UISearchForm .UIForm {
 	padding: 0px;
-}
-
-.UIOrganizationPortlet .UIToolbar .LargeToolbar .MembershipButton {
-	float: left;		/* orientation=lt */
-	float: right;		/* orientation=rt */
-	width: 178px;
-	cursor: pointer;
-	text-align: center;
 }
 
 .UIOrganizationPortlet .UserManagementIcon {
@@ -141,6 +98,10 @@
 	padding: 0px; 
 }
 
+.UIOrganizationPortlet .UIUserManagement #UIListUsersGird {
+	padding: 15px 45px;
+}
+
 .UIOrganizationPortlet .UIMembership {
 	padding: 5px;
 }
@@ -174,26 +135,28 @@
 
 .UIOrganizationPortlet .UIBreadcumbs .LeftBreadcumbsBar {
 	padding: 0px 0px 0px 3px;
-	background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat left -197px;
+	background: #e7e7e7;
+	border-bottom: 1px solid #d7d7d7;
 }
 
 .UIOrganizationPortlet .UIBreadcumbs .RightBreadcumbsBar {
-	padding: 0px 3px 0px 0px;
-	background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat right -197px;
+	
 }
 
 .UIOrganizationPortlet .UIBreadcumbs .BreadcumbsInfoBar {
-	height: 25px; line-height: 25px; vertical-align: middle;
-	background: url('MacSkin/background/UIOrganizationPortlet.gif') repeat-x bottom;
+	height: 20px; 
+	line-height: 20px; 
+	vertical-align: middle;
 }
 /*#######################	UIGroupManagement #################################*/
 
 .UIOrganizationPortlet .UIGroupManagement {
-	margin-top: 5px;
+	
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITrees {
-	border-top: none;
+	border: none;
+	background: #f3f3f3;
 /*	width: 99%;*/
 }
 
@@ -203,12 +166,13 @@
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs .HomeIcon {
 	width: 28px; height: 15px;
-	margin-top: 9px;
+	margin-top: 4px;
 	background: url('MacSkin/background/UIOrganizationPortlet.gif') no-repeat left -67px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UIBreadcumbs {
 	padding: 0px;
+	height: 21px;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .TitleBar {
@@ -227,13 +191,27 @@
 	padding-right: 7px;		/* orientation=rt */
 }
 
+.UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
+	background: url('MacSkin/background/GroupInfoContainer.gif') repeat-y right top; /* orientation=lt */
+	background: url('MacSkin/background/GroupInfoContainer-rt.gif') repeat-y left top; /* orientation=rt */
+	width: 240px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	padding: 1px 5px 0px 0px; /* orientation=lt */
+	padding: 1px 0px 0px 5px; /* orientation=rt */
+}
+
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar {
-	height: 24px;
+	background: url('MacSkin/background/TitBar.gif') repeat-x left top;
+	height: 22px;
+	border: none;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TitleBar .Title {
 	float: left;		/* orientation=lt */
 	float: right;		/* orientation=rt */
+	line-height: 22px;
+	color: #fff;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupPanel {
@@ -241,44 +219,38 @@
 	width: 100%;
 }
 
-.UIOrganizationPortlet .UIGroupManagement .GroupNavigation {
-	width: 220px;
-	float: left; 		/* orientation=lt */
-	float: right; 		/* orientation=rt */
-}
-
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigationContainer {
 	width: 100%;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .TreeActionIcon	{
-	float: right;		/* orientation=lt */
-	float: left;			/* orientation=rt */
-	margin: 4px 8px 0px 0px;		/* orientation=lt */
-	margin: 4px 0px 0px 8px;		/* orientation=rt */
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	margin: 3px 8px 0px 0px; /* orientation=lt */
+	margin: 3px 0px 0px 8px; /* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .RemoveGroupIcon	{
-	width: 18px;
-	height: 17px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
+	width: 16px;
+	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat left center;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .AddGroupIcon	{
 	width: 16px;
 	height: 16px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/AddIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/AddGroupIcon.gif') no-repeat left top;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupNavigation .EditGroupIcon	{
 	width: 16px;
 	height: 16px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditGroupIcon.gif') no-repeat left top;
 }
 
 .UIOrganizationPortlet .UIGroupManagement .GroupDetail {
-	margin-left: 227px; 		/* orientation=lt */
-	margin-right: 227px; 	/* orientation=rt */
+	margin-left: 245px; 		/* orientation=lt */
+	margin-right: 245px; 	/* orientation=rt */
 }
 
 .UIOrganizationPortlet .UIGroupManagement .UITabContentContainer {
@@ -311,8 +283,7 @@
 }
 
 .UIOrganizationPortlet .UIGroupMembershipForm .HorizontalLayout .FormContainer {
-	background: url('/eXoSkinMac/skin/MacSkin/background/Background1x4.png') repeat;
-	border: 1px solid white;
+	border: 1px solid #cfcfcf;
 	padding: 16px 0px 6px 0px;
 }
 
@@ -361,6 +332,7 @@
 
 .UIOrganizationPortlet .UIMembershipManagement {
 	margin: auto;
+	padding: 15px 45px;
 }
 
 .UIOrganizationPortlet .UIMembershipTypeForm {
@@ -373,6 +345,11 @@
 	margin-top: 2px;
 }
 
+.UIOrganizationPortlet .UIGrid th {
+	border: 1px solid #cfcfcf;
+}
+
 .UIOrganizationPortlet .UIGrid td {
 	margin: auto;
+	border: 1px solid #cfcfcf;
 }

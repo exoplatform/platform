@@ -22,43 +22,36 @@
 /*##############################- LargeToolbar style -#########################*/
 
 .UIToolbar .LargeToolbar {
-  height: 63px; 
-  line-height: 63px;
+  height: 69px; 
+  line-height: 69px;
 }
 
 .UIToolbar .LargeToolbar .LeftToolbar {
-  line-height: 63px;
-  background: url('background/LargeToolbar.gif') no-repeat left top; 			/* orientation=lt */
-  background: url('background/LargeToolbar-rt.gif') no-repeat left top; 	/* orientation=rt */
-  padding-left: 10px; 		/* orientation=lt */
-  padding-left: 84px; 		/* orientation=rt */
+  background: url('background/TopLargeToolbar.gif') no-repeat left top;
+  padding-left: 7px;
 }
 
 .UIToolbar .LargeToolbar .RightToolbar {
-  line-height: 63px;
-  background: url('background/LargeToolbar.gif') no-repeat right top; 			/* orientation=lt */
-  background: url('background/LargeToolbar-rt.gif') no-repeat right top; 		/* orientation=rt */
-  padding-right: 84px; 		/* orientation=lt */
-  padding-right: 10px; 		/* orientation=rt */
+  background: url('background/TopLargeToolbar.gif') no-repeat right top;
+  padding-right: 7px;
 }
 
 .UIToolbar .LargeToolbar .MiddleToolbar {
-  height: 63px; 
-  line-height: 63px;
-  background: url('background/LargeToolbar.gif') repeat-x left -63px;
+  height: 69px; 
+  line-height: 69px;
+  padding: 0px 15px;
+  background: url('background/TopLargeToolbar.gif') repeat-x left -69px;
 }
 
 .UIToolbar .LargeToolbar a {
-  color: #333333;
-  height: 51px; line-height: 51px;
-  margin-top: 3px;
+  color: #000;
+  height: 62px; 
+  line-height: 62px;
 }
 
 .UIToolbar .LargeToolbar a:hover{
-  color: blue;
-  background: #efefef;
-  height: 51px; line-height: 51px;
-  margin-top: 3px;
+  color: white;
+  background: #1e44f6;
 }
 
 .UIToolbar .LargeToolbar .ButtonLabel {
@@ -70,8 +63,10 @@
 .UIToolbar .LargeToolbar .HorizontalSeparator {
   float: left; 		/* orientation=lt */
   float: right; 	/* orientation=rt */
-  margin: 5px 2px 0px 1px ;
-  width: 2px; height: 50px ;
+  margin: 0px;
+  width: 1px; 
+  height: 50px ;
+  background: none;
 }
 
 .UIToolbar .LargeToolbar .SelectButtonLabel {
@@ -87,17 +82,17 @@
 .UIToolbar .LargeToolbar .UserButton {
   float: left; 		/* orientation=lt */
   float: right; 	/* orientation=rt */
-  width: 130px;
+  width: 160px;
   cursor: pointer;
-	text-align: center;
+  text-align: center;
 }
 
 .UIToolbar .LargeToolbar .GroupButton {
   float: left; 		/* orientation=lt */
   float: right; 	/* orientation=rt */
-  width: 140px;
+  width: 160px;
   cursor: pointer;
-	text-align: center;
+  text-align: center;
 }
 
 .UIToolbar .LargeToolbar .ManagementTabContent {
@@ -109,33 +104,30 @@
 .UIToolbar .LargeToolbar .MembershipButton {
   float: left; 		/* orientation=lt */
   float: right; 	/* orientation=rt */
-  width: 178px;
+  width: 180px;
   cursor: pointer;
-	text-align: center;
+  text-align: center;
 }
 
 .UIToolbar .LargeToolbar .UserManagementIcon {
-  width: 44px ; 
+  width: 32px ; 
   height: 30px ;
-  background: url('background/LargeToolbar.gif') no-repeat -44px -126px;
-  margin: auto;
-  margin-top: 4px;
+  background: url('background/IconLargeToolbar.png') no-repeat center top;
+  margin: 7px auto 0px auto;
 }
 
 .UIToolbar .LargeToolbar .GroupManagementIcon {
-  width: 44px ; 
+  width: 32px ; 
   height: 30px ;
-  background: url('background/LargeToolbar.gif') no-repeat left -157px;
-  margin: auto;
-  margin-top: 4px;
+  background: url('background/IconLargeToolbar.png') no-repeat center -50px;
+  margin: 7px auto 0px auto;
 }
 
 .UIToolbar .LargeToolbar .MembershipManagementIcon {
-  width: 44px ; 
+  width: 32px ; 
   height: 30px ;
-  background: url('background/LargeToolbar.gif') no-repeat left -126px;
-  margin: auto;
-  margin-top: 4px;
+  background: url('background/IconLargeToolbar.png') no-repeat center -100px;
+  margin: 7px auto 0px auto;
 }
 
 /*------------------- BlueLargeToolbar style ------------------------*/

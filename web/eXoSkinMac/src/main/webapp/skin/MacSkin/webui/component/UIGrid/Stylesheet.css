@@ -112,18 +112,21 @@
 }
 
 .UIGrid .EditMembershipIcon {
-	width: 16px;	height: 16px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
+	width: 16px;	
+	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditGroupIcon.gif') no-repeat;
 }
 
 .UIGrid .DeleteUserIcon {
-	width: 17px;	height: 18px;
+	width: 17px;	
+	height: 18px;
 	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/DeleteIcon.png') no-repeat;
 }
 
 .UIGrid .ViewUserInfoIcon {
-	width: 16px;	height: 16px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditIcon.png') no-repeat;
+	width: 16px;	
+	height: 16px;
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/16x16/icons/EditGroupIcon.gif') no-repeat;
 }
 
 .UIGrid input.checkbox {

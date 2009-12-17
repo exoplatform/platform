@@ -61,8 +61,8 @@
 .UITrees .Node .ExpandIcon {
 	padding-left: 18px; /* orientation=lt */
 	padding-right: 18px; /* orientation=rt */
-  background: url('background/SmallGrayMinus.gif') no-repeat left top; /* orientation=lt */
-  background: url('background/SmallGrayMinus-rt.gif') no-repeat right top; /* orientation=rt */
+  background: url('background/SmallGrayMinus.gif') no-repeat left 3px; /* orientation=lt */
+  background: url('background/SmallGrayMinus-rt.gif') no-repeat right 3px; /* orientation=rt */
   width: 100%; 
   height: auto;
 }
@@ -70,8 +70,8 @@
 .UITrees .Node .CollapseIcon {
 	padding-left: 18px; /* orientation=lt */
 	padding-right: 18px; /* orientation=rt */
-  background: url('background/SmallGrayPlus.gif') no-repeat left top; /* orientation=lt */
-  background: url('background/SmallGrayPlus-rt.gif') no-repeat right top; /* orientation=rt */
+  background: url('background/SmallGrayPlus.gif') no-repeat left 3px; /* orientation=lt */
+  background: url('background/SmallGrayPlus-rt.gif') no-repeat right 3px; /* orientation=rt */
   width: 100%; 
   height: auto;
 }
@@ -84,15 +84,15 @@
 
 /** ################# Icons ###################*/
 .UITrees .TreeContainer .GroupAdminIcon {
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/NormalGroup.gif') no-repeat left top; /* orientation=lt */
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/NormalGroup-rt.gif') no-repeat right top; /* orientation=rt */
+  background: url('background/NormalGroup.gif') no-repeat left top; /* orientation=lt */
+  background: url('background/NormalGroup-rt.gif') no-repeat right top; /* orientation=rt */
   padding-left: 25px; /* orientation=lt */
   padding-right: 25px; /* orientation=rt */
 }
 
 .UITrees .TreeContainer .PortalIcon {
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SelectedGroup.gif') no-repeat left top; /* orientation=lt */
-  background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SelectedGroup-rt.gif') no-repeat right top; /* orientation=rt */
+  background: url('background/SelectedGroup.gif') no-repeat left top; /* orientation=lt */
+  background: url('background/SelectedGroup-rt.gif') no-repeat right top; /* orientation=rt */
   padding-left: 25px; /* orientation=lt */
   padding-right: 25px; /* orientation=rt */
 }

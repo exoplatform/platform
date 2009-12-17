@@ -21,7 +21,8 @@
 	line-height: 20px; 
 	padding-left: 10px;			/* orientation=lt */
 	padding-right: 10px; 		/* orientation=rt */ 
-	margin-top: 10px;
+	margin-top: 8px;
+	color: #7f7f7f;
 }
 	
 .UISearch .UISearchForm .QuickSet .AdvancedSearchIcon {
@@ -43,14 +44,14 @@
 }
 
 .UISearch .UISearchForm .QuickSet .SimpleSearchIcon {
-	margin: 9px 0px 0px 5px; 		/* orientation=lt */
-	margin: 9px 5px 0px 0px;		/* orientation=rt */
+	margin: 7px 0px 0px 5px; /* orientation=lt */
+	margin: 7px 5px 0px 0px; /* orientation=rt */
 	width: 24px;	
 	height: 22px;
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SimpleSearch.gif') no-repeat;			/* orientation=lt */
-	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SimpleSearch-rt.gif') no-repeat;		/* orientation=rt */
-	float: left;			/* orientation=lt */
-	float: right;		/* orientation=rt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SimpleSearch.gif') no-repeat; /* orientation=lt */
+	background: url('/eXoSkinMac/skin/MacSkin/skinIcons/24x24/icons/SimpleSearch-rt.gif') no-repeat; /* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
 }
 
 .UISearch .UISearchForm .QuickSet a:hover {
@@ -63,30 +64,31 @@
 }
 
 .UISearch .UISearchForm .QuickSet select {
-	float: left; 		/* orientation=lt */
-	float: right; 		/* orientation=rt */
-	margin-top: 8px;
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin-top: 7px;
 	width: 115px; 
 	height: 20px;
-	border: 1px solid gray;
+	border: 1px solid #cfcfcf;
 	padding: 1px;
 	font-size: 11px;
+	color: #7f7f7f;
 }
 
 .UISearch .UISearchForm .QuickSet input {
-	float: left;	 		/* orientation=lt */
-	float: right;	 	/* orientation=rt */
-	margin: 8px 5px 0px 10px;	 	/* orientation=lt */
-	margin: 8px 10px 0px 5px;	 	/* orientation=rt */
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+	margin: 7px 8px 0px 5px; /* orientation=lt */
+	margin: 7px 5px 0px 8px; /* orientation=rt */
 	width: 180px; 
-	height: 18px;
-	border: 1px solid gray;
+	height: 16px;
+	border: 1px solid #cfcfcf;
 }
 
 .UIFormTabPane .UISearch .UISearchForm .QuickSet select {
 	float: left; /* orientation=lt */
 	float: right; /* orientation=rt */
-	margin-top: 8px;
+	margin-top: 7px;
 	width: 120px;
 }
 

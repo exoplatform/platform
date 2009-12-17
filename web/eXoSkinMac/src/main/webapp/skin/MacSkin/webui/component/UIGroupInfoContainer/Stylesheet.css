@@ -1,14 +1,17 @@
 .UIGroupInfoContainer {
+	padding: 5px 25px;
 }
 
+.UIOrganizationPortlet .UIGroupManagement .UIGroupInfoContainer .TitleBar {
+	background: none;
+	border: none;
+}
+	
 .UIGroupInfoContainer .HorizontalLayout {
-	border: solid 1px #b7b7b7;
-	padding: 1px;
-	border-top: none;
+	border: none;
 }
 
 .UIGroupInfoContainer .HorizontalLayout .FormContainer {
-	padding: 8px 5px;
 }
 
 .UIGroupInfoContainer .TitleBar {
