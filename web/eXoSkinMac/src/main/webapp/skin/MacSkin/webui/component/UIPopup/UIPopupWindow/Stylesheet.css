@@ -497,6 +497,10 @@
 	width: auto;
 }
 
+.UIPortalComposer .BCPortalComposer .UIAction {
+	height: 60px;
+}
+
 .UIPopupWindow .ResizeButton{
 	float: right; /* orientation=lt */
 	float: left; /* orientation=rt */
@@ -505,6 +509,17 @@
 	display: none;
 	width: 16px;
 	height: 16px;
+}
+
+.UIPortalComposer .ResizeButton {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+	background: url('background/PopupWindowIcon.gif') no-repeat left -32px;
+	cursor: nw-resize;
+	display: none;
+	width: 16px;
+	height: 16px;
+	margin-top: -36px;
 }
 
 .UIPopupWindow .BottomLeftCornerDecorator {
