@@ -13,10 +13,10 @@
    <dependencies>
 
       <dependency>
-         <groupId>org.exoplatform.tool</groupId>
-         <artifactId>exopackage</artifactId>
+         <groupId>org.gatein.tools</groupId>
+         <artifactId>packager</artifactId>
          <type>zip</type>
-         <version>1.1.0-Beta05</version>
+         <version>1.0.0-Beta05</version>
       </dependency>
 
       <dependency>
@@ -88,8 +88,8 @@
                      <overWriteSnapshots>true</overWriteSnapshots>
                      <artifactItems>
                         <artifactItem>
-                           <groupId>org.exoplatform.tool</groupId>
-                           <artifactId>exopackage</artifactId>
+                           <groupId>org.gatein.tools</groupId>
+                           <artifactId>packager</artifactId>
                            <type>zip</type>
                            <outputDirectory>target/exopackage</outputDirectory>
                         </artifactItem>

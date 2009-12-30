@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.exoplatform</groupId>
     <artifactId>exo.parent</artifactId>
-    <version>5</version>
+    <version>7</version>
   </parent>
 
   <groupId>org.exoplatform.platform</groupId>
@@ -27,12 +27,12 @@
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
-    <org.exoplatform.cometd.version>2.0.2</org.exoplatform.cometd.version><!-- This is WS 2.0.2, expecting for a COMET version -->
-    <org.exoplatform.portal.version>3.0.0-Beta04</org.exoplatform.portal.version>
-    <org.exoplatform.kernel.version>2.2.0-Beta04</org.exoplatform.kernel.version>
-    <org.exoplatform.core.version>2.3.0-Beta04</org.exoplatform.core.version>
-    <org.exoplatform.ws.version>2.1.0-Beta04</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.12.0-Beta04</org.exoplatform.jcr.version>
+    <org.exoplatform.cometd.version>2.0.2</org.exoplatform.cometd.version>
+    <org.exoplatform.kernel.version>2.2.0-Beta05</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.3.0-Beta05</org.exoplatform.core.version>
+    <org.exoplatform.ws.version>2.1.0-Beta05</org.exoplatform.ws.version>
+    <org.exoplatform.jcr.version>1.12.0-Beta05</org.exoplatform.jcr.version>
+<!--
     <org.jibx.version>1.2.1</org.jibx.version>
     <org.shindig.version>SNAPSHOT-r790473</org.shindig.version>
     <org.gatein.common.version>2.0.0-CR02</org.gatein.common.version>
@@ -42,7 +42,9 @@
     <org.gatein.wsrp.version>1.0.0-Beta01</org.gatein.wsrp.version>
     <org.gatein.mop.version>1.0.0-Beta10</org.gatein.mop.version>
     <version.chromattic>1.0.0-beta8</version.chromattic>
-    <version.reflect>1.0.0-beta4</version.reflect>     
+    <version.reflect>1.0.0-beta4</version.reflect>
+-->
+    <org.exoplatform.portal.version>3.0.0-Beta05-SNAPSHOT</org.exoplatform.portal.version>
   </properties>
 
   <modules>
