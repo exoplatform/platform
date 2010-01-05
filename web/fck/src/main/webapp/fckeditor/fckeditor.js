@@ -47,7 +47,7 @@ var FCKeditor = function( instanceName, width, height, toolbarSet, value )
 /**
  * This is the default BasePath used by all editor instances.
  */
-FCKeditor.BasePath = currentContext + '/fckeditor/' ;
+FCKeditor.BasePath = '/fckeditor/' ;
 
 /**
  * The minimum height used when replacing textareas.
