@@ -7,8 +7,8 @@
     <version>3.0.0-Beta04-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.exoplatform.portal</groupId>
-  <artifactId>exo.portal.component.gifbackport</artifactId>
+  <groupId>org.exoplatform.platform</groupId>
+  <artifactId>exo.platform.component.gifbackport</artifactId>
   <packaging>jar</packaging>
   <version>3.0.0-Beta04-SNAPSHOT</version>
   <name>eXo Platform Component javax.imageio GIF plugin backport</name>

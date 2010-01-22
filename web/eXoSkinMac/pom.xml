@@ -6,8 +6,8 @@
     <version>3.0.0-Beta04-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.exoplatform.portal</groupId>
-  <artifactId>exo.portal.web.eXoSkinMac</artifactId>
+  <groupId>org.exoplatform.platform</groupId>
+  <artifactId>exo.platform.web.eXoSkinMac</artifactId>
   <packaging>war</packaging>
 
   <name>eXo Platform Web Mac Skin</name>

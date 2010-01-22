@@ -8,7 +8,7 @@
   </parent>
 
   <groupId>org.exoplatform.platform</groupId>
-  <artifactId>exo.portal.portlet.browser</artifactId>
+  <artifactId>exo.platform.portlet.browser</artifactId>
   <packaging>war</packaging>
 
   <name>eXo Platform Portlet Browser</name>

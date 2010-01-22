@@ -6,8 +6,8 @@
     <version>3.0.0-Beta04-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.exoplatform.portal</groupId>
-  <artifactId>exo.portal.server.websphere.plugin</artifactId>
+  <groupId>org.exoplatform.platform</groupId>
+  <artifactId>exo.platform.server.websphere.plugin</artifactId>
   <packaging>jar</packaging>
 
   <name>eXo Platform Server Websphere Plugin</name>

@@ -44,7 +44,7 @@
     <version.chromattic>1.0.0-beta8</version.chromattic>
     <version.reflect>1.0.0-beta4</version.reflect>
 -->
-    <org.exoplatform.portal.version>3.0.0-Beta05-SNAPSHOT</org.exoplatform.portal.version>
+    <org.exoplatform.portal.version>3.0.0-Beta05</org.exoplatform.portal.version>
   </properties>
 
   <modules>

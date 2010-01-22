@@ -8,8 +8,8 @@
     <version>3.0.0-Beta04-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.exoplatform.portal</groupId>
-  <artifactId>exo.portal.sample.gwt</artifactId>
+  <groupId>org.exoplatform.platform</groupId>
+  <artifactId>exo.platform.sample.gwt</artifactId>
   <packaging>war</packaging>
 
   <name>eXo Platform Sample Gadgets GWT</name>

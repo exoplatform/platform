@@ -7,7 +7,7 @@
     <version>3.0.0-Beta04-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.exoplatform.portal</groupId>
+  <groupId>org.exoplatform.platform</groupId>
   <artifactId>test-tools</artifactId>
   
   <name>eXo Platform Test Selenium Tools</name>

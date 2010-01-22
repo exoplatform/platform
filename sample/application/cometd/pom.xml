@@ -8,7 +8,7 @@
     <version>3.0.0-Beta04-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.exoplatform.portal</groupId>
+  <groupId>org.exoplatform.platform</groupId>
   <artifactId>cometd-demo</artifactId>
   <packaging>exopc-war</packaging>
 

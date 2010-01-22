@@ -7,8 +7,8 @@
     <version>3.0.0-Beta04-SNAPSHOT</version>
   </parent>
 
-  <groupId>org.exoplatform.portal</groupId>
-  <artifactId>exo.portal.portlet.test</artifactId>
+  <groupId>org.exoplatform.platform</groupId>
+  <artifactId>exo.platform.portlet.test</artifactId>
   <packaging>war</packaging>
 
   <name>eXo Platform Portlet Test</name>
