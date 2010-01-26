@@ -11,7 +11,6 @@
   <artifactId>test-simple</artifactId>
   
   <name>eXo Platform Test Selenium Simple Test</name>
-  <version>trunk</version>
   
   <properties>
     <maven.test.failure.ignore>true</maven.test.failure.ignore>
