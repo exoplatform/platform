@@ -1,0 +1,82 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+      <groupId>org.exoplatform.comet</groupId>
+      <artifactId>comet-parent</artifactId>
+      <version>2.1.0_gtn_Alpha01</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>exo-comet-service</artifactId>
+    <name>eXo Comet :: Service</name>
+    <packaging>jar</packaging>
+   <description />
+   <dependencies>
+      <dependency>
+         <groupId>org.exoplatform.kernel</groupId>
+         <artifactId>exo.kernel.container</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.kernel</groupId>
+         <artifactId>exo.kernel.component.common</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ws</groupId>
+         <artifactId>exo.ws.rest.core</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ws</groupId>
+         <artifactId>exo.ws.commons</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ws</groupId>
+         <artifactId>exo.ws.frameworks.json</artifactId>
+      </dependency>
+
+      
+      <dependency>
+         <groupId>org.mortbay.jetty</groupId>
+         <artifactId>cometd-bayeux</artifactId>
+      </dependency>
+
+ 
+      <dependency>
+         <groupId>org.codehaus.cargo</groupId>
+         <artifactId>cargo-core-api-container</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.codehaus.cargo</groupId>
+         <artifactId>cargo-core-api-generic</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.codehaus.cargo</groupId>
+         <artifactId>cargo-core-container-tomcat</artifactId>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.codehaus.cargo</groupId>
+         <artifactId>cargo-core-container-jetty</artifactId>
+         <scope>test</scope>
+      </dependency>
+ 
+      <dependency>
+         <groupId>javax.ws.rs</groupId>
+         <artifactId>jsr311-api</artifactId>
+         <scope>compile</scope>
+      </dependency>
+   </dependencies>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+               <excludes>
+                  <exclude>**/TransportCometdTest.java</exclude>
+                  <exclude>**/LocalCometdTest.java</exclude>
+               </excludes>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+</project>

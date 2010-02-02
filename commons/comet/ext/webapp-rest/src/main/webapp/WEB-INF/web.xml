@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+"http://java.sun.com/dtd/web-app_2_3.dtd">
+
+<web-app>
+
+  <display-name>portal</display-name>
+
+  <!--filter>
+    <filter-name>ThreadLocalSessionProviderInitializedFilter</filter-name>
+    <filter-class>org.exoplatform.frameworks.jcr.web.ThreadLocalSessionProviderInitializedFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>PortalContainerInitializedFilter</filter-name>
+    <filter-class>org.exoplatform.frameworks.jcr.web.PortalContainerInitializedFilter</filter-class>
+  </filter-->       
+  
+  <filter>
+    <filter-name>RestEncodingFilter</filter-name>
+    <filter-class>org.exoplatform.services.rest.servlet.RestEncodingFilter</filter-class>
+    <init-param>
+      <param-name>REQUEST_ENCODING</param-name>
+      <param-value>UTF-8</param-value>
+    </init-param>
+  </filter>
+  
+  
+
+  <!--filter-mapping>
+    <filter-name>PortalContainerInitializedFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>ThreadLocalSessionProviderInitializedFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping-->  
+    
+  <filter-mapping>
+    <filter-name>RestEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <servlet>
+    <servlet-name>RestServer</servlet-name>
+    <description>eXo - Platform REST Server</description>
+    <servlet-class>org.exoplatform.services.rest.servlet.RestServlet</servlet-class>
+    <load-on-startup>4</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>RestServer</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
+
+  <!--security-constraint>
+    <web-resource-collection>
+      <web-resource-name>rest</web-resource-name>
+      <url-pattern>/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>users</role-name>
+    </auth-constraint>
+    <user-data-constraint>
+      <transport-guarantee>NONE</transport-guarantee>
+    </user-data-constraint>
+  </security-constraint>
+
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>exo-domain</realm-name>
+  </login-config>
+
+
+  <security-role>
+    <description>the user role</description>
+    <role-name>users</role-name>
+  </security-role>
+  <security-role>
+    <description>the admin role</description>
+    <role-name>admin</role-name>
+  </security-role-->
+
+</web-app>
+

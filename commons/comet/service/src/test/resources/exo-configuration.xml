@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration>
+
+  <!--component>
+    <type>org.exoplatform.services.organization.impl.mock.DummyOrganizationService</type>
+  </component>
+  
+	  <external-component-plugins>
+    	<target-component>org.exoplatform.services.listener.ListenerService</target-component>
+    	<component-plugin>
+    		<name>exo.service.authentication.login</name>
+    		<set-method>addListener</set-method>
+    		<type>org.exoplatform.services.organization.auth.TomcatAuthenticationListener</type>
+    	</component-plugin>
+    </external-component-plugins-->
+    
+  <remove-configuration>org.exoplatform.services.scheduler.JobSchedulerService</remove-configuration>
+</configuration>

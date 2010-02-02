@@ -1,0 +1,12 @@
+<configuration clients="100" repeat="1" sleep-connection="500" sleep-sending="200">
+  <container containerStart="false" port="8080" home=""/>
+  <messages>
+   <message broadcast="false" id="1">hello</message>
+   <message broadcast="true" id="2">hello!!!</message>
+  </messages>
+  <cometd-url>http://localhost:8080/cometd/cometd</cometd-url>
+  <base-url>http://localhost:8080/rest/</base-url>
+  <channels>
+   <channel>/eXo/comedt/test</channel>
+  </channels>
+</configuration>
