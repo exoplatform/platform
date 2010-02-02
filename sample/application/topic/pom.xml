@@ -51,6 +51,7 @@
       <plugin>
         <groupId>org.exoplatform.maven.plugins</groupId>
         <artifactId>maven-exopc-plugin</artifactId>
+        <version>1.0.5</version>
         <extensions>true</extensions>
         <configuration>
           <sharedDir>${basedir}/patches</sharedDir>
