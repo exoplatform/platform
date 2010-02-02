@@ -2,7 +2,7 @@
    <parent>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.packaging</artifactId>
-      <version>3.0.0-Beta05</version>
+      <version>3.0.0-CR01-SNAPSHOT</version>
    </parent>
 
    <modelVersion>4.0.0</modelVersion>
