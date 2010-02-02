@@ -49,6 +49,7 @@
 
   <modules>
     <module>component</module>
+    <module>commons</module>
     <module>portlet</module>
     <module>sample</module>
     <module>server</module>

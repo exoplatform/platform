@@ -1,30 +1,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-      <groupId>org.exoplatform</groupId>
-      <artifactId>parent</artifactId>
-      <version>1.1.1</version>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.commons</artifactId>
+      <version>3.0.0-Beta04-SNAPSHOT</version>
    </parent>
    <modelVersion>4.0.0</modelVersion>
-   <groupId>org.exoplatform.comet</groupId>
-   <artifactId>comet-parent</artifactId>
-   <name>eXo Comet :: Framework Config</name>
-   <version>2.1.0_gtn_Alpha01</version>
+
+   <artifactId>exo.platform.commons.comet</artifactId>
+   <name>eXo Platform Commons Comet</name>
+
    <packaging>pom</packaging>
     
-  <scm>
-    <connection>scm:svn:http://svn.exoplatform.org/projects/comet/tags/2.1.0_gtn_Alpha01</connection>
-    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/comet/tags/2.1.0_gtn_Alpha01</developerConnection>
-    <url>http://fisheye.exoplatform.org/browse/projects/comet/tags/2.1.0_gtn_Alpha01</url>
-  </scm>   
+
   
   <properties>
-    <exo.product.name>exo-comet</exo.product.name>
+    <exo.product.name>exo.platform.commons.comet</exo.product.name>
     <exo.product.specification>2.1</exo.product.specification>
+    
     <exo.test.classesdirectory>target/test-classes</exo.test.classesdirectory>
- 
+ <!-- 
     <org.exoplatform.kernel.version>2.2.0-Beta02</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.3.0-Beta02</org.exoplatform.core.version>
     <org.exoplatform.ws.version>2.1.0-Beta02</org.exoplatform.ws.version>
+    -->
   </properties>
 
   <modules>

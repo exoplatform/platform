@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <parent>
-      <groupId>org.exoplatform.comet</groupId>
-      <artifactId>comet-parent</artifactId>
-      <version>2.1.0_gtn_Alpha01</version>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.commons.comet</artifactId>
+      <version>3.0.0-Beta04-SNAPSHOT</version>
+      <relativePath>../..</relativePath>
    </parent>
    <modelVersion>4.0.0</modelVersion>
-   <artifactId>exo-comet-ext-webapp-rest</artifactId>
+   <artifactId>exo.platform.commons.comet.ext.rest</artifactId>
    <packaging>war</packaging>
-   <name>eXo Comet :: REST WebApp (use for test only)</name>
-   <url>http://www.exoplatform.org</url>
+   <name>eXo Platform Commons Comet Ext REST WebApp (use for test only)</name>
    <description>ext REST web application for test</description>
    <dependencies>
       <dependency>
