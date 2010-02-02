@@ -1,6 +1,14 @@
 
 /***************************************	UIGadget 	**************************************/
 
+.UIWindow .UIGadgetPortlet {
+	padding: 10px;
+}
+
+.UIGadgetPortlet iframe {
+	width: 100%;
+}
+
 .UIGadget {
 	margin: 3px 0px;
 }

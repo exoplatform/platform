@@ -60,6 +60,7 @@
 .UIChangeLanguageForm .UIItemSelector .ItemDetail {
 	border: solid 1px #c3c3c3;
 	height: 227px;
+	overflow: auto;
 	margin: 0px;
 }
 
