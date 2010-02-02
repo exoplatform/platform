@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.server</artifactId>
-    <version>3.0.0-Beta04-SNAPSHOT</version>
+    <version>3.0.0-Beta05-SNAPSHOT</version>
   </parent>
 
   <artifactId>exo.platform.server.websphere</artifactId>
