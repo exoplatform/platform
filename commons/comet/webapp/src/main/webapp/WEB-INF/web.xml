@@ -5,31 +5,16 @@
    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
    version="2.5"> 
   <display-name>cometd</display-name>
-  
-    <!--filter>
-      <filter-name>PortalContainerInitializedFilter</filter-name>
-      <filter-class>org.exoplatform.frameworks.jcr.web.PortalContainerInitializedFilter</filter-class>
-    </filter>
+  <filter>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <filter-class>org.exoplatform.portal.application.ResourceRequestFilter</filter-class>
+  </filter>
 
-    < filter>
-      <filter-name>FactoryInitializedFilter</filter-name>
-      <filter-class>org.exoplatform.frameworks.jcr.web.SimpleSessionFactoryInitializedFilter</filter-class>
-    </filter>
+  <filter-mapping>
+    <filter-name>ResourceRequestFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
 
-    <filter-mapping>
-      <filter-name>FactoryInitializedFilter</filter-name>
-      <url-pattern>/*</url-pattern>
-    </filter-mapping>
-
-    <filter-mapping>
-      <filter-name>PortalContainerInitializedFilter</filter-name>
-      <url-pattern>/*</url-pattern>
-    </filter-mapping -->
-    <!--listener>
-          <listener-class>org.exoplatform.ws.frameworks.servlet.StandaloneContainerInitializedListener</listener-class>
-     </listener-->
-	    
-  
   <servlet>
     <servlet-name>cometd</servlet-name>
     <servlet-class>org.mortbay.cometd.continuation.EXoContinuationCometdServlet</servlet-class>
@@ -72,7 +57,15 @@
     <servlet-name>cometd</servlet-name>
     <url-pattern>/cometd/*</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <servlet-name>GateInServlet</servlet-name>
+    <servlet-class>org.gatein.wci.api.GateInServlet</servlet-class>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GateInServlet</servlet-name>
+    <url-pattern>/gateinservlet</url-pattern>
+  </servlet-mapping>  
 </web-app>
 
 
