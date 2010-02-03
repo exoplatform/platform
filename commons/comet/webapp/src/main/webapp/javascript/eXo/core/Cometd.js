@@ -1,22 +1,3 @@
-/**
- * Copyright (C) 2009 eXo Platform SAS.
- * 
- * This is free software; you can redistribute it and/or modify it
- * under the terms of the GNU Lesser General Public License as
- * published by the Free Software Foundation; either version 2.1 of
- * the License, or (at your option) any later version.
- * 
- * This software is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
- * Lesser General Public License for more details.
- * 
- * You should have received a copy of the GNU Lesser General Public
- * License along with this software; if not, write to the Free
- * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
- * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
- */
-
 /*
 The package :
 Cometd
@@ -127,8 +108,9 @@ Cometd.prototype._deliver = function(message){
       this._multiClientsDetectCnt ++;
       //console.warn('Multiple clients detected and notify from server');
       if (this._multiClientsDetectCnt == 1) {
-        //window.alert('You has multiple tab/window using Cometd!\nPlease keep only once.');
-        //TODO: do something in this case
+        //throw (new Error('You has multiple tab/window using Cometd!\nPlease keep only once.'));
+    	if(window.console && window.console.error)
+    		window.console.error('You has multiple tab/window using Cometd!\nPlease keep only once.');
       }
     } else {
       this._multiClientsDetectCnt = 0;
@@ -150,13 +132,13 @@ Cometd.prototype._deliver = function(message){
 				break;
 			case '/meta/subscribe':
 				if(!message.successful){
-					alert('todo manage error subscription');
+					throw (new Error('todo manage error subscription'));
 					return;
 				}
 				break;
 			case '/meta/unsubscribe':
 				if(!message.successful){
-					alert('todo manage error unsubscription');
+					throw (new('todo manage error unsubscription'));
 					return;
 				}
 				break;
@@ -238,8 +220,8 @@ Cometd.prototype.increaseRetryInterval = function() {
 Cometd.prototype.resetRetryInterval = function() {
   //console.warn('Reset retry interval');
 	if(this.advice) 
-		this.advice.interval = 0;
-  this._retryInterval = 0;
+		this.advice.interval = 1000;
+  this._retryInterval = 1000;
 }
 
 Cometd.prototype.endBatch = function(){
