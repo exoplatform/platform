@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CountDownLatch;
 
+import javax.ws.rs.ext.RuntimeDelegate;
 import javax.xml.parsers.DocumentBuilderFactory;
 
 import junit.framework.TestCase;
@@ -33,6 +34,7 @@ import org.exoplatform.common.http.client.CookieModule;
 import org.exoplatform.common.http.client.HTTPConnection;
 import org.exoplatform.common.http.client.HTTPResponse;
 import org.exoplatform.common.http.client.NVPair;
+import org.exoplatform.container.ExoContainerContext;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -84,7 +86,6 @@ public class TransportCometdTest
    @Override
    protected void setUp() throws Exception
    {
-      super.setUp();
       // CargoJetty.startContainer();
       Document document =
                DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(
@@ -217,6 +218,25 @@ public class TransportCometdTest
     */
    public void testConnection()
    {
+      
+//      boolean started = false;
+//      
+//      while (!started)
+//      {
+//         try
+//         {
+//            RuntimeDelegate.getInstance();
+//            started = true;
+//         }
+//         catch (Exception e)
+//         {
+//            System.out.println(e);
+//         }
+//      }
+      
+      
+     
+      
       try
       {
          int con = clients;

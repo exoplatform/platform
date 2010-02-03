@@ -24,6 +24,7 @@ import dojox.cometd.Message;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.log.ExoLogger;
 import org.mortbay.cometd.ClientImpl;
+import org.picocontainer.Startable;
 
 import javax.servlet.ServletContext;
 import java.security.SecureRandom;
@@ -40,7 +41,7 @@ import java.util.Set;
  */
 
 public class EXoContinuationBayeux
-   extends ContinuationBayeux
+   extends ContinuationBayeux implements Startable
 {
 
    /**
@@ -127,7 +128,6 @@ public class EXoContinuationBayeux
     */
    protected void initialize(ServletContext context)
    {
-      if (super._initialized) return; // avoid initializing twice
       super.initialize(context);
       try
       {
@@ -298,6 +298,14 @@ public class EXoContinuationBayeux
          return (userId != null && userToken.containsKey(userId) && userToken.get(userId).equals(eXoToken));
       }
 
+   }
+
+   public void start()
+   {
+   }
+
+   public void stop()
+   {
    }
 
 }

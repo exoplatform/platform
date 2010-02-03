@@ -74,6 +74,7 @@ public class TestTools
    {
       try
       {
+         System.out.println("TestTools.getUserToken()" + u);
          URL url = new URL(u);// + "/rest/ext/gettoken/" + id + "/");
          HTTPConnection connection = new HTTPConnection(url);
          HTTPResponse response = connection.Get(url.getFile());

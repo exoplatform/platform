@@ -16,11 +16,6 @@
  */
 package org.exoplatform.ws.frameworks.cometd.transport;
 
-import org.exoplatform.services.log.Log;
-import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.ExoContainerContext;
-import org.exoplatform.container.RootContainer;
-import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.ws.frameworks.cometd.ContinuationService;
 
 /**
@@ -63,5 +58,7 @@ public class ContinuationServiceLocalDelegate
    {
       continuation.sendBroadcastMessage(channel, message, msgId);
    }
+
+   
 
 }

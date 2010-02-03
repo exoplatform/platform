@@ -1,4 +1,4 @@
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
     xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
  <component>
@@ -12,6 +12,7 @@
   <key>org.exoplatform.ws.frameworks.cometd.transport.ContinuationServiceDelegate</key>
   <type>org.exoplatform.ws.frameworks.cometd.transport.ContinuationServiceLocalDelegate</type>
  </component>
+ <!-- 
  <component>
   <type>org.exoplatform.ws.frameworks.cometd.transport.RESTContinuationService</type>
  </component>
@@ -47,5 +48,6 @@
  </object-param>
 </init-params>
  </component>
+ -->
 </configuration>  
    

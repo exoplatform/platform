@@ -151,7 +151,7 @@ public class LocalCometdTest
       {
          HTTPConnection connection;
          String eXoId = id;
-         String userToken = TestTools.getUserToken(baseURI + "/gettoken/" + id + "/");
+         String userToken = TestTools.getUserToken(baseURI + "continuation/gettoken/" + id + "/");
          // First message for getting Cookie BAYEUX_BROWSER
          // clientId be changed after getting from server
          String initData =
@@ -162,6 +162,7 @@ public class LocalCometdTest
          pairs[2] = new NVPair("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
          pairs[3] = new NVPair("Content-Length", Integer.toString(initData.length()));
          url = new URL(baseCometdURI);
+         System.out.println("LocalCometdTest.cometdConnect()" + url);
          connection = new HTTPConnection(url);
          connection.removeModule(CookieModule.class); // remove module because it
          // remove the cookie from
@@ -175,10 +176,16 @@ public class LocalCometdTest
          String dataHandshake =
                   "message={\"channel\":\"/meta/handshake\",\"id\":1,\"exoId\":\"" + eXoId + "\",\"exoToken\":\""
                            + userToken + "\"}";
+         
+         System.out.println("LocalCometdTest.cometdConnect()" + dataHandshake);
+         
          pairs[3] = new NVPair("Content-Length", Integer.toString(dataHandshake.length()));
          pairs[4] = new NVPair("Cookie", bayeuxCookie);
          response = connection.Post(url.getFile(), dataHandshake.getBytes(), pairs);
          String string = new String(response.getData());
+         
+         System.out.println("LocalCometdTest.cometdConnect()" + string);
+         
          CMessage incomMessage = TestTools.stringToCMessage(string);
          assertNotNull(incomMessage);
          timeout = incomMessage.getAdvice().getTimeout();
@@ -239,6 +246,7 @@ public class LocalCometdTest
          }
          System.out.println("-----------------------LocalCometdTest-----------------------------------");
          System.out.println("Conected " + con + " clients");
+        
          for (int j = 0; j < repeat; j++)
          {
             for (int i = 0; i < con; i++)
@@ -249,7 +257,7 @@ public class LocalCometdTest
                   for (String channel : channels)
                   {
                      TestTools.sendMessage("exo" + String.valueOf(i), channel, individuals.get(key), key, baseURI
-                              + "/sendprivatemessage/");
+                              + "continuation/sendprivatemessage/");
                      Thread.sleep(sleepSend);
                   }
                }
@@ -258,7 +266,7 @@ public class LocalCometdTest
             for (String key : keySet)
             {
                TestTools.sendBroadcastMessage(channels.get(0), broadcasts.get(key), key, baseURI
-                        + "/sendbroadcastmessage/");
+                        + "continuation/sendbroadcastmessage/");
                Thread.sleep(sleepSend);
             }
          }

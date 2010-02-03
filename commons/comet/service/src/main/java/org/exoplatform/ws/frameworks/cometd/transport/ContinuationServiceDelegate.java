@@ -50,5 +50,6 @@ public interface ContinuationServiceDelegate
     * @param msgId the id of message.
     */
    void sendBroadcastMessage(String channel, String message, String msgId);
-
+   
+  
 }

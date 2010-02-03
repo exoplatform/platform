@@ -18,15 +18,10 @@ package org.mortbay.cometd.continuation;
  */
 
 import org.exoplatform.container.ExoContainer;
-import org.exoplatform.container.PortalContainer;
-import org.exoplatform.container.RootContainer.PortalContainerPostInitTask;
+import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.log.Log;
 import org.mortbay.cometd.AbstractBayeux;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletException;
 
 /**
  * Created by The eXo Platform SAS.
@@ -40,39 +35,14 @@ public class EXoContinuationCometdServlet
 {
 
    /**
+    * 
+    */
+   private static final long serialVersionUID = 9204910608302112814L;
+   /**
     * Logger.
     */
    private static Log log = ExoLogger.getLogger("ws.EXoContinuationCometdServlet");
 
-   /**
-    * The portal container
-    */
-   private ExoContainer container;
-   
-   /**
-    * {@inheritDoc}
-    */
-   public void init(final ServletConfig config) throws ServletException
-   {
-      final PortalContainerPostInitTask task = new PortalContainerPostInitTask()
-      {
-
-         public void execute(ServletContext context, PortalContainer portalContainer)
-         {
-            EXoContinuationCometdServlet.this.container = portalContainer;
-            try
-            {
-               EXoContinuationCometdServlet.super.init(config);
-            }
-            catch (ServletException e)
-            {
-               log.error("Cannot initialize Bayeux", e);
-            }
-         }
-      };
-      PortalContainer.addInitTask(config.getServletContext(), task);
-   }
-   
    /**
     * {@inheritDoc}
     */
@@ -80,6 +50,11 @@ public class EXoContinuationCometdServlet
    {
       try
       {
+         ExoContainer container;
+         if (getInitParameter("containerName") != null)
+            container = ExoContainerContext.getContainerByName(getInitParameter("containerName"));
+         else
+            container = ExoContainerContext.getCurrentContainer();
          if (log.isDebugEnabled())
             log.debug("EXoContinuationCometdServlet - Current Container-ExoContainer: " + container);
          EXoContinuationBayeux bayeux =

@@ -115,7 +115,7 @@ public class CargoContainer
          configuration.setProperty(ServletPropertySet.PORT, port);
          // configuration.addDeployable(new WAR(TEST_PATH +
          // "/target/test/war/portal.war"));
-         configuration.addDeployable(new WAR(TEST_PATH + "/target/test/war/cometd.war"));
+//         configuration.addDeployable(new WAR(TEST_PATH + "/target/test/war/cometd.war"));
          configuration.addDeployable(new WAR(TEST_PATH + "/target/test/war/rest.war"));
 
          InstalledLocalContainer container =
@@ -140,15 +140,18 @@ public class CargoContainer
          }
          String[] arr2 = new String[lst.size()];
          lst.toArray(arr2);
+         
          container.setExtraClasspath(arr2);
          container.setOutput("target/logs/tomcat.log");
          SimpleLogger logger = new SimpleLogger();
          LogLevel level = LogLevel.WARN;
          logger.setLevel(level);
          container.setLogger(logger);
-         File inputFile = new File(TEST_PATH + "/src/test/resources/exo-configuration.xml");
+         File inputFile = new File(TEST_PATH + "/src/test/resources/tomcat/exo-configuration.xml");
          File outputFile = new File(container.getHome() + "/exo-configuration.xml");
 
+         System.out.println("CargoContainer.cargoContainerStart()" + container.getHome());
+         
          FileReader in = new FileReader(inputFile);
          FileWriter out = new FileWriter(outputFile);
          int c;

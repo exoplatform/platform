@@ -22,23 +22,25 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
-import org.exoplatform.services.log.Log;
+import org.exoplatform.container.component.ComponentPlugin;
 import org.exoplatform.container.xml.InitParams;
-import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.log.Log;
+import org.picocontainer.Startable;
 
 /**
  * Created by The eXo Platform SAS.
  * @author <a href="mailto:vitaly.parfonov@gmail.com">Vitaly Parfonov</a>
  * @version $Id: $
  */
-public class LoadBalancerImpl
-   implements LoadBalancer
+public class LoadBalancerImpl implements LoadBalancer, Startable
 {
    /**
     * Class logger.
     */
    private final Log log = ExoLogger.getLogger("ws.LoadBalancerImpl");
+   
+   private LoadBalancerConf loadBalancerConf;
 
    /**
     * 
@@ -55,16 +57,16 @@ public class LoadBalancerImpl
     */
    public LoadBalancerImpl(InitParams params)
    {
-      if (params != null)
-      {
-         ObjectParameter parameter = params.getObjectParam("cometd.lb.configuration");
-         LoadBalancerConf conf = (LoadBalancerConf) parameter.getObject();
-         List<Node> list = conf.getNodes();
-         for (Node node : list)
-         {
-            nodes.put(node.getId(), node);
-         }
-      }
+//      if (params != null)
+//      {
+//         ObjectParameter parameter = params.getObjectParam("cometd.lb.configuration");
+//         LoadBalancerConf conf = (LoadBalancerConf) parameter.getObject();
+//         List<Node> list = conf.getNodes();
+//         for (Node node : list)
+//         {
+//            nodes.put(node.getId(), node);
+//         }
+//      }
    }
 
    /**
@@ -157,7 +159,38 @@ public class LoadBalancerImpl
          return null;
       }
    }
+   
+   
+   /**
+    * {@inheritDoc}
+    */
+   public void start()
+   {
+      if (loadBalancerConf != null) {
+         List<Node> list = loadBalancerConf.getNodes();
+         for (Node node : list)
+         {
+            nodes.put(node.getId(), node);
+         }
+      }
+   }
 
+   /**
+    * {@inheritDoc}
+    */
+   public void stop()
+   {
+   }
+
+   
+   public void addPlugin(ComponentPlugin plugin) {
+      if (LoadBalancerConfigPlugin.class.isAssignableFrom(plugin.getClass())) {
+        LoadBalancerConfigPlugin configPlugin =  (LoadBalancerConfigPlugin)plugin;
+        loadBalancerConf = configPlugin.getBalancerConf();
+      }
+    }
+   
+   
    /**
     * @author vetal
     *
@@ -187,4 +220,6 @@ public class LoadBalancerImpl
       }
 
    }
+
+  
 }

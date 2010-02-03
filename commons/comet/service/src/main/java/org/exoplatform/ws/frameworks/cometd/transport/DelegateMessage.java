@@ -16,8 +16,6 @@
  */
 package org.exoplatform.ws.frameworks.cometd.transport;
 
-import org.exoplatform.services.log.Log;
-import org.exoplatform.services.log.ExoLogger;
 
 /**
  * Created by The eXo Platform SAS.
@@ -28,10 +26,6 @@ import org.exoplatform.services.log.ExoLogger;
 
 public class DelegateMessage
 {
-   /**
-    * Class logger.
-    */
-   private final Log log = ExoLogger.getLogger("ws.TransportData");
 
    /**
     *  

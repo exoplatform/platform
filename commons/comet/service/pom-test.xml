@@ -1,15 +1,15 @@
 <project>
    <parent>
-      <groupId>org.exoplatform.comet</groupId>
-      <artifactId>comet-parent</artifactId>
-      <version>2.1.0-SNAPSHOT</version>
+      <groupId>org.exoplatform.platform</groupId>
+      <artifactId>exo.platform.commons.comet</artifactId>
+      <version>3.0.0-CR01-SNAPSHOT</version>
    </parent>
-   <modelVersion>4.0.0</modelVersion>
-   <artifactId>exo.comet.service</artifactId>
-   <version>2.1.0-SNAPSHOT</version>
-   <name>comet-service</name>
-   <packaging>jar</packaging>
-   <description></description>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>exo.platform.commons.comet.service</artifactId>
+    <name>eXo Platform Commons Comet Service</name>
+    <packaging>jar</packaging>
+   
+   
    <dependencies>
       <dependency>
          <groupId>javax.ws.rs</groupId>
@@ -55,6 +55,26 @@
          <groupId>org.codehaus.cargo</groupId>
          <artifactId>cargo-core-container-jetty</artifactId>
       </dependency>
+      
+       <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.5.6</version>
+         </dependency>
+
+         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.6</version>
+         </dependency>
+
+         <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+         </dependency>
+
+      
    </dependencies>
    <build>
       <plugins>
@@ -87,7 +107,7 @@
                      <tasks>
                         <echo>copy files</echo>
                         <jar destfile="${project.build.directory}/test/${artifactId}-${version}.jar" basedir="${project.build.directory}/classes" />
-                        <copy file="${basedir}/src/test/resources/exo-configuration.xml todir=" $ project.build.directory } jetty " />
+                        <copy file="${basedir}/src/test/resources/jetty/exo-configuration.xml" todir="${project.build.directory}/jetty" />
                      </tasks>
                   </configuration>
                </execution>
@@ -187,12 +207,12 @@
                         <artifactItem>
                            <groupId>org.exoplatform.ws</groupId>
                            <artifactId>exo.ws.frameworks.json</artifactId>
-                           <version>2.0.3-SNAPSHOT</version>
+                           <version>${org.exoplatform.ws.version}</version>
                         </artifactItem>
                         <artifactItem>
                            <groupId>org.exoplatform.ws</groupId>
                            <artifactId>exo.ws.commons</artifactId>
-                           <version>2.0.3-SNAPSHOT</version>
+                           <version>${org.exoplatform.ws.version}</version>
                         </artifactItem>
                         <artifactItem>
                            <groupId>org.mortbay.jetty</groupId>
@@ -239,7 +259,7 @@
                         <artifactItem>
                            <groupId>org.jibx</groupId>
                            <artifactId>jibx-run</artifactId>
-                           <version>1.1.6a</version>
+                           <version>1.2.1</version>
                            <type>jar</type>
                         </artifactItem>
                         <artifactItem>
@@ -275,23 +295,48 @@
                         <artifactItem>
                            <groupId>org.exoplatform.ws</groupId>
                            <artifactId>exo.ws.frameworks.servlet</artifactId>
-                           <version>2.0.3-SNAPSHOT</version>
+                           <version>${org.exoplatform.ws.version}</version>
                         </artifactItem>
                         <artifactItem>
-                           <groupId>org.exoplatform.ws</groupId>
-                           <artifactId>exo.ws.frameworks.cometd.ext</artifactId>
-                           <version>2.0.3-SNAPSHOT</version>
+                           <groupId>org.exoplatform.comet</groupId>
+                           <artifactId>exo-comet-ext</artifactId>
+                           <version>${org.exoplatform.comet.version}</version>
                         </artifactItem>
                         <artifactItem>
                            <groupId>org.exoplatform.ws</groupId>
                            <artifactId>exo.ws.rest.core</artifactId>
-                           <version>2.0.3-SNAPSHOT</version>
+                           <version>${org.exoplatform.ws.version}</version>
                         </artifactItem>
                         <artifactItem>
                            <groupId>stax</groupId>
                            <artifactId>stax-api</artifactId>
                            <version>1.0</version>
                         </artifactItem>
+                         <artifactItem>
+                                     <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.5.6</version>
+	    </artifactItem>
+
+		<artifactItem>
+                <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.6</version>
+	    </artifactItem>
+
+	    <artifactItem>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.14</version>
+         </artifactItem>
+         
+         
+         <artifactItem>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>jsr311-api</artifactId>
+      <version>1.0</version>
+      </artifactItem>    
+
                      </artifactItems>
                      <outputDirectory>${project.build.directory}/test</outputDirectory>
                   </configuration>
@@ -305,17 +350,17 @@
                   <configuration>
                      <artifactItems>
                         <artifactItem>
-                           <groupId>org.exoplatform.ws</groupId>
-                           <artifactId>exo.ws.frameworks.cometd.ext.webapp.rest</artifactId>
-                           <version>2.0.3-SNAPSHOT</version>
+                           <groupId>org.exoplatform.comet</groupId>
+                           <artifactId>exo-comet-ext-webapp-rest</artifactId>
+                           <version>${org.exoplatform.comet.version}</version>
                            <type>war</type>
                            <outputDirectory>${project.build.directory}/test/war</outputDirectory>
                            <destFileName>rest.war</destFileName>
                         </artifactItem>
                         <artifactItem>
-                           <groupId>org.exoplatform.ws</groupId>
-                           <artifactId>exo.ws.frameworks.cometd.ext.webapp.cometd</artifactId>
-                           <version>2.0.3-SNAPSHOT</version>
+                           <groupId>org.exoplatform.comet</groupId>
+                           <artifactId>exo-comet-ext-webapp-comet</artifactId>
+                           <version>${org.exoplatform.comet.version}</version>
                            <type>war</type>
                            <outputDirectory>${project.build.directory}/test/war</outputDirectory>
                            <destFileName>cometd.war</destFileName>
@@ -332,17 +377,17 @@
                   <configuration>
                      <artifactItems>
                         <artifactItem>
-                           <groupId>org.exoplatform.ws</groupId>
-                           <artifactId>exo.ws.frameworks.cometd.ext.webapp.rest</artifactId>
-                           <version>2.0.3-SNAPSHOT</version>
+                           <groupId>org.exoplatform.comet</groupId>
+                           <artifactId>exo-comet-ext-webapp-rest</artifactId>
+                           <version>${org.exoplatform.comet.version}</version>
                            <type>war</type>
                            <outputDirectory>${project.build.directory}/jetty/test/war</outputDirectory>
                            <destFileName>rest.war</destFileName>
                         </artifactItem>
                         <artifactItem>
-                           <groupId>org.exoplatform.ws</groupId>
-                           <artifactId>exo.ws.frameworks.cometd.ext.webapp.cometd</artifactId>
-                           <version>2.0.3-SNAPSHOT</version>
+                           <groupId>org.exoplatform.comet</groupId>
+                           <artifactId>exo-comet-ext-webapp-comet</artifactId>
+                           <version>${org.exoplatform.comet.version}</version>
                            <type>war</type>
                            <outputDirectory>${project.build.directory}/jetty/test/war</outputDirectory>
                            <destFileName>cometd.war</destFileName>
@@ -363,8 +408,8 @@
                <tmpDir>target/not/necessary</tmpDir>
                <!--webDefaultXml>src/test/resources/webdefault.xml</webDefaultXml>
      <overrideWebXml>src/test/resources/override-web.xml</overrideWebXml-->
-               <webAppSourceDirectory>src/test/resources</webAppSourceDirectory>
-               <jettyConfig>src/test/resources/jetty.xml</jettyConfig>
+               <webAppSourceDirectory>src/test/resources/jetty</webAppSourceDirectory>
+               <jettyConfig>src/test/resources/jetty/jetty.xml</jettyConfig>
                <requestLog implementation="org.mortbay.jetty.NCSARequestLog">
                   <filename>target/yyyy_mm_dd.request.log</filename>
                   <retainDays>90</retainDays>
@@ -423,17 +468,17 @@
                <dependency>
                   <groupId>org.exoplatform.ws</groupId>
                   <artifactId>exo.ws.rest.core</artifactId>
-                  <version>2.0.3-SNAPSHOT</version>
+                  <version>${org.exoplatform.ws.version}</version>
                </dependency>
                <dependency>
-                  <groupId>org.exoplatform.ws</groupId>
-                  <artifactId>exo.ws.frameworks.cometd.service</artifactId>
-                  <version>2.0.3-SNAPSHOT</version>
+                  <groupId>org.exoplatform.comet</groupId>
+                  <artifactId>exo-comet-service</artifactId>
+                  <version>${org.exoplatform.comet.version}</version>
                </dependency>
                <dependency>
-                  <groupId>org.exoplatform.ws</groupId>
-                  <artifactId>exo.ws.frameworks.cometd.ext</artifactId>
-                  <version>2.0.3-SNAPSHOT</version>
+                  <groupId>org.exoplatform.comet</groupId>
+                  <artifactId>exo-comet-ext</artifactId>
+                  <version>${org.exoplatform.comet.version}</version>
                </dependency>
                <dependency>
                   <groupId>org.exoplatform.kernel</groupId>
@@ -448,17 +493,17 @@
                <dependency>
                   <groupId>org.exoplatform.ws</groupId>
                   <artifactId>exo.ws.frameworks.json</artifactId>
-                  <version>2.0.3-SNAPSHOT</version>
+                  <version>${org.exoplatform.ws.version}</version>
                </dependency>
                <dependency>
                   <groupId>org.exoplatform.ws</groupId>
                   <artifactId>exo.ws.frameworks.servlet</artifactId>
-                  <version>2.0.3-SNAPSHOT</version>
+                  <version>${org.exoplatform.ws.version}</version>
                </dependency>
                <dependency>
                   <groupId>org.exoplatform.ws</groupId>
                   <artifactId>exo.ws.commons</artifactId>
-                  <version>2.0.3-SNAPSHOT</version>
+                  <version>${org.exoplatform.ws.version}</version>
                </dependency>
                <dependency>
                   <groupId>org.mortbay.jetty</groupId>
