@@ -150,7 +150,7 @@
 	  <Set name="parentLoaderPriority">false</Set>
 	  <Set name="extract">true</Set>
 	  <Set name="allowDuplicates">false</Set>
-          <Set name="defaultsDescriptor"><SystemProperty name="jetty.home" default="."/>../../../src/test/resources/webdefault.xml</Set>
+          <Set name="defaultsDescriptor"><SystemProperty name="jetty.home" default="."/>../../../src/test/resources/jetty/webdefault.xml</Set>
         </New>
       </Arg>
     </Call>
