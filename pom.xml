@@ -50,11 +50,7 @@
   <modules>
     <module>component</module>
     <module>commons</module>
-    <module>portlet</module>
-    <module>sample</module>
-    <module>server</module>
     <module>web</module>
-    <module>test</module>
     <module>packaging</module>
   </modules>
 </project>
