@@ -1,3 +1,0 @@
-<div id="$uicomponent.id" class="ApplicationContent">
-  <a href="<%=uicomponent.event("SubmitEvent")%>">Submit Event</a>
-</div>
