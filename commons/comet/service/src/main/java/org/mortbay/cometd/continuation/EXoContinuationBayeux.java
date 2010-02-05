@@ -24,7 +24,6 @@ import dojox.cometd.Message;
 import org.exoplatform.services.log.Log;
 import org.exoplatform.services.log.ExoLogger;
 import org.mortbay.cometd.ClientImpl;
-import org.picocontainer.Startable;
 
 import javax.servlet.ServletContext;
 import java.security.SecureRandom;
@@ -41,7 +40,7 @@ import java.util.Set;
  */
 
 public class EXoContinuationBayeux
-   extends ContinuationBayeux implements Startable
+   extends ContinuationBayeux
 {
 
    /**
@@ -59,6 +58,11 @@ public class EXoContinuationBayeux
     */
    private long timeout;
 
+   /**
+    * Cometd webapp context name
+    */
+   private String cometdContextName = "cometd";
+   
    /**
     * Logger.
     */
@@ -99,6 +103,14 @@ public class EXoContinuationBayeux
    }
 
    /**
+    * 
+    * @return context name of cometd webapp
+    */
+   public String getCometdContextName() {
+     return cometdContextName;
+   }
+   
+   /**
     * {@inheritDoc}
     */
    long getRandom(long variation)
@@ -128,7 +140,9 @@ public class EXoContinuationBayeux
     */
    protected void initialize(ServletContext context)
    {
+      if (super._initialized) return; // avoid initializing twice
       super.initialize(context);
+      cometdContextName = context.getServletContextName();
       try
       {
          random = SecureRandom.getInstance("SHA1PRNG");
@@ -298,14 +312,6 @@ public class EXoContinuationBayeux
          return (userId != null && userToken.containsKey(userId) && userToken.get(userId).equals(eXoToken));
       }
 
-   }
-
-   public void start()
-   {
-   }
-
-   public void stop()
-   {
    }
 
 }
