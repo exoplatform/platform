@@ -3,7 +3,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.parent</artifactId>
-    <version>3.0.0-CR01-SNAPSHOT</version>
+    <version>3.0.0-Alpha01</version>
   </parent>
 
   <artifactId>exo.platform.web</artifactId>
