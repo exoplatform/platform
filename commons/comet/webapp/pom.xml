@@ -2,7 +2,7 @@
    <parent>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.commons.comet</artifactId>
-      <version>3.0.0-Alpha02</version>
+      <version>3.0.0-Alpha03-SNAPSHOT</version>
    </parent>
    <modelVersion>4.0.0</modelVersion>
    <artifactId>exo.platform.commons.comet.webapp</artifactId>
