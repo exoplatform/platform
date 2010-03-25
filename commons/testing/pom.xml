@@ -2,14 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.exoplatform.ks</groupId>
-    <artifactId>ks</artifactId>
-    <version>2.0.0-Beta02-SNAPSHOT</version>
+    <groupId>org.exoplatform.platform</groupId>
+    <artifactId>exo.platform.commons</artifactId>
+    <version>3.0.0-Alpha03-SNAPSHOT</version>
   </parent>
-  <artifactId>exo.ks.test-utils</artifactId>
+  <artifactId>exo.platform.commons.testing</artifactId>
   <packaging>jar</packaging>
-  <name>eXo KS test utils</name>
-  <dependencies>
+  <name>eXo Commons Testing</name>
+  <dependencies> 
+
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.test.core</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+    </dependency>
     <dependency>
       <groupId>javax.jcr</groupId>
       <artifactId>jcr</artifactId>

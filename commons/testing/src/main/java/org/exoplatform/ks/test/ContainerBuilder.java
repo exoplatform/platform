@@ -24,9 +24,11 @@ import java.util.Collections;
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Vector;
 
 import junit.framework.AssertionFailedError;
 
+import org.exoplatform.component.test.GateInTestClassLoader;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
@@ -50,7 +52,7 @@ public class ContainerBuilder
    private ClassLoader loader;
 
    /** . */
-   private List<URL> configURLs;
+   private List<URL> rootConfigURLs;
 
    /** . */
    private LinkedHashMap<String, List<URL>> portalConfigURLs;
@@ -58,19 +60,19 @@ public class ContainerBuilder
    public ContainerBuilder()
    {
       this.loader = Thread.currentThread().getContextClassLoader();
-      this.configURLs = new ArrayList<URL>();
+      this.rootConfigURLs = new ArrayList<URL>();
       this.portalConfigURLs = new LinkedHashMap<String, List<URL>>();
    }
 
    public ContainerBuilder withRoot(String configPath)
    {
-      configURLs.addAll(urls(configPath));
+      rootConfigURLs.addAll(urls(configPath));
       return this;
    }
 
    public ContainerBuilder withRoot(URL configURL)
    {
-      configURLs.add(configURL);
+      rootConfigURLs.add(configURL);
       return this;
    }
 
@@ -142,7 +144,7 @@ public class ContainerBuilder
    private RootContainer _build() throws Exception
    {
       //
-      if (configURLs.size() == 0)
+      if (rootConfigURLs.size() == 0)
       {
          throw new IllegalStateException("Must provide at least one URL for building the root container");
       }
@@ -167,7 +169,9 @@ public class ContainerBuilder
       
       PortalContainer.setInstance(null);
 
-      //
+      
+      
+      
       ClassLoader rootCL = new ClassLoader(loader)
       {
          @Override
@@ -177,7 +181,7 @@ public class ContainerBuilder
            
             if ("conf/configuration.xml".equals(name))
             {
-              resources =  Collections.enumeration(configURLs);
+              resources =  Collections.enumeration(rootConfigURLs);
             }
             else if ("conf/portal/configuration.xml".equals(name))
             {
@@ -186,7 +190,7 @@ public class ContainerBuilder
             }
             else if ("conf/portal/test-configuration.xml".equals(name))
             {
-              resources =  Collections.enumeration(Collections.<URL>emptyList());
+              resources =  new Vector<URL>().elements();
             }
             else
             {
@@ -202,10 +206,14 @@ public class ContainerBuilder
             
          }
       };
+      
 
+      
       //
       ClassLoader oldCL = Thread.currentThread().getContextClassLoader();
 
+
+      
       // Boot root container
       RootContainer root;
       try

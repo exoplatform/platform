@@ -20,11 +20,11 @@ package org.exoplatform.ks.test.jcr;
 import javax.jcr.Node;
 import javax.jcr.Session;
 
+import org.exoplatform.component.test.ConfigurationUnit;
+import org.exoplatform.component.test.ConfiguredBy;
+import org.exoplatform.component.test.ContainerScope;
 import org.exoplatform.ks.test.AssertUtils;
 import org.exoplatform.ks.test.Closure;
-import org.exoplatform.ks.test.ConfigurationUnit;
-import org.exoplatform.ks.test.ConfiguredBy;
-import org.exoplatform.ks.test.ContainerScope;
 import org.testng.annotations.Test;
 
 import static  org.testng.AssertJUnit.*;

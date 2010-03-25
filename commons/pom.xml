@@ -14,6 +14,91 @@
 
   <modules>
     <module>comet</module>
+    <module>testing</module>
   </modules>
+
+  <properties>
+    <org.exoplatform.kernel.version>2.2.0-GA</org.exoplatform.kernel.version>
+    <org.exoplatform.core.version>2.3.0-GA</org.exoplatform.core.version>
+    <org.exoplatform.jcr.version>1.12.0-GA</org.exoplatform.jcr.version>
+    <org.exoplatform.portal.version>3.0.0-GA</org.exoplatform.portal.version>
+    <picocontainer.version>1.1</picocontainer.version>
+    <javax.jcr.api.version>1.0</javax.jcr.api.version>
+    <testng.version>5.10</testng.version>
+    <junit.version>3.8.2</junit.version>
+    <mockito.version>1.8.1</mockito.version>
+    <javax.servlet.servlet-api.version>2.5</javax.servlet.servlet-api.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>javax.jcr</groupId>
+        <artifactId>jcr</artifactId>
+        <version>${javax.jcr.api.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.jcr</groupId>
+        <artifactId>exo.jcr.component.core</artifactId>
+        <version>${org.exoplatform.jcr.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>picocontainer</groupId>
+        <artifactId>picocontainer</artifactId>
+        <version>${picocontainer.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.component.resources</artifactId>
+        <version>${org.exoplatform.portal.version}</version>
+      </dependency>      
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.component.web</artifactId>
+        <version>${org.exoplatform.portal.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>${testng.version}</version>
+        <classifier>jdk15</classifier>
+      </dependency>      
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+      </dependency> 
+      <dependency>
+        <groupId>org.exoplatform.core</groupId>
+        <artifactId>exo.core.component.organization.api</artifactId>
+        <version>${org.exoplatform.core.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.kernel</groupId>
+        <artifactId>exo.kernel.container</artifactId>
+        <version>${org.exoplatform.kernel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.kernel</groupId>
+        <artifactId>exo.kernel.commons</artifactId>
+        <version>${org.exoplatform.kernel.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.exoplatform.portal</groupId>
+        <artifactId>exo.portal.webui.core</artifactId>
+        <version>${org.exoplatform.portal.version}</version>
+      </dependency>                        
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>${javax.servlet.servlet-api.version}</version>
+      </dependency>     
+      <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-all</artifactId>
+        <version>${mockito.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
 </project>

@@ -30,10 +30,10 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 import javax.jcr.Session;
 
+import org.exoplatform.component.test.ConfigurationUnit;
+import org.exoplatform.component.test.ConfiguredBy;
+import org.exoplatform.component.test.ContainerScope;
 import org.exoplatform.ks.test.AbstractExoContainerTestCase;
-import org.exoplatform.ks.test.ConfigurationUnit;
-import org.exoplatform.ks.test.ConfiguredBy;
-import org.exoplatform.ks.test.ContainerScope;
 import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.core.ManageableRepository;
 
