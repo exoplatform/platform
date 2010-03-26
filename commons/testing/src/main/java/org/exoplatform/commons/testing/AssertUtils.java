@@ -1,4 +1,4 @@
-package org.exoplatform.ks.test;
+package org.exoplatform.commons.testing;
 
 import java.util.Arrays;
 import java.util.Collection;

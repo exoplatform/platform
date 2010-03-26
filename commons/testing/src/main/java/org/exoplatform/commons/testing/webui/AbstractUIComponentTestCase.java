@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.ks.test.webui;
+package org.exoplatform.commons.testing.webui;
 
 import org.exoplatform.web.application.ApplicationMessage;
 import org.exoplatform.webui.core.UIApplication;

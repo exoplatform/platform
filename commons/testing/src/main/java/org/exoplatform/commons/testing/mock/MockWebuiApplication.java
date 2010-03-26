@@ -14,76 +14,73 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.ks.test.mock;
+package org.exoplatform.commons.testing.mock;
 
-import org.exoplatform.services.resources.Orientation;
-import org.exoplatform.web.application.Application;
-import org.exoplatform.web.application.URLBuilder;
+import java.util.Locale;
+import java.util.ResourceBundle;
+
+import org.exoplatform.webui.application.WebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
+import org.exoplatform.webui.core.UIComponent;
 
 /**
  * @author <a href="mailto:patrice.lamarque@exoplatform.com">Patrice Lamarque</a>
  * @version $Revision$
  */
-public class MockWebUIRequestContext extends WebuiRequestContext {
-
-  public MockWebUIRequestContext(Application app) {
-    super(app);
-  }
+public class MockWebuiApplication extends WebuiApplication {
 
   @Override
-  public <T> T getRequest() throws Exception {
-    
+  public String getApplicationInitParam(String name) {
+
     return null;
   }
 
-  public String getPortalContextPath(){
-    return null ;
+  @Override
+  public String getApplicationGroup() {
+
+    return null;
+  }
+
+  @Override
+  public String getApplicationId() {
+
+    return null;
+  }
+
+  @Override
+  public String getApplicationName() {
+
+    return null;
+  }
+
+  @Override
+  public String getApplicationType() {
+
+    return null;
+  }
+
+  @Override
+  public ResourceBundle getOwnerResourceBundle(String username, Locale locale) throws Exception {
+
+    return null;
+  }
+
+  @Override
+  public ResourceBundle getResourceBundle(Locale locale) throws Exception {
+
+    return rb;
   }
   
-  @Override
-  public String getRequestContextPath() {
+  ResourceBundle rb;
+  
+  public void setResourceBundle(ResourceBundle rb) {
+    this.rb = rb;
+  }
+  
+  public <T extends UIComponent> T createUIComponent(Class<T> type, String configId, String id,
+                                                     WebuiRequestContext context) throws Exception {
+    return type.getConstructor().newInstance();
     
-    return null;
-  }
-
-  @Override
-  public <T> T getResponse() throws Exception {
-    
-    return null;
-  }
-
-  @Override
-  public void sendRedirect(String url) throws Exception {
-  }
-
-  @Override
-  public Orientation getOrientation() {
-    
-    return null;
-  }
-
-  @Override
-  public String getRequestParameter(String name) {
-    
-    return null;
-  }
-
-  @Override
-  public String[] getRequestParameterValues(String name) {
-    return new String[0];
-  }
-
-  @Override
-  public URLBuilder getURLBuilder() {
-    
-    return null;
-  }
-
-  @Override
-  public boolean useAjax() {
-    
-    return false;
   }
 
 }

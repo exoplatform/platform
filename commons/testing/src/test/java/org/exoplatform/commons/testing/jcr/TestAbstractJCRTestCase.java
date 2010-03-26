@@ -14,17 +14,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.ks.test.jcr;
+package org.exoplatform.commons.testing.jcr;
 
 
 import javax.jcr.Node;
 import javax.jcr.Session;
 
+import org.exoplatform.commons.testing.AssertUtils;
+import org.exoplatform.commons.testing.Closure;
+import org.exoplatform.commons.testing.jcr.AbstractJCRTestCase;
 import org.exoplatform.component.test.ConfigurationUnit;
 import org.exoplatform.component.test.ConfiguredBy;
 import org.exoplatform.component.test.ContainerScope;
-import org.exoplatform.ks.test.AssertUtils;
-import org.exoplatform.ks.test.Closure;
 import org.testng.annotations.Test;
 
 import static  org.testng.AssertJUnit.*;

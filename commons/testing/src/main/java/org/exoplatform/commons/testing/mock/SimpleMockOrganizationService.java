@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.exoplatform.ks.test.mock;
+package org.exoplatform.commons.testing.mock;
 
 import java.util.Arrays;
 import java.util.Collection;

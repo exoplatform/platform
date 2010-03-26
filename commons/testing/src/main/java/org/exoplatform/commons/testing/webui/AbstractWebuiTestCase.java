@@ -14,17 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.ks.test.webui;
+package org.exoplatform.commons.testing.webui;
 
 
 import java.util.HashMap;
 
 import junit.framework.TestCase;
 
-import org.exoplatform.ks.test.mock.MockParentRequestContext;
-import org.exoplatform.ks.test.mock.MockResourceBundle;
-import org.exoplatform.ks.test.mock.MockWebUIRequestContext;
-import org.exoplatform.ks.test.mock.MockWebuiApplication;
+import org.exoplatform.commons.testing.mock.MockParentRequestContext;
+import org.exoplatform.commons.testing.mock.MockResourceBundle;
+import org.exoplatform.commons.testing.mock.MockWebUIRequestContext;
+import org.exoplatform.commons.testing.mock.MockWebuiApplication;
 import org.exoplatform.webui.application.WebuiRequestContext;
 
 /**
