@@ -31,7 +31,6 @@ import org.testng.annotations.Test;
 import static  org.testng.AssertJUnit.*;
 
 /**
- * @author <a href="mailto:julien.viet@exoplatform.com">Julien Viet</a>
  * @version $Revision$
  */
  @ConfiguredBy({@ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/jcr/jcr-configuration.xml")})
