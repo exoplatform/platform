@@ -45,6 +45,8 @@
     <version.reflect>1.0.0</version.reflect>
 -->
     <org.exoplatform.portal.version>3.0.0-GA</org.exoplatform.portal.version>
+
+   <maven.test.skip>true</maven.test.skip>
   </properties>
 
   <modules>
