@@ -15,6 +15,7 @@
   <modules>
     <module>comet</module>
     <module>testing</module>
+    <module>webui/ext</module>
   </modules>
 
   <properties>

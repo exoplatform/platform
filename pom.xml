@@ -32,6 +32,7 @@
     <org.exoplatform.core.version>2.3.0-GA</org.exoplatform.core.version>
     <org.exoplatform.ws.version>2.1.0-GA</org.exoplatform.ws.version>
     <org.exoplatform.jcr.version>1.12.0-GA</org.exoplatform.jcr.version>
+    <org.slf4j.slf4j-simple.version>1.5.6</org.slf4j.slf4j-simple.version>
 <!--
     <org.jibx.version>1.2.1</org.jibx.version>
     <org.shindig.version>1.0-r790473-Patch02</org.shindig.version>
