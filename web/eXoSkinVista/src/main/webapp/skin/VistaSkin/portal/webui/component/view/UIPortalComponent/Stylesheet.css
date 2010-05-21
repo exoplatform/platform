@@ -165,22 +165,23 @@
   padding: 8px;
 }
 
-.PortletLayoutDecorator .BottomLeft {
-  background: url('background/PortletLayoutDecorator.png') no-repeat left -27px;
-  padding-left: 10px ;
+.PortletLayoutDecorator .LPortletLayoutDecorator {
+	background: url('background/PortletLayoutDecorator.png') no-repeat left top;
+	padding-left: 12px;
 }
 
-.PortletLayoutDecorator .BottomMiddle {
-  background: url('background/PortletLayoutDecorator.png') repeat-x bottom;
+.PortletLayoutDecorator .RPortletLayoutDecorator {
+	background: url('background/PortletLayoutDecorator.png') no-repeat right -87px;
+	padding-right: 12px;
 }
 
-.PortletLayoutDecorator .BottomRight {
-  background: url('background/PortletLayoutDecorator.png') no-repeat right -41px;
-  padding-right: 11px ;
+.PortletLayoutDecorator .CPortletLayoutDecorator {
+	background: url('background/PortletLayoutDecorator.png') repeat-x left -174px;
 }
 
-.PortletLayoutDecorator .BottomLeft .FixHeight {
-	height: 14px;
+.PortletLayoutDecorator .FixHeight {
+	height: 62px;
+	padding: 10px 3px 15px 3px;
 }
 /*############### End Decorator ###################################################*/
 
@@ -195,10 +196,6 @@
 }
 
 .UIContainer .LAYOUT-CONTAINER {
-  background: url('background/ContainerBG3x3.png') repeat;
-  border: solid 1px #7c7c7c;
-  padding: 5px;
-  margin: 0px 3px;
   min-height: 60px;
 }
 
@@ -318,4 +315,22 @@
 .UIPageBody .UIPortlet .PortletInfoBar .POverArrowDownIcon {
   height: 20px; width: 33px;margin-top: 3px;
   background: url('icons/16x16/PArrowDownOver.png') no-repeat ;
+}
+
+.EdittingContainer .NormalContainerBlock {
+  background: url('background/ContainerBG3x3.png') repeat;
+  border: dashed 1px #7c7c7c;
+  padding: 5px;
+  margin: 0px 3px 5px 3px;
+}
+
+.EdittingContainer .OverContainerBlock {
+  background: url('background/ContainerBG3x3.png') repeat;
+  border: solid 1px #a8a8a8;
+  padding: 5px;
+  margin: 0px 3px 5px 3px;
+}
+
+.UIContainer .VIEW-BLOCK .EmptyContainer {
+	height: 82px;
 }
