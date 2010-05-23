@@ -167,7 +167,10 @@ public class ContainerBuilder
       bootingField.set(null, false);
       RootContainer.setInstance(null);
       
-      PortalContainer.setInstance(null);
+      
+      if (ExoContainerContext.getCurrentContainerIfPresent() != null) {
+        PortalContainer.setInstance(null);
+      }
 
       
       
