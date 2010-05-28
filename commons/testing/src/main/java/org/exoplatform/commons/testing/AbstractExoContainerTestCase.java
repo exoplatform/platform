@@ -37,8 +37,6 @@ import org.testng.annotations.BeforeClass;
  * @ConfiguredBy({@ConfigurationUnit(scope = ContainerScope.ROOT, path = "conf/custom.xml"),@ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/some.xml"),  @ConfigurationUnit(scope = ContainerScope.PORTAL, path = "conf/other.xml")})
  * </pre>
  * 
- * TODO : leverage GateIn testing framework. This is a temporary fork of GateIn
- * testing base classes.
  * 
  * @author <a href="mailto:patrice.lamarque@exoplatform.com">Patrice
  *         Lamarque</a>
@@ -68,17 +66,14 @@ public abstract class AbstractExoContainerTestCase {
     Set<String> rootConfigPaths = new HashSet<String>();
     rootConfigPaths.add("conf/root-configuration.xml");
 
-    //
     Set<String> portalConfigPaths = new HashSet<String>();
     portalConfigPaths.add("conf/portal-configuration.xml");
     portalConfigPaths.add("conf/" + getClass().getSimpleName() + ".xml");
 
-    //
     EnumMap<ContainerScope, Set<String>> configs = new EnumMap<ContainerScope, Set<String>>(ContainerScope.class);
     configs.put(ContainerScope.ROOT, rootConfigPaths);
     configs.put(ContainerScope.PORTAL, portalConfigPaths);
 
-    //
     ConfiguredBy cfBy = getClass().getAnnotation(ConfiguredBy.class);
 
     if (cfBy != null) {
@@ -123,7 +118,6 @@ public abstract class AbstractExoContainerTestCase {
    */
   @SuppressWarnings("unchecked")
   protected <T, U extends T> U getComponent(Class<T> key) {
-    // ExoContainer container = ExoContainerContext.getCurrentContainer();
     ExoContainer container = PortalContainer.getInstance();
     return (U) container.getComponentInstanceOfType(key);
   }

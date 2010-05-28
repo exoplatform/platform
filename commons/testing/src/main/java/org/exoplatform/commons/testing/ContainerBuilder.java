@@ -28,7 +28,6 @@ import java.util.Vector;
 
 import junit.framework.AssertionFailedError;
 
-import org.exoplatform.component.test.GateInTestClassLoader;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.RootContainer;
