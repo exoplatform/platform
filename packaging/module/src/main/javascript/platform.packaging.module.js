@@ -25,21 +25,26 @@ function getModule(params)
    var shindigVersion = "${org.shindig.version}";
    var cometVersion = "${org.exoplatform.cometd.version}";
 
-   module.portlet = {};
+   module.fck = 
+     new Project("org.exoplatform.platform", "exo.platform.web.fck", "war", module.version);
+   module.fck.deployName = "fck";
 
-   module.portlet.browser =
-   new Project("org.exoplatform.platform", "exo.portal.portlet.browser", "exo-portlet", module.version);
 
-   module.sample = {};
+   /*module.portlet = {};*/
+
+   /*module.portlet.browser =
+   new Project("org.exoplatform.platform", "exo.portal.portlet.browser", "exo-portlet", module.version);*/
+
+   /*module.sample = {};
    module.sample.framework =
    new Project("org.exoplatform.portal", "exo.portal.sample.framework", "war", module.version);
-   module.sample.framework.deployName = "eXoSampleFramework";
+   module.sample.framework.deployName = "eXoSampleFramework";*/
 
-   module.web = {}
+   /*module.web = {}
    module.web.eXoMacSkin =
    new Project("org.exoplatform.portal", "exo.portal.web.eXoSkinMac", "war", module.version);
    module.web.eXoVistaSkin =
-   new Project("org.exoplatform.portal", "exo.portal.web.eXoSkinVista", "war", module.version);
+   new Project("org.exoplatform.portal", "exo.portal.web.eXoSkinVista", "war", module.version);*/
 
    return module;
 }

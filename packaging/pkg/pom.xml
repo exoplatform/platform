@@ -12,12 +12,20 @@
    
    <dependencies>
 
-      <dependency>
+      <!--dependency>
          <groupId>org.gatein.tools</groupId>
          <artifactId>packager</artifactId>
          <type>zip</type>
          <version>1.0.0-Beta05</version>
-      </dependency>
+      </dependency-->
+      
+      <dependency>
+		    <groupId>org.exoplatform.tool</groupId>
+		    <artifactId>exopackage</artifactId>
+		    <version>${org.exoplatform.exopackage.version}</version>
+		    <type>zip</type>
+		  </dependency>
+
 
       <dependency>
          <groupId>org.exoplatform.kernel</groupId>
@@ -49,6 +57,7 @@
          <version>${org.exoplatform.portal.version}</version>
          <type>js</type>
        </dependency>
+       <!-- PLATFORM -->
        <dependency>
          <groupId>org.exoplatform.platform</groupId>
          <artifactId>platform.packaging.module</artifactId>
@@ -61,6 +70,121 @@
          <version>${project.version}</version>
          <type>js</type>
        </dependency> 
+       <!-- KS -->
+       <dependency>
+			  <groupId>org.exoplatform.ks</groupId>
+			  <artifactId>ks.packaging.module</artifactId>
+			  <version>${org.exoplatform.ks.version}</version>
+			  <type>js</type>
+			</dependency>
+			<dependency>
+			  <groupId>org.exoplatform.ks</groupId>
+			  <artifactId>portal.packaging.product</artifactId>
+			  <version>${org.exoplatform.ks.version}</version>
+			  <type>js</type>
+			</dependency>
+			<!-- CS -->
+      <dependency>
+		    <groupId>org.exoplatform.cs</groupId>
+		    <artifactId>cs.packaging.module</artifactId>
+		    <version>${org.exoplatform.cs.version}</version>
+		    <type>js</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.cs</groupId>
+		    <artifactId>cs.packaging.product</artifactId>
+		    <version>${org.exoplatform.cs.version}</version>
+		    <type>js</type>
+		  </dependency>
+		  <!-- SOCIAL -->
+      <dependency>
+		    <groupId>org.exoplatform.social</groupId>
+		    <artifactId>social.packaging.module</artifactId>
+		    <version>${org.exoplatform.social.version}</version>
+		    <type>js</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.social</groupId>
+		    <artifactId>social.packaging.product</artifactId>
+		    <version>${org.exoplatform.social.version}</version>
+		    <type>js</type>
+		  </dependency>
+		  <!-- ECMS -->
+      <dependency>
+		    <groupId>org.exoplatform.ecms</groupId>
+		    <artifactId>workflow.packaging.module</artifactId>
+		    <version>${org.exoplatform.ecms.version}</version>
+		    <type>js</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ecms</groupId>
+		    <artifactId>dms.packaging.module</artifactId>
+		    <version>${org.exoplatform.ecms.version}</version>
+		    <type>js</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ecms</groupId>
+		    <artifactId>wcm.packaging.module</artifactId>
+		    <version>${org.exoplatform.ecms.version}</version>
+		    <type>js</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ecms</groupId>
+		    <artifactId>wcm.packaging.product</artifactId>
+		    <version>${org.exoplatform.ecms.version}</version>
+		    <type>js</type>
+		  </dependency>
+      <!--  -->
+      <dependency>
+		    <groupId>org.exoplatform.ecms</groupId>
+		    <artifactId>exo-ecms-delivery-wkf-wcm</artifactId>
+		    <version>${org.exoplatform.ecms.version}</version>
+		    <type>pom</type>
+		  </dependency>
+      <!--dependency>
+		    <groupId>org.exoplatform.ecms</groupId>
+		    <artifactId>exo-ecms-delivery-dms-wcm-assembly</artifactId>
+		    <version>${org.exoplatform.ecms.version}</version>
+		    <type>pom</type>
+		  </dependency-->
+      <dependency>
+		    <groupId>org.exoplatform.ecms</groupId>
+		    <artifactId>exo-ecms-delivery-wcm-assembly</artifactId>
+		    <version>${org.exoplatform.ecms.version}</version>
+		    <type>pom</type>
+		  </dependency>
+      <dependency>
+		    <groupId>org.exoplatform.ecms</groupId>
+		    <artifactId>exo-ecms-delivery-wcm-assembly</artifactId>
+		    <version>${org.exoplatform.ecms.version}</version>
+		    <type>pom</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.cs</groupId>
+		    <artifactId>exo.cs.packaging.assembly</artifactId>
+		    <version>${org.exoplatform.cs.version}</version>
+		    <type>pom</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ks</groupId>
+		    <artifactId>exo.ks.packaging.assembly</artifactId>
+		    <version>${org.exoplatform.ks.version}</version>
+		    <type>pom</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.social</groupId>
+		    <artifactId>exo.social.packaging.assembly</artifactId>
+		    <version>${org.exoplatform.social.version}</version>
+		    <type>pom</type>
+		  </dependency>
+		  <!-- workflow dependencies -->
+		  <dependency>
+		    <groupId>org.exoplatform.ecms</groupId>
+		    <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
+		    <version>${org.exoplatform.ecms.version}</version>
+		    <type>jar</type>
+		  </dependency>
+
    </dependencies>
 
    <build>
@@ -88,8 +212,8 @@
                      <overWriteSnapshots>true</overWriteSnapshots>
                      <artifactItems>
                         <artifactItem>
-                           <groupId>org.gatein.tools</groupId>
-                           <artifactId>packager</artifactId>
+                           <groupId>org.exoplatform.tool</groupId>
+                           <artifactId>exopackage</artifactId>
                            <type>zip</type>
                            <outputDirectory>target/exopackage</outputDirectory>
                         </artifactItem>
@@ -126,7 +250,7 @@
       <profile>
          <id>pkg-tomcat</id>
          <build>
-            <finalName>GateIn-${project.version}</finalName>
+            <finalName>Platform-${project.version}</finalName>
             <plugins>
                <!-- Ensure your environment is correctly setup -->
                <plugin>
@@ -179,12 +303,12 @@
                               <argument>-Dexo.working.dir=${basedir}/target</argument>
                               <!--argument>-Dexo.src.dir=NONE</argument-->
                               <argument>-Dexo.dep.dir=${exo.projects.directory.dependencies}</argument><!-- to get the server ref install -->
-                              <argument>-Dexo.m2.repos=file:${settings.localRepository}</argument>
+                              <argument>-Dexo.m2.repos=file:${settings.localRepository},http://repository.exoplatform.org/all</argument>
                               <argument>-Dclean.server=${exo.projects.app.tomcat.version}</argument>
                               <argument>-Dexo.m2.home=${maven.home}</argument>
                               <argument>-Xshare:auto</argument>
                               <argument>-Xms128m</argument>
-                              <argument>-Xmx512m</argument>
+                              <argument>-Xmx1024m</argument>
                               <argument>-classpath</argument>
                               <argument>${basedir}/target/exopackage/lib/js.jar</argument>
                               <argument>org.mozilla.javascript.tools.shell.Main</argument>

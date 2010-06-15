@@ -27,13 +27,19 @@
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
-    <org.exoplatform.cometd.version>2.0.2</org.exoplatform.cometd.version>
+    <org.exoplatform.cometd.version>${project.version}</org.exoplatform.cometd.version>
     <org.exoplatform.kernel.version>2.2.0-GA</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.3.0-GA</org.exoplatform.core.version>
     <org.exoplatform.ws.version>2.1.0-GA</org.exoplatform.ws.version>
-    <org.exoplatform.jcr.version>1.12.0-GA</org.exoplatform.jcr.version>
-    <org.exoplatform.cs.version>2.0.0-SNAPSHOT</org.exoplatform.cs.version>
+    <org.exoplatform.jcr.version>1.12.0-CP01</org.exoplatform.jcr.version>
+    <org.exoplatform.portal.version>3.0.0-GA</org.exoplatform.portal.version>
+    <org.exoplatform.cs.version>2.0.0-GA</org.exoplatform.cs.version>
+    <org.exoplatform.ks.version>2.0.0-GA</org.exoplatform.ks.version>
+    <org.exoplatform.ecms.version>2.0.0-GA</org.exoplatform.ecms.version>
+    <org.exoplatform.social.version>1.0.0-GA</org.exoplatform.social.version>
     <org.slf4j.slf4j-simple.version>1.5.6</org.slf4j.slf4j-simple.version>
+    
+    <org.exoplatform.exopackage.version>1.1.0-Beta09</org.exoplatform.exopackage.version>
 
 <!--
     <org.jibx.version>1.2.1</org.jibx.version>
@@ -47,7 +53,6 @@
     <version.chromattic>1.0.0</version.chromattic>
     <version.reflect>1.0.0</version.reflect>
 -->
-    <org.exoplatform.portal.version>3.0.0-GA</org.exoplatform.portal.version>
 
    <!--maven.test.skip>true</maven.test.skip-->
   </properties>
