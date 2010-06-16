@@ -6,5 +6,8 @@
     <key>org.exoplatform.api.calendar.CalendarsService</key>
     <type>org.exoplatform.calendar.CalendarServiceImpl</type>
   </component>
-
+  <component>
+    <key>org.exoplatform.api.mail.MailService</key>
+    <type>org.exoplatform.mail.MailServiceImpl</type>
+  </component>
 </configuration>

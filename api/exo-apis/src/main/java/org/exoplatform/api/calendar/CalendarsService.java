@@ -27,7 +27,7 @@ public interface CalendarsService {
   
   /**
    * Adds a new event to someone's default calendar
-   * @param username ower of the calendar
+   * @param username owner of the calendar where the event will be added
    * @param event the event to add
    * @return the event created in the calendar
    */
@@ -35,9 +35,9 @@ public interface CalendarsService {
   
   /**
    * Get the next events starting from now to someone's default calendar
-   * @param username 
+   * @param username owner of the calendar
    * @param limit maximum number of events to fetch
-   * @return a list of events sheduled to default calendar in chronological order.
+   * @return a list of events scheduled to default calendar in chronological order.
    */
   List<Event> getNextEvents(String username, int limit);
 

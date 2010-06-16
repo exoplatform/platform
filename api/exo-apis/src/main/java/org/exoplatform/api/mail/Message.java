@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2003-2010 eXo Platform SAS.
+ * Copyright (C) 2003-2009 eXo Platform SAS.
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Affero General Public License
@@ -14,16 +14,35 @@
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, see<http://www.gnu.org/licenses/>.
  */
-package org.exoplatform.api.calendar;
+package org.exoplatform.api.mail;
 
 /**
- * 
- *
+ * Represents a message in the mail API
  */
-public class CalendarException extends RuntimeException {
-
-	public CalendarException(Exception e) {
-		super(e);
-	}
+public interface Message {
+  
+  /**
+   * Identifier of the message. 
+   * @return
+   */
+  String getId();
+  
+  /**
+   * Get the sender of the message
+   * @return
+   */
+  String getFrom();
+  
+  /**
+   * get the subject of the message
+   * @return
+   */
+  String getSubject();
+  
+  /**
+   * Get the content of the message
+   * @return
+   */
+  String getContent();
 
 }

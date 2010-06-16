@@ -52,7 +52,6 @@ public class TestCalendarsServiceImpl extends AbstractJCRTestCase {
 	}
 
 	@SuppressWarnings("deprecation")
-	@Test
 	public void testAddNewEvent() throws Exception {
 		CalendarService app = getComponent(CalendarService.class);
 		String username = "foo";
@@ -73,7 +72,6 @@ public class TestCalendarsServiceImpl extends AbstractJCRTestCase {
 		assertTrue(eventsEqual(event, events.get(0)));
 	}
 
-	@Test
 	public void testGetNextEvents() throws Exception {
 		CalendarService app = getComponent(CalendarService.class);
 		String username = "bar";
