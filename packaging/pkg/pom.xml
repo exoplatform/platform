@@ -10,14 +10,12 @@
    <packaging>pom</packaging>
    <name>eXo platform Packaging Assemblies</name>
    
-   <dependencies>
+   <properties>
+     <!-- used by exobuild to tell maven which repo to use when fetching  deps-->
+     <repository.url>http://repository.exoplatform.org/all</repository.url>
+   </properties>
 
-      <!--dependency>
-         <groupId>org.gatein.tools</groupId>
-         <artifactId>packager</artifactId>
-         <type>zip</type>
-         <version>1.0.0-Beta05</version>
-      </dependency-->
+   <dependencies>
       
       <dependency>
 		    <groupId>org.exoplatform.tool</groupId>
@@ -84,6 +82,7 @@
 			  <type>js</type>
 			</dependency>
 			<!-- CS -->
+		
       <dependency>
 		    <groupId>org.exoplatform.cs</groupId>
 		    <artifactId>cs.packaging.module</artifactId>
@@ -96,6 +95,7 @@
 		    <version>${org.exoplatform.cs.version}</version>
 		    <type>js</type>
 		  </dependency>
+		  
 		  <!-- SOCIAL -->
       <dependency>
 		    <groupId>org.exoplatform.social</groupId>
@@ -141,18 +141,14 @@
 		    <version>${org.exoplatform.ecms.version}</version>
 		    <type>pom</type>
 		  </dependency>
-      <!--dependency>
+		  <!--
+      <dependency>
 		    <groupId>org.exoplatform.ecms</groupId>
 		    <artifactId>exo-ecms-delivery-dms-wcm-assembly</artifactId>
 		    <version>${org.exoplatform.ecms.version}</version>
 		    <type>pom</type>
-		  </dependency-->
-      <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>exo-ecms-delivery-wcm-assembly</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>pom</type>
-		  </dependency>
+	</dependency>
+	-->
       <dependency>
 		    <groupId>org.exoplatform.ecms</groupId>
 		    <artifactId>exo-ecms-delivery-wcm-assembly</artifactId>
@@ -165,6 +161,7 @@
 		    <version>${org.exoplatform.cs.version}</version>
 		    <type>pom</type>
 		  </dependency>
+		  
 		  <dependency>
 		    <groupId>org.exoplatform.ks</groupId>
 		    <artifactId>exo.ks.packaging.assembly</artifactId>
@@ -178,6 +175,8 @@
 		    <type>pom</type>
 		  </dependency>
 		  <!-- workflow dependencies -->
+		  
+		  
 		  <dependency>
 		    <groupId>org.exoplatform.ecms</groupId>
 		    <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
@@ -194,7 +193,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
             <configuration>
-              <repositoryUrl>xxx</repositoryUrl>
+              <repositoryUrl>${repository.url}</repositoryUrl>
             </configuration>
          </plugin>
          <!-- check-out exobuild -->
@@ -247,6 +246,13 @@
    </build>
 
    <profiles>
+      <!-- allows exobuild to fetch in staging repo by passing -Pstaging -->
+      <profile>
+        <id>staging</id>
+        <properties>
+          <repository.url>http://repository.exoplatform.org/staging</repository.url>
+        </properties>
+      </profile>   
       <profile>
          <id>pkg-tomcat</id>
          <build>
@@ -303,7 +309,7 @@
                               <argument>-Dexo.working.dir=${basedir}/target</argument>
                               <!--argument>-Dexo.src.dir=NONE</argument-->
                               <argument>-Dexo.dep.dir=${exo.projects.directory.dependencies}</argument><!-- to get the server ref install -->
-                              <argument>-Dexo.m2.repos=file:${settings.localRepository},http://repository.exoplatform.org/all</argument>
+                              <argument>-Dexo.m2.repos=file:${settings.localRepository},${repository.url}</argument>
                               <argument>-Dclean.server=${exo.projects.app.tomcat.version}</argument>
                               <argument>-Dexo.m2.home=${maven.home}</argument>
                               <argument>-Xshare:auto</argument>
@@ -316,6 +322,7 @@
                               <argument>exobuild</argument>
                               <argument>--product=platform</argument>
                               <argument>--deploy=tomcat</argument>
+                              <argument>--enable-workflow=${exo.workflow.engine}</argument>
                            </arguments>
                         </configuration>
                         <goals>
@@ -401,7 +408,7 @@
                               <argument>-Dexo.working.dir=${basedir}/target</argument>
                               <!--argument>-Dexo.src.dir=NONE</argument-->
                               <argument>-Dexo.dep.dir=${exo.projects.directory.dependencies}</argument><!-- to get the server ref install -->
-                              <argument>-Dexo.m2.repos=file:${settings.localRepository},http://maven2.exoplatform.org/rest/maven2,http://repository.jboss.org/maven2</argument>
+                              <argument>-Dexo.m2.repos=file:${settings.localRepository},${repository.url},http://repository.jboss.org/maven2</argument>
                               <argument>-Dclean.server=${exo.projects.app.jboss.version}</argument>
                               <argument>-Dexo.m2.home=${maven.home}</argument>
                               <argument>-Xshare:auto</argument>
@@ -414,6 +421,7 @@
                               <argument>exobuild</argument>
                               <argument>--product=platform</argument>
                               <argument>--deploy=jbossear</argument>
+                              <argument>--enable-workflow=${exo.workflow.engine}</argument>
                            </arguments>
                         </configuration>
                         <goals>
@@ -442,5 +450,6 @@
             </plugins>
          </build>
       </profile>
+
    </profiles>
 </project>

@@ -52,12 +52,13 @@ function getProduct(version) {
  // product.addDependencies(platform.web.eXoMacSkin);
  // product.addDependencies(platform.web.eXoVistaSkin);
   product.addDependencies(platform.fck);
+  product.addDependencies(platform.cometd);
 
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);
-	product.addDependencies(workflow.web.eXoStaticResources) ;
-	product.addDependencies(workflow.portlet.workflow);
-	product.addDependencies(workflow.extension.webapp);
+  product.addDependencies(workflow.web.eXoStaticResources) ;
+  product.addDependencies(workflow.portlet.workflow);
+  product.addDependencies(workflow.extension.webapp);
 
   product.addDependencies(dms.web.eXoDMSResources);
   product.addDependencies(dms.portlet.ecmadmin);
@@ -76,7 +77,6 @@ function getProduct(version) {
   // rest-ecmdemo.war not deployed
 
   /* CS* */
-  product.addDependencies(cs.comet.cometd); // TODO
   product.addDependencies(cs.eXoApplication.calendar); // exo.cs.eXoApplication.calendar.service-2.0.0-SNAPSHOT.jar + calendar.war
   product.addDependencies(cs.eXoApplication.contact); // exo.cs.eXoApplication.contact.service-2.0.0-SNAPSHOT.jar + contact.war
   product.addDependencies(cs.eXoApplication.mail); // exo.cs.eXoApplication.mail.service-2.0.0-SNAPSHOT.jar + mail.war
@@ -126,6 +126,8 @@ function getProduct(version) {
 //  product.addServerPatch("jonas",  portal.server.jonas.patch) ;
 //  product.addServerPatch("ear",  portal.server.websphere.patch) ;
 
+
+
   /* cleanup duplicated lib */
   product.removeDependency(new Project("commons-httpclient", "commons-httpclient", "jar", "3.0"));
   product.removeDependency(new Project("commons-collections", "commons-collections", "jar", "3.1"));
@@ -141,7 +143,8 @@ function getProduct(version) {
   product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-ecmdemo-config", "jar", wcm.version));
   product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-wcm-config", "jar", wcm.version));
   product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-workflow-config", "jar", wcm.version));
-// temporarily needed for prototype
+// temporarily needed for prototype until we find why it does not work when removed
+// but they should not be needed as we declare everything a single PortalContainerConfig
 //  product.removeDependency(new Project("org.exoplatform.social", "exo.social.extension.config", "jar", social.version));
 //  product.removeDependency(new Project("org.exoplatform.ks", "exo.ks.extension.config", "jar", ks.version));
 //  product.removeDependency(new Project("org.exoplatform.cs", "exo.cs.extension.config", "jar", cs.version));
