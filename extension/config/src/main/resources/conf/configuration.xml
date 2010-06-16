@@ -1,0 +1,199 @@
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+ xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+
+ <component>
+  <!-- The full qualified name of the PortalContainerConfig -->
+  <type>org.exoplatform.container.definition.PortalContainerConfig</type>
+  <init-params>
+   <!-- The name of the default portal container -->
+   <value-param>
+    <name>default.portal.container</name>
+    <value>portal</value>
+   </value-param>
+   <!-- The name of the default rest ServletContext -->
+   <value-param>
+    <name>default.rest.context</name>
+    <value>rest</value>
+   </value-param>
+   <!-- The name of the default realm -->
+   <value-param>
+    <name>default.realm.name</name>
+    <value>gatein-domain</value>
+   </value-param>
+   <!-- The default portal container definition -->
+   <!-- It cans be used to avoid duplicating configuration -->
+   <object-param>
+    <name>default.portal.definition</name>
+    <object type="org.exoplatform.container.definition.PortalContainerDefinition">
+     <!-- The path to the external properties file -->
+     <field name="externalSettingsPath">
+      <string>configuration.properties</string>
+     </field>
+     <field name="dependencies">
+      <collection type="java.util.ArrayList">
+       <value>
+        <string>eXoResources</string>
+       </value>
+       <value>
+        <string>portal</string>
+       </value>
+       <value>
+        <string>dashboard</string>
+       </value>
+       <value>
+        <string>exoadmin</string>
+       </value>
+       <value>
+        <string>eXoGadgets</string>
+       </value>
+       <value>
+        <string>eXoGadgetServer</string>
+       </value>
+       <value>
+        <string>rest</string>
+       </value>
+
+       <!-- collab -->
+       <value profiles="collaboration">
+        <string>cs-extension</string>
+       </value>
+
+       <!-- cometd -->
+       <value>
+        <string>cometd</string>
+       </value>
+       <value profiles="collaboration">
+        <string>csResources</string>
+       </value>
+
+       <value>
+        <string>web</string>
+       </value>
+
+
+       <value profiles="collaboration">
+        <string>mail</string>
+       </value>
+       <value profiles="collaboration">
+        <string>contact</string>
+       </value>
+       <value profiles="collaboration">
+        <string>chat</string>
+       </value>
+       <value profiles="collaboration">
+        <string>chatbar</string>
+       </value>
+       <value profiles="collaboration">
+        <string>content</string>
+       </value>
+       <value profiles="collaboration">
+        <string>calendar</string>
+       </value>
+
+
+       <!-- ECM -->
+
+       <value profiles="ecm">
+        <string>eXoDMSGadgets</string>
+       </value>
+       <value profiles="ecm">
+        <string>eXoStaticResources</string>
+       </value>
+       <value profiles="ecm">
+        <string>eXoDMSResources</string>
+       </value>
+       <value profiles="ecm">
+        <string>eXoWCMResources</string>
+       </value>
+       <value profiles="ecm">
+        <string>dms-extension</string>
+       </value>
+       <value profiles="ecm">
+        <string>ecmexplorer</string>
+       </value>
+       <value profiles="ecm">
+        <string>ecmadmin</string>
+       </value>
+       <value profiles="ecm">
+        <string>ecm-wcm-extension</string>
+       </value>
+       <value profiles="ecm">
+        <string>presentation</string>
+       </value>
+       <value profiles="ecm">
+        <string>formgenerator</string>
+       </value>
+       <value profiles="ecm">
+        <string>newsletter</string>
+       </value>
+       <value profiles="ecm">
+        <string>searches</string>
+       </value>
+       <value profiles="ecm">
+        <string>ecmworkflow-extension</string>
+       </value>
+       <value profiles="ecm">
+        <string>workflow</string>
+       </value>
+       <!--
+                <value> <string>ecmdemo</string> </value>
+              -->
+       <!-- SOCIAL -->
+       <value profiles="social">
+        <string>eXoResourcesSocial</string>
+       </value>
+       <value profiles="social">
+        <string>social</string>
+       </value>
+       <value profiles="social">
+        <string>space</string>
+       </value>
+       <value profiles="social">
+        <string>profile</string>
+       </value>
+       <value profiles="social">
+        <string>social-ext</string>
+       </value>
+
+
+       <!-- Knowledge -->
+       <value profiles="knowledge">
+        <string>ksResources</string>
+       </value>
+       <value profiles="knowledge">
+        <string>faq</string>
+       </value>
+       <value profiles="knowledge">
+        <string>forum</string>
+       </value>
+       <value profiles="knowledge">
+        <string>ks</string>
+       </value>
+
+       <!-- IDE -->
+       <value profiles="ide">
+        <string>ideall-extension</string>
+       </value>
+
+      </collection>
+     </field>
+
+     <!-- A map of settings tied to the default portal container -->
+     <field name="settings">
+      <map type="java.util.HashMap">
+       <entry>
+        <key>
+         <string>sample</string>
+        </key>
+        <value>
+         <string>value</string>
+        </value>
+       </entry>
+      </map>
+     </field>
+
+    </object>
+   </object-param>
+  </init-params>
+ </component>
+</configuration>
