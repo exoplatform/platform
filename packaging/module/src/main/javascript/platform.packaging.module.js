@@ -25,35 +25,19 @@ function getModule(params)
    var shindigVersion = "${org.shindig.version}";
    var cometVersion = "${org.exoplatform.cometd.version}";
 
-   module.fck = 
-     new Project("org.exoplatform.platform", "exo.platform.web.fck", "war", module.version);
+   // fck editor required for KS & CS
+   module.fck = new Project("org.exoplatform.platform", "exo.platform.web.fck", "war", module.version);
    module.fck.deployName = "fck";
    
-   
-     module.cometd =
-	new Project("org.exoplatform.platform", "exo.platform.commons.comet.webapp", "war", cometVersion).
-    addDependency(new Project("org.mortbay.jetty", "cometd-bayeux", "jar", "${org.mortbay.jetty.cometd-bayeux.version}")).
-	addDependency(new Project("org.mortbay.jetty", "jetty-util", "jar", "${org.mortbay.jetty.jetty-util.version}")).
-	addDependency(new Project("org.mortbay.jetty", "cometd-api", "jar", "${org.mortbay.jetty.cometd-api.version}")).
-	addDependency(new Project("org.exoplatform.platform", "exo.platform.commons.comet.service", "jar", cometVersion));  	
-	module.cometd.deployName = "cometd";
-
-
-   /*module.portlet = {};*/
-
-   /*module.portlet.browser =
-   new Project("org.exoplatform.platform", "exo.portal.portlet.browser", "exo-portlet", module.version);*/
-
-   /*module.sample = {};
-   module.sample.framework =
-   new Project("org.exoplatform.portal", "exo.portal.sample.framework", "war", module.version);
-   module.sample.framework.deployName = "eXoSampleFramework";*/
-
-   /*module.web = {}
-   module.web.eXoMacSkin =
-   new Project("org.exoplatform.portal", "exo.portal.web.eXoSkinMac", "war", module.version);
-   module.web.eXoVistaSkin =
-   new Project("org.exoplatform.portal", "exo.portal.web.eXoSkinVista", "war", module.version);*/
-
+   // cometd required by KS & CS
+   module.cometd = new Project("org.exoplatform.platform", "exo.platform.commons.comet.webapp", "war", cometVersion).
+   addDependency(new Project("org.mortbay.jetty", "cometd-bayeux", "jar", "${org.mortbay.jetty.cometd-bayeux.version}")).
+   addDependency(new Project("org.mortbay.jetty", "jetty-util", "jar", "${org.mortbay.jetty.jetty-util.version}")).
+   addDependency(new Project("org.mortbay.jetty", "cometd-api", "jar", "${org.mortbay.jetty.cometd-api.version}")).
+   addDependency(new Project("org.exoplatform.platform", "exo.platform.commons.comet.service", "jar", cometVersion));  	
+   module.cometd.deployName = "cometd";
+	
+   // main portal container config	
+   module.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);
    return module;
 }

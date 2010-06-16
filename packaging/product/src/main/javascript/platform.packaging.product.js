@@ -4,16 +4,17 @@ eXo.require("eXo.projects.Product") ;
 function getProduct(version) {
   var product = new Product();
   
-  product.name = "eXoPortal" ;
+  product.name = "eXoPlatform" ;
   product.portalwar = "portal.war" ;
   product.codeRepo = "platform" ;//module in modules/portal/module.js
   product.serverPluginVersion = "${org.exoplatform.portal.version}"; // was project.version
   product.useWorkflow = true;
+  
   // all WCM ext. have the same version number
-	product.workflowVersion = "${org.exoplatform.ecms.version}" ;
-	product.contentvalidationVersion = "${org.exoplatform.ecms.version}";
-	product.workflowJbpmVersion = "${org.jbpm.jbpm3}";
-	product.workflowBonitaVersion = "${bonita.version}";
+  product.workflowVersion = "${org.exoplatform.ecms.version}" ;
+  product.contentvalidationVersion = "${org.exoplatform.ecms.version}";
+  product.workflowJbpmVersion = "${org.jbpm.jbpm3}";
+  product.workflowBonitaVersion = "${bonita.version}";
 
 
   var kernel = Module.GetModule("kernel") ;
@@ -43,16 +44,14 @@ function getProduct(version) {
   product.addDependencies(portal.web.portal) ;
   
   portal.starter = new Project("org.exoplatform.portal", "exo.portal.starter.war", "war", portal.version);
-	portal.starter.deployName = "starter";
-	product.addDependencies(portal.starter);  
+  portal.starter.deployName = "zzstarter";
+  product.addDependencies(portal.starter);  
 
     
   /* PLATFORM */
- // product.addDependencies(platform.portlet.browser) ;  
- // product.addDependencies(platform.web.eXoMacSkin);
- // product.addDependencies(platform.web.eXoVistaSkin);
   product.addDependencies(platform.fck);
   product.addDependencies(platform.cometd);
+  product.addDependencies(platform.config);
 
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);
@@ -64,7 +63,6 @@ function getProduct(version) {
   product.addDependencies(dms.portlet.ecmadmin);
   product.addDependencies(dms.portlet.ecmexplorer);
   product.addDependencies(dms.portlet.ecmbrowsecontent);
-//  product.addDependencies(dms.portlet.jcr_console);
   product.addDependencies(dms.gadgets);
 
   product.addDependencies(wcm.extension.war);
