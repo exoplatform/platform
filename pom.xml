@@ -39,7 +39,13 @@
     <org.exoplatform.social.version>1.0.0-GA</org.exoplatform.social.version>
     <org.slf4j.slf4j-simple.version>1.5.6</org.slf4j.slf4j-simple.version>
     
-    <org.exoplatform.exopackage.version>1.1.0-Beta09</org.exoplatform.exopackage.version>
+    <org.exoplatform.exopackage.version>1.1.0-Beta11</org.exoplatform.exopackage.version>
+    
+    
+    <org.mortbay.jetty.cometd-bayeux.version>6.1.11</org.mortbay.jetty.cometd-bayeux.version>
+    <org.mortbay.jetty.cometd-api.version>0.9.20080221</org.mortbay.jetty.cometd-api.version>
+    <org.mortbay.jetty.jetty-util.version>6.1.11</org.mortbay.jetty.jetty-util.version>
+    
 
 <!--
     <org.jibx.version>1.2.1</org.jibx.version>
