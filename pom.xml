@@ -71,6 +71,17 @@
     <module>component</module>
     <module>commons</module>
     <module>web</module>
+    <module>extension</module>
     <module>packaging</module>
   </modules>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.exoplatform.kernel</groupId>
+        <artifactId>exo.kernel.container</artifactId>
+        <version>${org.exoplatform.kernel.version}</version>
+        <scope>provided</scope>
+      </dependency>    
+    </dependencies>
+  </dependencyManagement>
 </project>
