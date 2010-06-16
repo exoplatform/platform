@@ -28,6 +28,15 @@ function getModule(params)
    module.fck = 
      new Project("org.exoplatform.platform", "exo.platform.web.fck", "war", module.version);
    module.fck.deployName = "fck";
+   
+   
+     module.cometd =
+	new Project("org.exoplatform.platform", "exo.platform.commons.comet.webapp", "war", cometVersion).
+    addDependency(new Project("org.mortbay.jetty", "cometd-bayeux", "jar", "${org.mortbay.jetty.cometd-bayeux.version}")).
+	addDependency(new Project("org.mortbay.jetty", "jetty-util", "jar", "${org.mortbay.jetty.jetty-util.version}")).
+	addDependency(new Project("org.mortbay.jetty", "cometd-api", "jar", "${org.mortbay.jetty.cometd-api.version}")).
+	addDependency(new Project("org.exoplatform.platform", "exo.platform.commons.comet.service", "jar", cometVersion));  	
+	module.cometd.deployName = "cometd";
 
 
    /*module.portlet = {};*/
