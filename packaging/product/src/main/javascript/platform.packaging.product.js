@@ -44,7 +44,7 @@ function getProduct(version) {
   product.addDependencies(portal.web.portal) ;
   
   portal.starter = new Project("org.exoplatform.portal", "exo.portal.starter.war", "war", portal.version);
-  portal.starter.deployName = "zzstarter";
+  portal.starter.deployName = "starter"; // was zzstarter
   product.addDependencies(portal.starter);  
 
     
@@ -86,7 +86,6 @@ function getProduct(version) {
   product.addDependencies(cs.extension.webapp); // exo.cs.extension.config-2.0.0-SNAPSHOT.jar + cs-extension.war
 
   /* KS */
-  // TODO KS also has cometd
   product.addDependencies(ks.component.common); // exo.ks.component.common-2.0.0-GA.jar
   product.addDependencies(ks.component.rendering); // exo.ks.component.rendering-2.0.0-GA.jar
   product.addDependencies(ks.component.bbcode); // exo.ks.component.bbcode-2.0.0-GA.jar
@@ -112,7 +111,8 @@ function getProduct(version) {
   product.addDependencies(social.extras.feedmash); // # exo.social.extras.feedmash-1.0.0-GA.jar
 
 
-  product.addServerPatch("tomcat", portal.server.tomcat.patch) ;
+  product.addServerPatch("tomcat", platform.patch.tomcat) ;
+//  product.addServerPatch("tomcat", portal.server.tomcat.patch) ;
 //  product.addServerPatch("tomcat", ks.server.tomcat.patch) ;
 //  product.addServerPatch("tomcat", cs.server.tomcat.patch) ;
 //  product.addServerPatch("tomcat", social.server.tomcat.patch);

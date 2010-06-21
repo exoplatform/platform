@@ -39,5 +39,10 @@ function getModule(params)
 	
    // main portal container config	
    module.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);
+   
+   module.patch = {};
+   module.patch.tomcat =
+      new Project("org.exoplatform.platform", "exo.platform.server.tomcat.patch", "jar", module.version);
+   
    return module;
 }

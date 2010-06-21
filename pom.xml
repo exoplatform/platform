@@ -42,8 +42,10 @@
     <org.exoplatform.exopackage.version>1.1.0-Beta11</org.exoplatform.exopackage.version>
     
     <!-- default workflow engine is bonita. Can also be jbpm -->
-    <exo.workflow.engine>bonita</exo.workflow.engine>
-    
+    <exo.workflow.engine>jbpm</exo.workflow.engine>
+    <!-- workflow implementations -->
+    <org.jbpm.jbpm3>3.2.8</org.jbpm.jbpm3>
+    <bonita.version>4.1</bonita.version>
     
     <org.mortbay.jetty.cometd-bayeux.version>6.1.11</org.mortbay.jetty.cometd-bayeux.version>
     <org.mortbay.jetty.cometd-api.version>0.9.20080221</org.mortbay.jetty.cometd-api.version>
@@ -73,6 +75,7 @@
     <module>web</module>
     <module>extension</module>
     <module>packaging</module>
+    <module>server</module>
   </modules>
   <dependencyManagement>
     <dependencies>

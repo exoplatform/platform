@@ -185,7 +185,7 @@
 		  </dependency>
 
 		  <dependency>
-		    <groupId>org.exoplatform</groupId>
+		    <groupId>org.exoplatform.ecms</groupId>
 		    <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
 		    <version>${org.exoplatform.ecms.version}</version>
 		    <type>jar</type>
@@ -193,12 +193,12 @@
 
 
            <!-- main portal container config --> 
-		  <dependency>
+		  <!--dependency>
 		    <groupId>org.exoplatform.platform</groupId>
 		    <artifactId>exo.platform.extension</artifactId>
 		    <version>${project.version}</version>
 		    <type>jar</type>
-		  </dependency>
+		  </dependency-->
 
 
 
