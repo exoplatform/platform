@@ -74,8 +74,9 @@
     <module>commons</module>
     <module>web</module>
     <module>extension</module>
-    <module>packaging</module>
     <module>server</module>
+    <!-- leave at the end -->
+    <module>packaging</module>
   </modules>
   <dependencyManagement>
     <dependencies>
