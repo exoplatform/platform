@@ -34,6 +34,12 @@ eXo Platform 3.0 alpha 04 needs some manual steps
 to be built and packaged fully. Please follow them
 carefully:
 
+ - Requirements:
+   * Make sure your environment is ready to build eXo products
+     http://wiki.exoplatform.org/xwiki/bin/view/Main/Building+from+sources
+   * Download and extract Tomcat 6.0.20 in /exo-dependencies/tomcat-6.0.20
+   * Download and extract Openfire 3.6.4 in /exo-dependencies/openfire-3.6.4
+
  - Check-out the source from 
    http://svn.exoplatform.org/projects/platform/trunk/
    
