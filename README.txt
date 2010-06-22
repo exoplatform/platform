@@ -40,6 +40,12 @@ carefully:
  - Go into the main folder, run
    mvn clean install -Ppkg-tomcat
    
+   Thanks to the -Ppkg-tomcat parameter, the tomcat package will be created
+   automatically
+   
+   If unit tests fail, you can skip them with the -Dmaven.test.skip=true parameter,
+   cf the Known Issues section for more information
+   
  - Go into the folder /packaging/pkg/target/tomcat
    Here is your eXo Platform Tomcat distribution
 
@@ -71,6 +77,11 @@ http://wiki-int.exoplatform.org/display/PLF/Packaging+Prototype
  - In cs-extension.war/WEB-INF/cs-extension/cs/cs-configuration.xml,
    comment out the external-component-plugins for ReminderPeriodJob and PopupReminderPeriodJob
    
+ - You can now start the Tomcat server with the command
+   ./gatein.sh in the folder /tomcat/bin
+   
+   If you have any problem, please read the following section carefully
+
 
 
 * Known Issues
@@ -84,6 +95,9 @@ http://wiki-int.exoplatform.org/display/PLF/Packaging+Prototype
      E.g. INFO: Server startup in 23771 ms
    - Move back the starter.war in the folder /tomcat/webapps/
    - You should see some activity in the console, the server is started after a few minutes
+   
+ - Unit tests fail on the trunk: http://jira.exoplatform.org/browse/PLF-85
+   Disable them with the parameter -Dmaven.test.skip=true in your maven command.
    
  - To be continued with TC results...
  
