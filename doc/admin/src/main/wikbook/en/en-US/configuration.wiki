@@ -11,3 +11,6 @@ As a convenience we provide a setup wizzard UI that will generate all system con
 == Connecting to an LDAP Directory ==
 
 = Configuration of the Application Server =
+
+== JVM Settings Recommendations ==
+== Connection Pools ==

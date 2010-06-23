@@ -75,6 +75,7 @@
     <module>web</module>
     <module>extension</module>
     <module>server</module>
+    <module>doc</module>
     <!-- leave at the end -->
     <module>packaging</module>
   </modules>

@@ -1,6 +1,12 @@
 
 = Management of eXo Platform = 
+
+= JMX Interface  =
+= REST Interface =
+
 = Resource Monitoring =
-= JMX Interface Reference  =
-= REST Interface Reference =
+== Caches ==
+== Portlet Container ==
+== Portal ==
+
 
