@@ -1,0 +1,33 @@
+eXo Platform 3 Administrators Guide
+
+
+{{important}}This document is a work in progress and will get richer over time.{{/important}}
+
+= Introduction =
+
+{{include document="introduction.wiki" /}}
+
+= Installation =
+
+{{include document="installation.wiki" /}}
+
+= Configuration =
+
+{{include document="configuration.wiki" /}}
+
+= Management =
+
+{{include document="management.wiki" /}}
+
+= Clustering =
+
+{{include document="clustering.wiki" /}}
+
+
+= Project Deployment =
+
+{{include document="deployment.wiki" /}}
+
+= Upgrade =
+
+{{include document="upgrade.wiki" /}}

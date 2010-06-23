@@ -1,0 +1,7 @@
+
+= Welcome to eXo Platform =
+
+= Who should read this guide ? =
+= Conventions used in this document =
+|=Text / Icon type|=Meaning
+|xxx|Txxx
