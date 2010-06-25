@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>exo.platform.parent</artifactId>
-    <version>3.0.0-Alpha04-SNAPSHOT</version>
+    <version>3.0.0-Beta01-SNAPSHOT</version>
   </parent>
 
   <artifactId>exo.platform.testsuite.jmeter</artifactId>
@@ -30,11 +30,11 @@
 				<configuration>
 				    <reportDir>${project.build.directory}/jmeter-reports</reportDir>
 				    <jmeterUserProperties>
-				        ﻿<host>www.exoplatform.com</host>
-								<port>80</port>
-								<threads>10</threads>
-								<rampup>1</rampup>
-								<duration>10</duration>
+				        <host>www.exoplatform.com</host>
+					<port>80</port>
+					<threads>10</threads>
+					<rampup>1</rampup>
+					<duration>10</duration>
 				    </jmeterUserProperties>
 				</configuration>
 			</plugin>
