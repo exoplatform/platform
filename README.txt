@@ -102,10 +102,7 @@ http://wiki-int.exoplatform.org/display/PLF/Packaging+Prototype
    - Move back the starter.war in the folder /tomcat/webapps/
    - You should see some activity in the console, the server is started after a few minutes
    
- - Unit tests fail on the trunk: http://jira.exoplatform.org/browse/PLF-85
-   Disable them with the parameter -Dmaven.test.skip=true in your maven command.
-   
- - To be continued with TC results...
+ - http://intranet.exoplatform.org/rest/jcr/repository/collaboration/Groups/platform/users/Documents/Releases/Platform/3.0.0-Alpha04/Tests/TC-PLF-3.0.0-Alpha4_Overview.ods 
  
  
  
@@ -115,5 +112,5 @@ http://wiki-int.exoplatform.org/display/PLF/Packaging+Prototype
  - Internal Wiki  :  http://wiki-int.exoplatform.org/display/PLF/
  - Jira           :  http://jira.exoplatform.org/browse/PLF
  - SVN            :  http://svn.exoplatform.org/projects/platform/trunk/
- - Intranet       :  N/A
+ - Intranet       :  http://intranet.exoplatform.org/rest/jcr/repository/collaboration/Groups/platform/users/Documents/Releases/Platform
 
