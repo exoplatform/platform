@@ -120,6 +120,20 @@
 			      } 
                            }
 			]]></script>
+			 <script src="jquery.min.js" type="text/javascript" language="javascript"></script>
+			 <script src="jquery.flot.min.js" type="text/javascript" language="javascript"></script>
+			 <script src="jquery.flot.threshold.min.js" type="text/javascript" language="javascript"></script>
+			 <script type="text/javascript" language="javascript" id="source"><![CDATA[
+						function plotWithOptions(d, t, chart) {
+								$.plot(chart, [ {
+										data: d,
+										color: "red", //rgb(200, 20, 30)
+										threshold: { below: t, color: "green" }, //rgb(30, 180, 20)
+										lines: { show: true }
+								} ]);
+						};
+				var data = [];
+				]]></script>
 		</head>
 		<body>
 		
@@ -226,6 +240,7 @@
 		</tr>
 		<xsl:for-each select="/testResults/*[not(@lb = preceding::*/@lb)]">
 			<xsl:variable name="label" select="@lb" />
+			<xsl:variable name="position" select="position()" />
 			<xsl:variable name="count" select="count(../*[@lb = current()/@lb])" />
 			<xsl:variable name="failureCount" select="count(../*[@lb = current()/@lb][attribute::s='false'])" />
 			<xsl:variable name="successCount" select="count(../*[@lb = current()/@lb][attribute::s='true'])" />
@@ -287,16 +302,22 @@
 				<td align="center">
 				   <a href="">
 				      <xsl:attribute name="href"><xsl:text/>javascript:change('page_details_<xsl:value-of select="position()" />')</xsl:attribute>
-				      <img src="expand.png" alt="expand/collapse"><xsl:attribute name="id"><xsl:text/>page_details_<xsl:value-of select="position()" />_image</xsl:attribute></img>				      
+				      <img src="collapse.png" alt="expand/collapse"><xsl:attribute name="id"><xsl:text/>page_details_<xsl:value-of select="position()" />_image</xsl:attribute></img>				      
 				   </a>
 				</td>
 			</tr>
 			
-                        <tr class="page_details">
-                           <xsl:attribute name="id"><xsl:text/>page_details_<xsl:value-of select="position()" /></xsl:attribute>
-                           <td colspan="8" bgcolor="#FF0000">
-                              <div align="center">
+        <tr class="page_details_expanded">
+           <xsl:attribute name="id"><xsl:text/>page_details_<xsl:value-of select="position()" /></xsl:attribute>
+           <td colspan="8" bgcolor="#FF0000">
+              <div align="center">
 			         <b>Details for Page "<xsl:value-of select="$label" />"</b>
+			         <div style="width: 600px; height: 300px; position: relative;" id="">
+                 <xsl:attribute name="id"><xsl:text/>chart_<xsl:value-of select="position()"/></xsl:attribute>
+                 <canvas width="600" height="300"></canvas>
+                 <canvas width="600" height="300" style="position: absolute; left: 0px; top: 0px;"></canvas>
+              </div>
+              <p>Response Time (ms)</p>
 			         <table bordercolor="#000000" border="1"  cellpadding="0" cellspacing="0" width="95%">
 			         <tr>
 			            <th>Thread</th>
@@ -305,7 +326,11 @@
 			            <th>Bytes</th>
 			            <th>Success</th>
 			         </tr>
-			         		         
+			         
+			         <script type="text/javascript" language="javascript"><xsl:text/>
+								  var data_<xsl:value-of select="$position" /> = [];
+							</script>
+
 			         <xsl:for-each select="../*[@lb = $label and @tn != $label]">			         			            
 			            <tr>
 			               <td><xsl:value-of select="@tn" /></td>
@@ -315,15 +340,25 @@
 			               <td align="right"><xsl:value-of select="@by" /></td>
 			               <td align="center"><xsl:value-of select="@s" /></td>
 			            </tr>
+			              <script type="text/javascript" language="javascript"><xsl:text/>
+												data_<xsl:value-of select="$position" />.push([<xsl:value-of select="position()"/>,<xsl:value-of select="@t" />]) ;
+										</script>
 			         </xsl:for-each>
-			         
 			         </table>
+
+              <script type="text/javascript" language="javascript"><xsl:text/>
+									plotWithOptions(data_<xsl:value-of select="$position" />,
+									                2000,
+									                $("#chart_<xsl:value-of select="$position"/>"));
+									change("page_details_<xsl:value-of select="$position"/>");
+							</script>
 			      </div>
-                           </td>
-                        </tr>
+           </td>
+        </tr>
 			
 		</xsl:for-each>
 	</table>
+	
 </xsl:template>
 
 <xsl:template name="detail">

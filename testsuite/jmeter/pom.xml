@@ -34,7 +34,7 @@
 								<port>80</port>
 								<threads>10</threads>
 								<rampup>1</rampup>
-								<duration>360</duration>
+								<duration>10</duration>
 				    </jmeterUserProperties>
 				</configuration>
 			</plugin>
@@ -76,6 +76,9 @@
                 <tasks>
                  <copy file="src/test_resources/expand.png" todir="target/site/jmeter-reports/"></copy>
                  <copy file="src/test_resources/collapse.png" todir="target/site/jmeter-reports/"></copy>
+                 <copy file="src/test_resources/jquery.min.js" todir="target/site/jmeter-reports/"></copy>
+                 <copy file="src/test_resources/jquery.flot.min.js" todir="target/site/jmeter-reports/"></copy>
+                 <copy file="src/test_resources/jquery.flot.threshold.min.js" todir="target/site/jmeter-reports/"></copy>
                </tasks>
             </configuration>
           <goals>
