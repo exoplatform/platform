@@ -64,10 +64,10 @@ public abstract class AbstractExoContainerTestCase {
   private void initExoContainer() throws ClassNotFoundException {
     //
     Set<String> rootConfigPaths = new HashSet<String>();
-    rootConfigPaths.add("conf/root-configuration.xml");
+    rootConfigPaths.add("conf/test-root-configuration.xml");
 
     Set<String> portalConfigPaths = new HashSet<String>();
-    portalConfigPaths.add("conf/portal-configuration.xml");
+    portalConfigPaths.add("conf/test-portal-configuration.xml");
     portalConfigPaths.add("conf/" + getClass().getSimpleName() + ".xml");
 
     EnumMap<ContainerScope, Set<String>> configs = new EnumMap<ContainerScope, Set<String>>(ContainerScope.class);

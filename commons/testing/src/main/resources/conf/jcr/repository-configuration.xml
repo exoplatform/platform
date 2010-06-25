@@ -17,18 +17,6 @@
               <property name="max-buffer-size" value="204800"/>
               <property name="swap-directory" value="${test.tmpdir}/swap/system"/>
             </properties>
-            <!-- 
-            <value-storages>
-              <value-storage id="system" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${test.tmpdir}/values/system"/>
-                </properties>
-                <filters>
-                  <filter property-type="Binary"/>
-                </filters>
-              </value-storage>
-            </value-storages>
-            -->
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>
@@ -68,18 +56,6 @@
               <property name="max-buffer-size" value="204800"/>
               <property name="swap-directory" value="${test.tmpdir}/swap/portal-test"/>
             </properties>
-            <!-- 
-            <value-storages>
-              <value-storage id="portal-test" class="org.exoplatform.services.jcr.impl.storage.value.fs.TreeFileValueStorage">
-                <properties>
-                  <property name="path" value="${test.tmpdir}/values/portal-test"/>
-                </properties>
-                <filters>
-                  <filter property-type="Binary"/>
-                </filters>
-              </value-storage>
-            </value-storages>
-             -->
           </container>
           <initializer class="org.exoplatform.services.jcr.impl.core.ScratchWorkspaceInitializer">
             <properties>

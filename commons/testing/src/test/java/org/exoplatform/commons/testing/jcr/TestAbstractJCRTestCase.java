@@ -37,7 +37,7 @@ import static  org.testng.AssertJUnit.*;
 public class TestAbstractJCRTestCase extends AbstractJCRTestCase
 {
 
-   @Test
+   //@Test
    public void testGetSession() throws Exception
    {
      Session session = getSession();   
@@ -46,17 +46,17 @@ public class TestAbstractJCRTestCase extends AbstractJCRTestCase
      session.logout();
    }
    
-   @Test
+   //@Test
    public void testRepository() {
      assertNotNull("repository was null", getRepository());
    }
    
-   @Test
+   //@Test
    public void testWorkspace() {
      assertNotNull("workspace was null", getWorkspace());
    }
    
-   @Test
+   //@Test
    public void testAssertNodeExists() throws Exception {
      Session session = getSession();
      Node root = session.getRootNode();
@@ -69,7 +69,7 @@ public class TestAbstractJCRTestCase extends AbstractJCRTestCase
      session.logout();     
    }
  
-   @Test
+   //@Test
    public void testAddNode() throws Exception {
      
      addNode("addnode");
@@ -90,7 +90,7 @@ public class TestAbstractJCRTestCase extends AbstractJCRTestCase
      session.logout();     
    }
    
-   @Test
+   //@Test
    public void testAddFile() throws Exception {
      
      addFile("addfile");

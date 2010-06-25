@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
 
+  <component>
+    <key>org.exoplatform.container.configuration.ConfigurationManager</key>
+    <type>org.exoplatform.container.configuration.ConfigurationManagerImpl</type>
+  </component>
 
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
-  xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
   <component>
     <key>org.exoplatform.services.naming.InitialContextInitializer</key>
@@ -11,15 +14,9 @@
     <init-params>
       <properties-param>
         <name>default-properties</name>
-        <description>Default initial context properties</description>
         <property name="java.naming.factory.initial" value="org.exoplatform.services.naming.SimpleContextFactory" />
       </properties-param>
     </init-params>
-  </component>
-
-  <component>
-    <key>org.exoplatform.container.configuration.ConfigurationManager</key>
-    <type>org.exoplatform.container.configuration.ConfigurationManagerImpl</type>
   </component>
 
 
