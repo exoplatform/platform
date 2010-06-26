@@ -1,7 +1,17 @@
+eXo solutions are a set of new and innovative products for your business. They help your company to manage the important amount of information you are dealing with. eXo Portal and WebOS let you aggregate applications and content for your employees through an innovative user friendly interface. Combined with eXo Platform Content Management, to manage your documents, and eXo Collaboration Suite, to improve your collaborators' communication and organization, you will gain time and reactivity.
 
-= Welcome to eXo Platform =
+= Welcome to eXo Platform  =
+eXo Platform  is the commercial and supported version of eXo Platform open source product. Its packaging and testing has been focused around production readiness and improved administration tasks.
+eXo Platform has been designed to run on major applications servers, like JBoss AS, and relational database systems, like MySQL, and Oracle. It also provides the best packaging for customers that need long-term support. In order to provide a product ready solution, eXo Platform upgradeability and stability has been particularly tested by eXo developers.
+The eXo Platform 3.0 release contains eXo Portal 2.5.4 and is certified on JBoss EAP. The integration of other eXo Platform components and certification on other application servers will be done later on. Other components are still supported with their current packaging. When they will be integrated to eXo Platform packaging, eXo Platform will provide migration to the new release.
+This guide has been designed to help you going through all necessary steps of eXo Platform deployment. At the end, you will be able to install, configure, migrate, and manage your eXo Platform system.
 
 = Who should read this guide ? =
-= Conventions used in this document =
+This guide describes how to start using eXo Platform, the following user profiles benefit from this guide:
+* Users who want to use, deploy and manage eXo Platform system in their work and business. 
+* Integrators who want to know more about eXo Platform and integrate it into their own projects. 
+We hope this guide will help you to get a better understanding of the eXo Platform and that you will feel encouraged trying out things on your own.
+
+= Conventions used in this document  =
 |=Text / Icon type|=Meaning
 |xxx|Txxx

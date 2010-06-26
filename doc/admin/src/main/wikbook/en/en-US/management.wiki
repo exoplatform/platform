@@ -1,12 +1,136 @@
 
 = Management of eXo Platform = 
+Management of the resources of a platform is a critical aspect when it comes to production. The eXo Platform product is exposed as a manageable set of resources that can be inspected at runtime to monitor and manage servers.
 
-= JMX Interface  =
-= REST Interface =
+When it comes to Java, the Java Management Extension (also known as JMX) is the de-facto standard to expose managed resources to the outer world.
 
-= Resource Monitoring =
-== Caches ==
-== Portlet Container ==
-== Portal ==
+This chapter explains the various resources provided by the eXo Platform server, the management actions that can be performed, and how to obtain relevant metrics .
+== JMX Interface  ==
+The resource management is exposed via the JMX layer. eXo Platform registers a set of MBean entities in an MBeanServer. 
+
+In the runtime of JBoss AS, the MBeans  are registered by the eXo Kernel in the MBeanServer  that the application server creates and the MBeans  are directly viewable in the JMX console. However we do advocate using a better JMX client such as the JConsole tool available since Java 5.
+
+Although it is not the scope of this guide to explain how the JConsole can be connected to the JBoss application server we will give the required changes to perform. The following system properties must be added as virtual machine properties:
+
+|=Property name|=Property value
+| com.sun.management.jmxremote|no value 
+| jboss.platform.mbeanserver|no value
+| javax.management.builder.initial|org.jboss.system.server.jmx.MBeanServerBuilderImpl
+
+== REST Interface ==
+
+= Management Views Reference =
+
+== Cache management view ==
+
+Cache is an important aspect of a server infrastructure, which plays an essential role for performances.
+
+=== Cache management and statistics ===
+
+Each cache is exposed and provides statistics and management operations. The JMX name of each cache MBean uses the template exo:service=cache,name=CacheName where CacheName is the name of the cache.
+
+|=Attribute|=Description 
+|Capacity| the maximum capacity of the cache
+|HitCount|the number of times the cache was successfully queried
+|MissCount|the number of times the cache was queried without success.
+|Size| gives the number of entries in the cache.
+|TimeToLive|attribute gives the maximum life time an entry is considered to be valid. A value of -1 means that the entries are never considered to become stale.
+
+|=Operation|=Description
+|clearCache()|evicts all the entries from the cache. It can be used to force a programmatic flush of the cache.
+
+=== Cache service ===
+
+The cache service manages the different caches, the JMX name is  ##exo:service=cachemanager##.
+
+|=Operation|=Description
+|clearCaches()|force a programmatic flush of all the registered caches.
 
 
+== Portlet Container management view ==
+
+Portlet containers do provide a management view that consists mainly in statistic exposure. The JMX name of a portlet container follows the template :
+##exo:application=”Application”,portlet=”Portlet” ## where Application is the name of web application and Portlet is the portlet name in the web application.
+
+=== Portlet Container statistics ===
+
+Each portlet container has a corresponding managed resource that exposes statistics as attributes. The Portlet lifecycle has several phases (named action, event, render and resource) which are particular operations that a portlet can execute, each of those operations is monitored.
+
+Execution count
+
+|=Attribute|=Description 
+|ActionCount, EventCount, RenderCount and ResourceCount|the number of executions of a particular portlet phase.
+|MeanActionTime, MeanEventTime, MeanRenderCount and MeanResourceCount|the average time spent during the execution of a particular portlet phase.
+|MaxActionTime, MaxventTime, MaxRenderCount and MaxResourceCount|the maximum time spent during the execution of a particular portlet phase.
+|MinActionTime, MinEventTime, MinRenderCount and MinResourceCount|the minimum time spent during the execution of a particular portlet phase.
+
+== Portal management view ==
+
+The portal management exposes the portal resources either for management or for statistic.
+
+=== Template statistics ===
+
+The template management exposes the various templates used by the portal and its components to render markup. Various statistics are available per template and to get aggregated statistics such as the list of the slowest templates. Most of the management operations operate on a single template; those operations take as argument the template identifier. 
+The JMX name of the template statistics MBean follows the template:  ##exo:view=portal,service=statistic,type=template##.
+
+|=Attribute|=Description 
+|TemplateList|returns the list of the loaded templates.
+|SlowestTemplates|returns the list of the 10 slowest templates.
+|MostExecutedTemplates|returns the list of the 10 templates which are most used.
+|FastestTemplates|returns the list of the 10 fastest templates.
+
+|=Operation|=Description
+|getAverageTime(templateId)|returns the average time spent in the specified template.
+|getExecutionCount(templateId)|returns the number of times the specified  template has been executed.
+|getMinTime(templateId)|returns the minimum time spent in the specified  template.
+|getMaxTime(templateId)|returns the maximum time spent in the specified  template.
+
+=== Template management ===
+
+The template management provides the capability to force the reload of a specified template. 
+The JMX name of the template management MBean follows the template ##exo:view=portal,service=management,type=template##.
+
+
+|=Operation|=Description
+|reload(templateId)|reloads a specified template. The reload() operation reloads all the templates.
+
+=== Skin management ===
+
+|=Attribute|=Description 
+|SkinList|the list of the loaded skins by the skin service.
+
+|=Operation|=Description
+|reloadAll(skinId)|forces a reload of the specified skin and the operation reloadSkins() forces a reload of the loaded skins.
+
+=== Portal statistics ===
+
+The JMX name of the portal statistics MBean follows the template ##exo:view=portal,service=statistic,type=portal##.
+
+|=Attribute|=Description 
+|PortalList|returns the list of the loaded portals. 
+
+|=Operation|=Description
+|getThroughput(portalId)|returns the number of request per second for the specified portal.
+|getAverageTime(portalId)|returns the average time spent in a specified portal.
+|getExecutionCount(portalId)|returns the number of times a specified portal has been executed.
+|getMinTime(portalId)|returns the minimum time spent in the specified portal.
+|getMaxTime(portalId)|returns the maximum time spent in the specified portal.
+
+=== Application statistics ===
+
+Various applications are exposed to provide relevant statistics. 
+The JMX name of the application statistics MBean follows the template: ##exo:view=portal,service=statistics,type=application##.
+
+|=Attribute|=Description 
+|ApplicationList|returns the list of the loaded applications.
+|SlowestApplications|returns the list of the 10 slowest applications.
+|MostExecutedApplications|returns the list of the 10 applications which are the most executed.
+|FastestApplications|returns the list of the 10 fastest applications.
+
+|=Operation|=Description
+|getAverageTime(applicationId)|returns the average time spent in the specified application.
+|getExecutionCount(applicationId)|returns the number of times the specified application has been executed.
+|getMinTime(applicationId)|returns the minimum time spent in the specified  application.
+|getMaxTime(applicationId)|returns the maximum time spent in the specified  application.
+
+ 

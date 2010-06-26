@@ -4,13 +4,30 @@
 
 As a convenience we provide a setup wizzard UI that will generate all system configuration. But you can still make them by your own. The following paragraphs will detail manual configuration
 
-= Configuration of eXo platform =
+= Principles of Configuration =
 
-== Database Configuration ==
-== FileSystem Configuration ==
-== Connecting to an LDAP Directory ==
+System configuration for eXo Platform is stored in a file named ##configuration.properties##.
+The location of this file varies depending on the AS :
+* default bundle: $TOMCAT_HOME/conf/exo-configuration.properties
+* JBoss : $JBOSS_HOME/server/default/conf/exo-configuration.properties
+
+= Database Configuration =
+eXo Platform relies on the application server for its database access. Therefore the database is configured at the application server level as a datasource. That datasource is obtained by performing access to the enterprise naming context (ENC) through the Java Naming and Directory Interface (JNDI) service.
+
+== JBoss ==
+JBoss Application Server relies on deployment descriptors for its datasource management. 
+Datasources are bound in the enterprise naming context with a ##java:## prefix.
+By default, eXo Platform defines two datasources 
+* ##java:exojcr## : for the Java Content Repository (JCR).
+* ##java:exoidm## : for the organizational model.
+
+The file ##sample-confs/jboss/exo-ds.xml## can be used to drop into the ##deploy/## directory.
+
+
+= Filesystem Configuration =
+= Connecting to an LDAP Directory =
 
 = Configuration of the Application Server =
 
-== JVM Settings Recommendations ==
-== Connection Pools ==
+= JVM Settings Recommendations =
+= Connection Pools =
