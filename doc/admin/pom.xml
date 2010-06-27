@@ -45,6 +45,9 @@
           <destinationDirectory>${project.build.directory}/wikbook/src</destinationDirectory>
           <destinationFileName>index.xml</destinationFileName>
           <emitDoctype>false</emitDoctype>
+          
+          <!-- Does not have a good support for {{include}} and {{important}} macros -->
+          <!-- syntaxId>confluence/1.0</syntaxId-->
         </configuration>
       </plugin>
 

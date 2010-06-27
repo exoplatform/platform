@@ -1,19 +1,19 @@
 eXo Platform comes packaged as a deployable enterprise archive as per the Java EE specification and a configuration directory.
 
-= Runtime Considerations =
+h1. Runtime Considerations
 Exo Platform requires a purposive infrastructure for its deployment and is certified on the following products:
 * Sun Java 6 Virtual Machine 
 * JBoss Application Server 4.2  
 * Oracle version 9 and 10, MySQL version 5 and DB2 version 9 
 
-For more details on the supported combinations, please refer to the [[Supported Platforms Matrix]].
+For more details on the supported combinations, please refer to the [Supported Platforms Matrix].
 
-= Installing the bundle =
+h1. Installing the bundle
 The easiest way to install eXo Platform is simply to take the default bundle. 
-It's a ready-made packaging on top of Tomcat 6 application server. Hence, the instructions are as simple as copying the exoplatform-tomcat/ directory to your server
+It's a ready-made packaging on top of Tomcat 6 application server. Hence, the instructions are as simple as copying the ##exoplatform-tomcat/## directory to your server
 
 	
-= Installing the EAR distribution = 
+h1. Installing the EAR distribution 
 
 If you are already using another enterprise java application server, eXo Platform is available as a set of Enterprise Archive (EAR) files.
 Although the EAR format is rather standardized, the JEE specifications leaves the details of deployment up to the each vendor.
@@ -24,45 +24,46 @@ Currently, this guide provide instructions for :
 
 If your application server is not covered, please contact eXo Support.
 
-== JBoss 5.1  ==
+h2. JBoss 5.1 
 
-== JBoss EAP ==
+h2. JBoss EAP
 
 
-= Startup =
+h1. Startup
 
-eXo Platform leverages the Application Server on which it is deployed. This means that to start and stop eXo Platform you just need to start and stop your application with the default commands.
+eXo Platform leverages the Application Server on which it is deployed. 
+This means that to start and stop eXo Platform you just need to start and stop your application with the default commands.
 
 You can start eXo Platform deployed in JBoss using the standard JBoss command.
-== JBoss ==
-* On Linux/Unix:         {{screen}}$JBOSS_HOME/bin/run.sh {{/screen}}
-* On Windows:          {{screen}}%JBOSS_HOME%\bin\run.bat{{/screen}} 
+h2. JBoss
+* On Linux/Unix:       {screen}$JBOSS_HOME/bin/run.sh{screen}
+* On Windows:          {screen}%JBOSS_HOME%\bin\run.bat{screen}
 
 The server has started when you see the following message in your log/console:
 
-{{screen}}
-15:06:02,877 INFO  [Server] JBoss (MX MicroKernel) [...] Started in 1m:05s:320ms
-{{/screen}}
+{screen}
+15:06:02,877 INFO  \\[Server] JBoss (MX MicroKernel) \\[...] Started in 1m:05s:320ms
+{screen}
 
-When started you can access your eXo Portal using the following URL: [[http://<your-server>:8080/portal]]
+When started you can access your eXo Portal using the following URL: [http://<your-server>:8080/portal]
 
-= Shutdown =
+h1. Shutdown
 
-== JBoss ==
-* On Linux/Unix :   {{screen}}$JBOSS_HOME/bin/shutdown.sh -S {{/screen}}
-* On Windows :         {{screen}}%JBOSS_HOME%\bin\shutdown.bat -S {{/screen}}
+h2. JBoss
+* On Linux/Unix :   {screen}$JBOSS_HOME/bin/shutdown.sh -S {screen}
+* On Windows :      {screen}%JBOSS_HOME%\bin\shutdown.bat -S {screen}
 
 The server has stopped when you see the following message in your log/console:
 
-{{screen}}
-15:13:27,100 INFO  [Server] Shutdown complete
+{screen}
+15:13:27,100 INFO  \\[Server] Shutdown complete
 Shutdown complete
 Halting VM
-{{/screen}}
+{screen}
 
-= Other options =
+h1. Other options
 Please refer to the JBoss Documentation for other options and configurations such as JVM configuration, remote debugging or running JBoss as a service on Windows.
 
-= How to remove the sample demos ? =
+h1. How to remove the sample demos ?
 
-= Configuring an Apache Frontend =
+h1. Configuring an Apache Frontend

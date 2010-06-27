@@ -1,1 +1,1 @@
-= Upgrading from All In One =
+h1. Upgrading from All In One

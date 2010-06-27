@@ -5,29 +5,29 @@
 
 = Introduction =
 
-{{include document="introduction.wiki" /}}
+{{include document="introduction.wiki" syntax="confluence/1.0"  /}}
 
 = Installation =
 
-{{include document="installation.wiki" /}}
+{{include document="installation.wiki" syntax="confluence/1.0"  /}}
 
 = Configuration =
 
-{{include document="configuration.wiki" /}}
+{{include document="configuration.wiki" syntax="confluence/1.0" /}}
 
 = Management =
 
-{{include document="management.wiki" /}}
+{{include document="management.wiki" syntax="confluence/1.0" /}}
 
 = Clustering =
 
-{{include document="clustering.wiki" /}}
+{{include document="clustering.wiki" syntax="confluence/1.0" /}}
 
 
 = Project Deployment =
 
-{{include document="deployment.wiki" /}}
+{{include document="deployment.wiki" syntax="confluence/1.0" /}}
 
 = Upgrade =
 
-{{include document="upgrade.wiki" /}}
+{{include document="upgrade.wiki" syntax="confluence/1.0"/}}

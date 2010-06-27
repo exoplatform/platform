@@ -1,14 +1,14 @@
 
 
-= When should you consider clustering ? =
+h1. When should you consider clustering ?
 
 
-= Preparing the cluster infrastructure =
+h1. Preparing the cluster infrastructure
 
 
-= Configuring cluster mode =
+h1. Configuring cluster mode
 
-= Managing a cluster =
+h1. Managing a cluster
 
 
-== Using JBoss Farm deployment ==
+h2. Using JBoss Farm deployment
