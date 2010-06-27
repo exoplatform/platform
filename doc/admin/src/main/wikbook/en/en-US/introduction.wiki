@@ -1,6 +1,8 @@
+
+
 eXo solutions are a set of new and innovative products for your business. 
 They help your company to manage the important amount of information you are dealing with. 
-GateIn lest you aggregate applications and content for your employees through an innovative user friendly interface. 
+GateIn lets you aggregate applications and content for your employees through an innovative user friendly interface. 
 Combined with eXo Platform Enteprise Content Management, to manage your documents, and eXo Collaboration, to improve your collaborators' communication and organization, you will gain time and reactivity.
 
 h1. Welcome to eXo Platform  

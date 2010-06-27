@@ -1,7 +1,6 @@
-**eXo Platform 3 Administrators Guide**
-
 
 {{important}}This document is a work in progress and will get richer over time.{{/important}}
+
 
 = Introduction =
 

@@ -20,7 +20,7 @@ The following system properties must be added as virtual machine properties:
 | jboss.platform.mbeanserver|no value |
 | javax.management.builder.initial|org.jboss.system.server.jmx.MBeanServerBuilderImpl |
 
-h2. REST Interface =
+h2. REST Interface
 
 h1. Management Views Reference 
 
