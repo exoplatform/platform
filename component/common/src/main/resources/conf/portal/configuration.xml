@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+	
+	<!-- Defines the builtin Modules -->
+	<component>
+		<type>org.exoplatform.commons.platform.ModuleRegistry</type>
+		<component-plugins>
+			<component-plugin>
+				<name>eXo Collaboration</name>				
+				<set-method>register</set-method>
+				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
+				<description>Chat, AdressBook, Calendar and Mail</description>
+			</component-plugin>
+			<component-plugin>
+				<name>eXo Collaboration</name>				
+				<set-method>register</set-method>
+				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
+				<description>Forum, Answers and FAQ</description>
+			</component-plugin>
+			<component-plugin>
+				<name>eXo Social</name>				
+				<set-method>register</set-method>
+				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
+				<description>Spaces, People, Profiles, Activity Streams, OpenSocial Social APIs</description>
+			</component-plugin>
+			<component-plugin>
+				<name>DMS</name>				
+				<set-method>register</set-method>
+				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
+				<description>Document Management System Addon : Records Management, Kofax support</description>
+			</component-plugin>
+			<component-plugin>
+				<name>Workflow</name>				
+				<set-method>register</set-method>
+				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
+				<description>Bonita engine, Workflow forms, WCM integration and BP monitoring </description>
+			</component-plugin>		
+			<component-plugin>
+				<name>IDE</name>				
+				<set-method>register</set-method>
+				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
+				<description>IDeall online IDE, Groovy REST services</description>
+			</component-plugin>					
+		</component-plugins>
+	</component>
+	
+	<external-component-plugins>
+		<!-- The full qualified name of the ExtensibleFilter -->
+		<target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>Sample Filter Definition Plugin</name>
+			<!-- The name of the method to call on the ExtensibleFilter in order to register the FilterDefinitions -->
+			<set-method>addFilterDefinitions</set-method>
+			<!-- The full qualified name of the FilterDefinitionPlugin -->
+			<type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+			<init-params>
+				<object-param>
+					<name>Sample Filter Definition</name>
+					<object type="org.exoplatform.web.filter.FilterDefinition">
+						<!-- The filter instance -->
+						<field name="filter"><object type="org.exoplatform.web.filter.RedefinableResourceFilter"/></field>
+						<!-- The mapping to use -->
+						<!-- WARNING: the mapping is expressed with regular expressions -->
+						<field name="patterns">
+							<collection type="java.util.ArrayList" item-type="java.lang.String">
+								<value>
+									<string>.*\.jsp</string>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+	<!-- 
+<external-component-plugins>
+	<target-component>org.exoplatform.container.definition.PortalContainerConfig</target-component>
+	<component-plugin>
+		<name>Change PortalContainer Definitions</name>
+		<set-method>registerChangePlugin</set-method>
+		<type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
+		<init-params>
+			<object-param>
+				<name>add-dependency</name>
+				<object
+					type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
+					<field name="dependencies">
+						<collection type="java.util.ArrayList">
+							<value>
+								<string>myportal-conf</string>
+							</value>
+							<value>
+								<string>forum-override</string>
+							</value>
+						</collection>
+					</field>
+				</object>
+			</object-param>
+		</init-params>
+	</component-plugin>
+</external-component-plugins>	
+ -->
+</configuration>

@@ -16,6 +16,13 @@
       <artifactId>exo.kernel.container</artifactId>
       <scope>provided</scope>
     </dependency>  
+
+    <dependency>
+      <groupId>org.exoplatform.portal</groupId>
+      <artifactId>exo.portal.component.web</artifactId>
+      <version>${org.exoplatform.portal.version}</version>
+      <scope>provided</scope>
+    </dependency>  
   
     <dependency>
     	<groupId>javax.portlet</groupId>
@@ -24,5 +31,13 @@
     	<type>jar</type>
     	<scope>provided</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${org.slf4j.slf4j-simple.version}</version>
+      <scope>runtime</scope>
+    </dependency>     
+    
   </dependencies>
 </project>
