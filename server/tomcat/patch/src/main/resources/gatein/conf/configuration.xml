@@ -1,32 +1,25 @@
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
 	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
-
+<!-- 
 	<component>
-		<!-- The full qualified name of the PortalContainerConfig -->
 		<type>org.exoplatform.container.definition.PortalContainerConfig</type>
 		<init-params>
-			<!-- The name of the default portal container -->
 			<value-param>
 				<name>default.portal.container</name>
 				<value>portal</value>
 			</value-param>
-			<!-- The name of the default rest ServletContext -->
 			<value-param>
 				<name>default.rest.context</name>
 				<value>rest</value>
 			</value-param>
-			<!-- The name of the default realm -->
 			<value-param>
 				<name>default.realm.name</name>
 				<value>gatein-domain</value>
 			</value-param>
-			<!-- The default portal container definition -->
-			<!-- It cans be used to avoid duplicating configuration -->
 			<object-param>
 				<name>default.portal.definition</name>
 				<object type="org.exoplatform.container.definition.PortalContainerDefinition">
-					<!-- The path to the external properties file -->
 					<field name="externalSettingsPath">
 						<string>configuration.properties</string>
 					</field>
@@ -53,18 +46,15 @@
 							<value>
 								<string>rest</string>
 							</value>
-							<!-- CS -->
 							<value>
 								<string>cs-extension</string>
 							</value>
 							<value>
 								<string>csResources</string>
 							</value>
-							<!-- END CS -->
 							<value>
 								<string>web</string>
 							</value>
-							<!-- ECM --> 
 							<value>
 								<string>eXoDMSGadgets</string>
 							</value>                
@@ -107,7 +97,7 @@
 							<value>
 								<string>workflow</string>
 							</value>
-							<!-- SOCIAL -->							
+							
 							<value>
 									<string>eXoResourcesSocial</string>
 							</value>
@@ -125,8 +115,7 @@
 							</value>
 							<value>
 								<string>cometd</string>
-							</value> 
-							<!-- KS -->               
+							</value>     
 							<value>
 								<string>ksResources</string>
 							</value>   
@@ -139,12 +128,6 @@
 							<value>
 								<string>knowledge-extension</string>
 							</value> 
-							<!-- CS -->   
-							<!--
-							<value>
-								<string>web</string>
-							</value> 
-							-->
 							<value>
 								<string>mail</string>
 							</value> 
@@ -169,4 +152,5 @@
 			</object-param>
 		</init-params>
 	</component>
+	-->
 </configuration>
