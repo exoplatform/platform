@@ -7,11 +7,13 @@
     <version>3.0.0-Beta01-SNAPSHOT</version>
   </parent>
 
-  <artifactId>exo.platform.extension.config</artifactId>
-  <packaging>jar</packaging>
+  <artifactId>exo.platform.extension.ear</artifactId>
+  <packaging>ear</packaging>
 
-  <name>eXo Platform Container Config</name>
+  <name>eXo Platform Extension EAR</name>
 
-
+  <build>
+    <finalName>platform-extension</finalName>
+  </build>
 
 </project>

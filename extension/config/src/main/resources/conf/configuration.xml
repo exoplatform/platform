@@ -5,12 +5,10 @@
   <!-- The full qualified name of the PortalContainerConfig -->
   <type>org.exoplatform.container.definition.PortalContainerConfig</type>
   <init-params>
-   <!-- The name of the default portal container -->
    <value-param>
     <name>default.portal.container</name>
     <value>portal</value>
    </value-param>
-   <!-- The name of the default rest ServletContext -->
    <value-param>
     <name>default.rest.context</name>
     <value>rest</value>
@@ -18,7 +16,7 @@
    <!-- The name of the default realm -->
    <value-param>
     <name>default.realm.name</name>
-    <value>gatein-domain</value>
+    <value>gatein-domain</value> <!--  TODO : use a variable -->
    </value-param>
    <!-- The default portal container definition -->
    <!-- It cans be used to avoid duplicating configuration -->
@@ -54,15 +52,15 @@
        </value>
 
        <!-- collab -->
-       <value profiles="collaboration">
+       <value profiles="collaboration,all,default">
         <string>cs-extension</string>
        </value>
 
        <!-- cometd -->
-       <value>
+       <value profiles="collaboration,knowledge,all,default">
         <string>cometd</string>
        </value>
-       <value profiles="collaboration">
+       <value profiles="collaboration,all,default">
         <string>csResources</string>
        </value>
 
@@ -71,116 +69,121 @@
        </value>
 
 
-       <value profiles="collaboration">
+       <value profiles="collaboration,all,default">
         <string>mail</string>
        </value>
-       <value profiles="collaboration">
+       <value profiles="collaboration,all,default">
         <string>contact</string>
        </value>
-       <value profiles="collaboration">
+       <value profiles="collaboration,all,default">
         <string>chat</string>
        </value>
-       <value profiles="collaboration">
+       <value profiles="collaboration,all,default">
         <string>chatbar</string>
        </value>
-       <value profiles="collaboration">
+       <value profiles="collaboration,all,default">
         <string>content</string>
        </value>
-       <value profiles="collaboration">
+       <value profiles="collaboration,all,default">
         <string>calendar</string>
        </value>
 
 
        <!-- ECM -->
 
-       <value profiles="ecm">
+       <value >
         <string>eXoDMSGadgets</string>
        </value>
-       <value profiles="ecm">
+       <value >
         <string>eXoStaticResources</string>
        </value>
-       <value profiles="ecm">
+       <value >
         <string>eXoDMSResources</string>
        </value>
-       <value profiles="ecm">
+       <value >
         <string>eXoWCMResources</string>
        </value>
-       <value profiles="ecm">
+       <value profiles="dms,all">
         <string>dms-extension</string>
        </value>
-       <value profiles="ecm">
+       <value>
         <string>ecmexplorer</string>
        </value>
-       <value profiles="ecm">
+       <value>
         <string>ecmadmin</string>
        </value>
-       <value profiles="ecm">
+       <value>
         <string>ecm-wcm-extension</string>
        </value>
-       <value profiles="ecm">
+       <value>
         <string>presentation</string>
        </value>
-       <value profiles="ecm">
+       <value>
         <string>formgenerator</string>
        </value>
-       <value profiles="ecm">
+       <value>
         <string>newsletter</string>
        </value>
-       <value profiles="ecm">
+       <value>
         <string>searches</string>
        </value>
-       <value profiles="ecm">
+       <value profiles="workflow,all">
         <string>ecmworkflow-extension</string>
        </value>
-       <value profiles="ecm">
+       <value profiles="workflow,all">
         <string>workflow</string>
        </value>
        <!--
                 <value> <string>ecmdemo</string> </value>
               -->
        <!-- SOCIAL -->
-       <value profiles="social">
+       <value profiles="social,all,default">
         <string>eXoResourcesSocial</string>
        </value>
-       <value profiles="social">
+       <value profiles="social,all,default">
         <string>social</string>
        </value>
-       <value profiles="social">
+       <value profiles="social,all,default">
         <string>space</string>
        </value>
-       <value profiles="social">
+       <value profiles="social,all,default">
         <string>profile</string>
        </value>
-       <value profiles="social">
+       <value profiles="social,all,default">
         <string>social-ext</string>
        </value>
 
 
        <!-- Knowledge -->
-       <value profiles="knowledge">
+       <value profiles="knowledge,all,default">
         <string>ksResources</string>
        </value>
-       <value profiles="knowledge">
+       <value profiles="knowledge,all,default">
         <string>faq</string>
        </value>
-       <value profiles="knowledge">
+       <value profiles="knowledge,all,default">
         <string>forum</string>
        </value>
-       <value profiles="knowledge">
+       <value profiles="knowledge,all,default">
         <string>ks</string>
        </value>
 
        <!-- IDE -->
-       <value profiles="ide">
+       <value profiles="ide,all,default">
         <string>ideall-extension</string>
        </value>
-
+       
+       <!--  Contains shared layout -->
+       <value>
+        <string>platform-extension</string>
+       </value>
       </collection>
      </field>
 
      <!-- A map of settings tied to the default portal container -->
      <field name="settings">
       <map type="java.util.HashMap">
+      <!--  TODO check cometd name -->
        <entry>
         <key>
          <string>sample</string>
