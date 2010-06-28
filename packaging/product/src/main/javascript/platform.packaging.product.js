@@ -52,7 +52,10 @@ function getProduct(version) {
   product.addDependencies(platform.fck);
   product.addDependencies(platform.cometd);
   product.addDependencies(platform.config);
-
+  product.addDependencies(platform.extension.webapp);
+  //product.addDependencies(platform.office.config);
+  //product.addDependencies(platform.office.webapp);
+  
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);
   product.addDependencies(workflow.web.eXoStaticResources) ;
@@ -137,15 +140,13 @@ function getProduct(version) {
   product.removeDependency(new Project("xstream", "xstream", "jar", "1.0.2"));
   product.removeDependency(new Project("commons-lang", "commons-lang", "jar", "2.3"));
   
-  /* remove extensions config */
+  /* remove extensions config . We don't need them because PLF declares a global container config in exo.platform.config */
   product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-ecmdemo-config", "jar", wcm.version));
   product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-wcm-config", "jar", wcm.version));
   product.removeDependency(new Project("org.exoplatform.ecms", "exo-ecms-packaging-workflow-config", "jar", wcm.version));
-// temporarily needed for prototype until we find why it does not work when removed
-// but they should not be needed as we declare everything a single PortalContainerConfig
-//  product.removeDependency(new Project("org.exoplatform.social", "exo.social.extension.config", "jar", social.version));
-//  product.removeDependency(new Project("org.exoplatform.ks", "exo.ks.extension.config", "jar", ks.version));
-//  product.removeDependency(new Project("org.exoplatform.cs", "exo.cs.extension.config", "jar", cs.version));
+  product.removeDependency(new Project("org.exoplatform.social", "exo.social.extension.config", "jar", social.version));
+  product.removeDependency(new Project("org.exoplatform.ks", "exo.ks.extension.config", "jar", ks.version));
+  product.removeDependency(new Project("org.exoplatform.cs", "exo.cs.extension.config", "jar", cs.version));
 
   product.addDependencies(new Project("commons-beanutils", "commons-beanutils", "jar", "1.7.0"));
   product.addDependencies(new Project("commons-beanutils", "commons-beanutils-core", "jar", "1.7.0"));
