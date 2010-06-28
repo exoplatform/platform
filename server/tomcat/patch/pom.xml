@@ -17,7 +17,7 @@
       <artifactId>exo.portal.server.tomcat.patch</artifactId>
       <version>${org.exoplatform.portal.version}</version>
       <type>jar</type>
-    </dependency-->
+    </dependency>
     <dependency>
       <groupId>org.exoplatform.cs</groupId>
       <artifactId>exo.cs.server.tomcat.patch</artifactId>
@@ -42,6 +42,7 @@
       <version>${org.exoplatform.social.version}</version>
       <type>jar</type>
     </dependency>
+    -->
   </dependencies>
   <build>
     <resources>
@@ -66,7 +67,7 @@
             <configuration>
               <outputDirectory>${project.build.outputDirectory}</outputDirectory>
               <!--excludes>**/GATEIN-README.txt,**/EXO-README.txt,**/conf/server.xml,**/conf/jaas.conf,**/gatein/conf/configuration.xml,**/webapps/zzzstarter/,**/Catalina/localhost/rest*.xml,**/Catalina/localhost/*demo.xml,**/Release_notes.txt</excludes-->
-              <excludes>**/Catalina/localhost/*demo.xml,**/gatein/conf/portal/,META-INF/,**/webapps/zzzstarter/</excludes>
+              <excludes>**/Catalina/localhost/*demo.xml,**/gatein/conf/portal/,META-INF/,**/webapps/starter/</excludes>
               <includes>**</includes>
             </configuration>
           </execution>
