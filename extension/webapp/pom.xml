@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.exoplatform.platform</groupId>
-    <artifactId>exo.platform.extension</artifactId>
+    <artifactId>exo.platform.parent</artifactId>
     <version>3.0.0-Beta01-SNAPSHOT</version>
   </parent>
 
