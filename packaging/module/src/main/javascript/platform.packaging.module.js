@@ -40,13 +40,16 @@ function getModule(params)
    // main portal container config	
    module.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);
    
+   // platform extension
    module.extension = {};
    module.extension.webapp =  new Project("org.exoplatform.platform", "exo.platform.extension.webapp", "war", module.version);
+   module.extension.webapp.deployName = "platform-extension";
 
+   // office portal
    module.office = {};
-   module.office.service =  new Project("org.exoplatform.platform", "exo.platform.office.service", "jar", module.version); 
-   module.office.webapp =  new Project("org.exoplatform.platform", "exo.platform.office.webapp", "war", module.version);
-
+   module.office.webapp =  new Project("org.exoplatform.platform", "exo.platform.office.webapp", "war", module.version)
+   .addDependency(new Project("org.exoplatform.platform", "exo.platform.office.service", "jar", module.version));
+   module.office.webapp.deployName = "office-portal";
    
    module.patch = {};
    module.patch.tomcat =
