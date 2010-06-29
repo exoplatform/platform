@@ -51,6 +51,10 @@
         <string>rest</string>
        </value>
 
+       <value>
+        <string>fck</string>
+       </value>
+
        <!-- collab -->
        <value profiles="collaboration,all,default">
         <string>cs-extension</string>
