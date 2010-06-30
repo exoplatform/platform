@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2003-2007 eXo Platform SAS.
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU Affero General Public License
+    as published by the Free Software Foundation; either version 3
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, see<http://www.gnu.org/licenses/>.
+
+-->
+<node-navigation
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
+    xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
+  <priority>1</priority>
+
+  <page-nodes>
+  
+   <node>
+    <uri>activities</uri>
+    <name>activities</name>
+    <label>#{portal.office.myprofile}</label>
+    <visibility>SYSTEM</visibility>
+    <page-reference>portal::office::activities</page-reference>
+   </node>
+   
+   <node>
+    <uri>profile</uri>
+    <name>profile</name>
+    <label>#{portal.office.profile}</label>
+    <visibility>SYSTEM</visibility>
+    <page-reference>portal::office::profile</page-reference>
+   </node>
+   
+   <node>
+    <uri>connections</uri>
+    <name>connections</name>
+    <label>#{portal.office.connections}</label>
+    <visibility>SYSTEM</visibility>
+    <node>
+      <uri>connections/myConnections</uri>
+      <name>myConnections</name>
+      <label>#{portal.office.yours}</label>
+      <page-reference>portal::office::myConnections</page-reference>
+    </node>
+    <node>
+      <uri>connections/myInvitations</uri>
+      <name>myInvitations</name>
+      <label>#{portal.office.invitations}</label>
+      <page-reference>portal::office::myInvitations</page-reference>
+    </node>
+    <node>
+      <uri>connections/myRequests</uri>
+      <name>myRequests</name>
+      <label>#{portal.office.requests}</label>
+      <page-reference>portal::office::myRequests</page-reference>
+    </node>
+    <node>
+      <uri>connections/yours</uri>
+      <name>yours</name>
+      <label>#{portal.office.yours}</label>
+      <page-reference>portal::office::connections</page-reference>
+    </node>
+    <node>
+      <uri>connections/invitations</uri>
+      <name>invitations</name>
+      <label>#{portal.office.invitations}</label>
+      <page-reference>portal::office::invitations</page-reference>
+    </node>
+    <node>
+      <uri>connections/requests</uri>
+      <name>requests</name>
+      <label>#{portal.office.requests}</label>
+      <page-reference>portal::office::requests</page-reference>
+    </node>
+  </node>
+  
+  <node>
+    <uri>people</uri>
+    <name>people</name>
+    <label>#{portal.office.people}</label>
+    <visibility>SYSTEM</visibility>
+    <page-reference>portal::office::people</page-reference>
+  </node>
+  
+  <node>
+    <uri>spaces</uri>
+    <name>spaces</name>
+    <label>#{portal.office.spaces}</label>
+    <visibility>SYSTEM</visibility>
+    <page-reference>portal::office::spaces</page-reference>
+  </node>
+  
+  <node>
+    <uri>invitationSpace</uri>
+    <name>invitationSpace</name>
+    <label>#{portal.office.invitationSpace}</label>
+    <visibility>SYSTEM</visibility>
+    <page-reference>portal::office::invitationSpace</page-reference>
+  </node>
+  
+  <node>
+    <uri>pendingSpace</uri>
+    <name>pendingSpace</name>
+    <label>#{portal.office.pendingSpace}</label>
+    <visibility>SYSTEM</visibility>
+    <page-reference>portal::office::pendingSpace</page-reference>
+  </node>
+  
+  <node>
+   <uri>publicSpace</uri>
+   <name>publicSpace</name>
+   <label>#{portal.office.publicSpace}</label>
+   <visibility>SYSTEM</visibility>
+   <page-reference>portal::office::publicSpace</page-reference>
+  </node>
+  
+  </page-nodes>
+  </node-navigation>

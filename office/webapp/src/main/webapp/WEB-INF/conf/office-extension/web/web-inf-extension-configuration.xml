@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+	<external-component-plugins>
+		<!-- The full qualified name of the ListenerService -->
+		<target-component>org.exoplatform.services.listener.ListenerService</target-component>
+		<component-plugin>
+			<!-- The name of the listener that is also the name of the target event -->
+			<name>org.exoplatform.web.GenericHttpListener.sessionCreated</name>
+			<!-- The name of the method to call on the ListenerService in order to register the Listener -->
+			<set-method>addListener</set-method>
+			<!-- The full qualified name of the Listener -->
+			<type>org.exoplatform.sample.ext.web.SampleHttpSessionCreatedListener</type>
+		</component-plugin>
+		<component-plugin>
+			<!-- The name of the listener that is also the name of the target event -->
+			<name>org.exoplatform.web.GenericHttpListener.sessionDestroyed</name>
+			<!-- The name of the method to call on the ListenerService in order to register the Listener -->
+			<set-method>addListener</set-method>
+			<!-- The full qualified name of the Listener -->
+			<type>org.exoplatform.sample.ext.web.SampleHttpSessionDestroyedListener</type>
+		</component-plugin>
+		<component-plugin>
+			<!-- The name of the listener that is also the name of the target event -->
+			<name>org.exoplatform.web.GenericHttpListener.contextInitialized</name>
+			<!-- The name of the method to call on the ListenerService in order to register the Listener -->
+			<set-method>addListener</set-method>
+			<!-- The full qualified name of the Listener -->
+			<type>org.exoplatform.sample.ext.web.SampleContextInitializedListener</type>
+		</component-plugin>
+		<component-plugin>
+			<!-- The name of the listener that is also the name of the target event -->
+			<name>org.exoplatform.web.GenericHttpListener.contextDestroyed</name>
+			<!-- The name of the method to call on the ListenerService in order to register the Listener -->
+			<set-method>addListener</set-method>
+			<!-- The full qualified name of the Listener -->
+			<type>org.exoplatform.sample.ext.web.SampleContextDestroyedListener</type>
+		</component-plugin>
+	</external-component-plugins>
+	<external-component-plugins>
+		<!-- The full qualified name of the ExtensibleFilter -->
+		<target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>Sample Filter Definition Plugin</name>
+			<!-- The name of the method to call on the ExtensibleFilter in order to register the FilterDefinitions -->
+			<set-method>addFilterDefinitions</set-method>
+			<!-- The full qualified name of the FilterDefinitionPlugin -->
+			<type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
+			<init-params>
+				<object-param>
+					<name>Sample Filter Definition</name>
+					<object type="org.exoplatform.web.filter.FilterDefinition">
+						<!-- The filter instance -->
+						<field name="filter"><object type="org.exoplatform.sample.ext.web.SampleFilter"/></field>
+						<!-- The mapping to use -->
+						<!-- WARNING: the mapping is expressed with regular expressions -->
+						<field name="patterns">
+							<collection type="java.util.ArrayList" item-type="java.lang.String">
+								<value>
+									<string>/.*</string>
+								</value>
+							</collection>
+						</field>
+					</object>
+				</object-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
+</configuration>
