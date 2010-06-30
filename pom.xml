@@ -77,6 +77,7 @@
     <module>server</module>
     <module>doc</module>
     <module>office</module>
+	<module>migration</module>
     <!-- leave at the end -->
     <module>packaging</module>
   </modules>
