@@ -30,8 +30,8 @@
 				<configuration>
 				    <reportDir>${project.build.directory}/jmeter-reports</reportDir>
 				    <jmeterUserProperties>
-				        <host>www.exoplatform.com</host>
-					<port>80</port>
+				        <host>localhost</host>
+					<port>8080</port>
 					<threads>10</threads>
 					<rampup>1</rampup>
 					<duration>10</duration>
