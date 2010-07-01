@@ -1,0 +1,19 @@
+
+
+h1. Architecture overview
+
+TODO :diagram
+
+h1. Kernel
+
+* introduce the kernel role in the platform (IoC, component contianer)
+* relation to xml configuration format. 
+* define components and plugins
+* link to kernel ref doc (currently @jboss.org, but need a copy in PLF3 docs) for full reference on the format 
+
+h1. Extensions
+
+* introduce the portal container
+* introduce the gatein extensions (Unified CL, Unified Servlet Context)
+* explain de dependencies overriding mechanism 
+

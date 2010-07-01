@@ -18,8 +18,8 @@
 
   <modules>
     <module>admin</module>
-    <!-- 
     <module>developer</module>
+    <!-- 
     <module>user</module>
     -->
   </modules>

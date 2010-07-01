@@ -1,0 +1,7 @@
+integrating eXo to an information system
+
+
+* Authentication
+* Users integration
+* LDAP integration
+* Mails

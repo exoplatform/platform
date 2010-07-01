@@ -1,0 +1,50 @@
+h1. Writing a custom extension
+
+When working with eXo, you typically do not modify eXo binary files, but provide your own artefacts as a set of wars/jars/ears.
+That's important for your further upgrades and for support.
+
+How to customize things if you can't  modify eXo ? Anwser : thank to extensions
+
+h2. Quickstart
+
+A custom extension contains typically two mandatory things : 
+* extension webapp : contains resources and kernel configurations 
+* extension activator jar : declares your webapp as a dependency of the portal container
+
+Point to a sample provided with package (talk about the maven archetype when it's ready).
+>> adapt gatein sample extension as a tutorial to illustrate overriding
+
+
+
+h2. Graphic chart integration
+
+one of the first stops in any web project is to integrate a graphic chart. This can be done entirely within your extension
+
+h3. Page Layout
+Your portal will have a layout (2columns, banner-2columns, etc..), eXo will let you configure
+*  portal.xml
+* pages.xml
+
+h3. Styles and Javascript
+
+* Introduce the globalstylehseet and how to configure it.
+* how to insert your own javascript library
+
+
+h2. Custom menu
+
+* introduce navigation.xml concepts
+* portal vs group vs user pages
+
+h2. Working with content
+
+* Content admin intro
+* document types
+* wcm templates
+* taxonomies
+
+
+
+
+
+
