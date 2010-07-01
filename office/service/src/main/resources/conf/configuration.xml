@@ -15,7 +15,7 @@
 						<field name="dependencies">
 							<collection type="java.util.ArrayList">
 								<value>
-									<string>office-portal</string>
+									<string>office-extension</string>
 								</value>
 							</collection>
 						</field>
