@@ -3,7 +3,7 @@
 eXo solutions are a set of new and innovative products for your business. 
 They help your company to manage the important amount of information you are dealing with. 
 GateIn lets you aggregate applications and content for your employees through an innovative user friendly interface. 
-Combined with eXo Platform Enteprise Content Management, to manage your documents, and eXo Collaboration, to improve your collaborators' communication and organization, you will gain time and reactivity.
+Combined with eXo Platform Enterprise Content Management, to manage your documents, and eXo Collaboration, to improve your collaborators' communication and organization, you will gain time and reactivity.
 
 h1. Welcome to eXo Platform  
 eXo Platform  is a commercial and supported product based on eXo Open Source projects. Its packaging and testing has been focused around production readiness and improved administration tasks.
@@ -12,8 +12,8 @@ It also provides the best packaging for customers that need long-term support. I
 
 The eXo Platform 3.0 release contains :
 * GateIn 3.1 
-* eXo ECM 3.0
-* eXo Social 1.0
+* eXo ECM 3.0 (WCM 2.1 + addons)
+* eXo Social 1.1
 * eXo Collaboration 2.1
 * eXo Knowledge 2.1
 * xCMIS 1.1
@@ -27,8 +27,8 @@ At the end, you will be able to install, configure, migrate, and manage your eXo
 h1. Who should read this guide ? 
 This guide describes how to start using eXo Platform, the following user profiles benefit from this guide:
 
-* System Administrators  who want to use, deploy and manage eXo Platform system in their work and business. 
-* System Integrators who want to know more about eXo Platform and integrate it into their own projects. 
+* _System Administrators_  who want to use, deploy and manage eXo Platform system in their work and business. 
+* _System Integrators_ who want to know more about eXo Platform and integrate it into their own projects. 
 
 We hope this guide will help you to get a better understanding of the eXo Platform and that you will feel encouraged trying out things on your own.
 

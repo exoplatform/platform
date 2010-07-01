@@ -3,7 +3,7 @@ eXo Platform comes packaged as a deployable enterprise archive as per the Java E
 h1. Runtime Considerations
 Exo Platform requires a purposive infrastructure for its deployment and is certified on the following products:
 * Sun Java 6 Virtual Machine 
-* JBoss Application Server 4.2  
+* JBoss Application Server 5.1 
 * Oracle version 9 and 10, MySQL version 5 and DB2 version 9 
 
 For more details on the supported combinations, please refer to the [Supported Platforms Matrix].
@@ -20,10 +20,11 @@ Although the EAR format is rather standardized, the JEE specifications leaves th
 
 Currently, this guide provide instructions for :
 * JBoss 5.1 community
-* JBoss EAP 4.3
+* JBoss EAP
 
 If your application server is not covered, please contact eXo Support.
 
+{caution}EAR distribution is not yet available{caution}
 h2. JBoss 5.1 
 
 h2. JBoss EAP
@@ -37,12 +38,12 @@ This means that to start and stop eXo Platform you just need to start and stop y
 You can start eXo Platform deployed in JBoss using the standard JBoss command.
 h2. JBoss
 * On Linux/Unix:       {screen}$JBOSS_HOME/bin/run.sh{screen}
-* On Windows:          {screen}%JBOSS_HOME%\bin\run.bat{screen}
+* On Windows:          {screen}%JBOSS_HOME%\\bin\\run.bat{screen}
 
 The server has started when you see the following message in your log/console:
 
 {screen}
-15:06:02,877 INFO  \\[Server] JBoss (MX MicroKernel) \\[...] Started in 1m:05s:320ms
+15:06:02,877 INFO  \[Server] JBoss (MX MicroKernel) \[...] Started in 1m:05s:320ms
 {screen}
 
 When started you can access your eXo Portal using the following URL: [http://<your-server>:8080/portal]
@@ -51,19 +52,42 @@ h1. Shutdown
 
 h2. JBoss
 * On Linux/Unix :   {screen}$JBOSS_HOME/bin/shutdown.sh -S {screen}
-* On Windows :      {screen}%JBOSS_HOME%\bin\shutdown.bat -S {screen}
+* On Windows :      {screen}%JBOSS_HOME%\\bin\\shutdown.bat -S {screen}
 
 The server has stopped when you see the following message in your log/console:
 
 {screen}
-15:13:27,100 INFO  \\[Server] Shutdown complete
+15:13:27,100 INFO  \[Server] Shutdown complete
 Shutdown complete
 Halting VM
 {screen}
 
+
+
 h1. Other options
+
+h2. Profiles
+By passing {{-Dexo.profiles=p1,p2,p3...}, you can enable modules.
+
+You can enable/disable some modules if you don't use them. 
+* {{collaboration}} : enables eXo Collaboration module
+* {{knowledge}} : enables eXo Knowledge module
+* {{social}} : enables eXo 
+* {{dms}} : enables Document Management System addon in eXo Content
+* {{workflow}} : enables the Workflow addon in eXo Content
+* {{ide}} : enables the eXo Integrated Development Environment
+* {{cmis}} : enables CMIS server
+
+Additionnaly, you can use several predefined profiles : 
+* (none) : contains portal + WCM
+* {{default}} : contains portal + wcm + collaboration + knowledge + social + ide
+* {{all}} : everything including dms and workflow
+
+{note}Profiles are additive. You can combine them together to shape eXo platform to your needs. 
+e.g : -Dexo.profiles=default,cmis will take te default profile and add CMIS server{note}
+
+
+
+h2. JVM settings
 Please refer to the JBoss Documentation for other options and configurations such as JVM configuration, remote debugging or running JBoss as a service on Windows.
 
-h1. How to remove the sample demos ?
-
-h1. Configuring an Apache Frontend

@@ -1,32 +1,32 @@
 
-{{important}}This document is a work in progress and will get richer over time.{{/important}}
+{important}This document is a work in progress and will get richer over time.{important}
 
 
-= Introduction =
+h1. Introduction
 
-{{include document="introduction.wiki" syntax="confluence/1.0"  /}}
-
-= Installation =
-
-{{include document="installation.wiki" syntax="confluence/1.0"  /}}
-
-= Configuration =
-
-{{include document="configuration.wiki" syntax="confluence/1.0" /}}
-
-= Management =
-
-{{include document="management.wiki" syntax="confluence/1.0" /}}
-
-= Clustering =
-
-{{include document="clustering.wiki" syntax="confluence/1.0" /}}
+{include:document=introduction.wiki|syntax=confluence/1.0}
 
 
-= Project Deployment =
+h1. Installation 
 
-{{include document="deployment.wiki" syntax="confluence/1.0" /}}
+{include:document=installation.wiki|syntax=confluence/1.0}
 
-= Upgrade =
+h1. Configuration
 
-{{include document="upgrade.wiki" syntax="confluence/1.0"/}}
+{include:document=configuration.wiki|syntax=confluence/1.0}
+
+h1. Management
+
+{include:document=management.wiki|syntax=confluence/1.0}
+
+h1. Clustering
+
+{include:document=clustering.wiki|syntax=confluence/1.0}
+
+
+h1. Deployment
+
+{include:document=deployment.wiki|syntax=confluence/1.0}
+
+h1. Upgrade
+{include:document=upgrade.wiki|syntax=confluence/1.0}

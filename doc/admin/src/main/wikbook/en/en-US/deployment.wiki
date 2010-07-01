@@ -1,3 +1,36 @@
 
 
+
+h1. How to remove the sample demos ?
+
+Platform comes with two sample demo portals that showcase the capabilities of the product. 
+Before deploying your system to production, you will want to remove these demos. 
+
+{caution}the instructions below assume you are using the hsqldb embedded database configuration{caution}
+
+h2. EAR distribution
+h3. Removing acme
+h3. Removing office portal
+
+h2. Tomcat Bundle
+h3. Removing acme
+
+# stop the server {{shutdown.sh}}
+# delete acme-portal.war
+# delete exo.ecms.ext.acme.config.jar
+# delete {{gatein/data}}
+# restart
+
+h3. Removing office portal
+
+# stop the server {{shutdown.sh}}
+# delete office-portal.war
+# delete exo.platform.office.config.jar
+# delete {{gatein/data}}
+# restart
+
+{caution}office-portal is defined as the default portal. Make sure you define another portal as default when you remove office-portal{caution}
+
+h1. How to setup an Apache Frontend
+
 h1. How to deploy a customization project
