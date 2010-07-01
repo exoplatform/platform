@@ -44,23 +44,7 @@
       <show-info-bar>false</show-info-bar>
     </portlet-application>
 
-<!--    <portlet-application>-->
-<!--      <portlet>-->
-<!--        <application-ref>web</application-ref>-->
-<!--        <portlet-ref>NavigationPortlet</portlet-ref>-->
-<!--      </portlet>-->
-<!--      <access-permissions>Everyone</access-permissions>-->
-<!--      <show-info-bar>false</show-info-bar>-->
-<!--    </portlet-application>-->
 
-    <portlet-application>
-      <portlet>
-        <application-ref>web</application-ref>
-        <portlet-ref>BreadcumbsPortlet</portlet-ref>
-      </portlet>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-    </portlet-application>
 
     <page-body> </page-body>
 	<portlet-application>
