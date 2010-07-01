@@ -7,10 +7,10 @@
     <version>3.0.0-Beta01-SNAPSHOT</version>
   </parent>
 
-  <artifactId>exo.platform.office.service</artifactId>
+  <artifactId>exo.platform.office.config</artifactId>
   <packaging>jar</packaging>
 
-  <name>eXo Platform Office Portal Services</name>
+  <name>eXo Platform Office Portal Config</name>
 
 
 </project>
