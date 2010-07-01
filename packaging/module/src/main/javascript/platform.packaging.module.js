@@ -55,7 +55,7 @@ function getModule(params)
    // office portal
    module.office = {};
    module.office.webapp =  new Project("org.exoplatform.platform", "exo.platform.office.webapp", "war", module.version).
-	   addDependency(new Project("org.exoplatform.platform", "exo.platform.office.service", "jar", module.version));
+	   addDependency(new Project("org.exoplatform.platform", "exo.platform.office.config", "jar", module.version));
    module.office.webapp.deployName = "office-portal";
    
    module.patch = {};
