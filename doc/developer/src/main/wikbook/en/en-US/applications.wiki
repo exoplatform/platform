@@ -1,6 +1,6 @@
 h1. Applications integration
 * how to configure a portlet in pages.xml
-* how to setup preferences
+* how to confiure preferences
 
 
 h1. Developing your own applications
