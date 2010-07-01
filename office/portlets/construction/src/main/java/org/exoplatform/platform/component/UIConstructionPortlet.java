@@ -1,4 +1,4 @@
-package org.exoplatform.sebastian2.component;
+package org.exoplatform.platform.component;
 
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
