@@ -43,7 +43,14 @@ function getModule(params)
    // platform extension
    module.extension = {};
    module.extension.webapp =  new Project("org.exoplatform.platform", "exo.platform.extension.webapp", "war", module.version);
+   module.extension.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);
    module.extension.webapp.deployName = "platform-extension";
+
+   // platform commons
+   module.component = {};
+   module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version);
+
+   
 
    // office portal
    module.office = {};
