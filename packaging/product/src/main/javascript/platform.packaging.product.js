@@ -53,8 +53,7 @@ function getProduct(version) {
   product.addDependencies(platform.cometd);
   product.addDependencies(platform.config);
   product.addDependencies(platform.extension.webapp);
-  //product.addDependencies(platform.office.config);
-  //product.addDependencies(platform.office.webapp);
+  product.addDependencies(platform.office.webapp);
   
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);
