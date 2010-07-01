@@ -54,7 +54,6 @@ function getProduct(version) {
   product.addDependencies(platform.config);
   product.addDependencies(platform.extension.webapp);
   product.addDependencies(platform.component.common);
-  product.addDependencies(platform.office.config);
   product.addDependencies(platform.office.webapp);
   
   /* ECMS */
