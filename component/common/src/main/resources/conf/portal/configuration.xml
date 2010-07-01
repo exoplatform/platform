@@ -13,7 +13,7 @@
 				<description>Chat, AdressBook, Calendar and Mail</description>
 			</component-plugin>
 			<component-plugin>
-				<name>eXo Collaboration</name>				
+				<name>eXo Knowledge</name>				
 				<set-method>register</set-method>
 				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
 				<description>Forum, Answers and FAQ</description>
@@ -25,19 +25,19 @@
 				<description>Spaces, People, Profiles, Activity Streams, OpenSocial Social APIs</description>
 			</component-plugin>
 			<component-plugin>
-				<name>DMS</name>				
+				<name>eXo DMS addon</name>				
 				<set-method>register</set-method>
 				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
 				<description>Document Management System Addon : Records Management, Kofax support</description>
 			</component-plugin>
 			<component-plugin>
-				<name>Workflow</name>				
+				<name>eXo Workflow addon</name>				
 				<set-method>register</set-method>
 				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
 				<description>Bonita engine, Workflow forms, WCM integration and BP monitoring </description>
 			</component-plugin>		
 			<component-plugin>
-				<name>IDE</name>				
+				<name>eXo IDE</name>				
 				<set-method>register</set-method>
 				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
 				<description>IDeall online IDE, Groovy REST services</description>
@@ -46,24 +46,18 @@
 	</component>
 	
 	<external-component-plugins>
-		<!-- The full qualified name of the ExtensibleFilter -->
 		<target-component>org.exoplatform.web.filter.ExtensibleFilter</target-component>
 		<component-plugin>
-			<!-- The name of the plugin -->
-			<name>Sample Filter Definition Plugin</name>
-			<!-- The name of the method to call on the ExtensibleFilter in order to register the FilterDefinitions -->
+			<name>JSP filter Plugin</name>
 			<set-method>addFilterDefinitions</set-method>
-			<!-- The full qualified name of the FilterDefinitionPlugin -->
 			<type>org.exoplatform.web.filter.FilterDefinitionPlugin</type>
 			<init-params>
 				<object-param>
-					<name>Sample Filter Definition</name>
+					<name>JSP Filter</name>
 					<object type="org.exoplatform.web.filter.FilterDefinition">
-						<!-- The filter instance -->
-						<field name="filter"><object type="org.exoplatform.web.filter.RedefinableResourceFilter"/></field>
-						<!-- The mapping to use -->
-						<!-- WARNING: the mapping is expressed with regular expressions -->
+						<field name="filter"><object type="org.exoplatform.web.filter.RedefinableResourceFilter"/></field>				
 						<field name="patterns">
+                            <!-- WARNING: the mapping is expressed with regular expressions -->
 							<collection type="java.util.ArrayList" item-type="java.lang.String">
 								<value>
 									<string>.*\.jsp</string>
@@ -75,32 +69,4 @@
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
-	<!-- 
-<external-component-plugins>
-	<target-component>org.exoplatform.container.definition.PortalContainerConfig</target-component>
-	<component-plugin>
-		<name>Change PortalContainer Definitions</name>
-		<set-method>registerChangePlugin</set-method>
-		<type>org.exoplatform.container.definition.PortalContainerDefinitionChangePlugin</type>
-		<init-params>
-			<object-param>
-				<name>add-dependency</name>
-				<object
-					type="org.exoplatform.container.definition.PortalContainerDefinitionChange$AddDependencies">
-					<field name="dependencies">
-						<collection type="java.util.ArrayList">
-							<value>
-								<string>myportal-conf</string>
-							</value>
-							<value>
-								<string>forum-override</string>
-							</value>
-						</collection>
-					</field>
-				</object>
-			</object-param>
-		</init-params>
-	</component-plugin>
-</external-component-plugins>	
- -->
 </configuration>
