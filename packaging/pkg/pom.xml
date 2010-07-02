@@ -332,8 +332,8 @@
                               <argument>-Dexo.m2.home=${maven.home}</argument>
                               <argument>-Xshare:auto</argument>
                               <argument>-Xms128m</argument>
-                              <argument>-Xmx2g</argument>
-                              <argument>-XX:MaxPermSize=512M</argument>		
+                              <argument>-Xmx1220m</argument>
+                              <argument>-XX:MaxPermSize=128M</argument>		
                               <argument>-classpath</argument>
                               <argument>${basedir}/target/exopackage/lib/js.jar</argument>
                               <argument>org.mozilla.javascript.tools.shell.Main</argument>
@@ -432,8 +432,8 @@
                               <argument>-Dexo.m2.home=${maven.home}</argument>
                               <argument>-Xshare:auto</argument>
                               <argument>-Xms128m</argument>
-                              <argument>-Xmx2g</argument>
-                              <argument>-XX:MaxPermSize=512M</argument>		
+                              <argument>-Xmx1220m</argument>
+                              <argument>-XX:MaxPermSize=128M</argument>		
                               <argument>-classpath</argument>
                               <argument>${basedir}/target/exopackage/lib/js.jar</argument>
                               <argument>org.mozilla.javascript.tools.shell.Main</argument>
