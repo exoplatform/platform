@@ -24,5 +24,5 @@
 	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
 	<import>war:/conf/office-extension/common/common-configuration.xml</import>
 	<import>war:/conf/office-extension/portal/portal-configuration.xml</import>
-	<import>war:/conf/office-extension/web/web-inf-extension-configuration.xml</import>
+	<!--<import>war:/conf/office-extension/web/web-inf-extension-configuration.xml</import>-->
 </configuration>
