@@ -22,5 +22,6 @@
     <!-- 
     <module>user</module>
     -->
+    <module>odt</module>
   </modules>
 </project>
