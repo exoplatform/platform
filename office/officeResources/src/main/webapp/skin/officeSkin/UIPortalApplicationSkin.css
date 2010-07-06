@@ -1,0 +1,170 @@
+/**
+ * Copyright (C) 2009 eXo Platform SAS.
+ * 
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ * 
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+
+
+@import url(UIToolbarContainer/Stylesheet.css);
+@import url(UITabPaneDashboard/Stylesheet.css);
+
+div {
+	padding: 0px; margin: 0px;
+	outline: none;
+}
+
+table {
+  width: 100%;
+	padding: 0px; margin: 0px;
+	border-spacing:	0px;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 0px; margin: 0px;
+	vertical-align: top;
+}
+
+img {
+	padding: 0px; margin: 0px; border: none; vertical-align: middle;
+}
+
+form {
+	padding: 0px; margin: 0px;
+}
+
+html {
+	margin: 0px; padding: 0px;
+	*overflow-x: hidden;
+}
+
+body {
+	background: #eeeeee;
+	margin: 0px; padding: 0px;
+	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+.UIWorkingWorkspace {
+	width: 1017px;
+	background: white;
+}
+
+.UIPageBody .BLPagebody {
+	display: none;
+}
+/*###############################################################################################*/
+
+.OverflowContainer {
+	overflow: hidden;
+	width: 100%;
+}
+
+.LeftBlock {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.RightBlock {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+
+.ClearFix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.ClearFix {
+	!display: inline-block;
+  !zoom: 1;
+  !display: block; 
+}
+
+.InlineContainer {
+	overflow: hidden;
+}
+
+.InlineLeft {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.InlineRight {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+
+.AjaxLoadingMask {
+  width: 180px; height: 110px;
+  background: white;
+  border: 1px solid #66667e;
+  padding: 1px;
+}
+
+.AjaxLoadingMask .LoadingContainer {
+  height: 108px;
+  background: #ffffff;
+  border: solid 1px #a8a9bb;
+}
+
+.AjaxLoadingMask .LoadingText {
+  text-align: center;
+  padding: 10px 0px 5px 0px;
+}
+
+.AjaxLoadingMask .LoadingProgressBar {
+  width: 32px; height: 40px;
+  background: url('../../../background/LoadingProgress.gif') no-repeat center;
+  margin: auto;
+}
+
+.AjaxLoadingMask .UIAction .ActionButton{
+  float: none;
+}
+
+.FloatLeft {
+	float: left; /* orientation=lt */
+	float: right; /* orientation=rt */
+}
+
+.FloatRight {
+	float: right; /* orientation=lt */
+	float: left; /* orientation=rt */
+}
+
+.ClearLeft {
+  clear: left; /* orientation=lt */
+  clear: right; /* orientation=rt */
+}
+
+.ClearRight {
+  clear: right; /* orientation=lt */
+  clear: left; /* orientation=rt */
+}
+
+.ClearBoth {
+  clear: both;
+}

@@ -1,0 +1,168 @@
+/**
+ * Copyright (C) 2009 eXo Platform SAS.
+ * 
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ * 
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+
+.UIToolbarContainer .ToolbarContainer .TRContainer {
+	height: 30px;
+}
+
+.UIToolbarContainer .NormalContainerBlock .ToolbarContainer {
+	background: #232d36;	
+	height: 30px;
+	border: none;
+}
+
+.UIToolbarContainer .ToolbarContainer a {
+	padding: 0px 15px 0px 35px; /* orientation=lt */
+	padding: 0px 35px 0px 15px; /* orientation=rt */
+	color: #fff;
+}
+
+.UIToolbarContainer .UITab a:hover {
+	color: #9fc5ff;
+}
+
+.UIToolbarContainer .UIHorizontalTabs .TabsContainer {
+	height: 30px; /* orientation=lt */
+	height: auto; /* orientation=rt */
+}
+
+.UIToolbarContainer .UIHorizontalTabs .UITab {
+	line-height: 30px;
+	background: none;
+	font-weight: normal;
+}
+
+
+/****************************/
+
+.UIToolbarContainer .MenuItemContainer {	
+	border: 1px solid #e7e6eb;
+	background: #e7e6eb;
+}
+
+.UIToolbarContainer .TitleBar {
+	color: #232d36;
+	background: #cccccc;
+	font-weight: normal;
+	padding: 0px 5px;
+}
+
+.UIToolbarContainer .MenuItem {	
+	background: none;
+}
+
+.UIToolbarContainer .MenuItem .ArrowIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat right bottom; /* orientation=lt */
+	background: url('background/ToolbarContainer-rt.gif') no-repeat -5px bottom; /* orientation=rt */
+}
+
+.UIToolbarContainer .MenuItem a {	
+	padding: 0px 25px 0px 30px; /* orientation=lt */
+	padding: 0px 30px 0px 25px; /* orientation=rt */
+	color: #232d36;
+}
+
+.UIToolbarContainer .MenuItem a:hover {
+	color: #000;
+	background-color: #d7d7d7;
+}
+
+.UIToolbarContainer .ItemIcon {	
+	background-position: 5px center; /* orientation=lt */
+	background-position: 95% center; /* orientation=rt */
+}
+
+/**********************************/
+
+.UIToolbarContainer .DashboardIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 5px -65px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -65px; /* orientation=rt */
+}
+
+.UIToolbarContainer .SitesIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 5px -96px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -96px; /* orientation=rt */
+}
+
+.UIToolbarContainer .GroupIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat left -131px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -131px; /* orientation=rt */
+	margin-left: 10px; /* orientation=lt */
+	margin-right: 10px; /* orientation=rt */
+}
+
+.UIToolbarContainer .EditorIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 5px -164px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -164px; /* orientation=rt */
+}
+
+.UIToolbarContainer .AddPageIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 0px -320px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -320px; /* orientation=rt */	
+}
+
+.UIToolbarContainer .EditPageIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 0px -352px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -352px; /* orientation=rt */
+}
+
+.UIToolbarContainer .EditSiteIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 0px -384px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -384px; /* orientation=rt */	
+}
+
+.UIToolbarContainer .ChangeLanguageIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 0px -192px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -192px; /* orientation=rt */
+}
+
+.UIToolbarContainer .ChangeSkinIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 0px -224px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -224px; /* orientation=rt */
+}
+
+.UIToolbarContainer .AccountSettingIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 5px -256px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -256px; /* orientation=rt */
+}
+
+.UIToolbarContainer .SignOutIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat 0px -288px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -288px; /* orientation=rt */
+}
+
+.UIToolbarContainer .Name a {
+	background: url('background/UseIcon.gif') no-repeat left center; /* orientation=lt */
+	background: url('background/UseIcon.gif') no-repeat right center; /* orientation=rt */
+	padding: 0px 10px 0px 25px; /* orientation=lt */
+	padding: 0px 25px 0px 10px; /* orientation=rt */
+	color: #fff;
+}
+
+.UIToolbarContainer .Name a:hover {
+	color: #9fc5ff;
+}
+/***************UIStarToolBarPortlet*****************/
+
+.UIStarToolBarPortlet {
+	background: url('background/GateinLogo.jpg') no-repeat 10px 6px; /* orientation=lt */
+	background: url('background/GateinLogo.jpg') no-repeat 23px 5px; /* orientation=rt */
+	width: 64px;
+	height: 30px;
+}
