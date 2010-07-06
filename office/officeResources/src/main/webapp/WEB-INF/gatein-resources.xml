@@ -26,10 +26,12 @@
 
 	
 	<!-- portal Skin for office portal -->
-	<portal-skin>
-		<skin-name>officeSkin</skin-name>
+	
+    <portal-skin>
+		<skin-name>Default</skin-name>
+		<skin-module>Classic</skin-module>
 		<css-path>/skin/Stylesheet.css</css-path>
-	</portal-skin>	
+	</portal-skin>		
 
 	<!-- Skins for portlets in 'web' application -->
 						<!--must  be completed with the others portlets skins -->	
