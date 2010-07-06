@@ -21,7 +21,8 @@
     <module>developer</module>
     <!-- 
     <module>user</module>
-    -->
+      - odt module is disabled to not be run by CI
     <module>odt</module>
+    -->
   </modules>
 </project>

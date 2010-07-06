@@ -1,0 +1,25 @@
+<project name="eXo Platform Documentation" default="start-oo" basedir=".">
+  <property file="build.properties"/>
+
+  <target name="start-oo">
+    <echo>Opening Open Office</echo>
+    <exec failonerror="false" spawn="true" executable="${openoffice.bin}">
+      <arg line="-headless"/>
+      <arg line="-accept='socket,port=8100;urp;'"/>
+    </exec>
+    <echo>Waiting for Open Office</echo>
+    <waitfor maxwait="10" maxwaitunit="second">
+        <socket server="localhost" port="8100"/>
+    </waitfor>
+    <echo>Open Office headless is ready</echo>
+  </target>
+  
+  <target name="stop-oo">
+    <echo>Stopping Open Office</echo>
+    <exec failonerror="false" spawn="true" executable="killall">
+      <arg line="soffice.bin"/>
+    </exec>
+    <echo>Open Office is stopped</echo>
+  </target>
+
+</project>
