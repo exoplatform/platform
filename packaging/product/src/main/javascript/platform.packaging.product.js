@@ -49,7 +49,7 @@ function getProduct(version) {
 
     
   /* PLATFORM */
-  product.addDependencies(platform.fck);
+//  product.addDependencies(platform.fck);
   product.addDependencies(platform.cometd);
   product.addDependencies(platform.config);
   product.addDependencies(platform.extension.webapp);
