@@ -171,9 +171,9 @@
               </value>
 
               <!-- IDE -->
-              <value profiles="ide,all,default">
+              <!-- value profiles="ide,all,default">
                 <string>ideall-extension</string>
-              </value>
+              </value -->
 
               <!-- Contains shared layout -->
               <value>
