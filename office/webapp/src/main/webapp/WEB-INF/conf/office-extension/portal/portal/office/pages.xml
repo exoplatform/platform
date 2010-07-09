@@ -22,6 +22,176 @@
   xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
   xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
 
+  
+  <page>
+		<name>homepage</name>
+		<title>Home Page</title>
+		<access-permissions>Everyone</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>
+		<container id="Officebody"style="border-style:solid;
+border-color:#98bf21;" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+			<access-permissions>Everyone</access-permissions>
+			<container id="OfficeLeft" style="border-style:solid;
+border-color:#98bf21;" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>Everyone</access-permissions>
+				<!-- My spaces gadget -->
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>http://localhost:8080/rest/jcr/repository/portal-system/production/app:gadgets/app:UserSpaces/app:data/app:resources/UserSpaces.xml</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Gadget Portlet</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+				<!-- My task gadget -->
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>http://localhost:8080/rest/jcr/repository/portal-system/production/app:gadgets/app:taskslist/app:data/app:resources/Tasks.xml</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Gadget Portlet</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+			
+			
+	
+			</container>
+			
+			
+			<container id="OfficeMiddle" style="border-style:solid;
+border-color:#98bf21;" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>Everyone</access-permissions>
+					<portlet-application>
+					<portlet>
+						<application-ref>construction</application-ref>
+						<portlet-ref>ConstructionPortlet</portlet-ref>
+					</portlet>
+					<title>Profile</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>      
+				   </portlet-application>
+				<!-- activities gadget -->
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>http://localhost:8080/rest/jcr/repository/portal-system/production/app:gadgets/app:Activities/app:data/app:resources/Activities.xml</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Gadget Portlet</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+			
+			
+	
+			</container>
+			
+			<container id="OfficeRight" style="border-style:solid;
+border-color:#98bf21;" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>Everyone</access-permissions>
+								<!-- upcoming Events gadget -->
+				<portlet-application>
+					<portlet>
+						<application-ref>dashboard</application-ref>
+						<portlet-ref>GadgetPortlet</portlet-ref>
+						<preferences>
+							<preference>
+								<name>url</name>
+								<value>http://localhost:8080/rest/jcr/repository/portal-system/production/app:gadgets/app:eventslist/app:data/app:resources/Events.xml</value>
+								<read-only>false</read-only>
+							</preference>
+						</preferences>
+					</portlet>
+					<title>Gadget Portlet</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>
+				</portlet-application>
+
+					<portlet-application>
+					<portlet>
+						<application-ref>construction</application-ref>
+						<portlet-ref>ConstructionPortlet</portlet-ref>
+					</portlet>
+					<title>Profile</title>
+					<access-permissions>*:/platform/users</access-permissions>
+					<show-info-bar>false</show-info-bar>
+					<show-application-state>true</show-application-state>      
+				   </portlet-application>
+			
+			
+	
+			</container>
+			
+			
+			
+		</container>
+
+	</page>
+  
+  
+  
+    <page>
+    <name>groupnavigation</name>
+    <title>Group Navigation</title>
+	  <access-permissions>*:/platform/users</access-permissions>
+	  <edit-permission>*:/platform/administrators</edit-permission>    
+    <portlet-application>
+      <portlet>
+        <application-ref>exoadmin</application-ref>
+        <portlet-ref>GroupNavigationPortlet</portlet-ref>
+      </portlet>
+      <title>Group Navigation</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
+  </page>
+  
+  <page>
+    <name>portalnavigation</name>
+    <title>Portal Navigation</title>
+	  <access-permissions>*:/platform/users</access-permissions>
+	  <edit-permission>*:/platform/administrators</edit-permission>    
+    <portlet-application>
+      <portlet>
+        <application-ref>exoadmin</application-ref>
+        <portlet-ref>PortalNavigationPortlet</portlet-ref>
+      </portlet>
+      <title>Portal Navigation</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+    </portlet-application>
+  </page>
+  
+
+  
+  
   <page>
     <name>people</name>
     <title>People Directory</title>
@@ -515,5 +685,70 @@
       </container>
     </container>
   </page>
+  
+  <page>
+    <name>searchResult</name>
+    <title>SearchResult</title>
+    <access-permissions>Everyone</access-permissions>
+    <edit-permission>editor:/platform/web-contributors</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>searches</application-ref>
+        <portlet-ref>WCMAdvanceSearchPortlet</portlet-ref>
+        <preferences>
+          <preference>
+            <name>repository</name>
+            <value>repository</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>workspace</name>
+            <value>collaboration</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>searchFormTemplatePath</name>
+            <value>/exo:ecm/views/templates/WCM Advance Search/search-form/UIDefaultSearchForm.gtmpl</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>searchResultTemplatePath</name>
+            <value>/exo:ecm/views/templates/WCM Advance Search/search-result/UIDefaultSearchResult.gtmpl</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>searchPaginatorTemplatePath</name>
+            <value>/exo:ecm/views/templates/WCM Advance Search/search-paginator/UIDefaultSearchPaginator.gtmpl</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>searchPageLayoutTemplatePath</name>
+            <value>/exo:ecm/views/templates/WCM Advance Search/search-page-layout/UISearchPageLayoutDefault.gtmpl</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>itemsPerPage</name>
+            <value>5</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>showQuickEditButton</name>
+            <value>true</value>
+            <read-only>false</read-only>
+          </preference>
+          <preference>
+            <name>basePath</name>
+            <value>detail</value>
+            <read-only>false</read-only>
+          </preference>
+        </preferences>
+      </portlet>
+      <title>SearchResult</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page> 
 
 </page-set>

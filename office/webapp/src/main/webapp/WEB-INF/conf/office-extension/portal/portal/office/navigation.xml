@@ -24,7 +24,12 @@
   <priority>1</priority>
 
   <page-nodes>
-  
+  <node>
+			<uri>home</uri>
+			<name>home</name>
+			<label>#{portal.office.home}</label>
+			<page-reference>portal::office::homepage</page-reference>
+ </node>
    <node>
     <uri>activities</uri>
     <name>activities</name>
@@ -32,6 +37,21 @@
     <visibility>SYSTEM</visibility>
     <page-reference>portal::office::activities</page-reference>
    </node>
+   
+   	  <node>
+	    <uri>groupnavigation</uri>
+	    <name>groupnavigation</name>
+	    <label>#{portal.office.groupnavigation}</label>
+      <visibility>SYSTEM</visibility>
+	    <page-reference>portal::office::groupnavigation</page-reference>
+	  </node>
+	  <node>
+	    <uri>portalnavigation</uri>
+	    <name>portalnavigation</name>
+	    <label>#{portal.office.portalnavigation}</label>
+      <visibility>SYSTEM</visibility>
+	    <page-reference>portal::office::portalnavigation</page-reference>
+	  </node>
    
    <node>
     <uri>profile</uri>
@@ -123,6 +143,14 @@
    <visibility>SYSTEM</visibility>
    <page-reference>portal::office::publicSpace</page-reference>
   </node>
+  
+   <node>
+      <uri>searchResult</uri>
+      <name>searchResult</name>
+      <label>#{portal.office.searchResult}</label>
+      <visibility>HIDDEN</visibility>
+      <page-reference>portal::office::searchResult</page-reference>
+    </node>
   
   </page-nodes>
   </node-navigation>

@@ -35,63 +35,62 @@
 			<type>org.exoplatform.portal.config.NewPortalConfigListener</type>
 			<description>this listener init the portal configuration</description>
 			<init-params>
-				<object-param>
-					<name>portal.configuration</name>
-					<description>description</description>
-					<object type="org.exoplatform.portal.config.NewPortalConfig">
-						<field name="predefinedOwner">
-							<collection type="java.util.HashSet">
-								<value>
-									<string>office</string>
-								</value>
-							</collection>
-						</field>
-						<field name="ownerType">
-							<string>portal</string>
-						</field>
-						<field name="templateLocation">
-							<string>war:/conf/office-extension/portal</string>
-						</field>
-					</object>
-				</object-param>
-<!--				<object-param>-->
-<!--					<name>group.configuration</name>-->
-<!--					<description>description</description>-->
-<!--					<object type="org.exoplatform.portal.config.NewPortalConfig">-->
-<!--						<field name="predefinedOwner">-->
-<!--							<collection type="java.util.HashSet">-->
-<!--								<value>-->
-<!--									<string>platform/users</string>-->
-<!--								</value>-->
-<!--							</collection>-->
-<!--						</field>-->
-<!--						<field name="ownerType">-->
-<!--							<string>group</string>-->
-<!--						</field>-->
-<!--						<field name="templateLocation">-->
-<!--							<string>war:/conf/sample-ext/portal</string>-->
-<!--						</field>-->
-<!--					</object>-->
-<!--				</object-param>-->
-<!--				<object-param>-->
-<!--					<name>user.configuration</name>-->
-<!--					<description>description</description>-->
-<!--					<object type="org.exoplatform.portal.config.NewPortalConfig">-->
-<!--						<field name="predefinedOwner">-->
-<!--							<collection type="java.util.HashSet">-->
-<!--								<value>-->
-<!--									<string>root</string>-->
-<!--								</value>-->
-<!--							</collection>-->
-<!--						</field>-->
-<!--						<field name="ownerType">-->
-<!--							<string>user</string>-->
-<!--						</field>-->
-<!--						<field name="templateLocation">-->
-<!--							<string>war:/conf/sample-ext/portal</string>-->
-<!--						</field>-->
-<!--					</object>-->
-<!--				</object-param>-->
+
+        <object-param>
+          <name>site.templates.location</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.SiteConfigTemplates">
+            <field name="location">
+              <string>war:/conf/office-extension/portal</string>
+            </field>
+            <field name="portalTemplates">
+              <collection type="java.util.HashSet">
+                <value>
+                  <string>office</string>
+                </value>
+              </collection>
+            </field>
+          </object>
+        </object-param>
+		<object-param>
+			<name>portal.configuration</name>
+			<description>description</description>
+			<object type="org.exoplatform.portal.config.NewPortalConfig">
+				<field name="predefinedOwner">
+					<collection type="java.util.HashSet">
+						<value>
+							<string>office</string>
+						</value>
+					</collection>
+				</field>
+				<field name="ownerType">
+					<string>portal</string>
+				</field>
+				<field name="templateLocation">
+					<string>war:/conf/office-extension/portal</string>
+				</field>
+			</object>
+		</object-param>
+        <object-param>
+          <name>group.configuration</name>
+          <description>description</description>
+          <object type="org.exoplatform.portal.config.NewPortalConfig">
+            <field name="predefinedOwner">
+              <collection type="java.util.HashSet">
+                <value>
+                  <string>platform/web-contributors</string>
+                </value>
+              </collection>
+            </field>
+            <field name="ownerType">
+              <string>group</string>
+            </field>
+            <field name="templateLocation">
+              <string>war:/conf/office-extension/portal</string>
+            </field>
+          </object>
+        </object-param>
+
 			</init-params>
 		</component-plugin>
 	</external-component-plugins>
