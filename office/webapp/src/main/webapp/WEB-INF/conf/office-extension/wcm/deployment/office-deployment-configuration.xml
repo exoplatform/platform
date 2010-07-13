@@ -59,6 +59,28 @@
             </field>
           </object>
         </object-param>
+		<object-param>
+          <name>Office jira Data</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="repository">
+                  <string>repository</string>
+                </field>
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/office/web contents/site artifacts</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/jira.xml</string>
+            </field>
+          </object>
+        </object-param>
         <object-param>
           <name>Office Searchbox Data</name>
           <description>Deployment Descriptor</description>

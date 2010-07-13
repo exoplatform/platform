@@ -1,0 +1,31 @@
+<%
+	import org.exoplatform.web.application.Parameter ;
+	import org.exoplatform.ecm.webui.utils.PermissionUtil;
+	import org.exoplatform.ecm.webui.utils.Utils;
+	import org.exoplatform.webui.core.UIPopupWindow;
+	
+	UIPopupWindow uiPopupWindow = uicomponent.getAncestorOfType(UIPopupWindow.class);
+	def resizeBlock = "class=\"UIResizableBlock\"";
+	if(uiPopupWindow != null) resizeBlock = ""; 
+	def node = uicomponent.getNode() ;
+	
+%>
+
+<div id="content" class="content">
+	      
+	<div id="$uicomponent.id">
+		<div class="PORTLET-FRAGMENT"  style="width: null;height: null;">
+			<div id="UIBrowseContentPortlet" style="min-width:300px" class="UIBrowseContentPortlet">
+				<span class="UICBPopupAction" id="UICBPopupAction"></span>
+				<div class="UIBrowseContainer" id="UIBrowseContainer">
+					<%= node.getName() %>
+					 <%if(node.hasProperty("exo:title")) {%>
+						<%=node.getProperty("exo:title").getString()%>
+					<%}%>
+					
+				</div>          		
+			</div>
+		</div>
+	</div>
+
+</div>  

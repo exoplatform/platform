@@ -28,10 +28,11 @@
   </properties>
 
    <portal-layout>
+   
    <container id="OfficeBanner" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-      <access-permissions>Everyone</access-permissions>
+      <access-permissions>*:/platform/users</access-permissions>
       <container id="OfficeLogo" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>Everyone</access-permissions>
+        <access-permissions>*:/platform/users</access-permissions>
         <portlet-application>
           <portlet>
             <application-ref>presentation</application-ref>
@@ -85,14 +86,14 @@
             </preferences>
           </portlet>
           <title>Banner</title>
-          <access-permissions>Everyone</access-permissions>
+          <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
           <show-application-mode>false</show-application-mode>
         </portlet-application>
       </container>
       <container id="officeSignin" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>Everyone</access-permissions>
+        <access-permissions>*:/platform/users</access-permissions>
         <portlet-application>
           <portlet>
             <application-ref>presentation</application-ref>
@@ -146,14 +147,14 @@
             </preferences>
           </portlet>
           <title>Signin</title>
-          <access-permissions>Everyone</access-permissions>
+          <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
           <show-application-mode>false</show-application-mode>
         </portlet-application>
       </container>
       <container id="OfficeSearch" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>Everyone</access-permissions>
+        <access-permissions>*:/platform/users</access-permissions>
         <portlet-application>
           <portlet>
             <application-ref>presentation</application-ref>
@@ -207,7 +208,7 @@
             </preferences>
           </portlet>
           <title>Searchbox</title>
-          <access-permissions>Everyone</access-permissions>
+          <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
           <show-application-mode>false</show-application-mode>
@@ -268,7 +269,7 @@
         </preferences>
       </portlet>
       <title>Navigation</title>
-      <access-permissions>Everyone</access-permissions>
+      <access-permissions>*:/platform/users</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>

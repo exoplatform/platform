@@ -28,11 +28,9 @@
 		<title>Home Page</title>
 		<access-permissions>Everyone</access-permissions>
 		<edit-permission>*:/platform/administrators</edit-permission>
-		<container id="Officebody"style="border-style:solid;
-border-color:#98bf21;" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+		<container id="Officebody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
 			<access-permissions>Everyone</access-permissions>
-			<container id="OfficeLeft" style="border-style:solid;
-border-color:#98bf21;" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>Everyone</access-permissions>
 				<!-- My spaces gadget -->
 				<portlet-application>
@@ -76,19 +74,71 @@ border-color:#98bf21;" template="system:/groovy/portal/webui/container/UIContain
 			</container>
 			
 			
-			<container id="OfficeMiddle" style="border-style:solid;
-border-color:#98bf21;" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-				<access-permissions>Everyone</access-permissions>
-					<portlet-application>
-					<portlet>
-						<application-ref>construction</application-ref>
-						<portlet-ref>ConstructionPortlet</portlet-ref>
-					</portlet>
-					<title>Profile</title>
-					<access-permissions>*:/platform/users</access-permissions>
-					<show-info-bar>false</show-info-bar>
-					<show-application-state>true</show-application-state>      
-				   </portlet-application>
+	<container id="OfficeMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+		<access-permissions>Everyone</access-permissions>
+		<portlet-application>
+		<portlet>
+            <application-ref>presentation</application-ref>
+            <portlet-ref>ContentListViewerPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>folderPath</name>
+                <value>repository:collaboration:/sites content/live/office/web contents/site artifacts/jira</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>orderType</name>
+                <value>ASC</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>header</name>
+                <value>Last Project News</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>formViewTemplatePath</name>
+                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/jiraNotification.gtmpl</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>basePath</name>
+                <value>parameterizedviewer</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>itemsPerPage</name>
+                <value>5</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showDateCreated</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showLink</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showReadmore</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showThumbnailsView</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+         </portlet>
+          <title>jiraNotification</title>
+          <access-permissions>Everyone</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>false</show-application-state>
+          <show-application-mode>false</show-application-mode>
+        </portlet-application>
 				<!-- activities gadget -->
 				<portlet-application>
 					<portlet>
@@ -112,8 +162,7 @@ border-color:#98bf21;" template="system:/groovy/portal/webui/container/UIContain
 	
 			</container>
 			
-			<container id="OfficeRight" style="border-style:solid;
-border-color:#98bf21;" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+			<container id="OfficeRight"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 				<access-permissions>Everyone</access-permissions>
 								<!-- upcoming Events gadget -->
 				<portlet-application>
