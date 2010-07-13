@@ -100,6 +100,7 @@ function getProduct(version) {
   product.addDependencies(ks.eXoApplication.forum); // exo.ks.eXoApplication.forum.service-2.0.0-GA.jar + forum.war
   product.addDependencies(ks.web.ksResources); // ksResources.war
   product.addDependencies(ks.extension.webapp); // ks-extension.war
+  product.addDependencies(ks.eXoApplication.poll); // poll.war	
 
   /* SOCIAL */
   product.addDependencies(social.extension.war) ; // social-ext.war
