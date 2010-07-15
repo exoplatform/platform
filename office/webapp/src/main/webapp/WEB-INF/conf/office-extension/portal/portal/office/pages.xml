@@ -75,7 +75,7 @@
 			
 			
 	<container id="OfficeMiddle"  template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-		<access-permissions>Everyone</access-permissions>
+		<access-permissions>*:/platform/users</access-permissions>
 		<portlet-application>
 		<portlet>
             <application-ref>presentation</application-ref>
@@ -134,7 +134,7 @@
             </preferences>
          </portlet>
           <title>jiraNotification</title>
-          <access-permissions>Everyone</access-permissions>
+          <access-permissions>*:/platform/users</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
           <show-application-mode>false</show-application-mode>
@@ -204,7 +204,23 @@
 
 	</page>
   
-  
+   <page>
+    <name>newAccount</name>
+    <access-permissions>Everyone</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>exoadmin</application-ref>
+        <portlet-ref>AccountPortlet</portlet-ref>
+        <preferences></preferences>
+      </portlet>
+      <title>New Account</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page>
   
     <page>
     <name>groupnavigation</name>
@@ -799,5 +815,157 @@
       <show-application-mode>false</show-application-mode>
     </portlet-application>
   </page> 
+    <page>
+		<name>welcome</name>
+		<title>welcome Page</title>
+		<access-permissions>Everyone</access-permissions>
+		<edit-permission>*:/platform/administrators</edit-permission>
+		<container id="Officewelcome" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
+			<access-permissions>Everyone</access-permissions>
+			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
+				<access-permissions>Everyone</access-permissions>
+		<portlet-application>
+          <portlet>
+            <application-ref>presentation</application-ref>
+            <portlet-ref>SingleContentViewer</portlet-ref>
+            <preferences>
+              <preference>
+                <name>repository</name>
+                <value>repository</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>workspace</name>
+                <value>collaboration</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>nodeIdentifier</name>
+                <value>/sites content/live/office/web contents/site artifacts/Signin</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowQuickEdit</name>
+                <value>true</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowPrintAction</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowTOC</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowTags</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowCategories</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowTitle</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Signin</title>
+          <access-permissions>Everyone</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>false</show-application-state>
+          <show-application-mode>false</show-application-mode>
+        </portlet-application>
+		<portlet-application>
+          <portlet>
+            <application-ref>presentation</application-ref>
+            <portlet-ref>SingleContentViewer</portlet-ref>
+            <preferences>
+              <preference>
+                <name>repository</name>
+                <value>repository</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>workspace</name>
+                <value>collaboration</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>nodeIdentifier</name>
+                <value>/sites content/live/office/web contents/site artifacts/Welcome</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowQuickEdit</name>
+                <value>true</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowPrintAction</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowTOC</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowTags</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowCategories</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>ShowTitle</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Welcome</title>
+          <access-permissions>Everyone</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>false</show-application-state>
+          <show-application-mode>false</show-application-mode>
+        </portlet-application>
+			
+			
+	
+		</container>
+			
+			
+		</container>
+
+	</page>
+	<page>
+    <name>forum</name>
+    <title>Forum</title>
+    <access-permissions>Everyone</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>forum</application-ref>
+        <portlet-ref>ForumPortlet</portlet-ref>
+      </portlet>
+      <title>Forum Portlet</title>
+      <access-permissions>Everyone</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page>
+
 
 </page-set>

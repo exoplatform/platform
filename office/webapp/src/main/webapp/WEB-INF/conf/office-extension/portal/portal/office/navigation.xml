@@ -25,11 +25,19 @@
 
   <page-nodes>
   <node>
+      <uri>welcome</uri>
+      <name>welcome</name>
+      <label>#{portal.office.welcome}</label>
+      <page-reference>portal::office::welcome</page-reference>
+    </node>
+  <node>
 			<uri>home</uri>
 			<name>home</name>
 			<label>#{portal.office.home}</label>
 			<page-reference>portal::office::homepage</page-reference>
  </node>
+ 
+
    <node>
     <uri>activities</uri>
     <name>activities</name>
@@ -151,6 +159,19 @@
       <visibility>HIDDEN</visibility>
       <page-reference>portal::office::searchResult</page-reference>
     </node>
+	 <node>
+      <uri>newAccount</uri>
+      <name>newAccount</name>
+      <label>#{portal.office.newAccount}</label>
+      <visibility>HIDDEN</visibility>
+      <page-reference>portal::office::newAccount</page-reference>
+    </node>
+	 <node>
+      <uri>forum</uri>
+      <name>forum</name>
+      <label>Forum</label>
+      <page-reference>portal::office::forum</page-reference>
+     </node>
   
   </page-nodes>
   </node-navigation>
