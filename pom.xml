@@ -32,11 +32,15 @@
     <org.exoplatform.core.version>2.3.3-GA-SNAPSHOT</org.exoplatform.core.version>
     <org.exoplatform.ws.version>2.1.3-GA-SNAPSHOT</org.exoplatform.ws.version>
     <org.exoplatform.jcr.version>1.12.3-GA-SNAPSHOT</org.exoplatform.jcr.version>
+    <org.exoplatform.jcr-services.version>1.12.2-GA-SNAPSHOT</org.exoplatform.jcr-services.version>
     <org.exoplatform.portal.version>3.1.0-GA</org.exoplatform.portal.version>
     <org.exoplatform.cs.version>2.1.0-SNAPSHOT</org.exoplatform.cs.version>
     <org.exoplatform.ks.version>2.1.0-SNAPSHOT</org.exoplatform.ks.version>
     <org.exoplatform.ecms.version>2.1.0-SNAPSHOT</org.exoplatform.ecms.version>
     <org.exoplatform.social.version>1.1.0-SNAPSHOT</org.exoplatform.social.version>
+    
+    <org.exoplatform.ideall.version>1.0-Beta02</org.exoplatform.ideall.version>
+    <org.exoplatform.xcmis.version>1.0</org.exoplatform.xcmis.version>
     
     <org.slf4j.slf4j-simple.version>1.5.6</org.slf4j.slf4j-simple.version>
     
@@ -77,7 +81,8 @@
     <module>server</module>
     <module>doc</module>
     <module>office</module>
-    <module>migration</module>
+    <!-- enable when PLF-219 is fixed  -->
+    <!-- module>migration</module-->
     <!-- leave at the end -->
     <module>packaging</module>
   </modules>
