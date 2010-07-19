@@ -58,6 +58,10 @@ function getProduct(version) {
   product.addDependencies(platform.office.officeResources);
   product.addDependencies(platform.office.portlets.construction);
   
+  /* IDEALL - waiting for availability in maven repo */
+/*  product.addDependencies(platform.ideall.webapp);
+  product.addDependencies(platform.ideall.extension); */
+
   
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);
@@ -103,20 +107,16 @@ function getProduct(version) {
   product.addDependencies(ks.eXoApplication.poll); // poll.war	
 
   /* SOCIAL */
-  product.addDependencies(social.extension.war) ; // social-ext.war
-  product.addDependencies(social.web.eXoResources) ; // eXoResourcesSocial.war
-  product.addDependencies(social.component.common) ; // # exo.social.component.common-1.0.0-GA.jar
-  product.addDependencies(social.component.people) ; // # exo.social.component.people-1.0.0-GA.jar
-  product.addDependencies(social.component.space) ; // # exo.social.component.space-1.0.0-GA.jar
-  product.addDependencies(social.portlet.space) ; // space.war
-  product.addDependencies(social.portlet.profile); // profile.war
-  product.addDependencies(social.web.opensocial); // social.war
+  product.addDependencies(social.component.common); // # exo.social.component.common-1.0.0-GA.jar
+  product.addDependencies(social.component.core); // # exo.social.component.core.jar
+  product.addDependencies(social.component.service); // # exo.social.component.service.jar
   product.addDependencies(social.component.opensocial); // # exo.social.component.opensocial-1.0.0-GA.jar
-  product.addDependencies(social.component.exosocial); // # exo.social.component.exosocial-1.0.0-GA.jar
-  product.addDependencies(social.application.rest); // # exo.social.application.rest-1.0.0-GA.jar
-  product.addDependencies(social.webui.social); // # exo.social.webui.social-1.0.0-GA.jar
+  product.addDependencies(social.component.webui); // # exo.social.component.webui.jar
+  product.addDependencies(social.webapp.opensocial) ; // social.war
+  product.addDependencies(social.webapp.portlet); // social-portlet.war
+  product.addDependencies(social.webapp.resources); // social-resources.war
   product.addDependencies(social.extras.feedmash); // # exo.social.extras.feedmash-1.0.0-GA.jar
-
+  product.addDependencies(social.extension.war) ; // social-ext.war
 
   product.addServerPatch("tomcat", platform.patch.tomcat) ;
 //  product.addServerPatch("tomcat", portal.server.tomcat.patch) ;

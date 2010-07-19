@@ -140,19 +140,13 @@
 							-->
               <!-- SOCIAL -->
               <value profiles="social,all,default">
-                <string>eXoResourcesSocial</string>
+                <string>social-resources</string>
               </value>
               <value profiles="social,all,default">
-                <string>social</string>
+                <string>social-portlet</string>
               </value>
               <value profiles="social,all,default">
-                <string>space</string>
-              </value>
-              <value profiles="social,all,default">
-                <string>profile</string>
-              </value>
-              <value profiles="social,all,default">
-                <string>social-ext</string>
+                <string>social-extension</string>
               </value>
 
 
@@ -170,10 +164,16 @@
                 <string>ks</string>
               </value>
 
-              <!-- IDE -->
+              <!-- IDE - waiting availability in maven repo -->
               <!-- value profiles="ide,all,default">
                 <string>ideall-extension</string>
               </value -->
+              <!--value>
+                <string>SmartGWT</string>
+              </value>
+              <value>
+                <string>IDEall</string>
+              </value-->
 
               <!-- Contains shared layout -->
               <value>
