@@ -20,6 +20,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.jcr.Node;
 import javax.jcr.NodeIterator;
@@ -33,9 +34,13 @@ import org.apache.commons.logging.Log;
 import org.exoplatform.commons.utils.PageList;
 import org.exoplatform.container.PortalContainer;
 import org.exoplatform.container.xml.Component;
+import org.exoplatform.container.xml.ComponentPlugin;
+import org.exoplatform.container.xml.Configuration;
+import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.platform.migration.handlers.ComponentHandler;
 import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesSet;
+import org.exoplatform.portal.config.NewPortalConfig;
 import org.exoplatform.portal.config.jcr.DataMapper;
 import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
@@ -55,41 +60,48 @@ import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IMarshallingContext;
 
 /**
- * Created by The eXo Platform SAS Author : eXoPlatform haikel.thamri@exoplatform.com 15
- * juil. 2010
+ * Created by The eXo Platform SAS Author : eXoPlatform
+ * haikel.thamri@exoplatform.com 15 juil. 2010
  */
 public class UserPortalConfigHandler implements ComponentHandler {
-  private Log                 log                          = ExoLogger.getLogger(this.getClass());
+  private Log                 log                         = ExoLogger.getLogger(this.getClass());
 
-  final private static String PORTAL_DATA                  = "MainPortalData";
+  final private static String PORTAL_DATA                 = "MainPortalData";
 
-  final private static String USER_DATA                    = "UserPortalData";
+  final private static String USER_DATA                   = "UserPortalData";
 
-  final private static String GROUP_DATA                   = "SharedPortalData";
+  final private static String GROUP_DATA                  = "SharedPortalData";
 
-  final private static String PORTAL_CONFIG_FILE_NAME      = "portal-xml";
+  final private static String PORTAL_CONFIG_FILE_NAME     = "portal-xml";
 
-  final private static String NAVIGATION_CONFIG_FILE_NAME  = "navigation-xml";
+  final private static String NAVIGATION_CONFIG_FILE_NAME = "navigation-xml";
 
-  final private static String GADGETS_CONFIG_FILE_NAME     = "gadgets-xml";
+  final private static String GADGETS_CONFIG_FILE_NAME    = "gadgets-xml";
 
-  final private static String PAGE_SET_NODE                = "pages";
+  final private static String EXO_REGISTRY                = "exo:registry";
 
-  final private static String PORTLET_PREFERENCES_SET_NODE = "portletPreferences";
+  final private static String EXO_REGISTRYENTRY_NT        = "exo:registryEntry";
 
-  final private static String EXO_REGISTRY                 = "exo:registry";
-
-  final private static String EXO_REGISTRYENTRY_NT         = "exo:registryEntry";
-
-  final private static String EXO_DATA_TYPE                = "exo:dataType";
+  final private static String EXO_DATA_TYPE               = "exo:dataType";
 
   private RegistryService     regService_;
 
-  private DataMapper          mapper_                      = new DataMapper();
+  private PortalContainer     portalContainer;
+
+  private OrganizationService organizationService;
+
+  private DataMapper          mapper_                     = new DataMapper();
 
   public void invoke(Component component, String rootConfDir) {
+    portalContainer = PortalContainer.getInstance();
+    organizationService = (OrganizationService) portalContainer.getComponentInstanceOfType(OrganizationService.class);
+    regService_ = (RegistryService) portalContainer.getComponentInstanceOfType(RegistryService.class);
     preMarshallCompoenet(component, rootConfDir);
-    marshall(component, rootConfDir + File.separator + "portal");
+
+    Configuration configuration = new Configuration();
+    configuration.addComponent(component);
+    marshall(configuration, rootConfDir + File.separator + "portal" + File.separator
+        + component.getKey());
   }
 
   private void preMarshallCompoenet(Component component, String rootConfDir) {
@@ -160,6 +172,24 @@ public class UserPortalConfigHandler implements ComponentHandler {
               + "portlet-preferences.xml");
         }
       }
+
+      // Modify the templatelocation field in the UserPortalConfigHandler
+      List<ComponentPlugin> componentPlugins = component.getComponentPlugins();
+      for (ComponentPlugin componentPlugin : componentPlugins) {
+        if (componentPlugin.getName().equals("new.portal.config.user.listener")) {
+          ObjectParameter objectParameter = componentPlugin.getInitParams()
+                                                           .getObjectParam("portal.configuration");
+          NewPortalConfig newPortalConfig = (NewPortalConfig) objectParameter.getObject();
+          newPortalConfig.setTemplateLocation("portal-navigation");
+          objectParameter = componentPlugin.getInitParams().getObjectParam("group.configuration");
+          newPortalConfig = (NewPortalConfig) objectParameter.getObject();
+          newPortalConfig.setTemplateLocation("portal-navigation");
+          objectParameter = componentPlugin.getInitParams().getObjectParam("user.configuration");
+          newPortalConfig = (NewPortalConfig) objectParameter.getObject();
+          newPortalConfig.setTemplateLocation("portal-navigation");
+        }
+      }
+
     } catch (Exception ie) {
       log.error("problem in the preMarshall Process", ie);
     }
@@ -174,10 +204,6 @@ public class UserPortalConfigHandler implements ComponentHandler {
     } catch (Exception ie) {
       log.error("Cannot convert the object to xml", ie);
     }
-  }
-
-  private void postMarshall(Component component) {
-
   }
 
   private PageSet getPages(String ownerType, String ownerId) throws Exception {
@@ -359,8 +385,6 @@ public class UserPortalConfigHandler implements ComponentHandler {
   private ArrayList<String> getAllUsers() {
     ArrayList<String> allUsers = new ArrayList<String>();
     try {
-      PortalContainer portalContainer = PortalContainer.getInstance();
-      OrganizationService organizationService = (OrganizationService) portalContainer.getComponentInstanceOfType(OrganizationService.class);
       Query query = new Query();
       query.setUserName("*");
       PageList users = organizationService.getUserHandler().findUsers(query);
