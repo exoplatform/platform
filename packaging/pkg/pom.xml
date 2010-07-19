@@ -200,7 +200,24 @@
 		    <type>jar</type>
 		  </dependency-->
 
-      <!-- Deploy dependencies -->
+      <!-- ////////////// Deploy dependencies ////////////// -->
+      
+      
+      <!-- ideall ext -->
+		  <!--dependency>
+		    <groupId>org.exoplatform.ideall</groupId>
+		    <artifactId>exo.ideall.extension.webapp</artifactId>
+		    <version>${org.exoplatform.ideall.version}</version>
+		    <type>war</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ideall</groupId>
+		    <artifactId>exo.ideall.extension.config</artifactId>
+		    <version>${org.exoplatform.ideall.version}</version>
+		    <type>jar</type>
+		  </dependency-->
+      
+      <!-- ideall dependencies -->
       <!--dependency>
 		    <groupId>org.exoplatform.gwt</groupId>
 		    <artifactId>exo.gwtframework.smartgwt</artifactId>
@@ -238,20 +255,119 @@
 		    <type>jar</type>
 		  </dependency-->
 		  
-		  <!-- ideall ext -->
-		  <!--dependency>
-		    <groupId>org.exoplatform.ideall</groupId>
-		    <artifactId>exo.ideall.extension.webapp</artifactId>
-		    <version>${org.exoplatform.ideall.version}</version>
-		    <type>war</type>
+		  
+		  <!-- xcmis extension -->
+		  
+		  <!-- xcmis dependencies -->
+		  <dependency>
+		    <groupId>org.xcmis</groupId>
+		    <artifactId>xcmis-renditions</artifactId>
+		    <version>${org.exoplatform.xcmis.version}</version>
+		    <type>jar</type>
 		  </dependency>
 		  <dependency>
-		    <groupId>org.exoplatform.ideall</groupId>
-		    <artifactId>exo.ideall.extension.config</artifactId>
-		    <version>${org.exoplatform.ideall.version}</version>
+		    <groupId>org.xcmis</groupId>
+		    <artifactId>xcmis-restatom</artifactId>
+		    <version>${org.exoplatform.xcmis.version}</version>
 		    <type>jar</type>
-		  </dependency-->
-		  
+		  </dependency>
+		  <dependency>
+		    <groupId>org.xcmis</groupId>
+		    <artifactId>xcmis-search-model</artifactId>
+		    <version>${org.exoplatform.xcmis.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.xcmis</groupId>
+		    <artifactId>xcmis-search-parser-cmis</artifactId>
+		    <version>${org.exoplatform.xcmis.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.xcmis</groupId>
+		    <artifactId>xcmis-search-service</artifactId>
+		    <version>${org.exoplatform.xcmis.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.xcmis</groupId>
+		    <artifactId>xcmis-spi</artifactId>
+		    <version>${org.exoplatform.xcmis.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.xcmis</groupId>
+		    <artifactId>xcmis-sp-inmemory</artifactId>
+		    <version>${org.exoplatform.xcmis.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.xcmis</groupId>
+		    <artifactId>xcmis-sp-jcr-exo</artifactId>
+		    <version>${org.exoplatform.xcmis.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.apache.abdera</groupId>
+		    <artifactId>abdera-client</artifactId>
+		    <version>0.4.0-incubating</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.apache.abdera</groupId>
+		    <artifactId>abdera-core</artifactId>
+		    <version>0.4.0-incubating</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.apache.abdera</groupId>
+		    <artifactId>abdera-i18n</artifactId>
+		    <version>0.4.0-incubating</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.apache.abdera</groupId>
+		    <artifactId>abdera-parser</artifactId>
+		    <version>0.4.0-incubating</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.apache.abdera</groupId>
+		    <artifactId>abdera-server</artifactId>
+		    <version>0.4.0-incubating</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.antlr</groupId>
+		    <artifactId>antlr-runtime</artifactId>
+		    <version>3.1.3</version>
+		    <type>jar</type>
+		  </dependency>
+      <dependency>
+        <groupId>org.apache.ws.commons.axiom</groupId>
+        <artifactId>axiom-api</artifactId>
+        <version>1.2.5</version>
+        <type>jar</type>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.ws.commons.axiom</groupId>
+        <artifactId>axiom-impl</artifactId>
+        <version>1.2.5</version>
+        <type>jar</type>
+      </dependency>
+      <dependency>
+        <groupId>jaxen</groupId>
+        <artifactId>jaxen</artifactId>
+        <version>1.1.1</version>
+        <type>jar</type>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.lucene</groupId>
+        <artifactId>lucene-regex</artifactId>
+        <version>2.4.1</version>
+        <type>jar</type>
+      </dependency>
+
    </dependencies>
 
    <build>

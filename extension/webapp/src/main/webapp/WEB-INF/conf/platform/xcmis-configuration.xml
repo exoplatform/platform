@@ -1,0 +1,51 @@
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd
+http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
+   <component>
+      <type>org.xcmis.spi.deploy.ExoContainerCmisRegistry</type>
+      <init-params>
+         <values-param>
+            <name>renditionProviders</name>
+            <description>Redition providers classes.</description>
+            <value>org.xcmis.renditions.impl.PDFDocumentRenditionProvider</value>
+            <value>org.xcmis.renditions.impl.ImageRenditionProvider</value>
+         </values-param>
+      </init-params>
+   </component>
+
+   <component>
+      <type>org.xcmis.spi.PermissionService</type>
+   </component>
+
+   <component>
+      <type>org.xcmis.sp.jcr.exo.StorageProviderImpl</type>
+      <init-params>
+         <object-param>
+            <name>configs</name>
+            <object type="org.xcmis.sp.jcr.exo.StorageProviderImpl$StorageProviderConfig">
+               <field name="storage">
+                  <object type="org.xcmis.sp.jcr.exo.StorageConfiguration">
+                     <field name="id">
+                        <string>cmis1</string>
+                     </field>
+                     <field name="repository">
+                        <string>repository</string>
+                     </field>
+                     <field name="workspace">
+                        <string>collaboration</string>
+                     </field>
+                     <field name="indexConfiguration">
+                        <object type="org.xcmis.search.config.IndexConfiguration">
+                           <field name="indexDir">
+                              <string>${gatein.jcr.index.data.dir}/cmis1-index${container.name.suffix}</string>
+                           </field>
+                        </object>
+                     </field>
+                  </object>
+               </field>
+            </object>
+         </object-param>
+      </init-params>
+   </component>
+</configuration>
