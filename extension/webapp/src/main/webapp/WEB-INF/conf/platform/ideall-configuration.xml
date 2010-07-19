@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+  <component>
+    <type>org.exoplatform.services.rest.ext.proxy.ProxyService</type>
+  </component>
+
+	<component>
+    <type>org.exoplatform.ideall.upload.LoopbackContentService</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.ideall.download.DownloadContentService</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.ideall.discovery.RepositoryDiscoveryService</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.ideall.groovy.GroovyScriptServiceApplication</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.ideall.upload.UploadServiceApplication</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.ideall.shindig.oauth.RestSecurityTokenGenerator</type>
+    <init-params>
+       <value-param>
+         <name>keyFile</name>
+         <description>shindig key file locaton</description>
+         <value>../gatein/conf/gadgets/key.txt</value>
+       </value-param>
+    </init-params>
+  </component>
+
+  <component>
+    <type>org.exoplatform.ideall.conversationstate.RestConversationState</type>
+  </component>
+
+  <component>
+    <type>org.exoplatform.ideall.service.gatein.RestGadgetRegistryService</type>
+  </component>
+</configuration>
+

@@ -24,6 +24,7 @@ function getModule(params)
    var wsrpVersion = "${org.gatein.wsrp.version}";
    var shindigVersion = "${org.shindig.version}";
    var cometVersion = "${org.exoplatform.cometd.version}";
+   var ideallVersion = "${org.exoplatform.ideall.version}";
 
    // fck editor required for KS & CS
    module.fck = new Project("org.exoplatform.platform", "exo.platform.web.fck", "war", module.version);
@@ -66,6 +67,29 @@ function getModule(params)
    module.patch = {};
    module.patch.tomcat =
       new Project("org.exoplatform.platform", "exo.platform.server.tomcat.patch", "jar", module.version);
+   
+   // IDEAll
+   module.ideall = {};
+   module.ideall.extension =
+       new Project("org.exoplatform.ideall", "exo.ideall.extension.webapp", "war", ideallVersion).
+        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.extension.config", "jar", ideallVersion));
+   module.ideall.extension.deployName = "ideall-extension";
+   
+   module.ideall.smartgwt =
+       // should be gwt.version
+       new Project("org.exoplatform.gwt", "exo.gwtframework.smartgwt", "war", "1.0-Beta04");
+   module.ideall.smartgwt.deployName = "SmartGWT";
+   
+   module.ideall.webapp =
+       new Project("org.exoplatform.ideall", "exo.ideall.client", "war", ideallVersion).
+        // should be core.version
+        addDependency(new Project("org.exoplatform.core", "exo.core.component.script.groovy", "jar", "2.3.2-GA")).
+        addDependency(module.ideall.smartgwt).
+        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.gadget", "jar", ideallVersion)).
+        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.netvibes", "jar", ideallVersion)).
+        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.commons", "jar", ideallVersion));
+   module.ideall.webapp.deployName = "IDEAll";
+   
    
    return module;
 }

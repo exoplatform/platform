@@ -200,8 +200,58 @@
 		    <type>jar</type>
 		  </dependency-->
 
-
-
+      <!-- Deploy dependencies -->
+      <dependency>
+		    <groupId>org.exoplatform.gwt</groupId>
+		    <artifactId>exo.gwtframework.smartgwt</artifactId>
+		    <version>1.0-Beta04</version>
+		    <type>war</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ideall</groupId>
+		    <artifactId>exo.ideall.component.gadget</artifactId>
+		    <version>${org.exoplatform.ideall.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ideall</groupId>
+		    <artifactId>exo.ideall.component.netvibes</artifactId>
+		    <version>${org.exoplatform.ideall.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ideall</groupId>
+		    <artifactId>exo.ideall.component.commons</artifactId>
+		    <version>${org.exoplatform.ideall.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ideall</groupId>
+		    <artifactId>exo.ideall.client</artifactId>
+		    <version>${org.exoplatform.ideall.version}</version>
+		    <type>war</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.core</groupId>
+		    <artifactId>exo.core.component.script.groovy</artifactId>
+		    <version>2.3.2-GA</version>
+		    <type>jar</type>
+		  </dependency>
+		  
+		  <!-- ideall ext -->
+		  <dependency>
+		    <groupId>org.exoplatform.ideall</groupId>
+		    <artifactId>exo.ideall.extension.webapp</artifactId>
+		    <version>${org.exoplatform.ideall.version}</version>
+		    <type>war</type>
+		  </dependency>
+		  <dependency>
+		    <groupId>org.exoplatform.ideall</groupId>
+		    <artifactId>exo.ideall.extension.config</artifactId>
+		    <version>${org.exoplatform.ideall.version}</version>
+		    <type>jar</type>
+		  </dependency>
+		  
    </dependencies>
 
    <build>
