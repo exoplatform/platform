@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
    <parent>
       <groupId>org.exoplatform.platform</groupId>
       <artifactId>exo.platform.packaging</artifactId>
@@ -9,191 +10,181 @@
    <artifactId>exo.platform.packaging.assembly</artifactId>
    <packaging>pom</packaging>
    <name>eXo platform Packaging Assemblies</name>
-   
+
    <properties>
-     <!-- used by exobuild to tell maven which repo to use when fetching  deps-->
-     <repository.url>http://repository.exoplatform.org/all</repository.url>
+      <!-- used by exobuild to tell maven which repo to use when fetching  deps-->
+      <repository.url>http://repository.exoplatform.org/all</repository.url>
    </properties>
 
    <dependencies>
-      
       <dependency>
-		    <groupId>org.exoplatform.tool</groupId>
-		    <artifactId>exopackage</artifactId>
-		    <version>${org.exoplatform.exopackage.version}</version>
-		    <type>zip</type>
-		  </dependency>
-
-
+         <groupId>org.exoplatform.tool</groupId>
+         <artifactId>exopackage</artifactId>
+         <version>${org.exoplatform.exopackage.version}</version>
+         <type>zip</type>
+      </dependency>
       <dependency>
          <groupId>org.exoplatform.kernel</groupId>
          <artifactId>kernel.packaging.module</artifactId>
          <version>${org.exoplatform.kernel.version}</version>
          <type>js</type>
-       </dependency>
-       <dependency>
+      </dependency>
+      <dependency>
          <groupId>org.exoplatform.core</groupId>
          <artifactId>core.packaging.module</artifactId>
          <version>${org.exoplatform.core.version}</version>
          <type>js</type>
-       </dependency>
-       <dependency>
+      </dependency>
+      <dependency>
          <groupId>org.exoplatform.ws</groupId>
          <artifactId>ws.packaging.module</artifactId>
          <version>${org.exoplatform.ws.version}</version>
          <type>js</type>
-       </dependency>
-       <dependency>
+      </dependency>
+      <dependency>
          <groupId>org.exoplatform.jcr</groupId>
          <artifactId>jcr.packaging.module</artifactId>
          <version>${org.exoplatform.jcr.version}</version>
          <type>js</type>
-       </dependency>
-       <dependency>
+      </dependency>
+      <dependency>
          <groupId>org.exoplatform.portal</groupId>
          <artifactId>portal.packaging.module</artifactId>
          <version>${org.exoplatform.portal.version}</version>
          <type>js</type>
-       </dependency>
-       <!-- PLATFORM -->
-       <dependency>
+      </dependency>
+      <!-- PLATFORM -->
+      <dependency>
          <groupId>org.exoplatform.platform</groupId>
          <artifactId>platform.packaging.module</artifactId>
          <version>${project.version}</version>
          <type>js</type>
-       </dependency> 
-       <dependency>
+      </dependency>
+      <dependency>
          <groupId>org.exoplatform.platform</groupId>
          <artifactId>platform.packaging.product</artifactId>
          <version>${project.version}</version>
          <type>js</type>
-       </dependency> 
+      </dependency> 
        <!-- KS -->
-       <dependency>
-			  <groupId>org.exoplatform.ks</groupId>
-			  <artifactId>ks.packaging.module</artifactId>
-			  <version>${org.exoplatform.ks.version}</version>
-			  <type>js</type>
-			</dependency>
-			<dependency>
-			  <groupId>org.exoplatform.ks</groupId>
-			  <artifactId>portal.packaging.product</artifactId>
-			  <version>${org.exoplatform.ks.version}</version>
-			  <type>js</type>
-			</dependency>
-			<!-- CS -->
-		
       <dependency>
-		    <groupId>org.exoplatform.cs</groupId>
-		    <artifactId>cs.packaging.module</artifactId>
-		    <version>${org.exoplatform.cs.version}</version>
-		    <type>js</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.cs</groupId>
-		    <artifactId>cs.packaging.product</artifactId>
-		    <version>${org.exoplatform.cs.version}</version>
-		    <type>js</type>
-		  </dependency>
-		  
-		  <!-- SOCIAL -->
+         <groupId>org.exoplatform.ks</groupId>
+         <artifactId>ks.packaging.module</artifactId>
+         <version>${org.exoplatform.ks.version}</version>
+         <type>js</type>
+      </dependency>
       <dependency>
-		    <groupId>org.exoplatform.social</groupId>
-		    <artifactId>social.packaging.module</artifactId>
-		    <version>${org.exoplatform.social.version}</version>
-		    <type>js</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.social</groupId>
-		    <artifactId>social.packaging.product</artifactId>
-		    <version>${org.exoplatform.social.version}</version>
-		    <type>js</type>
-		  </dependency>
-		  <!-- ECMS -->
+         <groupId>org.exoplatform.ks</groupId>
+         <artifactId>portal.packaging.product</artifactId>
+         <version>${org.exoplatform.ks.version}</version>
+         <type>js</type>
+      </dependency>
+      <!-- CS -->
       <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>workflow.packaging.module</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>js</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>dms.packaging.module</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>js</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>wcm.packaging.module</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>js</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>wcm.packaging.product</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>js</type>
-		  </dependency>
+         <groupId>org.exoplatform.cs</groupId>
+         <artifactId>cs.packaging.module</artifactId>
+         <version>${org.exoplatform.cs.version}</version>
+         <type>js</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.cs</groupId>
+         <artifactId>cs.packaging.product</artifactId>
+         <version>${org.exoplatform.cs.version}</version>
+         <type>js</type>
+      </dependency>
+      <!-- SOCIAL -->
+      <dependency>
+         <groupId>org.exoplatform.social</groupId>
+         <artifactId>social.packaging.module</artifactId>
+         <version>${org.exoplatform.social.version}</version>
+         <type>js</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.social</groupId>
+         <artifactId>social.packaging.product</artifactId>
+         <version>${org.exoplatform.social.version}</version>
+         <type>js</type>
+      </dependency>
+      <!-- ECMS -->
+      <dependency>
+         <groupId>org.exoplatform.ecms</groupId>
+         <artifactId>workflow.packaging.module</artifactId>
+         <version>${org.exoplatform.ecms.version}</version>
+         <type>js</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ecms</groupId>
+         <artifactId>dms.packaging.module</artifactId>
+         <version>${org.exoplatform.ecms.version}</version>
+         <type>js</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ecms</groupId>
+         <artifactId>wcm.packaging.module</artifactId>
+         <version>${org.exoplatform.ecms.version}</version>
+         <type>js</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ecms</groupId>
+         <artifactId>wcm.packaging.product</artifactId>
+         <version>${org.exoplatform.ecms.version}</version>
+         <type>js</type>
+      </dependency>
       <!--  -->
       <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>exo-ecms-delivery-wkf-wcm</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>pom</type>
-		  </dependency>
-		  <!--
+         <groupId>org.exoplatform.ecms</groupId>
+         <artifactId>exo-ecms-delivery-wkf-wcm</artifactId>
+         <version>${org.exoplatform.ecms.version}</version>
+         <type>pom</type>
+      </dependency>
+<!--
       <dependency>
 		    <groupId>org.exoplatform.ecms</groupId>
 		    <artifactId>exo-ecms-delivery-dms-wcm-assembly</artifactId>
 		    <version>${org.exoplatform.ecms.version}</version>
 		    <type>pom</type>
 	</dependency>
-	-->
+-->
       <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>exo-ecms-delivery-wcm-assembly</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>pom</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.cs</groupId>
-		    <artifactId>exo.cs.packaging.assembly</artifactId>
-		    <version>${org.exoplatform.cs.version}</version>
-		    <type>pom</type>
-		  </dependency>
-		  
-		  <dependency>
-		    <groupId>org.exoplatform.ks</groupId>
-		    <artifactId>exo.ks.packaging.assembly</artifactId>
-		    <version>${org.exoplatform.ks.version}</version>
-		    <type>pom</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.social</groupId>
-		    <artifactId>exo.social.packaging.assembly</artifactId>
-		    <version>${org.exoplatform.social.version}</version>
-		    <type>pom</type>
-		  </dependency>
-		  <!-- workflow dependencies -->
-		  
-		  
-		  <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>jar</type>
-		  </dependency>
+         <groupId>org.exoplatform.ecms</groupId>
+         <artifactId>exo-ecms-delivery-wcm-assembly</artifactId>
+         <version>${org.exoplatform.ecms.version}</version>
+         <type>pom</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.cs</groupId>
+         <artifactId>exo.cs.packaging.assembly</artifactId>
+         <version>${org.exoplatform.cs.version}</version>
+         <type>pom</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ks</groupId>
+         <artifactId>exo.ks.packaging.assembly</artifactId>
+         <version>${org.exoplatform.ks.version}</version>
+         <type>pom</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.social</groupId>
+         <artifactId>exo.social.packaging.assembly</artifactId>
+         <version>${org.exoplatform.social.version}</version>
+         <type>pom</type>
+      </dependency>
+      <!-- workflow dependencies -->
+      <dependency>
+         <groupId>org.exoplatform.ecms</groupId>
+         <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
+         <version>${org.exoplatform.ecms.version}</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ecms</groupId>
+         <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
+         <version>${org.exoplatform.ecms.version}</version>
+         <type>jar</type>
+      </dependency>
 
-		  <dependency>
-		    <groupId>org.exoplatform.ecms</groupId>
-		    <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
-		    <version>${org.exoplatform.ecms.version}</version>
-		    <type>jar</type>
-		  </dependency>
-
-
-           <!-- main portal container config --> 
-		  <!--dependency>
+      <!-- main portal container config --> 
+      <!--dependency>
 		    <groupId>org.exoplatform.platform</groupId>
 		    <artifactId>exo.platform.extension</artifactId>
 		    <version>${project.version}</version>
@@ -204,180 +195,176 @@
       
       
       <!-- ideall ext -->
-		  <!--dependency>
-		    <groupId>org.exoplatform.ideall</groupId>
-		    <artifactId>exo.ideall.extension.webapp</artifactId>
-		    <version>${org.exoplatform.ideall.version}</version>
-		    <type>war</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.ideall</groupId>
-		    <artifactId>exo.ideall.extension.config</artifactId>
-		    <version>${org.exoplatform.ideall.version}</version>
-		    <type>jar</type>
-		  </dependency-->
+	  <!-- dependency>
+	    <groupId>org.exoplatform.ideall</groupId>
+	    <artifactId>exo.ideall.extension.webapp</artifactId>
+	    <version>${org.exoplatform.ideall.version}</version>
+	    <type>war</type>
+	  </dependency>
+	  <dependency>
+	    <groupId>org.exoplatform.ideall</groupId>
+	    <artifactId>exo.ideall.extension.config</artifactId>
+	    <version>${org.exoplatform.ideall.version}</version>
+	    <type>jar</type>
+	  </dependency -->
       
       <!-- ideall dependencies -->
-      <!--dependency>
-		    <groupId>org.exoplatform.gwt</groupId>
-		    <artifactId>exo.gwtframework.smartgwt</artifactId>
-		    <version>1.0-Beta04</version>
-		    <type>war</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.ideall</groupId>
-		    <artifactId>exo.ideall.component.gadget</artifactId>
-		    <version>${org.exoplatform.ideall.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.ideall</groupId>
-		    <artifactId>exo.ideall.component.netvibes</artifactId>
-		    <version>${org.exoplatform.ideall.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.ideall</groupId>
-		    <artifactId>exo.ideall.component.commons</artifactId>
-		    <version>${org.exoplatform.ideall.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.ideall</groupId>
-		    <artifactId>exo.ideall.client</artifactId>
-		    <version>${org.exoplatform.ideall.version}</version>
-		    <type>war</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.exoplatform.core</groupId>
-		    <artifactId>exo.core.component.script.groovy</artifactId>
-		    <version>2.3.2-GA</version>
-		    <type>jar</type>
-		  </dependency-->
+      <dependency>
+         <groupId>org.exoplatform.gwt</groupId>
+         <artifactId>exo.gwtframework.smartgwt</artifactId>
+         <version>1.0-Beta04</version>
+         <type>war</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ideall</groupId>
+         <artifactId>exo.ideall.component.gadget</artifactId>
+         <version>${org.exoplatform.ideall.version}</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ideall</groupId>
+         <artifactId>exo.ideall.component.netvibes</artifactId>
+         <version>${org.exoplatform.ideall.version}</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ideall</groupId>
+         <artifactId>exo.ideall.component.commons</artifactId>
+         <version>${org.exoplatform.ideall.version}</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ideall</groupId>
+         <artifactId>exo.ideall.client</artifactId>
+         <version>${org.exoplatform.ideall.version}</version>
+         <type>war</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.core</groupId>
+         <artifactId>exo.core.component.script.groovy</artifactId>
+         <version>${org.exoplatform.core.version}</version>
+         <type>jar</type>
+      </dependency>
 		  
-		  
-		  <!-- xcmis extension -->
-		  
-		  <!-- xcmis dependencies -->
-		  <dependency>
-		    <groupId>org.xcmis</groupId>
-		    <artifactId>xcmis-renditions</artifactId>
-		    <version>${org.exoplatform.xcmis.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.xcmis</groupId>
-		    <artifactId>xcmis-restatom</artifactId>
-		    <version>${org.exoplatform.xcmis.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.xcmis</groupId>
-		    <artifactId>xcmis-search-model</artifactId>
-		    <version>${org.exoplatform.xcmis.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.xcmis</groupId>
-		    <artifactId>xcmis-search-parser-cmis</artifactId>
-		    <version>${org.exoplatform.xcmis.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.xcmis</groupId>
-		    <artifactId>xcmis-search-service</artifactId>
-		    <version>${org.exoplatform.xcmis.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.xcmis</groupId>
-		    <artifactId>xcmis-spi</artifactId>
-		    <version>${org.exoplatform.xcmis.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.xcmis</groupId>
-		    <artifactId>xcmis-sp-inmemory</artifactId>
-		    <version>${org.exoplatform.xcmis.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.xcmis</groupId>
-		    <artifactId>xcmis-sp-jcr-exo</artifactId>
-		    <version>${org.exoplatform.xcmis.version}</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.apache.abdera</groupId>
-		    <artifactId>abdera-client</artifactId>
-		    <version>0.4.0-incubating</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.apache.abdera</groupId>
-		    <artifactId>abdera-core</artifactId>
-		    <version>0.4.0-incubating</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.apache.abdera</groupId>
-		    <artifactId>abdera-i18n</artifactId>
-		    <version>0.4.0-incubating</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.apache.abdera</groupId>
-		    <artifactId>abdera-parser</artifactId>
-		    <version>0.4.0-incubating</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.apache.abdera</groupId>
-		    <artifactId>abdera-server</artifactId>
-		    <version>0.4.0-incubating</version>
-		    <type>jar</type>
-		  </dependency>
-		  <dependency>
-		    <groupId>org.antlr</groupId>
-		    <artifactId>antlr-runtime</artifactId>
-		    <version>3.1.3</version>
-		    <type>jar</type>
-		  </dependency>
+      <!-- xcmis dependencies -->
       <dependency>
-        <groupId>org.apache.ws.commons.axiom</groupId>
-        <artifactId>axiom-api</artifactId>
-        <version>1.2.5</version>
-        <type>jar</type>
+         <groupId>org.xcmis</groupId>
+         <artifactId>xcmis-renditions</artifactId>
+         <version>${org.exoplatform.xcmis.version}</version>
+         <type>jar</type>
       </dependency>
       <dependency>
-        <groupId>org.apache.ws.commons.axiom</groupId>
-        <artifactId>axiom-impl</artifactId>
-        <version>1.2.5</version>
-        <type>jar</type>
+         <groupId>org.xcmis</groupId>
+         <artifactId>xcmis-restatom</artifactId>
+         <version>${org.exoplatform.xcmis.version}</version>
+         <type>jar</type>
       </dependency>
       <dependency>
-        <groupId>jaxen</groupId>
-        <artifactId>jaxen</artifactId>
-        <version>1.1.1</version>
-        <type>jar</type>
+         <groupId>org.xcmis</groupId>
+         <artifactId>xcmis-search-model</artifactId>
+         <version>${org.exoplatform.xcmis.version}</version>
+         <type>jar</type>
       </dependency>
       <dependency>
-        <groupId>org.apache.lucene</groupId>
-        <artifactId>lucene-regex</artifactId>
-        <version>2.4.1</version>
-        <type>jar</type>
+         <groupId>org.xcmis</groupId>
+         <artifactId>xcmis-search-parser-cmis</artifactId>
+         <version>${org.exoplatform.xcmis.version}</version>
+         <type>jar</type>
       </dependency>
-
+      <dependency>
+         <groupId>org.xcmis</groupId>
+         <artifactId>xcmis-search-service</artifactId>
+         <version>${org.exoplatform.xcmis.version}</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.xcmis</groupId>
+         <artifactId>xcmis-spi</artifactId>
+         <version>${org.exoplatform.xcmis.version}</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.xcmis</groupId>
+         <artifactId>xcmis-sp-inmemory</artifactId>
+         <version>${org.exoplatform.xcmis.version}</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.xcmis</groupId>
+         <artifactId>xcmis-sp-jcr-exo</artifactId>
+         <version>${org.exoplatform.xcmis.version}</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.abdera</groupId>
+         <artifactId>abdera-client</artifactId>
+         <version>0.4.0-incubating</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.abdera</groupId>
+         <artifactId>abdera-core</artifactId>
+         <version>0.4.0-incubating</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.abdera</groupId>
+         <artifactId>abdera-i18n</artifactId>
+         <version>0.4.0-incubating</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.abdera</groupId>
+         <artifactId>abdera-parser</artifactId>
+         <version>0.4.0-incubating</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.abdera</groupId>
+         <artifactId>abdera-server</artifactId>
+         <version>0.4.0-incubating</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.antlr</groupId>
+         <artifactId>antlr-runtime</artifactId>
+         <version>3.1.3</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.ws.commons.axiom</groupId>
+         <artifactId>axiom-api</artifactId>
+         <version>1.2.5</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.ws.commons.axiom</groupId>
+         <artifactId>axiom-impl</artifactId>
+         <version>1.2.5</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>jaxen</groupId>
+         <artifactId>jaxen</artifactId>
+         <version>1.1.1</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.lucene</groupId>
+         <artifactId>lucene-regex</artifactId>
+         <version>2.4.1</version>
+         <type>jar</type>
+      </dependency>
    </dependencies>
 
    <build>
       <plugins>
-         <!-- needed for exobuild to call maven dependency:get --> 
+         <!-- needed for exobuild to call maven dependency:get -->
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>
             <configuration>
-              <repositoryUrl>${repository.url}</repositoryUrl>
+               <repositoryUrl>${repository.url}</repositoryUrl>
             </configuration>
          </plugin>
          <!-- check-out exobuild -->
@@ -411,32 +398,32 @@
                      </artifactItems>
                   </configuration>
                </execution>
-			     <execution>
-			       <id>copy-dependencies</id>
-			       <phase>compile</phase>
-			       <goals>
-			         <goal>copy-dependencies</goal>
-			       </goals>
-			       <configuration>
+               <execution>
+                  <id>copy-dependencies</id>
+                  <phase>compile</phase>
+                  <goals>
+                     <goal>copy-dependencies</goal>
+                  </goals>
+                  <configuration>
                      <includeTypes>js</includeTypes>
                      <stripVersion>true</stripVersion>
 			         <!--includeArtifactIds>exo.packaging.*.module</includeArtifactIds-->
                      <outputDirectory>${project.build.directory}/exopackage-conf</outputDirectory>
-			       </configuration>
-			     </execution>
+                  </configuration>
+               </execution>
             </executions>
          </plugin>
-     </plugins>
+      </plugins>
    </build>
 
    <profiles>
       <!-- allows exobuild to fetch in staging repo by passing -Pstaging -->
       <profile>
-        <id>staging</id>
-        <properties>
-          <repository.url>http://repository.exoplatform.org/staging</repository.url>
-        </properties>
-      </profile>   
+         <id>staging</id>
+         <properties>
+            <repository.url>http://repository.exoplatform.org/staging</repository.url>
+         </properties>
+      </profile>
       <profile>
          <id>pkg-tomcat</id>
          <build>
@@ -456,17 +443,20 @@
                            <rules>
                               <requireProperty>
                                  <property>exo.projects.directory.dependencies</property>
-                                 <message>"You must define the property exo.projects.directory.dependencies to give the path to the directory where you store your applications servers"</message>
+                                 <message>"You must define the property exo.projects.directory.dependencies to
+                                    give the path to the directory where you store your applications servers"</message>
                               </requireProperty>
                               <requireProperty>
                                  <property>exo.projects.app.tomcat.version</property>
-                                 <message>"You must define the property exo.projects.app.tomcat.version to give the name of the directory where is stored tomcat"</message>
+                                 <message>"You must define the property exo.projects.app.tomcat.version to
+                                    give the name of the directory where is stored tomcat"</message>
                               </requireProperty>
                               <requireFilesExist>
                                  <files>
                                     <file>${exo.projects.directory.dependencies}/${exo.projects.app.tomcat.version}/</file>
                                  </files>
-                                 <message>"The following Tomcat directory doesn't exist : ${exo.projects.directory.dependencies}/${exo.projects.app.tomcat.version}"</message>
+                                 <message>"The following Tomcat directory doesn't exist :
+                                    ${exo.projects.directory.dependencies}/${exo.projects.app.tomcat.version}"</message>
                               </requireFilesExist>
                            </rules>
                            <fail>true</fail>
@@ -499,7 +489,7 @@
                               <argument>-Xshare:auto</argument>
                               <argument>-Xms128m</argument>
                               <argument>-Xmx1220m</argument>
-                              <argument>-XX:MaxPermSize=128M</argument>		
+                              <argument>-XX:MaxPermSize=128M</argument>
                               <argument>-classpath</argument>
                               <argument>${basedir}/target/exopackage/lib/js.jar</argument>
                               <argument>org.mozilla.javascript.tools.shell.Main</argument>
@@ -556,17 +546,20 @@
                            <rules>
                               <requireProperty>
                                  <property>exo.projects.directory.dependencies</property>
-                                 <message>"You must define the property exo.projects.directory.dependencies to give the path to the directory where you store your applications servers"</message>
+                                 <message>"You must define the property exo.projects.directory.dependencies to
+                                    give the path to the directory where you store your applications servers"</message>
                               </requireProperty>
                               <requireProperty>
                                  <property>exo.projects.app.jboss.version</property>
-                                 <message>"You must define the property exo.projects.app.jboss.version to give the name of the directory where is stored JBossAS"</message>
+                                 <message>"You must define the property exo.projects.app.jboss.version to give
+                                    the name of the directory where is stored JBossAS"</message>
                               </requireProperty>
                               <requireFilesExist>
                                  <files>
                                     <file>${exo.projects.directory.dependencies}/${exo.projects.app.jboss.version}/</file>
                                  </files>
-                                 <message>"The following JBossAS directory doesn't exist : ${exo.projects.directory.dependencies}/${exo.projects.app.tomcat.version}"</message>
+                                 <message>"The following JBossAS directory doesn't exist :
+                                    ${exo.projects.directory.dependencies}/${exo.projects.app.tomcat.version}"</message>
                               </requireFilesExist>
                            </rules>
                            <fail>true</fail>
@@ -599,7 +592,7 @@
                               <argument>-Xshare:auto</argument>
                               <argument>-Xms128m</argument>
                               <argument>-Xmx1220m</argument>
-                              <argument>-XX:MaxPermSize=128M</argument>		
+                              <argument>-XX:MaxPermSize=128M</argument>
                               <argument>-classpath</argument>
                               <argument>${basedir}/target/exopackage/lib/js.jar</argument>
                               <argument>org.mozilla.javascript.tools.shell.Main</argument>
@@ -636,6 +629,5 @@
             </plugins>
          </build>
       </profile>
-
    </profiles>
 </project>

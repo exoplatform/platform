@@ -165,15 +165,12 @@
               </value>
 
               <!-- IDE - waiting availability in maven repo -->
-              <!-- value profiles="ide,all,default">
-                <string>ideall-extension</string>
-              </value -->
-              <!--value>
+              <value profiles="ide,all,default">
                 <string>SmartGWT</string>
               </value>
-              <value>
+              <value profiles="ide,all,default">
                 <string>IDEall</string>
-              </value-->
+              </value>
 
               <!-- Contains shared layout -->
               <value>

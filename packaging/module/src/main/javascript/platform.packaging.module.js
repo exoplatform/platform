@@ -24,6 +24,8 @@ function getModule(params)
    var wsrpVersion = "${org.gatein.wsrp.version}";
    var shindigVersion = "${org.shindig.version}";
    var cometVersion = "${org.exoplatform.cometd.version}";
+   var coreVersion = "${org.exoplatform.core.version}";
+   var gwtframeworkVersion = "${org.exoplatform.gwtframework.version}";
    var ideallVersion = "${org.exoplatform.ideall.version}";
    var xcmisVersion = "${org.exoplatform.xcmis.version}";
 
@@ -91,20 +93,19 @@ function getModule(params)
    
    // IDEAll
    module.ideall = {};
-   module.ideall.extension =
-       new Project("org.exoplatform.ideall", "exo.ideall.extension.webapp", "war", ideallVersion).
-        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.extension.config", "jar", ideallVersion));
-   module.ideall.extension.deployName = "ideall-extension";
+   //module.ideall.extension =
+   //    new Project("org.exoplatform.ideall", "exo.ideall.extension.webapp", "war", ideallVersion).
+   //     addDependency(new Project("org.exoplatform.ideall", "exo.ideall.extension.config", "jar", ideallVersion));
+   //module.ideall.extension.deployName = "ideall-extension";
    
    module.ideall.smartgwt =
-       // should be gwt.version
-       new Project("org.exoplatform.gwt", "exo.gwtframework.smartgwt", "war", "1.0-Beta04");
+       new Project("org.exoplatform.gwt", "exo.gwtframework.smartgwt", "war", gwtframeworkVersion);
    module.ideall.smartgwt.deployName = "SmartGWT";
    
    module.ideall.webapp =
        new Project("org.exoplatform.ideall", "exo.ideall.client", "war", ideallVersion).
         // should be core.version
-        addDependency(new Project("org.exoplatform.core", "exo.core.component.script.groovy", "jar", "2.3.2-GA")).
+        addDependency(new Project("org.exoplatform.core", "exo.core.component.script.groovy", "jar", coreVersion)).
         addDependency(module.ideall.smartgwt).
         addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.gadget", "jar", ideallVersion)).
         addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.netvibes", "jar", ideallVersion)).

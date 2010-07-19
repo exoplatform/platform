@@ -39,6 +39,7 @@
     <org.exoplatform.ecms.version>2.1.0-SNAPSHOT</org.exoplatform.ecms.version>
     <org.exoplatform.social.version>1.1.0-SNAPSHOT</org.exoplatform.social.version>
     
+    <org.exoplatform.gwtframework.version>1.0-Beta04</org.exoplatform.gwtframework.version>
     <org.exoplatform.ideall.version>1.0-Beta02</org.exoplatform.ideall.version>
     <org.exoplatform.xcmis.version>1.0</org.exoplatform.xcmis.version>
     
