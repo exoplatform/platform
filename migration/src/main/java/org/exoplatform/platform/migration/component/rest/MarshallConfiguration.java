@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
 import org.exoplatform.container.PortalContainer;
@@ -31,6 +32,7 @@ import org.exoplatform.container.xml.Component;
 import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.ExternalComponentPlugins;
 import org.exoplatform.platform.migration.handlers.ComponentHandler;
+import org.exoplatform.platform.migration.handlers.impl.ApplicationRegistryHandler;
 import org.exoplatform.platform.migration.handlers.impl.UserPortalConfigHandler;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.jcr.DataMapper;
@@ -64,6 +66,8 @@ public class MarshallConfiguration implements ResourceContainer {
   public MarshallConfiguration(RegistryService service) {
     regService_ = service;
     handlersHashMap.put(UserPortalConfigService.class.getName(), new UserPortalConfigHandler());
+    handlersHashMap.put(ApplicationRegistryService.class.getName(), new ApplicationRegistryHandler());
+
   }
 
   @HTTPMethod("GET")

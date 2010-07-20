@@ -96,7 +96,7 @@ public class UserPortalConfigHandler implements ComponentHandler {
     portalContainer = PortalContainer.getInstance();
     organizationService = (OrganizationService) portalContainer.getComponentInstanceOfType(OrganizationService.class);
     regService_ = (RegistryService) portalContainer.getComponentInstanceOfType(RegistryService.class);
-    preMarshallCompoenet(component, rootConfDir);
+    preMarshallComponent(component, rootConfDir);
 
     Configuration configuration = new Configuration();
     configuration.addComponent(component);
@@ -104,7 +104,7 @@ public class UserPortalConfigHandler implements ComponentHandler {
         + component.getKey());
   }
 
-  private void preMarshallCompoenet(Component component, String rootConfDir) {
+  private void preMarshallComponent(Component component, String rootConfDir) {
     try {
       ArrayList<String> portalNames = getPortalNames();
       String portalConfDir = rootConfDir + File.separator + "portal";
@@ -187,6 +187,7 @@ public class UserPortalConfigHandler implements ComponentHandler {
           objectParameter = componentPlugin.getInitParams().getObjectParam("user.configuration");
           newPortalConfig = (NewPortalConfig) objectParameter.getObject();
           newPortalConfig.setTemplateLocation("portal-navigation");
+          break;
         }
       }
 
