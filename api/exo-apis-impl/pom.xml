@@ -35,10 +35,10 @@
       <scope>test</scope>
     </dependency>    
     <dependency>
-    	<groupId>org.exoplatform.platform</groupId>
-    	<artifactId>exo.platform.commons.testing</artifactId>
-    	<version>${project.version}</version>
-    	<scope>test</scope>
+      <groupId>org.exoplatform.commons</groupId>
+      <artifactId>exo.platform.commons</artifactId>
+      <version>${org.exoplatform.commons.version}</version>
+      <scope>test</scope>
     </dependency>        
    
   </dependencies>
