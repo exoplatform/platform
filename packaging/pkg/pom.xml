@@ -195,18 +195,18 @@
       
       
       <!-- ideall ext -->
-	  <dependency>
-	    <groupId>org.exoplatform.ideall</groupId>
-	    <artifactId>exo.ideall.extension.webapp</artifactId>
-	    <version>${org.exoplatform.ideall.version}</version>
-	    <type>war</type>
-	  </dependency>
-	  <dependency>
-	    <groupId>org.exoplatform.ideall</groupId>
-	    <artifactId>exo.ideall.extension.config</artifactId>
-	    <version>${org.exoplatform.ideall.version}</version>
-	    <type>jar</type>
-	  </dependency>
+      <!-- dependency>
+	       <groupId>org.exoplatform.ideall</groupId>
+         <artifactId>exo.ideall.extension.webapp</artifactId>
+         <version>${org.exoplatform.ideall.version}</version>
+         <type>war</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ideall</groupId>
+         <artifactId>exo.ideall.extension.config</artifactId>
+         <version>${org.exoplatform.ideall.version}</version>
+         <type>jar</type>
+      </dependency -->
       
       <!-- ideall dependencies -->
       <dependency>
