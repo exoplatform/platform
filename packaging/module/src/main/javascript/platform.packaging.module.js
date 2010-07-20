@@ -93,10 +93,10 @@ function getModule(params)
    
    // IDEAll
    module.ideall = {};
-   //module.ideall.extension =
-   //    new Project("org.exoplatform.ideall", "exo.ideall.extension.webapp", "war", ideallVersion).
-   //     addDependency(new Project("org.exoplatform.ideall", "exo.ideall.extension.config", "jar", ideallVersion));
-   //module.ideall.extension.deployName = "ideall-extension";
+   /*module.ideall.extension =
+       new Project("org.exoplatform.ideall", "exo.ideall.extension.webapp", "war", ideallVersion).
+        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.extension.config", "jar", ideallVersion));
+   module.ideall.extension.deployName = "ideall-extension";*/
    
    module.ideall.smartgwt =
        new Project("org.exoplatform.gwt", "exo.gwtframework.smartgwt", "war", gwtframeworkVersion);
@@ -104,7 +104,6 @@ function getModule(params)
    
    module.ideall.webapp =
        new Project("org.exoplatform.ideall", "exo.ideall.client", "war", ideallVersion).
-        // should be core.version
         addDependency(new Project("org.exoplatform.core", "exo.core.component.script.groovy", "jar", coreVersion)).
         addDependency(module.ideall.smartgwt).
         addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.gadget", "jar", ideallVersion)).

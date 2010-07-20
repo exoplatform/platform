@@ -164,7 +164,7 @@
                 <string>ks</string>
               </value>
 
-              <!-- IDE - waiting availability in maven repo -->
+              <!-- IDEAll -->
               <value profiles="ide,all,default">
                 <string>SmartGWT</string>
               </value>

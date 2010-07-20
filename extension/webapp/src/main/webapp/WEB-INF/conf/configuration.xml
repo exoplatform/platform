@@ -4,7 +4,7 @@
 	xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
   <import>war:/conf/platform/jcr-configuration.xml</import>
   
-  <!-- IDEAll - waiting for availability in maven repo -->
+  <!-- IDEAll -->
   <import>war:/conf/platform/ideall-jcr-configuration.xml</import>
   <import>war:/conf/platform/ideall-jcr-component-plugins-configuration.xml</import>
   <import>war:/conf/platform/ideall-configuration.xml</import>

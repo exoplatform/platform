@@ -51,16 +51,16 @@ function getProduct(version) {
   /* PLATFORM */
 //  product.addDependencies(platform.fck);
   product.addDependencies(platform.cometd);
-  product.addDependencies(platform.config);
-  product.addDependencies(platform.extension.webapp);
+  product.addDependencies(platform.config); // includes xCMIS configuration
+  product.addDependencies(platform.extension.webapp); // includes xCMIS dependencies
   product.addDependencies(platform.component.common);
   product.addDependencies(platform.office.webapp);
   product.addDependencies(platform.office.officeResources);
   product.addDependencies(platform.office.portlets.construction);
   
-  /* IDEALL - waiting for availability in maven repo */
-/*  product.addDependencies(platform.ideall.webapp);
-  product.addDependencies(platform.ideall.extension); */
+  /* IDEALL */
+  product.addDependencies(platform.ideall.webapp);
+  //product.addDependencies(platform.ideall.extension);
 
   
   /* ECMS */
