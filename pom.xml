@@ -19,7 +19,7 @@
   <scm>
     <connection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</connection>
     <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</developerConnection>
-    <url>http://fisheye.exoplatform.org/browse/projects/platform/trunk</url>
+    <url>http://fisheye.exoplatform.org/browse/projects-internal/platform</url>
   </scm>
 
   <properties>
