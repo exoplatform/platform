@@ -1,9 +1,0 @@
-[
-  { 
-    "channels": "/**",
-    "filter"  : "org.mortbay.cometd.filter.NoMarkupFilter",
-    "init"    : {}
-  }
-  
-  
-]

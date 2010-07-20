@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
-    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
-  <component>
-    <type>org.exoplatform.frameworks.cometd.ext.TransferMessages</type>
-    </component>
-</configuration>
