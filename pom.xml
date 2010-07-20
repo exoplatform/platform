@@ -23,6 +23,8 @@
   </scm>
 
   <properties>
+    <!-- SNAPSHOTS must be deployed in our private repository -->
+    <exo.snapshots.repo.url>http://repository.exoplatform.org/content/repositories/exo-private-snapshots</exo.snapshots.repo.url>
 
     <!-- ********************* -->
     <!-- Dependencies versions -->
