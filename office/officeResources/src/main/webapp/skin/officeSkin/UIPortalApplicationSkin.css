@@ -20,160 +20,55 @@
 
 @import url(UIToolbarContainer/Stylesheet.css);
 @import url(UITabPaneDashboard/Stylesheet.css);
+@import url(UICLVFolderMode/Stylesheet.css);
 
 div {
 	padding: 0px; margin: 0px;
 	outline: none;
 }
 
-table {
-  width: 100%;
-	padding: 0px; margin: 0px;
-	border-spacing:	0px;
-	border-collapse: collapse;
-}
-
-th, td {
-	padding: 0px; margin: 0px;
-	vertical-align: top;
-}
-
-img {
-	padding: 0px; margin: 0px; border: none; vertical-align: middle;
-}
-
-form {
-	padding: 0px; margin: 0px;
-}
-
-html {
-	margin: 0px; padding: 0px;
-	*overflow-x: hidden;
-}
-
 body {
-	background: #eeeeee;
-	margin: 0px; padding: 0px;
-	font-family: Tahoma,Verdana, Arial, Helvetica, sans-serif;
-	font-size: 11px;
-	overflow-x: hidden;
+	background: white;
+	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
 }
 
 a {
-	text-decoration: none;
-	color: black;
+	color: #28175a;
 }
 
 .UIWorkingWorkspace {
-	width: 1017px;
+	width: auto;
 	background: white;
 }
 
 .UIPageBody .BLPagebody {
 	display: none;
 }
+
+.UIWorkingWorkspace .UIPageBody {
+	padding-top: 5px;
+}
+
+.UIPageBody .VIEW-PAGEBODY .UIPage {
+	padding: 0;
+}
+
+.OfficeLeftTDContainer, .OfficeRightTDContainer {
+	width: 250px;
+	padding: 0 20px;
+}
+
+.TxtDarkBlue {color: #28175a;}
+.TxtGray {color: #484848;}
+.TxtOrange {color: #f58220;}
+.TxtYellow {color: #ffd400;}
 /*###############################################################################################*/
-
-.OverflowContainer {
-	overflow: hidden;
-	width: 100%;
-}
-
-.LeftBlock {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
-}
-
-.RightBlock {
-	float: right; /* orientation=lt */
-	float: left; /* orientation=rt */
-}
-
-.ClearFix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-}
-
-.ClearFix {
-	!display: inline-block;
-  !zoom: 1;
-  !display: block; 
-}
-
-.InlineContainer {
-	overflow: hidden;
-}
-
-.InlineLeft {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
-}
-
-.InlineRight {
-	float: right; /* orientation=lt */
-	float: left; /* orientation=rt */
-}
-
-.AjaxLoadingMask {
-  width: 180px; height: 110px;
-  background: white;
-  border: 1px solid #66667e;
-  padding: 1px;
-}
-
-.AjaxLoadingMask .LoadingContainer {
-  height: 108px;
-  background: #ffffff;
-  border: solid 1px #a8a9bb;
-}
-
-.AjaxLoadingMask .LoadingText {
-  text-align: center;
-  padding: 10px 0px 5px 0px;
-}
-
-.AjaxLoadingMask .LoadingProgressBar {
-  width: 32px; height: 40px;
-  background: url('../../../background/LoadingProgress.gif') no-repeat center;
-  margin: auto;
-}
-
-.AjaxLoadingMask .UIAction .ActionButton{
-  float: none;
-}
-
-.FloatLeft {
-	float: left; /* orientation=lt */
-	float: right; /* orientation=rt */
-}
-
-.FloatRight {
-	float: right; /* orientation=lt */
-	float: left; /* orientation=rt */
-}
-
-.ClearLeft {
-  clear: left; /* orientation=lt */
-  clear: right; /* orientation=rt */
-}
-
-.ClearRight {
-  clear: right; /* orientation=lt */
-  clear: left; /* orientation=rt */
-}
-
-.ClearBoth {
-  clear: both;
-}
 
 .UIGadgetPortlet {
 	padding: 1px;
 	height: 100%;
 	border:1px solid black;
-    margin-top: 2px;
+  margin-top: 2px;
 	margin-right: 2px;
 	margin-bottom: 2px;
 	margin-left: 2px;
@@ -197,20 +92,19 @@ a {
 	width: 100%;
 	
 }
+
 .OfficeLogoTDContainer {
-	
-	border:1px solid black
-	
+	border:1px solid black;
 }
+
 .UIWCMLoginPortlet{
-	
-	border:1px solid black
+	border:1px solid black;
 }
-.CenterSearchBox{
-	
-	border:1px solid black
+
+.CenterSearchBox{	
+	border:1px solid black;
 }
+
 .UIWCMLoginPortlet{
-	
-	border:1px solid black
+	border:1px solid black;
 }
