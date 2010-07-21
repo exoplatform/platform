@@ -42,7 +42,6 @@ import org.exoplatform.portal.application.PortletPreferences;
 import org.exoplatform.portal.application.PortletPreferences.PortletPreferencesSet;
 import org.exoplatform.portal.config.NewPortalConfig;
 import org.exoplatform.portal.config.jcr.DataMapper;
-import org.exoplatform.portal.config.model.Gadgets;
 import org.exoplatform.portal.config.model.Page;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PortalConfig;
@@ -76,8 +75,6 @@ public class UserPortalConfigHandler implements ComponentHandler {
 
   final private static String NAVIGATION_CONFIG_FILE_NAME = "navigation-xml";
 
-  final private static String GADGETS_CONFIG_FILE_NAME    = "gadgets-xml";
-
   final private static String EXO_REGISTRY                = "exo:registry";
 
   final private static String EXO_REGISTRYENTRY_NT        = "exo:registryEntry";
@@ -101,7 +98,7 @@ public class UserPortalConfigHandler implements ComponentHandler {
     Configuration configuration = new Configuration();
     configuration.addComponent(component);
     marshall(configuration, rootConfDir + File.separator + "portal" + File.separator
-        + component.getKey()+ ".xml");
+        + component.getKey() + ".xml");
   }
 
   private void preMarshallComponent(Component component, String rootConfDir) {
@@ -297,26 +294,6 @@ public class UserPortalConfigHandler implements ComponentHandler {
     PortalConfig config = mapper_.toPortalConfig(portalEntry.getDocument());
 
     return config;
-  }
-
-  private Gadgets getGadgets(String id) throws Exception {
-    String[] fragments = id.split("::");
-    if (fragments.length < 2) {
-      throw new Exception("Invalid Gadgets Id: " + "[" + id + "]");
-    }
-    String gadgetsPath = getApplicationRegistryPath(fragments[0], fragments[1]) + "/"
-        + GADGETS_CONFIG_FILE_NAME;
-    SessionProvider sessionProvider = SessionProvider.createSystemProvider();
-    RegistryEntry gadgetsEntry;
-    try {
-      gadgetsEntry = regService_.getEntry(sessionProvider, gadgetsPath);
-    } catch (PathNotFoundException ie) {
-      return null;
-    } finally {
-      sessionProvider.close();
-    }
-    Gadgets gadgets = mapper_.toGadgets(gadgetsEntry.getDocument());
-    return gadgets;
   }
 
   private String getApplicationRegistryPath(String ownerType, String ownerId) {
