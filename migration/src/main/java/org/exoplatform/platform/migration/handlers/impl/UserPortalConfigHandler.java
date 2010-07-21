@@ -101,7 +101,7 @@ public class UserPortalConfigHandler implements ComponentHandler {
     Configuration configuration = new Configuration();
     configuration.addComponent(component);
     marshall(configuration, rootConfDir + File.separator + "portal" + File.separator
-        + component.getKey());
+        + component.getKey()+ ".xml");
   }
 
   private void preMarshallComponent(Component component, String rootConfDir) {
