@@ -30,7 +30,6 @@ import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.ObjectParameter;
 import org.exoplatform.platform.migration.handlers.ComponentHandler;
 import org.exoplatform.services.log.ExoLogger;
-import org.exoplatform.services.organization.OrganizationService;
 import org.jibx.runtime.BindingDirectory;
 import org.jibx.runtime.IBindingFactory;
 import org.jibx.runtime.IMarshallingContext;
@@ -44,22 +43,21 @@ public class ApplicationRegistryHandler implements ComponentHandler {
   private PortalContainer            portalContainer;
 
   private ApplicationRegistryService applicationRegistryService;
-  
-  private Log                 log                         = ExoLogger.getLogger(this.getClass());
 
+  private Log                        log = ExoLogger.getLogger(this.getClass());
 
   public void invoke(Component component, String rootConfDir) {
     try {
       portalContainer = PortalContainer.getInstance();
       applicationRegistryService = (ApplicationRegistryService) portalContainer.getComponentInstanceOfType(ApplicationRegistryService.class);
-      preMarshallComponent(component,rootConfDir);
+      preMarshallComponent(component, rootConfDir);
       Configuration configuration = new Configuration();
       configuration.addComponent(component);
       marshall(configuration, rootConfDir + File.separator + "portal" + File.separator
-               + component.getKey());
-    } catch (Exception e) {
+          + component.getKey() + ".xml");
+    } catch (Exception ie) {
       // TODO Auto-generated catch block
-      e.printStackTrace();
+      log.error("error in the invoke method", ie);
     }
   }
 
@@ -73,22 +71,21 @@ public class ApplicationRegistryHandler implements ComponentHandler {
           List<ApplicationCategory> applicationCategories = applicationRegistryService.getApplicationCategories();
           for (ApplicationCategory applicationCategory : applicationCategories) {
             ObjectParameter objectParameter = new ObjectParameter();
+            String[] appTypes = { "portlet", "eXoGadget" };
+            applicationCategory.setApplications(applicationRegistryService.getApplications(applicationCategory,
+                                                                                           appTypes));
             objectParameter.setDescription(applicationCategory.getDescription());
             objectParameter.setName(applicationCategory.getName());
             objectParameter.setObject(applicationCategory);
             componentPlugin.getInitParams().addParameter(objectParameter);
-            if(applicationCategory.getApplications()!=null){
-              System.out.println("rrrr");
 
-            System.out.println(applicationCategory.getApplications().size());
-            }
           }
         }
       }
 
     } catch (Exception ie) {
       log.error("problem in the preMarshall Process", ie);
-      }
+    }
   }
 
   private void marshall(Object obj, String xmlPath) {
