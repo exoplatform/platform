@@ -108,3 +108,8 @@ a {
 .UIWCMLoginPortlet{
 	border:1px solid black;
 }
+
+/* Banner */
+.UIWorkingWorkspace #OfficeBanner {
+	background: url('background/BannerBg.jpg') no-repeat right top;
+}
