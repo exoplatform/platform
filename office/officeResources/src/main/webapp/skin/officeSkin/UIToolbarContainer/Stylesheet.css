@@ -95,8 +95,7 @@
 }
 
 /**********************************/
-
-.UIWorkingWorkspace .UIToolbarContainer .DashboardIcon {
+.UIWorkingWorkspace .UIToolbarContainer .TBIcon {
 	background: none;
 }
 
@@ -157,20 +156,12 @@
 	background: url('background/ToolbarContainer.gif') no-repeat 100% -288px; /* orientation=rt */
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItem .ToolBarActivityIcon {
+.UIToolbarContainer .MenuItem .ToolBarActivityIcon {
 	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px;
 }
 
 .UIToolbarContainer .MenuItem .ToolBarProfileIcon {
 	background: url('background/ToolbarContainer.gif') no-repeat 5px -421px;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .SocialPeopleToolBarIcon {
-	background: none;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .SocialSpacesIcon {
-	background: none;
 }
 
 .UIToolbarContainer .Name a {
@@ -184,7 +175,6 @@
 .UIToolbarContainer .SocialPeopleToolBarIcon {
 	background: none;
 }
-
 
 .UIToolbarContainer .Name a:hover {
 	color: #9fc5ff;
