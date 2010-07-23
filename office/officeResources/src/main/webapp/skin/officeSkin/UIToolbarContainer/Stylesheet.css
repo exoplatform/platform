@@ -119,6 +119,16 @@
 	background: url('background/ToolbarContainer.gif') no-repeat 100% -30px; /* orientation=rt */
 }
 
+.UIWorkingWorkspace .UIToolbarContainer .SocialPeopleToolBarIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat right -30px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -30px; /* orientation=rt */
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .GroupIcon {
+	background: url('background/ToolbarContainer.gif') no-repeat right -30px; /* orientation=lt */
+	background: url('background/ToolbarContainer.gif') no-repeat 100% -30px; /* orientation=rt */
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .EditorIcon {
 	background: url('background/ToolbarContainer.gif') no-repeat right -30px; /* orientation=lt */
 	background: url('background/ToolbarContainer.gif') no-repeat 100% -30px; /* orientation=rt */
@@ -190,15 +200,11 @@
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarGroupPortlet .UITab {
-	width: 67px !important;
+	width: 78px !important;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIPeopleToolBarPortlet .UITab {
-	width: 68px !important;
-}
-
-.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarGroupPortlet .UITab {
-	width: 68px !important;
+	width: 78px !important;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarDashboardPortlet .UITab {
