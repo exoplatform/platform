@@ -93,8 +93,7 @@ public class ResourceBundleHandler implements ComponentHandler {
       ValuesParam initResources = component.getInitParams().getValuesParam("init.resources");
       ArrayList<String> initValues = initResources.getValues();
       ValuesParam portalResources = component.getInitParams().getValuesParam("portal.resources");
-
-      ArrayList<String> portalValues = initResources.getValues();
+      ArrayList<String> portalValues = portalResources.getValues();
       ArrayList<String> values = new ArrayList<String>();
       values.addAll(initValues);
       values.addAll(portalValues);
@@ -109,7 +108,7 @@ public class ResourceBundleHandler implements ComponentHandler {
 
         }
       }
-     
+
     } catch (Exception ie) {
       log.error("problem in the preMarshall Process", ie);
     }
