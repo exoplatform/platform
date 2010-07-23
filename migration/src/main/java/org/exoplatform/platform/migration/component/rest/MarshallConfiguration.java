@@ -33,11 +33,13 @@ import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.ExternalComponentPlugins;
 import org.exoplatform.platform.migration.handlers.ComponentHandler;
 import org.exoplatform.platform.migration.handlers.impl.ApplicationRegistryHandler;
+import org.exoplatform.platform.migration.handlers.impl.ResourceBundleHandler;
 import org.exoplatform.platform.migration.handlers.impl.UserPortalConfigHandler;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.jcr.DataMapper;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.services.log.ExoLogger;
+import org.exoplatform.services.resources.ResourceBundleService;
 import org.exoplatform.services.rest.HTTPMethod;
 import org.exoplatform.services.rest.Response;
 import org.exoplatform.services.rest.URITemplate;
@@ -66,7 +68,9 @@ public class MarshallConfiguration implements ResourceContainer {
   public MarshallConfiguration(RegistryService service) {
     regService_ = service;
     handlersHashMap.put(UserPortalConfigService.class.getName(), new UserPortalConfigHandler());
-    handlersHashMap.put(ApplicationRegistryService.class.getName(), new ApplicationRegistryHandler());
+    handlersHashMap.put(ApplicationRegistryService.class.getName(),
+                        new ApplicationRegistryHandler());
+    handlersHashMap.put(ResourceBundleService.class.getName(), new ResourceBundleHandler());
 
   }
 
