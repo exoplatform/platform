@@ -146,8 +146,12 @@
                 <string>social-portlet</string>
               </value>
               <value profiles="social,all,default">
+                <string>social</string>
+              </value>
+              <value profiles="social,all,default">
                 <string>social-extension</string>
               </value>
+
 
 
               <!-- Knowledge -->
