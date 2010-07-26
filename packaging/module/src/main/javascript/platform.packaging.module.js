@@ -86,12 +86,6 @@ function getModule(params)
    module.office.portlets = {};
    module.office.portlets.construction =  new Project("org.exoplatform.platform", "exo.platform.office.portlets.construction", "war", module.version);
    
-    // acme website
-  /* module.sample.acme = {};
-   module.sample.acme.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.webapp", "war", module.version).
-	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.config", "jar", module.version));
-   module.sample.acme.webapp.deployName = "acme-website"; 
-   */
    
    module.patch = {};
    module.patch.tomcat =
@@ -116,6 +110,16 @@ function getModule(params)
         addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.netvibes", "jar", ideallVersion)).
         addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.commons", "jar", ideallVersion));
    module.ideall.webapp.deployName = "IDEAll";
+   
+    // acme website
+   module.sample = {};
+   
+   module.sample.acme = {};
+   
+   module.sample.acme.webapp =  new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.webapp", "war", module.version).
+	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.config", "jar", module.version));
+   module.sample.acme.webapp.deployName = "acme-website";
+   
    
    
    return module;
