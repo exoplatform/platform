@@ -1,4 +1,4 @@
-h1. Writing a custom extension
+h1. Creating your own portal
 
 When working with eXo, you typically do not modify eXo binary files, but provide your own artefacts as a set of wars/jars/ears.
 That's important for your further upgrades and for support.

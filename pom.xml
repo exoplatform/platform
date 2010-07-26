@@ -29,7 +29,7 @@
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
-    <org.exoplatform.cometd.version>${project.version}</org.exoplatform.cometd.version>
+    <org.exoplatform.cometd.version>3.0.0-Beta01-SNAPSHOT</org.exoplatform.cometd.version>
     <org.exoplatform.kernel.version>2.2.3-GA-SNAPSHOT</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.3.3-GA-SNAPSHOT</org.exoplatform.core.version>
     <org.exoplatform.ws.version>2.1.3-GA-SNAPSHOT</org.exoplatform.ws.version>
