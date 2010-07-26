@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.exoplatform.platform</groupId>
     <artifactId>api</artifactId>
-    <version>3.0.0-Beta01-SNAPSHOT</version>
+    <version>3.0.0-Beta01</version>
   </parent>
   <artifactId>exo-apis</artifactId>
   <packaging>jar</packaging>

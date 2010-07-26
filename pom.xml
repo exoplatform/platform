@@ -10,7 +10,7 @@
 
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.parent</artifactId>
-  <version>3.0.0-Beta01-SNAPSHOT</version>
+  <version>3.0.0-Beta01</version>
   <packaging>pom</packaging>
 
   <name>eXo Platform</name>
