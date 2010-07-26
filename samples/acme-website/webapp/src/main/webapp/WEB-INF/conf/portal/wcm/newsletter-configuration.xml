@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (C) 2009 eXo Platform SAS.
+    
+    This is free software; you can redistribute it and/or modify it
+    under the terms of the GNU Lesser General Public License as
+    published by the Free Software Foundation; either version 2.1 of
+    the License, or (at your option) any later version.
+    
+    This software is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+    Lesser General Public License for more details.
+    
+    You should have received a copy of the GNU Lesser General Public
+    License along with this software; if not, write to the Free
+    Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+    02110-1301 USA, or see the FSF site: http://www.fsf.org.
+
+-->
+
+<configuration
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+
+  <component>
+    <type>org.exoplatform.services.wcm.newsletter.NewsletterInitializationService</type>
+    <init-params>
+      <values-param>
+        <name>portalNames</name>
+        <!--value>classic</value-->
+        <value>acme</value>
+      </values-param>
+      <object-param>
+        <name>marketing</name>
+        <description>marketing</description>
+        <object type="org.exoplatform.services.wcm.newsletter.NewsletterCategoryConfig">
+          <field name="name">
+            <string>marketing</string>
+          </field>
+          <field name="title">
+            <string>Marketing</string>
+          </field>
+          <field name="description">
+            <string>You want to know where we are, where we go ?</string>
+          </field>
+          <field name="moderator">
+            <string>*:/platform/web-contributors</string>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>general</name>
+        <description>general</description>
+        <object type="org.exoplatform.services.wcm.newsletter.NewsletterCategoryConfig">
+          <field name="name">
+            <string>general</string>
+          </field>
+          <field name="title">
+            <string>General</string>
+          </field>
+          <field name="description">
+            <string>General information about us</string>
+          </field>
+          <field name="moderator">
+            <string>*:/platform/web-contributors</string>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>subscription2</name>
+        <description>subscription2</description>
+        <object type="org.exoplatform.services.wcm.newsletter.NewsletterSubscriptionConfig">
+          <field name="name">
+            <string>results</string>
+          </field>
+          <field name="title">
+            <string>Results</string>
+          </field>
+          <field name="description">
+            <string>Monthly newsletter about our results and forecasts</string>
+          </field>
+          <field name="categoryName">
+            <string>general</string>
+          </field>
+          <field name="redactor">
+            <string>*:/platform/web-contributors</string>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>subscription1</name>
+        <description>subscription1</description>
+        <object type="org.exoplatform.services.wcm.newsletter.NewsletterSubscriptionConfig">
+          <field name="name">
+            <string>checklist</string>
+          </field>
+          <field name="title">
+            <string>Check-List</string>
+          </field>
+          <field name="description">
+            <string>Weekly newsletter with general topics</string>
+          </field>
+          <field name="categoryName">
+            <string>general</string>
+          </field>
+          <field name="redactor">
+            <string>*:/platform/web-contributors</string>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>subscription3</name>
+        <description>subscription3</description>
+        <object type="org.exoplatform.services.wcm.newsletter.NewsletterSubscriptionConfig">
+          <field name="name">
+            <string>market</string>
+          </field>
+          <field name="title">
+            <string>The market</string>
+          </field>
+          <field name="description">
+            <string>What's on the market today ?</string>
+          </field>
+          <field name="categoryName">
+            <string>marketing</string>
+          </field>
+          <field name="redactor">
+            <string>*:/platform/web-contributors</string>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>user1@gmail.com</name>
+        <description>user1@gmail.com</description>
+        <object type="org.exoplatform.services.wcm.newsletter.config.NewsletterUserConfig">
+          <field name="mail">
+            <string>user1@gmail.com</string>
+          </field>
+        </object>
+      </object-param>
+      <object-param>
+        <name>user2@gmail.com</name>
+        <description>user2@gmail.com</description>
+        <object type="org.exoplatform.services.wcm.newsletter.config.NewsletterUserConfig">
+          <field name="mail">
+            <string>user2@gmail.com</string>
+          </field>
+        </object>
+      </object-param>
+    </init-params>
+  </component>
+
+  <external-component-plugins>
+    <target-component>org.exoplatform.services.deployment.WCMContentInitializerService</target-component>
+    <component-plugin>
+      <name>Content Initializer Service</name>
+      <set-method>addPlugin</set-method>
+      <type>org.exoplatform.services.deployment.plugins.XMLDeploymentPlugin</type>
+      <description>XML Deployment Plugin</description>
+      <init-params>
+        <object-param>
+          <name>Demo newsletter for classic site</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="repository">
+                  <string>repository</string>
+                </field>
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/classic/ApplicationData/NewsletterApplication/DefaultTemplates</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/portal/wcm/artifacts/site-resources/newsletter/newsletterBasicTemplate.xml</string>
+            </field>
+          </object>
+        </object-param>
+        <object-param>
+          <name>Demo newsletter for acme site</name>
+          <description>Deployment Descriptor</description>
+          <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
+            <field name="target">
+              <object type="org.exoplatform.services.deployment.DeploymentDescriptor$Target">
+                <field name="repository">
+                  <string>repository</string>
+                </field>
+                <field name="workspace">
+                  <string>collaboration</string>
+                </field>
+                <field name="nodePath">
+                  <string>/sites content/live/acme/ApplicationData/NewsletterApplication/DefaultTemplates</string>
+                </field>
+              </object>
+            </field>
+            <field name="sourcePath">
+              <string>war:/conf/portal/wcm/artifacts/site-resources/newsletter/newsletterBasicTemplate.xml</string>
+            </field>
+          </object>
+        </object-param>
+      </init-params>
+    </component-plugin>
+  </external-component-plugins>
+</configuration>
