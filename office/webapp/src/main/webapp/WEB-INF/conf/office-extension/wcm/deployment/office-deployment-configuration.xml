@@ -60,7 +60,7 @@
           </object>
         </object-param>
 		  <object-param>
-          <name>Office Logo Data</name>
+          <name>Office Navigation Data</name>
           <description>Deployment Descriptor</description>
           <object type="org.exoplatform.services.deployment.DeploymentDescriptor">
             <field name="target">
