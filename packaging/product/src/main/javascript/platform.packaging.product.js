@@ -59,7 +59,7 @@ function getProduct(version) {
   product.addDependencies(platform.office.portlets.construction);
   
   // acme website
-  //product.addDependencies(platform.sample.acme.webapp);
+  product.addDependencies(platform.sample.acme.webapp);
   
   /* IDEALL */
   product.addDependencies(platform.ideall.webapp);
