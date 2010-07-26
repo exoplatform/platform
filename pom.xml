@@ -83,6 +83,7 @@
     <module>server</module>
     <module>doc</module>
     <module>office</module>
+	<module>samples/acme-website</module>
     <!-- enable when PLF-219 is fixed  -->
     <!-- module>migration</module-->
     <!-- leave at the end -->
