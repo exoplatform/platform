@@ -10,7 +10,7 @@
 
   <groupId>org.exoplatform.platform</groupId>
   <artifactId>exo.platform.parent</artifactId>
-  <version>3.0.0-Beta01-SNAPSHOT</version>
+  <version>3.0.0-Beta02-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>eXo Platform</name>
@@ -29,7 +29,6 @@
     <!-- ********************* -->
     <!-- Dependencies versions -->
     <!-- ********************* -->
-    <org.exoplatform.cometd.version>3.0.0-Beta01-SNAPSHOT</org.exoplatform.cometd.version>
     <org.exoplatform.kernel.version>2.2.3-GA-SNAPSHOT</org.exoplatform.kernel.version>
     <org.exoplatform.core.version>2.3.3-GA-SNAPSHOT</org.exoplatform.core.version>
     <org.exoplatform.ws.version>2.1.3-GA-SNAPSHOT</org.exoplatform.ws.version>
@@ -40,7 +39,7 @@
     <org.exoplatform.ks.version>2.1.0-SNAPSHOT</org.exoplatform.ks.version>
     <org.exoplatform.ecms.version>2.1.0-SNAPSHOT</org.exoplatform.ecms.version>
     <org.exoplatform.social.version>1.1.0-SNAPSHOT</org.exoplatform.social.version>
-    <org.exoplatform.commons.version>3.0.0-Beta01-SNAPSHOT</org.exoplatform.commons.version>
+    <org.exoplatform.commons.version>1.0.0-CR01-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.gwtframework.version>1.0-Beta04</org.exoplatform.gwtframework.version>
     <org.exoplatform.ideall.version>1.0-Beta02</org.exoplatform.ideall.version>
     <org.exoplatform.xcmis.version>1.0</org.exoplatform.xcmis.version>
