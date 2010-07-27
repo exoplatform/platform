@@ -23,7 +23,7 @@ function getModule(params)
    var commonVersion = "${org.gatein.common.version}";
    var wsrpVersion = "${org.gatein.wsrp.version}";
    var shindigVersion = "${org.shindig.version}";
-   var cometVersion = "${org.exoplatform.cometd.version}";
+   var cometVersion = "${org.exoplatform.commons.version}";
    var coreVersion = "${org.exoplatform.core.version}";
    var gwtframeworkVersion = "${org.exoplatform.gwtframework.version}";
    var ideallVersion = "${org.exoplatform.ideall.version}";
