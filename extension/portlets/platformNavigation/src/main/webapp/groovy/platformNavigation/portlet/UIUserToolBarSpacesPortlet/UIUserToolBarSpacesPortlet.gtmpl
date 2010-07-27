@@ -1,0 +1,36 @@
+<%	
+	
+	import org.exoplatform.portal.webui.util.Util ;
+	def portalURI = Util.getPortalRequestContext().getPortalURI();
+	
+%> 
+
+
+
+<div id="<%=uicomponent.getId();%>">
+
+<div class="UIUserToolBarSitePortlet" id="$uicomponent.id">
+	<div class="UIHorizontalTabs">
+			<div class="TabsContainer" style="position: relative">
+				<div class="UITab NormalToolbarTab">
+					<div class="">
+								<a class="SitesIcon TBIcon" href="<%= portalURI +"spaces"%>">
+									<%=_ctx.appRes("UIUserToolBarSpacesPortlet.title")%>
+								</a>
+								
+								
+					</div>
+					
+				</div>
+			</div>
+	</div>		
+</div>	
+
+</div>
+
+
+
+
+
+
+

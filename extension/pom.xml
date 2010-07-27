@@ -13,6 +13,7 @@
    <modules>
     <module>config</module>
     <module>webapp</module>
+	<module>portlets/platformNavigation</module>
     <module>ear</module>
    </modules>
 
