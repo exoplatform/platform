@@ -17,9 +17,9 @@
   <description>Parent POM for platform projects.</description>
 
   <scm>
-    <connection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</connection>
-    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/trunk</developerConnection>
-    <url>http://fisheye.exoplatform.org/browse/projects/platform/trunk</url>
+    <connection>scm:svn:http://svn.exoplatform.org/projects/platform/tags/3.0.0-Beta01</connection>
+    <developerConnection>scm:svn:http://svn.exoplatform.org/projects/platform/tags/3.0.0-Beta01</developerConnection>
+    <url>http://fisheye.exoplatform.org/browse/projects/platform/tags/3.0.0-Beta01</url>
   </scm>
 
   <properties>
