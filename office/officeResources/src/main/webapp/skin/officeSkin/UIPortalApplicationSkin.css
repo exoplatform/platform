@@ -65,13 +65,6 @@ a {
 /*###############################################################################################*/
 
 .UIGadgetPortlet {
-	padding: 1px;
-	height: 100%;
-	border:1px solid black;
-  margin-top: 2px;
-	margin-right: 2px;
-	margin-bottom: 2px;
-	margin-left: 2px;
 }
 
 .UIGadgetPortlet .UIGadgetViewMode {
@@ -80,33 +73,14 @@ a {
 
 .UIGadgetPortlet .gadgets-gadget-content {
 	height: 100%;
-	
 }
 
 .UIGadgetPortlet .UIGadgetContent {
 	height: 100%;
-	
 }
 
 .UIGadgetPortlet .gadgets-gadget {
 	width: 100%;
-	
-}
-
-.OfficeLogoTDContainer {
-	border:1px solid black;
-}
-
-.UIWCMLoginPortlet{
-	border:1px solid black;
-}
-
-.CenterSearchBox{	
-	border:1px solid black;
-}
-
-.UIWCMLoginPortlet{
-	border:1px solid black;
 }
 
 /* Banner */
