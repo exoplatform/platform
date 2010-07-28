@@ -175,21 +175,21 @@
 	<node>
     <uri>mail</uri>
     <name>mail</name>
-    <label>#{platform.users.collaboration.mail}</label>
+    <label>#{portal.office.mail}</label>
     <visibility>DISPLAYED</visibility>
     <page-reference>portal::office::mail</page-reference>
    </node>
    <node>
     <uri>calendar</uri>
     <name>calendar</name>
-    <label>#{platform.users.collaboration.calendar}</label>
+    <label>#{portal.office.calendar}</label>
     <visibility>DISPLAYED</visibility>
     <page-reference>portal::office::calendar</page-reference>
    </node>
     <node>
     <uri>contact</uri>
     <name>contact</name>
-    <label>#{platform.users.collaboration.contact}</label>
+    <label>#{portal.office.contact}</label>
     <visibility>DISPLAYED</visibility>
     <page-reference>portal::office::contact</page-reference>
    </node>
