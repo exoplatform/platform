@@ -1,0 +1,121 @@
+<%
+import org.exoplatform.portal.webui.util.Util;
+import org.exoplatform.portal.config.model.PageNode;
+import org.exoplatform.portal.config.model.PageNavigation;
+import org.exoplatform.web.application.JavascriptManager;
+
+def rcontext = _ctx.getRequestContext() ;
+JavascriptManager jsmanager = rcontext.getJavascriptManager();
+jsmanager.importJavascript('eXo.portal.UIPortalNavigation') ;
+jsmanager.importJavascript('eXo.portal.UIAdminToolbar') ;
+jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+String changeLanguageAction = "if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'ChangeLanguage', true));";
+String accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
+
+def user = uicomponent.getUser();
+
+void renderLink() {
+		def portalURI = Util.getPortalRequestContext().getPortalURI();
+		def labelActivities = _ctx.appRes("UIUserToolBarPortlet.label.activities");
+		def labelProfile = _ctx.appRes("UIUserToolBarPortlet.label.profile");
+		def remoteUser = Util.getPortalRequestContext().getRemoteUser();
+		def activitiesLink = portalURI + "activities";
+		def profileLink = portalURI + "profile/" + remoteUser;
+		def connectionLink = portalURI + "connections/myConnections/" + remoteUser;
+		def directoryLink = portalURI + "people";
+		
+		def navigations = uicomponent.getNavigations();
+
+ 		String clazz = "";
+ 		
+			print """
+						<div style="position: absolute; display:none" class="MenuItemContainer">
+							<div class="SubBlock">
+				""";
+				
+				if(navigations != null) {
+				 for(nav in navigations) {
+					 def pageNodes = nav.getNodes();
+				
+					 for(PageNode node in pageNodes) {
+					 if (node.getUri() == "profile") {
+			         print """
+									<div class="MenuItem">
+										<div class="$clazz">						
+											<a href="$profileLink" class="ToolBarProfileIcon">My Profile</a>
+										</div>
+									</div>
+								""";
+			       }
+	         else if (node.getUri() == "activities") {
+							print """
+									<div class="MenuItem">
+										<div class="$clazz">						
+											<a href="$activitiesLink" class="ToolBarActivityIcon">My Activities</a>
+										</div>
+									</div>
+								""";
+			       }  
+				   
+				   else if (node.getUri() == "myConnections") {
+			         print """
+									<div class="MenuItem">
+										<div class="$clazz">						
+											<a href="$connectionLink" class="ToolBarProfileIcon">My Connections</a>
+										</div>
+									</div>
+								""";
+			       }
+				    else if (node.getUri() == "people") {
+			         print """
+									<div class="MenuItem">
+										<div class="$clazz">						
+											<a href="$directoryLink" class="ToolBarProfileIcon">Find People</a>
+										</div>
+									</div>
+								""";
+			       }
+				   
+					  }
+				  }
+				}  
+				 print """
+						<div class="MenuItem" onclick="$changeLanguageAction">>
+							<div class="$clazz">						
+					
+				<a href="#" class="ChangeLanguageIcon">ChangeLanguage</a>
+			 						
+							</div>
+						</div>
+					""";
+					
+					 print """
+						<div class="MenuItem" onclick="eXo.portal.logout();">
+							<div class="$clazz">						
+					
+				<a href="#" class="SignOutIcon">Logout</a>
+			 						
+							</div>
+						</div>
+					""";
+				
+			print """
+						</div>
+					</div>
+				""";
+	}
+%>
+<div class="UIUserToolBarPortlet" id="$uicomponent.id">
+    <div class="UIHorizontalTabs">
+        <div class="TabsContainer" style="position: relative">
+            <div class="UITab NormalToolbarTab">
+                <div class="">
+                            <a class="SocialUserToolBarIcon TBIcon" href="<%= accountSetting %>">
+                                    <%=user.getFullName();%>
+                            </a>
+                </div>
+                <% renderLink() %>
+            </div>
+        </div>
+    </div>
+</div>
