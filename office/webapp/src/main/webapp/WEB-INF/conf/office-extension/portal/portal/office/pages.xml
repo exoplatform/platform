@@ -966,6 +966,112 @@
       <show-application-mode>false</show-application-mode>
     </portlet-application>
   </page>
+  <page>
+    <name>mail</name>
+    <title>Mail</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    
+    <portlet-application>
+      <portlet>
+        <application-ref>mail</application-ref>
+        <portlet-ref>MailPortlet</portlet-ref>
+      </portlet>
+      <title>Mail Portlet</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <show-info-bar>false</show-info-bar>      
+    </portlet-application>  
+  </page>
+   <page>
+    <name>calendar</name>
+    <title>Calendar</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    
+    <portlet-application>
+      <portlet>
+        <application-ref>calendar</application-ref>
+        <portlet-ref>CalendarPortlet</portlet-ref>
+      </portlet>   
+      <title>Calendar Portlet</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <show-info-bar>false</show-info-bar>      
+    </portlet-application>  
+  </page>
+  <page>
+    <name>contact</name>
+    <title>Contact</title>
+    <access-permissions>*:/platform/users</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    
+    <portlet-application>
+    <portlet>
+        <application-ref>contact</application-ref>
+        <portlet-ref>ContactPortlet</portlet-ref>
+      </portlet>    
+      <title>Contact Portlet</title>
+      <access-permissions>*:/platform/users</access-permissions>
+      <show-info-bar>false</show-info-bar>      
+    </portlet-application>  
+  </page>
+   <page>
+    <name>answers</name>
+    <title>Answers</title>
+    <access-permissions>Everyone</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>faq</application-ref>
+        <portlet-ref>AnswersPortlet</portlet-ref>
+      </portlet>
+      <title>Answers Portlet</title>
+      <access-permissions>Everyone</access-permissions>      
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page>
+  <page>
+    <name>faq</name>
+    <title>FAQ</title>
+    <access-permissions>Everyone</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>faq</application-ref>
+        <portlet-ref>FAQPortlet</portlet-ref>
+      </portlet>
+      <title>FAQ Portlet</title>
+      <access-permissions>Everyone</access-permissions>      
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page>  
+  <page>
+    <name>tour</name>
+    <title>KS Tour</title>
+    <access-permissions>Everyone</access-permissions>
+    <edit-permission>*:/platform/administrators</edit-permission>
+    <portlet-application>
+      <portlet>
+        <application-ref>web</application-ref>
+        <portlet-ref>HomePagePortlet</portlet-ref>
+        <preferences>
+          <preference>
+            <name>template</name>
+            <value>system:/templates/tour.gtmpl</value>
+            <read-only>false</read-only>
+          </preference>
+        </preferences>
+      </portlet>      
+      <title>Tour</title>
+      <access-permissions>Everyone</access-permissions>      
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page>
 
 
 </page-set>

@@ -172,6 +172,46 @@
       <label>Forum</label>
       <page-reference>portal::office::forum</page-reference>
      </node>
+	<node>
+    <uri>mail</uri>
+    <name>mail</name>
+    <label>#{platform.users.collaboration.mail}</label>
+    <visibility>DISPLAYED</visibility>
+    <page-reference>portal::office::mail</page-reference>
+   </node>
+   <node>
+    <uri>calendar</uri>
+    <name>calendar</name>
+    <label>#{platform.users.collaboration.calendar}</label>
+    <visibility>DISPLAYED</visibility>
+    <page-reference>portal::office::calendar</page-reference>
+   </node>
+    <node>
+    <uri>contact</uri>
+    <name>contact</name>
+    <label>#{platform.users.collaboration.contact}</label>
+    <visibility>DISPLAYED</visibility>
+    <page-reference>portal::office::contact</page-reference>
+   </node>
+   <node>
+      <uri>answers</uri>
+      <name>answers</name>
+      <label>Answers</label>
+      <page-reference>portal::office::answers</page-reference>
+    </node>
+    <node>
+      <uri>faq</uri>
+      <name>faq</name>
+      <label>FAQ</label>
+      <page-reference>portal::office::faq</page-reference>
+    </node>    
+    <node>
+      <uri>tour</uri>
+      <name>tour</name>
+      <label>Tour</label>
+      <page-reference>portal::office::tour</page-reference>
+    </node>    
+   
   
   </page-nodes>
   </node-navigation>
