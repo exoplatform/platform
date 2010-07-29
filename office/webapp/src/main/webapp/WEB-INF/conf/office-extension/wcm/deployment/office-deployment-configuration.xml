@@ -57,6 +57,9 @@
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/Logo.xml</string>
             </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>
           </object>
         </object-param>
 		  <object-param>
@@ -78,6 +81,9 @@
             </field>
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/Navigation.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
             </field>
           </object>
         </object-param>
@@ -101,6 +107,9 @@
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/Welcome.xml</string>
             </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>
           </object>
         </object-param>
 		<object-param>
@@ -122,6 +131,9 @@
             </field>
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/jira.xml</string>
+            </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
             </field>
           </object>
         </object-param>
@@ -145,6 +157,9 @@
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/Searchbox.xml</string>
             </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>
           </object>
         </object-param>
         <object-param>
@@ -167,16 +182,12 @@
             <field name="sourcePath">
               <string>war:/conf/office-extension/wcm/artifacts/site-resources/office/Signin.xml</string>
             </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>
           </object>
         </object-param>
-       
-    
-       
-
-       
-
       </init-params>
     </component-plugin>
   </external-component-plugins>
-
 </configuration>
