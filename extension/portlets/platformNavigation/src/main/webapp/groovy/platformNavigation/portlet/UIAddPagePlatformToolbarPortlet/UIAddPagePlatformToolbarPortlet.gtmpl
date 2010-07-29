@@ -1,5 +1,5 @@
 <%	
-	import org.exoplatform.toolbar.webui.component.UIAdminToolbarPortlet;
+	import org.exoplatform.platform.component.UIAddPagePlatformToolbarPortlet;
 	import org.exoplatform.web.application.JavascriptManager;
 	import org.exoplatform.portal.config.model.PageNavigation;
 	import org.exoplatform.services.organization.User;
@@ -13,12 +13,12 @@
 	jsmanager.importJavascript('eXo.portal.UIAdminToolbar');
 	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
 	
-	String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
-	String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPage");
-	String editPortalLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPortal");
-	String editPageAndNaviLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPageAndNavigation");
-	String editSiteLayout = _ctx.appRes("UIAdminToolbarPortlet.action.EditSiteLayout");
-	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");
+	String addPageLabel = _ctx.appRes("UIAddPagePlatformToolbarPortlet.action.AddPage");	
+	String editPageLabel = _ctx.appRes("UIAddPagePlatformToolbarPortlet.action.EditPage");
+	String editPortalLabel = _ctx.appRes("UIAddPagePlatformToolbarPortlet.action.EditPortal");
+	String editPageAndNaviLabel = _ctx.appRes("UIAddPagePlatformToolbarPortlet.action.EditPageAndNavigation");
+	String editSiteLayout = _ctx.appRes("UIAddPagePlatformToolbarPortlet.action.EditSiteLayout");
+	String editorLabel = _ctx.appRes("UIAddPagePlatformToolbarPortlet.action.Editor");
 	
 	boolean userCouldEditNavigation = uicomponent.hasEditPermissionOnNavigation();
 	boolean userCouldEditPage = uicomponent.hasEditPermissionOnPage();
@@ -26,11 +26,11 @@
 	
 	PageNavigation selectedNav = uicomponent.getSelectedNavigation();
 	if (selectedNav != null) {
-		editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action." + selectedNav.getOwnerType() + ".Editor");
+		editorLabel = _ctx.appRes("UIAddPagePlatformToolbarPortlet.action." + selectedNav.getOwnerType() + ".Editor");
 	}
 	String accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
 %>
-<div class="UIAdminToolbarPortlet" id="$uicomponent.id" >
+<div class="UIAddPagePlatformToolbarPortlet" id="$uicomponent.id" >
 	<div class="UIHorizontalTabs">
 		<div class="TabsContainer" >
 			<div class="UITab NormalToolbarTab">
