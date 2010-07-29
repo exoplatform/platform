@@ -26,5 +26,27 @@
 			<short-title>UIUserPlatformToolBarPortlet</short-title>
 		</portlet-info>
 	</portlet>
+	<portlet>
+		<description xml:lang="EN">PlatformNavigation Portlet</description>
+		<portlet-name>UISpacePlatformToolBarPortlet</portlet-name>
+		<display-name xml:lang="EN">UISpacePlatformToolBarPortlet</display-name>
+		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
+		<init-param>
+			<name>webui.configuration</name>
+			<!-- must match the path to configuration file -->
+			<value>/WEB-INF/conf/portlet/UISpacePlatformToolBarPortlet/configuration.xml</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>help</portlet-mode>
+		</supports>
+		<supported-locale>en</supported-locale>
+		<resource-bundle>locale.portlet.UISpacePlatformToolBarPortlet.UISpacePlatformToolBarPortlet</resource-bundle>
+		<portlet-info>
+			<title>UISpacePlatformToolBarPortlet</title>
+			<short-title>UISpacePlatformToolBarPortlet</short-title>
+		</portlet-info>
+	</portlet>
 	
 </portlet-app>
