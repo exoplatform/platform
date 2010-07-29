@@ -30,16 +30,13 @@ div {
 body {
 	background: white;
 	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
 }
 
 a {
 	color: #28175a;
 }
 
-.UIWorkingWorkspace {
-	width: auto;
-	background: white;
-}
 
 .UIPageBody .BLPagebody {
 	display: none;
@@ -53,9 +50,20 @@ a {
 	padding: 0;
 }
 
+.UIWorkingWorkspace {
+	width: auto;
+	background: white;
+}
+
 .OfficeLeftTDContainer, .OfficeRightTDContainer {
 	width: 250px;
 	padding: 0 20px;
+}
+
+/* Banner */
+.UIWorkingWorkspace #OfficeBanner {
+	background: url('background/BannerBg.jpg') no-repeat right top;
+	height: 50px;
 }
 
 .TxtDarkBlue {color: #28175a;}
@@ -81,9 +89,4 @@ a {
 
 .UIGadgetPortlet .gadgets-gadget {
 	width: 100%;
-}
-
-/* Banner */
-.UIWorkingWorkspace #OfficeBanner {
-	background: url('background/BannerBg.jpg') no-repeat right top;
 }
