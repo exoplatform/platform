@@ -55,7 +55,7 @@
 				<object-param>
 					<name>JSP Filter</name>
 					<object type="org.exoplatform.web.filter.FilterDefinition">
-						<field name="filter"><object type="org.exoplatform.web.filter.RedefinableResourceFilter"/></field>				
+						<field name="filter"><object type="org.exoplatform.commons.platform.RedefinableResourceFilter"/></field>				
 						<field name="patterns">
                             <!-- WARNING: the mapping is expressed with regular expressions -->
 							<collection type="java.util.ArrayList" item-type="java.lang.String">
