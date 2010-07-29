@@ -69,6 +69,12 @@ function getModule(params)
       addDependency(new Project("org.apache.lucene", "lucene-regex", "jar", "2.4.1"));
    /*module.extension.config =  new Project("org.exoplatform.platform", "exo.platform.extension.config", "jar", module.version);*/
    module.extension.webapp.deployName = "platform-extension";
+   
+   
+   module.extension.portlets = {};
+   module.extension.portlets.platformNavigation =  new Project("org.exoplatform.platform", "exo.platform.extension.portlets.platformNavigation", "war", module.version);
+
+
 
    // platform commons
    module.component = {};
