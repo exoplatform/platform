@@ -61,7 +61,7 @@ void renderLink() {
 			         print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$connectionLink" class="ToolBarProfileIcon">My Connections</a>
+											<a href="$connectionLink">My Connections</a>
 										</div>
 									</div>
 								""";
@@ -70,7 +70,7 @@ void renderLink() {
 			         print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$directoryLink" class="ToolBarProfileIcon">Find People</a>
+											<a href="$directoryLink">Find People</a>
 										</div>
 									</div>
 								""";
@@ -78,12 +78,13 @@ void renderLink() {
 				   
 					  }
 				  }
-				}  
-				 print """
-						<div class="MenuItem" onclick="$changeLanguageAction">>
+				   
+				} 
+       print """
+						<div class="MenuItem">
 							<div class="$clazz">						
 					
-				<a href="#" class="ChangeLanguageIcon">ChangeLanguage</a>
+				<a href="#">ChangeLanguage</a>
 			 						
 							</div>
 						</div>
@@ -93,11 +94,12 @@ void renderLink() {
 						<div class="MenuItem" onclick="eXo.portal.logout();">
 							<div class="$clazz">						
 					
-				<a href="#" class="SignOutIcon">Logout</a>
+				<a href="#">Logout</a>
 			 						
 							</div>
 						</div>
-					""";
+					""";				
+				
 				
 			print """
 						</div>

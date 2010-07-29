@@ -3,28 +3,7 @@
 	xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_1_0.xsd">	
-	<portlet>
-		<description xml:lang="EN">PlatformNavigation Portlet</description>
-		<portlet-name>UIUserToolBarSpacesPortlet</portlet-name>
-		<display-name xml:lang="EN">UIUserToolBarSpacesPortlet</display-name>
-		<portlet-class>org.exoplatform.webui.application.portlet.PortletApplicationController</portlet-class>
-		<init-param>
-			<name>webui.configuration</name>
-			<!-- must match the path to configuration file -->
-			<value>/WEB-INF/conf/portlet/UIUserToolBarSpacesPortlet/configuration.xml</value>
-		</init-param>
-		<expiration-cache>0</expiration-cache>
-		<supports>
-			<mime-type>text/html</mime-type>
-			<portlet-mode>help</portlet-mode>
-		</supports>
-		<supported-locale>en</supported-locale>
-		<resource-bundle>locale.portlet.UIUserToolBarSpacesPortlet.UIUserToolBarSpacesPortlet</resource-bundle>
-		<portlet-info>
-			<title>UIUserToolBarSpacesPortlet</title>
-			<short-title>UIUserToolBarSpacesPortlet</short-title>
-		</portlet-info>
-	</portlet>
+	
 	<portlet>
 		<description xml:lang="EN">PlatformNavigation Portlet</description>
 		<portlet-name>UIUserPlatformToolBarPortlet</portlet-name>
