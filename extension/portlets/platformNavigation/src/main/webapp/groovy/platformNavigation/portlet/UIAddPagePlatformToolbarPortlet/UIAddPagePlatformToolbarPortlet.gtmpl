@@ -35,7 +35,7 @@
 		<div class="TabsContainer" >
 			<div class="UITab NormalToolbarTab">
 				<div class="">
-					<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
+					<a class="EditorIcon TBIcon" href="#">add page</a>
 				</div>
 				<div class="MenuItemContainer" style="display:none;">
 					<div class="SubBlock">
