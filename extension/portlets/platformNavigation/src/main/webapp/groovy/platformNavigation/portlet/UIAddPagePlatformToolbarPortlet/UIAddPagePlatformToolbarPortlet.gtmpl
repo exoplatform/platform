@@ -1,0 +1,56 @@
+<%	
+	import org.exoplatform.toolbar.webui.component.UIAdminToolbarPortlet;
+	import org.exoplatform.web.application.JavascriptManager;
+	import org.exoplatform.portal.config.model.PageNavigation;
+	import org.exoplatform.services.organization.User;
+	import org.exoplatform.services.security.ConversationState;
+	import org.exoplatform.web.CacheUserProfileFilter;
+		
+	def rcontext = _ctx.getRequestContext();
+	
+	JavascriptManager jsmanager = rcontext.getJavascriptManager();
+	jsmanager.importJavascript('eXo.portal.UIPortalNavigation');
+	jsmanager.importJavascript('eXo.portal.UIAdminToolbar');
+	jsmanager.addCustomizedOnLoadScript('eXo.portal.UIAdminToolbar.onLoad("' + uicomponent.id + '");');
+	
+	String addPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.AddPage");	
+	String editPageLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPage");
+	String editPortalLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPortal");
+	String editPageAndNaviLabel = _ctx.appRes("UIAdminToolbarPortlet.action.EditPageAndNavigation");
+	String editSiteLayout = _ctx.appRes("UIAdminToolbarPortlet.action.EditSiteLayout");
+	String editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action.Editor");
+	
+	boolean userCouldEditNavigation = uicomponent.hasEditPermissionOnNavigation();
+	boolean userCouldEditPage = uicomponent.hasEditPermissionOnPage();
+	boolean userCouldEditPortal = uicomponent.hasEditPermissionOnPortal();
+	
+	PageNavigation selectedNav = uicomponent.getSelectedNavigation();
+	if (selectedNav != null) {
+		editorLabel = _ctx.appRes("UIAdminToolbarPortlet.action." + selectedNav.getOwnerType() + ".Editor");
+	}
+	String accountSetting = "javascript:if(document.getElementById('UIMaskWorkspace')) ajaxGet(eXo.env.server.createPortalURL('UIPortal', 'AccountSettings', true));"
+%>
+<div class="UIAdminToolbarPortlet" id="$uicomponent.id" >
+	<div class="UIHorizontalTabs">
+		<div class="TabsContainer" >
+			<div class="UITab NormalToolbarTab">
+				<div class="">
+					<a class="EditorIcon TBIcon" href="#">$editorLabel</a>
+				</div>
+				<div class="MenuItemContainer" style="display:none;">
+					<div class="SubBlock">
+						<% if(userCouldEditNavigation){ %>
+							<div class="MenuItem">	
+								<a href="javascript:ajaxGet(eXo.env.server.createPortalURL('UIWorkingWorkspace', 'PageCreationWizard', true))" title="" class="ItemIcon AddPageIcon">add Page</a>
+							</div>
+						<% } %>
+						
+					
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
