@@ -204,23 +204,23 @@
 
 	</page>
   
-   <page>
+      
+  
+  <page>
     <name>newAccount</name>
-    <access-permissions>Everyone</access-permissions>
-    <edit-permission>*:/platform/administrators</edit-permission>
+    <title>newAccount</title>
+      <access-permissions>*:/platform/guests</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>   
     <portlet-application>
       <portlet>
         <application-ref>exoadmin</application-ref>
-        <portlet-ref>AccountPortlet</portlet-ref>
-        <preferences></preferences>
+        <portlet-ref>RegisterPortlet</portlet-ref>
       </portlet>
-      <title>New Account</title>
-      <access-permissions>Everyone</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
+      <title>Register Account</title>
+      <access-permissions>*:/platform/guests</access-permissions>
+      <show-info-bar>false</show-info-bar>     
     </portlet-application>
-  </page>
+  </page>  
   
     <page>
     <name>groupnavigation</name>
