@@ -46,7 +46,7 @@
     
     <org.slf4j.slf4j-simple.version>1.5.6</org.slf4j.slf4j-simple.version>
     
-    <org.exoplatform.exopackage.version>1.1.0-Beta11</org.exoplatform.exopackage.version>
+    <org.exoplatform.exopackage.version>1.1.0-Beta12-SNAPSHOT</org.exoplatform.exopackage.version>
     <!-- default workflow engine is bonita. Can also be jbpm -->
     <exo.workflow.engine>jbpm</exo.workflow.engine>
     <!-- workflow implementations -->
