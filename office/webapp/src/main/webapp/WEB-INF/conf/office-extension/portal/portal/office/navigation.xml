@@ -27,13 +27,13 @@
   <node>
       <uri>welcome</uri>
       <name>welcome</name>
-      <label>#{portal.office.welcome}</label>
+      <label>welcome</label>
       <page-reference>portal::office::welcome</page-reference>
     </node>
   <node>
 			<uri>home</uri>
 			<name>home</name>
-			<label>#{portal.office.home}</label>
+			<label>home</label>
 			<page-reference>portal::office::homepage</page-reference>
  </node>
  
@@ -175,21 +175,21 @@
 	<node>
     <uri>mail</uri>
     <name>mail</name>
-    <label>#{portal.office.mail}</label>
+    <label>mail</label>
     <visibility>DISPLAYED</visibility>
     <page-reference>portal::office::mail</page-reference>
    </node>
    <node>
     <uri>calendar</uri>
     <name>calendar</name>
-    <label>#{portal.office.calendar}</label>
+    <label>calandar</label>
     <visibility>DISPLAYED</visibility>
     <page-reference>portal::office::calendar</page-reference>
    </node>
     <node>
     <uri>contact</uri>
     <name>contact</name>
-    <label>#{portal.office.contact}</label>
+    <label>contact</label>
     <visibility>DISPLAYED</visibility>
     <page-reference>portal::office::contact</page-reference>
    </node>

@@ -30,9 +30,9 @@
    <portal-layout>
    
    <container id="OfficeBanner" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-      <access-permissions>*:/platform/users</access-permissions>
+      <access-permissions>Everyone</access-permissions>
       <container id="OfficeLogo" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-        <access-permissions>*:/platform/users</access-permissions>
+        <access-permissions>Everyone</access-permissions>
         <portlet-application>
           <portlet>
             <application-ref>presentation</application-ref>
@@ -86,7 +86,7 @@
             </preferences>
           </portlet>
           <title>Banner</title>
-          <access-permissions>*:/platform/users</access-permissions>
+          <access-permissions>Everyone</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
           <show-application-mode>false</show-application-mode>
