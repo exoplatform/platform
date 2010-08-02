@@ -122,7 +122,7 @@
         <!-- SingleSignOn valve, share authentication between web applications
              Documentation at: /docs/config/valve.html -->
         
-        <!-- Enabled for IDEAll and Chat -->
+        <!-- Enabled for IDE and Chat -->
         <Valve className="org.apache.catalina.authenticator.SingleSignOn" />
 
 

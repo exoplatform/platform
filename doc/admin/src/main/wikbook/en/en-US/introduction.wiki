@@ -17,7 +17,7 @@ The eXo Platform 3.0 release contains :
 * eXo Collaboration 2.1
 * eXo Knowledge 2.1
 * xCMIS 1.1
-* IDEall 1.0
+* eXo IDE 1.0
 * Crash 1.0
 
 

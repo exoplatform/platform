@@ -168,12 +168,12 @@
                 <string>ks</string>
               </value>
 
-              <!-- IDEAll -->
+              <!-- IDE -->
               <value profiles="ide,all,default">
                 <string>SmartGWT</string>
               </value>
               <value profiles="ide,all,default">
-                <string>IDEall</string>
+                <string>IDE</string>
               </value>
 
               <!-- Contains shared layout -->

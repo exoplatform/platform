@@ -30,7 +30,6 @@ function getProduct(version) {
   var dms = Module.GetModule("dms", {kernel : kernel, core : core, ws : ws, eXoJcr : eXoJcr, portal : portal});
   var wcm = Module.GetModule("wcm", {kernel : kernel, core : core, ws : ws, eXoJcr : eXoJcr, portal : portal, dms : dms});
 
-
   
   /* COMMON - GATEIN */
   product.addDependencies(portal.web.rest) ;
@@ -62,10 +61,8 @@ function getProduct(version) {
   // acme website
   product.addDependencies(platform.sample.acme.webapp);
   
-  /* IDEALL */
-  product.addDependencies(platform.ideall.webapp);
-  //product.addDependencies(platform.ideall.extension);
-
+  /* IDE */
+  product.addDependencies(platform.ide.webapp);
   
   /* ECMS */
   product.addDependencies(workflow.web.eXoWorkflowResources);

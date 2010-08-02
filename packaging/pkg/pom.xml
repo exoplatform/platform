@@ -187,51 +187,42 @@
 		  </dependency-->
 
       <!-- ////////////// Deploy dependencies ////////////// -->
-      
-      
-      <!-- ideall ext -->
-      <!-- dependency>
-	       <groupId>org.exoplatform.ideall</groupId>
-         <artifactId>exo.ideall.extension.webapp</artifactId>
-         <version>${org.exoplatform.ideall.version}</version>
-         <type>war</type>
-      </dependency>
-      <dependency>
-         <groupId>org.exoplatform.ideall</groupId>
-         <artifactId>exo.ideall.extension.config</artifactId>
-         <version>${org.exoplatform.ideall.version}</version>
-         <type>jar</type>
-      </dependency -->
-      
-      <!-- ideall dependencies
+
+      <!-- IDE dependencies -->
       <dependency>
          <groupId>org.exoplatform.gwt</groupId>
          <artifactId>exo.gwtframework.smartgwt</artifactId>
-         <version>1.0-Beta04</version>
+         <version>${org.exoplatform.gwtframework.version}</version>
          <type>war</type>
       </dependency>
       <dependency>
-         <groupId>org.exoplatform.ideall</groupId>
-         <artifactId>exo.ideall.component.gadget</artifactId>
-         <version>${org.exoplatform.ideall.version}</version>
+         <groupId>org.exoplatform.ide</groupId>
+         <artifactId>exo-ide-module-gadget-server</artifactId>
+         <version>${org.exoplatform.ide.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
-         <groupId>org.exoplatform.ideall</groupId>
-         <artifactId>exo.ideall.component.netvibes</artifactId>
-         <version>${org.exoplatform.ideall.version}</version>
+         <groupId>org.exoplatform.ide</groupId>
+         <artifactId>exo-ide-module-netvibes-server</artifactId>
+         <version>${org.exoplatform.ide.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
-         <groupId>org.exoplatform.ideall</groupId>
-         <artifactId>exo.ideall.component.commons</artifactId>
-         <version>${org.exoplatform.ideall.version}</version>
+         <groupId>org.exoplatform.ide</groupId>
+         <artifactId>exo-ide-module-groovy-server</artifactId>
+         <version>${org.exoplatform.ide.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
-         <groupId>org.exoplatform.ideall</groupId>
-         <artifactId>exo.ideall.client</artifactId>
-         <version>${org.exoplatform.ideall.version}</version>
+         <groupId>org.exoplatform.ide</groupId>
+         <artifactId>exo-ide-server</artifactId>
+         <version>${org.exoplatform.ide.version}</version>
+         <type>jar</type>
+      </dependency>
+      <dependency>
+         <groupId>org.exoplatform.ide</groupId>
+         <artifactId>exo-ide-client</artifactId>
+         <version>${org.exoplatform.ide.version}</version>
          <type>war</type>
       </dependency>
       <dependency>
@@ -240,55 +231,54 @@
          <version>${org.exoplatform.core.version}</version>
          <type>jar</type>
       </dependency>
-       -->
 		  
-      <!-- xcmis dependencies -->
+      <!-- xCMIS dependencies -->
       <dependency>
          <groupId>org.xcmis</groupId>
          <artifactId>xcmis-renditions</artifactId>
-         <version>${org.exoplatform.xcmis.version}</version>
+         <version>${org.xcmis.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
          <groupId>org.xcmis</groupId>
          <artifactId>xcmis-restatom</artifactId>
-         <version>${org.exoplatform.xcmis.version}</version>
+         <version>${org.xcmis.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
          <groupId>org.xcmis</groupId>
          <artifactId>xcmis-search-model</artifactId>
-         <version>${org.exoplatform.xcmis.version}</version>
+         <version>${org.xcmis.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
          <groupId>org.xcmis</groupId>
          <artifactId>xcmis-search-parser-cmis</artifactId>
-         <version>${org.exoplatform.xcmis.version}</version>
+         <version>${org.xcmis.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
          <groupId>org.xcmis</groupId>
          <artifactId>xcmis-search-service</artifactId>
-         <version>${org.exoplatform.xcmis.version}</version>
+         <version>${org.xcmis.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
          <groupId>org.xcmis</groupId>
          <artifactId>xcmis-spi</artifactId>
-         <version>${org.exoplatform.xcmis.version}</version>
+         <version>${org.xcmis.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
          <groupId>org.xcmis</groupId>
          <artifactId>xcmis-sp-inmemory</artifactId>
-         <version>${org.exoplatform.xcmis.version}</version>
+         <version>${org.xcmis.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
          <groupId>org.xcmis</groupId>
          <artifactId>xcmis-sp-jcr-exo</artifactId>
-         <version>${org.exoplatform.xcmis.version}</version>
+         <version>${org.xcmis.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
@@ -354,12 +344,8 @@
 
       <!-- MISSING DEPENDENCIES -->
 <dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.webapp.portlet</artifactId><version>${org.exoplatform.social.version}</version><type>war</type></dependency><!-- 1.1.0-SNAPSHOT-->
-<dependency><groupId>org.exoplatform.ideall</groupId><artifactId>exo.ideall.component.commons</artifactId><version>${org.exoplatform.ideall.version}</version><type>jar</type></dependency><!-- 1.0-Beta02-->
 <dependency><groupId>org.exoplatform.commons</groupId><artifactId>exo.platform.commons.webui.ext</artifactId><version>${org.exoplatform.commons.version}</version><type>jar</type></dependency><!-- 3.0.0-Beta01-SNAPSHOT-->
-<dependency><groupId>org.exoplatform.ideall</groupId><artifactId>exo.ideall.component.gadget</artifactId><version>${org.exoplatform.ideall.version}</version><type>jar</type></dependency><!-- 1.0-Beta02-->
 <dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.webapp.resources</artifactId><version>${org.exoplatform.social.version}</version><type>war</type></dependency><!-- 1.1.0-SNAPSHOT-->
-<dependency><groupId>org.exoplatform.ideall</groupId><artifactId>exo.ideall.client</artifactId><version>${org.exoplatform.ideall.version}</version><type>war</type></dependency><!-- 1.0-Beta02-->
-<dependency><groupId>org.exoplatform.ideall</groupId><artifactId>exo.ideall.component.netvibes</artifactId><version>${org.exoplatform.ideall.version}</version><type>jar</type></dependency><!-- 1.0-Beta02-->
 <dependency><groupId>org.exoplatform.commons</groupId><artifactId>exo.platform.commons.comet.webapp</artifactId><version>${org.exoplatform.commons.version}</version><type>war</type></dependency><!-- 1.0.0-CR01-SNAPSHOT-->
 <dependency><groupId>org.exoplatform.ks</groupId><artifactId>exo.ks.ext.social-integration</artifactId><version>${org.exoplatform.ks.version}</version><type>jar</type></dependency><!-- 2.1.0-SNAPSHOT-->
 <dependency><groupId>org.exoplatform.commons</groupId><artifactId>exo.platform.commons.comet.service</artifactId><version>${org.exoplatform.commons.version}</version><type>jar</type></dependency><!-- 1.0.0-CR01-SNAPSHOT-->

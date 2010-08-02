@@ -51,7 +51,7 @@
         <value-param>
           <name>conf-path</name>
           <description>JCR configuration file</description>
-          <value>war:/conf/platform/ideall-repository-configuration.xml</value>
+          <value>war:/conf/platform/ide-repository-configuration.xml</value>
         </value-param>
       </init-params>
     </component-plugin>

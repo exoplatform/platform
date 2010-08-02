@@ -40,7 +40,7 @@
 				<name>eXo IDE</name>				
 				<set-method>register</set-method>
 				<type>org.exoplatform.commons.platform.ModuleRegistry$ModulePlugin</type>
-				<description>IDeall online IDE, Groovy REST services</description>
+				<description>Online IDE, Groovy REST services</description>
 			</component-plugin>					
 		</component-plugins>
 	</component>

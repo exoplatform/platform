@@ -6,28 +6,28 @@
     <type>org.exoplatform.services.rest.ext.proxy.ProxyService</type>
   </component>
 
-	<component>
-    <type>org.exoplatform.ideall.upload.LoopbackContentService</type>
+  <component>
+    <type>org.exoplatform.ide.upload.LoopbackContentService</type>
   </component>
 
   <component>
-    <type>org.exoplatform.ideall.download.DownloadContentService</type>
+    <type>org.exoplatform.ide.download.DownloadContentService</type>
   </component>
 
   <component>
-    <type>org.exoplatform.ideall.discovery.RepositoryDiscoveryService</type>
+    <type>org.exoplatform.ide.discovery.RepositoryDiscoveryService</type>
   </component>
 
   <component>
-    <type>org.exoplatform.ideall.groovy.GroovyScriptServiceApplication</type>
+    <type>org.exoplatform.ide.groovy.GroovyScriptServiceApplication</type>
   </component>
 
   <component>
-    <type>org.exoplatform.ideall.upload.UploadServiceApplication</type>
+    <type>org.exoplatform.ide.upload.UploadServiceApplication</type>
   </component>
 
   <component>
-    <type>org.exoplatform.ideall.shindig.oauth.RestSecurityTokenGenerator</type>
+    <type>org.exoplatform.ide.shindig.oauth.RestSecurityTokenGenerator</type>
     <init-params>
        <value-param>
          <name>keyFile</name>
@@ -38,11 +38,11 @@
   </component>
 
   <component>
-    <type>org.exoplatform.ideall.conversationstate.RestConversationState</type>
+    <type>org.exoplatform.ide.conversationstate.RestConversationState</type>
   </component>
 
   <component>
-    <type>org.exoplatform.ideall.service.gatein.RestGadgetRegistryService</type>
+    <type>org.exoplatform.ide.service.gatein.RestGadgetRegistryService</type>
   </component>
 </configuration>
 

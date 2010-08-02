@@ -26,8 +26,8 @@ function getModule(params)
    var cometVersion = "${org.exoplatform.commons.version}";
    var coreVersion = "${org.exoplatform.core.version}";
    var gwtframeworkVersion = "${org.exoplatform.gwtframework.version}";
-   var ideallVersion = "${org.exoplatform.ideall.version}";
-   var xcmisVersion = "${org.exoplatform.xcmis.version}";
+   var ideVersion = "${org.exoplatform.ide.version}";
+   var xcmisVersion = "${org.xcmis.version}";
 
    // fck editor required for KS & CS
    module.fck = new Project("org.exoplatform.platform", "exo.platform.web.fck", "war", module.version);
@@ -75,12 +75,10 @@ function getModule(params)
    module.extension.portlets.platformNavigation =  new Project("org.exoplatform.platform", "exo.platform.extension.portlets.platformNavigation", "war", module.version);
 
 
-
    // platform commons
    module.component = {};
    module.component.common = new Project("org.exoplatform.platform", "exo.platform.component.common", "jar", module.version);
 
-   
 
    // office portal
    module.office = {};
@@ -97,25 +95,22 @@ function getModule(params)
    module.patch.tomcat =
       new Project("org.exoplatform.platform", "exo.platform.server.tomcat.patch", "jar", module.version);
    
-   // IDEAll
-   module.ideall = {};
-   /*module.ideall.extension =
-       new Project("org.exoplatform.ideall", "exo.ideall.extension.webapp", "war", ideallVersion).
-        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.extension.config", "jar", ideallVersion));
-   module.ideall.extension.deployName = "ideall-extension";*/
+   // eXo IDE
+   module.ide = {};
    
-   module.ideall.smartgwt =
+   module.ide.smartgwt =
        new Project("org.exoplatform.gwt", "exo.gwtframework.smartgwt", "war", gwtframeworkVersion);
-   module.ideall.smartgwt.deployName = "SmartGWT";
+   module.ide.smartgwt.deployName = "SmartGWT";
    
-   module.ideall.webapp =
-       new Project("org.exoplatform.ideall", "exo.ideall.client", "war", ideallVersion).
+   module.ide.webapp =
+       new Project("org.exoplatform.ide", "exo-ide-client", "war", ideVersion).
         addDependency(new Project("org.exoplatform.core", "exo.core.component.script.groovy", "jar", coreVersion)).
-        addDependency(module.ideall.smartgwt).
-        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.gadget", "jar", ideallVersion)).
-        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.netvibes", "jar", ideallVersion)).
-        addDependency(new Project("org.exoplatform.ideall", "exo.ideall.component.commons", "jar", ideallVersion));
-   module.ideall.webapp.deployName = "IDEAll";
+        addDependency(module.ide.smartgwt).
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-module-gadget-server", "jar", ideVersion)).
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-module-netvibes-server", "jar", ideVersion)).
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-module-groovy-server", "jar", ideVersion)).
+        addDependency(new Project("org.exoplatform.ide", "exo-ide-server", "jar", ideVersion));
+   module.ide.webapp.deployName = "IDE";
    
     // acme website
    module.sample = {};
