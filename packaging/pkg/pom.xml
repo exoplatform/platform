@@ -203,7 +203,7 @@
          <type>jar</type>
       </dependency -->
       
-      <!-- ideall dependencies -->
+      <!-- ideall dependencies
       <dependency>
          <groupId>org.exoplatform.gwt</groupId>
          <artifactId>exo.gwtframework.smartgwt</artifactId>
@@ -240,6 +240,7 @@
          <version>${org.exoplatform.core.version}</version>
          <type>jar</type>
       </dependency>
+       -->
 		  
       <!-- xcmis dependencies -->
       <dependency>
@@ -350,6 +351,20 @@
          <version>2.4.1</version>
          <type>jar</type>
       </dependency>
+
+      <!-- MISSING DEPENDENCIES -->
+<dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.webapp.portlet</artifactId><version>${org.exoplatform.social.version}</version><type>war</type></dependency><!-- 1.1.0-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.ideall</groupId><artifactId>exo.ideall.component.commons</artifactId><version>${org.exoplatform.ideall.version}</version><type>jar</type></dependency><!-- 1.0-Beta02-->
+<dependency><groupId>org.exoplatform.commons</groupId><artifactId>exo.platform.commons.webui.ext</artifactId><version>${org.exoplatform.commons.version}</version><type>jar</type></dependency><!-- 3.0.0-Beta01-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.ideall</groupId><artifactId>exo.ideall.component.gadget</artifactId><version>${org.exoplatform.ideall.version}</version><type>jar</type></dependency><!-- 1.0-Beta02-->
+<dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.webapp.resources</artifactId><version>${org.exoplatform.social.version}</version><type>war</type></dependency><!-- 1.1.0-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.ideall</groupId><artifactId>exo.ideall.client</artifactId><version>${org.exoplatform.ideall.version}</version><type>war</type></dependency><!-- 1.0-Beta02-->
+<dependency><groupId>org.exoplatform.ideall</groupId><artifactId>exo.ideall.component.netvibes</artifactId><version>${org.exoplatform.ideall.version}</version><type>jar</type></dependency><!-- 1.0-Beta02-->
+<dependency><groupId>org.exoplatform.commons</groupId><artifactId>exo.platform.commons.comet.webapp</artifactId><version>${org.exoplatform.commons.version}</version><type>war</type></dependency><!-- 1.0.0-CR01-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.ks</groupId><artifactId>exo.ks.ext.social-integration</artifactId><version>${org.exoplatform.ks.version}</version><type>jar</type></dependency><!-- 2.1.0-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.commons</groupId><artifactId>exo.platform.commons.comet.service</artifactId><version>${org.exoplatform.commons.version}</version><type>jar</type></dependency><!-- 1.0.0-CR01-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.cs</groupId><artifactId>exo.cs.ext.social-integration</artifactId><version>${org.exoplatform.cs.version}</version><type>jar</type></dependency><!-- 2.1.0-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.webapp.opensocial</artifactId><version>${org.exoplatform.social.version}</version><type>war</type></dependency><!-- 1.1.0-SNAPSHOT-->
    </dependencies>
 
    <build>
