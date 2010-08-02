@@ -43,7 +43,6 @@ export MAVEN_OPTS="-Xshare:auto -Xms128M -Xmx1G -XX:MaxPermSize=256M"
 {code}
 
 Save the attached file {attach:settings.xml} to ${HOME}/.m2/settings.xml
-{attach:\\|settings.xml}
 
 Edit and change in the local-properties profile, the path of the directory where you added application servers (exo.projects.directory.dependencies must be the path of $APPLICATIONS&#95;DIRECTORY) and the name of each application server directory must be set in &#42;.version properties (exo.projects.app.tomcat.version, exo.projects.app.jboss.version, exo.projects.app.jonas.version).
 
