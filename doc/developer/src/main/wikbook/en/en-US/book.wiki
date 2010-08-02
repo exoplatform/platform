@@ -6,6 +6,10 @@ h1. Introduction
 
 {include:document=introduction.wiki|syntax=confluence/1.0}
 
+h1. Quick Start guide
+
+{include:document=quickstart.wiki}
+
 h1. Architecture Primer 
 
 {include:document=architecture.wiki|syntax=confluence/1.0}

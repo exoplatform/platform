@@ -1,6 +1,6 @@
-This guide will help developers to succeed their projects with eXo platform. Will be introduced to eXo architecture and walked through the steps to make your own custom projects with it.
+This guide is to help developers perform their projects with eXo platform successfully. It introduces eXo architecture and give steps to make your own custom projects with it.
 
-_Target audience_: Developers that need to build a custom portal based on eXo Platform
+_Target audience_: This is primarily designed for developers who need to build a custom portal based on eXo Platform.
 
-{note}This document is not a full reference, it's a guide to most common tasks developers need to face when working with eXo.
+{note}This document is not a full reference; however, most common tasks are covered that is helpful to developers when they work with eXo.
 The full reference is available in the delivery package and is linked rather than replicated here.{note}
