@@ -365,6 +365,8 @@
 <dependency><groupId>org.exoplatform.commons</groupId><artifactId>exo.platform.commons.comet.service</artifactId><version>${org.exoplatform.commons.version}</version><type>jar</type></dependency><!-- 1.0.0-CR01-SNAPSHOT-->
 <dependency><groupId>org.exoplatform.cs</groupId><artifactId>exo.cs.ext.social-integration</artifactId><version>${org.exoplatform.cs.version}</version><type>jar</type></dependency><!-- 2.1.0-SNAPSHOT-->
 <dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.webapp.opensocial</artifactId><version>${org.exoplatform.social.version}</version><type>war</type></dependency><!-- 1.1.0-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.extras.document-composer-plugin</artifactId><version>${org.exoplatform.social.version}</version><type>jar</type></dependency><!-- 1.1.0-SNAPSHOT-->
+<dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.extras.link-composer-plugin</artifactId><version>${org.exoplatform.social.version}</version><type>jar</type></dependency><!-- 1.1.0-SNAPSHOT-->
    </dependencies>
 
    <build>
