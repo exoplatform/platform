@@ -4,7 +4,7 @@
 	
 	<!-- Defines the builtin Modules -->
 	<component>
-		<type>org.exoplatform.commons.platform.ModuleRegistry</type>
+		<type>org.exoplatform.commons.platform.modules.ModuleRegistry</type>
 		<component-plugins>
 			<component-plugin>
 				<name>eXo Collaboration</name>				
