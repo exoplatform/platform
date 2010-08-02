@@ -1,5 +1,3 @@
-
-
 /*
  * Copyright (C) 2003-2009 eXo Platform SAS.
  *
@@ -18,24 +16,18 @@
  */
 package org.exoplatform.platform.component;
 
-
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
 
 import org.exoplatform.portal.config.UserPortalConfig;
 import org.exoplatform.portal.config.model.PageNavigation;
 import org.exoplatform.portal.config.model.PageNode;
-import org.exoplatform.portal.config.model.PortalConfig;
-import org.exoplatform.portal.webui.navigation.PageNavigationUtils;
 import org.exoplatform.portal.webui.util.Util;
-import org.exoplatform.social.space.Space;
-import org.exoplatform.social.space.SpaceException;
-import org.exoplatform.social.space.SpaceService;
-import org.exoplatform.social.space.SpaceUtils;
+import org.exoplatform.social.core.space.SpaceException;
+import org.exoplatform.social.core.space.SpaceUtils;
+import org.exoplatform.social.core.space.model.Space;
+import org.exoplatform.social.core.space.spi.SpaceService;
 import org.exoplatform.webui.config.annotation.ComponentConfig;
 import org.exoplatform.webui.core.UIPortletApplication;
 import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
@@ -47,22 +39,22 @@ import org.exoplatform.webui.core.lifecycle.UIApplicationLifecycle;
  */
 @ComponentConfig(
                  lifecycle = UIApplicationLifecycle.class,
-  
-                 template = "app:/groovy/platformNavigation/portlet/UISpacePlatformToolBarPortlet/UISpacePlatformToolBarPortlet.gtmpl"		 
+
+                 template = "app:/groovy/platformNavigation/portlet/UISpacePlatformToolBarPortlet/UISpacePlatformToolBarPortlet.gtmpl"
 )
 public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
-	
+
   private static final String SPACE_SETTING_PORTLET = "SpaceSettingPortlet";
-  
+
   /**
    * constructor
    * @throws Exception
    */
   public UISpacePlatformToolBarPortlet() throws Exception {  }
-  
+
   private SpaceService spaceService = null;
   private String userId = null;
-  
+
   /**
    * gets all user spaces
    * @return
@@ -75,8 +67,8 @@ public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
     List<Space> userSpaces = spaceService.getAccessibleSpaces(userId);
     return SpaceUtils.getOrderedSpaces(userSpaces);
   }
-  
-  
+
+
   public List<PageNavigation> getSpaceNavigations() throws Exception {
     String remoteUser = getUserId();
     List<Space> spaces = getSpaceService().getAccessibleSpaces(remoteUser);
@@ -101,10 +93,10 @@ public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
         navigationItr.remove();
       }
     }
-    
+
     return navigations;
   }
-  
+
   public boolean isRender(PageNode spaceNode, PageNode applicationNode) throws SpaceException {
 	 SpaceService spaceSrv = getSpaceService();
 	 String remoteUser = getUserId();
@@ -112,19 +104,19 @@ public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
      if (spaceUrl.contains("/")) {
        spaceUrl = spaceUrl.split("/")[0];
      }
-     
+
      Space space = spaceSrv.getSpaceByUrl(spaceUrl);
-     
+
 	 if (spaceSrv.hasEditPermission(space, remoteUser)) return true;
-	 
+
 	 String appName = applicationNode.getName();
 	 if (!appName.contains(SPACE_SETTING_PORTLET)) {
 	   return true;
 	 }
-	 
+
 	 return false;
   }
-  
+
   public PageNode getSelectedPageNode() throws Exception
   {
      return Util.getUIPortal().getSelectedNode();
@@ -138,15 +130,15 @@ public class UISpacePlatformToolBarPortlet extends UIPortletApplication {
     if(spaceService == null) {
       spaceService = getApplicationComponent(SpaceService.class);
     }
-    return spaceService; 
+    return spaceService;
   }
-  
+
   /**
    * gets remote user Id
    * @return userId
    */
   private String getUserId() {
-    if(userId == null) 
+    if(userId == null)
       userId = Util.getPortalRequestContext().getRemoteUser();
     return userId;
   }
