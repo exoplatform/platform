@@ -1,17 +1,13 @@
 =========================
     eXo Platform 3.0
-     28st June 2010
+     3rd August 2010
 =========================
 
 
 * Introduction
 --------------
 
-Welcome to eXo Platform 3.0 Beta 1.
-
-This is the first release of eXo Platform, that will
-allow you to discover and test all the Gate In based
-extensions together!
+Welcome to eXo Platform 3.0 Beta 2.
 
 
 
@@ -20,65 +16,33 @@ extensions together!
 
 This release contains:
  - GateIn 3.1 GA
- - WCM 2.1 ??
- - xCMIS ??
- - Collaboration 2.1 ??
- - Knowledge  2.1 ??
- - Social 1.1 ??
- - IDEall ??
--  Crash ??
+ - WCM 2.1-CR01
+ - xCMIS-1.1-Beta1
+ - Collaboration 2.1-CR01
+ - Knowledge  2.1-CR01
+ - Social 1.1-CR01
+ - IDE-1.0.0-Beta03
+-  Crash 1.0.??
 
 
 
 * Build and Packaging Instructions
 ----------------------------------
 
-eXo Platform 3.0 needs several steps
-to be built and packaged fully. Please follow them
-carefully:
+Detailed instructions are given here : 
+http://wiki-int.exoplatform.org/display/PLF/Building+Platform+3.0
 
- - Check-out the source from 
+ - Prerequisites : You need Java 6. Make sure your maven settings are up-to-date
+
+ - Check-out the source from  :
    http://svn.exoplatform.org/projects/platform/trunk/
    
  - Go into the main folder, run
-   mvn clean install -Ppkg-tomcat
+   mvn clean install -Ppkg-tomcat,exo-private
    
  - Go into the folder /packaging/pkg/target/tomcat
    Here is your eXo Platform Tomcat distribution
 
-The following steps are needed until some improvements
-are made in the extensions.
-You can find the detailed process on
-http://wiki-int.exoplatform.org/display/PLF/Packaging+Prototype
-
- - Open /tomcat/webapps/portal.war/WEB-INF/web.xml
-   At the end of the filter-mapping section, add:
-      <filter-mapping>
-      	<filter-name>ThreadLocalSessionProviderInitializedFilter</filter-name>
-      	<url-pattern>/*</url-pattern>
-      </filter-mapping>
-      <filter-mapping>
-      	<filter-name>ThreadLocalSessionProviderInitializedFilter</filter-name>
-      	<url-pattern>/rest/private/*</url-pattern>
-      </filter-mapping>
-   
-
- - Set:
-      <repository name="repository" system-workspace="system" default-workspace="collaboration">
-   in all repository-configuration.xml of:
-   - portal.war/WEB-INF/conf/jcr/
-   - ecm-wcm-extension.war/WEB-INF/conf/wcm-extension/jcr
-   - ecm-wcm-extension.war/WEB-INF/conf/dms-extension/jcr
-   - social-ext.war/WEB-INF/conf/social-ext/jcr
-   - ks-extension.war/WEB-INF/conf/ks-extension/jcr
-   
-
-TODO : define <repository name="repository" system-workspace="system" default-workspace="collaboration"> in platform-extension
-
-
- - In cs-extension.war/WEB-INF/cs-extension/cs/cs-configuration.xml,
-   comment out the external-component-plugins for ReminderPeriodJob and PopupReminderPeriodJob
-   
 
 
 * Known Issues
@@ -103,5 +67,5 @@ TODO : define <repository name="repository" system-workspace="system" default-wo
  - Internal Wiki  :  http://wiki-int.exoplatform.org/display/PLF/
  - Jira           :  http://jira.exoplatform.org/browse/PLF
  - SVN            :  http://svn.exoplatform.org/projects/platform/trunk/
- - Intranet       :  N/A
+ - Fisheye        :  http://fisheye.exoplatform.org/browse/platform
 
