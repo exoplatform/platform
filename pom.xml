@@ -42,8 +42,7 @@
     <org.exoplatform.commons.version>1.0.0-CR01-SNAPSHOT</org.exoplatform.commons.version>
     <org.exoplatform.gwtframework.version>1.0-Beta05-SNAPSHOT</org.exoplatform.gwtframework.version>
     <org.exoplatform.ide.version>1.0-Beta03-SNAPSHOT</org.exoplatform.ide.version>
-    <org.xcmis.version>1.0</org.xcmis.version>
-    
+    <org.xcmis.version>1.1-SNAPSHOT</org.xcmis.version>
     <org.slf4j.slf4j-simple.version>1.5.6</org.slf4j.slf4j-simple.version>
     
     <org.exoplatform.exopackage.version>1.1.0-Beta12-SNAPSHOT</org.exoplatform.exopackage.version>
@@ -58,20 +57,35 @@
     <org.mortbay.jetty.jetty-util.version>6.1.11</org.mortbay.jetty.jetty-util.version>
     <xpp3.version>1.1.3.4.O</xpp3.version>
 
-<!--
-    <org.jibx.version>1.2.1</org.jibx.version>
-    <org.shindig.version>1.0-r790473-Patch02</org.shindig.version>
-    <org.gatein.common.version>2.0.0-GA</org.gatein.common.version>
-    <org.gatein.wci.version>2.0.0-GA</org.gatein.wci.version>
-    <org.gatein.pc.version>2.0.0-GA</org.gatein.pc.version>
-    <org.jboss.identity.idm>1.1.1.GA</org.jboss.identity.idm>
-    <org.gatein.wsrp.version>1.0.0-GA</org.gatein.wsrp.version>
-    <org.gatein.mop.version>1.0.0</org.gatein.mop.version>
-    <version.chromattic>1.0.0</version.chromattic>
-    <version.reflect>1.0.0</version.reflect>
--->
 
-   <!--maven.test.skip>true</maven.test.skip-->
+
+    <commons-digester.version>1.7</commons-digester.version>
+    <bsh.version>2.0b1</bsh.version>
+    <net.oauth.version>20080621</net.oauth.version>
+    <cglib.version>2.2</cglib.version>
+    <commons-pool.version>1.2</commons-pool.version>
+    <org.reflext.version>1.0.0</org.reflext.version>
+    <antlr.version>2.7.6rc1</antlr.version>
+    <org.fontbox.version>0.1.0</org.fontbox.version>
+    <commons-dbcp.version>1.2.1</commons-dbcp.version>
+    <jcr.version>1.0</jcr.version>
+    <stax.version>1.0</stax.version>
+    <org.exoplatform.tool.version>1.0.0</org.exoplatform.tool.version>
+    <javassist.version>3.4.GA</javassist.version>
+    <findbugs.version>1.0.0</findbugs.version>
+    <html-parser.version>1.6</html-parser.version>
+    <ical4j.version>0.9.20</ical4j.version>
+    <org.jvnet.jaxb2.maven2.version>0.1</org.jvnet.jaxb2.maven2.version>
+    <commons-collections.version>3.2.1</commons-collections.version>
+    <org.jsecurity.version>0.9.0</org.jsecurity.version>
+    <xml-apis.version>1.3.04</xml-apis.version>
+    <org.chromattic.version>1.0.3</org.chromattic.version>
+    <org.gatein.pc.version>2.1.1-GA</org.gatein.pc.version>
+    <org.gatein.wci.version>2.0.1-GA</org.gatein.wci.version>
+    <org.jboss.version>2.2.9.GA</org.jboss.version>
+    <org.gatein.shindig.version>1.0-r790473-Patch02</org.gatein.shindig.version>
+    <org.testng.version>5.10</org.testng.version>
+    <asm.version>1.5.3</asm.version>
   </properties>
 
   <modules>
