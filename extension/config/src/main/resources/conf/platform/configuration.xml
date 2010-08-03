@@ -165,6 +165,9 @@
                 <string>forum</string>
               </value>
               <value profiles="knowledge,all,default">
+                <string>poll</string>
+              </value>
+              <value profiles="knowledge,all,default">
                 <string>ks</string>
               </value>
 
