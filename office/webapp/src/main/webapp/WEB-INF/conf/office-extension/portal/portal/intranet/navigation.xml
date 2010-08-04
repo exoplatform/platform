@@ -36,6 +36,7 @@
       <uri>welcome</uri>
       <name>welcome</name>
       <label>welcome</label>
+	  <visibility>HIDDEN</visibility>
       <page-reference>portal::intranet::welcome</page-reference>
     </node>
  
