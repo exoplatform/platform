@@ -18,7 +18,7 @@
 
 -->
 <portal-config>
-  <portal-name>office</portal-name>
+  <portal-name>intranet</portal-name>
   <locale>en</locale>
   <!--<factory-id>office</factory-id>-->
   <access-permissions>Everyone</access-permissions>
@@ -50,7 +50,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/office/web contents/site artifacts/Logo</value>
+                <value>/sites content/live/intranet/web contents/site artifacts/Logo</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -111,7 +111,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/office/web contents/site artifacts/Navigation</value>
+            <value>/sites content/live/intranet/web contents/site artifacts/Navigation</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -173,7 +173,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/office/web contents/site artifacts/Searchbox</value>
+                <value>/sites content/live/intranet/web contents/site artifacts/Searchbox</value>
                 <read-only>false</read-only>
               </preference>
               <preference>

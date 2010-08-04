@@ -84,7 +84,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/office/web contents/site artifacts/jira</value>
+                <value>repository:collaboration:/sites content/live/intranet/web contents/site artifacts/jira</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -819,7 +819,7 @@
     <page>
 		<name>welcome</name>
 		<title>welcome Page</title>
-		<access-permissions>Everyone</access-permissions>
+		<access-permissions>*:/platform/guests</access-permissions>
 		<edit-permission>*:/platform/administrators</edit-permission>
 		<container id="Officewelcome" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
 			<access-permissions>Everyone</access-permissions>
@@ -843,7 +843,7 @@
               </preference>
               <preference>
                 <name>nodeIdentifier</name>
-                <value>/sites content/live/office/web contents/site artifacts/Welcome</value>
+                <value>/sites content/live/intranet/web contents/site artifacts/Welcome</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -879,7 +879,7 @@
             </preferences>
           </portlet>
           <title>Welcome</title>
-          <access-permissions>Everyone</access-permissions>
+          <access-permissions>*:/platform/guests</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
           <show-application-mode>false</show-application-mode>
@@ -901,7 +901,7 @@
           </preference>
           <preference>
             <name>nodeIdentifier</name>
-            <value>/sites content/live/office/web contents/site artifacts/Footer</value>
+            <value>/sites content/live/intranet/web contents/site artifacts/Footer</value>
             <read-only>false</read-only>
           </preference>
           <preference>
@@ -937,7 +937,7 @@
         </preferences>
       </portlet>
       <title>Footer</title>
-      <access-permissions>Everyone</access-permissions>
+      <access-permissions>*:/platform/guests</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
       <show-application-mode>false</show-application-mode>

@@ -46,7 +46,7 @@
             <field name="portalTemplates">
               <collection type="java.util.HashSet">
                 <value>
-                  <string>office</string>
+                  <string>intranet</string>
                 </value>
               </collection>
             </field>
@@ -59,7 +59,7 @@
 				<field name="predefinedOwner">
 					<collection type="java.util.HashSet">
 						<value>
-							<string>office</string>
+							<string>intranet</string>
 						</value>
 					</collection>
 				</field>
