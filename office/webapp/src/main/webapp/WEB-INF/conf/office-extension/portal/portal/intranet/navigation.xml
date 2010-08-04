@@ -24,18 +24,20 @@
   <priority>1</priority>
 
   <page-nodes>
-  <node>
-      <uri>welcome</uri>
-      <name>welcome</name>
-      <label>welcome</label>
-      <page-reference>portal::intranet::welcome</page-reference>
-    </node>
+    
+                           
   <node>
 			<uri>home</uri>
 			<name>home</name>
 			<label>home</label>
 			<page-reference>portal::intranet::homepage</page-reference>
  </node>
+  <node>
+      <uri>welcome</uri>
+      <name>welcome</name>
+      <label>welcome</label>
+      <page-reference>portal::intranet::welcome</page-reference>
+    </node>
  
 
    <node>

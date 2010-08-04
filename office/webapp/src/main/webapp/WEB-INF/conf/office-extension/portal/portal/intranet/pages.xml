@@ -26,12 +26,12 @@
   <page>
 		<name>homepage</name>
 		<title>Home Page</title>
-		<access-permissions>Everyone</access-permissions>
+		<access-permissions>*:/platform/users</access-permissions>
 		<edit-permission>*:/platform/administrators</edit-permission>
 		<container id="Officebody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
-			<access-permissions>Everyone</access-permissions>
+			<access-permissions>*:/platform/users</access-permissions>
 			<container id="OfficeLeft" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
-				<access-permissions>Everyone</access-permissions>
+				<access-permissions>*:/platform/users</access-permissions>
 				
 				<!-- My spaces gadget -->
 				<portlet-application>
