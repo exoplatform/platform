@@ -106,7 +106,7 @@
                 <string>eXoWCMResources</string>
               </value>
               <value profiles="dms,all">
-                <string>dms-extension</string>
+                <string>ecmbrowsecontent</string>
               </value>
               <value>
                 <string>ecmexplorer</string>
@@ -135,9 +135,10 @@
               <value profiles="workflow,all">
                 <string>workflow</string>
               </value>
-              <!--
-								<value> <string>ecmdemo</string> </value>
-							-->
+              <value>
+                <string profiles="workflow,all">eXoWorkflowResources</string>
+              </value>              
+
               <!-- SOCIAL -->
               <value profiles="social,all,default">
                 <string>social-resources</string>
