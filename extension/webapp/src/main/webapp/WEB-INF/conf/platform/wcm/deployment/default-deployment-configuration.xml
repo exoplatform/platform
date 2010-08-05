@@ -58,6 +58,9 @@
             <field name="sourcePath">
               <string>war:/conf/platform/wcm/artifacts/site-resources/default/Welcome.xml</string>
             </field>
+            <field name="cleanupPublication">
+              <boolean>true</boolean>
+            </field>
           </object>
         </object-param>
 		
