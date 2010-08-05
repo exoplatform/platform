@@ -35,6 +35,14 @@
       </node>
 
       <node>
+        <uri>editor</uri>
+        <name>editor</name>
+        <label>#{administration.editor}</label>
+        <visibility>HIDDEN</visibility>
+        <page-reference>group::platform/web-contributors::Editor</page-reference>
+      </node>
+
+      <node>
         <uri>newslettermanager</uri>
         <name>newslettermanager</name>
         <label>#{administration.newslettermanager}</label>
