@@ -129,6 +129,10 @@
               <value>
                 <string>searches</string>
               </value>
+              <value>
+                <string>authoring-apps</string>
+              </value>              
+              
               <value profiles="workflow,all">
                 <string>ecmworkflow-extension</string>
               </value>
@@ -179,7 +183,12 @@
               <value profiles="ide,all,default">
                 <string>IDE</string>
               </value>
-
+              <!-- TODO we need an IDE extension war to bundle configuration and easy desactivation
+              <value profiles="ide,all,default">
+                <string>ide-extension</string>
+              </value>
+               -->
+                            
               <!-- Contains shared layout -->
               <value>
                 <string>platform-extension</string>

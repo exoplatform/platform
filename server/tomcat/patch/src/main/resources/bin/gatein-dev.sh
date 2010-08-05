@@ -26,7 +26,7 @@ LOG_OPTS="-Dorg.apache.commons.logging.Log=org.apache.commons.logging.impl.Simpl
 SECURITY_OPTS="-Djava.security.auth.login.config=../conf/jaas.conf"
 EXO_OPTS="-Dexo.product.developing=true -Dexo.conf.dir.name=gatein/conf"
 EXO_CONFIG_OPTS="-Xms256m -Xmx1024m -XX:MaxPermSize=256m -Dorg.exoplatform.container.configuration.debug"
-EXO_PROFILES="-Dexo.profiles=default,authoring"
+EXO_PROFILES="-Dexo.profiles=default"
 JPDA_TRANSPORT=dt_socket
 JPDA_ADDRESS=8000
 

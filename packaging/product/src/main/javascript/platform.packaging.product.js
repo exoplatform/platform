@@ -83,6 +83,8 @@ function getProduct(version) {
   product.addDependencies(wcm.portlet.formgenerator);
   product.addDependencies(wcm.web.eXoWCMResources) ;
   product.addDependencies(wcm.web.eXoStaticResources) ;
+  product.addDependencies(wcm.authoring.war);
+  
   // rest-ecmdemo.war not deployed
 
   /* CS* */
@@ -97,6 +99,7 @@ function getProduct(version) {
   product.addDependencies(cs.extension.webapp); // exo.cs.extension.config-2.0.0-SNAPSHOT.jar + cs-extension.war
 
   /* KS */
+  
   product.addDependencies(ks.component.common); // exo.ks.component.common-2.0.0-GA.jar
   product.addDependencies(ks.component.rendering); // exo.ks.component.rendering-2.0.0-GA.jar
   product.addDependencies(ks.component.bbcode); // exo.ks.component.bbcode-2.0.0-GA.jar
@@ -105,7 +108,9 @@ function getProduct(version) {
   product.addDependencies(ks.eXoApplication.forum); // exo.ks.eXoApplication.forum.service-2.0.0-GA.jar + forum.war
   product.addDependencies(ks.web.ksResources); // ksResources.war
   product.addDependencies(ks.extension.webapp); // ks-extension.war
+  
   product.addDependencies(ks.eXoApplication.poll); // poll.war	
+  
 
   /* SOCIAL */
   product.addDependencies(social.component.common); // # exo.social.component.common-1.0.0-GA.jar
@@ -121,6 +126,8 @@ function getProduct(version) {
   // document-composer-plugin for platform only
   product.addDependencies(new Project("org.exoplatform.social", "exo.social.extras.document-composer-plugin", "jar", social.version));
   product.addDependencies(social.extension.war) ; // social-ext.war
+  
+  
 
   product.addServerPatch("tomcat", platform.patch.tomcat) ;
 //  product.addServerPatch("tomcat", portal.server.tomcat.patch) ;
