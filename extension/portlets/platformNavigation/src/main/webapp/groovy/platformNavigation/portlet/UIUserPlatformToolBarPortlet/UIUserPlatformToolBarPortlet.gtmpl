@@ -70,7 +70,7 @@ void renderLink() {
 			         print """
 									<div class="MenuItem">
 										<div class="$clazz">						
-											<a href="$directoryLink">Find People</a>
+											<a href="$directoryLink" class="FindPeopleIcon">Find People</a>
 										</div>
 									</div>
 								""";
@@ -84,7 +84,7 @@ void renderLink() {
 						<div class="MenuItem">
 							<div class="$clazz">						
 					
-				<a href="#">ChangeLanguage</a>
+				<a href="#" class="ChangeLanguageIcon">ChangeLanguage</a>
 			 						
 							</div>
 						</div>
@@ -94,7 +94,7 @@ void renderLink() {
 						<div class="MenuItem" onclick="eXo.portal.logout();">
 							<div class="$clazz">						
 					
-				<a href="#">Logout</a>
+				<a href="#" class="LogoutIcon">Logout</a>
 			 						
 							</div>
 						</div>

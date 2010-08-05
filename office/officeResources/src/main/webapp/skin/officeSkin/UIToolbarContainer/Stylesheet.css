@@ -47,7 +47,7 @@
 }
 
 .UIWorkingWorkspace .UIHorizontalTabs .UITab {
-	background: url('background/ToolbarContainer.gif') no-repeat right 5px;
+	background: url('background/ToolbarContainer.png') no-repeat right 5px;
 	line-height: 30px;
 	font-weight: normal;
 }
@@ -59,7 +59,7 @@
 /****************************/
 
 .UIWorkingWorkspace .UIToolbarContainer .MenuItemContainer {	
-	border: 1px solid #eae6d7;
+	border: none;
 	border-top: none;
 	background: #20263f;
 }
@@ -82,12 +82,12 @@
 }
 
 .UIToolbarContainer .MenuItem .ArrowIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat right -664px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat right -664px; /* orientation=lt */
 	background: url('background/ToolbarContainer-rt.gif') no-repeat -5px -664px; /* orientation=rt */
 }
 
 .UIToolbarContainer .MenuItem .DefaultPageIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -634px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 5px -634px; /* orientation=lt */
 	background: url('background/ToolbarContainer-rt.gif') no-repeat 100% -634px; /* orientation=rt */
 }
 
@@ -115,76 +115,88 @@
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .SitesIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat right -30px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -30px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .SocialPeopleToolBarIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat right -30px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -30px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .GroupIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat right -30px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -30px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .EditorIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat right -30px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -30px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .SocialUserToolBarIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat right -30px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -30px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat right -30px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -30px; /* orientation=rt */
 }
 
 .UIToolbarContainer .GroupIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -453px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
 .UIToolbarContainer .AddPageIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -453px; /* orientation=rt */	
+	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */	
 }
 
 .UIToolbarContainer .EditPageIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -453px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
 .UIToolbarContainer .EditSiteIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -453px; /* orientation=rt */	
+	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */	
 }
 
 .UIToolbarContainer .ChangeLanguageIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -453px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
 .UIToolbarContainer .ChangeSkinIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -453px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
 .UIToolbarContainer .AccountSettingIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -453px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
 .UIToolbarContainer .SignOutIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px; /* orientation=lt */
-	background: url('background/ToolbarContainer.gif') no-repeat 100% -453px; /* orientation=rt */
+	background: url('background/ToolbarContainer.png') no-repeat 5px -453px; /* orientation=lt */
+	background: url('background/ToolbarContainer.png') no-repeat 100% -453px; /* orientation=rt */
 }
 
 .UIToolbarContainer .MenuItem .ToolBarActivityIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -453px;
+	background: url('background/ToolbarContainer.png') no-repeat 5px -453px;
 }
 
 .UIToolbarContainer .MenuItem .ToolBarProfileIcon {
-	background: url('background/ToolbarContainer.gif') no-repeat 5px -421px;
+	background: url('background/ToolbarContainer.png') no-repeat 5px -421px;
+}
+
+.UIToolbarContainer .MenuItem .FindPeopleIcon {
+	background: url('background/ToolbarContainer.png') no-repeat 5px -513px;
+}
+
+.UIToolbarContainer .MenuItem .ChangeLanguageIcon {
+	background: url('background/ToolbarContainer.png') no-repeat 5px -573px;
+}
+
+.UIToolbarContainer .MenuItem .LogoutIcon {
+	background: url('background/ToolbarContainer.png') no-repeat 5px -603px;
 }
 
 .UIToolbarContainer .Name a {

@@ -22,9 +22,11 @@
 @import url(UITabPaneDashboard/Stylesheet.css);
 @import url(UICLVFolderMode/Stylesheet.css);
 
-div {
+div, table, tr, td, img, form {
 	padding: 0px; margin: 0px;
 	outline: none;
+	font-family: lucida sans, Tahoma,Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
 }
 
 body {
@@ -43,7 +45,7 @@ a {
 }
 
 .UIWorkingWorkspace .UIPageBody {
-	padding-top: 5px;
+	padding-top: 1px;
 }
 
 .UIPageBody .VIEW-PAGEBODY .UIPage {
@@ -57,7 +59,14 @@ a {
 
 .OfficeLeftTDContainer, .OfficeRightTDContainer {
 	width: 250px;
-	padding: 0 20px;
+}
+
+.OfficeLogoTDContainer {
+	width: 150px;
+}
+
+.OfficeSearchTDContainer {
+	width: 250px;
 }
 
 /* Banner */
