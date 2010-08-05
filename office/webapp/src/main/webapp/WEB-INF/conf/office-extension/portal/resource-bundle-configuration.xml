@@ -25,30 +25,28 @@
    xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
    xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
 
-  <component>
-    <key>org.exoplatform.services.resources.ResourceBundleService</key>
-    <type>org.exoplatform.services.resources.impl.SimpleResourceBundleService</type>
-    <init-params>
-      <values-param>
-        <name>classpath.resources</name>
-        <description>The resources that start with the following package name should be load from file system</description>
-        <value>locale.portlet</value>
-      </values-param>
-      <values-param>
-        <name>init.resources</name>
-        <!--value>locale.navigation.portal.classic</value-->
-        <value>locale.navigation.portal.office</value>
-        <value>locale.navigation.group.platform.web-contributors</value>
-        <!--value>locale.portal.demo_webui</value-->
-      </values-param>
-      <values-param>
-        <name>portal.resource.names</name>
-        <!--value>locale.navigation.portal.classic</value-->
-        <value>locale.navigation.portal.office</value>
-        <value>locale.navigation.group.platform.web-contributors</value>
-        <!--value>locale.portal.demo_webui</value-->
-      </values-param>
-    </init-params>
-  </component>
-
+	<external-component-plugins>
+		<!-- The full qualified name of the ResourceBundleService -->
+		<target-component>org.exoplatform.services.resources.ResourceBundleService</target-component>
+		<component-plugin>
+			<!-- The name of the plugin -->
+			<name>intranet ResourceBundle Plugin</name>
+			<!-- The name of the method to call on the ResourceBundleService in order to register the ResourceBundles -->
+			<set-method>addResourceBundle</set-method>
+			<!-- The full qualified name of the BaseResourceBundlePlugin -->
+			<type>org.exoplatform.services.resources.impl.BaseResourceBundlePlugin</type>
+			<init-params>
+				<values-param>
+					<name>init.resources</name>
+        			<value>locale.navigation.portal.intranet</value>
+        			<value>locale.navigation.group.platform.web-contributors</value>
+				</values-param>
+				<values-param>
+					<name>portal.resource.names</name>
+			        <value>locale.navigation.portal.intranet</value>
+        			<value>locale.navigation.group.platform.web-contributors</value>
+				</values-param>
+			</init-params>
+		</component-plugin>
+	</external-component-plugins>
 </configuration>

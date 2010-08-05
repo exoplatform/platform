@@ -29,6 +29,7 @@
     <import>war:/conf/office-extension/wcm/nodetype-templates-configuration.xml</import>
 	  <import>war:/conf/office-extension/wcm/application-templates-configuration.xml</import>
 	  <import>war:/conf/office-extension/wcm/taxonomy/classic-taxonomies-configuration.xml</import>
+	  <import>war:/conf/office-extension/common/common-configuration.xml</import>
 	
    
   
