@@ -19,11 +19,10 @@
     02110-1301 USA, or see the FSF site: http://www.fsf.org.
 
 -->
-
 <configuration
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd http://www.exoplaform.org/xml/ns/kernel_1_0.xsd"
-   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_0.xsd">
+   xsi:schemaLocation="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd http://www.exoplaform.org/xml/ns/kernel_1_1.xsd"
+   xmlns="http://www.exoplaform.org/xml/ns/kernel_1_1.xsd">
 
   <component>
     <type>org.exoplatform.services.deployment.WCMContentInitializerService</type>
