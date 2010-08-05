@@ -1000,9 +1000,18 @@
       <version>${asm.version}</version>
       <type>jar</type>
     </dependency><!-- 1.5.3-->
-
-
-
+    <dependency>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>exo-ecms-ext-authoring-webui</artifactId>
+          <version>${org.exoplatform.ecms.version}</version>
+          <type>jar</type>
+   </dependency><!-- 2.1.0-SNAPSHOT-->
+   <dependency>
+          <groupId>org.exoplatform.ecms</groupId>
+          <artifactId>exo-ecms-ext-authoring-apps</artifactId>
+          <version>${org.exoplatform.ecms.version}</version>
+          <type>war</type>
+    </dependency><!-- 2.1.0-SNAPSHOT-->
    </dependencies>
 
    <build>
