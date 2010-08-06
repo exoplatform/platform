@@ -191,7 +191,7 @@
       <!-- IDE dependencies -->
       <dependency>
          <groupId>org.exoplatform.gwt</groupId>
-         <artifactId>exo.gwtframework.smartgwt</artifactId>
+         <artifactId>exo-gwtframework-smartgwt</artifactId>
          <version>${org.exoplatform.gwtframework.version}</version>
          <type>war</type>
       </dependency>
@@ -224,6 +224,7 @@
          <artifactId>exo-ide-client</artifactId>
          <version>${org.exoplatform.ide.version}</version>
          <type>war</type>
+         <classifier>gadget</classifier>
       </dependency>
       <dependency>
          <groupId>org.exoplatform.core</groupId>

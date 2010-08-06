@@ -99,7 +99,7 @@ function getModule(params)
    module.ide = {};
    
    module.ide.smartgwt =
-       new Project("org.exoplatform.gwt", "exo.gwtframework.smartgwt", "war", gwtframeworkVersion);
+       new Project("org.exoplatform.gwt", "exo-gwtframework-smartgwt", "war", gwtframeworkVersion);
    module.ide.smartgwt.deployName = "SmartGWT";
    
    module.ide.webapp =
