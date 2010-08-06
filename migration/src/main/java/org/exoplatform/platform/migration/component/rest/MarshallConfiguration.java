@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 
 import org.apache.commons.logging.Log;
+import org.exoplatform.application.gadget.GadgetRegistryService;
 import org.exoplatform.application.registry.ApplicationRegistryService;
 import org.exoplatform.container.ExoContainer;
 import org.exoplatform.container.ExoContainerContext;
@@ -33,10 +34,13 @@ import org.exoplatform.container.xml.Configuration;
 import org.exoplatform.container.xml.ExternalComponentPlugins;
 import org.exoplatform.platform.migration.handlers.ComponentHandler;
 import org.exoplatform.platform.migration.handlers.impl.ApplicationRegistryHandler;
+import org.exoplatform.platform.migration.handlers.impl.BackupWorkspaceHandler;
+import org.exoplatform.platform.migration.handlers.impl.GadgetHandler;
 import org.exoplatform.platform.migration.handlers.impl.ResourceBundleHandler;
 import org.exoplatform.platform.migration.handlers.impl.UserPortalConfigHandler;
 import org.exoplatform.portal.config.UserPortalConfigService;
 import org.exoplatform.portal.config.jcr.DataMapper;
+import org.exoplatform.services.jcr.RepositoryService;
 import org.exoplatform.services.jcr.ext.registry.RegistryService;
 import org.exoplatform.services.log.ExoLogger;
 import org.exoplatform.services.resources.ResourceBundleService;
@@ -71,7 +75,8 @@ public class MarshallConfiguration implements ResourceContainer {
     handlersHashMap.put(ApplicationRegistryService.class.getName(),
                         new ApplicationRegistryHandler());
     handlersHashMap.put(ResourceBundleService.class.getName(), new ResourceBundleHandler());
-
+    handlersHashMap.put(GadgetRegistryService.class.getName(), new GadgetHandler());
+    handlersHashMap.put(RepositoryService.class.getName(), new BackupWorkspaceHandler());
   }
 
   @HTTPMethod("GET")
