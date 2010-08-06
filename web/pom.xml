@@ -14,7 +14,6 @@
   <modules>
     <module>eXoSkinMac</module>
     <module>eXoSkinVista</module>
-    <module>fck</module>
   </modules>
 
 </project>
