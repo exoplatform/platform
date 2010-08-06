@@ -27,13 +27,12 @@
 	border: none;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer a {
-	padding: 0 24px 0 15px; /* orientation=lt */
-	padding: 0 15px 0 24px; /* orientation=rt */
-	color: #fff;
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .MenuItemContainer .MenuItem a {
+	padding: 0 24px 0 35px; /* orientation=lt */
+	padding: 0 35px 0 24px; /* orientation=rt */
 	font-family: "Lucida Sans";
 	font-size: 12px;
-	color: #ffd400;
+	color: #8f8f8f;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UITab a:hover {
@@ -73,6 +72,7 @@
 
 .UIWorkingWorkspace .UIToolbarContainer .MenuItem {	
 	border-top: 1px solid #414760;
+	border-bottom: none;
 	background: #20263f;
 	opacity: 1;
 }
@@ -107,6 +107,7 @@
 	background-position: 5px center; /* orientation=lt */
 	background-position: 95% center; /* orientation=rt */
 }
+
 
 /**********************************/
 .UIWorkingWorkspace .UIToolbarContainer .TBIcon {
@@ -199,12 +200,21 @@
 	background: url('background/ToolbarContainer.png') no-repeat 5px -603px;
 }
 
+.UIWorkingWorkspace .MenuItem .SiteIcon {
+	background: url('/officeResources/skin/officeSkin/UIToolbarContainer/background/ToolbarContainer.png') no-repeat 5px -455px;
+}
+
 .UIToolbarContainer .Name a {
 	background: url('background/UseIcon.gif') no-repeat left center; /* orientation=lt */
 	background: url('background/UseIcon.gif') no-repeat right center; /* orientation=rt */
 	padding: 0px 10px 0px 25px; /* orientation=lt */
 	padding: 0px 25px 0px 10px; /* orientation=rt */
 	color: #fff;
+}
+
+
+.UIWorkingWorkspace .UIAdminToolbarPortlet .UITab {
+	width: 100px !important;
 }
 
 .UIToolbarContainer .Name a:hover {
@@ -215,6 +225,14 @@
 	width: 78px !important;
 }
 
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarSitePortlet .UITab {
+	width: 60px !important;
+}
+
+.UIWorkingWorkspace .UIToolbarContainer .UIAddPagePlatformToolbarPortlet .UITab {
+	width: 95px !important;
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .UIPeopleToolBarPortlet .UITab {
 	width: 78px !important;
 }
@@ -223,6 +241,9 @@
 	width: 92px !important;
 }
 
+.UIWorkingWorkspace .UIToolbarContainer .UIUserToolBarPortlet .UITab {
+	width: 100px !important;
+}
 
 /***************UIStarToolBarPortlet*****************/
 
