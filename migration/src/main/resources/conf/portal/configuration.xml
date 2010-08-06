@@ -3,4 +3,24 @@
   <component> 
     <type>org.exoplatform.platform.migration.component.rest.MarshallConfiguration</type>  
   </component>
+  
+  <component>
+ <type>org.exoplatform.services.jcr.ext.replication.test.ReplicationTestService</type>
+</component>
+
+
+<component>
+    <key>org.exoplatform.services.jcr.ext.backup.BackupManager</key>
+    <type>org.exoplatform.services.jcr.ext.backup.impl.BackupManagerImpl</type>
+    <init-params>
+      <properties-param>
+        <name>backup-properties</name>
+        <property name="default-incremental-job-period" value="3600" /> <!-- set default incremental periond = 60 minutes -->
+        <property name="full-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.FullBackupJob" />
+        <property name="incremental-backup-type" value="org.exoplatform.services.jcr.ext.backup.impl.fs.IncrementalBackupJob" />
+        <property name="backup-dir" value="../temp/backup" />
+      </properties-param>
+    </init-params>
+  </component>
+  
       </configuration>
