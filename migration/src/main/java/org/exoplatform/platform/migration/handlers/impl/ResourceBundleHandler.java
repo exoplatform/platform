@@ -45,100 +45,108 @@ import org.jibx.runtime.IMarshallingContext;
  */
 public class ResourceBundleHandler implements ComponentHandler {
 
-  private PortalContainer       portalContainer;
+	private PortalContainer portalContainer;
 
-  private ResourceBundleService resourceBundleService;
+	private ResourceBundleService resourceBundleService;
 
-  private Log                   log = ExoLogger.getLogger(this.getClass());
+	private Log log = ExoLogger.getLogger(this.getClass());
 
-  public void invoke(Component component, String rootConfDir) {
-    try {
-      portalContainer = PortalContainer.getInstance();
-      resourceBundleService = (ResourceBundleService) portalContainer.getComponentInstanceOfType(ResourceBundleService.class);
-      preMarshallComponent(component, rootConfDir);
-      Configuration configuration = new Configuration();
-      configuration.addComponent(component);
-      marshall(configuration, rootConfDir + File.separator + "portal" + File.separator
-          + component.getKey() + ".xml");
+	public void invoke(Component component, String rootConfDir) {
+		try {
+			portalContainer = PortalContainer.getInstance();
+			resourceBundleService = (ResourceBundleService) portalContainer
+					.getComponentInstanceOfType(ResourceBundleService.class);
 
-    } catch (Exception ie) {
-      // TODO Auto-generated catch block
-      log.error("error in the invoke method", ie);
-    }
-  }
+			preMarshallComponent(component, rootConfDir);
+			Configuration configuration = new Configuration();
+			configuration.addComponent(component);
+			marshall(configuration, rootConfDir + File.separator + "portal"
+					+ File.separator + component.getKey() + ".xml");
 
-  private void preMarshallComponent(Component component, String rootConfDir) {
-    try {
-      String portalConfDir = rootConfDir + File.separator + "portal";
-      Query query_ = new Query(null, null);
-      PageList pageList = resourceBundleService.findResourceDescriptions(query_);
-      List<ResourceBundleData> dataList = pageList.getAll();
-      ArrayList<String> resourcesNames = new ArrayList<String>();
-      for (ResourceBundleData rsrcBundleData : dataList) {
-        resourcesNames.add(rsrcBundleData.getName());
-        String[] tabName = rsrcBundleData.getName().split("\\.");
-        String localeConfDir = portalConfDir;
+		} catch (Exception ie) {
+			// TODO Auto-generated catch block
+			log.error("error in the invoke method", ie);
+		}
+	}
 
-        for (int i = 0; i + 1 < tabName.length; i++) {
-          localeConfDir = localeConfDir + File.separator + tabName[i];
-        }
-        File localeConfFolder = new File(localeConfDir);
-        localeConfFolder.mkdirs();
-        File file = new File(localeConfDir + File.separator + tabName[tabName.length - 1] + "_"
-            + rsrcBundleData.getLanguage() + ".properties");
+	private void preMarshallComponent(Component component, String rootConfDir) {
+		try {
+			String portalConfDir = rootConfDir + File.separator + "portal";
+			Query query_ = new Query(null, null);
+			PageList pageList = resourceBundleService
+					.findResourceDescriptions(query_);
+			List<ResourceBundleData> dataList = pageList.getAll();
+			ArrayList<String> resourcesNames = new ArrayList<String>();
+			for (ResourceBundleData rsrcBundleData : dataList) {
+				resourcesNames.add(rsrcBundleData.getName());
+				String[] tabName = rsrcBundleData.getName().split("\\.");
+				String localeConfDir = portalConfDir;
 
-        setContents(file, rsrcBundleData.getData());
-      }
+				for (int i = 0; i + 1 < tabName.length; i++) {
+					localeConfDir = localeConfDir + File.separator + tabName[i];
+				}
+				File localeConfFolder = new File(localeConfDir);
+				localeConfFolder.mkdirs();
+				File file = new File(localeConfDir + File.separator
+						+ tabName[tabName.length - 1] + "_"
+						+ rsrcBundleData.getLanguage() + ".properties");
 
-      ValuesParam initResources = component.getInitParams().getValuesParam("init.resources");
-      ArrayList<String> initValues = initResources.getValues();
-      ValuesParam portalResources = component.getInitParams().getValuesParam("portal.resources");
-      ArrayList<String> portalValues = portalResources.getValues();
-      ArrayList<String> values = new ArrayList<String>();
-      values.addAll(initValues);
-      values.addAll(portalValues);
-      for (String name : resourcesNames) {
-        boolean nameExist = false;
-        for (String value : values) {
-          if (value.equals(name))
-            nameExist = true;
-        }
-        if (!nameExist) {
-          initValues.add(name);
+				setContents(file, rsrcBundleData.getData());
+			}
 
-        }
-      }
+			ValuesParam initResources = component.getInitParams()
+					.getValuesParam("init.resources");
+			ArrayList<String> initValues = initResources.getValues();
+			ValuesParam portalResources = component.getInitParams()
+					.getValuesParam("portal.resource.names");
+			ArrayList<String> portalValues = portalResources.getValues();
+			ArrayList<String> values = new ArrayList<String>();
+			values.addAll(initValues);
+			values.addAll(portalValues);
+			for (String name : resourcesNames) {
+				boolean nameExist = false;
+				for (String value : values) {
+					if (value.equals(name))
+						nameExist = true;
+				}
+				if (!nameExist) {
+					initValues.add(name);
 
-    } catch (Exception ie) {
-      log.error("problem in the preMarshall Process", ie);
-    }
-  }
+				}
+			}
 
-  private void setContents(File file, String data) throws IOException {
-    BufferedWriter bw = null;
-    try {
-      // use buffering
-      bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file), "UTF8"));
-      bw.write(data);
-    } catch (Exception ie) {
-      log.error("File cannot be written: ", ie);
-    }
+		} catch (Exception ie) {
+			log.error("problem in the preMarshall Process", ie);
+		}
+	}
 
-    finally {
-      if (bw != null)
-        bw.close();
-    }
-  }
+	private void setContents(File file, String data) throws IOException {
+		BufferedWriter bw = null;
+		try {
+			// use buffering
+			bw = new BufferedWriter(new OutputStreamWriter(
+					new FileOutputStream(file), "UTF8"));
+			bw.write(data);
+		} catch (Exception ie) {
+			log.error("File cannot be written: ", ie);
+		}
 
-  private void marshall(Object obj, String xmlPath) {
-    try {
-      IBindingFactory bfact = BindingDirectory.getFactory(obj.getClass());
-      IMarshallingContext mctx = bfact.createMarshallingContext();
-      mctx.setIndent(2);
-      mctx.marshalDocument(obj, "UTF-8", null, new FileOutputStream(xmlPath));
-    } catch (Exception ie) {
-      log.error("Cannot convert the object to xml", ie);
-    }
-  }
+		finally {
+			if (bw != null)
+				bw.close();
+		}
+	}
+
+	private void marshall(Object obj, String xmlPath) {
+		try {
+			IBindingFactory bfact = BindingDirectory.getFactory(obj.getClass());
+			IMarshallingContext mctx = bfact.createMarshallingContext();
+			mctx.setIndent(2);
+			mctx.marshalDocument(obj, "UTF-8", null, new FileOutputStream(
+					xmlPath));
+		} catch (Exception ie) {
+			log.error("Cannot convert the object to xml", ie);
+		}
+	}
 
 }
