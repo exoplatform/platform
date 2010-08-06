@@ -224,7 +224,6 @@
          <artifactId>exo-ide-client</artifactId>
          <version>${org.exoplatform.ide.version}</version>
          <type>war</type>
-         <classifier>gadget</classifier>
       </dependency>
       <dependency>
          <groupId>org.exoplatform.core</groupId>
