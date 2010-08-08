@@ -56,9 +56,80 @@
       <portlet>
         <application-ref>ecmexplorer</application-ref>
         <portlet-ref>FileExplorerPortlet</portlet-ref>
-        <preferences></preferences>
+        <preferences>
+			<preference>
+				<name>driveName</name>     
+				<value>Managed Sites</value>        
+				<read-only>false</read-only>
+			</preference>        	
+        </preferences>
       </portlet>
       <title>Site Explorer</title>
+      <access-permissions>*:/platform/web-contributors</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+    <portlet-application>
+      <portlet>
+        <application-ref>authoring-apps</application-ref>
+        <portlet-ref>AuthoringDashboard</portlet-ref>
+      </portlet>
+      <title>Authoring Dashboard</title>
+      <access-permissions>*:/platform/web-contributors</access-permissions>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>false</show-application-state>
+      <show-application-mode>false</show-application-mode>
+    </portlet-application>
+  </page>
+
+  <page>
+    <page-id>group::platform/web-contributors::Editor</page-id>
+    <owner-type>group</owner-type>
+    <owner-id>platform/web-contributors</owner-id>
+    <name>Editor</name>
+    <title>Editor</title>
+    <access-permissions>*:/platform/web-contributors</access-permissions>
+    <edit-permission>manager:/platform/web-contributors</edit-permission>
+    <show-max-window>true</show-max-window>
+    <portlet-application>
+      <portlet>
+        <application-ref>ecmexplorer</application-ref>
+        <portlet-ref>FileExplorerPortlet</portlet-ref>
+        <preferences>
+    			<preference>
+    				<name>driveName</name>     
+    				<value>collaboration</value>        
+    				<read-only>false</read-only>
+    			</preference>        	
+    			<preference>
+    				<name>showActionBar</name>     
+    				<value>true</value>        
+    				<read-only>false</read-only>
+    			</preference>        	
+    			<preference>
+    				<name>editInNewWindow</name>     
+    				<value>false</value>        
+    				<read-only>false</read-only>
+    			</preference>        	
+    			<preference>
+    				<name>usecase</name>     
+    				<value>selection</value>        
+    				<read-only>false</read-only>
+    			</preference>        	
+    			<preference>
+    				<name>showSideBar</name>     
+    				<value>false</value>        
+    				<read-only>false</read-only>
+    			</preference>        	
+    			<preference>
+    				<name>showTopBar</name>     
+    				<value>false</value>        
+    				<read-only>false</read-only>
+    			</preference>        	
+        </preferences>
+      </portlet>
+      <title>Editor</title>
       <access-permissions>*:/platform/web-contributors</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
@@ -125,101 +196,6 @@
         <preferences></preferences>
       </portlet>
       <title>Form generator</title>
-      <access-permissions>*:/platform/web-contributors</access-permissions>
-      <show-info-bar>false</show-info-bar>
-      <show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>
-  </page>
-	
-	<page>
-		<page-id>group::platform/web-contributors::workflowController</page-id>
-    <name>workflowController</name>
-		<title>Workflow Controller</title>
-    <access-permissions>*:/platform/web-contributors</access-permissions>
-    <edit-permission>manager:/platform/web-contributors</edit-permission>
-           
-    <portlet-application>
-    	<portlet>
-    		<application-ref>workflow</application-ref>
-				<portlet-ref>WorkflowControllerPortlet</portlet-ref>
-    	</portlet>
-      <title>Business Process</title>
-			<access-permissions>*:/platform/web-contributors</access-permissions>
-      <show-info-bar>false</show-info-bar>
-			<show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>  
-  </page>
-  
-	
-  <page>
-		<page-id>group::platform/web-contributors::workflowAdministration</page-id>
-    <name>workflowAdministration</name>
-		<title>Workflow Administration</title>
-    <access-permissions>manager:/platform/web-contributors</access-permissions>
-    <edit-permission>manager:/platform/web-contributors</edit-permission>
-    
-    <portlet-application>
-    	<portlet>
-    		<application-ref>workflow</application-ref>
-				<portlet-ref>WorkflowAdministrationPortlet</portlet-ref>
-    	</portlet>
-      <title>Workflow Administration</title>
-			<access-permissions>*:/platform/web-contributors</access-permissions>
-      <show-info-bar>false</show-info-bar>
-			<show-application-state>false</show-application-state>
-      <show-application-mode>false</show-application-mode>
-    </portlet-application>    
-  </page>	
-  
-  <page>
-    <page-id>group::platform/web-contributors::Editor</page-id>
-    <owner-type>group</owner-type>
-    <owner-id>platform/web-contributors</owner-id>
-    <name>Editor</name>
-    <title>Editor</title>
-    <access-permissions>*:/platform/web-contributors</access-permissions>
-    <edit-permission>manager:/platform/web-contributors</edit-permission>
-    <show-max-window>true</show-max-window>
-    <portlet-application>
-      <portlet>
-        <application-ref>ecmexplorer</application-ref>
-        <portlet-ref>FileExplorerPortlet</portlet-ref>
-        <preferences>
-    			<preference>
-    				<name>driveName</name>     
-    				<value>collaboration</value>        
-    				<read-only>false</read-only>
-    			</preference>        	
-    			<preference>
-    				<name>showActionBar</name>     
-    				<value>true</value>        
-    				<read-only>false</read-only>
-    			</preference>        	
-    			<preference>
-    				<name>editInNewWindow</name>     
-    				<value>false</value>        
-    				<read-only>false</read-only>
-    			</preference>        	
-    			<preference>
-    				<name>usecase</name>     
-    				<value>selection</value>        
-    				<read-only>false</read-only>
-    			</preference>        	
-    			<preference>
-    				<name>showSideBar</name>     
-    				<value>false</value>        
-    				<read-only>false</read-only>
-    			</preference>        	
-    			<preference>
-    				<name>showTopBar</name>     
-    				<value>false</value>        
-    				<read-only>false</read-only>
-    			</preference>        	
-        </preferences>
-      </portlet>
-      <title>Editor</title>
       <access-permissions>*:/platform/web-contributors</access-permissions>
       <show-info-bar>false</show-info-bar>
       <show-application-state>false</show-application-state>
