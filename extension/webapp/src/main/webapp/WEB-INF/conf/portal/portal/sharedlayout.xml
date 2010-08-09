@@ -22,7 +22,7 @@
 
 <container template="system:/groovy/portal/webui/container/UIContainer.gtmpl">	
 	<container template="system:/groovy/portal/webui/container/UIToolbarContainer.gtmpl">
-	  <access-permissions>*:/platform/web-contributors</access-permissions>
+	  <access-permissions>*:/platform/users</access-permissions>
 		
 		<container id="StarToolBarPortlet" template="system:/groovy/portal/webui/container/UIContainer.gtmpl">
 		  <portlet-application>
@@ -30,7 +30,7 @@
           <application-ref>platformNavigation</application-ref>
           <portlet-ref>UIAddPagePlatformToolbarPortlet</portlet-ref>
         </portlet>
-	      <access-permissions>Everyone</access-permissions>
+	      <access-permissions>*:/platform/users</access-permissions>
 		    <show-info-bar>false</show-info-bar>
 		  </portlet-application>
 		</container>
@@ -40,7 +40,7 @@
           <application-ref>exoadmin</application-ref>
           <portlet-ref>UserToolbarSitePortlet</portlet-ref>
         </portlet>
-	      <access-permissions>Everyone</access-permissions>
+	      <access-permissions>*:/platform/users</access-permissions>
 		    <show-info-bar>false</show-info-bar>
 		  </portlet-application>
 		</container>
@@ -50,7 +50,7 @@
           <application-ref>exoadmin</application-ref>
           <portlet-ref>UserToolbarGroupPortlet</portlet-ref>
         </portlet>
-	      <access-permissions>Everyone</access-permissions>
+	      <access-permissions>*:/platform/users</access-permissions>
 		    <show-info-bar>false</show-info-bar>
 		  </portlet-application>
 		</container>
@@ -60,7 +60,7 @@
           <application-ref>exoadmin</application-ref>
           <portlet-ref>UserToolbarDashboardPortlet</portlet-ref>
         </portlet>
-	      <access-permissions>Everyone</access-permissions>
+	      <access-permissions>*:/platform/users</access-permissions>
 		    <show-info-bar>false</show-info-bar>
 		  </portlet-application>
 		</container>
@@ -92,7 +92,7 @@
           <application-ref>presentation</application-ref>
           <portlet-ref>EditingPortlet</portlet-ref>
         </portlet>
-	      <access-permissions>Everyone</access-permissions>
+	      <access-permissions>*:/platform/users</access-permissions>
 		    <show-info-bar>false</show-info-bar>
 		  </portlet-application>
 		</container>
@@ -103,7 +103,7 @@
           <application-ref>platformNavigation</application-ref>
           <portlet-ref>UIUserPlatformToolBarPortlet</portlet-ref>
         </portlet>
-	      <access-permissions>Everyone</access-permissions>
+	      <access-permissions>*:/platform/users</access-permissions>
 		    <show-info-bar>false</show-info-bar>
 		  </portlet-application>
 		</container>
