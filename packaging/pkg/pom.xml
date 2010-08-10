@@ -363,7 +363,7 @@
 <dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.webapp.opensocial</artifactId><version>${org.exoplatform.social.version}</version><type>war</type></dependency><!-- 1.1.0-SNAPSHOT-->
 <dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.extras.document-composer-plugin</artifactId><version>${org.exoplatform.social.version}</version><type>jar</type></dependency><!-- 1.1.0-SNAPSHOT-->
 <dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.extras.link-composer-plugin</artifactId><version>${org.exoplatform.social.version}</version><type>jar</type></dependency><!-- 1.1.0-SNAPSHOT-->
-
+<dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.component.common</artifactId><version>${org.exoplatform.social.version}</version><type>jar</type></dependency><!-- 1.1.0-CR01-SNAPSHOT-->
 <dependency><groupId>org.exoplatform.portal</groupId><artifactId>exo.portal.starter.war</artifactId><version>${org.exoplatform.portal.version}</version><type>war</type></dependency><!-- 3.1.1-plf-SNAPSHOT-->
 
     <dependency>
