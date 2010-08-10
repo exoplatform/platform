@@ -31,6 +31,7 @@
 		<skin-name>Default</skin-name>
 		<skin-module>Classic</skin-module>
 		<css-path>/skin/Stylesheet.css</css-path>
+                <overwrite>true</overwrite>
 	</portal-skin>		
 
 	<!-- Skins for portlets in 'web' application -->

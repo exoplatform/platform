@@ -153,7 +153,7 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/web contents/News</value>
+                <value>repository:collaboration:/sites content/live/acme/web contents/Users</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -163,7 +163,7 @@
               </preference>
               <preference>
                 <name>header</name>
-                <value>COMPANY NEWS</value>
+                <value>Login as an acme user</value>
                 <read-only>false</read-only>
               </preference>
               <preference>

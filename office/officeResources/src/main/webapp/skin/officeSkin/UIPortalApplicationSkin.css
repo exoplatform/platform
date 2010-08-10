@@ -53,7 +53,7 @@ a {
 	padding: 0;
 }
 
-.UIWorkingWorkspace {
+#UIPortalApplication .UIWorkingWorkspace {
 	width: auto;
 	background: white;
 }
