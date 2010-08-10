@@ -84,6 +84,8 @@
     <org.gatein.shindig.version>1.0-r790473-Patch02</org.gatein.shindig.version>
     <org.testng.version>5.10</org.testng.version>
     <asm.version>1.5.3</asm.version>
+    
+    <org.crsh.version>1.0.0-beta9</org.crsh.version>
   </properties>
 
   <modules>

@@ -29,6 +29,7 @@ function getModule(params)
    var ideVersion = "${org.exoplatform.ide.version}";
    var xcmisVersion = "${org.xcmis.version}";
    var ecmsVersion = "${org.exoplatform.ecms.version}";
+   var crashVersion = "${org.crsh.version}";
 
    // fck editor required for KS & CS
    module.fck = new Project("org.exoplatform.platform", "exo.platform.web.fck", "war", module.version);
@@ -123,7 +124,10 @@ function getModule(params)
 	   addDependency(new Project("org.exoplatform.platform", "exo.platform.sample.acme-website.config", "jar", module.version));
    module.sample.acme.webapp.deployName = "acme-website";
    
-   
+   module.crash = {};
+   module.crash.webapp = new Project("org.crsh","crsh.core", "war", crashVersion);
+   module.crash.webapp.deployName = "crash";
+
    
    return module;
 }

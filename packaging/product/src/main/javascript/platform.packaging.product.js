@@ -58,6 +58,9 @@ function getProduct(version) {
   product.addDependencies(platform.office.portlets.construction);
   product.addDependencies(platform.extension.portlets.platformNavigation);
   
+  // crash
+  product.addDependencies(platform.crash.webapp);
+  
   // acme website
   product.addDependencies(platform.sample.acme.webapp);
   
