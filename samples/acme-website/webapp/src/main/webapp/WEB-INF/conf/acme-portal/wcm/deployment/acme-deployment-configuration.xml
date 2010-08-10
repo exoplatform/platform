@@ -75,7 +75,7 @@
                   <string>collaboration</string>
                 </field>
                 <field name="nodePath">
-                  <string>/sites content/live/acme/web contents/site artifacts</string>
+                  <string>/sites content/live/acme/web contents</string>
                 </field>
               </object>
             </field>
