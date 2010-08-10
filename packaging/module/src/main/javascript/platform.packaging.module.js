@@ -57,7 +57,6 @@ function getModule(params)
       addDependency(new Project("org.xcmis", "xcmis-search-parser-cmis", "jar", xcmisVersion)).
       addDependency(new Project("org.xcmis", "xcmis-search-service", "jar", xcmisVersion)).
       addDependency(new Project("org.xcmis", "xcmis-spi", "jar", xcmisVersion)).
-      addDependency(new Project("org.xcmis", "xcmis-sp-inmemory", "jar", xcmisVersion)).
       addDependency(new Project("org.xcmis", "xcmis-sp-jcr-exo", "jar", xcmisVersion)).
       addDependency(new Project("org.exoplatform.ecms", "exo-ecms-ext-xcmis-sp", "jar", ecmsVersion)).
       addDependency(new Project("org.apache.abdera", "abdera-client", "jar", "0.4.0-incubating")).
