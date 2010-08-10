@@ -160,20 +160,21 @@
       </dependency>
       <dependency>
          <groupId>org.exoplatform.social</groupId>
-         <artifactId>exo.social.packaging.assembly</artifactId>
+         <artifactId>exo.social.packaging.pkg</artifactId>
          <version>${org.exoplatform.social.version}</version>
          <type>pom</type>
       </dependency>
       <!-- workflow dependencies -->
+      
       <dependency>
          <groupId>org.exoplatform.ecms</groupId>
-         <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
+         <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId> <!-- TODO should use variable instead of jbpm -->
          <version>${org.exoplatform.ecms.version}</version>
          <type>jar</type>
       </dependency>
       <dependency>
          <groupId>org.exoplatform.ecms</groupId>
-         <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId>
+         <artifactId>exo-ecms-ext-workflow-facade-jbpm</artifactId> <!-- TODO should use variable instead of jbpm -->
          <version>${org.exoplatform.ecms.version}</version>
          <type>jar</type>
       </dependency>
@@ -351,7 +352,6 @@
       <version>${org.crsh.version}</version>
       <type>war</type>
     </dependency>
-    
       <!-- MISSING DEPENDENCIES -->
 <dependency><groupId>org.exoplatform.social</groupId><artifactId>exo.social.webapp.portlet</artifactId><version>${org.exoplatform.social.version}</version><type>war</type></dependency><!-- 1.1.0-SNAPSHOT-->
 <dependency><groupId>org.exoplatform.commons</groupId><artifactId>exo.platform.commons.webui.ext</artifactId><version>${org.exoplatform.commons.version}</version><type>jar</type></dependency><!-- 3.0.0-Beta01-SNAPSHOT-->
