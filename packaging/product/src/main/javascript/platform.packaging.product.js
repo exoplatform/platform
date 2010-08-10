@@ -50,7 +50,7 @@ function getProduct(version) {
   /* PLATFORM */
 //  product.addDependencies(platform.fck);
   product.addDependencies(platform.cometd);
-  product.addDependencies(platform.config); // includes xCMIS configuration
+  product.addDependencies(platform.config); 
   product.addDependencies(platform.extension.webapp); // includes xCMIS dependencies
   product.addDependencies(platform.component.common);
   product.addDependencies(platform.office.webapp);

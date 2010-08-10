@@ -28,6 +28,7 @@ function getModule(params)
    var gwtframeworkVersion = "${org.exoplatform.gwtframework.version}";
    var ideVersion = "${org.exoplatform.ide.version}";
    var xcmisVersion = "${org.xcmis.version}";
+   var ecmsVersion = "${org.exoplatform.ecms.version}";
 
    // fck editor required for KS & CS
    module.fck = new Project("org.exoplatform.platform", "exo.platform.web.fck", "war", module.version);
@@ -57,6 +58,7 @@ function getModule(params)
       addDependency(new Project("org.xcmis", "xcmis-spi", "jar", xcmisVersion)).
       addDependency(new Project("org.xcmis", "xcmis-sp-inmemory", "jar", xcmisVersion)).
       addDependency(new Project("org.xcmis", "xcmis-sp-jcr-exo", "jar", xcmisVersion)).
+      addDependency(new Project("org.exoplatform.ecms", "exo-ecms-ext-xcmis-sp", "jar", ecmsVersion)).
       addDependency(new Project("org.apache.abdera", "abdera-client", "jar", "0.4.0-incubating")).
       addDependency(new Project("org.apache.abdera", "abdera-core", "jar", "0.4.0-incubating")).
       addDependency(new Project("org.apache.abdera", "abdera-i18n", "jar", "0.4.0-incubating")).
