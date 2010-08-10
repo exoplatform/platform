@@ -204,59 +204,6 @@
             <preferences>
               <preference>
                 <name>folderPath</name>
-                <value>repository:collaboration:/sites content/live/acme/documents</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>orderType</name>
-                <value>ASC</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>header</name>
-                <value>DOCUMENTS</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>formViewTemplatePath</name>
-                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/DocumentsTemplate.gtmpl</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>basePath</name>
-                <value>detail</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>itemsPerPage</name>
-                <value>5</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>showThumbnailsView</name>
-                <value>false</value>
-                <read-only>false</read-only>
-              </preference>
-              <preference>
-                <name>showReadmore</name>
-                <value>false</value>
-                <read-only>false</read-only>
-              </preference>
-            </preferences>
-          </portlet>
-          <title>Documents</title>
-          <access-permissions>Everyone</access-permissions>
-          <show-info-bar>false</show-info-bar>
-          <show-application-state>false</show-application-state>
-          <show-application-mode>false</show-application-mode>
-        </portlet-application>
-        <portlet-application>
-          <portlet>
-            <application-ref>presentation</application-ref>
-            <portlet-ref>ContentListViewerPortlet</portlet-ref>
-            <preferences>
-              <preference>
-                <name>folderPath</name>
                 <value>repository:collaboration:/sites content/live/acme/web contents/News</value>
                 <read-only>false</read-only>
               </preference>
@@ -298,6 +245,59 @@
             </preferences>
           </portlet>
           <title>Latest news</title>
+          <access-permissions>Everyone</access-permissions>
+          <show-info-bar>false</show-info-bar>
+          <show-application-state>false</show-application-state>
+          <show-application-mode>false</show-application-mode>
+        </portlet-application>
+		 <portlet-application>
+          <portlet>
+            <application-ref>presentation</application-ref>
+            <portlet-ref>ContentListViewerPortlet</portlet-ref>
+            <preferences>
+              <preference>
+                <name>folderPath</name>
+                <value>repository:collaboration:/sites content/live/acme/documents</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>orderType</name>
+                <value>ASC</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>header</name>
+                <value>DOCUMENTS</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>formViewTemplatePath</name>
+                <value>/exo:ecm/views/templates/Content List Viewer/list-by-folder/DocumentsTemplate.gtmpl</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>basePath</name>
+                <value>detail</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>itemsPerPage</name>
+                <value>5</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showThumbnailsView</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+              <preference>
+                <name>showReadmore</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>
+            </preferences>
+          </portlet>
+          <title>Documents</title>
           <access-permissions>Everyone</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
