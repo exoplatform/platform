@@ -27,12 +27,15 @@
 	border: none;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .MenuItemContainer .MenuItem a {
+.UIWorkingWorkspace .UIToolbarContainer .ToolbarContainer .UITab .MenuItemContainer .MenuItem a {
 	padding: 0 24px 0 35px; /* orientation=lt */
 	padding: 0 35px 0 24px; /* orientation=rt */
 	font-family: "Lucida Sans";
 	font-size: 12px;
 	color: #8f8f8f;
+	display: block;
+	font-weight: normal;
+	white-space: nowrap;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .UITab a:hover {
@@ -45,10 +48,12 @@
 	height: auto;
 }
 
-.UIWorkingWorkspace .UIHorizontalTabs .UITab {
+.UIWorkingWorkspace .UIToolbarContainer .UIHorizontalTabs .UITab {
 	background: url('background/ToolbarContainer.png') no-repeat right 5px;
 	line-height: 30px;
 	font-weight: normal;
+	text-align: left;
+	float: none;
 }
 
 .UIWorkingWorkspace .UIUserToolBarPortlet .UIHorizontalTabs .UITab {
@@ -57,10 +62,10 @@
 
 /****************************/
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItemContainer {	
+.UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItemContainer {	
 	border: none;
-	border-top: none;
 	background: #20263f;
+	margin-top: 0;
 }
 
 .UIToolbarContainer .TitleBar {
@@ -70,11 +75,14 @@
 	padding: 0px 5px;
 }
 
-.UIWorkingWorkspace .UIToolbarContainer .MenuItem {	
+.UIWorkingWorkspace .UIToolbarContainer .UITab .MenuItem {	
 	border-top: 1px solid #414760;
 	border-bottom: none;
 	background: #20263f;
 	opacity: 1;
+	height: 28px;
+	line-height: 28px;
+	text-align: left;
 }
 
 .UIWorkingWorkspace .UIToolbarContainer .MenuItem:hover {	
@@ -110,6 +118,14 @@
 
 
 /**********************************/
+.UIToolbarContainer .ToolbarContainer a {
+	color: #FFD400;
+	font-weight: normal;
+	padding: 0 10px;
+	display: block;
+	white-space: nowrap;
+}
+
 .UIWorkingWorkspace .UIToolbarContainer .TBIcon {
 	background: none;
 	margin-left: 0;
