@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node-navigation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_objects_1_0 http://www.gatein.org/xml/ns/gatein_objects_1_0"
+  xmlns="http://www.gatein.org/xml/ns/gatein_objects_1_0">
+  <page-set>
+    <page>
+      <page-id>group::developers::ide</page-id>
+      <owner-type>group</owner-type>
+      <owner-id>developers</owner-id>
+      <name>ide</name>
+      <title>eXo IDE</title>
+      <access-permissions>*:/developers</access-permissions>
+      <edit-permission>*:/platform/administrators</edit-permission>
+      <portlet>
+        <application-ref>dashboard</application-ref>
+        <portlet-ref>GadgetPortlet</portlet-ref>
+        <preferences>
+          <preference>
+            <name>url</name>
+            <value>local://IDE</value>
+            <read-only>false</read-only>
+          </preference>
+        </preferences>
+      </portlet>
+      <show-info-bar>false</show-info-bar>
+      <show-application-state>true</show-application-state>
+    </page>
+  </page-set>
+</node-navigation>
