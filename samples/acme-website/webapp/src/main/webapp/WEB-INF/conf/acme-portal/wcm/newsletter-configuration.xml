@@ -90,6 +90,7 @@
           </field>
         </object>
       </object-param>
+      <!-- 
       <object-param>
         <name>subscription1</name>
         <description>subscription1</description>
@@ -132,6 +133,7 @@
           </field>
         </object>
       </object-param>
+       
       <object-param>
         <name>user1@gmail.com</name>
         <description>user1@gmail.com</description>
@@ -150,6 +152,7 @@
           </field>
         </object>
       </object-param>
+      -->
     </init-params>
   </component>
 

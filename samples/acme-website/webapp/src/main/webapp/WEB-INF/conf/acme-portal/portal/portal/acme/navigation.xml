@@ -35,11 +35,11 @@
     </node>
     
     <node>
-      <uri>news</uri>
-      <name>news</name>
-      <label>#{portal.acme.news}</label>
+      <uri>products</uri>
+      <name>products</name>
+      <label>#{portal.acme.products}</label>
       <visibility>DISPLAYED</visibility>
-      <page-reference>portal::acme::news</page-reference>
+      <page-reference>portal::acme::products</page-reference>
     </node>
 
     <node>

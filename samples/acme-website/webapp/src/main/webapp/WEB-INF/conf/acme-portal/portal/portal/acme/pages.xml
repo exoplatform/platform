@@ -187,9 +187,14 @@
                 <value>false</value>
                 <read-only>false</read-only>
               </preference>
+              <preference>
+                <name>showReadmore</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>              
             </preferences>
           </portlet>
-          <title>News</title>
+          <title>Products</title>
           <access-permissions>Everyone</access-permissions>
           <show-info-bar>false</show-info-bar>
           <show-application-state>false</show-application-state>
@@ -215,7 +220,7 @@
               </preference>
               <preference>
                 <name>header</name>
-                <value>LATEST NEWS</value>
+                <value>Latest News</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -273,7 +278,7 @@
               </preference>
               <preference>
                 <name>header</name>
-                <value>DOCUMENTS</value>
+                <value>Resources</value>
                 <read-only>false</read-only>
               </preference>
               <preference>
@@ -301,6 +306,11 @@
                 <value>false</value>
                 <read-only>false</read-only>
               </preference>
+              <preference>
+                <name>showDateCreated</name>
+                <value>false</value>
+                <read-only>false</read-only>
+              </preference>              
             </preferences>
           </portlet>
           <title>Documents</title>
@@ -314,8 +324,8 @@
   </page>
 
   <page>
-    <name>news</name>
-    <title>News</title>
+    <name>products</name>
+    <title>Products</title>
     <access-permissions>Everyone</access-permissions>
     <edit-permission>editor:/platform/web-contributors</edit-permission>
     <container id="ACMEBody" template="system:/groovy/portal/webui/container/UITableColumnContainer.gtmpl">
